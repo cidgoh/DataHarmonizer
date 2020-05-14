@@ -16,7 +16,6 @@ const getDropdowns = (data) => {
   for (const vocabulary of vocabularies) {
     if (Object.keys(vocabulary).length) {
       ret.push({type: 'dropdown', source: Object.keys(vocabulary)});
-      ret.push(['test'])
     } else ret.push({});
   }
   return ret;
