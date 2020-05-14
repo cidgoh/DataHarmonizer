@@ -10,7 +10,7 @@ const getRows = (data) => {
 
 const getDropdowns = (data) => {
   const fields =
-    Array.prototype.concat.apply([], data.map(parent => parent.children));
+      Array.prototype.concat.apply([], data.map(parent => parent.children));
   const vocabularies = fields.map(child => child.vocabulary);
   const ret = [];
   for (const vocabulary of vocabularies) {
