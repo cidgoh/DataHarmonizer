@@ -15,7 +15,20 @@ const getDropdowns = (data) => {
   const ret = [];
   for (const vocabulary of vocabularies) {
     if (Object.keys(vocabulary).length) {
-      ret.push({type: 'dropdown', source: Object.keys(vocabulary)});
+      ret.push({
+        type: 'autocomplete',
+        source: Object.keys(vocabulary),
+        validator: function(val, callback) {
+          let isValid = false;
+          for (const validVal of this.source) {
+            if (val === validVal.trim()) {
+              isValid = true;
+              break;
+            }
+          }
+          callback(isValid);
+        },
+      });
     } else ret.push({});
   }
   return ret;

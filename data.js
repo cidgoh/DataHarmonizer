@@ -14,7 +14,7 @@ const DATA = [
       {
         fieldName: 'umbrella bioproject accession',
         vocabulary: {
-          'PRJNA623807': {},
+          '   PRJNA623807': {},
         }},
       {
         fieldName: 'bioproject accession',
