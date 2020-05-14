@@ -1,7 +1,30 @@
+const getRows = (data) => {
+  const rows = [[], []];
+  for (const parent of data) {
+    rows[0].push(parent.fieldName);
+    rows[0].push(...Array(parent.children.length - 1).fill(''));
+    rows[1].push(...parent.children.map(child => child.fieldName));
+  }
+  return rows;
+};
+
+const getDropdowns = (data) => {
+  const fields =
+    Array.prototype.concat.apply([], data.map(parent => parent.children));
+  const vocabularies = fields.map(child => child.vocabulary);
+  const ret = [];
+  for (const vocabulary of vocabularies) {
+    if (vocabulary.length) {
+      ret.push({type: 'dropdown', source: vocabulary});
+    } else ret.push({});
+  }
+  return ret;
+};
+
 $(document).ready(() => {
   new Handsontable($('#grid')[0], {
-    data: DATA.data,
-    columns: DATA.columns,
+    data: getRows(DATA),
+    columns: getDropdowns(DATA),
     colHeaders: true,
     rowHeaders: true,
     minRows: 1000,
