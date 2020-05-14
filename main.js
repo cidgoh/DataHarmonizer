@@ -14,8 +14,9 @@ const getDropdowns = (data) => {
   const vocabularies = fields.map(child => child.vocabulary);
   const ret = [];
   for (const vocabulary of vocabularies) {
-    if (vocabulary.length) {
-      ret.push({type: 'dropdown', source: vocabulary});
+    if (Object.keys(vocabulary).length) {
+      ret.push({type: 'dropdown', source: Object.keys(vocabulary)});
+      ret.push(['test'])
     } else ret.push({});
   }
   return ret;
