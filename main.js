@@ -1,3 +1,23 @@
+const createHot = (data) => {
+  return new Handsontable($('#grid')[0], {
+    data: getRows(DATA),
+    columns: getDropdowns(DATA),
+    colHeaders: true,
+    rowHeaders: true,
+    minRows: 1000,
+    minSpareRows: 100,
+    width: '100%',
+    height: '75vh',
+    readOnlyCellClassName: 'read-only',
+    cells: (row) => {
+      if (row === 0 || row === 1) {
+        return {readOnly: true};
+      }
+    },
+    afterRender: () => void $('#header-row').css('visibility', 'visible'),
+  });
+};
+
 const getRows = (data) => {
   const rows = [[], []];
   for (const parent of data) {
@@ -51,21 +71,11 @@ const stringifyNestedVocabulary = (vocabulary, level=0) => {
 };
 
 $(document).ready(() => {
-  const hot = new Handsontable($('#grid')[0], {
-    data: getRows(DATA),
-    columns: getDropdowns(DATA),
-    colHeaders: true,
-    rowHeaders: true,
-    minRows: 1000,
-    minSpareRows: 100,
-    width: '100%',
-    height: '75vh',
-    readOnlyCellClassName: 'read-only',
-    cells: (row) => {
-      if (row === 0 || row === 1) {
-        return {readOnly: true};
-      }
-    },
-    afterRender: () => void $('#header-row').css('visibility', 'visible'),
+  window.hot = createHot(DATA);
+
+  $('#new-dropdown-item').click(() => {
+    // TODO: overwrite warning
+    hot.destroy();
+    window.hot = createHot();
   });
 });
