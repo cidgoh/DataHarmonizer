@@ -51,7 +51,7 @@ const stringifyNestedVocabulary = (vocabulary, level=0) => {
 };
 
 $(document).ready(() => {
-  new Handsontable($('#grid')[0], {
+  const hot = new Handsontable($('#grid')[0], {
     data: getRows(DATA),
     columns: getDropdowns(DATA),
     colHeaders: true,
@@ -66,5 +66,6 @@ $(document).ready(() => {
         return {readOnly: true};
       }
     },
+    afterRender: () => void $('#header-row').css('visibility', 'visible'),
   });
 });

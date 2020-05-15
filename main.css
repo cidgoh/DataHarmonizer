@@ -9,6 +9,10 @@
     overflow: hidden;
 }
 
+#header-row {
+    visibility: hidden;
+}
+
 .listbox {
     white-space: pre !important;
 }
