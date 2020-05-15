@@ -17,7 +17,7 @@ const getDropdowns = (data) => {
     if (Object.keys(vocabulary).length) {
       ret.push({
         type: 'autocomplete',
-        source: Object.keys(vocabulary),
+        source: stringifyNestedVocabulary(vocabulary),
         validator: function(val, callback) {
           let isValid = false;
           for (const validVal of this.source) {
@@ -30,6 +30,19 @@ const getDropdowns = (data) => {
         },
       });
     } else ret.push({});
+  }
+  return ret;
+};
+
+const stringifyNestedVocabulary = (vocabulary, level=0) => {
+  if (Object.keys(vocabulary).length === 0) {
+    return [];
+  }
+
+  let ret = [];
+  for (const val of Object.keys(vocabulary)) {
+    ret.push('  '.repeat(level) + val);
+    ret = ret.concat(stringifyNestedVocabulary(vocabulary[val], level+1));
   }
   return ret;
 };
