@@ -21,7 +21,7 @@ const getDropdowns = (data) => {
         validator: function(val, callback) {
           let isValid = false;
           for (const validVal of this.source) {
-            if (val === validVal.trim()) {
+            if (val.trim() === validVal.trim()) {
               isValid = true;
               break;
             }
