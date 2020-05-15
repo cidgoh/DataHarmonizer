@@ -58,6 +58,8 @@ $(document).ready(() => {
     rowHeaders: true,
     minRows: 1000,
     minSpareRows: 100,
+    width: '100%',
+    height: '85vh',
     readOnlyCellClassName: 'read-only',
     cells: (row) => {
       if (row === 0 || row === 1) {
