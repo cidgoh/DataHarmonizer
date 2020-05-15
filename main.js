@@ -21,8 +21,11 @@ const getDropdowns = (data) => {
         validator: function(val, callback) {
           let isValid = false;
           for (const validVal of this.source) {
-            if (val.trim() === validVal.trim()) {
+            if (val.trim().toLowerCase() === validVal.trim().toLowerCase()) {
               isValid = true;
+              if (val !== validVal) {
+                this.instance.setDataAtCell(this.row, this.col, validVal);
+              }
               break;
             }
           }
