@@ -86,10 +86,18 @@ $(document).ready(() => {
 
   $('#save-as-confirm-btn').click((e) => {
     try {
-      hot.getPlugin('exportFile').downloadFile(
-          $('#file-ext-select').val(),
-          {filename: $('#file-name-input').val()},
-      );
+      const baseName = $('#file-name-input').val();
+      const ext = $('#file-ext-select').val();
+      if (ext === 'xlsx') {
+        var filename = "write.xlsx";
+        var data = [[1, 2, 3], [true, false, null, "sheetjs"], ["foo", "bar", new Date("2014-02-19T14:30Z"), "0.3"], ["baz", null, "qux"]]
+        var ws_name = "SheetJS";
+        var wb = XLSX.utils.book_new(), ws = XLSX.utils.aoa_to_sheet(data);
+        XLSX.utils.book_append_sheet(wb, ws, ws_name);
+        XLSX.writeFile(wb, filename);
+      } else if (ext === 'csv') {
+        hot.getPlugin('exportFile').downloadFile(ext, {filename: baseName});
+      }
       $('#save-as-modal').modal('hide');
     } catch (err) {
       $('#save-as-err-msg').text(err.message);
