@@ -70,6 +70,13 @@ const stringifyNestedVocabulary = (vocabulary, level=0) => {
   return ret;
 };
 
+const exportToXlsx = (matrix, baseName, xlsx) => {
+  const worksheet = xlsx.utils.aoa_to_sheet(matrix);
+  const workbook = xlsx.utils.book_new();
+  xlsx.utils.book_append_sheet(workbook, worksheet, 'Sheet1');
+  xlsx.writeFile(workbook, `${baseName}.xlsx`);
+};
+
 $(document).ready(() => {
   window.hot = createHot(DATA);
 
@@ -86,17 +93,12 @@ $(document).ready(() => {
 
   $('#save-as-confirm-btn').click((e) => {
     try {
-      const baseName = $('#file-name-input').val();
-      const ext = $('#file-ext-select').val();
+      const baseName = $('#base-name-save-as-input').val();
+      const ext = $('#file-ext-save-as-select').val();
       if (ext === 'xlsx') {
-        var filename = "write.xlsx";
-        var data = [[1, 2, 3], [true, false, null, "sheetjs"], ["foo", "bar", new Date("2014-02-19T14:30Z"), "0.3"], ["baz", null, "qux"]]
-        var ws_name = "SheetJS";
-        var wb = XLSX.utils.book_new(), ws = XLSX.utils.aoa_to_sheet(data);
-        XLSX.utils.book_append_sheet(wb, ws, ws_name);
-        XLSX.writeFile(wb, filename);
+        exportToXlsx(hot.getData(), baseName, XLSX);
       } else if (ext === 'csv') {
-        hot.getPlugin('exportFile').downloadFile(ext, {filename: baseName});
+        hot.getPlugin('exportFile').downloadFile('csv', {filename: baseName});
       }
       $('#save-as-modal').modal('hide');
     } catch (err) {
@@ -105,6 +107,6 @@ $(document).ready(() => {
   });
   $('#save-as-modal').on('hidden.bs.modal', () => {
     $('#save-as-err-msg').text('');
-    $('#file-name-input').val('');
+    $('#base-name-save-as-input').val('');
   });
 });
