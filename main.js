@@ -73,9 +73,14 @@ const stringifyNestedVocabulary = (vocabulary, level=0) => {
 $(document).ready(() => {
   window.hot = createHot(DATA);
 
-  $('#new-dropdown-item').click(() => {
-    // TODO: overwrite warning
-    hot.destroy();
-    window.hot = createHot();
+  $('#new-dropdown-item, #clear-data-confirm-btn').click((e) => {
+    if (e.target.id === 'new-dropdown-item') {
+      if ((hot.countRows() - hot.countEmptyRows()) !== 2) {
+        $('#clear-data-warning-modal').modal('show');
+      }
+    } else {
+      hot.destroy();
+      window.hot = createHot();
+    }
   });
 });
