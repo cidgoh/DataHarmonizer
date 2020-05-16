@@ -14,10 +14,10 @@
             <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               File
             </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <div class="dropdown-menu">
               <span class="dropdown-item" id="new-dropdown-item">New</span>
               <span class="dropdown-item">Open</span>
-              <span class="dropdown-item">Save As...</span>
+              <span class="dropdown-item" data-toggle="modal" data-target="#save-as-modal">Save As...</span>
             </div>
           </div>
         </div>
@@ -44,6 +44,38 @@
                 </div>
                 <div class="col-3 col-sm-2">
                   <button type="button" class="btn btn-danger" id="clear-data-confirm-btn" data-dismiss="modal">Clear</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal" id="save-as-modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="file name">
+                    <div class="input-group-append">
+                      <select class="form-control">
+                        <option value="xlsx" selected>.xlsx</option>
+                        <option value="tsv">.tsv</option>
+                        <option value="csv">.csv</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row justify-content-end mt-3">
+                <div class="col-3 col-sm-2 mr-3">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                </div>
+                <div class="col-3 col-sm-2">
+                  <button type="button" class="btn btn-primary" data-dismiss="modal">Save</button>
                 </div>
               </div>
             </div>
