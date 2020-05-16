@@ -97,5 +97,6 @@ $(document).ready(() => {
   });
   $('#save-as-modal').on('hidden.bs.modal', () => {
     $('#save-as-err-msg').text('');
+    $('#file-name-input').val('');
   });
 });
