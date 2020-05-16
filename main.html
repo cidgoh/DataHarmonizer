@@ -57,11 +57,14 @@
           <div class="modal-body">
             <div class="container-fluid">
               <div class="row">
+                <div class="col text-danger" id="save-as-err-msg"></div>
+              </div>
+              <div class="row">
                 <div class="col">
                   <div class="input-group">
-                    <input type="text" class="form-control" placeholder="file name">
+                    <input type="text" class="form-control"  id="file-name-input" placeholder="file name">
                     <div class="input-group-append">
-                      <select class="form-control">
+                      <select class="form-control" id="file-ext-select">
                         <option value="xlsx" selected>.xlsx</option>
                         <option value="tsv">.tsv</option>
                         <option value="csv">.csv</option>
@@ -75,7 +78,7 @@
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                 </div>
                 <div class="col-3 col-sm-2">
-                  <button type="button" class="btn btn-primary" data-dismiss="modal">Save</button>
+                  <button type="button" class="btn btn-primary" id="save-as-confirm-btn">Save</button>
                 </div>
               </div>
             </div>

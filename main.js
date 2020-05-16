@@ -83,4 +83,19 @@ $(document).ready(() => {
       window.hot = createHot();
     }
   });
+
+  $('#save-as-confirm-btn').click((e) => {
+    try {
+      hot.getPlugin('exportFile').downloadFile(
+          $('#file-ext-select').val(),
+          {filename: $('#file-name-input').val()},
+      );
+      $('#save-as-modal').modal('hide');
+    } catch (err) {
+      $('#save-as-err-msg').text(err.message);
+    }
+  });
+  $('#save-as-modal').on('hidden.bs.modal', () => {
+    $('#save-as-err-msg').text('');
+  });
 });
