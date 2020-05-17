@@ -17,7 +17,7 @@
             <div class="dropdown-menu">
               <span class="dropdown-item" id="new-dropdown-item">New</span>
               <label for="open-file-input" class="dropdown-item mb-0" id="open-dropdown-item">Open</label>
-              <input type="file" class="form-control-file" id="open-file-input">
+              <input type="file" accept=".xlsx,.tsv,.csv" class="form-control-file" id="open-file-input">
               <span class="dropdown-item" data-toggle="modal" data-target="#save-as-modal">Save As...</span>
             </div>
           </div>
@@ -80,6 +80,24 @@
                 </div>
                 <div class="col-3 col-sm-2">
                   <button type="button" class="btn btn-primary" id="save-as-confirm-btn">Save</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal" id="open-error-modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col text-danger" id="open-err-msg">Only xlsx, tsv and csv files are supported.</div>
+              </div>
+              <div class="row justify-content-end mt-3">
+                <div class="col-3 col-sm-2">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button>
                 </div>
               </div>
             </div>

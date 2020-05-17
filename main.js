@@ -98,6 +98,20 @@ $(document).ready(() => {
     }
   });
 
+  $('#open-file-input').change(() => {
+    const file = $('#open-file-input')[0].files[0];
+    const ext = file.name.split('.').pop();
+    if (ext === 'xlsx') {
+      return;
+    } else if (ext === 'tsv') {
+      return;
+    } else if (ext === 'csv') {
+      return;
+    } else {
+      $('#open-error-modal').modal('show');
+    }
+  });
+
   $('#save-as-confirm-btn').click((e) => {
     try {
       const baseName = $('#base-name-save-as-input').val();
