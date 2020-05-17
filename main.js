@@ -4,6 +4,8 @@ const createHot = (data) => {
     columns: getDropdowns(DATA),
     colHeaders: true,
     rowHeaders: true,
+    fixedRowsTop: 2,
+    fixedColumnsLeft: 1,
     minRows: 1000,
     minSpareRows: 100,
     width: '100%',
