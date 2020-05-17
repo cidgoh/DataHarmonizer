@@ -10,6 +10,7 @@ const createHot = (data) => {
     minSpareRows: 100,
     width: '100%',
     height: '75vh',
+    licenseKey: 'non-commercial-and-evaluation',
     readOnlyCellClassName: 'read-only',
     cells: (row) => {
       if (row === 0 || row === 1) {
