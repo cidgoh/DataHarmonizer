@@ -17,6 +17,10 @@
     white-space: pre !important;
 }
 
+#open-file-input {
+    display: none;
+}
+
 .read-only {
     font-size: medium;
     font-weight: bold;
