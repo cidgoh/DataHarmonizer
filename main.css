@@ -25,3 +25,7 @@
     font-size: medium;
     font-weight: bold;
 }
+
+.invalid-cell {
+    background-color: red !important;
+}

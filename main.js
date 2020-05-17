@@ -38,19 +38,6 @@ const getDropdowns = (data) => {
       ret.push({
         type: 'autocomplete',
         source: stringifyNestedVocabulary(vocabulary),
-        validator: function(val, callback) {
-          let isValid = false;
-          for (const validVal of this.source) {
-            if (val.trim().toLowerCase() === validVal.trim().toLowerCase()) {
-              isValid = true;
-              if (val !== validVal) {
-                this.instance.setDataAtCell(this.row, this.col, validVal);
-              }
-              break;
-            }
-          }
-          callback(isValid);
-        },
       });
     } else ret.push({});
   }
@@ -82,6 +69,28 @@ const exportToTsv = (matrix, baseName, xlsx) => {
   const workbook = xlsx.utils.book_new();
   xlsx.utils.book_append_sheet(workbook, worksheet, 'Sheet1');
   xlsx.writeFile(workbook, `${baseName}.tsv`, {bookType: 'csv', FS: '\t'});
+};
+
+const validateGrid = (hot) => {
+  hot.updateSettings({
+    cells: function(row, col, prop) {
+      if (row === 0 || row === 1) {
+        return {readOnly: true};
+      } else {
+        if (this.source !== undefined) {
+          let valid = false;
+          const cellVal = hot.getDataAtCell(row, col);
+          if (cellVal !== null) {
+            if (this.source.map(sourceVal => sourceVal.trim().toLowerCase())
+                .includes(cellVal.trim().toLowerCase())) {
+              valid = true;
+            }
+          }
+          if (!valid) hot.setCellMeta(row, col, 'className', 'invalid-cell');
+        }
+      }
+    },
+  })
 };
 
 $(document).ready(() => {
@@ -138,4 +147,6 @@ $(document).ready(() => {
     $('#save-as-err-msg').text('');
     $('#base-name-save-as-input').val('');
   });
+
+  $('#validate-btn').click(() => void validateGrid(hot));
 });
