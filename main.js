@@ -106,10 +106,16 @@ $(document).ready(() => {
     } else if (ext === 'tsv') {
       return;
     } else if (ext === 'csv') {
-      return;
+      const fileReader = new FileReader();
+      fileReader.readAsText(file);
+      fileReader.onload = (e) => {
+        hot.loadData(e.target.result.split('\n').map(line => line.split(',')));
+      };
     } else {
       $('#open-error-modal').modal('show');
     }
+
+    $('#open-file-input')[0].value = '';
   });
 
   $('#save-as-confirm-btn').click((e) => {
