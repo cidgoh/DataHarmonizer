@@ -77,6 +77,13 @@ const exportToXlsx = (matrix, baseName, xlsx) => {
   xlsx.writeFile(workbook, `${baseName}.xlsx`);
 };
 
+const exportToTsv = (matrix, baseName, xlsx) => {
+  const worksheet = xlsx.utils.aoa_to_sheet(matrix);
+  const workbook = xlsx.utils.book_new();
+  xlsx.utils.book_append_sheet(workbook, worksheet, 'Sheet1');
+  xlsx.writeFile(workbook, `${baseName}.tsv`, {bookType: 'csv', FS: '\t'});
+};
+
 $(document).ready(() => {
   window.hot = createHot(DATA);
 
@@ -97,6 +104,8 @@ $(document).ready(() => {
       const ext = $('#file-ext-save-as-select').val();
       if (ext === 'xlsx') {
         exportToXlsx(hot.getData(), baseName, XLSX);
+      } else if (ext === 'tsv') {
+        exportToTsv(hot.getData(), baseName, XLSX);
       } else if (ext === 'csv') {
         hot.getPlugin('exportFile').downloadFile('csv', {filename: baseName});
       }
