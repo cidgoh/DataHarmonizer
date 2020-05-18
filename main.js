@@ -8,6 +8,11 @@ const createHot = (data) => {
     minSpareRows: 100,
     width: '100%',
     height: '75vh',
+    hiddenColumns: {
+      copyPasteEnabled: true,
+      indicators: true,
+      columns: [1, 2, 5]
+    },
     readOnlyCellClassName: 'read-only',
     cells: (row) => {
       if (row === 0 || row === 1) {
@@ -128,8 +133,29 @@ $(document).ready(() => {
       $('#save-as-err-msg').text(err.message);
     }
   });
+
   $('#save-as-modal').on('hidden.bs.modal', () => {
     $('#save-as-err-msg').text('');
     $('#base-name-save-as-input').val('');
   });
+
+
+  $('#view_all_fields, #view_recommended_fields').on('click', function() {
+
+    const hiddenColumns = [1, 2, 9]
+    // access to hiddenColumns plugin instance:
+    const hiddenColumnsPlugin = hot.getPlugin('hiddenColumns');
+
+    if ($(this).is('#view_all_fields')) {
+      hiddenColumnsPlugin.showColumns(hiddenColumns);
+    }
+    else {
+      hiddenColumnsPlugin.hideColumns(hiddenColumns);
+    }
+
+    // rerender the table to see all changes
+    hot.render();
+
+  })
+
 });
