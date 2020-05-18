@@ -1,6 +1,6 @@
 Ontology ID	parent class	label	datatype	requirement
 ID	SC %			
-		Database Identifiers	section	
+		Database Identifiers		
 	Database Identifiers	specimen collector sample ID	text	required
 	Database Identifiers	PHAC sample ID	text	recommended
 	Database Identifiers	IRIDA sample name	text	
@@ -89,6 +89,26 @@ ID	SC %
 	Pathogen diagnostic testing	diagnostic pcr Ct value 2	text	
 		Contributor acknowledgement		
 	Contributor acknowledgement	authors	text	recommended
+				
+				
+				
+	umbrella bioproject accession	PRJNA623807		
+				
+	geo_loc_name (province/territory)			
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	biomaterial extracted			
+				
+				
 				
 	signs and symptoms	Ageusia		
 HP_0000458	signs and symptoms	Anosmia		
@@ -307,10 +327,10 @@ NCBITaxon_8930	host (common name)	Pigeon
 NCBITaxon_9694	host (common name)	Tiger		
 				
 				
-	Host health status details	Self-quarantining		
-	Host health status details	Asymptomatic		
-	Host health status details	Symptomatic		
-	Host health status details	Hospitalized (ICU)		
+	host health status details	Self-quarantining		
+	host health status details	Asymptomatic		
+	host health status details	Symptomatic		
+	host health status details	Hospitalized (ICU)		
 				
 	organism	SARS-CoV-2		
 	organism	RaTG13		
