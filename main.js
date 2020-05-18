@@ -24,7 +24,7 @@ const createHot = (data) => {
     hiddenColumns: {
       copyPasteEnabled: true,
       indicators: true,
-      columns: []
+      columns: [],
     },
     licenseKey: 'non-commercial-and-evaluation',
     readOnlyCellClassName: 'read-only',
@@ -240,22 +240,15 @@ $(document).ready(() => {
   // Validate
   $('#validate-btn').click(() => void validateGrid(HOT));
 
-  $('#view_all_fields, #view_recommended_fields').on('click', function() {
-
+  // Show fields
+  $('#view_all_fields, #view_recommended_fields').on('click', (e) => {
     const hiddenColumns = [1, 2, 9]
-    // access to hiddenColumns plugin instance:
     const hiddenColumnsPlugin = HOT.getPlugin('hiddenColumns');
-
-    if ($(this).is('#view_all_fields')) {
+    if (e.target.id === 'view_all_fields') {
       hiddenColumnsPlugin.showColumns(hiddenColumns);
-    }
-    else {
+    } else {
       hiddenColumnsPlugin.hideColumns(hiddenColumns);
     }
-
-    // rerender the table to see all changes
     HOT.render();
-
-  })
-
+  });
 });
