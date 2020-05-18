@@ -10,7 +10,7 @@
  * @return {Object} Handsontable instance.
  */
 const createHot = (data) => {
-  return new Handsontable($('#grid')[0], {
+  const hot = new Handsontable($('#grid')[0], {
     data: getHeaders(DATA),
     columns: getDropdowns(DATA),
     colHeaders: true,
@@ -28,13 +28,19 @@ const createHot = (data) => {
     },
     licenseKey: 'non-commercial-and-evaluation',
     readOnlyCellClassName: 'read-only',
-    cells: (row) => {
+    afterRender: () => void $('#header-row').css('visibility', 'visible'),
+  });
+
+  hot.updateSettings({
+    cells: function(row, col) {
+      addClassNamesToCell(row, col, hot);
       if (row === 0 || row === 1) {
         return {readOnly: true};
       }
     },
-    afterRender: () => void $('#header-row').css('visibility', 'visible'),
   });
+
+  return hot;
 };
 
 /**
@@ -94,6 +100,31 @@ const stringifyNestedVocabulary = (vocabulary, level=0) => {
     ret = ret.concat(stringifyNestedVocabulary(vocabulary[val], level+1));
   }
   return ret;
+};
+
+/**
+ * Add varying classes to to a grid cell.
+ * @param {number} row Cell row.
+ * @param {number} col Cell column.
+ * @param {Object} hot Handsontable instance of grid.
+ */
+const addClassNamesToCell = (row, col, hot) => {
+    const classNames = [];
+    const val = hot.getDataAtCell(row, col);
+
+    if (row === 0) {
+      if (val !== '') {
+        classNames.push('primary-header-cell');
+      } else {
+        classNames.push('empty-primary-header-cell');
+      }
+    } else if (row === 1) {
+      classNames.push('secondary-header-cell');
+    } else {
+      classNames.push('non-header-cell');
+    }
+
+    hot.setCellMeta(row, col, 'className', classNames.join(' '));
 };
 
 /**
@@ -158,10 +189,10 @@ const importFile = (file, ext, hot, xlsx) => {
  */
 const validateGrid = (hot) => {
   hot.updateSettings({
-    cells: function(row, col, prop) {
+    cells: function(row, col) {
+      addClassNamesToCell(row, col, hot)
       if (row === 0 || row === 1) {
-        // Do not validate read-only cells. Must return the readOnly property
-        // again or it will be lost.
+        // Do not validate read-only cells. Must set props again.
         return {readOnly: true};
       } else {
         if (this.source !== undefined) {
@@ -173,7 +204,9 @@ const validateGrid = (hot) => {
               valid = true;
             }
           }
-          if (!valid) hot.setCellMeta(row, col, 'className', 'invalid-cell');
+          // Do not want to remove prior classes
+          const invalidClass = `${this.className} invalid-cell`
+          if (!valid) hot.setCellMeta(row, col, 'className', invalidClass);
         }
       }
     },
