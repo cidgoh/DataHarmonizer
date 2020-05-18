@@ -79,6 +79,29 @@ const exportToTsv = (matrix, baseName, xlsx) => {
   xlsx.writeFile(workbook, `${baseName}.tsv`, {bookType: 'csv', FS: '\t'});
 };
 
+const importFile = (file, ext, hot, xlsx) => {
+  const fileReader = new FileReader();
+  if (ext === 'xlsx') {
+    fileReader.readAsBinaryString(file);
+    fileReader.onload = (e) => {
+      const workbook = XLSX.read(e.target.result, {type: 'binary'});
+      const firstSheet = workbook.Sheets[workbook.SheetNames[0]];
+      const sheetCsvStr = XLSX.utils.sheet_to_csv(firstSheet);
+      HOT.loadData(sheetCsvStr.split('\n').map(line => line.split(',')));
+    };
+  } else if (ext === 'tsv') {
+    fileReader.readAsText(file);
+    fileReader.onload = (e) => {
+      HOT.loadData(e.target.result.split('\n').map(line => line.split('\t')));
+    };
+  } else if (ext === 'csv') {
+    fileReader.readAsText(file);
+    fileReader.onload = (e) => {
+      HOT.loadData(e.target.result.split('\n').map(line => line.split(',')));
+    };
+  }
+};
+
 const validateGrid = (hot) => {
   hot.updateSettings({
     cells: function(row, col, prop) {
@@ -102,34 +125,30 @@ const validateGrid = (hot) => {
 };
 
 $(document).ready(() => {
-  window.hot = createHot(DATA);
+  window.HOT = createHot(DATA);
 
   $('#new-dropdown-item, #clear-data-confirm-btn').click((e) => {
     if (e.target.id === 'new-dropdown-item') {
-      if ((hot.countRows() - hot.countEmptyRows()) !== 2) {
+      if ((HOT.countRows() - HOT.countEmptyRows()) !== 2) {
         $('#clear-data-warning-modal').modal('show');
       }
     } else {
-      hot.destroy();
-      window.hot = createHot();
+      HOT.destroy();
+      window.HOT = createHot();
     }
   });
 
   $('#open-file-input').change(() => {
     const file = $('#open-file-input')[0].files[0];
     const ext = file.name.split('.').pop();
-    if (ext === 'xlsx') {
-      return;
-    } else if (ext === 'tsv') {
-      return;
-    } else if (ext === 'csv') {
-      const fileReader = new FileReader();
-      fileReader.readAsText(file);
-      fileReader.onload = (e) => {
-        hot.loadData(e.target.result.split('\n').map(line => line.split(',')));
-      };
-    } else {
+    const acceptedExts = ['xlsx', 'tsv', 'csv'];
+
+    if (!acceptedExts.includes(ext)) {
+      const errMsg = `Only ${acceptedExts.join(', ')} files are supported`;
+      $('#open-err-msg').text(errMsg);
       $('#open-error-modal').modal('show');
+    } else {
+      importFile(file, ext, HOT, XLSX);
     }
 
     $('#open-file-input')[0].value = '';
@@ -140,11 +159,11 @@ $(document).ready(() => {
       const baseName = $('#base-name-save-as-input').val();
       const ext = $('#file-ext-save-as-select').val();
       if (ext === 'xlsx') {
-        exportToXlsx(hot.getData(), baseName, XLSX);
+        exportToXlsx(HOT.getData(), baseName, XLSX);
       } else if (ext === 'tsv') {
-        exportToTsv(hot.getData(), baseName, XLSX);
+        exportToTsv(HOT.getData(), baseName, XLSX);
       } else if (ext === 'csv') {
-        hot.getPlugin('exportFile').downloadFile('csv', {filename: baseName});
+        HOT.getPlugin('exportFile').downloadFile('csv', {filename: baseName});
       }
       $('#save-as-modal').modal('hide');
     } catch (err) {
@@ -157,8 +176,7 @@ $(document).ready(() => {
     $('#base-name-save-as-input').val('');
   });
 
-
-  $('#validate-btn').click(() => void validateGrid(hot));
+  $('#validate-btn').click(() => void validateGrid(HOT));
 
   $('#view_all_fields, #view_recommended_fields').on('click', function() {
 
