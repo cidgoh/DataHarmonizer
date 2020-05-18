@@ -1,0 +1,695 @@
+Ontology ID	parent class	label	datatype	requirement
+ID	SC %			
+		Database Identifiers		
+	Database Identifiers	specimen collector sample ID	text	required
+	Database Identifiers	PHAC sample ID	text	recommended
+	Database Identifiers	IRIDA sample name	text	
+	Database Identifiers	umbrella bioproject accession	select	
+	Database Identifiers	bioproject accession	text	
+	Database Identifiers	biosample accession	text	
+	Database Identifiers	SRA accession	text	
+	Database Identifiers	GenBank accession	text	
+	Database Identifiers	GISAID accession	text	
+		Sample collection and processing		
+	Sample collection and processing	sample collected by	text	required
+	Sample collection and processing	sample collector contact email	text	
+	Sample collection and processing	sample collector contact address	text	
+	Sample collection and processing	sequence submitted by	text	required
+	Sample collection and processing	sequence submitter contact email	text	
+	Sample collection and processing	sequence submitter contact address	text	
+	Sample collection and processing	sample collection date	date	required
+	Sample collection and processing	geo_loc_name (country)	select	required
+	Sample collection and processing	geo_loc_name (province/territory)	select	required
+	Sample collection and processing	geo_loc_name (city)	text	
+	Sample collection and processing	organism	select	required
+	Sample collection and processing	isolate	text	required
+	Sample collection and processing	purpose of sampling	select	recommended
+	Sample collection and processing	anatomical material	select	required
+	Sample collection and processing	anatomical part	select	required
+	Sample collection and processing	body product	select	required
+	Sample collection and processing	environmental material	select	required
+	Sample collection and processing	environmental site	select	required
+	Sample collection and processing	collection device	select	required
+	Sample collection and processing	collection method	select	required
+	Sample collection and processing	collection protocol	select	
+	Sample collection and processing	specimen processing	select	recommended
+	Sample collection and processing	lab host	select	recommended
+	Sample collection and processing	passage number	integer	recommended
+	Sample collection and processing	passage method	text	recommended
+	Sample collection and processing	biomaterial extracted	select	
+		Host Information		
+	Host Information	host (common name)	select	
+	Host Information	host (scientific name)	select	required
+	Host Information	host health state	select	
+	Host Information	host health status details	select	
+	Host Information	host disease	select	required
+	Host Information	host age	decimal	required
+	Host Information	host gender	select	required
+	Host Information	host origin geo_loc name (country)	select	
+	Host Information	host subject ID	text	
+	Host Information	symptom onset date	date	
+	Host Information	signs and symptoms	multiple	
+		Host exposure information		
+	Host exposure information	location of exposure geo_loc name (country)	select	
+	Host exposure information	travel history	text	
+	Host exposure information	exposure event	select	
+		Sequencing		
+	Sequencing	library ID	text	recommended
+	Sequencing	sequencing instrument	select	required
+	Sequencing	sequencing protocol name	text	recommended
+	Sequencing	sequencing protocol source	text	
+	Sequencing	sequencing kit number	text	
+	Sequencing	amplicon pcr primers filename	text	
+		Bioinformatics and QC metrics		
+	Bioinformatics and QC metrics	raw sequence data processing	text	recommended
+	Bioinformatics and QC metrics	sequencing depth (average)	text	
+	Bioinformatics and QC metrics	assembly name	text	
+	Bioinformatics and QC metrics	assembly method	select	required
+	Bioinformatics and QC metrics	assembly coverage breadth	text	
+	Bioinformatics and QC metrics	assembly coverage depth	text	
+	Bioinformatics and QC metrics	r1 fastq filename        	text	recommended
+	Bioinformatics and QC metrics	r2 fastq filename	text	recommended
+	Bioinformatics and QC metrics	fasta filename	text	
+	Bioinformatics and QC metrics	number base pairs	integer	
+	Bioinformatics and QC metrics	genome length	integer	
+	Bioinformatics and QC metrics	mean contig length	integer	
+	Bioinformatics and QC metrics	N50	integer	
+	Bioinformatics and QC metrics	Ns per 100 kbp	decimal	
+	Bioinformatics and QC metrics	reference genome accession	text	
+	Bioinformatics and QC metrics	consensus sequence ID	text	
+	Bioinformatics and QC metrics	consensus sequence method	text	
+	Bioinformatics and QC metrics	annotation feature table filename	text	
+	Bioinformatics and QC metrics	bioinformatics protocol	text	
+		Pathogen diagnostic testing		
+	Pathogen diagnostic testing	gene name 1	text	
+	Pathogen diagnostic testing	diagnostic pcr protocol 1	text	
+	Pathogen diagnostic testing	diagnostic pcr Ct value 1	text	
+	Pathogen diagnostic testing	gene name 2	text	
+	Pathogen diagnostic testing	diagnostic pcr protocol 2	text	
+	Pathogen diagnostic testing	diagnostic pcr Ct value 2	text	
+		Contributor acknowledgement		
+	Contributor acknowledgement	authors	text	recommended
+				
+				
+				
+	umbrella bioproject accession	PRJNA623807		
+				
+GAZ_00002566	geo_loc_name (province/territory)	ALBERTA		
+GAZ_00002562	geo_loc_name (province/territory)	BRITISH COLUMBIA		
+GAZ_00002571	geo_loc_name (province/territory)	MANITOBA		
+GAZ_00002570	geo_loc_name (province/territory)	NEW BRUNSWICK		
+GAZ_00002561	geo_loc_name (province/territory)	NEWFOUNDLAND		
+GAZ_00002567	geo_loc_name (province/territory)	NORTHWEST TERRITORIES		
+GAZ_00002565	geo_loc_name (province/territory)	NOVA SCOTIA		
+GAZ:00002574	geo_loc_name (province/territory)	NUNAVUT		
+GAZ_00002563	geo_loc_name (province/territory)	ONTARIO		
+GAZ_00002572	geo_loc_name (province/territory)	PRINCE EDWARD ISLAND		
+GAZ_00002566	geo_loc_name (province/territory)	QUEBEC		
+GAZ_00002569	geo_loc_name (province/territory)	SASKATCHEWAN		
+GAZ_00002564	geo_loc_name (province/territory)	YUKON TERRITORY		
+				
+	biomaterial extracted	RNA (total),		
+	biomaterial extracted	RNA (poly-A),		
+	biomaterial extracted	RNA (ribo-depleted),		
+	biomaterial extracted	mRNA (cDNA)		
+				
+				
+	signs and symptoms	Ageusia		
+HP_0000458	signs and symptoms	Anosmia		
+HP_0002829	signs and symptoms	Arthralgia (painful joints)		
+HP_0025406	signs and symptoms	Asthenia		
+HP_0100749	signs and symptoms	Chest Pain		
+HP_0025143 	signs and symptoms	Chills		
+HP_0001259	signs and symptoms	Coma		
+HP_0001289	signs and symptoms	Confusion 		
+HP_0000509	signs and symptoms	Conjunctivitis 		
+HP_0012735	signs and symptoms	Cough 		
+HP_0031258	signs and symptoms	Delirium		
+HP_0002014	signs and symptoms	Diarrhea		
+	signs and symptoms	Dysgeusia		
+HP_0002383	signs and symptoms	Encephalitis 		
+HP_0012378	signs and symptoms	Fatigue		
+HP_0001945 	signs and symptoms	Fever		
+HP_0002315	signs and symptoms	Headache		
+HP_0002105	signs and symptoms	Hemoptysis		
+HP_0000224 	signs and symptoms	Hypogeusia		
+HP_0004409	signs and symptoms	Hyposmia		
+HP_0002615	signs and symptoms	Hypotension (low blood pressure)		
+HP_0012418	signs and symptoms	Hypoxemia		
+HP_0000737 	signs and symptoms	Irritability		
+HP_0002371	signs and symptoms	Loss of speech		
+HP_0000224	signs and symptoms	Loss of taste		
+HP_0004396 	signs and symptoms	Low appetite		
+	signs and symptoms	Malaise		
+HP_0003326	signs and symptoms	Myalgia (muscle pain) 		
+HP_0001742	signs and symptoms	Nasal obstruction (stuffy nose)		
+HP_0002018	signs and symptoms	Nausea		
+HP_0025439	signs and symptoms	Pharyngitis (sore throat) 		
+HP_0000988	signs and symptoms	Rash		
+HP_0031417	signs and symptoms	Rhinorrhea (runny nose)		
+HP_0001250	signs and symptoms	Seizure		
+HP_0002094	signs and symptoms	Shortness of breath (breathing difficulty) 		
+HP_0001350	signs and symptoms	Slurred speech		
+HP_0002789	signs and symptoms	Tachypnea (rapid breathing)		
+HP_0002013	signs and symptoms	Vomiting		
+HP_0001324	signs and symptoms	Weakness		
+				
+				
+	anatomical material			
+UBERON_0000178	anatomical material	Blood		
+UBERON_0006314	anatomical material	Fluid		
+	anatomical material	   Fluid (oral)		
+UBERON_0001836	anatomical material	      Saliva		
+UBERON_0001359	anatomical material	   Fluid (cerebrospinal (CSF))		
+UBERON_0002409	anatomical material	   Fluid (pericardial)		
+UBERON_0001087	anatomical material	   Fluid (pleural)		
+UBERON_0036243	anatomical material	   Fluid (vaginal)		
+UBERON_0000173	anatomical material	   Fluid (amniotic)		
+UBERON_0006530	anatomical material	   Fluid (seminal)		
+UBERON_0000479	anatomical material	Tissue		
+				
+				
+UBERON_0001245	anatomical part	Anus		
+UBERON_0002114	anatomical part	Duodenum		
+UBERON_0000970	anatomical part	Eye		
+	anatomical part	Intestine		
+UBERON_0001052	anatomical part	Rectum		
+UBERON_0001003	anatomical part	Skin		
+UBERON_0000945	anatomical part	Stomach		
+UBERON_0001557	anatomical part	Upper respiratory tract		
+UBERON_2001427	anatomical part	   Anterior Nares		
+UBERON_0001043	anatomical part	   Esophagus		
+UBERON_0002453	anatomical part	   Ethmoid sinus		
+	anatomical part	   Nasal Cavity		
+UBERON_0005921 	anatomical part	     Middle Nasal Turbinate		
+UBERON_0005922	anatomical part	     Inferior Nasal Turbinate		
+UBERON_0001728	anatomical part	   Nasopharynx (NP)		
+UBERON_0001729	anatomical part	   Oropharynx (OP)		
+UBERON_0001558	anatomical part	Lower respiratory tract		
+UBERON_0002185 	anatomical part	   Bronchus		
+UBERON_0002048	anatomical part	   Lung		
+UBERON_0002186	anatomical part	     Bronchiole		
+UBERON_0002169	anatomical part	     Alveolar sac		
+UBERON_0009778 	anatomical part	   Pleural sac		
+UBERON_0002402	anatomical part	     Pleural cavity		
+UBERON_0003126	anatomical part	   Trachea		
+				
+				
+UBERON_0001988	body product	Feces		
+UBERON_0001088	body product	Urine		
+UBERON_0001089	body product	Sweat		
+UBERON_0000912	body product	Mucus		
+UBERON_0007311	body product	   Sputum		
+UBERON_0001827	body product	Tear		
+				
+ENVO_00003896	environmental material	Banknote		
+ENVO_01000422	environmental material	Bathroom		
+	environmental material	Bed rail		
+ENVO_01000486	environmental material	Building floor		
+ENVO_02000058	environmental material	Cloth		
+	environmental material	Control panel		
+	environmental material	Corridor		
+NCIT_C48950	environmental material	Door  		
+	environmental material	Door handle		
+	environmental material	Face mask		
+	environmental material	Face shield		
+ENVO_01000481	environmental material	Glass		
+	environmental material	Handrail		
+	environmental material	Hospital gown		
+	environmental material	Light switch		
+	environmental material	Locker		
+	environmental material	N95 mask		
+	environmental material	Nurse call button 		
+	environmental material	Paper		
+ENVO_01000404	environmental material	Plastic		
+	environmental material	PPE gown		
+ENVO_00002018	environmental material	Sewage		
+ENVO_01000990	environmental material	Sink		
+ENVO_00001998	environmental material	Soil		
+	environmental material	Stainless steel		
+	environmental material	Tissue paper		
+	environmental material	Toilet bowl		
+ENVO_00002006	environmental material	Water		
+	environmental material	Window		
+ENVO_00002040	environmental material	Wood		
+				
+				
+				
+				
+	environmental site	Acute care facility		
+	environmental site	Air vent		
+ENVO_00003040	environmental site	Animal house		
+	environmental site	Clinical assessment centre		
+	environmental site	Conference venue		
+ENVO_01000927	environmental site	Daycare		
+NCIT_C53513	environmental site	Emergency room (ER)		
+	environmental site	Family practice clinic		
+	environmental site	Group home		
+	environmental site	Homeless shelter		
+OBI_0000844	environmental site	Hospital		
+NCIT_C53511	environmental site	Intensive Care Unit (ICU)		
+GENEPIO_0001035	environmental site	Long Term Care Facility		
+	environmental site	Patient room		
+ENVO_01001481	environmental site	Prison		
+ENVO_01000536	environmental site	Production Facility		
+NCIT_C17118	environmental site	School		
+	environmental site	Subway train		
+	environmental site	Wet market		
+				
+				
+				
+NCIT_C52009	collection method	Amniocentesis		
+NCIT_C15631	collection method	Aspiration		
+	collection method	  Suprapubic Aspiration		
+	collection method	  Tracheal aspiration		
+	collection method	  Vacuum Aspiration		
+OBI:0002650	collection method	Biopsy		
+OBI:0002651	collection method	  Needle Biopsy		
+OBI_0600044 	collection method	Lavage		
+BTO_0000155	collection method	  Bronchoalveolar lavage (BAL)		
+	collection method	  Gastric Lavage		
+NCIT_C15327	collection method	Lumbar Puncture		
+MMO_0000344	collection method	Necropsy		
+NCIT_c28221	collection method	Phlebotomy		
+GENEPIO_0002116	collection method	Rinsing		
+	collection method	Scraping		
+GENEPIO_0002117	collection method	Swab		
+	collection method	  Finger Prick		
+	collection method	Wash		
+	collection method	Washout Tear Collection		
+				
+				
+	collection device	Air filter		
+NCIT_C113122	collection device	Blood Collection Tube		
+NCIT_C17611 	collection device	Bronchoscope		
+	collection device	Collection Container		
+	collection device	Collection Cup		
+	collection device	Fibrobronchoscope Brush		
+	collection device	Fine Needle		
+	collection device	Microcapillary tube		
+	collection device	Micropipette		
+	collection device	Needle		
+NCIT_C113675 	collection device	Serum Collection Tube		
+	collection device	Sputum Collection Tube		
+	collection device	Suction Catheter		
+NCIT_c17627	collection device	Swab		
+	collection device	Urine Collection Tube		
+	collection device	Virus Transport Medium		
+				
+NCBITaxon_9606	host (scientific name)	Homo sapiens		
+NCBITaxon_9913	host (scientific name)	Bos taurus		
+NCBITaxon_9615 	host (scientific name)	Canis lupus familiaris		
+NCBITaxon_9397	host (scientific name)	Chiroptera		
+NCBITaxon_8930	host (scientific name)	Columbidae		
+NCBITaxon_9685	host (scientific name)	Felis catus		
+NCBITaxon_9031	host (scientific name)	Gallus gallus		
+NCBITaxon_9973	host (scientific name)	Manis		
+NCBITaxon_9974	host (scientific name)	Manis javanica		
+NCBITaxon_9689	host (scientific name)	Panthera leo		
+NCBITaxon_9694	host (scientific name)	Panthera tigris		
+NCBITaxon_58055 	host (scientific name)	Rhinolophidae		
+NCBITaxon_59477	host (scientific name)	Rhinolophus affinis		
+NCBITaxon_9825	host (scientific name)	Sus scrofa domesticus		
+NCBITaxon_379583	host (scientific name)	Viverridae		
+				
+NCBITaxon_9605	host (common name)	Human		
+NCBITaxon_9397	host (common name)	Bat		
+NCBITaxon_9685	host (common name)	Cat		
+NCBITaxon_9031	host (common name)	Chicken		
+NCBITaxon_379583	host (common name)	Civets		
+NCBITaxon_9913	host (common name)	Cow		
+NCBITaxon_9615 	host (common name)	Dog		
+NCBITaxon_9689	host (common name)	Lion		
+NCBITaxon_9973	host (common name)	Pangolin		
+NCBITaxon_9823	host (common name)	Pig		
+NCBITaxon_8930	host (common name)	Pigeon		
+NCBITaxon_9694	host (common name)	Tiger		
+				
+				
+	host health status details	Self-quarantining		
+	host health status details	Asymptomatic		
+	host health status details	Symptomatic		
+	host health status details	Hospitalized (ICU)		
+				
+	organism	SARS-CoV-2		
+	organism	RaTG13		
+	organism	RmYN02		
+				
+				
+	purpose of sampling	Cluster investigation		
+	purpose of sampling	Diagnostic testing		
+NCIT_c15429	purpose of sampling	Research		
+	purpose of sampling	Surveillance testing		
+	purpose of sampling	Viral passage experiment		
+				
+	specimen processing	Virus passage		
+				
+				
+				
+	lab host	293/ACE2 cell line		
+BTO_0000195 	lab host	Caco2 cell line		
+BTO_0002750	lab host	Calu3 cell line		
+	lab host	EFK3B cell line		
+BTO_0002181	lab host	HEK293T cell line		
+	lab host	HRCE cell line		
+BTO_0001950	lab host	Huh7 cell line		
+CLO_0007330	lab host	LLCMk2 cell line		
+BTO_0000836 	lab host	MDBK cell line		
+	lab host	Mv1Lu cell line		
+BTO_0002924	lab host	NHBE cell line		
+BTO_0001865	lab host	PK-15 cell line		
+BTO_0002909	lab host	RK-13 cell line		
+BTO_0002035	lab host	U251 cell line		
+BTO_0001444 	lab host	Vero cell line		
+BTO:0004755	lab host	   Vero E6 cell line		
+	lab host	      VeroE6/TMPRSS2 cell line		
+				
+	exposure event	mass gathering (convention),		
+	exposure event	mass gathering (religious),		
+	exposure event	mass gathering (social e.g. funeral, wedding etc.),		
+	exposure event	mass gathering (office),		
+	exposure event	occupational exposure (hospital worker),		
+	exposure event	occupational exposure (hospital visit),		
+	exposure event	occupational exposure (frontline response),		
+	exposure event	occupational exposure (healthcare work with the public),		
+	exposure event	occupational exposure (retail),		
+	exposure event	occupational exposure (restaurant)		
+				
+OBI_0000759	sequencing instrument	ILLUMINA		
+OBI_0002129	sequencing instrument	   HiSeq X 		
+	sequencing instrument	      HiSeq X Five		
+OBI_0002129	sequencing instrument	      HiSeq X Ten		
+OBI_0002128	sequencing instrument	   Illumina Genome Analyzer		
+OBI_0000703	sequencing instrument	      Illumina Genome Analyzer II		
+OBI_0002000	sequencing instrument	      Illumina Genome Analyzer IIx		
+	sequencing instrument	   Illumina HiScanSQ		
+OBI_0002022	sequencing instrument	   Illumina HiSeq 1000		
+	sequencing instrument	   Illumina HiSeq 1500		
+OBI_0002001	sequencing instrument	   Illumina HiSeq 2000		
+OBI_0002002	sequencing instrument	   Illumina HiSeq 2500		
+OBI_0002048	sequencing instrument	   Illumina HiSeq 3000		
+OBI_0002049	sequencing instrument	   Illumina HiSeq 4000		
+http://www.ebi.ac.uk/efo/EFO_0008635	sequencing instrument	   Illumina iSeq 100		
+OBI_0002630	sequencing instrument	   Illumina NovaSeq 6000		
+http://www.ebi.ac.uk/efo/EFO_0008636	sequencing instrument	   Illumina MiniSeq		
+OBI_0002003	sequencing instrument	   Illumina MiSeq		
+OBI_0002021	sequencing instrument	   NextSeq 500		
+	sequencing instrument	   NextSeq 550		
+OBI_0001856	sequencing instrument	Pacific Biosciences		
+	sequencing instrument	   PacBio RS		
+OBI_0002012	sequencing instrument	   PacBio RS II		
+OBI_0002632	sequencing instrument	   PacBio Sequel		
+OBI_0002633	sequencing instrument	   PacBio Sequel II		
+	sequencing instrument	Ion Torrent		
+GENEPIO_0001935	sequencing instrument	   Ion Torrent PGM		
+	sequencing instrument	   Ion Torrent Proton		
+	sequencing instrument	   Ion Torrent S5 XL		
+	sequencing instrument	   Ion Torrent S5		
+	sequencing instrument	Oxford Nanopore		
+	sequencing instrument	   GridION		
+	sequencing instrument	   MinION		
+	sequencing instrument	   PromethION		
+	sequencing instrument	BGI Genomics		
+	sequencing instrument	   BGISEQ-500		
+	sequencing instrument	* I have Applied Bioscience models too - include?		
+				
+				
+	assembly software	Canu		
+	assembly software	SPades		
+	assembly software	Shovil		
+	assembly software	Velvet		
+	assembly software	Unicycler		
+				
+				
+GAZ_00006882	geo_loc_name (country)	Afghanistan		
+GAZ_00002953	geo_loc_name (country)	Albania		
+GAZ_00000563	geo_loc_name (country)	Algeria		
+GAZ_00003957	geo_loc_name (country)	American Samoa		
+GAZ_00002948	geo_loc_name (country)	Andorra		
+GAZ_00001095	geo_loc_name (country)	Angola		
+GAZ_00009159	geo_loc_name (country)	Anguilla		
+GAZ_00000462	geo_loc_name (country)	Antarctica		
+GAZ_00006883	geo_loc_name (country)	Antigua and Barbuda		
+GAZ_00002928	geo_loc_name (country)	Argentina		
+GAZ_00004094	geo_loc_name (country)	Armenia		
+GAZ_00004025	geo_loc_name (country)	Aruba		
+GAZ_00005901	geo_loc_name (country)	Ashmore and Cartier Islands		
+GAZ_00000463	geo_loc_name (country)	Australia		
+GAZ_00002942	geo_loc_name (country)	Austria		
+GAZ_00004941	geo_loc_name (country)	Azerbaijan		
+GAZ_00002733	geo_loc_name (country)	Bahamas		
+GAZ_00005281	geo_loc_name (country)	Bahrain		
+GAZ_00007117	geo_loc_name (country)	Baker Island		
+GAZ_00003750	geo_loc_name (country)	Bangladesh		
+GAZ_00001251	geo_loc_name (country)	Barbados		
+GAZ_00005810	geo_loc_name (country)	Bassas da India		
+GAZ_00006886	geo_loc_name (country)	Belarus		
+GAZ_00002938	geo_loc_name (country)	Belgium		
+GAZ_00002934	geo_loc_name (country)	Belize		
+GAZ_00000904	geo_loc_name (country)	Benin		
+GAZ_00001264	geo_loc_name (country)	Bermuda		
+GAZ_00003920	geo_loc_name (country)	Bhutan		
+GAZ_00002511	geo_loc_name (country)	Bolivia		
+GAZ_00025355	geo_loc_name (country)	Borneo		
+GAZ_00006887	geo_loc_name (country)	Bosnia and Herzegovina		
+GAZ_00001097	geo_loc_name (country)	Botswana		
+GAZ_00001453	geo_loc_name (country)	Bouvet Island		
+GAZ_00002828	geo_loc_name (country)	Brazil		
+GAZ_00003961	geo_loc_name (country)	British Virgin Islands		
+GAZ_00003901	geo_loc_name (country)	Brunei		
+GAZ_00002950	geo_loc_name (country)	Bulgaria		
+GAZ_00000905	geo_loc_name (country)	Burkina Faso		
+GAZ_00001090	geo_loc_name (country)	Burundi		
+GAZ_00006888	geo_loc_name (country)	Cambodia		
+GAZ_00001093	geo_loc_name (country)	Cameroon		
+GAZ_00002560	geo_loc_name (country)	Canada		
+GAZ_00001227	geo_loc_name (country)	Cape Verde		
+GAZ_00003986	geo_loc_name (country)	Cayman Islands		
+GAZ_00001089	geo_loc_name (country)	Central African Republic		
+GAZ_00000586	geo_loc_name (country)	Chad		
+GAZ_00002825	geo_loc_name (country)	Chile		
+GAZ_00002845	geo_loc_name (country)	China		
+GAZ_00005915	geo_loc_name (country)	Christmas Island		
+GAZ_00005838	geo_loc_name (country)	Clipperton Island		
+GAZ_00009721	geo_loc_name (country)	Cocos Islands		
+GAZ_00002929	geo_loc_name (country)	Colombia		
+GAZ_00005820	geo_loc_name (country)	Comoros		
+GAZ_00053798	geo_loc_name (country)	Cook Islands		
+GAZ_00005917	geo_loc_name (country)	Coral Sea Islands		
+GAZ_00002901	geo_loc_name (country)	Costa Rica		
+GAZ_00000906	geo_loc_name (country)	Cote d'Ivoire		
+GAZ_00002719	geo_loc_name (country)	Croatia		
+GAZ_00003762	geo_loc_name (country)	Cuba		
+GAZ_00004021	geo_loc_name (country)	Curacao		
+GAZ_00004006	geo_loc_name (country)	Cyprus		
+GAZ_00002954	geo_loc_name (country)	Czech Republic		
+GAZ_00001086	geo_loc_name (country)	Democratic Republic of the Congo		
+GAZ_00005852	geo_loc_name (country)	Denmark		
+GAZ_00000582	geo_loc_name (country)	Djibouti		
+GAZ_00006890	geo_loc_name (country)	Dominica		
+GAZ_00003952	geo_loc_name (country)	Dominican Republic		
+GAZ_00002912	geo_loc_name (country)	Ecuador		
+GAZ_00003934	geo_loc_name (country)	Egypt		
+GAZ_00002935	geo_loc_name (country)	El Salvador		
+GAZ_00001091	geo_loc_name (country)	Equatorial Guinea		
+GAZ_00000581	geo_loc_name (country)	Eritrea		
+GAZ_00002959	geo_loc_name (country)	Estonia		
+GAZ_00001099	geo_loc_name (country)	Eswatini		
+GAZ_00000567	geo_loc_name (country)	Ethiopia		
+GAZ_00005811	geo_loc_name (country)	Europa Island		
+GAZ_00001412	geo_loc_name (country)	Falkland Islands (Islas Malvinas)		
+GAZ_00059206	geo_loc_name (country)	Faroe Islands		
+GAZ_00006891	geo_loc_name (country)	Fiji		
+GAZ_00002937	geo_loc_name (country)	Finland		
+GAZ_00003940	geo_loc_name (country)	France		
+GAZ_00002516	geo_loc_name (country)	French Guiana		
+GAZ_00002918	geo_loc_name (country)	French Polynesia		
+GAZ_00003753	geo_loc_name (country)	French Southern and Antarctic Lands		
+GAZ_00001092	geo_loc_name (country)	Gabon		
+GAZ_00000907	geo_loc_name (country)	Gambia		
+GAZ_00009571	geo_loc_name (country)	Gaza Strip		
+GAZ_00004942	geo_loc_name (country)	Georgia		
+GAZ_00002646	geo_loc_name (country)	Germany		
+GAZ_00000908	geo_loc_name (country)	Ghana		
+GAZ_00003987	geo_loc_name (country)	Gibraltar		
+GAZ_00005808	geo_loc_name (country)	Glorioso Islands		
+GAZ_00002945	geo_loc_name (country)	Greece		
+GAZ_00001507	geo_loc_name (country)	Greenland		
+GAZ_02000573	geo_loc_name (country)	Grenada		
+GAZ_00067142	geo_loc_name (country)	Guadeloupe		
+GAZ_00003706	geo_loc_name (country)	Guam		
+GAZ_00002936	geo_loc_name (country)	Guatemala		
+GAZ_00001550	geo_loc_name (country)	Guernsey		
+GAZ_00000909	geo_loc_name (country)	Guinea		
+GAZ_00000910	geo_loc_name (country)	Guinea-Bissau		
+GAZ_00002522	geo_loc_name (country)	Guyana		
+GAZ_00003953	geo_loc_name (country)	Haiti		
+GAZ_00009718	geo_loc_name (country)	Heard Island and McDonald Islands		
+GAZ_00002894	geo_loc_name (country)	Honduras		
+GAZ_00003203	geo_loc_name (country)	Hong Kong		
+GAZ_00007120	geo_loc_name (country)	Howland Island		
+GAZ_00002952	geo_loc_name (country)	Hungary		
+GAZ_00000843	geo_loc_name (country)	Iceland		
+GAZ_00002839	geo_loc_name (country)	India		
+GAZ_00003727	geo_loc_name (country)	Indonesia		
+GAZ_00004474	geo_loc_name (country)	Iran		
+GAZ_00004483	geo_loc_name (country)	Iraq		
+GAZ_00002943	geo_loc_name (country)	Ireland		
+GAZ_00052477	geo_loc_name (country)	Isle of Man		
+GAZ_00002476	geo_loc_name (country)	Israel		
+GAZ_00002650	geo_loc_name (country)	Italy		
+GAZ_00003781	geo_loc_name (country)	Jamaica		
+GAZ_00005853	geo_loc_name (country)	Jan Mayen		
+GAZ_00002747	geo_loc_name (country)	Japan		
+GAZ_00007118	geo_loc_name (country)	Jarvis Island		
+GAZ_00001551	geo_loc_name (country)	Jersey		
+GAZ_00007114	geo_loc_name (country)	Johnston Atoll		
+GAZ_00002473	geo_loc_name (country)	Jordan		
+GAZ_00005809	geo_loc_name (country)	Juan de Nova Island		
+GAZ_00004999	geo_loc_name (country)	Kazakhstan		
+GAZ_00001101	geo_loc_name (country)	Kenya		
+GAZ_00005682	geo_loc_name (country)	Kerguelen Archipelago		
+GAZ_00007116	geo_loc_name (country)	Kingman Reef		
+GAZ_00006894	geo_loc_name (country)	Kiribati		
+GAZ_00011337	geo_loc_name (country)	Kosovo		
+GAZ_00005285	geo_loc_name (country)	Kuwait		
+GAZ_00006893	geo_loc_name (country)	Kyrgyzstan		
+GAZ_00006889	geo_loc_name (country)	Laos		
+GAZ_00002958	geo_loc_name (country)	Latvia		
+GAZ_00002478	geo_loc_name (country)	Lebanon		
+GAZ_00001098	geo_loc_name (country)	Lesotho		
+GAZ_00000911	geo_loc_name (country)	Liberia		
+GAZ_00000566	geo_loc_name (country)	Libya		
+GAZ_00003858	geo_loc_name (country)	Liechtenstein		
+GAZ_00007144	geo_loc_name (country)	Line Islands		
+GAZ_00002960	geo_loc_name (country)	Lithuania		
+GAZ_00002947	geo_loc_name (country)	Luxembourg		
+GAZ_00003202	geo_loc_name (country)	Macau		
+GAZ_00001108	geo_loc_name (country)	Madagascar		
+GAZ_00001105	geo_loc_name (country)	Malawi		
+GAZ_00003902	geo_loc_name (country)	Malaysia		
+GAZ_00006924	geo_loc_name (country)	Maldives		
+GAZ_00000584	geo_loc_name (country)	Mali		
+GAZ_00005459	geo_loc_name (country)	Malta		
+GAZ_00007161	geo_loc_name (country)	Marshall Islands		
+GAZ_00067143	geo_loc_name (country)	Martinique		
+GAZ_00000583	geo_loc_name (country)	Mauritania		
+GAZ_00003745	geo_loc_name (country)	Mauritius		
+GAZ_00003943	geo_loc_name (country)	Mayotte		
+GAZ_00002852	geo_loc_name (country)	Mexico		
+GAZ_00005862	geo_loc_name (country)	Micronesia		
+GAZ_00007112	geo_loc_name (country)	Midway Islands		
+GAZ_00003897	geo_loc_name (country)	Moldova		
+GAZ_00003857	geo_loc_name (country)	Monaco		
+GAZ_00008744	geo_loc_name (country)	Mongolia		
+GAZ_00006898	geo_loc_name (country)	Montenegro		
+GAZ_00003988	geo_loc_name (country)	Montserrat		
+GAZ_00000565	geo_loc_name (country)	Morocco		
+GAZ_00001100	geo_loc_name (country)	Mozambique		
+GAZ_00006899	geo_loc_name (country)	Myanmar		
+GAZ_00001096	geo_loc_name (country)	Namibia		
+GAZ_00006900	geo_loc_name (country)	Nauru		
+GAZ_00007119	geo_loc_name (country)	Navassa Island		
+GAZ_00004399	geo_loc_name (country)	Nepal		
+GAZ_00002946	geo_loc_name (country)	Netherlands		
+GAZ_00005206	geo_loc_name (country)	New Caledonia		
+GAZ_00000469	geo_loc_name (country)	New Zealand		
+GAZ_00002978	geo_loc_name (country)	Nicaragua		
+GAZ_00000585	geo_loc_name (country)	Niger		
+GAZ_00000912	geo_loc_name (country)	Nigeria		
+GAZ_00006902	geo_loc_name (country)	Niue		
+GAZ_00005908	geo_loc_name (country)	Norfolk Island		
+GAZ_00002801	geo_loc_name (country)	North Korea		
+GAZ_00006895	geo_loc_name (country)	North Macedonia		
+GAZ_00002284	geo_loc_name (country)	North Sea		
+GAZ_00003958	geo_loc_name (country)	Northern Mariana Islands		
+GAZ_00002699	geo_loc_name (country)	Norway		
+GAZ_00005283	geo_loc_name (country)	Oman		
+GAZ_00005246	geo_loc_name (country)	Pakistan		
+GAZ_00006905	geo_loc_name (country)	Palau		
+GAZ_00002892	geo_loc_name (country)	Panama		
+GAZ_00003922	geo_loc_name (country)	Papua New Guinea		
+GAZ_00010832	geo_loc_name (country)	Paracel Islands		
+GAZ_00002933	geo_loc_name (country)	Paraguay		
+GAZ_00002932	geo_loc_name (country)	Peru		
+GAZ_00004525	geo_loc_name (country)	Philippines		
+GAZ_00005867	geo_loc_name (country)	Pitcairn Islands		
+GAZ_00002939	geo_loc_name (country)	Poland		
+GAZ_00004126	geo_loc_name (country)	Portugal		
+GAZ_00006935	geo_loc_name (country)	Puerto Rico		
+GAZ_00005286	geo_loc_name (country)	Qatar		
+GAZ_00001088	geo_loc_name (country)	Republic of the Congo		
+GAZ_00003945	geo_loc_name (country)	Reunion		
+GAZ_00002951	geo_loc_name (country)	Romania		
+GAZ_00023304	geo_loc_name (country)	Ross Sea		
+GAZ_00002721	geo_loc_name (country)	Russia		
+GAZ_00001087	geo_loc_name (country)	Rwanda		
+GAZ_00000849	geo_loc_name (country)	Saint Helena		
+GAZ_00006906	geo_loc_name (country)	Saint Kitts and Nevis		
+GAZ_00006909	geo_loc_name (country)	Saint Lucia		
+GAZ_00003942	geo_loc_name (country)	Saint Pierre and Miquelon		
+GAZ_00005841	geo_loc_name (country)	Saint Martin		
+GAZ_02000565	geo_loc_name (country)	Saint Vincent and the Grenadines		
+GAZ_00006910	geo_loc_name (country)	Samoa		
+GAZ_00003102	geo_loc_name (country)	San Marino		
+GAZ_00006927	geo_loc_name (country)	Sao Tome and Principe		
+GAZ_00005279	geo_loc_name (country)	Saudi Arabia		
+GAZ_00000913	geo_loc_name (country)	Senegal		
+GAZ_00002957	geo_loc_name (country)	Serbia		
+GAZ_00006922	geo_loc_name (country)	Seychelles		
+GAZ_00000914	geo_loc_name (country)	Sierra Leone		
+GAZ_00003923	geo_loc_name (country)	Singapore		
+GAZ_00012579	geo_loc_name (country)	Sint Maarten		
+GAZ_00002956	geo_loc_name (country)	Slovakia		
+GAZ_00002955	geo_loc_name (country)	Slovenia		
+GAZ_00005275	geo_loc_name (country)	Solomon Islands		
+GAZ_00001104	geo_loc_name (country)	Somalia		
+GAZ_00001094	geo_loc_name (country)	South Africa		
+GAZ_00003990	geo_loc_name (country)	South Georgia and the South Sandwich Islands		
+GAZ_00002802	geo_loc_name (country)	South Korea		
+GAZ_00233439	geo_loc_name (country)	South Sudan		
+GAZ_00003936	geo_loc_name (country)	Spain		
+GAZ_00010831	geo_loc_name (country)	Spratly Islands		
+GAZ_00003924	geo_loc_name (country)	Sri Lanka		
+GAZ_00002475	geo_loc_name (country)	State of Palestine		
+GAZ_00000560	geo_loc_name (country)	Sudan		
+GAZ_00002525	geo_loc_name (country)	Suriname		
+GAZ_00005396	geo_loc_name (country)	Svalbard		
+GAZ_00001099	geo_loc_name (country)	Swaziland		
+GAZ_00002729	geo_loc_name (country)	Sweden		
+GAZ_00002941	geo_loc_name (country)	Switzerland		
+GAZ_00002474	geo_loc_name (country)	Syria		
+GAZ_00005341	geo_loc_name (country)	Taiwan		
+GAZ_00006912	geo_loc_name (country)	Tajikistan		
+GAZ_00001103	geo_loc_name (country)	Tanzania		
+GAZ_00003744	geo_loc_name (country)	Thailand		
+GAZ_00006913	geo_loc_name (country)	Timor-Leste		
+GAZ_00000915	geo_loc_name (country)	Togo		
+GAZ_00260188	geo_loc_name (country)	Tokelau		
+GAZ_00006916	geo_loc_name (country)	Tonga		
+GAZ_00003767	geo_loc_name (country)	Trinidad and Tobago		
+GAZ_00005812	geo_loc_name (country)	Tromelin Island		
+GAZ_00000562	geo_loc_name (country)	Tunisia		
+GAZ_00000558	geo_loc_name (country)	Turkey		
+GAZ_00005018	geo_loc_name (country)	Turkmenistan		
+GAZ_00003955	geo_loc_name (country)	Turks and Caicos Islands		
+GAZ_00009715	geo_loc_name (country)	Tuvalu		
+GAZ_00002459	geo_loc_name (country)	USA		
+GAZ_00001102	geo_loc_name (country)	Uganda		
+GAZ_00002724	geo_loc_name (country)	Ukraine		
+GAZ_00005282	geo_loc_name (country)	United Arab Emirates		
+GAZ_00002637	geo_loc_name (country)	United Kingdom		
+GAZ_00002930	geo_loc_name (country)	Uruguay		
+GAZ_00004979	geo_loc_name (country)	Uzbekistan		
+GAZ_00006918	geo_loc_name (country)	Vanuatu		
+GAZ_00002931	geo_loc_name (country)	Venezuela		
+GAZ_00003756	geo_loc_name (country)	Viet Nam		
+GAZ_00003959	geo_loc_name (country)	Virgin Islands		
+GAZ_00007111	geo_loc_name (country)	Wake Island		
+GAZ_00007192	geo_loc_name (country)	Wallis and Futuna		
+GAZ_00009572	geo_loc_name (country)	West Bank		
+GAZ_00000564	geo_loc_name (country)	Western Sahara		
+GAZ_00005284	geo_loc_name (country)	Yemen		
+GAZ_00001107	geo_loc_name (country)	Zambia		
+GAZ_00001106	geo_loc_name (country)	Zimbabwe		
+				
