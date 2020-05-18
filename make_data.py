@@ -4,7 +4,7 @@ import json
 import collections
 
 r_filename = 'data.tsv'
-w_filename = 'data2.js'
+w_filename = 'data.js'
 DATA = []
 FIELD_INDEX = {}
 
