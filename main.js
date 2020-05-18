@@ -113,10 +113,15 @@ $(document).ready(() => {
   $('#open-file-input').change(() => {
     const file = $('#open-file-input')[0].files[0];
     const ext = file.name.split('.').pop();
+    // TODO: wrap in function
     if (ext === 'xlsx') {
       return;
     } else if (ext === 'tsv') {
-      return;
+      const fileReader = new FileReader();
+      fileReader.readAsText(file);
+      fileReader.onload = (e) => {
+        HOT.loadData(e.target.result.split('\n').map(line => line.split('\t')));
+      };
     } else if (ext === 'csv') {
       const fileReader = new FileReader();
       fileReader.readAsText(file);
