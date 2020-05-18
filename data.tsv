@@ -94,20 +94,24 @@ ID	SC %
 				
 	umbrella bioproject accession	PRJNA623807		
 				
-	geo_loc_name (province/territory)			
+GAZ_00002566	geo_loc_name (province/territory)	ALBERTA		
+GAZ_00002562	geo_loc_name (province/territory)	BRITISH COLUMBIA		
+GAZ_00002571	geo_loc_name (province/territory)	MANITOBA		
+GAZ_00002570	geo_loc_name (province/territory)	NEW BRUNSWICK		
+GAZ_00002561	geo_loc_name (province/territory)	NEWFOUNDLAND		
+GAZ_00002567	geo_loc_name (province/territory)	NORTHWEST TERRITORIES		
+GAZ_00002565	geo_loc_name (province/territory)	NOVA SCOTIA		
+GAZ:00002574	geo_loc_name (province/territory)	NUNAVUT		
+GAZ_00002563	geo_loc_name (province/territory)	ONTARIO		
+GAZ_00002572	geo_loc_name (province/territory)	PRINCE EDWARD ISLAND		
+GAZ_00002566	geo_loc_name (province/territory)	QUEBEC		
+GAZ_00002569	geo_loc_name (province/territory)	SASKATCHEWAN		
+GAZ_00002564	geo_loc_name (province/territory)	YUKON TERRITORY		
 				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-	biomaterial extracted			
-				
+	biomaterial extracted	RNA (total),		
+	biomaterial extracted	RNA (poly-A),		
+	biomaterial extracted	RNA (ribo-depleted),		
+	biomaterial extracted	mRNA (cDNA)		
 				
 				
 	signs and symptoms	Ageusia		
@@ -189,11 +193,6 @@ UBERON_0002169	anatomical part	     Alveolar sac
 UBERON_0009778 	anatomical part	   Pleural sac		
 UBERON_0002402	anatomical part	     Pleural cavity		
 UBERON_0003126	anatomical part	   Trachea		
-				
-				
-				
-				
-				
 				
 				
 UBERON_0001988	body product	Feces		
@@ -365,16 +364,16 @@ BTO_0001444 	lab host	Vero cell line
 BTO:0004755	lab host	   Vero E6 cell line		
 	lab host	      VeroE6/TMPRSS2 cell line		
 				
-	Exposure event	mass gathering (convention),		
-	Exposure event	mass gathering (religious),		
-	Exposure event	mass gathering (social e.g. funeral, wedding etc.),		
-	Exposure event	mass gathering (office),		
-	Exposure event	occupational exposure (hospital worker),		
-	Exposure event	occupational exposure (hospital visit),		
-	Exposure event	occupational exposure (frontline response),		
-	Exposure event	occupational exposure (healthcare work with the public),		
-	Exposure event	occupational exposure (retail),		
-	Exposure event	occupational exposure (restaurant)		
+	exposure event	mass gathering (convention),		
+	exposure event	mass gathering (religious),		
+	exposure event	mass gathering (social e.g. funeral, wedding etc.),		
+	exposure event	mass gathering (office),		
+	exposure event	occupational exposure (hospital worker),		
+	exposure event	occupational exposure (hospital visit),		
+	exposure event	occupational exposure (frontline response),		
+	exposure event	occupational exposure (healthcare work with the public),		
+	exposure event	occupational exposure (retail),		
+	exposure event	occupational exposure (restaurant)		
 				
 OBI_0000759	sequencing instrument	ILLUMINA		
 OBI_0002129	sequencing instrument	   HiSeq X 		

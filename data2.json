@@ -387,7 +387,21 @@
                 "fieldName": "geo_loc_name (province/territory)",
                 "datatype": "select",
                 "requirement": "required",
-                "vocabulary": {}
+                "vocabulary": {
+                    "ALBERTA": {},
+                    "BRITISH COLUMBIA": {},
+                    "MANITOBA": {},
+                    "NEW BRUNSWICK": {},
+                    "NEWFOUNDLAND": {},
+                    "NORTHWEST TERRITORIES": {},
+                    "NOVA SCOTIA": {},
+                    "NUNAVUT": {},
+                    "ONTARIO": {},
+                    "PRINCE EDWARD ISLAND": {},
+                    "QUEBEC": {},
+                    "SASKATCHEWAN": {},
+                    "YUKON TERRITORY": {}
+                }
             },
             {
                 "fieldName": "geo_loc_name (city)",
@@ -651,7 +665,12 @@
                 "fieldName": "biomaterial extracted",
                 "datatype": "select",
                 "requirement": "",
-                "vocabulary": {}
+                "vocabulary": {
+                    "RNA (total),": {},
+                    "RNA (poly-A),": {},
+                    "RNA (ribo-depleted),": {},
+                    "mRNA (cDNA)": {}
+                }
             }
         ]
     },
