@@ -1,0 +1,16 @@
+checks:
+  file-lines:
+    enabled: false
+  method-complexity:
+    enabled: false
+engines:
+  duplication:
+    enabled: false
+  eslint:
+    enabled: false
+    channel: eslint-3
+  fixme:
+    enabled: true
+ratings:
+  paths:
+  - "src/**/*.js"

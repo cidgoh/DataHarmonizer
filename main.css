@@ -1,5 +1,5 @@
-@import 'https://cdn.jsdelivr.net/npm/handsontable/dist/handsontable.full.min.css';
-@import 'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css';
+@import 'libraries/handsontable-7.4.2/dist/handsontable.full.min.css';
+@import 'libraries/bootstrap-4.3.1-dist/css/bootstrap.min.css';
 
 .dropdown-item:hover {
     cursor: pointer;
