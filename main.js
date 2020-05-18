@@ -176,6 +176,7 @@ const validateGrid = (hot) => {
 $(document).ready(() => {
   window.HOT = createHot(DATA);
 
+  // File -> New
   $('#new-dropdown-item, #clear-data-confirm-btn').click((e) => {
     if (e.target.id === 'new-dropdown-item') {
       if ((HOT.countRows() - HOT.countEmptyRows()) !== 2) {
@@ -183,12 +184,14 @@ $(document).ready(() => {
       }
     } else {
       HOT.destroy();
-      window.HOT = createHot();
+      window.HOT = createHot(DATA);
     }
   });
 
-  $('#open-file-input').change(() => {
-    const file = $('#open-file-input')[0].files[0];
+  // File -> Open
+  const $fileInput = $('#open-file-input');
+  $fileInput.change(() => {
+    const file = $fileInput[0].files[0];
     const ext = file.name.split('.').pop();
     const acceptedExts = ['xlsx', 'tsv', 'csv'];
 
@@ -200,9 +203,11 @@ $(document).ready(() => {
       importFile(file, ext, HOT, XLSX);
     }
 
-    $('#open-file-input')[0].value = '';
+    // Allow consecutive uploads of the same file
+    $fileInput[0].value = '';
   });
 
+  // File -> Save
   $('#save-as-confirm-btn').click((e) => {
     try {
       const baseName = $('#base-name-save-as-input').val();
@@ -219,10 +224,12 @@ $(document).ready(() => {
       $('#save-as-err-msg').text(err.message);
     }
   });
+  // Reset save modal values when the modal is closed
   $('#save-as-modal').on('hidden.bs.modal', () => {
     $('#save-as-err-msg').text('');
     $('#base-name-save-as-input').val('');
   });
 
+  // Validate
   $('#validate-btn').click(() => void validateGrid(HOT));
 });
