@@ -74,6 +74,37 @@ const exportToTsv = (matrix, baseName, xlsx) => {
   xlsx.writeFile(workbook, `${baseName}.tsv`, {bookType: 'csv', FS: '\t'});
 };
 
+const importFile = (file, ext, hot, xlsx) => {
+  if (ext === 'xlsx') {
+    const fileReader = new FileReader();
+    fileReader.readAsBinaryString(file);
+    fileReader.onload = (e) => {
+      const workbook = XLSX.read(e.target.result, {type: 'binary'});
+      for (const sheetName of workbook.SheetNames) {
+        const sheetCsvStr =
+            XLSX.utils.sheet_to_csv(workbook.Sheets[sheetName]);
+        HOT.loadData(sheetCsvStr.split('\n').map(line => line.split(',')));
+        // Should we handle multiple sheets?
+        break;
+      }
+    };
+  } else if (ext === 'tsv') {
+    const fileReader = new FileReader();
+    fileReader.readAsText(file);
+    fileReader.onload = (e) => {
+      HOT.loadData(e.target.result.split('\n').map(line => line.split('\t')));
+    };
+  } else if (ext === 'csv') {
+    const fileReader = new FileReader();
+    fileReader.readAsText(file);
+    fileReader.onload = (e) => {
+      HOT.loadData(e.target.result.split('\n').map(line => line.split(',')));
+    };
+  } else {
+    $('#open-error-modal').modal('show');
+  }
+};
+
 const validateGrid = (hot) => {
   hot.updateSettings({
     cells: function(row, col, prop) {
@@ -113,34 +144,14 @@ $(document).ready(() => {
   $('#open-file-input').change(() => {
     const file = $('#open-file-input')[0].files[0];
     const ext = file.name.split('.').pop();
-    // TODO: wrap in function
-    if (ext === 'xlsx') {
-      const fileReader = new FileReader();
-      fileReader.readAsBinaryString(file);
-      fileReader.onload = (e) => {
-        const workbook = XLSX.read(e.target.result, {type: 'binary'});
-        for (const sheetName of workbook.SheetNames) {
-          const sheetCsvStr =
-              XLSX.utils.sheet_to_csv(workbook.Sheets[sheetName]);
-          HOT.loadData(sheetCsvStr.split('\n').map(line => line.split(',')));
-          // Should we handle multiple sheets?
-          break;
-        }
-      };
-    } else if (ext === 'tsv') {
-      const fileReader = new FileReader();
-      fileReader.readAsText(file);
-      fileReader.onload = (e) => {
-        HOT.loadData(e.target.result.split('\n').map(line => line.split('\t')));
-      };
-    } else if (ext === 'csv') {
-      const fileReader = new FileReader();
-      fileReader.readAsText(file);
-      fileReader.onload = (e) => {
-        HOT.loadData(e.target.result.split('\n').map(line => line.split(',')));
-      };
-    } else {
+    const acceptedExts = ['xlsx', 'tsv', 'csv'];
+
+    if (!acceptedExts.includes(ext)) {
+      const errMsg = `Only ${acceptedExts.join(', ')} files are supported`;
+      $('#open-err-msg').text(errMsg);
       $('#open-error-modal').modal('show');
+    } else {
+      importFile(file, ext, HOT, XLSX);
     }
 
     $('#open-file-input')[0].value = '';
