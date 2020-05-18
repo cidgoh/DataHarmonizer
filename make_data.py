@@ -46,4 +46,4 @@ with open(r_filename) as tsvfile:
 with open(w_filename, 'w') as output_handle:
 	# DO NOT USE sort_keys=True on piclists etc. because this overrides
 	# OrderedDict() sort order.
-	output_handle.write(json.dumps(DATA, sort_keys = False, indent = 4, separators = (',', ': ')))
+	output_handle.write("const DATA = " + json.dumps(DATA, sort_keys = False, indent = 4, separators = (',', ': ')))
