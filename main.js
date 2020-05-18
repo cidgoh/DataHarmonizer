@@ -1,6 +1,17 @@
+/**
+ * @fileOverview Handsontable grid with standardized COVID-19 metadata.
+ * Implemented with vanilla JavaScript and locally downloaded libaries.
+ * Functionality for uploading, downloading and validating data.
+ */
+
+/**
+ * Create a blank instance of Handsontable.
+ * @param {Object} data - See `data.js`.
+ * @return {Object} Handsontable instance.
+ */
 const createHot = (data) => {
   return new Handsontable($('#grid')[0], {
-    data: getRows(DATA),
+    data: getHeaders(DATA),
     columns: getDropdowns(DATA),
     colHeaders: true,
     rowHeaders: true,
@@ -26,7 +37,12 @@ const createHot = (data) => {
   });
 };
 
-const getRows = (data) => {
+/**
+ * Create a matrix containing the first two rows of the grid.
+ * @param {Object} data - See `data.js`.
+ * @return {Array<Array<String>>} First two rows of the grid.
+ */
+const getHeaders = (data) => {
   const rows = [[], []];
   for (const parent of data) {
     rows[0].push(parent.fieldName);
@@ -36,6 +52,12 @@ const getRows = (data) => {
   return rows;
 };
 
+/**
+ * Create an array of cell properties specifying autocomplete data for all grid
+ * columns.
+ * @param {Object} data - See `data.js`.
+ * @return {Array<Object>} Cell properties for each grid column.
+ */
 const getDropdowns = (data) => {
   const fields =
       Array.prototype.concat.apply([], data.map(parent => parent.children));
@@ -52,6 +74,15 @@ const getDropdowns = (data) => {
   return ret;
 };
 
+/**
+ * Recursively flatten vocabulary into an array of strings, with each string's
+ * level of depth in the vocabulary being indicated by leading spaces.
+ * e.g., `vocabulary: 'a': {'b':{}},, 'c': {}` becomes `['a', '  b', 'c']`.
+ * @param {Object} vocabulary - See `vocabulary` fields in `data.js`.
+ * @param {number} level - Nested level of `vocabulary` we are currently
+ *     processing.
+ * @return {Array<Array<String>>} Flattened vocabulary.
+ */
 const stringifyNestedVocabulary = (vocabulary, level=0) => {
   if (Object.keys(vocabulary).length === 0) {
     return [];
@@ -65,6 +96,12 @@ const stringifyNestedVocabulary = (vocabulary, level=0) => {
   return ret;
 };
 
+/**
+ * Write data to `xlsx` file.
+ * @param {Array<Array<String>>} matrix - Data to write to `xlsx` file.
+ * @param {String} baseName - Basename of file to write.
+ * @param {Object} xlsx - SheetJS variable.
+ */
 const exportToXlsx = (matrix, baseName, xlsx) => {
   const worksheet = xlsx.utils.aoa_to_sheet(matrix);
   const workbook = xlsx.utils.book_new();
@@ -72,6 +109,12 @@ const exportToXlsx = (matrix, baseName, xlsx) => {
   xlsx.writeFile(workbook, `${baseName}.xlsx`);
 };
 
+/**
+ * Write data to `tsv` file.
+ * @param {Array<Array<String>>} matrix - Data to write to `xlsx` file.
+ * @param {String} baseName - Basename of file to write.
+ * @param {Object} xlsx - `SheetJS` variable.
+ */
 const exportToTsv = (matrix, baseName, xlsx) => {
   const worksheet = xlsx.utils.aoa_to_sheet(matrix);
   const workbook = xlsx.utils.book_new();
@@ -79,33 +122,46 @@ const exportToTsv = (matrix, baseName, xlsx) => {
   xlsx.writeFile(workbook, `${baseName}.tsv`, {bookType: 'csv', FS: '\t'});
 };
 
+/**
+ * Upload user file data to grid.
+ * @param {File} file - User file.
+ * @param {String} ext - User file extension.
+ * @param {Object} hot - Handsontable instance of grid.
+ * @param {Object} xlsx - SheetJS variable.
+ */
 const importFile = (file, ext, hot, xlsx) => {
   const fileReader = new FileReader();
   if (ext === 'xlsx') {
     fileReader.readAsBinaryString(file);
     fileReader.onload = (e) => {
-      const workbook = XLSX.read(e.target.result, {type: 'binary'});
+      const workbook = xlsx.read(e.target.result, {type: 'binary'});
       const firstSheet = workbook.Sheets[workbook.SheetNames[0]];
-      const sheetCsvStr = XLSX.utils.sheet_to_csv(firstSheet);
-      HOT.loadData(sheetCsvStr.split('\n').map(line => line.split(',')));
+      const sheetCsvStr = xlsx.utils.sheet_to_csv(firstSheet);
+      hot.loadData(sheetCsvStr.split('\n').map(line => line.split(',')));
     };
   } else if (ext === 'tsv') {
     fileReader.readAsText(file);
     fileReader.onload = (e) => {
-      HOT.loadData(e.target.result.split('\n').map(line => line.split('\t')));
+      hot.loadData(e.target.result.split('\n').map(line => line.split('\t')));
     };
   } else if (ext === 'csv') {
     fileReader.readAsText(file);
     fileReader.onload = (e) => {
-      HOT.loadData(e.target.result.split('\n').map(line => line.split(',')));
+      hot.loadData(e.target.result.split('\n').map(line => line.split(',')));
     };
   }
 };
 
+/**
+ * Highlight invalid cells in grid.
+ * @param {Object} hot - Handsontable instance of grid.
+ */
 const validateGrid = (hot) => {
   hot.updateSettings({
     cells: function(row, col, prop) {
       if (row === 0 || row === 1) {
+        // Do not validate read-only cells. Must return the readOnly property
+        // again or it will be lost.
         return {readOnly: true};
       } else {
         if (this.source !== undefined) {
@@ -127,6 +183,7 @@ const validateGrid = (hot) => {
 $(document).ready(() => {
   window.HOT = createHot(DATA);
 
+  // File -> New
   $('#new-dropdown-item, #clear-data-confirm-btn').click((e) => {
     if (e.target.id === 'new-dropdown-item') {
       if ((HOT.countRows() - HOT.countEmptyRows()) !== 2) {
@@ -134,12 +191,14 @@ $(document).ready(() => {
       }
     } else {
       HOT.destroy();
-      window.HOT = createHot();
+      window.HOT = createHot(DATA);
     }
   });
 
-  $('#open-file-input').change(() => {
-    const file = $('#open-file-input')[0].files[0];
+  // File -> Open
+  const $fileInput = $('#open-file-input');
+  $fileInput.change(() => {
+    const file = $fileInput[0].files[0];
     const ext = file.name.split('.').pop();
     const acceptedExts = ['xlsx', 'tsv', 'csv'];
 
@@ -151,9 +210,11 @@ $(document).ready(() => {
       importFile(file, ext, HOT, XLSX);
     }
 
-    $('#open-file-input')[0].value = '';
+    // Allow consecutive uploads of the same file
+    $fileInput[0].value = '';
   });
 
+  // File -> Save
   $('#save-as-confirm-btn').click((e) => {
     try {
       const baseName = $('#base-name-save-as-input').val();
@@ -170,12 +231,13 @@ $(document).ready(() => {
       $('#save-as-err-msg').text(err.message);
     }
   });
-
+  // Reset save modal values when the modal is closed
   $('#save-as-modal').on('hidden.bs.modal', () => {
     $('#save-as-err-msg').text('');
     $('#base-name-save-as-input').val('');
   });
 
+  // Validate
   $('#validate-btn').click(() => void validateGrid(HOT));
 
   $('#view_all_fields, #view_recommended_fields').on('click', function() {

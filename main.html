@@ -7,7 +7,9 @@
     <link rel="stylesheet" href="main.css">
   </head>
   <body>
+    <!-- flex grid -->
     <div class="container-fluid">
+      <!-- buttons above Handsontable grid -->
       <div class="row mt-3" id="header-row">
         <div class="col-8 col-sm-5 col-md-4 col-lg-3">
           <div class="row">
@@ -52,12 +54,14 @@
         </div>
 
       </div>
+      <!-- Handsontable grid -->
       <div class="row mt-3">
         <div class="col">
           <div id="grid"></div>
         </div>
       </div>
     </div>
+    <!-- Modals -->
     <div class="modal" id="clear-data-warning-modal" tabindex="-1" role="dialog">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -134,12 +138,13 @@
         </div>
       </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <script src="handsontable-7.4.2/dist/handsontable.full.min.js"></script>
-    <script type="text/javascript" src="sheetjs-0.15.5/dist/shim.min.js"></script>
-    <script type="text/javascript" src="sheetjs-0.15.5/dist/xlsx.full.min.js"></script>
+    <!-- External libraries -->
+    <script src="libraries/jquery-3.5.1.slim.min.js"></script>
+    <script src="libraries/popper-core-1.16.0/dist/umd/popper.min.js"></script>
+    <script src="libraries/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
+    <script src="libraries/handsontable-7.4.2/dist/handsontable.full.min.js"></script>
+    <script type="text/javascript" src="libraries/sheetjs-0.15.5/dist/shim.min.js"></script>
+    <script type="text/javascript" src="libraries/sheetjs-0.15.5/dist/xlsx.full.min.js"></script>
     <script src="data.js"></script>
     <script src="main.js"></script>
   </body>
