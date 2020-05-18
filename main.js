@@ -115,7 +115,18 @@ $(document).ready(() => {
     const ext = file.name.split('.').pop();
     // TODO: wrap in function
     if (ext === 'xlsx') {
-      return;
+      const fileReader = new FileReader();
+      fileReader.readAsBinaryString(file);
+      fileReader.onload = (e) => {
+        const workbook = XLSX.read(e.target.result, {type: 'binary'});
+        for (const sheetName of workbook.SheetNames) {
+          const sheetCsvStr =
+              XLSX.utils.sheet_to_csv(workbook.Sheets[sheetName]);
+          HOT.loadData(sheetCsvStr.split('\n').map(line => line.split(',')));
+          // Should we handle multiple sheets?
+          break;
+        }
+      };
     } else if (ext === 'tsv') {
       const fileReader = new FileReader();
       fileReader.readAsText(file);
