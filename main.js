@@ -182,7 +182,7 @@ $(document).ready(() => {
 
     const hiddenColumns = [1, 2, 9]
     // access to hiddenColumns plugin instance:
-    const hiddenColumnsPlugin = hot.getPlugin('hiddenColumns');
+    const hiddenColumnsPlugin = HOT.getPlugin('hiddenColumns');
 
     if ($(this).is('#view_all_fields')) {
       hiddenColumnsPlugin.showColumns(hiddenColumns);
@@ -192,7 +192,7 @@ $(document).ready(() => {
     }
 
     // rerender the table to see all changes
-    hot.render();
+    HOT.render();
 
   })
 
