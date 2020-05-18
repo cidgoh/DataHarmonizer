@@ -155,6 +155,8 @@ const validateGrid = (hot) => {
   hot.updateSettings({
     cells: function(row, col, prop) {
       if (row === 0 || row === 1) {
+        // Do not validate read-only cells. Must return the readOnly property
+        // again or it will be lost.
         return {readOnly: true};
       } else {
         if (this.source !== undefined) {
