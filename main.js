@@ -4,6 +4,8 @@ const createHot = (data) => {
     columns: getDropdowns(DATA),
     colHeaders: true,
     rowHeaders: true,
+    fixedRowsTop: 2,
+    fixedColumnsLeft: 1,
     minRows: 1000,
     minSpareRows: 100,
     width: '100%',
@@ -11,8 +13,9 @@ const createHot = (data) => {
     hiddenColumns: {
       copyPasteEnabled: true,
       indicators: true,
-      columns: [1, 2, 5]
+      columns: []
     },
+    licenseKey: 'non-commercial-and-evaluation',
     readOnlyCellClassName: 'read-only',
     cells: (row) => {
       if (row === 0 || row === 1) {
@@ -43,19 +46,6 @@ const getDropdowns = (data) => {
       ret.push({
         type: 'autocomplete',
         source: stringifyNestedVocabulary(vocabulary),
-        validator: function(val, callback) {
-          let isValid = false;
-          for (const validVal of this.source) {
-            if (val.trim().toLowerCase() === validVal.trim().toLowerCase()) {
-              isValid = true;
-              if (val !== validVal) {
-                this.instance.setDataAtCell(this.row, this.col, validVal);
-              }
-              break;
-            }
-          }
-          callback(isValid);
-        },
       });
     } else ret.push({});
   }
@@ -89,6 +79,28 @@ const exportToTsv = (matrix, baseName, xlsx) => {
   xlsx.writeFile(workbook, `${baseName}.tsv`, {bookType: 'csv', FS: '\t'});
 };
 
+const validateGrid = (hot) => {
+  hot.updateSettings({
+    cells: function(row, col, prop) {
+      if (row === 0 || row === 1) {
+        return {readOnly: true};
+      } else {
+        if (this.source !== undefined) {
+          let valid = false;
+          const cellVal = hot.getDataAtCell(row, col);
+          if (cellVal !== null) {
+            if (this.source.map(sourceVal => sourceVal.trim().toLowerCase())
+                .includes(cellVal.trim().toLowerCase())) {
+              valid = true;
+            }
+          }
+          if (!valid) hot.setCellMeta(row, col, 'className', 'invalid-cell');
+        }
+      }
+    },
+  })
+};
+
 $(document).ready(() => {
   window.hot = createHot(DATA);
 
@@ -111,10 +123,16 @@ $(document).ready(() => {
     } else if (ext === 'tsv') {
       return;
     } else if (ext === 'csv') {
-      return;
+      const fileReader = new FileReader();
+      fileReader.readAsText(file);
+      fileReader.onload = (e) => {
+        hot.loadData(e.target.result.split('\n').map(line => line.split(',')));
+      };
     } else {
       $('#open-error-modal').modal('show');
     }
+
+    $('#open-file-input')[0].value = '';
   });
 
   $('#save-as-confirm-btn').click((e) => {
@@ -157,5 +175,7 @@ $(document).ready(() => {
     hot.render();
 
   })
+
+  $('#validate-btn').click(() => void validateGrid(hot));
 
 });
