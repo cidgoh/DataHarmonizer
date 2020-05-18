@@ -158,6 +158,8 @@ $(document).ready(() => {
   });
 
 
+  $('#validate-btn').click(() => void validateGrid(hot));
+
   $('#view_all_fields, #view_recommended_fields').on('click', function() {
 
     const hiddenColumns = [1, 2, 9]
@@ -175,7 +177,5 @@ $(document).ready(() => {
     hot.render();
 
   })
-
-  $('#validate-btn').click(() => void validateGrid(hot));
 
 });

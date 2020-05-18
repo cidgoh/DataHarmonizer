@@ -32,7 +32,7 @@
 
 /* table.htCore happens in multiple places so have to exclude .handsontableInputHolder etc. */
 div#grid > div:not(.handsontableInputHolder) table.htCore tbody > tr:nth-child(1) > td {
-	height:52px;
+	height:42px;
 }
 div#grid > div:not(.handsontableInputHolder) table.htCore tbody > tr > td:first-child {
 	max-width:190px;
