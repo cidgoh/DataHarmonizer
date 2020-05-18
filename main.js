@@ -75,33 +75,25 @@ const exportToTsv = (matrix, baseName, xlsx) => {
 };
 
 const importFile = (file, ext, hot, xlsx) => {
+  const fileReader = new FileReader();
   if (ext === 'xlsx') {
-    const fileReader = new FileReader();
     fileReader.readAsBinaryString(file);
     fileReader.onload = (e) => {
       const workbook = XLSX.read(e.target.result, {type: 'binary'});
-      for (const sheetName of workbook.SheetNames) {
-        const sheetCsvStr =
-            XLSX.utils.sheet_to_csv(workbook.Sheets[sheetName]);
-        HOT.loadData(sheetCsvStr.split('\n').map(line => line.split(',')));
-        // Should we handle multiple sheets?
-        break;
-      }
+      const firstSheet = workbook.Sheets[workbook.SheetNames[0]];
+      const sheetCsvStr = XLSX.utils.sheet_to_csv(firstSheet);
+      HOT.loadData(sheetCsvStr.split('\n').map(line => line.split(',')));
     };
   } else if (ext === 'tsv') {
-    const fileReader = new FileReader();
     fileReader.readAsText(file);
     fileReader.onload = (e) => {
       HOT.loadData(e.target.result.split('\n').map(line => line.split('\t')));
     };
   } else if (ext === 'csv') {
-    const fileReader = new FileReader();
     fileReader.readAsText(file);
     fileReader.onload = (e) => {
       HOT.loadData(e.target.result.split('\n').map(line => line.split(',')));
     };
-  } else {
-    $('#open-error-modal').modal('show');
   }
 };
 
