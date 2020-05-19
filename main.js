@@ -213,6 +213,31 @@ const validateGrid = (hot) => {
   })
 };
 
+/**
+ * Modify visibility of fields in grid. This function should only be called
+ * after clicking a DOM element used to toggle field visibilities.
+ * @param {String} id Id of element clicked to trigger this function.
+ * @param {Object} data See `data.js`.
+ * @param {Object} hot Handsontable instance of grid.
+ */
+const showFields = (id, data, hot) => {
+  const hiddenColumns = [];
+  if (id === 'view-required-fields') {
+    const fields =
+        Array.prototype.concat.apply([], data.map(parent => parent.children));
+    fields.forEach(function(field, i) {
+      if (field.requirement === '') hiddenColumns.push(i);
+    });
+  }
+  hot.updateSettings({
+    hiddenColumns: {
+      copyPasteEnabled: true,
+      indicators: true,
+      columns: hiddenColumns,
+    },
+  });
+};
+
 $(document).ready(() => {
   window.HOT = createHot(DATA);
 
@@ -274,14 +299,7 @@ $(document).ready(() => {
   $('#validate-btn').click(() => void validateGrid(HOT));
 
   // Show fields
-  $('#view_all_fields, #view_recommended_fields').on('click', (e) => {
-    const hiddenColumns = [1, 2, 9]
-    const hiddenColumnsPlugin = HOT.getPlugin('hiddenColumns');
-    if (e.target.id === 'view_all_fields') {
-      hiddenColumnsPlugin.showColumns(hiddenColumns);
-    } else {
-      hiddenColumnsPlugin.hideColumns(hiddenColumns);
-    }
-    HOT.render();
+  $('#view-all-fields, #view-required-fields').click(function(e) {
+    showFields(e.target.id, DATA, HOT);
   });
 });
