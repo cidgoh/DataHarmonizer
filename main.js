@@ -10,13 +10,11 @@
  * @return {Object} Handsontable instance.
  */
 const createHot = (data) => {
-  const hot = new Handsontable($('#grid')[0], {
-    data: getHeaders(DATA),
+  return Handsontable($('#grid')[0], {
+    nestedHeaders: getNestedHeaders(DATA),
     columns: getDropdowns(DATA),
     colHeaders: true,
     rowHeaders: true,
-    fixedRowsTop: 2,
-    fixedColumnsLeft: 1,
     minRows: 1000,
     minSpareRows: 100,
     width: '100%',
@@ -30,25 +28,29 @@ const createHot = (data) => {
     readOnlyCellClassName: 'read-only',
     afterRender: () => void $('#header-row').css('visibility', 'visible'),
   });
-
-  hot.updateSettings({
-    cells: function(row, col) {
-      addClassNamesToCell(row, col, hot);
-      if (row === 0 || row === 1) {
-        return {readOnly: true};
-      }
-    },
-  });
-
-  return hot;
 };
 
 /**
- * Create a matrix containing the first two rows of the grid.
+ * Create a matrix containing the nested headers supplied to Handsontable.
  * @param {Object} data - See `data.js`.
- * @return {Array<Array<String>>} First two rows of the grid.
+ * @return {Array<Array>} Nested headers for Handontable grid.
  */
-const getHeaders = (data) => {
+const getNestedHeaders = (data) => {
+  const rows = [[], []];
+  for (const parent of data) {
+    rows[0].push({label: parent.fieldName, colspan: parent.children.length})
+    rows[1].push(...parent.children.map(child => child.fieldName));
+  }
+  return rows;
+};
+
+/**
+ * Create a matrix containing the grid's headers. Empty strings are used to
+ * indicate merged cells.
+ * @param {Object} data - See `data.js`.
+ * @return {Array<Array<String>>} Grid headers.
+ */
+const getFlatHeaders = (data) => {
   const rows = [[], []];
   for (const parent of data) {
     rows[0].push(parent.fieldName);
@@ -103,58 +105,28 @@ const stringifyNestedVocabulary = (vocabulary, level=0) => {
 };
 
 /**
- * Add varying classes to to a grid cell.
- * @param {number} row Cell row.
- * @param {number} col Cell column.
- * @param {Object} hot Handsontable instance of grid.
+ * Download grid headers and data to file.
+ * @param {Array<Array<String>>} matrix Grid data.
+ * @param {String} baseName Basename of downloaded file.
+ * @param {String} ext Extension of downloaded file.
+ * @param {Object} xlsx SheetJS variable.
  */
-const addClassNamesToCell = (row, col, hot) => {
-    const classNames = [];
-    const val = hot.getDataAtCell(row, col);
-
-    if (row === 0) {
-      if (val !== '') {
-        classNames.push('primary-header-cell');
-      } else {
-        classNames.push('empty-primary-header-cell');
-      }
-    } else if (row === 1) {
-      classNames.push('secondary-header-cell');
-    } else {
-      classNames.push('non-header-cell');
-    }
-
-    hot.setCellMeta(row, col, 'className', classNames.join(' '));
-};
-
-/**
- * Write data to `xlsx` file.
- * @param {Array<Array<String>>} matrix - Data to write to `xlsx` file.
- * @param {String} baseName - Basename of file to write.
- * @param {Object} xlsx - SheetJS variable.
- */
-const exportToXlsx = (matrix, baseName, xlsx) => {
+const exportFile = (matrix, baseName, ext, xlsx) => {
   const worksheet = xlsx.utils.aoa_to_sheet(matrix);
   const workbook = xlsx.utils.book_new();
   xlsx.utils.book_append_sheet(workbook, worksheet, 'Sheet1');
-  xlsx.writeFile(workbook, `${baseName}.xlsx`);
+  if (ext === 'xlsx') {
+    xlsx.writeFile(workbook, `${baseName}.xlsx`);
+  } else if (ext === 'tsv') {
+    xlsx.writeFile(workbook, `${baseName}.tsv`, {bookType: 'csv', FS: '\t'});
+  } else if (ext === 'csv') {
+    xlsx.writeFile(workbook, `${baseName}.csv`, {bookType: 'csv', FS: ','});
+  }
 };
 
 /**
- * Write data to `tsv` file.
- * @param {Array<Array<String>>} matrix - Data to write to `xlsx` file.
- * @param {String} baseName - Basename of file to write.
- * @param {Object} xlsx - `SheetJS` variable.
- */
-const exportToTsv = (matrix, baseName, xlsx) => {
-  const worksheet = xlsx.utils.aoa_to_sheet(matrix);
-  const workbook = xlsx.utils.book_new();
-  xlsx.utils.book_append_sheet(workbook, worksheet, 'Sheet1');
-  xlsx.writeFile(workbook, `${baseName}.tsv`, {bookType: 'csv', FS: '\t'});
-};
-
-/**
- * Upload user file data to grid.
+ * Upload user file data to grid. We are are assuming the uploaded file has the
+ * same headers as our grid.
  * @param {File} file - User file.
  * @param {String} ext - User file extension.
  * @param {Object} hot - Handsontable instance of grid.
@@ -168,17 +140,23 @@ const importFile = (file, ext, hot, xlsx) => {
       const workbook = xlsx.read(e.target.result, {type: 'binary'});
       const firstSheet = workbook.Sheets[workbook.SheetNames[0]];
       const sheetCsvStr = xlsx.utils.sheet_to_csv(firstSheet);
-      hot.loadData(sheetCsvStr.split('\n').map(line => line.split(',')));
+      const matrix =
+          sheetCsvStr.split('\n').map(line => line.split(',')).slice(2);
+      hot.loadData(matrix);
     };
   } else if (ext === 'tsv') {
     fileReader.readAsText(file);
     fileReader.onload = (e) => {
-      hot.loadData(e.target.result.split('\n').map(line => line.split('\t')));
+      const matrix =
+          e.target.result.split('\n').map(line => line.split('\t')).slice(2);
+      hot.loadData(matrix);
     };
   } else if (ext === 'csv') {
     fileReader.readAsText(file);
     fileReader.onload = (e) => {
-      hot.loadData(e.target.result.split('\n').map(line => line.split(',')));
+      const matrix =
+          e.target.result.split('\n').map(line => line.split(',')).slice(2);
+      hot.loadData(matrix);
     };
   }
 };
@@ -190,12 +168,7 @@ const importFile = (file, ext, hot, xlsx) => {
 const validateGrid = (hot) => {
   hot.updateSettings({
     cells: function(row, col) {
-      addClassNamesToCell(row, col, hot)
-      if (row === 0 || row === 1) {
-        // Do not validate read-only cells. Must set props again.
-        return {readOnly: true};
-      } else {
-        if (this.source !== undefined) {
+      if (this.source !== undefined) {
           let valid = false;
           const cellVal = hot.getDataAtCell(row, col);
           if (cellVal !== null) {
@@ -208,8 +181,7 @@ const validateGrid = (hot) => {
           const invalidClass = `${this.className} invalid-cell`
           if (!valid) hot.setCellMeta(row, col, 'className', invalidClass);
         }
-      }
-    },
+      },
   })
 };
 
@@ -226,7 +198,7 @@ const showFields = (id, data, hot) => {
     const fields =
         Array.prototype.concat.apply([], data.map(parent => parent.children));
     fields.forEach(function(field, i) {
-      if (field.requirement === '') hiddenColumns.push(i);
+      if (field.requirement !== 'required') hiddenColumns.push(i);
     });
   }
   hot.updateSettings({
@@ -244,7 +216,7 @@ $(document).ready(() => {
   // File -> New
   $('#new-dropdown-item, #clear-data-confirm-btn').click((e) => {
     if (e.target.id === 'new-dropdown-item') {
-      if ((HOT.countRows() - HOT.countEmptyRows()) !== 2) {
+      if (HOT.countRows() - HOT.countEmptyRows()) {
         $('#clear-data-warning-modal').modal('show');
       }
     } else {
@@ -277,13 +249,8 @@ $(document).ready(() => {
     try {
       const baseName = $('#base-name-save-as-input').val();
       const ext = $('#file-ext-save-as-select').val();
-      if (ext === 'xlsx') {
-        exportToXlsx(HOT.getData(), baseName, XLSX);
-      } else if (ext === 'tsv') {
-        exportToTsv(HOT.getData(), baseName, XLSX);
-      } else if (ext === 'csv') {
-        HOT.getPlugin('exportFile').downloadFile('csv', {filename: baseName});
-      }
+      const matrix = [...getFlatHeaders(DATA), ...HOT.getData()];
+      exportFile(matrix, baseName, ext, XLSX);
       $('#save-as-modal').modal('hide');
     } catch (err) {
       $('#save-as-err-msg').text(err.message);
