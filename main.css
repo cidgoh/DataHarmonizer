@@ -30,6 +30,7 @@
     border: 1px dotted red !important;
 }
 
+.handsontable .htAutocompleteArrow {color:gray;}
 .user_data table.htCore thead tr:nth-child(2) th {
 	cursor:pointer;
 	/* white-space: pre-wrap; */

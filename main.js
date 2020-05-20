@@ -100,13 +100,17 @@ const getColumns = (data) => {
         break;
     }
 
+    // case: field.datatype = 'select'
     if (Object.keys(field.vocabulary).length) {
       column.type = 'autocomplete';
+      column.className = 'selection';
+      //column.strict = 'true'; // Issue: shows red for selections that have leading spaces
       column.source = stringifyNestedVocabulary(field.vocabulary);
     }
     else // Special case: field is a country list. 
       if (field.fieldName.indexOf('(country)') > 0) {
         column.type = 'autocomplete';
+        column.strict = 'true';
         column.source = stringifyNestedVocabulary(window.FIELD_INDEX['geo_loc_name (country)'].vocabulary);
       }
 
