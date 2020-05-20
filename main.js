@@ -319,12 +319,20 @@ $(document).ready(() => {
   // First render of sheet doesnt trigger tableHeaderCallback, so have to do this
   showFields('view-all-fields', DATA, HOT)
 
+  $('#grid thead > tr:nth-child(2) th').on('dblclick', function(e, item) {
+    if (this.innerText.length > 0) {
+      let field = window.FIELD_INDEX[this.innerText];
+      let comment = '\nLabel: '+ field.fieldName + '\n\nDescription:' + field.description + '\n\nGuidance: ' + field.guidance + '\n\nExample: '+ field.examples
+      alert(comment)
+    }
+  });
+
+
   function tableHeaderCallback (column, TH){
     if (column >= 0) {
       if (TH.innerText in window.FIELD_INDEX) {
         // We have to dynamically generate the guidanceModel call each time a 
         // th cell is created due to scrolling
-        TH.ondblclick = function () {guidanceModal(TH)}
         const className = window.FIELD_INDEX[TH.innerText].requirement
         if (className) {
           TH.className += className
@@ -333,11 +341,5 @@ $(document).ready(() => {
     }
   }
 
-  // Provide modal containing description, guidance, and examples for this column.
-  function guidanceModal(TH) {
-    let field = window.FIELD_INDEX[TH.innerText];
-    let comment = '\nLabel: '+ field.fieldName + '\n\nDescription:' + field.description + '\n\nGuidance: ' + field.guidance + '\n\nExample: '+ field.examples
-    alert(comment)
-  }
 
 });
