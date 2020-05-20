@@ -27,5 +27,41 @@
 }
 
 .invalid-cell {
-    background-color: red !important;
+    border: 1px dotted red !important;
 }
+
+.user_data table.htCore thead tr:nth-child(2) th {
+	font-weight:bold;
+	cursor:pointer;
+	white-space: normal;
+}
+.user_data table.htCore th.required {background-color:yellow}
+.user_data table.htCore th.recommended {background-color:plum}
+
+.user_data table.htCore > thead > tr:first-child > th {
+	border-right:2px solid gray;
+	text-align: left;
+	font-weight: bold;
+	font-size:1.3rem;
+	padding:5px 5px 0px 3px;
+}
+
+.user_data table.htCore > thead > tr:nth-child(2) th:nth-child(2) {
+	border-right:2px solid gray;
+}
+
+.user_data table.htCore > thead > tr:nth-child(2) th + th + th{
+	border-bottom:2px solid gray;
+}
+
+.user_data table.htCore > tbody > tr td:nth-child(2) {
+	border-right:2px solid gray;
+}
+
+/* Extra highlite on dropdown selection box choices */
+.handsontable.listbox td {
+	border-radius:4px;
+	border:1px solid silver;
+	background-color: #DDD;
+}
+

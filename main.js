@@ -12,13 +12,17 @@
 const createHot = (data) => {
   return Handsontable($('#grid')[0], {
     nestedHeaders: getNestedHeaders(DATA),
-    columns: getDropdowns(DATA),
+    columns: getColumns(DATA),
+    comments: true,
+    //cell: getComments(DATA),
     colHeaders: true,
     rowHeaders: true,
-    minRows: 1000,
+    minRows: 100,
     minSpareRows: 100,
     width: '100%',
     height: '75vh',
+    className:'user_data',
+    fixedColumnsLeft: 1,
     hiddenColumns: {
       copyPasteEnabled: true,
       indicators: true,
@@ -61,26 +65,57 @@ const getFlatHeaders = (data) => {
 };
 
 /**
- * Create an array of cell properties specifying autocomplete data for all grid
- * columns.
+ * Create an array of cell properties specifying autocomplete data, type, etc
+ * for all grid columns.
  * @param {Object} data - See `data.js`.
  * @return {Array<Object>} Cell properties for each grid column.
  */
-const getDropdowns = (data) => {
+const getColumns = (data) => {
   const fields =
       Array.prototype.concat.apply([], data.map(parent => parent.children));
-  const vocabularies = fields.map(child => child.vocabulary);
-  const ret = [];
-  for (const vocabulary of vocabularies) {
-    if (Object.keys(vocabulary).length) {
-      ret.push({
-        type: 'autocomplete',
-        source: stringifyNestedVocabulary(vocabulary),
-      });
-    } else ret.push({});
+  let ret = [];
+  window.FIELD_INDEX = {} // used in afterGetColHeader callback
+
+  for (const field of fields) {
+
+    let column = {}
+
+    window.FIELD_INDEX[field.fieldName] = field;
+
+    if (field.requirement.length > 0)
+      column.requirement = field.requirement;
+
+    switch (field.datatype) {
+      case 'integer': 
+        column.type = 'numeric';
+        column.numericFormat = {mantissa: 0}; // Does it conver number?
+        break;
+      case 'decimal':
+        column.type = 'numeric';
+        //column.numericFormat = '0.0';
+        break;
+      case 'date': 
+        column.type = 'date';
+        column.dateFormat = 'YYYY/MM/DD';
+        break;
+    }
+
+    if (Object.keys(field.vocabulary).length) {
+      column.type = 'autocomplete';
+      column.source = stringifyNestedVocabulary(field.vocabulary);
+    }
+    else // Special case: field is a country list. 
+      if (field.fieldName.indexOf('(country)') > 0) {
+        column.type = 'autocomplete';
+        column.source = stringifyNestedVocabulary(window.FIELD_INDEX['geo_loc_name (country)'].vocabulary);
+      }
+
+    ret.push(column)
+
   }
   return ret;
 };
+
 
 /**
  * Recursively flatten vocabulary into an array of strings, with each string's
@@ -213,6 +248,9 @@ const showFields = (id, data, hot) => {
 $(document).ready(() => {
   window.HOT = createHot(DATA);
 
+  // This is called frequently with sideways scrolling since table viewport is dynamic.
+  Handsontable.hooks.add('afterGetColHeader', myCallback, window.HOT);
+
   // File -> New
   $('#new-dropdown-item, #clear-data-confirm-btn').click((e) => {
     if (e.target.id === 'new-dropdown-item') {
@@ -222,6 +260,10 @@ $(document).ready(() => {
     } else {
       HOT.destroy();
       window.HOT = createHot(DATA);
+
+      // repeat of above
+      Handsontable.hooks.add('afterGetColHeader', myCallback, window.HOT);
+
     }
   });
 
@@ -269,4 +311,26 @@ $(document).ready(() => {
   $('#view-all-fields, #view-required-fields').click(function(e) {
     showFields(e.target.id, DATA, HOT);
   });
+
+  function myCallback (column, TH){
+    if (column >= 0) {
+      if (TH.innerText in window.FIELD_INDEX) {
+        // We have to dynamically generate the guidanceModel call each time a 
+        // th cell is created due to scrolling
+        TH.onclick = function () {guidanceModal(TH)}
+        const className = window.FIELD_INDEX[TH.innerText].requirement
+        if (className) {
+          TH.className += className
+        }
+      }
+    }
+  }
+
+  // Provide modal containing description, guidance, and examples for this column.
+  function guidanceModal(TH) {
+    let field = window.FIELD_INDEX[TH.innerText];
+    let comment = '\nLabel: '+ field.fieldName + '\n\nDescription:' + field.description + '\n\nGuidance: ' + field.guidance + '\n\nExample: '+ field.examples
+    alert(comment)
+  }
+
 });

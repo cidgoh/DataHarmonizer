@@ -31,6 +31,9 @@ with open(r_filename) as tsvfile:
 	    				'fieldName': row['label'], 
 	    				'datatype': row['datatype'],
 	    				'requirement': row['requirement'],
+	    				'description': row['description'],
+	    				'guidance': row['guidance'],
+	    				'examples': row['examples'],
 	    				'vocabulary': collections.OrderedDict()
 	    			}
 	    			section['children'].append(field)
