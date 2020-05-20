@@ -321,7 +321,7 @@ $(document).ready(() => {
       if (TH.innerText in window.FIELD_INDEX) {
         // We have to dynamically generate the guidanceModel call each time a 
         // th cell is created due to scrolling
-        TH.onclick = function () {guidanceModal(TH)}
+        TH.ondblclick = function () {guidanceModal(TH)}
         const className = window.FIELD_INDEX[TH.innerText].requirement
         if (className) {
           TH.className += className
