@@ -31,14 +31,14 @@
 }
 
 .handsontable .htAutocompleteArrow {color:gray;}
-.user_data table.htCore thead tr:nth-child(2) th {
+#grid table.htCore thead tr:nth-child(2) th {
 	cursor:pointer;
 	/* white-space: pre-wrap; */
 }
-.user_data table.htCore th.required {background-color:yellow}
-.user_data table.htCore th.recommended {background-color:plum}
+#grid table.htCore th.required {background-color:yellow}
+#grid table.htCore th.recommended {background-color:plum}
 
-.user_data table.htCore > thead > tr:first-child > th {
+#grid table.htCore > thead > tr:first-child > th {
 	border-right:2px solid gray;
 	text-align: left;
 	font-weight: bold;
@@ -46,15 +46,15 @@
 	padding:5px 5px 0px 3px;
 }
 
-.user_data table.htCore > thead > tr:nth-child(2) th:nth-child(2) {
+#grid table.htCore > thead > tr:nth-child(2) th:nth-child(2) {
 	border-right:2px solid gray;
 }
 
-.user_data table.htCore > thead > tr:nth-child(2) th + th + th{
+#grid table.htCore > thead > tr:nth-child(2) th + th + th{
 	border-bottom:2px solid gray;
 }
 
-.user_data table.htCore > tbody > tr td:nth-child(2) {
+#grid table.htCore > tbody > tr td:nth-child(2) {
 	border-right:2px solid gray;
 }
 

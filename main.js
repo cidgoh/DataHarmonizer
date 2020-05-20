@@ -21,7 +21,6 @@ const createHot = (data) => {
     minSpareRows: 100,
     width: '100%',
     height: '75vh',
-    className:'user_data',
     fixedColumnsLeft: 1,
     hiddenColumns: {
       copyPasteEnabled: true,
