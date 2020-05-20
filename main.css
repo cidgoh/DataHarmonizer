@@ -31,9 +31,8 @@
 }
 
 .user_data table.htCore thead tr:nth-child(2) th {
-	font-weight:bold;
 	cursor:pointer;
-	white-space: normal;
+	/* white-space: pre-wrap; */
 }
 .user_data table.htCore th.required {background-color:yellow}
 .user_data table.htCore th.recommended {background-color:plum}
