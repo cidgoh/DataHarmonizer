@@ -37,7 +37,7 @@ const DATA = [
         description: 'The INSDC accession number assigned to the umbrella BioProject for the Canadian SARS-CoV-2 sequencing effort.',
         guidance: 'Store the umbrella BioProject accession by selecting it from the pick list in the template. The umbrella BioProject accession will be identical for all CanCOGen submitters. Different provinces will have their own BioProjects, however these BioProjects will be linked under one umbrella BioProject.',
         examples: 'PRJNA623807',
-        'vocabulary': {
+        vocabulary: {
           'PRJNA623807': {},
         },
       },
@@ -162,7 +162,7 @@ const DATA = [
         description: 'The country where the sample was collected.',
         guidance: 'Provide the country name from the controlled vocabulary provided.',
         examples: 'Canada',
-        'vocabulary': {
+        vocabulary: {
           'Afghanistan': {},
           'Albania': {},
           'Algeria': {},
@@ -444,7 +444,7 @@ const DATA = [
         description: 'The province/territory where the sample was collected.',
         guidance: 'Provide the province/territory name from the controlled vocabulary provided.',
         examples: 'Saskatchewan',
-        'vocabulary': {
+        vocabulary: {
           'ALBERTA': {},
           'BRITISH COLUMBIA': {},
           'MANITOBA': {},
@@ -477,7 +477,7 @@ const DATA = [
         description: 'Taxonomic name of the organism.',
         guidance: 'Use SARS-CoV-2. This value is provided in the template.',
         examples: 'SARS-CoV-2',
-        'vocabulary': {
+        vocabulary: {
           'SARS-CoV-2': {},
           'RaTG13': {},
           'RmYN02': {},
@@ -500,7 +500,7 @@ const DATA = [
         description: 'The reason that the sample was collected.',
         guidance: 'Provide the purpose of sampling from the picklist in the template.',
         examples: 'Diagnostic testing',
-        'vocabulary': {
+        vocabulary: {
           'Cluster investigation': {},
           'Diagnostic testing': {},
           'Research': {},
@@ -516,7 +516,7 @@ const DATA = [
         description: 'A substance obtained from an anatomical part of an organism e.g. tissue, blood.',
         guidance: 'Provide a descriptor if an anatomical material was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, use this look-up service to identify a standardized term: https://www.ebi.ac.uk/ols/ontologies/uberon. If not applicable, leave blank.',
         examples: 'Blood',
-        'vocabulary': {
+        vocabulary: {
           'Blood': {},
           'Fluid': {
             'Saliva': {},
@@ -538,7 +538,7 @@ const DATA = [
         description: 'An anatomical part of an organism e.g. oropharynx.',
         guidance: 'Provide a descriptor if an anatomical part was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, use this look-up service to identify a standardized term: https://www.ebi.ac.uk/ols/ontologies/uberon. If not applicable, leave blank.',
         examples: 'Nasopharynx',
-        'vocabulary': {
+        vocabulary: {
           'Anus': {},
           'Duodenum': {},
           'Eye': {},
@@ -578,7 +578,7 @@ const DATA = [
         description: 'A substance excreted/secreted from an organism e.g. feces, urine, sweat.',
         guidance: 'Provide a descriptor if a body product was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, use this look-up service to identify a standardized term: https://www.ebi.ac.uk/ols/ontologies/uberon. If not applicable, leave blank.',
         examples: 'Feces',
-        'vocabulary': {
+        vocabulary: {
           'Feces': {},
           'Urine': {},
           'Sweat': {},
@@ -596,7 +596,7 @@ const DATA = [
         description: 'A substance obtained from the natural or man-made environment e.g. soil, water, sewage.',
         guidance: 'Provide a descriptor if an environmental material was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, use this look-up service to identify a standardized term: https://www.ebi.ac.uk/ols/ontologies/envo. If not applicable, leave blank.',
         examples: 'Face mask',
-        'vocabulary': {
+        vocabulary: {
           'Banknote': {},
           'Bathroom': {},
           'Bed rail': {},
@@ -637,7 +637,7 @@ const DATA = [
         description: 'An environmental location may describe a site in the natural or built environment e.g. contact surface, metal can, hospital, wet market, bat cave.',
         guidance: 'Provide a descriptor if an environmental site was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, use this look-up service to identify a standardized term: https://www.ebi.ac.uk/ols/ontologies/envo. If not applicable, leave blank.',
         examples: 'Building floor',
-        'vocabulary': {
+        vocabulary: {
           'Acute care facility': {},
           'Air vent': {},
           'Animal house': {},
@@ -667,7 +667,7 @@ const DATA = [
         description: 'The instrument or container used to collect the sample e.g. swab.',
         guidance: 'Provide a descriptor if a device was used for sampling. Use the picklist provided in the template. If a desired term is missing from the picklist, use this look-up service to identify a standardized term: https://www.ebi.ac.uk/ols/ontologies/obi. If not applicable, leave blank.',
         examples: 'Swab',
-        'vocabulary': {
+        vocabulary: {
           'Air filter': {},
           'Blood Collection Tube': {},
           'Bronchoscope': {},
@@ -694,7 +694,7 @@ const DATA = [
         description: 'The process used to collect the sample e.g. phlebotamy, necropsy.',
         guidance: 'Provide a descriptor if a collection method was used for sampling. Use the picklist provided in the template. If a desired term is missing from the picklist, use this look-up service to identify a standardized term: https://www.ebi.ac.uk/ols/ontologies/obi. If not applicable, leave blank.',
         examples: 'Bronchoalveolar lavage (BAL)',
-        'vocabulary': {
+        vocabulary: {
           'Amniocentesis': {},
           'Aspiration': {
             'Suprapubic Aspiration': {},
@@ -728,7 +728,7 @@ const DATA = [
         description: 'The name and version of a particular protocol used for sampling.',
         guidance: 'Free text.',
         examples: 'BCRonaSamplingProtocol v. 1.2',
-        'vocabulary': {},
+        vocabulary: {},
       },
       {
         fieldName: 'specimen processing',
@@ -738,7 +738,7 @@ const DATA = [
         description: 'Any processing applied to the sample during or after receiving the sample.',
         guidance: 'Critical for passage history. If virus was passaged, select \'virus passage\' from the picklist. If the sample was not passaged, put \'not applicable\'.',
         examples: 'Virus passage',
-        'vocabulary': {
+        vocabulary: {
           'Virus passage': {},
           'NOT APPLICABLE': {},
         },
@@ -751,7 +751,7 @@ const DATA = [
         description: 'Name and description of the laboratory host used to propagate the source organism or material from which the sample was obtained.',
         guidance: 'Type of cell line used for propagation. Provide the name of the cell line using the picklist in the template. If not passaged, put \'not applicable\'.',
         examples: 'Vero E6 cell line',
-        'vocabulary': {
+        vocabulary: {
           '293/ACE2 cell line': {},
           'Caco2 cell line': {},
           'Calu3 cell line': {},
@@ -797,7 +797,7 @@ const DATA = [
         description: 'The biomaterial extracted from samples for the purpose of sequencing.',
         guidance: 'Provide the biomaterial extracted from the picklist in the template.',
         examples: 'RNA (total)',
-        'vocabulary': {
+        vocabulary: {
           'RNA (total),': {},
           'RNA (poly-A),': {},
           'RNA (ribo-depleted),': {},
@@ -817,7 +817,7 @@ const DATA = [
         description: 'The commonly used name of the host.',
         guidance: 'Common name or scientific name are required if there was a host. Both can be provided, if known. Use terms from the pick lists in the template. Common name e.g. human, bat. If the sample was environmental, put \'not applicable.',
         examples: 'Human',
-        'vocabulary': {
+        vocabulary: {
           'Human': {},
           'Bat': {},
           'Cat': {},
@@ -840,7 +840,7 @@ const DATA = [
         description: 'The taxonomic, or scientific name of the host.',
         guidance: 'Common name or scientific name are required if there was a host. Both can be provided, if known. Use terms from the pick lists in the template. Scientific name e.g. Homo sapiens, If the sample was environmental, put \'not applicable',
         examples: 'Homo sapiens',
-        'vocabulary': {
+        vocabulary: {
           'Homo sapiens': {},
           'Bos taurus': {},
           'Canis lupus familiaris': {},
@@ -866,7 +866,7 @@ const DATA = [
         description: 'Health status of the host at the time of sample collection.',
         guidance: 'If known, select a descriptor from the pick list provided in the template.',
         examples: 'sick',
-        'vocabulary': {
+        vocabulary: {
           'healthy': {},
           'sick': {},
           'recovered': {},
@@ -882,7 +882,7 @@ const DATA = [
         description: 'Further details pertaining to the health or disease status of the host at time of collection.',
         guidance: 'If known, select a descriptor from the pick list provided in the template.',
         examples: 'Hospitalized (ICU)',
-        'vocabulary': {
+        vocabulary: {
           'Self-quarantining': {},
           'Asymptomatic': {},
           'Symptomatic': {},
@@ -898,7 +898,7 @@ const DATA = [
         description: 'The name of the disease experienced by the host.',
         guidance: 'Select \'COVID-19\' from the pick list provided in the template.',
         examples: 'COVID-19',
-        'vocabulary': {
+        vocabulary: {
           'COVID-19': {},
         },
       },
@@ -919,7 +919,7 @@ const DATA = [
         description: 'The gender of the host at the time of sample collection.',
         guidance: 'Select the corresponding host gender from the pick list provided in the template. If not available, put \'unknown\'.',
         examples: 'male',
-        'vocabulary': {
+        vocabulary: {
           'female': {},
           'male': {},
           'non-binary gender': {},
@@ -937,7 +937,7 @@ const DATA = [
         description: 'The country of residence of the host.',
         guidance: 'Select the country name from pick list provided in the template.',
         examples: 'United Kingdom',
-        'vocabulary': {},
+        vocabulary: {},
       },
       {
         fieldName: 'host subject ID',
@@ -965,7 +965,7 @@ const DATA = [
         description: 'A perceived change in function or sensation, (loss, disturbance or appearance) indicative of a disease, reported by a patient.',
         guidance: 'Provide a list of symptoms experienced by the host. List in order of appearance, separated by a comma.',
         examples: 'Cough, Fever, Chills',
-        'vocabulary': {
+        vocabulary: {
           'Ageusia': {},
           'Anosmia': {},
           'Arthralgia (painful joints)': {},
@@ -1020,7 +1020,7 @@ const DATA = [
         description: 'The country where the host was likely exposed to the causative agent of the illness.',
         guidance: 'Select the country name from pick list provided in the template.',
         examples: 'Canada',
-        'vocabulary': {},
+        vocabulary: {},
       },
       {
         fieldName: 'travel history',
@@ -1039,7 +1039,7 @@ const DATA = [
         description: 'Event leading to exposure.',
         guidance: 'Select an exposure event from the pick list provided in the template. If the desired term is missing, contact the curation team.',
         examples: 'Mass gathering (convention)',
-        'vocabulary': {
+        vocabulary: {
           'mass gathering (convention)': {},
           'mass gathering (religious)': {},
           'mass gathering (social e.g. funeral, wedding etc.)': {},
@@ -1074,7 +1074,7 @@ const DATA = [
         description: 'The model of the sequencing instrument used.',
         guidance: 'Select a sequencing instrument from the picklist provided in the template.',
         examples: 'MinIon',
-        'vocabulary': {
+        vocabulary: {
           'ILLUMINA': {
             'HiSeq X': {
               'HiSeq X Five': {},
@@ -1196,7 +1196,7 @@ const DATA = [
         description: 'The name and version number of the assembly method used.',
         guidance: 'Provide the software name followed by the version e.g. Canu v. 2.0',
         examples: 'Canu v. 2.0',
-        'vocabulary': {},
+        vocabulary: {},
       },
       {
         fieldName: 'assembly coverage breadth',
