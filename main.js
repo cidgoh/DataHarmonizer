@@ -5,6 +5,28 @@
  */
 
 /**
+ * Post-processing of values in `data.js` at runtime.
+ * Currently only adds country vocabulary to all fields that need it.
+ * TODO: this logic should be in the python script that creates `data.json`
+ * @param {Object} data See `data.js`.
+ * @return {Object} Processed values of `data.js`.
+ */
+const processData = (data) => {
+  const fields =
+      Array.prototype.concat.apply([], data.map(parent => parent.children));
+  const countryField =
+      fields.filter(field => field.fieldName === 'geo_loc_name (country)')[0];
+  for (const parent of data) {
+    for (const child of parent.children) {
+      if (child.fieldName.includes('(country')) {
+        child.vocabulary = countryField.vocabulary;
+      }
+    }
+  }
+  return data;
+};
+
+/**
  * Create a blank instance of Handsontable.
  * @param {Object} data - See `data.js`.
  * @return {Object} Handsontable instance.
@@ -82,63 +104,39 @@ const getFlatHeaders = (data) => {
 };
 
 /**
- * Create an array of cell properties specifying autocomplete data, type, etc
+ * Create an array of cell properties specifying data type and validation logic
  * for all grid columns.
  * @param {Object} data - See `data.js`.
  * @return {Array<Object>} Cell properties for each grid column.
  */
 const getColumns = (data) => {
+  let ret = [];
   const fields =
       Array.prototype.concat.apply([], data.map(parent => parent.children));
-  let ret = [];
-  window.FIELD_INDEX = {} // used in afterGetColHeader callback
-
   for (const field of fields) {
-
-    let column = {}
-
-    window.FIELD_INDEX[field.fieldName] = field;
-
-    if (field.requirement.length > 0)
-      column.requirement = field.requirement;
-
-    switch (field.datatype) {
-
-      case 'integer': 
-        column.type = 'numeric';
-        column.numericFormat = {}; // Not sure how to force integer validation
-        break;
-
-      case 'decimal':
-        column.type = 'numeric';
-        //column.numericFormat = '0.0';
-        break;
-
-      case 'date': 
-        column.type = 'date';
-        column.dateFormat = 'YYYY/MM/DD';
-        break;
-
-      case field.datatype = 'select':
-      case field.datatype = 'multiple': // Multi-select
-        column.type = 'autocomplete';
-        if (field.fieldName.indexOf('(country)') == -1) {
-          column.className = 'selection';
-          column.strict = 'true'; // Issue: shows red for selections that have leading spaces
-          column.source = stringifyNestedVocabulary(field.vocabulary);
-        }
-        else {// Special case: field is a country list. 
-          column.strict = 'true';
-          column.source = stringifyNestedVocabulary(window.FIELD_INDEX['geo_loc_name (country)'].vocabulary);
-        }
+    const col = {};
+    if (field.requirement) col.requirement = field.requirement;
+    if (field.datatype === 'integer') {
+      col.type = 'numeric';
+      // TODO: enforce numeric validation
+    } else if (field.datatype === 'decimal') {
+      col.type = 'numeric';
+      // TODO: enforce numeric validation
+    } else if (field.datatype === 'date') {
+      col.type = 'date';
+      col.dateFormat = 'YYYY/MM/DD';
+    } else if (field.datatype === 'select') {
+      col.type = 'autocomplete';
+      col.source = stringifyNestedVocabulary(field.vocabulary)
+    } else if (field.datatype === 'multiple') {
+      col.type = 'autocomplete';
+      col.source = stringifyNestedVocabulary(field.vocabulary)
+      // TODO: multiple select functionality
     }
-
-    ret.push(column)
-
+    ret.push(col);
   }
   return ret;
 };
-
 
 /**
  * Recursively flatten vocabulary into an array of strings, with each string's
@@ -269,6 +267,7 @@ const showFields = (id, data, hot) => {
 };
 
 $(document).ready(() => {
+  window.DATA = processData(DATA);
   window.HOT = createHot(DATA);
 
   // This is called frequently with sideways scrolling since table viewport is dynamic.

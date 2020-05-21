@@ -22,7 +22,10 @@
 }
 
 #grid .invalid-cell {
-    border: 1px dotted red;
+    background-color: #ffcccb !important;
+}
+#grid td.htInvalid {
+    background-color: #ffcccb !important;
 }
 
 #grid .htAutocompleteArrow {
