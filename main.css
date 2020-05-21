@@ -26,17 +26,24 @@
     font-weight: bold;
 }
 
-.invalid-cell {
-    border: 1px dotted red !important;
+#grid .invalid-cell {
+    border: 1px dotted red;
 }
 
-.handsontable .htAutocompleteArrow {color:gray;}
-#grid table.htCore thead tr:nth-child(2) th {
-	cursor:pointer;
-	/* white-space: pre-wrap; */
+#grid .htAutocompleteArrow {
+	color: gray;
 }
-#grid table.htCore th.required {background-color:yellow}
-#grid table.htCore th.recommended {background-color:plum}
+
+.secondary-header {
+	cursor:pointer;
+}
+
+#grid th.required {
+	background-color:yellow;
+}
+#grid th.recommended {
+	background-color:plum;
+}
 
 #grid table.htCore > thead > tr:first-child > th {
 	border-right:2px solid gray;

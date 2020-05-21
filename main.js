@@ -29,20 +29,39 @@ const createHot = (data) => {
     },
     licenseKey: 'non-commercial-and-evaluation',
     readOnlyCellClassName: 'read-only',
-    afterRender: () => void $('#header-row').css('visibility', 'visible'),
+    afterRender: () => {
+      $('#header-row').css('visibility', 'visible');
+      // Bit of a hackey way to stylize th cells
+      $('.secondary-header').each((_, e) => {
+        if ($(e).hasClass('required')) {
+          $(e).closest('th').addClass('required');
+        } else if ($(e).hasClass('recommended')) {
+          $(e).closest('th').addClass('recommended');
+        }
+      });
+    },
   });
 };
 
 /**
  * Create a matrix containing the nested headers supplied to Handsontable.
+ * These headers are HTML strings, with useful selectors for the primary and
+ * secondary header cells.
  * @param {Object} data - See `data.js`.
  * @return {Array<Array>} Nested headers for Handontable grid.
  */
 const getNestedHeaders = (data) => {
   const rows = [[], []];
   for (const parent of data) {
-    rows[0].push({label: parent.fieldName, colspan: parent.children.length})
-    rows[1].push(...parent.children.map(child => child.fieldName));
+    rows[0].push({
+      label: `<div class="primary-header">${parent.fieldName}</div>`,
+      colspan: parent.children.length
+    });
+    for (const child of parent.children) {
+      const req = child.requirement;
+      const name = child.fieldName;
+      rows[1].push(`<div class="secondary-header ${req}">${name}</div>`);
+    }
   }
   return rows;
 };
@@ -252,7 +271,7 @@ $(document).ready(() => {
   window.HOT = createHot(DATA);
 
   // This is called frequently with sideways scrolling since table viewport is dynamic.
-  Handsontable.hooks.add('afterGetColHeader', tableHeaderCallback, window.HOT);
+  // Handsontable.hooks.add('afterGetColHeader', tableHeaderCallback, window.HOT);
 
   // File -> New
   $('#new-dropdown-item, #clear-data-confirm-btn').click((e) => {
@@ -264,10 +283,10 @@ $(document).ready(() => {
       HOT.destroy();
       window.HOT = createHot(DATA);
 
-      // repeat of above
-      Handsontable.hooks.add('afterGetColHeader', tableHeaderCallback, window.HOT);
-      // Have to trigger tableHeaderCallback this way, see note below.
-      showFields('view-all-fields', DATA, HOT)
+      // // repeat of above
+      // Handsontable.hooks.add('afterGetColHeader', tableHeaderCallback, window.HOT);
+      // // Have to trigger tableHeaderCallback this way, see note below.
+      // showFields('view-all-fields', DATA, HOT)
     }
   });
 
@@ -316,8 +335,8 @@ $(document).ready(() => {
     showFields(e.target.id, DATA, HOT);
   });
 
-  // First render of sheet doesnt trigger tableHeaderCallback, so have to do this
-  showFields('view-all-fields', DATA, HOT)
+  // // First render of sheet doesnt trigger tableHeaderCallback, so have to do this
+  // showFields('view-all-fields', DATA, HOT)
 
   $('#grid thead > tr:nth-child(2) th').on('dblclick', function(e, item) {
     if (this.innerText.length > 0) {
