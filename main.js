@@ -28,7 +28,7 @@ const processData = (data) => {
 
 /**
  * Create a blank instance of Handsontable.
- * @param {Object} data - See `data.js`.
+ * @param {Object} data See `data.js`.
  * @return {Object} Handsontable instance.
  */
 const createHot = (data) => {
@@ -68,7 +68,7 @@ const createHot = (data) => {
  * Create a matrix containing the nested headers supplied to Handsontable.
  * These headers are HTML strings, with useful selectors for the primary and
  * secondary header cells.
- * @param {Object} data - See `data.js`.
+ * @param {Object} data See `data.js`.
  * @return {Array<Array>} Nested headers for Handontable grid.
  */
 const getNestedHeaders = (data) => {
@@ -90,7 +90,7 @@ const getNestedHeaders = (data) => {
 /**
  * Create a matrix containing the grid's headers. Empty strings are used to
  * indicate merged cells.
- * @param {Object} data - See `data.js`.
+ * @param {Object} data See `data.js`.
  * @return {Array<Array<String>>} Grid headers.
  */
 const getFlatHeaders = (data) => {
@@ -106,7 +106,7 @@ const getFlatHeaders = (data) => {
 /**
  * Create an array of cell properties specifying data type and validation logic
  * for all grid columns.
- * @param {Object} data - See `data.js`.
+ * @param {Object} data See `data.js`.
  * @return {Array<Object>} Cell properties for each grid column.
  */
 const getColumns = (data) => {
@@ -142,8 +142,8 @@ const getColumns = (data) => {
  * Recursively flatten vocabulary into an array of strings, with each string's
  * level of depth in the vocabulary being indicated by leading spaces.
  * e.g., `vocabulary: 'a': {'b':{}},, 'c': {}` becomes `['a', '  b', 'c']`.
- * @param {Object} vocabulary - See `vocabulary` fields in `data.js`.
- * @param {number} level - Nested level of `vocabulary` we are currently
+ * @param {Object} vocabulary See `vocabulary` fields in `data.js`.
+ * @param {number} level Nested level of `vocabulary` we are currently
  *     processing.
  * @return {Array<Array<String>>} Flattened vocabulary.
  */
@@ -183,10 +183,10 @@ const exportFile = (matrix, baseName, ext, xlsx) => {
 /**
  * Upload user file data to grid. We are are assuming the uploaded file has the
  * same headers as our grid.
- * @param {File} file - User file.
- * @param {String} ext - User file extension.
- * @param {Object} hot - Handsontable instance of grid.
- * @param {Object} xlsx - SheetJS variable.
+ * @param {File} file User file.
+ * @param {String} ext User file extension.
+ * @param {Object} hot Handsontable instance of grid.
+ * @param {Object} xlsx SheetJS variable.
  */
 const importFile = (file, ext, hot, xlsx) => {
   const fileReader = new FileReader();
@@ -219,7 +219,7 @@ const importFile = (file, ext, hot, xlsx) => {
 
 /**
  * Highlight invalid cells in grid.
- * @param {Object} hot - Handsontable instance of grid.
+ * @param {Object} hot Handsontable instance of grid.
  */
 const validateGrid = (hot) => {
   hot.updateSettings({
