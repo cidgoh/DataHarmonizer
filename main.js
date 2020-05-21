@@ -225,19 +225,24 @@ const validateGrid = (hot) => {
   hot.updateSettings({
     cells: function(row, col) {
       if (this.source !== undefined) {
-          let valid = false;
-          const cellVal = hot.getDataAtCell(row, col);
-          if (cellVal !== null) {
-            if (this.source.map(sourceVal => sourceVal.trim().toLowerCase())
-                .includes(cellVal.trim().toLowerCase())) {
-              valid = true;
-            }
+        let valid = false;
+        const cellVal = hot.getDataAtCell(row, col);
+        if (cellVal !== null) {
+          if (this.source.map(sourceVal => sourceVal.trim().toLowerCase())
+              .includes(cellVal.trim().toLowerCase())) {
+            valid = true;
           }
-          // Do not want to remove prior classes
-          const invalidClass = `${this.className} invalid-cell`
-          if (!valid) hot.setCellMeta(row, col, 'className', invalidClass);
         }
-      },
+        // Do not want to remove prior classes
+        let invalidClass;
+        if (this.className) {
+          invalidClass = `${this.className} invalid-cell`;
+        } else {
+          invalidClass = 'invalid-cell';
+        }
+        if (!valid) hot.setCellMeta(row, col, 'className', invalidClass);
+      }
+    },
   })
 };
 
