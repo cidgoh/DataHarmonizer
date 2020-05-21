@@ -32,7 +32,7 @@ const createHot = (data) => {
     afterRender: () => {
       $('#header-row').css('visibility', 'visible');
       // Bit of a hackey way to stylize th cells
-      $('.secondary-header').each((_, e) => {
+      $('.secondary-header-text').each((_, e) => {
         if ($(e).hasClass('required')) {
           $(e).closest('th').addClass('required');
         } else if ($(e).hasClass('recommended')) {
@@ -54,13 +54,13 @@ const getNestedHeaders = (data) => {
   const rows = [[], []];
   for (const parent of data) {
     rows[0].push({
-      label: `<div class="primary-header">${parent.fieldName}</div>`,
+      label: `<h5 class="pt-2 pl-1">${parent.fieldName}</h5>`,
       colspan: parent.children.length
     });
     for (const child of parent.children) {
       const req = child.requirement;
       const name = child.fieldName;
-      rows[1].push(`<div class="secondary-header ${req}">${name}</div>`);
+      rows[1].push(`<div class="secondary-header-text ${req}">${name}</div>`);
     }
   }
   return rows;

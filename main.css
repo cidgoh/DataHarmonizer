@@ -21,11 +21,6 @@
     display: none;
 }
 
-.read-only {
-    font-size: medium;
-    font-weight: bold;
-}
-
 #grid .invalid-cell {
     border: 1px dotted red;
 }
@@ -45,15 +40,16 @@
 	background-color:plum;
 }
 
-#grid table.htCore > thead > tr:first-child > th {
-	border-right:2px solid gray;
+#grid .colHeader {
 	text-align: left;
-	font-weight: bold;
-	font-size:1.3rem;
-	padding:5px 5px 0px 3px;
 }
 
-#grid table.htCore > thead > tr:nth-child(2) th:nth-child(2) {
+/* Primary headers */
+#grid thead tr th {
+	text-align: left;
+}
+
+#grid table.htCore > thead > tr:first-child > th {
 	border-right:2px solid gray;
 }
 
