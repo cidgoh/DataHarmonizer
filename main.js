@@ -275,9 +275,6 @@ $(document).ready(() => {
   window.DATA = processData(DATA);
   window.HOT = createHot(DATA);
 
-  // This is called frequently with sideways scrolling since table viewport is dynamic.
-  // Handsontable.hooks.add('afterGetColHeader', tableHeaderCallback, window.HOT);
-
   // File -> New
   $('#new-dropdown-item, #clear-data-confirm-btn').click((e) => {
     if (e.target.id === 'new-dropdown-item') {
@@ -287,11 +284,6 @@ $(document).ready(() => {
     } else {
       HOT.destroy();
       window.HOT = createHot(DATA);
-
-      // // repeat of above
-      // Handsontable.hooks.add('afterGetColHeader', tableHeaderCallback, window.HOT);
-      // // Have to trigger tableHeaderCallback this way, see note below.
-      // showFields('view-all-fields', DATA, HOT)
     }
   });
 
@@ -340,9 +332,6 @@ $(document).ready(() => {
     showFields(e.target.id, DATA, HOT);
   });
 
-  // // First render of sheet doesnt trigger tableHeaderCallback, so have to do this
-  // showFields('view-all-fields', DATA, HOT)
-
   $('#grid thead > tr:nth-child(2) th').on('dblclick', function(e, item) {
     if (this.innerText.length > 0) {
       let field = window.FIELD_INDEX[this.innerText];
@@ -351,20 +340,4 @@ $(document).ready(() => {
       alert(comment)
     }
   });
-
-
-  function tableHeaderCallback (column, TH){
-    if (column >= 0) {
-      if (TH.innerText in window.FIELD_INDEX) {
-        // We have to dynamically generate the guidanceModel call each time a 
-        // th cell is created due to scrolling
-        const className = window.FIELD_INDEX[TH.innerText].requirement
-        if (className) {
-          TH.className += className
-        }
-      }
-    }
-  }
-
-
 });
