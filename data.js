@@ -4,33 +4,34 @@ const DATA = [
     "children": [
       {
         "fieldName": "specimen collector sample ID",
+        "ontology_id": "",
         "datatype": "text",
         "requirement": "required",
         "description": "The user-defined name for the sample.",
         "guidance": "Store the collector sample ID. Every collector sample ID from a single submitter must be unique. It can have any format, but we suggest that you make it concise, unique and consistent within your lab, and as informative as possible.",
-        "examples": "prov_rona_99",
-        "vocabulary": {}
+        "examples": "prov_rona_99"
       },
       {
         "fieldName": "PHAC sample ID",
+        "ontology_id": "",
         "datatype": "text",
         "requirement": "recommended",
         "description": "The identifier assigned to the sample in the national database.",
         "guidance": "Store the PHAC sample ID. This ID will be assigned by PHAC. The PHAC sample ID may be different than the sample ID assigned by the sample collector. It is important to track both of these for traceability.",
-        "examples": "PHAC_123",
-        "vocabulary": {}
+        "examples": "PHAC_123"
       },
       {
         "fieldName": "IRIDA sample name",
+        "ontology_id": "",
         "datatype": "text",
         "requirement": "",
         "description": "The identifier assigned to a sequenced isolate in IRIDA.",
         "guidance": "Store the IRIDA sample name. The IRIDA sample name will be created by the individual entering data into the IRIDA platform. IRIDA samples may be linked to metadata and sequence data, or just metadata alone. It is recommended that the IRIDA sample name be the same as, or contain, the specimen collector sample ID for better traceability.",
-        "examples": "prov_rona_99",
-        "vocabulary": {}
+        "examples": "prov_rona_99"
       },
       {
         "fieldName": "umbrella bioproject accession",
+        "ontology_id": "",
         "datatype": "select",
         "requirement": "",
         "description": "The INSDC accession number assigned to the umbrella BioProject for the Canadian SARS-CoV-2 sequencing effort.",
@@ -42,48 +43,48 @@ const DATA = [
       },
       {
         "fieldName": "bioproject accession",
+        "ontology_id": "",
         "datatype": "text",
         "requirement": "",
         "description": "The INSDC accession number of the BioProject(s) to which the BioSample belongs.",
         "guidance": "Store the BioProject accession number. BioProjects are an organizing tool that links together raw sequence data, assemblies, and their associated metadata. A valid NCBI BioProject accession has prefix PRJN e.g., PRJNA12345 and is created once at the beginning of a new sequencing project.",
-        "examples": "PRJNA608651",
-        "vocabulary": {}
+        "examples": "PRJNA608651"
       },
       {
         "fieldName": "biosample accession",
+        "ontology_id": "",
         "datatype": "text",
         "requirement": "",
         "description": "The identifier assigned to a BioSample in INSDC archives.",
         "guidance": "Store the accession returned from the BioSample submission. NCBI BioSamples will have the prefix SAMN.",
-        "examples": "SAMN14180202",
-        "vocabulary": {}
+        "examples": "SAMN14180202"
       },
       {
         "fieldName": "SRA accession",
+        "ontology_id": "",
         "datatype": "text",
         "requirement": "",
         "description": "The Sequence Read Archive (SRA) identifier linking raw read data, methodological metadata and quality control metrics submitted to the INSDC.",
         "guidance": "Store the accession assigned to the submitted \"run\". NCBI-SRA accessions start with SRR.",
-        "examples": "SRR11177792",
-        "vocabulary": {}
+        "examples": "SRR11177792"
       },
       {
         "fieldName": "GenBank accession",
+        "ontology_id": "",
         "datatype": "text",
         "requirement": "",
         "description": "The GenBank identifier assigned to the sequence in the INSDC archives.",
         "guidance": "Store the accession returned from a GenBank submission (viral genome assembly).",
-        "examples": "MN908947.3",
-        "vocabulary": {}
+        "examples": "MN908947.3"
       },
       {
         "fieldName": "GISAID accession",
+        "ontology_id": "",
         "datatype": "text",
         "requirement": "",
         "description": "The GISAID accession number assigned to the sequence.",
         "guidance": "Store the accession returned from the GISAID submission.",
-        "examples": "hCov-19/Canada/prov_rona_99/2020",
-        "vocabulary": {}
+        "examples": "hCov-19/Canada/prov_rona_99/2020"
       }
     ]
   },
@@ -92,69 +93,70 @@ const DATA = [
     "children": [
       {
         "fieldName": "sample collected by",
+        "ontology_id": "",
         "datatype": "text",
         "requirement": "required",
         "description": "The name of the agency that collected the original sample.",
         "guidance": "The name of the agency should be written out in full, (with minor exceptions) and be consistent across multple submissions e.g. Public Health Agency of Canada, Public Health Ontario, BC Centre for Disease Control",
-        "examples": "BC Centre for Disease Control",
-        "vocabulary": {}
+        "examples": "BC Centre for Disease Control"
       },
       {
         "fieldName": "sample collector contact email",
+        "ontology_id": "",
         "datatype": "text",
         "requirement": "",
         "description": "The email address of the contact responsible for follow-up regarding the sample.",
         "guidance": "The email address can represent a specific individual or lab e.g. johnnyblogs@lab.ca, or RespLab@lab.ca",
-        "examples": "RespLab@lab.ca",
-        "vocabulary": {}
+        "examples": "RespLab@lab.ca"
       },
       {
         "fieldName": "sample collector contact address",
+        "ontology_id": "",
         "datatype": "text",
         "requirement": "",
         "description": "The mailing address of the agency submitting the sample.",
         "guidance": "The mailing address should be in the format: Street number and name, City, Province/Territory, Postal Code, Country",
-        "examples": "655 Lab St, Vancouver, British Columbia, V5N 2A2, Canada",
-        "vocabulary": {}
+        "examples": "655 Lab St, Vancouver, British Columbia, V5N 2A2, Canada"
       },
       {
         "fieldName": "sequence submitted by",
+        "ontology_id": "",
         "datatype": "text",
         "requirement": "required",
         "description": "The name of the agency that generated the sequence.",
         "guidance": "The name of the agency should be written out in full, (with minor exceptions) and be consistent across multple submissions e.g. Public Health Agency of Canada, Public Health Ontario, BC Centre for Disease Control",
-        "examples": "Public Health Ontario",
-        "vocabulary": {}
+        "examples": "Public Health Ontario"
       },
       {
         "fieldName": "sequence submitter contact email",
+        "ontology_id": "",
         "datatype": "text",
         "requirement": "",
         "description": "The email address of the contact responsible for follow-up regarding the sequence.",
         "guidance": "The email address can represent a specific individual or lab e.g. johnnyblogs@lab.ca, or RespLab@lab.ca",
-        "examples": "RespLab@lab.ca",
-        "vocabulary": {}
+        "examples": "RespLab@lab.ca"
       },
       {
         "fieldName": "sequence submitter contact address",
+        "ontology_id": "",
         "datatype": "text",
         "requirement": "",
         "description": "The mailing address of the agency submitting the sequence.",
         "guidance": "The mailing address should be in the format: Street number and name, City, Province/Territory, Postal Code, Country",
-        "examples": "123 Sunnybrooke St, Toronto, Ontario, M4P 1L6, Canada",
-        "vocabulary": {}
+        "examples": "123 Sunnybrooke St, Toronto, Ontario, M4P 1L6, Canada"
       },
       {
         "fieldName": "sample collection date",
+        "ontology_id": "",
         "datatype": "date",
         "requirement": "required",
         "description": "The date on which the sample was collected.",
         "guidance": "ISO 8601 standard \"YYYY-MM-DD\", \"YYYY-MM\" or \"YYYY\"",
-        "examples": "2020-03-16",
-        "vocabulary": {}
+        "examples": "2020-03-16"
       },
       {
         "fieldName": "geo_loc_name (country)",
+        "ontology_id": "",
         "datatype": "select",
         "requirement": "required",
         "description": "The country where the sample was collected.",
@@ -436,6 +438,7 @@ const DATA = [
       },
       {
         "fieldName": "geo_loc_name (province/territory)",
+        "ontology_id": "",
         "datatype": "select",
         "requirement": "required",
         "description": "The province/territory where the sample was collected.",
@@ -459,15 +462,16 @@ const DATA = [
       },
       {
         "fieldName": "geo_loc_name (city)",
+        "ontology_id": "",
         "datatype": "text",
         "requirement": "",
         "description": "The city where the sample was collected.",
         "guidance": "Provide the city name. Use this look-up service to identify the standardized term: https://www.ebi.ac.uk/ols/ontologies/gaz",
-        "examples": "Medicine Hat",
-        "vocabulary": {}
+        "examples": "Medicine Hat"
       },
       {
         "fieldName": "organism",
+        "ontology_id": "",
         "datatype": "select",
         "requirement": "required",
         "description": "Taxonomic name of the organism.",
@@ -481,15 +485,16 @@ const DATA = [
       },
       {
         "fieldName": "isolate",
+        "ontology_id": "",
         "datatype": "text",
         "requirement": "required",
         "description": "Identifier of the specific isolate.",
         "guidance": "Provide the isolate name. This identifer should be an unique, indexed, alpha-numeric ID within your laboratory. The isolate name is often the same as the specimen collector sample ID.",
-        "examples": "prov_rona_99",
-        "vocabulary": {}
+        "examples": "prov_rona_99"
       },
       {
         "fieldName": "purpose of sampling",
+        "ontology_id": "",
         "datatype": "select",
         "requirement": "recommended",
         "description": "The reason that the sample was collected.",
@@ -505,6 +510,7 @@ const DATA = [
       },
       {
         "fieldName": "anatomical material",
+        "ontology_id": "",
         "datatype": "select",
         "requirement": "required",
         "description": "A substance obtained from an anatomical part of an organism e.g. tissue, blood.",
@@ -512,19 +518,21 @@ const DATA = [
         "examples": "Blood",
         "vocabulary": {
           "Blood": {},
-          "Fluid": {},
-          "      Saliva": {},
-          "   Fluid (cerebrospinal (CSF))": {},
-          "   Fluid (pericardial)": {},
-          "   Fluid (pleural)": {},
-          "   Fluid (vaginal)": {},
-          "   Fluid (amniotic)": {},
-          "   Fluid (seminal)": {},
+          "Fluid": {
+            "Saliva": {},
+            "Fluid (cerebrospinal (CSF))": {},
+            "Fluid (pericardial)": {},
+            "Fluid (pleural)": {},
+            "Fluid (vaginal)": {},
+            "Fluid (amniotic)": {},
+            "Fluid (seminal)": {}
+          },
           "Tissue": {}
         }
       },
       {
         "fieldName": "anatomical part",
+        "ontology_id": "",
         "datatype": "select",
         "requirement": "required",
         "description": "An anatomical part of an organism e.g. oropharynx.",
@@ -538,27 +546,33 @@ const DATA = [
           "Rectum": {},
           "Skin": {},
           "Stomach": {},
-          "Upper respiratory tract": {},
-          "   Anterior Nares": {},
-          "   Esophagus": {},
-          "   Ethmoid sinus": {},
-          "   Nasal Cavity": {},
-          "     Middle Nasal Turbinate": {},
-          "     Inferior Nasal Turbinate": {},
-          "   Nasopharynx (NP)": {},
-          "   Oropharynx (OP)": {},
-          "Lower respiratory tract": {},
-          "   Bronchus": {},
-          "   Lung": {},
-          "     Bronchiole": {},
-          "     Alveolar sac": {},
-          "   Pleural sac": {},
-          "     Pleural cavity": {},
-          "   Trachea": {}
+          "Upper respiratory tract": {
+            "Anterior Nares": {},
+            "Esophagus": {},
+            "Ethmoid sinus": {},
+            "Nasal Cavity": {
+              "Middle Nasal Turbinate": {},
+              "Inferior Nasal Turbinate": {}
+            },
+            "Nasopharynx (NP)": {},
+            "Oropharynx (OP)": {}
+          },
+          "Lower respiratory tract": {
+            "Bronchus": {},
+            "Lung": {
+              "Bronchiole": {},
+              "Alveolar sac": {}
+            },
+            "Pleural sac": {
+              "Pleural cavity": {}
+            },
+            "Trachea": {}
+          }
         }
       },
       {
         "fieldName": "body product",
+        "ontology_id": "",
         "datatype": "select",
         "requirement": "required",
         "description": "A substance excreted/secreted from an organism e.g. feces, urine, sweat.",
@@ -568,13 +582,15 @@ const DATA = [
           "Feces": {},
           "Urine": {},
           "Sweat": {},
-          "Mucus": {},
-          "   Sputum": {},
+          "Mucus": {
+            "Sputum": {}
+          },
           "Tear": {}
         }
       },
       {
         "fieldName": "environmental material",
+        "ontology_id": "",
         "datatype": "select",
         "requirement": "required",
         "description": "A substance obtained from the natural or man-made environment e.g. soil, water, sewage.",
@@ -588,7 +604,7 @@ const DATA = [
           "Cloth": {},
           "Control panel": {},
           "Corridor": {},
-          "Door  ": {},
+          "Door": {},
           "Door handle": {},
           "Face mask": {},
           "Face shield": {},
@@ -598,7 +614,7 @@ const DATA = [
           "Light switch": {},
           "Locker": {},
           "N95 mask": {},
-          "Nurse call button ": {},
+          "Nurse call button": {},
           "Paper": {},
           "Plastic": {},
           "PPE gown": {},
@@ -615,6 +631,7 @@ const DATA = [
       },
       {
         "fieldName": "environmental site",
+        "ontology_id": "",
         "datatype": "select",
         "requirement": "required",
         "description": "An environmental location may describe a site in the natural or built environment e.g. contact surface, metal can, hospital, wet market, bat cave.",
@@ -644,6 +661,7 @@ const DATA = [
       },
       {
         "fieldName": "collection device",
+        "ontology_id": "",
         "datatype": "select",
         "requirement": "required",
         "description": "The instrument or container used to collect the sample e.g. swab.",
@@ -670,6 +688,7 @@ const DATA = [
       },
       {
         "fieldName": "collection method",
+        "ontology_id": "",
         "datatype": "select",
         "requirement": "required",
         "description": "The process used to collect the sample e.g. phlebotamy, necropsy.",
@@ -677,28 +696,33 @@ const DATA = [
         "examples": "Bronchoalveolar lavage (BAL)",
         "vocabulary": {
           "Amniocentesis": {},
-          "Aspiration": {},
-          "  Suprapubic Aspiration": {},
-          "  Tracheal aspiration": {},
-          "  Vacuum Aspiration": {},
-          "Biopsy": {},
-          "  Needle Biopsy": {},
-          "Lavage": {},
-          "  Bronchoalveolar lavage (BAL)": {},
-          "  Gastric Lavage": {},
+          "Aspiration": {
+            "Suprapubic Aspiration": {},
+            "Tracheal aspiration": {},
+            "Vacuum Aspiration": {}
+          },
+          "Biopsy": {
+            "Needle Biopsy": {}
+          },
+          "Lavage": {
+            "Bronchoalveolar lavage (BAL)": {},
+            "Gastric Lavage": {}
+          },
           "Lumbar Puncture": {},
           "Necropsy": {},
           "Phlebotomy": {},
           "Rinsing": {},
           "Scraping": {},
-          "Swab": {},
-          "  Finger Prick": {},
+          "Swab": {
+            "Finger Prick": {}
+          },
           "Wash": {},
           "Washout Tear Collection": {}
         }
       },
       {
         "fieldName": "collection protocol",
+        "ontology_id": "",
         "datatype": "select",
         "requirement": "",
         "description": "The name and version of a particular protocol used for sampling.",
@@ -708,6 +732,7 @@ const DATA = [
       },
       {
         "fieldName": "specimen processing",
+        "ontology_id": "",
         "datatype": "select",
         "requirement": "recommended",
         "description": "Any processing applied to the sample during or after receiving the sample.",
@@ -720,6 +745,7 @@ const DATA = [
       },
       {
         "fieldName": "lab host",
+        "ontology_id": "",
         "datatype": "select",
         "requirement": "recommended",
         "description": "Name and description of the laboratory host used to propagate the source organism or material from which the sample was obtained.",
@@ -741,30 +767,31 @@ const DATA = [
           "RK-13 cell line": {},
           "U251 cell line": {},
           "Vero cell line": {},
-          "   Vero E6 cell line": {},
-          "      VeroE6/TMPRSS2 cell line": {}
+          "Vero E6 cell line": {},
+          "VeroE6/TMPRSS2 cell line": {}
         }
       },
       {
         "fieldName": "passage number",
+        "ontology_id": "",
         "datatype": "integer",
         "requirement": "recommended",
         "description": "Number of passages.",
         "guidance": "Provide number of known passages. If not passaged, put \"not applicable\"",
-        "examples": "3",
-        "vocabulary": {}
+        "examples": "3"
       },
       {
         "fieldName": "passage method",
+        "ontology_id": "",
         "datatype": "text",
         "requirement": "recommended",
         "description": "Description of how organism was passaged.",
         "guidance": "Free text. Provide a very short description (<10 words). If not passaged, put \"not applicable\".",
-        "examples": "",
-        "vocabulary": {}
+        "examples": ""
       },
       {
         "fieldName": "biomaterial extracted",
+        "ontology_id": "",
         "datatype": "select",
         "requirement": "",
         "description": "The biomaterial extracted from samples for the purpose of sequencing.",
@@ -784,6 +811,7 @@ const DATA = [
     "children": [
       {
         "fieldName": "host (common name)",
+        "ontology_id": "",
         "datatype": "select",
         "requirement": "",
         "description": "The commonly used name of the host.",
@@ -806,6 +834,7 @@ const DATA = [
       },
       {
         "fieldName": "host (scientific name)",
+        "ontology_id": "",
         "datatype": "select",
         "requirement": "required",
         "description": "The taxonomic, or scientific name of the host.",
@@ -831,6 +860,7 @@ const DATA = [
       },
       {
         "fieldName": "host health state",
+        "ontology_id": "",
         "datatype": "select",
         "requirement": "",
         "description": "Health status of the host at the time of sample collection.",
@@ -846,6 +876,7 @@ const DATA = [
       },
       {
         "fieldName": "host health status details",
+        "ontology_id": "",
         "datatype": "select",
         "requirement": "",
         "description": "Further details pertaining to the health or disease status of the host at time of collection.",
@@ -861,6 +892,7 @@ const DATA = [
       },
       {
         "fieldName": "host disease",
+        "ontology_id": "",
         "datatype": "select",
         "requirement": "required",
         "description": "The name of the disease experienced by the host.",
@@ -872,15 +904,16 @@ const DATA = [
       },
       {
         "fieldName": "host age",
+        "ontology_id": "",
         "datatype": "decimal",
         "requirement": "required",
         "description": "Age of host at the time of sampling.",
         "guidance": "Enter the age of the host in years. If not available, put \"unknown\".",
-        "examples": "79",
-        "vocabulary": {}
+        "examples": "79"
       },
       {
         "fieldName": "host gender",
+        "ontology_id": "",
         "datatype": "select",
         "requirement": "required",
         "description": "The gender of the host at the time of sample collection.",
@@ -898,6 +931,7 @@ const DATA = [
       },
       {
         "fieldName": "host origin geo_loc name (country)",
+        "ontology_id": "",
         "datatype": "select",
         "requirement": "",
         "description": "The country of residence of the host.",
@@ -907,24 +941,25 @@ const DATA = [
       },
       {
         "fieldName": "host subject ID",
+        "ontology_id": "",
         "datatype": "text",
         "requirement": "",
         "description": "A unique identifier by which each host can be referred to e.g. #131",
         "guidance": "Provide the host identifier. Should be a unique, user-defined identifier.",
-        "examples": "BCxy123",
-        "vocabulary": {}
+        "examples": "BCxy123"
       },
       {
         "fieldName": "symptom onset date",
+        "ontology_id": "",
         "datatype": "date",
         "requirement": "",
         "description": "The date on which the symptoms began or were first noted.",
         "guidance": "ISO 8601 standard \"YYYY-MM-DD\", \"YYYY-MM\" or \"YYYY\"",
-        "examples": "2020-03-16",
-        "vocabulary": {}
+        "examples": "2020-03-16"
       },
       {
         "fieldName": "signs and symptoms",
+        "ontology_id": "",
         "datatype": "multiple",
         "requirement": "",
         "description": "A perceived change in function or sensation, (loss, disturbance or appearance) indicative of a disease, reported by a patient.",
@@ -938,13 +973,13 @@ const DATA = [
           "Chest Pain": {},
           "Chills": {},
           "Coma": {},
-          "Confusion ": {},
-          "Conjunctivitis ": {},
-          "Cough ": {},
+          "Confusion": {},
+          "Conjunctivitis": {},
+          "Cough": {},
           "Delirium": {},
           "Diarrhea": {},
           "Dysgeusia": {},
-          "Encephalitis ": {},
+          "Encephalitis": {},
           "Fatigue": {},
           "Fever": {},
           "Headache": {},
@@ -958,14 +993,14 @@ const DATA = [
           "Loss of taste": {},
           "Low appetite": {},
           "Malaise": {},
-          "Myalgia (muscle pain) ": {},
+          "Myalgia (muscle pain)": {},
           "Nasal obstruction (stuffy nose)": {},
           "Nausea": {},
-          "Pharyngitis (sore throat) ": {},
+          "Pharyngitis (sore throat)": {},
           "Rash": {},
           "Rhinorrhea (runny nose)": {},
           "Seizure": {},
-          "Shortness of breath (breathing difficulty) ": {},
+          "Shortness of breath (breathing difficulty)": {},
           "Slurred speech": {},
           "Tachypnea (rapid breathing)": {},
           "Vomiting": {},
@@ -979,6 +1014,7 @@ const DATA = [
     "children": [
       {
         "fieldName": "location of exposure geo_loc name (country)",
+        "ontology_id": "",
         "datatype": "select",
         "requirement": "",
         "description": "The country where the host was likely exposed to the causative agent of the illness.",
@@ -988,15 +1024,16 @@ const DATA = [
       },
       {
         "fieldName": "travel history",
+        "ontology_id": "",
         "datatype": "text",
         "requirement": "",
         "description": "Travel outside the country in last six months.",
         "guidance": "Specify the countries (and more granular locations if known, separated by a comma) travelled in the last six months; can include multiple travels. Separate multiple travel events with a semi-colon. List most recent travel first.",
-        "examples": "Canada, Vancouver; USA, Seattle; Italy, Milan",
-        "vocabulary": {}
+        "examples": "Canada, Vancouver; USA, Seattle; Italy, Milan"
       },
       {
         "fieldName": "exposure event",
+        "ontology_id": "",
         "datatype": "select",
         "requirement": "",
         "description": "Event leading to exposure.",
@@ -1022,94 +1059,102 @@ const DATA = [
     "children": [
       {
         "fieldName": "library ID",
+        "ontology_id": "",
         "datatype": "text",
         "requirement": "recommended",
         "description": "The user-specified identifier for the library prepared for sequencing.",
         "guidance": "The library name should be unique, and can be an autogenerated ID from your LIMS, or modification of the isolate ID.",
-        "examples": "XYZ_123345",
-        "vocabulary": {}
+        "examples": "XYZ_123345"
       },
       {
         "fieldName": "sequencing instrument",
+        "ontology_id": "",
         "datatype": "select",
         "requirement": "required",
         "description": "The model of the sequencing instrument used.",
         "guidance": "Select a sequencing instrument from the picklist provided in the template.",
         "examples": "MinIon",
         "vocabulary": {
-          "ILLUMINA": {},
-          "   HiSeq X ": {},
-          "      HiSeq X Five": {},
-          "      HiSeq X Ten": {},
-          "   Illumina Genome Analyzer": {},
-          "      Illumina Genome Analyzer II": {},
-          "      Illumina Genome Analyzer IIx": {},
-          "   Illumina HiScanSQ": {},
-          "   Illumina HiSeq 1000": {},
-          "   Illumina HiSeq 1500": {},
-          "   Illumina HiSeq 2000": {},
-          "   Illumina HiSeq 2500": {},
-          "   Illumina HiSeq 3000": {},
-          "   Illumina HiSeq 4000": {},
-          "   Illumina iSeq 100": {},
-          "   Illumina NovaSeq 6000": {},
-          "   Illumina MiniSeq": {},
-          "   Illumina MiSeq": {},
-          "   NextSeq 500": {},
-          "   NextSeq 550": {},
-          "Pacific Biosciences": {},
-          "   PacBio RS": {},
-          "   PacBio RS II": {},
-          "   PacBio Sequel": {},
-          "   PacBio Sequel II": {},
-          "Ion Torrent": {},
-          "   Ion Torrent PGM": {},
-          "   Ion Torrent Proton": {},
-          "   Ion Torrent S5 XL": {},
-          "   Ion Torrent S5": {},
-          "Oxford Nanopore": {},
-          "   GridION": {},
-          "   MinION": {},
-          "   PromethION": {},
-          "BGI Genomics": {},
-          "   BGISEQ-500": {}
+          "ILLUMINA": {
+            "HiSeq X": {
+              "HiSeq X Five": {},
+              "HiSeq X Ten": {}
+            },
+            "Illumina Genome Analyzer": {
+              "Illumina Genome Analyzer II": {},
+              "Illumina Genome Analyzer IIx": {}
+            },
+            "Illumina HiScanSQ": {},
+            "Illumina HiSeq 1000": {},
+            "Illumina HiSeq 1500": {},
+            "Illumina HiSeq 2000": {},
+            "Illumina HiSeq 2500": {},
+            "Illumina HiSeq 3000": {},
+            "Illumina HiSeq 4000": {},
+            "Illumina iSeq 100": {},
+            "Illumina NovaSeq 6000": {},
+            "Illumina MiniSeq": {},
+            "Illumina MiSeq": {},
+            "NextSeq 500": {},
+            "NextSeq 550": {}
+          },
+          "Pacific Biosciences": {
+            "PacBio RS": {},
+            "PacBio RS II": {},
+            "PacBio Sequel": {},
+            "PacBio Sequel II": {}
+          },
+          "Ion Torrent": {
+            "Ion Torrent PGM": {},
+            "Ion Torrent Proton": {},
+            "Ion Torrent S5 XL": {},
+            "Ion Torrent S5": {}
+          },
+          "Oxford Nanopore": {
+            "GridION": {},
+            "MinION": {},
+            "PromethION": {}
+          },
+          "BGI Genomics": {
+            "BGISEQ-500": {}
+          }
         }
       },
       {
         "fieldName": "sequencing protocol name",
+        "ontology_id": "",
         "datatype": "text",
         "requirement": "recommended",
         "description": "The name and version number of the sequencing protocol used.",
         "guidance": "Provide the name and version of the sequencing protocol e.g. 1D_DNA_MinION",
-        "examples": "1D_DNA_MinION, ARTIC Network Protocol v. 3",
-        "vocabulary": {}
+        "examples": "1D_DNA_MinION, ARTIC Network Protocol v. 3"
       },
       {
         "fieldName": "sequencing protocol source",
+        "ontology_id": "",
         "datatype": "text",
         "requirement": "",
         "description": "The name of the organization/authors of the protocol.",
         "guidance": "Provide the name of the source of the protocol e.g. ARTIC Network.",
-        "examples": "ARTIC Network",
-        "vocabulary": {}
+        "examples": "ARTIC Network"
       },
       {
         "fieldName": "sequencing kit number",
+        "ontology_id": "",
         "datatype": "text",
         "requirement": "",
         "description": "The manufacturer's kit number.",
         "guidance": "Alphanumeric value.",
-        "examples": "AB456XYZ789",
-        "vocabulary": {}
+        "examples": "AB456XYZ789"
       },
       {
         "fieldName": "amplicon pcr primers filename",
+        "ontology_id": "",
         "datatype": "text",
         "requirement": "",
         "description": "The filename of the file containing amplicon PCR primer names and sequences.",
         "guidance": "Important for documenting methods and should be considered for submission, particularly if primers were designed in-house and not by a public consortium/network.",
-        "examples": "Rona_primers_2020.txt",
-        "vocabulary": {}
+        "examples": "Rona_primers_2020.txt"
       }
     ]
   },
@@ -1118,33 +1163,34 @@ const DATA = [
     "children": [
       {
         "fieldName": "raw sequence data processing",
+        "ontology_id": "",
         "datatype": "text",
         "requirement": "recommended",
         "description": "The names of the software and version number used for raw data processing such as removing barcodes, adapter trimming, filtering etc.",
         "guidance": "Provide the software name followed by the version e.g. Trimmomatic v. 0.38, Porechop v. 0.2.3",
-        "examples": "Porechop v. 0.2.3",
-        "vocabulary": {}
+        "examples": "Porechop v. 0.2.3"
       },
       {
         "fieldName": "sequencing depth (average)",
+        "ontology_id": "",
         "datatype": "text",
         "requirement": "",
         "description": "The total number of sequenced base pairs divided by the expected number of base pairs in the genome.",
         "guidance": "Provide the value as a fold of coverage.",
-        "examples": "80x",
-        "vocabulary": {}
+        "examples": "80x"
       },
       {
         "fieldName": "assembly name",
+        "ontology_id": "",
         "datatype": "text",
         "requirement": "",
         "description": "Name/version of the assembly provided by the submitter.",
         "guidance": "Provide the assembly name.",
-        "examples": "rona123assembly.fasta",
-        "vocabulary": {}
+        "examples": "rona123assembly.fasta"
       },
       {
         "fieldName": "assembly method",
+        "ontology_id": "",
         "datatype": "select",
         "requirement": "required",
         "description": "The name and version number of the assembly method used.",
@@ -1154,138 +1200,138 @@ const DATA = [
       },
       {
         "fieldName": "assembly coverage breadth",
+        "ontology_id": "",
         "datatype": "text",
         "requirement": "",
         "description": "The percentage of the assembled genome that was sequenced to a prescribed depth of coverage.",
         "guidance": "Provide value as a percent e.g. 95%.",
-        "examples": "95%",
-        "vocabulary": {}
+        "examples": "95%"
       },
       {
         "fieldName": "assembly coverage depth",
+        "ontology_id": "",
         "datatype": "text",
         "requirement": "",
         "description": "The average number of reads representing a given nucleotide in the assembled sequence.",
         "guidance": "Provide value as a fold of coverage e.g. 80x.",
-        "examples": "400x",
-        "vocabulary": {}
+        "examples": "400x"
       },
       {
-        "fieldName": "r1 fastq filename        ",
+        "fieldName": "r1 fastq filename",
+        "ontology_id": "",
         "datatype": "text",
         "requirement": "recommended",
         "description": "The user-specified filename of the r1 FASTQ file.",
         "guidance": "Provide the r1 fastq filename.",
-        "examples": "ABC123_S1_L001_R1_001.fastq.gz",
-        "vocabulary": {}
+        "examples": "ABC123_S1_L001_R1_001.fastq.gz"
       },
       {
         "fieldName": "r2 fastq filename",
+        "ontology_id": "",
         "datatype": "text",
         "requirement": "recommended",
         "description": "The user-specified filename of the r2 FASTQ file.",
         "guidance": "Provide the r2 fastq filename.",
-        "examples": "ABC123_S1_L001_R2_001.fastq.gz",
-        "vocabulary": {}
+        "examples": "ABC123_S1_L001_R2_001.fastq.gz"
       },
       {
         "fieldName": "fasta filename",
+        "ontology_id": "",
         "datatype": "text",
         "requirement": "",
         "description": "The user-specified filename of the FASTA file.",
         "guidance": "Provide the fasta filename.",
-        "examples": "batch1a_sequences.fasta",
-        "vocabulary": {}
+        "examples": "batch1a_sequences.fasta"
       },
       {
         "fieldName": "number base pairs",
+        "ontology_id": "",
         "datatype": "integer",
         "requirement": "",
         "description": "The number of total base pairs generated by the sequencing process.",
         "guidance": "Provide a numerical value (no need to include units).",
-        "examples": "387566",
-        "vocabulary": {}
+        "examples": "387566"
       },
       {
         "fieldName": "genome length",
+        "ontology_id": "",
         "datatype": "integer",
         "requirement": "",
         "description": "Size of the reconstructed genome described as the number of base pairs.",
         "guidance": "Provide a numerical value (no need to include units).",
-        "examples": "38677",
-        "vocabulary": {}
+        "examples": "38677"
       },
       {
         "fieldName": "mean contig length",
+        "ontology_id": "",
         "datatype": "integer",
         "requirement": "",
         "description": "The mean contig length is the count of base pairs in the average size contig of the sequence assembly.",
         "guidance": "Provide a numerical value (no need to include units).",
-        "examples": "12689",
-        "vocabulary": {}
+        "examples": "12689"
       },
       {
         "fieldName": "N50",
+        "ontology_id": "",
         "datatype": "integer",
         "requirement": "",
         "description": "The minimum contig length needed to cover 50% of the genome.",
         "guidance": "Provide a numerical value (no need to include units).",
-        "examples": "10500",
-        "vocabulary": {}
+        "examples": "10500"
       },
       {
         "fieldName": "Ns per 100 kbp",
+        "ontology_id": "",
         "datatype": "decimal",
         "requirement": "",
         "description": "The number of N symbols present in the consensus fasta sequence, per 100kbp of sequence.",
         "guidance": "Provide a numerical value (no need to include units).",
-        "examples": "3.3",
-        "vocabulary": {}
+        "examples": "3.3"
       },
       {
         "fieldName": "reference genome accession",
+        "ontology_id": "",
         "datatype": "text",
         "requirement": "",
         "description": "A persistent, unique identifier of a genome database entry.",
         "guidance": "Provide the accession number of the reference genome.",
-        "examples": "NC_045512.2",
-        "vocabulary": {}
+        "examples": "NC_045512.2"
       },
       {
         "fieldName": "consensus sequence ID",
+        "ontology_id": "",
         "datatype": "text",
         "requirement": "",
         "description": "The identifer used to specify the consensus sequence.",
         "guidance": "Provide the consensus sequence identifier.",
-        "examples": "ProvConsensusSeq.fasta",
-        "vocabulary": {}
+        "examples": "ProvConsensusSeq.fasta"
       },
       {
         "fieldName": "consensus sequence method",
+        "ontology_id": "",
         "datatype": "text",
         "requirement": "",
         "description": "The name and version number of the software used to produce the consensus sequence.",
         "guidance": "Provide the software name followed by the version e.g. iVar v. 1.2",
-        "examples": "iVar v. 1.2",
-        "vocabulary": {}
+        "examples": "iVar v. 1.2"
       },
       {
         "fieldName": "annotation feature table filename",
+        "ontology_id": "",
         "datatype": "text",
         "requirement": "",
         "description": "The filename of the file containing genome features such as gene names and corresponding CDS.",
         "guidance": "Provide the filename of the annotation feature table.",
-        "examples": "BCRonaAnnotationFeatures",
-        "vocabulary": {}
+        "examples": "BCRonaAnnotationFeatures"
       },
       {
         "fieldName": "bioinformatics protocol",
+        "ontology_id": "",
         "datatype": "text",
         "requirement": "",
         "description": "The name and version number of the bioinformatics protocol used.",
         "guidance": "Further details regarding the methods used to process raw data, and/or generate assemblies, and/or generate consensus sequences can be provided in an SOP or protocol. Provide the name and version number of the protocol.",
-        "examples": "https://www.protocols.io/groups/cphln-sarscov2-sequencing-consortium/members",
-        "vocabulary": {}
+        "examples": "https://www.protocols.io/groups/cphln-sarscov2-sequencing-consortium/members"
       }
     ]
   },
@@ -1294,57 +1340,57 @@ const DATA = [
     "children": [
       {
         "fieldName": "gene name 1",
+        "ontology_id": "",
         "datatype": "text",
         "requirement": "",
         "description": "The name of the gene used in the diagnostic RT-PCR test.",
         "guidance": "Provide the full name of the gene used in the test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI",
-        "examples": "envelope small membrane protein (SARS-CoV-2)",
-        "vocabulary": {}
+        "examples": "envelope small membrane protein (SARS-CoV-2)"
       },
       {
         "fieldName": "diagnostic pcr protocol 1",
+        "ontology_id": "",
         "datatype": "text",
         "requirement": "",
         "description": "The name and version number of the protocol used for diagnostic marker amplification.",
         "guidance": "The name and version number of the protocol used for carrying out a diagnostic PCR test. This information can be compared to sequence data for evaluation of performance and quality control.",
-        "examples": "AllTheTestingPCRingEGene v. 2",
-        "vocabulary": {}
+        "examples": "AllTheTestingPCRingEGene v. 2"
       },
       {
         "fieldName": "diagnostic pcr Ct value 1",
+        "ontology_id": "",
         "datatype": "text",
         "requirement": "",
         "description": "The Ct value result from a diagnostic SARS-CoV-2 RT-PCR test.",
         "guidance": "Provide the CT value of the sample from the diagnostic RT-PCR test.",
-        "examples": "21",
-        "vocabulary": {}
+        "examples": "21"
       },
       {
         "fieldName": "gene name 2",
+        "ontology_id": "",
         "datatype": "text",
         "requirement": "",
         "description": "The name of the gene used in the diagnostic RT-PCR test.",
         "guidance": "Provide the full name of another gene used in an RT-PCR test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI",
-        "examples": "RNA-directed RNA Polymerase (RdRP)",
-        "vocabulary": {}
+        "examples": "RNA-directed RNA Polymerase (RdRP)"
       },
       {
         "fieldName": "diagnostic pcr protocol 2",
+        "ontology_id": "",
         "datatype": "text",
         "requirement": "",
         "description": "The name and version number of the protocol used for diagnostic marker amplification.",
         "guidance": "The name and version number of the protocol used for carrying out a second diagnostic PCR test. This information can be compared to sequence data for evaluation of performance and quality control.",
-        "examples": "AllTheTestingPCRingRdRpGene v. 3",
-        "vocabulary": {}
+        "examples": "AllTheTestingPCRingRdRpGene v. 3"
       },
       {
         "fieldName": "diagnostic pcr Ct value 2",
+        "ontology_id": "",
         "datatype": "text",
         "requirement": "",
         "description": "The Ct value result from a diagnostic SARS-CoV-2 RT-PCR test.",
         "guidance": "Provide the CT value of the sample from the second diagnostic RT-PCR test.",
-        "examples": "36",
-        "vocabulary": {}
+        "examples": "36"
       }
     ]
   },
@@ -1353,12 +1399,12 @@ const DATA = [
     "children": [
       {
         "fieldName": "authors",
+        "ontology_id": "",
         "datatype": "text",
         "requirement": "recommended",
         "description": "Names of individuals contributing to the processes of sample collection, sequence generation, analysis, and data submission.",
         "guidance": "Include the first and last names of all individuals that should be attributed, separated by a comma.",
-        "examples": "Tejinder Singh, Fei Hu, Joe Blogs",
-        "vocabulary": {}
+        "examples": "Tejinder Singh, Fei Hu, Joe Blogs"
       }
     ]
   }
