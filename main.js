@@ -12,8 +12,7 @@
  * @return {Object} Processed values of `data.js`.
  */
 const processData = (data) => {
-  const fields =
-      Array.prototype.concat.apply([], data.map(parent => parent.children));
+  const fields = getFields(data);
   const countryField =
       fields.filter(field => field.fieldName === 'geo_loc_name (country)')[0];
   for (const parent of data) {
@@ -27,6 +26,15 @@ const processData = (data) => {
 };
 
 /**
+ * Get a flat array of all fields in `data.json`.
+ * @param {Object} data See `data.json`.
+ * @return {Array<Object>} Array of all objects under `children` in `data.json`.
+ */
+const getFields = (data) => {
+  return Array.prototype.concat.apply([], data.map(parent => parent.children));
+};
+
+/**
  * Create a blank instance of Handsontable.
  * @param {Object} data See `data.js`.
  * @return {Object} Handsontable instance.
@@ -35,7 +43,6 @@ const createHot = (data) => {
   return Handsontable($('#grid')[0], {
     nestedHeaders: getNestedHeaders(DATA),
     columns: getColumns(DATA),
-    comments: true,
     colHeaders: true,
     rowHeaders: true,
     minRows: 100,
@@ -52,12 +59,15 @@ const createHot = (data) => {
     readOnlyCellClassName: 'read-only',
     afterRender: () => {
       $('#header-row').css('visibility', 'visible');
-      // Bit of a hackey way to stylize th cells
+      // Bit of a hackey way to add classes to secondary headers
       $('.secondary-header-text').each((_, e) => {
+        const $cellElement = $(e).closest('th');
         if ($(e).hasClass('required')) {
-          $(e).closest('th').addClass('required');
+          $cellElement.addClass('secondary-header-cell required');
         } else if ($(e).hasClass('recommended')) {
-          $(e).closest('th').addClass('recommended');
+          $cellElement.addClass('secondary-header-cell recommended');
+        } else {
+          $cellElement.addClass('secondary-header-cell');
         }
       });
     },
@@ -111,9 +121,7 @@ const getFlatHeaders = (data) => {
  */
 const getColumns = (data) => {
   let ret = [];
-  const fields =
-      Array.prototype.concat.apply([], data.map(parent => parent.children));
-  for (const field of fields) {
+  for (const field of getFields(data)) {
     const col = {};
     if (field.requirement) col.requirement = field.requirement;
     if (field.datatype === 'integer') {
@@ -256,9 +264,7 @@ const validateGrid = (hot) => {
 const showFields = (id, data, hot) => {
   const hiddenColumns = [];
   if (id === 'view-required-fields') {
-    const fields =
-        Array.prototype.concat.apply([], data.map(parent => parent.children));
-    fields.forEach(function(field, i) {
+    getFields(data).forEach(function(field, i) {
       if (field.requirement !== 'required') hiddenColumns.push(i);
     });
   }
@@ -269,6 +275,19 @@ const showFields = (id, data, hot) => {
       columns: hiddenColumns,
     },
   });
+};
+
+/**
+ * Get an HTML string that describes a field.
+ * @param {Object} field Any object under `children` in `data.js`.
+ * @return {String} HTML string describing field.
+ */
+const getComment = (field) => {
+  '\nLabel: '+ field.fieldName + '\n\nDescription:' + field.description + '\n\nGuidance: ' + field.guidance + '\n\nExample: '+ field.examples
+  return `<p><strong>Label</strong>: ${field.fieldName}</p>
+<p><strong>Description</strong>: ${field.description}</p>
+<p><strong>Guidance</strong>: ${field.guidance}</p>
+<p><strong>Examples</strong>: ${field.examples}</p>`;
 };
 
 $(document).ready(() => {
@@ -332,12 +351,12 @@ $(document).ready(() => {
     showFields(e.target.id, DATA, HOT);
   });
 
-  $('#grid thead > tr:nth-child(2) th').on('dblclick', function(e, item) {
-    if (this.innerText.length > 0) {
-      let field = window.FIELD_INDEX[this.innerText];
-      let comment = '\nLabel: '+ field.fieldName + '\n\nDescription:' + field.description + '\n\nGuidance: ' + field.guidance + '\n\nExample: '+ field.examples
-      // TO DO: Convert to modal
-      alert(comment)
-    }
+  // Field descriptions
+  $('.secondary-header-cell').dblclick((e) => {
+    const innerText = e.target.innerText;
+    const field =
+        getFields(DATA).filter(field => field.fieldName === innerText)[0];
+    $('#field-description-text').html(getComment(field));
+    $('#field-description-modal').modal('show');
   });
 });
