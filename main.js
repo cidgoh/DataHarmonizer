@@ -14,7 +14,6 @@ const createHot = (data) => {
     nestedHeaders: getNestedHeaders(DATA),
     columns: getColumns(DATA),
     comments: true,
-    //cell: getComments(DATA),
     colHeaders: true,
     rowHeaders: true,
     minRows: 100,
