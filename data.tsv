@@ -113,7 +113,6 @@ GAZ_00002564	geo_loc_name (province/territory)	YUKON TERRITORY
 	biomaterial extracted	RNA (ribo-depleted),					
 	biomaterial extracted	mRNA (cDNA)					
 							
-							
 	signs and symptoms	Ageusia					
 HP_0000458	signs and symptoms	Anosmia					
 HP_0002829	signs and symptoms	Arthralgia (painful joints)					
@@ -159,13 +158,13 @@ HP_0001324	signs and symptoms	Weakness
 UBERON_0000178	anatomical material	Blood					
 UBERON_0006314	anatomical material	Fluid					
 							
-UBERON_0001836	anatomical material	      Saliva					
-UBERON_0001359	anatomical material	   Fluid (cerebrospinal (CSF))					
-UBERON_0002409	anatomical material	   Fluid (pericardial)					
-UBERON_0001087	anatomical material	   Fluid (pleural)					
-UBERON_0036243	anatomical material	   Fluid (vaginal)					
-UBERON_0000173	anatomical material	   Fluid (amniotic)					
-UBERON_0006530	anatomical material	   Fluid (seminal)					
+UBERON_0001836	Fluid	   Saliva					
+UBERON_0001359	Fluid	   Fluid (cerebrospinal (CSF))					
+UBERON_0002409	Fluid	   Fluid (pericardial)					
+UBERON_0001087	Fluid	   Fluid (pleural)					
+UBERON_0036243	Fluid	   Fluid (vaginal)					
+UBERON_0000173	Fluid	   Fluid (amniotic)					
+UBERON_0006530	Fluid	   Fluid (seminal)					
 UBERON_0000479	anatomical material	Tissue					
 							
 							
@@ -177,29 +176,29 @@ UBERON_0001052	anatomical part	Rectum
 UBERON_0001003	anatomical part	Skin					
 UBERON_0000945	anatomical part	Stomach					
 UBERON_0001557	anatomical part	Upper respiratory tract					
-UBERON_2001427	anatomical part	   Anterior Nares					
-UBERON_0001043	anatomical part	   Esophagus					
-UBERON_0002453	anatomical part	   Ethmoid sinus					
-	anatomical part	   Nasal Cavity					
-UBERON_0005921 	anatomical part	     Middle Nasal Turbinate					
-UBERON_0005922	anatomical part	     Inferior Nasal Turbinate					
-UBERON_0001728	anatomical part	   Nasopharynx (NP)					
-UBERON_0001729	anatomical part	   Oropharynx (OP)					
+UBERON_2001427	Upper respiratory tract	   Anterior Nares					
+UBERON_0001043	Upper respiratory tract	   Esophagus					
+UBERON_0002453	Upper respiratory tract	   Ethmoid sinus					
+	Upper respiratory tract	   Nasal Cavity					
+UBERON_0005921 	Nasal Cavity	     Middle Nasal Turbinate					
+UBERON_0005922	Nasal Cavity	     Inferior Nasal Turbinate					
+UBERON_0001728	Upper respiratory tract	   Nasopharynx (NP)					
+UBERON_0001729	Upper respiratory tract	   Oropharynx (OP)					
 UBERON_0001558	anatomical part	Lower respiratory tract					
-UBERON_0002185 	anatomical part	   Bronchus					
-UBERON_0002048	anatomical part	   Lung					
-UBERON_0002186	anatomical part	     Bronchiole					
-UBERON_0002169	anatomical part	     Alveolar sac					
-UBERON_0009778 	anatomical part	   Pleural sac					
-UBERON_0002402	anatomical part	     Pleural cavity					
-UBERON_0003126	anatomical part	   Trachea					
+UBERON_0002185 	Lower respiratory tract	   Bronchus					
+UBERON_0002048	Lower respiratory tract	   Lung					
+UBERON_0002186	Lung	     Bronchiole					
+UBERON_0002169	Lung	     Alveolar sac					
+UBERON_0009778 	Lower respiratory tract	   Pleural sac					
+UBERON_0002402	Pleural sac	     Pleural cavity					
+UBERON_0003126	Lower respiratory tract	   Trachea					
 							
 							
 UBERON_0001988	body product	Feces					
 UBERON_0001088	body product	Urine					
 UBERON_0001089	body product	Sweat					
 UBERON_0000912	body product	Mucus					
-UBERON_0007311	body product	   Sputum					
+UBERON_0007311	Mucus	   Sputum					
 UBERON_0001827	body product	Tear					
 							
 ENVO_00003896	environmental material	Banknote					
@@ -260,21 +259,21 @@ NCIT_C17118	environmental site	School
 							
 NCIT_C52009	collection method	Amniocentesis					
 NCIT_C15631	collection method	Aspiration					
-	collection method	  Suprapubic Aspiration					
-	collection method	  Tracheal aspiration					
-	collection method	  Vacuum Aspiration					
+	Aspiration	  Suprapubic Aspiration					
+	Aspiration	  Tracheal aspiration					
+	Aspiration	  Vacuum Aspiration					
 OBI:0002650	collection method	Biopsy					
-OBI:0002651	collection method	  Needle Biopsy					
+OBI:0002651	Biopsy	  Needle Biopsy					
 OBI_0600044 	collection method	Lavage					
-BTO_0000155	collection method	  Bronchoalveolar lavage (BAL)					
-	collection method	  Gastric Lavage					
+BTO_0000155	Lavage	  Bronchoalveolar lavage (BAL)					
+	Lavage	  Gastric Lavage					
 NCIT_C15327	collection method	Lumbar Puncture					
 MMO_0000344	collection method	Necropsy					
 NCIT_c28221	collection method	Phlebotomy					
 GENEPIO_0002116	collection method	Rinsing					
 	collection method	Scraping					
 GENEPIO_0002117	collection method	Swab					
-	collection method	  Finger Prick					
+	Swab	  Finger Prick					
 	collection method	Wash					
 	collection method	Washout Tear Collection					
 							
@@ -392,41 +391,41 @@ BTO:0004755	lab host	   Vero E6 cell line
 	exposure event	occupational exposure (restaurant)					
 							
 OBI_0000759	sequencing instrument	ILLUMINA					
-OBI_0002129	sequencing instrument	   HiSeq X 					
-	sequencing instrument	      HiSeq X Five					
-OBI_0002129	sequencing instrument	      HiSeq X Ten					
-OBI_0002128	sequencing instrument	   Illumina Genome Analyzer					
-OBI_0000703	sequencing instrument	      Illumina Genome Analyzer II					
-OBI_0002000	sequencing instrument	      Illumina Genome Analyzer IIx					
-	sequencing instrument	   Illumina HiScanSQ					
-OBI_0002022	sequencing instrument	   Illumina HiSeq 1000					
-	sequencing instrument	   Illumina HiSeq 1500					
-OBI_0002001	sequencing instrument	   Illumina HiSeq 2000					
-OBI_0002002	sequencing instrument	   Illumina HiSeq 2500					
-OBI_0002048	sequencing instrument	   Illumina HiSeq 3000					
-OBI_0002049	sequencing instrument	   Illumina HiSeq 4000					
-http://www.ebi.ac.uk/efo/EFO_0008635	sequencing instrument	   Illumina iSeq 100					
-OBI_0002630	sequencing instrument	   Illumina NovaSeq 6000					
-http://www.ebi.ac.uk/efo/EFO_0008636	sequencing instrument	   Illumina MiniSeq					
-OBI_0002003	sequencing instrument	   Illumina MiSeq					
-OBI_0002021	sequencing instrument	   NextSeq 500					
-	sequencing instrument	   NextSeq 550					
+OBI_0002129	ILLUMINA	   HiSeq X 					
+	HiSeq X	      HiSeq X Five					
+OBI_0002129	HiSeq X	      HiSeq X Ten					
+OBI_0002128	ILLUMINA	   Illumina Genome Analyzer					
+OBI_0000703	Illumina Genome Analyzer	      Illumina Genome Analyzer II					
+OBI_0002000	Illumina Genome Analyzer	      Illumina Genome Analyzer IIx					
+	ILLUMINA	   Illumina HiScanSQ					
+OBI_0002022	ILLUMINA	   Illumina HiSeq 1000					
+	ILLUMINA	   Illumina HiSeq 1500					
+OBI_0002001	ILLUMINA	   Illumina HiSeq 2000					
+OBI_0002002	ILLUMINA	   Illumina HiSeq 2500					
+OBI_0002048	ILLUMINA	   Illumina HiSeq 3000					
+OBI_0002049	ILLUMINA	   Illumina HiSeq 4000					
+http://www.ebi.ac.uk/efo/EFO_0008635	ILLUMINA	   Illumina iSeq 100					
+OBI_0002630	ILLUMINA	   Illumina NovaSeq 6000					
+http://www.ebi.ac.uk/efo/EFO_0008636	ILLUMINA	   Illumina MiniSeq					
+OBI_0002003	ILLUMINA	   Illumina MiSeq					
+OBI_0002021	ILLUMINA	   NextSeq 500					
+	ILLUMINA	   NextSeq 550					
 OBI_0001856	sequencing instrument	Pacific Biosciences					
-	sequencing instrument	   PacBio RS					
-OBI_0002012	sequencing instrument	   PacBio RS II					
-OBI_0002632	sequencing instrument	   PacBio Sequel					
-OBI_0002633	sequencing instrument	   PacBio Sequel II					
+	Pacific Biosciences	   PacBio RS					
+OBI_0002012	Pacific Biosciences	   PacBio RS II					
+OBI_0002632	Pacific Biosciences	   PacBio Sequel					
+OBI_0002633	Pacific Biosciences	   PacBio Sequel II					
 	sequencing instrument	Ion Torrent					
-GENEPIO_0001935	sequencing instrument	   Ion Torrent PGM					
-	sequencing instrument	   Ion Torrent Proton					
-	sequencing instrument	   Ion Torrent S5 XL					
-	sequencing instrument	   Ion Torrent S5					
+GENEPIO_0001935	Ion Torrent	   Ion Torrent PGM					
+	Ion Torrent	   Ion Torrent Proton					
+	Ion Torrent	   Ion Torrent S5 XL					
+	Ion Torrent	   Ion Torrent S5					
 	sequencing instrument	Oxford Nanopore					
-	sequencing instrument	   GridION					
-	sequencing instrument	   MinION					
-	sequencing instrument	   PromethION					
+	Oxford Nanopore	   GridION					
+	Oxford Nanopore	   MinION					
+	Oxford Nanopore	   PromethION					
 	sequencing instrument	BGI Genomics					
-	sequencing instrument	   BGISEQ-500					
+	BGI Genomics	   BGISEQ-500					
 							
 							
 							

@@ -103,33 +103,35 @@ const getColumns = (data) => {
       column.requirement = field.requirement;
 
     switch (field.datatype) {
+
       case 'integer': 
         column.type = 'numeric';
-        column.numericFormat = {mantissa: 0}; // Does it conver number?
+        column.numericFormat = {}; // Not sure how to force integer validation
         break;
+
       case 'decimal':
         column.type = 'numeric';
         //column.numericFormat = '0.0';
         break;
+
       case 'date': 
         column.type = 'date';
         column.dateFormat = 'YYYY/MM/DD';
         break;
-    }
 
-    // case: field.datatype = 'select'
-    if (Object.keys(field.vocabulary).length) {
-      column.type = 'autocomplete';
-      column.className = 'selection';
-      //column.strict = 'true'; // Issue: shows red for selections that have leading spaces
-      column.source = stringifyNestedVocabulary(field.vocabulary);
-    }
-    else // Special case: field is a country list. 
-      if (field.fieldName.indexOf('(country)') > 0) {
+      case field.datatype = 'select':
+      case field.datatype = 'multiple': // Multi-select
         column.type = 'autocomplete';
-        column.strict = 'true';
-        column.source = stringifyNestedVocabulary(window.FIELD_INDEX['geo_loc_name (country)'].vocabulary);
-      }
+        if (field.fieldName.indexOf('(country)') == -1) {
+          column.className = 'selection';
+          column.strict = 'true'; // Issue: shows red for selections that have leading spaces
+          column.source = stringifyNestedVocabulary(field.vocabulary);
+        }
+        else {// Special case: field is a country list. 
+          column.strict = 'true';
+          column.source = stringifyNestedVocabulary(window.FIELD_INDEX['geo_loc_name (country)'].vocabulary);
+        }
+    }
 
     ret.push(column)
 
@@ -341,6 +343,7 @@ $(document).ready(() => {
     if (this.innerText.length > 0) {
       let field = window.FIELD_INDEX[this.innerText];
       let comment = '\nLabel: '+ field.fieldName + '\n\nDescription:' + field.description + '\n\nGuidance: ' + field.guidance + '\n\nExample: '+ field.examples
+      // TO DO: Convert to modal
       alert(comment)
     }
   });
