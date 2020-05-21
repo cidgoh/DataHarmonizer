@@ -5,7 +5,7 @@ const DATA = [
       {
         fieldName: 'specimen collector sample ID',
         ontologyId: '',
-        dateType: 'text',
+        datatype: 'text',
         requirement: 'required',
         description: 'The user-defined name for the sample.',
         guidance: 'Store the collector sample ID. Every collector sample ID from a single submitter must be unique. It can have any format, but we suggest that you make it concise, unique and consistent within your lab, and as informative as possible.',
@@ -14,7 +14,7 @@ const DATA = [
       {
         fieldName: 'PHAC sample ID',
         ontologyId: '',
-        dateType: 'text',
+        datatype: 'text',
         requirement: 'recommended',
         description: 'The identifier assigned to the sample in the national database.',
         guidance: 'Store the PHAC sample ID. This ID will be assigned by PHAC. The PHAC sample ID may be different than the sample ID assigned by the sample collector. It is important to track both of these for traceability.',
@@ -23,7 +23,7 @@ const DATA = [
       {
         fieldName: 'IRIDA sample name',
         ontologyId: '',
-        dateType: 'text',
+        datatype: 'text',
         requirement: '',
         description: 'The identifier assigned to a sequenced isolate in IRIDA.',
         guidance: 'Store the IRIDA sample name. The IRIDA sample name will be created by the individual entering data into the IRIDA platform. IRIDA samples may be linked to metadata and sequence data, or just metadata alone. It is recommended that the IRIDA sample name be the same as, or contain, the specimen collector sample ID for better traceability.',
@@ -32,7 +32,7 @@ const DATA = [
       {
         fieldName: 'umbrella bioproject accession',
         ontologyId: '',
-        dateType: 'select',
+        datatype: 'select',
         requirement: '',
         description: 'The INSDC accession number assigned to the umbrella BioProject for the Canadian SARS-CoV-2 sequencing effort.',
         guidance: 'Store the umbrella BioProject accession by selecting it from the pick list in the template. The umbrella BioProject accession will be identical for all CanCOGen submitters. Different provinces will have their own BioProjects, however these BioProjects will be linked under one umbrella BioProject.',
@@ -44,7 +44,7 @@ const DATA = [
       {
         fieldName: 'bioproject accession',
         ontologyId: '',
-        dateType: 'text',
+        datatype: 'text',
         requirement: '',
         description: 'The INSDC accession number of the BioProject(s) to which the BioSample belongs.',
         guidance: 'Store the BioProject accession number. BioProjects are an organizing tool that links together raw sequence data, assemblies, and their associated metadata. A valid NCBI BioProject accession has prefix PRJN e.g., PRJNA12345 and is created once at the beginning of a new sequencing project.',
@@ -53,7 +53,7 @@ const DATA = [
       {
         fieldName: 'biosample accession',
         ontologyId: '',
-        dateType: 'text',
+        datatype: 'text',
         requirement: '',
         description: 'The identifier assigned to a BioSample in INSDC archives.',
         guidance: 'Store the accession returned from the BioSample submission. NCBI BioSamples will have the prefix SAMN.',
@@ -62,7 +62,7 @@ const DATA = [
       {
         fieldName: 'SRA accession',
         ontologyId: '',
-        dateType: 'text',
+        datatype: 'text',
         requirement: '',
         description: 'The Sequence Read Archive (SRA) identifier linking raw read data, methodological metadata and quality control metrics submitted to the INSDC.',
         guidance: 'Store the accession assigned to the submitted \'run\'. NCBI-SRA accessions start with SRR.',
@@ -71,7 +71,7 @@ const DATA = [
       {
         fieldName: 'GenBank accession',
         ontologyId: '',
-        dateType: 'text',
+        datatype: 'text',
         requirement: '',
         description: 'The GenBank identifier assigned to the sequence in the INSDC archives.',
         guidance: 'Store the accession returned from a GenBank submission (viral genome assembly).',
@@ -80,7 +80,7 @@ const DATA = [
       {
         fieldName: 'GISAID accession',
         ontologyId: '',
-        dateType: 'text',
+        datatype: 'text',
         requirement: '',
         description: 'The GISAID accession number assigned to the sequence.',
         guidance: 'Store the accession returned from the GISAID submission.',
@@ -94,7 +94,7 @@ const DATA = [
       {
         fieldName: 'sample collected by',
         ontologyId: '',
-        dateType: 'text',
+        datatype: 'text',
         requirement: 'required',
         description: 'The name of the agency that collected the original sample.',
         guidance: 'The name of the agency should be written out in full, (with minor exceptions) and be consistent across multple submissions e.g. Public Health Agency of Canada, Public Health Ontario, BC Centre for Disease Control',
@@ -103,7 +103,7 @@ const DATA = [
       {
         fieldName: 'sample collector contact email',
         ontologyId: '',
-        dateType: 'text',
+        datatype: 'text',
         requirement: '',
         description: 'The email address of the contact responsible for follow-up regarding the sample.',
         guidance: 'The email address can represent a specific individual or lab e.g. johnnyblogs@lab.ca, or RespLab@lab.ca',
@@ -112,7 +112,7 @@ const DATA = [
       {
         fieldName: 'sample collector contact address',
         ontologyId: '',
-        dateType: 'text',
+        datatype: 'text',
         requirement: '',
         description: 'The mailing address of the agency submitting the sample.',
         guidance: 'The mailing address should be in the format: Street number and name, City, Province/Territory, Postal Code, Country',
@@ -121,7 +121,7 @@ const DATA = [
       {
         fieldName: 'sequence submitted by',
         ontologyId: '',
-        dateType: 'text',
+        datatype: 'text',
         requirement: 'required',
         description: 'The name of the agency that generated the sequence.',
         guidance: 'The name of the agency should be written out in full, (with minor exceptions) and be consistent across multple submissions e.g. Public Health Agency of Canada, Public Health Ontario, BC Centre for Disease Control',
@@ -130,7 +130,7 @@ const DATA = [
       {
         fieldName: 'sequence submitter contact email',
         ontologyId: '',
-        dateType: 'text',
+        datatype: 'text',
         requirement: '',
         description: 'The email address of the contact responsible for follow-up regarding the sequence.',
         guidance: 'The email address can represent a specific individual or lab e.g. johnnyblogs@lab.ca, or RespLab@lab.ca',
@@ -139,7 +139,7 @@ const DATA = [
       {
         fieldName: 'sequence submitter contact address',
         ontologyId: '',
-        dateType: 'text',
+        datatype: 'text',
         requirement: '',
         description: 'The mailing address of the agency submitting the sequence.',
         guidance: 'The mailing address should be in the format: Street number and name, City, Province/Territory, Postal Code, Country',
@@ -148,7 +148,7 @@ const DATA = [
       {
         fieldName: 'sample collection date',
         ontologyId: '',
-        dateType: 'date',
+        datatype: 'date',
         requirement: 'required',
         description: 'The date on which the sample was collected.',
         guidance: 'ISO 8601 standard \'YYYY-MM-DD\', \'YYYY-MM\' or \'YYYY\'',
@@ -157,7 +157,7 @@ const DATA = [
       {
         fieldName: 'geo_loc_name (country)',
         ontologyId: '',
-        dateType: 'select',
+        datatype: 'select',
         requirement: 'required',
         description: 'The country where the sample was collected.',
         guidance: 'Provide the country name from the controlled vocabulary provided.',
@@ -439,7 +439,7 @@ const DATA = [
       {
         fieldName: 'geo_loc_name (province/territory)',
         ontologyId: '',
-        dateType: 'select',
+        datatype: 'select',
         requirement: 'required',
         description: 'The province/territory where the sample was collected.',
         guidance: 'Provide the province/territory name from the controlled vocabulary provided.',
@@ -463,7 +463,7 @@ const DATA = [
       {
         fieldName: 'geo_loc_name (city)',
         ontologyId: '',
-        dateType: 'text',
+        datatype: 'text',
         requirement: '',
         description: 'The city where the sample was collected.',
         guidance: 'Provide the city name. Use this look-up service to identify the standardized term: https://www.ebi.ac.uk/ols/ontologies/gaz',
@@ -472,7 +472,7 @@ const DATA = [
       {
         fieldName: 'organism',
         ontologyId: '',
-        dateType: 'select',
+        datatype: 'select',
         requirement: 'required',
         description: 'Taxonomic name of the organism.',
         guidance: 'Use SARS-CoV-2. This value is provided in the template.',
@@ -486,7 +486,7 @@ const DATA = [
       {
         fieldName: 'isolate',
         ontologyId: '',
-        dateType: 'text',
+        datatype: 'text',
         requirement: 'required',
         description: 'Identifier of the specific isolate.',
         guidance: 'Provide the isolate name. This identifer should be an unique, indexed, alpha-numeric ID within your laboratory. The isolate name is often the same as the specimen collector sample ID.',
@@ -495,7 +495,7 @@ const DATA = [
       {
         fieldName: 'purpose of sampling',
         ontologyId: '',
-        dateType: 'select',
+        datatype: 'select',
         requirement: 'recommended',
         description: 'The reason that the sample was collected.',
         guidance: 'Provide the purpose of sampling from the picklist in the template.',
@@ -511,7 +511,7 @@ const DATA = [
       {
         fieldName: 'anatomical material',
         ontologyId: '',
-        dateType: 'select',
+        datatype: 'select',
         requirement: 'required',
         description: 'A substance obtained from an anatomical part of an organism e.g. tissue, blood.',
         guidance: 'Provide a descriptor if an anatomical material was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, use this look-up service to identify a standardized term: https://www.ebi.ac.uk/ols/ontologies/uberon. If not applicable, leave blank.',
@@ -533,7 +533,7 @@ const DATA = [
       {
         fieldName: 'anatomical part',
         ontologyId: '',
-        dateType: 'select',
+        datatype: 'select',
         requirement: 'required',
         description: 'An anatomical part of an organism e.g. oropharynx.',
         guidance: 'Provide a descriptor if an anatomical part was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, use this look-up service to identify a standardized term: https://www.ebi.ac.uk/ols/ontologies/uberon. If not applicable, leave blank.',
@@ -573,7 +573,7 @@ const DATA = [
       {
         fieldName: 'body product',
         ontologyId: '',
-        dateType: 'select',
+        datatype: 'select',
         requirement: 'required',
         description: 'A substance excreted/secreted from an organism e.g. feces, urine, sweat.',
         guidance: 'Provide a descriptor if a body product was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, use this look-up service to identify a standardized term: https://www.ebi.ac.uk/ols/ontologies/uberon. If not applicable, leave blank.',
@@ -591,7 +591,7 @@ const DATA = [
       {
         fieldName: 'environmental material',
         ontologyId: '',
-        dateType: 'select',
+        datatype: 'select',
         requirement: 'required',
         description: 'A substance obtained from the natural or man-made environment e.g. soil, water, sewage.',
         guidance: 'Provide a descriptor if an environmental material was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, use this look-up service to identify a standardized term: https://www.ebi.ac.uk/ols/ontologies/envo. If not applicable, leave blank.',
@@ -632,7 +632,7 @@ const DATA = [
       {
         fieldName: 'environmental site',
         ontologyId: '',
-        dateType: 'select',
+        datatype: 'select',
         requirement: 'required',
         description: 'An environmental location may describe a site in the natural or built environment e.g. contact surface, metal can, hospital, wet market, bat cave.',
         guidance: 'Provide a descriptor if an environmental site was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, use this look-up service to identify a standardized term: https://www.ebi.ac.uk/ols/ontologies/envo. If not applicable, leave blank.',
@@ -662,7 +662,7 @@ const DATA = [
       {
         fieldName: 'collection device',
         ontologyId: '',
-        dateType: 'select',
+        datatype: 'select',
         requirement: 'required',
         description: 'The instrument or container used to collect the sample e.g. swab.',
         guidance: 'Provide a descriptor if a device was used for sampling. Use the picklist provided in the template. If a desired term is missing from the picklist, use this look-up service to identify a standardized term: https://www.ebi.ac.uk/ols/ontologies/obi. If not applicable, leave blank.',
@@ -689,7 +689,7 @@ const DATA = [
       {
         fieldName: 'collection method',
         ontologyId: '',
-        dateType: 'select',
+        datatype: 'select',
         requirement: 'required',
         description: 'The process used to collect the sample e.g. phlebotamy, necropsy.',
         guidance: 'Provide a descriptor if a collection method was used for sampling. Use the picklist provided in the template. If a desired term is missing from the picklist, use this look-up service to identify a standardized term: https://www.ebi.ac.uk/ols/ontologies/obi. If not applicable, leave blank.',
@@ -723,7 +723,7 @@ const DATA = [
       {
         fieldName: 'collection protocol',
         ontologyId: '',
-        dateType: 'select',
+        datatype: 'select',
         requirement: '',
         description: 'The name and version of a particular protocol used for sampling.',
         guidance: 'Free text.',
@@ -733,7 +733,7 @@ const DATA = [
       {
         fieldName: 'specimen processing',
         ontologyId: '',
-        dateType: 'select',
+        datatype: 'select',
         requirement: 'recommended',
         description: 'Any processing applied to the sample during or after receiving the sample.',
         guidance: 'Critical for passage history. If virus was passaged, select \'virus passage\' from the picklist. If the sample was not passaged, put \'not applicable\'.',
@@ -746,7 +746,7 @@ const DATA = [
       {
         fieldName: 'lab host',
         ontologyId: '',
-        dateType: 'select',
+        datatype: 'select',
         requirement: 'recommended',
         description: 'Name and description of the laboratory host used to propagate the source organism or material from which the sample was obtained.',
         guidance: 'Type of cell line used for propagation. Provide the name of the cell line using the picklist in the template. If not passaged, put \'not applicable\'.',
@@ -774,7 +774,7 @@ const DATA = [
       {
         fieldName: 'passage number',
         ontologyId: '',
-        dateType: 'integer',
+        datatype: 'integer',
         requirement: 'recommended',
         description: 'Number of passages.',
         guidance: 'Provide number of known passages. If not passaged, put \'not applicable\'',
@@ -783,7 +783,7 @@ const DATA = [
       {
         fieldName: 'passage method',
         ontologyId: '',
-        dateType: 'text',
+        datatype: 'text',
         requirement: 'recommended',
         description: 'Description of how organism was passaged.',
         guidance: 'Free text. Provide a very short description (<10 words). If not passaged, put \'not applicable\'.',
@@ -792,7 +792,7 @@ const DATA = [
       {
         fieldName: 'biomaterial extracted',
         ontologyId: '',
-        dateType: 'select',
+        datatype: 'select',
         requirement: '',
         description: 'The biomaterial extracted from samples for the purpose of sequencing.',
         guidance: 'Provide the biomaterial extracted from the picklist in the template.',
@@ -812,7 +812,7 @@ const DATA = [
       {
         fieldName: 'host (common name)',
         ontologyId: '',
-        dateType: 'select',
+        datatype: 'select',
         requirement: '',
         description: 'The commonly used name of the host.',
         guidance: 'Common name or scientific name are required if there was a host. Both can be provided, if known. Use terms from the pick lists in the template. Common name e.g. human, bat. If the sample was environmental, put \'not applicable.',
@@ -835,7 +835,7 @@ const DATA = [
       {
         fieldName: 'host (scientific name)',
         ontologyId: '',
-        dateType: 'select',
+        datatype: 'select',
         requirement: 'required',
         description: 'The taxonomic, or scientific name of the host.',
         guidance: 'Common name or scientific name are required if there was a host. Both can be provided, if known. Use terms from the pick lists in the template. Scientific name e.g. Homo sapiens, If the sample was environmental, put \'not applicable',
@@ -861,7 +861,7 @@ const DATA = [
       {
         fieldName: 'host health state',
         ontologyId: '',
-        dateType: 'select',
+        datatype: 'select',
         requirement: '',
         description: 'Health status of the host at the time of sample collection.',
         guidance: 'If known, select a descriptor from the pick list provided in the template.',
@@ -877,7 +877,7 @@ const DATA = [
       {
         fieldName: 'host health status details',
         ontologyId: '',
-        dateType: 'select',
+        datatype: 'select',
         requirement: '',
         description: 'Further details pertaining to the health or disease status of the host at time of collection.',
         guidance: 'If known, select a descriptor from the pick list provided in the template.',
@@ -893,7 +893,7 @@ const DATA = [
       {
         fieldName: 'host disease',
         ontologyId: '',
-        dateType: 'select',
+        datatype: 'select',
         requirement: 'required',
         description: 'The name of the disease experienced by the host.',
         guidance: 'Select \'COVID-19\' from the pick list provided in the template.',
@@ -905,7 +905,7 @@ const DATA = [
       {
         fieldName: 'host age',
         ontologyId: '',
-        dateType: 'decimal',
+        datatype: 'decimal',
         requirement: 'required',
         description: 'Age of host at the time of sampling.',
         guidance: 'Enter the age of the host in years. If not available, put \'unknown\'.',
@@ -914,7 +914,7 @@ const DATA = [
       {
         fieldName: 'host gender',
         ontologyId: '',
-        dateType: 'select',
+        datatype: 'select',
         requirement: 'required',
         description: 'The gender of the host at the time of sample collection.',
         guidance: 'Select the corresponding host gender from the pick list provided in the template. If not available, put \'unknown\'.',
@@ -932,7 +932,7 @@ const DATA = [
       {
         fieldName: 'host origin geo_loc name (country)',
         ontologyId: '',
-        dateType: 'select',
+        datatype: 'select',
         requirement: '',
         description: 'The country of residence of the host.',
         guidance: 'Select the country name from pick list provided in the template.',
@@ -942,7 +942,7 @@ const DATA = [
       {
         fieldName: 'host subject ID',
         ontologyId: '',
-        dateType: 'text',
+        datatype: 'text',
         requirement: '',
         description: 'A unique identifier by which each host can be referred to e.g. #131',
         guidance: 'Provide the host identifier. Should be a unique, user-defined identifier.',
@@ -951,7 +951,7 @@ const DATA = [
       {
         fieldName: 'symptom onset date',
         ontologyId: '',
-        dateType: 'date',
+        datatype: 'date',
         requirement: '',
         description: 'The date on which the symptoms began or were first noted.',
         guidance: 'ISO 8601 standard \'YYYY-MM-DD\', \'YYYY-MM\' or \'YYYY\'',
@@ -960,7 +960,7 @@ const DATA = [
       {
         fieldName: 'signs and symptoms',
         ontologyId: '',
-        dateType: 'multiple',
+        datatype: 'multiple',
         requirement: '',
         description: 'A perceived change in function or sensation, (loss, disturbance or appearance) indicative of a disease, reported by a patient.',
         guidance: 'Provide a list of symptoms experienced by the host. List in order of appearance, separated by a comma.',
@@ -1015,7 +1015,7 @@ const DATA = [
       {
         fieldName: 'location of exposure geo_loc name (country)',
         ontologyId: '',
-        dateType: 'select',
+        datatype: 'select',
         requirement: '',
         description: 'The country where the host was likely exposed to the causative agent of the illness.',
         guidance: 'Select the country name from pick list provided in the template.',
@@ -1025,7 +1025,7 @@ const DATA = [
       {
         fieldName: 'travel history',
         ontologyId: '',
-        dateType: 'text',
+        datatype: 'text',
         requirement: '',
         description: 'Travel outside the country in last six months.',
         guidance: 'Specify the countries (and more granular locations if known, separated by a comma) travelled in the last six months; can include multiple travels. Separate multiple travel events with a semi-colon. List most recent travel first.',
@@ -1034,7 +1034,7 @@ const DATA = [
       {
         fieldName: 'exposure event',
         ontologyId: '',
-        dateType: 'select',
+        datatype: 'select',
         requirement: '',
         description: 'Event leading to exposure.',
         guidance: 'Select an exposure event from the pick list provided in the template. If the desired term is missing, contact the curation team.',
@@ -1060,7 +1060,7 @@ const DATA = [
       {
         fieldName: 'library ID',
         ontologyId: '',
-        dateType: 'text',
+        datatype: 'text',
         requirement: 'recommended',
         description: 'The user-specified identifier for the library prepared for sequencing.',
         guidance: 'The library name should be unique, and can be an autogenerated ID from your LIMS, or modification of the isolate ID.',
@@ -1069,7 +1069,7 @@ const DATA = [
       {
         fieldName: 'sequencing instrument',
         ontologyId: '',
-        dateType: 'select',
+        datatype: 'select',
         requirement: 'required',
         description: 'The model of the sequencing instrument used.',
         guidance: 'Select a sequencing instrument from the picklist provided in the template.',
@@ -1123,7 +1123,7 @@ const DATA = [
       {
         fieldName: 'sequencing protocol name',
         ontologyId: '',
-        dateType: 'text',
+        datatype: 'text',
         requirement: 'recommended',
         description: 'The name and version number of the sequencing protocol used.',
         guidance: 'Provide the name and version of the sequencing protocol e.g. 1D_DNA_MinION',
@@ -1132,7 +1132,7 @@ const DATA = [
       {
         fieldName: 'sequencing protocol source',
         ontologyId: '',
-        dateType: 'text',
+        datatype: 'text',
         requirement: '',
         description: 'The name of the organization/authors of the protocol.',
         guidance: 'Provide the name of the source of the protocol e.g. ARTIC Network.',
@@ -1141,7 +1141,7 @@ const DATA = [
       {
         fieldName: 'sequencing kit number',
         ontologyId: '',
-        dateType: 'text',
+        datatype: 'text',
         requirement: '',
         description: 'The manufacturer\'s kit number.',
         guidance: 'Alphanumeric value.',
@@ -1150,7 +1150,7 @@ const DATA = [
       {
         fieldName: 'amplicon pcr primers filename',
         ontologyId: '',
-        dateType: 'text',
+        datatype: 'text',
         requirement: '',
         description: 'The filename of the file containing amplicon PCR primer names and sequences.',
         guidance: 'Important for documenting methods and should be considered for submission, particularly if primers were designed in-house and not by a public consortium/network.',
@@ -1164,7 +1164,7 @@ const DATA = [
       {
         fieldName: 'raw sequence data processing',
         ontologyId: '',
-        dateType: 'text',
+        datatype: 'text',
         requirement: 'recommended',
         description: 'The names of the software and version number used for raw data processing such as removing barcodes, adapter trimming, filtering etc.',
         guidance: 'Provide the software name followed by the version e.g. Trimmomatic v. 0.38, Porechop v. 0.2.3',
@@ -1173,7 +1173,7 @@ const DATA = [
       {
         fieldName: 'sequencing depth (average)',
         ontologyId: '',
-        dateType: 'text',
+        datatype: 'text',
         requirement: '',
         description: 'The total number of sequenced base pairs divided by the expected number of base pairs in the genome.',
         guidance: 'Provide the value as a fold of coverage.',
@@ -1182,7 +1182,7 @@ const DATA = [
       {
         fieldName: 'assembly name',
         ontologyId: '',
-        dateType: 'text',
+        datatype: 'text',
         requirement: '',
         description: 'Name/version of the assembly provided by the submitter.',
         guidance: 'Provide the assembly name.',
@@ -1191,7 +1191,7 @@ const DATA = [
       {
         fieldName: 'assembly method',
         ontologyId: '',
-        dateType: 'select',
+        datatype: 'select',
         requirement: 'required',
         description: 'The name and version number of the assembly method used.',
         guidance: 'Provide the software name followed by the version e.g. Canu v. 2.0',
@@ -1201,7 +1201,7 @@ const DATA = [
       {
         fieldName: 'assembly coverage breadth',
         ontologyId: '',
-        dateType: 'text',
+        datatype: 'text',
         requirement: '',
         description: 'The percentage of the assembled genome that was sequenced to a prescribed depth of coverage.',
         guidance: 'Provide value as a percent e.g. 95%.',
@@ -1210,7 +1210,7 @@ const DATA = [
       {
         fieldName: 'assembly coverage depth',
         ontologyId: '',
-        dateType: 'text',
+        datatype: 'text',
         requirement: '',
         description: 'The average number of reads representing a given nucleotide in the assembled sequence.',
         guidance: 'Provide value as a fold of coverage e.g. 80x.',
@@ -1219,7 +1219,7 @@ const DATA = [
       {
         fieldName: 'r1 fastq filename',
         ontologyId: '',
-        dateType: 'text',
+        datatype: 'text',
         requirement: 'recommended',
         description: 'The user-specified filename of the r1 FASTQ file.',
         guidance: 'Provide the r1 fastq filename.',
@@ -1228,7 +1228,7 @@ const DATA = [
       {
         fieldName: 'r2 fastq filename',
         ontologyId: '',
-        dateType: 'text',
+        datatype: 'text',
         requirement: 'recommended',
         description: 'The user-specified filename of the r2 FASTQ file.',
         guidance: 'Provide the r2 fastq filename.',
@@ -1237,7 +1237,7 @@ const DATA = [
       {
         fieldName: 'fasta filename',
         ontologyId: '',
-        dateType: 'text',
+        datatype: 'text',
         requirement: '',
         description: 'The user-specified filename of the FASTA file.',
         guidance: 'Provide the fasta filename.',
@@ -1246,7 +1246,7 @@ const DATA = [
       {
         fieldName: 'number base pairs',
         ontologyId: '',
-        dateType: 'integer',
+        datatype: 'integer',
         requirement: '',
         description: 'The number of total base pairs generated by the sequencing process.',
         guidance: 'Provide a numerical value (no need to include units).',
@@ -1255,7 +1255,7 @@ const DATA = [
       {
         fieldName: 'genome length',
         ontologyId: '',
-        dateType: 'integer',
+        datatype: 'integer',
         requirement: '',
         description: 'Size of the reconstructed genome described as the number of base pairs.',
         guidance: 'Provide a numerical value (no need to include units).',
@@ -1264,7 +1264,7 @@ const DATA = [
       {
         fieldName: 'mean contig length',
         ontologyId: '',
-        dateType: 'integer',
+        datatype: 'integer',
         requirement: '',
         description: 'The mean contig length is the count of base pairs in the average size contig of the sequence assembly.',
         guidance: 'Provide a numerical value (no need to include units).',
@@ -1273,7 +1273,7 @@ const DATA = [
       {
         fieldName: 'N50',
         ontologyId: '',
-        dateType: 'integer',
+        datatype: 'integer',
         requirement: '',
         description: 'The minimum contig length needed to cover 50% of the genome.',
         guidance: 'Provide a numerical value (no need to include units).',
@@ -1282,7 +1282,7 @@ const DATA = [
       {
         fieldName: 'Ns per 100 kbp',
         ontologyId: '',
-        dateType: 'decimal',
+        datatype: 'decimal',
         requirement: '',
         description: 'The number of N symbols present in the consensus fasta sequence, per 100kbp of sequence.',
         guidance: 'Provide a numerical value (no need to include units).',
@@ -1291,7 +1291,7 @@ const DATA = [
       {
         fieldName: 'reference genome accession',
         ontologyId: '',
-        dateType: 'text',
+        datatype: 'text',
         requirement: '',
         description: 'A persistent, unique identifier of a genome database entry.',
         guidance: 'Provide the accession number of the reference genome.',
@@ -1300,7 +1300,7 @@ const DATA = [
       {
         fieldName: 'consensus sequence ID',
         ontologyId: '',
-        dateType: 'text',
+        datatype: 'text',
         requirement: '',
         description: 'The identifer used to specify the consensus sequence.',
         guidance: 'Provide the consensus sequence identifier.',
@@ -1309,7 +1309,7 @@ const DATA = [
       {
         fieldName: 'consensus sequence method',
         ontologyId: '',
-        dateType: 'text',
+        datatype: 'text',
         requirement: '',
         description: 'The name and version number of the software used to produce the consensus sequence.',
         guidance: 'Provide the software name followed by the version e.g. iVar v. 1.2',
@@ -1318,7 +1318,7 @@ const DATA = [
       {
         fieldName: 'annotation feature table filename',
         ontologyId: '',
-        dateType: 'text',
+        datatype: 'text',
         requirement: '',
         description: 'The filename of the file containing genome features such as gene names and corresponding CDS.',
         guidance: 'Provide the filename of the annotation feature table.',
@@ -1327,7 +1327,7 @@ const DATA = [
       {
         fieldName: 'bioinformatics protocol',
         ontologyId: '',
-        dateType: 'text',
+        datatype: 'text',
         requirement: '',
         description: 'The name and version number of the bioinformatics protocol used.',
         guidance: 'Further details regarding the methods used to process raw data, and/or generate assemblies, and/or generate consensus sequences can be provided in an SOP or protocol. Provide the name and version number of the protocol.',
@@ -1341,7 +1341,7 @@ const DATA = [
       {
         fieldName: 'gene name 1',
         ontologyId: '',
-        dateType: 'text',
+        datatype: 'text',
         requirement: '',
         description: 'The name of the gene used in the diagnostic RT-PCR test.',
         guidance: 'Provide the full name of the gene used in the test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI',
@@ -1350,7 +1350,7 @@ const DATA = [
       {
         fieldName: 'diagnostic pcr protocol 1',
         ontologyId: '',
-        dateType: 'text',
+        datatype: 'text',
         requirement: '',
         description: 'The name and version number of the protocol used for diagnostic marker amplification.',
         guidance: 'The name and version number of the protocol used for carrying out a diagnostic PCR test. This information can be compared to sequence data for evaluation of performance and quality control.',
@@ -1359,7 +1359,7 @@ const DATA = [
       {
         fieldName: 'diagnostic pcr Ct value 1',
         ontologyId: '',
-        dateType: 'text',
+        datatype: 'text',
         requirement: '',
         description: 'The Ct value result from a diagnostic SARS-CoV-2 RT-PCR test.',
         guidance: 'Provide the CT value of the sample from the diagnostic RT-PCR test.',
@@ -1368,7 +1368,7 @@ const DATA = [
       {
         fieldName: 'gene name 2',
         ontologyId: '',
-        dateType: 'text',
+        datatype: 'text',
         requirement: '',
         description: 'The name of the gene used in the diagnostic RT-PCR test.',
         guidance: 'Provide the full name of another gene used in an RT-PCR test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI',
@@ -1377,7 +1377,7 @@ const DATA = [
       {
         fieldName: 'diagnostic pcr protocol 2',
         ontologyId: '',
-        dateType: 'text',
+        datatype: 'text',
         requirement: '',
         description: 'The name and version number of the protocol used for diagnostic marker amplification.',
         guidance: 'The name and version number of the protocol used for carrying out a second diagnostic PCR test. This information can be compared to sequence data for evaluation of performance and quality control.',
@@ -1386,7 +1386,7 @@ const DATA = [
       {
         fieldName: 'diagnostic pcr Ct value 2',
         ontologyId: '',
-        dateType: 'text',
+        datatype: 'text',
         requirement: '',
         description: 'The Ct value result from a diagnostic SARS-CoV-2 RT-PCR test.',
         guidance: 'Provide the CT value of the sample from the second diagnostic RT-PCR test.',
@@ -1400,7 +1400,7 @@ const DATA = [
       {
         fieldName: 'authors',
         ontologyId: '',
-        dateType: 'text',
+        datatype: 'text',
         requirement: 'recommended',
         description: 'Names of individuals contributing to the processes of sample collection, sequence generation, analysis, and data submission.',
         guidance: 'Include the first and last names of all individuals that should be attributed, separated by a comma.',
