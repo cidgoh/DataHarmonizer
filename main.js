@@ -399,8 +399,9 @@ $(document).ready(() => {
     showFields(e.target.id, DATA, HOT);
   });
 
-  // Field descriptions
-  $('.secondary-header-cell').dblclick((e) => {
+  // Field descriptions. Need to account for dynamically rendered
+  // cells.
+  $(document).on('dblclick', '.secondary-header-cell', (e) => {
     const innerText = e.target.innerText;
     const field =
         getFields(DATA).filter(field => field.fieldName === innerText)[0];
