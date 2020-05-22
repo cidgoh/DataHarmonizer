@@ -63,4 +63,9 @@
 	border:1px solid silver;
 	background-color: #DDD;
 }
-
+.handsontable.listbox td:hover {
+	background-color: lightblue !important;
+}
+.handsontable.listbox td.current.highlight {
+	background-color: lightblue !important;
+}

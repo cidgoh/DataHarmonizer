@@ -138,10 +138,11 @@ const getColumns = (data) => {
     } else if (field.datatype === 'select') {
       col.type = 'autocomplete';
       col.source = field.flatVocabulary;
+      col.trimDropdown = false;
     } else if (field.datatype === 'multiple') {
       col.type = 'autocomplete';
       col.source = field.flatVocabulary;
-
+      col.trimDropdown = false;
     }
     ret.push(col);
   }
