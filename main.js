@@ -55,8 +55,9 @@ const createHot = (data) => {
       indicators: true,
       columns: [],
     },
+    // Handsontable's validation is extremely slow with large datasets
+    invalidCellClassName: '',
     licenseKey: 'non-commercial-and-evaluation',
-    readOnlyCellClassName: 'read-only',
     afterRender: () => {
       $('#header-row').css('visibility', 'visible');
       // Bit of a hackey way to add classes to secondary headers
@@ -114,8 +115,9 @@ const getFlatHeaders = (data) => {
 };
 
 /**
- * Create an array of cell properties specifying data type and validation logic
- * for all grid columns.
+ * Create an array of cell properties specifying data type for all grid columns.
+ * AVOID EMPLOYING VALIDATION LOGIC HERE -- HANDSONTABLE'S VALIDATION
+ * PERFORMANCE IS AWFUL. WE MAKE OUR OWN IN `VALIDATE_GRID`.
  * @param {Object} data See `data.js`.
  * @return {Array<Object>} Cell properties for each grid column.
  */
@@ -124,22 +126,17 @@ const getColumns = (data) => {
   for (const field of getFields(data)) {
     const col = {};
     if (field.requirement) col.requirement = field.requirement;
-    if (field.datatype === 'integer') {
+    if (field.datatype === 'integer' || field.datatype === 'decimal') {
       col.type = 'numeric';
-      // TODO: enforce numeric validation
-    } else if (field.datatype === 'decimal') {
-      col.type = 'numeric';
-      // TODO: enforce numeric validation
     } else if (field.datatype === 'date') {
       col.type = 'date';
       col.dateFormat = 'YYYY/MM/DD';
     } else if (field.datatype === 'select') {
       col.type = 'autocomplete';
-      col.source = stringifyNestedVocabulary(field.vocabulary)
+      col.source = stringifyNestedVocabulary(field.vocabulary);
     } else if (field.datatype === 'multiple') {
       col.type = 'autocomplete';
-      col.source = stringifyNestedVocabulary(field.vocabulary)
-      // TODO: multiple select functionality
+      col.source = stringifyNestedVocabulary(field.vocabulary);
     }
     ret.push(col);
   }
@@ -228,30 +225,53 @@ const importFile = (file, ext, hot, xlsx) => {
 /**
  * Highlight invalid cells in grid.
  * @param {Object} hot Handsontable instance of grid.
+ * @param {Object} data See `data.js`.
  */
-const validateGrid = (hot) => {
+const validateGrid = (hot, data) => {
+  const fields = getFields(data);
   hot.updateSettings({
     cells: function(row, col) {
-      if (this.source !== undefined) {
-        let valid = false;
-        const cellVal = hot.getDataAtCell(row, col);
-        if (cellVal !== null) {
-          if (this.source.map(sourceVal => sourceVal.trim().toLowerCase())
-              .includes(cellVal.trim().toLowerCase())) {
-            valid = true;
-          }
-        }
-        // Do not want to remove prior classes
-        let invalidClass;
-        if (this.className) {
-          invalidClass = `${this.className} invalid-cell`;
-        } else {
-          invalidClass = 'invalid-cell';
-        }
-        if (!valid) hot.setCellMeta(row, col, 'className', invalidClass);
+      if (hot.isEmptyRow(row)) return;
+      const cellVal = this.instance.getDataAtCell(row, col);
+      const datatype = fields[col].datatype;
+      let valid = true;
+
+      if (!cellVal) {
+        valid = !this.requirement;
+      } else if (datatype === 'integer') {
+        if (!Number.isInteger(cellVal)) valid = false;
+      } else if (datatype === 'decimal') {
+        if (isNaN(cellVal)) valid = false;
+      } else if (datatype === 'date') {
+        // TODO
+      } else if (this.type === 'autocomplete') {
+        if (!validateDropDown(cellVal, this.source)) valid = false;
       }
+
+      return valid ? {} : {className: 'invalid-cell'};
     },
-  })
+  });
+  // Stop validating cells on future edits
+  hot.updateSettings({cells: undefined});
+};
+
+/**
+ * Validate a value against its source. This is called when when validating
+ * autocomplete cells.
+ * @param {String} val Cell value.
+ * @param {Array<String>} source Dropdown list for cell.
+ * @return {Boolean} If `val` is in `source`, while ignoring whitespace and
+ *     case.
+ */
+const validateDropDown = (val, source) => {
+  let valid = false;
+  if (val) {
+    const trimmedSource =
+        source.map(sourceVal => sourceVal.trim().toLowerCase());
+    const trimmedVal = val.trim().toLowerCase();
+    if (trimmedSource.includes(trimmedVal)) valid = true;
+  }
+  return valid;
 };
 
 /**
@@ -344,7 +364,7 @@ $(document).ready(() => {
   });
 
   // Validate
-  $('#validate-btn').click(() => void validateGrid(HOT));
+  $('#validate-btn').click(() => void validateGrid(HOT, DATA));
 
   // Show fields
   $('#view-all-fields, #view-required-fields').click(function(e) {

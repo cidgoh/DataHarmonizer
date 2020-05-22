@@ -5,6 +5,10 @@
     cursor: pointer;
 }
 
+#grid .secondary-header-cell:hover {
+	cursor: pointer;
+}
+
 #grid {
     overflow: hidden;
 }
@@ -21,11 +25,8 @@
     display: none;
 }
 
-#grid .invalid-cell {
-    background-color: #ffcccb !important;
-}
-#grid td.htInvalid {
-    background-color: #ffcccb !important;
+#grid td.invalid-cell {
+	background-color: #ffcccb !important;
 }
 
 #grid .htAutocompleteArrow {
