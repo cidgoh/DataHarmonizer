@@ -45,8 +45,8 @@ const getFields = (data) => {
  */
 const createHot = (data) => {
   return Handsontable($('#grid')[0], {
-    nestedHeaders: getNestedHeaders(DATA),
-    columns: getColumns(DATA),
+    nestedHeaders: getNestedHeaders(data),
+    columns: getColumns(data),
     colHeaders: true,
     rowHeaders: true,
     minRows: 100,
