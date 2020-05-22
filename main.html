@@ -33,7 +33,11 @@
           Show fields: 
           <button class="btn btn-primary" type="button" id="view-all-fields">All</button>
           <button class="btn btn-primary" type="button" id="view-required-fields">Required</button>
+          <div style="display:inline-block;vertical-align: middle;padding-left:20px">
+            Double-click on column header for<br/> more information about that field.
+          </div>
         </div>
+
       </div>
       <!-- Handsontable grid -->
       <div class="row mt-3">
@@ -108,6 +112,24 @@
             <div class="container-fluid">
               <div class="row">
                 <div class="col text-danger" id="open-err-msg"></div>
+              </div>
+              <div class="row justify-content-end mt-3">
+                <div class="col-3 col-sm-2">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal" id="field-description-modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col" id="field-description-text"></div>
               </div>
               <div class="row justify-content-end mt-3">
                 <div class="col-3 col-sm-2">
