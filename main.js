@@ -6,7 +6,6 @@
 
 /**
  * Post-processing of values in `data.js` at runtime.
- * Currently only adds country vocabulary to all fields that need it.
  * TODO: this logic should be in the python script that creates `data.json`
  * @param {Object} data See `data.js`.
  * @return {Object} Processed values of `data.js`.
@@ -17,6 +16,11 @@ const processData = (data) => {
       fields.filter(field => field.fieldName === 'geo_loc_name (country)')[0];
   for (const parent of data) {
     for (const child of parent.children) {
+      // Flat list of vocabulary items for autocomplete purposes
+      if (child.vocabulary) {
+        child.flatVocabulary = stringifyNestedVocabulary(child.vocabulary);
+      }
+      // This helps us avoid repeating the list of countries in `data.js`
       if (child.fieldName.includes('(country')) {
         child.vocabulary = countryField.vocabulary;
       }
@@ -41,8 +45,8 @@ const getFields = (data) => {
  */
 const createHot = (data) => {
   return Handsontable($('#grid')[0], {
-    nestedHeaders: getNestedHeaders(DATA),
-    columns: getColumns(DATA),
+    nestedHeaders: getNestedHeaders(data),
+    columns: getColumns(data),
     colHeaders: true,
     rowHeaders: true,
     minRows: 100,
@@ -133,10 +137,10 @@ const getColumns = (data) => {
       col.dateFormat = 'YYYY/MM/DD';
     } else if (field.datatype === 'select') {
       col.type = 'autocomplete';
-      col.source = stringifyNestedVocabulary(field.vocabulary);
+      col.source = field.flatVocabulary;
     } else if (field.datatype === 'multiple') {
       col.type = 'autocomplete';
-      col.source = stringifyNestedVocabulary(field.vocabulary);
+      col.source = field.flatVocabulary;
     }
     ret.push(col);
   }
@@ -223,36 +227,45 @@ const importFile = (file, ext, hot, xlsx) => {
 };
 
 /**
- * Highlight invalid cells in grid.
+ * Get a collection of all invalid cells in the grid.
  * @param {Object} hot Handsontable instance of grid.
  * @param {Object} data See `data.js`.
+ * @return {Object<Number, Set<Number>>} Object with rows as keys, and sets
+ *     containing invalid cells for that row as values
  */
-const validateGrid = (hot, data) => {
+const getInvalidCells = (hot, data) => {
+  const invalidCells = {};
   const fields = getFields(data);
-  hot.updateSettings({
-    cells: function(row, col) {
-      if (hot.isEmptyRow(row)) return;
-      const cellVal = this.instance.getDataAtCell(row, col);
+  for (let row=0; row<hot.countRows(); row++) {
+    if (hot.isEmptyRow(row)) continue;
+
+    for (let col=0; col<fields.length; col++) {
+      const cellVal = hot.getDataAtCell(row, col);
       const datatype = fields[col].datatype;
       let valid = true;
 
       if (!cellVal) {
-        valid = !this.requirement;
+        valid = !fields[col].requirement;
       } else if (datatype === 'integer') {
-        if (!Number.isInteger(cellVal)) valid = false;
+        valid = Number.isInteger(cellVal);
       } else if (datatype === 'decimal') {
-        if (isNaN(cellVal)) valid = false;
+        valid = !isNaN(cellVal);
       } else if (datatype === 'date') {
         // TODO
-      } else if (this.type === 'autocomplete') {
-        if (!validateDropDown(cellVal, this.source)) valid = false;
+      } else if (datatype === 'select' || datatype === 'multiple') {
+        valid = validateDropDown(cellVal, fields[col].flatVocabulary);
       }
 
-      return valid ? {} : {className: 'invalid-cell'};
-    },
-  });
-  // Stop validating cells on future edits
-  hot.updateSettings({cells: undefined});
+      if (!valid) {
+        if (invalidCells.hasOwnProperty(row)) {
+          invalidCells[row].add(col);
+        } else {
+          invalidCells[row] = new Set([col]);
+        }
+      }
+    }
+  }
+  return invalidCells;
 };
 
 /**
@@ -314,6 +327,16 @@ $(document).ready(() => {
   window.DATA = processData(DATA);
   window.HOT = createHot(DATA);
 
+  window.INVALID_CELLS = {};
+  HOT.updateSettings({
+    // A more intuitive name for this option might have been `afterCellRender`
+    afterRenderer: (TD, row, col) => {
+      if (INVALID_CELLS.hasOwnProperty(row)) {
+        if (INVALID_CELLS[row].has(col)) $(TD).addClass('invalid-cell');
+      }
+    }
+  });
+
   // File -> New
   $('#new-dropdown-item, #clear-data-confirm-btn').click((e) => {
     if (e.target.id === 'new-dropdown-item') {
@@ -322,6 +345,7 @@ $(document).ready(() => {
       }
     } else {
       HOT.destroy();
+      window.INVALID_CELLS = {};
       window.HOT = createHot(DATA);
     }
   });
@@ -338,6 +362,7 @@ $(document).ready(() => {
       $('#open-err-msg').text(errMsg);
       $('#open-error-modal').modal('show');
     } else {
+      window.INVALID_CELLS = {};
       importFile(file, ext, HOT, XLSX);
     }
 
@@ -364,15 +389,19 @@ $(document).ready(() => {
   });
 
   // Validate
-  $('#validate-btn').click(() => void validateGrid(HOT, DATA));
+  $('#validate-btn').click(() => {
+    window.INVALID_CELLS = getInvalidCells(HOT, DATA);
+    HOT.render();
+  });
 
   // Show fields
   $('#view-all-fields, #view-required-fields').click(function(e) {
     showFields(e.target.id, DATA, HOT);
   });
 
-  // Field descriptions
-  $('.secondary-header-cell').dblclick((e) => {
+  // Field descriptions. Need to account for dynamically rendered
+  // cells.
+  $(document).on('dblclick', '.secondary-header-cell', (e) => {
     const innerText = e.target.innerText;
     const field =
         getFields(DATA).filter(field => field.fieldName === innerText)[0];
