@@ -141,6 +141,7 @@ const getColumns = (data) => {
     } else if (field.datatype === 'multiple') {
       col.type = 'autocomplete';
       col.source = field.flatVocabulary;
+
     }
     ret.push(col);
   }
@@ -401,7 +402,7 @@ $(document).ready(() => {
 
   // Field descriptions. Need to account for dynamically rendered
   // cells.
-  $(document).on('dblclick', '.secondary-header-cell', (e) => {
+  $('#grid').on('dblclick', '.secondary-header-cell', (e) => {
     const innerText = e.target.innerText;
     const field =
         getFields(DATA).filter(field => field.fieldName === innerText)[0];
