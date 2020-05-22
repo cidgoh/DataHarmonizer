@@ -4,111 +4,164 @@ const DATA = [
     children: [
       {
         fieldName: 'specimen collector sample ID',
-        dataType: 'text',
+        ontologyId: '',
+        datatype: 'text',
         requirement: 'required',
-        vocabulary: {}
+        description: 'The user-defined name for the sample.',
+        guidance: 'Store the collector sample ID. Every collector sample ID from a single submitter must be unique. It can have any format, but we suggest that you make it concise, unique and consistent within your lab, and as informative as possible.',
+        examples: 'prov_rona_99'
       },
       {
         fieldName: 'PHAC sample ID',
-        dataType: 'text',
+        ontologyId: '',
+        datatype: 'text',
         requirement: 'recommended',
-        vocabulary: {}
+        description: 'The identifier assigned to the sample in the national database.',
+        guidance: 'Store the PHAC sample ID. This ID will be assigned by PHAC. The PHAC sample ID may be different than the sample ID assigned by the sample collector. It is important to track both of these for traceability.',
+        examples: 'PHAC_123'
       },
       {
         fieldName: 'IRIDA sample name',
-        dataType: 'text',
+        ontologyId: '',
+        datatype: 'text',
         requirement: '',
-        vocabulary: {}
+        description: 'The identifier assigned to a sequenced isolate in IRIDA.',
+        guidance: 'Store the IRIDA sample name. The IRIDA sample name will be created by the individual entering data into the IRIDA platform. IRIDA samples may be linked to metadata and sequence data, or just metadata alone. It is recommended that the IRIDA sample name be the same as, or contain, the specimen collector sample ID for better traceability.',
+        examples: 'prov_rona_99'
       },
       {
         fieldName: 'umbrella bioproject accession',
-        dataType: 'select',
+        ontologyId: '',
+        datatype: 'select',
         requirement: '',
+        description: 'The INSDC accession number assigned to the umbrella BioProject for the Canadian SARS-CoV-2 sequencing effort.',
+        guidance: 'Store the umbrella BioProject accession by selecting it from the pick list in the template. The umbrella BioProject accession will be identical for all CanCOGen submitters. Different provinces will have their own BioProjects, however these BioProjects will be linked under one umbrella BioProject.',
+        examples: 'PRJNA623807',
         vocabulary: {
-          'PRJNA623807': {}
-        }
+          'PRJNA623807': {},
+        },
       },
       {
         fieldName: 'bioproject accession',
-        dataType: 'text',
+        ontologyId: '',
+        datatype: 'text',
         requirement: '',
-        vocabulary: {}
+        description: 'The INSDC accession number of the BioProject(s) to which the BioSample belongs.',
+        guidance: 'Store the BioProject accession number. BioProjects are an organizing tool that links together raw sequence data, assemblies, and their associated metadata. A valid NCBI BioProject accession has prefix PRJN e.g., PRJNA12345 and is created once at the beginning of a new sequencing project.',
+        examples: 'PRJNA608651'
       },
       {
         fieldName: 'biosample accession',
-        dataType: 'text',
+        ontologyId: '',
+        datatype: 'text',
         requirement: '',
-        vocabulary: {}
+        description: 'The identifier assigned to a BioSample in INSDC archives.',
+        guidance: 'Store the accession returned from the BioSample submission. NCBI BioSamples will have the prefix SAMN.',
+        examples: 'SAMN14180202'
       },
       {
         fieldName: 'SRA accession',
-        dataType: 'text',
+        ontologyId: '',
+        datatype: 'text',
         requirement: '',
-        vocabulary: {}
+        description: 'The Sequence Read Archive (SRA) identifier linking raw read data, methodological metadata and quality control metrics submitted to the INSDC.',
+        guidance: 'Store the accession assigned to the submitted \'run\'. NCBI-SRA accessions start with SRR.',
+        examples: 'SRR11177792'
       },
       {
         fieldName: 'GenBank accession',
-        dataType: 'text',
+        ontologyId: '',
+        datatype: 'text',
         requirement: '',
-        vocabulary: {}
+        description: 'The GenBank identifier assigned to the sequence in the INSDC archives.',
+        guidance: 'Store the accession returned from a GenBank submission (viral genome assembly).',
+        examples: 'MN908947.3'
       },
       {
         fieldName: 'GISAID accession',
-        dataType: 'text',
+        ontologyId: '',
+        datatype: 'text',
         requirement: '',
-        vocabulary: {}
-      }
-    ]
+        description: 'The GISAID accession number assigned to the sequence.',
+        guidance: 'Store the accession returned from the GISAID submission.',
+        examples: 'hCov-19/Canada/prov_rona_99/2020'
+      },
+    ],
   },
   {
     fieldName: 'Sample collection and processing',
     children: [
       {
         fieldName: 'sample collected by',
-        dataType: 'text',
+        ontologyId: '',
+        datatype: 'text',
         requirement: 'required',
-        vocabulary: {}
+        description: 'The name of the agency that collected the original sample.',
+        guidance: 'The name of the agency should be written out in full, (with minor exceptions) and be consistent across multple submissions e.g. Public Health Agency of Canada, Public Health Ontario, BC Centre for Disease Control',
+        examples: 'BC Centre for Disease Control'
       },
       {
         fieldName: 'sample collector contact email',
-        dataType: 'text',
+        ontologyId: '',
+        datatype: 'text',
         requirement: '',
-        vocabulary: {}
+        description: 'The email address of the contact responsible for follow-up regarding the sample.',
+        guidance: 'The email address can represent a specific individual or lab e.g. johnnyblogs@lab.ca, or RespLab@lab.ca',
+        examples: 'RespLab@lab.ca'
       },
       {
         fieldName: 'sample collector contact address',
-        dataType: 'text',
+        ontologyId: '',
+        datatype: 'text',
         requirement: '',
-        vocabulary: {}
+        description: 'The mailing address of the agency submitting the sample.',
+        guidance: 'The mailing address should be in the format: Street number and name, City, Province/Territory, Postal Code, Country',
+        examples: '655 Lab St, Vancouver, British Columbia, V5N 2A2, Canada'
       },
       {
         fieldName: 'sequence submitted by',
-        dataType: 'text',
+        ontologyId: '',
+        datatype: 'text',
         requirement: 'required',
-        vocabulary: {}
+        description: 'The name of the agency that generated the sequence.',
+        guidance: 'The name of the agency should be written out in full, (with minor exceptions) and be consistent across multple submissions e.g. Public Health Agency of Canada, Public Health Ontario, BC Centre for Disease Control',
+        examples: 'Public Health Ontario'
       },
       {
         fieldName: 'sequence submitter contact email',
-        dataType: 'text',
+        ontologyId: '',
+        datatype: 'text',
         requirement: '',
-        vocabulary: {}
+        description: 'The email address of the contact responsible for follow-up regarding the sequence.',
+        guidance: 'The email address can represent a specific individual or lab e.g. johnnyblogs@lab.ca, or RespLab@lab.ca',
+        examples: 'RespLab@lab.ca'
       },
       {
         fieldName: 'sequence submitter contact address',
-        dataType: 'text',
+        ontologyId: '',
+        datatype: 'text',
         requirement: '',
-        vocabulary: {}
+        description: 'The mailing address of the agency submitting the sequence.',
+        guidance: 'The mailing address should be in the format: Street number and name, City, Province/Territory, Postal Code, Country',
+        examples: '123 Sunnybrooke St, Toronto, Ontario, M4P 1L6, Canada'
       },
       {
         fieldName: 'sample collection date',
-        dataType: 'date',
+        ontologyId: '',
+        datatype: 'date',
         requirement: 'required',
-        vocabulary: {}
+        description: 'The date on which the sample was collected.',
+        guidance: 'ISO 8601 standard \'YYYY-MM-DD\', \'YYYY-MM\' or \'YYYY\'',
+        examples: '2020-03-16'
       },
       {
         fieldName: 'geo_loc_name (country)',
-        dataType: 'select',
+        ontologyId: '',
+        datatype: 'select',
         requirement: 'required',
+        description: 'The country where the sample was collected.',
+        guidance: 'Provide the country name from the controlled vocabulary provided.',
+        examples: 'Canada',
         vocabulary: {
           'Afghanistan': {},
           'Albania': {},
@@ -380,13 +433,17 @@ const DATA = [
           'Western Sahara': {},
           'Yemen': {},
           'Zambia': {},
-          'Zimbabwe': {}
-        }
+          'Zimbabwe': {},
+        },
       },
       {
         fieldName: 'geo_loc_name (province/territory)',
-        dataType: 'select',
+        ontologyId: '',
+        datatype: 'select',
         requirement: 'required',
+        description: 'The province/territory where the sample was collected.',
+        guidance: 'Provide the province/territory name from the controlled vocabulary provided.',
+        examples: 'Saskatchewan',
         vocabulary: {
           'ALBERTA': {},
           'BRITISH COLUMBIA': {},
@@ -400,65 +457,87 @@ const DATA = [
           'PRINCE EDWARD ISLAND': {},
           'QUEBEC': {},
           'SASKATCHEWAN': {},
-          'YUKON TERRITORY': {}
-        }
+          'YUKON TERRITORY': {},
+        },
       },
       {
         fieldName: 'geo_loc_name (city)',
-        dataType: 'text',
+        ontologyId: '',
+        datatype: 'text',
         requirement: '',
-        vocabulary: {}
+        description: 'The city where the sample was collected.',
+        guidance: 'Provide the city name. Use this look-up service to identify the standardized term: https://www.ebi.ac.uk/ols/ontologies/gaz',
+        examples: 'Medicine Hat'
       },
       {
         fieldName: 'organism',
-        dataType: 'select',
+        ontologyId: '',
+        datatype: 'select',
         requirement: 'required',
+        description: 'Taxonomic name of the organism.',
+        guidance: 'Use SARS-CoV-2. This value is provided in the template.',
+        examples: 'SARS-CoV-2',
         vocabulary: {
           'SARS-CoV-2': {},
           'RaTG13': {},
-          'RmYN02': {}
-        }
+          'RmYN02': {},
+        },
       },
       {
         fieldName: 'isolate',
-        dataType: 'text',
+        ontologyId: '',
+        datatype: 'text',
         requirement: 'required',
-        vocabulary: {}
+        description: 'Identifier of the specific isolate.',
+        guidance: 'Provide the isolate name. This identifer should be an unique, indexed, alpha-numeric ID within your laboratory. The isolate name is often the same as the specimen collector sample ID.',
+        examples: 'prov_rona_99'
       },
       {
         fieldName: 'purpose of sampling',
-        dataType: 'select',
+        ontologyId: '',
+        datatype: 'select',
         requirement: 'recommended',
+        description: 'The reason that the sample was collected.',
+        guidance: 'Provide the purpose of sampling from the picklist in the template.',
+        examples: 'Diagnostic testing',
         vocabulary: {
           'Cluster investigation': {},
           'Diagnostic testing': {},
           'Research': {},
           'Surveillance testing': {},
-          'Viral passage experiment': {}
-        }
+          'Viral passage experiment': {},
+        },
       },
       {
         fieldName: 'anatomical material',
-        dataType: 'select',
+        ontologyId: '',
+        datatype: 'select',
         requirement: 'required',
+        description: 'A substance obtained from an anatomical part of an organism e.g. tissue, blood.',
+        guidance: 'Provide a descriptor if an anatomical material was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, use this look-up service to identify a standardized term: https://www.ebi.ac.uk/ols/ontologies/uberon. If not applicable, leave blank.',
+        examples: 'Blood',
         vocabulary: {
           'Blood': {},
-          'Fluid': {},
-          '   Fluid (oral)': {},
-          '      Saliva': {},
-          '   Fluid (cerebrospinal (CSF))': {},
-          '   Fluid (pericardial)': {},
-          '   Fluid (pleural)': {},
-          '   Fluid (vaginal)': {},
-          '   Fluid (amniotic)': {},
-          '   Fluid (seminal)': {},
-          'Tissue': {}
-        }
+          'Fluid': {
+            'Saliva': {},
+            'Fluid (cerebrospinal (CSF))': {},
+            'Fluid (pericardial)': {},
+            'Fluid (pleural)': {},
+            'Fluid (vaginal)': {},
+            'Fluid (amniotic)': {},
+            'Fluid (seminal)': {},
+          },
+          'Tissue': {},
+        },
       },
       {
         fieldName: 'anatomical part',
-        dataType: 'select',
+        ontologyId: '',
+        datatype: 'select',
         requirement: 'required',
+        description: 'An anatomical part of an organism e.g. oropharynx.',
+        guidance: 'Provide a descriptor if an anatomical part was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, use this look-up service to identify a standardized term: https://www.ebi.ac.uk/ols/ontologies/uberon. If not applicable, leave blank.',
+        examples: 'Nasopharynx',
         vocabulary: {
           'Anus': {},
           'Duodenum': {},
@@ -467,42 +546,56 @@ const DATA = [
           'Rectum': {},
           'Skin': {},
           'Stomach': {},
-          'Upper respiratory tract': {},
-          '   Anterior Nares': {},
-          '   Esophagus': {},
-          '   Ethmoid sinus': {},
-          '   Nasal Cavity': {},
-          '     Middle Nasal Turbinate': {},
-          '     Inferior Nasal Turbinate': {},
-          '   Nasopharynx (NP)': {},
-          '   Oropharynx (OP)': {},
-          'Lower respiratory tract': {},
-          '   Bronchus': {},
-          '   Lung': {},
-          '     Bronchiole': {},
-          '     Alveolar sac': {},
-          '   Pleural sac': {},
-          '     Pleural cavity': {},
-          '   Trachea': {}
-        }
+          'Upper respiratory tract': {
+            'Anterior Nares': {},
+            'Esophagus': {},
+            'Ethmoid sinus': {},
+            'Nasal Cavity': {
+              'Middle Nasal Turbinate': {},
+              'Inferior Nasal Turbinate': {},
+            },
+            'Nasopharynx (NP)': {},
+            'Oropharynx (OP)': {},
+          },
+          'Lower respiratory tract': {
+            'Bronchus': {},
+            'Lung': {
+              'Bronchiole': {},
+              'Alveolar sac': {},
+            },
+            'Pleural sac': {
+              'Pleural cavity': {},
+            },
+            'Trachea': {},
+          },
+        },
       },
       {
         fieldName: 'body product',
-        dataType: 'select',
+        ontologyId: '',
+        datatype: 'select',
         requirement: 'required',
+        description: 'A substance excreted/secreted from an organism e.g. feces, urine, sweat.',
+        guidance: 'Provide a descriptor if a body product was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, use this look-up service to identify a standardized term: https://www.ebi.ac.uk/ols/ontologies/uberon. If not applicable, leave blank.',
+        examples: 'Feces',
         vocabulary: {
           'Feces': {},
           'Urine': {},
           'Sweat': {},
-          'Mucus': {},
-          '   Sputum': {},
-          'Tear': {}
-        }
+          'Mucus': {
+            'Sputum': {},
+          },
+          'Tear': {},
+        },
       },
       {
         fieldName: 'environmental material',
-        dataType: 'select',
+        ontologyId: '',
+        datatype: 'select',
         requirement: 'required',
+        description: 'A substance obtained from the natural or man-made environment e.g. soil, water, sewage.',
+        guidance: 'Provide a descriptor if an environmental material was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, use this look-up service to identify a standardized term: https://www.ebi.ac.uk/ols/ontologies/envo. If not applicable, leave blank.',
+        examples: 'Face mask',
         vocabulary: {
           'Banknote': {},
           'Bathroom': {},
@@ -511,7 +604,7 @@ const DATA = [
           'Cloth': {},
           'Control panel': {},
           'Corridor': {},
-          'Door  ': {},
+          'Door': {},
           'Door handle': {},
           'Face mask': {},
           'Face shield': {},
@@ -521,7 +614,7 @@ const DATA = [
           'Light switch': {},
           'Locker': {},
           'N95 mask': {},
-          'Nurse call button ': {},
+          'Nurse call button': {},
           'Paper': {},
           'Plastic': {},
           'PPE gown': {},
@@ -533,13 +626,17 @@ const DATA = [
           'Toilet bowl': {},
           'Water': {},
           'Window': {},
-          'Wood': {}
-        }
+          'Wood': {},
+        },
       },
       {
         fieldName: 'environmental site',
-        dataType: 'select',
+        ontologyId: '',
+        datatype: 'select',
         requirement: 'required',
+        description: 'An environmental location may describe a site in the natural or built environment e.g. contact surface, metal can, hospital, wet market, bat cave.',
+        guidance: 'Provide a descriptor if an environmental site was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, use this look-up service to identify a standardized term: https://www.ebi.ac.uk/ols/ontologies/envo. If not applicable, leave blank.',
+        examples: 'Building floor',
         vocabulary: {
           'Acute care facility': {},
           'Air vent': {},
@@ -559,13 +656,17 @@ const DATA = [
           'Production Facility': {},
           'School': {},
           'Subway train': {},
-          'Wet market': {}
-        }
+          'Wet market': {},
+        },
       },
       {
         fieldName: 'collection device',
-        dataType: 'select',
+        ontologyId: '',
+        datatype: 'select',
         requirement: 'required',
+        description: 'The instrument or container used to collect the sample e.g. swab.',
+        guidance: 'Provide a descriptor if a device was used for sampling. Use the picklist provided in the template. If a desired term is missing from the picklist, use this look-up service to identify a standardized term: https://www.ebi.ac.uk/ols/ontologies/obi. If not applicable, leave blank.',
+        examples: 'Swab',
         vocabulary: {
           'Air filter': {},
           'Blood Collection Tube': {},
@@ -582,53 +683,74 @@ const DATA = [
           'Suction Catheter': {},
           'Swab': {},
           'Urine Collection Tube': {},
-          'Virus Transport Medium': {}
-        }
+          'Virus Transport Medium': {},
+        },
       },
       {
         fieldName: 'collection method',
-        dataType: 'select',
+        ontologyId: '',
+        datatype: 'select',
         requirement: 'required',
+        description: 'The process used to collect the sample e.g. phlebotamy, necropsy.',
+        guidance: 'Provide a descriptor if a collection method was used for sampling. Use the picklist provided in the template. If a desired term is missing from the picklist, use this look-up service to identify a standardized term: https://www.ebi.ac.uk/ols/ontologies/obi. If not applicable, leave blank.',
+        examples: 'Bronchoalveolar lavage (BAL)',
         vocabulary: {
           'Amniocentesis': {},
-          'Aspiration': {},
-          '  Suprapubic Aspiration': {},
-          '  Tracheal aspiration': {},
-          '  Vacuum Aspiration': {},
-          'Biopsy': {},
-          '  Needle Biopsy': {},
-          'Lavage': {},
-          '  Bronchoalveolar lavage (BAL)': {},
-          '  Gastric Lavage': {},
+          'Aspiration': {
+            'Suprapubic Aspiration': {},
+            'Tracheal aspiration': {},
+            'Vacuum Aspiration': {},
+          },
+          'Biopsy': {
+            'Needle Biopsy': {},
+          },
+          'Lavage': {
+            'Bronchoalveolar lavage (BAL)': {},
+            'Gastric Lavage': {},
+          },
           'Lumbar Puncture': {},
           'Necropsy': {},
           'Phlebotomy': {},
           'Rinsing': {},
           'Scraping': {},
-          'Swab': {},
-          '  Finger Prick': {},
+          'Swab': {
+            'Finger Prick': {},
+          },
           'Wash': {},
-          'Washout Tear Collection': {}
-        }
+          'Washout Tear Collection': {},
+        },
       },
       {
         fieldName: 'collection protocol',
-        dataType: 'select',
+        ontologyId: '',
+        datatype: 'select',
         requirement: '',
-        vocabulary: {}
+        description: 'The name and version of a particular protocol used for sampling.',
+        guidance: 'Free text.',
+        examples: 'BCRonaSamplingProtocol v. 1.2',
+        vocabulary: {},
       },
       {
         fieldName: 'specimen processing',
-        dataType: 'select',
+        ontologyId: '',
+        datatype: 'select',
         requirement: 'recommended',
+        description: 'Any processing applied to the sample during or after receiving the sample.',
+        guidance: 'Critical for passage history. If virus was passaged, select \'virus passage\' from the picklist. If the sample was not passaged, put \'not applicable\'.',
+        examples: 'Virus passage',
         vocabulary: {
-          'Virus passage': {}
-        }
+          'Virus passage': {},
+          'NOT APPLICABLE': {},
+        },
       },
       {
         fieldName: 'lab host',
-        dataType: 'select',
+        ontologyId: '',
+        datatype: 'select',
         requirement: 'recommended',
+        description: 'Name and description of the laboratory host used to propagate the source organism or material from which the sample was obtained.',
+        guidance: 'Type of cell line used for propagation. Provide the name of the cell line using the picklist in the template. If not passaged, put \'not applicable\'.',
+        examples: 'Vero E6 cell line',
         vocabulary: {
           '293/ACE2 cell line': {},
           'Caco2 cell line': {},
@@ -645,42 +767,56 @@ const DATA = [
           'RK-13 cell line': {},
           'U251 cell line': {},
           'Vero cell line': {},
-          '   Vero E6 cell line': {},
-          '      VeroE6/TMPRSS2 cell line': {}
-        }
+          'Vero E6 cell line': {},
+          'VeroE6/TMPRSS2 cell line': {},
+        },
       },
       {
         fieldName: 'passage number',
-        dataType: 'integer',
+        ontologyId: '',
+        datatype: 'integer',
         requirement: 'recommended',
-        vocabulary: {}
+        description: 'Number of passages.',
+        guidance: 'Provide number of known passages. If not passaged, put \'not applicable\'',
+        examples: '3'
       },
       {
         fieldName: 'passage method',
-        dataType: 'text',
+        ontologyId: '',
+        datatype: 'text',
         requirement: 'recommended',
-        vocabulary: {}
+        description: 'Description of how organism was passaged.',
+        guidance: 'Free text. Provide a very short description (<10 words). If not passaged, put \'not applicable\'.',
+        examples: ''
       },
       {
         fieldName: 'biomaterial extracted',
-        dataType: 'select',
+        ontologyId: '',
+        datatype: 'select',
         requirement: '',
+        description: 'The biomaterial extracted from samples for the purpose of sequencing.',
+        guidance: 'Provide the biomaterial extracted from the picklist in the template.',
+        examples: 'RNA (total)',
         vocabulary: {
           'RNA (total),': {},
           'RNA (poly-A),': {},
           'RNA (ribo-depleted),': {},
-          'mRNA (cDNA)': {}
-        }
-      }
-    ]
+          'mRNA (cDNA)': {},
+        },
+      },
+    ],
   },
   {
     fieldName: 'Host Information',
     children: [
       {
         fieldName: 'host (common name)',
-        dataType: 'select',
+        ontologyId: '',
+        datatype: 'select',
         requirement: '',
+        description: 'The commonly used name of the host.',
+        guidance: 'Common name or scientific name are required if there was a host. Both can be provided, if known. Use terms from the pick lists in the template. Common name e.g. human, bat. If the sample was environmental, put \'not applicable.',
+        examples: 'Human',
         vocabulary: {
           'Human': {},
           'Bat': {},
@@ -693,13 +829,17 @@ const DATA = [
           'Pangolin': {},
           'Pig': {},
           'Pigeon': {},
-          'Tiger': {}
-        }
+          'Tiger': {},
+        },
       },
       {
         fieldName: 'host (scientific name)',
-        dataType: 'select',
+        ontologyId: '',
+        datatype: 'select',
         requirement: 'required',
+        description: 'The taxonomic, or scientific name of the host.',
+        guidance: 'Common name or scientific name are required if there was a host. Both can be provided, if known. Use terms from the pick lists in the template. Scientific name e.g. Homo sapiens, If the sample was environmental, put \'not applicable',
+        examples: 'Homo sapiens',
         vocabulary: {
           'Homo sapiens': {},
           'Bos taurus': {},
@@ -715,66 +855,116 @@ const DATA = [
           'Rhinolophidae': {},
           'Rhinolophus affinis': {},
           'Sus scrofa domesticus': {},
-          'Viverridae': {}
-        }
+          'Viverridae': {},
+        },
       },
       {
         fieldName: 'host health state',
-        dataType: 'select',
+        ontologyId: '',
+        datatype: 'select',
         requirement: '',
-        vocabulary: {}
+        description: 'Health status of the host at the time of sample collection.',
+        guidance: 'If known, select a descriptor from the pick list provided in the template.',
+        examples: 'sick',
+        vocabulary: {
+          'healthy': {},
+          'sick': {},
+          'recovered': {},
+          'deceased': {},
+          'NOT COLLECTED': {},
+        },
       },
       {
         fieldName: 'host health status details',
-        dataType: 'select',
+        ontologyId: '',
+        datatype: 'select',
         requirement: '',
+        description: 'Further details pertaining to the health or disease status of the host at time of collection.',
+        guidance: 'If known, select a descriptor from the pick list provided in the template.',
+        examples: 'Hospitalized (ICU)',
         vocabulary: {
           'Self-quarantining': {},
           'Asymptomatic': {},
           'Symptomatic': {},
-          'Hospitalized (ICU)': {}
-        }
+          'Hospitalized (ICU)': {},
+          'NOT APPLICABLE': {},
+        },
       },
       {
         fieldName: 'host disease',
-        dataType: 'select',
+        ontologyId: '',
+        datatype: 'select',
         requirement: 'required',
-        vocabulary: {}
+        description: 'The name of the disease experienced by the host.',
+        guidance: 'Select \'COVID-19\' from the pick list provided in the template.',
+        examples: 'COVID-19',
+        vocabulary: {
+          'COVID-19': {},
+        },
       },
       {
         fieldName: 'host age',
-        dataType: 'decimal',
+        ontologyId: '',
+        datatype: 'decimal',
         requirement: 'required',
-        vocabulary: {}
+        description: 'Age of host at the time of sampling.',
+        guidance: 'Enter the age of the host in years. If not available, put \'unknown\'.',
+        examples: '79'
       },
       {
         fieldName: 'host gender',
-        dataType: 'select',
+        ontologyId: '',
+        datatype: 'select',
         requirement: 'required',
-        vocabulary: {}
+        description: 'The gender of the host at the time of sample collection.',
+        guidance: 'Select the corresponding host gender from the pick list provided in the template. If not available, put \'unknown\'.',
+        examples: 'male',
+        vocabulary: {
+          'female': {},
+          'male': {},
+          'non-binary gender': {},
+          'transgender': {},
+          'undeclared': {},
+          'unknown': {},
+          'NOT PROVIDED': {},
+        },
       },
       {
         fieldName: 'host origin geo_loc name (country)',
-        dataType: 'select',
+        ontologyId: '',
+        datatype: 'select',
         requirement: '',
-        vocabulary: {}
+        description: 'The country of residence of the host.',
+        guidance: 'Select the country name from pick list provided in the template.',
+        examples: 'United Kingdom',
+        vocabulary: {},
       },
       {
         fieldName: 'host subject ID',
-        dataType: 'text',
+        ontologyId: '',
+        datatype: 'text',
         requirement: '',
-        vocabulary: {}
+        description: 'A unique identifier by which each host can be referred to e.g. #131',
+        guidance: 'Provide the host identifier. Should be a unique, user-defined identifier.',
+        examples: 'BCxy123'
       },
       {
         fieldName: 'symptom onset date',
-        dataType: 'date',
+        ontologyId: '',
+        datatype: 'date',
         requirement: '',
-        vocabulary: {}
+        description: 'The date on which the symptoms began or were first noted.',
+        guidance: 'ISO 8601 standard \'YYYY-MM-DD\', \'YYYY-MM\' or \'YYYY\'',
+        examples: '2020-03-16'
       },
       {
         fieldName: 'signs and symptoms',
-        dataType: 'multiple',
+        ontologyId: '',
+        datatype: 'multiple',
         requirement: '',
+        description: 'A perceived change in function or sensation, (loss, disturbance or appearance) indicative of a disease, reported by a patient.',
+        guidance: 'Provide a list of symptoms experienced by the host. List in order of appearance, separated by a comma.',
+        examples: 'Cough, Fever, Chills',
         vocabulary: {
           'Ageusia': {},
           'Anosmia': {},
@@ -783,13 +973,13 @@ const DATA = [
           'Chest Pain': {},
           'Chills': {},
           'Coma': {},
-          'Confusion ': {},
-          'Conjunctivitis ': {},
-          'Cough ': {},
+          'Confusion': {},
+          'Conjunctivitis': {},
+          'Cough': {},
           'Delirium': {},
           'Diarrhea': {},
           'Dysgeusia': {},
-          'Encephalitis ': {},
+          'Encephalitis': {},
           'Fatigue': {},
           'Fever': {},
           'Headache': {},
@@ -803,304 +993,419 @@ const DATA = [
           'Loss of taste': {},
           'Low appetite': {},
           'Malaise': {},
-          'Myalgia (muscle pain) ': {},
+          'Myalgia (muscle pain)': {},
           'Nasal obstruction (stuffy nose)': {},
           'Nausea': {},
-          'Pharyngitis (sore throat) ': {},
+          'Pharyngitis (sore throat)': {},
           'Rash': {},
           'Rhinorrhea (runny nose)': {},
           'Seizure': {},
-          'Shortness of breath (breathing difficulty) ': {},
+          'Shortness of breath (breathing difficulty)': {},
           'Slurred speech': {},
           'Tachypnea (rapid breathing)': {},
           'Vomiting': {},
-          'Weakness': {}
-        }
-      }
-    ]
+          'Weakness': {},
+        },
+      },
+    ],
   },
   {
     fieldName: 'Host exposure information',
     children: [
       {
         fieldName: 'location of exposure geo_loc name (country)',
-        dataType: 'select',
+        ontologyId: '',
+        datatype: 'select',
         requirement: '',
-        vocabulary: {}
+        description: 'The country where the host was likely exposed to the causative agent of the illness.',
+        guidance: 'Select the country name from pick list provided in the template.',
+        examples: 'Canada',
+        vocabulary: {},
       },
       {
         fieldName: 'travel history',
-        dataType: 'text',
+        ontologyId: '',
+        datatype: 'text',
         requirement: '',
-        vocabulary: {}
+        description: 'Travel outside the country in last six months.',
+        guidance: 'Specify the countries (and more granular locations if known, separated by a comma) travelled in the last six months; can include multiple travels. Separate multiple travel events with a semi-colon. List most recent travel first.',
+        examples: 'Canada, Vancouver; USA, Seattle; Italy, Milan'
       },
       {
         fieldName: 'exposure event',
-        dataType: 'select',
+        ontologyId: '',
+        datatype: 'select',
         requirement: '',
+        description: 'Event leading to exposure.',
+        guidance: 'Select an exposure event from the pick list provided in the template. If the desired term is missing, contact the curation team.',
+        examples: 'Mass gathering (convention)',
         vocabulary: {
-          'mass gathering (convention),': {},
-          'mass gathering (religious),': {},
-          'mass gathering (social e.g. funeral, wedding etc.),': {},
-          'mass gathering (office),': {},
-          'occupational exposure (hospital worker),': {},
-          'occupational exposure (hospital visit),': {},
-          'occupational exposure (frontline response),': {},
-          'occupational exposure (healthcare work with the public),': {},
-          'occupational exposure (retail),': {},
-          'occupational exposure (restaurant)': {}
-        }
-      }
-    ]
+          'mass gathering (convention)': {},
+          'mass gathering (religious)': {},
+          'mass gathering (social e.g. funeral, wedding etc.)': {},
+          'mass gathering (office)': {},
+          'occupational exposure (hospital worker)': {},
+          'occupational exposure (hospital visit)': {},
+          'occupational exposure (frontline response)': {},
+          'occupational exposure (healthcare work with the public)': {},
+          'occupational exposure (retail)': {},
+          'occupational exposure (restaurant)': {},
+        },
+      },
+    ],
   },
   {
     fieldName: 'Sequencing',
     children: [
       {
         fieldName: 'library ID',
-        dataType: 'text',
+        ontologyId: '',
+        datatype: 'text',
         requirement: 'recommended',
-        vocabulary: {}
+        description: 'The user-specified identifier for the library prepared for sequencing.',
+        guidance: 'The library name should be unique, and can be an autogenerated ID from your LIMS, or modification of the isolate ID.',
+        examples: 'XYZ_123345'
       },
       {
         fieldName: 'sequencing instrument',
-        dataType: 'select',
+        ontologyId: '',
+        datatype: 'select',
         requirement: 'required',
+        description: 'The model of the sequencing instrument used.',
+        guidance: 'Select a sequencing instrument from the picklist provided in the template.',
+        examples: 'MinIon',
         vocabulary: {
-          'ILLUMINA': {},
-          '   HiSeq X ': {},
-          '      HiSeq X Five': {},
-          '      HiSeq X Ten': {},
-          '   Illumina Genome Analyzer': {},
-          '      Illumina Genome Analyzer II': {},
-          '      Illumina Genome Analyzer IIx': {},
-          '   Illumina HiScanSQ': {},
-          '   Illumina HiSeq 1000': {},
-          '   Illumina HiSeq 1500': {},
-          '   Illumina HiSeq 2000': {},
-          '   Illumina HiSeq 2500': {},
-          '   Illumina HiSeq 3000': {},
-          '   Illumina HiSeq 4000': {},
-          '   Illumina iSeq 100': {},
-          '   Illumina NovaSeq 6000': {},
-          '   Illumina MiniSeq': {},
-          '   Illumina MiSeq': {},
-          '   NextSeq 500': {},
-          '   NextSeq 550': {},
-          'Pacific Biosciences': {},
-          '   PacBio RS': {},
-          '   PacBio RS II': {},
-          '   PacBio Sequel': {},
-          '   PacBio Sequel II': {},
-          'Ion Torrent': {},
-          '   Ion Torrent PGM': {},
-          '   Ion Torrent Proton': {},
-          '   Ion Torrent S5 XL': {},
-          '   Ion Torrent S5': {},
-          'Oxford Nanopore': {},
-          '   GridION': {},
-          '   MinION': {},
-          '   PromethION': {},
-          'BGI Genomics': {},
-          '   BGISEQ-500': {},
-          '* I have Applied Bioscience models too - include?': {}
-        }
+          'ILLUMINA': {
+            'HiSeq X': {
+              'HiSeq X Five': {},
+              'HiSeq X Ten': {},
+            },
+            'Illumina Genome Analyzer': {
+              'Illumina Genome Analyzer II': {},
+              'Illumina Genome Analyzer IIx': {},
+            },
+            'Illumina HiScanSQ': {},
+            'Illumina HiSeq 1000': {},
+            'Illumina HiSeq 1500': {},
+            'Illumina HiSeq 2000': {},
+            'Illumina HiSeq 2500': {},
+            'Illumina HiSeq 3000': {},
+            'Illumina HiSeq 4000': {},
+            'Illumina iSeq 100': {},
+            'Illumina NovaSeq 6000': {},
+            'Illumina MiniSeq': {},
+            'Illumina MiSeq': {},
+            'NextSeq 500': {},
+            'NextSeq 550': {},
+          },
+          'Pacific Biosciences': {
+            'PacBio RS': {},
+            'PacBio RS II': {},
+            'PacBio Sequel': {},
+            'PacBio Sequel II': {},
+          },
+          'Ion Torrent': {
+            'Ion Torrent PGM': {},
+            'Ion Torrent Proton': {},
+            'Ion Torrent S5 XL': {},
+            'Ion Torrent S5': {},
+          },
+          'Oxford Nanopore': {
+            'GridION': {},
+            'MinION': {},
+            'PromethION': {},
+          },
+          'BGI Genomics': {
+            'BGISEQ-500': {},
+          },
+        },
       },
       {
         fieldName: 'sequencing protocol name',
-        dataType: 'text',
+        ontologyId: '',
+        datatype: 'text',
         requirement: 'recommended',
-        vocabulary: {}
+        description: 'The name and version number of the sequencing protocol used.',
+        guidance: 'Provide the name and version of the sequencing protocol e.g. 1D_DNA_MinION',
+        examples: '1D_DNA_MinION, ARTIC Network Protocol v. 3'
       },
       {
         fieldName: 'sequencing protocol source',
-        dataType: 'text',
+        ontologyId: '',
+        datatype: 'text',
         requirement: '',
-        vocabulary: {}
+        description: 'The name of the organization/authors of the protocol.',
+        guidance: 'Provide the name of the source of the protocol e.g. ARTIC Network.',
+        examples: 'ARTIC Network'
       },
       {
         fieldName: 'sequencing kit number',
-        dataType: 'text',
+        ontologyId: '',
+        datatype: 'text',
         requirement: '',
-        vocabulary: {}
+        description: 'The manufacturer\'s kit number.',
+        guidance: 'Alphanumeric value.',
+        examples: 'AB456XYZ789'
       },
       {
         fieldName: 'amplicon pcr primers filename',
-        dataType: 'text',
+        ontologyId: '',
+        datatype: 'text',
         requirement: '',
-        vocabulary: {}
-      }
-    ]
+        description: 'The filename of the file containing amplicon PCR primer names and sequences.',
+        guidance: 'Important for documenting methods and should be considered for submission, particularly if primers were designed in-house and not by a public consortium/network.',
+        examples: 'Rona_primers_2020.txt'
+      },
+    ],
   },
   {
     fieldName: 'Bioinformatics and QC metrics',
     children: [
       {
         fieldName: 'raw sequence data processing',
-        dataType: 'text',
+        ontologyId: '',
+        datatype: 'text',
         requirement: 'recommended',
-        vocabulary: {}
+        description: 'The names of the software and version number used for raw data processing such as removing barcodes, adapter trimming, filtering etc.',
+        guidance: 'Provide the software name followed by the version e.g. Trimmomatic v. 0.38, Porechop v. 0.2.3',
+        examples: 'Porechop v. 0.2.3'
       },
       {
         fieldName: 'sequencing depth (average)',
-        dataType: 'text',
+        ontologyId: '',
+        datatype: 'text',
         requirement: '',
-        vocabulary: {}
+        description: 'The total number of sequenced base pairs divided by the expected number of base pairs in the genome.',
+        guidance: 'Provide the value as a fold of coverage.',
+        examples: '80x'
       },
       {
         fieldName: 'assembly name',
-        dataType: 'text',
+        ontologyId: '',
+        datatype: 'text',
         requirement: '',
-        vocabulary: {}
+        description: 'Name/version of the assembly provided by the submitter.',
+        guidance: 'Provide the assembly name.',
+        examples: 'rona123assembly.fasta'
       },
       {
         fieldName: 'assembly method',
-        dataType: 'select',
+        ontologyId: '',
+        datatype: 'select',
         requirement: 'required',
-        vocabulary: {}
+        description: 'The name and version number of the assembly method used.',
+        guidance: 'Provide the software name followed by the version e.g. Canu v. 2.0',
+        examples: 'Canu v. 2.0',
+        vocabulary: {},
       },
       {
         fieldName: 'assembly coverage breadth',
-        dataType: 'text',
+        ontologyId: '',
+        datatype: 'text',
         requirement: '',
-        vocabulary: {}
+        description: 'The percentage of the assembled genome that was sequenced to a prescribed depth of coverage.',
+        guidance: 'Provide value as a percent e.g. 95%.',
+        examples: '95%'
       },
       {
         fieldName: 'assembly coverage depth',
-        dataType: 'text',
+        ontologyId: '',
+        datatype: 'text',
         requirement: '',
-        vocabulary: {}
+        description: 'The average number of reads representing a given nucleotide in the assembled sequence.',
+        guidance: 'Provide value as a fold of coverage e.g. 80x.',
+        examples: '400x'
       },
       {
-        fieldName: 'r1 fastq filename        ',
-        dataType: 'text',
+        fieldName: 'r1 fastq filename',
+        ontologyId: '',
+        datatype: 'text',
         requirement: 'recommended',
-        vocabulary: {}
+        description: 'The user-specified filename of the r1 FASTQ file.',
+        guidance: 'Provide the r1 fastq filename.',
+        examples: 'ABC123_S1_L001_R1_001.fastq.gz'
       },
       {
         fieldName: 'r2 fastq filename',
-        dataType: 'text',
+        ontologyId: '',
+        datatype: 'text',
         requirement: 'recommended',
-        vocabulary: {}
+        description: 'The user-specified filename of the r2 FASTQ file.',
+        guidance: 'Provide the r2 fastq filename.',
+        examples: 'ABC123_S1_L001_R2_001.fastq.gz'
       },
       {
         fieldName: 'fasta filename',
-        dataType: 'text',
+        ontologyId: '',
+        datatype: 'text',
         requirement: '',
-        vocabulary: {}
+        description: 'The user-specified filename of the FASTA file.',
+        guidance: 'Provide the fasta filename.',
+        examples: 'batch1a_sequences.fasta'
       },
       {
         fieldName: 'number base pairs',
-        dataType: 'integer',
+        ontologyId: '',
+        datatype: 'integer',
         requirement: '',
-        vocabulary: {}
+        description: 'The number of total base pairs generated by the sequencing process.',
+        guidance: 'Provide a numerical value (no need to include units).',
+        examples: '387566'
       },
       {
         fieldName: 'genome length',
-        dataType: 'integer',
+        ontologyId: '',
+        datatype: 'integer',
         requirement: '',
-        vocabulary: {}
+        description: 'Size of the reconstructed genome described as the number of base pairs.',
+        guidance: 'Provide a numerical value (no need to include units).',
+        examples: '38677'
       },
       {
         fieldName: 'mean contig length',
-        dataType: 'integer',
+        ontologyId: '',
+        datatype: 'integer',
         requirement: '',
-        vocabulary: {}
+        description: 'The mean contig length is the count of base pairs in the average size contig of the sequence assembly.',
+        guidance: 'Provide a numerical value (no need to include units).',
+        examples: '12689'
       },
       {
         fieldName: 'N50',
-        dataType: 'integer',
+        ontologyId: '',
+        datatype: 'integer',
         requirement: '',
-        vocabulary: {}
+        description: 'The minimum contig length needed to cover 50% of the genome.',
+        guidance: 'Provide a numerical value (no need to include units).',
+        examples: '10500'
       },
       {
         fieldName: 'Ns per 100 kbp',
-        dataType: 'decimal',
+        ontologyId: '',
+        datatype: 'decimal',
         requirement: '',
-        vocabulary: {}
+        description: 'The number of N symbols present in the consensus fasta sequence, per 100kbp of sequence.',
+        guidance: 'Provide a numerical value (no need to include units).',
+        examples: '3.3'
       },
       {
         fieldName: 'reference genome accession',
-        dataType: 'text',
+        ontologyId: '',
+        datatype: 'text',
         requirement: '',
-        vocabulary: {}
+        description: 'A persistent, unique identifier of a genome database entry.',
+        guidance: 'Provide the accession number of the reference genome.',
+        examples: 'NC_045512.2'
       },
       {
         fieldName: 'consensus sequence ID',
-        dataType: 'text',
+        ontologyId: '',
+        datatype: 'text',
         requirement: '',
-        vocabulary: {}
+        description: 'The identifer used to specify the consensus sequence.',
+        guidance: 'Provide the consensus sequence identifier.',
+        examples: 'ProvConsensusSeq.fasta'
       },
       {
         fieldName: 'consensus sequence method',
-        dataType: 'text',
+        ontologyId: '',
+        datatype: 'text',
         requirement: '',
-        vocabulary: {}
+        description: 'The name and version number of the software used to produce the consensus sequence.',
+        guidance: 'Provide the software name followed by the version e.g. iVar v. 1.2',
+        examples: 'iVar v. 1.2'
       },
       {
         fieldName: 'annotation feature table filename',
-        dataType: 'text',
+        ontologyId: '',
+        datatype: 'text',
         requirement: '',
-        vocabulary: {}
+        description: 'The filename of the file containing genome features such as gene names and corresponding CDS.',
+        guidance: 'Provide the filename of the annotation feature table.',
+        examples: 'BCRonaAnnotationFeatures'
       },
       {
         fieldName: 'bioinformatics protocol',
-        dataType: 'text',
+        ontologyId: '',
+        datatype: 'text',
         requirement: '',
-        vocabulary: {}
-      }
-    ]
+        description: 'The name and version number of the bioinformatics protocol used.',
+        guidance: 'Further details regarding the methods used to process raw data, and/or generate assemblies, and/or generate consensus sequences can be provided in an SOP or protocol. Provide the name and version number of the protocol.',
+        examples: 'https://www.protocols.io/groups/cphln-sarscov2-sequencing-consortium/members'
+      },
+    ],
   },
   {
     fieldName: 'Pathogen diagnostic testing',
     children: [
       {
         fieldName: 'gene name 1',
-        dataType: 'text',
+        ontologyId: '',
+        datatype: 'text',
         requirement: '',
-        vocabulary: {}
+        description: 'The name of the gene used in the diagnostic RT-PCR test.',
+        guidance: 'Provide the full name of the gene used in the test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI',
+        examples: 'envelope small membrane protein (SARS-CoV-2)'
       },
       {
         fieldName: 'diagnostic pcr protocol 1',
-        dataType: 'text',
+        ontologyId: '',
+        datatype: 'text',
         requirement: '',
-        vocabulary: {}
+        description: 'The name and version number of the protocol used for diagnostic marker amplification.',
+        guidance: 'The name and version number of the protocol used for carrying out a diagnostic PCR test. This information can be compared to sequence data for evaluation of performance and quality control.',
+        examples: 'AllTheTestingPCRingEGene v. 2'
       },
       {
         fieldName: 'diagnostic pcr Ct value 1',
-        dataType: 'text',
+        ontologyId: '',
+        datatype: 'text',
         requirement: '',
-        vocabulary: {}
+        description: 'The Ct value result from a diagnostic SARS-CoV-2 RT-PCR test.',
+        guidance: 'Provide the CT value of the sample from the diagnostic RT-PCR test.',
+        examples: '21'
       },
       {
         fieldName: 'gene name 2',
-        dataType: 'text',
+        ontologyId: '',
+        datatype: 'text',
         requirement: '',
-        vocabulary: {}
+        description: 'The name of the gene used in the diagnostic RT-PCR test.',
+        guidance: 'Provide the full name of another gene used in an RT-PCR test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI',
+        examples: 'RNA-directed RNA Polymerase (RdRP)'
       },
       {
         fieldName: 'diagnostic pcr protocol 2',
-        dataType: 'text',
+        ontologyId: '',
+        datatype: 'text',
         requirement: '',
-        vocabulary: {}
+        description: 'The name and version number of the protocol used for diagnostic marker amplification.',
+        guidance: 'The name and version number of the protocol used for carrying out a second diagnostic PCR test. This information can be compared to sequence data for evaluation of performance and quality control.',
+        examples: 'AllTheTestingPCRingRdRpGene v. 3'
       },
       {
         fieldName: 'diagnostic pcr Ct value 2',
-        dataType: 'text',
+        ontologyId: '',
+        datatype: 'text',
         requirement: '',
-        vocabulary: {}
-      }
-    ]
+        description: 'The Ct value result from a diagnostic SARS-CoV-2 RT-PCR test.',
+        guidance: 'Provide the CT value of the sample from the second diagnostic RT-PCR test.',
+        examples: '36'
+      },
+    ],
   },
   {
     fieldName: 'Contributor acknowledgement',
     children: [
       {
         fieldName: 'authors',
-        dataType: 'text',
+        ontologyId: '',
+        datatype: 'text',
         requirement: 'recommended',
-        vocabulary: {}
-      }
-    ]
-  }
+        description: 'Names of individuals contributing to the processes of sample collection, sequence generation, analysis, and data submission.',
+        guidance: 'Include the first and last names of all individuals that should be attributed, separated by a comma.',
+        examples: 'Tejinder Singh, Fei Hu, Joe Blogs'
+      },
+    ],
+  },
 ]

@@ -5,6 +5,10 @@
     cursor: pointer;
 }
 
+#grid .secondary-header-cell:hover {
+	cursor: pointer;
+}
+
 #grid {
     overflow: hidden;
 }
@@ -21,11 +25,42 @@
     display: none;
 }
 
-.read-only {
-    font-size: medium;
-    font-weight: bold;
+#grid td.invalid-cell {
+	background-color: #ffcccb !important;
 }
 
-.invalid-cell {
-    background-color: red !important;
+#grid .htAutocompleteArrow {
+	color: gray;
 }
+
+.secondary-header {
+	cursor:pointer;
+}
+
+#grid th.required {
+	background-color:yellow;
+}
+#grid th.recommended {
+	background-color:plum;
+}
+
+/* Primary and secondary headers */
+#grid th {
+	text-align: left;
+}
+
+/* Fixed col */
+#grid th.overlayEdge {
+	border-right: medium solid gray;
+}
+#grid table.htCore > tbody > tr td:nth-child(2) {
+	border-right: medium solid gray;
+}
+
+/* Dropdown selection box choices */
+.handsontable.listbox td {
+	border-radius:3px;
+	border:1px solid silver;
+	background-color: #DDD;
+}
+
