@@ -16,13 +16,13 @@ const processData = (data) => {
       fields.filter(field => field.fieldName === 'geo_loc_name (country)')[0];
   for (const parent of data) {
     for (const child of parent.children) {
+      // This helps us avoid repeating the list of countries in `data.js`
+      if (child.fieldName.includes('(country)')) {
+        child.vocabulary = countryField.vocabulary;
+      }
       // Flat list of vocabulary items for autocomplete purposes
       if (child.vocabulary) {
         child.flatVocabulary = stringifyNestedVocabulary(child.vocabulary);
-      }
-      // This helps us avoid repeating the list of countries in `data.js`
-      if (child.fieldName.includes('(country')) {
-        child.vocabulary = countryField.vocabulary;
       }
     }
   }
