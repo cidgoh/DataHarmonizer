@@ -330,14 +330,6 @@ $(document).ready(() => {
   window.HOT = createHot(DATA);
 
   window.INVALID_CELLS = {};
-  HOT.updateSettings({
-    // A more intuitive name for this option might have been `afterCellRender`
-    afterRenderer: (TD, row, col) => {
-      if (INVALID_CELLS.hasOwnProperty(row)) {
-        if (INVALID_CELLS[row].has(col)) $(TD).addClass('invalid-cell');
-      }
-    }
-  });
 
   // File -> New
   $('#new-dropdown-item, #clear-data-confirm-btn').click((e) => {
@@ -393,6 +385,14 @@ $(document).ready(() => {
   // Validate
   $('#validate-btn').click(() => {
     window.INVALID_CELLS = getInvalidCells(HOT, DATA);
+    HOT.updateSettings({
+      // A more intuitive name for this option might have been `afterCellRender`
+      afterRenderer: (TD, row, col) => {
+        if (INVALID_CELLS.hasOwnProperty(row)) {
+          if (INVALID_CELLS[row].has(col)) $(TD).addClass('invalid-cell');
+        }
+      }
+    });
     HOT.render();
   });
 
