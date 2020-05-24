@@ -44,7 +44,7 @@ const getFields = (data) => {
  * @return {Object} Handsontable instance.
  */
 const createHot = (data) => {
-  return Handsontable($('#grid')[0], {
+  const hot = Handsontable($('#grid')[0], {
     nestedHeaders: getNestedHeaders(data),
     columns: getColumns(data),
     colHeaders: true,
@@ -77,6 +77,8 @@ const createHot = (data) => {
       });
     },
   });
+
+  return enableMultiSelection(hot, data);
 };
 
 /**
@@ -140,9 +142,14 @@ const getColumns = (data) => {
       col.source = field.flatVocabulary;
       col.trimDropdown = false;
     } else if (field.datatype === 'multiple') {
-      col.type = 'autocomplete';
+      // TODO: we need to find a better way to enable multi-selection
+      col.type = 'handsontable';
+      col.handsontable = {
+        colHeaders: false,
+        data: field.flatVocabulary.map(x => [x]),
+        colWidths: '400rem',
+      }
       col.source = field.flatVocabulary;
-      col.trimDropdown = false;
     }
     ret.push(col);
   }
@@ -169,6 +176,48 @@ const stringifyNestedVocabulary = (vocabulary, level=0) => {
     ret = ret.concat(stringifyNestedVocabulary(vocabulary[val], level+1));
   }
   return ret;
+};
+
+/**
+ * Enable multiselection on select rows.
+ * This isn't really robust, and we should find a better way to do this.
+ * @param {Object} hot Handonstable grid instance.
+ * @param {Object} data See `data.js`.
+ * @return {Object} Grid instance with multiselection enabled on columns
+ * specified as such in the vocabulary.
+ */
+const enableMultiSelection = (hot, data) => {
+  const fields = getFields(data);
+  hot.updateSettings({
+    afterBeginEditing: function(row, col) {
+      if (fields[col].datatype === 'multiple') {
+        const currVal = this.getDataAtCell(row, col);
+        if (currVal) {
+          $('textarea.handsontableInput').val(currVal + ',');
+        }
+      }
+    },
+    afterChange: function(changes, source) {
+      if (source === 'thisChange' || !changes || changes.length !== 1) return;
+
+      const row = changes[0][0];
+      const col = changes[0][1];
+      const oldValCsv = changes[0][2];
+      const newVal = changes[0][3];
+
+      if (fields[col].datatype !== 'multiple') return;
+      if (!oldValCsv || !newVal) return;
+      if (!fields[col].flatVocabulary.includes(newVal)) return;
+
+      const oldVals =
+          oldValCsv.split(',').map(val => val.trim()).filter(val => val);
+      if (oldVals.includes(newVal)) return;
+
+      const newValCsv = [...oldVals, newVal].join(',');
+      this.setDataAtCell(row, col, newValCsv, 'thisChange');
+    }
+  });
+  return hot;
 };
 
 /**
@@ -254,8 +303,10 @@ const getInvalidCells = (hot, data) => {
         valid = !isNaN(cellVal);
       } else if (datatype === 'date') {
         // TODO
-      } else if (datatype === 'select' || datatype === 'multiple') {
+      } else if (datatype === 'select') {
         valid = validateDropDown(cellVal, fields[col].flatVocabulary);
+      } else if (datatype === 'multiple') {
+        valid = validateMultiple(cellVal, fields[col].flatVocabulary);
       }
 
       if (!valid) {
@@ -287,6 +338,19 @@ const validateDropDown = (val, source) => {
     if (trimmedSource.includes(trimmedVal)) valid = true;
   }
   return valid;
+};
+
+/**
+ * Validate csv values against their source. This is called when validating
+ * multiple-select cells.
+ * @param {String} valsCsv CSV string of values to validate.
+ * @param {Array<String>} source Values to validate against.
+ */
+const validateMultiple = (valsCsv, source) => {
+  for (const val of valsCsv.split(',')) {
+    if (!validateDropDown(val, source)) return false;
+  }
+  return true;
 };
 
 /**
