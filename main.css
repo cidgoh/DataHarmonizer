@@ -17,6 +17,10 @@
     visibility: hidden;
 }
 
+#footer-row {
+    visibility: hidden;
+}
+
 .listbox {
     white-space: pre !important;
 }
