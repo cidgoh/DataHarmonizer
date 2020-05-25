@@ -38,8 +38,8 @@ const DATA = [
         guidance: 'Store the umbrella BioProject accession by selecting it from the pick list in the template. The umbrella BioProject accession will be identical for all CanCOGen submitters. Different provinces will have their own BioProjects, however these BioProjects will be linked under one umbrella BioProject.',
         examples: 'PRJNA623807',
         vocabulary: {
-          'PRJNA623807': {},
-        },
+          'PRJNA623807': {}
+        }
       },
       {
         fieldName: 'bioproject accession',
@@ -85,8 +85,8 @@ const DATA = [
         description: 'The GISAID accession number assigned to the sequence.',
         guidance: 'Store the accession returned from the GISAID submission.',
         examples: 'hCov-19/Canada/prov_rona_99/2020'
-      },
-    ],
+      }
+    ]
   },
   {
     fieldName: 'Sample collection and processing',
@@ -151,8 +151,17 @@ const DATA = [
         datatype: 'date',
         requirement: 'required',
         description: 'The date on which the sample was collected.',
-        guidance: 'ISO 8601 standard \'YYYY-MM-DD\', \'YYYY-MM\' or \'YYYY\'',
+        guidance: 'ISO 8601 standard \'YYYY-MM-DD\', \'YYYY-MM\' or \'YYYY\'. If \'sample collection date\' cannot be obtained, \'sample received date\' can be substituted in the mininal metadata requirements. If \'sample collection date\' is considered identifiable, it is acceptable to obfuscate the date by adjusting it a day forward or behind.',
         examples: '2020-03-16'
+      },
+      {
+        fieldName: 'sample received date',
+        ontologyId: '',
+        datatype: 'date',
+        requirement: '',
+        description: 'The date on which the sample was received.',
+        guidance: 'ISO 8601 standard \'YYYY-MM-DD\', \'YYYY-MM\' or \'YYYY\'.',
+        examples: '2020-03-20'
       },
       {
         fieldName: 'geo_loc_name (country)',
@@ -434,7 +443,8 @@ const DATA = [
           'Yemen': {},
           'Zambia': {},
           'Zimbabwe': {},
-        },
+          'Missing': {}
+        }
       },
       {
         fieldName: 'geo_loc_name (province/territory)',
@@ -445,20 +455,21 @@ const DATA = [
         guidance: 'Provide the province/territory name from the controlled vocabulary provided.',
         examples: 'Saskatchewan',
         vocabulary: {
-          'ALBERTA': {},
-          'BRITISH COLUMBIA': {},
-          'MANITOBA': {},
-          'NEW BRUNSWICK': {},
-          'NEWFOUNDLAND': {},
-          'NORTHWEST TERRITORIES': {},
-          'NOVA SCOTIA': {},
-          'NUNAVUT': {},
-          'ONTARIO': {},
-          'PRINCE EDWARD ISLAND': {},
-          'QUEBEC': {},
-          'SASKATCHEWAN': {},
-          'YUKON TERRITORY': {},
-        },
+          'Alberta': {},
+          'British Columbia': {},
+          'Manitoba': {},
+          'New Brunswick': {},
+          'Newfoundland': {},
+          'Northwest Territories': {},
+          'Nova Scotia': {},
+          'Nunavut': {},
+          'Ontario': {},
+          'Prince Edward Island': {},
+          'Quebec': {},
+          'Saskatchewan': {},
+          'Yukon Territory': {},
+          'Missing': {}
+        }
       },
       {
         fieldName: 'geo_loc_name (city)',
@@ -481,7 +492,8 @@ const DATA = [
           'SARS-CoV-2': {},
           'RaTG13': {},
           'RmYN02': {},
-        },
+          'Missing': {}
+        }
       },
       {
         fieldName: 'isolate',
@@ -506,7 +518,8 @@ const DATA = [
           'Research': {},
           'Surveillance testing': {},
           'Viral passage experiment': {},
-        },
+          'Missing': {}
+        }
       },
       {
         fieldName: 'anatomical material',
@@ -525,10 +538,11 @@ const DATA = [
             'Fluid (pleural)': {},
             'Fluid (vaginal)': {},
             'Fluid (amniotic)': {},
-            'Fluid (seminal)': {},
+            'Fluid (seminal)': {}
           },
           'Tissue': {},
-        },
+          'Missing': {}
+        }
       },
       {
         fieldName: 'anatomical part',
@@ -552,23 +566,24 @@ const DATA = [
             'Ethmoid sinus': {},
             'Nasal Cavity': {
               'Middle Nasal Turbinate': {},
-              'Inferior Nasal Turbinate': {},
+              'Inferior Nasal Turbinate': {}
             },
             'Nasopharynx (NP)': {},
-            'Oropharynx (OP)': {},
+            'Oropharynx (OP)': {}
           },
           'Lower respiratory tract': {
             'Bronchus': {},
             'Lung': {
               'Bronchiole': {},
-              'Alveolar sac': {},
+              'Alveolar sac': {}
             },
             'Pleural sac': {
-              'Pleural cavity': {},
+              'Pleural cavity': {}
             },
-            'Trachea': {},
+            'Trachea': {}
           },
-        },
+          'Missing': {}
+        }
       },
       {
         fieldName: 'body product',
@@ -583,10 +598,11 @@ const DATA = [
           'Urine': {},
           'Sweat': {},
           'Mucus': {
-            'Sputum': {},
+            'Sputum': {}
           },
           'Tear': {},
-        },
+          'Missing': {}
+        }
       },
       {
         fieldName: 'environmental material',
@@ -598,7 +614,6 @@ const DATA = [
         examples: 'Face mask',
         vocabulary: {
           'Banknote': {},
-          'Bathroom': {},
           'Bed rail': {},
           'Building floor': {},
           'Cloth': {},
@@ -608,6 +623,8 @@ const DATA = [
           'Door handle': {},
           'Face mask': {},
           'Face shield': {},
+          'Food': {},
+          'Food packaging': {},
           'Glass': {},
           'Handrail': {},
           'Hospital gown': {},
@@ -627,7 +644,9 @@ const DATA = [
           'Water': {},
           'Window': {},
           'Wood': {},
-        },
+          'Missing': {},
+          'Bathroom': {}
+        }
       },
       {
         fieldName: 'environmental site',
@@ -657,7 +676,8 @@ const DATA = [
           'School': {},
           'Subway train': {},
           'Wet market': {},
-        },
+          'Missing': {}
+        }
       },
       {
         fieldName: 'collection device',
@@ -684,7 +704,8 @@ const DATA = [
           'Swab': {},
           'Urine Collection Tube': {},
           'Virus Transport Medium': {},
-        },
+          'Missing': {}
+        }
       },
       {
         fieldName: 'collection method',
@@ -699,49 +720,52 @@ const DATA = [
           'Aspiration': {
             'Suprapubic Aspiration': {},
             'Tracheal aspiration': {},
-            'Vacuum Aspiration': {},
+            'Vacuum Aspiration': {}
           },
           'Biopsy': {
-            'Needle Biopsy': {},
+            'Needle Biopsy': {}
           },
           'Lavage': {
             'Bronchoalveolar lavage (BAL)': {},
-            'Gastric Lavage': {},
+            'Gastric Lavage': {}
           },
           'Lumbar Puncture': {},
           'Necropsy': {},
           'Phlebotomy': {},
           'Rinsing': {},
           'Scraping': {},
-          'Swab': {
-            'Finger Prick': {},
+          'Swabbing': {
+            'Finger Prick': {}
           },
           'Wash': {},
           'Washout Tear Collection': {},
-        },
+          'Missing': {}
+        }
       },
       {
         fieldName: 'collection protocol',
         ontologyId: '',
-        datatype: 'select',
+        datatype: 'text',
         requirement: '',
         description: 'The name and version of a particular protocol used for sampling.',
         guidance: 'Free text.',
-        examples: 'BCRonaSamplingProtocol v. 1.2',
-        vocabulary: {},
+        examples: 'BCRonaSamplingProtocol v. 1.2'
       },
       {
         fieldName: 'specimen processing',
         ontologyId: '',
-        datatype: 'select',
+        datatype: 'multiple',
         requirement: 'recommended',
         description: 'Any processing applied to the sample during or after receiving the sample.',
-        guidance: 'Critical for passage history. If virus was passaged, select \'virus passage\' from the picklist. If the sample was not passaged, put \'not applicable\'.',
+        guidance: 'Critical for interpreting data. Select all the applicable processes from the pick list. If virus was passaged, include information in \'lab host\', \'passage number\', and \'passage method\' fields. If none of the processes in the pick list apply, put \'not applicable\'.',
         examples: 'Virus passage',
         vocabulary: {
           'Virus passage': {},
-          'NOT APPLICABLE': {},
-        },
+          'RNA re-extraction (post RT-PCR)': {},
+          'Specimens pooled': {},
+          'Not applicable': {},
+          'Missing': {}
+        }
       },
       {
         fieldName: 'lab host',
@@ -769,7 +793,8 @@ const DATA = [
           'Vero cell line': {},
           'Vero E6 cell line': {},
           'VeroE6/TMPRSS2 cell line': {},
-        },
+          'Missing': {}
+        }
       },
       {
         fieldName: 'passage number',
@@ -798,13 +823,14 @@ const DATA = [
         guidance: 'Provide the biomaterial extracted from the picklist in the template.',
         examples: 'RNA (total)',
         vocabulary: {
-          'RNA (total),': {},
-          'RNA (poly-A),': {},
-          'RNA (ribo-depleted),': {},
+          'RNA (total)': {},
+          'RNA (poly-A)': {},
+          'RNA (ribo-depleted)': {},
           'mRNA (cDNA)': {},
-        },
-      },
-    ],
+          'Missing': {}
+        }
+      }
+    ]
   },
   {
     fieldName: 'Host Information',
@@ -830,7 +856,8 @@ const DATA = [
           'Pig': {},
           'Pigeon': {},
           'Tiger': {},
-        },
+          'Missing': {}
+        }
       },
       {
         fieldName: 'host (scientific name)',
@@ -856,23 +883,24 @@ const DATA = [
           'Rhinolophus affinis': {},
           'Sus scrofa domesticus': {},
           'Viverridae': {},
-        },
+          'Missing': {}
+        }
       },
       {
         fieldName: 'host health state',
         ontologyId: '',
         datatype: 'select',
-        requirement: '',
+        requirement: 'required',
         description: 'Health status of the host at the time of sample collection.',
         guidance: 'If known, select a descriptor from the pick list provided in the template.',
         examples: 'sick',
         vocabulary: {
-          'healthy': {},
-          'sick': {},
-          'recovered': {},
-          'deceased': {},
-          'NOT COLLECTED': {},
-        },
+          'Healthy': {},
+          'Sick': {},
+          'Recovered': {},
+          'Deceased': {},
+          'Missing': {}
+        }
       },
       {
         fieldName: 'host health status details',
@@ -887,8 +915,8 @@ const DATA = [
           'Asymptomatic': {},
           'Symptomatic': {},
           'Hospitalized (ICU)': {},
-          'NOT APPLICABLE': {},
-        },
+          'Missing': {}
+        }
       },
       {
         fieldName: 'host disease',
@@ -900,7 +928,8 @@ const DATA = [
         examples: 'COVID-19',
         vocabulary: {
           'COVID-19': {},
-        },
+          'Missing': {}
+        }
       },
       {
         fieldName: 'host age',
@@ -920,14 +949,14 @@ const DATA = [
         guidance: 'Select the corresponding host gender from the pick list provided in the template. If not available, put \'unknown\'.',
         examples: 'male',
         vocabulary: {
-          'female': {},
-          'male': {},
-          'non-binary gender': {},
-          'transgender': {},
-          'undeclared': {},
-          'unknown': {},
-          'NOT PROVIDED': {},
-        },
+          'Female': {},
+          'Male': {},
+          'Non-binary gender': {},
+          'Transgender': {},
+          'Undeclared': {},
+          'Unknown': {},
+          'Missing': {}
+        }
       },
       {
         fieldName: 'host origin geo_loc name (country)',
@@ -937,7 +966,7 @@ const DATA = [
         description: 'The country of residence of the host.',
         guidance: 'Select the country name from pick list provided in the template.',
         examples: 'United Kingdom',
-        vocabulary: {},
+        vocabulary: {}
       },
       {
         fieldName: 'host subject ID',
@@ -963,7 +992,7 @@ const DATA = [
         datatype: 'multiple',
         requirement: '',
         description: 'A perceived change in function or sensation, (loss, disturbance or appearance) indicative of a disease, reported by a patient.',
-        guidance: 'Provide a list of symptoms experienced by the host. List in order of appearance, separated by a comma.',
+        guidance: 'Select all of the symptoms experienced by the host form the pick list.',
         examples: 'Cough, Fever, Chills',
         vocabulary: {
           'Ageusia': {},
@@ -1005,9 +1034,10 @@ const DATA = [
           'Tachypnea (rapid breathing)': {},
           'Vomiting': {},
           'Weakness': {},
-        },
-      },
-    ],
+          'Missing': {}
+        }
+      }
+    ]
   },
   {
     fieldName: 'Host exposure information',
@@ -1020,7 +1050,7 @@ const DATA = [
         description: 'The country where the host was likely exposed to the causative agent of the illness.',
         guidance: 'Select the country name from pick list provided in the template.',
         examples: 'Canada',
-        vocabulary: {},
+        vocabulary: {}
       },
       {
         fieldName: 'travel history',
@@ -1040,19 +1070,20 @@ const DATA = [
         guidance: 'Select an exposure event from the pick list provided in the template. If the desired term is missing, contact the curation team.',
         examples: 'Mass gathering (convention)',
         vocabulary: {
-          'mass gathering (convention)': {},
-          'mass gathering (religious)': {},
-          'mass gathering (social e.g. funeral, wedding etc.)': {},
-          'mass gathering (office)': {},
-          'occupational exposure (hospital worker)': {},
-          'occupational exposure (hospital visit)': {},
-          'occupational exposure (frontline response)': {},
-          'occupational exposure (healthcare work with the public)': {},
-          'occupational exposure (retail)': {},
-          'occupational exposure (restaurant)': {},
-        },
-      },
-    ],
+          'Mass gathering (convention)': {},
+          'Mass gathering (religious)': {},
+          'Mass gathering (social e.g. funeral, wedding etc.)': {},
+          'Mass gathering (office)': {},
+          'Occupational exposure (hospital worker)': {},
+          'Occupational exposure (hospital visit)': {},
+          'Occupational exposure (frontline response)': {},
+          'Occupational exposure (healthcare work with the public)': {},
+          'Occupational exposure (retail)': {},
+          'Occupational exposure (restaurant)': {},
+          'Missing': {}
+        }
+      }
+    ]
   },
   {
     fieldName: 'Sequencing',
@@ -1067,9 +1098,18 @@ const DATA = [
         examples: 'XYZ_123345'
       },
       {
+        fieldName: 'MinIon barcode',
+        ontologyId: '',
+        datatype: 'text',
+        requirement: '',
+        description: 'The barcode of the MinIon unit used for sequencing.',
+        guidance: 'Provide the barcode of the MinIon used for sequencing the sample.',
+        examples: ''
+      },
+      {
         fieldName: 'sequencing instrument',
         ontologyId: '',
-        datatype: 'select',
+        datatype: 'multiple',
         requirement: 'required',
         description: 'The model of the sequencing instrument used.',
         guidance: 'Select a sequencing instrument from the picklist provided in the template.',
@@ -1078,11 +1118,11 @@ const DATA = [
           'ILLUMINA': {
             'HiSeq X': {
               'HiSeq X Five': {},
-              'HiSeq X Ten': {},
+              'HiSeq X Ten': {}
             },
             'Illumina Genome Analyzer': {
               'Illumina Genome Analyzer II': {},
-              'Illumina Genome Analyzer IIx': {},
+              'Illumina Genome Analyzer IIx': {}
             },
             'Illumina HiScanSQ': {},
             'Illumina HiSeq 1000': {},
@@ -1096,29 +1136,36 @@ const DATA = [
             'Illumina MiniSeq': {},
             'Illumina MiSeq': {},
             'NextSeq 500': {},
-            'NextSeq 550': {},
+            'NextSeq 550': {}
           },
           'Pacific Biosciences': {
             'PacBio RS': {},
             'PacBio RS II': {},
             'PacBio Sequel': {},
-            'PacBio Sequel II': {},
+            'PacBio Sequel II': {}
           },
           'Ion Torrent': {
             'Ion Torrent PGM': {},
             'Ion Torrent Proton': {},
             'Ion Torrent S5 XL': {},
-            'Ion Torrent S5': {},
+            'Ion Torrent S5': {}
           },
           'Oxford Nanopore': {
             'GridION': {},
             'MinION': {},
-            'PromethION': {},
+            'PromethION': {}
           },
           'BGI Genomics': {
-            'BGISEQ-500': {},
+            'BGISEQ-500': {}
           },
-        },
+          'MGI': {
+            'DNBSEQ-T7': {},
+            'DNBSEQ-G400': {},
+            'DNBSEQ-G400 FAST': {},
+            'DNBSEQ-G50': {}
+          },
+          'Missing': {}
+        }
       },
       {
         fieldName: 'sequencing protocol name',
@@ -1155,8 +1202,8 @@ const DATA = [
         description: 'The filename of the file containing amplicon PCR primer names and sequences.',
         guidance: 'Important for documenting methods and should be considered for submission, particularly if primers were designed in-house and not by a public consortium/network.',
         examples: 'Rona_primers_2020.txt'
-      },
-    ],
+      }
+    ]
   },
   {
     fieldName: 'Bioinformatics and QC metrics',
@@ -1191,12 +1238,11 @@ const DATA = [
       {
         fieldName: 'assembly method',
         ontologyId: '',
-        datatype: 'select',
+        datatype: 'text',
         requirement: 'required',
         description: 'The name and version number of the assembly method used.',
         guidance: 'Provide the software name followed by the version e.g. Canu v. 2.0',
-        examples: 'Canu v. 2.0',
-        vocabulary: {},
+        examples: 'Canu v. 2.0'
       },
       {
         fieldName: 'assembly coverage breadth',
@@ -1222,7 +1268,7 @@ const DATA = [
         datatype: 'text',
         requirement: 'recommended',
         description: 'The user-specified filename of the r1 FASTQ file.',
-        guidance: 'Provide the r1 fastq filename.',
+        guidance: 'Provide the r1 FASTQ filename.',
         examples: 'ABC123_S1_L001_R1_001.fastq.gz'
       },
       {
@@ -1231,8 +1277,44 @@ const DATA = [
         datatype: 'text',
         requirement: 'recommended',
         description: 'The user-specified filename of the r2 FASTQ file.',
-        guidance: 'Provide the r2 fastq filename.',
+        guidance: 'Provide the r2 FASTQ filename.',
         examples: 'ABC123_S1_L001_R2_001.fastq.gz'
+      },
+      {
+        fieldName: 'r1 fastq filepath',
+        ontologyId: '',
+        datatype: 'text',
+        requirement: '',
+        description: 'The location of the r1 FASTQ file within a user\'s file system.',
+        guidance: 'Provide the filepath for the r1 FASTQ file. This information aids in data management. ',
+        examples: ''
+      },
+      {
+        fieldName: 'r2 fastq filepath',
+        ontologyId: '',
+        datatype: 'text',
+        requirement: '',
+        description: 'The location of the r2 FASTQ file within a user\'s file system.',
+        guidance: 'Provide the filepath for the r2 FASTQ file. This information aids in data management. ',
+        examples: ''
+      },
+      {
+        fieldName: 'fast5 filename',
+        ontologyId: '',
+        datatype: 'text',
+        requirement: '',
+        description: 'The user-specified filename of the FAST5 file.',
+        guidance: 'Provide the FAST5 filename.',
+        examples: ''
+      },
+      {
+        fieldName: 'fast5 filepath',
+        ontologyId: '',
+        datatype: 'text',
+        requirement: '',
+        description: 'The location of the FAST5 file within a user\'s file system.',
+        guidance: 'Provide the filepath for the FAST5 file. This information aids in data management. ',
+        examples: ''
       },
       {
         fieldName: 'fasta filename',
@@ -1244,6 +1326,15 @@ const DATA = [
         examples: 'batch1a_sequences.fasta'
       },
       {
+        fieldName: 'fasta filepath',
+        ontologyId: '',
+        datatype: 'text',
+        requirement: '',
+        description: 'The location of the FASTA file within a user\'s file system.',
+        guidance: 'Provide the filepath for the FASTA file. This information aids in data management. ',
+        examples: ''
+      },
+      {
         fieldName: 'number base pairs',
         ontologyId: '',
         datatype: 'integer',
@@ -1253,7 +1344,7 @@ const DATA = [
         examples: '387566'
       },
       {
-        fieldName: 'genome length',
+        fieldName: 'consensus genome length',
         ontologyId: '',
         datatype: 'integer',
         requirement: '',
@@ -1304,7 +1395,7 @@ const DATA = [
         requirement: '',
         description: 'The identifer used to specify the consensus sequence.',
         guidance: 'Provide the consensus sequence identifier.',
-        examples: 'ProvConsensusSeq.fasta'
+        examples: ''
       },
       {
         fieldName: 'consensus sequence method',
@@ -1313,7 +1404,25 @@ const DATA = [
         requirement: '',
         description: 'The name and version number of the software used to produce the consensus sequence.',
         guidance: 'Provide the software name followed by the version e.g. iVar v. 1.2',
-        examples: 'iVar v. 1.2'
+        examples: 'iVar 1.2'
+      },
+      {
+        fieldName: 'consensus sequence filename',
+        ontologyId: '',
+        datatype: 'text',
+        requirement: '',
+        description: 'The user-specified filename for the consensus sequence.',
+        guidance: 'Provide the filename for the consensus sequence. ',
+        examples: 'ProvConsensusSeq.fasta'
+      },
+      {
+        fieldName: 'consensus sequence filepath',
+        ontologyId: '',
+        datatype: 'text',
+        requirement: '',
+        description: 'The location of the consensus sequence in the user\'s file system.',
+        guidance: 'Provide the filepath for the consensus sequence file. This information facilitates data management.',
+        examples: ''
       },
       {
         fieldName: 'annotation feature table filename',
@@ -1332,8 +1441,8 @@ const DATA = [
         description: 'The name and version number of the bioinformatics protocol used.',
         guidance: 'Further details regarding the methods used to process raw data, and/or generate assemblies, and/or generate consensus sequences can be provided in an SOP or protocol. Provide the name and version number of the protocol.',
         examples: 'https://www.protocols.io/groups/cphln-sarscov2-sequencing-consortium/members'
-      },
-    ],
+      }
+    ]
   },
   {
     fieldName: 'Pathogen diagnostic testing',
@@ -1391,8 +1500,8 @@ const DATA = [
         description: 'The Ct value result from a diagnostic SARS-CoV-2 RT-PCR test.',
         guidance: 'Provide the CT value of the sample from the second diagnostic RT-PCR test.',
         examples: '36'
-      },
-    ],
+      }
+    ]
   },
   {
     fieldName: 'Contributor acknowledgement',
@@ -1405,7 +1514,7 @@ const DATA = [
         description: 'Names of individuals contributing to the processes of sample collection, sequence generation, analysis, and data submission.',
         guidance: 'Include the first and last names of all individuals that should be attributed, separated by a comma.',
         examples: 'Tejinder Singh, Fei Hu, Joe Blogs'
-      },
-    ],
-  },
+      }
+    ]
+  }
 ]
