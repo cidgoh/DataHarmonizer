@@ -1,5 +1,6 @@
 @import 'libraries/handsontable.full.min.css';
 @import 'libraries/bootstrap.min.css';
+@import 'libraries/chosen.css';
 
 .dropdown-item:hover {
     cursor: pointer;
@@ -63,4 +64,9 @@
 	border:1px solid silver;
 	background-color: #DDD;
 }
-
+.handsontable.listbox td:hover {
+	background-color: lightblue !important;
+}
+.handsontable.listbox td.current.highlight {
+	background-color: lightblue !important;
+}

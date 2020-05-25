@@ -16,13 +16,13 @@ const processData = (data) => {
       fields.filter(field => field.fieldName === 'geo_loc_name (country)')[0];
   for (const parent of data) {
     for (const child of parent.children) {
+      // This helps us avoid repeating the list of countries in `data.js`
+      if (child.fieldName.includes('(country)')) {
+        child.vocabulary = countryField.vocabulary;
+      }
       // Flat list of vocabulary items for autocomplete purposes
       if (child.vocabulary) {
         child.flatVocabulary = stringifyNestedVocabulary(child.vocabulary);
-      }
-      // This helps us avoid repeating the list of countries in `data.js`
-      if (child.fieldName.includes('(country')) {
-        child.vocabulary = countryField.vocabulary;
       }
     }
   }
@@ -44,7 +44,7 @@ const getFields = (data) => {
  * @return {Object} Handsontable instance.
  */
 const createHot = (data) => {
-  return Handsontable($('#grid')[0], {
+  const hot = Handsontable($('#grid')[0], {
     nestedHeaders: getNestedHeaders(data),
     columns: getColumns(data),
     colHeaders: true,
@@ -77,6 +77,8 @@ const createHot = (data) => {
       });
     },
   });
+
+  return enableMultiSelection(hot, data);
 };
 
 /**
@@ -138,8 +140,10 @@ const getColumns = (data) => {
     } else if (field.datatype === 'select') {
       col.type = 'autocomplete';
       col.source = field.flatVocabulary;
+      col.trimDropdown = false;
     } else if (field.datatype === 'multiple') {
-      col.type = 'autocomplete';
+      // TODO: we need to find a better way to enable multi-selection
+      col.type = 'text';
       col.source = field.flatVocabulary;
     }
     ret.push(col);
@@ -167,6 +171,54 @@ const stringifyNestedVocabulary = (vocabulary, level=0) => {
     ret = ret.concat(stringifyNestedVocabulary(vocabulary[val], level+1));
   }
   return ret;
+};
+
+/**
+ * Enable multiselection on select rows.
+ * This isn't really robust, and we should find a better way to do this.
+ * @param {Object} hot Handonstable grid instance.
+ * @param {Object} data See `data.js`.
+ * @return {Object} Grid instance with multiselection enabled on columns
+ * specified as such in the vocabulary.
+ */
+const enableMultiSelection = (hot, data) => {
+  const fields = getFields(data);
+  hot.updateSettings({
+    afterBeginEditing: function(row, col) {
+      if (fields[col].datatype === 'multiple') {
+        const value = this.getDataAtCell(row, col);
+        const selections = value && value.split(',') || [];
+        const self = this;
+        let content = '';
+        fields[col].flatVocabulary.forEach(function(field, i) {
+          const field_trim = field.trim()
+          let selected = selections.includes(field_trim) ? 'selected="selected"' : '';
+          content += `<option value="${field_trim}" ${selected}'>${field}</option>`;
+        })
+
+        $('#field-description-text').html(`${fields[col].fieldName}<select multiple class="multiselect" rows="15">${content}</select>`);
+        $('#field-description-modal').modal('show');
+        $('#field-description-text .multiselect')
+          .chosen() // must be rendered when html is visible
+          .change(function () {
+            let newValCsv = $('#field-description-text .multiselect').val().join(',')
+            self.setDataAtCell(row, col, newValCsv, 'thisChange');
+          }); 
+      }
+    },
+    afterChange: function(changes, source) {
+      /*
+      if (source === 'thisChange' || !changes || changes.length !== 1) return;
+
+      const row = changes[0][0];
+      const col = changes[0][1];
+      const oldValCsv = changes[0][2];
+      const newVal = changes[0][3];
+      if (fields[col].datatype !== 'multiple') return;
+      */
+    }
+  });
+  return hot;
 };
 
 /**
@@ -252,8 +304,10 @@ const getInvalidCells = (hot, data) => {
         valid = !isNaN(cellVal);
       } else if (datatype === 'date') {
         // TODO
-      } else if (datatype === 'select' || datatype === 'multiple') {
+      } else if (datatype === 'select') {
         valid = validateDropDown(cellVal, fields[col].flatVocabulary);
+      } else if (datatype === 'multiple') {
+        valid = validateMultiple(cellVal, fields[col].flatVocabulary);
       }
 
       if (!valid) {
@@ -285,6 +339,19 @@ const validateDropDown = (val, source) => {
     if (trimmedSource.includes(trimmedVal)) valid = true;
   }
   return valid;
+};
+
+/**
+ * Validate csv values against their source. This is called when validating
+ * multiple-select cells.
+ * @param {String} valsCsv CSV string of values to validate.
+ * @param {Array<String>} source Values to validate against.
+ */
+const validateMultiple = (valsCsv, source) => {
+  for (const val of valsCsv.split(',')) {
+    if (!validateDropDown(val, source)) return false;
+  }
+  return true;
 };
 
 /**
@@ -328,14 +395,6 @@ $(document).ready(() => {
   window.HOT = createHot(DATA);
 
   window.INVALID_CELLS = {};
-  HOT.updateSettings({
-    // A more intuitive name for this option might have been `afterCellRender`
-    afterRenderer: (TD, row, col) => {
-      if (INVALID_CELLS.hasOwnProperty(row)) {
-        if (INVALID_CELLS[row].has(col)) $(TD).addClass('invalid-cell');
-      }
-    }
-  });
 
   // File -> New
   $('#new-dropdown-item, #clear-data-confirm-btn').click((e) => {
@@ -391,6 +450,14 @@ $(document).ready(() => {
   // Validate
   $('#validate-btn').click(() => {
     window.INVALID_CELLS = getInvalidCells(HOT, DATA);
+    HOT.updateSettings({
+      // A more intuitive name for this option might have been `afterCellRender`
+      afterRenderer: (TD, row, col) => {
+        if (INVALID_CELLS.hasOwnProperty(row)) {
+          if (INVALID_CELLS[row].has(col)) $(TD).addClass('invalid-cell');
+        }
+      }
+    });
     HOT.render();
   });
 
@@ -401,7 +468,7 @@ $(document).ready(() => {
 
   // Field descriptions. Need to account for dynamically rendered
   // cells.
-  $(document).on('dblclick', '.secondary-header-cell', (e) => {
+  $('#grid').on('dblclick', '.secondary-header-cell', (e) => {
     const innerText = e.target.innerText;
     const field =
         getFields(DATA).filter(field => field.fieldName === innerText)[0];
