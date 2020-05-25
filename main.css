@@ -1,6 +1,6 @@
 @import 'libraries/handsontable.full.min.css';
 @import 'libraries/bootstrap.min.css';
-@import 'libraries/chosen.min.css';
+@import 'libraries/chosen.css';
 
 .dropdown-item:hover {
     cursor: pointer;
