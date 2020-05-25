@@ -201,11 +201,12 @@ const enableMultiSelection = (hot, data) => {
         const self = this;
         let content = '';
         fields[col].flatVocabulary.forEach(function(field, i) {
-          let selected = selections.includes(field) ? 'selected="selected"' : '';
-          content += `<option value="${field}" ${selected}'>${field}</option>`;
+          const field_trim = field.trim()
+          let selected = selections.includes(field_trim) ? 'selected="selected"' : '';
+          content += `<option value="${field_trim}" ${selected}'>${field}</option>`;
         })
 
-        $('#field-description-text').html('<select multiple class="multiselect" rows="15">' + content + '</select>');
+        $('#field-description-text').html(`${fields[col].fieldName}<select multiple class="multiselect" rows="15">${content}</select>`);
         $('#field-description-modal').modal('show');
         $('#field-description-text .multiselect')
           .chosen() // must be rendered when html is visible
