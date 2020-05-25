@@ -17,7 +17,8 @@ ID	SC %
 	Sample collection and processing	sequence submitted by	text	required	The name of the agency that generated the sequence.	The name of the agency should be written out in full, (with minor exceptions) and be consistent across multple submissions e.g. Public Health Agency of Canada, Public Health Ontario, BC Centre for Disease Control	Public Health Ontario
 	Sample collection and processing	sequence submitter contact email	text		The email address of the contact responsible for follow-up regarding the sequence.	The email address can represent a specific individual or lab e.g. johnnyblogs@lab.ca, or RespLab@lab.ca	RespLab@lab.ca
 	Sample collection and processing	sequence submitter contact address	text		The mailing address of the agency submitting the sequence.	The mailing address should be in the format: Street number and name, City, Province/Territory, Postal Code, Country	123 Sunnybrooke St, Toronto, Ontario, M4P 1L6, Canada
-	Sample collection and processing	sample collection date	date	required	The date on which the sample was collected.	ISO 8601 standard "YYYY-MM-DD", "YYYY-MM" or "YYYY"	2020-03-16
+	Sample collection and processing	sample collection date	date	required	The date on which the sample was collected.	ISO 8601 standard "YYYY-MM-DD", "YYYY-MM" or "YYYY". If "sample collection date" cannot be obtained, "sample received date" can be substituted in the mininal metadata requirements. If "sample collection date" is considered identifiable, it is acceptable to obfuscate the date by adjusting it a day forward or behind.	2020-03-16
+	Sample collection and processing	sample received date	date		The date on which the sample was received.	ISO 8601 standard "YYYY-MM-DD", "YYYY-MM" or "YYYY".	2020-03-20
 	Sample collection and processing	geo_loc_name (country)	select	required	The country where the sample was collected.	Provide the country name from the controlled vocabulary provided.	Canada
 	Sample collection and processing	geo_loc_name (province/territory)	select	required	The province/territory where the sample was collected.	Provide the province/territory name from the controlled vocabulary provided.	Saskatchewan
 	Sample collection and processing	geo_loc_name (city)	text		The city where the sample was collected.	Provide the city name. Use this look-up service to identify the standardized term: https://www.ebi.ac.uk/ols/ontologies/gaz	Medicine Hat
@@ -31,8 +32,8 @@ ID	SC %
 	Sample collection and processing	environmental site	select	required	An environmental location may describe a site in the natural or built environment e.g. contact surface, metal can, hospital, wet market, bat cave.	Provide a descriptor if an environmental site was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, use this look-up service to identify a standardized term: https://www.ebi.ac.uk/ols/ontologies/envo. If not applicable, leave blank.	Building floor
 	Sample collection and processing	collection device	select	required	The instrument or container used to collect the sample e.g. swab.	Provide a descriptor if a device was used for sampling. Use the picklist provided in the template. If a desired term is missing from the picklist, use this look-up service to identify a standardized term: https://www.ebi.ac.uk/ols/ontologies/obi. If not applicable, leave blank.	Swab
 	Sample collection and processing	collection method	select	required	The process used to collect the sample e.g. phlebotamy, necropsy.	Provide a descriptor if a collection method was used for sampling. Use the picklist provided in the template. If a desired term is missing from the picklist, use this look-up service to identify a standardized term: https://www.ebi.ac.uk/ols/ontologies/obi. If not applicable, leave blank.	Bronchoalveolar lavage (BAL)
-	Sample collection and processing	collection protocol	select		The name and version of a particular protocol used for sampling.	Free text.	BCRonaSamplingProtocol v. 1.2
-	Sample collection and processing	specimen processing	select	recommended	Any processing applied to the sample during or after receiving the sample.	Critical for passage history. If virus was passaged, select "virus passage" from the picklist. If the sample was not passaged, put "not applicable".	Virus passage
+	Sample collection and processing	collection protocol	text		The name and version of a particular protocol used for sampling.	Free text.	BCRonaSamplingProtocol v. 1.2
+	Sample collection and processing	specimen processing	multiple	recommended	Any processing applied to the sample during or after receiving the sample.	Critical for interpreting data. Select all the applicable processes from the pick list. If virus was passaged, include information in "lab host", "passage number", and "passage method" fields. If none of the processes in the pick list apply, put "not applicable".	Virus passage
 	Sample collection and processing	lab host	select	recommended	Name and description of the laboratory host used to propagate the source organism or material from which the sample was obtained.	Type of cell line used for propagation. Provide the name of the cell line using the picklist in the template. If not passaged, put "not applicable".	Vero E6 cell line
 	Sample collection and processing	passage number	integer	recommended	Number of passages.	Provide number of known passages. If not passaged, put "not applicable"	3
 	Sample collection and processing	passage method	text	recommended	Description of how organism was passaged.	Free text. Provide a very short description (<10 words). If not passaged, put "not applicable".	
@@ -40,7 +41,7 @@ ID	SC %
 		Host Information					
 	Host Information	host (common name)	select		The commonly used name of the host.	Common name or scientific name are required if there was a host. Both can be provided, if known. Use terms from the pick lists in the template. Common name e.g. human, bat. If the sample was environmental, put "not applicable.	Human
 	Host Information	host (scientific name)	select	required	The taxonomic, or scientific name of the host.	Common name or scientific name are required if there was a host. Both can be provided, if known. Use terms from the pick lists in the template. Scientific name e.g. Homo sapiens, If the sample was environmental, put "not applicable	Homo sapiens
-	Host Information	host health state	select		Health status of the host at the time of sample collection.	If known, select a descriptor from the pick list provided in the template.	sick
+	Host Information	host health state	select	required	Health status of the host at the time of sample collection.	If known, select a descriptor from the pick list provided in the template.	sick
 	Host Information	host health status details	select		Further details pertaining to the health or disease status of the host at time of collection.	If known, select a descriptor from the pick list provided in the template.	Hospitalized (ICU)
 	Host Information	host disease	select	required	The name of the disease experienced by the host.	Select "COVID-19" from the pick list provided in the template.	COVID-19
 	Host Information	host age	decimal	required	Age of host at the time of sampling.	Enter the age of the host in years. If not available, put "unknown".	79
@@ -48,14 +49,15 @@ ID	SC %
 	Host Information	host origin geo_loc name (country)	select		The country of residence of the host.	Select the country name from pick list provided in the template.	United Kingdom
 	Host Information	host subject ID	text		A unique identifier by which each host can be referred to e.g. #131	Provide the host identifier. Should be a unique, user-defined identifier.	BCxy123
 	Host Information	symptom onset date	date		The date on which the symptoms began or were first noted.	ISO 8601 standard "YYYY-MM-DD", "YYYY-MM" or "YYYY"	2020-03-16
-	Host Information	signs and symptoms	multiple		A perceived change in function or sensation, (loss, disturbance or appearance) indicative of a disease, reported by a patient.	Provide a list of symptoms experienced by the host. List in order of appearance, separated by a comma.	Cough, Fever, Chills
+	Host Information	signs and symptoms	multiple		A perceived change in function or sensation, (loss, disturbance or appearance) indicative of a disease, reported by a patient.	Select all of the symptoms experienced by the host form the pick list.	Cough, Fever, Chills
 		Host exposure information					
 	Host exposure information	location of exposure geo_loc name (country)	select		The country where the host was likely exposed to the causative agent of the illness.	Select the country name from pick list provided in the template.	Canada
 	Host exposure information	travel history	text		Travel outside the country in last six months.	Specify the countries (and more granular locations if known, separated by a comma) travelled in the last six months; can include multiple travels. Separate multiple travel events with a semi-colon. List most recent travel first.	Canada, Vancouver; USA, Seattle; Italy, Milan
 	Host exposure information	exposure event	select		Event leading to exposure.	Select an exposure event from the pick list provided in the template. If the desired term is missing, contact the curation team.	Mass gathering (convention)
 		Sequencing					
 	Sequencing	library ID	text	recommended	The user-specified identifier for the library prepared for sequencing.	The library name should be unique, and can be an autogenerated ID from your LIMS, or modification of the isolate ID.	XYZ_123345
-	Sequencing	sequencing instrument	select	required	The model of the sequencing instrument used.	Select a sequencing instrument from the picklist provided in the template.	MinIon
+	Sequencing	MinIon barcode	text		The barcode of the MinIon unit used for sequencing.	Provide the barcode of the MinIon used for sequencing the sample.	
+	Sequencing	sequencing instrument	multiple	required	The model of the sequencing instrument used.	Select a sequencing instrument from the picklist provided in the template.	MinIon
 	Sequencing	sequencing protocol name	text	recommended	The name and version number of the sequencing protocol used.	Provide the name and version of the sequencing protocol e.g. 1D_DNA_MinION	1D_DNA_MinION, ARTIC Network Protocol v. 3
 	Sequencing	sequencing protocol source	text		The name of the organization/authors of the protocol.	Provide the name of the source of the protocol e.g. ARTIC Network.	ARTIC Network
 	Sequencing	sequencing kit number	text		The manufacturer's kit number.	Alphanumeric value.	AB456XYZ789
@@ -64,20 +66,27 @@ ID	SC %
 	Bioinformatics and QC metrics	raw sequence data processing	text	recommended	The names of the software and version number used for raw data processing such as removing barcodes, adapter trimming, filtering etc.	Provide the software name followed by the version e.g. Trimmomatic v. 0.38, Porechop v. 0.2.3	Porechop v. 0.2.3
 	Bioinformatics and QC metrics	sequencing depth (average)	text		The total number of sequenced base pairs divided by the expected number of base pairs in the genome.	Provide the value as a fold of coverage.	80x
 	Bioinformatics and QC metrics	assembly name	text		Name/version of the assembly provided by the submitter.	Provide the assembly name.	rona123assembly.fasta
-	Bioinformatics and QC metrics	assembly method	select	required	The name and version number of the assembly method used.	Provide the software name followed by the version e.g. Canu v. 2.0	Canu v. 2.0
+	Bioinformatics and QC metrics	assembly method	text	required	The name and version number of the assembly method used.	Provide the software name followed by the version e.g. Canu v. 2.0	Canu v. 2.0
 	Bioinformatics and QC metrics	assembly coverage breadth	text		The percentage of the assembled genome that was sequenced to a prescribed depth of coverage.	Provide value as a percent e.g. 95%.	95%
 	Bioinformatics and QC metrics	assembly coverage depth	text		The average number of reads representing a given nucleotide in the assembled sequence.	Provide value as a fold of coverage e.g. 80x.	400x
-	Bioinformatics and QC metrics	r1 fastq filename        	text	recommended	The user-specified filename of the r1 FASTQ file.	Provide the r1 fastq filename.	ABC123_S1_L001_R1_001.fastq.gz
-	Bioinformatics and QC metrics	r2 fastq filename	text	recommended	The user-specified filename of the r2 FASTQ file.	Provide the r2 fastq filename.	ABC123_S1_L001_R2_001.fastq.gz
+	Bioinformatics and QC metrics	r1 fastq filename        	text	recommended	The user-specified filename of the r1 FASTQ file.	Provide the r1 FASTQ filename.	ABC123_S1_L001_R1_001.fastq.gz
+	Bioinformatics and QC metrics	r2 fastq filename	text	recommended	The user-specified filename of the r2 FASTQ file.	Provide the r2 FASTQ filename.	ABC123_S1_L001_R2_001.fastq.gz
+	Bioinformatics and QC metrics	r1 fastq filepath	text		The location of the r1 FASTQ file within a user's file system.	Provide the filepath for the r1 FASTQ file. This information aids in data management. 	
+	Bioinformatics and QC metrics	r2 fastq filepath	text		The location of the r2 FASTQ file within a user's file system.	Provide the filepath for the r2 FASTQ file. This information aids in data management. 	
+	Bioinformatics and QC metrics	fast5 filename	text		The user-specified filename of the FAST5 file.	Provide the FAST5 filename.	
+	Bioinformatics and QC metrics	fast5 filepath	text		The location of the FAST5 file within a user's file system.	Provide the filepath for the FAST5 file. This information aids in data management. 	
 	Bioinformatics and QC metrics	fasta filename	text		The user-specified filename of the FASTA file.	Provide the fasta filename.	batch1a_sequences.fasta
+	Bioinformatics and QC metrics	fasta filepath	text		The location of the FASTA file within a user's file system.	Provide the filepath for the FASTA file. This information aids in data management. 	
 	Bioinformatics and QC metrics	number base pairs	integer		The number of total base pairs generated by the sequencing process.	Provide a numerical value (no need to include units).	387566
-	Bioinformatics and QC metrics	genome length	integer		Size of the reconstructed genome described as the number of base pairs.	Provide a numerical value (no need to include units).	38677
+	Bioinformatics and QC metrics	consensus genome length	integer		Size of the reconstructed genome described as the number of base pairs.	Provide a numerical value (no need to include units).	38677
 	Bioinformatics and QC metrics	mean contig length	integer		The mean contig length is the count of base pairs in the average size contig of the sequence assembly.	Provide a numerical value (no need to include units).	12689
 	Bioinformatics and QC metrics	N50	integer		The minimum contig length needed to cover 50% of the genome.	Provide a numerical value (no need to include units).	10500
 	Bioinformatics and QC metrics	Ns per 100 kbp	decimal		The number of N symbols present in the consensus fasta sequence, per 100kbp of sequence.	Provide a numerical value (no need to include units).	3.3
 	Bioinformatics and QC metrics	reference genome accession	text		A persistent, unique identifier of a genome database entry.	Provide the accession number of the reference genome.	NC_045512.2
-	Bioinformatics and QC metrics	consensus sequence ID	text		The identifer used to specify the consensus sequence.	Provide the consensus sequence identifier.	ProvConsensusSeq.fasta
-	Bioinformatics and QC metrics	consensus sequence method	text		The name and version number of the software used to produce the consensus sequence.	Provide the software name followed by the version e.g. iVar v. 1.2	iVar v. 1.2
+	Bioinformatics and QC metrics	consensus sequence ID	text		The identifer used to specify the consensus sequence.	Provide the consensus sequence identifier.	
+	Bioinformatics and QC metrics	consensus sequence method	text		The name and version number of the software used to produce the consensus sequence.	Provide the software name followed by the version e.g. iVar v. 1.2	iVar 1.2
+	Bioinformatics and QC metrics	consensus sequence filename	text		The user-specified filename for the consensus sequence.	Provide the filename for the consensus sequence. 	ProvConsensusSeq.fasta
+	Bioinformatics and QC metrics	consensus sequence filepath	text		The location of the consensus sequence in the user's file system.	Provide the filepath for the consensus sequence file. This information facilitates data management.	
 	Bioinformatics and QC metrics	annotation feature table filename	text		The filename of the file containing genome features such as gene names and corresponding CDS.	Provide the filename of the annotation feature table.	BCRonaAnnotationFeatures
 	Bioinformatics and QC metrics	bioinformatics protocol	text		The name and version number of the bioinformatics protocol used.	Further details regarding the methods used to process raw data, and/or generate assemblies, and/or generate consensus sequences can be provided in an SOP or protocol. Provide the name and version number of the protocol.	https://www.protocols.io/groups/cphln-sarscov2-sequencing-consortium/members
 		Pathogen diagnostic testing					
@@ -94,24 +103,26 @@ ID	SC %
 							
 	umbrella bioproject accession	PRJNA623807					
 							
-GAZ_00002566	geo_loc_name (province/territory)	ALBERTA					
-GAZ_00002562	geo_loc_name (province/territory)	BRITISH COLUMBIA					
-GAZ_00002571	geo_loc_name (province/territory)	MANITOBA					
-GAZ_00002570	geo_loc_name (province/territory)	NEW BRUNSWICK					
-GAZ_00002561	geo_loc_name (province/territory)	NEWFOUNDLAND					
-GAZ_00002567	geo_loc_name (province/territory)	NORTHWEST TERRITORIES					
-GAZ_00002565	geo_loc_name (province/territory)	NOVA SCOTIA					
-GAZ:00002574	geo_loc_name (province/territory)	NUNAVUT					
-GAZ_00002563	geo_loc_name (province/territory)	ONTARIO					
-GAZ_00002572	geo_loc_name (province/territory)	PRINCE EDWARD ISLAND					
-GAZ_00002566	geo_loc_name (province/territory)	QUEBEC					
-GAZ_00002569	geo_loc_name (province/territory)	SASKATCHEWAN					
-GAZ_00002564	geo_loc_name (province/territory)	YUKON TERRITORY					
+GAZ_00002566	geo_loc_name (province/territory)	Alberta					
+GAZ_00002562	geo_loc_name (province/territory)	British Columbia					
+GAZ_00002571	geo_loc_name (province/territory)	Manitoba					
+GAZ_00002570	geo_loc_name (province/territory)	New Brunswick					
+GAZ_00002561	geo_loc_name (province/territory)	Newfoundland					
+GAZ_00002567	geo_loc_name (province/territory)	Northwest Territories					
+GAZ_00002565	geo_loc_name (province/territory)	Nova Scotia					
+GAZ:00002574	geo_loc_name (province/territory)	Nunavut					
+GAZ_00002563	geo_loc_name (province/territory)	Ontario					
+GAZ_00002572	geo_loc_name (province/territory)	Prince Edward Island					
+GAZ_00002566	geo_loc_name (province/territory)	Quebec					
+GAZ_00002569	geo_loc_name (province/territory)	Saskatchewan					
+GAZ_00002564	geo_loc_name (province/territory)	Yukon Territory					
+	geo_loc_name (province/territory)	Missing					
 							
-	biomaterial extracted	RNA (total),					
-	biomaterial extracted	RNA (poly-A),					
-	biomaterial extracted	RNA (ribo-depleted),					
+	biomaterial extracted	RNA (total)					
+	biomaterial extracted	RNA (poly-A)					
+	biomaterial extracted	RNA (ribo-depleted)					
 	biomaterial extracted	mRNA (cDNA)					
+	biomaterial extracted	Missing					
 							
 	signs and symptoms	Ageusia					
 HP_0000458	signs and symptoms	Anosmia					
@@ -152,7 +163,7 @@ HP_0001350	signs and symptoms	Slurred speech
 HP_0002789	signs and symptoms	Tachypnea (rapid breathing)					
 HP_0002013	signs and symptoms	Vomiting					
 HP_0001324	signs and symptoms	Weakness					
-							
+	signs and symptoms	Missing					
 							
 							
 UBERON_0000178	anatomical material	Blood					
@@ -164,9 +175,8 @@ UBERON_0002409	Fluid	   Fluid (pericardial)
 UBERON_0001087	Fluid	   Fluid (pleural)					
 UBERON_0036243	Fluid	   Fluid (vaginal)					
 UBERON_0000173	Fluid	   Fluid (amniotic)					
-UBERON_0006530	Fluid	   Fluid (seminal)					
 UBERON_0000479	anatomical material	Tissue					
-							
+	anatomical material	Missing					
 							
 UBERON_0001245	anatomical part	Anus					
 UBERON_0002114	anatomical part	Duodenum					
@@ -192,7 +202,7 @@ UBERON_0002169	Lung	     Alveolar sac
 UBERON_0009778 	Lower respiratory tract	   Pleural sac					
 UBERON_0002402	Pleural sac	     Pleural cavity					
 UBERON_0003126	Lower respiratory tract	   Trachea					
-							
+	anatomical part	Missing					
 							
 UBERON_0001988	body product	Feces					
 UBERON_0001088	body product	Urine					
@@ -200,9 +210,11 @@ UBERON_0001089	body product	Sweat
 UBERON_0000912	body product	Mucus					
 UBERON_0007311	Mucus	   Sputum					
 UBERON_0001827	body product	Tear					
+UBERON_0006530	Fluid	   Fluid (seminal)					
+	body product	Missing					
+							
 							
 ENVO_00003896	environmental material	Banknote					
-ENVO_01000422	environmental material	Bathroom					
 	environmental material	Bed rail					
 ENVO_01000486	environmental material	Building floor					
 ENVO_02000058	environmental material	Cloth					
@@ -212,6 +224,8 @@ NCIT_C48950	environmental material	Door
 	environmental material	Door handle					
 	environmental material	Face mask					
 	environmental material	Face shield					
+	environmental material	Food					
+	environmental material	Food packaging					
 ENVO_01000481	environmental material	Glass					
 	environmental material	Handrail					
 	environmental material	Hospital gown					
@@ -231,13 +245,14 @@ ENVO_00001998	environmental material	Soil
 ENVO_00002006	environmental material	Water					
 	environmental material	Window					
 ENVO_00002040	environmental material	Wood					
-							
+	environmental material	Missing					
 							
 							
 							
 	environmental site	Acute care facility					
 	environmental site	Air vent					
 ENVO_00003040	environmental site	Animal house					
+ENVO_01000422	environmental material	Bathroom					
 	environmental site	Clinical assessment centre					
 	environmental site	Conference venue					
 ENVO_01000927	environmental site	Daycare					
@@ -254,7 +269,7 @@ ENVO_01000536	environmental site	Production Facility
 NCIT_C17118	environmental site	School					
 	environmental site	Subway train					
 	environmental site	Wet market					
-							
+	environmental site	Missing					
 							
 							
 NCIT_C52009	collection method	Amniocentesis					
@@ -272,11 +287,11 @@ MMO_0000344	collection method	Necropsy
 NCIT_c28221	collection method	Phlebotomy					
 GENEPIO_0002116	collection method	Rinsing					
 	collection method	Scraping					
-GENEPIO_0002117	collection method	Swab					
-	Swab	  Finger Prick					
+GENEPIO_0002117	collection method	Swabbing					
+	Swabbing	  Finger Prick					
 	collection method	Wash					
 	collection method	Washout Tear Collection					
-							
+	collection method	Missing					
 							
 	collection device	Air filter					
 NCIT_C113122	collection device	Blood Collection Tube					
@@ -294,6 +309,7 @@ NCIT_C113675 	collection device	Serum Collection Tube
 NCIT_c17627	collection device	Swab					
 	collection device	Urine Collection Tube					
 	collection device	Virus Transport Medium					
+	collection device	Missing					
 							
 NCBITaxon_9606	host (scientific name)	Homo sapiens					
 NCBITaxon_9913	host (scientific name)	Bos taurus					
@@ -310,6 +326,8 @@ NCBITaxon_58055 	host (scientific name)	Rhinolophidae
 NCBITaxon_59477	host (scientific name)	Rhinolophus affinis					
 NCBITaxon_9825	host (scientific name)	Sus scrofa domesticus					
 NCBITaxon_379583	host (scientific name)	Viverridae					
+	host (scientific name)	Missing					
+							
 							
 NCBITaxon_9605	host (common name)	Human					
 NCBITaxon_9397	host (common name)	Bat					
@@ -323,33 +341,37 @@ NCBITaxon_9973	host (common name)	Pangolin
 NCBITaxon_9823	host (common name)	Pig					
 NCBITaxon_8930	host (common name)	Pigeon					
 NCBITaxon_9694	host (common name)	Tiger					
+	host (common name)	Missing					
 							
-	host health state	healthy					
-	host health state	sick					
-	host health state	recovered					
-	host health state	deceased					
-	host health state	NOT COLLECTED					
+	host health state	Healthy					
+	host health state	Sick					
+	host health state	Recovered					
+	host health state	Deceased					
+	host health state	Missing					
 							
 	host health status details	Self-quarantining					
 	host health status details	Asymptomatic					
 	host health status details	Symptomatic					
 	host health status details	Hospitalized (ICU)					
-	host health status details	NOT APPLICABLE					
+	host health status details	Missing					
 							
 	organism	SARS-CoV-2					
 	organism	RaTG13					
 	organism	RmYN02					
-							
+	organism	Missing					
 							
 	purpose of sampling	Cluster investigation					
 	purpose of sampling	Diagnostic testing					
 NCIT_c15429	purpose of sampling	Research					
 	purpose of sampling	Surveillance testing					
 	purpose of sampling	Viral passage experiment					
+	purpose of sampling	Missing					
 							
 	specimen processing	Virus passage					
-	specimen processing	NOT APPLICABLE					
-							
+	specimen processing	RNA re-extraction (post RT-PCR)					
+	specimen processing	Specimens pooled					
+	specimen processing	Not applicable					
+	specimen processing	Missing					
 							
 	lab host	293/ACE2 cell line					
 BTO_0000195 	lab host	Caco2 cell line					
@@ -368,27 +390,32 @@ BTO_0002035	lab host	U251 cell line
 BTO_0001444 	lab host	Vero cell line					
 BTO:0004755	lab host	   Vero E6 cell line					
 	lab host	      VeroE6/TMPRSS2 cell line					
+	lab host	Missing					
+							
 							
 	host disease	COVID-19					
+	host disease	Missing					
 							
-	host gender	female					
-	host gender	male					
-	host gender	non-binary gender					
-	host gender	transgender					
-	host gender	undeclared					
-	host gender	unknown					
-	host gender	NOT PROVIDED					
+	host gender	Female					
+	host gender	Male					
+	host gender	Non-binary gender					
+	host gender	Transgender					
+	host gender	Undeclared					
+	host gender	Unknown					
+	host gender	Missing					
 							
-	exposure event	mass gathering (convention)					
-	exposure event	mass gathering (religious)					
-	exposure event	mass gathering (social e.g. funeral, wedding etc.)					
-	exposure event	mass gathering (office)					
-	exposure event	occupational exposure (hospital worker)					
-	exposure event	occupational exposure (hospital visit)					
-	exposure event	occupational exposure (frontline response)					
-	exposure event	occupational exposure (healthcare work with the public)					
-	exposure event	occupational exposure (retail)					
-	exposure event	occupational exposure (restaurant)					
+	exposure event	Mass gathering (convention)					
+	exposure event	Mass gathering (religious)					
+	exposure event	Mass gathering (social e.g. funeral, wedding etc.)					
+	exposure event	Mass gathering (office)					
+	exposure event	Occupational exposure (hospital worker)					
+	exposure event	Occupational exposure (hospital visit)					
+	exposure event	Occupational exposure (frontline response)					
+	exposure event	Occupational exposure (healthcare work with the public)					
+	exposure event	Occupational exposure (retail)					
+	exposure event	Occupational exposure (restaurant)					
+	exposure event	Missing					
+							
 							
 OBI_0000759	sequencing instrument	ILLUMINA					
 OBI_0002129	ILLUMINA	   HiSeq X 					
@@ -426,15 +453,12 @@ GENEPIO_0001935	Ion Torrent	   Ion Torrent PGM
 	Oxford Nanopore	   PromethION					
 	sequencing instrument	BGI Genomics					
 	BGI Genomics	   BGISEQ-500					
-							
-							
-							
-	assembly software	Canu					
-	assembly software	SPades					
-	assembly software	Shovil					
-	assembly software	Velvet					
-	assembly software	Unicycler					
-							
+	sequencing instrument	MGI					
+	MGI	DNBSEQ-T7					
+	MGI	DNBSEQ-G400					
+	MGI	DNBSEQ-G400 FAST					
+	MGI	DNBSEQ-G50					
+	sequencing instrument	Missing					
 							
 GAZ_00006882	geo_loc_name (country)	Afghanistan					
 GAZ_00002953	geo_loc_name (country)	Albania					
@@ -707,4 +731,4 @@ GAZ_00000564	geo_loc_name (country)	Western Sahara
 GAZ_00005284	geo_loc_name (country)	Yemen					
 GAZ_00001107	geo_loc_name (country)	Zambia					
 GAZ_00001106	geo_loc_name (country)	Zimbabwe					
-							
+	geo_loc_name (country)	Missing					
