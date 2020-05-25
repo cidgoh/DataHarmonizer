@@ -143,13 +143,18 @@ const getColumns = (data) => {
       col.trimDropdown = false;
     } else if (field.datatype === 'multiple') {
       // TODO: we need to find a better way to enable multi-selection
+      col.type = 'text';
+      /*
       col.type = 'handsontable';
+
       col.handsontable = {
         colHeaders: false,
         data: field.flatVocabulary.map(x => [x]),
         colWidths: '400rem',
       }
+      */
       col.source = field.flatVocabulary;
+
     }
     ret.push(col);
   }
@@ -191,30 +196,35 @@ const enableMultiSelection = (hot, data) => {
   hot.updateSettings({
     afterBeginEditing: function(row, col) {
       if (fields[col].datatype === 'multiple') {
-        const currVal = this.getDataAtCell(row, col);
-        if (currVal) {
-          $('textarea.handsontableInput').val(currVal + ',');
-        }
+        const value = this.getDataAtCell(row, col);
+        const selections = value && value.split(',') || [];
+        const self = this;
+        let content = '';
+        fields[col].flatVocabulary.forEach(function(field, i) {
+          let selected = selections.includes(field) ? 'selected="selected"' : '';
+          content += `<option value="${field}" ${selected}'>${field}</option>`;
+        })
+
+        $('#field-description-text').html('<select multiple class="multiselect" rows="15">' + content + '</select>');
+        $('#field-description-modal').modal('show');
+        $('#field-description-text .multiselect')
+          .chosen() // must be rendered when html is visible
+          .change(function () {
+            let newValCsv = $('#field-description-text .multiselect').val().join(',')
+            self.setDataAtCell(row, col, newValCsv, 'thisChange');
+          }); 
       }
     },
     afterChange: function(changes, source) {
+      /*
       if (source === 'thisChange' || !changes || changes.length !== 1) return;
 
       const row = changes[0][0];
       const col = changes[0][1];
       const oldValCsv = changes[0][2];
       const newVal = changes[0][3];
-
       if (fields[col].datatype !== 'multiple') return;
-      if (!oldValCsv || !newVal) return;
-      if (!fields[col].flatVocabulary.includes(newVal)) return;
-
-      const oldVals =
-          oldValCsv.split(',').map(val => val.trim()).filter(val => val);
-      if (oldVals.includes(newVal)) return;
-
-      const newValCsv = [...oldVals, newVal].join(',');
-      this.setDataAtCell(row, col, newValCsv, 'thisChange');
+      */
     }
   });
   return hot;
