@@ -64,6 +64,7 @@ const createHot = (data) => {
     licenseKey: 'non-commercial-and-evaluation',
     afterRender: () => {
       $('#header-row').css('visibility', 'visible');
+      $('#footer-row').css('visibility', 'visible');
       // Bit of a hackey way to add classes to secondary headers
       $('.secondary-header-text').each((_, e) => {
         const $cellElement = $(e).closest('th');
@@ -474,5 +475,11 @@ $(document).ready(() => {
         getFields(DATA).filter(field => field.fieldName === innerText)[0];
     $('#field-description-text').html(getComment(field));
     $('#field-description-modal').modal('show');
+  });
+
+  // Add more rows
+  $('#add-rows-button').click(() => {
+    const numRows = $('#add-rows-input').val();
+    HOT.alter('insert_row', HOT.countRows()-1 + numRows, numRows);
   });
 });
