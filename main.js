@@ -144,17 +144,7 @@ const getColumns = (data) => {
     } else if (field.datatype === 'multiple') {
       // TODO: we need to find a better way to enable multi-selection
       col.type = 'text';
-      /*
-      col.type = 'handsontable';
-
-      col.handsontable = {
-        colHeaders: false,
-        data: field.flatVocabulary.map(x => [x]),
-        colWidths: '400rem',
-      }
-      */
       col.source = field.flatVocabulary;
-
     }
     ret.push(col);
   }
