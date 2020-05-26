@@ -64,7 +64,7 @@ const createHot = (data) => {
     licenseKey: 'non-commercial-and-evaluation',
     afterRender: () => {
       $('#header-row').css('visibility', 'visible');
-      $('.footer-row').css('visibility', 'visible');
+      $('#footer-row').css('visibility', 'visible');
       // Bit of a hackey way to add classes to secondary headers
       $('.secondary-header-text').each((_, e) => {
         const $cellElement = $(e).closest('th');
@@ -364,7 +364,7 @@ const validateMultiple = (valsCsv, source) => {
  */
 const showFields = (id, data, hot) => {
   const hiddenColumns = [];
-  if (id === 'view-required-fields') {
+  if (id === 'show-required-dropdown-item') {
     getFields(data).forEach(function(field, i) {
       if (field.requirement !== 'required') hiddenColumns.push(i);
     });
@@ -463,7 +463,7 @@ $(document).ready(() => {
   });
 
   // Show fields
-  $('#view-all-fields, #view-required-fields').click(function(e) {
+  $('#show-all-dropdown-item, #show-required-dropdown-item').click(function(e) {
     showFields(e.target.id, DATA, HOT);
   });
 
