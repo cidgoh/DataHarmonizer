@@ -23,6 +23,13 @@ const processData = (data) => {
       // Flat list of vocabulary items for autocomplete purposes
       if (child.vocabulary) {
         child.flatVocabulary = stringifyNestedVocabulary(child.vocabulary);
+
+        // Convert to title case
+        for (const [i, val] of child.flatVocabulary.entries()) {
+          if (!val) continue;
+          child.flatVocabulary[i] = val.split(' ').map(x =>
+              x.charAt(0).toUpperCase() + x.substr(1).toLowerCase()).join(' ');
+        }
       }
     }
   }
