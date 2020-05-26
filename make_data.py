@@ -37,6 +37,7 @@ with open(r_filename) as tsvfile:
 	    		if section:
 	    			field = {
 	    				'fieldName':   label, 
+	    				'capitalization': row['capitalization'],
 	    				'ontology_id': row['Ontology ID'],
 	    				'datatype':    row['datatype'],
 	    				'requirement': row['requirement'],

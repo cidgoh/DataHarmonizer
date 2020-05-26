@@ -26,9 +26,18 @@ const processData = (data) => {
 
         // Convert to title case
         for (const [i, val] of child.flatVocabulary.entries()) {
-          if (!val) continue;
-          child.flatVocabulary[i] = val.split(' ').map(x =>
-              x.charAt(0).toUpperCase() + x.substr(1).toLowerCase()).join(' ');
+          if (!val || child.capitalize == null) continue;
+            switch (child.capitalize) {
+              case 'lower': 
+              child.flatVocabulary[i] = child.flatVocabulary[i].toLowerCase();
+                break;
+              case 'UPPER': 
+              child.flatVocabulary[i] = child.flatVocabulary[i].toUpperCase();
+                break;
+              case 'Title': 
+                child.flatVocabulary[i] = val.split(' ').map(x => x.charAt(0).toUpperCase() + x.substr(1).toLowerCase()).join(' ');
+                break;
+            }
         }
       }
     }
