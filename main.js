@@ -137,7 +137,7 @@ const getColumns = (data) => {
       col.type = 'numeric';
     } else if (field.datatype === 'date') {
       col.type = 'date';
-      col.dateFormat = 'YYYY/MM/DD';
+      col.dateFormat = 'YYYY-MM-DD';
     } else if (field.datatype === 'select') {
       col.type = 'autocomplete';
       col.source = field.flatVocabulary;
@@ -304,7 +304,7 @@ const getInvalidCells = (hot, data) => {
       } else if (datatype === 'decimal') {
         valid = !isNaN(cellVal);
       } else if (datatype === 'date') {
-        // TODO
+        valid = moment(cellVal, 'YYYY-MM-DD').isValid();
       } else if (datatype === 'select') {
         valid = validateDropDown(cellVal, fields[col].flatVocabulary);
       } else if (datatype === 'multiple') {
