@@ -311,7 +311,7 @@ const getInvalidCells = (hot, data) => {
       } else if (datatype === 'decimal') {
         valid = !isNaN(cellVal);
       } else if (datatype === 'date') {
-        valid = moment(cellVal, 'YYYY-MM-DD').isValid();
+        valid = moment(cellVal, 'YYYY-MM-DD', true).isValid();
       } else if (datatype === 'select') {
         valid = validateDropDown(cellVal, fields[col].flatVocabulary);
       } else if (datatype === 'multiple') {
