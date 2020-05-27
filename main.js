@@ -264,9 +264,8 @@ const importFile = (file, ext, hot, xlsx) => {
     fileReader.onload = (e) => {
       const workbook = xlsx.read(e.target.result, {type: 'binary'});
       const firstSheet = workbook.Sheets[workbook.SheetNames[0]];
-      const sheetCsvStr = xlsx.utils.sheet_to_csv(firstSheet);
-      const matrix =
-          sheetCsvStr.split('\n').map(line => line.split(',')).slice(2);
+      const params = [workbook.Sheets[workbook.SheetNames[0]], {header:1}];
+      const matrix = xlsx.utils.sheet_to_json(...params).slice(2);
       hot.loadData(matrix);
     };
   } else if (ext === 'tsv') {
@@ -279,8 +278,10 @@ const importFile = (file, ext, hot, xlsx) => {
   } else if (ext === 'csv') {
     fileReader.readAsText(file);
     fileReader.onload = (e) => {
-      const matrix =
-          e.target.result.split('\n').map(line => line.split(',')).slice(2);
+      const workbook = xlsx.read(e.target.result, {type: 'binary'});
+      const firstSheet = workbook.Sheets[workbook.SheetNames[0]];
+      const params = [workbook.Sheets[workbook.SheetNames[0]], {header:1}];
+      const matrix = xlsx.utils.sheet_to_json(...params).slice(2);
       hot.loadData(matrix);
     };
   }
