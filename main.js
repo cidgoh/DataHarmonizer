@@ -26,29 +26,35 @@ const processData = (data) => {
 
         // Convert to title case
         for (const [i, val] of child.flatVocabulary.entries()) {
-          if (!val || child.capitalize == null) continue;
-
-          // Provisional rule: don't change caps of bracketed expressions.
-          const bracketed = val.indexOf('(') ? val.substr(val.indexOf('(')) : ''
-          const unbracketed = val.substr(0, val.length - bracketed.length);
-
-          switch (child.capitalize) {
-            case 'lower': 
-              child.flatVocabulary[i] = unbracketed.toLowerCase() + bracketed;
-              break;
-            case 'UPPER': 
-              child.flatVocabulary[i] = unbracketed.toUpperCase() + bracketed;
-              break;
-            case 'Title': 
-
-              child.flatVocabulary[i] = unbracketed.split(' ').map(x => x.charAt(0).toUpperCase() + x.substr(1).toLowerCase()).join(' ') + bracketed;
-              break;
-          }
+          if (!val || !child.capitalize) continue;
+          child.flatVocabulary[i] = changeCase(val, child.capitalize);
         }
       }
     }
   }
   return data;
+};
+
+/**
+ * Modify a string to match specified case.
+ * @param {String} val String to modify.
+ * @param {String} capitalize Case to modify string to; one of `'UPPER'`,
+ *     `'lower'` or `'Title'`.
+ * @return {String} String with modified case.
+ */
+const changeCase = (val, capitalize) => {
+  if (capitalize === 'lower') {
+    return val.replace(/\w/g, (char) => char.toLowerCase());
+  } else if (capitalize === 'UPPER') {
+    return val.replace(/\w/g, (char) => char.toUpperCase());
+  } else if (capitalize === 'Title') {
+    val = val.substr(0, 1).toUpperCase() + val.substr(1);
+    return val.replace(/\W\w/g, (str) => {
+      return str[0] + str[1].toUpperCase();
+    });
+  } else {
+    return val;
+  }
 };
 
 /**
@@ -66,6 +72,7 @@ const getFields = (data) => {
  * @return {Object} Handsontable instance.
  */
 const createHot = (data) => {
+  const fields = getFields(data);
   const hot = Handsontable($('#grid')[0], {
     nestedHeaders: getNestedHeaders(data),
     columns: getColumns(data),
@@ -84,6 +91,16 @@ const createHot = (data) => {
     // Handsontable's validation is extremely slow with large datasets
     invalidCellClassName: '',
     licenseKey: 'non-commercial-and-evaluation',
+    afterChange: function(changes, source) {
+      if (source === 'capitalizationChange') return;
+      if (!changes) return;
+      for (const change of changes) {
+        const row = change[0];
+        const col = change[1];
+        const newVal = changeCase(change[3], fields[col].capitalize);
+        this.setDataAtCell(row, col, newVal, 'capitalizationChange');
+      }
+    },
     afterRender: () => {
       $('#header-row').css('visibility', 'visible');
       $('#footer-row').css('visibility', 'visible');
@@ -234,17 +251,6 @@ const enableMultiSelection = (hot, data) => {
           }); 
       }
     },
-    afterChange: function(changes, source) {
-      /*
-      if (source === 'thisChange' || !changes || changes.length !== 1) return;
-
-      const row = changes[0][0];
-      const col = changes[0][1];
-      const oldValCsv = changes[0][2];
-      const newVal = changes[0][3];
-      if (fields[col].datatype !== 'multiple') return;
-      */
-    }
   });
   return hot;
 };
@@ -275,9 +281,10 @@ const exportFile = (matrix, baseName, ext, xlsx) => {
  * @param {File} file User file.
  * @param {String} ext User file extension.
  * @param {Object} hot Handsontable instance of grid.
+ * @param {Object} data See `data.js`.
  * @param {Object} xlsx SheetJS variable.
  */
-const importFile = (file, ext, hot, xlsx) => {
+const importFile = (file, ext, hot, data, xlsx) => {
   const fileReader = new FileReader();
   if (ext === 'xlsx') {
     fileReader.readAsBinaryString(file);
@@ -286,14 +293,14 @@ const importFile = (file, ext, hot, xlsx) => {
       const firstSheet = workbook.Sheets[workbook.SheetNames[0]];
       const params = [workbook.Sheets[workbook.SheetNames[0]], {header:1}];
       const matrix = xlsx.utils.sheet_to_json(...params).slice(2);
-      hot.loadData(matrix);
+      hot.loadData(changeCases(matrix, hot, data));
     };
   } else if (ext === 'tsv') {
     fileReader.readAsText(file);
     fileReader.onload = (e) => {
       const matrix =
           e.target.result.split('\n').map(line => line.split('\t')).slice(2);
-      hot.loadData(matrix);
+      hot.loadData(changeCases(matrix, hot, data));
     };
   } else if (ext === 'csv') {
     fileReader.readAsText(file);
@@ -302,10 +309,32 @@ const importFile = (file, ext, hot, xlsx) => {
       const firstSheet = workbook.Sheets[workbook.SheetNames[0]];
       const params = [workbook.Sheets[workbook.SheetNames[0]], {header:1}];
       const matrix = xlsx.utils.sheet_to_json(...params).slice(2);
-      hot.loadData(matrix);
+      hot.loadData(changeCases(matrix, hot, data));
     };
   }
 };
+
+/**
+ * Modify matrix data for grid according to specified cases.
+ * This is useful when calling `hot.loadData`, as cell changes from said method
+ * are not recognized by `afterChange`.
+ * @param {Array<Array<String>>} matrix Data meant for grid.
+ * @param {Object} hot Handsontable instance of grid.
+ * @param {Object} data See `data.js`.
+ * @return {Array<Array<String>>} Modified matrix.
+ */
+const changeCases = (matrix, hot, data) => {
+  const fields = getFields(data);
+
+  for (let row=0; row < hot.countRows(); row++) {
+    for (let col=0; col<fields.length; col++) {
+      if (!matrix[row][col] || !fields[col].capitalize) continue;
+      matrix[row][col] = changeCase(matrix[row][col], fields[col].capitalize);
+    }
+  }
+
+  return matrix;
+}
 
 /**
  * Get a collection of all invalid cells in the grid.
@@ -412,7 +441,6 @@ const showFields = (id, data, hot) => {
  * @return {String} HTML string describing field.
  */
 const getComment = (field) => {
-  '\nLabel: '+ field.fieldName + '\n\nDescription:' + field.description + '\n\nGuidance: ' + field.guidance + '\n\nExample: '+ field.examples
   return `<p><strong>Label</strong>: ${field.fieldName}</p>
 <p><strong>Description</strong>: ${field.description}</p>
 <p><strong>Guidance</strong>: ${field.guidance}</p>
@@ -451,7 +479,7 @@ $(document).ready(() => {
       $('#open-error-modal').modal('show');
     } else {
       window.INVALID_CELLS = {};
-      importFile(file, ext, HOT, XLSX);
+      importFile(file, ext, HOT, DATA, XLSX);
     }
 
     // Allow consecutive uploads of the same file
