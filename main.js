@@ -26,9 +26,18 @@ const processData = (data) => {
 
         // Convert to title case
         for (const [i, val] of child.flatVocabulary.entries()) {
-          if (!val) continue;
-          child.flatVocabulary[i] = val.split(' ').map(x =>
-              x.charAt(0).toUpperCase() + x.substr(1).toLowerCase()).join(' ');
+          if (!val || child.capitalize == null) continue;
+            switch (child.capitalize) {
+              case 'lower': 
+              child.flatVocabulary[i] = child.flatVocabulary[i].toLowerCase();
+                break;
+              case 'UPPER': 
+              child.flatVocabulary[i] = child.flatVocabulary[i].toUpperCase();
+                break;
+              case 'Title': 
+                child.flatVocabulary[i] = val.split(' ').map(x => x.charAt(0).toUpperCase() + x.substr(1).toLowerCase()).join(' ');
+                break;
+            }
         }
       }
     }
@@ -195,7 +204,12 @@ const enableMultiSelection = (hot, data) => {
     afterBeginEditing: function(row, col) {
       if (fields[col].datatype === 'multiple') {
         const value = this.getDataAtCell(row, col);
-        const selections = value && value.split(',') || [];
+        let selections = value && value.split(';') || [];
+        selections = selections.map(x => x.trim());
+        selections2 = selections.filter(function (el) {return el != ''});
+        // Cleanup of empty values that can occur with leading/trailing or double ";"
+        if (selections.length != selections2.length)
+          this.setDataAtCell(row, col, selections2.join('; '), 'thisChange');
         const self = this;
         let content = '';
         fields[col].flatVocabulary.forEach(function(field, i) {
@@ -209,7 +223,7 @@ const enableMultiSelection = (hot, data) => {
         $('#field-description-text .multiselect')
           .chosen() // must be rendered when html is visible
           .change(function () {
-            let newValCsv = $('#field-description-text .multiselect').val().join(',')
+            let newValCsv = $('#field-description-text .multiselect').val().join('; ')
             self.setDataAtCell(row, col, newValCsv, 'thisChange');
           }); 
       }
@@ -357,7 +371,7 @@ const validateDropDown = (val, source) => {
  * @param {Array<String>} source Values to validate against.
  */
 const validateMultiple = (valsCsv, source) => {
-  for (const val of valsCsv.split(',')) {
+  for (const val of valsCsv.split(';')) {
     if (!validateDropDown(val, source)) return false;
   }
   return true;
