@@ -281,9 +281,10 @@ const exportFile = (matrix, baseName, ext, xlsx) => {
  * @param {File} file User file.
  * @param {String} ext User file extension.
  * @param {Object} hot Handsontable instance of grid.
+ * @param {Object} data See `data.js`.
  * @param {Object} xlsx SheetJS variable.
  */
-const importFile = (file, ext, hot, xlsx) => {
+const importFile = (file, ext, hot, data, xlsx) => {
   const fileReader = new FileReader();
   if (ext === 'xlsx') {
     fileReader.readAsBinaryString(file);
@@ -292,14 +293,14 @@ const importFile = (file, ext, hot, xlsx) => {
       const firstSheet = workbook.Sheets[workbook.SheetNames[0]];
       const params = [workbook.Sheets[workbook.SheetNames[0]], {header:1}];
       const matrix = xlsx.utils.sheet_to_json(...params).slice(2);
-      hot.loadData(matrix);
+      hot.loadData(changeCases(matrix, hot, data));
     };
   } else if (ext === 'tsv') {
     fileReader.readAsText(file);
     fileReader.onload = (e) => {
       const matrix =
           e.target.result.split('\n').map(line => line.split('\t')).slice(2);
-      hot.loadData(matrix);
+      hot.loadData(changeCases(matrix, hot, data));
     };
   } else if (ext === 'csv') {
     fileReader.readAsText(file);
@@ -308,10 +309,32 @@ const importFile = (file, ext, hot, xlsx) => {
       const firstSheet = workbook.Sheets[workbook.SheetNames[0]];
       const params = [workbook.Sheets[workbook.SheetNames[0]], {header:1}];
       const matrix = xlsx.utils.sheet_to_json(...params).slice(2);
-      hot.loadData(matrix);
+      hot.loadData(changeCases(matrix, hot, data));
     };
   }
 };
+
+/**
+ * Modify matrix data for grid according to specified cases.
+ * This is useful when calling `hot.loadData`, as cell changes from said method
+ * are not recognized by `afterChange`.
+ * @param {Array<Array<String>>} matrix Data meant for grid.
+ * @param {Object} hot Handsontable instance of grid.
+ * @param {Object} data See `data.js`.
+ * @return {Array<Array<String>>} Modified matrix.
+ */
+const changeCases = (matrix, hot, data) => {
+  const fields = getFields(data);
+
+  for (let row=0; row < hot.countRows(); row++) {
+    for (let col=0; col<fields.length; col++) {
+      if (!matrix[row][col] || !fields[col].capitalize) continue;
+      matrix[row][col] = changeCase(matrix[row][col], fields[col].capitalize);
+    }
+  }
+
+  return matrix;
+}
 
 /**
  * Get a collection of all invalid cells in the grid.
@@ -456,7 +479,7 @@ $(document).ready(() => {
       $('#open-error-modal').modal('show');
     } else {
       window.INVALID_CELLS = {};
-      importFile(file, ext, HOT, XLSX);
+      importFile(file, ext, HOT, DATA, XLSX);
     }
 
     // Allow consecutive uploads of the same file
