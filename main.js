@@ -28,22 +28,22 @@ const processData = (data) => {
         for (const [i, val] of child.flatVocabulary.entries()) {
           if (!val || child.capitalize == null) continue;
 
-            // Provisional rule: don't change caps of bracketed expressions.
-            const bracketed = val.indexOf('(') ? val.substr(val.indexOf('(')) : ''
-            const unbracketed = val.substr(0, val.length - bracketed.length);
+          // Provisional rule: don't change caps of bracketed expressions.
+          const bracketed = val.indexOf('(') ? val.substr(val.indexOf('(')) : ''
+          const unbracketed = val.substr(0, val.length - bracketed.length);
 
-            switch (child.capitalize) {
-              case 'lower': 
-                child.flatVocabulary[i] = unbracketed.toLowerCase() + bracketed;
-                break;
-              case 'UPPER': 
-                child.flatVocabulary[i] = unbracketed.toUpperCase() + bracketed;
-                break;
-              case 'Title': 
+          switch (child.capitalize) {
+            case 'lower': 
+              child.flatVocabulary[i] = unbracketed.toLowerCase() + bracketed;
+              break;
+            case 'UPPER': 
+              child.flatVocabulary[i] = unbracketed.toUpperCase() + bracketed;
+              break;
+            case 'Title': 
 
-                child.flatVocabulary[i] = unbracketed.split(' ').map(x => x.charAt(0).toUpperCase() + x.substr(1).toLowerCase()).join(' ') + bracketed;
-                break;
-            }
+              child.flatVocabulary[i] = unbracketed.split(' ').map(x => x.charAt(0).toUpperCase() + x.substr(1).toLowerCase()).join(' ') + bracketed;
+              break;
+          }
         }
       }
     }
@@ -284,9 +284,8 @@ const importFile = (file, ext, hot, xlsx) => {
     fileReader.onload = (e) => {
       const workbook = xlsx.read(e.target.result, {type: 'binary'});
       const firstSheet = workbook.Sheets[workbook.SheetNames[0]];
-      const sheetCsvStr = xlsx.utils.sheet_to_csv(firstSheet);
-      const matrix =
-          sheetCsvStr.split('\n').map(line => line.split(',')).slice(2);
+      const params = [workbook.Sheets[workbook.SheetNames[0]], {header:1}];
+      const matrix = xlsx.utils.sheet_to_json(...params).slice(2);
       hot.loadData(matrix);
     };
   } else if (ext === 'tsv') {
@@ -299,8 +298,10 @@ const importFile = (file, ext, hot, xlsx) => {
   } else if (ext === 'csv') {
     fileReader.readAsText(file);
     fileReader.onload = (e) => {
-      const matrix =
-          e.target.result.split('\n').map(line => line.split(',')).slice(2);
+      const workbook = xlsx.read(e.target.result, {type: 'binary'});
+      const firstSheet = workbook.Sheets[workbook.SheetNames[0]];
+      const params = [workbook.Sheets[workbook.SheetNames[0]], {header:1}];
+      const matrix = xlsx.utils.sheet_to_json(...params).slice(2);
       hot.loadData(matrix);
     };
   }
@@ -331,7 +332,7 @@ const getInvalidCells = (hot, data) => {
       } else if (datatype === 'decimal') {
         valid = !isNaN(cellVal);
       } else if (datatype === 'date') {
-        valid = moment(cellVal, 'YYYY-MM-DD').isValid();
+        valid = moment(cellVal, 'YYYY-MM-DD', true).isValid();
       } else if (datatype === 'select') {
         valid = validateDropDown(cellVal, fields[col].flatVocabulary);
       } else if (datatype === 'multiple') {
