@@ -182,7 +182,7 @@ const DATA = [
       },
       {
         fieldName: 'geo_loc_name (country)',
-        capitalize: 'UPPER',
+        capitalize: 'Title',
         ontologyId: '',
         datatype: 'select',
         requirement: 'required',
