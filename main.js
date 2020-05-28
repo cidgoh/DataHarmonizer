@@ -27,17 +27,23 @@ const processData = (data) => {
         // Convert to title case
         for (const [i, val] of child.flatVocabulary.entries()) {
           if (!val || child.capitalize == null) continue;
-            switch (child.capitalize) {
-              case 'lower': 
-              child.flatVocabulary[i] = child.flatVocabulary[i].toLowerCase();
-                break;
-              case 'UPPER': 
-              child.flatVocabulary[i] = child.flatVocabulary[i].toUpperCase();
-                break;
-              case 'Title': 
-                child.flatVocabulary[i] = val.split(' ').map(x => x.charAt(0).toUpperCase() + x.substr(1).toLowerCase()).join(' ');
-                break;
-            }
+
+          // Provisional rule: don't change caps of bracketed expressions.
+          const bracketed = val.indexOf('(') ? val.substr(val.indexOf('(')) : ''
+          const unbracketed = val.substr(0, val.length - bracketed.length);
+
+          switch (child.capitalize) {
+            case 'lower': 
+              child.flatVocabulary[i] = unbracketed.toLowerCase() + bracketed;
+              break;
+            case 'UPPER': 
+              child.flatVocabulary[i] = unbracketed.toUpperCase() + bracketed;
+              break;
+            case 'Title': 
+
+              child.flatVocabulary[i] = unbracketed.split(' ').map(x => x.charAt(0).toUpperCase() + x.substr(1).toLowerCase()).join(' ') + bracketed;
+              break;
+          }
         }
       }
     }
