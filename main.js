@@ -303,10 +303,26 @@ const importFile = (file, ext, hot, data, xlsx, hideFirstRow) => {
   fileReader.onload = (e) => {
     const workbook = xlsx.read(e.target.result, {type: 'binary'});
     const params = [workbook.Sheets[workbook.SheetNames[0]], {header:1}];
-    let matrix = xlsx.utils.sheet_to_json(...params);
-    matrix = hideFirstRow ? matrix.slice(1) : matrix.slice(2);
-    hot.loadData(changeCases(matrix, hot, data));
+    const matrix = xlsx.utils.sheet_to_json(...params);
+    checkImportedHeaders(matrix, data, hideFirstRow);
+    const trimmedMatrix = hideFirstRow ? matrix.slice(1) : matrix.slice(2);
+    hot.loadData(changeCases(trimmedMatrix, hot, data));
   };
+};
+
+/**
+ * Display a warning modal if the headers in an imported file do not match the
+ * current grid's headers.
+ * @param {Array<Array<String>>} matrix Imported file data.
+ * @param {Object} data See `data.js`.
+ * @param {Boolean} hideFirstRow If true, assume the grid's first row is hidden.
+ */
+const checkImportedHeaders = (matrix, data, hideFirstRow) => {
+  const importHeaders = hideFirstRow ? [matrix[0]] : [matrix[0], matrix[1]];
+  const existingHeaders = getFlatHeaders(data, hideFirstRow);
+  if (JSON.stringify(importHeaders) !== JSON.stringify(existingHeaders)) {
+    $('#headers-warning-modal').modal('show');
+  }
 };
 
 /**
