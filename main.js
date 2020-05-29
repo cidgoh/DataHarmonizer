@@ -43,6 +43,7 @@ const processData = (data) => {
  * @return {String} String with modified case.
  */
 const changeCase = (val, capitalize) => {
+  if (!val) return;
   if (capitalize === 'lower') {
     return val.replace(/\w/g, (char) => char.toLowerCase());
   } else if (capitalize === 'UPPER') {
@@ -69,12 +70,13 @@ const getFields = (data) => {
 /**
  * Create a blank instance of Handsontable.
  * @param {Object} data See `data.js`.
+ * @param {Boolean} hideFirstRow Include first row if true.
  * @return {Object} Handsontable instance.
  */
-const createHot = (data) => {
+const createHot = (data, hideFirstRow) => {
   const fields = getFields(data);
   const hot = Handsontable($('#grid')[0], {
-    nestedHeaders: getNestedHeaders(data),
+    nestedHeaders: getNestedHeaders(data, hideFirstRow),
     columns: getColumns(data),
     colHeaders: true,
     rowHeaders: true,
@@ -126,9 +128,10 @@ const createHot = (data) => {
  * These headers are HTML strings, with useful selectors for the primary and
  * secondary header cells.
  * @param {Object} data See `data.js`.
+ * @param {Boolean} hideFirstRow Include first row if true.
  * @return {Array<Array>} Nested headers for Handontable grid.
  */
-const getNestedHeaders = (data) => {
+const getNestedHeaders = (data, hideFirstRow) => {
   const rows = [[], []];
   for (const parent of data) {
     rows[0].push({
@@ -141,23 +144,24 @@ const getNestedHeaders = (data) => {
       rows[1].push(`<div class="secondary-header-text ${req}">${name}</div>`);
     }
   }
-  return rows;
+  return hideFirstRow ? [rows[1]] : rows;
 };
 
 /**
  * Create a matrix containing the grid's headers. Empty strings are used to
  * indicate merged cells.
  * @param {Object} data See `data.js`.
+ * @param {Boolean} hideFirstRow Include first row if true.
  * @return {Array<Array<String>>} Grid headers.
  */
-const getFlatHeaders = (data) => {
+const getFlatHeaders = (data, hideFirstRow) => {
   const rows = [[], []];
   for (const parent of data) {
     rows[0].push(parent.fieldName);
     rows[0].push(...Array(parent.children.length - 1).fill(''));
     rows[1].push(...parent.children.map(child => child.fieldName));
   }
-  return rows;
+  return hideFirstRow ? [rows[1]] : rows;
 };
 
 /**
@@ -283,35 +287,26 @@ const exportFile = (matrix, baseName, ext, xlsx) => {
  * @param {Object} hot Handsontable instance of grid.
  * @param {Object} data See `data.js`.
  * @param {Object} xlsx SheetJS variable.
+ * @param {Boolean} hideFirstRow Include first row if true.
  */
-const importFile = (file, ext, hot, data, xlsx) => {
+const importFile = (file, ext, hot, data, xlsx, hideFirstRow) => {
   const fileReader = new FileReader();
+
   if (ext === 'xlsx') {
     fileReader.readAsBinaryString(file);
-    fileReader.onload = (e) => {
-      const workbook = xlsx.read(e.target.result, {type: 'binary'});
-      const firstSheet = workbook.Sheets[workbook.SheetNames[0]];
-      const params = [workbook.Sheets[workbook.SheetNames[0]], {header:1}];
-      const matrix = xlsx.utils.sheet_to_json(...params).slice(2);
-      hot.loadData(changeCases(matrix, hot, data));
-    };
-  } else if (ext === 'tsv') {
+  } else if (ext === 'csv' || ext === 'tsv') {
     fileReader.readAsText(file);
-    fileReader.onload = (e) => {
-      const matrix =
-          e.target.result.split('\n').map(line => line.split('\t')).slice(2);
-      hot.loadData(changeCases(matrix, hot, data));
-    };
-  } else if (ext === 'csv') {
-    fileReader.readAsText(file);
-    fileReader.onload = (e) => {
-      const workbook = xlsx.read(e.target.result, {type: 'binary'});
-      const firstSheet = workbook.Sheets[workbook.SheetNames[0]];
-      const params = [workbook.Sheets[workbook.SheetNames[0]], {header:1}];
-      const matrix = xlsx.utils.sheet_to_json(...params).slice(2);
-      hot.loadData(changeCases(matrix, hot, data));
-    };
+  } else {
+    return;
   }
+
+  fileReader.onload = (e) => {
+    const workbook = xlsx.read(e.target.result, {type: 'binary'});
+    const params = [workbook.Sheets[workbook.SheetNames[0]], {header:1}];
+    let matrix = xlsx.utils.sheet_to_json(...params);
+    matrix = hideFirstRow ? matrix.slice(1) : matrix.slice(2);
+    hot.loadData(changeCases(matrix, hot, data));
+  };
 };
 
 /**
@@ -327,6 +322,7 @@ const changeCases = (matrix, hot, data) => {
   const fields = getFields(data);
 
   for (let row=0; row < hot.countRows(); row++) {
+    if (!row.length) continue;
     for (let col=0; col<fields.length; col++) {
       if (!matrix[row][col] || !fields[col].capitalize) continue;
       matrix[row][col] = changeCase(matrix[row][col], fields[col].capitalize);
@@ -448,8 +444,9 @@ const getComment = (field) => {
 };
 
 $(document).ready(() => {
+  window.HIDE_FIRST_ROW = false;
   window.DATA = processData(DATA);
-  window.HOT = createHot(DATA);
+  window.HOT = createHot(DATA, HIDE_FIRST_ROW);
 
   window.INVALID_CELLS = {};
 
@@ -462,7 +459,7 @@ $(document).ready(() => {
     } else {
       HOT.destroy();
       window.INVALID_CELLS = {};
-      window.HOT = createHot(DATA);
+      window.HOT = createHot(DATA, HIDE_FIRST_ROW);
     }
   });
 
@@ -479,7 +476,7 @@ $(document).ready(() => {
       $('#open-error-modal').modal('show');
     } else {
       window.INVALID_CELLS = {};
-      importFile(file, ext, HOT, DATA, XLSX);
+      importFile(file, ext, HOT, DATA, XLSX, HIDE_FIRST_ROW);
     }
 
     // Allow consecutive uploads of the same file
@@ -491,7 +488,8 @@ $(document).ready(() => {
     try {
       const baseName = $('#base-name-save-as-input').val();
       const ext = $('#file-ext-save-as-select').val();
-      const matrix = [...getFlatHeaders(DATA), ...HOT.getData()];
+      const matrix =
+          [...getFlatHeaders(DATA, HIDE_FIRST_ROW), ...HOT.getData()];
       exportFile(matrix, baseName, ext, XLSX);
       $('#save-as-modal').modal('hide');
     } catch (err) {
@@ -502,6 +500,25 @@ $(document).ready(() => {
   $('#save-as-modal').on('hidden.bs.modal', () => {
     $('#save-as-err-msg').text('');
     $('#base-name-save-as-input').val('');
+  });
+
+  // Settings -> Show fields
+  $('#show-all-dropdown-item, #show-required-dropdown-item').click((e) => {
+    showFields(e.target.id, DATA, HOT);
+  });
+
+  //Settings -> Hide first row
+  $('#hide-first-row-dropdown-item').click((e) => {
+    if ($(e.target).hasClass('active')) {
+      window.HIDE_FIRST_ROW = false;
+      $(e.target).removeClass('active');
+    } else {
+      window.HIDE_FIRST_ROW = true;
+      $(e.target).addClass('active');
+    }
+    HOT.updateSettings({
+      nestedHeaders: getNestedHeaders(DATA, HIDE_FIRST_ROW),
+    })
   });
 
   // Validate
@@ -516,11 +533,6 @@ $(document).ready(() => {
       }
     });
     HOT.render();
-  });
-
-  // Show fields
-  $('#show-all-dropdown-item, #show-required-dropdown-item').click(function(e) {
-    showFields(e.target.id, DATA, HOT);
   });
 
   // Field descriptions. Need to account for dynamically rendered
