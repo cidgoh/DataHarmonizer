@@ -183,7 +183,8 @@ const getColumns = (data) => {
       col.trimDropdown = false;
     } else if (field.datatype === 'multiple') {
       // TODO: we need to find a better way to enable multi-selection
-      col.type = 'text';
+      col.editor = 'text';
+      col.renderer = 'autocomplete';
       col.source = field.flatVocabulary;
     }
     ret.push(col);
