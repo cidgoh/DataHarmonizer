@@ -289,29 +289,17 @@ const importFile = (file, ext, hot, data, xlsx) => {
   const fileReader = new FileReader();
   if (ext === 'xlsx') {
     fileReader.readAsBinaryString(file);
-    fileReader.onload = (e) => {
-      const workbook = xlsx.read(e.target.result, {type: 'binary'});
-      const firstSheet = workbook.Sheets[workbook.SheetNames[0]];
-      const params = [workbook.Sheets[workbook.SheetNames[0]], {header:1}];
-      const matrix = xlsx.utils.sheet_to_json(...params).slice(2);
-      hot.loadData(changeCases(matrix, hot, data));
-    };
-  } else if (ext === 'tsv') {
+  } else if (ext === 'csv' || ext === 'tsv') {
     fileReader.readAsText(file);
-    fileReader.onload = (e) => {
-      const matrix =
-          e.target.result.split('\n').map(line => line.split('\t')).slice(2);
-      hot.loadData(changeCases(matrix, hot, data));
-    };
-  } else if (ext === 'csv') {
-    fileReader.readAsText(file);
-    fileReader.onload = (e) => {
-      const workbook = xlsx.read(e.target.result, {type: 'binary'});
-      const firstSheet = workbook.Sheets[workbook.SheetNames[0]];
-      const params = [workbook.Sheets[workbook.SheetNames[0]], {header:1}];
-      const matrix = xlsx.utils.sheet_to_json(...params).slice(2);
-      hot.loadData(changeCases(matrix, hot, data));
-    };
+  } else {
+    return;
+  }
+
+  fileReader.onload = (e) => {
+    const workbook = xlsx.read(e.target.result, {type: 'binary'});
+    const params = [workbook.Sheets[workbook.SheetNames[0]], {header: 1}];
+    const matrix = xlsx.utils.sheet_to_json(...params).slice(2);
+    hot.loadData(changeCases(matrix, hot, data));
   }
 };
 
