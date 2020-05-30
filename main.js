@@ -289,30 +289,77 @@ const importFile = (file, ext, hot, data, xlsx) => {
   const fileReader = new FileReader();
   if (ext === 'xlsx') {
     fileReader.readAsBinaryString(file);
-    fileReader.onload = (e) => {
-      const workbook = xlsx.read(e.target.result, {type: 'binary'});
-      const firstSheet = workbook.Sheets[workbook.SheetNames[0]];
-      const params = [workbook.Sheets[workbook.SheetNames[0]], {header:1}];
-      const matrix = xlsx.utils.sheet_to_json(...params).slice(2);
-      hot.loadData(changeCases(matrix, hot, data));
-    };
-  } else if (ext === 'tsv') {
+  } else if (ext === 'csv' || ext === 'tsv') {
     fileReader.readAsText(file);
-    fileReader.onload = (e) => {
-      const matrix =
-          e.target.result.split('\n').map(line => line.split('\t')).slice(2);
-      hot.loadData(changeCases(matrix, hot, data));
-    };
-  } else if (ext === 'csv') {
-    fileReader.readAsText(file);
-    fileReader.onload = (e) => {
-      const workbook = xlsx.read(e.target.result, {type: 'binary'});
-      const firstSheet = workbook.Sheets[workbook.SheetNames[0]];
-      const params = [workbook.Sheets[workbook.SheetNames[0]], {header:1}];
-      const matrix = xlsx.utils.sheet_to_json(...params).slice(2);
-      hot.loadData(changeCases(matrix, hot, data));
-    };
+  } else {
+    return;
   }
+
+  fileReader.onload = (e) => {
+    const workbook = xlsx.read(e.target.result, {type: 'binary'});
+    const worksheet = updateSheetRange(workbook.Sheets[workbook.SheetNames[0]]);
+    const params = [worksheet, {header: 1, blankrows: false, raw: false}];
+    const matrix = xlsx.utils.sheet_to_json(...params);
+    const mappedMatrix = mapImportData(matrix, data);
+    hot.loadData(changeCases(mappedMatrix, hot, data));
+  }
+};
+
+/**
+ * Improve `XLSX.utils.sheet_to_json` performance for Libreoffice Calc files.
+ * Ensures sheet range is accurate. See
+ * https://github.com/SheetJS/sheetjs/issues/764 for more detail.
+ * @param {Object} worksheet SheetJs object.
+ * @returns {Object} SheetJs worksheet with correct range.
+ */
+const updateSheetRange = (worksheet) => {
+  const range = {s:{r:20000000, c:20000000},e:{r:0,c:0}};
+  Object.keys(worksheet)
+      .filter((x) => {return x.charAt(0) !== '!'})
+      .map(XLSX.utils.decode_cell).forEach((x) => {
+        range.s.c = Math.min(range.s.c, x.c);
+        range.s.r = Math.min(range.s.r, x.r);
+        range.e.c = Math.max(range.e.c, x.c);
+        range.e.r = Math.max(range.e.r, x.r);
+      });
+  worksheet['!ref'] = XLSX.utils.encode_range(range);
+  return worksheet;
+}
+
+/**
+ * Maps matrices of previous validator versions with current version.
+ * The matrix to map must have its header rows. If the matrix is missing a
+ * column from the most recent version, a blank column is used.
+ * @param {Array<Array<String>>} matrix Matrix to map to current version.
+ * @param {Object} data See `data.js`.
+ * @return {Array<Array<String>>} Matrix with columns in same order as current
+ *     version.
+ */
+const mapImportData = (matrix, data) => {
+  // Second row of headers in current validator version
+  const expectedSecondRow = getFlatHeaders(data)[1];
+  // Second row of headers in matrix to map
+  const actualSecondRow = matrix[1];
+
+  // Map current column indices to their indices in matrix to map
+  const headerMap = {};
+  for (const [expectedIndex, expectedVal] of expectedSecondRow.entries()) {
+    headerMap[expectedIndex] =
+        actualSecondRow.findIndex((actualVal) => actualVal === expectedVal);
+  }
+
+  const mappedMatrix = [];
+  // Iterate over rows in matrix to map
+  for (const i of matrix.keys()) {
+    mappedMatrix[i] = [];
+    // Iterate over columns in current validator version
+    for (const j of expectedSecondRow.keys()) {
+      // -1 means the matrix to map does not have this column
+      mappedMatrix[i][j] = headerMap[j] === -1 ? '' : matrix[i][headerMap[j]];
+    }
+  }
+
+  return mappedMatrix.slice(2);
 };
 
 /**
@@ -327,8 +374,8 @@ const importFile = (file, ext, hot, data, xlsx) => {
 const changeCases = (matrix, hot, data) => {
   const fields = getFields(data);
 
-  for (let row=0; row < hot.countRows(); row++) {
-    for (let col=0; col<fields.length; col++) {
+  for (let row=0; row < matrix.length; row++) {
+    for (let col=0; col < fields.length; col++) {
       if (!matrix[row][col] || !fields[col].capitalize) continue;
       matrix[row][col] = changeCase(matrix[row][col], fields[col].capitalize);
     }
