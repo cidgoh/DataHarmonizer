@@ -88,6 +88,9 @@ const createHot = (data) => {
       indicators: true,
       columns: [],
     },
+    hiddenRows: {
+      rows: [],
+    },
     // Handsontable's validation is extremely slow with large datasets
     invalidCellClassName: '',
     licenseKey: 'non-commercial-and-evaluation',
@@ -385,6 +388,52 @@ const changeCases = (matrix, hot, data) => {
 }
 
 /**
+ * Modify visibility of columns in grid. This function should only be called
+ * after clicking a DOM element used to toggle column visibilities.
+ * @param {String} id Id of element clicked to trigger this function.
+ * @param {Object} data See `data.js`.
+ * @param {Object} hot Handsontable instance of grid.
+ */
+const changeColVisibility = (id, data, hot) => {
+  const hiddenColumns = [];
+  if (id === 'show-required-cols-dropdown-item') {
+    getFields(data).forEach(function(field, i) {
+      if (field.requirement !== 'required') hiddenColumns.push(i);
+    });
+  }
+  hot.updateSettings({
+    hiddenColumns: {
+      copyPasteEnabled: true,
+      indicators: true,
+      columns: hiddenColumns,
+    },
+  });
+};
+
+/**
+ * Modify visibility of rows in grid. This function should only be called
+ * after clicking a DOM element used to toggle row visibilities.
+ * @param {String} id Id of element clicked to trigger this function.
+ * @param {Object<Number, Set<Number>>} invalidCells See `getInvalidCells`
+ *     return value.
+ * @param {Object} hot Handsontable instance of grid.
+ */
+const changeRowVisibility = (id, invalidCells, hot) => {
+  let hiddenRows = [];
+
+  if (id === 'show-valid-rows-dropdown-item') {
+    const rows = [...Array(HOT.countRows()).keys()];
+    hiddenRows = Object.keys(INVALID_CELLS).map(Number);
+  } else if (id === 'show-invalid-rows-dropdown-item') {
+    const rows = [...Array(HOT.countRows()).keys()];
+    const invalidRowsSet = new Set(Object.keys(INVALID_CELLS).map(Number));
+    hiddenRows = rows.filter(row => !invalidRowsSet.has(row));
+  }
+
+  HOT.updateSettings({hiddenRows: {rows: hiddenRows}});
+}
+
+/**
  * Get a collection of all invalid cells in the grid.
  * @param {Object} hot Handsontable instance of grid.
  * @param {Object} data See `data.js`.
@@ -461,29 +510,6 @@ const validateMultiple = (valsCsv, source) => {
 };
 
 /**
- * Modify visibility of fields in grid. This function should only be called
- * after clicking a DOM element used to toggle field visibilities.
- * @param {String} id Id of element clicked to trigger this function.
- * @param {Object} data See `data.js`.
- * @param {Object} hot Handsontable instance of grid.
- */
-const showFields = (id, data, hot) => {
-  const hiddenColumns = [];
-  if (id === 'show-required-dropdown-item') {
-    getFields(data).forEach(function(field, i) {
-      if (field.requirement !== 'required') hiddenColumns.push(i);
-    });
-  }
-  hot.updateSettings({
-    hiddenColumns: {
-      copyPasteEnabled: true,
-      indicators: true,
-      columns: hiddenColumns,
-    },
-  });
-};
-
-/**
  * Get an HTML string that describes a field.
  * @param {Object} field Any object under `children` in `data.js`.
  * @return {String} HTML string describing field.
@@ -552,6 +578,23 @@ $(document).ready(() => {
     $('#base-name-save-as-input').val('');
   });
 
+  // Settings -> Show ... columns
+  const showColsSelectors =
+      ['#show-all-cols-dropdown-item', '#show-required-cols-dropdown-item'];
+  $(showColsSelectors.join(',')).click((e) => {
+    changeColVisibility(e.target.id, DATA, HOT);
+  });
+
+  // Settings -> Show ... rows
+  const showRowsSelectors = [
+    '#show-all-rows-dropdown-item',
+    '#show-valid-rows-dropdown-item',
+    '#show-invalid-rows-dropdown-item',
+  ];
+  $(showRowsSelectors.join(',')).click((e) => {
+    changeRowVisibility(e.target.id, INVALID_CELLS, HOT);
+  });
+
   // Validate
   $('#validate-btn').click(() => {
     window.INVALID_CELLS = getInvalidCells(HOT, DATA);
@@ -564,11 +607,6 @@ $(document).ready(() => {
       }
     });
     HOT.render();
-  });
-
-  // Show fields
-  $('#show-all-dropdown-item, #show-required-dropdown-item').click(function(e) {
-    showFields(e.target.id, DATA, HOT);
   });
 
   // Field descriptions. Need to account for dynamically rendered
