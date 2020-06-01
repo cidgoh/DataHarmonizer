@@ -11,34 +11,32 @@
  *     return value.
  */
 const toggleDropdownVisibility = (hot, invalidCells) => {
-  $('#settings-dropdown-btn-group').on('show.bs.dropdown', () => {
-    const hiddenCols = HOT.getSettings().hiddenColumns.columns;
-    const hiddenRows = HOT.getSettings().hiddenRows.rows;
+  $('.hidden-dropdown-item').hide();
 
-    if (hiddenCols.length) {
-      $('#show-all-cols-dropdown-item').show();
-      $('#show-required-cols-dropdown-item').hide();
-    } else {
-      $('#show-all-cols-dropdown-item').hide();
-      $('#show-required-cols-dropdown-item').show();
-    }
+  $('#settings-dropdown-btn-group')
+      .on('show.bs.dropdown', () => {
+        const hiddenCols = HOT.getSettings().hiddenColumns.columns;
+        const hiddenRows = HOT.getSettings().hiddenRows.rows;
 
-    if (hiddenRows.length) {
-      $('#show-all-rows-dropdown-item').show();
-    } else {
-      $('#show-all-rows-dropdown-item').hide();
-    }
+        if (hiddenCols.length) {
+          $('#show-all-cols-dropdown-item').show();
+        } else {
+          $('#show-required-cols-dropdown-item').show();
+        }
 
-    // No invalid cells
-    if (jQuery.isEmptyObject(INVALID_CELLS)) {
-      $('#show-valid-rows-dropdown-item').hide();
-      $('#show-invalid-rows-dropdown-item').hide();
-    // Invalid cells
-    } else {
-      $('#show-valid-rows-dropdown-item').show();
-      $('#show-invalid-rows-dropdown-item').show();
-    }
-  });
+        if (hiddenRows.length) {
+          $('#show-all-rows-dropdown-item').show();
+        }
+
+        // Invalid cells present
+        if (!jQuery.isEmptyObject(INVALID_CELLS)) {
+          $('#show-valid-rows-dropdown-item').show();
+          $('#show-invalid-rows-dropdown-item').show();
+        }
+      })
+      .on('hide.bs.dropdown', () => {
+        $('.hidden-dropdown-item').hide();
+      });
 };
 
 /**
