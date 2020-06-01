@@ -94,14 +94,12 @@ const createHot = (data) => {
     // Handsontable's validation is extremely slow with large datasets
     invalidCellClassName: '',
     licenseKey: 'non-commercial-and-evaluation',
-    afterChange: function(changes, source) {
-      if (source === 'capitalizationChange') return;
+    beforeChange: function(changes, source) {
       if (!changes) return;
       for (const change of changes) {
         const row = change[0];
         const col = change[1];
-        const newVal = changeCase(change[3], fields[col].capitalize);
-        this.setDataAtCell(row, col, newVal, 'capitalizationChange');
+        change[3] = changeCase(change[3], fields[col].capitalize);
       }
     },
     afterRender: () => {
