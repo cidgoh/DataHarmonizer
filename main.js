@@ -5,6 +5,43 @@
  */
 
 /**
+ * Controls what dropdown options are visible depending on grid settings.
+ * @param {Object} hot Handonstable grid instance.
+ * @param {Object<Number, Set<Number>>} invalidCells See `getInvalidCells`
+ *     return value.
+ */
+const toggleDropdownVisibility = (hot, invalidCells) => {
+  $('#settings-dropdown-btn-group').on('show.bs.dropdown', () => {
+    const hiddenCols = HOT.getSettings().hiddenColumns.columns;
+    const hiddenRows = HOT.getSettings().hiddenRows.rows;
+
+    if (hiddenCols.length) {
+      $('#show-all-cols-dropdown-item').show();
+      $('#show-required-cols-dropdown-item').hide();
+    } else {
+      $('#show-all-cols-dropdown-item').hide();
+      $('#show-required-cols-dropdown-item').show();
+    }
+
+    if (hiddenRows.length) {
+      $('#show-all-rows-dropdown-item').show();
+    } else {
+      $('#show-all-rows-dropdown-item').hide();
+    }
+
+    // No invalid cells
+    if (jQuery.isEmptyObject(INVALID_CELLS)) {
+      $('#show-valid-rows-dropdown-item').hide();
+      $('#show-invalid-rows-dropdown-item').hide();
+    // Invalid cells
+    } else {
+      $('#show-valid-rows-dropdown-item').show();
+      $('#show-invalid-rows-dropdown-item').show();
+    }
+  });
+};
+
+/**
  * Post-processing of values in `data.js` at runtime.
  * TODO: this logic should be in the python script that creates `data.json`
  * @param {Object} data See `data.js`.
@@ -525,33 +562,7 @@ $(document).ready(() => {
 
   window.INVALID_CELLS = {};
 
-  // Toggle dropdown visibilities
-  $('#settings-dropdown-btn-group').on('show.bs.dropdown', () => {
-    // Have hidden columns
-    if (HOT.getSettings().hiddenColumns.columns.length) {
-      $('#show-all-cols-dropdown-item').show();
-      $('#show-required-cols-dropdown-item').hide();
-    } else {
-      $('#show-all-cols-dropdown-item').hide();
-      $('#show-required-cols-dropdown-item').show();
-    }
-
-    // Have hidden hidden rows
-    if (HOT.getSettings().hiddenRows.rows.length) {
-      $('#show-all-rows-dropdown-item').show();
-    } else {
-      $('#show-all-rows-dropdown-item').hide();
-    }
-
-    // Have no invalid cells
-    if (jQuery.isEmptyObject(INVALID_CELLS)) {
-      $('#show-valid-rows-dropdown-item').hide();
-      $('#show-invalid-rows-dropdown-item').hide();
-    } else {
-      $('#show-valid-rows-dropdown-item').show();
-      $('#show-invalid-rows-dropdown-item').show();
-    }
-  });
+  toggleDropdownVisibility(HOT, INVALID_CELLS);
 
   // File -> New
   $('#new-dropdown-item, #clear-data-confirm-btn').click((e) => {
