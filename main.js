@@ -527,6 +527,34 @@ $(document).ready(() => {
 
   window.INVALID_CELLS = {};
 
+  // Toggle dropdown visibilities
+  $('#settings-dropdown-btn-group').on('show.bs.dropdown', () => {
+    // Have hidden columns
+    if (HOT.getSettings().hiddenColumns.columns.length) {
+      $('#show-all-cols-dropdown-item').show();
+      $('#show-required-cols-dropdown-item').hide();
+    } else {
+      $('#show-all-cols-dropdown-item').hide();
+      $('#show-required-cols-dropdown-item').show();
+    }
+
+    // Have hidden hidden rows
+    if (HOT.getSettings().hiddenRows.rows.length) {
+      $('#show-all-rows-dropdown-item').show();
+    } else {
+      $('#show-all-rows-dropdown-item').hide();
+    }
+
+    // Have no invalid cells
+    if (jQuery.isEmptyObject(INVALID_CELLS)) {
+      $('#show-valid-rows-dropdown-item').hide();
+      $('#show-invalid-rows-dropdown-item').hide();
+    } else {
+      $('#show-valid-rows-dropdown-item').show();
+      $('#show-invalid-rows-dropdown-item').show();
+    }
+  });
+
   // File -> New
   $('#new-dropdown-item, #clear-data-confirm-btn').click((e) => {
     if (e.target.id === 'new-dropdown-item') {
