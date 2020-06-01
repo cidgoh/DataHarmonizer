@@ -2,46 +2,34 @@
 @import 'libraries/bootstrap.min.css';
 @import 'libraries/chosen.css';
 
-.dropdown-item:hover {
-    cursor: pointer;
-}
-
-#grid .secondary-header-cell:hover {
-	cursor: pointer;
-}
-
-#grid {
-    overflow: hidden;
-}
-
+/* Toolbar */
 #header-row {
     visibility: hidden;
 }
-
-#footer-row {
-    visibility: hidden;
-}
-
-.listbox {
-    white-space: pre !important;
+.dropdown-item:hover {
+    cursor: pointer;
 }
 
 #open-file-input {
     display: none;
 }
 
+/* Grid */
+#grid {
+	overflow: hidden;
+}
+#grid .secondary-header-cell:hover {
+	cursor: pointer;
+}
 #grid td.invalid-cell {
 	background-color: #ffcccb !important;
 }
-
 #grid .htAutocompleteArrow {
 	color: gray;
 }
-
-.secondary-header {
-	cursor:pointer;
+#grid th {
+	text-align: left;
 }
-
 #grid th.required {
 	background-color:yellow;
 }
@@ -49,20 +37,10 @@
 	background-color:plum;
 }
 
-/* Primary and secondary headers */
-#grid th {
-	text-align: left;
+/* Autocomplete */
+.listbox {
+    white-space: pre !important;
 }
-
-/* Fixed col */
-#grid th.overlayEdge {
-	border-right: medium solid gray;
-}
-#grid table.htCore > tbody > tr td:nth-child(2) {
-	border-right: medium solid gray;
-}
-
-/* Dropdown selection box choices */
 .handsontable.listbox td {
 	border-radius:3px;
 	border:1px solid silver;
@@ -73,4 +51,18 @@
 }
 .handsontable.listbox td.current.highlight {
 	background-color: lightblue !important;
+}
+
+/* Fixed col */
+#grid th.overlayEdge {
+	border-right: medium solid gray;
+}
+#grid table.htCore > tbody > tr td:nth-child(2) {
+	border-right: medium solid gray;
+}
+
+
+/* Below grid */
+#footer-row {
+    visibility: hidden;
 }
