@@ -452,15 +452,17 @@ const changeColVisibility = (id, data, hot) => {
  * @param {Object} hot Handsontable instance of grid.
  */
 const changeRowVisibility = (id, invalidCells, hot) => {
+  const rows = [...Array(HOT.countRows()).keys()];
+  const emptyRows = rows.filter(row => hot.isEmptyRow(row));
   let hiddenRows = [];
 
   if (id === 'show-valid-rows-dropdown-item') {
-    const rows = [...Array(HOT.countRows()).keys()];
-    hiddenRows = Object.keys(INVALID_CELLS).map(Number);
+    hiddenRows = Object.keys(invalidCells).map(Number);
+    hiddenRows = [...hiddenRows, ...emptyRows];
   } else if (id === 'show-invalid-rows-dropdown-item') {
-    const rows = [...Array(HOT.countRows()).keys()];
-    const invalidRowsSet = new Set(Object.keys(INVALID_CELLS).map(Number));
+    const invalidRowsSet = new Set(Object.keys(invalidCells).map(Number));
     hiddenRows = rows.filter(row => !invalidRowsSet.has(row));
+    hiddenRows = [...hiddenRows, ...emptyRows];
   }
 
   HOT.updateSettings({hiddenRows: {rows: hiddenRows}});
@@ -485,7 +487,7 @@ const getInvalidCells = (hot, data) => {
       let valid = true;
 
       if (!cellVal) {
-        valid = !fields[col].requirement;
+        valid = fields[col].requirement !== 'required';
       } else if (datatype === 'integer') {
         valid = Number.isInteger(cellVal);
       } else if (datatype === 'decimal') {
