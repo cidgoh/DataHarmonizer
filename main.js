@@ -6,11 +6,8 @@
 
 /**
  * Controls what dropdown options are visible depending on grid settings.
- * @param {Object} hot Handonstable grid instance.
- * @param {Object<Number, Set<Number>>} invalidCells See `getInvalidCells`
- *     return value.
  */
-const toggleDropdownVisibility = (hot, invalidCells) => {
+const toggleDropdownVisibility = () => {
   $('.hidden-dropdown-item').hide();
 
   $('#settings-dropdown-btn-group')
@@ -28,10 +25,12 @@ const toggleDropdownVisibility = (hot, invalidCells) => {
           $('#show-all-rows-dropdown-item').show();
         }
 
-        // Invalid cells present
         if (!jQuery.isEmptyObject(INVALID_CELLS)) {
-          $('#show-valid-rows-dropdown-item').show();
           $('#show-invalid-rows-dropdown-item').show();
+        }
+        const validRowCount = HOT.countRows() - HOT.countEmptyRows();
+        if (validRowCount > Object.keys(INVALID_CELLS).length) {
+          $('#show-valid-rows-dropdown-item').show();
         }
       })
       .on('hide.bs.dropdown', () => {
