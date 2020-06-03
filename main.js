@@ -601,9 +601,11 @@ $(document).ready(() => {
             if (compareMatrixHeadersToGrid(matrix, DATA)) {
               HOT.loadData(changeCases(matrix.slice(2), HOT, DATA));
             } else {
-              // TODO ask user which row has their headers
-              const mappedMatrix = mapMatrixToGrid(matrix, DATA);
-              HOT.loadData(changeCases(mappedMatrix.slice(2), HOT, DATA));
+              $('#specify-headers-input').empty();
+              $('#specify-headers-modal').modal('show');
+              // TODO process input + error handling
+              // const mappedMatrix = mapMatrixToGrid(matrix, DATA);
+              // HOT.loadData(changeCases(mappedMatrix.slice(2), HOT, DATA));
             }
           });
     }
