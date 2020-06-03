@@ -312,32 +312,31 @@ const exportFile = (matrix, baseName, ext, xlsx) => {
 };
 
 /**
+ * TODO
  * Upload user file data to grid. We are are assuming the uploaded file has the
  * same headers as our grid.
  * @param {File} file User file.
  * @param {String} ext User file extension.
- * @param {Object} hot Handsontable instance of grid.
- * @param {Object} data See `data.js`.
  * @param {Object} xlsx SheetJS variable.
  */
-const importFile = (file, ext, hot, data, xlsx) => {
-  const fileReader = new FileReader();
-  if (ext === 'xlsx') {
-    fileReader.readAsBinaryString(file);
-  } else if (ext === 'csv' || ext === 'tsv') {
-    fileReader.readAsText(file);
-  } else {
-    return;
-  }
+const parseFile = (file, ext, xlsx) => {
+  return new Promise((resolve) => {
+    const fileReader = new FileReader();
+    if (ext === 'xlsx') {
+      fileReader.readAsBinaryString(file);
+    } else if (ext === 'csv' || ext === 'tsv') {
+      fileReader.readAsText(file);
+    } else {
+      return;
+    }
 
-  fileReader.onload = (e) => {
-    const workbook = xlsx.read(e.target.result, {type: 'binary'});
-    const worksheet = updateSheetRange(workbook.Sheets[workbook.SheetNames[0]]);
-    const params = [worksheet, {header: 1, blankrows: false, raw: false}];
-    const matrix = xlsx.utils.sheet_to_json(...params);
-    const mappedMatrix = mapImportData(matrix, data);
-    hot.loadData(changeCases(mappedMatrix, hot, data));
-  }
+    fileReader.onload = (e) => {
+      const workbook = xlsx.read(e.target.result, {type: 'binary'});
+      const worksheet = updateSheetRange(workbook.Sheets[workbook.SheetNames[0]]);
+      const params = [worksheet, {header: 1, blankrows: false, raw: false}];
+      resolve(xlsx.utils.sheet_to_json(...params));
+    }
+  });
 };
 
 /**
@@ -362,6 +361,16 @@ const updateSheetRange = (worksheet) => {
 }
 
 /**
+ * TODO
+ */
+const compareMatrixHeadersToGrid = (matrix, data) => {
+  const expectedSecondRow = getFlatHeaders(data)[1];
+  const actualSecondRow = matrix[1];
+  return JSON.stringify(expectedSecondRow) === JSON.stringify(actualSecondRow);
+};
+
+/**
+ * TODO
  * Maps matrices of previous validator versions with current version.
  * The matrix to map must have its header rows. If the matrix is missing a
  * column from the most recent version, a blank column is used.
@@ -370,10 +379,8 @@ const updateSheetRange = (worksheet) => {
  * @return {Array<Array<String>>} Matrix with columns in same order as current
  *     version.
  */
-const mapImportData = (matrix, data) => {
-  // Second row of headers in current validator version
+const mapMatrixToGrid = (matrix, data) => {
   const expectedSecondRow = getFlatHeaders(data)[1];
-  // Second row of headers in matrix to map
   const actualSecondRow = matrix[1];
 
   // Map current column indices to their indices in matrix to map
@@ -394,7 +401,7 @@ const mapImportData = (matrix, data) => {
     }
   }
 
-  return mappedMatrix.slice(2);
+  return mappedMatrix;
 };
 
 /**
@@ -589,7 +596,16 @@ $(document).ready(() => {
       $('#open-error-modal').modal('show');
     } else {
       window.INVALID_CELLS = {};
-      importFile(file, ext, HOT, DATA, XLSX);
+      parseFile(file, ext, XLSX)
+          .then((matrix) => {
+            if (compareMatrixHeadersToGrid(matrix, DATA)) {
+              HOT.loadData(changeCases(matrix.slice(2), HOT, DATA));
+            } else {
+              // TODO ask user which row has their headers
+              const mappedMatrix = mapMatrixToGrid(matrix, DATA);
+              HOT.loadData(changeCases(mappedMatrix.slice(2), HOT, DATA));
+            }
+          });
     }
 
     // Allow consecutive uploads of the same file
