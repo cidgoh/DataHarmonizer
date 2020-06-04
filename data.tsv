@@ -19,41 +19,41 @@ ID	SC %
 	Sample collection and processing	sequence submitter contact address	text			The mailing address of the agency submitting the sequence.	The mailing address should be in the format: Street number and name, City, Province/Territory, Postal Code, Country	123 Sunnybrooke St, Toronto, Ontario, M4P 1L6, Canada
 	Sample collection and processing	sample collection date	date	required		The date on which the sample was collected.	ISO 8601 standard "YYYY-MM-DD", "YYYY-MM" or "YYYY". If "sample collection date" cannot be obtained, "sample received date" can be substituted in the mininal metadata requirements. If "sample collection date" is considered identifiable, it is acceptable to obfuscate the date by adjusting it a day forward or behind.	2020-03-16
 	Sample collection and processing	sample received date	date			The date on which the sample was received.	ISO 8601 standard "YYYY-MM-DD", "YYYY-MM" or "YYYY".	2020-03-20
-	Sample collection and processing	geo_loc_name (country)	select	required	Title	The country where the sample was collected.	Provide the country name from the controlled vocabulary provided.	Canada
-	Sample collection and processing	geo_loc_name (province/territory)	select	required	Title	The province/territory where the sample was collected.	Provide the province/territory name from the controlled vocabulary provided.	Saskatchewan
+	Sample collection and processing	geo_loc_name (country)	select	required		The country where the sample was collected.	Provide the country name from the controlled vocabulary provided.	Canada
+	Sample collection and processing	geo_loc_name (province/territory)	select	required		The province/territory where the sample was collected.	Provide the province/territory name from the controlled vocabulary provided.	Saskatchewan
 	Sample collection and processing	geo_loc_name (city)	text			The city where the sample was collected.	Provide the city name. Use this look-up service to identify the standardized term: https://www.ebi.ac.uk/ols/ontologies/gaz	Medicine Hat
 	Sample collection and processing	organism	select	required		Taxonomic name of the organism.	Use SARS-CoV-2. This value is provided in the template.	SARS-CoV-2
-	Sample collection and processing	isolate	text	required	Title	Identifier of the specific isolate.	Provide the isolate name. This identifer should be an unique, indexed, alpha-numeric ID within your laboratory. The isolate name is often the same as the specimen collector sample ID.	prov_rona_99
-	Sample collection and processing	purpose of sampling	select	recommended	Title	The reason that the sample was collected.	Provide the purpose of sampling from the picklist in the template.	Diagnostic testing
-	Sample collection and processing	anatomical material	select	required	Title	A substance obtained from an anatomical part of an organism e.g. tissue, blood.	Provide a descriptor if an anatomical material was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, use this look-up service to identify a standardized term: https://www.ebi.ac.uk/ols/ontologies/uberon. If not applicable, leave blank.	Blood
-	Sample collection and processing	anatomical part	select	required	Title	An anatomical part of an organism e.g. oropharynx.	Provide a descriptor if an anatomical part was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, use this look-up service to identify a standardized term: https://www.ebi.ac.uk/ols/ontologies/uberon. If not applicable, leave blank.	Nasopharynx
-	Sample collection and processing	body product	select	required	Title	A substance excreted/secreted from an organism e.g. feces, urine, sweat.	Provide a descriptor if a body product was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, use this look-up service to identify a standardized term: https://www.ebi.ac.uk/ols/ontologies/uberon. If not applicable, leave blank.	Feces
-	Sample collection and processing	environmental material	select	required	Title	A substance obtained from the natural or man-made environment e.g. soil, water, sewage.	Provide a descriptor if an environmental material was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, use this look-up service to identify a standardized term: https://www.ebi.ac.uk/ols/ontologies/envo. If not applicable, leave blank.	Face mask
-	Sample collection and processing	environmental site	select	required	Title	An environmental location may describe a site in the natural or built environment e.g. contact surface, metal can, hospital, wet market, bat cave.	Provide a descriptor if an environmental site was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, use this look-up service to identify a standardized term: https://www.ebi.ac.uk/ols/ontologies/envo. If not applicable, leave blank.	Building floor
-	Sample collection and processing	collection device	select	required	Title	The instrument or container used to collect the sample e.g. swab.	Provide a descriptor if a device was used for sampling. Use the picklist provided in the template. If a desired term is missing from the picklist, use this look-up service to identify a standardized term: https://www.ebi.ac.uk/ols/ontologies/obi. If not applicable, leave blank.	Swab
-	Sample collection and processing	collection method	select	required	Title	The process used to collect the sample e.g. phlebotamy, necropsy.	Provide a descriptor if a collection method was used for sampling. Use the picklist provided in the template. If a desired term is missing from the picklist, use this look-up service to identify a standardized term: https://www.ebi.ac.uk/ols/ontologies/obi. If not applicable, leave blank.	Bronchoalveolar lavage (BAL)
+	Sample collection and processing	isolate	text	required		Identifier of the specific isolate.	Provide the isolate name. This identifer should be an unique, indexed, alpha-numeric ID within your laboratory. The isolate name is often the same as the specimen collector sample ID.	prov_rona_99
+	Sample collection and processing	purpose of sampling	select	recommended		The reason that the sample was collected.	Provide the purpose of sampling from the picklist in the template.	Diagnostic testing
+	Sample collection and processing	anatomical material	select	required		A substance obtained from an anatomical part of an organism e.g. tissue, blood.	Provide a descriptor if an anatomical material was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, use this look-up service to identify a standardized term: https://www.ebi.ac.uk/ols/ontologies/uberon. If not applicable, leave blank.	Blood
+	Sample collection and processing	anatomical part	select	required		An anatomical part of an organism e.g. oropharynx.	Provide a descriptor if an anatomical part was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, use this look-up service to identify a standardized term: https://www.ebi.ac.uk/ols/ontologies/uberon. If not applicable, leave blank.	Nasopharynx
+	Sample collection and processing	body product	select	required		A substance excreted/secreted from an organism e.g. feces, urine, sweat.	Provide a descriptor if a body product was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, use this look-up service to identify a standardized term: https://www.ebi.ac.uk/ols/ontologies/uberon. If not applicable, leave blank.	Feces
+	Sample collection and processing	environmental material	select	required		A substance obtained from the natural or man-made environment e.g. soil, water, sewage.	Provide a descriptor if an environmental material was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, use this look-up service to identify a standardized term: https://www.ebi.ac.uk/ols/ontologies/envo. If not applicable, leave blank.	Face mask
+	Sample collection and processing	environmental site	select	required		An environmental location may describe a site in the natural or built environment e.g. contact surface, metal can, hospital, wet market, bat cave.	Provide a descriptor if an environmental site was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, use this look-up service to identify a standardized term: https://www.ebi.ac.uk/ols/ontologies/envo. If not applicable, leave blank.	Building floor
+	Sample collection and processing	collection device	select	required		The instrument or container used to collect the sample e.g. swab.	Provide a descriptor if a device was used for sampling. Use the picklist provided in the template. If a desired term is missing from the picklist, use this look-up service to identify a standardized term: https://www.ebi.ac.uk/ols/ontologies/obi. If not applicable, leave blank.	Swab
+	Sample collection and processing	collection method	select	required		The process used to collect the sample e.g. phlebotamy, necropsy.	Provide a descriptor if a collection method was used for sampling. Use the picklist provided in the template. If a desired term is missing from the picklist, use this look-up service to identify a standardized term: https://www.ebi.ac.uk/ols/ontologies/obi. If not applicable, leave blank.	Bronchoalveolar lavage (BAL)
 	Sample collection and processing	collection protocol	text			The name and version of a particular protocol used for sampling.	Free text.	BCRonaSamplingProtocol v. 1.2
-	Sample collection and processing	specimen processing	multiple	recommended	Title	Any processing applied to the sample during or after receiving the sample.	Critical for interpreting data. Select all the applicable processes from the pick list. If virus was passaged, include information in "lab host", "passage number", and "passage method" fields. If none of the processes in the pick list apply, put "not applicable".	Virus passage
-	Sample collection and processing	lab host	select	recommended	Title	Name and description of the laboratory host used to propagate the source organism or material from which the sample was obtained.	Type of cell line used for propagation. Provide the name of the cell line using the picklist in the template. If not passaged, put "not applicable".	Vero E6 cell line
+	Sample collection and processing	specimen processing	multiple	recommended		Any processing applied to the sample during or after receiving the sample.	Critical for interpreting data. Select all the applicable processes from the pick list. If virus was passaged, include information in "lab host", "passage number", and "passage method" fields. If none of the processes in the pick list apply, put "not applicable".	Virus passage
+	Sample collection and processing	lab host	select	recommended		Name and description of the laboratory host used to propagate the source organism or material from which the sample was obtained.	Type of cell line used for propagation. Provide the name of the cell line using the picklist in the template. If not passaged, put "not applicable".	Vero E6 cell line
 	Sample collection and processing	passage number	integer	recommended		Number of passages.	Provide number of known passages. If not passaged, put "not applicable"	3
 	Sample collection and processing	passage method	text	recommended		Description of how organism was passaged.	Free text. Provide a very short description (<10 words). If not passaged, put "not applicable".	
-	Sample collection and processing	biomaterial extracted	select		Title	The biomaterial extracted from samples for the purpose of sequencing.	Provide the biomaterial extracted from the picklist in the template.	RNA (total)
+	Sample collection and processing	biomaterial extracted	select			The biomaterial extracted from samples for the purpose of sequencing.	Provide the biomaterial extracted from the picklist in the template.	RNA (total)
 		Host Information						
-	Host Information	host (common name)	select		Title	The commonly used name of the host.	Common name or scientific name are required if there was a host. Both can be provided, if known. Use terms from the pick lists in the template. Common name e.g. human, bat. If the sample was environmental, put "not applicable.	Human
+	Host Information	host (common name)	select			The commonly used name of the host.	Common name or scientific name are required if there was a host. Both can be provided, if known. Use terms from the pick lists in the template. Common name e.g. human, bat. If the sample was environmental, put "not applicable.	Human
 	Host Information	host (scientific name)	select	required		The taxonomic, or scientific name of the host.	Common name or scientific name are required if there was a host. Both can be provided, if known. Use terms from the pick lists in the template. Scientific name e.g. Homo sapiens, If the sample was environmental, put "not applicable	Homo sapiens
-	Host Information	host health state	select	required	Title	Health status of the host at the time of sample collection.	If known, select a descriptor from the pick list provided in the template.	sick
+	Host Information	host health state	select	required		Health status of the host at the time of sample collection.	If known, select a descriptor from the pick list provided in the template.	sick
 	Host Information	host health status details	select			Further details pertaining to the health or disease status of the host at time of collection.	If known, select a descriptor from the pick list provided in the template.	Hospitalized (ICU)
-	Host Information	host disease	select	required	Title	The name of the disease experienced by the host.	Select "COVID-19" from the pick list provided in the template.	COVID-19
+	Host Information	host disease	select	required		The name of the disease experienced by the host.	Select "COVID-19" from the pick list provided in the template.	COVID-19
 	Host Information	host age	decimal	required		Age of host at the time of sampling.	Enter the age of the host in years. If not available, put "unknown".	79
-	Host Information	host gender	select	required	Title	The gender of the host at the time of sample collection.	Select the corresponding host gender from the pick list provided in the template. If not available, put "unknown".	male
-	Host Information	host origin geo_loc name (country)	select		Title	The country of residence of the host.	Select the country name from pick list provided in the template.	United Kingdom
+	Host Information	host gender	select	required		The gender of the host at the time of sample collection.	Select the corresponding host gender from the pick list provided in the template. If not available, put "unknown".	male
+	Host Information	host origin geo_loc name (country)	select			The country of residence of the host.	Select the country name from pick list provided in the template.	United Kingdom
 	Host Information	host subject ID	text			A unique identifier by which each host can be referred to e.g. #131	Provide the host identifier. Should be a unique, user-defined identifier.	BCxy123
 	Host Information	symptom onset date	date			The date on which the symptoms began or were first noted.	ISO 8601 standard "YYYY-MM-DD", "YYYY-MM" or "YYYY"	2020-03-16
-	Host Information	signs and symptoms	multiple			A perceived change in function or sensation, (loss, disturbance or appearance) indicative of a disease, reported by a patient.	Select all of the symptoms experienced by the host form the pick list.	Cough, Fever, Chills
+	Host Information	signs and symptoms	multiple			A perceived change in function or sensation, (loss, disturbance or appearance) indicative of a disease, reported by a patient.	Select all of the symptoms experienced by the host form the pick list.	Cough; Fever; Chills
 		Host exposure information						
-	Host exposure information	location of exposure geo_loc name (country)	select		Title	The country where the host was likely exposed to the causative agent of the illness.	Select the country name from pick list provided in the template.	Canada
+	Host exposure information	location of exposure geo_loc name (country)	select			The country where the host was likely exposed to the causative agent of the illness.	Select the country name from pick list provided in the template.	Canada
 	Host exposure information	travel history	text			Travel outside the country in last six months.	Specify the countries (and more granular locations if known, separated by a comma) travelled in the last six months; can include multiple travels. Separate multiple travel events with a semi-colon. List most recent travel first.	Canada, Vancouver; USA, Seattle; Italy, Milan
-	Host exposure information	exposure event	select		Title	Event leading to exposure.	Select an exposure event from the pick list provided in the template. If the desired term is missing, contact the curation team.	Mass gathering (convention)
+	Host exposure information	exposure event	select			Event leading to exposure.	Select an exposure event from the pick list provided in the template. If the desired term is missing, contact the curation team.	Mass gathering (convention)
 		Sequencing						
 	Sequencing	library ID	text	recommended		The user-specified identifier for the library prepared for sequencing.	The library name should be unique, and can be an autogenerated ID from your LIMS, or modification of the isolate ID.	XYZ_123345
 	Sequencing	MinIon barcode	text			The barcode of the MinIon unit used for sequencing.	Provide the barcode of the MinIon used for sequencing the sample.	
@@ -107,15 +107,15 @@ GAZ_00002566	geo_loc_name (province/territory)	Alberta
 GAZ_00002562	geo_loc_name (province/territory)	British Columbia						
 GAZ_00002571	geo_loc_name (province/territory)	Manitoba						
 GAZ_00002570	geo_loc_name (province/territory)	New Brunswick						
-GAZ_00002561	geo_loc_name (province/territory)	Newfoundland						
-GAZ_00002567	geo_loc_name (province/territory)	Northwest Territories						
+GAZ_00002567	geo_loc_name (province/territory)	Newfoundland						
+GAZ_00002575	geo_loc_name (province/territory)	Northwest Territories						
 GAZ_00002565	geo_loc_name (province/territory)	Nova Scotia						
 GAZ:00002574	geo_loc_name (province/territory)	Nunavut						
 GAZ_00002563	geo_loc_name (province/territory)	Ontario						
 GAZ_00002572	geo_loc_name (province/territory)	Prince Edward Island						
-GAZ_00002566	geo_loc_name (province/territory)	Quebec						
-GAZ_00002569	geo_loc_name (province/territory)	Saskatchewan						
-GAZ_00002564	geo_loc_name (province/territory)	Yukon Territory						
+GAZ_00002569	geo_loc_name (province/territory)	Quebec						
+GAZ_00002564	geo_loc_name (province/territory)	Saskatchewan						
+GAZ_00002576	geo_loc_name (province/territory)	Yukon Territory						
 	geo_loc_name (province/territory)	Missing						
 								
 	biomaterial extracted	RNA (total)						
@@ -168,7 +168,6 @@ HP_0001324	signs and symptoms	Weakness
 								
 UBERON_0000178	anatomical material	Blood						
 UBERON_0006314	anatomical material	Fluid						
-								
 UBERON_0001836	Fluid	   Saliva						
 UBERON_0001359	Fluid	   Fluid (cerebrospinal (CSF))						
 UBERON_0002409	Fluid	   Fluid (pericardial)						
@@ -211,6 +210,7 @@ UBERON_0000912	body product	Mucus
 UBERON_0007311	Mucus	   Sputum						
 UBERON_0001827	body product	Tear						
 UBERON_0006530	Fluid	   Fluid (seminal)						
+UBERON_0001913	body product	Breast Milk						
 	body product	Missing						
 								
 								
@@ -325,7 +325,7 @@ NCBITaxon_9694	host (scientific name)	Panthera tigris
 NCBITaxon_58055 	host (scientific name)	Rhinolophidae						
 NCBITaxon_59477	host (scientific name)	Rhinolophus affinis						
 NCBITaxon_9825	host (scientific name)	Sus scrofa domesticus						
-NCBITaxon_379583	host (scientific name)	Viverridae						
+NCBITaxon_9673	host (scientific name)	Viverridae						
 	host (scientific name)	Missing						
 								
 								
@@ -333,7 +333,7 @@ NCBITaxon_9605	host (common name)	Human
 NCBITaxon_9397	host (common name)	Bat						
 NCBITaxon_9685	host (common name)	Cat						
 NCBITaxon_9031	host (common name)	Chicken						
-NCBITaxon_379583	host (common name)	Civets						
+NCBITaxon_9673	host (common name)	Civets						
 NCBITaxon_9913	host (common name)	Cow						
 NCBITaxon_9615 	host (common name)	Dog						
 NCBITaxon_9689	host (common name)	Lion						
@@ -725,7 +725,7 @@ GAZ_00002931	geo_loc_name (country)	Venezuela
 GAZ_00003756	geo_loc_name (country)	Viet Nam						
 GAZ_00003959	geo_loc_name (country)	Virgin Islands						
 GAZ_00007111	geo_loc_name (country)	Wake Island						
-GAZ_00007192	geo_loc_name (country)	Wallis and Futuna						
+GAZ_00007191	geo_loc_name (country)	Wallis and Futuna						
 GAZ_00009572	geo_loc_name (country)	West Bank						
 GAZ_00000564	geo_loc_name (country)	Western Sahara						
 GAZ_00005284	geo_loc_name (country)	Yemen						
