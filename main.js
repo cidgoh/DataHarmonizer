@@ -371,6 +371,15 @@ const compareMatrixHeadersToGrid = (matrix, data) => {
 
 /**
  * TODO
+ * @param matrix
+ * @param row
+ */
+const isValidHeaderRow = (matrix, row) => {
+  return Number.isInteger(row) && row > 0 && row <= matrix.length;
+};
+
+/**
+ * TODO
  * Maps matrices of previous validator versions with current version.
  * The matrix to map must have its header rows. If the matrix is missing a
  * column from the most recent version, a blank column is used.
@@ -589,7 +598,6 @@ $(document).ready(() => {
     const file = $fileInput[0].files[0];
     const ext = file.name.split('.').pop();
     const acceptedExts = ['xlsx', 'tsv', 'csv'];
-
     if (!acceptedExts.includes(ext)) {
       const errMsg = `Only ${acceptedExts.join(', ')} files are supported`;
       $('#open-err-msg').text(errMsg);
@@ -601,17 +609,30 @@ $(document).ready(() => {
             if (compareMatrixHeadersToGrid(matrix, DATA)) {
               HOT.loadData(changeCases(matrix.slice(2), HOT, DATA));
             } else {
-              $('#specify-headers-input').empty();
               $('#specify-headers-modal').modal('show');
-              // TODO process input + error handling
-              // const mappedMatrix = mapMatrixToGrid(matrix, DATA);
-              // HOT.loadData(changeCases(mappedMatrix.slice(2), HOT, DATA));
+              $('#specify-headers-confirm-btn').click(() => {
+                const specifiedHeaderRow =
+                    parseInt($('#specify-headers-input').val());
+                if (!isValidHeaderRow(matrix, specifiedHeaderRow)) {
+                  $('#specify-headers-err-msg').show();
+                } else {
+                  // TODO: use specified input for mapping
+                  const mappedMatrix = mapMatrixToGrid(matrix, DATA);
+                  HOT.loadData(changeCases(mappedMatrix.slice(2), HOT, DATA));
+                  $('#specify-headers-modal').modal('hide');
+                }
+              });
             }
           });
     }
-
     // Allow consecutive uploads of the same file
     $fileInput[0].value = '';
+  });
+  // Reset specify header modal values when the modal is closed
+  $('#specify-headers-modal').on('hidden.bs.modal', () => {
+    $('#specify-headers-input').val('1');
+    $('#specify-headers-err-msg').hide();
+    $('#specify-headers-confirm-btn').unbind();
   });
 
   // File -> Save
