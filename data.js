@@ -672,8 +672,7 @@ const DATA = [
           "Water": {},
           "Window": {},
           "Wood": {},
-          "Missing": {},
-          "Bathroom": {}
+          "Missing": {}
         }
       },
       {
@@ -689,6 +688,7 @@ const DATA = [
           "Acute care facility": {},
           "Air vent": {},
           "Animal house": {},
+          "Bathroom": {},
           "Clinical assessment centre": {},
           "Conference venue": {},
           "Daycare": {},
