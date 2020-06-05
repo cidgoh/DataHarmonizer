@@ -312,32 +312,31 @@ const exportFile = (matrix, baseName, ext, xlsx) => {
 };
 
 /**
- * Upload user file data to grid. We are are assuming the uploaded file has the
- * same headers as our grid.
+ * Read local file opened by user.
+ * Only reads `xlsx`, `csv` and `tsv` files.
  * @param {File} file User file.
  * @param {String} ext User file extension.
- * @param {Object} hot Handsontable instance of grid.
- * @param {Object} data See `data.js`.
  * @param {Object} xlsx SheetJS variable.
+ * @return {Array<Array<String>>} Matrix populated by data in user's file.
  */
-const importFile = (file, ext, hot, data, xlsx) => {
-  const fileReader = new FileReader();
-  if (ext === 'xlsx') {
-    fileReader.readAsBinaryString(file);
-  } else if (ext === 'csv' || ext === 'tsv') {
-    fileReader.readAsText(file);
-  } else {
-    return;
-  }
+const parseFile = (file, ext, xlsx) => {
+  return new Promise((resolve) => {
+    const fileReader = new FileReader();
+    if (ext === 'xlsx') {
+      fileReader.readAsBinaryString(file);
+    } else if (ext === 'csv' || ext === 'tsv') {
+      fileReader.readAsText(file);
+    } else {
+      return;
+    }
 
-  fileReader.onload = (e) => {
-    const workbook = xlsx.read(e.target.result, {type: 'binary'});
-    const worksheet = updateSheetRange(workbook.Sheets[workbook.SheetNames[0]]);
-    const params = [worksheet, {header: 1, blankrows: false, raw: false}];
-    const matrix = xlsx.utils.sheet_to_json(...params);
-    const mappedMatrix = mapImportData(matrix, data);
-    hot.loadData(changeCases(mappedMatrix, hot, data));
-  }
+    fileReader.onload = (e) => {
+      const workbook = xlsx.read(e.target.result, {type: 'binary'});
+      const worksheet = updateSheetRange(workbook.Sheets[workbook.SheetNames[0]]);
+      const params = [worksheet, {header: 1, blankrows: false, raw: false}];
+      resolve(xlsx.utils.sheet_to_json(...params));
+    }
+  });
 };
 
 /**
@@ -362,25 +361,45 @@ const updateSheetRange = (worksheet) => {
 }
 
 /**
- * Maps matrices of previous validator versions with current version.
- * The matrix to map must have its header rows. If the matrix is missing a
- * column from the most recent version, a blank column is used.
- * @param {Array<Array<String>>} matrix Matrix to map to current version.
+ * Determine if a matrix has the same headers as the grid.
+ * @param {Array<Array<String>>} matrix
  * @param {Object} data See `data.js`.
- * @return {Array<Array<String>>} Matrix with columns in same order as current
- *     version.
+ * @return {Boolean} True if the matrix's second row matches the grid.
  */
-const mapImportData = (matrix, data) => {
-  // Second row of headers in current validator version
+const compareMatrixHeadersToGrid = (matrix, data) => {
   const expectedSecondRow = getFlatHeaders(data)[1];
-  // Second row of headers in matrix to map
   const actualSecondRow = matrix[1];
+  return JSON.stringify(expectedSecondRow) === JSON.stringify(actualSecondRow);
+};
+
+/**
+ * Validates `$('#specify-headers-input')` input.
+ * @param {Array<Array<String>>} matrix
+ * @param {number} row 1-based index used to indicate header row in matrix.
+ */
+const isValidHeaderRow = (matrix, row) => {
+  return Number.isInteger(row) && row > 0 && row <= matrix.length;
+};
+
+/**
+ * Map matrix columns to grid columns.
+ * Currently assumes mapped columns will have the same label, but allows them
+ * to be in a different order. If the matrix is missing a column, a blank
+ * column is used.
+ * @param {Array<Array<String>>} matrix
+ * @param {Number} matrixHeaderRow Row containing matrix's column labels.
+ * @param {Object} data See `data.js`.
+ * @return {Array<Array<String>>} Mapped matrix.
+ */
+const mapMatrixToGrid = (matrix, matrixHeaderRow, data) => {
+  const expectedHeaders = getFlatHeaders(data)[1];
+  const actualHeaders = matrix[matrixHeaderRow];
 
   // Map current column indices to their indices in matrix to map
   const headerMap = {};
-  for (const [expectedIndex, expectedVal] of expectedSecondRow.entries()) {
+  for (const [expectedIndex, expectedVal] of expectedHeaders.entries()) {
     headerMap[expectedIndex] =
-        actualSecondRow.findIndex((actualVal) => actualVal === expectedVal);
+        actualHeaders.findIndex((actualVal) => actualVal === expectedVal);
   }
 
   const mappedMatrix = [];
@@ -388,13 +407,13 @@ const mapImportData = (matrix, data) => {
   for (const i of matrix.keys()) {
     mappedMatrix[i] = [];
     // Iterate over columns in current validator version
-    for (const j of expectedSecondRow.keys()) {
+    for (const j of expectedHeaders.keys()) {
       // -1 means the matrix to map does not have this column
       mappedMatrix[i][j] = headerMap[j] === -1 ? '' : matrix[i][headerMap[j]];
     }
   }
 
-  return mappedMatrix.slice(2);
+  return mappedMatrix;
 };
 
 /**
@@ -582,18 +601,40 @@ $(document).ready(() => {
     const file = $fileInput[0].files[0];
     const ext = file.name.split('.').pop();
     const acceptedExts = ['xlsx', 'tsv', 'csv'];
-
     if (!acceptedExts.includes(ext)) {
       const errMsg = `Only ${acceptedExts.join(', ')} files are supported`;
       $('#open-err-msg').text(errMsg);
       $('#open-error-modal').modal('show');
     } else {
       window.INVALID_CELLS = {};
-      importFile(file, ext, HOT, DATA, XLSX);
+      parseFile(file, ext, XLSX)
+          .then((matrix) => {
+            if (compareMatrixHeadersToGrid(matrix, DATA)) {
+              HOT.loadData(changeCases(matrix.slice(2), HOT, DATA));
+            } else {
+              $('#specify-headers-modal').modal('show');
+              $('#specify-headers-confirm-btn').click(() => {
+                const specifiedHeaderRow =
+                    parseInt($('#specify-headers-input').val());
+                if (!isValidHeaderRow(matrix, specifiedHeaderRow)) {
+                  $('#specify-headers-err-msg').show();
+                } else {
+                  const mappedMatrix =
+                      mapMatrixToGrid(matrix, specifiedHeaderRow-1, DATA);
+                  HOT.loadData(changeCases(mappedMatrix.slice(2), HOT, DATA));
+                  $('#specify-headers-modal').modal('hide');
+                }
+              });
+            }
+          });
     }
-
     // Allow consecutive uploads of the same file
     $fileInput[0].value = '';
+  });
+  // Reset specify header modal values when the modal is closed
+  $('#specify-headers-modal').on('hidden.bs.modal', () => {
+    $('#specify-headers-err-msg').hide();
+    $('#specify-headers-confirm-btn').unbind();
   });
 
   // File -> Save
