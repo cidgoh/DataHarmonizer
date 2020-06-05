@@ -312,12 +312,12 @@ const exportFile = (matrix, baseName, ext, xlsx) => {
 };
 
 /**
- * TODO
- * Upload user file data to grid. We are are assuming the uploaded file has the
- * same headers as our grid.
+ * Read local file opened by user.
+ * Only reads `xlsx`, `csv` and `tsv` files.
  * @param {File} file User file.
  * @param {String} ext User file extension.
  * @param {Object} xlsx SheetJS variable.
+ * @return {Array<Array<String>>} Matrix populated by data in user's file.
  */
 const parseFile = (file, ext, xlsx) => {
   return new Promise((resolve) => {
@@ -361,7 +361,10 @@ const updateSheetRange = (worksheet) => {
 }
 
 /**
- * TODO
+ * Determine if a matrix has the same headers as the grid.
+ * @param {Array<Array<String>>} matrix
+ * @param {Object} data See `data.js`.
+ * @return {Boolean} True if the matrix's second row matches the grid.
  */
 const compareMatrixHeadersToGrid = (matrix, data) => {
   const expectedSecondRow = getFlatHeaders(data)[1];
@@ -370,23 +373,23 @@ const compareMatrixHeadersToGrid = (matrix, data) => {
 };
 
 /**
- * TODO
- * @param matrix
- * @param row
+ * Validates `$('#specify-headers-input')` input.
+ * @param {Array<Array<String>>} matrix
+ * @param {number} row 1-based index used to indicate header row in matrix.
  */
 const isValidHeaderRow = (matrix, row) => {
   return Number.isInteger(row) && row > 0 && row <= matrix.length;
 };
 
 /**
- * TODO
- * Maps matrices of previous validator versions with current version.
- * The matrix to map must have its header rows. If the matrix is missing a
- * column from the most recent version, a blank column is used.
- * @param {Array<Array<String>>} matrix Matrix to map to current version.
+ * Map matrix columns to grid columns.
+ * Currently assumes mapped columns will have the same label, but allows them
+ * to be in a different order. If the matrix is missing a column, a blank
+ * column is used.
+ * @param {Array<Array<String>>} matrix
+ * @param {Number} matrixHeaderRow Row containing matrix's column labels.
  * @param {Object} data See `data.js`.
- * @return {Array<Array<String>>} Matrix with columns in same order as current
- *     version.
+ * @return {Array<Array<String>>} Mapped matrix.
  */
 const mapMatrixToGrid = (matrix, matrixHeaderRow, data) => {
   const expectedHeaders = getFlatHeaders(data)[1];
