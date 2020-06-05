@@ -388,15 +388,15 @@ const isValidHeaderRow = (matrix, row) => {
  * @return {Array<Array<String>>} Matrix with columns in same order as current
  *     version.
  */
-const mapMatrixToGrid = (matrix, data) => {
-  const expectedSecondRow = getFlatHeaders(data)[1];
-  const actualSecondRow = matrix[1];
+const mapMatrixToGrid = (matrix, matrixHeaderRow, data) => {
+  const expectedHeaders = getFlatHeaders(data)[1];
+  const actualHeaders = matrix[matrixHeaderRow];
 
   // Map current column indices to their indices in matrix to map
   const headerMap = {};
-  for (const [expectedIndex, expectedVal] of expectedSecondRow.entries()) {
+  for (const [expectedIndex, expectedVal] of expectedHeaders.entries()) {
     headerMap[expectedIndex] =
-        actualSecondRow.findIndex((actualVal) => actualVal === expectedVal);
+        actualHeaders.findIndex((actualVal) => actualVal === expectedVal);
   }
 
   const mappedMatrix = [];
@@ -404,7 +404,7 @@ const mapMatrixToGrid = (matrix, data) => {
   for (const i of matrix.keys()) {
     mappedMatrix[i] = [];
     // Iterate over columns in current validator version
-    for (const j of expectedSecondRow.keys()) {
+    for (const j of expectedHeaders.keys()) {
       // -1 means the matrix to map does not have this column
       mappedMatrix[i][j] = headerMap[j] === -1 ? '' : matrix[i][headerMap[j]];
     }
@@ -616,8 +616,8 @@ $(document).ready(() => {
                 if (!isValidHeaderRow(matrix, specifiedHeaderRow)) {
                   $('#specify-headers-err-msg').show();
                 } else {
-                  // TODO: use specified input for mapping
-                  const mappedMatrix = mapMatrixToGrid(matrix, DATA);
+                  const mappedMatrix =
+                      mapMatrixToGrid(matrix, specifiedHeaderRow-1, DATA);
                   HOT.loadData(changeCases(mappedMatrix.slice(2), HOT, DATA));
                   $('#specify-headers-modal').modal('hide');
                 }
@@ -630,7 +630,6 @@ $(document).ready(() => {
   });
   // Reset specify header modal values when the modal is closed
   $('#specify-headers-modal').on('hidden.bs.modal', () => {
-    $('#specify-headers-input').val('1');
     $('#specify-headers-err-msg').hide();
     $('#specify-headers-confirm-btn').unbind();
   });
