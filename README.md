@@ -44,15 +44,10 @@ problems running the application, [please open an issue for discussion][1].
 This project is currently in the pre-alpha phase, and therefore still under 
 active development, with new features being added regularly.
 
-## Authors and acknowledgement
+## Acknowledgement
 
 [Handsontable](https://handsontable.com/) was used to build the grid. 
 [SheetJS](https://sheetjs.com/) was used to open and save local files.
-
-### Authors
-
-- [ivansg44](https://github.com/ivansg44)
-- [ddooley](https://github.com/ddooley)
 
 ## License
 
