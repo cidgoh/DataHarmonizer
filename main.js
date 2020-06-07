@@ -333,7 +333,7 @@ const parseFile = (file, ext, xlsx) => {
     fileReader.onload = (e) => {
       const workbook = xlsx.read(e.target.result, {type: 'binary'});
       const worksheet = updateSheetRange(workbook.Sheets[workbook.SheetNames[0]]);
-      const params = [worksheet, {header: 1, blankrows: false, raw: false}];
+      const params = [worksheet, {header: 1, raw: false}];
       resolve(xlsx.utils.sheet_to_json(...params));
     }
   });
