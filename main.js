@@ -207,9 +207,7 @@ const getColumns = (data) => {
   for (const field of getFields(data)) {
     const col = {};
     if (field.requirement) col.requirement = field.requirement;
-    if (field.datatype === 'integer' || field.datatype === 'decimal') {
-      col.type = 'numeric';
-    } else if (field.datatype === 'date') {
+    if (field.datatype === 'date') {
       col.type = 'date';
       col.dateFormat = 'YYYY-MM-DD';
     } else if (field.datatype === 'select') {
@@ -507,7 +505,8 @@ const getInvalidCells = (hot, data) => {
       if (!cellVal) {
         valid = fields[col].requirement !== 'required';
       } else if (datatype === 'integer') {
-        valid = Number.isInteger(cellVal);
+        // https://stackoverflow.com/a/16799538/11472358
+        valid = !isNaN(cellVal) && parseInt(cellVal, 10).toString()===cellVal;
       } else if (datatype === 'decimal') {
         valid = !isNaN(cellVal);
       } else if (datatype === 'date') {
