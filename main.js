@@ -313,24 +313,18 @@ const exportFile = (matrix, baseName, ext, xlsx) => {
  * Read local file opened by user.
  * Only reads `xlsx`, `csv` and `tsv` files.
  * @param {File} file User file.
- * @param {String} ext User file extension.
  * @param {Object} xlsx SheetJS variable.
- * @return {Array<Array<String>>} Matrix populated by data in user's file.
+ * @return {Promise<Array<Array<String>>>} Matrix populated by user's file data.
  */
-const parseFile = (file, ext, xlsx) => {
+const parseFile = (file, xlsx) => {
   return new Promise((resolve) => {
     const fileReader = new FileReader();
-    if (ext === 'xlsx') {
-      fileReader.readAsBinaryString(file);
-    } else if (ext === 'csv' || ext === 'tsv') {
-      fileReader.readAsText(file);
-    } else {
-      return;
-    }
+    fileReader.readAsBinaryString(file);
 
     fileReader.onload = (e) => {
-      const workbook = xlsx.read(e.target.result, {type: 'binary'});
-      const worksheet = updateSheetRange(workbook.Sheets[workbook.SheetNames[0]]);
+      const workbook = xlsx.read(e.target.result, {type: 'binary', raw: true});
+      const worksheet =
+          updateSheetRange(workbook.Sheets[workbook.SheetNames[0]]);
       const params = [worksheet, {header: 1, raw: false}];
       resolve(xlsx.utils.sheet_to_json(...params));
     }
@@ -608,7 +602,7 @@ $(document).ready(() => {
       $('#open-error-modal').modal('show');
     } else {
       window.INVALID_CELLS = {};
-      parseFile(file, ext, XLSX)
+      parseFile(file, XLSX)
           .then((matrix) => {
             if (compareMatrixHeadersToGrid(matrix, DATA)) {
               HOT.loadData(changeCases(matrix.slice(2), HOT, DATA));
