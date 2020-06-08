@@ -14,6 +14,13 @@
     display: none;
 }
 
+/* Specify headers modal */
+#specify-headers-comparison-row {
+	overflow-x: auto;
+}
+#expected-headers-div, #actual-headers-div {
+	white-space: pre;
+}
 #specify-headers-err-msg {
 	display: none;
 }
