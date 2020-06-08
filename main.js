@@ -506,9 +506,11 @@ const getInvalidCells = (hot, data) => {
         valid = fields[col].requirement !== 'required';
       } else if (datatype === 'integer') {
         // https://stackoverflow.com/a/16799538/11472358
-        valid = !isNaN(cellVal) && parseInt(cellVal, 10).toString()===cellVal;
+        const parsedInt = parseInt(cellVal, 10);
+        valid =
+            !isNaN(cellVal) && parsedInt>=0 && parsedInt.toString()===cellVal;
       } else if (datatype === 'decimal') {
-        valid = !isNaN(cellVal);
+        valid = !isNaN(cellVal) && parseFloat(cellVal)>=0;
       } else if (datatype === 'date') {
         valid = moment(cellVal, 'YYYY-MM-DD', true).isValid();
       } else if (datatype === 'select') {
