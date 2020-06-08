@@ -131,7 +131,7 @@ const createHot = (data) => {
     beforeChange: function(changes, source) {
       if (!changes) return;
       for (const change of changes) {
-        const row = change[0];
+        if (!change[3]) continue;
         const col = change[1];
         change[3] = changeCase(change[3], fields[col].capitalize);
       }
