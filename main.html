@@ -123,8 +123,27 @@
           <div class="modal-body">
             <div class="container-fluid">
               <div class="row">
+                <div class="col">The headers in your imported file do not match the grid.</div>
+              </div>
+              <div class="row my-3">
                 <div class="col">
-                  <p>The headers in your imported file do not match the grid. We will try to map your headers. <b>Which row in your file has the column headers?</b></p>
+                  <div class="row">
+                    <div class="col">Expected headers</div>
+                  </div>
+                  <div class="row">
+                    <div class="col border">foo</div>
+                  </div>
+                  <div class="row">
+                    <div class="col">Actual headers</div>
+                  </div>
+                  <div class="row">
+                    <div class="col border">bar</div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <p>We will try to map your headers. <b>Which row in your file has the column headers?</b></p>
                 </div>
               </div>
               <div class="row">
