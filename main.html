@@ -123,21 +123,25 @@
           <div class="modal-body">
             <div class="container-fluid">
               <div class="row">
-                <div class="col">The headers in your imported file do not match the grid.</div>
+                <div class="col">The second row in your imported file does not match the grid.</div>
               </div>
-              <div class="row my-3">
+              <div class="row my-3 border" id="specify-headers-comparison-row">
                 <div class="col">
                   <div class="row">
-                    <div class="col">Expected headers</div>
+                    <div class="col"><b>Expected second row:</b></div>
                   </div>
                   <div class="row">
-                    <div class="col border">foo</div>
+                    <div class="col">
+                      <div id="expected-headers-div"></div>
+                    </div>
                   </div>
                   <div class="row">
-                    <div class="col">Actual headers</div>
+                    <div class="col"><b>Actual second row:</b></div>
                   </div>
                   <div class="row">
-                    <div class="col border">bar</div>
+                    <div class="col">
+                      <div id="actual-headers-div"></div>
+                    </div>
                   </div>
                 </div>
               </div>

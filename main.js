@@ -353,7 +353,7 @@ const updateSheetRange = (worksheet) => {
 }
 
 /**
- * Determine if a matrix has the same headers as the grid.
+ * Determine if a matrix has the same secondary headers as the grid.
  * @param {Array<Array<String>>} matrix
  * @param {Object} data See `data.js`.
  * @return {Boolean} True if the matrix's second row matches the grid.
@@ -607,6 +607,10 @@ $(document).ready(() => {
             if (compareMatrixHeadersToGrid(matrix, DATA)) {
               HOT.loadData(changeCases(matrix.slice(2), HOT, DATA));
             } else {
+              $('#expected-headers-div')
+                  .html(getFlatHeaders(DATA)[1].join('   '));
+              $('#actual-headers-div')
+                  .html(matrix[1].join('    '));
               $('#specify-headers-modal').modal('show');
               $('#specify-headers-confirm-btn').click(() => {
                 const specifiedHeaderRow =
@@ -628,6 +632,8 @@ $(document).ready(() => {
   });
   // Reset specify header modal values when the modal is closed
   $('#specify-headers-modal').on('hidden.bs.modal', () => {
+    $('#expected-headers-div').empty();
+    $('#actual-headers-div').empty();
     $('#specify-headers-err-msg').hide();
     $('#specify-headers-confirm-btn').unbind();
   });
