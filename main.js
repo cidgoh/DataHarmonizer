@@ -384,28 +384,35 @@ const isValidHeaderRow = (matrix, row) => {
  * @return {Array<Array<String>>} Mapped matrix.
  */
 const mapMatrixToGrid = (matrix, matrixHeaderRow, data) => {
-  const expectedHeaders = getFlatHeaders(data)[1];
-  const actualHeaders = matrix[matrixHeaderRow];
+  const expectedHeaders = getFlatHeaders(data);
+  const expectedSecondaryHeaders = expectedHeaders[1];
+  const actualSecondaryHeaders = matrix[matrixHeaderRow];
 
   // Map current column indices to their indices in matrix to map
   const headerMap = {};
-  for (const [expectedIndex, expectedVal] of expectedHeaders.entries()) {
-    headerMap[expectedIndex] =
-        actualHeaders.findIndex((actualVal) => actualVal === expectedVal);
+  for (const [i, expectedVal] of expectedSecondaryHeaders.entries()) {
+    headerMap[i] = actualSecondaryHeaders.findIndex((actualVal) => {
+      return actualVal === expectedVal;
+    });
   }
 
-  const mappedMatrix = [];
-  // Iterate over rows in matrix to map
-  for (const i of matrix.keys()) {
-    mappedMatrix[i] = [];
+  const dataRows = matrix.slice(matrixHeaderRow + 1);
+  const mappedDataRows = [];
+  // Iterate over non-header-rows in matrix to map
+  for (const i of dataRows.keys()) {
+    mappedDataRows[i] = [];
     // Iterate over columns in current validator version
-    for (const j of expectedHeaders.keys()) {
+    for (const j of expectedSecondaryHeaders.keys()) {
       // -1 means the matrix to map does not have this column
-      mappedMatrix[i][j] = headerMap[j] === -1 ? '' : matrix[i][headerMap[j]];
+      if (headerMap[j] === -1) {
+        mappedDataRows[i][j] = '';
+      } else {
+        mappedDataRows[i][j] = dataRows[i][headerMap[j]];
+      }
     }
   }
 
-  return mappedMatrix;
+  return [...expectedHeaders, ...mappedDataRows];
 };
 
 /**
