@@ -9,7 +9,7 @@ const DATA = [
         "datatype": "text",
         "requirement": "required",
         "description": "The user-defined name for the sample.",
-        "guidance": "Store the collector sample ID. Every collector sample ID from a single submitter must be unique. It can have any format, but we suggest that you make it concise, unique and consistent within your lab, and as informative as possible.",
+        "guidance": "Store the collector sample ID. If this number is considered identifiable information, provide an alternative ID. Be sure to store the key that maps between the original and alternative IDs for traceability and follow up if necessary. Every collector sample ID from a single submitter must be unique. It can have any format, but we suggest that you make it concise, unique and consistent within your lab.",
         "examples": "prov_rona_99"
       },
       {
@@ -19,7 +19,7 @@ const DATA = [
         "datatype": "text",
         "requirement": "recommended",
         "description": "The identifier assigned to the sample in the national database.",
-        "guidance": "Store the PHAC sample ID. This ID will be assigned by PHAC. The PHAC sample ID may be different than the sample ID assigned by the sample collector. It is important to track both of these for traceability.",
+        "guidance": "Store the PHAC sample ID. This ID will be assigned by PHAC. The PHAC sample ID may be different than the sample ID assigned by the sample collector. It is important to track both of these for traceability. ",
         "examples": "PHAC_123"
       },
       {
@@ -29,7 +29,7 @@ const DATA = [
         "datatype": "text",
         "requirement": "",
         "description": "The identifier assigned to a sequenced isolate in IRIDA.",
-        "guidance": "Store the IRIDA sample name. The IRIDA sample name will be created by the individual entering data into the IRIDA platform. IRIDA samples may be linked to metadata and sequence data, or just metadata alone. It is recommended that the IRIDA sample name be the same as, or contain, the specimen collector sample ID for better traceability.",
+        "guidance": "Store the IRIDA sample name. The IRIDA sample name will be created by the individual entering data into the IRIDA platform. IRIDA samples may be linked to metadata and sequence data, or just metadata alone. It is recommended that the IRIDA sample name be the same as, or contain, the specimen collector sample ID for better traceability. It is also recommended that the IRIDA sample name mirror the GISAID accession. IRIDA sample names cannot contain slashes. Slashes should be replaced by underscores. See IRIDA documentation for more information regarding special characters (https://irida.corefacility.ca/documentation/user/user/samples/#adding-a-new-sample). ",
         "examples": "prov_rona_99"
       },
       {
@@ -39,7 +39,7 @@ const DATA = [
         "datatype": "select",
         "requirement": "",
         "description": "The INSDC accession number assigned to the umbrella BioProject for the Canadian SARS-CoV-2 sequencing effort.",
-        "guidance": "Store the umbrella BioProject accession by selecting it from the pick list in the template. The umbrella BioProject accession will be identical for all CanCOGen submitters. Different provinces will have their own BioProjects, however these BioProjects will be linked under one umbrella BioProject.",
+        "guidance": "Store the umbrella BioProject accession by selecting it from the picklist in the template. The umbrella BioProject accession will be identical for all CanCOGen submitters. Different provinces will have their own BioProjects, however these BioProjects will be linked under one umbrella BioProject.",
         "examples": "PRJNA623807",
         "vocabulary": {
           "PRJNA623807": {}
@@ -52,7 +52,7 @@ const DATA = [
         "datatype": "text",
         "requirement": "",
         "description": "The INSDC accession number of the BioProject(s) to which the BioSample belongs.",
-        "guidance": "Store the BioProject accession number. BioProjects are an organizing tool that links together raw sequence data, assemblies, and their associated metadata. A valid NCBI BioProject accession has prefix PRJN e.g., PRJNA12345 and is created once at the beginning of a new sequencing project.",
+        "guidance": "Store the BioProject accession number. BioProjects are an organizing tool that links together raw sequence data, assemblies, and their associated metadata. Each province will be assigned a different bioproject accession number by the National Microbiology Lab. A valid NCBI BioProject accession has prefix PRJN e.g., PRJNA12345, and is created once at the beginning of a new sequencing project. ",
         "examples": "PRJNA608651"
       },
       {
@@ -107,7 +107,7 @@ const DATA = [
         "datatype": "text",
         "requirement": "required",
         "description": "The name of the agency that collected the original sample.",
-        "guidance": "The name of the agency should be written out in full, (with minor exceptions) and be consistent across multple submissions e.g. Public Health Agency of Canada, Public Health Ontario, BC Centre for Disease Control",
+        "guidance": "The name of the sample collector should be written out in full, (with minor exceptions) and be consistent across multple submissions e.g. Public Health Agency of Canada, Public Health Ontario, BC Centre for Disease Control. The sample collector specified is at the discretion of the data provider (i.e. may be hospital, provincial public health lab, or other).",
         "examples": "BC Centre for Disease Control"
       },
       {
@@ -137,7 +137,7 @@ const DATA = [
         "datatype": "text",
         "requirement": "required",
         "description": "The name of the agency that generated the sequence.",
-        "guidance": "The name of the agency should be written out in full, (with minor exceptions) and be consistent across multple submissions e.g. Public Health Agency of Canada, Public Health Ontario, BC Centre for Disease Control",
+        "guidance": "The name of the agency should be written out in full, (with minor exceptions) and be consistent across multple submissions e.g. Public Health Agency of Canada, Public Health Ontario, BC Centre for Disease Control.",
         "examples": "Public Health Ontario"
       },
       {
@@ -167,7 +167,7 @@ const DATA = [
         "datatype": "date",
         "requirement": "required",
         "description": "The date on which the sample was collected.",
-        "guidance": "ISO 8601 standard \"YYYY-MM-DD\", \"YYYY-MM\" or \"YYYY\". If \"sample collection date\" cannot be obtained, \"sample received date\" can be substituted in the mininal metadata requirements. If \"sample collection date\" is considered identifiable, it is acceptable to obfuscate the date by adjusting it a day forward or behind.",
+        "guidance": "Sample collection date is critical for surveillance and many types of analyses. Required granularity includes year, month and day. If this date is considered identifiable information, it is acceptable to add \"jitter\" by adding or subtracting a calendar day (acceptable by GISAID). Alternatively, \u201dreceived date\u201d may be used as a substitute. The date should be provided in ISO 8601 standard format \"YYYY-MM-DD\".",
         "examples": "2020-03-16"
       },
       {
@@ -177,7 +177,7 @@ const DATA = [
         "datatype": "date",
         "requirement": "",
         "description": "The date on which the sample was received.",
-        "guidance": "ISO 8601 standard \"YYYY-MM-DD\", \"YYYY-MM\" or \"YYYY\".",
+        "guidance": "ISO 8601 standard \"YYYY-MM-DD\".",
         "examples": "2020-03-20"
       },
       {
@@ -461,6 +461,7 @@ const DATA = [
           "Yemen": {},
           "Zambia": {},
           "Zimbabwe": {},
+          "Not Applicable": {},
           "Missing": {}
         }
       },
@@ -487,6 +488,7 @@ const DATA = [
           "Quebec": {},
           "Saskatchewan": {},
           "Yukon Territory": {},
+          "Not Applicable": {},
           "Missing": {}
         }
       },
@@ -507,10 +509,10 @@ const DATA = [
         "datatype": "select",
         "requirement": "required",
         "description": "Taxonomic name of the organism.",
-        "guidance": "Use SARS-CoV-2. This value is provided in the template.",
-        "examples": "SARS-CoV-2",
+        "guidance": "Use \"Severe acute respiratory coronavirus 2\". This value is provided in the template.",
+        "examples": "Severe acute respiratory coronavirus 2",
         "vocabulary": {
-          "SARS-CoV-2": {},
+          "Severe acute respiratory virus 2": {},
           "RaTG13": {},
           "RmYN02": {},
           "Missing": {}
@@ -523,7 +525,7 @@ const DATA = [
         "datatype": "text",
         "requirement": "required",
         "description": "Identifier of the specific isolate.",
-        "guidance": "Provide the isolate name. This identifer should be an unique, indexed, alpha-numeric ID within your laboratory. The isolate name is often the same as the specimen collector sample ID.",
+        "guidance": "Provide the isolate name. This identifer should be an unique, indexed, alpha-numeric ID within your laboratory. The isolate name is often the same as the specimen collector sample ID. Suggested: Isolate name should be identical to the GISAID virus name, which should be written in the format \u201chCov-19/CANADA/xxxxx/2020\u201d.",
         "examples": "prov_rona_99"
       },
       {
@@ -541,6 +543,7 @@ const DATA = [
           "Research": {},
           "Surveillance testing": {},
           "Viral passage experiment": {},
+          "Not Applicable": {},
           "Missing": {}
         }
       },
@@ -551,7 +554,7 @@ const DATA = [
         "datatype": "select",
         "requirement": "required",
         "description": "A substance obtained from an anatomical part of an organism e.g. tissue, blood.",
-        "guidance": "Provide a descriptor if an anatomical material was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, use this look-up service to identify a standardized term: https://www.ebi.ac.uk/ols/ontologies/uberon. If not applicable, leave blank.",
+        "guidance": "Provide a descriptor if an anatomical material was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. ",
         "examples": "Blood",
         "vocabulary": {
           "Blood": {},
@@ -565,6 +568,7 @@ const DATA = [
             "Fluid (seminal)": {}
           },
           "Tissue": {},
+          "Not Applicable": {},
           "Missing": {}
         }
       },
@@ -575,7 +579,7 @@ const DATA = [
         "datatype": "select",
         "requirement": "required",
         "description": "An anatomical part of an organism e.g. oropharynx.",
-        "guidance": "Provide a descriptor if an anatomical part was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, use this look-up service to identify a standardized term: https://www.ebi.ac.uk/ols/ontologies/uberon. If not applicable, leave blank.",
+        "guidance": "Provide a descriptor if an anatomical part was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. ",
         "examples": "Nasopharynx",
         "vocabulary": {
           "Anus": {},
@@ -607,6 +611,7 @@ const DATA = [
             },
             "Trachea": {}
           },
+          "Not Applicable": {},
           "Missing": {}
         }
       },
@@ -617,7 +622,7 @@ const DATA = [
         "datatype": "select",
         "requirement": "required",
         "description": "A substance excreted/secreted from an organism e.g. feces, urine, sweat.",
-        "guidance": "Provide a descriptor if a body product was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, use this look-up service to identify a standardized term: https://www.ebi.ac.uk/ols/ontologies/uberon. If not applicable, leave blank.",
+        "guidance": "Provide a descriptor if a body product was sampled. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. ",
         "examples": "Feces",
         "vocabulary": {
           "Feces": {},
@@ -628,6 +633,7 @@ const DATA = [
           },
           "Tear": {},
           "Breast Milk": {},
+          "Not Applicable": {},
           "Missing": {}
         }
       },
@@ -638,9 +644,10 @@ const DATA = [
         "datatype": "select",
         "requirement": "required",
         "description": "A substance obtained from the natural or man-made environment e.g. soil, water, sewage.",
-        "guidance": "Provide a descriptor if an environmental material was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, use this look-up service to identify a standardized term: https://www.ebi.ac.uk/ols/ontologies/envo. If not applicable, leave blank.",
+        "guidance": "Provide a descriptor if an environmental material was sampled. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. ",
         "examples": "Face mask",
         "vocabulary": {
+          "Air vent": {},
           "Banknote": {},
           "Bed rail": {},
           "Building floor": {},
@@ -661,6 +668,7 @@ const DATA = [
           "N95 mask": {},
           "Nurse call button": {},
           "Paper": {},
+          "Particulate matter": {},
           "Plastic": {},
           "PPE gown": {},
           "Sewage": {},
@@ -672,6 +680,7 @@ const DATA = [
           "Water": {},
           "Window": {},
           "Wood": {},
+          "Not Applicable": {},
           "Missing": {}
         }
       },
@@ -682,11 +691,10 @@ const DATA = [
         "datatype": "select",
         "requirement": "required",
         "description": "An environmental location may describe a site in the natural or built environment e.g. contact surface, metal can, hospital, wet market, bat cave.",
-        "guidance": "Provide a descriptor if an environmental site was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, use this look-up service to identify a standardized term: https://www.ebi.ac.uk/ols/ontologies/envo. If not applicable, leave blank.",
+        "guidance": "Provide a descriptor if an environmental site was sampled. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. ",
         "examples": "Building floor",
         "vocabulary": {
           "Acute care facility": {},
-          "Air vent": {},
           "Animal house": {},
           "Bathroom": {},
           "Clinical assessment centre": {},
@@ -705,6 +713,7 @@ const DATA = [
           "School": {},
           "Subway train": {},
           "Wet market": {},
+          "Not Applicable": {},
           "Missing": {}
         }
       },
@@ -715,7 +724,7 @@ const DATA = [
         "datatype": "select",
         "requirement": "required",
         "description": "The instrument or container used to collect the sample e.g. swab.",
-        "guidance": "Provide a descriptor if a device was used for sampling. Use the picklist provided in the template. If a desired term is missing from the picklist, use this look-up service to identify a standardized term: https://www.ebi.ac.uk/ols/ontologies/obi. If not applicable, leave blank.",
+        "guidance": "Provide a descriptor if a device was used for sampling. Use the picklist provided in the template. If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. ",
         "examples": "Swab",
         "vocabulary": {
           "Air filter": {},
@@ -724,6 +733,7 @@ const DATA = [
           "Collection Container": {},
           "Collection Cup": {},
           "Fibrobronchoscope Brush": {},
+          "Filter": {},
           "Fine Needle": {},
           "Microcapillary tube": {},
           "Micropipette": {},
@@ -734,6 +744,7 @@ const DATA = [
           "Swab": {},
           "Urine Collection Tube": {},
           "Virus Transport Medium": {},
+          "Not Applicable": {},
           "Missing": {}
         }
       },
@@ -744,7 +755,7 @@ const DATA = [
         "datatype": "select",
         "requirement": "required",
         "description": "The process used to collect the sample e.g. phlebotamy, necropsy.",
-        "guidance": "Provide a descriptor if a collection method was used for sampling. Use the picklist provided in the template. If a desired term is missing from the picklist, use this look-up service to identify a standardized term: https://www.ebi.ac.uk/ols/ontologies/obi. If not applicable, leave blank.",
+        "guidance": "Provide a descriptor if a collection method was used for sampling. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. ",
         "examples": "Bronchoalveolar lavage (BAL)",
         "vocabulary": {
           "Amniocentesis": {},
@@ -755,6 +766,9 @@ const DATA = [
           },
           "Biopsy": {
             "Needle Biopsy": {}
+          },
+          "Filtration": {
+            "Air filtration": {}
           },
           "Lavage": {
             "Bronchoalveolar lavage (BAL)": {},
@@ -770,6 +784,7 @@ const DATA = [
           },
           "Wash": {},
           "Washout Tear Collection": {},
+          "Not Applicable": {},
           "Missing": {}
         }
       },
@@ -796,7 +811,7 @@ const DATA = [
           "Virus passage": {},
           "RNA re-extraction (post RT-PCR)": {},
           "Specimens pooled": {},
-          "Not applicable": {},
+          "Not Applicable": {},
           "Missing": {}
         }
       },
@@ -827,6 +842,7 @@ const DATA = [
           "Vero cell line": {},
           "Vero E6 cell line": {},
           "VeroE6/TMPRSS2 cell line": {},
+          "Not Applicable": {},
           "Missing": {}
         }
       },
@@ -864,6 +880,7 @@ const DATA = [
           "RNA (poly-A)": {},
           "RNA (ribo-depleted)": {},
           "mRNA (cDNA)": {},
+          "Not Applicable": {},
           "Missing": {}
         }
       }
@@ -894,6 +911,7 @@ const DATA = [
           "Pig": {},
           "Pigeon": {},
           "Tiger": {},
+          "Not Applicable": {},
           "Missing": {}
         }
       },
@@ -922,6 +940,7 @@ const DATA = [
           "Rhinolophus affinis": {},
           "Sus scrofa domesticus": {},
           "Viverridae": {},
+          "Not Applicable": {},
           "Missing": {}
         }
       },
@@ -930,7 +949,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "select",
-        "requirement": "required",
+        "requirement": "",
         "description": "Health status of the host at the time of sample collection.",
         "guidance": "If known, select a descriptor from the pick list provided in the template.",
         "examples": "sick",
@@ -939,6 +958,7 @@ const DATA = [
           "Sick": {},
           "Recovered": {},
           "Deceased": {},
+          "Not Applicable": {},
           "Missing": {}
         }
       },
@@ -955,7 +975,10 @@ const DATA = [
           "Self-quarantining": {},
           "Asymptomatic": {},
           "Symptomatic": {},
-          "Hospitalized (ICU)": {},
+          "Hospitalized": {
+            "Hospitalized (ICU)": {}
+          },
+          "Not Applicable": {},
           "Missing": {}
         }
       },
@@ -970,6 +993,7 @@ const DATA = [
         "examples": "COVID-19",
         "vocabulary": {
           "COVID-19": {},
+          "Not Applicable": {},
           "Missing": {}
         }
       },
@@ -980,7 +1004,7 @@ const DATA = [
         "datatype": "decimal",
         "requirement": "required",
         "description": "Age of host at the time of sampling.",
-        "guidance": "Enter the age of the host in years. If not available, put \"unknown\".",
+        "guidance": "Enter the age of the host in years. If not available, put \"missing\".",
         "examples": "79"
       },
       {
@@ -990,7 +1014,7 @@ const DATA = [
         "datatype": "select",
         "requirement": "required",
         "description": "The gender of the host at the time of sample collection.",
-        "guidance": "Select the corresponding host gender from the pick list provided in the template. If not available, put \"unknown\".",
+        "guidance": "Select the corresponding host gender from the pick list provided in the template. If not available, put \"missing\".",
         "examples": "male",
         "vocabulary": {
           "Female": {},
@@ -1030,7 +1054,7 @@ const DATA = [
         "datatype": "date",
         "requirement": "",
         "description": "The date on which the symptoms began or were first noted.",
-        "guidance": "ISO 8601 standard \"YYYY-MM-DD\", \"YYYY-MM\" or \"YYYY\"",
+        "guidance": "ISO 8601 standard \"YYYY-MM-DD\".",
         "examples": "2020-03-16"
       },
       {
@@ -1040,7 +1064,7 @@ const DATA = [
         "datatype": "multiple",
         "requirement": "",
         "description": "A perceived change in function or sensation, (loss, disturbance or appearance) indicative of a disease, reported by a patient.",
-        "guidance": "Select all of the symptoms experienced by the host form the pick list.",
+        "guidance": "Select all of the symptoms experienced by the host from the pick list.",
         "examples": "Cough; Fever; Chills",
         "vocabulary": {
           "Ageusia": {},
@@ -1082,6 +1106,7 @@ const DATA = [
           "Tachypnea (rapid breathing)": {},
           "Vomiting": {},
           "Weakness": {},
+          "Not Applicable": {},
           "Missing": {}
         }
       }
@@ -1131,6 +1156,7 @@ const DATA = [
           "Occupational exposure (healthcare work with the public)": {},
           "Occupational exposure (retail)": {},
           "Occupational exposure (restaurant)": {},
+          "Not Applicable": {},
           "Missing": {}
         }
       }
@@ -1301,10 +1327,10 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "text",
-        "requirement": "required",
+        "requirement": "",
         "description": "The name and version number of the assembly method used.",
-        "guidance": "Provide the software name followed by the version e.g. Canu v. 2.0",
-        "examples": "Canu v. 2.0"
+        "guidance": "Provide the software name followed by the version e.g. Canu 2.0",
+        "examples": "Canu 2.0"
       },
       {
         "fieldName": "assembly coverage breadth",
@@ -1393,7 +1419,7 @@ const DATA = [
         "datatype": "text",
         "requirement": "",
         "description": "The user-specified filename of the FASTA file.",
-        "guidance": "Provide the fasta filename.",
+        "guidance": "Provide the FASTA filename.",
         "examples": "batch1a_sequences.fasta"
       },
       {
@@ -1454,7 +1480,7 @@ const DATA = [
         "requirement": "",
         "description": "The number of N symbols present in the consensus fasta sequence, per 100kbp of sequence.",
         "guidance": "Provide a numerical value (no need to include units).",
-        "examples": "3.3"
+        "examples": "330"
       },
       {
         "fieldName": "reference genome accession",
@@ -1481,9 +1507,9 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "text",
-        "requirement": "",
+        "requirement": "required",
         "description": "The name and version number of the software used to produce the consensus sequence.",
-        "guidance": "Provide the software name followed by the version e.g. iVar v. 1.2",
+        "guidance": "Provide the software name followed by the version e.g. iVar 1.2",
         "examples": "iVar 1.2"
       },
       {
@@ -1549,7 +1575,7 @@ const DATA = [
         "requirement": "",
         "description": "The name and version number of the protocol used for diagnostic marker amplification.",
         "guidance": "The name and version number of the protocol used for carrying out a diagnostic PCR test. This information can be compared to sequence data for evaluation of performance and quality control.",
-        "examples": "AllTheTestingPCRingEGene v. 2"
+        "examples": "EGenePCRTest 2"
       },
       {
         "fieldName": "diagnostic pcr Ct value 1",
@@ -1579,7 +1605,7 @@ const DATA = [
         "requirement": "",
         "description": "The name and version number of the protocol used for diagnostic marker amplification.",
         "guidance": "The name and version number of the protocol used for carrying out a second diagnostic PCR test. This information can be compared to sequence data for evaluation of performance and quality control.",
-        "examples": "AllTheTestingPCRingRdRpGene v. 3"
+        "examples": "RdRpGenePCRTest 3"
       },
       {
         "fieldName": "diagnostic pcr Ct value 2",
