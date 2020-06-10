@@ -592,7 +592,7 @@ const DATA = [
         "description": "Identifier of the specific isolate.",
         "guidance": "Provide the isolate name. This identifer should be an unique, indexed, alpha-numeric ID within your laboratory. The isolate name is often the same as the specimen collector sample ID. Suggested: Isolate name should be identical to the GISAID virus name, which should be written in the format \u201chCov-19/CANADA/xxxxx/2020\u201d.",
         "examples": "prov_rona_99",
-        "GISAID": ""
+        "GISAID": "Virus name"
       },
       {
         "fieldName": "purpose of sampling",
@@ -636,8 +636,7 @@ const DATA = [
             "Fluid (pericardial)": {},
             "Fluid (pleural)": {},
             "Fluid (vaginal)": {},
-            "Fluid (amniotic)": {},
-            "Fluid (seminal)": {}
+            "Fluid (amniotic)": {}
           },
           "Tissue": {},
           "Not Applicable": {},
@@ -710,6 +709,7 @@ const DATA = [
             "Sputum": {}
           },
           "Tear": {},
+          "Fluid (seminal)": {},
           "Breast Milk": {},
           "Not Applicable": {},
           "Missing": {}
@@ -902,7 +902,7 @@ const DATA = [
         "description": "Any processing applied to the sample during or after receiving the sample.",
         "guidance": "Critical for interpreting data. Select all the applicable processes from the pick list. If virus was passaged, include information in \"lab host\", \"passage number\", and \"passage method\" fields. If none of the processes in the pick list apply, put \"not applicable\".",
         "examples": "Virus passage",
-        "GISAID": "Passage details/history",
+        "GISAID": "",
         "vocabulary": {
           "Virus passage": {},
           "RNA re-extraction (post RT-PCR)": {},
@@ -956,7 +956,7 @@ const DATA = [
         "description": "Number of passages.",
         "guidance": "Provide number of known passages. If not passaged, put \"not applicable\"",
         "examples": "3",
-        "GISAID": ""
+        "GISAID": "Passage details/history"
       },
       {
         "fieldName": "passage method",
@@ -969,7 +969,7 @@ const DATA = [
         "description": "Description of how organism was passaged.",
         "guidance": "Free text. Provide a very short description (<10 words). If not passaged, put \"not applicable\".",
         "examples": "",
-        "GISAID": ""
+        "GISAID": "Passage details/history"
       },
       {
         "fieldName": "biomaterial extracted",
@@ -1008,7 +1008,7 @@ const DATA = [
         "description": "The commonly used name of the host.",
         "guidance": "Common name or scientific name are required if there was a host. Both can be provided, if known. Use terms from the pick lists in the template. Common name e.g. human, bat. If the sample was environmental, put \"not applicable.",
         "examples": "Human",
-        "GISAID": "Host",
+        "GISAID": "",
         "vocabulary": {
           "Human": {},
           "Bat": {},
@@ -1037,7 +1037,7 @@ const DATA = [
         "description": "The taxonomic, or scientific name of the host.",
         "guidance": "Common name or scientific name are required if there was a host. Both can be provided, if known. Use terms from the pick lists in the template. Scientific name e.g. Homo sapiens, If the sample was environmental, put \"not applicable",
         "examples": "Homo sapiens",
-        "GISAID": "",
+        "GISAID": "Host",
         "vocabulary": {
           "Homo sapiens": {},
           "Bos taurus": {},
@@ -1513,7 +1513,7 @@ const DATA = [
         "description": "The name and version number of the assembly method used.",
         "guidance": "Provide the software name followed by the version e.g. Canu 2.0",
         "examples": "Canu 2.0",
-        "GISAID": "Assembly method"
+        "GISAID": ""
       },
       {
         "fieldName": "assembly coverage breadth",
@@ -1734,7 +1734,7 @@ const DATA = [
         "description": "The identifer used to specify the consensus sequence.",
         "guidance": "Provide the consensus sequence identifier.",
         "examples": "",
-        "GISAID": ""
+        "GISAID": "Sample ID given by the submitting laboratory"
       },
       {
         "fieldName": "consensus sequence method",
@@ -1747,7 +1747,7 @@ const DATA = [
         "description": "The name and version number of the software used to produce the consensus sequence.",
         "guidance": "Provide the software name followed by the version e.g. iVar 1.2",
         "examples": "iVar 1.2",
-        "GISAID": ""
+        "GISAID": "Assembly method"
       },
       {
         "fieldName": "consensus sequence filename",
