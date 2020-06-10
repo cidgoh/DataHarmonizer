@@ -46,7 +46,7 @@ with open(r_filename) as tsvfile:
 	    				'description': row['description'],
 	    				'guidance':    row['guidance'],
 	    				'examples':    row['examples'],
-	    				'GSAID': 	   row['GSAID']
+	    				'GISAID': 	   row['GISAID']
 	    			}
 	    			if row['datatype'] == 'select' or row['datatype'] == 'multiple':
 	    				choice = collections.OrderedDict();

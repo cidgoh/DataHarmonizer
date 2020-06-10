@@ -13,7 +13,7 @@ const DATA = [
         "description": "The user-defined name for the sample.",
         "guidance": "Store the collector sample ID. If this number is considered identifiable information, provide an alternative ID. Be sure to store the key that maps between the original and alternative IDs for traceability and follow up if necessary. Every collector sample ID from a single submitter must be unique. It can have any format, but we suggest that you make it concise, unique and consistent within your lab.",
         "examples": "prov_rona_99",
-        "GSAID": "Sample ID given by the sample provider"
+        "GISAID": "Sample ID given by the sample provider"
       },
       {
         "fieldName": "PHAC sample ID",
@@ -26,7 +26,7 @@ const DATA = [
         "description": "The identifier assigned to the sample in the national database.",
         "guidance": "Store the PHAC sample ID. This ID will be assigned by PHAC. The PHAC sample ID may be different than the sample ID assigned by the sample collector. It is important to track both of these for traceability. ",
         "examples": "PHAC_123",
-        "GSAID": ""
+        "GISAID": ""
       },
       {
         "fieldName": "IRIDA sample name",
@@ -39,7 +39,7 @@ const DATA = [
         "description": "The identifier assigned to a sequenced isolate in IRIDA.",
         "guidance": "Store the IRIDA sample name. The IRIDA sample name will be created by the individual entering data into the IRIDA platform. IRIDA samples may be linked to metadata and sequence data, or just metadata alone. It is recommended that the IRIDA sample name be the same as, or contain, the specimen collector sample ID for better traceability. It is also recommended that the IRIDA sample name mirror the GISAID accession. IRIDA sample names cannot contain slashes. Slashes should be replaced by underscores. See IRIDA documentation for more information regarding special characters (https://irida.corefacility.ca/documentation/user/user/samples/#adding-a-new-sample). ",
         "examples": "prov_rona_99",
-        "GSAID": ""
+        "GISAID": ""
       },
       {
         "fieldName": "umbrella bioproject accession",
@@ -52,7 +52,7 @@ const DATA = [
         "description": "The INSDC accession number assigned to the umbrella BioProject for the Canadian SARS-CoV-2 sequencing effort.",
         "guidance": "Store the umbrella BioProject accession by selecting it from the picklist in the template. The umbrella BioProject accession will be identical for all CanCOGen submitters. Different provinces will have their own BioProjects, however these BioProjects will be linked under one umbrella BioProject.",
         "examples": "PRJNA623807",
-        "GSAID": "",
+        "GISAID": "",
         "vocabulary": {
           "PRJNA623807": {}
         }
@@ -68,7 +68,7 @@ const DATA = [
         "description": "The INSDC accession number of the BioProject(s) to which the BioSample belongs.",
         "guidance": "Store the BioProject accession number. BioProjects are an organizing tool that links together raw sequence data, assemblies, and their associated metadata. Each province will be assigned a different bioproject accession number by the National Microbiology Lab. A valid NCBI BioProject accession has prefix PRJN e.g., PRJNA12345, and is created once at the beginning of a new sequencing project. ",
         "examples": "PRJNA608651",
-        "GSAID": ""
+        "GISAID": ""
       },
       {
         "fieldName": "biosample accession",
@@ -81,7 +81,7 @@ const DATA = [
         "description": "The identifier assigned to a BioSample in INSDC archives.",
         "guidance": "Store the accession returned from the BioSample submission. NCBI BioSamples will have the prefix SAMN.",
         "examples": "SAMN14180202",
-        "GSAID": ""
+        "GISAID": ""
       },
       {
         "fieldName": "SRA accession",
@@ -94,7 +94,7 @@ const DATA = [
         "description": "The Sequence Read Archive (SRA) identifier linking raw read data, methodological metadata and quality control metrics submitted to the INSDC.",
         "guidance": "Store the accession assigned to the submitted \"run\". NCBI-SRA accessions start with SRR.",
         "examples": "SRR11177792",
-        "GSAID": ""
+        "GISAID": ""
       },
       {
         "fieldName": "GenBank accession",
@@ -107,7 +107,7 @@ const DATA = [
         "description": "The GenBank identifier assigned to the sequence in the INSDC archives.",
         "guidance": "Store the accession returned from a GenBank submission (viral genome assembly).",
         "examples": "MN908947.3",
-        "GSAID": ""
+        "GISAID": ""
       },
       {
         "fieldName": "GISAID accession",
@@ -120,7 +120,7 @@ const DATA = [
         "description": "The GISAID accession number assigned to the sequence.",
         "guidance": "Store the accession returned from the GISAID submission.",
         "examples": "hCov-19/Canada/prov_rona_99/2020",
-        "GSAID": ""
+        "GISAID": ""
       }
     ]
   },
@@ -138,7 +138,7 @@ const DATA = [
         "description": "The name of the agency that collected the original sample.",
         "guidance": "The name of the sample collector should be written out in full, (with minor exceptions) and be consistent across multple submissions e.g. Public Health Agency of Canada, Public Health Ontario, BC Centre for Disease Control. The sample collector specified is at the discretion of the data provider (i.e. may be hospital, provincial public health lab, or other).",
         "examples": "BC Centre for Disease Control",
-        "GSAID": "Originating lab"
+        "GISAID": "Originating lab"
       },
       {
         "fieldName": "sample collector contact email",
@@ -151,7 +151,7 @@ const DATA = [
         "description": "The email address of the contact responsible for follow-up regarding the sample.",
         "guidance": "The email address can represent a specific individual or lab e.g. johnnyblogs@lab.ca, or RespLab@lab.ca",
         "examples": "RespLab@lab.ca",
-        "GSAID": ""
+        "GISAID": ""
       },
       {
         "fieldName": "sample collector contact address",
@@ -164,7 +164,7 @@ const DATA = [
         "description": "The mailing address of the agency submitting the sample.",
         "guidance": "The mailing address should be in the format: Street number and name, City, Province/Territory, Postal Code, Country",
         "examples": "655 Lab St, Vancouver, British Columbia, V5N 2A2, Canada",
-        "GSAID": "Address"
+        "GISAID": "Address"
       },
       {
         "fieldName": "sequence submitted by",
@@ -177,7 +177,7 @@ const DATA = [
         "description": "The name of the agency that generated the sequence.",
         "guidance": "The name of the agency should be written out in full, (with minor exceptions) and be consistent across multple submissions e.g. Public Health Agency of Canada, Public Health Ontario, BC Centre for Disease Control.",
         "examples": "Public Health Ontario",
-        "GSAID": "Submitter; Submitting lab; Sample ID given by the submitting laboratory"
+        "GISAID": "Submitting lab"
       },
       {
         "fieldName": "sequence submitter contact email",
@@ -190,7 +190,7 @@ const DATA = [
         "description": "The email address of the contact responsible for follow-up regarding the sequence.",
         "guidance": "The email address can represent a specific individual or lab e.g. johnnyblogs@lab.ca, or RespLab@lab.ca",
         "examples": "RespLab@lab.ca",
-        "GSAID": ""
+        "GISAID": ""
       },
       {
         "fieldName": "sequence submitter contact address",
@@ -203,7 +203,7 @@ const DATA = [
         "description": "The mailing address of the agency submitting the sequence.",
         "guidance": "The mailing address should be in the format: Street number and name, City, Province/Territory, Postal Code, Country",
         "examples": "123 Sunnybrooke St, Toronto, Ontario, M4P 1L6, Canada",
-        "GSAID": "Address"
+        "GISAID": "Address"
       },
       {
         "fieldName": "sample collection date",
@@ -216,7 +216,7 @@ const DATA = [
         "description": "The date on which the sample was collected.",
         "guidance": "Sample collection date is critical for surveillance and many types of analyses. Required granularity includes year, month and day. If this date is considered identifiable information, it is acceptable to add \"jitter\" by adding or subtracting a calendar day (acceptable by GISAID). Alternatively, \u201dreceived date\u201d may be used as a substitute. The date should be provided in ISO 8601 standard format \"YYYY-MM-DD\".",
         "examples": "2020-03-16",
-        "GSAID": "Collection date"
+        "GISAID": "Collection date"
       },
       {
         "fieldName": "sample received date",
@@ -229,7 +229,7 @@ const DATA = [
         "description": "The date on which the sample was received.",
         "guidance": "ISO 8601 standard \"YYYY-MM-DD\".",
         "examples": "2020-03-20",
-        "GSAID": ""
+        "GISAID": ""
       },
       {
         "fieldName": "geo_loc_name (country)",
@@ -242,7 +242,7 @@ const DATA = [
         "description": "The country where the sample was collected.",
         "guidance": "Provide the country name from the controlled vocabulary provided.",
         "examples": "Canada",
-        "GSAID": "Location",
+        "GISAID": "Location",
         "vocabulary": {
           "Afghanistan": {},
           "Albania": {},
@@ -530,7 +530,7 @@ const DATA = [
         "description": "The province/territory where the sample was collected.",
         "guidance": "Provide the province/territory name from the controlled vocabulary provided.",
         "examples": "Saskatchewan",
-        "GSAID": "",
+        "GISAID": "",
         "vocabulary": {
           "Alberta": {},
           "British Columbia": {},
@@ -560,7 +560,7 @@ const DATA = [
         "description": "The city where the sample was collected.",
         "guidance": "Provide the city name. Use this look-up service to identify the standardized term: https://www.ebi.ac.uk/ols/ontologies/gaz",
         "examples": "Medicine Hat",
-        "GSAID": ""
+        "GISAID": ""
       },
       {
         "fieldName": "organism",
@@ -573,7 +573,7 @@ const DATA = [
         "description": "Taxonomic name of the organism.",
         "guidance": "Use \"Severe acute respiratory coronavirus 2\". This value is provided in the template.",
         "examples": "Severe acute respiratory coronavirus 2",
-        "GSAID": "",
+        "GISAID": "",
         "vocabulary": {
           "Severe acute respiratory virus 2": {},
           "RaTG13": {},
@@ -592,7 +592,7 @@ const DATA = [
         "description": "Identifier of the specific isolate.",
         "guidance": "Provide the isolate name. This identifer should be an unique, indexed, alpha-numeric ID within your laboratory. The isolate name is often the same as the specimen collector sample ID. Suggested: Isolate name should be identical to the GISAID virus name, which should be written in the format \u201chCov-19/CANADA/xxxxx/2020\u201d.",
         "examples": "prov_rona_99",
-        "GSAID": ""
+        "GISAID": ""
       },
       {
         "fieldName": "purpose of sampling",
@@ -605,7 +605,7 @@ const DATA = [
         "description": "The reason that the sample was collected.",
         "guidance": "Provide the purpose of sampling from the picklist in the template.",
         "examples": "Diagnostic testing",
-        "GSAID": "",
+        "GISAID": "",
         "vocabulary": {
           "Cluster investigation": {},
           "Diagnostic testing": {},
@@ -627,7 +627,7 @@ const DATA = [
         "description": "A substance obtained from an anatomical part of an organism e.g. tissue, blood.",
         "guidance": "Provide a descriptor if an anatomical material was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. ",
         "examples": "Blood",
-        "GSAID": "Specimen source",
+        "GISAID": "Specimen source",
         "vocabulary": {
           "Blood": {},
           "Fluid": {
@@ -655,7 +655,7 @@ const DATA = [
         "description": "An anatomical part of an organism e.g. oropharynx.",
         "guidance": "Provide a descriptor if an anatomical part was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. ",
         "examples": "Nasopharynx",
-        "GSAID": "Specimen source",
+        "GISAID": "Specimen source",
         "vocabulary": {
           "Anus": {},
           "Duodenum": {},
@@ -701,7 +701,7 @@ const DATA = [
         "description": "A substance excreted/secreted from an organism e.g. feces, urine, sweat.",
         "guidance": "Provide a descriptor if a body product was sampled. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. ",
         "examples": "Feces",
-        "GSAID": "Specimen source",
+        "GISAID": "Specimen source",
         "vocabulary": {
           "Feces": {},
           "Urine": {},
@@ -726,7 +726,7 @@ const DATA = [
         "description": "A substance obtained from the natural or man-made environment e.g. soil, water, sewage.",
         "guidance": "Provide a descriptor if an environmental material was sampled. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. ",
         "examples": "Face mask",
-        "GSAID": "Specimen source",
+        "GISAID": "Specimen source",
         "vocabulary": {
           "Air vent": {},
           "Banknote": {},
@@ -776,7 +776,7 @@ const DATA = [
         "description": "An environmental location may describe a site in the natural or built environment e.g. contact surface, metal can, hospital, wet market, bat cave.",
         "guidance": "Provide a descriptor if an environmental site was sampled. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. ",
         "examples": "Building floor",
-        "GSAID": "Specimen source",
+        "GISAID": "Specimen source",
         "vocabulary": {
           "Acute care facility": {},
           "Animal house": {},
@@ -812,7 +812,7 @@ const DATA = [
         "description": "The instrument or container used to collect the sample e.g. swab.",
         "guidance": "Provide a descriptor if a device was used for sampling. Use the picklist provided in the template. If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. ",
         "examples": "Swab",
-        "GSAID": "Specimen source",
+        "GISAID": "Specimen source",
         "vocabulary": {
           "Air filter": {},
           "Blood Collection Tube": {},
@@ -846,7 +846,7 @@ const DATA = [
         "description": "The process used to collect the sample e.g. phlebotamy, necropsy.",
         "guidance": "Provide a descriptor if a collection method was used for sampling. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. ",
         "examples": "Bronchoalveolar lavage (BAL)",
-        "GSAID": "Specimen source",
+        "GISAID": "Specimen source",
         "vocabulary": {
           "Amniocentesis": {},
           "Aspiration": {
@@ -889,7 +889,7 @@ const DATA = [
         "description": "The name and version of a particular protocol used for sampling.",
         "guidance": "Free text.",
         "examples": "BCRonaSamplingProtocol v. 1.2",
-        "GSAID": ""
+        "GISAID": ""
       },
       {
         "fieldName": "specimen processing",
@@ -902,7 +902,7 @@ const DATA = [
         "description": "Any processing applied to the sample during or after receiving the sample.",
         "guidance": "Critical for interpreting data. Select all the applicable processes from the pick list. If virus was passaged, include information in \"lab host\", \"passage number\", and \"passage method\" fields. If none of the processes in the pick list apply, put \"not applicable\".",
         "examples": "Virus passage",
-        "GSAID": "Passage details/history",
+        "GISAID": "Passage details/history",
         "vocabulary": {
           "Virus passage": {},
           "RNA re-extraction (post RT-PCR)": {},
@@ -922,7 +922,7 @@ const DATA = [
         "description": "Name and description of the laboratory host used to propagate the source organism or material from which the sample was obtained.",
         "guidance": "Type of cell line used for propagation. Provide the name of the cell line using the picklist in the template. If not passaged, put \"not applicable\".",
         "examples": "Vero E6 cell line",
-        "GSAID": "Passage details/history",
+        "GISAID": "Passage details/history",
         "vocabulary": {
           "293/ACE2 cell line": {},
           "Caco2 cell line": {},
@@ -956,7 +956,7 @@ const DATA = [
         "description": "Number of passages.",
         "guidance": "Provide number of known passages. If not passaged, put \"not applicable\"",
         "examples": "3",
-        "GSAID": ""
+        "GISAID": ""
       },
       {
         "fieldName": "passage method",
@@ -969,7 +969,7 @@ const DATA = [
         "description": "Description of how organism was passaged.",
         "guidance": "Free text. Provide a very short description (<10 words). If not passaged, put \"not applicable\".",
         "examples": "",
-        "GSAID": ""
+        "GISAID": ""
       },
       {
         "fieldName": "biomaterial extracted",
@@ -982,7 +982,7 @@ const DATA = [
         "description": "The biomaterial extracted from samples for the purpose of sequencing.",
         "guidance": "Provide the biomaterial extracted from the picklist in the template.",
         "examples": "RNA (total)",
-        "GSAID": "",
+        "GISAID": "",
         "vocabulary": {
           "RNA (total)": {},
           "RNA (poly-A)": {},
@@ -1008,7 +1008,7 @@ const DATA = [
         "description": "The commonly used name of the host.",
         "guidance": "Common name or scientific name are required if there was a host. Both can be provided, if known. Use terms from the pick lists in the template. Common name e.g. human, bat. If the sample was environmental, put \"not applicable.",
         "examples": "Human",
-        "GSAID": "Host",
+        "GISAID": "Host",
         "vocabulary": {
           "Human": {},
           "Bat": {},
@@ -1037,7 +1037,7 @@ const DATA = [
         "description": "The taxonomic, or scientific name of the host.",
         "guidance": "Common name or scientific name are required if there was a host. Both can be provided, if known. Use terms from the pick lists in the template. Scientific name e.g. Homo sapiens, If the sample was environmental, put \"not applicable",
         "examples": "Homo sapiens",
-        "GSAID": "",
+        "GISAID": "",
         "vocabulary": {
           "Homo sapiens": {},
           "Bos taurus": {},
@@ -1069,7 +1069,7 @@ const DATA = [
         "description": "Health status of the host at the time of sample collection.",
         "guidance": "If known, select a descriptor from the pick list provided in the template.",
         "examples": "sick",
-        "GSAID": "Patient status",
+        "GISAID": "Patient status",
         "vocabulary": {
           "Healthy": {},
           "Sick": {},
@@ -1090,7 +1090,7 @@ const DATA = [
         "description": "Further details pertaining to the health or disease status of the host at time of collection.",
         "guidance": "If known, select a descriptor from the pick list provided in the template.",
         "examples": "Hospitalized (ICU)",
-        "GSAID": "",
+        "GISAID": "",
         "vocabulary": {
           "Self-quarantining": {},
           "Asymptomatic": {},
@@ -1113,7 +1113,7 @@ const DATA = [
         "description": "The name of the disease experienced by the host.",
         "guidance": "Select \"COVID-19\" from the pick list provided in the template.",
         "examples": "COVID-19",
-        "GSAID": "",
+        "GISAID": "",
         "vocabulary": {
           "COVID-19": {},
           "Not Applicable": {},
@@ -1126,12 +1126,12 @@ const DATA = [
         "ontology_id": "",
         "datatype": "xs:decimal",
         "xs:minInclusive": "0",
-        "xs:maxInclusive": "",
+        "xs:maxInclusive": "130",
         "requirement": "required",
         "description": "Age of host at the time of sampling.",
         "guidance": "Enter the age of the host in years. If not available, put \"missing\".",
         "examples": "79",
-        "GSAID": "Patient age"
+        "GISAID": "Patient age"
       },
       {
         "fieldName": "host gender",
@@ -1144,7 +1144,7 @@ const DATA = [
         "description": "The gender of the host at the time of sample collection.",
         "guidance": "Select the corresponding host gender from the pick list provided in the template. If not available, put \"missing\".",
         "examples": "male",
-        "GSAID": "Gender",
+        "GISAID": "Gender",
         "vocabulary": {
           "Female": {},
           "Male": {},
@@ -1166,7 +1166,7 @@ const DATA = [
         "description": "The country of residence of the host.",
         "guidance": "Select the country name from pick list provided in the template.",
         "examples": "United Kingdom",
-        "GSAID": "",
+        "GISAID": "",
         "vocabulary": {}
       },
       {
@@ -1180,7 +1180,7 @@ const DATA = [
         "description": "A unique identifier by which each host can be referred to e.g. #131",
         "guidance": "Provide the host identifier. Should be a unique, user-defined identifier.",
         "examples": "BCxy123",
-        "GSAID": ""
+        "GISAID": ""
       },
       {
         "fieldName": "symptom onset date",
@@ -1193,7 +1193,7 @@ const DATA = [
         "description": "The date on which the symptoms began or were first noted.",
         "guidance": "ISO 8601 standard \"YYYY-MM-DD\".",
         "examples": "2020-03-16",
-        "GSAID": ""
+        "GISAID": ""
       },
       {
         "fieldName": "signs and symptoms",
@@ -1206,7 +1206,7 @@ const DATA = [
         "description": "A perceived change in function or sensation, (loss, disturbance or appearance) indicative of a disease, reported by a patient.",
         "guidance": "Select all of the symptoms experienced by the host from the pick list.",
         "examples": "Cough; Fever; Chills",
-        "GSAID": "",
+        "GISAID": "",
         "vocabulary": {
           "Ageusia": {},
           "Anosmia": {},
@@ -1267,7 +1267,7 @@ const DATA = [
         "description": "The country where the host was likely exposed to the causative agent of the illness.",
         "guidance": "Select the country name from pick list provided in the template.",
         "examples": "Canada",
-        "GSAID": "",
+        "GISAID": "",
         "vocabulary": {}
       },
       {
@@ -1281,7 +1281,7 @@ const DATA = [
         "description": "Travel outside the country in last six months.",
         "guidance": "Specify the countries (and more granular locations if known, separated by a comma) travelled in the last six months; can include multiple travels. Separate multiple travel events with a semi-colon. List most recent travel first.",
         "examples": "Canada, Vancouver; USA, Seattle; Italy, Milan",
-        "GSAID": ""
+        "GISAID": ""
       },
       {
         "fieldName": "exposure event",
@@ -1294,7 +1294,7 @@ const DATA = [
         "description": "Event leading to exposure.",
         "guidance": "Select an exposure event from the pick list provided in the template. If the desired term is missing, contact the curation team.",
         "examples": "Mass gathering (convention)",
-        "GSAID": "Additional location information",
+        "GISAID": "Additional location information",
         "vocabulary": {
           "Mass gathering (convention)": {},
           "Mass gathering (religious)": {},
@@ -1326,7 +1326,7 @@ const DATA = [
         "description": "The user-specified identifier for the library prepared for sequencing.",
         "guidance": "The library name should be unique, and can be an autogenerated ID from your LIMS, or modification of the isolate ID.",
         "examples": "XYZ_123345",
-        "GSAID": ""
+        "GISAID": ""
       },
       {
         "fieldName": "MinIon barcode",
@@ -1339,7 +1339,7 @@ const DATA = [
         "description": "The barcode of the MinIon unit used for sequencing.",
         "guidance": "Provide the barcode of the MinIon used for sequencing the sample.",
         "examples": "",
-        "GSAID": ""
+        "GISAID": ""
       },
       {
         "fieldName": "sequencing instrument",
@@ -1352,7 +1352,7 @@ const DATA = [
         "description": "The model of the sequencing instrument used.",
         "guidance": "Select a sequencing instrument from the picklist provided in the template.",
         "examples": "MinIon",
-        "GSAID": "Sequencing technology",
+        "GISAID": "Sequencing technology",
         "vocabulary": {
           "ILLUMINA": {
             "HiSeq X": {
@@ -1417,7 +1417,7 @@ const DATA = [
         "description": "The name and version number of the sequencing protocol used.",
         "guidance": "Provide the name and version of the sequencing protocol e.g. 1D_DNA_MinION",
         "examples": "1D_DNA_MinION, ARTIC Network Protocol v. 3",
-        "GSAID": ""
+        "GISAID": ""
       },
       {
         "fieldName": "sequencing protocol source",
@@ -1430,7 +1430,7 @@ const DATA = [
         "description": "The name of the organization/authors of the protocol.",
         "guidance": "Provide the name of the source of the protocol e.g. ARTIC Network.",
         "examples": "ARTIC Network",
-        "GSAID": ""
+        "GISAID": ""
       },
       {
         "fieldName": "sequencing kit number",
@@ -1443,7 +1443,7 @@ const DATA = [
         "description": "The manufacturer's kit number.",
         "guidance": "Alphanumeric value.",
         "examples": "AB456XYZ789",
-        "GSAID": ""
+        "GISAID": ""
       },
       {
         "fieldName": "amplicon pcr primers filename",
@@ -1456,7 +1456,7 @@ const DATA = [
         "description": "The filename of the file containing amplicon PCR primer names and sequences.",
         "guidance": "Important for documenting methods and should be considered for submission, particularly if primers were designed in-house and not by a public consortium/network.",
         "examples": "Rona_primers_2020.txt",
-        "GSAID": ""
+        "GISAID": ""
       }
     ]
   },
@@ -1474,7 +1474,7 @@ const DATA = [
         "description": "The names of the software and version number used for raw data processing such as removing barcodes, adapter trimming, filtering etc.",
         "guidance": "Provide the software name followed by the version e.g. Trimmomatic v. 0.38, Porechop v. 0.2.3",
         "examples": "Porechop v. 0.2.3",
-        "GSAID": ""
+        "GISAID": ""
       },
       {
         "fieldName": "sequencing depth (average)",
@@ -1487,7 +1487,7 @@ const DATA = [
         "description": "The total number of sequenced base pairs divided by the expected number of base pairs in the genome.",
         "guidance": "Provide the value as a fold of coverage.",
         "examples": "80x",
-        "GSAID": ""
+        "GISAID": ""
       },
       {
         "fieldName": "assembly name",
@@ -1500,7 +1500,7 @@ const DATA = [
         "description": "Name/version of the assembly provided by the submitter.",
         "guidance": "Provide the assembly name.",
         "examples": "rona123assembly.fasta",
-        "GSAID": ""
+        "GISAID": ""
       },
       {
         "fieldName": "assembly method",
@@ -1513,7 +1513,7 @@ const DATA = [
         "description": "The name and version number of the assembly method used.",
         "guidance": "Provide the software name followed by the version e.g. Canu 2.0",
         "examples": "Canu 2.0",
-        "GSAID": "Assembly method"
+        "GISAID": "Assembly method"
       },
       {
         "fieldName": "assembly coverage breadth",
@@ -1526,7 +1526,7 @@ const DATA = [
         "description": "The percentage of the assembled genome that was sequenced to a prescribed depth of coverage.",
         "guidance": "Provide value as a percent e.g. 95%.",
         "examples": "95%",
-        "GSAID": ""
+        "GISAID": ""
       },
       {
         "fieldName": "assembly coverage depth",
@@ -1539,7 +1539,7 @@ const DATA = [
         "description": "The average number of reads representing a given nucleotide in the assembled sequence.",
         "guidance": "Provide value as a fold of coverage e.g. 80x.",
         "examples": "400x",
-        "GSAID": "Coverage"
+        "GISAID": "Coverage"
       },
       {
         "fieldName": "r1 fastq filename",
@@ -1552,7 +1552,7 @@ const DATA = [
         "description": "The user-specified filename of the r1 FASTQ file.",
         "guidance": "Provide the r1 FASTQ filename.",
         "examples": "ABC123_S1_L001_R1_001.fastq.gz",
-        "GSAID": ""
+        "GISAID": ""
       },
       {
         "fieldName": "r2 fastq filename",
@@ -1565,7 +1565,7 @@ const DATA = [
         "description": "The user-specified filename of the r2 FASTQ file.",
         "guidance": "Provide the r2 FASTQ filename.",
         "examples": "ABC123_S1_L001_R2_001.fastq.gz",
-        "GSAID": ""
+        "GISAID": ""
       },
       {
         "fieldName": "r1 fastq filepath",
@@ -1578,7 +1578,7 @@ const DATA = [
         "description": "The location of the r1 FASTQ file within a user's file system.",
         "guidance": "Provide the filepath for the r1 FASTQ file. This information aids in data management. ",
         "examples": "",
-        "GSAID": ""
+        "GISAID": ""
       },
       {
         "fieldName": "r2 fastq filepath",
@@ -1591,7 +1591,7 @@ const DATA = [
         "description": "The location of the r2 FASTQ file within a user's file system.",
         "guidance": "Provide the filepath for the r2 FASTQ file. This information aids in data management. ",
         "examples": "",
-        "GSAID": ""
+        "GISAID": ""
       },
       {
         "fieldName": "fast5 filename",
@@ -1604,7 +1604,7 @@ const DATA = [
         "description": "The user-specified filename of the FAST5 file.",
         "guidance": "Provide the FAST5 filename.",
         "examples": "",
-        "GSAID": ""
+        "GISAID": ""
       },
       {
         "fieldName": "fast5 filepath",
@@ -1617,7 +1617,7 @@ const DATA = [
         "description": "The location of the FAST5 file within a user's file system.",
         "guidance": "Provide the filepath for the FAST5 file. This information aids in data management. ",
         "examples": "",
-        "GSAID": ""
+        "GISAID": ""
       },
       {
         "fieldName": "fasta filename",
@@ -1630,7 +1630,7 @@ const DATA = [
         "description": "The user-specified filename of the FASTA file.",
         "guidance": "Provide the FASTA filename.",
         "examples": "batch1a_sequences.fasta",
-        "GSAID": "FASTA filename"
+        "GISAID": "FASTA filename"
       },
       {
         "fieldName": "fasta filepath",
@@ -1643,7 +1643,7 @@ const DATA = [
         "description": "The location of the FASTA file within a user's file system.",
         "guidance": "Provide the filepath for the FASTA file. This information aids in data management. ",
         "examples": "",
-        "GSAID": ""
+        "GISAID": ""
       },
       {
         "fieldName": "number base pairs",
@@ -1656,7 +1656,7 @@ const DATA = [
         "description": "The number of total base pairs generated by the sequencing process.",
         "guidance": "Provide a numerical value (no need to include units).",
         "examples": "387566",
-        "GSAID": ""
+        "GISAID": ""
       },
       {
         "fieldName": "consensus genome length",
@@ -1669,7 +1669,7 @@ const DATA = [
         "description": "Size of the reconstructed genome described as the number of base pairs.",
         "guidance": "Provide a numerical value (no need to include units).",
         "examples": "38677",
-        "GSAID": ""
+        "GISAID": ""
       },
       {
         "fieldName": "mean contig length",
@@ -1682,7 +1682,7 @@ const DATA = [
         "description": "The mean contig length is the count of base pairs in the average size contig of the sequence assembly.",
         "guidance": "Provide a numerical value (no need to include units).",
         "examples": "12689",
-        "GSAID": ""
+        "GISAID": ""
       },
       {
         "fieldName": "N50",
@@ -1695,7 +1695,7 @@ const DATA = [
         "description": "The minimum contig length needed to cover 50% of the genome.",
         "guidance": "Provide a numerical value (no need to include units).",
         "examples": "10500",
-        "GSAID": ""
+        "GISAID": ""
       },
       {
         "fieldName": "Ns per 100 kbp",
@@ -1708,7 +1708,7 @@ const DATA = [
         "description": "The number of N symbols present in the consensus fasta sequence, per 100kbp of sequence.",
         "guidance": "Provide a numerical value (no need to include units).",
         "examples": "330",
-        "GSAID": ""
+        "GISAID": ""
       },
       {
         "fieldName": "reference genome accession",
@@ -1721,7 +1721,7 @@ const DATA = [
         "description": "A persistent, unique identifier of a genome database entry.",
         "guidance": "Provide the accession number of the reference genome.",
         "examples": "NC_045512.2",
-        "GSAID": ""
+        "GISAID": ""
       },
       {
         "fieldName": "consensus sequence ID",
@@ -1734,7 +1734,7 @@ const DATA = [
         "description": "The identifer used to specify the consensus sequence.",
         "guidance": "Provide the consensus sequence identifier.",
         "examples": "",
-        "GSAID": ""
+        "GISAID": ""
       },
       {
         "fieldName": "consensus sequence method",
@@ -1747,7 +1747,7 @@ const DATA = [
         "description": "The name and version number of the software used to produce the consensus sequence.",
         "guidance": "Provide the software name followed by the version e.g. iVar 1.2",
         "examples": "iVar 1.2",
-        "GSAID": ""
+        "GISAID": ""
       },
       {
         "fieldName": "consensus sequence filename",
@@ -1760,7 +1760,7 @@ const DATA = [
         "description": "The user-specified filename for the consensus sequence.",
         "guidance": "Provide the filename for the consensus sequence. ",
         "examples": "ProvConsensusSeq.fasta",
-        "GSAID": ""
+        "GISAID": ""
       },
       {
         "fieldName": "consensus sequence filepath",
@@ -1773,7 +1773,7 @@ const DATA = [
         "description": "The location of the consensus sequence in the user's file system.",
         "guidance": "Provide the filepath for the consensus sequence file. This information facilitates data management.",
         "examples": "",
-        "GSAID": ""
+        "GISAID": ""
       },
       {
         "fieldName": "annotation feature table filename",
@@ -1786,7 +1786,7 @@ const DATA = [
         "description": "The filename of the file containing genome features such as gene names and corresponding CDS.",
         "guidance": "Provide the filename of the annotation feature table.",
         "examples": "BCRonaAnnotationFeatures",
-        "GSAID": ""
+        "GISAID": ""
       },
       {
         "fieldName": "bioinformatics protocol",
@@ -1799,7 +1799,7 @@ const DATA = [
         "description": "The name and version number of the bioinformatics protocol used.",
         "guidance": "Further details regarding the methods used to process raw data, and/or generate assemblies, and/or generate consensus sequences can be provided in an SOP or protocol. Provide the name and version number of the protocol.",
         "examples": "https://www.protocols.io/groups/cphln-sarscov2-sequencing-consortium/members",
-        "GSAID": ""
+        "GISAID": ""
       }
     ]
   },
@@ -1817,7 +1817,7 @@ const DATA = [
         "description": "The name of the gene used in the diagnostic RT-PCR test.",
         "guidance": "Provide the full name of the gene used in the test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI",
         "examples": "envelope small membrane protein (SARS-CoV-2)",
-        "GSAID": ""
+        "GISAID": ""
       },
       {
         "fieldName": "diagnostic pcr protocol 1",
@@ -1830,7 +1830,7 @@ const DATA = [
         "description": "The name and version number of the protocol used for diagnostic marker amplification.",
         "guidance": "The name and version number of the protocol used for carrying out a diagnostic PCR test. This information can be compared to sequence data for evaluation of performance and quality control.",
         "examples": "EGenePCRTest 2",
-        "GSAID": ""
+        "GISAID": ""
       },
       {
         "fieldName": "diagnostic pcr Ct value 1",
@@ -1843,7 +1843,7 @@ const DATA = [
         "description": "The Ct value result from a diagnostic SARS-CoV-2 RT-PCR test.",
         "guidance": "Provide the CT value of the sample from the diagnostic RT-PCR test.",
         "examples": "21",
-        "GSAID": ""
+        "GISAID": ""
       },
       {
         "fieldName": "gene name 2",
@@ -1856,7 +1856,7 @@ const DATA = [
         "description": "The name of the gene used in the diagnostic RT-PCR test.",
         "guidance": "Provide the full name of another gene used in an RT-PCR test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI",
         "examples": "RNA-directed RNA Polymerase (RdRP)",
-        "GSAID": ""
+        "GISAID": ""
       },
       {
         "fieldName": "diagnostic pcr protocol 2",
@@ -1869,7 +1869,7 @@ const DATA = [
         "description": "The name and version number of the protocol used for diagnostic marker amplification.",
         "guidance": "The name and version number of the protocol used for carrying out a second diagnostic PCR test. This information can be compared to sequence data for evaluation of performance and quality control.",
         "examples": "RdRpGenePCRTest 3",
-        "GSAID": ""
+        "GISAID": ""
       },
       {
         "fieldName": "diagnostic pcr Ct value 2",
@@ -1882,7 +1882,7 @@ const DATA = [
         "description": "The Ct value result from a diagnostic SARS-CoV-2 RT-PCR test.",
         "guidance": "Provide the CT value of the sample from the second diagnostic RT-PCR test.",
         "examples": "36",
-        "GSAID": ""
+        "GISAID": ""
       }
     ]
   },
@@ -1900,7 +1900,7 @@ const DATA = [
         "description": "Names of individuals contributing to the processes of sample collection, sequence generation, analysis, and data submission.",
         "guidance": "Include the first and last names of all individuals that should be attributed, separated by a comma.",
         "examples": "Tejinder Singh, Fei Hu, Joe Blogs",
-        "GSAID": "Authors"
+        "GISAID": "Authors"
       }
     ]
   }

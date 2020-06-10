@@ -485,6 +485,8 @@ const changeRowVisibility = (id, invalidCells, hot) => {
   HOT.updateSettings({hiddenRows: {rows: hiddenRows}});
 }
 
+const REGEX_DECIMAL = /^(-|\+|)(0|[1-9]\d*)(\.\d+)?$/
+
 /**
  * Get a collection of all invalid cells in the grid.
  * @param {Object} hot Handsontable instance of grid.
@@ -505,12 +507,6 @@ const getInvalidCells = (hot, data) => {
 
       if (!cellVal) {
         valid = fields[col].requirement !== 'required';
-      } else if (datatype === 'xs:integer') {
-        // https://stackoverflow.com/a/16799538/11472358
-        const parsedInt = parseInt(cellVal, 10);
-        valid =
-            !isNaN(cellVal) && parsedInt.toString()===cellVal 
-            && testNumericRange (valid, parsedInt, fields[col])
       } else if (datatype === 'xs:nonNegativeInteger') {
         const parsedInt = parseInt(cellVal, 10);
         valid =
@@ -519,7 +515,7 @@ const getInvalidCells = (hot, data) => {
       } else if (datatype === 'xs:decimal') {
         // Test against: 10 1 0 0.1 10e2 -1 0.0 0.0.2
         const parsedDec = parseFloat(cellVal);
-        valid = !isNaN(cellVal) && cellVal.indexOf('e') ==-1 && parsedDec==cellVal
+        valid = !isNaN(cellVal) && REGEX_DECIMAL.test(cellVal)
             && testNumericRange(parsedDec, fields[col]);
       } else if (datatype === 'xs:date') {
         valid = moment(cellVal, 'YYYY-MM-DD', true).isValid();
