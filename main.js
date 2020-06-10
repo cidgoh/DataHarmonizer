@@ -540,6 +540,14 @@ const getInvalidCells = (hot, data) => {
   return invalidCells;
 };
 
+/**
+ * Test a given number against an upper or lower range, if any.
+ @param {Boolean} valid Existing valid status, quick exit if false.
+ @param {Number} number to be compared.
+ @param {Object} field that contains min and max limits.
+ @return {Boolean} validity of field.
+ @ 
+*/
 const testNumericRange = (valid, number, field) => {
 
   if (!valid) return valid
