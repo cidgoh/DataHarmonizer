@@ -40,10 +40,13 @@ with open(r_filename) as tsvfile:
 	    				'capitalize': row['capitalize'],
 	    				'ontology_id': row['Ontology ID'],
 	    				'datatype':    row['datatype'],
+	    				'xmls:minInclusive': row['min value'],
+	    				'xmls:maxInclusive': row['max value'],
 	    				'requirement': row['requirement'],
 	    				'description': row['description'],
 	    				'guidance':    row['guidance'],
-	    				'examples':    row['examples']
+	    				'examples':    row['examples'],
+	    				'GSAID': 	   row['GSAID']
 	    			}
 	    			if row['datatype'] == 'select' or row['datatype'] == 'multiple':
 	    				choice = collections.OrderedDict();
