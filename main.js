@@ -515,7 +515,7 @@ const getInvalidCells = (hot, data) => {
         const parsedInt = parseInt(cellVal, 10);
         valid =
             !isNaN(cellVal) && parsedInt >= 0 && parsedInt.toString()===cellVal;
-        valid = testNumericRange (valid, parsedInt, fields[col])
+        valid = testNumericRange(valid, parsedInt, fields[col])
       } else if (datatype === 'xs:decimal') {
         const parsedDec = parseFloat(cellVal);
         valid = !isNaN(cellVal) && cellVal.indexOf('e') ==-1 && parsedDec == cellVal;
