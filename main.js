@@ -207,7 +207,7 @@ const getColumns = (data) => {
   for (const field of getFields(data)) {
     const col = {};
     if (field.requirement) col.requirement = field.requirement;
-    if (field.datatype === 'date') {
+    if (field.datatype === 'xs:date') {
       col.type = 'date';
       col.dateFormat = 'YYYY-MM-DD';
     } else if (field.datatype === 'select') {
@@ -505,14 +505,22 @@ const getInvalidCells = (hot, data) => {
 
       if (!cellVal) {
         valid = fields[col].requirement !== 'required';
-      } else if (datatype === 'integer') {
+      } else if (datatype === 'xs:integer') {
         // https://stackoverflow.com/a/16799538/11472358
         const parsedInt = parseInt(cellVal, 10);
         valid =
-            !isNaN(cellVal) && parsedInt>=0 && parsedInt.toString()===cellVal;
-      } else if (datatype === 'decimal') {
-        valid = !isNaN(cellVal) && parseFloat(cellVal)>=0;
-      } else if (datatype === 'date') {
+            !isNaN(cellVal) && parsedInt.toString()===cellVal;
+        valid = testNumericRange (valid, parsedInt, fields[col])
+      } else if (datatype === 'xs:nonNegativeInteger') {
+        const parsedInt = parseInt(cellVal, 10);
+        valid =
+            !isNaN(cellVal) && parsedInt >= 0 && parsedInt.toString()===cellVal;
+        valid = testNumericRange (valid, parsedInt, fields[col])
+      } else if (datatype === 'xs:decimal') {
+        const parsedDec = parseFloat(cellVal);
+        valid = !isNaN(cellVal) && cellVal.indexOf('e') ==-1 && parsedDec == cellVal;
+        valid = testNumericRange (valid, parsedDec, fields[col]);
+      } else if (datatype === 'xs:date') {
         valid = moment(cellVal, 'YYYY-MM-DD', true).isValid();
       } else if (datatype === 'select') {
         valid = validateDropDown(cellVal, fields[col].flatVocabulary);
@@ -532,6 +540,21 @@ const getInvalidCells = (hot, data) => {
   return invalidCells;
 };
 
+const testNumericRange = (valid, number, field) => {
+
+  if (!valid) return valid
+
+  if (field['xs:minInclusive']) {
+    if (number < field['xs:minInclusive']) {
+      return false
+    }
+  }
+  if (field['xs:maxInclusive']) {
+    if (number > field['xs:maxInclusive']) 
+      return false
+  }
+  return true
+}
 /**
  * Validate a value against its source. This is called when when validating
  * autocomplete cells.
