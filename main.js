@@ -688,6 +688,22 @@ $(document).ready(() => {
     $('#base-name-save-as-input').val('');
   });
 
+  // File -> Export to...
+  $('#export-to-confirm-btn').click(() => {
+    const baseName = $('#base-name-export-to-input').val();
+    const exportFormat = $('#export-to-format-select').val();
+    if (!exportFormat) {
+      $('#export-to-err-msg').text('Select a format')
+      return;
+    }
+    $('#export-to-modal').modal('hide');
+  });
+  // Reset export modal values when the modal is closed
+  $('#export-to-modal').on('hidden.bs.modal', () => {
+    $('#export-to-err-msg').text('');
+    $('#base-name-export-to-input').val('');
+  });
+
   // Settings -> Show ... columns
   const showColsSelectors =
       ['#show-all-cols-dropdown-item', '#show-required-cols-dropdown-item'];

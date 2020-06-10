@@ -126,16 +126,19 @@
           <div class="modal-body">
             <div class="container-fluid">
               <div class="row">
+                <div class="col text-danger" id="export-to-err-msg"></div>
+              </div>
+              <div class="row">
                 <div class="col-12 col-sm-8">
                   <div class="input-group">
-                    <input type="text" class="form-control" placeholder="file name">
+                    <input type="text" class="form-control" id="base-name-export-to-input" placeholder="file name">
                     <div class="input-group-append">
                       <div class="input-group-text">.xls</div>
                     </div>
                   </div>
                 </div>
                 <div class="col mt-2 mt-sm-0">
-                  <select class="form-control">
+                  <select class="form-control" id="export-to-format-select">
                     <option value="" disabled selected>Format</option>
                     <option value="gsaid">GSAID</option>
                     <option value="irida">IRIDA</option>
@@ -148,7 +151,7 @@
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                 </div>
                 <div class="col d-flex justify-content-end">
-                  <button type="button" class="btn btn-primary">Export</button>
+                  <button type="button" class="btn btn-primary" id="export-to-confirm-btn">Export</button>
                 </div>
               </div>
             </div>
