@@ -519,7 +519,7 @@ const getInvalidCells = (hot, data) => {
       } else if (datatype === 'xs:decimal') {
         const parsedDec = parseFloat(cellVal);
         valid = !isNaN(cellVal) && cellVal.indexOf('e') ==-1 && parsedDec == cellVal;
-        valid = testNumericRange (valid, parsedDec, fields[col]);
+        valid = testNumericRange(valid, parsedDec, fields[col]);
       } else if (datatype === 'xs:date') {
         valid = moment(cellVal, 'YYYY-MM-DD', true).isValid();
       } else if (datatype === 'select') {
