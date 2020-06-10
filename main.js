@@ -546,12 +546,12 @@ const getInvalidCells = (hot, data) => {
 */
 const testNumericRange = (number, field) => {
 
-  if (field['xs:minInclusive']) {
+  if (field['xs:minInclusive'] !== '') {
     if (number < field['xs:minInclusive']) {
       return false
     }
   }
-  if (field['xs:maxInclusive']) {
+  if (field['xs:maxInclusive'] !== '') {
     if (number > field['xs:maxInclusive']) 
       return false
   }
