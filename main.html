@@ -20,6 +20,7 @@
                 <label for="open-file-input" class="dropdown-item mb-0" id="open-dropdown-item">Open</label>
                 <input type="file" accept=".xlsx,.tsv,.csv" class="form-control-file" id="open-file-input">
                 <span class="dropdown-item" data-toggle="modal" data-target="#save-as-modal">Save As...</span>
+                <span class="dropdown-item" data-toggle="modal" data-target="#export-to-modal">Export To...</span>
               </div>
             </div>
             <div class="btn-group" id="settings-dropdown-btn-group" role="group">
@@ -110,6 +111,39 @@
                 </div>
                 <div class="col-3 col-sm-2">
                   <button type="button" class="btn btn-primary" id="save-as-confirm-btn">Save</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal" id="export-to-modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-12 col-sm-8">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="file name">
+                    <div class="input-group-append">
+                      <div class="input-group-text">.xls</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col mt-2 mt-sm-0">
+                  <select class="form-control">
+                    <option value="" disabled selected>Format</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row justify-content-end mt-3">
+                <div class="col-3 col-sm-2 mr-3">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                </div>
+                <div class="col-3 col-sm-2">
+                  <button type="button" class="btn btn-primary">Export</button>
                 </div>
               </div>
             </div>
