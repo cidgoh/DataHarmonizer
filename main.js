@@ -671,7 +671,7 @@ $(document).ready(() => {
   });
 
   // File -> Save
-  $('#save-as-confirm-btn').click((e) => {
+  $('#save-as-confirm-btn').click(() => {
     try {
       const baseName = $('#base-name-save-as-input').val();
       const ext = $('#file-ext-save-as-select').val();
