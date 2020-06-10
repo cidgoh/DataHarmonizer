@@ -207,7 +207,7 @@ const getColumns = (data) => {
   for (const field of getFields(data)) {
     const col = {};
     if (field.requirement) col.requirement = field.requirement;
-    if (field.datatype === 'date') {
+    if (field.datatype === 'xs:date') {
       col.type = 'date';
       col.dateFormat = 'YYYY-MM-DD';
     } else if (field.datatype === 'select') {
@@ -485,6 +485,8 @@ const changeRowVisibility = (id, invalidCells, hot) => {
   HOT.updateSettings({hiddenRows: {rows: hiddenRows}});
 }
 
+const REGEX_DECIMAL = /^(-|\+|)(0|[1-9]\d*)(\.\d+)?$/
+
 /**
  * Get a collection of all invalid cells in the grid.
  * @param {Object} hot Handsontable instance of grid.
@@ -505,14 +507,17 @@ const getInvalidCells = (hot, data) => {
 
       if (!cellVal) {
         valid = fields[col].requirement !== 'required';
-      } else if (datatype === 'integer') {
-        // https://stackoverflow.com/a/16799538/11472358
+      } else if (datatype === 'xs:nonNegativeInteger') {
         const parsedInt = parseInt(cellVal, 10);
         valid =
-            !isNaN(cellVal) && parsedInt>=0 && parsedInt.toString()===cellVal;
-      } else if (datatype === 'decimal') {
-        valid = !isNaN(cellVal) && parseFloat(cellVal)>=0;
-      } else if (datatype === 'date') {
+            !isNaN(cellVal) && parsedInt >= 0 && parsedInt.toString()===cellVal 
+            && testNumericRange(parsedInt, fields[col])
+      } else if (datatype === 'xs:decimal') {
+        // Test against: 10 1 0 0.1 10e2 -1 0.0 0.0.2
+        const parsedDec = parseFloat(cellVal);
+        valid = !isNaN(cellVal) && REGEX_DECIMAL.test(cellVal)
+            && testNumericRange(parsedDec, fields[col]);
+      } else if (datatype === 'xs:date') {
         valid = moment(cellVal, 'YYYY-MM-DD', true).isValid();
       } else if (datatype === 'select') {
         valid = validateDropDown(cellVal, fields[col].flatVocabulary);
@@ -532,6 +537,26 @@ const getInvalidCells = (hot, data) => {
   return invalidCells;
 };
 
+/**
+ * Test a given number against an upper or lower range, if any.
+ @param {Number} number to be compared.
+ @param {Object} field that contains min and max limits.
+ @return {Boolean} validity of field.
+ @ 
+*/
+const testNumericRange = (number, field) => {
+
+  if (field['xs:minInclusive']) {
+    if (number < field['xs:minInclusive']) {
+      return false
+    }
+  }
+  if (field['xs:maxInclusive']) {
+    if (number > field['xs:maxInclusive']) 
+      return false
+  }
+  return true
+}
 /**
  * Validate a value against its source. This is called when when validating
  * autocomplete cells.
