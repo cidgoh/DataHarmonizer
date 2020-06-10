@@ -509,17 +509,18 @@ const getInvalidCells = (hot, data) => {
         // https://stackoverflow.com/a/16799538/11472358
         const parsedInt = parseInt(cellVal, 10);
         valid =
-            !isNaN(cellVal) && parsedInt.toString()===cellVal;
-        valid = testNumericRange (valid, parsedInt, fields[col])
+            !isNaN(cellVal) && parsedInt.toString()===cellVal 
+            && testNumericRange (valid, parsedInt, fields[col])
       } else if (datatype === 'xs:nonNegativeInteger') {
         const parsedInt = parseInt(cellVal, 10);
         valid =
-            !isNaN(cellVal) && parsedInt >= 0 && parsedInt.toString()===cellVal;
-        valid = testNumericRange(valid, parsedInt, fields[col])
+            !isNaN(cellVal) && parsedInt >= 0 && parsedInt.toString()===cellVal 
+            && testNumericRange(parsedInt, fields[col])
       } else if (datatype === 'xs:decimal') {
+        // Test against: 10 1 0 0.1 10e2 -1 0.0 0.0.2
         const parsedDec = parseFloat(cellVal);
-        valid = !isNaN(cellVal) && cellVal.indexOf('e') ==-1 && parsedDec == cellVal;
-        valid = testNumericRange(valid, parsedDec, fields[col]);
+        valid = !isNaN(cellVal) && cellVal.indexOf('e') ==-1 && parsedDec==cellVal
+            && testNumericRange(parsedDec, fields[col]);
       } else if (datatype === 'xs:date') {
         valid = moment(cellVal, 'YYYY-MM-DD', true).isValid();
       } else if (datatype === 'select') {
@@ -542,15 +543,12 @@ const getInvalidCells = (hot, data) => {
 
 /**
  * Test a given number against an upper or lower range, if any.
- @param {Boolean} valid Existing valid status, quick exit if false.
  @param {Number} number to be compared.
  @param {Object} field that contains min and max limits.
  @return {Boolean} validity of field.
  @ 
 */
-const testNumericRange = (valid, number, field) => {
-
-  if (!valid) return valid
+const testNumericRange = (number, field) => {
 
   if (field['xs:minInclusive']) {
     if (number < field['xs:minInclusive']) {
