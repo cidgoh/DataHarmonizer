@@ -309,8 +309,8 @@ const getTrimmedData = (hot) => {
 };
 
 /**
- * Download grid headers and data to file.
- * @param {Array<Array<String>>} matrix Grid data.
+ * Download matrix to file.
+ * @param {Array<Array<String>>} matrix Matrix to download.
  * @param {String} baseName Basename of downloaded file.
  * @param {String} ext Extension of downloaded file.
  * @param {Object} xlsx SheetJS variable.
@@ -328,6 +328,94 @@ const exportFile = (matrix, baseName, ext, xlsx) => {
   } else if (ext === 'csv') {
     xlsx.writeFile(workbook, `${baseName}.csv`, {bookType: 'csv', FS: ','});
   }
+};
+
+/**
+ * Download secondary headers and grid data.
+ * @param {String} baseName Basename of downloaded file.
+ * @param {Object} hot Handonstable grid instance.
+ * @param {Object} data See `data.js`.
+ * @param {Object} xlsx SheetJS variable.
+ */
+const exportIRIDA = (baseName, hot, data, xlsx) => {
+  const matrix = [getFlatHeaders(data)[1], ...getTrimmedData(hot)];
+  exportFile(matrix, baseName, 'xls', xlsx);
+};
+
+/**
+ * Download grid mapped to GISAID format.
+ * @param {String} baseName Basename of downloaded file.
+ * @param {Object} hot Handonstable grid instance.
+ * @param {Object} data See `data.js`.
+ * @param {Object} xlsx SheetJS variable.
+ */
+const exportGISAID = (baseName, hot, data, xlsx) => {
+  // TODO: As we add more formats, we should add such headers to `data.js`
+  const GISAIDHeaders = [
+    'Submitter', 'FASTA filename', 'Virus name', 'Type',
+    'Passage details/history', 'Collection date', 'Location',
+    'Additional location information', 'Host', 'Additional host information',
+    'Gender', 'Patient age', 'Patient status', 'Specimen source', 'Outbreak',
+    'Last vaccinated', 'Treatment', 'Sequencing technology', 'Assembly method',
+    'Coverage', 'Originating lab', 'Address',
+    'Sample ID given by the sample provider', 'Submitting lab', 'Address',
+    'Sample ID given by the submitting laboratory', 'Authors',
+  ];
+
+  // Create a map of GISAID headers to our fields. It is a one-to-many
+  // relationship, with indices representing the maps.
+  const headerMap = {};
+  for (const [GISAIDIndex, _] of GISAIDHeaders.entries()) {
+    headerMap[GISAIDIndex] = [];
+  }
+  const fields = getFields(data);
+  for (const [fieldIndex, field] of fields.entries()) {
+    if (field.GISAID) {
+      let GISAIDIndex = GISAIDHeaders.indexOf(field.GISAID);
+      // GISAID has two fields called 'Address'
+      const secondAddress = 'sequence submitter contact address';
+      if (field.GISAID === 'Address' && field.fieldName === secondAddress) {
+        GISAIDIndex = GISAIDHeaders.indexOf(field.GISAID, GISAIDIndex+1);
+      }
+      headerMap[GISAIDIndex].push(fieldIndex);
+    }
+  }
+
+  // Construct GISAID's matrix
+  const mappedMatrix = [GISAIDHeaders];
+  const unmappedMatrix = getTrimmedData(hot);
+  for (const unmappedRow of unmappedMatrix) {
+    const mappedRow = [];
+    for (const [GISAIDIndex, GISAIDHeader] of GISAIDHeaders.entries()) {
+      if (GISAIDHeader === 'Type') {
+        mappedRow.push('coronavirus');
+        continue;
+      }
+
+      const mappedCell = [];
+      for (const mappedFieldIndex of headerMap[GISAIDIndex]) {
+        let mappedCellVal = unmappedRow[mappedFieldIndex];
+        if (!mappedCellVal) continue;
+
+        let unknown = mappedCellVal.toLowerCase() === 'missing';
+        unknown |= mappedCellVal.toLowerCase() === 'not applicable';
+        if (unknown) {
+          mappedCellVal = 'Unknown';
+        }
+
+        const fieldName = fields[mappedFieldIndex].fieldName;
+        if (fieldName === 'passage number') {
+          mappedCellVal = 'passage number ' + mappedCellVal;
+        }
+
+        mappedCell.push(mappedCellVal);
+      }
+      mappedRow.push(mappedCell.join(';'));
+    }
+    mappedMatrix.push(mappedRow);
+  }
+
+  exportFile(mappedMatrix, baseName, 'xls', xlsx);
 };
 
 /**
@@ -692,7 +780,7 @@ $(document).ready(() => {
   });
 
   // File -> Save
-  $('#save-as-confirm-btn').click((e) => {
+  $('#save-as-confirm-btn').click(() => {
     try {
       const baseName = $('#base-name-save-as-input').val();
       const ext = $('#file-ext-save-as-select').val();
@@ -707,6 +795,27 @@ $(document).ready(() => {
   $('#save-as-modal').on('hidden.bs.modal', () => {
     $('#save-as-err-msg').text('');
     $('#base-name-save-as-input').val('');
+  });
+
+  // File -> Export to...
+  $('#export-to-confirm-btn').click(() => {
+    const baseName = $('#base-name-export-to-input').val();
+    const exportFormat = $('#export-to-format-select').val();
+    if (!exportFormat) {
+      $('#export-to-err-msg').text('Select a format');
+      return;
+    }
+    if (exportFormat === 'gisaid') {
+      exportGISAID(baseName, HOT, DATA, XLSX);
+    } else if (exportFormat === 'irida') {
+      exportIRIDA(baseName, HOT, DATA, XLSX);
+    }
+    $('#export-to-modal').modal('hide');
+  });
+  // Reset export modal values when the modal is closed
+  $('#export-to-modal').on('hidden.bs.modal', () => {
+    $('#export-to-err-msg').text('');
+    $('#base-name-export-to-input').val('');
   });
 
   // Settings -> Show ... columns
