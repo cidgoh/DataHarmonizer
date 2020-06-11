@@ -346,12 +346,18 @@ const exportGISAID = (baseName, hot, data, xlsx) => {
   const fields = getFields(data);
   for (const [fieldIndex, field] of fields.entries()) {
     if (field.GISAID) {
-      const GISAIDIndex = GISAIDHeaders.findIndex((x) => x === field.GISAID);
+      let GISAIDIndex = GISAIDHeaders.indexOf(field.GISAID);
+
+      const secondAddress = 'sequence submitter contact address'
+      if (field.GISAID === 'Address' && field.fieldName === secondAddress) {
+        GISAIDIndex = GISAIDHeaders.indexOf(field.GISAID, GISAIDIndex+1);
+      }
+
       headerMap[GISAIDIndex].push(fieldIndex);
     }
   }
 
-  const mappedMatrix = [];
+  const mappedMatrix = [GISAIDHeaders];
   const unmappedMatrix = hot.getData();
   for (const unmappedRow of unmappedMatrix) {
     const mappedRow = [];
@@ -360,8 +366,11 @@ const exportGISAID = (baseName, hot, data, xlsx) => {
       for (const mappedFieldIndex of headerMap[GISAIDIndex]) {
         let mappedCellVal = unmappedRow[mappedFieldIndex];
         if (!mappedCellVal) continue;
-        if (mappedCellVal === 'missing' || mappedCellVal === 'not applicable') {
-          mappedCellVal = 'unknown';
+
+        let unknown = mappedCellVal.toLowerCase() === 'missing'
+        unknown |= mappedCellVal.toLowerCase() === 'not applicable'
+        if (unknown) {
+          mappedCellVal = 'Unknown';
         }
 
         const fieldName = fields[mappedFieldIndex].fieldName;
