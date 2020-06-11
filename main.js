@@ -695,7 +695,7 @@ $(document).ready(() => {
     const baseName = $('#base-name-export-to-input').val();
     const exportFormat = $('#export-to-format-select').val();
     if (!exportFormat) {
-      $('#export-to-err-msg').text('Select a format')
+      $('#export-to-err-msg').text('Select a format');
       return;
     }
     $('#export-to-modal').modal('hide');
