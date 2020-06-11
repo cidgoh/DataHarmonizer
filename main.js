@@ -302,6 +302,8 @@ const exportFile = (matrix, baseName, ext, xlsx) => {
   xlsx.utils.book_append_sheet(workbook, worksheet, 'Sheet1');
   if (ext === 'xlsx') {
     xlsx.writeFile(workbook, `${baseName}.xlsx`);
+  } else if (ext === 'xls') {
+    xlsx.writeFile(workbook, `${baseName}.xls`);
   } else if (ext === 'tsv') {
     xlsx.writeFile(workbook, `${baseName}.tsv`, {bookType: 'csv', FS: '\t'});
   } else if (ext === 'csv') {
@@ -311,7 +313,7 @@ const exportFile = (matrix, baseName, ext, xlsx) => {
 
 /**
  * Read local file opened by user.
- * Only reads `xlsx`, `csv` and `tsv` files.
+ * Only reads `xlsx`, `xlsx`, `csv` and `tsv` files.
  * @param {File} file User file.
  * @param {Object} xlsx SheetJS variable.
  * @return {Promise<Array<Array<String>>>} Matrix populated by user's file data.
@@ -627,7 +629,7 @@ $(document).ready(() => {
   $fileInput.change(() => {
     const file = $fileInput[0].files[0];
     const ext = file.name.split('.').pop();
-    const acceptedExts = ['xlsx', 'tsv', 'csv'];
+    const acceptedExts = ['xlsx', 'xls', 'tsv', 'csv'];
     if (!acceptedExts.includes(ext)) {
       const errMsg = `Only ${acceptedExts.join(', ')} files are supported`;
       $('#open-err-msg').text(errMsg);

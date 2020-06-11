@@ -18,7 +18,7 @@
               <div class="dropdown-menu">
                 <span class="dropdown-item" id="new-dropdown-item">New</span>
                 <label for="open-file-input" class="dropdown-item mb-0" id="open-dropdown-item">Open</label>
-                <input type="file" accept=".xlsx,.tsv,.csv" class="form-control-file" id="open-file-input">
+                <input type="file" accept=".xlsx,.xls,.tsv,.csv" class="form-control-file" id="open-file-input">
                 <span class="dropdown-item" data-toggle="modal" data-target="#save-as-modal">Save As...</span>
                 <span class="dropdown-item" data-toggle="modal" data-target="#export-to-modal">Export To...</span>
               </div>
@@ -99,6 +99,7 @@
                     <div class="input-group-append">
                       <select class="form-control" id="file-ext-save-as-select">
                         <option value="xlsx" selected>.xlsx</option>
+                        <option value="xls">.xls</option>
                         <option value="tsv">.tsv</option>
                         <option value="csv">.csv</option>
                       </select>
