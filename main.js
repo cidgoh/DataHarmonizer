@@ -338,7 +338,7 @@ const exportFile = (matrix, baseName, ext, xlsx) => {
  * @param {Object} xlsx SheetJS variable.
  */
 const exportIRIDA = (baseName, hot, data, xlsx) => {
-  const matrix = [getFlatHeaders(data)[1], ...hot.getData()];
+  const matrix = [getFlatHeaders(data)[1], ...getTrimmedData(hot)];
   exportFile(matrix, baseName, 'xls', xlsx);
 };
 
@@ -383,7 +383,7 @@ const exportGISAID = (baseName, hot, data, xlsx) => {
 
   // Construct GISAID's matrix
   const mappedMatrix = [GISAIDHeaders];
-  const unmappedMatrix = hot.getData();
+  const unmappedMatrix = getTrimmedData(hot);
   for (const unmappedRow of unmappedMatrix) {
     const mappedRow = [];
     for (const [GISAIDIndex, GISAIDHeader] of GISAIDHeaders.entries()) {
