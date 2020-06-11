@@ -594,8 +594,6 @@ const changeRowVisibility = (id, invalidCells, hot) => {
   HOT.updateSettings({hiddenRows: {rows: hiddenRows}});
 }
 
-const REGEX_DECIMAL = /^(-|\+|)(0|[1-9]\d*)(\.\d+)?$/
-
 /**
  * Get a collection of all invalid cells in the grid.
  * @param {Object} hot Handsontable instance of grid.
@@ -606,6 +604,9 @@ const REGEX_DECIMAL = /^(-|\+|)(0|[1-9]\d*)(\.\d+)?$/
 const getInvalidCells = (hot, data) => {
   const invalidCells = {};
   const fields = getFields(data);
+
+  const regexDecimal = /^(-|\+|)(0|[1-9]\d*)(\.\d+)?$/;
+
   for (let row=0; row<hot.countRows(); row++) {
     if (hot.isEmptyRow(row)) continue;
 
@@ -618,14 +619,13 @@ const getInvalidCells = (hot, data) => {
         valid = fields[col].requirement !== 'required';
       } else if (datatype === 'xs:nonNegativeInteger') {
         const parsedInt = parseInt(cellVal, 10);
-        valid =
-            !isNaN(cellVal) && parsedInt >= 0 && parsedInt.toString()===cellVal 
-            && testNumericRange(parsedInt, fields[col])
+        valid = !isNaN(cellVal) && parsedInt>=0
+        valid &= parsedInt.toString()===cellVal;
+        valid &= testNumericRange(parsedInt, fields[col]);
       } else if (datatype === 'xs:decimal') {
-        // Test against: 10 1 0 0.1 10e2 -1 0.0 0.0.2
         const parsedDec = parseFloat(cellVal);
-        valid = !isNaN(cellVal) && REGEX_DECIMAL.test(cellVal)
-            && testNumericRange(parsedDec, fields[col]);
+        valid = !isNaN(cellVal) && regexDecimal.test(cellVal);
+        valid &= testNumericRange(parsedDec, fields[col]);
       } else if (datatype === 'xs:date') {
         valid = moment(cellVal, 'YYYY-MM-DD', true).isValid();
       } else if (datatype === 'select') {
@@ -648,11 +648,10 @@ const getInvalidCells = (hot, data) => {
 
 /**
  * Test a given number against an upper or lower range, if any.
- @param {Number} number to be compared.
- @param {Object} field that contains min and max limits.
- @return {Boolean} validity of field.
- @ 
-*/
+ * @param {Number} number to be compared.
+ * @param {Object} field that contains min and max limits.
+ * @return {Boolean} validity of field.
+ */
 const testNumericRange = (number, field) => {
 
   if (field['xs:minInclusive'] !== '') {
