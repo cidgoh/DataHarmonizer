@@ -367,7 +367,12 @@ const exportGISAID = (baseName, hot, data, xlsx) => {
   const unmappedMatrix = hot.getData();
   for (const unmappedRow of unmappedMatrix) {
     const mappedRow = [];
-    for (const [GISAIDIndex, _] of GISAIDHeaders.entries()) {
+    for (const [GISAIDIndex, GISAIDHeader] of GISAIDHeaders.entries()) {
+      if (GISAIDHeader === 'Type') {
+        mappedRow.push('coronavirus');
+        continue;
+      }
+
       const mappedCell = [];
       for (const mappedFieldIndex of headerMap[GISAIDIndex]) {
         let mappedCellVal = unmappedRow[mappedFieldIndex];
