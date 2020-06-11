@@ -324,6 +324,34 @@ const exportIRIDA = (baseName, hot, data, xlsx) => {
 };
 
 /**
+ * TODO
+ */
+const exportGISAID = (baseName, hot, data, xlsx) => {
+  // TODO: As add more formats, we should move third-party headers to `data.js`
+  const GISAIDHeaders = [
+    'Submitter', 'FASTA filename', 'Virus name', 'Type',
+    'Passage details/history', 'Collection date', 'Location',
+    'Host', 'Gender', 'Patient age', 'Originating lab', 'Address',
+    'Submitting lab', 'Address', 'Additional location information',
+    'Additional host information', 'Patient status', 'Specimen source',
+    'Outbreak', 'Last vaccinated', 'Treatment', 'Sequencing technology',
+    'Assembly method', 'Coverage', 'Sample ID given by the sample provider',
+    'Sample ID given by the submitting laboratory', 'Authors',
+  ];
+  const headerMap = {};
+  for (const [GISAIDIndex, _] of GISAIDHeaders.entries()) {
+    headerMap[GISAIDIndex] = [];
+  }
+  for (const [fieldIndex, field] of getFields(data).entries()) {
+    if (field.GISAID) {
+      const GISAIDIndex = GISAIDHeaders.findIndex((x) => x === field.GISAID);
+      headerMap[GISAIDIndex].push(fieldIndex);
+    }
+  }
+  return;
+};
+
+/**
  * Read local file opened by user.
  * Only reads `xlsx`, `xlsx`, `csv` and `tsv` files.
  * @param {File} file User file.
@@ -710,7 +738,9 @@ $(document).ready(() => {
       $('#export-to-err-msg').text('Select a format');
       return;
     }
-    if (exportFormat === 'irida') {
+    if (exportFormat === 'gisaid') {
+      exportGISAID(baseName, HOT, DATA, XLSX);
+    } else if (exportFormat === 'irida') {
       exportIRIDA(baseName, HOT, DATA, XLSX);
     }
     $('#export-to-modal').modal('hide');
