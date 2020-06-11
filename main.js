@@ -324,10 +324,14 @@ const exportIRIDA = (baseName, hot, data, xlsx) => {
 };
 
 /**
- * TODO
+ * Download grid mapped to GISAID format.
+ * @param {String} baseName Basename of downloaded file.
+ * @param {Object} hot Handonstable grid instance.
+ * @param {Object} data See `data.js`.
+ * @param {Object} xlsx SheetJS variable.
  */
 const exportGISAID = (baseName, hot, data, xlsx) => {
-  // TODO: As add more formats, we should move third-party headers to `data.js`
+  // TODO: As we add more formats, we should add such headers to `data.js`
   const GISAIDHeaders = [
     'Submitter', 'FASTA filename', 'Virus name', 'Type',
     'Passage details/history', 'Collection date', 'Location',
@@ -338,25 +342,27 @@ const exportGISAID = (baseName, hot, data, xlsx) => {
     'Sample ID given by the sample provider', 'Submitting lab', 'Address',
     'Sample ID given by the submitting laboratory', 'Authors',
   ];
+
+  // Create a map of GISAID headers to our fields. It is a one-to-many
+  // relationship, with indices representing the maps.
   const headerMap = {};
   for (const [GISAIDIndex, _] of GISAIDHeaders.entries()) {
     headerMap[GISAIDIndex] = [];
   }
-
   const fields = getFields(data);
   for (const [fieldIndex, field] of fields.entries()) {
     if (field.GISAID) {
       let GISAIDIndex = GISAIDHeaders.indexOf(field.GISAID);
-
-      const secondAddress = 'sequence submitter contact address'
+      // GISAID has two fields called 'Address'
+      const secondAddress = 'sequence submitter contact address';
       if (field.GISAID === 'Address' && field.fieldName === secondAddress) {
         GISAIDIndex = GISAIDHeaders.indexOf(field.GISAID, GISAIDIndex+1);
       }
-
       headerMap[GISAIDIndex].push(fieldIndex);
     }
   }
 
+  // Construct GISAID's matrix
   const mappedMatrix = [GISAIDHeaders];
   const unmappedMatrix = hot.getData();
   for (const unmappedRow of unmappedMatrix) {
@@ -367,8 +373,8 @@ const exportGISAID = (baseName, hot, data, xlsx) => {
         let mappedCellVal = unmappedRow[mappedFieldIndex];
         if (!mappedCellVal) continue;
 
-        let unknown = mappedCellVal.toLowerCase() === 'missing'
-        unknown |= mappedCellVal.toLowerCase() === 'not applicable'
+        let unknown = mappedCellVal.toLowerCase() === 'missing';
+        unknown |= mappedCellVal.toLowerCase() === 'not applicable';
         if (unknown) {
           mappedCellVal = 'Unknown';
         }
