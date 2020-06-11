@@ -290,6 +290,25 @@ const enableMultiSelection = (hot, data) => {
 };
 
 /**
+ * Get grid data without trailing blank rows.
+ * @param {Object} hot Handonstable grid instance.
+ * @return {Array<Array<String>>} Grid data without trailing blank rows.
+ */
+const getTrimmedData = (hot) => {
+  const gridData = hot.getData();
+  let lastEmptyRow = -1;
+  for (let i=gridData.length; i>=0; i--) {
+    if (hot.isEmptyRow(i)) {
+      lastEmptyRow = i;
+    } else {
+      break;
+    }
+  }
+
+  return lastEmptyRow === -1 ? gridData : gridData.slice(0, lastEmptyRow);
+};
+
+/**
  * Download matrix to file.
  * @param {Array<Array<String>>} matrix Matrix to download.
  * @param {String} baseName Basename of downloaded file.
@@ -765,7 +784,7 @@ $(document).ready(() => {
     try {
       const baseName = $('#base-name-save-as-input').val();
       const ext = $('#file-ext-save-as-select').val();
-      const matrix = [...getFlatHeaders(DATA), ...HOT.getData()];
+      const matrix = [...getFlatHeaders(DATA), ...getTrimmedData(HOT)];
       exportFile(matrix, baseName, ext, XLSX);
       $('#save-as-modal').modal('hide');
     } catch (err) {
