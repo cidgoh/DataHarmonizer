@@ -331,24 +331,52 @@ const exportGISAID = (baseName, hot, data, xlsx) => {
   const GISAIDHeaders = [
     'Submitter', 'FASTA filename', 'Virus name', 'Type',
     'Passage details/history', 'Collection date', 'Location',
-    'Host', 'Gender', 'Patient age', 'Originating lab', 'Address',
-    'Submitting lab', 'Address', 'Additional location information',
-    'Additional host information', 'Patient status', 'Specimen source',
-    'Outbreak', 'Last vaccinated', 'Treatment', 'Sequencing technology',
-    'Assembly method', 'Coverage', 'Sample ID given by the sample provider',
+    'Additional location information', 'Host', 'Additional host information',
+    'Gender', 'Patient age', 'Patient status', 'Specimen source', 'Outbreak',
+    'Last vaccinated', 'Treatment', 'Sequencing technology', 'Assembly method',
+    'Coverage', 'Originating lab', 'Address',
+    'Sample ID given by the sample provider', 'Submitting lab', 'Address',
     'Sample ID given by the submitting laboratory', 'Authors',
   ];
   const headerMap = {};
   for (const [GISAIDIndex, _] of GISAIDHeaders.entries()) {
     headerMap[GISAIDIndex] = [];
   }
-  for (const [fieldIndex, field] of getFields(data).entries()) {
+
+  const fields = getFields(data);
+  for (const [fieldIndex, field] of fields.entries()) {
     if (field.GISAID) {
       const GISAIDIndex = GISAIDHeaders.findIndex((x) => x === field.GISAID);
       headerMap[GISAIDIndex].push(fieldIndex);
     }
   }
-  return;
+
+  const mappedMatrix = [];
+  const unmappedMatrix = hot.getData();
+  for (const unmappedRow of unmappedMatrix) {
+    const mappedRow = [];
+    for (const [GISAIDIndex, _] of GISAIDHeaders.entries()) {
+      const mappedCell = [];
+      for (const mappedFieldIndex of headerMap[GISAIDIndex]) {
+        let mappedCellVal = unmappedRow[mappedFieldIndex];
+        if (!mappedCellVal) continue;
+        if (mappedCellVal === 'missing' || mappedCellVal === 'not applicable') {
+          mappedCellVal = 'unknown';
+        }
+
+        const fieldName = fields[mappedFieldIndex].fieldName;
+        if (fieldName === 'passage number') {
+          mappedCellVal = 'passage number ' + mappedCellVal;
+        }
+
+        mappedCell.push(mappedCellVal);
+      }
+      mappedRow.push(mappedCell.join(';'));
+    }
+    mappedMatrix.push(mappedRow);
+  }
+
+  exportFile(mappedMatrix, baseName, 'xls', xlsx);
 };
 
 /**
