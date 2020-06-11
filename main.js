@@ -312,6 +312,18 @@ const exportFile = (matrix, baseName, ext, xlsx) => {
 };
 
 /**
+ * Download secondary headers and grid data.
+ * @param {String} baseName Basename of downloaded file.
+ * @param {Object} hot Handonstable grid instance.
+ * @param {Object} data See `data.js`.
+ * @param {Object} xlsx SheetJS variable.
+ */
+const exportIRIDA = (baseName, hot, data, xlsx) => {
+  const matrix = [getFlatHeaders(data)[1], ...hot.getData()];
+  exportFile(matrix, baseName, 'xls', xlsx);
+};
+
+/**
  * Read local file opened by user.
  * Only reads `xlsx`, `xlsx`, `csv` and `tsv` files.
  * @param {File} file User file.
@@ -699,9 +711,7 @@ $(document).ready(() => {
       return;
     }
     if (exportFormat === 'irida') {
-      // Download everything except primary headers
-      const matrix = [getFlatHeaders(DATA)[1], ...HOT.getData()];
-      exportFile(matrix, baseName, 'xls', XLSX);
+      exportIRIDA(baseName, HOT, DATA, XLSX);
     }
     $('#export-to-modal').modal('hide');
   });
