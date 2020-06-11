@@ -290,8 +290,8 @@ const enableMultiSelection = (hot, data) => {
 };
 
 /**
- * Download grid headers and data to file.
- * @param {Array<Array<String>>} matrix Grid data.
+ * Download matrix to file.
+ * @param {Array<Array<String>>} matrix Matrix to download.
  * @param {String} baseName Basename of downloaded file.
  * @param {String} ext Extension of downloaded file.
  * @param {Object} xlsx SheetJS variable.
@@ -697,6 +697,11 @@ $(document).ready(() => {
     if (!exportFormat) {
       $('#export-to-err-msg').text('Select a format');
       return;
+    }
+    if (exportFormat === 'irida') {
+      // Download everything except primary headers
+      const matrix = [getFlatHeaders(DATA)[1], ...HOT.getData()];
+      exportFile(matrix, baseName, 'xls', XLSX);
     }
     $('#export-to-modal').modal('hide');
   });
