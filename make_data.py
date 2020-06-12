@@ -106,6 +106,5 @@ with open('reference_template.html', 'r') as template_handle:
 	template = template_handle.read();
 
 	with open('reference.html', 'w') as output_handle:
-		# DO NOT USE sort_keys=True because this overrides OrderedDict() sort order.
 		output_handle.write(template.format( **{'html': reference_html} ));
 
