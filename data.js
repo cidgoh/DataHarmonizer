@@ -7,6 +7,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
+        "dataStatus": "Not Applicable; Missing; Not Collected; Not Provided: Restricted Access",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "required",
@@ -20,6 +21,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
+        "dataStatus": "",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "recommended",
@@ -33,6 +35,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
+        "dataStatus": "",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -46,6 +49,7 @@ const DATA = [
         "capitalize": "UPPER",
         "ontology_id": "",
         "datatype": "select",
+        "dataStatus": "",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -62,6 +66,7 @@ const DATA = [
         "capitalize": "UPPER",
         "ontology_id": "",
         "datatype": "xs:token",
+        "dataStatus": "",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -75,6 +80,7 @@ const DATA = [
         "capitalize": "UPPER",
         "ontology_id": "",
         "datatype": "xs:token",
+        "dataStatus": "",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -88,6 +94,7 @@ const DATA = [
         "capitalize": "UPPER",
         "ontology_id": "",
         "datatype": "xs:token",
+        "dataStatus": "",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -101,6 +108,7 @@ const DATA = [
         "capitalize": "UPPER",
         "ontology_id": "",
         "datatype": "xs:token",
+        "dataStatus": "",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -114,6 +122,7 @@ const DATA = [
         "capitalize": "UPPER",
         "ontology_id": "",
         "datatype": "xs:token",
+        "dataStatus": "",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -132,6 +141,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
+        "dataStatus": "Not Applicable; Missing; Not Collected; Not Provided; Restricted Access",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "required",
@@ -145,6 +155,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
+        "dataStatus": "",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -158,6 +169,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
+        "dataStatus": "",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -171,6 +183,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
+        "dataStatus": "Not Applicable; Missing; Not Collected; Not Provided; Restricted Access",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "required",
@@ -184,6 +197,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
+        "dataStatus": "",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -197,6 +211,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
+        "dataStatus": "",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -210,6 +225,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:date",
+        "dataStatus": "Not Applicable; Missing; Not Collected; Not Provided; Restricted Access",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "required",
@@ -223,6 +239,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:date",
+        "dataStatus": "Not Applicable; Missing; Not Collected; Not Provided; Restricted Access",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -236,6 +253,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "select",
+        "dataStatus": "Not Applicable; Missing; Not Collected; Not Provided; Restricted Access",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "required",
@@ -514,9 +532,7 @@ const DATA = [
           "Western Sahara": {},
           "Yemen": {},
           "Zambia": {},
-          "Zimbabwe": {},
-          "Not Applicable": {},
-          "Missing": {}
+          "Zimbabwe": {}
         }
       },
       {
@@ -524,6 +540,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "select",
+        "dataStatus": "Not Applicable; Missing; Not Collected; Not Provided; Restricted Access",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "required",
@@ -544,9 +561,7 @@ const DATA = [
           "Prince Edward Island": {},
           "Quebec": {},
           "Saskatchewan": {},
-          "Yukon Territory": {},
-          "Not Applicable": {},
-          "Missing": {}
+          "Yukon Territory": {}
         }
       },
       {
@@ -554,6 +569,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
+        "dataStatus": "",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -567,6 +583,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "select",
+        "dataStatus": "Not Applicable; Missing; Not Collected; Not Provided; Restricted Access",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "required",
@@ -577,8 +594,7 @@ const DATA = [
         "vocabulary": {
           "Severe acute respiratory virus 2": {},
           "RaTG13": {},
-          "RmYN02": {},
-          "Missing": {}
+          "RmYN02": {}
         }
       },
       {
@@ -586,6 +602,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
+        "dataStatus": "Not Applicable; Missing; Not Collected; Not Provided; Restricted Access",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "required",
@@ -599,6 +616,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "select",
+        "dataStatus": "Not Applicable; Missing; Not Collected; Not Provided; Restricted Access",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "recommended",
@@ -611,9 +629,7 @@ const DATA = [
           "Diagnostic testing": {},
           "Research": {},
           "Surveillance testing": {},
-          "Viral passage experiment": {},
-          "Not Applicable": {},
-          "Missing": {}
+          "Viral passage experiment": {}
         }
       },
       {
@@ -621,6 +637,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "select",
+        "dataStatus": "Not Applicable; Missing; Not Collected; Not Provided; Restricted Access",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "required",
@@ -638,9 +655,7 @@ const DATA = [
             "Fluid (vaginal)": {},
             "Fluid (amniotic)": {}
           },
-          "Tissue": {},
-          "Not Applicable": {},
-          "Missing": {}
+          "Tissue": {}
         }
       },
       {
@@ -648,6 +663,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "select",
+        "dataStatus": "Not Applicable; Missing; Not Collected; Not Provided; Restricted Access",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "required",
@@ -684,9 +700,7 @@ const DATA = [
               "Pleural cavity": {}
             },
             "Trachea": {}
-          },
-          "Not Applicable": {},
-          "Missing": {}
+          }
         }
       },
       {
@@ -694,6 +708,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "select",
+        "dataStatus": "Not Applicable; Missing; Not Collected; Not Provided; Restricted Access",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "required",
@@ -710,9 +725,7 @@ const DATA = [
           },
           "Tear": {},
           "Fluid (seminal)": {},
-          "Breast Milk": {},
-          "Not Applicable": {},
-          "Missing": {}
+          "Breast Milk": {}
         }
       },
       {
@@ -720,6 +733,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "select",
+        "dataStatus": "Not Applicable; Missing; Not Collected; Not Provided; Restricted Access",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "required",
@@ -760,9 +774,7 @@ const DATA = [
           "Toilet bowl": {},
           "Water": {},
           "Window": {},
-          "Wood": {},
-          "Not Applicable": {},
-          "Missing": {}
+          "Wood": {}
         }
       },
       {
@@ -770,6 +782,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "select",
+        "dataStatus": "Not Applicable; Missing; Not Collected; Not Provided; Restricted Access",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "required",
@@ -796,9 +809,7 @@ const DATA = [
           "Production Facility": {},
           "School": {},
           "Subway train": {},
-          "Wet market": {},
-          "Not Applicable": {},
-          "Missing": {}
+          "Wet market": {}
         }
       },
       {
@@ -806,6 +817,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "select",
+        "dataStatus": "Not Applicable; Missing; Not Collected; Not Provided; Restricted Access",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "required",
@@ -830,9 +842,7 @@ const DATA = [
           "Suction Catheter": {},
           "Swab": {},
           "Urine Collection Tube": {},
-          "Virus Transport Medium": {},
-          "Not Applicable": {},
-          "Missing": {}
+          "Virus Transport Medium": {}
         }
       },
       {
@@ -840,6 +850,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "select",
+        "dataStatus": "Not Applicable; Missing; Not Collected; Not Provided; Restricted Access",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "required",
@@ -873,9 +884,7 @@ const DATA = [
             "Finger Prick": {}
           },
           "Wash": {},
-          "Washout Tear Collection": {},
-          "Not Applicable": {},
-          "Missing": {}
+          "Washout Tear Collection": {}
         }
       },
       {
@@ -883,6 +892,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
+        "dataStatus": "",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -896,6 +906,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "multiple",
+        "dataStatus": "Not Applicable; Missing; Not Collected; Not Provided; Restricted Access",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "recommended",
@@ -906,9 +917,7 @@ const DATA = [
         "vocabulary": {
           "Virus passage": {},
           "RNA re-extraction (post RT-PCR)": {},
-          "Specimens pooled": {},
-          "Not Applicable": {},
-          "Missing": {}
+          "Specimens pooled": {}
         }
       },
       {
@@ -916,6 +925,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "select",
+        "dataStatus": "Not Applicable; Missing; Not Collected; Not Provided; Restricted Access",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "recommended",
@@ -940,9 +950,7 @@ const DATA = [
           "U251 cell line": {},
           "Vero cell line": {},
           "Vero E6 cell line": {},
-          "VeroE6/TMPRSS2 cell line": {},
-          "Not Applicable": {},
-          "Missing": {}
+          "VeroE6/TMPRSS2 cell line": {}
         }
       },
       {
@@ -950,6 +958,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:nonNegativeInteger",
+        "dataStatus": "",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "recommended",
@@ -963,6 +972,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
+        "dataStatus": "",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "recommended",
@@ -976,6 +986,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "select",
+        "dataStatus": "Not Applicable; Missing; Not Collected; Not Provided; Restricted Access",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -987,9 +998,7 @@ const DATA = [
           "RNA (total)": {},
           "RNA (poly-A)": {},
           "RNA (ribo-depleted)": {},
-          "mRNA (cDNA)": {},
-          "Not Applicable": {},
-          "Missing": {}
+          "mRNA (cDNA)": {}
         }
       }
     ]
@@ -1002,6 +1011,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "select",
+        "dataStatus": "Not Applicable; Missing; Not Collected; Not Provided; Restricted Access",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1021,9 +1031,7 @@ const DATA = [
           "Pangolin": {},
           "Pig": {},
           "Pigeon": {},
-          "Tiger": {},
-          "Not Applicable": {},
-          "Missing": {}
+          "Tiger": {}
         }
       },
       {
@@ -1031,6 +1039,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "select",
+        "dataStatus": "Not Applicable; Missing; Not Collected; Not Provided; Restricted Access",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "required",
@@ -1053,9 +1062,7 @@ const DATA = [
           "Rhinolophidae": {},
           "Rhinolophus affinis": {},
           "Sus scrofa domesticus": {},
-          "Viverridae": {},
-          "Not Applicable": {},
-          "Missing": {}
+          "Viverridae": {}
         }
       },
       {
@@ -1063,6 +1070,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "select",
+        "dataStatus": "Not Applicable; Missing; Not Collected; Not Provided; Restricted Access",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1074,9 +1082,7 @@ const DATA = [
           "Healthy": {},
           "Sick": {},
           "Recovered": {},
-          "Deceased": {},
-          "Not Applicable": {},
-          "Missing": {}
+          "Deceased": {}
         }
       },
       {
@@ -1084,6 +1090,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "select",
+        "dataStatus": "Not Applicable; Missing; Not Collected; Not Provided; Restricted Access",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1097,9 +1104,7 @@ const DATA = [
           "Symptomatic": {},
           "Hospitalized": {
             "Hospitalized (ICU)": {}
-          },
-          "Not Applicable": {},
-          "Missing": {}
+          }
         }
       },
       {
@@ -1107,6 +1112,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "select",
+        "dataStatus": "Not Applicable; Missing; Not Collected; Not Provided; Restricted Access",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "required",
@@ -1115,9 +1121,7 @@ const DATA = [
         "examples": "COVID-19",
         "GISAID": "",
         "vocabulary": {
-          "COVID-19": {},
-          "Not Applicable": {},
-          "Missing": {}
+          "COVID-19": {}
         }
       },
       {
@@ -1125,6 +1129,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:decimal",
+        "dataStatus": "Not Applicable; Missing; Not Collected; Not Provided; Restricted Access",
         "xs:minInclusive": "0",
         "xs:maxInclusive": "130",
         "requirement": "required",
@@ -1138,6 +1143,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "select",
+        "dataStatus": "Not Applicable; Missing; Not Collected; Not Provided; Restricted Access",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "required",
@@ -1150,9 +1156,7 @@ const DATA = [
           "Male": {},
           "Non-binary gender": {},
           "Transgender": {},
-          "Undeclared": {},
-          "Unknown": {},
-          "Missing": {}
+          "Undeclared": {}
         }
       },
       {
@@ -1160,6 +1164,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "select",
+        "dataStatus": "Not Applicable; Missing; Not Collected; Not Provided; Restricted Access",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1174,6 +1179,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
+        "dataStatus": "",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1187,6 +1193,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:date",
+        "dataStatus": "Not Applicable; Missing; Not Collected; Not Provided; Restricted Access",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1200,6 +1207,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "multiple",
+        "dataStatus": "Not Applicable; Missing; Not Collected; Not Provided; Restricted Access",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1246,9 +1254,7 @@ const DATA = [
           "Slurred speech": {},
           "Tachypnea (rapid breathing)": {},
           "Vomiting": {},
-          "Weakness": {},
-          "Not Applicable": {},
-          "Missing": {}
+          "Weakness": {}
         }
       }
     ]
@@ -1261,6 +1267,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "select",
+        "dataStatus": "Not Applicable; Missing; Not Collected; Not Provided; Restricted Access",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1275,6 +1282,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
+        "dataStatus": "",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1288,6 +1296,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "select",
+        "dataStatus": "Not Applicable; Missing; Not Collected; Not Provided; Restricted Access",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1305,9 +1314,7 @@ const DATA = [
           "Occupational exposure (frontline response)": {},
           "Occupational exposure (healthcare work with the public)": {},
           "Occupational exposure (retail)": {},
-          "Occupational exposure (restaurant)": {},
-          "Not Applicable": {},
-          "Missing": {}
+          "Occupational exposure (restaurant)": {}
         }
       }
     ]
@@ -1320,6 +1327,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
+        "dataStatus": "",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "recommended",
@@ -1333,6 +1341,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
+        "dataStatus": "",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1346,6 +1355,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "multiple",
+        "dataStatus": "Not Applicable; Missing; Not Collected; Not Provided; Restricted Access",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "required",
@@ -1402,8 +1412,7 @@ const DATA = [
             "DNBSEQ-G400": {},
             "DNBSEQ-G400 FAST": {},
             "DNBSEQ-G50": {}
-          },
-          "Missing": {}
+          }
         }
       },
       {
@@ -1411,6 +1420,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
+        "dataStatus": "",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "recommended",
@@ -1424,6 +1434,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
+        "dataStatus": "",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1437,6 +1448,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
+        "dataStatus": "",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1450,6 +1462,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
+        "dataStatus": "",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1468,6 +1481,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
+        "dataStatus": "",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "recommended",
@@ -1481,6 +1495,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
+        "dataStatus": "",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1494,6 +1509,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
+        "dataStatus": "",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1507,6 +1523,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
+        "dataStatus": "",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1520,6 +1537,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
+        "dataStatus": "",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1533,6 +1551,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
+        "dataStatus": "",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1546,6 +1565,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
+        "dataStatus": "",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "recommended",
@@ -1559,6 +1579,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
+        "dataStatus": "",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "recommended",
@@ -1572,6 +1593,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
+        "dataStatus": "",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1585,6 +1607,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
+        "dataStatus": "",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1598,6 +1621,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
+        "dataStatus": "",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1611,6 +1635,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
+        "dataStatus": "",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1624,6 +1649,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
+        "dataStatus": "",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1637,6 +1663,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
+        "dataStatus": "",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1650,6 +1677,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:nonNegativeInteger",
+        "dataStatus": "",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1663,6 +1691,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:nonNegativeInteger",
+        "dataStatus": "",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1676,6 +1705,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:nonNegativeInteger",
+        "dataStatus": "",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1689,6 +1719,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:nonNegativeInteger",
+        "dataStatus": "",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1702,6 +1733,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:decimal",
+        "dataStatus": "",
         "xs:minInclusive": "0",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1715,6 +1747,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
+        "dataStatus": "",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1728,6 +1761,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
+        "dataStatus": "",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1741,6 +1775,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
+        "dataStatus": "Not Applicable; Missing; Not Collected; Not Provided; Restricted Access",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "required",
@@ -1754,6 +1789,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
+        "dataStatus": "",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1767,6 +1803,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
+        "dataStatus": "",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1780,6 +1817,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
+        "dataStatus": "",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1793,6 +1831,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
+        "dataStatus": "",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1811,6 +1850,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
+        "dataStatus": "",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1824,6 +1864,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
+        "dataStatus": "",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1837,6 +1878,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
+        "dataStatus": "",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1850,6 +1892,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
+        "dataStatus": "",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1863,6 +1906,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
+        "dataStatus": "",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1876,6 +1920,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
+        "dataStatus": "",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1894,6 +1939,7 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
+        "dataStatus": "",
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "recommended",
