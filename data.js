@@ -11,7 +11,8 @@ const DATA = [
           "Not Applicable",
           "Missing",
           "Not Collected",
-          "Not Provided: Restricted Access"
+          "Not Provided",
+          "Restricted Access"
         ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
