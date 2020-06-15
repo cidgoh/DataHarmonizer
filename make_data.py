@@ -41,12 +41,18 @@ with open(r_filename) as tsvfile:
 	    		parent_label = row['parent class'];
 	    		section = next((x for x in DATA if x['fieldName'].strip() == parent_label), None);
 	    		if section:
+	    			# Convert data status into array of values.
+	    			if len(row['data status'])>0:
+	    				dataStatus = list(map(lambda x: x.strip(), row['data status'].split(';')));
+	    			else:
+	    				dataStatus = None;
+
 	    			field = {
 	    				'fieldName':   label, 
 	    				'capitalize': row['capitalize'],
 	    				'ontology_id': row['Ontology ID'],
 	    				'datatype':    row['datatype'],
-	    				'dataStatus':    row['data status'],
+	    				'dataStatus': dataStatus,
 	    				'xs:minInclusive': row['min value'],
 	    				'xs:maxInclusive': row['max value'],
 	    				'requirement': row['requirement'],
@@ -57,12 +63,12 @@ with open(r_filename) as tsvfile:
 	    			}
 	    			
 	    			reference_html += '''
-	    			<tr>\n
-	    				<td class="label">{fieldName}</td>\n
-	    				<td>{description}</td>\n
-	    				<td>{guidance}</td>\n
-	    				<td>{examples}</td>\n
-	    				<td>{dataStatus}</td>\n
+	    			<tr>
+	    				<td class="label">{fieldName}</td>
+	    				<td>{description}</td>
+	    				<td>{guidance}</td>
+	    				<td>{examples}</td>
+	    				<td>{dataStatus}</td>
 	    			</tr>\n
 	    			'''.format(**field);
 
