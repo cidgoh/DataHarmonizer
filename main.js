@@ -629,9 +629,13 @@ const getInvalidCells = (hot, data) => {
       } else if (datatype === 'xs:date') {
         valid = moment(cellVal, 'YYYY-MM-DD', true).isValid();
       } else if (datatype === 'select') {
-        valid = validateDropDown(cellVal, fields[col].flatVocabulary);
+        valid = validateValAgainstVocab(cellVal, fields[col].flatVocabulary);
       } else if (datatype === 'multiple') {
-        valid = validateMultiple(cellVal, fields[col].flatVocabulary);
+        valid = validateValsAgainstVocab(cellVal, fields[col].flatVocabulary);
+      }
+
+      if (!valid && fields[col].dataStatus) {
+        valid = validateValAgainstVocab(cellVal, fields[col].dataStatus);
       }
 
       if (!valid) {
@@ -666,14 +670,13 @@ const testNumericRange = (number, field) => {
   return true
 }
 /**
- * Validate a value against its source. This is called when when validating
- * autocomplete cells.
+ * Validate a value against an array of source values.
  * @param {String} val Cell value.
- * @param {Array<String>} source Dropdown list for cell.
+ * @param {Array<String>} source Source values.
  * @return {Boolean} If `val` is in `source`, while ignoring whitespace and
  *     case.
  */
-const validateDropDown = (val, source) => {
+const validateValAgainstVocab = (val, source) => {
   let valid = false;
   if (val) {
     const trimmedSource =
@@ -685,14 +688,15 @@ const validateDropDown = (val, source) => {
 };
 
 /**
- * Validate csv values against their source. This is called when validating
- * multiple-select cells.
+ * Validate csv values against an array of source values.
  * @param {String} valsCsv CSV string of values to validate.
  * @param {Array<String>} source Values to validate against.
+ * @return {Boolean} If every value in `valsCsv` is in `source`, while ignoring
+ *     whitespace and case.
  */
-const validateMultiple = (valsCsv, source) => {
+const validateValsAgainstVocab = (valsCsv, source) => {
   for (const val of valsCsv.split(';')) {
-    if (!validateDropDown(val, source)) return false;
+    if (!validateValAgainstVocab(val, source)) return false;
   }
   return true;
 };
