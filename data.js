@@ -1072,7 +1072,9 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:nonNegativeInteger",
-        "dataStatus": null,
+        "dataStatus": [
+          "Not Applicable"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "recommended",
@@ -1086,7 +1088,9 @@ const DATA = [
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
-        "dataStatus": null,
+        "dataStatus": [
+          "Not Applicable"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "recommended",
