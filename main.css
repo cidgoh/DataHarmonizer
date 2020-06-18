@@ -53,6 +53,9 @@
 #grid td.invalid-cell {
 	background-color: #ffcccb !important;
 }
+#grid td.empty-invalid-cell {
+	background-color: #ff91a4 !important;
+}
 #grid .htAutocompleteArrow {
 	color: gray;
 }
