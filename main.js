@@ -598,8 +598,10 @@ const changeRowVisibility = (id, invalidCells, hot) => {
  * Get a collection of all invalid cells in the grid.
  * @param {Object} hot Handsontable instance of grid.
  * @param {Object} data See `data.js`.
- * @return {Object<Number, Set<Number>>} Object with rows as keys, and sets
- *     containing invalid cells for that row as values
+ * @return {Object<Number, Object<Number, String>>} Object with invalid rows as
+ *     keys, and objects containing the invalid cells for the row, along with a
+ *     message explaining why, as values. e.g,
+ *     `{0: {0: 'Required cells cannot be empty'}}`
  */
 const getInvalidCells = (hot, data) => {
   const invalidCells = {};
@@ -614,9 +616,13 @@ const getInvalidCells = (hot, data) => {
       const cellVal = hot.getDataAtCell(row, col);
       const datatype = fields[col].datatype;
       let valid = true;
+      // TODO we could have messages for all types of invalidation, and add
+      //  them as tooltips
+      let msg = '';
 
       if (!cellVal) {
         valid = fields[col].requirement !== 'required';
+        msg = 'Required cells cannot be empty'
       } else if (datatype === 'xs:nonNegativeInteger') {
         const parsedInt = parseInt(cellVal, 10);
         valid = !isNaN(cellVal) && parsedInt>=0
@@ -639,11 +645,10 @@ const getInvalidCells = (hot, data) => {
       }
 
       if (!valid) {
-        if (invalidCells.hasOwnProperty(row)) {
-          invalidCells[row].add(col);
-        } else {
-          invalidCells[row] = new Set([col]);
+        if (!invalidCells.hasOwnProperty(row)) {
+          invalidCells[row] = {};
         }
+        invalidCells[row][col] = msg;
       }
     }
   }
@@ -843,9 +848,12 @@ $(document).ready(() => {
     window.INVALID_CELLS = getInvalidCells(HOT, DATA);
     HOT.updateSettings({
       // A more intuitive name for this option might have been `afterCellRender`
-      afterRenderer: (TD, row, col) => {
+      afterRenderer: (TD, row, col, _, val) => {
         if (INVALID_CELLS.hasOwnProperty(row)) {
-          if (INVALID_CELLS[row].has(col)) $(TD).addClass('invalid-cell');
+          if (INVALID_CELLS[row].hasOwnProperty(col)) {
+            const msg = INVALID_CELLS[row][col];
+            $(TD).addClass(msg ? 'empty-invalid-cell' : 'invalid-cell');
+          }
         }
       }
     });
