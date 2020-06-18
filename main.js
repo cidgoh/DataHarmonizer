@@ -397,14 +397,20 @@ const exportGISAID = (baseName, hot, data, xlsx) => {
         let mappedCellVal = unmappedRow[mappedFieldIndex];
         if (!mappedCellVal) continue;
 
-        let unknown = mappedCellVal.toLowerCase() === 'missing';
-        unknown |= mappedCellVal.toLowerCase() === 'not applicable';
-        if (unknown) {
-          mappedCellVal = 'Unknown';
+        const field = fields[mappedFieldIndex]
+        if (field.dataStatus) {
+          const standardizedDataStatus =
+              field.dataStatus.map(val => val.toLowerCase().trim());
+          const standardizedCellVal = mappedCellVal.toLowerCase().trim();
+          if (standardizedDataStatus.includes(standardizedCellVal)) {
+            // Don't push "Unknown" to fields with multi, concat mapped values
+            if (headerMap[GISAIDIndex].length > 1) continue;
+
+            mappedCellVal = 'Unknown';
+          }
         }
 
-        const fieldName = fields[mappedFieldIndex].fieldName;
-        if (fieldName === 'passage number') {
+        if (field.fieldName === 'passage number') {
           mappedCellVal = 'passage number ' + mappedCellVal;
         }
 
