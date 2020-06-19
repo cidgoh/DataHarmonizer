@@ -5,7 +5,7 @@ that can be run offline and locally.
 
 |Chrome|Firefox|Edge|
 |---|---|---|
-|49|34|12|
+|49+|34+|12+|
 
 ![alt text](./images/editCopyPasteDelete.gif)
 
