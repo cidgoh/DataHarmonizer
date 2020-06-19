@@ -3,6 +3,10 @@
 A standardized spreadsheet editor and validator for SARS-CoV-2 sampling data, 
 that can be run offline and locally.
 
+|Chrome|Firefox|Edge|
+|---|---|---|
+|49|34|12|
+
 ![alt text](./images/editCopyPasteDelete.gif)
 
 ## Installation
