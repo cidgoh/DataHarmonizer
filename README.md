@@ -1,4 +1,4 @@
-# covid19ValidationGrid
+# DataHarmonizer
 
 A standardized spreadsheet editor and validator for SARS-CoV-2 sampling data, 
 that can be run offline and locally.
@@ -12,15 +12,13 @@ that can be run offline and locally.
 ## Installation
 
 Download the zipped source code from the latest release at:
-https://github.com/Public-Health-Bioinformatics/covid19ValidationGrid/releases
+https://github.com/Public-Health-Bioinformatics/DataHarmonizer/releases
 
 Extract the zipped file.
 
 To run the application, navigate to the extracted folder and open `main.html`.
 
 ## Usage
-
-<!-- TODO: link SOP -->
 
 You can edit the cells manually, or upload `xlsx`, `tsv` and `csv` files. You 
 can also save the spreadsheet's contents to your local hard-drive.
@@ -41,7 +39,7 @@ Double click any column headers for information on the grid's vocabulary.
 If you have any ideas for improving the application, or have encountered any 
 problems running the application, [please open an issue for discussion][1]. 
 
-[1]: https://github.com/Public-Health-Bioinformatics/covid19ValidationGrid/issues
+[1]: https://github.com/Public-Health-Bioinformatics/DataHarmonizer/issues
 
 ## Roadmap
 
