@@ -52,6 +52,7 @@ with open(r_filename) as tsvfile:
 	    				'capitalize': row['capitalize'],
 	    				'ontology_id': row['Ontology ID'],
 	    				'datatype':    row['datatype'],
+	    				'source': row['source'],
 	    				'dataStatus': dataStatus,
 	    				'xs:minInclusive': row['min value'],
 	    				'xs:maxInclusive': row['max value'],
@@ -99,7 +100,7 @@ with open(r_filename) as tsvfile:
 	    					result = dpath.util.get(CHOICE_INDEX, '*/' + parent_label, separator='/');
 	    					result[label] = collections.OrderedDict(); # Add new child
 	    				except:
-	    					print ("Error: parent class ", parent_label, "doesn't exist as section or field for term. Make sure there is no whitespace around parent term.", label);
+	    					print ("Error: parent class ", parent_label, "doesn't exist as section or field for term. Make sure parent term is trimmed of whitespace.", label);
 
 
 reference_html += '</table>\n';
