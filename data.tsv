@@ -33,7 +33,7 @@ ID	SC %
 	Sample collection and processing	collection device	select	Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				The instrument or container used to collect the sample e.g. swab.	Provide a descriptor if a device was used for sampling. Use the picklist provided in the template. If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. 	Swab	Specimen source
 	Sample collection and processing	collection method	select	Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				The process used to collect the sample e.g. phlebotamy, necropsy.	Provide a descriptor if a collection method was used for sampling. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. 	Bronchoalveolar lavage (BAL)	Specimen source
 	Sample collection and processing	collection protocol	xs:token						The name and version of a particular protocol used for sampling.	Free text.	BCRonaSamplingProtocol v. 1.2	
-	Sample collection and processing	specimen processing	multiple	Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	recommended				Any processing applied to the sample during or after receiving the sample.	Critical for interpreting data. Select all the applicable processes from the pick list. If virus was passaged, include information in "lab host", "passage number", and "passage method" fields. If none of the processes in the pick list apply, put "not applicable".	Virus passage	
+	Sample collection and processing	specimen processing	multiple	Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	recommended				Any processing applied to the sample during or after receiving the sample.	Critical for interpreting data. Select all the applicable processes from the pick list. If virus was passaged, include information in "lab host", "passage number", and "passage method" fields. If none of the processes in the pick list apply, put "not applicable".	Virus passage	Passage details/history
 	Sample collection and processing	lab host	select	Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	recommended				Name and description of the laboratory host used to propagate the source organism or material from which the sample was obtained.	Type of cell line used for propagation. Provide the name of the cell line using the picklist in the template. If not passaged, put "not applicable".	Vero E6 cell line	Passage details/history
 	Sample collection and processing	passage number	xs:nonNegativeInteger	Not Applicable 	recommended				Number of passages.	Provide number of known passages. If not passaged, put "not applicable"	3	Passage details/history
 	Sample collection and processing	passage method	xs:token	Not Applicable	recommended				Description of how organism was passaged.	Free text. Provide a very short description (<10 words). If not passaged, put "not applicable".		Passage details/history
@@ -90,10 +90,10 @@ ID	SC %
 	Bioinformatics and QC metrics	annotation feature table filename	xs:token						The filename of the file containing genome features such as gene names and corresponding CDS.	Provide the filename of the annotation feature table.	BCRonaAnnotationFeatures	
 	Bioinformatics and QC metrics	bioinformatics protocol	xs:token						The name and version number of the bioinformatics protocol used.	Further details regarding the methods used to process raw data, and/or generate assemblies, and/or generate consensus sequences can be provided in an SOP or protocol. Provide the name and version number of the protocol.	https://www.protocols.io/groups/cphln-sarscov2-sequencing-consortium/members	
 		Pathogen diagnostic testing										
-	Pathogen diagnostic testing	gene name 1	xs:token						The name of the gene used in the diagnostic RT-PCR test.	Provide the full name of the gene used in the test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI	envelope small membrane protein (SARS-CoV-2)	
+	Pathogen diagnostic testing	gene name 1	select						The name of the gene used in the diagnostic RT-PCR test.	Provide the full name of the gene used in the test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI	envelope small membrane protein (SARS-CoV-2)	
 	Pathogen diagnostic testing	diagnostic pcr protocol 1	xs:token						The name and version number of the protocol used for diagnostic marker amplification.	The name and version number of the protocol used for carrying out a diagnostic PCR test. This information can be compared to sequence data for evaluation of performance and quality control.	EGenePCRTest 2	
 	Pathogen diagnostic testing	diagnostic pcr Ct value 1	xs:token						The Ct value result from a diagnostic SARS-CoV-2 RT-PCR test.	Provide the CT value of the sample from the diagnostic RT-PCR test.	21	
-	Pathogen diagnostic testing	gene name 2	xs:token						The name of the gene used in the diagnostic RT-PCR test.	Provide the full name of another gene used in an RT-PCR test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI	RNA-directed RNA Polymerase (RdRP)	
+	Pathogen diagnostic testing	gene name 2	select						The name of the gene used in the diagnostic RT-PCR test.	Provide the full name of another gene used in an RT-PCR test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI	RNA-directed RNA Polymerase (RdRP)	
 	Pathogen diagnostic testing	diagnostic pcr protocol 2	xs:token						The name and version number of the protocol used for diagnostic marker amplification.	The name and version number of the protocol used for carrying out a second diagnostic PCR test. This information can be compared to sequence data for evaluation of performance and quality control.	RdRpGenePCRTest 3	
 	Pathogen diagnostic testing	diagnostic pcr Ct value 2	xs:token						The Ct value result from a diagnostic SARS-CoV-2 RT-PCR test.	Provide the CT value of the sample from the second diagnostic RT-PCR test.	36	
 		Contributor acknowledgement										
@@ -182,6 +182,7 @@ UBERON_0000479	anatomical material	Tissue
 												
 												
 UBERON_0001245	anatomical part	Anus										
+	anatomical part	Buccal mucosa										
 UBERON_0002114	anatomical part	Duodenum										
 UBERON_0000970	anatomical part	Eye										
 	anatomical part	Intestine										
@@ -352,17 +353,18 @@ NCBITaxon_8930	host (common name)	Pigeon
 NCBITaxon_9694	host (common name)	Tiger										
 												
 												
-	host health state	Healthy										
-	host health state	Sick										
-	host health state	Recovered										
+	host health state	Asymptomatic										
 	host health state	Deceased										
+	host health state	Healthy										
+	host health state	Recovered										
+	host health state	Symptomatic										
 												
 												
-	host health status details	Self-quarantining										
-	host health status details	Asymptomatic										
-	host health status details	Symptomatic										
-	host health status details	Hospitalized   										
+	host health status details	Hospitalized										
+	Hospitalized	Hospitalized (Non-ICU)										
 	Hospitalized	Hospitalized (ICU)										
+	host health status details	Self-quarantining										
+												
 												
 	organism	Severe acute respiratory virus 2										
 	organism	RaTG13										
@@ -459,6 +461,41 @@ GENEPIO_0001935	Ion Torrent	   Ion Torrent PGM
 	MGI	DNBSEQ-G400										
 	MGI	DNBSEQ-G400 FAST										
 	MGI	DNBSEQ-G50										
+												
+												
+PR:P0DTC4	gene name 1	E (orf4)										
+PR:P0DTC5	gene name 1	M (orf5)										
+PR:P0DTC9	gene name 1	N (orf9)										
+PR:P0DTC2	gene name 1	Spike (orf2)										
+PR:000050281	gene name 1	ORF1ab (rep)										
+PR:P0DTC1-1	ORF1ab (rep)	   ORF1a (pp1a)										
+PR:000050280	ORF1a (pp1a)	      nsp11										
+PR:000050270	ORF1ab (rep)	   nsp1										
+PR:000050271	ORF1ab (rep)	   nsp2										
+PR:000050272	ORF1ab (rep)	   nsp3										
+PR:000050273	ORF1ab (rep)	   nsp4										
+PR:000050274	ORF1ab (rep)	   nsp5										
+PR:000050275	ORF1ab (rep)	   nsp6										
+PR:000050276	ORF1ab (rep)	   nsp7										
+PR:000050277	ORF1ab (rep)	   nsp8										
+PR:000050278	ORF1ab (rep)	   nsp9										
+PR:000050279	ORF1ab (rep)	   nsp10										
+PR:000050284	ORF1ab (rep)	   nsp12 (RdRp)										
+PR:000050285	ORF1ab (rep)	   nsp13 (Hel)										
+PR:000050286	ORF1ab (rep)	   nsp14 (ExoN)										
+PR:000050287	ORF1ab (rep)	   nsp15										
+PR:000050288	ORF1ab (rep)	   nsp16										
+PR:P0DTC3	gene name 1	ORF3a										
+	gene name 1	ORF3b										
+PR:P0DTC6	gene name 1	ORF6 (ns6)										
+PR:P0DTC7	gene name 1	ORF7a										
+PR:P0DTD8	gene name 1	ORF7b (ns7b)										
+PR:P0DTC8	gene name 1	ORF8 (ns8)										
+PR:P0DTD2	gene name 1	ORF9b										
+	gene name 1	ORF9c										
+PR:A0A663DJA2	gene name 1	ORF10										
+	gene name 1	ORF14										
+												
 												
 GAZ_00006882	geo_loc_name (country)	Afghanistan										
 GAZ_00002953	geo_loc_name (country)	Albania										

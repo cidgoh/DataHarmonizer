@@ -99,7 +99,7 @@ with open(r_filename) as tsvfile:
 	    					result = dpath.util.get(CHOICE_INDEX, '*/' + parent_label, separator='/');
 	    					result[label] = collections.OrderedDict(); # Add new child
 	    				except:
-	    					print ("Error: parent class ", parent_label, "doesn't exist as section or field for term", label);
+	    					print ("Error: parent class ", parent_label, "doesn't exist as section or field for term. Make sure there is no whitespace around parent term.", label);
 
 
 reference_html += '</table>\n';

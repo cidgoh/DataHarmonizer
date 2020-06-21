@@ -745,6 +745,7 @@ const DATA = [
         "GISAID": "Specimen source",
         "vocabulary": {
           "Anus": {},
+          "Buccal mucosa": {},
           "Duodenum": {},
           "Eye": {},
           "Intestine": {},
@@ -1021,7 +1022,7 @@ const DATA = [
         "description": "Any processing applied to the sample during or after receiving the sample.",
         "guidance": "Critical for interpreting data. Select all the applicable processes from the pick list. If virus was passaged, include information in \"lab host\", \"passage number\", and \"passage method\" fields. If none of the processes in the pick list apply, put \"not applicable\".",
         "examples": "Virus passage",
-        "GISAID": "",
+        "GISAID": "Passage details/history",
         "vocabulary": {
           "Virus passage": {},
           "RNA re-extraction (post RT-PCR)": {},
@@ -1221,10 +1222,11 @@ const DATA = [
         "examples": "sick",
         "GISAID": "Patient status",
         "vocabulary": {
+          "Asymptomatic": {},
+          "Deceased": {},
           "Healthy": {},
-          "Sick": {},
           "Recovered": {},
-          "Deceased": {}
+          "Symptomatic": {}
         }
       },
       {
@@ -1247,12 +1249,11 @@ const DATA = [
         "examples": "Hospitalized (ICU)",
         "GISAID": "",
         "vocabulary": {
-          "Self-quarantining": {},
-          "Asymptomatic": {},
-          "Symptomatic": {},
           "Hospitalized": {
+            "Hospitalized (Non-ICU)": {},
             "Hospitalized (ICU)": {}
-          }
+          },
+          "Self-quarantining": {}
         }
       },
       {
@@ -2057,7 +2058,7 @@ const DATA = [
         "fieldName": "gene name 1",
         "capitalize": "",
         "ontology_id": "",
-        "datatype": "xs:token",
+        "datatype": "select",
         "dataStatus": null,
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
@@ -2065,7 +2066,43 @@ const DATA = [
         "description": "The name of the gene used in the diagnostic RT-PCR test.",
         "guidance": "Provide the full name of the gene used in the test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI",
         "examples": "envelope small membrane protein (SARS-CoV-2)",
-        "GISAID": ""
+        "GISAID": "",
+        "vocabulary": {
+          "E (orf4)": {},
+          "M (orf5)": {},
+          "N (orf9)": {},
+          "Spike (orf2)": {},
+          "ORF1ab (rep)": {
+            "ORF1a (pp1a)": {
+              "nsp11": {}
+            },
+            "nsp1": {},
+            "nsp2": {},
+            "nsp3": {},
+            "nsp4": {},
+            "nsp5": {},
+            "nsp6": {},
+            "nsp7": {},
+            "nsp8": {},
+            "nsp9": {},
+            "nsp10": {},
+            "nsp12 (RdRp)": {},
+            "nsp13 (Hel)": {},
+            "nsp14 (ExoN)": {},
+            "nsp15": {},
+            "nsp16": {}
+          },
+          "ORF3a": {},
+          "ORF3b": {},
+          "ORF6 (ns6)": {},
+          "ORF7a": {},
+          "ORF7b (ns7b)": {},
+          "ORF8 (ns8)": {},
+          "ORF9b": {},
+          "ORF9c": {},
+          "ORF10": {},
+          "ORF14": {}
+        }
       },
       {
         "fieldName": "diagnostic pcr protocol 1",
@@ -2099,7 +2136,7 @@ const DATA = [
         "fieldName": "gene name 2",
         "capitalize": "",
         "ontology_id": "",
-        "datatype": "xs:token",
+        "datatype": "select",
         "dataStatus": null,
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
@@ -2107,7 +2144,8 @@ const DATA = [
         "description": "The name of the gene used in the diagnostic RT-PCR test.",
         "guidance": "Provide the full name of another gene used in an RT-PCR test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI",
         "examples": "RNA-directed RNA Polymerase (RdRP)",
-        "GISAID": ""
+        "GISAID": "",
+        "vocabulary": {}
       },
       {
         "fieldName": "diagnostic pcr protocol 2",
