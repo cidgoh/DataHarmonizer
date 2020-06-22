@@ -388,7 +388,7 @@ const exportGISAID = (baseName, hot, data, xlsx) => {
     const mappedRow = [];
     for (const [GISAIDIndex, GISAIDHeader] of GISAIDHeaders.entries()) {
       if (GISAIDHeader === 'Type') {
-        mappedRow.push('coronavirus');
+        mappedRow.push('betacoronavirus');
         continue;
       }
 
