@@ -45,20 +45,27 @@ const toggleDropdownVisibility = () => {
  * @return {Object} Processed values of `data.js`.
  */
 const processData = (data) => {
+  // Useful to have this object for fields with a "source" vocabulary
+  const flatVocabularies = {};
   const fields = getFields(data);
-  const countryField =
-      fields.filter(field => field.fieldName === 'geo_loc_name (country)')[0];
+  for (const field of fields) {
+    if (field.vocabulary) {
+      flatVocabularies[field.fieldName] =
+          stringifyNestedVocabulary(field.vocabulary);
+    }
+  }
+
   for (const parent of data) {
     for (const child of parent.children) {
-      // This helps us avoid repeating the list of countries in `data.js`
-      if (child.fieldName.includes('(country)')) {
-        child.vocabulary = countryField.vocabulary;
-      }
-      // Flat list of vocabulary items for autocomplete purposes
       if (child.vocabulary) {
-        child.flatVocabulary = stringifyNestedVocabulary(child.vocabulary);
+        child.flatVocabulary = flatVocabularies[child.fieldName];
 
-        // Convert to title case
+        if (child.source) {
+          child.flatVocabulary =
+              [...child.flatVocabulary, ...flatVocabularies[child.source]];
+        }
+
+        // Change case as needed
         for (const [i, val] of child.flatVocabulary.entries()) {
           if (!val || !child.capitalize) continue;
           child.flatVocabulary[i] = changeCase(val, child.capitalize);
@@ -232,7 +239,7 @@ const getColumns = (data) => {
  * @param {Object} vocabulary See `vocabulary` fields in `data.js`.
  * @param {number} level Nested level of `vocabulary` we are currently
  *     processing.
- * @return {Array<Array<String>>} Flattened vocabulary.
+ * @return {Array<String>} Flattened vocabulary.
  */
 const stringifyNestedVocabulary = (vocabulary, level=0) => {
   if (Object.keys(vocabulary).length === 0) {
@@ -388,7 +395,7 @@ const exportGISAID = (baseName, hot, data, xlsx) => {
     const mappedRow = [];
     for (const [GISAIDIndex, GISAIDHeader] of GISAIDHeaders.entries()) {
       if (GISAIDHeader === 'Type') {
-        mappedRow.push('coronavirus');
+        mappedRow.push('betacoronavirus');
         continue;
       }
 
