@@ -404,11 +404,26 @@ const exportGISAID = (baseName, hot, data, xlsx) => {
         let mappedCellVal = unmappedRow[mappedFieldIndex];
         if (!mappedCellVal) continue;
 
+        // Only map specimen processing if it is "virus passage"
         const field = fields[mappedFieldIndex]
+        const standardizedCellVal = mappedCellVal.toLowerCase().trim();
+        if (field.fieldName === 'specimen processing') {
+          const standardizedVirusPassage = 'virus passage'.toLowerCase().trim();
+          // Specimen processing is a multi-select field
+          const standardizedCellValArr = standardizedCellVal.split(';');
+
+          if (!standardizedCellValArr.includes(standardizedVirusPassage)) {
+            continue;
+          } else {
+            // We only want to map "virus passage"
+            mappedCellVal = 'Virus passage';
+          }
+        }
+
+        // All null values sould be converted to "Unknown"
         if (field.dataStatus) {
           const standardizedDataStatus =
               field.dataStatus.map(val => val.toLowerCase().trim());
-          const standardizedCellVal = mappedCellVal.toLowerCase().trim();
           if (standardizedDataStatus.includes(standardizedCellVal)) {
             // Don't push "Unknown" to fields with multi, concat mapped values
             if (headerMap[GISAIDIndex].length > 1) continue;
