@@ -761,9 +761,8 @@ $(document).ready(() => {
         $('#clear-data-warning-modal').modal('show');
       }
     } else {
-      HOT.destroy();
       window.INVALID_CELLS = {};
-      window.HOT = createHot(DATA);
+      HOT.clear();
     }
   });
 
@@ -874,19 +873,21 @@ $(document).ready(() => {
   // Validate
   $('#validate-btn').click(() => {
     window.INVALID_CELLS = getInvalidCells(HOT, DATA);
-    HOT.updateSettings({
-      // A more intuitive name for this option might have been `afterCellRender`
-      afterRenderer: (TD, row, col, _, val) => {
-        if (INVALID_CELLS.hasOwnProperty(row)) {
-          if (INVALID_CELLS[row].hasOwnProperty(col)) {
-            const msg = INVALID_CELLS[row][col];
-            $(TD).addClass(msg ? 'empty-invalid-cell' : 'invalid-cell');
-          }
-        }
-      }
-    });
     HOT.render();
   });
+  // Doing this in the global context instead of `createHot` because we want to
+  // link cell CSS to global variable INVALID_CELLS as it changes, and I want
+  // to avoid passing global variables to functions.
+  HOT.updateSettings({
+    afterRenderer: (TD, row, col, _, val) => {
+      if (INVALID_CELLS.hasOwnProperty(row)) {
+        if (INVALID_CELLS[row].hasOwnProperty(col)) {
+          const msg = INVALID_CELLS[row][col];
+          $(TD).addClass(msg ? 'empty-invalid-cell' : 'invalid-cell');
+        }
+      }
+    },
+  })
 
   // Field descriptions. Need to account for dynamically rendered
   // cells.
