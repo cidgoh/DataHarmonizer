@@ -323,8 +323,14 @@ const getTrimmedData = (hot) => {
 const runBehindLoadingScreen = (fn, args) => {
   $('#loading-screen').show();
   setTimeout(() => {
-    fn.apply(null, args);
-    $('#loading-screen').hide();
+    const ret = fn.apply(null, args);
+    if (ret && ret.then) {
+      ret.then((val) => {
+        $('#loading-screen').hide();
+      });
+    } else {
+      $('#loading-screen').hide();
+    }
   }, 0);
 };
 
@@ -460,13 +466,13 @@ const exportGISAID = (baseName, hot, data, xlsx) => {
 };
 
 /**
- * Read local file opened by user.
- * Only reads `xlsx`, `xlsx`, `csv` and `tsv` files.
- * @param {File} file User file.
- * @param {Object} xlsx SheetJS variable.
- * @return {Promise<Array<Array<String>>>} Matrix populated by user's file data.
+ * TODO
+ * @param file
+ * @param hot
+ * @param data
+ * @param xlsx
  */
-const parseFile = (file, xlsx) => {
+const openFile = (file, hot, data, xlsx) => {
   return new Promise((resolve) => {
     const fileReader = new FileReader();
     fileReader.readAsBinaryString(file);
@@ -476,7 +482,39 @@ const parseFile = (file, xlsx) => {
       const worksheet =
           updateSheetRange(workbook.Sheets[workbook.SheetNames[0]]);
       const params = [worksheet, {header: 1, raw: false}];
-      resolve(xlsx.utils.sheet_to_json(...params));
+      const matrix = (xlsx.utils.sheet_to_json(...params));
+      if (compareMatrixHeadersToGrid(matrix, data)) {
+        hot.loadData(changeCases(matrix.slice(2), hot, data));
+      } else {
+        launchSpecifyHeadersModal(matrix, hot, data);
+      }
+      resolve();
+    }
+  });
+};
+
+/**
+ * TODO...
+ * @param matrix
+ * @param hot
+ * @param data
+ */
+const launchSpecifyHeadersModal = (matrix, hot, data) => {
+  $('#expected-headers-div')
+      .html(getFlatHeaders(data)[1].join('   '));
+  $('#actual-headers-div')
+      .html(matrix[1].join('    '));
+  $('#specify-headers-modal').modal('show');
+  $('#specify-headers-confirm-btn').click(() => {
+    const specifiedHeaderRow =
+        parseInt($('#specify-headers-input').val());
+    if (!isValidHeaderRow(matrix, specifiedHeaderRow)) {
+      $('#specify-headers-err-msg').show();
+    } else {
+      const mappedMatrix =
+          mapMatrixToGrid(matrix, specifiedHeaderRow-1, data);
+      hot.loadData(changeCases(mappedMatrix.slice(2), hot, data));
+      $('#specify-headers-modal').modal('hide');
     }
   });
 };
@@ -791,30 +829,7 @@ $(document).ready(() => {
       $('#open-error-modal').modal('show');
     } else {
       window.INVALID_CELLS = {};
-      parseFile(file, XLSX)
-          .then((matrix) => {
-            if (compareMatrixHeadersToGrid(matrix, DATA)) {
-              HOT.loadData(changeCases(matrix.slice(2), HOT, DATA));
-            } else {
-              $('#expected-headers-div')
-                  .html(getFlatHeaders(DATA)[1].join('   '));
-              $('#actual-headers-div')
-                  .html(matrix[1].join('    '));
-              $('#specify-headers-modal').modal('show');
-              $('#specify-headers-confirm-btn').click(() => {
-                const specifiedHeaderRow =
-                    parseInt($('#specify-headers-input').val());
-                if (!isValidHeaderRow(matrix, specifiedHeaderRow)) {
-                  $('#specify-headers-err-msg').show();
-                } else {
-                  const mappedMatrix =
-                      mapMatrixToGrid(matrix, specifiedHeaderRow-1, DATA);
-                  HOT.loadData(changeCases(mappedMatrix.slice(2), HOT, DATA));
-                  $('#specify-headers-modal').modal('hide');
-                }
-              });
-            }
-          });
+      runBehindLoadingScreen(openFile, [file, HOT, DATA, XLSX]);
     }
     // Allow consecutive uploads of the same file
     $fileInput[0].value = '';
