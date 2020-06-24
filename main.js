@@ -316,6 +316,19 @@ const getTrimmedData = (hot) => {
 };
 
 /**
+ * TODO...
+ * @param fn
+ * @param args
+ */
+const runBehindLoadingScreen = (fn, args) => {
+  $('#loading-screen').show();
+  setTimeout(() => {
+    fn.apply(null, args);
+    $('#loading-screen').hide();
+  }, 0);
+};
+
+/**
  * Download matrix to file.
  * @param {Array<Array<String>>} matrix Matrix to download.
  * @param {String} baseName Basename of downloaded file.
@@ -820,7 +833,7 @@ $(document).ready(() => {
       const baseName = $('#base-name-save-as-input').val();
       const ext = $('#file-ext-save-as-select').val();
       const matrix = [...getFlatHeaders(DATA), ...getTrimmedData(HOT)];
-      exportFile(matrix, baseName, ext, XLSX);
+      runBehindLoadingScreen(exportFile, [matrix, baseName, ext, XLSX]);
       $('#save-as-modal').modal('hide');
     } catch (err) {
       $('#save-as-err-msg').text(err.message);
