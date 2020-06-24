@@ -807,10 +807,9 @@ $(document).ready(() => {
 
   // File -> New
   $('#new-dropdown-item, #clear-data-confirm-btn').click((e) => {
-    if (e.target.id === 'new-dropdown-item') {
-      if (HOT.countRows() - HOT.countEmptyRows()) {
-        $('#clear-data-warning-modal').modal('show');
-      }
+    const isNotEmpty = HOT.countRows() - HOT.countEmptyRows();
+    if (e.target.id === 'new-dropdown-item' && isNotEmpty) {
+      $('#clear-data-warning-modal').modal('show');
     } else {
       window.INVALID_CELLS = {};
       HOT.clear();
