@@ -158,6 +158,14 @@ const createHot = (data) => {
         }
       });
     },
+    afterRenderer: (TD, row, col) => {
+      if (INVALID_CELLS.hasOwnProperty(row)) {
+        if (INVALID_CELLS[row].hasOwnProperty(col)) {
+          const msg = INVALID_CELLS[row][col];
+          $(TD).addClass(msg ? 'empty-invalid-cell' : 'invalid-cell');
+        }
+      }
+    },
   });
 
   return enableMultiSelection(hot, data);
@@ -807,10 +815,9 @@ const getComment = (field) => {
 };
 
 $(document).ready(() => {
+  window.INVALID_CELLS = {};
   window.DATA = processData(DATA);
   window.HOT = createHot(DATA);
-
-  window.INVALID_CELLS = {};
 
   toggleDropdownVisibility(HOT, INVALID_CELLS);
 
@@ -821,7 +828,8 @@ $(document).ready(() => {
       $('#clear-data-warning-modal').modal('show');
     } else {
       window.INVALID_CELLS = {};
-      HOT.clear();
+      HOT.destroy();
+      window.HOT = createHot(DATA);
     }
   });
 
@@ -908,22 +916,8 @@ $(document).ready(() => {
 
   // Validate
   $('#validate-btn').on('click', () => {
-    // validateGrid(HOT, DATA);
     runBehindLoadingScreen(validateGrid, [HOT, DATA]);
   });
-  // Doing this in the global context instead of `createHot` because we want to
-  // link cell CSS to global variable INVALID_CELLS as it changes, and I want
-  // to avoid passing global variables to functions.
-  HOT.updateSettings({
-    afterRenderer: (TD, row, col, _, val) => {
-      if (INVALID_CELLS.hasOwnProperty(row)) {
-        if (INVALID_CELLS[row].hasOwnProperty(col)) {
-          const msg = INVALID_CELLS[row][col];
-          $(TD).addClass(msg ? 'empty-invalid-cell' : 'invalid-cell');
-        }
-      }
-    },
-  })
 
   // Field descriptions. Need to account for dynamically rendered
   // cells.
