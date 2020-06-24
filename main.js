@@ -321,17 +321,18 @@ const getTrimmedData = (hot) => {
  * @param args
  */
 const runBehindLoadingScreen = (fn, args) => {
-  $('#loading-screen').show();
-  setTimeout(() => {
-    const ret = fn.apply(null, args);
-    if (ret && ret.then) {
-      ret.then((val) => {
+  $('#loading-screen').show('fast', 'swing', function() {
+    setTimeout(() => {
+      const ret = fn.apply(null, args);
+      if (ret && ret.then) {
+        ret.then(() => {
+          $('#loading-screen').hide();
+        });
+      } else {
         $('#loading-screen').hide();
-      });
-    } else {
-      $('#loading-screen').hide();
-    }
-  }, 0);
+      }
+    }, 0);
+  });
 };
 
 /**
@@ -674,6 +675,14 @@ const changeRowVisibility = (id, invalidCells, hot) => {
 }
 
 /**
+ * TODO
+ */
+const validateGrid = (hot, data) => {
+  window.INVALID_CELLS = getInvalidCells(hot, data);
+  hot.render();
+};
+
+/**
  * Get a collection of all invalid cells in the grid.
  * @param {Object} hot Handsontable instance of grid.
  * @param {Object} data See `data.js`.
@@ -898,9 +907,9 @@ $(document).ready(() => {
   });
 
   // Validate
-  $('#validate-btn').click(() => {
-    window.INVALID_CELLS = getInvalidCells(HOT, DATA);
-    HOT.render();
+  $('#validate-btn').on('click', () => {
+    // validateGrid(HOT, DATA);
+    runBehindLoadingScreen(validateGrid, [HOT, DATA]);
   });
   // Doing this in the global context instead of `createHot` because we want to
   // link cell CSS to global variable INVALID_CELLS as it changes, and I want
