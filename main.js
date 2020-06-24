@@ -374,7 +374,7 @@ const exportFile = (matrix, baseName, ext, xlsx) => {
  */
 const exportIRIDA = (baseName, hot, data, xlsx) => {
   const matrix = [getFlatHeaders(data)[1], ...getTrimmedData(hot)];
-  exportFile(matrix, baseName, 'xls', xlsx);
+  runBehindLoadingScreen(exportFile, [matrix, baseName, 'xls', xlsx]);
 };
 
 /**
@@ -471,7 +471,7 @@ const exportGISAID = (baseName, hot, data, xlsx) => {
     mappedMatrix.push(mappedRow);
   }
 
-  exportFile(mappedMatrix, baseName, 'xls', xlsx);
+  runBehindLoadingScreen(exportFile, [mappedMatrix, baseName, 'xls', xlsx]);
 };
 
 /**
