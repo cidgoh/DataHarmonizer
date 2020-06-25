@@ -2,6 +2,12 @@
 @import 'libraries/bootstrap.min.css';
 @import 'libraries/chosen.css';
 
+#loading-screen {
+	display: none;
+	background-color: rgba(108, 117, 125, 0.2);
+	z-index: 1000;
+}
+
 /* Toolbar */
 #header-row {
     visibility: hidden;
