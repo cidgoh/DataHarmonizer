@@ -12,7 +12,7 @@ const toggleDropdownVisibility = () => {
 
   $('#settings-dropdown-btn-group')
       .on('show.bs.dropdown', () => {
-        const hiddenCols = HOT.getSettings().hiddenColumns.columns;
+        const hiddenCols = HOT.getPlugin('hiddenColumns').hiddenColumns;
         const hiddenRows = HOT.getSettings().hiddenRows.rows;
 
         if (hiddenCols.length) {
@@ -642,19 +642,19 @@ const changeCases = (matrix, hot, data) => {
  * @param {Object} hot Handsontable instance of grid.
  */
 const changeColVisibility = (id, data, hot) => {
+  // Un-hide all currently hidden cols
+  const hiddenColsPlugin = hot.getPlugin('hiddenColumns');
+  hiddenColsPlugin.showColumns(hiddenColsPlugin.hiddenColumns);
+
+  // Hide user-specied cols
   const hiddenColumns = [];
   if (id === 'show-required-cols-dropdown-item') {
     getFields(data).forEach(function(field, i) {
       if (field.requirement !== 'required') hiddenColumns.push(i);
     });
   }
-  hot.updateSettings({
-    hiddenColumns: {
-      copyPasteEnabled: true,
-      indicators: true,
-      columns: hiddenColumns,
-    },
-  });
+  hot.getPlugin('hiddenColumns').hideColumns(hiddenColumns);
+  hot.render();
 };
 
 /**
