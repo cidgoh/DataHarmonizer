@@ -683,14 +683,6 @@ const changeRowVisibility = (id, invalidCells, hot) => {
 }
 
 /**
- * TODO
- */
-const validateGrid = (hot, data) => {
-  window.INVALID_CELLS = getInvalidCells(hot, data);
-  hot.render();
-};
-
-/**
  * Get a collection of all invalid cells in the grid.
  * @param {Object} hot Handsontable instance of grid.
  * @param {Object} data See `data.js`.
@@ -918,7 +910,10 @@ $(document).ready(() => {
 
   // Validate
   $('#validate-btn').on('click', () => {
-    runBehindLoadingScreen(validateGrid, [HOT, DATA]);
+    runBehindLoadingScreen(() => {
+      window.INVALID_CELLS = getInvalidCells(HOT, DATA);
+      HOT.render();
+    });
   });
 
   // Field descriptions. Need to account for dynamically rendered
