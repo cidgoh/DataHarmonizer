@@ -928,7 +928,9 @@ $(document).ready(() => {
 
   // Add more rows
   $('#add-rows-button').click(() => {
-    const numRows = $('#add-rows-input').val();
-    HOT.alter('insert_row', HOT.countRows()-1 + numRows, numRows);
+    runBehindLoadingScreen(() => {
+      const numRows = $('#add-rows-input').val();
+      HOT.alter('insert_row', HOT.countRows()-1 + numRows, numRows);
+    });
   });
 });
