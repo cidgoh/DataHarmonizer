@@ -895,7 +895,7 @@ $(document).ready(() => {
   const showColsSelectors =
       ['#show-all-cols-dropdown-item', '#show-required-cols-dropdown-item'];
   $(showColsSelectors.join(',')).click((e) => {
-    changeColVisibility(e.target.id, DATA, HOT);
+    runBehindLoadingScreen(changeColVisibility, [e.target.id, DATA, HOT]);
   });
 
   // Settings -> Show ... rows
