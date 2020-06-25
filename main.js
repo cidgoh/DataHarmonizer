@@ -324,9 +324,13 @@ const getTrimmedData = (hot) => {
 };
 
 /**
- * TODO...
- * @param fn
- * @param args
+ * Run void function behind loading screen.
+ * Adds function to end of call queue. Does not handle functions with return
+ * vals, unless the return value is a promise. Even then, it only waits for the
+ * promise to resolve, and does not actually do anything with the value
+ * returned from the promise.
+ * @param {function} fn - Void function to run.
+ * @param {Array} [args=[]] - Arguments for function to run.
  */
 const runBehindLoadingScreen = (fn, args=[]) => {
   $('#loading-screen').show('fast', 'swing', function() {
@@ -475,11 +479,15 @@ const exportGISAID = (baseName, hot, data, xlsx) => {
 };
 
 /**
- * TODO
- * @param file
- * @param hot
- * @param data
- * @param xlsx
+ * Open file specified by user.
+ * Only opens `xlsx`, `xlsx`, `csv` and `tsv` files. Will launch the specify
+ * headers modal if the file's headers do not match the grid's headers.
+ * @param {File} file User file.
+ * @param {Object} hot Handsontable instance of grid.
+ * @param {Object} data See `data.js`.
+ * @param {Object} xlsx SheetJS variable.
+ * @return {Promise<>} Resolves after loading data or launching specify headers
+ *     modal.
  */
 const openFile = (file, hot, data, xlsx) => {
   return new Promise((resolve) => {
@@ -503,10 +511,10 @@ const openFile = (file, hot, data, xlsx) => {
 };
 
 /**
- * TODO...
- * @param matrix
- * @param hot
- * @param data
+ * Ask user to specify row containing secondary headers in a matrix.
+ * @param {Array<Array<String} matrix Data that user must specify headers for.
+ * @param {Object} hot Handsontable instance of grid.
+ * @param {Object} data See `data.js`.
  */
 const launchSpecifyHeadersModal = (matrix, hot, data) => {
   $('#expected-headers-div')
