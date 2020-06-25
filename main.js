@@ -13,7 +13,7 @@ const toggleDropdownVisibility = () => {
   $('#settings-dropdown-btn-group')
       .on('show.bs.dropdown', () => {
         const hiddenCols = HOT.getPlugin('hiddenColumns').hiddenColumns;
-        const hiddenRows = HOT.getSettings().hiddenRows.rows;
+        const hiddenRows = HOT.getPlugin('hiddenRows').hiddenRows;
 
         if (hiddenCols.length) {
           $('#show-all-cols-dropdown-item').show();
@@ -653,7 +653,7 @@ const changeColVisibility = (id, data, hot) => {
       if (field.requirement !== 'required') hiddenColumns.push(i);
     });
   }
-  hot.getPlugin('hiddenColumns').hideColumns(hiddenColumns);
+  hiddenColsPlugin.hideColumns(hiddenColumns);
   hot.render();
 };
 
@@ -666,6 +666,11 @@ const changeColVisibility = (id, data, hot) => {
  * @param {Object} hot Handsontable instance of grid.
  */
 const changeRowVisibility = (id, invalidCells, hot) => {
+  // Un-hide all currently hidden cols
+  const hiddenRowsPlugin = hot.getPlugin('hiddenRows');
+  hiddenRowsPlugin.showRows(hiddenRowsPlugin.hiddenRows);
+
+  // Hide user-specified rows
   const rows = [...Array(HOT.countRows()).keys()];
   const emptyRows = rows.filter(row => hot.isEmptyRow(row));
   let hiddenRows = [];
@@ -679,7 +684,8 @@ const changeRowVisibility = (id, invalidCells, hot) => {
     hiddenRows = [...hiddenRows, ...emptyRows];
   }
 
-  HOT.updateSettings({hiddenRows: {rows: hiddenRows}});
+  hiddenRowsPlugin.hideRows(hiddenRows);
+  hot.render();
 }
 
 /**
@@ -905,7 +911,8 @@ $(document).ready(() => {
     '#show-invalid-rows-dropdown-item',
   ];
   $(showRowsSelectors.join(',')).click((e) => {
-    changeRowVisibility(e.target.id, INVALID_CELLS, HOT);
+    const args = [e.target.id, INVALID_CELLS, HOT];
+    runBehindLoadingScreen(changeRowVisibility, args);
   });
 
   // Validate
