@@ -642,6 +642,9 @@ const changeCases = (matrix, hot, data) => {
  * @param {Object} hot Handsontable instance of grid.
  */
 const changeColVisibility = (id, data, hot) => {
+  // Grid becomes sluggish if viewport outside visible grid upon re-rendering
+  hot.scrollViewportTo(0, 1);
+
   // Un-hide all currently hidden cols
   const hiddenColsPlugin = hot.getPlugin('hiddenColumns');
   hiddenColsPlugin.showColumns(hiddenColsPlugin.hiddenColumns);
@@ -666,6 +669,9 @@ const changeColVisibility = (id, data, hot) => {
  * @param {Object} hot Handsontable instance of grid.
  */
 const changeRowVisibility = (id, invalidCells, hot) => {
+  // Grid becomes sluggish if viewport outside visible grid upon re-rendering
+  hot.scrollViewportTo(0, 1);
+
   // Un-hide all currently hidden cols
   const hiddenRowsPlugin = hot.getPlugin('hiddenRows');
   hiddenRowsPlugin.showRows(hiddenRowsPlugin.hiddenRows);
