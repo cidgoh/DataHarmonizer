@@ -827,9 +827,11 @@ $(document).ready(() => {
     if (e.target.id === 'new-dropdown-item' && isNotEmpty) {
       $('#clear-data-warning-modal').modal('show');
     } else {
-      window.INVALID_CELLS = {};
-      HOT.destroy();
-      window.HOT = createHot(DATA);
+      runBehindLoadingScreen(() => {
+        window.INVALID_CELLS = {};
+        HOT.destroy();
+        window.HOT = createHot(DATA);
+      }, [])
     }
   });
 
