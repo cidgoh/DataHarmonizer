@@ -530,7 +530,9 @@ const launchSpecifyHeadersModal = (matrix, hot, data) => {
     } else {
       const mappedMatrix =
           mapMatrixToGrid(matrix, specifiedHeaderRow-1, data);
-      hot.loadData(changeCases(mappedMatrix.slice(2), hot, data));
+      runBehindLoadingScreen(() => {
+        hot.loadData(changeCases(mappedMatrix.slice(2), hot, data));
+      });
       $('#specify-headers-modal').modal('hide');
     }
   });
