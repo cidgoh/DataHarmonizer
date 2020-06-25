@@ -328,7 +328,7 @@ const getTrimmedData = (hot) => {
  * @param fn
  * @param args
  */
-const runBehindLoadingScreen = (fn, args) => {
+const runBehindLoadingScreen = (fn, args=[]) => {
   $('#loading-screen').show('fast', 'swing', function() {
     setTimeout(() => {
       const ret = fn.apply(null, args);
@@ -831,7 +831,7 @@ $(document).ready(() => {
         window.INVALID_CELLS = {};
         HOT.destroy();
         window.HOT = createHot(DATA);
-      }, [])
+      });
     }
   });
 
