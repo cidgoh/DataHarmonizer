@@ -498,7 +498,7 @@ const openFile = (file, hot, data, xlsx) => {
       const workbook = xlsx.read(e.target.result, {type: 'binary', raw: true});
       const worksheet =
           updateSheetRange(workbook.Sheets[workbook.SheetNames[0]]);
-      const params = [worksheet, {header: 1, raw: false}];
+      const params = [worksheet, {header: 1, raw: false, range: 0}];
       const matrix = (xlsx.utils.sheet_to_json(...params));
       if (compareMatrixHeadersToGrid(matrix, data)) {
         hot.loadData(changeCases(matrix.slice(2), hot, data));
