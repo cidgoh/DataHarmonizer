@@ -45,20 +45,27 @@ const toggleDropdownVisibility = () => {
  * @return {Object} Processed values of `data.js`.
  */
 const processData = (data) => {
+  // Useful to have this object for fields with a "source" vocabulary
+  const flatVocabularies = {};
   const fields = getFields(data);
-  const countryField =
-      fields.filter(field => field.fieldName === 'geo_loc_name (country)')[0];
+  for (const field of fields) {
+    if (field.vocabulary) {
+      flatVocabularies[field.fieldName] =
+          stringifyNestedVocabulary(field.vocabulary);
+    }
+  }
+
   for (const parent of data) {
     for (const child of parent.children) {
-      // This helps us avoid repeating the list of countries in `data.js`
-      if (child.fieldName.includes('(country)')) {
-        child.vocabulary = countryField.vocabulary;
-      }
-      // Flat list of vocabulary items for autocomplete purposes
       if (child.vocabulary) {
-        child.flatVocabulary = stringifyNestedVocabulary(child.vocabulary);
+        child.flatVocabulary = flatVocabularies[child.fieldName];
 
-        // Convert to title case
+        if (child.source) {
+          child.flatVocabulary =
+              [...child.flatVocabulary, ...flatVocabularies[child.source]];
+        }
+
+        // Change case as needed
         for (const [i, val] of child.flatVocabulary.entries()) {
           if (!val || !child.capitalize) continue;
           child.flatVocabulary[i] = changeCase(val, child.capitalize);
@@ -207,7 +214,7 @@ const getColumns = (data) => {
   for (const field of getFields(data)) {
     const col = {};
     if (field.requirement) col.requirement = field.requirement;
-    if (field.datatype === 'date') {
+    if (field.datatype === 'xs:date') {
       col.type = 'date';
       col.dateFormat = 'YYYY-MM-DD';
     } else if (field.datatype === 'select') {
@@ -232,7 +239,7 @@ const getColumns = (data) => {
  * @param {Object} vocabulary See `vocabulary` fields in `data.js`.
  * @param {number} level Nested level of `vocabulary` we are currently
  *     processing.
- * @return {Array<Array<String>>} Flattened vocabulary.
+ * @return {Array<String>} Flattened vocabulary.
  */
 const stringifyNestedVocabulary = (vocabulary, level=0) => {
   if (Object.keys(vocabulary).length === 0) {
@@ -290,8 +297,27 @@ const enableMultiSelection = (hot, data) => {
 };
 
 /**
- * Download grid headers and data to file.
- * @param {Array<Array<String>>} matrix Grid data.
+ * Get grid data without trailing blank rows.
+ * @param {Object} hot Handonstable grid instance.
+ * @return {Array<Array<String>>} Grid data without trailing blank rows.
+ */
+const getTrimmedData = (hot) => {
+  const gridData = hot.getData();
+  let lastEmptyRow = -1;
+  for (let i=gridData.length; i>=0; i--) {
+    if (hot.isEmptyRow(i)) {
+      lastEmptyRow = i;
+    } else {
+      break;
+    }
+  }
+
+  return lastEmptyRow === -1 ? gridData : gridData.slice(0, lastEmptyRow);
+};
+
+/**
+ * Download matrix to file.
+ * @param {Array<Array<String>>} matrix Matrix to download.
  * @param {String} baseName Basename of downloaded file.
  * @param {String} ext Extension of downloaded file.
  * @param {Object} xlsx SheetJS variable.
@@ -302,6 +328,8 @@ const exportFile = (matrix, baseName, ext, xlsx) => {
   xlsx.utils.book_append_sheet(workbook, worksheet, 'Sheet1');
   if (ext === 'xlsx') {
     xlsx.writeFile(workbook, `${baseName}.xlsx`);
+  } else if (ext === 'xls') {
+    xlsx.writeFile(workbook, `${baseName}.xls`);
   } else if (ext === 'tsv') {
     xlsx.writeFile(workbook, `${baseName}.tsv`, {bookType: 'csv', FS: '\t'});
   } else if (ext === 'csv') {
@@ -310,8 +338,117 @@ const exportFile = (matrix, baseName, ext, xlsx) => {
 };
 
 /**
+ * Download secondary headers and grid data.
+ * @param {String} baseName Basename of downloaded file.
+ * @param {Object} hot Handonstable grid instance.
+ * @param {Object} data See `data.js`.
+ * @param {Object} xlsx SheetJS variable.
+ */
+const exportIRIDA = (baseName, hot, data, xlsx) => {
+  const matrix = [getFlatHeaders(data)[1], ...getTrimmedData(hot)];
+  exportFile(matrix, baseName, 'xls', xlsx);
+};
+
+/**
+ * Download grid mapped to GISAID format.
+ * @param {String} baseName Basename of downloaded file.
+ * @param {Object} hot Handonstable grid instance.
+ * @param {Object} data See `data.js`.
+ * @param {Object} xlsx SheetJS variable.
+ */
+const exportGISAID = (baseName, hot, data, xlsx) => {
+  // TODO: As we add more formats, we should add such headers to `data.js`
+  const GISAIDHeaders = [
+    'Submitter', 'FASTA filename', 'Virus name', 'Type',
+    'Passage details/history', 'Collection date', 'Location',
+    'Additional location information', 'Host', 'Additional host information',
+    'Gender', 'Patient age', 'Patient status', 'Specimen source', 'Outbreak',
+    'Last vaccinated', 'Treatment', 'Sequencing technology', 'Assembly method',
+    'Coverage', 'Originating lab', 'Address',
+    'Sample ID given by the sample provider', 'Submitting lab', 'Address',
+    'Sample ID given by the submitting laboratory', 'Authors',
+  ];
+
+  // Create a map of GISAID headers to our fields. It is a one-to-many
+  // relationship, with indices representing the maps.
+  const headerMap = {};
+  for (const [GISAIDIndex, _] of GISAIDHeaders.entries()) {
+    headerMap[GISAIDIndex] = [];
+  }
+  const fields = getFields(data);
+  for (const [fieldIndex, field] of fields.entries()) {
+    if (field.GISAID) {
+      let GISAIDIndex = GISAIDHeaders.indexOf(field.GISAID);
+      // GISAID has two fields called 'Address'
+      const secondAddress = 'sequence submitter contact address';
+      if (field.GISAID === 'Address' && field.fieldName === secondAddress) {
+        GISAIDIndex = GISAIDHeaders.indexOf(field.GISAID, GISAIDIndex+1);
+      }
+      headerMap[GISAIDIndex].push(fieldIndex);
+    }
+  }
+
+  // Construct GISAID's matrix
+  const mappedMatrix = [GISAIDHeaders];
+  const unmappedMatrix = getTrimmedData(hot);
+  for (const unmappedRow of unmappedMatrix) {
+    const mappedRow = [];
+    for (const [GISAIDIndex, GISAIDHeader] of GISAIDHeaders.entries()) {
+      if (GISAIDHeader === 'Type') {
+        mappedRow.push('betacoronavirus');
+        continue;
+      }
+
+      const mappedCell = [];
+      for (const mappedFieldIndex of headerMap[GISAIDIndex]) {
+        let mappedCellVal = unmappedRow[mappedFieldIndex];
+        if (!mappedCellVal) continue;
+
+        // Only map specimen processing if it is "virus passage"
+        const field = fields[mappedFieldIndex]
+        const standardizedCellVal = mappedCellVal.toLowerCase().trim();
+        if (field.fieldName === 'specimen processing') {
+          const standardizedVirusPassage = 'virus passage'.toLowerCase().trim();
+          // Specimen processing is a multi-select field
+          const standardizedCellValArr = standardizedCellVal.split(';');
+
+          if (!standardizedCellValArr.includes(standardizedVirusPassage)) {
+            continue;
+          } else {
+            // We only want to map "virus passage"
+            mappedCellVal = 'Virus passage';
+          }
+        }
+
+        // All null values sould be converted to "Unknown"
+        if (field.dataStatus) {
+          const standardizedDataStatus =
+              field.dataStatus.map(val => val.toLowerCase().trim());
+          if (standardizedDataStatus.includes(standardizedCellVal)) {
+            // Don't push "Unknown" to fields with multi, concat mapped values
+            if (headerMap[GISAIDIndex].length > 1) continue;
+
+            mappedCellVal = 'Unknown';
+          }
+        }
+
+        if (field.fieldName === 'passage number') {
+          mappedCellVal = 'passage number ' + mappedCellVal;
+        }
+
+        mappedCell.push(mappedCellVal);
+      }
+      mappedRow.push(mappedCell.join(';'));
+    }
+    mappedMatrix.push(mappedRow);
+  }
+
+  exportFile(mappedMatrix, baseName, 'xls', xlsx);
+};
+
+/**
  * Read local file opened by user.
- * Only reads `xlsx`, `csv` and `tsv` files.
+ * Only reads `xlsx`, `xlsx`, `csv` and `tsv` files.
  * @param {File} file User file.
  * @param {Object} xlsx SheetJS variable.
  * @return {Promise<Array<Array<String>>>} Matrix populated by user's file data.
@@ -489,12 +626,17 @@ const changeRowVisibility = (id, invalidCells, hot) => {
  * Get a collection of all invalid cells in the grid.
  * @param {Object} hot Handsontable instance of grid.
  * @param {Object} data See `data.js`.
- * @return {Object<Number, Set<Number>>} Object with rows as keys, and sets
- *     containing invalid cells for that row as values
+ * @return {Object<Number, Object<Number, String>>} Object with invalid rows as
+ *     keys, and objects containing the invalid cells for the row, along with a
+ *     message explaining why, as values. e.g,
+ *     `{0: {0: 'Required cells cannot be empty'}}`
  */
 const getInvalidCells = (hot, data) => {
   const invalidCells = {};
   const fields = getFields(data);
+
+  const regexDecimal = /^(-|\+|)(0|[1-9]\d*)(\.\d+)?$/;
+
   for (let row=0; row<hot.countRows(); row++) {
     if (hot.isEmptyRow(row)) continue;
 
@@ -502,30 +644,39 @@ const getInvalidCells = (hot, data) => {
       const cellVal = hot.getDataAtCell(row, col);
       const datatype = fields[col].datatype;
       let valid = true;
+      // TODO we could have messages for all types of invalidation, and add
+      //  them as tooltips
+      let msg = '';
 
       if (!cellVal) {
         valid = fields[col].requirement !== 'required';
-      } else if (datatype === 'integer') {
-        // https://stackoverflow.com/a/16799538/11472358
+        msg = 'Required cells cannot be empty'
+      } else if (datatype === 'xs:nonNegativeInteger') {
         const parsedInt = parseInt(cellVal, 10);
-        valid =
-            !isNaN(cellVal) && parsedInt>=0 && parsedInt.toString()===cellVal;
-      } else if (datatype === 'decimal') {
-        valid = !isNaN(cellVal) && parseFloat(cellVal)>=0;
-      } else if (datatype === 'date') {
+        valid = !isNaN(cellVal) && parsedInt>=0
+        valid &= parsedInt.toString()===cellVal;
+        valid &= testNumericRange(parsedInt, fields[col]);
+      } else if (datatype === 'xs:decimal') {
+        const parsedDec = parseFloat(cellVal);
+        valid = !isNaN(cellVal) && regexDecimal.test(cellVal);
+        valid &= testNumericRange(parsedDec, fields[col]);
+      } else if (datatype === 'xs:date') {
         valid = moment(cellVal, 'YYYY-MM-DD', true).isValid();
       } else if (datatype === 'select') {
-        valid = validateDropDown(cellVal, fields[col].flatVocabulary);
+        valid = validateValAgainstVocab(cellVal, fields[col].flatVocabulary);
       } else if (datatype === 'multiple') {
-        valid = validateMultiple(cellVal, fields[col].flatVocabulary);
+        valid = validateValsAgainstVocab(cellVal, fields[col].flatVocabulary);
+      }
+
+      if (!valid && fields[col].dataStatus) {
+        valid = validateValAgainstVocab(cellVal, fields[col].dataStatus);
       }
 
       if (!valid) {
-        if (invalidCells.hasOwnProperty(row)) {
-          invalidCells[row].add(col);
-        } else {
-          invalidCells[row] = new Set([col]);
+        if (!invalidCells.hasOwnProperty(row)) {
+          invalidCells[row] = {};
         }
+        invalidCells[row][col] = msg;
       }
     }
   }
@@ -533,14 +684,32 @@ const getInvalidCells = (hot, data) => {
 };
 
 /**
- * Validate a value against its source. This is called when when validating
- * autocomplete cells.
+ * Test a given number against an upper or lower range, if any.
+ * @param {Number} number to be compared.
+ * @param {Object} field that contains min and max limits.
+ * @return {Boolean} validity of field.
+ */
+const testNumericRange = (number, field) => {
+
+  if (field['xs:minInclusive'] !== '') {
+    if (number < field['xs:minInclusive']) {
+      return false
+    }
+  }
+  if (field['xs:maxInclusive'] !== '') {
+    if (number > field['xs:maxInclusive']) 
+      return false
+  }
+  return true
+}
+/**
+ * Validate a value against an array of source values.
  * @param {String} val Cell value.
- * @param {Array<String>} source Dropdown list for cell.
+ * @param {Array<String>} source Source values.
  * @return {Boolean} If `val` is in `source`, while ignoring whitespace and
  *     case.
  */
-const validateDropDown = (val, source) => {
+const validateValAgainstVocab = (val, source) => {
   let valid = false;
   if (val) {
     const trimmedSource =
@@ -552,14 +721,15 @@ const validateDropDown = (val, source) => {
 };
 
 /**
- * Validate csv values against their source. This is called when validating
- * multiple-select cells.
+ * Validate csv values against an array of source values.
  * @param {String} valsCsv CSV string of values to validate.
  * @param {Array<String>} source Values to validate against.
+ * @return {Boolean} If every value in `valsCsv` is in `source`, while ignoring
+ *     whitespace and case.
  */
-const validateMultiple = (valsCsv, source) => {
+const validateValsAgainstVocab = (valsCsv, source) => {
   for (const val of valsCsv.split(';')) {
-    if (!validateDropDown(val, source)) return false;
+    if (!validateValAgainstVocab(val, source)) return false;
   }
   return true;
 };
@@ -602,7 +772,7 @@ $(document).ready(() => {
   $fileInput.change(() => {
     const file = $fileInput[0].files[0];
     const ext = file.name.split('.').pop();
-    const acceptedExts = ['xlsx', 'tsv', 'csv'];
+    const acceptedExts = ['xlsx', 'xls', 'tsv', 'csv'];
     if (!acceptedExts.includes(ext)) {
       const errMsg = `Only ${acceptedExts.join(', ')} files are supported`;
       $('#open-err-msg').text(errMsg);
@@ -646,11 +816,11 @@ $(document).ready(() => {
   });
 
   // File -> Save
-  $('#save-as-confirm-btn').click((e) => {
+  $('#save-as-confirm-btn').click(() => {
     try {
       const baseName = $('#base-name-save-as-input').val();
       const ext = $('#file-ext-save-as-select').val();
-      const matrix = [...getFlatHeaders(DATA), ...HOT.getData()];
+      const matrix = [...getFlatHeaders(DATA), ...getTrimmedData(HOT)];
       exportFile(matrix, baseName, ext, XLSX);
       $('#save-as-modal').modal('hide');
     } catch (err) {
@@ -661,6 +831,27 @@ $(document).ready(() => {
   $('#save-as-modal').on('hidden.bs.modal', () => {
     $('#save-as-err-msg').text('');
     $('#base-name-save-as-input').val('');
+  });
+
+  // File -> Export to...
+  $('#export-to-confirm-btn').click(() => {
+    const baseName = $('#base-name-export-to-input').val();
+    const exportFormat = $('#export-to-format-select').val();
+    if (!exportFormat) {
+      $('#export-to-err-msg').text('Select a format');
+      return;
+    }
+    if (exportFormat === 'gisaid') {
+      exportGISAID(baseName, HOT, DATA, XLSX);
+    } else if (exportFormat === 'irida') {
+      exportIRIDA(baseName, HOT, DATA, XLSX);
+    }
+    $('#export-to-modal').modal('hide');
+  });
+  // Reset export modal values when the modal is closed
+  $('#export-to-modal').on('hidden.bs.modal', () => {
+    $('#export-to-err-msg').text('');
+    $('#base-name-export-to-input').val('');
   });
 
   // Settings -> Show ... columns
@@ -685,9 +876,12 @@ $(document).ready(() => {
     window.INVALID_CELLS = getInvalidCells(HOT, DATA);
     HOT.updateSettings({
       // A more intuitive name for this option might have been `afterCellRender`
-      afterRenderer: (TD, row, col) => {
+      afterRenderer: (TD, row, col, _, val) => {
         if (INVALID_CELLS.hasOwnProperty(row)) {
-          if (INVALID_CELLS[row].has(col)) $(TD).addClass('invalid-cell');
+          if (INVALID_CELLS[row].hasOwnProperty(col)) {
+            const msg = INVALID_CELLS[row][col];
+            $(TD).addClass(msg ? 'empty-invalid-cell' : 'invalid-cell');
+          }
         }
       }
     });
