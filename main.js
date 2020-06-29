@@ -12,8 +12,8 @@ const toggleDropdownVisibility = () => {
 
   $('#settings-dropdown-btn-group')
       .on('show.bs.dropdown', () => {
-        const hiddenCols = HOT.getSettings().hiddenColumns.columns;
-        const hiddenRows = HOT.getSettings().hiddenRows.rows;
+        const hiddenCols = HOT.getPlugin('hiddenColumns').hiddenColumns;
+        const hiddenRows = HOT.getPlugin('hiddenRows').hiddenRows;
 
         if (hiddenCols.length) {
           $('#show-all-cols-dropdown-item').show();
@@ -157,6 +157,14 @@ const createHot = (data) => {
           $cellElement.addClass('secondary-header-cell');
         }
       });
+    },
+    afterRenderer: (TD, row, col) => {
+      if (INVALID_CELLS.hasOwnProperty(row)) {
+        if (INVALID_CELLS[row].hasOwnProperty(col)) {
+          const msg = INVALID_CELLS[row][col];
+          $(TD).addClass(msg ? 'empty-invalid-cell' : 'invalid-cell');
+        }
+      }
     },
   });
 
@@ -316,6 +324,30 @@ const getTrimmedData = (hot) => {
 };
 
 /**
+ * Run void function behind loading screen.
+ * Adds function to end of call queue. Does not handle functions with return
+ * vals, unless the return value is a promise. Even then, it only waits for the
+ * promise to resolve, and does not actually do anything with the value
+ * returned from the promise.
+ * @param {function} fn - Void function to run.
+ * @param {Array} [args=[]] - Arguments for function to run.
+ */
+const runBehindLoadingScreen = (fn, args=[]) => {
+  $('#loading-screen').show('fast', 'swing', function() {
+    setTimeout(() => {
+      const ret = fn.apply(null, args);
+      if (ret && ret.then) {
+        ret.then(() => {
+          $('#loading-screen').hide();
+        });
+      } else {
+        $('#loading-screen').hide();
+      }
+    }, 0);
+  });
+};
+
+/**
  * Download matrix to file.
  * @param {Array<Array<String>>} matrix Matrix to download.
  * @param {String} baseName Basename of downloaded file.
@@ -346,7 +378,7 @@ const exportFile = (matrix, baseName, ext, xlsx) => {
  */
 const exportIRIDA = (baseName, hot, data, xlsx) => {
   const matrix = [getFlatHeaders(data)[1], ...getTrimmedData(hot)];
-  exportFile(matrix, baseName, 'xls', xlsx);
+  runBehindLoadingScreen(exportFile, [matrix, baseName, 'xls', xlsx]);
 };
 
 /**
@@ -443,17 +475,21 @@ const exportGISAID = (baseName, hot, data, xlsx) => {
     mappedMatrix.push(mappedRow);
   }
 
-  exportFile(mappedMatrix, baseName, 'xls', xlsx);
+  runBehindLoadingScreen(exportFile, [mappedMatrix, baseName, 'xls', xlsx]);
 };
 
 /**
- * Read local file opened by user.
- * Only reads `xlsx`, `xlsx`, `csv` and `tsv` files.
+ * Open file specified by user.
+ * Only opens `xlsx`, `xlsx`, `csv` and `tsv` files. Will launch the specify
+ * headers modal if the file's headers do not match the grid's headers.
  * @param {File} file User file.
+ * @param {Object} hot Handsontable instance of grid.
+ * @param {Object} data See `data.js`.
  * @param {Object} xlsx SheetJS variable.
- * @return {Promise<Array<Array<String>>>} Matrix populated by user's file data.
+ * @return {Promise<>} Resolves after loading data or launching specify headers
+ *     modal.
  */
-const parseFile = (file, xlsx) => {
+const openFile = (file, hot, data, xlsx) => {
   return new Promise((resolve) => {
     const fileReader = new FileReader();
     fileReader.readAsBinaryString(file);
@@ -463,7 +499,41 @@ const parseFile = (file, xlsx) => {
       const worksheet =
           updateSheetRange(workbook.Sheets[workbook.SheetNames[0]]);
       const params = [worksheet, {header: 1, raw: false, range: 0}];
-      resolve(xlsx.utils.sheet_to_json(...params));
+      const matrix = (xlsx.utils.sheet_to_json(...params));
+      if (compareMatrixHeadersToGrid(matrix, data)) {
+        hot.loadData(changeCases(matrix.slice(2), hot, data));
+      } else {
+        launchSpecifyHeadersModal(matrix, hot, data);
+      }
+      resolve();
+    }
+  });
+};
+
+/**
+ * Ask user to specify row containing secondary headers in a matrix.
+ * @param {Array<Array<String} matrix Data that user must specify headers for.
+ * @param {Object} hot Handsontable instance of grid.
+ * @param {Object} data See `data.js`.
+ */
+const launchSpecifyHeadersModal = (matrix, hot, data) => {
+  $('#expected-headers-div')
+      .html(getFlatHeaders(data)[1].join('   '));
+  $('#actual-headers-div')
+      .html(matrix[1].join('    '));
+  $('#specify-headers-modal').modal('show');
+  $('#specify-headers-confirm-btn').click(() => {
+    const specifiedHeaderRow =
+        parseInt($('#specify-headers-input').val());
+    if (!isValidHeaderRow(matrix, specifiedHeaderRow)) {
+      $('#specify-headers-err-msg').show();
+    } else {
+      const mappedMatrix =
+          mapMatrixToGrid(matrix, specifiedHeaderRow-1, data);
+      runBehindLoadingScreen(() => {
+        hot.loadData(changeCases(mappedMatrix.slice(2), hot, data));
+      });
+      $('#specify-headers-modal').modal('hide');
     }
   });
 };
@@ -582,19 +652,22 @@ const changeCases = (matrix, hot, data) => {
  * @param {Object} hot Handsontable instance of grid.
  */
 const changeColVisibility = (id, data, hot) => {
+  // Grid becomes sluggish if viewport outside visible grid upon re-rendering
+  hot.scrollViewportTo(0, 1);
+
+  // Un-hide all currently hidden cols
+  const hiddenColsPlugin = hot.getPlugin('hiddenColumns');
+  hiddenColsPlugin.showColumns(hiddenColsPlugin.hiddenColumns);
+
+  // Hide user-specied cols
   const hiddenColumns = [];
   if (id === 'show-required-cols-dropdown-item') {
     getFields(data).forEach(function(field, i) {
       if (field.requirement !== 'required') hiddenColumns.push(i);
     });
   }
-  hot.updateSettings({
-    hiddenColumns: {
-      copyPasteEnabled: true,
-      indicators: true,
-      columns: hiddenColumns,
-    },
-  });
+  hiddenColsPlugin.hideColumns(hiddenColumns);
+  hot.render();
 };
 
 /**
@@ -606,6 +679,14 @@ const changeColVisibility = (id, data, hot) => {
  * @param {Object} hot Handsontable instance of grid.
  */
 const changeRowVisibility = (id, invalidCells, hot) => {
+  // Grid becomes sluggish if viewport outside visible grid upon re-rendering
+  hot.scrollViewportTo(0, 1);
+
+  // Un-hide all currently hidden cols
+  const hiddenRowsPlugin = hot.getPlugin('hiddenRows');
+  hiddenRowsPlugin.showRows(hiddenRowsPlugin.hiddenRows);
+
+  // Hide user-specified rows
   const rows = [...Array(HOT.countRows()).keys()];
   const emptyRows = rows.filter(row => hot.isEmptyRow(row));
   let hiddenRows = [];
@@ -619,7 +700,8 @@ const changeRowVisibility = (id, invalidCells, hot) => {
     hiddenRows = [...hiddenRows, ...emptyRows];
   }
 
-  HOT.updateSettings({hiddenRows: {rows: hiddenRows}});
+  hiddenRowsPlugin.hideRows(hiddenRows);
+  hot.render();
 }
 
 /**
@@ -747,23 +829,23 @@ const getComment = (field) => {
 };
 
 $(document).ready(() => {
+  window.INVALID_CELLS = {};
   window.DATA = processData(DATA);
   window.HOT = createHot(DATA);
-
-  window.INVALID_CELLS = {};
 
   toggleDropdownVisibility(HOT, INVALID_CELLS);
 
   // File -> New
   $('#new-dropdown-item, #clear-data-confirm-btn').click((e) => {
-    if (e.target.id === 'new-dropdown-item') {
-      if (HOT.countRows() - HOT.countEmptyRows()) {
-        $('#clear-data-warning-modal').modal('show');
-      }
+    const isNotEmpty = HOT.countRows() - HOT.countEmptyRows();
+    if (e.target.id === 'new-dropdown-item' && isNotEmpty) {
+      $('#clear-data-warning-modal').modal('show');
     } else {
-      HOT.destroy();
-      window.INVALID_CELLS = {};
-      window.HOT = createHot(DATA);
+      runBehindLoadingScreen(() => {
+        window.INVALID_CELLS = {};
+        HOT.destroy();
+        window.HOT = createHot(DATA);
+      });
     }
   });
 
@@ -779,30 +861,7 @@ $(document).ready(() => {
       $('#open-error-modal').modal('show');
     } else {
       window.INVALID_CELLS = {};
-      parseFile(file, XLSX)
-          .then((matrix) => {
-            if (compareMatrixHeadersToGrid(matrix, DATA)) {
-              HOT.loadData(changeCases(matrix.slice(2), HOT, DATA));
-            } else {
-              $('#expected-headers-div')
-                  .html(getFlatHeaders(DATA)[1].join('   '));
-              $('#actual-headers-div')
-                  .html(matrix[1].join('    '));
-              $('#specify-headers-modal').modal('show');
-              $('#specify-headers-confirm-btn').click(() => {
-                const specifiedHeaderRow =
-                    parseInt($('#specify-headers-input').val());
-                if (!isValidHeaderRow(matrix, specifiedHeaderRow)) {
-                  $('#specify-headers-err-msg').show();
-                } else {
-                  const mappedMatrix =
-                      mapMatrixToGrid(matrix, specifiedHeaderRow-1, DATA);
-                  HOT.loadData(changeCases(mappedMatrix.slice(2), HOT, DATA));
-                  $('#specify-headers-modal').modal('hide');
-                }
-              });
-            }
-          });
+      runBehindLoadingScreen(openFile, [file, HOT, DATA, XLSX]);
     }
     // Allow consecutive uploads of the same file
     $fileInput[0].value = '';
@@ -821,7 +880,7 @@ $(document).ready(() => {
       const baseName = $('#base-name-save-as-input').val();
       const ext = $('#file-ext-save-as-select').val();
       const matrix = [...getFlatHeaders(DATA), ...getTrimmedData(HOT)];
-      exportFile(matrix, baseName, ext, XLSX);
+      runBehindLoadingScreen(exportFile, [matrix, baseName, ext, XLSX]);
       $('#save-as-modal').modal('hide');
     } catch (err) {
       $('#save-as-err-msg').text(err.message);
@@ -858,7 +917,7 @@ $(document).ready(() => {
   const showColsSelectors =
       ['#show-all-cols-dropdown-item', '#show-required-cols-dropdown-item'];
   $(showColsSelectors.join(',')).click((e) => {
-    changeColVisibility(e.target.id, DATA, HOT);
+    runBehindLoadingScreen(changeColVisibility, [e.target.id, DATA, HOT]);
   });
 
   // Settings -> Show ... rows
@@ -868,24 +927,16 @@ $(document).ready(() => {
     '#show-invalid-rows-dropdown-item',
   ];
   $(showRowsSelectors.join(',')).click((e) => {
-    changeRowVisibility(e.target.id, INVALID_CELLS, HOT);
+    const args = [e.target.id, INVALID_CELLS, HOT];
+    runBehindLoadingScreen(changeRowVisibility, args);
   });
 
   // Validate
-  $('#validate-btn').click(() => {
-    window.INVALID_CELLS = getInvalidCells(HOT, DATA);
-    HOT.updateSettings({
-      // A more intuitive name for this option might have been `afterCellRender`
-      afterRenderer: (TD, row, col, _, val) => {
-        if (INVALID_CELLS.hasOwnProperty(row)) {
-          if (INVALID_CELLS[row].hasOwnProperty(col)) {
-            const msg = INVALID_CELLS[row][col];
-            $(TD).addClass(msg ? 'empty-invalid-cell' : 'invalid-cell');
-          }
-        }
-      }
+  $('#validate-btn').on('click', () => {
+    runBehindLoadingScreen(() => {
+      window.INVALID_CELLS = getInvalidCells(HOT, DATA);
+      HOT.render();
     });
-    HOT.render();
   });
 
   // Field descriptions. Need to account for dynamically rendered
@@ -900,7 +951,9 @@ $(document).ready(() => {
 
   // Add more rows
   $('#add-rows-button').click(() => {
-    const numRows = $('#add-rows-input').val();
-    HOT.alter('insert_row', HOT.countRows()-1 + numRows, numRows);
+    runBehindLoadingScreen(() => {
+      const numRows = $('#add-rows-input').val();
+      HOT.alter('insert_row', HOT.countRows()-1 + numRows, numRows);
+    });
   });
 });
