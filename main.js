@@ -705,6 +705,22 @@ const changeRowVisibility = (id, invalidCells, hot) => {
 }
 
 /**
+ * TODO
+ */
+const populateJumpToList = (data) => {
+  let listItems = [];
+  for (const [i, field] of getFields(data).entries()) {
+    listItems.push(
+        $(`<button type="button">${field.fieldName}</button>`)
+            .addClass('list-group-item list-group-item-action')
+            .attr('data-dismiss', 'modal')
+            .attr('data-y', i)
+    );
+  }
+  $('#jump-to-list').append(listItems);
+};
+
+/**
  * Get a collection of all invalid cells in the grid.
  * @param {Object} hot Handsontable instance of grid.
  * @param {Object} data See `data.js`.
@@ -929,6 +945,12 @@ $(document).ready(() => {
   $(showRowsSelectors.join(',')).click((e) => {
     const args = [e.target.id, INVALID_CELLS, HOT];
     runBehindLoadingScreen(changeRowVisibility, args);
+  });
+
+  // Settings -> Jump to...
+  populateJumpToList(DATA);
+  $('#jump-to-list > button').click((e) => {
+    HOT.scrollViewportTo(0, parseInt($(e.target).attr('data-y')));
   });
 
   // Validate

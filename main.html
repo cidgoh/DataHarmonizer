@@ -38,6 +38,7 @@
                 <span class="dropdown-item hidden-dropdown-item" id="show-all-rows-dropdown-item">Show all rows</span>
                 <span class="dropdown-item hidden-dropdown-item" id="show-valid-rows-dropdown-item">Show valid rows</span>
                 <span class="dropdown-item hidden-dropdown-item" id="show-invalid-rows-dropdown-item">Show invalid rows</span>
+                <span class="dropdown-item" id="jump-to-dropdown-item" data-toggle="modal" data-target="#jump-to-modal">Jump to...</span>
                 <span class="dropdown-item disabled" id="version-dropdown-item">Version 0.7.0</span>
               </div>
             </div>
@@ -233,6 +234,26 @@
               <div class="row mt-3">
                 <div class="col d-flex justify-content-end">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal" id="jump-to-modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col">
+                  <h5>Jump to...</h5>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <ul class="list-group list-group-flush" id="jump-to-list"></ul>
                 </div>
               </div>
             </div>

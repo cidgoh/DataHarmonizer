@@ -20,6 +20,11 @@
     display: none;
 }
 
+#jump-to-list {
+	max-height: 50vh;
+	overflow-y: auto;
+}
+
 /* Specify headers modal */
 #specify-headers-comparison-row {
 	overflow-x: auto;
