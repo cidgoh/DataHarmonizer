@@ -1,6 +1,7 @@
 @import 'libraries/handsontable.full.min.css';
 @import 'libraries/bootstrap.min.css';
 @import 'libraries/chosen.css';
+@import 'libraries/jquery-ui.min.css';
 
 #loading-screen {
 	display: none;
@@ -20,9 +21,8 @@
     display: none;
 }
 
-#jump-to-list {
-	max-height: 50vh;
-	overflow-y: auto;
+.ui-autocomplete {
+    z-index: 5000;
 }
 
 /* Specify headers modal */

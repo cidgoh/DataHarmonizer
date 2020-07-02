@@ -707,17 +707,12 @@ const changeRowVisibility = (id, invalidCells, hot) => {
 /**
  * TODO
  */
-const populateJumpToList = (data) => {
-  let listItems = [];
+const getFieldYCoordinates = (data) => {
+  const ret = {};
   for (const [i, field] of getFields(data).entries()) {
-    listItems.push(
-        $(`<button type="button">${field.fieldName}</button>`)
-            .addClass('list-group-item list-group-item-action')
-            .attr('data-dismiss', 'modal')
-            .attr('data-y', i)
-    );
+    ret[field.fieldName] = i;
   }
-  $('#jump-to-list').append(listItems);
+  return ret;
 };
 
 /**
@@ -948,9 +943,20 @@ $(document).ready(() => {
   });
 
   // Settings -> Jump to...
-  populateJumpToList(DATA);
-  $('#jump-to-list > button').click((e) => {
-    HOT.scrollViewportTo(0, parseInt($(e.target).attr('data-y')));
+  const $jumpToInput = $('#jump-to-input');
+  $jumpToInput.data('fieldYCoordinates', getFieldYCoordinates(DATA));
+  $jumpToInput.autocomplete({
+    source: Object.keys($jumpToInput.data('fieldYCoordinates')),
+    minLength: 0,
+    select: (e, ui) => {
+      const y = $(e.target).data('fieldYCoordinates')[ui.item.label];
+      HOT.scrollViewportTo(0, y);
+      $('#jump-to-modal').modal('hide');
+    },
+  }).bind('focus', () => void $jumpToInput.autocomplete('search'));
+  $('#jump-to-modal').on('shown.bs.modal', () => {
+    $jumpToInput.val('');
+    $jumpToInput.focus();
   });
 
   // Validate
