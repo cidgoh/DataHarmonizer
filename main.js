@@ -705,6 +705,20 @@ const changeRowVisibility = (id, invalidCells, hot) => {
 }
 
 /**
+ * Get the 0-based y-index of every field on the grid.
+ * @param {Object} data See `data.js`.
+ * @return {Object<String, Number>} Fields mapped to their 0-based y-index on
+ *     the grid.
+ */
+const getFieldYCoordinates = (data) => {
+  const ret = {};
+  for (const [i, field] of getFields(data).entries()) {
+    ret[field.fieldName] = i;
+  }
+  return ret;
+};
+
+/**
  * Get a collection of all invalid cells in the grid.
  * @param {Object} hot Handsontable instance of grid.
  * @param {Object} data See `data.js`.
@@ -929,6 +943,23 @@ $(document).ready(() => {
   $(showRowsSelectors.join(',')).click((e) => {
     const args = [e.target.id, INVALID_CELLS, HOT];
     runBehindLoadingScreen(changeRowVisibility, args);
+  });
+
+  // Settings -> Jump to...
+  const $jumpToInput = $('#jump-to-input');
+  $jumpToInput.data('fieldYCoordinates', getFieldYCoordinates(DATA));
+  $jumpToInput.autocomplete({
+    source: Object.keys($jumpToInput.data('fieldYCoordinates')),
+    minLength: 0,
+    select: (e, ui) => {
+      const y = $(e.target).data('fieldYCoordinates')[ui.item.label];
+      HOT.scrollViewportTo(0, y);
+      $('#jump-to-modal').modal('hide');
+    },
+  }).bind('focus', () => void $jumpToInput.autocomplete('search'));
+  $('#jump-to-modal').on('shown.bs.modal', () => {
+    $jumpToInput.val('');
+    $jumpToInput.focus();
   });
 
   // Validate

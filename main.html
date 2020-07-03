@@ -38,6 +38,7 @@
                 <span class="dropdown-item hidden-dropdown-item" id="show-all-rows-dropdown-item">Show all rows</span>
                 <span class="dropdown-item hidden-dropdown-item" id="show-valid-rows-dropdown-item">Show valid rows</span>
                 <span class="dropdown-item hidden-dropdown-item" id="show-invalid-rows-dropdown-item">Show invalid rows</span>
+                <span class="dropdown-item" id="jump-to-dropdown-item" data-toggle="modal" data-target="#jump-to-modal">Jump to...</span>
                 <span class="dropdown-item disabled" id="version-dropdown-item">Version 0.7.0</span>
               </div>
             </div>
@@ -240,6 +241,24 @@
         </div>
       </div>
     </div>
+    <div class="modal" id="jump-to-modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col">
+                  <div>
+                    <label for="jump-to-input">Jump to...</label>
+                    <input id="jump-to-input" class="form-control">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="modal" id="field-description-modal" tabindex="-1" role="dialog">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -358,6 +377,7 @@
     <script type="text/javascript" src="libraries/xlsx.full.min.js"></script>
     <script type="text/javascript" src="libraries/chosen.jquery.min.js"></script>
     <script type="text/javascript" src="libraries/moment.min.js"></script>
+    <script type="text/javascript" src="libraries/jquery-ui.min.js"></script>
     <script src="data.js"></script>
     <script src="main.js"></script>
   </body>
