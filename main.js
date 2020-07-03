@@ -705,7 +705,10 @@ const changeRowVisibility = (id, invalidCells, hot) => {
 }
 
 /**
- * TODO
+ * Get the 0-based y-index of every field on the grid.
+ * @param {Object} data See `data.js`.
+ * @return {Object<String, Number>} Fields mapped to their 0-based y-index on
+ *     the grid.
  */
 const getFieldYCoordinates = (data) => {
   const ret = {};
