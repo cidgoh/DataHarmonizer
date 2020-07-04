@@ -26,7 +26,7 @@
                 <span class="dropdown-item" id="new-dropdown-item">New</span>
                 <label for="open-file-input" class="dropdown-item mb-0" id="open-dropdown-item">Open</label>
                 <input type="file" accept=".xlsx,.xls,.tsv,.csv" class="form-control-file" id="open-file-input">
-                <span class="dropdown-item" data-toggle="modal" data-target="#save-as-modal">Save As...</span>
+                <span class="dropdown-item" data-toggle="modal" id="save-as-dropdown-item">Save As...</span>
                 <span class="dropdown-item" data-toggle="modal" data-target="#export-to-modal">Export To...</span>
               </div>
             </div>
@@ -86,6 +86,28 @@
                 </div>
                 <div class="col d-flex justify-content-end">
                   <button type="button" class="btn btn-danger" id="clear-data-confirm-btn" data-dismiss="modal">Clear</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal" id="save-as-invalid-warning-modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col text-danger">You have invalid cells. Continue saving?</div>
+              </div>
+              <div class="row mt-3">
+                <div class="col-2 col-sm-6"></div>
+                <div class="col d-flex justify-content-end">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                </div>
+                <div class="col d-flex justify-content-end">
+                  <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal" data-target="#save-as-modal">Continue</button>
                 </div>
               </div>
             </div>
