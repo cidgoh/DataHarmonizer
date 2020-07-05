@@ -44,7 +44,13 @@
             </div>
             <button type="button" class="btn btn-primary" id="validate-btn">Validate</button>
           </div>
-          <button type="button" class="btn btn-info d-none d-sm-inline" id="getting-started-btn" data-toggle="modal" data-target="#getting-started-modal">Getting Started</button>
+          <div class="btn-group d-none d-sm-inline" role="group">
+            <button class="btn btn-info dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Help</button>
+            <div class="dropdown-menu">
+              <span class="dropdown-item" data-toggle="modal" data-target="#getting-started-modal">Getting Started</span>
+              <a class="dropdown-item" target="_blank" href="./SOP.pdf">SOP</a>
+            </div>
+          </div>
         </div>
       </div>
       <!-- Handsontable grid -->
@@ -307,11 +313,6 @@
               <div class="row">
                 <div class="col">
                   <h5>Are you ready to harmonize your contextual data?</h5>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col">
-                  <a target="_blank" href="./SOP.pdf">Get the SOP</a>
                 </div>
               </div>
             </div>
