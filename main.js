@@ -10,6 +10,15 @@
 const toggleDropdownVisibility = () => {
   $('.hidden-dropdown-item').hide();
 
+  $('#file-dropdown-btn-group')
+      .on('show.bs.dropdown', () => {
+        if (jQuery.isEmptyObject(INVALID_CELLS)) {
+          $('#export-to-dropdown-item').removeClass('disabled');
+        } else {
+          $('#export-to-dropdown-item').addClass('disabled');
+        }
+      });
+
   $('#settings-dropdown-btn-group')
       .on('show.bs.dropdown', () => {
         const hiddenCols = HOT.getPlugin('hiddenColumns').hiddenColumns;
@@ -889,6 +898,13 @@ $(document).ready(() => {
   });
 
   // File -> Save
+  $('#save-as-dropdown-item').click(() => {
+    if (!jQuery.isEmptyObject(INVALID_CELLS)) {
+      $('#save-as-invalid-warning-modal').modal('show');
+    } else {
+      $('#save-as-modal').modal('show');
+    }
+  });
   $('#save-as-confirm-btn').click(() => {
     try {
       const baseName = $('#base-name-save-as-input').val();
