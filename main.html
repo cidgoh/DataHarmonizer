@@ -20,14 +20,14 @@
       <div class="row mt-3" id="header-row">
         <div class="col">
           <div class="btn-group" role="group">
-            <div class="btn-group" role="group">
+            <div class="btn-group" id="file-dropdown-btn-group" role="group">
               <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">File</button>
               <div class="dropdown-menu">
                 <span class="dropdown-item" id="new-dropdown-item">New</span>
                 <label for="open-file-input" class="dropdown-item mb-0" id="open-dropdown-item">Open</label>
                 <input type="file" accept=".xlsx,.xls,.tsv,.csv" class="form-control-file" id="open-file-input">
                 <span class="dropdown-item" data-toggle="modal" id="save-as-dropdown-item">Save As...</span>
-                <span class="dropdown-item" data-toggle="modal" data-target="#export-to-modal">Export To...</span>
+                <span class="dropdown-item" data-toggle="modal" id="export-to-dropdown-item" data-target="#export-to-modal">Export To...</span>
               </div>
             </div>
             <div class="btn-group" id="settings-dropdown-btn-group" role="group">

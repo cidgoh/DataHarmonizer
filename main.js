@@ -10,6 +10,15 @@
 const toggleDropdownVisibility = () => {
   $('.hidden-dropdown-item').hide();
 
+  $('#file-dropdown-btn-group')
+      .on('show.bs.dropdown', () => {
+        if (jQuery.isEmptyObject(INVALID_CELLS)) {
+          $('#export-to-dropdown-item').removeClass('disabled');
+        } else {
+          $('#export-to-dropdown-item').addClass('disabled');
+        }
+      });
+
   $('#settings-dropdown-btn-group')
       .on('show.bs.dropdown', () => {
         const hiddenCols = HOT.getPlugin('hiddenColumns').hiddenColumns;
