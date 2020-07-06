@@ -44,7 +44,15 @@
             </div>
             <button type="button" class="btn btn-primary" id="validate-btn">Validate</button>
           </div>
-          <button type="button" class="btn btn-info d-none d-sm-inline" id="getting-started-btn" data-toggle="modal" data-target="#getting-started-modal">Getting Started</button>
+          <div class="btn-group d-none d-sm-inline" role="group">
+            <button class="btn btn-info dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Help</button>
+            <div class="dropdown-menu">
+              <span class="dropdown-item" data-toggle="modal" data-target="#getting-started-modal">Getting Started</span>
+              <a class="dropdown-item" target="_blank" href="./reference.html">Reference Guide</a>
+              <a class="dropdown-item" target="_blank" href="./SOP.pdf">SOP</a>
+              <span class="dropdown-item" data-toggle="modal" data-target="#contact-us-modal">Contact Us</span>
+            </div>
+          </div>
         </div>
       </div>
       <!-- Handsontable grid -->
@@ -309,11 +317,6 @@
                   <h5>Are you ready to harmonize your contextual data?</h5>
                 </div>
               </div>
-              <div class="row">
-                <div class="col">
-                  <a target="_blank" href="./SOP.pdf">Get the SOP</a>
-                </div>
-              </div>
             </div>
           </div>
           <div class="modal-body">
@@ -383,6 +386,29 @@
               <div class="row mt-3">
                 <div class="col d-flex justify-content-end">
                   <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal" id="contact-us-modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col">
+                  <p>If you have questions, or want to notify us of bugs or potential improvements, contact us by either posting an issue at:</p>
+                  <p>https://github.com/Public-Health-Bioinformatics/DataHarmonizer/issues</p>
+                  <p>Or emailing us at:</p>
+                  <p>emma.griffiths@bccdc.ca</p>
+                </div>
+              </div>
+              <div class="row mt-3">
+                <div class="col d-flex justify-content-end">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button>
                 </div>
               </div>
             </div>
