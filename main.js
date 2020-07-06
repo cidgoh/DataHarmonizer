@@ -520,7 +520,7 @@ const openFile = (file, hot, data, xlsx) => {
 };
 
 /**
- * Ask user to specify row containing secondary headers in a matrix.
+ * Ask user to specify row containing secondary headers in a matrix. TODO
  * @param {Array<Array<String} matrix Data that user must specify headers for.
  * @param {Object} hot Handsontable instance of grid.
  * @param {Object} data See `data.js`.
@@ -537,14 +537,27 @@ const launchSpecifyHeadersModal = (matrix, hot, data) => {
     if (!isValidHeaderRow(matrix, specifiedHeaderRow)) {
       $('#specify-headers-err-msg').show();
     } else {
-      const mappedMatrix =
+      const mappedMatrixObj =
           mapMatrixToGrid(matrix, specifiedHeaderRow-1, data);
-      runBehindLoadingScreen(() => {
-        hot.loadData(changeCases(mappedMatrix.slice(2), hot, data));
-      });
       $('#specify-headers-modal').modal('hide');
+      runBehindLoadingScreen(() => {
+        hot.loadData(changeCases(mappedMatrixObj.matrix.slice(2), hot, data));
+        if (mappedMatrixObj.unmappedHeaders.length) {
+          alertOfUnmappedHeaders(mappedMatrixObj.unmappedHeaders);
+        }
+      });
     }
   });
+};
+
+/**
+ * TODO
+ */
+const alertOfUnmappedHeaders = (unmappedHeaders) => {
+  const unmappedHeaderDivs =
+      unmappedHeaders.map(header => `<li>${header}</li>`);
+  $('#unmapped-headers-list').html(unmappedHeaderDivs);
+  $('#unmapped-headers-modal').modal('show');
 };
 
 /**
@@ -593,7 +606,7 @@ const isValidHeaderRow = (matrix, row) => {
  * Map matrix columns to grid columns.
  * Currently assumes mapped columns will have the same label, but allows them
  * to be in a different order. If the matrix is missing a column, a blank
- * column is used.
+ * column is used. TODO
  * @param {Array<Array<String>>} matrix
  * @param {Number} matrixHeaderRow Row containing matrix's column labels.
  * @param {Object} data See `data.js`.
@@ -606,10 +619,12 @@ const mapMatrixToGrid = (matrix, matrixHeaderRow, data) => {
 
   // Map current column indices to their indices in matrix to map
   const headerMap = {};
+  const unmappedHeaders = [];
   for (const [i, expectedVal] of expectedSecondaryHeaders.entries()) {
     headerMap[i] = actualSecondaryHeaders.findIndex((actualVal) => {
       return actualVal === expectedVal;
     });
+    if (headerMap[i] === -1) unmappedHeaders.push(expectedVal);
   }
 
   const dataRows = matrix.slice(matrixHeaderRow + 1);
@@ -628,7 +643,10 @@ const mapMatrixToGrid = (matrix, matrixHeaderRow, data) => {
     }
   }
 
-  return [...expectedHeaders, ...mappedDataRows];
+  return {
+    matrix: [...expectedHeaders, ...mappedDataRows],
+    unmappedHeaders: unmappedHeaders,
+  };
 };
 
 /**
