@@ -9,6 +9,11 @@
 	z-index: 1000;
 }
 
+#unmapped-headers-list {
+	max-height: 50vh;
+	overflow-y: auto;
+}
+
 /* Toolbar */
 #header-row {
     visibility: hidden;
