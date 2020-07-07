@@ -143,7 +143,7 @@ const DATA = [
         "requirement": "",
         "description": "The GISAID accession number assigned to the sequence.",
         "guidance": "Store the accession returned from the GISAID submission.",
-        "examples": "hCov-19/Canada/prov_rona_99/2020",
+        "examples": "EPI_ISL_436489",
         "GISAID": ""
       }
     ]
@@ -657,11 +657,11 @@ const DATA = [
         "xs:maxInclusive": "",
         "requirement": "required",
         "description": "Taxonomic name of the organism.",
-        "guidance": "Use \"Severe acute respiratory coronavirus 2\". This value is provided in the template.",
+        "guidance": "Use \"Severe acute respiratory syndrome coronavirus 2\". This value is provided in the template.",
         "examples": "Severe acute respiratory coronavirus 2",
         "GISAID": "",
         "vocabulary": {
-          "Severe acute respiratory virus 2": {},
+          "Severe acute respiratory syndrome coronavirus 2": {},
           "RaTG13": {},
           "RmYN02": {}
         }
@@ -766,7 +766,7 @@ const DATA = [
         "requirement": "required",
         "description": "An anatomical part of an organism e.g. oropharynx.",
         "guidance": "Provide a descriptor if an anatomical part was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. ",
-        "examples": "Nasopharynx",
+        "examples": "Nasopharynx (NP)",
         "GISAID": "Specimen source",
         "vocabulary": {
           "Anus": {},
@@ -927,6 +927,7 @@ const DATA = [
           "Prison": {},
           "Production Facility": {},
           "School": {},
+          "Sewage Plant": {},
           "Subway train": {},
           "Wet market": {}
         }
@@ -1258,7 +1259,7 @@ const DATA = [
         "requirement": "",
         "description": "Health status of the host at the time of sample collection.",
         "guidance": "If known, select a descriptor from the pick list provided in the template.",
-        "examples": "sick",
+        "examples": "Symptomatic",
         "GISAID": "Patient status",
         "vocabulary": {
           "Asymptomatic": {},
@@ -1293,7 +1294,38 @@ const DATA = [
             "Hospitalized (Non-ICU)": {},
             "Hospitalized (ICU)": {}
           },
+          "Mechanical Ventilation": {},
+          "Medically Isolated": {
+            "Medically Isolated (Negative Pressure)": {}
+          },
           "Self-quarantining": {}
+        }
+      },
+      {
+        "fieldName": "host health outcome",
+        "capitalize": "",
+        "ontology_id": "",
+        "datatype": "select",
+        "source": "",
+        "dataStatus": [
+          "Not Applicable",
+          "Missing",
+          "Not Collected",
+          "Not Provided",
+          "Restricted Access"
+        ],
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Disease outcome in the host.",
+        "guidance": "If known, select a descriptor from the pick list provided in the template.",
+        "examples": "Recovered",
+        "GISAID": "",
+        "vocabulary": {
+          "Deceased": {},
+          "Deteriorating": {},
+          "Recovered": {},
+          "Stable": {}
         }
       },
       {
@@ -1448,45 +1480,76 @@ const DATA = [
         "examples": "Cough; Fever; Chills",
         "GISAID": "",
         "vocabulary": {
-          "Ageusia": {},
-          "Anosmia": {},
+          "Abdominal pain": {},
+          "Abnormality of the sense of taste": {
+            "Ageusia (complete loss of taste)": {},
+            "Parageusia (distorted sense of taste)": {},
+            "Hypogeusia (reduced sense of taste)": {}
+          },
+          "Abnormality of the sense of smell": {
+            "Anosmia (lost sense of smell)": {},
+            "Hyposmia (reduced sense of smell)": {}
+          },
+          "Altered consciousness": {
+            "Cognitive impairment": {},
+            "Coma": {},
+            "Confusion": {
+              "Delirium (sudden severe confusion)": {}
+            },
+            "Inability to arouse (inability to stay awake)": {},
+            "Loss of speech": {}
+          },
           "Arthralgia (painful joints)": {},
-          "Asthenia": {},
-          "Chest Pain": {},
-          "Chills": {},
-          "Coma": {},
-          "Confusion": {},
-          "Conjunctivitis": {},
-          "Cough": {},
-          "Delirium": {},
-          "Diarrhea": {},
-          "Dysgeusia": {},
-          "Encephalitis": {},
-          "Fatigue": {},
+          "Asthenia (generalized weakness)": {},
+          "Chest pain": {},
+          "Chest tightness or pressure": {
+            "Rigors (fever shakes)": {}
+          },
+          "Chills (sudden cold sensation)": {},
+          "Conjunctivitis (pink eye)": {},
+          "Cough": {
+            "Nonproductive cough (dry cough)": {},
+            "Productive cough (wet cough)": {}
+          },
+          "Cyanosis (blueish skin discolouration)": {
+            "Acrocyanosis": {
+              "Circumoral cyanosis (bluish around mouth)": {},
+              "Cyanotic face (bluish face)": {},
+              "Cyanotic lips (bluish lips)": {},
+              "Pseudo-chilblains on fingers (covid fingers)": {},
+              "Pseudo-chilblains on toes (covid toes)": {}
+            }
+          },
+          "Diarrhea (watery stool)": {},
+          "Encephalitis (brain inflammation)": {},
+          "Fatigue (tiredness)": {},
           "Fever": {},
+          "Glossitis (inflammation of the tongue)": {},
           "Headache": {},
-          "Hemoptysis": {},
-          "Hypogeusia": {},
-          "Hyposmia": {},
+          "Hemoptysis (coughing up blood)": {},
           "Hypotension (low blood pressure)": {},
-          "Hypoxemia": {},
+          "Hypoxemia (low blood oxygen)": {},
+          "Internal hemorrhage (internal bleeding)": {},
           "Irritability": {},
-          "Loss of speech": {},
-          "Loss of taste": {},
+          "Loss of Fine Movements": {},
           "Low appetite": {},
-          "Malaise": {},
+          "Malaise (general discomfort/unease)": {},
           "Myalgia (muscle pain)": {},
           "Nasal obstruction (stuffy nose)": {},
           "Nausea": {},
           "Pharyngitis (sore throat)": {},
           "Rash": {},
           "Rhinorrhea (runny nose)": {},
-          "Seizure": {},
-          "Shortness of breath (breathing difficulty)": {},
+          "Seizure": {
+            "Motor seizure": {}
+          },
+          "Shivering (involuntary muscle twitching)": {},
+          "Dyspnea (breathing difficulty)": {},
           "Slurred speech": {},
+          "Stroke": {},
           "Tachypnea (rapid breathing)": {},
-          "Vomiting": {},
-          "Weakness": {}
+          "Vomiting (throwing up)": {},
+          "Muscle weakness": {}
         }
       }
     ]
@@ -1585,6 +1648,36 @@ const DATA = [
         "GISAID": ""
       },
       {
+        "fieldName": "library insert size",
+        "capitalize": "",
+        "ontology_id": "",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "The insert size of the library being sequenced (i.e. the length of the DNA inserted between the adaptors).",
+        "guidance": "Provide the insert size in base pairs.",
+        "examples": "300",
+        "GISAID": ""
+      },
+      {
+        "fieldName": "library preparation method",
+        "capitalize": "",
+        "ontology_id": "",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "The name of the DNA library preparation kit used to generate the library being sequenced.",
+        "guidance": "Provide the name of the library preparation kit used.",
+        "examples": "Nextera XT",
+        "GISAID": ""
+      },
+      {
         "fieldName": "MinIon barcode",
         "capitalize": "",
         "ontology_id": "",
@@ -1596,7 +1689,7 @@ const DATA = [
         "requirement": "",
         "description": "The barcode of the MinIon unit used for sequencing.",
         "guidance": "Provide the barcode of the MinIon used for sequencing the sample.",
-        "examples": "",
+        "examples": "FAB06069",
         "GISAID": ""
       },
       {
@@ -1729,6 +1822,27 @@ const DATA = [
         "description": "The filename of the file containing amplicon PCR primer names and sequences.",
         "guidance": "Important for documenting methods and should be considered for submission, particularly if primers were designed in-house and not by a public consortium/network.",
         "examples": "Rona_primers_2020.txt",
+        "GISAID": ""
+      },
+      {
+        "fieldName": "sample sequenced date",
+        "capitalize": "",
+        "ontology_id": "",
+        "datatype": "xs:date",
+        "source": "",
+        "dataStatus": [
+          "Not Applicable",
+          "Missing",
+          "Not Collected",
+          "Not Provided",
+          "Restricted Access"
+        ],
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "The date the sample was sequenced.",
+        "guidance": "ISO 8601 standard \"YYYY-MM-DD\".",
+        "examples": "2020-06-22",
         "GISAID": ""
       }
     ]
@@ -1868,7 +1982,7 @@ const DATA = [
         "requirement": "",
         "description": "The location of the r1 FASTQ file within a user's file system.",
         "guidance": "Provide the filepath for the r1 FASTQ file. This information aids in data management. ",
-        "examples": "",
+        "examples": "/User/Documents/RespLab/Data",
         "GISAID": ""
       },
       {
@@ -1883,7 +1997,7 @@ const DATA = [
         "requirement": "",
         "description": "The location of the r2 FASTQ file within a user's file system.",
         "guidance": "Provide the filepath for the r2 FASTQ file. This information aids in data management. ",
-        "examples": "",
+        "examples": "/User/Documents/RespLab/Data",
         "GISAID": ""
       },
       {
@@ -1898,7 +2012,7 @@ const DATA = [
         "requirement": "",
         "description": "The user-specified filename of the FAST5 file.",
         "guidance": "Provide the FAST5 filename.",
-        "examples": "",
+        "examples": "rona123assembly.fast5",
         "GISAID": ""
       },
       {
@@ -1913,7 +2027,7 @@ const DATA = [
         "requirement": "",
         "description": "The location of the FAST5 file within a user's file system.",
         "guidance": "Provide the filepath for the FAST5 file. This information aids in data management. ",
-        "examples": "",
+        "examples": "/User/Documents/RespLab/Data",
         "GISAID": ""
       },
       {
@@ -1943,7 +2057,7 @@ const DATA = [
         "requirement": "",
         "description": "The location of the FASTA file within a user's file system.",
         "guidance": "Provide the filepath for the FASTA file. This information aids in data management. ",
-        "examples": "",
+        "examples": "/User/Documents/RespLab/Data",
         "GISAID": ""
       },
       {
@@ -2048,7 +2162,7 @@ const DATA = [
         "requirement": "",
         "description": "The identifer used to specify the consensus sequence.",
         "guidance": "Provide the consensus sequence identifier.",
-        "examples": "",
+        "examples": "ProvConsensusSeq",
         "GISAID": "Sample ID given by the submitting laboratory"
       },
       {
@@ -2099,7 +2213,7 @@ const DATA = [
         "requirement": "",
         "description": "The location of the consensus sequence in the user's file system.",
         "guidance": "Provide the filepath for the consensus sequence file. This information facilitates data management.",
-        "examples": "",
+        "examples": "/User/Documents/RespLab/Data",
         "GISAID": ""
       },
       {
@@ -2149,7 +2263,7 @@ const DATA = [
         "requirement": "",
         "description": "The name of the gene used in the diagnostic RT-PCR test.",
         "guidance": "Provide the full name of the gene used in the test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI",
-        "examples": "envelope small membrane protein (SARS-CoV-2)",
+        "examples": "E (orf4)",
         "GISAID": "",
         "vocabulary": {
           "E (orf4)": {},
@@ -2230,7 +2344,7 @@ const DATA = [
         "requirement": "",
         "description": "The name of the gene used in the diagnostic RT-PCR test.",
         "guidance": "Provide the full name of another gene used in an RT-PCR test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI",
-        "examples": "RNA-directed RNA Polymerase (RdRP)",
+        "examples": "nsp12 (RdRp)",
         "GISAID": "",
         "vocabulary": {}
       },
