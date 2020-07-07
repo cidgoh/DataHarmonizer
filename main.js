@@ -937,6 +937,11 @@ $(document).ready(() => {
       const baseName = $('#base-name-save-as-input').val();
       const ext = $('#file-ext-save-as-select').val();
       const matrix = [...getFlatHeaders(DATA), ...getTrimmedData(HOT)];
+
+      // TODO: figure out a better way of adding metadata to file
+      const version = $('#version-dropdown-item').html();
+      matrix[0][1] = '#Validated using DataHarmonizer ' + version;
+
       runBehindLoadingScreen(exportFile, [matrix, baseName, ext, XLSX]);
       $('#save-as-modal').modal('hide');
     } catch (err) {
