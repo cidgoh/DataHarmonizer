@@ -110,7 +110,7 @@
 	    				<td class="label">GISAID accession</td>
 	    				<td>The GISAID accession number assigned to the sequence.</td>
 	    				<td>Store the accession returned from the GISAID submission.</td>
-	    				<td>hCov-19/Canada/prov_rona_99/2020</td>
+	    				<td>EPI_ISL_436489</td>
 	    				<td>None</td>
 	    			</tr>
 
@@ -221,7 +221,7 @@
 	    			<tr>
 	    				<td class="label">organism</td>
 	    				<td>Taxonomic name of the organism.</td>
-	    				<td>Use "Severe acute respiratory coronavirus 2". This value is provided in the template.</td>
+	    				<td>Use "Severe acute respiratory syndrome coronavirus 2". This value is provided in the template.</td>
 	    				<td>Severe acute respiratory coronavirus 2</td>
 	    				<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
 	    			</tr>
@@ -258,7 +258,7 @@
 	    				<td class="label">anatomical part</td>
 	    				<td>An anatomical part of an organism e.g. oropharynx.</td>
 	    				<td>Provide a descriptor if an anatomical part was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. </td>
-	    				<td>Nasopharynx</td>
+	    				<td>Nasopharynx (NP)</td>
 	    				<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
 	    			</tr>
 
@@ -388,7 +388,7 @@
 	    				<td class="label">host health state</td>
 	    				<td>Health status of the host at the time of sample collection.</td>
 	    				<td>If known, select a descriptor from the pick list provided in the template.</td>
-	    				<td>sick</td>
+	    				<td>Symptomatic</td>
 	    				<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
 	    			</tr>
 
@@ -398,6 +398,15 @@
 	    				<td>Further details pertaining to the health or disease status of the host at time of collection.</td>
 	    				<td>If known, select a descriptor from the pick list provided in the template.</td>
 	    				<td>Hospitalized (ICU)</td>
+	    				<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">host health outcome</td>
+	    				<td>Disease outcome in the host.</td>
+	    				<td>If known, select a descriptor from the pick list provided in the template.</td>
+	    				<td>Recovered</td>
 	    				<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
 	    			</tr>
 
@@ -510,10 +519,28 @@
 
 	    			
 	    			<tr>
+	    				<td class="label">library insert size</td>
+	    				<td>The insert size of the library being sequenced (i.e. the length of the DNA inserted between the adaptors).</td>
+	    				<td>Provide the insert size in base pairs.</td>
+	    				<td>300</td>
+	    				<td>None</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">library preparation method</td>
+	    				<td>The name of the DNA library preparation kit used to generate the library being sequenced.</td>
+	    				<td>Provide the name of the library preparation kit used.</td>
+	    				<td>Nextera XT</td>
+	    				<td>None</td>
+	    			</tr>
+
+	    			
+	    			<tr>
 	    				<td class="label">MinIon barcode</td>
 	    				<td>The barcode of the MinIon unit used for sequencing.</td>
 	    				<td>Provide the barcode of the MinIon used for sequencing the sample.</td>
-	    				<td></td>
+	    				<td>FAB06069</td>
 	    				<td>None</td>
 	    			</tr>
 
@@ -560,6 +587,15 @@
 	    				<td>Important for documenting methods and should be considered for submission, particularly if primers were designed in-house and not by a public consortium/network.</td>
 	    				<td>Rona_primers_2020.txt</td>
 	    				<td>None</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">sample sequenced date</td>
+	    				<td>The date the sample was sequenced.</td>
+	    				<td>ISO 8601 standard "YYYY-MM-DD".</td>
+	    				<td>2020-06-22</td>
+	    				<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
 	    			</tr>
 
 	    			
@@ -643,7 +679,7 @@
 	    				<td class="label">r1 fastq filepath</td>
 	    				<td>The location of the r1 FASTQ file within a user's file system.</td>
 	    				<td>Provide the filepath for the r1 FASTQ file. This information aids in data management. </td>
-	    				<td></td>
+	    				<td>/User/Documents/RespLab/Data</td>
 	    				<td>None</td>
 	    			</tr>
 
@@ -652,7 +688,7 @@
 	    				<td class="label">r2 fastq filepath</td>
 	    				<td>The location of the r2 FASTQ file within a user's file system.</td>
 	    				<td>Provide the filepath for the r2 FASTQ file. This information aids in data management. </td>
-	    				<td></td>
+	    				<td>/User/Documents/RespLab/Data</td>
 	    				<td>None</td>
 	    			</tr>
 
@@ -661,7 +697,7 @@
 	    				<td class="label">fast5 filename</td>
 	    				<td>The user-specified filename of the FAST5 file.</td>
 	    				<td>Provide the FAST5 filename.</td>
-	    				<td></td>
+	    				<td>rona123assembly.fast5</td>
 	    				<td>None</td>
 	    			</tr>
 
@@ -670,7 +706,7 @@
 	    				<td class="label">fast5 filepath</td>
 	    				<td>The location of the FAST5 file within a user's file system.</td>
 	    				<td>Provide the filepath for the FAST5 file. This information aids in data management. </td>
-	    				<td></td>
+	    				<td>/User/Documents/RespLab/Data</td>
 	    				<td>None</td>
 	    			</tr>
 
@@ -688,7 +724,7 @@
 	    				<td class="label">fasta filepath</td>
 	    				<td>The location of the FASTA file within a user's file system.</td>
 	    				<td>Provide the filepath for the FASTA file. This information aids in data management. </td>
-	    				<td></td>
+	    				<td>/User/Documents/RespLab/Data</td>
 	    				<td>None</td>
 	    			</tr>
 
@@ -751,7 +787,7 @@
 	    				<td class="label">consensus sequence ID</td>
 	    				<td>The identifer used to specify the consensus sequence.</td>
 	    				<td>Provide the consensus sequence identifier.</td>
-	    				<td></td>
+	    				<td>ProvConsensusSeq</td>
 	    				<td>None</td>
 	    			</tr>
 
@@ -778,7 +814,7 @@
 	    				<td class="label">consensus sequence filepath</td>
 	    				<td>The location of the consensus sequence in the user's file system.</td>
 	    				<td>Provide the filepath for the consensus sequence file. This information facilitates data management.</td>
-	    				<td></td>
+	    				<td>/User/Documents/RespLab/Data</td>
 	    				<td>None</td>
 	    			</tr>
 
@@ -809,7 +845,7 @@
 	    				<td class="label">gene name 1</td>
 	    				<td>The name of the gene used in the diagnostic RT-PCR test.</td>
 	    				<td>Provide the full name of the gene used in the test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI</td>
-	    				<td>envelope small membrane protein (SARS-CoV-2)</td>
+	    				<td>E (orf4)</td>
 	    				<td>None</td>
 	    			</tr>
 
@@ -836,7 +872,7 @@
 	    				<td class="label">gene name 2</td>
 	    				<td>The name of the gene used in the diagnostic RT-PCR test.</td>
 	    				<td>Provide the full name of another gene used in an RT-PCR test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI</td>
-	    				<td>RNA-directed RNA Polymerase (RdRP)</td>
+	    				<td>nsp12 (RdRp)</td>
 	    				<td>None</td>
 	    			</tr>
 

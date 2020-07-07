@@ -9,7 +9,7 @@ ID	SC %
 	Database Identifiers	biosample accession	xs:token						UPPER	The identifier assigned to a BioSample in INSDC archives.	Store the accession returned from the BioSample submission. NCBI BioSamples will have the prefix SAMN.	SAMN14180202	
 	Database Identifiers	SRA accession	xs:token						UPPER	The Sequence Read Archive (SRA) identifier linking raw read data, methodological metadata and quality control metrics submitted to the INSDC.	Store the accession assigned to the submitted "run". NCBI-SRA accessions start with SRR.	SRR11177792	
 	Database Identifiers	GenBank accession	xs:token						UPPER	The GenBank identifier assigned to the sequence in the INSDC archives.	Store the accession returned from a GenBank submission (viral genome assembly).	MN908947.3	
-	Database Identifiers	GISAID accession	xs:token						UPPER	The GISAID accession number assigned to the sequence.	Store the accession returned from the GISAID submission.	hCov-19/Canada/prov_rona_99/2020	
+	Database Identifiers	GISAID accession	xs:token						UPPER	The GISAID accession number assigned to the sequence.	Store the accession returned from the GISAID submission.	EPI_ISL_436489	
 		Sample collection and processing											
 	Sample collection and processing	sample collected by	xs:token		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				The name of the agency that collected the original sample.	The name of the sample collector should be written out in full, (with minor exceptions) and be consistent across multple submissions e.g. Public Health Agency of Canada, Public Health Ontario, BC Centre for Disease Control. The sample collector specified is at the discretion of the data provider (i.e. may be hospital, provincial public health lab, or other).	BC Centre for Disease Control	Originating lab
 	Sample collection and processing	sample collector contact email	xs:token							The email address of the contact responsible for follow-up regarding the sample.	The email address can represent a specific individual or lab e.g. johnnyblogs@lab.ca, or RespLab@lab.ca	RespLab@lab.ca	
@@ -22,11 +22,11 @@ ID	SC %
 	Sample collection and processing	geo_loc_name (country)	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				The country where the sample was collected.	Provide the country name from the controlled vocabulary provided.	Canada	Location
 	Sample collection and processing	geo_loc_name (province/territory)	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				The province/territory where the sample was collected.	Provide the province/territory name from the controlled vocabulary provided.	Saskatchewan	
 	Sample collection and processing	geo_loc_name (city)	xs:token							The city where the sample was collected.	Provide the city name. Use this look-up service to identify the standardized term: https://www.ebi.ac.uk/ols/ontologies/gaz	Medicine Hat	
-	Sample collection and processing	organism	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				Taxonomic name of the organism.	Use "Severe acute respiratory coronavirus 2". This value is provided in the template.	Severe acute respiratory coronavirus 2	
+	Sample collection and processing	organism	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				Taxonomic name of the organism.	Use "Severe acute respiratory syndrome coronavirus 2". This value is provided in the template.	Severe acute respiratory coronavirus 2	
 	Sample collection and processing	isolate	xs:token		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				Identifier of the specific isolate.	Provide the isolate name. This identifer should be an unique, indexed, alpha-numeric ID within your laboratory. The isolate name is often the same as the specimen collector sample ID. Suggested: Isolate name should be identical to the GISAID virus name, which should be written in the format “hCov-19/CANADA/xxxxx/2020”.	prov_rona_99	Virus name
 	Sample collection and processing	purpose of sampling	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	recommended				The reason that the sample was collected.	Provide the purpose of sampling from the picklist in the template.	Diagnostic testing	
 	Sample collection and processing	anatomical material	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				A substance obtained from an anatomical part of an organism e.g. tissue, blood.	Provide a descriptor if an anatomical material was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. 	Blood	Specimen source
-	Sample collection and processing	anatomical part	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				An anatomical part of an organism e.g. oropharynx.	Provide a descriptor if an anatomical part was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. 	Nasopharynx	Specimen source
+	Sample collection and processing	anatomical part	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				An anatomical part of an organism e.g. oropharynx.	Provide a descriptor if an anatomical part was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. 	Nasopharynx (NP)	Specimen source
 	Sample collection and processing	body product	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				A substance excreted/secreted from an organism e.g. feces, urine, sweat.	Provide a descriptor if a body product was sampled. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. 	Feces	Specimen source
 	Sample collection and processing	environmental material	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				A substance obtained from the natural or man-made environment e.g. soil, water, sewage.	Provide a descriptor if an environmental material was sampled. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. 	Face mask	Specimen source
 	Sample collection and processing	environmental site	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				An environmental location may describe a site in the natural or built environment e.g. contact surface, metal can, hospital, wet market, bat cave.	Provide a descriptor if an environmental site was sampled. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. 	Building floor	Specimen source
@@ -41,8 +41,9 @@ ID	SC %
 		Host Information											
 	Host Information	host (common name)	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					The commonly used name of the host.	Common name or scientific name are required if there was a host. Both can be provided, if known. Use terms from the pick lists in the template. Common name e.g. human, bat. If the sample was environmental, put "not applicable.	Human	
 	Host Information	host (scientific name)	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				The taxonomic, or scientific name of the host.	Common name or scientific name are required if there was a host. Both can be provided, if known. Use terms from the pick lists in the template. Scientific name e.g. Homo sapiens, If the sample was environmental, put "not applicable	Homo sapiens	Host
-	Host Information	host health state	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					Health status of the host at the time of sample collection.	If known, select a descriptor from the pick list provided in the template.	sick	Patient status
+	Host Information	host health state	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					Health status of the host at the time of sample collection.	If known, select a descriptor from the pick list provided in the template.	Symptomatic	Patient status
 	Host Information	host health status details	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					Further details pertaining to the health or disease status of the host at time of collection.	If known, select a descriptor from the pick list provided in the template.	Hospitalized (ICU)	
+	Host Information	host health outcome	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					Disease outcome in the host.	If known, select a descriptor from the pick list provided in the template.	Recovered	
 	Host Information	host disease	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				The name of the disease experienced by the host.	Select "COVID-19" from the pick list provided in the template.	COVID-19	
 	Host Information	host age	xs:decimal		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required	0	130		Age of host at the time of sampling.	Enter the age of the host in years. If not available, put "missing".	79	Patient age
 	Host Information	host gender	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				The gender of the host at the time of sample collection.	Select the corresponding host gender from the pick list provided in the template. If not available, put "missing".	male	Gender
@@ -56,12 +57,15 @@ ID	SC %
 	Host exposure information	exposure event	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					Event leading to exposure.	Select an exposure event from the pick list provided in the template. If the desired term is missing, contact the curation team.	Mass gathering (convention)	Additional location information
 		Sequencing											
 	Sequencing	library ID	xs:token			recommended				The user-specified identifier for the library prepared for sequencing.	The library name should be unique, and can be an autogenerated ID from your LIMS, or modification of the isolate ID.	XYZ_123345	
-	Sequencing	MinIon barcode	xs:token							The barcode of the MinIon unit used for sequencing.	Provide the barcode of the MinIon used for sequencing the sample.		
+	Sequencing	library insert size	xs:token							The insert size of the library being sequenced (i.e. the length of the DNA inserted between the adaptors).	Provide the insert size in base pairs.	300	
+	Sequencing	library preparation method	xs:token							The name of the DNA library preparation kit used to generate the library being sequenced.	Provide the name of the library preparation kit used.	Nextera XT	
+	Sequencing	MinIon barcode	xs:token							The barcode of the MinIon unit used for sequencing.	Provide the barcode of the MinIon used for sequencing the sample.	FAB06069	
 	Sequencing	sequencing instrument	multiple		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				The model of the sequencing instrument used.	Select a sequencing instrument from the picklist provided in the template.	MinIon	Sequencing technology
 	Sequencing	sequencing protocol name	xs:token			recommended				The name and version number of the sequencing protocol used.	Provide the name and version of the sequencing protocol e.g. 1D_DNA_MinION	1D_DNA_MinION, ARTIC Network Protocol v. 3	
 	Sequencing	sequencing protocol source	xs:token							The name of the organization/authors of the protocol.	Provide the name of the source of the protocol e.g. ARTIC Network.	ARTIC Network	
 	Sequencing	sequencing kit number	xs:token							The manufacturer's kit number.	Alphanumeric value.	AB456XYZ789	
 	Sequencing	amplicon pcr primers filename	xs:token							The filename of the file containing amplicon PCR primer names and sequences.	Important for documenting methods and should be considered for submission, particularly if primers were designed in-house and not by a public consortium/network.	Rona_primers_2020.txt	
+	Sequencing	sample sequenced date	xs:date		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					The date the sample was sequenced.	ISO 8601 standard "YYYY-MM-DD".	2020-06-22	
 		Bioinformatics and QC metrics											
 	Bioinformatics and QC metrics	raw sequence data processing	xs:token			recommended				The names of the software and version number used for raw data processing such as removing barcodes, adapter trimming, filtering etc.	Provide the software name followed by the version e.g. Trimmomatic v. 0.38, Porechop v. 0.2.3	Porechop v. 0.2.3	
 	Bioinformatics and QC metrics	sequencing depth (average)	xs:token							The total number of sequenced base pairs divided by the expected number of base pairs in the genome.	Provide the value as a fold of coverage.	80x	
@@ -71,29 +75,29 @@ ID	SC %
 	Bioinformatics and QC metrics	assembly coverage depth	xs:token							The average number of reads representing a given nucleotide in the assembled sequence.	Provide value as a fold of coverage e.g. 80x.	400x	Coverage
 	Bioinformatics and QC metrics	r1 fastq filename        	xs:token			recommended				The user-specified filename of the r1 FASTQ file.	Provide the r1 FASTQ filename.	ABC123_S1_L001_R1_001.fastq.gz	
 	Bioinformatics and QC metrics	r2 fastq filename	xs:token			recommended				The user-specified filename of the r2 FASTQ file.	Provide the r2 FASTQ filename.	ABC123_S1_L001_R2_001.fastq.gz	
-	Bioinformatics and QC metrics	r1 fastq filepath	xs:token							The location of the r1 FASTQ file within a user's file system.	Provide the filepath for the r1 FASTQ file. This information aids in data management. 		
-	Bioinformatics and QC metrics	r2 fastq filepath	xs:token							The location of the r2 FASTQ file within a user's file system.	Provide the filepath for the r2 FASTQ file. This information aids in data management. 		
-	Bioinformatics and QC metrics	fast5 filename	xs:token							The user-specified filename of the FAST5 file.	Provide the FAST5 filename.		
-	Bioinformatics and QC metrics	fast5 filepath	xs:token							The location of the FAST5 file within a user's file system.	Provide the filepath for the FAST5 file. This information aids in data management. 		
+	Bioinformatics and QC metrics	r1 fastq filepath	xs:token							The location of the r1 FASTQ file within a user's file system.	Provide the filepath for the r1 FASTQ file. This information aids in data management. 	/User/Documents/RespLab/Data	
+	Bioinformatics and QC metrics	r2 fastq filepath	xs:token							The location of the r2 FASTQ file within a user's file system.	Provide the filepath for the r2 FASTQ file. This information aids in data management. 	/User/Documents/RespLab/Data	
+	Bioinformatics and QC metrics	fast5 filename	xs:token							The user-specified filename of the FAST5 file.	Provide the FAST5 filename.	rona123assembly.fast5	
+	Bioinformatics and QC metrics	fast5 filepath	xs:token							The location of the FAST5 file within a user's file system.	Provide the filepath for the FAST5 file. This information aids in data management. 	/User/Documents/RespLab/Data	
 	Bioinformatics and QC metrics	fasta filename	xs:token							The user-specified filename of the FASTA file.	Provide the FASTA filename.	batch1a_sequences.fasta	FASTA filename
-	Bioinformatics and QC metrics	fasta filepath	xs:token							The location of the FASTA file within a user's file system.	Provide the filepath for the FASTA file. This information aids in data management. 		
+	Bioinformatics and QC metrics	fasta filepath	xs:token							The location of the FASTA file within a user's file system.	Provide the filepath for the FASTA file. This information aids in data management. 	/User/Documents/RespLab/Data	
 	Bioinformatics and QC metrics	number base pairs	xs:nonNegativeInteger							The number of total base pairs generated by the sequencing process.	Provide a numerical value (no need to include units).	387566	
 	Bioinformatics and QC metrics	consensus genome length	xs:nonNegativeInteger							Size of the reconstructed genome described as the number of base pairs.	Provide a numerical value (no need to include units).	38677	
 	Bioinformatics and QC metrics	mean contig length	xs:nonNegativeInteger							The mean contig length is the count of base pairs in the average size contig of the sequence assembly.	Provide a numerical value (no need to include units).	12689	
 	Bioinformatics and QC metrics	N50	xs:nonNegativeInteger							The minimum contig length needed to cover 50% of the genome.	Provide a numerical value (no need to include units).	10500	
 	Bioinformatics and QC metrics	Ns per 100 kbp	xs:decimal				0			The number of N symbols present in the consensus fasta sequence, per 100kbp of sequence.	Provide a numerical value (no need to include units).	330	
 	Bioinformatics and QC metrics	reference genome accession	xs:token							A persistent, unique identifier of a genome database entry.	Provide the accession number of the reference genome.	NC_045512.2	
-	Bioinformatics and QC metrics	consensus sequence ID	xs:token							The identifer used to specify the consensus sequence.	Provide the consensus sequence identifier.		Sample ID given by the submitting laboratory
+	Bioinformatics and QC metrics	consensus sequence ID	xs:token							The identifer used to specify the consensus sequence.	Provide the consensus sequence identifier.	ProvConsensusSeq	Sample ID given by the submitting laboratory
 	Bioinformatics and QC metrics	consensus sequence method	xs:token		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				The name and version number of the software used to produce the consensus sequence.	Provide the software name followed by the version e.g. iVar 1.2	iVar 1.2	Assembly method
 	Bioinformatics and QC metrics	consensus sequence filename	xs:token							The user-specified filename for the consensus sequence.	Provide the filename for the consensus sequence. 	ProvConsensusSeq.fasta	
-	Bioinformatics and QC metrics	consensus sequence filepath	xs:token							The location of the consensus sequence in the user's file system.	Provide the filepath for the consensus sequence file. This information facilitates data management.		
+	Bioinformatics and QC metrics	consensus sequence filepath	xs:token							The location of the consensus sequence in the user's file system.	Provide the filepath for the consensus sequence file. This information facilitates data management.	/User/Documents/RespLab/Data	
 	Bioinformatics and QC metrics	annotation feature table filename	xs:token							The filename of the file containing genome features such as gene names and corresponding CDS.	Provide the filename of the annotation feature table.	BCRonaAnnotationFeatures	
 	Bioinformatics and QC metrics	bioinformatics protocol	xs:token							The name and version number of the bioinformatics protocol used.	Further details regarding the methods used to process raw data, and/or generate assemblies, and/or generate consensus sequences can be provided in an SOP or protocol. Provide the name and version number of the protocol.	https://www.protocols.io/groups/cphln-sarscov2-sequencing-consortium/members	
 		Pathogen diagnostic testing											
-	Pathogen diagnostic testing	gene name 1	select							The name of the gene used in the diagnostic RT-PCR test.	Provide the full name of the gene used in the test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI	envelope small membrane protein (SARS-CoV-2)	
+	Pathogen diagnostic testing	gene name 1	select							The name of the gene used in the diagnostic RT-PCR test.	Provide the full name of the gene used in the test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI	E (orf4)	
 	Pathogen diagnostic testing	diagnostic pcr protocol 1	xs:token							The name and version number of the protocol used for diagnostic marker amplification.	The name and version number of the protocol used for carrying out a diagnostic PCR test. This information can be compared to sequence data for evaluation of performance and quality control.	EGenePCRTest 2	
 	Pathogen diagnostic testing	diagnostic pcr Ct value 1	xs:token							The Ct value result from a diagnostic SARS-CoV-2 RT-PCR test.	Provide the CT value of the sample from the diagnostic RT-PCR test.	21	
-	Pathogen diagnostic testing	gene name 2	select	gene name 1						The name of the gene used in the diagnostic RT-PCR test.	Provide the full name of another gene used in an RT-PCR test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI	RNA-directed RNA Polymerase (RdRP)	
+	Pathogen diagnostic testing	gene name 2	select	gene name 1						The name of the gene used in the diagnostic RT-PCR test.	Provide the full name of another gene used in an RT-PCR test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI	nsp12 (RdRp)	
 	Pathogen diagnostic testing	diagnostic pcr protocol 2	xs:token							The name and version number of the protocol used for diagnostic marker amplification.	The name and version number of the protocol used for carrying out a second diagnostic PCR test. This information can be compared to sequence data for evaluation of performance and quality control.	RdRpGenePCRTest 3	
 	Pathogen diagnostic testing	diagnostic pcr Ct value 2	xs:token							The Ct value result from a diagnostic SARS-CoV-2 RT-PCR test.	Provide the CT value of the sample from the second diagnostic RT-PCR test.	36	
 		Contributor acknowledgement											
@@ -126,33 +130,52 @@ GAZ_00002576	geo_loc_name (province/territory)	Yukon Territory
 													
 													
 													
-	signs and symptoms	Ageusia											
-HP_0000458	signs and symptoms	Anosmia											
+HP:0002027	signs and symptoms	Abdominal pain											
+HP:0000223	signs and symptoms	Abnormality of the sense of taste											
+	Abnormality of the sense of taste	   Ageusia (complete loss of taste)											
+HP:0031249	Abnormality of the sense of taste	   Parageusia (distorted sense of taste)											
+HP_0000224 	Abnormality of the sense of taste	   Hypogeusia (reduced sense of taste)											
+HP:0004408	signs and symptoms	Abnormality of the sense of smell											
+HP_0000458	Abnormality of the sense of smell	   Anosmia (lost sense of smell)											
+HP_0004409	Abnormality of the sense of smell	   Hyposmia (reduced sense of smell)											
+HP:0011446	signs and symptoms	Altered consciousness											
+HP:0100543	Altered consciousness	   Cognitive impairment											
+HP_0001259	Altered consciousness	   Coma											
+HP_0001289	Altered consciousness	   Confusion											
+HP_0031258	Confusion	      Delirium (sudden severe confusion)											
+	Altered consciousness	   Inability to arouse (inability to stay awake)											
+HP_0002371	Altered consciousness	   Loss of speech											
 HP_0002829	signs and symptoms	Arthralgia (painful joints)											
-HP_0025406	signs and symptoms	Asthenia											
-HP_0100749	signs and symptoms	Chest Pain											
-HP_0025143 	signs and symptoms	Chills											
-HP_0001259	signs and symptoms	Coma											
-HP_0001289	signs and symptoms	Confusion 											
-HP_0000509	signs and symptoms	Conjunctivitis 											
-HP_0012735	signs and symptoms	Cough 											
-HP_0031258	signs and symptoms	Delirium											
-HP_0002014	signs and symptoms	Diarrhea											
-	signs and symptoms	Dysgeusia											
-HP_0002383	signs and symptoms	Encephalitis 											
-HP_0012378	signs and symptoms	Fatigue											
+HP_0025406	signs and symptoms	Asthenia (generalized weakness)											
+HP_0100749	signs and symptoms	Chest pain											
+HP:0031352	signs and symptoms	Chest tightness or pressure											
+HP:0025145	Chest tightness or pressure	   Rigors (fever shakes)											
+HP_0025143 	signs and symptoms	Chills (sudden cold sensation)											
+HP_0000509	signs and symptoms	Conjunctivitis (pink eye)											
+HP_0012735	signs and symptoms	Cough											
+HP:0031246	Cough	   Nonproductive cough (dry cough)											
+HP:0031245	Cough	   Productive cough (wet cough)											
+HP:0000961	signs and symptoms	Cyanosis (blueish skin discolouration)											
+HP:0001063	Cyanosis (blueish skin discolouration)	   Acrocyanosis											
+	Acrocyanosis	      Circumoral cyanosis (bluish around mouth)											
+	Acrocyanosis	      Cyanotic face (bluish face)											
+	Acrocyanosis	      Cyanotic lips (bluish lips)											
+	Acrocyanosis	      Pseudo-chilblains on fingers (covid fingers)											
+	Acrocyanosis	      Pseudo-chilblains on toes (covid toes)											
+HP_0002014	signs and symptoms	Diarrhea (watery stool)											
+HP_0002383	signs and symptoms	Encephalitis (brain inflammation)											
+HP_0012378	signs and symptoms	Fatigue (tiredness)											
 HP_0001945 	signs and symptoms	Fever											
+HP:0000206	signs and symptoms	Glossitis (inflammation of the tongue)											
 HP_0002315	signs and symptoms	Headache											
-HP_0002105	signs and symptoms	Hemoptysis											
-HP_0000224 	signs and symptoms	Hypogeusia											
-HP_0004409	signs and symptoms	Hyposmia											
+HP_0002105	signs and symptoms	Hemoptysis (coughing up blood)											
 HP_0002615	signs and symptoms	Hypotension (low blood pressure)											
-HP_0012418	signs and symptoms	Hypoxemia											
+HP_0012418	signs and symptoms	Hypoxemia (low blood oxygen)											
+HP:0011029	signs and symptoms	Internal hemorrhage (internal bleeding)											
 HP_0000737 	signs and symptoms	Irritability											
-HP_0002371	signs and symptoms	Loss of speech											
-HP_0000224	signs and symptoms	Loss of taste											
+NCIT:C121416	signs and symptoms	Loss of Fine Movements											
 HP_0004396 	signs and symptoms	Low appetite											
-	signs and symptoms	Malaise											
+	signs and symptoms	Malaise (general discomfort/unease)											
 HP_0003326	signs and symptoms	Myalgia (muscle pain) 											
 HP_0001742	signs and symptoms	Nasal obstruction (stuffy nose)											
 HP_0002018	signs and symptoms	Nausea											
@@ -160,11 +183,14 @@ HP_0025439	signs and symptoms	Pharyngitis (sore throat)
 HP_0000988	signs and symptoms	Rash											
 HP_0031417	signs and symptoms	Rhinorrhea (runny nose)											
 HP_0001250	signs and symptoms	Seizure											
-HP_0002094	signs and symptoms	Shortness of breath (breathing difficulty) 											
+HP:0020219	Seizure	   Motor seizure											
+HP:0025144	signs and symptoms	Shivering (involuntary muscle twitching)											
+HP_0002094	signs and symptoms	Dyspnea (breathing difficulty) 											
 HP_0001350	signs and symptoms	Slurred speech											
+HP:0001297	signs and symptoms	Stroke											
 HP_0002789	signs and symptoms	Tachypnea (rapid breathing)											
-HP_0002013	signs and symptoms	Vomiting											
-HP_0001324	signs and symptoms	Weakness											
+HP_0002013	signs and symptoms	Vomiting (throwing up)											
+HP_0001324	signs and symptoms	Muscle weakness											
 													
 													
 													
@@ -277,6 +303,7 @@ GENEPIO_0001035	environmental site	Long Term Care Facility
 ENVO_01001481	environmental site	Prison											
 ENVO_01000536	environmental site	Production Facility											
 NCIT_C17118	environmental site	School											
+	environmental site	Sewage Plant											
 	environmental site	Subway train											
 	environmental site	Wet market											
 													
@@ -363,10 +390,18 @@ NCBITaxon_9694	host (common name)	Tiger
 	host health status details	Hospitalized											
 	Hospitalized	Hospitalized (Non-ICU)											
 	Hospitalized	Hospitalized (ICU)											
+	host health status details	Mechanical Ventilation											
+	host health status details	Medically Isolated											
+	Medically Isolated	Medically Isolated (Negative Pressure)											
 	host health status details	Self-quarantining											
 													
+	host health outcome	Deceased											
+	host health outcome	Deteriorating											
+	host health outcome	Recovered											
+	host health outcome	Stable											
 													
-	organism	Severe acute respiratory virus 2											
+													
+	organism	Severe acute respiratory syndrome coronavirus 2											
 	organism	RaTG13											
 	organism	RmYN02											
 													
