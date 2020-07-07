@@ -520,8 +520,9 @@ const openFile = (file, hot, data, xlsx) => {
 };
 
 /**
- * Ask user to specify row containing secondary headers in a matrix. TODO
- * @param {Array<Array<String} matrix Data that user must specify headers for.
+ * Ask user to specify row in matrix containing secondary headers before load.
+ * Also alerts users of missing headers in specified row after loading.
+ * @param {Array<Array<String>} matrix Data that user must specify headers for.
  * @param {Object} hot Handsontable instance of grid.
  * @param {Object} data See `data.js`.
  */
@@ -551,7 +552,8 @@ const launchSpecifyHeadersModal = (matrix, hot, data) => {
 };
 
 /**
- * TODO
+ * Alert user of unmapped headers in a pop-up modal.
+ * @param {Array<String>} unmappedHeaders Unmapped headers.
  */
 const alertOfUnmappedHeaders = (unmappedHeaders) => {
   const unmappedHeaderDivs =
@@ -603,14 +605,21 @@ const isValidHeaderRow = (matrix, row) => {
 };
 
 /**
+ * `mapMatrixToGrid` return value.
+ * @typedef {Object} MappedMatrixObj
+ * @property {Array<Array<String>>} matrix Mapped matrix.
+ * @property {Array<String>} unmappedHeaders Unmapped grid columns.
+ */
+
+/**
  * Map matrix columns to grid columns.
  * Currently assumes mapped columns will have the same label, but allows them
  * to be in a different order. If the matrix is missing a column, a blank
- * column is used. TODO
+ * column is used.
  * @param {Array<Array<String>>} matrix
  * @param {Number} matrixHeaderRow Row containing matrix's column labels.
  * @param {Object} data See `data.js`.
- * @return {Array<Array<String>>} Mapped matrix.
+ * @return {MappedMatrixObj} Mapped matrix and details.
  */
 const mapMatrixToGrid = (matrix, matrixHeaderRow, data) => {
   const expectedHeaders = getFlatHeaders(data);
