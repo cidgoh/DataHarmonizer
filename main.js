@@ -521,7 +521,7 @@ const openFile = (file, hot, data, xlsx) => {
 
 /**
  * Ask user to specify row in matrix containing secondary headers before load.
- * Also alerts users of missing headers in specified row after loading.
+ * Calls `alertOfUnmappedHeaders` if necessary.
  * @param {Array<Array<String>} matrix Data that user must specify headers for.
  * @param {Object} hot Handsontable instance of grid.
  * @param {Object} data See `data.js`.
