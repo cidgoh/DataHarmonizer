@@ -364,6 +364,10 @@ const runBehindLoadingScreen = (fn, args=[]) => {
  * @param {Object} xlsx SheetJS variable.
  */
 const exportFile = (matrix, baseName, ext, xlsx) => {
+  // TODO: figure out a better way of adding metadata to file
+  const version = $('#version-dropdown-item').html();
+  matrix[0].push('#Validated using DataHarmonizer ' + version);
+
   const worksheet = xlsx.utils.aoa_to_sheet(matrix);
   const workbook = xlsx.utils.book_new();
   xlsx.utils.book_append_sheet(workbook, worksheet, 'Sheet1');
@@ -937,11 +941,6 @@ $(document).ready(() => {
       const baseName = $('#base-name-save-as-input').val();
       const ext = $('#file-ext-save-as-select').val();
       const matrix = [...getFlatHeaders(DATA), ...getTrimmedData(HOT)];
-
-      // TODO: figure out a better way of adding metadata to file
-      const version = $('#version-dropdown-item').html();
-      matrix[0][1] = '#Validated using DataHarmonizer ' + version;
-
       runBehindLoadingScreen(exportFile, [matrix, baseName, ext, XLSX]);
       $('#save-as-modal').modal('hide');
     } catch (err) {
