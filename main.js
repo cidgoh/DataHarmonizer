@@ -759,6 +759,18 @@ const getFieldYCoordinates = (data) => {
 };
 
 /**
+ * Scroll grid to specified column.
+ * @param {String} y 0-based index of column to scroll to.
+ * @param {Object} data See `data.js`.
+ * @param {Object} hot Handsontable instance of grid.
+ */
+const scrollToCol = (y, data, hot) => {
+  const hiddenCols = hot.getPlugin('hiddenColumns').hiddenColumns;
+  if (hiddenCols.includes(y)) changeColVisibility('', data, hot);
+  hot.scrollViewportTo(0, y);
+};
+
+/**
  * Get a collection of all invalid cells in the grid.
  * @param {Object} hot Handsontable instance of grid.
  * @param {Object} data See `data.js`.
@@ -1000,7 +1012,7 @@ $(document).ready(() => {
     minLength: 0,
     select: (e, ui) => {
       const y = $(e.target).data('fieldYCoordinates')[ui.item.label];
-      HOT.scrollViewportTo(0, y);
+      scrollToCol(y, DATA, HOT);
       $('#jump-to-modal').modal('hide');
     },
   }).bind('focus', () => void $jumpToInput.autocomplete('search'));
