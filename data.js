@@ -860,7 +860,6 @@ const DATA = [
           "Building floor": {},
           "Cloth": {},
           "Control panel": {},
-          "Corridor": {},
           "Door": {},
           "Door handle": {},
           "Face mask": {},
@@ -875,7 +874,6 @@ const DATA = [
           "N95 mask": {},
           "Nurse call button": {},
           "Paper": {},
-          "Particulate matter": {},
           "Plastic": {},
           "PPE gown": {},
           "Sewage": {},
@@ -915,12 +913,17 @@ const DATA = [
           "Bathroom": {},
           "Clinical assessment centre": {},
           "Conference venue": {},
+          "Corridor": {},
           "Daycare": {},
           "Emergency room (ER)": {},
           "Family practice clinic": {},
           "Group home": {},
           "Homeless shelter": {},
-          "Hospital": {},
+          "Hospital": {
+            "Emergency Department": {},
+            "ICU": {},
+            "Ward": {}
+          },
           "Intensive Care Unit (ICU)": {},
           "Long Term Care Facility": {},
           "Patient room": {},
@@ -1480,8 +1483,8 @@ const DATA = [
         "examples": "Cough; Fever; Chills",
         "GISAID": "",
         "vocabulary": {
-          "Abdominal pain": {},
-          "Abnormality of the sense of taste": {
+          "Abnormal lung ausculation": {},
+          "Abnormality of taste sensation": {
             "Ageusia (complete loss of taste)": {},
             "Parageusia (distorted sense of taste)": {},
             "Hypogeusia (reduced sense of taste)": {}
@@ -1490,66 +1493,358 @@ const DATA = [
             "Anosmia (lost sense of smell)": {},
             "Hyposmia (reduced sense of smell)": {}
           },
-          "Altered consciousness": {
+          "Acute Respiratory Distress Syndrome": {},
+          "Altered mental status": {
             "Cognitive impairment": {},
             "Coma": {},
             "Confusion": {
               "Delirium (sudden severe confusion)": {}
             },
             "Inability to arouse (inability to stay awake)": {},
+            "Irritability": {},
             "Loss of speech": {}
           },
-          "Arthralgia (painful joints)": {},
-          "Asthenia (generalized weakness)": {},
-          "Chest pain": {},
+          "Arrhythmia": {},
+          "Asthenia (general weakness)": {},
           "Chest tightness or pressure": {
             "Rigors (fever shakes)": {}
           },
           "Chills (sudden cold sensation)": {},
+          "Conjunctival injection": {},
           "Conjunctivitis (pink eye)": {},
+          "Coryza": {},
           "Cough": {
             "Nonproductive cough (dry cough)": {},
             "Productive cough (wet cough)": {}
           },
-          "Cyanosis (blueish skin discolouration)": {
+          "Cyanosis": {
             "Acrocyanosis": {
               "Circumoral cyanosis (bluish around mouth)": {},
-              "Cyanotic face (bluish face)": {},
-              "Cyanotic lips (bluish lips)": {},
-              "Pseudo-chilblains on fingers (covid fingers)": {},
-              "Pseudo-chilblains on toes (covid toes)": {}
-            }
+              "Cyanotic face (bluish face)": {}
+            },
+            "Central Cyanosis": {
+              "Cyanotic lips (bluish lips)": {}
+            },
+            "Peripheral Cyanosis": {}
           },
+          "Dyspnea (breathing difficulty)": {},
           "Diarrhea (watery stool)": {},
+          "Dry gangrene": {},
           "Encephalitis (brain inflammation)": {},
+          "Encephalopathy": {},
           "Fatigue (tiredness)": {},
-          "Fever": {},
+          "Fever": {
+            "Fever (\u226538\u00b0C)": {}
+          },
           "Glossitis (inflammation of the tongue)": {},
+          "Ground Glass Opacities (GGO)": {},
           "Headache": {},
           "Hemoptysis (coughing up blood)": {},
+          "Hypocapnia": {},
           "Hypotension (low blood pressure)": {},
           "Hypoxemia (low blood oxygen)": {},
+          "Silent hypoxemia": {},
           "Internal hemorrhage (internal bleeding)": {},
-          "Irritability": {},
           "Loss of Fine Movements": {},
           "Low appetite": {},
           "Malaise (general discomfort/unease)": {},
-          "Myalgia (muscle pain)": {},
+          "Meningismus/nuchal rigidity": {},
+          "Muscle weakness": {},
           "Nasal obstruction (stuffy nose)": {},
           "Nausea": {},
+          "nose bleed": {},
+          "otitis": {},
+          "Pain": {
+            "Abdominal pain": {},
+            "Arthralgia (painful joints)": {},
+            "Chest pain": {
+              "Pleuritic chest pain": {}
+            },
+            "Myalgia (muscle pain)": {}
+          },
           "Pharyngitis (sore throat)": {},
+          "Pharyngeal exudate": {},
+          "Pleural effusion": {},
+          "Pneumonia": {},
+          "Prostration": {},
+          "Pseudo-chilblains": {
+            "Pseudo-chilblains on fingers (covid fingers)": {},
+            "Pseudo-chilblains on toes (covid toes)": {}
+          },
           "Rash": {},
           "Rhinorrhea (runny nose)": {},
           "Seizure": {
             "Motor seizure": {}
           },
           "Shivering (involuntary muscle twitching)": {},
-          "Dyspnea (breathing difficulty)": {},
           "Slurred speech": {},
+          "Sneezing": {},
+          "Sputum Production": {},
           "Stroke": {},
-          "Tachypnea (rapid breathing)": {},
-          "Vomiting (throwing up)": {},
-          "Muscle weakness": {}
+          "Swollen Lymph Nodes": {},
+          "Tachypnea (accelerated respiratory rate)": {},
+          "Vertigo (dizziness)": {},
+          "Vomiting (throwing up)": {}
+        }
+      },
+      {
+        "fieldName": "pre-existing conditions and risk factors",
+        "capitalize": "",
+        "ontology_id": "",
+        "datatype": "multiple",
+        "source": "",
+        "dataStatus": [
+          "Not Applicable",
+          "Missing",
+          "Not Collected",
+          "Not Provided",
+          "Restricted Access"
+        ],
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Patient pre-existing conditions and risk factors.\nPre-existing condition: A medical condition that existed prior to the current infection.\nRisk Factor: A variable associated with an increased risk of disease or infection.",
+        "guidance": "Select all of the pre-existing conditions and risk factors experienced by the host from the pick list. If the desired term is missing, contact the curation team.",
+        "examples": "Asthma; Pregnancy; Smoker",
+        "GISAID": "",
+        "vocabulary": {
+          "Age 60+": {},
+          "Anemia": {},
+          "Anorexia": {},
+          "Birthing labor": {},
+          "Bone marrow failure": {},
+          "Cancer": {
+            "Breast cancer": {},
+            "Colorectal cancer": {},
+            "Hematologic malignancy": {},
+            "Lung cancer": {},
+            "Metastatic disease": {}
+          },
+          "Cancer treatment": {
+            "Cancer surgery": {},
+            "Chemotherapy": {
+              "Adjuvant chemotherapy": {}
+            }
+          },
+          "Cardiac disorder": {
+            "Arrhythmia": {},
+            "Cardiac disease": {},
+            "Cardiomyopathy": {},
+            "Cardiac injury": {},
+            "Hypertension (high blood pressure)": {},
+            "Hypotension (low blood pressure)": {}
+          },
+          "Cesarean section": {},
+          "Chronic cough": {},
+          "Chronic gastrointestinal disease": {},
+          "Chronic lung disease": {},
+          "Corticosteroids": {},
+          "Diabetes mellitus (diabetes)": {
+            "Type I diabetes mellitus (T1D)": {},
+            "Type II diabetes mellitus (T2D)": {}
+          },
+          "Eczema": {},
+          "Electrolyte disturbance": {
+            "Hypocalcemia": {},
+            "Hypokalemia": {},
+            "Hypomagnesemia": {}
+          },
+          "Encephalitis (brain inflammation)": {},
+          "Epilepsy": {},
+          "Hemodialysis": {},
+          "Hemoglobinopathy": {},
+          "Human immunodeficiency virus (HIV)": {
+            "Acquired immunodeficiency syndrome (AIDS)": {},
+            "HIV and antiretroviral therapy (ART)": {}
+          },
+          "Immunocompromised": {
+            "Lupus": {}
+          },
+          "Inflammatory bowel disease (IBD)": {
+            "Colitis": {
+              "Ulcerative colitis": {}
+            },
+            "Crohn's disease": {}
+          },
+          "Renal disorder": {
+            "Renal disease": {},
+            "Chronic renal disease": {},
+            "Renal failure": {}
+          },
+          "Liver disease": {
+            "Chronic liver disease": {
+              "Fatty liver disease (FLD)": {}
+            }
+          },
+          "Myalgia (muscle pain)": {},
+          "Myalgic encephalomyelitis (ME)": {},
+          "Neurological disorder": {
+            "Neuromuscular disorder": {}
+          },
+          "Obesity": {
+            "Severe obesity": {}
+          },
+          "Respiratory disorder": {
+            "Asthma": {},
+            "Chronic bronchitis": {},
+            "Chronic pulmonary disease": {
+              "Chronic obstructive pulmonary disease": {}
+            },
+            "Emphysema": {},
+            "Lung disease": {
+              "Chronic lung disease": {},
+              "Pulmonary fibrosis": {}
+            },
+            "Pneumonia": {},
+            "Respiratory failure": {
+              "Adult respiratory distress syndrome": {},
+              "Newborn respiratory distress syndrome": {}
+            },
+            "Tuberculosis": {}
+          },
+          "Postpartum (\u22646 weeks)": {},
+          "Pregnancy": {},
+          "Rheumatic disease": {},
+          "Sickle cell disease": {},
+          "Substance use": {
+            "Alcohol abuse": {},
+            "Drug abuse": {
+              "Injection drug abuse": {}
+            },
+            "Smoking": {},
+            "Vaping": {}
+          },
+          "Tachypnea (accelerated respiratory rate)": {},
+          "Transplant": {
+            "Bone marrow transplant": {},
+            "Cardiac transplant": {},
+            "Hematopoietic stem cell transplant (HSCT)": {},
+            "Kidney transplant": {},
+            "Liver transplant": {}
+          }
+        }
+      },
+      {
+        "fieldName": "complications",
+        "capitalize": "",
+        "ontology_id": "",
+        "datatype": "multiple",
+        "source": "",
+        "dataStatus": [
+          "Not Applicable",
+          "Missing",
+          "Not Collected",
+          "Not Provided",
+          "Restricted Access"
+        ],
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Patient medical complications that are believed to have occurred as result of host disease.",
+        "guidance": "Select all of the complications experienced by the host from the pick list. If the desired term is missing, contact the curation team.",
+        "examples": "Acute Respiratory Failure; Coma; Septicemia",
+        "GISAID": "",
+        "vocabulary": {
+          "Abnormal blood oxygen level": {},
+          "Acute respiratory failure": {},
+          "Arrhythmia (complication)": {
+            "Tachycardia": {
+              "Polymorphic ventricular tachycardia (VT)": {},
+              "Tachyarrhythmia": {}
+            }
+          },
+          "Noncardiogenic pulmonary edema": {
+            "Acute respiratory distress syndrome (ARDS)": {
+              "COVID-19 associated ARDS (CARDS)": {},
+              "Neurogenic pulmonary edema (NPE)": {}
+            }
+          },
+          "Cardiac injury": {},
+          "Cardiac arrest": {},
+          "Cardiogenic shock": {},
+          "Blood clot": {
+            "Arterial clot": {},
+            "Deep vein thrombosis (DVT)": {},
+            "Pulmonary embolism (PE)": {}
+          },
+          "Cardiomyopathy": {},
+          "Central nervous system invasion": {},
+          "Stroke (complication)": {
+            "Central Nervous System Vasculitis": {},
+            "Ischemic stroke": {
+              "Acute ischemic stroke": {}
+            }
+          },
+          "Coma": {},
+          "Convulsions": {},
+          "COVID-19 associated coagulopathy (CAC)": {},
+          "Cystic fibrosis": {},
+          "Cytokine release syndrome": {},
+          "Disseminated intravascular coagulation (DIC)": {},
+          "Encephalopathy": {},
+          "Fulminant myocarditis": {},
+          "Guillain-Barr\u00e9 syndrome": {},
+          "Internal hemorrhage (complication; internal bleeding)": {
+            "Intracerebral haemorrhage": {}
+          },
+          "Kawasaki disease": {
+            "Typical Kawasaki disease": {},
+            "Incomplete Kawasaki disease": {}
+          },
+          "Kidney injury": {
+            "Acute kidney injury": {}
+          },
+          "Liver dysfunction": {},
+          "Liver injury": {
+            "Acute liver injury": {}
+          },
+          "Lung injury": {
+            "Acute lung injury": {}
+          },
+          "Meningitis": {},
+          "Migraine": {},
+          "Miscarriage": {},
+          "Multisystem inflammatory syndrome in children (MIS-C)": {},
+          "Muscle injury": {},
+          "Myalgic encephalomyelitis (ME)": {},
+          "Myocardial infarction (heart attack)": {
+            "Acute myocardial infarction": {},
+            "Elevation myocardial infarction": {},
+            "ST-segment elevation myocardial infarction": {}
+          },
+          "Myocardial injury": {},
+          "Neonatal complications": {},
+          "Organ failure": {
+            "Heart failure": {},
+            "Liver failure": {}
+          },
+          "Paralysis": {},
+          "Pneumothorax (collapsed lung)": {
+            "Spontaneous pneumothorax": {},
+            "Spontaneous tension pneymothorax": {}
+          },
+          "Pneumonia (complication)": {
+            "COVID-19 pneumonia": {}
+          },
+          "Pregancy complications": {},
+          "Rhabdomyolysis": {},
+          "Secondary infection": {
+            "Secondary staph infection": {},
+            "Secondary strep infection": {}
+          },
+          "Seizure (complication)": {
+            "Motor seizure": {}
+          },
+          "Sepsis": {},
+          "Septicemia": {},
+          "Shock": {
+            "Hyperinflammatory shock": {},
+            "Refractory cardiogenic shock": {},
+            "Refractory cardiogenic plus vasoplegic shock": {},
+            "Septic shock": {}
+          },
+          "Vasculitis": {},
+          "Ventilation induced lung injury (VILI)": {}
         }
       }
     ]
@@ -1615,17 +1910,196 @@ const DATA = [
         "examples": "Mass gathering (convention)",
         "GISAID": "Additional location information",
         "vocabulary": {
-          "Mass gathering (convention)": {},
-          "Mass gathering (religious)": {},
-          "Mass gathering (social e.g. funeral, wedding etc.)": {},
-          "Mass gathering (office)": {},
-          "Occupational exposure (hospital worker)": {},
-          "Occupational exposure (hospital visit)": {},
-          "Occupational exposure (frontline response)": {},
-          "Occupational exposure (healthcare work with the public)": {},
-          "Occupational exposure (retail)": {},
-          "Occupational exposure (restaurant)": {}
+          "Mass Gathering": {
+            "Convention": {},
+            "Convocation": {},
+            "Agricultural Event": {}
+          },
+          "Religious Gathering": {
+            "Mass": {}
+          },
+          "Social Gathering": {
+            "Baby Shower": {},
+            "Community Event": {},
+            "Family Gathering": {
+              "Family Reunion": {}
+            },
+            "Funeral": {},
+            "Party": {},
+            "Potluck": {},
+            "Wedding": {}
+          },
+          "Other": {}
         }
+      },
+      {
+        "fieldName": "direct/indirect exposure",
+        "capitalize": "",
+        "ontology_id": "",
+        "datatype": "select",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "The exposure transmission contact type.",
+        "guidance": "Select direct or indirect exposure from the pick-list.",
+        "examples": "Direct",
+        "GISAID": "",
+        "vocabulary": {
+          "Direct": {},
+          "Indirect": {},
+          "Unknown": {}
+        }
+      },
+      {
+        "fieldName": "host role",
+        "capitalize": "",
+        "ontology_id": "",
+        "datatype": "multiple",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "The role of the host in relation to the exposure setting.",
+        "guidance": "Select the host's personal role(s) from the pick list provided in the template. If the desired term is missing, contact the curation team.",
+        "examples": "Patient",
+        "GISAID": "",
+        "vocabulary": {
+          "Attendee": {
+            "Student": {}
+          },
+          "Patient": {
+            "Inpatient": {},
+            "Outpatient": {}
+          },
+          "Passenger": {},
+          "Resident": {},
+          "Visitor": {},
+          "Volunteer": {},
+          "Work": {
+            "Administrator": {},
+            "First Responder": {
+              "Firefighter": {},
+              "Paramedic": {},
+              "Police Officer": {}
+            },
+            "Housekeeper": {},
+            "Kitchen Worker": {},
+            "Laboratory Worker": {},
+            "Nurse": {},
+            "Personal Care Aid": {},
+            "Pharmacist": {},
+            "Physician": {},
+            "Vet": {}
+          },
+          "Social role": {
+            "Acquaintance": {},
+            "Child": {},
+            "Parent": {},
+            "Father": {},
+            "Mother": {},
+            "Spouse": {}
+          },
+          "Other": {}
+        }
+      },
+      {
+        "fieldName": "exposure setting",
+        "capitalize": "",
+        "ontology_id": "",
+        "datatype": "multiple",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "The setting leading to exposure.",
+        "guidance": "Select the host exposure setting(s) from the pick list provided in the template. If a desired term is missing, contact the curation team.",
+        "examples": "Healthcare Setting",
+        "GISAID": "",
+        "vocabulary": {
+          "Human Exposure": {
+            "Known COVID-19 Case": {},
+            "Patient Contact": {},
+            "Probable COVID-19 Case": {},
+            "Person with Acute Respiratory Illness": {},
+            "Person with Fever and/or Cough": {},
+            "Person who Recently Travelled": {}
+          },
+          "Occupational or Residency Exposure": {
+            "Abbatoir": {},
+            "Animal Rescue": {},
+            "Childcare": {
+              "Daycare": {}
+            },
+            "Place of Worship": {
+              "Church": {},
+              "Mosque": {},
+              "Temple": {}
+            },
+            "Nursery": {},
+            "Household": {},
+            "Community Service Centre": {},
+            "Correctional Facility": {},
+            "Dormitory": {},
+            "Farm": {},
+            "First Nations Reserve": {},
+            "Group Home": {},
+            "Healthcare Setting": {
+              "Ambulance": {},
+              "Acute Care Facility": {},
+              "Clinic": {},
+              "Community Health Centre": {},
+              "Hospital": {},
+              "Laboratory": {},
+              "Long-Term Care Facility": {},
+              "Pharmacy": {},
+              "Physician's Office": {}
+            },
+            "Insecure Housing (Homeless)": {},
+            "Office": {},
+            "Outdoors": {
+              "Camp/camping": {},
+              "Hiking": {},
+              "Hunting": {}
+            },
+            "Petting zoo": {},
+            "Restaurant": {},
+            "Retail Store": {},
+            "School": {},
+            "Temporary Residence": {
+              "Homeless Shelter": {},
+              "Hotel": {}
+            },
+            "Vet": {}
+          },
+          "Travel Exposure": {
+            "Travelled": {},
+            "Travelled on a Cruise Ship": {},
+            "Travelled on a Plane": {},
+            "Travelled on Ground Transport": {},
+            "Travelled outside Province/Territory": {},
+            "Travelled outside Canada": {}
+          },
+          "Other": {}
+        }
+      },
+      {
+        "fieldName": "exposure details",
+        "capitalize": "",
+        "ontology_id": "",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Additional host exposure information.",
+        "guidance": "Free text description of the exposure.",
+        "examples": "Host role - Other: Bus Driver",
+        "GISAID": ""
       }
     ]
   },
