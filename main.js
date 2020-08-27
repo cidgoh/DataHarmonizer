@@ -237,6 +237,7 @@ const getColumns = (data) => {
     } else if (field.datatype === 'select') {
       col.type = 'autocomplete';
       col.source = field.flatVocabulary;
+      if (field.dataStatus) col.source.push(...field.dataStatus);
       col.trimDropdown = false;
     } else if (field.datatype === 'multiple') {
       // TODO: we need to find a better way to enable multi-selection
