@@ -888,10 +888,14 @@ const validateValsAgainstVocab = (valsCsv, source) => {
  * @return {String} HTML string describing field.
  */
 const getComment = (field) => {
-  return `<p><strong>Label</strong>: ${field.fieldName}</p>
+  let ret = `<p><strong>Label</strong>: ${field.fieldName}</p>
 <p><strong>Description</strong>: ${field.description}</p>
 <p><strong>Guidance</strong>: ${field.guidance}</p>
 <p><strong>Examples</strong>: ${field.examples}</p>`;
+  if (field.dataStatus) {
+    ret += `<p><strong>Null values</strong>: ${field.dataStatus}</p>`;
+  }
+  return ret;
 };
 
 $(document).ready(() => {
