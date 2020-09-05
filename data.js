@@ -1377,6 +1377,38 @@ const DATA = [
         "GISAID": "Patient age"
       },
       {
+        "fieldName": "host age bin",
+        "capitalize": "",
+        "ontology_id": "",
+        "datatype": "select",
+        "source": "",
+        "dataStatus": [
+          "Not Applicable",
+          "Missing",
+          "Not Collected",
+          "Not Provided",
+          "Restricted Access"
+        ],
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "required",
+        "description": "Age of host at the time of sampling, expressed as an age group.",
+        "guidance": "Select the corresponding host age bin from the pick list provided in the template. If not available, provide a null value.",
+        "examples": "60 - 69",
+        "GISAID": "",
+        "vocabulary": {
+          "0 - 9": {},
+          "10 - 19": {},
+          "20 - 29": {},
+          "30 - 39": {},
+          "40 - 49": {},
+          "50 - 59": {},
+          "60 - 69": {},
+          "70 - 79": {},
+          "80+": {}
+        }
+      },
+      {
         "fieldName": "host gender",
         "capitalize": "",
         "ontology_id": "",
@@ -1997,9 +2029,10 @@ const DATA = [
           "Social role": {
             "Acquaintance": {},
             "Child": {},
-            "Parent": {},
-            "Father": {},
-            "Mother": {},
+            "Parent": {
+              "Father": {},
+              "Mother": {}
+            },
             "Spouse": {}
           },
           "Other": {}

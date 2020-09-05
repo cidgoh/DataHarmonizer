@@ -46,6 +46,7 @@ ID	SC %
 	Host Information	host health outcome	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					Disease outcome in the host.	If known, select a descriptor from the pick list provided in the template.	Recovered	
 	Host Information	host disease	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				The name of the disease experienced by the host.	Select "COVID-19" from the pick list provided in the template.	COVID-19	
 	Host Information	host age	xs:decimal		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required	0	130		Age of host at the time of sampling.	Enter the age of the host in years. If not available, put "missing".	79	Patient age
+	Host Information	host age bin	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				Age of host at the time of sampling, expressed as an age group.	Select the corresponding host age bin from the pick list provided in the template. If not available, provide a null value.	60 - 69	
 	Host Information	host gender	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				The gender of the host at the time of sample collection.	Select the corresponding host gender from the pick list provided in the template. If not available, put "missing".	male	Gender
 	Host Information	host origin geo_loc name (country)	select	geo_loc_name (country)	Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					The country of residence of the host.	Select the country name from pick list provided in the template.	United Kingdom	
 	Host Information	host subject ID	xs:token							A unique identifier by which each host can be referred to e.g. #131	Provide the host identifier. Should be a unique, user-defined identifier.	BCxy123	
@@ -548,7 +549,7 @@ NCIT:C17611 	collection device	Bronchoscope
 	collection device	Filter											
 	collection device	Fine Needle											
 	collection device	Microcapillary tube											
-	collection device	Micropipette											
+OBI:0001128	collection device	Micropipette											
 OBI:0000436	collection device	Needle											
 NCIT:C113675 	collection device	Serum Collection Tube											
 	collection device	Sputum Collection Tube											
@@ -609,7 +610,6 @@ NCBITaxon_9694	host (common name)	Tiger
 	host health outcome	Recovered											
 	host health outcome	Stable											
 													
-													
 	organism	Severe acute respiratory syndrome coronavirus 2											
 	organism	RaTG13											
 	organism	RmYN02											
@@ -644,6 +644,16 @@ BTO:0004755	lab host	   Vero E6 cell line
 	lab host	      VeroE6/TMPRSS2 cell line											
 													
 	host disease	COVID-19											
+													
+	host age bin	0 - 9											
+	host age bin	10 - 19											
+	host age bin	20 - 29											
+	host age bin	30 - 39											
+	host age bin	40 - 49											
+	host age bin	50 - 59											
+	host age bin	60 - 69											
+	host age bin	70 - 79											
+	host age bin	80+											
 													
 OMRSE:00000009?	host gender	Female											
 OMRSE:00000008?	host gender	Male											
@@ -702,8 +712,8 @@ OMRSE:00000008?	host gender	Male
 	Social role	   Acquaintance											
 	Social role	   Child											
 	Social role	   Parent											
-	Social role	   Father											
-	Social role	   Mother											
+	Parent	      Father											
+	Parent	      Mother											
 	Social role	   Spouse											
 	host role	Other											
 													
