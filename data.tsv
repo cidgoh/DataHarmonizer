@@ -46,15 +46,24 @@ ID	SC %
 	Host Information	host health outcome	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					Disease outcome in the host.	If known, select a descriptor from the pick list provided in the template.	Recovered	
 	Host Information	host disease	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				The name of the disease experienced by the host.	Select "COVID-19" from the pick list provided in the template.	COVID-19	
 	Host Information	host age	xs:decimal		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required	0	130		Age of host at the time of sampling.	Enter the age of the host in years. If not available, put "missing".	79	Patient age
+	Host Information	host age bin	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				Age of host at the time of sampling, expressed as an age group.	Select the corresponding host age bin from the pick list provided in the template. If not available, provide a null value.	60 - 69	
 	Host Information	host gender	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				The gender of the host at the time of sample collection.	Select the corresponding host gender from the pick list provided in the template. If not available, put "missing".	male	Gender
 	Host Information	host origin geo_loc name (country)	select	geo_loc_name (country)	Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					The country of residence of the host.	Select the country name from pick list provided in the template.	United Kingdom	
 	Host Information	host subject ID	xs:token							A unique identifier by which each host can be referred to e.g. #131	Provide the host identifier. Should be a unique, user-defined identifier.	BCxy123	
 	Host Information	symptom onset date	xs:date		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					The date on which the symptoms began or were first noted.	ISO 8601 standard "YYYY-MM-DD".	2020-03-16	
 	Host Information	signs and symptoms	multiple		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					A perceived change in function or sensation, (loss, disturbance or appearance) indicative of a disease, reported by a patient.	Select all of the symptoms experienced by the host from the pick list.	Cough; Fever; Chills	
+	Host Information	pre-existing conditions and risk factors	multiple		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					"Patient pre-existing conditions and risk factors.
+Pre-existing condition: A medical condition that existed prior to the current infection.
+Risk Factor: A variable associated with an increased risk of disease or infection."	Select all of the pre-existing conditions and risk factors experienced by the host from the pick list. If the desired term is missing, contact the curation team.	Asthma; Pregnancy; Smoker	
+	Host Information	complications	multiple		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					Patient medical complications that are believed to have occurred as result of host disease.	Select all of the complications experienced by the host from the pick list. If the desired term is missing, contact the curation team.	Acute Respiratory Failure; Coma; Septicemia	
 		Host exposure information											
 	Host exposure information	location of exposure geo_loc name (country)	select	geo_loc_name (country)	Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					The country where the host was likely exposed to the causative agent of the illness.	Select the country name from pick list provided in the template.	Canada	
 	Host exposure information	travel history	xs:token							Travel outside the country in last six months.	Specify the countries (and more granular locations if known, separated by a comma) travelled in the last six months; can include multiple travels. Separate multiple travel events with a semi-colon. List most recent travel first.	Canada, Vancouver; USA, Seattle; Italy, Milan	
 	Host exposure information	exposure event	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					Event leading to exposure.	Select an exposure event from the pick list provided in the template. If the desired term is missing, contact the curation team.	Mass gathering (convention)	Additional location information
+	Host exposure information	direct/indirect exposure	select							The exposure transmission contact type.	Select direct or indirect exposure from the pick-list.	Direct	
+	Host exposure information	host role	multiple							The role of the host in relation to the exposure setting.	Select the host's personal role(s) from the pick list provided in the template. If the desired term is missing, contact the curation team.	Patient	
+	Host exposure information	exposure setting	multiple							The setting leading to exposure.	Select the host exposure setting(s) from the pick list provided in the template. If a desired term is missing, contact the curation team.	Healthcare Setting	
+	Host exposure information	exposure details	xs:token							Additional host exposure information.	Free text description of the exposure.	Host role - Other: Bus Driver	
 		Sequencing											
 	Sequencing	library ID	xs:token			recommended				The user-specified identifier for the library prepared for sequencing.	The library name should be unique, and can be an autogenerated ID from your LIMS, or modification of the isolate ID.	XYZ_123345	
 	Sequencing	library insert size	xs:token							The insert size of the library being sequenced (i.e. the length of the DNA inserted between the adaptors).	Provide the insert size in base pairs.	300	
@@ -130,68 +139,274 @@ GAZ_00002576	geo_loc_name (province/territory)	Yukon Territory
 													
 													
 													
-HP:0002027	signs and symptoms	Abdominal pain											
-HP:0000223	signs and symptoms	Abnormality of the sense of taste											
-	Abnormality of the sense of taste	   Ageusia (complete loss of taste)											
-HP:0031249	Abnormality of the sense of taste	   Parageusia (distorted sense of taste)											
-HP_0000224 	Abnormality of the sense of taste	   Hypogeusia (reduced sense of taste)											
+	signs and symptoms	Abnormal lung ausculation											
+HP:0000223	signs and symptoms	Abnormality of taste sensation											
+	Abnormality of taste sensation	   Ageusia (complete loss of taste)											
+HP:0031249	Abnormality of taste sensation	   Parageusia (distorted sense of taste)											
+HP_0000224 	Abnormality of taste sensation	   Hypogeusia (reduced sense of taste)											
 HP:0004408	signs and symptoms	Abnormality of the sense of smell											
 HP_0000458	Abnormality of the sense of smell	   Anosmia (lost sense of smell)											
 HP_0004409	Abnormality of the sense of smell	   Hyposmia (reduced sense of smell)											
-HP:0011446	signs and symptoms	Altered consciousness											
-HP:0100543	Altered consciousness	   Cognitive impairment											
-HP_0001259	Altered consciousness	   Coma											
-HP_0001289	Altered consciousness	   Confusion											
+	signs and symptoms	Acute Respiratory Distress Syndrome											
+HP:0011446	signs and symptoms	Altered mental status											
+HP:0011675	signs and symptoms	Arrhythmia											
+HP:0100543	Altered mental status	   Cognitive impairment											
+HP_0001259	Altered mental status	   Coma											
+HP_0001289	Altered mental status	   Confusion											
 HP_0031258	Confusion	      Delirium (sudden severe confusion)											
-	Altered consciousness	   Inability to arouse (inability to stay awake)											
-HP_0002371	Altered consciousness	   Loss of speech											
-HP_0002829	signs and symptoms	Arthralgia (painful joints)											
-HP_0025406	signs and symptoms	Asthenia (generalized weakness)											
-HP_0100749	signs and symptoms	Chest pain											
+	Altered mental status	   Inability to arouse (inability to stay awake)											
+HP_0000737 	Altered mental status	   Irritability											
+HP_0002371	Altered mental status	   Loss of speech											
+HP_0025406	signs and symptoms	Asthenia (general weakness)											
 HP:0031352	signs and symptoms	Chest tightness or pressure											
 HP:0025145	Chest tightness or pressure	   Rigors (fever shakes)											
 HP_0025143 	signs and symptoms	Chills (sudden cold sensation)											
+	signs and symptoms	Conjunctival injection											
 HP_0000509	signs and symptoms	Conjunctivitis (pink eye)											
-HP_0012735	signs and symptoms	Cough											
+	signs and symptoms	Coryza											
+HP_0012735	signs and symptoms	Cough 											
 HP:0031246	Cough	   Nonproductive cough (dry cough)											
 HP:0031245	Cough	   Productive cough (wet cough)											
-HP:0000961	signs and symptoms	Cyanosis (blueish skin discolouration)											
-HP:0001063	Cyanosis (blueish skin discolouration)	   Acrocyanosis											
+HP:0000961	signs and symptoms	Cyanosis											
+HP:0001063	Cyanosis	   Acrocyanosis											
 	Acrocyanosis	      Circumoral cyanosis (bluish around mouth)											
 	Acrocyanosis	      Cyanotic face (bluish face)											
-	Acrocyanosis	      Cyanotic lips (bluish lips)											
-	Acrocyanosis	      Pseudo-chilblains on fingers (covid fingers)											
-	Acrocyanosis	      Pseudo-chilblains on toes (covid toes)											
+	Cyanosis	   Central Cyanosis											
+	Central Cyanosis	      Cyanotic lips (bluish lips)											
+	Cyanosis	   Peripheral Cyanosis											
+HP_0002094	signs and symptoms	Dyspnea (breathing difficulty) 											
+													
 HP_0002014	signs and symptoms	Diarrhea (watery stool)											
+	signs and symptoms	Dry gangrene											
 HP_0002383	signs and symptoms	Encephalitis (brain inflammation)											
+	signs and symptoms	Encephalopathy											
 HP_0012378	signs and symptoms	Fatigue (tiredness)											
 HP_0001945 	signs and symptoms	Fever											
+	Fever	   Fever (≥38°C)											
 HP:0000206	signs and symptoms	Glossitis (inflammation of the tongue)											
+	signs and symptoms	Ground Glass Opacities (GGO)											
 HP_0002315	signs and symptoms	Headache											
 HP_0002105	signs and symptoms	Hemoptysis (coughing up blood)											
+HP:0012417	signs and symptoms	Hypocapnia											
 HP_0002615	signs and symptoms	Hypotension (low blood pressure)											
 HP_0012418	signs and symptoms	Hypoxemia (low blood oxygen)											
+	signs and symptoms	   Silent hypoxemia											
 HP:0011029	signs and symptoms	Internal hemorrhage (internal bleeding)											
-HP_0000737 	signs and symptoms	Irritability											
 NCIT:C121416	signs and symptoms	Loss of Fine Movements											
 HP_0004396 	signs and symptoms	Low appetite											
 	signs and symptoms	Malaise (general discomfort/unease)											
-HP_0003326	signs and symptoms	Myalgia (muscle pain) 											
+	signs and symptoms	Meningismus/nuchal rigidity											
+HP_0001324	signs and symptoms	Muscle weakness											
 HP_0001742	signs and symptoms	Nasal obstruction (stuffy nose)											
 HP_0002018	signs and symptoms	Nausea											
+	signs and symptoms	nose bleed											
+	signs and symptoms	otitis											
+	signs and symptoms	Pain											
+HP:0002027	Pain	   Abdominal pain											
+HP_0002829	Pain	   Arthralgia (painful joints)											
+HP_0100749	Pain	   Chest pain											
+	Chest pain	      Pleuritic chest pain											
+HP_0003326	Pain	   Myalgia (muscle pain) 											
 HP_0025439	signs and symptoms	Pharyngitis (sore throat) 											
+	signs and symptoms	Pharyngeal exudate											
+	signs and symptoms	Pleural effusion											
+HP:0002090	signs and symptoms	Pneumonia											
+	signs and symptoms	Prostration											
+	signs and symptoms	Pseudo-chilblains											
+	Pseudo-chilblains	   Pseudo-chilblains on fingers (covid fingers)											
+	Pseudo-chilblains	   Pseudo-chilblains on toes (covid toes)											
 HP_0000988	signs and symptoms	Rash											
 HP_0031417	signs and symptoms	Rhinorrhea (runny nose)											
 HP_0001250	signs and symptoms	Seizure											
 HP:0020219	Seizure	   Motor seizure											
 HP:0025144	signs and symptoms	Shivering (involuntary muscle twitching)											
-HP_0002094	signs and symptoms	Dyspnea (breathing difficulty) 											
 HP_0001350	signs and symptoms	Slurred speech											
+	signs and symptoms	Sneezing											
+	signs and symptoms	Sputum Production											
 HP:0001297	signs and symptoms	Stroke											
-HP_0002789	signs and symptoms	Tachypnea (rapid breathing)											
+	signs and symptoms	Swollen Lymph Nodes											
+HP_0002789	signs and symptoms	Tachypnea (accelerated respiratory rate)											
+	signs and symptoms	Vertigo (dizziness)											
 HP_0002013	signs and symptoms	Vomiting (throwing up)											
-HP_0001324	signs and symptoms	Muscle weakness											
 													
+													
+													
+	pre-existing conditions and risk factors	Age 60+											
+	pre-existing conditions and risk factors	Anemia											
+	pre-existing conditions and risk factors	Anorexia											
+	pre-existing conditions and risk factors	Birthing labor											
+	pre-existing conditions and risk factors	Bone marrow failure											
+	pre-existing conditions and risk factors	Cancer											
+	Cancer	   Breast cancer											
+	Cancer	   Colorectal cancer											
+	Cancer	   Hematologic malignancy											
+	Cancer	   Lung cancer											
+	Cancer	   Metastatic disease											
+	pre-existing conditions and risk factors	Cancer treatment											
+	Cancer treatment	   Cancer surgery											
+	Cancer treatment	   Chemotherapy											
+	Chemotherapy	      Adjuvant chemotherapy											
+	pre-existing conditions and risk factors	Cardiac disorder											
+HP:0011675	Cardiac disorder	Arrhythmia											
+	Cardiac disorder	   Cardiac disease											
+HP:0001638	Cardiac disorder	   Cardiomyopathy											
+	Cardiac disorder	   Cardiac injury											
+	Cardiac disorder	   Hypertension (high blood pressure)											
+HP:0002615	Cardiac disorder	   Hypotension (low blood pressure)											
+	pre-existing conditions and risk factors	Cesarean section											
+	pre-existing conditions and risk factors	Chronic cough											
+	pre-existing conditions and risk factors	Chronic gastrointestinal disease											
+	pre-existing conditions and risk factors	Chronic lung disease											
+	pre-existing conditions and risk factors	Corticosteroids											
+	pre-existing conditions and risk factors	Diabetes mellitus (diabetes)											
+	Diabetes mellitus (diabetes)	   Type I diabetes mellitus (T1D)											
+	Diabetes mellitus (diabetes)	   Type II diabetes mellitus (T2D)											
+	pre-existing conditions and risk factors	Eczema											
+	pre-existing conditions and risk factors	Electrolyte disturbance											
+	Electrolyte disturbance	   Hypocalcemia											
+	Electrolyte disturbance	   Hypokalemia											
+	Electrolyte disturbance	   Hypomagnesemia											
+HP:0002383	pre-existing conditions and risk factors	Encephalitis (brain inflammation)											
+	pre-existing conditions and risk factors	Epilepsy											
+	pre-existing conditions and risk factors	Hemodialysis											
+	pre-existing conditions and risk factors	Hemoglobinopathy											
+	pre-existing conditions and risk factors	Human immunodeficiency virus (HIV)											
+	Human immunodeficiency virus (HIV)	   Acquired immunodeficiency syndrome (AIDS)											
+	Human immunodeficiency virus (HIV)	   HIV and antiretroviral therapy (ART)											
+	pre-existing conditions and risk factors	Immunocompromised											
+	Immunocompromised	   Lupus											
+	pre-existing conditions and risk factors	Inflammatory bowel disease (IBD)											
+	Inflammatory bowel disease (IBD)	   Colitis											
+	Colitis	      Ulcerative colitis											
+	Inflammatory bowel disease (IBD)	   Crohn's disease											
+	pre-existing conditions and risk factors	Renal disorder											
+	Renal disorder	   Renal disease											
+	Renal disorder	      Chronic renal disease											
+	Renal disorder	   Renal failure											
+	pre-existing conditions and risk factors	Liver disease											
+	Liver disease	   Chronic liver disease											
+	Chronic liver disease	      Fatty liver disease (FLD)											
+HP:0003326	pre-existing conditions and risk factors	Myalgia (muscle pain) 											
+	pre-existing conditions and risk factors	Myalgic encephalomyelitis (ME)											
+	pre-existing conditions and risk factors	Neurological disorder											
+	Neurological disorder	   Neuromuscular disorder											
+	pre-existing conditions and risk factors	Obesity											
+	Obesity	   Severe obesity											
+	pre-existing conditions and risk factors	Respiratory disorder											
+	Respiratory disorder	   Asthma											
+	Respiratory disorder	   Chronic bronchitis											
+	Respiratory disorder	   Chronic pulmonary disease											
+	Chronic pulmonary disease	      Chronic obstructive pulmonary disease											
+	Respiratory disorder	   Emphysema											
+	Respiratory disorder	   Lung disease											
+	Lung disease	      Chronic lung disease											
+	Lung disease	      Pulmonary fibrosis											
+HP:0002090	Respiratory disorder	Pneumonia											
+	Respiratory disorder	   Respiratory failure											
+	Respiratory failure	      Adult respiratory distress syndrome											
+	Respiratory failure	      Newborn respiratory distress syndrome											
+	Respiratory disorder	   Tuberculosis											
+	pre-existing conditions and risk factors	Postpartum (≤6 weeks)											
+	pre-existing conditions and risk factors	Pregnancy											
+	pre-existing conditions and risk factors	Rheumatic disease											
+	pre-existing conditions and risk factors	Sickle cell disease											
+	pre-existing conditions and risk factors	Substance use											
+	Substance use	   Alcohol abuse											
+	Substance use	   Drug abuse											
+	Drug abuse	      Injection drug abuse											
+	Substance use	   Smoking											
+	Substance use	   Vaping											
+HP:0002789	pre-existing conditions and risk factors	Tachypnea (accelerated respiratory rate)											
+	pre-existing conditions and risk factors	Transplant											
+	Transplant	   Bone marrow transplant											
+	Transplant	   Cardiac transplant											
+	Transplant	   Hematopoietic stem cell transplant (HSCT)											
+	Transplant	   Kidney transplant											
+	Transplant	   Liver transplant											
+													
+													
+													
+	complications	Abnormal blood oxygen level											
+	complications	Acute respiratory failure											
+HP:0011675	complications	Arrhythmia (complication)											
+	Arrhythmia (complication)	   Tachycardia											
+	Tachycardia	      Polymorphic ventricular tachycardia (VT)											
+	Tachycardia	      Tachyarrhythmia											
+	complications	Noncardiogenic pulmonary edema											
+	Noncardiogenic pulmonary edema	   Acute respiratory distress syndrome (ARDS)											
+	Acute respiratory distress syndrome (ARDS)	      COVID-19 associated ARDS (CARDS)											
+	Acute respiratory distress syndrome (ARDS)	      Neurogenic pulmonary edema (NPE)											
+	complications	Cardiac injury											
+	complications	Cardiac arrest											
+	complications	Cardiogenic shock											
+	complications	Blood clot											
+	Blood clot	   Arterial clot											
+	Blood clot	   Deep vein thrombosis (DVT)											
+	Blood clot	   Pulmonary embolism (PE)											
+HP:0001638	complications	Cardiomyopathy											
+	complications	Central nervous system invasion											
+	complications	Stroke (complication)											
+	Stroke (complication)	   Central Nervous System Vasculitis											
+	Stroke (complication)	   Ischemic stroke											
+	Ischemic stroke	      Acute ischemic stroke											
+	complications	Coma											
+	complications	Convulsions											
+	complications	COVID-19 associated coagulopathy (CAC)											
+	complications	Cystic fibrosis											
+	complications	Cytokine release syndrome											
+	complications	Disseminated intravascular coagulation (DIC)											
+	complications	Encephalopathy											
+	complications	Fulminant myocarditis											
+	complications	Guillain-Barré syndrome											
+	complications	Internal hemorrhage (complication; internal bleeding)											
+	Internal hemorrhage (complication; internal bleeding)	   Intracerebral haemorrhage											
+	complications	Kawasaki disease											
+	Kawasaki disease	   Typical Kawasaki disease											
+	Kawasaki disease	   Incomplete Kawasaki disease											
+	complications	Kidney injury											
+	Kidney injury	   Acute kidney injury											
+	complications	Liver dysfunction											
+	complications	Liver injury											
+	Liver injury	   Acute liver injury											
+	complications	Lung injury											
+	Lung injury	   Acute lung injury											
+	complications	Meningitis											
+	complications	Migraine											
+	complications	Miscarriage											
+	complications	Multisystem inflammatory syndrome in children (MIS-C)											
+	complications	Muscle injury											
+	complications	Myalgic encephalomyelitis (ME)											
+	complications	Myocardial infarction (heart attack)											
+	Myocardial infarction (heart attack)	   Acute myocardial infarction											
+	Myocardial infarction (heart attack)	   Elevation myocardial infarction											
+	Myocardial infarction (heart attack)	   ST-segment elevation myocardial infarction											
+	complications	Myocardial injury											
+	complications	Neonatal complications											
+	complications	Organ failure											
+	Organ failure	   Heart failure											
+	Organ failure	   Liver failure											
+	complications	Paralysis											
+	complications	Pneumothorax (collapsed lung)											
+	Pneumothorax (collapsed lung)	   Spontaneous pneumothorax											
+	Pneumothorax (collapsed lung)	   Spontaneous tension pneymothorax											
+	complications	Pneumonia (complication)											
+	Pneumonia (complication)	   COVID-19 pneumonia											
+	complications	Pregancy complications											
+	complications	Rhabdomyolysis											
+	complications	Secondary infection											
+	Secondary infection	   Secondary staph infection											
+	Secondary infection	   Secondary strep infection											
+HP:0001250	complications	Seizure (complication)											
+HP:0020219	Seizure (complication)	   Motor seizure											
+	complications	Sepsis											
+	complications	Septicemia											
+	complications	Shock											
+	Shock	   Hyperinflammatory shock											
+	Shock	   Refractory cardiogenic shock											
+	Shock	   Refractory cardiogenic plus vasoplegic shock											
+	Shock	   Septic shock											
+	complications	Vasculitis											
+	complications	Ventilation induced lung injury (VILI)											
 													
 													
 													
@@ -254,14 +469,13 @@ ENVO_00003896	environmental material	Banknote
 ENVO_01000486	environmental material	Building floor											
 ENVO_02000058	environmental material	Cloth											
 	environmental material	Control panel											
-	environmental material	Corridor											
 NCIT_C48950	environmental material	Door  											
 	environmental material	Door handle											
 	environmental material	Face mask											
 	environmental material	Face shield											
-	environmental material	Food											
-	environmental material	Food packaging											
-ENVO_01000481	environmental material	Glass											
+FOODON:00002403	environmental material	Food											
+FOODON:03490100	environmental material	Food packaging											
+ENVO:01000481	environmental material	Glass											
 	environmental material	Handrail											
 	environmental material	Hospital gown											
 	environmental material	Light switch											
@@ -269,8 +483,8 @@ ENVO_01000481	environmental material	Glass
 	environmental material	N95 mask											
 	environmental material	Nurse call button 											
 	environmental material	Paper											
-	environmental material	Particulate matter											
-ENVO_01000404	environmental material	Plastic											
+ENVO:01000060	Particulate matter												
+ENVO:01000404	environmental material	Plastic											
 	environmental material	PPE gown											
 ENVO_00002018	environmental material	Sewage											
 ENVO_01000990	environmental material	Sink											
@@ -280,17 +494,14 @@ ENVO_00001998	environmental material	Soil
 	environmental material	Toilet bowl											
 ENVO_00002006	environmental material	Water											
 	environmental material	Window											
-ENVO_00002040	environmental material	Wood											
-													
-													
-													
-													
+ENVO:00002040	environmental material	Wood											
 													
 	environmental site	Acute care facility											
-ENVO_00003040	environmental site	Animal house											
-ENVO_01000422	environmental site	Bathroom											
+ENVO:00003040	environmental site	Animal house											
+ENVO:01000422	environmental site	Bathroom											
 	environmental site	Clinical assessment centre											
 	environmental site	Conference venue											
+ENVO REQUEST	environmental site	Corridor											
 ENVO_01000927	environmental site	Daycare											
 NCIT_C53513	environmental site	Emergency room (ER)											
 	environmental site	Family practice clinic											
@@ -307,8 +518,8 @@ NCIT_C17118	environmental site	School
 	environmental site	Subway train											
 	environmental site	Wet market											
 													
-NCIT_C52009	collection method	Amniocentesis											
-NCIT_C15631	collection method	Aspiration											
+NCIT:C52009	collection method	Amniocentesis											
+NCIT:C15631	collection method	Aspiration											
 	Aspiration	  Suprapubic Aspiration											
 	Aspiration	  Tracheal aspiration											
 	Aspiration	  Vacuum Aspiration											
@@ -316,35 +527,34 @@ OBI:0002650	collection method	Biopsy
 OBI:0002651	Biopsy	  Needle Biopsy											
 	collection method	Filtration											
 	Filtration	Air filtration											
-OBI_0600044 	collection method	Lavage											
-BTO_0000155	Lavage	  Bronchoalveolar lavage (BAL)											
+OBI:0600044 	collection method	Lavage											
+BTO:0000155	Lavage	  Bronchoalveolar lavage (BAL)											
 	Lavage	  Gastric Lavage											
-NCIT_C15327	collection method	Lumbar Puncture											
-MMO_0000344	collection method	Necropsy											
-NCIT_c28221	collection method	Phlebotomy											
-GENEPIO_0002116	collection method	Rinsing											
+NCIT:C15327	collection method	Lumbar Puncture											
+MMO:0000344	collection method	Necropsy											
+NCIT:c28221	collection method	Phlebotomy											
+GENEPIO:0002116	collection method	Rinsing											
 	collection method	Scraping											
-GENEPIO_0002117	collection method	Swabbing											
+GENEPIO:0002117	collection method	Swabbing											
 	Swabbing	  Finger Prick											
 	collection method	Wash											
 	collection method	Washout Tear Collection											
 													
-													
 	collection device	Air filter											
-NCIT_C113122	collection device	Blood Collection Tube											
-NCIT_C17611 	collection device	Bronchoscope											
+NCIT:C113122	collection device	Blood Collection Tube											
+NCIT:C17611 	collection device	Bronchoscope											
 	collection device	Collection Container											
 	collection device	Collection Cup											
 	collection device	Fibrobronchoscope Brush											
 	collection device	Filter											
 	collection device	Fine Needle											
 	collection device	Microcapillary tube											
-	collection device	Micropipette											
-	collection device	Needle											
-NCIT_C113675 	collection device	Serum Collection Tube											
+OBI:0001128	collection device	Micropipette											
+OBI:0000436	collection device	Needle											
+NCIT:C113675 	collection device	Serum Collection Tube											
 	collection device	Sputum Collection Tube											
 	collection device	Suction Catheter											
-NCIT_c17627	collection device	Swab											
+NCIT:c17627	collection device	Swab											
 	collection device	Urine Collection Tube											
 	collection device	Virus Transport Medium											
 													
@@ -400,7 +610,6 @@ NCBITaxon_9694	host (common name)	Tiger
 	host health outcome	Recovered											
 	host health outcome	Stable											
 													
-													
 	organism	Severe acute respiratory syndrome coronavirus 2											
 	organism	RaTG13											
 	organism	RmYN02											
@@ -436,23 +645,139 @@ BTO:0004755	lab host	   Vero E6 cell line
 													
 	host disease	COVID-19											
 													
-	host gender	Female											
-	host gender	Male											
+	host age bin	0 - 9											
+	host age bin	10 - 19											
+	host age bin	20 - 29											
+	host age bin	30 - 39											
+	host age bin	40 - 49											
+	host age bin	50 - 59											
+	host age bin	60 - 69											
+	host age bin	70 - 79											
+	host age bin	80+											
+													
+OMRSE:00000009?	host gender	Female											
+OMRSE:00000008?	host gender	Male											
 	host gender	Non-binary gender											
 	host gender	Transgender											
 	host gender	Undeclared											
 													
 													
-	exposure event	Mass gathering (convention)											
-	exposure event	Mass gathering (religious)											
-	exposure event	Mass gathering (social e.g. funeral, wedding etc.)											
-	exposure event	Mass gathering (office)											
-	exposure event	Occupational exposure (hospital worker)											
-	exposure event	Occupational exposure (hospital visit)											
-	exposure event	Occupational exposure (frontline response)											
-	exposure event	Occupational exposure (healthcare work with the public)											
-	exposure event	Occupational exposure (retail)											
-	exposure event	Occupational exposure (restaurant)											
+	exposure event	Mass Gathering											
+	Mass Gathering	   Convention											
+	Mass Gathering	   Convocation											
+	Mass Gathering	   Agricultural Event											
+	exposure event	Religious Gathering											
+	Religious Gathering	   Mass											
+	exposure event	Social Gathering											
+	Social Gathering	   Baby Shower											
+	Social Gathering	   Community Event											
+	Social Gathering	   Family Gathering											
+	Family Gathering	      Family Reunion											
+	Social Gathering	   Funeral											
+	Social Gathering	   Party											
+	Social Gathering	   Potluck											
+	Social Gathering	   Wedding											
+	exposure event	Other											
+													
+													
+	direct/indirect exposure	Direct											
+	direct/indirect exposure	Indirect											
+	direct/indirect exposure	Unknown											
+													
+													
+	host role	Attendee											
+	Attendee	   Student											
+	host role	Patient											
+	Patient	   Inpatient											
+	Patient	   Outpatient											
+	host role	Passenger											
+	host role	Resident											
+	host role	Visitor											
+	host role	Volunteer											
+	host role	Work											
+	Work	   Administrator											
+	Work	   First Responder											
+	First Responder	      Firefighter											
+	First Responder	      Paramedic											
+	First Responder	      Police Officer											
+	Work	   Housekeeper											
+	Work	   Kitchen Worker											
+	Work	   Laboratory Worker											
+	Work	   Nurse											
+	Work	   Personal Care Aid											
+	Work	   Pharmacist											
+	Work	   Physician											
+	Work	   Vet											
+	host role	Social role											
+	Social role	   Acquaintance											
+	Social role	   Child											
+	Social role	   Parent											
+	Parent	      Father											
+	Parent	      Mother											
+	Social role	   Spouse											
+	host role	Other											
+													
+													
+	exposure setting	Human Exposure											
+	Human Exposure	   Known COVID-19 Case											
+	Human Exposure	   Patient Contact											
+	Human Exposure	   Probable COVID-19 Case											
+	Human Exposure	   Person with Acute Respiratory Illness											
+	Human Exposure	   Person with Fever and/or Cough											
+	Human Exposure	   Person who Recently Travelled											
+	exposure setting	Occupational or Residency Exposure											
+	Occupational or Residency Exposure	   Abbatoir											
+	Occupational or Residency Exposure	   Animal Rescue											
+	Occupational or Residency Exposure	   Childcare											
+	Childcare	      Daycare											
+	Occupational or Residency Exposure	   Place of Worship											
+	Place of Worship	      Church											
+	Place of Worship	      Mosque											
+	Place of Worship	      Temple											
+	Occupational or Residency Exposure	   Nursery											
+	Occupational or Residency Exposure	   Household											
+	Occupational or Residency Exposure	   Community Service Centre											
+	Occupational or Residency Exposure	   Correctional Facility											
+	Occupational or Residency Exposure	   Dormitory											
+	Occupational or Residency Exposure	   Farm											
+	Occupational or Residency Exposure	   First Nations Reserve											
+	Occupational or Residency Exposure	   Group Home											
+	Occupational or Residency Exposure	   Healthcare Setting											
+	Healthcare Setting	      Ambulance											
+	Healthcare Setting	      Acute Care Facility											
+	Healthcare Setting	      Clinic											
+	Healthcare Setting	      Community Health Centre											
+	Healthcare Setting	      Hospital											
+	Hospital	         Emergency Department											
+	Hospital	         ICU											
+	Hospital	         Ward											
+	Healthcare Setting	      Laboratory											
+	Healthcare Setting	      Long-Term Care Facility											
+	Healthcare Setting	      Pharmacy											
+	Healthcare Setting	      Physician's Office											
+	Occupational or Residency Exposure	   Insecure Housing (Homeless)											
+	Occupational or Residency Exposure	   Office											
+	Occupational or Residency Exposure	   Outdoors											
+	Outdoors	      Camp/camping											
+	Outdoors	      Hiking											
+	Outdoors	      Hunting											
+	Occupational or Residency Exposure	   Petting zoo											
+	Occupational or Residency Exposure	   Restaurant											
+	Occupational or Residency Exposure	   Retail Store											
+	Occupational or Residency Exposure	   School											
+	Occupational or Residency Exposure	   Temporary Residence											
+	Temporary Residence	      Homeless Shelter											
+	Temporary Residence	      Hotel											
+	Occupational or Residency Exposure	   Vet											
+	exposure setting	Travel Exposure											
+	Travel Exposure	   Travelled											
+	Travel Exposure	   Travelled on a Cruise Ship											
+	Travel Exposure	   Travelled on a Plane											
+	Travel Exposure	   Travelled on Ground Transport											
+	Travel Exposure	   Travelled outside Province/Territory											
+	Travel Exposure	   Travelled outside Canada											
+	exposure setting	Other											
+													
 													
 													
 OBI_0000759	sequencing instrument	ILLUMINA											
