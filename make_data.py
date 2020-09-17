@@ -60,7 +60,8 @@ with open(r_filename) as tsvfile:
 	    				'description': row['description'],
 	    				'guidance':    row['guidance'],
 	    				'examples':    row['examples'],
-	    				'GISAID': 	   row['GISAID']
+	    				'GISAID': 	   row['GISAID'],
+	    				'CNPHI LaSER': 	   row['CNPHI']
 	    			}
 	    			
 	    			reference_html += '''

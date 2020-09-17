@@ -21,10 +21,11 @@ const DATA = [
         "description": "The user-defined name for the sample.",
         "guidance": "Store the collector sample ID. If this number is considered identifiable information, provide an alternative ID. Be sure to store the key that maps between the original and alternative IDs for traceability and follow up if necessary. Every collector sample ID from a single submitter must be unique. It can have any format, but we suggest that you make it concise, unique and consistent within your lab.",
         "examples": "prov_rona_99",
-        "GISAID": "Sample ID given by the sample provider"
+        "GISAID": "Sample ID given by the sample provider",
+        "CNPHI LaSER": "Primary Specimen Identification Number"
       },
       {
-        "fieldName": "PHAC sample ID",
+        "fieldName": "NML submitted specimen primary ID",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -32,11 +33,34 @@ const DATA = [
         "dataStatus": null,
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
-        "requirement": "recommended",
-        "description": "The identifier assigned to the sample in the national database.",
-        "guidance": "Store the PHAC sample ID. This ID will be assigned by PHAC. The PHAC sample ID may be different than the sample ID assigned by the sample collector. It is important to track both of these for traceability. ",
-        "examples": "PHAC_123",
-        "GISAID": ""
+        "requirement": "",
+        "description": "The primary ID of the specimen submitted thorough LaSER.",
+        "guidance": "Store the identifier for the specimen submitted through the NML LaSER system.",
+        "examples": "SR20-12345",
+        "GISAID": "",
+        "CNPHI LaSER": ""
+      },
+      {
+        "fieldName": "NML related specimen primary ID",
+        "capitalize": "",
+        "ontology_id": "",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": [
+          "Not Applicable",
+          "Missing",
+          "Not Collected",
+          "Not Provided",
+          "Restricted Access"
+        ],
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "The primary ID of the related specimen previously submitted thorough LaSER",
+        "guidance": "Store the primary ID of the related specimen previously submitted thorough LaSER",
+        "examples": "SR20-12345",
+        "GISAID": "",
+        "CNPHI LaSER": "Related Specimen ID"
       },
       {
         "fieldName": "IRIDA sample name",
@@ -51,7 +75,8 @@ const DATA = [
         "description": "The identifier assigned to a sequenced isolate in IRIDA.",
         "guidance": "Store the IRIDA sample name. The IRIDA sample name will be created by the individual entering data into the IRIDA platform. IRIDA samples may be linked to metadata and sequence data, or just metadata alone. It is recommended that the IRIDA sample name be the same as, or contain, the specimen collector sample ID for better traceability. It is also recommended that the IRIDA sample name mirror the GISAID accession. IRIDA sample names cannot contain slashes. Slashes should be replaced by underscores. See IRIDA documentation for more information regarding special characters (https://irida.corefacility.ca/documentation/user/user/samples/#adding-a-new-sample). ",
         "examples": "prov_rona_99",
-        "GISAID": ""
+        "GISAID": "",
+        "CNPHI LaSER": ""
       },
       {
         "fieldName": "umbrella bioproject accession",
@@ -67,6 +92,7 @@ const DATA = [
         "guidance": "Store the umbrella BioProject accession by selecting it from the picklist in the template. The umbrella BioProject accession will be identical for all CanCOGen submitters. Different provinces will have their own BioProjects, however these BioProjects will be linked under one umbrella BioProject.",
         "examples": "PRJNA623807",
         "GISAID": "",
+        "CNPHI LaSER": "",
         "vocabulary": {
           "PRJNA623807": {}
         }
@@ -84,7 +110,8 @@ const DATA = [
         "description": "The INSDC accession number of the BioProject(s) to which the BioSample belongs.",
         "guidance": "Store the BioProject accession number. BioProjects are an organizing tool that links together raw sequence data, assemblies, and their associated metadata. Each province will be assigned a different bioproject accession number by the National Microbiology Lab. A valid NCBI BioProject accession has prefix PRJN e.g., PRJNA12345, and is created once at the beginning of a new sequencing project. ",
         "examples": "PRJNA608651",
-        "GISAID": ""
+        "GISAID": "",
+        "CNPHI LaSER": "BioProject Accession"
       },
       {
         "fieldName": "biosample accession",
@@ -99,7 +126,8 @@ const DATA = [
         "description": "The identifier assigned to a BioSample in INSDC archives.",
         "guidance": "Store the accession returned from the BioSample submission. NCBI BioSamples will have the prefix SAMN.",
         "examples": "SAMN14180202",
-        "GISAID": ""
+        "GISAID": "",
+        "CNPHI LaSER": "BioSample Accession"
       },
       {
         "fieldName": "SRA accession",
@@ -114,7 +142,8 @@ const DATA = [
         "description": "The Sequence Read Archive (SRA) identifier linking raw read data, methodological metadata and quality control metrics submitted to the INSDC.",
         "guidance": "Store the accession assigned to the submitted \"run\". NCBI-SRA accessions start with SRR.",
         "examples": "SRR11177792",
-        "GISAID": ""
+        "GISAID": "",
+        "CNPHI LaSER": "SRA Accession"
       },
       {
         "fieldName": "GenBank accession",
@@ -129,7 +158,8 @@ const DATA = [
         "description": "The GenBank identifier assigned to the sequence in the INSDC archives.",
         "guidance": "Store the accession returned from a GenBank submission (viral genome assembly).",
         "examples": "MN908947.3",
-        "GISAID": ""
+        "GISAID": "",
+        "CNPHI LaSER": ""
       },
       {
         "fieldName": "GISAID accession",
@@ -144,7 +174,8 @@ const DATA = [
         "description": "The GISAID accession number assigned to the sequence.",
         "guidance": "Store the accession returned from the GISAID submission.",
         "examples": "EPI_ISL_436489",
-        "GISAID": ""
+        "GISAID": "",
+        "CNPHI LaSER": ""
       }
     ]
   },
@@ -170,7 +201,8 @@ const DATA = [
         "description": "The name of the agency that collected the original sample.",
         "guidance": "The name of the sample collector should be written out in full, (with minor exceptions) and be consistent across multple submissions e.g. Public Health Agency of Canada, Public Health Ontario, BC Centre for Disease Control. The sample collector specified is at the discretion of the data provider (i.e. may be hospital, provincial public health lab, or other).",
         "examples": "BC Centre for Disease Control",
-        "GISAID": "Originating lab"
+        "GISAID": "Originating lab",
+        "CNPHI LaSER": ""
       },
       {
         "fieldName": "sample collector contact email",
@@ -185,7 +217,8 @@ const DATA = [
         "description": "The email address of the contact responsible for follow-up regarding the sample.",
         "guidance": "The email address can represent a specific individual or lab e.g. johnnyblogs@lab.ca, or RespLab@lab.ca",
         "examples": "RespLab@lab.ca",
-        "GISAID": ""
+        "GISAID": "",
+        "CNPHI LaSER": ""
       },
       {
         "fieldName": "sample collector contact address",
@@ -200,7 +233,8 @@ const DATA = [
         "description": "The mailing address of the agency submitting the sample.",
         "guidance": "The mailing address should be in the format: Street number and name, City, Province/Territory, Postal Code, Country",
         "examples": "655 Lab St, Vancouver, British Columbia, V5N 2A2, Canada",
-        "GISAID": "Address"
+        "GISAID": "Address",
+        "CNPHI LaSER": ""
       },
       {
         "fieldName": "sequence submitted by",
@@ -221,7 +255,8 @@ const DATA = [
         "description": "The name of the agency that generated the sequence.",
         "guidance": "The name of the agency should be written out in full, (with minor exceptions) and be consistent across multple submissions e.g. Public Health Agency of Canada, Public Health Ontario, BC Centre for Disease Control.",
         "examples": "Public Health Ontario",
-        "GISAID": "Submitting lab"
+        "GISAID": "Submitting lab",
+        "CNPHI LaSER": ""
       },
       {
         "fieldName": "sequence submitter contact email",
@@ -236,7 +271,8 @@ const DATA = [
         "description": "The email address of the contact responsible for follow-up regarding the sequence.",
         "guidance": "The email address can represent a specific individual or lab e.g. johnnyblogs@lab.ca, or RespLab@lab.ca",
         "examples": "RespLab@lab.ca",
-        "GISAID": ""
+        "GISAID": "",
+        "CNPHI LaSER": ""
       },
       {
         "fieldName": "sequence submitter contact address",
@@ -251,7 +287,8 @@ const DATA = [
         "description": "The mailing address of the agency submitting the sequence.",
         "guidance": "The mailing address should be in the format: Street number and name, City, Province/Territory, Postal Code, Country",
         "examples": "123 Sunnybrooke St, Toronto, Ontario, M4P 1L6, Canada",
-        "GISAID": "Address"
+        "GISAID": "Address",
+        "CNPHI LaSER": ""
       },
       {
         "fieldName": "sample collection date",
@@ -272,7 +309,8 @@ const DATA = [
         "description": "The date on which the sample was collected.",
         "guidance": "Sample collection date is critical for surveillance and many types of analyses. Required granularity includes year, month and day. If this date is considered identifiable information, it is acceptable to add \"jitter\" by adding or subtracting a calendar day (acceptable by GISAID). Alternatively, \u201dreceived date\u201d may be used as a substitute. The date should be provided in ISO 8601 standard format \"YYYY-MM-DD\".",
         "examples": "2020-03-16",
-        "GISAID": "Collection date"
+        "GISAID": "Collection date",
+        "CNPHI LaSER": "Patient Sample Collected Date"
       },
       {
         "fieldName": "sample received date",
@@ -293,7 +331,8 @@ const DATA = [
         "description": "The date on which the sample was received.",
         "guidance": "ISO 8601 standard \"YYYY-MM-DD\".",
         "examples": "2020-03-20",
-        "GISAID": ""
+        "GISAID": "",
+        "CNPHI LaSER": ""
       },
       {
         "fieldName": "geo_loc_name (country)",
@@ -315,6 +354,7 @@ const DATA = [
         "guidance": "Provide the country name from the controlled vocabulary provided.",
         "examples": "Canada",
         "GISAID": "Location",
+        "CNPHI LaSER": "Patient Country",
         "vocabulary": {
           "Afghanistan": {},
           "Albania": {},
@@ -609,6 +649,7 @@ const DATA = [
         "guidance": "Provide the province/territory name from the controlled vocabulary provided.",
         "examples": "Saskatchewan",
         "GISAID": "",
+        "CNPHI LaSER": "Patient Province",
         "vocabulary": {
           "Alberta": {},
           "British Columbia": {},
@@ -638,7 +679,8 @@ const DATA = [
         "description": "The city where the sample was collected.",
         "guidance": "Provide the city name. Use this look-up service to identify the standardized term: https://www.ebi.ac.uk/ols/ontologies/gaz",
         "examples": "Medicine Hat",
-        "GISAID": ""
+        "GISAID": "",
+        "CNPHI LaSER": ""
       },
       {
         "fieldName": "organism",
@@ -660,6 +702,7 @@ const DATA = [
         "guidance": "Use \"Severe acute respiratory syndrome coronavirus 2\". This value is provided in the template.",
         "examples": "Severe acute respiratory coronavirus 2",
         "GISAID": "",
+        "CNPHI LaSER": "",
         "vocabulary": {
           "Severe acute respiratory syndrome coronavirus 2": {},
           "RaTG13": {},
@@ -683,9 +726,10 @@ const DATA = [
         "xs:maxInclusive": "",
         "requirement": "required",
         "description": "Identifier of the specific isolate.",
-        "guidance": "Provide the isolate name. This identifer should be an unique, indexed, alpha-numeric ID within your laboratory. The isolate name is often the same as the specimen collector sample ID. Suggested: Isolate name should be identical to the GISAID virus name, which should be written in the format \u201chCov-19/CANADA/xxxxx/2020\u201d.",
-        "examples": "prov_rona_99",
-        "GISAID": "Virus name"
+        "guidance": "Provide the GISAID virus name, which should be written in the format \u201chCov-19/CANADA/xxxxx/2020\u201d.",
+        "examples": "hCov-19/CANADA/prov_rona_99/2020",
+        "GISAID": "Virus name",
+        "CNPHI LaSER": "GISAID Virus Name"
       },
       {
         "fieldName": "purpose of sampling",
@@ -707,12 +751,58 @@ const DATA = [
         "guidance": "Provide the purpose of sampling from the picklist in the template.",
         "examples": "Diagnostic testing",
         "GISAID": "",
+        "CNPHI LaSER": "Reason for Sampling",
         "vocabulary": {
           "Cluster investigation": {},
           "Diagnostic testing": {},
           "Research": {},
           "Surveillance testing": {},
           "Viral passage experiment": {}
+        }
+      },
+      {
+        "fieldName": "NML submitted specimen type",
+        "capitalize": "",
+        "ontology_id": "",
+        "datatype": "select",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "The type of specimen submitted to the NML for testing.",
+        "guidance": "Select the specimen type from the pick list provided.",
+        "examples": "swab",
+        "GISAID": "",
+        "CNPHI LaSER": "Specimen Type",
+        "vocabulary": {
+          "Swab": {},
+          "RNA": {},
+          "mRNA (cDNA)": {},
+          "Nucleic acid": {}
+        }
+      },
+      {
+        "fieldName": "NML related specimen relationship type",
+        "capitalize": "",
+        "ontology_id": "",
+        "datatype": "select",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "The relationship of the related specimen to the previous submission.",
+        "guidance": "Provide the specimen type of the original sample submitted from the pick list provided, so that additional specimen testing can be tracked in the system.",
+        "examples": "swab",
+        "GISAID": "",
+        "CNPHI LaSER": "Related Specimen Relationship Type",
+        "vocabulary": {
+          "Acute": {},
+          "Convalescent": {},
+          "Familial": {},
+          "Follow-up": {},
+          "Previously Submitted": {}
         }
       },
       {
@@ -735,6 +825,7 @@ const DATA = [
         "guidance": "Provide a descriptor if an anatomical material was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. ",
         "examples": "Blood",
         "GISAID": "Specimen source",
+        "CNPHI LaSER": "Anatomical Material",
         "vocabulary": {
           "Blood": {},
           "Fluid": {
@@ -768,6 +859,7 @@ const DATA = [
         "guidance": "Provide a descriptor if an anatomical part was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. ",
         "examples": "Nasopharynx (NP)",
         "GISAID": "Specimen source",
+        "CNPHI LaSER": "Anatomical Site",
         "vocabulary": {
           "Anus": {},
           "Buccal mucosa": {},
@@ -821,6 +913,7 @@ const DATA = [
         "guidance": "Provide a descriptor if a body product was sampled. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. ",
         "examples": "Feces",
         "GISAID": "Specimen source",
+        "CNPHI LaSER": "Body Product",
         "vocabulary": {
           "Feces": {},
           "Urine": {},
@@ -853,6 +946,7 @@ const DATA = [
         "guidance": "Provide a descriptor if an environmental material was sampled. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. ",
         "examples": "Face mask",
         "GISAID": "Specimen source",
+        "CNPHI LaSER": "Environmental Material",
         "vocabulary": {
           "Air vent": {},
           "Banknote": {},
@@ -907,6 +1001,7 @@ const DATA = [
         "guidance": "Provide a descriptor if an environmental site was sampled. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. ",
         "examples": "Building floor",
         "GISAID": "Specimen source",
+        "CNPHI LaSER": "Environmental Site",
         "vocabulary": {
           "Acute care facility": {},
           "Animal house": {},
@@ -955,6 +1050,7 @@ const DATA = [
         "guidance": "Provide a descriptor if a device was used for sampling. Use the picklist provided in the template. If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. ",
         "examples": "Swab",
         "GISAID": "Specimen source",
+        "CNPHI LaSER": "Specimen Collection Matrix",
         "vocabulary": {
           "Air filter": {},
           "Blood Collection Tube": {},
@@ -995,6 +1091,7 @@ const DATA = [
         "guidance": "Provide a descriptor if a collection method was used for sampling. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. ",
         "examples": "Bronchoalveolar lavage (BAL)",
         "GISAID": "Specimen source",
+        "CNPHI LaSER": "Collection Method",
         "vocabulary": {
           "Amniocentesis": {},
           "Aspiration": {
@@ -1037,7 +1134,8 @@ const DATA = [
         "description": "The name and version of a particular protocol used for sampling.",
         "guidance": "Free text.",
         "examples": "BCRonaSamplingProtocol v. 1.2",
-        "GISAID": ""
+        "GISAID": "",
+        "CNPHI LaSER": ""
       },
       {
         "fieldName": "specimen processing",
@@ -1059,6 +1157,7 @@ const DATA = [
         "guidance": "Critical for interpreting data. Select all the applicable processes from the pick list. If virus was passaged, include information in \"lab host\", \"passage number\", and \"passage method\" fields. If none of the processes in the pick list apply, put \"not applicable\".",
         "examples": "Virus passage",
         "GISAID": "Passage details/history",
+        "CNPHI LaSER": "",
         "vocabulary": {
           "Virus passage": {},
           "RNA re-extraction (post RT-PCR)": {},
@@ -1085,6 +1184,7 @@ const DATA = [
         "guidance": "Type of cell line used for propagation. Provide the name of the cell line using the picklist in the template. If not passaged, put \"not applicable\".",
         "examples": "Vero E6 cell line",
         "GISAID": "Passage details/history",
+        "CNPHI LaSER": "",
         "vocabulary": {
           "293/ACE2 cell line": {},
           "Caco2 cell line": {},
@@ -1120,7 +1220,8 @@ const DATA = [
         "description": "Number of passages.",
         "guidance": "Provide number of known passages. If not passaged, put \"not applicable\"",
         "examples": "3",
-        "GISAID": "Passage details/history"
+        "GISAID": "Passage details/history",
+        "CNPHI LaSER": ""
       },
       {
         "fieldName": "passage method",
@@ -1137,7 +1238,8 @@ const DATA = [
         "description": "Description of how organism was passaged.",
         "guidance": "Free text. Provide a very short description (<10 words). If not passaged, put \"not applicable\".",
         "examples": "",
-        "GISAID": "Passage details/history"
+        "GISAID": "Passage details/history",
+        "CNPHI LaSER": ""
       },
       {
         "fieldName": "biomaterial extracted",
@@ -1159,6 +1261,7 @@ const DATA = [
         "guidance": "Provide the biomaterial extracted from the picklist in the template.",
         "examples": "RNA (total)",
         "GISAID": "",
+        "CNPHI LaSER": "",
         "vocabulary": {
           "RNA (total)": {},
           "RNA (poly-A)": {},
@@ -1191,6 +1294,7 @@ const DATA = [
         "guidance": "Common name or scientific name are required if there was a host. Both can be provided, if known. Use terms from the pick lists in the template. Common name e.g. human, bat. If the sample was environmental, put \"not applicable.",
         "examples": "Human",
         "GISAID": "",
+        "CNPHI LaSER": "Animal Type",
         "vocabulary": {
           "Human": {},
           "Bat": {},
@@ -1226,6 +1330,7 @@ const DATA = [
         "guidance": "Common name or scientific name are required if there was a host. Both can be provided, if known. Use terms from the pick lists in the template. Scientific name e.g. Homo sapiens, If the sample was environmental, put \"not applicable",
         "examples": "Homo sapiens",
         "GISAID": "Host",
+        "CNPHI LaSER": "",
         "vocabulary": {
           "Homo sapiens": {},
           "Bos taurus": {},
@@ -1264,6 +1369,7 @@ const DATA = [
         "guidance": "If known, select a descriptor from the pick list provided in the template.",
         "examples": "Symptomatic",
         "GISAID": "Patient status",
+        "CNPHI LaSER": "Host Health State",
         "vocabulary": {
           "Asymptomatic": {},
           "Deceased": {},
@@ -1292,6 +1398,7 @@ const DATA = [
         "guidance": "If known, select a descriptor from the pick list provided in the template.",
         "examples": "Hospitalized (ICU)",
         "GISAID": "",
+        "CNPHI LaSER": "Host Health State Details",
         "vocabulary": {
           "Hospitalized": {
             "Hospitalized (Non-ICU)": {},
@@ -1324,6 +1431,7 @@ const DATA = [
         "guidance": "If known, select a descriptor from the pick list provided in the template.",
         "examples": "Recovered",
         "GISAID": "",
+        "CNPHI LaSER": "",
         "vocabulary": {
           "Deceased": {},
           "Deteriorating": {},
@@ -1351,6 +1459,7 @@ const DATA = [
         "guidance": "Select \"COVID-19\" from the pick list provided in the template.",
         "examples": "COVID-19",
         "GISAID": "",
+        "CNPHI LaSER": "Host Disease",
         "vocabulary": {
           "COVID-19": {}
         }
@@ -1374,7 +1483,8 @@ const DATA = [
         "description": "Age of host at the time of sampling.",
         "guidance": "Enter the age of the host in years. If not available, put \"missing\".",
         "examples": "79",
-        "GISAID": "Patient age"
+        "GISAID": "Patient age",
+        "CNPHI LaSER": "Patient Age"
       },
       {
         "fieldName": "host age bin",
@@ -1396,6 +1506,7 @@ const DATA = [
         "guidance": "Select the corresponding host age bin from the pick list provided in the template. If not available, provide a null value.",
         "examples": "60 - 69",
         "GISAID": "",
+        "CNPHI LaSER": "Host Age Category",
         "vocabulary": {
           "0 - 9": {},
           "10 - 19": {},
@@ -1428,6 +1539,7 @@ const DATA = [
         "guidance": "Select the corresponding host gender from the pick list provided in the template. If not available, put \"missing\".",
         "examples": "male",
         "GISAID": "Gender",
+        "CNPHI LaSER": "Patient Sex",
         "vocabulary": {
           "Female": {},
           "Male": {},
@@ -1456,6 +1568,7 @@ const DATA = [
         "guidance": "Select the country name from pick list provided in the template.",
         "examples": "United Kingdom",
         "GISAID": "",
+        "CNPHI LaSER": "",
         "vocabulary": {}
       },
       {
@@ -1471,7 +1584,8 @@ const DATA = [
         "description": "A unique identifier by which each host can be referred to e.g. #131",
         "guidance": "Provide the host identifier. Should be a unique, user-defined identifier.",
         "examples": "BCxy123",
-        "GISAID": ""
+        "GISAID": "",
+        "CNPHI LaSER": ""
       },
       {
         "fieldName": "symptom onset date",
@@ -1492,7 +1606,8 @@ const DATA = [
         "description": "The date on which the symptoms began or were first noted.",
         "guidance": "ISO 8601 standard \"YYYY-MM-DD\".",
         "examples": "2020-03-16",
-        "GISAID": ""
+        "GISAID": "",
+        "CNPHI LaSER": "Symptoms Onset Date"
       },
       {
         "fieldName": "signs and symptoms",
@@ -1514,6 +1629,7 @@ const DATA = [
         "guidance": "Select all of the symptoms experienced by the host from the pick list.",
         "examples": "Cough; Fever; Chills",
         "GISAID": "",
+        "CNPHI LaSER": "Symptoms",
         "vocabulary": {
           "Abnormal lung ausculation": {},
           "Abnormality of taste sensation": {
@@ -1639,6 +1755,7 @@ const DATA = [
         "guidance": "Select all of the pre-existing conditions and risk factors experienced by the host from the pick list. If the desired term is missing, contact the curation team.",
         "examples": "Asthma; Pregnancy; Smoker",
         "GISAID": "",
+        "CNPHI LaSER": "",
         "vocabulary": {
           "Age 60+": {},
           "Anemia": {},
@@ -1776,6 +1893,7 @@ const DATA = [
         "guidance": "Select all of the complications experienced by the host from the pick list. If the desired term is missing, contact the curation team.",
         "examples": "Acute Respiratory Failure; Coma; Septicemia",
         "GISAID": "",
+        "CNPHI LaSER": "",
         "vocabulary": {
           "Abnormal blood oxygen level": {},
           "Acute respiratory failure": {},
@@ -1904,7 +2022,119 @@ const DATA = [
         "guidance": "Select the country name from pick list provided in the template.",
         "examples": "Canada",
         "GISAID": "",
+        "CNPHI LaSER": "",
         "vocabulary": {}
+      },
+      {
+        "fieldName": "destination of most recent travel (city)",
+        "capitalize": "",
+        "ontology_id": "",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": [
+          "Not Applicable",
+          "Missing",
+          "Not Collected",
+          "Not Provided",
+          "Restricted Access"
+        ],
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "The name of the city that was the destination of most recent travel.",
+        "guidance": "Provide the name of the city that the host travelled to. Use this look-up service to identify the standardized term: https://www.ebi.ac.uk/ols/ontologies/gaz",
+        "examples": "New York City",
+        "GISAID": "",
+        "CNPHI LaSER": "City of Travel"
+      },
+      {
+        "fieldName": "destination of most recent travel (state/province/territory)",
+        "capitalize": "",
+        "ontology_id": "",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": [
+          "Not Applicable",
+          "Missing",
+          "Not Collected",
+          "Not Provided",
+          "Restricted Access"
+        ],
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "The name of the province that was the destination of most recent travel.",
+        "guidance": "Provide the name of the state/province/territory that the host travelled to. Use this look-up service to identify the standardized term: https://www.ebi.ac.uk/ols/ontologies/gaz",
+        "examples": "California",
+        "GISAID": "",
+        "CNPHI LaSER": "Province of Travel"
+      },
+      {
+        "fieldName": "destination of most recent travel (country)",
+        "capitalize": "",
+        "ontology_id": "",
+        "datatype": "select",
+        "source": "geo_loc_name (country)",
+        "dataStatus": [
+          "Not Applicable",
+          "Missing",
+          "Not Collected",
+          "Not Provided",
+          "Restricted Access"
+        ],
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "The name of the country that was the destination of most recent travel.",
+        "guidance": "Provide the name of the country that the host travelled to. Use this look-up service to identify the standardized term: https://www.ebi.ac.uk/ols/ontologies/gaz",
+        "examples": "United Kingdom",
+        "GISAID": "",
+        "CNPHI LaSER": "Country of Travel",
+        "vocabulary": {}
+      },
+      {
+        "fieldName": "most recent travel departure date",
+        "capitalize": "",
+        "ontology_id": "",
+        "datatype": "xs:date",
+        "source": "",
+        "dataStatus": [
+          "Not Applicable",
+          "Missing",
+          "Not Collected",
+          "Not Provided",
+          "Restricted Access"
+        ],
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "The date of a person's most recent departure from their primary residence (at that time) on a journey to one or more other locations.",
+        "guidance": "Provide the travel departure date.",
+        "examples": "2020-03-16",
+        "GISAID": "",
+        "CNPHI LaSER": "Travel start date"
+      },
+      {
+        "fieldName": "most recent travel return date",
+        "capitalize": "",
+        "ontology_id": "",
+        "datatype": "xs:date",
+        "source": "",
+        "dataStatus": [
+          "Not Applicable",
+          "Missing",
+          "Not Collected",
+          "Not Provided",
+          "Restricted Access"
+        ],
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "The date of a person's most recent return to some residence from a journey originating at that residence.",
+        "guidance": "Provide the travel return date.",
+        "examples": "2020-04-26",
+        "GISAID": "",
+        "CNPHI LaSER": "Travel End Date"
       },
       {
         "fieldName": "travel history",
@@ -1919,7 +2149,8 @@ const DATA = [
         "description": "Travel outside the country in last six months.",
         "guidance": "Specify the countries (and more granular locations if known, separated by a comma) travelled in the last six months; can include multiple travels. Separate multiple travel events with a semi-colon. List most recent travel first.",
         "examples": "Canada, Vancouver; USA, Seattle; Italy, Milan",
-        "GISAID": ""
+        "GISAID": "",
+        "CNPHI LaSER": ""
       },
       {
         "fieldName": "exposure event",
@@ -1941,6 +2172,7 @@ const DATA = [
         "guidance": "Select an exposure event from the pick list provided in the template. If the desired term is missing, contact the curation team.",
         "examples": "Mass gathering (convention)",
         "GISAID": "Additional location information",
+        "CNPHI LaSER": "Exposure Event",
         "vocabulary": {
           "Mass Gathering": {
             "Convention": {},
@@ -1978,6 +2210,7 @@ const DATA = [
         "guidance": "Select direct or indirect exposure from the pick-list.",
         "examples": "Direct",
         "GISAID": "",
+        "CNPHI LaSER": "",
         "vocabulary": {
           "Direct": {},
           "Indirect": {},
@@ -1998,6 +2231,7 @@ const DATA = [
         "guidance": "Select the host's personal role(s) from the pick list provided in the template. If the desired term is missing, contact the curation team.",
         "examples": "Patient",
         "GISAID": "",
+        "CNPHI LaSER": "",
         "vocabulary": {
           "Attendee": {
             "Student": {}
@@ -2052,6 +2286,7 @@ const DATA = [
         "guidance": "Select the host exposure setting(s) from the pick list provided in the template. If a desired term is missing, contact the curation team.",
         "examples": "Healthcare Setting",
         "GISAID": "",
+        "CNPHI LaSER": "",
         "vocabulary": {
           "Human Exposure": {
             "Known COVID-19 Case": {},
@@ -2132,7 +2367,8 @@ const DATA = [
         "description": "Additional host exposure information.",
         "guidance": "Free text description of the exposure.",
         "examples": "Host role - Other: Bus Driver",
-        "GISAID": ""
+        "GISAID": "",
+        "CNPHI LaSER": ""
       }
     ]
   },
@@ -2152,7 +2388,8 @@ const DATA = [
         "description": "The user-specified identifier for the library prepared for sequencing.",
         "guidance": "The library name should be unique, and can be an autogenerated ID from your LIMS, or modification of the isolate ID.",
         "examples": "XYZ_123345",
-        "GISAID": ""
+        "GISAID": "",
+        "CNPHI LaSER": ""
       },
       {
         "fieldName": "library insert size",
@@ -2167,7 +2404,8 @@ const DATA = [
         "description": "The insert size of the library being sequenced (i.e. the length of the DNA inserted between the adaptors).",
         "guidance": "Provide the insert size in base pairs.",
         "examples": "300",
-        "GISAID": ""
+        "GISAID": "",
+        "CNPHI LaSER": ""
       },
       {
         "fieldName": "library preparation method",
@@ -2182,7 +2420,8 @@ const DATA = [
         "description": "The name of the DNA library preparation kit used to generate the library being sequenced.",
         "guidance": "Provide the name of the library preparation kit used.",
         "examples": "Nextera XT",
-        "GISAID": ""
+        "GISAID": "",
+        "CNPHI LaSER": ""
       },
       {
         "fieldName": "MinIon barcode",
@@ -2197,7 +2436,8 @@ const DATA = [
         "description": "The barcode of the MinIon unit used for sequencing.",
         "guidance": "Provide the barcode of the MinIon used for sequencing the sample.",
         "examples": "FAB06069",
-        "GISAID": ""
+        "GISAID": "",
+        "CNPHI LaSER": ""
       },
       {
         "fieldName": "sequencing instrument",
@@ -2219,6 +2459,7 @@ const DATA = [
         "guidance": "Select a sequencing instrument from the picklist provided in the template.",
         "examples": "MinIon",
         "GISAID": "Sequencing technology",
+        "CNPHI LaSER": "",
         "vocabulary": {
           "ILLUMINA": {
             "HiSeq X": {
@@ -2284,7 +2525,8 @@ const DATA = [
         "description": "The name and version number of the sequencing protocol used.",
         "guidance": "Provide the name and version of the sequencing protocol e.g. 1D_DNA_MinION",
         "examples": "1D_DNA_MinION, ARTIC Network Protocol v. 3",
-        "GISAID": ""
+        "GISAID": "",
+        "CNPHI LaSER": "Sequencing protocol name"
       },
       {
         "fieldName": "sequencing protocol source",
@@ -2299,7 +2541,8 @@ const DATA = [
         "description": "The name of the organization/authors of the protocol.",
         "guidance": "Provide the name of the source of the protocol e.g. ARTIC Network.",
         "examples": "ARTIC Network",
-        "GISAID": ""
+        "GISAID": "",
+        "CNPHI LaSER": ""
       },
       {
         "fieldName": "sequencing kit number",
@@ -2314,7 +2557,8 @@ const DATA = [
         "description": "The manufacturer's kit number.",
         "guidance": "Alphanumeric value.",
         "examples": "AB456XYZ789",
-        "GISAID": ""
+        "GISAID": "",
+        "CNPHI LaSER": ""
       },
       {
         "fieldName": "amplicon pcr primers filename",
@@ -2329,7 +2573,8 @@ const DATA = [
         "description": "The filename of the file containing amplicon PCR primer names and sequences.",
         "guidance": "Important for documenting methods and should be considered for submission, particularly if primers were designed in-house and not by a public consortium/network.",
         "examples": "Rona_primers_2020.txt",
-        "GISAID": ""
+        "GISAID": "",
+        "CNPHI LaSER": ""
       },
       {
         "fieldName": "sample sequenced date",
@@ -2350,7 +2595,8 @@ const DATA = [
         "description": "The date the sample was sequenced.",
         "guidance": "ISO 8601 standard \"YYYY-MM-DD\".",
         "examples": "2020-06-22",
-        "GISAID": ""
+        "GISAID": "",
+        "CNPHI LaSER": ""
       }
     ]
   },
@@ -2370,7 +2616,8 @@ const DATA = [
         "description": "The names of the software and version number used for raw data processing such as removing barcodes, adapter trimming, filtering etc.",
         "guidance": "Provide the software name followed by the version e.g. Trimmomatic v. 0.38, Porechop v. 0.2.3",
         "examples": "Porechop v. 0.2.3",
-        "GISAID": ""
+        "GISAID": "",
+        "CNPHI LaSER": ""
       },
       {
         "fieldName": "sequencing depth (average)",
@@ -2385,7 +2632,8 @@ const DATA = [
         "description": "The total number of sequenced base pairs divided by the expected number of base pairs in the genome.",
         "guidance": "Provide the value as a fold of coverage.",
         "examples": "80x",
-        "GISAID": ""
+        "GISAID": "",
+        "CNPHI LaSER": ""
       },
       {
         "fieldName": "assembly name",
@@ -2400,7 +2648,8 @@ const DATA = [
         "description": "Name/version of the assembly provided by the submitter.",
         "guidance": "Provide the assembly name.",
         "examples": "rona123assembly.fasta",
-        "GISAID": ""
+        "GISAID": "",
+        "CNPHI LaSER": ""
       },
       {
         "fieldName": "assembly method",
@@ -2415,7 +2664,8 @@ const DATA = [
         "description": "The name and version number of the assembly method used.",
         "guidance": "Provide the software name followed by the version e.g. Canu 2.0",
         "examples": "Canu 2.0",
-        "GISAID": ""
+        "GISAID": "",
+        "CNPHI LaSER": ""
       },
       {
         "fieldName": "assembly coverage breadth",
@@ -2430,7 +2680,8 @@ const DATA = [
         "description": "The percentage of the assembled genome that was sequenced to a prescribed depth of coverage.",
         "guidance": "Provide value as a percent e.g. 95%.",
         "examples": "95%",
-        "GISAID": ""
+        "GISAID": "",
+        "CNPHI LaSER": ""
       },
       {
         "fieldName": "assembly coverage depth",
@@ -2445,7 +2696,8 @@ const DATA = [
         "description": "The average number of reads representing a given nucleotide in the assembled sequence.",
         "guidance": "Provide value as a fold of coverage e.g. 80x.",
         "examples": "400x",
-        "GISAID": "Coverage"
+        "GISAID": "Coverage",
+        "CNPHI LaSER": ""
       },
       {
         "fieldName": "r1 fastq filename",
@@ -2460,7 +2712,8 @@ const DATA = [
         "description": "The user-specified filename of the r1 FASTQ file.",
         "guidance": "Provide the r1 FASTQ filename.",
         "examples": "ABC123_S1_L001_R1_001.fastq.gz",
-        "GISAID": ""
+        "GISAID": "",
+        "CNPHI LaSER": ""
       },
       {
         "fieldName": "r2 fastq filename",
@@ -2475,7 +2728,8 @@ const DATA = [
         "description": "The user-specified filename of the r2 FASTQ file.",
         "guidance": "Provide the r2 FASTQ filename.",
         "examples": "ABC123_S1_L001_R2_001.fastq.gz",
-        "GISAID": ""
+        "GISAID": "",
+        "CNPHI LaSER": ""
       },
       {
         "fieldName": "r1 fastq filepath",
@@ -2490,7 +2744,8 @@ const DATA = [
         "description": "The location of the r1 FASTQ file within a user's file system.",
         "guidance": "Provide the filepath for the r1 FASTQ file. This information aids in data management. ",
         "examples": "/User/Documents/RespLab/Data",
-        "GISAID": ""
+        "GISAID": "",
+        "CNPHI LaSER": ""
       },
       {
         "fieldName": "r2 fastq filepath",
@@ -2505,7 +2760,8 @@ const DATA = [
         "description": "The location of the r2 FASTQ file within a user's file system.",
         "guidance": "Provide the filepath for the r2 FASTQ file. This information aids in data management. ",
         "examples": "/User/Documents/RespLab/Data",
-        "GISAID": ""
+        "GISAID": "",
+        "CNPHI LaSER": ""
       },
       {
         "fieldName": "fast5 filename",
@@ -2520,7 +2776,8 @@ const DATA = [
         "description": "The user-specified filename of the FAST5 file.",
         "guidance": "Provide the FAST5 filename.",
         "examples": "rona123assembly.fast5",
-        "GISAID": ""
+        "GISAID": "",
+        "CNPHI LaSER": ""
       },
       {
         "fieldName": "fast5 filepath",
@@ -2535,7 +2792,8 @@ const DATA = [
         "description": "The location of the FAST5 file within a user's file system.",
         "guidance": "Provide the filepath for the FAST5 file. This information aids in data management. ",
         "examples": "/User/Documents/RespLab/Data",
-        "GISAID": ""
+        "GISAID": "",
+        "CNPHI LaSER": ""
       },
       {
         "fieldName": "fasta filename",
@@ -2550,7 +2808,8 @@ const DATA = [
         "description": "The user-specified filename of the FASTA file.",
         "guidance": "Provide the FASTA filename.",
         "examples": "batch1a_sequences.fasta",
-        "GISAID": "FASTA filename"
+        "GISAID": "FASTA filename",
+        "CNPHI LaSER": ""
       },
       {
         "fieldName": "fasta filepath",
@@ -2565,7 +2824,8 @@ const DATA = [
         "description": "The location of the FASTA file within a user's file system.",
         "guidance": "Provide the filepath for the FASTA file. This information aids in data management. ",
         "examples": "/User/Documents/RespLab/Data",
-        "GISAID": ""
+        "GISAID": "",
+        "CNPHI LaSER": ""
       },
       {
         "fieldName": "number base pairs",
@@ -2580,7 +2840,8 @@ const DATA = [
         "description": "The number of total base pairs generated by the sequencing process.",
         "guidance": "Provide a numerical value (no need to include units).",
         "examples": "387566",
-        "GISAID": ""
+        "GISAID": "",
+        "CNPHI LaSER": ""
       },
       {
         "fieldName": "consensus genome length",
@@ -2595,7 +2856,8 @@ const DATA = [
         "description": "Size of the reconstructed genome described as the number of base pairs.",
         "guidance": "Provide a numerical value (no need to include units).",
         "examples": "38677",
-        "GISAID": ""
+        "GISAID": "",
+        "CNPHI LaSER": ""
       },
       {
         "fieldName": "mean contig length",
@@ -2610,7 +2872,8 @@ const DATA = [
         "description": "The mean contig length is the count of base pairs in the average size contig of the sequence assembly.",
         "guidance": "Provide a numerical value (no need to include units).",
         "examples": "12689",
-        "GISAID": ""
+        "GISAID": "",
+        "CNPHI LaSER": ""
       },
       {
         "fieldName": "N50",
@@ -2625,7 +2888,8 @@ const DATA = [
         "description": "The minimum contig length needed to cover 50% of the genome.",
         "guidance": "Provide a numerical value (no need to include units).",
         "examples": "10500",
-        "GISAID": ""
+        "GISAID": "",
+        "CNPHI LaSER": ""
       },
       {
         "fieldName": "Ns per 100 kbp",
@@ -2640,7 +2904,8 @@ const DATA = [
         "description": "The number of N symbols present in the consensus fasta sequence, per 100kbp of sequence.",
         "guidance": "Provide a numerical value (no need to include units).",
         "examples": "330",
-        "GISAID": ""
+        "GISAID": "",
+        "CNPHI LaSER": ""
       },
       {
         "fieldName": "reference genome accession",
@@ -2655,7 +2920,8 @@ const DATA = [
         "description": "A persistent, unique identifier of a genome database entry.",
         "guidance": "Provide the accession number of the reference genome.",
         "examples": "NC_045512.2",
-        "GISAID": ""
+        "GISAID": "",
+        "CNPHI LaSER": ""
       },
       {
         "fieldName": "consensus sequence ID",
@@ -2670,7 +2936,8 @@ const DATA = [
         "description": "The identifer used to specify the consensus sequence.",
         "guidance": "Provide the consensus sequence identifier.",
         "examples": "ProvConsensusSeq",
-        "GISAID": "Sample ID given by the submitting laboratory"
+        "GISAID": "Sample ID given by the submitting laboratory",
+        "CNPHI LaSER": ""
       },
       {
         "fieldName": "consensus sequence method",
@@ -2691,7 +2958,8 @@ const DATA = [
         "description": "The name and version number of the software used to produce the consensus sequence.",
         "guidance": "Provide the software name followed by the version e.g. iVar 1.2",
         "examples": "iVar 1.2",
-        "GISAID": "Assembly method"
+        "GISAID": "Assembly method",
+        "CNPHI LaSER": ""
       },
       {
         "fieldName": "consensus sequence filename",
@@ -2706,7 +2974,8 @@ const DATA = [
         "description": "The user-specified filename for the consensus sequence.",
         "guidance": "Provide the filename for the consensus sequence. ",
         "examples": "ProvConsensusSeq.fasta",
-        "GISAID": ""
+        "GISAID": "",
+        "CNPHI LaSER": ""
       },
       {
         "fieldName": "consensus sequence filepath",
@@ -2721,7 +2990,8 @@ const DATA = [
         "description": "The location of the consensus sequence in the user's file system.",
         "guidance": "Provide the filepath for the consensus sequence file. This information facilitates data management.",
         "examples": "/User/Documents/RespLab/Data",
-        "GISAID": ""
+        "GISAID": "",
+        "CNPHI LaSER": ""
       },
       {
         "fieldName": "annotation feature table filename",
@@ -2736,7 +3006,8 @@ const DATA = [
         "description": "The filename of the file containing genome features such as gene names and corresponding CDS.",
         "guidance": "Provide the filename of the annotation feature table.",
         "examples": "BCRonaAnnotationFeatures",
-        "GISAID": ""
+        "GISAID": "",
+        "CNPHI LaSER": ""
       },
       {
         "fieldName": "bioinformatics protocol",
@@ -2751,7 +3022,8 @@ const DATA = [
         "description": "The name and version number of the bioinformatics protocol used.",
         "guidance": "Further details regarding the methods used to process raw data, and/or generate assemblies, and/or generate consensus sequences can be provided in an SOP or protocol. Provide the name and version number of the protocol.",
         "examples": "https://www.protocols.io/groups/cphln-sarscov2-sequencing-consortium/members",
-        "GISAID": ""
+        "GISAID": "",
+        "CNPHI LaSER": ""
       }
     ]
   },
@@ -2772,6 +3044,7 @@ const DATA = [
         "guidance": "Provide the full name of the gene used in the test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI",
         "examples": "E (orf4)",
         "GISAID": "",
+        "CNPHI LaSER": "Gene Target #1",
         "vocabulary": {
           "E (orf4)": {},
           "M (orf5)": {},
@@ -2822,7 +3095,8 @@ const DATA = [
         "description": "The name and version number of the protocol used for diagnostic marker amplification.",
         "guidance": "The name and version number of the protocol used for carrying out a diagnostic PCR test. This information can be compared to sequence data for evaluation of performance and quality control.",
         "examples": "EGenePCRTest 2",
-        "GISAID": ""
+        "GISAID": "",
+        "CNPHI LaSER": ""
       },
       {
         "fieldName": "diagnostic pcr Ct value 1",
@@ -2837,7 +3111,8 @@ const DATA = [
         "description": "The Ct value result from a diagnostic SARS-CoV-2 RT-PCR test.",
         "guidance": "Provide the CT value of the sample from the diagnostic RT-PCR test.",
         "examples": "21",
-        "GISAID": ""
+        "GISAID": "",
+        "CNPHI LaSER": "Gene Target #1 CT Value"
       },
       {
         "fieldName": "gene name 2",
@@ -2853,6 +3128,7 @@ const DATA = [
         "guidance": "Provide the full name of another gene used in an RT-PCR test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI",
         "examples": "nsp12 (RdRp)",
         "GISAID": "",
+        "CNPHI LaSER": "Gene Target #2",
         "vocabulary": {}
       },
       {
@@ -2868,7 +3144,8 @@ const DATA = [
         "description": "The name and version number of the protocol used for diagnostic marker amplification.",
         "guidance": "The name and version number of the protocol used for carrying out a second diagnostic PCR test. This information can be compared to sequence data for evaluation of performance and quality control.",
         "examples": "RdRpGenePCRTest 3",
-        "GISAID": ""
+        "GISAID": "",
+        "CNPHI LaSER": ""
       },
       {
         "fieldName": "diagnostic pcr Ct value 2",
@@ -2883,7 +3160,8 @@ const DATA = [
         "description": "The Ct value result from a diagnostic SARS-CoV-2 RT-PCR test.",
         "guidance": "Provide the CT value of the sample from the second diagnostic RT-PCR test.",
         "examples": "36",
-        "GISAID": ""
+        "GISAID": "",
+        "CNPHI LaSER": "Gene Target #2 CT Value"
       }
     ]
   },
@@ -2903,7 +3181,8 @@ const DATA = [
         "description": "Names of individuals contributing to the processes of sample collection, sequence generation, analysis, and data submission.",
         "guidance": "Include the first and last names of all individuals that should be attributed, separated by a comma.",
         "examples": "Tejinder Singh, Fei Hu, Joe Blogs",
-        "GISAID": "Authors"
+        "GISAID": "Authors",
+        "CNPHI LaSER": ""
       }
     ]
   }
