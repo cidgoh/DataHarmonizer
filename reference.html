@@ -44,11 +44,20 @@
 
 	    			
 	    			<tr>
-	    				<td class="label">PHAC sample ID</td>
-	    				<td>The identifier assigned to the sample in the national database.</td>
-	    				<td>Store the PHAC sample ID. This ID will be assigned by PHAC. The PHAC sample ID may be different than the sample ID assigned by the sample collector. It is important to track both of these for traceability. </td>
-	    				<td>PHAC_123</td>
+	    				<td class="label">NML submitted specimen primary ID</td>
+	    				<td>The primary ID of the specimen submitted thorough LaSER.</td>
+	    				<td>Store the identifier for the specimen submitted through the NML LaSER system.</td>
+	    				<td>SR20-12345</td>
 	    				<td>None</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">NML related specimen primary ID</td>
+	    				<td>The primary ID of the related specimen previously submitted thorough LaSER</td>
+	    				<td>Store the primary ID of the related specimen previously submitted thorough LaSER</td>
+	    				<td>SR20-12345</td>
+	    				<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
 	    			</tr>
 
 	    			
@@ -230,8 +239,8 @@
 	    			<tr>
 	    				<td class="label">isolate</td>
 	    				<td>Identifier of the specific isolate.</td>
-	    				<td>Provide the isolate name. This identifer should be an unique, indexed, alpha-numeric ID within your laboratory. The isolate name is often the same as the specimen collector sample ID. Suggested: Isolate name should be identical to the GISAID virus name, which should be written in the format “hCov-19/CANADA/xxxxx/2020”.</td>
-	    				<td>prov_rona_99</td>
+	    				<td>Provide the GISAID virus name, which should be written in the format “hCov-19/CANADA/xxxxx/2020”.</td>
+	    				<td>hCov-19/CANADA/prov_rona_99/2020</td>
 	    				<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
 	    			</tr>
 
@@ -242,6 +251,24 @@
 	    				<td>Provide the purpose of sampling from the picklist in the template.</td>
 	    				<td>Diagnostic testing</td>
 	    				<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">NML submitted specimen type</td>
+	    				<td>The type of specimen submitted to the NML for testing.</td>
+	    				<td>Select the specimen type from the pick list provided.</td>
+	    				<td>swab</td>
+	    				<td>None</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">NML related specimen relationship type</td>
+	    				<td>The relationship of the related specimen to the previous submission.</td>
+	    				<td>Provide the specimen type of the original sample submitted from the pick list provided, so that additional specimen testing can be tracked in the system.</td>
+	    				<td>swab</td>
+	    				<td>None</td>
 	    			</tr>
 
 	    			
@@ -512,6 +539,51 @@ Risk Factor: A variable associated with an increased risk of disease or infectio
 	    				<td>The country where the host was likely exposed to the causative agent of the illness.</td>
 	    				<td>Select the country name from pick list provided in the template.</td>
 	    				<td>Canada</td>
+	    				<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">destination of most recent travel (city)</td>
+	    				<td>The name of the city that was the destination of most recent travel.</td>
+	    				<td>Provide the name of the city that the host travelled to. Use this look-up service to identify the standardized term: https://www.ebi.ac.uk/ols/ontologies/gaz</td>
+	    				<td>New York City</td>
+	    				<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">destination of most recent travel (state/province/territory)</td>
+	    				<td>The name of the province that was the destination of most recent travel.</td>
+	    				<td>Provide the name of the state/province/territory that the host travelled to. Use this look-up service to identify the standardized term: https://www.ebi.ac.uk/ols/ontologies/gaz</td>
+	    				<td>California</td>
+	    				<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">destination of most recent travel (country)</td>
+	    				<td>The name of the country that was the destination of most recent travel.</td>
+	    				<td>Provide the name of the country that the host travelled to. Use this look-up service to identify the standardized term: https://www.ebi.ac.uk/ols/ontologies/gaz</td>
+	    				<td>United Kingdom</td>
+	    				<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">most recent travel departure date</td>
+	    				<td>The date of a person's most recent departure from their primary residence (at that time) on a journey to one or more other locations.</td>
+	    				<td>Provide the travel departure date.</td>
+	    				<td>2020-03-16</td>
+	    				<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">most recent travel return date</td>
+	    				<td>The date of a person's most recent return to some residence from a journey originating at that residence.</td>
+	    				<td>Provide the travel return date.</td>
+	    				<td>2020-04-26</td>
 	    				<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
 	    			</tr>
 
