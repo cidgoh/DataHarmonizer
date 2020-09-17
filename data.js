@@ -24,7 +24,7 @@ const DATA = [
         "GISAID": "Sample ID given by the sample provider"
       },
       {
-        "fieldName": "PHAC sample ID",
+        "fieldName": "NML submitted specimen primary ID",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -32,10 +32,31 @@ const DATA = [
         "dataStatus": null,
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
-        "requirement": "recommended",
-        "description": "The identifier assigned to the sample in the national database.",
-        "guidance": "Store the PHAC sample ID. This ID will be assigned by PHAC. The PHAC sample ID may be different than the sample ID assigned by the sample collector. It is important to track both of these for traceability. ",
-        "examples": "PHAC_123",
+        "requirement": "",
+        "description": "The primary ID of the specimen submitted thorough LaSER.",
+        "guidance": "Store the identifier for the specimen submitted through the NML LaSER system.",
+        "examples": "SR20-12345",
+        "GISAID": ""
+      },
+      {
+        "fieldName": "NML related specimen primary ID",
+        "capitalize": "",
+        "ontology_id": "",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": [
+          "Not Applicable",
+          "Missing",
+          "Not Collected",
+          "Not Provided",
+          "Restricted Access"
+        ],
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "The primary ID of the related specimen previously submitted thorough LaSER",
+        "guidance": "Store the primary ID of the related specimen previously submitted thorough LaSER",
+        "examples": "SR20-12345",
         "GISAID": ""
       },
       {
@@ -683,8 +704,8 @@ const DATA = [
         "xs:maxInclusive": "",
         "requirement": "required",
         "description": "Identifier of the specific isolate.",
-        "guidance": "Provide the isolate name. This identifer should be an unique, indexed, alpha-numeric ID within your laboratory. The isolate name is often the same as the specimen collector sample ID. Suggested: Isolate name should be identical to the GISAID virus name, which should be written in the format \u201chCov-19/CANADA/xxxxx/2020\u201d.",
-        "examples": "prov_rona_99",
+        "guidance": "Provide the GISAID virus name, which should be written in the format \u201chCov-19/CANADA/xxxxx/2020\u201d.",
+        "examples": "hCov-19/CANADA/prov_rona_99/2020",
         "GISAID": "Virus name"
       },
       {
@@ -713,6 +734,49 @@ const DATA = [
           "Research": {},
           "Surveillance testing": {},
           "Viral passage experiment": {}
+        }
+      },
+      {
+        "fieldName": "NML submitted specimen type",
+        "capitalize": "",
+        "ontology_id": "",
+        "datatype": "select",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "The type of specimen submitted to the NML for testing.",
+        "guidance": "Select the specimen type from the pick list provided.",
+        "examples": "swab",
+        "GISAID": "",
+        "vocabulary": {
+          "Swab": {},
+          "RNA": {},
+          "mRNA (cDNA)": {},
+          "Nucleic acid": {}
+        }
+      },
+      {
+        "fieldName": "NML related specimen relationship type",
+        "capitalize": "",
+        "ontology_id": "",
+        "datatype": "select",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "The relationship of the related specimen to the previous submission.",
+        "guidance": "Provide the specimen type of the original sample submitted from the pick list provided, so that additional specimen testing can be tracked in the system.",
+        "examples": "swab",
+        "GISAID": "",
+        "vocabulary": {
+          "Acute": {},
+          "Convalescent": {},
+          "Familial": {},
+          "Follow-up": {},
+          "Previously Submitted": {}
         }
       },
       {
@@ -1905,6 +1969,112 @@ const DATA = [
         "examples": "Canada",
         "GISAID": "",
         "vocabulary": {}
+      },
+      {
+        "fieldName": "destination of most recent travel (city)",
+        "capitalize": "",
+        "ontology_id": "",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": [
+          "Not Applicable",
+          "Missing",
+          "Not Collected",
+          "Not Provided",
+          "Restricted Access"
+        ],
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "The name of the city that was the destination of most recent travel.",
+        "guidance": "Provide the name of the city that the host travelled to. Use this look-up service to identify the standardized term: https://www.ebi.ac.uk/ols/ontologies/gaz",
+        "examples": "New York City",
+        "GISAID": ""
+      },
+      {
+        "fieldName": "destination of most recent travel (state/province/territory)",
+        "capitalize": "",
+        "ontology_id": "",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": [
+          "Not Applicable",
+          "Missing",
+          "Not Collected",
+          "Not Provided",
+          "Restricted Access"
+        ],
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "The name of the province that was the destination of most recent travel.",
+        "guidance": "Provide the name of the state/province/territory that the host travelled to. Use this look-up service to identify the standardized term: https://www.ebi.ac.uk/ols/ontologies/gaz",
+        "examples": "California",
+        "GISAID": ""
+      },
+      {
+        "fieldName": "destination of most recent travel (country)",
+        "capitalize": "",
+        "ontology_id": "",
+        "datatype": "select",
+        "source": "geo_loc_name (country)",
+        "dataStatus": [
+          "Not Applicable",
+          "Missing",
+          "Not Collected",
+          "Not Provided",
+          "Restricted Access"
+        ],
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "The name of the country that was the destination of most recent travel.",
+        "guidance": "Provide the name of the country that the host travelled to. Use this look-up service to identify the standardized term: https://www.ebi.ac.uk/ols/ontologies/gaz",
+        "examples": "United Kingdom",
+        "GISAID": "",
+        "vocabulary": {}
+      },
+      {
+        "fieldName": "most recent travel departure date",
+        "capitalize": "",
+        "ontology_id": "",
+        "datatype": "xs:date",
+        "source": "",
+        "dataStatus": [
+          "Not Applicable",
+          "Missing",
+          "Not Collected",
+          "Not Provided",
+          "Restricted Access"
+        ],
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "The date of a person's most recent departure from their primary residence (at that time) on a journey to one or more other locations.",
+        "guidance": "Provide the travel departure date.",
+        "examples": "2020-03-16",
+        "GISAID": ""
+      },
+      {
+        "fieldName": "most recent travel return date",
+        "capitalize": "",
+        "ontology_id": "",
+        "datatype": "xs:date",
+        "source": "",
+        "dataStatus": [
+          "Not Applicable",
+          "Missing",
+          "Not Collected",
+          "Not Provided",
+          "Restricted Access"
+        ],
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "The date of a person's most recent return to some residence from a journey originating at that residence.",
+        "guidance": "Provide the travel return date.",
+        "examples": "2020-04-26",
+        "GISAID": ""
       },
       {
         "fieldName": "travel history",
