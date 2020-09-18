@@ -672,7 +672,9 @@ BTO:0004755	lab host	   Vero E6 cell line
 	host age bin	50 - 59												
 	host age bin	60 - 69												
 	host age bin	70 - 79												
-	host age bin	80+												
+	host age bin	80 - 89												
+	host age bin	90 - 99												
+	host age bin	100+												
 														
 OMRSE:00000009?	host gender	Female												
 OMRSE:00000008?	host gender	Male												

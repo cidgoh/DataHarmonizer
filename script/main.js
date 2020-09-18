@@ -151,17 +151,13 @@ const createHot = (data) => {
       var triggered_changes = []; 
 
       for (const change of changes) {
-
         const column = change[1];
         // Check field change rules
-        fieldChangeTest(change[0], column, parseInt(change[3]), fields, triggered_changes);
-
-        // Test field against capitalization change.
-        if (change[3] && change[3].length > 0) 
-          change[3] = changeCase(change[3], fields[column].capitalize);
+        fieldChangeRules(change, fields, triggered_changes);
       }
       // Add any indirect field changes onto end of existing changes.
-      if (triggered_changes) changes.push(...triggered_changes)
+      if (triggered_changes) 
+        changes.push(...triggered_changes);
     },
     afterRender: () => {
       $('#header-row').css('visibility', 'visible');
@@ -191,41 +187,6 @@ const createHot = (data) => {
   return enableMultiSelection(hot, data);
 };
 
-/**
- * Iterate through rules set up for named columns
- * @param {integer} row Data table row.
- * @param {integer} column Data table column.
- * @param {string} value Data table cell's value.
- * @param {Object} fields See `data.js`.
- * @param {Array} triggered_changes array of change which is appended to changes.
- */
-const fieldChangeTest = (row, column, value, fields, triggered_changes) => {
-
-  if (fields.length > column+1) {
-
-    // All these rules require a column following current one.
-    const next_field = fields[column+1];
-
-    // Rule: for any "x bin" field that follows a "x" field (in other words, with
-    // " bin" appended to its label, find and set appropriate bin selection.
-    if (next_field.fieldName == fields[column].fieldName + ' bin') {
-      var selection = '';
-      if (value >= 0) {
-        // .flatVocabulary is an array of ranges e.g. "10 - 19"
-        for (const number_range of next_field.flatVocabulary) {
-          if (value >= parseInt(number_range)) {
-            selection = number_range;
-            continue;
-          }
-          break;
-        }
-      }
-      triggered_changes.push([row, column+1, undefined, selection]);
-
-    };
-  }
-
-};
 
 /**
  * Create a matrix containing the nested headers supplied to Handsontable.
@@ -455,7 +416,7 @@ const openFile = (file, hot, data, xlsx) => {
       const params = [worksheet, {header: 1, raw: false, range: 0}];
       const matrix = (xlsx.utils.sheet_to_json(...params));
       if (compareMatrixHeadersToGrid(matrix, data)) {
-        hot.loadData(changeCases(matrix.slice(2), hot, data));
+        hot.loadData(matrixFieldChangeRules(matrix.slice(2), hot, data));
       } else {
         launchSpecifyHeadersModal(matrix, hot, data);
       }
@@ -487,7 +448,7 @@ const launchSpecifyHeadersModal = (matrix, hot, data) => {
           mapMatrixToGrid(matrix, specifiedHeaderRow-1, data);
       $('#specify-headers-modal').modal('hide');
       runBehindLoadingScreen(() => {
-        hot.loadData(changeCases(mappedMatrixObj.matrix.slice(2), hot, data));
+        hot.loadData(matrixFieldChangeRules(mappedMatrixObj.matrix.slice(2), hot, data));
         if (mappedMatrixObj.unmappedHeaders.length) {
           alertOfUnmappedHeaders(mappedMatrixObj.unmappedHeaders);
         }
@@ -604,7 +565,7 @@ const mapMatrixToGrid = (matrix, matrixHeaderRow, data) => {
 };
 
 /**
- * Modify matrix data for grid according to specified cases.
+ * Modify matrix data for grid according to specified rules.
  * This is useful when calling `hot.loadData`, as cell changes from said method
  * are not recognized by `afterChange`.
  * @param {Array<Array<String>>} matrix Data meant for grid.
@@ -612,18 +573,109 @@ const mapMatrixToGrid = (matrix, matrixHeaderRow, data) => {
  * @param {Object} data See `data.js`.
  * @return {Array<Array<String>>} Modified matrix.
  */
-const changeCases = (matrix, hot, data) => {
+const matrixFieldChangeRules = (matrix, hot, data) => {
   const fields = getFields(data);
+  for (let col=0; col < fields.length; col++) {
 
-  for (let row=0; row < matrix.length; row++) {
-    for (let col=0; col < fields.length; col++) {
-      if (!matrix[row][col] || !fields[col].capitalize) continue;
-      matrix[row][col] = changeCase(matrix[row][col], fields[col].capitalize);
+    const field = fields[col];
+
+    // Test field against capitalization change.
+    if (field.capitalize !== null) {
+      for (let row=0; row < matrix.length; row++) {
+        if (!matrix[row][col]) continue;
+        matrix[row][col] = changeCase(matrix[row][col], field.capitalize);
+      }
+    }
+
+    var triggered_changes = [];
+
+    // Rules that require a column following current one.
+    if (fields.length > col+1) {
+
+      const next_field = fields[col+1];
+
+      // Rule: for any "x bin" field that follows a "x" field (see next fn)
+      if (next_field.fieldName == fields[col].fieldName + ' bin') {
+        for (let row=0; row < matrix.length; row++) {
+          // Do parseFloat rather than parseInt to accomodate fractional bins.
+          const value = matrix[row][col];
+
+          // For IMPORT, this is only run on fields that have a value.
+          // Note matrix pass cell by reference so its content can be changed.
+          if (value && value.length > 0) {
+            const number = parseFloat(matrix[row][col]);
+            var selection = '';
+            if (number >= 0) {
+              // .flatVocabulary is an array of ranges e.g. "10 - 19"
+              for (const number_range of next_field.flatVocabulary) {
+                // ParseInt just looks at first part of number 
+                if (number >= parseFloat(number_range)) {
+                  selection = number_range;
+                  continue;
+                }
+                break;
+              }
+            }
+            triggered_changes.push([row, col+1, undefined, selection]);
+          }
+        }
+      }
+    }
+
+    // Do triggered changes:
+    for (const change of triggered_changes) {
+      matrix[change[0]][change[1]] = change[3];
     }
   }
 
   return matrix;
 }
+
+
+/**
+ * Iterate through rules set up for named columns
+ * Like matrixFieldChangeRules but just for table cell change array.
+ * @param {Array} change array [row, col, ? , value]
+ * @param {Object} fields See `data.js`.
+ * @param {Array} triggered_changes array of change which is appended to changes.
+ */
+const fieldChangeRules = (change, fields, triggered_changes) => {
+
+  const col = change[1];
+  const field = fields[col];
+
+  // Test field against capitalization change.
+  if (field.capitalize !== null && change[3] && change[3].length > 0) 
+      change[3] = changeCase(change[3], field.capitalize);
+
+  // Rules that require a column following current one.
+  if (fields.length > col+1) {
+
+    const next_field = fields[col+1];
+
+    // Rule: for any "x bin" field that follows a "x" field (in other words, with
+    // " bin" appended to its label, find and set appropriate bin selection.
+    // add test on field.datatypes === "xs:decimal" , "select" ?
+    if (next_field.fieldName == fields[col].fieldName + ' bin') {
+      // Do parseFloat rather than parseInt to accomodate fractional bins.
+      const value = parseFloat(change[3]);
+      var selection = '';
+      if (value >= 0) {
+        // .flatVocabulary is an array of ranges e.g. "10 - 19"
+        for (const number_range of next_field.flatVocabulary) {
+          if (value >= parseFloat(number_range)) {
+            selection = number_range;
+            continue;
+          }
+          break;
+        }
+      }
+      triggered_changes.push([change[0], col+1, undefined, selection]);
+
+    };
+  }
+
+};
 
 /**
  * Modify visibility of columns in grid. This function should only be called
