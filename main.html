@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>covid-19 Metadata Template</title>
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="./main.css">
   </head>
   <body>
     <div class="w-100 h-100 position-fixed fixed-top" id="loading-screen">
@@ -39,7 +39,7 @@
                 <span class="dropdown-item hidden-dropdown-item" id="show-valid-rows-dropdown-item">Show valid rows</span>
                 <span class="dropdown-item hidden-dropdown-item" id="show-invalid-rows-dropdown-item">Show invalid rows</span>
                 <span class="dropdown-item" id="jump-to-dropdown-item" data-toggle="modal" data-target="#jump-to-modal">Jump to...</span>
-                <span class="dropdown-item disabled" id="version-dropdown-item">Version 0.11.0</span>
+                <span class="dropdown-item disabled" id="version-dropdown-item">Version 0.12.0</span>
               </div>
             </div>
             <button type="button" class="btn btn-primary" id="validate-btn">Validate</button>
@@ -48,8 +48,8 @@
             <button class="btn btn-info dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Help</button>
             <div class="dropdown-menu">
               <span class="dropdown-item" data-toggle="modal" data-target="#getting-started-modal">Getting Started</span>
-              <a class="dropdown-item" target="_blank" href="./reference.html">Reference Guide</a>
-              <a class="dropdown-item" target="_blank" href="./SOP.pdf">SOP</a>
+              <a class="dropdown-item" target="_blank" href="./template/canada_covid19/reference.html">Reference Guide</a>
+              <a class="dropdown-item" target="_blank" href="./template/canada_covid19/SOP.pdf">SOP</a>
               <span class="dropdown-item" data-toggle="modal" data-target="#contact-us-modal">Contact Us</span>
             </div>
           </div>
@@ -182,6 +182,7 @@
                     <option value="" disabled selected>Format</option>
                     <option value="gisaid">GISAID</option>
                     <option value="irida">IRIDA</option>
+                    <option value="laser">CNPHI LaSER</option>
                   </select>
                 </div>
               </div>
@@ -449,7 +450,8 @@
     <script type="text/javascript" src="libraries/chosen.jquery.min.js"></script>
     <script type="text/javascript" src="libraries/moment.min.js"></script>
     <script type="text/javascript" src="libraries/jquery-ui.min.js"></script>
-    <script src="data.js"></script>
-    <script src="main.js"></script>
+    <script src="template/canada_covid19/data.js"></script>
+    <script src="script/export.js"></script>
+    <script src="script/main.js"></script>
   </body>
 </html>
