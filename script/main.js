@@ -146,11 +146,19 @@ const createHot = (data) => {
     licenseKey: 'non-commercial-and-evaluation',
     beforeChange: function(changes, source) {
       if (!changes) return;
+
+      // When a change in one field triggers a change in another field.
+      var triggered_changes = []; 
+
       for (const change of changes) {
-        if (!change[3]) continue;
-        const col = change[1];
-        change[3] = changeCase(change[3], fields[col].capitalize);
+
+        const column = change[1];
+        fieldChangeTest(change[0], column, parseInt(change[3]), fields, triggered_changes);
+
+        if (change[3] && change[3].length > 0) 
+          change[3] = changeCase(change[3], fields[column].capitalize);
       }
+      if (triggered_changes) changes.push(...triggered_changes)
     },
     afterRender: () => {
       $('#header-row').css('visibility', 'visible');
@@ -178,6 +186,38 @@ const createHot = (data) => {
   });
 
   return enableMultiSelection(hot, data);
+};
+
+/**
+ * Enable a change in one field to trigger a change in another. Testing given
+ * fieldName against the column's name.  
+ * @param {integer} row Data table row.
+ * @param {integer} column Data table column.
+ * @param {string} value Data table column.
+ * @param {Object} fields See `data.js`.
+ * @param {Array} triggered_changes array of change which is appended to changes.
+ */
+const fieldChangeTest = (row, column, value, fields, triggered_changes) => {
+
+  // Rule: find host age bin for given host age.
+  if (fields[column].fieldName === 'host age') {
+    const next_field = fields[column+1];
+    if (next_field.fieldName === 'host age bin') {
+      var range = '';
+      if (value >= 0) {
+        // .flatVocabulary is an array of ranges e.g. "10 - 19"
+        for (const number_range of next_field.flatVocabulary) {
+          if (value >= parseInt(number_range)) {
+            range = number_range;
+            continue;
+          }
+          break;
+        }
+      }
+      triggered_changes.push([row, column+1, undefined, range]);
+    }
+  };
+
 };
 
 /**
@@ -383,114 +423,7 @@ const exportFile = (matrix, baseName, ext, xlsx) => {
   }
 };
 
-/**
- * Download secondary headers and grid data.
- * @param {String} baseName Basename of downloaded file.
- * @param {Object} hot Handonstable grid instance.
- * @param {Object} data See `data.js`.
- * @param {Object} xlsx SheetJS variable.
- */
-const exportIRIDA = (baseName, hot, data, xlsx) => {
-  const matrix = [getFlatHeaders(data)[1], ...getTrimmedData(hot)];
-  runBehindLoadingScreen(exportFile, [matrix, baseName, 'xls', xlsx]);
-};
 
-/**
- * Download grid mapped to GISAID format.
- * @param {String} baseName Basename of downloaded file.
- * @param {Object} hot Handonstable grid instance.
- * @param {Object} data See `data.js`.
- * @param {Object} xlsx SheetJS variable.
- */
-const exportGISAID = (baseName, hot, data, xlsx) => {
-  // TODO: As we add more formats, we should add such headers to `data.js`
-  const GISAIDHeaders = [
-    'Submitter', 'FASTA filename', 'Virus name', 'Type',
-    'Passage details/history', 'Collection date', 'Location',
-    'Additional location information', 'Host', 'Additional host information',
-    'Gender', 'Patient age', 'Patient status', 'Specimen source', 'Outbreak',
-    'Last vaccinated', 'Treatment', 'Sequencing technology', 'Assembly method',
-    'Coverage', 'Originating lab', 'Address',
-    'Sample ID given by the sample provider', 'Submitting lab', 'Address',
-    'Sample ID given by the submitting laboratory', 'Authors',
-  ];
-
-  // Create a map of GISAID headers to our fields. It is a one-to-many
-  // relationship, with indices representing the maps.
-  const headerMap = {};
-  for (const [GISAIDIndex, _] of GISAIDHeaders.entries()) {
-    headerMap[GISAIDIndex] = [];
-  }
-  const fields = getFields(data);
-  for (const [fieldIndex, field] of fields.entries()) {
-    if (field.GISAID) {
-      let GISAIDIndex = GISAIDHeaders.indexOf(field.GISAID);
-      // GISAID has two fields called 'Address'
-      const secondAddress = 'sequence submitter contact address';
-      if (field.GISAID === 'Address' && field.fieldName === secondAddress) {
-        GISAIDIndex = GISAIDHeaders.indexOf(field.GISAID, GISAIDIndex+1);
-      }
-      headerMap[GISAIDIndex].push(fieldIndex);
-    }
-  }
-
-  // Construct GISAID's matrix
-  const mappedMatrix = [GISAIDHeaders];
-  const unmappedMatrix = getTrimmedData(hot);
-  for (const unmappedRow of unmappedMatrix) {
-    const mappedRow = [];
-    for (const [GISAIDIndex, GISAIDHeader] of GISAIDHeaders.entries()) {
-      if (GISAIDHeader === 'Type') {
-        mappedRow.push('betacoronavirus');
-        continue;
-      }
-
-      const mappedCell = [];
-      for (const mappedFieldIndex of headerMap[GISAIDIndex]) {
-        let mappedCellVal = unmappedRow[mappedFieldIndex];
-        if (!mappedCellVal) continue;
-
-        // Only map specimen processing if it is "virus passage"
-        const field = fields[mappedFieldIndex]
-        const standardizedCellVal = mappedCellVal.toLowerCase().trim();
-        if (field.fieldName === 'specimen processing') {
-          const standardizedVirusPassage = 'virus passage'.toLowerCase().trim();
-          // Specimen processing is a multi-select field
-          const standardizedCellValArr = standardizedCellVal.split(';');
-
-          if (!standardizedCellValArr.includes(standardizedVirusPassage)) {
-            continue;
-          } else {
-            // We only want to map "virus passage"
-            mappedCellVal = 'Virus passage';
-          }
-        }
-
-        // All null values sould be converted to "Unknown"
-        if (field.dataStatus) {
-          const standardizedDataStatus =
-              field.dataStatus.map(val => val.toLowerCase().trim());
-          if (standardizedDataStatus.includes(standardizedCellVal)) {
-            // Don't push "Unknown" to fields with multi, concat mapped values
-            if (headerMap[GISAIDIndex].length > 1) continue;
-
-            mappedCellVal = 'Unknown';
-          }
-        }
-
-        if (field.fieldName === 'passage number') {
-          mappedCellVal = 'passage number ' + mappedCellVal;
-        }
-
-        mappedCell.push(mappedCellVal);
-      }
-      mappedRow.push(mappedCell.join(';'));
-    }
-    mappedMatrix.push(mappedRow);
-  }
-
-  runBehindLoadingScreen(exportFile, [mappedMatrix, baseName, 'xls', xlsx]);
-};
 
 /**
  * Open file specified by user.
@@ -982,6 +915,8 @@ $(document).ready(() => {
       exportGISAID(baseName, HOT, DATA, XLSX);
     } else if (exportFormat === 'irida') {
       exportIRIDA(baseName, HOT, DATA, XLSX);
+    } else if (exportFormat === 'laser') {
+      exportLASER(baseName, HOT, DATA, XLSX);
     }
     $('#export-to-modal').modal('hide');
   });
