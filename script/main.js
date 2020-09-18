@@ -153,11 +153,14 @@ const createHot = (data) => {
       for (const change of changes) {
 
         const column = change[1];
+        // Check field change rules
         fieldChangeTest(change[0], column, parseInt(change[3]), fields, triggered_changes);
 
+        // Test field against capitalization change.
         if (change[3] && change[3].length > 0) 
           change[3] = changeCase(change[3], fields[column].capitalize);
       }
+      // Add any indirect field changes onto end of existing changes.
       if (triggered_changes) changes.push(...triggered_changes)
     },
     afterRender: () => {
@@ -189,34 +192,38 @@ const createHot = (data) => {
 };
 
 /**
- * Enable a change in one field to trigger a change in another. Testing given
- * fieldName against the column's name.  
+ * Iterate through rules set up for named columns
  * @param {integer} row Data table row.
  * @param {integer} column Data table column.
- * @param {string} value Data table column.
+ * @param {string} value Data table cell's value.
  * @param {Object} fields See `data.js`.
  * @param {Array} triggered_changes array of change which is appended to changes.
  */
 const fieldChangeTest = (row, column, value, fields, triggered_changes) => {
 
-  // Rule: find host age bin for given host age.
-  if (fields[column].fieldName === 'host age') {
+  if (fields.length > column+1) {
+
+    // All these rules require a column following current one.
     const next_field = fields[column+1];
-    if (next_field.fieldName === 'host age bin') {
-      var range = '';
+
+    // Rule: for any "x bin" field that follows a "x" field (in other words, with
+    // " bin" appended to its label, find and set appropriate bin selection.
+    if (next_field.fieldName == fields[column].fieldName + ' bin') {
+      var selection = '';
       if (value >= 0) {
         // .flatVocabulary is an array of ranges e.g. "10 - 19"
         for (const number_range of next_field.flatVocabulary) {
           if (value >= parseInt(number_range)) {
-            range = number_range;
+            selection = number_range;
             continue;
           }
           break;
         }
       }
-      triggered_changes.push([row, column+1, undefined, range]);
-    }
-  };
+      triggered_changes.push([row, column+1, undefined, selection]);
+
+    };
+  }
 
 };
 
