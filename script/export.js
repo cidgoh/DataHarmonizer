@@ -149,15 +149,16 @@ const exportLASER = (baseName, hot, data, xlsx) => {
     'Pathogen',
     'Reason for Sampling',
     'Test Requested',
-    'Specimen Type',
+    'Specimen Type',          
     'Anatomical Material',
     'Anatomical Site',
     'Body Product',
-    'Environmental Material',
+    'Environmental Material',   
     'Environmental Site',
     'Specimen Collection Matrix',
     'Collection Method',
     'Animal Type',
+    'Specimen Source', 
     'Host Health State',
     'Host Health State Details',
     'Host Disease',
@@ -180,11 +181,13 @@ const exportLASER = (baseName, hot, data, xlsx) => {
   // Create a map of Export format headers to template's fields. It is a 
   // one-to-many relationship, with indices representing the maps.
   const headerMap = {};
+  const fieldMap = {};
   for (const [HeaderIndex, _] of ExportHeaders.entries()) {
     headerMap[HeaderIndex] = [];
   }
   const fields = getFields(data);
   for (const [fieldIndex, field] of fields.entries()) {
+    fieldMap[field.fieldName] = fieldIndex;
     if (field.CNPHI) {
       const HeaderIndex = ExportHeaders.indexOf(field.CNPHI);
       if (HeaderIndex > -1)
@@ -208,29 +211,63 @@ const exportLASER = (baseName, hot, data, xlsx) => {
     for (const [HeaderIndex, HeaderName] of ExportHeaders.entries()) {
 
       if (HeaderName === 'Test Requested') {
-        // Assign constant value and do next field.
+        // Assign constant value.
         mappedRow.push('CanCOGeN Next Generation Sequencing (NGS)');
         continue;
       }
 
       if (HeaderName === 'Pathogen') {
-        // Assign constant value and do next field.
+        // Assign constant value.
         mappedRow.push('SARS-CoV-2');
         continue;
       }
       
       // yes/no calculated field
       if (HeaderName === 'Patient Symptomatic') {
+        // Note: if this field eventually gets null values, then must do 
+        // field.dataStatus check.
         mappedRow.push( mappedRow[symptoms_index] ? 'yes' : 'no' );
         continue;
       }
 
       // yes/no calculated field
       if (HeaderName === 'Patient Travelled') {
-        mappedRow.push( mappedRow[travel_index].replace(/\|/g,'').length >0 ? 'yes' : 'no' );
+        // as above for field.dataStatus check.
+        mappedRow.push( mappedRow[travel_index].replace(/\|/g,'').length > 0 ? 'yes' : 'no' );
         continue;
       }
 
+      // A complicated rule about what is stored in 'Specimen Source'
+      if (HeaderName === 'Specimen Source') {
+        var cellValue = '';
+        for (const FieldName of [
+          'host (scientific name)', 
+          'host (common name)', 
+          'environmental material', 
+          'environmental site']
+          ) {
+          const field = fields[fieldMap[FieldName]];
+          const value = unmappedRow[fieldMap[FieldName]];
+
+          // Ignore all null value types
+          if (!value || field.dataStatus.indexOf(value) >= 0) {
+            continue;
+          }
+          if (FieldName === 'host (scientific name)' || FieldName === 'host (common name)') {
+            if (value === 'Homo sapiens' || value === 'Human')
+              cellValue = 'Human'
+            else
+              cellValue = 'Animal'
+            break;
+          }
+          if (FieldName === 'environmental material' || FieldName === 'environmental site') {
+              cellValue = 'Environmental'
+            break;
+          }
+        }
+        mappedRow.push(cellValue);
+        continue;
+      }
       // Loop through all template fields that this field is mapped to, and
       // create a bar-separated list of values. EMPTY VALUES MUST STILL have
       // bar placeholder.
