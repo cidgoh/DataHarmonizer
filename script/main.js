@@ -239,19 +239,30 @@ const getColumns = (data) => {
   for (const field of getFields(data)) {
     const col = {};
     if (field.requirement) col.requirement = field.requirement;
-    if (field.datatype === 'xs:date') {
-      col.type = 'date';
-      col.dateFormat = 'YYYY-MM-DD';
-    } else if (field.datatype === 'select') {
-      col.type = 'autocomplete';
-      col.source = field.flatVocabulary;
-      if (field.dataStatus) col.source.push(...field.dataStatus);
-      col.trimDropdown = false;
-    } else if (field.datatype === 'multiple') {
-      // TODO: we need to find a better way to enable multi-selection
-      col.editor = 'text';
-      col.renderer = 'autocomplete';
-      col.source = field.flatVocabulary;
+    switch (field.datatype) {
+      case 'xs:date': 
+        col.type = 'date';
+        col.dateFormat = 'YYYY-MM-DD';
+        break;
+      case 'select':
+        col.type = 'autocomplete';
+        col.source = field.flatVocabulary;
+        if (field.dataStatus) col.source.push(...field.dataStatus);
+        col.trimDropdown = false;
+        break;
+      case 'xs:nonNegativeInteger':
+      case 'xs:decimal':
+        if (field.dataStatus) {
+          col.type = 'autocomplete';
+          col.source = field.dataStatus;
+        }
+        break;
+      case 'multiple':
+        // TODO: we need to find a better way to enable multi-selection
+        col.editor = 'text';
+        col.renderer = 'autocomplete';
+        col.source = field.flatVocabulary;
+        break;
     }
     ret.push(col);
   }
