@@ -19,9 +19,20 @@
       <!-- buttons above Handsontable grid -->
       <div class="row mt-3" id="header-row">
         <div class="col">
+
+            <div class="btn-group" >
+              <form>
+                <div class="btn-group" id="template-dropdown-btn-group" role="group">
+                  <div class="btn btn-primary">Template</div>
+                  <select id="select-template"></select>
+                </div>
+              </form>
+            </div>
+
           <div class="btn-group" role="group">
+
             <div class="btn-group" id="file-dropdown-btn-group" role="group">
-              <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">File</button>
+              <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Data File</button>
               <div class="dropdown-menu">
                 <span class="dropdown-item" id="new-dropdown-item">New</span>
                 <label for="open-file-input" class="dropdown-item mb-0" id="open-dropdown-item">Open</label>
@@ -48,8 +59,8 @@
             <button class="btn btn-info dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Help</button>
             <div class="dropdown-menu">
               <span class="dropdown-item" data-toggle="modal" data-target="#getting-started-modal">Getting Started</span>
-              <a class="dropdown-item" target="_blank" href="./template/canada_covid19/reference.html">Reference Guide</a>
-              <a class="dropdown-item" target="_blank" href="./template/canada_covid19/SOP.pdf">SOP</a>
+              <a class="dropdown-item" target="_blank" id="help_reference" href="">Reference Guide</a>
+              <a class="dropdown-item" target="_blank" id="help_sop" href="">SOP</a>
               <span class="dropdown-item" data-toggle="modal" data-target="#contact-us-modal">Contact Us</span>
             </div>
           </div>
@@ -70,7 +81,7 @@
             </div>
             <input type="text" class="form-control" id="add-rows-input" value="100">
             <div class="input-group-append">
-              <span class="input-group-text">more rows at the bottom.</span>
+              <span class="input-group-text"> rows at the bottom.</span>
             </div>
           </div>
         </div>
@@ -180,9 +191,7 @@
                 <div class="col mt-2 mt-sm-0">
                   <select class="form-control" id="export-to-format-select">
                     <option value="" disabled selected>Format</option>
-                    <option value="gisaid">GISAID</option>
-                    <option value="irida">IRIDA</option>
-                    <option value="laser">CNPHI LaSER</option>
+
                   </select>
                 </div>
               </div>
@@ -450,8 +459,7 @@
     <script type="text/javascript" src="libraries/chosen.jquery.min.js"></script>
     <script type="text/javascript" src="libraries/moment.min.js"></script>
     <script type="text/javascript" src="libraries/jquery-ui.min.js"></script>
-    <script src="template/canada_covid19/data.js"></script>
-    <script src="script/export.js"></script>
+
     <script src="script/main.js"></script>
   </body>
 </html>
