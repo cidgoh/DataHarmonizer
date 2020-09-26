@@ -1,9 +1,9 @@
 var DATA = [
   {
-    "fieldName": "Database Identifiers",
+    "fieldName": "Database Identifiers 2",
     "children": [
       {
-        "fieldName": "specimen collector sample ID",
+        "fieldName": "specimen collector TEST",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",

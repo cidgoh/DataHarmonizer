@@ -4,6 +4,17 @@
  * Functionality for uploading, downloading and validating data.
  */
 
+/* A list of templates available for this app. A template can also be accessed
+ * by adding it as a folder name in the URL parameter:
+ *
+ * main.html?template=test_template
+ *
+ */
+const TEMPLATES = {
+  "canada_covid19": "CanCOGeN Covid-19",
+  "test_template": "Test Template",
+};
+
 /**
  * Controls what dropdown options are visible depending on grid settings.
  */
@@ -18,6 +29,7 @@ const toggleDropdownVisibility = () => {
           $('#export-to-dropdown-item').addClass('disabled');
         }
       });
+
 
   $('#settings-dropdown-btn-group')
       .on('show.bs.dropdown', () => {
@@ -902,12 +914,68 @@ const getComment = (field) => {
   return ret;
 };
 
-$(document).ready(() => {
-  window.INVALID_CELLS = {};
-  window.DATA = processData(DATA);
-  window.HOT = createHot(DATA);
 
-  toggleDropdownVisibility(HOT, INVALID_CELLS);
+/**
+ * Enable template folder's template data structure to be loaded dynamically
+ */
+data_onload = function (self) { 
+  runBehindLoadingScreen(launch, [DATA])
+};
+
+/**
+ * Enable template folder's export script to be loaded dynamically
+ */
+
+export_onload = function () {
+  const select = $("#export-to-format-select")[0];
+  while (select.options.length > 1) {
+    select.remove(1);
+  }
+  for (const option in EXPORT_FORMATS) {
+    let newOption = new Option(option,option);
+    select.append(newOption)
+  }
+};
+
+// Select menu for available templates
+const select = $('#select-template')
+for (const option in TEMPLATES) {
+  let newOption = new Option(TEMPLATES[option], option);
+  select.append(newOption)
+}
+
+/**
+ * Enable template to be loaded dynamically
+ */
+$('#select-template').on('change', (e) => {
+  setup_template ($('#select-template').val() );
+})
+
+/************************** APPLICATION LAUNCH ********************/
+
+$(document).ready(() => {
+
+  setup_triggers();
+
+  // Allow URL parameter ?template=xxx_yyy to select template
+  let template = 'canada_covid19'; // Path of default template to use
+
+  if (window.URLSearchParams) {
+    let params = new URLSearchParams(location.search);
+    template = params.get('template') || template;
+  }
+  else {//low-tech way:
+    template = location.search.split("template=")[1] || template;
+  }
+
+  setup_template (template);
+
+});
+
+/**
+ * Wire up user controls. Only needs to happen once on load of HTML.
+ */
+const setup_triggers = () => {
 
   // File -> New
   $('#new-dropdown-item, #clear-data-confirm-btn').click((e) => {
@@ -925,6 +993,7 @@ $(document).ready(() => {
 
   // File -> Open
   const $fileInput = $('#open-file-input');
+
   $fileInput.change(() => {
     const file = $fileInput[0].files[0];
     const ext = file.name.split('.').pop();
@@ -981,13 +1050,8 @@ $(document).ready(() => {
       $('#export-to-err-msg').text('Select a format');
       return;
     }
-    if (exportFormat === 'gisaid') {
-      exportGISAID(baseName, HOT, DATA, XLSX);
-    } else if (exportFormat === 'irida') {
-      exportIRIDA(baseName, HOT, DATA, XLSX);
-    } else if (exportFormat === 'laser') {
-      exportLASER(baseName, HOT, DATA, XLSX);
-    }
+    if (exportFormat in EXPORT_FORMATS) 
+      EXPORT_FORMATS[exportFormat](baseName, HOT, DATA, XLSX);
     $('#export-to-modal').modal('hide');
   });
   // Reset export modal values when the modal is closed
@@ -995,6 +1059,71 @@ $(document).ready(() => {
     $('#export-to-err-msg').text('');
     $('#base-name-export-to-input').val('');
   });
+
+  // Validate
+  $('#validate-btn').on('click', () => {
+    runBehindLoadingScreen(() => {
+      window.INVALID_CELLS = getInvalidCells(HOT, DATA);
+      HOT.render();
+    });
+  });
+
+  // Field descriptions. Need to account for dynamically rendered
+  // cells.
+  $('#grid').on('dblclick', '.secondary-header-cell', (e) => {
+    const innerText = e.target.innerText;
+    const field =
+        getFields(DATA).filter(field => field.fieldName === innerText)[0];
+    $('#field-description-text').html(getComment(field));
+    $('#field-description-modal').modal('show');
+  });
+
+  // Add more rows
+  $('#add-rows-button').click(() => {
+    runBehindLoadingScreen(() => {
+      const numRows = $('#add-rows-input').val();
+      HOT.alter('insert_row', HOT.countRows()-1 + numRows, numRows);
+    });
+  });
+
+}
+
+/**
+ * Revise user interface elements to match template path, and trigger
+ * load of data.js and export.js scripts.  data_script.onload goes on
+ * to trigger launch(DATA).
+ */
+const setup_template = (template) => {
+
+  // Change in src triggers load of script and update to reference doc and SOP.
+  reload_js('template/' + template + '/data.js', data_onload);
+  reload_js('template/' + template + '/export.js', export_onload);
+  $("#help_reference").attr('href','./template/' + template + '/reference.html')
+  $("#help_sop").attr('href','./template/' + template + '/SOP.pdf')
+};
+
+const reload_js = (src_url, onloadfn) => {
+    // must remove old script to get new one to run
+    $('script[src="' + src_url + '"]').remove();
+    var script = document.createElement('script');
+    if (onloadfn) script.onload = onloadfn;
+    script.src = src_url;
+    document.head.appendChild(script);
+}
+
+const launch = (DATA) => {
+
+  window.DATA = processData(DATA);
+
+  runBehindLoadingScreen(() => {
+    window.INVALID_CELLS = {};
+    if (window.HOT) HOT.destroy();
+    window.HOT = createHot(DATA);
+  });
+  let HOT = window.HOT;
+  let INVALID_CELLS = window.INVALID_CELLS;
+
+  toggleDropdownVisibility(HOT, INVALID_CELLS);
 
   // Settings -> Show ... columns
   const showColsSelectors =
@@ -1031,29 +1160,5 @@ $(document).ready(() => {
     $jumpToInput.focus();
   });
 
-  // Validate
-  $('#validate-btn').on('click', () => {
-    runBehindLoadingScreen(() => {
-      window.INVALID_CELLS = getInvalidCells(HOT, DATA);
-      HOT.render();
-    });
-  });
 
-  // Field descriptions. Need to account for dynamically rendered
-  // cells.
-  $('#grid').on('dblclick', '.secondary-header-cell', (e) => {
-    const innerText = e.target.innerText;
-    const field =
-        getFields(DATA).filter(field => field.fieldName === innerText)[0];
-    $('#field-description-text').html(getComment(field));
-    $('#field-description-modal').modal('show');
-  });
-
-  // Add more rows
-  $('#add-rows-button').click(() => {
-    runBehindLoadingScreen(() => {
-      const numRows = $('#add-rows-input').val();
-      HOT.alter('insert_row', HOT.countRows()-1 + numRows, numRows);
-    });
-  });
-});
+}

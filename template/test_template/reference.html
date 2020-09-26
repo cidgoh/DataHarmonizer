@@ -1,0 +1,1052 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>CanCOGeN Canadian Guidelines for Covid19 Biosample Metadata Collection and Submission</title>
+  <meta name="description" content="Guidelines for submitting metadata regarding Covid19 biosamples and their associated cases to sequence repositories like IRIDA, NCBI BioProject, and GISAID">
+  <meta name="author" content="Hsiao Public Health Bioinformatics, Vancouver, BC, Canada">
+
+  <link rel="stylesheet" href="./doc.css">
+
+</head>
+
+<body>
+	
+	<h2>CanCOGeN Guidelines for Covid19 Biosample metadata collection and submission</h2>
+	<hr size="2"/>
+	<p>Guidelines for submitting metadata regarding Covid19 biosamples and their associated cases to sequence repositories like IRIDA, NCBI Bioproject, and GISAID.</p>
+
+	<table>
+		<thead>
+			<tr>
+				<th class="label">Field</th>
+				<th class="description">Description</th>
+				<th class="guidance">Guidance</th>
+				<th class="example">Examples</th>
+				<th class="data_status">Data Status</th>
+			</tr>
+		</thead>
+		<tbody>
+			<!-- python search and replace does this part -->	
+  			
+	    			<tr class="section">
+	    				<td colspan="5"><h3>Database Identifiers</h3></td>
+	    			</tr>
+	    			
+	    			<tr>
+	    				<td class="label">specimen collector sample ID</td>
+	    				<td>The user-defined name for the sample.</td>
+	    				<td>Store the collector sample ID. If this number is considered identifiable information, provide an alternative ID. Be sure to store the key that maps between the original and alternative IDs for traceability and follow up if necessary. Every collector sample ID from a single submitter must be unique. It can have any format, but we suggest that you make it concise, unique and consistent within your lab.</td>
+	    				<td>prov_rona_99</td>
+	    				<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">NML submitted specimen primary ID</td>
+	    				<td>The primary ID of the specimen submitted thorough LaSER.</td>
+	    				<td>Store the identifier for the specimen submitted through the NML LaSER system.</td>
+	    				<td>SR20-12345</td>
+	    				<td>None</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">NML related specimen primary ID</td>
+	    				<td>The primary ID of the related specimen previously submitted thorough LaSER</td>
+	    				<td>Store the primary ID of the related specimen previously submitted thorough LaSER</td>
+	    				<td>SR20-12345</td>
+	    				<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">IRIDA sample name</td>
+	    				<td>The identifier assigned to a sequenced isolate in IRIDA.</td>
+	    				<td>Store the IRIDA sample name. The IRIDA sample name will be created by the individual entering data into the IRIDA platform. IRIDA samples may be linked to metadata and sequence data, or just metadata alone. It is recommended that the IRIDA sample name be the same as, or contain, the specimen collector sample ID for better traceability. It is also recommended that the IRIDA sample name mirror the GISAID accession. IRIDA sample names cannot contain slashes. Slashes should be replaced by underscores. See IRIDA documentation for more information regarding special characters (https://irida.corefacility.ca/documentation/user/user/samples/#adding-a-new-sample). </td>
+	    				<td>prov_rona_99</td>
+	    				<td>None</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">umbrella bioproject accession</td>
+	    				<td>The INSDC accession number assigned to the umbrella BioProject for the Canadian SARS-CoV-2 sequencing effort.</td>
+	    				<td>Store the umbrella BioProject accession by selecting it from the picklist in the template. The umbrella BioProject accession will be identical for all CanCOGen submitters. Different provinces will have their own BioProjects, however these BioProjects will be linked under one umbrella BioProject.</td>
+	    				<td>PRJNA623807</td>
+	    				<td>None</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">bioproject accession</td>
+	    				<td>The INSDC accession number of the BioProject(s) to which the BioSample belongs.</td>
+	    				<td>Store the BioProject accession number. BioProjects are an organizing tool that links together raw sequence data, assemblies, and their associated metadata. Each province will be assigned a different bioproject accession number by the National Microbiology Lab. A valid NCBI BioProject accession has prefix PRJN e.g., PRJNA12345, and is created once at the beginning of a new sequencing project. </td>
+	    				<td>PRJNA608651</td>
+	    				<td>None</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">biosample accession</td>
+	    				<td>The identifier assigned to a BioSample in INSDC archives.</td>
+	    				<td>Store the accession returned from the BioSample submission. NCBI BioSamples will have the prefix SAMN.</td>
+	    				<td>SAMN14180202</td>
+	    				<td>None</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">SRA accession</td>
+	    				<td>The Sequence Read Archive (SRA) identifier linking raw read data, methodological metadata and quality control metrics submitted to the INSDC.</td>
+	    				<td>Store the accession assigned to the submitted "run". NCBI-SRA accessions start with SRR.</td>
+	    				<td>SRR11177792</td>
+	    				<td>None</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">GenBank accession</td>
+	    				<td>The GenBank identifier assigned to the sequence in the INSDC archives.</td>
+	    				<td>Store the accession returned from a GenBank submission (viral genome assembly).</td>
+	    				<td>MN908947.3</td>
+	    				<td>None</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">GISAID accession</td>
+	    				<td>The GISAID accession number assigned to the sequence.</td>
+	    				<td>Store the accession returned from the GISAID submission.</td>
+	    				<td>EPI_ISL_436489</td>
+	    				<td>None</td>
+	    			</tr>
+
+	    			
+	    			<tr class="section">
+	    				<td colspan="5"><h3>Sample collection and processing</h3></td>
+	    			</tr>
+	    			
+	    			<tr>
+	    				<td class="label">sample collected by</td>
+	    				<td>The name of the agency that collected the original sample.</td>
+	    				<td>The name of the sample collector should be written out in full, (with minor exceptions) and be consistent across multple submissions e.g. Public Health Agency of Canada, Public Health Ontario, BC Centre for Disease Control. The sample collector specified is at the discretion of the data provider (i.e. may be hospital, provincial public health lab, or other).</td>
+	    				<td>BC Centre for Disease Control</td>
+	    				<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">sample collector contact email</td>
+	    				<td>The email address of the contact responsible for follow-up regarding the sample.</td>
+	    				<td>The email address can represent a specific individual or lab e.g. johnnyblogs@lab.ca, or RespLab@lab.ca</td>
+	    				<td>RespLab@lab.ca</td>
+	    				<td>None</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">sample collector contact address</td>
+	    				<td>The mailing address of the agency submitting the sample.</td>
+	    				<td>The mailing address should be in the format: Street number and name, City, Province/Territory, Postal Code, Country</td>
+	    				<td>655 Lab St, Vancouver, British Columbia, V5N 2A2, Canada</td>
+	    				<td>None</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">sequence submitted by</td>
+	    				<td>The name of the agency that generated the sequence.</td>
+	    				<td>The name of the agency should be written out in full, (with minor exceptions) and be consistent across multple submissions e.g. Public Health Agency of Canada, Public Health Ontario, BC Centre for Disease Control.</td>
+	    				<td>Public Health Ontario</td>
+	    				<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">sequence submitter contact email</td>
+	    				<td>The email address of the contact responsible for follow-up regarding the sequence.</td>
+	    				<td>The email address can represent a specific individual or lab e.g. johnnyblogs@lab.ca, or RespLab@lab.ca</td>
+	    				<td>RespLab@lab.ca</td>
+	    				<td>None</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">sequence submitter contact address</td>
+	    				<td>The mailing address of the agency submitting the sequence.</td>
+	    				<td>The mailing address should be in the format: Street number and name, City, Province/Territory, Postal Code, Country</td>
+	    				<td>123 Sunnybrooke St, Toronto, Ontario, M4P 1L6, Canada</td>
+	    				<td>None</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">sample collection date</td>
+	    				<td>The date on which the sample was collected.</td>
+	    				<td>Sample collection date is critical for surveillance and many types of analyses. Required granularity includes year, month and day. If this date is considered identifiable information, it is acceptable to add "jitter" by adding or subtracting a calendar day (acceptable by GISAID). Alternatively, ”received date” may be used as a substitute. The date should be provided in ISO 8601 standard format "YYYY-MM-DD".</td>
+	    				<td>2020-03-16</td>
+	    				<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">sample received date</td>
+	    				<td>The date on which the sample was received.</td>
+	    				<td>ISO 8601 standard "YYYY-MM-DD".</td>
+	    				<td>2020-03-20</td>
+	    				<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">geo_loc_name (country)</td>
+	    				<td>The country where the sample was collected.</td>
+	    				<td>Provide the country name from the controlled vocabulary provided.</td>
+	    				<td>Canada</td>
+	    				<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">geo_loc_name (province/territory)</td>
+	    				<td>The province/territory where the sample was collected.</td>
+	    				<td>Provide the province/territory name from the controlled vocabulary provided.</td>
+	    				<td>Saskatchewan</td>
+	    				<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">geo_loc_name (city)</td>
+	    				<td>The city where the sample was collected.</td>
+	    				<td>Provide the city name. Use this look-up service to identify the standardized term: https://www.ebi.ac.uk/ols/ontologies/gaz</td>
+	    				<td>Medicine Hat</td>
+	    				<td>None</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">organism</td>
+	    				<td>Taxonomic name of the organism.</td>
+	    				<td>Use "Severe acute respiratory syndrome coronavirus 2". This value is provided in the template.</td>
+	    				<td>Severe acute respiratory coronavirus 2</td>
+	    				<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">isolate</td>
+	    				<td>Identifier of the specific isolate.</td>
+	    				<td>Provide the GISAID virus name, which should be written in the format “hCov-19/CANADA/xxxxx/2020”.</td>
+	    				<td>hCov-19/CANADA/prov_rona_99/2020</td>
+	    				<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">purpose of sampling</td>
+	    				<td>The reason that the sample was collected.</td>
+	    				<td>Provide the purpose of sampling from the picklist in the template.</td>
+	    				<td>Diagnostic testing</td>
+	    				<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">NML submitted specimen type</td>
+	    				<td>The type of specimen submitted to the NML for testing.</td>
+	    				<td>Select the specimen type from the pick list provided.</td>
+	    				<td>swab</td>
+	    				<td>None</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">NML related specimen relationship type</td>
+	    				<td>The relationship of the related specimen to the previous submission.</td>
+	    				<td>Provide the specimen type of the original sample submitted from the pick list provided, so that additional specimen testing can be tracked in the system.</td>
+	    				<td>swab</td>
+	    				<td>None</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">anatomical material</td>
+	    				<td>A substance obtained from an anatomical part of an organism e.g. tissue, blood.</td>
+	    				<td>Provide a descriptor if an anatomical material was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. </td>
+	    				<td>Blood</td>
+	    				<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">anatomical part</td>
+	    				<td>An anatomical part of an organism e.g. oropharynx.</td>
+	    				<td>Provide a descriptor if an anatomical part was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. </td>
+	    				<td>Nasopharynx (NP)</td>
+	    				<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">body product</td>
+	    				<td>A substance excreted/secreted from an organism e.g. feces, urine, sweat.</td>
+	    				<td>Provide a descriptor if a body product was sampled. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. </td>
+	    				<td>Feces</td>
+	    				<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">environmental material</td>
+	    				<td>A substance obtained from the natural or man-made environment e.g. soil, water, sewage.</td>
+	    				<td>Provide a descriptor if an environmental material was sampled. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. </td>
+	    				<td>Face mask</td>
+	    				<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">environmental site</td>
+	    				<td>An environmental location may describe a site in the natural or built environment e.g. contact surface, metal can, hospital, wet market, bat cave.</td>
+	    				<td>Provide a descriptor if an environmental site was sampled. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. </td>
+	    				<td>Building floor</td>
+	    				<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">collection device</td>
+	    				<td>The instrument or container used to collect the sample e.g. swab.</td>
+	    				<td>Provide a descriptor if a device was used for sampling. Use the picklist provided in the template. If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. </td>
+	    				<td>Swab</td>
+	    				<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">collection method</td>
+	    				<td>The process used to collect the sample e.g. phlebotamy, necropsy.</td>
+	    				<td>Provide a descriptor if a collection method was used for sampling. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. </td>
+	    				<td>Bronchoalveolar lavage (BAL)</td>
+	    				<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">collection protocol</td>
+	    				<td>The name and version of a particular protocol used for sampling.</td>
+	    				<td>Free text.</td>
+	    				<td>BCRonaSamplingProtocol v. 1.2</td>
+	    				<td>None</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">specimen processing</td>
+	    				<td>Any processing applied to the sample during or after receiving the sample.</td>
+	    				<td>Critical for interpreting data. Select all the applicable processes from the pick list. If virus was passaged, include information in "lab host", "passage number", and "passage method" fields. If none of the processes in the pick list apply, put "not applicable".</td>
+	    				<td>Virus passage</td>
+	    				<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">lab host</td>
+	    				<td>Name and description of the laboratory host used to propagate the source organism or material from which the sample was obtained.</td>
+	    				<td>Type of cell line used for propagation. Provide the name of the cell line using the picklist in the template. If not passaged, put "not applicable".</td>
+	    				<td>Vero E6 cell line</td>
+	    				<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">passage number</td>
+	    				<td>Number of passages.</td>
+	    				<td>Provide number of known passages. If not passaged, put "not applicable"</td>
+	    				<td>3</td>
+	    				<td>['Not Applicable']</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">passage method</td>
+	    				<td>Description of how organism was passaged.</td>
+	    				<td>Free text. Provide a very short description (<10 words). If not passaged, put "not applicable".</td>
+	    				<td></td>
+	    				<td>['Not Applicable']</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">biomaterial extracted</td>
+	    				<td>The biomaterial extracted from samples for the purpose of sequencing.</td>
+	    				<td>Provide the biomaterial extracted from the picklist in the template.</td>
+	    				<td>RNA (total)</td>
+	    				<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
+	    			</tr>
+
+	    			
+	    			<tr class="section">
+	    				<td colspan="5"><h3>Host Information</h3></td>
+	    			</tr>
+	    			
+	    			<tr>
+	    				<td class="label">host (common name)</td>
+	    				<td>The commonly used name of the host.</td>
+	    				<td>Common name or scientific name are required if there was a host. Both can be provided, if known. Use terms from the pick lists in the template. Common name e.g. human, bat. If the sample was environmental, put "not applicable.</td>
+	    				<td>Human</td>
+	    				<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">host (scientific name)</td>
+	    				<td>The taxonomic, or scientific name of the host.</td>
+	    				<td>Common name or scientific name are required if there was a host. Both can be provided, if known. Use terms from the pick lists in the template. Scientific name e.g. Homo sapiens, If the sample was environmental, put "not applicable</td>
+	    				<td>Homo sapiens</td>
+	    				<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">host health state</td>
+	    				<td>Health status of the host at the time of sample collection.</td>
+	    				<td>If known, select a descriptor from the pick list provided in the template.</td>
+	    				<td>Symptomatic</td>
+	    				<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">host health status details</td>
+	    				<td>Further details pertaining to the health or disease status of the host at time of collection.</td>
+	    				<td>If known, select a descriptor from the pick list provided in the template.</td>
+	    				<td>Hospitalized (ICU)</td>
+	    				<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">host health outcome</td>
+	    				<td>Disease outcome in the host.</td>
+	    				<td>If known, select a descriptor from the pick list provided in the template.</td>
+	    				<td>Recovered</td>
+	    				<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">host disease</td>
+	    				<td>The name of the disease experienced by the host.</td>
+	    				<td>Select "COVID-19" from the pick list provided in the template.</td>
+	    				<td>COVID-19</td>
+	    				<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">host age</td>
+	    				<td>Age of host at the time of sampling.</td>
+	    				<td>Enter the age of the host in years. If not available, provide a null value. If there is not host, put "Not Applicable".</td>
+	    				<td>79</td>
+	    				<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">host age bin</td>
+	    				<td>Age of host at the time of sampling, expressed as an age group.</td>
+	    				<td>Select the corresponding host age bin from the pick list provided in the template. If not available, provide a null value.</td>
+	    				<td>60 - 69</td>
+	    				<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">host gender</td>
+	    				<td>The gender of the host at the time of sample collection.</td>
+	    				<td>Select the corresponding host gender from the pick list provided in the template. If not available, provide a null value. If there is no host, put "Not Applicable".</td>
+	    				<td>male</td>
+	    				<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">host origin geo_loc name (country)</td>
+	    				<td>The country of residence of the host.</td>
+	    				<td>Select the country name from pick list provided in the template.</td>
+	    				<td>United Kingdom</td>
+	    				<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">host subject ID</td>
+	    				<td>A unique identifier by which each host can be referred to e.g. #131</td>
+	    				<td>Provide the host identifier. Should be a unique, user-defined identifier.</td>
+	    				<td>BCxy123</td>
+	    				<td>None</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">symptom onset date</td>
+	    				<td>The date on which the symptoms began or were first noted.</td>
+	    				<td>ISO 8601 standard "YYYY-MM-DD".</td>
+	    				<td>2020-03-16</td>
+	    				<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">signs and symptoms</td>
+	    				<td>A perceived change in function or sensation, (loss, disturbance or appearance) indicative of a disease, reported by a patient.</td>
+	    				<td>Select all of the symptoms experienced by the host from the pick list.</td>
+	    				<td>Cough; Fever; Chills</td>
+	    				<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">pre-existing conditions and risk factors</td>
+	    				<td>Patient pre-existing conditions and risk factors.
+Pre-existing condition: A medical condition that existed prior to the current infection.
+Risk Factor: A variable associated with an increased risk of disease or infection.</td>
+	    				<td>Select all of the pre-existing conditions and risk factors experienced by the host from the pick list. If the desired term is missing, contact the curation team.</td>
+	    				<td>Asthma; Pregnancy; Smoker</td>
+	    				<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">complications</td>
+	    				<td>Patient medical complications that are believed to have occurred as result of host disease.</td>
+	    				<td>Select all of the complications experienced by the host from the pick list. If the desired term is missing, contact the curation team.</td>
+	    				<td>Acute Respiratory Failure; Coma; Septicemia</td>
+	    				<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
+	    			</tr>
+
+	    			
+	    			<tr class="section">
+	    				<td colspan="5"><h3>Host exposure information</h3></td>
+	    			</tr>
+	    			
+	    			<tr>
+	    				<td class="label">location of exposure geo_loc name (country)</td>
+	    				<td>The country where the host was likely exposed to the causative agent of the illness.</td>
+	    				<td>Select the country name from pick list provided in the template.</td>
+	    				<td>Canada</td>
+	    				<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">destination of most recent travel (city)</td>
+	    				<td>The name of the city that was the destination of most recent travel.</td>
+	    				<td>Provide the name of the city that the host travelled to. Use this look-up service to identify the standardized term: https://www.ebi.ac.uk/ols/ontologies/gaz</td>
+	    				<td>New York City</td>
+	    				<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">destination of most recent travel (state/province/territory)</td>
+	    				<td>The name of the province that was the destination of most recent travel.</td>
+	    				<td>Provide the name of the state/province/territory that the host travelled to. Use this look-up service to identify the standardized term: https://www.ebi.ac.uk/ols/ontologies/gaz</td>
+	    				<td>California</td>
+	    				<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">destination of most recent travel (country)</td>
+	    				<td>The name of the country that was the destination of most recent travel.</td>
+	    				<td>Provide the name of the country that the host travelled to. Use this look-up service to identify the standardized term: https://www.ebi.ac.uk/ols/ontologies/gaz</td>
+	    				<td>United Kingdom</td>
+	    				<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">most recent travel departure date</td>
+	    				<td>The date of a person's most recent departure from their primary residence (at that time) on a journey to one or more other locations.</td>
+	    				<td>Provide the travel departure date.</td>
+	    				<td>2020-03-16</td>
+	    				<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">most recent travel return date</td>
+	    				<td>The date of a person's most recent return to some residence from a journey originating at that residence.</td>
+	    				<td>Provide the travel return date.</td>
+	    				<td>2020-04-26</td>
+	    				<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">travel history</td>
+	    				<td>Travel outside the country in last six months.</td>
+	    				<td>Specify the countries (and more granular locations if known, separated by a comma) travelled in the last six months; can include multiple travels. Separate multiple travel events with a semi-colon. List most recent travel first.</td>
+	    				<td>Canada, Vancouver; USA, Seattle; Italy, Milan</td>
+	    				<td>None</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">exposure event</td>
+	    				<td>Event leading to exposure.</td>
+	    				<td>Select an exposure event from the pick list provided in the template. If the desired term is missing, contact the curation team.</td>
+	    				<td>Mass gathering (convention)</td>
+	    				<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">direct/indirect exposure</td>
+	    				<td>The exposure transmission contact type.</td>
+	    				<td>Select direct or indirect exposure from the pick-list.</td>
+	    				<td>Direct</td>
+	    				<td>None</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">host role</td>
+	    				<td>The role of the host in relation to the exposure setting.</td>
+	    				<td>Select the host's personal role(s) from the pick list provided in the template. If the desired term is missing, contact the curation team.</td>
+	    				<td>Patient</td>
+	    				<td>None</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">exposure setting</td>
+	    				<td>The setting leading to exposure.</td>
+	    				<td>Select the host exposure setting(s) from the pick list provided in the template. If a desired term is missing, contact the curation team.</td>
+	    				<td>Healthcare Setting</td>
+	    				<td>None</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">exposure details</td>
+	    				<td>Additional host exposure information.</td>
+	    				<td>Free text description of the exposure.</td>
+	    				<td>Host role - Other: Bus Driver</td>
+	    				<td>None</td>
+	    			</tr>
+
+	    			
+	    			<tr class="section">
+	    				<td colspan="5"><h3>Sequencing</h3></td>
+	    			</tr>
+	    			
+	    			<tr>
+	    				<td class="label">library ID</td>
+	    				<td>The user-specified identifier for the library prepared for sequencing.</td>
+	    				<td>The library name should be unique, and can be an autogenerated ID from your LIMS, or modification of the isolate ID.</td>
+	    				<td>XYZ_123345</td>
+	    				<td>None</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">library insert size</td>
+	    				<td>The insert size of the library being sequenced (i.e. the length of the DNA inserted between the adaptors).</td>
+	    				<td>Provide the insert size in base pairs.</td>
+	    				<td>300</td>
+	    				<td>None</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">library preparation method</td>
+	    				<td>The name of the DNA library preparation kit used to generate the library being sequenced.</td>
+	    				<td>Provide the name of the library preparation kit used.</td>
+	    				<td>Nextera XT</td>
+	    				<td>None</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">MinIon barcode</td>
+	    				<td>The barcode of the MinIon unit used for sequencing.</td>
+	    				<td>Provide the barcode of the MinIon used for sequencing the sample.</td>
+	    				<td>FAB06069</td>
+	    				<td>None</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">sequencing instrument</td>
+	    				<td>The model of the sequencing instrument used.</td>
+	    				<td>Select a sequencing instrument from the picklist provided in the template.</td>
+	    				<td>MinIon</td>
+	    				<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">sequencing protocol name</td>
+	    				<td>The name and version number of the sequencing protocol used.</td>
+	    				<td>Provide the name and version of the sequencing protocol e.g. 1D_DNA_MinION</td>
+	    				<td>1D_DNA_MinION, ARTIC Network Protocol v. 3</td>
+	    				<td>None</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">sequencing protocol source</td>
+	    				<td>The name of the organization/authors of the protocol.</td>
+	    				<td>Provide the name of the source of the protocol e.g. ARTIC Network.</td>
+	    				<td>ARTIC Network</td>
+	    				<td>None</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">sequencing kit number</td>
+	    				<td>The manufacturer's kit number.</td>
+	    				<td>Alphanumeric value.</td>
+	    				<td>AB456XYZ789</td>
+	    				<td>None</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">amplicon pcr primers filename</td>
+	    				<td>The filename of the file containing amplicon PCR primer names and sequences.</td>
+	    				<td>Important for documenting methods and should be considered for submission, particularly if primers were designed in-house and not by a public consortium/network.</td>
+	    				<td>Rona_primers_2020.txt</td>
+	    				<td>None</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">sample sequenced date</td>
+	    				<td>The date the sample was sequenced.</td>
+	    				<td>ISO 8601 standard "YYYY-MM-DD".</td>
+	    				<td>2020-06-22</td>
+	    				<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
+	    			</tr>
+
+	    			
+	    			<tr class="section">
+	    				<td colspan="5"><h3>Bioinformatics and QC metrics</h3></td>
+	    			</tr>
+	    			
+	    			<tr>
+	    				<td class="label">raw sequence data processing</td>
+	    				<td>The names of the software and version number used for raw data processing such as removing barcodes, adapter trimming, filtering etc.</td>
+	    				<td>Provide the software name followed by the version e.g. Trimmomatic v. 0.38, Porechop v. 0.2.3</td>
+	    				<td>Porechop v. 0.2.3</td>
+	    				<td>None</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">sequencing depth (average)</td>
+	    				<td>The total number of sequenced base pairs divided by the expected number of base pairs in the genome.</td>
+	    				<td>Provide the value as a fold of coverage.</td>
+	    				<td>80x</td>
+	    				<td>None</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">assembly name</td>
+	    				<td>Name/version of the assembly provided by the submitter.</td>
+	    				<td>Provide the assembly name.</td>
+	    				<td>rona123assembly.fasta</td>
+	    				<td>None</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">assembly method</td>
+	    				<td>The name and version number of the assembly method used.</td>
+	    				<td>Provide the software name followed by the version e.g. Canu 2.0</td>
+	    				<td>Canu 2.0</td>
+	    				<td>None</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">assembly coverage breadth</td>
+	    				<td>The percentage of the assembled genome that was sequenced to a prescribed depth of coverage.</td>
+	    				<td>Provide value as a percent e.g. 95%.</td>
+	    				<td>95%</td>
+	    				<td>None</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">assembly coverage depth</td>
+	    				<td>The average number of reads representing a given nucleotide in the assembled sequence.</td>
+	    				<td>Provide value as a fold of coverage e.g. 80x.</td>
+	    				<td>400x</td>
+	    				<td>None</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">r1 fastq filename</td>
+	    				<td>The user-specified filename of the r1 FASTQ file.</td>
+	    				<td>Provide the r1 FASTQ filename.</td>
+	    				<td>ABC123_S1_L001_R1_001.fastq.gz</td>
+	    				<td>None</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">r2 fastq filename</td>
+	    				<td>The user-specified filename of the r2 FASTQ file.</td>
+	    				<td>Provide the r2 FASTQ filename.</td>
+	    				<td>ABC123_S1_L001_R2_001.fastq.gz</td>
+	    				<td>None</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">r1 fastq filepath</td>
+	    				<td>The location of the r1 FASTQ file within a user's file system.</td>
+	    				<td>Provide the filepath for the r1 FASTQ file. This information aids in data management. </td>
+	    				<td>/User/Documents/RespLab/Data</td>
+	    				<td>None</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">r2 fastq filepath</td>
+	    				<td>The location of the r2 FASTQ file within a user's file system.</td>
+	    				<td>Provide the filepath for the r2 FASTQ file. This information aids in data management. </td>
+	    				<td>/User/Documents/RespLab/Data</td>
+	    				<td>None</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">fast5 filename</td>
+	    				<td>The user-specified filename of the FAST5 file.</td>
+	    				<td>Provide the FAST5 filename.</td>
+	    				<td>rona123assembly.fast5</td>
+	    				<td>None</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">fast5 filepath</td>
+	    				<td>The location of the FAST5 file within a user's file system.</td>
+	    				<td>Provide the filepath for the FAST5 file. This information aids in data management. </td>
+	    				<td>/User/Documents/RespLab/Data</td>
+	    				<td>None</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">fasta filename</td>
+	    				<td>The user-specified filename of the FASTA file.</td>
+	    				<td>Provide the FASTA filename.</td>
+	    				<td>batch1a_sequences.fasta</td>
+	    				<td>None</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">fasta filepath</td>
+	    				<td>The location of the FASTA file within a user's file system.</td>
+	    				<td>Provide the filepath for the FASTA file. This information aids in data management. </td>
+	    				<td>/User/Documents/RespLab/Data</td>
+	    				<td>None</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">number base pairs</td>
+	    				<td>The number of total base pairs generated by the sequencing process.</td>
+	    				<td>Provide a numerical value (no need to include units).</td>
+	    				<td>387566</td>
+	    				<td>None</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">consensus genome length</td>
+	    				<td>Size of the reconstructed genome described as the number of base pairs.</td>
+	    				<td>Provide a numerical value (no need to include units).</td>
+	    				<td>38677</td>
+	    				<td>None</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">mean contig length</td>
+	    				<td>The mean contig length is the count of base pairs in the average size contig of the sequence assembly.</td>
+	    				<td>Provide a numerical value (no need to include units).</td>
+	    				<td>12689</td>
+	    				<td>None</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">N50</td>
+	    				<td>The minimum contig length needed to cover 50% of the genome.</td>
+	    				<td>Provide a numerical value (no need to include units).</td>
+	    				<td>10500</td>
+	    				<td>None</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">Ns per 100 kbp</td>
+	    				<td>The number of N symbols present in the consensus fasta sequence, per 100kbp of sequence.</td>
+	    				<td>Provide a numerical value (no need to include units).</td>
+	    				<td>330</td>
+	    				<td>None</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">reference genome accession</td>
+	    				<td>A persistent, unique identifier of a genome database entry.</td>
+	    				<td>Provide the accession number of the reference genome.</td>
+	    				<td>NC_045512.2</td>
+	    				<td>None</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">consensus sequence ID</td>
+	    				<td>The identifer used to specify the consensus sequence.</td>
+	    				<td>Provide the consensus sequence identifier.</td>
+	    				<td>ProvConsensusSeq</td>
+	    				<td>None</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">consensus sequence method</td>
+	    				<td>The name and version number of the software used to produce the consensus sequence.</td>
+	    				<td>Provide the software name followed by the version e.g. iVar 1.2</td>
+	    				<td>iVar 1.2</td>
+	    				<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">consensus sequence filename</td>
+	    				<td>The user-specified filename for the consensus sequence.</td>
+	    				<td>Provide the filename for the consensus sequence. </td>
+	    				<td>ProvConsensusSeq.fasta</td>
+	    				<td>None</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">consensus sequence filepath</td>
+	    				<td>The location of the consensus sequence in the user's file system.</td>
+	    				<td>Provide the filepath for the consensus sequence file. This information facilitates data management.</td>
+	    				<td>/User/Documents/RespLab/Data</td>
+	    				<td>None</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">annotation feature table filename</td>
+	    				<td>The filename of the file containing genome features such as gene names and corresponding CDS.</td>
+	    				<td>Provide the filename of the annotation feature table.</td>
+	    				<td>BCRonaAnnotationFeatures</td>
+	    				<td>None</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">bioinformatics protocol</td>
+	    				<td>The name and version number of the bioinformatics protocol used.</td>
+	    				<td>Further details regarding the methods used to process raw data, and/or generate assemblies, and/or generate consensus sequences can be provided in an SOP or protocol. Provide the name and version number of the protocol.</td>
+	    				<td>https://www.protocols.io/groups/cphln-sarscov2-sequencing-consortium/members</td>
+	    				<td>None</td>
+	    			</tr>
+
+	    			
+	    			<tr class="section">
+	    				<td colspan="5"><h3>Pathogen diagnostic testing</h3></td>
+	    			</tr>
+	    			
+	    			<tr>
+	    				<td class="label">gene name 1</td>
+	    				<td>The name of the gene used in the diagnostic RT-PCR test.</td>
+	    				<td>Provide the full name of the gene used in the test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI</td>
+	    				<td>E (orf4)</td>
+	    				<td>None</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">diagnostic pcr protocol 1</td>
+	    				<td>The name and version number of the protocol used for diagnostic marker amplification.</td>
+	    				<td>The name and version number of the protocol used for carrying out a diagnostic PCR test. This information can be compared to sequence data for evaluation of performance and quality control.</td>
+	    				<td>EGenePCRTest 2</td>
+	    				<td>None</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">diagnostic pcr Ct value 1</td>
+	    				<td>The Ct value result from a diagnostic SARS-CoV-2 RT-PCR test.</td>
+	    				<td>Provide the CT value of the sample from the diagnostic RT-PCR test.</td>
+	    				<td>21</td>
+	    				<td>None</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">gene name 2</td>
+	    				<td>The name of the gene used in the diagnostic RT-PCR test.</td>
+	    				<td>Provide the full name of another gene used in an RT-PCR test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI</td>
+	    				<td>nsp12 (RdRp)</td>
+	    				<td>None</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">diagnostic pcr protocol 2</td>
+	    				<td>The name and version number of the protocol used for diagnostic marker amplification.</td>
+	    				<td>The name and version number of the protocol used for carrying out a second diagnostic PCR test. This information can be compared to sequence data for evaluation of performance and quality control.</td>
+	    				<td>RdRpGenePCRTest 3</td>
+	    				<td>None</td>
+	    			</tr>
+
+	    			
+	    			<tr>
+	    				<td class="label">diagnostic pcr Ct value 2</td>
+	    				<td>The Ct value result from a diagnostic SARS-CoV-2 RT-PCR test.</td>
+	    				<td>Provide the CT value of the sample from the second diagnostic RT-PCR test.</td>
+	    				<td>36</td>
+	    				<td>None</td>
+	    			</tr>
+
+	    			
+	    			<tr class="section">
+	    				<td colspan="5"><h3>Contributor acknowledgement</h3></td>
+	    			</tr>
+	    			
+	    			<tr>
+	    				<td class="label">authors</td>
+	    				<td>Names of individuals contributing to the processes of sample collection, sequence generation, analysis, and data submission.</td>
+	    				<td>Include the first and last names of all individuals that should be attributed, separated by a comma.</td>
+	    				<td>Tejinder Singh, Fei Hu, Joe Blogs</td>
+	    				<td>None</td>
+	    			</tr>
+
+	    			</table>
+
+		</tbody>
+	</table>
+</body>
+</html>
