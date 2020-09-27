@@ -6,7 +6,7 @@
  * @param {Object} data See `data.js`.
  * @param {Object} xlsx SheetJS variable.
  */
-let exportIRIDA = (baseName, hot, data, xlsx) => {
+var exportIRIDA = (baseName, hot, data, xlsx) => {
   // Create an export table with template's headers (2nd row) and remaining rows of data
   const matrix = [getFlatHeaders(data)[1], ...getTrimmedData(hot)];
   runBehindLoadingScreen(exportFile, [matrix, baseName, 'xls', xlsx]);
@@ -19,7 +19,7 @@ let exportIRIDA = (baseName, hot, data, xlsx) => {
  * @param {Object} data See `data.js`.
  * @param {Object} xlsx SheetJS variable.
  */
-let exportGISAID = (baseName, hot, data, xlsx) => {
+var exportGISAID = (baseName, hot, data, xlsx) => {
   // TODO: As we add more formats, we should add such headers to 'data.js'
   // ExportHeaders is an array because it can happen, as below with 'Address',
   // that a column name appears two or more times.
@@ -134,7 +134,7 @@ let exportGISAID = (baseName, hot, data, xlsx) => {
  * @param {Object} data See `data.js`.
  * @param {Object} xlsx SheetJS variable.
  */
-let exportLASER = (baseName, hot, data, xlsx) => {
+var exportLASER = (baseName, hot, data, xlsx) => {
   const ExportHeaders = [
     'Primary Specimen Identification Number',
     'Related Specimen ID|Related Specimen Relationship Type',
@@ -288,7 +288,7 @@ let exportLASER = (baseName, hot, data, xlsx) => {
 };
 
 // A list of the above functions keyed by the Export menu name they should appear as:
-let EXPORT_FORMATS = {
+var EXPORT_FORMATS = {
   "IRIDA": exportIRIDA,
   "GISAID": exportGISAID,
   "CNPHI LaSER": exportLASER
