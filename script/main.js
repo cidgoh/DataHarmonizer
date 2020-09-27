@@ -12,7 +12,7 @@
  */
 const TEMPLATES = {
   "canada_covid19": "CanCOGeN Covid-19",
-  "test_template": "Test Template",
+  "test_template": "Test Template"
 };
 
 /**
@@ -21,7 +21,7 @@ const TEMPLATES = {
 const toggleDropdownVisibility = () => {
   $('.hidden-dropdown-item').hide();
 
-  $('#file-dropdown-btn-group')
+  $('#file-dropdown-btn-group').off()
       .on('show.bs.dropdown', () => {
         if (jQuery.isEmptyObject(INVALID_CELLS)) {
           $('#export-to-dropdown-item').removeClass('disabled');
@@ -31,7 +31,7 @@ const toggleDropdownVisibility = () => {
       });
 
 
-  $('#settings-dropdown-btn-group')
+  $('#settings-dropdown-btn-group').off()
       .on('show.bs.dropdown', () => {
         const hiddenCols = HOT.getPlugin('hiddenColumns').hiddenColumns;
         const hiddenRows = HOT.getPlugin('hiddenRows').hiddenRows;
@@ -916,48 +916,32 @@ const getComment = (field) => {
 
 
 /**
- * Enable template folder's template data structure to be loaded dynamically
+ * Enable template folder's data.js vocabulary to be loaded dynamically.
  */
-data_onload = function (self) { 
+dataOnload = function () { 
   runBehindLoadingScreen(launch, [DATA])
 };
 
 /**
- * Enable template folder's export script to be loaded dynamically
+ * Enable template folder's export.js export options to be loaded dynamically.
  */
-
-export_onload = function () {
+exportOnload = function () {
   const select = $("#export-to-format-select")[0];
   while (select.options.length > 1) {
     select.remove(1);
   }
   for (const option in EXPORT_FORMATS) {
-    let newOption = new Option(option,option);
-    select.append(newOption)
+    select.append(new Option(option,option))
   }
 };
-
-// Select menu for available templates
-const select = $('#select-template')
-for (const option in TEMPLATES) {
-  let newOption = new Option(TEMPLATES[option], option);
-  select.append(newOption)
-}
-
-/**
- * Enable template to be loaded dynamically
- */
-$('#select-template').on('change', (e) => {
-  setup_template ($('#select-template').val() );
-})
 
 /************************** APPLICATION LAUNCH ********************/
 
 $(document).ready(() => {
 
-  setup_triggers();
+  setupTriggers();
 
-  // Allow URL parameter ?template=xxx_yyy to select template
+  // Allow URL parameter ?template=xxx_yyy to select template on page load.
   let template = 'canada_covid19'; // Path of default template to use
 
   if (window.URLSearchParams) {
@@ -967,15 +951,34 @@ $(document).ready(() => {
   else {//low-tech way:
     template = location.search.split("template=")[1] || template;
   }
-
-  setup_template (template);
+  // Try triggering template menu option so it is selected
+  if (template in TEMPLATES) {
+    $('#select-template').val(template).trigger('change');
+    return;
+  }
+  else {
+    alert (`Template "${template}" is not listed in DataHarmonizer so might not load! `);
+  }
+  setupTemplate (template);
 
 });
 
 /**
- * Wire up user controls. Only needs to happen once on load of HTML.
+ * Wire up user controls which only need to happen once on load of page.
  */
-const setup_triggers = () => {
+const setupTriggers = () => {
+
+  // Enable template to be loaded dynamically
+  $('#select-template').on('change', (e) => {
+    setupTemplate ($('#select-template').val() );
+  })
+
+  // Select menu for available templates
+  const select = $('#select-template')
+  for (const option in TEMPLATES) {
+    let newOption = new Option(TEMPLATES[option], option);
+    select.append(newOption)
+  }
 
   // File -> New
   $('#new-dropdown-item, #clear-data-confirm-btn').click((e) => {
@@ -1086,44 +1089,6 @@ const setup_triggers = () => {
     });
   });
 
-}
-
-/**
- * Revise user interface elements to match template path, and trigger
- * load of data.js and export.js scripts.  data_script.onload goes on
- * to trigger launch(DATA).
- */
-const setup_template = (template) => {
-
-  // Change in src triggers load of script and update to reference doc and SOP.
-  reload_js('template/' + template + '/data.js', data_onload);
-  reload_js('template/' + template + '/export.js', export_onload);
-  $("#help_reference").attr('href','./template/' + template + '/reference.html')
-  $("#help_sop").attr('href','./template/' + template + '/SOP.pdf')
-};
-
-const reload_js = (src_url, onloadfn) => {
-    // must remove old script to get new one to run
-    $('script[src="' + src_url + '"]').remove();
-    var script = document.createElement('script');
-    if (onloadfn) script.onload = onloadfn;
-    script.src = src_url;
-    document.head.appendChild(script);
-}
-
-const launch = (DATA) => {
-
-  window.DATA = processData(DATA);
-
-  runBehindLoadingScreen(() => {
-    window.INVALID_CELLS = {};
-    if (window.HOT) HOT.destroy();
-    window.HOT = createHot(DATA);
-  });
-  let HOT = window.HOT;
-  let INVALID_CELLS = window.INVALID_CELLS;
-
-  toggleDropdownVisibility(HOT, INVALID_CELLS);
 
   // Settings -> Show ... columns
   const showColsSelectors =
@@ -1143,6 +1108,58 @@ const launch = (DATA) => {
     runBehindLoadingScreen(changeRowVisibility, args);
   });
 
+}
+
+/**
+ * Revise user interface elements to match template path, and trigger
+ * load of data.js and export.js scripts.  data_script.onload goes on
+ * to trigger launch(DATA).
+ * @param {String} template: path of template starting from app's template folder.
+ */
+const setupTemplate = (template) => {
+
+  // Change in src triggers load of script and update to reference doc and SOP.
+  reloadJs(`template/${template}/data.js`, dataOnload);
+  // Could make the following conditional on above reload?
+  reloadJs(`template/${template}/export.js`, exportOnload);
+  $("#help_reference").attr('href',`template/${template}/reference.html`)
+  $("#help_sop").attr('href',`template/${template}/SOP.pdf`)
+};
+
+/**
+ * Reloads a given javascript by removing any old script happening to have the
+ * same URL, and loading the given one. Only in this way will browsers reload
+ * the code.
+ * @param {String} src_url: path of template starting from app's template folder.
+ * @param {Object} onloadfn: function to run when script is loaded. 
+ */
+const reloadJs = (src_url, onloadfn) => {
+    // must 
+    $('script[src="' + src_url + '"]').remove();
+    var script = document.createElement('script');
+    if (onloadfn) script.onload = onloadfn;
+    script.src = src_url;
+    document.head.appendChild(script);
+}
+
+/**
+ * Clears and redraws grid based on DATA json.
+ * @param {Object} DATA: hierarchy of field sections and fields to render. 
+ */
+const launch = (DATA) => {
+
+  window.DATA = processData(DATA);
+
+  runBehindLoadingScreen(() => {
+    window.INVALID_CELLS = {};
+    if (window.HOT) HOT.destroy(); // handles already existing data
+    window.HOT = createHot(DATA);
+  });
+  let HOT = window.HOT;
+  let INVALID_CELLS = window.INVALID_CELLS;
+
+  toggleDropdownVisibility(HOT, INVALID_CELLS);
+
   // Settings -> Jump to...
   const $jumpToInput = $('#jump-to-input');
   $jumpToInput.data('fieldYCoordinates', getFieldYCoordinates(DATA));
@@ -1151,14 +1168,13 @@ const launch = (DATA) => {
     minLength: 0,
     select: (e, ui) => {
       const y = $(e.target).data('fieldYCoordinates')[ui.item.label];
-      scrollToCol(y, DATA, HOT);
+      scrollToCol(y, DATA, window.HOT);
       $('#jump-to-modal').modal('hide');
     },
-  }).bind('focus', () => void $jumpToInput.autocomplete('search'));
-  $('#jump-to-modal').on('shown.bs.modal', () => {
+  }).off().bind('focus', () => void $jumpToInput.autocomplete('search'));
+  $('#jump-to-modal').off().on('shown.bs.modal', () => {
     $jumpToInput.val('');
     $jumpToInput.focus();
   });
-
 
 }
