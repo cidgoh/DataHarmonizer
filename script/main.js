@@ -12,7 +12,7 @@
  */
 const TEMPLATES = {
   "canada_covid19": "CanCOGeN Covid-19",
-  "test_template": "Test Template"
+  "phac_dexa": "PHAC Dexa"
 };
 
 /**

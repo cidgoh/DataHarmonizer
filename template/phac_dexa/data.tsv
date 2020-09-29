@@ -1,0 +1,30 @@
+Ontology ID	parent class	label	datatype	source	data status	requirement	min value	max value	capitalize	description	guidance	examples	EXPORT_GRDI	
+ID	SC %													
+		Database Identifiers												
+	Database Identifiers	ISOLATE_ID	xs:token			required							sample_name	
+	Database Identifiers	SAMPLE_ID	xs:token			required							alternative_sample_ID	
+	Database Identifiers	Country_1	xs:token										geo_loc (country)	
+	Database Identifiers	Province_1	xs:token										geo_loc (state/province/region)	
+	Database Identifiers	DATECOLLECTED_1	xs:token										collection_date	
+	Database Identifiers	SubmittingOrg_1	xs:token										collected_by	
+	Database Identifiers	SubmittingLab_1	xs:token										laboratory_name	
+	Database Identifiers	CIPARS generic email	xs:token										sample_collector_contact_email	
+	Database Identifiers	FINAL_ID_GENUS	xs:token										organism	
+	Database Identifiers	FINAL_ID_SPECIES	xs:token										organism	
+	Database Identifiers	FINAL_ID_SEROTYPE	xs:token										serovar	
+	Database Identifiers	SA_Serotype_Method	xs:token										serotyping_method	
+	Database Identifiers	FINAL_ID_PHAGETYPE	xs:token										phagetype	
+	Database Identifiers	Project_1	xs:token										purpose_of_sampling	
+	Database Identifiers	SPECIES	xs:token										host (common name)	
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														

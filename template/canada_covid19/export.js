@@ -61,12 +61,12 @@ var exportGISAID = (baseName, hot, data, xlsx) => {
   }
   const fields = getFields(data);
   for (const [fieldIndex, field] of fields.entries()) {
-    if (field.GISAID) {
-      let HeaderIndex = ExportHeaders.indexOf(field.GISAID);
+    if (field.EXPORT_GSAID) {
+      let HeaderIndex = ExportHeaders.indexOf(field.EXPORT_GSAID);
       // GISAID has two fields called 'Address'
-      if (field.GISAID === 'Address' && field.fieldName === 'sequence submitter contact address') {
+      if (field.EXPORT_GSAID === 'Address' && field.fieldName === 'sequence submitter contact address') {
         // This locates 2nd occurance of 'Address' field in ExportHeaders
-        HeaderIndex = ExportHeaders.indexOf(field.GISAID, HeaderIndex+1);
+        HeaderIndex = ExportHeaders.indexOf(field.EXPORT_GSAID, HeaderIndex+1);
       }
       headerMap[HeaderIndex].push(fieldIndex);
     }
@@ -187,12 +187,12 @@ var exportLASER = (baseName, hot, data, xlsx) => {
   const fields = getFields(data);
   for (const [fieldIndex, field] of fields.entries()) {
     fieldMap[field.fieldName] = fieldIndex;
-    if (field.CNPHI) {
-      const HeaderIndex = ExportHeaders.indexOf(field.CNPHI);
+    if (field.EXPORT_CNPHI) {
+      const HeaderIndex = ExportHeaders.indexOf(field.EXPORT_CNPHI);
       if (HeaderIndex > -1)
         headerMap[HeaderIndex].push(fieldIndex);
       else {
-        const msg = 'A template CNPHI field was not found in CNPHI export header list:' + field.CNPHI;
+        const msg = 'A template CNPHI field was not found in CNPHI export header list:' + field.EXPORT_CNPHI;
         console.log (msg);
         $('#export-to-err-msg').text(msg);
       }
