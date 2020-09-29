@@ -18,9 +18,17 @@ data captured from a vocabulary spreadsheet.
 '''
 with open(r_filename) as tsvfile:
   reader = csv.DictReader(tsvfile, dialect='excel-tab');
-
+  export_format = [];
+  firstrow = True;
   for row in reader:
-    # row has keys 'Ontology ID' 'parent class' 'label' 'datatype' 'requirement'
+    # Row has keys 'Ontology ID' 'parent class' 'label' 'datatype' 'requirement' ...
+    # Get list of exportable fields, each of which has "EXPORT_" prefixed into it.
+    if (firstrow):
+    	firstrow = False;
+    	for key in row:
+    		if key[0:7] == 'EXPORT_':
+    			export_format.append(key);
+
 
     # Skip second row (a robot directive row)
     if len(row['Ontology ID']) == 0 or row['Ontology ID'] != 'ID':
@@ -59,11 +67,12 @@ with open(r_filename) as tsvfile:
 	    				'requirement': row['requirement'],
 	    				'description': row['description'],
 	    				'guidance':    row['guidance'],
-	    				'examples':    row['examples'],
-	    				'GISAID': 	   row['GISAID'],
-	    				'CNPHI': 	   row['CNPHI']
+	    				'examples':    row['examples']
 	    			}
 	    			
+	    			for export_field in export_format:
+	    				field[export_field] = row[export_field];
+
 	    			reference_html += '''
 	    			<tr>
 	    				<td class="label">{fieldName}</td>
@@ -108,7 +117,7 @@ reference_html += '</table>\n';
 
 with open(w_filename, 'w') as output_handle:
 	# DO NOT USE sort_keys=True because this overrides OrderedDict() sort order.
-	output_handle.write("const DATA = " + json.dumps(DATA, sort_keys = False, indent = 2, separators = (',', ': ')));
+	output_handle.write("var DATA = " + json.dumps(DATA, sort_keys = False, indent = 2, separators = (',', ': ')));
 
 with open('reference_template.html', 'r') as template_handle:
 	template = template_handle.read();
