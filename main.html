@@ -50,7 +50,7 @@
                 <span class="dropdown-item hidden-dropdown-item" id="show-valid-rows-dropdown-item">Show valid rows</span>
                 <span class="dropdown-item hidden-dropdown-item" id="show-invalid-rows-dropdown-item">Show invalid rows</span>
                 <span class="dropdown-item" id="jump-to-dropdown-item" data-toggle="modal" data-target="#jump-to-modal">Jump to...</span>
-                <span class="dropdown-item disabled" id="version-dropdown-item">Version 0.13.0</span>
+                <span class="dropdown-item disabled" id="version-dropdown-item">Version 0.13.1</span>
               </div>
             </div>
             <button type="button" class="btn btn-primary" id="validate-btn">Validate</button>
@@ -81,7 +81,7 @@
             </div>
             <input type="text" class="form-control" id="add-rows-input" value="100">
             <div class="input-group-append">
-              <span class="input-group-text"> rows at the bottom.</span>
+              <span class="input-group-text">more rows at the bottom.</span>
             </div>
           </div>
         </div>
@@ -449,6 +449,25 @@
         </div>
       </div>
     </div>
+    <div class="modal" id="missing-template-modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col text-danger" id="missing-template-msg"></div>
+              </div>
+              <div class="row mt-3">
+                <div class="col d-flex justify-content-end">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- External libraries -->
     <script src="libraries/jquery-3.5.1.min.js"></script>
     <script src="libraries/popper.min.js"></script>

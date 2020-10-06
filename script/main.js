@@ -199,7 +199,6 @@ const createHot = (data) => {
   return enableMultiSelection(hot, data);
 };
 
-
 /**
  * Create a matrix containing the nested headers supplied to Handsontable.
  * These headers are HTML strings, with useful selectors for the primary and
@@ -413,8 +412,6 @@ const exportFile = (matrix, baseName, ext, xlsx) => {
     xlsx.writeFile(workbook, `${baseName}.csv`, {bookType: 'csv', FS: ','});
   }
 };
-
-
 
 /**
  * Open file specified by user.
@@ -653,7 +650,6 @@ const matrixFieldChangeRules = (matrix, hot, data) => {
 
   return matrix;
 }
-
 
 /**
  * Iterate through rules set up for named columns
@@ -914,18 +910,10 @@ const getComment = (field) => {
   return ret;
 };
 
-
-/**
- * Enable template folder's data.js vocabulary to be loaded dynamically.
- */
-dataOnload = function () { 
-  runBehindLoadingScreen(launch, [DATA])
-};
-
 /**
  * Enable template folder's export.js export options to be loaded dynamically.
  */
-exportOnload = function () {
+const exportOnload = () =>  {
   const select = $("#export-to-format-select")[0];
   while (select.options.length > 1) {
     select.remove(1);
@@ -957,7 +945,8 @@ $(document).ready(() => {
     return;
   }
   else {
-    alert (`Template "${template}" is not listed in DataHarmonizer so might not load! `);
+    $('#missing-template-msg').text(`Template "${template}" is not listed in DataHarmonizer so might not load! `);
+    $('#missing-template-modal').modal('show');
   }
   setupTemplate (template);
 
@@ -1053,8 +1042,9 @@ const setupTriggers = () => {
       $('#export-to-err-msg').text('Select a format');
       return;
     }
-    if (exportFormat in EXPORT_FORMATS) 
+    if (exportFormat in EXPORT_FORMATS) {
       EXPORT_FORMATS[exportFormat](baseName, HOT, DATA, XLSX);
+    }
     $('#export-to-modal').modal('hide');
   });
   // Reset export modal values when the modal is closed
@@ -1089,7 +1079,6 @@ const setupTriggers = () => {
     });
   });
 
-
   // Settings -> Show ... columns
   const showColsSelectors =
       ['#show-all-cols-dropdown-item', '#show-required-cols-dropdown-item'];
@@ -1114,12 +1103,15 @@ const setupTriggers = () => {
  * Revise user interface elements to match template path, and trigger
  * load of data.js and export.js scripts.  data_script.onload goes on
  * to trigger launch(DATA).
- * @param {String} template: path of template starting from app's template folder.
+ * @param {String} template: path of template starting from app's template
+ * folder.
  */
 const setupTemplate = (template) => {
 
   // Change in src triggers load of script and update to reference doc and SOP.
-  reloadJs(`template/${template}/data.js`, dataOnload);
+  reloadJs(`template/${template}/data.js`, function () { 
+    runBehindLoadingScreen(launch, [DATA])
+  });
   // Could make the following conditional on above reload?
   reloadJs(`template/${template}/export.js`, exportOnload);
   $("#help_reference").attr('href',`template/${template}/reference.html`)
