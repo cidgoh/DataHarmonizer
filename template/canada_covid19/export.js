@@ -282,7 +282,7 @@ var exportLASER = (baseName, hot, data, xlsx) => {
           'most recent travel return date'
           ]) {
           let mappedCellVal = unmappedRow[fieldMap[FieldName]];
-          if (!mappedCellVal) mappedCellVal = '';
+          if (!mappedCellVal) {mappedCellVal = ''};
           mappedCell.push(mappedCellVal);
         }
 
