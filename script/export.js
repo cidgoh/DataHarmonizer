@@ -204,7 +204,8 @@ const exportLASER = (baseName, hot, data, xlsx) => {
   // Create an export table with target format's headers and remaining rows of data
   const matrix = [ExportHeaders];
   const symptoms_index = ExportHeaders.indexOf('Symptoms');
-  const travel_index = ExportHeaders.indexOf('Country of Travel|Province of Travel|City of Travel|Travel start date|Travel End Date');
+  const travel_field = 'Country of Travel|Province of Travel|City of Travel|Travel start date|Travel End Date';
+  const travel_index = ExportHeaders.indexOf(travel_field);
 
   for (const unmappedRow of getTrimmedData(hot)) {
     const mappedRow = [];
@@ -268,10 +269,34 @@ const exportLASER = (baseName, hot, data, xlsx) => {
         mappedRow.push(cellValue);
         continue;
       }
-      // Loop through all template fields that this field is mapped to, and
-      // create a bar-separated list of values. EMPTY VALUES MUST STILL have
-      // bar placeholder.
+      
+      // Issue is that order of merged source field items is different than
+      // label of output field specifies (country and city are swapped).
+      // Otherwise generic code at bottom would have been used.
+      if (HeaderName === travel_field) {
+        const mappedCell = [];
+        for (const FieldName of [
+          'destination of most recent travel (country)',
+          'destination of most recent travel (state/province/territory)',
+          'destination of most recent travel (city)',
+          'most recent travel departure date',
+          'most recent travel return date'
+          ]) {
+          let mappedCellVal = unmappedRow[fieldMap[FieldName]];
+          if (!mappedCellVal) {mappedCellVal = ''};
+          mappedCell.push(mappedCellVal);
+        }
+
+        mappedRow.push(mappedCell.join('|'));
+        continue;
+      }
+
+      // Loop through all remaining template fields that this field is mapped
+      // to, and create a bar-separated list of values. EMPTY VALUES MUST STILL
+      // have bar placeholder.
       const mappedCell = [];
+      // Usually this has just one mapped field, but sometimes several.
+      // Merged fields are separated by | bar.
       for (const mappedFieldIndex of headerMap[HeaderIndex]) {
         let mappedCellVal = unmappedRow[mappedFieldIndex];
         
