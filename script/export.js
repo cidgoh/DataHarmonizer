@@ -62,12 +62,12 @@ const exportGISAID = (baseName, hot, data, xlsx) => {
   }
   const fields = getFields(data);
   for (const [fieldIndex, field] of fields.entries()) {
-    if (field.GISAID) {
-      let HeaderIndex = ExportHeaders.indexOf(field.GISAID);
+    if (field.EXPORT_GISAID) {
+      let HeaderIndex = ExportHeaders.indexOf(field.EXPORT_GISAID);
       // GISAID has two fields called 'Address'
-      if (field.GISAID === 'Address' && field.fieldName === 'sequence submitter contact address') {
+      if (field.EXPORT_GISAID === 'Address' && field.fieldName === 'sequence submitter contact address') {
         // This locates 2nd occurance of 'Address' field in ExportHeaders
-        HeaderIndex = ExportHeaders.indexOf(field.GISAID, HeaderIndex+1);
+        HeaderIndex = ExportHeaders.indexOf(field.EXPORT_GISAID, HeaderIndex+1);
       }
       headerMap[HeaderIndex].push(fieldIndex);
     }
@@ -137,7 +137,7 @@ const exportGISAID = (baseName, hot, data, xlsx) => {
  */
 const exportLASER = (baseName, hot, data, xlsx) => {
   const ExportHeaders = [
-    'Primary Specimen Identification Number',
+    'Primary Specimen ID',
     'Related Specimen ID|Related Specimen Relationship Type',
     'BioProject Accession',
     'BioSample Accession',
@@ -171,6 +171,7 @@ const exportLASER = (baseName, hot, data, xlsx) => {
     'Country of Travel|Province of Travel|City of Travel|Travel start date|Travel End Date',
     'Patient Travelled',
     'Exposure Event',
+    'Sequencing Centre',
     'Sequencing protocol name',
     'Gene Target #1',
     'Gene Target #1 CT Value',
@@ -188,12 +189,12 @@ const exportLASER = (baseName, hot, data, xlsx) => {
   const fields = getFields(data);
   for (const [fieldIndex, field] of fields.entries()) {
     fieldMap[field.fieldName] = fieldIndex;
-    if (field.CNPHI) {
-      const HeaderIndex = ExportHeaders.indexOf(field.CNPHI);
+    if (field.EXPORT_CNPHI) {
+      const HeaderIndex = ExportHeaders.indexOf(field.EXPORT_CNPHI);
       if (HeaderIndex > -1)
         headerMap[HeaderIndex].push(fieldIndex);
       else {
-        const msg = 'A template CNPHI field was not found in CNPHI export header list:' + field.CNPHI;
+        const msg = 'A template CNPHI field was not found in CNPHI export header list:' + field.EXPORT_CNPHI;
         console.log (msg);
         $('#export-to-err-msg').text(msg);
       }
@@ -228,6 +229,13 @@ const exportLASER = (baseName, hot, data, xlsx) => {
         // Note: if this field eventually gets null values, then must do 
         // field.dataStatus check.
         mappedRow.push( mappedRow[symptoms_index] ? 'yes' : 'no' );
+        continue;
+      }
+
+      // Change in delimiter
+      if (HeaderName === 'Symptoms') {
+        let value = unmappedRow[fieldMap['signs and symptoms']];
+        mappedRow.push(value.replace(/;/g,'~') );
         continue;
       }
 
