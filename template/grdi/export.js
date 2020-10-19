@@ -6,13 +6,6 @@
  * @param {Object} data See `data.js`.
  * @param {Object} xlsx SheetJS variable.
  */
-/**
- * Download grid mapped to GISAID format.
- * @param {String} baseName Basename of downloaded file.
- * @param {Object} hot Handonstable grid instance.
- * @param {Object} data See `data.js`.
- * @param {Object} xlsx SheetJS variable.
- */
 var exportGRDI = (baseName, hot, data, xlsx) => {
   // ExportHeaders is an array because it can happen, as below with 'Address',
   // that a column name appears two or more times.
@@ -32,10 +25,6 @@ var exportGRDI = (baseName, hot, data, xlsx) => {
     'purpose_of_sampling',
     'host (common name)'
   ];
-
-
-// STTYPE: ANIMAL ENVIRONMENT FOOD HUMAN PRODUCT QA UNKNOWN
-
 
   // Create a map of Export format headers to template's fields. It is a 
   // one-to-many relationship, with indices representing the maps.
@@ -73,5 +62,5 @@ var exportGRDI = (baseName, hot, data, xlsx) => {
 
 // A list of the above functions keyed by the Export menu name they should appear as:
 var EXPORT_FORMATS = {
-  "Dexa to GRDI": exportGRDI
+  // "Dexa to GRDI": exportGRDI
 };

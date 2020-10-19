@@ -1,0 +1,158 @@
+Ontology ID	parent class	label	datatype	source	data status	requirement	min value	max value	capitalize	description	guidance	examples	EXPORT_???	ontology label	definition	definition source	english synonym	Parental Term	Parental Term URL	Issues / Status	Other	
+ID	SC %													AL rdfs:label@en	AL IAO:0000115@en	A IAO:0000119 SPLIT=|	AL oboInOwl:hasExactSynonym@en					
+		Database Identifiers																				
+	Database Identifiers	sample_name	xs:token		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				The user-defined name for the sample.	Every Sample Name from a single submitter must be unique. It can have any format, but we suggest that you make it concise, unique and consistent within your lab, and as informative as possible.	SA20131043										
+	Database Identifiers	progeny_sample_ID	xs:token							The user-defined identifier for progeny isolates derived from the original sample.	If your sequence data pertains to progeny of an original isolate, provide the progeny sample ID.											
+	Database Identifiers	alternative_sample_ID	xs:token							An alternative sample ID assigned to the sample by another organization.	If an alternative sample ID is available, here’s where you can include it.	PHAC_45678										
+	Database Identifiers	IRIDA_sample_ID	xs:token							The identifier assigned to the corresponding sequence data in IRIDA.	IRIDA sample IDs should be unqiue to avoid ID clash. This is very important in large Projects, especially when samples are shared from different organizations. Download the IRIDA sample ID and add it to the sample data in your spreadsheet as part of good data management practices.											
+		Fields to put in sections																				
+	Fields to put in sections	strain	xs:token							The strain identifier.	If the isolate represents or is derived from, a lab reference strain or strain from a type culture collection, provide the strain identifier.											
+	Fields to put in sections	publication_PMID	xs:token							The PubMed ID for a publication.	If the isolate is associated with a published work which can provide additional information, provide the PubMed identifier of the publication.											
+	Fields to put in sections	attribute_package	xs:token							The attribute package used to structure metadata in an INSDC BioSample.	If the sample is from a specific human or animal, put “Pathogen.cl”. If the sample is from an environmental sample including food, feed, production facility, farm, water source, manure etc, put “Pathogen.env”.	Pathogen.cl										
+	Fields to put in sections	geo_loc (country)	xs:token							The country where the sample was collected.	Use the controlled vocabulary provided in the template pick list.	Canada										
+	Fields to put in sections	geo_loc (state/province/region)	xs:token							The province/territory where the sample was collected.	Use the controlled vocabulary provided in the template pick list.	British Columbia										
+	Fields to put in sections	lat_lon	xs:token							The latitude and longitude coordinates where the sample was collected.	If known, provide the degrees latitude and longitude. Do NOT provide lat/lon of the institution, nor the centre of the city/region where the sample was collected as this falsely implicates an existing geographical location and creates data inaccuracies. If unknown, put "missing".	38.98 N 77.11 W.										
+	Fields to put in sections	collection_date	xs:token							The date on which the sample was collected.	Provide the date according to the ISO 8601 standard "YYYY-MM-DD", "YYYY-MM" or "YYYY".											
+	Fields to put in sections	collected_by	xs:token							The affiliation of the sample collector.	Provide the name of the agency associated with the collection of the sample in full.	Canadian Food Inspection Agency										
+	Fields to put in sections	laboratory_name	xs:token							The name of the specific laboratory that collected the sample.	If known, provide the name of the specific lab that collected the sample. This information will be useful for follow-up, attribution of contributions, and establishing data ownership.	Smith Lab										
+	Fields to put in sections	sample_collector_contact_email	xs:token							The email address of the contact responsible for follow-up regarding the sample.	The email address can represent a specific individual or lab.	johnnyblogs@lab.ca, EntericsLab@lab.ca.										
+	Fields to put in sections	organism	xs:token							The taxonomic name of the organism.	Put the genus and species (and subspecies if applicable) of the bacteria, if known. The standardized term can be sourced from this look-up service: https://www.ebi.ac.uk/ols/ontologies/ncbitaxon.	Salmonella enterica subspecies enterica										
+	Fields to put in sections	serovar	xs:token							The serovar of the organism.	Only include this information if it has been determined by traditional serological methods or a validated in silico prediction tool e.g. SISTR.	Heidelberg										
+	Fields to put in sections	serotyping_method	xs:token							The method used to determine the serovar.	If the serovar was determined via traditional serotyping methods, put “traditional serotyping”. If the serovar was determined via in silico methods, provide the name and version number of the software.	SISTR v.1.0.1										
+	Fields to put in sections	phagetype	xs:token							The phagetype of the organism.	Provide if known. If unknown, put “missing”.	47										
+	Fields to put in sections	purpose_of_sampling	xs:token							The reason why the sample was originally collected.	The information can help to interpret the results of an analysis. Select a value from the pick list provided.	Surveillance										
+	Fields to put in sections	sample_processing	xs:token							The processing applied to samples prior to sequencing.	If the sample is a composite (pooled samples), choose “samples pooled”. If samples are from a single source, choose “isolated from single source”. If unknown, put “missing”.	samples pooled										
+	Fields to put in sections	host (common name)	xs:token							The commonly used name of the host.	If the sample is directly from a host, either a common or scientific name must be provided (although both can be included, if known). If known, provide the common name.	cow, chicken, human										
+	Fields to put in sections	host (scientific name)	xs:token							The scientific name of the host.	If the sample is directly from a host, either a common or scientific name must be provided (although both can be included, if known). If known, provide the scientific name. The standardized term can be sourced from this look-up service: https://www.ebi.ac.uk/ols/ontologies/ncbitaxon.	Bos taurus, Homo sapiens										
+	Fields to put in sections	host_disease	xs:token							The name of the disease experienced by the host.	This field is only required if the Pathogen.cl package was selected. If the host was sick, provide the name of the disease.The standardized term can be sourced from this look-up service: https://www.ebi.ac.uk/ols/ontologies/doid If the disease is not known, put “missing”.	mastitis, gastroenteritis										
+	Fields to put in sections	environmental_site	xs:token							An environmental site is a location in the natural or built environment.	If applicable, provide the standardized term and ontology ID for the environmental site. The standardized term can be sourced from these look-up services: https://www.ebi.ac.uk/ols/ontologies/envo or https://www.ebi.ac.uk/ols/ontologies/genepio.	contact surface, production facility, floor drain, hatchery.										
+	Fields to put in sections	animal_or_plant_population	xs:token							The type of animal or plant population inhabiting an area.	This field should be used when a sample is taken from an environmental location inhabited by many individuals of a specific type, rather than describing a sample taken from one particular host. If applicable, provide the standardized term and ontology ID for the animal or plant population name. The standardized term can be sourced from this look-up service: https://www.ebi.ac.uk/ols/ontologies/genepio. If not applicable, leave blank.	turkey										
+	Fields to put in sections	environmental_material	xs:token							A substance or object obtained from the natural or man-made environment .	If applicable, provide the standardized term and ontology ID for the environmental material. The standardized term can be sourced from these look-up services: https://www.ebi.ac.uk/ols/ontologies/envo or https://www.ebi.ac.uk/ols/ontologies/genepio. If not applicable, leave blank.	soil, water, sewage, tractor										
+	Fields to put in sections	body_product	xs:token							A substance excreted/secreted from an organism.	If applicable, provide the standardized term and ontology ID for the body product. The standardized term can be sourced from this look-up service: https://www.ebi.ac.uk/ols/ontologies/uberon. If not applicable, leave blank.	feces, urine, sweat.										
+	Fields to put in sections	anatomical_part	xs:token							A substance obtained from an anatomical part of an organism.	If applicable, provide the standardized term and ontology ID for the anatomical material. The standardized term can be sourced from this look-up service: https://www.ebi.ac.uk/ols/ontologies/uberon. If not applicable, leave blank.	tissue, blood										
+	Fields to put in sections	food_product	xs:token							A material consumed and digested for nutritional value or enjoyment.	This field includes animal feed. If applicable, provide the standardized term and ontology ID for the anatomical material. The standardized term can be sourced from this look-up service: https://www.ebi.ac.uk/ols/ontologies/foodon. If not applicable, leave blank.	feather and bone meal, chicken breast										
+	Fields to put in sections	collection_device	xs:token							The instrument or container used to collect the sample.	This field includes animal feed. If applicable, provide the standardized term and ontology ID for the anatomical material. The standardized term can be sourced from this look-up service: https://www.ebi.ac.uk/ols/ontologies/genepio. If not applicable, leave blank.	swab										
+	Fields to put in sections	collection_method	xs:token							The process used to collect the sample.	If applicable, provide the standardized term and ontology ID for the anatomical material. The standardized term can be sourced from this look-up service: https://www.ebi.ac.uk/ols/ontologies/genepio. If not applicable, leave blank.	phlebotomy, necropsy, rinsing										
+		Antimicrobial resistance																				
+	Antimicrobial resistance	AMR_laboratory_typing_method	xs:token							Type of method used for antibiotic susceptibility testing.	“MIC”, “agar dilution”, “disk diffusion”, or “missing”	MIC										
+	Antimicrobial resistance	AMR_laboratory_typing_platform	xs:token							The brand/platform used for antibiotic susceptibility testing	“Microscan”, “Phoenix”, “Sensititre”, or “Vitek”	Sensititre										
+	Antimicrobial resistance	AMR_laboratory_typing_platform_version	xs:token							The specific name and version of the plate, panel, or other platform used for antibiotic susceptibility testing.	Any additional information about the nature of the antimicrobial susceptibility test can go in this field.	CMV3AGNF										
+	Antimicrobial resistance	AMR_measurement_units	xs:token							Units used for measuring antibiotic susceptibility	“mg/L” or “mm”	mg/L										
+	Antimicrobial resistance	amoxicillin-clavulanic_acid_resistance_phenotype	xs:token							Antimicrobial resistance phenotype, as determined by the antibiotic susceptibility measurement and testing standard for this antibiotic	“resistant”, “susceptible”, “intermediate”, “nonsusceptible”, “suceptible-dose dependent”, or “not defined”	sensitive										
+	Antimicrobial resistance	amoxicillin-clavulanic_acid_measurement_sign	xs:token							Qualifier associated with the antibiotic susceptibility measurement	“<”, “<=”, “==”, “>=”, or “>". If the susceptibility measurement for this antibiotic and for this sample is exact, use “==”.	#ERROR!										
+	Antimicrobial resistance	amoxicillin-clavulanic_acid_measurement	xs:token							Antibiotic susceptibility measurement, measured in the units specified in the “AMR_measurement_units” field.	This field should only contain a number (either an integer or a number with decimals).	4										
+	Antimicrobial resistance	ampicillin_resistance_phenotype	xs:token									CLSI										
+	Antimicrobial resistance	ampicillin_measurement_sign	xs:token									M100										
+	Antimicrobial resistance	ampicillin_measurement	xs:token									27th ed. Wayne, PA: Clinical and Laboratory Standards Institute; 2017.										
+	Antimicrobial resistance	azithromycin_resistance_phenotype	xs:token									8										
+	Antimicrobial resistance	azithromycin_measurement_sign	xs:token									16										
+	Antimicrobial resistance	azithromycin_measurement	xs:token									32										
+	Antimicrobial resistance	cefoxitin_resistance_phenotype	xs:token																			
+	Antimicrobial resistance	cefoxitin_measurement_sign	xs:token																			
+	Antimicrobial resistance	cefoxitin_measurement	xs:token																			
+	Antimicrobial resistance	ceftriaxone_resistance_phenotype	xs:token																			
+	Antimicrobial resistance	ceftriaxone_measurement_sign	xs:token																			
+	Antimicrobial resistance	ceftriaxone_measurement	xs:token																			
+	Antimicrobial resistance	chloramphenicol_resistance_phenotype	xs:token																			
+	Antimicrobial resistance	chloramphenicol_measurement_sign	xs:token																			
+	Antimicrobial resistance	chloramphenicol_measurement	xs:token																			
+	Antimicrobial resistance	ciprofloxacin_resistance_phenotype	xs:token																			
+	Antimicrobial resistance	ciprofloxacin_measurement_sign	xs:token																			
+	Antimicrobial resistance	ciprofloxacin_measurement	xs:token																			
+	Antimicrobial resistance	gentamicin_resistance_phenotype	xs:token																			
+	Antimicrobial resistance	gentamicin_measurement_sign	xs:token																			
+	Antimicrobial resistance	gentamicin_measurement	xs:token																			
+	Antimicrobial resistance	meropenem_resistance_phenotype	xs:token																			
+	Antimicrobial resistance	meropenem_measurement_sign	xs:token																			
+	Antimicrobial resistance	meropenem_measurement	xs:token																			
+	Antimicrobial resistance	nalidixic_acid_resistance_phenotype	xs:token																			
+	Antimicrobial resistance	nalidixic_acid_measurement_sign	xs:token																			
+	Antimicrobial resistance	nalidixic_acid_measurement	xs:token																			
+	Antimicrobial resistance	streptomycin_resistance_phenotype	xs:token																			
+	Antimicrobial resistance	streptomycin_measurement_sign	xs:token																			
+	Antimicrobial resistance	streptomycin_measurement	xs:token																			
+	Antimicrobial resistance	sulfisoxazole_resistance_phenotype	xs:token																			
+	Antimicrobial resistance	sulfisoxazole_measurement_sign	xs:token																			
+	Antimicrobial resistance	sulfisoxazole_measurement	xs:token																			
+	Antimicrobial resistance	tetracycline_resistance_phenotype	xs:token																			
+	Antimicrobial resistance	tetracycline_measurement_sign	xs:token																			
+	Antimicrobial resistance	tetracycline_measurement	xs:token																			
+	Antimicrobial resistance	amoxicillin-clavulanic_acid_testing_standard	xs:token							Testing standard used for determination of resistance phenotype	“CLSI”, “NARMS”, “BSAC”, “DIN”, “EUCAST”, “NCCLS”, “SFM”, “SIR”, “WRG”, or “missing”											
+	Antimicrobial resistance	amoxicillin-clavulanic_acid_testing_standard_version	xs:token							Version number associated with the testing standard used for determination of resistance phenotype	If applicable, include a version number for the testing standard used.											
+	Antimicrobial resistance	amoxicillin-clavulanic_acid_testing_standard_details	xs:token							Additional details associated with the testing standard used for determination of resistance phenotype	This information may include the year or location where the testing standard was published. If not applicable, leave blank.											
+	Antimicrobial resistance	amoxicillin-clavulanic_acid_susceptible_breakpoint	xs:token							Maximum measurement, in the units specified in the “AMR_measurement_units” field, for a sample to be considered “sensitive” to this antibiotic	This field should only contain a number (either an integer or a number with decimals), since the “<=” qualifier is implied.											
+	Antimicrobial resistance	amoxicillin-clavulanic_acid_intermediate_breakpoint	xs:token							Intermediate measurement(s), in the units specified in the “AMR_measurement_units” field, where a sample would be considered to have an “intermediate” phenotype for this antibiotic												
+	Antimicrobial resistance	amoxicillin-clavulanic_acid_resistant_breakpoint	xs:token							Minimum measurement, in the units specified in the “AMR_measurement_units” field, for a sample to be considered “resistant” to this antibiotic	This field should only contain a number (either an integer or a number with decimals), since the “>=” qualifier is implied.											
+	Antimicrobial resistance	ampicillin_testing_standard	xs:token																			
+	Antimicrobial resistance	ampicillin_testing_standard_version	xs:token																			
+	Antimicrobial resistance	ampicillin_testing_standard_details	xs:token																			
+	Antimicrobial resistance	ampicillin_susceptible_breakpoint	xs:token																			
+	Antimicrobial resistance	ampicillin_intermediate_breakpoint	xs:token																			
+	Antimicrobial resistance	ampicillin_resistant_breakpoint	xs:token																			
+	Antimicrobial resistance	azithromycin_testing_standard	xs:token																			
+	Antimicrobial resistance	azithromycin_testing_standard_version	xs:token																			
+	Antimicrobial resistance	azithromycin_testing_standard_details	xs:token																			
+	Antimicrobial resistance	azithromycin_susceptible_breakpoint	xs:token																			
+	Antimicrobial resistance	azithromycin_intermediate_breakpoint	xs:token																			
+	Antimicrobial resistance	azithromycin_resistant_breakpoint	xs:token																			
+	Antimicrobial resistance	cefoxitin_testing_standard	xs:token																			
+	Antimicrobial resistance	cefoxitin_testing_standard_version	xs:token																			
+	Antimicrobial resistance	cefoxitin_testing_standard_details	xs:token																			
+	Antimicrobial resistance	cefoxitin_susceptible_breakpoint	xs:token																			
+	Antimicrobial resistance	cefoxitin_intermediate_breakpoint	xs:token																			
+	Antimicrobial resistance	cefoxitin_resistant_breakpoint	xs:token																			
+	Antimicrobial resistance	ceftriaxone_testing_standard	xs:token																			
+	Antimicrobial resistance	ceftriaxone_testing_standard_version	xs:token																			
+	Antimicrobial resistance	ceftriaxone_testing_standard_details	xs:token																			
+	Antimicrobial resistance	ceftriaxone_susceptible_breakpoint	xs:token																			
+	Antimicrobial resistance	ceftriaxone_intermediate_breakpoint	xs:token																			
+	Antimicrobial resistance	ceftriaxone_resistant_breakpoint	xs:token																			
+	Antimicrobial resistance	chloramphenicol_testing_standard	xs:token																			
+	Antimicrobial resistance	chloramphenicol_testing_standard_version	xs:token																			
+	Antimicrobial resistance	chloramphenicol_testing_standard_details	xs:token																			
+	Antimicrobial resistance	chloramphenicol_susceptible_breakpoint	xs:token																			
+	Antimicrobial resistance	chloramphenicol_intermediate_breakpoint	xs:token																			
+	Antimicrobial resistance	chloramphenicol_resistant_breakpoint	xs:token																			
+	Antimicrobial resistance	ciprofloxacin_testing_standard	xs:token																			
+	Antimicrobial resistance	ciprofloxacin_testing_standard_version	xs:token																			
+	Antimicrobial resistance	ciprofloxacin_testing_standard_details	xs:token																			
+	Antimicrobial resistance	ciprofloxacin_susceptible_breakpoint	xs:token																			
+	Antimicrobial resistance	ciprofloxacin_intermediate_breakpoint	xs:token																			
+	Antimicrobial resistance	ciprofloxacin_resistant_breakpoint	xs:token																			
+	Antimicrobial resistance	gentamicin_testing_standard	xs:token																			
+	Antimicrobial resistance	gentamicin_testing_standard_version	xs:token																			
+	Antimicrobial resistance	gentamicin_testing_standard_details	xs:token																			
+	Antimicrobial resistance	gentamicin_susceptible_breakpoint	xs:token																			
+	Antimicrobial resistance	gentamicin_intermediate_breakpoint	xs:token																			
+	Antimicrobial resistance	gentamicin_resistant_breakpoint	xs:token																			
+	Antimicrobial resistance	meropenem_testing_standard	xs:token																			
+	Antimicrobial resistance	meropenem_testing_standard_version	xs:token																			
+	Antimicrobial resistance	meropenem_testing_standard_details	xs:token																			
+	Antimicrobial resistance	meropenem_susceptible_breakpoint	xs:token																			
+	Antimicrobial resistance	meropenem_intermediate_breakpoint	xs:token																			
+	Antimicrobial resistance	meropenem_resistant_breakpoint	xs:token																			
+	Antimicrobial resistance	nalidixic_acid_testing_standard	xs:token																			
+	Antimicrobial resistance	nalidixic_acid_testing_standard_version	xs:token																			
+	Antimicrobial resistance	nalidixic_acid_testing_standard_details	xs:token																			
+	Antimicrobial resistance	nalidixic_acid_susceptible_breakpoint	xs:token																			
+	Antimicrobial resistance	nalidixic_acid_intermediate_breakpoint	xs:token																			
+	Antimicrobial resistance	nalidixic_acid_resistant_breakpoint	xs:token																			
+	Antimicrobial resistance	streptomycin_testing_standard	xs:token																			
+	Antimicrobial resistance	streptomycin_testing_standard_version	xs:token																			
+	Antimicrobial resistance	streptomycin_testing_standard_details	xs:token																			
+	Antimicrobial resistance	streptomycin_susceptible_breakpoint	xs:token																			
+	Antimicrobial resistance	streptomycin_intermediate_breakpoint	xs:token																			
+	Antimicrobial resistance	streptomycin_resistant_breakpoint	xs:token																			
+	Antimicrobial resistance	sulfisoxazole_testing_standard	xs:token																			
+	Antimicrobial resistance	sulfisoxazole_testing_standard_version	xs:token																			
+	Antimicrobial resistance	sulfisoxazole_testing_standard_details	xs:token																			
+	Antimicrobial resistance	sulfisoxazole_susceptible_breakpoint	xs:token																			
+	Antimicrobial resistance	sulfisoxazole_intermediate_breakpoint	xs:token																			
+	Antimicrobial resistance	sulfisoxazole_resistant_breakpoint	xs:token																			
+	Antimicrobial resistance	tetracycline_testing_standard	xs:token																			
+	Antimicrobial resistance	tetracycline_testing_standard_version	xs:token																			
+	Antimicrobial resistance	tetracycline_testing_standard_details	xs:token																			
+	Antimicrobial resistance	tetracycline_susceptible_breakpoint	xs:token																			
+	Antimicrobial resistance	tetracycline_intermediate_breakpoint	xs:token																			
+	Antimicrobial resistance	tetracycline_resistant_breakpoint	xs:token																			
+																						

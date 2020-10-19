@@ -3,7 +3,28 @@ var DATA = [
     "fieldName": "Database Identifiers",
     "children": [
       {
-        "fieldName": "SPECIMEN_ID",
+        "fieldName": "sample_name",
+        "capitalize": "",
+        "ontology_id": "",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": [
+          "Not Applicable",
+          "Missing",
+          "Not Collected",
+          "Not Provided",
+          "Restricted Access"
+        ],
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "required",
+        "description": "The user-defined name for the sample.",
+        "guidance": "Every Sample Name from a single submitter must be unique. It can have any format, but we suggest that you make it concise, unique and consistent within your lab, and as informative as possible.",
+        "examples": "SA20131043",
+        "EXPORT_???": ""
+      },
+      {
+        "fieldName": "progeny_sample_ID",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -12,13 +33,13 @@ var DATA = [
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
-        "description": "",
-        "guidance": "",
+        "description": "The user-defined identifier for progeny isolates derived from the original sample.",
+        "guidance": "If your sequence data pertains to progeny of an original isolate, provide the progeny sample ID.",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "ISOLATE_ID",
+        "fieldName": "alternative_sample_ID",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -26,14 +47,14 @@ var DATA = [
         "dataStatus": null,
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
-        "requirement": "required",
-        "description": "",
-        "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": "sample_name"
+        "requirement": "",
+        "description": "An alternative sample ID assigned to the sample by another organization.",
+        "guidance": "If an alternative sample ID is available, here\u2019s where you can include it.",
+        "examples": "PHAC_45678",
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "SAMPLE_ID",
+        "fieldName": "IRIDA_sample_ID",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -41,11 +62,11 @@ var DATA = [
         "dataStatus": null,
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
-        "requirement": "required",
-        "description": "",
-        "guidance": "",
+        "requirement": "",
+        "description": "The identifier assigned to the corresponding sequence data in IRIDA.",
+        "guidance": "IRIDA sample IDs should be unqiue to avoid ID clash. This is very important in large Projects, especially when samples are shared from different organizations. Download the IRIDA sample ID and add it to the sample data in your spreadsheet as part of good data management practices.",
         "examples": "",
-        "EXPORT_GRDI": "alternative_sample_ID"
+        "EXPORT_???": ""
       }
     ]
   },
@@ -53,7 +74,7 @@ var DATA = [
     "fieldName": "Fields to put in sections",
     "children": [
       {
-        "fieldName": "SENTINEL_SITE",
+        "fieldName": "strain",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -62,13 +83,13 @@ var DATA = [
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
-        "description": "",
-        "guidance": "",
+        "description": "The strain identifier.",
+        "guidance": "If the isolate represents or is derived from, a lab reference strain or strain from a type culture collection, provide the strain identifier.",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "LFZ_ADDITIONAL_SAMPLE_ID",
+        "fieldName": "publication_PMID",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -77,13 +98,13 @@ var DATA = [
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
-        "description": "",
-        "guidance": "",
+        "description": "The PubMed ID for a publication.",
+        "guidance": "If the isolate is associated with a published work which can provide additional information, provide the PubMed identifier of the publication.",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "LFZ_ORIGIN_COUNTRY",
+        "fieldName": "attribute_package",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -92,173 +113,28 @@ var DATA = [
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
-        "description": "",
-        "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "description": "The attribute package used to structure metadata in an INSDC BioSample.",
+        "guidance": "If the sample is from a specific human or animal, put \u201cPathogen.cl\u201d. If the sample is from an environmental sample including food, feed, production facility, farm, water source, manure etc, put \u201cPathogen.env\u201d.",
+        "examples": "Pathogen.cl",
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "SUBJECT_CODE",
+        "fieldName": "geo_loc (country)",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "",
-        "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
-      },
-      {
-        "fieldName": "SUBJECT_DESCRIPTIONS",
-        "capitalize": "",
-        "ontology_id": "",
-        "datatype": "select",
         "source": "",
         "dataStatus": null,
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
-        "description": "",
-        "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": "",
-        "vocabulary": {
-          "1/2 breast": {},
-          "Avian Ingredients": {},
-          "Back": {},
-          "Balut": {},
-          "Black Pepper": {},
-          "Blade Steak": {},
-          "Blood Meal": {},
-          "Bone Meal": {},
-          "Bovine Ingredients": {},
-          "Breast": {},
-          "Breast back off": {},
-          "Breast cutlets": {},
-          "Breast Skinless": {},
-          "Breast Skinless Boneless": {},
-          "Breast with Skin": {},
-          "Brisket": {},
-          "Burger": {},
-          "Calf": {},
-          "Canola Meal": {},
-          "Carinata Meal": {},
-          "Chop": {},
-          "Chops": {},
-          "coli": {},
-          "Complete Feed": {},
-          "Corn": {},
-          "Cow": {},
-          "Cubes": {},
-          "Cutlet": {},
-          "Drumstick": {},
-          "Drumstick Skinless": {},
-          "Drumstick with Skin": {},
-          "Drumsticks": {},
-          "Egg Flour": {},
-          "Feather Meal": {},
-          "Feed": {},
-          "Filet": {},
-          "Fish Ingredients": {},
-          "Fish Meal": {},
-          "Grain": {},
-          "Ground": {},
-          "Ground ( lean)": {},
-          "Ground (Angus)": {},
-          "Ground (Extra Lean)": {},
-          "Ground (extra-lan)": {},
-          "Ground (Extra-Lean)": {},
-          "Ground (Lean)": {},
-          "Ground (Medium)": {},
-          "Ground (Regular)": {},
-          "Ground (Sirloin)": {},
-          "Ground Boneless": {},
-          "Ground extra lean": {},
-          "Ground regular": {},
-          "ground( extra lean)": {},
-          "ground( medium)": {},
-          "Ground(Extra lean)": {},
-          "Ground(Lean)": {},
-          "Ground(medium)": {},
-          "ground(regular)": {},
-          "Groundextra lean)": {},
-          "Ground-Lean": {},
-          "Ground-Regular": {},
-          "Heifer": {},
-          "Hummus": {},
-          "In-Shell": {},
-          "Lay Ration": {},
-          "Leg": {},
-          "Leg with Skin-Drumstick and Thigh": {},
-          "Liver": {},
-          "Loin Center Chop": {},
-          "Meat and Bone Meal": {},
-          "Meat Flour/Meal": {},
-          "Meat Meal": {},
-          "Mild italian style burger": {},
-          "Necks": {},
-          "Nuggets": {},
-          "Other": {},
-          "Other cut": {},
-          "Other Cut (Not Ground)": {},
-          "Other Cut Boneless": {},
-          "Other Cut Boneless (Not Ground)": {},
-          "Ovine Ingredients": {},
-          "Pet Food": {},
-          "Porcine Ingredients": {},
-          "Pork Chop (Cut Unknown)": {},
-          "Premix": {},
-          "Premix (Medicated)": {},
-          "Processed (Other)": {},
-          "Raw": {},
-          "Rib Chop": {},
-          "Ribs": {},
-          "Roast": {},
-          "Salami": {},
-          "Sausage": {},
-          "Sausage (Pepper)": {},
-          "Scallopini": {},
-          "Shell on": {},
-          "Shelled": {},
-          "Shoulder": {},
-          "Shoulder Chop": {},
-          "Sirloin Chop": {},
-          "Skim milk powder": {},
-          "Soft": {},
-          "Soyabean Meal": {},
-          "Starter Ration": {},
-          "Steak": {},
-          "Stew Chunks": {},
-          "Supplements": {},
-          "T. high": {},
-          "Tahini": {},
-          "Tender loin": {},
-          "Tenderloin": {},
-          "Thigh": {},
-          "Thigh Skinless": {},
-          "Thigh Skinless Boneless": {},
-          "Thigh with Skin": {},
-          "Trim": {},
-          "Unknown Meal": {},
-          "Unspecified Feed/Ingredient": {},
-          "Upper Thigh": {},
-          "Upper Thigh with Skin": {},
-          "upper thight": {},
-          "Upperthigh": {},
-          "White Pepper": {},
-          "Whole": {},
-          "Whole Carcass": {},
-          "Whole with Skin": {},
-          "Wing": {},
-          "Wings": {}
-        }
+        "description": "The country where the sample was collected.",
+        "guidance": "Use the controlled vocabulary provided in the template pick list.",
+        "examples": "Canada",
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "SUBMITTINGORG_1",
+        "fieldName": "geo_loc (state/province/region)",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -267,13 +143,13 @@ var DATA = [
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
-        "description": "",
-        "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": "collected_by"
+        "description": "The province/territory where the sample was collected.",
+        "guidance": "Use the controlled vocabulary provided in the template pick list.",
+        "examples": "British Columbia",
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "SUBMITTINGLAB_1",
+        "fieldName": "lat_lon",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -282,13 +158,13 @@ var DATA = [
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
-        "description": "",
-        "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": "laboratory_name"
+        "description": "The latitude and longitude coordinates where the sample was collected.",
+        "guidance": "If known, provide the degrees latitude and longitude. Do NOT provide lat/lon of the institution, nor the centre of the city/region where the sample was collected as this falsely implicates an existing geographical location and creates data inaccuracies. If unknown, put \"missing\".",
+        "examples": "38.98 N 77.11 W.",
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "PROJECT_1",
+        "fieldName": "collection_date",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -297,13 +173,13 @@ var DATA = [
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
-        "description": "",
-        "guidance": "",
+        "description": "The date on which the sample was collected.",
+        "guidance": "Provide the date according to the ISO 8601 standard \"YYYY-MM-DD\", \"YYYY-MM\" or \"YYYY\".",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "COUNTRY_1",
+        "fieldName": "collected_by",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -312,13 +188,13 @@ var DATA = [
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
-        "description": "",
-        "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": "geo_loc (country)"
+        "description": "The affiliation of the sample collector.",
+        "guidance": "Provide the name of the agency associated with the collection of the sample in full.",
+        "examples": "Canadian Food Inspection Agency",
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "PROVINCE_1",
+        "fieldName": "laboratory_name",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -327,13 +203,13 @@ var DATA = [
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
-        "description": "",
-        "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": "geo_loc (state/province/region)"
+        "description": "The name of the specific laboratory that collected the sample.",
+        "guidance": "If known, provide the name of the specific lab that collected the sample. This information will be useful for follow-up, attribution of contributions, and establishing data ownership.",
+        "examples": "Smith Lab",
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "CENSUSDIVISION_1",
+        "fieldName": "sample_collector_contact_email",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -342,13 +218,13 @@ var DATA = [
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
-        "description": "",
-        "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "description": "The email address of the contact responsible for follow-up regarding the sample.",
+        "guidance": "The email address can represent a specific individual or lab.",
+        "examples": "johnnyblogs@lab.ca, EntericsLab@lab.ca.",
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "REGION",
+        "fieldName": "organism",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -357,13 +233,13 @@ var DATA = [
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
-        "description": "",
-        "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "description": "The taxonomic name of the organism.",
+        "guidance": "Put the genus and species (and subspecies if applicable) of the bacteria, if known. The standardized term can be sourced from this look-up service: https://www.ebi.ac.uk/ols/ontologies/ncbitaxon.",
+        "examples": "Salmonella enterica subspecies enterica",
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "YEAR",
+        "fieldName": "serovar",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -372,13 +248,13 @@ var DATA = [
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
-        "description": "",
-        "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "description": "The serovar of the organism.",
+        "guidance": "Only include this information if it has been determined by traditional serological methods or a validated in silico prediction tool e.g. SISTR.",
+        "examples": "Heidelberg",
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "MONTH",
+        "fieldName": "serotyping_method",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -387,13 +263,13 @@ var DATA = [
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
-        "description": "",
-        "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "description": "The method used to determine the serovar.",
+        "guidance": "If the serovar was determined via traditional serotyping methods, put \u201ctraditional serotyping\u201d. If the serovar was determined via in silico methods, provide the name and version number of the software.",
+        "examples": "SISTR v.1.0.1",
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "QTR",
+        "fieldName": "phagetype",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -402,13 +278,13 @@ var DATA = [
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
-        "description": "",
-        "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "description": "The phagetype of the organism.",
+        "guidance": "Provide if known. If unknown, put \u201cmissing\u201d.",
+        "examples": "47",
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "DATECOLLECTED_1",
+        "fieldName": "purpose_of_sampling",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -417,13 +293,13 @@ var DATA = [
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
-        "description": "",
-        "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": "collection_date"
+        "description": "The reason why the sample was originally collected.",
+        "guidance": "The information can help to interpret the results of an analysis. Select a value from the pick list provided.",
+        "examples": "Surveillance",
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "CIPARS generic email",
+        "fieldName": "sample_processing",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -432,13 +308,13 @@ var DATA = [
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
-        "description": "",
-        "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": "sample_collector_contact_email"
+        "description": "The processing applied to samples prior to sequencing.",
+        "guidance": "If the sample is a composite (pooled samples), choose \u201csamples pooled\u201d. If samples are from a single source, choose \u201cisolated from single source\u201d. If unknown, put \u201cmissing\u201d.",
+        "examples": "samples pooled",
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "DATERECEIVED_1",
+        "fieldName": "host (common name)",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -447,13 +323,13 @@ var DATA = [
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
-        "description": "",
-        "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "description": "The commonly used name of the host.",
+        "guidance": "If the sample is directly from a host, either a common or scientific name must be provided (although both can be included, if known). If known, provide the common name.",
+        "examples": "cow, chicken, human",
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "DATESHIPPED_1",
+        "fieldName": "host (scientific name)",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -462,760 +338,103 @@ var DATA = [
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
-        "description": "",
-        "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "description": "The scientific name of the host.",
+        "guidance": "If the sample is directly from a host, either a common or scientific name must be provided (although both can be included, if known). If known, provide the scientific name. The standardized term can be sourced from this look-up service: https://www.ebi.ac.uk/ols/ontologies/ncbitaxon.",
+        "examples": "Bos taurus, Homo sapiens",
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "ESTABLISHMENT_1",
+        "fieldName": "host_disease",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "",
-        "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
-      },
-      {
-        "fieldName": "SPECIES",
-        "capitalize": "",
-        "ontology_id": "",
-        "datatype": "select",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "",
-        "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": "host (common name)",
-        "vocabulary": {
-          "2": {},
-          "4": {},
-          "<=8": {},
-          "<n/a>": {},
-          "Abalone": {},
-          "Alfalfa sprouts": {},
-          "Alpaca": {},
-          "Amphibian": {},
-          "Apple": {},
-          "Aquatic mammal": {},
-          "Armadillo": {},
-          "Avian": {},
-          "Basil": {},
-          "Bat": {},
-          "Bear": {},
-          "Bearded Dragon": {},
-          "Bison": {},
-          "Budgie": {},
-          "Camel": {},
-          "Camelid": {},
-          "Canary": {},
-          "Canine": {},
-          "Cantelope": {},
-          "Caprine": {},
-          "Cardemom": {},
-          "Cardinal": {},
-          "Cervid": {},
-          "Chameleon": {},
-          "Cheetah": {},
-          "Chicken": {},
-          "Chimpanzee": {},
-          "Chinchilla": {},
-          "Chinese Water Dragon": {},
-          "Clam": {},
-          "Coriander": {},
-          "Cormorant": {},
-          "Cougar/Mountain Lion": {},
-          "Coyote": {},
-          "Crab": {},
-          "Crane": {},
-          "Crow": {},
-          "Cumin seeds": {},
-          "Cuttlefish": {},
-          "Dog": {},
-          "Dolphin": {},
-          "Domestic Cat": {},
-          "Domestic Cattle": {},
-          "Duck": {},
-          "Dumpster": {},
-          "Eagle": {},
-          "Eel": {},
-          "Elephant": {},
-          "Falcon": {},
-          "Feline": {},
-          "Ferret": {},
-          "Finch": {},
-          "Fish": {},
-          "Flamingo": {},
-          "For Unspecified": {},
-          "Fox": {},
-          "Gecko": {},
-          "Goat": {},
-          "Goat and Sheep": {},
-          "Goose": {},
-          "Grape": {},
-          "Green onions": {},
-          "Grosbeak": {},
-          "ground pepper": {},
-          "Gull": {},
-          "Hare": {},
-          "Hazelnut": {},
-          "Hedgehog": {},
-          "Herb/spice (unspecified)": {},
-          "Heron": {},
-          "Hippopotamidae": {},
-          "Horse": {},
-          "Iguana": {},
-          "Jaguar": {},
-          "Kangaroo": {},
-          "Komodo Dragon": {},
-          "Lapine": {},
-          "Lettuce": {},
-          "Lion": {},
-          "Lizard": {},
-          "Marsupial": {},
-          "Mink": {},
-          "Mint": {},
-          "Mixed": {},
-          "Mongoose": {},
-          "Mouse": {},
-          "Mushrooms": {},
-          "Mussel": {},
-          "n/a": {},
-          "Not Available": {},
-          "Octopus": {},
-          "Opossum": {},
-          "Oregano": {},
-          "Other": {},
-          "Otter": {},
-          "Ovine": {},
-          "Owl": {},
-          "Oyster": {},
-          "Parrot": {},
-          "Parsley": {},
-          "Partridge": {},
-          "Pea sprouts": {},
-          "Peanut Butter": {},
-          "Pepper": {},
-          "Perdrix": {},
-          "Pheasant": {},
-          "Pickerel": {},
-          "Pig": {},
-          "Pigeon": {},
-          "Pine Siskin": {},
-          "Pony": {},
-          "Porcupine": {},
-          "Porpoise": {},
-          "Primate": {},
-          "Quail": {},
-          "Rabbit": {},
-          "Raccoon": {},
-          "Rat": {},
-          "Ratite": {},
-          "Raven": {},
-          "Red Deer": {},
-          "Redpoll": {},
-          "Reptile": {},
-          "Rhea": {},
-          "Robin": {},
-          "Rodent": {},
-          "Sage": {},
-          "Salmon": {},
-          "Scallop": {},
-          "Sea Otter": {},
-          "Sea Snail": {},
-          "Seal": {},
-          "Sesame Seed": {},
-          "Sheep": {},
-          "Shrimp": {},
-          "Skink": {},
-          "Skunk": {},
-          "Snake": {},
-          "Sparrow": {},
-          "Spinach": {},
-          "Spotted Hyena": {},
-          "Sprouts": {},
-          "Squid": {},
-          "Squirrel": {},
-          "Stripped Hyena": {},
-          "Swan": {},
-          "Tantalus Monkey": {},
-          "Tilapia": {},
-          "Tomato": {},
-          "Tortoise": {},
-          "Trout": {},
-          "Turkey": {},
-          "Turtle": {},
-          "Unknown": {},
-          "Unspecified Bird": {},
-          "Unspecified Fish": {},
-          "Unspecified Primate": {},
-          "Unspecified Reptile": {},
-          "Unspecified Rodent": {},
-          "Vulture": {},
-          "Wallnut": {},
-          "Water Dragon": {},
-          "White Fish": {},
-          "Wild Ruminant": {},
-          "Wombat": {},
-          "Woodpecker": {},
-          "Zebra": {}
-        }
-      },
-      {
-        "fieldName": "STTYPE",
-        "capitalize": "",
-        "ontology_id": "",
-        "datatype": "select",
         "source": "",
         "dataStatus": null,
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
-        "description": "",
-        "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": "",
-        "vocabulary": {
-          "0": {},
-          "0.5": {},
-          "ANIMAL": {},
-          "ENVIRONMENT": {},
-          "FOOD": {},
-          "HUMAN": {},
-          "PRODUCT": {},
-          "QA": {},
-          "UNKNOWN": {}
-        }
+        "description": "The name of the disease experienced by the host.",
+        "guidance": "This field is only required if the Pathogen.cl package was selected. If the host was sick, provide the name of the disease.The standardized term can be sourced from this look-up service: https://www.ebi.ac.uk/ols/ontologies/doid If the disease is not known, put \u201cmissing\u201d.",
+        "examples": "mastitis, gastroenteritis",
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "STYPE",
+        "fieldName": "environmental_site",
         "capitalize": "",
         "ontology_id": "",
-        "datatype": "select",
+        "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
-        "description": "",
-        "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": "",
-        "vocabulary": {
-          "0": {},
-          "2": {},
-          "<=8": {},
-          "<n/a>": {},
-          "Amphibian": {},
-          "Aquatic Mammal": {},
-          "Armadillo": {},
-          "Avian": {},
-          "Bat": {},
-          "Biosolids": {},
-          "Bovine": {},
-          "Building": {},
-          "Camelid": {},
-          "Canine": {},
-          "Caprine": {},
-          "Caprine and Ovine": {},
-          "Cereal": {},
-          "Cereal/Bread/Snack": {},
-          "Cervid": {},
-          "Compost": {},
-          "Confections/Nuts/Condiments": {},
-          "Crocuta": {},
-          "Crustacean": {},
-          "Dairy": {},
-          "Dust": {},
-          "Egg": {},
-          "Elephant": {},
-          "Equine": {},
-          "Equipment": {},
-          "ERROR": {},
-          "Feed and Ingredients": {},
-          "Feline": {},
-          "Ferret": {},
-          "Fertilizer": {},
-          "Fish": {},
-          "Food": {},
-          "Fruit": {},
-          "Fruits and Vegetables": {},
-          "Health (medicine)": {},
-          "Herbs and Spices": {},
-          "Herpestidae": {},
-          "Hippopotamidae": {},
-          "Lapine": {},
-          "Litter/Manure": {},
-          "Manure": {},
-          "Marsupial": {},
-          "Meat": {},
-          "Mephitida": {},
-          "Mink": {},
-          "Mixed food": {},
-          "Mixed Food/Meat": {},
-          "Mollusk": {},
-          "Mustelid": {},
-          "n/a": {},
-          "Other": {},
-          "Ovine": {},
-          "Personnel Clothing": {},
-          "Porcine": {},
-          "Primate": {},
-          "Raccoon": {},
-          "Reptile": {},
-          "Rodent": {},
-          "Sewage": {},
-          "Soil": {},
-          "Transportation Supplies": {},
-          "Transportation Vehicles": {},
-          "Turkey": {},
-          "Unknown": {},
-          "Unknown Food": {},
-          "Unspecified": {},
-          "Unspecified Animal": {},
-          "Unspecified Environmental": {},
-          "Unspecified Food": {},
-          "Unspecified Product": {},
-          "Ursine": {},
-          "Vegetable/Spice": {},
-          "Water": {}
-        }
+        "description": "An environmental site is a location in the natural or built environment.",
+        "guidance": "If applicable, provide the standardized term and ontology ID for the environmental site. The standardized term can be sourced from these look-up services: https://www.ebi.ac.uk/ols/ontologies/envo or https://www.ebi.ac.uk/ols/ontologies/genepio.",
+        "examples": "contact surface, production facility, floor drain, hatchery.",
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "COMMODITY",
+        "fieldName": "animal_or_plant_population",
         "capitalize": "",
         "ontology_id": "",
-        "datatype": "select",
+        "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
-        "description": "",
-        "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": "",
-        "vocabulary": {
-          "<=16": {},
-          "Beef": {},
-          "Broiler": {},
-          "Dairy": {},
-          "Domestic/Farmed": {},
-          "Egg": {},
-          "Laboratory": {},
-          "Meat": {},
-          "Mutton": {},
-          "Pet": {},
-          "Pet/Zoo": {},
-          "Red Veal": {},
-          "Unknown": {},
-          "Veal": {},
-          "White Veal": {},
-          "Wild": {}
-        }
+        "description": "The type of animal or plant population inhabiting an area.",
+        "guidance": "This field should be used when a sample is taken from an environmental location inhabited by many individuals of a specific type, rather than describing a sample taken from one particular host. If applicable, provide the standardized term and ontology ID for the animal or plant population name. The standardized term can be sourced from this look-up service: https://www.ebi.ac.uk/ols/ontologies/genepio. If not applicable, leave blank.",
+        "examples": "turkey",
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "SPECIMENSOURCE_1",
+        "fieldName": "environmental_material",
         "capitalize": "",
         "ontology_id": "",
-        "datatype": "select",
+        "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
-        "description": "",
-        "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": "",
-        "vocabulary": {
-          "2": {},
-          "<=32": {},
-          "Aliquote / Portion": {},
-          "Blood": {},
-          "Blood Meal": {},
-          "Body Fluid/Excretion": {},
-          "Carcass": {},
-          "Check Sample": {},
-          "Contact plate": {},
-          "Culture": {},
-          "Dust": {},
-          "Egg": {},
-          "Environment (Animal)": {},
-          "Environmental": {},
-          "Feces": {},
-          "Fetus/Embryo": {},
-          "Organ": {},
-          "Organ/Tissue": {},
-          "Proficiency Isolate": {},
-          "Reference Culture": {},
-          "Rinse": {},
-          "Septage": {},
-          "Soya Meal": {},
-          "Stool": {},
-          "Swab": {},
-          "Tissue": {},
-          "Unit (Pre-Packaged)": {},
-          "Unknown": {},
-          "Unspecified": {},
-          "Urine": {}
-        }
+        "description": "A substance or object obtained from the natural or man-made environment .",
+        "guidance": "If applicable, provide the standardized term and ontology ID for the environmental material. The standardized term can be sourced from these look-up services: https://www.ebi.ac.uk/ols/ontologies/envo or https://www.ebi.ac.uk/ols/ontologies/genepio. If not applicable, leave blank.",
+        "examples": "soil, water, sewage, tractor",
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "SPECIMENSUBSOURCE_1",
+        "fieldName": "body_product",
         "capitalize": "",
         "ontology_id": "",
-        "datatype": "select",
+        "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
-        "description": "",
-        "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": "",
-        "vocabulary": {
-          "0.25": {},
-          "<=0.12": {},
-          "<=16": {},
-          "aansarraysubsource": {},
-          "Abdomen": {},
-          "Abdominal Muscle": {},
-          "Abomasum": {},
-          "Abscess": {},
-          "Air Intake": {},
-          "Air Sac": {},
-          "Anal Gland": {},
-          "Animal Pen": {},
-          "Balut": {},
-          "Belt": {},
-          "Bladder": {},
-          "Blood": {},
-          "Blood vessel": {},
-          "Bone": {},
-          "Bone Marrow": {},
-          "Bootie": {},
-          "Boots": {},
-          "Brain": {},
-          "Bursa of Fabricus": {},
-          "Cages": {},
-          "Cavity Fluid (Unspecified)": {},
-          "Cavity fluid unspecified": {},
-          "Cecal Content": {},
-          "Cecum": {},
-          "Chick Boxes": {},
-          "Chick Pads": {},
-          "Cloacae": {},
-          "Cloacal swab": {},
-          "Colon": {},
-          "Confirmation": {},
-          "Crates": {},
-          "Crop": {},
-          "Culture Plate": {},
-          "Digestive System (Unspecified)": {},
-          "Duodenum": {},
-          "Dust": {},
-          "Ear": {},
-          "Egg Belt": {},
-          "Environment Swab": {},
-          "Environment Swab (Hatchery)": {},
-          "Esophagus": {},
-          "External Quality Assurance": {},
-          "Eye": {},
-          "Fan": {},
-          "Fecal Slurry": {},
-          "Feces": {},
-          "Feed": {},
-          "Feeders and Drinkers": {},
-          "Fetal Tissue": {},
-          "Final Wash": {},
-          "Floor": {},
-          "Fluff": {},
-          "Fluff (Hatchery)": {},
-          "Foot": {},
-          "Gall Bladder": {},
-          "Gallbladder": {},
-          "Ganglion": {},
-          "Gizzard": {},
-          "Growth / lesion (unspecified tissue)": {},
-          "Growth/Lesion (Unspecified Tissue)": {},
-          "Heart": {},
-          "Ileum": {},
-          "In-House": {},
-          "Inter-Lab Exchange": {},
-          "Intestinal Contents": {},
-          "Intestine": {},
-          "Jejunum": {},
-          "Joint": {},
-          "Joint Fluid": {},
-          "Kidney": {},
-          "Levage/peritoneal": {},
-          "Levage/Tracheal": {},
-          "Litter": {},
-          "Litter/Manure": {},
-          "Live Haul Truck": {},
-          "Live Haul Truck/Trailer": {},
-          "Liver": {},
-          "Lung": {},
-          "Lymph Node": {},
-          "Manure Pit": {},
-          "Meconium": {},
-          "Mesenteric Lymph Node": {},
-          "Milk/Colostrum": {},
-          "Mixed": {},
-          "Mixed Organs": {},
-          "Mixed Tissues": {},
-          "Mouth": {},
-          "Mucous membrane (gut)": {},
-          "Mucous membrane (resp)": {},
-          "Mucus": {},
-          "Muscle": {},
-          "Muscle/Meat": {},
-          "Nasal Turbinate": {},
-          "Nasal/Naries": {},
-          "Organ Unspecified": {},
-          "Ovary": {},
-          "Oviduct": {},
-          "Pericardium": {},
-          "Peritoneal Fluid": {},
-          "Peritoneum": {},
-          "Placenta": {},
-          "Pleura": {},
-          "Plucking Belt": {},
-          "Plucking Water": {},
-          "Pooled Feces": {},
-          "Rectal Swab": {},
-          "Rectum": {},
-          "Research": {},
-          "Rinse": {},
-          "Rumen": {},
-          "Shell": {},
-          "Shell egg": {},
-          "Sinus": {},
-          "Skin": {},
-          "Small Intestine": {},
-          "Soil": {},
-          "Spinal Cord": {},
-          "Spleen": {},
-          "Stall": {},
-          "Stomach": {},
-          "Stomach Contents": {},
-          "Swab": {},
-          "Swab (Nasal)": {},
-          "Swab (Rectal)": {},
-          "Swab (Tissue Fluid-Unspecified)": {},
-          "Testicle": {},
-          "Thorax": {},
-          "Trachea": {},
-          "Unknown organ": {},
-          "Unspecified Organ/Tissue": {},
-          "Urine": {},
-          "Uterus": {},
-          "Vagina": {},
-          "Walls": {},
-          "Water": {},
-          "Watering Bowl/Equipment": {},
-          "Weekly": {},
-          "Weep": {},
-          "Whole": {},
-          "Yolk": {},
-          "Yolk Sac": {}
-        }
+        "description": "A substance excreted/secreted from an organism.",
+        "guidance": "If applicable, provide the standardized term and ontology ID for the body product. The standardized term can be sourced from this look-up service: https://www.ebi.ac.uk/ols/ontologies/uberon. If not applicable, leave blank.",
+        "examples": "feces, urine, sweat.",
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "SUBJECT_SUBTYPE",
+        "fieldName": "anatomical_part",
         "capitalize": "",
         "ontology_id": "",
-        "datatype": "select",
+        "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
-        "description": "",
-        "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": "",
-        "vocabulary": {
-          "<=32": {},
-          "<n/a>": {},
-          ">32": {},
-          "Alfalfa Sprouts": {},
-          "Almond": {},
-          "Animal pen": {},
-          "Artificial wetland": {},
-          "Arugula": {},
-          "Basil": {},
-          "Bean Sprouts": {},
-          "Biosolid": {},
-          "Biosolid/Sludge": {},
-          "Bootie": {},
-          "Boots": {},
-          "Breast": {},
-          "Breast skinless": {},
-          "Breast skinless boneless": {},
-          "Breast with skin": {},
-          "Broom": {},
-          "Bulk Tank": {},
-          "Cantaloupe": {},
-          "Carcass (whole)": {},
-          "Cheese": {},
-          "Chia Powder": {},
-          "Chia Seeds": {},
-          "Chia Sprouts": {},
-          "Chick Boxes": {},
-          "Chick Pads": {},
-          "Chickpea": {},
-          "Chili": {},
-          "Chilli Pepper": {},
-          "Chives": {},
-          "Chops": {},
-          "Coconut": {},
-          "Compost": {},
-          "Cooler Line": {},
-          "Coriander Seeds": {},
-          "Coriander-Cumin Powder": {},
-          "Cottage": {},
-          "Cucumber": {},
-          "Curry Leaves": {},
-          "Curry powder": {},
-          "Cut": {},
-          "Dead Haul Truck / Trailer": {},
-          "Dill": {},
-          "Drumstick": {},
-          "Dumpster": {},
-          "Effluent": {},
-          "Egg": {},
-          "Egg Belt": {},
-          "Fan": {},
-          "Feed Pans": {},
-          "Fennel": {},
-          "Filet": {},
-          "Flax and Chia Powder": {},
-          "Flax Powder": {},
-          "Floor": {},
-          "For Avian": {},
-          "For Beef Cattle": {},
-          "For Cats": {},
-          "For Cattle (Beef)": {},
-          "For Cattle (Dairy)": {},
-          "For Chicken": {},
-          "For Dairy Cows": {},
-          "For Dogs": {},
-          "For Fish": {},
-          "For Goats": {},
-          "For Horse": {},
-          "For Mink": {},
-          "For Others": {},
-          "For Poultry": {},
-          "For Swine": {},
-          "For Turkeys": {},
-          "For Unknown": {},
-          "For Unspecified": {},
-          "Garlic Powder": {},
-          "Ginger": {},
-          "Green Onion": {},
-          "Ground": {},
-          "Ground (extra lean)": {},
-          "Ground (lean)": {},
-          "Ground (medium)": {},
-          "Ground (regular)": {},
-          "Ground Water": {},
-          "Ham": {},
-          "Hazelnut / Filbert": {},
-          "Headcheese": {},
-          "Herb/Spice (Unspecified)": {},
-          "Irrigation": {},
-          "Kale": {},
-          "Kalonji Whole Seed": {},
-          "Lab Surface": {},
-          "Lake": {},
-          "Leg": {},
-          "Lettuce": {},
-          "Liquid whole": {},
-          "Liver": {},
-          "Loin center chop non-seasoned": {},
-          "Mango": {},
-          "Meat": {},
-          "Milk": {},
-          "Mint": {},
-          "Mixed": {},
-          "Mixed Salad/Mixed Greens": {},
-          "Mixed Sprouts": {},
-          "Mung Bean Sprouts": {},
-          "Oregano": {},
-          "Other": {},
-          "Other chicken": {},
-          "Other cut (not ground)": {},
-          "Other variety meats": {},
-          "Papaya": {},
-          "Paprika": {},
-          "Parsley": {},
-          "Pea Sprouts": {},
-          "Pepper": {},
-          "Pepper Powder": {},
-          "Pepperoni": {},
-          "Rasam Powder Spice": {},
-          "River": {},
-          "River Surface": {},
-          "Roast": {},
-          "Rolled": {},
-          "Run Off": {},
-          "Sausage": {},
-          "Scallopini": {},
-          "Sediment": {},
-          "Sesame Seed": {},
-          "Shelf / Sill": {},
-          "Shellfish": {},
-          "Shoulder": {},
-          "Shoulder Chop": {},
-          "Shoulder chop non-seasoned": {},
-          "Soft": {},
-          "Soybean": {},
-          "Spinach": {},
-          "Sprouted Seeds": {},
-          "Sprouts": {},
-          "Stall": {},
-          "Steak": {},
-          "Stew Chunks": {},
-          "Surface - Other": {},
-          "Surface - River": {},
-          "Surface unspecified": {},
-          "Surface Water": {},
-          "Tenderloin": {},
-          "Thigh": {},
-          "Thigh with skin": {},
-          "Transformer": {},
-          "Truck / Trailer": {},
-          "Truck/Trailer": {},
-          "Turmeric": {},
-          "Unknown": {},
-          "Unknown Surface": {},
-          "Unspecified": {},
-          "Upper Thigh": {},
-          "Upper Thigh with Skin": {},
-          "Wall": {},
-          "Walnut": {},
-          "Waste Water": {},
-          "Watering bowl/equipment": {},
-          "Whole": {},
-          "Wings": {},
-          "Working Surface": {},
-          "Yeast": {}
-        }
+        "description": "A substance obtained from an anatomical part of an organism.",
+        "guidance": "If applicable, provide the standardized term and ontology ID for the anatomical material. The standardized term can be sourced from this look-up service: https://www.ebi.ac.uk/ols/ontologies/uberon. If not applicable, leave blank.",
+        "examples": "tissue, blood",
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "FIELDSTAFF_1",
+        "fieldName": "food_product",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -1224,13 +443,13 @@ var DATA = [
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
-        "description": "",
-        "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "description": "A material consumed and digested for nutritional value or enjoyment.",
+        "guidance": "This field includes animal feed. If applicable, provide the standardized term and ontology ID for the anatomical material. The standardized term can be sourced from this look-up service: https://www.ebi.ac.uk/ols/ontologies/foodon. If not applicable, leave blank.",
+        "examples": "feather and bone meal, chicken breast",
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "IN_STORE_PROCESSING",
+        "fieldName": "collection_device",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -1239,13 +458,13 @@ var DATA = [
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
-        "description": "",
-        "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "description": "The instrument or container used to collect the sample.",
+        "guidance": "This field includes animal feed. If applicable, provide the standardized term and ontology ID for the anatomical material. The standardized term can be sourced from this look-up service: https://www.ebi.ac.uk/ols/ontologies/genepio. If not applicable, leave blank.",
+        "examples": "swab",
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "MAYCONTAINFROZENMEAT_1",
+        "fieldName": "collection_method",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -1254,13 +473,18 @@ var DATA = [
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
-        "description": "",
-        "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
-      },
+        "description": "The process used to collect the sample.",
+        "guidance": "If applicable, provide the standardized term and ontology ID for the anatomical material. The standardized term can be sourced from this look-up service: https://www.ebi.ac.uk/ols/ontologies/genepio. If not applicable, leave blank.",
+        "examples": "phlebotomy, necropsy, rinsing",
+        "EXPORT_???": ""
+      }
+    ]
+  },
+  {
+    "fieldName": "Antimicrobial resistance",
+    "children": [
       {
-        "fieldName": "NOOFCASHREGISTERS_1",
+        "fieldName": "AMR_laboratory_typing_method",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -1269,13 +493,13 @@ var DATA = [
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
-        "description": "",
-        "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "description": "Type of method used for antibiotic susceptibility testing.",
+        "guidance": "\u201cMIC\u201d, \u201cagar dilution\u201d, \u201cdisk diffusion\u201d, or \u201cmissing\u201d",
+        "examples": "MIC",
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "PRICEPERKG_1",
+        "fieldName": "AMR_laboratory_typing_platform",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -1284,13 +508,13 @@ var DATA = [
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
-        "description": "",
-        "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "description": "The brand/platform used for antibiotic susceptibility testing",
+        "guidance": "\u201cMicroscan\u201d, \u201cPhoenix\u201d, \u201cSensititre\u201d, or \u201cVitek\u201d",
+        "examples": "Sensititre",
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "STORETYPE_SAMPLINGSITE_1",
+        "fieldName": "AMR_laboratory_typing_platform_version",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -1299,13 +523,13 @@ var DATA = [
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
-        "description": "",
-        "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "description": "The specific name and version of the plate, panel, or other platform used for antibiotic susceptibility testing.",
+        "guidance": "Any additional information about the nature of the antimicrobial susceptibility test can go in this field.",
+        "examples": "CMV3AGNF",
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "TEMPERATUREMAX_1",
+        "fieldName": "AMR_measurement_units",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -1314,13 +538,13 @@ var DATA = [
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
-        "description": "",
-        "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "description": "Units used for measuring antibiotic susceptibility",
+        "guidance": "\u201cmg/L\u201d or \u201cmm\u201d",
+        "examples": "mg/L",
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "TEMPERATUREMIN_1",
+        "fieldName": "amoxicillin-clavulanic_acid_resistance_phenotype",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -1329,13 +553,13 @@ var DATA = [
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
-        "description": "",
-        "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "description": "Antimicrobial resistance phenotype, as determined by the antibiotic susceptibility measurement and testing standard for this antibiotic",
+        "guidance": "\u201cresistant\u201d, \u201csusceptible\u201d, \u201cintermediate\u201d, \u201cnonsusceptible\u201d, \u201csuceptible-dose dependent\u201d, or \u201cnot defined\u201d",
+        "examples": "sensitive",
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "TEMPERATUREARRIVAL_1",
+        "fieldName": "amoxicillin-clavulanic_acid_measurement_sign",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -1344,13 +568,13 @@ var DATA = [
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
-        "description": "",
-        "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "description": "Qualifier associated with the antibiotic susceptibility measurement",
+        "guidance": "\u201c<\u201d, \u201c<=\u201d, \u201c==\u201d, \u201c>=\u201d, or \u201c>\". If the susceptibility measurement for this antibiotic and for this sample is exact, use \u201c==\u201d.",
+        "examples": "#ERROR!",
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "VETID",
+        "fieldName": "amoxicillin-clavulanic_acid_measurement",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -1359,13 +583,13 @@ var DATA = [
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
-        "description": "",
-        "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "description": "Antibiotic susceptibility measurement, measured in the units specified in the \u201cAMR_measurement_units\u201d field.",
+        "guidance": "This field should only contain a number (either an integer or a number with decimals).",
+        "examples": "4",
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "ROOMID",
+        "fieldName": "ampicillin_resistance_phenotype",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -1376,11 +600,11 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": "CLSI",
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "PENID",
+        "fieldName": "ampicillin_measurement_sign",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -1391,11 +615,11 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": "M100",
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "SAMPLING_TYPE",
+        "fieldName": "ampicillin_measurement",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -1406,11 +630,11 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": "27th ed. Wayne, PA: Clinical and Laboratory Standards Institute; 2017.",
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "BARN_ID",
+        "fieldName": "azithromycin_resistance_phenotype",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -1421,11 +645,11 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": "8",
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "DATE_PACKED",
+        "fieldName": "azithromycin_measurement_sign",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -1436,11 +660,11 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": "16",
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "FINAL_ID_GENUS",
+        "fieldName": "azithromycin_measurement",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -1451,11 +675,11 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": "organism"
+        "examples": "32",
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "FINAL_ID_SPECIES",
+        "fieldName": "cefoxitin_resistance_phenotype",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -1467,10 +691,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": "organism"
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "FINAL_ID_SUBSPECIES",
+        "fieldName": "cefoxitin_measurement_sign",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -1482,10 +706,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "FINAL_ID_SEROTYPE",
+        "fieldName": "cefoxitin_measurement",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -1497,10 +721,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": "serovar"
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "FINAL_ID_ANTIGEN",
+        "fieldName": "ceftriaxone_resistance_phenotype",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -1512,10 +736,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "FINAL_ID_PHAGETYPE",
+        "fieldName": "ceftriaxone_measurement_sign",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -1527,10 +751,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": "phagetype"
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "SA_Serotype_Method",
+        "fieldName": "ceftriaxone_measurement",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -1542,10 +766,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": "serotyping_method"
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "SEROTYPE_GR",
+        "fieldName": "chloramphenicol_resistance_phenotype",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -1557,10 +781,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "MIC_AMC",
+        "fieldName": "chloramphenicol_measurement_sign",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -1572,10 +796,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "MIC_AMK",
+        "fieldName": "chloramphenicol_measurement",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -1587,10 +811,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "MIC_AMP",
+        "fieldName": "ciprofloxacin_resistance_phenotype",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -1602,10 +826,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "MIC_AZM",
+        "fieldName": "ciprofloxacin_measurement_sign",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -1617,10 +841,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "MIC_CEP",
+        "fieldName": "ciprofloxacin_measurement",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -1632,10 +856,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "MIC_CHL",
+        "fieldName": "gentamicin_resistance_phenotype",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -1647,10 +871,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "MIC_CIP",
+        "fieldName": "gentamicin_measurement_sign",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -1662,10 +886,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "MIC_CRO",
+        "fieldName": "gentamicin_measurement",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -1677,10 +901,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "MIC_FOX",
+        "fieldName": "meropenem_resistance_phenotype",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -1692,10 +916,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "MIC_GEN",
+        "fieldName": "meropenem_measurement_sign",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -1707,10 +931,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "MIC_KAN",
+        "fieldName": "meropenem_measurement",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -1722,10 +946,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "MIC_MEM",
+        "fieldName": "nalidixic_acid_resistance_phenotype",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -1737,10 +961,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "MIC_NAL",
+        "fieldName": "nalidixic_acid_measurement_sign",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -1752,10 +976,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "MIC_SSS",
+        "fieldName": "nalidixic_acid_measurement",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -1767,10 +991,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "MIC_STR",
+        "fieldName": "streptomycin_resistance_phenotype",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -1782,10 +1006,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "MIC_SXT",
+        "fieldName": "streptomycin_measurement_sign",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -1797,10 +1021,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "MIC_TET",
+        "fieldName": "streptomycin_measurement",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -1812,10 +1036,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "MIC_TIO",
+        "fieldName": "sulfisoxazole_resistance_phenotype",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -1827,10 +1051,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "N_OF_RESISTANCE",
+        "fieldName": "sulfisoxazole_measurement_sign",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -1842,10 +1066,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "NBTESTED",
+        "fieldName": "sulfisoxazole_measurement",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -1857,10 +1081,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "R_PATTERN",
+        "fieldName": "tetracycline_resistance_phenotype",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -1872,10 +1096,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "AMR_PA2C",
+        "fieldName": "tetracycline_measurement_sign",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -1887,10 +1111,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "RLEAST1",
+        "fieldName": "tetracycline_measurement",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -1902,10 +1126,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "RLEAST2",
+        "fieldName": "amoxicillin-clavulanic_acid_testing_standard",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -1914,13 +1138,13 @@ var DATA = [
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
-        "description": "",
-        "guidance": "",
+        "description": "Testing standard used for determination of resistance phenotype",
+        "guidance": "\u201cCLSI\u201d, \u201cNARMS\u201d, \u201cBSAC\u201d, \u201cDIN\u201d, \u201cEUCAST\u201d, \u201cNCCLS\u201d, \u201cSFM\u201d, \u201cSIR\u201d, \u201cWRG\u201d, or \u201cmissing\u201d",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "RLEAST3",
+        "fieldName": "amoxicillin-clavulanic_acid_testing_standard_version",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -1929,13 +1153,13 @@ var DATA = [
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
-        "description": "",
-        "guidance": "",
+        "description": "Version number associated with the testing standard used for determination of resistance phenotype",
+        "guidance": "If applicable, include a version number for the testing standard used.",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "RLEAST4",
+        "fieldName": "amoxicillin-clavulanic_acid_testing_standard_details",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -1944,13 +1168,13 @@ var DATA = [
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
-        "description": "",
-        "guidance": "",
+        "description": "Additional details associated with the testing standard used for determination of resistance phenotype",
+        "guidance": "This information may include the year or location where the testing standard was published. If not applicable, leave blank.",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "RLEAST5",
+        "fieldName": "amoxicillin-clavulanic_acid_susceptible_breakpoint",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -1959,13 +1183,13 @@ var DATA = [
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
-        "description": "",
-        "guidance": "",
+        "description": "Maximum measurement, in the units specified in the \u201cAMR_measurement_units\u201d field, for a sample to be considered \u201csensitive\u201d to this antibiotic",
+        "guidance": "This field should only contain a number (either an integer or a number with decimals), since the \u201c<=\u201d qualifier is implied.",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "SIR_AMC",
+        "fieldName": "amoxicillin-clavulanic_acid_intermediate_breakpoint",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -1974,13 +1198,13 @@ var DATA = [
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
-        "description": "",
+        "description": "Intermediate measurement(s), in the units specified in the \u201cAMR_measurement_units\u201d field, where a sample would be considered to have an \u201cintermediate\u201d phenotype for this antibiotic",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "SIR_AMK",
+        "fieldName": "amoxicillin-clavulanic_acid_resistant_breakpoint",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -1989,13 +1213,13 @@ var DATA = [
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
-        "description": "",
-        "guidance": "",
+        "description": "Minimum measurement, in the units specified in the \u201cAMR_measurement_units\u201d field, for a sample to be considered \u201cresistant\u201d to this antibiotic",
+        "guidance": "This field should only contain a number (either an integer or a number with decimals), since the \u201c>=\u201d qualifier is implied.",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "SIR_AMP",
+        "fieldName": "ampicillin_testing_standard",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -2007,10 +1231,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "SIR_AZM",
+        "fieldName": "ampicillin_testing_standard_version",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -2022,10 +1246,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "SIR_CEP",
+        "fieldName": "ampicillin_testing_standard_details",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -2037,10 +1261,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "SIR_CHL",
+        "fieldName": "ampicillin_susceptible_breakpoint",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -2052,10 +1276,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "SIR_CIP",
+        "fieldName": "ampicillin_intermediate_breakpoint",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -2067,10 +1291,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "SIR_CRO",
+        "fieldName": "ampicillin_resistant_breakpoint",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -2082,10 +1306,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "SIR_FOX",
+        "fieldName": "azithromycin_testing_standard",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -2097,10 +1321,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "SIR_GEN",
+        "fieldName": "azithromycin_testing_standard_version",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -2112,10 +1336,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "SIR_KAN",
+        "fieldName": "azithromycin_testing_standard_details",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -2127,10 +1351,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "SIR_MEM",
+        "fieldName": "azithromycin_susceptible_breakpoint",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -2142,10 +1366,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "SIR_NAL",
+        "fieldName": "azithromycin_intermediate_breakpoint",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -2157,10 +1381,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "SIR_SSS",
+        "fieldName": "azithromycin_resistant_breakpoint",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -2172,10 +1396,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "SIR_STR",
+        "fieldName": "cefoxitin_testing_standard",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -2187,10 +1411,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "SIR_SXT",
+        "fieldName": "cefoxitin_testing_standard_version",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -2202,10 +1426,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "SIR_TET",
+        "fieldName": "cefoxitin_testing_standard_details",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -2217,10 +1441,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "SIR_TIO",
+        "fieldName": "cefoxitin_susceptible_breakpoint",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -2232,10 +1456,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "RAMC",
+        "fieldName": "cefoxitin_intermediate_breakpoint",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -2247,10 +1471,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "RAMK",
+        "fieldName": "cefoxitin_resistant_breakpoint",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -2262,10 +1486,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "RAMP",
+        "fieldName": "ceftriaxone_testing_standard",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -2277,10 +1501,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "RAZM",
+        "fieldName": "ceftriaxone_testing_standard_version",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -2292,10 +1516,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "RCEP",
+        "fieldName": "ceftriaxone_testing_standard_details",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -2307,10 +1531,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "RCHL",
+        "fieldName": "ceftriaxone_susceptible_breakpoint",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -2322,10 +1546,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "RCIP",
+        "fieldName": "ceftriaxone_intermediate_breakpoint",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -2337,10 +1561,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "RCRO",
+        "fieldName": "ceftriaxone_resistant_breakpoint",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -2352,10 +1576,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "RFOX",
+        "fieldName": "chloramphenicol_testing_standard",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -2367,10 +1591,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "RGEN",
+        "fieldName": "chloramphenicol_testing_standard_version",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -2382,10 +1606,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "RKAN",
+        "fieldName": "chloramphenicol_testing_standard_details",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -2397,10 +1621,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "RMEM",
+        "fieldName": "chloramphenicol_susceptible_breakpoint",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -2412,10 +1636,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "RNAL",
+        "fieldName": "chloramphenicol_intermediate_breakpoint",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -2427,10 +1651,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "RSSS",
+        "fieldName": "chloramphenicol_resistant_breakpoint",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -2442,10 +1666,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "RSTR",
+        "fieldName": "ciprofloxacin_testing_standard",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -2457,10 +1681,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "RSXT",
+        "fieldName": "ciprofloxacin_testing_standard_version",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -2472,10 +1696,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "RTET",
+        "fieldName": "ciprofloxacin_testing_standard_details",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -2487,10 +1711,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "RTIO",
+        "fieldName": "ciprofloxacin_susceptible_breakpoint",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -2502,10 +1726,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "A2C",
+        "fieldName": "ciprofloxacin_intermediate_breakpoint",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -2517,10 +1741,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "CAMC",
+        "fieldName": "ciprofloxacin_resistant_breakpoint",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -2532,10 +1756,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "CAMK",
+        "fieldName": "gentamicin_testing_standard",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -2547,10 +1771,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "CAMP",
+        "fieldName": "gentamicin_testing_standard_version",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -2562,10 +1786,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "CAZM",
+        "fieldName": "gentamicin_testing_standard_details",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -2577,10 +1801,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "CCEP",
+        "fieldName": "gentamicin_susceptible_breakpoint",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -2592,10 +1816,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "CCHL",
+        "fieldName": "gentamicin_intermediate_breakpoint",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -2607,10 +1831,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "CCIP",
+        "fieldName": "gentamicin_resistant_breakpoint",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -2622,10 +1846,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "CCRO",
+        "fieldName": "meropenem_testing_standard",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -2637,10 +1861,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "CFOX",
+        "fieldName": "meropenem_testing_standard_version",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -2652,10 +1876,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "CGEN",
+        "fieldName": "meropenem_testing_standard_details",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -2667,10 +1891,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "CKAN",
+        "fieldName": "meropenem_susceptible_breakpoint",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -2682,10 +1906,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "CMEM",
+        "fieldName": "meropenem_intermediate_breakpoint",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -2697,10 +1921,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "CNAL",
+        "fieldName": "meropenem_resistant_breakpoint",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -2712,10 +1936,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "CSSS",
+        "fieldName": "nalidixic_acid_testing_standard",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -2727,10 +1951,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "CSTR",
+        "fieldName": "nalidixic_acid_testing_standard_version",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -2742,10 +1966,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "CSXT",
+        "fieldName": "nalidixic_acid_testing_standard_details",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -2757,10 +1981,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "CTET",
+        "fieldName": "nalidixic_acid_susceptible_breakpoint",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -2772,10 +1996,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "CTIO",
+        "fieldName": "nalidixic_acid_intermediate_breakpoint",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -2787,10 +2011,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "STHY_TESTSRC_ID",
+        "fieldName": "nalidixic_acid_resistant_breakpoint",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -2802,10 +2026,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "WINN_TESTSRC_ID",
+        "fieldName": "streptomycin_testing_standard",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -2817,10 +2041,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "GUEL_TESTSRC_ID",
+        "fieldName": "streptomycin_testing_standard_version",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -2832,10 +2056,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "RCIP_DANMAP",
+        "fieldName": "streptomycin_testing_standard_details",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -2847,10 +2071,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "EPIDATESTAMP_1",
+        "fieldName": "streptomycin_susceptible_breakpoint",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -2862,10 +2086,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "ACSSUT",
+        "fieldName": "streptomycin_intermediate_breakpoint",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -2877,10 +2101,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "AKSSUT",
+        "fieldName": "streptomycin_resistant_breakpoint",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -2892,10 +2116,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "ACKSSUT",
+        "fieldName": "sulfisoxazole_testing_standard",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -2907,10 +2131,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "MDR_A_SSUT",
+        "fieldName": "sulfisoxazole_testing_standard_version",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -2922,10 +2146,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "EXCLUSION",
+        "fieldName": "sulfisoxazole_testing_standard_details",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -2937,10 +2161,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "RAMINOGLY",
+        "fieldName": "sulfisoxazole_susceptible_breakpoint",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -2952,10 +2176,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "RBETALACTAM",
+        "fieldName": "sulfisoxazole_intermediate_breakpoint",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -2967,10 +2191,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "RQUINOLONES",
+        "fieldName": "sulfisoxazole_resistant_breakpoint",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -2982,10 +2206,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "RFOLINHIBITOR",
+        "fieldName": "tetracycline_testing_standard",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -2997,10 +2221,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "MDR",
+        "fieldName": "tetracycline_testing_standard_version",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -3012,10 +2236,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "specimen_number",
+        "fieldName": "tetracycline_testing_standard_details",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -3027,10 +2251,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "EXTERNAL_AGENT",
+        "fieldName": "tetracycline_susceptible_breakpoint",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -3042,10 +2266,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "FARM_FLAG",
+        "fieldName": "tetracycline_intermediate_breakpoint",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -3057,10 +2281,10 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       },
       {
-        "fieldName": "AMIKACINGELET",
+        "fieldName": "tetracycline_resistant_breakpoint",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -3072,7 +2296,7 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": ""
+        "EXPORT_???": ""
       }
     ]
   }
