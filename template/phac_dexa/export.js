@@ -34,7 +34,7 @@ var exportGRDI = (baseName, hot, data, xlsx) => {
   ];
 
 
-// STTYPE: ANIMAL ENVIRONMENT FOOD HUMAN PRODUCT QA UNKNOWN
+
 
 
   // Create a map of Export format headers to template's fields. It is a 
@@ -51,12 +51,38 @@ var exportGRDI = (baseName, hot, data, xlsx) => {
     }
   }
 
+  for (const [fieldIndex, field] of fields.entries()) {
+    does "field" have data?
+    // STTYPE: ANIMAL ENVIRONMENT FOOD HUMAN PRODUCT QA UNKNOWN
+    if (field.label === 'STTYPE') {
+      switch (field) {
+        case 'ANIMAL': ;
+          if (SPECIMENSUBSOURCE_1 in ['Spleen', 'Joint', 'Heart', 'Intestine', 'Mixed organs', 'Cecum', 'Anal gland', 'Yolk sac', 'Cloacae', 'Ileum', 'Colon', 'Liver', 'Crop']):
+            body_product = SPECIMENSUBSOURCE_1;
+            break
+
+        case :
+      }
+    }
+  }
+
+
+
+
+
+
   // Create an export table with target format's headers and remaining rows of data
   const matrix = [ExportHeaders];
   const unmappedMatrix = getTrimmedData(hot);
   for (const unmappedRow of unmappedMatrix) {
     const mappedRow = [];
     for (const [HeaderIndex, HeaderName] of ExportHeaders.entries()) {
+
+      if (HeaderName === 'Test Requested') {
+
+      }
+
+
       const mappedCell = [];
       for (const mappedFieldIndex of headerMap[HeaderIndex]) {
         let mappedCellVal = unmappedRow[mappedFieldIndex];
