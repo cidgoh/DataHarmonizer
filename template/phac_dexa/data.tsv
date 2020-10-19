@@ -1,30 +1,901 @@
-Ontology ID	parent class	label	datatype	source	data status	requirement	min value	max value	capitalize	description	guidance	examples	EXPORT_GRDI	
-ID	SC %													
-		Database Identifiers												
-	Database Identifiers	ISOLATE_ID	xs:token			required							sample_name	
-	Database Identifiers	SAMPLE_ID	xs:token			required							alternative_sample_ID	
-	Database Identifiers	Country_1	xs:token										geo_loc (country)	
-	Database Identifiers	Province_1	xs:token										geo_loc (state/province/region)	
-	Database Identifiers	DATECOLLECTED_1	xs:token										collection_date	
-	Database Identifiers	SubmittingOrg_1	xs:token										collected_by	
-	Database Identifiers	SubmittingLab_1	xs:token										laboratory_name	
-	Database Identifiers	CIPARS generic email	xs:token										sample_collector_contact_email	
-	Database Identifiers	FINAL_ID_GENUS	xs:token										organism	
-	Database Identifiers	FINAL_ID_SPECIES	xs:token										organism	
-	Database Identifiers	FINAL_ID_SEROTYPE	xs:token										serovar	
-	Database Identifiers	SA_Serotype_Method	xs:token										serotyping_method	
-	Database Identifiers	FINAL_ID_PHAGETYPE	xs:token										phagetype	
-	Database Identifiers	Project_1	xs:token										purpose_of_sampling	
-	Database Identifiers	SPECIES	xs:token										host (common name)	
-														
-														
-														
-														
-														
-														
-														
-														
-														
-														
-														
-														
+Ontology ID	parent class	label	datatype	source	data status	requirement	min value	max value	capitalize	description	guidance	examples	EXPORT_GRDI	ontology label	definition	definition source	english synonym	Parental Term	Parental Term URL	Issues / Status	Other	
+ID	SC %																					
+		Database Identifiers																				
+	Database Identifiers	SPECIMEN_ID	xs:token																			
+	Database Identifiers	ISOLATE_ID	xs:token			required							sample_name									
+	Database Identifiers	SAMPLE_ID	xs:token			required							alternative_sample_ID									
+		Fields to put in sections																				
+	Fields to put in sections	SENTINEL_SITE	xs:token																			
+	Fields to put in sections	LFZ_ADDITIONAL_SAMPLE_ID	xs:token																			
+	Fields to put in sections	LFZ_ORIGIN_COUNTRY	xs:token																			
+	Fields to put in sections	SUBJECT_CODE	xs:token																			
+	Fields to put in sections	SUBJECT_DESCRIPTIONS	select																			
+	Fields to put in sections	SUBMITTINGORG_1	xs:token										collected_by									
+	Fields to put in sections	SUBMITTINGLAB_1	xs:token										laboratory_name									
+	Fields to put in sections	PROJECT_1	xs:token																			
+	Fields to put in sections	COUNTRY_1	xs:token										geo_loc (country)									
+	Fields to put in sections	PROVINCE_1	xs:token										geo_loc (state/province/region)									
+	Fields to put in sections	CENSUSDIVISION_1	xs:token																			
+	Fields to put in sections	REGION	xs:token																			
+	Fields to put in sections	YEAR	xs:token																			
+	Fields to put in sections	MONTH	xs:token																			
+	Fields to put in sections	QTR	xs:token																			
+	Fields to put in sections	DATECOLLECTED_1	xs:token										collection_date									
+	Fields to put in sections	CIPARS generic email	xs:token										sample_collector_contact_email									
+	Fields to put in sections	DATERECEIVED_1	xs:token																			
+	Fields to put in sections	DATESHIPPED_1	xs:token																			
+	Fields to put in sections	ESTABLISHMENT_1	xs:token																			
+	Fields to put in sections	SPECIES	select										host (common name)									
+	Fields to put in sections	STTYPE	select																			
+	Fields to put in sections	STYPE	select																			
+	Fields to put in sections	COMMODITY	select																			
+	Fields to put in sections	SPECIMENSOURCE_1	select																			
+	Fields to put in sections	SPECIMENSUBSOURCE_1	select																			
+	Fields to put in sections	SUBJECT_SUBTYPE	select																			
+	Fields to put in sections	FIELDSTAFF_1	xs:token																			
+	Fields to put in sections	IN_STORE_PROCESSING	xs:token																			
+	Fields to put in sections	MAYCONTAINFROZENMEAT_1	xs:token																			
+	Fields to put in sections	NOOFCASHREGISTERS_1	xs:token																			
+	Fields to put in sections	PRICEPERKG_1	xs:token																			
+	Fields to put in sections	STORETYPE_SAMPLINGSITE_1	xs:token																			
+	Fields to put in sections	TEMPERATUREMAX_1	xs:token																			
+	Fields to put in sections	TEMPERATUREMIN_1	xs:token																			
+	Fields to put in sections	TEMPERATUREARRIVAL_1	xs:token																			
+	Fields to put in sections	VETID	xs:token																			
+	Fields to put in sections	ROOMID	xs:token																			
+	Fields to put in sections	PENID	xs:token																			
+	Fields to put in sections	SAMPLING_TYPE	xs:token																			
+	Fields to put in sections	BARN_ID	xs:token																			
+	Fields to put in sections	DATE_PACKED	xs:token																			
+	Fields to put in sections	FINAL_ID_GENUS	xs:token										organism									
+	Fields to put in sections	FINAL_ID_SPECIES	xs:token										organism									
+	Fields to put in sections	FINAL_ID_SUBSPECIES	xs:token																			
+	Fields to put in sections	FINAL_ID_SEROTYPE	xs:token										serovar									
+	Fields to put in sections	FINAL_ID_ANTIGEN	xs:token																			
+	Fields to put in sections	FINAL_ID_PHAGETYPE	xs:token										phagetype									
+	Fields to put in sections	SA_Serotype_Method	xs:token										serotyping_method									
+	Fields to put in sections	SEROTYPE_GR	xs:token																			
+	Fields to put in sections	MIC_AMC	xs:token																			
+	Fields to put in sections	MIC_AMK	xs:token																			
+	Fields to put in sections	MIC_AMP	xs:token																			
+	Fields to put in sections	MIC_AZM	xs:token																			
+	Fields to put in sections	MIC_CEP	xs:token																			
+	Fields to put in sections	MIC_CHL	xs:token																			
+	Fields to put in sections	MIC_CIP	xs:token																			
+	Fields to put in sections	MIC_CRO	xs:token																			
+	Fields to put in sections	MIC_FOX	xs:token																			
+	Fields to put in sections	MIC_GEN	xs:token																			
+	Fields to put in sections	MIC_KAN	xs:token																			
+	Fields to put in sections	MIC_MEM	xs:token																			
+	Fields to put in sections	MIC_NAL	xs:token																			
+	Fields to put in sections	MIC_SSS	xs:token																			
+	Fields to put in sections	MIC_STR	xs:token																			
+	Fields to put in sections	MIC_SXT	xs:token																			
+	Fields to put in sections	MIC_TET	xs:token																			
+	Fields to put in sections	MIC_TIO	xs:token																			
+	Fields to put in sections	N_OF_RESISTANCE	xs:token																			
+	Fields to put in sections	NBTESTED	xs:token																			
+	Fields to put in sections	R_PATTERN	xs:token																			
+	Fields to put in sections	AMR_PA2C	xs:token																			
+	Fields to put in sections	RLEAST1	xs:token																			
+	Fields to put in sections	RLEAST2	xs:token																			
+	Fields to put in sections	RLEAST3	xs:token																			
+	Fields to put in sections	RLEAST4	xs:token																			
+	Fields to put in sections	RLEAST5	xs:token																			
+	Fields to put in sections	SIR_AMC	xs:token																			
+	Fields to put in sections	SIR_AMK	xs:token																			
+	Fields to put in sections	SIR_AMP	xs:token																			
+	Fields to put in sections	SIR_AZM	xs:token																			
+	Fields to put in sections	SIR_CEP	xs:token																			
+	Fields to put in sections	SIR_CHL	xs:token																			
+	Fields to put in sections	SIR_CIP	xs:token																			
+	Fields to put in sections	SIR_CRO	xs:token																			
+	Fields to put in sections	SIR_FOX	xs:token																			
+	Fields to put in sections	SIR_GEN	xs:token																			
+	Fields to put in sections	SIR_KAN	xs:token																			
+	Fields to put in sections	SIR_MEM	xs:token																			
+	Fields to put in sections	SIR_NAL	xs:token																			
+	Fields to put in sections	SIR_SSS	xs:token																			
+	Fields to put in sections	SIR_STR	xs:token																			
+	Fields to put in sections	SIR_SXT	xs:token																			
+	Fields to put in sections	SIR_TET	xs:token																			
+	Fields to put in sections	SIR_TIO	xs:token																			
+	Fields to put in sections	RAMC	xs:token																			
+	Fields to put in sections	RAMK	xs:token																			
+	Fields to put in sections	RAMP	xs:token																			
+	Fields to put in sections	RAZM	xs:token																			
+	Fields to put in sections	RCEP	xs:token																			
+	Fields to put in sections	RCHL	xs:token																			
+	Fields to put in sections	RCIP	xs:token																			
+	Fields to put in sections	RCRO	xs:token																			
+	Fields to put in sections	RFOX	xs:token																			
+	Fields to put in sections	RGEN	xs:token																			
+	Fields to put in sections	RKAN	xs:token																			
+	Fields to put in sections	RMEM	xs:token																			
+	Fields to put in sections	RNAL	xs:token																			
+	Fields to put in sections	RSSS	xs:token																			
+	Fields to put in sections	RSTR	xs:token																			
+	Fields to put in sections	RSXT	xs:token																			
+	Fields to put in sections	RTET	xs:token																			
+	Fields to put in sections	RTIO	xs:token																			
+	Fields to put in sections	A2C	xs:token																			
+	Fields to put in sections	CAMC	xs:token																			
+	Fields to put in sections	CAMK	xs:token																			
+	Fields to put in sections	CAMP	xs:token																			
+	Fields to put in sections	CAZM	xs:token																			
+	Fields to put in sections	CCEP	xs:token																			
+	Fields to put in sections	CCHL	xs:token																			
+	Fields to put in sections	CCIP	xs:token																			
+	Fields to put in sections	CCRO	xs:token																			
+	Fields to put in sections	CFOX	xs:token																			
+	Fields to put in sections	CGEN	xs:token																			
+	Fields to put in sections	CKAN	xs:token																			
+	Fields to put in sections	CMEM	xs:token																			
+	Fields to put in sections	CNAL	xs:token																			
+	Fields to put in sections	CSSS	xs:token																			
+	Fields to put in sections	CSTR	xs:token																			
+	Fields to put in sections	CSXT	xs:token																			
+	Fields to put in sections	CTET	xs:token																			
+	Fields to put in sections	CTIO	xs:token																			
+	Fields to put in sections	STHY_TESTSRC_ID	xs:token																			
+	Fields to put in sections	WINN_TESTSRC_ID	xs:token																			
+	Fields to put in sections	GUEL_TESTSRC_ID	xs:token																			
+	Fields to put in sections	RCIP_DANMAP	xs:token																			
+	Fields to put in sections	EPIDATESTAMP_1	xs:token																			
+	Fields to put in sections	ACSSUT	xs:token																			
+	Fields to put in sections	AKSSUT	xs:token																			
+	Fields to put in sections	ACKSSUT	xs:token																			
+	Fields to put in sections	MDR_A_SSUT	xs:token																			
+	Fields to put in sections	EXCLUSION	xs:token																			
+	Fields to put in sections	RAMINOGLY	xs:token																			
+	Fields to put in sections	RBETALACTAM	xs:token																			
+	Fields to put in sections	RQUINOLONES	xs:token																			
+	Fields to put in sections	RFOLINHIBITOR	xs:token																			
+	Fields to put in sections	MDR	xs:token																			
+	Fields to put in sections	specimen_number	xs:token																			
+	Fields to put in sections	EXTERNAL_AGENT	xs:token																			
+	Fields to put in sections	FARM_FLAG	xs:token																			
+	Fields to put in sections	AMIKACINGELET	xs:token																			
+																						
+	SUBJECT_DESCRIPTIONS	1/2 breast																			food product	
+	SUBJECT_DESCRIPTIONS	Avian Ingredients																			food product	
+	SUBJECT_DESCRIPTIONS	Back																			food product	
+	SUBJECT_DESCRIPTIONS	Balut																			food product	
+	SUBJECT_DESCRIPTIONS	Black Pepper																			food product	
+	SUBJECT_DESCRIPTIONS	Blade Steak																			food product	
+	SUBJECT_DESCRIPTIONS	Blood Meal																			food product	
+	SUBJECT_DESCRIPTIONS	Bone Meal																			food product	
+	SUBJECT_DESCRIPTIONS	Bovine Ingredients																			food product	
+	SUBJECT_DESCRIPTIONS	Breast																			food product	
+	SUBJECT_DESCRIPTIONS	Breast back off																			food product	
+	SUBJECT_DESCRIPTIONS	Breast cutlets																			food product	
+	SUBJECT_DESCRIPTIONS	Breast Skinless																			food product	
+	SUBJECT_DESCRIPTIONS	Breast Skinless Boneless																			food product	
+	SUBJECT_DESCRIPTIONS	Breast with Skin																			food product	
+	SUBJECT_DESCRIPTIONS	Brisket																			food product	
+	SUBJECT_DESCRIPTIONS	Burger																			food product	
+	SUBJECT_DESCRIPTIONS	Calf																			host (common name)	
+	SUBJECT_DESCRIPTIONS	Canola Meal																			food product	
+	SUBJECT_DESCRIPTIONS	Carinata Meal																			food product	
+	SUBJECT_DESCRIPTIONS	Chop																			food product	
+	SUBJECT_DESCRIPTIONS	Chops																			food product	
+	SUBJECT_DESCRIPTIONS	coli																				
+	SUBJECT_DESCRIPTIONS	Complete Feed																			food product	
+	SUBJECT_DESCRIPTIONS	Corn																			food product	
+	SUBJECT_DESCRIPTIONS	Cow																			host (common name)	
+	SUBJECT_DESCRIPTIONS	Cubes																			food product	
+	SUBJECT_DESCRIPTIONS	Cutlet																			food product	
+	SUBJECT_DESCRIPTIONS	Drumstick																			food product	
+	SUBJECT_DESCRIPTIONS	Drumstick Skinless																			food product	
+	SUBJECT_DESCRIPTIONS	Drumstick with Skin																			food product	
+	SUBJECT_DESCRIPTIONS	Drumsticks																			food product	
+	SUBJECT_DESCRIPTIONS	Egg Flour																			food product	
+	SUBJECT_DESCRIPTIONS	Feather Meal																			food product	
+	SUBJECT_DESCRIPTIONS	Feed																			food product	
+	SUBJECT_DESCRIPTIONS	Filet																			food product	
+	SUBJECT_DESCRIPTIONS	Fish Ingredients																			food product	
+	SUBJECT_DESCRIPTIONS	Fish Meal																			food product	
+	SUBJECT_DESCRIPTIONS	Grain																			food product	
+	SUBJECT_DESCRIPTIONS	Ground																			food product	
+	SUBJECT_DESCRIPTIONS	Ground ( lean)																			food product	
+	SUBJECT_DESCRIPTIONS	Ground (Angus)																			food product	
+	SUBJECT_DESCRIPTIONS	Ground (Extra Lean)																			food product	
+	SUBJECT_DESCRIPTIONS	Ground (extra-lan)																			food product	
+	SUBJECT_DESCRIPTIONS	Ground (Extra-Lean)																			food product	
+	SUBJECT_DESCRIPTIONS	Ground (Lean)																			food product	
+	SUBJECT_DESCRIPTIONS	Ground (Medium)																			food product	
+	SUBJECT_DESCRIPTIONS	Ground (Regular)																			food product	
+	SUBJECT_DESCRIPTIONS	Ground (Sirloin)																			food product	
+	SUBJECT_DESCRIPTIONS	Ground Boneless																			food product	
+	SUBJECT_DESCRIPTIONS	Ground extra lean																			food product	
+	SUBJECT_DESCRIPTIONS	Ground regular																			food product	
+	SUBJECT_DESCRIPTIONS	ground( extra lean)																			food product	
+	SUBJECT_DESCRIPTIONS	ground( medium)																			food product	
+	SUBJECT_DESCRIPTIONS	Ground(Extra lean)																			food product	
+	SUBJECT_DESCRIPTIONS	Ground(Lean)																			food product	
+	SUBJECT_DESCRIPTIONS	Ground(medium)																			food product	
+	SUBJECT_DESCRIPTIONS	ground(regular)																			food product	
+	SUBJECT_DESCRIPTIONS	Groundextra lean)																			food product	
+	SUBJECT_DESCRIPTIONS	Ground-Lean																			food product	
+	SUBJECT_DESCRIPTIONS	Ground-Regular																			food product	
+	SUBJECT_DESCRIPTIONS	Heifer																			host (common name)	
+	SUBJECT_DESCRIPTIONS	Hummus																			food product	
+	SUBJECT_DESCRIPTIONS	In-Shell																			food product	
+	SUBJECT_DESCRIPTIONS	Lay Ration																			food product	
+	SUBJECT_DESCRIPTIONS	Leg																			food product	
+	SUBJECT_DESCRIPTIONS	Leg with Skin-Drumstick and Thigh																			food product	
+	SUBJECT_DESCRIPTIONS	Liver																			food product	
+	SUBJECT_DESCRIPTIONS	Loin Center Chop																			food product	
+	SUBJECT_DESCRIPTIONS	Meat and Bone Meal																			food product	
+	SUBJECT_DESCRIPTIONS	Meat Flour/Meal																			food product	
+	SUBJECT_DESCRIPTIONS	Meat Meal																			food product	
+	SUBJECT_DESCRIPTIONS	Mild italian style burger																			food product	
+	SUBJECT_DESCRIPTIONS	Necks																			food product	
+	SUBJECT_DESCRIPTIONS	Nuggets																			food product	
+	SUBJECT_DESCRIPTIONS	Other																			host (common name)	
+	SUBJECT_DESCRIPTIONS	Other cut																			food product	
+	SUBJECT_DESCRIPTIONS	Other Cut (Not Ground)																			food product	
+	SUBJECT_DESCRIPTIONS	Other Cut Boneless																			food product	
+	SUBJECT_DESCRIPTIONS	Other Cut Boneless (Not Ground)																			food product	
+	SUBJECT_DESCRIPTIONS	Ovine Ingredients																			food product	
+	SUBJECT_DESCRIPTIONS	Pet Food																			food product	
+	SUBJECT_DESCRIPTIONS	Porcine Ingredients																			food product	
+	SUBJECT_DESCRIPTIONS	Pork Chop (Cut Unknown)																			food product	
+	SUBJECT_DESCRIPTIONS	Premix																			food product	
+	SUBJECT_DESCRIPTIONS	Premix (Medicated)																			food product	
+	SUBJECT_DESCRIPTIONS	Processed (Other)																			food product	
+	SUBJECT_DESCRIPTIONS	Raw																			food product	
+	SUBJECT_DESCRIPTIONS	Rib Chop																			food product	
+	SUBJECT_DESCRIPTIONS	Ribs																			food product	
+	SUBJECT_DESCRIPTIONS	Roast																			food product	
+	SUBJECT_DESCRIPTIONS	Salami																			food product	
+	SUBJECT_DESCRIPTIONS	Sausage																			food product	
+	SUBJECT_DESCRIPTIONS	Sausage (Pepper)																			food product	
+	SUBJECT_DESCRIPTIONS	Scallopini																			food product	
+	SUBJECT_DESCRIPTIONS	Shell on																			food product	
+	SUBJECT_DESCRIPTIONS	Shelled																			food product	
+	SUBJECT_DESCRIPTIONS	Shoulder																			food product	
+	SUBJECT_DESCRIPTIONS	Shoulder Chop																			food product	
+	SUBJECT_DESCRIPTIONS	Sirloin Chop																			food product	
+	SUBJECT_DESCRIPTIONS	Skim milk powder																			food product	
+	SUBJECT_DESCRIPTIONS	Soft																			food product	
+	SUBJECT_DESCRIPTIONS	Soyabean Meal																			food product	
+	SUBJECT_DESCRIPTIONS	Starter Ration																			food product	
+	SUBJECT_DESCRIPTIONS	Steak																			food product	
+	SUBJECT_DESCRIPTIONS	Stew Chunks																			food product	
+	SUBJECT_DESCRIPTIONS																					
+	SUBJECT_DESCRIPTIONS	Supplements																			food product	
+	SUBJECT_DESCRIPTIONS	T. high																			food product	
+	SUBJECT_DESCRIPTIONS	Tahini																			food product	
+	SUBJECT_DESCRIPTIONS	Tender loin																			food product	
+	SUBJECT_DESCRIPTIONS	Tenderloin																			food product	
+	SUBJECT_DESCRIPTIONS	Thigh																			food product	
+	SUBJECT_DESCRIPTIONS	Thigh Skinless																			food product	
+	SUBJECT_DESCRIPTIONS	Thigh Skinless Boneless																			food product	
+	SUBJECT_DESCRIPTIONS	Thigh with Skin																			food product	
+	SUBJECT_DESCRIPTIONS	Trim																			food product	
+	SUBJECT_DESCRIPTIONS	Unknown Meal																			food product	
+	SUBJECT_DESCRIPTIONS	Unspecified Feed/Ingredient																			food product	
+	SUBJECT_DESCRIPTIONS	Upper Thigh																			food product	
+	SUBJECT_DESCRIPTIONS	Upper Thigh with Skin																			food product	
+	SUBJECT_DESCRIPTIONS	upper thight																			food product	
+	SUBJECT_DESCRIPTIONS	Upperthigh																			food product	
+	SUBJECT_DESCRIPTIONS	White Pepper																			food product	
+	SUBJECT_DESCRIPTIONS	Whole																			food product	
+	SUBJECT_DESCRIPTIONS	Whole Carcass																			food product	
+	SUBJECT_DESCRIPTIONS	Whole with Skin																			food product	
+	SUBJECT_DESCRIPTIONS	Wing																			food product	
+	SUBJECT_DESCRIPTIONS	Wings																			food product	
+	SPECIES	2																				
+	SPECIES	4																				
+	SPECIES	<=8																				
+	SPECIES	<n/a>																				
+	SPECIES	Abalone																			host (common name)	
+	SPECIES	Alfalfa sprouts																			food product	
+	SPECIES	Alpaca																			host (common name)	
+	SPECIES	Amphibian																			host (common name)	
+	SPECIES	Apple																			food product	
+	SPECIES	Aquatic mammal																			host (common name)	
+	SPECIES	Armadillo																			host (common name)	
+	SPECIES	Avian																			host (common name)	
+	SPECIES	Basil																			food product	
+	SPECIES	Bat																			host (common name)	
+	SPECIES	Bear																			host (common name)	
+	SPECIES	Bearded Dragon																			host (common name)	
+	SPECIES	Bison																			host (common name)	
+	SPECIES	Budgie																			host (common name)	
+	SPECIES	Camel																			host (common name)	
+	SPECIES	Camelid																			host (common name)	
+	SPECIES	Canary																			host (common name)	
+	SPECIES	Canine																			host (common name)	
+	SPECIES	Cantelope																			food product	
+	SPECIES	Caprine																			host (common name)	
+	SPECIES	Cardemom																			food product	
+	SPECIES	Cardinal																			host (common name)	
+	SPECIES	Cervid																			host (common name)	
+	SPECIES	Chameleon																			host (common name)	
+	SPECIES	Cheetah																			host (common name)	
+	SPECIES	Chicken																			host (common name)	
+	SPECIES	Chimpanzee																			host (common name)	
+	SPECIES	Chinchilla																			host (common name)	
+	SPECIES	Chinese Water Dragon																			host (common name)	
+	SPECIES	Clam																			host (common name)	
+	SPECIES	Coriander																			food product	
+	SPECIES	Cormorant																			host (common name)	
+	SPECIES	Cougar/Mountain Lion																			host (common name)	
+	SPECIES	Coyote																			host (common name)	
+	SPECIES	Crab																			host (common name)	
+	SPECIES	Crane																			host (common name)	
+	SPECIES	Crow																			host (common name)	
+	SPECIES	Cumin seeds																			food product	
+	SPECIES	Cuttlefish																			host (common name)	
+	SPECIES	Dog																			host (common name)	
+	SPECIES	Dolphin																			host (common name)	
+	SPECIES	Domestic Cat																			host (common name)	
+	SPECIES	Domestic Cattle																			host (common name)	
+	SPECIES	Duck																			host (common name)	
+	SPECIES	Dumpster																			environmental site	
+	SPECIES	Eagle																			host (common name)	
+	SPECIES	Eel																			host (common name)	
+	SPECIES	Elephant																			host (common name)	
+	SPECIES	Falcon																			host (common name)	
+	SPECIES	Feline																			host (common name)	
+	SPECIES	Ferret																			host (common name)	
+	SPECIES	Finch																			host (common name)	
+	SPECIES	Fish																			host (common name)	
+	SPECIES	Flamingo																			host (common name)	
+	SPECIES	For Unspecified																			host (common name)	
+	SPECIES	Fox																			host (common name)	
+	SPECIES	Gecko																			host (common name)	
+	SPECIES	Goat																			host (common name)	
+	SPECIES	Goat and Sheep																			host (common name)	
+	SPECIES	Goose																			host (common name)	
+	SPECIES	Grape																			host (common name)	
+	SPECIES	Green onions																			food product	
+	SPECIES	Grosbeak																			host (common name)	
+	SPECIES	ground pepper																			food product	
+	SPECIES	Gull																			host (common name)	
+	SPECIES	Hare																			host (common name)	
+	SPECIES	Hazelnut																			food product	
+	SPECIES	Hedgehog																			host (common name)	
+	SPECIES	Herb/spice (unspecified)																			food product	
+	SPECIES	Heron																			host (common name)	
+	SPECIES	Hippopotamidae																			host (common name)	
+	SPECIES	Horse																			host (common name)	
+	SPECIES	Iguana																			host (common name)	
+	SPECIES	Jaguar																			host (common name)	
+	SPECIES	Kangaroo																			host (common name)	
+	SPECIES	Komodo Dragon																			host (common name)	
+	SPECIES	Lapine																			host (common name)	
+	SPECIES	Lettuce																			food product	
+	SPECIES	Lion																			host (common name)	
+	SPECIES	Lizard																			host (common name)	
+	SPECIES	Marsupial																			host (common name)	
+	SPECIES	Mink																			host (common name)	
+	SPECIES	Mint																			food product	
+	SPECIES	Mixed																			host (common name)	
+	SPECIES	Mongoose																			host (common name)	
+	SPECIES	Mouse																			host (common name)	
+	SPECIES	Mushrooms																			food product	
+	SPECIES	Mussel																			host (common name)	
+	SPECIES	n/a																			host (common name)	
+	SPECIES	Not Available																			host (common name)	
+	SPECIES	Octopus																			host (common name)	
+	SPECIES	Opossum																			host (common name)	
+	SPECIES	Oregano																			food product	
+	SPECIES	Other																			host (common name)	
+	SPECIES	Otter																			host (common name)	
+	SPECIES	Ovine																			host (common name)	
+	SPECIES	Owl																			host (common name)	
+	SPECIES	Oyster																			host (common name)	
+	SPECIES	Parrot																			host (common name)	
+	SPECIES	Parsley																			food product	
+	SPECIES	Partridge																			host (common name)	
+	SPECIES	Pea sprouts																			food product	
+	SPECIES	Peanut Butter																			food product	
+	SPECIES	Pepper																			food product	
+	SPECIES	Perdrix																			host (common name)	
+	SPECIES	Pheasant																			host (common name)	
+	SPECIES	Pickerel																			host (common name)	
+	SPECIES	Pig																			host (common name)	
+	SPECIES	Pigeon																			host (common name)	
+	SPECIES	Pine Siskin																			host (common name)	
+	SPECIES	Pony																			host (common name)	
+	SPECIES	Porcupine																			host (common name)	
+	SPECIES	Porpoise																			host (common name)	
+	SPECIES	Primate																			host (common name)	
+	SPECIES	Quail																			host (common name)	
+	SPECIES	Rabbit																			host (common name)	
+	SPECIES	Raccoon																			host (common name)	
+	SPECIES	Rat																			host (common name)	
+	SPECIES	Ratite																			host (common name)	
+	SPECIES	Raven																			host (common name)	
+	SPECIES	Red Deer																			host (common name)	
+	SPECIES	Redpoll																			host (common name)	
+	SPECIES	Reptile																			host (common name)	
+	SPECIES	Rhea																			host (common name)	
+	SPECIES	Robin																			host (common name)	
+	SPECIES	Rodent																			host (common name)	
+	SPECIES	Sage																			food product	
+	SPECIES	Salmon																			host (common name)	
+	SPECIES	Scallop																			host (common name)	
+	SPECIES	Sea Otter																			host (common name)	
+	SPECIES	Sea Snail																			host (common name)	
+	SPECIES	Seal																			host (common name)	
+	SPECIES	Sesame Seed																			food product	
+	SPECIES	Sheep																			host (common name)	
+	SPECIES	Shrimp																			host (common name)	
+	SPECIES	Skink																			host (common name)	
+	SPECIES	Skunk																			host (common name)	
+	SPECIES	Snake																			host (common name)	
+	SPECIES	Sparrow																			host (common name)	
+	SPECIES	Spinach																			food product	
+	SPECIES	Spotted Hyena																			host (common name)	
+	SPECIES	Sprouts																			food product	
+	SPECIES	Squid																			host (common name)	
+	SPECIES	Squirrel																			host (common name)	
+	SPECIES	Stripped Hyena																			host (common name)	
+	SPECIES	Swan																			host (common name)	
+	SPECIES	Tantalus Monkey																			host (common name)	
+	SPECIES	Tilapia																			host (common name)	
+	SPECIES	Tomato																			food product	
+	SPECIES	Tortoise																			host (common name)	
+	SPECIES	Trout																			host (common name)	
+	SPECIES	Turkey																			host (common name)	
+	SPECIES	Turtle																			host (common name)	
+	SPECIES	Unknown																			host (common name)	
+	SPECIES	Unspecified Bird																			host (common name)	
+	SPECIES	Unspecified Fish																			host (common name)	
+	SPECIES	Unspecified Primate																			host (common name)	
+	SPECIES	Unspecified Reptile																			host (common name)	
+	SPECIES	Unspecified Rodent																			host (common name)	
+	SPECIES	Vulture																			host (common name)	
+	SPECIES	Wallnut																			food product	
+	SPECIES	Water Dragon																			host (common name)	
+	SPECIES	White Fish																			host (common name)	
+	SPECIES	Wild Ruminant																			host (common name)	
+	SPECIES	Wombat																			host (common name)	
+	SPECIES	Woodpecker																			host (common name)	
+	SPECIES	Zebra																			host (common name)	
+	STTYPE	0																				
+	STTYPE	0.5																				
+	STTYPE	ANIMAL																			host (common name)	
+	STTYPE	ENVIRONMENT																			environmental site/material	
+	STTYPE	FOOD																			food product	
+	STTYPE	HUMAN																			host (common name)	
+	STTYPE	PRODUCT																				
+	STTYPE	QA																				
+	STTYPE	UNKNOWN																			host (common name)	
+	STYPE	0																				
+	STYPE	2																				
+	STYPE	<=8																				
+	STYPE	<n/a>																				
+	STYPE	Amphibian																			host (common name)	
+	STYPE	Aquatic Mammal																			host (common name)	
+	STYPE	Armadillo																			host (common name)	
+	STYPE	Avian																			host (common name)	
+	STYPE	Bat																			host (common name)	
+	STYPE	Biosolids																			environmental material	
+	STYPE	Bovine																			host (common name)	
+	STYPE	Building																			environmental site	
+	STYPE	Camelid																			host (common name)	
+	STYPE	Canine																			host (common name)	
+	STYPE	Caprine																			host (common name)	
+	STYPE	Caprine and Ovine																			host (common name)	
+	STYPE	Cereal																			food product	
+	STYPE	Cereal/Bread/Snack																			food product	
+	STYPE	Cervid																			host (common name)	
+	STYPE	Compost																			environmental material	
+	STYPE	Confections/Nuts/Condiments																			food product	
+	STYPE	Crocuta																			host (common name)	
+	STYPE	Crustacean																			host (common name)	
+	STYPE	Dairy																			environmental site	
+	STYPE	Dust																			environmental material	
+	STYPE	Egg																			food product	
+	STYPE	Elephant																			host (common name)	
+	STYPE	Equine																			host (common name)	
+	STYPE	Equipment																			environmental site	
+	STYPE	ERROR																			?	
+	STYPE	Feed and Ingredients																			food product	
+	STYPE	Feline																			host (common name)	
+	STYPE	Ferret																			host (common name)	
+	STYPE	Fertilizer																			environmental material	
+	STYPE	Fish																			host (common name)	
+	STYPE	Food																			food product	
+	STYPE	Fruit																			food product	
+	STYPE	Fruits and Vegetables																			food product	
+	STYPE	Health (medicine)																			?	
+	STYPE	Herbs and Spices																			food product	
+	STYPE	Herpestidae																			host (common name)	
+	STYPE	Hippopotamidae																			host (common name)	
+	STYPE	Lapine																			host (common name)	
+	STYPE	Litter/Manure																			environmental material	
+	STYPE	Manure																			environmental material	
+	STYPE	Marsupial																			host (common name)	
+	STYPE	Meat																			food product	
+	STYPE	Mephitida																			host (common name)	
+	STYPE	Mink																			host (common name)	
+	STYPE	Mixed food																			food product	
+	STYPE	Mixed Food/Meat																			food product	
+	STYPE	Mollusk																			host (common name)	
+	STYPE	Mustelid																			host (common name)	
+	STYPE	n/a																			host (common name)	
+	STYPE	Other																			host (common name)	
+	STYPE	Ovine																			host (common name)	
+	STYPE	Personnel Clothing																			environmental material	
+	STYPE	Porcine																			host (common name)	
+	STYPE	Primate																			host (common name)	
+	STYPE	Raccoon																			host (common name)	
+	STYPE	Reptile																			host (common name)	
+	STYPE	Rodent																			host (common name)	
+	STYPE	Sewage																			environmental material	
+	STYPE	Soil																			environmental material	
+	STYPE	Transportation Supplies																			environmental site	
+	STYPE	Transportation Vehicles																			environmental site	
+	STYPE	Turkey																			host (common name)	
+	STYPE	Unknown																			host (common name)	
+	STYPE	Unknown Food																			food product	
+	STYPE	Unspecified																				
+	STYPE	Unspecified Animal																			host (common name)	
+	STYPE	Unspecified Environmental																			environmental site	
+	STYPE	Unspecified Food																			food product	
+	STYPE	Unspecified Product																				
+	STYPE	Ursine																			host (common name)	
+	STYPE	Vegetable/Spice																			food product	
+	STYPE	Water																			environmental material	
+	COMMODITY	<=16																				
+	COMMODITY	Beef																			food product	
+	COMMODITY	Broiler																			host (common name)	
+	COMMODITY	Dairy																			environmental site	
+	COMMODITY	Domestic/Farmed																			?	
+	COMMODITY	Egg																			food product	
+	COMMODITY	Laboratory																			environmental site	
+	COMMODITY	Meat																			food product	
+	COMMODITY	Mutton																			food product	
+	COMMODITY	Pet																			host (common name)	
+	COMMODITY	Pet/Zoo																			environmental site	
+	COMMODITY	Red Veal																			food product	
+	COMMODITY	Unknown																			host (common name)	
+	COMMODITY	Veal																			food product	
+	COMMODITY	White Veal																			food product	
+	COMMODITY	Wild																				
+	SPECIMENSOURCE_1	2																				
+	SPECIMENSOURCE_1	<=32																				
+	SPECIMENSOURCE_1	Aliquote / Portion																			?	
+	SPECIMENSOURCE_1	Blood																			anatomical material	
+	SPECIMENSOURCE_1	Blood Meal																			food product	
+	SPECIMENSOURCE_1	Body Fluid/Excretion																			anatomical material	
+	SPECIMENSOURCE_1	Carcass																			anatomical part	
+	SPECIMENSOURCE_1	Check Sample																			?	
+	SPECIMENSOURCE_1	Contact plate																			collection device	
+	SPECIMENSOURCE_1	Culture																			?	
+	SPECIMENSOURCE_1	Dust																			environmental material	
+	SPECIMENSOURCE_1	Egg																			food product	
+	SPECIMENSOURCE_1	Environment (Animal)																			?	
+	SPECIMENSOURCE_1	Environmental																			environmental material/site	
+	SPECIMENSOURCE_1	Feces																			body product	
+	SPECIMENSOURCE_1	Fetus/Embryo																			anatomical part	
+	SPECIMENSOURCE_1	Organ																			anatomical part	
+	SPECIMENSOURCE_1	Organ/Tissue																			anatomical material	
+	SPECIMENSOURCE_1	Proficiency Isolate																			?	
+	SPECIMENSOURCE_1	Reference Culture																			?	
+	SPECIMENSOURCE_1	Rinse																			environmental material	
+	SPECIMENSOURCE_1	Septage																			environmental material	
+	SPECIMENSOURCE_1	Soya Meal																			food product	
+	SPECIMENSOURCE_1	Stool																			body product	
+	SPECIMENSOURCE_1	Swab																			collection device	
+	SPECIMENSOURCE_1	Tissue																			anatomical material	
+	SPECIMENSOURCE_1	Unit (Pre-Packaged)																			?	
+	SPECIMENSOURCE_1	Unknown																			host (common name)	
+	SPECIMENSOURCE_1	Unspecified																			?	
+	SPECIMENSOURCE_1	Urine																			body product	
+	SPECIMENSUBSOURCE_1	0.25																				
+	SPECIMENSUBSOURCE_1	<=0.12																				
+	SPECIMENSUBSOURCE_1	<=16																				
+	SPECIMENSUBSOURCE_1	aansarraysubsource																			?	
+	SPECIMENSUBSOURCE_1	Abdomen																			anatomical part	
+	SPECIMENSUBSOURCE_1	Abdominal Muscle																			anatomical part	
+	SPECIMENSUBSOURCE_1	Abomasum																			anatomical part	
+	SPECIMENSUBSOURCE_1	Abscess																			anatomical material	
+	SPECIMENSUBSOURCE_1	Air Intake																			environmental site	
+	SPECIMENSUBSOURCE_1	Air Sac																			anatomical part	
+	SPECIMENSUBSOURCE_1	Anal Gland																			anatomical part	
+	SPECIMENSUBSOURCE_1	Animal Pen																			environmental site	
+	SPECIMENSUBSOURCE_1	Balut																			food product	
+	SPECIMENSUBSOURCE_1	Belt																			environmental site	
+	SPECIMENSUBSOURCE_1	Bladder																			anatomical part	
+	SPECIMENSUBSOURCE_1	Blood																			anatomical material	
+	SPECIMENSUBSOURCE_1	Blood vessel																			anatomical part	
+	SPECIMENSUBSOURCE_1	Bone																			anatomical material	
+	SPECIMENSUBSOURCE_1	Bone Marrow																			anatomical material	
+	SPECIMENSUBSOURCE_1	Bootie																			environmental material	
+	SPECIMENSUBSOURCE_1	Boots																			environmental material	
+	SPECIMENSUBSOURCE_1	Brain																			anatomical part	
+	SPECIMENSUBSOURCE_1	Bursa of Fabricus																			anatomical part	
+	SPECIMENSUBSOURCE_1	Cages																			environmental site	
+	SPECIMENSUBSOURCE_1	Cavity Fluid (Unspecified)																			anatomical material	
+	SPECIMENSUBSOURCE_1	Cavity fluid unspecified																			anatomical material	
+	SPECIMENSUBSOURCE_1	Cecal Content																			body product	
+	SPECIMENSUBSOURCE_1	Cecum																			anatomical part	
+	SPECIMENSUBSOURCE_1	Chick Boxes																			environmental site	
+	SPECIMENSUBSOURCE_1	Chick Pads																			environmental material	
+	SPECIMENSUBSOURCE_1	Cloacae																			anatomical part	
+	SPECIMENSUBSOURCE_1	Cloacal swab																			anatomical part	
+	SPECIMENSUBSOURCE_1	Colon																			anatomical part	
+	SPECIMENSUBSOURCE_1	Confirmation																			?	
+	SPECIMENSUBSOURCE_1	Crates																			environmental site	
+	SPECIMENSUBSOURCE_1	Crop																			environmental material	
+	SPECIMENSUBSOURCE_1	Culture Plate																			collection device	
+	SPECIMENSUBSOURCE_1	Digestive System (Unspecified)																			anatomical part	
+	SPECIMENSUBSOURCE_1	Duodenum																			anatomical part	
+	SPECIMENSUBSOURCE_1	Dust																			environmental material	
+	SPECIMENSUBSOURCE_1	Ear																			anatomical part	
+	SPECIMENSUBSOURCE_1	Egg Belt																			environmental site	
+	SPECIMENSUBSOURCE_1	Environment Swab																			collection device	
+	SPECIMENSUBSOURCE_1	Environment Swab (Hatchery)																			environmental site	
+	SPECIMENSUBSOURCE_1	Esophagus																			anatomical part	
+	SPECIMENSUBSOURCE_1	External Quality Assurance																			?	
+	SPECIMENSUBSOURCE_1	Eye																			anatomical part	
+	SPECIMENSUBSOURCE_1	Fan																			environmental site	
+	SPECIMENSUBSOURCE_1	Fecal Slurry																			environmental material	
+	SPECIMENSUBSOURCE_1	Feces																			body product	
+	SPECIMENSUBSOURCE_1	Feed																			food product	
+	SPECIMENSUBSOURCE_1	Feeders and Drinkers																			environmental site	
+	SPECIMENSUBSOURCE_1	Fetal Tissue																			anatomical material	
+	SPECIMENSUBSOURCE_1	Final Wash																			environmental material	
+	SPECIMENSUBSOURCE_1	Floor																			environmental site	
+	SPECIMENSUBSOURCE_1	Fluff																			environmental material	
+	SPECIMENSUBSOURCE_1	Fluff (Hatchery)																			environmental material	
+	SPECIMENSUBSOURCE_1	Foot																			anatomical part	
+	SPECIMENSUBSOURCE_1	Gall Bladder																			anatomical part	
+	SPECIMENSUBSOURCE_1	Gallbladder																			anatomical part	
+	SPECIMENSUBSOURCE_1	Ganglion																			anatomical part	
+	SPECIMENSUBSOURCE_1	Gizzard																			anatomical part	
+	SPECIMENSUBSOURCE_1	Growth / lesion (unspecified tissue)																			anatomical material	
+	SPECIMENSUBSOURCE_1	Growth/Lesion (Unspecified Tissue)																			anatomical material	
+	SPECIMENSUBSOURCE_1	Heart																			anatomical part	
+	SPECIMENSUBSOURCE_1	Ileum																			anatomical part	
+	SPECIMENSUBSOURCE_1	In-House																			?	
+	SPECIMENSUBSOURCE_1	Inter-Lab Exchange																			?	
+	SPECIMENSUBSOURCE_1	Intestinal Contents																			anatomical material	
+	SPECIMENSUBSOURCE_1	Intestine																			anatomical part	
+	SPECIMENSUBSOURCE_1	Jejunum																			anatomical part	
+	SPECIMENSUBSOURCE_1	Joint																			anatomical part	
+	SPECIMENSUBSOURCE_1	Joint Fluid																			anatomical material	
+	SPECIMENSUBSOURCE_1	Kidney																			anatomical part	
+	SPECIMENSUBSOURCE_1	Levage/peritoneal																			anatomical material	
+	SPECIMENSUBSOURCE_1	Levage/Tracheal																			anatomical material	
+	SPECIMENSUBSOURCE_1	Litter																			environmental material	
+	SPECIMENSUBSOURCE_1	Litter/Manure																			environmental material	
+	SPECIMENSUBSOURCE_1	Live Haul Truck																			environmental site	
+	SPECIMENSUBSOURCE_1	Live Haul Truck/Trailer																			environmental site	
+	SPECIMENSUBSOURCE_1	Liver																			food product	
+	SPECIMENSUBSOURCE_1	Lung																			anatomical part	
+	SPECIMENSUBSOURCE_1	Lymph Node																			anatomical part	
+	SPECIMENSUBSOURCE_1	Manure Pit																			environmental site	
+	SPECIMENSUBSOURCE_1	Meconium																			body product	
+	SPECIMENSUBSOURCE_1	Mesenteric Lymph Node																			anatomical part	
+	SPECIMENSUBSOURCE_1	Milk/Colostrum																			body product	
+	SPECIMENSUBSOURCE_1	Mixed																			host (common name)	
+	SPECIMENSUBSOURCE_1	Mixed Organs																			anatomical part	
+	SPECIMENSUBSOURCE_1	Mixed Tissues																			anatomical material	
+	SPECIMENSUBSOURCE_1	Mouth																			anatomical part	
+	SPECIMENSUBSOURCE_1	Mucous membrane (gut)																			anatomical part	
+	SPECIMENSUBSOURCE_1	Mucous membrane (resp)																			anatomical part	
+	SPECIMENSUBSOURCE_1	Mucus																			anatomical material	
+	SPECIMENSUBSOURCE_1	Muscle																			anatomical part	
+	SPECIMENSUBSOURCE_1	Muscle/Meat																			food product	
+	SPECIMENSUBSOURCE_1	Nasal Turbinate																			anatomical part	
+	SPECIMENSUBSOURCE_1	Nasal/Naries																			anatomical part	
+	SPECIMENSUBSOURCE_1	Organ Unspecified																			anatomical part	
+	SPECIMENSUBSOURCE_1	Ovary																			anatomical part	
+	SPECIMENSUBSOURCE_1	Oviduct																			anatomical part	
+	SPECIMENSUBSOURCE_1	Pericardium																			anatomical part	
+	SPECIMENSUBSOURCE_1	Peritoneal Fluid																			anatomical material	
+	SPECIMENSUBSOURCE_1	Peritoneum																			anatomical part	
+	SPECIMENSUBSOURCE_1	Placenta																			anatomical part	
+	SPECIMENSUBSOURCE_1	Pleura																			anatomical part	
+	SPECIMENSUBSOURCE_1	Plucking Belt																			environmental site	
+	SPECIMENSUBSOURCE_1	Plucking Water																			environmental material	
+	SPECIMENSUBSOURCE_1	Pooled Feces																			body product	
+	SPECIMENSUBSOURCE_1	Rectal Swab																			anatomical part	
+	SPECIMENSUBSOURCE_1	Rectum																			anatomical part	
+	SPECIMENSUBSOURCE_1	Research																			?	
+	SPECIMENSUBSOURCE_1	Rinse																			environmental material	
+	SPECIMENSUBSOURCE_1	Rumen																			anatomical part	
+	SPECIMENSUBSOURCE_1	Shell																			anatomical material	
+	SPECIMENSUBSOURCE_1	Shell egg																			food product	
+	SPECIMENSUBSOURCE_1	Sinus																			anatomical part	
+	SPECIMENSUBSOURCE_1	Skin																			anatomical part	
+	SPECIMENSUBSOURCE_1	Small Intestine																			anatomical part	
+	SPECIMENSUBSOURCE_1	Soil																			environmental material	
+	SPECIMENSUBSOURCE_1	Spinal Cord																			anatomical part	
+	SPECIMENSUBSOURCE_1	Spleen																			anatomical part	
+	SPECIMENSUBSOURCE_1	Stall																			environmental site	
+	SPECIMENSUBSOURCE_1	Stomach																			anatomical part	
+	SPECIMENSUBSOURCE_1	Stomach Contents																			body product	
+	SPECIMENSUBSOURCE_1	Swab																			collection device	
+	SPECIMENSUBSOURCE_1	Swab (Nasal)																			anatomical part	
+	SPECIMENSUBSOURCE_1	Swab (Rectal)																			anatomical part	
+	SPECIMENSUBSOURCE_1	Swab (Tissue Fluid-Unspecified)																			anatomical material	
+	SPECIMENSUBSOURCE_1	Testicle																			anatomical part	
+	SPECIMENSUBSOURCE_1	Thorax																			anatomical part	
+	SPECIMENSUBSOURCE_1	Trachea																			anatomical part	
+	SPECIMENSUBSOURCE_1	Unknown organ																			anatomical part	
+	SPECIMENSUBSOURCE_1	Unspecified Organ/Tissue																			anatomical part	
+	SPECIMENSUBSOURCE_1	Urine																			body product	
+	SPECIMENSUBSOURCE_1	Uterus																			anatomical part	
+	SPECIMENSUBSOURCE_1	Vagina																			anatomical part	
+	SPECIMENSUBSOURCE_1	Walls																			environmental site	
+	SPECIMENSUBSOURCE_1	Water																			environmental material	
+	SPECIMENSUBSOURCE_1	Watering Bowl/Equipment																			environmental site	
+	SPECIMENSUBSOURCE_1	Weekly																			?	
+	SPECIMENSUBSOURCE_1	Weep																			environmental material	
+	SPECIMENSUBSOURCE_1	Whole																			food product	
+	SPECIMENSUBSOURCE_1	Yolk																			food product	
+	SPECIMENSUBSOURCE_1	Yolk Sac																			anatomical part	
+	SUBJECT_SUBTYPE	<=32																				
+	SUBJECT_SUBTYPE	<n/a>																				
+	SUBJECT_SUBTYPE	>32																				
+	SUBJECT_SUBTYPE	Alfalfa Sprouts																			food product	
+	SUBJECT_SUBTYPE	Almond																			food product	
+	SUBJECT_SUBTYPE	Animal pen																			environmental site	
+	SUBJECT_SUBTYPE	Artificial wetland																			environmental site	
+	SUBJECT_SUBTYPE	Arugula																			food product	
+	SUBJECT_SUBTYPE	Basil																			food product	
+	SUBJECT_SUBTYPE	Bean Sprouts																			food product	
+	SUBJECT_SUBTYPE	Biosolid																			environmental material	
+	SUBJECT_SUBTYPE	Biosolid/Sludge																			environmental material	
+	SUBJECT_SUBTYPE	Bootie																			environmental material	
+	SUBJECT_SUBTYPE	Boots																			environmental material	
+	SUBJECT_SUBTYPE	Breast																			food product	
+	SUBJECT_SUBTYPE	Breast skinless																			food product	
+	SUBJECT_SUBTYPE	Breast skinless boneless																			food product	
+	SUBJECT_SUBTYPE	Breast with skin																			food product	
+	SUBJECT_SUBTYPE	Broom																			environmental material	
+	SUBJECT_SUBTYPE	Bulk Tank																			environmental site	
+	SUBJECT_SUBTYPE	Cantaloupe																			food product	
+	SUBJECT_SUBTYPE	Carcass (whole)																			anatomical part	
+	SUBJECT_SUBTYPE	Cheese																			food product	
+	SUBJECT_SUBTYPE	Chia Powder																			food product	
+	SUBJECT_SUBTYPE	Chia Seeds																			food product	
+	SUBJECT_SUBTYPE	Chia Sprouts																			food product	
+	SUBJECT_SUBTYPE	Chick Boxes																			environmental site	
+	SUBJECT_SUBTYPE	Chick Pads																			environmental material	
+	SUBJECT_SUBTYPE	Chickpea																			food product	
+	SUBJECT_SUBTYPE	Chili																			food product	
+	SUBJECT_SUBTYPE	Chilli Pepper																			food product	
+	SUBJECT_SUBTYPE	Chives																			food product	
+	SUBJECT_SUBTYPE	Chops																			food product	
+	SUBJECT_SUBTYPE	Coconut																			food product	
+	SUBJECT_SUBTYPE	Compost																			environmental material	
+	SUBJECT_SUBTYPE	Cooler Line																			environmental site	
+	SUBJECT_SUBTYPE	Coriander Seeds																			food product	
+	SUBJECT_SUBTYPE	Coriander-Cumin Powder																			food product	
+	SUBJECT_SUBTYPE	Cottage																			environmental site	
+	SUBJECT_SUBTYPE	Cucumber																			food product	
+	SUBJECT_SUBTYPE	Curry Leaves																			food product	
+	SUBJECT_SUBTYPE	Curry powder																			food product	
+	SUBJECT_SUBTYPE	Cut																			food product	
+	SUBJECT_SUBTYPE	Dead Haul Truck / Trailer																			environmental site	
+	SUBJECT_SUBTYPE	Dill																			food product	
+	SUBJECT_SUBTYPE	Drumstick																			food product	
+	SUBJECT_SUBTYPE	Dumpster																			environmental site	
+	SUBJECT_SUBTYPE	Effluent																			environmental material	
+	SUBJECT_SUBTYPE	Egg																			food product	
+	SUBJECT_SUBTYPE	Egg Belt																			environmental site	
+	SUBJECT_SUBTYPE	Fan																			environmental site	
+	SUBJECT_SUBTYPE	Feed Pans																			environmental site	
+	SUBJECT_SUBTYPE	Fennel																			food product	
+	SUBJECT_SUBTYPE	Filet																			food product	
+	SUBJECT_SUBTYPE	Flax and Chia Powder																			food product	
+	SUBJECT_SUBTYPE	Flax Powder																			food product	
+	SUBJECT_SUBTYPE	Floor																			environmental site	
+	SUBJECT_SUBTYPE	For Avian																			host (common name)	
+	SUBJECT_SUBTYPE	For Beef Cattle																			host (common name)	
+	SUBJECT_SUBTYPE	For Cats																			host (common name)	
+	SUBJECT_SUBTYPE	For Cattle (Beef)																			host (common name)	
+	SUBJECT_SUBTYPE	For Cattle (Dairy)																			host (common name)	
+	SUBJECT_SUBTYPE	For Chicken																			host (common name)	
+	SUBJECT_SUBTYPE	For Dairy Cows																			host (common name)	
+	SUBJECT_SUBTYPE	For Dogs																			host (common name)	
+	SUBJECT_SUBTYPE	For Fish																			host (common name)	
+	SUBJECT_SUBTYPE	For Goats																			host (common name)	
+	SUBJECT_SUBTYPE	For Horse																			host (common name)	
+	SUBJECT_SUBTYPE	For Mink																			host (common name)	
+	SUBJECT_SUBTYPE	For Others																			?	
+	SUBJECT_SUBTYPE	For Poultry																			host (common name)	
+	SUBJECT_SUBTYPE	For Swine																			host (common name)	
+	SUBJECT_SUBTYPE	For Turkeys																			host (common name)	
+	SUBJECT_SUBTYPE	For Unknown																			?	
+	SUBJECT_SUBTYPE	For Unspecified																			host (common name)	
+	SUBJECT_SUBTYPE	Garlic Powder																			food product	
+	SUBJECT_SUBTYPE	Ginger																			food product	
+	SUBJECT_SUBTYPE	Green Onion																			food product	
+	SUBJECT_SUBTYPE	Ground																			food product	
+	SUBJECT_SUBTYPE	Ground (extra lean)																			food product	
+	SUBJECT_SUBTYPE	Ground (lean)																			food product	
+	SUBJECT_SUBTYPE	Ground (medium)																			food product	
+	SUBJECT_SUBTYPE	Ground (regular)																			food product	
+	SUBJECT_SUBTYPE	Ground Water																			environmental material	
+	SUBJECT_SUBTYPE	Ham																			food product	
+	SUBJECT_SUBTYPE	Hazelnut / Filbert																			food product	
+	SUBJECT_SUBTYPE	Headcheese																			food product	
+	SUBJECT_SUBTYPE	Herb/Spice (Unspecified)																			food product	
+	SUBJECT_SUBTYPE	Irrigation																			environmental site	
+	SUBJECT_SUBTYPE	Kale																			food product	
+	SUBJECT_SUBTYPE	Kalonji Whole Seed																			food product	
+	SUBJECT_SUBTYPE	Lab Surface																			environmental site	
+	SUBJECT_SUBTYPE	Lake																			environmental site	
+	SUBJECT_SUBTYPE	Leg																			food product	
+	SUBJECT_SUBTYPE	Lettuce																			food product	
+	SUBJECT_SUBTYPE	Liquid whole																			food product	
+	SUBJECT_SUBTYPE	Liver																			food product	
+	SUBJECT_SUBTYPE	Loin center chop non-seasoned																			food product	
+	SUBJECT_SUBTYPE	Mango																			food product	
+	SUBJECT_SUBTYPE	Meat																			food product	
+	SUBJECT_SUBTYPE	Milk																			food product	
+	SUBJECT_SUBTYPE	Mint																			food product	
+	SUBJECT_SUBTYPE	Mixed																			host (common name)	
+	SUBJECT_SUBTYPE	Mixed Salad/Mixed Greens																			food product	
+	SUBJECT_SUBTYPE	Mixed Sprouts																			food product	
+	SUBJECT_SUBTYPE	Mung Bean Sprouts																			food product	
+	SUBJECT_SUBTYPE	Oregano																			food product	
+	SUBJECT_SUBTYPE	Other																			host (common name)	
+	SUBJECT_SUBTYPE	Other chicken																			food product	
+	SUBJECT_SUBTYPE	Other cut (not ground)																			food product	
+	SUBJECT_SUBTYPE	Other variety meats																			food product	
+	SUBJECT_SUBTYPE	Papaya																			food product	
+	SUBJECT_SUBTYPE	Paprika																			food product	
+	SUBJECT_SUBTYPE	Parsley																			food product	
+	SUBJECT_SUBTYPE	Pea Sprouts																			food product	
+	SUBJECT_SUBTYPE	Pepper																			food product	
+	SUBJECT_SUBTYPE	Pepper Powder																			food product	
+	SUBJECT_SUBTYPE	Pepperoni																			food product	
+	SUBJECT_SUBTYPE	Rasam Powder Spice																			food product	
+	SUBJECT_SUBTYPE	River																			environmental site	
+	SUBJECT_SUBTYPE	River Surface																			environmental site	
+	SUBJECT_SUBTYPE	Roast																			food product	
+	SUBJECT_SUBTYPE	Rolled																			? 	
+	SUBJECT_SUBTYPE	Run Off																			environmental material	
+	SUBJECT_SUBTYPE	Sausage																			food product	
+	SUBJECT_SUBTYPE	Scallopini																			food product	
+	SUBJECT_SUBTYPE	Sediment																			environmental material	
+	SUBJECT_SUBTYPE	Sesame Seed																			food product	
+	SUBJECT_SUBTYPE	Shelf / Sill																			environmental site	
+	SUBJECT_SUBTYPE	Shellfish																			food product	
+	SUBJECT_SUBTYPE	Shoulder																			food product	
+	SUBJECT_SUBTYPE	Shoulder Chop																			food product	
+	SUBJECT_SUBTYPE	Shoulder chop non-seasoned																			food product	
+	SUBJECT_SUBTYPE	Soft																			food product	
+	SUBJECT_SUBTYPE	Soybean																			food product	
+	SUBJECT_SUBTYPE	Spinach																			food product	
+	SUBJECT_SUBTYPE	Sprouted Seeds																			food product	
+	SUBJECT_SUBTYPE	Sprouts																			food product	
+	SUBJECT_SUBTYPE	Stall																			environmental site	
+	SUBJECT_SUBTYPE	Steak																			food product	
+	SUBJECT_SUBTYPE	Stew Chunks																			food product	
+	SUBJECT_SUBTYPE	Surface - Other																			environmental site	
+	SUBJECT_SUBTYPE	Surface - River																			environmental site	
+	SUBJECT_SUBTYPE	Surface unspecified																			environmental site	
+	SUBJECT_SUBTYPE	Surface Water																			environmental site	
+	SUBJECT_SUBTYPE	Tenderloin																			food product	
+	SUBJECT_SUBTYPE	Thigh																			food product	
+	SUBJECT_SUBTYPE	Thigh with skin																			food product	
+	SUBJECT_SUBTYPE	Transformer																			environmental site	
+	SUBJECT_SUBTYPE	Truck / Trailer																			environmental site	
+	SUBJECT_SUBTYPE	Truck/Trailer																			environmental site	
+	SUBJECT_SUBTYPE	Turmeric																			food product	
+	SUBJECT_SUBTYPE	Unknown																			?	
+	SUBJECT_SUBTYPE	Unknown Surface																			environmental site	
+	SUBJECT_SUBTYPE	Unspecified																			?	
+	SUBJECT_SUBTYPE	Upper Thigh																			food product	
+	SUBJECT_SUBTYPE	Upper Thigh with Skin																			food product	
+	SUBJECT_SUBTYPE	Wall																			environmental site	
+	SUBJECT_SUBTYPE	Walnut																			food product	
+	SUBJECT_SUBTYPE	Waste Water																			environmental material	
+	SUBJECT_SUBTYPE	Watering bowl/equipment																			environmental site	
+	SUBJECT_SUBTYPE	Whole																			food product	
+	SUBJECT_SUBTYPE	Wings																			food product	
+	SUBJECT_SUBTYPE	Working Surface																			environmental site	
+	SUBJECT_SUBTYPE	Yeast																			food product	

@@ -136,7 +136,7 @@ var exportGISAID = (baseName, hot, data, xlsx) => {
  */
 var exportLASER = (baseName, hot, data, xlsx) => {
   const ExportHeaders = [
-    'Primary Specimen Identification Number',
+    'Primary Specimen ID',
     'Related Specimen ID|Related Specimen Relationship Type',
     'BioProject Accession',
     'BioSample Accession',
@@ -170,6 +170,7 @@ var exportLASER = (baseName, hot, data, xlsx) => {
     'Country of Travel|Province of Travel|City of Travel|Travel start date|Travel End Date',
     'Patient Travelled',
     'Exposure Event',
+    'Sequencing Centre',
     'Sequencing protocol name',
     'Gene Target #1',
     'Gene Target #1 CT Value',
@@ -230,6 +231,13 @@ var exportLASER = (baseName, hot, data, xlsx) => {
         continue;
       }
 
+      // Change in delimiter
+      if (HeaderName === 'Symptoms') {
+        let value = unmappedRow[fieldMap['signs and symptoms']];
+        mappedRow.push(value.replace(/;/g,'~') );
+        continue;
+      }
+      
       // yes/no calculated field
       if (HeaderName === 'Patient Travelled') {
         // as above for field.dataStatus check.

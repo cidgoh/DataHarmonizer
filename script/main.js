@@ -12,7 +12,9 @@
  */
 const TEMPLATES = {
   "canada_covid19": "CanCOGeN Covid-19",
-  "phac_dexa": "PHAC Dexa"
+  "phac_dexa": "PHAC Dexa (ALPHA)",
+  "grdi": "GRDI (ALPHA)",
+  "gisaid": "GISAID (ALPHA)"
 };
 
 /**
