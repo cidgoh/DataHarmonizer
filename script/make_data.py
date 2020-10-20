@@ -19,16 +19,19 @@ data captured from a vocabulary spreadsheet.
 with open(r_filename) as tsvfile:
   reader = csv.DictReader(tsvfile, dialect='excel-tab');
   export_format = [];
+  export_field_map = [];
+
   firstrow = True;
   for row in reader:
     # Row has keys 'Ontology ID' 'parent class' 'label' 'datatype' 'requirement' ...
     # Get list of exportable fields, each of which has "EXPORT_" prefixed into it.
     if (firstrow):
     	firstrow = False;
-    	for key in row:
-    		if key[0:7] == 'EXPORT_':
-    			export_format.append(key);
-
+    	for fieldName in row:
+    		if fieldName[0:7] == 'EXPORT_':
+    			export_format.append(fieldName);
+    		if fieldName[0:10] == 'FIELD_MAP_':
+    			export_field_map.append(fieldName);
 
     # Skip second row (a robot directive row)
     if len(row['Ontology ID']) == 0 or row['Ontology ID'] != 'ID':
@@ -92,23 +95,33 @@ with open(r_filename) as tsvfile:
 	    			section['children'].append(field)
 	    			FIELD_INDEX[label.lower()] = field;
 
+	    		# Item isn't a section or field, so it must be a select field choice
 	    		else:
 	    			parent_label_lc = parent_label.lower();
-	    			# Item isn't a section or field, so it must be a select field choice
-	    			# find the choice's parent in FIELD_INDEX, if any
+	    			# Find the choice's parent in FIELD_INDEX, if any
 	    			# If parent in CHOICE_INDEX, then add it
 
 	    			if parent_label_lc in FIELD_INDEX:
-	    				choice = collections.OrderedDict();
+	    				
 	    				if not 'vocabulary' in FIELD_INDEX[parent_label_lc]:
 	    					print ("error: field ",parent_label, "not marked as select or multiple but it has child", label)
 	    				else:
+	    					# Basically top-level entries in field_map:
+	    					choice = collections.OrderedDict();
 	    					FIELD_INDEX[parent_label_lc]['vocabulary'][label] = choice;
 	    					CHOICE_INDEX[label] = choice;
+	    					for (export_field) in export_field_map:
+	    						if len(row[export_field]) > 0:
+	    							if not 'FIELD_MAP' in choice:
+	    								choice['FIELD_MAP'] = {};
+	    							# Store just export target name as key (take off FIELD_MAP_ part)
+	    							choice['FIELD_MAP'] = {export_field[10:]: row[export_field]};
+
 	    			else:
 	    				try:
 	    					result = dpath.util.get(CHOICE_INDEX, '*/' + parent_label, separator='/');
-	    					result[label] = collections.OrderedDict(); # Add new child
+	    					result[label] = collections.OrderedDict(); # Add new child {}
+	    					# ISSUE: THIS ONLY WORK FOR FLAT LISTS 
 	    				except:
 	    					print ("Error: parent class ", parent_label, "doesn't exist as section or field for term. Make sure parent term is trimmed of whitespace.", label);
 
@@ -118,6 +131,7 @@ reference_html += '</table>\n';
 with open(w_filename, 'w') as output_handle:
 	# DO NOT USE sort_keys=True because this overrides OrderedDict() sort order.
 	output_handle.write("var DATA = " + json.dumps(DATA, sort_keys = False, indent = 2, separators = (',', ': ')));
+	#output_handle.write("var EXPORT_FIELD_MAP = " + json.dumps(export_field_map, sort_keys = False, indent = 2, separators = (',', ': ')));
 
 with open('reference_template.html', 'r') as template_handle:
 	template = template_handle.read();
