@@ -50,7 +50,9 @@ var exportGRDI = (baseName, hot, data, xlsx) => {
       headerMap[HeaderIndex].push(fieldIndex);
     }
 
-  }
+  };
+
+
 
   // Create an export table with target format's headers and remaining rows of data
   const matrix = [ExportHeaders];
@@ -82,7 +84,7 @@ var exportGRDI = (baseName, hot, data, xlsx) => {
 }
 
 
-var convertDexaToGRDI = (dataRow, fieldNameMap) => {
+var convertDexaToGRDI = (vocabulary, dataRow, fieldNameMap) => {
   // Rule-based target field initialization
   let RuleDB = {
     // Target fields/variables to populate with content
@@ -103,6 +105,25 @@ var convertDexaToGRDI = (dataRow, fieldNameMap) => {
     'SPECIES':              dataRow[fieldNameMap['SPECIES']],
     'SUBJECT_DESCRIPTIONS': dataRow[fieldNameMap['SUBJECT_DESCRIPTIONS']]
   };
+
+  // Check to see if value is in vocabulary of given select field, and if it
+  // has a mapping for export to a GRDI target field above, then set target
+  // to value.
+  for (field in ['STTYPE', 'STYPE', 'SPECIMENSUBSOURCE_1', 'SUBJECT_DESCRIPTIONS', 'SPECIES', 'COMMODITY']) {
+    let value = dataRow[fieldNameMap[field]];
+    if (value.length) {
+      if (value in fields[field].vocabulary) {
+        let term = fields[field].vocabulary[value];
+        if ('FIELD_MAP' in term and 'GRDI' in term['FIELD_MAP']) {
+          let mapping = term['FIELD_MAP']['GRDI'];
+          if (mapping in RuleDB) {
+            RuleDB[mapping] = value;
+          }
+        }
+      }
+    }
+  }
+
 
   // STTYPE: ANIMAL ENVIRONMENT FOOD HUMAN PRODUCT QA UNKNOWN
   switch (RuleDB.STTYPE) {

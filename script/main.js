@@ -292,14 +292,13 @@ const getColumns = (data) => {
  * @return {Array<String>} Flattened vocabulary.
  */
 const stringifyNestedVocabulary = (vocabulary, level=0) => {
-  if (Object.keys(vocabulary).length === 0) {
-    return [];
-  }
 
   let ret = [];
   for (const val of Object.keys(vocabulary)) {
-    ret.push('  '.repeat(level) + val);
-    ret = ret.concat(stringifyNestedVocabulary(vocabulary[val], level+1));
+    if (val.substr(0,9) != 'FIELD_MAP') { // Ignore field map values used for export.
+      ret.push('  '.repeat(level) + val);
+      ret = ret.concat(stringifyNestedVocabulary(vocabulary[val], level+1));
+    }
   }
   return ret;
 };
