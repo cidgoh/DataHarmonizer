@@ -23,7 +23,7 @@ var exportGRDI = (baseName, hot, data, xlsx) => {
     'body_product',
     'environmental_material',
     'food_product',
-    'sample_collector_contact_email',
+    'sample_collector_contact_email', //CIPARS generic email ???
     'organism',
     'animal_or_plant_population',
     'laboratory_name',
@@ -45,9 +45,13 @@ var exportGRDI = (baseName, hot, data, xlsx) => {
   for (const [fieldIndex, field] of fields.entries()) {
     fieldNameMap[field.fieldName] = fieldIndex;
 
-    if (field.EXPORT_GRDI) {
-      let HeaderIndex = ExportHeaders.indexOf(field.EXPORT_GRDI);
-      headerMap[HeaderIndex].push(fieldIndex);
+    if (field.exportField && 'GRDI' in field.exportField) {
+      for (entry of field.exportField.GRDI) {
+        if ('field' in entry) {
+          let HeaderIndex = ExportHeaders.indexOf(entry.field);
+          headerMap[HeaderIndex].push(fieldIndex);
+        }
+      }
     }
 
   };
@@ -59,7 +63,7 @@ var exportGRDI = (baseName, hot, data, xlsx) => {
   const unmappedMatrix = getTrimmedData(hot);
   for (const unmappedRow of unmappedMatrix) {
 
-    RuleDB = convertDexaToGRDI(unmappedRow, fieldNameMap)
+    RuleDB = convertDexaToGRDI(fields, unmappedRow, fieldNameMap)
 
     const mappedRow = [];
     for (const [HeaderIndex, HeaderName] of ExportHeaders.entries()) {
@@ -84,7 +88,7 @@ var exportGRDI = (baseName, hot, data, xlsx) => {
 }
 
 
-var convertDexaToGRDI = (vocabulary, dataRow, fieldNameMap) => {
+var convertDexaToGRDI = (fields, dataRow, fieldNameMap) => {
   // Rule-based target field initialization
   let RuleDB = {
     // Target fields/variables to populate with content
@@ -95,34 +99,41 @@ var convertDexaToGRDI = (vocabulary, dataRow, fieldNameMap) => {
     'environmental_site':        '',
     'food_product':              '',
     'collection_device':         '',
-    'animal_or_plant_population':'',
+    'animal_or_plant_population':''
 
-    // Source fields and their content
-    'STTYPE':               dataRow[fieldNameMap['STTYPE']],
-    'STYPE':                dataRow[fieldNameMap['STYPE']],
-    'SPECIMENSUBSOURCE_1':  dataRow[fieldNameMap['SPECIMENSUBSOURCE_1']],
-    'COMMODITY':            dataRow[fieldNameMap['COMMODITY']],
-    'SPECIES':              dataRow[fieldNameMap['SPECIES']],
-    'SUBJECT_DESCRIPTIONS': dataRow[fieldNameMap['SUBJECT_DESCRIPTIONS']]
+    // Source fields and their content added below
   };
 
-  // Check to see if value is in vocabulary of given select field, and if it
-  // has a mapping for export to a GRDI target field above, then set target
-  // to value.
-  for (field in ['STTYPE', 'STYPE', 'SPECIMENSUBSOURCE_1', 'SUBJECT_DESCRIPTIONS', 'SPECIES', 'COMMODITY']) {
+
+  let source_field = ['STTYPE', 'STYPE', 'SPECIMENSUBSOURCE_1', 'SUBJECT_DESCRIPTIONS', 'SPECIES', 'COMMODITY'];
+
+  for (const field of source_field) {
     let value = dataRow[fieldNameMap[field]];
-    if (value.length) {
-      if (value in fields[field].vocabulary) {
-        let term = fields[field].vocabulary[value];
-        if ('FIELD_MAP' in term and 'GRDI' in term['FIELD_MAP']) {
-          let mapping = term['FIELD_MAP']['GRDI'];
-          if (mapping in RuleDB) {
-            RuleDB[mapping] = value;
+    RuleDB[field] = value;
+    // Check to see if value is in vocabulary of given select field, and if it
+    // has a mapping for export to a GRDI target field above, then set target
+    // to value.
+    if (value && value.length > 0) {
+      vocabulary = fields[fieldNameMap[field]].vocabulary;
+      if (value in vocabulary) { //ONLY WORKS IN FLAT LISTS
+        let term = vocabulary[value];
+        if ('exportField' in term && 'GRDI' in term['exportField']) {
+          for (mapping of term['exportField']['GRDI']) {
+            // Here mapping involves a value substitution
+            if ('value' in mapping) {
+              value = mapping.value;
+              // SHOULD WE CHANGE IT AT THIS POINT?
+              dataRow[fieldNameMap[field]] = value;
+            };
+            if ('field' in mapping && mapping['field'] in RuleDB) {
+                RuleDB[mapping['field']] = value;
+                console.log ("mapping", mapping, value)
+            };
           }
         }
       }
     }
-  }
+  };
 
 
   // STTYPE: ANIMAL ENVIRONMENT FOOD HUMAN PRODUCT QA UNKNOWN
@@ -131,6 +142,7 @@ var convertDexaToGRDI = (vocabulary, dataRow, fieldNameMap) => {
     case 'ANIMAL': {
       // BEGIN SPECIMENSUBSOURCE_1
       switch (RuleDB.SPECIMENSUBSOURCE_1) {
+        /*
         case 'Spleen':
         case 'Joint':
         case 'Heart':
@@ -142,27 +154,33 @@ var convertDexaToGRDI = (vocabulary, dataRow, fieldNameMap) => {
         case 'Cloacae':
         case 'Ileum':
         case 'Colon':
-        case 'Liver':
-        case 'Crop' :
+        */
+        case 'Liver': // FOOD PRODUCT????
+        case 'Crop' : // ENVIRONMENTAL MATERIAL????
           RuleDB.anatomical_part = RuleDB.SPECIMENSUBSOURCE_1;
           break;
-
+        /*
         case 'Feces' : 
         case 'Meconium' :
           RuleDB.body_product = RuleDB.SPECIMENSUBSOURCE_1;
           break;
-
-        case 'Cecal content' : 
+        */
+        case 'Cecal content' : // BODY PRODUCT !!!!
+        /*
         case 'Blood' : 
         case 'Joint fluid' :
+        */
           RuleDB.anatomical_material = RuleDB.SPECIMENSUBSOURCE_1;
           break;
+        /*
         case 'Dust' :
         case 'Fluff' :
         case 'Rinse' :
         case 'Manure' :
           RuleDB.environmental_material = RuleDB.SPECIMENSUBSOURCE_1;
           break;
+        */
+        /*
         case 'Wall' :
         case 'Feeders and Drinkers' :
         case 'Manure pit' :
@@ -173,22 +191,25 @@ var convertDexaToGRDI = (vocabulary, dataRow, fieldNameMap) => {
         case 'Equipment' :
           RuleDB.environmental_site = RuleDB.SPECIMENSUBSOURCE_1;
           break;
-
+        */
+        /*
         case 'Environmental swab (Hatchery)':
           RuleDB.collection_device = 'swab';
           RuleDB.environmental_site = 'hatchery';
           break;
-
+        */
         default: 
           break; // Prevents advancing to COMMODITY
       };
       // END SPECIMENSUBSOURCE_1
 
       // BEGIN COMMODITY
+      /*
       switch (RuleDB.COMMODITY) {
         case 'Pet/Zoo' :
           RuleDB.environmental_site = RuleDB.COMMODITY;
       };
+      */
       // END COMMODITY
 
       break; // prevents advancing to FOOD
@@ -203,9 +224,9 @@ var convertDexaToGRDI = (vocabulary, dataRow, fieldNameMap) => {
         case 'Chicken' :
         case 'Turkey' :
         case 'Pig' :
-          RuleDB.food_product += RuleDB.SPECIES;
+          RuleDB.food_product += (RuleDB.food_product.length > 0 ? ' ':'') + RuleDB.SPECIES;
       };
-
+      /*
       switch (RuleDB.SUBJECT_DESCRIPTIONS) {
         case 'Breast skinless' :
         case 'Ground' :
@@ -215,25 +236,29 @@ var convertDexaToGRDI = (vocabulary, dataRow, fieldNameMap) => {
         case 'Upper thigh' :
           RuleDB.food_product += (' ' + RuleDB.SUBJECT_DESCRIPTIONS);
       };
-
+      */
       break; // prevents advancing to blank/UNKNOWN
     };
 
     case '':
     case 'UNKNOWN': {// no <n/a>
+      /*
       switch (RuleDB.STYPE) {
         case 'Cereal':
           RuleDB.food_product += RuleDB.STYPE;
       };
+      */
       break;
     };
 
+    /*
     case 'ENVIRONMENT':
       switch (RuleDB.STYPE) {
         case 'Manure':
           RuleDB.environmental_material = RuleDB.STYPE;
       };
       break;
+    */
 
     case 'PRODUCT':
       switch (RuleDB.STYPE) {

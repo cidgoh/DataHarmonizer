@@ -20,8 +20,7 @@ var DATA = [
         "requirement": "required",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       }
     ]
   },
@@ -40,8 +39,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "FASTA filename",
@@ -55,8 +53,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "Virus name",
@@ -70,8 +67,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "Type",
@@ -85,8 +81,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "Passage details/history",
@@ -100,8 +95,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "Collection date",
@@ -115,8 +109,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "Location",
@@ -130,8 +123,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "Additional location information",
@@ -145,8 +137,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "Host",
@@ -160,8 +151,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "Additional host information",
@@ -175,8 +165,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "Gender",
@@ -190,8 +179,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "Patient age",
@@ -205,8 +193,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "Patient status",
@@ -220,8 +207,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "Specimen source",
@@ -235,8 +221,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "Outbreak",
@@ -250,8 +235,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "Last vaccinated",
@@ -265,8 +249,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "Treatment",
@@ -280,8 +263,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "Sequencing technology",
@@ -295,8 +277,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "Assembly method",
@@ -310,8 +291,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "Coverage",
@@ -325,8 +305,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "Originating lab",
@@ -340,8 +319,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "Address",
@@ -355,8 +333,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "Sample ID given by the sample provider",
@@ -370,8 +347,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "Submitting lab",
@@ -385,8 +361,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "Address",
@@ -400,8 +375,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "Sample ID given by the submitting laboratory",
@@ -415,8 +389,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "Authors",
@@ -430,8 +403,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       }
     ]
   }

@@ -12,118 +12,134 @@ CHOICE_INDEX = {} # [choice] -> parent choice or field object in DATA
 section = None;
 reference_html = ''; # Content of a report that details section fields
 
+# Consolidates all EXPORT_XYZ terms into one data structure
+# exportField: {PREFIX:[[field name],[value rename],...]}
+def export_fields (EXPORT_FORMAT, field, row):
+	if len(EXPORT_FORMAT) > 0:
+		formats = {};
+		for export_field in EXPORT_FORMAT:
+			prefix = export_field[7:]; # Get rid of "EXPORT_" part.
+			for item in row[export_field].split("|"):
+			# an export field may have one or more [field name]:[new field value] mapping.
+				item = item.strip();
+				if len(item.strip()) > 0:
+					binding = item.strip().split(":",1);
+					conversion = {}
+					if binding[0].strip() > '':
+						conversion['field'] = binding[0].strip();
+					if len (binding) > 1 and binding[1].strip() > '':
+						conversion['value'] = binding[1].strip();
+					if not prefix in formats:
+						formats[prefix] = [];
+					formats[prefix].append(conversion);
+
+		if formats: # Only if some keys have been added.
+			field['exportField'] = formats;
+
 '''
 Creates section / field / field choice data structure directly off of tabular
 data captured from a vocabulary spreadsheet.
 '''
 with open(r_filename) as tsvfile:
-  reader = csv.DictReader(tsvfile, dialect='excel-tab');
-  export_format = [];
-  export_field_map = [];
+	reader = csv.DictReader(tsvfile, dialect='excel-tab');
 
-  firstrow = True;
-  for row in reader:
-    # Row has keys 'Ontology ID' 'parent class' 'label' 'datatype' 'requirement' ...
-    # Get list of exportable fields, each of which has "EXPORT_" prefixed into it.
-    if (firstrow):
-    	firstrow = False;
-    	for fieldName in row:
-    		if fieldName[0:7] == 'EXPORT_':
-    			export_format.append(fieldName);
-    		if fieldName[0:10] == 'FIELD_MAP_':
-    			export_field_map.append(fieldName);
+	EXPORT_FORMAT = [];
+	firstrow = True;
+    # Row has keys 'Ontology ID' 'parent class' 'label' 'datatype' 'requirement' ...	
+	for row in reader:
 
-    # Skip second row (a robot directive row)
-    if len(row['Ontology ID']) == 0 or row['Ontology ID'] != 'ID':
-    	label = row['label'].strip();
-    	if label > '':
-	    	if row['parent class'] == '': 
-	    		# Define a section of fields
-	    		section = {'fieldName': label, 'children': []}
-	    		DATA.append(section);
-	    		reference_html += '''
-	    			<tr class="section">
-	    				<td colspan="5"><h3>{fieldName}</h3></td>
-	    			</tr>
-	    			'''.format(**section);
+		# Get list of exportable fields, each of which has "EXPORT_" prefixed into it.
+		if (firstrow):
+			firstrow = False;
+			for key in row:
+				if key[0:7] == 'EXPORT_':
+					EXPORT_FORMAT.append(key);
 
-	    	else:
-	    		# Find parent class in DATA or in index of its fields
-	    		parent_label = row['parent class'];
-	    		section = next((x for x in DATA if x['fieldName'].strip() == parent_label), None);
-	    		if section:
-	    			# Convert data status into array of values.
-	    			if len(row['data status'])>0:
-	    				dataStatus = list(map(lambda x: x.strip(), row['data status'].split(';')));
-	    			else:
-	    				dataStatus = None;
+		# Skip second row (a robot directive row)
+		if len(row['Ontology ID']) == 0 or row['Ontology ID'] != 'ID':
+			label = row['label'].strip();
+			if label > '':
+				if row['parent class'] == '': 
+					# Define a section of fields
+					section = {'fieldName': label, 'children': []}
+					DATA.append(section);
+					reference_html += '''
+						<tr class="section">
+							<td colspan="5"><h3>{fieldName}</h3></td>
+						</tr>
+						'''.format(**section);
 
-	    			field = {
-	    				'fieldName':   label, 
-	    				'capitalize': row['capitalize'],
-	    				'ontology_id': row['Ontology ID'],
-	    				'datatype':    row['datatype'],
-	    				'source': row['source'],
-	    				'dataStatus': dataStatus,
-	    				'xs:minInclusive': row['min value'],
-	    				'xs:maxInclusive': row['max value'],
-	    				'requirement': row['requirement'],
-	    				'description': row['description'],
-	    				'guidance':    row['guidance'],
-	    				'examples':    row['examples']
-	    			}
-	    			
-	    			for export_field in export_format:
-	    				field[export_field] = row[export_field];
+				else:
+					# Find parent class in DATA or in index of its fields
+					parent_label = row['parent class'];
+					section = next((x for x in DATA if x['fieldName'].strip() == parent_label), None);
+					if section:
+						# Convert data status into array of values.
+						if len(row['data status'])>0:
+							dataStatus = list(map(lambda x: x.strip(), row['data status'].split(';')));
+						else:
+							dataStatus = None;
 
-	    			reference_html += '''
-	    			<tr>
-	    				<td class="label">{fieldName}</td>
-	    				<td>{description}</td>
-	    				<td>{guidance}</td>
-	    				<td>{examples}</td>
-	    				<td>{dataStatus}</td>
-	    			</tr>\n
-	    			'''.format(**field);
+						field = {
+							'fieldName':   label, 
+							'capitalize': row['capitalize'],
+							'ontology_id': row['Ontology ID'],
+							'datatype':	row['datatype'],
+							'source': row['source'],
+							'dataStatus': dataStatus,
+							'xs:minInclusive': row['min value'],
+							'xs:maxInclusive': row['max value'],
+							'requirement': row['requirement'],
+							'description': row['description'],
+							'guidance':	row['guidance'],
+							'examples':	row['examples']
+						}
+						
+						export_fields (EXPORT_FORMAT, field, row);
 
-	    			if row['datatype'] == 'select' or row['datatype'] == 'multiple':
-	    				choice = collections.OrderedDict();
-	    				# Case sensitive index, curators must be exact
-	    				CHOICE_INDEX[label] = choice; 
-	    				field['vocabulary'] = choice;
+						reference_html += '''
+						<tr>
+							<td class="label">{fieldName}</td>
+							<td>{description}</td>
+							<td>{guidance}</td>
+							<td>{examples}</td>
+							<td>{dataStatus}</td>
+						</tr>\n
+						'''.format(**field);
 
-	    			section['children'].append(field)
-	    			FIELD_INDEX[label.lower()] = field;
+						if row['datatype'] == 'select' or row['datatype'] == 'multiple':
+							choice = collections.OrderedDict();
+							# Case sensitive index, curators must be exact
+							CHOICE_INDEX[label] = choice; 
+							field['vocabulary'] = choice;
 
-	    		# Item isn't a section or field, so it must be a select field choice
-	    		else:
-	    			parent_label_lc = parent_label.lower();
-	    			# Find the choice's parent in FIELD_INDEX, if any
-	    			# If parent in CHOICE_INDEX, then add it
+						section['children'].append(field)
+						FIELD_INDEX[label.lower()] = field;
 
-	    			if parent_label_lc in FIELD_INDEX:
-	    				
-	    				if not 'vocabulary' in FIELD_INDEX[parent_label_lc]:
-	    					print ("error: field ",parent_label, "not marked as select or multiple but it has child", label)
-	    				else:
-	    					# Basically top-level entries in field_map:
-	    					choice = collections.OrderedDict();
-	    					FIELD_INDEX[parent_label_lc]['vocabulary'][label] = choice;
-	    					CHOICE_INDEX[label] = choice;
-	    					for (export_field) in export_field_map:
-	    						if len(row[export_field]) > 0:
-	    							if not 'FIELD_MAP' in choice:
-	    								choice['FIELD_MAP'] = {};
-	    							# Store just export target name as key (take off FIELD_MAP_ part)
-	    							choice['FIELD_MAP'] = {export_field[10:]: row[export_field]};
+					# Item isn't a section or field, so it must be a select field choice
+					else:
+						parent_label_lc = parent_label.lower();
+						# Find the choice's parent in FIELD_INDEX, if any
+						# If parent in CHOICE_INDEX, then add it
 
-	    			else:
-	    				try:
-	    					result = dpath.util.get(CHOICE_INDEX, '*/' + parent_label, separator='/');
-	    					result[label] = collections.OrderedDict(); # Add new child {}
-	    					# ISSUE: THIS ONLY WORK FOR FLAT LISTS 
-	    				except:
-	    					print ("Error: parent class ", parent_label, "doesn't exist as section or field for term. Make sure parent term is trimmed of whitespace.", label);
+						if parent_label_lc in FIELD_INDEX:
+							
+							if not 'vocabulary' in FIELD_INDEX[parent_label_lc]:
+								print ("error: field ",parent_label, "not marked as select or multiple but it has child", label)
+							else:
+								# Basically top-level entries in field_map:
+								choice = collections.OrderedDict();
+								FIELD_INDEX[parent_label_lc]['vocabulary'][label] = choice;
+								CHOICE_INDEX[label] = choice;
+								export_fields(EXPORT_FORMAT, choice, row);
+
+						else:
+							try:
+								result = dpath.util.get(CHOICE_INDEX, '*/' + parent_label, separator='/');
+								result[label] = collections.OrderedDict(); # Add new child {}
+								# ISSUE: THIS ONLY WORK FOR FLAT LISTS 
+							except:
+								print ("Error: parent class ", parent_label, "doesn't exist as section or field for term. Make sure parent term is trimmed of whitespace.", label);
 
 
 reference_html += '</table>\n';

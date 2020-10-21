@@ -20,7 +20,19 @@ var DATA = [
         "requirement": "required",
         "description": "The user-defined name for the sample.",
         "guidance": "Store the collector sample ID. If this number is considered identifiable information, provide an alternative ID. Be sure to store the key that maps between the original and alternative IDs for traceability and follow up if necessary. Every collector sample ID from a single submitter must be unique. It can have any format, but we suggest that you make it concise, unique and consistent within your lab.",
-        "examples": "prov_rona_99"
+        "examples": "prov_rona_99",
+        "exportField": {
+          "GISAID": [
+            {
+              "field": "Sample ID given by the sample provider"
+            }
+          ],
+          "CNPHI": [
+            {
+              "field": "Primary Specimen ID"
+            }
+          ]
+        }
       },
       {
         "fieldName": "NML submitted specimen primary ID",
@@ -54,7 +66,17 @@ var DATA = [
         "requirement": "",
         "description": "The primary ID of the related specimen previously submitted thorough LaSER",
         "guidance": "Store the primary ID of the related specimen previously submitted thorough LaSER",
-        "examples": "SR20-12345"
+        "examples": "SR20-12345",
+        "exportField": {
+          "CNPHI": [
+            {
+              "field": "Related Specimen ID"
+            },
+            {
+              "field": "Related Specimen Relationship Type"
+            }
+          ]
+        }
       },
       {
         "fieldName": "IRIDA sample name",
@@ -99,7 +121,14 @@ var DATA = [
         "requirement": "",
         "description": "The INSDC accession number of the BioProject(s) to which the BioSample belongs.",
         "guidance": "Store the BioProject accession number. BioProjects are an organizing tool that links together raw sequence data, assemblies, and their associated metadata. Each province will be assigned a different bioproject accession number by the National Microbiology Lab. A valid NCBI BioProject accession has prefix PRJN e.g., PRJNA12345, and is created once at the beginning of a new sequencing project. ",
-        "examples": "PRJNA608651"
+        "examples": "PRJNA608651",
+        "exportField": {
+          "CNPHI": [
+            {
+              "field": "BioProject Accession"
+            }
+          ]
+        }
       },
       {
         "fieldName": "biosample accession",
@@ -113,7 +142,14 @@ var DATA = [
         "requirement": "",
         "description": "The identifier assigned to a BioSample in INSDC archives.",
         "guidance": "Store the accession returned from the BioSample submission. NCBI BioSamples will have the prefix SAMN.",
-        "examples": "SAMN14180202"
+        "examples": "SAMN14180202",
+        "exportField": {
+          "CNPHI": [
+            {
+              "field": "BioSample Accession"
+            }
+          ]
+        }
       },
       {
         "fieldName": "SRA accession",
@@ -127,7 +163,14 @@ var DATA = [
         "requirement": "",
         "description": "The Sequence Read Archive (SRA) identifier linking raw read data, methodological metadata and quality control metrics submitted to the INSDC.",
         "guidance": "Store the accession assigned to the submitted \"run\". NCBI-SRA accessions start with SRR.",
-        "examples": "SRR11177792"
+        "examples": "SRR11177792",
+        "exportField": {
+          "CNPHI": [
+            {
+              "field": "SRA Accession"
+            }
+          ]
+        }
       },
       {
         "fieldName": "GenBank accession",
@@ -180,7 +223,14 @@ var DATA = [
         "requirement": "required",
         "description": "The name of the agency that collected the original sample.",
         "guidance": "The name of the sample collector should be written out in full, (with minor exceptions) and be consistent across multple submissions e.g. Public Health Agency of Canada, Public Health Ontario, BC Centre for Disease Control. The sample collector specified is at the discretion of the data provider (i.e. may be hospital, provincial public health lab, or other).",
-        "examples": "BC Centre for Disease Control"
+        "examples": "BC Centre for Disease Control",
+        "exportField": {
+          "GISAID": [
+            {
+              "field": "Originating lab"
+            }
+          ]
+        }
       },
       {
         "fieldName": "sample collector contact email",
@@ -208,13 +258,20 @@ var DATA = [
         "requirement": "",
         "description": "The mailing address of the agency submitting the sample.",
         "guidance": "The mailing address should be in the format: Street number and name, City, Province/Territory, Postal Code, Country",
-        "examples": "655 Lab St, Vancouver, British Columbia, V5N 2A2, Canada"
+        "examples": "655 Lab St, Vancouver, British Columbia, V5N 2A2, Canada",
+        "exportField": {
+          "GISAID": [
+            {
+              "field": "Address"
+            }
+          ]
+        }
       },
       {
         "fieldName": "sequence submitted by",
         "capitalize": "",
         "ontology_id": "",
-        "datatype": "xs:token",
+        "datatype": "select",
         "source": "",
         "dataStatus": [
           "Not Applicable",
@@ -228,7 +285,40 @@ var DATA = [
         "requirement": "required",
         "description": "The name of the agency that generated the sequence.",
         "guidance": "The name of the agency should be written out in full, (with minor exceptions) and be consistent across multple submissions e.g. Public Health Agency of Canada, Public Health Ontario, BC Centre for Disease Control.",
-        "examples": "Public Health Ontario"
+        "examples": "Public Health Ontario (PHO)",
+        "exportField": {
+          "GISAID": [
+            {
+              "field": "Submitting lab"
+            }
+          ],
+          "CNPHI": [
+            {
+              "field": "Sequencing Centre"
+            }
+          ]
+        },
+        "vocabulary": {
+          "National Microbiology Laboratory (NML)": {},
+          "BC Centre for Disease Control (BCCDC)": {},
+          "Alberta Precision Labs (APL)": {},
+          "Public Health Ontario (PHO)": {},
+          "Laboratoire de sant\u00e9 publique du Qu\u00e9bec (LSPQ)": {},
+          "Saskatchewan - Roy Romanow Provincial Laboratory (RRPL)": {},
+          "Manitoba Cadham Provincial Laboratory": {},
+          "Nova Scotia Health Authority": {},
+          "New Brunswick \u2013 Vitalit\u00e9 Health Network": {},
+          "Newfoundland and Labrador \u2013 Eastern Health": {},
+          "Prince Edward Island \u2013 Health PEI": {},
+          "Ontario Institute for Cancer Research (OICR)": {},
+          "McMaster University": {},
+          "McGill University": {},
+          "The Centre for Applied Genomics (TCAG)": {},
+          "Sunnybrook Health Sciences Centre": {},
+          "Thunder Bay Regional Health Sciences Centre": {},
+          "Canadore College": {},
+          "Queen\u2019s University / Kingston Health Sciences Centre": {}
+        }
       },
       {
         "fieldName": "sequence submitter contact email",
@@ -242,7 +332,7 @@ var DATA = [
         "requirement": "",
         "description": "The email address of the contact responsible for follow-up regarding the sequence.",
         "guidance": "The email address can represent a specific individual or lab e.g. johnnyblogs@lab.ca, or RespLab@lab.ca",
-        "examples": "RespLab@lab.ca"
+        "examples": ""
       },
       {
         "fieldName": "sequence submitter contact address",
@@ -256,7 +346,14 @@ var DATA = [
         "requirement": "",
         "description": "The mailing address of the agency submitting the sequence.",
         "guidance": "The mailing address should be in the format: Street number and name, City, Province/Territory, Postal Code, Country",
-        "examples": "123 Sunnybrooke St, Toronto, Ontario, M4P 1L6, Canada"
+        "examples": "123 Sunnybrooke St, Toronto, Ontario, M4P 1L6, Canada",
+        "exportField": {
+          "GISAID": [
+            {
+              "field": "Address"
+            }
+          ]
+        }
       },
       {
         "fieldName": "sample collection date",
@@ -276,7 +373,19 @@ var DATA = [
         "requirement": "required",
         "description": "The date on which the sample was collected.",
         "guidance": "Sample collection date is critical for surveillance and many types of analyses. Required granularity includes year, month and day. If this date is considered identifiable information, it is acceptable to add \"jitter\" by adding or subtracting a calendar day (acceptable by GISAID). Alternatively, \u201dreceived date\u201d may be used as a substitute. The date should be provided in ISO 8601 standard format \"YYYY-MM-DD\".",
-        "examples": "2020-03-16"
+        "examples": "2020-03-16",
+        "exportField": {
+          "GISAID": [
+            {
+              "field": "Collection date"
+            }
+          ],
+          "CNPHI": [
+            {
+              "field": "Patient Sample Collected Date"
+            }
+          ]
+        }
       },
       {
         "fieldName": "sample received date",
@@ -317,6 +426,18 @@ var DATA = [
         "description": "The country where the sample was collected.",
         "guidance": "Provide the country name from the controlled vocabulary provided.",
         "examples": "Canada",
+        "exportField": {
+          "GISAID": [
+            {
+              "field": "Location"
+            }
+          ],
+          "CNPHI": [
+            {
+              "field": "Patient Country"
+            }
+          ]
+        },
         "vocabulary": {
           "Afghanistan": {},
           "Albania": {},
@@ -610,6 +731,13 @@ var DATA = [
         "description": "The province/territory where the sample was collected.",
         "guidance": "Provide the province/territory name from the controlled vocabulary provided.",
         "examples": "Saskatchewan",
+        "exportField": {
+          "CNPHI": [
+            {
+              "field": "Patient Province"
+            }
+          ]
+        },
         "vocabulary": {
           "Alberta": {},
           "British Columbia": {},
@@ -658,7 +786,7 @@ var DATA = [
         "requirement": "required",
         "description": "Taxonomic name of the organism.",
         "guidance": "Use \"Severe acute respiratory syndrome coronavirus 2\". This value is provided in the template.",
-        "examples": "Severe acute respiratory coronavirus 2",
+        "examples": "Severe acute respiratory syndrome coronavirus 2",
         "vocabulary": {
           "Severe acute respiratory syndrome coronavirus 2": {},
           "RaTG13": {},
@@ -683,7 +811,19 @@ var DATA = [
         "requirement": "required",
         "description": "Identifier of the specific isolate.",
         "guidance": "Provide the GISAID virus name, which should be written in the format \u201chCov-19/CANADA/xxxxx/2020\u201d.",
-        "examples": "hCov-19/CANADA/prov_rona_99/2020"
+        "examples": "hCov-19/CANADA/prov_rona_99/2020",
+        "exportField": {
+          "GISAID": [
+            {
+              "field": "Virus name"
+            }
+          ],
+          "CNPHI": [
+            {
+              "field": "GISAID Virus Name"
+            }
+          ]
+        }
       },
       {
         "fieldName": "purpose of sampling",
@@ -704,6 +844,13 @@ var DATA = [
         "description": "The reason that the sample was collected.",
         "guidance": "Provide the purpose of sampling from the picklist in the template.",
         "examples": "Diagnostic testing",
+        "exportField": {
+          "CNPHI": [
+            {
+              "field": "Reason for Sampling"
+            }
+          ]
+        },
         "vocabulary": {
           "Cluster investigation": {},
           "Diagnostic testing": {},
@@ -725,6 +872,13 @@ var DATA = [
         "description": "The type of specimen submitted to the NML for testing.",
         "guidance": "Select the specimen type from the pick list provided.",
         "examples": "swab",
+        "exportField": {
+          "CNPHI": [
+            {
+              "field": "Specimen Type"
+            }
+          ]
+        },
         "vocabulary": {
           "Swab": {},
           "RNA": {},
@@ -745,6 +899,16 @@ var DATA = [
         "description": "The relationship of the related specimen to the previous submission.",
         "guidance": "Provide the specimen type of the original sample submitted from the pick list provided, so that additional specimen testing can be tracked in the system.",
         "examples": "swab",
+        "exportField": {
+          "CNPHI": [
+            {
+              "field": "Related Specimen ID"
+            },
+            {
+              "field": "Related Specimen Relationship Type"
+            }
+          ]
+        },
         "vocabulary": {
           "Acute": {},
           "Convalescent": {},
@@ -772,6 +936,18 @@ var DATA = [
         "description": "A substance obtained from an anatomical part of an organism e.g. tissue, blood.",
         "guidance": "Provide a descriptor if an anatomical material was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. ",
         "examples": "Blood",
+        "exportField": {
+          "GISAID": [
+            {
+              "field": "Specimen source"
+            }
+          ],
+          "CNPHI": [
+            {
+              "field": "Anatomical Material"
+            }
+          ]
+        },
         "vocabulary": {
           "Blood": {},
           "Fluid": {
@@ -804,6 +980,18 @@ var DATA = [
         "description": "An anatomical part of an organism e.g. oropharynx.",
         "guidance": "Provide a descriptor if an anatomical part was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. ",
         "examples": "Nasopharynx (NP)",
+        "exportField": {
+          "GISAID": [
+            {
+              "field": "Specimen source"
+            }
+          ],
+          "CNPHI": [
+            {
+              "field": "Anatomical Site"
+            }
+          ]
+        },
         "vocabulary": {
           "Anus": {},
           "Buccal mucosa": {},
@@ -856,6 +1044,18 @@ var DATA = [
         "description": "A substance excreted/secreted from an organism e.g. feces, urine, sweat.",
         "guidance": "Provide a descriptor if a body product was sampled. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. ",
         "examples": "Feces",
+        "exportField": {
+          "GISAID": [
+            {
+              "field": "Specimen source"
+            }
+          ],
+          "CNPHI": [
+            {
+              "field": "Body Product"
+            }
+          ]
+        },
         "vocabulary": {
           "Feces": {},
           "Urine": {},
@@ -887,6 +1087,18 @@ var DATA = [
         "description": "A substance obtained from the natural or man-made environment e.g. soil, water, sewage.",
         "guidance": "Provide a descriptor if an environmental material was sampled. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. ",
         "examples": "Face mask",
+        "exportField": {
+          "GISAID": [
+            {
+              "field": "Specimen source"
+            }
+          ],
+          "CNPHI": [
+            {
+              "field": "Environmental Material"
+            }
+          ]
+        },
         "vocabulary": {
           "Air vent": {},
           "Banknote": {},
@@ -940,6 +1152,18 @@ var DATA = [
         "description": "An environmental location may describe a site in the natural or built environment e.g. contact surface, metal can, hospital, wet market, bat cave.",
         "guidance": "Provide a descriptor if an environmental site was sampled. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. ",
         "examples": "Building floor",
+        "exportField": {
+          "GISAID": [
+            {
+              "field": "Specimen source"
+            }
+          ],
+          "CNPHI": [
+            {
+              "field": "Environmental Site"
+            }
+          ]
+        },
         "vocabulary": {
           "Acute care facility": {},
           "Animal house": {},
@@ -987,6 +1211,18 @@ var DATA = [
         "description": "The instrument or container used to collect the sample e.g. swab.",
         "guidance": "Provide a descriptor if a device was used for sampling. Use the picklist provided in the template. If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. ",
         "examples": "Swab",
+        "exportField": {
+          "GISAID": [
+            {
+              "field": "Specimen source"
+            }
+          ],
+          "CNPHI": [
+            {
+              "field": "Specimen Collection Matrix"
+            }
+          ]
+        },
         "vocabulary": {
           "Air filter": {},
           "Blood Collection Tube": {},
@@ -1026,6 +1262,18 @@ var DATA = [
         "description": "The process used to collect the sample e.g. phlebotamy, necropsy.",
         "guidance": "Provide a descriptor if a collection method was used for sampling. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. ",
         "examples": "Bronchoalveolar lavage (BAL)",
+        "exportField": {
+          "GISAID": [
+            {
+              "field": "Specimen source"
+            }
+          ],
+          "CNPHI": [
+            {
+              "field": "Collection Method"
+            }
+          ]
+        },
         "vocabulary": {
           "Amniocentesis": {},
           "Aspiration": {
@@ -1088,6 +1336,13 @@ var DATA = [
         "description": "Any processing applied to the sample during or after receiving the sample.",
         "guidance": "Critical for interpreting data. Select all the applicable processes from the pick list. If virus was passaged, include information in \"lab host\", \"passage number\", and \"passage method\" fields. If none of the processes in the pick list apply, put \"not applicable\".",
         "examples": "Virus passage",
+        "exportField": {
+          "GISAID": [
+            {
+              "field": "Passage details/history"
+            }
+          ]
+        },
         "vocabulary": {
           "Virus passage": {},
           "RNA re-extraction (post RT-PCR)": {},
@@ -1113,6 +1368,13 @@ var DATA = [
         "description": "Name and description of the laboratory host used to propagate the source organism or material from which the sample was obtained.",
         "guidance": "Type of cell line used for propagation. Provide the name of the cell line using the picklist in the template. If not passaged, put \"not applicable\".",
         "examples": "Vero E6 cell line",
+        "exportField": {
+          "GISAID": [
+            {
+              "field": "Passage details/history"
+            }
+          ]
+        },
         "vocabulary": {
           "293/ACE2 cell line": {},
           "Caco2 cell line": {},
@@ -1147,7 +1409,14 @@ var DATA = [
         "requirement": "recommended",
         "description": "Number of passages.",
         "guidance": "Provide number of known passages. If not passaged, put \"not applicable\"",
-        "examples": "3"
+        "examples": "3",
+        "exportField": {
+          "GISAID": [
+            {
+              "field": "Passage details/history"
+            }
+          ]
+        }
       },
       {
         "fieldName": "passage method",
@@ -1163,7 +1432,14 @@ var DATA = [
         "requirement": "recommended",
         "description": "Description of how organism was passaged.",
         "guidance": "Free text. Provide a very short description (<10 words). If not passaged, put \"not applicable\".",
-        "examples": ""
+        "examples": "",
+        "exportField": {
+          "GISAID": [
+            {
+              "field": "Passage details/history"
+            }
+          ]
+        }
       },
       {
         "fieldName": "biomaterial extracted",
@@ -1215,6 +1491,13 @@ var DATA = [
         "description": "The commonly used name of the host.",
         "guidance": "Common name or scientific name are required if there was a host. Both can be provided, if known. Use terms from the pick lists in the template. Common name e.g. human, bat. If the sample was environmental, put \"not applicable.",
         "examples": "Human",
+        "exportField": {
+          "CNPHI": [
+            {
+              "field": "Animal Type"
+            }
+          ]
+        },
         "vocabulary": {
           "Human": {},
           "Bat": {},
@@ -1249,6 +1532,13 @@ var DATA = [
         "description": "The taxonomic, or scientific name of the host.",
         "guidance": "Common name or scientific name are required if there was a host. Both can be provided, if known. Use terms from the pick lists in the template. Scientific name e.g. Homo sapiens, If the sample was environmental, put \"not applicable",
         "examples": "Homo sapiens",
+        "exportField": {
+          "GISAID": [
+            {
+              "field": "Host"
+            }
+          ]
+        },
         "vocabulary": {
           "Homo sapiens": {},
           "Bos taurus": {},
@@ -1286,6 +1576,18 @@ var DATA = [
         "description": "Health status of the host at the time of sample collection.",
         "guidance": "If known, select a descriptor from the pick list provided in the template.",
         "examples": "Symptomatic",
+        "exportField": {
+          "GISAID": [
+            {
+              "field": "Patient status"
+            }
+          ],
+          "CNPHI": [
+            {
+              "field": "Host Health State"
+            }
+          ]
+        },
         "vocabulary": {
           "Asymptomatic": {},
           "Deceased": {},
@@ -1313,6 +1615,13 @@ var DATA = [
         "description": "Further details pertaining to the health or disease status of the host at time of collection.",
         "guidance": "If known, select a descriptor from the pick list provided in the template.",
         "examples": "Hospitalized (ICU)",
+        "exportField": {
+          "CNPHI": [
+            {
+              "field": "Host Health State Details"
+            }
+          ]
+        },
         "vocabulary": {
           "Hospitalized": {
             "Hospitalized (Non-ICU)": {},
@@ -1370,6 +1679,13 @@ var DATA = [
         "description": "The name of the disease experienced by the host.",
         "guidance": "Select \"COVID-19\" from the pick list provided in the template.",
         "examples": "COVID-19",
+        "exportField": {
+          "CNPHI": [
+            {
+              "field": "Host Disease"
+            }
+          ]
+        },
         "vocabulary": {
           "COVID-19": {}
         }
@@ -1392,7 +1708,19 @@ var DATA = [
         "requirement": "required",
         "description": "Age of host at the time of sampling.",
         "guidance": "Enter the age of the host in years. If not available, provide a null value. If there is not host, put \"Not Applicable\".",
-        "examples": "79"
+        "examples": "79",
+        "exportField": {
+          "GISAID": [
+            {
+              "field": "Patient age"
+            }
+          ],
+          "CNPHI": [
+            {
+              "field": "Patient Age"
+            }
+          ]
+        }
       },
       {
         "fieldName": "host age bin",
@@ -1413,6 +1741,13 @@ var DATA = [
         "description": "Age of host at the time of sampling, expressed as an age group.",
         "guidance": "Select the corresponding host age bin from the pick list provided in the template. If not available, provide a null value.",
         "examples": "60 - 69",
+        "exportField": {
+          "CNPHI": [
+            {
+              "field": "Host Age Category"
+            }
+          ]
+        },
         "vocabulary": {
           "0 - 9": {},
           "10 - 19": {},
@@ -1446,6 +1781,18 @@ var DATA = [
         "description": "The gender of the host at the time of sample collection.",
         "guidance": "Select the corresponding host gender from the pick list provided in the template. If not available, provide a null value. If there is no host, put \"Not Applicable\".",
         "examples": "male",
+        "exportField": {
+          "GISAID": [
+            {
+              "field": "Gender"
+            }
+          ],
+          "CNPHI": [
+            {
+              "field": "Patient Sex"
+            }
+          ]
+        },
         "vocabulary": {
           "Female": {},
           "Male": {},
@@ -1507,7 +1854,14 @@ var DATA = [
         "requirement": "",
         "description": "The date on which the symptoms began or were first noted.",
         "guidance": "ISO 8601 standard \"YYYY-MM-DD\".",
-        "examples": "2020-03-16"
+        "examples": "2020-03-16",
+        "exportField": {
+          "CNPHI": [
+            {
+              "field": "Symptoms Onset Date"
+            }
+          ]
+        }
       },
       {
         "fieldName": "signs and symptoms",
@@ -1528,6 +1882,13 @@ var DATA = [
         "description": "A perceived change in function or sensation, (loss, disturbance or appearance) indicative of a disease, reported by a patient.",
         "guidance": "Select all of the symptoms experienced by the host from the pick list.",
         "examples": "Cough; Fever; Chills",
+        "exportField": {
+          "CNPHI": [
+            {
+              "field": "Symptoms"
+            }
+          ]
+        },
         "vocabulary": {
           "Abnormal lung ausculation": {},
           "Abnormality of taste sensation": {
@@ -1935,7 +2296,26 @@ var DATA = [
         "requirement": "",
         "description": "The name of the city that was the destination of most recent travel.",
         "guidance": "Provide the name of the city that the host travelled to. Use this look-up service to identify the standardized term: https://www.ebi.ac.uk/ols/ontologies/gaz",
-        "examples": "New York City"
+        "examples": "New York City",
+        "exportField": {
+          "CNPHI": [
+            {
+              "field": "Country of Travel"
+            },
+            {
+              "field": "Province of Travel"
+            },
+            {
+              "field": "City of Travel"
+            },
+            {
+              "field": "Travel start date"
+            },
+            {
+              "field": "Travel End Date"
+            }
+          ]
+        }
       },
       {
         "fieldName": "destination of most recent travel (state/province/territory)",
@@ -1955,7 +2335,26 @@ var DATA = [
         "requirement": "",
         "description": "The name of the province that was the destination of most recent travel.",
         "guidance": "Provide the name of the state/province/territory that the host travelled to. Use this look-up service to identify the standardized term: https://www.ebi.ac.uk/ols/ontologies/gaz",
-        "examples": "California"
+        "examples": "California",
+        "exportField": {
+          "CNPHI": [
+            {
+              "field": "Country of Travel"
+            },
+            {
+              "field": "Province of Travel"
+            },
+            {
+              "field": "City of Travel"
+            },
+            {
+              "field": "Travel start date"
+            },
+            {
+              "field": "Travel End Date"
+            }
+          ]
+        }
       },
       {
         "fieldName": "destination of most recent travel (country)",
@@ -1976,6 +2375,25 @@ var DATA = [
         "description": "The name of the country that was the destination of most recent travel.",
         "guidance": "Provide the name of the country that the host travelled to. Use this look-up service to identify the standardized term: https://www.ebi.ac.uk/ols/ontologies/gaz",
         "examples": "United Kingdom",
+        "exportField": {
+          "CNPHI": [
+            {
+              "field": "Country of Travel"
+            },
+            {
+              "field": "Province of Travel"
+            },
+            {
+              "field": "City of Travel"
+            },
+            {
+              "field": "Travel start date"
+            },
+            {
+              "field": "Travel End Date"
+            }
+          ]
+        },
         "vocabulary": {}
       },
       {
@@ -1996,7 +2414,26 @@ var DATA = [
         "requirement": "",
         "description": "The date of a person's most recent departure from their primary residence (at that time) on a journey to one or more other locations.",
         "guidance": "Provide the travel departure date.",
-        "examples": "2020-03-16"
+        "examples": "2020-03-16",
+        "exportField": {
+          "CNPHI": [
+            {
+              "field": "Country of Travel"
+            },
+            {
+              "field": "Province of Travel"
+            },
+            {
+              "field": "City of Travel"
+            },
+            {
+              "field": "Travel start date"
+            },
+            {
+              "field": "Travel End Date"
+            }
+          ]
+        }
       },
       {
         "fieldName": "most recent travel return date",
@@ -2016,7 +2453,26 @@ var DATA = [
         "requirement": "",
         "description": "The date of a person's most recent return to some residence from a journey originating at that residence.",
         "guidance": "Provide the travel return date.",
-        "examples": "2020-04-26"
+        "examples": "2020-04-26",
+        "exportField": {
+          "CNPHI": [
+            {
+              "field": "Country of Travel"
+            },
+            {
+              "field": "Province of Travel"
+            },
+            {
+              "field": "City of Travel"
+            },
+            {
+              "field": "Travel start date"
+            },
+            {
+              "field": "Travel End Date"
+            }
+          ]
+        }
       },
       {
         "fieldName": "travel history",
@@ -2051,6 +2507,18 @@ var DATA = [
         "description": "Event leading to exposure.",
         "guidance": "Select an exposure event from the pick list provided in the template. If the desired term is missing, contact the curation team.",
         "examples": "Mass gathering (convention)",
+        "exportField": {
+          "GISAID": [
+            {
+              "field": "Additional location information"
+            }
+          ],
+          "CNPHI": [
+            {
+              "field": "Exposure Event"
+            }
+          ]
+        },
         "vocabulary": {
           "Mass Gathering": {
             "Convention": {},
@@ -2320,6 +2788,13 @@ var DATA = [
         "description": "The model of the sequencing instrument used.",
         "guidance": "Select a sequencing instrument from the picklist provided in the template.",
         "examples": "MinIon",
+        "exportField": {
+          "GISAID": [
+            {
+              "field": "Sequencing technology"
+            }
+          ]
+        },
         "vocabulary": {
           "ILLUMINA": {
             "HiSeq X": {
@@ -2384,7 +2859,14 @@ var DATA = [
         "requirement": "recommended",
         "description": "The name and version number of the sequencing protocol used.",
         "guidance": "Provide the name and version of the sequencing protocol e.g. 1D_DNA_MinION",
-        "examples": "1D_DNA_MinION, ARTIC Network Protocol v. 3"
+        "examples": "1D_DNA_MinION, ARTIC Network Protocol v. 3",
+        "exportField": {
+          "CNPHI": [
+            {
+              "field": "Sequencing protocol name"
+            }
+          ]
+        }
       },
       {
         "fieldName": "sequencing protocol source",
@@ -2535,7 +3017,14 @@ var DATA = [
         "requirement": "",
         "description": "The average number of reads representing a given nucleotide in the assembled sequence.",
         "guidance": "Provide value as a fold of coverage e.g. 80x.",
-        "examples": "400x"
+        "examples": "400x",
+        "exportField": {
+          "GISAID": [
+            {
+              "field": "Coverage"
+            }
+          ]
+        }
       },
       {
         "fieldName": "r1 fastq filename",
@@ -2633,7 +3122,14 @@ var DATA = [
         "requirement": "",
         "description": "The user-specified filename of the FASTA file.",
         "guidance": "Provide the FASTA filename.",
-        "examples": "batch1a_sequences.fasta"
+        "examples": "batch1a_sequences.fasta",
+        "exportField": {
+          "GISAID": [
+            {
+              "field": "FASTA filename"
+            }
+          ]
+        }
       },
       {
         "fieldName": "fasta filepath",
@@ -2745,7 +3241,14 @@ var DATA = [
         "requirement": "",
         "description": "The identifer used to specify the consensus sequence.",
         "guidance": "Provide the consensus sequence identifier.",
-        "examples": "ProvConsensusSeq"
+        "examples": "ProvConsensusSeq",
+        "exportField": {
+          "GISAID": [
+            {
+              "field": "Sample ID given by the submitting laboratory"
+            }
+          ]
+        }
       },
       {
         "fieldName": "consensus sequence method",
@@ -2765,7 +3268,14 @@ var DATA = [
         "requirement": "required",
         "description": "The name and version number of the software used to produce the consensus sequence.",
         "guidance": "Provide the software name followed by the version e.g. iVar 1.2",
-        "examples": "iVar 1.2"
+        "examples": "iVar 1.2",
+        "exportField": {
+          "GISAID": [
+            {
+              "field": "Assembly method"
+            }
+          ]
+        }
       },
       {
         "fieldName": "consensus sequence filename",
@@ -2841,6 +3351,13 @@ var DATA = [
         "description": "The name of the gene used in the diagnostic RT-PCR test.",
         "guidance": "Provide the full name of the gene used in the test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI",
         "examples": "E (orf4)",
+        "exportField": {
+          "CNPHI": [
+            {
+              "field": "Gene Target #1"
+            }
+          ]
+        },
         "vocabulary": {
           "E (orf4)": {},
           "M (orf5)": {},
@@ -2904,7 +3421,14 @@ var DATA = [
         "requirement": "",
         "description": "The Ct value result from a diagnostic SARS-CoV-2 RT-PCR test.",
         "guidance": "Provide the CT value of the sample from the diagnostic RT-PCR test.",
-        "examples": "21"
+        "examples": "21",
+        "exportField": {
+          "CNPHI": [
+            {
+              "field": "Gene Target #1 CT Value"
+            }
+          ]
+        }
       },
       {
         "fieldName": "gene name 2",
@@ -2919,6 +3443,13 @@ var DATA = [
         "description": "The name of the gene used in the diagnostic RT-PCR test.",
         "guidance": "Provide the full name of another gene used in an RT-PCR test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI",
         "examples": "nsp12 (RdRp)",
+        "exportField": {
+          "CNPHI": [
+            {
+              "field": "Gene Target #2"
+            }
+          ]
+        },
         "vocabulary": {}
       },
       {
@@ -2947,7 +3478,14 @@ var DATA = [
         "requirement": "",
         "description": "The Ct value result from a diagnostic SARS-CoV-2 RT-PCR test.",
         "guidance": "Provide the CT value of the sample from the second diagnostic RT-PCR test.",
-        "examples": "36"
+        "examples": "36",
+        "exportField": {
+          "CNPHI": [
+            {
+              "field": "Gene Target #2 CT Value"
+            }
+          ]
+        }
       }
     ]
   },
@@ -2966,7 +3504,14 @@ var DATA = [
         "requirement": "recommended",
         "description": "Names of individuals contributing to the processes of sample collection, sequence generation, analysis, and data submission.",
         "guidance": "Include the first and last names of all individuals that should be attributed, separated by a comma.",
-        "examples": "Tejinder Singh, Fei Hu, Joe Blogs"
+        "examples": "Tejinder Singh, Fei Hu, Joe Blogs",
+        "exportField": {
+          "GISAID": [
+            {
+              "field": "Authors"
+            }
+          ]
+        }
       }
     ]
   }

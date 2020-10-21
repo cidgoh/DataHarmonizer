@@ -20,8 +20,7 @@ var DATA = [
         "requirement": "required",
         "description": "The user-defined name for the sample.",
         "guidance": "Every Sample Name from a single submitter must be unique. It can have any format, but we suggest that you make it concise, unique and consistent within your lab, and as informative as possible.",
-        "examples": "SA20131043",
-        "EXPORT_???": ""
+        "examples": "SA20131043"
       },
       {
         "fieldName": "progeny_sample_ID",
@@ -35,8 +34,7 @@ var DATA = [
         "requirement": "",
         "description": "The user-defined identifier for progeny isolates derived from the original sample.",
         "guidance": "If your sequence data pertains to progeny of an original isolate, provide the progeny sample ID.",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "alternative_sample_ID",
@@ -50,8 +48,7 @@ var DATA = [
         "requirement": "",
         "description": "An alternative sample ID assigned to the sample by another organization.",
         "guidance": "If an alternative sample ID is available, here\u2019s where you can include it.",
-        "examples": "PHAC_45678",
-        "EXPORT_???": ""
+        "examples": "PHAC_45678"
       },
       {
         "fieldName": "IRIDA_sample_ID",
@@ -65,8 +62,7 @@ var DATA = [
         "requirement": "",
         "description": "The identifier assigned to the corresponding sequence data in IRIDA.",
         "guidance": "IRIDA sample IDs should be unqiue to avoid ID clash. This is very important in large Projects, especially when samples are shared from different organizations. Download the IRIDA sample ID and add it to the sample data in your spreadsheet as part of good data management practices.",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       }
     ]
   },
@@ -85,8 +81,7 @@ var DATA = [
         "requirement": "",
         "description": "The strain identifier.",
         "guidance": "If the isolate represents or is derived from, a lab reference strain or strain from a type culture collection, provide the strain identifier.",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "publication_PMID",
@@ -100,8 +95,7 @@ var DATA = [
         "requirement": "",
         "description": "The PubMed ID for a publication.",
         "guidance": "If the isolate is associated with a published work which can provide additional information, provide the PubMed identifier of the publication.",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "attribute_package",
@@ -115,8 +109,7 @@ var DATA = [
         "requirement": "",
         "description": "The attribute package used to structure metadata in an INSDC BioSample.",
         "guidance": "If the sample is from a specific human or animal, put \u201cPathogen.cl\u201d. If the sample is from an environmental sample including food, feed, production facility, farm, water source, manure etc, put \u201cPathogen.env\u201d.",
-        "examples": "Pathogen.cl",
-        "EXPORT_???": ""
+        "examples": "Pathogen.cl"
       },
       {
         "fieldName": "geo_loc (country)",
@@ -130,8 +123,7 @@ var DATA = [
         "requirement": "",
         "description": "The country where the sample was collected.",
         "guidance": "Use the controlled vocabulary provided in the template pick list.",
-        "examples": "Canada",
-        "EXPORT_???": ""
+        "examples": "Canada"
       },
       {
         "fieldName": "geo_loc (state/province/region)",
@@ -145,8 +137,7 @@ var DATA = [
         "requirement": "",
         "description": "The province/territory where the sample was collected.",
         "guidance": "Use the controlled vocabulary provided in the template pick list.",
-        "examples": "British Columbia",
-        "EXPORT_???": ""
+        "examples": "British Columbia"
       },
       {
         "fieldName": "lat_lon",
@@ -160,8 +151,7 @@ var DATA = [
         "requirement": "",
         "description": "The latitude and longitude coordinates where the sample was collected.",
         "guidance": "If known, provide the degrees latitude and longitude. Do NOT provide lat/lon of the institution, nor the centre of the city/region where the sample was collected as this falsely implicates an existing geographical location and creates data inaccuracies. If unknown, put \"missing\".",
-        "examples": "38.98 N 77.11 W.",
-        "EXPORT_???": ""
+        "examples": "38.98 N 77.11 W."
       },
       {
         "fieldName": "collection_date",
@@ -175,8 +165,7 @@ var DATA = [
         "requirement": "",
         "description": "The date on which the sample was collected.",
         "guidance": "Provide the date according to the ISO 8601 standard \"YYYY-MM-DD\", \"YYYY-MM\" or \"YYYY\".",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "collected_by",
@@ -190,8 +179,7 @@ var DATA = [
         "requirement": "",
         "description": "The affiliation of the sample collector.",
         "guidance": "Provide the name of the agency associated with the collection of the sample in full.",
-        "examples": "Canadian Food Inspection Agency",
-        "EXPORT_???": ""
+        "examples": "Canadian Food Inspection Agency"
       },
       {
         "fieldName": "laboratory_name",
@@ -205,8 +193,7 @@ var DATA = [
         "requirement": "",
         "description": "The name of the specific laboratory that collected the sample.",
         "guidance": "If known, provide the name of the specific lab that collected the sample. This information will be useful for follow-up, attribution of contributions, and establishing data ownership.",
-        "examples": "Smith Lab",
-        "EXPORT_???": ""
+        "examples": "Smith Lab"
       },
       {
         "fieldName": "sample_collector_contact_email",
@@ -220,8 +207,7 @@ var DATA = [
         "requirement": "",
         "description": "The email address of the contact responsible for follow-up regarding the sample.",
         "guidance": "The email address can represent a specific individual or lab.",
-        "examples": "johnnyblogs@lab.ca, EntericsLab@lab.ca.",
-        "EXPORT_???": ""
+        "examples": "johnnyblogs@lab.ca, EntericsLab@lab.ca."
       },
       {
         "fieldName": "organism",
@@ -235,8 +221,7 @@ var DATA = [
         "requirement": "",
         "description": "The taxonomic name of the organism.",
         "guidance": "Put the genus and species (and subspecies if applicable) of the bacteria, if known. The standardized term can be sourced from this look-up service: https://www.ebi.ac.uk/ols/ontologies/ncbitaxon.",
-        "examples": "Salmonella enterica subspecies enterica",
-        "EXPORT_???": ""
+        "examples": "Salmonella enterica subspecies enterica"
       },
       {
         "fieldName": "serovar",
@@ -250,8 +235,7 @@ var DATA = [
         "requirement": "",
         "description": "The serovar of the organism.",
         "guidance": "Only include this information if it has been determined by traditional serological methods or a validated in silico prediction tool e.g. SISTR.",
-        "examples": "Heidelberg",
-        "EXPORT_???": ""
+        "examples": "Heidelberg"
       },
       {
         "fieldName": "serotyping_method",
@@ -265,8 +249,7 @@ var DATA = [
         "requirement": "",
         "description": "The method used to determine the serovar.",
         "guidance": "If the serovar was determined via traditional serotyping methods, put \u201ctraditional serotyping\u201d. If the serovar was determined via in silico methods, provide the name and version number of the software.",
-        "examples": "SISTR v.1.0.1",
-        "EXPORT_???": ""
+        "examples": "SISTR v.1.0.1"
       },
       {
         "fieldName": "phagetype",
@@ -280,8 +263,7 @@ var DATA = [
         "requirement": "",
         "description": "The phagetype of the organism.",
         "guidance": "Provide if known. If unknown, put \u201cmissing\u201d.",
-        "examples": "47",
-        "EXPORT_???": ""
+        "examples": "47"
       },
       {
         "fieldName": "purpose_of_sampling",
@@ -295,8 +277,7 @@ var DATA = [
         "requirement": "",
         "description": "The reason why the sample was originally collected.",
         "guidance": "The information can help to interpret the results of an analysis. Select a value from the pick list provided.",
-        "examples": "Surveillance",
-        "EXPORT_???": ""
+        "examples": "Surveillance"
       },
       {
         "fieldName": "sample_processing",
@@ -310,8 +291,7 @@ var DATA = [
         "requirement": "",
         "description": "The processing applied to samples prior to sequencing.",
         "guidance": "If the sample is a composite (pooled samples), choose \u201csamples pooled\u201d. If samples are from a single source, choose \u201cisolated from single source\u201d. If unknown, put \u201cmissing\u201d.",
-        "examples": "samples pooled",
-        "EXPORT_???": ""
+        "examples": "samples pooled"
       },
       {
         "fieldName": "host (common name)",
@@ -325,8 +305,7 @@ var DATA = [
         "requirement": "",
         "description": "The commonly used name of the host.",
         "guidance": "If the sample is directly from a host, either a common or scientific name must be provided (although both can be included, if known). If known, provide the common name.",
-        "examples": "cow, chicken, human",
-        "EXPORT_???": ""
+        "examples": "cow, chicken, human"
       },
       {
         "fieldName": "host (scientific name)",
@@ -340,8 +319,7 @@ var DATA = [
         "requirement": "",
         "description": "The scientific name of the host.",
         "guidance": "If the sample is directly from a host, either a common or scientific name must be provided (although both can be included, if known). If known, provide the scientific name. The standardized term can be sourced from this look-up service: https://www.ebi.ac.uk/ols/ontologies/ncbitaxon.",
-        "examples": "Bos taurus, Homo sapiens",
-        "EXPORT_???": ""
+        "examples": "Bos taurus, Homo sapiens"
       },
       {
         "fieldName": "host_disease",
@@ -355,8 +333,7 @@ var DATA = [
         "requirement": "",
         "description": "The name of the disease experienced by the host.",
         "guidance": "This field is only required if the Pathogen.cl package was selected. If the host was sick, provide the name of the disease.The standardized term can be sourced from this look-up service: https://www.ebi.ac.uk/ols/ontologies/doid If the disease is not known, put \u201cmissing\u201d.",
-        "examples": "mastitis, gastroenteritis",
-        "EXPORT_???": ""
+        "examples": "mastitis, gastroenteritis"
       },
       {
         "fieldName": "environmental_site",
@@ -370,8 +347,7 @@ var DATA = [
         "requirement": "",
         "description": "An environmental site is a location in the natural or built environment.",
         "guidance": "If applicable, provide the standardized term and ontology ID for the environmental site. The standardized term can be sourced from these look-up services: https://www.ebi.ac.uk/ols/ontologies/envo or https://www.ebi.ac.uk/ols/ontologies/genepio.",
-        "examples": "contact surface, production facility, floor drain, hatchery.",
-        "EXPORT_???": ""
+        "examples": "contact surface, production facility, floor drain, hatchery."
       },
       {
         "fieldName": "animal_or_plant_population",
@@ -385,8 +361,7 @@ var DATA = [
         "requirement": "",
         "description": "The type of animal or plant population inhabiting an area.",
         "guidance": "This field should be used when a sample is taken from an environmental location inhabited by many individuals of a specific type, rather than describing a sample taken from one particular host. If applicable, provide the standardized term and ontology ID for the animal or plant population name. The standardized term can be sourced from this look-up service: https://www.ebi.ac.uk/ols/ontologies/genepio. If not applicable, leave blank.",
-        "examples": "turkey",
-        "EXPORT_???": ""
+        "examples": "turkey"
       },
       {
         "fieldName": "environmental_material",
@@ -400,8 +375,7 @@ var DATA = [
         "requirement": "",
         "description": "A substance or object obtained from the natural or man-made environment .",
         "guidance": "If applicable, provide the standardized term and ontology ID for the environmental material. The standardized term can be sourced from these look-up services: https://www.ebi.ac.uk/ols/ontologies/envo or https://www.ebi.ac.uk/ols/ontologies/genepio. If not applicable, leave blank.",
-        "examples": "soil, water, sewage, tractor",
-        "EXPORT_???": ""
+        "examples": "soil, water, sewage, tractor"
       },
       {
         "fieldName": "body_product",
@@ -415,8 +389,7 @@ var DATA = [
         "requirement": "",
         "description": "A substance excreted/secreted from an organism.",
         "guidance": "If applicable, provide the standardized term and ontology ID for the body product. The standardized term can be sourced from this look-up service: https://www.ebi.ac.uk/ols/ontologies/uberon. If not applicable, leave blank.",
-        "examples": "feces, urine, sweat.",
-        "EXPORT_???": ""
+        "examples": "feces, urine, sweat."
       },
       {
         "fieldName": "anatomical_part",
@@ -430,8 +403,7 @@ var DATA = [
         "requirement": "",
         "description": "A substance obtained from an anatomical part of an organism.",
         "guidance": "If applicable, provide the standardized term and ontology ID for the anatomical material. The standardized term can be sourced from this look-up service: https://www.ebi.ac.uk/ols/ontologies/uberon. If not applicable, leave blank.",
-        "examples": "tissue, blood",
-        "EXPORT_???": ""
+        "examples": "tissue, blood"
       },
       {
         "fieldName": "food_product",
@@ -445,8 +417,7 @@ var DATA = [
         "requirement": "",
         "description": "A material consumed and digested for nutritional value or enjoyment.",
         "guidance": "This field includes animal feed. If applicable, provide the standardized term and ontology ID for the anatomical material. The standardized term can be sourced from this look-up service: https://www.ebi.ac.uk/ols/ontologies/foodon. If not applicable, leave blank.",
-        "examples": "feather and bone meal, chicken breast",
-        "EXPORT_???": ""
+        "examples": "feather and bone meal, chicken breast"
       },
       {
         "fieldName": "collection_device",
@@ -460,8 +431,7 @@ var DATA = [
         "requirement": "",
         "description": "The instrument or container used to collect the sample.",
         "guidance": "This field includes animal feed. If applicable, provide the standardized term and ontology ID for the anatomical material. The standardized term can be sourced from this look-up service: https://www.ebi.ac.uk/ols/ontologies/genepio. If not applicable, leave blank.",
-        "examples": "swab",
-        "EXPORT_???": ""
+        "examples": "swab"
       },
       {
         "fieldName": "collection_method",
@@ -475,8 +445,7 @@ var DATA = [
         "requirement": "",
         "description": "The process used to collect the sample.",
         "guidance": "If applicable, provide the standardized term and ontology ID for the anatomical material. The standardized term can be sourced from this look-up service: https://www.ebi.ac.uk/ols/ontologies/genepio. If not applicable, leave blank.",
-        "examples": "phlebotomy, necropsy, rinsing",
-        "EXPORT_???": ""
+        "examples": "phlebotomy, necropsy, rinsing"
       }
     ]
   },
@@ -495,8 +464,7 @@ var DATA = [
         "requirement": "",
         "description": "Type of method used for antibiotic susceptibility testing.",
         "guidance": "\u201cMIC\u201d, \u201cagar dilution\u201d, \u201cdisk diffusion\u201d, or \u201cmissing\u201d",
-        "examples": "MIC",
-        "EXPORT_???": ""
+        "examples": "MIC"
       },
       {
         "fieldName": "AMR_laboratory_typing_platform",
@@ -510,8 +478,7 @@ var DATA = [
         "requirement": "",
         "description": "The brand/platform used for antibiotic susceptibility testing",
         "guidance": "\u201cMicroscan\u201d, \u201cPhoenix\u201d, \u201cSensititre\u201d, or \u201cVitek\u201d",
-        "examples": "Sensititre",
-        "EXPORT_???": ""
+        "examples": "Sensititre"
       },
       {
         "fieldName": "AMR_laboratory_typing_platform_version",
@@ -525,8 +492,7 @@ var DATA = [
         "requirement": "",
         "description": "The specific name and version of the plate, panel, or other platform used for antibiotic susceptibility testing.",
         "guidance": "Any additional information about the nature of the antimicrobial susceptibility test can go in this field.",
-        "examples": "CMV3AGNF",
-        "EXPORT_???": ""
+        "examples": "CMV3AGNF"
       },
       {
         "fieldName": "AMR_measurement_units",
@@ -540,8 +506,7 @@ var DATA = [
         "requirement": "",
         "description": "Units used for measuring antibiotic susceptibility",
         "guidance": "\u201cmg/L\u201d or \u201cmm\u201d",
-        "examples": "mg/L",
-        "EXPORT_???": ""
+        "examples": "mg/L"
       },
       {
         "fieldName": "amoxicillin-clavulanic_acid_resistance_phenotype",
@@ -555,8 +520,7 @@ var DATA = [
         "requirement": "",
         "description": "Antimicrobial resistance phenotype, as determined by the antibiotic susceptibility measurement and testing standard for this antibiotic",
         "guidance": "\u201cresistant\u201d, \u201csusceptible\u201d, \u201cintermediate\u201d, \u201cnonsusceptible\u201d, \u201csuceptible-dose dependent\u201d, or \u201cnot defined\u201d",
-        "examples": "sensitive",
-        "EXPORT_???": ""
+        "examples": "sensitive"
       },
       {
         "fieldName": "amoxicillin-clavulanic_acid_measurement_sign",
@@ -570,8 +534,7 @@ var DATA = [
         "requirement": "",
         "description": "Qualifier associated with the antibiotic susceptibility measurement",
         "guidance": "\u201c<\u201d, \u201c<=\u201d, \u201c==\u201d, \u201c>=\u201d, or \u201c>\". If the susceptibility measurement for this antibiotic and for this sample is exact, use \u201c==\u201d.",
-        "examples": "#ERROR!",
-        "EXPORT_???": ""
+        "examples": "#ERROR!"
       },
       {
         "fieldName": "amoxicillin-clavulanic_acid_measurement",
@@ -585,8 +548,7 @@ var DATA = [
         "requirement": "",
         "description": "Antibiotic susceptibility measurement, measured in the units specified in the \u201cAMR_measurement_units\u201d field.",
         "guidance": "This field should only contain a number (either an integer or a number with decimals).",
-        "examples": "4",
-        "EXPORT_???": ""
+        "examples": "4"
       },
       {
         "fieldName": "ampicillin_resistance_phenotype",
@@ -600,8 +562,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "CLSI",
-        "EXPORT_???": ""
+        "examples": "CLSI"
       },
       {
         "fieldName": "ampicillin_measurement_sign",
@@ -615,8 +576,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "M100",
-        "EXPORT_???": ""
+        "examples": "M100"
       },
       {
         "fieldName": "ampicillin_measurement",
@@ -630,8 +590,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "27th ed. Wayne, PA: Clinical and Laboratory Standards Institute; 2017.",
-        "EXPORT_???": ""
+        "examples": "27th ed. Wayne, PA: Clinical and Laboratory Standards Institute; 2017."
       },
       {
         "fieldName": "azithromycin_resistance_phenotype",
@@ -645,8 +604,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "8",
-        "EXPORT_???": ""
+        "examples": "8"
       },
       {
         "fieldName": "azithromycin_measurement_sign",
@@ -660,8 +618,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "16",
-        "EXPORT_???": ""
+        "examples": "16"
       },
       {
         "fieldName": "azithromycin_measurement",
@@ -675,8 +632,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "32",
-        "EXPORT_???": ""
+        "examples": "32"
       },
       {
         "fieldName": "cefoxitin_resistance_phenotype",
@@ -690,8 +646,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "cefoxitin_measurement_sign",
@@ -705,8 +660,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "cefoxitin_measurement",
@@ -720,8 +674,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "ceftriaxone_resistance_phenotype",
@@ -735,8 +688,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "ceftriaxone_measurement_sign",
@@ -750,8 +702,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "ceftriaxone_measurement",
@@ -765,8 +716,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "chloramphenicol_resistance_phenotype",
@@ -780,8 +730,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "chloramphenicol_measurement_sign",
@@ -795,8 +744,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "chloramphenicol_measurement",
@@ -810,8 +758,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "ciprofloxacin_resistance_phenotype",
@@ -825,8 +772,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "ciprofloxacin_measurement_sign",
@@ -840,8 +786,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "ciprofloxacin_measurement",
@@ -855,8 +800,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "gentamicin_resistance_phenotype",
@@ -870,8 +814,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "gentamicin_measurement_sign",
@@ -885,8 +828,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "gentamicin_measurement",
@@ -900,8 +842,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "meropenem_resistance_phenotype",
@@ -915,8 +856,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "meropenem_measurement_sign",
@@ -930,8 +870,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "meropenem_measurement",
@@ -945,8 +884,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "nalidixic_acid_resistance_phenotype",
@@ -960,8 +898,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "nalidixic_acid_measurement_sign",
@@ -975,8 +912,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "nalidixic_acid_measurement",
@@ -990,8 +926,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "streptomycin_resistance_phenotype",
@@ -1005,8 +940,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "streptomycin_measurement_sign",
@@ -1020,8 +954,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "streptomycin_measurement",
@@ -1035,8 +968,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "sulfisoxazole_resistance_phenotype",
@@ -1050,8 +982,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "sulfisoxazole_measurement_sign",
@@ -1065,8 +996,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "sulfisoxazole_measurement",
@@ -1080,8 +1010,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "tetracycline_resistance_phenotype",
@@ -1095,8 +1024,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "tetracycline_measurement_sign",
@@ -1110,8 +1038,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "tetracycline_measurement",
@@ -1125,8 +1052,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "amoxicillin-clavulanic_acid_testing_standard",
@@ -1140,8 +1066,7 @@ var DATA = [
         "requirement": "",
         "description": "Testing standard used for determination of resistance phenotype",
         "guidance": "\u201cCLSI\u201d, \u201cNARMS\u201d, \u201cBSAC\u201d, \u201cDIN\u201d, \u201cEUCAST\u201d, \u201cNCCLS\u201d, \u201cSFM\u201d, \u201cSIR\u201d, \u201cWRG\u201d, or \u201cmissing\u201d",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "amoxicillin-clavulanic_acid_testing_standard_version",
@@ -1155,8 +1080,7 @@ var DATA = [
         "requirement": "",
         "description": "Version number associated with the testing standard used for determination of resistance phenotype",
         "guidance": "If applicable, include a version number for the testing standard used.",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "amoxicillin-clavulanic_acid_testing_standard_details",
@@ -1170,8 +1094,7 @@ var DATA = [
         "requirement": "",
         "description": "Additional details associated with the testing standard used for determination of resistance phenotype",
         "guidance": "This information may include the year or location where the testing standard was published. If not applicable, leave blank.",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "amoxicillin-clavulanic_acid_susceptible_breakpoint",
@@ -1185,8 +1108,7 @@ var DATA = [
         "requirement": "",
         "description": "Maximum measurement, in the units specified in the \u201cAMR_measurement_units\u201d field, for a sample to be considered \u201csensitive\u201d to this antibiotic",
         "guidance": "This field should only contain a number (either an integer or a number with decimals), since the \u201c<=\u201d qualifier is implied.",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "amoxicillin-clavulanic_acid_intermediate_breakpoint",
@@ -1200,8 +1122,7 @@ var DATA = [
         "requirement": "",
         "description": "Intermediate measurement(s), in the units specified in the \u201cAMR_measurement_units\u201d field, where a sample would be considered to have an \u201cintermediate\u201d phenotype for this antibiotic",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "amoxicillin-clavulanic_acid_resistant_breakpoint",
@@ -1215,8 +1136,7 @@ var DATA = [
         "requirement": "",
         "description": "Minimum measurement, in the units specified in the \u201cAMR_measurement_units\u201d field, for a sample to be considered \u201cresistant\u201d to this antibiotic",
         "guidance": "This field should only contain a number (either an integer or a number with decimals), since the \u201c>=\u201d qualifier is implied.",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "ampicillin_testing_standard",
@@ -1230,8 +1150,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "ampicillin_testing_standard_version",
@@ -1245,8 +1164,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "ampicillin_testing_standard_details",
@@ -1260,8 +1178,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "ampicillin_susceptible_breakpoint",
@@ -1275,8 +1192,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "ampicillin_intermediate_breakpoint",
@@ -1290,8 +1206,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "ampicillin_resistant_breakpoint",
@@ -1305,8 +1220,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "azithromycin_testing_standard",
@@ -1320,8 +1234,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "azithromycin_testing_standard_version",
@@ -1335,8 +1248,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "azithromycin_testing_standard_details",
@@ -1350,8 +1262,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "azithromycin_susceptible_breakpoint",
@@ -1365,8 +1276,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "azithromycin_intermediate_breakpoint",
@@ -1380,8 +1290,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "azithromycin_resistant_breakpoint",
@@ -1395,8 +1304,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "cefoxitin_testing_standard",
@@ -1410,8 +1318,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "cefoxitin_testing_standard_version",
@@ -1425,8 +1332,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "cefoxitin_testing_standard_details",
@@ -1440,8 +1346,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "cefoxitin_susceptible_breakpoint",
@@ -1455,8 +1360,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "cefoxitin_intermediate_breakpoint",
@@ -1470,8 +1374,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "cefoxitin_resistant_breakpoint",
@@ -1485,8 +1388,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "ceftriaxone_testing_standard",
@@ -1500,8 +1402,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "ceftriaxone_testing_standard_version",
@@ -1515,8 +1416,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "ceftriaxone_testing_standard_details",
@@ -1530,8 +1430,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "ceftriaxone_susceptible_breakpoint",
@@ -1545,8 +1444,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "ceftriaxone_intermediate_breakpoint",
@@ -1560,8 +1458,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "ceftriaxone_resistant_breakpoint",
@@ -1575,8 +1472,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "chloramphenicol_testing_standard",
@@ -1590,8 +1486,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "chloramphenicol_testing_standard_version",
@@ -1605,8 +1500,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "chloramphenicol_testing_standard_details",
@@ -1620,8 +1514,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "chloramphenicol_susceptible_breakpoint",
@@ -1635,8 +1528,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "chloramphenicol_intermediate_breakpoint",
@@ -1650,8 +1542,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "chloramphenicol_resistant_breakpoint",
@@ -1665,8 +1556,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "ciprofloxacin_testing_standard",
@@ -1680,8 +1570,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "ciprofloxacin_testing_standard_version",
@@ -1695,8 +1584,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "ciprofloxacin_testing_standard_details",
@@ -1710,8 +1598,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "ciprofloxacin_susceptible_breakpoint",
@@ -1725,8 +1612,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "ciprofloxacin_intermediate_breakpoint",
@@ -1740,8 +1626,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "ciprofloxacin_resistant_breakpoint",
@@ -1755,8 +1640,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "gentamicin_testing_standard",
@@ -1770,8 +1654,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "gentamicin_testing_standard_version",
@@ -1785,8 +1668,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "gentamicin_testing_standard_details",
@@ -1800,8 +1682,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "gentamicin_susceptible_breakpoint",
@@ -1815,8 +1696,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "gentamicin_intermediate_breakpoint",
@@ -1830,8 +1710,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "gentamicin_resistant_breakpoint",
@@ -1845,8 +1724,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "meropenem_testing_standard",
@@ -1860,8 +1738,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "meropenem_testing_standard_version",
@@ -1875,8 +1752,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "meropenem_testing_standard_details",
@@ -1890,8 +1766,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "meropenem_susceptible_breakpoint",
@@ -1905,8 +1780,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "meropenem_intermediate_breakpoint",
@@ -1920,8 +1794,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "meropenem_resistant_breakpoint",
@@ -1935,8 +1808,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "nalidixic_acid_testing_standard",
@@ -1950,8 +1822,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "nalidixic_acid_testing_standard_version",
@@ -1965,8 +1836,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "nalidixic_acid_testing_standard_details",
@@ -1980,8 +1850,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "nalidixic_acid_susceptible_breakpoint",
@@ -1995,8 +1864,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "nalidixic_acid_intermediate_breakpoint",
@@ -2010,8 +1878,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "nalidixic_acid_resistant_breakpoint",
@@ -2025,8 +1892,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "streptomycin_testing_standard",
@@ -2040,8 +1906,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "streptomycin_testing_standard_version",
@@ -2055,8 +1920,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "streptomycin_testing_standard_details",
@@ -2070,8 +1934,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "streptomycin_susceptible_breakpoint",
@@ -2085,8 +1948,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "streptomycin_intermediate_breakpoint",
@@ -2100,8 +1962,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "streptomycin_resistant_breakpoint",
@@ -2115,8 +1976,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "sulfisoxazole_testing_standard",
@@ -2130,8 +1990,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "sulfisoxazole_testing_standard_version",
@@ -2145,8 +2004,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "sulfisoxazole_testing_standard_details",
@@ -2160,8 +2018,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "sulfisoxazole_susceptible_breakpoint",
@@ -2175,8 +2032,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "sulfisoxazole_intermediate_breakpoint",
@@ -2190,8 +2046,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "sulfisoxazole_resistant_breakpoint",
@@ -2205,8 +2060,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "tetracycline_testing_standard",
@@ -2220,8 +2074,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "tetracycline_testing_standard_version",
@@ -2235,8 +2088,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "tetracycline_testing_standard_details",
@@ -2250,8 +2102,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "tetracycline_susceptible_breakpoint",
@@ -2265,8 +2116,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "tetracycline_intermediate_breakpoint",
@@ -2280,8 +2130,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       },
       {
         "fieldName": "tetracycline_resistant_breakpoint",
@@ -2295,8 +2144,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_???": ""
+        "examples": ""
       }
     ]
   }
