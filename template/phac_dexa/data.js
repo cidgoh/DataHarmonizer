@@ -14,8 +14,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "ISOLATE_ID",
@@ -30,7 +29,13 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": "sample_name"
+        "exportField": {
+          "GRDI": [
+            {
+              "field": "sample_name"
+            }
+          ]
+        }
       },
       {
         "fieldName": "SAMPLE_ID",
@@ -45,7 +50,13 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": "alternative_sample_ID"
+        "exportField": {
+          "GRDI": [
+            {
+              "field": "alternative_sample_ID"
+            }
+          ]
+        }
       }
     ]
   },
@@ -64,8 +75,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "LFZ_ADDITIONAL_SAMPLE_ID",
@@ -79,8 +89,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "LFZ_ORIGIN_COUNTRY",
@@ -94,8 +103,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "SUBJECT_CODE",
@@ -109,8 +117,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "SUBJECT_DESCRIPTIONS",
@@ -125,642 +132,1149 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": "",
         "vocabulary": {
           "1/2 breast": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Avian Ingredients": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Back": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Balut": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Black Pepper": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Blade Steak": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Blood Meal": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Bone Meal": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Bovine Ingredients": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Breast": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Breast back off": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Breast cutlets": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Breast Skinless": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Breast Skinless Boneless": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Breast with Skin": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Brisket": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Burger": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Calf": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Canola Meal": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Carinata Meal": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Chop": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Chops": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "coli": {},
           "Complete Feed": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Corn": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Cow": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Cubes": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Cutlet": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Drumstick": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Drumstick Skinless": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Drumstick with Skin": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Drumsticks": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Egg Flour": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Feather Meal": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Feed": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Filet": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Fish Ingredients": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Fish Meal": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Grain": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Ground": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Ground ( lean)": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Ground (Angus)": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Ground (Extra Lean)": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Ground (extra-lan)": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Ground (Extra-Lean)": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Ground (Lean)": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Ground (Medium)": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Ground (Regular)": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Ground (Sirloin)": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Ground Boneless": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Ground extra lean": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Ground regular": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "ground( extra lean)": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "ground( medium)": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Ground(Extra lean)": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Ground(Lean)": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Ground(medium)": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "ground(regular)": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Groundextra lean)": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Ground-Lean": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Ground-Regular": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Heifer": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Hummus": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "In-Shell": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Lay Ration": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Leg": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Leg with Skin-Drumstick and Thigh": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Liver": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Loin Center Chop": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Meat and Bone Meal": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Meat Flour/Meal": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Meat Meal": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Mild italian style burger": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Necks": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Nuggets": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Other": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Other cut": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Other Cut (Not Ground)": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Other Cut Boneless": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Other Cut Boneless (Not Ground)": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Ovine Ingredients": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Pet Food": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Porcine Ingredients": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Pork Chop (Cut Unknown)": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Premix": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Premix (Medicated)": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Processed (Other)": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Raw": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Rib Chop": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Ribs": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Roast": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Salami": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Sausage": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Sausage (Pepper)": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Scallopini": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Shell on": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Shelled": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Shoulder": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Shoulder Chop": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Sirloin Chop": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Skim milk powder": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Soft": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Soyabean Meal": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Starter Ration": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Steak": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Stew Chunks": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Supplements": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "T. high": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Tahini": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Tender loin": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Tenderloin": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Thigh": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Thigh Skinless": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Thigh Skinless Boneless": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Thigh with Skin": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Trim": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Unknown Meal": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Unspecified Feed/Ingredient": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Upper Thigh": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Upper Thigh with Skin": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "upper thight": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Upperthigh": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "White Pepper": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Whole": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Whole Carcass": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Whole with Skin": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Wing": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Wings": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           }
         }
@@ -778,7 +1292,13 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": "collected_by"
+        "exportField": {
+          "GRDI": [
+            {
+              "field": "collected_by"
+            }
+          ]
+        }
       },
       {
         "fieldName": "SUBMITTINGLAB_1",
@@ -793,7 +1313,13 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": "laboratory_name"
+        "exportField": {
+          "GRDI": [
+            {
+              "field": "laboratory_name"
+            }
+          ]
+        }
       },
       {
         "fieldName": "PROJECT_1",
@@ -807,8 +1333,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "COUNTRY_1",
@@ -823,7 +1348,13 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": "geo_loc (country)"
+        "exportField": {
+          "GRDI": [
+            {
+              "field": "geo_loc (country)"
+            }
+          ]
+        }
       },
       {
         "fieldName": "PROVINCE_1",
@@ -838,7 +1369,13 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": "geo_loc (state/province/region)"
+        "exportField": {
+          "GRDI": [
+            {
+              "field": "geo_loc (state/province/region)"
+            }
+          ]
+        }
       },
       {
         "fieldName": "CENSUSDIVISION_1",
@@ -852,8 +1389,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "REGION",
@@ -867,8 +1403,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "YEAR",
@@ -882,8 +1417,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "MONTH",
@@ -897,8 +1431,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "QTR",
@@ -912,8 +1445,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "DATECOLLECTED_1",
@@ -928,22 +1460,13 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": "collection_date"
-      },
-      {
-        "fieldName": "CIPARS generic email",
-        "capitalize": "",
-        "ontology_id": "",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "",
-        "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": "sample_collector_contact_email"
+        "exportField": {
+          "GRDI": [
+            {
+              "field": "collection_date"
+            }
+          ]
+        }
       },
       {
         "fieldName": "DATERECEIVED_1",
@@ -957,8 +1480,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "DATESHIPPED_1",
@@ -972,8 +1494,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "ESTABLISHMENT_1",
@@ -987,8 +1508,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "SPECIES",
@@ -1003,845 +1523,1519 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": "host (common name)",
+        "exportField": {
+          "GRDI": [
+            {
+              "field": "host (common name)"
+            }
+          ]
+        },
         "vocabulary": {
           "2": {},
           "4": {},
           "<=8": {},
           "<n/a>": {},
           "Abalone": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Alfalfa sprouts": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Alpaca": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Amphibian": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Apple": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Aquatic mammal": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Armadillo": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Avian": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Basil": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Bat": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Bear": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Bearded Dragon": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Bison": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Budgie": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Camel": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Camelid": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Canary": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Canine": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Cantelope": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Caprine": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Cardemom": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Cardinal": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Cervid": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Chameleon": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Cheetah": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Chicken": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Chimpanzee": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Chinchilla": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Chinese Water Dragon": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Clam": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Coriander": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Cormorant": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Cougar/Mountain Lion": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Coyote": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Crab": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Crane": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Crow": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Cumin seeds": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Cuttlefish": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Dog": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Dolphin": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Domestic Cat": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Domestic Cattle": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Duck": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Dumpster": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_site"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_site"
+                }
+              ]
             }
           },
           "Eagle": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Eel": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Elephant": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Falcon": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Feline": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Ferret": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Finch": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Fish": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Flamingo": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "For Unspecified": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Fox": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Gecko": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Goat": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Goat and Sheep": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Goose": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Grape": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Green onions": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Grosbeak": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "ground pepper": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Gull": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Hare": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Hazelnut": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Hedgehog": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Herb/spice (unspecified)": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Heron": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Hippopotamidae": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Horse": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Iguana": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Jaguar": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Kangaroo": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Komodo Dragon": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Lapine": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Lettuce": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Lion": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Lizard": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Marsupial": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Mink": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Mint": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Mixed": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Mongoose": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Mouse": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Mushrooms": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Mussel": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "n/a": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Not Available": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Octopus": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Opossum": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Oregano": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Other": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Otter": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Ovine": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Owl": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Oyster": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Parrot": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Parsley": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Partridge": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Pea sprouts": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Peanut Butter": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Pepper": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Perdrix": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Pheasant": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Pickerel": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Pig": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Pigeon": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Pine Siskin": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Pony": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Porcupine": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Porpoise": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Primate": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Quail": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Rabbit": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Raccoon": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Rat": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Ratite": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Raven": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Red Deer": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Redpoll": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Reptile": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Rhea": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Robin": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Rodent": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Sage": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Salmon": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Scallop": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Sea Otter": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Sea Snail": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Seal": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Sesame Seed": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Sheep": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Shrimp": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Skink": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Skunk": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Snake": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Sparrow": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Spinach": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Spotted Hyena": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Sprouts": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Squid": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Squirrel": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Stripped Hyena": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Swan": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Tantalus Monkey": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Tilapia": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Tomato": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Tortoise": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Trout": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Turkey": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Turtle": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Unknown": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Unspecified Bird": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Unspecified Fish": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Unspecified Primate": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Unspecified Reptile": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Unspecified Rodent": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Vulture": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Wallnut": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Water Dragon": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "White Fish": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Wild Ruminant": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Wombat": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Woodpecker": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Zebra": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           }
         }
@@ -1859,35 +3053,54 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": "",
         "vocabulary": {
           "0": {},
           "0.5": {},
           "ANIMAL": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "ENVIRONMENT": {
-            "FIELD_MAP": {
-              "GRDI": "environmental site/material"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental site/material"
+                }
+              ]
             }
           },
           "FOOD": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "HUMAN": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "PRODUCT": {},
           "QA": {},
           "UNKNOWN": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           }
         }
@@ -1905,367 +3118,650 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": "",
         "vocabulary": {
           "0": {},
           "2": {},
           "<=8": {},
           "<n/a>": {},
           "Amphibian": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Aquatic Mammal": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Armadillo": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Avian": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Bat": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Biosolids": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_material"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_material"
+                }
+              ]
             }
           },
           "Bovine": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Building": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_site"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_site"
+                }
+              ]
             }
           },
           "Camelid": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Canine": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Caprine": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Caprine and Ovine": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Cereal": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Cereal/Bread/Snack": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Cervid": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Compost": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_material"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_material"
+                }
+              ]
             }
           },
           "Confections/Nuts/Condiments": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Crocuta": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Crustacean": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Dairy": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_site"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_site"
+                }
+              ]
             }
           },
           "Dust": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_material"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_material"
+                }
+              ]
             }
           },
           "Egg": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Elephant": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Equine": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Equipment": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_site"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_site"
+                }
+              ]
             }
           },
           "ERROR": {
-            "FIELD_MAP": {
-              "GRDI": "?"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "?"
+                }
+              ]
             }
           },
           "Feed and Ingredients": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Feline": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Ferret": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Fertilizer": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_material"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_material"
+                }
+              ]
             }
           },
           "Fish": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Food": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Fruit": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Fruits and Vegetables": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Health (medicine)": {
-            "FIELD_MAP": {
-              "GRDI": "?"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "?"
+                }
+              ]
             }
           },
           "Herbs and Spices": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Herpestidae": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Hippopotamidae": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Lapine": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Litter/Manure": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_material"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_material"
+                }
+              ]
             }
           },
           "Manure": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_material"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_material"
+                }
+              ]
             }
           },
           "Marsupial": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Meat": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Mephitida": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Mink": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Mixed food": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Mixed Food/Meat": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Mollusk": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Mustelid": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "n/a": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Other": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Ovine": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Personnel Clothing": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_material"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_material"
+                }
+              ]
             }
           },
           "Porcine": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Primate": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Raccoon": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Reptile": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Rodent": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Sewage": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_material"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_material"
+                }
+              ]
             }
           },
           "Soil": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_material"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_material"
+                }
+              ]
             }
           },
           "Transportation Supplies": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_site"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_site"
+                }
+              ]
             }
           },
           "Transportation Vehicles": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_site"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_site"
+                }
+              ]
             }
           },
           "Turkey": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Unknown": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Unknown Food": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Unspecified": {},
           "Unspecified Animal": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Unspecified Environmental": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_site"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_site"
+                }
+              ]
             }
           },
           "Unspecified Food": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Unspecified Product": {},
           "Ursine": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Vegetable/Spice": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Water": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_material"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_material"
+                }
+              ]
             }
           }
         }
@@ -2283,77 +3779,132 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": "",
         "vocabulary": {
           "<=16": {},
           "Beef": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Broiler": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Dairy": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_site"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_site"
+                }
+              ]
             }
           },
           "Domestic/Farmed": {
-            "FIELD_MAP": {
-              "GRDI": "?"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "?"
+                }
+              ]
             }
           },
           "Egg": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Laboratory": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_site"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_site"
+                }
+              ]
             }
           },
           "Meat": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Mutton": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Pet": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Pet/Zoo": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_site"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_site"
+                }
+              ]
             }
           },
           "Red Veal": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Unknown": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Veal": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "White Veal": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Wild": {}
@@ -2372,148 +3923,259 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": "",
         "vocabulary": {
           "2": {},
           "<=32": {},
           "Aliquote / Portion": {
-            "FIELD_MAP": {
-              "GRDI": "?"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "?"
+                }
+              ]
             }
           },
           "Blood": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_material"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_material"
+                }
+              ]
             }
           },
           "Blood Meal": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Body Fluid/Excretion": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_material"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_material"
+                }
+              ]
             }
           },
           "Carcass": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_part"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_part"
+                }
+              ]
             }
           },
           "Check Sample": {
-            "FIELD_MAP": {
-              "GRDI": "?"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "?"
+                }
+              ]
             }
           },
           "Contact plate": {
-            "FIELD_MAP": {
-              "GRDI": "collection_device"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "collection_device"
+                }
+              ]
             }
           },
           "Culture": {
-            "FIELD_MAP": {
-              "GRDI": "?"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "?"
+                }
+              ]
             }
           },
           "Dust": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_material"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_material"
+                }
+              ]
             }
           },
           "Egg": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Environment (Animal)": {
-            "FIELD_MAP": {
-              "GRDI": "?"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "?"
+                }
+              ]
             }
           },
           "Environmental": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_material/site"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_material/site"
+                }
+              ]
             }
           },
           "Feces": {
-            "FIELD_MAP": {
-              "GRDI": "body_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "body_product"
+                }
+              ]
             }
           },
           "Fetus/Embryo": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_part"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_part"
+                }
+              ]
             }
           },
           "Organ": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_part"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_part"
+                }
+              ]
             }
           },
           "Organ/Tissue": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_material"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_material"
+                }
+              ]
             }
           },
           "Proficiency Isolate": {
-            "FIELD_MAP": {
-              "GRDI": "?"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "?"
+                }
+              ]
             }
           },
           "Reference Culture": {
-            "FIELD_MAP": {
-              "GRDI": "?"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "?"
+                }
+              ]
             }
           },
           "Rinse": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_material"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_material"
+                }
+              ]
             }
           },
           "Septage": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_material"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_material"
+                }
+              ]
             }
           },
           "Soya Meal": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Stool": {
-            "FIELD_MAP": {
-              "GRDI": "body_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "body_product"
+                }
+              ]
             }
           },
           "Swab": {
-            "FIELD_MAP": {
-              "GRDI": "collection_device"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "collection_device"
+                }
+              ]
             }
           },
           "Tissue": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_material"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_material"
+                }
+              ]
             }
           },
           "Unit (Pre-Packaged)": {
-            "FIELD_MAP": {
-              "GRDI": "?"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "?"
+                }
+              ]
             }
           },
           "Unknown": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Unspecified": {
-            "FIELD_MAP": {
-              "GRDI": "?"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "?"
+                }
+              ]
             }
           },
           "Urine": {
-            "FIELD_MAP": {
-              "GRDI": "body_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "body_product"
+                }
+              ]
             }
           }
         }
@@ -2531,719 +4193,1291 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": "",
         "vocabulary": {
           "0.25": {},
           "<=0.12": {},
           "<=16": {},
           "aansarraysubsource": {
-            "FIELD_MAP": {
-              "GRDI": "?"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "?"
+                }
+              ]
             }
           },
           "Abdomen": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_part"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_part"
+                }
+              ]
             }
           },
           "Abdominal Muscle": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_part"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_part"
+                }
+              ]
             }
           },
           "Abomasum": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_part"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_part"
+                }
+              ]
             }
           },
           "Abscess": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_material"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_material"
+                }
+              ]
             }
           },
           "Air Intake": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_site"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_site"
+                }
+              ]
             }
           },
           "Air Sac": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_part"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_part"
+                }
+              ]
             }
           },
           "Anal Gland": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_part"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_part"
+                }
+              ]
             }
           },
           "Animal Pen": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_site"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_site"
+                }
+              ]
             }
           },
           "Balut": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Belt": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_site"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_site"
+                }
+              ]
             }
           },
           "Bladder": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_part"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_part"
+                }
+              ]
             }
           },
           "Blood": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_material"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_material"
+                }
+              ]
             }
           },
           "Blood vessel": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_part"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_part"
+                }
+              ]
             }
           },
           "Bone": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_material"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_material"
+                }
+              ]
             }
           },
           "Bone Marrow": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_material"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_material"
+                }
+              ]
             }
           },
           "Bootie": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_material"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_material"
+                }
+              ]
             }
           },
           "Boots": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_material"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_material"
+                }
+              ]
             }
           },
           "Brain": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_part"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_part"
+                }
+              ]
             }
           },
           "Bursa of Fabricus": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_part"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_part"
+                }
+              ]
             }
           },
           "Cages": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_site"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_site"
+                }
+              ]
             }
           },
           "Cavity Fluid (Unspecified)": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_material"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_material"
+                }
+              ]
             }
           },
           "Cavity fluid unspecified": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_material"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_material"
+                }
+              ]
             }
           },
           "Cecal Content": {
-            "FIELD_MAP": {
-              "GRDI": "body_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "body_product"
+                }
+              ]
             }
           },
           "Cecum": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_part"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_part"
+                }
+              ]
             }
           },
           "Chick Boxes": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_site"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_site"
+                }
+              ]
             }
           },
           "Chick Pads": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_material"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_material"
+                }
+              ]
             }
           },
           "Cloacae": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_part"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_part"
+                }
+              ]
             }
           },
           "Cloacal swab": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_part"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_part"
+                }
+              ]
             }
           },
           "Colon": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_part"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_part"
+                }
+              ]
             }
           },
           "Confirmation": {
-            "FIELD_MAP": {
-              "GRDI": "?"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "?"
+                }
+              ]
             }
           },
           "Crates": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_site"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_site"
+                }
+              ]
             }
           },
           "Crop": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_material"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_material"
+                }
+              ]
             }
           },
           "Culture Plate": {
-            "FIELD_MAP": {
-              "GRDI": "collection_device"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "collection_device"
+                }
+              ]
             }
           },
           "Digestive System (Unspecified)": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_part"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_part"
+                }
+              ]
             }
           },
           "Duodenum": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_part"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_part"
+                }
+              ]
             }
           },
           "Dust": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_material"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_material"
+                }
+              ]
             }
           },
           "Ear": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_part"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_part"
+                }
+              ]
             }
           },
           "Egg Belt": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_site"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_site"
+                }
+              ]
             }
           },
           "Environment Swab": {
-            "FIELD_MAP": {
-              "GRDI": "collection_device"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "collection_device"
+                }
+              ]
             }
           },
           "Environment Swab (Hatchery)": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_site"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_site",
+                  "value": "hatchery"
+                },
+                {
+                  "field": "collection_device",
+                  "value": "swab"
+                }
+              ]
             }
           },
           "Esophagus": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_part"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_part"
+                }
+              ]
             }
           },
           "External Quality Assurance": {
-            "FIELD_MAP": {
-              "GRDI": "?"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "?"
+                }
+              ]
             }
           },
           "Eye": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_part"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_part"
+                }
+              ]
             }
           },
           "Fan": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_site"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_site"
+                }
+              ]
             }
           },
           "Fecal Slurry": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_material"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_material"
+                }
+              ]
             }
           },
           "Feces": {
-            "FIELD_MAP": {
-              "GRDI": "body_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "body_product"
+                }
+              ]
             }
           },
           "Feed": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Feeders and Drinkers": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_site"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_site"
+                }
+              ]
             }
           },
           "Fetal Tissue": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_material"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_material"
+                }
+              ]
             }
           },
           "Final Wash": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_material"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_material"
+                }
+              ]
             }
           },
           "Floor": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_site"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_site"
+                }
+              ]
             }
           },
           "Fluff": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_material"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_material"
+                }
+              ]
             }
           },
           "Fluff (Hatchery)": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_material"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_material"
+                }
+              ]
             }
           },
           "Foot": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_part"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_part"
+                }
+              ]
             }
           },
           "Gall Bladder": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_part"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_part"
+                }
+              ]
             }
           },
           "Gallbladder": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_part"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_part"
+                }
+              ]
             }
           },
           "Ganglion": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_part"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_part"
+                }
+              ]
             }
           },
           "Gizzard": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_part"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_part"
+                }
+              ]
             }
           },
           "Growth / lesion (unspecified tissue)": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_material"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_material"
+                }
+              ]
             }
           },
           "Growth/Lesion (Unspecified Tissue)": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_material"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_material"
+                }
+              ]
             }
           },
           "Heart": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_part"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_part"
+                }
+              ]
             }
           },
           "Ileum": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_part"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_part"
+                }
+              ]
             }
           },
           "In-House": {
-            "FIELD_MAP": {
-              "GRDI": "?"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "?"
+                }
+              ]
             }
           },
           "Inter-Lab Exchange": {
-            "FIELD_MAP": {
-              "GRDI": "?"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "?"
+                }
+              ]
             }
           },
           "Intestinal Contents": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_material"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_material"
+                }
+              ]
             }
           },
           "Intestine": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_part"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_part"
+                }
+              ]
             }
           },
           "Jejunum": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_part"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_part"
+                }
+              ]
             }
           },
           "Joint": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_part"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_part"
+                }
+              ]
             }
           },
           "Joint Fluid": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_material"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_material"
+                }
+              ]
             }
           },
           "Kidney": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_part"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_part"
+                }
+              ]
             }
           },
           "Levage/peritoneal": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_material"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_material"
+                }
+              ]
             }
           },
           "Levage/Tracheal": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_material"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_material"
+                }
+              ]
             }
           },
           "Litter": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_material"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_material"
+                }
+              ]
             }
           },
           "Litter/Manure": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_material"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_material"
+                }
+              ]
             }
           },
           "Live Haul Truck": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_site"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_site"
+                }
+              ]
             }
           },
           "Live Haul Truck/Trailer": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_site"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_site"
+                }
+              ]
             }
           },
           "Liver": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Lung": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_part"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_part"
+                }
+              ]
             }
           },
           "Lymph Node": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_part"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_part"
+                }
+              ]
             }
           },
           "Manure Pit": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_site"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_site"
+                }
+              ]
             }
           },
           "Meconium": {
-            "FIELD_MAP": {
-              "GRDI": "body_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "body_product"
+                }
+              ]
             }
           },
           "Mesenteric Lymph Node": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_part"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_part"
+                }
+              ]
             }
           },
           "Milk/Colostrum": {
-            "FIELD_MAP": {
-              "GRDI": "body_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "body_product"
+                }
+              ]
             }
           },
           "Mixed": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Mixed Organs": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_part"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_part"
+                }
+              ]
             }
           },
           "Mixed Tissues": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_material"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_material"
+                }
+              ]
             }
           },
           "Mouth": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_part"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_part"
+                }
+              ]
             }
           },
           "Mucous membrane (gut)": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_part"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_part"
+                }
+              ]
             }
           },
           "Mucous membrane (resp)": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_part"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_part"
+                }
+              ]
             }
           },
           "Mucus": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_material"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_material"
+                }
+              ]
             }
           },
           "Muscle": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_part"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_part"
+                }
+              ]
             }
           },
           "Muscle/Meat": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Nasal Turbinate": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_part"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_part"
+                }
+              ]
             }
           },
           "Nasal/Naries": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_part"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_part"
+                }
+              ]
             }
           },
           "Organ Unspecified": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_part"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_part"
+                }
+              ]
             }
           },
           "Ovary": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_part"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_part"
+                }
+              ]
             }
           },
           "Oviduct": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_part"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_part"
+                }
+              ]
             }
           },
           "Pericardium": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_part"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_part"
+                }
+              ]
             }
           },
           "Peritoneal Fluid": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_material"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_material"
+                }
+              ]
             }
           },
           "Peritoneum": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_part"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_part"
+                }
+              ]
             }
           },
           "Placenta": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_part"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_part"
+                }
+              ]
             }
           },
           "Pleura": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_part"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_part"
+                }
+              ]
             }
           },
           "Plucking Belt": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_site"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_site"
+                }
+              ]
             }
           },
           "Plucking Water": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_material"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_material"
+                }
+              ]
             }
           },
           "Pooled Feces": {
-            "FIELD_MAP": {
-              "GRDI": "body_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "body_product"
+                }
+              ]
             }
           },
           "Rectal Swab": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_part"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_part"
+                }
+              ]
             }
           },
           "Rectum": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_part"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_part"
+                }
+              ]
             }
           },
           "Research": {
-            "FIELD_MAP": {
-              "GRDI": "?"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "?"
+                }
+              ]
             }
           },
           "Rinse": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_material"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_material"
+                }
+              ]
             }
           },
           "Rumen": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_part"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_part"
+                }
+              ]
             }
           },
           "Shell": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_material"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_material"
+                }
+              ]
             }
           },
           "Shell egg": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Sinus": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_part"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_part"
+                }
+              ]
             }
           },
           "Skin": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_part"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_part"
+                }
+              ]
             }
           },
           "Small Intestine": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_part"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_part"
+                }
+              ]
             }
           },
           "Soil": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_material"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_material"
+                }
+              ]
             }
           },
           "Spinal Cord": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_part"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_part"
+                }
+              ]
             }
           },
           "Spleen": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_part"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_part"
+                }
+              ]
             }
           },
           "Stall": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_site"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_site"
+                }
+              ]
             }
           },
           "Stomach": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_part"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_part"
+                }
+              ]
             }
           },
           "Stomach Contents": {
-            "FIELD_MAP": {
-              "GRDI": "body_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "body_product"
+                }
+              ]
             }
           },
           "Swab": {
-            "FIELD_MAP": {
-              "GRDI": "collection_device"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "collection_device"
+                }
+              ]
             }
           },
           "Swab (Nasal)": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_part"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_part"
+                }
+              ]
             }
           },
           "Swab (Rectal)": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_part"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_part"
+                }
+              ]
             }
           },
           "Swab (Tissue Fluid-Unspecified)": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_material"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_material"
+                }
+              ]
             }
           },
           "Testicle": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_part"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_part"
+                }
+              ]
             }
           },
           "Thorax": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_part"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_part"
+                }
+              ]
             }
           },
           "Trachea": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_part"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_part"
+                }
+              ]
             }
           },
           "Unknown organ": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_part"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_part"
+                }
+              ]
             }
           },
           "Unspecified Organ/Tissue": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_part"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_part"
+                }
+              ]
             }
           },
           "Urine": {
-            "FIELD_MAP": {
-              "GRDI": "body_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "body_product"
+                }
+              ]
             }
           },
           "Uterus": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_part"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_part"
+                }
+              ]
             }
           },
           "Vagina": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_part"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_part"
+                }
+              ]
             }
           },
           "Walls": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_site"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_site"
+                }
+              ]
             }
           },
           "Water": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_material"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_material"
+                }
+              ]
             }
           },
           "Watering Bowl/Equipment": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_site"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_site"
+                }
+              ]
             }
           },
           "Weekly": {
-            "FIELD_MAP": {
-              "GRDI": "?"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "?"
+                }
+              ]
             }
           },
           "Weep": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_material"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_material"
+                }
+              ]
             }
           },
           "Whole": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Yolk": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Yolk Sac": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_part"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_part"
+                }
+              ]
             }
           }
         }
@@ -3261,819 +5495,1466 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": "",
         "vocabulary": {
           "<=32": {},
           "<n/a>": {},
           ">32": {},
           "Alfalfa Sprouts": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Almond": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Animal pen": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_site"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_site"
+                }
+              ]
             }
           },
           "Artificial wetland": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_site"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_site"
+                }
+              ]
             }
           },
           "Arugula": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Basil": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Bean Sprouts": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Biosolid": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_material"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_material"
+                }
+              ]
             }
           },
           "Biosolid/Sludge": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_material"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_material"
+                }
+              ]
             }
           },
           "Bootie": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_material"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_material"
+                }
+              ]
             }
           },
           "Boots": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_material"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_material"
+                }
+              ]
             }
           },
           "Breast": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Breast skinless": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Breast skinless boneless": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Breast with skin": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Broom": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_material"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_material"
+                }
+              ]
             }
           },
           "Bulk Tank": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_site"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_site"
+                }
+              ]
             }
           },
           "Cantaloupe": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Carcass (whole)": {
-            "FIELD_MAP": {
-              "GRDI": "anatomical_part"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "anatomical_part"
+                }
+              ]
             }
           },
           "Cheese": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Chia Powder": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Chia Seeds": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Chia Sprouts": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Chick Boxes": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_site"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_site"
+                }
+              ]
             }
           },
           "Chick Pads": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_material"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_material"
+                }
+              ]
             }
           },
           "Chickpea": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Chili": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Chilli Pepper": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Chives": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Chops": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Coconut": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Compost": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_material"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_material"
+                }
+              ]
             }
           },
           "Cooler Line": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_site"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_site"
+                }
+              ]
             }
           },
           "Coriander Seeds": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Coriander-Cumin Powder": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Cottage": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_site"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_site"
+                }
+              ]
             }
           },
           "Cucumber": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Curry Leaves": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Curry powder": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Cut": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Dead Haul Truck / Trailer": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_site"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_site"
+                }
+              ]
             }
           },
           "Dill": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Drumstick": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Dumpster": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_site"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_site"
+                }
+              ]
             }
           },
           "Effluent": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_material"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_material"
+                }
+              ]
             }
           },
           "Egg": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Egg Belt": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_site"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_site"
+                }
+              ]
             }
           },
           "Fan": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_site"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_site"
+                }
+              ]
             }
           },
           "Feed Pans": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_site"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_site"
+                }
+              ]
             }
           },
           "Fennel": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Filet": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Flax and Chia Powder": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Flax Powder": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Floor": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_site"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_site"
+                }
+              ]
             }
           },
           "For Avian": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "For Beef Cattle": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "For Cats": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "For Cattle (Beef)": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "For Cattle (Dairy)": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "For Chicken": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "For Dairy Cows": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "For Dogs": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "For Fish": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "For Goats": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "For Horse": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "For Mink": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "For Others": {
-            "FIELD_MAP": {
-              "GRDI": "?"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "?"
+                }
+              ]
             }
           },
           "For Poultry": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "For Swine": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "For Turkeys": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "For Unknown": {
-            "FIELD_MAP": {
-              "GRDI": "?"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "?"
+                }
+              ]
             }
           },
           "For Unspecified": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Garlic Powder": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Ginger": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Green Onion": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Ground": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Ground (extra lean)": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Ground (lean)": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Ground (medium)": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Ground (regular)": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Ground Water": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_material"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_material"
+                }
+              ]
             }
           },
           "Ham": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Hazelnut / Filbert": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Headcheese": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Herb/Spice (Unspecified)": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Irrigation": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_site"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_site"
+                }
+              ]
             }
           },
           "Kale": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Kalonji Whole Seed": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Lab Surface": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_site"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_site"
+                }
+              ]
             }
           },
           "Lake": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_site"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_site"
+                }
+              ]
             }
           },
           "Leg": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Lettuce": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Liquid whole": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Liver": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Loin center chop non-seasoned": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Mango": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Meat": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Milk": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Mint": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Mixed": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Mixed Salad/Mixed Greens": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Mixed Sprouts": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Mung Bean Sprouts": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Oregano": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Other": {
-            "FIELD_MAP": {
-              "GRDI": "host (common name)"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "host (common name)"
+                }
+              ]
             }
           },
           "Other chicken": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Other cut (not ground)": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Other variety meats": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Papaya": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Paprika": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Parsley": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Pea Sprouts": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Pepper": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Pepper Powder": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Pepperoni": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Rasam Powder Spice": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "River": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_site"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_site"
+                }
+              ]
             }
           },
           "River Surface": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_site"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_site"
+                }
+              ]
             }
           },
           "Roast": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Rolled": {
-            "FIELD_MAP": {
-              "GRDI": "? "
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "?"
+                }
+              ]
             }
           },
           "Run Off": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_material"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_material"
+                }
+              ]
             }
           },
           "Sausage": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Scallopini": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Sediment": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_material"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_material"
+                }
+              ]
             }
           },
           "Sesame Seed": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Shelf / Sill": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_site"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_site"
+                }
+              ]
             }
           },
           "Shellfish": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Shoulder": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Shoulder Chop": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Shoulder chop non-seasoned": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Soft": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Soybean": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Spinach": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Sprouted Seeds": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Sprouts": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Stall": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_site"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_site"
+                }
+              ]
             }
           },
           "Steak": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Stew Chunks": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Surface - Other": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_site"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_site"
+                }
+              ]
             }
           },
           "Surface - River": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_site"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_site"
+                }
+              ]
             }
           },
           "Surface unspecified": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_site"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_site"
+                }
+              ]
             }
           },
           "Surface Water": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_site"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_site"
+                }
+              ]
             }
           },
           "Tenderloin": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Thigh": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Thigh with skin": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Transformer": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_site"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_site"
+                }
+              ]
             }
           },
           "Truck / Trailer": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_site"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_site"
+                }
+              ]
             }
           },
           "Truck/Trailer": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_site"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_site"
+                }
+              ]
             }
           },
           "Turmeric": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Unknown": {
-            "FIELD_MAP": {
-              "GRDI": "?"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "?"
+                }
+              ]
             }
           },
           "Unknown Surface": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_site"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_site"
+                }
+              ]
             }
           },
           "Unspecified": {
-            "FIELD_MAP": {
-              "GRDI": "?"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "?"
+                }
+              ]
             }
           },
           "Upper Thigh": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Upper Thigh with Skin": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Wall": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_site"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_site"
+                }
+              ]
             }
           },
           "Walnut": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Waste Water": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_material"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_material"
+                }
+              ]
             }
           },
           "Watering bowl/equipment": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_site"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_site"
+                }
+              ]
             }
           },
           "Whole": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Wings": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           },
           "Working Surface": {
-            "FIELD_MAP": {
-              "GRDI": "environmental_site"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "environmental_site"
+                }
+              ]
             }
           },
           "Yeast": {
-            "FIELD_MAP": {
-              "GRDI": "food_product"
+            "exportField": {
+              "GRDI": [
+                {
+                  "field": "food_product"
+                }
+              ]
             }
           }
         }
@@ -4090,8 +6971,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "IN_STORE_PROCESSING",
@@ -4105,8 +6985,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "MAYCONTAINFROZENMEAT_1",
@@ -4120,8 +6999,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "NOOFCASHREGISTERS_1",
@@ -4135,8 +7013,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "PRICEPERKG_1",
@@ -4150,8 +7027,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "STORETYPE_SAMPLINGSITE_1",
@@ -4165,8 +7041,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "TEMPERATUREMAX_1",
@@ -4180,8 +7055,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "TEMPERATUREMIN_1",
@@ -4195,8 +7069,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "TEMPERATUREARRIVAL_1",
@@ -4210,8 +7083,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "VETID",
@@ -4225,8 +7097,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "ROOMID",
@@ -4240,8 +7111,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "PENID",
@@ -4255,8 +7125,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "SAMPLING_TYPE",
@@ -4270,8 +7139,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "BARN_ID",
@@ -4285,8 +7153,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "DATE_PACKED",
@@ -4300,8 +7167,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "FINAL_ID_GENUS",
@@ -4316,7 +7182,13 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": "organism"
+        "exportField": {
+          "GRDI": [
+            {
+              "field": "organism"
+            }
+          ]
+        }
       },
       {
         "fieldName": "FINAL_ID_SPECIES",
@@ -4331,7 +7203,13 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": "organism"
+        "exportField": {
+          "GRDI": [
+            {
+              "field": "organism"
+            }
+          ]
+        }
       },
       {
         "fieldName": "FINAL_ID_SUBSPECIES",
@@ -4345,8 +7223,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "FINAL_ID_SEROTYPE",
@@ -4361,7 +7238,13 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": "serovar"
+        "exportField": {
+          "GRDI": [
+            {
+              "field": "serovar"
+            }
+          ]
+        }
       },
       {
         "fieldName": "FINAL_ID_ANTIGEN",
@@ -4375,8 +7258,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "FINAL_ID_PHAGETYPE",
@@ -4391,7 +7273,13 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": "phagetype"
+        "exportField": {
+          "GRDI": [
+            {
+              "field": "phagetype"
+            }
+          ]
+        }
       },
       {
         "fieldName": "SA_Serotype_Method",
@@ -4406,7 +7294,13 @@ var DATA = [
         "description": "",
         "guidance": "",
         "examples": "",
-        "EXPORT_GRDI": "serotyping_method"
+        "exportField": {
+          "GRDI": [
+            {
+              "field": "serotyping_method"
+            }
+          ]
+        }
       },
       {
         "fieldName": "SEROTYPE_GR",
@@ -4420,8 +7314,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "MIC_AMC",
@@ -4435,8 +7328,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "MIC_AMK",
@@ -4450,8 +7342,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "MIC_AMP",
@@ -4465,8 +7356,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "MIC_AZM",
@@ -4480,8 +7370,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "MIC_CEP",
@@ -4495,8 +7384,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "MIC_CHL",
@@ -4510,8 +7398,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "MIC_CIP",
@@ -4525,8 +7412,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "MIC_CRO",
@@ -4540,8 +7426,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "MIC_FOX",
@@ -4555,8 +7440,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "MIC_GEN",
@@ -4570,8 +7454,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "MIC_KAN",
@@ -4585,8 +7468,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "MIC_MEM",
@@ -4600,8 +7482,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "MIC_NAL",
@@ -4615,8 +7496,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "MIC_SSS",
@@ -4630,8 +7510,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "MIC_STR",
@@ -4645,8 +7524,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "MIC_SXT",
@@ -4660,8 +7538,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "MIC_TET",
@@ -4675,8 +7552,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "MIC_TIO",
@@ -4690,8 +7566,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "N_OF_RESISTANCE",
@@ -4705,8 +7580,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "NBTESTED",
@@ -4720,8 +7594,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "R_PATTERN",
@@ -4735,8 +7608,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "AMR_PA2C",
@@ -4750,8 +7622,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "RLEAST1",
@@ -4765,8 +7636,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "RLEAST2",
@@ -4780,8 +7650,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "RLEAST3",
@@ -4795,8 +7664,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "RLEAST4",
@@ -4810,8 +7678,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "RLEAST5",
@@ -4825,8 +7692,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "SIR_AMC",
@@ -4840,8 +7706,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "SIR_AMK",
@@ -4855,8 +7720,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "SIR_AMP",
@@ -4870,8 +7734,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "SIR_AZM",
@@ -4885,8 +7748,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "SIR_CEP",
@@ -4900,8 +7762,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "SIR_CHL",
@@ -4915,8 +7776,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "SIR_CIP",
@@ -4930,8 +7790,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "SIR_CRO",
@@ -4945,8 +7804,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "SIR_FOX",
@@ -4960,8 +7818,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "SIR_GEN",
@@ -4975,8 +7832,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "SIR_KAN",
@@ -4990,8 +7846,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "SIR_MEM",
@@ -5005,8 +7860,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "SIR_NAL",
@@ -5020,8 +7874,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "SIR_SSS",
@@ -5035,8 +7888,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "SIR_STR",
@@ -5050,8 +7902,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "SIR_SXT",
@@ -5065,8 +7916,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "SIR_TET",
@@ -5080,8 +7930,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "SIR_TIO",
@@ -5095,8 +7944,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "RAMC",
@@ -5110,8 +7958,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "RAMK",
@@ -5125,8 +7972,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "RAMP",
@@ -5140,8 +7986,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "RAZM",
@@ -5155,8 +8000,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "RCEP",
@@ -5170,8 +8014,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "RCHL",
@@ -5185,8 +8028,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "RCIP",
@@ -5200,8 +8042,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "RCRO",
@@ -5215,8 +8056,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "RFOX",
@@ -5230,8 +8070,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "RGEN",
@@ -5245,8 +8084,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "RKAN",
@@ -5260,8 +8098,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "RMEM",
@@ -5275,8 +8112,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "RNAL",
@@ -5290,8 +8126,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "RSSS",
@@ -5305,8 +8140,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "RSTR",
@@ -5320,8 +8154,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "RSXT",
@@ -5335,8 +8168,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "RTET",
@@ -5350,8 +8182,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "RTIO",
@@ -5365,8 +8196,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "A2C",
@@ -5380,8 +8210,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "CAMC",
@@ -5395,8 +8224,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "CAMK",
@@ -5410,8 +8238,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "CAMP",
@@ -5425,8 +8252,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "CAZM",
@@ -5440,8 +8266,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "CCEP",
@@ -5455,8 +8280,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "CCHL",
@@ -5470,8 +8294,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "CCIP",
@@ -5485,8 +8308,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "CCRO",
@@ -5500,8 +8322,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "CFOX",
@@ -5515,8 +8336,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "CGEN",
@@ -5530,8 +8350,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "CKAN",
@@ -5545,8 +8364,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "CMEM",
@@ -5560,8 +8378,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "CNAL",
@@ -5575,8 +8392,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "CSSS",
@@ -5590,8 +8406,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "CSTR",
@@ -5605,8 +8420,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "CSXT",
@@ -5620,8 +8434,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "CTET",
@@ -5635,8 +8448,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "CTIO",
@@ -5650,8 +8462,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "STHY_TESTSRC_ID",
@@ -5665,8 +8476,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "WINN_TESTSRC_ID",
@@ -5680,8 +8490,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "GUEL_TESTSRC_ID",
@@ -5695,8 +8504,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "RCIP_DANMAP",
@@ -5710,8 +8518,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "EPIDATESTAMP_1",
@@ -5725,8 +8532,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "ACSSUT",
@@ -5740,8 +8546,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "AKSSUT",
@@ -5755,8 +8560,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "ACKSSUT",
@@ -5770,8 +8574,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "MDR_A_SSUT",
@@ -5785,8 +8588,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "EXCLUSION",
@@ -5800,8 +8602,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "RAMINOGLY",
@@ -5815,8 +8616,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "RBETALACTAM",
@@ -5830,8 +8630,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "RQUINOLONES",
@@ -5845,8 +8644,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "RFOLINHIBITOR",
@@ -5860,8 +8658,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "MDR",
@@ -5875,8 +8672,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "specimen_number",
@@ -5890,8 +8686,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "EXTERNAL_AGENT",
@@ -5905,8 +8700,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "FARM_FLAG",
@@ -5920,8 +8714,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       },
       {
         "fieldName": "AMIKACINGELET",
@@ -5935,8 +8728,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "EXPORT_GRDI": ""
+        "examples": ""
       }
     ]
   }

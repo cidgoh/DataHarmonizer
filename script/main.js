@@ -295,7 +295,7 @@ const stringifyNestedVocabulary = (vocabulary, level=0) => {
 
   let ret = [];
   for (const val of Object.keys(vocabulary)) {
-    if (val.substr(0,9) != 'FIELD_MAP') { // Ignore field map values used for export.
+    if (val != 'exportField') { // Ignore field map values used for export.
       ret.push('  '.repeat(level) + val);
       ret = ret.concat(stringifyNestedVocabulary(vocabulary[val], level+1));
     }
@@ -1127,7 +1127,6 @@ const setupTemplate = (template) => {
  * @param {Object} onloadfn: function to run when script is loaded. 
  */
 const reloadJs = (src_url, onloadfn) => {
-    // must 
     $('script[src="' + src_url + '"]').remove();
     var script = document.createElement('script');
     if (onloadfn) script.onload = onloadfn;
