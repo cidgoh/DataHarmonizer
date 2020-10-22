@@ -45,32 +45,20 @@ var exportGISAID = (baseName, hot, data, xlsx) => {
     'Assembly method',
     'Coverage',
     'Originating lab',
-    'Address',
+    'Address', // 1st address
     'Sample ID given by the sample provider',
     'Submitting lab',
-    'Address',
+    'Address', // 2nd address
     'Sample ID given by the submitting laboratory',
     'Authors'
   ];
 
-  // Create a map of Export format headers to template's fields. It is a 
-  // one-to-many relationship, with indices representing the maps.
-  const headerMap = {};
-  for (const [HeaderIndex, _] of ExportHeaders.entries()) {
-    headerMap[HeaderIndex] = [];
-  }
-  const fields = getFields(data);
-  for (const [fieldIndex, field] of fields.entries()) {
-    if (field.EXPORT_GSAID) {
-      let HeaderIndex = ExportHeaders.indexOf(field.EXPORT_GSAID);
-      // GISAID has two fields called 'Address'
-      if (field.EXPORT_GSAID === 'Address' && field.fieldName === 'sequence submitter contact address') {
-        // This locates 2nd occurance of 'Address' field in ExportHeaders
-        HeaderIndex = ExportHeaders.indexOf(field.EXPORT_GSAID, HeaderIndex+1);
-      }
-      headerMap[HeaderIndex].push(fieldIndex);
-    }
-  }
+  const [fields, headerMap, fieldNameMap] = getHeaderMap(ExportHeaders, data, 'GISAID');
+
+  // Custom rule: 2 addresses above. 2nd one points to sequence submitter.
+  const lastAddressIndex = ExportHeaders.lastIndexOf('Address');
+  const targetAddressIndex = fieldNameMap['sequence submitter contact address'];
+  headerMap[lastAddressIndex].push(targetAddressIndex);
 
   // Create an export table with target format's headers and remaining rows of data
   const matrix = [ExportHeaders];
@@ -178,28 +166,7 @@ var exportLASER = (baseName, hot, data, xlsx) => {
     'Gene Target #2 CT Value'
   ];
 
-  // Create a map of Export format headers to template's fields. It is a 
-  // one-to-many relationship, with indices representing the maps.
-  const headerMap = {};
-  const fieldMap = {};
-  for (const [HeaderIndex, _] of ExportHeaders.entries()) {
-    headerMap[HeaderIndex] = [];
-  }
-  const fields = getFields(data);
-  for (const [fieldIndex, field] of fields.entries()) {
-    fieldMap[field.fieldName] = fieldIndex;
-    if (field.EXPORT_CNPHI) {
-      const HeaderIndex = ExportHeaders.indexOf(field.EXPORT_CNPHI);
-      if (HeaderIndex > -1)
-        headerMap[HeaderIndex].push(fieldIndex);
-      else {
-        const msg = 'A template CNPHI field was not found in CNPHI export header list:' + field.EXPORT_CNPHI;
-        console.log (msg);
-        $('#export-to-err-msg').text(msg);
-      }
-
-    }
-  }
+  const [fields, headerMap, fieldNameMap] = getHeaderMap(ExportHeaders, data, 'CNPHI');
 
   // Create an export table with target format's headers and remaining rows of data
   const matrix = [ExportHeaders];
@@ -233,7 +200,7 @@ var exportLASER = (baseName, hot, data, xlsx) => {
 
       // Change in delimiter
       if (HeaderName === 'Symptoms') {
-        let value = unmappedRow[fieldMap['signs and symptoms']];
+        let value = unmappedRow[fieldNameMap['signs and symptoms']];
         mappedRow.push(value.replace(/;/g,'~') );
         continue;
       }
@@ -254,8 +221,8 @@ var exportLASER = (baseName, hot, data, xlsx) => {
           'environmental material', 
           'environmental site']
           ) {
-          const field = fields[fieldMap[FieldName]];
-          const value = unmappedRow[fieldMap[FieldName]];
+          const field = fields[fieldNameMap[FieldName]];
+          const value = unmappedRow[fieldNameMap[FieldName]];
 
           // Ignore all null value types
           if (!value || field.dataStatus.indexOf(value) >= 0) {
@@ -289,7 +256,7 @@ var exportLASER = (baseName, hot, data, xlsx) => {
           'most recent travel departure date',
           'most recent travel return date'
           ]) {
-          let mappedCellVal = unmappedRow[fieldMap[FieldName]];
+          let mappedCellVal = unmappedRow[fieldNameMap[FieldName]];
           if (!mappedCellVal) {mappedCellVal = ''};
           mappedCell.push(mappedCellVal);
         }
