@@ -70,10 +70,7 @@ var DATA = [
         "exportField": {
           "CNPHI": [
             {
-              "field": "Related Specimen ID"
-            },
-            {
-              "field": "Related Specimen Relationship Type"
+              "field": "Related Specimen ID|Related Specimen Relationship Type"
             }
           ]
         }
@@ -902,10 +899,7 @@ var DATA = [
         "exportField": {
           "CNPHI": [
             {
-              "field": "Related Specimen ID"
-            },
-            {
-              "field": "Related Specimen Relationship Type"
+              "field": "Related Specimen ID|Related Specimen Relationship Type"
             }
           ]
         },
@@ -2300,19 +2294,7 @@ var DATA = [
         "exportField": {
           "CNPHI": [
             {
-              "field": "Country of Travel"
-            },
-            {
-              "field": "Province of Travel"
-            },
-            {
-              "field": "City of Travel"
-            },
-            {
-              "field": "Travel start date"
-            },
-            {
-              "field": "Travel End Date"
+              "field": "Country of Travel|Province of Travel|City of Travel|Travel start date|Travel End Date"
             }
           ]
         }
@@ -2339,19 +2321,7 @@ var DATA = [
         "exportField": {
           "CNPHI": [
             {
-              "field": "Country of Travel"
-            },
-            {
-              "field": "Province of Travel"
-            },
-            {
-              "field": "City of Travel"
-            },
-            {
-              "field": "Travel start date"
-            },
-            {
-              "field": "Travel End Date"
+              "field": "Country of Travel|Province of Travel|City of Travel|Travel start date|Travel End Date"
             }
           ]
         }
@@ -2378,19 +2348,7 @@ var DATA = [
         "exportField": {
           "CNPHI": [
             {
-              "field": "Country of Travel"
-            },
-            {
-              "field": "Province of Travel"
-            },
-            {
-              "field": "City of Travel"
-            },
-            {
-              "field": "Travel start date"
-            },
-            {
-              "field": "Travel End Date"
+              "field": "Country of Travel|Province of Travel|City of Travel|Travel start date|Travel End Date"
             }
           ]
         },
@@ -2418,19 +2376,7 @@ var DATA = [
         "exportField": {
           "CNPHI": [
             {
-              "field": "Country of Travel"
-            },
-            {
-              "field": "Province of Travel"
-            },
-            {
-              "field": "City of Travel"
-            },
-            {
-              "field": "Travel start date"
-            },
-            {
-              "field": "Travel End Date"
+              "field": "Country of Travel|Province of Travel|City of Travel|Travel start date|Travel End Date"
             }
           ]
         }
@@ -2457,19 +2403,7 @@ var DATA = [
         "exportField": {
           "CNPHI": [
             {
-              "field": "Country of Travel"
-            },
-            {
-              "field": "Province of Travel"
-            },
-            {
-              "field": "City of Travel"
-            },
-            {
-              "field": "Travel start date"
-            },
-            {
-              "field": "Travel End Date"
+              "field": "Country of Travel|Province of Travel|City of Travel|Travel start date|Travel End Date"
             }
           ]
         }

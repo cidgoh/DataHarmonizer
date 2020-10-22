@@ -19,7 +19,7 @@ def export_fields (EXPORT_FORMAT, field, row):
 		formats = {};
 		for export_field in EXPORT_FORMAT:
 			prefix = export_field[7:]; # Get rid of "EXPORT_" part.
-			for item in row[export_field].split("|"):
+			for item in row[export_field].split(";"):
 			# an export field may have one or more [field name]:[new field value] mapping.
 				item = item.strip();
 				if len(item.strip()) > 0:

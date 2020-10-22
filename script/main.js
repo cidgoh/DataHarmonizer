@@ -431,6 +431,7 @@ const openFile = (file, hot, data, xlsx) => {
     fileReader.readAsBinaryString(file);
 
     fileReader.onload = (e) => {
+      $('#file_name_display').text(file.name);
       const workbook = xlsx.read(e.target.result, {type: 'binary', raw: true});
       const worksheet =
           updateSheetRange(workbook.Sheets[workbook.SheetNames[0]]);
@@ -529,6 +530,73 @@ const compareMatrixHeadersToGrid = (matrix, data) => {
  */
 const isValidHeaderRow = (matrix, row) => {
   return Number.isInteger(row) && row > 0 && row <= matrix.length;
+};
+
+
+/**
+ * Get a dictionary of empty arrays for each ExportHeader field
+ * @param {Object} exportHeaders See `export.js`.
+ * @return {Array<Object>} fields Dictionary of all fields.
+ */
+const getHeaderMap = (exportHeaders, data, prefix) => {
+  // Create a map of Export format headers to template's fields. It is a 
+  // one-to-many relationship, with indices for the map.
+  const headerMap = [];
+  for (const [HeaderIndex, _] of exportHeaders.entries()) {
+    headerMap[HeaderIndex] = [];
+  }
+  const fields = getFields(data);
+  const fieldNameMap = {};
+  for (const [fieldIndex, field] of fields.entries()) {
+    fieldNameMap[field.fieldName] = fieldIndex;
+
+    if (field.exportField && prefix in field.exportField) {
+      for (entry of field.exportField[prefix]) {
+        if ('field' in entry) {
+          const HeaderIndex = exportHeaders.indexOf(entry.field);
+          if (HeaderIndex > -1)
+            headerMap[HeaderIndex].push(fieldIndex);
+          else {
+            const msg = 'The EXPORT_'+prefix+' column requests a map to a non-existen field:' + entry.field;
+            console.log (msg);
+          }
+        }
+      }
+    }
+
+  };
+  return [fields, headerMap, fieldNameMap];
+
+};
+
+const getRowMap = (source_field, dataRow, RuleDB, fields, fieldNameMap, prefix) => {
+  for (const field of source_field) {
+    let value = dataRow[fieldNameMap[field]];
+    RuleDB[field] = value;
+    // Check to see if value is in vocabulary of given select field, and if it
+    // has a mapping for export to a GRDI target field above, then set target
+    // to value.
+    if (value && value.length > 0) {
+      const vocabulary = fields[fieldNameMap[field]].vocabulary;
+      if (value in vocabulary) { //ONLY WORKS IN FLAT LISTS
+        let term = vocabulary[value];
+        // Looking for term.exportField['GRDI'] for example:
+        if ('exportField' in term && prefix in term.exportField) {
+          for (let mapping of term.exportField[prefix]) {
+            // Here mapping involves a value substitution
+            if ('value' in mapping) {
+              value = mapping.value;
+              // Changed on a copy of data, not spreadsheet original data?
+              dataRow[fieldNameMap[field]] = value;
+            };
+            if ('field' in mapping && mapping['field'] in RuleDB) {
+                RuleDB[mapping['field']] = value;
+            };
+          };
+        };
+      };
+    };
+  };
 };
 
 /**
@@ -940,15 +1008,18 @@ $(document).ready(() => {
   else {//low-tech way:
     template = location.search.split("template=")[1] || template;
   }
+
   // Try triggering template menu option so it is selected
   if (template in TEMPLATES) {
-    $('#select-template').val(template).trigger('change');
+    $('#select-template').val(template); //.trigger('change');
+    $('#select-template-load').trigger('click');
     return;
   }
   else {
     $('#missing-template-msg').text(`Template "${template}" is not listed in DataHarmonizer so might not load! `);
     $('#missing-template-modal').modal('show');
   }
+
   setupTemplate (template);
 
 });
@@ -959,8 +1030,11 @@ $(document).ready(() => {
 const setupTriggers = () => {
 
   // Enable template to be loaded dynamically
-  $('#select-template').on('change', (e) => {
+  $('#select-template-load').on('click', (e) => {
+    $('#template_name_display').text('');
+    $('#file_name_display').text('');
     setupTemplate ($('#select-template').val() );
+    $('#template_name_display').text($('#select-template').val());
   })
 
   // Select menu for available templates
@@ -976,6 +1050,9 @@ const setupTriggers = () => {
     if (e.target.id === 'new-dropdown-item' && isNotEmpty) {
       $('#clear-data-warning-modal').modal('show');
     } else {
+      // Clear current file indication
+      $('#file_name_display').text('');
+
       runBehindLoadingScreen(() => {
         window.INVALID_CELLS = {};
         HOT.destroy();
