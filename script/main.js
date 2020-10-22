@@ -1011,15 +1011,13 @@ $(document).ready(() => {
 
   // Try triggering template menu option so it is selected
   if (template in TEMPLATES) {
-    $('#select-template').val(template); //.trigger('change');
+    $('#select-template').val(template);
     $('#select-template-load').trigger('click');
     return;
   }
-  else {
-    $('#missing-template-msg').text(`Template "${template}" is not listed in DataHarmonizer so might not load! `);
-    $('#missing-template-modal').modal('show');
-  }
 
+  $('#missing-template-msg').text(`Template "${template}" is not listed in DataHarmonizer so it will only load if it is in the template/ subfolder.`);
+  $('#missing-template-modal').modal('show');
   setupTemplate (template);
 
 });
@@ -1029,6 +1027,13 @@ $(document).ready(() => {
  */
 const setupTriggers = () => {
 
+  // Select menu for available templates
+  const select = $('#select-template')
+  for (const option in TEMPLATES) {
+    let newOption = new Option(TEMPLATES[option], option);
+    select.append(newOption)
+  }
+
   // Enable template to be loaded dynamically
   $('#select-template-load').on('click', (e) => {
     $('#template_name_display').text('');
@@ -1036,13 +1041,6 @@ const setupTriggers = () => {
     setupTemplate ($('#select-template').val() );
     $('#template_name_display').text($('#select-template').val());
   })
-
-  // Select menu for available templates
-  const select = $('#select-template')
-  for (const option in TEMPLATES) {
-    let newOption = new Option(TEMPLATES[option], option);
-    select.append(newOption)
-  }
 
   // File -> New
   $('#new-dropdown-item, #clear-data-confirm-btn').click((e) => {
