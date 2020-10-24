@@ -15,7 +15,7 @@ ID	SC %
 	Sample collection and processing	sample collected by	xs:token		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				The name of the agency that collected the original sample.	The name of the sample collector should be written out in full, (with minor exceptions) and be consistent across multple submissions e.g. Public Health Agency of Canada, Public Health Ontario, BC Centre for Disease Control. The sample collector specified is at the discretion of the data provider (i.e. may be hospital, provincial public health lab, or other).	BC Centre for Disease Control	Originating lab	
 	Sample collection and processing	sample collector contact email	xs:token							The email address of the contact responsible for follow-up regarding the sample.	The email address can represent a specific individual or lab e.g. johnnyblogs@lab.ca, or RespLab@lab.ca	RespLab@lab.ca		
 	Sample collection and processing	sample collector contact address	xs:token							The mailing address of the agency submitting the sample.	The mailing address should be in the format: Street number and name, City, Province/Territory, Postal Code, Country	655 Lab St, Vancouver, British Columbia, V5N 2A2, Canada	Address	
-	Sample collection and processing	sequence submitted by	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				The name of the agency that generated the sequence.	The name of the agency should be written out in full, (with minor exceptions) and be consistent across multple submissions e.g. Public Health Agency of Canada, Public Health Ontario, BC Centre for Disease Control.	Public Health Ontario (PHO)	Submitting lab	Sequencing Centre
+	Sample collection and processing	sequence submitted by	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				The name of the agency that generated the sequence.	The name of the agency should be written out in full, (with minor exceptions) and be consistent across multple submissions. If submitting specimens rather than sequencing data, please put the "National Microbiology Laboratory (NML)".	Public Health Ontario (PHO)	Submitting lab	Sequencing Centre
 	Sample collection and processing	sequence submitter contact email	xs:token							The email address of the contact responsible for follow-up regarding the sequence.	The email address can represent a specific individual or lab e.g. johnnyblogs@lab.ca, or RespLab@lab.ca			
 	Sample collection and processing	sequence submitter contact address	xs:token							The mailing address of the agency submitting the sequence.	The mailing address should be in the format: Street number and name, City, Province/Territory, Postal Code, Country	123 Sunnybrooke St, Toronto, Ontario, M4P 1L6, Canada	Address	
 	Sample collection and processing	sample collection date	xs:date		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				The date on which the sample was collected.	Sample collection date is critical for surveillance and many types of analyses. Required granularity includes year, month and day. If this date is considered identifiable information, it is acceptable to add "jitter" by adding or subtracting a calendar day (acceptable by GISAID). Alternatively, ”received date” may be used as a substitute. The date should be provided in ISO 8601 standard format "YYYY-MM-DD".	2020-03-16	Collection date	Patient Sample Collected Date
@@ -119,7 +119,7 @@ Risk Factor: A variable associated with an increased risk of disease or infectio
 	Pathogen diagnostic testing	diagnostic pcr Ct value 2	xs:token							The Ct value result from a diagnostic SARS-CoV-2 RT-PCR test.	Provide the CT value of the sample from the second diagnostic RT-PCR test.	36		Gene Target #2 CT Value
 		Contributor acknowledgement												
 	Contributor acknowledgement	authors	xs:token			recommended				Names of individuals contributing to the processes of sample collection, sequence generation, analysis, and data submission.	Include the first and last names of all individuals that should be attributed, separated by a comma.	Tejinder Singh, Fei Hu, Joe Blogs	Authors	
-														
+	Contributor acknowledgement	provenance	version										Comments	Comments
 														
 														
 	umbrella bioproject accession	PRJNA623807												
@@ -128,7 +128,7 @@ GAZ_00002566	geo_loc_name (province/territory)	Alberta
 GAZ_00002562	geo_loc_name (province/territory)	British Columbia												
 GAZ_00002571	geo_loc_name (province/territory)	Manitoba												
 GAZ_00002570	geo_loc_name (province/territory)	New Brunswick												
-GAZ_00002567	geo_loc_name (province/territory)	Newfoundland												
+GAZ_00002567	geo_loc_name (province/territory)	Newfoundland and Labrador												
 GAZ_00002575	geo_loc_name (province/territory)	Northwest Territories												
 GAZ_00002565	geo_loc_name (province/territory)	Nova Scotia												
 GAZ:00002574	geo_loc_name (province/territory)	Nunavut												
@@ -882,6 +882,8 @@ PR:A0A663DJA2	gene name 1	ORF10
 	sequence submitted by	National Microbiology Laboratory (NML)												
 	sequence submitted by	BC Centre for Disease Control (BCCDC)												
 	sequence submitted by	Alberta Precision Labs (APL)												
+	Alberta Precision Labs (APL)	Alberta ProvLab North (APLN)												
+	Alberta Precision Labs (APL)	Alberta ProvLab South (APLS)												
 	sequence submitted by	Public Health Ontario (PHO)												
 	sequence submitted by	Laboratoire de santé publique du Québec (LSPQ)												
 	sequence submitted by	Saskatchewan - Roy Romanow Provincial Laboratory (RRPL)												
