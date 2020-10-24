@@ -34,7 +34,7 @@ def export_fields (EXPORT_FORMAT, field, row):
 					formats[prefix].append(conversion);
 
 		if formats: # Only if some keys have been added.
-			field['exportField'] = formats;
+			field['exportField'] = formats; # Like skos:exactMatch
 
 '''
 Creates section / field / field choice data structure directly off of tabular
@@ -81,18 +81,18 @@ with open(r_filename) as tsvfile:
 							dataStatus = None;
 
 						field = {
-							'fieldName':   label, 
-							'capitalize': row['capitalize'],
-							'ontology_id': row['Ontology ID'],
-							'datatype':	row['datatype'],
-							'source': row['source'],
-							'dataStatus': dataStatus,
-							'xs:minInclusive': row['min value'],
-							'xs:maxInclusive': row['max value'],
-							'requirement': row['requirement'],
-							'description': row['description'],
-							'guidance':	row['guidance'],
-							'examples':	row['examples']
+							'fieldName':   		label, 			# schema:name
+							'capitalize': 		row['capitalize'],
+							'ontology_id': 		row['Ontology ID'],
+							'datatype':			row['datatype'], 	# schema:DataType
+							'source': 			row['source'],
+							'dataStatus': 		dataStatus,
+							'xs:minInclusive': 	row['min value'],
+							'xs:maxInclusive': 	row['max value'],
+							'requirement': 		row['requirement'],
+							'description': 		row['description'],
+							'guidance':			row['guidance'],
+							'examples':			row['examples']
 						}
 						
 						export_fields (EXPORT_FORMAT, field, row);

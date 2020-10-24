@@ -4,12 +4,16 @@
  * Functionality for uploading, downloading and validating data.
  */
 
-/* A list of templates available for this app. A template can also be accessed
- * by adding it as a folder name in the URL parameter:
+/* A list of templates available for this app, which will be displayed in a 
+ * menu. A template can also be accessed by adding it as a folder name in the
+ * URL parameter:
  *
  * main.html?template=test_template
  *
+ * but it won't be added to the template menu.
+ *
  */
+const VERSION = '0.13.3'; //Version 0.13.3
 const TEMPLATES = {
   "canada_covid19": "CanCOGeN Covid-19",
   "phac_dexa": "PHAC Dexa (ALPHA)",
@@ -396,9 +400,6 @@ const runBehindLoadingScreen = (fn, args=[]) => {
  * @param {Object} xlsx SheetJS variable.
  */
 const exportFile = (matrix, baseName, ext, xlsx) => {
-  // TODO: figure out a better way of adding metadata to file
-  const version = $('#version-dropdown-item').html();
-  matrix[0].push('#Validated using DataHarmonizer ' + version);
 
   const worksheet = xlsx.utils.aoa_to_sheet(matrix);
   const workbook = xlsx.utils.book_new();
@@ -437,8 +438,9 @@ const openFile = (file, hot, data, xlsx) => {
           updateSheetRange(workbook.Sheets[workbook.SheetNames[0]]);
       const params = [worksheet, {header: 1, raw: false, range: 0}];
       const matrix = (xlsx.utils.sheet_to_json(...params));
-      if (compareMatrixHeadersToGrid(matrix, data)) {
-        hot.loadData(matrixFieldChangeRules(matrix.slice(2), hot, data));
+      const headerRowData = compareMatrixHeadersToGrid(matrix, data);
+      if (headerRowData > 0) {
+        hot.loadData(matrixFieldChangeRules(matrix.slice(headerRowData), hot, data));
       } else {
         launchSpecifyHeadersModal(matrix, hot, data);
       }
@@ -512,15 +514,22 @@ const updateSheetRange = (worksheet) => {
 }
 
 /**
- * Determine if a matrix has the same secondary headers as the grid.
+ * Determine if first or second row of a matrix has the same headers as the 
+ * grid's secondary (2nd row) headers.  If neither, return false.
  * @param {Array<Array<String>>} matrix
  * @param {Object} data See `data.js`.
- * @return {Boolean} True if the matrix's second row matches the grid.
+ * @return {Integer} row that data starts on, or false if no exact header row
+ * recognized.
  */
 const compareMatrixHeadersToGrid = (matrix, data) => {
   const expectedSecondRow = getFlatHeaders(data)[1];
+  const actualFirstRow = matrix[0];
   const actualSecondRow = matrix[1];
-  return JSON.stringify(expectedSecondRow) === JSON.stringify(actualSecondRow);
+  if (JSON.stringify(expectedSecondRow) === JSON.stringify(actualFirstRow))
+    return 1;
+  if (JSON.stringify(expectedSecondRow) === JSON.stringify(actualSecondRow))
+    return 2;
+  return false;
 };
 
 /**
@@ -530,73 +539,6 @@ const compareMatrixHeadersToGrid = (matrix, data) => {
  */
 const isValidHeaderRow = (matrix, row) => {
   return Number.isInteger(row) && row > 0 && row <= matrix.length;
-};
-
-
-/**
- * Get a dictionary of empty arrays for each ExportHeader field
- * @param {Object} exportHeaders See `export.js`.
- * @return {Array<Object>} fields Dictionary of all fields.
- */
-const getHeaderMap = (exportHeaders, data, prefix) => {
-  // Create a map of Export format headers to template's fields. It is a 
-  // one-to-many relationship, with indices for the map.
-  const headerMap = [];
-  for (const [HeaderIndex, _] of exportHeaders.entries()) {
-    headerMap[HeaderIndex] = [];
-  }
-  const fields = getFields(data);
-  const fieldNameMap = {};
-  for (const [fieldIndex, field] of fields.entries()) {
-    fieldNameMap[field.fieldName] = fieldIndex;
-
-    if (field.exportField && prefix in field.exportField) {
-      for (entry of field.exportField[prefix]) {
-        if ('field' in entry) {
-          const HeaderIndex = exportHeaders.indexOf(entry.field);
-          if (HeaderIndex > -1)
-            headerMap[HeaderIndex].push(fieldIndex);
-          else {
-            const msg = 'The EXPORT_'+prefix+' column requests a map to a non-existen field:' + entry.field;
-            console.log (msg);
-          }
-        }
-      }
-    }
-
-  };
-  return [fields, headerMap, fieldNameMap];
-
-};
-
-const getRowMap = (source_field, dataRow, RuleDB, fields, fieldNameMap, prefix) => {
-  for (const field of source_field) {
-    let value = dataRow[fieldNameMap[field]];
-    RuleDB[field] = value;
-    // Check to see if value is in vocabulary of given select field, and if it
-    // has a mapping for export to a GRDI target field above, then set target
-    // to value.
-    if (value && value.length > 0) {
-      const vocabulary = fields[fieldNameMap[field]].vocabulary;
-      if (value in vocabulary) { //ONLY WORKS IN FLAT LISTS
-        let term = vocabulary[value];
-        // Looking for term.exportField['GRDI'] for example:
-        if ('exportField' in term && prefix in term.exportField) {
-          for (let mapping of term.exportField[prefix]) {
-            // Here mapping involves a value substitution
-            if ('value' in mapping) {
-              value = mapping.value;
-              // Changed on a copy of data, not spreadsheet original data?
-              dataRow[fieldNameMap[field]] = value;
-            };
-            if ('field' in mapping && mapping['field'] in RuleDB) {
-                RuleDB[mapping['field']] = value;
-            };
-          };
-        };
-      };
-    };
-  };
 };
 
 /**
@@ -877,24 +819,37 @@ const getInvalidCells = (hot, data) => {
       //  them as tooltips
       let msg = '';
 
+      // 1st row of provenance datatype field is forced to have a 
+      // 'DataHarmonizer Version: 0.13.0' etc. value.  Change happens silently. 
+      if (row === 0 && datatype === 'provenance') {
+        checkProvenance(cellVal, hot, row, col);
+      };
       if (!cellVal) {
         valid = fields[col].requirement !== 'required';
         msg = 'Required cells cannot be empty'
-      } else if (datatype === 'xs:nonNegativeInteger') {
-        const parsedInt = parseInt(cellVal, 10);
-        valid = !isNaN(cellVal) && parsedInt>=0
-        valid &= parsedInt.toString()===cellVal;
-        valid &= testNumericRange(parsedInt, fields[col]);
-      } else if (datatype === 'xs:decimal') {
-        const parsedDec = parseFloat(cellVal);
-        valid = !isNaN(cellVal) && regexDecimal.test(cellVal);
-        valid &= testNumericRange(parsedDec, fields[col]);
-      } else if (datatype === 'xs:date') {
-        valid = moment(cellVal, 'YYYY-MM-DD', true).isValid();
-      } else if (datatype === 'select') {
-        valid = validateValAgainstVocab(cellVal, fields[col].flatVocabulary);
-      } else if (datatype === 'multiple') {
-        valid = validateValsAgainstVocab(cellVal, fields[col].flatVocabulary);
+      } 
+      else switch (datatype) {
+        case 'xs:nonNegativeInteger':
+          const parsedInt = parseInt(cellVal, 10);
+          valid = !isNaN(cellVal) && parsedInt>=0
+          valid &= parsedInt.toString()===cellVal;
+          valid &= testNumericRange(parsedInt, fields[col]);
+          break;
+        case 'xs:decimal':
+          const parsedDec = parseFloat(cellVal);
+          valid = !isNaN(cellVal) && regexDecimal.test(cellVal);
+          valid &= testNumericRange(parsedDec, fields[col]);
+          break;
+        case 'xs:date':
+          valid = moment(cellVal, 'YYYY-MM-DD', true).isValid();
+          break;
+        case 'select':
+          valid = validateValAgainstVocab(cellVal, fields[col].flatVocabulary);
+          break;
+        case 'multiple':
+          valid = validateValsAgainstVocab(cellVal, fields[col].flatVocabulary);
+          break;
+         
       }
 
       if (!valid && fields[col].dataStatus) {
@@ -911,6 +866,35 @@ const getInvalidCells = (hot, data) => {
   }
   return invalidCells;
 };
+
+/**
+ * Test cellVal against DataHarmonizer: vX.Y.Z pattern and if it needs an
+ * update, do so.
+ * @param {Object} cellVal field value to be tested.
+ * @param {Object} hot link to data
+ * @param {Integer} row index of data
+ * @param {Integer} column index of data
+ */
+const checkProvenance = (cellVal, hot, row, col) => {
+  const version = 'DataHarmonizer: v' + VERSION;
+  let splitVal = [];
+  if (!cellVal) {
+    splitVal = [version];
+  }
+  else {
+    splitVal = cellVal.split(';',2);
+
+    if (splitVal[0].substring(0,15) === 'DataHarmonizer:') {
+        splitVal[0] = version;
+    } 
+    else {
+        splitVal.unshift(version);
+    };
+  };
+  const value = splitVal.join(';');
+  hot.setDataAtCell(row, col, value, 'thisChange');
+}
+
 
 /**
  * Test a given number against an upper or lower range, if any.
@@ -1016,8 +1000,7 @@ $(document).ready(() => {
     return;
   }
 
-  $('#missing-template-msg').text(`Template "${template}" is not listed in DataHarmonizer so it will only load if it is in the template/ subfolder.`);
-  $('#missing-template-modal').modal('show');
+  $('#template_name_display').text(template);
   setupTemplate (template);
 
 });
@@ -1026,6 +1009,8 @@ $(document).ready(() => {
  * Wire up user controls which only need to happen once on load of page.
  */
 const setupTriggers = () => {
+
+  $('#version-dropdown-item').text(VERSION);
 
   // Select menu for available templates
   const select = $('#select-template')
@@ -1039,7 +1024,7 @@ const setupTriggers = () => {
     $('#template_name_display').text('');
     $('#file_name_display').text('');
     setupTemplate ($('#select-template').val() );
-    $('#template_name_display').text($('#select-template').val());
+    $('#template_name_display').text($('#select-template > option:selected').text());
   })
 
   // File -> New
@@ -1186,10 +1171,9 @@ const setupTemplate = (template) => {
 
   // Change in src triggers load of script and update to reference doc and SOP.
   reloadJs(`template/${template}/data.js`, function () { 
-    runBehindLoadingScreen(launch, [DATA])
+    runBehindLoadingScreen(launch, [template, DATA])
   });
-  // Could make the following conditional on above reload?
-  reloadJs(`template/${template}/export.js`, exportOnload);
+
   $("#help_reference").attr('href',`template/${template}/reference.html`)
   $("#help_sop").attr('href',`template/${template}/SOP.pdf`)
 };
@@ -1204,18 +1188,29 @@ const setupTemplate = (template) => {
 const reloadJs = (src_url, onloadfn) => {
     $('script[src="' + src_url + '"]').remove();
     var script = document.createElement('script');
-    if (onloadfn) script.onload = onloadfn;
+    if (onloadfn) {
+      script.onload = onloadfn;
+    };
+    script.onerror = function() {
+      $('#missing-template-msg').text(`Unable to load template file "${src_url}". Is the template name correct?`);
+      $('#missing-template-modal').modal('show');
+      $('#template_name_display').text('');
+    };
+
     script.src = src_url;
     document.head.appendChild(script);
+
 }
 
 /**
  * Clears and redraws grid based on DATA json.
  * @param {Object} DATA: hierarchy of field sections and fields to render. 
  */
-const launch = (DATA) => {
+const launch = (template, DATA) => {
 
   window.DATA = processData(DATA);
+  // Since data.js loaded, export.js should succeed as well
+  reloadJs(`template/${template}/export.js`, exportOnload);
 
   runBehindLoadingScreen(() => {
     window.INVALID_CELLS = {};

@@ -281,7 +281,7 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "required",
         "description": "The name of the agency that generated the sequence.",
-        "guidance": "The name of the agency should be written out in full, (with minor exceptions) and be consistent across multple submissions e.g. Public Health Agency of Canada, Public Health Ontario, BC Centre for Disease Control.",
+        "guidance": "The name of the agency should be written out in full, (with minor exceptions) and be consistent across multple submissions. If submitting specimens rather than sequencing data, please put the \"National Microbiology Laboratory (NML)\".",
         "examples": "Public Health Ontario (PHO)",
         "exportField": {
           "GISAID": [
@@ -298,7 +298,10 @@ var DATA = [
         "vocabulary": {
           "National Microbiology Laboratory (NML)": {},
           "BC Centre for Disease Control (BCCDC)": {},
-          "Alberta Precision Labs (APL)": {},
+          "Alberta Precision Labs (APL)": {
+            "Alberta ProvLab North (APLN)": {},
+            "Alberta ProvLab South (APLS)": {}
+          },
           "Public Health Ontario (PHO)": {},
           "Laboratoire de sant\u00e9 publique du Qu\u00e9bec (LSPQ)": {},
           "Saskatchewan - Roy Romanow Provincial Laboratory (RRPL)": {},
@@ -740,7 +743,7 @@ var DATA = [
           "British Columbia": {},
           "Manitoba": {},
           "New Brunswick": {},
-          "Newfoundland": {},
+          "Newfoundland and Labrador": {},
           "Northwest Territories": {},
           "Nova Scotia": {},
           "Nunavut": {},
@@ -3443,6 +3446,32 @@ var DATA = [
           "GISAID": [
             {
               "field": "Authors"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "provenance",
+        "capitalize": "",
+        "ontology_id": "",
+        "datatype": "provenance",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "",
+        "guidance": "",
+        "examples": "",
+        "exportField": {
+          "GISAID": [
+            {
+              "field": "Comments"
+            }
+          ],
+          "CNPHI": [
+            {
+              "field": "Comments"
             }
           ]
         }

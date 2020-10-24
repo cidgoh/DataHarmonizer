@@ -53,7 +53,9 @@ var exportGISAID = (baseName, hot, data, xlsx) => {
     'Authors'
   ];
 
-  const [fields, headerMap, fieldNameMap] = getHeaderMap(ExportHeaders, data, 'GISAID');
+  const fields = getFields(data);
+  const fieldNameMap = getFieldNameMap(fields);
+  const headerMap = getHeaderMapDups(ExportHeaders, fields, 'GISAID');
 
   // Custom rule: 2 addresses above. 2nd one points to sequence submitter.
   const lastAddressIndex = ExportHeaders.lastIndexOf('Address');
@@ -62,19 +64,19 @@ var exportGISAID = (baseName, hot, data, xlsx) => {
 
   // Create an export table with target format's headers and remaining rows of data
   const matrix = [ExportHeaders];
-  const unmappedMatrix = getTrimmedData(hot);
-  for (const unmappedRow of unmappedMatrix) {
-    const mappedRow = [];
+  const inputMatrix = getTrimmedData(hot);
+  for (const inputRow of inputMatrix) {
+    const outputRow = [];
     for (const [HeaderIndex, HeaderName] of ExportHeaders.entries()) {
       if (HeaderName === 'Type') {
         // Assign constant value and do next field.
-        mappedRow.push('betacoronavirus');
+        outputRow.push('betacoronavirus');
         continue;
       }
 
       const mappedCell = [];
       for (const mappedFieldIndex of headerMap[HeaderIndex]) {
-        let mappedCellVal = unmappedRow[mappedFieldIndex];
+        let mappedCellVal = inputRow[mappedFieldIndex];
         if (!mappedCellVal) continue;
 
         // Only map specimen processing if it is "virus passage"
@@ -107,9 +109,9 @@ var exportGISAID = (baseName, hot, data, xlsx) => {
 
         mappedCell.push(mappedCellVal);
       }
-      mappedRow.push(mappedCell.join(';'));
+      outputRow.push(mappedCell.join(';'));
     }
-    matrix.push(mappedRow);
+    matrix.push(outputRow);
   }
 
   runBehindLoadingScreen(exportFile, [matrix, baseName, 'xls', xlsx]);
@@ -174,19 +176,19 @@ var exportLASER = (baseName, hot, data, xlsx) => {
   const travel_field = 'Country of Travel|Province of Travel|City of Travel|Travel start date|Travel End Date';
   const travel_index = ExportHeaders.indexOf(travel_field);
 
-  for (const unmappedRow of getTrimmedData(hot)) {
-    const mappedRow = [];
+  for (const inputRow of getTrimmedData(hot)) {
+    const outputRow = [];
     for (const [HeaderIndex, HeaderName] of ExportHeaders.entries()) {
 
       if (HeaderName === 'Test Requested') {
         // Assign constant value.
-        mappedRow.push('CanCOGeN Next Generation Sequencing (NGS)');
+        outputRow.push('CanCOGeN Next Generation Sequencing (NGS)');
         continue;
       }
 
       if (HeaderName === 'Pathogen') {
         // Assign constant value.
-        mappedRow.push('SARS-CoV-2');
+        outputRow.push('SARS-CoV-2');
         continue;
       }
       
@@ -194,27 +196,27 @@ var exportLASER = (baseName, hot, data, xlsx) => {
       if (HeaderName === 'Patient Symptomatic') {
         // Note: if this field eventually gets null values, then must do 
         // field.dataStatus check.
-        mappedRow.push( mappedRow[symptoms_index] ? 'yes' : 'no' );
+        outputRow.push( outputRow[symptoms_index] ? 'yes' : 'no' );
         continue;
       }
 
       // Change in delimiter
       if (HeaderName === 'Symptoms') {
-        let value = unmappedRow[fieldNameMap['signs and symptoms']];
-        mappedRow.push(value.replace(/;/g,'~') );
+        let value = inputRow[fieldNameMap['signs and symptoms']];
+        outputRow.push(value.replace(/;/g,'~') );
         continue;
       }
       
       // yes/no calculated field
       if (HeaderName === 'Patient Travelled') {
         // as above for field.dataStatus check.
-        mappedRow.push( mappedRow[travel_index].replace(/\|/g,'').length > 0 ? 'yes' : 'no' );
+        outputRow.push( outputRow[travel_index].replace(/\|/g,'').length > 0 ? 'yes' : 'no' );
         continue;
       }
 
       // A complicated rule about what is stored in 'Specimen Source'
       if (HeaderName === 'Specimen Source') {
-        var cellValue = '';
+        let cellValue = '';
         for (const FieldName of [
           'host (scientific name)', 
           'host (common name)', 
@@ -222,7 +224,7 @@ var exportLASER = (baseName, hot, data, xlsx) => {
           'environmental site']
           ) {
           const field = fields[fieldNameMap[FieldName]];
-          const value = unmappedRow[fieldNameMap[FieldName]];
+          const value = inputRow[fieldNameMap[FieldName]];
 
           // Ignore all null value types
           if (!value || field.dataStatus.indexOf(value) >= 0) {
@@ -240,7 +242,7 @@ var exportLASER = (baseName, hot, data, xlsx) => {
             break;
           }
         }
-        mappedRow.push(cellValue);
+        outputRow.push(cellValue);
         continue;
       }
 
@@ -256,12 +258,12 @@ var exportLASER = (baseName, hot, data, xlsx) => {
           'most recent travel departure date',
           'most recent travel return date'
           ]) {
-          let mappedCellVal = unmappedRow[fieldNameMap[FieldName]];
+          let mappedCellVal = inputRow[fieldNameMap[FieldName]];
           if (!mappedCellVal) {mappedCellVal = ''};
           mappedCell.push(mappedCellVal);
         }
 
-        mappedRow.push(mappedCell.join('|'));
+        outputRow.push(mappedCell.join('|'));
         continue;
       }
 
@@ -270,19 +272,19 @@ var exportLASER = (baseName, hot, data, xlsx) => {
       // STILL have bar placeholder.
       const mappedCell = [];
       for (const mappedFieldIndex of headerMap[HeaderIndex]) {
-        let mappedCellVal = unmappedRow[mappedFieldIndex];
+        let mappedCellVal = inputRow[mappedFieldIndex];
         
         if (!mappedCellVal) 
           mappedCellVal = '';
         
         mappedCell.push(mappedCellVal);
       }
-      mappedRow.push(mappedCell.join('|'));
+      outputRow.push(mappedCell.join('|'));
     }
-    matrix.push(mappedRow);
+    matrix.push(outputRow);
   }
 
-  runBehindLoadingScreen(exportFile, [matrix, baseName, 'xls', xlsx]);
+  runBehindLoadingScreen(exportFile, [matrix, baseName, 'csv', xlsx]);
 };
 
 // A list of the above functions keyed by the Export menu name they should appear as:

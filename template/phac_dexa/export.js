@@ -6,72 +6,81 @@
  * @param {Object} xlsx SheetJS variable.
  */
 var exportGRDI = (baseName, hot, data, xlsx) => {
-  // ExportHeaders is an ARRAY because it can happen that a tabular column
-  // name appears two or more times.
-  const ExportHeaders = [
-    'sample_name',
-    'alternative_sample_ID',
-    'geo_loc (country)',
-    'geo_loc (state/province/region)',
-    'environmental_site',
-    'collection_date',
-    'collected_by',
-    'collection_device',
-    'host (common name)',
-    'anatomical_part',
-    'anatomical_material',
-    'body_product',
-    'environmental_material',
-    'food_product',
-    'sample_collector_contact_email', //CIPARS generic email ???
-    'organism',
-    'animal_or_plant_population',
-    'laboratory_name',
-    'serovar',
-    'serotyping_method',
-    'phagetype',
-    'purpose_of_sampling',
-  ];
+  // Provides a map from each export format field to the linear list of source
+  // fields it derives content from.
+  const ExportHeaders = new Map([
+    ['sample_name',                     []],
+    ['alternative_sample_ID',           []],
+    ['geo_loc (country)',               []],
+    ['geo_loc (state/province/region)', []],
+    ['environmental_site',              []],
+    ['collection_date',                 []],
+    ['collected_by',                    []],
+    ['collection_device',               []],
+    ['host (common name)',              []],
+    ['anatomical_part',                 []],
+    ['anatomical_material',             []],
+    ['body_product',                    []],
+    ['environmental_material',          []],
+    ['food_product',                    []],
+    ['sample_collector_contact_email',  []], //CIPARS generic email ???
+    ['organism',                        []],
+    ['animal_or_plant_population',      []],
+    ['laboratory_name',                 []],
+    ['serovar',                         []],
+    ['serotyping_method',               []],
+    ['phagetype',                       []],
+    ['purpose_of_sampling',             []]
+  ]);
 
-  const [fields, headerMap, fieldNameMap] = getHeaderMap(ExportHeaders, data, 'GRDI');
 
-  // Create an export table with target format's headers and remaining rows of data
-  const matrix = [ExportHeaders];
-  const unmappedMatrix = getTrimmedData(hot);
-  for (const unmappedRow of unmappedMatrix) {
+  const sourceFields = getFields(data);
+  const sourceFieldNameMap = getFieldNameMap(sourceFields);
 
-    let RuleDB = convertDexaToGRDI(fields, unmappedRow, fieldNameMap)
+  // Fills in the above mapping (or just set manually above) 
+  getHeaderMap(ExportHeaders, sourceFields, 'GRDI');
 
-    const mappedRow = [];
-    for (const [HeaderIndex, HeaderName] of ExportHeaders.entries()) {
+  // Copy headers to 1st row of new export table
+  const outputMatrix = [[...ExportHeaders.keys()]];
 
-      // As a result of standard mapping rules, a set value, or an empty
-      // string will be pushed:
-      if (HeaderName in RuleDB) {
-        mappedRow.push(RuleDB[HeaderName])
+  const inputMatrix = getTrimmedData(hot);
+  for (const inputRow of inputMatrix) {
+
+    let RuleDB = setRuleDB(inputRow, sourceFields, sourceFieldNameMap);
+
+    const outputRow = [];
+    for (const headerName of ExportHeaders.keys()) {
+
+      // If Export Header field is in RuleDB, set output value from it, and
+      // continue.
+      if (headerName in RuleDB) {
+        outputRow.push(RuleDB[headerName]);
         continue;
-      }
+      };
 
-      // This provides merged cells, with ';' delimiter
-      const mappedCell = [];
-      for (const mappedFieldIndex of headerMap[HeaderIndex]) {
-        const mappedCellVal = unmappedRow[mappedFieldIndex];
-        if (!mappedCellVal) continue;
-        mappedCell.push(mappedCellVal);
-      }
-      mappedRow.push(mappedCell.join(';'));
-    }
-    matrix.push(mappedRow);
-  }
+      // Otherwise apply source (many to one) to target field transform:
+      const sources = ExportHeaders.get(headerName);
+      const value = getMappedField(inputRow, sources, sourceFieldNameMap, ';') 
+      outputRow.push(value);
+    };
+    outputMatrix.push(outputRow);
+  };
 
-  runBehindLoadingScreen(exportFile, [matrix, baseName, 'xls', xlsx]);
+  runBehindLoadingScreen(exportFile, [outputMatrix, baseName, 'xls', xlsx]);
 }
 
-
-var convertDexaToGRDI = (fields, dataRow, fieldNameMap) => {
-  // Rule-based target field initialization
+/**
+ * Download phac_dexa grid mapped to GRDI format.
+ * @param {String} baseName Basename of downloaded file.
+ * @param {Object} hot Handonstable grid instance.
+ * @param {Object} data See `data.js`.
+ * @param {Object} xlsx SheetJS variable.
+ */
+var setRuleDB = (dataRow, sourceFields, sourceFieldNameMap) => {
+  // Rule-based target field value calculatio nbased on given data row
   let RuleDB = {
-    // Target fields/variables to populate with content
+    // Holding bin of target fields/variables to populate with custom rule
+    // content
     'anatomical_part':           '',
     'anatomical_material':       '',
     'body_product':              '',
@@ -84,9 +93,12 @@ var convertDexaToGRDI = (fields, dataRow, fieldNameMap) => {
     // Source fields and their content added below
   };
 
-  let source_field = ['STTYPE', 'STYPE', 'SPECIMENSUBSOURCE_1', 'SUBJECT_DESCRIPTIONS', 'SPECIES', 'COMMODITY'];
+  let ruleSourceFieldNames = ['STTYPE', 'STYPE', 'SPECIMENSUBSOURCE_1', 'SUBJECT_DESCRIPTIONS', 'SPECIES', 'COMMODITY'];
 
-  getRowMap(source_field, dataRow, RuleDB, fields, fieldNameMap, 'GRDI');
+  // This will set content of a target field based on data.js vocabulary
+  // exportField {'field':[target column],'value':[replacement value]]}
+  // mapping if any.
+  getRowMap(dataRow, ruleSourceFieldNames, RuleDB, sourceFields, sourceFieldNameMap, 'GRDI');
 
   // STTYPE: ANIMAL ENVIRONMENT FOOD HUMAN PRODUCT QA UNKNOWN
   switch (RuleDB.STTYPE) {
@@ -249,10 +261,7 @@ var convertDexaToGRDI = (fields, dataRow, fieldNameMap) => {
   };
 
   if (RuleDB.collection_device = 'swab' && RuleDB.environmental_site.length > 0) {
-    switch (RuleDB.SPECIES) {
-      case 'Turkey':
-        RuleDB.animal_or_plant_population = RuleDB.SPECIES;
-    };
+     RuleDB.animal_or_plant_population = RuleDB.SPECIES;
   };
 
   return RuleDB;
