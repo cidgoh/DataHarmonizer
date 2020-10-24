@@ -36,7 +36,8 @@ const getHeaderMap = (exportHeaders, fields, prefix) => {
     else {
     	// Array version: handles case where two columns have same name
 		for (const [headerIndex, headerItem] of exportHeaders.entries()) {
-			// Set mapping only for first instance of name
+			// Set mapping only for first instance of name. Access to
+			// subsequent identical fields is handled in export.js loop. 
 			if (!(headerItem[0] in headerMap)) {
 				headerMap[headerItem[0]] = headerIndex;
 			}
@@ -51,19 +52,18 @@ const getHeaderMap = (exportHeaders, fields, prefix) => {
 						var sources;
 						if (exportHeaders instanceof Map) {
 							sources = exportHeaders.get(target.field);
-						}
-						else {
-							sources = exportHeaders[headerMap[target.field]][1];
-						};
-
-						// If given field isn't already mapped, add it.
-						if (sources.indexOf(field.fieldName) == -1) {
-							sources.push(field.fieldName);
-						};
-						if (exportHeaders instanceof Map) {
+							// If given field isn't already mapped, add it.
+							if (sources.indexOf(field.fieldName) == -1) {
+								sources.push(field.fieldName);
+							};
 							exportHeaders.set(target.field, sources);
 						}
 						else { // Save to array
+							sources = exportHeaders[headerMap[target.field]][1];
+							// As above
+							if (sources.indexOf(field.fieldName) == -1) {
+								sources.push(field.fieldName);
+							};
 							exportHeaders[headerMap[target.field]][1] = sources;
 						};
 					}
