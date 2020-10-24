@@ -3,7 +3,6 @@
  * given format of export file.
  */
 
-
 /**
  * Get a dictionary of source field names pointing to column index
  * @param {Object} fields A flat version of data.js.
@@ -18,71 +17,64 @@ const getFieldNameMap = (fields) => {
 }
 
 /**
- * Get a dictionary of one or more data source column field indexes for each
- * ExportHeader field. Exactly like getHeaderMap() below but allows for 
- * multiple columns having the same name, such as "Address"
- * @param {Array<String>} exportHeaders See `export.js`.
- * @param {Array<Object>} array of all source fields.
- * @param {String} export column prefix
- * @return {Array<Array>} array of all header export fields.
- */
-const getHeaderMapDups = (exportHeaders, fields, prefix) => {
-  // Create a map of Export format headers to template's fields. It is a 
-  // one-to-many relationship, with indices for the map.
-  const headerMap = [];
-  for (const [HeaderIndex, _] of exportHeaders.entries()) {
-    headerMap[HeaderIndex] = [];
-  }
-
-  for (const [fieldIndex, field] of fields.entries()) {
-
-    if (field.exportField && prefix in field.exportField) {
-      for (const target of field.exportField[prefix]) {
-        if ('field' in target) {
-          const HeaderIndex = exportHeaders.indexOf(target.field);
-          if (HeaderIndex > -1) {
-            headerMap[HeaderIndex].push(fieldIndex);
-          }
-          else {
-            const msg = 'The EXPORT_'+prefix+' column requests a map to a non-existen field:' + target.field;
-            console.log (msg);
-          };
-        };
-      };
-    };
-  };
-  return headerMap;
-};
-
-/**
  * Modifies exportHeaders map of fields so that each field contains an array
  * of one or more source fields by name that are used to compose it.
- * @param {Array<String>} exportHeaders See `export.js`.
+ * This code works on exportHeaders as either a Map or an array of
+ * [['field_name',[fields],...] 
+ * @param {Array} exportHeaders See `export.js`.
  * @param {Array<Object>} array of all source fields.
  * @param {String} export column prefix
  */
 const getHeaderMap = (exportHeaders, fields, prefix) => {
+	var headerMap = {};
+    if (exportHeaders instanceof Map) {
+    	exportHeaders.forEach( (headerIndex, headerValue) => {
+    		headerMap[headerValue] = headerIndex;
+    	});
+
+    }
+    else {
+    	// Array version: handles case where two columns have same name
+		for (const [headerIndex, headerItem] of exportHeaders.entries()) {
+			// Set mapping only for first instance of name
+			if (!(headerItem[0] in headerMap)) {
+				headerMap[headerItem[0]] = headerIndex;
+			}
+		}
+    }
 
 	for (const [fieldIndex, field] of fields.entries()) {
-    if (field.exportField && prefix in field.exportField) {
-      for (const target of field.exportField[prefix]) {
-        if ('field' in target) {
-          if (exportHeaders.has(target.field)) {
-            const sources = exportHeaders.get(target.field);
-            // If given field isn't already mapped, add it.
-            if (sources.indexOf(field.fieldName) == -1) {
-            	sources.push(field.fieldName)
-              exportHeaders.set(target.field, sources);
-            }
-          }
-          else {
-            const msg = 'The EXPORT_' + prefix + ' column for ' + field.fieldName +' requests a map to a non-existen export template field:' + target.field;
-            console.log (msg);
-          };
-        };
-      };
+		if (field.exportField && prefix in field.exportField) {
+			for (const target of field.exportField[prefix]) {
+				if ('field' in target) {
+					if (target.field in headerMap) {
+						var sources;
+						if (exportHeaders instanceof Map) {
+							sources = exportHeaders.get(target.field);
+						}
+						else {
+							sources = exportHeaders[headerMap[target.field]][1];
+						};
+
+						// If given field isn't already mapped, add it.
+						if (sources.indexOf(field.fieldName) == -1) {
+							sources.push(field.fieldName);
+						};
+						if (exportHeaders instanceof Map) {
+							exportHeaders.set(target.field, sources);
+						}
+						else { // Save to array
+							exportHeaders[headerMap[target.field]][1] = sources;
+						};
+					}
+					else {
+						const msg = 'The EXPORT_' + prefix + ' column for ' + field.fieldName +' requests a map to a non-existen export template field: ' + target.field;
+						console.log (msg);
+					};
+				};
+			};
+		};
     };
-  };
 };
 
 const getMappedField = (sourceRow, sourceFieldNames, fieldNameMap, delimiter) => {

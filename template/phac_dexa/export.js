@@ -30,9 +30,9 @@ var exportGRDI = (baseName, hot, data, xlsx) => {
     ['serovar',                         []],
     ['serotyping_method',               []],
     ['phagetype',                       []],
-    ['purpose_of_sampling',             []]
+    ['purpose_of_sampling',             []],
+    ['comments']
   ]);
-
 
   const sourceFields = getFields(data);
   const sourceFieldNameMap = getFieldNameMap(sourceFields);
