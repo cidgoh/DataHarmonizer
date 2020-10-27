@@ -1,3 +1,12 @@
+#
+# make_data.py: A script to generate a vocabulary JSON-LD data structure from
+# a tabular representation of the vocabulary.
+#
+# FUTURE: Implement as JSON-LD "@graph" https://json-ld.org/spec/latest/json-ld/
+# https://json-ld.org/playground/
+#
+# Author: Damion Dooley
+# 
 
 import csv
 import json
@@ -82,6 +91,7 @@ with open(r_filename) as tsvfile:
 
 						field = {
 							'fieldName':   		label, 			# schema:name
+							#'schema:codeValue':	label,
 							'capitalize': 		row['capitalize'],
 							'ontology_id': 		row['Ontology ID'],
 							'datatype':			row['datatype'], 	# schema:DataType
@@ -90,7 +100,7 @@ with open(r_filename) as tsvfile:
 							'xs:minInclusive': 	row['min value'],
 							'xs:maxInclusive': 	row['max value'],
 							'requirement': 		row['requirement'],
-							'description': 		row['description'],
+							'description': 		row['description'], # schema:description
 							'guidance':			row['guidance'],
 							'examples':			row['examples']
 						}
@@ -108,7 +118,8 @@ with open(r_filename) as tsvfile:
 						'''.format(**field);
 
 						if row['datatype'] == 'select' or row['datatype'] == 'multiple':
-							choice = collections.OrderedDict();
+							# Use ordered dict to keeps additions in order:
+							choice = collections.OrderedDict(); 
 							# Case sensitive index, curators must be exact
 							CHOICE_INDEX[label] = choice; 
 							field['vocabulary'] = choice;

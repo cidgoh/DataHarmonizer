@@ -66,8 +66,9 @@ const toggleDropdownVisibility = () => {
 };
 
 /**
- * Post-processing of values in `data.js` at runtime.
- * TODO: this logic should be in the python script that creates `data.json`
+ * Post-processing of values in `data.js` at runtime. This calculates for each
+ * categorical field (table column) in data.js a flat list of allowed values
+ * in field.flatVocabulary,
  * @param {Object} data See `data.js`.
  * @return {Object} Processed values of `data.js`.
  */
@@ -88,6 +89,7 @@ const processData = (data) => {
         child.flatVocabulary = flatVocabularies[child.fieldName];
 
         if (child.source) {
+          // Duplicate vocabulary from other source field
           child.flatVocabulary =
               [...child.flatVocabulary, ...flatVocabularies[child.source]];
         }
