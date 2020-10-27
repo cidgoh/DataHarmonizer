@@ -31,7 +31,7 @@ var exportGRDI = (baseName, hot, data, xlsx) => {
     ['serotyping_method',               []],
     ['phagetype',                       []],
     ['purpose_of_sampling',             []],
-    ['comments']
+    ['comments',                        []]
   ]);
 
   const sourceFields = getFields(data);
