@@ -310,6 +310,6 @@ const exportLASER = (baseName, hot, data, xlsx) => {
     matrix.push(mappedRow);
   }
 
-  runBehindLoadingScreen(exportFile, [matrix, baseName, 'xls', xlsx]);
+  runBehindLoadingScreen(exportFile, [matrix, baseName, 'csv', xlsx]);
 };
 
