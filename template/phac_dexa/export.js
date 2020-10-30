@@ -156,12 +156,6 @@ var setRuleDB = (dataRow, sourceFields, sourceFieldNameMap) => {
           RuleDB.environmental_site = RuleDB.SPECIMENSUBSOURCE_1;
           break;
         */
-        /*
-        case 'Environmental swab (Hatchery)':
-          RuleDB.collection_device = 'swab';
-          RuleDB.environmental_site = 'hatchery';
-          break;
-        */
         default: 
           break; // Prevents advancing to COMMODITY
       };
@@ -260,7 +254,7 @@ var setRuleDB = (dataRow, sourceFields, sourceFieldNameMap) => {
       break;
   };
 
-  if (RuleDB.collection_device = 'swab' && RuleDB.environmental_site.length > 0) {
+  if (RuleDB.collection_device == 'swab' && RuleDB.environmental_site.length > 0) {
      RuleDB.animal_or_plant_population = RuleDB.SPECIES;
   };
 
