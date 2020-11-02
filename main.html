@@ -25,7 +25,7 @@
             <div class="btn-group" id="file-dropdown-btn-group" role="group">
               <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">File</button>
               <div class="dropdown-menu">
-                <span class="dropdown-item" data-toggle="modal" data-target="#select-template-modal">Open Template</span>
+                <span class="dropdown-item" data-toggle="modal" data-target="#select-template-modal">Change Template</span>
                 <span class="dropdown-item" id="new-dropdown-item">New</span>
                 <label for="open-file-input" class="dropdown-item mb-0" id="open-dropdown-item">Open</label>
                 <input type="file" accept=".xlsx,.xls,.tsv,.csv" class="form-control-file" id="open-file-input">
@@ -110,7 +110,7 @@
                 <div class="col">
                   <div class="input-group">
                     <div class="input-group-prepend">
-                      <span class="input-group-text">Open Template ...</span>
+                      <span class="input-group-text">Change Template </span>
                     </div>
                     <select class="form-control" id="select-template"></select>
                     <div class="input-group-append">
@@ -120,6 +120,10 @@
                 </div>
               </div>
               <div class="row mt-3">
+                <div class="col d-flex d-flex">
+                  <input type="checkbox" id="view-template-drafts" style="margin:6px">
+                  <label for="#view-template-drafts">View draft templates</label>
+                </div>
                 <div class="col d-flex d-flex justify-content-end">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                 </div>
@@ -129,8 +133,6 @@
         </div>
       </div>
     </div>
-
-
 
     <div class="modal" id="clear-data-warning-modal" tabindex="-1" role="dialog">
       <div class="modal-dialog" role="document">
@@ -228,14 +230,13 @@
                   <div class="input-group">
                     <input type="text" class="form-control" id="base-name-export-to-input" placeholder="file name">
                     <div class="input-group-append">
-                      <div class="input-group-text">.xls</div>
+                      <div class="input-group-text" id="export_file_suffix">.xls</div>
                     </div>
                   </div>
                 </div>
                 <div class="col mt-2 mt-sm-0">
                   <select class="form-control" id="export-to-format-select">
                     <option value="" disabled selected>Format</option>
-
                   </select>
                 </div>
               </div>
