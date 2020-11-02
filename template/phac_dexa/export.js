@@ -5,7 +5,7 @@
  * @param {Object} data See `data.js`.
  * @param {Object} xlsx SheetJS variable.
  */
-var exportGRDI = (baseName, hot, data, xlsx) => {
+var exportGRDI = (baseName, hot, data, xlsx, fileType) => {
   // Provides a map from each export format field to the linear list of source
   // fields it derives content from.
   const ExportHeaders = new Map([
@@ -66,7 +66,7 @@ var exportGRDI = (baseName, hot, data, xlsx) => {
     outputMatrix.push(outputRow);
   };
 
-  runBehindLoadingScreen(exportFile, [outputMatrix, baseName, 'xls', xlsx]);
+  runBehindLoadingScreen(exportFile, [outputMatrix, baseName, fileType, xlsx]);
 }
 
 /**
@@ -263,5 +263,5 @@ var setRuleDB = (dataRow, sourceFields, sourceFieldNameMap) => {
 
 // A list of the above functions keyed by the Export menu name they should appear as:
 var EXPORT_FORMATS = {
-  "Dexa to GRDI": exportGRDI
+  "Dexa to GRDI": {'method': exportGRDI, 'fileType': 'xls', 'status': 'draft'}
 };

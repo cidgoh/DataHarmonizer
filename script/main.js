@@ -15,10 +15,10 @@
  */
 const VERSION = '0.13.3'; //Version 0.13.3
 const TEMPLATES = {
-  "canada_covid19": "CanCOGeN Covid-19",
-  "phac_dexa": "PHAC Dexa (ALPHA)",
-  "grdi": "GRDI (ALPHA)",
-  "gisaid": "GISAID (ALPHA)"
+  'CanCOGeN Covid-19': {'folder': 'canada_covid19', 'status': 'published'},
+  'PHAC Dexa (ALPHA)': {'folder': 'phac_dexa', 'status': 'draft'},
+  'GRDI (ALPHA)':      {'folder': 'grdi', 'status': 'draft'},
+  'GISAID (ALPHA)':    {'folder': 'gisaid', 'status': 'draft'}
 };
 
 /**
@@ -823,7 +823,7 @@ const getInvalidCells = (hot, data) => {
 
       // 1st row of provenance datatype field is forced to have a 
       // 'DataHarmonizer Version: 0.13.0' etc. value.  Change happens silently. 
-      if (row === 0 && datatype === 'provenance') {
+      if (datatype === 'provenance') {
         checkProvenance(cellVal, hot, row, col);
       };
       if (!cellVal) {
@@ -886,7 +886,7 @@ const checkProvenance = (cellVal, hot, row, col) => {
   else {
     splitVal = cellVal.split(';',2);
 
-    if (splitVal[0].substring(0,15) === 'DataHarmonizer:') {
+    if (splitVal[0].substring(0,14) === 'DataHarmonizer') {
         splitVal[0] = version;
     } 
     else {
@@ -974,7 +974,24 @@ const exportOnload = () =>  {
     select.remove(1);
   }
   for (const option in EXPORT_FORMATS) {
-    select.append(new Option(option,option))
+    select.append(new Option(option, option));
+  }
+};
+
+/**
+ * Show available templates, with sensitivity to "view draft template" checkbox
+ */
+const templateOptions = () =>  {
+  // Select menu for available templates
+  const select = $("#select-template");
+  while (select[0].options.length > 0) {
+    select[0].remove(0);
+  }
+  const view_drafts = $("#view-template-drafts").is(':checked');
+  for (const [label, template] of Object.entries(TEMPLATES)) {
+    if (view_drafts || template.status == 'published') {
+      select.append(new Option(label, template.folder));
+    }
   }
 };
 
@@ -984,26 +1001,30 @@ $(document).ready(() => {
 
   setupTriggers();
 
-  // Allow URL parameter ?template=xxx_yyy to select template on page load.
-  let template = 'canada_covid19'; // Path of default template to use
+  // Default template
+  let template_label = 'CanCOGeN Covid-19';
+  let template_folder = TEMPLATES[template_label].folder;
 
+  // Allow URL parameter ?template=xxx_yyy to select template on page load.
   if (window.URLSearchParams) {
     let params = new URLSearchParams(location.search);
-    template = params.get('template') || template;
+    template_folder = params.get('template') || template_folder;
   }
   else {//low-tech way:
-    template = location.search.split("template=")[1] || template;
+    template_folder = location.search.split("template=")[1] || template_folder;
   }
 
-  // Try triggering template menu option so it is selected
-  if (template in TEMPLATES) {
-    $('#select-template').val(template);
-    $('#select-template-load').trigger('click');
-    return;
+  for (const [label, template] of Object.entries(TEMPLATES)) {
+    // Trigger template menu option so it is selected
+    if (template_folder == template.folder) {
+      setupTemplate(template_folder);
+      return;
+    }
   }
-
-  $('#template_name_display').text(template);
-  setupTemplate (template);
+  console.log(template_folder);
+  // Here template not found in TEMPLATES, so it doesn't have a name
+  $('#template_name_display').text(template_folder);
+  setupTemplate (template_folder);
 
 });
 
@@ -1015,19 +1036,15 @@ const setupTriggers = () => {
   $('#version-dropdown-item').text(VERSION);
 
   // Select menu for available templates
-  const select = $('#select-template')
-  for (const option in TEMPLATES) {
-    let newOption = new Option(TEMPLATES[option], option);
-    select.append(newOption)
-  }
+  templateOptions();
 
   // Enable template to be loaded dynamically
   $('#select-template-load').on('click', (e) => {
-    $('#template_name_display').text('');
-    $('#file_name_display').text('');
-    setupTemplate ($('#select-template').val() );
-    $('#template_name_display').text($('#select-template > option:selected').text());
+    const template_folder = $('#select-template').val()
+    setupTemplate (template_folder);
   })
+  // Triggers show/hide of draft templates
+  $("#view-template-drafts").on('change', templateOptions);
 
   // File -> New
   $('#new-dropdown-item, #clear-data-confirm-btn').click((e) => {
@@ -1106,14 +1123,29 @@ const setupTriggers = () => {
       return;
     }
     if (exportFormat in EXPORT_FORMATS) {
-      EXPORT_FORMATS[exportFormat](baseName, HOT, DATA, XLSX);
+      const format = EXPORT_FORMATS[exportFormat];
+      format['method'](baseName, HOT, DATA, XLSX, format.fileType);
     }
     $('#export-to-modal').modal('hide');
   });
+  $("#export-to-format-select").on('change', (e) => {
+    const exportFormat = $('#export-to-format-select').val();
+    $('#export_file_suffix').text('.' + EXPORT_FORMATS[exportFormat].fileType);
+  });
+
   // Reset export modal values when the modal is closed
   $('#export-to-modal').on('hidden.bs.modal', () => {
     $('#export-to-err-msg').text('');
     $('#base-name-export-to-input').val('');
+  });
+
+  // Settings -> Jump to...
+  const $jumpToInput = $('#jump-to-input');
+  $jumpToInput.bind('focus', () => void $jumpToInput.autocomplete('search'));
+
+  $('#jump-to-modal').on('shown.bs.modal', () => {
+    $jumpToInput.val('');
+    $jumpToInput.focus();
   });
 
   // Validate
@@ -1169,15 +1201,29 @@ const setupTriggers = () => {
  * @param {String} template: path of template starting from app's template
  * folder.
  */
-const setupTemplate = (template) => {
+const setupTemplate = (template_folder) => {
 
+  // Redo of template triggers new data file
+  $('#file_name_display').text('');
+  
+  // If visible, show this as a selected item in template menu
+  $('#select-template').val(template_folder);
+
+  // Lookup name of requested template if possible
+  $('#template_name_display').text('');
+  for (const [label, template] of Object.entries(TEMPLATES)) {
+    if (template.folder == template_folder){
+      $('#template_name_display').text(label);
+    }
+  };
+  
   // Change in src triggers load of script and update to reference doc and SOP.
-  reloadJs(`template/${template}/data.js`, function () { 
-    runBehindLoadingScreen(launch, [template, DATA])
+  reloadJs(`template/${template_folder}/data.js`, function () { 
+    runBehindLoadingScreen(launch, [template_folder, DATA])
   });
 
-  $("#help_reference").attr('href',`template/${template}/reference.html`)
-  $("#help_sop").attr('href',`template/${template}/SOP.pdf`)
+  $("#help_reference").attr('href',`template/${template_folder}/reference.html`)
+  $("#help_sop").attr('href',`template/${template_folder}/SOP.pdf`)
 };
 
 /**
@@ -1208,11 +1254,11 @@ const reloadJs = (src_url, onloadfn) => {
  * Clears and redraws grid based on DATA json.
  * @param {Object} DATA: hierarchy of field sections and fields to render. 
  */
-const launch = (template, DATA) => {
+const launch = (template_folder, DATA) => {
 
   window.DATA = processData(DATA);
   // Since data.js loaded, export.js should succeed as well
-  reloadJs(`template/${template}/export.js`, exportOnload);
+  reloadJs(`template/${template_folder}/export.js`, exportOnload);
 
   runBehindLoadingScreen(() => {
     window.INVALID_CELLS = {};
@@ -1226,19 +1272,14 @@ const launch = (template, DATA) => {
 
   // Settings -> Jump to...
   const $jumpToInput = $('#jump-to-input');
-  $jumpToInput.data('fieldYCoordinates', getFieldYCoordinates(DATA));
+  const fieldYCoordinates = getFieldYCoordinates(DATA);
   $jumpToInput.autocomplete({
-    source: Object.keys($jumpToInput.data('fieldYCoordinates')),
+    source: Object.keys(fieldYCoordinates),
     minLength: 0,
     select: (e, ui) => {
-      const y = $(e.target).data('fieldYCoordinates')[ui.item.label];
+      const y = fieldYCoordinates[ui.item.label];
       scrollToCol(y, DATA, window.HOT);
       $('#jump-to-modal').modal('hide');
     },
-  }).off().bind('focus', () => void $jumpToInput.autocomplete('search'));
-  $('#jump-to-modal').off().on('shown.bs.modal', () => {
-    $jumpToInput.val('');
-    $jumpToInput.focus();
-  });
-
+  })
 }

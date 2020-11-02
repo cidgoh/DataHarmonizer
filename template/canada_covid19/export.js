@@ -6,10 +6,10 @@
  * @param {Object} data See `data.js`.
  * @param {Object} xlsx SheetJS variable.
  */
-var exportIRIDA = (baseName, hot, data, xlsx) => {
+var exportIRIDA = (baseName, hot, data, xlsx, fileType) => {
   // Create an export table with template's headers (2nd row) and remaining rows of data
   const matrix = [getFlatHeaders(data)[1], ...getTrimmedData(hot)];
-  runBehindLoadingScreen(exportFile, [matrix, baseName, 'xls', xlsx]);
+  runBehindLoadingScreen(exportFile, [matrix, baseName, fileType, xlsx]);
 };
 
 /**
@@ -19,7 +19,7 @@ var exportIRIDA = (baseName, hot, data, xlsx) => {
  * @param {Object} data See `data.js`.
  * @param {Object} xlsx SheetJS variable.
  */
-var exportGISAID = (baseName, hot, data, xlsx) => {
+var exportGISAID = (baseName, hot, data, xlsx, fileType) => {
   // ExportHeaders below is NOT a map. It is an array because it can happen,
   // as below with 'Address', that a column name appears two or more times.
 
@@ -116,7 +116,7 @@ var exportGISAID = (baseName, hot, data, xlsx) => {
     outputMatrix.push(outputRow);
   }
 
-  runBehindLoadingScreen(exportFile, [outputMatrix, baseName, 'xls', xlsx]);
+  runBehindLoadingScreen(exportFile, [outputMatrix, baseName, fileType, xlsx]);
 };
 
 /**
@@ -126,7 +126,7 @@ var exportGISAID = (baseName, hot, data, xlsx) => {
  * @param {Object} data See `data.js`.
  * @param {Object} xlsx SheetJS variable.
  */
-var exportLASER = (baseName, hot, data, xlsx) => {
+var exportLASER = (baseName, hot, data, xlsx, fileType) => {
   const ExportHeaders = new Map([
     ['Primary Specimen ID', []],
     ['Related Specimen ID|Related Specimen Relationship Type',[]],
@@ -267,13 +267,13 @@ var exportLASER = (baseName, hot, data, xlsx) => {
     outputMatrix.push(outputRow);
   }
 
-  runBehindLoadingScreen(exportFile, [outputMatrix, baseName, 'csv', xlsx]);
+  runBehindLoadingScreen(exportFile, [outputMatrix, baseName, fileType, xlsx]);
 };
 
 // A list of the above functions keyed by the Export menu name they should appear as:
 var EXPORT_FORMATS = {
-  "IRIDA": exportIRIDA,
-  "GISAID": exportGISAID,
-  "CNPHI LaSER": exportLASER
+  "IRIDA":        {'method': exportIRIDA, 'fileType': 'xls', 'status': 'published'},
+  "GISAID":       {'method': exportGISAID,'fileType': 'xls', 'status': 'published'},
+  "CNPHI LaSER":  {'method': exportLASER, 'fileType': 'csv', 'status': 'published'}
 };
 
