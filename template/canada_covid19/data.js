@@ -307,9 +307,9 @@ var DATA = [
           "Saskatchewan - Roy Romanow Provincial Laboratory (RRPL)": {},
           "Manitoba Cadham Provincial Laboratory": {},
           "Nova Scotia Health Authority": {},
-          "New Brunswick \u2013 Vitalit\u00e9 Health Network": {},
-          "Newfoundland and Labrador \u2013 Eastern Health": {},
-          "Prince Edward Island \u2013 Health PEI": {},
+          "New Brunswick - Vitalit\u00e9 Health Network": {},
+          "Newfoundland and Labrador - Eastern Health": {},
+          "Prince Edward Island - Health PEI": {},
           "Ontario Institute for Cancer Research (OICR)": {},
           "McMaster University": {},
           "McGill University": {},
@@ -840,7 +840,7 @@ var DATA = [
         ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
-        "requirement": "recommended",
+        "requirement": "required",
         "description": "The reason that the sample was collected.",
         "guidance": "Provide the purpose of sampling from the picklist in the template.",
         "examples": "Diagnostic testing",
@@ -1876,7 +1876,7 @@ var DATA = [
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
-        "description": "A perceived change in function or sensation, (loss, disturbance or appearance) indicative of a disease, reported by a patient.",
+        "description": "A perceived change in function or sensation, (loss, disturbance or appearance) indicative of a disease, reported by a patient or clinician.",
         "guidance": "Select all of the symptoms experienced by the host from the pick list.",
         "examples": "Cough; Fever; Chills",
         "exportField": {
@@ -2143,7 +2143,7 @@ var DATA = [
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
-        "description": "Patient medical complications that are believed to have occurred as result of host disease.",
+        "description": "Patient medical complications that are believed to have occurred as a result of host disease.",
         "guidance": "Select all of the complications experienced by the host from the pick list. If the desired term is missing, contact the curation team.",
         "examples": "Acute Respiratory Failure; Coma; Septicemia",
         "vocabulary": {
@@ -2650,6 +2650,33 @@ var DATA = [
   {
     "fieldName": "Sequencing",
     "children": [
+      {
+        "fieldName": "purpose of sequencing",
+        "capitalize": "",
+        "ontology_id": "",
+        "datatype": "select",
+        "source": "",
+        "dataStatus": [
+          "Not Applicable",
+          "Missing",
+          "Not Collected",
+          "Not Provided",
+          "Restricted Access"
+        ],
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "required",
+        "description": "The reason that the isolate was sequenced.",
+        "guidance": "Provide the purpose of sequencing from the picklist in the template.",
+        "examples": "Diagnostic testing",
+        "vocabulary": {
+          "Cluster investigation": {},
+          "Diagnostic testing": {},
+          "Research": {},
+          "Surveillance testing": {},
+          "Viral passage experiment": {}
+        }
+      },
       {
         "fieldName": "library ID",
         "capitalize": "",
@@ -3451,7 +3478,7 @@ var DATA = [
         }
       },
       {
-        "fieldName": "provenance",
+        "fieldName": "DataHarmonizer provenance",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "provenance",
@@ -3466,12 +3493,12 @@ var DATA = [
         "exportField": {
           "GISAID": [
             {
-              "field": "Comments"
+              "field": "DataHarmonizer provenance"
             }
           ],
           "CNPHI": [
             {
-              "field": "Comments"
+              "field": "DataHarmonizer provenance"
             }
           ]
         }
