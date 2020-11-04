@@ -396,6 +396,10 @@ const runBehindLoadingScreen = (fn, args=[]) => {
 
 /**
  * Download matrix to file.
+ * Note that BOM and UTF-8 can create problems on some systems when importing
+ * file.  See "Supported Output Formats" and "UTF-16 Unicode Text" sections of
+ * https://reactian.com/sheetjs-community-edition-spreadsheet-data-toolkit/
+ * The "Comma Separated Values" format is actually UTF-8 with BOM prefix.
  * @param {Array<Array<String>>} matrix Matrix to download.
  * @param {String} baseName Basename of downloaded file.
  * @param {String} ext Extension of downloaded file.
@@ -406,14 +410,25 @@ const exportFile = (matrix, baseName, ext, xlsx) => {
   const worksheet = xlsx.utils.aoa_to_sheet(matrix);
   const workbook = xlsx.utils.book_new();
   xlsx.utils.book_append_sheet(workbook, worksheet, 'Sheet1');
-  if (ext === 'xlsx') {
-    xlsx.writeFile(workbook, `${baseName}.xlsx`);
-  } else if (ext === 'xls') {
-    xlsx.writeFile(workbook, `${baseName}.xls`);
-  } else if (ext === 'tsv') {
-    xlsx.writeFile(workbook, `${baseName}.tsv`, {bookType: 'csv', FS: '\t'});
-  } else if (ext === 'csv') {
-    xlsx.writeFile(workbook, `${baseName}.csv`, {bookType: 'csv', FS: ','});
+  switch (ext) {
+    case 'xlsx':
+      xlsx.writeFile(workbook, `${baseName}.xlsx`);
+      break;
+    case 'xls':
+      xlsx.writeFile(workbook, `${baseName}.xls`);
+      break;
+    case 'tsv':
+      xlsx.writeFile(workbook, `${baseName}.tsv`, {bookType: 'csv', FS: '\t'});
+      break;
+    case 'csv':
+      xlsx.writeFile(workbook, `${baseName}.csv`, {bookType: 'csv', FS: ','});
+      break;
+    case 'tsv (UTF-16)':
+      xlsx.writeFile(workbook, `${baseName}.csv`, {bookType: 'txt', FS: ','});
+      break;
+    case 'csv (UTF-16)':
+      xlsx.writeFile(workbook, `${baseName}.csv`, {bookType: 'txt', FS: ','});
+      break;
   }
 };
 
