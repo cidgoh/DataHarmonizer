@@ -4,13 +4,30 @@
  * Functionality for uploading, downloading and validating data.
  */
 
+/* A list of templates available for this app, which will be displayed in a 
+ * menu. A template can also be accessed by adding it as a folder name in the
+ * URL parameter:
+ *
+ * main.html?template=test_template
+ *
+ * but it won't be added to the template menu.
+ *
+ */
+const VERSION = '0.13.3'; //Version 0.13.3
+const TEMPLATES = {
+  'CanCOGeN Covid-19': {'folder': 'canada_covid19', 'status': 'published'},
+  'PHAC Dexa (ALPHA)': {'folder': 'phac_dexa', 'status': 'draft'},
+  'GRDI (ALPHA)':      {'folder': 'grdi', 'status': 'draft'},
+  'GISAID (ALPHA)':    {'folder': 'gisaid', 'status': 'draft'}
+};
+
 /**
  * Controls what dropdown options are visible depending on grid settings.
  */
 const toggleDropdownVisibility = () => {
   $('.hidden-dropdown-item').hide();
 
-  $('#file-dropdown-btn-group')
+  $('#file-dropdown-btn-group').off()
       .on('show.bs.dropdown', () => {
         if (jQuery.isEmptyObject(INVALID_CELLS)) {
           $('#export-to-dropdown-item').removeClass('disabled');
@@ -19,7 +36,8 @@ const toggleDropdownVisibility = () => {
         }
       });
 
-  $('#settings-dropdown-btn-group')
+
+  $('#settings-dropdown-btn-group').off()
       .on('show.bs.dropdown', () => {
         const hiddenCols = HOT.getPlugin('hiddenColumns').hiddenColumns;
         const hiddenRows = HOT.getPlugin('hiddenRows').hiddenRows;
@@ -48,8 +66,9 @@ const toggleDropdownVisibility = () => {
 };
 
 /**
- * Post-processing of values in `data.js` at runtime.
- * TODO: this logic should be in the python script that creates `data.json`
+ * Post-processing of values in `data.js` at runtime. This calculates for each
+ * categorical field (table column) in data.js a flat list of allowed values
+ * in field.flatVocabulary,
  * @param {Object} data See `data.js`.
  * @return {Object} Processed values of `data.js`.
  */
@@ -70,6 +89,7 @@ const processData = (data) => {
         child.flatVocabulary = flatVocabularies[child.fieldName];
 
         if (child.source) {
+          // Duplicate vocabulary from other source field
           child.flatVocabulary =
               [...child.flatVocabulary, ...flatVocabularies[child.source]];
         }
@@ -187,7 +207,6 @@ const createHot = (data) => {
   return enableMultiSelection(hot, data);
 };
 
-
 /**
  * Create a matrix containing the nested headers supplied to Handsontable.
  * These headers are HTML strings, with useful selectors for the primary and
@@ -279,14 +298,13 @@ const getColumns = (data) => {
  * @return {Array<String>} Flattened vocabulary.
  */
 const stringifyNestedVocabulary = (vocabulary, level=0) => {
-  if (Object.keys(vocabulary).length === 0) {
-    return [];
-  }
 
   let ret = [];
   for (const val of Object.keys(vocabulary)) {
-    ret.push('  '.repeat(level) + val);
-    ret = ret.concat(stringifyNestedVocabulary(vocabulary[val], level+1));
+    if (val != 'exportField') { // Ignore field map values used for export.
+      ret.push('  '.repeat(level) + val);
+      ret = ret.concat(stringifyNestedVocabulary(vocabulary[val], level+1));
+    }
   }
   return ret;
 };
@@ -384,9 +402,6 @@ const runBehindLoadingScreen = (fn, args=[]) => {
  * @param {Object} xlsx SheetJS variable.
  */
 const exportFile = (matrix, baseName, ext, xlsx) => {
-  // TODO: figure out a better way of adding metadata to file
-  const version = $('#version-dropdown-item').html();
-  matrix[0].push('#Validated using DataHarmonizer ' + version);
 
   const worksheet = xlsx.utils.aoa_to_sheet(matrix);
   const workbook = xlsx.utils.book_new();
@@ -401,8 +416,6 @@ const exportFile = (matrix, baseName, ext, xlsx) => {
     xlsx.writeFile(workbook, `${baseName}.csv`, {bookType: 'csv', FS: ','});
   }
 };
-
-
 
 /**
  * Open file specified by user.
@@ -421,13 +434,15 @@ const openFile = (file, hot, data, xlsx) => {
     fileReader.readAsBinaryString(file);
 
     fileReader.onload = (e) => {
+      $('#file_name_display').text(file.name);
       const workbook = xlsx.read(e.target.result, {type: 'binary', raw: true});
       const worksheet =
           updateSheetRange(workbook.Sheets[workbook.SheetNames[0]]);
       const params = [worksheet, {header: 1, raw: false, range: 0}];
       const matrix = (xlsx.utils.sheet_to_json(...params));
-      if (compareMatrixHeadersToGrid(matrix, data)) {
-        hot.loadData(matrixFieldChangeRules(matrix.slice(2), hot, data));
+      const headerRowData = compareMatrixHeadersToGrid(matrix, data);
+      if (headerRowData > 0) {
+        hot.loadData(matrixFieldChangeRules(matrix.slice(headerRowData), hot, data));
       } else {
         launchSpecifyHeadersModal(matrix, hot, data);
       }
@@ -501,15 +516,22 @@ const updateSheetRange = (worksheet) => {
 }
 
 /**
- * Determine if a matrix has the same secondary headers as the grid.
+ * Determine if first or second row of a matrix has the same headers as the 
+ * grid's secondary (2nd row) headers.  If neither, return false.
  * @param {Array<Array<String>>} matrix
  * @param {Object} data See `data.js`.
- * @return {Boolean} True if the matrix's second row matches the grid.
+ * @return {Integer} row that data starts on, or false if no exact header row
+ * recognized.
  */
 const compareMatrixHeadersToGrid = (matrix, data) => {
   const expectedSecondRow = getFlatHeaders(data)[1];
+  const actualFirstRow = matrix[0];
   const actualSecondRow = matrix[1];
-  return JSON.stringify(expectedSecondRow) === JSON.stringify(actualSecondRow);
+  if (JSON.stringify(expectedSecondRow) === JSON.stringify(actualFirstRow))
+    return 1;
+  if (JSON.stringify(expectedSecondRow) === JSON.stringify(actualSecondRow))
+    return 2;
+  return false;
 };
 
 /**
@@ -641,7 +663,6 @@ const matrixFieldChangeRules = (matrix, hot, data) => {
 
   return matrix;
 }
-
 
 /**
  * Iterate through rules set up for named columns
@@ -800,24 +821,37 @@ const getInvalidCells = (hot, data) => {
       //  them as tooltips
       let msg = '';
 
+      // 1st row of provenance datatype field is forced to have a 
+      // 'DataHarmonizer Version: 0.13.0' etc. value.  Change happens silently. 
+      if (datatype === 'provenance') {
+        checkProvenance(cellVal, hot, row, col);
+      };
       if (!cellVal) {
         valid = fields[col].requirement !== 'required';
         msg = 'Required cells cannot be empty'
-      } else if (datatype === 'xs:nonNegativeInteger') {
-        const parsedInt = parseInt(cellVal, 10);
-        valid = !isNaN(cellVal) && parsedInt>=0
-        valid &= parsedInt.toString()===cellVal;
-        valid &= testNumericRange(parsedInt, fields[col]);
-      } else if (datatype === 'xs:decimal') {
-        const parsedDec = parseFloat(cellVal);
-        valid = !isNaN(cellVal) && regexDecimal.test(cellVal);
-        valid &= testNumericRange(parsedDec, fields[col]);
-      } else if (datatype === 'xs:date') {
-        valid = moment(cellVal, 'YYYY-MM-DD', true).isValid();
-      } else if (datatype === 'select') {
-        valid = validateValAgainstVocab(cellVal, fields[col].flatVocabulary);
-      } else if (datatype === 'multiple') {
-        valid = validateValsAgainstVocab(cellVal, fields[col].flatVocabulary);
+      } 
+      else switch (datatype) {
+        case 'xs:nonNegativeInteger':
+          const parsedInt = parseInt(cellVal, 10);
+          valid = !isNaN(cellVal) && parsedInt>=0
+          valid &= parsedInt.toString()===cellVal;
+          valid &= testNumericRange(parsedInt, fields[col]);
+          break;
+        case 'xs:decimal':
+          const parsedDec = parseFloat(cellVal);
+          valid = !isNaN(cellVal) && regexDecimal.test(cellVal);
+          valid &= testNumericRange(parsedDec, fields[col]);
+          break;
+        case 'xs:date':
+          valid = moment(cellVal, 'YYYY-MM-DD', true).isValid();
+          break;
+        case 'select':
+          valid = validateValAgainstVocab(cellVal, fields[col].flatVocabulary);
+          break;
+        case 'multiple':
+          valid = validateValsAgainstVocab(cellVal, fields[col].flatVocabulary);
+          break;
+         
       }
 
       if (!valid && fields[col].dataStatus) {
@@ -834,6 +868,35 @@ const getInvalidCells = (hot, data) => {
   }
   return invalidCells;
 };
+
+/**
+ * Test cellVal against DataHarmonizer: vX.Y.Z pattern and if it needs an
+ * update, do so.
+ * @param {Object} cellVal field value to be tested.
+ * @param {Object} hot link to data
+ * @param {Integer} row index of data
+ * @param {Integer} column index of data
+ */
+const checkProvenance = (cellVal, hot, row, col) => {
+  const version = 'DataHarmonizer: v' + VERSION;
+  let splitVal = [];
+  if (!cellVal) {
+    splitVal = [version];
+  }
+  else {
+    splitVal = cellVal.split(';',2);
+
+    if (splitVal[0].substring(0,14) === 'DataHarmonizer') {
+        splitVal[0] = version;
+    } 
+    else {
+        splitVal.unshift(version);
+    };
+  };
+  const value = splitVal.join(';');
+  hot.setDataAtCell(row, col, value, 'thisChange');
+}
+
 
 /**
  * Test a given number against an upper or lower range, if any.
@@ -902,12 +965,86 @@ const getComment = (field) => {
   return ret;
 };
 
-$(document).ready(() => {
-  window.INVALID_CELLS = {};
-  window.DATA = processData(DATA);
-  window.HOT = createHot(DATA);
+/**
+ * Enable template folder's export.js export options to be loaded dynamically.
+ */
+const exportOnload = () =>  {
+  const select = $("#export-to-format-select")[0];
+  while (select.options.length > 1) {
+    select.remove(1);
+  }
+  for (const option in EXPORT_FORMATS) {
+    select.append(new Option(option, option));
+  }
+};
 
-  toggleDropdownVisibility(HOT, INVALID_CELLS);
+/**
+ * Show available templates, with sensitivity to "view draft template" checkbox
+ */
+const templateOptions = () =>  {
+  // Select menu for available templates
+  const select = $("#select-template");
+  while (select[0].options.length > 0) {
+    select[0].remove(0);
+  }
+  const view_drafts = $("#view-template-drafts").is(':checked');
+  for (const [label, template] of Object.entries(TEMPLATES)) {
+    if (view_drafts || template.status == 'published') {
+      select.append(new Option(label, template.folder));
+    }
+  }
+};
+
+/************************** APPLICATION LAUNCH ********************/
+
+$(document).ready(() => {
+
+  setupTriggers();
+
+  // Default template
+  let template_label = 'CanCOGeN Covid-19';
+  let template_folder = TEMPLATES[template_label].folder;
+
+  // Allow URL parameter ?template=xxx_yyy to select template on page load.
+  if (window.URLSearchParams) {
+    let params = new URLSearchParams(location.search);
+    template_folder = params.get('template') || template_folder;
+  }
+  else {//low-tech way:
+    template_folder = location.search.split("template=")[1] || template_folder;
+  }
+
+  for (const [label, template] of Object.entries(TEMPLATES)) {
+    // Trigger template menu option so it is selected
+    if (template_folder == template.folder) {
+      setupTemplate(template_folder);
+      return;
+    }
+  }
+
+  // Here template not found in TEMPLATES, so it doesn't have a name
+  $('#template_name_display').text(template_folder);
+  setupTemplate (template_folder);
+
+});
+
+/**
+ * Wire up user controls which only need to happen once on load of page.
+ */
+const setupTriggers = () => {
+
+  $('#version-dropdown-item').text(VERSION);
+
+  // Select menu for available templates
+  templateOptions();
+
+  // Enable template to be loaded dynamically
+  $('#select-template-load').on('click', (e) => {
+    const template_folder = $('#select-template').val()
+    setupTemplate (template_folder);
+  })
+  // Triggers show/hide of draft templates
+  $("#view-template-drafts").on('change', templateOptions);
 
   // File -> New
   $('#new-dropdown-item, #clear-data-confirm-btn').click((e) => {
@@ -915,6 +1052,9 @@ $(document).ready(() => {
     if (e.target.id === 'new-dropdown-item' && isNotEmpty) {
       $('#clear-data-warning-modal').modal('show');
     } else {
+      // Clear current file indication
+      $('#file_name_display').text('');
+
       runBehindLoadingScreen(() => {
         window.INVALID_CELLS = {};
         HOT.destroy();
@@ -925,6 +1065,7 @@ $(document).ready(() => {
 
   // File -> Open
   const $fileInput = $('#open-file-input');
+
   $fileInput.change(() => {
     const file = $fileInput[0].files[0];
     const ext = file.name.split('.').pop();
@@ -981,51 +1122,27 @@ $(document).ready(() => {
       $('#export-to-err-msg').text('Select a format');
       return;
     }
-    if (exportFormat === 'gisaid') {
-      exportGISAID(baseName, HOT, DATA, XLSX);
-    } else if (exportFormat === 'irida') {
-      exportIRIDA(baseName, HOT, DATA, XLSX);
-    } else if (exportFormat === 'laser') {
-      exportLASER(baseName, HOT, DATA, XLSX);
+    if (exportFormat in EXPORT_FORMATS) {
+      const format = EXPORT_FORMATS[exportFormat];
+      format['method'](baseName, HOT, DATA, XLSX, format.fileType);
     }
     $('#export-to-modal').modal('hide');
   });
+  $("#export-to-format-select").on('change', (e) => {
+    const exportFormat = $('#export-to-format-select').val();
+    $('#export_file_suffix').text('.' + EXPORT_FORMATS[exportFormat].fileType);
+  });
+
   // Reset export modal values when the modal is closed
   $('#export-to-modal').on('hidden.bs.modal', () => {
     $('#export-to-err-msg').text('');
     $('#base-name-export-to-input').val('');
   });
 
-  // Settings -> Show ... columns
-  const showColsSelectors =
-      ['#show-all-cols-dropdown-item', '#show-required-cols-dropdown-item'];
-  $(showColsSelectors.join(',')).click((e) => {
-    runBehindLoadingScreen(changeColVisibility, [e.target.id, DATA, HOT]);
-  });
-
-  // Settings -> Show ... rows
-  const showRowsSelectors = [
-    '#show-all-rows-dropdown-item',
-    '#show-valid-rows-dropdown-item',
-    '#show-invalid-rows-dropdown-item',
-  ];
-  $(showRowsSelectors.join(',')).click((e) => {
-    const args = [e.target.id, INVALID_CELLS, HOT];
-    runBehindLoadingScreen(changeRowVisibility, args);
-  });
-
   // Settings -> Jump to...
   const $jumpToInput = $('#jump-to-input');
-  $jumpToInput.data('fieldYCoordinates', getFieldYCoordinates(DATA));
-  $jumpToInput.autocomplete({
-    source: Object.keys($jumpToInput.data('fieldYCoordinates')),
-    minLength: 0,
-    select: (e, ui) => {
-      const y = $(e.target).data('fieldYCoordinates')[ui.item.label];
-      scrollToCol(y, DATA, HOT);
-      $('#jump-to-modal').modal('hide');
-    },
-  }).bind('focus', () => void $jumpToInput.autocomplete('search'));
+  $jumpToInput.bind('focus', () => void $jumpToInput.autocomplete('search'));
+
   $('#jump-to-modal').on('shown.bs.modal', () => {
     $jumpToInput.val('');
     $jumpToInput.focus();
@@ -1056,4 +1173,113 @@ $(document).ready(() => {
       HOT.alter('insert_row', HOT.countRows()-1 + numRows, numRows);
     });
   });
-});
+
+  // Settings -> Show ... columns
+  const showColsSelectors =
+      ['#show-all-cols-dropdown-item', '#show-required-cols-dropdown-item'];
+  $(showColsSelectors.join(',')).click((e) => {
+    runBehindLoadingScreen(changeColVisibility, [e.target.id, DATA, HOT]);
+  });
+
+  // Settings -> Show ... rows
+  const showRowsSelectors = [
+    '#show-all-rows-dropdown-item',
+    '#show-valid-rows-dropdown-item',
+    '#show-invalid-rows-dropdown-item',
+  ];
+  $(showRowsSelectors.join(',')).click((e) => {
+    const args = [e.target.id, INVALID_CELLS, HOT];
+    runBehindLoadingScreen(changeRowVisibility, args);
+  });
+
+}
+
+/**
+ * Revise user interface elements to match template path, and trigger
+ * load of data.js and export.js scripts.  data_script.onload goes on
+ * to trigger launch(DATA).
+ * @param {String} template: path of template starting from app's template
+ * folder.
+ */
+const setupTemplate = (template_folder) => {
+
+  // Redo of template triggers new data file
+  $('#file_name_display').text('');
+  
+  // If visible, show this as a selected item in template menu
+  $('#select-template').val(template_folder);
+
+  // Lookup name of requested template if possible
+  $('#template_name_display').text('');
+  for (const [label, template] of Object.entries(TEMPLATES)) {
+    if (template.folder == template_folder){
+      $('#template_name_display').text(label);
+    }
+  };
+  
+  // Change in src triggers load of script and update to reference doc and SOP.
+  reloadJs(`template/${template_folder}/data.js`, function () { 
+    runBehindLoadingScreen(launch, [template_folder, DATA])
+  });
+
+  $("#help_reference").attr('href',`template/${template_folder}/reference.html`)
+  $("#help_sop").attr('href',`template/${template_folder}/SOP.pdf`)
+};
+
+/**
+ * Reloads a given javascript by removing any old script happening to have the
+ * same URL, and loading the given one. Only in this way will browsers reload
+ * the code.
+ * @param {String} src_url: path of template starting from app's template folder.
+ * @param {Object} onloadfn: function to run when script is loaded. 
+ */
+const reloadJs = (src_url, onloadfn) => {
+    $('script[src="' + src_url + '"]').remove();
+    var script = document.createElement('script');
+    if (onloadfn) {
+      script.onload = onloadfn;
+    };
+    script.onerror = function() {
+      $('#missing-template-msg').text(`Unable to load template file "${src_url}". Is the template name correct?`);
+      $('#missing-template-modal').modal('show');
+      $('#template_name_display').text('');
+    };
+
+    script.src = src_url;
+    document.head.appendChild(script);
+
+}
+
+/**
+ * Clears and redraws grid based on DATA json.
+ * @param {Object} DATA: hierarchy of field sections and fields to render. 
+ */
+const launch = (template_folder, DATA) => {
+
+  window.DATA = processData(DATA);
+  // Since data.js loaded, export.js should succeed as well
+  reloadJs(`template/${template_folder}/export.js`, exportOnload);
+
+  runBehindLoadingScreen(() => {
+    window.INVALID_CELLS = {};
+    if (window.HOT) HOT.destroy(); // handles already existing data
+    window.HOT = createHot(DATA);
+  });
+  let HOT = window.HOT;
+  let INVALID_CELLS = window.INVALID_CELLS;
+
+  toggleDropdownVisibility(HOT, INVALID_CELLS);
+
+  // Settings -> Jump to...
+  const $jumpToInput = $('#jump-to-input');
+  const fieldYCoordinates = getFieldYCoordinates(DATA);
+  $jumpToInput.autocomplete({
+    source: Object.keys(fieldYCoordinates),
+    minLength: 0,
+    select: (e, ui) => {
+      const y = fieldYCoordinates[ui.item.label];
+      scrollToCol(y, DATA, window.HOT);
+      $('#jump-to-modal').modal('hide');
+    },
+  })
+}

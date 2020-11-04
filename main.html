@@ -19,10 +19,13 @@
       <!-- buttons above Handsontable grid -->
       <div class="row mt-3" id="header-row">
         <div class="col">
+
           <div class="btn-group" role="group">
+
             <div class="btn-group" id="file-dropdown-btn-group" role="group">
               <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">File</button>
               <div class="dropdown-menu">
+                <span class="dropdown-item" data-toggle="modal" data-target="#select-template-modal">Change Template</span>
                 <span class="dropdown-item" id="new-dropdown-item">New</span>
                 <label for="open-file-input" class="dropdown-item mb-0" id="open-dropdown-item">Open</label>
                 <input type="file" accept=".xlsx,.xls,.tsv,.csv" class="form-control-file" id="open-file-input">
@@ -39,21 +42,42 @@
                 <span class="dropdown-item hidden-dropdown-item" id="show-valid-rows-dropdown-item">Show valid rows</span>
                 <span class="dropdown-item hidden-dropdown-item" id="show-invalid-rows-dropdown-item">Show invalid rows</span>
                 <span class="dropdown-item" id="jump-to-dropdown-item" data-toggle="modal" data-target="#jump-to-modal">Jump to...</span>
-                <span class="dropdown-item disabled" id="version-dropdown-item">Version 0.13.2</span>
+                <span class="dropdown-item disabled" id="version-dropdown-item"></span>
               </div>
             </div>
             <button type="button" class="btn btn-primary" id="validate-btn">Validate</button>
           </div>
+
           <div class="btn-group d-none d-sm-inline" role="group">
             <button class="btn btn-info dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Help</button>
             <div class="dropdown-menu">
               <span class="dropdown-item" data-toggle="modal" data-target="#getting-started-modal">Getting Started</span>
-              <a class="dropdown-item" target="_blank" href="./template/canada_covid19/reference.html">Reference Guide</a>
-              <a class="dropdown-item" target="_blank" href="./template/canada_covid19/SOP.pdf">SOP</a>
+              <a class="dropdown-item" target="_blank" id="help_reference" href="">Reference Guide</a>
+              <a class="dropdown-item" target="_blank" id="help_sop" href="">SOP</a>
               <span class="dropdown-item" data-toggle="modal" data-target="#contact-us-modal">Contact Us</span>
             </div>
           </div>
+
+          <div class="btn-group" role="group" style="margin-right:40px">
+              <div class="input-group-prepend">
+                <div class="btn">Template</div>
+              </div>
+              <div class="input-group-append">
+                <div class="input-group-text" id="template_name_display" style="background-color:transparent"></div>
+              </div>
+          </div>
+
+          <div class="btn-group" role="group" >
+              <div class="input-group-prepend">
+                <div class="btn">Loaded file</div>
+              </div>
+              <div class="input-group-append">
+                <div class="input-group-text" id="file_name_display" style="background-color:transparent"></div>
+              </div>
+          </div>
+
         </div>
+
       </div>
       <!-- Handsontable grid -->
       <div class="row mt-3">
@@ -77,6 +101,39 @@
       </div>
     </div>
     <!-- Modals -->
+    <div class="modal" id="select-template-modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">Change Template </span>
+                    </div>
+                    <select class="form-control" id="select-template"></select>
+                    <div class="input-group-append">
+                      <button type="button" class="btn btn-primary" data-dismiss="modal" id="select-template-load">Open</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row mt-3">
+                <div class="col d-flex d-flex">
+                  <input type="checkbox" id="view-template-drafts" style="margin:6px">
+                  <label for="#view-template-drafts">View draft templates</label>
+                </div>
+                <div class="col d-flex d-flex justify-content-end">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="modal" id="clear-data-warning-modal" tabindex="-1" role="dialog">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -173,16 +230,13 @@
                   <div class="input-group">
                     <input type="text" class="form-control" id="base-name-export-to-input" placeholder="file name">
                     <div class="input-group-append">
-                      <div class="input-group-text">.xls</div>
+                      <div class="input-group-text" id="export_file_suffix">.xls</div>
                     </div>
                   </div>
                 </div>
                 <div class="col mt-2 mt-sm-0">
                   <select class="form-control" id="export-to-format-select">
                     <option value="" disabled selected>Format</option>
-                    <option value="gisaid">GISAID</option>
-                    <option value="irida">IRIDA</option>
-                    <option value="laser">CNPHI LaSER</option>
                   </select>
                 </div>
               </div>
@@ -440,6 +494,20 @@
         </div>
       </div>
     </div>
+    <div id="missing-template-modal" role="dialog" style="display:none">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content" style="z-index:2000">
+          <div class="modal-body">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col text-danger" id="missing-template-msg"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- External libraries -->
     <script src="libraries/jquery-3.5.1.min.js"></script>
     <script src="libraries/popper.min.js"></script>
@@ -450,8 +518,7 @@
     <script type="text/javascript" src="libraries/chosen.jquery.min.js"></script>
     <script type="text/javascript" src="libraries/moment.min.js"></script>
     <script type="text/javascript" src="libraries/jquery-ui.min.js"></script>
-    <script src="template/canada_covid19/data.js"></script>
-    <script src="script/export.js"></script>
+    <script src="script/export_utils.js"></script>
     <script src="script/main.js"></script>
   </body>
 </html>
