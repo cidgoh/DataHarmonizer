@@ -175,7 +175,8 @@ var exportLASER = (baseName, hot, data, xlsx, fileType) => {
     ['Gene Target #1',[]],
     ['Gene Target #1 CT Value',[]],
     ['Gene Target #2',[]],
-    ['Gene Target #2 CT Value',[]]
+    ['Gene Target #2 CT Value',[]],
+    ['DataHarmonizer provenance',[]]
   ]);
 
   const sourceFields = getFields(data);

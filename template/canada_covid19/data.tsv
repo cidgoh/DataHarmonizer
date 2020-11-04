@@ -25,7 +25,7 @@ ID	SC %
 	Sample collection and processing	geo_loc_name (city)	xs:token							The city where the sample was collected.	Provide the city name. Use this look-up service to identify the standardized term: https://www.ebi.ac.uk/ols/ontologies/gaz	Medicine Hat		
 	Sample collection and processing	organism	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				Taxonomic name of the organism.	Use "Severe acute respiratory syndrome coronavirus 2". This value is provided in the template.	Severe acute respiratory syndrome coronavirus 2		
 	Sample collection and processing	isolate	xs:token		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				Identifier of the specific isolate.	Provide the GISAID virus name, which should be written in the format “hCov-19/CANADA/xxxxx/2020”.	hCov-19/CANADA/prov_rona_99/2020	Virus name	GISAID Virus Name
-	Sample collection and processing	purpose of sampling	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	recommended				The reason that the sample was collected.	Provide the purpose of sampling from the picklist in the template.	Diagnostic testing		Reason for Sampling
+	Sample collection and processing	purpose of sampling	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				The reason that the sample was collected.	Provide the purpose of sampling from the picklist in the template.	Diagnostic testing		Reason for Sampling
 	Sample collection and processing	NML submitted specimen type	select							The type of specimen submitted to the NML for testing.	Select the specimen type from the pick list provided.	swab		Specimen Type
 	Sample collection and processing	NML related specimen relationship type	select							The relationship of the related specimen to the previous submission.	Provide the specimen type of the original sample submitted from the pick list provided, so that additional specimen testing can be tracked in the system.	swab		Related Specimen ID|Related Specimen Relationship Type
 	Sample collection and processing	anatomical material	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				A substance obtained from an anatomical part of an organism e.g. tissue, blood.	Provide a descriptor if an anatomical material was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. 	Blood	Specimen source	Anatomical Material
@@ -54,11 +54,11 @@ ID	SC %
 	Host Information	host origin geo_loc name (country)	select	geo_loc_name (country)	Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					The country of residence of the host.	Select the country name from pick list provided in the template.	United Kingdom		
 	Host Information	host subject ID	xs:token							A unique identifier by which each host can be referred to e.g. #131	Provide the host identifier. Should be a unique, user-defined identifier.	BCxy123		
 	Host Information	symptom onset date	xs:date		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					The date on which the symptoms began or were first noted.	ISO 8601 standard "YYYY-MM-DD".	2020-03-16		Symptoms Onset Date
-	Host Information	signs and symptoms	multiple		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					A perceived change in function or sensation, (loss, disturbance or appearance) indicative of a disease, reported by a patient.	Select all of the symptoms experienced by the host from the pick list.	Cough; Fever; Chills		Symptoms
+	Host Information	signs and symptoms	multiple		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					A perceived change in function or sensation, (loss, disturbance or appearance) indicative of a disease, reported by a patient or clinician.	Select all of the symptoms experienced by the host from the pick list.	Cough; Fever; Chills		Symptoms
 	Host Information	pre-existing conditions and risk factors	multiple		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					"Patient pre-existing conditions and risk factors.
 Pre-existing condition: A medical condition that existed prior to the current infection.
 Risk Factor: A variable associated with an increased risk of disease or infection."	Select all of the pre-existing conditions and risk factors experienced by the host from the pick list. If the desired term is missing, contact the curation team.	Asthma; Pregnancy; Smoker		
-	Host Information	complications	multiple		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					Patient medical complications that are believed to have occurred as result of host disease.	Select all of the complications experienced by the host from the pick list. If the desired term is missing, contact the curation team.	Acute Respiratory Failure; Coma; Septicemia		
+	Host Information	complications	multiple		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					Patient medical complications that are believed to have occurred as a result of host disease.	Select all of the complications experienced by the host from the pick list. If the desired term is missing, contact the curation team.	Acute Respiratory Failure; Coma; Septicemia		
 		Host exposure information												
 	Host exposure information	location of exposure geo_loc name (country)	select	geo_loc_name (country)	Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					The country where the host was likely exposed to the causative agent of the illness.	Select the country name from pick list provided in the template.	Canada		
 	Host exposure information	destination of most recent travel (city)	xs:token		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					The name of the city that was the destination of most recent travel.	Provide the name of the city that the host travelled to. Use this look-up service to identify the standardized term: https://www.ebi.ac.uk/ols/ontologies/gaz	New York City		Country of Travel|Province of Travel|City of Travel|Travel start date|Travel End Date
@@ -73,6 +73,7 @@ Risk Factor: A variable associated with an increased risk of disease or infectio
 	Host exposure information	exposure setting	multiple							The setting leading to exposure.	Select the host exposure setting(s) from the pick list provided in the template. If a desired term is missing, contact the curation team.	Healthcare Setting		
 	Host exposure information	exposure details	xs:token							Additional host exposure information.	Free text description of the exposure.	Host role - Other: Bus Driver		
 		Sequencing												
+	Sequencing	purpose of sequencing	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				The reason that the isolate was sequenced.	Provide the purpose of sequencing from the picklist in the template.	Diagnostic testing		
 	Sequencing	library ID	xs:token			recommended				The user-specified identifier for the library prepared for sequencing.	The library name should be unique, and can be an autogenerated ID from your LIMS, or modification of the isolate ID.	XYZ_123345		
 	Sequencing	library insert size	xs:token							The insert size of the library being sequenced (i.e. the length of the DNA inserted between the adaptors).	Provide the insert size in base pairs.	300		
 	Sequencing	library preparation method	xs:token							The name of the DNA library preparation kit used to generate the library being sequenced.	Provide the name of the library preparation kit used.	Nextera XT		
@@ -119,7 +120,7 @@ Risk Factor: A variable associated with an increased risk of disease or infectio
 	Pathogen diagnostic testing	diagnostic pcr Ct value 2	xs:token							The Ct value result from a diagnostic SARS-CoV-2 RT-PCR test.	Provide the CT value of the sample from the second diagnostic RT-PCR test.	36		Gene Target #2 CT Value
 		Contributor acknowledgement												
 	Contributor acknowledgement	authors	xs:token			recommended				Names of individuals contributing to the processes of sample collection, sequence generation, analysis, and data submission.	Include the first and last names of all individuals that should be attributed, separated by a comma.	Tejinder Singh, Fei Hu, Joe Blogs	Authors	
-	Contributor acknowledgement	provenance	version										Comments	Comments
+	Contributor acknowledgement	DataHarmonizer provenance	provenance										DataHarmonizer provenance	DataHarmonizer provenance
 														
 														
 	umbrella bioproject accession	PRJNA623807												
@@ -640,6 +641,13 @@ NCIT_c15429	purpose of sampling	Research
 	purpose of sampling	Surveillance testing												
 	purpose of sampling	Viral passage experiment												
 														
+	purpose of sequencing	Cluster investigation												
+	purpose of sequencing	Diagnostic testing												
+	purpose of sequencing	Research												
+	purpose of sequencing	Surveillance testing												
+	purpose of sequencing	Viral passage experiment												
+														
+														
 	specimen processing	Virus passage												
 	specimen processing	RNA re-extraction (post RT-PCR)												
 	specimen processing	Specimens pooled												
@@ -889,9 +897,9 @@ PR:A0A663DJA2	gene name 1	ORF10
 	sequence submitted by	Saskatchewan - Roy Romanow Provincial Laboratory (RRPL)												
 	sequence submitted by	Manitoba Cadham Provincial Laboratory												
 	sequence submitted by	Nova Scotia Health Authority												
-	sequence submitted by	New Brunswick – Vitalité Health Network												
-	sequence submitted by	Newfoundland and Labrador – Eastern Health												
-	sequence submitted by	Prince Edward Island – Health PEI												
+	sequence submitted by	New Brunswick - Vitalité Health Network												
+	sequence submitted by	Newfoundland and Labrador - Eastern Health												
+	sequence submitted by	Prince Edward Island - Health PEI												
 	sequence submitted by	Ontario Institute for Cancer Research (OICR)												
 	sequence submitted by	McMaster University												
 	sequence submitted by	McGill University												
