@@ -219,13 +219,17 @@ var exportLASER = (baseName, hot, data, xlsx, fileType) => {
         continue;
       }
       
-      // yes/no calculated field
+      // yes/no field calculated from long conglomerated travel fields +
+      // travel history
       if (headerName === 'Patient Travelled') {
         // as above for field.dataStatus check.
         const travel_field = 'Country of Travel|Province of Travel|City of Travel|Travel start date|Travel End Date';
         const travel_index = outputMatrix[0].indexOf(travel_field);
-
-        outputRow.push( outputRow[travel_index].replace(/\|/g,'').length > 0 ? 'yes' : 'no' );
+        // Look for any content besides bar separators        
+        let travelled = outputRow[travel_index].replace(/\|/g,'').length > 0;
+        const travel_history = inputRow[sourceFieldNameMap['travel history']];
+        travelled = travelled || (travel_history && travel_history.length > 0);
+        outputRow.push( travelled ? 'yes' : 'no' );
         continue;
       }
 
