@@ -399,6 +399,8 @@ const runBehindLoadingScreen = (fn, args=[]) => {
  * Note that BOM and UTF-8 can create problems on some systems when importing
  * file.  See "Supported Output Formats" and "UTF-16 Unicode Text" sections of
  * https://reactian.com/sheetjs-community-edition-spreadsheet-data-toolkit/
+ * and https://github.com/SheetJS/sheetjs
+ * Solution at bottom of: https://github.com/SheetJS/sheetjs/issues/943
  * The "Comma Separated Values" format is actually UTF-8 with BOM prefix.
  * @param {Array<Array<String>>} matrix Matrix to download.
  * @param {String} baseName Basename of downloaded file.
@@ -428,6 +430,13 @@ const exportFile = (matrix, baseName, ext, xlsx) => {
       break;
     case 'csv (UTF-16)':
       xlsx.writeFile(workbook, `${baseName}.csv`, {bookType: 'txt', FS: ','});
+      break;
+    case 'csv (UTF-8, no BOM)': 
+      //Customization: skips BOM prefix '\uFEFF' 
+      const csv = xlsx.utils.sheet_to_csv(worksheet, {FS: ','});
+      const blob = new Blob([csv], {type: 'text/plain;charset=UTF-8'});
+      //A FileSaver module call
+      saveAs(blob, `${baseName}.csv`); // Avoids {autoBom: true} parameter
       break;
   }
 };
