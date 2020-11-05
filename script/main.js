@@ -435,8 +435,8 @@ const exportFile = (matrix, baseName, ext, xlsx) => {
       //Customization: skips BOM prefix '\uFEFF' 
       const csv = xlsx.utils.sheet_to_csv(worksheet, {FS: ','});
       const blob = new Blob([csv], {type: 'text/plain;charset=UTF-8'});
-      //A FileSaver module call
-      saveAs(blob, `${baseName}.csv`); // Avoids {autoBom: true} parameter
+      //A FileSaver module call, avoids {autoBom: true} parameter
+      saveAs(blob, `${baseName}.csv`);
       break;
   }
 };
