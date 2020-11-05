@@ -279,6 +279,6 @@ var exportLASER = (baseName, hot, data, xlsx, fileType) => {
 var EXPORT_FORMATS = {
   "IRIDA":        {'method': exportIRIDA, 'fileType': 'xls', 'status': 'published'},
   "GISAID":       {'method': exportGISAID,'fileType': 'xls', 'status': 'published'},
-  "CNPHI LaSER":  {'method': exportLASER, 'fileType': 'csv (UTF-16)', 'status': 'published'}
+  "CNPHI LaSER":  {'method': exportLASER, 'fileType': 'csv (UTF-8, no BOM)', 'status': 'published'}
 };
 
