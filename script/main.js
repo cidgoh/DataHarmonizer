@@ -426,7 +426,7 @@ const exportFile = (matrix, baseName, ext, xlsx) => {
       xlsx.writeFile(workbook, `${baseName}.csv`, {bookType: 'csv', FS: ','});
       break;
     case 'tsv (UTF-16)':
-      xlsx.writeFile(workbook, `${baseName}.csv`, {bookType: 'txt', FS: ','});
+      xlsx.writeFile(workbook, `${baseName}.tsv`, {bookType: 'txt', FS: '\t'});
       break;
     case 'csv (UTF-16)':
       xlsx.writeFile(workbook, `${baseName}.csv`, {bookType: 'txt', FS: ','});
