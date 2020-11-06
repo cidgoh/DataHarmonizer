@@ -652,8 +652,8 @@ const matrixFieldChangeRules = (matrix, hot, data) => {
 
 /**
  * Iterate through rules set up for named columns
- * Like matrixFieldChangeRules but this is involked just for a single change
- * triggered by a user edit on a field cell.
+ * Like matrixFieldChangeRules but this is triggered by a single change
+ * by a user edit on a field cell.
  * @param {Array} change array [row, col, ? , value]
  * @param {Object} fields See `data.js`.
  * @param {Array} triggered_changes array of change which is appended to changes.
@@ -668,21 +668,28 @@ const fieldChangeRules = (change, fields, triggered_changes) => {
       change[3] = changeCase(change[3], field.capitalize);
 
   // Rules that require a particular column following current one.
-  if (fields.length > col+1) { // >= ?
-
+  if (fields.length > col+1) {
     const row = change[0];
     // We're reusing a sparse array here to set up binChangeTest()
     const matrix = [0];
     matrix[0] = {};
-    matrix[0][col] = change[3]; // prime value
-    // See above
-    if (fields[col+1].fieldName == field.fieldName + ' bin') {
-      binChangeTest(matrix, row, col, fields, 1, triggered_changes);
+    // If this is a unit field for previous field, and next is a bin
+    if (fields[col-1].fieldName + ' unit' === field.fieldName
+      && fields[col-1].fieldName + ' bin' === fields[col+1].fieldName) {
+      matrix[0][col] = change[3]; // prime unit
+      matrix[0][col-1] = window.HOT.getDataAtCell(row, col-1);
+      binChangeTest(matrix, row, col-1, fields, 2, triggered_changes);
     }
-    else if (fieldUnitBinTest(fields, col)) {
-      console.log(window.HOT.getDataAtCell(row, col+2) )
-      matrix[0][col+1] = window.HOT.getDataAtCell(row, col+1); //prime unit
-      binChangeTest(matrix, row, col, fields, 2, triggered_changes);
+    else {
+      matrix[0][col] = change[3]; // prime value
+      // If subsequent field is a bin
+      if (fields[col+1].fieldName == field.fieldName + ' bin') {
+        binChangeTest(matrix, row, col, fields, 1, triggered_changes);
+      }
+      else if (fieldUnitBinTest(fields, col)) {
+        matrix[0][col+1] = window.HOT.getDataAtCell(row, col+1); //prime unit
+        binChangeTest(matrix, row, col, fields, 2, triggered_changes);
+      }
     }
   }
 
@@ -718,6 +725,8 @@ const binChangeTest = (matrix, rowOffset, col, fields, binOffset, triggered_chan
     // Note matrix pass cell by reference so its content can be changed.
     if (value && value.length > 0) {
       let number = parseFloat(value);
+      
+      console.log(rowOffset, col, value, number)
 
       var selection = '';
       if (number >= 0) {
