@@ -701,7 +701,6 @@ const fieldChangeRules = (change, fields, triggered_changes) => {
  * @param {Integer} column of numeric field.
  */
 const fieldUnitBinTest = (fields, col) => {
-  //console.log (fields.fieldName, fields[col+1].fieldName, fields[col+2].fieldName, fields.length)
   return ((fields.length > col+2) 
     && (fields[col+1].fieldName == fields[col].fieldName + ' unit') 
     && (fields[col+2].fieldName == fields[col].fieldName + ' bin'));
@@ -725,8 +724,6 @@ const binChangeTest = (matrix, rowOffset, col, fields, binOffset, triggered_chan
     // Note matrix pass cell by reference so its content can be changed.
     if (value && value.length > 0) {
       let number = parseFloat(value);
-      
-      console.log(rowOffset, col, value, number)
 
       var selection = '';
       if (number >= 0) {
@@ -735,15 +732,16 @@ const binChangeTest = (matrix, rowOffset, col, fields, binOffset, triggered_chan
           const unit = matrix[row][col+1];
           // Host age unit is interpreted by default to be year.
           // If user selects month, value is converted into years for binning.
+          // Future solution won't hardcode month / year assumption
           if (unit) {
             if (unit === 'month') {
               number = number / 12;
             }
           }
-          // Force unit
-          else {
-            triggered_changes.push([rowOffset + parseInt(row), col+1, undefined, 'year']);
-          }
+          // Force unit to be year if empty.
+          //else {
+          //  triggered_changes.push([rowOffset + parseInt(row), col+1, undefined, 'year']);
+          //}
 
         }
         // .flatVocabulary is an array of bin ranges e.g. "10 - 19"
