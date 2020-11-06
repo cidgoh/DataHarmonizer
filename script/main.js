@@ -634,14 +634,12 @@ const matrixFieldChangeRules = (matrix, hot, data) => {
       // Rule: for any "x, x unit, x bin" series of fields
       else if (fieldUnitBinTest(fields, col)) {
         // 2 specifies bin offset
-        console.log("Found numeric field + unit + bin in matrixFieldChangeRules()", matrix.length)
         binChangeTest(matrix, 0, col, fields, 2, triggered_changes)
       }
     }
 
     // Do triggered changes:
     for (const change of triggered_changes) {
-      console.log (change[0],change[1],change[3])
       matrix[change[0]][change[1]] = change[3];
     }
   }
