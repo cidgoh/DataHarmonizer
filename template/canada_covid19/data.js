@@ -842,7 +842,7 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "required",
         "description": "The reason that the sample was collected.",
-        "guidance": "Provide the purpose of sampling from the picklist in the template.",
+        "guidance": "The reason a sample was collected may provide information about potential biases in sampling strategy. Provide the purpose of sampling from the picklist in the template. Most likely, the sample was collected for Diagnostic testing. The reason why a sample was originally collected may differ from the reason why it was selected for sequencing, which should be indicated in the \"purpose of sequencing\" field. ",
         "examples": "Diagnostic testing",
         "exportField": {
           "CNPHI": [
@@ -1717,6 +1717,30 @@ var DATA = [
               "field": "Patient Age"
             }
           ]
+        }
+      },
+      {
+        "fieldName": "host age unit",
+        "capitalize": "",
+        "ontology_id": "",
+        "datatype": "select",
+        "source": "",
+        "dataStatus": [
+          "Not Applicable",
+          "Missing",
+          "Not Collected",
+          "Not Provided",
+          "Restricted Access"
+        ],
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "The unit used to measure the host age, in either months or years.",
+        "guidance": "Indicate whether the host age is in months or years. Age indicated in months will be binned to the 0 - 9 year age bin. ",
+        "examples": "",
+        "vocabulary": {
+          "month": {},
+          "year": {}
         }
       },
       {
@@ -2667,7 +2691,7 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "required",
         "description": "The reason that the isolate was sequenced.",
-        "guidance": "Provide the purpose of sequencing from the picklist in the template.",
+        "guidance": "The reason an isolate was sequenced may provide information about potential biases in sequencing strategy. Provide the purpose of sequencing from the picklist in the template. Most likely, the sample was collected for Surveillance or Research. The reason why a sample was originally collected may differ from the reason why it was selected for sequencing. The reason for sample collection should be indicated in the \"purpose of sampling\" field. ",
         "examples": "Diagnostic testing",
         "vocabulary": {
           "Cluster investigation": {},
