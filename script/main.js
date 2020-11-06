@@ -164,7 +164,8 @@ const createHot = (data) => {
     // Handsontable's validation is extremely slow with large datasets
     invalidCellClassName: '',
     licenseKey: 'non-commercial-and-evaluation',
-    beforeChange: function(changes, source) {
+    // beforeChange source: https://handsontable.com/docs/8.1.0/tutorial-using-callbacks.html#page-source-definition
+    beforeChange: function(changes, source) { 
       if (!changes) return;
 
       // When a change in one field triggers a change in another field.
@@ -622,41 +623,25 @@ const matrixFieldChangeRules = (matrix, hot, data) => {
 
     var triggered_changes = [];
 
-    // Rules that require a column following current one.
+    // Rules that require a column or two following current one.
     if (fields.length > col+1) {
 
-      const next_field = fields[col+1];
-
-      // Rule: for any "x bin" field that follows a "x" field (see next fn)
-      if (next_field.fieldName == fields[col].fieldName + ' bin') {
-        for (let row=0; row < matrix.length; row++) {
-          // Do parseFloat rather than parseInt to accomodate fractional bins.
-          const value = matrix[row][col];
-
-          // For IMPORT, this is only run on fields that have a value.
-          // Note matrix pass cell by reference so its content can be changed.
-          if (value && value.length > 0) {
-            const number = parseFloat(matrix[row][col]);
-            var selection = '';
-            if (number >= 0) {
-              // .flatVocabulary is an array of ranges e.g. "10 - 19"
-              for (const number_range of next_field.flatVocabulary) {
-                // ParseInt just looks at first part of number 
-                if (number >= parseFloat(number_range)) {
-                  selection = number_range;
-                  continue;
-                }
-                break;
-              }
-            }
-            triggered_changes.push([row, col+1, undefined, selection]);
-          }
-        }
+      // Rule: for any "x bin" field label, following a "x" field,
+      // find and set appropriate bin selection.
+      if (fields[col+1].fieldName == field.fieldName + ' bin') {
+        binChangeTest(matrix, 0, col, fields, 1, triggered_changes);
+      }
+      // Rule: for any "x, x unit, x bin" series of fields
+      else if (fieldUnitBinTest(fields, col)) {
+        // 2 specifies bin offset
+        console.log("Found numeric field + unit + bin in matrixFieldChangeRules()", matrix.length)
+        binChangeTest(matrix, 0, col, fields, 2, triggered_changes)
       }
     }
 
     // Do triggered changes:
     for (const change of triggered_changes) {
+      console.log (change[0],change[1],change[3])
       matrix[change[0]][change[1]] = change[3];
     }
   }
@@ -664,9 +649,11 @@ const matrixFieldChangeRules = (matrix, hot, data) => {
   return matrix;
 }
 
+
 /**
  * Iterate through rules set up for named columns
- * Like matrixFieldChangeRules but just for table cell change array.
+ * Like matrixFieldChangeRules but this is involked just for a single change
+ * triggered by a user edit on a field cell.
  * @param {Array} change array [row, col, ? , value]
  * @param {Object} fields See `data.js`.
  * @param {Array} triggered_changes array of change which is appended to changes.
@@ -680,34 +667,90 @@ const fieldChangeRules = (change, fields, triggered_changes) => {
   if (field.capitalize !== null && change[3] && change[3].length > 0) 
       change[3] = changeCase(change[3], field.capitalize);
 
-  // Rules that require a column following current one.
-  if (fields.length > col+1) {
+  // Rules that require a particular column following current one.
+  if (fields.length > col+1) { // >= ?
 
-    const next_field = fields[col+1];
+    const row = change[0];
+    // We're reusing a sparse array here to set up binChangeTest()
+    const matrix = [0];
+    matrix[0] = {};
+    matrix[0][col] = change[3]; // prime value
+    // See above
+    if (fields[col+1].fieldName == field.fieldName + ' bin') {
+      binChangeTest(matrix, row, col, fields, 1, triggered_changes);
+    }
+    else if (fieldUnitBinTest(fields, col)) {
+      console.log(window.HOT.getDataAtCell(row, col+2) )
+      matrix[0][col+1] = window.HOT.getDataAtCell(row, col+1); //prime unit
+      binChangeTest(matrix, row, col, fields, 2, triggered_changes);
+    }
+  }
 
-    // Rule: for any "x bin" field that follows a "x" field (in other words, with
-    // " bin" appended to its label, find and set appropriate bin selection.
-    // add test on field.datatypes === "xs:decimal" , "select" ?
-    if (next_field.fieldName == fields[col].fieldName + ' bin') {
-      // Do parseFloat rather than parseInt to accomodate fractional bins.
-      const value = parseFloat(change[3]);
+};
+
+/**
+ * Test to see if col's field is followed by [field unit],[field bin] fields
+ * @param {Object} fields See `data.js`.
+ * @param {Integer} column of numeric field.
+ */
+const fieldUnitBinTest = (fields, col) => {
+  //console.log (fields.fieldName, fields[col+1].fieldName, fields[col+2].fieldName, fields.length)
+  return ((fields.length > col+2) 
+    && (fields[col+1].fieldName == fields[col].fieldName + ' unit') 
+    && (fields[col+2].fieldName == fields[col].fieldName + ' bin'));
+}
+
+/**
+ * Test [field],[field bin] or [field],[field unit],[field bin] combinations
+ * to see if bin update needed.
+ * @param {Array<Array<String>>} matrix Data meant for grid.
+ * @param {Integer} column of numeric field.
+ * @param {Object} fields See `data.js`.
+ * @param {Integer} binOffset column of bin field.
+ * @param {Array} triggered_changes array of change which is appended to changes.
+ */
+const binChangeTest = (matrix, rowOffset, col, fields, binOffset, triggered_changes) => {
+  for (let row in matrix) {
+    // Do parseFloat rather than parseInt to accomodate fractional bins.
+    //this.getDataAtCell(row, col)
+    const value = matrix[row][col];
+    // For IMPORT, this is only run on fields that have a value.
+    // Note matrix pass cell by reference so its content can be changed.
+    if (value && value.length > 0) {
+      let number = parseFloat(value);
+
       var selection = '';
-      if (value >= 0) {
-        // .flatVocabulary is an array of ranges e.g. "10 - 19"
-        for (const number_range of next_field.flatVocabulary) {
-          if (value >= parseFloat(number_range)) {
+      if (number >= 0) {
+        // Here we have the 3 field call, with units sandwitched in the middle
+        if (binOffset === 2) {
+          const unit = matrix[row][col+1];
+          // Host age unit is interpreted by default to be year.
+          // If user selects month, value is converted into years for binning.
+          if (unit) {
+            if (unit === 'month') {
+              number = number / 12;
+            }
+          }
+          // Force unit
+          else {
+            triggered_changes.push([rowOffset + parseInt(row), col+1, undefined, 'year']);
+          }
+
+        }
+        // .flatVocabulary is an array of bin ranges e.g. "10 - 19"
+        for (const number_range of fields[col+binOffset].flatVocabulary) {
+          // ParseInt just looks at first part of number 
+          if (number >= parseFloat(number_range)) {
             selection = number_range;
             continue;
           }
           break;
         }
       }
-      triggered_changes.push([change[0], col+1, undefined, selection]);
-
-    };
+      triggered_changes.push([rowOffset + parseInt(row), col+binOffset, undefined, selection]);
+    }
   }
-
-};
+}
 
 /**
  * Modify visibility of columns in grid. This function should only be called
