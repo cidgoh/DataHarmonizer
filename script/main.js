@@ -696,7 +696,7 @@ const fieldChangeRules = (change, fields, triggered_changes) => {
     const matrix = [0];
     matrix[0] = {};
     // If this is a unit field for previous field, and next is a bin
-    if (fields[col-1].fieldName + ' unit' === field.fieldName
+    if (col > 0 && fields[col-1].fieldName + ' unit' === field.fieldName
       && fields[col-1].fieldName + ' bin' === fields[col+1].fieldName) {
       matrix[0][col] = change[3]; // prime unit
       matrix[0][col-1] = window.HOT.getDataAtCell(row, col-1);
