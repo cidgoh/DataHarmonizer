@@ -207,14 +207,14 @@ var exportLASER = (baseName, hot, data, xlsx, fileType) => {
       if (headerName === 'Patient Symptomatic') {
         // Note: if this field eventually gets null values, then must do 
         // field.dataStatus check.
-        const value = inputRow[sourceFieldNameMap['signs and symptoms']];
+        const value = inputRow[sourceFieldNameMap['signs and symptoms']] || '';
         outputRow.push( value ? 'yes' : 'no' );
         continue;
       }
 
       // Change in delimiter
       if (headerName === 'Symptoms') {
-        const value = inputRow[sourceFieldNameMap['signs and symptoms']];
+        const value = inputRow[sourceFieldNameMap['signs and symptoms']] || '';
         outputRow.push(value.replace(/;/g,'~') );
         continue;
       }
@@ -230,6 +230,16 @@ var exportLASER = (baseName, hot, data, xlsx, fileType) => {
         const travel_history = inputRow[sourceFieldNameMap['travel history']];
         travelled = travelled || (travel_history && travel_history.length > 0);
         outputRow.push( travelled ? 'yes' : 'no' );
+        continue;
+      }
+
+      // Can't accept 'Human' for 'Animal Type' value.
+      if (headerName === 'Animal Type') {
+        let value = inputRow[sourceFieldNameMap['host (common name)']];
+        if (value === 'Human') {
+          value = null;
+        }
+        outputRow.push(value); //
         continue;
       }
 
@@ -279,6 +289,6 @@ var exportLASER = (baseName, hot, data, xlsx, fileType) => {
 var EXPORT_FORMATS = {
   "IRIDA":        {'method': exportIRIDA, 'fileType': 'xls', 'status': 'published'},
   "GISAID":       {'method': exportGISAID,'fileType': 'xls', 'status': 'published'},
-  "CNPHI LaSER":  {'method': exportLASER, 'fileType': 'csv (UTF-8, no BOM)', 'status': 'published'}
+  "CNPHI LaSER":  {'method': exportLASER, 'fileType': 'csv (ASCII)', 'status': 'published'}
 };
 

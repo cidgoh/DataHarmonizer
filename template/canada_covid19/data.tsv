@@ -49,7 +49,7 @@ ID	SC %
 	Host Information	host health outcome	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					Disease outcome in the host.	If known, select a descriptor from the pick list provided in the template.	Recovered		
 	Host Information	host disease	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				The name of the disease experienced by the host.	Select "COVID-19" from the pick list provided in the template.	COVID-19		Host Disease
 	Host Information	host age	xs:decimal		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required	0	130		Age of host at the time of sampling.	Enter the age of the host in years. If not available, provide a null value. If there is not host, put "Not Applicable".	79	Patient age	Patient Age
-	Host Information	host age unit	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					The unit used to measure the host age, in either months or years.	Indicate whether the host age is in months or years. Age indicated in months will be binned to the 0 - 9 year age bin. 			
+	Host Information	host age unit	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				The unit used to measure the host age, in either months or years.	Indicate whether the host age is in months or years. Age indicated in months will be binned to the 0 - 9 year age bin. 			
 	Host Information	host age bin	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				Age of host at the time of sampling, expressed as an age group.	Select the corresponding host age bin from the pick list provided in the template. If not available, provide a null value.	60 - 69		Host Age Category
 	Host Information	host gender	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				The gender of the host at the time of sample collection.	Select the corresponding host gender from the pick list provided in the template. If not available, provide a null value. If there is no host, put "Not Applicable".	male	Gender	Patient Sex
 	Host Information	host origin geo_loc name (country)	select	geo_loc_name (country)	Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					The country of residence of the host.	Select the country name from pick list provided in the template.	United Kingdom		
@@ -186,14 +186,13 @@ HP:0001063	Cyanosis	   Acrocyanosis
 	Central Cyanosis	      Cyanotic lips (bluish lips)												
 	Cyanosis	   Peripheral Cyanosis												
 HP_0002094	signs and symptoms	Dyspnea (breathing difficulty) 												
-														
 HP_0002014	signs and symptoms	Diarrhea (watery stool)												
 	signs and symptoms	Dry gangrene												
 HP_0002383	signs and symptoms	Encephalitis (brain inflammation)												
 	signs and symptoms	Encephalopathy												
 HP_0012378	signs and symptoms	Fatigue (tiredness)												
 HP_0001945 	signs and symptoms	Fever												
-	Fever	   Fever (≥38°C)												
+	Fever	   Fever (>=38°C)												
 HP:0000206	signs and symptoms	Glossitis (inflammation of the tongue)												
 	signs and symptoms	Ground Glass Opacities (GGO)												
 HP_0002315	signs and symptoms	Headache												

@@ -439,6 +439,12 @@ const exportFile = (matrix, baseName, ext, xlsx) => {
       //A FileSaver module call, avoids {autoBom: true} parameter
       saveAs(blob, `${baseName}.csv`);
       break;
+    case 'csv (ASCII)': 
+      //Customization: skips BOM prefix, as above.
+      const csv2 = xlsx.utils.sheet_to_csv(worksheet, {FS: ','});
+      const blob2 = new Blob([csv2], {type: 'text/plain;charset=us-ascii'});
+      saveAs(blob2, `${baseName}.csv`);
+      break;
   }
 };
 
