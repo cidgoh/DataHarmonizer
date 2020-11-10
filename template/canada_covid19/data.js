@@ -1734,7 +1734,7 @@ var DATA = [
         ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
-        "requirement": "",
+        "requirement": "required",
         "description": "The unit used to measure the host age, in either months or years.",
         "guidance": "Indicate whether the host age is in months or years. Age indicated in months will be binned to the 0 - 9 year age bin. ",
         "examples": "",
@@ -1962,7 +1962,7 @@ var DATA = [
           "Encephalopathy": {},
           "Fatigue (tiredness)": {},
           "Fever": {
-            "Fever (\u226538\u00b0C)": {}
+            "Fever (>=38\u00b0C)": {}
           },
           "Glossitis (inflammation of the tongue)": {},
           "Ground Glass Opacities (GGO)": {},
