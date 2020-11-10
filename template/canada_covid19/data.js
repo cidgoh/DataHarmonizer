@@ -3519,11 +3519,6 @@ var DATA = [
             {
               "field": "DataHarmonizer provenance"
             }
-          ],
-          "CNPHI": [
-            {
-              "field": "DataHarmonizer provenance"
-            }
           ]
         }
       }
