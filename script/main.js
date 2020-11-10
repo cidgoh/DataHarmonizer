@@ -11,7 +11,7 @@
  * main.html?template=test_template
  *
  */
-const VERSION = '0.13.4'; //Version 0.13.4
+const VERSION = '0.13.5';
 const TEMPLATES = {
   'CanCOGeN Covid-19': {'folder': 'canada_covid19', 'status': 'published'},
   'PHAC Dexa (ALPHA)': {'folder': 'phac_dexa', 'status': 'draft'},
