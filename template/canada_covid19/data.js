@@ -860,6 +860,26 @@ var DATA = [
         }
       },
       {
+        "fieldName": "purpose of sampling details",
+        "capitalize": "",
+        "ontology_id": "",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": [
+          "Not Applicable",
+          "Missing",
+          "Not Collected",
+          "Not Provided",
+          "Restricted Access"
+        ],
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "required",
+        "description": "The description of why the sample was collected providing specific details.",
+        "guidance": "Provide an expanded description of why the sample was collected using free text. The description may include the importance of the sample for a particular public health investigation/surveillance activity/research question. If details are not available, provide a null value. ",
+        "examples": "The sample was collected to investigate the prevalence of variants associated with mink-to-human transmission in Canada. "
+      },
+      {
         "fieldName": "NML submitted specimen type",
         "capitalize": "",
         "ontology_id": "",
@@ -1504,6 +1524,7 @@ var DATA = [
           "Cow": {},
           "Dog": {},
           "Lion": {},
+          "Mink": {},
           "Pangolin": {},
           "Pig": {},
           "Pigeon": {},
@@ -1546,6 +1567,7 @@ var DATA = [
           "Gallus gallus": {},
           "Manis": {},
           "Manis javanica": {},
+          "Neovison vison": {},
           "Panthera leo": {},
           "Panthera tigris": {},
           "Rhinolophidae": {},
@@ -2700,6 +2722,26 @@ var DATA = [
           "Surveillance testing": {},
           "Viral passage experiment": {}
         }
+      },
+      {
+        "fieldName": "purpose of sequencing details",
+        "capitalize": "",
+        "ontology_id": "",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": [
+          "Not Applicable",
+          "Missing",
+          "Not Collected",
+          "Not Provided",
+          "Restricted Access"
+        ],
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "required",
+        "description": "The description of why the sample was sequenced providing specific details.",
+        "guidance": "Provide an expanded description of why the sample was sequenced using free text. The description may include the importance of the sequences for a particular public health investigation/surveillance activity/research question. If details are not available, provide a null value. ",
+        "examples": "The sample was sequenced to investigate the differences in lineages circulating in Canada during the spring and fall waves of the pandemic."
       },
       {
         "fieldName": "library ID",
