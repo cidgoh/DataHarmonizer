@@ -11,7 +11,7 @@
  * main.html?template=test_template
  *
  */
-const VERSION = '0.13.6';
+const VERSION = '0.13.7';
 const TEMPLATES = {
   'CanCOGeN Covid-19': {'folder': 'canada_covid19', 'status': 'published'},
   'PHAC Dexa (ALPHA)': {'folder': 'phac_dexa', 'status': 'draft'},
@@ -946,7 +946,7 @@ const getInvalidCells = (hot, data) => {
 };
 
 /**
- * Test cellVal against DataHarmonizer: vX.Y.Z pattern and if it needs an
+ * Test cellVal against DataHarmonizer provenance: vX.Y.Z pattern and if it needs an
  * update, do so.
  * @param {Object} cellVal field value to be tested.
  * @param {Object} hot link to data
@@ -954,7 +954,7 @@ const getInvalidCells = (hot, data) => {
  * @param {Integer} column index of data
  */
 const checkProvenance = (cellVal, hot, row, col) => {
-  const version = 'DataHarmonizer: v' + VERSION;
+  const version = 'DataHarmonizer provenance: v' + VERSION;
   let splitVal = [];
   if (!cellVal) {
     splitVal = [version];

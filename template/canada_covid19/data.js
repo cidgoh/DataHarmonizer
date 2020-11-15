@@ -3561,6 +3561,11 @@ var DATA = [
             {
               "field": "DataHarmonizer provenance"
             }
+          ],
+          "CNPHI": [
+            {
+              "field": "additional comments"
+            }
           ]
         }
       }
