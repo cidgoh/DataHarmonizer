@@ -297,7 +297,7 @@ var DATA = [
         },
         "vocabulary": {
           "National Microbiology Laboratory (NML)": {},
-          "BC Centre for Disease Control (BCCDC)": {},
+          "BCCDC Public Health Laboratory": {},
           "Alberta Precision Labs (APL)": {
             "Alberta ProvLab North (APLN)": {},
             "Alberta ProvLab South (APLS)": {}
@@ -918,7 +918,7 @@ var DATA = [
         "requirement": "",
         "description": "The relationship of the related specimen to the previous submission.",
         "guidance": "Provide the specimen type of the original sample submitted from the pick list provided, so that additional specimen testing can be tracked in the system.",
-        "examples": "swab",
+        "examples": "Follow-up",
         "exportField": {
           "CNPHI": [
             {
@@ -1168,7 +1168,7 @@ var DATA = [
         "requirement": "required",
         "description": "An environmental location may describe a site in the natural or built environment e.g. contact surface, metal can, hospital, wet market, bat cave.",
         "guidance": "Provide a descriptor if an environmental site was sampled. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. ",
-        "examples": "Building floor",
+        "examples": "Production Facility",
         "exportField": {
           "GISAID": [
             {
@@ -1924,7 +1924,7 @@ var DATA = [
         "requirement": "",
         "description": "A perceived change in function or sensation, (loss, disturbance or appearance) indicative of a disease, reported by a patient or clinician.",
         "guidance": "Select all of the symptoms experienced by the host from the pick list.",
-        "examples": "Cough; Fever; Chills",
+        "examples": "Chills (sudden cold sensation); Cough; Fever",
         "exportField": {
           "CNPHI": [
             {
@@ -2055,7 +2055,7 @@ var DATA = [
         "requirement": "",
         "description": "Patient pre-existing conditions and risk factors.\nPre-existing condition: A medical condition that existed prior to the current infection.\nRisk Factor: A variable associated with an increased risk of disease or infection.",
         "guidance": "Select all of the pre-existing conditions and risk factors experienced by the host from the pick list. If the desired term is missing, contact the curation team.",
-        "examples": "Asthma; Pregnancy; Smoker",
+        "examples": "Asthma; Pregnancy; Smoking",
         "vocabulary": {
           "Age 60+": {},
           "Anemia": {},
@@ -2489,7 +2489,7 @@ var DATA = [
         "requirement": "",
         "description": "Event leading to exposure.",
         "guidance": "Select an exposure event from the pick list provided in the template. If the desired term is missing, contact the curation team.",
-        "examples": "Mass gathering (convention)",
+        "examples": "Convention",
         "exportField": {
           "GISAID": [
             {
