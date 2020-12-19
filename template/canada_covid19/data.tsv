@@ -27,7 +27,8 @@ ID	SC %
 	Sample collection and processing	isolate	xs:token		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				Identifier of the specific isolate.	Provide the GISAID virus name, which should be written in the format “hCov-19/CANADA/xxxxx/2020”.	hCov-19/CANADA/prov_rona_99/2020	Virus name	GISAID Virus Name
 	Sample collection and processing	purpose of sampling	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				The reason that the sample was collected.	The reason a sample was collected may provide information about potential biases in sampling strategy. Provide the purpose of sampling from the picklist in the template. Most likely, the sample was collected for Diagnostic testing. The reason why a sample was originally collected may differ from the reason why it was selected for sequencing, which should be indicated in the "purpose of sequencing" field. 	Diagnostic testing		Reason for Sampling
 	Sample collection and processing	purpose of sampling details	xs:token		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				The description of why the sample was collected providing specific details.	Provide an expanded description of why the sample was collected using free text. The description may include the importance of the sample for a particular public health investigation/surveillance activity/research question. If details are not available, provide a null value. 	The sample was collected to investigate the prevalence of variants associated with mink-to-human transmission in Canada. 		
-	Sample collection and processing	NML submitted specimen type	select							The type of specimen submitted to the NML for testing.	Select the specimen type from the pick list provided.	swab		Specimen Type
+	Sample collection and processing	NML submitted specimen type	select		Not Applicable 	required				The type of specimen submitted to the NML for testing.	"This information is required for upload through the CNPHI LaSER system. Select the specimen type from the pick list provided. If sequence data is being submitted rather than a specimen for testing, select “Not Applicable”.
+"	swab		Specimen Type
 	Sample collection and processing	NML related specimen relationship type	select							The relationship of the related specimen to the previous submission.	Provide the specimen type of the original sample submitted from the pick list provided, so that additional specimen testing can be tracked in the system.	Follow-up		Related Specimen ID|Related Specimen Relationship Type
 	Sample collection and processing	anatomical material	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				A substance obtained from an anatomical part of an organism e.g. tissue, blood.	Provide a descriptor if an anatomical material was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. 	Blood	Specimen source	Anatomical Material
 	Sample collection and processing	anatomical part	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				An anatomical part of an organism e.g. oropharynx.	Provide a descriptor if an anatomical part was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. 	Nasopharynx (NP)	Specimen source	Anatomical Site
@@ -140,7 +141,7 @@ GAZ_00002563	geo_loc_name (province/territory)	Ontario
 GAZ_00002572	geo_loc_name (province/territory)	Prince Edward Island												
 GAZ_00002569	geo_loc_name (province/territory)	Quebec												
 GAZ_00002564	geo_loc_name (province/territory)	Saskatchewan												
-GAZ_00002576	geo_loc_name (province/territory)	Yukon Territory												
+GAZ_00002576	geo_loc_name (province/territory)	Yukon												
 														
 UO:0000035	host age unit	month												
 UO:0000036	host age unit	year												
@@ -152,7 +153,7 @@ UO:0000036	host age unit	year
 														
 														
 														
-	signs and symptoms	Abnormal lung ausculation												
+	signs and symptoms	Abnormal lung auscultation												
 HP:0000223	signs and symptoms	Abnormality of taste sensation												
 	Abnormality of taste sensation	   Ageusia (complete loss of taste)												
 HP:0031249	Abnormality of taste sensation	   Parageusia (distorted sense of taste)												
@@ -245,6 +246,7 @@ HP_0002013	signs and symptoms	Vomiting (throwing up)
 	NML submitted specimen type	RNA												
 	NML submitted specimen type	mRNA (cDNA)												
 	NML submitted specimen type	Nucleic acid												
+	NML submitted specimen type	Sequence												
 														
 														
 	NML related specimen relationship type	Acute												

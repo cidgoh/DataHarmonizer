@@ -751,7 +751,7 @@ var DATA = [
           "Prince Edward Island": {},
           "Quebec": {},
           "Saskatchewan": {},
-          "Yukon Territory": {}
+          "Yukon": {}
         }
       },
       {
@@ -885,12 +885,14 @@ var DATA = [
         "ontology_id": "",
         "datatype": "select",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "Not Applicable"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
-        "requirement": "",
+        "requirement": "required",
         "description": "The type of specimen submitted to the NML for testing.",
-        "guidance": "Select the specimen type from the pick list provided.",
+        "guidance": "This information is required for upload through the CNPHI LaSER system. Select the specimen type from the pick list provided. If sequence data is being submitted rather than a specimen for testing, select \u201cNot Applicable\u201d.\n",
         "examples": "swab",
         "exportField": {
           "CNPHI": [
@@ -903,7 +905,8 @@ var DATA = [
           "Swab": {},
           "RNA": {},
           "mRNA (cDNA)": {},
-          "Nucleic acid": {}
+          "Nucleic acid": {},
+          "Sequence": {}
         }
       },
       {
@@ -1933,7 +1936,7 @@ var DATA = [
           ]
         },
         "vocabulary": {
-          "Abnormal lung ausculation": {},
+          "Abnormal lung auscultation": {},
           "Abnormality of taste sensation": {
             "Ageusia (complete loss of taste)": {},
             "Parageusia (distorted sense of taste)": {},
