@@ -6,12 +6,12 @@
 
 /* A list of templates available for this app, which will be displayed in a 
  * menu. A template can also be accessed by adding it as a folder name in the
- * URL parameter:
+ * URL parameter. This enables testing of a template even if it hasn't been incorporated into the list below.
  *
  * main.html?template=test_template
  *
  */
-const VERSION = '0.13.10';
+const VERSION = '0.13.11';
 const TEMPLATES = {
   'CanCOGeN Covid-19': {'folder': 'canada_covid19', 'status': 'published'},
   'PHAC Dexa (ALPHA)': {'folder': 'phac_dexa', 'status': 'draft'},
@@ -260,7 +260,10 @@ const getColumns = (data) => {
     switch (field.datatype) {
       case 'xs:date': 
         col.type = 'date';
+        // This controls calendar popup date format, default is mm/dd/yyyy
+        // See https://handsontable.com/docs/8.3.0/Options.html#correctFormat
         col.dateFormat = 'YYYY-MM-DD';
+        col.correctFormat = true; // on import will convert dateFormat????
         break;
       case 'select':
         col.type = 'autocomplete';
@@ -464,11 +467,23 @@ const openFile = (file, hot, data, xlsx) => {
 
     fileReader.onload = (e) => {
       $('#file_name_display').text(file.name);
-      const workbook = xlsx.read(e.target.result, {type: 'binary', raw: true});
+      
+      const workbook = xlsx.read(e.target.result, {
+        type: 'binary', 
+        raw: true,
+        cellDates: true, // Ensures date formatted as  YYYY-MM-DD dates
+        dateNF: 'yyyy-mm-dd' //'yyyy/mm/dd;@'
+      });
       const worksheet =
-          updateSheetRange(workbook.Sheets[workbook.SheetNames[0]]);
-      const params = [worksheet, {header: 1, raw: false, range: 0}];
-      const matrix = (xlsx.utils.sheet_to_json(...params));
+        updateSheetRange(workbook.Sheets[workbook.SheetNames[0]]);
+      const matrix = (xlsx.utils.sheet_to_json(
+        worksheet, 
+        {
+          header: 1, 
+          raw: false, 
+          range: 0
+        }
+        ));
       const headerRowData = compareMatrixHeadersToGrid(matrix, data);
       if (headerRowData > 0) {
         hot.loadData(matrixFieldChangeRules(matrix.slice(headerRowData), hot, data));
@@ -653,17 +668,31 @@ const matrixFieldChangeRules = (matrix, hot, data) => {
 
     // Rules that require a column or two following current one.
     if (fields.length > col+1) {
+      const nextFieldName = fields[col+1].fieldName;
 
       // Rule: for any "x bin" field label, following a "x" field,
       // find and set appropriate bin selection.
-      if (fields[col+1].fieldName == field.fieldName + ' bin') {
+      if (nextFieldName === field.fieldName + ' bin') {
         binChangeTest(matrix, 0, col, fields, 1, triggered_changes);
       }
-      // Rule: for any "x, x unit, x bin" series of fields
-      else if (fieldUnitBinTest(fields, col)) {
-        // 2 specifies bin offset
-        binChangeTest(matrix, 0, col, fields, 2, triggered_changes)
-      }
+      // Rule: for any [x], [x unit], [x bin] series of fields
+      else
+        if (nextFieldName === field.fieldName + ' unit') {
+          if (fields[col].datatype === 'xs:date') {
+            //Validate 
+            for (let row=0; row < matrix.length; row++) {
+              if (!matrix[row][col]) continue;
+              const dateGranularity = matrix[row][col + 1];
+              if (dateGranularity === 'year' || dateGranularity === 'month') {
+                matrix[row][col] = setDateChange(dateGranularity, matrix[row][col]);
+              }
+            }
+          }
+          else if (fieldUnitBinTest(fields, col)) {
+            // 2 specifies bin offset
+            binChangeTest(matrix, 0, col, fields, 2, triggered_changes);
+          }
+        }
     }
 
     // Do triggered changes:
@@ -679,47 +708,120 @@ const matrixFieldChangeRules = (matrix, hot, data) => {
 /**
  * Iterate through rules set up for named columns
  * Like matrixFieldChangeRules but this is triggered by a single change
- * by a user edit on a field cell.
+ * by a user edit on a field cell. This creates complexity for fields that
+ * work together, e.g. either of first two fields of 
+ * [field][field unit][field bin] could have been focus of change.
+ *
  * @param {Array} change array [row, col, ? , value]
  * @param {Object} fields See `data.js`.
- * @param {Array} triggered_changes array of change which is appended to changes.
+ * @param {Array} triggered_changes array BY REFERENCE. One or more changes is
+ *                appended to this.
  */
 const fieldChangeRules = (change, fields, triggered_changes) => {
 
+  const row = change[0];
   const col = change[1];
   const field = fields[col];
 
   // Test field against capitalization change.
   if (field.capitalize !== null && change[3] && change[3].length > 0) 
-      change[3] = changeCase(change[3], field.capitalize);
+    change[3] = changeCase(change[3], field.capitalize);
 
-  // Rules that require a particular column following current one.
+  // Rules that require a particular column following and/or preceeding
+  // current one.
   if (fields.length > col+1) {
-    const row = change[0];
-    // We're reusing a sparse array here to set up binChangeTest()
-    const matrix = [0];
-    matrix[0] = {};
-    // If this is a unit field for previous field, and next is a bin
-    if (col > 0 && fields[col-1].fieldName + ' unit' === field.fieldName
-      && fields[col-1].fieldName + ' bin' === fields[col+1].fieldName) {
-      matrix[0][col] = change[3]; // prime unit
-      matrix[0][col-1] = window.HOT.getDataAtCell(row, col-1);
-      binChangeTest(matrix, row, col-1, fields, 2, triggered_changes);
-    }
-    else {
-      matrix[0][col] = change[3]; // prime value
-      // If subsequent field is a bin
-      if (fields[col+1].fieldName == field.fieldName + ' bin') {
-        binChangeTest(matrix, row, col, fields, 1, triggered_changes);
+
+    // We're prepping a SPARSE ARRAY here for binChangeTest()
+    var matrix = [0];
+    matrix[0] = {}; // Essential for creating sparse array.
+    matrix[0][col] = change[3]; // prime changed value
+
+    const prevName = (col > 0) ? fields[col-1].fieldName : null;
+    const nextName = (fields.length > col+1) ? fields[col+1].fieldName : null;
+
+    // Match <field>[field unit]
+    if (nextName === field.fieldName + ' unit') {
+
+      if (field.datatype === 'xs:date') {
+
+        // Transform ISO 8601 date to bin year / month granularity.
+        // "day" granularity is taken care of by regular date validation.
+        // Don't attempt to reformat x/y/z dates here.
+        const dateGranularity = window.HOT.getDataAtCell(row, col+1);
+        // previously had to block x/y/z with change[3].indexOf('/') === -1 && 
+        if (dateGranularity === 'year' || dateGranularity === 'month') {
+          change[3] = setDateChange(dateGranularity, change[3]);
+        }
+        return;
       }
-      else if (fieldUnitBinTest(fields, col)) {
+
+      // Match <field>[field unit][field bin]
+      const nextNextName = (fields.length > col+2) ? fields[col+2].fieldName : null;
+      if (nextNextName === field.fieldName + ' bin') {
         matrix[0][col+1] = window.HOT.getDataAtCell(row, col+1); //prime unit
         binChangeTest(matrix, row, col, fields, 2, triggered_changes);
+        return;
       }
     }
+
+    // Match <field>[field bin]
+    if (nextName === field.fieldName + ' bin') {
+      binChangeTest(matrix, row, col, fields, 1, triggered_changes);
+      return;
+    }
+
+    // Match [field]<field unit>
+    if (field.fieldName === prevName + ' unit') {
+
+      // Match [field]<field unit>[field bin]
+      if (prevName + ' bin' === nextName) {
+        // trigger reevaluation of bin from field
+        matrix[0][col-1] = window.HOT.getDataAtCell(row, col-1);
+        binChangeTest(matrix, row, col-1, fields, 2, triggered_changes);
+        return;
+      }
+
+
+      // Match previous field as date field
+      // A change from month to year or day to month/year triggers new 
+      // date value 
+      if (fields[col-1].datatype === 'xs:date' && (change[3] === 'year' || change[3] === 'month') ) {
+
+        let dateString = window.HOT.getDataAtCell(row, col-1);
+        // If there is a date entered, adjust it
+        // previously had to block x/y/z with  && dateString.indexOf('/') === -1 
+        if (dateString) {
+          dateString = setDateChange(change[3], dateString);
+          matrix[0][col-1] = dateString;
+          triggered_changes.push([row, col-1, undefined, dateString]);
+        }
+        return;
+      }
+    }
+
   }
 
 };
+
+const setDateChange = (dateGranularity, dateString) => {
+
+  var dateParts = dateString.split('-');
+  // Issue: incomming date may have nothing in it.
+  switch (dateGranularity) {
+    case 'year':
+      dateParts[1] = '01';
+      dateParts[2] = '01';
+      break
+    case 'month':
+      if (!dateParts[1])
+        dateParts[1] = '__'; //triggers date validation error
+      dateParts[2] = '01';
+      break;
+  }
+  // Update changed value (note "change" object overrides triggered_changes)
+  return dateParts.join('-');
+
+}
 
 /**
  * Test to see if col's field is followed by [field unit],[field bin] fields
@@ -744,7 +846,6 @@ const fieldUnitBinTest = (fields, col) => {
 const binChangeTest = (matrix, rowOffset, col, fields, binOffset, triggered_changes) => {
   for (let row in matrix) {
     // Do parseFloat rather than parseInt to accomodate fractional bins.
-    //this.getDataAtCell(row, col)
     const value = matrix[row][col];
     // For IMPORT, this is only run on fields that have a value.
     // Note matrix pass cell by reference so its content can be changed.
@@ -919,6 +1020,7 @@ const getInvalidCells = (hot, data) => {
           valid &= testNumericRange(parsedDec, fields[col]);
           break;
         case 'xs:date':
+          // moment is a date format addon
           valid = moment(cellVal, 'YYYY-MM-DD', true).isValid();
           break;
         case 'select':

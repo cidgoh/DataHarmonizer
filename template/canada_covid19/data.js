@@ -388,6 +388,32 @@ var DATA = [
         }
       },
       {
+        "fieldName": "sample collection date unit",
+        "capitalize": "",
+        "ontology_id": "",
+        "datatype": "select",
+        "source": "",
+        "dataStatus": [
+          "Not Applicable",
+          "Missing",
+          "Not Collected",
+          "Not Provided",
+          "Restricted Access"
+        ],
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "required",
+        "description": "Granularity of collection date - year or month or day",
+        "guidance": "",
+        "examples": "year",
+        "exportField": {},
+        "vocabulary": {
+          "year": {},
+          "month": {},
+          "day": {}
+        }
+      },
+      {
         "fieldName": "sample received date",
         "capitalize": "",
         "ontology_id": "",
