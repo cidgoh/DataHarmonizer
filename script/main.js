@@ -25,15 +25,16 @@ const TEMPLATES = {
 const toggleDropdownVisibility = () => {
   $('.hidden-dropdown-item').hide();
 
+  /*
   $('#file-dropdown-btn-group').off()
-      .on('show.bs.dropdown', () => {
-        if (jQuery.isEmptyObject(INVALID_CELLS)) {
-          $('#export-to-dropdown-item').removeClass('disabled');
-        } else {
-          $('#export-to-dropdown-item').addClass('disabled');
-        }
-      });
-
+    .on('show.bs.dropdown', () => {
+      if (jQuery.isEmptyObject(INVALID_CELLS)) {
+        $('#export-to-dropdown-item').removeClass('disabled');
+      } else {
+        $('#export-to-dropdown-item').addClass('disabled');
+      }
+    });
+  */
 
   $('#settings-dropdown-btn-group').off()
       .on('show.bs.dropdown', () => {
@@ -263,7 +264,10 @@ const getColumns = (data) => {
         // This controls calendar popup date format, default is mm/dd/yyyy
         // See https://handsontable.com/docs/8.3.0/Options.html#correctFormat
         col.dateFormat = 'YYYY-MM-DD';
-        col.correctFormat = true; // on import will convert dateFormat????
+        // If correctFormat = true, then on import and on data
+        // entry of cell will convert date values like "2020" to "2020-01-01"
+        // automatically.
+        col.correctFormat = false; 
         break;
       case 'select':
         col.type = 'autocomplete';
@@ -813,20 +817,24 @@ const fieldChangeRules = (change, fields, triggered_changes) => {
                    YYYY-MM
  * @return {String} ISO 8601 date string.
  */
-const setDateChange = (dateGranularity, dateString) => {
+const setDateChange = (dateGranularity, dateString, dateBlank='__') => {
 
   var dateParts = dateString.split('-');
-  // Issue: incomming date may have nothing in it.
-  switch (dateGranularity) {
-    case 'year':
-      dateParts[1] = '01';
-      dateParts[2] = '01';
-      break
-    case 'month':
-      if (!dateParts[1])
-        dateParts[1] = '__'; //triggers date validation error
-      dateParts[2] = '01';
-      break;
+  // Incomming date may have nothing in it.
+  if (dateParts[0].length > 0) {
+    switch (dateGranularity) {
+      case 'year':
+        dateParts[1] = '01';
+        dateParts[2] = '01';
+        break
+      case 'month':
+        if (!dateParts[1])
+          dateParts[1] = dateBlank; //by default triggers date validation error
+        dateParts[2] = '01';
+        break;
+      default: 
+        // do nothing
+    }
   }
   // Update changed value (note "change" object overrides triggered_changes)
   return dateParts.join('-');
@@ -1285,6 +1293,8 @@ const setupTriggers = () => {
       $('#save-as-modal').modal('show');
     }
   });
+
+
   $('#save-as-confirm-btn').click(() => {
     try {
       const baseName = $('#base-name-save-as-input').val();
@@ -1326,6 +1336,21 @@ const setupTriggers = () => {
     $('#export-to-err-msg').text('');
     $('#base-name-export-to-input').val('');
   });
+
+
+  // File -> Export
+  $('#export-to-dropdown-item').click(() => {
+    if (!jQuery.isEmptyObject(INVALID_CELLS)) {
+      $('#export-to-invalid-warning-modal').modal('show');
+    } else {
+      $('#export-to-modal').modal('show');
+    }
+  });
+
+
+
+
+
 
   // Settings -> Jump to...
   const $jumpToInput = $('#jump-to-input');

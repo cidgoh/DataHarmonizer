@@ -133,12 +133,24 @@ var exportLASER = (baseName, hot, data, xlsx, fileType) => {
     ['BioProject Accession',[]],
     ['BioSample Accession', []],
     ['SRA Accession',       []],
+
+    // Feb 17, 20201
+    ['GenBank Accession',   []],        
+    ['GISAID Accession (if known)',   []],
+    ['Lab Name',   []],
+
     ['Patient Sample Collected Date',[]],
+
+    // Feb 17, 20201: WAS "Patient Sample Collected Date precision"
+    ['Precision of date collected',[]], 
+
     ['Patient Country',     []],
     ['Patient Province',    []],
+    ['Patient City',        []], // Feb 17, 20201
     ['GISAID Virus Name',   []],
     ['Pathogen',            []], //'SARS-CoV-2'],
     ['Reason for Sampling', []],
+    ['Details on the Reason for Sampling', []], // Feb 17, 20201
     ['Test Requested',      []], //'CanCOGeN Next Generation Sequencing (NGS)'],
     ['Specimen Type',       []],
     ['Anatomical Material', []],
@@ -170,13 +182,22 @@ var exportLASER = (baseName, hot, data, xlsx, fileType) => {
     ],
     ['Patient Travelled',[]],
     ['Exposure Event',[]],
+
     ['Sequencing Centre',[]],
-    ['Sequencing protocol name',[]],
+    ['Reason for Sequencing',[]], 
+    ['Details on the Reason for Sequencing',[]], 
+    ['Sequencing Instrument',[]], 
+    ['Sequencing Protocol Name',[]], 
+    ['consensus sequence',[]], 
+    ['Bioinformatics Protocol',[]],
     ['Gene Target #1',[]],
     ['Gene Target #1 CT Value',[]],
     ['Gene Target #2',[]],
     ['Gene Target #2 CT Value',[]],
-    ['additional comments',[]]
+    ['Gene Target #3',[]],
+    ['Gene Target #3 CT Value',[]],
+    ['Authors',[]],
+    ['Additional Comments',[]]
   ]);
 
   const sourceFields = getFields(data);
@@ -218,7 +239,17 @@ var exportLASER = (baseName, hot, data, xlsx, fileType) => {
         outputRow.push(value.replace(/;/g,'~') );
         continue;
       }
-      
+
+      // Handle granularity of "Patient Sample Collected Date"
+      // by looking at year or month in "Precision of date collected"
+      if (headerName === 'Patient Sample Collected Date') {
+        const value = inputRow[sourceFieldNameMap['sample collection date']] || '';
+        const date_unit = inputRow[sourceFieldNameMap['sample collection date precision']];
+
+        outputRow.push(setDateChange(date_unit, value, '01'));
+        continue;
+      }
+
       // yes/no field calculated from long conglomerated travel fields +
       // travel history
       if (headerName === 'Patient Travelled') {
