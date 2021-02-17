@@ -31,6 +31,11 @@ var DATA = [
             {
               "field": "Primary Specimen ID"
             }
+          ],
+          "BIOSAMPLE": [
+            {
+              "field": "sample_name"
+            }
           ]
         }
       },
@@ -124,6 +129,11 @@ var DATA = [
             {
               "field": "BioProject Accession"
             }
+          ],
+          "BIOSAMPLE": [
+            {
+              "field": "bioproject_accession"
+            }
           ]
         }
       },
@@ -181,7 +191,14 @@ var DATA = [
         "requirement": "",
         "description": "The GenBank identifier assigned to the sequence in the INSDC archives.",
         "guidance": "Store the accession returned from a GenBank submission (viral genome assembly).",
-        "examples": "MN908947.3"
+        "examples": "MN908947.3",
+        "exportField": {
+          "CNPHI": [
+            {
+              "field": "GenBank Accession"
+            }
+          ]
+        }
       },
       {
         "fieldName": "GISAID accession",
@@ -195,7 +212,19 @@ var DATA = [
         "requirement": "",
         "description": "The GISAID accession number assigned to the sequence.",
         "guidance": "Store the accession returned from the GISAID submission.",
-        "examples": "EPI_ISL_436489"
+        "examples": "EPI_ISL_436489",
+        "exportField": {
+          "CNPHI": [
+            {
+              "field": "GISAID Accession (if known)"
+            }
+          ],
+          "BIOSAMPLE": [
+            {
+              "field": "GISAID_accession"
+            }
+          ]
+        }
       }
     ]
   },
@@ -225,6 +254,16 @@ var DATA = [
           "GISAID": [
             {
               "field": "Originating lab"
+            }
+          ],
+          "CNPHI": [
+            {
+              "field": "Lab Name"
+            }
+          ],
+          "BIOSAMPLE": [
+            {
+              "field": "collected_by"
             }
           ]
         }
@@ -292,6 +331,11 @@ var DATA = [
           "CNPHI": [
             {
               "field": "Sequencing Centre"
+            }
+          ],
+          "BIOSAMPLE": [
+            {
+              "field": "sequenced_by"
             }
           ]
         },
@@ -384,6 +428,32 @@ var DATA = [
             {
               "field": "Patient Sample Collected Date"
             }
+          ],
+          "BIOSAMPLE": [
+            {
+              "field": "sample collection date"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "sample collection date unit",
+        "capitalize": "",
+        "ontology_id": "",
+        "datatype": "",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "",
+        "guidance": "",
+        "examples": "",
+        "exportField": {
+          "CNPHI": [
+            {
+              "field": "Precision of date collected"
+            }
           ]
         }
       },
@@ -435,6 +505,11 @@ var DATA = [
           "CNPHI": [
             {
               "field": "Patient Country"
+            }
+          ],
+          "BIOSAMPLE": [
+            {
+              "field": "geo_loc_name"
             }
           ]
         },
@@ -736,6 +811,11 @@ var DATA = [
             {
               "field": "Patient Province"
             }
+          ],
+          "BIOSAMPLE": [
+            {
+              "field": "geo_loc_name"
+            }
           ]
         },
         "vocabulary": {
@@ -766,7 +846,14 @@ var DATA = [
         "requirement": "",
         "description": "The city where the sample was collected.",
         "guidance": "Provide the city name. Use this look-up service to identify the standardized term: https://www.ebi.ac.uk/ols/ontologies/gaz",
-        "examples": "Medicine Hat"
+        "examples": "Medicine Hat",
+        "exportField": {
+          "CNPHI": [
+            {
+              "field": "Patient City"
+            }
+          ]
+        }
       },
       {
         "fieldName": "organism",
@@ -787,6 +874,18 @@ var DATA = [
         "description": "Taxonomic name of the organism.",
         "guidance": "Use \"Severe acute respiratory syndrome coronavirus 2\". This value is provided in the template.",
         "examples": "Severe acute respiratory syndrome coronavirus 2",
+        "exportField": {
+          "CNPHI": [
+            {
+              "field": "Pathogen"
+            }
+          ],
+          "BIOSAMPLE": [
+            {
+              "field": "organism"
+            }
+          ]
+        },
         "vocabulary": {
           "Severe acute respiratory syndrome coronavirus 2": {},
           "RaTG13": {},
@@ -822,6 +921,11 @@ var DATA = [
             {
               "field": "GISAID Virus Name"
             }
+          ],
+          "BIOSAMPLE": [
+            {
+              "field": "isolate|GISAID_virus_name"
+            }
           ]
         }
       },
@@ -849,14 +953,20 @@ var DATA = [
             {
               "field": "Reason for Sampling"
             }
+          ],
+          "BIOSAMPLE": [
+            {
+              "field": "purpose_of_sampling"
+            }
           ]
         },
         "vocabulary": {
-          "Cluster investigation": {},
+          "Cluster/Outbreak investigation": {},
           "Diagnostic testing": {},
-          "Research": {},
-          "Surveillance testing": {},
-          "Viral passage experiment": {}
+          "Research": {
+            "Viral passage experiment": {}
+          },
+          "Surveillance": {}
         }
       },
       {
@@ -875,9 +985,21 @@ var DATA = [
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "required",
-        "description": "The description of why the sample was collected providing specific details.",
-        "guidance": "Provide an expanded description of why the sample was collected using free text. The description may include the importance of the sample for a particular public health investigation/surveillance activity/research question. If details are not available, provide a null value. ",
-        "examples": "The sample was collected to investigate the prevalence of variants associated with mink-to-human transmission in Canada. "
+        "description": "The description of why the sample was collected, providing specific details.",
+        "guidance": "Provide an expanded description of why the sample was collected using free text. The description may include the importance of the sample for a particular public health investigation/surveillance activity/research question. If details are not available, provide a null value.",
+        "examples": "The sample was collected to investigate the prevalence of variants associated with mink-to-human transmission in Canada. ",
+        "exportField": {
+          "CNPHI": [
+            {
+              "field": "Details on the Reason for Sampling"
+            }
+          ],
+          "BIOSAMPLE": [
+            {
+              "field": "description"
+            }
+          ]
+        }
       },
       {
         "fieldName": "NML submitted specimen type",
@@ -966,6 +1088,11 @@ var DATA = [
             {
               "field": "Anatomical Material"
             }
+          ],
+          "BIOSAMPLE": [
+            {
+              "field": "anatomical_material"
+            }
           ]
         },
         "vocabulary": {
@@ -1009,6 +1136,11 @@ var DATA = [
           "CNPHI": [
             {
               "field": "Anatomical Site"
+            }
+          ],
+          "BIOSAMPLE": [
+            {
+              "field": "anatomical_part"
             }
           ]
         },
@@ -1074,6 +1206,11 @@ var DATA = [
             {
               "field": "Body Product"
             }
+          ],
+          "BIOSAMPLE": [
+            {
+              "field": "body_product"
+            }
           ]
         },
         "vocabulary": {
@@ -1116,6 +1253,11 @@ var DATA = [
           "CNPHI": [
             {
               "field": "Environmental Material"
+            }
+          ],
+          "BIOSAMPLE": [
+            {
+              "field": "environmental_material"
             }
           ]
         },
@@ -1182,6 +1324,11 @@ var DATA = [
             {
               "field": "Environmental Site"
             }
+          ],
+          "BIOSAMPLE": [
+            {
+              "field": "environmental_site"
+            }
           ]
         },
         "vocabulary": {
@@ -1196,11 +1343,7 @@ var DATA = [
           "Family practice clinic": {},
           "Group home": {},
           "Homeless shelter": {},
-          "Hospital": {
-            "Emergency Department": {},
-            "ICU": {},
-            "Ward": {}
-          },
+          "Hospital": {},
           "Intensive Care Unit (ICU)": {},
           "Long Term Care Facility": {},
           "Patient room": {},
@@ -1240,6 +1383,11 @@ var DATA = [
           "CNPHI": [
             {
               "field": "Specimen Collection Matrix"
+            }
+          ],
+          "BIOSAMPLE": [
+            {
+              "field": "collection_device"
             }
           ]
         },
@@ -1292,6 +1440,11 @@ var DATA = [
             {
               "field": "Collection Method"
             }
+          ],
+          "BIOSAMPLE": [
+            {
+              "field": "collection_method"
+            }
           ]
         },
         "vocabulary": {
@@ -1314,7 +1467,9 @@ var DATA = [
           "Lumbar Puncture": {},
           "Necropsy": {},
           "Phlebotomy": {},
-          "Rinsing": {},
+          "Rinsing": {
+            "Saline gargle (mouth rinse and gargle)": {}
+          },
           "Scraping": {},
           "Swabbing": {
             "Finger Prick": {}
@@ -1393,6 +1548,11 @@ var DATA = [
             {
               "field": "Passage details/history"
             }
+          ],
+          "BIOSAMPLE": [
+            {
+              "field": "lab_host"
+            }
           ]
         },
         "vocabulary": {
@@ -1435,6 +1595,11 @@ var DATA = [
             {
               "field": "Passage details/history"
             }
+          ],
+          "BIOSAMPLE": [
+            {
+              "field": "passage_history"
+            }
           ]
         }
       },
@@ -1457,6 +1622,11 @@ var DATA = [
           "GISAID": [
             {
               "field": "Passage details/history"
+            }
+          ],
+          "BIOSAMPLE": [
+            {
+              "field": "passage_method"
             }
           ]
         }
@@ -1484,6 +1654,7 @@ var DATA = [
           "RNA (total)": {},
           "RNA (poly-A)": {},
           "RNA (ribo-depleted)": {},
+          "mRNA (messenger RNA)": {},
           "mRNA (cDNA)": {}
         }
       }
@@ -1524,12 +1695,28 @@ var DATA = [
           "Cat": {},
           "Chicken": {},
           "Civets": {},
-          "Cow": {},
+          "Cow": {
+            "exportField": {
+              "CNPHI": [
+                {
+                  "field": "bovine"
+                }
+              ]
+            }
+          },
           "Dog": {},
           "Lion": {},
           "Mink": {},
           "Pangolin": {},
-          "Pig": {},
+          "Pig": {
+            "exportField": {
+              "CNPHI": [
+                {
+                  "field": "porcine"
+                }
+              ]
+            }
+          },
           "Pigeon": {},
           "Tiger": {}
         }
@@ -1557,6 +1744,11 @@ var DATA = [
           "GISAID": [
             {
               "field": "Host"
+            }
+          ],
+          "BIOSAMPLE": [
+            {
+              "field": "host"
             }
           ]
         },
@@ -1607,6 +1799,11 @@ var DATA = [
           "CNPHI": [
             {
               "field": "Host Health State"
+            }
+          ],
+          "BIOSAMPLE": [
+            {
+              "field": "host_health_state"
             }
           ]
         },
@@ -1675,6 +1872,13 @@ var DATA = [
         "description": "Disease outcome in the host.",
         "guidance": "If known, select a descriptor from the pick list provided in the template.",
         "examples": "Recovered",
+        "exportField": {
+          "BIOSAMPLE": [
+            {
+              "field": "host_disease_outcome"
+            }
+          ]
+        },
         "vocabulary": {
           "Deceased": {},
           "Deteriorating": {},
@@ -1705,6 +1909,11 @@ var DATA = [
           "CNPHI": [
             {
               "field": "Host Disease"
+            }
+          ],
+          "BIOSAMPLE": [
+            {
+              "field": "host_disease"
             }
           ]
         },
@@ -1741,6 +1950,11 @@ var DATA = [
             {
               "field": "Patient Age"
             }
+          ],
+          "BIOSAMPLE": [
+            {
+              "field": "host_age"
+            }
           ]
         }
       },
@@ -1763,6 +1977,13 @@ var DATA = [
         "description": "The unit used to measure the host age, in either months or years.",
         "guidance": "Indicate whether the host age is in months or years. Age indicated in months will be binned to the 0 - 9 year age bin. ",
         "examples": "",
+        "exportField": {
+          "CNPHI": [
+            {
+              "field": "Age Units"
+            }
+          ]
+        },
         "vocabulary": {
           "month": {},
           "year": {}
@@ -1837,18 +2058,25 @@ var DATA = [
             {
               "field": "Patient Sex"
             }
+          ],
+          "BIOSAMPLE": [
+            {
+              "field": "host_sex"
+            }
           ]
         },
         "vocabulary": {
           "Female": {},
           "Male": {},
           "Non-binary gender": {},
-          "Transgender": {},
-          "Undeclared": {}
+          "Transgender (Male to Female)": {},
+          "Transgender (Female to Male)": {},
+          "Undeclared": {},
+          "Unknown": {}
         }
       },
       {
-        "fieldName": "host origin geo_loc name (country)",
+        "fieldName": "host residence geo_loc name (country)",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "select",
@@ -1880,7 +2108,14 @@ var DATA = [
         "requirement": "",
         "description": "A unique identifier by which each host can be referred to e.g. #131",
         "guidance": "Provide the host identifier. Should be a unique, user-defined identifier.",
-        "examples": "BCxy123"
+        "examples": "BCxy123",
+        "exportField": {
+          "BIOSAMPLE": [
+            {
+              "field": "host_subject_id"
+            }
+          ]
+        }
       },
       {
         "fieldName": "symptom onset date",
@@ -1946,7 +2181,15 @@ var DATA = [
             "Anosmia (lost sense of smell)": {},
             "Hyposmia (reduced sense of smell)": {}
           },
-          "Acute Respiratory Distress Syndrome": {},
+          "Acute Respiratory Distress Syndrome": {
+            "exportField": {
+              "CNPHI": [
+                {
+                  "field": "ARDS"
+                }
+              ]
+            }
+          },
           "Altered mental status": {
             "Cognitive impairment": {},
             "Coma": {},
@@ -1958,19 +2201,35 @@ var DATA = [
             "Loss of speech": {}
           },
           "Arrhythmia": {},
-          "Asthenia (general weakness)": {},
+          "Asthenia (generalized weakness)": {},
           "Chest tightness or pressure": {
             "Rigors (fever shakes)": {}
           },
-          "Chills (sudden cold sensation)": {},
+          "Chills (sudden cold sensation)": {
+            "exportField": {
+              "CNPHI": [
+                {
+                  "field": "Chills"
+                }
+              ]
+            }
+          },
           "Conjunctival injection": {},
-          "Conjunctivitis (pink eye)": {},
+          "Conjunctivitis (pink eye)": {
+            "exportField": {
+              "CNPHI": [
+                {
+                  "field": "Conjunctivitis"
+                }
+              ]
+            }
+          },
           "Coryza": {},
           "Cough": {
             "Nonproductive cough (dry cough)": {},
             "Productive cough (wet cough)": {}
           },
-          "Cyanosis": {
+          "Cyanosis (blueish skin discolouration)": {
             "Acrocyanosis": {
               "Circumoral cyanosis (bluish around mouth)": {},
               "Cyanotic face (bluish face)": {}
@@ -1981,11 +2240,35 @@ var DATA = [
             "Peripheral Cyanosis": {}
           },
           "Dyspnea (breathing difficulty)": {},
-          "Diarrhea (watery stool)": {},
+          "Diarrhea (watery stool)": {
+            "exportField": {
+              "CNPHI": [
+                {
+                  "field": "Diarrhea, watery"
+                }
+              ]
+            }
+          },
           "Dry gangrene": {},
-          "Encephalitis (brain inflammation)": {},
+          "Encephalitis (brain inflammation)": {
+            "exportField": {
+              "CNPHI": [
+                {
+                  "field": "Encephalitis"
+                }
+              ]
+            }
+          },
           "Encephalopathy": {},
-          "Fatigue (tiredness)": {},
+          "Fatigue (tiredness)": {
+            "exportField": {
+              "CNPHI": [
+                {
+                  "field": "Fatigue"
+                }
+              ]
+            }
+          },
           "Fever": {
             "Fever (>=38\u00b0C)": {}
           },
@@ -2301,6 +2584,78 @@ var DATA = [
     ]
   },
   {
+    "fieldName": "Host vaccination information",
+    "children": [
+      {
+        "fieldName": "host vaccination status",
+        "capitalize": "",
+        "ontology_id": "",
+        "datatype": "select",
+        "source": "",
+        "dataStatus": [
+          "Not Applicable",
+          "Missing",
+          "Not Collected",
+          "Not Provided",
+          "Restricted Access"
+        ],
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "The vaccination status of the host (fully vaccinated, partially vaccinated, or not vaccinated).",
+        "guidance": "Select the vaccination status of the host from the pick list.",
+        "examples": "Fully Vaccinated",
+        "vocabulary": {
+          "Fully Vaccinated": {},
+          "Partially Vaccinated": {},
+          "Not Vaccinated": {}
+        }
+      },
+      {
+        "fieldName": "vaccine name",
+        "capitalize": "",
+        "ontology_id": "",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "The name of the vaccine.",
+        "guidance": "Free text. Provide the name of the vaccine.",
+        "examples": "Pfizer-BioNTech COVID-19 vaccine"
+      },
+      {
+        "fieldName": "number of vaccine doses received",
+        "capitalize": "",
+        "ontology_id": "",
+        "datatype": "xs:nonNegativeInteger",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "The number of doses of the vaccine recived by the host.",
+        "guidance": "Record how many doses of the vaccine the host has received.",
+        "examples": "2"
+      },
+      {
+        "fieldName": "vaccination date",
+        "capitalize": "",
+        "ontology_id": "",
+        "datatype": "xs:date",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "The date the host was first vaccinated.",
+        "guidance": "Provide the vaccination date in ISO 8601 standard format \"YYYY-MM-DD\".",
+        "examples": "2021-02-26"
+      }
+    ]
+  },
+  {
     "fieldName": "Host exposure information",
     "children": [
       {
@@ -2330,13 +2685,7 @@ var DATA = [
         "ontology_id": "",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
-        ],
+        "dataStatus": null,
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -2357,13 +2706,7 @@ var DATA = [
         "ontology_id": "",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
-        ],
+        "dataStatus": null,
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -2470,7 +2813,7 @@ var DATA = [
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
-        "description": "Travel outside the country in last six months.",
+        "description": "Travel history in last six months.",
         "guidance": "Specify the countries (and more granular locations if known, separated by a comma) travelled in the last six months; can include multiple travels. Separate multiple travel events with a semi-colon. List most recent travel first.",
         "examples": "Canada, Vancouver; USA, Seattle; Italy, Milan"
       },
@@ -2529,12 +2872,18 @@ var DATA = [
         }
       },
       {
-        "fieldName": "direct/indirect exposure",
+        "fieldName": "exposure contact level",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "select",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "Not Applicable",
+          "Missing",
+          "Not Collected",
+          "Not Provided",
+          "Restricted Access"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -2542,9 +2891,13 @@ var DATA = [
         "guidance": "Select direct or indirect exposure from the pick-list.",
         "examples": "Direct",
         "vocabulary": {
-          "Direct": {},
-          "Indirect": {},
-          "Unknown": {}
+          "Contact with infected individual": {
+            "Direct contact (direct human-to-human contact)": {},
+            "Indirect contact": {
+              "Close contact (face-to-face, no direct contact)": {},
+              "Casual contact": {}
+            }
+          }
         }
       },
       {
@@ -2579,23 +2932,27 @@ var DATA = [
               "Paramedic": {},
               "Police Officer": {}
             },
-            "Housekeeper": {},
-            "Kitchen Worker": {},
-            "Laboratory Worker": {},
+            "Healthcare Worker": {},
             "Nurse": {},
             "Personal Care Aid": {},
             "Pharmacist": {},
             "Physician": {},
+            "Housekeeper": {},
+            "Kitchen Worker": {},
+            "Laboratory Worker": {},
+            "Rotational Worker": {},
+            "Seasonal Worker": {},
             "Vet": {}
           },
           "Social role": {
-            "Acquaintance": {},
-            "Child": {},
-            "Parent": {
-              "Father": {},
-              "Mother": {}
+            "Acquaintance of case": {},
+            "Relative of case": {
+              "Child of case": {},
+              "Parent of case": {},
+              "Father of case": {},
+              "Mother of case": {}
             },
-            "Spouse": {}
+            "Spouse of case": {}
           },
           "Other": {}
         }
@@ -2628,6 +2985,7 @@ var DATA = [
             "Childcare": {
               "Daycare": {}
             },
+            "Funeral Home": {},
             "Place of Worship": {
               "Church": {},
               "Mosque": {},
@@ -2646,7 +3004,11 @@ var DATA = [
               "Acute Care Facility": {},
               "Clinic": {},
               "Community Health Centre": {},
-              "Hospital": {},
+              "Hospital": {
+                "Emergency Department": {},
+                "ICU": {},
+                "Ward": {}
+              },
               "Laboratory": {},
               "Long-Term Care Facility": {},
               "Pharmacy": {},
@@ -2715,15 +3077,42 @@ var DATA = [
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "required",
-        "description": "The reason that the isolate was sequenced.",
-        "guidance": "The reason an isolate was sequenced may provide information about potential biases in sequencing strategy. Provide the purpose of sequencing from the picklist in the template. Most likely, the sample was collected for Surveillance or Research. The reason why a sample was originally collected may differ from the reason why it was selected for sequencing. The reason for sample collection should be indicated in the \"purpose of sampling\" field. ",
-        "examples": "Diagnostic testing",
+        "description": "The reason that the sample was sequenced.",
+        "guidance": "The reason why a sample was originally collected may differ from the reason why it was selected for sequencing. The reason a sample was sequenced may provide information about potential biases in sequencing strategy. Provide the purpose of sequencing from the picklist in the template. The reason for sample collection should be indicated in the \"purpose of sampling\" field. ",
+        "examples": "Baseline surveillance (random sampling)",
+        "exportField": {
+          "CNPHI": [
+            {
+              "field": "Reason for Sequencing"
+            }
+          ],
+          "BIOSAMPLE": [
+            {
+              "field": "purpose_of_sequencing"
+            }
+          ]
+        },
         "vocabulary": {
-          "Cluster investigation": {},
-          "Diagnostic testing": {},
-          "Research": {},
-          "Surveillance testing": {},
-          "Viral passage experiment": {}
+          "Baseline surveillance (random sampling)": {},
+          "Targeted surveillance (non-random sampling)": {
+            "Priority surveillance project": {
+              "Screening for Variants of Concern (VoC)": {},
+              "Longitudinal surveillance (repeat sampling)": {},
+              "Vaccine escape surveillance": {},
+              "Travel-associated surveillance": {
+                "Domestic travel surveillance": {},
+                "International travel surveillance": {}
+              }
+            }
+          },
+          "Cluster/Outbreak investigation": {
+            "Multi-jurisdictional outbreak investigation": {},
+            "Intra-jurisdictional outbreak investigation": {}
+          },
+          "Research": {
+            "Viral passage experiment": {},
+            "Protocol testing experiment": {}
+          }
         }
       },
       {
@@ -2743,8 +3132,35 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "required",
         "description": "The description of why the sample was sequenced providing specific details.",
-        "guidance": "Provide an expanded description of why the sample was sequenced using free text. The description may include the importance of the sequences for a particular public health investigation/surveillance activity/research question. If details are not available, provide a null value. ",
-        "examples": "The sample was sequenced to investigate the differences in lineages circulating in Canada during the spring and fall waves of the pandemic."
+        "guidance": "Provide an expanded description of why the sample was sequenced using free text. The description may include the importance of the sequences for a particular public health investigation/surveillance activity/research question. Suggested standardized descriotions include: Screened for S gene target failure (S dropout), Screened for mink variants, Screened for B.1.1.7 variant, Screened for B.1.135 variant, Screened for P.1 variant, Screened due to travel history, Screened due to close contact with infected individual, Assessing public health control measures, Determining early introductions and spread, Investigating airline-related exposures, Investigating temporary foreign worker, Investigating remote regions, Investigating health care workers, Investigating schools/universities, Investigating reinfection.\n",
+        "examples": "Screened for S gene target failure (S dropout)",
+        "exportField": {
+          "CNPHI": [
+            {
+              "field": "Details on the Reason for Sequencing"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "sequencing date",
+        "capitalize": "",
+        "ontology_id": "",
+        "datatype": "xs:date",
+        "source": "",
+        "dataStatus": [
+          "Not Applicable",
+          "Missing",
+          "Not Collected",
+          "Not Provided",
+          "Restricted Access"
+        ],
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "The date the sample was sequenced.",
+        "guidance": "ISO 8601 standard \"YYYY-MM-DD\".",
+        "examples": "2020-06-22"
       },
       {
         "fieldName": "library ID",
@@ -2761,7 +3177,7 @@ var DATA = [
         "examples": "XYZ_123345"
       },
       {
-        "fieldName": "library insert size",
+        "fieldName": "amplicon size",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -2770,12 +3186,12 @@ var DATA = [
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
-        "description": "The insert size of the library being sequenced (i.e. the length of the DNA inserted between the adaptors).",
-        "guidance": "Provide the insert size in base pairs.",
-        "examples": "300"
+        "description": "The length of the amplicon generated by PCR amplification.",
+        "guidance": "Provide the amplicon size, including the units.",
+        "examples": "300bp"
       },
       {
-        "fieldName": "library preparation method",
+        "fieldName": "library preparation kit",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -2789,7 +3205,7 @@ var DATA = [
         "examples": "Nextera XT"
       },
       {
-        "fieldName": "MinIon barcode",
+        "fieldName": "flow cell barcode",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -2798,8 +3214,8 @@ var DATA = [
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
-        "description": "The barcode of the MinIon unit used for sequencing.",
-        "guidance": "Provide the barcode of the MinIon used for sequencing the sample.",
+        "description": "The barcode of the flow cell used for sequencing.",
+        "guidance": "Provide the barcode of the flow cell used for sequencing the sample.",
         "examples": "FAB06069"
       },
       {
@@ -2826,31 +3242,39 @@ var DATA = [
             {
               "field": "Sequencing technology"
             }
+          ],
+          "CNPHI": [
+            {
+              "field": "Sequencing Instrument"
+            }
           ]
         },
         "vocabulary": {
-          "ILLUMINA": {
-            "HiSeq X": {
-              "HiSeq X Five": {},
-              "HiSeq X Ten": {}
-            },
+          "Illumina": {
             "Illumina Genome Analyzer": {
               "Illumina Genome Analyzer II": {},
               "Illumina Genome Analyzer IIx": {}
             },
             "Illumina HiScanSQ": {},
+            "Illumina HiSeq": {},
+            "Illumina HiSeq X": {
+              "Illumina HiSeq X Five": {},
+              "Illumina HiSeq X Ten": {}
+            },
             "Illumina HiSeq 1000": {},
             "Illumina HiSeq 1500": {},
             "Illumina HiSeq 2000": {},
             "Illumina HiSeq 2500": {},
             "Illumina HiSeq 3000": {},
             "Illumina HiSeq 4000": {},
-            "Illumina iSeq 100": {},
-            "Illumina NovaSeq 6000": {},
+            "Illumina iSeq": {
+              "Illumina iSeq 100": {}
+            },
             "Illumina MiniSeq": {},
             "Illumina MiSeq": {},
-            "NextSeq 500": {},
-            "NextSeq 550": {}
+            "Illumina NextSeq": {},
+            "Illumina NextSeq 500": {},
+            "Illumina NextSeq 550": {}
           },
           "Pacific Biosciences": {
             "PacBio RS": {},
@@ -2892,28 +3316,14 @@ var DATA = [
         "requirement": "recommended",
         "description": "The name and version number of the sequencing protocol used.",
         "guidance": "Provide the name and version of the sequencing protocol e.g. 1D_DNA_MinION",
-        "examples": "1D_DNA_MinION, ARTIC Network Protocol v. 3",
+        "examples": "https://www.protocols.io/view/covid-19-artic-v3-illumina-library-construction-an-bibtkann",
         "exportField": {
           "CNPHI": [
             {
-              "field": "Sequencing protocol name"
+              "field": "Sequencing Protocol Name"
             }
           ]
         }
-      },
-      {
-        "fieldName": "sequencing protocol source",
-        "capitalize": "",
-        "ontology_id": "",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The name of the organization/authors of the protocol.",
-        "guidance": "Provide the name of the source of the protocol e.g. ARTIC Network.",
-        "examples": "ARTIC Network"
       },
       {
         "fieldName": "sequencing kit number",
@@ -2930,7 +3340,7 @@ var DATA = [
         "examples": "AB456XYZ789"
       },
       {
-        "fieldName": "amplicon pcr primers filename",
+        "fieldName": "amplicon pcr primer scheme",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -2939,29 +3349,9 @@ var DATA = [
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
-        "description": "The filename of the file containing amplicon PCR primer names and sequences.",
-        "guidance": "Important for documenting methods and should be considered for submission, particularly if primers were designed in-house and not by a public consortium/network.",
-        "examples": "Rona_primers_2020.txt"
-      },
-      {
-        "fieldName": "sample sequenced date",
-        "capitalize": "",
-        "ontology_id": "",
-        "datatype": "xs:date",
-        "source": "",
-        "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
-        ],
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The date the sample was sequenced.",
-        "guidance": "ISO 8601 standard \"YYYY-MM-DD\".",
-        "examples": "2020-06-22"
+        "description": "The specifications of the primers (primer sequences, binding positions, fragment size generated etc) used to generate the amplicons to be sequenced.",
+        "guidance": "Provide the name and version of the primer scheme used to generate the amplicons for sequencing.",
+        "examples": "https://github.com/joshquick/artic-ncov2019/blob/master/primer_schemes/nCoV-2019/V3/nCoV-2019.tsv"
       }
     ]
   },
@@ -2969,7 +3359,7 @@ var DATA = [
     "fieldName": "Bioinformatics and QC metrics",
     "children": [
       {
-        "fieldName": "raw sequence data processing",
+        "fieldName": "raw sequence data processing method",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -2980,10 +3370,10 @@ var DATA = [
         "requirement": "recommended",
         "description": "The names of the software and version number used for raw data processing such as removing barcodes, adapter trimming, filtering etc.",
         "guidance": "Provide the software name followed by the version e.g. Trimmomatic v. 0.38, Porechop v. 0.2.3",
-        "examples": "Porechop v. 0.2.3"
+        "examples": "Porechop 0.2.3"
       },
       {
-        "fieldName": "sequencing depth (average)",
+        "fieldName": "dehosting method",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -2992,12 +3382,12 @@ var DATA = [
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
-        "description": "The total number of sequenced base pairs divided by the expected number of base pairs in the genome.",
-        "guidance": "Provide the value as a fold of coverage.",
-        "examples": "80x"
+        "description": "The method used to remove host reads from the pathogen sequence.",
+        "guidance": "Provide the name and version number of the software used to remove host reads.",
+        "examples": "Nanostripper"
       },
       {
-        "fieldName": "assembly name",
+        "fieldName": "consensus sequence filename",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -3006,12 +3396,12 @@ var DATA = [
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
-        "description": "Name/version of the assembly provided by the submitter.",
-        "guidance": "Provide the assembly name.",
-        "examples": "rona123assembly.fasta"
+        "description": "The name of the consensus sequence file.",
+        "guidance": "Provide the name and version number of the consensus sequence FASTA file.",
+        "examples": "ncov123assembly.fasta"
       },
       {
-        "fieldName": "assembly method",
+        "fieldName": "consensus sequence filepath",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -3020,12 +3410,40 @@ var DATA = [
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
-        "description": "The name and version number of the assembly method used.",
-        "guidance": "Provide the software name followed by the version e.g. Canu 2.0",
-        "examples": "Canu 2.0"
+        "description": "The filepath of the consesnsus sequence file.",
+        "guidance": "Provide the filepath of the consensus sequence FASTA file.",
+        "examples": "/User/Documents/RespLab/Data/ncov123assembly.fasta"
       },
       {
-        "fieldName": "assembly coverage breadth",
+        "fieldName": "consensus sequence name",
+        "capitalize": "",
+        "ontology_id": "",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "required",
+        "description": "The name of the consensus sequence.",
+        "guidance": "Provide the name and version number of the consensus sequence.",
+        "examples": "Ivar"
+      },
+      {
+        "fieldName": "consensus sequence version",
+        "capitalize": "",
+        "ontology_id": "",
+        "datatype": "xs:decimal",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "required",
+        "description": "The version of the software used to generate the consensus sequence.",
+        "guidance": "Provide the version of the software used to generate the consensus sequence.",
+        "examples": "1.3"
+      },
+      {
+        "fieldName": "breadth of coverage value",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -3034,12 +3452,12 @@ var DATA = [
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
-        "description": "The percentage of the assembled genome that was sequenced to a prescribed depth of coverage.",
-        "guidance": "Provide value as a percent e.g. 95%.",
+        "description": "The percentage of the reference genome covered by the sequenced data, to a prescribed depth.",
+        "guidance": "Provide value as a percent.",
         "examples": "95%"
       },
       {
-        "fieldName": "assembly coverage depth",
+        "fieldName": "depth of coverage value",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -3048,8 +3466,8 @@ var DATA = [
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
-        "description": "The average number of reads representing a given nucleotide in the assembled sequence.",
-        "guidance": "Provide value as a fold of coverage e.g. 80x.",
+        "description": "The average number of reads representing a given nucleotide in the reconstructed sequence.",
+        "guidance": "Provide value as a fold of coverage.",
         "examples": "400x",
         "exportField": {
           "GISAID": [
@@ -3058,6 +3476,20 @@ var DATA = [
             }
           ]
         }
+      },
+      {
+        "fieldName": "depth of coverage threshold",
+        "capitalize": "",
+        "ontology_id": "",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "The threshold used as a cut-off for the depth of coverage.",
+        "guidance": "Provide the threshold fold coverage.",
+        "examples": "100x"
       },
       {
         "fieldName": "r1 fastq filename",
@@ -3099,7 +3531,7 @@ var DATA = [
         "requirement": "",
         "description": "The location of the r1 FASTQ file within a user's file system.",
         "guidance": "Provide the filepath for the r1 FASTQ file. This information aids in data management. ",
-        "examples": "/User/Documents/RespLab/Data"
+        "examples": "/User/Documents/RespLab/Data/ABC123_S1_L001_R1_001.fastq.gz"
       },
       {
         "fieldName": "r2 fastq filepath",
@@ -3113,7 +3545,7 @@ var DATA = [
         "requirement": "",
         "description": "The location of the r2 FASTQ file within a user's file system.",
         "guidance": "Provide the filepath for the r2 FASTQ file. This information aids in data management. ",
-        "examples": "/User/Documents/RespLab/Data"
+        "examples": "/User/Documents/RespLab/Data/ABC123_S1_L001_R2_001.fastq.gz"
       },
       {
         "fieldName": "fast5 filename",
@@ -3141,45 +3573,10 @@ var DATA = [
         "requirement": "",
         "description": "The location of the FAST5 file within a user's file system.",
         "guidance": "Provide the filepath for the FAST5 file. This information aids in data management. ",
-        "examples": "/User/Documents/RespLab/Data"
+        "examples": "/User/Documents/RespLab/Data/rona123assembly.fast5"
       },
       {
-        "fieldName": "fasta filename",
-        "capitalize": "",
-        "ontology_id": "",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The user-specified filename of the FASTA file.",
-        "guidance": "Provide the FASTA filename.",
-        "examples": "batch1a_sequences.fasta",
-        "exportField": {
-          "GISAID": [
-            {
-              "field": "FASTA filename"
-            }
-          ]
-        }
-      },
-      {
-        "fieldName": "fasta filepath",
-        "capitalize": "",
-        "ontology_id": "",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The location of the FASTA file within a user's file system.",
-        "guidance": "Provide the filepath for the FASTA file. This information aids in data management. ",
-        "examples": "/User/Documents/RespLab/Data"
-      },
-      {
-        "fieldName": "number base pairs",
+        "fieldName": "number of base pairs seequenced",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:nonNegativeInteger",
@@ -3205,34 +3602,6 @@ var DATA = [
         "description": "Size of the reconstructed genome described as the number of base pairs.",
         "guidance": "Provide a numerical value (no need to include units).",
         "examples": "38677"
-      },
-      {
-        "fieldName": "mean contig length",
-        "capitalize": "",
-        "ontology_id": "",
-        "datatype": "xs:nonNegativeInteger",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The mean contig length is the count of base pairs in the average size contig of the sequence assembly.",
-        "guidance": "Provide a numerical value (no need to include units).",
-        "examples": "12689"
-      },
-      {
-        "fieldName": "N50",
-        "capitalize": "",
-        "ontology_id": "",
-        "datatype": "xs:nonNegativeInteger",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The minimum contig length needed to cover 50% of the genome.",
-        "guidance": "Provide a numerical value (no need to include units).",
-        "examples": "10500"
       },
       {
         "fieldName": "Ns per 100 kbp",
@@ -3263,96 +3632,6 @@ var DATA = [
         "examples": "NC_045512.2"
       },
       {
-        "fieldName": "consensus sequence ID",
-        "capitalize": "",
-        "ontology_id": "",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The identifer used to specify the consensus sequence.",
-        "guidance": "Provide the consensus sequence identifier.",
-        "examples": "ProvConsensusSeq",
-        "exportField": {
-          "GISAID": [
-            {
-              "field": "Sample ID given by the submitting laboratory"
-            }
-          ]
-        }
-      },
-      {
-        "fieldName": "consensus sequence method",
-        "capitalize": "",
-        "ontology_id": "",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
-        ],
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "required",
-        "description": "The name and version number of the software used to produce the consensus sequence.",
-        "guidance": "Provide the software name followed by the version e.g. iVar 1.2",
-        "examples": "iVar 1.2",
-        "exportField": {
-          "GISAID": [
-            {
-              "field": "Assembly method"
-            }
-          ]
-        }
-      },
-      {
-        "fieldName": "consensus sequence filename",
-        "capitalize": "",
-        "ontology_id": "",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The user-specified filename for the consensus sequence.",
-        "guidance": "Provide the filename for the consensus sequence. ",
-        "examples": "ProvConsensusSeq.fasta"
-      },
-      {
-        "fieldName": "consensus sequence filepath",
-        "capitalize": "",
-        "ontology_id": "",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The location of the consensus sequence in the user's file system.",
-        "guidance": "Provide the filepath for the consensus sequence file. This information facilitates data management.",
-        "examples": "/User/Documents/RespLab/Data"
-      },
-      {
-        "fieldName": "annotation feature table filename",
-        "capitalize": "",
-        "ontology_id": "",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The filename of the file containing genome features such as gene names and corresponding CDS.",
-        "guidance": "Provide the filename of the annotation feature table.",
-        "examples": "BCRonaAnnotationFeatures"
-      },
-      {
         "fieldName": "bioinformatics protocol",
         "capitalize": "",
         "ontology_id": "",
@@ -3364,7 +3643,99 @@ var DATA = [
         "requirement": "",
         "description": "The name and version number of the bioinformatics protocol used.",
         "guidance": "Further details regarding the methods used to process raw data, and/or generate assemblies, and/or generate consensus sequences can be provided in an SOP or protocol. Provide the name and version number of the protocol.",
-        "examples": "https://www.protocols.io/groups/cphln-sarscov2-sequencing-consortium/members"
+        "examples": "https://www.protocols.io/groups/cphln-sarscov2-sequencing-consortium/members",
+        "exportField": {
+          "CNPHI": [
+            {
+              "field": "Bioinformatics Protocol"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "fieldName": "Lineage and Variant information",
+    "children": [
+      {
+        "fieldName": "lineage/clade name",
+        "capitalize": "",
+        "ontology_id": "",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "The name of the lineage or clade.",
+        "guidance": "Provide the Pangolin or Nextstrain lineage/clade name.",
+        "examples": "B.1.1.7"
+      },
+      {
+        "fieldName": "lineage/clade analysis software name",
+        "capitalize": "",
+        "ontology_id": "",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "The name of the software used to determine the lineage/clade.",
+        "guidance": "Provide the name of the software used to determine the lineage/clade.",
+        "examples": "Pangolin"
+      },
+      {
+        "fieldName": "lineage/clade analysis software version",
+        "capitalize": "",
+        "ontology_id": "",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "The version of the software used to determine the lineage/clade.",
+        "guidance": "Provide the version of the software used ot determine the lineage/clade.",
+        "examples": "2.1.10"
+      },
+      {
+        "fieldName": "variant designation",
+        "capitalize": "",
+        "ontology_id": "",
+        "datatype": "select",
+        "source": "",
+        "dataStatus": [
+          "Not Applicable",
+          "Missing",
+          "Not Collected",
+          "Not Provided",
+          "Restricted Access"
+        ],
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "The variant classification of the lineage/clade i.e. variant, variant of concern.",
+        "guidance": "If the lineage/clade is considered a Variant of Concern, select Variant of Concern from the pick list. If the lineage/clade contains mutations of concern (mutations that increase transmission, clincal severity, or other epidemiological fa ctors) but it not a global Variant of Concern, select Variant. If the lineage/clade does not contain mutations of concern, leave blank.",
+        "examples": "Variant of Concern",
+        "vocabulary": {
+          "Variant of Concern (VOC)": {},
+          "Variant": {}
+        }
+      },
+      {
+        "fieldName": "variant evidence",
+        "capitalize": "",
+        "ontology_id": "",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "The evidence used to make the variant determination.",
+        "guidance": "Provide the assay and list the set of lineage-defining mutations used to make the variant determination. If there are mutations of interest/concern observed in addition to lineage-defining mutations, describe those here.",
+        "examples": "RT-qPCR TaqPath assay: S gene target failure"
       }
     ]
   },
@@ -3377,7 +3748,13 @@ var DATA = [
         "ontology_id": "",
         "datatype": "select",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "Not Applicable",
+          "Missing",
+          "Not Collected",
+          "Not Provided",
+          "Restricted Access"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -3387,17 +3764,30 @@ var DATA = [
         "exportField": {
           "CNPHI": [
             {
-              "field": "Gene Target #1"
+              "field": "Gene Target 1"
+            }
+          ],
+          "BIOSAMPLE": [
+            {
+              "field": "gene_name_1"
             }
           ]
         },
         "vocabulary": {
-          "E (orf4)": {},
-          "M (orf5)": {},
-          "N (orf9)": {},
-          "Spike (orf2)": {},
-          "ORF1ab (rep)": {
-            "ORF1a (pp1a)": {
+          "E gene (orf4)": {
+            "exportField": {
+              "CNPHI": [
+                {
+                  "field": "E gene"
+                }
+              ]
+            }
+          },
+          "M gene (orf5)": {},
+          "N gene (orf9)": {},
+          "Spike gene (orf2)": {},
+          "orf1ab (rep)": {
+            "orf1a (pp1a)": {
               "nsp11": {}
             },
             "nsp1": {},
@@ -3410,22 +3800,23 @@ var DATA = [
             "nsp8": {},
             "nsp9": {},
             "nsp10": {},
-            "nsp12 (RdRp)": {},
-            "nsp13 (Hel)": {},
-            "nsp14 (ExoN)": {},
+            "RdRp gene (nsp12)": {},
+            "hel gene (nsp13)": {},
+            "exoN gene (nsp14)": {},
             "nsp15": {},
             "nsp16": {}
           },
-          "ORF3a": {},
-          "ORF3b": {},
-          "ORF6 (ns6)": {},
-          "ORF7a": {},
-          "ORF7b (ns7b)": {},
-          "ORF8 (ns8)": {},
-          "ORF9b": {},
-          "ORF9c": {},
-          "ORF10": {},
-          "ORF14": {}
+          "orf3a": {},
+          "orf3b": {},
+          "orf6 (ns6)": {},
+          "orf7a": {},
+          "orf7b (ns7b)": {},
+          "orf8 (ns8)": {},
+          "orf9b": {},
+          "orf9c": {},
+          "orf10": {},
+          "orf14": {},
+          "SARS-COV-2 5' UTR": {}
         }
       },
       {
@@ -3458,7 +3849,12 @@ var DATA = [
         "exportField": {
           "CNPHI": [
             {
-              "field": "Gene Target #1 CT Value"
+              "field": "Gene Target 1 CT Value"
+            }
+          ],
+          "BIOSAMPLE": [
+            {
+              "field": "diagnostic_PCR_CT_value_1"
             }
           ]
         }
@@ -3469,7 +3865,13 @@ var DATA = [
         "ontology_id": "",
         "datatype": "select",
         "source": "gene name 1",
-        "dataStatus": null,
+        "dataStatus": [
+          "Not Applicable",
+          "Missing",
+          "Not Collected",
+          "Not Provided",
+          "Restricted Access"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -3479,7 +3881,12 @@ var DATA = [
         "exportField": {
           "CNPHI": [
             {
-              "field": "Gene Target #2"
+              "field": "Gene Target 2"
+            }
+          ],
+          "BIOSAMPLE": [
+            {
+              "field": "gene_name_2"
             }
           ]
         },
@@ -3515,7 +3922,75 @@ var DATA = [
         "exportField": {
           "CNPHI": [
             {
-              "field": "Gene Target #2 CT Value"
+              "field": "Gene Target 2 CT Value"
+            }
+          ],
+          "BIOSAMPLE": [
+            {
+              "field": "diagnostic_PCR_CT_value_2"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "gene name 3",
+        "capitalize": "",
+        "ontology_id": "",
+        "datatype": "select",
+        "source": "gene name 1",
+        "dataStatus": [
+          "Not Applicable",
+          "Missing",
+          "Not Collected",
+          "Not Provided",
+          "Restricted Access"
+        ],
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "The name of the gene used in the diagnostic RT-PCR test.",
+        "guidance": "Provide the full name of another gene used in an RT-PCR test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI",
+        "examples": "nsp12 (RdRp)",
+        "exportField": {
+          "CNPHI": [
+            {
+              "field": "Gene Target 3"
+            }
+          ]
+        },
+        "vocabulary": {}
+      },
+      {
+        "fieldName": "diagnostic pcr protocol 3",
+        "capitalize": "",
+        "ontology_id": "",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "The name and version number of the protocol used for diagnostic marker amplification.",
+        "guidance": "The name and version number of the protocol used for carrying out a second diagnostic PCR test. This information can be compared to sequence data for evaluation of performance and quality control.",
+        "examples": "RdRpGenePCRTest 3"
+      },
+      {
+        "fieldName": "diagnostic pcr Ct value 3",
+        "capitalize": "",
+        "ontology_id": "",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "The Ct value result from a diagnostic SARS-CoV-2 RT-PCR test.",
+        "guidance": "Provide the CT value of the sample from the second diagnostic RT-PCR test.",
+        "examples": "30",
+        "exportField": {
+          "CNPHI": [
+            {
+              "field": "Gene Target 3 CT Value"
             }
           ]
         }
@@ -3543,6 +4018,11 @@ var DATA = [
             {
               "field": "Authors"
             }
+          ],
+          "CNPHI": [
+            {
+              "field": "Authors"
+            }
           ]
         }
       },
@@ -3567,10 +4047,29 @@ var DATA = [
           ],
           "CNPHI": [
             {
-              "field": "additional comments"
+              "field": "Additional Comments"
             }
           ]
         }
+      }
+    ]
+  },
+  {
+    "fieldName": "Illumina NovaSeq",
+    "children": [
+      {
+        "fieldName": "Illumina NovaSeq 6000",
+        "capitalize": "",
+        "ontology_id": "OBI_0002630",
+        "datatype": "",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "",
+        "guidance": "",
+        "examples": ""
       }
     ]
   }
