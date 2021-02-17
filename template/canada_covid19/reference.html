@@ -192,6 +192,15 @@
 
 						
 						<tr>
+							<td class="label">sample collection date unit</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>None</td>
+						</tr>
+
+						
+						<tr>
 							<td class="label">sample received date</td>
 							<td>The date on which the sample was received.</td>
 							<td>ISO 8601 standard "YYYY-MM-DD".</td>
@@ -256,8 +265,8 @@
 						
 						<tr>
 							<td class="label">purpose of sampling details</td>
-							<td>The description of why the sample was collected providing specific details.</td>
-							<td>Provide an expanded description of why the sample was collected using free text. The description may include the importance of the sample for a particular public health investigation/surveillance activity/research question. If details are not available, provide a null value. </td>
+							<td>The description of why the sample was collected, providing specific details.</td>
+							<td>Provide an expanded description of why the sample was collected using free text. The description may include the importance of the sample for a particular public health investigation/surveillance activity/research question. If details are not available, provide a null value.</td>
 							<td>The sample was collected to investigate the prevalence of variants associated with mink-to-human transmission in Canada. </td>
 							<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
 						</tr>
@@ -494,7 +503,7 @@
 
 						
 						<tr>
-							<td class="label">host origin geo_loc name (country)</td>
+							<td class="label">host residence geo_loc name (country)</td>
 							<td>The country of residence of the host.</td>
 							<td>Select the country name from pick list provided in the template.</td>
 							<td>United Kingdom</td>
@@ -550,6 +559,46 @@ Risk Factor: A variable associated with an increased risk of disease or infectio
 
 						
 						<tr class="section">
+							<td colspan="5"><h3>Host vaccination information</h3></td>
+						</tr>
+						
+						<tr>
+							<td class="label">host vaccination status</td>
+							<td>The vaccination status of the host (fully vaccinated, partially vaccinated, or not vaccinated).</td>
+							<td>Select the vaccination status of the host from the pick list.</td>
+							<td>Fully Vaccinated</td>
+							<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
+						</tr>
+
+						
+						<tr>
+							<td class="label">vaccine name</td>
+							<td>The name of the vaccine.</td>
+							<td>Free text. Provide the name of the vaccine.</td>
+							<td>Pfizer-BioNTech COVID-19 vaccine</td>
+							<td>None</td>
+						</tr>
+
+						
+						<tr>
+							<td class="label">number of vaccine doses received</td>
+							<td>The number of doses of the vaccine recived by the host.</td>
+							<td>Record how many doses of the vaccine the host has received.</td>
+							<td>2</td>
+							<td>None</td>
+						</tr>
+
+						
+						<tr>
+							<td class="label">vaccination date</td>
+							<td>The date the host was first vaccinated.</td>
+							<td>Provide the vaccination date in ISO 8601 standard format "YYYY-MM-DD".</td>
+							<td>2021-02-26</td>
+							<td>None</td>
+						</tr>
+
+						
+						<tr class="section">
 							<td colspan="5"><h3>Host exposure information</h3></td>
 						</tr>
 						
@@ -567,7 +616,7 @@ Risk Factor: A variable associated with an increased risk of disease or infectio
 							<td>The name of the city that was the destination of most recent travel.</td>
 							<td>Provide the name of the city that the host travelled to. Use this look-up service to identify the standardized term: https://www.ebi.ac.uk/ols/ontologies/gaz</td>
 							<td>New York City</td>
-							<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
+							<td>None</td>
 						</tr>
 
 						
@@ -576,7 +625,7 @@ Risk Factor: A variable associated with an increased risk of disease or infectio
 							<td>The name of the province that was the destination of most recent travel.</td>
 							<td>Provide the name of the state/province/territory that the host travelled to. Use this look-up service to identify the standardized term: https://www.ebi.ac.uk/ols/ontologies/gaz</td>
 							<td>California</td>
-							<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
+							<td>None</td>
 						</tr>
 
 						
@@ -609,7 +658,7 @@ Risk Factor: A variable associated with an increased risk of disease or infectio
 						
 						<tr>
 							<td class="label">travel history</td>
-							<td>Travel outside the country in last six months.</td>
+							<td>Travel history in last six months.</td>
 							<td>Specify the countries (and more granular locations if known, separated by a comma) travelled in the last six months; can include multiple travels. Separate multiple travel events with a semi-colon. List most recent travel first.</td>
 							<td>Canada, Vancouver; USA, Seattle; Italy, Milan</td>
 							<td>None</td>
@@ -626,11 +675,11 @@ Risk Factor: A variable associated with an increased risk of disease or infectio
 
 						
 						<tr>
-							<td class="label">direct/indirect exposure</td>
+							<td class="label">exposure contact level</td>
 							<td>The exposure transmission contact type.</td>
 							<td>Select direct or indirect exposure from the pick-list.</td>
 							<td>Direct</td>
-							<td>None</td>
+							<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
 						</tr>
 
 						
@@ -667,9 +716,9 @@ Risk Factor: A variable associated with an increased risk of disease or infectio
 						
 						<tr>
 							<td class="label">purpose of sequencing</td>
-							<td>The reason that the isolate was sequenced.</td>
-							<td>The reason an isolate was sequenced may provide information about potential biases in sequencing strategy. Provide the purpose of sequencing from the picklist in the template. Most likely, the sample was collected for Surveillance or Research. The reason why a sample was originally collected may differ from the reason why it was selected for sequencing. The reason for sample collection should be indicated in the "purpose of sampling" field. </td>
-							<td>Diagnostic testing</td>
+							<td>The reason that the sample was sequenced.</td>
+							<td>The reason why a sample was originally collected may differ from the reason why it was selected for sequencing. The reason a sample was sequenced may provide information about potential biases in sequencing strategy. Provide the purpose of sequencing from the picklist in the template. The reason for sample collection should be indicated in the "purpose of sampling" field. </td>
+							<td>Baseline surveillance (random sampling)</td>
 							<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
 						</tr>
 
@@ -677,8 +726,18 @@ Risk Factor: A variable associated with an increased risk of disease or infectio
 						<tr>
 							<td class="label">purpose of sequencing details</td>
 							<td>The description of why the sample was sequenced providing specific details.</td>
-							<td>Provide an expanded description of why the sample was sequenced using free text. The description may include the importance of the sequences for a particular public health investigation/surveillance activity/research question. If details are not available, provide a null value. </td>
-							<td>The sample was sequenced to investigate the differences in lineages circulating in Canada during the spring and fall waves of the pandemic.</td>
+							<td>Provide an expanded description of why the sample was sequenced using free text. The description may include the importance of the sequences for a particular public health investigation/surveillance activity/research question. Suggested standardized descriotions include: Screened for S gene target failure (S dropout), Screened for mink variants, Screened for B.1.1.7 variant, Screened for B.1.135 variant, Screened for P.1 variant, Screened due to travel history, Screened due to close contact with infected individual, Assessing public health control measures, Determining early introductions and spread, Investigating airline-related exposures, Investigating temporary foreign worker, Investigating remote regions, Investigating health care workers, Investigating schools/universities, Investigating reinfection.
+</td>
+							<td>Screened for S gene target failure (S dropout)</td>
+							<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
+						</tr>
+
+						
+						<tr>
+							<td class="label">sequencing date</td>
+							<td>The date the sample was sequenced.</td>
+							<td>ISO 8601 standard "YYYY-MM-DD".</td>
+							<td>2020-06-22</td>
 							<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
 						</tr>
 
@@ -693,16 +752,16 @@ Risk Factor: A variable associated with an increased risk of disease or infectio
 
 						
 						<tr>
-							<td class="label">library insert size</td>
-							<td>The insert size of the library being sequenced (i.e. the length of the DNA inserted between the adaptors).</td>
-							<td>Provide the insert size in base pairs.</td>
-							<td>300</td>
+							<td class="label">amplicon size</td>
+							<td>The length of the amplicon generated by PCR amplification.</td>
+							<td>Provide the amplicon size, including the units.</td>
+							<td>300bp</td>
 							<td>None</td>
 						</tr>
 
 						
 						<tr>
-							<td class="label">library preparation method</td>
+							<td class="label">library preparation kit</td>
 							<td>The name of the DNA library preparation kit used to generate the library being sequenced.</td>
 							<td>Provide the name of the library preparation kit used.</td>
 							<td>Nextera XT</td>
@@ -711,9 +770,9 @@ Risk Factor: A variable associated with an increased risk of disease or infectio
 
 						
 						<tr>
-							<td class="label">MinIon barcode</td>
-							<td>The barcode of the MinIon unit used for sequencing.</td>
-							<td>Provide the barcode of the MinIon used for sequencing the sample.</td>
+							<td class="label">flow cell barcode</td>
+							<td>The barcode of the flow cell used for sequencing.</td>
+							<td>Provide the barcode of the flow cell used for sequencing the sample.</td>
 							<td>FAB06069</td>
 							<td>None</td>
 						</tr>
@@ -732,16 +791,7 @@ Risk Factor: A variable associated with an increased risk of disease or infectio
 							<td class="label">sequencing protocol name</td>
 							<td>The name and version number of the sequencing protocol used.</td>
 							<td>Provide the name and version of the sequencing protocol e.g. 1D_DNA_MinION</td>
-							<td>1D_DNA_MinION, ARTIC Network Protocol v. 3</td>
-							<td>None</td>
-						</tr>
-
-						
-						<tr>
-							<td class="label">sequencing protocol source</td>
-							<td>The name of the organization/authors of the protocol.</td>
-							<td>Provide the name of the source of the protocol e.g. ARTIC Network.</td>
-							<td>ARTIC Network</td>
+							<td>https://www.protocols.io/view/covid-19-artic-v3-illumina-library-construction-an-bibtkann</td>
 							<td>None</td>
 						</tr>
 
@@ -756,20 +806,11 @@ Risk Factor: A variable associated with an increased risk of disease or infectio
 
 						
 						<tr>
-							<td class="label">amplicon pcr primers filename</td>
-							<td>The filename of the file containing amplicon PCR primer names and sequences.</td>
-							<td>Important for documenting methods and should be considered for submission, particularly if primers were designed in-house and not by a public consortium/network.</td>
-							<td>Rona_primers_2020.txt</td>
+							<td class="label">amplicon pcr primer scheme</td>
+							<td>The specifications of the primers (primer sequences, binding positions, fragment size generated etc) used to generate the amplicons to be sequenced.</td>
+							<td>Provide the name and version of the primer scheme used to generate the amplicons for sequencing.</td>
+							<td>https://github.com/joshquick/artic-ncov2019/blob/master/primer_schemes/nCoV-2019/V3/nCoV-2019.tsv</td>
 							<td>None</td>
-						</tr>
-
-						
-						<tr>
-							<td class="label">sample sequenced date</td>
-							<td>The date the sample was sequenced.</td>
-							<td>ISO 8601 standard "YYYY-MM-DD".</td>
-							<td>2020-06-22</td>
-							<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
 						</tr>
 
 						
@@ -778,55 +819,82 @@ Risk Factor: A variable associated with an increased risk of disease or infectio
 						</tr>
 						
 						<tr>
-							<td class="label">raw sequence data processing</td>
+							<td class="label">raw sequence data processing method</td>
 							<td>The names of the software and version number used for raw data processing such as removing barcodes, adapter trimming, filtering etc.</td>
 							<td>Provide the software name followed by the version e.g. Trimmomatic v. 0.38, Porechop v. 0.2.3</td>
-							<td>Porechop v. 0.2.3</td>
+							<td>Porechop 0.2.3</td>
 							<td>None</td>
 						</tr>
 
 						
 						<tr>
-							<td class="label">sequencing depth (average)</td>
-							<td>The total number of sequenced base pairs divided by the expected number of base pairs in the genome.</td>
-							<td>Provide the value as a fold of coverage.</td>
-							<td>80x</td>
+							<td class="label">dehosting method</td>
+							<td>The method used to remove host reads from the pathogen sequence.</td>
+							<td>Provide the name and version number of the software used to remove host reads.</td>
+							<td>Nanostripper</td>
 							<td>None</td>
 						</tr>
 
 						
 						<tr>
-							<td class="label">assembly name</td>
-							<td>Name/version of the assembly provided by the submitter.</td>
-							<td>Provide the assembly name.</td>
-							<td>rona123assembly.fasta</td>
+							<td class="label">consensus sequence filename</td>
+							<td>The name of the consensus sequence file.</td>
+							<td>Provide the name and version number of the consensus sequence FASTA file.</td>
+							<td>ncov123assembly.fasta</td>
 							<td>None</td>
 						</tr>
 
 						
 						<tr>
-							<td class="label">assembly method</td>
-							<td>The name and version number of the assembly method used.</td>
-							<td>Provide the software name followed by the version e.g. Canu 2.0</td>
-							<td>Canu 2.0</td>
+							<td class="label">consensus sequence filepath</td>
+							<td>The filepath of the consesnsus sequence file.</td>
+							<td>Provide the filepath of the consensus sequence FASTA file.</td>
+							<td>/User/Documents/RespLab/Data/ncov123assembly.fasta</td>
 							<td>None</td>
 						</tr>
 
 						
 						<tr>
-							<td class="label">assembly coverage breadth</td>
-							<td>The percentage of the assembled genome that was sequenced to a prescribed depth of coverage.</td>
-							<td>Provide value as a percent e.g. 95%.</td>
+							<td class="label">consensus sequence name</td>
+							<td>The name of the consensus sequence.</td>
+							<td>Provide the name and version number of the consensus sequence.</td>
+							<td>Ivar</td>
+							<td>None</td>
+						</tr>
+
+						
+						<tr>
+							<td class="label">consensus sequence version</td>
+							<td>The version of the software used to generate the consensus sequence.</td>
+							<td>Provide the version of the software used to generate the consensus sequence.</td>
+							<td>1.3</td>
+							<td>None</td>
+						</tr>
+
+						
+						<tr>
+							<td class="label">breadth of coverage value</td>
+							<td>The percentage of the reference genome covered by the sequenced data, to a prescribed depth.</td>
+							<td>Provide value as a percent.</td>
 							<td>95%</td>
 							<td>None</td>
 						</tr>
 
 						
 						<tr>
-							<td class="label">assembly coverage depth</td>
-							<td>The average number of reads representing a given nucleotide in the assembled sequence.</td>
-							<td>Provide value as a fold of coverage e.g. 80x.</td>
+							<td class="label">depth of coverage value</td>
+							<td>The average number of reads representing a given nucleotide in the reconstructed sequence.</td>
+							<td>Provide value as a fold of coverage.</td>
 							<td>400x</td>
+							<td>None</td>
+						</tr>
+
+						
+						<tr>
+							<td class="label">depth of coverage threshold</td>
+							<td>The threshold used as a cut-off for the depth of coverage.</td>
+							<td>Provide the threshold fold coverage.</td>
+							<td>100x</td>
 							<td>None</td>
 						</tr>
 
@@ -853,7 +921,7 @@ Risk Factor: A variable associated with an increased risk of disease or infectio
 							<td class="label">r1 fastq filepath</td>
 							<td>The location of the r1 FASTQ file within a user's file system.</td>
 							<td>Provide the filepath for the r1 FASTQ file. This information aids in data management. </td>
-							<td>/User/Documents/RespLab/Data</td>
+							<td>/User/Documents/RespLab/Data/ABC123_S1_L001_R1_001.fastq.gz</td>
 							<td>None</td>
 						</tr>
 
@@ -862,7 +930,7 @@ Risk Factor: A variable associated with an increased risk of disease or infectio
 							<td class="label">r2 fastq filepath</td>
 							<td>The location of the r2 FASTQ file within a user's file system.</td>
 							<td>Provide the filepath for the r2 FASTQ file. This information aids in data management. </td>
-							<td>/User/Documents/RespLab/Data</td>
+							<td>/User/Documents/RespLab/Data/ABC123_S1_L001_R2_001.fastq.gz</td>
 							<td>None</td>
 						</tr>
 
@@ -880,31 +948,13 @@ Risk Factor: A variable associated with an increased risk of disease or infectio
 							<td class="label">fast5 filepath</td>
 							<td>The location of the FAST5 file within a user's file system.</td>
 							<td>Provide the filepath for the FAST5 file. This information aids in data management. </td>
-							<td>/User/Documents/RespLab/Data</td>
+							<td>/User/Documents/RespLab/Data/rona123assembly.fast5</td>
 							<td>None</td>
 						</tr>
 
 						
 						<tr>
-							<td class="label">fasta filename</td>
-							<td>The user-specified filename of the FASTA file.</td>
-							<td>Provide the FASTA filename.</td>
-							<td>batch1a_sequences.fasta</td>
-							<td>None</td>
-						</tr>
-
-						
-						<tr>
-							<td class="label">fasta filepath</td>
-							<td>The location of the FASTA file within a user's file system.</td>
-							<td>Provide the filepath for the FASTA file. This information aids in data management. </td>
-							<td>/User/Documents/RespLab/Data</td>
-							<td>None</td>
-						</tr>
-
-						
-						<tr>
-							<td class="label">number base pairs</td>
+							<td class="label">number of base pairs seequenced</td>
 							<td>The number of total base pairs generated by the sequencing process.</td>
 							<td>Provide a numerical value (no need to include units).</td>
 							<td>387566</td>
@@ -917,24 +967,6 @@ Risk Factor: A variable associated with an increased risk of disease or infectio
 							<td>Size of the reconstructed genome described as the number of base pairs.</td>
 							<td>Provide a numerical value (no need to include units).</td>
 							<td>38677</td>
-							<td>None</td>
-						</tr>
-
-						
-						<tr>
-							<td class="label">mean contig length</td>
-							<td>The mean contig length is the count of base pairs in the average size contig of the sequence assembly.</td>
-							<td>Provide a numerical value (no need to include units).</td>
-							<td>12689</td>
-							<td>None</td>
-						</tr>
-
-						
-						<tr>
-							<td class="label">N50</td>
-							<td>The minimum contig length needed to cover 50% of the genome.</td>
-							<td>Provide a numerical value (no need to include units).</td>
-							<td>10500</td>
 							<td>None</td>
 						</tr>
 
@@ -958,55 +990,59 @@ Risk Factor: A variable associated with an increased risk of disease or infectio
 
 						
 						<tr>
-							<td class="label">consensus sequence ID</td>
-							<td>The identifer used to specify the consensus sequence.</td>
-							<td>Provide the consensus sequence identifier.</td>
-							<td>ProvConsensusSeq</td>
+							<td class="label">bioinformatics protocol</td>
+							<td>The name and version number of the bioinformatics protocol used.</td>
+							<td>Further details regarding the methods used to process raw data, and/or generate assemblies, and/or generate consensus sequences can be provided in an SOP or protocol. Provide the name and version number of the protocol.</td>
+							<td>https://www.protocols.io/groups/cphln-sarscov2-sequencing-consortium/members</td>
+							<td>None</td>
+						</tr>
+
+						
+						<tr class="section">
+							<td colspan="5"><h3>Lineage and Variant information</h3></td>
+						</tr>
+						
+						<tr>
+							<td class="label">lineage/clade name</td>
+							<td>The name of the lineage or clade.</td>
+							<td>Provide the Pangolin or Nextstrain lineage/clade name.</td>
+							<td>B.1.1.7</td>
 							<td>None</td>
 						</tr>
 
 						
 						<tr>
-							<td class="label">consensus sequence method</td>
-							<td>The name and version number of the software used to produce the consensus sequence.</td>
-							<td>Provide the software name followed by the version e.g. iVar 1.2</td>
-							<td>iVar 1.2</td>
+							<td class="label">lineage/clade analysis software name</td>
+							<td>The name of the software used to determine the lineage/clade.</td>
+							<td>Provide the name of the software used to determine the lineage/clade.</td>
+							<td>Pangolin</td>
+							<td>None</td>
+						</tr>
+
+						
+						<tr>
+							<td class="label">lineage/clade analysis software version</td>
+							<td>The version of the software used to determine the lineage/clade.</td>
+							<td>Provide the version of the software used ot determine the lineage/clade.</td>
+							<td>2.1.10</td>
+							<td>None</td>
+						</tr>
+
+						
+						<tr>
+							<td class="label">variant designation</td>
+							<td>The variant classification of the lineage/clade i.e. variant, variant of concern.</td>
+							<td>If the lineage/clade is considered a Variant of Concern, select Variant of Concern from the pick list. If the lineage/clade contains mutations of concern (mutations that increase transmission, clincal severity, or other epidemiological fa ctors) but it not a global Variant of Concern, select Variant. If the lineage/clade does not contain mutations of concern, leave blank.</td>
+							<td>Variant of Concern</td>
 							<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
 						</tr>
 
 						
 						<tr>
-							<td class="label">consensus sequence filename</td>
-							<td>The user-specified filename for the consensus sequence.</td>
-							<td>Provide the filename for the consensus sequence. </td>
-							<td>ProvConsensusSeq.fasta</td>
-							<td>None</td>
-						</tr>
-
-						
-						<tr>
-							<td class="label">consensus sequence filepath</td>
-							<td>The location of the consensus sequence in the user's file system.</td>
-							<td>Provide the filepath for the consensus sequence file. This information facilitates data management.</td>
-							<td>/User/Documents/RespLab/Data</td>
-							<td>None</td>
-						</tr>
-
-						
-						<tr>
-							<td class="label">annotation feature table filename</td>
-							<td>The filename of the file containing genome features such as gene names and corresponding CDS.</td>
-							<td>Provide the filename of the annotation feature table.</td>
-							<td>BCRonaAnnotationFeatures</td>
-							<td>None</td>
-						</tr>
-
-						
-						<tr>
-							<td class="label">bioinformatics protocol</td>
-							<td>The name and version number of the bioinformatics protocol used.</td>
-							<td>Further details regarding the methods used to process raw data, and/or generate assemblies, and/or generate consensus sequences can be provided in an SOP or protocol. Provide the name and version number of the protocol.</td>
-							<td>https://www.protocols.io/groups/cphln-sarscov2-sequencing-consortium/members</td>
+							<td class="label">variant evidence</td>
+							<td>The evidence used to make the variant determination.</td>
+							<td>Provide the assay and list the set of lineage-defining mutations used to make the variant determination. If there are mutations of interest/concern observed in addition to lineage-defining mutations, describe those here.</td>
+							<td>RT-qPCR TaqPath assay: S gene target failure</td>
 							<td>None</td>
 						</tr>
 
@@ -1020,7 +1056,7 @@ Risk Factor: A variable associated with an increased risk of disease or infectio
 							<td>The name of the gene used in the diagnostic RT-PCR test.</td>
 							<td>Provide the full name of the gene used in the test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI</td>
 							<td>E (orf4)</td>
-							<td>None</td>
+							<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
 						</tr>
 
 						
@@ -1047,7 +1083,7 @@ Risk Factor: A variable associated with an increased risk of disease or infectio
 							<td>The name of the gene used in the diagnostic RT-PCR test.</td>
 							<td>Provide the full name of another gene used in an RT-PCR test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI</td>
 							<td>nsp12 (RdRp)</td>
-							<td>None</td>
+							<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
 						</tr>
 
 						
@@ -1069,6 +1105,33 @@ Risk Factor: A variable associated with an increased risk of disease or infectio
 						</tr>
 
 						
+						<tr>
+							<td class="label">gene name 3</td>
+							<td>The name of the gene used in the diagnostic RT-PCR test.</td>
+							<td>Provide the full name of another gene used in an RT-PCR test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI</td>
+							<td>nsp12 (RdRp)</td>
+							<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
+						</tr>
+
+						
+						<tr>
+							<td class="label">diagnostic pcr protocol 3</td>
+							<td>The name and version number of the protocol used for diagnostic marker amplification.</td>
+							<td>The name and version number of the protocol used for carrying out a second diagnostic PCR test. This information can be compared to sequence data for evaluation of performance and quality control.</td>
+							<td>RdRpGenePCRTest 3</td>
+							<td>None</td>
+						</tr>
+
+						
+						<tr>
+							<td class="label">diagnostic pcr Ct value 3</td>
+							<td>The Ct value result from a diagnostic SARS-CoV-2 RT-PCR test.</td>
+							<td>Provide the CT value of the sample from the second diagnostic RT-PCR test.</td>
+							<td>30</td>
+							<td>None</td>
+						</tr>
+
+						
 						<tr class="section">
 							<td colspan="5"><h3>Contributor acknowledgement</h3></td>
 						</tr>
@@ -1084,6 +1147,19 @@ Risk Factor: A variable associated with an increased risk of disease or infectio
 						
 						<tr>
 							<td class="label">DataHarmonizer provenance</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>None</td>
+						</tr>
+
+						
+						<tr class="section">
+							<td colspan="5"><h3>Illumina NovaSeq</h3></td>
+						</tr>
+						
+						<tr>
+							<td class="label">Illumina NovaSeq 6000</td>
 							<td></td>
 							<td></td>
 							<td></td>
