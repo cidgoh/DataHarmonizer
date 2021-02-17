@@ -11,7 +11,7 @@
  * main.html?template=test_template
  *
  */
-const VERSION = '0.13.11';
+const VERSION = '0.13.12';
 const TEMPLATES = {
   'CanCOGeN Covid-19': {'folder': 'canada_covid19', 'status': 'published'},
   'PHAC Dexa (ALPHA)': {'folder': 'phac_dexa', 'status': 'draft'},
@@ -803,6 +803,16 @@ const fieldChangeRules = (change, fields, triggered_changes) => {
 
 };
 
+/**
+ * Adjust given dateString date to match year or month granularity given by
+ * dateGranularity parameter. If month unit required but not supplied, then
+ * a yyyy-__-01 will be supplied to indicate that month needs attention.
+ *
+ * @param {String} dateGranularity, either 'year' or 'month'
+ * @param {String} ISO 8601 date string or leading part, possibly just YYYY or
+                   YYYY-MM
+ * @return {String} ISO 8601 date string.
+ */
 const setDateChange = (dateGranularity, dateString) => {
 
   var dateParts = dateString.split('-');
@@ -871,7 +881,7 @@ const binChangeTest = (matrix, rowOffset, col, fields, binOffset, triggered_chan
           //}
 
         }
-        // .flatVocabulary is an array of bin ranges e.g. "10 - 19"
+        // .flatVocabulary is an array of string bin ranges e.g. "10 - 19"
         for (const number_range of fields[col+binOffset].flatVocabulary) {
           // ParseInt just looks at first part of number 
           if (number >= parseFloat(number_range)) {
