@@ -141,7 +141,6 @@ with open(r_filename) as tsvfile:
 								search_root = parent_label;
 								print ('vocabulary field:', parent_label);
 
-							#print('at search root', search_root);
 							if not 'vocabulary' in FIELD_INDEX[parent_label_lc]:
 								print ("error: field ",parent_label, "not marked as select or multiple but it has child term", label);
 							else:
