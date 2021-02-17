@@ -20,6 +20,7 @@ FIELD_INDEX = {} # [field] -> field object in DATA
 CHOICE_INDEX = {} # [choice] -> parent choice or field object in DATA
 section = None;
 reference_html = ''; # Content of a report that details section fields
+search_root = '/';
 
 # Consolidates all EXPORT_XYZ terms into one data structure
 # exportField: {PREFIX:[[field name],[value rename],...]}
@@ -80,7 +81,7 @@ with open(r_filename) as tsvfile:
 
 				else:
 					# Find parent class in DATA or in index of its fields
-					parent_label = row['parent class'];
+					parent_label = row['parent class'].strip();
 					section = next((x for x in DATA if x['fieldName'].strip() == parent_label), None);
 					if section:
 						# Convert data status into array of values.
@@ -120,7 +121,7 @@ with open(r_filename) as tsvfile:
 						if row['datatype'] == 'select' or row['datatype'] == 'multiple':
 							# Use ordered dict to keeps additions in order:
 							choice = collections.OrderedDict(); 
-							# Case sensitive index, curators must be exact
+							# Top level case-sensitive field index, curators must be exact
 							CHOICE_INDEX[label] = choice; 
 							field['vocabulary'] = choice;
 
@@ -134,23 +135,37 @@ with open(r_filename) as tsvfile:
 						# If parent in CHOICE_INDEX, then add it
 
 						if parent_label_lc in FIELD_INDEX:
-							
+							# Always use most recently referenced field for a
+							# vocabulary search root in CHOICE_INDEX
+							if search_root != parent_label:
+								search_root = parent_label;
+								print ('working on ', parent_label);
+
+							#print('at search root', search_root);
 							if not 'vocabulary' in FIELD_INDEX[parent_label_lc]:
-								print ("error: field ",parent_label, "not marked as select or multiple but it has child", label)
+								print ("error: field ",parent_label, "not marked as select or multiple but it has child term", label);
 							else:
 								# Basically top-level entries in field_map:
 								choice = collections.OrderedDict();
 								FIELD_INDEX[parent_label_lc]['vocabulary'][label] = choice;
-								CHOICE_INDEX[label] = choice;
+	
+								# Parent_label is top level field name:
+								CHOICE_INDEX[parent_label][label] = choice;
+
 								export_fields(EXPORT_FORMAT, choice, row);
 
 						else:
+							# If it isn't a field then it is a choice within a 
+							# field.  Searches only against current field's 
+							# vocabulary. In case a '/' exists in parent label
+							# switches that to a wildcard.
 							try:
-								result = dpath.util.get(CHOICE_INDEX, '*/' + parent_label, separator='/');
-								result[label] = collections.OrderedDict(); # Add new child {}
-								# ISSUE: THIS ONLY WORK FOR FLAT LISTS 
+								result = dpath.util.get(CHOICE_INDEX, '/' + search_root +'/**/' + parent_label.replace('/','?'), separator='/');
+								result[label] = collections.OrderedDict(); # new child {}
 							except:
+								#print (search_root)
 								print ("Error: parent class ", parent_label, "doesn't exist as section or field for term. Make sure parent term is trimmed of whitespace.", label);
+								pass
 
 
 reference_html += '</table>\n';
