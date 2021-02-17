@@ -3275,6 +3275,9 @@ var DATA = [
             "Illumina iSeq": {
               "Illumina iSeq 100": {}
             },
+            "Illumina NovaSeq": {
+              "Illumina NovaSeq 6000": {}
+            },
             "Illumina MiniSeq": {},
             "Illumina MiSeq": {},
             "Illumina NextSeq": {},
@@ -4070,25 +4073,6 @@ var DATA = [
             }
           ]
         }
-      }
-    ]
-  },
-  {
-    "fieldName": "Illumina NovaSeq",
-    "children": [
-      {
-        "fieldName": "Illumina NovaSeq 6000",
-        "capitalize": "",
-        "ontology_id": "OBI_0002630",
-        "datatype": "",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "",
-        "guidance": "",
-        "examples": ""
       }
     ]
   }
