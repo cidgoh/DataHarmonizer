@@ -139,7 +139,7 @@ with open(r_filename) as tsvfile:
 							# vocabulary search root in CHOICE_INDEX
 							if search_root != parent_label:
 								search_root = parent_label;
-								print ('working on ', parent_label);
+								print ('vocabulary field:', parent_label);
 
 							#print('at search root', search_root);
 							if not 'vocabulary' in FIELD_INDEX[parent_label_lc]:
@@ -156,14 +156,13 @@ with open(r_filename) as tsvfile:
 
 						else:
 							# If it isn't a field then it is a choice within a 
-							# field.  Searches only against current field's 
-							# vocabulary. In case a '/' exists in parent label
-							# switches that to a wildcard.
+							# field's vocabulary.  Searches only against 
+							# current field's vocabulary. In case a '/' exists
+							# in parent label switches that to a wildcard.
 							try:
 								result = dpath.util.get(CHOICE_INDEX, '/' + search_root +'/**/' + parent_label.replace('/','?'), separator='/');
 								result[label] = collections.OrderedDict(); # new child {}
 							except:
-								#print (search_root)
 								print ("Error: parent class ", parent_label, "doesn't exist as section or field for term. Make sure parent term is trimmed of whitespace.", label);
 								pass
 
