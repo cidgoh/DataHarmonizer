@@ -437,10 +437,10 @@ var DATA = [
         }
       },
       {
-        "fieldName": "sample collection date unit",
+        "fieldName": "sample collection date precision",
         "capitalize": "",
         "ontology_id": "",
-        "datatype": "",
+        "datatype": "select",
         "source": "",
         "dataStatus": null,
         "xs:minInclusive": "",
@@ -455,6 +455,11 @@ var DATA = [
               "field": "Precision of date collected"
             }
           ]
+        },
+        "vocabulary": {
+          "year": {},
+          "month": {},
+          "day": {}
         }
       },
       {
@@ -3270,6 +3275,9 @@ var DATA = [
             "Illumina iSeq": {
               "Illumina iSeq 100": {}
             },
+            "Illumina NovaSeq": {
+              "Illumina NovaSeq 6000": {}
+            },
             "Illumina MiniSeq": {},
             "Illumina MiSeq": {},
             "Illumina NextSeq": {},
@@ -3415,7 +3423,7 @@ var DATA = [
         "examples": "/User/Documents/RespLab/Data/ncov123assembly.fasta"
       },
       {
-        "fieldName": "consensus sequence name",
+        "fieldName": "consensus sequence method name",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -3426,10 +3434,17 @@ var DATA = [
         "requirement": "required",
         "description": "The name of the consensus sequence.",
         "guidance": "Provide the name and version number of the consensus sequence.",
-        "examples": "Ivar"
+        "examples": "Ivar",
+        "exportField": {
+          "CNPHI": [
+            {
+              "field": "consensus sequence"
+            }
+          ]
+        }
       },
       {
-        "fieldName": "consensus sequence version",
+        "fieldName": "consensus sequence method version",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:decimal",
@@ -3440,7 +3455,14 @@ var DATA = [
         "requirement": "required",
         "description": "The version of the software used to generate the consensus sequence.",
         "guidance": "Provide the version of the software used to generate the consensus sequence.",
-        "examples": "1.3"
+        "examples": "1.3",
+        "exportField": {
+          "CNPHI": [
+            {
+              "field": "consensus sequence"
+            }
+          ]
+        }
       },
       {
         "fieldName": "breadth of coverage value",
@@ -4051,25 +4073,6 @@ var DATA = [
             }
           ]
         }
-      }
-    ]
-  },
-  {
-    "fieldName": "Illumina NovaSeq",
-    "children": [
-      {
-        "fieldName": "Illumina NovaSeq 6000",
-        "capitalize": "",
-        "ontology_id": "OBI_0002630",
-        "datatype": "",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "",
-        "guidance": "",
-        "examples": ""
       }
     ]
   }
