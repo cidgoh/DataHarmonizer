@@ -968,9 +968,7 @@ var DATA = [
         "vocabulary": {
           "Cluster/Outbreak investigation": {},
           "Diagnostic testing": {},
-          "Research": {
-            "Viral passage experiment": {}
-          },
+          "Research": {},
           "Surveillance": {}
         }
       },
@@ -1096,7 +1094,7 @@ var DATA = [
           ],
           "BIOSAMPLE": [
             {
-              "field": "anatomical_material"
+              "field": "isolation_source|anatomical_material"
             }
           ]
         },
@@ -1145,7 +1143,7 @@ var DATA = [
           ],
           "BIOSAMPLE": [
             {
-              "field": "anatomical_part"
+              "field": "isolation_source|anatomical_part"
             }
           ]
         },
@@ -1214,7 +1212,7 @@ var DATA = [
           ],
           "BIOSAMPLE": [
             {
-              "field": "body_product"
+              "field": "isolation_source|body_product"
             }
           ]
         },
@@ -1262,7 +1260,7 @@ var DATA = [
           ],
           "BIOSAMPLE": [
             {
-              "field": "environmental_material"
+              "field": "isolation_source|environmental_material"
             }
           ]
         },
@@ -1287,6 +1285,7 @@ var DATA = [
           "N95 mask": {},
           "Nurse call button": {},
           "Paper": {},
+          "Particulate matter": {},
           "Plastic": {},
           "PPE gown": {},
           "Sewage": {},
@@ -1332,7 +1331,7 @@ var DATA = [
           ],
           "BIOSAMPLE": [
             {
-              "field": "environmental_site"
+              "field": "isolation_source|environmental_site"
             }
           ]
         },
@@ -1392,7 +1391,7 @@ var DATA = [
           ],
           "BIOSAMPLE": [
             {
-              "field": "collection_device"
+              "field": "isolation_source|collection_device"
             }
           ]
         },
@@ -1448,7 +1447,7 @@ var DATA = [
           ],
           "BIOSAMPLE": [
             {
-              "field": "collection_method"
+              "field": "isolation_source|collection_method"
             }
           ]
         },
@@ -2283,8 +2282,9 @@ var DATA = [
           "Hemoptysis (coughing up blood)": {},
           "Hypocapnia": {},
           "Hypotension (low blood pressure)": {},
-          "Hypoxemia (low blood oxygen)": {},
-          "Silent hypoxemia": {},
+          "Hypoxemia (low blood oxygen)": {
+            "Silent hypoxemia": {}
+          },
           "Internal hemorrhage (internal bleeding)": {},
           "Loss of Fine Movements": {},
           "Low appetite": {},
@@ -2873,7 +2873,7 @@ var DATA = [
             "Potluck": {},
             "Wedding": {}
           },
-          "Other": {}
+          "Other exposure event": {}
         }
       },
       {
@@ -2947,7 +2947,7 @@ var DATA = [
             "Laboratory Worker": {},
             "Rotational Worker": {},
             "Seasonal Worker": {},
-            "Vet": {}
+            "Veterinarian": {}
           },
           "Social role": {
             "Acquaintance of case": {},
@@ -2959,7 +2959,7 @@ var DATA = [
             },
             "Spouse of case": {}
           },
-          "Other": {}
+          "Other Host Role": {}
         }
       },
       {
@@ -3034,7 +3034,7 @@ var DATA = [
               "Homeless Shelter": {},
               "Hotel": {}
             },
-            "Vet": {}
+            "Veterinary Care Clinic": {}
           },
           "Travel Exposure": {
             "Travelled": {},
@@ -3044,7 +3044,7 @@ var DATA = [
             "Travelled outside Province/Territory": {},
             "Travelled outside Canada": {}
           },
-          "Other": {}
+          "Other Exposure Setting": {}
         }
       },
       {
