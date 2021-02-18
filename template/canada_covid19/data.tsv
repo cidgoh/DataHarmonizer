@@ -31,13 +31,13 @@ ID	SC %															AL rdfs:label@en	AL IAO:0000115@en	A IAO:0000119 SPLIT=|	A
 	Sample collection and processing	NML submitted specimen type	select		Not Applicable 	required				The type of specimen submitted to the NML for testing.	"This information is required for upload through the CNPHI LaSER system. Select the specimen type from the pick list provided. If sequence data is being submitted rather than a specimen for testing, select “Not Applicable”.
 "	swab		Specimen Type																								
 	Sample collection and processing	NML related specimen relationship type	select							The relationship of the related specimen to the previous submission.	Provide the specimen type of the original sample submitted from the pick list provided, so that additional specimen testing can be tracked in the system.	Follow-up		Related Specimen ID|Related Specimen Relationship Type																								
-	Sample collection and processing	anatomical material	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				A substance obtained from an anatomical part of an organism e.g. tissue, blood.	Provide a descriptor if an anatomical material was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. 	Blood	Specimen source	Anatomical Material	anatomical_material																							
-	Sample collection and processing	anatomical part	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				An anatomical part of an organism e.g. oropharynx.	Provide a descriptor if an anatomical part was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. 	Nasopharynx (NP)	Specimen source	Anatomical Site	anatomical_part																							
-	Sample collection and processing	body product	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				A substance excreted/secreted from an organism e.g. feces, urine, sweat.	Provide a descriptor if a body product was sampled. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. 	Feces	Specimen source	Body Product	body_product																							
-	Sample collection and processing	environmental material	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				A substance obtained from the natural or man-made environment e.g. soil, water, sewage.	Provide a descriptor if an environmental material was sampled. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. 	Face mask	Specimen source	Environmental Material	environmental_material																							
-	Sample collection and processing	environmental site	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				An environmental location may describe a site in the natural or built environment e.g. contact surface, metal can, hospital, wet market, bat cave.	Provide a descriptor if an environmental site was sampled. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. 	Production Facility	Specimen source	Environmental Site	environmental_site																							
-	Sample collection and processing	collection device	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				The instrument or container used to collect the sample e.g. swab.	Provide a descriptor if a device was used for sampling. Use the picklist provided in the template. If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. 	Swab	Specimen source	Specimen Collection Matrix	collection_device																							
-	Sample collection and processing	collection method	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				The process used to collect the sample e.g. phlebotamy, necropsy.	Provide a descriptor if a collection method was used for sampling. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. 	Bronchoalveolar lavage (BAL)	Specimen source	Collection Method	collection_method																							
+	Sample collection and processing	anatomical material	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				A substance obtained from an anatomical part of an organism e.g. tissue, blood.	Provide a descriptor if an anatomical material was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. 	Blood	Specimen source	Anatomical Material	isolation_source|anatomical_material																							
+	Sample collection and processing	anatomical part	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				An anatomical part of an organism e.g. oropharynx.	Provide a descriptor if an anatomical part was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. 	Nasopharynx (NP)	Specimen source	Anatomical Site	isolation_source|anatomical_part																							
+	Sample collection and processing	body product	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				A substance excreted/secreted from an organism e.g. feces, urine, sweat.	Provide a descriptor if a body product was sampled. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. 	Feces	Specimen source	Body Product	isolation_source|body_product																							
+	Sample collection and processing	environmental material	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				A substance obtained from the natural or man-made environment e.g. soil, water, sewage.	Provide a descriptor if an environmental material was sampled. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. 	Face mask	Specimen source	Environmental Material	isolation_source|environmental_material																							
+	Sample collection and processing	environmental site	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				An environmental location may describe a site in the natural or built environment e.g. contact surface, metal can, hospital, wet market, bat cave.	Provide a descriptor if an environmental site was sampled. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. 	Production Facility	Specimen source	Environmental Site	isolation_source|environmental_site																							
+	Sample collection and processing	collection device	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				The instrument or container used to collect the sample e.g. swab.	Provide a descriptor if a device was used for sampling. Use the picklist provided in the template. If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. 	Swab	Specimen source	Specimen Collection Matrix	isolation_source|collection_device																							
+	Sample collection and processing	collection method	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				The process used to collect the sample e.g. phlebotamy, necropsy.	Provide a descriptor if a collection method was used for sampling. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. 	Bronchoalveolar lavage (BAL)	Specimen source	Collection Method	isolation_source|collection_method																							
 	Sample collection and processing	collection protocol	xs:token							The name and version of a particular protocol used for sampling.	Free text.	BCRonaSamplingProtocol v. 1.2																										
 	Sample collection and processing	specimen processing	multiple		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	recommended				Any processing applied to the sample during or after receiving the sample.	Critical for interpreting data. Select all the applicable processes from the pick list. If virus was passaged, include information in "lab host", "passage number", and "passage method" fields. If none of the processes in the pick list apply, put "not applicable".	Virus passage	Passage details/history																									
 	Sample collection and processing	lab host	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	recommended				Name and description of the laboratory host used to propagate the source organism or material from which the sample was obtained.	Type of cell line used for propagation. Provide the name of the cell line using the picklist in the template. If not passaged, put "not applicable".	Vero E6 cell line	Passage details/history		lab_host																							
@@ -177,33 +177,33 @@ Abnormal tongue physiology"	"HP:0012638,
 HP:0030810"	"Changed label to match the format of 'abnormality of the sense of smell'. - Rhiannon
 
 Removed ""label"" so it no longer shows up in the DH picklist as it was causing confusion and is more relevant to the ontology side than as a picklist value."																
-	Abnormality of taste sensation	   Ageusia (complete loss of taste)															The loss of taste functions of the tongue	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7165999/	complete loss of taste, complete lack of taste	Abnormality of taste sensation	HP_0000223	New term - Recommend making term request to HPO																
-HP:0031249	Abnormality of taste sensation	   Parageusia (distorted sense of taste)														Parageusia			Dysgeusia, Metallic taste in mouth, Metallic taste, distorted sense of taste, distortion of the sense of taste	Abnormality of taste sensation	HP_0000223	Changed from 'Dysgeusia' to 'Parageusia' because that entry was in HP. - Rhiannon																
-HP_0000224 	Abnormality of taste sensation	   Hypogeusia (reduced sense of taste)														Decreased taste sensation	The decrease in taste sensitivity.	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7165999/	Decreased taste, Lost taste, Decreased taste sensation, Hypogeusia, loss of taste, lack of taste, reduced sense of taste, new loss of taste	Abnormality of taste sensation	HP_0000223	"New term
+	Abnormality of taste sensation	      Ageusia (complete loss of taste)															The loss of taste functions of the tongue	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7165999/	complete loss of taste, complete lack of taste	Abnormality of taste sensation	HP_0000223	New term - Recommend making term request to HPO																
+HP:0031249	Abnormality of taste sensation	      Parageusia (distorted sense of taste)														Parageusia			Dysgeusia, Metallic taste in mouth, Metallic taste, distorted sense of taste, distortion of the sense of taste	Abnormality of taste sensation	HP_0000223	Changed from 'Dysgeusia' to 'Parageusia' because that entry was in HP. - Rhiannon																
+HP_0000224 	Abnormality of taste sensation	      Hypogeusia (reduced sense of taste)														Decreased taste sensation	The decrease in taste sensitivity.	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7165999/	Decreased taste, Lost taste, Decreased taste sensation, Hypogeusia, loss of taste, lack of taste, reduced sense of taste, new loss of taste	Abnormality of taste sensation	HP_0000223	"New term
 
 Recommend making syonym request to HPO"																
 HP:0004408	signs and symptoms	Abnormality of the sense of smell														Abnormality of the sense of smell			Abnormal sense of smell, Abnormality of olfaction, Abnormality of the sense of smell, Smell defect	"Abnormal nervous system physiology,
 Abnormality of the nose"	"HP:0012638,
 HP:0000366"																	
-HP_0000458	Abnormality of the sense of smell	   Anosmia (lost sense of smell)														Anosmia			Lost smell, Loss of smell, new loss of smell	Abnormality of the sense of smell	HP_0004408	Also in MONDO (ref. "Other")	http://purl.obolibrary.org/obo/MONDO_0010528															
-HP_0004409	Abnormality of the sense of smell	   Hyposmia (reduced sense of smell)														Hyposmia			Decreased smell sensation, Sense of smell impaired, reduced sense of smell	Abnormality of the sense of smell	HP_0004408																	
+HP_0000458	Abnormality of the sense of smell	      Anosmia (lost sense of smell)														Anosmia			Lost smell, Loss of smell, new loss of smell	Abnormality of the sense of smell	HP_0004408	Also in MONDO (ref. "Other")	http://purl.obolibrary.org/obo/MONDO_0010528															
+HP_0004409	Abnormality of the sense of smell	      Hyposmia (reduced sense of smell)														Hyposmia			Decreased smell sensation, Sense of smell impaired, reduced sense of smell	Abnormality of the sense of smell	HP_0004408																	
 	signs and symptoms	Acute Respiratory Distress Syndrome												ARDS					ARDS			Appears under 'signs/symptoms' most frequently.																
 HP:0011446	signs and symptoms	Altered mental status														Abnormality of higher mental function			altered consciousness, altered mental status, altered mental state	Abnormal nervous system physiology	HP:0012638	"Changed label to 'Altered mental status' since that was the most common usage in case report forms.
 
 May want to consider alternate parent term. "																
 HP:0011675	signs and symptoms	Arrhythmia														Arrhythmia			Abnormal heart rate, Cardiac arrhythmia, Heart rhythm disorders, Irregular heartbeat, Cardiac arrhythmias, Cardiac rhythm disturbances, Arrhythmias, Irregular heart beat	Abnormality of cardiovascular system electrophysiology	HP:0030956																	
-HP:0100543	Altered mental status	   Cognitive impairment														Cognitive impairment			Intellectual impairment, Mental impairment, Cognitive abnormality, Abnormality of cognition, Cognitive defects, Cognitive deficits, Cognitive impairment	Abnormality of higher mental function	HP:0011446																	
-HP_0001259	Altered mental status	   Coma														Coma				Reduced consciousness/confusion	HP_0004372																	
-HP_0001289	Altered mental status	   Confusion														Confusion			mental confusion, new confusion, new or worsening confusion, layperson: disorientation, mental disorientation, easily confused	Reduced consciousness/confusion	HP_0004372	Removed 'new confusion' term from the picklist and added it here as a synonym. - Rhiannon																
-HP_0031258	Confusion	      Delirium (sudden severe confusion)														Delirium				Confusion	HP_0001289	Also in MONDO (ref. "Other")	http://purl.obolibrary.org/obo/MONDO_0045057															
-	Altered mental status	   Inability to arouse (inability to stay awake)																				Needs further review																
-HP_0000737 	Altered mental status	   Irritability														Irritability			Irritable, Irritability	"Impaired social interactions,
+HP:0100543	Altered mental status	      Cognitive impairment														Cognitive impairment			Intellectual impairment, Mental impairment, Cognitive abnormality, Abnormality of cognition, Cognitive defects, Cognitive deficits, Cognitive impairment	Abnormality of higher mental function	HP:0011446																	
+HP_0001259	Altered mental status	      Coma														Coma				Reduced consciousness/confusion	HP_0004372																	
+HP_0001289	Altered mental status	      Confusion														Confusion			mental confusion, new confusion, new or worsening confusion, layperson: disorientation, mental disorientation, easily confused	Reduced consciousness/confusion	HP_0004372	Removed 'new confusion' term from the picklist and added it here as a synonym. - Rhiannon																
+HP_0031258	Confusion	            Delirium (sudden severe confusion)														Delirium				Confusion	HP_0001289	Also in MONDO (ref. "Other")	http://purl.obolibrary.org/obo/MONDO_0045057															
+	Altered mental status	      Inability to arouse (inability to stay awake)																				Needs further review																
+HP_0000737 	Altered mental status	      Irritability														Irritability			Irritable, Irritability	"Impaired social interactions,
 Abnormal emotion/affect behavior"	"HP_0000735,
 HP_0100851"																	
-HP_0002371	Altered mental status	   Loss of speech														Loss of speech				Neurological speech impairment	HP_0002167																	
+HP_0002371	Altered mental status	      Loss of speech														Loss of speech				Neurological speech impairment	HP_0002167																	
 HP_0025406	signs and symptoms	Asthenia (generalized weakness)														Asthenia			general weakness, generalized weakness, abnormal physical weakness, loss of energy, weakness	Constitutional symptom	HP_0025142	Changed label from "Asthenia (general weakness)" to "Asthenia (generalized weakness)" to improve CNPHI compatibility.																
 HP:0031352	signs and symptoms	Chest tightness or pressure														Chest tightness			Tightness in chest, chest pressure 	Constitutional symptom	HP:0025142																	
-HP:0025145	Chest tightness or pressure	   Rigors (fever shakes)														Rigors			Rigours, fever shakes, severe shivering with chills, severe shaking with chills, repeated shaking with chills	"Shivering,
+HP:0025145	Chest tightness or pressure	      Rigors (fever shakes)														Rigors			Rigours, fever shakes, severe shivering with chills, severe shaking with chills, repeated shaking with chills	"Shivering,
 Chills"	"HP:0025144,
 HP:0025143"	consider adding/requesting parent term 'fever'																
 HP_0025143 	signs and symptoms	Chills (sudden cold sensation)												Chills		Chills				Constitutional symptom	HP_0025142																	
@@ -215,21 +215,21 @@ HP_0000502,
 HP_0025337"	Also in MONDO (ref. "Other")	http://purl.obolibrary.org/obo/MONDO_0003799															
 	signs and symptoms	Coryza																																				
 HP_0012735	signs and symptoms	Cough 														Cough			Coughing, Cough, new cough, worsening cough, new or worsening cough	Functional respiratory abnormality	HP_0002795																	
-HP:0031246	Cough	   Nonproductive cough (dry cough)														Nonproductive cough			dry cough, dry coughing	Cough	HP:0012735																	
-HP:0031245	Cough	   Productive cough (wet cough)														Productive cough			wet cough, cough with sputum production	Cough	HP:0012735																	
+HP:0031246	Cough	      Nonproductive cough (dry cough)														Nonproductive cough			dry cough, dry coughing	Cough	HP:0012735																	
+HP:0031245	Cough	      Productive cough (wet cough)														Productive cough			wet cough, cough with sputum production	Cough	HP:0012735																	
 HP:0000961	signs and symptoms	Cyanosis (blueish skin discolouration)														Cyanosis			narrower: central cyanosis, peripheral cyanosis, related: hypoxima	"Functional respiratory abnormality,
 Dermatological manifestations of systemic disorders"	"HP:0002795,
 HP:0001005"	"Caused by hypoxima, is related to covid toes/fingers. 
 Cyanosis is different from frostbite (chilblains) because it is rarely associated with pain."																
-HP:0001063	Cyanosis (blueish skin discolouration)	   Acrocyanosis														Acrocyanosis			Persistent blue color of hands, feet, or parts of face', related: peripheral cyanosis	Cyanosis	HP:0000961	 Is characterized by 'peripheral cyanosis' but does not appear to be an exact synonym.																
-	Acrocyanosis	      Circumoral cyanosis (bluish around mouth)														Circumoral cyanosis				Cyanosis	HP:0000961	"Considered a type of acrocyanosis by healthline.com (ref other). HP currently lists it as a sister class to 'acrocyanosis'.
+HP:0001063	Cyanosis (blueish skin discolouration)	      Acrocyanosis														Acrocyanosis			Persistent blue color of hands, feet, or parts of face', related: peripheral cyanosis	Cyanosis	HP:0000961	 Is characterized by 'peripheral cyanosis' but does not appear to be an exact synonym.																
+	Acrocyanosis	            Circumoral cyanosis (bluish around mouth)														Circumoral cyanosis				Cyanosis	HP:0000961	"Considered a type of acrocyanosis by healthline.com (ref other). HP currently lists it as a sister class to 'acrocyanosis'.
 However, it doesn't seem to be a clear consensus on whether it gets defined under 'central cyanosis' or 'peripheral cyanosis' (for e.g. see 'other')."	"https://www.healthline.com/health/circumoral-cyanosis#:~:text=Circumoral%20cyanosis%20refers%20to%20blue,on%20their%20hands%20and%20feet.
 https://pubmed.ncbi.nlm.nih.gov/2797223/"															
-	Acrocyanosis	      Cyanotic face (bluish face)																	cyanosis of the face	"Acrocyanosis,
+	Acrocyanosis	            Cyanotic face (bluish face)																	cyanosis of the face	"Acrocyanosis,
 Central cyanosis"		Didn't list it under 'central cyanosis' but it should be when ontologized.																
-	Cyanosis (blueish skin discolouration)	   Central Cyanosis															Bluish discoloration of the skin, mucous membranes, lips, tongue, and nail beds, associated with arterial desaturation.	https://www.sciencedirect.com/topics/neuroscience/cyanosis																				
-	Central Cyanosis	      Cyanotic lips (bluish lips)																		Central cyanosis		Has been stated to belong to 'central' and 'peripheral' cyanoses on different sources... Am only listing it under central at this time since some definitions of 'peripheral cyanosis' do not include lips.																
-	Cyanosis (blueish skin discolouration)	   Peripheral Cyanosis															Blues discoloration that occurs when there is increased oxygen uptake in peripheral tissues, often involving only the extremities; it is not associated with arterial desaturation.	https://www.sciencedirect.com/topics/neuroscience/cyanosis	cyanosis of the hands or feet, cyanosis of the extremities			Characterizes 'acrocyanosis' but isn't considered an exact synonym.																
+	Cyanosis (blueish skin discolouration)	      Central Cyanosis															Bluish discoloration of the skin, mucous membranes, lips, tongue, and nail beds, associated with arterial desaturation.	https://www.sciencedirect.com/topics/neuroscience/cyanosis																				
+	Central Cyanosis	            Cyanotic lips (bluish lips) 																		Central cyanosis		Has been stated to belong to 'central' and 'peripheral' cyanoses on different sources... Am only listing it under central at this time since some definitions of 'peripheral cyanosis' do not include lips.																
+	Cyanosis (blueish skin discolouration)	            Peripheral Cyanosis															Blues discoloration that occurs when there is increased oxygen uptake in peripheral tissues, often involving only the extremities; it is not associated with arterial desaturation.	https://www.sciencedirect.com/topics/neuroscience/cyanosis	cyanosis of the hands or feet, cyanosis of the extremities			Characterizes 'acrocyanosis' but isn't considered an exact synonym.																
 HP_0002094	signs and symptoms	Dyspnea (breathing difficulty) 														Dyspnea			Difficult to breathe, Trouble breathing, Breathing difficulty, Abnormal breathing, Dyspnoea, shotness of breath	Functional respiratory abnormality	HP_0002795	"Recommend making syonym request to HPO
 Changed name from 'Shortness of breath (breathing difficulty)' to 'Dyspnea (breathing difficulty)' incase a data curator has 'Dyspnea' in their collection data and they do not know that it is synonymous with 'Shortness of breath' and 'breathing difficulty'. - Rhiannon"																
 HP_0002014	signs and symptoms	Diarrhea (watery stool)												Diarrhea, watery		Diarrhea			Watery stool, Diarrhea, Diarrhoea	Abdominal symptom	HP_0011458 	In GenEpiO																
@@ -238,7 +238,7 @@ HP_0002383	signs and symptoms	Encephalitis (brain inflammation)												Encep
 	signs and symptoms	Encephalopathy																	unspecified encephalopathy																			
 HP_0012378	signs and symptoms	Fatigue (tiredness)												Fatigue		Fatigue			Tiredness, Fatigue, Tired, new fatigue, worsening fatigue, new or worsening fatigue	Constitutional symptom	HP_0025142	In GenEpiO																
 HP_0001945 	signs and symptoms	Fever														Fever			Pyrexia, Hyperthermia, Fever, high body temperature, raised body temperature, elevated body temperature	Abnormality of temperature regulation	HP_0004370	In GenEpiO																
-	Fever	   Fever (>=38°C)												Fever																								
+	Fever	      Fever (>=38°C)												Fever																								
 HP:0000206	signs and symptoms	Glossitis (inflammation of the tongue)																																				
 	signs and symptoms	Ground Glass Opacities (GGO)																				indicates abnormalities in the lungs - has even been identified in 'true' asymptomatic patients (i.e. not presymptomatic).																
 HP_0002315	signs and symptoms	Headache														Headache			Headache, Headaches	Abnormality of nervous system physiology	HP_0012638	In GenEpiO																
@@ -250,7 +250,7 @@ HP_0012418	signs and symptoms	Hypoxemia (low blood oxygen)														Hypoxemi
 HP comment ""Note that hypoxemia is defined as a condition where arterial oxygen tension is below normal (80-100mmHg). Hypoxia is defined as the failure of oxygenation at the tissue level. Hypoxia is not measured directly by a standard laboratory value""
 
 Leads to cyanosis - Rhiannon"																
-	signs and symptoms	   Silent hypoxemia															An abnormally low level of blood oxygen incompatible with life without dyspnea.	https://doi.org/10.1164/rccm.202006-2157CP	laymans: happy hypoxia, related: hypocapnia	An abnormally low level of blood oxygen incompatible with life without dyspnea.		HP New Term Request																
+	Hypoxemia (low blood oxygen)	      Silent hypoxemia															An abnormally low level of blood oxygen incompatible with life without dyspnea.	https://doi.org/10.1164/rccm.202006-2157CP	laymans: happy hypoxia, related: hypocapnia	An abnormally low level of blood oxygen incompatible with life without dyspnea.		HP New Term Request																
 HP:0011029	signs and symptoms	Internal hemorrhage (internal bleeding)														Internal hemorrhage			Internal haemorrhage Internal bleeding	"Abnormality of blood circulation,
 Abnormal bleeding"	"HP:0011028,
 HP:0001892"																	
@@ -269,13 +269,13 @@ HP_0002018	signs and symptoms	Nausea														Nausea				Nausea and vomiting	
 	signs and symptoms	nose bleed																																				
 	signs and symptoms	otitis																																				
 	signs and symptoms	Pain																																				
-HP:0002027	Pain	   Abdominal pain														Abdominal pain			Stomach pain, Abdominal pain, Pain in stomach, abdominal ache, belly ache, bellyache, narrower: stomach ache, stomachache, abdominal cramping?	"Abdominal symptom,
+HP:0002027	Pain	      Abdominal pain														Abdominal pain			Stomach pain, Abdominal pain, Pain in stomach, abdominal ache, belly ache, bellyache, narrower: stomach ache, stomachache, abdominal cramping?	"Abdominal symptom,
 Pain"	"HP:0011458,
 HP:0012531"																	
-HP_0002829	Pain	   Arthralgia (painful joints)														Arthralgia			painful joints, joint pain, joint inflammation, related: Arthritic pain, Joint pains, arthritis	Pain	HP_0012531	Don't use HP entry 'Arthralgia/arthritis' (HP:0005059) as it is refering to the disease diagnosis not the symptom.																
-HP_0100749	Pain	   Chest pain														Chest pain			Chest pain, Thoracic pain	Pain	HP_0012531	Could add synonyms 'perisstent chest pain' but I'm not sure if this term is meant to be narrow enough to represent presistent vs acute. Could also consider 'chest pain' synonymous with 'chest pressure' instead of 'chest tightness'. - Rhiannon																
-	Chest pain	      Pleuritic chest pain																	pleursy																			
-HP_0003326	Pain	   Myalgia (muscle pain) 														Myalgia			Muscle ache, Muscle pain, aches and pains, body aches	Pain	HP_0012531	In GenEpiO																
+HP_0002829	Pain	      Arthralgia (painful joints)														Arthralgia			painful joints, joint pain, joint inflammation, related: Arthritic pain, Joint pains, arthritis	Pain	HP_0012531	Don't use HP entry 'Arthralgia/arthritis' (HP:0005059) as it is refering to the disease diagnosis not the symptom.																
+HP_0100749	Pain	      Chest pain														Chest pain			Chest pain, Thoracic pain	Pain	HP_0012531	Could add synonyms 'perisstent chest pain' but I'm not sure if this term is meant to be narrow enough to represent presistent vs acute. Could also consider 'chest pain' synonymous with 'chest pressure' instead of 'chest tightness'. - Rhiannon																
+	Chest pain	            Pleuritic chest pain																	pleursy																			
+HP_0003326	Pain	      Myalgia (muscle pain) 														Myalgia			Muscle ache, Muscle pain, aches and pains, body aches	Pain	HP_0012531	In GenEpiO																
 HP_0025439	signs and symptoms	Pharyngitis (sore throat) 														Pharyngitis			sore throat, pharyngalgia, pharyngodynia	Abnormality of the pharynx	HP_0000600	Also in MONDO (ref. "Other")	http://purl.obolibrary.org/obo/MONDO_0002258															
 	signs and symptoms	Pharyngeal exudate																																				
 	signs and symptoms	Pleural effusion																					https://www.researchgate.net/publication/340720955_Pleural_effusion_as_an_initial_sign_of_coronavirus_disease_2019_COVID-19_pneumonia_a_case_report															
@@ -284,14 +284,14 @@ Increased inflammatory response"	"HP:0011947,
 HP:0012649"		Considered a sign/symptom on two case report forms.															
 	signs and symptoms	Prostration																					Appears on a provincial case report form.															
 	signs and symptoms	Pseudo-chilblains																	chilblains-like symptom, chilblains-like lesions, related: chilblains, chill burns, pernio, perniosis, broader: acro-ischemia, acrosyndromes, peripheral cyanosis?	Inflammatory abnormality of the skin		Revisit broader synonyms.	Have address chilblains in HP but not pseudo-chilblains. #5822															
-	Pseudo-chilblains	   Pseudo-chilblains on fingers (covid fingers)																	chilblains-like fingers, chilblains-like finger lesions, related: chilblains, chill burns, pernio, perniosis, finger cyanosis, broader: acro-ischemia, acrosyndromes, peripheral cyanosis?			Revisit broader synonyms.																
-	Pseudo-chilblains	   Pseudo-chilblains on toes (covid toes)																	chilblains-like toes, chilblains-like toe lesions, related: chilblains, chill burns, pernio, perniosis, toe cyanosis broader: acro-ischemia, acrosyndromes, peripheral cyanosis?			Revisit broader synonyms.																
+	Pseudo-chilblains	      Pseudo-chilblains on fingers (covid fingers)																	chilblains-like fingers, chilblains-like finger lesions, related: chilblains, chill burns, pernio, perniosis, finger cyanosis, broader: acro-ischemia, acrosyndromes, peripheral cyanosis?			Revisit broader synonyms.																
+	Pseudo-chilblains	      Pseudo-chilblains on toes (covid toes)																	chilblains-like toes, chilblains-like toe lesions, related: chilblains, chill burns, pernio, perniosis, toe cyanosis broader: acro-ischemia, acrosyndromes, peripheral cyanosis?			Revisit broader synonyms.																
 HP_0000988	signs and symptoms	Rash														Skin rash			exanthem, skin rash, rash	"Abnormality of skin morphology,
 Inflammatory abnormality of the skin"	"HP_0011121,
 HP_0011123"		E.g. "COVID toes".															
 HP_0031417	signs and symptoms	Rhinorrhea (runny nose)														Rhinorrhea			Runny Nose, Nasal Discharge	Abnormal nasal mucus secretion	HP_0031416																	
 HP_0001250	signs and symptoms	Seizure														Seizure			Epileptic seizure, Seizures	Abnormal nervous system physiology	HP_0012638																	
-HP:0020219	Seizure	   Motor seizure														Motor seizure				Seizure	HP:0001250																	
+HP:0020219	Seizure	      Motor seizure														Motor seizure				Seizure	HP:0001250																	
 HP:0025144	signs and symptoms	Shivering (involuntary muscle twitching)														Shivering			Shivering, Shuddering	Constitutional symptom	HP:0025142																	
 HP_0001350	signs and symptoms	Slurred speech														Slurred speech				Abnormality of coordination	HP_0011443	"In GenEpiO.
 
@@ -329,94 +329,94 @@ Has subclasses: Episodic vomiting, Feculent vomiting, Projectile vomiting"
 	pre-existing conditions and risk factors	Birthing labor																	labor, labour																			
 	pre-existing conditions and risk factors	Bone marrow failure																																				
 	pre-existing conditions and risk factors	Cancer																	malignancy			Malignancy' is more common than 'cancer' on case collection forms.																
-	Cancer	   Breast cancer																																				
-	Cancer	   Colorectal cancer																																				
-	Cancer	   Hematologic malignancy																																				
-	Cancer	   Lung cancer																																				
-	Cancer	   Metastatic disease																																				
+	Cancer	      Breast cancer																																				
+	Cancer	      Colorectal cancer																																				
+	Cancer	      Hematologic malignancy																																				
+	Cancer	      Lung cancer																																				
+	Cancer	      Metastatic disease																																				
 	pre-existing conditions and risk factors	Cancer treatment																																				
-	Cancer treatment	   Cancer surgery																																				
-	Cancer treatment	   Chemotherapy																																				
-	Chemotherapy	      Adjuvant chemotherapy																																				
+	Cancer treatment	      Cancer surgery																																				
+	Cancer treatment	      Chemotherapy																																				
+	Chemotherapy	            Adjuvant chemotherapy																																				
 	pre-existing conditions and risk factors	Cardiac disorder																																				
-HP:0011675	Cardiac disorder	Arrhythmia														Arrhythmia			Abnormal heart rate, Cardiac arrhythmia, Heart rhythm disorders, Irregular heartbeat, Cardiac arrhythmias, Cardiac rhythm disturbances, Arrhythmias, Irregular heart beat	Abnormality of cardiovascular system electrophysiology	HP:0030956																	
-	Cardiac disorder	   Cardiac disease																	cardiovascular disease, cardio-vascular disease, heart disease																			
-HP:0001638	Cardiac disorder	   Cardiomyopathy																	Disease of the heart muscle	Abnormal myocardium morphology	HP:0001637																	
-	Cardiac disorder	   Cardiac injury																																				
-	Cardiac disorder	   Hypertension (high blood pressure)																	arterial hypertension																			
-HP:0002615	Cardiac disorder	   Hypotension (low blood pressure)														Hypotension			Arterial hypotension, Low blood pressure	Abnormal systemic blood pressure	HP_0030972	Also in MONDO (ref. "Other")	http://purl.obolibrary.org/obo/MONDO_0005468															
+HP:0011675	Cardiac disorder	      Arrhythmia														Arrhythmia			Abnormal heart rate, Cardiac arrhythmia, Heart rhythm disorders, Irregular heartbeat, Cardiac arrhythmias, Cardiac rhythm disturbances, Arrhythmias, Irregular heart beat	Abnormality of cardiovascular system electrophysiology	HP:0030956																	
+	Cardiac disorder	      Cardiac disease																	cardiovascular disease, cardio-vascular disease, heart disease																			
+HP:0001638	Cardiac disorder	      Cardiomyopathy																	Disease of the heart muscle	Abnormal myocardium morphology	HP:0001637																	
+	Cardiac disorder	      Cardiac injury																																				
+	Cardiac disorder	      Hypertension (high blood pressure)																	arterial hypertension																			
+HP:0002615	Cardiac disorder	      Hypotension (low blood pressure)														Hypotension			Arterial hypotension, Low blood pressure	Abnormal systemic blood pressure	HP_0030972	Also in MONDO (ref. "Other")	http://purl.obolibrary.org/obo/MONDO_0005468															
 	pre-existing conditions and risk factors	Cesarean section																																				
 	pre-existing conditions and risk factors	Chronic cough																																				
 	pre-existing conditions and risk factors	Chronic gastrointestinal disease																	chronic GI disease																			
 	pre-existing conditions and risk factors	Chronic lung disease																																				
 	pre-existing conditions and risk factors	Corticosteroids																																				
 	pre-existing conditions and risk factors	Diabetes mellitus (diabetes)																																				
-	Diabetes mellitus (diabetes)	   Type I diabetes mellitus (T1D)																	Insulin dependent diabetes mellitus (IDDM), juvenille diabetes																			
-	Diabetes mellitus (diabetes)	   Type II diabetes mellitus (T2D)																	adult-onset diabetes																			
+	Diabetes mellitus (diabetes)	      Type I diabetes mellitus (T1D)																	Insulin dependent diabetes mellitus (IDDM), juvenille diabetes																			
+	Diabetes mellitus (diabetes)	      Type II diabetes mellitus (T2D)																	adult-onset diabetes																			
 	pre-existing conditions and risk factors	Eczema																																				
 	pre-existing conditions and risk factors	Electrolyte disturbance																																				
-	Electrolyte disturbance	   Hypocalcemia																																				
-	Electrolyte disturbance	   Hypokalemia																																				
-	Electrolyte disturbance	   Hypomagnesemia																																				
+	Electrolyte disturbance	      Hypocalcemia																																				
+	Electrolyte disturbance	      Hypokalemia																																				
+	Electrolyte disturbance	      Hypomagnesemia																																				
 HP:0002383	pre-existing conditions and risk factors	Encephalitis (brain inflammation)														Encephalitis 			Brain inflammation, inflammation of the brain	Unusual CNS infection	HP_0011450	Also in MONDO (ref. "Other")	http://purl.obolibrary.org/obo/MONDO_0019956															
 	pre-existing conditions and risk factors	Epilepsy																																				
 	pre-existing conditions and risk factors	Hemodialysis																																				
 	pre-existing conditions and risk factors	Hemoglobinopathy																																				
 	pre-existing conditions and risk factors	Human immunodeficiency virus (HIV)																																				
-	Human immunodeficiency virus (HIV)	   Acquired immunodeficiency syndrome (AIDS)																	Stage 4 HIV																			
-	Human immunodeficiency virus (HIV)	   HIV and antiretroviral therapy (ART)																	narrower: HIV antiretroviral medication, HIV antiretroviral drug																			
+	Human immunodeficiency virus (HIV)	      Acquired immunodeficiency syndrome (AIDS)																	Stage 4 HIV																			
+	Human immunodeficiency virus (HIV)	      HIV and antiretroviral therapy (ART)																	narrower: HIV antiretroviral medication, HIV antiretroviral drug																			
 	pre-existing conditions and risk factors	Immunocompromised																	narrower: immune deficiencies, immunosupressants																			
-	Immunocompromised	   Lupus																	systemic lupus erythematosus																			
+	Immunocompromised	      Lupus																	systemic lupus erythematosus																			
 	pre-existing conditions and risk factors	Inflammatory bowel disease (IBD)																	IBD, IBS, inflammatory bowel syndrome																			
-	Inflammatory bowel disease (IBD)	   Colitis																																				
-	Colitis	      Ulcerative colitis																																				
-	Inflammatory bowel disease (IBD)	   Crohn's disease																																				
+	Inflammatory bowel disease (IBD)	      Colitis																																				
+	Colitis	            Ulcerative colitis																																				
+	Inflammatory bowel disease (IBD)	      Crohn's disease																																				
 	pre-existing conditions and risk factors	Renal disorder																	kidney disorder																			
-	Renal disorder	   Renal disease																	kidney disease																			
-	Renal disorder	      Chronic renal disease																	chronic kidney disease																			
-	Renal disorder	   Renal failure																	kidney failure																			
+	Renal disorder	      Renal disease																	kidney disease																			
+	Renal disorder	            Chronic renal disease																	chronic kidney disease																			
+	Renal disorder	            Renal failure																	kidney failure																			
 	pre-existing conditions and risk factors	Liver disease																	hepatic disease																			
-	Liver disease	   Chronic liver disease																																				
-	Chronic liver disease	      Fatty liver disease (FLD)																	Hepatic steatosis																			
+	Liver disease	      Chronic liver disease																																				
+	Chronic liver disease	            Fatty liver disease (FLD)																	Hepatic steatosis																			
 HP:0003326	pre-existing conditions and risk factors	Myalgia (muscle pain) 														Myalgia			Muscle ache, Muscle pain, aches and pains, body aches	Pain	HP_0012531	In GenEpiO																
 	pre-existing conditions and risk factors	Myalgic encephalomyelitis (ME)																	chronic fatigue syndrome (CFS)																			
 	pre-existing conditions and risk factors	Neurological disorder																	nervous system disorder																			
-	Neurological disorder	   Neuromuscular disorder																																				
+	Neurological disorder	      Neuromuscular disorder																																				
 	pre-existing conditions and risk factors	Obesity																																				
-	Obesity	   Severe obesity																	morbid obesity																			
+	Obesity	      Severe obesity																	morbid obesity																			
 	pre-existing conditions and risk factors	Respiratory disorder																																				
-	Respiratory disorder	   Asthma																																				
-	Respiratory disorder	   Chronic bronchitis																																				
-	Respiratory disorder	   Chronic pulmonary disease																	chronic respiratory condition																			
-	Chronic pulmonary disease	      Chronic obstructive pulmonary disease																																				
-	Respiratory disorder	   Emphysema																																				
-	Respiratory disorder	   Lung disease																																				
-	Lung disease	      Chronic lung disease																																				
-	Lung disease	      Pulmonary fibrosis																																				
-HP:0002090	Respiratory disorder	Pneumonia														Pneumonia			Pneumonia	"Respiratory tract infection,
+	Respiratory disorder	      Asthma																																				
+	Respiratory disorder	      Chronic bronchitis																																				
+	Respiratory disorder	      Chronic pulmonary disease																	chronic respiratory condition																			
+	Chronic pulmonary disease	            Chronic obstructive pulmonary disease																																				
+	Respiratory disorder	      Emphysema																																				
+	Respiratory disorder	      Lung disease																																				
+	Lung disease	            Chronic lung disease																																				
+	Lung disease	            Pulmonary fibrosis																																				
+HP:0002090	Respiratory disorder	      Pneumonia														Pneumonia			Pneumonia	"Respiratory tract infection,
 Increased inflammatory response"	"HP:0011947,
 HP:0012649"																	
-	Respiratory disorder	   Respiratory failure																																				
-	Respiratory failure	      Adult respiratory distress syndrome																																				
-	Respiratory failure	      Newborn respiratory distress syndrome																																				
-	Respiratory disorder	   Tuberculosis																																				
+	Respiratory disorder	      Respiratory failure																																				
+	Respiratory failure	            Adult respiratory distress syndrome																																				
+	Respiratory failure	            Newborn respiratory distress syndrome																																				
+	Respiratory disorder	      Tuberculosis																																				
 	pre-existing conditions and risk factors	Postpartum (≤6 weeks)																				All case forms specific ≤6 weeks																
 	pre-existing conditions and risk factors	Pregnancy																	pregnant person			Gestation or trimester information usually requested																
 	pre-existing conditions and risk factors	Rheumatic disease																																				
 	pre-existing conditions and risk factors	Sickle cell disease																																				
 	pre-existing conditions and risk factors	Substance use																				Could instead go with 'substance user'																
-	Substance use	   Alcohol abuse																				Could instead go with 'alcohol abuser'																
-	Substance use	   Drug abuse																				Could instead go with 'drug abuser/user'																
-	Drug abuse	      Injection drug abuse																	intravenous drug abuse			Could instead go with 'injection drug abuser/user'																
-	Substance use	   Smoking																				Could instead go with 'smoker'																
-	Substance use	   Vaping																				Could instead go with 'vape user'																
+	Substance use	      Alcohol abuse																				Could instead go with 'alcohol abuser'																
+	Substance use	      Drug abuse																				Could instead go with 'drug abuser/user'																
+	Drug abuse	            Injection drug abuse																	intravenous drug abuse			Could instead go with 'injection drug abuser/user'																
+	Substance use	      Smoking																				Could instead go with 'smoker'																
+	Substance use	      Vaping																				Could instead go with 'vape user'																
 HP:0002789	pre-existing conditions and risk factors	Tachypnea (accelerated respiratory rate)														Tachypnea			Increased respiratory rate or depth of breathing, Polypnea, rapid breathing, accelerated respiratory rate	Abnormal pattern of respiration	HP_0002793																	
 	pre-existing conditions and risk factors	Transplant																				transplant recipient?																
-	Transplant	   Bone marrow transplant																				Alt: 'History of Bone Marrow Transplant' which is the label HP uses.																
-	Transplant	   Cardiac transplant																	heart transplant																			
-	Transplant	   Hematopoietic stem cell transplant (HSCT)																	hematopoietic cell transplantation																			
-	Transplant	   Kidney transplant																																				
-	Transplant	   Liver transplant																																				
+	Transplant	      Bone marrow transplant																				Alt: 'History of Bone Marrow Transplant' which is the label HP uses.																
+	Transplant	      Cardiac transplant																	heart transplant																			
+	Transplant	      Hematopoietic stem cell transplant (HSCT)																	hematopoietic cell transplantation																			
+	Transplant	      Kidney transplant																																				
+	Transplant	      Liver transplant																																				
 																																						
 	variant designation	Variant of Concern (VOC)																																				
 	variant designation	Variant  																																				
@@ -424,26 +424,26 @@ HP:0002789	pre-existing conditions and risk factors	Tachypnea (accelerated respi
 	complications	Abnormal blood oxygen level																	O2 saturation <=95%			Case report forms frequently record "O2 saturation <=95%".	"The generally accepted standard is that a normal resting oxygen saturation of less than 95% is considered abnormal" (https://www.ncbi.nlm.nih.gov/books/NBK525974/)															
 	complications	Acute respiratory failure																																				
 HP:0011675	complications	Arrhythmia (complication)														Arrhythmia			Abnormal heart rate, Cardiac arrhythmia, Heart rhythm disorders, Irregular heartbeat, Cardiac arrhythmias, Cardiac rhythm disturbances, Arrhythmias, Irregular heart beat	Abnormality of cardiovascular system electrophysiology	HP:0030956																	
-	Arrhythmia (complication)	   Tachycardia																				May be considered synonymous with tachyarrhythmia (Ref other) - recommend looking into it further.	https://en.wikipedia.org/wiki/Tachycardia															
-	Tachycardia	      Polymorphic ventricular tachycardia (VT)																																				
-	Tachycardia	      Tachyarrhythmia																	broader: narrower complex tachycardia (NCT), wide complex tachycardia				https://www.sciencedirect.com/topics/medicine-and-dentistry/tachyarrhythmia#:~:text=Introduction,tachycardia%20(%E2%89%A5120%20ms).															
+	Arrhythmia (complication)	      Tachycardia																				May be considered synonymous with tachyarrhythmia (Ref other) - recommend looking into it further.	https://en.wikipedia.org/wiki/Tachycardia															
+	Tachycardia	            Polymorphic ventricular tachycardia (VT)																																				
+	Tachycardia	            Tachyarrhythmia																	broader: narrower complex tachycardia (NCT), wide complex tachycardia				https://www.sciencedirect.com/topics/medicine-and-dentistry/tachyarrhythmia#:~:text=Introduction,tachycardia%20(%E2%89%A5120%20ms).															
 	complications	Noncardiogenic pulmonary edema																					https://pubmed.ncbi.nlm.nih.gov/31194387/															
-	Noncardiogenic pulmonary edema	   Acute respiratory distress syndrome (ARDS)																																				
-	Acute respiratory distress syndrome (ARDS)	      COVID-19 associated ARDS (CARDS)																																				
-	Acute respiratory distress syndrome (ARDS)	      Neurogenic pulmonary edema (NPE)																				Do note equate to 'High Altitude Pulmonary Edema' (HAPE) as some are doing; they some of the symptoms may be similar, what's occuring in the lungs is significantly different.																
+	Noncardiogenic pulmonary edema	      Acute respiratory distress syndrome (ARDS)																																				
+	Acute respiratory distress syndrome (ARDS)	            COVID-19 associated ARDS (CARDS)																																				
+	Acute respiratory distress syndrome (ARDS)	            Neurogenic pulmonary edema (NPE)																				Do note equate to 'High Altitude Pulmonary Edema' (HAPE) as some are doing; they some of the symptoms may be similar, what's occuring in the lungs is significantly different.																
 	complications	Cardiac injury																	cardiac trauma				https://www.gehealthcare.ca/en-CA/article/cardiac-complications-of-covid-19-signs-to-watch-for-on-the-ecg															
 	complications	Cardiac arrest																																				
 	complications	Cardiogenic shock																																				
 	complications	Blood clot																																				
-	Blood clot	   Arterial clot																																				
-	Blood clot	   Deep vein thrombosis (DVT)																																				
-	Blood clot	   Pulmonary embolism (PE)																																				
+	Blood clot	      Arterial clot																																				
+	Blood clot	      Deep vein thrombosis (DVT)																																				
+	Blood clot	      Pulmonary embolism (PE)																																				
 HP:0001638	complications	Cardiomyopathy																	Disease of the heart muscle	Abnormal myocardium morphology	HP:0001637																	
 	complications	Central nervous system invasion																				Central nervous system invasion by SARS-CoV-2																
 	complications	Stroke (complication)																	cerebrovascular event																			
-	Stroke (complication)	   Central Nervous System Vasculitis																	CNS vasculitis																			
-	Stroke (complication)	   Ischemic stroke																																				
-	Ischemic stroke	      Acute ischemic stroke																																				
+	Stroke (complication)	      Central Nervous System Vasculitis																	CNS vasculitis																			
+	Stroke (complication)	      Ischemic stroke																																				
+	Ischemic stroke	            Acute ischemic stroke																																				
 	complications	Coma																																				
 	complications	Convulsions																																				
 	complications	COVID-19 associated coagulopathy (CAC)																				chronic, likely caused by DIC																
@@ -454,17 +454,17 @@ HP:0001638	complications	Cardiomyopathy																	Disease of the heart mus
 	complications	Fulminant myocarditis																																				
 	complications	Guillain-Barré syndrome																																				
 	complications	Internal hemorrhage (complication; internal bleeding)																																				
-	Internal hemorrhage (complication; internal bleeding)	   Intracerebral haemorrhage																	ICH																			
+	Internal hemorrhage (complication; internal bleeding)	      Intracerebral haemorrhage																	ICH																			
 	complications	Kawasaki disease																				chronic																
-	Kawasaki disease	   Typical Kawasaki disease																																				
-	Kawasaki disease	   Incomplete Kawasaki disease																																				
+	Kawasaki disease	      Typical Kawasaki disease																																				
+	Kawasaki disease	      Incomplete Kawasaki disease																																				
 	complications	Kidney injury																																				
-	Kidney injury	   Acute kidney injury																	AKI																			
+	Kidney injury	      Acute kidney injury																	AKI																			
 	complications	Liver dysfunction																																				
 	complications	Liver injury																	liver damage																			
-	Liver injury	   Acute liver injury																																				
+	Liver injury	      Acute liver injury																																				
 	complications	Lung injury																																				
-	Lung injury	   Acute lung injury																																				
+	Lung injury	      Acute lung injury																																				
 	complications	Meningitis																																				
 	complications	Migraine																																				
 	complications	Miscarriage																																				
@@ -472,34 +472,34 @@ HP:0001638	complications	Cardiomyopathy																	Disease of the heart mus
 	complications	Muscle injury																																				
 	complications	Myalgic encephalomyelitis (ME)																	chronic fatigue syndrome (CFS)																			
 	complications	Myocardial infarction (heart attack)																	MI																			
-	Myocardial infarction (heart attack)	   Acute myocardial infarction																																				
-	Myocardial infarction (heart attack)	   Elevation myocardial infarction																																				
-	Myocardial infarction (heart attack)	   ST-segment elevation myocardial infarction																																				
+	Myocardial infarction (heart attack)	      Acute myocardial infarction																																				
+	Myocardial infarction (heart attack)	      Elevation myocardial infarction																																				
+	Myocardial infarction (heart attack)	      ST-segment elevation myocardial infarction																																				
 	complications	Myocardial injury																																				
 	complications	Neonatal complications																																				
 	complications	Organ failure																																				
-	Organ failure	   Heart failure																				not synonymous with 'cardciac arrest'																
-	Organ failure	   Liver failure																																				
+	Organ failure	      Heart failure																				not synonymous with 'cardciac arrest'																
+	Organ failure	      Liver failure																																				
 	complications	Paralysis																																				
 	complications	Pneumothorax (collapsed lung)																																				
-	Pneumothorax (collapsed lung)	   Spontaneous pneumothorax																																				
-	Pneumothorax (collapsed lung)	   Spontaneous tension pneymothorax																																				
+	Pneumothorax (collapsed lung)	      Spontaneous pneumothorax																																				
+	Pneumothorax (collapsed lung)	      Spontaneous tension pneymothorax																																				
 	complications	Pneumonia (complication)																																				
-	Pneumonia (complication)	   COVID-19 pneumonia																	COVID-19 infected pneumonia			Redundant?																
+	Pneumonia (complication)	      COVID-19 pneumonia																	COVID-19 infected pneumonia			Redundant?																
 	complications	Pregancy complications																	pregnancy issues																			
 	complications	Rhabdomyolysis																																				
 	complications	Secondary infection																																				
-	Secondary infection	   Secondary staph infection																																				
-	Secondary infection	   Secondary strep infection																																				
+	Secondary infection	      Secondary staph infection																																				
+	Secondary infection	      Secondary strep infection																																				
 HP:0001250	complications	Seizure (complication)														Seizure			Epileptic seizure, Seizures	Abnormal nervous system physiology	HP_0012638																	
-HP:0020219	Seizure (complication)	   Motor seizure														Motor seizure				Seizure	HP:0001250																	
+HP:0020219	Seizure (complication)	      Motor seizure														Motor seizure				Seizure	HP:0001250																	
 	complications	Sepsis																																				
 	complications	Septicemia																																				
 	complications	Shock																																				
-	Shock	   Hyperinflammatory shock																																				
-	Shock	   Refractory cardiogenic shock																	RCS																			
-	Shock	   Refractory cardiogenic plus vasoplegic shock																																				
-	Shock	   Septic shock																																				
+	Shock	      Hyperinflammatory shock																																				
+	Shock	      Refractory cardiogenic shock																	RCS																			
+	Shock	      Refractory cardiogenic plus vasoplegic shock																																				
+	Shock	      Septic shock																																				
 	complications	Vasculitis																	inflammed blood vessels																			
 	complications	Ventilation induced lung injury (VILI)																																				
 																																						
@@ -507,14 +507,14 @@ HP:0020219	Seizure (complication)	   Motor seizure														Motor seizure			
 																																						
 UBERON_0000178	anatomical material	Blood														blood				organism substance	UBERON_0000463	Use UBERON term.																
 UBERON_0006314	anatomical material	Fluid														bodily fluid			organism substance, portion of body substance, body substance, body fluid or substance, portion of organism substance	organism substance	UBERON_0000463	Use UBERON term.																
-UBERON_0001836	Fluid	   Saliva														saliva			spit, broader: oral fluid	organism substance	UBERON_0000463	"Use UBERON term. Add synonym. (ISSUE: People may be using this rather than more properly referencing oral fluid).
+UBERON_0001836	Fluid	      Saliva														saliva			spit, broader: oral fluid	organism substance	UBERON_0000463	"Use UBERON term. Add synonym. (ISSUE: People may be using this rather than more properly referencing oral fluid).
 
 Added ""oral fluid"" as a broader synonym since people are using them synonymously. - Rhiannon"																
-UBERON_0001359	Fluid	   Fluid (cerebrospinal (CSF))														cerebrospinal fluid				organism substance	UBERON_0000463	Use UBERON term.																
-UBERON_0002409	Fluid	   Fluid (pericardial)														pericardial fluid				organism substance	UBERON_0000463	Use UBERON term.																
-UBERON_0001087	Fluid	   Fluid (pleural)														pleural fluid				organism substance	UBERON_0000463	Use UBERON term.																
-UBERON_0036243	Fluid	   Fluid (vaginal)														vaginal fluid			vaginal secretion, vaginal discharge	bodily fluid	UBERON_0006314	Use UBERON term.																
-UBERON_0000173	Fluid	   Fluid (amniotic)														amniotic fluid				organism substance	UBERON_0000463	Use UBERON term.																
+UBERON_0001359	Fluid	      Fluid (cerebrospinal (CSF))														cerebrospinal fluid				organism substance	UBERON_0000463	Use UBERON term.																
+UBERON_0002409	Fluid	      Fluid (pericardial)														pericardial fluid				organism substance	UBERON_0000463	Use UBERON term.																
+UBERON_0001087	Fluid	      Fluid (pleural)														pleural fluid				organism substance	UBERON_0000463	Use UBERON term.																
+UBERON_0036243	Fluid	      Fluid (vaginal)														vaginal fluid			vaginal secretion, vaginal discharge	bodily fluid	UBERON_0006314	Use UBERON term.																
+UBERON_0000173	Fluid	      Fluid (amniotic)														amniotic fluid				organism substance	UBERON_0000463	Use UBERON term.																
 UBERON_0000479	anatomical material	Tissue														tissue				material anatomical entity	UBERON_0000465 	Use UBERON term.																
 																																						
 																																						
@@ -528,22 +528,22 @@ UBERON_0001052	anatomical part	Rectum														rectum			terminal portion of 
 UBERON_0001003	anatomical part	Skin														skin epidermis																						
 UBERON_0000945	anatomical part	Stomach														stomach																						
 UBERON_0001557	anatomical part	Upper respiratory tract														upper respiratory tract																						
-UBERON_2001427	Upper respiratory tract	   Anterior Nares														anterior naris																						
-UBERON_0001043	Upper respiratory tract	   Esophagus														esophagus			oesophagus, gullet																			
-UBERON_0002453	Upper respiratory tract	   Ethmoid sinus														ethmoid sinus			ethmoidal sinus, ethmoidal bone sinus	paranasal sinus																		
-	Upper respiratory tract	   Nasal Cavity																																				
-UBERON_0005921 	Nasal Cavity	     Middle Nasal Turbinate														middle nasal concha			middle nasal turbinate, middle turbinate, mid-nasal turbinate, nasal mid-turbinate, NMT			Found UBERON entry "middle nasal concha" which is an exact synonym, but I think we should use "middle nasal turbinate" or "mid-nasal turbinate" since those are closer to the clincal usage forms (e.g. Mid-turbinate swab, Nasal mid-turbinate (NMT) swab, Deep Nasal Swab).	https://www.fda.gov/media/136314/download															
-UBERON_0005922	Nasal Cavity	     Inferior Nasal Turbinate														inferior nasal concha			inferior nasal turbinate																			
-UBERON_0001728	Upper respiratory tract	   Nasopharynx (NP)														nasopharynx																						
-UBERON_0001729	Upper respiratory tract	   Oropharynx (OP)														oropharynx						The area of the throat that gets swabbed.																
+UBERON_2001427	Upper respiratory tract	      Anterior Nares														anterior naris																						
+UBERON_0001043	Upper respiratory tract	      Esophagus														esophagus			oesophagus, gullet																			
+UBERON_0002453	Upper respiratory tract	      Ethmoid sinus														ethmoid sinus			ethmoidal sinus, ethmoidal bone sinus	paranasal sinus																		
+	Upper respiratory tract	      Nasal Cavity																																				
+UBERON_0005921 	Nasal Cavity	           Middle Nasal Turbinate														middle nasal concha			middle nasal turbinate, middle turbinate, mid-nasal turbinate, nasal mid-turbinate, NMT			Found UBERON entry "middle nasal concha" which is an exact synonym, but I think we should use "middle nasal turbinate" or "mid-nasal turbinate" since those are closer to the clincal usage forms (e.g. Mid-turbinate swab, Nasal mid-turbinate (NMT) swab, Deep Nasal Swab).	https://www.fda.gov/media/136314/download															
+UBERON_0005922	Nasal Cavity	           Inferior Nasal Turbinate														inferior nasal concha			inferior nasal turbinate																			
+UBERON_0001728	Upper respiratory tract	      Nasopharynx (NP)														nasopharynx																						
+UBERON_0001729	Upper respiratory tract	      Oropharynx (OP)														oropharynx						The area of the throat that gets swabbed.																
 UBERON_0001558	anatomical part	Lower respiratory tract														lower respiratory tract																						
-UBERON_0002185 	Lower respiratory tract	   Bronchus														bronchus			bronchial trunk, bronchi, bronchial tissue,	respiratory tube	UBERON_0000117																	
-UBERON_0002048	Lower respiratory tract	   Lung														lung																						
-UBERON_0002186	Lung	     Bronchiole														bronchiole			lobular bronchiole, bronchioli, bronchiolus, 	respiratory tube	UBERON_0000117																	
-UBERON_0002169	Lung	     Alveolar sac														alveolar sac				respiratory tube	UBERON_0000117																	
-UBERON_0009778 	Lower respiratory tract	   Pleural sac														pleural sac						Perhaps not necessary.																
-UBERON_0002402	Pleural sac	     Pleural cavity														pleural cavity						Contains pleural fluid which gets collected for sampling.																
-UBERON_0003126	Lower respiratory tract	   Trachea														trachea																						
+UBERON_0002185 	Lower respiratory tract	      Bronchus														bronchus			bronchial trunk, bronchi, bronchial tissue,	respiratory tube	UBERON_0000117																	
+UBERON_0002048	Lower respiratory tract	      Lung														lung																						
+UBERON_0002186	Lung	           Bronchiole														bronchiole			lobular bronchiole, bronchioli, bronchiolus, 	respiratory tube	UBERON_0000117																	
+UBERON_0002169	Lung	           Alveolar sac														alveolar sac				respiratory tube	UBERON_0000117																	
+UBERON_0009778 	Lower respiratory tract	      Pleural sac														pleural sac						Perhaps not necessary.																
+UBERON_0002402	Pleural sac	           Pleural cavity														pleural cavity						Contains pleural fluid which gets collected for sampling.																
+UBERON_0003126	Lower respiratory tract	      Trachea														trachea																						
 																																						
 																																						
 																																						
@@ -552,7 +552,7 @@ UBERON_0001988	body product	Feces														feces			stool, faeces			Could for
 UBERON_0001088	body product	Urine														urine																						
 UBERON_0001089	body product	Sweat														sweat																						
 UBERON_0000912	body product	Mucus														mucus			mucosa																			
-UBERON_0007311	Mucus	   Sputum														sputum			deep mucus, phlegm			"Would this be better suited for ""body product sampled""? Moved from ""anatomical material sampled"" to body product sampled"", since the later contains ""mucus"" and sputums is a narrower synonym of ""mucus"".
+UBERON_0007311	Mucus	      Sputum														sputum			deep mucus, phlegm			"Would this be better suited for ""body product sampled""? Moved from ""anatomical material sampled"" to body product sampled"", since the later contains ""mucus"" and sputums is a narrower synonym of ""mucus"".
 
 Could form relationship with ""sputum collection"" from GenEpiO."																
 UBERON_0001827	body product	Tear														secretion of lacrimal gland			ocular secretion, tears, tear fluid, narrower: precorneal tear film (PCTF), basal tear, reflex tear, closed eye tear, eye-flush tear																			
@@ -586,7 +586,7 @@ ENVO:01000481	environmental material	Glass																				term also in FoodO
 	environmental material	N95 mask														N95 mask	A particulate-filtering facepiece respirator that meets the U.S. National Institute for Occupational Safety and Health (NIOSH) N95 classification of air filtration, meaning that it filters at least 95% of airborne particles.	https://en.wikipedia.org/wiki/N95_mask	N95 respirator			new term for OBI?																
 	environmental material	Nurse call button 														Nurse call button 	A button or cord found in hospitals and nursing homes, that allow patients in health care settings to alert a nurse or other health care staff member remotely of their need for help. Thay are usually found in places where patients are at their most vulnerable, such as beside their bed and in the bathroom.	https://en.wikipedia.org/wiki/Nurse_call_button	Call bell, hospital call bell			new term																
 	environmental material	Paper															Material manufactured in thin sheets from the pulp of wood or other fibrous substances, used for writing, drawing, or printing on, or as wrapping material.	https://www.lexico.com/en/definition/paper		paper product	ENVO_00003895	new term for ENVO?																
-ENVO:01000060	Particulate matter																																					
+ENVO:01000060	environmental material	Particulate matter																																				
 ENVO:01000404	environmental material	Plastic																				term also in FoodOn (FOODON_03500036)																
 	environmental material	PPE gown														PPE gown	A type of gown worn by medical professionals in order to provide a barrier between patient and professional, and usually zips up at the back.	https://en.wikipedia.org/wiki/PPE_gown	personal protective equipment gown			new term (NOT for OMIT). OBI?																
 ENVO_00002018	environmental material	Sewage														sewage																						
@@ -625,16 +625,16 @@ NCIT_C17118	environmental site	School														School				building	ENVO_00000
 																																						
 NCIT:C52009	collection method	Amniocentesis														Amniocentesis				collecting specimen from organism	OBI_0600005	A prenatal diagnostic sample of amniotic fluid that isn't commonly done for SARS-CoV-2 but has been done.																
 NCIT:C15631	collection method	Aspiration														Aspiration			aspirate, narrower: fine needle aspiration, nasopharyngeal aspiration, tracheal aspiration, endotracheal aspirate	collecting specimen from organism	OBI_0600005																	
-	Aspiration	  Suprapubic Aspiration																																				
-	Aspiration	  Tracheal aspiration																	TA																			
-	Aspiration	  Vacuum Aspiration																	Suction Aspiration																			
+	Aspiration	     Suprapubic Aspiration																																				
+	Aspiration	     Tracheal aspiration																	TA																			
+	Aspiration	     Vacuum Aspiration																	Suction Aspiration																			
 OBI:0002650	collection method	Biopsy														Biopsy	A specimen collection that obtains a sample of tissue from a living multicellular organism body for diagnostic purposes by means intended to be minimally invasive.		narrower: needle biopsy, fine needle aspiration	collecting specimen from organism	OBI_0600005	DONE. (new term being published to OBI (damion))																
-OBI:0002651	Biopsy	  Needle Biopsy														Needle Biopsy	A biopsy which uses an imaging procedure to guide a needle biopsy.																					
+OBI:0002651	Biopsy	     Needle Biopsy														Needle Biopsy	A biopsy which uses an imaging procedure to guide a needle biopsy.																					
 	collection method	Filtration																																				
-	Filtration	Air filtration																																				
+	Filtration	      Air filtration																																				
 OBI:0600044 	collection method	Lavage														lavage			narrower: bronchoalveolar lavage (BAL), gastric lavage	collecting specimen from organism	OBI_0600005	Changed "Wash" to "Lavage". "editor note: This is not washing, in which case the material of interest is not the resulting fluid."																
-BTO:0000155	Lavage	  Bronchoalveolar lavage (BAL)														bronchoalveolar lavage (bal)				OBI_0600044 	lavage																	
-	Lavage	  Gastric Lavage																				copy from OMIT_0006951																
+BTO:0000155	Lavage	     Bronchoalveolar lavage (BAL)														bronchoalveolar lavage (bal)				OBI_0600044 	lavage																	
+	Lavage	     Gastric Lavage																				copy from OMIT_0006951																
 NCIT:C15327	collection method	Lumbar Puncture														Lumbar Puncture			spinal tap, LP	collecting specimen from organism	OBI_0600005	Existing synonyms are from current master GenEpiO branch and will not appear on Onto browsers.																
 MMO:0000344	collection method	Necropsy														necropsy			autopsy (although usually only in reference to an animal).	collecting specimen from organism	OBI_0600005	"Should this term be included in this category? It's not so much a ""method"" as an examination that occured postmortem. 
 
@@ -643,10 +643,10 @@ Also, what if someone did a postmortem biopsy - can they put in both ""Necropsy"
 I think it's a useful term and should go somewhere, just perhaps not under ""collection method"". Should we (or do we already have) something along the lines of ""host condition"" at time of examination/sample collection?"																
 NCIT:c28221	collection method	Phlebotomy														phlebotomy			narrower: venipuncture	collecting specimen from organism	OBI_0600005																	
 GENEPIO:0002116	collection method	Rinsing														rinsing for specimen collection				collecting specimen from organism	OBI_0600005	 "editor note: This is not washing, in which case the material of interest is not the resulting fluid."																
-	Rinsing	  Saline gargle (mouth rinse and gargle)																																				
+	Rinsing	     Saline gargle (mouth rinse and gargle)																																				
 	collection method	Scraping																	narrower: conjunctival scraping, skin scraping																			
 GENEPIO:0002117	collection method	Swabbing														swabbing for specimen collection'			narrower: nasopharyngeal (nasal) swab, oropharyngeal (throat) swab, depe nasal swab, throat swab, multitest swab, deep nasal or throat swab	collecting specimen from organism	OBI_0600005	As in "to swab" not "a swab". Alternative name suggestion: "Swabbing"																
-	Swabbing	  Finger Prick																				Is a "swab method" (ref. "other" column).	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2395662/															
+	Swabbing	     Finger Prick																				Is a "swab method" (ref. "other" column).	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2395662/															
 	collection method	Wash														wash specimen			narrower: nasal wash, nasopharyngeal wash, bronch wash			Could use http://purl.obolibrary.org/obo/GENEPIO_0002116 and add as ExactSynonym.																
 	collection method	Washout Tear Collection																				Not sure if this is considered a narrower synonym of "wash".																
 																																						
@@ -716,11 +716,11 @@ NCBITaxon_9694	host (common name)	Tiger														Panthera tigris			Panthera 
 																																						
 																																						
 	host health status details	Hospitalized																																				
-	Hospitalized	Hospitalized (Non-ICU)																				Could use NCIT_C3833																
-	Hospitalized	Hospitalized (ICU)																																				
+	Hospitalized	      Hospitalized (Non-ICU)																				Could use NCIT_C3833																
+	Hospitalized	      Hospitalized (ICU)																																				
 	host health status details	Mechanical Ventilation																																				
 	host health status details	Medically Isolated																																				
-	Medically Isolated	Medically Isolated (Negative Pressure)																																				
+	Medically Isolated	      Medically Isolated (Negative Pressure)																																				
 	host health status details	Self-quarantining																																				
 																																						
 	host health outcome	Deceased																																				
@@ -737,23 +737,23 @@ NCBITaxon_9694	host (common name)	Tiger														Panthera tigris			Panthera 
 	purpose of sampling	Diagnostic testing																																				
 NCIT_c15429	purpose of sampling	Research														research activity																						
 	purpose of sampling	Surveillance 																																				
-	Research	     Viral passage experiment																																				
+																																						
 																																						
 	purpose of sequencing	Baseline surveillance (random sampling)																																				
 	purpose of sequencing	Targeted surveillance (non-random sampling)																																				
-	Targeted surveillance (non-random sampling)	   Priority surveillance project																																				
-	Priority surveillance project	      Screening for Variants of Concern (VoC)																																				
-	Priority surveillance project	      Longitudinal surveillance (repeat sampling) 																																				
-	Priority surveillance project	      Vaccine escape surveillance																																				
-	Priority surveillance project	      Travel-associated surveillance																																				
-	Travel-associated surveillance	          Domestic travel surveillance																																				
-	Travel-associated surveillance	          International travel surveillance																																				
+	Targeted surveillance (non-random sampling)	          Priority surveillance project																																				
+	Priority surveillance project	                    Screening for Variants of Concern (VoC)																																				
+	Priority surveillance project	                    Longitudinal surveillance (repeat sampling) 																																				
+	Priority surveillance project	                    Vaccine escape surveillance																																				
+	Priority surveillance project	                    Travel-associated surveillance																																				
+	Travel-associated surveillance	                              Domestic travel surveillance																																				
+	Travel-associated surveillance	                              International travel surveillance																																				
 	purpose of sequencing	Cluster/Outbreak investigation																																				
-	Cluster/Outbreak investigation	   Multi-jurisdictional outbreak investigation																																				
-	Cluster/Outbreak investigation	   Intra-jurisdictional outbreak investigation																																				
+	Cluster/Outbreak investigation	          Multi-jurisdictional outbreak investigation																																				
+	Cluster/Outbreak investigation	          Intra-jurisdictional outbreak investigation																																				
 	purpose of sequencing	Research																																				
-	Research	   Viral passage experiment																																				
-	Research	   Protocol testing experiment																																				
+	Research	          Viral passage experiment																																				
+	Research	          Protocol testing experiment																																				
 																																						
 																																						
 	specimen processing	Virus passage																																				
@@ -886,125 +886,125 @@ OMRSE:00000008?	host gender	Male																				Could use 'male gender role'
 	host gender	Unknown																																				
 																																						
 	exposure event	Mass Gathering																																				
-	Mass Gathering	   Convention																																				
-	Mass Gathering	   Convocation																				Added 2020/14/03																
-	Mass Gathering	   Agricultural Event																																				
+	Mass Gathering	      Convention																																				
+	Mass Gathering	      Convocation																				Added 2020/14/03																
+	Mass Gathering	      Agricultural Event																																				
 	exposure event	Religious Gathering																																				
-	Religious Gathering	   Mass																																				
+	Religious Gathering	      Mass																																				
 	exposure event	Social Gathering																																				
-	Social Gathering	   Baby Shower																				Added 2020/14/03																
-	Social Gathering	   Community Event																				Added 2020/14/03																
-	Social Gathering	   Family Gathering																																				
-	Family Gathering	      Family Reunion																																				
-	Social Gathering	   Funeral																																				
-	Social Gathering	   Party																																				
-	Social Gathering	   Potluck																																				
-	Social Gathering	   Wedding																																				
-	exposure event	Other																																				
+	Social Gathering	      Baby Shower																				Added 2020/14/03																
+	Social Gathering	      Community Event																				Added 2020/14/03																
+	Social Gathering	      Family Gathering																																				
+	Family Gathering	            Family Reunion																																				
+	Social Gathering	      Funeral																																				
+	Social Gathering	      Party																																				
+	Social Gathering	      Potluck																																				
+	Social Gathering	      Wedding																																				
+	exposure event	Other exposure event																																				
 																																						
 	exposure contact level	Contact with infected individual																																				
-	Contact with infected individual	   Direct contact (direct human-to-human contact)																																				
-	Contact with infected individual	   Indirect contact																																				
-	Indirect contact	     Close contact (face-to-face, no direct contact) 																																				
-	Indirect contact	     Casual contact																																				
+	Contact with infected individual	      Direct contact (direct human-to-human contact)																																				
+	Contact with infected individual	      Indirect contact																																				
+	Indirect contact	           Close contact (face-to-face, no direct contact) 																																				
+	Indirect contact	           Casual contact																																				
 																																						
 																																						
 	host role	Attendee																																				
-	Attendee	   Student																				i.e. school attendee																
+	Attendee	      Student																				i.e. school attendee																
 	host role	Patient																																				
-	Patient	   Inpatient																																				
-	Patient	   Outpatient																																				
+	Patient	      Inpatient																																				
+	Patient	      Outpatient																																				
 	host role	Passenger																				Could include for pairing with modes of transport																
 	host role	Resident																																				
 	host role	Visitor																																				
 	host role	Volunteer																																				
 	host role	Work																				Only including narrower terms that appears on case report forms																
-	Work	   Administrator																																				
-	Work	   First Responder																				synonymous with emergency responder, frontline responder																
-	First Responder	      Firefighter																																				
-	First Responder	      Paramedic																																				
-	First Responder	      Police Officer																																				
-	Work	   Healthcare Worker																																				
+	Work	      Administrator																																				
+	Work	      First Responder																				synonymous with emergency responder, frontline responder																
+	First Responder	            Firefighter																																				
+	First Responder	            Paramedic																																				
+	First Responder	            Police Officer																																				
+	Work	      Healthcare Worker																																				
 	Work	      Nurse																																				
 	Work	      Personal Care Aid																																				
 	Work	      Pharmacist																																				
 	Work	      Physician																																				
-	Work	   Housekeeper																																				
-	Work	   Kitchen Worker																																				
-	Work	   Laboratory Worker																																				
-	Work	   Rotational Worker																																				
-	Work	   Seasonal Worker																																				
-	Work	   Vet																																				
+	Work	      Housekeeper																																				
+	Work	      Kitchen Worker																																				
+	Work	      Laboratory Worker																																				
+	Work	      Rotational Worker																																				
+	Work	      Seasonal Worker																																				
+	Work	      Veterinarian																																				
 	host role	Social role																				Damion mentioned that we could include these roles (already in GenEpiO)																
-	Social role	   Acquaintance of case																																				
-	Social role	   Relative of case																																				
-	Relative of case	      Child of case																																				
-	Relative of case	      Parent of case																																				
-	Relative of case	         Father of case 																				Update (2020/08/28): Changed parent class to "parent"																
-	Relative of case	         Mother of case																				Update (2020/08/28): Changed parent class to "parent"																
-	Social role	   Spouse of case																																				
-	host role	Other																																				
+	Social role	      Acquaintance of case																																				
+	Social role	      Relative of case																																				
+	Relative of case	            Child of case																																				
+	Relative of case	            Parent of case																																				
+	Relative of case	                  Father of case 																				Update (2020/08/28): Changed parent class to "parent"																
+	Relative of case	                  Mother of case																				Update (2020/08/28): Changed parent class to "parent"																
+	Social role	      Spouse of case																																				
+	host role	Other Host Role																																				
 																																						
 	exposure setting	Human Exposure																																				
-	Human Exposure	   Known COVID-19 Case																																				
-	Human Exposure	   Patient Contact																																				
-	Human Exposure	   Probable COVID-19 Case																																				
-	Human Exposure	   Person with Acute Respiratory Illness																																				
-	Human Exposure	   Person with Fever and/or Cough																																				
-	Human Exposure	   Person who Recently Travelled																																				
+	Human Exposure	      Known COVID-19 Case																																				
+	Human Exposure	      Patient Contact																																				
+	Human Exposure	      Probable COVID-19 Case																																				
+	Human Exposure	      Person with Acute Respiratory Illness																																				
+	Human Exposure	      Person with Fever and/or Cough																																				
+	Human Exposure	      Person who Recently Travelled																																				
 	exposure setting	Occupational or Residency Exposure																																				
-	Occupational or Residency Exposure	   Abbatoir																																				
-	Occupational or Residency Exposure	   Animal Rescue																																				
-	Occupational or Residency Exposure	   Childcare																																				
-	Childcare	      Daycare																				repositioned under 'childcare' - 2020/08/19																
-	Occupational or Residency Exposure	      Funeral Home																																				
-	Occupational or Residency Exposure	   Place of Worship																																				
-	Place of Worship	      Church																																				
-	Place of Worship	      Mosque																																				
-	Place of Worship	      Temple																																				
-	Occupational or Residency Exposure	   Nursery																																				
-	Occupational or Residency Exposure	   Household																																				
-	Occupational or Residency Exposure	   Community Service Centre																																				
-	Occupational or Residency Exposure	   Correctional Facility																				prison																
-	Occupational or Residency Exposure	   Dormitory																																				
-	Occupational or Residency Exposure	   Farm																																				
-	Occupational or Residency Exposure	   First Nations Reserve																																				
-	Occupational or Residency Exposure	   Group Home																				can include terms like: personal care home, private senior's residence, retirement home, assisted/independent living, longoterm residential care centre																
-	Occupational or Residency Exposure	   Healthcare Setting																				5/8 forms specify direct patient contact, should we include that specification somewhere?																
-	Healthcare Setting	      Ambulance																				ENVO request made																
-	Healthcare Setting	      Acute Care Facility																																				
-	Healthcare Setting	      Clinic																																				
-	Healthcare Setting	      Community Health Centre																																				
-	Healthcare Setting	      Hospital																																				
-	Hospital	         Emergency Department																																				
-	Hospital	         ICU																																				
-	Hospital	         Ward																																				
-	Healthcare Setting	      Laboratory																																				
-	Healthcare Setting	      Long-Term Care Facility																																				
-	Healthcare Setting	      Pharmacy																																				
-	Healthcare Setting	      Physician's Office																																				
-	Occupational or Residency Exposure	   Insecure Housing (Homeless)																																				
-	Occupational or Residency Exposure	   Office																																				
-	Occupational or Residency Exposure	   Outdoors																																				
-	Outdoors	      Camp/camping																																				
-	Outdoors	      Hiking																																				
-	Outdoors	      Hunting																																				
-	Occupational or Residency Exposure	   Petting zoo																																				
-	Occupational or Residency Exposure	   Restaurant																																				
-	Occupational or Residency Exposure	   Retail Store																				Retail Environment																
-	Occupational or Residency Exposure	   School																																				
-	Occupational or Residency Exposure	   Temporary Residence																																				
-	Temporary Residence	      Homeless Shelter																				emergency shelter																
-	Temporary Residence	      Hotel																																				
-	Occupational or Residency Exposure	   Vet																																				
+	Occupational or Residency Exposure	      Abbatoir																																				
+	Occupational or Residency Exposure	      Animal Rescue																																				
+	Occupational or Residency Exposure	      Childcare																																				
+	Childcare	            Daycare																				repositioned under 'childcare' - 2020/08/19																
+	Occupational or Residency Exposure	       Funeral Home																																				
+	Occupational or Residency Exposure	      Place of Worship																																				
+	Place of Worship	            Church																																				
+	Place of Worship	            Mosque																																				
+	Place of Worship	            Temple																																				
+	Occupational or Residency Exposure	      Nursery																																				
+	Occupational or Residency Exposure	      Household																																				
+	Occupational or Residency Exposure	      Community Service Centre																																				
+	Occupational or Residency Exposure	      Correctional Facility																				prison																
+	Occupational or Residency Exposure	      Dormitory																																				
+	Occupational or Residency Exposure	      Farm																																				
+	Occupational or Residency Exposure	      First Nations Reserve																																				
+	Occupational or Residency Exposure	      Group Home																				can include terms like: personal care home, private senior's residence, retirement home, assisted/independent living, longoterm residential care centre																
+	Occupational or Residency Exposure	      Healthcare Setting																				5/8 forms specify direct patient contact, should we include that specification somewhere?																
+	Healthcare Setting	            Ambulance																				ENVO request made																
+	Healthcare Setting	            Acute Care Facility																																				
+	Healthcare Setting	            Clinic																																				
+	Healthcare Setting	            Community Health Centre																																				
+	Healthcare Setting	            Hospital																																				
+	Hospital	                  Emergency Department																																				
+	Hospital	                  ICU																																				
+	Hospital	                 Ward																																				
+	Healthcare Setting	            Laboratory																																				
+	Healthcare Setting	            Long-Term Care Facility																																				
+	Healthcare Setting	            Pharmacy																																				
+	Healthcare Setting	            Physician's Office																																				
+	Occupational or Residency Exposure	      Insecure Housing (Homeless)																																				
+	Occupational or Residency Exposure	      Office																																				
+	Occupational or Residency Exposure	      Outdoors																																				
+	Outdoors	            Camp/camping																																				
+	Outdoors	            Hiking																																				
+	Outdoors	            Hunting																																				
+	Occupational or Residency Exposure	      Petting zoo																																				
+	Occupational or Residency Exposure	      Restaurant																																				
+	Occupational or Residency Exposure	      Retail Store																				Retail Environment																
+	Occupational or Residency Exposure	      School																																				
+	Occupational or Residency Exposure	      Temporary Residence																																				
+	Temporary Residence	            Homeless Shelter																				emergency shelter																
+	Temporary Residence	            Hotel																																				
+	Occupational or Residency Exposure	      Veterinary Care Clinic																																				
 	exposure setting	Travel Exposure																																				
-	Travel Exposure	   Travelled																				Redundant? Essentially the same as 'Travel Exposure'?																
-	Travel Exposure	   Travelled on a Cruise Ship																																				
-	Travel Exposure	   Travelled on a Plane																																				
-	Travel Exposure	   Travelled on Ground Transport																				Renamed 'public transport' to 'ground transport' to distinguish from planes, which are also public transport.																
-	Travel Exposure	   Travelled outside Province/Territory																																				
-	Travel Exposure	   Travelled outside Canada																																				
-	exposure setting	Other																																				
+	Travel Exposure	      Travelled																				Redundant? Essentially the same as 'Travel Exposure'?																
+	Travel Exposure	            Travelled on a Cruise Ship																																				
+	Travel Exposure	            Travelled on a Plane																																				
+	Travel Exposure	            Travelled on Ground Transport																				Renamed 'public transport' to 'ground transport' to distinguish from planes, which are also public transport.																
+	Travel Exposure	            Travelled outside Province/Territory																																				
+	Travel Exposure	            Travelled outside Canada																																				
+	exposure setting	Other Exposure Setting																																				
 																																						
 																																						
 																																						
@@ -1024,7 +1024,7 @@ OBI_0002002	Illumina	      Illumina HiSeq 2500														illumina hiseq 2500	
 OBI_0002048	Illumina	      Illumina HiSeq 3000														illumina hiseq 3000	A DNA sequencer manufactured by Illumina corporation, with a single flow cell and a throughput of more than 200 Gb per day.	https://www.ebi.ac.uk/ols/ontologies/obi/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FOBI_0002048&viewMode=All&siblings=true	HiSeq 3000	DNA sequencer	OBI_0400103																	
 OBI_0002049	Illumina	      Illumina HiSeq 4000														illumina hiseq 4000	A DNA sequencer manufactured by Illumina corporation, with two flow cell and a throughput of more than 400 Gb per day.	http://www.illumina.com/systems/hiseq-3000-4000.html	HiSeq 4000	DNA sequencer	OBI_0400103																	
 	Illumina	   Illumina iSeq																																				
-http://www.ebi.ac.uk/efo/EFO_0008635	Illumina iSeq	   Illumina iSeq 100														illumina iseq 100	The Illumina iSeq 100 is a benchtop sequencing machine developed by Illumina. Its primary applications include small whole-genome sequencing, targeted sequencing of a set of genes or gene regions, gene expression analysis and 16S metagenomic sequencing.	https://www.ebi.ac.uk/ols/ontologies/efo/terms?iri=http%3A%2F%2Fwww.ebi.ac.uk%2Fefo%2FEFO_0008635&viewMode=All&siblings=true	iSeq 100	high throughput sequencer	http://www.ebi.ac.uk/efo/EFO_0002699																	
+EFO:0008635	Illumina iSeq	   Illumina iSeq 100														illumina iseq 100	The Illumina iSeq 100 is a benchtop sequencing machine developed by Illumina. Its primary applications include small whole-genome sequencing, targeted sequencing of a set of genes or gene regions, gene expression analysis and 16S metagenomic sequencing.	https://www.ebi.ac.uk/ols/ontologies/efo/terms?iri=http%3A%2F%2Fwww.ebi.ac.uk%2Fefo%2FEFO_0008635&viewMode=All&siblings=true	iSeq 100	high throughput sequencer	http://www.ebi.ac.uk/efo/EFO_0002699																	
 	Illumina	   Illumina NovaSeq																																				
 OBI_0002630	Illumina NovaSeq	   Illumina NovaSeq 6000														illumina novaseq 6000	A DNA sequencer which is manufactured by the Illumina corporation, with two flow cells and an output of up to 6000 Gb (32-40 B reads per run)	http://www.illumina.com/systems/sequencing-platforms/novaseq.html	NovaSeq 6000	DNA sequencer	OBI_0400103																	
 http://www.ebi.ac.uk/efo/EFO_0008636	Illumina	   Illumina MiniSeq														illumina miniseq	The Illumina MiniSeq is a benchtop sequencing machine developed by Illumina and an output upto 8Gb.	https://www.illumina.com/systems/sequencing-platforms/miniseq/specifications.html	MiniSeq	high throughput sequencer	http://www.ebi.ac.uk/efo/EFO_0002699																	
