@@ -34,9 +34,8 @@ Double click any column headers for information on the grid's vocabulary.
 ![alt text](./images/doubleClickHeaders.gif)
 
 A second way to access templates directly, rather than by the hard-coded menu system, is to specify the DataHarmonizer template subfolder via a "template" URL parameter. This enables development and use of customized templates, or new ones, that DH doesn't have programmed in menu.  For example, 
-http://genepio.org/DataHarmonizer/main.html?template=gisaid accesses the /template/gsiaid/ subfolder's template.
+http://genepio.org/DataHarmonizer/main.html?template=gisaid accesses the /template/gsiaid/ subfolder's template directly.  See more on the Wiki [DataHarmonizer templates](https://github.com/Public-Health-Bioinformatics/DataHarmonizer/wiki/DataHarmonizer-Templates) page.
 
-Note that for template development, a template folder's **data.js** file provides DataHarmonizer with the vocabulary and setup for a template. This JSON file is generated from a more tabular specification held in data.tsv by way of the command-line /script/make_data.py program which one runs within the template folder to update its data.js file.
 
 ## Support
 
