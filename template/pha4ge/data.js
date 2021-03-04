@@ -298,7 +298,7 @@ var DATA = [
         "fieldName": "sequence submitted by",
         "capitalize": "",
         "ontology_id": "",
-        "datatype": "select",
+        "datatype": "xs:token",
         "source": "",
         "dataStatus": [
           "Not Applicable",
@@ -324,30 +324,6 @@ var DATA = [
               "field": "sequenced_by"
             }
           ]
-        },
-        "vocabulary": {
-          "National Microbiology Laboratory (NML)": {},
-          "BCCDC Public Health Laboratory": {},
-          "Alberta Precision Labs (APL)": {
-            "Alberta ProvLab North (APLN)": {},
-            "Alberta ProvLab South (APLS)": {}
-          },
-          "Public Health Ontario (PHO)": {},
-          "Laboratoire de sant\u00e9 publique du Qu\u00e9bec (LSPQ)": {},
-          "Saskatchewan - Roy Romanow Provincial Laboratory (RRPL)": {},
-          "Manitoba Cadham Provincial Laboratory": {},
-          "Nova Scotia Health Authority": {},
-          "New Brunswick - Vitalit\u00e9 Health Network": {},
-          "Newfoundland and Labrador - Eastern Health": {},
-          "Prince Edward Island - Health PEI": {},
-          "Ontario Institute for Cancer Research (OICR)": {},
-          "McMaster University": {},
-          "McGill University": {},
-          "The Centre for Applied Genomics (TCAG)": {},
-          "Sunnybrook Health Sciences Centre": {},
-          "Thunder Bay Regional Health Sciences Centre": {},
-          "Canadore College": {},
-          "Queen\u2019s University / Kingston Health Sciences Centre": {}
         }
       },
       {
@@ -775,8 +751,8 @@ var DATA = [
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "required",
-        "description": "The province/territory where the sample was collected.",
-        "guidance": "Provide the province/territory name from the controlled vocabulary provided.",
+        "description": "The state/province/territory where the sample was collected.",
+        "guidance": "Provide the state/province/territory name from the GAZ geography ontology. Search for geography terms here: https://www.ebi.ac.uk/ols/ontologies/gaz",
         "examples": "Western Cape",
         "exportField": {
           "BIOSAMPLE": [
@@ -2919,12 +2895,13 @@ var DATA = [
             "Veterinary Care Clinic": {}
           },
           "Travel Exposure": {
-            "Travelled": {},
-            "Travelled on a Cruise Ship": {},
-            "Travelled on a Plane": {},
-            "Travelled on Ground Transport": {},
-            "Travelled outside Province/Territory": {},
-            "Travelled outside Canada": {}
+            "Travelled": {
+              "Travelled on a Cruise Ship": {},
+              "Travelled on a Plane": {},
+              "Travelled on Ground Transport": {},
+              "Travelled outside Province/Territory": {},
+              "Travelled outside Canada": {}
+            }
           },
           "Other Exposure Setting": {}
         }
@@ -2974,11 +2951,7 @@ var DATA = [
             }
           ]
         },
-        "vocabulary": {
-          "Yes": {},
-          "No": {},
-          "Unknown": {}
-        }
+        "vocabulary": {}
       },
       {
         "fieldName": "prior SARS-CoV-2 infection isolate",
@@ -3112,6 +3085,25 @@ var DATA = [
               "field": "date_of_prior_SARS-CoV-2_antiviral_treatment"
             }
           ]
+        }
+      },
+      {
+        "fieldName": "prior SARS-CoV-2 infection",
+        "capitalize": "",
+        "ontology_id": "",
+        "datatype": "select",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "",
+        "guidance": "",
+        "examples": "",
+        "vocabulary": {
+          "Yes": {},
+          "No": {},
+          "Unknown": {}
         }
       }
     ]
