@@ -4443,7 +4443,7 @@ var DATA = [
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
-        "description": "Patient pre-existing conditions and risk factors. \\nPre-existing condition: A medical condition that existed prior to the current infection. Risk Factor: A variable associated with an increased risk of disease or infection.",
+        "description": "Patient pre-existing conditions and risk factors. <li>Pre-existing condition: A medical condition that existed prior to the current infection. <li>Risk Factor: A variable associated with an increased risk of disease or infection.",
         "guidance": "Select all of the pre-existing conditions and risk factors experienced by the host from the pick list. If the desired term is missing, contact the curation team.",
         "examples": "Asthma; Pregnancy; Smoking",
         "vocabulary": {
