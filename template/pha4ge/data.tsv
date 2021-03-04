@@ -14,13 +14,13 @@ ID	SC %																	AL rdfs:label@en	AL IAO:0000115@en	A IAO:0000119 SPLIT=|
 	Sample collection and processing	sample collected by	xs:token		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				The name of the agency that collected the original sample.	The name of the sample collector should be written out in full, (with minor exceptions) and be consistent across multple submissions e.g. Public Health Agency of Canada, Public Health Ontario, BC Centre for Disease Control. The sample collector specified is at the discretion of the data provider (i.e. may be hospital, provincial public health lab, or other).	Public Health Agency of Canada	Originating lab	collected_by										CNPHI_EXPORT: Lev said it isn't useful because the client information is filled in when the client submits. It isn't filled in when Emma submits for others and then NML/CNPHI gets manually changed after submission.																
 	Sample collection and processing	sample collector contact email	xs:token							The email address of the contact responsible for follow-up regarding the sample.	The email address can represent a specific individual or lab e.g. johnnyblogs@lab.ca, or RespLab@lab.ca	johnnyblogs@lab.ca																												
 	Sample collection and processing	sample collector contact address	xs:token							The mailing address of the agency submitting the sample.	The mailing address should be in the format: Street number and name, City, Province/Territory, Postal Code, Country	655 Lab St, Vancouver, British Columbia, V5N 2A2, Canada	Address																											
-	Sample collection and processing	sequence submitted by	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				The name of the agency that generated the sequence.	The name of the agency should be written out in full, (with minor exceptions) and be consistent across multple submissions. If submitting specimens rather than sequencing data, please put the "National Microbiology Laboratory (NML)".	Centers for Disease Control and Prevention	Submitting lab	sequenced_by																										
+	Sample collection and processing	sequence submitted by	xs:token		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				The name of the agency that generated the sequence.	The name of the agency should be written out in full, (with minor exceptions) and be consistent across multple submissions. If submitting specimens rather than sequencing data, please put the "National Microbiology Laboratory (NML)".	Centers for Disease Control and Prevention	Submitting lab	sequenced_by																										
 	Sample collection and processing	sequence submitter contact email	xs:token							The email address of the contact responsible for follow-up regarding the sequence.	The email address can represent a specific individual or lab e.g. johnnyblogs@lab.ca, or RespLab@lab.ca	RespLab@lab.ca			sequence_submitter_contact_email																									
 	Sample collection and processing	sequence submitter contact address	xs:token							The mailing address of the agency submitting the sequence.	The mailing address should be in the format: Street number and name, City, Province/Territory, Postal Code, Country	123 Sunnybrooke St, Toronto, Ontario, M4P 1L6, Canada	Address																											
 	Sample collection and processing	sample collection date	xs:date		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				The date on which the sample was collected.	Sample collection date is critical for surveillance and many types of analyses. Required granularity includes year, month and day. If this date is considered identifiable information, it is acceptable to add "jitter" by adding or subtracting a calendar day (acceptable by GISAID). Alternatively, ”received date” may be used as a substitute. The date should be provided in ISO 8601 standard format "YYYY-MM-DD".	2020-03-19	Collection date	collection_date			collection-date																							
 	Sample collection and processing	sample received date	xs:date		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					The date on which the sample was received.	ISO 8601 standard "YYYY-MM-DD".	2020-03-20																												
 	Sample collection and processing	geo_loc_name (country)	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				The country where the sample was collected.	Provide the country name from the controlled vocabulary provided.	South Africa	Location	geo_loc_name			country																							
-	Sample collection and processing	geo_loc_name (state/province/territory)	xs:token		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				The province/territory where the sample was collected.	Provide the province/territory name from the controlled vocabulary provided.	Western Cape		geo_loc_name																										
+	Sample collection and processing	geo_loc_name (state/province/territory)	xs:token		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				The state/province/territory where the sample was collected.	Provide the state/province/territory name from the GAZ geography ontology. Search for geography terms here: https://www.ebi.ac.uk/ols/ontologies/gaz	Western Cape		geo_loc_name																										
 	Sample collection and processing	geo_loc name (county/region)	xs:token							The county/region of origin of the sample.	Provide the county/region name from the GAZ geography ontology. Search for geography terms here: https://www.ebi.ac.uk/ols/ontologies/gaz	Derbyshire																												
 	Sample collection and processing	geo_loc_name (city)	xs:token							The city where the sample was collected.	Provide the city name. Use this look-up service to identify the standardized term: https://www.ebi.ac.uk/ols/ontologies/gaz	Vancouver																												
 	Sample collection and processing	geo_loc latitude	xs:token							The latitude coordinates of the geographical location of sample collection.	Provide latitude coordinates if available. Do not use the centre of the city/region/province/state/country or the location of your agency as a proxy, as this implicates a real location and is misleading. Specify as degrees latitude in format "d[d.dddd] N|S".	38.98 N		lat_lon																										
@@ -178,19 +178,6 @@ Risk Factor: A variable associated with an increased risk of disease or infectio
 																																								
 	umbrella bioproject accession	PRJNA623807																																						
 																																								
-GAZ_00002566	geo_loc_name (province/territory)	Alberta																Province of Alberta				Province (Canada)	GAZ:00002561																	
-GAZ_00002562	geo_loc_name (province/territory)	British Columbia																Province of British Columbia				Province (Canada)	GAZ:00002561																	
-GAZ_00002571	geo_loc_name (province/territory)	Manitoba																Province of Manitoba				Province (Canada)	GAZ:00002561																	
-GAZ_00002570	geo_loc_name (province/territory)	New Brunswick																Province of New Brunswick				Province (Canada)	GAZ:00002561																	
-GAZ_00002567	geo_loc_name (province/territory)	Newfoundland and Labrador																Province of Newfoundland and Labrador				Province (Canada)	GAZ:00002561	CNPHI wants "Newfoundland and Labrador"; changed to http://purl.obolibrary.org/obo/GAZ_00002567 																
-GAZ_00002575	geo_loc_name (province/territory)	Northwest Territories																Northwest Territories				Territory (Canada)	GAZ:00002573																	
-GAZ_00002565	geo_loc_name (province/territory)	Nova Scotia																Province of Nova Scotia				Province (Canada)	GAZ:00002561																	
-GAZ:00002574	geo_loc_name (province/territory)	Nunavut																Nunavut				Territory (Canada)	GAZ:00002573																	
-GAZ_00002563	geo_loc_name (province/territory)	Ontario																Province of Ontario				Province (Canada)	GAZ:00002561																	
-GAZ_00002572	geo_loc_name (province/territory)	Prince Edward Island																Province of Prince Edward Island				Province (Canada)	GAZ:00002561																	
-GAZ_00002569	geo_loc_name (province/territory)	Quebec																Province of Quebec				Province (Canada)	GAZ:00002561																	
-GAZ_00002564	geo_loc_name (province/territory)	Saskatchewan																Province of Saskatchewan				Province (Canada)	GAZ:00002561																	
-GAZ_00002576	geo_loc_name (province/territory)	Yukon																Yukon				Territory (Canada)	GAZ:00002573																	
 																																								
 UO:0000035	host age unit	month																month																						
 UO:0000036	host age unit	year																year																						
@@ -349,18 +336,6 @@ Has subclasses: Episodic vomiting, Feculent vomiting, Projectile vomiting"
 	prior SARS-CoV-2 antiviral treatment	No prior antivrial treatment												prior_SARS-CoV-2_antiviral_treatment:No																										
 	prior SARS-CoV-2 antiviral treatment	Unknown																																						
 																																								
-	NML submitted specimen type	Swab 																																						
-	NML submitted specimen type	RNA																																						
-	NML submitted specimen type	mRNA (cDNA)																																						
-	NML submitted specimen type	Nucleic acid																																						
-	NML submitted specimen type	Sequence																																						
-																																								
-																																								
-	NML related specimen relationship type	Acute																																						
-	NML related specimen relationship type	Convalescent																																						
-	NML related specimen relationship type	Familial																																						
-	NML related specimen relationship type	Follow-up																																						
-	NML related specimen relationship type	Previously Submitted																																						
 																																								
 																																								
 	pre-existing conditions and risk factors	Age 60+																																						
@@ -1043,13 +1018,14 @@ OMRSE:00000008?	host gender	Male																						Could use 'male gender rol
 	Occupational or Residency Exposure	      Veterinary Care Clinic																																						
 	exposure setting	Travel Exposure																																						
 	Travel Exposure	      Travelled																						Redundant? Essentially the same as 'Travel Exposure'?																
-	Travel Exposure	            Travelled on a Cruise Ship																																						
-	Travel Exposure	            Travelled on a Plane																																						
-	Travel Exposure	            Travelled on Ground Transport																						Renamed 'public transport' to 'ground transport' to distinguish from planes, which are also public transport.																
-	Travel Exposure	            Travelled outside Province/Territory																																						
-	Travel Exposure	            Travelled outside Canada																																						
+	Travelled	            Travelled on a Cruise Ship																																						
+	Travelled	            Travelled on a Plane																																						
+	Travelled	            Travelled on Ground Transport																						Renamed 'public transport' to 'ground transport' to distinguish from planes, which are also public transport.																
+	Travelled	            Travelled outside Province/Territory																																						
+	Travelled	            Travelled outside Canada																																						
 	exposure setting	Other Exposure Setting																																						
 																																								
+	Host reinfection information	prior SARS-CoV-2 infection	select																																					
 	prior SARS-CoV-2 infection	Yes																																						
 	prior SARS-CoV-2 infection	No																																						
 	prior SARS-CoV-2 infection	Unknown																																						
@@ -1136,28 +1112,6 @@ PR:A0A663DJA2	gene name 1	orf10																ORF10 protein (SARS-CoV-2)			ORF1
 	gene name 1	orf14																			ORF-14			Uncharacterized at this time (2020/06/16); protein inferred from homology.	https://www.uniprot.org/uniprot/P0DTD3															
 	gene name 1	SARS-COV-2 5' UTR																																						
 																																								
-																																								
-	sequence submitted by	National Microbiology Laboratory (NML)																																						
-	sequence submitted by	BCCDC Public Health Laboratory																																						
-	sequence submitted by	Alberta Precision Labs (APL)																																						
-	Alberta Precision Labs (APL)	Alberta ProvLab North (APLN)																																						
-	Alberta Precision Labs (APL)	Alberta ProvLab South (APLS)																																						
-	sequence submitted by	Public Health Ontario (PHO)																																						
-	sequence submitted by	Laboratoire de santé publique du Québec (LSPQ)																																						
-	sequence submitted by	Saskatchewan - Roy Romanow Provincial Laboratory (RRPL)																																						
-	sequence submitted by	Manitoba Cadham Provincial Laboratory																																						
-	sequence submitted by	Nova Scotia Health Authority																																						
-	sequence submitted by	New Brunswick - Vitalité Health Network																																						
-	sequence submitted by	Newfoundland and Labrador - Eastern Health																																						
-	sequence submitted by	Prince Edward Island - Health PEI																																						
-	sequence submitted by	Ontario Institute for Cancer Research (OICR)																																						
-	sequence submitted by	McMaster University																																						
-	sequence submitted by	McGill University																																						
-	sequence submitted by	The Centre for Applied Genomics (TCAG)																																						
-	sequence submitted by	Sunnybrook Health Sciences Centre																																						
-	sequence submitted by	Thunder Bay Regional Health Sciences Centre																																						
-	sequence submitted by	Canadore College																																						
-	sequence submitted by	Queen’s University / Kingston Health Sciences Centre																																						
 																																								
 																																								
 																																								
