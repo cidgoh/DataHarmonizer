@@ -44,37 +44,59 @@ const getHeaderMap = (exportHeaders, fields, prefix) => {
 		}
     }
 
+    let field_message = [];
+    let field_export_message = [];
+
 	for (const [fieldIndex, field] of fields.entries()) {
 		if (field.exportField && prefix in field.exportField) {
 			for (const target of field.exportField[prefix]) {
 				if ('field' in target) {
-					if (target.field in headerMap) {
-						var sources;
-						if (exportHeaders instanceof Map) {
-							sources = exportHeaders.get(target.field);
-							// If given field isn't already mapped, add it.
-							if (sources.indexOf(field.fieldName) == -1) {
-								sources.push(field.fieldName);
-							};
-							exportHeaders.set(target.field, sources);
+					var sources;
+					if (exportHeaders instanceof Map) {
+						if (target.field in headerMap) {
+							field_export_message.push(target.field);
 						}
-						else { // Save to array
-							sources = exportHeaders[headerMap[target.field]][1];
-							// As above
-							if (sources.indexOf(field.fieldName) == -1) {
-								sources.push(field.fieldName);
-							};
-							exportHeaders[headerMap[target.field]][1] = sources;
+						else {
+							if (!exportHeaders.has(target.field)) {
+								field_message.push(target.field);
+								exportHeaders.set(target.field, []);
+							}
+						}
+						let sources = exportHeaders.get(target.field);
+						// If given field isn't already mapped, add it.
+						if (sources.indexOf(field.fieldName) == -1) {
+							sources.push(field.fieldName);
 						};
+						exportHeaders.set(target.field, sources);
 					}
-					else {
-						const msg = 'The EXPORT_' + prefix + ' column for ' + field.fieldName +' requests a map to a non-existen export template field: ' + target.field;
-						console.log (msg);
+					else { // Save to array
+						if (target.field in headerMap) {
+							field_export_message.push(target.field);
+						}
+						else {
+							// Add field to exportHeaders
+							// Issue: can this handle many-to-one mapping?
+							field_message.push(target.field);
+							headerMap[target.field] = exportHeaders.length;
+							exportHeaders.push(target.field, []);
+						}
+						sources = exportHeaders[headerMap[target.field]][1];
+						// As above
+						if (sources.indexOf(field.fieldName) == -1) {
+							sources.push(field.fieldName);
+						};
+						exportHeaders[headerMap[target.field]][1] = sources;
 					};
+
 				};
 			};
 		};
     };
+    // This will output a list of fields added to exportHeaders by way of template specification which haven't been included in export.js
+    if (field_message)
+    	console.log('Export fields added by template:', field_message)
+    if (field_export_message)
+    	console.log('Export fields stated in export.js):', field_export_message)
 };
 
 const getMappedField = (sourceRow, sourceFieldNames, fieldNameMap, delimiter) => {
