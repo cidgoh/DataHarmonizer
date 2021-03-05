@@ -443,7 +443,7 @@ var exportNML_LIMS = (baseName, hot, data, xlsx, fileType) => {
     ['RESULT - CANCOGEN_SUBMITTED_RESLT_1CT', []],
     ['RESULT - CANCOGEN_SUBMITTED_RESLT_2',   []],
     ['RESULT - CANCOGEN_SUBMITTED_RESLT_2CT', []],
-
+    ['HC_COMMENTS']
   ]);
 
   const sourceFields = getFields(data);
