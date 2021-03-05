@@ -649,7 +649,7 @@ var DATA = [
           ],
           "NML_LIMS": [
             {
-              "field": "** HC_TEXT2 **"
+              "field": "HC_TEXT2"
             }
           ]
         },
