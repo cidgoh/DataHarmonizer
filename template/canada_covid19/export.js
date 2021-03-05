@@ -394,14 +394,20 @@ var exportLASER = (baseName, hot, data, xlsx, fileType) => {
  * @param {Object} xlsx SheetJS variable.
  */
 var exportNML_LIMS = (baseName, hot, data, xlsx, fileType) => {
+  // Specifying a full export table field list enables ordering of these fields in export output, rather than having them ordered by template column occurance.
+  const ExportHeaders = new Map([
+    ['PH_SPECIMEN_SOURCE',      []], // Calculated field (not in import)
+    ['VE_SYMP_AVAIL',           []]  // Calculated field (not in import)
+  ]);
+  /*
   const ExportHeaders = new Map([
     ['VD_LAB_NUMBER',           []],
     ['PH_BIOPROJECT_ACCESSION', []],
     ['PH_BIOSAMPLE_ACCESSION',  []],
     ['PH_SRA_ACCESSION',        []],
     ['PH_SEQUENCING_CENTRE',    []],        
-    ['HC_COLLECT_DATE',         []], // sample collection date
-    ['HC_TEXT2',                []], //sample collection date precision
+    ['HC_COLLECT_DATE',         []],
+    ['HC_TEXT2',                []], 
     ['HC_COUNTRY',              []],
     ['HC_PROVINCE',             []],
     ['HC_CURRENT_ID',           []],
@@ -410,7 +416,7 @@ var exportNML_LIMS = (baseName, hot, data, xlsx, fileType) => {
     ['PH_SPECIMEN_TYPE',        []],
     ['PH_ISOLATION_SITE_DESC',  []],
     ['PH_ISOLATION_SITE',       []],
-    ['PH_SPECIMEN_SOURCE',      []],
+    ['PH_SPECIMEN_SOURCE',      []], // Calculated field (not in import)
     ['PH_SPECIMEN_SOURCE_DESC', []],
     ['PH_ENVIRONMENTAL_MATERIAL', []],
     ['PH_ENVIRONMENTAL_SITE',   []],
@@ -425,18 +431,8 @@ var exportNML_LIMS = (baseName, hot, data, xlsx, fileType) => {
     ['VD_SEX',                  []],
     ['HC_ONSET_DATE',           []],
     ['HC_SYMPTOMS',             []],
-    ['VE_SYMP_AVAIL',           []],
+    ['VE_SYMP_AVAIL',           []], // Calculated field (not in import)
     ['PH_TRAVEL',               []],
-    /*
-      [
-        'destination of most recent travel (country)',
-        'destination of most recent travel (state/province/territory)',
-        'destination of most recent travel (city)',
-        'most recent travel departure date',
-        'most recent travel return date'
-      ]
-    ],
-    */
     ['PH_EXPOSURE',             []],
     ['PH_TESTING_PROTOCOL',     []],
     ['RESULT - CANCOGEN_SUBMITTED_RESLT_1',   []], 
@@ -445,6 +441,7 @@ var exportNML_LIMS = (baseName, hot, data, xlsx, fileType) => {
     ['RESULT - CANCOGEN_SUBMITTED_RESLT_2CT', []],
     ['HC_COMMENTS']
   ]);
+  */
 
   const sourceFields = getFields(data);
   const sourceFieldNameMap = getFieldNameMap(sourceFields);
@@ -483,13 +480,6 @@ var exportNML_LIMS = (baseName, hot, data, xlsx, fileType) => {
         continue;
       }
 
-      // Change in delimiter
-      if (headerName === 'HC_SYMPTOMS') {
-        const value = inputRow[sourceFieldNameMap['signs and symptoms']] || '';
-        outputRow.push(value.replace(/;/g,'~') );
-        continue;
-      }
-
       // Handle granularity of "HC_COLLECT_DATE"
       // by looking at year or month in "sample collection date precision"
       if (headerName === 'HC_COLLECT_DATE') {
@@ -499,17 +489,6 @@ var exportNML_LIMS = (baseName, hot, data, xlsx, fileType) => {
         outputRow.push(setDateChange(date_unit, value, '01'));
         continue;
       }
-
-      /* Can't accept 'Human' for 'Animal Type' value.
-      if (headerName === 'PH_ANIMAL_TYPE') {
-        let value = inputRow[sourceFieldNameMap['host (common name)']];
-        if (value === 'Human') {
-          value = null;
-        }
-        outputRow.push(value); //
-        continue;
-      }
-      */
 
       // A complicated rule about what is stored in 'Specimen Source'
       if (headerName === 'PH_SPECIMEN_SOURCE') {
