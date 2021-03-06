@@ -111,11 +111,12 @@ const getHeaderMap = (exportHeaders, fields, prefix) => {
  * @param {Object} sourceRow 
  * @param {Array<Object>} sourceFieldNames array of all source fields.
  * @param {Object} fieldNameMap
- * @param {String} delimiter column prefix
+ * @param {String} delimiter to separate multi-source field values with
+ * @param {String} prefix of export format
  * @param {Map} nullOptionsMap conversion of Missing etc. to export db equivalent.
  * @returm {String} Concatenated string of values.
  */
-const getMappedField = (sourceRow, sourceFieldNames, fieldNameMap, delimiter, nullOptionsMap = null) => {
+const getMappedField = (sourceRow, sourceFieldNames, sourceFields, fieldNameMap, delimiter, prefix, nullOptionsMap = null) => {
 
 	const mappedCell = [];
 	for (const fieldName of sourceFieldNames) {
@@ -124,10 +125,48 @@ const getMappedField = (sourceRow, sourceFieldNames, fieldNameMap, delimiter, nu
 		if (nullOptionsMap && nullOptionsMap.has(mappedCellVal)){
 			mappedCellVal = nullOptionsMap.get(mappedCellVal);
 		};
-		mappedCell.push(mappedCellVal);
+		let field = sourceFields[fieldNameMap[fieldName]];
+		if (field.datatype === 'select') {
+			mappedCell.push( getTransformedField(mappedCellVal, field, prefix));
+		}
+		else if (field.datatype === 'multiple') {
+			// ISSUE: relying on semicolon delimiter in input
+			for (let cellVal of mappedCellVal.split(';')) {
+				mappedCell.push( getTransformedField(cellVal.trim(), field, prefix));
+			}
+		}
+		else {
+			mappedCell.push(mappedCellVal)
+		}
 	};
 	return mappedCell.join(delimiter);
 }
+
+/**
+ * Some vocabulary fields get mapped over to export format values.
+ *
+ * @param {String} value to be exported.
+ * @param {Array<String>} fields list of source fields to examine for mappings.
+ * @param {String} prefix of export format to examine.
+ */
+const getTransformedField = (value, field, prefix) => {
+ 	if (value && value.length > 0 && field.vocabulary) {
+		const vocabulary = field.vocabulary;
+		if (value in vocabulary) { 
+			const term = vocabulary[value];
+			// Looking for term.exportField['GRDI'] for example:
+			if ('exportField' in term && prefix in term.exportField) {
+				// Here mapping involves a value substitution
+				// Note possible [target field]:[value] twist
+				for (let mapping of term.exportField[prefix]) {
+					return mapping.value;
+				};
+			};
+		};
+	};
+	return value;
+};
+
 
 /**
  * Get a dictionary of empty arrays for each ExportHeader field
