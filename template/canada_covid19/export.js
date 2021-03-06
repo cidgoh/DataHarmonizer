@@ -394,7 +394,8 @@ var exportLASER = (baseName, hot, data, xlsx, fileType) => {
  * @param {Object} xlsx SheetJS variable.
  */
 var exportNML_LIMS = (baseName, hot, data, xlsx, fileType) => {
-  // Specifying a full export table field list enables ordering of these fields in export output, rather than having them ordered by template column occurance.
+  // A full export table field list enables ordering of these fields in export
+  // output, rather than having them ordered by template column occurance.
   // These are the minimal fields required here, since the remaining fields
   // mentioned in data.js are added to ExportHeaders.  However these fields 
   // aren't ordered nicely on their own, so we include the manual full list.
@@ -444,7 +445,7 @@ var exportNML_LIMS = (baseName, hot, data, xlsx, fileType) => {
     ['RESULT - CANCOGEN_SUBMITTED_RESLT_1CT', []],
     ['RESULT - CANCOGEN_SUBMITTED_RESLT_2',   []],
     ['RESULT - CANCOGEN_SUBMITTED_RESLT_2CT', []],
-    ['HC_COMMENTS']
+    ['HC_COMMENTS', []]
   ]);
 
   const sourceFields = getFields(data);
@@ -455,16 +456,15 @@ var exportNML_LIMS = (baseName, hot, data, xlsx, fileType) => {
   // Copy headers to 1st row of new export table
   const outputMatrix = [[...ExportHeaders.keys()]];
 
-  /*
-  ISSUE: conversion of all metadata keywords
+  // Conversion of all cancogen metadata keywords to NML LIMS version
+  nullOptionsMap = new Map([
+    ['Not Applicable', 'NA'],
+    ['Missing', 'MISSING'],
+    ['Not Collected', 'NOT_COLLECTED'],
+    ['Not Provided', 'NOT_PROVIDED'],
+    ['Restricted Access', 'RESTRICTED_ACCESS']
+  ]);
 
-    NA                Not Applicable
-    MISSING           Missing
-    NOT_COLLECTED     Not Collected
-    NOT_PROVIDED      Not Provided
-    RESTRICTED_ACCESS Restricted Access
-
-  */
   for (const inputRow of getTrimmedData(hot)) {
     const outputRow = [];
     for (const [headerName, sources] of ExportHeaders) {
@@ -527,7 +527,7 @@ var exportNML_LIMS = (baseName, hot, data, xlsx, fileType) => {
       }
 
       // Otherwise apply source (many to one) to target field transform:
-      const value = getMappedField(inputRow, sources, sourceFieldNameMap, '|') 
+      const value = getMappedField(inputRow, sources, sourceFieldNameMap, '|',nullOptionsMap) 
       outputRow.push(value);
     }
     outputMatrix.push(outputRow);

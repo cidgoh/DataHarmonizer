@@ -3899,6 +3899,27 @@ var DATA = [
         "vocabulary": {}
       },
       {
+        "fieldName": "host residence geo_loc name (state/province/territory)",
+        "capitalize": "",
+        "ontology_id": "",
+        "datatype": "select",
+        "source": "geo_loc_name (state/province/territory)",
+        "dataStatus": [
+          "Not Applicable",
+          "Missing",
+          "Not Collected",
+          "Not Provided",
+          "Restricted Access"
+        ],
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "The state/province/territory of residence of the host.",
+        "guidance": "Select the province/territory name from pick list provided in the template.",
+        "examples": "Quebec",
+        "vocabulary": {}
+      },
+      {
         "fieldName": "host subject ID",
         "capitalize": "",
         "ontology_id": "",
@@ -4312,8 +4333,8 @@ var DATA = [
               ]
             }
           },
-          "nose bleed": {},
-          "otitis": {},
+          "Nose bleed": {},
+          "Otitis": {},
           "Pain": {
             "Abdominal pain": {},
             "Arthralgia (painful joints)": {},
@@ -6053,11 +6074,35 @@ var DATA = [
         "examples": "Variant of Concern",
         "vocabulary": {
           "Variant of Concern (VOC)": {},
-          "Variant": {}
+          "Variant of Interest (VOI)": {}
         }
       },
       {
         "fieldName": "variant evidence",
+        "capitalize": "",
+        "ontology_id": "",
+        "datatype": "select",
+        "source": "",
+        "dataStatus": [
+          "Not Applicable",
+          "Missing",
+          "Not Collected",
+          "Not Provided",
+          "Restricted Access"
+        ],
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "The evidence used to make the variant determination.",
+        "guidance": "Select whether the sample was screened using RT-qPCR or by sequencing from the pick list.",
+        "examples": "RT-qPCR TaqPath assay: S gene target failure",
+        "vocabulary": {
+          "RT-qPCR": {},
+          "Sequencing": {}
+        }
+      },
+      {
+        "fieldName": "variant evidence details",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -6066,9 +6111,9 @@ var DATA = [
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
-        "description": "The evidence used to make the variant determination.",
+        "description": "Details about the evidence used to make the variant determination.",
         "guidance": "Provide the assay and list the set of lineage-defining mutations used to make the variant determination. If there are mutations of interest/concern observed in addition to lineage-defining mutations, describe those here.",
-        "examples": "RT-qPCR TaqPath assay: S gene target failure"
+        "examples": ""
       }
     ]
   },

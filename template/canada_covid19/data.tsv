@@ -55,6 +55,7 @@ ID	SC %																AL rdfs:label@en	AL IAO:0000115@en	A IAO:0000119 SPLIT=|	
 	Host Information	host age bin	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				Age of host at the time of sampling, expressed as an age group.	Select the corresponding host age bin from the pick list provided in the template. If not available, provide a null value.	60 - 69		Host Age Category	PH_AGE_GROUP																										
 	Host Information	host gender	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				The gender of the host at the time of sample collection.	Select the corresponding host gender from the pick list provided in the template. If not available, provide a null value. If there is no host, put "Not Applicable".	male	Gender	Patient Sex	VD_SEX	host_sex																									
 	Host Information	host residence geo_loc name (country)	select	geo_loc_name (country)	Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					The country of residence of the host.	Select the country name from pick list provided in the template.	United Kingdom																													
+	Host Information	host residence geo_loc name (state/province/territory)	select	geo_loc_name (state/province/territory)	Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					The state/province/territory of residence of the host.	Select the province/territory name from pick list provided in the template.	Quebec																													
 	Host Information	host subject ID	xs:token							A unique identifier by which each host can be referred to e.g. #131	Provide the host identifier. Should be a unique, user-defined identifier.	BCxy123				host_subject_id																									
 	Host Information	symptom onset date	xs:date		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					The date on which the symptoms began or were first noted.	ISO 8601 standard "YYYY-MM-DD".	2020-03-16		Symptoms Onset Date	HC_ONSET_DATE																										
 	Host Information	signs and symptoms	multiple		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					A perceived change in function or sensation, (loss, disturbance or appearance) indicative of a disease, reported by a patient or clinician.	Select all of the symptoms experienced by the host from the pick list.	Chills (sudden cold sensation); Cough; Fever		Symptoms	HC_SYMPTOMS																										
@@ -132,7 +133,8 @@ ID	SC %																AL rdfs:label@en	AL IAO:0000115@en	A IAO:0000119 SPLIT=|	
 	Lineage and Variant information	lineage/clade analysis software name	xs:token							The name of the software used to determine the lineage/clade.	Provide the name of the software used to determine the lineage/clade.	Pangolin																													
 	Lineage and Variant information	lineage/clade analysis software version	xs:token							The version of the software used to determine the lineage/clade.	Provide the version of the software used ot determine the lineage/clade.	2.1.10																													
 	Lineage and Variant information	variant designation	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					The variant classification of the lineage/clade i.e. variant, variant of concern.	If the lineage/clade is considered a Variant of Concern, select Variant of Concern from the pick list. If the lineage/clade contains mutations of concern (mutations that increase transmission, clincal severity, or other epidemiological fa ctors) but it not a global Variant of Concern, select Variant. If the lineage/clade does not contain mutations of concern, leave blank.	Variant of Concern																													
-	Lineage and Variant information	variant evidence	xs:token							The evidence used to make the variant determination.	Provide the assay and list the set of lineage-defining mutations used to make the variant determination. If there are mutations of interest/concern observed in addition to lineage-defining mutations, describe those here.	RT-qPCR TaqPath assay: S gene target failure																													
+	Lineage and Variant information	variant evidence	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					The evidence used to make the variant determination.	Select whether the sample was screened using RT-qPCR or by sequencing from the pick list.	RT-qPCR TaqPath assay: S gene target failure																													
+	Lineage and Variant information	variant evidence details	xs:token							Details about the evidence used to make the variant determination.	Provide the assay and list the set of lineage-defining mutations used to make the variant determination. If there are mutations of interest/concern observed in addition to lineage-defining mutations, describe those here.																														
 		Pathogen diagnostic testing																																							
 	Pathogen diagnostic testing	gene name 1	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					The name of the gene used in the diagnostic RT-PCR test.	Provide the full name of the gene used in the test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI	E (orf4)		Gene Target 1	RESULT - CANCOGEN_SUBMITTED_RESLT_1	gene_name_1																									
 	Pathogen diagnostic testing	diagnostic pcr protocol 1	xs:token							The name and version number of the protocol used for diagnostic marker amplification.	The name and version number of the protocol used for carrying out a diagnostic PCR test. This information can be compared to sequence data for evaluation of performance and quality control.	EGenePCRTest 2																													
@@ -149,6 +151,13 @@ ID	SC %																AL rdfs:label@en	AL IAO:0000115@en	A IAO:0000119 SPLIT=|	
 																																									
 																																									
 	umbrella bioproject accession	PRJNA623807																																							
+																																									
+																																									
+																																									
+																																									
+																																									
+																																									
+																																									
 																																									
 GAZ_00002566	geo_loc_name (state/province/territory)	Alberta													HC_PROVINCE:CA-AB		Province of Alberta				Province (Canada)	GAZ:00002561																			
 GAZ_00002562	geo_loc_name (state/province/territory)	British Columbia													HC_PROVINCE:CA-BC		Province of British Columbia				Province (Canada)	GAZ:00002561																			
@@ -274,8 +283,8 @@ Recommend making term request to HPO (note they already have it as ""related syn
 HP_0001324	signs and symptoms	Muscle weakness													HC_SYMPTOMS:MUSCLE_WEAK		Muscle weakness				Abnormal muscle physiology	HP_0011804	Recommend changing this to 'muscle weakness' as 'weakness' could be mistakenly used when the intention is to refer to 'asthenia' which is weakness/exhaustion in the absence of true muscle weakness. - Rhiannon																		
 HP_0001742	signs and symptoms	Nasal obstruction (stuffy nose)													HC_SYMPTOMS:NASAL_OBSTRUCT		Nasal obstruction			Obstruction of nose, Stuffy nose, Blockage of nose, Nasal obstruction, Nasal blockage, nasal congestion	Abnormality of the nose	HP_0000366	Recommend making syonym request to HPO																		
 HP_0002018	signs and symptoms	Nausea													HC_SYMPTOMS:NAUSEA		Nausea				Nausea and vomiting	HP_0002017 	In GenEpiO																		
-	signs and symptoms	nose bleed																																							
-	signs and symptoms	otitis																																							
+	signs and symptoms	Nose bleed																																							
+	signs and symptoms	Otitis																																							
 	signs and symptoms	Pain																																							
 HP:0002027	Pain	      Abdominal pain													HC_SYMPTOMS:ABDOMINAL		Abdominal pain			Stomach pain, Abdominal pain, Pain in stomach, abdominal ache, belly ache, bellyache, narrower: stomach ache, stomachache, abdominal cramping?	"Abdominal symptom,
 Pain"	"HP:0011458,
@@ -431,7 +440,10 @@ HP:0002789	pre-existing conditions and risk factors	Tachypnea (accelerated respi
 	Transplant	      Liver transplant																																							
 																																									
 	variant designation	Variant of Concern (VOC)																																							
-	variant designation	Variant  																																							
+	variant designation	Variant of Interest (VOI)																																							
+																																									
+	variant evidence	RT-qPCR																																							
+	variant evidence	Sequencing																																							
 																																									
 	complications	Abnormal blood oxygen level																		O2 saturation <=95%			Case report forms frequently record "O2 saturation <=95%".	"The generally accepted standard is that a normal resting oxygen saturation of less than 95% is considered abnormal" (https://www.ncbi.nlm.nih.gov/books/NBK525974/)																	
 	complications	Acute respiratory failure																																							
