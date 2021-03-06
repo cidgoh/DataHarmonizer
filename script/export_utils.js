@@ -59,6 +59,8 @@ const getHeaderMap = (exportHeaders, fields, prefix) => {
 						else {
 							if (!exportHeaders.has(target.field)) {
 								field_message.push(target.field);
+								// Issue: all template driven exportHeader fields are showing AFTER export.js mentioned ones.
+								headerMap[target.field] = exportHeaders.length;
 								exportHeaders.set(target.field, []);
 							}
 						}

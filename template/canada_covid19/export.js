@@ -395,11 +395,16 @@ var exportLASER = (baseName, hot, data, xlsx, fileType) => {
  */
 var exportNML_LIMS = (baseName, hot, data, xlsx, fileType) => {
   // Specifying a full export table field list enables ordering of these fields in export output, rather than having them ordered by template column occurance.
+  // These are the minimal fields required here, since the remaining fields
+  // mentioned in data.js are added to ExportHeaders.  However these fields 
+  // aren't ordered nicely on their own, so we include the manual full list.
+  /*
   const ExportHeaders = new Map([
     ['PH_SPECIMEN_SOURCE',      []], // Calculated field (not in import)
     ['VE_SYMP_AVAIL',           []]  // Calculated field (not in import)
   ]);
-  /*
+  */
+
   const ExportHeaders = new Map([
     ['VD_LAB_NUMBER',           []],
     ['PH_BIOPROJECT_ACCESSION', []],
@@ -441,7 +446,6 @@ var exportNML_LIMS = (baseName, hot, data, xlsx, fileType) => {
     ['RESULT - CANCOGEN_SUBMITTED_RESLT_2CT', []],
     ['HC_COMMENTS']
   ]);
-  */
 
   const sourceFields = getFields(data);
   const sourceFieldNameMap = getFieldNameMap(sourceFields);
