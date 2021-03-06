@@ -257,7 +257,9 @@ const getColumns = (data) => {
   let ret = [];
   for (const field of getFields(data)) {
     const col = {};
-    if (field.requirement) col.requirement = field.requirement;
+    if (field.requirement) {
+      col.requirement = field.requirement;
+    }
     switch (field.datatype) {
       case 'xs:date': 
         col.type = 'date';

@@ -22,8 +22,8 @@ const getFieldNameMap = (fields) => {
  * This code works on exportHeaders as either a Map or an array of
  * [['field_name',[fields],...] 
  * @param {Array} exportHeaders See `export.js`.
- * @param {Array<Object>} array of all source fields.
- * @param {String} export column prefix
+ * @param {Array<Object>} fields array of all source fields.
+ * @param {String} prefix export column prefix
  */
 const getHeaderMap = (exportHeaders, fields, prefix) => {
 	var headerMap = {};
@@ -65,6 +65,8 @@ const getHeaderMap = (exportHeaders, fields, prefix) => {
 							}
 						}
 						let sources = exportHeaders.get(target.field);
+						if (!sources)
+							console.log('Malformed export.js exportHeader field:', target.field)
 						// If given field isn't already mapped, add it.
 						if (sources.indexOf(field.fieldName) == -1) {
 							sources.push(field.fieldName);
@@ -101,13 +103,27 @@ const getHeaderMap = (exportHeaders, fields, prefix) => {
     	console.log('Export fields stated in export.js):', field_export_message)
 };
 
-const getMappedField = (sourceRow, sourceFieldNames, fieldNameMap, delimiter) => {
-	// This provides an export field composed of one or more more input
-	// fields, separated by a ';' delimiter if not null.
+/**
+ * This provides an export field composed of one or more more input
+ * fields, separated by a ';' delimiter if not null.
+ * nullOptionsDict allows conversion of "Missing" etc. metadata options to 
+ * target export system's version of these.
+ * @param {Object} sourceRow 
+ * @param {Array<Object>} sourceFieldNames array of all source fields.
+ * @param {Object} fieldNameMap
+ * @param {String} delimiter column prefix
+ * @param {Map} nullOptionsMap conversion of Missing etc. to export db equivalent.
+ * @returm {String} Concatenated string of values.
+ */
+const getMappedField = (sourceRow, sourceFieldNames, fieldNameMap, delimiter, nullOptionsMap = null) => {
+
 	const mappedCell = [];
 	for (const fieldName of sourceFieldNames) {
-		const mappedCellVal = sourceRow[fieldNameMap[fieldName]];
+		let mappedCellVal = sourceRow[fieldNameMap[fieldName]];
 		if (!mappedCellVal) continue;
+		if (nullOptionsMap && nullOptionsMap.has(mappedCellVal)){
+			mappedCellVal = nullOptionsMap.get(mappedCellVal);
+		};
 		mappedCell.push(mappedCellVal);
 	};
 	return mappedCell.join(delimiter);
