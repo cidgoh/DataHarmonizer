@@ -386,8 +386,26 @@ var DATA = [
             }
           },
           "Alberta Precision Labs (APL)": {
-            "Alberta ProvLab North (APLN)": {},
-            "Alberta ProvLab South (APLS)": {}
+            "Alberta ProvLab North (APLN)": {
+              "exportField": {
+                "NML_LIMS": [
+                  {
+                    "field": "PH_SEQUENCING_CENTRE",
+                    "value": "APL-E"
+                  }
+                ]
+              }
+            },
+            "Alberta ProvLab South (APLS)": {
+              "exportField": {
+                "NML_LIMS": [
+                  {
+                    "field": "PH_SEQUENCING_CENTRE",
+                    "value": "APL-C"
+                  }
+                ]
+              }
+            }
           },
           "Public Health Ontario (PHO)": {
             "exportField": {
@@ -1737,12 +1755,66 @@ var DATA = [
                 }
               ]
             },
-            "Saliva": {},
-            "Fluid (cerebrospinal (CSF))": {},
-            "Fluid (pericardial)": {},
-            "Fluid (pleural)": {},
-            "Fluid (vaginal)": {},
-            "Fluid (amniotic)": {}
+            "Saliva": {
+              "exportField": {
+                "NML_LIMS": [
+                  {
+                    "field": "PH_ISOLATION_SITE_DESC",
+                    "value": "SALIVA"
+                  }
+                ]
+              }
+            },
+            "Fluid (cerebrospinal (CSF))": {
+              "exportField": {
+                "NML_LIMS": [
+                  {
+                    "field": "PH_ISOLATION_SITE_DESC",
+                    "value": "FLUID_CSF"
+                  }
+                ]
+              }
+            },
+            "Fluid (pericardial)": {
+              "exportField": {
+                "NML_LIMS": [
+                  {
+                    "field": "PH_ISOLATION_SITE_DESC",
+                    "value": "FLUID_PERICARDIAL"
+                  }
+                ]
+              }
+            },
+            "Fluid (pleural)": {
+              "exportField": {
+                "NML_LIMS": [
+                  {
+                    "field": "PH_ISOLATION_SITE_DESC",
+                    "value": "FLUID_PLEURAL"
+                  }
+                ]
+              }
+            },
+            "Fluid (vaginal)": {
+              "exportField": {
+                "NML_LIMS": [
+                  {
+                    "field": "PH_ISOLATION_SITE_DESC",
+                    "value": "FLUID_VAGINAL"
+                  }
+                ]
+              }
+            },
+            "Fluid (amniotic)": {
+              "exportField": {
+                "NML_LIMS": [
+                  {
+                    "field": "PH_ISOLATION_SITE_DESC",
+                    "value": "FLUID_AMNIOTIC"
+                  }
+                ]
+              }
+            }
           },
           "Tissue": {
             "exportField": {
@@ -1887,15 +1959,86 @@ var DATA = [
                 }
               ]
             },
-            "Anterior Nares": {},
-            "Esophagus": {},
-            "Ethmoid sinus": {},
-            "Nasal Cavity": {
-              "Middle Nasal Turbinate": {},
-              "Inferior Nasal Turbinate": {}
+            "Anterior Nares": {
+              "exportField": {
+                "NML_LIMS": [
+                  {
+                    "field": "PH_ISOLATION_SITE",
+                    "value": "ANTERIOR_NARES"
+                  }
+                ]
+              }
             },
-            "Nasopharynx (NP)": {},
-            "Oropharynx (OP)": {}
+            "Esophagus": {
+              "exportField": {
+                "NML_LIMS": [
+                  {
+                    "field": "PH_ISOLATION_SITE",
+                    "value": "ESOPHAGUS"
+                  }
+                ]
+              }
+            },
+            "Ethmoid sinus": {
+              "exportField": {
+                "NML_LIMS": [
+                  {
+                    "field": "PH_ISOLATION_SITE",
+                    "value": "ETHMOID_SINUS"
+                  }
+                ]
+              }
+            },
+            "Nasal Cavity": {
+              "exportField": {
+                "NML_LIMS": [
+                  {
+                    "field": "PH_ISOLATION_SITE",
+                    "value": "NASAL_CAVITY"
+                  }
+                ]
+              },
+              "Middle Nasal Turbinate": {
+                "exportField": {
+                  "NML_LIMS": [
+                    {
+                      "field": "PH_ISOLATION_SITE",
+                      "value": "MIDDLE_NASAL"
+                    }
+                  ]
+                }
+              },
+              "Inferior Nasal Turbinate": {
+                "exportField": {
+                  "NML_LIMS": [
+                    {
+                      "field": "PH_ISOLATION_SITE",
+                      "value": "INFERIOR_NASAL"
+                    }
+                  ]
+                }
+              }
+            },
+            "Nasopharynx (NP)": {
+              "exportField": {
+                "NML_LIMS": [
+                  {
+                    "field": "PH_ISOLATION_SITE",
+                    "value": "NASOPHARYNX_NP"
+                  }
+                ]
+              }
+            },
+            "Oropharynx (OP)": {
+              "exportField": {
+                "NML_LIMS": [
+                  {
+                    "field": "PH_ISOLATION_SITE",
+                    "value": "OROPHARYNX_OP"
+                  }
+                ]
+              }
+            }
           },
           "Lower respiratory tract": {
             "exportField": {
@@ -1906,15 +2049,76 @@ var DATA = [
                 }
               ]
             },
-            "Bronchus": {},
+            "Bronchus": {
+              "exportField": {
+                "NML_LIMS": [
+                  {
+                    "field": "PH_ISOLATION_SITE",
+                    "value": "BRONCHUS"
+                  }
+                ]
+              }
+            },
             "Lung": {
-              "Bronchiole": {},
-              "Alveolar sac": {}
+              "exportField": {
+                "NML_LIMS": [
+                  {
+                    "field": "PH_ISOLATION_SITE",
+                    "value": "LUNG"
+                  }
+                ]
+              },
+              "Bronchiole": {
+                "exportField": {
+                  "NML_LIMS": [
+                    {
+                      "field": "PH_ISOLATION_SITE",
+                      "value": "BRONCHIOLE"
+                    }
+                  ]
+                }
+              },
+              "Alveolar sac": {
+                "exportField": {
+                  "NML_LIMS": [
+                    {
+                      "field": "PH_ISOLATION_SITE",
+                      "value": "ALVEOLAR_SAC"
+                    }
+                  ]
+                }
+              }
             },
             "Pleural sac": {
-              "Pleural cavity": {}
+              "exportField": {
+                "NML_LIMS": [
+                  {
+                    "field": "PH_ISOLATION_SITE",
+                    "value": "PLEURAL_SAC"
+                  }
+                ]
+              },
+              "Pleural cavity": {
+                "exportField": {
+                  "NML_LIMS": [
+                    {
+                      "field": "PH_ISOLATION_SITE",
+                      "value": "PLEURAL_CAVITY"
+                    }
+                  ]
+                }
+              }
             },
-            "Trachea": {}
+            "Trachea": {
+              "exportField": {
+                "NML_LIMS": [
+                  {
+                    "field": "PH_ISOLATION_SITE",
+                    "value": "TRACHEA"
+                  }
+                ]
+              }
+            }
           }
         }
       },
@@ -1999,7 +2203,16 @@ var DATA = [
                 }
               ]
             },
-            "Sputum": {}
+            "Sputum": {
+              "exportField": {
+                "NML_LIMS": [
+                  {
+                    "field": "PH_SPECIMEN_SOURCE_DESC",
+                    "value": "SPUTUM"
+                  }
+                ]
+              }
+            }
           },
           "Tear": {
             "exportField": {
@@ -2936,9 +3149,36 @@ var DATA = [
                 }
               ]
             },
-            "Suprapubic Aspiration": {},
-            "Tracheal aspiration": {},
-            "Vacuum Aspiration": {}
+            "Suprapubic Aspiration": {
+              "exportField": {
+                "NML_LIMS": [
+                  {
+                    "field": "COLLECTION_METHOD",
+                    "value": "SUPRAPUBIC_ASPIRATIO"
+                  }
+                ]
+              }
+            },
+            "Tracheal aspiration": {
+              "exportField": {
+                "NML_LIMS": [
+                  {
+                    "field": "COLLECTION_METHOD",
+                    "value": "TRACHEAL_ASPIRATION"
+                  }
+                ]
+              }
+            },
+            "Vacuum Aspiration": {
+              "exportField": {
+                "NML_LIMS": [
+                  {
+                    "field": "COLLECTION_METHOD",
+                    "value": "VACUUM_ASPIRATION"
+                  }
+                ]
+              }
+            }
           },
           "Biopsy": {
             "exportField": {
@@ -2949,7 +3189,16 @@ var DATA = [
                 }
               ]
             },
-            "Needle Biopsy": {}
+            "Needle Biopsy": {
+              "exportField": {
+                "NML_LIMS": [
+                  {
+                    "field": "COLLECTION_METHOD",
+                    "value": "COLLECTION_METHOD:NEEDLE_BIOPSY"
+                  }
+                ]
+              }
+            }
           },
           "Filtration": {
             "exportField": {
@@ -2960,7 +3209,16 @@ var DATA = [
                 }
               ]
             },
-            "Air filtration": {}
+            "Air filtration": {
+              "exportField": {
+                "NML_LIMS": [
+                  {
+                    "field": "COLLECTION_METHOD",
+                    "value": "AIR_FILTRATION"
+                  }
+                ]
+              }
+            }
           },
           "Lavage": {
             "exportField": {
@@ -2971,8 +3229,26 @@ var DATA = [
                 }
               ]
             },
-            "Bronchoalveolar lavage (BAL)": {},
-            "Gastric Lavage": {}
+            "Bronchoalveolar lavage (BAL)": {
+              "exportField": {
+                "NML_LIMS": [
+                  {
+                    "field": "COLLECTION_METHOD",
+                    "value": "BAL"
+                  }
+                ]
+              }
+            },
+            "Gastric Lavage": {
+              "exportField": {
+                "NML_LIMS": [
+                  {
+                    "field": "COLLECTION_METHOD",
+                    "value": "GASTRIC_LAVAGE"
+                  }
+                ]
+              }
+            }
           },
           "Lumbar Puncture": {
             "exportField": {
@@ -3034,7 +3310,16 @@ var DATA = [
                 }
               ]
             },
-            "Finger Prick": {}
+            "Finger Prick": {
+              "exportField": {
+                "NML_LIMS": [
+                  {
+                    "field": "COLLECTION_METHOD",
+                    "value": "FINGER_PRICK"
+                  }
+                ]
+              }
+            }
           },
           "Wash": {
             "exportField": {
@@ -3536,8 +3821,26 @@ var DATA = [
                 }
               ]
             },
-            "Hospitalized (Non-ICU)": {},
-            "Hospitalized (ICU)": {}
+            "Hospitalized (Non-ICU)": {
+              "exportField": {
+                "NML_LIMS": [
+                  {
+                    "field": "PH_HOST_HEALTH_DETAILS",
+                    "value": "NON_ICU"
+                  }
+                ]
+              }
+            },
+            "Hospitalized (ICU)": {
+              "exportField": {
+                "NML_LIMS": [
+                  {
+                    "field": "PH_HOST_HEALTH_DETAILS",
+                    "value": "ICU"
+                  }
+                ]
+              }
+            }
           },
           "Mechanical Ventilation": {
             "exportField": {
@@ -3558,7 +3861,16 @@ var DATA = [
                 }
               ]
             },
-            "Medically Isolated (Negative Pressure)": {}
+            "Medically Isolated (Negative Pressure)": {
+              "exportField": {
+                "NML_LIMS": [
+                  {
+                    "field": "PH_HOST_HEALTH_DETAILS",
+                    "value": "ISOLATED_NEGATIVE_PR"
+                  }
+                ]
+              }
+            }
           },
           "Self-quarantining": {
             "exportField": {
@@ -4014,9 +4326,36 @@ var DATA = [
                 }
               ]
             },
-            "Ageusia (complete loss of taste)": {},
-            "Parageusia (distorted sense of taste)": {},
-            "Hypogeusia (reduced sense of taste)": {}
+            "Ageusia (complete loss of taste)": {
+              "exportField": {
+                "NML_LIMS": [
+                  {
+                    "field": "HC_SYMPTOMS",
+                    "value": "AGEUSIA"
+                  }
+                ]
+              }
+            },
+            "Parageusia (distorted sense of taste)": {
+              "exportField": {
+                "NML_LIMS": [
+                  {
+                    "field": "HC_SYMPTOMS",
+                    "value": "PARAGEUSIA"
+                  }
+                ]
+              }
+            },
+            "Hypogeusia (reduced sense of taste)": {
+              "exportField": {
+                "NML_LIMS": [
+                  {
+                    "field": "HC_SYMPTOMS",
+                    "value": "HYPOGEUSIA"
+                  }
+                ]
+              }
+            }
           },
           "Abnormality of the sense of smell": {
             "exportField": {
@@ -4027,8 +4366,26 @@ var DATA = [
                 }
               ]
             },
-            "Anosmia (lost sense of smell)": {},
-            "Hyposmia (reduced sense of smell)": {}
+            "Anosmia (lost sense of smell)": {
+              "exportField": {
+                "NML_LIMS": [
+                  {
+                    "field": "HC_SYMPTOMS",
+                    "value": "ANOSMIA"
+                  }
+                ]
+              }
+            },
+            "Hyposmia (reduced sense of smell)": {
+              "exportField": {
+                "NML_LIMS": [
+                  {
+                    "field": "HC_SYMPTOMS",
+                    "value": "HYPOSMIA"
+                  }
+                ]
+              }
+            }
           },
           "Acute Respiratory Distress Syndrome": {
             "exportField": {
@@ -4048,14 +4405,76 @@ var DATA = [
                 }
               ]
             },
-            "Cognitive impairment": {},
-            "Coma": {},
-            "Confusion": {
-              "Delirium (sudden severe confusion)": {}
+            "Cognitive impairment": {
+              "exportField": {
+                "NML_LIMS": [
+                  {
+                    "field": "HC_SYMPTOMS",
+                    "value": "COGNITIVE"
+                  }
+                ]
+              }
             },
-            "Inability to arouse (inability to stay awake)": {},
-            "Irritability": {},
-            "Loss of speech": {}
+            "Coma": {
+              "exportField": {
+                "NML_LIMS": [
+                  {
+                    "field": "HC_SYMPTOMS",
+                    "value": "COMA"
+                  }
+                ]
+              }
+            },
+            "Confusion": {
+              "exportField": {
+                "NML_LIMS": [
+                  {
+                    "field": "HC_SYMPTOMS",
+                    "value": "CONFUSION"
+                  }
+                ]
+              },
+              "Delirium (sudden severe confusion)": {
+                "exportField": {
+                  "NML_LIMS": [
+                    {
+                      "field": "HC_SYMPTOMS",
+                      "value": "DELIRIUM"
+                    }
+                  ]
+                }
+              }
+            },
+            "Inability to arouse (inability to stay awake)": {
+              "exportField": {
+                "NML_LIMS": [
+                  {
+                    "field": "HC_SYMPTOMS",
+                    "value": "INABILITY_AWAKE"
+                  }
+                ]
+              }
+            },
+            "Irritability": {
+              "exportField": {
+                "NML_LIMS": [
+                  {
+                    "field": "HC_SYMPTOMS",
+                    "value": "IRRITABILITY"
+                  }
+                ]
+              }
+            },
+            "Loss of speech": {
+              "exportField": {
+                "NML_LIMS": [
+                  {
+                    "field": "HC_SYMPTOMS",
+                    "value": "LOSS_OF_SPEECH"
+                  }
+                ]
+              }
+            }
           },
           "Arrhythmia": {},
           "Asthenia (generalized weakness)": {
@@ -4077,7 +4496,16 @@ var DATA = [
                 }
               ]
             },
-            "Rigors (fever shakes)": {}
+            "Rigors (fever shakes)": {
+              "exportField": {
+                "NML_LIMS": [
+                  {
+                    "field": "HC_SYMPTOMS",
+                    "value": "RIGORS"
+                  }
+                ]
+              }
+            }
           },
           "Chills (sudden cold sensation)": {
             "exportField": {
@@ -4120,8 +4548,26 @@ var DATA = [
                 }
               ]
             },
-            "Nonproductive cough (dry cough)": {},
-            "Productive cough (wet cough)": {}
+            "Nonproductive cough (dry cough)": {
+              "exportField": {
+                "NML_LIMS": [
+                  {
+                    "field": "HC_SYMPTOMS",
+                    "value": "NONPRODUCT_COUGH"
+                  }
+                ]
+              }
+            },
+            "Productive cough (wet cough)": {
+              "exportField": {
+                "NML_LIMS": [
+                  {
+                    "field": "HC_SYMPTOMS",
+                    "value": "PRODUCTIVE_COUGH"
+                  }
+                ]
+              }
+            }
           },
           "Cyanosis (blueish skin discolouration)": {
             "exportField": {
@@ -4133,11 +4579,46 @@ var DATA = [
               ]
             },
             "Acrocyanosis": {
-              "Circumoral cyanosis (bluish around mouth)": {},
-              "Cyanotic face (bluish face)": {}
+              "exportField": {
+                "NML_LIMS": [
+                  {
+                    "field": "HC_SYMPTOMS",
+                    "value": "ACROCYANOS"
+                  }
+                ]
+              },
+              "Circumoral cyanosis (bluish around mouth)": {
+                "exportField": {
+                  "NML_LIMS": [
+                    {
+                      "field": "HC_SYMPTOMS",
+                      "value": "CIRCUMORAL_CYANOSIS"
+                    }
+                  ]
+                }
+              },
+              "Cyanotic face (bluish face)": {
+                "exportField": {
+                  "NML_LIMS": [
+                    {
+                      "field": "HC_SYMPTOMS",
+                      "value": "CYANOTIC_FACE"
+                    }
+                  ]
+                }
+              }
             },
             "Central Cyanosis": {
-              "Cyanotic lips (bluish lips)": {}
+              "Cyanotic lips (bluish lips)": {
+                "exportField": {
+                  "NML_LIMS": [
+                    {
+                      "field": "HC_SYMPTOMS",
+                      "value": "CYANOTIC_LIPS"
+                    }
+                  ]
+                }
+              }
             },
             "Peripheral Cyanosis": {}
           },
@@ -4207,7 +4688,15 @@ var DATA = [
                 }
               ]
             },
-            "Fever (>=38\u00b0C)": {}
+            "Fever (>=38\u00b0C)": {
+              "exportField": {
+                "CNPHI": [
+                  {
+                    "field": "Fever"
+                  }
+                ]
+              }
+            }
           },
           "Glossitis (inflammation of the tongue)": {
             "exportField": {
@@ -4336,12 +4825,47 @@ var DATA = [
           "Nose bleed": {},
           "Otitis": {},
           "Pain": {
-            "Abdominal pain": {},
-            "Arthralgia (painful joints)": {},
+            "Abdominal pain": {
+              "exportField": {
+                "NML_LIMS": [
+                  {
+                    "field": "HC_SYMPTOMS",
+                    "value": "ABDOMINAL"
+                  }
+                ]
+              }
+            },
+            "Arthralgia (painful joints)": {
+              "exportField": {
+                "NML_LIMS": [
+                  {
+                    "field": "HC_SYMPTOMS",
+                    "value": "ARTHRALGIA"
+                  }
+                ]
+              }
+            },
             "Chest pain": {
+              "exportField": {
+                "NML_LIMS": [
+                  {
+                    "field": "HC_SYMPTOMS",
+                    "value": "CHEST_PAIN"
+                  }
+                ]
+              },
               "Pleuritic chest pain": {}
             },
-            "Myalgia (muscle pain)": {}
+            "Myalgia (muscle pain)": {
+              "exportField": {
+                "NML_LIMS": [
+                  {
+                    "field": "HC_SYMPTOMS",
+                    "value": "MYALGIA"
+                  }
+                ]
+              }
+            }
           },
           "Pharyngitis (sore throat)": {
             "exportField": {
@@ -4358,8 +4882,26 @@ var DATA = [
           "Pneumonia": {},
           "Prostration": {},
           "Pseudo-chilblains": {
-            "Pseudo-chilblains on fingers (covid fingers)": {},
-            "Pseudo-chilblains on toes (covid toes)": {}
+            "Pseudo-chilblains on fingers (covid fingers)": {
+              "exportField": {
+                "NML_LIMS": [
+                  {
+                    "field": "HC_SYMPTOMS",
+                    "value": "PSEUDO-CHIBLAINS_F"
+                  }
+                ]
+              }
+            },
+            "Pseudo-chilblains on toes (covid toes)": {
+              "exportField": {
+                "NML_LIMS": [
+                  {
+                    "field": "HC_SYMPTOMS",
+                    "value": "PSEUDO-CHIBLAINS_T"
+                  }
+                ]
+              }
+            }
           },
           "Rash": {
             "exportField": {
@@ -4390,7 +4932,16 @@ var DATA = [
                 }
               ]
             },
-            "Motor seizure": {}
+            "Motor seizure": {
+              "exportField": {
+                "NML_LIMS": [
+                  {
+                    "field": "HC_SYMPTOMS",
+                    "value": "MOTOR_SEIZURE"
+                  }
+                ]
+              }
+            }
           },
           "Shivering (involuntary muscle twitching)": {
             "exportField": {
@@ -5019,7 +5570,16 @@ var DATA = [
         },
         "vocabulary": {
           "Mass Gathering": {
-            "Convention": {},
+            "Convention": {
+              "exportField": {
+                "NML_LIMS": [
+                  {
+                    "field": "PH_EXPOSURE",
+                    "value": "CONVENTION"
+                  }
+                ]
+              }
+            },
             "Convocation": {},
             "Agricultural Event": {}
           },

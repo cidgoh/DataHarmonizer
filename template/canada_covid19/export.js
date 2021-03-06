@@ -72,7 +72,7 @@ var exportBioSample = (baseName, hot, data, xlsx, fileType) => {
     for (const [headerName, sources] of ExportHeaders) {
 
       // Otherwise apply source (many to one) to target field transform:
-      const value = getMappedField(inputRow, sources, sourceFieldNameMap, '|') 
+      const value = getMappedField(inputRow, sources, sourceFields,sourceFieldNameMap, '|', 'BioSample') 
       outputRow.push(value);
     }
     outputMatrix.push(outputRow);
@@ -376,7 +376,7 @@ var exportLASER = (baseName, hot, data, xlsx, fileType) => {
       }
 
       // Otherwise apply source (many to one) to target field transform:
-      const value = getMappedField(inputRow, sources, sourceFieldNameMap, '|') 
+      const value = getMappedField(inputRow, sources, sourceFields, sourceFieldNameMap, '|', 'LASER') 
       outputRow.push(value);
     }
     outputMatrix.push(outputRow);
@@ -527,7 +527,7 @@ var exportNML_LIMS = (baseName, hot, data, xlsx, fileType) => {
       }
 
       // Otherwise apply source (many to one) to target field transform:
-      const value = getMappedField(inputRow, sources, sourceFieldNameMap, '|',nullOptionsMap) 
+      const value = getMappedField(inputRow, sources, sourceFields, sourceFieldNameMap, '|', 'NML_LIMS', nullOptionsMap) 
       outputRow.push(value);
     }
     outputMatrix.push(outputRow);
