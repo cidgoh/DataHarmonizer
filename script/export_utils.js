@@ -122,6 +122,8 @@ const getMappedField = (sourceRow, sourceFieldNames, sourceFields, fieldNameMap,
 	for (const fieldName of sourceFieldNames) {
 		let mappedCellVal = sourceRow[fieldNameMap[fieldName]];
 		if (!mappedCellVal) continue;
+		mappedCellVal = mappedCellVal.trim();
+		if (mappedCellVal.length === 0) continue;
 		if (nullOptionsMap && nullOptionsMap.has(mappedCellVal)){
 			mappedCellVal = nullOptionsMap.get(mappedCellVal);
 		};
@@ -150,22 +152,39 @@ const getMappedField = (sourceRow, sourceFieldNames, sourceFields, fieldNameMap,
  * @param {String} prefix of export format to examine.
  */
 const getTransformedField = (value, field, prefix) => {
- 	if (value && value.length > 0 && field.vocabulary) {
-		const vocabulary = field.vocabulary;
-		if (value in vocabulary) { 
-			const term = vocabulary[value];
-			// Looking for term.exportField['GRDI'] for example:
-			if ('exportField' in term && prefix in term.exportField) {
-				// Here mapping involves a value substitution
-				// Note possible [target field]:[value] twist
-				for (let mapping of term.exportField[prefix]) {
-					return mapping.value;
-				};
+
+ 	if (field['schema:ItemList']) {
+ 		const term = findById(field['schema:ItemList'], value);
+
+		// Looking for term.exportField['GRDI'] for example:
+		if (term && 'exportField' in term && prefix in term.exportField) {
+			// Here mapping involves a value substitution
+			// Note possible [target field]:[value] twist
+			for (let mapping of term.exportField[prefix]) {
+				return mapping.value;
 			};
 		};
+
 	};
 	return value;
 };
+
+// Find key in nested object (nested dictionaries)
+// Adapted from: https://codereview.stackexchange.com/questions/73714/find-a-nested-property-in-an-object
+function findById(o, key) {
+	if (key in o)
+		return o[key];
+    var result, p; 
+    for (p in o) {
+        if( o.hasOwnProperty(p) && typeof o[p] === 'object' ) {
+            result = findById(o[p], key);
+            if(result){
+                return result;
+            }
+        }
+    }
+    return result;
+}
 
 
 /**
@@ -191,9 +210,9 @@ const getRowMap = (sourceRow, sourceFields, RuleDB, fields, fieldNameMap, prefix
     // has a mapping for export to a GRDI target field above, then set target
     // to value.
     if (value && value.length > 0) {
-      const vocabulary = fields[sourceIndex].vocabulary;
-      if (value in vocabulary) { 
-        const term = vocabulary[value];
+      const vocab_list = fields[sourceIndex]['schema:ItemList'];
+      if (value in vocab_list) { 
+        const term = vocab_list[value];
         // Looking for term.exportField['GRDI'] for example:
         if ('exportField' in term && prefix in term.exportField) {
           for (let mapping of term.exportField[prefix]) {

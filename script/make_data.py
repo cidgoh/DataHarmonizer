@@ -47,7 +47,7 @@ search_root = '/';
 # @param Dict row containing all field data
 # @return Dict field modified
 
-def export_fields (EXPORT_FORMAT, field, row):
+def export_fields (EXPORT_FORMAT, field, row, as_field = False):
 	if len(EXPORT_FORMAT) > 0:
 		formats = {};
 		for export_field in EXPORT_FORMAT:
@@ -57,7 +57,7 @@ def export_fields (EXPORT_FORMAT, field, row):
 				continue;
 
 			# An export field may have one or more [field name]:[field value] transforms, separated by ";"
-			for item in row[export_field].split(";")
+			for item in row[export_field].split(";"):
 				item = item.strip();
 				if len(item) > 0:
 					conversion = {};
@@ -68,17 +68,21 @@ def export_fields (EXPORT_FORMAT, field, row):
 					# A colon indicates a different target field is in play
 					if ":" in item:
 						binding = item.split(":",1);
-						if len (binding) == 2:
-							if binding[0].strip().length > 0:
-								conversion['field'] = binding[0].strip();
-							if binding[1].strip().length > 0:
-								conversion['value'] = binding[1].strip();
+						binding[0] = binding[0].strip();
+						binding[1] = binding[1].strip();
+						if binding[0] > '':
+							conversion['field'] = binding[0];
+						if binding[1] > '':
+							conversion['value'] = binding[1];
 						else:
-							conversion['field'] = binding[0].strip();
+							# A single ":" value enables clearing out of a value.
+							conversion['value'] = '';
 
-					# Just a value transform
+					# No colon
+					elif as_field == True:
+						conversion['field'] = item;
 					else:
-						conversion['value'] = item;
+						conversion['value'] = item;	
 
 					formats[prefix].append(conversion);
 
@@ -145,7 +149,7 @@ with open(r_filename) as tsvfile:
 							'examples':			row['examples']
 						}
 						
-						export_fields (EXPORT_FORMAT, field, row);
+						export_fields (EXPORT_FORMAT, field, row, True);
 
 						reference_html += '''
 						<tr>
@@ -162,7 +166,7 @@ with open(r_filename) as tsvfile:
 							choice = collections.OrderedDict(); 
 							# Top level case-sensitive field index, curators must be exact
 							CHOICE_INDEX[label] = choice; 
-							field['vocabulary'] = choice;
+							field['schema:ItemList'] = choice;
 
 						section['children'].append(field)
 						FIELD_INDEX[label.lower()] = field;
@@ -180,12 +184,12 @@ with open(r_filename) as tsvfile:
 								search_root = parent_label;
 								print ('vocabulary field:', parent_label);
 
-							if not 'vocabulary' in FIELD_INDEX[parent_label_lc]:
+							if not 'schema:ItemList' in FIELD_INDEX[parent_label_lc]:
 								print ("error: field ",parent_label, "not marked as select or multiple but it has child term", label);
 							else:
 								# Basically top-level entries in field_map:
 								choice = collections.OrderedDict();
-								FIELD_INDEX[parent_label_lc]['vocabulary'][label] = choice;
+								FIELD_INDEX[parent_label_lc]['schema:ItemList'][label] = choice;
 	
 								# Parent_label is top level field name:
 								CHOICE_INDEX[parent_label][label] = choice;
@@ -200,7 +204,9 @@ with open(r_filename) as tsvfile:
 							try:
 								result = dpath.util.get(CHOICE_INDEX, '/' + search_root +'/**/' + parent_label.replace('/','?'), separator='/');
 								choice = collections.OrderedDict(); # new child {}
-								result[label] = choice; 
+								if not 'schema:ItemList' in result:
+									result['schema:ItemList'] = {};
+								result['schema:ItemList'][label] = choice; 
 								export_fields(EXPORT_FORMAT, choice, row);
 							except:
 								print ("Error: parent class ", parent_label, "doesn't exist as section or field for term. Make sure parent term is trimmed of whitespace.", label);
