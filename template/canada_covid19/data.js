@@ -112,7 +112,7 @@ var DATA = [
         "description": "The INSDC accession number assigned to the umbrella BioProject for the Canadian SARS-CoV-2 sequencing effort.",
         "guidance": "Store the umbrella BioProject accession by selecting it from the picklist in the template. The umbrella BioProject accession will be identical for all CanCOGen submitters. Different provinces will have their own BioProjects, however these BioProjects will be linked under one umbrella BioProject.",
         "examples": "PRJNA623807",
-        "vocabulary": {
+        "schema:ItemList": {
           "PRJNA623807": {}
         }
       },
@@ -364,12 +364,11 @@ var DATA = [
             }
           ]
         },
-        "vocabulary": {
+        "schema:ItemList": {
           "National Microbiology Laboratory (NML)": {
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_SEQUENCING_CENTRE",
                   "value": "NML"
                 }
               ]
@@ -379,31 +378,30 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_SEQUENCING_CENTRE",
                   "value": "BCCDC"
                 }
               ]
             }
           },
           "Alberta Precision Labs (APL)": {
-            "Alberta ProvLab North (APLN)": {
-              "exportField": {
-                "NML_LIMS": [
-                  {
-                    "field": "PH_SEQUENCING_CENTRE",
-                    "value": "APL-E"
-                  }
-                ]
-              }
-            },
-            "Alberta ProvLab South (APLS)": {
-              "exportField": {
-                "NML_LIMS": [
-                  {
-                    "field": "PH_SEQUENCING_CENTRE",
-                    "value": "APL-C"
-                  }
-                ]
+            "schema:ItemList": {
+              "Alberta ProvLab North (APLN)": {
+                "exportField": {
+                  "NML_LIMS": [
+                    {
+                      "value": "APL-E"
+                    }
+                  ]
+                }
+              },
+              "Alberta ProvLab South (APLS)": {
+                "exportField": {
+                  "NML_LIMS": [
+                    {
+                      "value": "APL-C"
+                    }
+                  ]
+                }
               }
             }
           },
@@ -411,7 +409,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_SEQUENCING_CENTRE",
                   "value": "PHO"
                 }
               ]
@@ -421,7 +418,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_SEQUENCING_CENTRE",
                   "value": "LSPQ"
                 }
               ]
@@ -431,7 +427,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_SEQUENCING_CENTRE",
                   "value": "RRPL"
                 }
               ]
@@ -441,7 +436,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_SEQUENCING_CENTRE",
                   "value": "CADHAM"
                 }
               ]
@@ -451,7 +445,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_SEQUENCING_CENTRE",
                   "value": "NS_QE_II"
                 }
               ]
@@ -461,7 +454,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_SEQUENCING_CENTRE",
                   "value": "GEORGES_L_DUMONT"
                 }
               ]
@@ -471,7 +463,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_SEQUENCING_CENTRE",
                   "value": "EASTERN_HEALTH"
                 }
               ]
@@ -481,7 +472,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_SEQUENCING_CENTRE",
                   "value": "PEI"
                 }
               ]
@@ -491,7 +481,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_SEQUENCING_CENTRE",
                   "value": "OICR"
                 }
               ]
@@ -501,7 +490,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_SEQUENCING_CENTRE",
                   "value": "MCMASTER"
                 }
               ]
@@ -511,7 +499,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_SEQUENCING_CENTRE",
                   "value": "MCGILL"
                 }
               ]
@@ -521,7 +508,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_SEQUENCING_CENTRE",
                   "value": "TCAG"
                 }
               ]
@@ -531,7 +517,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_SEQUENCING_CENTRE",
                   "value": "SUNNYBROOK"
                 }
               ]
@@ -541,7 +526,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_SEQUENCING_CENTRE",
                   "value": "THUNDER_BAY"
                 }
               ]
@@ -551,7 +535,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_SEQUENCING_CENTRE",
                   "value": "CANADORE"
                 }
               ]
@@ -561,7 +544,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_SEQUENCING_CENTRE",
                   "value": "QUEENS_UNIV"
                 }
               ]
@@ -671,7 +653,7 @@ var DATA = [
             }
           ]
         },
-        "vocabulary": {
+        "schema:ItemList": {
           "year": {},
           "month": {},
           "day": {}
@@ -738,7 +720,7 @@ var DATA = [
             }
           ]
         },
-        "vocabulary": {
+        "schema:ItemList": {
           "Afghanistan": {},
           "Albania": {},
           "Algeria": {},
@@ -752,7 +734,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "HC_COUNTRY",
                   "value": "ARGENTINA"
                 }
               ]
@@ -765,7 +746,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "HC_COUNTRY",
                   "value": "AUSTRALIA"
                 }
               ]
@@ -784,7 +764,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "HC_COUNTRY",
                   "value": "BELGIUM"
                 }
               ]
@@ -803,7 +782,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "HC_COUNTRY",
                   "value": "BRAZIL"
                 }
               ]
@@ -820,7 +798,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "HC_COUNTRY",
                   "value": "CA"
                 }
               ]
@@ -834,7 +811,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "HC_COUNTRY",
                   "value": "CHILE"
                 }
               ]
@@ -844,7 +820,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "HC_COUNTRY",
                   "value": "CHINA"
                 }
               ]
@@ -857,7 +832,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "HC_COUNTRY",
                   "value": "COLUMBIA"
                 }
               ]
@@ -870,7 +844,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "HC_COUNTRY",
                   "value": "COSTA_RICA"
                 }
               ]
@@ -887,7 +860,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "HC_COUNTRY",
                   "value": "DENMARK"
                 }
               ]
@@ -900,7 +872,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "HC_COUNTRY",
                   "value": "ECUADOR"
                 }
               ]
@@ -922,7 +893,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "HC_COUNTRY",
                   "value": "FRANCE"
                 }
               ]
@@ -939,7 +909,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "HC_COUNTRY",
                   "value": "GERMANY"
                 }
               ]
@@ -961,7 +930,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "HC_COUNTRY",
                   "value": "GUYANA"
                 }
               ]
@@ -978,7 +946,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "HC_COUNTRY",
                   "value": "INDIA"
                 }
               ]
@@ -995,7 +962,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "HC_COUNTRY",
                   "value": "JAMAICA"
                 }
               ]
@@ -1013,7 +979,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "HC_COUNTRY",
                   "value": "KENYA"
                 }
               ]
@@ -1051,7 +1016,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "HC_COUNTRY",
                   "value": "MEXICO"
                 }
               ]
@@ -1075,7 +1039,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "HC_COUNTRY",
                   "value": "NETHERLANDS"
                 }
               ]
@@ -1089,7 +1052,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "HC_COUNTRY",
                   "value": "NIGERIA"
                 }
               ]
@@ -1107,7 +1069,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "HC_COUNTRY",
                   "value": "PAKISTAN"
                 }
               ]
@@ -1123,7 +1084,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "HC_COUNTRY",
                   "value": "PHILIPPINE"
                 }
               ]
@@ -1194,7 +1154,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "HC_COUNTRY",
                   "value": "US"
                 }
               ]
@@ -1207,7 +1166,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "HC_COUNTRY",
                   "value": "UNITEDKING"
                 }
               ]
@@ -1217,7 +1175,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "HC_COUNTRY",
                   "value": "URUGUAY"
                 }
               ]
@@ -1273,12 +1230,11 @@ var DATA = [
             }
           ]
         },
-        "vocabulary": {
+        "schema:ItemList": {
           "Alberta": {
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "HC_PROVINCE",
                   "value": "CA-AB"
                 }
               ]
@@ -1288,7 +1244,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "HC_PROVINCE",
                   "value": "CA-BC"
                 }
               ]
@@ -1298,7 +1253,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "HC_PROVINCE",
                   "value": "CA-MB"
                 }
               ]
@@ -1308,7 +1262,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "HC_PROVINCE",
                   "value": "CA-NB"
                 }
               ]
@@ -1318,7 +1271,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "HC_PROVINCE",
                   "value": "CA-NL"
                 }
               ]
@@ -1328,7 +1280,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "HC_PROVINCE",
                   "value": "CA-NT"
                 }
               ]
@@ -1338,7 +1289,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "HC_PROVINCE",
                   "value": "CA-NS"
                 }
               ]
@@ -1348,7 +1298,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "HC_PROVINCE",
                   "value": "CA-NU"
                 }
               ]
@@ -1358,7 +1307,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "HC_PROVINCE",
                   "value": "CA-ON"
                 }
               ]
@@ -1368,7 +1316,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "HC_PROVINCE",
                   "value": "CA-PE"
                 }
               ]
@@ -1378,7 +1325,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "HC_PROVINCE",
                   "value": "CA-QC"
                 }
               ]
@@ -1388,7 +1334,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "HC_PROVINCE",
                   "value": "CA-SK"
                 }
               ]
@@ -1398,7 +1343,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "HC_PROVINCE",
                   "value": "CA-YT"
                 }
               ]
@@ -1463,7 +1407,7 @@ var DATA = [
             }
           ]
         },
-        "vocabulary": {
+        "schema:ItemList": {
           "Severe acute respiratory syndrome coronavirus 2": {},
           "RaTG13": {},
           "RmYN02": {}
@@ -1547,7 +1491,7 @@ var DATA = [
             }
           ]
         },
-        "vocabulary": {
+        "schema:ItemList": {
           "Cluster/Outbreak investigation": {},
           "Diagnostic testing": {},
           "Research": {},
@@ -1613,7 +1557,7 @@ var DATA = [
             }
           ]
         },
-        "vocabulary": {
+        "schema:ItemList": {
           "Swab": {
             "exportField": {
               "NML_LIMS": [
@@ -1686,7 +1630,7 @@ var DATA = [
             }
           ]
         },
-        "vocabulary": {
+        "schema:ItemList": {
           "Acute": {},
           "Convalescent": {},
           "Familial": {},
@@ -1735,12 +1679,11 @@ var DATA = [
             }
           ]
         },
-        "vocabulary": {
+        "schema:ItemList": {
           "Blood": {
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_ISOLATION_SITE_DESC",
                   "value": "BLOOD"
                 }
               ]
@@ -1750,69 +1693,64 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_ISOLATION_SITE_DESC",
                   "value": "FLUID"
                 }
               ]
             },
-            "Saliva": {
-              "exportField": {
-                "NML_LIMS": [
-                  {
-                    "field": "PH_ISOLATION_SITE_DESC",
-                    "value": "SALIVA"
-                  }
-                ]
-              }
-            },
-            "Fluid (cerebrospinal (CSF))": {
-              "exportField": {
-                "NML_LIMS": [
-                  {
-                    "field": "PH_ISOLATION_SITE_DESC",
-                    "value": "FLUID_CSF"
-                  }
-                ]
-              }
-            },
-            "Fluid (pericardial)": {
-              "exportField": {
-                "NML_LIMS": [
-                  {
-                    "field": "PH_ISOLATION_SITE_DESC",
-                    "value": "FLUID_PERICARDIAL"
-                  }
-                ]
-              }
-            },
-            "Fluid (pleural)": {
-              "exportField": {
-                "NML_LIMS": [
-                  {
-                    "field": "PH_ISOLATION_SITE_DESC",
-                    "value": "FLUID_PLEURAL"
-                  }
-                ]
-              }
-            },
-            "Fluid (vaginal)": {
-              "exportField": {
-                "NML_LIMS": [
-                  {
-                    "field": "PH_ISOLATION_SITE_DESC",
-                    "value": "FLUID_VAGINAL"
-                  }
-                ]
-              }
-            },
-            "Fluid (amniotic)": {
-              "exportField": {
-                "NML_LIMS": [
-                  {
-                    "field": "PH_ISOLATION_SITE_DESC",
-                    "value": "FLUID_AMNIOTIC"
-                  }
-                ]
+            "schema:ItemList": {
+              "Saliva": {
+                "exportField": {
+                  "NML_LIMS": [
+                    {
+                      "value": "SALIVA"
+                    }
+                  ]
+                }
+              },
+              "Fluid (cerebrospinal (CSF))": {
+                "exportField": {
+                  "NML_LIMS": [
+                    {
+                      "value": "FLUID_CSF"
+                    }
+                  ]
+                }
+              },
+              "Fluid (pericardial)": {
+                "exportField": {
+                  "NML_LIMS": [
+                    {
+                      "value": "FLUID_PERICARDIAL"
+                    }
+                  ]
+                }
+              },
+              "Fluid (pleural)": {
+                "exportField": {
+                  "NML_LIMS": [
+                    {
+                      "value": "FLUID_PLEURAL"
+                    }
+                  ]
+                }
+              },
+              "Fluid (vaginal)": {
+                "exportField": {
+                  "NML_LIMS": [
+                    {
+                      "value": "FLUID_VAGINAL"
+                    }
+                  ]
+                }
+              },
+              "Fluid (amniotic)": {
+                "exportField": {
+                  "NML_LIMS": [
+                    {
+                      "value": "FLUID_AMNIOTIC"
+                    }
+                  ]
+                }
               }
             }
           },
@@ -1820,7 +1758,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_ISOLATION_SITE_DESC",
                   "value": "TISSUE"
                 }
               ]
@@ -1869,12 +1806,11 @@ var DATA = [
             }
           ]
         },
-        "vocabulary": {
+        "schema:ItemList": {
           "Anus": {
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_ISOLATION_SITE",
                   "value": "ANUS"
                 }
               ]
@@ -1884,7 +1820,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_ISOLATION_SITE",
                   "value": "BUCCAL_MUCOSA"
                 }
               ]
@@ -1894,7 +1829,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_ISOLATION_SITE",
                   "value": "DUODENUM"
                 }
               ]
@@ -1904,7 +1838,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_ISOLATION_SITE",
                   "value": "EYE"
                 }
               ]
@@ -1914,7 +1847,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_ISOLATION_SITE",
                   "value": "INTESTINE"
                 }
               ]
@@ -1924,7 +1856,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_ISOLATION_SITE",
                   "value": "RECTUM"
                 }
               ]
@@ -1934,7 +1865,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_ISOLATION_SITE",
                   "value": "SKIN"
                 }
               ]
@@ -1944,7 +1874,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_ISOLATION_SITE",
                   "value": "STOMACH"
                 }
               ]
@@ -1954,89 +1883,84 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_ISOLATION_SITE",
                   "value": "UPPER"
                 }
               ]
             },
-            "Anterior Nares": {
-              "exportField": {
-                "NML_LIMS": [
-                  {
-                    "field": "PH_ISOLATION_SITE",
-                    "value": "ANTERIOR_NARES"
-                  }
-                ]
-              }
-            },
-            "Esophagus": {
-              "exportField": {
-                "NML_LIMS": [
-                  {
-                    "field": "PH_ISOLATION_SITE",
-                    "value": "ESOPHAGUS"
-                  }
-                ]
-              }
-            },
-            "Ethmoid sinus": {
-              "exportField": {
-                "NML_LIMS": [
-                  {
-                    "field": "PH_ISOLATION_SITE",
-                    "value": "ETHMOID_SINUS"
-                  }
-                ]
-              }
-            },
-            "Nasal Cavity": {
-              "exportField": {
-                "NML_LIMS": [
-                  {
-                    "field": "PH_ISOLATION_SITE",
-                    "value": "NASAL_CAVITY"
-                  }
-                ]
-              },
-              "Middle Nasal Turbinate": {
+            "schema:ItemList": {
+              "Anterior Nares": {
                 "exportField": {
                   "NML_LIMS": [
                     {
-                      "field": "PH_ISOLATION_SITE",
-                      "value": "MIDDLE_NASAL"
+                      "value": "ANTERIOR_NARES"
                     }
                   ]
                 }
               },
-              "Inferior Nasal Turbinate": {
+              "Esophagus": {
                 "exportField": {
                   "NML_LIMS": [
                     {
-                      "field": "PH_ISOLATION_SITE",
-                      "value": "INFERIOR_NASAL"
+                      "value": "ESOPHAGUS"
                     }
                   ]
                 }
-              }
-            },
-            "Nasopharynx (NP)": {
-              "exportField": {
-                "NML_LIMS": [
-                  {
-                    "field": "PH_ISOLATION_SITE",
-                    "value": "NASOPHARYNX_NP"
+              },
+              "Ethmoid sinus": {
+                "exportField": {
+                  "NML_LIMS": [
+                    {
+                      "value": "ETHMOID_SINUS"
+                    }
+                  ]
+                }
+              },
+              "Nasal Cavity": {
+                "exportField": {
+                  "NML_LIMS": [
+                    {
+                      "value": "NASAL_CAVITY"
+                    }
+                  ]
+                },
+                "schema:ItemList": {
+                  "Middle Nasal Turbinate": {
+                    "exportField": {
+                      "NML_LIMS": [
+                        {
+                          "value": "MIDDLE_NASAL"
+                        }
+                      ]
+                    }
+                  },
+                  "Inferior Nasal Turbinate": {
+                    "exportField": {
+                      "NML_LIMS": [
+                        {
+                          "value": "INFERIOR_NASAL"
+                        }
+                      ]
+                    }
                   }
-                ]
-              }
-            },
-            "Oropharynx (OP)": {
-              "exportField": {
-                "NML_LIMS": [
-                  {
-                    "field": "PH_ISOLATION_SITE",
-                    "value": "OROPHARYNX_OP"
-                  }
-                ]
+                }
+              },
+              "Nasopharynx (NP)": {
+                "exportField": {
+                  "NML_LIMS": [
+                    {
+                      "value": "NASOPHARYNX_NP"
+                    }
+                  ]
+                }
+              },
+              "Oropharynx (OP)": {
+                "exportField": {
+                  "NML_LIMS": [
+                    {
+                      "value": "OROPHARYNX_OP"
+                    }
+                  ]
+                }
               }
             }
           },
@@ -2044,79 +1968,77 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_ISOLATION_SITE",
                   "value": "LOWER"
                 }
               ]
             },
-            "Bronchus": {
-              "exportField": {
-                "NML_LIMS": [
-                  {
-                    "field": "PH_ISOLATION_SITE",
-                    "value": "BRONCHUS"
-                  }
-                ]
-              }
-            },
-            "Lung": {
-              "exportField": {
-                "NML_LIMS": [
-                  {
-                    "field": "PH_ISOLATION_SITE",
-                    "value": "LUNG"
-                  }
-                ]
-              },
-              "Bronchiole": {
+            "schema:ItemList": {
+              "Bronchus": {
                 "exportField": {
                   "NML_LIMS": [
                     {
-                      "field": "PH_ISOLATION_SITE",
-                      "value": "BRONCHIOLE"
+                      "value": "BRONCHUS"
                     }
                   ]
                 }
               },
-              "Alveolar sac": {
+              "Lung": {
                 "exportField": {
                   "NML_LIMS": [
                     {
-                      "field": "PH_ISOLATION_SITE",
-                      "value": "ALVEOLAR_SAC"
+                      "value": "LUNG"
                     }
                   ]
-                }
-              }
-            },
-            "Pleural sac": {
-              "exportField": {
-                "NML_LIMS": [
-                  {
-                    "field": "PH_ISOLATION_SITE",
-                    "value": "PLEURAL_SAC"
+                },
+                "schema:ItemList": {
+                  "Bronchiole": {
+                    "exportField": {
+                      "NML_LIMS": [
+                        {
+                          "value": "BRONCHIOLE"
+                        }
+                      ]
+                    }
+                  },
+                  "Alveolar sac": {
+                    "exportField": {
+                      "NML_LIMS": [
+                        {
+                          "value": "ALVEOLAR_SAC"
+                        }
+                      ]
+                    }
                   }
-                ]
+                }
               },
-              "Pleural cavity": {
+              "Pleural sac": {
                 "exportField": {
                   "NML_LIMS": [
                     {
-                      "field": "PH_ISOLATION_SITE",
-                      "value": "PLEURAL_CAVITY"
+                      "value": "PLEURAL_SAC"
+                    }
+                  ]
+                },
+                "schema:ItemList": {
+                  "Pleural cavity": {
+                    "exportField": {
+                      "NML_LIMS": [
+                        {
+                          "value": "PLEURAL_CAVITY"
+                        }
+                      ]
+                    }
+                  }
+                }
+              },
+              "Trachea": {
+                "exportField": {
+                  "NML_LIMS": [
+                    {
+                      "value": "TRACHEA"
                     }
                   ]
                 }
-              }
-            },
-            "Trachea": {
-              "exportField": {
-                "NML_LIMS": [
-                  {
-                    "field": "PH_ISOLATION_SITE",
-                    "value": "TRACHEA"
-                  }
-                ]
               }
             }
           }
@@ -2163,12 +2085,11 @@ var DATA = [
             }
           ]
         },
-        "vocabulary": {
+        "schema:ItemList": {
           "Feces": {
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_SPECIMEN_SOURCE_DESC",
                   "value": "FECES"
                 }
               ]
@@ -2178,7 +2099,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_SPECIMEN_SOURCE_DESC",
                   "value": "URINE"
                 }
               ]
@@ -2188,7 +2108,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_SPECIMEN_SOURCE_DESC",
                   "value": "SWEAT"
                 }
               ]
@@ -2198,19 +2117,19 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_SPECIMEN_SOURCE_DESC",
                   "value": "MUCUS"
                 }
               ]
             },
-            "Sputum": {
-              "exportField": {
-                "NML_LIMS": [
-                  {
-                    "field": "PH_SPECIMEN_SOURCE_DESC",
-                    "value": "SPUTUM"
-                  }
-                ]
+            "schema:ItemList": {
+              "Sputum": {
+                "exportField": {
+                  "NML_LIMS": [
+                    {
+                      "value": "SPUTUM"
+                    }
+                  ]
+                }
               }
             }
           },
@@ -2218,7 +2137,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_SPECIMEN_SOURCE_DESC",
                   "value": "TEAR"
                 }
               ]
@@ -2228,7 +2146,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_SPECIMEN_SOURCE_DESC",
                   "value": "FLUID_SEMINAL"
                 }
               ]
@@ -2238,7 +2155,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_SPECIMEN_SOURCE_DESC",
                   "value": "BREAST_MILK"
                 }
               ]
@@ -2287,12 +2203,11 @@ var DATA = [
             }
           ]
         },
-        "vocabulary": {
+        "schema:ItemList": {
           "Air vent": {
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_ENVIRONMENTAL_MATERIAL",
                   "value": "AIR_VENT"
                 }
               ]
@@ -2302,7 +2217,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_ENVIRONMENTAL_MATERIAL",
                   "value": "BANKNOTE"
                 }
               ]
@@ -2312,7 +2226,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_ENVIRONMENTAL_MATERIAL",
                   "value": "BED_RAIL"
                 }
               ]
@@ -2322,7 +2235,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_ENVIRONMENTAL_MATERIAL",
                   "value": "BUILDING_FLOOR"
                 }
               ]
@@ -2332,7 +2244,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_ENVIRONMENTAL_MATERIAL",
                   "value": "CLOTH"
                 }
               ]
@@ -2342,7 +2253,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_ENVIRONMENTAL_MATERIAL",
                   "value": "CONTROL_PANEL"
                 }
               ]
@@ -2352,7 +2262,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_ENVIRONMENTAL_MATERIAL",
                   "value": "DOOR"
                 }
               ]
@@ -2362,7 +2271,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_ENVIRONMENTAL_MATERIAL",
                   "value": "DOOR_HANDLE"
                 }
               ]
@@ -2372,7 +2280,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_ENVIRONMENTAL_MATERIAL",
                   "value": "FACE_MASK"
                 }
               ]
@@ -2382,7 +2289,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_ENVIRONMENTAL_MATERIAL",
                   "value": "FACE_SHIELD"
                 }
               ]
@@ -2392,7 +2298,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_ENVIRONMENTAL_MATERIAL",
                   "value": "FOOD"
                 }
               ]
@@ -2402,7 +2307,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_ENVIRONMENTAL_MATERIAL",
                   "value": "FOOD_PACKAGING"
                 }
               ]
@@ -2412,7 +2316,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_ENVIRONMENTAL_MATERIAL",
                   "value": "GLASS"
                 }
               ]
@@ -2422,7 +2325,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_ENVIRONMENTAL_MATERIAL",
                   "value": "HANDRAIL"
                 }
               ]
@@ -2432,7 +2334,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_ENVIRONMENTAL_MATERIAL",
                   "value": "HOSPITAL_GOWN"
                 }
               ]
@@ -2442,7 +2343,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_ENVIRONMENTAL_MATERIAL",
                   "value": "LIGHT_SWITCH"
                 }
               ]
@@ -2452,7 +2352,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_ENVIRONMENTAL_MATERIAL",
                   "value": "LOCKER"
                 }
               ]
@@ -2462,7 +2361,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_ENVIRONMENTAL_MATERIAL",
                   "value": "N95_MASK"
                 }
               ]
@@ -2472,7 +2370,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_ENVIRONMENTAL_MATERIAL",
                   "value": "NURSE_CALL_BUTTON"
                 }
               ]
@@ -2482,7 +2379,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_ENVIRONMENTAL_MATERIAL",
                   "value": "PAPER"
                 }
               ]
@@ -2492,7 +2388,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_ENVIRONMENTAL_MATERIAL",
                   "value": "PARTICULATE_MATTER"
                 }
               ]
@@ -2502,7 +2397,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_ENVIRONMENTAL_MATERIAL",
                   "value": "PLASTIC"
                 }
               ]
@@ -2512,7 +2406,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_ENVIRONMENTAL_MATERIAL",
                   "value": "PPE_GOWN"
                 }
               ]
@@ -2522,7 +2415,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_ENVIRONMENTAL_MATERIAL",
                   "value": "SEWAGE"
                 }
               ]
@@ -2532,7 +2424,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_ENVIRONMENTAL_MATERIAL",
                   "value": "SINK"
                 }
               ]
@@ -2542,7 +2433,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_ENVIRONMENTAL_MATERIAL",
                   "value": "SOIL"
                 }
               ]
@@ -2552,7 +2442,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_ENVIRONMENTAL_MATERIAL",
                   "value": "STAINLESS_STEEL"
                 }
               ]
@@ -2562,7 +2451,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_ENVIRONMENTAL_MATERIAL",
                   "value": "TISSUE_PAPER"
                 }
               ]
@@ -2572,7 +2460,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_ENVIRONMENTAL_MATERIAL",
                   "value": "TOILET_BOWL"
                 }
               ]
@@ -2582,7 +2469,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_ENVIRONMENTAL_MATERIAL",
                   "value": "WATER"
                 }
               ]
@@ -2592,7 +2478,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_ENVIRONMENTAL_MATERIAL",
                   "value": "WASTEWATER"
                 }
               ]
@@ -2602,7 +2487,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_ENVIRONMENTAL_MATERIAL",
                   "value": "WINDOW"
                 }
               ]
@@ -2612,7 +2496,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_ENVIRONMENTAL_MATERIAL",
                   "value": "WOOD"
                 }
               ]
@@ -2661,12 +2544,11 @@ var DATA = [
             }
           ]
         },
-        "vocabulary": {
+        "schema:ItemList": {
           "Acute care facility": {
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_ENVIRONMENTAL_SITE",
                   "value": "ACUTE_CARE_FACILITY"
                 }
               ]
@@ -2676,7 +2558,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_ENVIRONMENTAL_SITE",
                   "value": "ANIMAL_HOUSE"
                 }
               ]
@@ -2686,7 +2567,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_ENVIRONMENTAL_SITE",
                   "value": "BATHROOM"
                 }
               ]
@@ -2696,7 +2576,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_ENVIRONMENTAL_SITE",
                   "value": "CLINICAL_ASSESSMENT_"
                 }
               ]
@@ -2706,7 +2585,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_ENVIRONMENTAL_SITE",
                   "value": "CONFERENCE_VENUE"
                 }
               ]
@@ -2716,7 +2594,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_ENVIRONMENTAL_SITE",
                   "value": "CORRIDOR"
                 }
               ]
@@ -2726,7 +2603,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_ENVIRONMENTAL_SITE",
                   "value": "DAYCARE"
                 }
               ]
@@ -2736,7 +2612,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_ENVIRONMENTAL_SITE",
                   "value": "EMERGENCY_ROOM_ER"
                 }
               ]
@@ -2746,7 +2621,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_ENVIRONMENTAL_SITE",
                   "value": "FAMILY_PRACTICE_CLIN"
                 }
               ]
@@ -2756,7 +2630,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_ENVIRONMENTAL_SITE",
                   "value": "GROUP_HOME"
                 }
               ]
@@ -2766,7 +2639,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_ENVIRONMENTAL_SITE",
                   "value": "HOMELESS_SHELTER"
                 }
               ]
@@ -2776,7 +2648,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_ENVIRONMENTAL_SITE",
                   "value": "HOSPITAL"
                 }
               ]
@@ -2786,7 +2657,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_ENVIRONMENTAL_SITE",
                   "value": "INTENSIVE_CARE_UNIT_"
                 }
               ]
@@ -2796,7 +2666,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_ENVIRONMENTAL_SITE",
                   "value": "LONG_TERM_CARE_FACIL"
                 }
               ]
@@ -2806,7 +2675,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_ENVIRONMENTAL_SITE",
                   "value": "PATIENT_ROOM"
                 }
               ]
@@ -2816,7 +2684,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_ENVIRONMENTAL_SITE",
                   "value": "PRISON"
                 }
               ]
@@ -2826,7 +2693,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_ENVIRONMENTAL_SITE",
                   "value": "PRODUCTION_FACILITY"
                 }
               ]
@@ -2836,7 +2702,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_ENVIRONMENTAL_SITE",
                   "value": "SCHOOL"
                 }
               ]
@@ -2846,7 +2711,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_ENVIRONMENTAL_SITE",
                   "value": "SEWAGE_PLANT"
                 }
               ]
@@ -2856,7 +2720,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_ENVIRONMENTAL_SITE",
                   "value": "SUBWAY_TRAIN"
                 }
               ]
@@ -2866,7 +2729,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_ENVIRONMENTAL_SITE",
                   "value": "WET_MARKET"
                 }
               ]
@@ -2915,12 +2777,11 @@ var DATA = [
             }
           ]
         },
-        "vocabulary": {
+        "schema:ItemList": {
           "Air filter": {
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_SPECIMEN_TYPE_ORIG",
                   "value": "AIR_FILTER"
                 }
               ]
@@ -2930,7 +2791,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_SPECIMEN_TYPE_ORIG",
                   "value": "BLOOD_TUBE"
                 }
               ]
@@ -2940,7 +2800,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_SPECIMEN_TYPE_ORIG",
                   "value": "BRONCHOSCOPE"
                 }
               ]
@@ -2950,7 +2809,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_SPECIMEN_TYPE_ORIG",
                   "value": "CONTAINER"
                 }
               ]
@@ -2960,7 +2818,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_SPECIMEN_TYPE_ORIG",
                   "value": "CUP"
                 }
               ]
@@ -2970,7 +2827,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_SPECIMEN_TYPE_ORIG",
                   "value": "BRUSH"
                 }
               ]
@@ -2980,7 +2836,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_SPECIMEN_TYPE_ORIG",
                   "value": "FILTER"
                 }
               ]
@@ -2990,7 +2845,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_SPECIMEN_TYPE_ORIG",
                   "value": "FINE_NEEDLE"
                 }
               ]
@@ -3000,7 +2854,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_SPECIMEN_TYPE_ORIG",
                   "value": "MICROCAPILLARY_TUBE"
                 }
               ]
@@ -3010,7 +2863,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_SPECIMEN_TYPE_ORIG",
                   "value": "MICROPIPETTE"
                 }
               ]
@@ -3020,7 +2872,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_SPECIMEN_TYPE_ORIG",
                   "value": "NEEDLE"
                 }
               ]
@@ -3030,7 +2881,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_SPECIMEN_TYPE_ORIG",
                   "value": "SERUM_TUBE"
                 }
               ]
@@ -3040,7 +2890,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_SPECIMEN_TYPE_ORIG",
                   "value": "SPUTUM_TUBE"
                 }
               ]
@@ -3050,7 +2899,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_SPECIMEN_TYPE_ORIG",
                   "value": "SUCTION_CATHETER"
                 }
               ]
@@ -3060,7 +2908,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_SPECIMEN_TYPE_ORIG",
                   "value": "SWAB"
                 }
               ]
@@ -3070,7 +2917,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_SPECIMEN_TYPE_ORIG",
                   "value": "URINE_TUBE"
                 }
               ]
@@ -3080,7 +2926,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_SPECIMEN_TYPE_ORIG",
                   "value": "TRANSPORT_MEDIUM"
                 }
               ]
@@ -3129,12 +2974,11 @@ var DATA = [
             }
           ]
         },
-        "vocabulary": {
+        "schema:ItemList": {
           "Amniocentesis": {
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "COLLECTION_METHOD",
                   "value": "AMNIOCENTESIS"
                 }
               ]
@@ -3144,39 +2988,37 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "COLLECTION_METHOD",
                   "value": "ASPIRATION"
                 }
               ]
             },
-            "Suprapubic Aspiration": {
-              "exportField": {
-                "NML_LIMS": [
-                  {
-                    "field": "COLLECTION_METHOD",
-                    "value": "SUPRAPUBIC_ASPIRATIO"
-                  }
-                ]
-              }
-            },
-            "Tracheal aspiration": {
-              "exportField": {
-                "NML_LIMS": [
-                  {
-                    "field": "COLLECTION_METHOD",
-                    "value": "TRACHEAL_ASPIRATION"
-                  }
-                ]
-              }
-            },
-            "Vacuum Aspiration": {
-              "exportField": {
-                "NML_LIMS": [
-                  {
-                    "field": "COLLECTION_METHOD",
-                    "value": "VACUUM_ASPIRATION"
-                  }
-                ]
+            "schema:ItemList": {
+              "Suprapubic Aspiration": {
+                "exportField": {
+                  "NML_LIMS": [
+                    {
+                      "value": "SUPRAPUBIC_ASPIRATIO"
+                    }
+                  ]
+                }
+              },
+              "Tracheal aspiration": {
+                "exportField": {
+                  "NML_LIMS": [
+                    {
+                      "value": "TRACHEAL_ASPIRATION"
+                    }
+                  ]
+                }
+              },
+              "Vacuum Aspiration": {
+                "exportField": {
+                  "NML_LIMS": [
+                    {
+                      "value": "VACUUM_ASPIRATION"
+                    }
+                  ]
+                }
               }
             }
           },
@@ -3184,19 +3026,19 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "COLLECTION_METHOD",
                   "value": "BIOPSY"
                 }
               ]
             },
-            "Needle Biopsy": {
-              "exportField": {
-                "NML_LIMS": [
-                  {
-                    "field": "COLLECTION_METHOD",
-                    "value": "COLLECTION_METHOD:NEEDLE_BIOPSY"
-                  }
-                ]
+            "schema:ItemList": {
+              "Needle Biopsy": {
+                "exportField": {
+                  "NML_LIMS": [
+                    {
+                      "value": "NEEDLE_BIOPSY"
+                    }
+                  ]
+                }
               }
             }
           },
@@ -3204,19 +3046,19 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "COLLECTION_METHOD",
                   "value": "FILTRATION"
                 }
               ]
             },
-            "Air filtration": {
-              "exportField": {
-                "NML_LIMS": [
-                  {
-                    "field": "COLLECTION_METHOD",
-                    "value": "AIR_FILTRATION"
-                  }
-                ]
+            "schema:ItemList": {
+              "Air filtration": {
+                "exportField": {
+                  "NML_LIMS": [
+                    {
+                      "value": "AIR_FILTRATION"
+                    }
+                  ]
+                }
               }
             }
           },
@@ -3224,29 +3066,28 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "COLLECTION_METHOD",
                   "value": "LAVAGE"
                 }
               ]
             },
-            "Bronchoalveolar lavage (BAL)": {
-              "exportField": {
-                "NML_LIMS": [
-                  {
-                    "field": "COLLECTION_METHOD",
-                    "value": "BAL"
-                  }
-                ]
-              }
-            },
-            "Gastric Lavage": {
-              "exportField": {
-                "NML_LIMS": [
-                  {
-                    "field": "COLLECTION_METHOD",
-                    "value": "GASTRIC_LAVAGE"
-                  }
-                ]
+            "schema:ItemList": {
+              "Bronchoalveolar lavage (BAL)": {
+                "exportField": {
+                  "NML_LIMS": [
+                    {
+                      "value": "BAL"
+                    }
+                  ]
+                }
+              },
+              "Gastric Lavage": {
+                "exportField": {
+                  "NML_LIMS": [
+                    {
+                      "value": "GASTRIC_LAVAGE"
+                    }
+                  ]
+                }
               }
             }
           },
@@ -3254,7 +3095,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "COLLECTION_METHOD",
                   "value": "LUMBAR_PUNCTURE"
                 }
               ]
@@ -3264,7 +3104,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "COLLECTION_METHOD",
                   "value": "NECROPSY"
                 }
               ]
@@ -3274,7 +3113,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "COLLECTION_METHOD",
                   "value": "PHLEBOTOMY"
                 }
               ]
@@ -3284,18 +3122,18 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "COLLECTION_METHOD",
                   "value": "RINSING"
                 }
               ]
             },
-            "Saline gargle (mouth rinse and gargle)": {}
+            "schema:ItemList": {
+              "Saline gargle (mouth rinse and gargle)": {}
+            }
           },
           "Scraping": {
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "COLLECTION_METHOD",
                   "value": "SCRAPING"
                 }
               ]
@@ -3305,19 +3143,19 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "COLLECTION_METHOD",
                   "value": "SWABBING"
                 }
               ]
             },
-            "Finger Prick": {
-              "exportField": {
-                "NML_LIMS": [
-                  {
-                    "field": "COLLECTION_METHOD",
-                    "value": "FINGER_PRICK"
-                  }
-                ]
+            "schema:ItemList": {
+              "Finger Prick": {
+                "exportField": {
+                  "NML_LIMS": [
+                    {
+                      "value": "FINGER_PRICK"
+                    }
+                  ]
+                }
               }
             }
           },
@@ -3325,7 +3163,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "COLLECTION_METHOD",
                   "value": "WASH"
                 }
               ]
@@ -3335,7 +3172,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "COLLECTION_METHOD",
                   "value": "WASHOUT"
                 }
               ]
@@ -3383,7 +3219,7 @@ var DATA = [
             }
           ]
         },
-        "vocabulary": {
+        "schema:ItemList": {
           "Virus passage": {},
           "RNA re-extraction (post RT-PCR)": {},
           "Specimens pooled": {}
@@ -3420,7 +3256,7 @@ var DATA = [
             }
           ]
         },
-        "vocabulary": {
+        "schema:ItemList": {
           "293/ACE2 cell line": {},
           "Caco2 cell line": {},
           "Calu3 cell line": {},
@@ -3515,7 +3351,7 @@ var DATA = [
         "description": "The biomaterial extracted from samples for the purpose of sequencing.",
         "guidance": "Provide the biomaterial extracted from the picklist in the template.",
         "examples": "RNA (total)",
-        "vocabulary": {
+        "schema:ItemList": {
           "RNA (total)": {},
           "RNA (poly-A)": {},
           "RNA (ribo-depleted)": {},
@@ -3559,12 +3395,11 @@ var DATA = [
             }
           ]
         },
-        "vocabulary": {
+        "schema:ItemList": {
           "Human": {
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_ANIMAL_TYPE",
                   "value": "HUMAN"
                 }
               ]
@@ -3574,7 +3409,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_ANIMAL_TYPE",
                   "value": "BAT"
                 }
               ]
@@ -3586,7 +3420,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_ANIMAL_TYPE",
                   "value": "CIVETS"
                 }
               ]
@@ -3596,7 +3429,7 @@ var DATA = [
             "exportField": {
               "CNPHI": [
                 {
-                  "field": "bovine"
+                  "value": "bovine"
                 }
               ]
             }
@@ -3606,7 +3439,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_ANIMAL_TYPE",
                   "value": "LION"
                 }
               ]
@@ -3617,7 +3449,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_ANIMAL_TYPE",
                   "value": "PANGOLIN"
                 }
               ]
@@ -3627,7 +3458,7 @@ var DATA = [
             "exportField": {
               "CNPHI": [
                 {
-                  "field": "porcine"
+                  "value": "porcine"
                 }
               ]
             }
@@ -3667,7 +3498,7 @@ var DATA = [
             }
           ]
         },
-        "vocabulary": {
+        "schema:ItemList": {
           "Homo sapiens": {},
           "Bos taurus": {},
           "Canis lupus familiaris": {},
@@ -3727,12 +3558,11 @@ var DATA = [
             }
           ]
         },
-        "vocabulary": {
+        "schema:ItemList": {
           "Asymptomatic": {
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_HOST_HEALTH",
                   "value": "ASYMPTOMATIC"
                 }
               ]
@@ -3742,7 +3572,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_HOST_HEALTH",
                   "value": "DECEASED"
                 }
               ]
@@ -3752,7 +3581,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_HOST_HEALTH",
                   "value": "HEALTHY"
                 }
               ]
@@ -3762,7 +3590,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_HOST_HEALTH",
                   "value": "RECOVERED"
                 }
               ]
@@ -3772,7 +3599,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_HOST_HEALTH",
                   "value": "SYMPTOMATIC"
                 }
               ]
@@ -3811,34 +3637,33 @@ var DATA = [
             }
           ]
         },
-        "vocabulary": {
+        "schema:ItemList": {
           "Hospitalized": {
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_HOST_HEALTH_DETAILS",
                   "value": "HOSPITALIZED"
                 }
               ]
             },
-            "Hospitalized (Non-ICU)": {
-              "exportField": {
-                "NML_LIMS": [
-                  {
-                    "field": "PH_HOST_HEALTH_DETAILS",
-                    "value": "NON_ICU"
-                  }
-                ]
-              }
-            },
-            "Hospitalized (ICU)": {
-              "exportField": {
-                "NML_LIMS": [
-                  {
-                    "field": "PH_HOST_HEALTH_DETAILS",
-                    "value": "ICU"
-                  }
-                ]
+            "schema:ItemList": {
+              "Hospitalized (Non-ICU)": {
+                "exportField": {
+                  "NML_LIMS": [
+                    {
+                      "value": "NON_ICU"
+                    }
+                  ]
+                }
+              },
+              "Hospitalized (ICU)": {
+                "exportField": {
+                  "NML_LIMS": [
+                    {
+                      "value": "ICU"
+                    }
+                  ]
+                }
               }
             }
           },
@@ -3846,7 +3671,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_HOST_HEALTH_DETAILS",
                   "value": "VENTILATION"
                 }
               ]
@@ -3856,19 +3680,19 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_HOST_HEALTH_DETAILS",
                   "value": "ISOLATED"
                 }
               ]
             },
-            "Medically Isolated (Negative Pressure)": {
-              "exportField": {
-                "NML_LIMS": [
-                  {
-                    "field": "PH_HOST_HEALTH_DETAILS",
-                    "value": "ISOLATED_NEGATIVE_PR"
-                  }
-                ]
+            "schema:ItemList": {
+              "Medically Isolated (Negative Pressure)": {
+                "exportField": {
+                  "NML_LIMS": [
+                    {
+                      "value": "ISOLATED_NEGATIVE_PR"
+                    }
+                  ]
+                }
               }
             }
           },
@@ -3876,7 +3700,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_HOST_HEALTH_DETAILS",
                   "value": "SELF_QUARANTINING"
                 }
               ]
@@ -3910,7 +3733,7 @@ var DATA = [
             }
           ]
         },
-        "vocabulary": {
+        "schema:ItemList": {
           "Deceased": {},
           "Deteriorating": {},
           "Recovered": {},
@@ -3953,7 +3776,7 @@ var DATA = [
             }
           ]
         },
-        "vocabulary": {
+        "schema:ItemList": {
           "COVID-19": {}
         }
       },
@@ -4025,7 +3848,7 @@ var DATA = [
             }
           ]
         },
-        "vocabulary": {
+        "schema:ItemList": {
           "month": {},
           "year": {}
         }
@@ -4061,7 +3884,7 @@ var DATA = [
             }
           ]
         },
-        "vocabulary": {
+        "schema:ItemList": {
           "0 - 9": {},
           "10 - 19": {},
           "20 - 29": {},
@@ -4116,12 +3939,11 @@ var DATA = [
             }
           ]
         },
-        "vocabulary": {
+        "schema:ItemList": {
           "Female": {
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "VD_SEX",
                   "value": "MALE"
                 }
               ]
@@ -4131,7 +3953,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "VD_SEX",
                   "value": "FEMALE"
                 }
               ]
@@ -4141,7 +3962,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "VD_SEX",
                   "value": "NON_BINARY_GENDER"
                 }
               ]
@@ -4151,7 +3971,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "VD_SEX",
                   "value": "TRANSGENDER"
                 }
               ]
@@ -4161,7 +3980,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "VD_SEX",
                   "value": "TRANSGENDER"
                 }
               ]
@@ -4171,7 +3989,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "VD_SEX",
                   "value": "REFUSED"
                 }
               ]
@@ -4181,7 +3998,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "VD_SEX",
                   "value": "UNKNOWN"
                 }
               ]
@@ -4208,7 +4024,7 @@ var DATA = [
         "description": "The country of residence of the host.",
         "guidance": "Select the country name from pick list provided in the template.",
         "examples": "United Kingdom",
-        "vocabulary": {}
+        "schema:ItemList": {}
       },
       {
         "fieldName": "host residence geo_loc name (state/province/territory)",
@@ -4229,7 +4045,7 @@ var DATA = [
         "description": "The state/province/territory of residence of the host.",
         "guidance": "Select the province/territory name from pick list provided in the template.",
         "examples": "Quebec",
-        "vocabulary": {}
+        "schema:ItemList": {}
       },
       {
         "fieldName": "host subject ID",
@@ -4315,45 +4131,43 @@ var DATA = [
             }
           ]
         },
-        "vocabulary": {
+        "schema:ItemList": {
           "Abnormal lung auscultation": {},
           "Abnormality of taste sensation": {
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "HC_SYMPTOMS",
                   "value": "SENSE_OF_TASTE"
                 }
               ]
             },
-            "Ageusia (complete loss of taste)": {
-              "exportField": {
-                "NML_LIMS": [
-                  {
-                    "field": "HC_SYMPTOMS",
-                    "value": "AGEUSIA"
-                  }
-                ]
-              }
-            },
-            "Parageusia (distorted sense of taste)": {
-              "exportField": {
-                "NML_LIMS": [
-                  {
-                    "field": "HC_SYMPTOMS",
-                    "value": "PARAGEUSIA"
-                  }
-                ]
-              }
-            },
-            "Hypogeusia (reduced sense of taste)": {
-              "exportField": {
-                "NML_LIMS": [
-                  {
-                    "field": "HC_SYMPTOMS",
-                    "value": "HYPOGEUSIA"
-                  }
-                ]
+            "schema:ItemList": {
+              "Ageusia (complete loss of taste)": {
+                "exportField": {
+                  "NML_LIMS": [
+                    {
+                      "value": "AGEUSIA"
+                    }
+                  ]
+                }
+              },
+              "Parageusia (distorted sense of taste)": {
+                "exportField": {
+                  "NML_LIMS": [
+                    {
+                      "value": "PARAGEUSIA"
+                    }
+                  ]
+                }
+              },
+              "Hypogeusia (reduced sense of taste)": {
+                "exportField": {
+                  "NML_LIMS": [
+                    {
+                      "value": "HYPOGEUSIA"
+                    }
+                  ]
+                }
               }
             }
           },
@@ -4361,29 +4175,28 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "HC_SYMPTOMS",
                   "value": "SENSE_OF_SMELL"
                 }
               ]
             },
-            "Anosmia (lost sense of smell)": {
-              "exportField": {
-                "NML_LIMS": [
-                  {
-                    "field": "HC_SYMPTOMS",
-                    "value": "ANOSMIA"
-                  }
-                ]
-              }
-            },
-            "Hyposmia (reduced sense of smell)": {
-              "exportField": {
-                "NML_LIMS": [
-                  {
-                    "field": "HC_SYMPTOMS",
-                    "value": "HYPOSMIA"
-                  }
-                ]
+            "schema:ItemList": {
+              "Anosmia (lost sense of smell)": {
+                "exportField": {
+                  "NML_LIMS": [
+                    {
+                      "value": "ANOSMIA"
+                    }
+                  ]
+                }
+              },
+              "Hyposmia (reduced sense of smell)": {
+                "exportField": {
+                  "NML_LIMS": [
+                    {
+                      "value": "HYPOSMIA"
+                    }
+                  ]
+                }
               }
             }
           },
@@ -4391,7 +4204,7 @@ var DATA = [
             "exportField": {
               "CNPHI": [
                 {
-                  "field": "ARDS"
+                  "value": "ARDS"
                 }
               ]
             }
@@ -4400,79 +4213,75 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "HC_SYMPTOMS",
                   "value": "ALTERED_CONSCIOUS"
                 }
               ]
             },
-            "Cognitive impairment": {
-              "exportField": {
-                "NML_LIMS": [
-                  {
-                    "field": "HC_SYMPTOMS",
-                    "value": "COGNITIVE"
-                  }
-                ]
-              }
-            },
-            "Coma": {
-              "exportField": {
-                "NML_LIMS": [
-                  {
-                    "field": "HC_SYMPTOMS",
-                    "value": "COMA"
-                  }
-                ]
-              }
-            },
-            "Confusion": {
-              "exportField": {
-                "NML_LIMS": [
-                  {
-                    "field": "HC_SYMPTOMS",
-                    "value": "CONFUSION"
-                  }
-                ]
-              },
-              "Delirium (sudden severe confusion)": {
+            "schema:ItemList": {
+              "Cognitive impairment": {
                 "exportField": {
                   "NML_LIMS": [
                     {
-                      "field": "HC_SYMPTOMS",
-                      "value": "DELIRIUM"
+                      "value": "COGNITIVE"
                     }
                   ]
                 }
-              }
-            },
-            "Inability to arouse (inability to stay awake)": {
-              "exportField": {
-                "NML_LIMS": [
-                  {
-                    "field": "HC_SYMPTOMS",
-                    "value": "INABILITY_AWAKE"
+              },
+              "Coma": {
+                "exportField": {
+                  "NML_LIMS": [
+                    {
+                      "value": "COMA"
+                    }
+                  ]
+                }
+              },
+              "Confusion": {
+                "exportField": {
+                  "NML_LIMS": [
+                    {
+                      "value": "CONFUSION"
+                    }
+                  ]
+                },
+                "schema:ItemList": {
+                  "Delirium (sudden severe confusion)": {
+                    "exportField": {
+                      "NML_LIMS": [
+                        {
+                          "value": "DELIRIUM"
+                        }
+                      ]
+                    }
                   }
-                ]
-              }
-            },
-            "Irritability": {
-              "exportField": {
-                "NML_LIMS": [
-                  {
-                    "field": "HC_SYMPTOMS",
-                    "value": "IRRITABILITY"
-                  }
-                ]
-              }
-            },
-            "Loss of speech": {
-              "exportField": {
-                "NML_LIMS": [
-                  {
-                    "field": "HC_SYMPTOMS",
-                    "value": "LOSS_OF_SPEECH"
-                  }
-                ]
+                }
+              },
+              "Inability to arouse (inability to stay awake)": {
+                "exportField": {
+                  "NML_LIMS": [
+                    {
+                      "value": "INABILITY_AWAKE"
+                    }
+                  ]
+                }
+              },
+              "Irritability": {
+                "exportField": {
+                  "NML_LIMS": [
+                    {
+                      "value": "IRRITABILITY"
+                    }
+                  ]
+                }
+              },
+              "Loss of speech": {
+                "exportField": {
+                  "NML_LIMS": [
+                    {
+                      "value": "LOSS_OF_SPEECH"
+                    }
+                  ]
+                }
               }
             }
           },
@@ -4481,7 +4290,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "HC_SYMPTOMS",
                   "value": "ASTHENIA"
                 }
               ]
@@ -4491,19 +4299,19 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "HC_SYMPTOMS",
                   "value": "CHEST_TIGHT"
                 }
               ]
             },
-            "Rigors (fever shakes)": {
-              "exportField": {
-                "NML_LIMS": [
-                  {
-                    "field": "HC_SYMPTOMS",
-                    "value": "RIGORS"
-                  }
-                ]
+            "schema:ItemList": {
+              "Rigors (fever shakes)": {
+                "exportField": {
+                  "NML_LIMS": [
+                    {
+                      "value": "RIGORS"
+                    }
+                  ]
+                }
               }
             }
           },
@@ -4511,12 +4319,11 @@ var DATA = [
             "exportField": {
               "CNPHI": [
                 {
-                  "field": "Chills"
+                  "value": "Chills"
                 }
               ],
               "NML_LIMS": [
                 {
-                  "field": "HC_SYMPTOMS",
                   "value": "CHILLS"
                 }
               ]
@@ -4527,12 +4334,11 @@ var DATA = [
             "exportField": {
               "CNPHI": [
                 {
-                  "field": "Conjunctivitis"
+                  "value": "Conjunctivitis"
                 }
               ],
               "NML_LIMS": [
                 {
-                  "field": "HC_SYMPTOMS",
                   "value": "CONJUNCTIVITIS"
                 }
               ]
@@ -4543,29 +4349,28 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "HC_SYMPTOMS",
                   "value": "COUGH"
                 }
               ]
             },
-            "Nonproductive cough (dry cough)": {
-              "exportField": {
-                "NML_LIMS": [
-                  {
-                    "field": "HC_SYMPTOMS",
-                    "value": "NONPRODUCT_COUGH"
-                  }
-                ]
-              }
-            },
-            "Productive cough (wet cough)": {
-              "exportField": {
-                "NML_LIMS": [
-                  {
-                    "field": "HC_SYMPTOMS",
-                    "value": "PRODUCTIVE_COUGH"
-                  }
-                ]
+            "schema:ItemList": {
+              "Nonproductive cough (dry cough)": {
+                "exportField": {
+                  "NML_LIMS": [
+                    {
+                      "value": "NONPRODUCT_COUGH"
+                    }
+                  ]
+                }
+              },
+              "Productive cough (wet cough)": {
+                "exportField": {
+                  "NML_LIMS": [
+                    {
+                      "value": "PRODUCTIVE_COUGH"
+                    }
+                  ]
+                }
               }
             }
           },
@@ -4573,60 +4378,60 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "HC_SYMPTOMS",
                   "value": "CYANOSIS"
                 }
               ]
             },
-            "Acrocyanosis": {
-              "exportField": {
-                "NML_LIMS": [
-                  {
-                    "field": "HC_SYMPTOMS",
-                    "value": "ACROCYANOS"
+            "schema:ItemList": {
+              "Acrocyanosis": {
+                "exportField": {
+                  "NML_LIMS": [
+                    {
+                      "value": "ACROCYANOS"
+                    }
+                  ]
+                },
+                "schema:ItemList": {
+                  "Circumoral cyanosis (bluish around mouth)": {
+                    "exportField": {
+                      "NML_LIMS": [
+                        {
+                          "value": "CIRCUMORAL_CYANOSIS"
+                        }
+                      ]
+                    }
+                  },
+                  "Cyanotic face (bluish face)": {
+                    "exportField": {
+                      "NML_LIMS": [
+                        {
+                          "value": "CYANOTIC_FACE"
+                        }
+                      ]
+                    }
                   }
-                ]
-              },
-              "Circumoral cyanosis (bluish around mouth)": {
-                "exportField": {
-                  "NML_LIMS": [
-                    {
-                      "field": "HC_SYMPTOMS",
-                      "value": "CIRCUMORAL_CYANOSIS"
-                    }
-                  ]
                 }
               },
-              "Cyanotic face (bluish face)": {
-                "exportField": {
-                  "NML_LIMS": [
-                    {
-                      "field": "HC_SYMPTOMS",
-                      "value": "CYANOTIC_FACE"
+              "Central Cyanosis": {
+                "schema:ItemList": {
+                  "Cyanotic lips (bluish lips)": {
+                    "exportField": {
+                      "NML_LIMS": [
+                        {
+                          "value": "CYANOTIC_LIPS"
+                        }
+                      ]
                     }
-                  ]
+                  }
                 }
-              }
-            },
-            "Central Cyanosis": {
-              "Cyanotic lips (bluish lips)": {
-                "exportField": {
-                  "NML_LIMS": [
-                    {
-                      "field": "HC_SYMPTOMS",
-                      "value": "CYANOTIC_LIPS"
-                    }
-                  ]
-                }
-              }
-            },
-            "Peripheral Cyanosis": {}
+              },
+              "Peripheral Cyanosis": {}
+            }
           },
           "Dyspnea (breathing difficulty)": {
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "HC_SYMPTOMS",
                   "value": "DYSPNEA"
                 }
               ]
@@ -4636,12 +4441,11 @@ var DATA = [
             "exportField": {
               "CNPHI": [
                 {
-                  "field": "Diarrhea, watery"
+                  "value": "Diarrhea, watery"
                 }
               ],
               "NML_LIMS": [
                 {
-                  "field": "HC_SYMPTOMS",
                   "value": "DIARRHEA"
                 }
               ]
@@ -4652,12 +4456,11 @@ var DATA = [
             "exportField": {
               "CNPHI": [
                 {
-                  "field": "Encephalitis"
+                  "value": "Encephalitis"
                 }
               ],
               "NML_LIMS": [
                 {
-                  "field": "HC_SYMPTOMS",
                   "value": "ENCEPHALITIS"
                 }
               ]
@@ -4668,12 +4471,11 @@ var DATA = [
             "exportField": {
               "CNPHI": [
                 {
-                  "field": "Fatigue"
+                  "value": "Fatigue"
                 }
               ],
               "NML_LIMS": [
                 {
-                  "field": "HC_SYMPTOMS",
                   "value": "FATIGUE"
                 }
               ]
@@ -4683,18 +4485,19 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "HC_SYMPTOMS",
                   "value": "FEVER"
                 }
               ]
             },
-            "Fever (>=38\u00b0C)": {
-              "exportField": {
-                "CNPHI": [
-                  {
-                    "field": "Fever"
-                  }
-                ]
+            "schema:ItemList": {
+              "Fever (>=38\u00b0C)": {
+                "exportField": {
+                  "CNPHI": [
+                    {
+                      "value": "Fever"
+                    }
+                  ]
+                }
               }
             }
           },
@@ -4702,7 +4505,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "HC_SYMPTOMS",
                   "value": "GLOSSITIS"
                 }
               ]
@@ -4713,7 +4515,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "HC_SYMPTOMS",
                   "value": "HEADACHE"
                 }
               ]
@@ -4723,7 +4524,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "HC_SYMPTOMS",
                   "value": "HEMOPTYSIS"
                 }
               ]
@@ -4734,7 +4534,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "HC_SYMPTOMS",
                   "value": "HYPOTENSION"
                 }
               ]
@@ -4744,18 +4543,18 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "HC_SYMPTOMS",
                   "value": "HYPOXEMIA"
                 }
               ]
             },
-            "Silent hypoxemia": {}
+            "schema:ItemList": {
+              "Silent hypoxemia": {}
+            }
           },
           "Internal hemorrhage (internal bleeding)": {
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "HC_SYMPTOMS",
                   "value": "INTERNAL_HEMORRHAGE"
                 }
               ]
@@ -4765,7 +4564,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "HC_SYMPTOMS",
                   "value": "LOSS_OF_FINE_MOVE"
                 }
               ]
@@ -4775,7 +4573,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "HC_SYMPTOMS",
                   "value": "LOW_APPETITE"
                 }
               ]
@@ -4785,7 +4582,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "HC_SYMPTOMS",
                   "value": "MALAISE"
                 }
               ]
@@ -4796,7 +4592,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "HC_SYMPTOMS",
                   "value": "MUSCLE_WEAK"
                 }
               ]
@@ -4806,7 +4601,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "HC_SYMPTOMS",
                   "value": "NASAL_OBSTRUCT"
                 }
               ]
@@ -4816,7 +4610,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "HC_SYMPTOMS",
                   "value": "NAUSEA"
                 }
               ]
@@ -4825,45 +4618,45 @@ var DATA = [
           "Nose bleed": {},
           "Otitis": {},
           "Pain": {
-            "Abdominal pain": {
-              "exportField": {
-                "NML_LIMS": [
-                  {
-                    "field": "HC_SYMPTOMS",
-                    "value": "ABDOMINAL"
-                  }
-                ]
-              }
-            },
-            "Arthralgia (painful joints)": {
-              "exportField": {
-                "NML_LIMS": [
-                  {
-                    "field": "HC_SYMPTOMS",
-                    "value": "ARTHRALGIA"
-                  }
-                ]
-              }
-            },
-            "Chest pain": {
-              "exportField": {
-                "NML_LIMS": [
-                  {
-                    "field": "HC_SYMPTOMS",
-                    "value": "CHEST_PAIN"
-                  }
-                ]
+            "schema:ItemList": {
+              "Abdominal pain": {
+                "exportField": {
+                  "NML_LIMS": [
+                    {
+                      "value": "ABDOMINAL"
+                    }
+                  ]
+                }
               },
-              "Pleuritic chest pain": {}
-            },
-            "Myalgia (muscle pain)": {
-              "exportField": {
-                "NML_LIMS": [
-                  {
-                    "field": "HC_SYMPTOMS",
-                    "value": "MYALGIA"
-                  }
-                ]
+              "Arthralgia (painful joints)": {
+                "exportField": {
+                  "NML_LIMS": [
+                    {
+                      "value": "ARTHRALGIA"
+                    }
+                  ]
+                }
+              },
+              "Chest pain": {
+                "exportField": {
+                  "NML_LIMS": [
+                    {
+                      "value": "CHEST_PAIN"
+                    }
+                  ]
+                },
+                "schema:ItemList": {
+                  "Pleuritic chest pain": {}
+                }
+              },
+              "Myalgia (muscle pain)": {
+                "exportField": {
+                  "NML_LIMS": [
+                    {
+                      "value": "MYALGIA"
+                    }
+                  ]
+                }
               }
             }
           },
@@ -4871,7 +4664,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "HC_SYMPTOMS",
                   "value": "PHARYNGITIS"
                 }
               ]
@@ -4882,24 +4674,24 @@ var DATA = [
           "Pneumonia": {},
           "Prostration": {},
           "Pseudo-chilblains": {
-            "Pseudo-chilblains on fingers (covid fingers)": {
-              "exportField": {
-                "NML_LIMS": [
-                  {
-                    "field": "HC_SYMPTOMS",
-                    "value": "PSEUDO-CHIBLAINS_F"
-                  }
-                ]
-              }
-            },
-            "Pseudo-chilblains on toes (covid toes)": {
-              "exportField": {
-                "NML_LIMS": [
-                  {
-                    "field": "HC_SYMPTOMS",
-                    "value": "PSEUDO-CHIBLAINS_T"
-                  }
-                ]
+            "schema:ItemList": {
+              "Pseudo-chilblains on fingers (covid fingers)": {
+                "exportField": {
+                  "NML_LIMS": [
+                    {
+                      "value": "PSEUDO-CHIBLAINS_F"
+                    }
+                  ]
+                }
+              },
+              "Pseudo-chilblains on toes (covid toes)": {
+                "exportField": {
+                  "NML_LIMS": [
+                    {
+                      "value": "PSEUDO-CHIBLAINS_T"
+                    }
+                  ]
+                }
               }
             }
           },
@@ -4907,7 +4699,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "HC_SYMPTOMS",
                   "value": "RASH"
                 }
               ]
@@ -4917,7 +4708,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "HC_SYMPTOMS",
                   "value": "RHINORRHEA"
                 }
               ]
@@ -4927,19 +4717,19 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "HC_SYMPTOMS",
                   "value": "SEIZURE"
                 }
               ]
             },
-            "Motor seizure": {
-              "exportField": {
-                "NML_LIMS": [
-                  {
-                    "field": "HC_SYMPTOMS",
-                    "value": "MOTOR_SEIZURE"
-                  }
-                ]
+            "schema:ItemList": {
+              "Motor seizure": {
+                "exportField": {
+                  "NML_LIMS": [
+                    {
+                      "value": "MOTOR_SEIZURE"
+                    }
+                  ]
+                }
               }
             }
           },
@@ -4947,7 +4737,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "HC_SYMPTOMS",
                   "value": "SHIVERING"
                 }
               ]
@@ -4957,7 +4746,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "HC_SYMPTOMS",
                   "value": "SLURRED_SPEECH"
                 }
               ]
@@ -4969,7 +4757,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "HC_SYMPTOMS",
                   "value": "STROKE"
                 }
               ]
@@ -4980,7 +4767,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "HC_SYMPTOMS",
                   "value": "TACHYPNEA"
                 }
               ]
@@ -4991,7 +4777,6 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "HC_SYMPTOMS",
                   "value": "VOMITING"
                 }
               ]
@@ -5018,32 +4803,40 @@ var DATA = [
         "description": "Patient pre-existing conditions and risk factors. <li>Pre-existing condition: A medical condition that existed prior to the current infection. <li>Risk Factor: A variable associated with an increased risk of disease or infection.",
         "guidance": "Select all of the pre-existing conditions and risk factors experienced by the host from the pick list. If the desired term is missing, contact the curation team.",
         "examples": "Asthma; Pregnancy; Smoking",
-        "vocabulary": {
+        "schema:ItemList": {
           "Age 60+": {},
           "Anemia": {},
           "Anorexia": {},
           "Birthing labor": {},
           "Bone marrow failure": {},
           "Cancer": {
-            "Breast cancer": {},
-            "Colorectal cancer": {},
-            "Hematologic malignancy": {},
-            "Lung cancer": {},
-            "Metastatic disease": {}
+            "schema:ItemList": {
+              "Breast cancer": {},
+              "Colorectal cancer": {},
+              "Hematologic malignancy": {},
+              "Lung cancer": {},
+              "Metastatic disease": {}
+            }
           },
           "Cancer treatment": {
-            "Cancer surgery": {},
-            "Chemotherapy": {
-              "Adjuvant chemotherapy": {}
+            "schema:ItemList": {
+              "Cancer surgery": {},
+              "Chemotherapy": {
+                "schema:ItemList": {
+                  "Adjuvant chemotherapy": {}
+                }
+              }
             }
           },
           "Cardiac disorder": {
-            "Arrhythmia": {},
-            "Cardiac disease": {},
-            "Cardiomyopathy": {},
-            "Cardiac injury": {},
-            "Hypertension (high blood pressure)": {},
-            "Hypotension (low blood pressure)": {}
+            "schema:ItemList": {
+              "Arrhythmia": {},
+              "Cardiac disease": {},
+              "Cardiomyopathy": {},
+              "Cardiac injury": {},
+              "Hypertension (high blood pressure)": {},
+              "Hypotension (low blood pressure)": {}
+            }
           },
           "Cesarean section": {},
           "Chronic cough": {},
@@ -5051,87 +4844,123 @@ var DATA = [
           "Chronic lung disease": {},
           "Corticosteroids": {},
           "Diabetes mellitus (diabetes)": {
-            "Type I diabetes mellitus (T1D)": {},
-            "Type II diabetes mellitus (T2D)": {}
+            "schema:ItemList": {
+              "Type I diabetes mellitus (T1D)": {},
+              "Type II diabetes mellitus (T2D)": {}
+            }
           },
           "Eczema": {},
           "Electrolyte disturbance": {
-            "Hypocalcemia": {},
-            "Hypokalemia": {},
-            "Hypomagnesemia": {}
+            "schema:ItemList": {
+              "Hypocalcemia": {},
+              "Hypokalemia": {},
+              "Hypomagnesemia": {}
+            }
           },
           "Encephalitis (brain inflammation)": {},
           "Epilepsy": {},
           "Hemodialysis": {},
           "Hemoglobinopathy": {},
           "Human immunodeficiency virus (HIV)": {
-            "Acquired immunodeficiency syndrome (AIDS)": {},
-            "HIV and antiretroviral therapy (ART)": {}
+            "schema:ItemList": {
+              "Acquired immunodeficiency syndrome (AIDS)": {},
+              "HIV and antiretroviral therapy (ART)": {}
+            }
           },
           "Immunocompromised": {
-            "Lupus": {}
+            "schema:ItemList": {
+              "Lupus": {}
+            }
           },
           "Inflammatory bowel disease (IBD)": {
-            "Colitis": {
-              "Ulcerative colitis": {}
-            },
-            "Crohn's disease": {}
+            "schema:ItemList": {
+              "Colitis": {
+                "schema:ItemList": {
+                  "Ulcerative colitis": {}
+                }
+              },
+              "Crohn's disease": {}
+            }
           },
           "Renal disorder": {
-            "Renal disease": {},
-            "Chronic renal disease": {},
-            "Renal failure": {}
+            "schema:ItemList": {
+              "Renal disease": {},
+              "Chronic renal disease": {},
+              "Renal failure": {}
+            }
           },
           "Liver disease": {
-            "Chronic liver disease": {
-              "Fatty liver disease (FLD)": {}
+            "schema:ItemList": {
+              "Chronic liver disease": {
+                "schema:ItemList": {
+                  "Fatty liver disease (FLD)": {}
+                }
+              }
             }
           },
           "Myalgia (muscle pain)": {},
           "Myalgic encephalomyelitis (ME)": {},
           "Neurological disorder": {
-            "Neuromuscular disorder": {}
+            "schema:ItemList": {
+              "Neuromuscular disorder": {}
+            }
           },
           "Obesity": {
-            "Severe obesity": {}
+            "schema:ItemList": {
+              "Severe obesity": {}
+            }
           },
           "Respiratory disorder": {
-            "Asthma": {},
-            "Chronic bronchitis": {},
-            "Chronic pulmonary disease": {
-              "Chronic obstructive pulmonary disease": {}
-            },
-            "Emphysema": {},
-            "Lung disease": {
-              "Chronic lung disease": {},
-              "Pulmonary fibrosis": {}
-            },
-            "Pneumonia": {},
-            "Respiratory failure": {
-              "Adult respiratory distress syndrome": {},
-              "Newborn respiratory distress syndrome": {}
-            },
-            "Tuberculosis": {}
+            "schema:ItemList": {
+              "Asthma": {},
+              "Chronic bronchitis": {},
+              "Chronic pulmonary disease": {
+                "schema:ItemList": {
+                  "Chronic obstructive pulmonary disease": {}
+                }
+              },
+              "Emphysema": {},
+              "Lung disease": {
+                "schema:ItemList": {
+                  "Chronic lung disease": {},
+                  "Pulmonary fibrosis": {}
+                }
+              },
+              "Pneumonia": {},
+              "Respiratory failure": {
+                "schema:ItemList": {
+                  "Adult respiratory distress syndrome": {},
+                  "Newborn respiratory distress syndrome": {}
+                }
+              },
+              "Tuberculosis": {}
+            }
           },
           "Postpartum (\u22646 weeks)": {},
           "Pregnancy": {},
           "Rheumatic disease": {},
           "Sickle cell disease": {},
           "Substance use": {
-            "Alcohol abuse": {},
-            "Drug abuse": {
-              "Injection drug abuse": {}
-            },
-            "Smoking": {},
-            "Vaping": {}
+            "schema:ItemList": {
+              "Alcohol abuse": {},
+              "Drug abuse": {
+                "schema:ItemList": {
+                  "Injection drug abuse": {}
+                }
+              },
+              "Smoking": {},
+              "Vaping": {}
+            }
           },
           "Tachypnea (accelerated respiratory rate)": {},
           "Transplant": {
-            "Bone marrow transplant": {},
-            "Cardiac transplant": {},
-            "Hematopoietic stem cell transplant (HSCT)": {},
-            "Kidney transplant": {},
-            "Liver transplant": {}
+            "schema:ItemList": {
+              "Bone marrow transplant": {},
+              "Cardiac transplant": {},
+              "Hematopoietic stem cell transplant (HSCT)": {},
+              "Kidney transplant": {},
+              "Liver transplant": {}
+            }
           }
         }
       },
@@ -5154,35 +4983,49 @@ var DATA = [
         "description": "Patient medical complications that are believed to have occurred as a result of host disease.",
         "guidance": "Select all of the complications experienced by the host from the pick list. If the desired term is missing, contact the curation team.",
         "examples": "Acute Respiratory Failure; Coma; Septicemia",
-        "vocabulary": {
+        "schema:ItemList": {
           "Abnormal blood oxygen level": {},
           "Acute respiratory failure": {},
           "Arrhythmia (complication)": {
-            "Tachycardia": {
-              "Polymorphic ventricular tachycardia (VT)": {},
-              "Tachyarrhythmia": {}
+            "schema:ItemList": {
+              "Tachycardia": {
+                "schema:ItemList": {
+                  "Polymorphic ventricular tachycardia (VT)": {},
+                  "Tachyarrhythmia": {}
+                }
+              }
             }
           },
           "Noncardiogenic pulmonary edema": {
-            "Acute respiratory distress syndrome (ARDS)": {
-              "COVID-19 associated ARDS (CARDS)": {},
-              "Neurogenic pulmonary edema (NPE)": {}
+            "schema:ItemList": {
+              "Acute respiratory distress syndrome (ARDS)": {
+                "schema:ItemList": {
+                  "COVID-19 associated ARDS (CARDS)": {},
+                  "Neurogenic pulmonary edema (NPE)": {}
+                }
+              }
             }
           },
           "Cardiac injury": {},
           "Cardiac arrest": {},
           "Cardiogenic shock": {},
           "Blood clot": {
-            "Arterial clot": {},
-            "Deep vein thrombosis (DVT)": {},
-            "Pulmonary embolism (PE)": {}
+            "schema:ItemList": {
+              "Arterial clot": {},
+              "Deep vein thrombosis (DVT)": {},
+              "Pulmonary embolism (PE)": {}
+            }
           },
           "Cardiomyopathy": {},
           "Central nervous system invasion": {},
           "Stroke (complication)": {
-            "Central Nervous System Vasculitis": {},
-            "Ischemic stroke": {
-              "Acute ischemic stroke": {}
+            "schema:ItemList": {
+              "Central Nervous System Vasculitis": {},
+              "Ischemic stroke": {
+                "schema:ItemList": {
+                  "Acute ischemic stroke": {}
+                }
+              }
             }
           },
           "Coma": {},
@@ -5195,21 +5038,31 @@ var DATA = [
           "Fulminant myocarditis": {},
           "Guillain-Barr\u00e9 syndrome": {},
           "Internal hemorrhage (complication; internal bleeding)": {
-            "Intracerebral haemorrhage": {}
+            "schema:ItemList": {
+              "Intracerebral haemorrhage": {}
+            }
           },
           "Kawasaki disease": {
-            "Typical Kawasaki disease": {},
-            "Incomplete Kawasaki disease": {}
+            "schema:ItemList": {
+              "Typical Kawasaki disease": {},
+              "Incomplete Kawasaki disease": {}
+            }
           },
           "Kidney injury": {
-            "Acute kidney injury": {}
+            "schema:ItemList": {
+              "Acute kidney injury": {}
+            }
           },
           "Liver dysfunction": {},
           "Liver injury": {
-            "Acute liver injury": {}
+            "schema:ItemList": {
+              "Acute liver injury": {}
+            }
           },
           "Lung injury": {
-            "Acute lung injury": {}
+            "schema:ItemList": {
+              "Acute lung injury": {}
+            }
           },
           "Meningitis": {},
           "Migraine": {},
@@ -5218,40 +5071,54 @@ var DATA = [
           "Muscle injury": {},
           "Myalgic encephalomyelitis (ME)": {},
           "Myocardial infarction (heart attack)": {
-            "Acute myocardial infarction": {},
-            "Elevation myocardial infarction": {},
-            "ST-segment elevation myocardial infarction": {}
+            "schema:ItemList": {
+              "Acute myocardial infarction": {},
+              "Elevation myocardial infarction": {},
+              "ST-segment elevation myocardial infarction": {}
+            }
           },
           "Myocardial injury": {},
           "Neonatal complications": {},
           "Organ failure": {
-            "Heart failure": {},
-            "Liver failure": {}
+            "schema:ItemList": {
+              "Heart failure": {},
+              "Liver failure": {}
+            }
           },
           "Paralysis": {},
           "Pneumothorax (collapsed lung)": {
-            "Spontaneous pneumothorax": {},
-            "Spontaneous tension pneymothorax": {}
+            "schema:ItemList": {
+              "Spontaneous pneumothorax": {},
+              "Spontaneous tension pneymothorax": {}
+            }
           },
           "Pneumonia (complication)": {
-            "COVID-19 pneumonia": {}
+            "schema:ItemList": {
+              "COVID-19 pneumonia": {}
+            }
           },
           "Pregancy complications": {},
           "Rhabdomyolysis": {},
           "Secondary infection": {
-            "Secondary staph infection": {},
-            "Secondary strep infection": {}
+            "schema:ItemList": {
+              "Secondary staph infection": {},
+              "Secondary strep infection": {}
+            }
           },
           "Seizure (complication)": {
-            "Motor seizure": {}
+            "schema:ItemList": {
+              "Motor seizure": {}
+            }
           },
           "Sepsis": {},
           "Septicemia": {},
           "Shock": {
-            "Hyperinflammatory shock": {},
-            "Refractory cardiogenic shock": {},
-            "Refractory cardiogenic plus vasoplegic shock": {},
-            "Septic shock": {}
+            "schema:ItemList": {
+              "Hyperinflammatory shock": {},
+              "Refractory cardiogenic shock": {},
+              "Refractory cardiogenic plus vasoplegic shock": {},
+              "Septic shock": {}
+            }
           },
           "Vasculitis": {},
           "Ventilation induced lung injury (VILI)": {}
@@ -5281,7 +5148,7 @@ var DATA = [
         "description": "The vaccination status of the host (fully vaccinated, partially vaccinated, or not vaccinated).",
         "guidance": "Select the vaccination status of the host from the pick list.",
         "examples": "Fully Vaccinated",
-        "vocabulary": {
+        "schema:ItemList": {
           "Fully Vaccinated": {},
           "Partially Vaccinated": {},
           "Not Vaccinated": {}
@@ -5367,7 +5234,7 @@ var DATA = [
         "description": "The country where the host was likely exposed to the causative agent of the illness.",
         "guidance": "Select the country name from pick list provided in the template.",
         "examples": "Canada",
-        "vocabulary": {}
+        "schema:ItemList": {}
       },
       {
         "fieldName": "destination of most recent travel (city)",
@@ -5452,7 +5319,7 @@ var DATA = [
             }
           ]
         },
-        "vocabulary": {}
+        "schema:ItemList": {}
       },
       {
         "fieldName": "most recent travel departure date",
@@ -5568,50 +5435,55 @@ var DATA = [
             }
           ]
         },
-        "vocabulary": {
+        "schema:ItemList": {
           "Mass Gathering": {
-            "Convention": {
-              "exportField": {
-                "NML_LIMS": [
-                  {
-                    "field": "PH_EXPOSURE",
-                    "value": "CONVENTION"
-                  }
-                ]
-              }
-            },
-            "Convocation": {},
-            "Agricultural Event": {}
+            "schema:ItemList": {
+              "Convention": {
+                "exportField": {
+                  "NML_LIMS": [
+                    {
+                      "value": "CONVENTION"
+                    }
+                  ]
+                }
+              },
+              "Convocation": {},
+              "Agricultural Event": {}
+            }
           },
           "Religious Gathering": {
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_EXPOSURE",
                   "value": "RELIGIOUS"
                 }
               ]
             },
-            "Mass": {}
+            "schema:ItemList": {
+              "Mass": {}
+            }
           },
           "Social Gathering": {
             "exportField": {
               "NML_LIMS": [
                 {
-                  "field": "PH_EXPOSURE",
                   "value": "SOCIAL"
                 }
               ]
             },
-            "Baby Shower": {},
-            "Community Event": {},
-            "Family Gathering": {
-              "Family Reunion": {}
-            },
-            "Funeral": {},
-            "Party": {},
-            "Potluck": {},
-            "Wedding": {}
+            "schema:ItemList": {
+              "Baby Shower": {},
+              "Community Event": {},
+              "Family Gathering": {
+                "schema:ItemList": {
+                  "Family Reunion": {}
+                }
+              },
+              "Funeral": {},
+              "Party": {},
+              "Potluck": {},
+              "Wedding": {}
+            }
           },
           "Other exposure event": {}
         }
@@ -5635,12 +5507,16 @@ var DATA = [
         "description": "The exposure transmission contact type.",
         "guidance": "Select direct or indirect exposure from the pick-list.",
         "examples": "Direct",
-        "vocabulary": {
+        "schema:ItemList": {
           "Contact with infected individual": {
-            "Direct contact (direct human-to-human contact)": {},
-            "Indirect contact": {
-              "Close contact (face-to-face, no direct contact)": {},
-              "Casual contact": {}
+            "schema:ItemList": {
+              "Direct contact (direct human-to-human contact)": {},
+              "Indirect contact": {
+                "schema:ItemList": {
+                  "Close contact (face-to-face, no direct contact)": {},
+                  "Casual contact": {}
+                }
+              }
             }
           }
         }
@@ -5658,46 +5534,58 @@ var DATA = [
         "description": "The role of the host in relation to the exposure setting.",
         "guidance": "Select the host's personal role(s) from the pick list provided in the template. If the desired term is missing, contact the curation team.",
         "examples": "Patient",
-        "vocabulary": {
+        "schema:ItemList": {
           "Attendee": {
-            "Student": {}
+            "schema:ItemList": {
+              "Student": {}
+            }
           },
           "Patient": {
-            "Inpatient": {},
-            "Outpatient": {}
+            "schema:ItemList": {
+              "Inpatient": {},
+              "Outpatient": {}
+            }
           },
           "Passenger": {},
           "Resident": {},
           "Visitor": {},
           "Volunteer": {},
           "Work": {
-            "Administrator": {},
-            "First Responder": {
-              "Firefighter": {},
-              "Paramedic": {},
-              "Police Officer": {}
-            },
-            "Healthcare Worker": {},
-            "Nurse": {},
-            "Personal Care Aid": {},
-            "Pharmacist": {},
-            "Physician": {},
-            "Housekeeper": {},
-            "Kitchen Worker": {},
-            "Laboratory Worker": {},
-            "Rotational Worker": {},
-            "Seasonal Worker": {},
-            "Veterinarian": {}
+            "schema:ItemList": {
+              "Administrator": {},
+              "First Responder": {
+                "schema:ItemList": {
+                  "Firefighter": {},
+                  "Paramedic": {},
+                  "Police Officer": {}
+                }
+              },
+              "Healthcare Worker": {},
+              "Nurse": {},
+              "Personal Care Aid": {},
+              "Pharmacist": {},
+              "Physician": {},
+              "Housekeeper": {},
+              "Kitchen Worker": {},
+              "Laboratory Worker": {},
+              "Rotational Worker": {},
+              "Seasonal Worker": {},
+              "Veterinarian": {}
+            }
           },
           "Social role": {
-            "Acquaintance of case": {},
-            "Relative of case": {
-              "Child of case": {},
-              "Parent of case": {},
-              "Father of case": {},
-              "Mother of case": {}
-            },
-            "Spouse of case": {}
+            "schema:ItemList": {
+              "Acquaintance of case": {},
+              "Relative of case": {
+                "schema:ItemList": {
+                  "Child of case": {},
+                  "Parent of case": {},
+                  "Father of case": {},
+                  "Mother of case": {}
+                }
+              },
+              "Spouse of case": {}
+            }
           },
           "Other Host Role": {}
         }
@@ -5715,74 +5603,94 @@ var DATA = [
         "description": "The setting leading to exposure.",
         "guidance": "Select the host exposure setting(s) from the pick list provided in the template. If a desired term is missing, contact the curation team.",
         "examples": "Healthcare Setting",
-        "vocabulary": {
+        "schema:ItemList": {
           "Human Exposure": {
-            "Known COVID-19 Case": {},
-            "Patient Contact": {},
-            "Probable COVID-19 Case": {},
-            "Person with Acute Respiratory Illness": {},
-            "Person with Fever and/or Cough": {},
-            "Person who Recently Travelled": {}
+            "schema:ItemList": {
+              "Known COVID-19 Case": {},
+              "Patient Contact": {},
+              "Probable COVID-19 Case": {},
+              "Person with Acute Respiratory Illness": {},
+              "Person with Fever and/or Cough": {},
+              "Person who Recently Travelled": {}
+            }
           },
           "Occupational or Residency Exposure": {
-            "Abbatoir": {},
-            "Animal Rescue": {},
-            "Childcare": {
-              "Daycare": {}
-            },
-            "Funeral Home": {},
-            "Place of Worship": {
-              "Church": {},
-              "Mosque": {},
-              "Temple": {}
-            },
-            "Nursery": {},
-            "Household": {},
-            "Community Service Centre": {},
-            "Correctional Facility": {},
-            "Dormitory": {},
-            "Farm": {},
-            "First Nations Reserve": {},
-            "Group Home": {},
-            "Healthcare Setting": {
-              "Ambulance": {},
-              "Acute Care Facility": {},
-              "Clinic": {},
-              "Community Health Centre": {},
-              "Hospital": {
-                "Emergency Department": {},
-                "ICU": {},
-                "Ward": {}
+            "schema:ItemList": {
+              "Abbatoir": {},
+              "Animal Rescue": {},
+              "Childcare": {
+                "schema:ItemList": {
+                  "Daycare": {}
+                }
               },
-              "Laboratory": {},
-              "Long-Term Care Facility": {},
-              "Pharmacy": {},
-              "Physician's Office": {}
-            },
-            "Insecure Housing (Homeless)": {},
-            "Office": {},
-            "Outdoors": {
-              "Camp/camping": {},
-              "Hiking": {},
-              "Hunting": {}
-            },
-            "Petting zoo": {},
-            "Restaurant": {},
-            "Retail Store": {},
-            "School": {},
-            "Temporary Residence": {
-              "Homeless Shelter": {},
-              "Hotel": {}
-            },
-            "Veterinary Care Clinic": {}
+              "Funeral Home": {},
+              "Place of Worship": {
+                "schema:ItemList": {
+                  "Church": {},
+                  "Mosque": {},
+                  "Temple": {}
+                }
+              },
+              "Nursery": {},
+              "Household": {},
+              "Community Service Centre": {},
+              "Correctional Facility": {},
+              "Dormitory": {},
+              "Farm": {},
+              "First Nations Reserve": {},
+              "Group Home": {},
+              "Healthcare Setting": {
+                "schema:ItemList": {
+                  "Ambulance": {},
+                  "Acute Care Facility": {},
+                  "Clinic": {},
+                  "Community Health Centre": {},
+                  "Hospital": {
+                    "schema:ItemList": {
+                      "Emergency Department": {},
+                      "ICU": {},
+                      "Ward": {}
+                    }
+                  },
+                  "Laboratory": {},
+                  "Long-Term Care Facility": {},
+                  "Pharmacy": {},
+                  "Physician's Office": {}
+                }
+              },
+              "Insecure Housing (Homeless)": {},
+              "Office": {},
+              "Outdoors": {
+                "schema:ItemList": {
+                  "Camp/camping": {},
+                  "Hiking": {},
+                  "Hunting": {}
+                }
+              },
+              "Petting zoo": {},
+              "Restaurant": {},
+              "Retail Store": {},
+              "School": {},
+              "Temporary Residence": {
+                "schema:ItemList": {
+                  "Homeless Shelter": {},
+                  "Hotel": {}
+                }
+              },
+              "Veterinary Care Clinic": {}
+            }
           },
           "Travel Exposure": {
-            "Travelled": {
-              "Travelled on a Cruise Ship": {},
-              "Travelled on a Plane": {},
-              "Travelled on Ground Transport": {},
-              "Travelled outside Province/Territory": {},
-              "Travelled outside Canada": {}
+            "schema:ItemList": {
+              "Travelled": {
+                "schema:ItemList": {
+                  "Travelled on a Cruise Ship": {},
+                  "Travelled on a Plane": {},
+                  "Travelled on Ground Transport": {},
+                  "Travelled outside Province/Territory": {},
+                  "Travelled outside Canada": {}
+                }
+              }
             }
           },
           "Other Exposure Setting": {}
@@ -5826,7 +5734,7 @@ var DATA = [
         "description": "Whether there was prior SARS-CoV-2 infection.",
         "guidance": "Ik known, provide infromation about whether the individual had a previous SARS-CoV-2 infection. Select a value from the pick list.",
         "examples": "Yes",
-        "vocabulary": {
+        "schema:ItemList": {
           "Yes": {},
           "No": {},
           "Unknown": {}
@@ -5886,7 +5794,7 @@ var DATA = [
             }
           ]
         },
-        "vocabulary": {
+        "schema:ItemList": {
           "Prior antivrial treatment": {},
           "No prior antivrial treatment": {},
           "Unknown": {}
@@ -5956,26 +5864,36 @@ var DATA = [
             }
           ]
         },
-        "vocabulary": {
+        "schema:ItemList": {
           "Baseline surveillance (random sampling)": {},
           "Targeted surveillance (non-random sampling)": {
-            "Priority surveillance project": {
-              "Screening for Variants of Concern (VoC)": {},
-              "Longitudinal surveillance (repeat sampling)": {},
-              "Vaccine escape surveillance": {},
-              "Travel-associated surveillance": {
-                "Domestic travel surveillance": {},
-                "International travel surveillance": {}
+            "schema:ItemList": {
+              "Priority surveillance project": {
+                "schema:ItemList": {
+                  "Screening for Variants of Concern (VoC)": {},
+                  "Longitudinal surveillance (repeat sampling)": {},
+                  "Vaccine escape surveillance": {},
+                  "Travel-associated surveillance": {
+                    "schema:ItemList": {
+                      "Domestic travel surveillance": {},
+                      "International travel surveillance": {}
+                    }
+                  }
+                }
               }
             }
           },
           "Cluster/Outbreak investigation": {
-            "Multi-jurisdictional outbreak investigation": {},
-            "Intra-jurisdictional outbreak investigation": {}
+            "schema:ItemList": {
+              "Multi-jurisdictional outbreak investigation": {},
+              "Intra-jurisdictional outbreak investigation": {}
+            }
           },
           "Research": {
-            "Viral passage experiment": {},
-            "Protocol testing experiment": {}
+            "schema:ItemList": {
+              "Viral passage experiment": {},
+              "Protocol testing experiment": {}
+            }
           }
         }
       },
@@ -6113,61 +6031,81 @@ var DATA = [
             }
           ]
         },
-        "vocabulary": {
+        "schema:ItemList": {
           "Illumina": {
-            "Illumina Genome Analyzer": {
-              "Illumina Genome Analyzer II": {},
-              "Illumina Genome Analyzer IIx": {}
-            },
-            "Illumina HiScanSQ": {},
-            "Illumina HiSeq": {},
-            "Illumina HiSeq X": {
-              "Illumina HiSeq X Five": {},
-              "Illumina HiSeq X Ten": {}
-            },
-            "Illumina HiSeq 1000": {},
-            "Illumina HiSeq 1500": {},
-            "Illumina HiSeq 2000": {},
-            "Illumina HiSeq 2500": {},
-            "Illumina HiSeq 3000": {},
-            "Illumina HiSeq 4000": {},
-            "Illumina iSeq": {
-              "Illumina iSeq 100": {}
-            },
-            "Illumina NovaSeq": {
-              "Illumina NovaSeq 6000": {}
-            },
-            "Illumina MiniSeq": {},
-            "Illumina MiSeq": {},
-            "Illumina NextSeq": {},
-            "Illumina NextSeq 500": {},
-            "Illumina NextSeq 550": {}
+            "schema:ItemList": {
+              "Illumina Genome Analyzer": {
+                "schema:ItemList": {
+                  "Illumina Genome Analyzer II": {},
+                  "Illumina Genome Analyzer IIx": {}
+                }
+              },
+              "Illumina HiScanSQ": {},
+              "Illumina HiSeq": {},
+              "Illumina HiSeq X": {
+                "schema:ItemList": {
+                  "Illumina HiSeq X Five": {},
+                  "Illumina HiSeq X Ten": {}
+                }
+              },
+              "Illumina HiSeq 1000": {},
+              "Illumina HiSeq 1500": {},
+              "Illumina HiSeq 2000": {},
+              "Illumina HiSeq 2500": {},
+              "Illumina HiSeq 3000": {},
+              "Illumina HiSeq 4000": {},
+              "Illumina iSeq": {
+                "schema:ItemList": {
+                  "Illumina iSeq 100": {}
+                }
+              },
+              "Illumina NovaSeq": {
+                "schema:ItemList": {
+                  "Illumina NovaSeq 6000": {}
+                }
+              },
+              "Illumina MiniSeq": {},
+              "Illumina MiSeq": {},
+              "Illumina NextSeq": {},
+              "Illumina NextSeq 500": {},
+              "Illumina NextSeq 550": {}
+            }
           },
           "Pacific Biosciences": {
-            "PacBio RS": {},
-            "PacBio RS II": {},
-            "PacBio Sequel": {},
-            "PacBio Sequel II": {}
+            "schema:ItemList": {
+              "PacBio RS": {},
+              "PacBio RS II": {},
+              "PacBio Sequel": {},
+              "PacBio Sequel II": {}
+            }
           },
           "Ion Torrent": {
-            "Ion Torrent PGM": {},
-            "Ion Torrent Proton": {},
-            "Ion Torrent S5 XL": {},
-            "Ion Torrent S5": {}
+            "schema:ItemList": {
+              "Ion Torrent PGM": {},
+              "Ion Torrent Proton": {},
+              "Ion Torrent S5 XL": {},
+              "Ion Torrent S5": {}
+            }
           },
           "Oxford Nanopore": {
-            "GridION": {},
-            "MinION": {},
-            "PromethION": {}
+            "schema:ItemList": {
+              "GridION": {},
+              "MinION": {},
+              "PromethION": {}
+            }
           },
           "BGI Genomics": {
-            "BGISEQ-500": {}
+            "schema:ItemList": {
+              "BGISEQ-500": {}
+            }
           },
           "MGI": {
-            "DNBSEQ-T7": {},
-            "DNBSEQ-G400": {},
-            "DNBSEQ-G400 FAST": {},
-            "DNBSEQ-G50": {}
+            "schema:ItemList": {
+              "DNBSEQ-T7": {},
+              "DNBSEQ-G400": {},
+              "DNBSEQ-G400 FAST": {},
+              "DNBSEQ-G50": {}
+            }
           }
         }
       },
@@ -6632,7 +6570,7 @@ var DATA = [
         "description": "The variant classification of the lineage/clade i.e. variant, variant of concern.",
         "guidance": "If the lineage/clade is considered a Variant of Concern, select Variant of Concern from the pick list. If the lineage/clade contains mutations of concern (mutations that increase transmission, clincal severity, or other epidemiological fa ctors) but it not a global Variant of Concern, select Variant. If the lineage/clade does not contain mutations of concern, leave blank.",
         "examples": "Variant of Concern",
-        "vocabulary": {
+        "schema:ItemList": {
           "Variant of Concern (VOC)": {},
           "Variant of Interest (VOI)": {}
         }
@@ -6656,7 +6594,7 @@ var DATA = [
         "description": "The evidence used to make the variant determination.",
         "guidance": "Select whether the sample was screened using RT-qPCR or by sequencing from the pick list.",
         "examples": "RT-qPCR TaqPath assay: S gene target failure",
-        "vocabulary": {
+        "schema:ItemList": {
           "RT-qPCR": {},
           "Sequencing": {}
         }
@@ -6716,17 +6654,16 @@ var DATA = [
             }
           ]
         },
-        "vocabulary": {
+        "schema:ItemList": {
           "E gene (orf4)": {
             "exportField": {
               "CNPHI": [
                 {
-                  "field": "E gene"
+                  "value": "E gene"
                 }
               ],
               "NML_LIMS": [
                 {
-                  "field": "RESULT - CANCOGEN_SUBMITTED_RESLT_1",
                   "value": "E gene"
                 }
               ]
@@ -6736,24 +6673,28 @@ var DATA = [
           "N gene (orf9)": {},
           "Spike gene (orf2)": {},
           "orf1ab (rep)": {
-            "orf1a (pp1a)": {
-              "nsp11": {}
-            },
-            "nsp1": {},
-            "nsp2": {},
-            "nsp3": {},
-            "nsp4": {},
-            "nsp5": {},
-            "nsp6": {},
-            "nsp7": {},
-            "nsp8": {},
-            "nsp9": {},
-            "nsp10": {},
-            "RdRp gene (nsp12)": {},
-            "hel gene (nsp13)": {},
-            "exoN gene (nsp14)": {},
-            "nsp15": {},
-            "nsp16": {}
+            "schema:ItemList": {
+              "orf1a (pp1a)": {
+                "schema:ItemList": {
+                  "nsp11": {}
+                }
+              },
+              "nsp1": {},
+              "nsp2": {},
+              "nsp3": {},
+              "nsp4": {},
+              "nsp5": {},
+              "nsp6": {},
+              "nsp7": {},
+              "nsp8": {},
+              "nsp9": {},
+              "nsp10": {},
+              "RdRp gene (nsp12)": {},
+              "hel gene (nsp13)": {},
+              "exoN gene (nsp14)": {},
+              "nsp15": {},
+              "nsp16": {}
+            }
           },
           "orf3a": {},
           "orf3b": {},
@@ -6849,7 +6790,7 @@ var DATA = [
             }
           ]
         },
-        "vocabulary": {}
+        "schema:ItemList": {}
       },
       {
         "fieldName": "diagnostic pcr protocol 2",
@@ -6922,7 +6863,7 @@ var DATA = [
             }
           ]
         },
-        "vocabulary": {}
+        "schema:ItemList": {}
       },
       {
         "fieldName": "diagnostic pcr protocol 3",
