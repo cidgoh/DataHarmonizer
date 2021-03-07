@@ -120,7 +120,7 @@ var exportGISAID = (baseName, hot, data, xlsx, fileType) => {
     // Custom rule: 2nd address points to sequence submitter.
     ['Address',['sequence submitter contact address']],
     ['Sample ID given by the submitting laboratory',[]],
-    ['Authors',[]],
+    ['Authors',[]]
   ];
 
   const sourceFields = getFields(data);
@@ -235,6 +235,7 @@ var exportLASER = (baseName, hot, data, xlsx, fileType) => {
     ['Host Health State Details',[]],
     ['Host Disease',        []],
     ['Patient Age',         []],
+    ['Age Units',           []],
     ['Host Age Category',   []],
     ['Patient Sex',         []],
     ['Symptoms Onset Date', []],
@@ -253,18 +254,19 @@ var exportLASER = (baseName, hot, data, xlsx, fileType) => {
     ['Exposure Event',[]],
 
     ['Sequencing Centre',[]],
+    ['prior_SARS-CoV-2_antiviral_treatment',[]],
     ['Reason for Sequencing',[]], 
     ['Details on the Reason for Sequencing',[]], 
     ['Sequencing Instrument',[]], 
     ['Sequencing Protocol Name',[]], 
     ['consensus sequence',[]], 
     ['Bioinformatics Protocol',[]],
-    ['Gene Target #1',[]],
-    ['Gene Target #1 CT Value',[]],
-    ['Gene Target #2',[]],
-    ['Gene Target #2 CT Value',[]],
-    ['Gene Target #3',[]],
-    ['Gene Target #3 CT Value',[]],
+    ['Gene Target 1',[]],
+    ['Gene Target 1 CT Value',[]],
+    ['Gene Target 2',[]],
+    ['Gene Target 2 CT Value',[]],
+    ['Gene Target 3',[]],
+    ['Gene Target 3 CT Value',[]],
     ['Authors',[]],
     ['Additional Comments',[]]
   ]);

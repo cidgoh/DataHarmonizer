@@ -1450,7 +1450,10 @@ var DATA = [
           ],
           "BIOSAMPLE": [
             {
-              "field": "isolate|GISAID_virus_name"
+              "field": "isolate"
+            },
+            {
+              "field": "GISAID_virus_name"
             }
           ]
         }
@@ -1675,7 +1678,10 @@ var DATA = [
           ],
           "BIOSAMPLE": [
             {
-              "field": "isolation_source|anatomical_material"
+              "field": "isolation_source"
+            },
+            {
+              "field": "anatomical_material"
             }
           ]
         },
@@ -1802,7 +1808,10 @@ var DATA = [
           ],
           "BIOSAMPLE": [
             {
-              "field": "isolation_source|anatomical_part"
+              "field": "isolation_source"
+            },
+            {
+              "field": "anatomical_part"
             }
           ]
         },
@@ -2081,7 +2090,10 @@ var DATA = [
           ],
           "BIOSAMPLE": [
             {
-              "field": "isolation_source|body_product"
+              "field": "isolation_source"
+            },
+            {
+              "field": "body_product"
             }
           ]
         },
@@ -2199,7 +2211,10 @@ var DATA = [
           ],
           "BIOSAMPLE": [
             {
-              "field": "isolation_source|environmental_material"
+              "field": "isolation_source"
+            },
+            {
+              "field": "environmental_material"
             }
           ]
         },
@@ -2540,7 +2555,10 @@ var DATA = [
           ],
           "BIOSAMPLE": [
             {
-              "field": "isolation_source|environmental_site"
+              "field": "isolation_source"
+            },
+            {
+              "field": "environmental_site"
             }
           ]
         },
@@ -2773,7 +2791,10 @@ var DATA = [
           ],
           "BIOSAMPLE": [
             {
-              "field": "isolation_source|collection_device"
+              "field": "isolation_source"
+            },
+            {
+              "field": "collection_device"
             }
           ]
         },
@@ -2970,7 +2991,10 @@ var DATA = [
           ],
           "BIOSAMPLE": [
             {
-              "field": "isolation_source|collection_method"
+              "field": "isolation_source"
+            },
+            {
+              "field": "collection_method"
             }
           ]
         },

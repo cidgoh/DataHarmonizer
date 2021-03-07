@@ -82,7 +82,7 @@ const getHeaderMap = (exportHeaders, fields, prefix) => {
 							// Issue: can this handle many-to-one mapping?
 							field_message.push(target.field);
 							headerMap[target.field] = exportHeaders.length;
-							exportHeaders.push(target.field, []);
+							exportHeaders.push([target.field, []]);
 						}
 						sources = exportHeaders[headerMap[target.field]][1];
 						// As above
