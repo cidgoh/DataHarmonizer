@@ -169,8 +169,12 @@ const getTransformedField = (value, field, prefix) => {
 	return value;
 };
 
-// Find key in nested object (nested dictionaries)
-// Adapted from: https://codereview.stackexchange.com/questions/73714/find-a-nested-property-in-an-object
+/* Find key in nested object (nested dictionaries)
+ * Adapted from: https://codereview.stackexchange.com/questions/73714/find-a-nested-property-in-an-object
+ * @param {Dictionary<Dictionary>} o nested Dictionaries
+ * @param {String}Key to find in dictionaries
+ * @return {Dictionary} or null
+ */
 function findById(o, key) {
 	if (key in o)
 		return o[key];
