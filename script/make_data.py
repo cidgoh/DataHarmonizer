@@ -22,9 +22,32 @@ section = None;
 reference_html = ''; # Content of a report that details section fields
 search_root = '/';
 
-# Consolidates all EXPORT_XYZ terms into one data structure
-# exportField: {PREFIX:[[field name],[value rename],...]}
-def export_fields (EXPORT_FORMAT, field, row):
+# For a column in input spreadsheet named EXPORT_[EXPORT_FORMAT], add to
+# dictionary structure (field) a field.exportField datastructure containing
+# transforms to each EXPORT_FORMAT value, or column and value combination.
+# e.g.
+#	"Confusion": {
+#		"exportField": {
+#			"NML_LIMS": [
+#				{
+#					"field": "HC_SYMPTOMS",
+#                   "value": "CONFUSION"
+#               }
+#            ],
+#        },
+#		 ... other child terms
+#
+# exportField: {[PREFIX]:[{"field":[value],"value":[value transform],...]}
+# input spreadsheet EXPORT_[EXPORT_FORMAT] is coded as:
+#    [column1]:[value];[column2]:[value]; // multiple column targets
+#    or [value];[value]; // default column target
+#
+# @param Array<String> EXPORT_FORMAT list of export formats to search for
+# @param Dict field Dictionary of vocabulary field details
+# @param Dict row containing all field data
+# @return Dict field modified
+
+def export_fields (EXPORT_FORMAT, field, row, as_field = False):
 	if len(EXPORT_FORMAT) > 0:
 		formats = {};
 		for export_field in EXPORT_FORMAT:
@@ -32,18 +55,35 @@ def export_fields (EXPORT_FORMAT, field, row):
 			if row[export_field] == None:
 				print ('Error: ', export_field, 'not found in row with label [',row['label'], ']. Malformed text in row?');
 				continue;
+
+			# An export field may have one or more [field name]:[field value] transforms, separated by ";"
 			for item in row[export_field].split(";"):
-			# an export field may have one or more [field name]:[new field value] mapping.
 				item = item.strip();
-				if len(item.strip()) > 0:
-					binding = item.strip().split(":",1);
-					conversion = {}
-					if binding[0].strip() > '':
-						conversion['field'] = binding[0].strip();
-					if len (binding) > 1 and binding[1].strip() > '':
-						conversion['value'] = binding[1].strip();
+				if len(item) > 0:
+					conversion = {};
+					# We have a transform of some kind
 					if not prefix in formats:
 						formats[prefix] = [];
+
+					# A colon indicates a different target field is in play
+					if ":" in item:
+						binding = item.split(":",1);
+						binding[0] = binding[0].strip();
+						binding[1] = binding[1].strip();
+						if binding[0] > '':
+							conversion['field'] = binding[0];
+						if binding[1] > '':
+							conversion['value'] = binding[1];
+						else:
+							# A single ":" value enables clearing out of a value.
+							conversion['value'] = '';
+
+					# No colon
+					elif as_field == True:
+						conversion['field'] = item;
+					else:
+						conversion['value'] = item;	
+
 					formats[prefix].append(conversion);
 
 		if formats: # Only if some keys have been added.
@@ -109,7 +149,7 @@ with open(r_filename) as tsvfile:
 							'examples':			row['examples']
 						}
 						
-						export_fields (EXPORT_FORMAT, field, row);
+						export_fields (EXPORT_FORMAT, field, row, True);
 
 						reference_html += '''
 						<tr>
@@ -126,7 +166,7 @@ with open(r_filename) as tsvfile:
 							choice = collections.OrderedDict(); 
 							# Top level case-sensitive field index, curators must be exact
 							CHOICE_INDEX[label] = choice; 
-							field['vocabulary'] = choice;
+							field['schema:ItemList'] = choice;
 
 						section['children'].append(field)
 						FIELD_INDEX[label.lower()] = field;
@@ -144,12 +184,12 @@ with open(r_filename) as tsvfile:
 								search_root = parent_label;
 								print ('vocabulary field:', parent_label);
 
-							if not 'vocabulary' in FIELD_INDEX[parent_label_lc]:
+							if not 'schema:ItemList' in FIELD_INDEX[parent_label_lc]:
 								print ("error: field ",parent_label, "not marked as select or multiple but it has child term", label);
 							else:
 								# Basically top-level entries in field_map:
 								choice = collections.OrderedDict();
-								FIELD_INDEX[parent_label_lc]['vocabulary'][label] = choice;
+								FIELD_INDEX[parent_label_lc]['schema:ItemList'][label] = choice;
 	
 								# Parent_label is top level field name:
 								CHOICE_INDEX[parent_label][label] = choice;
@@ -163,7 +203,11 @@ with open(r_filename) as tsvfile:
 							# in parent label switches that to a wildcard.
 							try:
 								result = dpath.util.get(CHOICE_INDEX, '/' + search_root +'/**/' + parent_label.replace('/','?'), separator='/');
-								result[label] = collections.OrderedDict(); # new child {}
+								choice = collections.OrderedDict(); # new child {}
+								if not 'schema:ItemList' in result:
+									result['schema:ItemList'] = {};
+								result['schema:ItemList'][label] = choice; 
+								export_fields(EXPORT_FORMAT, choice, row);
 							except:
 								print ("Error: parent class ", parent_label, "doesn't exist as section or field for term. Make sure parent term is trimmed of whitespace.", label);
 								pass

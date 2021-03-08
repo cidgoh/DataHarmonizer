@@ -72,7 +72,7 @@ var exportBioSample = (baseName, hot, data, xlsx, fileType) => {
     for (const [headerName, sources] of ExportHeaders) {
 
       // Otherwise apply source (many to one) to target field transform:
-      const value = getMappedField(inputRow, sources, sourceFieldNameMap, '|') 
+      const value = getMappedField(inputRow, sources, sourceFields,sourceFieldNameMap, '|', 'BioSample') 
       outputRow.push(value);
     }
     outputMatrix.push(outputRow);
@@ -120,7 +120,7 @@ var exportGISAID = (baseName, hot, data, xlsx, fileType) => {
     // Custom rule: 2nd address points to sequence submitter.
     ['Address',['sequence submitter contact address']],
     ['Sample ID given by the submitting laboratory',[]],
-    ['Authors',[]],
+    ['Authors',[]]
   ];
 
   const sourceFields = getFields(data);
@@ -235,6 +235,7 @@ var exportLASER = (baseName, hot, data, xlsx, fileType) => {
     ['Host Health State Details',[]],
     ['Host Disease',        []],
     ['Patient Age',         []],
+    ['Age Units',           []],
     ['Host Age Category',   []],
     ['Patient Sex',         []],
     ['Symptoms Onset Date', []],
@@ -253,18 +254,19 @@ var exportLASER = (baseName, hot, data, xlsx, fileType) => {
     ['Exposure Event',[]],
 
     ['Sequencing Centre',[]],
+    ['prior_SARS-CoV-2_antiviral_treatment',[]],
     ['Reason for Sequencing',[]], 
     ['Details on the Reason for Sequencing',[]], 
     ['Sequencing Instrument',[]], 
     ['Sequencing Protocol Name',[]], 
     ['consensus sequence',[]], 
     ['Bioinformatics Protocol',[]],
-    ['Gene Target #1',[]],
-    ['Gene Target #1 CT Value',[]],
-    ['Gene Target #2',[]],
-    ['Gene Target #2 CT Value',[]],
-    ['Gene Target #3',[]],
-    ['Gene Target #3 CT Value',[]],
+    ['Gene Target 1',[]],
+    ['Gene Target 1 CT Value',[]],
+    ['Gene Target 2',[]],
+    ['Gene Target 2 CT Value',[]],
+    ['Gene Target 3',[]],
+    ['Gene Target 3 CT Value',[]],
     ['Authors',[]],
     ['Additional Comments',[]]
   ]);
@@ -376,7 +378,7 @@ var exportLASER = (baseName, hot, data, xlsx, fileType) => {
       }
 
       // Otherwise apply source (many to one) to target field transform:
-      const value = getMappedField(inputRow, sources, sourceFieldNameMap, '|') 
+      const value = getMappedField(inputRow, sources, sourceFields, sourceFieldNameMap, '|', 'LASER') 
       outputRow.push(value);
     }
     outputMatrix.push(outputRow);
@@ -394,14 +396,26 @@ var exportLASER = (baseName, hot, data, xlsx, fileType) => {
  * @param {Object} xlsx SheetJS variable.
  */
 var exportNML_LIMS = (baseName, hot, data, xlsx, fileType) => {
+  // A full export table field list enables ordering of these fields in export
+  // output, rather than having them ordered by template column occurance.
+  // These are the minimal fields required here, since the remaining fields
+  // mentioned in data.js are added to ExportHeaders.  However these fields 
+  // aren't ordered nicely on their own, so we include the manual full list.
+  /*
+  const ExportHeaders = new Map([
+    ['PH_SPECIMEN_SOURCE',      []], // Calculated field (not in import)
+    ['VE_SYMP_AVAIL',           []]  // Calculated field (not in import)
+  ]);
+  */
+
   const ExportHeaders = new Map([
     ['VD_LAB_NUMBER',           []],
     ['PH_BIOPROJECT_ACCESSION', []],
     ['PH_BIOSAMPLE_ACCESSION',  []],
     ['PH_SRA_ACCESSION',        []],
     ['PH_SEQUENCING_CENTRE',    []],        
-    ['HC_COLLECT_DATE',         []], // sample collection date
-    ['HC_TEXT2',                []], //sample collection date precision
+    ['HC_COLLECT_DATE',         []],
+    ['HC_TEXT2',                []], 
     ['HC_COUNTRY',              []],
     ['HC_PROVINCE',             []],
     ['HC_CURRENT_ID',           []],
@@ -410,7 +424,7 @@ var exportNML_LIMS = (baseName, hot, data, xlsx, fileType) => {
     ['PH_SPECIMEN_TYPE',        []],
     ['PH_ISOLATION_SITE_DESC',  []],
     ['PH_ISOLATION_SITE',       []],
-    ['PH_SPECIMEN_SOURCE',      []],
+    ['PH_SPECIMEN_SOURCE',      []], // Calculated field (not in import)
     ['PH_SPECIMEN_SOURCE_DESC', []],
     ['PH_ENVIRONMENTAL_MATERIAL', []],
     ['PH_ENVIRONMENTAL_SITE',   []],
@@ -425,25 +439,15 @@ var exportNML_LIMS = (baseName, hot, data, xlsx, fileType) => {
     ['VD_SEX',                  []],
     ['HC_ONSET_DATE',           []],
     ['HC_SYMPTOMS',             []],
-    ['VE_SYMP_AVAIL',           []],
+    ['VE_SYMP_AVAIL',           []], // Calculated field (not in import)
     ['PH_TRAVEL',               []],
-    /*
-      [
-        'destination of most recent travel (country)',
-        'destination of most recent travel (state/province/territory)',
-        'destination of most recent travel (city)',
-        'most recent travel departure date',
-        'most recent travel return date'
-      ]
-    ],
-    */
     ['PH_EXPOSURE',             []],
     ['PH_TESTING_PROTOCOL',     []],
     ['RESULT - CANCOGEN_SUBMITTED_RESLT_1',   []], 
     ['RESULT - CANCOGEN_SUBMITTED_RESLT_1CT', []],
     ['RESULT - CANCOGEN_SUBMITTED_RESLT_2',   []],
     ['RESULT - CANCOGEN_SUBMITTED_RESLT_2CT', []],
-    ['HC_COMMENTS']
+    ['HC_COMMENTS', []]
   ]);
 
   const sourceFields = getFields(data);
@@ -454,16 +458,15 @@ var exportNML_LIMS = (baseName, hot, data, xlsx, fileType) => {
   // Copy headers to 1st row of new export table
   const outputMatrix = [[...ExportHeaders.keys()]];
 
-  /*
-  ISSUE: conversion of all metadata keywords
+  // Conversion of all cancogen metadata keywords to NML LIMS version
+  nullOptionsMap = new Map([
+    ['Not Applicable', 'NA'],
+    ['Missing', 'MISSING'],
+    ['Not Collected', 'NOT_COLLECTED'],
+    ['Not Provided', 'NOT_PROVIDED'],
+    ['Restricted Access', 'RESTRICTED_ACCESS']
+  ]);
 
-    NA                Not Applicable
-    MISSING           Missing
-    NOT_COLLECTED     Not Collected
-    NOT_PROVIDED      Not Provided
-    RESTRICTED_ACCESS Restricted Access
-
-  */
   for (const inputRow of getTrimmedData(hot)) {
     const outputRow = [];
     for (const [headerName, sources] of ExportHeaders) {
@@ -483,13 +486,6 @@ var exportNML_LIMS = (baseName, hot, data, xlsx, fileType) => {
         continue;
       }
 
-      // Change in delimiter
-      if (headerName === 'HC_SYMPTOMS') {
-        const value = inputRow[sourceFieldNameMap['signs and symptoms']] || '';
-        outputRow.push(value.replace(/;/g,'~') );
-        continue;
-      }
-
       // Handle granularity of "HC_COLLECT_DATE"
       // by looking at year or month in "sample collection date precision"
       if (headerName === 'HC_COLLECT_DATE') {
@@ -499,17 +495,6 @@ var exportNML_LIMS = (baseName, hot, data, xlsx, fileType) => {
         outputRow.push(setDateChange(date_unit, value, '01'));
         continue;
       }
-
-      /* Can't accept 'Human' for 'Animal Type' value.
-      if (headerName === 'PH_ANIMAL_TYPE') {
-        let value = inputRow[sourceFieldNameMap['host (common name)']];
-        if (value === 'Human') {
-          value = null;
-        }
-        outputRow.push(value); //
-        continue;
-      }
-      */
 
       // A complicated rule about what is stored in 'Specimen Source'
       if (headerName === 'PH_SPECIMEN_SOURCE') {
@@ -544,7 +529,7 @@ var exportNML_LIMS = (baseName, hot, data, xlsx, fileType) => {
       }
 
       // Otherwise apply source (many to one) to target field transform:
-      const value = getMappedField(inputRow, sources, sourceFieldNameMap, '|') 
+      const value = getMappedField(inputRow, sources, sourceFields, sourceFieldNameMap, '|', 'NML_LIMS', nullOptionsMap) 
       outputRow.push(value);
     }
     outputMatrix.push(outputRow);
