@@ -76,15 +76,17 @@ const processData = (data) => {
   const flatVocabularies = {};
   const fields = getFields(data);
   for (const field of fields) {
-    if (field.vocabulary) {
+    if ('schema:ItemList' in field) {
       flatVocabularies[field.fieldName] =
-          stringifyNestedVocabulary(field.vocabulary);
+          stringifyNestedVocabulary(field['schema:ItemList']);
     }
   }
 
+  // parent is each data section
   for (const parent of data) {
+    // parent.children is list of fields
     for (const child of parent.children) {
-      if (child.vocabulary) {
+      if ('schema:ItemList' in child) {
         child.flatVocabulary = flatVocabularies[child.fieldName];
 
         if (child.source) {
@@ -257,7 +259,9 @@ const getColumns = (data) => {
   let ret = [];
   for (const field of getFields(data)) {
     const col = {};
-    if (field.requirement) col.requirement = field.requirement;
+    if (field.requirement) {
+      col.requirement = field.requirement;
+    }
     switch (field.datatype) {
       case 'xs:date': 
         col.type = 'date';
@@ -303,13 +307,14 @@ const getColumns = (data) => {
  *     processing.
  * @return {Array<String>} Flattened vocabulary.
  */
-const stringifyNestedVocabulary = (vocabulary, level=0) => {
+const stringifyNestedVocabulary = (vocab_list, level=0) => {
 
   let ret = [];
-  for (const val of Object.keys(vocabulary)) {
-    if (val != 'exportField') { // Ignore field map values used for export.
-      ret.push('  '.repeat(level) + val);
-      ret = ret.concat(stringifyNestedVocabulary(vocabulary[val], level+1));
+  for (const val of Object.keys(vocab_list)) {
+    //if (val != 'exportField') { // Ignore field map values used for export.
+    ret.push('  '.repeat(level) + val);
+    if ('schema:ItemList' in vocab_list[val]) {
+      ret = ret.concat(stringifyNestedVocabulary(vocab_list[val]['schema:ItemList'], level+1));
     }
   }
   return ret;

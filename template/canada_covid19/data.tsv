@@ -25,18 +25,18 @@ ID	SC %																AL rdfs:label@en	AL IAO:0000115@en	A IAO:0000119 SPLIT=|	
 	Sample collection and processing	geo_loc_name (state/province/territory)	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				The province/territory where the sample was collected.	Provide the province/territory name from the controlled vocabulary provided.	Saskatchewan		Patient Province	HC_PROVINCE	geo_loc_name																									
 	Sample collection and processing	geo_loc_name (city)	xs:token							The city where the sample was collected.	Provide the city name. Use this look-up service to identify the standardized term: https://www.ebi.ac.uk/ols/ontologies/gaz	Medicine Hat		Patient City																											
 	Sample collection and processing	organism	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				Taxonomic name of the organism.	Use "Severe acute respiratory syndrome coronavirus 2". This value is provided in the template.	Severe acute respiratory syndrome coronavirus 2		Pathogen	HC_CURRENT_ID	organism																									
-	Sample collection and processing	isolate	xs:token		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				Identifier of the specific isolate.	Provide the GISAID virus name, which should be written in the format “hCov-19/CANADA/xxxxx/2020”.	hCov-19/CANADA/prov_rona_99/2020	Virus name	GISAID Virus Name	RESULT - CANCOGEN_SUBMISSIONS	isolate|GISAID_virus_name																									
+	Sample collection and processing	isolate	xs:token		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				Identifier of the specific isolate.	Provide the GISAID virus name, which should be written in the format “hCov-19/CANADA/xxxxx/2020”.	hCov-19/CANADA/prov_rona_99/2020	Virus name	GISAID Virus Name	RESULT - CANCOGEN_SUBMISSIONS	isolate;GISAID_virus_name																									
 	Sample collection and processing	purpose of sampling	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				The reason that the sample was collected.	The reason a sample was collected may provide information about potential biases in sampling strategy. Provide the purpose of sampling from the picklist in the template. Most likely, the sample was collected for Diagnostic testing. The reason why a sample was originally collected may differ from the reason why it was selected for sequencing, which should be indicated in the "purpose of sequencing" field. 	Diagnostic testing		Reason for Sampling	HC_SAMPLE_CATEGORY	purpose_of_sampling																									
 	Sample collection and processing	purpose of sampling details	xs:token		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				The description of why the sample was collected, providing specific details.	Provide an expanded description of why the sample was collected using free text. The description may include the importance of the sample for a particular public health investigation/surveillance activity/research question. If details are not available, provide a null value.	The sample was collected to investigate the prevalence of variants associated with mink-to-human transmission in Canada. 		Details on the Reason for Sampling		description																									
 	Sample collection and processing	NML submitted specimen type	select		 	required				The type of specimen submitted to the NML for testing.	This information is required for upload through the CNPHI LaSER system. Select the specimen type from the pick list provided. If sequence data is being submitted rather than a specimen for testing, select “Not Applicable”.	swab		Specimen Type	PH_SPECIMEN_TYPE																										
 	Sample collection and processing	NML related specimen relationship type	select							The relationship of the related specimen to the previous submission.	Provide the specimen type of the original sample submitted from the pick list provided, so that additional specimen testing can be tracked in the system.	Follow-up		Related Specimen ID|Related Specimen Relationship Type																											
-	Sample collection and processing	anatomical material	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				A substance obtained from an anatomical part of an organism e.g. tissue, blood.	Provide a descriptor if an anatomical material was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. 	Blood	Specimen source	Anatomical Material	PH_ISOLATION_SITE_DESC	isolation_source|anatomical_material																									
-	Sample collection and processing	anatomical part	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				An anatomical part of an organism e.g. oropharynx.	Provide a descriptor if an anatomical part was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. 	Nasopharynx (NP)	Specimen source	Anatomical Site	PH_ISOLATION_SITE	isolation_source|anatomical_part																									
-	Sample collection and processing	body product	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				A substance excreted/secreted from an organism e.g. feces, urine, sweat.	Provide a descriptor if a body product was sampled. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. 	Feces	Specimen source	Body Product	PH_SPECIMEN_SOURCE_DESC	isolation_source|body_product																									
-	Sample collection and processing	environmental material	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				A substance obtained from the natural or man-made environment e.g. soil, water, sewage.	Provide a descriptor if an environmental material was sampled. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. 	Face mask	Specimen source	Environmental Material	PH_ENVIRONMENTAL_MATERIAL	isolation_source|environmental_material																									
-	Sample collection and processing	environmental site	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				An environmental location may describe a site in the natural or built environment e.g. contact surface, metal can, hospital, wet market, bat cave.	Provide a descriptor if an environmental site was sampled. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. 	Production Facility	Specimen source	Environmental Site	PH_ENVIRONMENTAL_SITE	isolation_source|environmental_site																									
-	Sample collection and processing	collection device	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				The instrument or container used to collect the sample e.g. swab.	Provide a descriptor if a device was used for sampling. Use the picklist provided in the template. If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. 	Swab	Specimen source	Specimen Collection Matrix	PH_SPECIMEN_TYPE_ORIG	isolation_source|collection_device																									
-	Sample collection and processing	collection method	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				The process used to collect the sample e.g. phlebotamy, necropsy.	Provide a descriptor if a collection method was used for sampling. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. 	Bronchoalveolar lavage (BAL)	Specimen source	Collection Method	COLLECTION_METHOD	isolation_source|collection_method																									
+	Sample collection and processing	anatomical material	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				A substance obtained from an anatomical part of an organism e.g. tissue, blood.	Provide a descriptor if an anatomical material was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. 	Blood	Specimen source	Anatomical Material	PH_ISOLATION_SITE_DESC	isolation_source;anatomical_material																									
+	Sample collection and processing	anatomical part	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				An anatomical part of an organism e.g. oropharynx.	Provide a descriptor if an anatomical part was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. 	Nasopharynx (NP)	Specimen source	Anatomical Site	PH_ISOLATION_SITE	isolation_source;anatomical_part																									
+	Sample collection and processing	body product	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				A substance excreted/secreted from an organism e.g. feces, urine, sweat.	Provide a descriptor if a body product was sampled. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. 	Feces	Specimen source	Body Product	PH_SPECIMEN_SOURCE_DESC	isolation_source;body_product																									
+	Sample collection and processing	environmental material	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				A substance obtained from the natural or man-made environment e.g. soil, water, sewage.	Provide a descriptor if an environmental material was sampled. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. 	Face mask	Specimen source	Environmental Material	PH_ENVIRONMENTAL_MATERIAL	isolation_source;environmental_material																									
+	Sample collection and processing	environmental site	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				An environmental location may describe a site in the natural or built environment e.g. contact surface, metal can, hospital, wet market, bat cave.	Provide a descriptor if an environmental site was sampled. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. 	Production Facility	Specimen source	Environmental Site	PH_ENVIRONMENTAL_SITE	isolation_source;environmental_site																									
+	Sample collection and processing	collection device	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				The instrument or container used to collect the sample e.g. swab.	Provide a descriptor if a device was used for sampling. Use the picklist provided in the template. If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. 	Swab	Specimen source	Specimen Collection Matrix	PH_SPECIMEN_TYPE_ORIG	isolation_source;collection_device																									
+	Sample collection and processing	collection method	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				The process used to collect the sample e.g. phlebotamy, necropsy.	Provide a descriptor if a collection method was used for sampling. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. 	Bronchoalveolar lavage (BAL)	Specimen source	Collection Method	COLLECTION_METHOD	isolation_source;collection_method																									
 	Sample collection and processing	collection protocol	xs:token							The name and version of a particular protocol used for sampling.	Free text.	BCRonaSamplingProtocol v. 1.2																													
 	Sample collection and processing	specimen processing	multiple		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	recommended				Any processing applied to the sample during or after receiving the sample.	Critical for interpreting data. Select all the applicable processes from the pick list. If virus was passaged, include information in "lab host", "passage number", and "passage method" fields. If none of the processes in the pick list apply, put "not applicable".	Virus passage	Passage details/history																												
 	Sample collection and processing	lab host	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	recommended				Name and description of the laboratory host used to propagate the source organism or material from which the sample was obtained.	Type of cell line used for propagation. Provide the name of the cell line using the picklist in the template. If not passaged, put "not applicable".	Vero E6 cell line	Passage details/history			lab_host																									
@@ -55,6 +55,7 @@ ID	SC %																AL rdfs:label@en	AL IAO:0000115@en	A IAO:0000119 SPLIT=|	
 	Host Information	host age bin	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				Age of host at the time of sampling, expressed as an age group.	Select the corresponding host age bin from the pick list provided in the template. If not available, provide a null value.	60 - 69		Host Age Category	PH_AGE_GROUP																										
 	Host Information	host gender	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				The gender of the host at the time of sample collection.	Select the corresponding host gender from the pick list provided in the template. If not available, provide a null value. If there is no host, put "Not Applicable".	male	Gender	Patient Sex	VD_SEX	host_sex																									
 	Host Information	host residence geo_loc name (country)	select	geo_loc_name (country)	Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					The country of residence of the host.	Select the country name from pick list provided in the template.	United Kingdom																													
+	Host Information	host residence geo_loc name (state/province/territory)	select	geo_loc_name (state/province/territory)	Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					The state/province/territory of residence of the host.	Select the province/territory name from pick list provided in the template.	Quebec																													
 	Host Information	host subject ID	xs:token							A unique identifier by which each host can be referred to e.g. #131	Provide the host identifier. Should be a unique, user-defined identifier.	BCxy123				host_subject_id																									
 	Host Information	symptom onset date	xs:date		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					The date on which the symptoms began or were first noted.	ISO 8601 standard "YYYY-MM-DD".	2020-03-16		Symptoms Onset Date	HC_ONSET_DATE																										
 	Host Information	signs and symptoms	multiple		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					A perceived change in function or sensation, (loss, disturbance or appearance) indicative of a disease, reported by a patient or clinician.	Select all of the symptoms experienced by the host from the pick list.	Chills (sudden cold sensation); Cough; Fever		Symptoms	HC_SYMPTOMS																										
@@ -132,7 +133,8 @@ ID	SC %																AL rdfs:label@en	AL IAO:0000115@en	A IAO:0000119 SPLIT=|	
 	Lineage and Variant information	lineage/clade analysis software name	xs:token							The name of the software used to determine the lineage/clade.	Provide the name of the software used to determine the lineage/clade.	Pangolin																													
 	Lineage and Variant information	lineage/clade analysis software version	xs:token							The version of the software used to determine the lineage/clade.	Provide the version of the software used ot determine the lineage/clade.	2.1.10																													
 	Lineage and Variant information	variant designation	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					The variant classification of the lineage/clade i.e. variant, variant of concern.	If the lineage/clade is considered a Variant of Concern, select Variant of Concern from the pick list. If the lineage/clade contains mutations of concern (mutations that increase transmission, clincal severity, or other epidemiological fa ctors) but it not a global Variant of Concern, select Variant. If the lineage/clade does not contain mutations of concern, leave blank.	Variant of Concern																													
-	Lineage and Variant information	variant evidence	xs:token							The evidence used to make the variant determination.	Provide the assay and list the set of lineage-defining mutations used to make the variant determination. If there are mutations of interest/concern observed in addition to lineage-defining mutations, describe those here.	RT-qPCR TaqPath assay: S gene target failure																													
+	Lineage and Variant information	variant evidence	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					The evidence used to make the variant determination.	Select whether the sample was screened using RT-qPCR or by sequencing from the pick list.	RT-qPCR TaqPath assay: S gene target failure																													
+	Lineage and Variant information	variant evidence details	xs:token							Details about the evidence used to make the variant determination.	Provide the assay and list the set of lineage-defining mutations used to make the variant determination. If there are mutations of interest/concern observed in addition to lineage-defining mutations, describe those here.																														
 		Pathogen diagnostic testing																																							
 	Pathogen diagnostic testing	gene name 1	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					The name of the gene used in the diagnostic RT-PCR test.	Provide the full name of the gene used in the test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI	E (orf4)		Gene Target 1	RESULT - CANCOGEN_SUBMITTED_RESLT_1	gene_name_1																									
 	Pathogen diagnostic testing	diagnostic pcr protocol 1	xs:token							The name and version number of the protocol used for diagnostic marker amplification.	The name and version number of the protocol used for carrying out a diagnostic PCR test. This information can be compared to sequence data for evaluation of performance and quality control.	EGenePCRTest 2																													
@@ -150,19 +152,26 @@ ID	SC %																AL rdfs:label@en	AL IAO:0000115@en	A IAO:0000119 SPLIT=|	
 																																									
 	umbrella bioproject accession	PRJNA623807																																							
 																																									
-GAZ_00002566	geo_loc_name (state/province/territory)	Alberta													HC_PROVINCE:CA-AB		Province of Alberta				Province (Canada)	GAZ:00002561																			
-GAZ_00002562	geo_loc_name (state/province/territory)	British Columbia													HC_PROVINCE:CA-BC		Province of British Columbia				Province (Canada)	GAZ:00002561																			
-GAZ_00002571	geo_loc_name (state/province/territory)	Manitoba													HC_PROVINCE:CA-MB		Province of Manitoba				Province (Canada)	GAZ:00002561																			
-GAZ_00002570	geo_loc_name (state/province/territory)	New Brunswick													HC_PROVINCE:CA-NB		Province of New Brunswick				Province (Canada)	GAZ:00002561																			
-GAZ_00002567	geo_loc_name (state/province/territory)	Newfoundland and Labrador													HC_PROVINCE:CA-NL		Province of Newfoundland and Labrador				Province (Canada)	GAZ:00002561	CNPHI wants "Newfoundland and Labrador"; changed to http://purl.obolibrary.org/obo/GAZ_00002567 																		
-GAZ_00002575	geo_loc_name (state/province/territory)	Northwest Territories													HC_PROVINCE:CA-NT		Northwest Territories				Territory (Canada)	GAZ:00002573																			
-GAZ_00002565	geo_loc_name (state/province/territory)	Nova Scotia													HC_PROVINCE:CA-NS		Province of Nova Scotia				Province (Canada)	GAZ:00002561																			
-GAZ:00002574	geo_loc_name (state/province/territory)	Nunavut													HC_PROVINCE:CA-NU		Nunavut				Territory (Canada)	GAZ:00002573																			
-GAZ_00002563	geo_loc_name (state/province/territory)	Ontario													HC_PROVINCE:CA-ON		Province of Ontario				Province (Canada)	GAZ:00002561																			
-GAZ_00002572	geo_loc_name (state/province/territory)	Prince Edward Island													HC_PROVINCE:CA-PE		Province of Prince Edward Island				Province (Canada)	GAZ:00002561																			
-GAZ_00002569	geo_loc_name (state/province/territory)	Quebec													HC_PROVINCE:CA-QC		Province of Quebec				Province (Canada)	GAZ:00002561																			
-GAZ_00002564	geo_loc_name (state/province/territory)	Saskatchewan													HC_PROVINCE:CA-SK		Province of Saskatchewan				Province (Canada)	GAZ:00002561																			
-GAZ_00002576	geo_loc_name (state/province/territory)	Yukon													HC_PROVINCE:CA-YT		Yukon				Territory (Canada)	GAZ:00002573																			
+																																									
+																																									
+																																									
+																																									
+																																									
+																																									
+																																									
+GAZ_00002566	geo_loc_name (state/province/territory)	Alberta													CA-AB		Province of Alberta				Province (Canada)	GAZ:00002561																			
+GAZ_00002562	geo_loc_name (state/province/territory)	British Columbia													CA-BC		Province of British Columbia				Province (Canada)	GAZ:00002561																			
+GAZ_00002571	geo_loc_name (state/province/territory)	Manitoba													CA-MB		Province of Manitoba				Province (Canada)	GAZ:00002561																			
+GAZ_00002570	geo_loc_name (state/province/territory)	New Brunswick													CA-NB		Province of New Brunswick				Province (Canada)	GAZ:00002561																			
+GAZ_00002567	geo_loc_name (state/province/territory)	Newfoundland and Labrador													CA-NL		Province of Newfoundland and Labrador				Province (Canada)	GAZ:00002561	CNPHI wants "Newfoundland and Labrador"; changed to http://purl.obolibrary.org/obo/GAZ_00002567 																		
+GAZ_00002575	geo_loc_name (state/province/territory)	Northwest Territories													CA-NT		Northwest Territories				Territory (Canada)	GAZ:00002573																			
+GAZ_00002565	geo_loc_name (state/province/territory)	Nova Scotia													CA-NS		Province of Nova Scotia				Province (Canada)	GAZ:00002561																			
+GAZ:00002574	geo_loc_name (state/province/territory)	Nunavut													CA-NU		Nunavut				Territory (Canada)	GAZ:00002573																			
+GAZ_00002563	geo_loc_name (state/province/territory)	Ontario													CA-ON		Province of Ontario				Province (Canada)	GAZ:00002561																			
+GAZ_00002572	geo_loc_name (state/province/territory)	Prince Edward Island													CA-PE		Province of Prince Edward Island				Province (Canada)	GAZ:00002561																			
+GAZ_00002569	geo_loc_name (state/province/territory)	Quebec													CA-QC		Province of Quebec				Province (Canada)	GAZ:00002561																			
+GAZ_00002564	geo_loc_name (state/province/territory)	Saskatchewan													CA-SK		Province of Saskatchewan				Province (Canada)	GAZ:00002561																			
+GAZ_00002576	geo_loc_name (state/province/territory)	Yukon													CA-YT		Yukon				Territory (Canada)	GAZ:00002573																			
 																																									
 UO:0000035	host age unit	month															month																								
 UO:0000036	host age unit	year															year																								
@@ -180,111 +189,111 @@ OBI:0002754	biomaterial extracted	mRNA (cDNA)															cDNA library				proc
 																																									
 																																									
 	signs and symptoms	Abnormal lung auscultation																					Corrected spelling mistake "ausculation" -> "auscultation"																		
-HP:0000223	signs and symptoms	Abnormality of taste sensation													HC_SYMPTOMS:SENSE_OF_TASTE		Abnormality of taste sensation			Abnormality of taste sensation	"Abnormal nervous system physiology,
+HP:0000223	signs and symptoms	Abnormality of taste sensation													SENSE_OF_TASTE		Abnormality of taste sensation			Abnormality of taste sensation	"Abnormal nervous system physiology,
 Abnormal tongue physiology"	"HP:0012638,
 HP:0030810"	"Changed label to match the format of 'abnormality of the sense of smell'. - Rhiannon
 
 Removed ""label"" so it no longer shows up in the DH picklist as it was causing confusion and is more relevant to the ontology side than as a picklist value."																		
-	Abnormality of taste sensation	      Ageusia (complete loss of taste)													HC_SYMPTOMS:AGEUSIA			The loss of taste functions of the tongue	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7165999/	complete loss of taste, complete lack of taste	Abnormality of taste sensation	HP_0000223	New term - Recommend making term request to HPO																		
-HP:0031249	Abnormality of taste sensation	      Parageusia (distorted sense of taste)													HC_SYMPTOMS:PARAGEUSIA		Parageusia			Dysgeusia, Metallic taste in mouth, Metallic taste, distorted sense of taste, distortion of the sense of taste	Abnormality of taste sensation	HP_0000223	Changed from 'Dysgeusia' to 'Parageusia' because that entry was in HP. - Rhiannon																		
-HP_0000224 	Abnormality of taste sensation	      Hypogeusia (reduced sense of taste)													HC_SYMPTOMS:HYPOGEUSIA		Decreased taste sensation	The decrease in taste sensitivity.	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7165999/	Decreased taste, Lost taste, Decreased taste sensation, Hypogeusia, loss of taste, lack of taste, reduced sense of taste, new loss of taste	Abnormality of taste sensation	HP_0000223	"New term
+	Abnormality of taste sensation	      Ageusia (complete loss of taste)													AGEUSIA			The loss of taste functions of the tongue	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7165999/	complete loss of taste, complete lack of taste	Abnormality of taste sensation	HP_0000223	New term - Recommend making term request to HPO																		
+HP:0031249	Abnormality of taste sensation	      Parageusia (distorted sense of taste)													PARAGEUSIA		Parageusia			Dysgeusia, Metallic taste in mouth, Metallic taste, distorted sense of taste, distortion of the sense of taste	Abnormality of taste sensation	HP_0000223	Changed from 'Dysgeusia' to 'Parageusia' because that entry was in HP. - Rhiannon																		
+HP_0000224 	Abnormality of taste sensation	      Hypogeusia (reduced sense of taste)													HYPOGEUSIA		Decreased taste sensation	The decrease in taste sensitivity.	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7165999/	Decreased taste, Lost taste, Decreased taste sensation, Hypogeusia, loss of taste, lack of taste, reduced sense of taste, new loss of taste	Abnormality of taste sensation	HP_0000223	"New term
 
 Recommend making syonym request to HPO"																		
-HP:0004408	signs and symptoms	Abnormality of the sense of smell													HC_SYMPTOMS:SENSE_OF_SMELL		Abnormality of the sense of smell			Abnormal sense of smell, Abnormality of olfaction, Abnormality of the sense of smell, Smell defect	"Abnormal nervous system physiology,
+HP:0004408	signs and symptoms	Abnormality of the sense of smell													SENSE_OF_SMELL		Abnormality of the sense of smell			Abnormal sense of smell, Abnormality of olfaction, Abnormality of the sense of smell, Smell defect	"Abnormal nervous system physiology,
 Abnormality of the nose"	"HP:0012638,
 HP:0000366"																			
-HP_0000458	Abnormality of the sense of smell	      Anosmia (lost sense of smell)													HC_SYMPTOMS:ANOSMIA		Anosmia			Lost smell, Loss of smell, new loss of smell	Abnormality of the sense of smell	HP_0004408	Also in MONDO (ref. "Other")	http://purl.obolibrary.org/obo/MONDO_0010528																	
-HP_0004409	Abnormality of the sense of smell	      Hyposmia (reduced sense of smell)													HC_SYMPTOMS:HYPOSMIA		Hyposmia			Decreased smell sensation, Sense of smell impaired, reduced sense of smell	Abnormality of the sense of smell	HP_0004408																			
+HP_0000458	Abnormality of the sense of smell	      Anosmia (lost sense of smell)													ANOSMIA		Anosmia			Lost smell, Loss of smell, new loss of smell	Abnormality of the sense of smell	HP_0004408	Also in MONDO (ref. "Other")	http://purl.obolibrary.org/obo/MONDO_0010528																	
+HP_0004409	Abnormality of the sense of smell	      Hyposmia (reduced sense of smell)													HYPOSMIA		Hyposmia			Decreased smell sensation, Sense of smell impaired, reduced sense of smell	Abnormality of the sense of smell	HP_0004408																			
 	signs and symptoms	Acute Respiratory Distress Syndrome												ARDS						ARDS			Appears under 'signs/symptoms' most frequently.																		
-HP:0011446	signs and symptoms	Altered mental status													HC_SYMPTOMS:ALTERED_CONSCIOUS		Abnormality of higher mental function			altered consciousness, altered mental status, altered mental state	Abnormal nervous system physiology	HP:0012638	"Changed label to 'Altered mental status' since that was the most common usage in case report forms.
+HP:0011446	signs and symptoms	Altered mental status													ALTERED_CONSCIOUS		Abnormality of higher mental function			altered consciousness, altered mental status, altered mental state	Abnormal nervous system physiology	HP:0012638	"Changed label to 'Altered mental status' since that was the most common usage in case report forms.
 
 May want to consider alternate parent term. "																		
 HP:0011675	signs and symptoms	Arrhythmia															Arrhythmia			Abnormal heart rate, Cardiac arrhythmia, Heart rhythm disorders, Irregular heartbeat, Cardiac arrhythmias, Cardiac rhythm disturbances, Arrhythmias, Irregular heart beat	Abnormality of cardiovascular system electrophysiology	HP:0030956																			
-HP:0100543	Altered mental status	      Cognitive impairment													HC_SYMPTOMS:COGNITIVE		Cognitive impairment			Intellectual impairment, Mental impairment, Cognitive abnormality, Abnormality of cognition, Cognitive defects, Cognitive deficits, Cognitive impairment	Abnormality of higher mental function	HP:0011446																			
-HP_0001259	Altered mental status	      Coma													HC_SYMPTOMS:COMA		Coma				Reduced consciousness/confusion	HP_0004372																			
-HP_0001289	Altered mental status	      Confusion													HC_SYMPTOMS:CONFUSION		Confusion			mental confusion, new confusion, new or worsening confusion, layperson: disorientation, mental disorientation, easily confused	Reduced consciousness/confusion	HP_0004372	Removed 'new confusion' term from the picklist and added it here as a synonym. - Rhiannon																		
-HP_0031258	Confusion	            Delirium (sudden severe confusion)													HC_SYMPTOMS:DELIRIUM		Delirium				Confusion	HP_0001289	Also in MONDO (ref. "Other")	http://purl.obolibrary.org/obo/MONDO_0045057																	
-	Altered mental status	      Inability to arouse (inability to stay awake)													HC_SYMPTOMS:INABILITY_AWAKE								Needs further review																		
-HP_0000737 	Altered mental status	      Irritability													HC_SYMPTOMS:IRRITABILITY		Irritability			Irritable, Irritability	"Impaired social interactions,
+HP:0100543	Altered mental status	      Cognitive impairment													COGNITIVE		Cognitive impairment			Intellectual impairment, Mental impairment, Cognitive abnormality, Abnormality of cognition, Cognitive defects, Cognitive deficits, Cognitive impairment	Abnormality of higher mental function	HP:0011446																			
+HP_0001259	Altered mental status	      Coma													COMA		Coma				Reduced consciousness/confusion	HP_0004372																			
+HP_0001289	Altered mental status	      Confusion													CONFUSION		Confusion			mental confusion, new confusion, new or worsening confusion, layperson: disorientation, mental disorientation, easily confused	Reduced consciousness/confusion	HP_0004372	Removed 'new confusion' term from the picklist and added it here as a synonym. - Rhiannon																		
+HP_0031258	Confusion	            Delirium (sudden severe confusion)													DELIRIUM		Delirium				Confusion	HP_0001289	Also in MONDO (ref. "Other")	http://purl.obolibrary.org/obo/MONDO_0045057																	
+	Altered mental status	      Inability to arouse (inability to stay awake)													INABILITY_AWAKE								Needs further review																		
+HP_0000737 	Altered mental status	      Irritability													IRRITABILITY		Irritability			Irritable, Irritability	"Impaired social interactions,
 Abnormal emotion/affect behavior"	"HP_0000735,
 HP_0100851"																			
-HP_0002371	Altered mental status	      Loss of speech													HC_SYMPTOMS:LOSS_OF_SPEECH		Loss of speech				Neurological speech impairment	HP_0002167																			
-HP_0025406	signs and symptoms	Asthenia (generalized weakness)													HC_SYMPTOMS:ASTHENIA		Asthenia			general weakness, generalized weakness, abnormal physical weakness, loss of energy, weakness	Constitutional symptom	HP_0025142	Changed label from "Asthenia (general weakness)" to "Asthenia (generalized weakness)" to improve CNPHI compatibility.																		
-HP:0031352	signs and symptoms	Chest tightness or pressure													HC_SYMPTOMS:CHEST_TIGHT		Chest tightness			Tightness in chest, chest pressure 	Constitutional symptom	HP:0025142																			
-HP:0025145	Chest tightness or pressure	      Rigors (fever shakes)													HC_SYMPTOMS:RIGORS		Rigors			Rigours, fever shakes, severe shivering with chills, severe shaking with chills, repeated shaking with chills	"Shivering,
+HP_0002371	Altered mental status	      Loss of speech													LOSS_OF_SPEECH		Loss of speech				Neurological speech impairment	HP_0002167																			
+HP_0025406	signs and symptoms	Asthenia (generalized weakness)													ASTHENIA		Asthenia			general weakness, generalized weakness, abnormal physical weakness, loss of energy, weakness	Constitutional symptom	HP_0025142	Changed label from "Asthenia (general weakness)" to "Asthenia (generalized weakness)" to improve CNPHI compatibility.																		
+HP:0031352	signs and symptoms	Chest tightness or pressure													CHEST_TIGHT		Chest tightness			Tightness in chest, chest pressure 	Constitutional symptom	HP:0025142																			
+HP:0025145	Chest tightness or pressure	      Rigors (fever shakes)													RIGORS		Rigors			Rigours, fever shakes, severe shivering with chills, severe shaking with chills, repeated shaking with chills	"Shivering,
 Chills"	"HP:0025144,
 HP:0025143"	consider adding/requesting parent term 'fever'																		
-HP_0025143 	signs and symptoms	Chills (sudden cold sensation)												Chills	HC_SYMPTOMS:CHILLS		Chills				Constitutional symptom	HP_0025142																			
+HP_0025143 	signs and symptoms	Chills (sudden cold sensation)												Chills	CHILLS		Chills				Constitutional symptom	HP_0025142																			
 	signs and symptoms	Conjunctival injection															Conjunctival hypermia																								
-HP_0000509	signs and symptoms	Conjunctivitis (pink eye)												Conjunctivitis	HC_SYMPTOMS:CONJUNCTIVITIS		Conjunctivitis			Pink eye	"Inflammatory abnormality of the eye,
+HP_0000509	signs and symptoms	Conjunctivitis (pink eye)												Conjunctivitis	CONJUNCTIVITIS		Conjunctivitis			Pink eye	"Inflammatory abnormality of the eye,
 Abnormal conjunctiva morphology,
 Red eye"	"HP_0100533,
 HP_0000502,
 HP_0025337"	Also in MONDO (ref. "Other")	http://purl.obolibrary.org/obo/MONDO_0003799																	
 	signs and symptoms	Coryza																																							
-HP_0012735	signs and symptoms	Cough 													HC_SYMPTOMS:COUGH		Cough			Coughing, Cough, new cough, worsening cough, new or worsening cough	Functional respiratory abnormality	HP_0002795																			
-HP:0031246	Cough	      Nonproductive cough (dry cough)													HC_SYMPTOMS:NONPRODUCT_COUGH		Nonproductive cough			dry cough, dry coughing	Cough	HP:0012735																			
-HP:0031245	Cough	      Productive cough (wet cough)													HC_SYMPTOMS:PRODUCTIVE_COUGH		Productive cough			wet cough, cough with sputum production	Cough	HP:0012735																			
-HP:0000961	signs and symptoms	Cyanosis (blueish skin discolouration)													HC_SYMPTOMS:CYANOSIS		Cyanosis			narrower: central cyanosis, peripheral cyanosis, related: hypoxima	"Functional respiratory abnormality,
+HP_0012735	signs and symptoms	Cough 													COUGH		Cough			Coughing, Cough, new cough, worsening cough, new or worsening cough	Functional respiratory abnormality	HP_0002795																			
+HP:0031246	Cough	      Nonproductive cough (dry cough)													NONPRODUCT_COUGH		Nonproductive cough			dry cough, dry coughing	Cough	HP:0012735																			
+HP:0031245	Cough	      Productive cough (wet cough)													PRODUCTIVE_COUGH		Productive cough			wet cough, cough with sputum production	Cough	HP:0012735																			
+HP:0000961	signs and symptoms	Cyanosis (blueish skin discolouration)													CYANOSIS		Cyanosis			narrower: central cyanosis, peripheral cyanosis, related: hypoxima	"Functional respiratory abnormality,
 Dermatological manifestations of systemic disorders"	"HP:0002795,
 HP:0001005"	"Caused by hypoxima, is related to covid toes/fingers. 
 Cyanosis is different from frostbite (chilblains) because it is rarely associated with pain."																		
-HP:0001063	Cyanosis (blueish skin discolouration)	      Acrocyanosis													HC_SYMPTOMS:ACROCYANOS		Acrocyanosis			Persistent blue color of hands, feet, or parts of face', related: peripheral cyanosis	Cyanosis	HP:0000961	 Is characterized by 'peripheral cyanosis' but does not appear to be an exact synonym.																		
-	Acrocyanosis	            Circumoral cyanosis (bluish around mouth)													HC_SYMPTOMS:CIRCUMORAL_CYANOSIS		Circumoral cyanosis				Cyanosis	HP:0000961	"Considered a type of acrocyanosis by healthline.com (ref other). HP currently lists it as a sister class to 'acrocyanosis'.
+HP:0001063	Cyanosis (blueish skin discolouration)	      Acrocyanosis													ACROCYANOS		Acrocyanosis			Persistent blue color of hands, feet, or parts of face', related: peripheral cyanosis	Cyanosis	HP:0000961	 Is characterized by 'peripheral cyanosis' but does not appear to be an exact synonym.																		
+	Acrocyanosis	            Circumoral cyanosis (bluish around mouth)													CIRCUMORAL_CYANOSIS		Circumoral cyanosis				Cyanosis	HP:0000961	"Considered a type of acrocyanosis by healthline.com (ref other). HP currently lists it as a sister class to 'acrocyanosis'.
 However, it doesn't seem to be a clear consensus on whether it gets defined under 'central cyanosis' or 'peripheral cyanosis' (for e.g. see 'other')."	"https://www.healthline.com/health/circumoral-cyanosis#:~:text=Circumoral%20cyanosis%20refers%20to%20blue,on%20their%20hands%20and%20feet.
 https://pubmed.ncbi.nlm.nih.gov/2797223/"																	
-	Acrocyanosis	            Cyanotic face (bluish face)													HC_SYMPTOMS:CYANOTIC_FACE					cyanosis of the face	"Acrocyanosis,
+	Acrocyanosis	            Cyanotic face (bluish face)													CYANOTIC_FACE					cyanosis of the face	"Acrocyanosis,
 Central cyanosis"		Didn't list it under 'central cyanosis' but it should be when ontologized.																		
 	Cyanosis (blueish skin discolouration)	      Central Cyanosis																Bluish discoloration of the skin, mucous membranes, lips, tongue, and nail beds, associated with arterial desaturation.	https://www.sciencedirect.com/topics/neuroscience/cyanosis																						
-	Central Cyanosis	            Cyanotic lips (bluish lips) 													HC_SYMPTOMS:CYANOTIC_LIPS						Central cyanosis		Has been stated to belong to 'central' and 'peripheral' cyanoses on different sources... Am only listing it under central at this time since some definitions of 'peripheral cyanosis' do not include lips.																		
+	Central Cyanosis	            Cyanotic lips (bluish lips) 													CYANOTIC_LIPS						Central cyanosis		Has been stated to belong to 'central' and 'peripheral' cyanoses on different sources... Am only listing it under central at this time since some definitions of 'peripheral cyanosis' do not include lips.																		
 	Cyanosis (blueish skin discolouration)	            Peripheral Cyanosis																Blues discoloration that occurs when there is increased oxygen uptake in peripheral tissues, often involving only the extremities; it is not associated with arterial desaturation.	https://www.sciencedirect.com/topics/neuroscience/cyanosis	cyanosis of the hands or feet, cyanosis of the extremities			Characterizes 'acrocyanosis' but isn't considered an exact synonym.																		
-HP_0002094	signs and symptoms	Dyspnea (breathing difficulty) 													HC_SYMPTOMS:DYSPNEA		Dyspnea			Difficult to breathe, Trouble breathing, Breathing difficulty, Abnormal breathing, Dyspnoea, shotness of breath	Functional respiratory abnormality	HP_0002795	"Recommend making syonym request to HPO
+HP_0002094	signs and symptoms	Dyspnea (breathing difficulty) 													DYSPNEA		Dyspnea			Difficult to breathe, Trouble breathing, Breathing difficulty, Abnormal breathing, Dyspnoea, shotness of breath	Functional respiratory abnormality	HP_0002795	"Recommend making syonym request to HPO
 Changed name from 'Shortness of breath (breathing difficulty)' to 'Dyspnea (breathing difficulty)' incase a data curator has 'Dyspnea' in their collection data and they do not know that it is synonymous with 'Shortness of breath' and 'breathing difficulty'. - Rhiannon"																		
-HP_0002014	signs and symptoms	Diarrhea (watery stool)												Diarrhea, watery	HC_SYMPTOMS:DIARRHEA		Diarrhea			Watery stool, Diarrhea, Diarrhoea	Abdominal symptom	HP_0011458 	In GenEpiO																		
+HP_0002014	signs and symptoms	Diarrhea (watery stool)												Diarrhea, watery	DIARRHEA		Diarrhea			Watery stool, Diarrhea, Diarrhoea	Abdominal symptom	HP_0011458 	In GenEpiO																		
 	signs and symptoms	Dry gangrene																																							
-HP_0002383	signs and symptoms	Encephalitis (brain inflammation)												Encephalitis	HC_SYMPTOMS:ENCEPHALITIS		Encephalitis 			Brain inflammation, inflammation of the brain	Unusual CNS infection	HP_0011450	Also in MONDO (ref. "Other")	http://purl.obolibrary.org/obo/MONDO_0019956																	
+HP_0002383	signs and symptoms	Encephalitis (brain inflammation)												Encephalitis	ENCEPHALITIS		Encephalitis 			Brain inflammation, inflammation of the brain	Unusual CNS infection	HP_0011450	Also in MONDO (ref. "Other")	http://purl.obolibrary.org/obo/MONDO_0019956																	
 	signs and symptoms	Encephalopathy																		unspecified encephalopathy																					
-HP_0012378	signs and symptoms	Fatigue (tiredness)												Fatigue	HC_SYMPTOMS:FATIGUE		Fatigue			Tiredness, Fatigue, Tired, new fatigue, worsening fatigue, new or worsening fatigue	Constitutional symptom	HP_0025142	In GenEpiO																		
-HP_0001945 	signs and symptoms	Fever													HC_SYMPTOMS:FEVER		Fever			Pyrexia, Hyperthermia, Fever, high body temperature, raised body temperature, elevated body temperature	Abnormality of temperature regulation	HP_0004370	In GenEpiO																		
+HP_0012378	signs and symptoms	Fatigue (tiredness)												Fatigue	FATIGUE		Fatigue			Tiredness, Fatigue, Tired, new fatigue, worsening fatigue, new or worsening fatigue	Constitutional symptom	HP_0025142	In GenEpiO																		
+HP_0001945 	signs and symptoms	Fever													FEVER		Fever			Pyrexia, Hyperthermia, Fever, high body temperature, raised body temperature, elevated body temperature	Abnormality of temperature regulation	HP_0004370	In GenEpiO																		
 	Fever	      Fever (>=38°C)												Fever																											
-HP:0000206	signs and symptoms	Glossitis (inflammation of the tongue)													HC_SYMPTOMS:GLOSSITIS																										
+HP:0000206	signs and symptoms	Glossitis (inflammation of the tongue)													GLOSSITIS																										
 	signs and symptoms	Ground Glass Opacities (GGO)																					indicates abnormalities in the lungs - has even been identified in 'true' asymptomatic patients (i.e. not presymptomatic).																		
-HP_0002315	signs and symptoms	Headache													HC_SYMPTOMS:HEADACHE		Headache			Headache, Headaches	Abnormality of nervous system physiology	HP_0012638	In GenEpiO																		
-HP_0002105	signs and symptoms	Hemoptysis (coughing up blood)													HC_SYMPTOMS:HEMOPTYSIS		Hemoptysis			Haemoptysis, Coughing up blood	Abnormal sputum	HP_0032016																			
+HP_0002315	signs and symptoms	Headache													HEADACHE		Headache			Headache, Headaches	Abnormality of nervous system physiology	HP_0012638	In GenEpiO																		
+HP_0002105	signs and symptoms	Hemoptysis (coughing up blood)													HEMOPTYSIS		Hemoptysis			Haemoptysis, Coughing up blood	Abnormal sputum	HP_0032016																			
 HP:0012417	signs and symptoms	Hypocapnia															Hypocapnia			reduced carbon dioxide in the blood, hapocarbia, hypocapnea, narrower: deeply hypocapnic, normo/hypercapnic	Abnormal blood carbon dioxide level	HP:0500164																			
-HP_0002615	signs and symptoms	Hypotension (low blood pressure)													HC_SYMPTOMS:HYPOTENSION		Hypotension			Arterial hypotension, Low blood pressure	Abnormal systemic blood pressure	HP_0030972	Also in MONDO (ref. "Other")	http://purl.obolibrary.org/obo/MONDO_0005468																	
-HP_0012418	signs and symptoms	Hypoxemia (low blood oxygen)													HC_SYMPTOMS:HYPOXEMIA		Hypoxemia			Low blood oxygen level, oxygen deficiency in arterial blood, low level of oxygen in the blood, narrower: severe hypoxemia, silent hypoxemia, related: Hypoxia, Cyanosis	Abnormal blood oxygen level	HP_0500165 	"Could also add ""Hypoxia"" and ""Silent Hypoxia"" (also associated with SARS-CoV-2).
+HP_0002615	signs and symptoms	Hypotension (low blood pressure)													HYPOTENSION		Hypotension			Arterial hypotension, Low blood pressure	Abnormal systemic blood pressure	HP_0030972	Also in MONDO (ref. "Other")	http://purl.obolibrary.org/obo/MONDO_0005468																	
+HP_0012418	signs and symptoms	Hypoxemia (low blood oxygen)													HYPOXEMIA		Hypoxemia			Low blood oxygen level, oxygen deficiency in arterial blood, low level of oxygen in the blood, narrower: severe hypoxemia, silent hypoxemia, related: Hypoxia, Cyanosis	Abnormal blood oxygen level	HP_0500165 	"Could also add ""Hypoxia"" and ""Silent Hypoxia"" (also associated with SARS-CoV-2).
 
 HP comment ""Note that hypoxemia is defined as a condition where arterial oxygen tension is below normal (80-100mmHg). Hypoxia is defined as the failure of oxygenation at the tissue level. Hypoxia is not measured directly by a standard laboratory value""
 
 Leads to cyanosis - Rhiannon"																		
 	Hypoxemia (low blood oxygen)	      Silent hypoxemia																An abnormally low level of blood oxygen incompatible with life without dyspnea.	https://doi.org/10.1164/rccm.202006-2157CP	laymans: happy hypoxia, related: hypocapnia	An abnormally low level of blood oxygen incompatible with life without dyspnea.		HP New Term Request																		
-HP:0011029	signs and symptoms	Internal hemorrhage (internal bleeding)													HC_SYMPTOMS:INTERNAL_HEMORRHAGE		Internal hemorrhage			Internal haemorrhage Internal bleeding	"Abnormality of blood circulation,
+HP:0011029	signs and symptoms	Internal hemorrhage (internal bleeding)													INTERNAL_HEMORRHAGE		Internal hemorrhage			Internal haemorrhage Internal bleeding	"Abnormality of blood circulation,
 Abnormal bleeding"	"HP:0011028,
 HP:0001892"																			
-NCIT:C121416	signs and symptoms	Loss of Fine Movements													HC_SYMPTOMS:LOSS_OF_FINE_MOVE		Loss of Fine Movements			Loss of fine movements, Loss of Fine Movements	Clinical or Research Assessment Answer	NCIT:C91106	"Could ask HP to add if we don't want to use NCIT.
+NCIT:C121416	signs and symptoms	Loss of Fine Movements													LOSS_OF_FINE_MOVE		Loss of Fine Movements			Loss of fine movements, Loss of Fine Movements	Clinical or Research Assessment Answer	NCIT:C91106	"Could ask HP to add if we don't want to use NCIT.
 
 Should consider adding broader 'loss of movement'"																		
-HP_0004396 	signs and symptoms	Low appetite													HC_SYMPTOMS:LOW_APPETITE		Poor appetite			Decreased appetite, Poor appetite, loss of appetite, low appetite, anorexia	Abdominal symptom	HP_0011458	"In GenEpiO.
+HP_0004396 	signs and symptoms	Low appetite													LOW_APPETITE		Poor appetite			Decreased appetite, Poor appetite, loss of appetite, low appetite, anorexia	Abdominal symptom	HP_0011458	"In GenEpiO.
 Could use 'Anorexia' which is also in HP (not refering to anorexia nervosa) - or request it with this term?"																		
-	signs and symptoms	Malaise (general discomfort/unease)													HC_SYMPTOMS:MALAISE		Malaise	A general feeling of discomfort, illness, or lack of well-being.	https://medlineplus.gov/ency/article/003089.htm	general discomfort/unease, general uneasiness, general discomfort, general unease, out-of-sorts feeling			"New term
+	signs and symptoms	Malaise (general discomfort/unease)													MALAISE		Malaise	A general feeling of discomfort, illness, or lack of well-being.	https://medlineplus.gov/ency/article/003089.htm	general discomfort/unease, general uneasiness, general discomfort, general unease, out-of-sorts feeling			"New term
 
 Recommend making term request to HPO (note they already have it as ""related synonym"" to ""Fatigue"""																		
 	signs and symptoms	Meningismus/nuchal rigidity																																							
-HP_0001324	signs and symptoms	Muscle weakness													HC_SYMPTOMS:MUSCLE_WEAK		Muscle weakness				Abnormal muscle physiology	HP_0011804	Recommend changing this to 'muscle weakness' as 'weakness' could be mistakenly used when the intention is to refer to 'asthenia' which is weakness/exhaustion in the absence of true muscle weakness. - Rhiannon																		
-HP_0001742	signs and symptoms	Nasal obstruction (stuffy nose)													HC_SYMPTOMS:NASAL_OBSTRUCT		Nasal obstruction			Obstruction of nose, Stuffy nose, Blockage of nose, Nasal obstruction, Nasal blockage, nasal congestion	Abnormality of the nose	HP_0000366	Recommend making syonym request to HPO																		
-HP_0002018	signs and symptoms	Nausea													HC_SYMPTOMS:NAUSEA		Nausea				Nausea and vomiting	HP_0002017 	In GenEpiO																		
-	signs and symptoms	nose bleed																																							
-	signs and symptoms	otitis																																							
+HP_0001324	signs and symptoms	Muscle weakness													MUSCLE_WEAK		Muscle weakness				Abnormal muscle physiology	HP_0011804	Recommend changing this to 'muscle weakness' as 'weakness' could be mistakenly used when the intention is to refer to 'asthenia' which is weakness/exhaustion in the absence of true muscle weakness. - Rhiannon																		
+HP_0001742	signs and symptoms	Nasal obstruction (stuffy nose)													NASAL_OBSTRUCT		Nasal obstruction			Obstruction of nose, Stuffy nose, Blockage of nose, Nasal obstruction, Nasal blockage, nasal congestion	Abnormality of the nose	HP_0000366	Recommend making syonym request to HPO																		
+HP_0002018	signs and symptoms	Nausea													NAUSEA		Nausea				Nausea and vomiting	HP_0002017 	In GenEpiO																		
+	signs and symptoms	Nose bleed																																							
+	signs and symptoms	Otitis																																							
 	signs and symptoms	Pain																																							
-HP:0002027	Pain	      Abdominal pain													HC_SYMPTOMS:ABDOMINAL		Abdominal pain			Stomach pain, Abdominal pain, Pain in stomach, abdominal ache, belly ache, bellyache, narrower: stomach ache, stomachache, abdominal cramping?	"Abdominal symptom,
+HP:0002027	Pain	      Abdominal pain													ABDOMINAL		Abdominal pain			Stomach pain, Abdominal pain, Pain in stomach, abdominal ache, belly ache, bellyache, narrower: stomach ache, stomachache, abdominal cramping?	"Abdominal symptom,
 Pain"	"HP:0011458,
 HP:0012531"																			
-HP_0002829	Pain	      Arthralgia (painful joints)													HC_SYMPTOMS:ARTHRALGIA		Arthralgia			painful joints, joint pain, joint inflammation, related: Arthritic pain, Joint pains, arthritis	Pain	HP_0012531	Don't use HP entry 'Arthralgia/arthritis' (HP:0005059) as it is refering to the disease diagnosis not the symptom.																		
-HP_0100749	Pain	      Chest pain													HC_SYMPTOMS:CHEST_PAIN		Chest pain			Chest pain, Thoracic pain	Pain	HP_0012531	Could add synonyms 'perisstent chest pain' but I'm not sure if this term is meant to be narrow enough to represent presistent vs acute. Could also consider 'chest pain' synonymous with 'chest pressure' instead of 'chest tightness'. - Rhiannon																		
+HP_0002829	Pain	      Arthralgia (painful joints)													ARTHRALGIA		Arthralgia			painful joints, joint pain, joint inflammation, related: Arthritic pain, Joint pains, arthritis	Pain	HP_0012531	Don't use HP entry 'Arthralgia/arthritis' (HP:0005059) as it is refering to the disease diagnosis not the symptom.																		
+HP_0100749	Pain	      Chest pain													CHEST_PAIN		Chest pain			Chest pain, Thoracic pain	Pain	HP_0012531	Could add synonyms 'perisstent chest pain' but I'm not sure if this term is meant to be narrow enough to represent presistent vs acute. Could also consider 'chest pain' synonymous with 'chest pressure' instead of 'chest tightness'. - Rhiannon																		
 	Chest pain	            Pleuritic chest pain																		pleursy																					
-HP_0003326	Pain	      Myalgia (muscle pain) 													HC_SYMPTOMS:MYALGIA		Myalgia			Muscle ache, Muscle pain, aches and pains, body aches	Pain	HP_0012531	In GenEpiO																		
-HP_0025439	signs and symptoms	Pharyngitis (sore throat) 													HC_SYMPTOMS:PHARYNGITIS		Pharyngitis			sore throat, pharyngalgia, pharyngodynia	Abnormality of the pharynx	HP_0000600	Also in MONDO (ref. "Other")	http://purl.obolibrary.org/obo/MONDO_0002258																	
+HP_0003326	Pain	      Myalgia (muscle pain) 													MYALGIA		Myalgia			Muscle ache, Muscle pain, aches and pains, body aches	Pain	HP_0012531	In GenEpiO																		
+HP_0025439	signs and symptoms	Pharyngitis (sore throat) 													PHARYNGITIS		Pharyngitis			sore throat, pharyngalgia, pharyngodynia	Abnormality of the pharynx	HP_0000600	Also in MONDO (ref. "Other")	http://purl.obolibrary.org/obo/MONDO_0002258																	
 	signs and symptoms	Pharyngeal exudate																																							
 	signs and symptoms	Pleural effusion																						https://www.researchgate.net/publication/340720955_Pleural_effusion_as_an_initial_sign_of_coronavirus_disease_2019_COVID-19_pneumonia_a_case_report																	
 HP:0002090	signs and symptoms	Pneumonia															Pneumonia			Pneumonia	"Respiratory tract infection,
@@ -292,25 +301,25 @@ Increased inflammatory response"	"HP:0011947,
 HP:0012649"		Considered a sign/symptom on two case report forms.																	
 	signs and symptoms	Prostration																						Appears on a provincial case report form.																	
 	signs and symptoms	Pseudo-chilblains																		chilblains-like symptom, chilblains-like lesions, related: chilblains, chill burns, pernio, perniosis, broader: acro-ischemia, acrosyndromes, peripheral cyanosis?	Inflammatory abnormality of the skin		Revisit broader synonyms.	Have address chilblains in HP but not pseudo-chilblains. #5822																	
-	Pseudo-chilblains	      Pseudo-chilblains on fingers (covid fingers)													HC_SYMPTOMS:PSEUDO-CHIBLAINS_F					chilblains-like fingers, chilblains-like finger lesions, related: chilblains, chill burns, pernio, perniosis, finger cyanosis, broader: acro-ischemia, acrosyndromes, peripheral cyanosis?			Revisit broader synonyms.																		
-	Pseudo-chilblains	      Pseudo-chilblains on toes (covid toes)													HC_SYMPTOMS:PSEUDO-CHIBLAINS_T					chilblains-like toes, chilblains-like toe lesions, related: chilblains, chill burns, pernio, perniosis, toe cyanosis broader: acro-ischemia, acrosyndromes, peripheral cyanosis?			Revisit broader synonyms.																		
-HP_0000988	signs and symptoms	Rash													HC_SYMPTOMS:RASH		Skin rash			exanthem, skin rash, rash	"Abnormality of skin morphology,
+	Pseudo-chilblains	      Pseudo-chilblains on fingers (covid fingers)													PSEUDO-CHIBLAINS_F					chilblains-like fingers, chilblains-like finger lesions, related: chilblains, chill burns, pernio, perniosis, finger cyanosis, broader: acro-ischemia, acrosyndromes, peripheral cyanosis?			Revisit broader synonyms.																		
+	Pseudo-chilblains	      Pseudo-chilblains on toes (covid toes)													PSEUDO-CHIBLAINS_T					chilblains-like toes, chilblains-like toe lesions, related: chilblains, chill burns, pernio, perniosis, toe cyanosis broader: acro-ischemia, acrosyndromes, peripheral cyanosis?			Revisit broader synonyms.																		
+HP_0000988	signs and symptoms	Rash													RASH		Skin rash			exanthem, skin rash, rash	"Abnormality of skin morphology,
 Inflammatory abnormality of the skin"	"HP_0011121,
 HP_0011123"		E.g. "COVID toes".																	
-HP_0031417	signs and symptoms	Rhinorrhea (runny nose)													HC_SYMPTOMS:RHINORRHEA		Rhinorrhea			Runny Nose, Nasal Discharge	Abnormal nasal mucus secretion	HP_0031416																			
-HP_0001250	signs and symptoms	Seizure													HC_SYMPTOMS:SEIZURE		Seizure			Epileptic seizure, Seizures	Abnormal nervous system physiology	HP_0012638																			
-HP:0020219	Seizure	      Motor seizure													HC_SYMPTOMS:MOTOR_SEIZURE		Motor seizure				Seizure	HP:0001250																			
-HP:0025144	signs and symptoms	Shivering (involuntary muscle twitching)													HC_SYMPTOMS:SHIVERING		Shivering			Shivering, Shuddering	Constitutional symptom	HP:0025142																			
-HP_0001350	signs and symptoms	Slurred speech													HC_SYMPTOMS:SLURRED_SPEECH		Slurred speech				Abnormality of coordination	HP_0011443	"In GenEpiO.
+HP_0031417	signs and symptoms	Rhinorrhea (runny nose)													RHINORRHEA		Rhinorrhea			Runny Nose, Nasal Discharge	Abnormal nasal mucus secretion	HP_0031416																			
+HP_0001250	signs and symptoms	Seizure													SEIZURE		Seizure			Epileptic seizure, Seizures	Abnormal nervous system physiology	HP_0012638																			
+HP:0020219	Seizure	      Motor seizure													MOTOR_SEIZURE		Motor seizure				Seizure	HP:0001250																			
+HP:0025144	signs and symptoms	Shivering (involuntary muscle twitching)													SHIVERING		Shivering			Shivering, Shuddering	Constitutional symptom	HP:0025142																			
+HP_0001350	signs and symptoms	Slurred speech													SLURRED_SPEECH		Slurred speech				Abnormality of coordination	HP_0011443	"In GenEpiO.
 
 Discuss whether this should go under 'altered consicousness' (is not currently organized as such in HP). - Rhiannon"																		
 	signs and symptoms	Sneezing																																							
 	signs and symptoms	Sputum Production																																							
-HP:0001297	signs and symptoms	Stroke													HC_SYMPTOMS:STROKE		Stroke			Stroke Cerebrovascular accident Cerebral vascular events	Abnormality of the cerebral vasculature	HP:0100659																			
+HP:0001297	signs and symptoms	Stroke													STROKE		Stroke			Stroke Cerebrovascular accident Cerebral vascular events	Abnormality of the cerebral vasculature	HP:0100659																			
 	signs and symptoms	Swollen Lymph Nodes																																							
-HP_0002789	signs and symptoms	Tachypnea (accelerated respiratory rate)													HC_SYMPTOMS:TACHYPNEA		Tachypnea			Increased respiratory rate or depth of breathing, Polypnea, rapid breathing, accelerated respiratory rate	Abnormal pattern of respiration	HP_0002793	Changed to 'Tachypnea (accelerated respiratory rate)' as that form occurs 4/5 times on the case report forms.																		
+HP_0002789	signs and symptoms	Tachypnea (accelerated respiratory rate)													TACHYPNEA		Tachypnea			Increased respiratory rate or depth of breathing, Polypnea, rapid breathing, accelerated respiratory rate	Abnormal pattern of respiration	HP_0002793	Changed to 'Tachypnea (accelerated respiratory rate)' as that form occurs 4/5 times on the case report forms.																		
 	signs and symptoms	Vertigo (dizziness)															Vertigo																								
-HP_0002013	signs and symptoms	Vomiting (throwing up)													HC_SYMPTOMS:VOMITING		Vomiting			Throwing up, Vomiting, Emesis	Nausea and vomiting	HP_0002017 	"In GenEpiO
+HP_0002013	signs and symptoms	Vomiting (throwing up)													VOMITING		Vomiting			Throwing up, Vomiting, Emesis	Nausea and vomiting	HP_0002017 	"In GenEpiO
 Has subclasses: Episodic vomiting, Feculent vomiting, Projectile vomiting"																		
 																																									
 	host vaccination status	Fully Vaccinated																																							
@@ -431,7 +440,10 @@ HP:0002789	pre-existing conditions and risk factors	Tachypnea (accelerated respi
 	Transplant	      Liver transplant																																							
 																																									
 	variant designation	Variant of Concern (VOC)																																							
-	variant designation	Variant  																																							
+	variant designation	Variant of Interest (VOI)																																							
+																																									
+	variant evidence	RT-qPCR																																							
+	variant evidence	Sequencing																																							
 																																									
 	complications	Abnormal blood oxygen level																		O2 saturation <=95%			Case report forms frequently record "O2 saturation <=95%".	"The generally accepted standard is that a normal resting oxygen saturation of less than 95% is considered abnormal" (https://www.ncbi.nlm.nih.gov/books/NBK525974/)																	
 	complications	Acute respiratory failure																																							
@@ -517,174 +529,174 @@ HP:0020219	Seizure (complication)	      Motor seizure															Motor seizur
 																																									
 																																									
 																																									
-UBERON_0000178	anatomical material	Blood													PH_ISOLATION_SITE_DESC:BLOOD		blood				organism substance	UBERON_0000463	Use UBERON term.																		
-UBERON_0006314	anatomical material	Fluid													PH_ISOLATION_SITE_DESC:FLUID		bodily fluid			organism substance, portion of body substance, body substance, body fluid or substance, portion of organism substance	organism substance	UBERON_0000463	Use UBERON term.																		
-UBERON_0001836	Fluid	      Saliva													PH_ISOLATION_SITE_DESC:SALIVA		saliva			spit, broader: oral fluid	organism substance	UBERON_0000463	"Use UBERON term. Add synonym. (ISSUE: People may be using this rather than more properly referencing oral fluid).
+UBERON_0000178	anatomical material	Blood													BLOOD		blood				organism substance	UBERON_0000463	Use UBERON term.																		
+UBERON_0006314	anatomical material	Fluid													FLUID		bodily fluid			organism substance, portion of body substance, body substance, body fluid or substance, portion of organism substance	organism substance	UBERON_0000463	Use UBERON term.																		
+UBERON_0001836	Fluid	      Saliva													SALIVA		saliva			spit, broader: oral fluid	organism substance	UBERON_0000463	"Use UBERON term. Add synonym. (ISSUE: People may be using this rather than more properly referencing oral fluid).
 
 Added ""oral fluid"" as a broader synonym since people are using them synonymously. - Rhiannon"																		
-UBERON_0001359	Fluid	      Fluid (cerebrospinal (CSF))													PH_ISOLATION_SITE_DESC:FLUID_CSF		cerebrospinal fluid				organism substance	UBERON_0000463	Use UBERON term.																		
-UBERON_0002409	Fluid	      Fluid (pericardial)													PH_ISOLATION_SITE_DESC:FLUID_PERICARDIAL		pericardial fluid				organism substance	UBERON_0000463	Use UBERON term.																		
-UBERON_0001087	Fluid	      Fluid (pleural)													PH_ISOLATION_SITE_DESC:FLUID_PLEURAL		pleural fluid				organism substance	UBERON_0000463	Use UBERON term.																		
-UBERON_0036243	Fluid	      Fluid (vaginal)													PH_ISOLATION_SITE_DESC:FLUID_VAGINAL		vaginal fluid			vaginal secretion, vaginal discharge	bodily fluid	UBERON_0006314	Use UBERON term.																		
-UBERON_0000173	Fluid	      Fluid (amniotic)													PH_ISOLATION_SITE_DESC:FLUID_AMNIOTIC		amniotic fluid				organism substance	UBERON_0000463	Use UBERON term.																		
-UBERON_0000479	anatomical material	Tissue													PH_ISOLATION_SITE_DESC:TISSUE		tissue				material anatomical entity	UBERON_0000465 	Use UBERON term.																		
+UBERON_0001359	Fluid	      Fluid (cerebrospinal (CSF))													FLUID_CSF		cerebrospinal fluid				organism substance	UBERON_0000463	Use UBERON term.																		
+UBERON_0002409	Fluid	      Fluid (pericardial)													FLUID_PERICARDIAL		pericardial fluid				organism substance	UBERON_0000463	Use UBERON term.																		
+UBERON_0001087	Fluid	      Fluid (pleural)													FLUID_PLEURAL		pleural fluid				organism substance	UBERON_0000463	Use UBERON term.																		
+UBERON_0036243	Fluid	      Fluid (vaginal)													FLUID_VAGINAL		vaginal fluid			vaginal secretion, vaginal discharge	bodily fluid	UBERON_0006314	Use UBERON term.																		
+UBERON_0000173	Fluid	      Fluid (amniotic)													FLUID_AMNIOTIC		amniotic fluid				organism substance	UBERON_0000463	Use UBERON term.																		
+UBERON_0000479	anatomical material	Tissue													TISSUE		tissue				material anatomical entity	UBERON_0000465 	Use UBERON term.																		
 																																									
 																																									
 																																									
-UBERON_0001245	anatomical part	Anus													PH_ISOLATION_SITE:ANUS		anus			anal opening, anal orifice, opening of terminal part of digestive tract																					
-	anatomical part	Buccal mucosa													PH_ISOLATION_SITE:BUCCAL_MUCOSA																										
-UBERON_0002114	anatomical part	Duodenum													PH_ISOLATION_SITE:DUODENUM		duodenum																								
-UBERON_0000970	anatomical part	Eye													PH_ISOLATION_SITE:EYE		eye																								
-	anatomical part	Intestine													PH_ISOLATION_SITE:INTESTINE																										
-UBERON_0001052	anatomical part	Rectum													PH_ISOLATION_SITE:RECTUM		rectum			terminal portion of intestine																					
-UBERON_0001003	anatomical part	Skin													PH_ISOLATION_SITE:SKIN		skin epidermis																								
-UBERON_0000945	anatomical part	Stomach													PH_ISOLATION_SITE:STOMACH		stomach																								
-UBERON_0001557	anatomical part	Upper respiratory tract													PH_ISOLATION_SITE:UPPER		upper respiratory tract																								
-UBERON_2001427	Upper respiratory tract	      Anterior Nares													PH_ISOLATION_SITE:ANTERIOR_NARES		anterior naris																								
-UBERON_0001043	Upper respiratory tract	      Esophagus													PH_ISOLATION_SITE:ESOPHAGUS		esophagus			oesophagus, gullet																					
-UBERON_0002453	Upper respiratory tract	      Ethmoid sinus													PH_ISOLATION_SITE:ETHMOID_SINUS		ethmoid sinus			ethmoidal sinus, ethmoidal bone sinus	paranasal sinus																				
-	Upper respiratory tract	      Nasal Cavity													PH_ISOLATION_SITE:NASAL_CAVITY																										
-UBERON_0005921 	Nasal Cavity	           Middle Nasal Turbinate													PH_ISOLATION_SITE:MIDDLE_NASAL		middle nasal concha			middle nasal turbinate, middle turbinate, mid-nasal turbinate, nasal mid-turbinate, NMT			Found UBERON entry "middle nasal concha" which is an exact synonym, but I think we should use "middle nasal turbinate" or "mid-nasal turbinate" since those are closer to the clincal usage forms (e.g. Mid-turbinate swab, Nasal mid-turbinate (NMT) swab, Deep Nasal Swab).	https://www.fda.gov/media/136314/download																	
-UBERON_0005922	Nasal Cavity	           Inferior Nasal Turbinate													PH_ISOLATION_SITE:INFERIOR_NASAL		inferior nasal concha			inferior nasal turbinate																					
-UBERON_0001728	Upper respiratory tract	      Nasopharynx (NP)													PH_ISOLATION_SITE:NASOPHARYNX_NP		nasopharynx																								
-UBERON_0001729	Upper respiratory tract	      Oropharynx (OP)													PH_ISOLATION_SITE:OROPHARYNX_OP		oropharynx						The area of the throat that gets swabbed.																		
-UBERON_0001558	anatomical part	Lower respiratory tract													PH_ISOLATION_SITE:LOWER		lower respiratory tract																								
-UBERON_0002185 	Lower respiratory tract	      Bronchus													PH_ISOLATION_SITE:BRONCHUS		bronchus			bronchial trunk, bronchi, bronchial tissue,	respiratory tube	UBERON_0000117																			
-UBERON_0002048	Lower respiratory tract	      Lung													PH_ISOLATION_SITE:LUNG		lung																								
-UBERON_0002186	Lung	           Bronchiole													PH_ISOLATION_SITE:BRONCHIOLE		bronchiole			lobular bronchiole, bronchioli, bronchiolus, 	respiratory tube	UBERON_0000117																			
-UBERON_0002169	Lung	           Alveolar sac													PH_ISOLATION_SITE:ALVEOLAR_SAC		alveolar sac				respiratory tube	UBERON_0000117																			
-UBERON_0009778 	Lower respiratory tract	      Pleural sac													PH_ISOLATION_SITE:PLEURAL_SAC		pleural sac						Perhaps not necessary.																		
-UBERON_0002402	Pleural sac	           Pleural cavity													PH_ISOLATION_SITE:PLEURAL_CAVITY		pleural cavity						Contains pleural fluid which gets collected for sampling.																		
-UBERON_0003126	Lower respiratory tract	      Trachea													PH_ISOLATION_SITE:TRACHEA		trachea																								
+UBERON_0001245	anatomical part	Anus													ANUS		anus			anal opening, anal orifice, opening of terminal part of digestive tract																					
+	anatomical part	Buccal mucosa													BUCCAL_MUCOSA																										
+UBERON_0002114	anatomical part	Duodenum													DUODENUM		duodenum																								
+UBERON_0000970	anatomical part	Eye													EYE		eye																								
+	anatomical part	Intestine													INTESTINE																										
+UBERON_0001052	anatomical part	Rectum													RECTUM		rectum			terminal portion of intestine																					
+UBERON_0001003	anatomical part	Skin													SKIN		skin epidermis																								
+UBERON_0000945	anatomical part	Stomach													STOMACH		stomach																								
+UBERON_0001557	anatomical part	Upper respiratory tract													UPPER		upper respiratory tract																								
+UBERON_2001427	Upper respiratory tract	      Anterior Nares													ANTERIOR_NARES		anterior naris																								
+UBERON_0001043	Upper respiratory tract	      Esophagus													ESOPHAGUS		esophagus			oesophagus, gullet																					
+UBERON_0002453	Upper respiratory tract	      Ethmoid sinus													ETHMOID_SINUS		ethmoid sinus			ethmoidal sinus, ethmoidal bone sinus	paranasal sinus																				
+	Upper respiratory tract	      Nasal Cavity													NASAL_CAVITY																										
+UBERON_0005921 	Nasal Cavity	           Middle Nasal Turbinate													MIDDLE_NASAL		middle nasal concha			middle nasal turbinate, middle turbinate, mid-nasal turbinate, nasal mid-turbinate, NMT			Found UBERON entry "middle nasal concha" which is an exact synonym, but I think we should use "middle nasal turbinate" or "mid-nasal turbinate" since those are closer to the clincal usage forms (e.g. Mid-turbinate swab, Nasal mid-turbinate (NMT) swab, Deep Nasal Swab).	https://www.fda.gov/media/136314/download																	
+UBERON_0005922	Nasal Cavity	           Inferior Nasal Turbinate													INFERIOR_NASAL		inferior nasal concha			inferior nasal turbinate																					
+UBERON_0001728	Upper respiratory tract	      Nasopharynx (NP)													NASOPHARYNX_NP		nasopharynx																								
+UBERON_0001729	Upper respiratory tract	      Oropharynx (OP)													OROPHARYNX_OP		oropharynx						The area of the throat that gets swabbed.																		
+UBERON_0001558	anatomical part	Lower respiratory tract													LOWER		lower respiratory tract																								
+UBERON_0002185 	Lower respiratory tract	      Bronchus													BRONCHUS		bronchus			bronchial trunk, bronchi, bronchial tissue,	respiratory tube	UBERON_0000117																			
+UBERON_0002048	Lower respiratory tract	      Lung													LUNG		lung																								
+UBERON_0002186	Lung	           Bronchiole													BRONCHIOLE		bronchiole			lobular bronchiole, bronchioli, bronchiolus, 	respiratory tube	UBERON_0000117																			
+UBERON_0002169	Lung	           Alveolar sac													ALVEOLAR_SAC		alveolar sac				respiratory tube	UBERON_0000117																			
+UBERON_0009778 	Lower respiratory tract	      Pleural sac													PLEURAL_SAC		pleural sac						Perhaps not necessary.																		
+UBERON_0002402	Pleural sac	           Pleural cavity													PLEURAL_CAVITY		pleural cavity						Contains pleural fluid which gets collected for sampling.																		
+UBERON_0003126	Lower respiratory tract	      Trachea													TRACHEA		trachea																								
 																																									
 																																									
 																																									
 																																									
-UBERON_0001988	body product	Feces													PH_SPECIMEN_SOURCE_DESC:FECES		feces			stool, faeces			Could form relationship with  "feces collection" from GenEpiO.																		
-UBERON_0001088	body product	Urine													PH_SPECIMEN_SOURCE_DESC:URINE		urine																								
-UBERON_0001089	body product	Sweat													PH_SPECIMEN_SOURCE_DESC:SWEAT		sweat																								
-UBERON_0000912	body product	Mucus													PH_SPECIMEN_SOURCE_DESC:MUCUS		mucus			mucosa																					
-UBERON_0007311	Mucus	      Sputum													PH_SPECIMEN_SOURCE_DESC:SPUTUM		sputum			deep mucus, phlegm			"Would this be better suited for ""body product sampled""? Moved from ""anatomical material sampled"" to body product sampled"", since the later contains ""mucus"" and sputums is a narrower synonym of ""mucus"".
+UBERON_0001988	body product	Feces													FECES		feces			stool, faeces			Could form relationship with  "feces collection" from GenEpiO.																		
+UBERON_0001088	body product	Urine													URINE		urine																								
+UBERON_0001089	body product	Sweat													SWEAT		sweat																								
+UBERON_0000912	body product	Mucus													MUCUS		mucus			mucosa																					
+UBERON_0007311	Mucus	      Sputum													SPUTUM		sputum			deep mucus, phlegm			"Would this be better suited for ""body product sampled""? Moved from ""anatomical material sampled"" to body product sampled"", since the later contains ""mucus"" and sputums is a narrower synonym of ""mucus"".
 
 Could form relationship with ""sputum collection"" from GenEpiO."																		
-UBERON_0001827	body product	Tear													PH_SPECIMEN_SOURCE_DESC:TEAR		secretion of lacrimal gland			ocular secretion, tears, tear fluid, narrower: precorneal tear film (PCTF), basal tear, reflex tear, closed eye tear, eye-flush tear																					
-UBERON_0006530	body product	Fluid (seminal)													PH_SPECIMEN_SOURCE_DESC:FLUID_SEMINAL		seminal fluid			seminal plasma	"secretion of exocrine gland,
+UBERON_0001827	body product	Tear													TEAR		secretion of lacrimal gland			ocular secretion, tears, tear fluid, narrower: precorneal tear film (PCTF), basal tear, reflex tear, closed eye tear, eye-flush tear																					
+UBERON_0006530	body product	Fluid (seminal)													FLUID_SEMINAL		seminal fluid			seminal plasma	"secretion of exocrine gland,
 male reproductive gland secretion"	"UBERON_0000456,
 UBERON_0006536"	"Would this be better under ""body product""? -Rhiannon
 
 Use UBERON term."																		
-UBERON_0001913	body product	Breast Milk													PH_SPECIMEN_SOURCE_DESC:BREAST_MILK		milk				bodily fluid, mammary gland fluid/secretion	UBERON_0006314, UBERON_0006539	Use UBERON term.																		
+UBERON_0001913	body product	Breast Milk													BREAST_MILK		milk				bodily fluid, mammary gland fluid/secretion	UBERON_0006314, UBERON_0006539	Use UBERON term.																		
 																																									
 	prior SARS-CoV-2 infection	Yes																																							
 	prior SARS-CoV-2 infection	No																																							
 	prior SARS-CoV-2 infection	Unknown																																							
 																																									
 																																									
-	environmental material	Air vent													PH_ENVIRONMENTAL_MATERIAL:AIR_VENT		air vent	An opening that allows air to pass out of or into a confined space.	https://www.lexico.com/definition/air_vent		building part	ENVO_01000420	new term																		
-ENVO_00003896	environmental material	Banknote													PH_ENVIRONMENTAL_MATERIAL:BANKNOTE		currency note	no def.																							
-	environmental material	Bed rail													PH_ENVIRONMENTAL_MATERIAL:BED_RAIL		bed rail	A rail on the side of a bed designed to provide protection and security to individuals who cannot reliably support themselves, and can also be used as a precautionary measure for those who will be limited their bed for an extended period of time.	https://www.1800wheelchair.ca/category/bed-rails/	bed railing, bedrail			new term																		
-ENVO_01000486	environmental material	Building floor													PH_ENVIRONMENTAL_MATERIAL:BUILDING_FLOOR		building floor																								
-ENVO_02000058	environmental material	Cloth													PH_ENVIRONMENTAL_MATERIAL:CLOTH		cloth	A textile comprised of a pliable material made usually by weaving, felting, or knitting natural or synthetic fibers and filaments. [ URL:http://www.merriam-webster.com/dictionary/cloth ]																							
-	environmental material	Control panel													PH_ENVIRONMENTAL_MATERIAL:CONTROL_PANEL		control panel	A dashboard full of buttons, levers and dials for configuring and controlling the equipment.	https://www.yourdictionary.com/control-panel				new term.   																		
-NCIT_C48950	environmental material	Door  													PH_ENVIRONMENTAL_MATERIAL:DOOR		Door  	not a good def. suggest: A hinged, sliding, or revolving barrier at the entrance to a building, room, or vehicle, or in the framework of a cupboard.	https://www.lexico.com/en/definition/door				add term to genepio. not a good definition																		
-	environmental material	Door handle													PH_ENVIRONMENTAL_MATERIAL:DOOR_HANDLE			A mechanism used to open or close a door. 	https://en.wikipedia.org/wiki/Door_handle	door knob																					
-	environmental material	Face mask													PH_ENVIRONMENTAL_MATERIAL:FACE_MASK		Face mask	A disposable mask worn by health professionals during procedures in surgery and nursing.	https://en.wikipedia.org/wiki/Surgical_mask	surgical mask, procedure mask, medical mask			new term																		
-	environmental material	Face shield													PH_ENVIRONMENTAL_MATERIAL:FACE_SHIELD		Face shield	Personal protective equipment (PPE) that provides barrier protection to the facial area and related mucous membranes (eyes, nose, lips).	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5015006/				new term																		
-FOODON:00002403	environmental material	Food													PH_ENVIRONMENTAL_MATERIAL:FOOD																										
-FOODON:03490100	environmental material	Food packaging													PH_ENVIRONMENTAL_MATERIAL:FOOD_PACKAGING																										
-ENVO:01000481	environmental material	Glass													PH_ENVIRONMENTAL_MATERIAL:GLASS								term also in FoodOn (FOODON_03500040)																		
-	environmental material	Handrail													PH_ENVIRONMENTAL_MATERIAL:HANDRAIL		handrail	A rail fixed to posts or a wall for people to hold on to for support.	https://www.lexico.com/en/definition/handrail				new term. this term and bed rail could be put under ncit term "rail device" NCIT_C50130. would also need to be introduced into genepio																		
-	environmental material	Hospital gown													PH_ENVIRONMENTAL_MATERIAL:HOSPITAL_GOWN		Hospital gown	A long loose piece of clothing worn in a hospital by someone doing or having an operation, and is often used as clothing for bedridden patients.	https://en.wikipedia.org/wiki/Patient_gown	patient gown, johnny gown			new term																		
-	environmental material	Light switch													PH_ENVIRONMENTAL_MATERIAL:LIGHT_SWITCH		Light switch	A switch most commonly used to operate electric lights, permanently connected equipment, or electrical outlets.	https://en.wikipedia.org/wiki/Light_switch				new term																		
-	environmental material	Locker													PH_ENVIRONMENTAL_MATERIAL:LOCKER		Locker	A small lockable closet or compartment, typically as one of a number placed together for public or general use,	https://www.lexico.com/en/definition/locker																						
-	environmental material	N95 mask													PH_ENVIRONMENTAL_MATERIAL:N95_MASK		N95 mask	A particulate-filtering facepiece respirator that meets the U.S. National Institute for Occupational Safety and Health (NIOSH) N95 classification of air filtration, meaning that it filters at least 95% of airborne particles.	https://en.wikipedia.org/wiki/N95_mask	N95 respirator			new term for OBI?																		
-	environmental material	Nurse call button 													PH_ENVIRONMENTAL_MATERIAL:NURSE_CALL_BUTTON		Nurse call button 	A button or cord found in hospitals and nursing homes, that allow patients in health care settings to alert a nurse or other health care staff member remotely of their need for help. Thay are usually found in places where patients are at their most vulnerable, such as beside their bed and in the bathroom.	https://en.wikipedia.org/wiki/Nurse_call_button	Call bell, hospital call bell			new term																		
-	environmental material	Paper													PH_ENVIRONMENTAL_MATERIAL:PAPER			Material manufactured in thin sheets from the pulp of wood or other fibrous substances, used for writing, drawing, or printing on, or as wrapping material.	https://www.lexico.com/en/definition/paper		paper product	ENVO_00003895	new term for ENVO?																		
-ENVO:01000060	environmental material	Particulate matter													PH_ENVIRONMENTAL_MATERIAL:PARTICULATE_MATTER																										
-ENVO:01000404	environmental material	Plastic													PH_ENVIRONMENTAL_MATERIAL:PLASTIC								term also in FoodOn (FOODON_03500036)																		
-	environmental material	PPE gown													PH_ENVIRONMENTAL_MATERIAL:PPE_GOWN		PPE gown	A type of gown worn by medical professionals in order to provide a barrier between patient and professional, and usually zips up at the back.	https://en.wikipedia.org/wiki/PPE_gown	personal protective equipment gown			new term (NOT for OMIT). OBI?																		
-ENVO_00002018	environmental material	Sewage													PH_ENVIRONMENTAL_MATERIAL:SEWAGE		sewage																								
-ENVO_01000990	environmental material	Sink													PH_ENVIRONMENTAL_MATERIAL:SINK		sink fixture			sink																					
-ENVO_00001998	environmental material	Soil													PH_ENVIRONMENTAL_MATERIAL:SOIL		soil																								
-	environmental material	Stainless steel													PH_ENVIRONMENTAL_MATERIAL:STAINLESS_STEEL								new term for ENVO. Don't use OMIT_0014071 - it is a quality!																		
-	environmental material	Tissue paper													PH_ENVIRONMENTAL_MATERIAL:TISSUE_PAPER		tissue paper	Soft paper used for various purposes such as cleaning or as toilet tissue.	https://www.dictionary.com/browse/tissue				new term for ENVO																		
-	environmental material	Toilet bowl													PH_ENVIRONMENTAL_MATERIAL:TOILET_BOWL		Toilet bowl	The bowl of a toilet that can be flushed with water, used for defecation and urination.	https://www.thefreedictionary.com/toilet+bowl				new term																		
-ENVO_00002006	environmental material	Water													PH_ENVIRONMENTAL_MATERIAL:WATER		water						CHEBI_15377 is not the best term - its referencing a chemical compound.  BEST use ENVO: ENVO_00002006 which is environmental water																		
-	environmental material	     Wastewater													PH_ENVIRONMENTAL_MATERIAL:WASTEWATER																										
-	environmental material	Window													PH_ENVIRONMENTAL_MATERIAL:WINDOW		Window	An opening in the wall or roof of a building or vehicle that is fitted with glass or other transparent material in a frame to admit light or air and allow people to see out.	https://www.lexico.com/en/definition/window				new term. existing usages of "window" are different.																		
-ENVO:00002040	environmental material	Wood													PH_ENVIRONMENTAL_MATERIAL:WOOD		wood	The hard fibrous material that forms the main substance of the trunk or branches of a tree or shrub, used for fuel or timber.	https://www.lexico.com/en/definition/wood				add definition																		
+	environmental material	Air vent													AIR_VENT		air vent	An opening that allows air to pass out of or into a confined space.	https://www.lexico.com/definition/air_vent		building part	ENVO_01000420	new term																		
+ENVO_00003896	environmental material	Banknote													BANKNOTE		currency note	no def.																							
+	environmental material	Bed rail													BED_RAIL		bed rail	A rail on the side of a bed designed to provide protection and security to individuals who cannot reliably support themselves, and can also be used as a precautionary measure for those who will be limited their bed for an extended period of time.	https://www.1800wheelchair.ca/category/bed-rails/	bed railing, bedrail			new term																		
+ENVO_01000486	environmental material	Building floor													BUILDING_FLOOR		building floor																								
+ENVO_02000058	environmental material	Cloth													CLOTH		cloth	A textile comprised of a pliable material made usually by weaving, felting, or knitting natural or synthetic fibers and filaments. [ URL:http://www.merriam-webster.com/dictionary/cloth ]																							
+	environmental material	Control panel													CONTROL_PANEL		control panel	A dashboard full of buttons, levers and dials for configuring and controlling the equipment.	https://www.yourdictionary.com/control-panel				new term.   																		
+NCIT_C48950	environmental material	Door  													DOOR		Door  	not a good def. suggest: A hinged, sliding, or revolving barrier at the entrance to a building, room, or vehicle, or in the framework of a cupboard.	https://www.lexico.com/en/definition/door				add term to genepio. not a good definition																		
+	environmental material	Door handle													DOOR_HANDLE			A mechanism used to open or close a door. 	https://en.wikipedia.org/wiki/Door_handle	door knob																					
+	environmental material	Face mask													FACE_MASK		Face mask	A disposable mask worn by health professionals during procedures in surgery and nursing.	https://en.wikipedia.org/wiki/Surgical_mask	surgical mask, procedure mask, medical mask			new term																		
+	environmental material	Face shield													FACE_SHIELD		Face shield	Personal protective equipment (PPE) that provides barrier protection to the facial area and related mucous membranes (eyes, nose, lips).	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5015006/				new term																		
+FOODON:00002403	environmental material	Food													FOOD																										
+FOODON:03490100	environmental material	Food packaging													FOOD_PACKAGING																										
+ENVO:01000481	environmental material	Glass													GLASS								term also in FoodOn (FOODON_03500040)																		
+	environmental material	Handrail													HANDRAIL		handrail	A rail fixed to posts or a wall for people to hold on to for support.	https://www.lexico.com/en/definition/handrail				new term. this term and bed rail could be put under ncit term "rail device" NCIT_C50130. would also need to be introduced into genepio																		
+	environmental material	Hospital gown													HOSPITAL_GOWN		Hospital gown	A long loose piece of clothing worn in a hospital by someone doing or having an operation, and is often used as clothing for bedridden patients.	https://en.wikipedia.org/wiki/Patient_gown	patient gown, johnny gown			new term																		
+	environmental material	Light switch													LIGHT_SWITCH		Light switch	A switch most commonly used to operate electric lights, permanently connected equipment, or electrical outlets.	https://en.wikipedia.org/wiki/Light_switch				new term																		
+	environmental material	Locker													LOCKER		Locker	A small lockable closet or compartment, typically as one of a number placed together for public or general use,	https://www.lexico.com/en/definition/locker																						
+	environmental material	N95 mask													N95_MASK		N95 mask	A particulate-filtering facepiece respirator that meets the U.S. National Institute for Occupational Safety and Health (NIOSH) N95 classification of air filtration, meaning that it filters at least 95% of airborne particles.	https://en.wikipedia.org/wiki/N95_mask	N95 respirator			new term for OBI?																		
+	environmental material	Nurse call button 													NURSE_CALL_BUTTON		Nurse call button 	A button or cord found in hospitals and nursing homes, that allow patients in health care settings to alert a nurse or other health care staff member remotely of their need for help. Thay are usually found in places where patients are at their most vulnerable, such as beside their bed and in the bathroom.	https://en.wikipedia.org/wiki/Nurse_call_button	Call bell, hospital call bell			new term																		
+	environmental material	Paper													PAPER			Material manufactured in thin sheets from the pulp of wood or other fibrous substances, used for writing, drawing, or printing on, or as wrapping material.	https://www.lexico.com/en/definition/paper		paper product	ENVO_00003895	new term for ENVO?																		
+ENVO:01000060	environmental material	Particulate matter													PARTICULATE_MATTER																										
+ENVO:01000404	environmental material	Plastic													PLASTIC								term also in FoodOn (FOODON_03500036)																		
+	environmental material	PPE gown													PPE_GOWN		PPE gown	A type of gown worn by medical professionals in order to provide a barrier between patient and professional, and usually zips up at the back.	https://en.wikipedia.org/wiki/PPE_gown	personal protective equipment gown			new term (NOT for OMIT). OBI?																		
+ENVO_00002018	environmental material	Sewage													SEWAGE		sewage																								
+ENVO_01000990	environmental material	Sink													SINK		sink fixture			sink																					
+ENVO_00001998	environmental material	Soil													SOIL		soil																								
+	environmental material	Stainless steel													STAINLESS_STEEL								new term for ENVO. Don't use OMIT_0014071 - it is a quality!																		
+	environmental material	Tissue paper													TISSUE_PAPER		tissue paper	Soft paper used for various purposes such as cleaning or as toilet tissue.	https://www.dictionary.com/browse/tissue				new term for ENVO																		
+	environmental material	Toilet bowl													TOILET_BOWL		Toilet bowl	The bowl of a toilet that can be flushed with water, used for defecation and urination.	https://www.thefreedictionary.com/toilet+bowl				new term																		
+ENVO_00002006	environmental material	Water													WATER		water						CHEBI_15377 is not the best term - its referencing a chemical compound.  BEST use ENVO: ENVO_00002006 which is environmental water																		
+	environmental material	     Wastewater													WASTEWATER																										
+	environmental material	Window													WINDOW		Window	An opening in the wall or roof of a building or vehicle that is fitted with glass or other transparent material in a frame to admit light or air and allow people to see out.	https://www.lexico.com/en/definition/window				new term. existing usages of "window" are different.																		
+ENVO:00002040	environmental material	Wood													WOOD		wood	The hard fibrous material that forms the main substance of the trunk or branches of a tree or shrub, used for fuel or timber.	https://www.lexico.com/en/definition/wood				add definition																		
 																																									
-	environmental site	Acute care facility													PH_ENVIRONMENTAL_SITE:ACUTE_CARE_FACILITY		Acute care facility	A facility where a patient receives active but short-term treatment for a severe injury or episode of illness, an urgent medical condition, or during recovery from surgery.	https://en.wikipedia.org/wiki/Acute_care		building	ENVO_00000073	new term. this should be parental term for hospital, urgent care facility, ambulatory care facility 																		
-ENVO:00003040	environmental site	Animal house													PH_ENVIRONMENTAL_SITE:ANIMAL_HOUSE		animal house	this defintion is too vague. suggest: Any kind of shelter, refuge affording protection to animals.	https://www.eionet.europa.eu/gemet/en/concept/428				add better def?																		
-ENVO:01000422	environmental site	Bathroom													PH_ENVIRONMENTAL_SITE:BATHROOM		bathroom																								
-	environmental site	Clinical assessment centre													PH_ENVIRONMENTAL_SITE:CLINICAL_ASSESSMENT_						building	ENVO_00000073																			
-	environmental site	Conference venue													PH_ENVIRONMENTAL_SITE:CONFERENCE_VENUE			The building where a conference is held.	Emma		building	ENVO_00000073	new term																		
-ENVO REQUEST	environmental site	Corridor													PH_ENVIRONMENTAL_SITE:CORRIDOR		building corridor	A long passage in a building from which doors lead into rooms.	https://www.lexico.com/en/definition/corridor	hallway, broader: hall, passage	building part	ENVO:01000420	"new term.
+	environmental site	Acute care facility													ACUTE_CARE_FACILITY		Acute care facility	A facility where a patient receives active but short-term treatment for a severe injury or episode of illness, an urgent medical condition, or during recovery from surgery.	https://en.wikipedia.org/wiki/Acute_care		building	ENVO_00000073	new term. this should be parental term for hospital, urgent care facility, ambulatory care facility 																		
+ENVO:00003040	environmental site	Animal house													ANIMAL_HOUSE		animal house	this defintion is too vague. suggest: Any kind of shelter, refuge affording protection to animals.	https://www.eionet.europa.eu/gemet/en/concept/428				add better def?																		
+ENVO:01000422	environmental site	Bathroom													BATHROOM		bathroom																								
+	environmental site	Clinical assessment centre													CLINICAL_ASSESSMENT_						building	ENVO_00000073																			
+	environmental site	Conference venue													CONFERENCE_VENUE			The building where a conference is held.	Emma		building	ENVO_00000073	new term																		
+ENVO REQUEST	environmental site	Corridor													CORRIDOR		building corridor	A long passage in a building from which doors lead into rooms.	https://www.lexico.com/en/definition/corridor	hallway, broader: hall, passage	building part	ENVO:01000420	"new term.
 2020-07-14 - Moved from 'environmental material' to 'environmental site'/'environmental feature'
 Moved 'hall' to broader synonym since it is not an exact synonym."																		
-ENVO_01000927	environmental site	Daycare													PH_ENVIRONMENTAL_SITE:DAYCARE		day care building			daycare 			add synonym																		
-NCIT_C53513	environmental site	Emergency room (ER)													PH_ENVIRONMENTAL_SITE:EMERGENCY_ROOM_ER		Emergency Room			ER, 	building	ENVO_00000073	missing in genepio. should be housed in envo.																		
-	environmental site	Family practice clinic													PH_ENVIRONMENTAL_SITE:FAMILY_PRACTICE_CLIN		Family practice clinic	A clinic where family physicians deliver a range of acute, chronic and preventive medical care services.	https://en.wikipedia.org/wiki/Family_medicine	family care clinic, general practice clinic, family medicine clinic, general medicine clinic	building	ENVO_00000073	new term.																		
-	environmental site	Group home													PH_ENVIRONMENTAL_SITE:GROUP_HOME		Group home	A residential facility with the purpose of housing multiple residents with particular care needs.	https://en.wikipedia.org/wiki/Group_home		building	ENVO_00000073	new term.  																		
-	environmental site	Homeless shelter													PH_ENVIRONMENTAL_SITE:HOMELESS_SHELTER		Homeless shelter	A type of homeless service agency which provide temporary residence for homeless individuals and families. 	https://en.wikipedia.org/wiki/Homeless_shelter		building	ENVO_00000073	new term 																		
-OBI_0000844	environmental site	Hospital													PH_ENVIRONMENTAL_SITE:HOSPITAL		hospital				building	ENVO_00000073																			
-NCIT_C53511	environmental site	Intensive Care Unit (ICU)													PH_ENVIRONMENTAL_SITE:INTENSIVE_CARE_UNIT_		Intensive Care Unit				building	ENVO_00000073	missing in genepio. should be housed in envo.																		
-GENEPIO_0001035	environmental site	Long Term Care Facility													PH_ENVIRONMENTAL_SITE:LONG_TERM_CARE_FACIL		long term care facility			LTC, LTCF, Long-Term Care Facility	building	ENVO_00000073	add synonyms, need new parental term (see below for details)																		
-	environmental site	Patient room													PH_ENVIRONMENTAL_SITE:PATIENT_ROOM		Patient room / or examination room? or patient bed area?	Room occupied by one or more individuals during a stay in a health facility.	http://www.reference.md/files/D010/mD010362.html				new term																		
-ENVO_01001481	environmental site	Prison													PH_ENVIRONMENTAL_SITE:PRISON		public prision	A facility in which inmates (or prisoners) are forcibly confined and denied a variety of freedoms under the authority of the state.	https://en.wikipedia.org/wiki/Prison	correctional facility, penitentiary, detention center, detention centre, correctional center, correctional centre, lock-up, remand center, remand centre; broad synonym  jail, gaol 	building	ENVO_00000073	new term. <- Why? envo has "public prision" ENVO_01001481. term is misspelled. <- put in an ISSUES request to ENVO to fix spelling.																		
-ENVO_01000536	environmental site	Production Facility													PH_ENVIRONMENTAL_SITE:PRODUCTION_FACILITY		Factory			Production Facility	building	ENVO_00000073	add synonym. food production facility (currently under "building" should go under "factory" as it's a type of factory)																		
-NCIT_C17118	environmental site	School													PH_ENVIRONMENTAL_SITE:SCHOOL		School				building	ENVO_00000073	not in genepio																		
-	environmental site	Sewage Plant													PH_ENVIRONMENTAL_SITE:SEWAGE_PLANT																										
-	environmental site	Subway train													PH_ENVIRONMENTAL_SITE:SUBWAY_TRAIN		Subway train	A type of high-capacity public transport generally found in urban areas.	https://en.wikipedia.org/wiki/Rapid_transit	subway, rapid transit, metro, heavy rail	train	PCO_1001178	new term in ENVO																		
-	environmental site	Wet market													PH_ENVIRONMENTAL_SITE:WET_MARKET		Wet market	A marketplace selling fresh meat, fish, produce, and other perishable goods as distinguished from "dry markets" that sell durable goods such as fabric and electronics. Not all wet markets sell live animals, but the term wet market is sometimes used to signify a live animal market in which vendors slaughter animals upon customer purchase.	https://en.wikipedia.org/wiki/Wet_market		market	GENEPIO_0001022	new term																		
+ENVO_01000927	environmental site	Daycare													DAYCARE		day care building			daycare 			add synonym																		
+NCIT_C53513	environmental site	Emergency room (ER)													EMERGENCY_ROOM_ER		Emergency Room			ER, 	building	ENVO_00000073	missing in genepio. should be housed in envo.																		
+	environmental site	Family practice clinic													FAMILY_PRACTICE_CLIN		Family practice clinic	A clinic where family physicians deliver a range of acute, chronic and preventive medical care services.	https://en.wikipedia.org/wiki/Family_medicine	family care clinic, general practice clinic, family medicine clinic, general medicine clinic	building	ENVO_00000073	new term.																		
+	environmental site	Group home													GROUP_HOME		Group home	A residential facility with the purpose of housing multiple residents with particular care needs.	https://en.wikipedia.org/wiki/Group_home		building	ENVO_00000073	new term.  																		
+	environmental site	Homeless shelter													HOMELESS_SHELTER		Homeless shelter	A type of homeless service agency which provide temporary residence for homeless individuals and families. 	https://en.wikipedia.org/wiki/Homeless_shelter		building	ENVO_00000073	new term 																		
+OBI_0000844	environmental site	Hospital													HOSPITAL		hospital				building	ENVO_00000073																			
+NCIT_C53511	environmental site	Intensive Care Unit (ICU)													INTENSIVE_CARE_UNIT_		Intensive Care Unit				building	ENVO_00000073	missing in genepio. should be housed in envo.																		
+GENEPIO_0001035	environmental site	Long Term Care Facility													LONG_TERM_CARE_FACIL		long term care facility			LTC, LTCF, Long-Term Care Facility	building	ENVO_00000073	add synonyms, need new parental term (see below for details)																		
+	environmental site	Patient room													PATIENT_ROOM		Patient room / or examination room? or patient bed area?	Room occupied by one or more individuals during a stay in a health facility.	http://www.reference.md/files/D010/mD010362.html				new term																		
+ENVO_01001481	environmental site	Prison													PRISON		public prision	A facility in which inmates (or prisoners) are forcibly confined and denied a variety of freedoms under the authority of the state.	https://en.wikipedia.org/wiki/Prison	correctional facility, penitentiary, detention center, detention centre, correctional center, correctional centre, lock-up, remand center, remand centre; broad synonym  jail, gaol 	building	ENVO_00000073	new term. <- Why? envo has "public prision" ENVO_01001481. term is misspelled. <- put in an ISSUES request to ENVO to fix spelling.																		
+ENVO_01000536	environmental site	Production Facility													PRODUCTION_FACILITY		Factory			Production Facility	building	ENVO_00000073	add synonym. food production facility (currently under "building" should go under "factory" as it's a type of factory)																		
+NCIT_C17118	environmental site	School													SCHOOL		School				building	ENVO_00000073	not in genepio																		
+	environmental site	Sewage Plant													SEWAGE_PLANT																										
+	environmental site	Subway train													SUBWAY_TRAIN		Subway train	A type of high-capacity public transport generally found in urban areas.	https://en.wikipedia.org/wiki/Rapid_transit	subway, rapid transit, metro, heavy rail	train	PCO_1001178	new term in ENVO																		
+	environmental site	Wet market													WET_MARKET		Wet market	A marketplace selling fresh meat, fish, produce, and other perishable goods as distinguished from "dry markets" that sell durable goods such as fabric and electronics. Not all wet markets sell live animals, but the term wet market is sometimes used to signify a live animal market in which vendors slaughter animals upon customer purchase.	https://en.wikipedia.org/wiki/Wet_market		market	GENEPIO_0001022	new term																		
 																																									
-NCIT:C52009	collection method	Amniocentesis													COLLECTION_METHOD:AMNIOCENTESIS		Amniocentesis				collecting specimen from organism	OBI_0600005	A prenatal diagnostic sample of amniotic fluid that isn't commonly done for SARS-CoV-2 but has been done.																		
-NCIT:C15631	collection method	Aspiration													COLLECTION_METHOD:ASPIRATION		Aspiration			aspirate, narrower: fine needle aspiration, nasopharyngeal aspiration, tracheal aspiration, endotracheal aspirate	collecting specimen from organism	OBI_0600005																			
-	Aspiration	     Suprapubic Aspiration													COLLECTION_METHOD:SUPRAPUBIC_ASPIRATIO																										
-	Aspiration	     Tracheal aspiration													COLLECTION_METHOD:TRACHEAL_ASPIRATION					TA																					
-	Aspiration	     Vacuum Aspiration													COLLECTION_METHOD:VACUUM_ASPIRATION					Suction Aspiration																					
-OBI:0002650	collection method	Biopsy													COLLECTION_METHOD:BIOPSY		Biopsy	A specimen collection that obtains a sample of tissue from a living multicellular organism body for diagnostic purposes by means intended to be minimally invasive.		narrower: needle biopsy, fine needle aspiration	collecting specimen from organism	OBI_0600005	DONE. (new term being published to OBI (damion))																		
-OBI:0002651	Biopsy	     Needle Biopsy													COLLECTION_METHOD:COLLECTION_METHOD:NEEDLE_BIOPSY		Needle Biopsy	A biopsy which uses an imaging procedure to guide a needle biopsy.																							
-	collection method	Filtration													COLLECTION_METHOD:FILTRATION																										
-	Filtration	      Air filtration													COLLECTION_METHOD:AIR_FILTRATION																										
-OBI:0600044 	collection method	Lavage													COLLECTION_METHOD:LAVAGE		lavage			narrower: bronchoalveolar lavage (BAL), gastric lavage	collecting specimen from organism	OBI_0600005	Changed "Wash" to "Lavage". "editor note: This is not washing, in which case the material of interest is not the resulting fluid."																		
-BTO:0000155	Lavage	     Bronchoalveolar lavage (BAL)													COLLECTION_METHOD:BAL		bronchoalveolar lavage (bal)				OBI_0600044 	lavage																			
-	Lavage	     Gastric Lavage													COLLECTION_METHOD:GASTRIC_LAVAGE								copy from OMIT_0006951																		
-NCIT:C15327	collection method	Lumbar Puncture													COLLECTION_METHOD:LUMBAR_PUNCTURE		Lumbar Puncture			spinal tap, LP	collecting specimen from organism	OBI_0600005	Existing synonyms are from current master GenEpiO branch and will not appear on Onto browsers.																		
-MMO:0000344	collection method	Necropsy													COLLECTION_METHOD:NECROPSY		necropsy			autopsy (although usually only in reference to an animal).	collecting specimen from organism	OBI_0600005	"Should this term be included in this category? It's not so much a ""method"" as an examination that occured postmortem. 
+NCIT:C52009	collection method	Amniocentesis													AMNIOCENTESIS		Amniocentesis				collecting specimen from organism	OBI_0600005	A prenatal diagnostic sample of amniotic fluid that isn't commonly done for SARS-CoV-2 but has been done.																		
+NCIT:C15631	collection method	Aspiration													ASPIRATION		Aspiration			aspirate, narrower: fine needle aspiration, nasopharyngeal aspiration, tracheal aspiration, endotracheal aspirate	collecting specimen from organism	OBI_0600005																			
+	Aspiration	     Suprapubic Aspiration													SUPRAPUBIC_ASPIRATIO																										
+	Aspiration	     Tracheal aspiration													TRACHEAL_ASPIRATION					TA																					
+	Aspiration	     Vacuum Aspiration													VACUUM_ASPIRATION					Suction Aspiration																					
+OBI:0002650	collection method	Biopsy													BIOPSY		Biopsy	A specimen collection that obtains a sample of tissue from a living multicellular organism body for diagnostic purposes by means intended to be minimally invasive.		narrower: needle biopsy, fine needle aspiration	collecting specimen from organism	OBI_0600005	DONE. (new term being published to OBI (damion))																		
+OBI:0002651	Biopsy	     Needle Biopsy													NEEDLE_BIOPSY		Needle Biopsy	A biopsy which uses an imaging procedure to guide a needle biopsy.																							
+	collection method	Filtration													FILTRATION																										
+	Filtration	      Air filtration													AIR_FILTRATION																										
+OBI:0600044 	collection method	Lavage													LAVAGE		lavage			narrower: bronchoalveolar lavage (BAL), gastric lavage	collecting specimen from organism	OBI_0600005	Changed "Wash" to "Lavage". "editor note: This is not washing, in which case the material of interest is not the resulting fluid."																		
+BTO:0000155	Lavage	     Bronchoalveolar lavage (BAL)													BAL		bronchoalveolar lavage (bal)				OBI_0600044 	lavage																			
+	Lavage	     Gastric Lavage													GASTRIC_LAVAGE								copy from OMIT_0006951																		
+NCIT:C15327	collection method	Lumbar Puncture													LUMBAR_PUNCTURE		Lumbar Puncture			spinal tap, LP	collecting specimen from organism	OBI_0600005	Existing synonyms are from current master GenEpiO branch and will not appear on Onto browsers.																		
+MMO:0000344	collection method	Necropsy													NECROPSY		necropsy			autopsy (although usually only in reference to an animal).	collecting specimen from organism	OBI_0600005	"Should this term be included in this category? It's not so much a ""method"" as an examination that occured postmortem. 
 
 Also, what if someone did a postmortem biopsy - can they put in both ""Necropsy"" and ""Biopsy"" or would they have to choose between the two?
 
 I think it's a useful term and should go somewhere, just perhaps not under ""collection method"". Should we (or do we already have) something along the lines of ""host condition"" at time of examination/sample collection?"																		
-NCIT:c28221	collection method	Phlebotomy													COLLECTION_METHOD:PHLEBOTOMY		phlebotomy			narrower: venipuncture	collecting specimen from organism	OBI_0600005																			
-GENEPIO:0002116	collection method	Rinsing													COLLECTION_METHOD:RINSING		rinsing for specimen collection				collecting specimen from organism	OBI_0600005	 "editor note: This is not washing, in which case the material of interest is not the resulting fluid."																		
+NCIT:c28221	collection method	Phlebotomy													PHLEBOTOMY		phlebotomy			narrower: venipuncture	collecting specimen from organism	OBI_0600005																			
+GENEPIO:0002116	collection method	Rinsing													RINSING		rinsing for specimen collection				collecting specimen from organism	OBI_0600005	 "editor note: This is not washing, in which case the material of interest is not the resulting fluid."																		
 	Rinsing	     Saline gargle (mouth rinse and gargle)																																							
-	collection method	Scraping													COLLECTION_METHOD:SCRAPING					narrower: conjunctival scraping, skin scraping																					
-GENEPIO:0002117	collection method	Swabbing													COLLECTION_METHOD:SWABBING		swabbing for specimen collection'			narrower: nasopharyngeal (nasal) swab, oropharyngeal (throat) swab, depe nasal swab, throat swab, multitest swab, deep nasal or throat swab	collecting specimen from organism	OBI_0600005	As in "to swab" not "a swab". Alternative name suggestion: "Swabbing"																		
-	Swabbing	     Finger Prick													COLLECTION_METHOD:FINGER_PRICK								Is a "swab method" (ref. "other" column).	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2395662/																	
-	collection method	Wash													COLLECTION_METHOD:WASH		wash specimen			narrower: nasal wash, nasopharyngeal wash, bronch wash			Could use http://purl.obolibrary.org/obo/GENEPIO_0002116 and add as ExactSynonym.																		
-	collection method	Washout Tear Collection													COLLECTION_METHOD:WASHOUT								Not sure if this is considered a narrower synonym of "wash".																		
+	collection method	Scraping													SCRAPING					narrower: conjunctival scraping, skin scraping																					
+GENEPIO:0002117	collection method	Swabbing													SWABBING		swabbing for specimen collection'			narrower: nasopharyngeal (nasal) swab, oropharyngeal (throat) swab, depe nasal swab, throat swab, multitest swab, deep nasal or throat swab	collecting specimen from organism	OBI_0600005	As in "to swab" not "a swab". Alternative name suggestion: "Swabbing"																		
+	Swabbing	     Finger Prick													FINGER_PRICK								Is a "swab method" (ref. "other" column).	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2395662/																	
+	collection method	Wash													WASH		wash specimen			narrower: nasal wash, nasopharyngeal wash, bronch wash			Could use http://purl.obolibrary.org/obo/GENEPIO_0002116 and add as ExactSynonym.																		
+	collection method	Washout Tear Collection													WASHOUT								Not sure if this is considered a narrower synonym of "wash".																		
 																																									
 																																									
-	collection device	Air filter													PH_SPECIMEN_TYPE_ORIG:AIR_FILTER																										
-NCIT:C113122	collection device	Blood Collection Tube													PH_SPECIMEN_TYPE_ORIG:BLOOD_TUBE		Blood Collection Tube			narrower: vacutainer				https://en.wikipedia.org/wiki/Vacutainer#Types_of_tubes																	
-NCIT:C17611 	collection device	Bronchoscope													PH_SPECIMEN_TYPE_ORIG:BRONCHOSCOPE		Bronchoscope				Endoscope Device	NCIT_C49940 	Used in transbronchial biopsies (e.g. tiny forceps), bronchoalveolar lavage, and brush bopsies (e.g. fibrobronchoscope brush, endobronchoscope brush). Should add these subclasses as well.																		
-	collection device	Collection Container													PH_SPECIMEN_TYPE_ORIG:CONTAINER					narrower: collection tube, collection bottle, collectoin cup			Should we have a universal "collection tube" as well as or rather than the narrower terms below?																		
-	collection device	Collection Cup													PH_SPECIMEN_TYPE_ORIG:CUP																										
-	collection device	Fibrobronchoscope Brush													PH_SPECIMEN_TYPE_ORIG:BRUSH																										
-	collection device	Filter													PH_SPECIMEN_TYPE_ORIG:FILTER																										
-	collection device	Fine Needle													PH_SPECIMEN_TYPE_ORIG:FINE_NEEDLE								"As in ""fine needle aspiration"".
+	collection device	Air filter													AIR_FILTER																										
+NCIT:C113122	collection device	Blood Collection Tube													BLOOD_TUBE		Blood Collection Tube			narrower: vacutainer				https://en.wikipedia.org/wiki/Vacutainer#Types_of_tubes																	
+NCIT:C17611 	collection device	Bronchoscope													BRONCHOSCOPE		Bronchoscope				Endoscope Device	NCIT_C49940 	Used in transbronchial biopsies (e.g. tiny forceps), bronchoalveolar lavage, and brush bopsies (e.g. fibrobronchoscope brush, endobronchoscope brush). Should add these subclasses as well.																		
+	collection device	Collection Container													CONTAINER					narrower: collection tube, collection bottle, collectoin cup			Should we have a universal "collection tube" as well as or rather than the narrower terms below?																		
+	collection device	Collection Cup													CUP																										
+	collection device	Fibrobronchoscope Brush													BRUSH																										
+	collection device	Filter													FILTER																										
+	collection device	Fine Needle													FINE_NEEDLE								"As in ""fine needle aspiration"".
 
 Device used to generate sample, is it used to ""collect"" the sample?"																		
-	collection device	Microcapillary tube													PH_SPECIMEN_TYPE_ORIG:MICROCAPILLARY_TUBE					MCT																					
-OBI:0001128	collection device	Micropipette													PH_SPECIMEN_TYPE_ORIG:MICROPIPETTE																										
-OBI:0000436	collection device	Needle													PH_SPECIMEN_TYPE_ORIG:NEEDLE								Device used to generate sample, is it used to "collect" the sample?																		
-NCIT:C113675 	collection device	Serum Collection Tube													PH_SPECIMEN_TYPE_ORIG:SERUM_TUBE		Serum Collection Tube			Red Top Tube			"Red Top Tube" is technically a narrower synonym, as there are more colours for different methods of isolating the serum (e.g. clot activator + serum seperation gel, clot activator no gel, thrombin)	https://en.wikipedia.org/wiki/Vacutainer#Types_of_tubes																	
-	collection device	Sputum Collection Tube													PH_SPECIMEN_TYPE_ORIG:SPUTUM_TUBE																										
-	collection device	Suction Catheter													PH_SPECIMEN_TYPE_ORIG:SUCTION_CATHETER																										
-NCIT:c17627	collection device	Swab													PH_SPECIMEN_TYPE_ORIG:SWAB		swab			narrower: swab (flocked tapered), swab (spun polyester), swab (synthetic fiber), swab (wire shaft), swab (plastic shaft), swab (wooden shaft), swab (calcium alginate)			Fun fact, calcium alginate swabs or swabs with wooden shafts may contain substances that inactivate some viruses.																		
-	collection device	Urine Collection Tube													PH_SPECIMEN_TYPE_ORIG:URINE_TUBE					Urine specimen tube			Under consideration.																		
-	collection device	Virus Transport Medium													PH_SPECIMEN_TYPE_ORIG:TRANSPORT_MEDIUM					viral transport medium			"Not sure if this belongs here or if it should be included at all. Included it just in case.
+	collection device	Microcapillary tube													MICROCAPILLARY_TUBE					MCT																					
+OBI:0001128	collection device	Micropipette													MICROPIPETTE																										
+OBI:0000436	collection device	Needle													NEEDLE								Device used to generate sample, is it used to "collect" the sample?																		
+NCIT:C113675 	collection device	Serum Collection Tube													SERUM_TUBE		Serum Collection Tube			Red Top Tube			"Red Top Tube" is technically a narrower synonym, as there are more colours for different methods of isolating the serum (e.g. clot activator + serum seperation gel, clot activator no gel, thrombin)	https://en.wikipedia.org/wiki/Vacutainer#Types_of_tubes																	
+	collection device	Sputum Collection Tube													SPUTUM_TUBE																										
+	collection device	Suction Catheter													SUCTION_CATHETER																										
+NCIT:c17627	collection device	Swab													SWAB		swab			narrower: swab (flocked tapered), swab (spun polyester), swab (synthetic fiber), swab (wire shaft), swab (plastic shaft), swab (wooden shaft), swab (calcium alginate)			Fun fact, calcium alginate swabs or swabs with wooden shafts may contain substances that inactivate some viruses.																		
+	collection device	Urine Collection Tube													URINE_TUBE					Urine specimen tube			Under consideration.																		
+	collection device	Virus Transport Medium													TRANSPORT_MEDIUM					viral transport medium			"Not sure if this belongs here or if it should be included at all. Included it just in case.
 
 Could also include other transport mediums, such as: Amies Transport Medium, Sterile Saline / Non-Bacteriostatic Saline"																		
 																																									
@@ -707,16 +719,16 @@ NCBITaxon_9825	host (scientific name)	Sus scrofa domesticus															Sus sc
 NCBITaxon_9673	host (scientific name)	Viverridae															Viverridae			civet cats, civets			Changed Onto ID from NCBITaxon_379583 (Feliformia) to NCBITaxon_9673 (Viverridae)																		
 																																									
 																																									
-NCBITaxon_9605	host (common name)	Human													PH_ANIMAL_TYPE:HUMAN		homo			homo sapien			Do we want the scientific and host "human" to lead to different terms? Or both homo or homo sapiens																		
-NCBITaxon_9397	host (common name)	Bat													PH_ANIMAL_TYPE:BAT		Chiroptera			Chiroptera																					
+NCBITaxon_9605	host (common name)	Human													HUMAN		homo			homo sapien			Do we want the scientific and host "human" to lead to different terms? Or both homo or homo sapiens																		
+NCBITaxon_9397	host (common name)	Bat													BAT		Chiroptera			Chiroptera																					
 NCBITaxon_9685	host (common name)	Cat															Felis catus			Felis catus, domestic cat																					
 NCBITaxon_9031	host (common name)	Chicken															Gallus gallus			Gallus gallus																					
-NCBITaxon_9673	host (common name)	Civets													PH_ANIMAL_TYPE:CIVETS		Viverridae			Viverridae, civet cat			Changed Onto ID from NCBITaxon_379583 (Feliformia) to NCBITaxon_9673 (Viverridae)																		
+NCBITaxon_9673	host (common name)	Civets													CIVETS		Viverridae			Viverridae, civet cat			Changed Onto ID from NCBITaxon_379583 (Feliformia) to NCBITaxon_9673 (Viverridae)																		
 NCBITaxon_9913	host (common name)	Cow												bovine			Bos taurus			Bos taurus, cattle			Labeled as "bovine" in CNPHI.																		
 NCBITaxon_9615 	host (common name)	Dog															Canis lupus familiaris			Canis lupus familiaris																					
-NCBITaxon_9689	host (common name)	Lion													PH_ANIMAL_TYPE:LION		Panthera leo			Panthera leo																					
+NCBITaxon_9689	host (common name)	Lion													LION		Panthera leo			Panthera leo																					
 	host (common name)	Mink																																							
-NCBITaxon_9973	host (common name)	Pangolin													PH_ANIMAL_TYPE:PANGOLIN		Manis			Manis																					
+NCBITaxon_9973	host (common name)	Pangolin													PANGOLIN		Manis			Manis																					
 NCBITaxon_9823	host (common name)	Pig												porcine			pig			Sus scrofa domesticus, swine			"Unlike other entries where the scienfic and common name entries are the same, ""pig"" has a separate entry that is well used apart from its scientific entry.
 
 Labeled as ""porcine"" in CNPHI."																		
@@ -724,20 +736,20 @@ NCBITaxon_8930	host (common name)	Pigeon															Columbidae			Columbidae
 NCBITaxon_9694	host (common name)	Tiger															Panthera tigris			Panthera tigris																					
 																																									
 																																									
-	host health state	Asymptomatic													PH_HOST_HEALTH:ASYMPTOMATIC																										
-	host health state	Deceased													PH_HOST_HEALTH:DECEASED																										
-	host health state	Healthy													PH_HOST_HEALTH:HEALTHY								Is this refering to cases that were never ill to begin with? Otherwise how is this differentiated from recovered?																		
-	host health state	Recovered													PH_HOST_HEALTH:RECOVERED																										
-	host health state	Symptomatic													PH_HOST_HEALTH:SYMPTOMATIC																										
+	host health state	Asymptomatic													ASYMPTOMATIC																										
+	host health state	Deceased													DECEASED																										
+	host health state	Healthy													HEALTHY								Is this refering to cases that were never ill to begin with? Otherwise how is this differentiated from recovered?																		
+	host health state	Recovered													RECOVERED																										
+	host health state	Symptomatic													SYMPTOMATIC																										
 																																									
 																																									
-	host health status details	Hospitalized													PH_HOST_HEALTH_DETAILS:HOSPITALIZED																										
-	Hospitalized	      Hospitalized (Non-ICU)													PH_HOST_HEALTH_DETAILS:NON_ICU								Could use NCIT_C3833																		
-	Hospitalized	      Hospitalized (ICU)													PH_HOST_HEALTH_DETAILS:ICU																										
-	host health status details	Mechanical Ventilation													PH_HOST_HEALTH_DETAILS:VENTILATION																										
-	host health status details	Medically Isolated													PH_HOST_HEALTH_DETAILS:ISOLATED																										
-	Medically Isolated	      Medically Isolated (Negative Pressure)													PH_HOST_HEALTH_DETAILS:ISOLATED_NEGATIVE_PR																										
-	host health status details	Self-quarantining													PH_HOST_HEALTH_DETAILS:SELF_QUARANTINING																										
+	host health status details	Hospitalized													HOSPITALIZED																										
+	Hospitalized	      Hospitalized (Non-ICU)													NON_ICU								Could use NCIT_C3833																		
+	Hospitalized	      Hospitalized (ICU)													ICU																										
+	host health status details	Mechanical Ventilation													VENTILATION																										
+	host health status details	Medically Isolated													ISOLATED																										
+	Medically Isolated	      Medically Isolated (Negative Pressure)													ISOLATED_NEGATIVE_PR																										
+	host health status details	Self-quarantining													SELF_QUARANTINING																										
 																																									
 	host health outcome	Deceased																																							
 	host health outcome	Deteriorating																																							
@@ -893,21 +905,21 @@ RRID: CVCL_YQ49"
 	host age bin	90 - 99																																							
 	host age bin	100+																																							
 																																									
-OMRSE:00000009?	host gender	Female													VD_SEX:MALE								Could use 'female gender role' from OMRSE																		
-OMRSE:00000008?	host gender	Male													VD_SEX:FEMALE								Could use 'male gender role' from OMRSE																		
-	host gender	Non-binary gender													VD_SEX:NON_BINARY_GENDER								Could request new term under OMRSE 'gender role'																		
-	host gender	Transgender (Male to Female)													VD_SEX:TRANSGENDER								Could request new term under OMRSE 'gender role'																		
-	host gender	Transgender (Female to Male)													VD_SEX:TRANSGENDER																										
-	host gender	Undeclared													VD_SEX:REFUSED																										
-	host gender	Unknown													VD_SEX:UNKNOWN																										
+OMRSE:00000009?	host gender	Female													MALE								Could use 'female gender role' from OMRSE																		
+OMRSE:00000008?	host gender	Male													FEMALE								Could use 'male gender role' from OMRSE																		
+	host gender	Non-binary gender													NON_BINARY_GENDER								Could request new term under OMRSE 'gender role'																		
+	host gender	Transgender (Male to Female)													TRANSGENDER								Could request new term under OMRSE 'gender role'																		
+	host gender	Transgender (Female to Male)													TRANSGENDER																										
+	host gender	Undeclared													REFUSED																										
+	host gender	Unknown													UNKNOWN																										
 																																									
 	exposure event	Mass Gathering																																							
-	Mass Gathering	      Convention													PH_EXPOSURE:CONVENTION																										
+	Mass Gathering	      Convention													CONVENTION																										
 	Mass Gathering	      Convocation																					Added 2020/14/03																		
 	Mass Gathering	      Agricultural Event																																							
-	exposure event	Religious Gathering													PH_EXPOSURE:RELIGIOUS																										
+	exposure event	Religious Gathering													RELIGIOUS																										
 	Religious Gathering	      Mass																																							
-	exposure event	Social Gathering													PH_EXPOSURE:SOCIAL																										
+	exposure event	Social Gathering													SOCIAL																										
 	Social Gathering	      Baby Shower																					Added 2020/14/03																		
 	Social Gathering	      Community Event																					Added 2020/14/03																		
 	Social Gathering	      Family Gathering																																							
@@ -1071,7 +1083,7 @@ GENEPIO_0001935	Ion Torrent	   Ion Torrent PGM															ion torrent pgm
 	MGI	DNBSEQ-G50																																							
 																																									
 																																									
-PR:P0DTC4	gene name 1	E gene (orf4)												E gene	RESULT - CANCOGEN_SUBMITTED_RESLT_1:E gene		envelope small membrane protein (SARS-CoV-2)			sM protein (SARS2), envelope protein (SARS2), PRO_0000449651, E protein (SARS2), E (SARS2), ORF4, GU280_gp04, E	severe acute respiratory syndrome coronavirus 2 protein	PR:000050262																			
+PR:P0DTC4	gene name 1	E gene (orf4)												E gene	E gene		envelope small membrane protein (SARS-CoV-2)			sM protein (SARS2), envelope protein (SARS2), PRO_0000449651, E protein (SARS2), E (SARS2), ORF4, GU280_gp04, E	severe acute respiratory syndrome coronavirus 2 protein	PR:000050262																			
 PR:P0DTC5	gene name 1	M gene (orf5)															membrane protein (SARS-CoV-2)			E1 glycoprotein (SARS2), membrane glycoprotein (SARS2), PRO_0000449652, matrix glycoprotein (SARS2), M (SARS2), M protein (SARS2), GU280_gp05, ORF5	severe acute respiratory syndrome coronavirus 2 protein	PR:000050262																			
 PR:P0DTC9	gene name 1	N gene (orf9)															nucleoprotein (SARS-CoV-2)			protein N (SARS2), nucleocapsid protein (SARS2), NC (SARS2), PRO_0000449656, N (SARS2), GU280_gp10, ORF9, N, ORF9a, nucleocapsi phosphoprotein	severe acute respiratory syndrome coronavirus 2 protein	PR:000050262																			
 PR:P0DTC2	gene name 1	Spike gene (orf2)															spike glycoprotein (SARS-CoV-2)			peplomer protein (SARS2), surface glycoprotein (SARS2), S glycoprotein (SARS2), S (SARS2), E2 (SARS2), S, GU280_gp02, ORF2, ORF-2 narrower: spike protein S1, spike protein S2	severe acute respiratory syndrome coronavirus 2 protein	PR:000050262	There are additional proteins in this category that have their signal peptide removed, but did not include entries for them as they seemed too narrow. 																		
@@ -1106,27 +1118,27 @@ PR:A0A663DJA2	gene name 1	orf10															ORF10 protein (SARS-CoV-2)			ORF10
 	gene name 1	SARS-COV-2 5' UTR																																							
 																																									
 																																									
-	sequence submitted by	National Microbiology Laboratory (NML)													PH_SEQUENCING_CENTRE:NML																										
-	sequence submitted by	BCCDC Public Health Laboratory													PH_SEQUENCING_CENTRE:BCCDC																										
+	sequence submitted by	National Microbiology Laboratory (NML)													NML																										
+	sequence submitted by	BCCDC Public Health Laboratory													BCCDC																										
 	sequence submitted by	Alberta Precision Labs (APL)																																							
-	Alberta Precision Labs (APL)	Alberta ProvLab North (APLN)													PH_SEQUENCING_CENTRE:APL-E																										
-	Alberta Precision Labs (APL)	Alberta ProvLab South (APLS)													PH_SEQUENCING_CENTRE:APL-C																										
-	sequence submitted by	Public Health Ontario (PHO)													PH_SEQUENCING_CENTRE:PHO																										
-	sequence submitted by	Laboratoire de santé publique du Québec (LSPQ)													PH_SEQUENCING_CENTRE:LSPQ																										
-	sequence submitted by	Saskatchewan - Roy Romanow Provincial Laboratory (RRPL)													PH_SEQUENCING_CENTRE:RRPL																										
-	sequence submitted by	Manitoba Cadham Provincial Laboratory													PH_SEQUENCING_CENTRE:CADHAM																										
-	sequence submitted by	Nova Scotia Health Authority													PH_SEQUENCING_CENTRE:NS_QE_II																										
-	sequence submitted by	New Brunswick - Vitalité Health Network													PH_SEQUENCING_CENTRE:GEORGES_L_DUMONT																										
-	sequence submitted by	Newfoundland and Labrador - Eastern Health													PH_SEQUENCING_CENTRE:EASTERN_HEALTH																										
-	sequence submitted by	Prince Edward Island - Health PEI													PH_SEQUENCING_CENTRE:PEI																										
-	sequence submitted by	Ontario Institute for Cancer Research (OICR)													PH_SEQUENCING_CENTRE:OICR																										
-	sequence submitted by	McMaster University													PH_SEQUENCING_CENTRE:MCMASTER																										
-	sequence submitted by	McGill University													PH_SEQUENCING_CENTRE:MCGILL																										
-	sequence submitted by	The Centre for Applied Genomics (TCAG)													PH_SEQUENCING_CENTRE:TCAG																										
-	sequence submitted by	Sunnybrook Health Sciences Centre													PH_SEQUENCING_CENTRE:SUNNYBROOK																										
-	sequence submitted by	Thunder Bay Regional Health Sciences Centre													PH_SEQUENCING_CENTRE:THUNDER_BAY																										
-	sequence submitted by	Canadore College													PH_SEQUENCING_CENTRE:CANADORE																										
-	sequence submitted by	Queen’s University / Kingston Health Sciences Centre													PH_SEQUENCING_CENTRE:QUEENS_UNIV																										
+	Alberta Precision Labs (APL)	Alberta ProvLab North (APLN)													APL-E																										
+	Alberta Precision Labs (APL)	Alberta ProvLab South (APLS)													APL-C																										
+	sequence submitted by	Public Health Ontario (PHO)													PHO																										
+	sequence submitted by	Laboratoire de santé publique du Québec (LSPQ)													LSPQ																										
+	sequence submitted by	Saskatchewan - Roy Romanow Provincial Laboratory (RRPL)													RRPL																										
+	sequence submitted by	Manitoba Cadham Provincial Laboratory													CADHAM																										
+	sequence submitted by	Nova Scotia Health Authority													NS_QE_II																										
+	sequence submitted by	New Brunswick - Vitalité Health Network													GEORGES_L_DUMONT																										
+	sequence submitted by	Newfoundland and Labrador - Eastern Health													EASTERN_HEALTH																										
+	sequence submitted by	Prince Edward Island - Health PEI													PEI																										
+	sequence submitted by	Ontario Institute for Cancer Research (OICR)													OICR																										
+	sequence submitted by	McMaster University													MCMASTER																										
+	sequence submitted by	McGill University													MCGILL																										
+	sequence submitted by	The Centre for Applied Genomics (TCAG)													TCAG																										
+	sequence submitted by	Sunnybrook Health Sciences Centre													SUNNYBROOK																										
+	sequence submitted by	Thunder Bay Regional Health Sciences Centre													THUNDER_BAY																										
+	sequence submitted by	Canadore College													CANADORE																										
+	sequence submitted by	Queen’s University / Kingston Health Sciences Centre													QUEENS_UNIV																										
 																																									
 																																									
 																																									
@@ -1140,11 +1152,11 @@ GAZ_00001095	geo_loc_name (country)	Angola															angola
 GAZ_00009159	geo_loc_name (country)	Anguilla															anguilla																								
 GAZ_00000462	geo_loc_name (country)	Antarctica															antarctica																								
 GAZ_00006883	geo_loc_name (country)	Antigua and Barbuda															antigua and barbuda																								
-GAZ_00002928	geo_loc_name (country)	Argentina													HC_COUNTRY:ARGENTINA		argentina																								
+GAZ_00002928	geo_loc_name (country)	Argentina													ARGENTINA		argentina																								
 GAZ_00004094	geo_loc_name (country)	Armenia															armenia																								
 GAZ_00004025	geo_loc_name (country)	Aruba															aruba																								
 GAZ_00005901	geo_loc_name (country)	Ashmore and Cartier Islands															Territory of Ashmore and Cartier Islands			Territory of Ashmore and Cartier Islands																					
-GAZ_00000463	geo_loc_name (country)	Australia													HC_COUNTRY:AUSTRALIA		australia																								
+GAZ_00000463	geo_loc_name (country)	Australia													AUSTRALIA		australia																								
 GAZ_00002942	geo_loc_name (country)	Austria															austria																								
 GAZ_00004941	geo_loc_name (country)	Azerbaijan															azerbaijan																								
 GAZ_00002733	geo_loc_name (country)	Bahamas																		The Bahamas																					
@@ -1154,7 +1166,7 @@ GAZ_00003750	geo_loc_name (country)	Bangladesh															bangladesh
 GAZ_00001251	geo_loc_name (country)	Barbados															barbados																								
 GAZ_00005810	geo_loc_name (country)	Bassas da India																		Ile Bassas da India																					
 GAZ_00006886	geo_loc_name (country)	Belarus															belarus																								
-GAZ_00002938	geo_loc_name (country)	Belgium													HC_COUNTRY:BELGIUM		belgium																								
+GAZ_00002938	geo_loc_name (country)	Belgium													BELGIUM		belgium																								
 GAZ_00002934	geo_loc_name (country)	Belize															belize																								
 GAZ_00000904	geo_loc_name (country)	Benin															benin																								
 GAZ_00001264	geo_loc_name (country)	Bermuda															bermuda																								
@@ -1164,7 +1176,7 @@ GAZ_00025355	geo_loc_name (country)	Borneo															borneo
 GAZ_00006887	geo_loc_name (country)	Bosnia and Herzegovina															bosnia and herzegovina																								
 GAZ_00001097	geo_loc_name (country)	Botswana															botswana																								
 GAZ_00001453	geo_loc_name (country)	Bouvet Island															bouvet island																								
-GAZ_00002828	geo_loc_name (country)	Brazil													HC_COUNTRY:BRAZIL		brazil																								
+GAZ_00002828	geo_loc_name (country)	Brazil													BRAZIL		brazil																								
 GAZ_00003961	geo_loc_name (country)	British Virgin Islands															british virgin islands																								
 GAZ_00003901	geo_loc_name (country)	Brunei																																							
 GAZ_00002950	geo_loc_name (country)	Bulgaria															bulgaria																								
@@ -1172,21 +1184,21 @@ GAZ_00000905	geo_loc_name (country)	Burkina Faso															burkina faso
 GAZ_00001090	geo_loc_name (country)	Burundi															burundi																								
 GAZ_00006888	geo_loc_name (country)	Cambodia															cambodia																								
 GAZ_00001093	geo_loc_name (country)	Cameroon															cameroon																								
-GAZ_00002560	geo_loc_name (country)	Canada													HC_COUNTRY:CA		canada																								
+GAZ_00002560	geo_loc_name (country)	Canada													CA		canada																								
 GAZ_00001227	geo_loc_name (country)	Cape Verde															cape verde																								
 GAZ_00003986	geo_loc_name (country)	Cayman Islands															cayman islands																								
 GAZ_00001089	geo_loc_name (country)	Central African Republic															central african republic																								
 GAZ_00000586	geo_loc_name (country)	Chad															chad																								
-GAZ_00002825	geo_loc_name (country)	Chile													HC_COUNTRY:CHILE		chile																								
-GAZ_00002845	geo_loc_name (country)	China													HC_COUNTRY:CHINA		china																								
+GAZ_00002825	geo_loc_name (country)	Chile													CHILE		chile																								
+GAZ_00002845	geo_loc_name (country)	China													CHINA		china																								
 GAZ_00005915	geo_loc_name (country)	Christmas Island															christmas island																								
 GAZ_00005838	geo_loc_name (country)	Clipperton Island																																							
 GAZ_00009721	geo_loc_name (country)	Cocos Islands																																							
-GAZ_00002929	geo_loc_name (country)	Colombia													HC_COUNTRY:COLUMBIA		colombia																								
+GAZ_00002929	geo_loc_name (country)	Colombia													COLUMBIA		colombia																								
 GAZ_00005820	geo_loc_name (country)	Comoros															comoros																								
 GAZ_00053798	geo_loc_name (country)	Cook Islands															cook islands																								
 GAZ_00005917	geo_loc_name (country)	Coral Sea Islands																																							
-GAZ_00002901	geo_loc_name (country)	Costa Rica													HC_COUNTRY:COSTA_RICA		costa rica																								
+GAZ_00002901	geo_loc_name (country)	Costa Rica													COSTA_RICA		costa rica																								
 GAZ_00000906	geo_loc_name (country)	Cote d'Ivoire															cote d'ivoire																								
 GAZ_00002719	geo_loc_name (country)	Croatia															croatia																								
 GAZ_00003762	geo_loc_name (country)	Cuba															cuba																								
@@ -1194,11 +1206,11 @@ GAZ_00004021	geo_loc_name (country)	Curacao																					Currently using 
 GAZ_00004006	geo_loc_name (country)	Cyprus																																							
 GAZ_00002954	geo_loc_name (country)	Czech Republic															czech republic																								
 GAZ_00001086	geo_loc_name (country)	Democratic Republic of the Congo															democratic republic of the congo																								
-GAZ_00005852	geo_loc_name (country)	Denmark													HC_COUNTRY:DENMARK		metropolitan denmark																								
+GAZ_00005852	geo_loc_name (country)	Denmark													DENMARK		metropolitan denmark																								
 GAZ_00000582	geo_loc_name (country)	Djibouti															djibouti																								
 GAZ_00006890	geo_loc_name (country)	Dominica															dominica																								
 GAZ_00003952	geo_loc_name (country)	Dominican Republic															dominican republic																								
-GAZ_00002912	geo_loc_name (country)	Ecuador													HC_COUNTRY:ECUADOR		ecuador																								
+GAZ_00002912	geo_loc_name (country)	Ecuador													ECUADOR		ecuador																								
 GAZ_00003934	geo_loc_name (country)	Egypt															egypt																								
 GAZ_00002935	geo_loc_name (country)	El Salvador															el salvador																								
 GAZ_00001091	geo_loc_name (country)	Equatorial Guinea															equatorial guinea																								
@@ -1211,7 +1223,7 @@ GAZ_00001412	geo_loc_name (country)	Falkland Islands (Islas Malvinas)											
 GAZ_00059206	geo_loc_name (country)	Faroe Islands															faroe islands																								
 GAZ_00006891	geo_loc_name (country)	Fiji															fiji																								
 GAZ_00002937	geo_loc_name (country)	Finland															finland																								
-GAZ_00003940	geo_loc_name (country)	France													HC_COUNTRY:FRANCE		Metropolitan France																								
+GAZ_00003940	geo_loc_name (country)	France													FRANCE		Metropolitan France																								
 GAZ_00002516	geo_loc_name (country)	French Guiana																		Guyane																					
 GAZ_00002918	geo_loc_name (country)	French Polynesia															french polynesia																								
 GAZ_00003753	geo_loc_name (country)	French Southern and Antarctic Lands																																							
@@ -1219,7 +1231,7 @@ GAZ_00001092	geo_loc_name (country)	Gabon															gabon
 GAZ_00000907	geo_loc_name (country)	Gambia															gambia																								
 GAZ_00009571	geo_loc_name (country)	Gaza Strip															gaza strip																								
 GAZ_00004942	geo_loc_name (country)	Georgia															georgia																								
-GAZ_00002646	geo_loc_name (country)	Germany													HC_COUNTRY:GERMANY		germany																								
+GAZ_00002646	geo_loc_name (country)	Germany													GERMANY		germany																								
 GAZ_00000908	geo_loc_name (country)	Ghana															ghana																								
 GAZ_00003987	geo_loc_name (country)	Gibraltar															gibraltar																								
 GAZ_00005808	geo_loc_name (country)	Glorioso Islands																																							
@@ -1232,7 +1244,7 @@ GAZ_00002936	geo_loc_name (country)	Guatemala															guatemala
 GAZ_00001550	geo_loc_name (country)	Guernsey																																							
 GAZ_00000909	geo_loc_name (country)	Guinea															guinea																								
 GAZ_00000910	geo_loc_name (country)	Guinea-Bissau															guinea-bissau																								
-GAZ_00002522	geo_loc_name (country)	Guyana													HC_COUNTRY:GUYANA		guyana																								
+GAZ_00002522	geo_loc_name (country)	Guyana													GUYANA		guyana																								
 GAZ_00003953	geo_loc_name (country)	Haiti															haiti																								
 GAZ_00009718	geo_loc_name (country)	Heard Island and McDonald Islands																																							
 GAZ_00002894	geo_loc_name (country)	Honduras															honduras																								
@@ -1240,7 +1252,7 @@ GAZ_00003203	geo_loc_name (country)	Hong Kong															hong kong
 GAZ_00007120	geo_loc_name (country)	Howland Island																																							
 GAZ_00002952	geo_loc_name (country)	Hungary															hungary																								
 GAZ_00000843	geo_loc_name (country)	Iceland															iceland																								
-GAZ_00002839	geo_loc_name (country)	India													HC_COUNTRY:INDIA		india																								
+GAZ_00002839	geo_loc_name (country)	India													INDIA		india																								
 GAZ_00003727	geo_loc_name (country)	Indonesia															indonesia																								
 GAZ_00004474	geo_loc_name (country)	Iran															iran																								
 GAZ_00004483	geo_loc_name (country)	Iraq															iraq																								
@@ -1248,7 +1260,7 @@ GAZ_00002943	geo_loc_name (country)	Ireland																		Republic of Ireland
 GAZ_00052477	geo_loc_name (country)	Isle of Man															isle of man																								
 GAZ_00002476	geo_loc_name (country)	Israel															israel																								
 GAZ_00002650	geo_loc_name (country)	Italy															italy																								
-GAZ_00003781	geo_loc_name (country)	Jamaica													HC_COUNTRY:JAMAICA		jamaica																								
+GAZ_00003781	geo_loc_name (country)	Jamaica													JAMAICA		jamaica																								
 GAZ_00005853	geo_loc_name (country)	Jan Mayen																																							
 GAZ_00002747	geo_loc_name (country)	Japan															japan																								
 GAZ_00007118	geo_loc_name (country)	Jarvis Island																																							
@@ -1257,7 +1269,7 @@ GAZ_00007114	geo_loc_name (country)	Johnston Atoll
 GAZ_00002473	geo_loc_name (country)	Jordan															jordan																								
 GAZ_00005809	geo_loc_name (country)	Juan de Nova Island																																							
 GAZ_00004999	geo_loc_name (country)	Kazakhstan															kazakhstan																								
-GAZ_00001101	geo_loc_name (country)	Kenya													HC_COUNTRY:KENYA		kenya																								
+GAZ_00001101	geo_loc_name (country)	Kenya													KENYA		kenya																								
 GAZ_00005682	geo_loc_name (country)	Kerguelen Archipelago																																							
 GAZ_00007116	geo_loc_name (country)	Kingman Reef																																							
 GAZ_00006894	geo_loc_name (country)	Kiribati															kiribati																								
@@ -1286,7 +1298,7 @@ GAZ_00067143	geo_loc_name (country)	Martinique																		Martinique Regio
 GAZ_00000583	geo_loc_name (country)	Mauritania															mauritania																								
 GAZ_00003745	geo_loc_name (country)	Mauritius																																							
 GAZ_00003943	geo_loc_name (country)	Mayotte															mayotte																								
-GAZ_00002852	geo_loc_name (country)	Mexico													HC_COUNTRY:MEXICO		mexico																								
+GAZ_00002852	geo_loc_name (country)	Mexico													MEXICO		mexico																								
 GAZ_00005862	geo_loc_name (country)	Micronesia															micronesia																								
 GAZ_00007112	geo_loc_name (country)	Midway Islands																		Midway Atoll																					
 GAZ_00003897	geo_loc_name (country)	Moldova															moldova																								
@@ -1301,12 +1313,12 @@ GAZ_00001096	geo_loc_name (country)	Namibia															namibia
 GAZ_00006900	geo_loc_name (country)	Nauru															nauru																								
 GAZ_00007119	geo_loc_name (country)	Navassa Island																																							
 GAZ_00004399	geo_loc_name (country)	Nepal															nepal																								
-GAZ_00002946	geo_loc_name (country)	Netherlands													HC_COUNTRY:NETHERLANDS		The Netherlands																								
+GAZ_00002946	geo_loc_name (country)	Netherlands													NETHERLANDS		The Netherlands																								
 GAZ_00005206	geo_loc_name (country)	New Caledonia															new caledonia																								
 GAZ_00000469	geo_loc_name (country)	New Zealand															new zealand																								
 GAZ_00002978	geo_loc_name (country)	Nicaragua															nicaragua																								
 GAZ_00000585	geo_loc_name (country)	Niger															niger																								
-GAZ_00000912	geo_loc_name (country)	Nigeria													HC_COUNTRY:NIGERIA		nigeria																								
+GAZ_00000912	geo_loc_name (country)	Nigeria													NIGERIA		nigeria																								
 GAZ_00006902	geo_loc_name (country)	Niue															Niue Fekai			Niue Fekai																					
 GAZ_00005908	geo_loc_name (country)	Norfolk Island																		Territory of NORFOLK ISLAND																					
 GAZ_00002801	geo_loc_name (country)	North Korea															north korea			DEMOCRATIC PEOPLE'S REPUBLIC OF KOREA																					
@@ -1315,14 +1327,14 @@ GAZ_00002284	geo_loc_name (country)	North Sea
 GAZ_00003958	geo_loc_name (country)	Northern Mariana Islands															northern mariana islands																								
 GAZ_00002699	geo_loc_name (country)	Norway															kingdom of norway			Kingdom of Norway																					
 GAZ_00005283	geo_loc_name (country)	Oman															oman																								
-GAZ_00005246	geo_loc_name (country)	Pakistan													HC_COUNTRY:PAKISTAN		pakistan																								
+GAZ_00005246	geo_loc_name (country)	Pakistan													PAKISTAN		pakistan																								
 GAZ_00006905	geo_loc_name (country)	Palau															palau																								
 GAZ_00002892	geo_loc_name (country)	Panama															panama																								
 GAZ_00003922	geo_loc_name (country)	Papua New Guinea															papua new guinea																								
 GAZ_00010832	geo_loc_name (country)	Paracel Islands																																							
 GAZ_00002933	geo_loc_name (country)	Paraguay															paraguay			Paraguay																					
 GAZ_00002932	geo_loc_name (country)	Peru															peru			Peru																					
-GAZ_00004525	geo_loc_name (country)	Philippines													HC_COUNTRY:PHILIPPINE					The Philippines																					
+GAZ_00004525	geo_loc_name (country)	Philippines													PHILIPPINE					The Philippines																					
 GAZ_00005867	geo_loc_name (country)	Pitcairn Islands															Pitcairn, Henderson, Ducie and Oeno Islands			The Pitcairn Islands																					
 GAZ_00002939	geo_loc_name (country)	Poland															poland																								
 GAZ_00004126	geo_loc_name (country)	Portugal															Metropolitan Portugal						Currently refering to 'Metropolitan Portgual' rather than the 'Portuguese Republic' (GAZ_00002944) aka 'Portugal' which seems incorrect to me. - R																		
@@ -1384,12 +1396,12 @@ GAZ_00000558	geo_loc_name (country)	Turkey															turkey
 GAZ_00005018	geo_loc_name (country)	Turkmenistan															turkmenistan																								
 GAZ_00003955	geo_loc_name (country)	Turks and Caicos Islands															turks and caicos islands																								
 GAZ_00009715	geo_loc_name (country)	Tuvalu															tuvalu																								
-GAZ_00002459	geo_loc_name (country)	United States of America													HC_COUNTRY:US		united states of america			United States of America																					
+GAZ_00002459	geo_loc_name (country)	United States of America													US		united states of america			United States of America																					
 GAZ_00001102	geo_loc_name (country)	Uganda															uganda																								
 GAZ_00002724	geo_loc_name (country)	Ukraine															ukraine																								
 GAZ_00005282	geo_loc_name (country)	United Arab Emirates															united arab emirates																								
-GAZ_00002637	geo_loc_name (country)	United Kingdom													HC_COUNTRY:UNITEDKING		united kingdom																								
-GAZ_00002930	geo_loc_name (country)	Uruguay													HC_COUNTRY:URUGUAY		uruguay																								
+GAZ_00002637	geo_loc_name (country)	United Kingdom													UNITEDKING		united kingdom																								
+GAZ_00002930	geo_loc_name (country)	Uruguay													URUGUAY		uruguay																								
 GAZ_00004979	geo_loc_name (country)	Uzbekistan															uzbekistan																								
 GAZ_00006918	geo_loc_name (country)	Vanuatu															vanuatu																								
 GAZ_00002931	geo_loc_name (country)	Venezuela															venezuela																								
