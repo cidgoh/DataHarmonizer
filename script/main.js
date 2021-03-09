@@ -16,7 +16,8 @@ const TEMPLATES = {
   'CanCOGeN Covid-19': {'folder': 'canada_covid19', 'status': 'published'},
   'PHAC Dexa (ALPHA)': {'folder': 'phac_dexa', 'status': 'draft'},
   'GRDI (ALPHA)':      {'folder': 'grdi', 'status': 'draft'},
-  'GISAID (ALPHA)':    {'folder': 'gisaid', 'status': 'draft'}
+  'GISAID (ALPHA)':    {'folder': 'gisaid', 'status': 'draft'},
+  'PHA4GE (ALPHA)':    {'folder': 'pha4ge', 'status': 'draft'}
 };
 
 /**
