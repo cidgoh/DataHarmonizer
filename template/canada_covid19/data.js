@@ -5895,7 +5895,8 @@ var DATA = [
               "Priority surveillance project": {
                 "schema:ItemList": {
                   "Screening for Variants of Concern (VoC)": {},
-                  "Longitudinal surveillance (repeat sampling)": {},
+                  "Longitudinal surveillance (repeat sampling of individuals)": {},
+                  "Re-infection surveillance": {},
                   "Vaccine escape surveillance": {},
                   "Travel-associated surveillance": {
                     "schema:ItemList": {
