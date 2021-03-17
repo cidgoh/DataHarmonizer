@@ -27,22 +27,22 @@ var DATA = [
               "field": "Sample ID given by the sample provider"
             }
           ],
-          "BIOSAMPLE": [
+          "NCBI_BIOSAMPLE": [
             {
               "field": "sample_name"
             }
           ],
-          "SRA": [
+          "NCBI_SRA": [
             {
               "field": "sample_name"
             }
           ],
-          "Genbank": [
+          "NCBI_Genbank": [
             {
               "field": "sample_name"
             }
           ],
-          "Genbank_source_modifiers": [
+          "NCBI_Genbank_source_modifiers": [
             {
               "field": "sequence_ID"
             }
@@ -62,9 +62,7 @@ var DATA = [
         "description": "The INSDC accession number assigned to the umbrella BioProject for the Canadian SARS-CoV-2 sequencing effort.",
         "guidance": "Store the umbrella BioProject accession by selecting it from the picklist in the template. The umbrella BioProject accession will be identical for all CanCOGen submitters. Different provinces will have their own BioProjects, however these BioProjects will be linked under one umbrella BioProject.",
         "examples": "PRJNA623807",
-        "schema:ItemList": {
-          "PRJNA623807": {}
-        }
+        "schema:ItemList": {}
       },
       {
         "fieldName": "bioproject accession",
@@ -80,17 +78,17 @@ var DATA = [
         "guidance": "Store the BioProject accession number. BioProjects are an organizing tool that links together raw sequence data, assemblies, and their associated metadata. Each province will be assigned a different bioproject accession number by the National Microbiology Lab. A valid NCBI BioProject accession has prefix PRJN e.g., PRJNA12345, and is created once at the beginning of a new sequencing project. ",
         "examples": "PRJNA12345",
         "exportField": {
-          "BIOSAMPLE": [
+          "NCBI_BIOSAMPLE": [
             {
               "field": "bioproject_accession"
             }
           ],
-          "SRA": [
+          "NCBI_SRA": [
             {
               "field": "bioproject_accession"
             }
           ],
-          "Genbank_source_modifiers": [
+          "NCBI_Genbank_source_modifiers": [
             {
               "field": "BioProject"
             }
@@ -111,17 +109,17 @@ var DATA = [
         "guidance": "Store the accession returned from the BioSample submission. NCBI BioSamples will have the prefix SAMN.",
         "examples": "SAMN14180202",
         "exportField": {
-          "SRA": [
+          "NCBI_SRA": [
             {
               "field": "biosample_accession"
             }
           ],
-          "Genbank": [
+          "NCBI_Genbank": [
             {
               "field": "biosample_accession"
             }
           ],
-          "Genbank_source_modifiers": [
+          "NCBI_Genbank_source_modifiers": [
             {
               "field": "BioSample"
             }
@@ -170,12 +168,12 @@ var DATA = [
         "guidance": "Store the accession returned from the GISAID submission.",
         "examples": "EPI_ISL_123456",
         "exportField": {
-          "BIOSAMPLE": [
+          "NCBI_BIOSAMPLE": [
             {
               "field": "GISAID_accession"
             }
           ],
-          "Genbank_source_modifiers": [
+          "NCBI_Genbank_source_modifiers": [
             {
               "field": "GISAID-accesion"
             }
@@ -196,12 +194,12 @@ var DATA = [
         "guidance": "GISAID virus names should be in the format \"hCoV-19/Country/Identifier/year\".",
         "examples": "hCoV-19/Canada/prov_rona_99/2020",
         "exportField": {
-          "BIOSAMPLE": [
+          "NCBI_BIOSAMPLE": [
             {
               "field": "GISAID_virus_name"
             }
           ],
-          "Genbank_source_modifiers": [
+          "NCBI_Genbank_source_modifiers": [
             {
               "field": "GISAID-virus-name"
             }
@@ -252,7 +250,7 @@ var DATA = [
               "field": "Originating lab"
             }
           ],
-          "BIOSAMPLE": [
+          "NCBI_BIOSAMPLE": [
             {
               "field": "collected_by"
             }
@@ -319,7 +317,7 @@ var DATA = [
               "field": "Submitting lab"
             }
           ],
-          "BIOSAMPLE": [
+          "NCBI_BIOSAMPLE": [
             {
               "field": "sequenced_by"
             }
@@ -340,7 +338,7 @@ var DATA = [
         "guidance": "The email address can represent a specific individual or lab e.g. johnnyblogs@lab.ca, or RespLab@lab.ca",
         "examples": "RespLab@lab.ca",
         "exportField": {
-          "SRA": [
+          "NCBI_SRA": [
             {
               "field": "sequence_submitter_contact_email"
             }
@@ -393,12 +391,12 @@ var DATA = [
               "field": "Collection date"
             }
           ],
-          "BIOSAMPLE": [
+          "NCBI_BIOSAMPLE": [
             {
               "field": "collection_date"
             }
           ],
-          "Genbank_source_modifiers": [
+          "NCBI_Genbank_source_modifiers": [
             {
               "field": "collection-date"
             }
@@ -450,12 +448,12 @@ var DATA = [
               "field": "Location"
             }
           ],
-          "BIOSAMPLE": [
+          "NCBI_BIOSAMPLE": [
             {
               "field": "geo_loc_name"
             }
           ],
-          "Genbank_source_modifiers": [
+          "NCBI_Genbank_source_modifiers": [
             {
               "field": "country"
             }
@@ -755,7 +753,7 @@ var DATA = [
         "guidance": "Provide the state/province/territory name from the GAZ geography ontology. Search for geography terms here: https://www.ebi.ac.uk/ols/ontologies/gaz",
         "examples": "Western Cape",
         "exportField": {
-          "BIOSAMPLE": [
+          "NCBI_BIOSAMPLE": [
             {
               "field": "geo_loc_name"
             }
@@ -804,7 +802,7 @@ var DATA = [
         "guidance": "Provide latitude coordinates if available. Do not use the centre of the city/region/province/state/country or the location of your agency as a proxy, as this implicates a real location and is misleading. Specify as degrees latitude in format \"d[d.dddd] N|S\".",
         "examples": "38.98 N",
         "exportField": {
-          "BIOSAMPLE": [
+          "NCBI_BIOSAMPLE": [
             {
               "field": "lat_lon"
             }
@@ -825,7 +823,7 @@ var DATA = [
         "guidance": "Provide longitude coordinates if available. Do not use the centre of the city/region/province/state/country or the location of your agency as a proxy, as this implicates a real location and is misleading. Specify as degrees longitude in format \"d[dd.dddd] W|E\".",
         "examples": "77.11 W",
         "exportField": {
-          "BIOSAMPLE": [
+          "NCBI_BIOSAMPLE": [
             {
               "field": "lat_lon"
             }
@@ -852,16 +850,15 @@ var DATA = [
         "guidance": "Use \"Severe acute respiratory syndrome coronavirus 2\". This value is provided in the template.",
         "examples": "Severe acute respiratory syndrome coronavirus 2",
         "exportField": {
-          "BIOSAMPLE": [
+          "NCBI_BIOSAMPLE": [
             {
               "field": "organism"
             }
           ]
         },
         "schema:ItemList": {
-          "Severe acute respiratory syndrome coronavirus 2": {},
-          "RaTG13": {},
-          "RmYN02": {}
+          "Coronaviridae": {},
+          "Severe acute respiratory syndrome coronavirus 2": {}
         }
       },
       {
@@ -889,12 +886,12 @@ var DATA = [
               "field": "Virus name"
             }
           ],
-          "BIOSAMPLE": [
+          "NCBI_BIOSAMPLE": [
             {
               "field": "isolate"
             }
           ],
-          "Genbank_source_modifiers": [
+          "NCBI_Genbank_source_modifiers": [
             {
               "field": "isolate"
             }
@@ -935,7 +932,7 @@ var DATA = [
         "guidance": "The reason a sample was collected may provide information about potential biases in sampling strategy. Provide the purpose of sampling from the picklist in the template. Most likely, the sample was collected for Diagnostic testing. The reason why a sample was originally collected may differ from the reason why it was selected for sequencing, which should be indicated in the \"purpose of sequencing\" field. ",
         "examples": "Diagnostic testing",
         "exportField": {
-          "BIOSAMPLE": [
+          "NCBI_BIOSAMPLE": [
             {
               "field": "purpose_of_sampling"
             }
@@ -1026,7 +1023,7 @@ var DATA = [
               "field": "Specimen source"
             }
           ],
-          "BIOSAMPLE": [
+          "NCBI_BIOSAMPLE": [
             {
               "field": "isolation_source|anatomical_material"
             }
@@ -1072,7 +1069,7 @@ var DATA = [
               "field": "Specimen source"
             }
           ],
-          "BIOSAMPLE": [
+          "NCBI_BIOSAMPLE": [
             {
               "field": "isolation_source|anatomical_part"
             }
@@ -1146,7 +1143,7 @@ var DATA = [
               "field": "Specimen source"
             }
           ],
-          "BIOSAMPLE": [
+          "NCBI_BIOSAMPLE": [
             {
               "field": "isolation_source|body_product"
             }
@@ -1191,7 +1188,7 @@ var DATA = [
               "field": "Specimen source"
             }
           ],
-          "BIOSAMPLE": [
+          "NCBI_BIOSAMPLE": [
             {
               "field": "isolation_source|environmental_material"
             }
@@ -1258,7 +1255,7 @@ var DATA = [
               "field": "Specimen source"
             }
           ],
-          "BIOSAMPLE": [
+          "NCBI_BIOSAMPLE": [
             {
               "field": "isolation_source|environmental_site"
             }
@@ -1313,7 +1310,7 @@ var DATA = [
               "field": "Specimen source"
             }
           ],
-          "BIOSAMPLE": [
+          "NCBI_BIOSAMPLE": [
             {
               "field": "isolation_source|collection_device"
             }
@@ -1364,7 +1361,7 @@ var DATA = [
               "field": "Specimen source"
             }
           ],
-          "BIOSAMPLE": [
+          "NCBI_BIOSAMPLE": [
             {
               "field": "isolation_source|collection_method"
             }
@@ -1511,13 +1508,7 @@ var DATA = [
         "ontology_id": "",
         "datatype": "xs:nonNegativeInteger",
         "source": "",
-        "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
-        ],
+        "dataStatus": null,
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1530,7 +1521,7 @@ var DATA = [
               "field": "Passage details/history"
             }
           ],
-          "BIOSAMPLE": [
+          "NCBI_BIOSAMPLE": [
             {
               "field": "passage_number"
             }
@@ -1562,7 +1553,7 @@ var DATA = [
               "field": "Passage details/history"
             }
           ],
-          "BIOSAMPLE": [
+          "NCBI_BIOSAMPLE": [
             {
               "field": "passage_method"
             }
@@ -1675,7 +1666,7 @@ var DATA = [
               "field": "Host"
             }
           ],
-          "BIOSAMPLE": [
+          "NCBI_BIOSAMPLE": [
             {
               "field": "host"
             }
@@ -1725,7 +1716,7 @@ var DATA = [
               "field": "Patient status"
             }
           ],
-          "BIOSAMPLE": [
+          "NCBI_BIOSAMPLE": [
             {
               "field": "host_health_state"
             }
@@ -1794,7 +1785,7 @@ var DATA = [
         "guidance": "Select \"COVID-19\" from the pick list provided in the template.",
         "examples": "COVID-19",
         "exportField": {
-          "BIOSAMPLE": [
+          "NCBI_BIOSAMPLE": [
             {
               "field": "host_disease"
             }
@@ -1824,7 +1815,7 @@ var DATA = [
         "guidance": "If known, select a descriptor from the pick list provided in the template.",
         "examples": "Recovered",
         "exportField": {
-          "BIOSAMPLE": [
+          "NCBI_BIOSAMPLE": [
             {
               "field": "host_disease_outcome"
             }
@@ -1862,7 +1853,7 @@ var DATA = [
               "field": "Patient age"
             }
           ],
-          "BIOSAMPLE": [
+          "NCBI_BIOSAMPLE": [
             {
               "field": "host_age"
             }
@@ -1951,7 +1942,7 @@ var DATA = [
               "field": "Gender"
             }
           ],
-          "BIOSAMPLE": [
+          "NCBI_BIOSAMPLE": [
             {
               "field": "host_sex"
             }
@@ -2016,7 +2007,7 @@ var DATA = [
         "guidance": "Provide the host identifier. Should be a unique, user-defined identifier.",
         "examples": "BCxy123",
         "exportField": {
-          "BIOSAMPLE": [
+          "NCBI_BIOSAMPLE": [
             {
               "field": "host_subject_id"
             }
@@ -2214,7 +2205,7 @@ var DATA = [
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
-        "description": "Patient pre-existing conditions and risk factors.\nPre-existing condition: A medical condition that existed prior to the current infection.\nRisk Factor: A variable associated with an increased risk of disease or infection.",
+        "description": "Patient pre-existing conditions and risk factors. Pre-existing condition: A medical condition that existed prior to the current infection. Risk Factor: A variable associated with an increased risk of disease or infection.",
         "guidance": "Select all of the pre-existing conditions and risk factors experienced by the host from the pick list. If the desired term is missing, contact the curation team.",
         "examples": "Asthma",
         "schema:ItemList": {
@@ -2563,7 +2554,7 @@ var DATA = [
         "guidance": "Select the vaccination status of the host from the pick list.",
         "examples": "Fully Vaccinated",
         "exportField": {
-          "BIOSAMPLE": [
+          "NCBI_BIOSAMPLE": [
             {
               "field": "prior_SARS-CoV-2_vaccination"
             }
@@ -2572,7 +2563,7 @@ var DATA = [
         "schema:ItemList": {
           "Fully Vaccinated": {
             "exportField": {
-              "BIOSAMPLE": [
+              "NCBI_BIOSAMPLE": [
                 {
                   "field": "prior_SARS-CoV-2_vaccination",
                   "value": "Yes"
@@ -2582,7 +2573,7 @@ var DATA = [
           },
           "Partially Vaccinated": {
             "exportField": {
-              "BIOSAMPLE": [
+              "NCBI_BIOSAMPLE": [
                 {
                   "field": "prior_SARS-CoV-2_vaccination",
                   "value": "Yes"
@@ -2592,7 +2583,7 @@ var DATA = [
           },
           "Not Vaccinated": {
             "exportField": {
-              "BIOSAMPLE": [
+              "NCBI_BIOSAMPLE": [
                 {
                   "field": "prior_SARS-CoV-2_vaccination",
                   "value": "No"
@@ -2616,7 +2607,7 @@ var DATA = [
         "guidance": "Free text. Provide the name of the vaccine.",
         "examples": "BNT162b2, Pfizer-BioNTech",
         "exportField": {
-          "BIOSAMPLE": [
+          "NCBI_BIOSAMPLE": [
             {
               "field": "vaccine_received"
             }
@@ -2651,7 +2642,7 @@ var DATA = [
         "guidance": "Provide the vaccination date in ISO 8601 standard format \"YYYY-MM-DD\".",
         "examples": "2021-02-26",
         "exportField": {
-          "BIOSAMPLE": [
+          "NCBI_BIOSAMPLE": [
             {
               "field": "date_of_prior_SARS-CoV-2_vaccination_(1st_dose)"
             }
@@ -2697,7 +2688,7 @@ var DATA = [
         "guidance": "Select the country name from pick list provided in the template.",
         "examples": "Canada",
         "exportField": {
-          "BIOSAMPLE": [
+          "NCBI_BIOSAMPLE": [
             {
               "field": "location_of_exposure_geo_loc_name_(country)"
             }
@@ -2794,7 +2785,7 @@ var DATA = [
         "guidance": "Provide the travel return date.",
         "examples": "2020-04-26",
         "exportField": {
-          "BIOSAMPLE": [
+          "NCBI_BIOSAMPLE": [
             {
               "field": "recent_travel_history_return_date"
             }
@@ -2815,7 +2806,7 @@ var DATA = [
         "guidance": "Specify the countries (and more granular locations if known, separated by a comma) travelled in the last six months; can include multiple travels. Separate multiple travel events with a semi-colon. List most recent travel first.",
         "examples": "Canada, Vancouver; USA, Seattle; Italy, Milan",
         "exportField": {
-          "BIOSAMPLE": [
+          "NCBI_BIOSAMPLE": [
             {
               "field": "receent_travel_history_location"
             }
@@ -2847,7 +2838,7 @@ var DATA = [
               "field": "Additional location information"
             }
           ],
-          "BIOSAMPLE": [
+          "NCBI_BIOSAMPLE": [
             {
               "field": "exposure_event"
             }
@@ -3131,7 +3122,7 @@ var DATA = [
         "guidance": "If known, provide infromation about whether the individual had a previous SARS-CoV-2 infection. Select a value from the pick list.",
         "examples": "Yes",
         "exportField": {
-          "BIOSAMPLE": [
+          "NCBI_BIOSAMPLE": [
             {
               "field": "prior_SARS-CoV-2_infection"
             }
@@ -3153,7 +3144,7 @@ var DATA = [
         "guidance": "Provide the isolate name of the most recent prior infection. Structure the \"isolate\" name to be ICTV/INSDC compliant in the following format: \"SARS-CoV-2/host/country/sampleID/date\".",
         "examples": "SARS-CoV-2/human/USA/CA-CDPH-001/2020",
         "exportField": {
-          "BIOSAMPLE": [
+          "NCBI_BIOSAMPLE": [
             {
               "field": "virus_isolate_of_prior_infection"
             }
@@ -3174,7 +3165,7 @@ var DATA = [
         "guidance": "Provide the date that the most recent prior infection was diagnosed. Provide the prior SARS-CoV-2 infection date in ISO 8601 standard format \"YYYY-MM-DD\".",
         "examples": "2021-01-23",
         "exportField": {
-          "BIOSAMPLE": [
+          "NCBI_BIOSAMPLE": [
             {
               "field": "date_of_prior_SARS-CoV-2_infection"
             }
@@ -3201,7 +3192,7 @@ var DATA = [
         "guidance": "If known, provide infromation about whether the individual had a previous SARS-CoV-2 antiviral treatment. Select a value from the pick list.",
         "examples": "No prior antiviral treatment",
         "exportField": {
-          "BIOSAMPLE": [
+          "NCBI_BIOSAMPLE": [
             {
               "field": "prior_SARS-CoV-2_antiviral_treatment"
             }
@@ -3210,7 +3201,7 @@ var DATA = [
         "schema:ItemList": {
           "Prior antivrial treatment": {
             "exportField": {
-              "BIOSAMPLE": [
+              "NCBI_BIOSAMPLE": [
                 {
                   "field": "prior_SARS-CoV-2_antiviral_treatment",
                   "value": "Yes"
@@ -3220,7 +3211,7 @@ var DATA = [
           },
           "No prior antivrial treatment": {
             "exportField": {
-              "BIOSAMPLE": [
+              "NCBI_BIOSAMPLE": [
                 {
                   "field": "prior_SARS-CoV-2_antiviral_treatment",
                   "value": "No"
@@ -3245,7 +3236,7 @@ var DATA = [
         "guidance": "Provide the name of the antiviral treatment agent administered during the most recent prior infection. If no treatment was administered, put \"No treatment\". If multiple antiviral agents were administered, list them all separated by commas.",
         "examples": "Remdesivir",
         "exportField": {
-          "BIOSAMPLE": [
+          "NCBI_BIOSAMPLE": [
             {
               "field": "antiviral_treatment_agent"
             }
@@ -3266,7 +3257,7 @@ var DATA = [
         "guidance": "Provide the date that the antiviral treatment agent was first administered during the most recenrt prior infection. Provide the prior SARS-CoV-2 treatment date in ISO 8601 standard format \"YYYY-MM-DD\".",
         "examples": "2021-01-28",
         "exportField": {
-          "BIOSAMPLE": [
+          "NCBI_BIOSAMPLE": [
             {
               "field": "date_of_prior_SARS-CoV-2_antiviral_treatment"
             }
@@ -3317,7 +3308,7 @@ var DATA = [
         "guidance": "The reason why a sample was originally collected may differ from the reason why it was selected for sequencing. The reason a sample was sequenced may provide information about potential biases in sequencing strategy. Provide the purpose of sequencing from the picklist in the template. The reason for sample collection should be indicated in the \"purpose of sampling\" field. ",
         "examples": "Baseline surveillance (random sampling)",
         "exportField": {
-          "BIOSAMPLE": [
+          "NCBI_BIOSAMPLE": [
             {
               "field": "purpose_of_sequencing"
             }
@@ -3330,7 +3321,8 @@ var DATA = [
               "Priority surveillance project": {
                 "schema:ItemList": {
                   "Screening for Variants of Concern (VoC)": {},
-                  "Longitudinal surveillance (repeat sampling)": {},
+                  "Longitudinal surveillance (repeat sampling of individuals)": {},
+                  "Re-infection surveillance": {},
                   "Vaccine escape surveillance": {},
                   "Travel-associated surveillance": {
                     "schema:ItemList": {
@@ -3410,7 +3402,7 @@ var DATA = [
         "guidance": "The library name should be unique, and can be an autogenerated ID from your LIMS, or modification of the isolate ID.",
         "examples": "XYZ_123345",
         "exportField": {
-          "SRA": [
+          "NCBI_SRA": [
             {
               "field": "library_ID"
             }
@@ -3431,7 +3423,7 @@ var DATA = [
         "guidance": "Provide the amplicon size, including the units.",
         "examples": "300bp",
         "exportField": {
-          "SRA": [
+          "NCBI_SRA": [
             {
               "field": "amplicon_size"
             }
@@ -3491,7 +3483,7 @@ var DATA = [
               "field": "Sequencing technology"
             }
           ],
-          "Genbank": [
+          "NCBI_Genbank": [
             {
               "field": "sequencing_technology"
             }
@@ -3500,7 +3492,7 @@ var DATA = [
         "schema:ItemList": {
           "Illumina": {
             "exportField": {
-              "SRA": [
+              "NCBI_SRA": [
                 {
                   "field": "platform",
                   "value": "ILLUMINA"
@@ -3510,7 +3502,7 @@ var DATA = [
             "schema:ItemList": {
               "Illumina Genome Analyzer": {
                 "exportField": {
-                  "SRA": [
+                  "NCBI_SRA": [
                     {
                       "field": "platform",
                       "value": "ILLUMINA|instrument_model:Illumina Genome Analyzer"
@@ -3520,7 +3512,7 @@ var DATA = [
                 "schema:ItemList": {
                   "Illumina Genome Analyzer II": {
                     "exportField": {
-                      "SRA": [
+                      "NCBI_SRA": [
                         {
                           "field": "platform",
                           "value": "ILLUMINA|instrument_model:Illumina Genome Analyzer II"
@@ -3530,7 +3522,7 @@ var DATA = [
                   },
                   "Illumina Genome Analyzer IIx": {
                     "exportField": {
-                      "SRA": [
+                      "NCBI_SRA": [
                         {
                           "field": "platform",
                           "value": "ILLUMINA|instrument_model:Illumina Genome Analyzer IIx"
@@ -3542,7 +3534,7 @@ var DATA = [
               },
               "Illumina HiScanSQ": {
                 "exportField": {
-                  "SRA": [
+                  "NCBI_SRA": [
                     {
                       "field": "platform",
                       "value": "ILLUMINA|instrument_model:Illumina HiScanSQ"
@@ -3552,7 +3544,7 @@ var DATA = [
               },
               "Illumina HiSeq": {
                 "exportField": {
-                  "SRA": [
+                  "NCBI_SRA": [
                     {
                       "field": "platform",
                       "value": "ILLUMINA"
@@ -3562,7 +3554,7 @@ var DATA = [
               },
               "Illumina HiSeq X": {
                 "exportField": {
-                  "SRA": [
+                  "NCBI_SRA": [
                     {
                       "field": "platform",
                       "value": "ILLUMINA"
@@ -3572,7 +3564,7 @@ var DATA = [
                 "schema:ItemList": {
                   "Illumina HiSeq X Five": {
                     "exportField": {
-                      "SRA": [
+                      "NCBI_SRA": [
                         {
                           "field": "platform",
                           "value": "ILLUMINA|instrument_model: Illumina HiSeq X Five"
@@ -3582,7 +3574,7 @@ var DATA = [
                   },
                   "Illumina HiSeq X Ten": {
                     "exportField": {
-                      "SRA": [
+                      "NCBI_SRA": [
                         {
                           "field": "platform",
                           "value": "ILLUMINA|instrument_model:Illumina HiSeq X Ten"
@@ -3594,7 +3586,7 @@ var DATA = [
               },
               "Illumina HiSeq 1000": {
                 "exportField": {
-                  "SRA": [
+                  "NCBI_SRA": [
                     {
                       "field": "platform",
                       "value": "ILLUMINA|instrument_model:Illumina HiSeq 1000"
@@ -3604,7 +3596,7 @@ var DATA = [
               },
               "Illumina HiSeq 1500": {
                 "exportField": {
-                  "SRA": [
+                  "NCBI_SRA": [
                     {
                       "field": "platform",
                       "value": "ILLUMINA"
@@ -3614,7 +3606,7 @@ var DATA = [
               },
               "Illumina HiSeq 2000": {
                 "exportField": {
-                  "SRA": [
+                  "NCBI_SRA": [
                     {
                       "field": "platform",
                       "value": "ILLUMINA|instrument_model:Illumina HiSeq 2000"
@@ -3624,7 +3616,7 @@ var DATA = [
               },
               "Illumina HiSeq 2500": {
                 "exportField": {
-                  "SRA": [
+                  "NCBI_SRA": [
                     {
                       "field": "platform",
                       "value": "ILLUMINA|instrument_model:Illumina HiSeq 2500"
@@ -3634,7 +3626,7 @@ var DATA = [
               },
               "Illumina HiSeq 3000": {
                 "exportField": {
-                  "SRA": [
+                  "NCBI_SRA": [
                     {
                       "field": "platform",
                       "value": "ILLUMINA"
@@ -3644,7 +3636,7 @@ var DATA = [
               },
               "Illumina HiSeq 4000": {
                 "exportField": {
-                  "SRA": [
+                  "NCBI_SRA": [
                     {
                       "field": "platform",
                       "value": "ILLUMINA"
@@ -3654,7 +3646,7 @@ var DATA = [
               },
               "Illumina iSeq": {
                 "exportField": {
-                  "SRA": [
+                  "NCBI_SRA": [
                     {
                       "field": "platform",
                       "value": "ILLUMINA"
@@ -3664,7 +3656,7 @@ var DATA = [
                 "schema:ItemList": {
                   "Illumina iSeq 100": {
                     "exportField": {
-                      "SRA": [
+                      "NCBI_SRA": [
                         {
                           "field": "platform",
                           "value": "ILLUMINA"
@@ -3676,7 +3668,7 @@ var DATA = [
               },
               "Illumina NovaSeq": {
                 "exportField": {
-                  "SRA": [
+                  "NCBI_SRA": [
                     {
                       "field": "platform",
                       "value": "ILLUMINA"
@@ -3686,7 +3678,7 @@ var DATA = [
                 "schema:ItemList": {
                   "Illumina NovaSeq 6000": {
                     "exportField": {
-                      "SRA": [
+                      "NCBI_SRA": [
                         {
                           "field": "platform",
                           "value": "ILLUMINA"
@@ -3698,7 +3690,7 @@ var DATA = [
               },
               "Illumina MiniSeq": {
                 "exportField": {
-                  "SRA": [
+                  "NCBI_SRA": [
                     {
                       "field": "platform",
                       "value": "ILLUMINA"
@@ -3708,7 +3700,7 @@ var DATA = [
               },
               "Illumina MiSeq": {
                 "exportField": {
-                  "SRA": [
+                  "NCBI_SRA": [
                     {
                       "field": "platform",
                       "value": "ILLUMINA|instrument_model:Illumina MiSeq"
@@ -3718,7 +3710,7 @@ var DATA = [
               },
               "Illumina NextSeq": {
                 "exportField": {
-                  "SRA": [
+                  "NCBI_SRA": [
                     {
                       "field": "platform",
                       "value": "ILLUMINA"
@@ -3728,7 +3720,7 @@ var DATA = [
               },
               "Illumina NextSeq 500": {
                 "exportField": {
-                  "SRA": [
+                  "NCBI_SRA": [
                     {
                       "field": "platform",
                       "value": "ILLUMINA|instrument_model:Illumina NextSeq 500"
@@ -3738,7 +3730,7 @@ var DATA = [
               },
               "Illumina NextSeq 550": {
                 "exportField": {
-                  "SRA": [
+                  "NCBI_SRA": [
                     {
                       "field": "platform",
                       "value": "ILLUMINA"
@@ -3750,7 +3742,7 @@ var DATA = [
           },
           "Pacific Biosciences": {
             "exportField": {
-              "SRA": [
+              "NCBI_SRA": [
                 {
                   "field": "platform",
                   "value": "PACBIO_SMRT"
@@ -3760,7 +3752,7 @@ var DATA = [
             "schema:ItemList": {
               "PacBio RS": {
                 "exportField": {
-                  "SRA": [
+                  "NCBI_SRA": [
                     {
                       "field": "platform",
                       "value": "PACBIO_SMRT|instrument_model:PacBio RS"
@@ -3770,7 +3762,7 @@ var DATA = [
               },
               "PacBio RS II": {
                 "exportField": {
-                  "SRA": [
+                  "NCBI_SRA": [
                     {
                       "field": "platform",
                       "value": "PACBIO_SMRT|instrument_model:PacBio RS II"
@@ -3780,7 +3772,7 @@ var DATA = [
               },
               "PacBio Sequel": {
                 "exportField": {
-                  "SRA": [
+                  "NCBI_SRA": [
                     {
                       "field": "platform",
                       "value": "PACBIO_SMRT"
@@ -3790,7 +3782,7 @@ var DATA = [
               },
               "PacBio Sequel II": {
                 "exportField": {
-                  "SRA": [
+                  "NCBI_SRA": [
                     {
                       "field": "platform",
                       "value": "PACBIO_SMRT"
@@ -3802,7 +3794,7 @@ var DATA = [
           },
           "Ion Torrent": {
             "exportField": {
-              "SRA": [
+              "NCBI_SRA": [
                 {
                   "field": "platform",
                   "value": "ION_TORRENT"
@@ -3812,7 +3804,7 @@ var DATA = [
             "schema:ItemList": {
               "Ion Torrent PGM": {
                 "exportField": {
-                  "SRA": [
+                  "NCBI_SRA": [
                     {
                       "field": "platform",
                       "value": "ION_TORRENT|instrument_model:Ion Torrent PGM"
@@ -3822,7 +3814,7 @@ var DATA = [
               },
               "Ion Torrent Proton": {
                 "exportField": {
-                  "SRA": [
+                  "NCBI_SRA": [
                     {
                       "field": "platform",
                       "value": "ION_TORRENT|instrument_model:Ion Torrent Proton"
@@ -3832,7 +3824,7 @@ var DATA = [
               },
               "Ion Torrent S5 XL": {
                 "exportField": {
-                  "SRA": [
+                  "NCBI_SRA": [
                     {
                       "field": "platform",
                       "value": "ION_TORRENT"
@@ -3842,7 +3834,7 @@ var DATA = [
               },
               "Ion Torrent S5": {
                 "exportField": {
-                  "SRA": [
+                  "NCBI_SRA": [
                     {
                       "field": "platform",
                       "value": "ION_TORRENT"
@@ -3854,7 +3846,7 @@ var DATA = [
           },
           "Oxford Nanopore": {
             "exportField": {
-              "SRA": [
+              "NCBI_SRA": [
                 {
                   "field": "platform",
                   "value": "OXFORD_NANOPORE"
@@ -3864,7 +3856,7 @@ var DATA = [
             "schema:ItemList": {
               "GridION": {
                 "exportField": {
-                  "SRA": [
+                  "NCBI_SRA": [
                     {
                       "field": "platform",
                       "value": "OXFORD_NANOPORE|instrument_model:GridION"
@@ -3874,7 +3866,7 @@ var DATA = [
               },
               "MinION": {
                 "exportField": {
-                  "SRA": [
+                  "NCBI_SRA": [
                     {
                       "field": "platform",
                       "value": "OXFORD_NANOPORE|instrument_model:MinION"
@@ -3884,7 +3876,7 @@ var DATA = [
               },
               "PromethION": {
                 "exportField": {
-                  "SRA": [
+                  "NCBI_SRA": [
                     {
                       "field": "platform",
                       "value": "OXFORD_NANOPORE"
@@ -3923,7 +3915,7 @@ var DATA = [
         "guidance": "Provide the name and version of the sequencing protocol e.g. 1D_DNA_MinION",
         "examples": "https://www.protocols.io/view/covid-19-artic-v3-illumina-library-construction-an-bibtkann",
         "exportField": {
-          "SRA": [
+          "NCBI_SRA": [
             {
               "field": "sequencing_protocol_name"
             }
@@ -3944,7 +3936,7 @@ var DATA = [
         "guidance": "Provide a free text description of the methods and materials used to generate the sequence. Suggested text, fill in information where indicated.: \"Viral sequencing was performed following a tiling amplicon strategy using the <fill in> primer scheme. Sequencing was performed using a <fill in> sequencing instrument. Libraries were prepared using <fill in> library kit. \"",
         "examples": "Genomes were generated through amplicon sequencing of 1200 bp amplicons with Freed schema primers. Libraries were created using Illumina DNA Prep kits, and sequence data was produced using Miseq Micro v2 (500 cycles) sequencing kits.",
         "exportField": {
-          "SRA": [
+          "NCBI_SRA": [
             {
               "field": "design_description"
             }
@@ -3979,7 +3971,7 @@ var DATA = [
         "guidance": "Provide the name and version of the primer scheme used to generate the amplicons for sequencing.",
         "examples": "https://github.com/joshquick/artic-ncov2019/blob/master/primer_schemes/nCoV-2019/V3/nCoV-2019.tsv",
         "exportField": {
-          "SRA": [
+          "NCBI_SRA": [
             {
               "field": "amplicon _PCR_primer_scheme"
             }
@@ -4005,7 +3997,7 @@ var DATA = [
         "guidance": "Provide the software name followed by the version e.g. Trimmomatic v. 0.38, Porechop v. 0.2.3",
         "examples": "Porechop 0.2.3",
         "exportField": {
-          "SRA": [
+          "NCBI_SRA": [
             {
               "field": "raw_sequence_data_processing_method"
             }
@@ -4026,7 +4018,7 @@ var DATA = [
         "guidance": "Provide the name and version number of the software used to remove host reads.",
         "examples": "Nanostripper",
         "exportField": {
-          "SRA": [
+          "NCBI_SRA": [
             {
               "field": "dehosting_method"
             }
@@ -4047,7 +4039,7 @@ var DATA = [
         "guidance": "Provide the name and version number of the consensus sequence.",
         "examples": "ncov123assembly3",
         "exportField": {
-          "Genbank": [
+          "NCBI_Genbank": [
             {
               "field": "assembly_name"
             }
@@ -4068,7 +4060,7 @@ var DATA = [
         "guidance": "Provide the name and version number of the consensus sequence FASTA file.",
         "examples": "ncov123assembly.fasta",
         "exportField": {
-          "Genbank": [
+          "NCBI_Genbank": [
             {
               "field": "filename"
             }
@@ -4103,7 +4095,7 @@ var DATA = [
         "guidance": "Provide the name of the software used to generate the consensus sequence.",
         "examples": "Ivar",
         "exportField": {
-          "Genbank": [
+          "NCBI_Genbank": [
             {
               "field": "assembly_method"
             }
@@ -4124,7 +4116,7 @@ var DATA = [
         "guidance": "Provide the version of the software used to generate the consensus sequence.",
         "examples": "1.3",
         "exportField": {
-          "Genbank": [
+          "NCBI_Genbank": [
             {
               "field": "assembly_method_version"
             }
@@ -4164,7 +4156,7 @@ var DATA = [
               "field": "Coverage"
             }
           ],
-          "Genbank": [
+          "NCBI_Genbank": [
             {
               "field": "genome_coverage"
             }
@@ -4325,7 +4317,7 @@ var DATA = [
         "guidance": "Provide the accession number of the reference genome.",
         "examples": "NC_045512.2",
         "exportField": {
-          "Genbank": [
+          "NCBI_Genbank": [
             {
               "field": "reference_genome"
             }
@@ -4418,7 +4410,7 @@ var DATA = [
         }
       },
       {
-        "fieldName": "variant evidence",
+        "fieldName": "variant evidence details",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "xs:token",
@@ -4427,7 +4419,7 @@ var DATA = [
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
-        "description": "The evidence used to make the variant determination.",
+        "description": "Details about the evidence used to make the variant determination.",
         "guidance": "Provide the assay and list the set of lineage-defining mutations used to make the variant determination. If there are mutations of interest/concern observed in addition to lineage-defining mutations, describe those here.",
         "examples": "RT-qPCR TaqPath assay: S gene target failure"
       }
@@ -4456,7 +4448,7 @@ var DATA = [
         "guidance": "Provide the full name of the gene used in the test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI",
         "examples": "E (orf4)",
         "exportField": {
-          "BIOSAMPLE": [
+          "NCBI_BIOSAMPLE": [
             {
               "field": "diagnostic_gene_name_1"
             }
@@ -4518,7 +4510,7 @@ var DATA = [
         "guidance": "The name and version number of the protocol used for carrying out a diagnostic PCR test. This information can be compared to sequence data for evaluation of performance and quality control.",
         "examples": "EGenePCRTest 2",
         "exportField": {
-          "BIOSAMPLE": [
+          "NCBI_BIOSAMPLE": [
             {
               "field": "diagnostic_pcr_protocol_value_1"
             }
@@ -4539,7 +4531,7 @@ var DATA = [
         "guidance": "Provide the CT value of the sample from the diagnostic RT-PCR test.",
         "examples": "21",
         "exportField": {
-          "BIOSAMPLE": [
+          "NCBI_BIOSAMPLE": [
             {
               "field": "diagnostic_pcr_Ct_value_1"
             }
@@ -4566,7 +4558,7 @@ var DATA = [
         "guidance": "Provide the full name of another gene used in an RT-PCR test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI",
         "examples": "nsp12 (RdRp)",
         "exportField": {
-          "BIOSAMPLE": [
+          "NCBI_BIOSAMPLE": [
             {
               "field": "diagnostic_gene_name_2"
             }
@@ -4588,7 +4580,7 @@ var DATA = [
         "guidance": "The name and version number of the protocol used for carrying out a second diagnostic PCR test. This information can be compared to sequence data for evaluation of performance and quality control.",
         "examples": "RdRpGenePCRTest 3",
         "exportField": {
-          "BIOSAMPLE": [
+          "NCBI_BIOSAMPLE": [
             {
               "field": "diagnostic_pcr_protocol_value_2"
             }
@@ -4609,7 +4601,7 @@ var DATA = [
         "guidance": "Provide the CT value of the sample from the second diagnostic RT-PCR test.",
         "examples": "36",
         "exportField": {
-          "BIOSAMPLE": [
+          "NCBI_BIOSAMPLE": [
             {
               "field": "diagnostic_pcr_Ct_value_2"
             }
@@ -4671,48 +4663,6 @@ var DATA = [
     "fieldName": "NCBI SRA information",
     "children": [
       {
-        "fieldName": "bioproject_accession",
-        "capitalize": "",
-        "ontology_id": "",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "prepopulate",
-        "description": "This will be populated by the PHA4GE field \"bioproject accession\".",
-        "guidance": "Populate the \"bioproject accession\" field.",
-        "examples": ""
-      },
-      {
-        "fieldName": "sample_name",
-        "capitalize": "",
-        "ontology_id": "",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "prepopulate",
-        "description": "This will be populated by the PHA4GE field \"biosample accession\".",
-        "guidance": "Populate the \"biosample accession\" field.",
-        "examples": ""
-      },
-      {
-        "fieldName": "library_ID",
-        "capitalize": "",
-        "ontology_id": "",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "prepopulate",
-        "description": "This will be populated by the PHA4GE field \"library ID\".",
-        "guidance": "Populate the \"library ID\" field.",
-        "examples": ""
-      },
-      {
         "fieldName": "title",
         "capitalize": "",
         "ontology_id": "",
@@ -4726,7 +4676,7 @@ var DATA = [
         "guidance": "Format: {methodology} of {organism}: {sample info}",
         "examples": "Genomic sequencing of SARS-CoV-2: Nasopharynx (NP), Swab",
         "exportField": {
-          "SRA": [
+          "NCBI_SRA": [
             {
               "field": "title"
             }
@@ -4747,7 +4697,7 @@ var DATA = [
         "guidance": "Provide the library strategy by selecting a value from the pick list. For amplicon sequencing select \"AMPLICON\". ",
         "examples": "",
         "exportField": {
-          "SRA": [
+          "NCBI_SRA": [
             {
               "field": "library_strategy"
             }
@@ -4793,7 +4743,7 @@ var DATA = [
         "guidance": "Provide the library source by selecting a value from the pick list. For amplicon sequencing select \"Viral RNA\". ",
         "examples": "",
         "exportField": {
-          "SRA": [
+          "NCBI_SRA": [
             {
               "field": "library_source"
             }
@@ -4823,7 +4773,7 @@ var DATA = [
         "guidance": "Provide the library selection by selecting a value from the pick list. For amplicon sequencing select \"PCR\". ",
         "examples": "",
         "exportField": {
-          "SRA": [
+          "NCBI_SRA": [
             {
               "field": "library_selection"
             }
@@ -4873,7 +4823,7 @@ var DATA = [
         "guidance": "Provide the library layout by selecting a value from the pick list. For Illumina instruments, select \"PAIRED\". For Oxford Nanopore instruments, select \"SINGLE\".",
         "examples": "",
         "exportField": {
-          "SRA": [
+          "NCBI_SRA": [
             {
               "field": "library_layout"
             }
@@ -4883,36 +4833,6 @@ var DATA = [
           "single": {},
           "paired": {}
         }
-      },
-      {
-        "fieldName": "platform",
-        "capitalize": "",
-        "ontology_id": "",
-        "datatype": "select",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "prepopulate",
-        "description": "This will be populated by the PHA4GE field \"sequencing instrument\".",
-        "guidance": "Only a limited set of sequencing platforms are available in the NCBI pick list. If a value appears to be missing, contact PHA4GE and report the issue.",
-        "examples": "",
-        "schema:ItemList": {}
-      },
-      {
-        "fieldName": "instrument_model",
-        "capitalize": "",
-        "ontology_id": "",
-        "datatype": "select",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "prepopulate",
-        "description": "This will be populated by the PHA4GE field \"sequencing instrument\".",
-        "guidance": "Only a limited set of sequencing instruments are available in the NCBI pick list. If a value appears to be missing, contact PHA4GE and report the issue.",
-        "examples": "",
-        "schema:ItemList": {}
       },
       {
         "fieldName": "filetype",
@@ -4927,6 +4847,13 @@ var DATA = [
         "description": "See NCBI SRA template for details.",
         "guidance": "Provide the filetype by selecting a value from the pick list. ",
         "examples": "",
+        "exportField": {
+          "NCBI_SRA": [
+            {
+              "field": "filetype"
+            }
+          ]
+        },
         "schema:ItemList": {
           "bam": {},
           "sra": {},
@@ -4953,92 +4880,36 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "",
         "description": "See NCBI SRA template for details.",
-        "guidance": "Provide the filename recorded in the Bioinformatics and QC metrics section.",
-        "examples": ""
+        "guidance": "Provide the appropriate filename recorded in the Bioinformatics and QC metrics section. If sequence data is \"paired\", provide the second filename under \"Filename 2\".",
+        "examples": "",
+        "exportField": {
+          "NCBI_SRA": [
+            {
+              "field": "filename"
+            }
+          ]
+        }
       },
       {
-        "fieldName": "amplicon _PCR_primer_scheme",
+        "fieldName": "filename 2",
         "capitalize": "",
         "ontology_id": "",
-        "datatype": "xs:token",
+        "datatype": "",
         "source": "",
         "dataStatus": null,
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
-        "requirement": "prepopulate",
-        "description": "This will be populated by the PHA4GE field \"amplicon  PCR primer scheme\".",
-        "guidance": "Populate the \"amplicon PCR primer scheme\" field.",
-        "examples": ""
-      },
-      {
-        "fieldName": "amplicon_size",
-        "capitalize": "",
-        "ontology_id": "",
-        "datatype": "xs:nonNegativeInteger",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "prepopulate",
-        "description": "This will be populated by the PHA4GE field \"amplicon size\".",
-        "guidance": "Populate the \"amplicon size\" field.",
-        "examples": ""
-      },
-      {
-        "fieldName": "sequencing_protocol_name",
-        "capitalize": "",
-        "ontology_id": "",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "prepopulate",
-        "description": "This will be populated by the PHA4GE field \"sequencing protocol name\".",
-        "guidance": "Populate the \"sequencing protocol name\" field.",
-        "examples": ""
-      },
-      {
-        "fieldName": "raw_sequence_data_processing_method",
-        "capitalize": "",
-        "ontology_id": "",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "prepopulate",
-        "description": "This will be populated by the PHA4GE field \"raw sequence data processing method\".",
-        "guidance": "Populate the \"raw sequence data processing method\" field.",
-        "examples": ""
-      },
-      {
-        "fieldName": "dehosting_method",
-        "capitalize": "",
-        "ontology_id": "",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "prepopulate",
-        "description": "This will be populated by the PHA4GE field \"dehosting method\".",
-        "guidance": "Populate the \"dehosting method\" field.",
-        "examples": ""
-      },
-      {
-        "fieldName": "sequence_submitter_contact_email",
-        "capitalize": "",
-        "ontology_id": "",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "prepopulate",
-        "description": "This will be populated by the PHA4GE field \"sequence submitter contact email\".",
-        "guidance": "Populate the \"sequence submitter contact email\" field.",
-        "examples": ""
+        "requirement": "",
+        "description": "See NCBI SRA template for details.",
+        "guidance": "Provide the appropriate filename recorded in the Bioinformatics and QC metrics section.",
+        "examples": "",
+        "exportField": {
+          "NCBI_SRA": [
+            {
+              "field": "filename 2"
+            }
+          ]
+        }
       }
     ]
   },
@@ -5086,6 +4957,81 @@ var DATA = [
             }
           ]
         }
+      }
+    ]
+  },
+  {
+    "fieldName": "data status",
+    "children": [
+      {
+        "fieldName": "Not Applicable",
+        "capitalize": "",
+        "ontology_id": "",
+        "datatype": "",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "",
+        "guidance": "",
+        "examples": ""
+      },
+      {
+        "fieldName": "Missing",
+        "capitalize": "",
+        "ontology_id": "",
+        "datatype": "",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "",
+        "guidance": "",
+        "examples": ""
+      },
+      {
+        "fieldName": "Not Collected",
+        "capitalize": "",
+        "ontology_id": "",
+        "datatype": "",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "",
+        "guidance": "",
+        "examples": ""
+      },
+      {
+        "fieldName": "Not Provided",
+        "capitalize": "",
+        "ontology_id": "",
+        "datatype": "",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "",
+        "guidance": "",
+        "examples": ""
+      },
+      {
+        "fieldName": "Restricted Access",
+        "capitalize": "",
+        "ontology_id": "",
+        "datatype": "",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "",
+        "guidance": "",
+        "examples": ""
       }
     ]
   }
