@@ -239,6 +239,11 @@ var DATA = [
               "field": "GISAID Accession (if known)"
             }
           ],
+          "NML_LIMS": [
+            {
+              "field": "GISAID Accession ID"
+            }
+          ],
           "BIOSAMPLE": [
             {
               "field": "GISAID_accession"
@@ -3870,6 +3875,11 @@ var DATA = [
             {
               "field": "Age Units"
             }
+          ],
+          "NML_LIMS": [
+            {
+              "field": "PH_AGE_UNIT"
+            }
           ]
         },
         "schema:ItemList": {
@@ -5811,13 +5821,6 @@ var DATA = [
         "description": "Whether there was prior SARS-CoV-2 treatment with an antiviral agent.",
         "guidance": "If known, provide infromation about whether the individual had a previous SARS-CoV-2 antiviral treatment. Select a value from the pick list.",
         "examples": "No prior antiviral treatment",
-        "exportField": {
-          "CNPHI": [
-            {
-              "field": "prior_SARS-CoV-2_antiviral_treatment"
-            }
-          ]
-        },
         "schema:ItemList": {
           "Prior antivrial treatment": {},
           "No prior antivrial treatment": {},
@@ -5880,6 +5883,11 @@ var DATA = [
           "CNPHI": [
             {
               "field": "Reason for Sequencing"
+            }
+          ],
+          "NML_LIMS": [
+            {
+              "field": "PH_REASON_FOR_SEQUENCING"
             }
           ],
           "BIOSAMPLE": [
@@ -5945,6 +5953,11 @@ var DATA = [
           "CNPHI": [
             {
               "field": "Details on the Reason for Sequencing"
+            }
+          ],
+          "NML_LIMS": [
+            {
+              "field": "PH_REASON_FOR_SEQUENCING_DETAILS"
             }
           ]
         }
@@ -6054,6 +6067,11 @@ var DATA = [
             {
               "field": "Sequencing Instrument"
             }
+          ],
+          "NML_LIMS": [
+            {
+              "field": "ANALYSIS"
+            }
           ]
         },
         "schema:ItemList": {
@@ -6152,11 +6170,6 @@ var DATA = [
             {
               "field": "Sequencing Protocol Name"
             }
-          ],
-          "NML_LIMS": [
-            {
-              "field": "PH_TESTING_PROTOCOL"
-            }
           ]
         }
       },
@@ -6172,7 +6185,14 @@ var DATA = [
         "requirement": "",
         "description": "The protocol used to generate the sequence.",
         "guidance": "Provide a free text description of the methods and materials used to generate the sequence. Suggested text, fill in information where indicated.: \"Viral sequencing was performed following a tiling amplicon strategy using the <fill in> primer scheme. Sequencing was performed using a <fill in> sequencing instrument. Libraries were prepared using <fill in> library kit. \"",
-        "examples": "Genomes were generated through amplicon sequencing of 1200 bp amplicons with Freed schema primers. Libraries were created using Illumina DNA Prep kits, and sequence data was produced using Miseq Micro v2 (500 cycles) sequencing kits."
+        "examples": "Genomes were generated through amplicon sequencing of 1200 bp amplicons with Freed schema primers. Libraries were created using Illumina DNA Prep kits, and sequence data was produced using Miseq Micro v2 (500 cycles) sequencing kits.",
+        "exportField": {
+          "NML_LIMS": [
+            {
+              "field": "PH_TESTING_PROTOCOL"
+            }
+          ]
+        }
       },
       {
         "fieldName": "sequencing kit number",
@@ -6295,6 +6315,11 @@ var DATA = [
             {
               "field": "consensus sequence"
             }
+          ],
+          "NML_LIMS": [
+            {
+              "field": "Consensus Sequence Method Name"
+            }
           ]
         }
       },
@@ -6315,6 +6340,11 @@ var DATA = [
           "CNPHI": [
             {
               "field": "consensus sequence"
+            }
+          ],
+          "NML_LIMS": [
+            {
+              "field": "Consensus Sequence Method Version Name"
             }
           ]
         }
@@ -6952,6 +6982,11 @@ var DATA = [
           "CNPHI": [
             {
               "field": "Authors"
+            }
+          ],
+          "NML_LIMS": [
+            {
+              "field": "PH_CANCOGEN_AUTHORS"
             }
           ]
         }
