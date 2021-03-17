@@ -402,7 +402,7 @@
 							<td>Number of passages.</td>
 							<td>Provide number of known passages. If not passaged, put "not applicable"</td>
 							<td>3</td>
-							<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
+							<td>None</td>
 						</tr>
 
 						
@@ -574,9 +574,7 @@
 						
 						<tr>
 							<td class="label">pre-existing conditions and risk factors</td>
-							<td>Patient pre-existing conditions and risk factors.
-Pre-existing condition: A medical condition that existed prior to the current infection.
-Risk Factor: A variable associated with an increased risk of disease or infection.</td>
+							<td>Patient pre-existing conditions and risk factors. Pre-existing condition: A medical condition that existed prior to the current infection. Risk Factor: A variable associated with an increased risk of disease or infection.</td>
 							<td>Select all of the pre-existing conditions and risk factors experienced by the host from the pick list. If the desired term is missing, contact the curation team.</td>
 							<td>Asthma</td>
 							<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
@@ -1158,8 +1156,8 @@ Risk Factor: A variable associated with an increased risk of disease or infectio
 
 						
 						<tr>
-							<td class="label">variant evidence</td>
-							<td>The evidence used to make the variant determination.</td>
+							<td class="label">variant evidence details</td>
+							<td>Details about the evidence used to make the variant determination.</td>
 							<td>Provide the assay and list the set of lineage-defining mutations used to make the variant determination. If there are mutations of interest/concern observed in addition to lineage-defining mutations, describe those here.</td>
 							<td>RT-qPCR TaqPath assay: S gene target failure</td>
 							<td>None</td>
@@ -1256,33 +1254,6 @@ Risk Factor: A variable associated with an increased risk of disease or infectio
 						</tr>
 						
 						<tr>
-							<td class="label">bioproject_accession</td>
-							<td>This will be populated by the PHA4GE field "bioproject accession".</td>
-							<td>Populate the "bioproject accession" field.</td>
-							<td></td>
-							<td>None</td>
-						</tr>
-
-						
-						<tr>
-							<td class="label">sample_name</td>
-							<td>This will be populated by the PHA4GE field "biosample accession".</td>
-							<td>Populate the "biosample accession" field.</td>
-							<td></td>
-							<td>None</td>
-						</tr>
-
-						
-						<tr>
-							<td class="label">library_ID</td>
-							<td>This will be populated by the PHA4GE field "library ID".</td>
-							<td>Populate the "library ID" field.</td>
-							<td></td>
-							<td>None</td>
-						</tr>
-
-						
-						<tr>
 							<td class="label">title</td>
 							<td>Short description that will identify  the dataset on public pages.</td>
 							<td>Format: {methodology} of {organism}: {sample info}</td>
@@ -1328,24 +1299,6 @@ Risk Factor: A variable associated with an increased risk of disease or infectio
 
 						
 						<tr>
-							<td class="label">platform</td>
-							<td>This will be populated by the PHA4GE field "sequencing instrument".</td>
-							<td>Only a limited set of sequencing platforms are available in the NCBI pick list. If a value appears to be missing, contact PHA4GE and report the issue.</td>
-							<td></td>
-							<td>None</td>
-						</tr>
-
-						
-						<tr>
-							<td class="label">instrument_model</td>
-							<td>This will be populated by the PHA4GE field "sequencing instrument".</td>
-							<td>Only a limited set of sequencing instruments are available in the NCBI pick list. If a value appears to be missing, contact PHA4GE and report the issue.</td>
-							<td></td>
-							<td>None</td>
-						</tr>
-
-						
-						<tr>
 							<td class="label">filetype</td>
 							<td>See NCBI SRA template for details.</td>
 							<td>Provide the filetype by selecting a value from the pick list. </td>
@@ -1357,61 +1310,16 @@ Risk Factor: A variable associated with an increased risk of disease or infectio
 						<tr>
 							<td class="label">filename</td>
 							<td>See NCBI SRA template for details.</td>
-							<td>Provide the filename recorded in the Bioinformatics and QC metrics section.</td>
+							<td>Provide the appropriate filename recorded in the Bioinformatics and QC metrics section. If sequence data is "paired", provide the second filename under "Filename 2".</td>
 							<td></td>
 							<td>None</td>
 						</tr>
 
 						
 						<tr>
-							<td class="label">amplicon _PCR_primer_scheme</td>
-							<td>This will be populated by the PHA4GE field "amplicon  PCR primer scheme".</td>
-							<td>Populate the "amplicon PCR primer scheme" field.</td>
-							<td></td>
-							<td>None</td>
-						</tr>
-
-						
-						<tr>
-							<td class="label">amplicon_size</td>
-							<td>This will be populated by the PHA4GE field "amplicon size".</td>
-							<td>Populate the "amplicon size" field.</td>
-							<td></td>
-							<td>None</td>
-						</tr>
-
-						
-						<tr>
-							<td class="label">sequencing_protocol_name</td>
-							<td>This will be populated by the PHA4GE field "sequencing protocol name".</td>
-							<td>Populate the "sequencing protocol name" field.</td>
-							<td></td>
-							<td>None</td>
-						</tr>
-
-						
-						<tr>
-							<td class="label">raw_sequence_data_processing_method</td>
-							<td>This will be populated by the PHA4GE field "raw sequence data processing method".</td>
-							<td>Populate the "raw sequence data processing method" field.</td>
-							<td></td>
-							<td>None</td>
-						</tr>
-
-						
-						<tr>
-							<td class="label">dehosting_method</td>
-							<td>This will be populated by the PHA4GE field "dehosting method".</td>
-							<td>Populate the "dehosting method" field.</td>
-							<td></td>
-							<td>None</td>
-						</tr>
-
-						
-						<tr>
-							<td class="label">sequence_submitter_contact_email</td>
-							<td>This will be populated by the PHA4GE field "sequence submitter contact email".</td>
-							<td>Populate the "sequence submitter contact email" field.</td>
+							<td class="label">filename 2</td>
+							<td>See NCBI SRA template for details.</td>
+							<td>Provide the appropriate filename recorded in the Bioinformatics and QC metrics section.</td>
 							<td></td>
 							<td>None</td>
 						</tr>
@@ -1432,6 +1340,55 @@ Risk Factor: A variable associated with an increased risk of disease or infectio
 						
 						<tr>
 							<td class="label">DataHarmonizer provenance</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>None</td>
+						</tr>
+
+						
+						<tr class="section">
+							<td colspan="5"><h3>data status</h3></td>
+						</tr>
+						
+						<tr>
+							<td class="label">Not Applicable</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>None</td>
+						</tr>
+
+						
+						<tr>
+							<td class="label">Missing</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>None</td>
+						</tr>
+
+						
+						<tr>
+							<td class="label">Not Collected</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>None</td>
+						</tr>
+
+						
+						<tr>
+							<td class="label">Not Provided</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>None</td>
+						</tr>
+
+						
+						<tr>
+							<td class="label">Restricted Access</td>
 							<td></td>
 							<td></td>
 							<td></td>

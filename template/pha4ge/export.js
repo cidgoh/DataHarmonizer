@@ -5,7 +5,7 @@
  * @param {Object} data See `data.js`.
  * @param {Object} xlsx SheetJS variable.
  */
-var exportBioSample = (baseName, hot, data, xlsx, fileType) => {
+var exportNCBI_BioSample = (baseName, hot, data, xlsx, fileType) => {
   // Create an export table with template's headers (2nd row) and remaining rows of data
   const ExportHeaders = new Map([
     ['sample_name',             []],
@@ -57,7 +57,7 @@ var exportBioSample = (baseName, hot, data, xlsx, fileType) => {
   const sourceFields = getFields(data);
   const sourceFieldNameMap = getFieldNameMap(sourceFields);
   // Fills in the above mapping (or just set manually above) 
-  getHeaderMap(ExportHeaders, sourceFields, 'BIOSAMPLE');
+  getHeaderMap(ExportHeaders, sourceFields, 'NCBI_BIOSAMPLE');
 
   // Copy headers to 1st row of new export table
   const outputMatrix = [[...ExportHeaders.keys()]];
@@ -87,8 +87,113 @@ var exportBioSample = (baseName, hot, data, xlsx, fileType) => {
   runBehindLoadingScreen(exportFile, [outputMatrix, baseName, fileType, xlsx]);
 };
 
+var exportNCBI_SRA = (baseName, hot, data, xlsx, fileType) => {
+
+  const ExportHeaders = new Map([]);
+  const sourceFields = getFields(data);
+  const sourceFieldNameMap = getFieldNameMap(sourceFields);
+  // Fills in the above mapping (or just set manually above) 
+  getHeaderMap(ExportHeaders, sourceFields, 'NCBI_SRA');
+
+  // Copy headers to 1st row of new export table
+  const outputMatrix = [[...ExportHeaders.keys()]];
+
+  for (const inputRow of getTrimmedData(hot)) {
+    const outputRow = [];
+    for (const [headerName, sources] of ExportHeaders) {
+
+      // Otherwise apply source (many to one) to target field transform:
+      const value = getMappedField(inputRow, sources, sourceFields,sourceFieldNameMap, '|') 
+      outputRow.push(value);
+    }
+    outputMatrix.push(outputRow);
+  }
+
+  runBehindLoadingScreen(exportFile, [outputMatrix, baseName, fileType, xlsx]);
+};
+
+var exportNCBI_Genbank = (baseName, hot, data, xlsx, fileType) => {
+
+  const ExportHeaders = new Map([]);
+  const sourceFields = getFields(data);
+  const sourceFieldNameMap = getFieldNameMap(sourceFields);
+  // Fills in the above mapping (or just set manually above) 
+  getHeaderMap(ExportHeaders, sourceFields, 'NCBI_Genbank');
+
+  // Copy headers to 1st row of new export table
+  const outputMatrix = [[...ExportHeaders.keys()]];
+
+  for (const inputRow of getTrimmedData(hot)) {
+    const outputRow = [];
+    for (const [headerName, sources] of ExportHeaders) {
+
+      // Otherwise apply source (many to one) to target field transform:
+      const value = getMappedField(inputRow, sources, sourceFields,sourceFieldNameMap, '|') 
+      outputRow.push(value);
+    }
+    outputMatrix.push(outputRow);
+  }
+
+  runBehindLoadingScreen(exportFile, [outputMatrix, baseName, fileType, xlsx]);
+};
+
+var exportNCBI_Genbank_source_modifiers = (baseName, hot, data, xlsx, fileType) => {
+
+  const ExportHeaders = new Map([]);
+  const sourceFields = getFields(data);
+  const sourceFieldNameMap = getFieldNameMap(sourceFields);
+  // Fills in the above mapping (or just set manually above) 
+  getHeaderMap(ExportHeaders, sourceFields, 'NCBI_Genbank_source_modifiers');
+
+  // Copy headers to 1st row of new export table
+  const outputMatrix = [[...ExportHeaders.keys()]];
+
+  for (const inputRow of getTrimmedData(hot)) {
+    const outputRow = [];
+    for (const [headerName, sources] of ExportHeaders) {
+
+      // Otherwise apply source (many to one) to target field transform:
+      const value = getMappedField(inputRow, sources, sourceFields,sourceFieldNameMap, '|') 
+      outputRow.push(value);
+    }
+    outputMatrix.push(outputRow);
+  }
+
+  runBehindLoadingScreen(exportFile, [outputMatrix, baseName, fileType, xlsx]);
+};
+
+
+var exportGISAID = (baseName, hot, data, xlsx, fileType) => {
+
+  const ExportHeaders = new Map([]);
+  const sourceFields = getFields(data);
+  const sourceFieldNameMap = getFieldNameMap(sourceFields);
+  // Fills in the above mapping (or just set manually above) 
+  getHeaderMap(ExportHeaders, sourceFields, 'GISAID');
+
+  // Copy headers to 1st row of new export table
+  const outputMatrix = [[...ExportHeaders.keys()]];
+
+  for (const inputRow of getTrimmedData(hot)) {
+    const outputRow = [];
+    for (const [headerName, sources] of ExportHeaders) {
+
+      // Otherwise apply source (many to one) to target field transform:
+      const value = getMappedField(inputRow, sources, sourceFields,sourceFieldNameMap, '|') 
+      outputRow.push(value);
+    }
+    outputMatrix.push(outputRow);
+  }
+
+  runBehindLoadingScreen(exportFile, [outputMatrix, baseName, fileType, xlsx]);
+};
 
 // A list of the export functions keyed by the Export menu name they should appear as:
 var EXPORT_FORMATS = {
-  "BioSample":    {'method': exportBioSample,'fileType': 'xls', 'status': 'published'},
+  "NCBI_BioSample": {'method': exportNCBI_BioSample,'fileType': 'xls', 'status': 'published'},
+  "NCBI_SRA": {'method': exportNCBI_SRA,'fileType': 'xls', 'status': 'published'},
+  "NCBI_Genbank": {'method': exportNCBI_Genbank,'fileType': 'xls', 'status': 'published'},
+  "NCBI_Genbank_source_modifiers": {'method': exportNCBI_Genbank_source_modifiers,'fileType': 'xls', 'status': 'published'},
+  "GISAID": {'method': exportGISAID,'fileType': 'xls', 'status': 'published'}
+
 };
