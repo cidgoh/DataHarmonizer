@@ -142,9 +142,9 @@ ID	SC %
 	Pathogen diagnostic testing	gene name 2	select	gene name 1	Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					The name of the gene used in the diagnostic RT-PCR test.	Provide the full name of another gene used in an RT-PCR test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI	nsp12 (RdRp)		Gene Target 2	RESULT - CANCOGEN_SUBMITTED_RESLT_2	gene_name_2
 	Pathogen diagnostic testing	diagnostic pcr protocol 2	xs:token							The name and version number of the protocol used for diagnostic marker amplification.	The name and version number of the protocol used for carrying out a second diagnostic PCR test. This information can be compared to sequence data for evaluation of performance and quality control.	RdRpGenePCRTest 3				
 	Pathogen diagnostic testing	diagnostic pcr Ct value 2	xs:token							The Ct value result from a diagnostic SARS-CoV-2 RT-PCR test.	Provide the CT value of the sample from the second diagnostic RT-PCR test.	36		Gene Target 2 CT Value	RESULT - CANCOGEN_SUBMITTED_RESLT_2CT	diagnostic_PCR_CT_value_2
-	Pathogen diagnostic testing	gene name 3	select	gene name 1	Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					The name of the gene used in the diagnostic RT-PCR test.	Provide the full name of another gene used in an RT-PCR test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI	nsp12 (RdRp)		Gene Target 3		
+	Pathogen diagnostic testing	gene name 3	select	gene name 1	Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					The name of the gene used in the diagnostic RT-PCR test.	Provide the full name of another gene used in an RT-PCR test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI	nsp12 (RdRp)		Gene Target 3	RESULT - CANCOGEN_SUBMITTED_RESLT_3	
 	Pathogen diagnostic testing	diagnostic pcr protocol 3	xs:token							The name and version number of the protocol used for diagnostic marker amplification.	The name and version number of the protocol used for carrying out a second diagnostic PCR test. This information can be compared to sequence data for evaluation of performance and quality control.	RdRpGenePCRTest 3				
-	Pathogen diagnostic testing	diagnostic pcr Ct value 3	xs:token							The Ct value result from a diagnostic SARS-CoV-2 RT-PCR test.	Provide the CT value of the sample from the second diagnostic RT-PCR test.	30		Gene Target 3 CT Value		
+	Pathogen diagnostic testing	diagnostic pcr Ct value 3	xs:token							The Ct value result from a diagnostic SARS-CoV-2 RT-PCR test.	Provide the CT value of the sample from the second diagnostic RT-PCR test.	30		Gene Target 3 CT Value	RESULT - CANCOGEN_SUBMITTED_RESLT_3CT	
 		Contributor acknowledgement														
 	Contributor acknowledgement	authors	xs:token			recommended				Names of individuals contributing to the processes of sample collection, sequence generation, analysis, and data submission.	Include the first and last names of all individuals that should be attributed, separated by a comma.	Tejinder Singh, Fei Hu, Joe Blogs	Authors	Authors	PH_CANCOGEN_AUTHORS	
 	Contributor acknowledgement	DataHarmonizer provenance	provenance										DataHarmonizer provenance	Additional Comments	HC_COMMENTS	
@@ -753,8 +753,8 @@ BTO:0004755	lab host	   Vero E6 cell line
 	host age bin	90 - 99														
 	host age bin	100+														
 																
-OMRSE:00000009?	host gender	Female													MALE	
-OMRSE:00000008?	host gender	Male													FEMALE	
+OMRSE:00000009?	host gender	Female													FEMALE	
+OMRSE:00000008?	host gender	Male													MALE	
 	host gender	Non-binary gender													NON_BINARY_GENDER	
 	host gender	Transgender (Male to Female)													TRANSGENDER	
 	host gender	Transgender (Female to Male)													TRANSGENDER	
@@ -829,7 +829,7 @@ OMRSE:00000008?	host gender	Male													FEMALE
 	Human Exposure	      Person with Fever and/or Cough														
 	Human Exposure	      Person who Recently Travelled														
 	exposure setting	Occupational or Residency Exposure														
-	Occupational or Residency Exposure	      Abbatoir														
+ECTO_1000033	Occupational or Residency Exposure	      Abbatoir														
 	Occupational or Residency Exposure	      Animal Rescue														
 	Occupational or Residency Exposure	      Childcare														
 	Childcare	            Daycare														
@@ -843,10 +843,10 @@ OMRSE:00000008?	host gender	Male													FEMALE
 	Occupational or Residency Exposure	      Community Service Centre														
 	Occupational or Residency Exposure	      Correctional Facility														
 	Occupational or Residency Exposure	      Dormitory														
-	Occupational or Residency Exposure	      Farm														
+ECTO_1000034	Occupational or Residency Exposure	      Farm														
 	Occupational or Residency Exposure	      First Nations Reserve														
 	Occupational or Residency Exposure	      Group Home														
-	Occupational or Residency Exposure	      Healthcare Setting														
+ECTO_1000035	Occupational or Residency Exposure	      Healthcare Setting														
 	Healthcare Setting	            Ambulance														
 	Healthcare Setting	            Acute Care Facility														
 	Healthcare Setting	            Clinic														
@@ -855,12 +855,12 @@ OMRSE:00000008?	host gender	Male													FEMALE
 	Hospital	                  Emergency Department														
 	Hospital	                  ICU														
 	Hospital	                 Ward														
-	Healthcare Setting	            Laboratory														
+ECTO_1000036	Healthcare Setting	            Laboratory														
 	Healthcare Setting	            Long-Term Care Facility														
 	Healthcare Setting	            Pharmacy														
 	Healthcare Setting	            Physician's Office														
 	Occupational or Residency Exposure	      Insecure Housing (Homeless)														
-	Occupational or Residency Exposure	      Office														
+ECTO:1000037	Occupational or Residency Exposure	      Office														
 	Occupational or Residency Exposure	      Outdoors														
 	Outdoors	            Camp/camping														
 	Outdoors	            Hiking														
@@ -1262,3 +1262,5 @@ GAZ_00000564	geo_loc_name (country)	Western Sahara
 GAZ_00005284	geo_loc_name (country)	Yemen														
 GAZ_00001107	geo_loc_name (country)	Zambia														
 GAZ_00001106	geo_loc_name (country)	Zimbabwe														
+																
+																
