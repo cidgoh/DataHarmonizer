@@ -3978,7 +3978,7 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "value": "MALE"
+                  "value": "FEMALE"
                 }
               ]
             }
@@ -3987,7 +3987,7 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "value": "FEMALE"
+                  "value": "MALE"
                 }
               ]
             }
@@ -6916,6 +6916,11 @@ var DATA = [
             {
               "field": "Gene Target 3"
             }
+          ],
+          "NML_LIMS": [
+            {
+              "field": "RESULT - CANCOGEN_SUBMITTED_RESLT_3"
+            }
           ]
         },
         "schema:ItemList": {}
@@ -6951,6 +6956,11 @@ var DATA = [
           "CNPHI": [
             {
               "field": "Gene Target 3 CT Value"
+            }
+          ],
+          "NML_LIMS": [
+            {
+              "field": "RESULT - CANCOGEN_SUBMITTED_RESLT_3CT"
             }
           ]
         }
