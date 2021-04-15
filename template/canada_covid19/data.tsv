@@ -2,7 +2,7 @@ Ontology ID	parent class	label	datatype	source	data status	requirement	min value
 ID	SC %															
 		Database Identifiers														
 	Database Identifiers	specimen collector sample ID	xs:token		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				The user-defined name for the sample.	Store the collector sample ID. If this number is considered identifiable information, provide an alternative ID. Be sure to store the key that maps between the original and alternative IDs for traceability and follow up if necessary. Every collector sample ID from a single submitter must be unique. It can have any format, but we suggest that you make it concise, unique and consistent within your lab.	prov_rona_99	Sample ID given by the sample provider	Primary Specimen ID	VD_LAB_NUMBER	sample_name
-	Database Identifiers	NML submitted specimen primary ID	xs:token							The primary ID of the specimen submitted thorough LaSER.	Store the identifier for the specimen submitted through the NML LaSER system.	SR20-12345				
+	Database Identifiers	NML submitted specimen primary ID	xs:token							The primary ID of the specimen submitted thorough LaSER.	Store the identifier for the specimen submitted through the NML LaSER system.	SR20-12345			TEXT_ID;VD_LAB_NUMBER	
 	Database Identifiers	NML related specimen primary ID	xs:token		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					The primary ID of the related specimen previously submitted thorough LaSER	Store the primary ID of the related specimen previously submitted thorough LaSER	SR20-12345		Related Specimen ID|Related Specimen Relationship Type		
 	Database Identifiers	IRIDA sample name	xs:token							The identifier assigned to a sequenced isolate in IRIDA.	Store the IRIDA sample name. The IRIDA sample name will be created by the individual entering data into the IRIDA platform. IRIDA samples may be linked to metadata and sequence data, or just metadata alone. It is recommended that the IRIDA sample name be the same as, or contain, the specimen collector sample ID for better traceability. It is also recommended that the IRIDA sample name mirror the GISAID accession. IRIDA sample names cannot contain slashes. Slashes should be replaced by underscores. See IRIDA documentation for more information regarding special characters (https://irida.corefacility.ca/documentation/user/user/samples/#adding-a-new-sample). 	prov_rona_99				
 	Database Identifiers	umbrella bioproject accession	select						UPPER	The INSDC accession number assigned to the umbrella BioProject for the Canadian SARS-CoV-2 sequencing effort.	Store the umbrella BioProject accession by selecting it from the picklist in the template. The umbrella BioProject accession will be identical for all CanCOGen submitters. Different provinces will have their own BioProjects, however these BioProjects will be linked under one umbrella BioProject.	PRJNA623807				
@@ -10,7 +10,7 @@ ID	SC %
 	Database Identifiers	biosample accession	xs:token						UPPER	The identifier assigned to a BioSample in INSDC archives.	Store the accession returned from the BioSample submission. NCBI BioSamples will have the prefix SAMN.	SAMN14180202		BioSample Accession	PH_BIOSAMPLE_ACCESSION	
 	Database Identifiers	SRA accession	xs:token						UPPER	The Sequence Read Archive (SRA) identifier linking raw read data, methodological metadata and quality control metrics submitted to the INSDC.	Store the accession assigned to the submitted "run". NCBI-SRA accessions start with SRR.	SRR11177792		SRA Accession	PH_SRA_ACCESSION	
 	Database Identifiers	GenBank accession	xs:token						UPPER	The GenBank identifier assigned to the sequence in the INSDC archives.	Store the accession returned from a GenBank submission (viral genome assembly).	MN908947.3		GenBank Accession 		
-	Database Identifiers	GISAID accession	xs:token						UPPER	The GISAID accession number assigned to the sequence.	Store the accession returned from the GISAID submission.	EPI_ISL_436489		GISAID Accession (if known)	GISAID Accession ID	GISAID_accession
+	Database Identifiers	GISAID accession	xs:token						UPPER	The GISAID accession number assigned to the sequence.	Store the accession returned from the GISAID submission.	EPI_ISL_436489		GISAID Accession (if known)	SUBMISSIONS - GISAID Accession ID	GISAID_accession
 		Sample collection and processing														
 	Sample collection and processing	sample collected by	xs:token		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				The name of the agency that collected the original sample.	The name of the sample collector should be written out in full, (with minor exceptions) and be consistent across multple submissions e.g. Public Health Agency of Canada, Public Health Ontario, BC Centre for Disease Control. The sample collector specified is at the discretion of the data provider (i.e. may be hospital, provincial public health lab, or other).	BC Centre for Disease Control	Originating lab	Lab Name		collected_by
 	Sample collection and processing	sample collector contact email	xs:token							The email address of the contact responsible for follow-up regarding the sample.	The email address can represent a specific individual or lab e.g. johnnyblogs@lab.ca, or RespLab@lab.ca	RespLab@lab.ca				
@@ -53,9 +53,9 @@ ID	SC %
 	Host Information	host age	xs:decimal		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required	0	130		Age of host at the time of sampling.	Enter the age of the host in years. If not available, provide a null value. If there is not host, put "Not Applicable".	79	Patient age	Patient Age	PH_AGE	host_age
 	Host Information	host age unit	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				The unit used to measure the host age, in either months or years.	Indicate whether the host age is in months or years. Age indicated in months will be binned to the 0 - 9 year age bin. 			Age Units	PH_AGE_UNIT	
 	Host Information	host age bin	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				Age of host at the time of sampling, expressed as an age group.	Select the corresponding host age bin from the pick list provided in the template. If not available, provide a null value.	60 - 69		Host Age Category	PH_AGE_GROUP	
-	Host Information	host gender	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				The gender of the host at the time of sample collection.	Select the corresponding host gender from the pick list provided in the template. If not available, provide a null value. If there is no host, put "Not Applicable".	male	Gender	Patient Sex	VD_SEX	host_sex
-	Host Information	host residence geo_loc name (country)	select	geo_loc_name (country)	Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					The country of residence of the host.	Select the country name from pick list provided in the template.	United Kingdom				
-	Host Information	host residence geo_loc name (state/province/territory)	select	geo_loc_name (state/province/territory)	Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					The state/province/territory of residence of the host.	Select the province/territory name from pick list provided in the template.	Quebec				
+	Host Information	host gender	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required			Title	The gender of the host at the time of sample collection.	Select the corresponding host gender from the pick list provided in the template. If not available, provide a null value. If there is no host, put "Not Applicable".	male	Gender	Patient Sex	VD_SEX	host_sex
+	Host Information	host residence geo_loc name (country)	select	geo_loc_name (country)	Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					The country of residence of the host.	Select the country name from pick list provided in the template.	United Kingdom			PH_HOST_COUNTRY	
+	Host Information	host residence geo_loc name (state/province/territory)	select	geo_loc_name (state/province/territory)	Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					The state/province/territory of residence of the host.	Select the province/territory name from pick list provided in the template.	Quebec			PH_HOST_PROVINCE	
 	Host Information	host subject ID	xs:token							A unique identifier by which each host can be referred to e.g. #131	Provide the host identifier. Should be a unique, user-defined identifier.	BCxy123				host_subject_id
 	Host Information	symptom onset date	xs:date		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					The date on which the symptoms began or were first noted.	ISO 8601 standard "YYYY-MM-DD".	2020-03-16		Symptoms Onset Date	HC_ONSET_DATE	
 	Host Information	signs and symptoms	multiple		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					A perceived change in function or sensation, (loss, disturbance or appearance) indicative of a disease, reported by a patient or clinician.	Select all of the symptoms experienced by the host from the pick list.	Chills (sudden cold sensation); Cough; Fever		Symptoms	HC_SYMPTOMS	
@@ -68,7 +68,7 @@ ID	SC %
 	Host vaccination information	first dose vaccination date 	xs:date							The date the host was first vaccinated.	Provide the vaccination date in ISO 8601 standard format "YYYY-MM-DD".	2021-02-26				
 	Host vaccination information	last dose vaccination date	xs:date							The date the host received their last dose of vaccine.	Provide the date that the last dose of the vaccine was administered. Provide the last dose vaccination date in ISO 8601 standard format "YYYY-MM-DD".	2021-04-09				
 		Host exposure information														
-	Host exposure information	location of exposure geo_loc name (country)	select	geo_loc_name (country)	Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					The country where the host was likely exposed to the causative agent of the illness.	Select the country name from pick list provided in the template.	Canada				
+	Host exposure information	location of exposure geo_loc name (country)	select	geo_loc_name (country)	Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					The country where the host was likely exposed to the causative agent of the illness.	Select the country name from pick list provided in the template.	Canada			PH_EXPOSURE_COUNTRY	
 	Host exposure information	destination of most recent travel (city)	xs:token							The name of the city that was the destination of most recent travel.	Provide the name of the city that the host travelled to. Use this look-up service to identify the standardized term: https://www.ebi.ac.uk/ols/ontologies/gaz	New York City		Country of Travel|Province of Travel|City of Travel|Travel start date|Travel End Date	PH_TRAVEL	
 	Host exposure information	destination of most recent travel (state/province/territory)	xs:token							The name of the province that was the destination of most recent travel.	Provide the name of the state/province/territory that the host travelled to. Use this look-up service to identify the standardized term: https://www.ebi.ac.uk/ols/ontologies/gaz	California		Country of Travel|Province of Travel|City of Travel|Travel start date|Travel End Date	PH_TRAVEL	
 	Host exposure information	destination of most recent travel (country)	select	geo_loc_name (country)	Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					The name of the country that was the destination of most recent travel.	Provide the name of the country that the host travelled to. Use this look-up service to identify the standardized term: https://www.ebi.ac.uk/ols/ontologies/gaz	United Kingdom		Country of Travel|Province of Travel|City of Travel|Travel start date|Travel End Date	PH_TRAVEL	
@@ -78,8 +78,8 @@ ID	SC %
 	Host exposure information	exposure event	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					Event leading to exposure.	Select an exposure event from the pick list provided in the template. If the desired term is missing, contact the curation team.	Convention	Additional location information	Exposure Event	PH_EXPOSURE	
 	Host exposure information	exposure contact level	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					The exposure transmission contact type.	Select direct or indirect exposure from the pick-list.	Direct				
 	Host exposure information	host role	multiple							The role of the host in relation to the exposure setting.	Select the host's personal role(s) from the pick list provided in the template. If the desired term is missing, contact the curation team.	Patient				
-	Host exposure information	exposure setting	multiple							The setting leading to exposure.	Select the host exposure setting(s) from the pick list provided in the template. If a desired term is missing, contact the curation team.	Healthcare Setting				
-	Host exposure information	exposure details	xs:token							Additional host exposure information.	Free text description of the exposure.	Host role - Other: Bus Driver				
+	Host exposure information	exposure setting	multiple							The setting leading to exposure.	Select the host exposure setting(s) from the pick list provided in the template. If a desired term is missing, contact the curation team.	Healthcare Setting			PH_EXPOSURE	
+	Host exposure information	exposure details	xs:token							Additional host exposure information.	Free text description of the exposure.	Host role - Other: Bus Driver			PH_EXPOSURE_DETAILS	
 																
 																
 		Host reinfection information														
@@ -129,22 +129,22 @@ ID	SC %
 	Bioinformatics and QC metrics	reference genome accession	xs:token							A persistent, unique identifier of a genome database entry.	Provide the accession number of the reference genome.	NC_045512.2				
 	Bioinformatics and QC metrics	bioinformatics protocol	xs:token							The name and version number of the bioinformatics protocol used.	Further details regarding the methods used to process raw data, and/or generate assemblies, and/or generate consensus sequences can be provided in an SOP or protocol. Provide the name and version number of the protocol.	https://www.protocols.io/groups/cphln-sarscov2-sequencing-consortium/members		Bioinformatics Protocol		
 		Lineage and Variant information														
-	Lineage and Variant information	lineage/clade name	xs:token							The name of the lineage or clade.	Provide the Pangolin or Nextstrain lineage/clade name.	B.1.1.7				
-	Lineage and Variant information	lineage/clade analysis software name	xs:token							The name of the software used to determine the lineage/clade.	Provide the name of the software used to determine the lineage/clade.	Pangolin				
-	Lineage and Variant information	lineage/clade analysis software version	xs:token							The version of the software used to determine the lineage/clade.	Provide the version of the software used ot determine the lineage/clade.	2.1.10				
-	Lineage and Variant information	variant designation	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					The variant classification of the lineage/clade i.e. variant, variant of concern.	If the lineage/clade is considered a Variant of Concern, select Variant of Concern from the pick list. If the lineage/clade contains mutations of concern (mutations that increase transmission, clincal severity, or other epidemiological fa ctors) but it not a global Variant of Concern, select Variant. If the lineage/clade does not contain mutations of concern, leave blank.	Variant of Concern				
-	Lineage and Variant information	variant evidence	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					The evidence used to make the variant determination.	Select whether the sample was screened using RT-qPCR or by sequencing from the pick list.	RT-qPCR TaqPath assay: S gene target failure				
-	Lineage and Variant information	variant evidence details	xs:token							Details about the evidence used to make the variant determination.	Provide the assay and list the set of lineage-defining mutations used to make the variant determination. If there are mutations of interest/concern observed in addition to lineage-defining mutations, describe those here.					
+	Lineage and Variant information	lineage/clade name	xs:token							The name of the lineage or clade.	Provide the Pangolin or Nextstrain lineage/clade name.	B.1.1.7			PH_LINEAGE_CLADE_NAME	
+	Lineage and Variant information	lineage/clade analysis software name	xs:token							The name of the software used to determine the lineage/clade.	Provide the name of the software used to determine the lineage/clade.	Pangolin			PH_LINEAGE_CLADE_SOFTWARE	
+	Lineage and Variant information	lineage/clade analysis software version	xs:token							The version of the software used to determine the lineage/clade.	Provide the version of the software used ot determine the lineage/clade.	2.1.10			PH_LINEAGE_CLADE_VERSION	
+	Lineage and Variant information	variant designation	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					The variant classification of the lineage/clade i.e. variant, variant of concern.	If the lineage/clade is considered a Variant of Concern, select Variant of Concern from the pick list. If the lineage/clade contains mutations of concern (mutations that increase transmission, clincal severity, or other epidemiological fa ctors) but it not a global Variant of Concern, select Variant. If the lineage/clade does not contain mutations of concern, leave blank.	Variant of Concern			PH_VARIANT_DESIGNATION	
+	Lineage and Variant information	variant evidence	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					The evidence used to make the variant determination.	Select whether the sample was screened using RT-qPCR or by sequencing from the pick list.	RT-qPCR TaqPath assay: S gene target failure			PH_ VARIANT_EVIDENCE	
+	Lineage and Variant information	variant evidence details	xs:token							Details about the evidence used to make the variant determination.	Provide the assay and list the set of lineage-defining mutations used to make the variant determination. If there are mutations of interest/concern observed in addition to lineage-defining mutations, describe those here.				PH_ VARIANT_EVIDENCE_DETAILS	
 		Pathogen diagnostic testing														
-	Pathogen diagnostic testing	gene name 1	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					The name of the gene used in the diagnostic RT-PCR test.	Provide the full name of the gene used in the test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI	E (orf4)		Gene Target 1	RESULT - CANCOGEN_SUBMITTED_RESLT_1	gene_name_1
+	Pathogen diagnostic testing	gene name 1	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					The name of the gene used in the diagnostic RT-PCR test.	Provide the full name of the gene used in the test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI	E (orf4)		Gene Target 1	SUBMITTED_RESLT - Gene Target #1	gene_name_1
 	Pathogen diagnostic testing	diagnostic pcr protocol 1	xs:token							The name and version number of the protocol used for diagnostic marker amplification.	The name and version number of the protocol used for carrying out a diagnostic PCR test. This information can be compared to sequence data for evaluation of performance and quality control.	EGenePCRTest 2				
-	Pathogen diagnostic testing	diagnostic pcr Ct value 1	xs:token							The Ct value result from a diagnostic SARS-CoV-2 RT-PCR test.	Provide the CT value of the sample from the diagnostic RT-PCR test.	21		Gene Target 1 CT Value	RESULT - CANCOGEN_SUBMITTED_RESLT_1CT	diagnostic_PCR_CT_value_1
+	Pathogen diagnostic testing	diagnostic pcr Ct value 1	xs:token							The Ct value result from a diagnostic SARS-CoV-2 RT-PCR test.	Provide the CT value of the sample from the diagnostic RT-PCR test.	21		Gene Target 1 CT Value	SUBMITTED_RESLT - Gene Target #1 CT Value	diagnostic_PCR_CT_value_1
 	Pathogen diagnostic testing	gene name 2	select	gene name 1	Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					The name of the gene used in the diagnostic RT-PCR test.	Provide the full name of another gene used in an RT-PCR test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI	nsp12 (RdRp)		Gene Target 2	RESULT - CANCOGEN_SUBMITTED_RESLT_2	gene_name_2
 	Pathogen diagnostic testing	diagnostic pcr protocol 2	xs:token							The name and version number of the protocol used for diagnostic marker amplification.	The name and version number of the protocol used for carrying out a second diagnostic PCR test. This information can be compared to sequence data for evaluation of performance and quality control.	RdRpGenePCRTest 3				
-	Pathogen diagnostic testing	diagnostic pcr Ct value 2	xs:token							The Ct value result from a diagnostic SARS-CoV-2 RT-PCR test.	Provide the CT value of the sample from the second diagnostic RT-PCR test.	36		Gene Target 2 CT Value	RESULT - CANCOGEN_SUBMITTED_RESLT_2CT	diagnostic_PCR_CT_value_2
-	Pathogen diagnostic testing	gene name 3	select	gene name 1	Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					The name of the gene used in the diagnostic RT-PCR test.	Provide the full name of another gene used in an RT-PCR test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI	nsp12 (RdRp)		Gene Target 3	RESULT - CANCOGEN_SUBMITTED_RESLT_3	
+	Pathogen diagnostic testing	diagnostic pcr Ct value 2	xs:token							The Ct value result from a diagnostic SARS-CoV-2 RT-PCR test.	Provide the CT value of the sample from the second diagnostic RT-PCR test.	36		Gene Target 2 CT Value	SUBMITTED_RESLT - Gene Target #2 CT Value	diagnostic_PCR_CT_value_2
+	Pathogen diagnostic testing	gene name 3	select	gene name 1	Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					The name of the gene used in the diagnostic RT-PCR test.	Provide the full name of another gene used in an RT-PCR test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI	nsp12 (RdRp)		Gene Target 3	SUBMITTED_RESLT - Gene Target #3	
 	Pathogen diagnostic testing	diagnostic pcr protocol 3	xs:token							The name and version number of the protocol used for diagnostic marker amplification.	The name and version number of the protocol used for carrying out a second diagnostic PCR test. This information can be compared to sequence data for evaluation of performance and quality control.	RdRpGenePCRTest 3				
-	Pathogen diagnostic testing	diagnostic pcr Ct value 3	xs:token							The Ct value result from a diagnostic SARS-CoV-2 RT-PCR test.	Provide the CT value of the sample from the second diagnostic RT-PCR test.	30		Gene Target 3 CT Value	RESULT - CANCOGEN_SUBMITTED_RESLT_3CT	
+	Pathogen diagnostic testing	diagnostic pcr Ct value 3	xs:token							The Ct value result from a diagnostic SARS-CoV-2 RT-PCR test.	Provide the CT value of the sample from the second diagnostic RT-PCR test.	30		Gene Target 3 CT Value	SUBMITTED_RESLT - Gene Target #3 CT Value	
 		Contributor acknowledgement														
 	Contributor acknowledgement	authors	xs:token			recommended				Names of individuals contributing to the processes of sample collection, sequence generation, analysis, and data submission.	Include the first and last names of all individuals that should be attributed, separated by a comma.	Tejinder Singh, Fei Hu, Joe Blogs	Authors	Authors	PH_CANCOGEN_AUTHORS	
 	Contributor acknowledgement	DataHarmonizer provenance	provenance										DataHarmonizer provenance	Additional Comments	HC_COMMENTS	
@@ -173,8 +173,8 @@ GAZ_00002569	geo_loc_name (state/province/territory)	Quebec													CA-QC
 GAZ_00002564	geo_loc_name (state/province/territory)	Saskatchewan													CA-SK	
 GAZ_00002576	geo_loc_name (state/province/territory)	Yukon													CA-YT	
 																
-UO:0000035	host age unit	month														
-UO:0000036	host age unit	year														
+UO:0000035	host age unit	month													Month	
+UO:0000036	host age unit	year													Year	
 																
 UO:0000035	sample collection date precision	year														
 UO:0000036	sample collection date precision	month														
@@ -284,9 +284,9 @@ HP_0002013	signs and symptoms	Vomiting (throwing up)													VOMITING
 	prior SARS-CoV-2 antiviral treatment	No prior antivrial treatment														
 	prior SARS-CoV-2 antiviral treatment	Unknown														
 																
-	NML submitted specimen type	Swab 													PH_SPECIMEN_TYPE:SWAB	
-	NML submitted specimen type	RNA													PH_SPECIMEN_TYPE:RNA	
-	NML submitted specimen type	mRNA (cDNA)													PH_SPECIMEN_TYPE:MRNA_CDNA	
+OBI_0002600	NML submitted specimen type	Swab 													PH_SPECIMEN_TYPE:SWAB	
+OBI_0000880	NML submitted specimen type	RNA													PH_SPECIMEN_TYPE:RNA	
+OBI:0002754	NML submitted specimen type	mRNA (cDNA)														
 	NML submitted specimen type	Nucleic acid													PH_SPECIMEN_TYPE:NUCLEIC_ACID	
 	NML submitted specimen type	Not Applicable													PH_SPECIMEN_TYPE:NA	
 																
@@ -318,7 +318,7 @@ HP:0011675	Cardiac disorder	      Arrhythmia
 	Cardiac disorder	      Cardiac disease														
 HP:0001638	Cardiac disorder	      Cardiomyopathy														
 	Cardiac disorder	      Cardiac injury														
-	Cardiac disorder	      Hypertension (high blood pressure)														
+HP_0000822	Cardiac disorder	      Hypertension (high blood pressure)														
 HP:0002615	Cardiac disorder	      Hypotension (low blood pressure)														
 	pre-existing conditions and risk factors	Cesarean section														
 	pre-existing conditions and risk factors	Chronic cough														
@@ -653,7 +653,7 @@ NCBITaxon_9825	host (scientific name)	Sus scrofa domesticus
 NCBITaxon_9673	host (scientific name)	Viverridae														
 																
 																
-NCBITaxon_9605	host (common name)	Human													HUMAN	
+NCBITaxon_9606	host (common name)	Human													HUMAN	
 NCBITaxon_9397	host (common name)	Bat													BAT	
 NCBITaxon_9685	host (common name)	Cat														
 NCBITaxon_9031	host (common name)	Chicken														
@@ -688,7 +688,7 @@ NCBITaxon_9694	host (common name)	Tiger
 	host health outcome	Recovered														
 	host health outcome	Stable														
 																
-	organism	Severe acute respiratory syndrome coronavirus 2														
+NCBITaxon_2697049	organism	Severe acute respiratory syndrome coronavirus 2														
 	organism	RaTG13														
 	organism	RmYN02														
 																
@@ -919,16 +919,16 @@ GENEPIO_0001935	Ion Torrent	   Ion Torrent PGM
 	Ion Torrent	   Ion Torrent S5 XL														
 	Ion Torrent	   Ion Torrent S5														
 	sequencing instrument	Oxford Nanopore														
-	Oxford Nanopore	   GridION														
-	Oxford Nanopore	   MinION														
-	Oxford Nanopore	   PromethION														
+	Oxford Nanopore	   Oxford Nanopore GridION														
+	Oxford Nanopore	   Oxford Nanopore MinION														
+	Oxford Nanopore	   Oxford Nanopore PromethION														
 	sequencing instrument	BGI Genomics														
-	BGI Genomics	   BGISEQ-500														
+	BGI Genomics	   BGI Genomics BGISEQ-500														
 	sequencing instrument	MGI														
-	MGI	DNBSEQ-T7														
-	MGI	DNBSEQ-G400														
-	MGI	DNBSEQ-G400 FAST														
-	MGI	DNBSEQ-G50														
+	MGI	   MGI DNBSEQ-T7														
+	MGI	   MGI DNBSEQ-G400														
+	MGI	   MGI DNBSEQ-G400 FAST														
+	MGI	   MGI DNBSEQ-G50														
 																
 																
 PR:P0DTC4	gene name 1	E gene (orf4)												E gene	E gene	
