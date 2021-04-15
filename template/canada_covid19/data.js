@@ -56,7 +56,17 @@ var DATA = [
         "requirement": "",
         "description": "The primary ID of the specimen submitted thorough LaSER.",
         "guidance": "Store the identifier for the specimen submitted through the NML LaSER system.",
-        "examples": "SR20-12345"
+        "examples": "SR20-12345",
+        "exportField": {
+          "NML_LIMS": [
+            {
+              "field": "TEXT_ID"
+            },
+            {
+              "field": "VD_LAB_NUMBER"
+            }
+          ]
+        }
       },
       {
         "fieldName": "NML related specimen primary ID",
@@ -241,7 +251,7 @@ var DATA = [
           ],
           "NML_LIMS": [
             {
-              "field": "GISAID Accession ID"
+              "field": "SUBMISSIONS - GISAID Accession ID"
             }
           ],
           "BIOSAMPLE": [
@@ -1586,16 +1596,7 @@ var DATA = [
               ]
             }
           },
-          "mRNA (cDNA)": {
-            "exportField": {
-              "NML_LIMS": [
-                {
-                  "field": "PH_SPECIMEN_TYPE",
-                  "value": "MRNA_CDNA"
-                }
-              ]
-            }
-          },
+          "mRNA (cDNA)": {},
           "Nucleic acid": {
             "exportField": {
               "NML_LIMS": [
@@ -3883,8 +3884,24 @@ var DATA = [
           ]
         },
         "schema:ItemList": {
-          "month": {},
-          "year": {}
+          "month": {
+            "exportField": {
+              "NML_LIMS": [
+                {
+                  "value": "Month"
+                }
+              ]
+            }
+          },
+          "year": {
+            "exportField": {
+              "NML_LIMS": [
+                {
+                  "value": "Year"
+                }
+              ]
+            }
+          }
         }
       },
       {
@@ -3934,7 +3951,7 @@ var DATA = [
       },
       {
         "fieldName": "host gender",
-        "capitalize": "",
+        "capitalize": "Title",
         "ontology_id": "",
         "datatype": "select",
         "source": "",
@@ -4058,6 +4075,13 @@ var DATA = [
         "description": "The country of residence of the host.",
         "guidance": "Select the country name from pick list provided in the template.",
         "examples": "United Kingdom",
+        "exportField": {
+          "NML_LIMS": [
+            {
+              "field": "PH_HOST_COUNTRY"
+            }
+          ]
+        },
         "schema:ItemList": {}
       },
       {
@@ -4079,6 +4103,13 @@ var DATA = [
         "description": "The state/province/territory of residence of the host.",
         "guidance": "Select the province/territory name from pick list provided in the template.",
         "examples": "Quebec",
+        "exportField": {
+          "NML_LIMS": [
+            {
+              "field": "PH_HOST_PROVINCE"
+            }
+          ]
+        },
         "schema:ItemList": {}
       },
       {
@@ -5268,6 +5299,13 @@ var DATA = [
         "description": "The country where the host was likely exposed to the causative agent of the illness.",
         "guidance": "Select the country name from pick list provided in the template.",
         "examples": "Canada",
+        "exportField": {
+          "NML_LIMS": [
+            {
+              "field": "PH_EXPOSURE_COUNTRY"
+            }
+          ]
+        },
         "schema:ItemList": {}
       },
       {
@@ -5637,6 +5675,13 @@ var DATA = [
         "description": "The setting leading to exposure.",
         "guidance": "Select the host exposure setting(s) from the pick list provided in the template. If a desired term is missing, contact the curation team.",
         "examples": "Healthcare Setting",
+        "exportField": {
+          "NML_LIMS": [
+            {
+              "field": "PH_EXPOSURE"
+            }
+          ]
+        },
         "schema:ItemList": {
           "Human Exposure": {
             "schema:ItemList": {
@@ -5742,7 +5787,14 @@ var DATA = [
         "requirement": "",
         "description": "Additional host exposure information.",
         "guidance": "Free text description of the exposure.",
-        "examples": "Host role - Other: Bus Driver"
+        "examples": "Host role - Other: Bus Driver",
+        "exportField": {
+          "NML_LIMS": [
+            {
+              "field": "PH_EXPOSURE_DETAILS"
+            }
+          ]
+        }
       }
     ]
   },
@@ -6132,22 +6184,22 @@ var DATA = [
           },
           "Oxford Nanopore": {
             "schema:ItemList": {
-              "GridION": {},
-              "MinION": {},
-              "PromethION": {}
+              "Oxford Nanopore GridION": {},
+              "Oxford Nanopore MinION": {},
+              "Oxford Nanopore PromethION": {}
             }
           },
           "BGI Genomics": {
             "schema:ItemList": {
-              "BGISEQ-500": {}
+              "BGI Genomics BGISEQ-500": {}
             }
           },
           "MGI": {
             "schema:ItemList": {
-              "DNBSEQ-T7": {},
-              "DNBSEQ-G400": {},
-              "DNBSEQ-G400 FAST": {},
-              "DNBSEQ-G50": {}
+              "MGI DNBSEQ-T7": {},
+              "MGI DNBSEQ-G400": {},
+              "MGI DNBSEQ-G400 FAST": {},
+              "MGI DNBSEQ-G50": {}
             }
           }
         }
@@ -6576,7 +6628,14 @@ var DATA = [
         "requirement": "",
         "description": "The name of the lineage or clade.",
         "guidance": "Provide the Pangolin or Nextstrain lineage/clade name.",
-        "examples": "B.1.1.7"
+        "examples": "B.1.1.7",
+        "exportField": {
+          "NML_LIMS": [
+            {
+              "field": "PH_LINEAGE_CLADE_NAME"
+            }
+          ]
+        }
       },
       {
         "fieldName": "lineage/clade analysis software name",
@@ -6590,7 +6649,14 @@ var DATA = [
         "requirement": "",
         "description": "The name of the software used to determine the lineage/clade.",
         "guidance": "Provide the name of the software used to determine the lineage/clade.",
-        "examples": "Pangolin"
+        "examples": "Pangolin",
+        "exportField": {
+          "NML_LIMS": [
+            {
+              "field": "PH_LINEAGE_CLADE_SOFTWARE"
+            }
+          ]
+        }
       },
       {
         "fieldName": "lineage/clade analysis software version",
@@ -6604,7 +6670,14 @@ var DATA = [
         "requirement": "",
         "description": "The version of the software used to determine the lineage/clade.",
         "guidance": "Provide the version of the software used ot determine the lineage/clade.",
-        "examples": "2.1.10"
+        "examples": "2.1.10",
+        "exportField": {
+          "NML_LIMS": [
+            {
+              "field": "PH_LINEAGE_CLADE_VERSION"
+            }
+          ]
+        }
       },
       {
         "fieldName": "variant designation",
@@ -6625,6 +6698,13 @@ var DATA = [
         "description": "The variant classification of the lineage/clade i.e. variant, variant of concern.",
         "guidance": "If the lineage/clade is considered a Variant of Concern, select Variant of Concern from the pick list. If the lineage/clade contains mutations of concern (mutations that increase transmission, clincal severity, or other epidemiological fa ctors) but it not a global Variant of Concern, select Variant. If the lineage/clade does not contain mutations of concern, leave blank.",
         "examples": "Variant of Concern",
+        "exportField": {
+          "NML_LIMS": [
+            {
+              "field": "PH_VARIANT_DESIGNATION"
+            }
+          ]
+        },
         "schema:ItemList": {
           "Variant of Concern (VOC)": {},
           "Variant of Interest (VOI)": {}
@@ -6649,6 +6729,13 @@ var DATA = [
         "description": "The evidence used to make the variant determination.",
         "guidance": "Select whether the sample was screened using RT-qPCR or by sequencing from the pick list.",
         "examples": "RT-qPCR TaqPath assay: S gene target failure",
+        "exportField": {
+          "NML_LIMS": [
+            {
+              "field": "PH_ VARIANT_EVIDENCE"
+            }
+          ]
+        },
         "schema:ItemList": {
           "RT-qPCR": {},
           "Sequencing": {}
@@ -6666,7 +6753,14 @@ var DATA = [
         "requirement": "",
         "description": "Details about the evidence used to make the variant determination.",
         "guidance": "Provide the assay and list the set of lineage-defining mutations used to make the variant determination. If there are mutations of interest/concern observed in addition to lineage-defining mutations, describe those here.",
-        "examples": ""
+        "examples": "",
+        "exportField": {
+          "NML_LIMS": [
+            {
+              "field": "PH_ VARIANT_EVIDENCE_DETAILS"
+            }
+          ]
+        }
       }
     ]
   },
@@ -6700,7 +6794,7 @@ var DATA = [
           ],
           "NML_LIMS": [
             {
-              "field": "RESULT - CANCOGEN_SUBMITTED_RESLT_1"
+              "field": "SUBMITTED_RESLT - Gene Target #1"
             }
           ],
           "BIOSAMPLE": [
@@ -6799,7 +6893,7 @@ var DATA = [
           ],
           "NML_LIMS": [
             {
-              "field": "RESULT - CANCOGEN_SUBMITTED_RESLT_1CT"
+              "field": "SUBMITTED_RESLT - Gene Target #1 CT Value"
             }
           ],
           "BIOSAMPLE": [
@@ -6882,7 +6976,7 @@ var DATA = [
           ],
           "NML_LIMS": [
             {
-              "field": "RESULT - CANCOGEN_SUBMITTED_RESLT_2CT"
+              "field": "SUBMITTED_RESLT - Gene Target #2 CT Value"
             }
           ],
           "BIOSAMPLE": [
@@ -6919,7 +7013,7 @@ var DATA = [
           ],
           "NML_LIMS": [
             {
-              "field": "RESULT - CANCOGEN_SUBMITTED_RESLT_3"
+              "field": "SUBMITTED_RESLT - Gene Target #3"
             }
           ]
         },
@@ -6960,7 +7054,7 @@ var DATA = [
           ],
           "NML_LIMS": [
             {
-              "field": "RESULT - CANCOGEN_SUBMITTED_RESLT_3CT"
+              "field": "SUBMITTED_RESLT - Gene Target #3 CT Value"
             }
           ]
         }
