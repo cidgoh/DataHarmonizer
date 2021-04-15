@@ -435,6 +435,7 @@ var exportNML_LIMS = (baseName, hot, data, xlsx, fileType) => {
     ['PH_HOST_HEALTH_DETAILS',  []],
     ['PH_HOST_DISEASE',         []],
     ['PH_AGE',                  []],
+    ['PH_AGE_UNIT',             []],
     ['PH_AGE_GROUP',            []],
     ['VD_SEX',                  []],
     ['HC_ONSET_DATE',           []],
@@ -447,6 +448,8 @@ var exportNML_LIMS = (baseName, hot, data, xlsx, fileType) => {
     ['RESULT - CANCOGEN_SUBMITTED_RESLT_1CT', []],
     ['RESULT - CANCOGEN_SUBMITTED_RESLT_2',   []],
     ['RESULT - CANCOGEN_SUBMITTED_RESLT_2CT', []],
+    ['RESULT - CANCOGEN_SUBMITTED_RESLT_3',   []],
+    ['RESULT - CANCOGEN_SUBMITTED_RESLT_3CT', []],
     ['HC_COMMENTS', []]
   ]);
 
