@@ -410,6 +410,7 @@ var exportNML_LIMS = (baseName, hot, data, xlsx, fileType) => {
 
   const ExportHeaders = new Map([
     ['VD_LAB_NUMBER',           []],
+    ['TEXT_ID',                 []],
     ['PH_BIOPROJECT_ACCESSION', []],
     ['PH_BIOSAMPLE_ACCESSION',  []],
     ['PH_SRA_ACCESSION',        []],
@@ -444,12 +445,13 @@ var exportNML_LIMS = (baseName, hot, data, xlsx, fileType) => {
     ['PH_TRAVEL',               []],
     ['PH_EXPOSURE',             []],
     ['PH_TESTING_PROTOCOL',     []],
-    ['RESULT - CANCOGEN_SUBMITTED_RESLT_1',   []], 
-    ['RESULT - CANCOGEN_SUBMITTED_RESLT_1CT', []],
-    ['RESULT - CANCOGEN_SUBMITTED_RESLT_2',   []],
-    ['RESULT - CANCOGEN_SUBMITTED_RESLT_2CT', []],
-    ['RESULT - CANCOGEN_SUBMITTED_RESLT_3',   []],
-    ['RESULT - CANCOGEN_SUBMITTED_RESLT_3CT', []],
+    ['SUBMITTED_RESLT - Gene Target #1',   []], 
+    ['SUBMITTED_RESLT - Gene Target #1 CT Value', []],
+    ['SUBMITTED_RESLT - Gene Target #2',   []],
+    ['SUBMITTED_RESLT - Gene Target #2 CT Value', []],
+    ['SUBMITTED_RESLT - Gene Target #3',   []],
+    ['SUBMITTED_RESLT - Gene Target #3 CT Value', []],
+    ['PH_CANCOGEN_AUTHORS',     []],
     ['HC_COMMENTS', []]
   ]);
 
