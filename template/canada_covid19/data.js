@@ -61,9 +61,6 @@ var DATA = [
           "NML_LIMS": [
             {
               "field": "TEXT_ID"
-            },
-            {
-              "field": "VD_LAB_NUMBER"
             }
           ]
         }
