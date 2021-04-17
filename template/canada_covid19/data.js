@@ -6,7 +6,7 @@ var DATA = [
         "fieldName": "specimen collector sample ID",
         "capitalize": "",
         "ontology_id": "",
-        "datatype": "xs:token",
+        "datatype": "xs:unique",
         "source": "",
         "dataStatus": [
           "Not Applicable",
@@ -6729,7 +6729,7 @@ var DATA = [
         "exportField": {
           "NML_LIMS": [
             {
-              "field": "PH_ VARIANT_EVIDENCE"
+              "field": "PH_VARIANT_EVIDENCE"
             }
           ]
         },
@@ -6927,7 +6927,7 @@ var DATA = [
           ],
           "NML_LIMS": [
             {
-              "field": "RESULT - CANCOGEN_SUBMITTED_RESLT_2"
+              "field": "SUBMITTED_RESLT - Gene Target #2"
             }
           ],
           "BIOSAMPLE": [
