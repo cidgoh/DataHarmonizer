@@ -11,7 +11,7 @@
  * main.html?template=test_template
  *
  */
-const VERSION = '0.13.16';
+const VERSION = '0.13.21';
 const TEMPLATES = {
   'CanCOGeN Covid-19': {'folder': 'canada_covid19', 'status': 'published'},
   'PHAC Dexa (ALPHA)': {'folder': 'phac_dexa', 'status': 'draft'},
@@ -1010,6 +1010,7 @@ const getInvalidCells = (hot, data) => {
   const fields = getFields(data);
 
   const regexDecimal = /^(-|\+|)(0|[1-9]\d*)(\.\d+)?$/;
+  let uniquefield = []; // holds lookup dictionary for any unique columns
 
   for (let row=0; row<hot.countRows(); row++) {
     if (hot.isEmptyRow(row)) continue;
@@ -1032,6 +1033,24 @@ const getInvalidCells = (hot, data) => {
         msg = 'Required cells cannot be empty'
       } 
       else switch (datatype) {
+        // Unique value field (a type of xs:token string) 
+        case 'xs:unique':
+          // Set up dictionary and count for this column's unique values
+          if (!uniquefield[col]) {
+            uniquefield[col] = {};
+            for (let keyrow=0; keyrow<hot.countRows(); keyrow++) {
+              if (!hot.isEmptyRow(keyrow)) {
+                let key = hot.getDataAtCell(keyrow, col);
+                if (key in uniquefield[col])
+                  uniquefield[col][key] += 1;
+                else
+                  uniquefield[col][key] = 1;
+              }
+            }
+          }
+          // Must be only 1 unique value.  Case insensitive comparison
+          valid = uniquefield[col][cellVal] === 1;  
+          break;
         case 'xs:nonNegativeInteger':
           const parsedInt = parseInt(cellVal, 10);
           valid = !isNaN(cellVal) && parsedInt>=0
@@ -1353,11 +1372,6 @@ const setupTriggers = () => {
     }
   });
 
-
-
-
-
-
   // Settings -> Jump to...
   const $jumpToInput = $('#jump-to-input');
   $jumpToInput.bind('focus', () => void $jumpToInput.autocomplete('search'));
@@ -1365,6 +1379,32 @@ const setupTriggers = () => {
   $('#jump-to-modal').on('shown.bs.modal', () => {
     $jumpToInput.val('');
     $jumpToInput.focus();
+  });
+
+  // Settings -> Fill column ...
+  const $fillValueInput = $('#fill-value-input');
+  const $fillColumnInput = $('#fill-column-input');
+  $fillColumnInput.bind('focus', () => void $fillColumnInput.autocomplete('search'));
+  $('#fill-modal').on('shown.bs.modal', () => {
+    $fillColumnInput.val('');
+    $fillColumnInput.focus();
+  });
+  $('#fill-button').on('click', () => {
+    runBehindLoadingScreen(() => {
+      //const fields = getFields(DATA);
+      let value = $fillValueInput.val();
+      let colname = $fillColumnInput.val();
+      const fieldYCoordinates = getFieldYCoordinates(DATA);
+      for (let row=0; row<HOT.countRows(); row++) {
+        if (!HOT.isEmptyRow(row)) {
+          let col = fieldYCoordinates[colname];
+          if (HOT.getDataAtCell(row, col) !== value)      
+            HOT.setDataAtCell(row, col, value, 'thisChange');
+        }
+      }
+       
+      HOT.render();
+    });
   });
 
   // Validate
@@ -1489,9 +1529,10 @@ const launch = (template_folder, DATA) => {
 
   toggleDropdownVisibility(HOT, INVALID_CELLS);
 
+  const fieldYCoordinates = getFieldYCoordinates(DATA);
+
   // Settings -> Jump to...
   const $jumpToInput = $('#jump-to-input');
-  const fieldYCoordinates = getFieldYCoordinates(DATA);
   $jumpToInput.autocomplete({
     source: Object.keys(fieldYCoordinates),
     minLength: 0,
@@ -1501,4 +1542,11 @@ const launch = (template_folder, DATA) => {
       $('#jump-to-modal').modal('hide');
     },
   })
+
+  const $fillColumnInput = $('#fill-column-input');
+  $fillColumnInput.autocomplete({
+    source: Object.keys(fieldYCoordinates),
+    minLength: 0
+  })
+
 }
