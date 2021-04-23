@@ -19,6 +19,8 @@ const TEMPLATES = {
   'GISAID (ALPHA)':    {'folder': 'gisaid', 'status': 'draft'},
   'PHA4GE (ALPHA)':    {'folder': 'pha4ge', 'status': 'draft'}
 };
+// Currently selected cell range[row,col,row2,col2]
+CURRENT_SELECTION = [null,null,null,null];
 
 /**
  * Controls what dropdown options are visible depending on grid settings.
@@ -182,9 +184,16 @@ const createHot = (data) => {
       if (triggered_changes) 
         changes.push(...triggered_changes);
     },
-    afterRender: () => {
+    afterInit: () => {
+      $('#next-error-button').hide();
+    },
+    afterSelection: (row, column, row2, column2, preventScrolling, selectionLayerLevel) => {
+      window.CURRENT_SELECTION = [row, column, row2, column2];
+    },
+    afterRender: (isForced) => {
       $('#header-row').css('visibility', 'visible');
       $('#footer-row').css('visibility', 'visible');
+
       // Bit of a hackey way to add classes to secondary headers
       $('.secondary-header-text').each((_, e) => {
         const $cellElement = $(e).closest('th');
@@ -500,6 +509,7 @@ const openFile = (file, hot, data, xlsx) => {
       } else {
         launchSpecifyHeadersModal(matrix, hot, data);
       }
+
       resolve();
     }
   });
@@ -960,7 +970,8 @@ const changeRowVisibility = (id, invalidCells, hot) => {
   if (id === 'show-valid-rows-dropdown-item') {
     hiddenRows = Object.keys(invalidCells).map(Number);
     hiddenRows = [...hiddenRows, ...emptyRows];
-  } else if (id === 'show-invalid-rows-dropdown-item') {
+  } 
+  else if (id === 'show-invalid-rows-dropdown-item') {
     const invalidRowsSet = new Set(Object.keys(invalidCells).map(Number));
     hiddenRows = rows.filter(row => !invalidRowsSet.has(row));
     hiddenRows = [...hiddenRows, ...emptyRows];
@@ -986,14 +997,15 @@ const getFieldYCoordinates = (data) => {
 
 /**
  * Scroll grid to specified column.
- * @param {String} y 0-based index of column to scroll to.
+ * @param {String} row 0-based index of row to scroll to.
+ * @param {String} column 0-based index of column to scroll to.
  * @param {Object} data See `data.js`.
  * @param {Object} hot Handsontable instance of grid.
  */
-const scrollToCol = (y, data, hot) => {
+const scrollTo = (row, column, data, hot) => {
   const hiddenCols = hot.getPlugin('hiddenColumns').hiddenColumns;
-  if (hiddenCols.includes(y)) changeColVisibility('', data, hot);
-  hot.scrollViewportTo(0, y);
+  if (hiddenCols.includes(column)) changeColVisibility('', data, hot);
+  hot.scrollViewportTo(row, column);
 };
 
 /**
@@ -1272,7 +1284,8 @@ const setupTriggers = () => {
     const isNotEmpty = HOT.countRows() - HOT.countEmptyRows();
     if (e.target.id === 'new-dropdown-item' && isNotEmpty) {
       $('#clear-data-warning-modal').modal('show');
-    } else {
+    } 
+    else {
       // Clear current file indication
       $('#file_name_display').text('');
 
@@ -1301,6 +1314,10 @@ const setupTriggers = () => {
     }
     // Allow consecutive uploads of the same file
     $fileInput[0].value = '';
+
+    $('#next-error-button').hide();
+    window.CURRENT_SELECTION = [null,null,null,null];
+
   });
   // Reset specify header modal values when the modal is closed
   $('#specify-headers-modal').on('hidden.bs.modal', () => {
@@ -1407,11 +1424,64 @@ const setupTriggers = () => {
     });
   });
 
+  // Locate next error based on current cursor cell row and column.
+  $('#next-error-button').on('click', () => {
+    // We can't use HOT.getSelectedLast() because "Next Error" button click 
+    // removes that.
+    let focus_row = window.CURRENT_SELECTION[0];
+    let focus_col = window.CURRENT_SELECTION[1];
+
+    const all_rows = Object.keys(window.INVALID_CELLS);
+    const error1_row = all_rows[0];//0=index of key, not key!
+    const error1_col = all_rows[error1_row][0];
+    if (!focus_row) {
+      focus_row = error1_row;
+    }
+    else {
+      // Get all error rows >= focus row
+      const rows = all_rows.filter(row => row >= focus_row);
+
+      // One or more errors on focus row:
+      if (focus_row == rows[0]) {
+        let cols = Object.keys(window.INVALID_CELLS[focus_row])
+
+        cols = cols.filter(col => col > focus_col);
+        if (cols.length) {
+          focus_col = parseInt(cols[0]);
+        }
+        else {
+          // No next column, so advance to next row or first row
+          focus_row = (rows.length > 1) ? rows[1] : error1_row; 
+          focus_col = Object.keys(window.INVALID_CELLS[focus_row])[0];
+        }
+      }
+      else {
+        // Advance to next row or first row
+        focus_row = (rows.length > 1) ? rows[1] : error1_row; 
+        focus_col = Object.keys(window.INVALID_CELLS[focus_row])[0];
+      }
+    };
+    //console.log("trying", focus_row, focus_col);
+    window.CURRENT_SELECTION[0] = focus_row;
+    window.CURRENT_SELECTION[1] = focus_col;
+    window.CURRENT_SELECTION[2] = focus_row;
+    window.CURRENT_SELECTION[3] = focus_col;   
+    scrollTo(focus_row, focus_col, DATA, HOT);
+
+  });
+
   // Validate
   $('#validate-btn').on('click', () => {
     runBehindLoadingScreen(() => {
       window.INVALID_CELLS = getInvalidCells(HOT, DATA);
       HOT.render();
+
+      // If any rows have error, show this.
+      if (Object.keys(window.INVALID_CELLS).length > 0) {
+        $('#next-error-button').show();
+      }
+      else
+        $('#next-error-button').hide();
     });
   });
 
@@ -1537,8 +1607,8 @@ const launch = (template_folder, DATA) => {
     source: Object.keys(fieldYCoordinates),
     minLength: 0,
     select: (e, ui) => {
-      const y = fieldYCoordinates[ui.item.label];
-      scrollToCol(y, DATA, window.HOT);
+      const column = fieldYCoordinates[ui.item.label];
+      scrollTo(0, column, DATA, window.HOT);
       $('#jump-to-modal').modal('hide');
     },
   })
