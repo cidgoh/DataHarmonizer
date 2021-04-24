@@ -666,9 +666,33 @@ var DATA = [
           ]
         },
         "schema:ItemList": {
-          "year": {},
-          "month": {},
-          "day": {}
+          "year": {
+            "exportField": {
+              "NML_LIMS": [
+                {
+                  "value": "Year"
+                }
+              ]
+            }
+          },
+          "month": {
+            "exportField": {
+              "NML_LIMS": [
+                {
+                  "value": "Month"
+                }
+              ]
+            }
+          },
+          "day": {
+            "exportField": {
+              "NML_LIMS": [
+                {
+                  "value": "Day"
+                }
+              ]
+            }
+          }
         }
       },
       {

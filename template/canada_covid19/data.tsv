@@ -176,9 +176,9 @@ GAZ_00002576	geo_loc_name (state/province/territory)	Yukon													CA-YT
 UO:0000035	host age unit	month													Month	
 UO:0000036	host age unit	year													Year	
 																
-UO:0000035	sample collection date precision	year														
-UO:0000036	sample collection date precision	month														
-UO:0000033	sample collection date precision	day														
+UO:0000035	sample collection date precision	year													Year	
+UO:0000036	sample collection date precision	month													Month	
+UO:0000033	sample collection date precision	day													Day	
 																
 OBI:0000895	biomaterial extracted	RNA (total)														
 OBI:0000869	biomaterial extracted	RNA (poly-A)														
@@ -878,8 +878,8 @@ ECTO:1000037	Occupational or Residency Exposure	      Office
 	Travelled	            Travelled on a Cruise Ship														
 	Travelled	            Travelled on a Plane														
 	Travelled	            Travelled on Ground Transport														
-	Travelled	            Travelled outside Province/Territory														
-	Travelled	            Travelled outside Canada														
+GENEPIO_0001121	Travelled	            Travelled outside Province/Territory														
+GENEPIO_0001120	Travelled	            Travelled outside Canada														
 	exposure setting	Other Exposure Setting														
 																
 																
