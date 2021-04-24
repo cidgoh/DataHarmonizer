@@ -872,18 +872,19 @@ const fieldUnitBinTest = (fields, col) => {
  * Test [field],[field bin] or [field],[field unit],[field bin] combinations
  * to see if bin update needed.
  * @param {Array<Array<String>>} matrix Data meant for grid.
- * @param {Integer} column of numeric field.
+ * @param {Integer} rowOffset 
+ * @param {Integer} col column of numeric field.
  * @param {Object} fields See `data.js`.
  * @param {Integer} binOffset column of bin field.
  * @param {Array} triggered_changes array of change which is appended to changes.
  */
 const binChangeTest = (matrix, rowOffset, col, fields, binOffset, triggered_changes) => {
   for (let row in matrix) {
-    // Do parseFloat rather than parseInt to accomodate fractional bins.
     const value = matrix[row][col];
     // For IMPORT, this is only run on fields that have a value.
     // Note matrix pass cell by reference so its content can be changed.
     if (value && value.length > 0) {
+      // Do parseFloat rather than parseInt to accomodate fractional bins.
       let number = parseFloat(value);
 
       var selection = '';
@@ -913,6 +914,26 @@ const binChangeTest = (matrix, rowOffset, col, fields, binOffset, triggered_chan
             continue;
           }
           break;
+        }
+      }
+      else {
+        // Integer/date field is a textual value, possibly a metadata 'Missing'
+        // etc. If bin field has a value, leave it unchanged; but if it doesn't
+        // then populate bin with input field metadata status too.
+        const bin_value = window.HOT.getDataAtCell(rowOffset, col+binOffset);
+        selection = bin_value; // Default value is itself.
+
+        const bin_values = fields[col+binOffset].flatVocabulary;
+        if (!bin_value || bin_value === '' && value in bin_values) {
+          selection = value
+        }
+        // If a unit field exists, then set that to metadata too.
+        if (binOffset == 2) {
+          const unit_value = window.HOT.getDataAtCell(rowOffset, col+1);
+          const unit_values = fields[col+1].flatVocabulary;
+          if (!unit_value || unit_value === '' && value in unit_values) {
+            triggered_changes.push([rowOffset + parseInt(row), col+1, undefined, value]);
+          }
         }
       }
       triggered_changes.push([rowOffset + parseInt(row), col+binOffset, undefined, selection]);
@@ -1003,9 +1024,15 @@ const getFieldYCoordinates = (data) => {
  * @param {Object} hot Handsontable instance of grid.
  */
 const scrollTo = (row, column, data, hot) => {
+
   const hiddenCols = hot.getPlugin('hiddenColumns').hiddenColumns;
-  if (hiddenCols.includes(column)) changeColVisibility('', data, hot);
+  if (hiddenCols.includes(column)) 
+    changeColVisibility('', data, hot);
+
+  hot.selectCell(parseInt(row), parseInt(column), parseInt(row), parseInt(column), true);
+  //Ensures field is positioned on left side of screen.
   hot.scrollViewportTo(row, column);
+
 };
 
 /**
@@ -1433,18 +1460,17 @@ const setupTriggers = () => {
 
     const all_rows = Object.keys(window.INVALID_CELLS);
     const error1_row = all_rows[0];//0=index of key, not key!
-    const error1_col = all_rows[error1_row][0];
-    if (!focus_row) {
+    if (focus_row === null) {
       focus_row = error1_row;
+      focus_col = Object.keys(window.INVALID_CELLS[focus_row])[0];
     }
     else {
       // Get all error rows >= focus row
       const rows = all_rows.filter(row => row >= focus_row);
 
-      // One or more errors on focus row:
+      // One or more errors on focus row (lax string/numeric comparision):
       if (focus_row == rows[0]) {
         let cols = Object.keys(window.INVALID_CELLS[focus_row])
-
         cols = cols.filter(col => col > focus_col);
         if (cols.length) {
           focus_col = parseInt(cols[0]);
@@ -1457,10 +1483,11 @@ const setupTriggers = () => {
       }
       else {
         // Advance to next row or first row
-        focus_row = (rows.length > 1) ? rows[1] : error1_row; 
+        focus_row = rows[0]; 
         focus_col = Object.keys(window.INVALID_CELLS[focus_row])[0];
       }
     };
+
     //console.log("trying", focus_row, focus_col);
     window.CURRENT_SELECTION[0] = focus_row;
     window.CURRENT_SELECTION[1] = focus_col;
