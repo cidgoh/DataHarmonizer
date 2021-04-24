@@ -97,10 +97,10 @@ const getHeaderMap = (exportHeaders, fields, prefix) => {
 		};
     };
     // This will output a list of fields added to exportHeaders by way of template specification which haven't been included in export.js
-    if (field_message)
-    	console.log('Export fields added by template:', field_message)
-    if (field_export_message)
-    	console.log('Export fields stated in export.js):', field_export_message)
+    //if (field_message)
+    //	console.log('Export fields added by template:', field_message)
+    //if (field_export_message)
+    //	console.log('Export fields stated in export.js):', field_export_message)
 };
 
 /**
