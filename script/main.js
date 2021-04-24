@@ -1483,7 +1483,7 @@ const setupTriggers = () => {
       }
       else {
         // Advance to next row or first row
-        focus_row = rows[0]; 
+        focus_row = rows.length ? rows[0] : error1_row;
         focus_col = Object.keys(window.INVALID_CELLS[focus_row])[0];
       }
     };
