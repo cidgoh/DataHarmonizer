@@ -1,8 +1,8 @@
 Ontology ID	parent class	label	datatype	source	data status	requirement	min value	max value	capitalize	description	guidance	examples	EXPORT_GISAID	EXPORT_CNPHI	EXPORT_NML_LIMS	EXPORT_BIOSAMPLE
 ID	SC %															
 		Database Identifiers														
-	Database Identifiers	specimen collector sample ID	xs:unique		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				The user-defined name for the sample.	Store the collector sample ID. If this number is considered identifiable information, provide an alternative ID. Be sure to store the key that maps between the original and alternative IDs for traceability and follow up if necessary. Every collector sample ID from a single submitter must be unique. It can have any format, but we suggest that you make it concise, unique and consistent within your lab.	prov_rona_99	Sample ID given by the sample provider	Primary Specimen ID	VD_LAB_NUMBER	sample_name
-	Database Identifiers	NML submitted specimen primary ID	xs:token							The primary ID of the specimen submitted thorough LaSER.	Store the identifier for the specimen submitted through the NML LaSER system.	SR20-12345			TEXT_ID	
+	Database Identifiers	specimen collector sample ID	xs:unique		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				The user-defined name for the sample.	Store the collector sample ID. If this number is considered identifiable information, provide an alternative ID. Be sure to store the key that maps between the original and alternative IDs for traceability and follow up if necessary. Every collector sample ID from a single submitter must be unique. It can have any format, but we suggest that you make it concise, unique and consistent within your lab.	prov_rona_99	Sample ID given by the sample provider	Primary Specimen ID	VD_LAB_NUMBER;TEXT_ID	sample_name
+	Database Identifiers	NML submitted specimen primary ID	xs:token							The primary ID of the specimen submitted thorough LaSER.	Store the identifier for the specimen submitted through the NML LaSER system.	SR20-12345				
 	Database Identifiers	NML related specimen primary ID	xs:token		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					The primary ID of the related specimen previously submitted thorough LaSER	Store the primary ID of the related specimen previously submitted thorough LaSER	SR20-12345		Related Specimen ID|Related Specimen Relationship Type		
 	Database Identifiers	IRIDA sample name	xs:token							The identifier assigned to a sequenced isolate in IRIDA.	Store the IRIDA sample name. The IRIDA sample name will be created by the individual entering data into the IRIDA platform. IRIDA samples may be linked to metadata and sequence data, or just metadata alone. It is recommended that the IRIDA sample name be the same as, or contain, the specimen collector sample ID for better traceability. It is also recommended that the IRIDA sample name mirror the GISAID accession. IRIDA sample names cannot contain slashes. Slashes should be replaced by underscores. See IRIDA documentation for more information regarding special characters (https://irida.corefacility.ca/documentation/user/user/samples/#adding-a-new-sample). 	prov_rona_99				
 	Database Identifiers	umbrella bioproject accession	select						UPPER	The INSDC accession number assigned to the umbrella BioProject for the Canadian SARS-CoV-2 sequencing effort.	Store the umbrella BioProject accession by selecting it from the picklist in the template. The umbrella BioProject accession will be identical for all CanCOGen submitters. Different provinces will have their own BioProjects, however these BioProjects will be linked under one umbrella BioProject.	PRJNA623807				
@@ -19,7 +19,7 @@ ID	SC %
 	Sample collection and processing	sequence submitter contact email	xs:token							The email address of the contact responsible for follow-up regarding the sequence.	The email address can represent a specific individual or lab e.g. johnnyblogs@lab.ca, or RespLab@lab.ca					
 	Sample collection and processing	sequence submitter contact address	xs:token							The mailing address of the agency submitting the sequence.	The mailing address should be in the format: Street number and name, City, Province/Territory, Postal Code, Country	123 Sunnybrooke St, Toronto, Ontario, M4P 1L6, Canada	Address			
 	Sample collection and processing	sample collection date	xs:date		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				The date on which the sample was collected.	Sample collection date is critical for surveillance and many types of analyses. Required granularity includes year, month and day. If this date is considered identifiable information, it is acceptable to add "jitter" by adding or subtracting a calendar day (acceptable by GISAID). Alternatively, ”received date” may be used as a substitute. The date should be provided in ISO 8601 standard format "YYYY-MM-DD".	2020-03-16	Collection date	Patient Sample Collected Date	HC_COLLECT_DATE	sample collection date
-	Sample collection and processing	sample collection date precision	select			required								Precision of date collected	HC_TEXT2	
+	Sample collection and processing	sample collection date precision	select			required						year		Precision of date collected	HC_TEXT2	
 	Sample collection and processing	sample received date	xs:date		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					The date on which the sample was received.	ISO 8601 standard "YYYY-MM-DD".	2020-03-20				
 	Sample collection and processing	geo_loc_name (country)	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				The country where the sample was collected.	Provide the country name from the controlled vocabulary provided.	Canada	Location	Patient Country	HC_COUNTRY	geo_loc_name
 	Sample collection and processing	geo_loc_name (state/province/territory)	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				The province/territory where the sample was collected.	Provide the province/territory name from the controlled vocabulary provided.	Saskatchewan		Patient Province	HC_PROVINCE	geo_loc_name
@@ -753,8 +753,8 @@ BTO:0004755	lab host	   Vero E6 cell line
 	host age bin	90 - 99														
 	host age bin	100+														
 																
-OMRSE:00000009?	host gender	Female													FEMALE	
-OMRSE:00000008?	host gender	Male													MALE	
+OMRSE:00000009?	host gender	Female														
+OMRSE:00000008?	host gender	Male														
 	host gender	Non-binary gender													NON_BINARY_GENDER	
 	host gender	Transgender (Male to Female)													TRANSGENDER	
 	host gender	Transgender (Female to Male)													TRANSGENDER	
@@ -878,8 +878,8 @@ ECTO:1000037	Occupational or Residency Exposure	      Office
 	Travelled	            Travelled on a Cruise Ship														
 	Travelled	            Travelled on a Plane														
 	Travelled	            Travelled on Ground Transport														
-GENEPIO_0001121	Travelled	            Travelled outside Province/Territory														
-GENEPIO_0001120	Travelled	            Travelled outside Canada														
+GENEPIO_0001119	Travelled	            Travelled outside Province/Territory														
+GENEPIO_0001118	Travelled	            Travelled outside Canada														
 	exposure setting	Other Exposure Setting														
 																
 																

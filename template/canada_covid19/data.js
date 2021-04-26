@@ -35,6 +35,9 @@ var DATA = [
           "NML_LIMS": [
             {
               "field": "VD_LAB_NUMBER"
+            },
+            {
+              "field": "TEXT_ID"
             }
           ],
           "BIOSAMPLE": [
@@ -56,14 +59,7 @@ var DATA = [
         "requirement": "",
         "description": "The primary ID of the specimen submitted thorough LaSER.",
         "guidance": "Store the identifier for the specimen submitted through the NML LaSER system.",
-        "examples": "SR20-12345",
-        "exportField": {
-          "NML_LIMS": [
-            {
-              "field": "TEXT_ID"
-            }
-          ]
-        }
+        "examples": "SR20-12345"
       },
       {
         "fieldName": "NML related specimen primary ID",
@@ -652,7 +648,7 @@ var DATA = [
         "requirement": "required",
         "description": "",
         "guidance": "",
-        "examples": "",
+        "examples": "year",
         "exportField": {
           "CNPHI": [
             {
@@ -4012,24 +4008,8 @@ var DATA = [
           ]
         },
         "schema:ItemList": {
-          "Female": {
-            "exportField": {
-              "NML_LIMS": [
-                {
-                  "value": "FEMALE"
-                }
-              ]
-            }
-          },
-          "Male": {
-            "exportField": {
-              "NML_LIMS": [
-                {
-                  "value": "MALE"
-                }
-              ]
-            }
-          },
+          "Female": {},
+          "Male": {},
           "Non-binary gender": {
             "exportField": {
               "NML_LIMS": [
