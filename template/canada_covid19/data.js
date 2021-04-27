@@ -34,10 +34,7 @@ var DATA = [
           ],
           "NML_LIMS": [
             {
-              "field": "VD_LAB_NUMBER"
-            },
-            {
-              "field": "TEXT_ID"
+              "field": "VD_LAB_NUMBER|TEXT_ID"
             }
           ],
           "BIOSAMPLE": [
@@ -571,7 +568,7 @@ var DATA = [
         "requirement": "",
         "description": "The email address of the contact responsible for follow-up regarding the sequence.",
         "guidance": "The email address can represent a specific individual or lab e.g. johnnyblogs@lab.ca, or RespLab@lab.ca",
-        "examples": ""
+        "examples": "RespLab@lab.ca"
       },
       {
         "fieldName": "sequence submitter contact address",
@@ -646,8 +643,8 @@ var DATA = [
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "required",
-        "description": "",
-        "guidance": "",
+        "description": "The precision to which the \"sample collection date\" was provided.",
+        "guidance": "Provide the precision of granularity to the \"day\", \"month\", or \"year\" for the date provided in the \"sample collection date\" field. The \"sample collection date\" will be truncated to the precision specified upon export; \"day\" for \"YYYY-MM-DD\", \"month\" for \"YYYY-MM\", or \"year\" for \"YYYY\".",
         "examples": "year",
         "exportField": {
           "CNPHI": [
@@ -3365,7 +3362,7 @@ var DATA = [
         "requirement": "recommended",
         "description": "Description of how organism was passaged.",
         "guidance": "Free text. Provide a very short description (<10 words). If not passaged, put \"not applicable\".",
-        "examples": "",
+        "examples": "0.25% trypsin + 0.02% EDTA",
         "exportField": {
           "GISAID": [
             {
@@ -3887,7 +3884,7 @@ var DATA = [
         "requirement": "required",
         "description": "The unit used to measure the host age, in either months or years.",
         "guidance": "Indicate whether the host age is in months or years. Age indicated in months will be binned to the 0 - 9 year age bin. ",
-        "examples": "",
+        "examples": "years",
         "exportField": {
           "CNPHI": [
             {
@@ -6729,7 +6726,7 @@ var DATA = [
         "requirement": "",
         "description": "The evidence used to make the variant determination.",
         "guidance": "Select whether the sample was screened using RT-qPCR or by sequencing from the pick list.",
-        "examples": "RT-qPCR TaqPath assay: S gene target failure",
+        "examples": "RT-qPCR",
         "exportField": {
           "NML_LIMS": [
             {
@@ -6754,11 +6751,11 @@ var DATA = [
         "requirement": "",
         "description": "Details about the evidence used to make the variant determination.",
         "guidance": "Provide the assay and list the set of lineage-defining mutations used to make the variant determination. If there are mutations of interest/concern observed in addition to lineage-defining mutations, describe those here.",
-        "examples": "",
+        "examples": "Lineage-defining mutations: ORF1ab (K1655N), Spike (K417N, E484K, N501Y, D614G, A701V), N (T205I), E (P71L).",
         "exportField": {
           "NML_LIMS": [
             {
-              "field": "PH_ VARIANT_EVIDENCE_DETAILS"
+              "field": "PH_VARIANT_EVIDENCE_DETAILS"
             }
           ]
         }
@@ -6786,7 +6783,7 @@ var DATA = [
         "requirement": "",
         "description": "The name of the gene used in the diagnostic RT-PCR test.",
         "guidance": "Provide the full name of the gene used in the test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI",
-        "examples": "E (orf4)",
+        "examples": "E gene (orf4)",
         "exportField": {
           "CNPHI": [
             {
@@ -6922,7 +6919,7 @@ var DATA = [
         "requirement": "",
         "description": "The name of the gene used in the diagnostic RT-PCR test.",
         "guidance": "Provide the full name of another gene used in an RT-PCR test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI",
-        "examples": "nsp12 (RdRp)",
+        "examples": "RdRp gene (nsp12)",
         "exportField": {
           "CNPHI": [
             {
@@ -7005,7 +7002,7 @@ var DATA = [
         "requirement": "",
         "description": "The name of the gene used in the diagnostic RT-PCR test.",
         "guidance": "Provide the full name of another gene used in an RT-PCR test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI",
-        "examples": "nsp12 (RdRp)",
+        "examples": "RdRp gene (nsp12)",
         "exportField": {
           "CNPHI": [
             {
@@ -7106,9 +7103,9 @@ var DATA = [
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
-        "description": "",
-        "guidance": "",
-        "examples": "",
+        "description": "The DataHarmonizer software version provenance.",
+        "guidance": "The current software version information will be automatically generated in this field after the user utilizes the \"validate\" function. This information will be generated regardless as to whether the row is valid of not.",
+        "examples": "DataHarmonizer provenance: v0.13.21",
         "exportField": {
           "GISAID": [
             {

@@ -415,6 +415,7 @@ var exportNML_LIMS = (baseName, hot, data, xlsx, fileType) => {
     ['PH_BIOSAMPLE_ACCESSION',  []],
     ['PH_SRA_ACCESSION',        []],
     ['SUBMISSIONS - GISAID Accession ID', []],
+
     ['PH_SEQUENCING_CENTRE',    []],        
     ['HC_COLLECT_DATE',         []],
     ['HC_TEXT2',                []], 
@@ -430,7 +431,7 @@ var exportNML_LIMS = (baseName, hot, data, xlsx, fileType) => {
     ['PH_SPECIMEN_SOURCE_DESC', []],
     ['PH_ENVIRONMENTAL_MATERIAL', []],
     ['PH_ENVIRONMENTAL_SITE',   []],
-    ['PH_SPECIMEN_TYPE_ORIG',   []], 
+    ['PH_SPECIMEN_TYPE_ORIG',   []],           
     ['COLLECTION_METHOD',       []],
     ['PH_ANIMAL_TYPE',          []],
     ['PH_HOST_HEALTH',          []],
@@ -440,12 +441,27 @@ var exportNML_LIMS = (baseName, hot, data, xlsx, fileType) => {
     ['PH_AGE_UNIT',             []],
     ['PH_AGE_GROUP',            []],
     ['VD_SEX',                  []],
+    ['PH_HOST_COUNTRY',         []],
+    ['PH_HOST_PROVINCE',        []], 
     ['HC_ONSET_DATE',           []],
     ['HC_SYMPTOMS',             []],
     ['VE_SYMP_AVAIL',           []], // Calculated field (not in import)
+    ['PH_EXPOSURE_COUNTRY',     []], 
     ['PH_TRAVEL',               []],
     ['PH_EXPOSURE',             []],
+    ['PH_EXPOSURE_DETAILS',     []], 
+    ['PH_REASON_FOR_SEQUENCING',[]], 
+    ['PH_REASON_FOR_SEQUENCING_DETAILS', []], 
+    ['ANALYSIS',                []], 
     ['PH_TESTING_PROTOCOL',     []],
+    ['Consensus Sequence Method Name',   []], 
+    ['Consensus Sequence Method Version Name',   []], 
+    ['PH_LINEAGE_CLADE_NAME',   []], 
+    ['PH_LINEAGE_CLADE_SOFTWARE',[]], 
+    ['PH_LINEAGE_CLADE_VERSION',[]], 
+    ['PH_VARIANT_DESIGNATION',  []], 
+    ['PH_VARIANT_EVIDENCE',     []], 
+    ['PH_VARIANT_EVIDENCE_DETAILS', []], 
     ['SUBMITTED_RESLT - Gene Target #1',   []], 
     ['SUBMITTED_RESLT - Gene Target #1 CT Value', []],
     ['SUBMITTED_RESLT - Gene Target #2',   []],
@@ -453,7 +469,7 @@ var exportNML_LIMS = (baseName, hot, data, xlsx, fileType) => {
     ['SUBMITTED_RESLT - Gene Target #3',   []],
     ['SUBMITTED_RESLT - Gene Target #3 CT Value', []],
     ['PH_CANCOGEN_AUTHORS',     []],
-    ['HC_COMMENTS', []]
+    ['HC_COMMENTS',             []]
   ]);
 
   const sourceFields = getFields(data);
