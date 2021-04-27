@@ -34,7 +34,10 @@ var DATA = [
           ],
           "NML_LIMS": [
             {
-              "field": "VD_LAB_NUMBER|TEXT_ID"
+              "field": "VD_LAB_NUMBER"
+            },
+            {
+              "field": "TEXT_ID"
             }
           ],
           "BIOSAMPLE": [
@@ -80,7 +83,10 @@ var DATA = [
         "exportField": {
           "CNPHI": [
             {
-              "field": "Related Specimen ID|Related Specimen Relationship Type"
+              "field": "Related Specimen ID"
+            },
+            {
+              "field": "Related Specimen Relationship Type"
             }
           ]
         }
@@ -1649,7 +1655,10 @@ var DATA = [
         "exportField": {
           "CNPHI": [
             {
-              "field": "Related Specimen ID|Related Specimen Relationship Type"
+              "field": "Related Specimen ID"
+            },
+            {
+              "field": "Related Specimen Relationship Type"
             }
           ]
         },
