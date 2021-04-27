@@ -414,7 +414,7 @@ var exportNML_LIMS = (baseName, hot, data, xlsx, fileType) => {
     ['PH_BIOPROJECT_ACCESSION', []],
     ['PH_BIOSAMPLE_ACCESSION',  []],
     ['PH_SRA_ACCESSION',        []],
-    ['SUBMISSIONS - GISAID Accession ID, []],
+    ['SUBMISSIONS - GISAID Accession ID', []],
     ['PH_SEQUENCING_CENTRE',    []],        
     ['HC_COLLECT_DATE',         []],
     ['HC_TEXT2',                []], 
