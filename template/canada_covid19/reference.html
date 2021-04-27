@@ -168,7 +168,7 @@
 							<td class="label">sequence submitter contact email</td>
 							<td>The email address of the contact responsible for follow-up regarding the sequence.</td>
 							<td>The email address can represent a specific individual or lab e.g. johnnyblogs@lab.ca, or RespLab@lab.ca</td>
-							<td></td>
+							<td>RespLab@lab.ca</td>
 							<td>None</td>
 						</tr>
 
@@ -193,8 +193,8 @@
 						
 						<tr>
 							<td class="label">sample collection date precision</td>
-							<td></td>
-							<td></td>
+							<td>The precision to which the "sample collection date" was provided.</td>
+							<td>Provide the precision of granularity to the "day", "month", or "year" for the date provided in the "sample collection date" field. The "sample collection date" will be truncated to the precision specified upon export; "day" for "YYYY-MM-DD", "month" for "YYYY-MM", or "year" for "YYYY".</td>
 							<td>year</td>
 							<td>None</td>
 						</tr>
@@ -393,7 +393,7 @@
 							<td class="label">passage method</td>
 							<td>Description of how organism was passaged.</td>
 							<td>Free text. Provide a very short description (<10 words). If not passaged, put "not applicable".</td>
-							<td></td>
+							<td>0.25% trypsin + 0.02% EDTA</td>
 							<td>['Not Applicable']</td>
 						</tr>
 
@@ -478,7 +478,7 @@
 							<td class="label">host age unit</td>
 							<td>The unit used to measure the host age, in either months or years.</td>
 							<td>Indicate whether the host age is in months or years. Age indicated in months will be binned to the 0 - 9 year age bin. </td>
-							<td></td>
+							<td>years</td>
 							<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
 						</tr>
 
@@ -1132,7 +1132,7 @@
 							<td class="label">variant evidence</td>
 							<td>The evidence used to make the variant determination.</td>
 							<td>Select whether the sample was screened using RT-qPCR or by sequencing from the pick list.</td>
-							<td>RT-qPCR TaqPath assay: S gene target failure</td>
+							<td>RT-qPCR</td>
 							<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
 						</tr>
 
@@ -1141,7 +1141,7 @@
 							<td class="label">variant evidence details</td>
 							<td>Details about the evidence used to make the variant determination.</td>
 							<td>Provide the assay and list the set of lineage-defining mutations used to make the variant determination. If there are mutations of interest/concern observed in addition to lineage-defining mutations, describe those here.</td>
-							<td></td>
+							<td>Lineage-defining mutations: ORF1ab (K1655N), Spike (K417N, E484K, N501Y, D614G, A701V), N (T205I), E (P71L).</td>
 							<td>None</td>
 						</tr>
 
@@ -1154,7 +1154,7 @@
 							<td class="label">gene name 1</td>
 							<td>The name of the gene used in the diagnostic RT-PCR test.</td>
 							<td>Provide the full name of the gene used in the test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI</td>
-							<td>E (orf4)</td>
+							<td>E gene (orf4)</td>
 							<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
 						</tr>
 
@@ -1181,7 +1181,7 @@
 							<td class="label">gene name 2</td>
 							<td>The name of the gene used in the diagnostic RT-PCR test.</td>
 							<td>Provide the full name of another gene used in an RT-PCR test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI</td>
-							<td>nsp12 (RdRp)</td>
+							<td>RdRp gene (nsp12)</td>
 							<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
 						</tr>
 
@@ -1208,7 +1208,7 @@
 							<td class="label">gene name 3</td>
 							<td>The name of the gene used in the diagnostic RT-PCR test.</td>
 							<td>Provide the full name of another gene used in an RT-PCR test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI</td>
-							<td>nsp12 (RdRp)</td>
+							<td>RdRp gene (nsp12)</td>
 							<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
 						</tr>
 
@@ -1246,9 +1246,9 @@
 						
 						<tr>
 							<td class="label">DataHarmonizer provenance</td>
-							<td></td>
-							<td></td>
-							<td></td>
+							<td>The DataHarmonizer software version provenance.</td>
+							<td>The current software version information will be automatically generated in this field after the user utilizes the "validate" function. This information will be generated regardless as to whether the row is valid of not.</td>
+							<td>DataHarmonizer provenance: v0.13.21</td>
 							<td>None</td>
 						</tr>
 

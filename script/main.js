@@ -117,18 +117,22 @@ const processData = (data) => {
  * @return {String} String with modified case.
  */
 const changeCase = (val, capitalize) => {
-  if (capitalize === 'lower') {
-    return val.replace(/\w/g, (char) => char.toLowerCase());
-  } else if (capitalize === 'UPPER') {
-    return val.replace(/\w/g, (char) => char.toUpperCase());
-  } else if (capitalize === 'Title') {
-    val = val.substr(0, 1).toUpperCase() + val.substr(1);
-    return val.replace(/\W\w/g, (str) => {
-      return str[0] + str[1].toUpperCase();
-    });
-  } else {
-    return val;
+  switch (capitalize) {
+    case 'lower':
+      val = val.toLowerCase();
+      break;
+    case 'UPPER':
+      val = val.toUpperCase();
+      break;
+    case 'Title':
+      val = val.split(' ').
+      map(w => w[0].toUpperCase() + w.substr(1).toLowerCase()).
+      join(' ');
+      break;
+
   }
+  return val
+
 };
 
 /**
