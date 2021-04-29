@@ -5,7 +5,7 @@ var DATA = [
       {
         "fieldName": "specimen collector sample ID",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001123",
         "datatype": "xs:unique",
         "source": "",
         "dataStatus": [
@@ -34,9 +34,6 @@ var DATA = [
           ],
           "NML_LIMS": [
             {
-              "field": "VD_LAB_NUMBER"
-            },
-            {
               "field": "TEXT_ID"
             }
           ],
@@ -48,23 +45,44 @@ var DATA = [
         }
       },
       {
-        "fieldName": "NML submitted specimen primary ID",
+        "fieldName": "Switch Health ID",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001149",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
-        "description": "The primary ID of the specimen submitted thorough LaSER.",
+        "description": "The identifier assigned to a sample by Switch Health.",
+        "guidance": "Store the identifier supplied by Seitch Health for the sample.",
+        "examples": "SHK123456",
+        "exportField": {
+          "NML_LIMS": [
+            {
+              "field": "VD_LAB_NUMBER"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "NML submitted specimen primary ID",
+        "capitalize": "",
+        "ontology_id": "GENEPIO_0001125",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "The primary ID of the specimen submitted thorough the National Microbiology Laboratory (NML) LaSER.",
         "guidance": "Store the identifier for the specimen submitted through the NML LaSER system.",
         "examples": "SR20-12345"
       },
       {
         "fieldName": "NML related specimen primary ID",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001128",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": [
@@ -77,7 +95,7 @@ var DATA = [
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
-        "description": "The primary ID of the related specimen previously submitted thorough LaSER",
+        "description": "The primary ID of the related specimen previously submitted thorough the National Microbiology Laboratory (NML) LaSER.",
         "guidance": "Store the primary ID of the related specimen previously submitted thorough LaSER",
         "examples": "SR20-12345",
         "exportField": {
@@ -94,7 +112,7 @@ var DATA = [
       {
         "fieldName": "IRIDA sample name",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001131",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
@@ -108,7 +126,7 @@ var DATA = [
       {
         "fieldName": "umbrella bioproject accession",
         "capitalize": "UPPER",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001133",
         "datatype": "select",
         "source": "",
         "dataStatus": null,
@@ -125,7 +143,7 @@ var DATA = [
       {
         "fieldName": "bioproject accession",
         "capitalize": "UPPER",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001136",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
@@ -156,7 +174,7 @@ var DATA = [
       {
         "fieldName": "biosample accession",
         "capitalize": "UPPER",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001139",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
@@ -182,7 +200,7 @@ var DATA = [
       {
         "fieldName": "SRA accession",
         "capitalize": "UPPER",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001142",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
@@ -208,7 +226,7 @@ var DATA = [
       {
         "fieldName": "GenBank accession",
         "capitalize": "UPPER",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001145",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
@@ -229,7 +247,7 @@ var DATA = [
       {
         "fieldName": "GISAID accession",
         "capitalize": "UPPER",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001147",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
@@ -1580,7 +1598,7 @@ var DATA = [
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "required",
-        "description": "The type of specimen submitted to the NML for testing.",
+        "description": "The type of specimen submitted to the National Microbiology Laboratory (NML) for testing.",
         "guidance": "This information is required for upload through the CNPHI LaSER system. Select the specimen type from the pick list provided. If sequence data is being submitted rather than a specimen for testing, select \u201cNot Applicable\u201d.",
         "examples": "swab",
         "exportField": {
@@ -1649,7 +1667,7 @@ var DATA = [
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
-        "description": "The relationship of the related specimen to the previous submission.",
+        "description": "The relationship of the related specimen to the previous National Microbiology Laboratory (NML) submission.",
         "guidance": "Provide the specimen type of the original sample submitted from the pick list provided, so that additional specimen testing can be tracked in the system.",
         "examples": "Follow-up",
         "exportField": {
@@ -5613,6 +5631,13 @@ var DATA = [
         "description": "The role of the host in relation to the exposure setting.",
         "guidance": "Select the host's personal role(s) from the pick list provided in the template. If the desired term is missing, contact the curation team.",
         "examples": "Patient",
+        "exportField": {
+          "NML_LIMS": [
+            {
+              "field": "PH_HOST_ROLE"
+            }
+          ]
+        },
         "schema:ItemList": {
           "Attendee": {
             "schema:ItemList": {
@@ -5649,6 +5674,7 @@ var DATA = [
               "Laboratory Worker": {},
               "Rotational Worker": {},
               "Seasonal Worker": {},
+              "Transport Truck Driver": {},
               "Veterinarian": {}
             }
           },
