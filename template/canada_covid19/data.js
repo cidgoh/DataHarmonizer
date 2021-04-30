@@ -55,7 +55,7 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "",
         "description": "The identifier assigned to a sample by Switch Health.",
-        "guidance": "Store the identifier supplied by Seitch Health for the sample.",
+        "guidance": "Store the identifier supplied by Switch Health for the sample.",
         "examples": "SHK123456",
         "exportField": {
           "NML_LIMS": [
