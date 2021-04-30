@@ -116,7 +116,7 @@ const getHeaderMap = (exportHeaders, fields, prefix) => {
  * @param {Map} nullOptionsMap conversion of Missing etc. to export db equivalent.
  * @returm {String} Concatenated string of values.
  */
-const getMappedField = (sourceRow, sourceFieldNames, sourceFields, fieldNameMap, delimiter, prefix, nullOptionsMap = null) => {
+const getMappedField = (sourceRow, sourceFieldNames, sourceFields, fieldNameMap, delimiter, prefix, nullOptionsMap = null, skipNull = false) => {
 
 	const mappedCell = [];
 	for (const fieldName of sourceFieldNames) {
@@ -127,6 +127,7 @@ const getMappedField = (sourceRow, sourceFieldNames, sourceFields, fieldNameMap,
 		if (nullOptionsMap && nullOptionsMap.has(mappedCellVal)){
 			mappedCellVal = nullOptionsMap.get(mappedCellVal);
 		};
+		if (skipNull === true && (!mappedCellVal || mappedCellVal.length === 0)) continue;
 		let field = sourceFields[fieldNameMap[fieldName]];
 		if (field.datatype === 'select') {
 			mappedCell.push( getTransformedField(mappedCellVal, field, prefix));
@@ -235,3 +236,17 @@ const getRowMap = (sourceRow, sourceFields, RuleDB, fields, fieldNameMap, prefix
     };
   };
 };
+
+/**
+ * Return first and last items of a delimited string
+ * @param {String} value A string of values separated by delimiter.
+ * @param {String} delimiter A character which is a delimiter
+ * @return {String} A string of at most 2 values. 
+ */
+const concatFirstLastField = (value, delimiter) => {
+	if (value.indexOf(delimiter) !== -1) {
+		let fields = value.split(delimiter);
+    	return fields[0] + ':' + fields[fields.length-1];
+    };
+    return value;
+}

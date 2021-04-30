@@ -15,8 +15,7 @@ var exportNCBI_BioSample = (baseName, hot, data, xlsx, fileType) => {
     ['organism',                []],
     ['collected_by',            []],
     ['collection_date',         []],
-    ['geo_loc_name',
-      [
+    ['geo_loc_name',            [
         'geo_loc_name (country)',
         'geo_loc_name (state/province/territory)',
         'geo_loc name (county/region)',
@@ -49,7 +48,12 @@ var exportNCBI_BioSample = (baseName, hot, data, xlsx, fileType) => {
     ['environmental_site',      []],
     ['host_disease_outcome',    []],
     ['host_health_state',       []],
-    ['host_recent_travel_loc',  []],
+    ['host_recent_travel_loc',  [
+      'destination of most recent travel (country)',
+      'destination of most recent travel (state/province/territory)',
+      'destination of most recent travel (city)'
+      ]
+    ],
     ['host_recent_travel_return_date',  []],
     ['host_sex',                []],
     ['host_specimen_voucher',   []],
@@ -72,6 +76,14 @@ var exportNCBI_BioSample = (baseName, hot, data, xlsx, fileType) => {
     ['vaccine_received',        []],
     ['virus_isolate_of_prior_infection', []],
 
+  ]);
+
+  const concatOptionsMap = new Map([
+    ['Not Applicable',    null],
+    ['Missing',           null],
+    ['Not Collected',     null],
+    ['Not Provided',      null],
+    ['Restricted Access', null]
   ]);
 
   const sourceFields = getFields(data);
@@ -97,8 +109,26 @@ var exportNCBI_BioSample = (baseName, hot, data, xlsx, fileType) => {
         	outputRow.push( value ? 'Pathogen.cl' : 'Pathogen.env' );
     		continue;
     	}
+
+      // Concatenate geo_loc_name field as combination of first and last level
+      // of granularity, omitting null values: w,x,y,z --> x:z value
+      if (headerName === 'geo_loc_name' || headerName === 'host_recent_travel_loc') {
+        // Otherwise apply source (many to one) to target field transform:
+        const value = getMappedField(inputRow, sources, sourceFields,sourceFieldNameMap, ':', 'BioSample', concatOptionsMap, true);
+        // Issue: if no concatenated field content, then metadata status?
+        outputRow.push(concatFirstLastField (value, ':'));
+        continue;
+      };
+      
+      if (headerName === 'isolation_source') {
+        const value = getMappedField(inputRow, sources, sourceFields,sourceFieldNameMap, ':', 'BioSample', concatOptionsMap, true);
+        outputRow.push(value);
+        continue;
+      }
+      
       // Otherwise apply source (many to one) to target field transform:
-      const value = getMappedField(inputRow, sources, sourceFields,sourceFieldNameMap, ':', 'BioSample') 
+      const value = getMappedField(inputRow, sources, sourceFields,sourceFieldNameMap, ':', 'BioSample');
+
       outputRow.push(value);
     }
     outputMatrix.push(outputRow);
