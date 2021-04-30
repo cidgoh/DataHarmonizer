@@ -44,7 +44,7 @@ var DATA = [
           ],
           "NCBI_Genbank_source_modifiers": [
             {
-              "field": "sequence_ID"
+              "field": "Sequence_ID"
             }
           ]
         }
@@ -53,7 +53,7 @@ var DATA = [
         "fieldName": "umbrella bioproject accession",
         "capitalize": "UPPER",
         "ontology_id": "",
-        "datatype": "select",
+        "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
         "xs:minInclusive": "",
@@ -61,8 +61,7 @@ var DATA = [
         "requirement": "",
         "description": "The INSDC accession number assigned to the umbrella BioProject for the Canadian SARS-CoV-2 sequencing effort.",
         "guidance": "Store the umbrella BioProject accession by selecting it from the picklist in the template. The umbrella BioProject accession will be identical for all CanCOGen submitters. Different provinces will have their own BioProjects, however these BioProjects will be linked under one umbrella BioProject.",
-        "examples": "PRJNA623807",
-        "schema:ItemList": {}
+        "examples": "PRJNA623807"
       },
       {
         "fieldName": "bioproject accession",
@@ -170,12 +169,7 @@ var DATA = [
         "exportField": {
           "NCBI_BIOSAMPLE": [
             {
-              "field": "GISAID_accession"
-            }
-          ],
-          "NCBI_Genbank_source_modifiers": [
-            {
-              "field": "GISAID-accesion"
+              "field": "gisaid_accession"
             }
           ]
         }
@@ -196,12 +190,7 @@ var DATA = [
         "exportField": {
           "NCBI_BIOSAMPLE": [
             {
-              "field": "GISAID_virus_name"
-            }
-          ],
-          "NCBI_Genbank_source_modifiers": [
-            {
-              "field": "GISAID-virus-name"
+              "field": "gisaid_virus_name"
             }
           ]
         }
@@ -218,7 +207,14 @@ var DATA = [
         "requirement": "",
         "description": "Identifier for the physical specimen.",
         "guidance": "Include a URI (Uniform Resource Identifier) in the form of a URL providing a direct link to the physical host specimen. If the specimen was destroyed in the process of analysis, electronic images (e-vouchers) are an adequate substitute for a physical host voucher specimen. If a URI is not available, a museum-provided globally unique identifier (GUID) can be used. If no persistent unique identifier is available, follow the INSDC guidance for populating the voucher_specimen attribute using standard triplets for institution codes (i.e., /specimen_voucher=\"[<institution-code>:[<collection-code>:]]<specimen_id>\"): http://www.insdc.org/controlled-vocabulary-specimenvoucher-qualifier",
-        "examples": "URI example: http://portal.vertnet.org/o/fmnh/mammals?id=33e55cfe-330b-40d9-aaae-8d042cba7542, INSDC triplet example: UAM:Mamm:52179"
+        "examples": "URI example: http://portal.vertnet.org/o/fmnh/mammals?id=33e55cfe-330b-40d9-aaae-8d042cba7542, INSDC triplet example: UAM:Mamm:52179",
+        "exportField": {
+          "NCBI_BIOSAMPLE": [
+            {
+              "field": "host_specimen_voucher"
+            }
+          ]
+        }
       }
     ]
   },
@@ -772,7 +768,14 @@ var DATA = [
         "requirement": "",
         "description": "The county/region of origin of the sample.",
         "guidance": "Provide the county/region name from the GAZ geography ontology. Search for geography terms here: https://www.ebi.ac.uk/ols/ontologies/gaz",
-        "examples": "Derbyshire"
+        "examples": "Derbyshire",
+        "exportField": {
+          "NCBI_BIOSAMPLE": [
+            {
+              "field": "geo_loc_name"
+            }
+          ]
+        }
       },
       {
         "fieldName": "geo_loc_name (city)",
@@ -786,7 +789,14 @@ var DATA = [
         "requirement": "",
         "description": "The city where the sample was collected.",
         "guidance": "Provide the city name. Use this look-up service to identify the standardized term: https://www.ebi.ac.uk/ols/ontologies/gaz",
-        "examples": "Vancouver"
+        "examples": "Vancouver",
+        "exportField": {
+          "NCBI_BIOSAMPLE": [
+            {
+              "field": "geo_loc_name"
+            }
+          ]
+        }
       },
       {
         "fieldName": "geo_loc latitude",
@@ -1025,7 +1035,15 @@ var DATA = [
           ],
           "NCBI_BIOSAMPLE": [
             {
-              "field": "isolation_source|anatomical_material"
+              "field": "isolation_source"
+            },
+            {
+              "field": "host_anatomical_material"
+            }
+          ],
+          "NCBI_Genbank_source_modifiers": [
+            {
+              "field": "isolation-source"
             }
           ]
         },
@@ -1071,7 +1089,15 @@ var DATA = [
           ],
           "NCBI_BIOSAMPLE": [
             {
-              "field": "isolation_source|anatomical_part"
+              "field": "isolation_source"
+            },
+            {
+              "field": "host_anatomical_part"
+            }
+          ],
+          "NCBI_Genbank_source_modifiers": [
+            {
+              "field": "isolation-source"
             }
           ]
         },
@@ -1145,7 +1171,15 @@ var DATA = [
           ],
           "NCBI_BIOSAMPLE": [
             {
-              "field": "isolation_source|body_product"
+              "field": "isolation_source"
+            },
+            {
+              "field": "host_body_product"
+            }
+          ],
+          "NCBI_Genbank_source_modifiers": [
+            {
+              "field": "isolation-source"
             }
           ]
         },
@@ -1190,7 +1224,15 @@ var DATA = [
           ],
           "NCBI_BIOSAMPLE": [
             {
-              "field": "isolation_source|environmental_material"
+              "field": "isolation_source"
+            },
+            {
+              "field": "environmental_material"
+            }
+          ],
+          "NCBI_Genbank_source_modifiers": [
+            {
+              "field": "isolation-source"
             }
           ]
         },
@@ -1257,7 +1299,15 @@ var DATA = [
           ],
           "NCBI_BIOSAMPLE": [
             {
-              "field": "isolation_source|environmental_site"
+              "field": "isolation_source"
+            },
+            {
+              "field": "environmental_site"
+            }
+          ],
+          "NCBI_Genbank_source_modifiers": [
+            {
+              "field": "isolation-source"
             }
           ]
         },
@@ -1312,7 +1362,15 @@ var DATA = [
           ],
           "NCBI_BIOSAMPLE": [
             {
-              "field": "isolation_source|collection_device"
+              "field": "isolation_source"
+            },
+            {
+              "field": "collection_device"
+            }
+          ],
+          "NCBI_Genbank_source_modifiers": [
+            {
+              "field": "isolation-source"
             }
           ]
         },
@@ -1363,7 +1421,15 @@ var DATA = [
           ],
           "NCBI_BIOSAMPLE": [
             {
-              "field": "isolation_source|collection_method"
+              "field": "isolation_source"
+            },
+            {
+              "field": "collection_method"
+            }
+          ],
+          "NCBI_Genbank_source_modifiers": [
+            {
+              "field": "isolation-source"
             }
           ]
         },
@@ -1667,6 +1733,11 @@ var DATA = [
             }
           ],
           "NCBI_BIOSAMPLE": [
+            {
+              "field": "host"
+            }
+          ],
+          "NCBI_Genbank_source_modifiers": [
             {
               "field": "host"
             }
@@ -2556,7 +2627,7 @@ var DATA = [
         "exportField": {
           "NCBI_BIOSAMPLE": [
             {
-              "field": "prior_SARS-CoV-2_vaccination"
+              "field": "prior_sars_cov_2_vaccination"
             }
           ]
         },
@@ -2644,7 +2715,7 @@ var DATA = [
         "exportField": {
           "NCBI_BIOSAMPLE": [
             {
-              "field": "date_of_prior_SARS-CoV-2_vaccination_(1st_dose)"
+              "field": "date_of_sars_cov_2_vaccination"
             }
           ]
         }
@@ -2690,7 +2761,7 @@ var DATA = [
         "exportField": {
           "NCBI_BIOSAMPLE": [
             {
-              "field": "location_of_exposure_geo_loc_name_(country)"
+              "field": "geo_loc_exposure"
             }
           ]
         },
@@ -2708,7 +2779,14 @@ var DATA = [
         "requirement": "",
         "description": "The name of the city that was the destination of most recent travel.",
         "guidance": "Provide the name of the city that the host travelled to. Use this look-up service to identify the standardized term: https://www.ebi.ac.uk/ols/ontologies/gaz",
-        "examples": "New York City"
+        "examples": "New York City",
+        "exportField": {
+          "NCBI_BIOSAMPLE": [
+            {
+              "field": "host_recent_travel_loc"
+            }
+          ]
+        }
       },
       {
         "fieldName": "destination of most recent travel (state/province/territory)",
@@ -2722,7 +2800,14 @@ var DATA = [
         "requirement": "",
         "description": "The name of the province that was the destination of most recent travel.",
         "guidance": "Provide the name of the state/province/territory that the host travelled to. Use this look-up service to identify the standardized term: https://www.ebi.ac.uk/ols/ontologies/gaz",
-        "examples": "California"
+        "examples": "California",
+        "exportField": {
+          "NCBI_BIOSAMPLE": [
+            {
+              "field": "host_recent_travel_loc"
+            }
+          ]
+        }
       },
       {
         "fieldName": "destination of most recent travel (country)",
@@ -2743,6 +2828,13 @@ var DATA = [
         "description": "The name of the country that was the destination of most recent travel.",
         "guidance": "Provide the name of the country that the host travelled to. Use this look-up service to identify the standardized term: https://www.ebi.ac.uk/ols/ontologies/gaz",
         "examples": "United Kingdom",
+        "exportField": {
+          "NCBI_BIOSAMPLE": [
+            {
+              "field": "host_recent_travel_loc"
+            }
+          ]
+        },
         "schema:ItemList": {}
       },
       {
@@ -2787,7 +2879,7 @@ var DATA = [
         "exportField": {
           "NCBI_BIOSAMPLE": [
             {
-              "field": "recent_travel_history_return_date"
+              "field": "host_recent_travel_return_date"
             }
           ]
         }
@@ -2804,14 +2896,7 @@ var DATA = [
         "requirement": "",
         "description": "Travel history in last six months.",
         "guidance": "Specify the countries (and more granular locations if known, separated by a comma) travelled in the last six months; can include multiple travels. Separate multiple travel events with a semi-colon. List most recent travel first.",
-        "examples": "Canada, Vancouver; USA, Seattle; Italy, Milan",
-        "exportField": {
-          "NCBI_BIOSAMPLE": [
-            {
-              "field": "receent_travel_history_location"
-            }
-          ]
-        }
+        "examples": "Canada, Vancouver; USA, Seattle; Italy, Milan"
       },
       {
         "fieldName": "exposure event",
@@ -3124,7 +3209,7 @@ var DATA = [
         "exportField": {
           "NCBI_BIOSAMPLE": [
             {
-              "field": "prior_SARS-CoV-2_infection"
+              "field": "prior_sars_cov_2_infection"
             }
           ]
         },
@@ -3167,7 +3252,7 @@ var DATA = [
         "exportField": {
           "NCBI_BIOSAMPLE": [
             {
-              "field": "date_of_prior_SARS-CoV-2_infection"
+              "field": "date_of_prior_sars_cov_2_infection"
             }
           ]
         }
@@ -3194,7 +3279,7 @@ var DATA = [
         "exportField": {
           "NCBI_BIOSAMPLE": [
             {
-              "field": "prior_SARS-CoV-2_antiviral_treatment"
+              "field": "prior_sars_cov_2_antiviral_treat"
             }
           ]
         },
@@ -3259,7 +3344,7 @@ var DATA = [
         "exportField": {
           "NCBI_BIOSAMPLE": [
             {
-              "field": "date_of_prior_SARS-CoV-2_antiviral_treatment"
+              "field": "date_of_prior_antiviral_treat"
             }
           ]
         }
@@ -3973,7 +4058,7 @@ var DATA = [
         "exportField": {
           "NCBI_SRA": [
             {
-              "field": "amplicon _PCR_primer_scheme"
+              "field": "amplicon_pcr_primer_scheme"
             }
           ]
         }
@@ -4037,14 +4122,7 @@ var DATA = [
         "requirement": "",
         "description": "The name of the consensus sequence.",
         "guidance": "Provide the name and version number of the consensus sequence.",
-        "examples": "ncov123assembly3",
-        "exportField": {
-          "NCBI_Genbank": [
-            {
-              "field": "assembly_name"
-            }
-          ]
-        }
+        "examples": "ncov123assembly3"
       },
       {
         "fieldName": "consensus sequence filename",
@@ -4450,7 +4528,7 @@ var DATA = [
         "exportField": {
           "NCBI_BIOSAMPLE": [
             {
-              "field": "diagnostic_gene_name_1"
+              "field": "sars_cov_2_diag_gene_name_1"
             }
           ]
         },
@@ -4508,14 +4586,7 @@ var DATA = [
         "requirement": "",
         "description": "The name and version number of the protocol used for diagnostic marker amplification.",
         "guidance": "The name and version number of the protocol used for carrying out a diagnostic PCR test. This information can be compared to sequence data for evaluation of performance and quality control.",
-        "examples": "EGenePCRTest 2",
-        "exportField": {
-          "NCBI_BIOSAMPLE": [
-            {
-              "field": "diagnostic_pcr_protocol_value_1"
-            }
-          ]
-        }
+        "examples": "EGenePCRTest 2"
       },
       {
         "fieldName": "diagnostic pcr Ct value 1",
@@ -4533,7 +4604,7 @@ var DATA = [
         "exportField": {
           "NCBI_BIOSAMPLE": [
             {
-              "field": "diagnostic_pcr_Ct_value_1"
+              "field": "sars_cov_2_diag_pcr_ct_value_1"
             }
           ]
         }
@@ -4560,7 +4631,7 @@ var DATA = [
         "exportField": {
           "NCBI_BIOSAMPLE": [
             {
-              "field": "diagnostic_gene_name_2"
+              "field": "sars_cov_2_diag_gene_name_2"
             }
           ]
         },
@@ -4578,14 +4649,7 @@ var DATA = [
         "requirement": "",
         "description": "The name and version number of the protocol used for diagnostic marker amplification.",
         "guidance": "The name and version number of the protocol used for carrying out a second diagnostic PCR test. This information can be compared to sequence data for evaluation of performance and quality control.",
-        "examples": "RdRpGenePCRTest 3",
-        "exportField": {
-          "NCBI_BIOSAMPLE": [
-            {
-              "field": "diagnostic_pcr_protocol_value_2"
-            }
-          ]
-        }
+        "examples": "RdRpGenePCRTest 3"
       },
       {
         "fieldName": "diagnostic pcr Ct value 2",
@@ -4603,7 +4667,7 @@ var DATA = [
         "exportField": {
           "NCBI_BIOSAMPLE": [
             {
-              "field": "diagnostic_pcr_Ct_value_2"
+              "field": "sars_cov_2_diag_pcr_ct_value_2"
             }
           ]
         }
@@ -4891,7 +4955,7 @@ var DATA = [
         }
       },
       {
-        "fieldName": "filename 2",
+        "fieldName": "filename2",
         "capitalize": "",
         "ontology_id": "",
         "datatype": "",
@@ -4906,7 +4970,7 @@ var DATA = [
         "exportField": {
           "NCBI_SRA": [
             {
-              "field": "filename 2"
+              "field": "filename2"
             }
           ]
         }

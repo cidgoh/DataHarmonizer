@@ -9,49 +9,69 @@ var exportNCBI_BioSample = (baseName, hot, data, xlsx, fileType) => {
   // Create an export table with template's headers (2nd row) and remaining rows of data
   const ExportHeaders = new Map([
     ['sample_name',             []],
+    //sample_title
     ['bioproject_accession',    []],
-    ['GISAID_accession',        []],
+    ['attribute_package',       []],
+    ['organism',                []],
     ['collected_by',            []],
-    ['sequenced_by',            []],
-    ['sample collection date',  []],
-
+    ['collection_date',         []],
     ['geo_loc_name',
       [
         'geo_loc_name (country)',
-        'geo_loc_name (province/territory)'
+        'geo_loc_name (state/province/territory)',
+        'geo_loc name (county/region)',
+        'geo_loc_name (city)'
       ]
     ],
-    ['organism',                []],
+    ['host',                    []],
+    ['host_subject_id',         []],
+    ['host_disease',            []],
     ['isolate',                 []],
-    ['GISAID_virus_name',       []],
-    ['purpose_of_sampling',     []],
-    ['attribute_package',       []],
-    ['description',             []],
     ['isolation_source',     
       ['anatomical material','anatomical part','body product','environmental material','environmental site','collection device','collection method']],
-    ['anatomical_material',     []],
-    ['anatomical_part',         []],
-    ['body_product',            []],
-    ['environmental_material',  []],
-    ['environmental_site',      []],
+    ['antiviral_treatment_agent', []],
     ['collection_device',       []],
     ['collection_method',       []],
-    ['lab_host',                []],
-    ['passage_history',         []],
-    ['passage_method',          []],
-    ['host',                    []],
-    ['host_health_state',       []],
-    ['host_disease_outcome',    []],
-    ['host_disease',            []],
-    ['host_disease_stage',      []],
+    ['date_of_prior_antiviral_treat',  []],
+    ['date_of_prior_sars_cov_2_infection',  []],
+    ['date_of_sars_cov_2_vaccination',  []],
+    ['sequenced_by',            []],
+    ['sample collection date',  []],
+    ['exposure_event',          []],
+    ['geo_loc_exposure',        []], 
+    ['gisaid_accession',        []],
+    ['gisaid_virus_name',       []],
     ['host_age',                []],
+    ['host_anatomical_material', []],
+    ['host_anatomical_part',    []],
+    ['host_body_product',       []],
+    ['environmental_material',  []],
+    ['environmental_site',      []],
+    ['host_disease_outcome',    []],
+    ['host_health_state',       []],
+    ['host_recent_travel_loc',  []],
+    ['host_recent_travel_return_date',  []],
     ['host_sex',                []],
+    ['host_specimen_voucher',   []],
     ['host_subject_id',         []],
+    ['lat_lon',                 []],
+    ['passage_method',          []],
+    ['passage_number',          []],
+    //['passage_history',         []], //passage_number?
+    ['prior_sars_cov_2_antiviral_treat', []],
+    ['prior_sars_cov_2_infection', []],
+    ['prior_sars_cov_2_vaccination', []],
+    ['date_of_sars_cov_2_vaccination', []],
+    ['purpose_of_sampling',     []],
     ['purpose_of_sequencing',   []],
-    ['gene_name_1',             []],
-    ['diagnostic_PCR_CT_value_1',  []],
-    ['gene_name_2',             []],
-    ['diagnostic_PCR_CT_value_2', []] 
+    ['sars_cov_2_diag_gene_name_1',   []],
+    ['sars_cov_2_diag_gene_name_2',   []],
+    ['sars_cov_2_diag_pcr_ct_value_1',   []],
+    ['sars_cov_2_diag_pcr_ct_value_2',   []],
+    ['sequenced_by',            []],
+    ['vaccine_received',        []],
+    ['virus_isolate_of_prior_infection', []],
+
   ]);
 
   const sourceFields = getFields(data);
@@ -78,7 +98,7 @@ var exportNCBI_BioSample = (baseName, hot, data, xlsx, fileType) => {
     		continue;
     	}
       // Otherwise apply source (many to one) to target field transform:
-      const value = getMappedField(inputRow, sources, sourceFields,sourceFieldNameMap, '|', 'BioSample') 
+      const value = getMappedField(inputRow, sources, sourceFields,sourceFieldNameMap, ':', 'BioSample') 
       outputRow.push(value);
     }
     outputMatrix.push(outputRow);
@@ -89,7 +109,30 @@ var exportNCBI_BioSample = (baseName, hot, data, xlsx, fileType) => {
 
 var exportNCBI_SRA = (baseName, hot, data, xlsx, fileType) => {
 
-  const ExportHeaders = new Map([]);
+  const ExportHeaders = new Map([
+    ['sample_name',          []],
+    ['bioproject_accession', []],
+    ['biosample_accession',  []],
+    ['library_ID',           []],
+    ['title',                []],
+    ['library_strategy',     []],
+    ['library_source',       []],
+    ['library_selection',    []],
+    ['library_layout',       []],
+    ['platform',             []],
+    ['instrument_model',     []],
+    ['design_description',   []],
+    ['filetype',             []],
+    ['filename',             []],
+    ['filename2',            []],
+    ['amplicon_pcr_primer_scheme', []],
+    ['amplicon_size',        []],
+    ['sequencing_protocol_name', []],
+    ['raw_sequence_data_processing_method', []],
+    ['dehosting_method',     []],
+    ['sequence_submitter_contact_email', []],
+    ]);
+
   const sourceFields = getFields(data);
   const sourceFieldNameMap = getFieldNameMap(sourceFields);
   // Fills in the above mapping (or just set manually above) 
@@ -114,7 +157,17 @@ var exportNCBI_SRA = (baseName, hot, data, xlsx, fileType) => {
 
 var exportNCBI_Genbank = (baseName, hot, data, xlsx, fileType) => {
 
-  const ExportHeaders = new Map([]);
+  const ExportHeaders = new Map([
+    ['biosample_accession',    []],
+    ['sample_name',            []],
+    ['assembly_method',        []],
+    ['assembly_method_version',[]],
+    ['genome_coverage',        []],
+    ['sequencing_technology',  []],
+    ['reference_genome',       []],
+    ['filename',               []]
+  ]);
+
   const sourceFields = getFields(data);
   const sourceFieldNameMap = getFieldNameMap(sourceFields);
   // Fills in the above mapping (or just set manually above) 
@@ -139,7 +192,17 @@ var exportNCBI_Genbank = (baseName, hot, data, xlsx, fileType) => {
 
 var exportNCBI_Genbank_source_modifiers = (baseName, hot, data, xlsx, fileType) => {
 
-  const ExportHeaders = new Map([]);
+  const ExportHeaders = new Map([
+    ['Sequence_ID',        []],
+    ['country',            []],
+    ['host',               []],
+    ['isolate',            []],
+    ['collection-date',    []],
+    ['isolation-source',   []],
+    ['BioSample',          []],
+    ['BioProject',         []]
+  ]);
+
   const sourceFields = getFields(data);
   const sourceFieldNameMap = getFieldNameMap(sourceFields);
   // Fills in the above mapping (or just set manually above) 
