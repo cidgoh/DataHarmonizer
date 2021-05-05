@@ -45,7 +45,7 @@ var DATA = [
         }
       },
       {
-        "fieldName": "Switch Health ID",
+        "fieldName": "third party lab service provider name",
         "capitalize": "",
         "ontology_id": "GENEPIO_0001149",
         "datatype": "xs:token",
@@ -54,9 +54,9 @@ var DATA = [
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
-        "description": "The identifier assigned to a sample by Switch Health.",
-        "guidance": "Store the identifier supplied by Switch Health for the sample.",
-        "examples": "SHK123456",
+        "description": "The name of the third party company or laboratory that provided services.",
+        "guidance": "Provide the full, unabbreviated name of the company or laboratory.",
+        "examples": "Switch Health",
         "exportField": {
           "NML_LIMS": [
             {
@@ -64,6 +64,20 @@ var DATA = [
             }
           ]
         }
+      },
+      {
+        "fieldName": "third party lab sample ID",
+        "capitalize": "",
+        "ontology_id": "",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "The identifier assigned to a sample by a third party service provider.",
+        "guidance": "Store the sample identifier supplied by the third party services provider.",
+        "examples": "SHK123456"
       },
       {
         "fieldName": "NML submitted specimen primary ID",
@@ -283,7 +297,7 @@ var DATA = [
       {
         "fieldName": "sample collected by",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001153",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": [
@@ -320,7 +334,7 @@ var DATA = [
       {
         "fieldName": "sample collector contact email",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001156",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
@@ -334,7 +348,7 @@ var DATA = [
       {
         "fieldName": "sample collector contact address",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001158",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
@@ -355,7 +369,7 @@ var DATA = [
       {
         "fieldName": "sequence submitted by",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001159",
         "datatype": "select",
         "source": "",
         "dataStatus": [
@@ -583,7 +597,7 @@ var DATA = [
       {
         "fieldName": "sequence submitter contact email",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001165",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
@@ -597,7 +611,7 @@ var DATA = [
       {
         "fieldName": "sequence submitter contact address",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001167",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
@@ -618,7 +632,7 @@ var DATA = [
       {
         "fieldName": "sample collection date",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001174",
         "datatype": "xs:date",
         "source": "",
         "dataStatus": [
@@ -5670,6 +5684,7 @@ var DATA = [
               "Pharmacist": {},
               "Physician": {},
               "Housekeeper": {},
+              "International worker": {},
               "Kitchen Worker": {},
               "Laboratory Worker": {},
               "Rotational Worker": {},
@@ -5994,7 +6009,10 @@ var DATA = [
                   "Travel-associated surveillance": {
                     "schema:ItemList": {
                       "Domestic travel surveillance": {},
-                      "International travel surveillance": {}
+                      "International travel surveillance": {},
+                      "Surveillance of international border crossing by air travel": {},
+                      "Surveillance of international border crossing by ground transport": {},
+                      "Surveillance from international worker testing": {}
                     }
                   }
                 }
@@ -6196,7 +6214,8 @@ var DATA = [
               "Illumina MiSeq": {},
               "Illumina NextSeq": {},
               "Illumina NextSeq 500": {},
-              "Illumina NextSeq 550": {}
+              "Illumina NextSeq 550": {},
+              "Illumina NextSeq 2000": {}
             }
           },
           "Pacific Biosciences": {
@@ -6412,7 +6431,7 @@ var DATA = [
         "fieldName": "consensus sequence software version",
         "capitalize": "",
         "ontology_id": "",
-        "datatype": "xs:decimal",
+        "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
         "xs:minInclusive": "",
