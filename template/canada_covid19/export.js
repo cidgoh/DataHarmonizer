@@ -93,35 +93,41 @@ var exportGISAID = (baseName, hot, data, xlsx, fileType) => {
   // as below with 'Address', that a column name appears two or more times.
 
   const ExportHeaders = [
-    ['Submitter',[]],
-    ['FASTA filename',[]],
-    ['Virus name',[]],
-    ['Type',[]],
-    ['Passage details/history',[]],
-    ['Collection date',[]],
-    ['Location',[]],
-    ['Additional location information',[]],
-    ['Host',[]],
-    ['Additional host information',[]],
-    ['Gender',[]],
-    ['Patient age',[]],
-    ['Patient status',[]],
-    ['Specimen source',[]],
-    ['Outbreak',[]],
-    ['Last vaccinated',[]],
-    ['Treatment',[]],
-    ['Sequencing technology',[]],
-    ['Assembly method',[]],
-    ['Coverage',[]],
-    ['Originating lab',[]],
-    ['Address',[]], // 1st address
-    ['Sample ID given by the sample provider',[]],
-    ['Submitting lab',[]],
+    ['Submitter',               []], // submitter
+    ['FASTA filename',          []], // fn
+    ['Virus name',              []], // covv_virus_name
+    ['Type',                    []], // covv_type
+    ['Passage details/history', []], // covv_passage
+    ['Collection date',         []], // covv_collection_date
+    ['Location',                []], // covv_location
+    ['Additional location information',[]], // covv_add_location
+    ['Host',                    []], // covv_host
+    ['Additional host information',[]], // covv_add_host_info
+    ['Sampling Strategy',       []], // covv_sampling_strategy 
+    ['Gender',                  []], // covv_gender
+    ['Patient age',             []], // covv_patient_age
+    ['Patient status',          []], // covv_patient_status
+    ['Specimen source',         []], // covv_specimen
+    ['Outbreak',                []], // covv_outbreak
+    ['Last vaccinated',         []], // covv_last_vaccinated
+    ['Treatment',               []], // covv_treatment
+    ['Sequencing technology',   []], // covv_seq_technology
+    ['Assembly method',         []], // covv_assembly_method
+    ['Coverage',                []], // covv_coverage
+    ['Originating lab',         []], // covv_orig_lab
+    ['Address',                 []], // covv_orig_lab_addr
+    ['Sample ID given by the sample provider',[]], // covv_provider_sample_id 
+    ['Submitting lab',          []], // covv_subm_lab
     // Custom rule: 2nd address points to sequence submitter.
-    ['Address',['sequence submitter contact address']],
-    ['Sample ID given by the submitting laboratory',[]],
-    ['Authors',[]]
+    ['Address',['sequence submitter contact address']], // covv_subm_lab_addr
+    ['Sample ID given by the submitting laboratory',[]], // covv_subm_sample_id
+    ['Authors',                 []] // covv_authors
   ];
+
+// GISAID has new sampling_strategy field as of May 12, 2021
+  const header_GISAID = ['submitter','fn','covv_virus_name','covv_type','covv_passage','covv_collection_date','covv_location','covv_add_location','covv_host','covv_add_host_info','covv_sampling_strategy','covv_gender','covv_patient_age','covv_patient_status','covv_specimen','covv_outbreak','covv_last_vaccinated','covv_treatment','covv_seq_technology','covv_assembly_method','covv_coverage','covv_orig_lab','covv_orig_lab_addr','covv_provider_sample_id','covv_subm_lab','covv_subm_lab_addr','covv_subm_sample_id','covv_authors'];
+
+
 
   const sourceFields = getFields(data);
   const sourceFieldNameMap = getFieldNameMap(sourceFields);
@@ -184,6 +190,9 @@ var exportGISAID = (baseName, hot, data, xlsx, fileType) => {
     }
     outputMatrix.push(outputRow);
   }
+
+  // Insert header fields into top row of export file
+  outputMatrix.splice(0, 0, header_GISAID);
 
   runBehindLoadingScreen(exportFile, [outputMatrix, baseName, fileType, xlsx]);
 };
