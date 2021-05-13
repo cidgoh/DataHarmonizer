@@ -14,7 +14,14 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": ""
+        "examples": "",
+        "exportField": {
+          "GRDI": [
+            {
+              "field": "sample_collector_sample_ID"
+            }
+          ]
+        }
       },
       {
         "fieldName": "ISOLATE_ID",
@@ -32,7 +39,7 @@ var DATA = [
         "exportField": {
           "GRDI": [
             {
-              "field": "sample_name"
+              "field": "isolate_ID"
             }
           ]
         }
@@ -53,7 +60,7 @@ var DATA = [
         "exportField": {
           "GRDI": [
             {
-              "field": "alternative_sample_ID"
+              "field": "sample_collector_sample_ID"
             }
           ]
         }
@@ -89,7 +96,14 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": ""
+        "examples": "",
+        "exportField": {
+          "GRDI": [
+            {
+              "field": "alternative_sample_ID"
+            }
+          ]
+        }
       },
       {
         "fieldName": "LFZ_ORIGIN_COUNTRY",
@@ -1351,7 +1365,7 @@ var DATA = [
         "exportField": {
           "GRDI": [
             {
-              "field": "geo_loc (country)"
+              "field": "geo_loc_name (country)"
             }
           ]
         }
@@ -1372,7 +1386,7 @@ var DATA = [
         "exportField": {
           "GRDI": [
             {
-              "field": "geo_loc (state/province/region)"
+              "field": "geo_loc_name (state/province/region)"
             }
           ]
         }
@@ -1463,7 +1477,7 @@ var DATA = [
         "exportField": {
           "GRDI": [
             {
-              "field": "collection_date"
+              "field": "sample_collection_date"
             }
           ]
         }
@@ -4562,7 +4576,11 @@ var DATA = [
               "GRDI": [
                 {
                   "field": "environmental_site",
-                  "value": "hatchery|collection_device:swab"
+                  "value": "hatchery"
+                },
+                {
+                  "field": "collection_device",
+                  "value": "swab"
                 }
               ]
             }
