@@ -9,9 +9,11 @@ var exportNCBI_BioSample = (baseName, hot, data, xlsx, fileType) => {
   // Create an export table with template's headers (2nd row) and remaining rows of data
   const ExportHeaders = new Map([
     ['sample_name',             []],
-    //sample_title
+    ['sample_title',            []],
     ['bioproject_accession',    []],
-    ['attribute_package',       []],
+
+    //['attribute_package',       []], Removed May 12, 2021
+
     ['organism',                []],
     ['collected_by',            []],
     ['collection_date',         []],
@@ -23,7 +25,6 @@ var exportNCBI_BioSample = (baseName, hot, data, xlsx, fileType) => {
       ]
     ],
     ['host',                    []],
-    ['host_subject_id',         []],
     ['host_disease',            []],
     ['isolate',                 []],
     ['isolation_source',     
@@ -34,8 +35,6 @@ var exportNCBI_BioSample = (baseName, hot, data, xlsx, fileType) => {
     ['date_of_prior_antiviral_treat',  []],
     ['date_of_prior_sars_cov_2_infection',  []],
     ['date_of_sars_cov_2_vaccination',  []],
-    ['sequenced_by',            []],
-    ['sample collection date',  []],
     ['exposure_event',          []],
     ['geo_loc_exposure',        []], 
     ['gisaid_accession',        []],
@@ -44,8 +43,8 @@ var exportNCBI_BioSample = (baseName, hot, data, xlsx, fileType) => {
     ['host_anatomical_material', []],
     ['host_anatomical_part',    []],
     ['host_body_product',       []],
-    ['environmental_material',  []],
-    ['environmental_site',      []],
+    ['environmental_material',  []], // Added
+    ['environmental_site',      []], // Added
     ['host_disease_outcome',    []],
     ['host_health_state',       []],
     ['host_recent_travel_loc',  [
@@ -61,11 +60,9 @@ var exportNCBI_BioSample = (baseName, hot, data, xlsx, fileType) => {
     ['lat_lon',                 []],
     ['passage_method',          []],
     ['passage_number',          []],
-    //['passage_history',         []], //passage_number?
     ['prior_sars_cov_2_antiviral_treat', []],
     ['prior_sars_cov_2_infection', []],
     ['prior_sars_cov_2_vaccination', []],
-    ['date_of_sars_cov_2_vaccination', []],
     ['purpose_of_sampling',     []],
     ['purpose_of_sequencing',   []],
     ['sars_cov_2_diag_gene_name_1',   []],
@@ -98,6 +95,7 @@ var exportNCBI_BioSample = (baseName, hot, data, xlsx, fileType) => {
     const outputRow = [];
     for (const [headerName, sources] of ExportHeaders) {
 
+      /* Removed May 12, 2021
     	if (headerName === 'attribute_package') {
     		// This export has extra "attribute_package" with values 
     		// "Pathogen.cl" and "Pathogen.env". Pathogen.cl means the sample
@@ -109,6 +107,7 @@ var exportNCBI_BioSample = (baseName, hot, data, xlsx, fileType) => {
         	outputRow.push( value ? 'Pathogen.cl' : 'Pathogen.env' );
     		continue;
     	}
+      */
 
       // Concatenate geo_loc_name field as combination of first and last level
       // of granularity, omitting null values: w,x,y,z --> x:z value
