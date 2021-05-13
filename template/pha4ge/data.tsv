@@ -1,14 +1,14 @@
 Ontology ID	parent class	label	datatype	source	data status	requirement	min value	max value	capitalize	description	guidance	examples	EXPORT_GISAID	EXPORT_NCBI_BIOSAMPLE	EXPORT_NCBI_SRA	EXPORT_NCBI_Genbank	EXPORT_NCBI_Genbank_source_modifiers
 ID	SC %																
 		Database Identifiers															
-	Database Identifiers	specimen collector sample ID	xs:token		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				The user-defined name for the sample.	Store the collector sample ID. If this number is considered identifiable information, provide an alternative ID. Be sure to store the key that maps between the original and alternative IDs for traceability and follow up if necessary. Every collector sample ID from a single submitter must be unique. It can have any format, but we suggest that you make it concise, unique and consistent within your lab.	prov_rona_99	Sample ID given by the sample provider	sample_name	sample_name	sample_name	Sequence_ID
+	Database Identifiers	specimen collector sample ID	xs:token		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				The user-defined name for the sample.	Store the collector sample ID. If this number is considered identifiable information, provide an alternative ID. Be sure to store the key that maps between the original and alternative IDs for traceability and follow up if necessary. Every collector sample ID from a single submitter must be unique. It can have any format, but we suggest that you make it concise, unique and consistent within your lab.	prov_rona_99	Sample ID given by the sample provider;Sample ID given by the submitting laboratory	sample_name	sample_name	sample_name	Sequence_ID
 	Database Identifiers	umbrella bioproject accession	xs:token						UPPER	The INSDC accession number assigned to the umbrella BioProject for the Canadian SARS-CoV-2 sequencing effort.	Store the umbrella BioProject accession by selecting it from the picklist in the template. The umbrella BioProject accession will be identical for all CanCOGen submitters. Different provinces will have their own BioProjects, however these BioProjects will be linked under one umbrella BioProject.	PRJNA623807					
 	Database Identifiers	bioproject accession	xs:token						UPPER	The INSDC accession number of the BioProject(s) to which the BioSample belongs.	Store the BioProject accession number. BioProjects are an organizing tool that links together raw sequence data, assemblies, and their associated metadata. Each province will be assigned a different bioproject accession number by the National Microbiology Lab. A valid NCBI BioProject accession has prefix PRJN e.g., PRJNA12345, and is created once at the beginning of a new sequencing project. 	PRJNA12345		bioproject_accession	bioproject_accession		BioProject
 	Database Identifiers	biosample accession	xs:token			recommended			UPPER	The identifier assigned to a BioSample in INSDC archives.	Store the accession returned from the BioSample submission. NCBI BioSamples will have the prefix SAMN.	SAMN14180202			biosample_accession	biosample_accession	BioSample
 	Database Identifiers	SRA accession	xs:token						UPPER	The Sequence Read Archive (SRA) identifier linking raw read data, methodological metadata and quality control metrics submitted to the INSDC.	Store the accession assigned to the submitted "run". NCBI-SRA accessions start with SRR.	SRR11177792					
 	Database Identifiers	GenBank/ENA/DDBJ accession	xs:token						UPPER	The GenBank identifier assigned to the sequence in the INSDC archives.	Store the accession returned from a GenBank submission (viral genome assembly).	MN908947.3					
 	Database Identifiers	GISAID accession	xs:token						UPPER	The GISAID accession number assigned to the sequence.	Store the accession returned from the GISAID submission.	EPI_ISL_123456		gisaid_accession			
-	Database Identifiers	GISAID virus name	xs:token						UPPER	The user-defined GISAID virus name assigned to the sequence.	GISAID virus names should be in the format "hCoV-19/Country/Identifier/year".	hCoV-19/Canada/prov_rona_99/2020		gisaid_virus_name			
+	Database Identifiers	GISAID virus name	xs:token						UPPER	The user-defined GISAID virus name assigned to the sequence.	GISAID virus names should be in the format "hCoV-19/Country/Identifier/year".	hCoV-19/Canada/prov_rona_99/2020	Virus name	gisaid_virus_name			
 	Database Identifiers	host specimen voucher	xs:token						UPPER	Identifier for the physical specimen.	Include a URI (Uniform Resource Identifier) in the form of a URL providing a direct link to the physical host specimen. If the specimen was destroyed in the process of analysis, electronic images (e-vouchers) are an adequate substitute for a physical host voucher specimen. If a URI is not available, a museum-provided globally unique identifier (GUID) can be used. If no persistent unique identifier is available, follow the INSDC guidance for populating the voucher_specimen attribute using standard triplets for institution codes (i.e., /specimen_voucher="[<institution-code>:[<collection-code>:]]<specimen_id>"): http://www.insdc.org/controlled-vocabulary-specimenvoucher-qualifier	URI example: http://portal.vertnet.org/o/fmnh/mammals?id=33e55cfe-330b-40d9-aaae-8d042cba7542, INSDC triplet example: UAM:Mamm:52179		host_specimen_voucher			
 		Sample collection and processing															
 	Sample collection and processing	sample collected by	xs:token		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				The name of the agency that collected the original sample.	The name of the sample collector should be written out in full, (with minor exceptions) and be consistent across multple submissions e.g. Public Health Agency of Canada, Public Health Ontario, BC Centre for Disease Control. The sample collector specified is at the discretion of the data provider (i.e. may be hospital, provincial public health lab, or other).	Public Health Agency of Canada	Originating lab	collected_by			
@@ -26,7 +26,7 @@ ID	SC %
 	Sample collection and processing	geo_loc latitude	xs:token							The latitude coordinates of the geographical location of sample collection.	Provide latitude coordinates if available. Do not use the centre of the city/region/province/state/country or the location of your agency as a proxy, as this implicates a real location and is misleading. Specify as degrees latitude in format "d[d.dddd] N|S".	38.98 N		lat_lon			
 	Sample collection and processing	geo_loc longitude	xs:token							The longitude coordinates of the geographical location of sample collection.	Provide longitude coordinates if available. Do not use the centre of the city/region/province/state/country or the location of your agency as a proxy, as this implicates a real location and is misleading. Specify as degrees longitude in format "d[dd.dddd] W|E".	77.11 W		lat_lon			
 	Sample collection and processing	organism	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				Taxonomic name of the organism.	Use "Severe acute respiratory syndrome coronavirus 2". This value is provided in the template.	Severe acute respiratory syndrome coronavirus 2		organism			
-	Sample collection and processing	isolate	xs:token		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				Identifier of the specific isolate.	This identifier should be an unique, indexed, alpha-numeric ID within your laboratory. If submitted to the INSDC, the "isolate" name is propagated throughtout different databases. As such, structure the "isolate" name to be ICTV/INSDC compliant in the following format: "SARS-CoV-2/host/country/sampleID/date".	SARS-CoV-2/human/USA/CA-CDPH-001/2020	Virus name	isolate			isolate
+	Sample collection and processing	isolate	xs:token		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				Identifier of the specific isolate.	This identifier should be an unique, indexed, alpha-numeric ID within your laboratory. If submitted to the INSDC, the "isolate" name is propagated throughtout different databases. As such, structure the "isolate" name to be ICTV/INSDC compliant in the following format: "SARS-CoV-2/host/country/sampleID/date".	SARS-CoV-2/human/USA/CA-CDPH-001/2020		isolate			isolate
 	Sample collection and processing	culture collection	xs:token							The name of the source collection and unique culture identifier. 	Format: "<institution-code>:[<collection-code>:]<culture_id>". For more information, see http://www.insdc.org/controlled-vocabulary-culturecollection-qualifier.	/culture_collection="ATCC:26370"					
 	Sample collection and processing	purpose of sampling	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	recommended				The reason that the sample was collected.	The reason a sample was collected may provide information about potential biases in sampling strategy. Provide the purpose of sampling from the picklist in the template. Most likely, the sample was collected for Diagnostic testing. The reason why a sample was originally collected may differ from the reason why it was selected for sequencing, which should be indicated in the "purpose of sequencing" field. 	Diagnostic testing		purpose_of_sampling			
 	Sample collection and processing	purpose of sampling details	xs:token							The description of why the sample was collected, providing specific details.	Provide an expanded description of why the sample was collected using free text. The description may include the importance of the sample for a particular public health investigation/surveillance activity/research question. If details are not available, provide a null value.	Screening of bat specimens in museum collections.					
@@ -69,7 +69,7 @@ ID	SC %
 	Host vaccination information	vaccine name	xs:token							The name of the vaccine.	Free text. Provide the name of the vaccine.	BNT162b2, Pfizer-BioNTech		vaccine_received			
 	Host vaccination information	number of vaccine doses received	xs:nonNegativeInteger							The number of doses of the vaccine recived by the host.	Record how many doses of the vaccine the host has received.	2					
 	Host vaccination information	first dose vaccination date 	xs:date							The date the host was first vaccinated.	Provide the vaccination date in ISO 8601 standard format "YYYY-MM-DD".	2021-02-26		date_of_sars_cov_2_vaccination			
-	Host vaccination information	last dose vaccination date	xs:date							The date the host received their last dose of vaccine.	Provide the date that the last dose of the vaccine was administered. Provide the last dose vaccination date in ISO 8601 standard format "YYYY-MM-DD".	2021-04-09					
+	Host vaccination information	last dose vaccination date	xs:date							The date the host received their last dose of vaccine.	Provide the date that the last dose of the vaccine was administered. Provide the last dose vaccination date in ISO 8601 standard format "YYYY-MM-DD".	2021-04-09	Last vaccinated				
 		Host exposure information															
 	Host exposure information	location of exposure geo_loc name (country)	select	geo_loc_name (country)	Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					The country where the host was likely exposed to the causative agent of the illness.	Select the country name from pick list provided in the template.	Canada		geo_loc_exposure			
 	Host exposure information	destination of most recent travel (city)	xs:token							The name of the city that was the destination of most recent travel.	Provide the name of the city that the host travelled to. Use this look-up service to identify the standardized term: https://www.ebi.ac.uk/ols/ontologies/gaz	New York City		host_recent_travel_loc			
@@ -80,8 +80,8 @@ ID	SC %
 	Host exposure information	travel history	xs:token							Travel history in last six months.	Specify the countries (and more granular locations if known, separated by a comma) travelled in the last six months; can include multiple travels. Separate multiple travel events with a semi-colon. List most recent travel first.	Canada, Vancouver; USA, Seattle; Italy, Milan					
 	Host exposure information	exposure event	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					Event leading to exposure.	Select an exposure event from the pick list provided in the template. If the desired term is missing, contact the curation team.	Convention	Additional location information	exposure_event			
 	Host exposure information	exposure contact level	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					The exposure transmission contact type.	Select direct or indirect exposure from the pick-list.	Direct					
-	Host exposure information	host role	multiple							The role of the host in relation to the exposure setting.	Select the host's personal role(s) from the pick list provided in the template. If the desired term is missing, contact the curation team.	Patient					
-	Host exposure information	exposure setting	multiple							The setting leading to exposure.	Select the host exposure setting(s) from the pick list provided in the template. If a desired term is missing, contact the curation team.	Healthcare Setting					
+	Host exposure information	host role	multiple							The role of the host in relation to the exposure setting.	Select the host's personal role(s) from the pick list provided in the template. If the desired term is missing, contact the curation team.	Patient	Additional host information				
+	Host exposure information	exposure setting	multiple							The setting leading to exposure.	Select the host exposure setting(s) from the pick list provided in the template. If a desired term is missing, contact the curation team.	Healthcare Setting	Additional host information				
 	Host exposure information	exposure details	xs:token							Additional host exposure information.	Free text description of the exposure.	Host role - Other: Bus Driver					
 																	
 																	
@@ -95,7 +95,7 @@ ID	SC %
 																	
 																	
 		Sequencing															
-	Sequencing	purpose of sequencing	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				The reason that the sample was sequenced.	The reason why a sample was originally collected may differ from the reason why it was selected for sequencing. The reason a sample was sequenced may provide information about potential biases in sequencing strategy. Provide the purpose of sequencing from the picklist in the template. The reason for sample collection should be indicated in the "purpose of sampling" field. 	Baseline surveillance (random sampling)		purpose_of_sequencing			
+	Sequencing	purpose of sequencing	multiple		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				The reason that the sample was sequenced.	The reason why a sample was originally collected may differ from the reason why it was selected for sequencing. The reason a sample was sequenced may provide information about potential biases in sequencing strategy. Provide the purpose of sequencing from the picklist in the template. The reason for sample collection should be indicated in the "purpose of sampling" field. 	Baseline surveillance (random sampling)	Sampling Strategy	purpose_of_sequencing			
 	Sequencing	purpose of sequencing details	xs:token		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				The description of why the sample was sequenced providing specific details.	"Provide an expanded description of why the sample was sequenced using free text. The description may include the importance of the sequences for a particular public health investigation/surveillance activity/research question. Suggested standardized descriotions include: Screened for S gene target failure (S dropout), Screened for mink variants, Screened for B.1.1.7 variant, Screened for B.1.135 variant, Screened for P.1 variant, Screened due to travel history, Screened due to close contact with infected individual, Assessing public health control measures, Determining early introductions and spread, Investigating airline-related exposures, Investigating temporary foreign worker, Investigating remote regions, Investigating health care workers, Investigating schools/universities, Investigating reinfection.
 "	Screened for S gene target failure (S dropout)					
 	Sequencing	sequencing date	xs:date		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					The date the sample was sequenced.	ISO 8601 standard "YYYY-MM-DD".	2020-06-22					
@@ -103,7 +103,7 @@ ID	SC %
 	Sequencing	amplicon size	xs:token							The length of the amplicon generated by PCR amplification.	Provide the amplicon size, including the units.	300bp			amplicon_size		
 	Sequencing	library preparation kit	xs:token							The name of the DNA library preparation kit used to generate the library being sequenced.	Provide the name of the library preparation kit used.	Nextera XT					
 	Sequencing	flow cell barcode	xs:token							The barcode of the flow cell used for sequencing.	Provide the barcode of the flow cell used for sequencing the sample.	FAB06069					
-	Sequencing	sequencing instrument	multiple		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				The model of the sequencing instrument used.	Select a sequencing instrument from the picklist provided in the template.	MinIon	Sequencing technology			sequencing_technology	
+	Sequencing	sequencing instrument	multiple		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				The model of the sequencing instrument used.	Select a sequencing instrument from the picklist provided in the template.	MinIon	Sequencing technology		platform;instrument_model	sequencing_technology	
 	Sequencing	sequencing protocol name	xs:token			recommended				The name and version number of the sequencing protocol used.	Provide the name and version of the sequencing protocol e.g. 1D_DNA_MinION	https://www.protocols.io/view/covid-19-artic-v3-illumina-library-construction-an-bibtkann			sequencing_protocol_name		
 	Sequencing	sequencing protocol  	xs:token							The protocol used to generate the sequence.	Provide a free text description of the methods and materials used to generate the sequence. Suggested text, fill in information where indicated.: "Viral sequencing was performed following a tiling amplicon strategy using the <fill in> primer scheme. Sequencing was performed using a <fill in> sequencing instrument. Libraries were prepared using <fill in> library kit. "	Genomes were generated through amplicon sequencing of 1200 bp amplicons with Freed schema primers. Libraries were created using Illumina DNA Prep kits, and sequence data was produced using Miseq Micro v2 (500 cycles) sequencing kits.			design_description		
 	Sequencing	sequencing kit number	xs:token							The manufacturer's kit number.	Alphanumeric value.	AB456XYZ789					
@@ -116,8 +116,8 @@ ID	SC %
 	Bioinformatics and QC metrics	consensus sequence name	xs:token							The name of the consensus sequence.	Provide the name and version number of the consensus sequence.	ncov123assembly3					
 	Bioinformatics and QC metrics	consensus sequence filename	xs:token							The name of the consensus sequence file.	Provide the name and version number of the consensus sequence FASTA file.	ncov123assembly.fasta				filename	
 	Bioinformatics and QC metrics	consensus sequence filepath	xs:token							The filepath of the consesnsus sequence file.	Provide the filepath of the consensus sequence FASTA file.	/User/Documents/RespLab/Data/ncov123assembly.fasta					
-	Bioinformatics and QC metrics	consensus sequence software name	xs:token			required				The name of software used to generate the consensus sequence.	Provide the name of the software used to generate the consensus sequence.	Ivar				assembly_method	
-	Bioinformatics and QC metrics	consensus sequence software version	xs:decimal			required				The version of the software used to generate the consensus sequence.	Provide the version of the software used to generate the consensus sequence.	1.3				assembly_method_version	
+	Bioinformatics and QC metrics	consensus sequence software name	xs:token			required				The name of software used to generate the consensus sequence.	Provide the name of the software used to generate the consensus sequence.	Ivar	Assembly method			assembly_method	
+	Bioinformatics and QC metrics	consensus sequence software version	xs:decimal			required				The version of the software used to generate the consensus sequence.	Provide the version of the software used to generate the consensus sequence.	1.3	Assembly method			assembly_method_version	
 	Bioinformatics and QC metrics	breadth of coverage value	xs:token							The percentage of the reference genome covered by the sequenced data, to a prescribed depth.	Provide value as a percent.	95%					
 	Bioinformatics and QC metrics	depth of coverage value	xs:token							The average number of reads representing a given nucleotide in the reconstructed sequence.	Provide value as a fold of coverage.	400x	Coverage			genome_coverage	
 	Bioinformatics and QC metrics	depth of coverage threshold	xs:token							The threshold used as a cut-off for the depth of coverage.	Provide the threshold fold coverage.	100x					
@@ -161,7 +161,7 @@ ID	SC %
 																	
 		Contributor acknowledgement															
 	Contributor acknowledgement	authors	xs:token			recommended				Names of individuals contributing to the processes of sample collection, sequence generation, analysis, and data submission.	Include the first and last names of all individuals that should be attributed, separated by a comma.	Tejinder Singh, Fei Hu, Joe Blogs	Authors				
-	Contributor acknowledgement	DataHarmonizer provenance	provenance										DataHarmonizer provenance				
+	Contributor acknowledgement	DataHarmonizer provenance	provenance														
 																	
 																	
 		data status	select														
@@ -874,18 +874,18 @@ OMRSE:00000008?	host gender	Male
 																	
 																	
 OBI_0000759	sequencing instrument	Illumina													platform:ILLUMINA		
-OBI_0002128	Illumina	   Illumina Genome Analyzer													platform:ILLUMINA|instrument_model:Illumina Genome Analyzer		
-OBI_0000703	Illumina Genome Analyzer	      Illumina Genome Analyzer II													platform:ILLUMINA|instrument_model:Illumina Genome Analyzer II		
-OBI_0002000	Illumina Genome Analyzer	      Illumina Genome Analyzer IIx													platform:ILLUMINA|instrument_model:Illumina Genome Analyzer IIx		
-	Illumina	   Illumina HiScanSQ													platform:ILLUMINA|instrument_model:Illumina HiScanSQ		
+OBI_0002128	Illumina	   Illumina Genome Analyzer													platform:ILLUMINA;instrument_model:Illumina Genome Analyzer		
+OBI_0000703	Illumina Genome Analyzer	      Illumina Genome Analyzer II													platform:ILLUMINA;instrument_model:Illumina Genome Analyzer II		
+OBI_0002000	Illumina Genome Analyzer	      Illumina Genome Analyzer IIx													platform:ILLUMINA;instrument_model:Illumina Genome Analyzer IIx		
+	Illumina	   Illumina HiScanSQ													platform:ILLUMINA;instrument_model:Illumina HiScanSQ		
 	Illumina	   Illumina HiSeq 													platform:ILLUMINA		
 OBI_0002129	Illumina	      Illumina HiSeq X 													platform:ILLUMINA		
-	Illumina HiSeq X	         Illumina HiSeq X Five													platform:ILLUMINA|instrument_model: Illumina HiSeq X Five		
-OBI_0002129	Illumina HiSeq X	         Illumina HiSeq X Ten													platform:ILLUMINA|instrument_model:Illumina HiSeq X Ten		
-OBI_0002022	Illumina	      Illumina HiSeq 1000													platform:ILLUMINA|instrument_model:Illumina HiSeq 1000		
+	Illumina HiSeq X	         Illumina HiSeq X Five													platform:ILLUMINA;instrument_model: Illumina HiSeq X Five		
+OBI_0002129	Illumina HiSeq X	         Illumina HiSeq X Ten													platform:ILLUMINA;instrument_model:Illumina HiSeq X Ten		
+OBI_0002022	Illumina	      Illumina HiSeq 1000													platform:ILLUMINA;instrument_model:Illumina HiSeq 1000		
 	Illumina	      Illumina HiSeq 1500													platform:ILLUMINA		
-OBI_0002001	Illumina	      Illumina HiSeq 2000													platform:ILLUMINA|instrument_model:Illumina HiSeq 2000		
-OBI_0002002	Illumina	      Illumina HiSeq 2500													platform:ILLUMINA|instrument_model:Illumina HiSeq 2500		
+OBI_0002001	Illumina	      Illumina HiSeq 2000													platform:ILLUMINA;instrument_model:Illumina HiSeq 2000		
+OBI_0002002	Illumina	      Illumina HiSeq 2500													platform:ILLUMINA;instrument_model:Illumina HiSeq 2500		
 OBI_0002048	Illumina	      Illumina HiSeq 3000													platform:ILLUMINA		
 OBI_0002049	Illumina	      Illumina HiSeq 4000													platform:ILLUMINA		
 	Illumina	   Illumina iSeq													platform:ILLUMINA		
@@ -893,23 +893,23 @@ EFO:0008635	Illumina iSeq	   Illumina iSeq 100													platform:ILLUMINA
 	Illumina	   Illumina NovaSeq													platform:ILLUMINA		
 OBI_0002630	Illumina NovaSeq	   Illumina NovaSeq 6000													platform:ILLUMINA		
 http://www.ebi.ac.uk/efo/EFO_0008636	Illumina	   Illumina MiniSeq													platform:ILLUMINA		
-OBI_0002003	Illumina	   Illumina MiSeq													platform:ILLUMINA|instrument_model:Illumina MiSeq		
+OBI_0002003	Illumina	   Illumina MiSeq													platform:ILLUMINA;instrument_model:Illumina MiSeq		
 	Illumina	   Illumina NextSeq 													platform:ILLUMINA		
-OBI_0002021	Illumina	      Illumina NextSeq 500													platform:ILLUMINA|instrument_model:Illumina NextSeq 500		
+OBI_0002021	Illumina	      Illumina NextSeq 500													platform:ILLUMINA;instrument_model:Illumina NextSeq 500		
 	Illumina	      Illumina NextSeq 550													platform:ILLUMINA		
 OBI_0001856	sequencing instrument	Pacific Biosciences													platform:PACBIO_SMRT		
-	Pacific Biosciences	   PacBio RS													platform:PACBIO_SMRT|instrument_model:PacBio RS		
-OBI_0002012	Pacific Biosciences	   PacBio RS II													platform:PACBIO_SMRT|instrument_model:PacBio RS II		
+	Pacific Biosciences	   PacBio RS													platform:PACBIO_SMRT;instrument_model:PacBio RS		
+OBI_0002012	Pacific Biosciences	   PacBio RS II													platform:PACBIO_SMRT;instrument_model:PacBio RS II		
 OBI_0002632	Pacific Biosciences	   PacBio Sequel													platform:PACBIO_SMRT		
 OBI_0002633	Pacific Biosciences	   PacBio Sequel II													platform:PACBIO_SMRT		
 	sequencing instrument	Ion Torrent													platform:ION_TORRENT		
-GENEPIO_0001935	Ion Torrent	   Ion Torrent PGM													platform:ION_TORRENT|instrument_model:Ion Torrent PGM		
-	Ion Torrent	   Ion Torrent Proton													platform:ION_TORRENT|instrument_model:Ion Torrent Proton		
+GENEPIO_0001935	Ion Torrent	   Ion Torrent PGM													platform:ION_TORRENT;instrument_model:Ion Torrent PGM		
+	Ion Torrent	   Ion Torrent Proton													platform:ION_TORRENT;instrument_model:Ion Torrent Proton		
 	Ion Torrent	   Ion Torrent S5 XL													platform:ION_TORRENT		
 	Ion Torrent	   Ion Torrent S5													platform:ION_TORRENT		
 	sequencing instrument	Oxford Nanopore													platform:OXFORD_NANOPORE		
-	Oxford Nanopore	   GridION													platform:OXFORD_NANOPORE|instrument_model:GridION		
-	Oxford Nanopore	   MinION													platform:OXFORD_NANOPORE|instrument_model:MinION		
+	Oxford Nanopore	   GridION													platform:OXFORD_NANOPORE;instrument_model:GridION		
+	Oxford Nanopore	   MinION													platform:OXFORD_NANOPORE;instrument_model:MinION		
 	Oxford Nanopore	   PromethION													platform:OXFORD_NANOPORE		
 	sequencing instrument	BGI Genomics															
 	BGI Genomics	   BGISEQ-500															

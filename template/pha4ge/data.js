@@ -25,6 +25,9 @@ var DATA = [
           "GISAID": [
             {
               "field": "Sample ID given by the sample provider"
+            },
+            {
+              "field": "Sample ID given by the submitting laboratory"
             }
           ],
           "NCBI_BIOSAMPLE": [
@@ -188,6 +191,11 @@ var DATA = [
         "guidance": "GISAID virus names should be in the format \"hCoV-19/Country/Identifier/year\".",
         "examples": "hCoV-19/Canada/prov_rona_99/2020",
         "exportField": {
+          "GISAID": [
+            {
+              "field": "Virus name"
+            }
+          ],
           "NCBI_BIOSAMPLE": [
             {
               "field": "gisaid_virus_name"
@@ -891,11 +899,6 @@ var DATA = [
         "guidance": "This identifier should be an unique, indexed, alpha-numeric ID within your laboratory. If submitted to the INSDC, the \"isolate\" name is propagated throughtout different databases. As such, structure the \"isolate\" name to be ICTV/INSDC compliant in the following format: \"SARS-CoV-2/host/country/sampleID/date\".",
         "examples": "SARS-CoV-2/human/USA/CA-CDPH-001/2020",
         "exportField": {
-          "GISAID": [
-            {
-              "field": "Virus name"
-            }
-          ],
           "NCBI_BIOSAMPLE": [
             {
               "field": "isolate"
@@ -2732,7 +2735,14 @@ var DATA = [
         "requirement": "",
         "description": "The date the host received their last dose of vaccine.",
         "guidance": "Provide the date that the last dose of the vaccine was administered. Provide the last dose vaccination date in ISO 8601 standard format \"YYYY-MM-DD\".",
-        "examples": "2021-04-09"
+        "examples": "2021-04-09",
+        "exportField": {
+          "GISAID": [
+            {
+              "field": "Last vaccinated"
+            }
+          ]
+        }
       }
     ]
   },
@@ -3006,6 +3016,13 @@ var DATA = [
         "description": "The role of the host in relation to the exposure setting.",
         "guidance": "Select the host's personal role(s) from the pick list provided in the template. If the desired term is missing, contact the curation team.",
         "examples": "Patient",
+        "exportField": {
+          "GISAID": [
+            {
+              "field": "Additional host information"
+            }
+          ]
+        },
         "schema:ItemList": {
           "Attendee": {
             "schema:ItemList": {
@@ -3075,6 +3092,13 @@ var DATA = [
         "description": "The setting leading to exposure.",
         "guidance": "Select the host exposure setting(s) from the pick list provided in the template. If a desired term is missing, contact the curation team.",
         "examples": "Healthcare Setting",
+        "exportField": {
+          "GISAID": [
+            {
+              "field": "Additional host information"
+            }
+          ]
+        },
         "schema:ItemList": {
           "Human Exposure": {
             "schema:ItemList": {
@@ -3377,7 +3401,7 @@ var DATA = [
         "fieldName": "purpose of sequencing",
         "capitalize": "",
         "ontology_id": "",
-        "datatype": "select",
+        "datatype": "multiple",
         "source": "",
         "dataStatus": [
           "Not Applicable",
@@ -3393,6 +3417,11 @@ var DATA = [
         "guidance": "The reason why a sample was originally collected may differ from the reason why it was selected for sequencing. The reason a sample was sequenced may provide information about potential biases in sequencing strategy. Provide the purpose of sequencing from the picklist in the template. The reason for sample collection should be indicated in the \"purpose of sampling\" field. ",
         "examples": "Baseline surveillance (random sampling)",
         "exportField": {
+          "GISAID": [
+            {
+              "field": "Sampling Strategy"
+            }
+          ],
           "NCBI_BIOSAMPLE": [
             {
               "field": "purpose_of_sequencing"
@@ -3568,6 +3597,14 @@ var DATA = [
               "field": "Sequencing technology"
             }
           ],
+          "NCBI_SRA": [
+            {
+              "field": "platform"
+            },
+            {
+              "field": "instrument_model"
+            }
+          ],
           "NCBI_Genbank": [
             {
               "field": "sequencing_technology"
@@ -3590,7 +3627,11 @@ var DATA = [
                   "NCBI_SRA": [
                     {
                       "field": "platform",
-                      "value": "ILLUMINA|instrument_model:Illumina Genome Analyzer"
+                      "value": "ILLUMINA"
+                    },
+                    {
+                      "field": "instrument_model",
+                      "value": "Illumina Genome Analyzer"
                     }
                   ]
                 },
@@ -3600,7 +3641,11 @@ var DATA = [
                       "NCBI_SRA": [
                         {
                           "field": "platform",
-                          "value": "ILLUMINA|instrument_model:Illumina Genome Analyzer II"
+                          "value": "ILLUMINA"
+                        },
+                        {
+                          "field": "instrument_model",
+                          "value": "Illumina Genome Analyzer II"
                         }
                       ]
                     }
@@ -3610,7 +3655,11 @@ var DATA = [
                       "NCBI_SRA": [
                         {
                           "field": "platform",
-                          "value": "ILLUMINA|instrument_model:Illumina Genome Analyzer IIx"
+                          "value": "ILLUMINA"
+                        },
+                        {
+                          "field": "instrument_model",
+                          "value": "Illumina Genome Analyzer IIx"
                         }
                       ]
                     }
@@ -3622,7 +3671,11 @@ var DATA = [
                   "NCBI_SRA": [
                     {
                       "field": "platform",
-                      "value": "ILLUMINA|instrument_model:Illumina HiScanSQ"
+                      "value": "ILLUMINA"
+                    },
+                    {
+                      "field": "instrument_model",
+                      "value": "Illumina HiScanSQ"
                     }
                   ]
                 }
@@ -3652,7 +3705,11 @@ var DATA = [
                       "NCBI_SRA": [
                         {
                           "field": "platform",
-                          "value": "ILLUMINA|instrument_model: Illumina HiSeq X Five"
+                          "value": "ILLUMINA"
+                        },
+                        {
+                          "field": "instrument_model",
+                          "value": "Illumina HiSeq X Five"
                         }
                       ]
                     }
@@ -3662,7 +3719,11 @@ var DATA = [
                       "NCBI_SRA": [
                         {
                           "field": "platform",
-                          "value": "ILLUMINA|instrument_model:Illumina HiSeq X Ten"
+                          "value": "ILLUMINA"
+                        },
+                        {
+                          "field": "instrument_model",
+                          "value": "Illumina HiSeq X Ten"
                         }
                       ]
                     }
@@ -3674,7 +3735,11 @@ var DATA = [
                   "NCBI_SRA": [
                     {
                       "field": "platform",
-                      "value": "ILLUMINA|instrument_model:Illumina HiSeq 1000"
+                      "value": "ILLUMINA"
+                    },
+                    {
+                      "field": "instrument_model",
+                      "value": "Illumina HiSeq 1000"
                     }
                   ]
                 }
@@ -3694,7 +3759,11 @@ var DATA = [
                   "NCBI_SRA": [
                     {
                       "field": "platform",
-                      "value": "ILLUMINA|instrument_model:Illumina HiSeq 2000"
+                      "value": "ILLUMINA"
+                    },
+                    {
+                      "field": "instrument_model",
+                      "value": "Illumina HiSeq 2000"
                     }
                   ]
                 }
@@ -3704,7 +3773,11 @@ var DATA = [
                   "NCBI_SRA": [
                     {
                       "field": "platform",
-                      "value": "ILLUMINA|instrument_model:Illumina HiSeq 2500"
+                      "value": "ILLUMINA"
+                    },
+                    {
+                      "field": "instrument_model",
+                      "value": "Illumina HiSeq 2500"
                     }
                   ]
                 }
@@ -3788,7 +3861,11 @@ var DATA = [
                   "NCBI_SRA": [
                     {
                       "field": "platform",
-                      "value": "ILLUMINA|instrument_model:Illumina MiSeq"
+                      "value": "ILLUMINA"
+                    },
+                    {
+                      "field": "instrument_model",
+                      "value": "Illumina MiSeq"
                     }
                   ]
                 }
@@ -3808,7 +3885,11 @@ var DATA = [
                   "NCBI_SRA": [
                     {
                       "field": "platform",
-                      "value": "ILLUMINA|instrument_model:Illumina NextSeq 500"
+                      "value": "ILLUMINA"
+                    },
+                    {
+                      "field": "instrument_model",
+                      "value": "Illumina NextSeq 500"
                     }
                   ]
                 }
@@ -3840,7 +3921,11 @@ var DATA = [
                   "NCBI_SRA": [
                     {
                       "field": "platform",
-                      "value": "PACBIO_SMRT|instrument_model:PacBio RS"
+                      "value": "PACBIO_SMRT"
+                    },
+                    {
+                      "field": "instrument_model",
+                      "value": "PacBio RS"
                     }
                   ]
                 }
@@ -3850,7 +3935,11 @@ var DATA = [
                   "NCBI_SRA": [
                     {
                       "field": "platform",
-                      "value": "PACBIO_SMRT|instrument_model:PacBio RS II"
+                      "value": "PACBIO_SMRT"
+                    },
+                    {
+                      "field": "instrument_model",
+                      "value": "PacBio RS II"
                     }
                   ]
                 }
@@ -3892,7 +3981,11 @@ var DATA = [
                   "NCBI_SRA": [
                     {
                       "field": "platform",
-                      "value": "ION_TORRENT|instrument_model:Ion Torrent PGM"
+                      "value": "ION_TORRENT"
+                    },
+                    {
+                      "field": "instrument_model",
+                      "value": "Ion Torrent PGM"
                     }
                   ]
                 }
@@ -3902,7 +3995,11 @@ var DATA = [
                   "NCBI_SRA": [
                     {
                       "field": "platform",
-                      "value": "ION_TORRENT|instrument_model:Ion Torrent Proton"
+                      "value": "ION_TORRENT"
+                    },
+                    {
+                      "field": "instrument_model",
+                      "value": "Ion Torrent Proton"
                     }
                   ]
                 }
@@ -3944,7 +4041,11 @@ var DATA = [
                   "NCBI_SRA": [
                     {
                       "field": "platform",
-                      "value": "OXFORD_NANOPORE|instrument_model:GridION"
+                      "value": "OXFORD_NANOPORE"
+                    },
+                    {
+                      "field": "instrument_model",
+                      "value": "GridION"
                     }
                   ]
                 }
@@ -3954,7 +4055,11 @@ var DATA = [
                   "NCBI_SRA": [
                     {
                       "field": "platform",
-                      "value": "OXFORD_NANOPORE|instrument_model:MinION"
+                      "value": "OXFORD_NANOPORE"
+                    },
+                    {
+                      "field": "instrument_model",
+                      "value": "MinION"
                     }
                   ]
                 }
@@ -4173,6 +4278,11 @@ var DATA = [
         "guidance": "Provide the name of the software used to generate the consensus sequence.",
         "examples": "Ivar",
         "exportField": {
+          "GISAID": [
+            {
+              "field": "Assembly method"
+            }
+          ],
           "NCBI_Genbank": [
             {
               "field": "assembly_method"
@@ -4194,6 +4304,11 @@ var DATA = [
         "guidance": "Provide the version of the software used to generate the consensus sequence.",
         "examples": "1.3",
         "exportField": {
+          "GISAID": [
+            {
+              "field": "Assembly method"
+            }
+          ],
           "NCBI_Genbank": [
             {
               "field": "assembly_method_version"
@@ -5013,14 +5128,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "exportField": {
-          "GISAID": [
-            {
-              "field": "DataHarmonizer provenance"
-            }
-          ]
-        }
+        "examples": ""
       }
     ]
   },
