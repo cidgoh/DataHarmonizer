@@ -60,7 +60,7 @@ var exportGRDI = (baseName, hot, data, xlsx, fileType) => {
 
       // Otherwise apply source (many to one) to target field transform:
       const sources = ExportHeaders.get(headerName);
-      const value = getMappedField(inputRow, sources, sourceFields, sourceFieldNameMap, ';', 'GRDI') 
+      const value = getMappedField(headerName, inputRow, sources, sourceFields, sourceFieldNameMap, ';', 'GRDI') 
       outputRow.push(value);
     };
     outputMatrix.push(outputRow);

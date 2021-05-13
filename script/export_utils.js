@@ -116,7 +116,7 @@ const getHeaderMap = (exportHeaders, fields, prefix) => {
  * @param {Map} nullOptionsMap conversion of Missing etc. to export db equivalent.
  * @returm {String} Concatenated string of values.
  */
-const getMappedField = (sourceRow, sourceFieldNames, sourceFields, fieldNameMap, delimiter, prefix, nullOptionsMap = null, skipNull = false) => {
+const getMappedField = (headerName, sourceRow, sourceFieldNames, sourceFields, fieldNameMap, delimiter, prefix, nullOptionsMap = null, skipNull = false) => {
 
 	const mappedCell = [];
 	for (const fieldName of sourceFieldNames) {
@@ -127,15 +127,19 @@ const getMappedField = (sourceRow, sourceFieldNames, sourceFields, fieldNameMap,
 		if (nullOptionsMap && nullOptionsMap.has(mappedCellVal)){
 			mappedCellVal = nullOptionsMap.get(mappedCellVal);
 		};
-		if (skipNull === true && (!mappedCellVal || mappedCellVal.length === 0)) continue;
+		if (skipNull === true && (!mappedCellVal || mappedCellVal.length === 0)) 
+			continue;
+
 		let field = sourceFields[fieldNameMap[fieldName]];
+
 		if (field.datatype === 'select') {
-			mappedCell.push( getTransformedField(mappedCellVal, field, prefix));
+			mappedCell.push( getTransformedField(headerName, mappedCellVal, field, prefix));
 		}
 		else if (field.datatype === 'multiple') {
 			// ISSUE: relying on semicolon delimiter in input
+
 			for (let cellVal of mappedCellVal.split(';')) {
-				mappedCell.push( getTransformedField(cellVal.trim(), field, prefix));
+				mappedCell.push( getTransformedField(headerName, cellVal.trim(), field, prefix));
 			}
 		}
 		else {
@@ -152,7 +156,7 @@ const getMappedField = (sourceRow, sourceFieldNames, sourceFields, fieldNameMap,
  * @param {Array<String>} fields list of source fields to examine for mappings.
  * @param {String} prefix of export format to examine.
  */
-const getTransformedField = (value, field, prefix) => {
+const getTransformedField = (headerName, value, field, prefix) => {
 
  	if (field['schema:ItemList']) {
  		const term = findById(field['schema:ItemList'], value);
@@ -162,7 +166,10 @@ const getTransformedField = (value, field, prefix) => {
 			// Here mapping involves a value substitution
 			// Note possible [target field]:[value] twist
 			for (let mapping of term.exportField[prefix]) {
-				return mapping.value;
+				// Usually there's just one target field, but one can map a
+				// source field to more than one target.
+				if (!('field' in mapping) || mapping.field === headerName)
+					return mapping.value;
 			};
 		};
 

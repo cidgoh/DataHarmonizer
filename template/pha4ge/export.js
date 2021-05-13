@@ -113,20 +113,20 @@ var exportNCBI_BioSample = (baseName, hot, data, xlsx, fileType) => {
       // of granularity, omitting null values: w,x,y,z --> x:z value
       if (headerName === 'geo_loc_name' || headerName === 'host_recent_travel_loc') {
         // Otherwise apply source (many to one) to target field transform:
-        const value = getMappedField(inputRow, sources, sourceFields,sourceFieldNameMap, ':', 'BioSample', concatOptionsMap, true);
+        const value = getMappedField(headerName, inputRow, sources, sourceFields,sourceFieldNameMap, ':', 'NCBI_BIOSAMPLE', concatOptionsMap, true);
         // Issue: if no concatenated field content, then metadata status?
         outputRow.push(concatFirstLastField (value, ':'));
         continue;
       };
       
       if (headerName === 'isolation_source') {
-        const value = getMappedField(inputRow, sources, sourceFields,sourceFieldNameMap, ':', 'BioSample', concatOptionsMap, true);
+        const value = getMappedField(headerName, inputRow, sources, sourceFields,sourceFieldNameMap, ':', 'NCBI_BIOSAMPLE', concatOptionsMap, true);
         outputRow.push(value);
         continue;
       }
       
       // Otherwise apply source (many to one) to target field transform:
-      const value = getMappedField(inputRow, sources, sourceFields,sourceFieldNameMap, ':', 'BioSample');
+      const value = getMappedField(headerName, inputRow, sources, sourceFields,sourceFieldNameMap, ':', 'NCBI_BIOSAMPLE');
 
       outputRow.push(value);
     }
@@ -173,9 +173,9 @@ var exportNCBI_SRA = (baseName, hot, data, xlsx, fileType) => {
   for (const inputRow of getTrimmedData(hot)) {
     const outputRow = [];
     for (const [headerName, sources] of ExportHeaders) {
-
+      console.log(headerName, sources)
       // Otherwise apply source (many to one) to target field transform:
-      const value = getMappedField(inputRow, sources, sourceFields,sourceFieldNameMap, '|') 
+      const value = getMappedField(headerName, inputRow, sources, sourceFields, sourceFieldNameMap, ':', 'NCBI_SRA') 
       outputRow.push(value);
     }
     outputMatrix.push(outputRow);
@@ -210,7 +210,7 @@ var exportNCBI_Genbank = (baseName, hot, data, xlsx, fileType) => {
     for (const [headerName, sources] of ExportHeaders) {
 
       // Otherwise apply source (many to one) to target field transform:
-      const value = getMappedField(inputRow, sources, sourceFields,sourceFieldNameMap, '|') 
+      const value = getMappedField(headerName, inputRow, sources, sourceFields,sourceFieldNameMap, ':', 'NCBI_Genbank') 
       outputRow.push(value);
     }
     outputMatrix.push(outputRow);
@@ -245,7 +245,7 @@ var exportNCBI_Genbank_source_modifiers = (baseName, hot, data, xlsx, fileType) 
     for (const [headerName, sources] of ExportHeaders) {
 
       // Otherwise apply source (many to one) to target field transform:
-      const value = getMappedField(inputRow, sources, sourceFields,sourceFieldNameMap, '|') 
+      const value = getMappedField(headerName, inputRow, sources, sourceFields,sourceFieldNameMap, ':', 'NCBI_Genbank_source_modifiers') 
       outputRow.push(value);
     }
     outputMatrix.push(outputRow);
@@ -271,7 +271,7 @@ var exportGISAID = (baseName, hot, data, xlsx, fileType) => {
     for (const [headerName, sources] of ExportHeaders) {
 
       // Otherwise apply source (many to one) to target field transform:
-      const value = getMappedField(inputRow, sources, sourceFields,sourceFieldNameMap, '|') 
+      const value = getMappedField(headerName, inputRow, sources, sourceFields,sourceFieldNameMap, '|', 'GISAID') 
       outputRow.push(value);
     }
     outputMatrix.push(outputRow);
