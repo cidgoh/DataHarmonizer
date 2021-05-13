@@ -108,6 +108,7 @@ const getHeaderMap = (exportHeaders, fields, prefix) => {
  * fields, separated by a ';' delimiter if not null.
  * nullOptionsDict allows conversion of "Missing" etc. metadata options to 
  * target export system's version of these.
+ * @param {String} headerName is field name of target export field
  * @param {Object} sourceRow 
  * @param {Array<Object>} sourceFieldNames array of all source fields.
  * @param {Object} fieldNameMap
