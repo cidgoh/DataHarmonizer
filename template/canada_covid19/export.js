@@ -560,7 +560,7 @@ var exportNML_LIMS = (baseName, hot, data, xlsx, fileType) => {
       }
 
       // Otherwise apply source (many to one) to target field transform:
-      const value = getMappedField(headerName, inputRow, sources, sourceFields, sourceFieldNameMap, '|', 'NML_LIMS'); // obsoleting , nullOptionsMap
+      const value = getMappedField(headerName, inputRow, sources, sourceFields, sourceFieldNameMap, '|', 'NML_LIMS', nullOptionsMap); // obsoleting , nullOptionsMap
       outputRow.push(value);
     }
     outputMatrix.push(outputRow);
