@@ -83,6 +83,8 @@ var exportBioSample = (baseName, hot, data, xlsx, fileType) => {
 
 /**
  * Download grid mapped to GISAID format.
+ * CODE IS IDENTICAL COPY OF canada_covid19/export.js
+ *
  * @param {String} baseName Basename of downloaded file.
  * @param {Object} hot Handonstable grid instance.
  * @param {Object} data See `data.js`.
@@ -563,7 +565,7 @@ var exportNML_LIMS = (baseName, hot, data, xlsx, fileType) => {
       }
 
       // Otherwise apply source (many to one) to target field transform:
-      const value = getMappedField(headerName, inputRow, sources, sourceFields, sourceFieldNameMap, '|', 'NML_LIMS', nullOptionsMap); // obsoleting , nullOptionsMap
+      const value = getMappedField(headerName, inputRow, sources, sourceFields, sourceFieldNameMap, '|', 'NML_LIMS', nullOptionsMap);  
       outputRow.push(value);
     }
     outputMatrix.push(outputRow);
