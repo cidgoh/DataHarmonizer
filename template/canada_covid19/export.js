@@ -72,7 +72,7 @@ var exportBioSample = (baseName, hot, data, xlsx, fileType) => {
     for (const [headerName, sources] of ExportHeaders) {
 
       // Otherwise apply source (many to one) to target field transform:
-      const value = getMappedField(headerName, inputRow, sources, sourceFields,sourceFieldNameMap, '|', 'BIOSAMPLE') 
+      const value = getMappedField(headerName, inputRow, sources, sourceFields,sourceFieldNameMap, ':', 'BIOSAMPLE') 
       outputRow.push(value);
     }
     outputMatrix.push(outputRow);
@@ -83,6 +83,8 @@ var exportBioSample = (baseName, hot, data, xlsx, fileType) => {
 
 /**
  * Download grid mapped to GISAID format.
+ * CODE IS IDENTICAL COPY OF canada_covid19/export.js
+ *
  * @param {String} baseName Basename of downloaded file.
  * @param {Object} hot Handonstable grid instance.
  * @param {Object} data See `data.js`.
@@ -186,7 +188,10 @@ var exportGISAID = (baseName, hot, data, xlsx, fileType) => {
 
         mappedCell.push(mappedCellVal);
       }
-      outputRow.push(mappedCell.join(';'));
+      if (headerName === 'Assembly method')
+        outputRow.push(mappedCell.join(':'))
+      else
+        outputRow.push(mappedCell.join(';'))
     }
     outputMatrix.push(outputRow);
   }
