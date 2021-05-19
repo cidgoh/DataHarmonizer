@@ -72,7 +72,7 @@ var exportBioSample = (baseName, hot, data, xlsx, fileType) => {
     for (const [headerName, sources] of ExportHeaders) {
 
       // Otherwise apply source (many to one) to target field transform:
-      const value = getMappedField(headerName, inputRow, sources, sourceFields,sourceFieldNameMap, '|', 'BIOSAMPLE') 
+      const value = getMappedField(headerName, inputRow, sources, sourceFields,sourceFieldNameMap, ':', 'BIOSAMPLE') 
       outputRow.push(value);
     }
     outputMatrix.push(outputRow);
