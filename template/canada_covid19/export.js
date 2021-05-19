@@ -186,7 +186,10 @@ var exportGISAID = (baseName, hot, data, xlsx, fileType) => {
 
         mappedCell.push(mappedCellVal);
       }
-      outputRow.push(mappedCell.join(';'));
+      if (headerName === 'Assembly method')
+        outputRow.push(mappedCell.join(':'))
+      else
+        outputRow.push(mappedCell.join(';'))
     }
     outputMatrix.push(outputRow);
   }
