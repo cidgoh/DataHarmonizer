@@ -9,30 +9,93 @@ var exportGRDI = (baseName, hot, data, xlsx, fileType) => {
   // Provides a map from each export format field to the linear list of source
   // fields it derives content from.
   const ExportHeaders = new Map([
-    ['sample_name',                     []],
-    ['alternative_sample_ID',           []],
-    ['geo_loc (country)',               []],
-    ['geo_loc (state/province/region)', []],
-    ['environmental_site',              []],
-    ['collection_date',                 []],
-    ['collected_by',                    []],
-    ['collection_device',               []],
-    ['host (common name)',              []],
-    ['anatomical_part',                 []],
-    ['anatomical_material',             []],
-    ['body_product',                    []],
-    ['environmental_material',          []],
-    ['food_product',                    []],
-    ['sample_collector_contact_email',  []], //CIPARS generic email ???
-    ['organism',                        []],
-    ['animal_or_plant_population',      []],
-    ['laboratory_name',                 []],
-    ['serovar',                         []],
-    ['serotyping_method',               []],
-    ['phagetype',                       []],
-    ['purpose_of_sampling',             []],
-    ['DataHarmonizer provenance',[]]
+		// Sample collection and processing
+  	['sample_collector_sample_ID',                []], // takes DEXA SPECIMEN_ID, SAMPLE_ID
+    ['alternative_sample_ID',                     []], // takes DEXA LFZ_ADDITIONAL_SAMPLE_ID
+    ['collected_by_institution_name',             []], // takes DEXA SUBMITTINGORG_1
+    ['collected_by_laboratory_name',              []], // takes DEXA SUBMITTINGLAB_1
+    ['sample_collection_project_name',            []],
+    ['sample_plan_name',                     			[]],
+    ['sample_plan_ID',                     				[]],
+    ['sample_collector_contact_name',             []],
+    ['sample_collector_contact_email',            []], //CIPARS generic email ???
+    ['purpose_of_sampling',                     	[]],
+    ['experimental_activity',                     []],
+    ['experimental_activity_details',             []],
+    ['sample_processing',                     		[]],
+    ['geo_loc_name (country)',                    []], // takes DEXA COUNTRY_1
+    ['geo_loc_name (state/province/region)',      []], // takes DEXA PROVINCE_1
+    ['food_product_origin geo_loc_name (country)',[]],
+    ['host_origin geo_loc_name (country)',        []],
+    ['latitude_of_sample_collection',             []],
+    ['longitude_of_sample_collection',            []],
+    ['sample_collection_date',                    []], // takes DEXA DATECOLLECTED_1
+    ['sample_received_date',                     	[]],
+    ['original_sample_description',               []],
+    ['environmental_site',                     		[]], // CALCULATED
+    ['animal_or_plant_population',                []], // CALCULATED
+    ['environmental_material',                    []], // CALCULATED
+    ['body_product',                     					[]], // CALCULATED
+    ['anatomical_part',                     			[]], // CALCULATED
+    ['food_product',                     					[]], // CALCULATED
+    ['food_product_properties',                   []],
+    ['animal_source_of_food',                     []],
+    ['food_packaging',                     				[]],
+    ['collection_device',                     		[]],
+    ['collection_method',                     		[]],
+		//	Host information
+    ['host (common name)',                     		[]], // takes DEXA SPECIES
+    ['host (scientific name)',                    []],
+    ['host_disease',                     					[]],
+		//	Strain and isolation information
+    ['microbiological_method',                    []],
+    ['strain',                     								[]],
+    ['isolate_ID',                     						[]], // takes DEXA ISOLATE_ID
+    ['alternative_isolate_ID',                    []],
+    ['progeny_isolate_ID',                     		[]],
+    ['IRIDA_isolate_ID',                     			[]],
+    ['IRIDA_project_ID',                     			[]],
+    ['isolated_by_institution_name',              []],
+    ['isolated_by_laboratory_name',               []],
+    ['isolated_by_contact_name',                  []],
+    ['isolated_by_contact_email',                 []],
+    ['isolation_date',                     				[]],
+    ['isolate_received_date',                     []],
+    ['organism',                     							[]], // takes DEXA FINAL_ID_GENUS, FINAL_ID_SPECIES
+    ['serovar',                     							[]], // takes DEXA FINAL_ID_SEROTYPE
+    ['serotyping_method',                     		[]], // takes DEXA SA_Serotype_Method
+    ['phagetype',                     						[]], // takes DEXA FINAL_ID_PHAGETYPE
+		// Sequence information
+    ['library_ID',                     						[]],
+    ['sequenced_by_institution_name',             []],
+    ['sequenced_by_laboratory_name',              []],
+    ['sequenced_by_contact_name',                 []],
+    ['sequenced_by_contact_email',                []],
+    ['purpose_of_sequencing',                     []],
+    ['sequencing_project_name',                   []],
+    ['sequencing_platform',                     	[]],
+    ['sequencing_instrument',                     []],
+    ['sequencing_method',                     		[]],
+    ['r1_fastq_filename',                     		[]],
+    ['r1_fastq_filename',                     		[]],
+    ['fast5_filename',                     				[]],
+    ['assembly_filename',                     		[]],
+		//	Public repository information
+    ['publication_ID',                     				[]],
+    ['attribute_package',                     		[]],
+    ['biosample_accession',                     	[]],
+    ['SRA_accession',                     				[]],
+    ['GenBank_accession',                     		[]],
+    // Antimicrobial Resistance
+    // ...
+    
+    //['sample_name',                     				[]], NEW FIELD??
+    //['collected_by',                    				[]], DIFFERENT FIELD
+    ['anatomical_material',             					[]], // MISSING FIELD
+    //['laboratory_name',                 				[]], --> collected_by_laboratory_name?? // takes SUBMITTINGLAB_1
+    ['DataHarmonizer provenance',									[]],
   ]);
+
 
   const sourceFields = getFields(data);
   const sourceFieldNameMap = getFieldNameMap(sourceFields);
@@ -40,28 +103,15 @@ var exportGRDI = (baseName, hot, data, xlsx, fileType) => {
   // Fills in the above mapping (or just set manually above) 
   getHeaderMap(ExportHeaders, sourceFields, 'GRDI');
 
-
-//DEXA to GRDI is 3 step process:
-
 /*
+  DEXA to GRDI is 3 step process:
   1: Normalize DEXA fields
-  
-*/
-	let normalize = {};
-  for (const line of NORMALIZE.split('\n')) {
-    let [key, value] = line.split('\t');
-  	if (key in normalize) {
-  		normalize[key].push(value)
-  	}
-  	else
-  		normalize[key] = [value];
-  }
-  console.log(normalize);
-/*
+    - All input is lowercase at moment except for one term: 'bursa of Fabricius'
   2: Merge field values into target fields according to rules. Done in setRuleDB
   3: Ontology id addition to merged fields
 
 */
+
   // Copy headers to 1st row of new export table
   const outputMatrix = [[...ExportHeaders.keys()]];
 
@@ -93,11 +143,8 @@ var exportGRDI = (baseName, hot, data, xlsx, fileType) => {
 }
 
 /**
- * Download phac_dexa grid mapped to GRDI format.
- * @param {String} baseName Basename of downloaded file.
- * @param {Object} hot Handonstable grid instance.
- * @param {Object} data See `data.js`.
- * @param {Object} xlsx SheetJS variable.
+ * Manages content of the following calculated fields.
+
  */
 var setRuleDB = (dataRow, sourceFields, sourceFieldNameMap) => {
   // Rule-based target field value calculatio nbased on given data row
@@ -116,6 +163,10 @@ var setRuleDB = (dataRow, sourceFields, sourceFieldNameMap) => {
     // Source fields and their content added below
   };
 
+	let normalize = initNormalize();
+	let category = initCategory();
+
+
   let ruleSourceFieldNames = ['STTYPE', 'STYPE', 'SPECIMENSUBSOURCE_1', 'SUBJECT_DESCRIPTIONS', 'SPECIES', 'COMMODITY'];
 
   // This will set content of a target field based on data.js vocabulary
@@ -123,138 +174,63 @@ var setRuleDB = (dataRow, sourceFields, sourceFieldNameMap) => {
   // mapping if any.
   getRowMap(dataRow, ruleSourceFieldNames, RuleDB, sourceFields, sourceFieldNameMap, 'GRDI');
 
+  for (let field of ruleSourceFieldNames) {
+  	RuleDB[field] = RuleDB[field].toLowerCase();
+
+  };
+
+  // IF collection_device & environmental_site & 'host (common name)' -> 'host (common name)' -> animal_or_plant_population
+
+COMMODITY -> categorize
+(IF SSTYPE = animal) SPECIMENSUBSOURCE_1 -> categorize
+
+
   // STTYPE: ANIMAL ENVIRONMENT FOOD HUMAN PRODUCT QA UNKNOWN
   switch (RuleDB.STTYPE) {
-    // BEGIN ANIMAL
+
     case 'ANIMAL': {
-      // BEGIN SPECIMENSUBSOURCE_1
+
       switch (RuleDB.SPECIMENSUBSOURCE_1) {
-        /*
-        case 'Spleen':
-        case 'Joint':
-        case 'Heart':
-        case 'Intestine':
-        case 'Mixed organs':
-        case 'Cecum':
-        case 'Anal gland':
-        case 'Yolk sac':
-        case 'Cloacae':
-        case 'Ileum':
-        case 'Colon':
-        */
-        case 'Liver': // FOOD PRODUCT????
-        case 'Crop' : // ENVIRONMENTAL MATERIAL????
+
+
           RuleDB.anatomical_part = RuleDB.SPECIMENSUBSOURCE_1;
           break;
-        /*
-        case 'Feces' : 
-        case 'Meconium' :
-          RuleDB.body_product = RuleDB.SPECIMENSUBSOURCE_1;
-          break;
-        */
-        case 'Cecal content' : // BODY PRODUCT !!!!
-        /*
-        case 'Blood' : 
-        case 'Joint fluid' :
-        */
-          RuleDB.anatomical_material = RuleDB.SPECIMENSUBSOURCE_1;
-          break;
-        /*
-        case 'Dust' :
-        case 'Fluff' :
-        case 'Rinse' :
-        case 'Manure' :
-          RuleDB.environmental_material = RuleDB.SPECIMENSUBSOURCE_1;
-          break;
-        */
-        /*
-        case 'Wall' :
-        case 'Feeders and Drinkers' :
-        case 'Manure pit' :
-        case 'Fan' :
-        case 'Egg belt' :
-        case 'Chick pad' :
-        case 'Watering bowl' :
-        case 'Equipment' :
-          RuleDB.environmental_site = RuleDB.SPECIMENSUBSOURCE_1;
-          break;
-        */
+
         default: 
           break; // Prevents advancing to COMMODITY
       };
-      // END SPECIMENSUBSOURCE_1
-
-      // BEGIN COMMODITY
-      /*
-      switch (RuleDB.COMMODITY) {
-        case 'Pet/Zoo' :
-          RuleDB.environmental_site = RuleDB.COMMODITY;
-      };
-      */
-      // END COMMODITY
-
       break; // prevents advancing to FOOD
       
     };
-    // END ANIMAL
 
-    // BEGIN FOOD
     case 'FOOD' : {
-      switch (RuleDB.SPECIES) {
-        // NO BREAK - ENABLE food_product value enhancement 
-        case 'Chicken' :
-        case 'Turkey' :
-        case 'Pig' :
-          RuleDB.food_product += (RuleDB.food_product.length > 0 ? ' ':'') + RuleDB.SPECIES;
+			if (RuleDB.SUBJECT_DESCRIPTIONS && RuleDB.SPECIES) {
+				let label = RuleDB.SPECIES + ' ' + RuleDB.SUBJECT_DESCRIPTIONS;
+				add_item(RuleDB.food_product, label);
       };
-      /*
-      switch (RuleDB.SUBJECT_DESCRIPTIONS) {
-        case 'Breast skinless' :
-        case 'Ground' :
-        case 'Drumstick' :
-        case 'Thigh with skin' :
-        case 'Wing' :
-        case 'Upper thigh' :
-          RuleDB.food_product += (' ' + RuleDB.SUBJECT_DESCRIPTIONS);
-      };
-      */
       break; // prevents advancing to blank/UNKNOWN
     };
 
     case '':
     case 'UNKNOWN': {// no <n/a>
-      /*
-      switch (RuleDB.STYPE) {
-        case 'Cereal':
-          RuleDB.food_product += RuleDB.STYPE;
-      };
-      */
+      if (RuleDB.STYPE === 'cereal')
+      	add_item(RuleDB.food_product, RuleDB.STYPE);
       break;
     };
 
-    /*
     case 'ENVIRONMENT':
       switch (RuleDB.STYPE) {
-        case 'Manure':
+        case 'manure':
           RuleDB.environmental_material = RuleDB.STYPE;
       };
       break;
-    */
 
     case 'PRODUCT':
       switch (RuleDB.STYPE) {
-        case 'Feed & ingredients':
-        case 'Fertilizer': {
-          switch (RuleDB.SUBJECT_DESCRIPTIONS) {
-            case 'Fish meal':
-            case 'Feather meal':
-            case 'Starter ration':
-              RuleDB.food_product += RuleDB.SUBJECT_DESCRIPTIONS;
-              break;
-            case 'Avian ingredients':
-              // ISSUE: how to incorporate "feed (food_product)"
-              RuleDB.food_product += RuleDB.SUBJECT_DESCRIPTIONS;
-              break;
+        case 'feed and ingredients':
+        case 'fertilizer': {
+					RuleDB.food_product += RuleDB.SUBJECT_DESCRIPTIONS;
+          break;
           };
         };
       };
@@ -284,12 +260,27 @@ var setRuleDB = (dataRow, sourceFields, sourceFieldNameMap) => {
   return RuleDB;
 };
 
+
 // A list of the above functions keyed by the Export menu name they should appear as:
 var EXPORT_FORMATS = {
   "Dexa to GRDI": {'method': exportGRDI, 'fileType': 'xls', 'status': 'draft'}
 };
 
+
+/* Initialize lookup table for normalizing DEXA terms: term -> normalized term
+*/
+var initNormalize = () => {
+	let normalize = {};
+  for (const line of NORMALIZE.split('\n')) {
+    let [key, value] = line.split('\t').map(function(e){return e.trim();});
+  	normalize[key] = value.split(';').map(function(e){return e.trim();});
+  }
+  return normalize;
+  //console.log(normalize);
+}
 /************************************************
+  Cut & paste from GRDI Normalization tab of DataHarmonizer Templates: 
+  https://docs.google.com/spreadsheets/d/1jPQAIJcL_xa3oBVFEsYRGLGf7ESTOwzsTSjKZ-0CTYE/ 
   MUST BE TAB DELIMITED!
 */
 var NORMALIZE = `Abdomen	abdomen
@@ -984,10 +975,33 @@ Beef-B54-2011	beef
 Beef-B6-2009	beef
 Beef-B6a-2009	beef`;
 
+/* Initialize lookup table for categorizing normalized terms into one or
+ * more target fields and corresponding ontology ids: term -> target field,
+ * ontology id.
+*/
+var initCategory = () => {
+	let category = {};
+  for (const line of CATEGORY.split('\n')) {
+    let [field, term, ontology_id] = line.split('\t').map(function(e){return e.trim();});
+    let record = {
+    		'field': 				field,			// GRDI target export field
+    		'ontology_id': 	ontology_id	// pertinent ontology term
+    };
+
+    if (term in category)
+    	category[term].push(record)
+    else 
+    	category[term] = [record];
+  }
+  //console.log(category);
+  return category;
+}
 /************************************************
+  Cut & paste from GRDI ONTO ID tab of DataHarmonizer Templates: 
+  https://docs.google.com/spreadsheets/d/1jPQAIJcL_xa3oBVFEsYRGLGf7ESTOwzsTSjKZ-0CTYE/ 
   MUST BE TAB DELIMITED!
 */
-var MAPPING = `anatomical_material	blood	UBERON_0000178
+var CATEGORY = `anatomical_material	blood	UBERON_0000178
 anatomical_material	bodily fluid	UBERON_0006314
 anatomical_material	body cavity content	FMA_260456
 anatomical_material	bone marrow	UBERON_0002371
@@ -1180,10 +1194,7 @@ food_product	bread	FOODON_00001183
 food_product	breast	
 food_product	breast (back off)	
 food_product	breast (skinless, boneless)	
-food_product	breast (skinless, boneless)	
 food_product	breast (skinless)	
-food_product	breast (skinless)	
-food_product	breast (with skin)	
 food_product	breast (with skin)	
 food_product	bulk grain	FOODON_03309390
 food_product	burger	
@@ -1284,7 +1295,6 @@ food_product	pepperoni	FOODON_03311003
 food_product	pet food	FOODON_00002682
 food_product	pork chop	FOODON_00001049
 food_product	poultry drumstick	FOODON_00003469
-food_product	poultry drumstick	
 food_product	poultry drumstick (skinless)	
 food_product	poultry drumstick (with skin)	
 food_product	poultry egg (shell on)	
