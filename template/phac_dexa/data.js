@@ -151,7 +151,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -160,7 +160,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -169,7 +169,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -178,7 +178,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -187,7 +187,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -196,7 +196,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -205,7 +205,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -214,7 +214,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -223,7 +223,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -232,7 +232,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -241,7 +241,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -250,7 +250,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -259,7 +259,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -268,7 +268,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -277,7 +277,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -286,7 +286,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -295,7 +295,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -304,7 +304,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -313,7 +313,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -322,7 +322,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -331,7 +331,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -340,7 +340,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -350,7 +350,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -359,7 +359,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -368,7 +368,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -377,7 +377,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -386,7 +386,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -395,7 +395,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -404,7 +404,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -413,7 +413,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -422,7 +422,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -431,7 +431,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -440,7 +440,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -449,7 +449,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -458,7 +458,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -467,7 +467,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -476,7 +476,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -485,7 +485,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -494,7 +494,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -503,7 +503,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -512,7 +512,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -521,7 +521,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -530,7 +530,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -539,7 +539,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -548,7 +548,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -557,7 +557,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -566,7 +566,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -575,7 +575,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -584,7 +584,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -593,7 +593,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -602,7 +602,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -611,7 +611,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -620,7 +620,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -629,7 +629,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -638,7 +638,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -647,7 +647,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -656,7 +656,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -665,7 +665,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -674,7 +674,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -683,7 +683,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -692,7 +692,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -701,7 +701,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -710,7 +710,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -719,7 +719,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -728,7 +728,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -737,7 +737,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -746,7 +746,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -755,7 +755,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -764,7 +764,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -773,7 +773,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -782,7 +782,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -791,7 +791,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -800,7 +800,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -809,7 +809,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -818,7 +818,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -827,7 +827,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -836,7 +836,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -845,7 +845,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -854,7 +854,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -863,7 +863,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -872,7 +872,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -881,7 +881,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -890,7 +890,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -899,7 +899,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -908,7 +908,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -917,7 +917,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -926,7 +926,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -935,7 +935,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -944,7 +944,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -953,7 +953,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -962,7 +962,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -971,7 +971,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -980,7 +980,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -989,7 +989,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -998,7 +998,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -1007,7 +1007,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -1016,7 +1016,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -1025,7 +1025,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -1034,7 +1034,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -1043,7 +1043,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -1052,7 +1052,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -1061,7 +1061,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -1070,7 +1070,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -1079,7 +1079,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -1088,7 +1088,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -1097,7 +1097,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -1106,7 +1106,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -1115,7 +1115,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -1124,7 +1124,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -1133,7 +1133,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -1142,7 +1142,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -1151,7 +1151,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -1160,7 +1160,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -1169,7 +1169,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -1178,7 +1178,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -1187,7 +1187,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -1196,7 +1196,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -1205,7 +1205,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -1214,7 +1214,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -1223,7 +1223,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -1232,7 +1232,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -1241,7 +1241,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -1250,7 +1250,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -1259,7 +1259,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -1268,7 +1268,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -1277,7 +1277,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -1286,7 +1286,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -1553,7 +1553,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -1562,7 +1562,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -1571,7 +1571,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -1580,7 +1580,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -1589,7 +1589,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -1598,7 +1598,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -1607,7 +1607,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -1616,7 +1616,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -1625,7 +1625,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -1634,7 +1634,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -1643,7 +1643,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -1652,7 +1652,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -1661,7 +1661,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -1670,7 +1670,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -1679,7 +1679,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -1688,7 +1688,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -1697,7 +1697,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -1706,7 +1706,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -1715,7 +1715,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -1724,7 +1724,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -1733,7 +1733,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -1742,7 +1742,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -1751,7 +1751,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -1760,7 +1760,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -1769,7 +1769,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -1778,7 +1778,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -1787,7 +1787,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -1796,7 +1796,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -1805,7 +1805,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -1814,7 +1814,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -1823,7 +1823,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -1832,7 +1832,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -1841,7 +1841,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -1850,7 +1850,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -1859,7 +1859,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -1868,7 +1868,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -1877,7 +1877,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -1886,7 +1886,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -1895,7 +1895,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -1904,7 +1904,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -1913,7 +1913,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -1922,7 +1922,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -1931,7 +1931,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -1940,7 +1940,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -1949,7 +1949,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_site"
+                  "field": "environmental_site"
                 }
               ]
             }
@@ -1958,7 +1958,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -1967,7 +1967,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -1976,7 +1976,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -1985,7 +1985,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -1994,7 +1994,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2003,7 +2003,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2012,7 +2012,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2021,7 +2021,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2030,7 +2030,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2039,7 +2039,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2048,7 +2048,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2057,7 +2057,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2066,7 +2066,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2075,7 +2075,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2084,7 +2084,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2093,7 +2093,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -2102,7 +2102,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -2111,7 +2111,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2120,7 +2120,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -2129,7 +2129,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2138,7 +2138,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2147,7 +2147,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -2156,7 +2156,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2165,7 +2165,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -2174,7 +2174,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2183,7 +2183,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2192,7 +2192,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2201,7 +2201,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2210,7 +2210,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2219,7 +2219,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2228,7 +2228,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2237,7 +2237,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2246,7 +2246,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -2255,7 +2255,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2264,7 +2264,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2273,7 +2273,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2282,7 +2282,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2291,7 +2291,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -2300,7 +2300,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2309,7 +2309,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2318,7 +2318,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2327,7 +2327,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -2336,7 +2336,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2345,7 +2345,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2354,7 +2354,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2363,7 +2363,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2372,7 +2372,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2381,7 +2381,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -2390,7 +2390,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2399,7 +2399,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2408,7 +2408,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2417,7 +2417,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2426,7 +2426,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2435,7 +2435,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2444,7 +2444,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -2453,7 +2453,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2462,7 +2462,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -2471,7 +2471,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -2480,7 +2480,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -2489,7 +2489,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2498,7 +2498,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2507,7 +2507,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2516,7 +2516,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2525,7 +2525,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2534,7 +2534,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2543,7 +2543,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2552,7 +2552,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2561,7 +2561,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2570,7 +2570,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2579,7 +2579,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2588,7 +2588,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2597,7 +2597,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2606,7 +2606,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2615,7 +2615,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2624,7 +2624,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2633,7 +2633,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2642,7 +2642,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2651,7 +2651,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2660,7 +2660,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2669,7 +2669,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2678,7 +2678,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2687,7 +2687,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -2696,7 +2696,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2705,7 +2705,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2714,7 +2714,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2723,7 +2723,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2732,7 +2732,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2741,7 +2741,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -2750,7 +2750,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2759,7 +2759,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2768,7 +2768,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2777,7 +2777,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2786,7 +2786,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2795,7 +2795,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2804,7 +2804,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -2813,7 +2813,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2822,7 +2822,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -2831,7 +2831,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2840,7 +2840,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2849,7 +2849,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2858,7 +2858,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2867,7 +2867,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2876,7 +2876,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2885,7 +2885,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -2894,7 +2894,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2903,7 +2903,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2912,7 +2912,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2921,7 +2921,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2930,7 +2930,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2939,7 +2939,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2948,7 +2948,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2957,7 +2957,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2966,7 +2966,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2975,7 +2975,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2984,7 +2984,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -2993,7 +2993,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -3002,7 +3002,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -3011,7 +3011,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -3020,7 +3020,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -3029,7 +3029,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -3038,7 +3038,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -3047,7 +3047,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -3074,7 +3074,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -3083,7 +3083,10 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental site/material"
+                  "field": "environmental_material"
+                },
+                {
+                  "field": "environmental_site"
                 }
               ]
             }
@@ -3092,7 +3095,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -3101,7 +3104,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -3112,7 +3115,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -3141,7 +3144,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -3150,7 +3153,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -3159,7 +3162,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -3168,7 +3171,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -3177,7 +3180,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -3186,7 +3189,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_material"
+                  "field": "environmental_material"
                 }
               ]
             }
@@ -3195,7 +3198,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -3204,7 +3207,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_site"
+                  "field": "environmental_site"
                 }
               ]
             }
@@ -3213,7 +3216,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -3222,7 +3225,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -3231,7 +3234,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -3240,7 +3243,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -3249,7 +3252,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -3258,7 +3261,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -3267,7 +3270,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -3276,7 +3279,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_material"
+                  "field": "environmental_material"
                 }
               ]
             }
@@ -3285,7 +3288,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -3294,7 +3297,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -3303,7 +3306,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -3312,7 +3315,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_site"
+                  "field": "environmental_site"
                 }
               ]
             }
@@ -3321,7 +3324,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_material"
+                  "field": "environmental_material"
                 }
               ]
             }
@@ -3330,7 +3333,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -3339,7 +3342,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -3348,7 +3351,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -3357,25 +3360,17 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_site"
+                  "field": "environmental_site"
                 }
               ]
             }
           },
-          "ERROR": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "value": "?"
-                }
-              ]
-            }
-          },
+          "ERROR": {},
           "Feed and Ingredients": {
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -3384,7 +3379,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -3393,7 +3388,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -3402,7 +3397,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_material"
+                  "field": "environmental_material"
                 }
               ]
             }
@@ -3411,7 +3406,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -3420,7 +3415,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -3429,7 +3424,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -3438,25 +3433,17 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
           },
-          "Health (medicine)": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "value": "?"
-                }
-              ]
-            }
-          },
+          "Health (medicine)": {},
           "Herbs and Spices": {
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -3465,7 +3452,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -3474,7 +3461,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -3483,7 +3470,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -3492,7 +3479,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_material"
+                  "field": "environmental_material"
                 }
               ]
             }
@@ -3501,7 +3488,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_material"
+                  "field": "environmental_material"
                 }
               ]
             }
@@ -3510,7 +3497,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -3519,7 +3506,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -3528,7 +3515,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -3537,7 +3524,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -3546,7 +3533,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -3555,7 +3542,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -3564,7 +3551,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -3573,7 +3560,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -3582,7 +3569,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -3591,7 +3578,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -3600,7 +3587,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -3609,7 +3596,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_material"
+                  "field": "environmental_material"
                 }
               ]
             }
@@ -3618,7 +3605,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -3627,7 +3614,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -3636,7 +3623,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -3645,7 +3632,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -3654,7 +3641,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -3663,7 +3650,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_material"
+                  "field": "environmental_material"
                 }
               ]
             }
@@ -3672,7 +3659,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_material"
+                  "field": "environmental_material"
                 }
               ]
             }
@@ -3681,7 +3668,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_site"
+                  "field": "environmental_site"
                 }
               ]
             }
@@ -3690,7 +3677,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_site"
+                  "field": "environmental_site"
                 }
               ]
             }
@@ -3699,7 +3686,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -3708,7 +3695,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -3717,7 +3704,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -3727,7 +3714,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -3736,7 +3723,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_site"
+                  "field": "environmental_site"
                 }
               ]
             }
@@ -3745,7 +3732,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -3755,7 +3742,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -3764,7 +3751,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -3773,7 +3760,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_material"
+                  "field": "environmental_material"
                 }
               ]
             }
@@ -3799,7 +3786,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -3808,7 +3795,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -3817,25 +3804,17 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_site"
+                  "field": "environmental_site"
                 }
               ]
             }
           },
-          "Domestic/Farmed": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "value": "?"
-                }
-              ]
-            }
-          },
+          "Domestic/Farmed": {},
           "Egg": {
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -3844,7 +3823,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_site"
+                  "field": "environmental_site"
                 }
               ]
             }
@@ -3853,7 +3832,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -3862,7 +3841,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -3871,7 +3850,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -3880,7 +3859,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_site"
+                  "field": "environmental_site"
                 }
               ]
             }
@@ -3889,7 +3868,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -3898,7 +3877,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -3907,7 +3886,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -3916,7 +3895,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -3940,20 +3919,12 @@ var DATA = [
         "schema:ItemList": {
           "2": {},
           "<=32": {},
-          "Aliquote / Portion": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "value": "?"
-                }
-              ]
-            }
-          },
+          "Aliquote / Portion": {},
           "Blood": {
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_material"
+                  "field": "anatomical_material"
                 }
               ]
             }
@@ -3962,7 +3933,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -3971,7 +3942,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_material"
+                  "field": "anatomical_material"
                 }
               ]
             }
@@ -3980,43 +3951,27 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_part"
+                  "field": "anatomical_part"
                 }
               ]
             }
           },
-          "Check Sample": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "value": "?"
-                }
-              ]
-            }
-          },
+          "Check Sample": {},
           "Contact plate": {
             "exportField": {
               "GRDI": [
                 {
-                  "value": "collection_device"
+                  "field": "collection_device"
                 }
               ]
             }
           },
-          "Culture": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "value": "?"
-                }
-              ]
-            }
-          },
+          "Culture": {},
           "Dust": {
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_material"
+                  "field": "environmental_material"
                 }
               ]
             }
@@ -4025,25 +3980,20 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
           },
-          "Environment (Animal)": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "value": "?"
-                }
-              ]
-            }
-          },
+          "Environment (Animal)": {},
           "Environmental": {
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_material/site"
+                  "field": "environmental_material"
+                },
+                {
+                  "field": "environmental_site"
                 }
               ]
             }
@@ -4052,7 +4002,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "body_product"
+                  "field": "body_product"
                 }
               ]
             }
@@ -4061,7 +4011,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_part"
+                  "field": "anatomical_part"
                 }
               ]
             }
@@ -4070,7 +4020,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_part"
+                  "field": "anatomical_part"
                 }
               ]
             }
@@ -4079,34 +4029,18 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_material"
+                  "field": "anatomical_material"
                 }
               ]
             }
           },
-          "Proficiency Isolate": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "value": "?"
-                }
-              ]
-            }
-          },
-          "Reference Culture": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "value": "?"
-                }
-              ]
-            }
-          },
+          "Proficiency Isolate": {},
+          "Reference Culture": {},
           "Rinse": {
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_material"
+                  "field": "environmental_material"
                 }
               ]
             }
@@ -4115,7 +4049,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_material"
+                  "field": "environmental_material"
                 }
               ]
             }
@@ -4124,7 +4058,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -4133,7 +4067,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "body_product"
+                  "field": "body_product"
                 }
               ]
             }
@@ -4142,7 +4076,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "collection_device"
+                  "field": "collection_device"
                 }
               ]
             }
@@ -4151,43 +4085,27 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_material"
+                  "field": "anatomical_material"
                 }
               ]
             }
           },
-          "Unit (Pre-Packaged)": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "value": "?"
-                }
-              ]
-            }
-          },
+          "Unit (Pre-Packaged)": {},
           "Unknown": {
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
           },
-          "Unspecified": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "value": "?"
-                }
-              ]
-            }
-          },
+          "Unspecified": {},
           "Urine": {
             "exportField": {
               "GRDI": [
                 {
-                  "value": "body_product"
+                  "field": "body_product"
                 }
               ]
             }
@@ -4211,20 +4129,12 @@ var DATA = [
           "0.25": {},
           "<=0.12": {},
           "<=16": {},
-          "aansarraysubsource": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "value": "?"
-                }
-              ]
-            }
-          },
+          "aansarraysubsource": {},
           "Abdomen": {
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_part"
+                  "field": "anatomical_part"
                 }
               ]
             }
@@ -4233,7 +4143,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_part"
+                  "field": "anatomical_part"
                 }
               ]
             }
@@ -4242,7 +4152,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_part"
+                  "field": "anatomical_part"
                 }
               ]
             }
@@ -4251,7 +4161,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_material"
+                  "field": "anatomical_material"
                 }
               ]
             }
@@ -4260,7 +4170,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_site"
+                  "field": "environmental_site"
                 }
               ]
             }
@@ -4269,7 +4179,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_part"
+                  "field": "anatomical_part"
                 }
               ]
             }
@@ -4278,7 +4188,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_part"
+                  "field": "anatomical_part"
                 }
               ]
             }
@@ -4287,7 +4197,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_site"
+                  "field": "environmental_site"
                 }
               ]
             }
@@ -4296,7 +4206,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -4305,7 +4215,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_site"
+                  "field": "environmental_site"
                 }
               ]
             }
@@ -4314,7 +4224,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_part"
+                  "field": "anatomical_part"
                 }
               ]
             }
@@ -4323,7 +4233,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_material"
+                  "field": "anatomical_material"
                 }
               ]
             }
@@ -4332,7 +4242,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_part"
+                  "field": "anatomical_part"
                 }
               ]
             }
@@ -4341,7 +4251,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_material"
+                  "field": "anatomical_material"
                 }
               ]
             }
@@ -4350,7 +4260,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_material"
+                  "field": "anatomical_material"
                 }
               ]
             }
@@ -4359,7 +4269,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_material"
+                  "field": "environmental_material"
                 }
               ]
             }
@@ -4368,7 +4278,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_material"
+                  "field": "environmental_material"
                 }
               ]
             }
@@ -4377,7 +4287,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_part"
+                  "field": "anatomical_part"
                 }
               ]
             }
@@ -4386,7 +4296,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_part"
+                  "field": "anatomical_part"
                 }
               ]
             }
@@ -4395,7 +4305,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_site"
+                  "field": "environmental_site"
                 }
               ]
             }
@@ -4404,7 +4314,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_material"
+                  "field": "anatomical_material"
                 }
               ]
             }
@@ -4413,7 +4323,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_material"
+                  "field": "anatomical_material"
                 }
               ]
             }
@@ -4422,7 +4332,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "body_product"
+                  "field": "body_product"
                 }
               ]
             }
@@ -4431,7 +4341,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_part"
+                  "field": "anatomical_part"
                 }
               ]
             }
@@ -4440,7 +4350,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_site"
+                  "field": "environmental_site"
                 }
               ]
             }
@@ -4449,7 +4359,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_material"
+                  "field": "environmental_material"
                 }
               ]
             }
@@ -4458,7 +4368,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_part"
+                  "field": "anatomical_part"
                 }
               ]
             }
@@ -4467,7 +4377,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_part"
+                  "field": "anatomical_part"
                 }
               ]
             }
@@ -4476,7 +4386,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_part"
+                  "field": "anatomical_part"
                 }
               ]
             }
@@ -4494,7 +4404,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_site"
+                  "field": "environmental_site"
                 }
               ]
             }
@@ -4503,7 +4413,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_material"
+                  "field": "environmental_material"
                 }
               ]
             }
@@ -4512,7 +4422,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "collection_device"
+                  "field": "collection_device"
                 }
               ]
             }
@@ -4521,7 +4431,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_part"
+                  "field": "anatomical_part"
                 }
               ]
             }
@@ -4530,7 +4440,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_part"
+                  "field": "anatomical_part"
                 }
               ]
             }
@@ -4539,7 +4449,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_material"
+                  "field": "environmental_material"
                 }
               ]
             }
@@ -4548,7 +4458,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_part"
+                  "field": "anatomical_part"
                 }
               ]
             }
@@ -4557,7 +4467,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_site"
+                  "field": "environmental_site"
                 }
               ]
             }
@@ -4566,7 +4476,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "collection_device"
+                  "field": "collection_device"
                 }
               ]
             }
@@ -4576,11 +4486,11 @@ var DATA = [
               "GRDI": [
                 {
                   "field": "environmental_site",
-                  "value": "hatchery"
+                  "value": ":hatchery"
                 },
                 {
                   "field": "collection_device",
-                  "value": "swab"
+                  "value": ":swab"
                 }
               ]
             }
@@ -4589,7 +4499,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_part"
+                  "field": "anatomical_part"
                 }
               ]
             }
@@ -4607,7 +4517,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_part"
+                  "field": "anatomical_part"
                 }
               ]
             }
@@ -4616,7 +4526,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_site"
+                  "field": "environmental_site"
                 }
               ]
             }
@@ -4625,7 +4535,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_material"
+                  "field": "environmental_material"
                 }
               ]
             }
@@ -4634,7 +4544,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "body_product"
+                  "field": "body_product"
                 }
               ]
             }
@@ -4643,7 +4553,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -4652,7 +4562,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_site"
+                  "field": "environmental_site"
                 }
               ]
             }
@@ -4661,7 +4571,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_material"
+                  "field": "anatomical_material"
                 }
               ]
             }
@@ -4670,7 +4580,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_material"
+                  "field": "environmental_material"
                 }
               ]
             }
@@ -4679,7 +4589,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_site"
+                  "field": "environmental_site"
                 }
               ]
             }
@@ -4688,7 +4598,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_material"
+                  "field": "environmental_material"
                 }
               ]
             }
@@ -4697,7 +4607,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_material"
+                  "field": "environmental_material"
                 }
               ]
             }
@@ -4706,7 +4616,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_part"
+                  "field": "anatomical_part"
                 }
               ]
             }
@@ -4715,7 +4625,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_part"
+                  "field": "anatomical_part"
                 }
               ]
             }
@@ -4724,7 +4634,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_part"
+                  "field": "anatomical_part"
                 }
               ]
             }
@@ -4733,7 +4643,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_part"
+                  "field": "anatomical_part"
                 }
               ]
             }
@@ -4742,7 +4652,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_part"
+                  "field": "anatomical_part"
                 }
               ]
             }
@@ -4751,7 +4661,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_material"
+                  "field": "anatomical_material"
                 }
               ]
             }
@@ -4760,7 +4670,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_material"
+                  "field": "anatomical_material"
                 }
               ]
             }
@@ -4769,7 +4679,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_part"
+                  "field": "anatomical_part"
                 }
               ]
             }
@@ -4778,34 +4688,18 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_part"
+                  "field": "anatomical_part"
                 }
               ]
             }
           },
-          "In-House": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "value": "?"
-                }
-              ]
-            }
-          },
-          "Inter-Lab Exchange": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "value": "?"
-                }
-              ]
-            }
-          },
+          "In-House": {},
+          "Inter-Lab Exchange": {},
           "Intestinal Contents": {
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_material"
+                  "field": "anatomical_material"
                 }
               ]
             }
@@ -4814,7 +4708,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_part"
+                  "field": "anatomical_part"
                 }
               ]
             }
@@ -4823,7 +4717,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_part"
+                  "field": "anatomical_part"
                 }
               ]
             }
@@ -4832,7 +4726,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_part"
+                  "field": "anatomical_part"
                 }
               ]
             }
@@ -4841,7 +4735,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_material"
+                  "field": "anatomical_material"
                 }
               ]
             }
@@ -4850,7 +4744,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_part"
+                  "field": "anatomical_part"
                 }
               ]
             }
@@ -4859,7 +4753,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_material"
+                  "field": "anatomical_material"
                 }
               ]
             }
@@ -4868,7 +4762,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_material"
+                  "field": "anatomical_material"
                 }
               ]
             }
@@ -4877,7 +4771,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_material"
+                  "field": "environmental_material"
                 }
               ]
             }
@@ -4886,7 +4780,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_material"
+                  "field": "environmental_material"
                 }
               ]
             }
@@ -4895,7 +4789,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_site"
+                  "field": "environmental_site"
                 }
               ]
             }
@@ -4904,7 +4798,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_site"
+                  "field": "environmental_site"
                 }
               ]
             }
@@ -4913,7 +4807,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -4922,7 +4816,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_part"
+                  "field": "anatomical_part"
                 }
               ]
             }
@@ -4931,7 +4825,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_part"
+                  "field": "anatomical_part"
                 }
               ]
             }
@@ -4940,7 +4834,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_site"
+                  "field": "environmental_site"
                 }
               ]
             }
@@ -4949,7 +4843,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "body_product"
+                  "field": "body_product"
                 }
               ]
             }
@@ -4958,7 +4852,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_part"
+                  "field": "anatomical_part"
                 }
               ]
             }
@@ -4967,7 +4861,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "body_product"
+                  "field": "body_product"
                 }
               ]
             }
@@ -4976,7 +4870,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -4985,7 +4879,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_part"
+                  "field": "anatomical_part"
                 }
               ]
             }
@@ -4994,7 +4888,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_material"
+                  "field": "anatomical_material"
                 }
               ]
             }
@@ -5003,7 +4897,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_part"
+                  "field": "anatomical_part"
                 }
               ]
             }
@@ -5012,7 +4906,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_part"
+                  "field": "anatomical_part"
                 }
               ]
             }
@@ -5021,7 +4915,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_part"
+                  "field": "anatomical_part"
                 }
               ]
             }
@@ -5030,7 +4924,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_material"
+                  "field": "anatomical_material"
                 }
               ]
             }
@@ -5039,7 +4933,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_part"
+                  "field": "anatomical_part"
                 }
               ]
             }
@@ -5048,7 +4942,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -5057,7 +4951,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_part"
+                  "field": "anatomical_part"
                 }
               ]
             }
@@ -5066,7 +4960,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_part"
+                  "field": "anatomical_part"
                 }
               ]
             }
@@ -5075,7 +4969,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_part"
+                  "field": "anatomical_part"
                 }
               ]
             }
@@ -5084,7 +4978,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_part"
+                  "field": "anatomical_part"
                 }
               ]
             }
@@ -5093,7 +4987,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_part"
+                  "field": "anatomical_part"
                 }
               ]
             }
@@ -5102,7 +4996,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_part"
+                  "field": "anatomical_part"
                 }
               ]
             }
@@ -5111,7 +5005,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_material"
+                  "field": "anatomical_material"
                 }
               ]
             }
@@ -5120,7 +5014,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_part"
+                  "field": "anatomical_part"
                 }
               ]
             }
@@ -5129,7 +5023,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_part"
+                  "field": "anatomical_part"
                 }
               ]
             }
@@ -5138,7 +5032,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_part"
+                  "field": "anatomical_part"
                 }
               ]
             }
@@ -5147,7 +5041,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_site"
+                  "field": "environmental_site"
                 }
               ]
             }
@@ -5156,7 +5050,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_material"
+                  "field": "environmental_material"
                 }
               ]
             }
@@ -5165,7 +5059,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "body_product"
+                  "field": "body_product"
                 }
               ]
             }
@@ -5174,7 +5068,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_part"
+                  "field": "anatomical_part"
                 }
               ]
             }
@@ -5183,25 +5077,17 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_part"
+                  "field": "anatomical_part"
                 }
               ]
             }
           },
-          "Research": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "value": "?"
-                }
-              ]
-            }
-          },
+          "Research": {},
           "Rinse": {
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_material"
+                  "field": "environmental_material"
                 }
               ]
             }
@@ -5210,7 +5096,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_part"
+                  "field": "anatomical_part"
                 }
               ]
             }
@@ -5219,7 +5105,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_material"
+                  "field": "anatomical_material"
                 }
               ]
             }
@@ -5228,7 +5114,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -5237,7 +5123,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_part"
+                  "field": "anatomical_part"
                 }
               ]
             }
@@ -5246,7 +5132,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_part"
+                  "field": "anatomical_part"
                 }
               ]
             }
@@ -5255,7 +5141,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_part"
+                  "field": "anatomical_part"
                 }
               ]
             }
@@ -5264,7 +5150,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_material"
+                  "field": "environmental_material"
                 }
               ]
             }
@@ -5273,7 +5159,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_part"
+                  "field": "anatomical_part"
                 }
               ]
             }
@@ -5282,7 +5168,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_part"
+                  "field": "anatomical_part"
                 }
               ]
             }
@@ -5291,7 +5177,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_site"
+                  "field": "environmental_site"
                 }
               ]
             }
@@ -5300,7 +5186,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_part"
+                  "field": "anatomical_part"
                 }
               ]
             }
@@ -5309,7 +5195,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "body_product"
+                  "field": "body_product"
                 }
               ]
             }
@@ -5318,7 +5204,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "collection_device"
+                  "field": "collection_device"
                 }
               ]
             }
@@ -5327,7 +5213,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_part"
+                  "field": "anatomical_part"
                 }
               ]
             }
@@ -5336,7 +5222,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_part"
+                  "field": "anatomical_part"
                 }
               ]
             }
@@ -5345,7 +5231,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_material"
+                  "field": "anatomical_material"
                 }
               ]
             }
@@ -5354,7 +5240,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_part"
+                  "field": "anatomical_part"
                 }
               ]
             }
@@ -5363,7 +5249,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_part"
+                  "field": "anatomical_part"
                 }
               ]
             }
@@ -5372,7 +5258,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_part"
+                  "field": "anatomical_part"
                 }
               ]
             }
@@ -5381,7 +5267,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_part"
+                  "field": "anatomical_part"
                 }
               ]
             }
@@ -5390,7 +5276,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_part"
+                  "field": "anatomical_part"
                 }
               ]
             }
@@ -5399,7 +5285,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "body_product"
+                  "field": "body_product"
                 }
               ]
             }
@@ -5408,7 +5294,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_part"
+                  "field": "anatomical_part"
                 }
               ]
             }
@@ -5417,7 +5303,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_part"
+                  "field": "anatomical_part"
                 }
               ]
             }
@@ -5426,7 +5312,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_site"
+                  "field": "environmental_site"
                 }
               ]
             }
@@ -5435,7 +5321,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_material"
+                  "field": "environmental_material"
                 }
               ]
             }
@@ -5444,25 +5330,17 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_site"
+                  "field": "environmental_site"
                 }
               ]
             }
           },
-          "Weekly": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "value": "?"
-                }
-              ]
-            }
-          },
+          "Weekly": {},
           "Weep": {
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_material"
+                  "field": "environmental_material"
                 }
               ]
             }
@@ -5471,7 +5349,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -5480,7 +5358,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -5489,7 +5367,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_part"
+                  "field": "anatomical_part"
                 }
               ]
             }
@@ -5517,7 +5395,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -5526,7 +5404,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -5535,7 +5413,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_site"
+                  "field": "environmental_site"
                 }
               ]
             }
@@ -5544,7 +5422,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_site"
+                  "field": "environmental_site"
                 }
               ]
             }
@@ -5553,7 +5431,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -5562,7 +5440,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -5571,7 +5449,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -5580,7 +5458,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_material"
+                  "field": "environmental_material"
                 }
               ]
             }
@@ -5589,7 +5467,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_material"
+                  "field": "environmental_material"
                 }
               ]
             }
@@ -5598,7 +5476,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_material"
+                  "field": "environmental_material"
                 }
               ]
             }
@@ -5607,7 +5485,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_material"
+                  "field": "environmental_material"
                 }
               ]
             }
@@ -5616,7 +5494,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -5625,7 +5503,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -5634,7 +5512,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -5643,7 +5521,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -5652,7 +5530,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_material"
+                  "field": "environmental_material"
                 }
               ]
             }
@@ -5661,7 +5539,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_site"
+                  "field": "environmental_site"
                 }
               ]
             }
@@ -5670,7 +5548,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -5679,7 +5557,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "anatomical_part"
+                  "field": "anatomical_part"
                 }
               ]
             }
@@ -5688,7 +5566,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -5697,7 +5575,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -5706,7 +5584,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -5715,7 +5593,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -5724,7 +5602,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_site"
+                  "field": "environmental_site"
                 }
               ]
             }
@@ -5733,7 +5611,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_material"
+                  "field": "environmental_material"
                 }
               ]
             }
@@ -5742,7 +5620,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -5751,7 +5629,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -5760,7 +5638,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -5769,7 +5647,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -5778,7 +5656,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -5787,7 +5665,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -5796,7 +5674,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_material"
+                  "field": "environmental_material"
                 }
               ]
             }
@@ -5805,7 +5683,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_site"
+                  "field": "environmental_site"
                 }
               ]
             }
@@ -5814,7 +5692,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -5823,7 +5701,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -5832,7 +5710,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_site"
+                  "field": "environmental_site"
                 }
               ]
             }
@@ -5841,7 +5719,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -5850,7 +5728,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -5859,7 +5737,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -5868,7 +5746,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -5877,7 +5755,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_site"
+                  "field": "environmental_site"
                 }
               ]
             }
@@ -5886,7 +5764,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -5895,7 +5773,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -5904,7 +5782,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_site"
+                  "field": "environmental_site"
                 }
               ]
             }
@@ -5913,7 +5791,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_material"
+                  "field": "environmental_material"
                 }
               ]
             }
@@ -5922,7 +5800,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -5931,7 +5809,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_site"
+                  "field": "environmental_site"
                 }
               ]
             }
@@ -5940,7 +5818,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_site"
+                  "field": "environmental_site"
                 }
               ]
             }
@@ -5949,7 +5827,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_site"
+                  "field": "environmental_site"
                 }
               ]
             }
@@ -5958,7 +5836,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -5967,7 +5845,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -5976,7 +5854,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -5985,7 +5863,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -5994,7 +5872,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_site"
+                  "field": "environmental_site"
                 }
               ]
             }
@@ -6003,7 +5881,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -6012,7 +5890,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -6021,7 +5899,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -6030,7 +5908,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -6039,7 +5917,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -6048,7 +5926,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -6057,7 +5935,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -6066,7 +5944,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -6075,7 +5953,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -6084,7 +5962,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -6093,7 +5971,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -6102,25 +5980,17 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
           },
-          "For Others": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "value": "?"
-                }
-              ]
-            }
-          },
+          "For Others": {},
           "For Poultry": {
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -6129,7 +5999,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -6138,25 +6008,17 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
           },
-          "For Unknown": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "value": "?"
-                }
-              ]
-            }
-          },
+          "For Unknown": {},
           "For Unspecified": {
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -6165,7 +6027,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -6174,7 +6036,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -6183,7 +6045,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -6192,7 +6054,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -6201,7 +6063,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -6210,7 +6072,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -6219,7 +6081,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -6228,7 +6090,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -6237,7 +6099,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_material"
+                  "field": "environmental_material"
                 }
               ]
             }
@@ -6246,7 +6108,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -6255,7 +6117,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -6264,7 +6126,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -6273,7 +6135,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -6282,7 +6144,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_site"
+                  "field": "environmental_site"
                 }
               ]
             }
@@ -6291,7 +6153,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -6300,7 +6162,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -6309,7 +6171,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_site"
+                  "field": "environmental_site"
                 }
               ]
             }
@@ -6318,7 +6180,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_site"
+                  "field": "environmental_site"
                 }
               ]
             }
@@ -6327,7 +6189,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -6336,7 +6198,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -6345,7 +6207,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -6354,7 +6216,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -6363,7 +6225,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -6372,7 +6234,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -6381,7 +6243,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -6390,7 +6252,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -6399,7 +6261,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -6408,7 +6270,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -6417,7 +6279,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -6426,7 +6288,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -6435,7 +6297,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -6444,7 +6306,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -6453,7 +6315,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "host (common name)"
+                  "field": "host (common name)"
                 }
               ]
             }
@@ -6462,7 +6324,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -6471,7 +6333,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -6480,7 +6342,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -6489,7 +6351,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -6498,7 +6360,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -6507,7 +6369,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -6516,7 +6378,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -6525,7 +6387,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -6534,7 +6396,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -6543,7 +6405,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -6552,7 +6414,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -6561,7 +6423,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_site"
+                  "field": "environmental_site"
                 }
               ]
             }
@@ -6570,7 +6432,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_site"
+                  "field": "environmental_site"
                 }
               ]
             }
@@ -6579,25 +6441,17 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
           },
-          "Rolled": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "value": "?"
-                }
-              ]
-            }
-          },
+          "Rolled": {},
           "Run Off": {
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_material"
+                  "field": "environmental_material"
                 }
               ]
             }
@@ -6606,7 +6460,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -6615,7 +6469,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -6624,7 +6478,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_material"
+                  "field": "environmental_material"
                 }
               ]
             }
@@ -6633,7 +6487,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -6642,7 +6496,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_site"
+                  "field": "environmental_site"
                 }
               ]
             }
@@ -6651,7 +6505,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -6660,7 +6514,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -6669,7 +6523,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -6678,7 +6532,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -6687,7 +6541,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -6696,7 +6550,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -6705,7 +6559,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -6714,7 +6568,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -6723,7 +6577,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -6732,7 +6586,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_site"
+                  "field": "environmental_site"
                 }
               ]
             }
@@ -6741,7 +6595,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -6750,7 +6604,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -6759,7 +6613,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_site"
+                  "field": "environmental_site"
                 }
               ]
             }
@@ -6768,7 +6622,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_site"
+                  "field": "environmental_site"
                 }
               ]
             }
@@ -6777,7 +6631,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_site"
+                  "field": "environmental_site"
                 }
               ]
             }
@@ -6786,7 +6640,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_site"
+                  "field": "environmental_site"
                 }
               ]
             }
@@ -6795,7 +6649,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -6804,7 +6658,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -6813,7 +6667,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -6822,7 +6676,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_site"
+                  "field": "environmental_site"
                 }
               ]
             }
@@ -6831,7 +6685,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_site"
+                  "field": "environmental_site"
                 }
               ]
             }
@@ -6840,7 +6694,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_site"
+                  "field": "environmental_site"
                 }
               ]
             }
@@ -6849,43 +6703,27 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
           },
-          "Unknown": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "value": "?"
-                }
-              ]
-            }
-          },
+          "Unknown": {},
           "Unknown Surface": {
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_site"
+                  "field": "environmental_site"
                 }
               ]
             }
           },
-          "Unspecified": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "value": "?"
-                }
-              ]
-            }
-          },
+          "Unspecified": {},
           "Upper Thigh": {
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -6894,7 +6732,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -6903,7 +6741,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_site"
+                  "field": "environmental_site"
                 }
               ]
             }
@@ -6912,7 +6750,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -6921,7 +6759,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_material"
+                  "field": "environmental_material"
                 }
               ]
             }
@@ -6930,7 +6768,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_site"
+                  "field": "environmental_site"
                 }
               ]
             }
@@ -6939,7 +6777,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -6948,7 +6786,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
@@ -6957,7 +6795,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "environmental_site"
+                  "field": "environmental_site"
                 }
               ]
             }
@@ -6966,7 +6804,7 @@ var DATA = [
             "exportField": {
               "GRDI": [
                 {
-                  "value": "food_product"
+                  "field": "food_product"
                 }
               ]
             }
