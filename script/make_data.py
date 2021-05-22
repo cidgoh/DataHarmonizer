@@ -65,8 +65,12 @@ def export_fields (EXPORT_FORMAT, field, row, as_field = False):
 					if not prefix in formats:
 						formats[prefix] = [];
 
+					# A single ":" value enables clearing out of a value.
+					if item == ':':
+						conversion['value'] = '';
+
 					# A colon indicates a different target field is in play
-					if ":" in item:
+					elif ":" in item:
 						binding = item.split(":",1);
 						binding[0] = binding[0].strip();
 						binding[1] = binding[1].strip();
@@ -74,9 +78,6 @@ def export_fields (EXPORT_FORMAT, field, row, as_field = False):
 							conversion['field'] = binding[0];
 						if binding[1] > '':
 							conversion['value'] = binding[1];
-						else:
-							# A single ":" value enables clearing out of a value.
-							conversion['value'] = '';
 
 					# No colon
 					elif as_field == True:

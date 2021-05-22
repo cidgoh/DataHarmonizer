@@ -32,21 +32,24 @@ var exportGRDI = (baseName, hot, data, xlsx, fileType) => {
     ['sample_collection_date',                    []], // takes DEXA DATECOLLECTED_1
     ['sample_received_date',                     	[]],
     ['original_sample_description',               []],
-    ['environmental_site',                     		[]], // CALCULATED
-    ['animal_or_plant_population',                []], // CALCULATED
-    ['environmental_material',                    []], // CALCULATED
-    ['body_product',                     					[]], // CALCULATED
-    ['anatomical_part',                     			[]], // CALCULATED
-    ['food_product',                     					[]], // CALCULATED
-    ['food_product_properties',                   []],
+    ['environmental_site',                     		[]], // CALCULATED in RuleDB
+    ['animal_or_plant_population',                []], // CALCULATED in RuleDB
+    ['environmental_material',                    []], // CALCULATED in RuleDB
+    ['body_product',                     					[]], // CALCULATED in RuleDB
+    ['anatomical_part',                     			[]], // CALCULATED in RuleDB
+    ['food_product',                     					[]], // CALCULATED in RuleDB
+    ['food_product_properties',                   []], // CALCULATED in RuleDB
     ['animal_source_of_food',                     []],
     ['food_packaging',                     				[]],
-    ['collection_device',                     		[]],
-    ['collection_method',                     		[]],
+    ['collection_device',                     		[]], // CALCULATED in RuleDB
+    ['collection_method',                     		[]], // CALCULATED in RuleDB
 		//	Host information
-    ['host (common name)',                     		[]], // takes DEXA SPECIES
+    ['host (common name)',                     		[]], // takes DEXA SPECIES BUT ALSO  // CALCULATED in RuleDB
     ['host (scientific name)',                    []],
     ['host_disease',                     					[]],
+    
+    ['host_developmental_stage',										[]], // CALCULATED in RuleDB
+
 		//	Strain and isolation information
     ['microbiological_method',                    []],
     ['strain',                     								[]],
@@ -88,10 +91,10 @@ var exportGRDI = (baseName, hot, data, xlsx, fileType) => {
     ['GenBank_accession',                     		[]],
     // Antimicrobial Resistance
     // ...
-    
+
     //['sample_name',                     				[]], NEW FIELD??
     //['collected_by',                    				[]], DIFFERENT FIELD
-    ['anatomical_material',             					[]], // MISSING FIELD
+    ['anatomical_material',             					[]], // MISSING FIELD  // CALCULATED in RuleDB
     //['laboratory_name',                 				[]], --> collected_by_laboratory_name?? // takes SUBMITTINGLAB_1
     ['DataHarmonizer provenance',									[]],
   ]);
@@ -100,32 +103,28 @@ var exportGRDI = (baseName, hot, data, xlsx, fileType) => {
   const sourceFields = getFields(data);
   const sourceFieldNameMap = getFieldNameMap(sourceFields);
 
-  // Fills in the above mapping (or just set manually above) 
+  // Fills in the above mapping of export field to source fields (or just set
+  // source fields manually above) 
   getHeaderMap(ExportHeaders, sourceFields, 'GRDI');
-
-/*
-  DEXA to GRDI is 3 step process:
-  1: Normalize DEXA fields
-    - All input is lowercase at moment except for one term: 'bursa of Fabricius'
-  2: Merge field values into target fields according to rules. Done in setRuleDB
-  3: Ontology id addition to merged fields
-
-*/
 
   // Copy headers to 1st row of new export table
   const outputMatrix = [[...ExportHeaders.keys()]];
 
+	let normalize = initNormalize();
+	let category = initCategory();
+
   const inputMatrix = getTrimmedData(hot);
   for (const inputRow of inputMatrix) {
 
-    let RuleDB = setRuleDB(inputRow, sourceFields, sourceFieldNameMap);
+  	// Does all 
+    let RuleDB = setRuleDB(inputRow, sourceFields, sourceFieldNameMap, normalize, category);
 
     const outputRow = [];
     for (const headerName of ExportHeaders.keys()) {
 
       // If Export Header field is in RuleDB, set output value from it, and
       // continue.
-      if (headerName in RuleDB) {
+      if ((headerName in RuleDB) && RuleDB[headerName] && RuleDB[headerName].length > 0) {
         outputRow.push(RuleDB[headerName]);
         continue;
       };
@@ -133,7 +132,8 @@ var exportGRDI = (baseName, hot, data, xlsx, fileType) => {
       // Otherwise apply source (many to one) to target field transform:
       const sources = ExportHeaders.get(headerName);
       const value = getMappedField(headerName, inputRow, sources, sourceFields, sourceFieldNameMap, ';', 'GRDI');
-
+      if (headerName === 'host (common name)')
+      	console.log(value);
       outputRow.push(value);
     };
     outputMatrix.push(outputRow);
@@ -143,123 +143,138 @@ var exportGRDI = (baseName, hot, data, xlsx, fileType) => {
 }
 
 /**
- * Manages content of the following calculated fields.
+  DEXA to GRDI is 3 step process:
+  1: Normalize DEXA fields
+    - All input is lowercase at moment except for one term: 'bursa of Fabricius'
+  2: Merge field values into target fields according to rules. Done in setRuleDB
+  3: Ontology id addition to merged fields
 
- */
-var setRuleDB = (dataRow, sourceFields, sourceFieldNameMap) => {
+*/
+
+
+var setRuleDB = (dataRow, sourceFields, sourceFieldNameMap, normalize, category) => {
+
   // Rule-based target field value calculatio nbased on given data row
   let RuleDB = {
     // Holding bin of target fields/variables to populate with custom rule
-    // content
-    'anatomical_part':           '',
+    // content. None of these fields receive DEXA field content directly.
+
     'anatomical_material':       '',
+    'anatomical_part':           '',
+    'animal_or_plant_population':'',
     'body_product':              '',
+    'collection_device':         '',
+    'collection_method':         '', // NEW!
     'environmental_material':    '',
     'environmental_site':        '',
     'food_product':              '',
-    'collection_device':         '',
-    'animal_or_plant_population':''
 
+    'food_product_properties':  	'',
+    'host (common name)':					'',
+    'host_developmental_stage':   '', // NEW!!!!
+		'sample_processing':          ''  // NEW!!!!
     // Source fields and their content added below
   };
 
-	let normalize = initNormalize();
-	let category = initCategory();
-
-
   let ruleSourceFieldNames = ['STTYPE', 'STYPE', 'SPECIMENSUBSOURCE_1', 'SUBJECT_DESCRIPTIONS', 'SPECIES', 'COMMODITY'];
 
+  // Loads RuleDB with the additional ruleSourceFieldNames.
   // This will set content of a target field based on data.js vocabulary
   // exportField {'field':[target column],'value':[replacement value]]}
   // mapping if any.
   getRowMap(dataRow, ruleSourceFieldNames, RuleDB, sourceFields, sourceFieldNameMap, 'GRDI');
 
-  for (let field of ruleSourceFieldNames) {
-  	RuleDB[field] = RuleDB[field].toLowerCase();
+  for (let sourceField of ruleSourceFieldNames) {
+  	// All terms get lowercased in GRDI.
+  	if (RuleDB[sourceField]) {
+	  	let term = RuleDB[sourceField].toLowerCase(); // just one term
 
+			RuleDB[sourceField] = term;
+
+	  	if (term in normalize) {
+	  		// Provide DEXA field with normalized version (concatenated string)
+				RuleDB[sourceField] = normalize[term].join(';');
+
+				// Shunt any normalized terms to appropriate anatomical_part etc. field
+				// per categories lookup.
+	  		for (let normalized_term of normalize[term]) {
+	  			if (normalized_term in category) {
+	  				let normal_obj = category[normalized_term];
+	  				// Not using ontology term label.
+	  				// NO ONTOLOGY IDs INSERTED YET.
+	  				// Is it true that there is only one value per target field?
+						RuleDB[normal_obj.field] = normalized_term;  
+					}
+	  		}
+	  	}
+  	}
   };
-
-  // IF collection_device & environmental_site & 'host (common name)' -> 'host (common name)' -> animal_or_plant_population
-
-COMMODITY -> categorize
-(IF SSTYPE = animal) SPECIMENSUBSOURCE_1 -> categorize
-
 
   // STTYPE: ANIMAL ENVIRONMENT FOOD HUMAN PRODUCT QA UNKNOWN
   switch (RuleDB.STTYPE) {
 
-    case 'ANIMAL': {
+    case 'animal': {
 
-      switch (RuleDB.SPECIMENSUBSOURCE_1) {
-
-
-          RuleDB.anatomical_part = RuleDB.SPECIMENSUBSOURCE_1;
-          break;
-
-        default: 
-          break; // Prevents advancing to COMMODITY
-      };
+		  if (RuleDB.collection_device === 'swab' 
+		  	&& RuleDB.environmental_site.length > 0 
+		  	&& RuleDB.SPECIES) {
+		     RuleDB.animal_or_plant_population = RuleDB.SPECIES;
+		  };
       break; // prevents advancing to FOOD
       
     };
 
-    case 'FOOD' : {
+    case 'food' : {
 			if (RuleDB.SUBJECT_DESCRIPTIONS && RuleDB.SPECIES) {
 				let label = RuleDB.SPECIES + ' ' + RuleDB.SUBJECT_DESCRIPTIONS;
-				add_item(RuleDB.food_product, label);
+				add_item(RuleDB,'food_product', label);
+				break;
       };
+
+      if (RuleDB.STYPE && RuleDB.COMMODITY) {
+      	//if (RuleDB.STYPE === 'cereal') // meant to be specific?
+				//add_item(RuleDB.food_product, RuleDB.STYPE);
+	  		switch (RuleDB.STYPE) {
+	        case 'porcine':
+	        case 'avian':
+	        case 'crustacean': 
+	          add_item(RuleDB,'food_product', RuleDB.COMMODITY);
+	      };
+      }
       break; // prevents advancing to blank/UNKNOWN
     };
 
-    case '':
-    case 'UNKNOWN': {// no <n/a>
-      if (RuleDB.STYPE === 'cereal')
-      	add_item(RuleDB.food_product, RuleDB.STYPE);
-      break;
-    };
-
-    case 'ENVIRONMENT':
-      switch (RuleDB.STYPE) {
-        case 'manure':
-          RuleDB.environmental_material = RuleDB.STYPE;
-      };
+    case 'environment':
+    	if (RuleDB.STYPE)
+      	add_item(RuleDB,'environmental_material', RuleDB.STYPE);
       break;
 
-    case 'PRODUCT':
+    case 'product':
       switch (RuleDB.STYPE) {
         case 'feed and ingredients':
-        case 'fertilizer': {
-					RuleDB.food_product += RuleDB.SUBJECT_DESCRIPTIONS;
-          break;
-          };
-        };
+        case 'fertilizer': 
+					add_item(RuleDB,'food_product', RuleDB.SUBJECT_DESCRIPTIONS);
       };
       break;
 
     default: // Any other STTYPE Value:
-
-      switch (RuleDB.STYPE) {
-        case 'Porcine':
-        case 'Avian':
-        case 'Crustacean': {
-          switch (RuleDB.COMMODITY) {
-            case 'Beef':
-            case 'Broiler':
-            case 'Shrimp':
-              RuleDB.food_product += RuleDB.COMMODITY;
-          };
-        };
-      };
-      break;
-  };
-
-  if (RuleDB.collection_device == 'swab' && RuleDB.environmental_site.length > 0) {
-     RuleDB.animal_or_plant_population = RuleDB.SPECIES;
+    //case '':
+    //case 'unknown': {// no <n/a>
+    
   };
 
   return RuleDB;
 };
 
+/**
+ * Add a value to a field's existing string value, delimited by semicolon.
+ */
+var add_item = (RuleDB, field, value) => {
+	if (RuleDB[field] === '')
+		RuleDB[field] = value;
+	else
+		RuleDB[field] += ';' + value;
+}
 
 // A list of the above functions keyed by the Export menu name they should appear as:
 var EXPORT_FORMATS = {
@@ -268,7 +283,7 @@ var EXPORT_FORMATS = {
 
 
 /* Initialize lookup table for normalizing DEXA terms: term -> normalized term
-*/
+ */
 var initNormalize = () => {
 	let normalize = {};
   for (const line of NORMALIZE.split('\n')) {
@@ -279,10 +294,10 @@ var initNormalize = () => {
   //console.log(normalize);
 }
 /************************************************
-  Cut & paste from GRDI Normalization tab of DataHarmonizer Templates: 
-  https://docs.google.com/spreadsheets/d/1jPQAIJcL_xa3oBVFEsYRGLGf7ESTOwzsTSjKZ-0CTYE/ 
-  MUST BE TAB DELIMITED!
-*/
+ Cut & paste from GRDI Normalization tab of DataHarmonizer Templates: 
+ https://docs.google.com/spreadsheets/d/1jPQAIJcL_xa3oBVFEsYRGLGf7ESTOwzsTSjKZ-0CTYE/ 
+ MUST BE TAB DELIMITED!
+ */
 var NORMALIZE = `Abdomen	abdomen
 Abdominal Muscle	muscle of abdomen
 Abomasum	abomasum
@@ -975,10 +990,11 @@ Beef-B54-2011	beef
 Beef-B6-2009	beef
 Beef-B6a-2009	beef`;
 
-/* Initialize lookup table for categorizing normalized terms into one or
+/**
+ * Initialize lookup table for categorizing normalized terms into one or
  * more target fields and corresponding ontology ids: term -> target field,
  * ontology id.
-*/
+ */
 var initCategory = () => {
 	let category = {};
   for (const line of CATEGORY.split('\n')) {
