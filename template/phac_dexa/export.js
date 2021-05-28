@@ -131,18 +131,18 @@ var exportGRDI = (baseName, hot, data, xlsx, fileType) => {
       // If Export Header field is in RuleDB, set output value from it, and
       // continue.
       if ((headerName in RuleDB) && RuleDB[headerName] && RuleDB[headerName].length > 0) {
-        const value = RuleDB[headerName];
-        if (value in category)
-          value += ' ' + category[value].ontology_id;
+        let value = RuleDB[headerName];
+        // ISSUE: lowercasing may fail to match field. 
+        value = map_ontology(value, category, headerName);
         outputRow.push(value);
         continue;
       };
 
       // Otherwise apply source (many to one) to target field transform:
       const sources = ExportHeaders.get(headerName);
-      const value = getMappedField(headerName, inputRow, sources, sourceFields, sourceFieldNameMap, ';', 'GRDI');
-      if (value in category)
-          value += ' ' + category[value].ontology_id;
+      let value = getMappedField(headerName, inputRow, sources, sourceFields, sourceFieldNameMap, ';', 'GRDI');
+      // semicolon-separated list of values.  Issue is terms have come from other source fields. 
+      value = map_ontology(value, category, headerName);
       outputRow.push(value);
     };
     outputMatrix.push(outputRow);
@@ -150,6 +150,35 @@ var exportGRDI = (baseName, hot, data, xlsx, fileType) => {
 
   runBehindLoadingScreen(exportFile, [outputMatrix, baseName, fileType, xlsx]);
 }
+
+/** Determine if text label for field is in an existing ontology or not.
+ * @param {String} labels delimited by semicolons.
+ * @param {Object} category dictionary of labe -> field & ontology_id.
+ */
+var map_ontology = (labels, category, field) => {
+  value = [];
+  for (let label of labels.split(';')) {
+
+    // If it is a selection list picklist item it may have an ontology ID.
+
+
+    label = label.toLowerCase().trim();
+
+    // Otherwise it may be a compound term
+    if (label in category) {
+      for (let item of category[label]) {
+        if (item.field == field && item.ontology_id) {
+          label += ':' + item.ontology_id;
+          break;
+        }
+      }
+    }
+    value.push(label);
+  }
+  return value.join(';');
+}
+
+        
 
 /** Rule-based target field value calculation based on given data row
  * @param {Object} dataRow.
@@ -235,7 +264,8 @@ var setRuleDB = (dataRow, sourceFields, sourceFieldNameMap, normalize, category)
       // Issue, sometimes species = "Other" ????
       RuleDB.food_product = RuleDB.SPECIES;
 
-      add_item(RuleDB,'food_product', RuleDB.SUBJECT_DESCRIPTIONS);
+      if (RuleDB.SUBJECT_DESCRIPTIONS)
+        add_item(RuleDB,'food_product', RuleDB.SUBJECT_DESCRIPTIONS);
 
       if (RuleDB.STYPE && RuleDB.COMMODITY) {
 				//add_item(RuleDB.food_product, RuleDB.STYPE);

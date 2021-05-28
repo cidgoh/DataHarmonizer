@@ -631,7 +631,7 @@ UBERON_0002114	SPECIMENSUBSOURCE_1	Dust											environmental_material:
 ENVO_00002008	SPECIMENSUBSOURCE_1	Ear											anatomical_part:
 UBERON_0001690	SPECIMENSUBSOURCE_1	Egg Belt											environmental_site:
 	SPECIMENSUBSOURCE_1	Environment Swab											collection_device:
-	SPECIMENSUBSOURCE_1	Environment Swab (Hatchery)											environmental_site::hatchery;collection_device::swab
+	SPECIMENSUBSOURCE_1	Environment Swab (Hatchery)											environmental_site:hatchery;collection_device:swab
 	SPECIMENSUBSOURCE_1	Esophagus											anatomical_part:
 UBERON_0001043	SPECIMENSUBSOURCE_1	External Quality Assurance											?
 BFO_0000019	SPECIMENSUBSOURCE_1	Eye											anatomical_part:
