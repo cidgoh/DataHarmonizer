@@ -141,6 +141,7 @@ var DATA = [
         "examples": "",
         "schema:ItemList": {
           "1/2 breast": {
+            "ontology_id": "UBERON_0000310",
             "exportField": {
               "GRDI": [
                 {
@@ -150,6 +151,7 @@ var DATA = [
             }
           },
           "Avian Ingredients": {
+            "ontology_id": "FOODON_00002616",
             "exportField": {
               "GRDI": [
                 {
@@ -159,6 +161,7 @@ var DATA = [
             }
           },
           "Back": {
+            "ontology_id": "PATO_0001901",
             "exportField": {
               "GRDI": [
                 {
@@ -168,6 +171,7 @@ var DATA = [
             }
           },
           "Balut": {
+            "ontology_id": "FOODON_03302184",
             "exportField": {
               "GRDI": [
                 {
@@ -177,6 +181,7 @@ var DATA = [
             }
           },
           "Black Pepper": {
+            "ontology_id": "FOODON_03411191",
             "exportField": {
               "GRDI": [
                 {
@@ -195,6 +200,7 @@ var DATA = [
             }
           },
           "Blood Meal": {
+            "ontology_id": "FOODON_00001564",
             "exportField": {
               "GRDI": [
                 {
@@ -204,6 +210,7 @@ var DATA = [
             }
           },
           "Bone Meal": {
+            "ontology_id": "ENVO_02000054",
             "exportField": {
               "GRDI": [
                 {
@@ -213,6 +220,7 @@ var DATA = [
             }
           },
           "Bovine Ingredients": {
+            "ontology_id": "FOODON_03414374",
             "exportField": {
               "GRDI": [
                 {
@@ -222,6 +230,7 @@ var DATA = [
             }
           },
           "Breast": {
+            "ontology_id": "UBERON_0000310",
             "exportField": {
               "GRDI": [
                 {
@@ -249,6 +258,7 @@ var DATA = [
             }
           },
           "Breast Skinless": {
+            "ontology_id": "UBERON_0000310",
             "exportField": {
               "GRDI": [
                 {
@@ -258,6 +268,7 @@ var DATA = [
             }
           },
           "Breast Skinless Boneless": {
+            "ontology_id": "UBERON_0000310",
             "exportField": {
               "GRDI": [
                 {
@@ -276,6 +287,7 @@ var DATA = [
             }
           },
           "Brisket": {
+            "ontology_id": "FOODON_03530020",
             "exportField": {
               "GRDI": [
                 {
@@ -285,6 +297,7 @@ var DATA = [
             }
           },
           "Burger": {
+            "ontology_id": "FOODON_00002737",
             "exportField": {
               "GRDI": [
                 {
@@ -303,6 +316,7 @@ var DATA = [
             }
           },
           "Canola Meal": {
+            "ontology_id": "FOODON_00002694",
             "exportField": {
               "GRDI": [
                 {
@@ -312,6 +326,7 @@ var DATA = [
             }
           },
           "Carinata Meal": {
+            "ontology_id": "FOODON_03316468",
             "exportField": {
               "GRDI": [
                 {
@@ -340,6 +355,7 @@ var DATA = [
           },
           "coli": {},
           "Complete Feed": {
+            "ontology_id": "FOODON_03309997",
             "exportField": {
               "GRDI": [
                 {
@@ -349,6 +365,7 @@ var DATA = [
             }
           },
           "Corn": {
+            "ontology_id": "FOODON_00001765",
             "exportField": {
               "GRDI": [
                 {
@@ -358,6 +375,7 @@ var DATA = [
             }
           },
           "Cow": {
+            "ontology_id": "FOODON_03411161",
             "exportField": {
               "GRDI": [
                 {
@@ -376,6 +394,7 @@ var DATA = [
             }
           },
           "Cutlet": {
+            "ontology_id": "FOODON_00003001",
             "exportField": {
               "GRDI": [
                 {
@@ -385,6 +404,7 @@ var DATA = [
             }
           },
           "Drumstick": {
+            "ontology_id": "CURATION_0001378",
             "exportField": {
               "GRDI": [
                 {
@@ -394,6 +414,7 @@ var DATA = [
             }
           },
           "Drumstick Skinless": {
+            "ontology_id": "CURATION_0001378",
             "exportField": {
               "GRDI": [
                 {
@@ -412,6 +433,7 @@ var DATA = [
             }
           },
           "Drumsticks": {
+            "ontology_id": "CURATION_0001378",
             "exportField": {
               "GRDI": [
                 {
@@ -430,6 +452,7 @@ var DATA = [
             }
           },
           "Feather Meal": {
+            "ontology_id": "CURATION_0001357",
             "exportField": {
               "GRDI": [
                 {
@@ -439,6 +462,7 @@ var DATA = [
             }
           },
           "Feed": {
+            "ontology_id": "FOODON_03309997",
             "exportField": {
               "GRDI": [
                 {
@@ -448,6 +472,7 @@ var DATA = [
             }
           },
           "Filet": {
+            "ontology_id": "FOODON_03530144",
             "exportField": {
               "GRDI": [
                 {
@@ -457,6 +482,7 @@ var DATA = [
             }
           },
           "Fish Ingredients": {
+            "ontology_id": "FOODON_03411222",
             "exportField": {
               "GRDI": [
                 {
@@ -466,6 +492,7 @@ var DATA = [
             }
           },
           "Fish Meal": {
+            "ontology_id": "FOODON_03301620",
             "exportField": {
               "GRDI": [
                 {
@@ -475,6 +502,7 @@ var DATA = [
             }
           },
           "Grain": {
+            "ontology_id": "FOODON_03311095",
             "exportField": {
               "GRDI": [
                 {
@@ -484,6 +512,7 @@ var DATA = [
             }
           },
           "Ground": {
+            "ontology_id": "FOODON_03430136",
             "exportField": {
               "GRDI": [
                 {
@@ -493,6 +522,7 @@ var DATA = [
             }
           },
           "Ground ( lean)": {
+            "ontology_id": "FOODON_03430136",
             "exportField": {
               "GRDI": [
                 {
@@ -502,6 +532,7 @@ var DATA = [
             }
           },
           "Ground (Angus)": {
+            "ontology_id": "FOODON_03430136",
             "exportField": {
               "GRDI": [
                 {
@@ -511,6 +542,7 @@ var DATA = [
             }
           },
           "Ground (Extra Lean)": {
+            "ontology_id": "FOODON_03430136",
             "exportField": {
               "GRDI": [
                 {
@@ -520,6 +552,7 @@ var DATA = [
             }
           },
           "Ground (extra-lan)": {
+            "ontology_id": "FOODON_03430136",
             "exportField": {
               "GRDI": [
                 {
@@ -529,6 +562,7 @@ var DATA = [
             }
           },
           "Ground (Extra-Lean)": {
+            "ontology_id": "FOODON_03430136",
             "exportField": {
               "GRDI": [
                 {
@@ -538,6 +572,7 @@ var DATA = [
             }
           },
           "Ground (Lean)": {
+            "ontology_id": "FOODON_03430136",
             "exportField": {
               "GRDI": [
                 {
@@ -547,6 +582,7 @@ var DATA = [
             }
           },
           "Ground (Medium)": {
+            "ontology_id": "FOODON_03430117",
             "exportField": {
               "GRDI": [
                 {
@@ -556,6 +592,7 @@ var DATA = [
             }
           },
           "Ground (Regular)": {
+            "ontology_id": "FOODON_03430136",
             "exportField": {
               "GRDI": [
                 {
@@ -565,6 +602,7 @@ var DATA = [
             }
           },
           "Ground (Sirloin)": {
+            "ontology_id": "CURATION_0001614",
             "exportField": {
               "GRDI": [
                 {
@@ -574,6 +612,7 @@ var DATA = [
             }
           },
           "Ground Boneless": {
+            "ontology_id": "FOODON_03430136",
             "exportField": {
               "GRDI": [
                 {
@@ -583,6 +622,7 @@ var DATA = [
             }
           },
           "Ground extra lean": {
+            "ontology_id": "FOODON_03430136",
             "exportField": {
               "GRDI": [
                 {
@@ -592,6 +632,7 @@ var DATA = [
             }
           },
           "Ground regular": {
+            "ontology_id": "FOODON_03430136",
             "exportField": {
               "GRDI": [
                 {
@@ -601,6 +642,7 @@ var DATA = [
             }
           },
           "ground( extra lean)": {
+            "ontology_id": "FOODON_03430136",
             "exportField": {
               "GRDI": [
                 {
@@ -610,6 +652,7 @@ var DATA = [
             }
           },
           "ground( medium)": {
+            "ontology_id": "FOODON_03430117",
             "exportField": {
               "GRDI": [
                 {
@@ -619,6 +662,7 @@ var DATA = [
             }
           },
           "Ground(Extra lean)": {
+            "ontology_id": "FOODON_03430136",
             "exportField": {
               "GRDI": [
                 {
@@ -628,6 +672,7 @@ var DATA = [
             }
           },
           "Ground(Lean)": {
+            "ontology_id": "FOODON_03430136",
             "exportField": {
               "GRDI": [
                 {
@@ -637,6 +682,7 @@ var DATA = [
             }
           },
           "Ground(medium)": {
+            "ontology_id": "FOODON_03430117",
             "exportField": {
               "GRDI": [
                 {
@@ -646,6 +692,7 @@ var DATA = [
             }
           },
           "ground(regular)": {
+            "ontology_id": "FOODON_03430136",
             "exportField": {
               "GRDI": [
                 {
@@ -655,6 +702,7 @@ var DATA = [
             }
           },
           "Groundextra lean)": {
+            "ontology_id": "FOODON_03430136",
             "exportField": {
               "GRDI": [
                 {
@@ -664,6 +712,7 @@ var DATA = [
             }
           },
           "Ground-Lean": {
+            "ontology_id": "FOODON_03430136",
             "exportField": {
               "GRDI": [
                 {
@@ -673,6 +722,7 @@ var DATA = [
             }
           },
           "Ground-Regular": {
+            "ontology_id": "FOODON_03430136",
             "exportField": {
               "GRDI": [
                 {
@@ -682,6 +732,7 @@ var DATA = [
             }
           },
           "Heifer": {
+            "ontology_id": "FOODON_00002518",
             "exportField": {
               "GRDI": [
                 {
@@ -691,6 +742,7 @@ var DATA = [
             }
           },
           "Hummus": {
+            "ontology_id": "FOODON_00003049",
             "exportField": {
               "GRDI": [
                 {
@@ -700,6 +752,7 @@ var DATA = [
             }
           },
           "In-Shell": {
+            "ontology_id": "UBERON_0006612",
             "exportField": {
               "GRDI": [
                 {
@@ -718,6 +771,7 @@ var DATA = [
             }
           },
           "Leg": {
+            "ontology_id": "UBERON_0000978",
             "exportField": {
               "GRDI": [
                 {
@@ -736,6 +790,7 @@ var DATA = [
             }
           },
           "Liver": {
+            "ontology_id": "UBERON_0002107",
             "exportField": {
               "GRDI": [
                 {
@@ -745,6 +800,7 @@ var DATA = [
             }
           },
           "Loin Center Chop": {
+            "ontology_id": "FOODON_03530031",
             "exportField": {
               "GRDI": [
                 {
@@ -754,6 +810,7 @@ var DATA = [
             }
           },
           "Meat and Bone Meal": {
+            "ontology_id": "FOODON_00002738",
             "exportField": {
               "GRDI": [
                 {
@@ -790,6 +847,7 @@ var DATA = [
             }
           },
           "Necks": {
+            "ontology_id": "UBERON_0000974",
             "exportField": {
               "GRDI": [
                 {
@@ -853,6 +911,7 @@ var DATA = [
             }
           },
           "Ovine Ingredients": {
+            "ontology_id": "FOODON_03411183",
             "exportField": {
               "GRDI": [
                 {
@@ -862,6 +921,7 @@ var DATA = [
             }
           },
           "Pet Food": {
+            "ontology_id": "FOODON_00002682",
             "exportField": {
               "GRDI": [
                 {
@@ -871,6 +931,7 @@ var DATA = [
             }
           },
           "Porcine Ingredients": {
+            "ontology_id": "FOODON_03411136",
             "exportField": {
               "GRDI": [
                 {
@@ -916,6 +977,7 @@ var DATA = [
             }
           },
           "Raw": {
+            "ontology_id": "FOODON_03311126",
             "exportField": {
               "GRDI": [
                 {
@@ -925,6 +987,7 @@ var DATA = [
             }
           },
           "Rib Chop": {
+            "ontology_id": "UBERON_0002228",
             "exportField": {
               "GRDI": [
                 {
@@ -934,6 +997,7 @@ var DATA = [
             }
           },
           "Ribs": {
+            "ontology_id": "UBERON_0002228",
             "exportField": {
               "GRDI": [
                 {
@@ -952,6 +1016,7 @@ var DATA = [
             }
           },
           "Salami": {
+            "ontology_id": "FOODON_03312067",
             "exportField": {
               "GRDI": [
                 {
@@ -961,6 +1026,7 @@ var DATA = [
             }
           },
           "Sausage": {
+            "ontology_id": "FOODON_03315904",
             "exportField": {
               "GRDI": [
                 {
@@ -979,6 +1045,7 @@ var DATA = [
             }
           },
           "Scallopini": {
+            "ontology_id": "FOODON_00003017",
             "exportField": {
               "GRDI": [
                 {
@@ -988,6 +1055,7 @@ var DATA = [
             }
           },
           "Shell on": {
+            "ontology_id": "UBERON_0006612",
             "exportField": {
               "GRDI": [
                 {
@@ -1006,6 +1074,7 @@ var DATA = [
             }
           },
           "Shoulder": {
+            "ontology_id": "UBERON_0001467",
             "exportField": {
               "GRDI": [
                 {
@@ -1015,6 +1084,7 @@ var DATA = [
             }
           },
           "Shoulder Chop": {
+            "ontology_id": "UBERON_0001467",
             "exportField": {
               "GRDI": [
                 {
@@ -1024,6 +1094,7 @@ var DATA = [
             }
           },
           "Sirloin Chop": {
+            "ontology_id": "FOODON_03530027",
             "exportField": {
               "GRDI": [
                 {
@@ -1033,6 +1104,7 @@ var DATA = [
             }
           },
           "Skim milk powder": {
+            "ontology_id": "FOODON_03301484",
             "exportField": {
               "GRDI": [
                 {
@@ -1042,6 +1114,7 @@ var DATA = [
             }
           },
           "Soft": {
+            "ontology_id": "PATO_0000387",
             "exportField": {
               "GRDI": [
                 {
@@ -1051,6 +1124,7 @@ var DATA = [
             }
           },
           "Soyabean Meal": {
+            "ontology_id": "FOODON_03316468",
             "exportField": {
               "GRDI": [
                 {
@@ -1078,6 +1152,7 @@ var DATA = [
             }
           },
           "Stew Chunks": {
+            "ontology_id": "FOODON_00003140",
             "exportField": {
               "GRDI": [
                 {
@@ -1087,6 +1162,7 @@ var DATA = [
             }
           },
           "Supplements": {
+            "ontology_id": "FOODON_00001874",
             "exportField": {
               "GRDI": [
                 {
@@ -1105,6 +1181,7 @@ var DATA = [
             }
           },
           "Tahini": {
+            "ontology_id": "FOODON_03304154",
             "exportField": {
               "GRDI": [
                 {
@@ -1114,6 +1191,7 @@ var DATA = [
             }
           },
           "Tender loin": {
+            "ontology_id": "FOODON_03530217",
             "exportField": {
               "GRDI": [
                 {
@@ -1123,6 +1201,7 @@ var DATA = [
             }
           },
           "Tenderloin": {
+            "ontology_id": "FOODON_03530217",
             "exportField": {
               "GRDI": [
                 {
@@ -1132,6 +1211,7 @@ var DATA = [
             }
           },
           "Thigh": {
+            "ontology_id": "UBERON_0000376",
             "exportField": {
               "GRDI": [
                 {
@@ -1141,6 +1221,7 @@ var DATA = [
             }
           },
           "Thigh Skinless": {
+            "ontology_id": "UBERON_0000376",
             "exportField": {
               "GRDI": [
                 {
@@ -1150,6 +1231,7 @@ var DATA = [
             }
           },
           "Thigh Skinless Boneless": {
+            "ontology_id": "UBERON_0000376",
             "exportField": {
               "GRDI": [
                 {
@@ -1159,6 +1241,7 @@ var DATA = [
             }
           },
           "Thigh with Skin": {
+            "ontology_id": "UBERON_0000014",
             "exportField": {
               "GRDI": [
                 {
@@ -1168,6 +1251,7 @@ var DATA = [
             }
           },
           "Trim": {
+            "ontology_id": "FOODON_00001568",
             "exportField": {
               "GRDI": [
                 {
@@ -1177,6 +1261,7 @@ var DATA = [
             }
           },
           "Unknown Meal": {
+            "ontology_id": "FOODON_03316468",
             "exportField": {
               "GRDI": [
                 {
@@ -1186,6 +1271,7 @@ var DATA = [
             }
           },
           "Unspecified Feed/Ingredient": {
+            "ontology_id": "FOODON_03309997",
             "exportField": {
               "GRDI": [
                 {
@@ -1195,6 +1281,7 @@ var DATA = [
             }
           },
           "Upper Thigh": {
+            "ontology_id": "UBERON_0000376",
             "exportField": {
               "GRDI": [
                 {
@@ -1213,6 +1300,7 @@ var DATA = [
             }
           },
           "upper thight": {
+            "ontology_id": "UBERON_0000376",
             "exportField": {
               "GRDI": [
                 {
@@ -1222,6 +1310,7 @@ var DATA = [
             }
           },
           "Upperthigh": {
+            "ontology_id": "UBERON_0000376",
             "exportField": {
               "GRDI": [
                 {
@@ -1231,6 +1320,7 @@ var DATA = [
             }
           },
           "White Pepper": {
+            "ontology_id": "FOODON_03304045",
             "exportField": {
               "GRDI": [
                 {
@@ -1240,6 +1330,7 @@ var DATA = [
             }
           },
           "Whole": {
+            "ontology_id": "FOODON_03430131",
             "exportField": {
               "GRDI": [
                 {
@@ -1267,6 +1358,7 @@ var DATA = [
             }
           },
           "Wing": {
+            "ontology_id": "UBERON_0000023",
             "exportField": {
               "GRDI": [
                 {
@@ -1276,6 +1368,7 @@ var DATA = [
             }
           },
           "Wings": {
+            "ontology_id": "UBERON_0000023",
             "exportField": {
               "GRDI": [
                 {
@@ -1542,173 +1635,409 @@ var DATA = [
           "4": {},
           "<=8": {},
           "<n/a>": {},
-          "Abalone": {},
-          "Alfalfa sprouts": {},
-          "Alpaca": {},
-          "Amphibian": {},
-          "Apple": {},
-          "Aquatic mammal": {},
-          "Armadillo": {},
-          "Avian": {},
-          "Basil": {},
-          "Bat": {},
-          "Bear": {},
-          "Bearded Dragon": {},
-          "Bison": {},
+          "Abalone": {
+            "ontology_id": "FOODON_03411408"
+          },
+          "Alfalfa sprouts": {
+            "ontology_id": "FOODON_00002670"
+          },
+          "Alpaca": {
+            "ontology_id": "FOODON_00002693"
+          },
+          "Amphibian": {
+            "ontology_id": "FOODON_03411624"
+          },
+          "Apple": {
+            "ontology_id": "FOODON_00002473"
+          },
+          "Aquatic mammal": {
+            "ontology_id": "FOODON_03411134"
+          },
+          "Armadillo": {
+            "ontology_id": "FOODON_03411626"
+          },
+          "Avian": {
+            "ontology_id": "FOODON_00002616"
+          },
+          "Basil": {
+            "ontology_id": "FOODON_00003044"
+          },
+          "Bat": {
+            "ontology_id": "CURATION_0001601"
+          },
+          "Bear": {
+            "ontology_id": "FOODON_03412406"
+          },
+          "Bearded Dragon": {
+            "ontology_id": "NCBITAXON_103695"
+          },
+          "Bison": {
+            "ontology_id": "FOODON_03412098"
+          },
           "Budgie": {},
-          "Camel": {},
-          "Camelid": {},
+          "Camel": {
+            "ontology_id": "FOODON_03412103"
+          },
+          "Camelid": {
+            "ontology_id": "FOODON_03412103"
+          },
           "Canary": {},
-          "Canine": {},
-          "Cantelope": {},
-          "Caprine": {},
+          "Canine": {
+            "ontology_id": "FOODON_03414847"
+          },
+          "Cantelope": {
+            "ontology_id": "CURATION_0001383"
+          },
+          "Caprine": {
+            "ontology_id": "FOODON_03411328"
+          },
           "Cardemom": {},
           "Cardinal": {},
-          "Cervid": {},
-          "Chameleon": {},
+          "Cervid": {
+            "ontology_id": "FOODON_03411500"
+          },
+          "Chameleon": {
+            "ontology_id": "CURATION_0001646"
+          },
           "Cheetah": {},
-          "Chicken": {},
+          "Chicken": {
+            "ontology_id": "FOODON_03411457"
+          },
           "Chimpanzee": {},
           "Chinchilla": {},
           "Chinese Water Dragon": {},
-          "Clam": {},
-          "Coriander": {},
+          "Clam": {
+            "ontology_id": "FOODON_03411331"
+          },
+          "Coriander": {
+            "ontology_id": "FOODON_00001763"
+          },
           "Cormorant": {},
           "Cougar/Mountain Lion": {},
-          "Coyote": {},
-          "Crab": {},
+          "Coyote": {
+            "ontology_id": "CURATION_0001607"
+          },
+          "Crab": {
+            "ontology_id": "FOODON_03411335"
+          },
           "Crane": {},
           "Crow": {},
-          "Cumin seeds": {},
-          "Cuttlefish": {},
-          "Dog": {},
-          "Dolphin": {},
-          "Domestic Cat": {},
-          "Domestic Cattle": {},
-          "Duck": {},
+          "Cumin seeds": {
+            "ontology_id": "FOODON_00003024"
+          },
+          "Cuttlefish": {
+            "ontology_id": "FOODON_03411644"
+          },
+          "Dog": {
+            "ontology_id": "FOODON_03414847"
+          },
+          "Dolphin": {
+            "ontology_id": "FOODON_03413363"
+          },
+          "Domestic Cat": {
+            "ontology_id": "NCIT_C14191"
+          },
+          "Domestic Cattle": {
+            "ontology_id": "FOODON_03411161"
+          },
+          "Duck": {
+            "ontology_id": "FOODON_03411316"
+          },
           "Dumpster": {},
           "Eagle": {},
-          "Eel": {},
-          "Elephant": {},
+          "Eel": {
+            "ontology_id": "FOODON_03411278"
+          },
+          "Elephant": {
+            "ontology_id": "FOODON_03412129"
+          },
           "Falcon": {},
-          "Feline": {},
-          "Ferret": {},
+          "Feline": {
+            "ontology_id": "NCIT_C14191"
+          },
+          "Ferret": {
+            "ontology_id": "CURATION_0001411"
+          },
           "Finch": {},
-          "Fish": {},
+          "Fish": {
+            "ontology_id": "FOODON_03411222"
+          },
           "Flamingo": {},
           "For Unspecified": {},
-          "Fox": {},
-          "Gecko": {},
-          "Goat": {},
+          "Fox": {
+            "ontology_id": "CURATION_0001405"
+          },
+          "Gecko": {
+            "ontology_id": "FOODON_03412615"
+          },
+          "Goat": {
+            "ontology_id": "FOODON_03411328"
+          },
           "Goat and Sheep": {},
-          "Goose": {},
-          "Grape": {},
-          "Green onions": {},
+          "Goose": {
+            "ontology_id": "FOODON_03411253"
+          },
+          "Grape": {
+            "ontology_id": "FOODON_03301123"
+          },
+          "Green onions": {
+            "ontology_id": "FOODON_03411478"
+          },
           "Grosbeak": {},
-          "ground pepper": {},
-          "Gull": {},
-          "Hare": {},
-          "Hazelnut": {},
-          "Hedgehog": {},
+          "ground pepper": {
+            "ontology_id": "FOODON_03301526"
+          },
+          "Gull": {
+            "ontology_id": "FOODON_03413503"
+          },
+          "Hare": {
+            "ontology_id": "FOODON_03412695"
+          },
+          "Hazelnut": {
+            "ontology_id": "FOODON_00002933"
+          },
+          "Hedgehog": {
+            "ontology_id": "FOODON_03414548"
+          },
           "Herb/spice (unspecified)": {},
-          "Heron": {},
-          "Hippopotamidae": {},
-          "Horse": {},
-          "Iguana": {},
+          "Heron": {
+            "ontology_id": "FOODON_00002890"
+          },
+          "Hippopotamidae": {
+            "ontology_id": "NCBITAXON_9831"
+          },
+          "Horse": {
+            "ontology_id": "FOODON_03411229"
+          },
+          "Iguana": {
+            "ontology_id": "FOODON_03412701"
+          },
           "Jaguar": {},
-          "Kangaroo": {},
+          "Kangaroo": {
+            "ontology_id": "FOODON_03412092"
+          },
           "Komodo Dragon": {},
           "Lapine": {},
-          "Lettuce": {},
+          "Lettuce": {
+            "ontology_id": "FOODON_00001998"
+          },
           "Lion": {},
-          "Lizard": {},
+          "Lizard": {
+            "ontology_id": "FOODON_03412293"
+          },
           "Marsupial": {},
-          "Mink": {},
-          "Mint": {},
+          "Mink": {
+            "ontology_id": "FOODON_00002723"
+          },
+          "Mint": {
+            "ontology_id": "FOODON_00002432"
+          },
           "Mixed": {},
           "Mongoose": {},
-          "Mouse": {},
-          "Mushrooms": {},
-          "Mussel": {},
+          "Mouse": {
+            "ontology_id": "NCIT_C14238"
+          },
+          "Mushrooms": {
+            "ontology_id": "FOODON_00001287"
+          },
+          "Mussel": {
+            "ontology_id": "FOODON_03411223"
+          },
           "n/a": {},
           "Not Available": {},
-          "Octopus": {},
-          "Opossum": {},
-          "Oregano": {},
+          "Octopus": {
+            "ontology_id": "FOODON_03411514"
+          },
+          "Opossum": {
+            "ontology_id": "FOODON_03411450"
+          },
+          "Oregano": {
+            "ontology_id": "FOODON_03301482"
+          },
           "Other": {},
-          "Otter": {},
-          "Ovine": {},
-          "Owl": {},
-          "Oyster": {},
-          "Parrot": {},
-          "Parsley": {},
-          "Partridge": {},
+          "Otter": {
+            "ontology_id": "CURATION_0001394"
+          },
+          "Ovine": {
+            "ontology_id": "FOODON_03411183"
+          },
+          "Owl": {
+            "ontology_id": "NCBITAXON_30458"
+          },
+          "Oyster": {
+            "ontology_id": "FOODON_03411224"
+          },
+          "Parrot": {
+            "ontology_id": "FOODON_00002726"
+          },
+          "Parsley": {
+            "ontology_id": "FOODON_00002942"
+          },
+          "Partridge": {
+            "ontology_id": "FOODON_03411382"
+          },
           "Pea sprouts": {},
-          "Peanut Butter": {},
-          "Pepper": {},
-          "Perdrix": {},
-          "Pheasant": {},
+          "Peanut Butter": {
+            "ontology_id": "FOODON_03306867"
+          },
+          "Pepper": {
+            "ontology_id": "FOODON_00001649"
+          },
+          "Perdrix": {
+            "ontology_id": "FOODON_03411382"
+          },
+          "Pheasant": {
+            "ontology_id": "FOODON_03411460"
+          },
           "Pickerel": {},
-          "Pig": {},
-          "Pigeon": {},
-          "Pine Siskin": {},
+          "Pig": {
+            "ontology_id": "FOODON_03411136"
+          },
+          "Pigeon": {
+            "ontology_id": "FOODON_03411304"
+          },
+          "Pine Siskin": {
+            "ontology_id": "CURATION_0000439"
+          },
           "Pony": {},
           "Porcupine": {},
-          "Porpoise": {},
-          "Primate": {},
-          "Quail": {},
-          "Rabbit": {},
-          "Raccoon": {},
-          "Rat": {},
-          "Ratite": {},
+          "Porpoise": {
+            "ontology_id": "FOODON_03413364"
+          },
+          "Primate": {
+            "ontology_id": "NCBITAXON_9443"
+          },
+          "Quail": {
+            "ontology_id": "FOODON_03411346"
+          },
+          "Rabbit": {
+            "ontology_id": "FOODON_03411323"
+          },
+          "Raccoon": {
+            "ontology_id": "FOODON_03411461"
+          },
+          "Rat": {
+            "ontology_id": "FOODON_03414848"
+          },
+          "Ratite": {
+            "ontology_id": "FOODON_03414362"
+          },
           "Raven": {},
-          "Red Deer": {},
+          "Red Deer": {
+            "ontology_id": "FOODON_03414371"
+          },
           "Redpoll": {},
-          "Reptile": {},
-          "Rhea": {},
+          "Reptile": {
+            "ontology_id": "FOODON_03411625"
+          },
+          "Rhea": {
+            "ontology_id": "FOODON_03414556"
+          },
           "Robin": {},
-          "Rodent": {},
-          "Sage": {},
-          "Salmon": {},
-          "Scallop": {},
-          "Sea Otter": {},
-          "Sea Snail": {},
+          "Rodent": {
+            "ontology_id": "NCBITAXON_9989"
+          },
+          "Sage": {
+            "ontology_id": "FOODON_00002217"
+          },
+          "Salmon": {
+            "ontology_id": "FOODON_00002220"
+          },
+          "Scallop": {
+            "ontology_id": "FOODON_03411489"
+          },
+          "Sea Otter": {
+            "ontology_id": "CURATION_0000157"
+          },
+          "Sea Snail": {
+            "ontology_id": "FOODON_03414639"
+          },
           "Seal": {},
-          "Sesame Seed": {},
-          "Sheep": {},
-          "Shrimp": {},
-          "Skink": {},
+          "Sesame Seed": {
+            "ontology_id": "FOODON_03310306"
+          },
+          "Sheep": {
+            "ontology_id": "FOODON_03411183"
+          },
+          "Shrimp": {
+            "ontology_id": "FOODON_03411237"
+          },
+          "Skink": {
+            "ontology_id": "FOODON_03412293"
+          },
           "Skunk": {},
-          "Snake": {},
+          "Snake": {
+            "ontology_id": "FOODON_03411295"
+          },
           "Sparrow": {},
-          "Spinach": {},
+          "Spinach": {
+            "ontology_id": "FOODON_03301716"
+          },
           "Spotted Hyena": {},
-          "Sprouts": {},
-          "Squid": {},
-          "Squirrel": {},
+          "Sprouts": {
+            "ontology_id": "FOODON_03420183"
+          },
+          "Squid": {
+            "ontology_id": "FOODON_03411205"
+          },
+          "Squirrel": {
+            "ontology_id": "FOODON_03411389"
+          },
           "Stripped Hyena": {},
           "Swan": {},
-          "Tantalus Monkey": {},
-          "Tilapia": {},
-          "Tomato": {},
-          "Tortoise": {},
-          "Trout": {},
-          "Turkey": {},
-          "Turtle": {},
+          "Tantalus Monkey": {
+            "ontology_id": "FOODON_03412439"
+          },
+          "Tilapia": {
+            "ontology_id": "FOODON_03412434"
+          },
+          "Tomato": {
+            "ontology_id": "FOODON_03309927"
+          },
+          "Tortoise": {
+            "ontology_id": "FOODON_00000074"
+          },
+          "Trout": {
+            "ontology_id": "FOODON_03411258"
+          },
+          "Turkey": {
+            "ontology_id": "FOODON_03414166"
+          },
+          "Turtle": {
+            "ontology_id": "FOODON_03411242"
+          },
           "Unknown": {},
-          "Unspecified Bird": {},
-          "Unspecified Fish": {},
-          "Unspecified Primate": {},
-          "Unspecified Reptile": {},
-          "Unspecified Rodent": {},
+          "Unspecified Bird": {
+            "ontology_id": "FOODON_00002616"
+          },
+          "Unspecified Fish": {
+            "ontology_id": "FOODON_03411222"
+          },
+          "Unspecified Primate": {
+            "ontology_id": "NCBITAXON_9443"
+          },
+          "Unspecified Reptile": {
+            "ontology_id": "FOODON_03411625"
+          },
+          "Unspecified Rodent": {
+            "ontology_id": "NCBITAXON_9989"
+          },
           "Vulture": {},
           "Wallnut": {},
-          "Water Dragon": {},
-          "White Fish": {},
-          "Wild Ruminant": {},
+          "Water Dragon": {
+            "ontology_id": "CHEBI_15377"
+          },
+          "White Fish": {
+            "ontology_id": "FOODON_00003281"
+          },
+          "Wild Ruminant": {
+            "ontology_id": "FOODON_03530153"
+          },
           "Wombat": {},
           "Woodpecker": {},
-          "Zebra": {}
+          "Zebra": {
+            "ontology_id": "FOODON_03412097"
+          }
         }
       },
       {
@@ -1728,6 +2057,7 @@ var DATA = [
           "0": {},
           "0.5": {},
           "ANIMAL": {
+            "ontology_id": "FOODON_00003004",
             "exportField": {
               "GRDI": [
                 {
@@ -1737,6 +2067,7 @@ var DATA = [
             }
           },
           "ENVIRONMENT": {
+            "ontology_id": "ENVO_01000254",
             "exportField": {
               "GRDI": [
                 {
@@ -1749,6 +2080,7 @@ var DATA = [
             }
           },
           "FOOD": {
+            "ontology_id": "CHEBI_33290",
             "exportField": {
               "GRDI": [
                 {
@@ -1758,6 +2090,7 @@ var DATA = [
             }
           },
           "HUMAN": {
+            "ontology_id": "NCBITAXON_9606",
             "exportField": {
               "GRDI": [
                 {
@@ -1798,6 +2131,7 @@ var DATA = [
           "<=8": {},
           "<n/a>": {},
           "Amphibian": {
+            "ontology_id": "FOODON_03411624",
             "exportField": {
               "GRDI": [
                 {
@@ -1807,6 +2141,7 @@ var DATA = [
             }
           },
           "Aquatic Mammal": {
+            "ontology_id": "FOODON_03411134",
             "exportField": {
               "GRDI": [
                 {
@@ -1816,6 +2151,7 @@ var DATA = [
             }
           },
           "Armadillo": {
+            "ontology_id": "FOODON_03411626",
             "exportField": {
               "GRDI": [
                 {
@@ -1825,6 +2161,7 @@ var DATA = [
             }
           },
           "Avian": {
+            "ontology_id": "FOODON_00002616",
             "exportField": {
               "GRDI": [
                 {
@@ -1834,6 +2171,7 @@ var DATA = [
             }
           },
           "Bat": {
+            "ontology_id": "CURATION_0001601",
             "exportField": {
               "GRDI": [
                 {
@@ -1843,6 +2181,7 @@ var DATA = [
             }
           },
           "Biosolids": {
+            "ontology_id": "ENVO_00002059",
             "exportField": {
               "GRDI": [
                 {
@@ -1852,6 +2191,7 @@ var DATA = [
             }
           },
           "Bovine": {
+            "ontology_id": "FOODON_03414374",
             "exportField": {
               "GRDI": [
                 {
@@ -1861,6 +2201,7 @@ var DATA = [
             }
           },
           "Building": {
+            "ontology_id": "ENVO_00000073",
             "exportField": {
               "GRDI": [
                 {
@@ -1870,6 +2211,7 @@ var DATA = [
             }
           },
           "Camelid": {
+            "ontology_id": "FOODON_03412103",
             "exportField": {
               "GRDI": [
                 {
@@ -1879,6 +2221,7 @@ var DATA = [
             }
           },
           "Canine": {
+            "ontology_id": "FOODON_03414847",
             "exportField": {
               "GRDI": [
                 {
@@ -1888,6 +2231,7 @@ var DATA = [
             }
           },
           "Caprine": {
+            "ontology_id": "FOODON_03411328",
             "exportField": {
               "GRDI": [
                 {
@@ -1906,6 +2250,7 @@ var DATA = [
             }
           },
           "Cereal": {
+            "ontology_id": "FOODON_00001709",
             "exportField": {
               "GRDI": [
                 {
@@ -1924,6 +2269,7 @@ var DATA = [
             }
           },
           "Cervid": {
+            "ontology_id": "FOODON_03411500",
             "exportField": {
               "GRDI": [
                 {
@@ -1933,6 +2279,7 @@ var DATA = [
             }
           },
           "Compost": {
+            "ontology_id": "CURATION_0001527",
             "exportField": {
               "GRDI": [
                 {
@@ -1960,6 +2307,7 @@ var DATA = [
             }
           },
           "Crustacean": {
+            "ontology_id": "FOODON_03411374",
             "exportField": {
               "GRDI": [
                 {
@@ -1969,6 +2317,7 @@ var DATA = [
             }
           },
           "Dairy": {
+            "ontology_id": "ENVO_00003862",
             "exportField": {
               "GRDI": [
                 {
@@ -1978,6 +2327,7 @@ var DATA = [
             }
           },
           "Dust": {
+            "ontology_id": "ENVO_00002008",
             "exportField": {
               "GRDI": [
                 {
@@ -1987,6 +2337,7 @@ var DATA = [
             }
           },
           "Egg": {
+            "ontology_id": "FOODON_00001274",
             "exportField": {
               "GRDI": [
                 {
@@ -1996,6 +2347,7 @@ var DATA = [
             }
           },
           "Elephant": {
+            "ontology_id": "FOODON_03412129",
             "exportField": {
               "GRDI": [
                 {
@@ -2005,6 +2357,7 @@ var DATA = [
             }
           },
           "Equine": {
+            "ontology_id": "CURATION_0001431",
             "exportField": {
               "GRDI": [
                 {
@@ -2014,6 +2367,7 @@ var DATA = [
             }
           },
           "Equipment": {
+            "ontology_id": "CURATION_0000348",
             "exportField": {
               "GRDI": [
                 {
@@ -2024,6 +2378,7 @@ var DATA = [
           },
           "ERROR": {},
           "Feed and Ingredients": {
+            "ontology_id": "FOODON_03309997",
             "exportField": {
               "GRDI": [
                 {
@@ -2033,6 +2388,7 @@ var DATA = [
             }
           },
           "Feline": {
+            "ontology_id": "NCIT_C14191",
             "exportField": {
               "GRDI": [
                 {
@@ -2042,6 +2398,7 @@ var DATA = [
             }
           },
           "Ferret": {
+            "ontology_id": "CURATION_0001411",
             "exportField": {
               "GRDI": [
                 {
@@ -2051,6 +2408,7 @@ var DATA = [
             }
           },
           "Fertilizer": {
+            "ontology_id": "CHEBI_33287",
             "exportField": {
               "GRDI": [
                 {
@@ -2060,6 +2418,7 @@ var DATA = [
             }
           },
           "Fish": {
+            "ontology_id": "FOODON_03411222",
             "exportField": {
               "GRDI": [
                 {
@@ -2069,6 +2428,7 @@ var DATA = [
             }
           },
           "Food": {
+            "ontology_id": "CHEBI_33290",
             "exportField": {
               "GRDI": [
                 {
@@ -2078,6 +2438,7 @@ var DATA = [
             }
           },
           "Fruit": {
+            "ontology_id": "PO_0009001",
             "exportField": {
               "GRDI": [
                 {
@@ -2087,6 +2448,7 @@ var DATA = [
             }
           },
           "Fruits and Vegetables": {
+            "ontology_id": "FOODON_00002141",
             "exportField": {
               "GRDI": [
                 {
@@ -2115,6 +2477,7 @@ var DATA = [
             }
           },
           "Hippopotamidae": {
+            "ontology_id": "NCBITAXON_9831",
             "exportField": {
               "GRDI": [
                 {
@@ -2133,6 +2496,7 @@ var DATA = [
             }
           },
           "Litter/Manure": {
+            "ontology_id": "CURATION_0001446",
             "exportField": {
               "GRDI": [
                 {
@@ -2160,6 +2524,7 @@ var DATA = [
             }
           },
           "Meat": {
+            "ontology_id": "FOODON_00001006",
             "exportField": {
               "GRDI": [
                 {
@@ -2178,6 +2543,7 @@ var DATA = [
             }
           },
           "Mink": {
+            "ontology_id": "FOODON_00002723",
             "exportField": {
               "GRDI": [
                 {
@@ -2187,6 +2553,7 @@ var DATA = [
             }
           },
           "Mixed food": {
+            "ontology_id": "CHEBI_33290",
             "exportField": {
               "GRDI": [
                 {
@@ -2196,6 +2563,7 @@ var DATA = [
             }
           },
           "Mixed Food/Meat": {
+            "ontology_id": "FOODON_03315600",
             "exportField": {
               "GRDI": [
                 {
@@ -2205,6 +2573,7 @@ var DATA = [
             }
           },
           "Mollusk": {
+            "ontology_id": "FOODON_03412112",
             "exportField": {
               "GRDI": [
                 {
@@ -2241,6 +2610,7 @@ var DATA = [
             }
           },
           "Ovine": {
+            "ontology_id": "FOODON_03411183",
             "exportField": {
               "GRDI": [
                 {
@@ -2259,6 +2629,7 @@ var DATA = [
             }
           },
           "Porcine": {
+            "ontology_id": "FOODON_03411136",
             "exportField": {
               "GRDI": [
                 {
@@ -2268,6 +2639,7 @@ var DATA = [
             }
           },
           "Primate": {
+            "ontology_id": "NCBITAXON_9443",
             "exportField": {
               "GRDI": [
                 {
@@ -2277,6 +2649,7 @@ var DATA = [
             }
           },
           "Raccoon": {
+            "ontology_id": "FOODON_03411461",
             "exportField": {
               "GRDI": [
                 {
@@ -2286,6 +2659,7 @@ var DATA = [
             }
           },
           "Reptile": {
+            "ontology_id": "FOODON_03411625",
             "exportField": {
               "GRDI": [
                 {
@@ -2295,6 +2669,7 @@ var DATA = [
             }
           },
           "Rodent": {
+            "ontology_id": "NCBITAXON_9989",
             "exportField": {
               "GRDI": [
                 {
@@ -2304,6 +2679,7 @@ var DATA = [
             }
           },
           "Sewage": {
+            "ontology_id": "ENVO_00002018",
             "exportField": {
               "GRDI": [
                 {
@@ -2313,6 +2689,7 @@ var DATA = [
             }
           },
           "Soil": {
+            "ontology_id": "ENVO_00001998",
             "exportField": {
               "GRDI": [
                 {
@@ -2322,6 +2699,7 @@ var DATA = [
             }
           },
           "Transportation Supplies": {
+            "ontology_id": "ENVO_02000125",
             "exportField": {
               "GRDI": [
                 {
@@ -2340,6 +2718,7 @@ var DATA = [
             }
           },
           "Turkey": {
+            "ontology_id": "FOODON_03414166",
             "exportField": {
               "GRDI": [
                 {
@@ -2358,6 +2737,7 @@ var DATA = [
             }
           },
           "Unknown Food": {
+            "ontology_id": "CHEBI_33290",
             "exportField": {
               "GRDI": [
                 {
@@ -2368,6 +2748,7 @@ var DATA = [
           },
           "Unspecified": {},
           "Unspecified Animal": {
+            "ontology_id": "FOODON_00003004",
             "exportField": {
               "GRDI": [
                 {
@@ -2386,6 +2767,7 @@ var DATA = [
             }
           },
           "Unspecified Food": {
+            "ontology_id": "CURATION_0001610",
             "exportField": {
               "GRDI": [
                 {
@@ -2394,7 +2776,9 @@ var DATA = [
               ]
             }
           },
-          "Unspecified Product": {},
+          "Unspecified Product": {
+            "ontology_id": "CHEBI_33290"
+          },
           "Ursine": {
             "exportField": {
               "GRDI": [
@@ -2438,7 +2822,9 @@ var DATA = [
         "guidance": "",
         "examples": "",
         "schema:ItemList": {
-          "<=16": {},
+          "<=16": {
+            "ontology_id": "CHEBI_15377"
+          },
           "Beef": {
             "exportField": {
               "GRDI": [
@@ -2449,6 +2835,7 @@ var DATA = [
             }
           },
           "Broiler": {
+            "ontology_id": "FOODON_00001041",
             "exportField": {
               "GRDI": [
                 {
@@ -2458,6 +2845,7 @@ var DATA = [
             }
           },
           "Dairy": {
+            "ontology_id": "FOODON_03411198",
             "exportField": {
               "GRDI": [
                 {
@@ -2466,7 +2854,9 @@ var DATA = [
               ]
             }
           },
-          "Domestic/Farmed": {},
+          "Domestic/Farmed": {
+            "ontology_id": "ENVO_00003862"
+          },
           "Egg": {
             "exportField": {
               "GRDI": [
@@ -2477,6 +2867,7 @@ var DATA = [
             }
           },
           "Laboratory": {
+            "ontology_id": "FOODON_00001274",
             "exportField": {
               "GRDI": [
                 {
@@ -2486,6 +2877,7 @@ var DATA = [
             }
           },
           "Meat": {
+            "ontology_id": "NCIT_C37984",
             "exportField": {
               "GRDI": [
                 {
@@ -2495,6 +2887,7 @@ var DATA = [
             }
           },
           "Mutton": {
+            "ontology_id": "FOODON_00001006",
             "exportField": {
               "GRDI": [
                 {
@@ -2504,6 +2897,7 @@ var DATA = [
             }
           },
           "Pet": {
+            "ontology_id": "FOODON_00002912",
             "exportField": {
               "GRDI": [
                 {
@@ -2522,6 +2916,7 @@ var DATA = [
             }
           },
           "Red Veal": {
+            "ontology_id": "ENVO_00010625",
             "exportField": {
               "GRDI": [
                 {
@@ -2531,6 +2926,7 @@ var DATA = [
             }
           },
           "Unknown": {
+            "ontology_id": "FOODON_00003083",
             "exportField": {
               "GRDI": [
                 {
@@ -2549,6 +2945,7 @@ var DATA = [
             }
           },
           "White Veal": {
+            "ontology_id": "FOODON_00003083",
             "exportField": {
               "GRDI": [
                 {
@@ -2557,7 +2954,9 @@ var DATA = [
               ]
             }
           },
-          "Wild": {}
+          "Wild": {
+            "ontology_id": "FOODON_00003083"
+          }
         }
       },
       {
@@ -2574,10 +2973,13 @@ var DATA = [
         "guidance": "",
         "examples": "",
         "schema:ItemList": {
-          "2": {},
+          "2": {
+            "ontology_id": "FOODON_03530153"
+          },
           "<=32": {},
           "Aliquote / Portion": {},
           "Blood": {
+            "ontology_id": "CURATION_0000508",
             "exportField": {
               "GRDI": [
                 {
@@ -2587,6 +2989,7 @@ var DATA = [
             }
           },
           "Blood Meal": {
+            "ontology_id": "UBERON_0000178",
             "exportField": {
               "GRDI": [
                 {
@@ -2596,6 +2999,7 @@ var DATA = [
             }
           },
           "Body Fluid/Excretion": {
+            "ontology_id": "FOODON_00001564",
             "exportField": {
               "GRDI": [
                 {
@@ -2613,8 +3017,11 @@ var DATA = [
               ]
             }
           },
-          "Check Sample": {},
+          "Check Sample": {
+            "ontology_id": "UBERON_0008979"
+          },
           "Contact plate": {
+            "ontology_id": "SEP_00042",
             "exportField": {
               "GRDI": [
                 {
@@ -2625,6 +3032,7 @@ var DATA = [
           },
           "Culture": {},
           "Dust": {
+            "ontology_id": "CURATION_0000488",
             "exportField": {
               "GRDI": [
                 {
@@ -2634,6 +3042,7 @@ var DATA = [
             }
           },
           "Egg": {
+            "ontology_id": "ENVO_00002008",
             "exportField": {
               "GRDI": [
                 {
@@ -2642,7 +3051,9 @@ var DATA = [
               ]
             }
           },
-          "Environment (Animal)": {},
+          "Environment (Animal)": {
+            "ontology_id": "FOODON_00001274"
+          },
           "Environmental": {
             "exportField": {
               "GRDI": [
@@ -2656,6 +3067,7 @@ var DATA = [
             }
           },
           "Feces": {
+            "ontology_id": "CURATION_0001610",
             "exportField": {
               "GRDI": [
                 {
@@ -2665,6 +3077,7 @@ var DATA = [
             }
           },
           "Fetus/Embryo": {
+            "ontology_id": "UBERON_0001988",
             "exportField": {
               "GRDI": [
                 {
@@ -2683,6 +3096,7 @@ var DATA = [
             }
           },
           "Organ/Tissue": {
+            "ontology_id": "UBERON_0000062",
             "exportField": {
               "GRDI": [
                 {
@@ -2692,8 +3106,11 @@ var DATA = [
             }
           },
           "Proficiency Isolate": {},
-          "Reference Culture": {},
+          "Reference Culture": {
+            "ontology_id": "NCIT_C53471"
+          },
           "Rinse": {
+            "ontology_id": "CURATION_0000488",
             "exportField": {
               "GRDI": [
                 {
@@ -2703,6 +3120,7 @@ var DATA = [
             }
           },
           "Septage": {
+            "ontology_id": "CURATION_0001629",
             "exportField": {
               "GRDI": [
                 {
@@ -2721,6 +3139,7 @@ var DATA = [
             }
           },
           "Stool": {
+            "ontology_id": "FOODON_03316468",
             "exportField": {
               "GRDI": [
                 {
@@ -2730,6 +3149,7 @@ var DATA = [
             }
           },
           "Swab": {
+            "ontology_id": "UBERON_0001988",
             "exportField": {
               "GRDI": [
                 {
@@ -2739,6 +3159,7 @@ var DATA = [
             }
           },
           "Tissue": {
+            "ontology_id": "NCIT_C17627",
             "exportField": {
               "GRDI": [
                 {
@@ -2747,8 +3168,11 @@ var DATA = [
               ]
             }
           },
-          "Unit (Pre-Packaged)": {},
+          "Unit (Pre-Packaged)": {
+            "ontology_id": "UBERON_0000479"
+          },
           "Unknown": {
+            "ontology_id": "UO_0000000",
             "exportField": {
               "GRDI": [
                 {
@@ -2783,7 +3207,9 @@ var DATA = [
         "guidance": "",
         "examples": "",
         "schema:ItemList": {
-          "0.25": {},
+          "0.25": {
+            "ontology_id": "UBERON_0001088"
+          },
           "<=0.12": {},
           "<=16": {},
           "aansarraysubsource": {},
@@ -2797,6 +3223,7 @@ var DATA = [
             }
           },
           "Abdominal Muscle": {
+            "ontology_id": "UBERON_0000916",
             "exportField": {
               "GRDI": [
                 {
@@ -2806,6 +3233,7 @@ var DATA = [
             }
           },
           "Abomasum": {
+            "ontology_id": "UBERON_0002378",
             "exportField": {
               "GRDI": [
                 {
@@ -2815,6 +3243,7 @@ var DATA = [
             }
           },
           "Abscess": {
+            "ontology_id": "UBERON_0007358",
             "exportField": {
               "GRDI": [
                 {
@@ -2824,6 +3253,7 @@ var DATA = [
             }
           },
           "Air Intake": {
+            "ontology_id": "HP_0025615",
             "exportField": {
               "GRDI": [
                 {
@@ -2833,6 +3263,7 @@ var DATA = [
             }
           },
           "Air Sac": {
+            "ontology_id": "ENVO_00002005",
             "exportField": {
               "GRDI": [
                 {
@@ -2842,6 +3273,7 @@ var DATA = [
             }
           },
           "Anal Gland": {
+            "ontology_id": "UBERON_0009060",
             "exportField": {
               "GRDI": [
                 {
@@ -2860,6 +3292,7 @@ var DATA = [
             }
           },
           "Balut": {
+            "ontology_id": "FOODON_00003004",
             "exportField": {
               "GRDI": [
                 {
@@ -2869,6 +3302,7 @@ var DATA = [
             }
           },
           "Belt": {
+            "ontology_id": "FOODON_03302184",
             "exportField": {
               "GRDI": [
                 {
@@ -2878,6 +3312,7 @@ var DATA = [
             }
           },
           "Bladder": {
+            "ontology_id": "CURATION_0000406",
             "exportField": {
               "GRDI": [
                 {
@@ -2887,6 +3322,7 @@ var DATA = [
             }
           },
           "Blood": {
+            "ontology_id": "CURATION_0000504",
             "exportField": {
               "GRDI": [
                 {
@@ -2896,6 +3332,7 @@ var DATA = [
             }
           },
           "Blood vessel": {
+            "ontology_id": "UBERON_0000178",
             "exportField": {
               "GRDI": [
                 {
@@ -2905,6 +3342,7 @@ var DATA = [
             }
           },
           "Bone": {
+            "ontology_id": "UBERON_0001981",
             "exportField": {
               "GRDI": [
                 {
@@ -2914,6 +3352,7 @@ var DATA = [
             }
           },
           "Bone Marrow": {
+            "ontology_id": "UBERON_0001474",
             "exportField": {
               "GRDI": [
                 {
@@ -2923,6 +3362,7 @@ var DATA = [
             }
           },
           "Bootie": {
+            "ontology_id": "UBERON_0002371",
             "exportField": {
               "GRDI": [
                 {
@@ -2941,6 +3381,7 @@ var DATA = [
             }
           },
           "Brain": {
+            "ontology_id": "CURATION_0000401",
             "exportField": {
               "GRDI": [
                 {
@@ -2950,6 +3391,7 @@ var DATA = [
             }
           },
           "Bursa of Fabricus": {
+            "ontology_id": "UBERON_0000955",
             "exportField": {
               "GRDI": [
                 {
@@ -2959,6 +3401,7 @@ var DATA = [
             }
           },
           "Cages": {
+            "ontology_id": "CURATION_0000502",
             "exportField": {
               "GRDI": [
                 {
@@ -2977,6 +3420,7 @@ var DATA = [
             }
           },
           "Cavity fluid unspecified": {
+            "ontology_id": "CURATION_0000480",
             "exportField": {
               "GRDI": [
                 {
@@ -2986,6 +3430,7 @@ var DATA = [
             }
           },
           "Cecal Content": {
+            "ontology_id": "CURATION_0000480",
             "exportField": {
               "GRDI": [
                 {
@@ -3004,6 +3449,7 @@ var DATA = [
             }
           },
           "Chick Boxes": {
+            "ontology_id": "CURATION_0000495",
             "exportField": {
               "GRDI": [
                 {
@@ -3031,6 +3477,7 @@ var DATA = [
             }
           },
           "Cloacal swab": {
+            "ontology_id": "CURATION_0000491",
             "exportField": {
               "GRDI": [
                 {
@@ -3040,6 +3487,7 @@ var DATA = [
             }
           },
           "Colon": {
+            "ontology_id": "NCIT_C17627",
             "exportField": {
               "GRDI": [
                 {
@@ -3049,6 +3497,7 @@ var DATA = [
             }
           },
           "Confirmation": {
+            "ontology_id": "UBERON_0001155",
             "exportField": {
               "GRDI": [
                 {
@@ -3067,6 +3516,7 @@ var DATA = [
             }
           },
           "Crop": {
+            "ontology_id": "FOODON_03490213",
             "exportField": {
               "GRDI": [
                 {
@@ -3076,6 +3526,7 @@ var DATA = [
             }
           },
           "Culture Plate": {
+            "ontology_id": "UBERON_0007356",
             "exportField": {
               "GRDI": [
                 {
@@ -3094,6 +3545,7 @@ var DATA = [
             }
           },
           "Duodenum": {
+            "ontology_id": "UBERON_0001007",
             "exportField": {
               "GRDI": [
                 {
@@ -3103,6 +3555,7 @@ var DATA = [
             }
           },
           "Dust": {
+            "ontology_id": "UBERON_0002114",
             "exportField": {
               "GRDI": [
                 {
@@ -3112,6 +3565,7 @@ var DATA = [
             }
           },
           "Ear": {
+            "ontology_id": "ENVO_00002008",
             "exportField": {
               "GRDI": [
                 {
@@ -3121,6 +3575,7 @@ var DATA = [
             }
           },
           "Egg Belt": {
+            "ontology_id": "UBERON_0001690",
             "exportField": {
               "GRDI": [
                 {
@@ -3143,11 +3598,11 @@ var DATA = [
               "GRDI": [
                 {
                   "field": "environmental_site",
-                  "value": ":hatchery"
+                  "value": "hatchery"
                 },
                 {
                   "field": "collection_device",
-                  "value": ":swab"
+                  "value": "swab"
                 }
               ]
             }
@@ -3162,6 +3617,7 @@ var DATA = [
             }
           },
           "External Quality Assurance": {
+            "ontology_id": "UBERON_0001043",
             "exportField": {
               "GRDI": [
                 {
@@ -3171,6 +3627,7 @@ var DATA = [
             }
           },
           "Eye": {
+            "ontology_id": "BFO_0000019",
             "exportField": {
               "GRDI": [
                 {
@@ -3180,6 +3637,7 @@ var DATA = [
             }
           },
           "Fan": {
+            "ontology_id": "UBERON_0000970",
             "exportField": {
               "GRDI": [
                 {
@@ -3189,6 +3647,7 @@ var DATA = [
             }
           },
           "Fecal Slurry": {
+            "ontology_id": "ENVO_00000104",
             "exportField": {
               "GRDI": [
                 {
@@ -3198,6 +3657,7 @@ var DATA = [
             }
           },
           "Feces": {
+            "ontology_id": "UBERON_0001988",
             "exportField": {
               "GRDI": [
                 {
@@ -3207,6 +3667,7 @@ var DATA = [
             }
           },
           "Feed": {
+            "ontology_id": "UBERON_0001988",
             "exportField": {
               "GRDI": [
                 {
@@ -3216,6 +3677,7 @@ var DATA = [
             }
           },
           "Feeders and Drinkers": {
+            "ontology_id": "FOODON_03309997",
             "exportField": {
               "GRDI": [
                 {
@@ -3225,6 +3687,7 @@ var DATA = [
             }
           },
           "Fetal Tissue": {
+            "ontology_id": "CURATION_0000419",
             "exportField": {
               "GRDI": [
                 {
@@ -3243,6 +3706,7 @@ var DATA = [
             }
           },
           "Floor": {
+            "ontology_id": "CURATION_0001488",
             "exportField": {
               "GRDI": [
                 {
@@ -3252,6 +3716,7 @@ var DATA = [
             }
           },
           "Fluff": {
+            "ontology_id": "CURATION_0000335",
             "exportField": {
               "GRDI": [
                 {
@@ -3270,6 +3735,7 @@ var DATA = [
             }
           },
           "Foot": {
+            "ontology_id": "ENVO_01001873",
             "exportField": {
               "GRDI": [
                 {
@@ -3279,6 +3745,7 @@ var DATA = [
             }
           },
           "Gall Bladder": {
+            "ontology_id": "UO_0010013",
             "exportField": {
               "GRDI": [
                 {
@@ -3288,6 +3755,7 @@ var DATA = [
             }
           },
           "Gallbladder": {
+            "ontology_id": "UBERON_0002110",
             "exportField": {
               "GRDI": [
                 {
@@ -3297,6 +3765,7 @@ var DATA = [
             }
           },
           "Ganglion": {
+            "ontology_id": "UBERON_0002110",
             "exportField": {
               "GRDI": [
                 {
@@ -3306,6 +3775,7 @@ var DATA = [
             }
           },
           "Gizzard": {
+            "ontology_id": "UBERON_0000045",
             "exportField": {
               "GRDI": [
                 {
@@ -3315,6 +3785,7 @@ var DATA = [
             }
           },
           "Growth / lesion (unspecified tissue)": {
+            "ontology_id": "UBERON_0005052",
             "exportField": {
               "GRDI": [
                 {
@@ -3342,6 +3813,7 @@ var DATA = [
             }
           },
           "Ileum": {
+            "ontology_id": "UBERON_0000948",
             "exportField": {
               "GRDI": [
                 {
@@ -3350,9 +3822,14 @@ var DATA = [
               ]
             }
           },
-          "In-House": {},
-          "Inter-Lab Exchange": {},
+          "In-House": {
+            "ontology_id": "UBERON_0002116"
+          },
+          "Inter-Lab Exchange": {
+            "ontology_id": "ENVO_01000417"
+          },
           "Intestinal Contents": {
+            "ontology_id": "NCIT_C37984",
             "exportField": {
               "GRDI": [
                 {
@@ -3371,6 +3848,7 @@ var DATA = [
             }
           },
           "Jejunum": {
+            "ontology_id": "UBERON_0000160",
             "exportField": {
               "GRDI": [
                 {
@@ -3380,6 +3858,7 @@ var DATA = [
             }
           },
           "Joint": {
+            "ontology_id": "UBERON_0002115",
             "exportField": {
               "GRDI": [
                 {
@@ -3389,6 +3868,7 @@ var DATA = [
             }
           },
           "Joint Fluid": {
+            "ontology_id": "UBERON_0004905",
             "exportField": {
               "GRDI": [
                 {
@@ -3398,6 +3878,7 @@ var DATA = [
             }
           },
           "Kidney": {
+            "ontology_id": "UBERON_0001090",
             "exportField": {
               "GRDI": [
                 {
@@ -3407,6 +3888,7 @@ var DATA = [
             }
           },
           "Levage/peritoneal": {
+            "ontology_id": "UBERON_0002113",
             "exportField": {
               "GRDI": [
                 {
@@ -3416,6 +3898,7 @@ var DATA = [
             }
           },
           "Levage/Tracheal": {
+            "ontology_id": "CURATION_0000463",
             "exportField": {
               "GRDI": [
                 {
@@ -3434,6 +3917,7 @@ var DATA = [
             }
           },
           "Litter/Manure": {
+            "ontology_id": "CURATION_0001446",
             "exportField": {
               "GRDI": [
                 {
@@ -3443,6 +3927,7 @@ var DATA = [
             }
           },
           "Live Haul Truck": {
+            "ontology_id": "CURATION_0001446",
             "exportField": {
               "GRDI": [
                 {
@@ -3452,6 +3937,7 @@ var DATA = [
             }
           },
           "Live Haul Truck/Trailer": {
+            "ontology_id": "ENVO_01000602",
             "exportField": {
               "GRDI": [
                 {
@@ -3461,6 +3947,7 @@ var DATA = [
             }
           },
           "Liver": {
+            "ontology_id": "ENVO_01000602",
             "exportField": {
               "GRDI": [
                 {
@@ -3470,6 +3957,7 @@ var DATA = [
             }
           },
           "Lung": {
+            "ontology_id": "UBERON_0002107",
             "exportField": {
               "GRDI": [
                 {
@@ -3479,6 +3967,7 @@ var DATA = [
             }
           },
           "Lymph Node": {
+            "ontology_id": "UBERON_0002048",
             "exportField": {
               "GRDI": [
                 {
@@ -3488,6 +3977,7 @@ var DATA = [
             }
           },
           "Manure Pit": {
+            "ontology_id": "UBERON_0000029",
             "exportField": {
               "GRDI": [
                 {
@@ -3497,6 +3987,7 @@ var DATA = [
             }
           },
           "Meconium": {
+            "ontology_id": "ENVO_01001872",
             "exportField": {
               "GRDI": [
                 {
@@ -3506,6 +3997,7 @@ var DATA = [
             }
           },
           "Mesenteric Lymph Node": {
+            "ontology_id": "UBERON_0007109",
             "exportField": {
               "GRDI": [
                 {
@@ -3515,6 +4007,7 @@ var DATA = [
             }
           },
           "Milk/Colostrum": {
+            "ontology_id": "UBERON_0002509",
             "exportField": {
               "GRDI": [
                 {
@@ -3542,6 +4035,7 @@ var DATA = [
             }
           },
           "Mixed Tissues": {
+            "ontology_id": "UBERON_0000062",
             "exportField": {
               "GRDI": [
                 {
@@ -3551,6 +4045,7 @@ var DATA = [
             }
           },
           "Mouth": {
+            "ontology_id": "UBERON_0000479",
             "exportField": {
               "GRDI": [
                 {
@@ -3560,6 +4055,7 @@ var DATA = [
             }
           },
           "Mucous membrane (gut)": {
+            "ontology_id": "UBERON_0000165",
             "exportField": {
               "GRDI": [
                 {
@@ -3578,6 +4074,7 @@ var DATA = [
             }
           },
           "Mucus": {
+            "ontology_id": "UBERON_0000344",
             "exportField": {
               "GRDI": [
                 {
@@ -3587,6 +4084,7 @@ var DATA = [
             }
           },
           "Muscle": {
+            "ontology_id": "UBERON_0000912",
             "exportField": {
               "GRDI": [
                 {
@@ -3596,6 +4094,7 @@ var DATA = [
             }
           },
           "Muscle/Meat": {
+            "ontology_id": "CURATION_0001428",
             "exportField": {
               "GRDI": [
                 {
@@ -3614,6 +4113,7 @@ var DATA = [
             }
           },
           "Nasal/Naries": {
+            "ontology_id": "UBERON_0035612",
             "exportField": {
               "GRDI": [
                 {
@@ -3623,6 +4123,7 @@ var DATA = [
             }
           },
           "Organ Unspecified": {
+            "ontology_id": "CURATION_0000466",
             "exportField": {
               "GRDI": [
                 {
@@ -3632,6 +4133,7 @@ var DATA = [
             }
           },
           "Ovary": {
+            "ontology_id": "UBERON_0000062",
             "exportField": {
               "GRDI": [
                 {
@@ -3641,6 +4143,7 @@ var DATA = [
             }
           },
           "Oviduct": {
+            "ontology_id": "UBERON_0000992",
             "exportField": {
               "GRDI": [
                 {
@@ -3650,6 +4153,7 @@ var DATA = [
             }
           },
           "Pericardium": {
+            "ontology_id": "UBERON_0000993",
             "exportField": {
               "GRDI": [
                 {
@@ -3659,6 +4163,7 @@ var DATA = [
             }
           },
           "Peritoneal Fluid": {
+            "ontology_id": "UBERON_0002407",
             "exportField": {
               "GRDI": [
                 {
@@ -3668,6 +4173,7 @@ var DATA = [
             }
           },
           "Peritoneum": {
+            "ontology_id": "UBERON_0001268",
             "exportField": {
               "GRDI": [
                 {
@@ -3677,6 +4183,7 @@ var DATA = [
             }
           },
           "Placenta": {
+            "ontology_id": "UBERON_0002358",
             "exportField": {
               "GRDI": [
                 {
@@ -3686,6 +4193,7 @@ var DATA = [
             }
           },
           "Pleura": {
+            "ontology_id": "UBERON_0001987",
             "exportField": {
               "GRDI": [
                 {
@@ -3695,6 +4203,7 @@ var DATA = [
             }
           },
           "Plucking Belt": {
+            "ontology_id": "UBERON_0000977",
             "exportField": {
               "GRDI": [
                 {
@@ -3704,6 +4213,7 @@ var DATA = [
             }
           },
           "Plucking Water": {
+            "ontology_id": "CURATION_0000406",
             "exportField": {
               "GRDI": [
                 {
@@ -3713,6 +4223,7 @@ var DATA = [
             }
           },
           "Pooled Feces": {
+            "ontology_id": "CHEBI_15377",
             "exportField": {
               "GRDI": [
                 {
@@ -3731,6 +4242,7 @@ var DATA = [
             }
           },
           "Rectum": {
+            "ontology_id": "CURATION_0000457",
             "exportField": {
               "GRDI": [
                 {
@@ -3739,8 +4251,11 @@ var DATA = [
               ]
             }
           },
-          "Research": {},
+          "Research": {
+            "ontology_id": "UBERON_0001052"
+          },
           "Rinse": {
+            "ontology_id": "CURATION_0001536",
             "exportField": {
               "GRDI": [
                 {
@@ -3750,6 +4265,7 @@ var DATA = [
             }
           },
           "Rumen": {
+            "ontology_id": "CURATION_0001629",
             "exportField": {
               "GRDI": [
                 {
@@ -3759,6 +4275,7 @@ var DATA = [
             }
           },
           "Shell": {
+            "ontology_id": "UBERON_0007365",
             "exportField": {
               "GRDI": [
                 {
@@ -3768,6 +4285,7 @@ var DATA = [
             }
           },
           "Shell egg": {
+            "ontology_id": "UBERON_0006612",
             "exportField": {
               "GRDI": [
                 {
@@ -3777,6 +4295,7 @@ var DATA = [
             }
           },
           "Sinus": {
+            "ontology_id": "UBERON_0005079",
             "exportField": {
               "GRDI": [
                 {
@@ -3786,6 +4305,7 @@ var DATA = [
             }
           },
           "Skin": {
+            "ontology_id": "CURATION_0000455",
             "exportField": {
               "GRDI": [
                 {
@@ -3795,6 +4315,7 @@ var DATA = [
             }
           },
           "Small Intestine": {
+            "ontology_id": "UBERON_0000014",
             "exportField": {
               "GRDI": [
                 {
@@ -3804,6 +4325,7 @@ var DATA = [
             }
           },
           "Soil": {
+            "ontology_id": "UBERON_0002108",
             "exportField": {
               "GRDI": [
                 {
@@ -3813,6 +4335,7 @@ var DATA = [
             }
           },
           "Spinal Cord": {
+            "ontology_id": "ENVO_00001998",
             "exportField": {
               "GRDI": [
                 {
@@ -3822,6 +4345,7 @@ var DATA = [
             }
           },
           "Spleen": {
+            "ontology_id": "UBERON_0002240",
             "exportField": {
               "GRDI": [
                 {
@@ -3831,6 +4355,7 @@ var DATA = [
             }
           },
           "Stall": {
+            "ontology_id": "UBERON_0002106",
             "exportField": {
               "GRDI": [
                 {
@@ -3849,6 +4374,7 @@ var DATA = [
             }
           },
           "Stomach Contents": {
+            "ontology_id": "UBERON_0000945",
             "exportField": {
               "GRDI": [
                 {
@@ -3867,6 +4393,7 @@ var DATA = [
             }
           },
           "Swab (Nasal)": {
+            "ontology_id": "NCIT_C17627",
             "exportField": {
               "GRDI": [
                 {
@@ -3885,6 +4412,7 @@ var DATA = [
             }
           },
           "Swab (Tissue Fluid-Unspecified)": {
+            "ontology_id": "CURATION_0000457",
             "exportField": {
               "GRDI": [
                 {
@@ -3903,6 +4431,7 @@ var DATA = [
             }
           },
           "Thorax": {
+            "ontology_id": "UBERON_0000473",
             "exportField": {
               "GRDI": [
                 {
@@ -3912,6 +4441,7 @@ var DATA = [
             }
           },
           "Trachea": {
+            "ontology_id": "UBERON_0000915",
             "exportField": {
               "GRDI": [
                 {
@@ -3921,6 +4451,7 @@ var DATA = [
             }
           },
           "Unknown organ": {
+            "ontology_id": "UBERON_0003126",
             "exportField": {
               "GRDI": [
                 {
@@ -3930,6 +4461,7 @@ var DATA = [
             }
           },
           "Unspecified Organ/Tissue": {
+            "ontology_id": "UBERON_0000062",
             "exportField": {
               "GRDI": [
                 {
@@ -3948,6 +4480,7 @@ var DATA = [
             }
           },
           "Uterus": {
+            "ontology_id": "UBERON_0001088",
             "exportField": {
               "GRDI": [
                 {
@@ -3957,6 +4490,7 @@ var DATA = [
             }
           },
           "Vagina": {
+            "ontology_id": "UBERON_0000995",
             "exportField": {
               "GRDI": [
                 {
@@ -3966,6 +4500,7 @@ var DATA = [
             }
           },
           "Walls": {
+            "ontology_id": "UBERON_0000996",
             "exportField": {
               "GRDI": [
                 {
@@ -3984,6 +4519,7 @@ var DATA = [
             }
           },
           "Watering Bowl/Equipment": {
+            "ontology_id": "CHEBI_15377",
             "exportField": {
               "GRDI": [
                 {
@@ -4012,6 +4548,7 @@ var DATA = [
             }
           },
           "Yolk": {
+            "ontology_id": "FOODON_03430131",
             "exportField": {
               "GRDI": [
                 {
@@ -4021,6 +4558,7 @@ var DATA = [
             }
           },
           "Yolk Sac": {
+            "ontology_id": "UBERON_2000084",
             "exportField": {
               "GRDI": [
                 {
@@ -4045,7 +4583,9 @@ var DATA = [
         "guidance": "",
         "examples": "",
         "schema:ItemList": {
-          "<=32": {},
+          "<=32": {
+            "ontology_id": "UBERON_0001040"
+          },
           "<n/a>": {},
           ">32": {},
           "Alfalfa Sprouts": {
@@ -4058,6 +4598,7 @@ var DATA = [
             }
           },
           "Almond": {
+            "ontology_id": "FOODON_00002670",
             "exportField": {
               "GRDI": [
                 {
@@ -4067,6 +4608,7 @@ var DATA = [
             }
           },
           "Animal pen": {
+            "ontology_id": "FOODON_03301355",
             "exportField": {
               "GRDI": [
                 {
@@ -4076,6 +4618,7 @@ var DATA = [
             }
           },
           "Artificial wetland": {
+            "ontology_id": "FOODON_00003004",
             "exportField": {
               "GRDI": [
                 {
@@ -4094,6 +4637,7 @@ var DATA = [
             }
           },
           "Basil": {
+            "ontology_id": "FOODON_00002426",
             "exportField": {
               "GRDI": [
                 {
@@ -4103,6 +4647,7 @@ var DATA = [
             }
           },
           "Bean Sprouts": {
+            "ontology_id": "FOODON_00003044",
             "exportField": {
               "GRDI": [
                 {
@@ -4112,6 +4657,7 @@ var DATA = [
             }
           },
           "Biosolid": {
+            "ontology_id": "FOODON_00002576",
             "exportField": {
               "GRDI": [
                 {
@@ -4130,6 +4676,7 @@ var DATA = [
             }
           },
           "Bootie": {
+            "ontology_id": "ENVO_00002044",
             "exportField": {
               "GRDI": [
                 {
@@ -4148,6 +4695,7 @@ var DATA = [
             }
           },
           "Breast": {
+            "ontology_id": "CURATION_0000401",
             "exportField": {
               "GRDI": [
                 {
@@ -4157,6 +4705,7 @@ var DATA = [
             }
           },
           "Breast skinless": {
+            "ontology_id": "UBERON_0000310",
             "exportField": {
               "GRDI": [
                 {
@@ -4166,6 +4715,7 @@ var DATA = [
             }
           },
           "Breast skinless boneless": {
+            "ontology_id": "UBERON_0000310",
             "exportField": {
               "GRDI": [
                 {
@@ -4175,6 +4725,7 @@ var DATA = [
             }
           },
           "Breast with skin": {
+            "ontology_id": "UBERON_0000310",
             "exportField": {
               "GRDI": [
                 {
@@ -4193,6 +4744,7 @@ var DATA = [
             }
           },
           "Bulk Tank": {
+            "ontology_id": "CURATION_0000397",
             "exportField": {
               "GRDI": [
                 {
@@ -4211,6 +4763,7 @@ var DATA = [
             }
           },
           "Carcass (whole)": {
+            "ontology_id": "CURATION_0001383",
             "exportField": {
               "GRDI": [
                 {
@@ -4229,6 +4782,7 @@ var DATA = [
             }
           },
           "Chia Powder": {
+            "ontology_id": "FOODON_00001013",
             "exportField": {
               "GRDI": [
                 {
@@ -4247,6 +4801,7 @@ var DATA = [
             }
           },
           "Chia Sprouts": {
+            "ontology_id": "CURATION_0001385",
             "exportField": {
               "GRDI": [
                 {
@@ -4274,6 +4829,7 @@ var DATA = [
             }
           },
           "Chickpea": {
+            "ontology_id": "UBERON_2001977",
             "exportField": {
               "GRDI": [
                 {
@@ -4283,6 +4839,7 @@ var DATA = [
             }
           },
           "Chili": {
+            "ontology_id": "FOODON_03306811",
             "exportField": {
               "GRDI": [
                 {
@@ -4292,6 +4849,7 @@ var DATA = [
             }
           },
           "Chilli Pepper": {
+            "ontology_id": "FOODON_03301511",
             "exportField": {
               "GRDI": [
                 {
@@ -4301,6 +4859,7 @@ var DATA = [
             }
           },
           "Chives": {
+            "ontology_id": "FOODON_03315873",
             "exportField": {
               "GRDI": [
                 {
@@ -4310,6 +4869,7 @@ var DATA = [
             }
           },
           "Chops": {
+            "ontology_id": "FOODON_03311167",
             "exportField": {
               "GRDI": [
                 {
@@ -4328,6 +4888,7 @@ var DATA = [
             }
           },
           "Compost": {
+            "ontology_id": "FOODON_03303085",
             "exportField": {
               "GRDI": [
                 {
@@ -4337,6 +4898,7 @@ var DATA = [
             }
           },
           "Cooler Line": {
+            "ontology_id": "CURATION_0001527",
             "exportField": {
               "GRDI": [
                 {
@@ -4346,6 +4908,7 @@ var DATA = [
             }
           },
           "Coriander Seeds": {
+            "ontology_id": "SIO_000511",
             "exportField": {
               "GRDI": [
                 {
@@ -4355,6 +4918,7 @@ var DATA = [
             }
           },
           "Coriander-Cumin Powder": {
+            "ontology_id": "PO_0009010",
             "exportField": {
               "GRDI": [
                 {
@@ -4364,6 +4928,7 @@ var DATA = [
             }
           },
           "Cottage": {
+            "ontology_id": "FOODON_00002976",
             "exportField": {
               "GRDI": [
                 {
@@ -4382,6 +4947,7 @@ var DATA = [
             }
           },
           "Curry Leaves": {
+            "ontology_id": "FOODON_03301545",
             "exportField": {
               "GRDI": [
                 {
@@ -4391,6 +4957,7 @@ var DATA = [
             }
           },
           "Curry powder": {
+            "ontology_id": "FOODON_03306648",
             "exportField": {
               "GRDI": [
                 {
@@ -4400,6 +4967,7 @@ var DATA = [
             }
           },
           "Cut": {
+            "ontology_id": "FOODON_03301842",
             "exportField": {
               "GRDI": [
                 {
@@ -4409,6 +4977,7 @@ var DATA = [
             }
           },
           "Dead Haul Truck / Trailer": {
+            "ontology_id": "ENVO_00000474",
             "exportField": {
               "GRDI": [
                 {
@@ -4427,6 +4996,7 @@ var DATA = [
             }
           },
           "Drumstick": {
+            "ontology_id": "FOODON_00001811",
             "exportField": {
               "GRDI": [
                 {
@@ -4436,6 +5006,7 @@ var DATA = [
             }
           },
           "Dumpster": {
+            "ontology_id": "CURATION_0001378",
             "exportField": {
               "GRDI": [
                 {
@@ -4463,6 +5034,7 @@ var DATA = [
             }
           },
           "Egg Belt": {
+            "ontology_id": "FOODON_00001274",
             "exportField": {
               "GRDI": [
                 {
@@ -4481,6 +5053,7 @@ var DATA = [
             }
           },
           "Feed Pans": {
+            "ontology_id": "ENVO_00000104",
             "exportField": {
               "GRDI": [
                 {
@@ -4490,6 +5063,7 @@ var DATA = [
             }
           },
           "Fennel": {
+            "ontology_id": "FOODON_03309997",
             "exportField": {
               "GRDI": [
                 {
@@ -4499,6 +5073,7 @@ var DATA = [
             }
           },
           "Filet": {
+            "ontology_id": "FOODON_03309953",
             "exportField": {
               "GRDI": [
                 {
@@ -4508,6 +5083,7 @@ var DATA = [
             }
           },
           "Flax and Chia Powder": {
+            "ontology_id": "FOODON_03530144",
             "exportField": {
               "GRDI": [
                 {
@@ -4535,6 +5111,7 @@ var DATA = [
             }
           },
           "For Avian": {
+            "ontology_id": "CURATION_0000335",
             "exportField": {
               "GRDI": [
                 {
@@ -4544,6 +5121,7 @@ var DATA = [
             }
           },
           "For Beef Cattle": {
+            "ontology_id": "FOODON_00002616",
             "exportField": {
               "GRDI": [
                 {
@@ -4562,6 +5140,7 @@ var DATA = [
             }
           },
           "For Cattle (Beef)": {
+            "ontology_id": "CURATION_0001354",
             "exportField": {
               "GRDI": [
                 {
@@ -4580,6 +5159,7 @@ var DATA = [
             }
           },
           "For Chicken": {
+            "ontology_id": "FOODON_00002505",
             "exportField": {
               "GRDI": [
                 {
@@ -4589,6 +5169,7 @@ var DATA = [
             }
           },
           "For Dairy Cows": {
+            "ontology_id": "FOODON_03411457",
             "exportField": {
               "GRDI": [
                 {
@@ -4598,6 +5179,7 @@ var DATA = [
             }
           },
           "For Dogs": {
+            "ontology_id": "FOODON_03411201",
             "exportField": {
               "GRDI": [
                 {
@@ -4607,6 +5189,7 @@ var DATA = [
             }
           },
           "For Fish": {
+            "ontology_id": "CURATION_0001351",
             "exportField": {
               "GRDI": [
                 {
@@ -4616,6 +5199,7 @@ var DATA = [
             }
           },
           "For Goats": {
+            "ontology_id": "FOODON_03411222",
             "exportField": {
               "GRDI": [
                 {
@@ -4625,6 +5209,7 @@ var DATA = [
             }
           },
           "For Horse": {
+            "ontology_id": "FOODON_03411328",
             "exportField": {
               "GRDI": [
                 {
@@ -4634,6 +5219,7 @@ var DATA = [
             }
           },
           "For Mink": {
+            "ontology_id": "FOODON_03411229",
             "exportField": {
               "GRDI": [
                 {
@@ -4642,7 +5228,9 @@ var DATA = [
               ]
             }
           },
-          "For Others": {},
+          "For Others": {
+            "ontology_id": "FOODON_00002723"
+          },
           "For Poultry": {
             "exportField": {
               "GRDI": [
@@ -4653,6 +5241,7 @@ var DATA = [
             }
           },
           "For Swine": {
+            "ontology_id": "FOODON_00001131",
             "exportField": {
               "GRDI": [
                 {
@@ -4662,6 +5251,7 @@ var DATA = [
             }
           },
           "For Turkeys": {
+            "ontology_id": "FOODON_03411136",
             "exportField": {
               "GRDI": [
                 {
@@ -4670,7 +5260,9 @@ var DATA = [
               ]
             }
           },
-          "For Unknown": {},
+          "For Unknown": {
+            "ontology_id": "FOODON_03414166"
+          },
           "For Unspecified": {
             "exportField": {
               "GRDI": [
@@ -4690,6 +5282,7 @@ var DATA = [
             }
           },
           "Ginger": {
+            "ontology_id": "FOODON_03301844",
             "exportField": {
               "GRDI": [
                 {
@@ -4699,6 +5292,7 @@ var DATA = [
             }
           },
           "Green Onion": {
+            "ontology_id": "FOODON_00002718",
             "exportField": {
               "GRDI": [
                 {
@@ -4708,6 +5302,7 @@ var DATA = [
             }
           },
           "Ground": {
+            "ontology_id": "FOODON_03411478",
             "exportField": {
               "GRDI": [
                 {
@@ -4744,6 +5339,7 @@ var DATA = [
             }
           },
           "Ground (regular)": {
+            "ontology_id": "FOODON_03430117",
             "exportField": {
               "GRDI": [
                 {
@@ -4762,6 +5358,7 @@ var DATA = [
             }
           },
           "Ham": {
+            "ontology_id": "ENVO_00002041",
             "exportField": {
               "GRDI": [
                 {
@@ -4771,6 +5368,7 @@ var DATA = [
             }
           },
           "Hazelnut / Filbert": {
+            "ontology_id": "FOODON_00002502",
             "exportField": {
               "GRDI": [
                 {
@@ -4807,6 +5405,7 @@ var DATA = [
             }
           },
           "Kale": {
+            "ontology_id": "CURATION_0000309",
             "exportField": {
               "GRDI": [
                 {
@@ -4816,6 +5415,7 @@ var DATA = [
             }
           },
           "Kalonji Whole Seed": {
+            "ontology_id": "FOODON_03304859",
             "exportField": {
               "GRDI": [
                 {
@@ -4843,6 +5443,7 @@ var DATA = [
             }
           },
           "Leg": {
+            "ontology_id": "ENVO_00000020",
             "exportField": {
               "GRDI": [
                 {
@@ -4852,6 +5453,7 @@ var DATA = [
             }
           },
           "Lettuce": {
+            "ontology_id": "UBERON_0000978",
             "exportField": {
               "GRDI": [
                 {
@@ -4861,6 +5463,7 @@ var DATA = [
             }
           },
           "Liquid whole": {
+            "ontology_id": "FOODON_00001998",
             "exportField": {
               "GRDI": [
                 {
@@ -4879,6 +5482,7 @@ var DATA = [
             }
           },
           "Loin center chop non-seasoned": {
+            "ontology_id": "UBERON_0002107",
             "exportField": {
               "GRDI": [
                 {
@@ -4906,6 +5510,7 @@ var DATA = [
             }
           },
           "Milk": {
+            "ontology_id": "FOODON_00001006",
             "exportField": {
               "GRDI": [
                 {
@@ -4915,6 +5520,7 @@ var DATA = [
             }
           },
           "Mint": {
+            "ontology_id": "UBERON_0001913",
             "exportField": {
               "GRDI": [
                 {
@@ -4924,6 +5530,7 @@ var DATA = [
             }
           },
           "Mixed": {
+            "ontology_id": "FOODON_00002432",
             "exportField": {
               "GRDI": [
                 {
@@ -4951,6 +5558,7 @@ var DATA = [
             }
           },
           "Mung Bean Sprouts": {
+            "ontology_id": "FOODON_03420183",
             "exportField": {
               "GRDI": [
                 {
@@ -4969,6 +5577,7 @@ var DATA = [
             }
           },
           "Other": {
+            "ontology_id": "FOODON_03301482",
             "exportField": {
               "GRDI": [
                 {
@@ -4987,6 +5596,7 @@ var DATA = [
             }
           },
           "Other cut (not ground)": {
+            "ontology_id": "FOODON_03411457",
             "exportField": {
               "GRDI": [
                 {
@@ -4996,6 +5606,7 @@ var DATA = [
             }
           },
           "Other variety meats": {
+            "ontology_id": "ENVO_00000474",
             "exportField": {
               "GRDI": [
                 {
@@ -5005,6 +5616,7 @@ var DATA = [
             }
           },
           "Papaya": {
+            "ontology_id": "FOODON_03420218",
             "exportField": {
               "GRDI": [
                 {
@@ -5023,6 +5635,7 @@ var DATA = [
             }
           },
           "Parsley": {
+            "ontology_id": "FOODON_03301105",
             "exportField": {
               "GRDI": [
                 {
@@ -5032,6 +5645,7 @@ var DATA = [
             }
           },
           "Pea Sprouts": {
+            "ontology_id": "FOODON_00002942",
             "exportField": {
               "GRDI": [
                 {
@@ -5050,6 +5664,7 @@ var DATA = [
             }
           },
           "Pepper Powder": {
+            "ontology_id": "FOODON_00001649",
             "exportField": {
               "GRDI": [
                 {
@@ -5068,6 +5683,7 @@ var DATA = [
             }
           },
           "Rasam Powder Spice": {
+            "ontology_id": "FOODON_03311003",
             "exportField": {
               "GRDI": [
                 {
@@ -5086,6 +5702,7 @@ var DATA = [
             }
           },
           "River Surface": {
+            "ontology_id": "ENVO_00000022",
             "exportField": {
               "GRDI": [
                 {
@@ -5114,6 +5731,7 @@ var DATA = [
             }
           },
           "Sausage": {
+            "ontology_id": "ENVO_00000029",
             "exportField": {
               "GRDI": [
                 {
@@ -5123,6 +5741,7 @@ var DATA = [
             }
           },
           "Scallopini": {
+            "ontology_id": "FOODON_03315904",
             "exportField": {
               "GRDI": [
                 {
@@ -5141,6 +5760,7 @@ var DATA = [
             }
           },
           "Sesame Seed": {
+            "ontology_id": "ENVO_00002007",
             "exportField": {
               "GRDI": [
                 {
@@ -5150,6 +5770,7 @@ var DATA = [
             }
           },
           "Shelf / Sill": {
+            "ontology_id": "FOODON_03310306",
             "exportField": {
               "GRDI": [
                 {
@@ -5168,6 +5789,7 @@ var DATA = [
             }
           },
           "Shoulder": {
+            "ontology_id": "FOODON_03411433",
             "exportField": {
               "GRDI": [
                 {
@@ -5177,6 +5799,7 @@ var DATA = [
             }
           },
           "Shoulder Chop": {
+            "ontology_id": "UBERON_0001467",
             "exportField": {
               "GRDI": [
                 {
@@ -5186,6 +5809,7 @@ var DATA = [
             }
           },
           "Shoulder chop non-seasoned": {
+            "ontology_id": "UBERON_0001467",
             "exportField": {
               "GRDI": [
                 {
@@ -5204,6 +5828,7 @@ var DATA = [
             }
           },
           "Soybean": {
+            "ontology_id": "PATO_0000387",
             "exportField": {
               "GRDI": [
                 {
@@ -5213,6 +5838,7 @@ var DATA = [
             }
           },
           "Spinach": {
+            "ontology_id": "FOODON_03301415",
             "exportField": {
               "GRDI": [
                 {
@@ -5222,6 +5848,7 @@ var DATA = [
             }
           },
           "Sprouted Seeds": {
+            "ontology_id": "FOODON_03301716",
             "exportField": {
               "GRDI": [
                 {
@@ -5231,6 +5858,7 @@ var DATA = [
             }
           },
           "Sprouts": {
+            "ontology_id": "FOODON_03420102",
             "exportField": {
               "GRDI": [
                 {
@@ -5240,6 +5868,7 @@ var DATA = [
             }
           },
           "Stall": {
+            "ontology_id": "FOODON_03420183",
             "exportField": {
               "GRDI": [
                 {
@@ -5267,6 +5896,7 @@ var DATA = [
             }
           },
           "Surface - Other": {
+            "ontology_id": "FOODON_00003140",
             "exportField": {
               "GRDI": [
                 {
@@ -5276,6 +5906,7 @@ var DATA = [
             }
           },
           "Surface - River": {
+            "ontology_id": "CURATION_0000247",
             "exportField": {
               "GRDI": [
                 {
@@ -5294,6 +5925,7 @@ var DATA = [
             }
           },
           "Surface Water": {
+            "ontology_id": "CURATION_0000247",
             "exportField": {
               "GRDI": [
                 {
@@ -5303,6 +5935,7 @@ var DATA = [
             }
           },
           "Tenderloin": {
+            "ontology_id": "ENVO_00002042",
             "exportField": {
               "GRDI": [
                 {
@@ -5312,6 +5945,7 @@ var DATA = [
             }
           },
           "Thigh": {
+            "ontology_id": "FOODON_03530217",
             "exportField": {
               "GRDI": [
                 {
@@ -5321,6 +5955,7 @@ var DATA = [
             }
           },
           "Thigh with skin": {
+            "ontology_id": "UBERON_0000376",
             "exportField": {
               "GRDI": [
                 {
@@ -5348,6 +5983,7 @@ var DATA = [
             }
           },
           "Truck/Trailer": {
+            "ontology_id": "ENVO_01000602",
             "exportField": {
               "GRDI": [
                 {
@@ -5357,6 +5993,7 @@ var DATA = [
             }
           },
           "Turmeric": {
+            "ontology_id": "ENVO_01000602",
             "exportField": {
               "GRDI": [
                 {
@@ -5365,7 +6002,9 @@ var DATA = [
               ]
             }
           },
-          "Unknown": {},
+          "Unknown": {
+            "ontology_id": "FOODON_03310841"
+          },
           "Unknown Surface": {
             "exportField": {
               "GRDI": [
@@ -5375,7 +6014,9 @@ var DATA = [
               ]
             }
           },
-          "Unspecified": {},
+          "Unspecified": {
+            "ontology_id": "CURATION_0000247"
+          },
           "Upper Thigh": {
             "exportField": {
               "GRDI": [
@@ -5386,6 +6027,7 @@ var DATA = [
             }
           },
           "Upper Thigh with Skin": {
+            "ontology_id": "UBERON_0000376",
             "exportField": {
               "GRDI": [
                 {
@@ -5413,6 +6055,7 @@ var DATA = [
             }
           },
           "Waste Water": {
+            "ontology_id": "FOODON_03315233",
             "exportField": {
               "GRDI": [
                 {
@@ -5422,6 +6065,7 @@ var DATA = [
             }
           },
           "Watering bowl/equipment": {
+            "ontology_id": "ENVO_00002001",
             "exportField": {
               "GRDI": [
                 {
@@ -5440,6 +6084,7 @@ var DATA = [
             }
           },
           "Wings": {
+            "ontology_id": "FOODON_03430131",
             "exportField": {
               "GRDI": [
                 {
@@ -5449,6 +6094,7 @@ var DATA = [
             }
           },
           "Working Surface": {
+            "ontology_id": "UBERON_0000023",
             "exportField": {
               "GRDI": [
                 {
@@ -5458,6 +6104,7 @@ var DATA = [
             }
           },
           "Yeast": {
+            "ontology_id": "CURATION_0000247",
             "exportField": {
               "GRDI": [
                 {
