@@ -6,7 +6,7 @@
  * @param {Object} data See `data.js`.
  * @param {Object} xlsx SheetJS variable.
  */
-var exportIRIDA = (baseName, hot, data, xlsx, fileType) => {
+var exportVirusSeq_Portal = (baseName, hot, data, xlsx, fileType) => {
   // Create an export table with template's headers (2nd row) and remaining rows of data
   const matrix = [getFlatHeaders(data)[1], ...getTrimmedData(hot)];
   runBehindLoadingScreen(exportFile, [matrix, baseName, fileType, xlsx]);
@@ -464,6 +464,7 @@ var exportNML_LIMS = (baseName, hot, data, xlsx, fileType) => {
     ['PH_TRAVEL',               []],
     ['PH_EXPOSURE',             []],
     ['PH_EXPOSURE_DETAILS',     []], 
+    ['PH_HOST_ROLE',            []], 
     ['PH_REASON_FOR_SEQUENCING',[]], 
     ['PH_REASON_FOR_SEQUENCING_DETAILS', []], 
     ['ANALYSIS',                []], 
@@ -576,10 +577,12 @@ var exportNML_LIMS = (baseName, hot, data, xlsx, fileType) => {
 
 // A list of the above functions keyed by the Export menu name they should appear as:
 var EXPORT_FORMATS = {
-  "IRIDA":        {'method': exportIRIDA, 'fileType': 'xls', 'status': 'published'},
+  "VirusSeq_Portal": {'method': exportVirusSeq_Portal, 'fileType': 'tsv', 'status': 'published'},
+  //"IRIDA":        {'method': exportIRIDA, 'fileType': 'xls', 'status': 'published'},
   "GISAID":       {'method': exportGISAID,'fileType': 'xls', 'status': 'published'},
   "BioSample":    {'method': exportBioSample,'fileType': 'xls', 'status': 'published'},
   "CNPHI LaSER":  {'method': exportLASER, 'fileType': 'csv (ASCII)', 'status': 'published'},
   "NML LIMS":     {'method': exportNML_LIMS, 'fileType': 'csv (ASCII)', 'status': 'published'},
+
 };
 
