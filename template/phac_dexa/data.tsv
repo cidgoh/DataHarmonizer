@@ -1,12 +1,12 @@
 Ontology ID	parent class	label	datatype	source	data status	requirement	min value	max value	capitalize	description	guidance	examples	EXPORT_GRDI
 ID	SC %												
 		Database Identifiers											
-	Database Identifiers	SPECIMEN_ID	xs:token										sample_collector_sample_ID
+	Database Identifiers	SPECIMEN_ID	xs:token										alternative_sample_ID
 	Database Identifiers	ISOLATE_ID	xs:token			required							isolate_ID
 	Database Identifiers	SAMPLE_ID	xs:token			required							sample_collector_sample_ID
 		Fields to put in sections											
 	Fields to put in sections	SENTINEL_SITE	xs:token										
-	Fields to put in sections	LFZ_ADDITIONAL_SAMPLE_ID	xs:token										alternative_sample_ID
+	Fields to put in sections	LFZ_ADDITIONAL_SAMPLE_ID	xs:token										
 	Fields to put in sections	LFZ_ORIGIN_COUNTRY	xs:token										
 	Fields to put in sections	SUBJECT_CODE	xs:token										
 	Fields to put in sections	SUBJECT_DESCRIPTIONS	select										
@@ -20,7 +20,7 @@ ID	SC %
 	Fields to put in sections	YEAR	xs:token										
 	Fields to put in sections	MONTH	xs:token										
 	Fields to put in sections	QTR	xs:token										
-	Fields to put in sections	DATECOLLECTED_1	xs:token										sample_collection_date
+	Fields to put in sections	DATECOLLECTED_1	xs:date										sample_collection_date
 	Fields to put in sections	DATERECEIVED_1	xs:token										
 	Fields to put in sections	DATESHIPPED_1	xs:token										
 	Fields to put in sections	ESTABLISHMENT_1	xs:token										
@@ -289,173 +289,173 @@ UBERON_0000023	SUBJECT_DESCRIPTIONS	Wings											food_product:
 	SPECIES	4											
 	SPECIES	<=8											
 	SPECIES	<n/a>											
-FOODON_03411408	SPECIES	Abalone											host (common name):
-FOODON_00002670	SPECIES	Alfalfa sprouts											food_product:
-FOODON_00002693	SPECIES	Alpaca											host (common name):
-FOODON_03411624	SPECIES	Amphibian											host (common name):
-FOODON_00002473	SPECIES	Apple											food_product:
-FOODON_03411134	SPECIES	Aquatic mammal											host (common name):
-FOODON_03411626	SPECIES	Armadillo											host (common name):
-FOODON_00002616	SPECIES	Avian											host (common name):
-FOODON_00003044	SPECIES	Basil											food_product:
-CURATION_0001601	SPECIES	Bat											host (common name):
-FOODON_03412406	SPECIES	Bear											host (common name):
-NCBITAXON_103695	SPECIES	Bearded Dragon											host (common name):
-FOODON_03412098	SPECIES	Bison											host (common name):
-	SPECIES	Budgie											host (common name):
-FOODON_03412103	SPECIES	Camel											host (common name):
-FOODON_03412103	SPECIES	Camelid											host (common name):
-	SPECIES	Canary											host (common name):
-FOODON_03414847	SPECIES	Canine											host (common name):
-CURATION_0001383	SPECIES	Cantelope											food_product:
-FOODON_03411328	SPECIES	Caprine											host (common name):
-	SPECIES	Cardemom											food_product:
-	SPECIES	Cardinal											host (common name):
-FOODON_03411500	SPECIES	Cervid											host (common name):
-CURATION_0001646	SPECIES	Chameleon											host (common name):
-	SPECIES	Cheetah											host (common name):
-FOODON_03411457	SPECIES	Chicken											host (common name):
-	SPECIES	Chimpanzee											host (common name):
-	SPECIES	Chinchilla											host (common name):
-	SPECIES	Chinese Water Dragon											host (common name):
-FOODON_03411331	SPECIES	Clam											host (common name):
-FOODON_00001763	SPECIES	Coriander											food_product:
-	SPECIES	Cormorant											host (common name):
-	SPECIES	Cougar/Mountain Lion											host (common name):
-CURATION_0001607	SPECIES	Coyote											host (common name):
-FOODON_03411335	SPECIES	Crab											host (common name):
-	SPECIES	Crane											host (common name):
-	SPECIES	Crow											host (common name):
-FOODON_00003024	SPECIES	Cumin seeds											food_product:
-FOODON_03411644	SPECIES	Cuttlefish											host (common name):
-FOODON_03414847	SPECIES	Dog											host (common name):
-FOODON_03413363	SPECIES	Dolphin											host (common name):
-NCIT_C14191	SPECIES	Domestic Cat											host (common name):
-FOODON_03411161	SPECIES	Domestic Cattle											host (common name):
-FOODON_03411316	SPECIES	Duck											host (common name):
-	SPECIES	Dumpster											environmental_site:
-	SPECIES	Eagle											host (common name):
-FOODON_03411278	SPECIES	Eel											host (common name):
-FOODON_03412129	SPECIES	Elephant											host (common name):
-	SPECIES	Falcon											host (common name):
-NCIT_C14191	SPECIES	Feline											host (common name):
-CURATION_0001411	SPECIES	Ferret											host (common name):
-	SPECIES	Finch											host (common name):
-FOODON_03411222	SPECIES	Fish											host (common name):
-	SPECIES	Flamingo											host (common name):
-	SPECIES	For Unspecified											host (common name):
-CURATION_0001405	SPECIES	Fox											host (common name):
-FOODON_03412615	SPECIES	Gecko											host (common name):
-FOODON_03411328	SPECIES	Goat											host (common name):
-	SPECIES	Goat and Sheep											host (common name):
-FOODON_03411253	SPECIES	Goose											host (common name):
-FOODON_03301123	SPECIES	Grape											food_product:
-FOODON_03411478	SPECIES	Green onions											food_product:
-	SPECIES	Grosbeak											host (common name):
-FOODON_03301526	SPECIES	ground pepper											food_product:
-FOODON_03413503	SPECIES	Gull											host (common name):
-FOODON_03412695	SPECIES	Hare											host (common name):
-FOODON_00002933	SPECIES	Hazelnut											food_product:
-FOODON_03414548	SPECIES	Hedgehog											host (common name):
-	SPECIES	Herb/spice (unspecified)											food_product:
-FOODON_00002890	SPECIES	Heron											host (common name):
-NCBITAXON_9831	SPECIES	Hippopotamidae											host (common name):
-FOODON_03411229	SPECIES	Horse											host (common name):
-FOODON_03412701	SPECIES	Iguana											host (common name):
-	SPECIES	Jaguar											host (common name):
-FOODON_03412092	SPECIES	Kangaroo											host (common name):
-	SPECIES	Komodo Dragon											host (common name):
-	SPECIES	Lapine											host (common name):
-FOODON_00001998	SPECIES	Lettuce											food_product:
-	SPECIES	Lion											host (common name):
-FOODON_03412293	SPECIES	Lizard											host (common name):
-	SPECIES	Marsupial											host (common name):
-FOODON_00002723	SPECIES	Mink											host (common name):
-FOODON_00002432	SPECIES	Mint											food_product:
-	SPECIES	Mixed											host (common name):
-	SPECIES	Mongoose											host (common name):
-NCIT_C14238	SPECIES	Mouse											host (common name):
-FOODON_00001287	SPECIES	Mushrooms											food_product:
-FOODON_03411223	SPECIES	Mussel											host (common name):
-	SPECIES	n/a											host (common name):
-	SPECIES	Not Available											host (common name):
-FOODON_03411514	SPECIES	Octopus											host (common name):
-FOODON_03411450	SPECIES	Opossum											host (common name):
-FOODON_03301482	SPECIES	Oregano											food_product:
-	SPECIES	Other											host (common name):
-CURATION_0001394	SPECIES	Otter											host (common name):
-FOODON_03411183	SPECIES	Ovine											host (common name):
-NCBITAXON_30458	SPECIES	Owl											host (common name):
-FOODON_03411224	SPECIES	Oyster											host (common name):
-FOODON_00002726	SPECIES	Parrot											host (common name):
-FOODON_00002942	SPECIES	Parsley											food_product:
-FOODON_03411382	SPECIES	Partridge											host (common name):
-	SPECIES	Pea sprouts											food_product:
-FOODON_03306867	SPECIES	Peanut Butter											food_product:
-FOODON_00001649	SPECIES	Pepper											food_product:
-FOODON_03411382	SPECIES	Perdrix											host (common name):
-FOODON_03411460	SPECIES	Pheasant											host (common name):
-	SPECIES	Pickerel											host (common name):
-FOODON_03411136	SPECIES	Pig											host (common name):
-FOODON_03411304	SPECIES	Pigeon											host (common name):
-CURATION_0000439	SPECIES	Pine Siskin											host (common name):
-	SPECIES	Pony											host (common name):
-	SPECIES	Porcupine											host (common name):
-FOODON_03413364	SPECIES	Porpoise											host (common name):
-NCBITAXON_9443	SPECIES	Primate											host (common name):
-FOODON_03411346	SPECIES	Quail											host (common name):
-FOODON_03411323	SPECIES	Rabbit											host (common name):
-FOODON_03411461	SPECIES	Raccoon											host (common name):
-FOODON_03414848	SPECIES	Rat											host (common name):
-FOODON_03414362	SPECIES	Ratite											host (common name):
-	SPECIES	Raven											host (common name):
-FOODON_03414371	SPECIES	Red Deer											host (common name):
-	SPECIES	Redpoll											host (common name):
-FOODON_03411625	SPECIES	Reptile											host (common name):
-FOODON_03414556	SPECIES	Rhea											host (common name):
-	SPECIES	Robin											host (common name):
-NCBITAXON_9989	SPECIES	Rodent											host (common name):
-FOODON_00002217	SPECIES	Sage											food_product:
-FOODON_00002220	SPECIES	Salmon											host (common name):
-FOODON_03411489	SPECIES	Scallop											host (common name):
-CURATION_0000157	SPECIES	Sea Otter											host (common name):
-FOODON_03414639	SPECIES	Sea Snail											host (common name):
-	SPECIES	Seal											host (common name):
-FOODON_03310306	SPECIES	Sesame Seed											food_product:
-FOODON_03411183	SPECIES	Sheep											host (common name):
-FOODON_03411237	SPECIES	Shrimp											host (common name):
-FOODON_03412293	SPECIES	Skink											host (common name):
-	SPECIES	Skunk											host (common name):
-FOODON_03411295	SPECIES	Snake											host (common name):
-	SPECIES	Sparrow											host (common name):
-FOODON_03301716	SPECIES	Spinach											food_product:
-	SPECIES	Spotted Hyena											host (common name):
-FOODON_03420183	SPECIES	Sprouts											food_product:
-FOODON_03411205	SPECIES	Squid											host (common name):
-FOODON_03411389	SPECIES	Squirrel											host (common name):
-	SPECIES	Stripped Hyena											host (common name):
-	SPECIES	Swan											host (common name):
-FOODON_03412439	SPECIES	Tantalus Monkey											host (common name):
-FOODON_03412434	SPECIES	Tilapia											host (common name):
-FOODON_03309927	SPECIES	Tomato											food_product:
-FOODON_00000074	SPECIES	Tortoise											host (common name):
-FOODON_03411258	SPECIES	Trout											host (common name):
-FOODON_03414166	SPECIES	Turkey											host (common name):
-FOODON_03411242	SPECIES	Turtle											host (common name):
-	SPECIES	Unknown											host (common name):
-FOODON_00002616	SPECIES	Unspecified Bird											host (common name):
-FOODON_03411222	SPECIES	Unspecified Fish											host (common name):
-NCBITAXON_9443	SPECIES	Unspecified Primate											host (common name):
-FOODON_03411625	SPECIES	Unspecified Reptile											host (common name):
-NCBITAXON_9989	SPECIES	Unspecified Rodent											host (common name):
-	SPECIES	Vulture											host (common name):
-	SPECIES	Wallnut											food_product:
-CHEBI_15377	SPECIES	Water Dragon											host (common name):
-FOODON_00003281	SPECIES	White Fish											host (common name):
-FOODON_03530153	SPECIES	Wild Ruminant											host (common name):
-	SPECIES	Wombat											host (common name):
-	SPECIES	Woodpecker											host (common name):
-FOODON_03412097	SPECIES	Zebra											host (common name):
+FOODON_03411408	SPECIES	Abalone											
+FOODON_00002670	SPECIES	Alfalfa sprouts											
+FOODON_00002693	SPECIES	Alpaca											
+FOODON_03411624	SPECIES	Amphibian											
+FOODON_00002473	SPECIES	Apple											
+FOODON_03411134	SPECIES	Aquatic mammal											
+FOODON_03411626	SPECIES	Armadillo											
+FOODON_00002616	SPECIES	Avian											
+FOODON_00003044	SPECIES	Basil											
+CURATION_0001601	SPECIES	Bat											
+FOODON_03412406	SPECIES	Bear											
+NCBITAXON_103695	SPECIES	Bearded Dragon											
+FOODON_03412098	SPECIES	Bison											
+	SPECIES	Budgie											
+FOODON_03412103	SPECIES	Camel											
+FOODON_03412103	SPECIES	Camelid											
+	SPECIES	Canary											
+FOODON_03414847	SPECIES	Canine											
+CURATION_0001383	SPECIES	Cantelope											
+FOODON_03411328	SPECIES	Caprine											
+	SPECIES	Cardemom											
+	SPECIES	Cardinal											
+FOODON_03411500	SPECIES	Cervid											
+CURATION_0001646	SPECIES	Chameleon											
+	SPECIES	Cheetah											
+FOODON_03411457	SPECIES	Chicken											
+	SPECIES	Chimpanzee											
+	SPECIES	Chinchilla											
+	SPECIES	Chinese Water Dragon											
+FOODON_03411331	SPECIES	Clam											
+FOODON_00001763	SPECIES	Coriander											
+	SPECIES	Cormorant											
+	SPECIES	Cougar/Mountain Lion											
+CURATION_0001607	SPECIES	Coyote											
+FOODON_03411335	SPECIES	Crab											
+	SPECIES	Crane											
+	SPECIES	Crow											
+FOODON_00003024	SPECIES	Cumin seeds											
+FOODON_03411644	SPECIES	Cuttlefish											
+FOODON_03414847	SPECIES	Dog											
+FOODON_03413363	SPECIES	Dolphin											
+NCIT_C14191	SPECIES	Domestic Cat											
+FOODON_03411161	SPECIES	Domestic Cattle											
+FOODON_03411316	SPECIES	Duck											
+	SPECIES	Dumpster											
+	SPECIES	Eagle											
+FOODON_03411278	SPECIES	Eel											
+FOODON_03412129	SPECIES	Elephant											
+	SPECIES	Falcon											
+NCIT_C14191	SPECIES	Feline											
+CURATION_0001411	SPECIES	Ferret											
+	SPECIES	Finch											
+FOODON_03411222	SPECIES	Fish											
+	SPECIES	Flamingo											
+	SPECIES	For Unspecified											
+CURATION_0001405	SPECIES	Fox											
+FOODON_03412615	SPECIES	Gecko											
+FOODON_03411328	SPECIES	Goat											
+	SPECIES	Goat and Sheep											
+FOODON_03411253	SPECIES	Goose											
+FOODON_03301123	SPECIES	Grape											
+FOODON_03411478	SPECIES	Green onions											
+	SPECIES	Grosbeak											
+FOODON_03301526	SPECIES	ground pepper											
+FOODON_03413503	SPECIES	Gull											
+FOODON_03412695	SPECIES	Hare											
+FOODON_00002933	SPECIES	Hazelnut											
+FOODON_03414548	SPECIES	Hedgehog											
+	SPECIES	Herb/spice (unspecified)											
+FOODON_00002890	SPECIES	Heron											
+NCBITAXON_9831	SPECIES	Hippopotamidae											
+FOODON_03411229	SPECIES	Horse											
+FOODON_03412701	SPECIES	Iguana											
+	SPECIES	Jaguar											
+FOODON_03412092	SPECIES	Kangaroo											
+	SPECIES	Komodo Dragon											
+	SPECIES	Lapine											
+FOODON_00001998	SPECIES	Lettuce											
+	SPECIES	Lion											
+FOODON_03412293	SPECIES	Lizard											
+	SPECIES	Marsupial											
+FOODON_00002723	SPECIES	Mink											
+FOODON_00002432	SPECIES	Mint											
+	SPECIES	Mixed											
+	SPECIES	Mongoose											
+NCIT_C14238	SPECIES	Mouse											
+FOODON_00001287	SPECIES	Mushrooms											
+FOODON_03411223	SPECIES	Mussel											
+	SPECIES	n/a											
+	SPECIES	Not Available											
+FOODON_03411514	SPECIES	Octopus											
+FOODON_03411450	SPECIES	Opossum											
+FOODON_03301482	SPECIES	Oregano											
+	SPECIES	Other											
+CURATION_0001394	SPECIES	Otter											
+FOODON_03411183	SPECIES	Ovine											
+NCBITAXON_30458	SPECIES	Owl											
+FOODON_03411224	SPECIES	Oyster											
+FOODON_00002726	SPECIES	Parrot											
+FOODON_00002942	SPECIES	Parsley											
+FOODON_03411382	SPECIES	Partridge											
+	SPECIES	Pea sprouts											
+FOODON_03306867	SPECIES	Peanut Butter											
+FOODON_00001649	SPECIES	Pepper											
+FOODON_03411382	SPECIES	Perdrix											
+FOODON_03411460	SPECIES	Pheasant											
+	SPECIES	Pickerel											
+FOODON_03411136	SPECIES	Pig											
+FOODON_03411304	SPECIES	Pigeon											
+CURATION_0000439	SPECIES	Pine Siskin											
+	SPECIES	Pony											
+	SPECIES	Porcupine											
+FOODON_03413364	SPECIES	Porpoise											
+NCBITAXON_9443	SPECIES	Primate											
+FOODON_03411346	SPECIES	Quail											
+FOODON_03411323	SPECIES	Rabbit											
+FOODON_03411461	SPECIES	Raccoon											
+FOODON_03414848	SPECIES	Rat											
+FOODON_03414362	SPECIES	Ratite											
+	SPECIES	Raven											
+FOODON_03414371	SPECIES	Red Deer											
+	SPECIES	Redpoll											
+FOODON_03411625	SPECIES	Reptile											
+FOODON_03414556	SPECIES	Rhea											
+	SPECIES	Robin											
+NCBITAXON_9989	SPECIES	Rodent											
+FOODON_00002217	SPECIES	Sage											
+FOODON_00002220	SPECIES	Salmon											
+FOODON_03411489	SPECIES	Scallop											
+CURATION_0000157	SPECIES	Sea Otter											
+FOODON_03414639	SPECIES	Sea Snail											
+	SPECIES	Seal											
+FOODON_03310306	SPECIES	Sesame Seed											
+FOODON_03411183	SPECIES	Sheep											
+FOODON_03411237	SPECIES	Shrimp											
+FOODON_03412293	SPECIES	Skink											
+	SPECIES	Skunk											
+FOODON_03411295	SPECIES	Snake											
+	SPECIES	Sparrow											
+FOODON_03301716	SPECIES	Spinach											
+	SPECIES	Spotted Hyena											
+FOODON_03420183	SPECIES	Sprouts											
+FOODON_03411205	SPECIES	Squid											
+FOODON_03411389	SPECIES	Squirrel											
+	SPECIES	Stripped Hyena											
+	SPECIES	Swan											
+FOODON_03412439	SPECIES	Tantalus Monkey											
+FOODON_03412434	SPECIES	Tilapia											
+FOODON_03309927	SPECIES	Tomato											
+FOODON_00000074	SPECIES	Tortoise											
+FOODON_03411258	SPECIES	Trout											
+FOODON_03414166	SPECIES	Turkey											
+FOODON_03411242	SPECIES	Turtle											
+	SPECIES	Unknown											
+FOODON_00002616	SPECIES	Unspecified Bird											
+FOODON_03411222	SPECIES	Unspecified Fish											
+NCBITAXON_9443	SPECIES	Unspecified Primate											
+FOODON_03411625	SPECIES	Unspecified Reptile											
+NCBITAXON_9989	SPECIES	Unspecified Rodent											
+	SPECIES	Vulture											
+	SPECIES	Wallnut											
+CHEBI_15377	SPECIES	Water Dragon											
+FOODON_00003281	SPECIES	White Fish											
+FOODON_03530153	SPECIES	Wild Ruminant											
+	SPECIES	Wombat											
+	SPECIES	Woodpecker											
+FOODON_03412097	SPECIES	Zebra											
 	STTYPE	0											
 	STTYPE	0.5											
 FOODON_00003004	STTYPE	ANIMAL											host (common name):
@@ -898,4 +898,3 @@ ENVO_00002001	SUBJECT_SUBTYPE	Watering bowl/equipment											environmental_si
 FOODON_03430131	SUBJECT_SUBTYPE	Wings											food_product:
 UBERON_0000023	SUBJECT_SUBTYPE	Working Surface											environmental_site:
 CURATION_0000247	SUBJECT_SUBTYPE	Yeast											food_product:
-FOODON_03411345													
