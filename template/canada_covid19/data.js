@@ -41,13 +41,18 @@ var DATA = [
             {
               "field": "sample_name"
             }
+          ],
+          "VirusSeq_Portal": [
+            {
+              "field": "specimen collector sample ID"
+            }
           ]
         }
       },
       {
         "fieldName": "third party lab service provider name",
         "capitalize": "",
-        "ontology_id": "GENEPIO_0001149",
+        "ontology_id": "GENEPIO_0001202",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
@@ -55,7 +60,7 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "",
         "description": "The name of the third party company or laboratory that provided services.",
-        "guidance": "Provide the full, unabbreviated name of the company or laboratory.",
+        "guidance": "Store the sample identifier supplied by the third party services provider.",
         "examples": "Switch Health",
         "exportField": {
           "NML_LIMS": [
@@ -68,7 +73,7 @@ var DATA = [
       {
         "fieldName": "third party lab sample ID",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001149",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
@@ -76,8 +81,15 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "",
         "description": "The identifier assigned to a sample by a third party service provider.",
-        "guidance": "Store the sample identifier supplied by the third party services provider.",
-        "examples": "SHK123456"
+        "guidance": "",
+        "examples": "SHK123456",
+        "exportField": {
+          "NML_LIMS": [
+            {
+              "field": "third party lab sample ID"
+            }
+          ]
+        }
       },
       {
         "fieldName": "NML submitted specimen primary ID",
@@ -91,7 +103,14 @@ var DATA = [
         "requirement": "",
         "description": "The primary ID of the specimen submitted thorough the National Microbiology Laboratory (NML) LaSER.",
         "guidance": "Store the identifier for the specimen submitted through the NML LaSER system.",
-        "examples": "SR20-12345"
+        "examples": "SR20-12345",
+        "exportField": {
+          "NML_LIMS": [
+            {
+              "field": "NML submitted specimen primary ID"
+            }
+          ]
+        }
       },
       {
         "fieldName": "NML related specimen primary ID",
@@ -120,6 +139,11 @@ var DATA = [
             {
               "field": "Related Specimen Relationship Type"
             }
+          ],
+          "NML_LIMS": [
+            {
+              "field": "NML related specimen primary ID"
+            }
           ]
         }
       },
@@ -135,7 +159,14 @@ var DATA = [
         "requirement": "",
         "description": "The identifier assigned to a sequenced isolate in IRIDA.",
         "guidance": "Store the IRIDA sample name. The IRIDA sample name will be created by the individual entering data into the IRIDA platform. IRIDA samples may be linked to metadata and sequence data, or just metadata alone. It is recommended that the IRIDA sample name be the same as, or contain, the specimen collector sample ID for better traceability. It is also recommended that the IRIDA sample name mirror the GISAID accession. IRIDA sample names cannot contain slashes. Slashes should be replaced by underscores. See IRIDA documentation for more information regarding special characters (https://irida.corefacility.ca/documentation/user/user/samples/#adding-a-new-sample). ",
-        "examples": "prov_rona_99"
+        "examples": "prov_rona_99",
+        "exportField": {
+          "NML_LIMS": [
+            {
+              "field": "IRIDA sample name"
+            }
+          ]
+        }
       },
       {
         "fieldName": "umbrella bioproject accession",
@@ -150,6 +181,13 @@ var DATA = [
         "description": "The INSDC accession number assigned to the umbrella BioProject for the Canadian SARS-CoV-2 sequencing effort.",
         "guidance": "Store the umbrella BioProject accession by selecting it from the picklist in the template. The umbrella BioProject accession will be identical for all CanCOGen submitters. Different provinces will have their own BioProjects, however these BioProjects will be linked under one umbrella BioProject.",
         "examples": "PRJNA623807",
+        "exportField": {
+          "NML_LIMS": [
+            {
+              "field": "umbrella bioproject accession"
+            }
+          ]
+        },
         "schema:ItemList": {
           "PRJNA623807": {}
         }
@@ -255,6 +293,11 @@ var DATA = [
             {
               "field": "GenBank Accession"
             }
+          ],
+          "NML_LIMS": [
+            {
+              "field": "GenBank accession"
+            }
           ]
         }
       },
@@ -298,7 +341,7 @@ var DATA = [
         "fieldName": "sample collected by",
         "capitalize": "",
         "ontology_id": "GENEPIO_0001153",
-        "datatype": "xs:token",
+        "datatype": "select",
         "source": "",
         "dataStatus": [
           "Not Applicable",
@@ -324,11 +367,216 @@ var DATA = [
               "field": "Lab Name"
             }
           ],
+          "NML_LIMS": [
+            {
+              "field": "CUSTOMER"
+            }
+          ],
           "BIOSAMPLE": [
             {
               "field": "collected_by"
             }
+          ],
+          "VirusSeq_Portal": [
+            {
+              "field": "sample collected by"
+            }
           ]
+        },
+        "schema:ItemList": {
+          "National Microbiology Laboratory (NML)": {
+            "exportField": {
+              "NML_LIMS": [
+                {
+                  "value": "CANCOGEN_NML_IRV"
+                }
+              ]
+            }
+          },
+          "BCCDC Public Health Laboratory": {
+            "exportField": {
+              "NML_LIMS": [
+                {
+                  "value": "CANCOGEN_BCCDC"
+                }
+              ]
+            }
+          },
+          "Alberta Precision Labs (APL)": {
+            "schema:ItemList": {
+              "Alberta ProvLab North (APLN)": {
+                "exportField": {
+                  "NML_LIMS": [
+                    {
+                      "value": "CANCOGEN_EDMONTON_PROV_LAB"
+                    }
+                  ]
+                }
+              },
+              "Alberta ProvLab South (APLS)": {
+                "exportField": {
+                  "NML_LIMS": [
+                    {
+                      "value": "APL-C"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "Public Health Ontario (PHO)": {
+            "exportField": {
+              "NML_LIMS": [
+                {
+                  "value": "CANCOGEN_ONTARIO_PHO"
+                }
+              ]
+            }
+          },
+          "Laboratoire de sant\u00e9 publique du Qu\u00e9bec (LSPQ)": {
+            "exportField": {
+              "NML_LIMS": [
+                {
+                  "value": "CANCOGEN_LSPQ"
+                }
+              ]
+            }
+          },
+          "Saskatchewan - Roy Romanow Provincial Laboratory (RRPL)": {
+            "exportField": {
+              "NML_LIMS": [
+                {
+                  "value": "CANCOGEN_ROMANOW_PROV_LAB"
+                }
+              ]
+            }
+          },
+          "Manitoba Cadham Provincial Laboratory": {
+            "exportField": {
+              "NML_LIMS": [
+                {
+                  "value": "CANCOGEN_CADHAM_LAB"
+                }
+              ]
+            }
+          },
+          "Nova Scotia Health Authority": {
+            "exportField": {
+              "NML_LIMS": [
+                {
+                  "value": "CANCOGEN_QEII_HSC"
+                }
+              ]
+            }
+          },
+          "New Brunswick - Vitalit\u00e9 Health Network": {
+            "exportField": {
+              "NML_LIMS": [
+                {
+                  "value": "CANCOGEN_G_L_DUMONT"
+                }
+              ]
+            }
+          },
+          "Newfoundland and Labrador - Eastern Health": {
+            "exportField": {
+              "NML_LIMS": [
+                {
+                  "value": "CANCOGEN_STJOHNS_PHL"
+                }
+              ]
+            }
+          },
+          "Nunuvut": {
+            "exportField": {
+              "NML_LIMS": [
+                {
+                  "value": "CANCOGEN_NUNAVUT_"
+                }
+              ]
+            }
+          },
+          "Prince Edward Island - Health PEI": {
+            "exportField": {
+              "NML_LIMS": [
+                {
+                  "value": "CANCOGEN_QEH"
+                }
+              ]
+            }
+          },
+          "Ontario Institute for Cancer Research (OICR)": {
+            "exportField": {
+              "NML_LIMS": [
+                {
+                  "value": "Ontario Institute for Cancer Research (OICR)"
+                }
+              ]
+            }
+          },
+          "McMaster University": {
+            "exportField": {
+              "NML_LIMS": [
+                {
+                  "value": "CANCOGEN_MCMASTER_UNIVERSITY"
+                }
+              ]
+            }
+          },
+          "William Osler Health System": {
+            "exportField": {
+              "NML_LIMS": [
+                {
+                  "value": "William Osler Health System"
+                }
+              ]
+            }
+          },
+          "Sunnybrook Health Sciences Centre": {
+            "exportField": {
+              "NML_LIMS": [
+                {
+                  "value": "Sunnybrook Health Sciences Centre"
+                }
+              ]
+            }
+          },
+          "Eastern Ontario Regional Laboratory Association": {
+            "exportField": {
+              "NML_LIMS": [
+                {
+                  "value": "Eastern Ontario Regional Laboratory Association"
+                }
+              ]
+            }
+          },
+          "St. John's Rehab at Sunnybrook Hospital": {
+            "exportField": {
+              "NML_LIMS": [
+                {
+                  "value": "St. John's Rehab at Sunnybrook Hospital"
+                }
+              ]
+            }
+          },
+          "Mount Sinai Hospital": {
+            "exportField": {
+              "NML_LIMS": [
+                {
+                  "value": "Mount Sinai Hospital"
+                }
+              ]
+            }
+          },
+          "Hamilton Health Sciences": {
+            "exportField": {
+              "NML_LIMS": [
+                {
+                  "value": "Hamilton Health Sciences"
+                }
+              ]
+            }
+          }
         }
       },
       {
@@ -343,7 +591,14 @@ var DATA = [
         "requirement": "",
         "description": "The email address of the contact responsible for follow-up regarding the sample.",
         "guidance": "The email address can represent a specific individual or lab e.g. johnnyblogs@lab.ca, or RespLab@lab.ca",
-        "examples": "RespLab@lab.ca"
+        "examples": "RespLab@lab.ca",
+        "exportField": {
+          "NML_LIMS": [
+            {
+              "field": "sample collector contact email"
+            }
+          ]
+        }
       },
       {
         "fieldName": "sample collector contact address",
@@ -362,6 +617,11 @@ var DATA = [
           "GISAID": [
             {
               "field": "Address"
+            }
+          ],
+          "NML_LIMS": [
+            {
+              "field": "sample collector contact address"
             }
           ]
         }
@@ -404,6 +664,11 @@ var DATA = [
           "BIOSAMPLE": [
             {
               "field": "sequenced_by"
+            }
+          ],
+          "VirusSeq_Portal": [
+            {
+              "field": "sequence submitted by"
             }
           ]
         },
@@ -606,7 +871,14 @@ var DATA = [
         "requirement": "",
         "description": "The email address of the contact responsible for follow-up regarding the sequence.",
         "guidance": "The email address can represent a specific individual or lab e.g. johnnyblogs@lab.ca, or RespLab@lab.ca",
-        "examples": "RespLab@lab.ca"
+        "examples": "RespLab@lab.ca",
+        "exportField": {
+          "NML_LIMS": [
+            {
+              "field": "sequence submitter contact email"
+            }
+          ]
+        }
       },
       {
         "fieldName": "sequence submitter contact address",
@@ -625,6 +897,11 @@ var DATA = [
           "GISAID": [
             {
               "field": "Address"
+            }
+          ],
+          "NML_LIMS": [
+            {
+              "field": "sequence submitter contact address"
             }
           ]
         }
@@ -668,13 +945,18 @@ var DATA = [
             {
               "field": "sample collection date"
             }
+          ],
+          "VirusSeq_Portal": [
+            {
+              "field": "sample collection date"
+            }
           ]
         }
       },
       {
         "fieldName": "sample collection date precision",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001177",
         "datatype": "select",
         "source": "",
         "dataStatus": null,
@@ -693,6 +975,11 @@ var DATA = [
           "NML_LIMS": [
             {
               "field": "HC_TEXT2"
+            }
+          ],
+          "VirusSeq_Portal": [
+            {
+              "field": "sample collection date precision"
             }
           ]
         },
@@ -729,7 +1016,7 @@ var DATA = [
       {
         "fieldName": "sample received date",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001179",
         "datatype": "xs:date",
         "source": "",
         "dataStatus": [
@@ -744,12 +1031,19 @@ var DATA = [
         "requirement": "",
         "description": "The date on which the sample was received.",
         "guidance": "ISO 8601 standard \"YYYY-MM-DD\".",
-        "examples": "2020-03-20"
+        "examples": "2020-03-20",
+        "exportField": {
+          "NML_LIMS": [
+            {
+              "field": "sample received date"
+            }
+          ]
+        }
       },
       {
         "fieldName": "geo_loc_name (country)",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001181",
         "datatype": "select",
         "source": "",
         "dataStatus": [
@@ -784,6 +1078,11 @@ var DATA = [
           "BIOSAMPLE": [
             {
               "field": "geo_loc_name"
+            }
+          ],
+          "VirusSeq_Portal": [
+            {
+              "field": "geo_loc_name (country)"
             }
           ]
         },
@@ -1264,7 +1563,7 @@ var DATA = [
       {
         "fieldName": "geo_loc_name (state/province/territory)",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001185",
         "datatype": "select",
         "source": "",
         "dataStatus": [
@@ -1294,6 +1593,11 @@ var DATA = [
           "BIOSAMPLE": [
             {
               "field": "geo_loc_name"
+            }
+          ],
+          "VirusSeq_Portal": [
+            {
+              "field": "geo_loc_name (state/province/territory)"
             }
           ]
         },
@@ -1420,7 +1724,7 @@ var DATA = [
       {
         "fieldName": "geo_loc_name (city)",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001189",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
@@ -1435,13 +1739,23 @@ var DATA = [
             {
               "field": "Patient City"
             }
+          ],
+          "NML_LIMS": [
+            {
+              "field": "geo_loc_name (city)"
+            }
+          ],
+          "VirusSeq_Portal": [
+            {
+              "field": "geo_loc_name (city)"
+            }
           ]
         }
       },
       {
         "fieldName": "organism",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001191",
         "datatype": "select",
         "source": "",
         "dataStatus": [
@@ -1472,6 +1786,11 @@ var DATA = [
             {
               "field": "organism"
             }
+          ],
+          "VirusSeq_Portal": [
+            {
+              "field": "organism"
+            }
           ]
         },
         "schema:ItemList": {
@@ -1483,7 +1802,7 @@ var DATA = [
       {
         "fieldName": "isolate",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001195",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": [
@@ -1522,13 +1841,18 @@ var DATA = [
             {
               "field": "GISAID_virus_name"
             }
+          ],
+          "VirusSeq_Portal": [
+            {
+              "field": "isolate"
+            }
           ]
         }
       },
       {
         "fieldName": "purpose of sampling",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001198",
         "datatype": "select",
         "source": "",
         "dataStatus": [
@@ -1559,6 +1883,11 @@ var DATA = [
             {
               "field": "purpose_of_sampling"
             }
+          ],
+          "VirusSeq_Portal": [
+            {
+              "field": "purpose of sampling"
+            }
           ]
         },
         "schema:ItemList": {
@@ -1571,7 +1900,7 @@ var DATA = [
       {
         "fieldName": "purpose of sampling details",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001200",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": [
@@ -1593,9 +1922,19 @@ var DATA = [
               "field": "Details on the Reason for Sampling"
             }
           ],
+          "NML_LIMS": [
+            {
+              "field": "purpose of sampling details"
+            }
+          ],
           "BIOSAMPLE": [
             {
               "field": "description"
+            }
+          ],
+          "VirusSeq_Portal": [
+            {
+              "field": "purpose of sampling details"
             }
           ]
         }
@@ -1603,7 +1942,7 @@ var DATA = [
       {
         "fieldName": "NML submitted specimen type",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001204",
         "datatype": "select",
         "source": "",
         "dataStatus": [
@@ -1674,7 +2013,7 @@ var DATA = [
       {
         "fieldName": "NML related specimen relationship type",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001209",
         "datatype": "select",
         "source": "",
         "dataStatus": null,
@@ -1705,7 +2044,7 @@ var DATA = [
       {
         "fieldName": "anatomical material",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001211",
         "datatype": "select",
         "source": "",
         "dataStatus": [
@@ -1743,6 +2082,11 @@ var DATA = [
             },
             {
               "field": "anatomical_material"
+            }
+          ],
+          "VirusSeq_Portal": [
+            {
+              "field": "anatomical material"
             }
           ]
         },
@@ -1835,7 +2179,7 @@ var DATA = [
       {
         "fieldName": "anatomical part",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001214",
         "datatype": "select",
         "source": "",
         "dataStatus": [
@@ -1873,6 +2217,11 @@ var DATA = [
             },
             {
               "field": "anatomical_part"
+            }
+          ],
+          "VirusSeq_Portal": [
+            {
+              "field": "anatomical part"
             }
           ]
         },
@@ -2117,7 +2466,7 @@ var DATA = [
       {
         "fieldName": "body product",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001216",
         "datatype": "select",
         "source": "",
         "dataStatus": [
@@ -2155,6 +2504,11 @@ var DATA = [
             },
             {
               "field": "body_product"
+            }
+          ],
+          "VirusSeq_Portal": [
+            {
+              "field": "body product"
             }
           ]
         },
@@ -2276,6 +2630,11 @@ var DATA = [
             },
             {
               "field": "environmental_material"
+            }
+          ],
+          "VirusSeq_Portal": [
+            {
+              "field": "environmental material"
             }
           ]
         },
@@ -2621,6 +2980,11 @@ var DATA = [
             {
               "field": "environmental_site"
             }
+          ],
+          "VirusSeq_Portal": [
+            {
+              "field": "environmental site"
+            }
           ]
         },
         "schema:ItemList": {
@@ -2857,6 +3221,11 @@ var DATA = [
             {
               "field": "collection_device"
             }
+          ],
+          "VirusSeq_Portal": [
+            {
+              "field": "collection device"
+            }
           ]
         },
         "schema:ItemList": {
@@ -3056,6 +3425,11 @@ var DATA = [
             },
             {
               "field": "collection_method"
+            }
+          ],
+          "VirusSeq_Portal": [
+            {
+              "field": "collection method"
             }
           ]
         },
@@ -3276,7 +3650,14 @@ var DATA = [
         "requirement": "",
         "description": "The name and version of a particular protocol used for sampling.",
         "guidance": "Free text.",
-        "examples": "BCRonaSamplingProtocol v. 1.2"
+        "examples": "BCRonaSamplingProtocol v. 1.2",
+        "exportField": {
+          "NML_LIMS": [
+            {
+              "field": "collection protocol"
+            }
+          ]
+        }
       },
       {
         "fieldName": "specimen processing",
@@ -3301,6 +3682,11 @@ var DATA = [
           "GISAID": [
             {
               "field": "Passage details/history"
+            }
+          ],
+          "NML_LIMS": [
+            {
+              "field": "specimen processing"
             }
           ]
         },
@@ -3333,6 +3719,11 @@ var DATA = [
           "GISAID": [
             {
               "field": "Passage details/history"
+            }
+          ],
+          "NML_LIMS": [
+            {
+              "field": "lab host"
             }
           ],
           "BIOSAMPLE": [
@@ -3382,6 +3773,11 @@ var DATA = [
               "field": "Passage details/history"
             }
           ],
+          "NML_LIMS": [
+            {
+              "field": "passage number"
+            }
+          ],
           "BIOSAMPLE": [
             {
               "field": "passage_history"
@@ -3410,6 +3806,11 @@ var DATA = [
               "field": "Passage details/history"
             }
           ],
+          "NML_LIMS": [
+            {
+              "field": "passage method"
+            }
+          ],
           "BIOSAMPLE": [
             {
               "field": "passage_method"
@@ -3436,6 +3837,13 @@ var DATA = [
         "description": "The biomaterial extracted from samples for the purpose of sequencing.",
         "guidance": "Provide the biomaterial extracted from the picklist in the template.",
         "examples": "RNA (total)",
+        "exportField": {
+          "NML_LIMS": [
+            {
+              "field": "biomaterial extracted"
+            }
+          ]
+        },
         "schema:ItemList": {
           "RNA (total)": {},
           "RNA (poly-A)": {},
@@ -3577,9 +3985,19 @@ var DATA = [
               "field": "Host"
             }
           ],
+          "NML_LIMS": [
+            {
+              "field": "host (scientific name)"
+            }
+          ],
           "BIOSAMPLE": [
             {
               "field": "host"
+            }
+          ],
+          "VirusSeq_Portal": [
+            {
+              "field": "host (scientific name)"
             }
           ]
         },
@@ -3812,6 +4230,11 @@ var DATA = [
         "guidance": "If known, select a descriptor from the pick list provided in the template.",
         "examples": "Recovered",
         "exportField": {
+          "NML_LIMS": [
+            {
+              "field": "host health outcome"
+            }
+          ],
           "BIOSAMPLE": [
             {
               "field": "host_disease_outcome"
@@ -3859,6 +4282,11 @@ var DATA = [
             {
               "field": "host_disease"
             }
+          ],
+          "VirusSeq_Portal": [
+            {
+              "field": "host disease"
+            }
           ]
         },
         "schema:ItemList": {
@@ -3904,6 +4332,11 @@ var DATA = [
             {
               "field": "host_age"
             }
+          ],
+          "VirusSeq_Portal": [
+            {
+              "field": "host age"
+            }
           ]
         }
       },
@@ -3935,6 +4368,11 @@ var DATA = [
           "NML_LIMS": [
             {
               "field": "PH_AGE_UNIT"
+            }
+          ],
+          "VirusSeq_Portal": [
+            {
+              "field": "host age unit"
             }
           ]
         },
@@ -3987,6 +4425,11 @@ var DATA = [
           "NML_LIMS": [
             {
               "field": "PH_AGE_GROUP"
+            }
+          ],
+          "VirusSeq_Portal": [
+            {
+              "field": "host age bin"
             }
           ]
         },
@@ -4043,11 +4486,32 @@ var DATA = [
             {
               "field": "host_sex"
             }
+          ],
+          "VirusSeq_Portal": [
+            {
+              "field": "host gender"
+            }
           ]
         },
         "schema:ItemList": {
-          "Female": {},
-          "Male": {},
+          "Female": {
+            "exportField": {
+              "NML_LIMS": [
+                {
+                  "value": "FEMALE"
+                }
+              ]
+            }
+          },
+          "Male": {
+            "exportField": {
+              "NML_LIMS": [
+                {
+                  "value": "MALE"
+                }
+              ]
+            }
+          },
           "Non-binary gender": {
             "exportField": {
               "NML_LIMS": [
@@ -4165,6 +4629,11 @@ var DATA = [
         "guidance": "Provide the host identifier. Should be a unique, user-defined identifier.",
         "examples": "BCxy123",
         "exportField": {
+          "NML_LIMS": [
+            {
+              "field": "host subject ID"
+            }
+          ],
           "BIOSAMPLE": [
             {
               "field": "host_subject_id"
@@ -4907,6 +5376,13 @@ var DATA = [
         "description": "Patient pre-existing conditions and risk factors. <li>Pre-existing condition: A medical condition that existed prior to the current infection. <li>Risk Factor: A variable associated with an increased risk of disease or infection.",
         "guidance": "Select all of the pre-existing conditions and risk factors experienced by the host from the pick list. If the desired term is missing, contact the curation team.",
         "examples": "Asthma; Pregnancy; Smoking",
+        "exportField": {
+          "NML_LIMS": [
+            {
+              "field": "pre-existing conditions and risk factors"
+            }
+          ]
+        },
         "schema:ItemList": {
           "Age 60+": {},
           "Anemia": {},
@@ -5087,6 +5563,13 @@ var DATA = [
         "description": "Patient medical complications that are believed to have occurred as a result of host disease.",
         "guidance": "Select all of the complications experienced by the host from the pick list. If the desired term is missing, contact the curation team.",
         "examples": "Acute Respiratory Failure; Coma; Septicemia",
+        "exportField": {
+          "NML_LIMS": [
+            {
+              "field": "complications"
+            }
+          ]
+        },
         "schema:ItemList": {
           "Abnormal blood oxygen level": {},
           "Acute respiratory failure": {},
@@ -5252,6 +5735,13 @@ var DATA = [
         "description": "The vaccination status of the host (fully vaccinated, partially vaccinated, or not vaccinated).",
         "guidance": "Select the vaccination status of the host from the pick list.",
         "examples": "Fully Vaccinated",
+        "exportField": {
+          "NML_LIMS": [
+            {
+              "field": "host vaccination status"
+            }
+          ]
+        },
         "schema:ItemList": {
           "Fully Vaccinated": {},
           "Partially Vaccinated": {},
@@ -5270,7 +5760,14 @@ var DATA = [
         "requirement": "",
         "description": "The name of the vaccine.",
         "guidance": "Free text. Provide the name of the vaccine.",
-        "examples": "Pfizer-BioNTech COVID-19 vaccine"
+        "examples": "Pfizer-BioNTech COVID-19 vaccine",
+        "exportField": {
+          "NML_LIMS": [
+            {
+              "field": "vaccine name"
+            }
+          ]
+        }
       },
       {
         "fieldName": "number of vaccine doses received",
@@ -5284,7 +5781,14 @@ var DATA = [
         "requirement": "",
         "description": "The number of doses of the vaccine recived by the host.",
         "guidance": "Record how many doses of the vaccine the host has received.",
-        "examples": "2"
+        "examples": "2",
+        "exportField": {
+          "NML_LIMS": [
+            {
+              "field": "number of vaccine doses received"
+            }
+          ]
+        }
       },
       {
         "fieldName": "first dose vaccination date",
@@ -5298,7 +5802,14 @@ var DATA = [
         "requirement": "",
         "description": "The date the host was first vaccinated.",
         "guidance": "Provide the vaccination date in ISO 8601 standard format \"YYYY-MM-DD\".",
-        "examples": "2021-02-26"
+        "examples": "2021-02-26",
+        "exportField": {
+          "NML_LIMS": [
+            {
+              "field": "first dose vaccination date"
+            }
+          ]
+        }
       },
       {
         "fieldName": "last dose vaccination date",
@@ -5312,7 +5823,14 @@ var DATA = [
         "requirement": "",
         "description": "The date the host received their last dose of vaccine.",
         "guidance": "Provide the date that the last dose of the vaccine was administered. Provide the last dose vaccination date in ISO 8601 standard format \"YYYY-MM-DD\".",
-        "examples": "2021-04-09"
+        "examples": "2021-04-09",
+        "exportField": {
+          "NML_LIMS": [
+            {
+              "field": "last dose vaccination date"
+            }
+          ]
+        }
       }
     ]
   },
@@ -5508,7 +6026,14 @@ var DATA = [
         "requirement": "",
         "description": "Travel history in last six months.",
         "guidance": "Specify the countries (and more granular locations if known, separated by a comma) travelled in the last six months; can include multiple travels. Separate multiple travel events with a semi-colon. List most recent travel first.",
-        "examples": "Canada, Vancouver; USA, Seattle; Italy, Milan"
+        "examples": "Canada, Vancouver; USA, Seattle; Italy, Milan",
+        "exportField": {
+          "NML_LIMS": [
+            {
+              "field": "travel history"
+            }
+          ]
+        }
       },
       {
         "fieldName": "exposure event",
@@ -5549,6 +6074,7 @@ var DATA = [
         "schema:ItemList": {
           "Mass Gathering": {
             "schema:ItemList": {
+              "Agricultural Event": {},
               "Convention": {
                 "exportField": {
                   "NML_LIMS": [
@@ -5559,7 +6085,12 @@ var DATA = [
                 }
               },
               "Convocation": {},
-              "Agricultural Event": {}
+              "Recreational Event": {
+                "schema:ItemList": {
+                  "Concert": {},
+                  "Sporting Event": {}
+                }
+              }
             }
           },
           "Religious Gathering": {
@@ -5618,6 +6149,13 @@ var DATA = [
         "description": "The exposure transmission contact type.",
         "guidance": "Select direct or indirect exposure from the pick-list.",
         "examples": "Direct",
+        "exportField": {
+          "NML_LIMS": [
+            {
+              "field": "exposure contact level"
+            }
+          ]
+        },
         "schema:ItemList": {
           "Contact with infected individual": {
             "schema:ItemList": {
@@ -5678,6 +6216,8 @@ var DATA = [
                   "Police Officer": {}
                 }
               },
+              "Child Care/Education Worker": {},
+              "Essential Worker": {},
               "Healthcare Worker": {},
               "Nurse": {},
               "Personal Care Aid": {},
@@ -5689,7 +6229,11 @@ var DATA = [
               "Laboratory Worker": {},
               "Rotational Worker": {},
               "Seasonal Worker": {},
-              "Transport Truck Driver": {},
+              "Transport Worker": {
+                "schema:ItemList": {
+                  "Transport Truck Driver": {}
+                }
+              },
               "Veterinarian": {}
             }
           },
@@ -5733,15 +6277,15 @@ var DATA = [
         "schema:ItemList": {
           "Human Exposure": {
             "schema:ItemList": {
-              "Known COVID-19 Case": {},
-              "Patient Contact": {},
-              "Probable COVID-19 Case": {},
-              "Person with Acute Respiratory Illness": {},
-              "Person with Fever and/or Cough": {},
-              "Person who Recently Travelled": {}
+              "Contact with Known COVID-19 Case": {},
+              "Contact with Patient": {},
+              "Contact with Probable COVID-19 Case": {},
+              "Contact with Person with Acute Respiratory Illness": {},
+              "Contact with Person with Fever and/or Cough": {},
+              "Contact with Person who Recently Travelled": {}
             }
           },
-          "Occupational or Residency Exposure": {
+          "Occupational, Residency or Patronage Exposure": {
             "schema:ItemList": {
               "Abbatoir": {},
               "Animal Rescue": {},
@@ -5790,8 +6334,9 @@ var DATA = [
               "Outdoors": {
                 "schema:ItemList": {
                   "Camp/camping": {},
-                  "Hiking": {},
-                  "Hunting": {}
+                  "Hiking Trail": {},
+                  "Hunting Ground": {},
+                  "Ski Resort": {}
                 }
               },
               "Petting zoo": {},
@@ -5868,6 +6413,13 @@ var DATA = [
         "description": "Whether there was prior SARS-CoV-2 infection.",
         "guidance": "Ik known, provide infromation about whether the individual had a previous SARS-CoV-2 infection. Select a value from the pick list.",
         "examples": "Yes",
+        "exportField": {
+          "NML_LIMS": [
+            {
+              "field": "prior SARS-CoV-2 infection"
+            }
+          ]
+        },
         "schema:ItemList": {
           "Yes": {},
           "No": {},
@@ -5886,7 +6438,14 @@ var DATA = [
         "requirement": "",
         "description": "The identifier of the isolate found in the prior SARS-CoV-2 infection.",
         "guidance": "Provide the isolate name of the most recent prior infection. Structure the \"isolate\" name to be ICTV/INSDC compliant in the following format: \"SARS-CoV-2/host/country/sampleID/date\".",
-        "examples": "SARS-CoV-2/human/USA/CA-CDPH-001/2020"
+        "examples": "SARS-CoV-2/human/USA/CA-CDPH-001/2020",
+        "exportField": {
+          "NML_LIMS": [
+            {
+              "field": "prior SARS-CoV-2 infection isolate"
+            }
+          ]
+        }
       },
       {
         "fieldName": "prior SARS-CoV-2 infection date",
@@ -5900,7 +6459,14 @@ var DATA = [
         "requirement": "",
         "description": "The date of diagnosis of the prior SARS-CoV-2 infection.",
         "guidance": "Provide the date that the most recent prior infection was diagnosed. Provide the prior SARS-CoV-2 infection date in ISO 8601 standard format \"YYYY-MM-DD\".",
-        "examples": "2021-01-23"
+        "examples": "2021-01-23",
+        "exportField": {
+          "NML_LIMS": [
+            {
+              "field": "prior SARS-CoV-2 infection date"
+            }
+          ]
+        }
       },
       {
         "fieldName": "prior SARS-CoV-2 antiviral treatment",
@@ -5921,6 +6487,13 @@ var DATA = [
         "description": "Whether there was prior SARS-CoV-2 treatment with an antiviral agent.",
         "guidance": "If known, provide infromation about whether the individual had a previous SARS-CoV-2 antiviral treatment. Select a value from the pick list.",
         "examples": "No prior antiviral treatment",
+        "exportField": {
+          "NML_LIMS": [
+            {
+              "field": "prior SARS-CoV-2 antiviral treatment"
+            }
+          ]
+        },
         "schema:ItemList": {
           "Prior antivrial treatment": {},
           "No prior antivrial treatment": {},
@@ -5939,7 +6512,14 @@ var DATA = [
         "requirement": "",
         "description": "The name of the antiviral treatment agent administered during the prior SARS-CoV-2 infection.",
         "guidance": "Provide the name of the antiviral treatment agent administered during the most recent prior infection. If no treatment was administered, put \"No treatment\". If multiple antiviral agents were administered, list them all separated by commas.",
-        "examples": "Remdesivir"
+        "examples": "Remdesivir",
+        "exportField": {
+          "NML_LIMS": [
+            {
+              "field": "prior SARS-CoV-2 antiviral treatment agent"
+            }
+          ]
+        }
       },
       {
         "fieldName": "prior SARS-CoV-2 antiviral treatment date",
@@ -5953,7 +6533,14 @@ var DATA = [
         "requirement": "",
         "description": "The date treatment was first administered during the prior SARS-CoV-2 infection.",
         "guidance": "Provide the date that the antiviral treatment agent was first administered during the most recenrt prior infection. Provide the prior SARS-CoV-2 treatment date in ISO 8601 standard format \"YYYY-MM-DD\".",
-        "examples": "2021-01-28"
+        "examples": "2021-01-28",
+        "exportField": {
+          "NML_LIMS": [
+            {
+              "field": "prior SARS-CoV-2 antiviral treatment date"
+            }
+          ]
+        }
       }
     ]
   },
@@ -5964,7 +6551,7 @@ var DATA = [
         "fieldName": "purpose of sequencing",
         "capitalize": "",
         "ontology_id": "",
-        "datatype": "select",
+        "datatype": "multiple",
         "source": "",
         "dataStatus": [
           "Not Applicable",
@@ -5993,6 +6580,11 @@ var DATA = [
           "BIOSAMPLE": [
             {
               "field": "purpose_of_sequencing"
+            }
+          ],
+          "VirusSeq_Portal": [
+            {
+              "field": "purpose of sequencing"
             }
           ]
         },
@@ -6062,6 +6654,11 @@ var DATA = [
             {
               "field": "PH_REASON_FOR_SEQUENCING_DETAILS"
             }
+          ],
+          "VirusSeq_Portal": [
+            {
+              "field": "purpose of sequencing details"
+            }
           ]
         }
       },
@@ -6083,7 +6680,19 @@ var DATA = [
         "requirement": "",
         "description": "The date the sample was sequenced.",
         "guidance": "ISO 8601 standard \"YYYY-MM-DD\".",
-        "examples": "2020-06-22"
+        "examples": "2020-06-22",
+        "exportField": {
+          "NML_LIMS": [
+            {
+              "field": "sequencing date"
+            }
+          ],
+          "VirusSeq_Portal": [
+            {
+              "field": "sequencing date"
+            }
+          ]
+        }
       },
       {
         "fieldName": "library ID",
@@ -6097,7 +6706,19 @@ var DATA = [
         "requirement": "recommended",
         "description": "The user-specified identifier for the library prepared for sequencing.",
         "guidance": "The library name should be unique, and can be an autogenerated ID from your LIMS, or modification of the isolate ID.",
-        "examples": "XYZ_123345"
+        "examples": "XYZ_123345",
+        "exportField": {
+          "NML_LIMS": [
+            {
+              "field": "library ID"
+            }
+          ],
+          "VirusSeq_Portal": [
+            {
+              "field": "library ID"
+            }
+          ]
+        }
       },
       {
         "fieldName": "amplicon size",
@@ -6111,7 +6732,14 @@ var DATA = [
         "requirement": "",
         "description": "The length of the amplicon generated by PCR amplification.",
         "guidance": "Provide the amplicon size, including the units.",
-        "examples": "300bp"
+        "examples": "300bp",
+        "exportField": {
+          "NML_LIMS": [
+            {
+              "field": "amplicon size"
+            }
+          ]
+        }
       },
       {
         "fieldName": "library preparation kit",
@@ -6125,7 +6753,14 @@ var DATA = [
         "requirement": "",
         "description": "The name of the DNA library preparation kit used to generate the library being sequenced.",
         "guidance": "Provide the name of the library preparation kit used.",
-        "examples": "Nextera XT"
+        "examples": "Nextera XT",
+        "exportField": {
+          "NML_LIMS": [
+            {
+              "field": "library preparation kit"
+            }
+          ]
+        }
       },
       {
         "fieldName": "flow cell barcode",
@@ -6139,7 +6774,14 @@ var DATA = [
         "requirement": "",
         "description": "The barcode of the flow cell used for sequencing.",
         "guidance": "Provide the barcode of the flow cell used for sequencing the sample.",
-        "examples": "FAB06069"
+        "examples": "FAB06069",
+        "exportField": {
+          "NML_LIMS": [
+            {
+              "field": "flow cell barcode"
+            }
+          ]
+        }
       },
       {
         "fieldName": "sequencing instrument",
@@ -6174,6 +6816,11 @@ var DATA = [
           "NML_LIMS": [
             {
               "field": "ANALYSIS"
+            }
+          ],
+          "VirusSeq_Portal": [
+            {
+              "field": "sequencing instrument"
             }
           ]
         },
@@ -6274,6 +6921,16 @@ var DATA = [
             {
               "field": "Sequencing Protocol Name"
             }
+          ],
+          "NML_LIMS": [
+            {
+              "field": "sequencing protocol name"
+            }
+          ],
+          "VirusSeq_Portal": [
+            {
+              "field": "sequencing protocol name"
+            }
           ]
         }
       },
@@ -6310,7 +6967,14 @@ var DATA = [
         "requirement": "",
         "description": "The manufacturer's kit number.",
         "guidance": "Alphanumeric value.",
-        "examples": "AB456XYZ789"
+        "examples": "AB456XYZ789",
+        "exportField": {
+          "NML_LIMS": [
+            {
+              "field": "sequencing kit number"
+            }
+          ]
+        }
       },
       {
         "fieldName": "amplicon pcr primer scheme",
@@ -6324,7 +6988,14 @@ var DATA = [
         "requirement": "",
         "description": "The specifications of the primers (primer sequences, binding positions, fragment size generated etc) used to generate the amplicons to be sequenced.",
         "guidance": "Provide the name and version of the primer scheme used to generate the amplicons for sequencing.",
-        "examples": "https://github.com/joshquick/artic-ncov2019/blob/master/primer_schemes/nCoV-2019/V3/nCoV-2019.tsv"
+        "examples": "https://github.com/joshquick/artic-ncov2019/blob/master/primer_schemes/nCoV-2019/V3/nCoV-2019.tsv",
+        "exportField": {
+          "NML_LIMS": [
+            {
+              "field": "amplicon pcr primer scheme"
+            }
+          ]
+        }
       }
     ]
   },
@@ -6343,7 +7014,19 @@ var DATA = [
         "requirement": "recommended",
         "description": "The names of the software and version number used for raw data processing such as removing barcodes, adapter trimming, filtering etc.",
         "guidance": "Provide the software name followed by the version e.g. Trimmomatic v. 0.38, Porechop v. 0.2.3",
-        "examples": "Porechop 0.2.3"
+        "examples": "Porechop 0.2.3",
+        "exportField": {
+          "NML_LIMS": [
+            {
+              "field": "raw sequence data processing method"
+            }
+          ],
+          "VirusSeq_Portal": [
+            {
+              "field": "raw sequence data processing method"
+            }
+          ]
+        }
       },
       {
         "fieldName": "dehosting method",
@@ -6357,7 +7040,19 @@ var DATA = [
         "requirement": "",
         "description": "The method used to remove host reads from the pathogen sequence.",
         "guidance": "Provide the name and version number of the software used to remove host reads.",
-        "examples": "Nanostripper"
+        "examples": "Nanostripper",
+        "exportField": {
+          "NML_LIMS": [
+            {
+              "field": "dehosting method"
+            }
+          ],
+          "VirusSeq_Portal": [
+            {
+              "field": "dehosting method"
+            }
+          ]
+        }
       },
       {
         "fieldName": "consensus sequence name",
@@ -6371,7 +7066,14 @@ var DATA = [
         "requirement": "",
         "description": "The name of the consensus sequence.",
         "guidance": "Provide the name and version number of the consensus sequence.",
-        "examples": "ncov123assembly3"
+        "examples": "ncov123assembly3",
+        "exportField": {
+          "NML_LIMS": [
+            {
+              "field": "consensus sequence name"
+            }
+          ]
+        }
       },
       {
         "fieldName": "consensus sequence filename",
@@ -6385,7 +7087,14 @@ var DATA = [
         "requirement": "",
         "description": "The name of the consensus sequence file.",
         "guidance": "Provide the name and version number of the consensus sequence FASTA file.",
-        "examples": "ncov123assembly.fasta"
+        "examples": "ncov123assembly.fasta",
+        "exportField": {
+          "NML_LIMS": [
+            {
+              "field": "consensus sequence filename"
+            }
+          ]
+        }
       },
       {
         "fieldName": "consensus sequence filepath",
@@ -6399,7 +7108,14 @@ var DATA = [
         "requirement": "",
         "description": "The filepath of the consesnsus sequence file.",
         "guidance": "Provide the filepath of the consensus sequence FASTA file.",
-        "examples": "/User/Documents/RespLab/Data/ncov123assembly.fasta"
+        "examples": "/User/Documents/RespLab/Data/ncov123assembly.fasta",
+        "exportField": {
+          "NML_LIMS": [
+            {
+              "field": "consensus sequence filepath"
+            }
+          ]
+        }
       },
       {
         "fieldName": "consensus sequence software name",
@@ -6423,6 +7139,11 @@ var DATA = [
           "NML_LIMS": [
             {
               "field": "Consensus Sequence Method Name"
+            }
+          ],
+          "VirusSeq_Portal": [
+            {
+              "field": "consensus sequence software name"
             }
           ]
         }
@@ -6450,6 +7171,11 @@ var DATA = [
             {
               "field": "Consensus Sequence Method Version Name"
             }
+          ],
+          "VirusSeq_Portal": [
+            {
+              "field": "consensus sequence software version"
+            }
           ]
         }
       },
@@ -6465,7 +7191,19 @@ var DATA = [
         "requirement": "",
         "description": "The percentage of the reference genome covered by the sequenced data, to a prescribed depth.",
         "guidance": "Provide value as a percent.",
-        "examples": "95%"
+        "examples": "95%",
+        "exportField": {
+          "NML_LIMS": [
+            {
+              "field": "breadth of coverage value"
+            }
+          ],
+          "VirusSeq_Portal": [
+            {
+              "field": "breadth of coverage value"
+            }
+          ]
+        }
       },
       {
         "fieldName": "depth of coverage value",
@@ -6485,6 +7223,16 @@ var DATA = [
             {
               "field": "Coverage"
             }
+          ],
+          "NML_LIMS": [
+            {
+              "field": "depth of coverage value"
+            }
+          ],
+          "VirusSeq_Portal": [
+            {
+              "field": "depth of coverage value"
+            }
           ]
         }
       },
@@ -6500,7 +7248,14 @@ var DATA = [
         "requirement": "",
         "description": "The threshold used as a cut-off for the depth of coverage.",
         "guidance": "Provide the threshold fold coverage.",
-        "examples": "100x"
+        "examples": "100x",
+        "exportField": {
+          "NML_LIMS": [
+            {
+              "field": "depth of coverage threshold"
+            }
+          ]
+        }
       },
       {
         "fieldName": "r1 fastq filename",
@@ -6514,7 +7269,14 @@ var DATA = [
         "requirement": "recommended",
         "description": "The user-specified filename of the r1 FASTQ file.",
         "guidance": "Provide the r1 FASTQ filename.",
-        "examples": "ABC123_S1_L001_R1_001.fastq.gz"
+        "examples": "ABC123_S1_L001_R1_001.fastq.gz",
+        "exportField": {
+          "NML_LIMS": [
+            {
+              "field": "r1 fastq filename"
+            }
+          ]
+        }
       },
       {
         "fieldName": "r2 fastq filename",
@@ -6528,7 +7290,14 @@ var DATA = [
         "requirement": "recommended",
         "description": "The user-specified filename of the r2 FASTQ file.",
         "guidance": "Provide the r2 FASTQ filename.",
-        "examples": "ABC123_S1_L001_R2_001.fastq.gz"
+        "examples": "ABC123_S1_L001_R2_001.fastq.gz",
+        "exportField": {
+          "NML_LIMS": [
+            {
+              "field": "r2 fastq filename"
+            }
+          ]
+        }
       },
       {
         "fieldName": "r1 fastq filepath",
@@ -6542,7 +7311,14 @@ var DATA = [
         "requirement": "",
         "description": "The location of the r1 FASTQ file within a user's file system.",
         "guidance": "Provide the filepath for the r1 FASTQ file. This information aids in data management. ",
-        "examples": "/User/Documents/RespLab/Data/ABC123_S1_L001_R1_001.fastq.gz"
+        "examples": "/User/Documents/RespLab/Data/ABC123_S1_L001_R1_001.fastq.gz",
+        "exportField": {
+          "NML_LIMS": [
+            {
+              "field": "r1 fastq filepath"
+            }
+          ]
+        }
       },
       {
         "fieldName": "r2 fastq filepath",
@@ -6556,7 +7332,14 @@ var DATA = [
         "requirement": "",
         "description": "The location of the r2 FASTQ file within a user's file system.",
         "guidance": "Provide the filepath for the r2 FASTQ file. This information aids in data management. ",
-        "examples": "/User/Documents/RespLab/Data/ABC123_S1_L001_R2_001.fastq.gz"
+        "examples": "/User/Documents/RespLab/Data/ABC123_S1_L001_R2_001.fastq.gz",
+        "exportField": {
+          "NML_LIMS": [
+            {
+              "field": "r2 fastq filepath"
+            }
+          ]
+        }
       },
       {
         "fieldName": "fast5 filename",
@@ -6570,7 +7353,14 @@ var DATA = [
         "requirement": "",
         "description": "The user-specified filename of the FAST5 file.",
         "guidance": "Provide the FAST5 filename.",
-        "examples": "rona123assembly.fast5"
+        "examples": "rona123assembly.fast5",
+        "exportField": {
+          "NML_LIMS": [
+            {
+              "field": "fast5 filename"
+            }
+          ]
+        }
       },
       {
         "fieldName": "fast5 filepath",
@@ -6584,7 +7374,14 @@ var DATA = [
         "requirement": "",
         "description": "The location of the FAST5 file within a user's file system.",
         "guidance": "Provide the filepath for the FAST5 file. This information aids in data management. ",
-        "examples": "/User/Documents/RespLab/Data/rona123assembly.fast5"
+        "examples": "/User/Documents/RespLab/Data/rona123assembly.fast5",
+        "exportField": {
+          "NML_LIMS": [
+            {
+              "field": "fast5 filepath"
+            }
+          ]
+        }
       },
       {
         "fieldName": "number of base pairs sequenced",
@@ -6598,7 +7395,14 @@ var DATA = [
         "requirement": "",
         "description": "The number of total base pairs generated by the sequencing process.",
         "guidance": "Provide a numerical value (no need to include units).",
-        "examples": "387566"
+        "examples": "387566",
+        "exportField": {
+          "NML_LIMS": [
+            {
+              "field": "number of base pairs sequenced"
+            }
+          ]
+        }
       },
       {
         "fieldName": "consensus genome length",
@@ -6612,7 +7416,19 @@ var DATA = [
         "requirement": "",
         "description": "Size of the reconstructed genome described as the number of base pairs.",
         "guidance": "Provide a numerical value (no need to include units).",
-        "examples": "38677"
+        "examples": "38677",
+        "exportField": {
+          "NML_LIMS": [
+            {
+              "field": "consensus genome length"
+            }
+          ],
+          "VirusSeq_Portal": [
+            {
+              "field": "consensus genome length"
+            }
+          ]
+        }
       },
       {
         "fieldName": "Ns per 100 kbp",
@@ -6626,7 +7442,19 @@ var DATA = [
         "requirement": "",
         "description": "The number of N symbols present in the consensus fasta sequence, per 100kbp of sequence.",
         "guidance": "Provide a numerical value (no need to include units).",
-        "examples": "330"
+        "examples": "330",
+        "exportField": {
+          "NML_LIMS": [
+            {
+              "field": "Ns per 100 kbp"
+            }
+          ],
+          "VirusSeq_Portal": [
+            {
+              "field": "Ns per 100 kbp"
+            }
+          ]
+        }
       },
       {
         "fieldName": "reference genome accession",
@@ -6640,7 +7468,19 @@ var DATA = [
         "requirement": "",
         "description": "A persistent, unique identifier of a genome database entry.",
         "guidance": "Provide the accession number of the reference genome.",
-        "examples": "NC_045512.2"
+        "examples": "NC_045512.2",
+        "exportField": {
+          "NML_LIMS": [
+            {
+              "field": "reference genome accession"
+            }
+          ],
+          "VirusSeq_Portal": [
+            {
+              "field": "reference genome accession"
+            }
+          ]
+        }
       },
       {
         "fieldName": "bioinformatics protocol",
@@ -6659,6 +7499,16 @@ var DATA = [
           "CNPHI": [
             {
               "field": "Bioinformatics Protocol"
+            }
+          ],
+          "NML_LIMS": [
+            {
+              "field": "bioinformatics protocol"
+            }
+          ],
+          "VirusSeq_Portal": [
+            {
+              "field": "bioinformatics protocol"
             }
           ]
         }
@@ -6686,6 +7536,11 @@ var DATA = [
             {
               "field": "PH_LINEAGE_CLADE_NAME"
             }
+          ],
+          "VirusSeq_Portal": [
+            {
+              "field": "lineage/clade name"
+            }
           ]
         }
       },
@@ -6707,6 +7562,11 @@ var DATA = [
             {
               "field": "PH_LINEAGE_CLADE_SOFTWARE"
             }
+          ],
+          "VirusSeq_Portal": [
+            {
+              "field": "lineage/clade analysis software name"
+            }
           ]
         }
       },
@@ -6727,6 +7587,11 @@ var DATA = [
           "NML_LIMS": [
             {
               "field": "PH_LINEAGE_CLADE_VERSION"
+            }
+          ],
+          "VirusSeq_Portal": [
+            {
+              "field": "lineage/clade analysis software version"
             }
           ]
         }
@@ -6754,6 +7619,11 @@ var DATA = [
           "NML_LIMS": [
             {
               "field": "PH_VARIANT_DESIGNATION"
+            }
+          ],
+          "VirusSeq_Portal": [
+            {
+              "field": "variant designation"
             }
           ]
         },
@@ -6786,6 +7656,11 @@ var DATA = [
             {
               "field": "PH_VARIANT_EVIDENCE"
             }
+          ],
+          "VirusSeq_Portal": [
+            {
+              "field": "variant evidence"
+            }
           ]
         },
         "schema:ItemList": {
@@ -6810,6 +7685,11 @@ var DATA = [
           "NML_LIMS": [
             {
               "field": "PH_VARIANT_EVIDENCE_DETAILS"
+            }
+          ],
+          "VirusSeq_Portal": [
+            {
+              "field": "variant evidence details"
             }
           ]
         }
@@ -7179,5 +8059,9 @@ var DATA = [
         }
       }
     ]
+  },
+  {
+    "fieldName": "Lake of the Woods District Hospital - Ontario",
+    "children": []
   }
 ]
