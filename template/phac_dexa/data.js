@@ -18,7 +18,7 @@ var DATA = [
         "exportField": {
           "GRDI": [
             {
-              "field": "sample_collector_sample_ID"
+              "field": "alternative_sample_ID"
             }
           ]
         }
@@ -96,14 +96,7 @@ var DATA = [
         "requirement": "",
         "description": "",
         "guidance": "",
-        "examples": "",
-        "exportField": {
-          "GRDI": [
-            {
-              "field": "alternative_sample_ID"
-            }
-          ]
-        }
+        "examples": ""
       },
       {
         "fieldName": "LFZ_ORIGIN_COUNTRY",
@@ -1465,7 +1458,7 @@ var DATA = [
         "fieldName": "DATECOLLECTED_1",
         "capitalize": "",
         "ontology_id": "",
-        "datatype": "xs:token",
+        "datatype": "xs:date",
         "source": "",
         "dataStatus": null,
         "xs:minInclusive": "",
@@ -1549,1509 +1542,173 @@ var DATA = [
           "4": {},
           "<=8": {},
           "<n/a>": {},
-          "Abalone": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Alfalfa sprouts": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "food_product"
-                }
-              ]
-            }
-          },
-          "Alpaca": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Amphibian": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Apple": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "food_product"
-                }
-              ]
-            }
-          },
-          "Aquatic mammal": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Armadillo": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Avian": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Basil": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "food_product"
-                }
-              ]
-            }
-          },
-          "Bat": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Bear": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Bearded Dragon": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Bison": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Budgie": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Camel": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Camelid": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Canary": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Canine": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Cantelope": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "food_product"
-                }
-              ]
-            }
-          },
-          "Caprine": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Cardemom": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "food_product"
-                }
-              ]
-            }
-          },
-          "Cardinal": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Cervid": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Chameleon": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Cheetah": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Chicken": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Chimpanzee": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Chinchilla": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Chinese Water Dragon": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Clam": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Coriander": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "food_product"
-                }
-              ]
-            }
-          },
-          "Cormorant": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Cougar/Mountain Lion": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Coyote": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Crab": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Crane": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Crow": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Cumin seeds": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "food_product"
-                }
-              ]
-            }
-          },
-          "Cuttlefish": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Dog": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Dolphin": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Domestic Cat": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Domestic Cattle": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Duck": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Dumpster": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "environmental_site"
-                }
-              ]
-            }
-          },
-          "Eagle": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Eel": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Elephant": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Falcon": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Feline": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Ferret": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Finch": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Fish": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Flamingo": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "For Unspecified": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Fox": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Gecko": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Goat": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Goat and Sheep": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Goose": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Grape": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "food_product"
-                }
-              ]
-            }
-          },
-          "Green onions": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "food_product"
-                }
-              ]
-            }
-          },
-          "Grosbeak": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "ground pepper": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "food_product"
-                }
-              ]
-            }
-          },
-          "Gull": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Hare": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Hazelnut": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "food_product"
-                }
-              ]
-            }
-          },
-          "Hedgehog": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Herb/spice (unspecified)": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "food_product"
-                }
-              ]
-            }
-          },
-          "Heron": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Hippopotamidae": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Horse": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Iguana": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Jaguar": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Kangaroo": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Komodo Dragon": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Lapine": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Lettuce": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "food_product"
-                }
-              ]
-            }
-          },
-          "Lion": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Lizard": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Marsupial": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Mink": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Mint": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "food_product"
-                }
-              ]
-            }
-          },
-          "Mixed": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Mongoose": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Mouse": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Mushrooms": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "food_product"
-                }
-              ]
-            }
-          },
-          "Mussel": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "n/a": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Not Available": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Octopus": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Opossum": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Oregano": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "food_product"
-                }
-              ]
-            }
-          },
-          "Other": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Otter": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Ovine": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Owl": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Oyster": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Parrot": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Parsley": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "food_product"
-                }
-              ]
-            }
-          },
-          "Partridge": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Pea sprouts": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "food_product"
-                }
-              ]
-            }
-          },
-          "Peanut Butter": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "food_product"
-                }
-              ]
-            }
-          },
-          "Pepper": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "food_product"
-                }
-              ]
-            }
-          },
-          "Perdrix": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Pheasant": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Pickerel": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Pig": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Pigeon": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Pine Siskin": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Pony": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Porcupine": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Porpoise": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Primate": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Quail": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Rabbit": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Raccoon": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Rat": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Ratite": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Raven": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Red Deer": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Redpoll": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Reptile": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Rhea": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Robin": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Rodent": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Sage": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "food_product"
-                }
-              ]
-            }
-          },
-          "Salmon": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Scallop": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Sea Otter": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Sea Snail": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Seal": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Sesame Seed": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "food_product"
-                }
-              ]
-            }
-          },
-          "Sheep": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Shrimp": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Skink": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Skunk": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Snake": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Sparrow": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Spinach": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "food_product"
-                }
-              ]
-            }
-          },
-          "Spotted Hyena": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Sprouts": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "food_product"
-                }
-              ]
-            }
-          },
-          "Squid": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Squirrel": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Stripped Hyena": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Swan": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Tantalus Monkey": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Tilapia": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Tomato": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "food_product"
-                }
-              ]
-            }
-          },
-          "Tortoise": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Trout": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Turkey": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Turtle": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Unknown": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Unspecified Bird": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Unspecified Fish": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Unspecified Primate": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Unspecified Reptile": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Unspecified Rodent": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Vulture": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Wallnut": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "food_product"
-                }
-              ]
-            }
-          },
-          "Water Dragon": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "White Fish": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Wild Ruminant": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Wombat": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Woodpecker": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          },
-          "Zebra": {
-            "exportField": {
-              "GRDI": [
-                {
-                  "field": "host (common name)"
-                }
-              ]
-            }
-          }
+          "Abalone": {},
+          "Alfalfa sprouts": {},
+          "Alpaca": {},
+          "Amphibian": {},
+          "Apple": {},
+          "Aquatic mammal": {},
+          "Armadillo": {},
+          "Avian": {},
+          "Basil": {},
+          "Bat": {},
+          "Bear": {},
+          "Bearded Dragon": {},
+          "Bison": {},
+          "Budgie": {},
+          "Camel": {},
+          "Camelid": {},
+          "Canary": {},
+          "Canine": {},
+          "Cantelope": {},
+          "Caprine": {},
+          "Cardemom": {},
+          "Cardinal": {},
+          "Cervid": {},
+          "Chameleon": {},
+          "Cheetah": {},
+          "Chicken": {},
+          "Chimpanzee": {},
+          "Chinchilla": {},
+          "Chinese Water Dragon": {},
+          "Clam": {},
+          "Coriander": {},
+          "Cormorant": {},
+          "Cougar/Mountain Lion": {},
+          "Coyote": {},
+          "Crab": {},
+          "Crane": {},
+          "Crow": {},
+          "Cumin seeds": {},
+          "Cuttlefish": {},
+          "Dog": {},
+          "Dolphin": {},
+          "Domestic Cat": {},
+          "Domestic Cattle": {},
+          "Duck": {},
+          "Dumpster": {},
+          "Eagle": {},
+          "Eel": {},
+          "Elephant": {},
+          "Falcon": {},
+          "Feline": {},
+          "Ferret": {},
+          "Finch": {},
+          "Fish": {},
+          "Flamingo": {},
+          "For Unspecified": {},
+          "Fox": {},
+          "Gecko": {},
+          "Goat": {},
+          "Goat and Sheep": {},
+          "Goose": {},
+          "Grape": {},
+          "Green onions": {},
+          "Grosbeak": {},
+          "ground pepper": {},
+          "Gull": {},
+          "Hare": {},
+          "Hazelnut": {},
+          "Hedgehog": {},
+          "Herb/spice (unspecified)": {},
+          "Heron": {},
+          "Hippopotamidae": {},
+          "Horse": {},
+          "Iguana": {},
+          "Jaguar": {},
+          "Kangaroo": {},
+          "Komodo Dragon": {},
+          "Lapine": {},
+          "Lettuce": {},
+          "Lion": {},
+          "Lizard": {},
+          "Marsupial": {},
+          "Mink": {},
+          "Mint": {},
+          "Mixed": {},
+          "Mongoose": {},
+          "Mouse": {},
+          "Mushrooms": {},
+          "Mussel": {},
+          "n/a": {},
+          "Not Available": {},
+          "Octopus": {},
+          "Opossum": {},
+          "Oregano": {},
+          "Other": {},
+          "Otter": {},
+          "Ovine": {},
+          "Owl": {},
+          "Oyster": {},
+          "Parrot": {},
+          "Parsley": {},
+          "Partridge": {},
+          "Pea sprouts": {},
+          "Peanut Butter": {},
+          "Pepper": {},
+          "Perdrix": {},
+          "Pheasant": {},
+          "Pickerel": {},
+          "Pig": {},
+          "Pigeon": {},
+          "Pine Siskin": {},
+          "Pony": {},
+          "Porcupine": {},
+          "Porpoise": {},
+          "Primate": {},
+          "Quail": {},
+          "Rabbit": {},
+          "Raccoon": {},
+          "Rat": {},
+          "Ratite": {},
+          "Raven": {},
+          "Red Deer": {},
+          "Redpoll": {},
+          "Reptile": {},
+          "Rhea": {},
+          "Robin": {},
+          "Rodent": {},
+          "Sage": {},
+          "Salmon": {},
+          "Scallop": {},
+          "Sea Otter": {},
+          "Sea Snail": {},
+          "Seal": {},
+          "Sesame Seed": {},
+          "Sheep": {},
+          "Shrimp": {},
+          "Skink": {},
+          "Skunk": {},
+          "Snake": {},
+          "Sparrow": {},
+          "Spinach": {},
+          "Spotted Hyena": {},
+          "Sprouts": {},
+          "Squid": {},
+          "Squirrel": {},
+          "Stripped Hyena": {},
+          "Swan": {},
+          "Tantalus Monkey": {},
+          "Tilapia": {},
+          "Tomato": {},
+          "Tortoise": {},
+          "Trout": {},
+          "Turkey": {},
+          "Turtle": {},
+          "Unknown": {},
+          "Unspecified Bird": {},
+          "Unspecified Fish": {},
+          "Unspecified Primate": {},
+          "Unspecified Reptile": {},
+          "Unspecified Rodent": {},
+          "Vulture": {},
+          "Wallnut": {},
+          "Water Dragon": {},
+          "White Fish": {},
+          "Wild Ruminant": {},
+          "Wombat": {},
+          "Woodpecker": {},
+          "Zebra": {}
         }
       },
       {

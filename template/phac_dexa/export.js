@@ -1,5 +1,11 @@
 /**
  * Download phac_dexa grid mapped to GRDI format.
+ * DEXA to GRDI is 3 step process:
+ * 1: Normalize DEXA fields
+ *  - All input is lowercase at moment except for one term: 'bursa of Fabricius'
+ * 2: Merge field values into target fields according to rules. Done in setRuleDB
+ * 3: Ontology id addition to merged fields
+ * 
  * @param {String} baseName Basename of downloaded file.
  * @param {Object} hot Handonstable grid instance.
  * @param {Object} data See `data.js`.
@@ -125,15 +131,18 @@ var exportGRDI = (baseName, hot, data, xlsx, fileType) => {
       // If Export Header field is in RuleDB, set output value from it, and
       // continue.
       if ((headerName in RuleDB) && RuleDB[headerName] && RuleDB[headerName].length > 0) {
-        outputRow.push(RuleDB[headerName]);
+        const value = RuleDB[headerName];
+        if (value in category)
+          value += ' ' + category[value].ontology_id;
+        outputRow.push(value);
         continue;
       };
 
       // Otherwise apply source (many to one) to target field transform:
       const sources = ExportHeaders.get(headerName);
       const value = getMappedField(headerName, inputRow, sources, sourceFields, sourceFieldNameMap, ';', 'GRDI');
-      if (headerName === 'host (common name)')
-      	console.log(value);
+      if (value in category)
+          value += ' ' + category[value].ontology_id;
       outputRow.push(value);
     };
     outputMatrix.push(outputRow);
@@ -142,23 +151,18 @@ var exportGRDI = (baseName, hot, data, xlsx, fileType) => {
   runBehindLoadingScreen(exportFile, [outputMatrix, baseName, fileType, xlsx]);
 }
 
-/**
-  DEXA to GRDI is 3 step process:
-  1: Normalize DEXA fields
-    - All input is lowercase at moment except for one term: 'bursa of Fabricius'
-  2: Merge field values into target fields according to rules. Done in setRuleDB
-  3: Ontology id addition to merged fields
-
-*/
-
-
+/** Rule-based target field value calculation based on given data row
+ * @param {Object} dataRow.
+ * @param {Object} sourceFields.
+ * @param {Object} sourceFieldNameMap.
+ * @param {Object} normalize term lookup table.
+ * @param {Object} term category lookup table.
+ */
 var setRuleDB = (dataRow, sourceFields, sourceFieldNameMap, normalize, category) => {
 
-  // Rule-based target field value calculatio nbased on given data row
+  // RuleDB is a holding bin of target fields/variables to populate with custom
+  // rule content. None of these fields receive DEXA field content directly.
   let RuleDB = {
-    // Holding bin of target fields/variables to populate with custom rule
-    // content. None of these fields receive DEXA field content directly.
-
     'anatomical_material':       '',
     'anatomical_part':           '',
     'animal_or_plant_population':'',
@@ -214,6 +218,8 @@ var setRuleDB = (dataRow, sourceFields, sourceFieldNameMap, normalize, category)
   switch (RuleDB.STTYPE) {
 
     case 'animal': {
+      // species-> host (common name);
+      RuleDB['host (common name)'] = RuleDB.SPECIES;
 
 		  if (RuleDB.collection_device === 'swab' 
 		  	&& RuleDB.environmental_site.length > 0 
@@ -225,14 +231,13 @@ var setRuleDB = (dataRow, sourceFields, sourceFieldNameMap, normalize, category)
     };
 
     case 'food' : {
-			if (RuleDB.SUBJECT_DESCRIPTIONS && RuleDB.SPECIES) {
-				let label = RuleDB.SPECIES + ' ' + RuleDB.SUBJECT_DESCRIPTIONS;
-				add_item(RuleDB,'food_product', label);
-				break;
-      };
+      // species-> food product
+      // Issue, sometimes species = "Other" ????
+      RuleDB.food_product = RuleDB.SPECIES;
+
+      add_item(RuleDB,'food_product', RuleDB.SUBJECT_DESCRIPTIONS);
 
       if (RuleDB.STYPE && RuleDB.COMMODITY) {
-      	//if (RuleDB.STYPE === 'cereal') // meant to be specific?
 				//add_item(RuleDB.food_product, RuleDB.STYPE);
 	  		switch (RuleDB.STYPE) {
 	        case 'porcine':
@@ -245,11 +250,17 @@ var setRuleDB = (dataRow, sourceFields, sourceFieldNameMap, normalize, category)
     };
 
     case 'environment':
+      // species-> host (common name);
+      RuleDB['host (common name)'] = RuleDB.SPECIES;
+
     	if (RuleDB.STYPE)
       	add_item(RuleDB,'environmental_material', RuleDB.STYPE);
       break;
 
     case 'product':
+      // species-> food product
+      RuleDB.food_product = RuleDB.SPECIES;
+
       switch (RuleDB.STYPE) {
         case 'feed and ingredients':
         case 'fertilizer': 
@@ -273,7 +284,7 @@ var add_item = (RuleDB, field, value) => {
 	if (RuleDB[field] === '')
 		RuleDB[field] = value;
 	else
-		RuleDB[field] += ';' + value;
+		RuleDB[field] += '; ' + value;
 }
 
 // A list of the above functions keyed by the Export menu name they should appear as:
