@@ -293,7 +293,6 @@ var setRuleDB = (dataRow, sourceFields, sourceFieldNameMap, normalize, category,
 
       let merged = RuleDB.food_product.replace('; ',' ');
       if (merged in normalize) {
-      	//console.log(merged, normalize[merged])
       	RuleDB.food_product = normalize[merged].join(';');
       }
       break; // prevents advancing to blank/UNKNOWN
