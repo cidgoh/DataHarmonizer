@@ -105,6 +105,12 @@ var exportGRDI = (baseName, hot, data, xlsx, fileType) => {
     ['DataHarmonizer provenance',									[]],
   ]);
 
+  let preserveCapsFields = [
+  	'geo_loc_name (country)',
+  	'geo_loc_name (state/province/region)',
+  	'sequenced_by_institution_name',
+  	'sequenced_by_laboratory_name',
+  	'sequenced_by_contact_name'];
 
   const sourceFields = getFields(data);
   const sourceFieldNameMap = getFieldNameMap(sourceFields);
@@ -123,15 +129,18 @@ var exportGRDI = (baseName, hot, data, xlsx, fileType) => {
   for (const inputRow of inputMatrix) {
 
   	// Does all 
-    let RuleDB = setRuleDB(inputRow, sourceFields, sourceFieldNameMap, normalize, category);
+    let RuleDB = setRuleDB(inputRow, sourceFields, sourceFieldNameMap, normalize, category, preserveCapsFields);
 
     const outputRow = [];
     for (const headerName of ExportHeaders.keys()) {
 
       // If Export Header field is in RuleDB, set output value from it, and
       // continue.
-      if ((headerName in RuleDB) && RuleDB[headerName] && RuleDB[headerName].length > 0) {
+      // Sometimes fields have been set to 0 length.
+      if ((headerName in RuleDB) && RuleDB[headerName] || RuleDB[headerName] === null) {
         let value = RuleDB[headerName];
+        if (value !== null)
+      		value = map_ontology(value, category, headerName);
         outputRow.push(value);
         continue;
       };
@@ -140,7 +149,6 @@ var exportGRDI = (baseName, hot, data, xlsx, fileType) => {
       const sources = ExportHeaders.get(headerName);
       let value = getMappedField(headerName, inputRow, sources, sourceFields, sourceFieldNameMap, ';', 'GRDI');
       // semicolon-separated list of values.  Issue is terms have come from other source fields. 
-      value = map_ontology(value, category, headerName);
       outputRow.push(value);
     };
     outputMatrix.push(outputRow);
@@ -158,21 +166,18 @@ var map_ontology = (labels, category, field) => {
   for (let label of labels.split(';')) {
 
     // If it is a selection list picklist item it may have an ontology ID.
-
-
-    label = label.toLowerCase().trim();
-
+    label = label.trim();
+    let lookup = label.toLowerCase();
     // Otherwise it may be a compound term
-    if (label in category) {
-      for (let item of category[label]) {
-        if (item.field == field && item.ontology_id) {
-          label += ': ' + item.ontology_id;
-          break;
-        }
+    if (lookup in category) {
+      if (category[lookup]) {
+        label += ': ' + category[lookup];
+        break;
       }
     }
     value.push(label);
   }
+
   return value.join(';');
 }
 
@@ -185,7 +190,7 @@ var map_ontology = (labels, category, field) => {
  * @param {Object} normalize term lookup table.
  * @param {Object} term category lookup table.
  */
-var setRuleDB = (dataRow, sourceFields, sourceFieldNameMap, normalize, category) => {
+var setRuleDB = (dataRow, sourceFields, sourceFieldNameMap, normalize, category,preserveCapsFields) => {
 
   // RuleDB is a holding bin of target fields/variables to populate with custom
   // rule content. None of these fields receive DEXA field content directly.
@@ -215,14 +220,19 @@ var setRuleDB = (dataRow, sourceFields, sourceFieldNameMap, normalize, category)
   // mapping if any.
   getRowMap(dataRow, ruleSourceFieldNames, RuleDB, sourceFields, sourceFieldNameMap, 'GRDI');
 
+  for (let sourceField of Object.keys(RuleDB)) {
+  	if (RuleDB[sourceField])
+  		RuleDB[sourceField] = RuleDB[sourceField].toLowerCase();
+ 	};
+
+/*
   for (let sourceField of ruleSourceFieldNames) {
   	// All terms get lowercased in GRDI.
   	if (RuleDB[sourceField]) {
-	  	let term = RuleDB[sourceField].toLowerCase(); // just one term
-
-			RuleDB[sourceField] = term;
+	  	let term = RuleDB[sourceField];
 
 	  	if (term in normalize) {
+	  		console.log('setting',sourceField,RuleDB[sourceField],'->',normalize[term].join(';'))
 	  		// Provide DEXA field with normalized version (concatenated string)
 				RuleDB[sourceField] = normalize[term].join(';');
 
@@ -231,16 +241,21 @@ var setRuleDB = (dataRow, sourceFields, sourceFieldNameMap, normalize, category)
 	  		for (let normalized_term of normalize[term]) {
 	  			if (normalized_term in category) {
 	  				let normal_obj = category[normalized_term];
+
 	  				// Not using ontology term label.
 	  				// NO ONTOLOGY IDs INSERTED YET.
 	  				// Is it true that there is only one value per target field?
-						RuleDB[normal_obj.field] = normalized_term;  
+	  				if (normal_obj.field in RuleDB)
+	  					//if (RuleDB[normal_obj.field].indexOf(normalized_term) == -1)
+	  					add_item(RuleDB,normal_obj.field, normalized_term);
+								//RuleDB[normal_obj.field] = normalized_term;  
 					}
 	  		}
 	  	}
-  	}
-  };
 
+  	}
+  }
+*/
   // STTYPE: ANIMAL ENVIRONMENT FOOD HUMAN PRODUCT QA UNKNOWN
   switch (RuleDB.STTYPE) {
 
@@ -261,6 +276,7 @@ var setRuleDB = (dataRow, sourceFields, sourceFieldNameMap, normalize, category)
       // species-> food product
       // Issue, sometimes species = "Other" ????
       RuleDB.food_product = RuleDB.SPECIES;
+      RuleDB['host (common name)'] = null; //wHY ISNT THIS WORKING???
 
       if (RuleDB.SUBJECT_DESCRIPTIONS)
         add_item(RuleDB,'food_product', RuleDB.SUBJECT_DESCRIPTIONS);
@@ -273,6 +289,12 @@ var setRuleDB = (dataRow, sourceFields, sourceFieldNameMap, normalize, category)
 	        case 'crustacean': 
 	          add_item(RuleDB,'food_product', RuleDB.COMMODITY);
 	      };
+      }
+
+      let merged = RuleDB.food_product.replace('; ',' ');
+      if (merged in normalize) {
+      	//console.log(merged, normalize[merged])
+      	RuleDB.food_product = normalize[merged].join(';');
       }
       break; // prevents advancing to blank/UNKNOWN
     };
@@ -337,632 +359,632 @@ var initNormalize = () => {
  https://docs.google.com/spreadsheets/d/1jPQAIJcL_xa3oBVFEsYRGLGf7ESTOwzsTSjKZ-0CTYE/ 
  MUST BE TAB DELIMITED!
  */
-var NORMALIZE = `-20°C freezer handle, rm 252	freezer handle
-"Pigsty	pigsty
+var NORMALIZE = `-20°c freezer handle, rm 252	freezer handle
+"pigsty	pigsty
 (pigsty) a l'engrais	pigsty
 (pigsty) porcherie	pigsty
-(Reprod) Farm Baril	farm
-(Reprod) Farm Basil	farm
-(Reprod) Farm DAN Marc	farm
-(Reprod) Farm Martineau	farm
-(Reprod) Farm Martinenu	farm
-(Reprod) Farm Mercier & Allard	farm
-(Reprod) Farm Ramsay	farm
-(Reprod) Farm Val-Rainville	farm
-(Reprod) ferme Martineau	farm
-(Reprod) Ferme Mercier & Allard	farm
-(reprod) ferme Rainville	farm
-(Reprod)Farm Martineau	farm
-(reprod)Farm Ramsay	farm
-#1Barn 2	barn
-#1Barn 3	barn
-#4Barn 3,Salm1	barn
-#4Barn 3,Salm2	barn
+(reprod) farm baril	farm
+(reprod) farm basil	farm
+(reprod) farm dan marc	farm
+(reprod) farm martineau	farm
+(reprod) farm martinenu	farm
+(reprod) farm mercier & allard	farm
+(reprod) farm ramsay	farm
+(reprod) farm val-rainville	farm
+(reprod) ferme martineau	farm
+(reprod) ferme mercier & allard	farm
+(reprod) ferme rainville	farm
+(reprod)farm martineau	farm
+(reprod)farm ramsay	farm
+#1barn 2	barn
+#1barn 3	barn
+#4barn 3,salm1	barn
+#4barn 3,salm2	barn
 1/2 breast	
-10#56 Hatchery	hatchery
-2-Barn 8	barn
-2-Barn-5	barn
-2006 Barn #1	barn
-2007 Barn #C	barn
-3-Barn 6	barn
-3-Barn-6	barn
-A.A. Abattoir	abattoir
-Abattior	abattoir
-Abattoir AF	abattoir
-Abattoir AH	abattoir
-Abattoir AH-02	abattoir
-Abattoir AL	abattoir
-Abattoir AL	abattoir
-Abattoir B	abattoir
-Abattoir D-02	abattoir
-Abattoir DD-02	abattoir
-Abattoir G-02	abattoir
-Abattoir O	abattoir
-Abbatoir	abattoir
-Abbatoire	abattoir
-Abbattoir	abattoir
-Abdominal Muscle	muscle of abdomen
-ACRE T	farm
-ACRE T FARMS	farm
-ACRE-T	farm
-Air Inlet	air intake
-Air Intake	air intake 
-Alfalfa Sprouts	alfalfa sprout
-Alfalfa sprouts	alfalfa sprout
-Allen's Fisheries	fish farm
-Ambo Hospital	hospital 
-AMR Abattoir AL	abattoir
-AMR Abattoir DD	abattoir
-AMR-abattoir	abattoir
-AMR-Abattoir-AH	abattoir
-AMR-Abattoir-B	abattoir
+10#56 hatchery	hatchery
+2-barn 8	barn
+2-barn-5	barn
+2006 barn #1	barn
+2007 barn #c	barn
+3-barn 6	barn
+3-barn-6	barn
+a.a. abattoir	abattoir
+abattior	abattoir
+abattoir af	abattoir
+abattoir ah	abattoir
+abattoir ah-02	abattoir
+abattoir al	abattoir
+abattoir al	abattoir
+abattoir b	abattoir
+abattoir d-02	abattoir
+abattoir dd-02	abattoir
+abattoir g-02	abattoir
+abattoir o	abattoir
+abbatoir	abattoir
+abbatoire	abattoir
+abbattoir	abattoir
+abdominal muscle	muscle of abdomen
+acre t	farm
+acre t farms	farm
+acre-t	farm
+air inlet	air intake
+air intake	air intake 
+alfalfa sprouts	alfalfa sprout
+alfalfa sprouts	alfalfa sprout
+allen's fisheries	fish farm
+ambo hospital	hospital 
+amr abattoir al	abattoir
+amr abattoir dd	abattoir
+amr-abattoir	abattoir
+amr-abattoir-ah	abattoir
+amr-abattoir-b	abattoir
 animalerie (canari)	pet store
-Animalerie, aquariums.	pet store
-Animalerie, aquariums.	aquarium
-Animalerie, comptoir	pet store
-Animalerie, comptoir	countertop
-Apple	apple (whole or parts)
+animalerie, aquariums.	pet store
+animalerie, aquariums.	aquarium
+animalerie, comptoir	pet store
+animalerie, comptoir	countertop
+apple	apple (whole or parts)
 aquarium water/tropical fish importer	shop
 aquarium water/tropical fish importer	tropical fish
 aquarium water/tropical fish importer	water
 aquarium water/tropical fish importer	aquarium
-ARAND VIEW FARMS	farm
-Arugula	arugula greens (raw)
-Atlantic Poultry; Chick Hatchery	poultry hatchery
-Atlantic Shellfish Products	Atlantic shellfish food product
+arand view farms	farm
+arugula	arugula greens (raw)
+atlantic poultry; chick hatchery	poultry hatchery
+atlantic shellfish products	Atlantic shellfish food product
 aviaire dinde	turkey
-Avian Ingredients	
-Avitech Farm	farm
-Awash	park
-Awash Park	park
-AxisFarms	farm
-BARBER	farm
-BARBER FARM	farm
-BARN - OVC	barn
-Barn #1	barn
-Barn #12	barn
-Barn #2	barn
-Barn #4	barn
-Barn #5	barn
-Barn #6	barn
-Barn #6; McKinley Hatchery	barn
-Barn #7	barn
-Barn #7 Hatchery	barn
-Barn #7 Hatchery	poultry hatchery
-Barn #8	barn
-Barn #9 Rows C&D	barn
-BARN 1	barn
-Barn 1&2	barn
-Barn 1097a; 1-8	barn
-Barn 1097a; 9-17	barn
-Barn 1097a: top	barn
-Barn 1A	barn
-Barn 2	barn
-Barn 3	barn
-Barn 3&4	barn
-Barn 6	barn
-Barn 8	barn
-Barn A	barn
-Barn and belts	barn
-Barn B	barn
-BARN OVC	barn
-Barn T.W #4	barn
-Barn-Floor	barn
-Barn-Pig	barn
-BARN, ANIMAL HOSPITAL	barn
-Barn/Enviromental	barn
-Barn#10	barn
-Barn#4	barn
-Barn#54	barn
-Barn#6	barn
-Barn#7	barn
-Barn#8	barn
-Barn2, sample1	barn
-Barn2, sample2	barn
-Barn5	barn
-Barn5 21417	barn
-Barn6/7	barn
-Barns 1&2	barn
-Bean Sprouts	bean sprout
-Beef-10	beef
-Beef-11	beef
-BEEF-12	beef
-Beef-13	beef
-Beef-14	beef
-Beef-17	beef
-Beef-21	beef
-Beef-22	beef
-Beef-23	beef
-Beef-24	beef
-Beef-33	beef
-Beef-35	beef
-Beef-38-2011	beef
-Beef-43-2011	beef
-Beef-5	beef
-Beef-65	beef
-Beef-7	beef
-Beef-B1-2011	beef
-Beef-B10-2009	beef
-Beef-B10-2010	beef
-Beef-B11-2009	beef
-Beef-B11-2010	beef
-Beef-B11-2011	beef
-Beef-B11-2012	beef
-Beef-B13-2011	beef
-Beef-B15-2010	beef
-Beef-B21-2010	beef
-Beef-B22-2009	beef
-Beef-B24-2010	beef
-Beef-B26-2009	beef
-Beef-B27-2010	beef
-Beef-B32-2010	beef
-Beef-B36-2010	beef
-Beef-B37-2009	beef
-Beef-B38-2010	beef
-Beef-B38-2012	beef
-Beef-B40-2010	beef
-Beef-B40-2012	beef
-Beef-B41-2009	beef
-Beef-B43-2010	beef
-Beef-B44-2009	beef
-Beef-B47-2009	beef
-Beef-B47-2010	beef
-Beef-B47-2011	beef
-Beef-B48-2009	beef
-Beef-B49-2009	beef
-Beef-B50-2010	beef
-Beef-B51-2009	beef
-Beef-B53-2011	beef
-Beef-B54-2011	beef
-Beef-B6-2009	beef
-Beef-B6a-2009	beef
-BEL ROYAL FARM	farm
-Belt #7	belt
-Belt #7 Hatchery	belt;poultry hatchery
-Belt 1-3	belt
-Belt 4-6	belt
-Belts 4	belt
-Belts 6	belt
-Bergerie	sheep barn
-Bergerie a Saint-Cuthbert	sheep barn
-Bergerie a St-Barthelemy	sheep barn
-Bergerie a St-Zenon-du-lac-Humqui	sheep barn
-BERT FISHER FARM	farm
-BERT FISWER	farm
-BINNING FARM	farm
-Biosolid	biosolids
-Biosolid/Sludge	biosolids;sludge
-BIRCH TREE FARM	farm
-Bladder	urinary bladder
-Blade Steak	
-Body Fluid/Excretion	bodily fluid;excreta
-Boiler Barn	broiler barn
-Bootie	boot cover
-Boots	boot  
-Boucherie	butcher shop
-Bourgeois Dumont Poultry Farm	farm
-Bovine Ingredients	
-Breast back off	breast (back off)
-Breast cutlets	chicken breast cutlet
-Breast Skinless	breast (skinless)
-Breast skinless	breast (skinless)
-Breast Skinless Boneless	breast (skinless, boneless)
-Breast skinless boneless	breast (skinless, boneless)
-Breast with Skin	breast (with skin)
-Breast with skin	breast (with skin)
-Breeder Operation	breeder farm
-BURNBRAE FARMS LTD.	farm
-Burnbrne Farm	farm
+avian ingredients	
+avitech farm	farm
+awash	park
+awash park	park
+axisfarms	farm
+barber	farm
+barber farm	farm
+barn - ovc	barn
+barn #1	barn
+barn #12	barn
+barn #2	barn
+barn #4	barn
+barn #5	barn
+barn #6	barn
+barn #6; mckinley hatchery	barn
+barn #7	barn
+barn #7 hatchery	barn
+barn #7 hatchery	poultry hatchery
+barn #8	barn
+barn #9 rows c&d	barn
+barn 1	barn
+barn 1&2	barn
+barn 1097a; 1-8	barn
+barn 1097a; 9-17	barn
+barn 1097a: top	barn
+barn 1a	barn
+barn 2	barn
+barn 3	barn
+barn 3&4	barn
+barn 6	barn
+barn 8	barn
+barn a	barn
+barn and belts	barn
+barn b	barn
+barn ovc	barn
+barn t.w #4	barn
+barn-floor	barn
+barn-pig	barn
+barn, animal hospital	barn
+barn/enviromental	barn
+barn#10	barn
+barn#4	barn
+barn#54	barn
+barn#6	barn
+barn#7	barn
+barn#8	barn
+barn2, sample1	barn
+barn2, sample2	barn
+barn5	barn
+barn5 21417	barn
+barn6/7	barn
+barns 1&2	barn
+bean sprouts	bean sprout
+beef-10	beef
+beef-11	beef
+beef-12	beef
+beef-13	beef
+beef-14	beef
+beef-17	beef
+beef-21	beef
+beef-22	beef
+beef-23	beef
+beef-24	beef
+beef-33	beef
+beef-35	beef
+beef-38-2011	beef
+beef-43-2011	beef
+beef-5	beef
+beef-65	beef
+beef-7	beef
+beef-b1-2011	beef
+beef-b10-2009	beef
+beef-b10-2010	beef
+beef-b11-2009	beef
+beef-b11-2010	beef
+beef-b11-2011	beef
+beef-b11-2012	beef
+beef-b13-2011	beef
+beef-b15-2010	beef
+beef-b21-2010	beef
+beef-b22-2009	beef
+beef-b24-2010	beef
+beef-b26-2009	beef
+beef-b27-2010	beef
+beef-b32-2010	beef
+beef-b36-2010	beef
+beef-b37-2009	beef
+beef-b38-2010	beef
+beef-b38-2012	beef
+beef-b40-2010	beef
+beef-b40-2012	beef
+beef-b41-2009	beef
+beef-b43-2010	beef
+beef-b44-2009	beef
+beef-b47-2009	beef
+beef-b47-2010	beef
+beef-b47-2011	beef
+beef-b48-2009	beef
+beef-b49-2009	beef
+beef-b50-2010	beef
+beef-b51-2009	beef
+beef-b53-2011	beef
+beef-b54-2011	beef
+beef-b6-2009	beef
+beef-b6a-2009	beef
+bel royal farm	farm
+belt #7	belt
+belt #7 hatchery	belt;poultry hatchery
+belt 1-3	belt
+belt 4-6	belt
+belts 4	belt
+belts 6	belt
+bergerie	sheep barn
+bergerie a saint-cuthbert	sheep barn
+bergerie a st-barthelemy	sheep barn
+bergerie a st-zenon-du-lac-humqui	sheep barn
+bert fisher farm	farm
+bert fiswer	farm
+binning farm	farm
+biosolid	biosolids
+biosolid/sludge	biosolids;sludge
+birch tree farm	farm
+bladder	urinary bladder
+blade steak	
+body fluid/excretion	bodily fluid;excreta
+boiler barn	broiler barn
+bootie	boot cover
+boots	boot  
+boucherie	butcher shop
+bourgeois dumont poultry farm	farm
+bovine ingredients	
+breast back off	breast (back off)
+breast cutlets	chicken breast cutlet
+breast skinless	breast (skinless)
+breast skinless	breast (skinless)
+breast skinless boneless	breast (skinless, boneless)
+breast skinless boneless	breast (skinless, boneless)
+breast with skin	breast (with skin)
+breast with skin	breast (with skin)
+breeder operation	breeder farm
+burnbrae farms ltd.	farm
+burnbrne farm	farm
 bursa of fabricus	bursa of Fabricius
-Butchershop	butcher shop
-Butternut Creek, Rte.800	creek
-Cage	animal cage
-Cage 2,Rm 62	animal cage
-Cages	animal cage
-Cages 1-2; Chick Hatchery; Pullet barn	poultry hatchery
-Cages 1-2; Chick Hatchery; Pullet barn	animal cage
-Cages 3; Chick Hatchery; Pullet barn	poultry hatchery
-Cages 3; Chick Hatchery; Pullet barn	animal cage
-Calgary Zoo	zoo
-Camion (truck)	truck
-Canagagigue Creek	creek
-Canagugiue creek	creek
-Cantaloupe	cantaloupe (whole or parts)
-Cantelope	cantaloupe (whole or parts)
-Carcass (whole)	carcass
-Cardemom	cardamom
-cattle Ground	beef (ground or minced)
-cattle Ground ( lean)	beef (ground or minced, lean)
-cattle Ground (Extra Lean)	beef (ground or minced, extra lean)
-cattle Ground (extra-lan)	beef (ground or minced, extra lean)
-cattle Ground (Extra-Lean)	beef (ground or minced, extra lean)
-cattle Ground (Lean)	beef (ground or minced, lean)
-cattle Ground (Medium)	beef (ground or minced, medium)
-cattle Ground (Regular)	beef (ground or minced, regular)
-cattle Ground (Sirloin)	beef (ground or minced, Sirloin)
-cattle Ground Boneless	beef (ground or minced, boneless)
-cattle Ground regular	beef (ground or minced, regular)
-cattle Ground-Lean	beef (ground or minced, lean)
-cattle Ground-Regular	beef (ground or minced, regular)
+butchershop	butcher shop
+butternut creek, rte.800	creek
+cage	animal cage
+cage 2,rm 62	animal cage
+cages	animal cage
+cages 1-2; chick hatchery; pullet barn	poultry hatchery
+cages 1-2; chick hatchery; pullet barn	animal cage
+cages 3; chick hatchery; pullet barn	poultry hatchery
+cages 3; chick hatchery; pullet barn	animal cage
+calgary zoo	zoo
+camion (truck)	truck
+canagagigue creek	creek
+canagugiue creek	creek
+cantaloupe	cantaloupe (whole or parts)
+cantelope	cantaloupe (whole or parts)
+carcass (whole)	carcass
+cardemom	cardamom
+cattle ground	beef (ground or minced)
+cattle ground ( lean)	beef (ground or minced, lean)
+cattle ground (extra lean)	beef (ground or minced, extra lean)
+cattle ground (extra-lan)	beef (ground or minced, extra lean)
+cattle ground (extra-lean)	beef (ground or minced, extra lean)
+cattle ground (lean)	beef (ground or minced, lean)
+cattle ground (medium)	beef (ground or minced, medium)
+cattle ground (regular)	beef (ground or minced, regular)
+cattle ground (sirloin)	beef (ground or minced, Sirloin)
+cattle ground boneless	beef (ground or minced, boneless)
+cattle ground regular	beef (ground or minced, regular)
+cattle ground-lean	beef (ground or minced, lean)
+cattle ground-regular	beef (ground or minced, regular)
 cattle ground( extra lean)	beef (ground or minced, extra lean)
 cattle ground( medium)	beef (ground or minced, medium)
-cattle Ground(Extra lean)	beef (ground or minced, extra lean)
-cattle Ground(Lean)	beef (ground or minced, lean)
-cattle Ground(medium)	beef (ground or minced, medium)
+cattle ground(extra lean)	beef (ground or minced, extra lean)
+cattle ground(lean)	beef (ground or minced, lean)
+cattle ground(medium)	beef (ground or minced, medium)
 cattle ground(regular)	beef (ground or minced, regular)
-cattle Groundextra lean)	beef (ground or minced, extra lean)
+cattle groundextra lean)	beef (ground or minced, extra lean)
 cattle rib chop	beef rib chop
 cattle ribs	beef rib (meat cut) 
 cattle roast	beef roast
-cattle Shoulder	beef shoulder (meat cut)
+cattle shoulder	beef shoulder (meat cut)
 cattle shoulder chop	beef shoulder chop (meat cut)
-cattle Shoulder chop non-seasoned	beef shoulder chop (meat cut);food (non-seasoned)
+cattle shoulder chop non-seasoned	beef shoulder chop (meat cut);food (non-seasoned)
 cattle sirloin chop	beef sirloin chop (meat cut)
 cattle strip	beef strip (meat cut)
 cattle tender loin	beef tenderloin (meat cut)
-cattle Tenderloin	beef tenderloin (meat cut)
-Cavity Fluid (Unspecified)	bodily fluid
-Cavity fluid unspecified	bodily fluid
-Cecal Content	caecum;body cavity content
-Cecum	caecum
-Cereal/Bread/Snack	cereal;bread;snack food
-Chia Seeds	chia seed (whole)
-Chia Sprouts	chia sprout
-Chick Boxes	chick box
-Chick Pads	chick pad
+cattle tenderloin	beef tenderloin (meat cut)
+cavity fluid (unspecified)	bodily fluid
+cavity fluid unspecified	bodily fluid
+cecal content	caecum;body cavity content
+cecum	caecum
+cereal/bread/snack	cereal;bread;snack food
+chia seeds	chia seed (whole)
+chia sprouts	chia sprout
+chick boxes	chick box
+chick pads	chick pad
 chicken breast back off	chicken breast (back off)
 chicken breast skinless	chicken breast (skinless)
-chicken Breast skinless boneless	chicken breast (skinless, boneless)
-chicken Breast with skin	chicken breast (with skin)
-chicken Drumstick Skinless	chicken drumstick (skinless)
-chicken Drumstick with Skin	chicken drumstick (with skin)
-chicken Drumsticks	chicken drumstick
-chicken Ground	chicken (ground or minced)
-chicken Ground ( lean)	chicken (ground or minced, lean)
-chicken Ground (Extra Lean)	chicken (ground or minced, extra lean)
-chicken Ground (extra-lan)	chicken (ground or minced, extra lean)
-chicken Ground (Extra-Lean)	chicken (ground or minced, extra lean)
-chicken Ground (Lean)	chicken (ground or minced, lean)
-chicken Ground (Medium)	chicken (ground or minced, medium)
-chicken Ground (Regular)	chicken (ground or minced, regular)
-chicken Ground Boneless	chicken (ground or minced, boneless)
-chicken Ground regular	chicken (ground or minced, regular)
-chicken Ground-Lean	chicken (ground or minced, lean)
-chicken Ground-Regular	chicken (ground or minced, regular)
+chicken breast skinless boneless	chicken breast (skinless, boneless)
+chicken breast with skin	chicken breast (with skin)
+chicken drumstick skinless	chicken drumstick (skinless)
+chicken drumstick with skin	chicken drumstick (with skin)
+chicken drumsticks	chicken drumstick
+chicken ground	chicken (ground or minced)
+chicken ground ( lean)	chicken (ground or minced, lean)
+chicken ground (extra lean)	chicken (ground or minced, extra lean)
+chicken ground (extra-lan)	chicken (ground or minced, extra lean)
+chicken ground (extra-lean)	chicken (ground or minced, extra lean)
+chicken ground (lean)	chicken (ground or minced, lean)
+chicken ground (medium)	chicken (ground or minced, medium)
+chicken ground (regular)	chicken (ground or minced, regular)
+chicken ground boneless	chicken (ground or minced, boneless)
+chicken ground regular	chicken (ground or minced, regular)
+chicken ground-lean	chicken (ground or minced, lean)
+chicken ground-regular	chicken (ground or minced, regular)
 chicken ground( extra lean)	chicken (ground or minced, extra lean)
 chicken ground( medium)	chicken (ground or minced, medium)
-chicken Ground(Extra lean)	chicken (ground or minced, extra lean)
-chicken Ground(Lean)	chicken (ground or minced, lean)
-chicken Ground(medium)	chicken (ground or minced, medium)
+chicken ground(extra lean)	chicken (ground or minced, extra lean)
+chicken ground(lean)	chicken (ground or minced, lean)
+chicken ground(medium)	chicken (ground or minced, medium)
 chicken ground(regular)	chicken (ground or minced, regular)
-chicken Groundextra lean)	chicken (ground or minced, extra lean)
+chicken groundextra lean)	chicken (ground or minced, extra lean)
 chicken leg	chicken leg (meat cut)
-chicken Leg with Skin-Drumstick and Thigh	chicken leg (with skin)
+chicken leg with skin-drumstick and thigh	chicken leg (with skin)
 chicken necks	chicken neck (meat cut)
 chicken nuggets	chicken nugget
 chicken thigh	chicken thigh (meat cut)
 chicken thigh skinless	chicken thigh (skinless)
-chicken Thigh Skinless Boneless	chicken thigh (skinless, boneless)
-chicken Thigh with skin	chicken thigh (with skin)
-chicken Thigh with Skin	chicken thigh (with skin)
-chicken Upper Thigh	chicken upper thigh (meat cut)
-chicken Upper Thigh with Skin	chicken upper thigh (with skin)
+chicken thigh skinless boneless	chicken thigh (skinless, boneless)
+chicken thigh with skin	chicken thigh (with skin)
+chicken thigh with skin	chicken thigh (with skin)
+chicken upper thigh	chicken upper thigh (meat cut)
+chicken upper thigh with skin	chicken upper thigh (with skin)
 chicken upper thight	chicken upper thigh (meat cut)
-chicken Upperthigh	chicken upper thigh (meat cut)
-chicken Wing	chicken wing (meat cut)
-chicken Wings	chicken wing (meat cut)
-Chickpea	chickpea (whole)
-Chili	
-Chilli Pepper	chili pepper
-Chives	chive leaf (whole or parts)
-Chops	chop
-Cloacae	cloaca
-Cloacal swab	cloaca;swab
-Coconut	coconut (whole or parts)
-Confections/Nuts/Condiments	
-Contact plate	petri dish
-Coriander Seeds	coriander seed (whole)
-Coriander-Cumin Powder	coriander powder;cumin powder
-Corn	corn (on-the-cob, kernel or parts)
-Crates	crate
-Cubes	cube
-Cucumber	cucumber (whole or parts)
-Culture Plate	petri dish
-Cumin seeds	cumin seed
-Curry Leaves	curry leaf
-Curry powder	currey powder
-Dairy	dairy product
-Dead Haul Truck / Trailer	dead haul truck;dead haul trailer
-Digestive System (Unspecified)	digestive system
-Dill	dill spice
-Drumstick	poultry drumstick
-Drumstick Skinless	poultry drumstick (skinless)
-Drumstick with Skin	poultry drumstick (with skin)
-Drumsticks	poultry drumstick
-Egg	egg or egg component
-Egg Belt	egg belt;feces
-Egg Flour	
-Environment Swab	swab
-Environment Swab (Hatchery)	hatchery;swab
-Feed	animal feed
-Feed and Ingredients	animal feed; animal feed ingredient 
-Feed Pans	feed pan
-Feeders and Drinkers	animal feeder;animal drinker
-Fetal Tissue	fetus;tissue
-Fetus/Embryo	fetus;embryo
-Final Wash	rinse
-Fish Ingredients	
-Flax and Chia Powder	flax powder; chia powder
-Fluff	poultry fluff
-Fluff (Hatchery)	poultry fluff;hatchery
-Food	
-Fruits and Vegetables	fruit;vegetable
-Gallbladder	gall bladder
-Grain	bulk grain
-Green onions	green onion
-Ground	meat (ground)
-Ground ( lean)	ground meat (lean)
-Ground (Angus)	beef (ground or minced, Angus)
-Ground (Extra Lean)	ground meat (extra lean)
-Ground (extra lean)	ground meat (extra lean)
-Ground (extra-lan)	ground meat (extra lean)
-Ground (Extra-Lean)	ground meat (extra lean)
-Ground (Lean)	ground meat (lean)
-Ground (lean)	ground meat (lean)
-Ground (Medium)	ground meat (medium)
-Ground (medium)	ground meat (medium)
-Ground (Regular)	ground meat (regular)
-Ground (regular)	ground meat (regular)
-Ground (Sirloin)	ground meat (Sirloin)
-Ground Boneless	ground meat (boneless)
-Ground extra lean	ground meat (extra lean)
+chicken upperthigh	chicken upper thigh (meat cut)
+chicken wing	chicken wing (meat cut)
+chicken wings	chicken wing (meat cut)
+chickpea	chickpea (whole)
+chili	
+chilli pepper	chili pepper
+chives	chive leaf (whole or parts)
+chops	chop
+cloacae	cloaca
+cloacal swab	cloaca;swab
+coconut	coconut (whole or parts)
+confections/nuts/condiments	
+contact plate	petri dish
+coriander seeds	coriander seed (whole)
+coriander-cumin powder	coriander powder;cumin powder
+corn	corn (on-the-cob, kernel or parts)
+crates	crate
+cubes	cube
+cucumber	cucumber (whole or parts)
+culture plate	petri dish
+cumin seeds	cumin seed
+curry leaves	curry leaf
+curry powder	currey powder
+dairy	dairy product
+dead haul truck / trailer	dead haul truck;dead haul trailer
+digestive system (unspecified)	digestive system
+dill	dill spice
+drumstick	poultry drumstick
+drumstick skinless	poultry drumstick (skinless)
+drumstick with skin	poultry drumstick (with skin)
+drumsticks	poultry drumstick
+egg	egg or egg component
+egg belt	egg belt;feces
+egg flour	
+environment swab	swab
+environment swab (hatchery)	hatchery;swab
+feed	animal feed
+feed and ingredients	animal feed; animal feed ingredient 
+feed pans	feed pan
+feeders and drinkers	animal feeder;animal drinker
+fetal tissue	fetus;tissue
+fetus/embryo	fetus;embryo
+final wash	rinse
+fish ingredients	
+flax and chia powder	flax powder; chia powder
+fluff	poultry fluff
+fluff (hatchery)	poultry fluff;hatchery
+food	
+fruits and vegetables	fruit;vegetable
+gallbladder	gall bladder
+grain	bulk grain
+green onions	green onion
+ground	meat (ground)
+ground ( lean)	ground meat (lean)
+ground (angus)	beef (ground or minced, Angus)
+ground (extra lean)	ground meat (extra lean)
+ground (extra lean)	ground meat (extra lean)
+ground (extra-lan)	ground meat (extra lean)
+ground (extra-lean)	ground meat (extra lean)
+ground (lean)	ground meat (lean)
+ground (lean)	ground meat (lean)
+ground (medium)	ground meat (medium)
+ground (medium)	ground meat (medium)
+ground (regular)	ground meat (regular)
+ground (regular)	ground meat (regular)
+ground (sirloin)	ground meat (Sirloin)
+ground boneless	ground meat (boneless)
+ground extra lean	ground meat (extra lean)
 ground pepper	pepper (ground)
-Ground regular	ground meat (regular)
-Ground Water	groundwater
-Ground-Lean	ground meat (lean)
-Ground-Regular	ground meat (regular)
+ground regular	ground meat (regular)
+ground water	groundwater
+ground-lean	ground meat (lean)
+ground-regular	ground meat (regular)
 ground( extra lean)	ground meat (extra lean)
 ground( medium)	ground meat (medium)
-Ground(Extra lean)	ground meat (extra lean)
-Ground(Lean)	ground meat (lean)
-Ground(medium)	ground meat (medium)
+ground(extra lean)	ground meat (extra lean)
+ground(lean)	ground meat (lean)
+ground(medium)	ground meat (medium)
 ground(regular)	ground meat (regular)
-Groundextra lean)	ground meat (extra lean)
-Growth / lesion (unspecified tissue)	tumour;lesion
-Growth/Lesion (Unspecified Tissue)	tumour;lesion
-Hazelnut / Filbert	hazelnut
-Headcheese	head cheese
-Herb/Spice (Unspecified)	spice or herb
-Herb/spice (unspecified)	spice or herb
-Herbs and Spices	spice or herb
-In-Shell	poultry egg (whole, shell on)
-Intestinal Contents	intestine;body cavity content
-Irrigation	
-Joint	skeletal joint
-Joint Fluid	synovial fluid
-Kale	kale leaf
-Kalonji Whole Seed	kalonji seed
-Lab Surface	
-Laboratory	laboratory facility
-Lay Ration	lay ration (animal feed)
-Leg	leg (meat cut)
-Leg with Skin-Drumstick and Thigh	leg (meat cut, with skin)
-Levage/peritoneal	lavage;peritoneum
-Levage/Tracheal	lavage;trachea
-Liquid whole	
-Litter	animal litter
-Litter/Manure	animal litter;animal manure
-Live Haul Truck/Trailer	live haul truck;live hail trailer
-Loin Center Chop	loin centre chop
-Loin center chop non-seasoned	loin centre chop;food (non-seasoned)
-Mango	mango (whole or parts)
-Meat	meat 
-Meat Flour/Meal	meat meal
-Mild italian style burger	beef hamburger (dish);Italian-style
-Milk	milk, milk product or milk substitute
-Milk/Colostrum	milk;colostrum
-Mixed Food/Meat	mixed food;meat
-Mixed Organs	organs or organ parts
-Mixed Salad/Mixed Greens	salad;greens (raw)
-Mixed Tissues	heterogeneous tissue
-Mucous membrane (gut)	gastrointestinal system mucosa
-Mucous membrane (resp)	respiratory system mucosa
-Mung Bean Sprouts	mung bean sprout
-Muscle	muscle organ
-Muscle/Meat	muscle tissue;meat
-Mushrooms	mushroom (whole or parts)
-Nasal Turbinate	nasal turbinal
-Nasal/Naries	pair of nares
-Necks	neck (meat cut)
-Nuggets	nugget
-Organ Unspecified	organ
-Organ/Tissue	organ;tissue
-Other	
-Other chicken	
-Other cut	
-Other cut (not ground)	
-Other Cut (Not Ground)	
-Other Cut Boneless	
-Other Cut Boneless (Not Ground)	
-Other variety meats	
-Ovine Ingredients	
-Papaya	papaya (whole or parts)
-Pea Sprouts	pea sprout
-Pea sprouts	pea sprout
-Pepper	
-Peritoneal Fluid	peritoneum;bodily fluid
-Pet/Zoo	companion animal;zoo
-pig Ground	pork (ground or minced)
-pig Ground ( lean)	pork (ground or minced, lean)
-pig Ground (Extra Lean)	pork (ground or minced, extra lean)
-pig Ground (extra-lan)	pork (ground or minced, extra lean)
-pig Ground (Extra-Lean)	pork (ground or minced, extra lean)
-pig Ground (Lean)	pork (ground or minced, lean)
-pig Ground (Medium)	pork (ground or minced, medium)
-pig Ground (Regular)	pork (ground or minced, regular)
-pig Ground (Sirloin)	pork (ground or minced, Sirloin)
-pig Ground Boneless	pork (ground or minced, boneless)
-pig Ground regular	pork (ground or minced, regular)
-pig Ground-Lean	pork (ground or minced, lean)
-pig Ground-Regular	pork (ground or minced, regular)
+groundextra lean)	ground meat (extra lean)
+growth / lesion (unspecified tissue)	tumour;lesion
+growth/lesion (unspecified tissue)	tumour;lesion
+hazelnut / filbert	hazelnut
+headcheese	head cheese
+herb/spice (unspecified)	spice or herb
+herb/spice (unspecified)	spice or herb
+herbs and spices	spice or herb
+in-shell	poultry egg (whole, shell on)
+intestinal contents	intestine;body cavity content
+irrigation	
+joint	skeletal joint
+joint fluid	synovial fluid
+kale	kale leaf
+kalonji whole seed	kalonji seed
+lab surface	
+laboratory	laboratory facility
+lay ration	lay ration (animal feed)
+leg	leg (meat cut)
+leg with skin-drumstick and thigh	leg (meat cut, with skin)
+levage/peritoneal	lavage;peritoneum
+levage/tracheal	lavage;trachea
+liquid whole	
+litter	animal litter
+litter/manure	animal litter;animal manure
+live haul truck/trailer	live haul truck;live hail trailer
+loin center chop	loin centre chop
+loin center chop non-seasoned	loin centre chop;food (non-seasoned)
+mango	mango (whole or parts)
+meat	meat 
+meat flour/meal	meat meal
+mild italian style burger	beef hamburger (dish);Italian-style
+milk	milk, milk product or milk substitute
+milk/colostrum	milk;colostrum
+mixed food/meat	mixed food;meat
+mixed organs	organs or organ parts
+mixed salad/mixed greens	salad;greens (raw)
+mixed tissues	heterogeneous tissue
+mucous membrane (gut)	gastrointestinal system mucosa
+mucous membrane (resp)	respiratory system mucosa
+mung bean sprouts	mung bean sprout
+muscle	muscle organ
+muscle/meat	muscle tissue;meat
+mushrooms	mushroom (whole or parts)
+nasal turbinate	nasal turbinal
+nasal/naries	pair of nares
+necks	neck (meat cut)
+nuggets	nugget
+organ unspecified	organ
+organ/tissue	organ;tissue
+other	
+other chicken	
+other cut	
+other cut (not ground)	
+other cut (not ground)	
+other cut boneless	
+other cut boneless (not ground)	
+other variety meats	
+ovine ingredients	
+papaya	papaya (whole or parts)
+pea sprouts	pea sprout
+pea sprouts	pea sprout
+pepper	
+peritoneal fluid	peritoneum;bodily fluid
+pet/zoo	companion animal;zoo
+pig ground	pork (ground or minced)
+pig ground ( lean)	pork (ground or minced, lean)
+pig ground (extra lean)	pork (ground or minced, extra lean)
+pig ground (extra-lan)	pork (ground or minced, extra lean)
+pig ground (extra-lean)	pork (ground or minced, extra lean)
+pig ground (lean)	pork (ground or minced, lean)
+pig ground (medium)	pork (ground or minced, medium)
+pig ground (regular)	pork (ground or minced, regular)
+pig ground (sirloin)	pork (ground or minced, Sirloin)
+pig ground boneless	pork (ground or minced, boneless)
+pig ground regular	pork (ground or minced, regular)
+pig ground-lean	pork (ground or minced, lean)
+pig ground-regular	pork (ground or minced, regular)
 pig ground( extra lean)	pork (ground or minced, extra lean)
 pig ground( medium)	pork (ground or minced, medium)
-pig Ground(Extra lean)	pork (ground or minced, extra lean)
-pig Ground(Lean)	pork (ground or minced, lean)
-pig Ground(medium)	pork (ground or minced, medium)
+pig ground(extra lean)	pork (ground or minced, extra lean)
+pig ground(lean)	pork (ground or minced, lean)
+pig ground(medium)	pork (ground or minced, medium)
 pig ground(regular)	pork (ground or minced, regular)
-pig Groundextra lean)	pork (ground or minced, extra lean)
+pig groundextra lean)	pork (ground or minced, extra lean)
 pig rib chop	pork rib chop
 pig roast	pork roast
-pig Shoulder	pork shoulder (meat cut)
+pig shoulder	pork shoulder (meat cut)
 pig shoulder chop	pork shoulder chop (meat cut)
-pig Shoulder chop non-seasoned	pork shoulder chop (meat cut);food (non-seasoned)
+pig shoulder chop non-seasoned	pork shoulder chop (meat cut);food (non-seasoned)
 pig sirloin chop	pork sirloin chop (meat cut)
 pig strip	pork strip (meat cut)
 pig tender loin	pork tenderloin (meat cut)
-pig Tenderloin	pork tenderloin (meat cut)
-Plucking Water	poultry plucking water
-Pooled Feces	feces;pooled sample
-Porcine Ingredients	
-Pork Chop (Cut Unknown)	pork chop
+pig tenderloin	pork tenderloin (meat cut)
+plucking water	poultry plucking water
+pooled feces	feces;pooled sample
+porcine ingredients	
+pork chop (cut unknown)	pork chop
 pork ribs	pork rib (meat cut) 
-Premix	compound feed premix
-Premix (Medicated)	compound feed premix (medicated)
-Processed (Other)	
-Rasam Powder Spice	rasam powder
-Raw	food (raw)
-Rectal Swab	rectum;swab
-Ribs	meat (ribs)
-River Surface	river;water surface
-Roast	meat (roasted)
-Run Off	surface runoff
-Sausage (Pepper)	
-Scallopini	scallopini squash (whole or parts)
-Shelf / Sill	shelf;window sill
-Shell egg	hen egg (whole)
-Shell on	poultry egg (shell on)
-Shelled	
-Shoulder	shoulder (meat cut)
-Shoulder Chop	shoulder chop (meat cut)
-Shoulder chop non-seasoned	shoulder chop (meat cut);food (non-seasoned)
-Sinus	paranasal sinus
-Sirloin Chop	sirloin chop (meat cut)
-Skin	skin of body
-Soft	food (soft)
-Soya Meal	
-Soyabean Meal	soybean meal
-Soybean	soybean  
-Sprouted Seeds	germinated or sprouted seed
-Sprouts	sprout
-Starter Ration	starter ration (animal feed)
-Steak	meat (steak)
-Stew Chunks	beef stew chunk
-Stomach Contents	stomach;body cavity content
-Stool	feces
-Strip	strip (meat cut)
-Supermarket - A; Retail outlet	supermarket
-Supermarket - B; Retail outlet	supermarket
-Supermarket - C; Retail outlet	supermarket
-Supermarket - D; Retail outlet	supermarket
-Supermarket - E; Retail outlet	supermarket
-Supermarket - F; Retail outlet	supermarket
-Supermarket - G; Retail outlet	supermarket
-Supermarket - H; Retail outlet	supermarket
-Supermarket - I	supermarket
-Surface - Other	built environment surface
-Surface - River	river;water surface
-Surface unspecified	built environment surface
-Swab (Nasal)	nose;swab
-Swab (Rectal)	rectum;swab
-Swab (Tissue Fluid-Unspecified)	tissue;bodily fluid;swab
-Swab #3	swab
-Swab #5	swab
-Swab 1	swab
-Swab 2	swab
-Swab 3	swab
-Swab 4	swab
-T. high	thigh (meat cut)
-Tender loin	tenderloin (meat cut)
-Tenderloin	tenderloin (meat cut)
-Testicle	testis
-Thigh	poultry thigh (meat cut)
-Thigh Skinless	poultry thigh (skinless)
-Thigh Skinless Boneless	poultry thigh (skinless, boneless)
-Thigh with skin	poultry thigh (with skin)
-Thigh with Skin	poultry thigh (with skin)
-Thorax	thoracic segment of trunk
-Tomato	tomato (whole or parts)
-Trim	meat trim
-Truck / Trailer	truck;trailer
-Truck/Trailer	truck;trailer
+premix	compound feed premix
+premix (medicated)	compound feed premix (medicated)
+processed (other)	
+rasam powder spice	rasam powder
+raw	food (raw)
+rectal swab	rectum;swab
+ribs	meat (ribs)
+river surface	river;water surface
+roast	meat (roasted)
+run off	surface runoff
+sausage (pepper)	
+scallopini	scallopini squash (whole or parts)
+shelf / sill	shelf;window sill
+shell egg	hen egg (whole)
+shell on	poultry egg (shell on)
+shelled	
+shoulder	shoulder (meat cut)
+shoulder chop	shoulder chop (meat cut)
+shoulder chop non-seasoned	shoulder chop (meat cut);food (non-seasoned)
+sinus	paranasal sinus
+sirloin chop	sirloin chop (meat cut)
+skin	skin of body
+soft	food (soft)
+soya meal	
+soyabean meal	soybean meal
+soybean	soybean  
+sprouted seeds	germinated or sprouted seed
+sprouts	sprout
+starter ration	starter ration (animal feed)
+steak	meat (steak)
+stew chunks	beef stew chunk
+stomach contents	stomach;body cavity content
+stool	feces
+strip	strip (meat cut)
+supermarket - a; retail outlet	supermarket
+supermarket - b; retail outlet	supermarket
+supermarket - c; retail outlet	supermarket
+supermarket - d; retail outlet	supermarket
+supermarket - e; retail outlet	supermarket
+supermarket - f; retail outlet	supermarket
+supermarket - g; retail outlet	supermarket
+supermarket - h; retail outlet	supermarket
+supermarket - i	supermarket
+surface - other	built environment surface
+surface - river	river;water surface
+surface unspecified	built environment surface
+swab (nasal)	nose;swab
+swab (rectal)	rectum;swab
+swab (tissue fluid-unspecified)	tissue;bodily fluid;swab
+swab #3	swab
+swab #5	swab
+swab 1	swab
+swab 2	swab
+swab 3	swab
+swab 4	swab
+t. high	thigh (meat cut)
+tender loin	tenderloin (meat cut)
+tenderloin	tenderloin (meat cut)
+testicle	testis
+thigh	poultry thigh (meat cut)
+thigh skinless	poultry thigh (skinless)
+thigh skinless boneless	poultry thigh (skinless, boneless)
+thigh with skin	poultry thigh (with skin)
+thigh with skin	poultry thigh (with skin)
+thorax	thoracic segment of trunk
+tomato	tomato (whole or parts)
+trim	meat trim
+truck / trailer	truck;trailer
+truck/trailer	truck;trailer
 turkey breast back off	turkey breast (back off)
 turkey breast skinless	turkey breast (skinless)
-turkey Breast skinless boneless	turkey breast (skinless, boneless)
-turkey Breast with skin	turkey breast (with skin)
-turkey Drumstick Skinless	turkey drumstick (skinless)
-turkey Drumstick with Skin	turkey drumstick (with skin)
-turkey Drumsticks	turkey drumstick
-turkey Ground	turkey (ground or minced)
-turkey Ground ( lean)	turkey (ground or minced, lean)
-turkey Ground (Extra Lean)	turkey (ground or minced, extra lean)
-turkey Ground (extra-lan)	turkey (ground or minced, extra lean)
-turkey Ground (Extra-Lean)	turkey (ground or minced, extra lean)
-turkey Ground (Lean)	turkey (ground or minced, lean)
-turkey Ground (Medium)	turkey (ground or minced, medium)
-turkey Ground (Regular)	turkey (ground or minced, regular)
-turkey Ground Boneless	turkey (ground or minced, boneless)
-turkey Ground regular	turkey (ground or minced, regular)
-turkey Ground-Lean	turkey (ground or minced, lean)
-turkey Ground-Regular	turkey (ground or minced, regular)
+turkey breast skinless boneless	turkey breast (skinless, boneless)
+turkey breast with skin	turkey breast (with skin)
+turkey drumstick skinless	turkey drumstick (skinless)
+turkey drumstick with skin	turkey drumstick (with skin)
+turkey drumsticks	turkey drumstick
+turkey ground	turkey (ground or minced)
+turkey ground ( lean)	turkey (ground or minced, lean)
+turkey ground (extra lean)	turkey (ground or minced, extra lean)
+turkey ground (extra-lan)	turkey (ground or minced, extra lean)
+turkey ground (extra-lean)	turkey (ground or minced, extra lean)
+turkey ground (lean)	turkey (ground or minced, lean)
+turkey ground (medium)	turkey (ground or minced, medium)
+turkey ground (regular)	turkey (ground or minced, regular)
+turkey ground boneless	turkey (ground or minced, boneless)
+turkey ground regular	turkey (ground or minced, regular)
+turkey ground-lean	turkey (ground or minced, lean)
+turkey ground-regular	turkey (ground or minced, regular)
 turkey ground( extra lean)	turkey (ground or minced, extra lean)
 turkey ground( medium)	turkey (ground or minced, medium)
-turkey Ground(Extra lean)	turkey (ground or minced, extra lean)
-turkey Ground(Lean)	turkey (ground or minced, lean)
-turkey Ground(medium)	turkey (ground or minced, medium)
+turkey ground(extra lean)	turkey (ground or minced, extra lean)
+turkey ground(lean)	turkey (ground or minced, lean)
+turkey ground(medium)	turkey (ground or minced, medium)
 turkey ground(regular)	turkey (ground or minced, regular)
-turkey Groundextra lean)	turkey (ground or minced, extra lean)
+turkey groundextra lean)	turkey (ground or minced, extra lean)
 turkey leg	turkey leg (meat cut)
-turkey Leg with Skin-Drumstick and Thigh	turkey leg (with skin)
+turkey leg with skin-drumstick and thigh	turkey leg (with skin)
 turkey necks	turkey neck (meat cut)
 turkey nuggets	turkey nugget
 turkey thich skinless	turkey thigh (skinless)
 turkey thigh	turkey thigh (meat cut)
-turkey Thigh Skinless Boneless	turkey thigh (skinless, boneless)
-turkey Thigh with skin	turkey thigh (with skin)
-turkey Thigh with Skin	turkey thigh (with skin)
-turkey Upper Thigh	turkey upper thigh (meat cut)
-turkey Upper Thigh with Skin	turkey upper thigh (with skin)
+turkey thigh skinless boneless	turkey thigh (skinless, boneless)
+turkey thigh with skin	turkey thigh (with skin)
+turkey thigh with skin	turkey thigh (with skin)
+turkey upper thigh	turkey upper thigh (meat cut)
+turkey upper thigh with skin	turkey upper thigh (with skin)
 turkey upper thight	turkey upper thigh (meat cut)
-turkey Upperthigh	turkey upper thigh (meat cut)
-turkey Wing	turkey wing (meat cut)
-turkey Wings	turkey wing (meat cut)
-Unknown Food	
-Unknown Meal	meal (animal feed)
-Unknown organ	organ
-Unknown Surface	built environment surface
-Unspecified Feed/Ingredient	
-Unspecified Food	
-Unspecified Organ/Tissue	organ
-Upper Thigh	poultry upper thigh (meat cut)
-Upper Thigh with Skin	poultry upper thigh (with skin)
+turkey upperthigh	turkey upper thigh (meat cut)
+turkey wing	turkey wing (meat cut)
+turkey wings	turkey wing (meat cut)
+unknown food	
+unknown meal	meal (animal feed)
+unknown organ	organ
+unknown surface	built environment surface
+unspecified feed/ingredient	
+unspecified food	
+unspecified organ/tissue	organ
+upper thigh	poultry upper thigh (meat cut)
+upper thigh with skin	poultry upper thigh (with skin)
 upper thight	poultry upper thigh (meat cut)
-Upperthigh	upper thigh (meat cut)
-Vegetable/Spice	
-Wall	building wall
-Wallnut	walnut (whole or parts)
-Walls	building wall
-Walnut	walnut (whole or parts)
-Waste Water	wastewater
-Watering Bowl/Equipment	watering bowl 
-Watering bowl/equipment	watering bowl 
-Weep	weep fluid
-Whole	
-Whole Carcass	carcass
-Whole with Skin	
-Wing	poultry wing (meat cut)
-Wings	poultry wing (meat cut)
-Working Surface	built environment surface
-Yolk	egg yolk`;
+upperthigh	upper thigh (meat cut)
+vegetable/spice	
+wall	building wall
+wallnut	walnut (whole or parts)
+walls	building wall
+walnut	walnut (whole or parts)
+waste water	wastewater
+watering bowl/equipment	watering bowl 
+watering bowl/equipment	watering bowl 
+weep	weep fluid
+whole	
+whole carcass	carcass
+whole with skin	
+wing	poultry wing (meat cut)
+wings	poultry wing (meat cut)
+working surface	built environment surface
+yolk	egg yolk`;
 
 /**
  * Initialize lookup table for categorizing normalized terms into one or
@@ -973,6 +995,7 @@ var initCategory = () => {
 	let category = {};
   for (const line of CATEGORY.split('\n')) {
     let [field, term, ontology_id] = line.split('\t').map(function(e){return e.trim();});
+    /*
     let record = {
     		'field': 				field,			// GRDI target export field
     		'ontology_id': 	ontology_id	// pertinent ontology term
@@ -982,6 +1005,9 @@ var initCategory = () => {
     	category[term].push(record)
     else 
     	category[term] = [record];
+    */
+    if (ontology_id.length > 0)
+    	category[term] = ontology_id;
   }
   //console.log(category);
   return category;
