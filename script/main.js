@@ -254,9 +254,23 @@ const getNestedHeaders = (data) => {
  */
 const getFlatHeaders = (data) => {
   const rows = [[], []];
+
   for (const parent of data) {
+    let min_cols = parent.children.length - 1;
+    if (min_cols < 1) {
+      // Close current dialog and switch to error message
+      //$('specify-headers-modal').modal('hide');
+      //$('#unmapped-headers-modal').modal('hide');
+      const errMsg = `The template for the loaded file has a configuration error:<br/>
+      <strong>${parent.fieldName}</strong><br/>
+      This is a field that has no parent, or a section that has no fields:`;
+      $('#unmapped-headers-list').html(errMsg);
+      $('#unmapped-headers-modal').modal('show');
+
+      return false;
+    }
     rows[0].push(parent.fieldName);
-    rows[0].push(...Array(parent.children.length - 1).fill(''));
+    rows[0].push(...Array(min_cols).fill(''));
     rows[1].push(...parent.children.map(child => child.fieldName));
   }
   return rows;
@@ -527,28 +541,31 @@ const openFile = (file, hot, data, xlsx) => {
  * @param {Object} data See `data.js`.
  */
 const launchSpecifyHeadersModal = (matrix, hot, data) => {
-  $('#expected-headers-div')
-      .html(getFlatHeaders(data)[1].join('   '));
-  $('#actual-headers-div')
-      .html(matrix[1].join('    '));
-  $('#specify-headers-modal').modal('show');
-  $('#specify-headers-confirm-btn').click(() => {
-    const specifiedHeaderRow =
-        parseInt($('#specify-headers-input').val());
-    if (!isValidHeaderRow(matrix, specifiedHeaderRow)) {
-      $('#specify-headers-err-msg').show();
-    } else {
-      const mappedMatrixObj =
-          mapMatrixToGrid(matrix, specifiedHeaderRow-1, data);
-      $('#specify-headers-modal').modal('hide');
-      runBehindLoadingScreen(() => {
-        hot.loadData(matrixFieldChangeRules(mappedMatrixObj.matrix.slice(2), hot, data));
-        if (mappedMatrixObj.unmappedHeaders.length) {
-          alertOfUnmappedHeaders(mappedMatrixObj.unmappedHeaders);
-        }
-      });
-    }
-  });
+  let flatHeaders = getFlatHeaders(data);
+  if (flatHeaders) {
+    $('#expected-headers-div')
+        .html(flatHeaders[1].join('   '));
+    $('#actual-headers-div')
+        .html(matrix[1].join('    '));
+    $('#specify-headers-modal').modal('show');
+    $('#specify-headers-confirm-btn').click(() => {
+      const specifiedHeaderRow =
+          parseInt($('#specify-headers-input').val());
+      if (!isValidHeaderRow(matrix, specifiedHeaderRow)) {
+        $('#specify-headers-err-msg').show();
+      } else {
+        const mappedMatrixObj =
+            mapMatrixToGrid(matrix, specifiedHeaderRow-1, data);
+        $('#specify-headers-modal').modal('hide');
+        runBehindLoadingScreen(() => {
+          hot.loadData(matrixFieldChangeRules(mappedMatrixObj.matrix.slice(2), hot, data));
+          if (mappedMatrixObj.unmappedHeaders.length) {
+            alertOfUnmappedHeaders(mappedMatrixObj.unmappedHeaders);
+          }
+        });
+      }
+    });
+  }
 };
 
 /**
