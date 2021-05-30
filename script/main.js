@@ -263,7 +263,7 @@ const getFlatHeaders = (data) => {
       //$('#unmapped-headers-modal').modal('hide');
       const errMsg = `The template for the loaded file has a configuration error:<br/>
       <strong>${parent.fieldName}</strong><br/>
-      This is a field that has no parent, or a section that has no fields:`;
+      This is a field that has no parent, or a section that has no fields.`;
       $('#unmapped-headers-list').html(errMsg);
       $('#unmapped-headers-modal').modal('show');
 
