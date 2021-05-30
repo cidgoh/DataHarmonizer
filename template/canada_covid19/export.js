@@ -429,7 +429,7 @@ var exportNML_LIMS = (baseName, hot, data, xlsx, fileType) => {
     ['PH_BIOSAMPLE_ACCESSION',  []],
     ['PH_SRA_ACCESSION',        []],
     ['SUBMISSIONS - GISAID Accession ID', []],
-
+    ['CUSTOMER',    []],  
     ['PH_SEQUENCING_CENTRE',    []],        
     ['HC_COLLECT_DATE',         []],
     ['HC_TEXT2',                []], 
@@ -566,7 +566,8 @@ var exportNML_LIMS = (baseName, hot, data, xlsx, fileType) => {
       }
 
       // Otherwise apply source (many to one) to target field transform:
-      const value = getMappedField(headerName, inputRow, sources, sourceFields, sourceFieldNameMap, '|', 'NML_LIMS', nullOptionsMap);  
+      const value = getMappedField(headerName, inputRow, sources, sourceFields, sourceFieldNameMap, ';', 'NML_LIMS', nullOptionsMap);
+
       outputRow.push(value);
     }
     outputMatrix.push(outputRow);
