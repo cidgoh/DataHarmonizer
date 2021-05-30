@@ -130,8 +130,6 @@ var exportGRDI = (baseName, hot, data, xlsx, fileType) => {
   	// Does all 
     let RuleDB = setRuleDB(inputRow, sourceFields, sourceFieldNameMap, normalize, preserveCapsFields);
 
-    //console.log(RuleDB);
-
     const outputRow = [];
     for (const headerName of ExportHeaders.keys()) {
 
@@ -141,9 +139,7 @@ var exportGRDI = (baseName, hot, data, xlsx, fileType) => {
       if ((headerName in RuleDB) && RuleDB[headerName] || RuleDB[headerName] === null) {
         let value = RuleDB[headerName];
         if (value !== null) {
-        	if (headerName ==='food_product') console.log('starts', value)
       		value = map_ontology(value, normalize, headerName);
-      		if (headerName ==='food_product') console.log('becomes', value)
         }
         outputRow.push(value);
         continue;
@@ -175,7 +171,6 @@ var map_ontology = (labels, normalize, field) => {
     	let ontology_id = normalize[lookup].ontology_id;
     	if (ontology_id) {
       	label += ': ' + ontology_id;
-      	//console.log(lookup,label)
 			}
     }
     value.push(label);
@@ -342,7 +337,6 @@ var initLookup = () => {
     	for (const key of normalizations) 
   			normalize[key] = normalize[label];
   }
-  console.log(normalize);
   return normalize;
 }
 
