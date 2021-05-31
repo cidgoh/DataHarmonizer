@@ -442,6 +442,15 @@ var DATA = [
               ]
             }
           },
+          "Lake of the Woods District Hospital - Ontario": {
+            "exportField": {
+              "NML_LIMS": [
+                {
+                  "value": "CANCOGEN_LAKE_OF_THE_WOODS"
+                }
+              ]
+            }
+          },
           "Saskatchewan - Roy Romanow Provincial Laboratory (RRPL)": {
             "exportField": {
               "NML_LIMS": [
@@ -8059,9 +8068,5 @@ var DATA = [
         }
       }
     ]
-  },
-  {
-    "fieldName": "Lake of the Woods District Hospital - Ontario",
-    "children": []
   }
 ]
