@@ -65,8 +65,12 @@ def export_fields (EXPORT_FORMAT, field, row, as_field = False):
 					if not prefix in formats:
 						formats[prefix] = [];
 
+					# A single ":" value enables clearing out of a value.
+					if item == ':':
+						conversion['value'] = '';
+
 					# A colon indicates a different target field is in play
-					if ":" in item:
+					elif ":" in item:
 						binding = item.split(":",1);
 						binding[0] = binding[0].strip();
 						binding[1] = binding[1].strip();
@@ -74,9 +78,6 @@ def export_fields (EXPORT_FORMAT, field, row, as_field = False):
 							conversion['field'] = binding[0];
 						if binding[1] > '':
 							conversion['value'] = binding[1];
-						else:
-							# A single ":" value enables clearing out of a value.
-							conversion['value'] = '';
 
 					# No colon
 					elif as_field == True:
@@ -176,7 +177,6 @@ with open(r_filename) as tsvfile:
 						parent_label_lc = parent_label.lower();
 						# Find the choice's parent in FIELD_INDEX, if any
 						# If parent in CHOICE_INDEX, then add it
-
 						if parent_label_lc in FIELD_INDEX:
 							# Always use most recently referenced field for a
 							# vocabulary search root in CHOICE_INDEX
@@ -189,6 +189,11 @@ with open(r_filename) as tsvfile:
 							else:
 								# Basically top-level entries in field_map:
 								choice = collections.OrderedDict();
+								
+								# Add ontology id to field if available
+								if len(row['Ontology ID']) > 0:
+									choice['ontology_id'] = row['Ontology ID'];
+
 								FIELD_INDEX[parent_label_lc]['schema:ItemList'][label] = choice;
 	
 								# Parent_label is top level field name:
@@ -200,12 +205,21 @@ with open(r_filename) as tsvfile:
 							# If it isn't a field then it is a choice within a 
 							# field's vocabulary.  Searches only against 
 							# current field's vocabulary. In case a '/' exists
-							# in parent label switches that to a wildcard.
+							# in parent label switches that to a wildcard.			
+
 							try:
 								result = dpath.util.get(CHOICE_INDEX, '/' + search_root +'/**/' + parent_label.replace('/','?'), separator='/');
-								choice = collections.OrderedDict(); # new child {}
+
 								if not 'schema:ItemList' in result:
 									result['schema:ItemList'] = {};
+
+								# Prepare new child entry
+								choice = collections.OrderedDict(); 
+								
+								# Add ontology id to field if available
+								if len(row['Ontology ID']) > 0:
+									choice['ontology_id'] = row['Ontology ID'];
+
 								result['schema:ItemList'][label] = choice; 
 								export_fields(EXPORT_FORMAT, choice, row);
 							except:
