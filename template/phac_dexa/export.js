@@ -241,7 +241,8 @@ var setRuleDB = (dataRow, sourceFields, sourceFieldNameMap, normalize, preserveC
     case 'food' : {
       // species-> food product
       // Issue, sometimes species = "Other" ????
-      RuleDB.food_product = RuleDB.SPECIES;
+      if (RuleDB.SPECIES)
+        RuleDB.food_product = RuleDB.SPECIES;
       RuleDB['host (common name)'] = null; //wHY ISNT THIS WORKING???
 
       if (RuleDB.SUBJECT_DESCRIPTIONS)
@@ -262,6 +263,7 @@ var setRuleDB = (dataRow, sourceFields, sourceFieldNameMap, normalize, preserveC
       if (merged in normalize) {
       	RuleDB.food_product = normalize[merged].label;
       }
+
       break; // prevents advancing to blank/UNKNOWN
     };
 
