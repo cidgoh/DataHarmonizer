@@ -12,6 +12,7 @@
  *
  */
 const VERSION = '0.13.27';
+const VERSION_TEXT = 'DataHarmonizer provenance: v' + VERSION;
 const TEMPLATES = {
   'CanCOGeN Covid-19': {'folder': 'canada_covid19', 'status': 'published'},
   'PHAC Dexa (ALPHA)': {'folder': 'phac_dexa', 'status': 'draft'},
@@ -1072,6 +1073,8 @@ const getInvalidCells = (hot, data) => {
   const regexDecimal = /^(-|\+|)(0|[1-9]\d*)(\.\d+)?$/;
   let uniquefield = []; // holds lookup dictionary for any unique columns
 
+  let provenanceChanges = [];
+
   for (let row=0; row<hot.countRows(); row++) {
     if (hot.isEmptyRow(row)) continue;
 
@@ -1086,7 +1089,7 @@ const getInvalidCells = (hot, data) => {
       // 1st row of provenance datatype field is forced to have a 
       // 'DataHarmonizer Version: 0.13.0' etc. value.  Change happens silently. 
       if (datatype === 'provenance') {
-        checkProvenance(cellVal, hot, row, col);
+        checkProvenance(provenanceChanges, cellVal, row, col);
       };
       if (!cellVal) {
         valid = fields[col].requirement !== 'required';
@@ -1147,35 +1150,44 @@ const getInvalidCells = (hot, data) => {
       }
     }
   }
+  // Here an array of (row, column, value)... is being passed
+  if (provenanceChanges.length)
+    hot.setDataAtCell(provenanceChanges);
+
   return invalidCells;
 };
 
 /**
  * Test cellVal against DataHarmonizer provenance: vX.Y.Z pattern and if it needs an
  * update, do so.
+ * @param {Array} provenanceChanges array of provenance updates
  * @param {Object} cellVal field value to be tested.
- * @param {Object} hot link to data
  * @param {Integer} row index of data
  * @param {Integer} column index of data
  */
-const checkProvenance = (cellVal, hot, row, col) => {
-  const version = 'DataHarmonizer provenance: v' + VERSION;
-  let splitVal = [];
-  if (!cellVal) {
-    splitVal = [version];
-  }
-  else {
-    splitVal = cellVal.split(';',2);
+const checkProvenance = (provenanceChanges, cellVal, row, col) => {
 
-    if (splitVal[0].substring(0,14) === 'DataHarmonizer') {
-        splitVal[0] = version;
-    } 
-    else {
-        splitVal.unshift(version);
-    };
-  };
-  const value = splitVal.join(';');
-  hot.setDataAtCell(row, col, value, 'thisChange');
+  if (!cellVal) {
+    provenanceChanges.push([row, col, VERSION_TEXT]);
+    return;
+  }
+  // Most of the time this is the first return point.
+  if (cellVal === VERSION_TEXT)
+    return;
+
+  if (cellVal.substring(0,14) !== 'DataHarmonizer') {
+    provenanceChanges.push([row, col, VERSION_TEXT + ';' + cellVal]);
+    return;
+  }
+  // At this point we have a leading "DataHarmonizer v..." string
+  let splitVal = cellVal.split(';',2);
+
+  if (splitVal.length == 1)
+    provenanceChanges.push([row, col, VERSION_TEXT]);
+  else
+    provenanceChanges.push([row, col, VERSION_TEXT + ';' + splitVal[1]]);
+
+  return
 }
 
 
