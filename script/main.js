@@ -11,7 +11,7 @@
  * main.html?template=test_template
  *
  */
-const VERSION = '0.13.27';
+const VERSION = '0.13.28';
 const VERSION_TEXT = 'DataHarmonizer provenance: v' + VERSION;
 const TEMPLATES = {
   'CanCOGeN Covid-19': {'folder': 'canada_covid19', 'status': 'published'},
@@ -1472,15 +1472,18 @@ const setupTriggers = () => {
       let value = $fillValueInput.val();
       let colname = $fillColumnInput.val();
       const fieldYCoordinates = getFieldYCoordinates(DATA);
+      let changes = [];
       for (let row=0; row<HOT.countRows(); row++) {
         if (!HOT.isEmptyRow(row)) {
           let col = fieldYCoordinates[colname];
           if (HOT.getDataAtCell(row, col) !== value)      
-            HOT.setDataAtCell(row, col, value, 'thisChange');
+            changes.push([row, col, value]);
         }
       }
-       
-      HOT.render();
+      if (changes.length > 0) {
+        HOT.setDataAtCell(changes);
+        HOT.render();
+      }
     });
   });
 
