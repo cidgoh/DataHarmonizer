@@ -11,14 +11,14 @@
  * main.html?template=test_template
  *
  */
-const VERSION = '0.13.28';
+const VERSION = '0.13.29';
 const VERSION_TEXT = 'DataHarmonizer provenance: v' + VERSION;
 const TEMPLATES = {
   'CanCOGeN Covid-19': {'folder': 'canada_covid19', 'status': 'published'},
   'PHAC Dexa (ALPHA)': {'folder': 'phac_dexa', 'status': 'draft'},
   'GRDI (ALPHA)':      {'folder': 'grdi', 'status': 'draft'},
   'GISAID (ALPHA)':    {'folder': 'gisaid', 'status': 'draft'},
-  'PHA4GE (ALPHA)':    {'folder': 'pha4ge', 'status': 'draft'}
+  'PHA4GE (ALPHA)':    {'folder': 'pha4ge', 'status': 'published'}
 };
 // Currently selected cell range[row,col,row2,col2]
 CURRENT_SELECTION = [null,null,null,null];
