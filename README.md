@@ -17,6 +17,10 @@ Extract the zipped file.
 
 To run the application, navigate to the extracted folder and open `main.html`.
 
+## Select Template
+
+The default template loaded is the "CanCOGeN Covid-19" template. To change the spreadsheet template, select the white text box to the right of "Template", it always contains the name of template currently active. An in-app window will appear that allows you to select from the available templates in the drop-down menu. After selecting the desired template, click "open" to activate the template.
+
 ## Usage
 
 You can edit the cells manually, or upload `xlsx`, `xls`, `tsv` and `csv` files. You 
