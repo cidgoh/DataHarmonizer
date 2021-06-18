@@ -19,7 +19,7 @@ To run the application, navigate to the extracted folder and open `main.html`.
 
 ## Usage
 
-You can edit the cells manually, or upload `xlsx`, `tsv` and `csv` files. You 
+You can edit the cells manually, or upload `xlsx`, `xls`, `tsv` and `csv` files. You 
 can also save the spreadsheet's contents to your local hard-drive.
 
 ![alt text](./images/exportingFiles.gif)
