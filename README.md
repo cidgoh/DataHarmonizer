@@ -1,6 +1,6 @@
 # DataHarmonizer
 
-A standardized spreadsheet editor and validator that can be run offline and locally, and which includes a template for SARS-CoV-2 sampling data.
+A standardized spreadsheet editor and validator that can be run offline and locally, and which includes templates for SARS-CoV-2 sampling data.
 
 |Chrome|Firefox|Edge|
 |---|---|---|
