@@ -53,7 +53,7 @@ You can also automatically fill a column with a specified value, but only in row
 
 ![fill column, in rows with corresponding sample IDs, with specified value](./images/fillColumn.gif)
 
-For more information on the application features, select the **Getting Started** button.
+For _more information_ on available application features, select the **Help** button followed by **Getting Started** from within the DataHarmonizer application.
 
 ## Additional Information
 
