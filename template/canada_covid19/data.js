@@ -384,24 +384,6 @@ var DATA = [
           ]
         },
         "schema:ItemList": {
-          "National Microbiology Laboratory (NML)": {
-            "exportField": {
-              "NML_LIMS": [
-                {
-                  "value": "CANCOGEN_NML_IRV"
-                }
-              ]
-            }
-          },
-          "BCCDC Public Health Laboratory": {
-            "exportField": {
-              "NML_LIMS": [
-                {
-                  "value": "CANCOGEN_BCCDC"
-                }
-              ]
-            }
-          },
           "Alberta Precision Labs (APL)": {
             "schema:ItemList": {
               "Alberta ProvLab North (APLN)": {
@@ -424,11 +406,29 @@ var DATA = [
               }
             }
           },
-          "Public Health Ontario (PHO)": {
+          "BCCDC Public Health Laboratory": {
             "exportField": {
               "NML_LIMS": [
                 {
-                  "value": "CANCOGEN_ONTARIO_PHO"
+                  "value": "CANCOGEN_BCCDC"
+                }
+              ]
+            }
+          },
+          "Eastern Ontario Regional Laboratory Association": {
+            "exportField": {
+              "NML_LIMS": [
+                {
+                  "value": "Eastern Ontario Regional Laboratory Association"
+                }
+              ]
+            }
+          },
+          "Hamilton Health Sciences": {
+            "exportField": {
+              "NML_LIMS": [
+                {
+                  "value": "Hamilton Health Sciences"
                 }
               ]
             }
@@ -451,15 +451,6 @@ var DATA = [
               ]
             }
           },
-          "Saskatchewan - Roy Romanow Provincial Laboratory (RRPL)": {
-            "exportField": {
-              "NML_LIMS": [
-                {
-                  "value": "CANCOGEN_ROMANOW_PROV_LAB"
-                }
-              ]
-            }
-          },
           "Manitoba Cadham Provincial Laboratory": {
             "exportField": {
               "NML_LIMS": [
@@ -469,11 +460,29 @@ var DATA = [
               ]
             }
           },
-          "Nova Scotia Health Authority": {
+          "McMaster University": {
             "exportField": {
               "NML_LIMS": [
                 {
-                  "value": "CANCOGEN_QEII_HSC"
+                  "value": "CANCOGEN_MCMASTER_UNIVERSITY"
+                }
+              ]
+            }
+          },
+          "Mount Sinai Hospital": {
+            "exportField": {
+              "NML_LIMS": [
+                {
+                  "value": "Mount Sinai Hospital"
+                }
+              ]
+            }
+          },
+          "National Microbiology Laboratory (NML)": {
+            "exportField": {
+              "NML_LIMS": [
+                {
+                  "value": "CANCOGEN_NML_IRV"
                 }
               ]
             }
@@ -496,20 +505,20 @@ var DATA = [
               ]
             }
           },
+          "Nova Scotia Health Authority": {
+            "exportField": {
+              "NML_LIMS": [
+                {
+                  "value": "CANCOGEN_QEII_HSC"
+                }
+              ]
+            }
+          },
           "Nunuvut": {
             "exportField": {
               "NML_LIMS": [
                 {
                   "value": "CANCOGEN_NUNAVUT_"
-                }
-              ]
-            }
-          },
-          "Prince Edward Island - Health PEI": {
-            "exportField": {
-              "NML_LIMS": [
-                {
-                  "value": "CANCOGEN_QEH"
                 }
               ]
             }
@@ -523,38 +532,38 @@ var DATA = [
               ]
             }
           },
-          "McMaster University": {
+          "Prince Edward Island - Health PEI": {
             "exportField": {
               "NML_LIMS": [
                 {
-                  "value": "CANCOGEN_MCMASTER_UNIVERSITY"
+                  "value": "CANCOGEN_QEH"
                 }
               ]
             }
           },
-          "William Osler Health System": {
+          "Public Health Ontario (PHO)": {
             "exportField": {
               "NML_LIMS": [
                 {
-                  "value": "William Osler Health System"
+                  "value": "CANCOGEN_ONTARIO_PHO"
                 }
               ]
             }
           },
-          "Sunnybrook Health Sciences Centre": {
+          "Queen's University / Kingston Health Sciences Centre": {
             "exportField": {
               "NML_LIMS": [
                 {
-                  "value": "Sunnybrook Health Sciences Centre"
+                  "value": "Queen's University / Kingston Health Sciences Centre"
                 }
               ]
             }
           },
-          "Eastern Ontario Regional Laboratory Association": {
+          "Saskatchewan - Roy Romanow Provincial Laboratory (RRPL)": {
             "exportField": {
               "NML_LIMS": [
                 {
-                  "value": "Eastern Ontario Regional Laboratory Association"
+                  "value": "CANCOGEN_ROMANOW_PROV_LAB"
                 }
               ]
             }
@@ -568,20 +577,29 @@ var DATA = [
               ]
             }
           },
-          "Mount Sinai Hospital": {
+          "Sunnybrook Health Sciences Centre": {
             "exportField": {
               "NML_LIMS": [
                 {
-                  "value": "Mount Sinai Hospital"
+                  "value": "Sunnybrook Health Sciences Centre"
                 }
               ]
             }
           },
-          "Hamilton Health Sciences": {
+          "Unity Health Toronto": {
             "exportField": {
               "NML_LIMS": [
                 {
-                  "value": "Hamilton Health Sciences"
+                  "value": "Unity Health Toronto"
+                }
+              ]
+            }
+          },
+          "William Osler Health System": {
+            "exportField": {
+              "NML_LIMS": [
+                {
+                  "value": "William Osler Health System"
                 }
               ]
             }
@@ -682,24 +700,6 @@ var DATA = [
           ]
         },
         "schema:ItemList": {
-          "National Microbiology Laboratory (NML)": {
-            "exportField": {
-              "NML_LIMS": [
-                {
-                  "value": "NML"
-                }
-              ]
-            }
-          },
-          "BCCDC Public Health Laboratory": {
-            "exportField": {
-              "NML_LIMS": [
-                {
-                  "value": "BCCDC"
-                }
-              ]
-            }
-          },
           "Alberta Precision Labs (APL)": {
             "schema:ItemList": {
               "Alberta ProvLab North (APLN)": {
@@ -722,11 +722,29 @@ var DATA = [
               }
             }
           },
-          "Public Health Ontario (PHO)": {
+          "BCCDC Public Health Laboratory": {
             "exportField": {
               "NML_LIMS": [
                 {
-                  "value": "PHO"
+                  "value": "BCCDC"
+                }
+              ]
+            }
+          },
+          "Canadore College": {
+            "exportField": {
+              "NML_LIMS": [
+                {
+                  "value": "CANADORE"
+                }
+              ]
+            }
+          },
+          "The Centre for Applied Genomics (TCAG)": {
+            "exportField": {
+              "NML_LIMS": [
+                {
+                  "value": "TCAG"
                 }
               ]
             }
@@ -740,65 +758,11 @@ var DATA = [
               ]
             }
           },
-          "Saskatchewan - Roy Romanow Provincial Laboratory (RRPL)": {
-            "exportField": {
-              "NML_LIMS": [
-                {
-                  "value": "RRPL"
-                }
-              ]
-            }
-          },
           "Manitoba Cadham Provincial Laboratory": {
             "exportField": {
               "NML_LIMS": [
                 {
                   "value": "CADHAM"
-                }
-              ]
-            }
-          },
-          "Nova Scotia Health Authority": {
-            "exportField": {
-              "NML_LIMS": [
-                {
-                  "value": "NS_QE_II"
-                }
-              ]
-            }
-          },
-          "New Brunswick - Vitalit\u00e9 Health Network": {
-            "exportField": {
-              "NML_LIMS": [
-                {
-                  "value": "GEORGES_L_DUMONT"
-                }
-              ]
-            }
-          },
-          "Newfoundland and Labrador - Eastern Health": {
-            "exportField": {
-              "NML_LIMS": [
-                {
-                  "value": "EASTERN_HEALTH"
-                }
-              ]
-            }
-          },
-          "Prince Edward Island - Health PEI": {
-            "exportField": {
-              "NML_LIMS": [
-                {
-                  "value": "PEI"
-                }
-              ]
-            }
-          },
-          "Ontario Institute for Cancer Research (OICR)": {
-            "exportField": {
-              "NML_LIMS": [
-                {
-                  "value": "OICR"
                 }
               ]
             }
@@ -821,11 +785,74 @@ var DATA = [
               ]
             }
           },
-          "The Centre for Applied Genomics (TCAG)": {
+          "National Microbiology Laboratory (NML)": {
             "exportField": {
               "NML_LIMS": [
                 {
-                  "value": "TCAG"
+                  "value": "NML"
+                }
+              ]
+            }
+          },
+          "New Brunswick - Vitalit\u00e9 Health Network": {
+            "exportField": {
+              "NML_LIMS": [
+                {
+                  "value": "GEORGES_L_DUMONT"
+                }
+              ]
+            }
+          },
+          "Newfoundland and Labrador - Eastern Health": {
+            "exportField": {
+              "NML_LIMS": [
+                {
+                  "value": "EASTERN_HEALTH"
+                }
+              ]
+            }
+          },
+          "Nova Scotia Health Authority": {
+            "exportField": {
+              "NML_LIMS": [
+                {
+                  "value": "NS_QE_II"
+                }
+              ]
+            }
+          },
+          "Ontario Institute for Cancer Research (OICR)": {
+            "exportField": {
+              "NML_LIMS": [
+                {
+                  "value": "OICR"
+                }
+              ]
+            }
+          },
+          "Prince Edward Island - Health PEI": {
+            "exportField": {
+              "NML_LIMS": [
+                {
+                  "value": "PEI"
+                }
+              ]
+            }
+          },
+          "Public Health Ontario (PHO)": {
+            "exportField": {
+              "NML_LIMS": [
+                {
+                  "value": "PHO"
+                }
+              ]
+            }
+          },
+          "Saskatchewan - Roy Romanow Provincial Laboratory (RRPL)": {
+            "exportField": {
+              "NML_LIMS": [
+                {
+                  "value": "RRPL"
                 }
               ]
             }
@@ -848,16 +875,7 @@ var DATA = [
               ]
             }
           },
-          "Canadore College": {
-            "exportField": {
-              "NML_LIMS": [
-                {
-                  "value": "CANADORE"
-                }
-              ]
-            }
-          },
-          "Queen\u2019s University / Kingston Health Sciences Centre": {
+          "Queen's University / Kingston Health Sciences Centre": {
             "exportField": {
               "NML_LIMS": [
                 {
@@ -985,15 +1003,11 @@ var DATA = [
             {
               "field": "HC_TEXT2"
             }
-          ],
-          "VirusSeq_Portal": [
-            {
-              "field": "sample collection date precision"
-            }
           ]
         },
         "schema:ItemList": {
           "year": {
+            "ontology_id": "UO:0000035",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -1003,6 +1017,7 @@ var DATA = [
             }
           },
           "month": {
+            "ontology_id": "UO:0000036",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -1012,6 +1027,7 @@ var DATA = [
             }
           },
           "day": {
+            "ontology_id": "UO:0000033",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -1096,16 +1112,35 @@ var DATA = [
           ]
         },
         "schema:ItemList": {
-          "Afghanistan": {},
-          "Albania": {},
-          "Algeria": {},
-          "American Samoa": {},
-          "Andorra": {},
-          "Angola": {},
-          "Anguilla": {},
-          "Antarctica": {},
-          "Antigua and Barbuda": {},
+          "Afghanistan": {
+            "ontology_id": "GAZ_00006882"
+          },
+          "Albania": {
+            "ontology_id": "GAZ_00002953"
+          },
+          "Algeria": {
+            "ontology_id": "GAZ_00000563"
+          },
+          "American Samoa": {
+            "ontology_id": "GAZ_00003957"
+          },
+          "Andorra": {
+            "ontology_id": "GAZ_00002948"
+          },
+          "Angola": {
+            "ontology_id": "GAZ_00001095"
+          },
+          "Anguilla": {
+            "ontology_id": "GAZ_00009159"
+          },
+          "Antarctica": {
+            "ontology_id": "GAZ_00000462"
+          },
+          "Antigua and Barbuda": {
+            "ontology_id": "GAZ_00006883"
+          },
           "Argentina": {
+            "ontology_id": "GAZ_00002928",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -1114,10 +1149,17 @@ var DATA = [
               ]
             }
           },
-          "Armenia": {},
-          "Aruba": {},
-          "Ashmore and Cartier Islands": {},
+          "Armenia": {
+            "ontology_id": "GAZ_00004094"
+          },
+          "Aruba": {
+            "ontology_id": "GAZ_00004025"
+          },
+          "Ashmore and Cartier Islands": {
+            "ontology_id": "GAZ_00005901"
+          },
           "Australia": {
+            "ontology_id": "GAZ_00000463",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -1126,16 +1168,35 @@ var DATA = [
               ]
             }
           },
-          "Austria": {},
-          "Azerbaijan": {},
-          "Bahamas": {},
-          "Bahrain": {},
-          "Baker Island": {},
-          "Bangladesh": {},
-          "Barbados": {},
-          "Bassas da India": {},
-          "Belarus": {},
+          "Austria": {
+            "ontology_id": "GAZ_00002942"
+          },
+          "Azerbaijan": {
+            "ontology_id": "GAZ_00004941"
+          },
+          "Bahamas": {
+            "ontology_id": "GAZ_00002733"
+          },
+          "Bahrain": {
+            "ontology_id": "GAZ_00005281"
+          },
+          "Baker Island": {
+            "ontology_id": "GAZ_00007117"
+          },
+          "Bangladesh": {
+            "ontology_id": "GAZ_00003750"
+          },
+          "Barbados": {
+            "ontology_id": "GAZ_00001251"
+          },
+          "Bassas da India": {
+            "ontology_id": "GAZ_00005810"
+          },
+          "Belarus": {
+            "ontology_id": "GAZ_00006886"
+          },
           "Belgium": {
+            "ontology_id": "GAZ_00002938",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -1144,16 +1205,35 @@ var DATA = [
               ]
             }
           },
-          "Belize": {},
-          "Benin": {},
-          "Bermuda": {},
-          "Bhutan": {},
-          "Bolivia": {},
-          "Borneo": {},
-          "Bosnia and Herzegovina": {},
-          "Botswana": {},
-          "Bouvet Island": {},
+          "Belize": {
+            "ontology_id": "GAZ_00002934"
+          },
+          "Benin": {
+            "ontology_id": "GAZ_00000904"
+          },
+          "Bermuda": {
+            "ontology_id": "GAZ_00001264"
+          },
+          "Bhutan": {
+            "ontology_id": "GAZ_00003920"
+          },
+          "Bolivia": {
+            "ontology_id": "GAZ_00002511"
+          },
+          "Borneo": {
+            "ontology_id": "GAZ_00025355"
+          },
+          "Bosnia and Herzegovina": {
+            "ontology_id": "GAZ_00006887"
+          },
+          "Botswana": {
+            "ontology_id": "GAZ_00001097"
+          },
+          "Bouvet Island": {
+            "ontology_id": "GAZ_00001453"
+          },
           "Brazil": {
+            "ontology_id": "GAZ_00002828",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -1162,14 +1242,29 @@ var DATA = [
               ]
             }
           },
-          "British Virgin Islands": {},
-          "Brunei": {},
-          "Bulgaria": {},
-          "Burkina Faso": {},
-          "Burundi": {},
-          "Cambodia": {},
-          "Cameroon": {},
+          "British Virgin Islands": {
+            "ontology_id": "GAZ_00003961"
+          },
+          "Brunei": {
+            "ontology_id": "GAZ_00003901"
+          },
+          "Bulgaria": {
+            "ontology_id": "GAZ_00002950"
+          },
+          "Burkina Faso": {
+            "ontology_id": "GAZ_00000905"
+          },
+          "Burundi": {
+            "ontology_id": "GAZ_00001090"
+          },
+          "Cambodia": {
+            "ontology_id": "GAZ_00006888"
+          },
+          "Cameroon": {
+            "ontology_id": "GAZ_00001093"
+          },
           "Canada": {
+            "ontology_id": "GAZ_00002560",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -1178,11 +1273,20 @@ var DATA = [
               ]
             }
           },
-          "Cape Verde": {},
-          "Cayman Islands": {},
-          "Central African Republic": {},
-          "Chad": {},
+          "Cape Verde": {
+            "ontology_id": "GAZ_00001227"
+          },
+          "Cayman Islands": {
+            "ontology_id": "GAZ_00003986"
+          },
+          "Central African Republic": {
+            "ontology_id": "GAZ_00001089"
+          },
+          "Chad": {
+            "ontology_id": "GAZ_00000586"
+          },
           "Chile": {
+            "ontology_id": "GAZ_00002825",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -1192,6 +1296,7 @@ var DATA = [
             }
           },
           "China": {
+            "ontology_id": "GAZ_00002845",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -1200,10 +1305,17 @@ var DATA = [
               ]
             }
           },
-          "Christmas Island": {},
-          "Clipperton Island": {},
-          "Cocos Islands": {},
+          "Christmas Island": {
+            "ontology_id": "GAZ_00005915"
+          },
+          "Clipperton Island": {
+            "ontology_id": "GAZ_00005838"
+          },
+          "Cocos Islands": {
+            "ontology_id": "GAZ_00009721"
+          },
           "Colombia": {
+            "ontology_id": "GAZ_00002929",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -1212,10 +1324,17 @@ var DATA = [
               ]
             }
           },
-          "Comoros": {},
-          "Cook Islands": {},
-          "Coral Sea Islands": {},
+          "Comoros": {
+            "ontology_id": "GAZ_00005820"
+          },
+          "Cook Islands": {
+            "ontology_id": "GAZ_00053798"
+          },
+          "Coral Sea Islands": {
+            "ontology_id": "GAZ_00005917"
+          },
           "Costa Rica": {
+            "ontology_id": "GAZ_00002901",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -1224,14 +1343,29 @@ var DATA = [
               ]
             }
           },
-          "Cote d'Ivoire": {},
-          "Croatia": {},
-          "Cuba": {},
-          "Curacao": {},
-          "Cyprus": {},
-          "Czech Republic": {},
-          "Democratic Republic of the Congo": {},
+          "Cote d'Ivoire": {
+            "ontology_id": "GAZ_00000906"
+          },
+          "Croatia": {
+            "ontology_id": "GAZ_00002719"
+          },
+          "Cuba": {
+            "ontology_id": "GAZ_00003762"
+          },
+          "Curacao": {
+            "ontology_id": "GAZ_00004021"
+          },
+          "Cyprus": {
+            "ontology_id": "GAZ_00004006"
+          },
+          "Czech Republic": {
+            "ontology_id": "GAZ_00002954"
+          },
+          "Democratic Republic of the Congo": {
+            "ontology_id": "GAZ_00001086"
+          },
           "Denmark": {
+            "ontology_id": "GAZ_00005852",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -1240,10 +1374,17 @@ var DATA = [
               ]
             }
           },
-          "Djibouti": {},
-          "Dominica": {},
-          "Dominican Republic": {},
+          "Djibouti": {
+            "ontology_id": "GAZ_00000582"
+          },
+          "Dominica": {
+            "ontology_id": "GAZ_00006890"
+          },
+          "Dominican Republic": {
+            "ontology_id": "GAZ_00003952"
+          },
           "Ecuador": {
+            "ontology_id": "GAZ_00002912",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -1252,19 +1393,44 @@ var DATA = [
               ]
             }
           },
-          "Egypt": {},
-          "El Salvador": {},
-          "Equatorial Guinea": {},
-          "Eritrea": {},
-          "Estonia": {},
-          "Eswatini": {},
-          "Ethiopia": {},
-          "Europa Island": {},
-          "Falkland Islands (Islas Malvinas)": {},
-          "Faroe Islands": {},
-          "Fiji": {},
-          "Finland": {},
+          "Egypt": {
+            "ontology_id": "GAZ_00003934"
+          },
+          "El Salvador": {
+            "ontology_id": "GAZ_00002935"
+          },
+          "Equatorial Guinea": {
+            "ontology_id": "GAZ_00001091"
+          },
+          "Eritrea": {
+            "ontology_id": "GAZ_00000581"
+          },
+          "Estonia": {
+            "ontology_id": "GAZ_00002959"
+          },
+          "Eswatini": {
+            "ontology_id": "GAZ_00001099"
+          },
+          "Ethiopia": {
+            "ontology_id": "GAZ_00000567"
+          },
+          "Europa Island": {
+            "ontology_id": "GAZ_00005811"
+          },
+          "Falkland Islands (Islas Malvinas)": {
+            "ontology_id": "GAZ_00001412"
+          },
+          "Faroe Islands": {
+            "ontology_id": "GAZ_00059206"
+          },
+          "Fiji": {
+            "ontology_id": "GAZ_00006891"
+          },
+          "Finland": {
+            "ontology_id": "GAZ_00002937"
+          },
           "France": {
+            "ontology_id": "GAZ_00003940",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -1273,14 +1439,29 @@ var DATA = [
               ]
             }
           },
-          "French Guiana": {},
-          "French Polynesia": {},
-          "French Southern and Antarctic Lands": {},
-          "Gabon": {},
-          "Gambia": {},
-          "Gaza Strip": {},
-          "Georgia": {},
+          "French Guiana": {
+            "ontology_id": "GAZ_00002516"
+          },
+          "French Polynesia": {
+            "ontology_id": "GAZ_00002918"
+          },
+          "French Southern and Antarctic Lands": {
+            "ontology_id": "GAZ_00003753"
+          },
+          "Gabon": {
+            "ontology_id": "GAZ_00001092"
+          },
+          "Gambia": {
+            "ontology_id": "GAZ_00000907"
+          },
+          "Gaza Strip": {
+            "ontology_id": "GAZ_00009571"
+          },
+          "Georgia": {
+            "ontology_id": "GAZ_00004942"
+          },
           "Germany": {
+            "ontology_id": "GAZ_00002646",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -1289,19 +1470,44 @@ var DATA = [
               ]
             }
           },
-          "Ghana": {},
-          "Gibraltar": {},
-          "Glorioso Islands": {},
-          "Greece": {},
-          "Greenland": {},
-          "Grenada": {},
-          "Guadeloupe": {},
-          "Guam": {},
-          "Guatemala": {},
-          "Guernsey": {},
-          "Guinea": {},
-          "Guinea-Bissau": {},
+          "Ghana": {
+            "ontology_id": "GAZ_00000908"
+          },
+          "Gibraltar": {
+            "ontology_id": "GAZ_00003987"
+          },
+          "Glorioso Islands": {
+            "ontology_id": "GAZ_00005808"
+          },
+          "Greece": {
+            "ontology_id": "GAZ_00002945"
+          },
+          "Greenland": {
+            "ontology_id": "GAZ_00001507"
+          },
+          "Grenada": {
+            "ontology_id": "GAZ_02000573"
+          },
+          "Guadeloupe": {
+            "ontology_id": "GAZ_00067142"
+          },
+          "Guam": {
+            "ontology_id": "GAZ_00003706"
+          },
+          "Guatemala": {
+            "ontology_id": "GAZ_00002936"
+          },
+          "Guernsey": {
+            "ontology_id": "GAZ_00001550"
+          },
+          "Guinea": {
+            "ontology_id": "GAZ_00000909"
+          },
+          "Guinea-Bissau": {
+            "ontology_id": "GAZ_00000910"
+          },
           "Guyana": {
+            "ontology_id": "GAZ_00002522",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -1310,14 +1516,29 @@ var DATA = [
               ]
             }
           },
-          "Haiti": {},
-          "Heard Island and McDonald Islands": {},
-          "Honduras": {},
-          "Hong Kong": {},
-          "Howland Island": {},
-          "Hungary": {},
-          "Iceland": {},
+          "Haiti": {
+            "ontology_id": "GAZ_00003953"
+          },
+          "Heard Island and McDonald Islands": {
+            "ontology_id": "GAZ_00009718"
+          },
+          "Honduras": {
+            "ontology_id": "GAZ_00002894"
+          },
+          "Hong Kong": {
+            "ontology_id": "GAZ_00003203"
+          },
+          "Howland Island": {
+            "ontology_id": "GAZ_00007120"
+          },
+          "Hungary": {
+            "ontology_id": "GAZ_00002952"
+          },
+          "Iceland": {
+            "ontology_id": "GAZ_00000843"
+          },
           "India": {
+            "ontology_id": "GAZ_00002839",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -1326,14 +1547,29 @@ var DATA = [
               ]
             }
           },
-          "Indonesia": {},
-          "Iran": {},
-          "Iraq": {},
-          "Ireland": {},
-          "Isle of Man": {},
-          "Israel": {},
-          "Italy": {},
+          "Indonesia": {
+            "ontology_id": "GAZ_00003727"
+          },
+          "Iran": {
+            "ontology_id": "GAZ_00004474"
+          },
+          "Iraq": {
+            "ontology_id": "GAZ_00004483"
+          },
+          "Ireland": {
+            "ontology_id": "GAZ_00002943"
+          },
+          "Isle of Man": {
+            "ontology_id": "GAZ_00052477"
+          },
+          "Israel": {
+            "ontology_id": "GAZ_00002476"
+          },
+          "Italy": {
+            "ontology_id": "GAZ_00002650"
+          },
           "Jamaica": {
+            "ontology_id": "GAZ_00003781",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -1342,15 +1578,32 @@ var DATA = [
               ]
             }
           },
-          "Jan Mayen": {},
-          "Japan": {},
-          "Jarvis Island": {},
-          "Jersey": {},
-          "Johnston Atoll": {},
-          "Jordan": {},
-          "Juan de Nova Island": {},
-          "Kazakhstan": {},
+          "Jan Mayen": {
+            "ontology_id": "GAZ_00005853"
+          },
+          "Japan": {
+            "ontology_id": "GAZ_00002747"
+          },
+          "Jarvis Island": {
+            "ontology_id": "GAZ_00007118"
+          },
+          "Jersey": {
+            "ontology_id": "GAZ_00001551"
+          },
+          "Johnston Atoll": {
+            "ontology_id": "GAZ_00007114"
+          },
+          "Jordan": {
+            "ontology_id": "GAZ_00002473"
+          },
+          "Juan de Nova Island": {
+            "ontology_id": "GAZ_00005809"
+          },
+          "Kazakhstan": {
+            "ontology_id": "GAZ_00004999"
+          },
           "Kenya": {
+            "ontology_id": "GAZ_00001101",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -1359,35 +1612,92 @@ var DATA = [
               ]
             }
           },
-          "Kerguelen Archipelago": {},
-          "Kingman Reef": {},
-          "Kiribati": {},
-          "Kosovo": {},
-          "Kuwait": {},
-          "Kyrgyzstan": {},
-          "Laos": {},
-          "Latvia": {},
-          "Lebanon": {},
-          "Lesotho": {},
-          "Liberia": {},
-          "Libya": {},
-          "Liechtenstein": {},
-          "Line Islands": {},
-          "Lithuania": {},
-          "Luxembourg": {},
-          "Macau": {},
-          "Madagascar": {},
-          "Malawi": {},
-          "Malaysia": {},
-          "Maldives": {},
-          "Mali": {},
-          "Malta": {},
-          "Marshall Islands": {},
-          "Martinique": {},
-          "Mauritania": {},
-          "Mauritius": {},
-          "Mayotte": {},
+          "Kerguelen Archipelago": {
+            "ontology_id": "GAZ_00005682"
+          },
+          "Kingman Reef": {
+            "ontology_id": "GAZ_00007116"
+          },
+          "Kiribati": {
+            "ontology_id": "GAZ_00006894"
+          },
+          "Kosovo": {
+            "ontology_id": "GAZ_00011337"
+          },
+          "Kuwait": {
+            "ontology_id": "GAZ_00005285"
+          },
+          "Kyrgyzstan": {
+            "ontology_id": "GAZ_00006893"
+          },
+          "Laos": {
+            "ontology_id": "GAZ_00006889"
+          },
+          "Latvia": {
+            "ontology_id": "GAZ_00002958"
+          },
+          "Lebanon": {
+            "ontology_id": "GAZ_00002478"
+          },
+          "Lesotho": {
+            "ontology_id": "GAZ_00001098"
+          },
+          "Liberia": {
+            "ontology_id": "GAZ_00000911"
+          },
+          "Libya": {
+            "ontology_id": "GAZ_00000566"
+          },
+          "Liechtenstein": {
+            "ontology_id": "GAZ_00003858"
+          },
+          "Line Islands": {
+            "ontology_id": "GAZ_00007144"
+          },
+          "Lithuania": {
+            "ontology_id": "GAZ_00002960"
+          },
+          "Luxembourg": {
+            "ontology_id": "GAZ_00002947"
+          },
+          "Macau": {
+            "ontology_id": "GAZ_00003202"
+          },
+          "Madagascar": {
+            "ontology_id": "GAZ_00001108"
+          },
+          "Malawi": {
+            "ontology_id": "GAZ_00001105"
+          },
+          "Malaysia": {
+            "ontology_id": "GAZ_00003902"
+          },
+          "Maldives": {
+            "ontology_id": "GAZ_00006924"
+          },
+          "Mali": {
+            "ontology_id": "GAZ_00000584"
+          },
+          "Malta": {
+            "ontology_id": "GAZ_00005459"
+          },
+          "Marshall Islands": {
+            "ontology_id": "GAZ_00007161"
+          },
+          "Martinique": {
+            "ontology_id": "GAZ_00067143"
+          },
+          "Mauritania": {
+            "ontology_id": "GAZ_00000583"
+          },
+          "Mauritius": {
+            "ontology_id": "GAZ_00003745"
+          },
+          "Mayotte": {
+            "ontology_id": "GAZ_00003943"
+          },
           "Mexico": {
+            "ontology_id": "GAZ_00002852",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -1396,21 +1706,50 @@ var DATA = [
               ]
             }
           },
-          "Micronesia": {},
-          "Midway Islands": {},
-          "Moldova": {},
-          "Monaco": {},
-          "Mongolia": {},
-          "Montenegro": {},
-          "Montserrat": {},
-          "Morocco": {},
-          "Mozambique": {},
-          "Myanmar": {},
-          "Namibia": {},
-          "Nauru": {},
-          "Navassa Island": {},
-          "Nepal": {},
+          "Micronesia": {
+            "ontology_id": "GAZ_00005862"
+          },
+          "Midway Islands": {
+            "ontology_id": "GAZ_00007112"
+          },
+          "Moldova": {
+            "ontology_id": "GAZ_00003897"
+          },
+          "Monaco": {
+            "ontology_id": "GAZ_00003857"
+          },
+          "Mongolia": {
+            "ontology_id": "GAZ_00008744"
+          },
+          "Montenegro": {
+            "ontology_id": "GAZ_00006898"
+          },
+          "Montserrat": {
+            "ontology_id": "GAZ_00003988"
+          },
+          "Morocco": {
+            "ontology_id": "GAZ_00000565"
+          },
+          "Mozambique": {
+            "ontology_id": "GAZ_00001100"
+          },
+          "Myanmar": {
+            "ontology_id": "GAZ_00006899"
+          },
+          "Namibia": {
+            "ontology_id": "GAZ_00001096"
+          },
+          "Nauru": {
+            "ontology_id": "GAZ_00006900"
+          },
+          "Navassa Island": {
+            "ontology_id": "GAZ_00007119"
+          },
+          "Nepal": {
+            "ontology_id": "GAZ_00004399"
+          },
           "Netherlands": {
+            "ontology_id": "GAZ_00002946",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -1419,11 +1758,20 @@ var DATA = [
               ]
             }
           },
-          "New Caledonia": {},
-          "New Zealand": {},
-          "Nicaragua": {},
-          "Niger": {},
+          "New Caledonia": {
+            "ontology_id": "GAZ_00005206"
+          },
+          "New Zealand": {
+            "ontology_id": "GAZ_00000469"
+          },
+          "Nicaragua": {
+            "ontology_id": "GAZ_00002978"
+          },
+          "Niger": {
+            "ontology_id": "GAZ_00000585"
+          },
           "Nigeria": {
+            "ontology_id": "GAZ_00000912",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -1432,15 +1780,32 @@ var DATA = [
               ]
             }
           },
-          "Niue": {},
-          "Norfolk Island": {},
-          "North Korea": {},
-          "North Macedonia": {},
-          "North Sea": {},
-          "Northern Mariana Islands": {},
-          "Norway": {},
-          "Oman": {},
+          "Niue": {
+            "ontology_id": "GAZ_00006902"
+          },
+          "Norfolk Island": {
+            "ontology_id": "GAZ_00005908"
+          },
+          "North Korea": {
+            "ontology_id": "GAZ_00002801"
+          },
+          "North Macedonia": {
+            "ontology_id": "GAZ_00006895"
+          },
+          "North Sea": {
+            "ontology_id": "GAZ_00002284"
+          },
+          "Northern Mariana Islands": {
+            "ontology_id": "GAZ_00003958"
+          },
+          "Norway": {
+            "ontology_id": "GAZ_00002699"
+          },
+          "Oman": {
+            "ontology_id": "GAZ_00005283"
+          },
           "Pakistan": {
+            "ontology_id": "GAZ_00005246",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -1449,13 +1814,26 @@ var DATA = [
               ]
             }
           },
-          "Palau": {},
-          "Panama": {},
-          "Papua New Guinea": {},
-          "Paracel Islands": {},
-          "Paraguay": {},
-          "Peru": {},
+          "Palau": {
+            "ontology_id": "GAZ_00006905"
+          },
+          "Panama": {
+            "ontology_id": "GAZ_00002892"
+          },
+          "Papua New Guinea": {
+            "ontology_id": "GAZ_00003922"
+          },
+          "Paracel Islands": {
+            "ontology_id": "GAZ_00010832"
+          },
+          "Paraguay": {
+            "ontology_id": "GAZ_00002933"
+          },
+          "Peru": {
+            "ontology_id": "GAZ_00002932"
+          },
           "Philippines": {
+            "ontology_id": "GAZ_00004525",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -1464,68 +1842,191 @@ var DATA = [
               ]
             }
           },
-          "Pitcairn Islands": {},
-          "Poland": {},
-          "Portugal": {},
-          "Puerto Rico": {},
-          "Qatar": {},
-          "Republic of the Congo": {},
-          "Reunion": {},
-          "Romania": {},
-          "Ross Sea": {},
-          "Russia": {},
-          "Rwanda": {},
-          "Saint Helena": {},
-          "Saint Kitts and Nevis": {},
-          "Saint Lucia": {},
-          "Saint Pierre and Miquelon": {},
-          "Saint Martin": {},
-          "Saint Vincent and the Grenadines": {},
-          "Samoa": {},
-          "San Marino": {},
-          "Sao Tome and Principe": {},
-          "Saudi Arabia": {},
-          "Senegal": {},
-          "Serbia": {},
-          "Seychelles": {},
-          "Sierra Leone": {},
-          "Singapore": {},
-          "Sint Maarten": {},
-          "Slovakia": {},
-          "Slovenia": {},
-          "Solomon Islands": {},
-          "Somalia": {},
-          "South Africa": {},
-          "South Georgia and the South Sandwich Islands": {},
-          "South Korea": {},
-          "South Sudan": {},
-          "Spain": {},
-          "Spratly Islands": {},
-          "Sri Lanka": {},
-          "State of Palestine": {},
-          "Sudan": {},
-          "Suriname": {},
-          "Svalbard": {},
-          "Swaziland": {},
-          "Sweden": {},
-          "Switzerland": {},
-          "Syria": {},
-          "Taiwan": {},
-          "Tajikistan": {},
-          "Tanzania": {},
-          "Thailand": {},
-          "Timor-Leste": {},
-          "Togo": {},
-          "Tokelau": {},
-          "Tonga": {},
-          "Trinidad and Tobago": {},
-          "Tromelin Island": {},
-          "Tunisia": {},
-          "Turkey": {},
-          "Turkmenistan": {},
-          "Turks and Caicos Islands": {},
-          "Tuvalu": {},
+          "Pitcairn Islands": {
+            "ontology_id": "GAZ_00005867"
+          },
+          "Poland": {
+            "ontology_id": "GAZ_00002939"
+          },
+          "Portugal": {
+            "ontology_id": "GAZ_00004126"
+          },
+          "Puerto Rico": {
+            "ontology_id": "GAZ_00006935"
+          },
+          "Qatar": {
+            "ontology_id": "GAZ_00005286"
+          },
+          "Republic of the Congo": {
+            "ontology_id": "GAZ_00001088"
+          },
+          "Reunion": {
+            "ontology_id": "GAZ_00003945"
+          },
+          "Romania": {
+            "ontology_id": "GAZ_00002951"
+          },
+          "Ross Sea": {
+            "ontology_id": "GAZ_00023304"
+          },
+          "Russia": {
+            "ontology_id": "GAZ_00002721"
+          },
+          "Rwanda": {
+            "ontology_id": "GAZ_00001087"
+          },
+          "Saint Helena": {
+            "ontology_id": "GAZ_00000849"
+          },
+          "Saint Kitts and Nevis": {
+            "ontology_id": "GAZ_00006906"
+          },
+          "Saint Lucia": {
+            "ontology_id": "GAZ_00006909"
+          },
+          "Saint Pierre and Miquelon": {
+            "ontology_id": "GAZ_00003942"
+          },
+          "Saint Martin": {
+            "ontology_id": "GAZ_00005841"
+          },
+          "Saint Vincent and the Grenadines": {
+            "ontology_id": "GAZ_02000565"
+          },
+          "Samoa": {
+            "ontology_id": "GAZ_00006910"
+          },
+          "San Marino": {
+            "ontology_id": "GAZ_00003102"
+          },
+          "Sao Tome and Principe": {
+            "ontology_id": "GAZ_00006927"
+          },
+          "Saudi Arabia": {
+            "ontology_id": "GAZ_00005279"
+          },
+          "Senegal": {
+            "ontology_id": "GAZ_00000913"
+          },
+          "Serbia": {
+            "ontology_id": "GAZ_00002957"
+          },
+          "Seychelles": {
+            "ontology_id": "GAZ_00006922"
+          },
+          "Sierra Leone": {
+            "ontology_id": "GAZ_00000914"
+          },
+          "Singapore": {
+            "ontology_id": "GAZ_00003923"
+          },
+          "Sint Maarten": {
+            "ontology_id": "GAZ_00012579"
+          },
+          "Slovakia": {
+            "ontology_id": "GAZ_00002956"
+          },
+          "Slovenia": {
+            "ontology_id": "GAZ_00002955"
+          },
+          "Solomon Islands": {
+            "ontology_id": "GAZ_00005275"
+          },
+          "Somalia": {
+            "ontology_id": "GAZ_00001104"
+          },
+          "South Africa": {
+            "ontology_id": "GAZ_00001094"
+          },
+          "South Georgia and the South Sandwich Islands": {
+            "ontology_id": "GAZ_00003990"
+          },
+          "South Korea": {
+            "ontology_id": "GAZ_00002802"
+          },
+          "South Sudan": {
+            "ontology_id": "GAZ_00233439"
+          },
+          "Spain": {
+            "ontology_id": "GAZ_00003936"
+          },
+          "Spratly Islands": {
+            "ontology_id": "GAZ_00010831"
+          },
+          "Sri Lanka": {
+            "ontology_id": "GAZ_00003924"
+          },
+          "State of Palestine": {
+            "ontology_id": "GAZ_00002475"
+          },
+          "Sudan": {
+            "ontology_id": "GAZ_00000560"
+          },
+          "Suriname": {
+            "ontology_id": "GAZ_00002525"
+          },
+          "Svalbard": {
+            "ontology_id": "GAZ_00005396"
+          },
+          "Swaziland": {
+            "ontology_id": "GAZ_00001099"
+          },
+          "Sweden": {
+            "ontology_id": "GAZ_00002729"
+          },
+          "Switzerland": {
+            "ontology_id": "GAZ_00002941"
+          },
+          "Syria": {
+            "ontology_id": "GAZ_00002474"
+          },
+          "Taiwan": {
+            "ontology_id": "GAZ_00005341"
+          },
+          "Tajikistan": {
+            "ontology_id": "GAZ_00006912"
+          },
+          "Tanzania": {
+            "ontology_id": "GAZ_00001103"
+          },
+          "Thailand": {
+            "ontology_id": "GAZ_00003744"
+          },
+          "Timor-Leste": {
+            "ontology_id": "GAZ_00006913"
+          },
+          "Togo": {
+            "ontology_id": "GAZ_00000915"
+          },
+          "Tokelau": {
+            "ontology_id": "GAZ_00260188"
+          },
+          "Tonga": {
+            "ontology_id": "GAZ_00006916"
+          },
+          "Trinidad and Tobago": {
+            "ontology_id": "GAZ_00003767"
+          },
+          "Tromelin Island": {
+            "ontology_id": "GAZ_00005812"
+          },
+          "Tunisia": {
+            "ontology_id": "GAZ_00000562"
+          },
+          "Turkey": {
+            "ontology_id": "GAZ_00000558"
+          },
+          "Turkmenistan": {
+            "ontology_id": "GAZ_00005018"
+          },
+          "Turks and Caicos Islands": {
+            "ontology_id": "GAZ_00003955"
+          },
+          "Tuvalu": {
+            "ontology_id": "GAZ_00009715"
+          },
           "United States of America": {
+            "ontology_id": "GAZ_00002459",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -1534,10 +2035,17 @@ var DATA = [
               ]
             }
           },
-          "Uganda": {},
-          "Ukraine": {},
-          "United Arab Emirates": {},
+          "Uganda": {
+            "ontology_id": "GAZ_00001102"
+          },
+          "Ukraine": {
+            "ontology_id": "GAZ_00002724"
+          },
+          "United Arab Emirates": {
+            "ontology_id": "GAZ_00005282"
+          },
           "United Kingdom": {
+            "ontology_id": "GAZ_00002637",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -1547,6 +2055,7 @@ var DATA = [
             }
           },
           "Uruguay": {
+            "ontology_id": "GAZ_00002930",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -1555,18 +2064,42 @@ var DATA = [
               ]
             }
           },
-          "Uzbekistan": {},
-          "Vanuatu": {},
-          "Venezuela": {},
-          "Viet Nam": {},
-          "Virgin Islands": {},
-          "Wake Island": {},
-          "Wallis and Futuna": {},
-          "West Bank": {},
-          "Western Sahara": {},
-          "Yemen": {},
-          "Zambia": {},
-          "Zimbabwe": {}
+          "Uzbekistan": {
+            "ontology_id": "GAZ_00004979"
+          },
+          "Vanuatu": {
+            "ontology_id": "GAZ_00006918"
+          },
+          "Venezuela": {
+            "ontology_id": "GAZ_00002931"
+          },
+          "Viet Nam": {
+            "ontology_id": "GAZ_00003756"
+          },
+          "Virgin Islands": {
+            "ontology_id": "GAZ_00003959"
+          },
+          "Wake Island": {
+            "ontology_id": "GAZ_00007111"
+          },
+          "Wallis and Futuna": {
+            "ontology_id": "GAZ_00007191"
+          },
+          "West Bank": {
+            "ontology_id": "GAZ_00009572"
+          },
+          "Western Sahara": {
+            "ontology_id": "GAZ_00000564"
+          },
+          "Yemen": {
+            "ontology_id": "GAZ_00005284"
+          },
+          "Zambia": {
+            "ontology_id": "GAZ_00001107"
+          },
+          "Zimbabwe": {
+            "ontology_id": "GAZ_00001106"
+          }
         }
       },
       {
@@ -1612,6 +2145,7 @@ var DATA = [
         },
         "schema:ItemList": {
           "Alberta": {
+            "ontology_id": "GAZ_00002566",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -1621,6 +2155,7 @@ var DATA = [
             }
           },
           "British Columbia": {
+            "ontology_id": "GAZ_00002562",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -1630,6 +2165,7 @@ var DATA = [
             }
           },
           "Manitoba": {
+            "ontology_id": "GAZ_00002571",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -1639,6 +2175,7 @@ var DATA = [
             }
           },
           "New Brunswick": {
+            "ontology_id": "GAZ_00002570",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -1648,6 +2185,7 @@ var DATA = [
             }
           },
           "Newfoundland and Labrador": {
+            "ontology_id": "GAZ_00002567",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -1657,6 +2195,7 @@ var DATA = [
             }
           },
           "Northwest Territories": {
+            "ontology_id": "GAZ_00002575",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -1666,6 +2205,7 @@ var DATA = [
             }
           },
           "Nova Scotia": {
+            "ontology_id": "GAZ_00002565",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -1675,6 +2215,7 @@ var DATA = [
             }
           },
           "Nunavut": {
+            "ontology_id": "GAZ:00002574",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -1684,6 +2225,7 @@ var DATA = [
             }
           },
           "Ontario": {
+            "ontology_id": "GAZ_00002563",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -1693,6 +2235,7 @@ var DATA = [
             }
           },
           "Prince Edward Island": {
+            "ontology_id": "GAZ_00002572",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -1702,6 +2245,7 @@ var DATA = [
             }
           },
           "Quebec": {
+            "ontology_id": "GAZ_00002569",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -1711,6 +2255,7 @@ var DATA = [
             }
           },
           "Saskatchewan": {
+            "ontology_id": "GAZ_00002564",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -1720,6 +2265,7 @@ var DATA = [
             }
           },
           "Yukon": {
+            "ontology_id": "GAZ_00002576",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -1750,11 +2296,6 @@ var DATA = [
             }
           ],
           "NML_LIMS": [
-            {
-              "field": "geo_loc_name (city)"
-            }
-          ],
-          "VirusSeq_Portal": [
             {
               "field": "geo_loc_name (city)"
             }
@@ -1803,7 +2344,9 @@ var DATA = [
           ]
         },
         "schema:ItemList": {
-          "Severe acute respiratory syndrome coronavirus 2": {},
+          "Severe acute respiratory syndrome coronavirus 2": {
+            "ontology_id": "NCBITaxon_2697049"
+          },
           "RaTG13": {},
           "RmYN02": {}
         }
@@ -1902,7 +2445,9 @@ var DATA = [
         "schema:ItemList": {
           "Cluster/Outbreak investigation": {},
           "Diagnostic testing": {},
-          "Research": {},
+          "Research": {
+            "ontology_id": "NCIT_c15429"
+          },
           "Surveillance": {}
         }
       },
@@ -1940,11 +2485,6 @@ var DATA = [
             {
               "field": "description"
             }
-          ],
-          "VirusSeq_Portal": [
-            {
-              "field": "purpose of sampling details"
-            }
           ]
         }
       },
@@ -1977,6 +2517,7 @@ var DATA = [
         },
         "schema:ItemList": {
           "Swab": {
+            "ontology_id": "OBI_0002600",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -1987,6 +2528,7 @@ var DATA = [
             }
           },
           "RNA": {
+            "ontology_id": "OBI_0000880",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -1996,7 +2538,9 @@ var DATA = [
               ]
             }
           },
-          "mRNA (cDNA)": {},
+          "mRNA (cDNA)": {
+            "ontology_id": "OBI:0002754"
+          },
           "Nucleic acid": {
             "exportField": {
               "NML_LIMS": [
@@ -2101,6 +2645,7 @@ var DATA = [
         },
         "schema:ItemList": {
           "Blood": {
+            "ontology_id": "UBERON_0000178",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -2110,6 +2655,7 @@ var DATA = [
             }
           },
           "Fluid": {
+            "ontology_id": "UBERON_0006314",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -2119,6 +2665,7 @@ var DATA = [
             },
             "schema:ItemList": {
               "Saliva": {
+                "ontology_id": "UBERON_0001836",
                 "exportField": {
                   "NML_LIMS": [
                     {
@@ -2128,6 +2675,7 @@ var DATA = [
                 }
               },
               "Fluid (cerebrospinal (CSF))": {
+                "ontology_id": "UBERON_0001359",
                 "exportField": {
                   "NML_LIMS": [
                     {
@@ -2137,6 +2685,7 @@ var DATA = [
                 }
               },
               "Fluid (pericardial)": {
+                "ontology_id": "UBERON_0002409",
                 "exportField": {
                   "NML_LIMS": [
                     {
@@ -2146,6 +2695,7 @@ var DATA = [
                 }
               },
               "Fluid (pleural)": {
+                "ontology_id": "UBERON_0001087",
                 "exportField": {
                   "NML_LIMS": [
                     {
@@ -2155,6 +2705,7 @@ var DATA = [
                 }
               },
               "Fluid (vaginal)": {
+                "ontology_id": "UBERON_0036243",
                 "exportField": {
                   "NML_LIMS": [
                     {
@@ -2164,6 +2715,7 @@ var DATA = [
                 }
               },
               "Fluid (amniotic)": {
+                "ontology_id": "UBERON_0000173",
                 "exportField": {
                   "NML_LIMS": [
                     {
@@ -2175,6 +2727,7 @@ var DATA = [
             }
           },
           "Tissue": {
+            "ontology_id": "UBERON_0000479",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -2236,6 +2789,7 @@ var DATA = [
         },
         "schema:ItemList": {
           "Anus": {
+            "ontology_id": "UBERON_0001245",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -2254,6 +2808,7 @@ var DATA = [
             }
           },
           "Duodenum": {
+            "ontology_id": "UBERON_0002114",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -2263,6 +2818,7 @@ var DATA = [
             }
           },
           "Eye": {
+            "ontology_id": "UBERON_0000970",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -2281,6 +2837,7 @@ var DATA = [
             }
           },
           "Rectum": {
+            "ontology_id": "UBERON_0001052",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -2290,6 +2847,7 @@ var DATA = [
             }
           },
           "Skin": {
+            "ontology_id": "UBERON_0001003",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -2299,6 +2857,7 @@ var DATA = [
             }
           },
           "Stomach": {
+            "ontology_id": "UBERON_0000945",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -2308,6 +2867,7 @@ var DATA = [
             }
           },
           "Upper respiratory tract": {
+            "ontology_id": "UBERON_0001557",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -2317,6 +2877,7 @@ var DATA = [
             },
             "schema:ItemList": {
               "Anterior Nares": {
+                "ontology_id": "UBERON_2001427",
                 "exportField": {
                   "NML_LIMS": [
                     {
@@ -2326,6 +2887,7 @@ var DATA = [
                 }
               },
               "Esophagus": {
+                "ontology_id": "UBERON_0001043",
                 "exportField": {
                   "NML_LIMS": [
                     {
@@ -2335,6 +2897,7 @@ var DATA = [
                 }
               },
               "Ethmoid sinus": {
+                "ontology_id": "UBERON_0002453",
                 "exportField": {
                   "NML_LIMS": [
                     {
@@ -2353,6 +2916,7 @@ var DATA = [
                 },
                 "schema:ItemList": {
                   "Middle Nasal Turbinate": {
+                    "ontology_id": "UBERON_0005921 ",
                     "exportField": {
                       "NML_LIMS": [
                         {
@@ -2362,6 +2926,7 @@ var DATA = [
                     }
                   },
                   "Inferior Nasal Turbinate": {
+                    "ontology_id": "UBERON_0005922",
                     "exportField": {
                       "NML_LIMS": [
                         {
@@ -2373,6 +2938,7 @@ var DATA = [
                 }
               },
               "Nasopharynx (NP)": {
+                "ontology_id": "UBERON_0001728",
                 "exportField": {
                   "NML_LIMS": [
                     {
@@ -2382,6 +2948,7 @@ var DATA = [
                 }
               },
               "Oropharynx (OP)": {
+                "ontology_id": "UBERON_0001729",
                 "exportField": {
                   "NML_LIMS": [
                     {
@@ -2393,6 +2960,7 @@ var DATA = [
             }
           },
           "Lower respiratory tract": {
+            "ontology_id": "UBERON_0001558",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -2402,6 +2970,7 @@ var DATA = [
             },
             "schema:ItemList": {
               "Bronchus": {
+                "ontology_id": "UBERON_0002185 ",
                 "exportField": {
                   "NML_LIMS": [
                     {
@@ -2411,6 +2980,7 @@ var DATA = [
                 }
               },
               "Lung": {
+                "ontology_id": "UBERON_0002048",
                 "exportField": {
                   "NML_LIMS": [
                     {
@@ -2420,6 +2990,7 @@ var DATA = [
                 },
                 "schema:ItemList": {
                   "Bronchiole": {
+                    "ontology_id": "UBERON_0002186",
                     "exportField": {
                       "NML_LIMS": [
                         {
@@ -2429,6 +3000,7 @@ var DATA = [
                     }
                   },
                   "Alveolar sac": {
+                    "ontology_id": "UBERON_0002169",
                     "exportField": {
                       "NML_LIMS": [
                         {
@@ -2440,6 +3012,7 @@ var DATA = [
                 }
               },
               "Pleural sac": {
+                "ontology_id": "UBERON_0009778 ",
                 "exportField": {
                   "NML_LIMS": [
                     {
@@ -2449,6 +3022,7 @@ var DATA = [
                 },
                 "schema:ItemList": {
                   "Pleural cavity": {
+                    "ontology_id": "UBERON_0002402",
                     "exportField": {
                       "NML_LIMS": [
                         {
@@ -2460,6 +3034,7 @@ var DATA = [
                 }
               },
               "Trachea": {
+                "ontology_id": "UBERON_0003126",
                 "exportField": {
                   "NML_LIMS": [
                     {
@@ -2523,6 +3098,7 @@ var DATA = [
         },
         "schema:ItemList": {
           "Feces": {
+            "ontology_id": "UBERON_0001988",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -2532,6 +3108,7 @@ var DATA = [
             }
           },
           "Urine": {
+            "ontology_id": "UBERON_0001088",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -2541,6 +3118,7 @@ var DATA = [
             }
           },
           "Sweat": {
+            "ontology_id": "UBERON_0001089",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -2550,6 +3128,7 @@ var DATA = [
             }
           },
           "Mucus": {
+            "ontology_id": "UBERON_0000912",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -2559,6 +3138,7 @@ var DATA = [
             },
             "schema:ItemList": {
               "Sputum": {
+                "ontology_id": "UBERON_0007311",
                 "exportField": {
                   "NML_LIMS": [
                     {
@@ -2570,6 +3150,7 @@ var DATA = [
             }
           },
           "Tear": {
+            "ontology_id": "UBERON_0001827",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -2579,6 +3160,7 @@ var DATA = [
             }
           },
           "Fluid (seminal)": {
+            "ontology_id": "UBERON_0006530",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -2588,6 +3170,7 @@ var DATA = [
             }
           },
           "Breast Milk": {
+            "ontology_id": "UBERON_0001913",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -2601,7 +3184,7 @@ var DATA = [
       {
         "fieldName": "environmental material",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001223",
         "datatype": "select",
         "source": "",
         "dataStatus": [
@@ -2658,6 +3241,7 @@ var DATA = [
             }
           },
           "Banknote": {
+            "ontology_id": "ENVO_00003896",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -2676,6 +3260,7 @@ var DATA = [
             }
           },
           "Building floor": {
+            "ontology_id": "ENVO_01000486",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -2685,6 +3270,7 @@ var DATA = [
             }
           },
           "Cloth": {
+            "ontology_id": "ENVO_02000058",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -2703,6 +3289,7 @@ var DATA = [
             }
           },
           "Door": {
+            "ontology_id": "NCIT_C48950",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -2739,6 +3326,7 @@ var DATA = [
             }
           },
           "Food": {
+            "ontology_id": "FOODON:00002403",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -2748,6 +3336,7 @@ var DATA = [
             }
           },
           "Food packaging": {
+            "ontology_id": "FOODON:03490100",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -2757,6 +3346,7 @@ var DATA = [
             }
           },
           "Glass": {
+            "ontology_id": "ENVO:01000481",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -2829,6 +3419,7 @@ var DATA = [
             }
           },
           "Particulate matter": {
+            "ontology_id": "ENVO:01000060",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -2838,6 +3429,7 @@ var DATA = [
             }
           },
           "Plastic": {
+            "ontology_id": "ENVO:01000404",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -2856,6 +3448,7 @@ var DATA = [
             }
           },
           "Sewage": {
+            "ontology_id": "ENVO_00002018",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -2865,6 +3458,7 @@ var DATA = [
             }
           },
           "Sink": {
+            "ontology_id": "ENVO_01000990",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -2874,6 +3468,7 @@ var DATA = [
             }
           },
           "Soil": {
+            "ontology_id": "ENVO_00001998",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -2910,6 +3505,7 @@ var DATA = [
             }
           },
           "Water": {
+            "ontology_id": "ENVO_00002006",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -2937,6 +3533,7 @@ var DATA = [
             }
           },
           "Wood": {
+            "ontology_id": "ENVO:00002040",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -2950,7 +3547,7 @@ var DATA = [
       {
         "fieldName": "environmental site",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001232",
         "datatype": "select",
         "source": "",
         "dataStatus": [
@@ -3007,6 +3604,7 @@ var DATA = [
             }
           },
           "Animal house": {
+            "ontology_id": "ENVO:00003040",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3016,6 +3614,7 @@ var DATA = [
             }
           },
           "Bathroom": {
+            "ontology_id": "ENVO:01000422",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3043,6 +3642,7 @@ var DATA = [
             }
           },
           "Corridor": {
+            "ontology_id": "ENVO REQUEST",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3052,6 +3652,7 @@ var DATA = [
             }
           },
           "Daycare": {
+            "ontology_id": "ENVO_01000927",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3061,6 +3662,7 @@ var DATA = [
             }
           },
           "Emergency room (ER)": {
+            "ontology_id": "NCIT_C53513",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3097,6 +3699,7 @@ var DATA = [
             }
           },
           "Hospital": {
+            "ontology_id": "OBI_0000844",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3106,6 +3709,7 @@ var DATA = [
             }
           },
           "Intensive Care Unit (ICU)": {
+            "ontology_id": "NCIT_C53511",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3115,6 +3719,7 @@ var DATA = [
             }
           },
           "Long Term Care Facility": {
+            "ontology_id": "GENEPIO_0001035",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3133,6 +3738,7 @@ var DATA = [
             }
           },
           "Prison": {
+            "ontology_id": "ENVO_01001481",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3142,6 +3748,7 @@ var DATA = [
             }
           },
           "Production Facility": {
+            "ontology_id": "ENVO_01000536",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3151,6 +3758,7 @@ var DATA = [
             }
           },
           "School": {
+            "ontology_id": "NCIT_C17118",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3191,7 +3799,7 @@ var DATA = [
       {
         "fieldName": "collection device",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001234",
         "datatype": "select",
         "source": "",
         "dataStatus": [
@@ -3248,6 +3856,7 @@ var DATA = [
             }
           },
           "Blood Collection Tube": {
+            "ontology_id": "NCIT:C113122",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3257,6 +3866,7 @@ var DATA = [
             }
           },
           "Bronchoscope": {
+            "ontology_id": "NCIT:C17611 ",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3320,6 +3930,7 @@ var DATA = [
             }
           },
           "Micropipette": {
+            "ontology_id": "OBI:0001128",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3329,6 +3940,7 @@ var DATA = [
             }
           },
           "Needle": {
+            "ontology_id": "OBI:0000436",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3338,6 +3950,7 @@ var DATA = [
             }
           },
           "Serum Collection Tube": {
+            "ontology_id": "NCIT:C113675 ",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3365,6 +3978,7 @@ var DATA = [
             }
           },
           "Swab": {
+            "ontology_id": "NCIT:c17627",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3396,7 +4010,7 @@ var DATA = [
       {
         "fieldName": "collection method",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001241",
         "datatype": "select",
         "source": "",
         "dataStatus": [
@@ -3444,6 +4058,7 @@ var DATA = [
         },
         "schema:ItemList": {
           "Amniocentesis": {
+            "ontology_id": "NCIT:C52009",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3453,6 +4068,7 @@ var DATA = [
             }
           },
           "Aspiration": {
+            "ontology_id": "NCIT:C15631",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3491,6 +4107,7 @@ var DATA = [
             }
           },
           "Biopsy": {
+            "ontology_id": "OBI:0002650",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3500,6 +4117,7 @@ var DATA = [
             },
             "schema:ItemList": {
               "Needle Biopsy": {
+                "ontology_id": "OBI:0002651",
                 "exportField": {
                   "NML_LIMS": [
                     {
@@ -3531,6 +4149,7 @@ var DATA = [
             }
           },
           "Lavage": {
+            "ontology_id": "OBI:0600044 ",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3540,6 +4159,7 @@ var DATA = [
             },
             "schema:ItemList": {
               "Bronchoalveolar lavage (BAL)": {
+                "ontology_id": "BTO:0000155",
                 "exportField": {
                   "NML_LIMS": [
                     {
@@ -3560,6 +4180,7 @@ var DATA = [
             }
           },
           "Lumbar Puncture": {
+            "ontology_id": "NCIT:C15327",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3569,6 +4190,7 @@ var DATA = [
             }
           },
           "Necropsy": {
+            "ontology_id": "MMO:0000344",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3578,6 +4200,7 @@ var DATA = [
             }
           },
           "Phlebotomy": {
+            "ontology_id": "NCIT:c28221",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3587,6 +4210,7 @@ var DATA = [
             }
           },
           "Rinsing": {
+            "ontology_id": "GENEPIO:0002116",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3608,6 +4232,7 @@ var DATA = [
             }
           },
           "Swabbing": {
+            "ontology_id": "GENEPIO:0002117",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3650,7 +4275,7 @@ var DATA = [
       {
         "fieldName": "collection protocol",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001243",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
@@ -3671,7 +4296,7 @@ var DATA = [
       {
         "fieldName": "specimen processing",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001253",
         "datatype": "multiple",
         "source": "",
         "dataStatus": [
@@ -3708,7 +4333,7 @@ var DATA = [
       {
         "fieldName": "lab host",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001255",
         "datatype": "select",
         "source": "",
         "dataStatus": [
@@ -3743,28 +4368,52 @@ var DATA = [
         },
         "schema:ItemList": {
           "293/ACE2 cell line": {},
-          "Caco2 cell line": {},
-          "Calu3 cell line": {},
+          "Caco2 cell line": {
+            "ontology_id": "BTO_0000195 "
+          },
+          "Calu3 cell line": {
+            "ontology_id": "BTO_0002750"
+          },
           "EFK3B cell line": {},
-          "HEK293T cell line": {},
+          "HEK293T cell line": {
+            "ontology_id": "BTO_0002181"
+          },
           "HRCE cell line": {},
-          "Huh7 cell line": {},
-          "LLCMk2 cell line": {},
-          "MDBK cell line": {},
+          "Huh7 cell line": {
+            "ontology_id": "BTO_0001950"
+          },
+          "LLCMk2 cell line": {
+            "ontology_id": "CLO_0007330"
+          },
+          "MDBK cell line": {
+            "ontology_id": "BTO_0000836 "
+          },
           "Mv1Lu cell line": {},
-          "NHBE cell line": {},
-          "PK-15 cell line": {},
-          "RK-13 cell line": {},
-          "U251 cell line": {},
-          "Vero cell line": {},
-          "Vero E6 cell line": {},
+          "NHBE cell line": {
+            "ontology_id": "BTO_0002924"
+          },
+          "PK-15 cell line": {
+            "ontology_id": "BTO_0001865"
+          },
+          "RK-13 cell line": {
+            "ontology_id": "BTO_0002909"
+          },
+          "U251 cell line": {
+            "ontology_id": "BTO_0002035"
+          },
+          "Vero cell line": {
+            "ontology_id": "BTO_0001444 "
+          },
+          "Vero E6 cell line": {
+            "ontology_id": "BTO:0004755"
+          },
           "VeroE6/TMPRSS2 cell line": {}
         }
       },
       {
         "fieldName": "passage number",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001261",
         "datatype": "xs:nonNegativeInteger",
         "source": "",
         "dataStatus": [
@@ -3797,7 +4446,7 @@ var DATA = [
       {
         "fieldName": "passage method",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001264",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": [
@@ -3830,7 +4479,7 @@ var DATA = [
       {
         "fieldName": "biomaterial extracted",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001266",
         "datatype": "select",
         "source": "",
         "dataStatus": [
@@ -3854,11 +4503,19 @@ var DATA = [
           ]
         },
         "schema:ItemList": {
-          "RNA (total)": {},
-          "RNA (poly-A)": {},
-          "RNA (ribo-depleted)": {},
+          "RNA (total)": {
+            "ontology_id": "OBI:0000895"
+          },
+          "RNA (poly-A)": {
+            "ontology_id": "OBI:0000869"
+          },
+          "RNA (ribo-depleted)": {
+            "ontology_id": "OBI:0002627"
+          },
           "mRNA (messenger RNA)": {},
-          "mRNA (cDNA)": {}
+          "mRNA (cDNA)": {
+            "ontology_id": "OBI:0002754"
+          }
         }
       }
     ]
@@ -3869,7 +4526,7 @@ var DATA = [
       {
         "fieldName": "host (common name)",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001386",
         "datatype": "select",
         "source": "",
         "dataStatus": [
@@ -3899,6 +4556,7 @@ var DATA = [
         },
         "schema:ItemList": {
           "Human": {
+            "ontology_id": "NCBITaxon_9606",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3908,6 +4566,7 @@ var DATA = [
             }
           },
           "Bat": {
+            "ontology_id": "NCBITaxon_9397",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3916,9 +4575,14 @@ var DATA = [
               ]
             }
           },
-          "Cat": {},
-          "Chicken": {},
+          "Cat": {
+            "ontology_id": "NCBITaxon_9685"
+          },
+          "Chicken": {
+            "ontology_id": "NCBITaxon_9031"
+          },
           "Civets": {
+            "ontology_id": "NCBITaxon_9673",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3928,6 +4592,7 @@ var DATA = [
             }
           },
           "Cow": {
+            "ontology_id": "NCBITaxon_9913",
             "exportField": {
               "CNPHI": [
                 {
@@ -3936,8 +4601,11 @@ var DATA = [
               ]
             }
           },
-          "Dog": {},
+          "Dog": {
+            "ontology_id": "NCBITaxon_9615 "
+          },
           "Lion": {
+            "ontology_id": "NCBITaxon_9689",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3948,6 +4616,7 @@ var DATA = [
           },
           "Mink": {},
           "Pangolin": {
+            "ontology_id": "NCBITaxon_9973",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3957,6 +4626,7 @@ var DATA = [
             }
           },
           "Pig": {
+            "ontology_id": "NCBITaxon_9823",
             "exportField": {
               "CNPHI": [
                 {
@@ -3965,14 +4635,18 @@ var DATA = [
               ]
             }
           },
-          "Pigeon": {},
-          "Tiger": {}
+          "Pigeon": {
+            "ontology_id": "NCBITaxon_8930"
+          },
+          "Tiger": {
+            "ontology_id": "NCBITaxon_9694"
+          }
         }
       },
       {
         "fieldName": "host (scientific name)",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001387",
         "datatype": "select",
         "source": "",
         "dataStatus": [
@@ -4011,28 +4685,60 @@ var DATA = [
           ]
         },
         "schema:ItemList": {
-          "Homo sapiens": {},
-          "Bos taurus": {},
-          "Canis lupus familiaris": {},
-          "Chiroptera": {},
-          "Columbidae": {},
-          "Felis catus": {},
-          "Gallus gallus": {},
-          "Manis": {},
-          "Manis javanica": {},
-          "Neovison vison": {},
-          "Panthera leo": {},
-          "Panthera tigris": {},
-          "Rhinolophidae": {},
-          "Rhinolophus affinis": {},
-          "Sus scrofa domesticus": {},
-          "Viverridae": {}
+          "Homo sapiens": {
+            "ontology_id": "NCBITaxon_9606"
+          },
+          "Bos taurus": {
+            "ontology_id": "NCBITaxon_9913"
+          },
+          "Canis lupus familiaris": {
+            "ontology_id": "NCBITaxon_9615 "
+          },
+          "Chiroptera": {
+            "ontology_id": "NCBITaxon_9397"
+          },
+          "Columbidae": {
+            "ontology_id": "NCBITaxon_8930"
+          },
+          "Felis catus": {
+            "ontology_id": "NCBITaxon_9685"
+          },
+          "Gallus gallus": {
+            "ontology_id": "NCBITaxon_9031"
+          },
+          "Manis": {
+            "ontology_id": "NCBITaxon_9973"
+          },
+          "Manis javanica": {
+            "ontology_id": "NCBITaxon_9974"
+          },
+          "Neovison vison": {
+            "ontology_id": "NCBITaxon_452646"
+          },
+          "Panthera leo": {
+            "ontology_id": "NCBITaxon_9689"
+          },
+          "Panthera tigris": {
+            "ontology_id": "NCBITaxon_9694"
+          },
+          "Rhinolophidae": {
+            "ontology_id": "NCBITaxon_58055 "
+          },
+          "Rhinolophus affinis": {
+            "ontology_id": "NCBITaxon_59477"
+          },
+          "Sus scrofa domesticus": {
+            "ontology_id": "NCBITaxon_9825"
+          },
+          "Viverridae": {
+            "ontology_id": "NCBITaxon_9673"
+          }
         }
       },
       {
         "fieldName": "host health state",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001388",
         "datatype": "select",
         "source": "",
         "dataStatus": [
@@ -4121,7 +4827,7 @@ var DATA = [
       {
         "fieldName": "host health status details",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001389",
         "datatype": "select",
         "source": "",
         "dataStatus": [
@@ -4222,7 +4928,7 @@ var DATA = [
       {
         "fieldName": "host health outcome",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001390",
         "datatype": "select",
         "source": "",
         "dataStatus": [
@@ -4260,7 +4966,7 @@ var DATA = [
       {
         "fieldName": "host disease",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001391",
         "datatype": "select",
         "source": "",
         "dataStatus": [
@@ -4305,7 +5011,7 @@ var DATA = [
       {
         "fieldName": "host age",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001392",
         "datatype": "xs:decimal",
         "source": "",
         "dataStatus": [
@@ -4352,7 +5058,7 @@ var DATA = [
       {
         "fieldName": "host age unit",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001393",
         "datatype": "select",
         "source": "",
         "dataStatus": [
@@ -4387,6 +5093,7 @@ var DATA = [
         },
         "schema:ItemList": {
           "month": {
+            "ontology_id": "UO:0000035",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -4396,6 +5103,7 @@ var DATA = [
             }
           },
           "year": {
+            "ontology_id": "UO:0000036",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -4409,7 +5117,7 @@ var DATA = [
       {
         "fieldName": "host age bin",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001394",
         "datatype": "select",
         "source": "",
         "dataStatus": [
@@ -4459,7 +5167,7 @@ var DATA = [
       {
         "fieldName": "host gender",
         "capitalize": "Title",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001395",
         "datatype": "select",
         "source": "",
         "dataStatus": [
@@ -4504,6 +5212,7 @@ var DATA = [
         },
         "schema:ItemList": {
           "Female": {
+            "ontology_id": "OMRSE:00000009?",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -4513,6 +5222,7 @@ var DATA = [
             }
           },
           "Male": {
+            "ontology_id": "OMRSE:00000008?",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -4571,7 +5281,7 @@ var DATA = [
       {
         "fieldName": "host residence geo_loc name (country)",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001396",
         "datatype": "select",
         "source": "geo_loc_name (country)",
         "dataStatus": [
@@ -4599,7 +5309,7 @@ var DATA = [
       {
         "fieldName": "host residence geo_loc name (state/province/territory)",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001397",
         "datatype": "select",
         "source": "geo_loc_name (state/province/territory)",
         "dataStatus": [
@@ -4627,7 +5337,7 @@ var DATA = [
       {
         "fieldName": "host subject ID",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001398",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
@@ -4653,7 +5363,7 @@ var DATA = [
       {
         "fieldName": "symptom onset date",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001399",
         "datatype": "xs:date",
         "source": "",
         "dataStatus": [
@@ -4685,7 +5395,7 @@ var DATA = [
       {
         "fieldName": "signs and symptoms",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001400",
         "datatype": "multiple",
         "source": "",
         "dataStatus": [
@@ -4716,6 +5426,7 @@ var DATA = [
         "schema:ItemList": {
           "Abnormal lung auscultation": {},
           "Abnormality of taste sensation": {
+            "ontology_id": "HP:0000223",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -4734,6 +5445,7 @@ var DATA = [
                 }
               },
               "Parageusia (distorted sense of taste)": {
+                "ontology_id": "HP:0031249",
                 "exportField": {
                   "NML_LIMS": [
                     {
@@ -4743,6 +5455,7 @@ var DATA = [
                 }
               },
               "Hypogeusia (reduced sense of taste)": {
+                "ontology_id": "HP_0000224 ",
                 "exportField": {
                   "NML_LIMS": [
                     {
@@ -4754,6 +5467,7 @@ var DATA = [
             }
           },
           "Abnormality of the sense of smell": {
+            "ontology_id": "HP:0004408",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -4763,6 +5477,7 @@ var DATA = [
             },
             "schema:ItemList": {
               "Anosmia (lost sense of smell)": {
+                "ontology_id": "HP_0000458",
                 "exportField": {
                   "NML_LIMS": [
                     {
@@ -4772,6 +5487,7 @@ var DATA = [
                 }
               },
               "Hyposmia (reduced sense of smell)": {
+                "ontology_id": "HP_0004409",
                 "exportField": {
                   "NML_LIMS": [
                     {
@@ -4792,6 +5508,7 @@ var DATA = [
             }
           },
           "Altered mental status": {
+            "ontology_id": "HP:0011446",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -4801,6 +5518,7 @@ var DATA = [
             },
             "schema:ItemList": {
               "Cognitive impairment": {
+                "ontology_id": "HP:0100543",
                 "exportField": {
                   "NML_LIMS": [
                     {
@@ -4810,6 +5528,7 @@ var DATA = [
                 }
               },
               "Coma": {
+                "ontology_id": "HP_0001259",
                 "exportField": {
                   "NML_LIMS": [
                     {
@@ -4819,6 +5538,7 @@ var DATA = [
                 }
               },
               "Confusion": {
+                "ontology_id": "HP_0001289",
                 "exportField": {
                   "NML_LIMS": [
                     {
@@ -4828,6 +5548,7 @@ var DATA = [
                 },
                 "schema:ItemList": {
                   "Delirium (sudden severe confusion)": {
+                    "ontology_id": "HP_0031258",
                     "exportField": {
                       "NML_LIMS": [
                         {
@@ -4848,6 +5569,7 @@ var DATA = [
                 }
               },
               "Irritability": {
+                "ontology_id": "HP_0000737 ",
                 "exportField": {
                   "NML_LIMS": [
                     {
@@ -4857,6 +5579,7 @@ var DATA = [
                 }
               },
               "Loss of speech": {
+                "ontology_id": "HP_0002371",
                 "exportField": {
                   "NML_LIMS": [
                     {
@@ -4867,8 +5590,11 @@ var DATA = [
               }
             }
           },
-          "Arrhythmia": {},
+          "Arrhythmia": {
+            "ontology_id": "HP:0011675"
+          },
           "Asthenia (generalized weakness)": {
+            "ontology_id": "HP_0025406",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -4878,6 +5604,7 @@ var DATA = [
             }
           },
           "Chest tightness or pressure": {
+            "ontology_id": "HP:0031352",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -4887,6 +5614,7 @@ var DATA = [
             },
             "schema:ItemList": {
               "Rigors (fever shakes)": {
+                "ontology_id": "HP:0025145",
                 "exportField": {
                   "NML_LIMS": [
                     {
@@ -4898,6 +5626,7 @@ var DATA = [
             }
           },
           "Chills (sudden cold sensation)": {
+            "ontology_id": "HP_0025143 ",
             "exportField": {
               "CNPHI": [
                 {
@@ -4913,6 +5642,7 @@ var DATA = [
           },
           "Conjunctival injection": {},
           "Conjunctivitis (pink eye)": {
+            "ontology_id": "HP_0000509",
             "exportField": {
               "CNPHI": [
                 {
@@ -4928,6 +5658,7 @@ var DATA = [
           },
           "Coryza": {},
           "Cough": {
+            "ontology_id": "HP_0012735",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -4937,6 +5668,7 @@ var DATA = [
             },
             "schema:ItemList": {
               "Nonproductive cough (dry cough)": {
+                "ontology_id": "HP:0031246",
                 "exportField": {
                   "NML_LIMS": [
                     {
@@ -4946,6 +5678,7 @@ var DATA = [
                 }
               },
               "Productive cough (wet cough)": {
+                "ontology_id": "HP:0031245",
                 "exportField": {
                   "NML_LIMS": [
                     {
@@ -4957,6 +5690,7 @@ var DATA = [
             }
           },
           "Cyanosis (blueish skin discolouration)": {
+            "ontology_id": "HP:0000961",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -4966,6 +5700,7 @@ var DATA = [
             },
             "schema:ItemList": {
               "Acrocyanosis": {
+                "ontology_id": "HP:0001063",
                 "exportField": {
                   "NML_LIMS": [
                     {
@@ -5011,6 +5746,7 @@ var DATA = [
             }
           },
           "Dyspnea (breathing difficulty)": {
+            "ontology_id": "HP_0002094",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -5020,6 +5756,7 @@ var DATA = [
             }
           },
           "Diarrhea (watery stool)": {
+            "ontology_id": "HP_0002014",
             "exportField": {
               "CNPHI": [
                 {
@@ -5035,6 +5772,7 @@ var DATA = [
           },
           "Dry gangrene": {},
           "Encephalitis (brain inflammation)": {
+            "ontology_id": "HP_0002383",
             "exportField": {
               "CNPHI": [
                 {
@@ -5050,6 +5788,7 @@ var DATA = [
           },
           "Encephalopathy": {},
           "Fatigue (tiredness)": {
+            "ontology_id": "HP_0012378",
             "exportField": {
               "CNPHI": [
                 {
@@ -5064,6 +5803,7 @@ var DATA = [
             }
           },
           "Fever": {
+            "ontology_id": "HP_0001945 ",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -5084,6 +5824,7 @@ var DATA = [
             }
           },
           "Glossitis (inflammation of the tongue)": {
+            "ontology_id": "HP:0000206",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -5094,6 +5835,7 @@ var DATA = [
           },
           "Ground Glass Opacities (GGO)": {},
           "Headache": {
+            "ontology_id": "HP_0002315",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -5103,6 +5845,7 @@ var DATA = [
             }
           },
           "Hemoptysis (coughing up blood)": {
+            "ontology_id": "HP_0002105",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -5111,8 +5854,11 @@ var DATA = [
               ]
             }
           },
-          "Hypocapnia": {},
+          "Hypocapnia": {
+            "ontology_id": "HP:0012417"
+          },
           "Hypotension (low blood pressure)": {
+            "ontology_id": "HP_0002615",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -5122,6 +5868,7 @@ var DATA = [
             }
           },
           "Hypoxemia (low blood oxygen)": {
+            "ontology_id": "HP_0012418",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -5134,6 +5881,7 @@ var DATA = [
             }
           },
           "Internal hemorrhage (internal bleeding)": {
+            "ontology_id": "HP:0011029",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -5143,6 +5891,7 @@ var DATA = [
             }
           },
           "Loss of Fine Movements": {
+            "ontology_id": "NCIT:C121416",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -5152,6 +5901,7 @@ var DATA = [
             }
           },
           "Low appetite": {
+            "ontology_id": "HP_0004396 ",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -5171,6 +5921,7 @@ var DATA = [
           },
           "Meningismus/nuchal rigidity": {},
           "Muscle weakness": {
+            "ontology_id": "HP_0001324",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -5180,6 +5931,7 @@ var DATA = [
             }
           },
           "Nasal obstruction (stuffy nose)": {
+            "ontology_id": "HP_0001742",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -5189,6 +5941,7 @@ var DATA = [
             }
           },
           "Nausea": {
+            "ontology_id": "HP_0002018",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -5197,11 +5950,14 @@ var DATA = [
               ]
             }
           },
-          "Nose bleed": {},
+          "Nose bleed": {
+            "ontology_id": "HP_0000421"
+          },
           "Otitis": {},
           "Pain": {
             "schema:ItemList": {
               "Abdominal pain": {
+                "ontology_id": "HP:0002027",
                 "exportField": {
                   "NML_LIMS": [
                     {
@@ -5211,6 +5967,7 @@ var DATA = [
                 }
               },
               "Arthralgia (painful joints)": {
+                "ontology_id": "HP_0002829",
                 "exportField": {
                   "NML_LIMS": [
                     {
@@ -5220,6 +5977,7 @@ var DATA = [
                 }
               },
               "Chest pain": {
+                "ontology_id": "HP_0100749",
                 "exportField": {
                   "NML_LIMS": [
                     {
@@ -5232,6 +5990,7 @@ var DATA = [
                 }
               },
               "Myalgia (muscle pain)": {
+                "ontology_id": "HP_0003326",
                 "exportField": {
                   "NML_LIMS": [
                     {
@@ -5243,6 +6002,7 @@ var DATA = [
             }
           },
           "Pharyngitis (sore throat)": {
+            "ontology_id": "HP_0025439",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -5253,7 +6013,9 @@ var DATA = [
           },
           "Pharyngeal exudate": {},
           "Pleural effusion": {},
-          "Pneumonia": {},
+          "Pneumonia": {
+            "ontology_id": "HP:0002090"
+          },
           "Prostration": {},
           "Pseudo-chilblains": {
             "schema:ItemList": {
@@ -5278,6 +6040,7 @@ var DATA = [
             }
           },
           "Rash": {
+            "ontology_id": "HP_0000988",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -5287,6 +6050,7 @@ var DATA = [
             }
           },
           "Rhinorrhea (runny nose)": {
+            "ontology_id": "HP_0031417",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -5296,6 +6060,7 @@ var DATA = [
             }
           },
           "Seizure": {
+            "ontology_id": "HP_0001250",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -5305,6 +6070,7 @@ var DATA = [
             },
             "schema:ItemList": {
               "Motor seizure": {
+                "ontology_id": "HP:0020219",
                 "exportField": {
                   "NML_LIMS": [
                     {
@@ -5316,6 +6082,7 @@ var DATA = [
             }
           },
           "Shivering (involuntary muscle twitching)": {
+            "ontology_id": "HP:0025144",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -5325,6 +6092,7 @@ var DATA = [
             }
           },
           "Slurred speech": {
+            "ontology_id": "HP_0001350",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -5336,6 +6104,7 @@ var DATA = [
           "Sneezing": {},
           "Sputum Production": {},
           "Stroke": {
+            "ontology_id": "HP:0001297",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -5346,6 +6115,7 @@ var DATA = [
           },
           "Swollen Lymph Nodes": {},
           "Tachypnea (accelerated respiratory rate)": {
+            "ontology_id": "HP_0002789",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -5356,6 +6126,7 @@ var DATA = [
           },
           "Vertigo (dizziness)": {},
           "Vomiting (throwing up)": {
+            "ontology_id": "HP_0002013",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -5369,7 +6140,7 @@ var DATA = [
       {
         "fieldName": "pre-existing conditions and risk factors",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001401",
         "datatype": "multiple",
         "source": "",
         "dataStatus": [
@@ -5419,12 +6190,20 @@ var DATA = [
           },
           "Cardiac disorder": {
             "schema:ItemList": {
-              "Arrhythmia": {},
+              "Arrhythmia": {
+                "ontology_id": "HP:0011675"
+              },
               "Cardiac disease": {},
-              "Cardiomyopathy": {},
+              "Cardiomyopathy": {
+                "ontology_id": "HP:0001638"
+              },
               "Cardiac injury": {},
-              "Hypertension (high blood pressure)": {},
-              "Hypotension (low blood pressure)": {}
+              "Hypertension (high blood pressure)": {
+                "ontology_id": "HP_0000822"
+              },
+              "Hypotension (low blood pressure)": {
+                "ontology_id": "HP:0002615"
+              }
             }
           },
           "Cesarean section": {},
@@ -5446,7 +6225,9 @@ var DATA = [
               "Hypomagnesemia": {}
             }
           },
-          "Encephalitis (brain inflammation)": {},
+          "Encephalitis (brain inflammation)": {
+            "ontology_id": "HP:0002383"
+          },
           "Epilepsy": {},
           "Hemodialysis": {},
           "Hemoglobinopathy": {},
@@ -5487,7 +6268,9 @@ var DATA = [
               }
             }
           },
-          "Myalgia (muscle pain)": {},
+          "Myalgia (muscle pain)": {
+            "ontology_id": "HP:0003326"
+          },
           "Myalgic encephalomyelitis (ME)": {},
           "Neurological disorder": {
             "schema:ItemList": {
@@ -5515,7 +6298,9 @@ var DATA = [
                   "Pulmonary fibrosis": {}
                 }
               },
-              "Pneumonia": {},
+              "Pneumonia": {
+                "ontology_id": "HP:0002090"
+              },
               "Respiratory failure": {
                 "schema:ItemList": {
                   "Adult respiratory distress syndrome": {},
@@ -5541,7 +6326,9 @@ var DATA = [
               "Vaping": {}
             }
           },
-          "Tachypnea (accelerated respiratory rate)": {},
+          "Tachypnea (accelerated respiratory rate)": {
+            "ontology_id": "HP:0002789"
+          },
           "Transplant": {
             "schema:ItemList": {
               "Bone marrow transplant": {},
@@ -5556,7 +6343,7 @@ var DATA = [
       {
         "fieldName": "complications",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001402",
         "datatype": "multiple",
         "source": "",
         "dataStatus": [
@@ -5583,6 +6370,7 @@ var DATA = [
           "Abnormal blood oxygen level": {},
           "Acute respiratory failure": {},
           "Arrhythmia (complication)": {
+            "ontology_id": "HP:0011675",
             "schema:ItemList": {
               "Tachycardia": {
                 "schema:ItemList": {
@@ -5612,7 +6400,9 @@ var DATA = [
               "Pulmonary embolism (PE)": {}
             }
           },
-          "Cardiomyopathy": {},
+          "Cardiomyopathy": {
+            "ontology_id": "HP:0001638"
+          },
           "Central nervous system invasion": {},
           "Stroke (complication)": {
             "schema:ItemList": {
@@ -5702,8 +6492,11 @@ var DATA = [
             }
           },
           "Seizure (complication)": {
+            "ontology_id": "HP:0001250",
             "schema:ItemList": {
-              "Motor seizure": {}
+              "Motor seizure": {
+                "ontology_id": "HP:0020219"
+              }
             }
           },
           "Sepsis": {},
@@ -5728,7 +6521,7 @@ var DATA = [
       {
         "fieldName": "host vaccination status",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001404",
         "datatype": "select",
         "source": "",
         "dataStatus": [
@@ -5760,7 +6553,7 @@ var DATA = [
       {
         "fieldName": "vaccine name",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001405",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
@@ -5781,7 +6574,7 @@ var DATA = [
       {
         "fieldName": "number of vaccine doses received",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001406",
         "datatype": "xs:nonNegativeInteger",
         "source": "",
         "dataStatus": null,
@@ -5802,7 +6595,7 @@ var DATA = [
       {
         "fieldName": "first dose vaccination date",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001407",
         "datatype": "xs:date",
         "source": "",
         "dataStatus": null,
@@ -5823,7 +6616,7 @@ var DATA = [
       {
         "fieldName": "last dose vaccination date",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001408",
         "datatype": "xs:date",
         "source": "",
         "dataStatus": null,
@@ -5849,7 +6642,7 @@ var DATA = [
       {
         "fieldName": "location of exposure geo_loc name (country)",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001410",
         "datatype": "select",
         "source": "geo_loc_name (country)",
         "dataStatus": [
@@ -5877,7 +6670,7 @@ var DATA = [
       {
         "fieldName": "destination of most recent travel (city)",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001411",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
@@ -5903,7 +6696,7 @@ var DATA = [
       {
         "fieldName": "destination of most recent travel (state/province/territory)",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001412",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
@@ -5929,7 +6722,7 @@ var DATA = [
       {
         "fieldName": "destination of most recent travel (country)",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001413",
         "datatype": "select",
         "source": "geo_loc_name (country)",
         "dataStatus": [
@@ -5962,7 +6755,7 @@ var DATA = [
       {
         "fieldName": "most recent travel departure date",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001414",
         "datatype": "xs:date",
         "source": "",
         "dataStatus": [
@@ -5994,7 +6787,7 @@ var DATA = [
       {
         "fieldName": "most recent travel return date",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001415",
         "datatype": "xs:date",
         "source": "",
         "dataStatus": [
@@ -6026,7 +6819,7 @@ var DATA = [
       {
         "fieldName": "travel history",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001416",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
@@ -6047,7 +6840,7 @@ var DATA = [
       {
         "fieldName": "exposure event",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001417",
         "datatype": "select",
         "source": "",
         "dataStatus": [
@@ -6142,7 +6935,7 @@ var DATA = [
       {
         "fieldName": "exposure contact level",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001418",
         "datatype": "select",
         "source": "",
         "dataStatus": [
@@ -6182,7 +6975,7 @@ var DATA = [
       {
         "fieldName": "host role",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001419",
         "datatype": "multiple",
         "source": "",
         "dataStatus": null,
@@ -6266,7 +7059,7 @@ var DATA = [
       {
         "fieldName": "exposure setting",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001428",
         "datatype": "multiple",
         "source": "",
         "dataStatus": null,
@@ -6285,6 +7078,7 @@ var DATA = [
         },
         "schema:ItemList": {
           "Human Exposure": {
+            "ontology_id": "ECTO_3000005",
             "schema:ItemList": {
               "Contact with Known COVID-19 Case": {},
               "Contact with Patient": {},
@@ -6296,7 +7090,9 @@ var DATA = [
           },
           "Occupational, Residency or Patronage Exposure": {
             "schema:ItemList": {
-              "Abbatoir": {},
+              "Abbatoir": {
+                "ontology_id": "ECTO_1000033"
+              },
               "Animal Rescue": {},
               "Childcare": {
                 "schema:ItemList": {
@@ -6316,10 +7112,13 @@ var DATA = [
               "Community Service Centre": {},
               "Correctional Facility": {},
               "Dormitory": {},
-              "Farm": {},
+              "Farm": {
+                "ontology_id": "ECTO_1000034"
+              },
               "First Nations Reserve": {},
               "Group Home": {},
               "Healthcare Setting": {
+                "ontology_id": "ECTO_1000035",
                 "schema:ItemList": {
                   "Ambulance": {},
                   "Acute Care Facility": {},
@@ -6332,25 +7131,44 @@ var DATA = [
                       "Ward": {}
                     }
                   },
-                  "Laboratory": {},
+                  "Laboratory": {
+                    "ontology_id": "ECTO_1000036"
+                  },
                   "Long-Term Care Facility": {},
                   "Pharmacy": {},
                   "Physician's Office": {}
                 }
               },
               "Insecure Housing (Homeless)": {},
-              "Office": {},
+              "Occupational Exposure": {
+                "schema:ItemList": {
+                  "Worksite": {},
+                  "Office": {
+                    "ontology_id": "ECTO:1000037"
+                  }
+                }
+              },
               "Outdoors": {
                 "schema:ItemList": {
-                  "Camp/camping": {},
+                  "Camp/camping": {
+                    "ontology_id": "ECTO_5000009"
+                  },
                   "Hiking Trail": {},
-                  "Hunting Ground": {},
+                  "Hunting Ground": {
+                    "ontology_id": "ECTO_6000030"
+                  },
                   "Ski Resort": {}
                 }
               },
-              "Petting zoo": {},
-              "Restaurant": {},
-              "Retail Store": {},
+              "Petting zoo": {
+                "ontology_id": "ECTO_5000008"
+              },
+              "Restaurant": {
+                "ontology_id": "ECTO_1000040"
+              },
+              "Retail Store": {
+                "ontology_id": "ECTO_1000041"
+              },
               "School": {},
               "Temporary Residence": {
                 "schema:ItemList": {
@@ -6368,8 +7186,12 @@ var DATA = [
                   "Travelled on a Cruise Ship": {},
                   "Travelled on a Plane": {},
                   "Travelled on Ground Transport": {},
-                  "Travelled outside Province/Territory": {},
-                  "Travelled outside Canada": {}
+                  "Travelled outside Province/Territory": {
+                    "ontology_id": "GENEPIO_0001119"
+                  },
+                  "Travelled outside Canada": {
+                    "ontology_id": "GENEPIO_0001118"
+                  }
                 }
               }
             }
@@ -6380,7 +7202,7 @@ var DATA = [
       {
         "fieldName": "exposure details",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001431",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
@@ -6406,7 +7228,7 @@ var DATA = [
       {
         "fieldName": "prior SARS-CoV-2 infection",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001435",
         "datatype": "select",
         "source": "",
         "dataStatus": [
@@ -6420,7 +7242,7 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "",
         "description": "Whether there was prior SARS-CoV-2 infection.",
-        "guidance": "Ik known, provide infromation about whether the individual had a previous SARS-CoV-2 infection. Select a value from the pick list.",
+        "guidance": "If known, provide information about whether the individual had a previous SARS-CoV-2 infection. Select a value from the pick list.",
         "examples": "Yes",
         "exportField": {
           "NML_LIMS": [
@@ -6438,7 +7260,7 @@ var DATA = [
       {
         "fieldName": "prior SARS-CoV-2 infection isolate",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001436",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
@@ -6459,7 +7281,7 @@ var DATA = [
       {
         "fieldName": "prior SARS-CoV-2 infection date",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001437",
         "datatype": "xs:date",
         "source": "",
         "dataStatus": null,
@@ -6480,7 +7302,7 @@ var DATA = [
       {
         "fieldName": "prior SARS-CoV-2 antiviral treatment",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001438",
         "datatype": "select",
         "source": "",
         "dataStatus": [
@@ -6494,7 +7316,7 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "",
         "description": "Whether there was prior SARS-CoV-2 treatment with an antiviral agent.",
-        "guidance": "If known, provide infromation about whether the individual had a previous SARS-CoV-2 antiviral treatment. Select a value from the pick list.",
+        "guidance": "If known, provide information about whether the individual had a previous SARS-CoV-2 antiviral treatment. Select a value from the pick list.",
         "examples": "No prior antiviral treatment",
         "exportField": {
           "NML_LIMS": [
@@ -6512,7 +7334,7 @@ var DATA = [
       {
         "fieldName": "prior SARS-CoV-2 antiviral treatment agent",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001439",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
@@ -6533,7 +7355,7 @@ var DATA = [
       {
         "fieldName": "prior SARS-CoV-2 antiviral treatment date",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001440",
         "datatype": "xs:date",
         "source": "",
         "dataStatus": null,
@@ -6559,7 +7381,7 @@ var DATA = [
       {
         "fieldName": "purpose of sequencing",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001445",
         "datatype": "multiple",
         "source": "",
         "dataStatus": [
@@ -6637,7 +7459,7 @@ var DATA = [
       {
         "fieldName": "purpose of sequencing details",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001446",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": [
@@ -6663,18 +7485,13 @@ var DATA = [
             {
               "field": "PH_REASON_FOR_SEQUENCING_DETAILS"
             }
-          ],
-          "VirusSeq_Portal": [
-            {
-              "field": "purpose of sequencing details"
-            }
           ]
         }
       },
       {
         "fieldName": "sequencing date",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001447",
         "datatype": "xs:date",
         "source": "",
         "dataStatus": [
@@ -6695,18 +7512,13 @@ var DATA = [
             {
               "field": "sequencing date"
             }
-          ],
-          "VirusSeq_Portal": [
-            {
-              "field": "sequencing date"
-            }
           ]
         }
       },
       {
         "fieldName": "library ID",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001448",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
@@ -6721,18 +7533,13 @@ var DATA = [
             {
               "field": "library ID"
             }
-          ],
-          "VirusSeq_Portal": [
-            {
-              "field": "library ID"
-            }
           ]
         }
       },
       {
         "fieldName": "amplicon size",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001449",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
@@ -6753,7 +7560,7 @@ var DATA = [
       {
         "fieldName": "library preparation kit",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001450",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
@@ -6774,7 +7581,7 @@ var DATA = [
       {
         "fieldName": "flow cell barcode",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001451",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
@@ -6795,7 +7602,7 @@ var DATA = [
       {
         "fieldName": "sequencing instrument",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001452",
         "datatype": "multiple",
         "source": "",
         "dataStatus": [
@@ -6835,56 +7642,94 @@ var DATA = [
         },
         "schema:ItemList": {
           "Illumina": {
+            "ontology_id": "OBI_0000759",
             "schema:ItemList": {
               "Illumina Genome Analyzer": {
+                "ontology_id": "OBI_0002128",
                 "schema:ItemList": {
-                  "Illumina Genome Analyzer II": {},
-                  "Illumina Genome Analyzer IIx": {}
+                  "Illumina Genome Analyzer II": {
+                    "ontology_id": "OBI_0000703"
+                  },
+                  "Illumina Genome Analyzer IIx": {
+                    "ontology_id": "OBI_0002000"
+                  }
                 }
               },
               "Illumina HiScanSQ": {},
               "Illumina HiSeq": {},
               "Illumina HiSeq X": {
+                "ontology_id": "OBI_0002129",
                 "schema:ItemList": {
                   "Illumina HiSeq X Five": {},
-                  "Illumina HiSeq X Ten": {}
+                  "Illumina HiSeq X Ten": {
+                    "ontology_id": "OBI_0002129"
+                  }
                 }
               },
-              "Illumina HiSeq 1000": {},
+              "Illumina HiSeq 1000": {
+                "ontology_id": "OBI_0002022"
+              },
               "Illumina HiSeq 1500": {},
-              "Illumina HiSeq 2000": {},
-              "Illumina HiSeq 2500": {},
-              "Illumina HiSeq 3000": {},
-              "Illumina HiSeq 4000": {},
+              "Illumina HiSeq 2000": {
+                "ontology_id": "OBI_0002001"
+              },
+              "Illumina HiSeq 2500": {
+                "ontology_id": "OBI_0002002"
+              },
+              "Illumina HiSeq 3000": {
+                "ontology_id": "OBI_0002048"
+              },
+              "Illumina HiSeq 4000": {
+                "ontology_id": "OBI_0002049"
+              },
               "Illumina iSeq": {
                 "schema:ItemList": {
-                  "Illumina iSeq 100": {}
+                  "Illumina iSeq 100": {
+                    "ontology_id": "EFO:0008635"
+                  }
                 }
               },
               "Illumina NovaSeq": {
                 "schema:ItemList": {
-                  "Illumina NovaSeq 6000": {}
+                  "Illumina NovaSeq 6000": {
+                    "ontology_id": "OBI_0002630"
+                  }
                 }
               },
-              "Illumina MiniSeq": {},
-              "Illumina MiSeq": {},
+              "Illumina MiniSeq": {
+                "ontology_id": "EFO_0008636"
+              },
+              "Illumina MiSeq": {
+                "ontology_id": "OBI_0002003"
+              },
               "Illumina NextSeq": {},
-              "Illumina NextSeq 500": {},
+              "Illumina NextSeq 500": {
+                "ontology_id": "OBI_0002021"
+              },
               "Illumina NextSeq 550": {},
               "Illumina NextSeq 2000": {}
             }
           },
           "Pacific Biosciences": {
+            "ontology_id": "OBI_0001856",
             "schema:ItemList": {
               "PacBio RS": {},
-              "PacBio RS II": {},
-              "PacBio Sequel": {},
-              "PacBio Sequel II": {}
+              "PacBio RS II": {
+                "ontology_id": "OBI_0002012"
+              },
+              "PacBio Sequel": {
+                "ontology_id": "OBI_0002632"
+              },
+              "PacBio Sequel II": {
+                "ontology_id": "OBI_0002633"
+              }
             }
           },
           "Ion Torrent": {
             "schema:ItemList": {
-              "Ion Torrent PGM": {},
+              "Ion Torrent PGM": {
+                "ontology_id": "GENEPIO_0001935"
+              },
               "Ion Torrent Proton": {},
               "Ion Torrent S5 XL": {},
               "Ion Torrent S5": {}
@@ -6915,7 +7760,7 @@ var DATA = [
       {
         "fieldName": "sequencing protocol name",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001453",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
@@ -6935,18 +7780,13 @@ var DATA = [
             {
               "field": "sequencing protocol name"
             }
-          ],
-          "VirusSeq_Portal": [
-            {
-              "field": "sequencing protocol name"
-            }
           ]
         }
       },
       {
         "fieldName": "sequencing protocol",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001454",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
@@ -6967,7 +7807,7 @@ var DATA = [
       {
         "fieldName": "sequencing kit number",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001455",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
@@ -6988,7 +7828,7 @@ var DATA = [
       {
         "fieldName": "amplicon pcr primer scheme",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001456",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
@@ -7014,7 +7854,7 @@ var DATA = [
       {
         "fieldName": "raw sequence data processing method",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001458",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
@@ -7029,18 +7869,13 @@ var DATA = [
             {
               "field": "raw sequence data processing method"
             }
-          ],
-          "VirusSeq_Portal": [
-            {
-              "field": "raw sequence data processing method"
-            }
           ]
         }
       },
       {
         "fieldName": "dehosting method",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001459",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
@@ -7055,18 +7890,13 @@ var DATA = [
             {
               "field": "dehosting method"
             }
-          ],
-          "VirusSeq_Portal": [
-            {
-              "field": "dehosting method"
-            }
           ]
         }
       },
       {
         "fieldName": "consensus sequence name",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001460",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
@@ -7087,7 +7917,7 @@ var DATA = [
       {
         "fieldName": "consensus sequence filename",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001461",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
@@ -7108,7 +7938,7 @@ var DATA = [
       {
         "fieldName": "consensus sequence filepath",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001462",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
@@ -7129,7 +7959,7 @@ var DATA = [
       {
         "fieldName": "consensus sequence software name",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001463",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
@@ -7160,7 +7990,7 @@ var DATA = [
       {
         "fieldName": "consensus sequence software version",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001469",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
@@ -7191,7 +8021,7 @@ var DATA = [
       {
         "fieldName": "breadth of coverage value",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001472",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
@@ -7206,18 +8036,13 @@ var DATA = [
             {
               "field": "breadth of coverage value"
             }
-          ],
-          "VirusSeq_Portal": [
-            {
-              "field": "breadth of coverage value"
-            }
           ]
         }
       },
       {
         "fieldName": "depth of coverage value",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001474",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
@@ -7237,18 +8062,13 @@ var DATA = [
             {
               "field": "depth of coverage value"
             }
-          ],
-          "VirusSeq_Portal": [
-            {
-              "field": "depth of coverage value"
-            }
           ]
         }
       },
       {
         "fieldName": "depth of coverage threshold",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001475",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
@@ -7269,7 +8089,7 @@ var DATA = [
       {
         "fieldName": "r1 fastq filename",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001476",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
@@ -7290,7 +8110,7 @@ var DATA = [
       {
         "fieldName": "r2 fastq filename",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001477",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
@@ -7311,7 +8131,7 @@ var DATA = [
       {
         "fieldName": "r1 fastq filepath",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001478",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
@@ -7332,7 +8152,7 @@ var DATA = [
       {
         "fieldName": "r2 fastq filepath",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001479",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
@@ -7353,7 +8173,7 @@ var DATA = [
       {
         "fieldName": "fast5 filename",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001480",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
@@ -7374,7 +8194,7 @@ var DATA = [
       {
         "fieldName": "fast5 filepath",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001481",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
@@ -7395,7 +8215,7 @@ var DATA = [
       {
         "fieldName": "number of base pairs sequenced",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001482",
         "datatype": "xs:nonNegativeInteger",
         "source": "",
         "dataStatus": null,
@@ -7416,7 +8236,7 @@ var DATA = [
       {
         "fieldName": "consensus genome length",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001483",
         "datatype": "xs:nonNegativeInteger",
         "source": "",
         "dataStatus": null,
@@ -7431,18 +8251,13 @@ var DATA = [
             {
               "field": "consensus genome length"
             }
-          ],
-          "VirusSeq_Portal": [
-            {
-              "field": "consensus genome length"
-            }
           ]
         }
       },
       {
         "fieldName": "Ns per 100 kbp",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001484",
         "datatype": "xs:decimal",
         "source": "",
         "dataStatus": null,
@@ -7457,18 +8272,13 @@ var DATA = [
             {
               "field": "Ns per 100 kbp"
             }
-          ],
-          "VirusSeq_Portal": [
-            {
-              "field": "Ns per 100 kbp"
-            }
           ]
         }
       },
       {
         "fieldName": "reference genome accession",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001485",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
@@ -7483,18 +8293,13 @@ var DATA = [
             {
               "field": "reference genome accession"
             }
-          ],
-          "VirusSeq_Portal": [
-            {
-              "field": "reference genome accession"
-            }
           ]
         }
       },
       {
         "fieldName": "bioinformatics protocol",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001489",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
@@ -7514,11 +8319,6 @@ var DATA = [
             {
               "field": "bioinformatics protocol"
             }
-          ],
-          "VirusSeq_Portal": [
-            {
-              "field": "bioinformatics protocol"
-            }
           ]
         }
       }
@@ -7530,7 +8330,7 @@ var DATA = [
       {
         "fieldName": "lineage/clade name",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001500",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
@@ -7545,18 +8345,13 @@ var DATA = [
             {
               "field": "PH_LINEAGE_CLADE_NAME"
             }
-          ],
-          "VirusSeq_Portal": [
-            {
-              "field": "lineage/clade name"
-            }
           ]
         }
       },
       {
         "fieldName": "lineage/clade analysis software name",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001501",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
@@ -7571,18 +8366,13 @@ var DATA = [
             {
               "field": "PH_LINEAGE_CLADE_SOFTWARE"
             }
-          ],
-          "VirusSeq_Portal": [
-            {
-              "field": "lineage/clade analysis software name"
-            }
           ]
         }
       },
       {
         "fieldName": "lineage/clade analysis software version",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001502",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
@@ -7597,18 +8387,13 @@ var DATA = [
             {
               "field": "PH_LINEAGE_CLADE_VERSION"
             }
-          ],
-          "VirusSeq_Portal": [
-            {
-              "field": "lineage/clade analysis software version"
-            }
           ]
         }
       },
       {
         "fieldName": "variant designation",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001503",
         "datatype": "select",
         "source": "",
         "dataStatus": [
@@ -7629,11 +8414,6 @@ var DATA = [
             {
               "field": "PH_VARIANT_DESIGNATION"
             }
-          ],
-          "VirusSeq_Portal": [
-            {
-              "field": "variant designation"
-            }
           ]
         },
         "schema:ItemList": {
@@ -7644,7 +8424,7 @@ var DATA = [
       {
         "fieldName": "variant evidence",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001504",
         "datatype": "select",
         "source": "",
         "dataStatus": [
@@ -7665,11 +8445,6 @@ var DATA = [
             {
               "field": "PH_VARIANT_EVIDENCE"
             }
-          ],
-          "VirusSeq_Portal": [
-            {
-              "field": "variant evidence"
-            }
           ]
         },
         "schema:ItemList": {
@@ -7680,7 +8455,7 @@ var DATA = [
       {
         "fieldName": "variant evidence details",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001505",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
@@ -7695,11 +8470,6 @@ var DATA = [
             {
               "field": "PH_VARIANT_EVIDENCE_DETAILS"
             }
-          ],
-          "VirusSeq_Portal": [
-            {
-              "field": "variant evidence details"
-            }
           ]
         }
       }
@@ -7711,7 +8481,7 @@ var DATA = [
       {
         "fieldName": "gene name 1",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001507",
         "datatype": "select",
         "source": "",
         "dataStatus": [
@@ -7746,6 +8516,7 @@ var DATA = [
         },
         "schema:ItemList": {
           "E gene (orf4)": {
+            "ontology_id": "PR:P0DTC4",
             "exportField": {
               "CNPHI": [
                 {
@@ -7759,42 +8530,96 @@ var DATA = [
               ]
             }
           },
-          "M gene (orf5)": {},
-          "N gene (orf9)": {},
-          "Spike gene (orf2)": {},
+          "M gene (orf5)": {
+            "ontology_id": "PR:P0DTC5"
+          },
+          "N gene (orf9)": {
+            "ontology_id": "PR:P0DTC9"
+          },
+          "Spike gene (orf2)": {
+            "ontology_id": "PR:P0DTC2"
+          },
           "orf1ab (rep)": {
+            "ontology_id": "PR:000050281",
             "schema:ItemList": {
               "orf1a (pp1a)": {
+                "ontology_id": "PR:P0DTC1-1",
                 "schema:ItemList": {
-                  "nsp11": {}
+                  "nsp11": {
+                    "ontology_id": "PR:000050280"
+                  }
                 }
               },
-              "nsp1": {},
-              "nsp2": {},
-              "nsp3": {},
-              "nsp4": {},
-              "nsp5": {},
-              "nsp6": {},
-              "nsp7": {},
-              "nsp8": {},
-              "nsp9": {},
-              "nsp10": {},
-              "RdRp gene (nsp12)": {},
-              "hel gene (nsp13)": {},
-              "exoN gene (nsp14)": {},
-              "nsp15": {},
-              "nsp16": {}
+              "nsp1": {
+                "ontology_id": "PR:000050270"
+              },
+              "nsp2": {
+                "ontology_id": "PR:000050271"
+              },
+              "nsp3": {
+                "ontology_id": "PR:000050272"
+              },
+              "nsp4": {
+                "ontology_id": "PR:000050273"
+              },
+              "nsp5": {
+                "ontology_id": "PR:000050274"
+              },
+              "nsp6": {
+                "ontology_id": "PR:000050275"
+              },
+              "nsp7": {
+                "ontology_id": "PR:000050276"
+              },
+              "nsp8": {
+                "ontology_id": "PR:000050277"
+              },
+              "nsp9": {
+                "ontology_id": "PR:000050278"
+              },
+              "nsp10": {
+                "ontology_id": "PR:000050279"
+              },
+              "RdRp gene (nsp12)": {
+                "ontology_id": "PR:000050284"
+              },
+              "hel gene (nsp13)": {
+                "ontology_id": "PR:000050285"
+              },
+              "exoN gene (nsp14)": {
+                "ontology_id": "PR:000050286"
+              },
+              "nsp15": {
+                "ontology_id": "PR:000050287"
+              },
+              "nsp16": {
+                "ontology_id": "PR:000050288"
+              }
             }
           },
-          "orf3a": {},
+          "orf3a": {
+            "ontology_id": "PR:P0DTC3"
+          },
           "orf3b": {},
-          "orf6 (ns6)": {},
-          "orf7a": {},
-          "orf7b (ns7b)": {},
-          "orf8 (ns8)": {},
-          "orf9b": {},
+          "orf6 (ns6)": {
+            "ontology_id": "PR:P0DTC6"
+          },
+          "orf7a": {
+            "ontology_id": "PR:P0DTC7"
+          },
+          "orf7b (ns7b)": {
+            "ontology_id": "PR:P0DTD8"
+          },
+          "orf8 (ns8)": {
+            "ontology_id": "PR:P0DTC8"
+          },
+          "orf9b": {
+            "ontology_id": "PR:P0DTD2"
+          },
           "orf9c": {},
-          "orf10": {},
+          "orf10": {
+            "ontology_id": "PR:A0A663DJA2"
+          },
           "orf14": {},
           "SARS-COV-2 5' UTR": {}
         }
@@ -7802,7 +8627,7 @@ var DATA = [
       {
         "fieldName": "diagnostic pcr protocol 1",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001508",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
@@ -7816,7 +8641,7 @@ var DATA = [
       {
         "fieldName": "diagnostic pcr Ct value 1",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001509",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
@@ -7847,7 +8672,7 @@ var DATA = [
       {
         "fieldName": "gene name 2",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001510",
         "datatype": "select",
         "source": "gene name 1",
         "dataStatus": [
@@ -7885,7 +8710,7 @@ var DATA = [
       {
         "fieldName": "diagnostic pcr protocol 2",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001511",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
@@ -7899,7 +8724,7 @@ var DATA = [
       {
         "fieldName": "diagnostic pcr Ct value 2",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001512",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
@@ -7930,7 +8755,7 @@ var DATA = [
       {
         "fieldName": "gene name 3",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001513",
         "datatype": "select",
         "source": "gene name 1",
         "dataStatus": [
@@ -7963,7 +8788,7 @@ var DATA = [
       {
         "fieldName": "diagnostic pcr protocol 3",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001514",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
@@ -7977,7 +8802,7 @@ var DATA = [
       {
         "fieldName": "diagnostic pcr Ct value 3",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001515",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
@@ -8008,7 +8833,7 @@ var DATA = [
       {
         "fieldName": "authors",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001517",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
@@ -8039,7 +8864,7 @@ var DATA = [
       {
         "fieldName": "DataHarmonizer provenance",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO_0001518",
         "datatype": "provenance",
         "source": "",
         "dataStatus": null,
@@ -8068,5 +8893,9 @@ var DATA = [
         }
       }
     ]
+  },
+  {
+    "fieldName": "E.g. \"COVID toes\".",
+    "children": []
   }
 ]
