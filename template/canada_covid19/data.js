@@ -702,188 +702,28 @@ var DATA = [
         "schema:ItemList": {
           "Alberta Precision Labs (APL)": {
             "schema:ItemList": {
-              "Alberta ProvLab North (APLN)": {
-                "exportField": {
-                  "NML_LIMS": [
-                    {
-                      "value": "APL-E"
-                    }
-                  ]
-                }
-              },
-              "Alberta ProvLab South (APLS)": {
-                "exportField": {
-                  "NML_LIMS": [
-                    {
-                      "value": "APL-C"
-                    }
-                  ]
-                }
-              }
+              "Alberta ProvLab North (APLN)": {},
+              "Alberta ProvLab South (APLS)": {}
             }
           },
-          "BCCDC Public Health Laboratory": {
-            "exportField": {
-              "NML_LIMS": [
-                {
-                  "value": "BCCDC"
-                }
-              ]
-            }
-          },
-          "Canadore College": {
-            "exportField": {
-              "NML_LIMS": [
-                {
-                  "value": "CANADORE"
-                }
-              ]
-            }
-          },
-          "The Centre for Applied Genomics (TCAG)": {
-            "exportField": {
-              "NML_LIMS": [
-                {
-                  "value": "TCAG"
-                }
-              ]
-            }
-          },
-          "Laboratoire de sant\u00e9 publique du Qu\u00e9bec (LSPQ)": {
-            "exportField": {
-              "NML_LIMS": [
-                {
-                  "value": "LSPQ"
-                }
-              ]
-            }
-          },
-          "Manitoba Cadham Provincial Laboratory": {
-            "exportField": {
-              "NML_LIMS": [
-                {
-                  "value": "CADHAM"
-                }
-              ]
-            }
-          },
-          "McMaster University": {
-            "exportField": {
-              "NML_LIMS": [
-                {
-                  "value": "MCMASTER"
-                }
-              ]
-            }
-          },
-          "McGill University": {
-            "exportField": {
-              "NML_LIMS": [
-                {
-                  "value": "MCGILL"
-                }
-              ]
-            }
-          },
-          "National Microbiology Laboratory (NML)": {
-            "exportField": {
-              "NML_LIMS": [
-                {
-                  "value": "NML"
-                }
-              ]
-            }
-          },
-          "New Brunswick - Vitalit\u00e9 Health Network": {
-            "exportField": {
-              "NML_LIMS": [
-                {
-                  "value": "GEORGES_L_DUMONT"
-                }
-              ]
-            }
-          },
-          "Newfoundland and Labrador - Eastern Health": {
-            "exportField": {
-              "NML_LIMS": [
-                {
-                  "value": "EASTERN_HEALTH"
-                }
-              ]
-            }
-          },
-          "Nova Scotia Health Authority": {
-            "exportField": {
-              "NML_LIMS": [
-                {
-                  "value": "NS_QE_II"
-                }
-              ]
-            }
-          },
-          "Ontario Institute for Cancer Research (OICR)": {
-            "exportField": {
-              "NML_LIMS": [
-                {
-                  "value": "OICR"
-                }
-              ]
-            }
-          },
-          "Prince Edward Island - Health PEI": {
-            "exportField": {
-              "NML_LIMS": [
-                {
-                  "value": "PEI"
-                }
-              ]
-            }
-          },
-          "Public Health Ontario (PHO)": {
-            "exportField": {
-              "NML_LIMS": [
-                {
-                  "value": "PHO"
-                }
-              ]
-            }
-          },
-          "Saskatchewan - Roy Romanow Provincial Laboratory (RRPL)": {
-            "exportField": {
-              "NML_LIMS": [
-                {
-                  "value": "RRPL"
-                }
-              ]
-            }
-          },
-          "Sunnybrook Health Sciences Centre": {
-            "exportField": {
-              "NML_LIMS": [
-                {
-                  "value": "SUNNYBROOK"
-                }
-              ]
-            }
-          },
-          "Thunder Bay Regional Health Sciences Centre": {
-            "exportField": {
-              "NML_LIMS": [
-                {
-                  "value": "THUNDER_BAY"
-                }
-              ]
-            }
-          },
-          "Queen's University / Kingston Health Sciences Centre": {
-            "exportField": {
-              "NML_LIMS": [
-                {
-                  "value": "QUEENS_UNIV"
-                }
-              ]
-            }
-          }
+          "BCCDC Public Health Laboratory": {},
+          "Canadore College": {},
+          "The Centre for Applied Genomics (TCAG)": {},
+          "Laboratoire de sant\u00e9 publique du Qu\u00e9bec (LSPQ)": {},
+          "Manitoba Cadham Provincial Laboratory": {},
+          "McMaster University": {},
+          "McGill University": {},
+          "National Microbiology Laboratory (NML)": {},
+          "New Brunswick - Vitalit\u00e9 Health Network": {},
+          "Newfoundland and Labrador - Eastern Health": {},
+          "Nova Scotia Health Authority": {},
+          "Ontario Institute for Cancer Research (OICR)": {},
+          "Prince Edward Island - Health PEI": {},
+          "Public Health Ontario (PHO)": {},
+          "Saskatchewan - Roy Romanow Provincial Laboratory (RRPL)": {},
+          "Sunnybrook Health Sciences Centre": {},
+          "Thunder Bay Regional Health Sciences Centre": {},
+          "Queen's University / Kingston Health Sciences Centre": {}
         }
       },
       {
@@ -2478,7 +2318,7 @@ var DATA = [
           ],
           "NML_LIMS": [
             {
-              "field": "purpose of sampling details"
+              "field": "PH_SAMPLING_DETAILS"
             }
           ],
           "BIOSAMPLE": [
@@ -7977,7 +7817,7 @@ var DATA = [
           ],
           "NML_LIMS": [
             {
-              "field": "Consensus Sequence Method Name"
+              "field": "PH_CONSENSUS_SEQUENCE"
             }
           ],
           "VirusSeq_Portal": [
@@ -8008,7 +7848,7 @@ var DATA = [
           ],
           "NML_LIMS": [
             {
-              "field": "Consensus Sequence Method Version Name"
+              "field": "PH_CONSENSUS_SEQUENCE_VERSION"
             }
           ],
           "VirusSeq_Portal": [
@@ -8893,9 +8733,5 @@ var DATA = [
         }
       }
     ]
-  },
-  {
-    "fieldName": "E.g. \"COVID toes\".",
-    "children": []
   }
 ]
