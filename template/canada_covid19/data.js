@@ -329,6 +329,11 @@ var DATA = [
             {
               "field": "GISAID_accession"
             }
+          ],
+          "VirusSeq_Portal": [
+            {
+              "field": "GISAID accession"
+            }
           ]
         }
       }
@@ -399,7 +404,7 @@ var DATA = [
                 "exportField": {
                   "NML_LIMS": [
                     {
-                      "value": "APL-C"
+                      "value": "CANCOGEN_CALGARY_PROV_LAB"
                     }
                   ]
                 }
@@ -415,11 +420,20 @@ var DATA = [
               ]
             }
           },
+          "Dynacare (Manitoba)": {
+            "exportField": {
+              "NML_LIMS": [
+                {
+                  "value": "Dynacare Manitoba"
+                }
+              ]
+            }
+          },
           "Eastern Ontario Regional Laboratory Association": {
             "exportField": {
               "NML_LIMS": [
                 {
-                  "value": "Eastern Ontario Regional Laboratory Association"
+                  "value": "CANCOGEN_EORLA"
                 }
               ]
             }
@@ -428,7 +442,16 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "value": "Hamilton Health Sciences"
+                  "value": "CANCOGEN_HAMILTON_HS"
+                }
+              ]
+            }
+          },
+          "The Hospital for Sick Children (SickKids)": {
+            "exportField": {
+              "NML_LIMS": [
+                {
+                  "value": "CANCOGEN_SICK_KIDS_HOSPITAL"
                 }
               ]
             }
@@ -473,7 +496,7 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "value": "Mount Sinai Hospital"
+                  "value": "CANCOGEN_MOUNT_SINAI"
                 }
               ]
             }
@@ -527,7 +550,7 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "value": "Ontario Institute for Cancer Research (OICR)"
+                  "value": "CANCOGEN_OICR"
                 }
               ]
             }
@@ -554,7 +577,7 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "value": "Queen's University / Kingston Health Sciences Centre"
+                  "value": "CANCOGEN_KINGSTON"
                 }
               ]
             }
@@ -572,7 +595,7 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "value": "St. John's Rehab at Sunnybrook Hospital"
+                  "value": "CANCOGEN_SJRH"
                 }
               ]
             }
@@ -581,7 +604,7 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "value": "Sunnybrook Health Sciences Centre"
+                  "value": "CANCOGEN_SUNNYBROOK"
                 }
               ]
             }
@@ -590,7 +613,7 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "value": "Unity Health Toronto"
+                  "value": "CANCOGEN_UNITY_HEALTH"
                 }
               ]
             }
@@ -599,7 +622,7 @@ var DATA = [
             "exportField": {
               "NML_LIMS": [
                 {
-                  "value": "William Osler Health System"
+                  "value": "CANCOGEN_WILLIAM_OSLER"
                 }
               ]
             }
@@ -709,6 +732,24 @@ var DATA = [
           "BCCDC Public Health Laboratory": {},
           "Canadore College": {},
           "The Centre for Applied Genomics (TCAG)": {},
+          "Dynacare (Manitoba)": {
+            "exportField": {
+              "NML_LIMS": [
+                {
+                  "value": "Dynacare Manitoba"
+                }
+              ]
+            }
+          },
+          "The Hospital for Sick Children (SickKids)": {
+            "exportField": {
+              "NML_LIMS": [
+                {
+                  "value": "CANCOGEN_SICK_KIDS_HOSPITAL"
+                }
+              ]
+            }
+          },
           "Laboratoire de sant\u00e9 publique du Qu\u00e9bec (LSPQ)": {},
           "Manitoba Cadham Provincial Laboratory": {},
           "McMaster University": {},
@@ -2325,6 +2366,11 @@ var DATA = [
             {
               "field": "description"
             }
+          ],
+          "VirusSeq_Portal": [
+            {
+              "field": "purpose of sampling details"
+            }
           ]
         }
       },
@@ -2382,6 +2428,7 @@ var DATA = [
             "ontology_id": "OBI:0002754"
           },
           "Nucleic acid": {
+            "ontology_id": "OBI:0001010",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -2392,6 +2439,7 @@ var DATA = [
             }
           },
           "Not Applicable": {
+            "ontology_id": "GENEPIO:0001619",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -2427,10 +2475,14 @@ var DATA = [
           ]
         },
         "schema:ItemList": {
-          "Acute": {},
+          "Acute": {
+            "ontology_id": "HP_0011009"
+          },
           "Convalescent": {},
           "Familial": {},
-          "Follow-up": {},
+          "Follow-up": {
+            "ontology_id": "EFO_0009642"
+          },
           "Previously Submitted": {}
         }
       },
@@ -4352,7 +4404,9 @@ var DATA = [
           "RNA (ribo-depleted)": {
             "ontology_id": "OBI:0002627"
           },
-          "mRNA (messenger RNA)": {},
+          "mRNA (messenger RNA)": {
+            "ontology_id": "OBI REQUEST"
+          },
           "mRNA (cDNA)": {
             "ontology_id": "OBI:0002754"
           }
@@ -5276,6 +5330,7 @@ var DATA = [
             },
             "schema:ItemList": {
               "Ageusia (complete loss of taste)": {
+                "ontology_id": "HP:0041051",
                 "exportField": {
                   "NML_LIMS": [
                     {
@@ -5339,6 +5394,7 @@ var DATA = [
             }
           },
           "Acute Respiratory Distress Syndrome": {
+            "ontology_id": "HP:0033677",
             "exportField": {
               "CNPHI": [
                 {
@@ -5480,7 +5536,9 @@ var DATA = [
               ]
             }
           },
-          "Conjunctival injection": {},
+          "Conjunctival injection": {
+            "ontology_id": "HP:0030953"
+          },
           "Conjunctivitis (pink eye)": {
             "ontology_id": "HP_0000509",
             "exportField": {
@@ -5496,7 +5554,9 @@ var DATA = [
               ]
             }
           },
-          "Coryza": {},
+          "Coryza (rhinitis)": {
+            "ontology_id": "MP:0001867"
+          },
           "Cough": {
             "ontology_id": "HP_0012735",
             "exportField": {
@@ -5550,6 +5610,7 @@ var DATA = [
                 },
                 "schema:ItemList": {
                   "Circumoral cyanosis (bluish around mouth)": {
+                    "ontology_id": "HP:0032556",
                     "exportField": {
                       "NML_LIMS": [
                         {
@@ -5610,7 +5671,9 @@ var DATA = [
               ]
             }
           },
-          "Dry gangrene": {},
+          "Dry gangrene": {
+            "ontology_id": "MP:0031127"
+          },
           "Encephalitis (brain inflammation)": {
             "ontology_id": "HP_0002383",
             "exportField": {
@@ -5626,7 +5689,9 @@ var DATA = [
               ]
             }
           },
-          "Encephalopathy": {},
+          "Encephalopathy": {
+            "ontology_id": "HP:0001298"
+          },
           "Fatigue (tiredness)": {
             "ontology_id": "HP_0012378",
             "exportField": {
@@ -5751,6 +5816,7 @@ var DATA = [
             }
           },
           "Malaise (general discomfort/unease)": {
+            "ontology_id": "HP:0033834",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -5759,7 +5825,9 @@ var DATA = [
               ]
             }
           },
-          "Meningismus/nuchal rigidity": {},
+          "Meningismus/nuchal rigidity": {
+            "ontology_id": "HP:0031179"
+          },
           "Muscle weakness": {
             "ontology_id": "HP_0001324",
             "exportField": {
@@ -5795,6 +5863,7 @@ var DATA = [
           },
           "Otitis": {},
           "Pain": {
+            "ontology_id": "HP:0012531",
             "schema:ItemList": {
               "Abdominal pain": {
                 "ontology_id": "HP:0002027",
@@ -5826,7 +5895,9 @@ var DATA = [
                   ]
                 },
                 "schema:ItemList": {
-                  "Pleuritic chest pain": {}
+                  "Pleuritic chest pain": {
+                    "ontology_id": "HP:0033771"
+                  }
                 }
               },
               "Myalgia (muscle pain)": {
@@ -5852,12 +5923,15 @@ var DATA = [
             }
           },
           "Pharyngeal exudate": {},
-          "Pleural effusion": {},
+          "Pleural effusion": {
+            "ontology_id": "HP:0002202"
+          },
           "Pneumonia": {
             "ontology_id": "HP:0002090"
           },
           "Prostration": {},
           "Pseudo-chilblains": {
+            "ontology_id": "HP:0033696",
             "schema:ItemList": {
               "Pseudo-chilblains on fingers (covid fingers)": {
                 "exportField": {
@@ -5941,8 +6015,12 @@ var DATA = [
               ]
             }
           },
-          "Sneezing": {},
-          "Sputum Production": {},
+          "Sneezing": {
+            "ontology_id": "HP:0025095"
+          },
+          "Sputum Production": {
+            "ontology_id": "HP:0033709"
+          },
           "Stroke": {
             "ontology_id": "HP:0001297",
             "exportField": {
@@ -5953,7 +6031,9 @@ var DATA = [
               ]
             }
           },
-          "Swollen Lymph Nodes": {},
+          "Swollen Lymph Nodes": {
+            "ontology_id": "HP:0002716"
+          },
           "Tachypnea (accelerated respiratory rate)": {
             "ontology_id": "HP_0002789",
             "exportField": {
@@ -5964,7 +6044,9 @@ var DATA = [
               ]
             }
           },
-          "Vertigo (dizziness)": {},
+          "Vertigo (dizziness)": {
+            "ontology_id": "HP:0002321"
+          },
           "Vomiting (throwing up)": {
             "ontology_id": "HP_0002013",
             "exportField": {
@@ -7325,6 +7407,11 @@ var DATA = [
             {
               "field": "PH_REASON_FOR_SEQUENCING_DETAILS"
             }
+          ],
+          "VirusSeq_Portal": [
+            {
+              "field": "purpose of sequencing details"
+            }
           ]
         }
       },
@@ -7471,7 +7558,7 @@ var DATA = [
           ],
           "NML_LIMS": [
             {
-              "field": "ANALYSIS"
+              "field": "PH_INSTRUMENT_CGN"
             }
           ],
           "VirusSeq_Portal": [
@@ -7641,6 +7728,11 @@ var DATA = [
             {
               "field": "PH_TESTING_PROTOCOL"
             }
+          ],
+          "VirusSeq_Portal": [
+            {
+              "field": "sequencing protocol"
+            }
           ]
         }
       },
@@ -7709,6 +7801,11 @@ var DATA = [
             {
               "field": "raw sequence data processing method"
             }
+          ],
+          "VirusSeq_Portal": [
+            {
+              "field": "raw sequence data processing method"
+            }
           ]
         }
       },
@@ -7727,6 +7824,11 @@ var DATA = [
         "examples": "Nanostripper",
         "exportField": {
           "NML_LIMS": [
+            {
+              "field": "dehosting method"
+            }
+          ],
+          "VirusSeq_Portal": [
             {
               "field": "dehosting method"
             }
@@ -7876,6 +7978,11 @@ var DATA = [
             {
               "field": "breadth of coverage value"
             }
+          ],
+          "VirusSeq_Portal": [
+            {
+              "field": "breadth of coverage value"
+            }
           ]
         }
       },
@@ -7899,6 +8006,11 @@ var DATA = [
             }
           ],
           "NML_LIMS": [
+            {
+              "field": "depth of coverage value"
+            }
+          ],
+          "VirusSeq_Portal": [
             {
               "field": "depth of coverage value"
             }
@@ -8133,6 +8245,11 @@ var DATA = [
             {
               "field": "reference genome accession"
             }
+          ],
+          "VirusSeq_Portal": [
+            {
+              "field": "reference genome accession"
+            }
           ]
         }
       },
@@ -8156,6 +8273,11 @@ var DATA = [
             }
           ],
           "NML_LIMS": [
+            {
+              "field": "bioinformatics protocol"
+            }
+          ],
+          "VirusSeq_Portal": [
             {
               "field": "bioinformatics protocol"
             }
@@ -8352,6 +8474,11 @@ var DATA = [
             {
               "field": "gene_name_1"
             }
+          ],
+          "VirusSeq_Portal": [
+            {
+              "field": "gene name"
+            }
           ]
         },
         "schema:ItemList": {
@@ -8367,100 +8494,325 @@ var DATA = [
                 {
                   "value": "E gene"
                 }
+              ],
+              "BIOSAMPLE": [
+                {
+                  "value": "E (orf4)"
+                }
               ]
             }
           },
           "M gene (orf5)": {
-            "ontology_id": "PR:P0DTC5"
+            "ontology_id": "PR:P0DTC5",
+            "exportField": {
+              "BIOSAMPLE": [
+                {
+                  "value": "M (orf5)"
+                }
+              ]
+            }
           },
           "N gene (orf9)": {
-            "ontology_id": "PR:P0DTC9"
+            "ontology_id": "PR:P0DTC9",
+            "exportField": {
+              "BIOSAMPLE": [
+                {
+                  "value": "N (orf9)"
+                }
+              ]
+            }
           },
           "Spike gene (orf2)": {
-            "ontology_id": "PR:P0DTC2"
+            "ontology_id": "PR:P0DTC2",
+            "exportField": {
+              "BIOSAMPLE": [
+                {
+                  "value": "S (orf2)"
+                }
+              ]
+            }
           },
           "orf1ab (rep)": {
             "ontology_id": "PR:000050281",
+            "exportField": {
+              "BIOSAMPLE": [
+                {
+                  "value": "orf1ab (rep)"
+                }
+              ]
+            },
             "schema:ItemList": {
               "orf1a (pp1a)": {
                 "ontology_id": "PR:P0DTC1-1",
+                "exportField": {
+                  "BIOSAMPLE": [
+                    {
+                      "value": "orf1a (pp1a)"
+                    }
+                  ]
+                },
                 "schema:ItemList": {
                   "nsp11": {
-                    "ontology_id": "PR:000050280"
+                    "ontology_id": "PR:000050280",
+                    "exportField": {
+                      "BIOSAMPLE": [
+                        {
+                          "value": "nsp11"
+                        }
+                      ]
+                    }
                   }
                 }
               },
               "nsp1": {
-                "ontology_id": "PR:000050270"
+                "ontology_id": "PR:000050270",
+                "exportField": {
+                  "BIOSAMPLE": [
+                    {
+                      "value": "nsp1"
+                    }
+                  ]
+                }
               },
               "nsp2": {
-                "ontology_id": "PR:000050271"
+                "ontology_id": "PR:000050271",
+                "exportField": {
+                  "BIOSAMPLE": [
+                    {
+                      "value": "nsp2"
+                    }
+                  ]
+                }
               },
               "nsp3": {
-                "ontology_id": "PR:000050272"
+                "ontology_id": "PR:000050272",
+                "exportField": {
+                  "BIOSAMPLE": [
+                    {
+                      "value": "nsp3"
+                    }
+                  ]
+                }
               },
               "nsp4": {
-                "ontology_id": "PR:000050273"
+                "ontology_id": "PR:000050273",
+                "exportField": {
+                  "BIOSAMPLE": [
+                    {
+                      "value": "nsp4"
+                    }
+                  ]
+                }
               },
               "nsp5": {
-                "ontology_id": "PR:000050274"
+                "ontology_id": "PR:000050274",
+                "exportField": {
+                  "BIOSAMPLE": [
+                    {
+                      "value": "nsp5"
+                    }
+                  ]
+                }
               },
               "nsp6": {
-                "ontology_id": "PR:000050275"
+                "ontology_id": "PR:000050275",
+                "exportField": {
+                  "BIOSAMPLE": [
+                    {
+                      "value": "nsp6"
+                    }
+                  ]
+                }
               },
               "nsp7": {
-                "ontology_id": "PR:000050276"
+                "ontology_id": "PR:000050276",
+                "exportField": {
+                  "BIOSAMPLE": [
+                    {
+                      "value": "nsp7"
+                    }
+                  ]
+                }
               },
               "nsp8": {
-                "ontology_id": "PR:000050277"
+                "ontology_id": "PR:000050277",
+                "exportField": {
+                  "BIOSAMPLE": [
+                    {
+                      "value": "nsp8"
+                    }
+                  ]
+                }
               },
               "nsp9": {
-                "ontology_id": "PR:000050278"
+                "ontology_id": "PR:000050278",
+                "exportField": {
+                  "BIOSAMPLE": [
+                    {
+                      "value": "nsp9"
+                    }
+                  ]
+                }
               },
               "nsp10": {
-                "ontology_id": "PR:000050279"
+                "ontology_id": "PR:000050279",
+                "exportField": {
+                  "BIOSAMPLE": [
+                    {
+                      "value": "nsp10"
+                    }
+                  ]
+                }
               },
               "RdRp gene (nsp12)": {
-                "ontology_id": "PR:000050284"
+                "ontology_id": "PR:000050284",
+                "exportField": {
+                  "BIOSAMPLE": [
+                    {
+                      "value": "nsp12 (RdRp)"
+                    }
+                  ]
+                }
               },
               "hel gene (nsp13)": {
-                "ontology_id": "PR:000050285"
+                "ontology_id": "PR:000050285",
+                "exportField": {
+                  "BIOSAMPLE": [
+                    {
+                      "value": "nsp13 (Hel)"
+                    }
+                  ]
+                }
               },
               "exoN gene (nsp14)": {
-                "ontology_id": "PR:000050286"
+                "ontology_id": "PR:000050286",
+                "exportField": {
+                  "BIOSAMPLE": [
+                    {
+                      "value": "nsp14 (ExoN)"
+                    }
+                  ]
+                }
               },
               "nsp15": {
-                "ontology_id": "PR:000050287"
+                "ontology_id": "PR:000050287",
+                "exportField": {
+                  "BIOSAMPLE": [
+                    {
+                      "value": "nsp15"
+                    }
+                  ]
+                }
               },
               "nsp16": {
-                "ontology_id": "PR:000050288"
+                "ontology_id": "PR:000050288",
+                "exportField": {
+                  "BIOSAMPLE": [
+                    {
+                      "value": "nsp16"
+                    }
+                  ]
+                }
               }
             }
           },
           "orf3a": {
-            "ontology_id": "PR:P0DTC3"
+            "ontology_id": "PR:P0DTC3",
+            "exportField": {
+              "BIOSAMPLE": [
+                {
+                  "value": "orf3a"
+                }
+              ]
+            }
           },
-          "orf3b": {},
+          "orf3b": {
+            "exportField": {
+              "BIOSAMPLE": [
+                {
+                  "value": "orf3b"
+                }
+              ]
+            }
+          },
           "orf6 (ns6)": {
-            "ontology_id": "PR:P0DTC6"
+            "ontology_id": "PR:P0DTC6",
+            "exportField": {
+              "BIOSAMPLE": [
+                {
+                  "value": "orf6 (ns6)"
+                }
+              ]
+            }
           },
           "orf7a": {
-            "ontology_id": "PR:P0DTC7"
+            "ontology_id": "PR:P0DTC7",
+            "exportField": {
+              "BIOSAMPLE": [
+                {
+                  "value": "orf7a"
+                }
+              ]
+            }
           },
           "orf7b (ns7b)": {
-            "ontology_id": "PR:P0DTD8"
+            "ontology_id": "PR:P0DTD8",
+            "exportField": {
+              "BIOSAMPLE": [
+                {
+                  "value": "orf7b (ns7b)"
+                }
+              ]
+            }
           },
           "orf8 (ns8)": {
-            "ontology_id": "PR:P0DTC8"
+            "ontology_id": "PR:P0DTC8",
+            "exportField": {
+              "BIOSAMPLE": [
+                {
+                  "value": "orf8 (ns8)"
+                }
+              ]
+            }
           },
           "orf9b": {
-            "ontology_id": "PR:P0DTD2"
+            "ontology_id": "PR:P0DTD2",
+            "exportField": {
+              "BIOSAMPLE": [
+                {
+                  "value": "orf9b"
+                }
+              ]
+            }
           },
-          "orf9c": {},
+          "orf9c": {
+            "exportField": {
+              "BIOSAMPLE": [
+                {
+                  "value": "orf9c"
+                }
+              ]
+            }
+          },
           "orf10": {
-            "ontology_id": "PR:A0A663DJA2"
+            "ontology_id": "PR:A0A663DJA2",
+            "exportField": {
+              "BIOSAMPLE": [
+                {
+                  "value": "orf10"
+                }
+              ]
+            }
           },
-          "orf14": {},
+          "orf14": {
+            "exportField": {
+              "BIOSAMPLE": [
+                {
+                  "value": "orf14"
+                }
+              ]
+            }
+          },
           "SARS-COV-2 5' UTR": {}
         }
       },
@@ -8482,7 +8834,7 @@ var DATA = [
         "fieldName": "diagnostic pcr Ct value 1",
         "capitalize": "",
         "ontology_id": "GENEPIO_0001509",
-        "datatype": "xs:token",
+        "datatype": "xs:decimal",
         "source": "",
         "dataStatus": null,
         "xs:minInclusive": "",
@@ -8505,6 +8857,11 @@ var DATA = [
           "BIOSAMPLE": [
             {
               "field": "diagnostic_PCR_CT_value_1"
+            }
+          ],
+          "VirusSeq_Portal": [
+            {
+              "field": "diagnostic pcr Ct value"
             }
           ]
         }
@@ -8565,7 +8922,7 @@ var DATA = [
         "fieldName": "diagnostic pcr Ct value 2",
         "capitalize": "",
         "ontology_id": "GENEPIO_0001512",
-        "datatype": "xs:token",
+        "datatype": "xs:decimal",
         "source": "",
         "dataStatus": null,
         "xs:minInclusive": "",
@@ -8643,7 +9000,7 @@ var DATA = [
         "fieldName": "diagnostic pcr Ct value 3",
         "capitalize": "",
         "ontology_id": "GENEPIO_0001515",
-        "datatype": "xs:token",
+        "datatype": "xs:decimal",
         "source": "",
         "dataStatus": null,
         "xs:minInclusive": "",
