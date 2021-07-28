@@ -12,7 +12,7 @@ GENEPIO_0001136		Database Identifiers	bioproject accession	xs:token						UPPER	T
 GENEPIO_0001139		Database Identifiers	biosample accession	xs:token						UPPER	The identifier assigned to a BioSample in INSDC archives.	Store the accession returned from the BioSample submission. NCBI BioSamples will have the prefix SAMN.	SAMN14180202		BioSample Accession	PH_BIOSAMPLE_ACCESSION		
 GENEPIO_0001142		Database Identifiers	SRA accession	xs:token						UPPER	The Sequence Read Archive (SRA) identifier linking raw read data, methodological metadata and quality control metrics submitted to the INSDC.	Store the accession assigned to the submitted "run". NCBI-SRA accessions start with SRR.	SRR11177792		SRA Accession	PH_SRA_ACCESSION		
 GENEPIO_0001145		Database Identifiers	GenBank accession	xs:token						UPPER	The GenBank identifier assigned to the sequence in the INSDC archives.	Store the accession returned from a GenBank submission (viral genome assembly).	MN908947.3		GenBank Accession 	GenBank accession		
-GENEPIO_0001147		Database Identifiers	GISAID accession	xs:token						UPPER	The GISAID accession number assigned to the sequence.	Store the accession returned from the GISAID submission.	EPI_ISL_436489		GISAID Accession (if known)	SUBMISSIONS - GISAID Accession ID	GISAID_accession	
+GENEPIO_0001147		Database Identifiers	GISAID accession	xs:token						UPPER	The GISAID accession number assigned to the sequence.	Store the accession returned from the GISAID submission.	EPI_ISL_436489		GISAID Accession (if known)	SUBMISSIONS - GISAID Accession ID	GISAID_accession	GISAID accession
 GENEPIO_0001150			Sample collection and processing															
 GENEPIO_0001153		Sample collection and processing	sample collected by	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				The name of the agency that collected the original sample.	The name of the sample collector should be written out in full, (with minor exceptions) and be consistent across multple submissions e.g. Public Health Agency of Canada, Public Health Ontario, BC Centre for Disease Control. The sample collector specified is at the discretion of the data provider (i.e. may be hospital, provincial public health lab, or other).	BC Centre for Disease Control	Originating lab	Lab Name	CUSTOMER	collected_by	sample collected by
 GENEPIO_0001156		Sample collection and processing	sample collector contact email	xs:token							The email address of the contact responsible for follow-up regarding the sample.	The email address can represent a specific individual or lab e.g. johnnyblogs@lab.ca, or RespLab@lab.ca	RespLab@lab.ca			sample collector contact email		
@@ -29,7 +29,7 @@ GENEPIO_0001189		Sample collection and processing	geo_loc_name (city)	xs:token		
 GENEPIO_0001191		Sample collection and processing	organism	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				Taxonomic name of the organism.	Use "Severe acute respiratory syndrome coronavirus 2". This value is provided in the template.	Severe acute respiratory syndrome coronavirus 2		Pathogen	HC_CURRENT_ID	organism	organism
 GENEPIO_0001195		Sample collection and processing	isolate	xs:token		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				Identifier of the specific isolate.	Provide the GISAID virus name, which should be written in the format “hCov-19/CANADA/xxxxx/2020”.	hCov-19/CANADA/prov_rona_99/2020	Virus name	GISAID Virus Name	RESULT - CANCOGEN_SUBMISSIONS	isolate;GISAID_virus_name	isolate
 GENEPIO_0001198		Sample collection and processing	purpose of sampling	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				The reason that the sample was collected.	The reason a sample was collected may provide information about potential biases in sampling strategy. Provide the purpose of sampling from the picklist in the template. Most likely, the sample was collected for Diagnostic testing. The reason why a sample was originally collected may differ from the reason why it was selected for sequencing, which should be indicated in the "purpose of sequencing" field. 	Diagnostic testing		Reason for Sampling	HC_SAMPLE_CATEGORY	purpose_of_sampling	purpose of sampling
-GENEPIO_0001200		Sample collection and processing	purpose of sampling details	xs:token		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				The description of why the sample was collected, providing specific details.	Provide an expanded description of why the sample was collected using free text. The description may include the importance of the sample for a particular public health investigation/surveillance activity/research question. If details are not available, provide a null value.	The sample was collected to investigate the prevalence of variants associated with mink-to-human transmission in Canada. 		Details on the Reason for Sampling	PH_SAMPLING_DETAILS	description	
+GENEPIO_0001200		Sample collection and processing	purpose of sampling details	xs:token		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				The description of why the sample was collected, providing specific details.	Provide an expanded description of why the sample was collected using free text. The description may include the importance of the sample for a particular public health investigation/surveillance activity/research question. If details are not available, provide a null value.	The sample was collected to investigate the prevalence of variants associated with mink-to-human transmission in Canada. 		Details on the Reason for Sampling	PH_SAMPLING_DETAILS	description	purpose of sampling details
 GENEPIO_0001204		Sample collection and processing	NML submitted specimen type	select		 	required				The type of specimen submitted to the National Microbiology Laboratory (NML) for testing.	This information is required for upload through the CNPHI LaSER system. Select the specimen type from the pick list provided. If sequence data is being submitted rather than a specimen for testing, select “Not Applicable”.	swab		Specimen Type	PH_SPECIMEN_TYPE		
 GENEPIO_0001209		Sample collection and processing	NML related specimen relationship type	select							The relationship of the related specimen to the previous National Microbiology Laboratory (NML) submission.	Provide the specimen type of the original sample submitted from the pick list provided, so that additional specimen testing can be tracked in the system.	Follow-up		Related Specimen ID;Related Specimen Relationship Type			
 GENEPIO_0001211		Sample collection and processing	anatomical material	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				A substance obtained from an anatomical part of an organism e.g. tissue, blood.	Provide a descriptor if an anatomical material was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. 	Blood	Specimen source	Anatomical Material	PH_ISOLATION_SITE_DESC	isolation_source;anatomical_material	anatomical material
@@ -95,29 +95,29 @@ GENEPIO_0001440		Host reinfection information	prior SARS-CoV-2 antiviral treatme
 																		
 GENEPIO_0001441			Sequencing															
 GENEPIO_0001445		Sequencing	purpose of sequencing	multiple		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				The reason that the sample was sequenced.	The reason why a sample was originally collected may differ from the reason why it was selected for sequencing. The reason a sample was sequenced may provide information about potential biases in sequencing strategy. Provide the purpose of sequencing from the picklist in the template. The reason for sample collection should be indicated in the "purpose of sampling" field. 	Baseline surveillance (random sampling)		Reason for Sequencing	PH_REASON_FOR_SEQUENCING	purpose_of_sequencing	purpose of sequencing
-GENEPIO_0001446		Sequencing	purpose of sequencing details	xs:token		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				The description of why the sample was sequenced providing specific details.	Provide an expanded description of why the sample was sequenced using free text. The description may include the importance of the sequences for a particular public health investigation/surveillance activity/research question. Suggested standardized descriotions include: Screened for S gene target failure (S dropout), Screened for mink variants, Screened for B.1.1.7 variant, Screened for B.1.135 variant, Screened for P.1 variant, Screened due to travel history, Screened due to close contact with infected individual, Assessing public health control measures, Determining early introductions and spread, Investigating airline-related exposures, Investigating temporary foreign worker, Investigating remote regions, Investigating health care workers, Investigating schools/universities, Investigating reinfection.	Screened for S gene target failure (S dropout)		Details on the Reason for Sequencing	PH_REASON_FOR_SEQUENCING_DETAILS		
+GENEPIO_0001446		Sequencing	purpose of sequencing details	xs:token		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				The description of why the sample was sequenced providing specific details.	Provide an expanded description of why the sample was sequenced using free text. The description may include the importance of the sequences for a particular public health investigation/surveillance activity/research question. Suggested standardized descriotions include: Screened for S gene target failure (S dropout), Screened for mink variants, Screened for B.1.1.7 variant, Screened for B.1.135 variant, Screened for P.1 variant, Screened due to travel history, Screened due to close contact with infected individual, Assessing public health control measures, Determining early introductions and spread, Investigating airline-related exposures, Investigating temporary foreign worker, Investigating remote regions, Investigating health care workers, Investigating schools/universities, Investigating reinfection.	Screened for S gene target failure (S dropout)		Details on the Reason for Sequencing	PH_REASON_FOR_SEQUENCING_DETAILS		purpose of sequencing details
 GENEPIO_0001447		Sequencing	sequencing date	xs:date		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					The date the sample was sequenced.	ISO 8601 standard "YYYY-MM-DD".	2020-06-22			sequencing date		
 GENEPIO_0001448		Sequencing	library ID	xs:token			recommended				The user-specified identifier for the library prepared for sequencing.	The library name should be unique, and can be an autogenerated ID from your LIMS, or modification of the isolate ID.	XYZ_123345			library ID		
 GENEPIO_0001449		Sequencing	amplicon size	xs:token							The length of the amplicon generated by PCR amplification.	Provide the amplicon size, including the units.	300bp			amplicon size		
 GENEPIO_0001450		Sequencing	library preparation kit	xs:token							The name of the DNA library preparation kit used to generate the library being sequenced.	Provide the name of the library preparation kit used.	Nextera XT			library preparation kit		
 GENEPIO_0001451		Sequencing	flow cell barcode	xs:token							The barcode of the flow cell used for sequencing.	Provide the barcode of the flow cell used for sequencing the sample.	FAB06069			flow cell barcode		
-GENEPIO_0001452		Sequencing	sequencing instrument	multiple		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				The model of the sequencing instrument used.	Select a sequencing instrument from the picklist provided in the template.	MinIon	Sequencing technology	Sequencing Instrument	ANALYSIS		sequencing instrument
+GENEPIO_0001452		Sequencing	sequencing instrument	multiple		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				The model of the sequencing instrument used.	Select a sequencing instrument from the picklist provided in the template.	MinIon	Sequencing technology	Sequencing Instrument	PH_INSTRUMENT_CGN		sequencing instrument
 GENEPIO_0001453		Sequencing	sequencing protocol name	xs:token			recommended				The name and version number of the sequencing protocol used.	Provide the name and version of the sequencing protocol e.g. 1D_DNA_MinION	https://www.protocols.io/view/covid-19-artic-v3-illumina-library-construction-an-bibtkann		Sequencing Protocol Name	sequencing protocol name		
-GENEPIO_0001454		Sequencing	sequencing protocol  	xs:token							The protocol used to generate the sequence.	Provide a free text description of the methods and materials used to generate the sequence. Suggested text, fill in information where indicated.: "Viral sequencing was performed following a tiling amplicon strategy using the <fill in> primer scheme. Sequencing was performed using a <fill in> sequencing instrument. Libraries were prepared using <fill in> library kit. "	Genomes were generated through amplicon sequencing of 1200 bp amplicons with Freed schema primers. Libraries were created using Illumina DNA Prep kits, and sequence data was produced using Miseq Micro v2 (500 cycles) sequencing kits.			PH_TESTING_PROTOCOL		
+GENEPIO_0001454		Sequencing	sequencing protocol  	xs:token							The protocol used to generate the sequence.	Provide a free text description of the methods and materials used to generate the sequence. Suggested text, fill in information where indicated.: "Viral sequencing was performed following a tiling amplicon strategy using the <fill in> primer scheme. Sequencing was performed using a <fill in> sequencing instrument. Libraries were prepared using <fill in> library kit. "	Genomes were generated through amplicon sequencing of 1200 bp amplicons with Freed schema primers. Libraries were created using Illumina DNA Prep kits, and sequence data was produced using Miseq Micro v2 (500 cycles) sequencing kits.			PH_TESTING_PROTOCOL		sequencing protocol  
 GENEPIO_0001455		Sequencing	sequencing kit number	xs:token							The manufacturer's kit number.	Alphanumeric value.	AB456XYZ789			sequencing kit number		
 GENEPIO_0001456		Sequencing	amplicon pcr primer scheme	xs:token							The specifications of the primers (primer sequences, binding positions, fragment size generated etc) used to generate the amplicons to be sequenced.	Provide the name and version of the primer scheme used to generate the amplicons for sequencing.	https://github.com/joshquick/artic-ncov2019/blob/master/primer_schemes/nCoV-2019/V3/nCoV-2019.tsv			amplicon pcr primer scheme		
 																		
 																		
 GENEPIO_0001457			Bioinformatics and QC metrics															
-GENEPIO_0001458		Bioinformatics and QC metrics	raw sequence data processing method	xs:token			recommended				The names of the software and version number used for raw data processing such as removing barcodes, adapter trimming, filtering etc.	Provide the software name followed by the version e.g. Trimmomatic v. 0.38, Porechop v. 0.2.3	Porechop 0.2.3			raw sequence data processing method		
-GENEPIO_0001459		Bioinformatics and QC metrics	dehosting method	xs:token							The method used to remove host reads from the pathogen sequence.	Provide the name and version number of the software used to remove host reads.	Nanostripper			dehosting method		
+GENEPIO_0001458		Bioinformatics and QC metrics	raw sequence data processing method	xs:token			recommended				The names of the software and version number used for raw data processing such as removing barcodes, adapter trimming, filtering etc.	Provide the software name followed by the version e.g. Trimmomatic v. 0.38, Porechop v. 0.2.3	Porechop 0.2.3			raw sequence data processing method		raw sequence data processing method
+GENEPIO_0001459		Bioinformatics and QC metrics	dehosting method	xs:token							The method used to remove host reads from the pathogen sequence.	Provide the name and version number of the software used to remove host reads.	Nanostripper			dehosting method		dehosting method
 GENEPIO_0001460		Bioinformatics and QC metrics	consensus sequence name	xs:token							The name of the consensus sequence.	Provide the name and version number of the consensus sequence.	ncov123assembly3			consensus sequence name		
 GENEPIO_0001461		Bioinformatics and QC metrics	consensus sequence filename	xs:token							The name of the consensus sequence file.	Provide the name and version number of the consensus sequence FASTA file.	ncov123assembly.fasta			consensus sequence filename		
 GENEPIO_0001462		Bioinformatics and QC metrics	consensus sequence filepath	xs:token							The filepath of the consesnsus sequence file.	Provide the filepath of the consensus sequence FASTA file.	/User/Documents/RespLab/Data/ncov123assembly.fasta			consensus sequence filepath		
 GENEPIO_0001463		Bioinformatics and QC metrics	consensus sequence software name	xs:token			required				The name of software used to generate the consensus sequence.	Provide the name of the software used to generate the consensus sequence.	Ivar		consensus sequence 	PH_CONSENSUS_SEQUENCE		consensus sequence software name
 GENEPIO_0001469		Bioinformatics and QC metrics	consensus sequence software version	xs:token			required				The version of the software used to generate the consensus sequence.	Provide the version of the software used to generate the consensus sequence.	1.3		consensus sequence 	PH_CONSENSUS_SEQUENCE_VERSION		consensus sequence software version
-GENEPIO_0001472		Bioinformatics and QC metrics	breadth of coverage value	xs:token							The percentage of the reference genome covered by the sequenced data, to a prescribed depth.	Provide value as a percent.	95%			breadth of coverage value		
-GENEPIO_0001474		Bioinformatics and QC metrics	depth of coverage value	xs:token							The average number of reads representing a given nucleotide in the reconstructed sequence.	Provide value as a fold of coverage.	400x	Coverage		depth of coverage value		
+GENEPIO_0001472		Bioinformatics and QC metrics	breadth of coverage value	xs:token							The percentage of the reference genome covered by the sequenced data, to a prescribed depth.	Provide value as a percent.	95%			breadth of coverage value		breadth of coverage value
+GENEPIO_0001474		Bioinformatics and QC metrics	depth of coverage value	xs:token							The average number of reads representing a given nucleotide in the reconstructed sequence.	Provide value as a fold of coverage.	400x	Coverage		depth of coverage value		depth of coverage value
 GENEPIO_0001475		Bioinformatics and QC metrics	depth of coverage threshold	xs:token							The threshold used as a cut-off for the depth of coverage.	Provide the threshold fold coverage.	100x			depth of coverage threshold		
 GENEPIO_0001476		Bioinformatics and QC metrics	r1 fastq filename        	xs:token			recommended				The user-specified filename of the r1 FASTQ file.	Provide the r1 FASTQ filename.	ABC123_S1_L001_R1_001.fastq.gz			r1 fastq filename        		
 GENEPIO_0001477		Bioinformatics and QC metrics	r2 fastq filename	xs:token			recommended				The user-specified filename of the r2 FASTQ file.	Provide the r2 FASTQ filename.	ABC123_S1_L001_R2_001.fastq.gz			r2 fastq filename		
@@ -128,8 +128,8 @@ GENEPIO_0001481		Bioinformatics and QC metrics	fast5 filepath	xs:token							The
 GENEPIO_0001482		Bioinformatics and QC metrics	number of base pairs sequenced	xs:nonNegativeInteger							The number of total base pairs generated by the sequencing process.	Provide a numerical value (no need to include units).	387566			number of base pairs sequenced		
 GENEPIO_0001483		Bioinformatics and QC metrics	consensus genome length	xs:nonNegativeInteger							Size of the reconstructed genome described as the number of base pairs.	Provide a numerical value (no need to include units).	38677			consensus genome length		
 GENEPIO_0001484		Bioinformatics and QC metrics	Ns per 100 kbp	xs:decimal				0			The number of N symbols present in the consensus fasta sequence, per 100kbp of sequence.	Provide a numerical value (no need to include units).	330			Ns per 100 kbp		
-GENEPIO_0001485		Bioinformatics and QC metrics	reference genome accession	xs:token							A persistent, unique identifier of a genome database entry.	Provide the accession number of the reference genome.	NC_045512.2			reference genome accession		
-GENEPIO_0001489		Bioinformatics and QC metrics	bioinformatics protocol	xs:token							The name and version number of the bioinformatics protocol used.	Further details regarding the methods used to process raw data, and/or generate assemblies, and/or generate consensus sequences can be provided in an SOP or protocol. Provide the name and version number of the protocol.	https://www.protocols.io/groups/cphln-sarscov2-sequencing-consortium/members		Bioinformatics Protocol	bioinformatics protocol		
+GENEPIO_0001485		Bioinformatics and QC metrics	reference genome accession	xs:token							A persistent, unique identifier of a genome database entry.	Provide the accession number of the reference genome.	NC_045512.2			reference genome accession		reference genome accession
+GENEPIO_0001489		Bioinformatics and QC metrics	bioinformatics protocol	xs:token							The name and version number of the bioinformatics protocol used.	Further details regarding the methods used to process raw data, and/or generate assemblies, and/or generate consensus sequences can be provided in an SOP or protocol. Provide the name and version number of the protocol.	https://www.protocols.io/groups/cphln-sarscov2-sequencing-consortium/members		Bioinformatics Protocol	bioinformatics protocol		bioinformatics protocol
 GENEPIO_0001498			Lineage and Variant information															
 GENEPIO_0001500		Lineage and Variant information	lineage/clade name	xs:token							The name of the lineage or clade.	Provide the Pangolin or Nextstrain lineage/clade name.	B.1.1.7			PH_LINEAGE_CLADE_NAME		
 GENEPIO_0001501		Lineage and Variant information	lineage/clade analysis software name	xs:token							The name of the software used to determine the lineage/clade.	Provide the name of the software used to determine the lineage/clade.	Pangolin			PH_LINEAGE_CLADE_SOFTWARE		
@@ -138,15 +138,15 @@ GENEPIO_0001503		Lineage and Variant information	variant designation	select		Not
 GENEPIO_0001504		Lineage and Variant information	variant evidence	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					The evidence used to make the variant determination.	Select whether the sample was screened using RT-qPCR or by sequencing from the pick list.	RT-qPCR			PH_VARIANT_EVIDENCE		
 GENEPIO_0001505		Lineage and Variant information	variant evidence details	xs:token							Details about the evidence used to make the variant determination.	Provide the assay and list the set of lineage-defining mutations used to make the variant determination. If there are mutations of interest/concern observed in addition to lineage-defining mutations, describe those here.	Lineage-defining mutations: ORF1ab (K1655N), Spike (K417N, E484K, N501Y, D614G, A701V), N (T205I), E (P71L).			PH_VARIANT_EVIDENCE_DETAILS		
 GENEPIO_0001506			Pathogen diagnostic testing															
-GENEPIO_0001507		Pathogen diagnostic testing	gene name 1	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					The name of the gene used in the diagnostic RT-PCR test.	Provide the full name of the gene used in the test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI	E gene (orf4)		Gene Target 1	SUBMITTED_RESLT - Gene Target #1	gene_name_1	
+GENEPIO_0001507		Pathogen diagnostic testing	gene name 1	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					The name of the gene used in the diagnostic RT-PCR test.	Provide the full name of the gene used in the test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI	E gene (orf4)		Gene Target 1	SUBMITTED_RESLT - Gene Target #1	gene_name_1	gene name
 GENEPIO_0001508		Pathogen diagnostic testing	diagnostic pcr protocol 1	xs:token							The name and version number of the protocol used for diagnostic marker amplification.	The name and version number of the protocol used for carrying out a diagnostic PCR test. This information can be compared to sequence data for evaluation of performance and quality control.	EGenePCRTest 2					
-GENEPIO_0001509		Pathogen diagnostic testing	diagnostic pcr Ct value 1	xs:token							The Ct value result from a diagnostic SARS-CoV-2 RT-PCR test.	Provide the CT value of the sample from the diagnostic RT-PCR test.	21		Gene Target 1 CT Value	SUBMITTED_RESLT - Gene Target #1 CT Value	diagnostic_PCR_CT_value_1	
+GENEPIO_0001509		Pathogen diagnostic testing	diagnostic pcr Ct value 1	xs:decimal							The Ct value result from a diagnostic SARS-CoV-2 RT-PCR test.	Provide the CT value of the sample from the diagnostic RT-PCR test.	21		Gene Target 1 CT Value	SUBMITTED_RESLT - Gene Target #1 CT Value	diagnostic_PCR_CT_value_1	diagnostic pcr Ct value 
 GENEPIO_0001510		Pathogen diagnostic testing	gene name 2	select	gene name 1	Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					The name of the gene used in the diagnostic RT-PCR test.	Provide the full name of another gene used in an RT-PCR test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI	RdRp gene (nsp12)		Gene Target 2	SUBMITTED_RESLT - Gene Target #2	gene_name_2	
 GENEPIO_0001511		Pathogen diagnostic testing	diagnostic pcr protocol 2	xs:token							The name and version number of the protocol used for diagnostic marker amplification.	The name and version number of the protocol used for carrying out a second diagnostic PCR test. This information can be compared to sequence data for evaluation of performance and quality control.	RdRpGenePCRTest 3					
-GENEPIO_0001512		Pathogen diagnostic testing	diagnostic pcr Ct value 2	xs:token							The Ct value result from a diagnostic SARS-CoV-2 RT-PCR test.	Provide the CT value of the sample from the second diagnostic RT-PCR test.	36		Gene Target 2 CT Value	SUBMITTED_RESLT - Gene Target #2 CT Value	diagnostic_PCR_CT_value_2	
+GENEPIO_0001512		Pathogen diagnostic testing	diagnostic pcr Ct value 2	xs:decimal							The Ct value result from a diagnostic SARS-CoV-2 RT-PCR test.	Provide the CT value of the sample from the second diagnostic RT-PCR test.	36		Gene Target 2 CT Value	SUBMITTED_RESLT - Gene Target #2 CT Value	diagnostic_PCR_CT_value_2	
 GENEPIO_0001513		Pathogen diagnostic testing	gene name 3	select	gene name 1	Not Applicable; Missing; Not Collected; Not Provided; Restricted Access					The name of the gene used in the diagnostic RT-PCR test.	Provide the full name of another gene used in an RT-PCR test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI	RdRp gene (nsp12)		Gene Target 3	SUBMITTED_RESLT - Gene Target #3		
 GENEPIO_0001514		Pathogen diagnostic testing	diagnostic pcr protocol 3	xs:token							The name and version number of the protocol used for diagnostic marker amplification.	The name and version number of the protocol used for carrying out a second diagnostic PCR test. This information can be compared to sequence data for evaluation of performance and quality control.	RdRpGenePCRTest 3					
-GENEPIO_0001515		Pathogen diagnostic testing	diagnostic pcr Ct value 3	xs:token							The Ct value result from a diagnostic SARS-CoV-2 RT-PCR test.	Provide the CT value of the sample from the second diagnostic RT-PCR test.	30		Gene Target 3 CT Value	SUBMITTED_RESLT - Gene Target #3 CT Value		
+GENEPIO_0001515		Pathogen diagnostic testing	diagnostic pcr Ct value 3	xs:decimal							The Ct value result from a diagnostic SARS-CoV-2 RT-PCR test.	Provide the CT value of the sample from the second diagnostic RT-PCR test.	30		Gene Target 3 CT Value	SUBMITTED_RESLT - Gene Target #3 CT Value		
 GENEPIO_0001516			Contributor acknowledgement															
 GENEPIO_0001517		Contributor acknowledgement	authors	xs:token			recommended				Names of individuals contributing to the processes of sample collection, sequence generation, analysis, and data submission.	Include the first and last names of all individuals that should be attributed, separated by a comma.	Tejinder Singh, Fei Hu, Joe Blogs	Authors	Authors	PH_CANCOGEN_AUTHORS		
 GENEPIO_0001518		Contributor acknowledgement	DataHarmonizer provenance	provenance							The DataHarmonizer software version provenance.	The current software version information will be automatically generated in this field after the user utilizes the "validate" function. This information will be generated regardless as to whether the row is valid of not.	DataHarmonizer provenance: v0.13.21	DataHarmonizer provenance	Additional Comments	HC_COMMENTS		
@@ -185,19 +185,19 @@ UO:0000033		sample collection date precision	day													Day
 OBI:0000895		biomaterial extracted	RNA (total)															
 OBI:0000869		biomaterial extracted	RNA (poly-A)															
 OBI:0002627		biomaterial extracted	RNA (ribo-depleted)															
-		biomaterial extracted	mRNA (messenger RNA)															
+OBI REQUEST		biomaterial extracted	mRNA (messenger RNA)															
 OBI:0002754		biomaterial extracted	mRNA (cDNA)															
 																		
 																		
 		signs and symptoms	Abnormal lung auscultation															
 HP:0000223		signs and symptoms	Abnormality of taste sensation													SENSE_OF_TASTE		
-		Abnormality of taste sensation	      Ageusia (complete loss of taste)													AGEUSIA		
+HP:0041051		Abnormality of taste sensation	      Ageusia (complete loss of taste)													AGEUSIA		
 HP:0031249		Abnormality of taste sensation	      Parageusia (distorted sense of taste)													PARAGEUSIA		
 HP_0000224 		Abnormality of taste sensation	      Hypogeusia (reduced sense of taste)													HYPOGEUSIA		
 HP:0004408		signs and symptoms	Abnormality of the sense of smell													SENSE_OF_SMELL		
 HP_0000458		Abnormality of the sense of smell	      Anosmia (lost sense of smell)													ANOSMIA		
 HP_0004409		Abnormality of the sense of smell	      Hyposmia (reduced sense of smell)													HYPOSMIA		
-		signs and symptoms	Acute Respiratory Distress Syndrome												ARDS			
+HP:0033677		signs and symptoms	Acute Respiratory Distress Syndrome												ARDS			
 HP:0011446		signs and symptoms	Altered mental status													ALTERED_CONSCIOUS		
 HP:0011675		signs and symptoms	Arrhythmia															
 HP:0100543		Altered mental status	      Cognitive impairment													COGNITIVE		
@@ -211,24 +211,24 @@ HP_0025406		signs and symptoms	Asthenia (generalized weakness)													ASTHE
 HP:0031352		signs and symptoms	Chest tightness or pressure													CHEST_TIGHT		
 HP:0025145		Chest tightness or pressure	      Rigors (fever shakes)													RIGORS		
 HP_0025143 		signs and symptoms	Chills (sudden cold sensation)												Chills	CHILLS		
-		signs and symptoms	Conjunctival injection															
+HP:0030953		signs and symptoms	Conjunctival injection															
 HP_0000509		signs and symptoms	Conjunctivitis (pink eye)												Conjunctivitis	CONJUNCTIVITIS		
-		signs and symptoms	Coryza															
+MP:0001867		signs and symptoms	Coryza (rhinitis)															
 HP_0012735		signs and symptoms	Cough 													COUGH		
 HP:0031246		Cough	      Nonproductive cough (dry cough)													NONPRODUCT_COUGH		
 HP:0031245		Cough	      Productive cough (wet cough)													PRODUCTIVE_COUGH		
 HP:0000961		signs and symptoms	Cyanosis (blueish skin discolouration)													CYANOSIS		
 HP:0001063		Cyanosis (blueish skin discolouration)	      Acrocyanosis													ACROCYANOS		
-		Acrocyanosis	            Circumoral cyanosis (bluish around mouth)													CIRCUMORAL_CYANOSIS		
+HP:0032556		Acrocyanosis	            Circumoral cyanosis (bluish around mouth)													CIRCUMORAL_CYANOSIS		
 		Acrocyanosis	            Cyanotic face (bluish face)													CYANOTIC_FACE		
 		Cyanosis (blueish skin discolouration)	      Central Cyanosis															
 		Central Cyanosis	            Cyanotic lips (bluish lips) 													CYANOTIC_LIPS		
 		Cyanosis (blueish skin discolouration)	            Peripheral Cyanosis															
 HP_0002094		signs and symptoms	Dyspnea (breathing difficulty) 													DYSPNEA		
 HP_0002014		signs and symptoms	Diarrhea (watery stool)												Diarrhea, watery	DIARRHEA		
-		signs and symptoms	Dry gangrene															
+MP:0031127		signs and symptoms	Dry gangrene															
 HP_0002383		signs and symptoms	Encephalitis (brain inflammation)												Encephalitis	ENCEPHALITIS		
-		signs and symptoms	Encephalopathy															
+HP:0001298		signs and symptoms	Encephalopathy															
 HP_0012378		signs and symptoms	Fatigue (tiredness)												Fatigue	FATIGUE		
 HP_0001945 		signs and symptoms	Fever													FEVER		
 		Fever	      Fever (>=38°C)												Fever			
@@ -243,25 +243,25 @@ HP_0012418		signs and symptoms	Hypoxemia (low blood oxygen)													HYPOXEMI
 HP:0011029		signs and symptoms	Internal hemorrhage (internal bleeding)													INTERNAL_HEMORRHAGE		
 NCIT:C121416		signs and symptoms	Loss of Fine Movements													LOSS_OF_FINE_MOVE		
 HP_0004396 		signs and symptoms	Low appetite													LOW_APPETITE		
-		signs and symptoms	Malaise (general discomfort/unease)													MALAISE		
-		signs and symptoms	Meningismus/nuchal rigidity															
+HP:0033834		signs and symptoms	Malaise (general discomfort/unease)													MALAISE		
+HP:0031179		signs and symptoms	Meningismus/nuchal rigidity															
 HP_0001324		signs and symptoms	Muscle weakness													MUSCLE_WEAK		
 HP_0001742		signs and symptoms	Nasal obstruction (stuffy nose)													NASAL_OBSTRUCT		
 HP_0002018		signs and symptoms	Nausea													NAUSEA		
 HP_0000421		signs and symptoms	Nose bleed															
 		signs and symptoms	Otitis															
-		signs and symptoms	Pain															
+HP:0012531		signs and symptoms	Pain															
 HP:0002027		Pain	      Abdominal pain													ABDOMINAL		
 HP_0002829		Pain	      Arthralgia (painful joints)													ARTHRALGIA		
 HP_0100749		Pain	      Chest pain													CHEST_PAIN		
-		Chest pain	            Pleuritic chest pain															
+HP:0033771		Chest pain	            Pleuritic chest pain															
 HP_0003326		Pain	      Myalgia (muscle pain) 													MYALGIA		
 HP_0025439		signs and symptoms	Pharyngitis (sore throat) 													PHARYNGITIS		
 		signs and symptoms	Pharyngeal exudate															
-		signs and symptoms	Pleural effusion															
+HP:0002202		signs and symptoms	Pleural effusion															
 HP:0002090		signs and symptoms	Pneumonia															
 		signs and symptoms	Prostration															
-		signs and symptoms	Pseudo-chilblains															
+HP:0033696		signs and symptoms	Pseudo-chilblains															
 		Pseudo-chilblains	      Pseudo-chilblains on fingers (covid fingers)													PSEUDO-CHIBLAINS_F		
 		Pseudo-chilblains	      Pseudo-chilblains on toes (covid toes)													PSEUDO-CHIBLAINS_T		
 HP_0000988		signs and symptoms	Rash													RASH		
@@ -270,12 +270,12 @@ HP_0001250		signs and symptoms	Seizure													SEIZURE
 HP:0020219		Seizure	      Motor seizure													MOTOR_SEIZURE		
 HP:0025144		signs and symptoms	Shivering (involuntary muscle twitching)													SHIVERING		
 HP_0001350		signs and symptoms	Slurred speech													SLURRED_SPEECH		
-		signs and symptoms	Sneezing															
-		signs and symptoms	Sputum Production															
+HP:0025095		signs and symptoms	Sneezing															
+HP:0033709		signs and symptoms	Sputum Production															
 HP:0001297		signs and symptoms	Stroke													STROKE		
-		signs and symptoms	Swollen Lymph Nodes															
+HP:0002716		signs and symptoms	Swollen Lymph Nodes															
 HP_0002789		signs and symptoms	Tachypnea (accelerated respiratory rate)													TACHYPNEA		
-		signs and symptoms	Vertigo (dizziness)															
+HP:0002321		signs and symptoms	Vertigo (dizziness)															
 HP_0002013		signs and symptoms	Vomiting (throwing up)													VOMITING		
 																		
 		host vaccination status	Fully Vaccinated															
@@ -289,14 +289,14 @@ HP_0002013		signs and symptoms	Vomiting (throwing up)													VOMITING
 OBI_0002600		NML submitted specimen type	Swab 													PH_SPECIMEN_TYPE:SWAB		
 OBI_0000880		NML submitted specimen type	RNA													PH_SPECIMEN_TYPE:RNA		
 OBI:0002754		NML submitted specimen type	mRNA (cDNA)															
-		NML submitted specimen type	Nucleic acid													PH_SPECIMEN_TYPE:NUCLEIC_ACID		
-		NML submitted specimen type	Not Applicable													PH_SPECIMEN_TYPE:NA		
+OBI:0001010		NML submitted specimen type	Nucleic acid													PH_SPECIMEN_TYPE:NUCLEIC_ACID		
+GENEPIO:0001619		NML submitted specimen type	Not Applicable													PH_SPECIMEN_TYPE:NA		
 																		
 																		
-		NML related specimen relationship type	Acute															
+HP_0011009		NML related specimen relationship type	Acute															
 		NML related specimen relationship type	Convalescent															
 		NML related specimen relationship type	Familial															
-		NML related specimen relationship type	Follow-up															
+EFO_0009642		NML related specimen relationship type	Follow-up															
 		NML related specimen relationship type	Previously Submitted															
 																		
 																		
@@ -948,38 +948,38 @@ GENEPIO_0001935		Ion Torrent	   Ion Torrent PGM
 		MGI	   MGI DNBSEQ-G50															
 																		
 																		
-PR:P0DTC4		gene name 1	E gene (orf4)												E gene	E gene		
-PR:P0DTC5		gene name 1	M gene (orf5)															
-PR:P0DTC9		gene name 1	N gene (orf9)															
-PR:P0DTC2		gene name 1	Spike gene (orf2)															
-PR:000050281		gene name 1	orf1ab (rep)															
-PR:P0DTC1-1		orf1ab (rep)	   orf1a (pp1a)															
-PR:000050280		orf1a (pp1a)	      nsp11															
-PR:000050270		orf1ab (rep)	   nsp1 															
-PR:000050271		orf1ab (rep)	   nsp2 															
-PR:000050272		orf1ab (rep)	   nsp3 															
-PR:000050273		orf1ab (rep)	   nsp4 															
-PR:000050274		orf1ab (rep)	   nsp5 															
-PR:000050275		orf1ab (rep)	   nsp6 															
-PR:000050276		orf1ab (rep)	   nsp7 															
-PR:000050277		orf1ab (rep)	   nsp8 															
-PR:000050278		orf1ab (rep)	   nsp9 															
-PR:000050279		orf1ab (rep)	   nsp10 															
-PR:000050284		orf1ab (rep)	   RdRp gene (nsp12)															
-PR:000050285		orf1ab (rep)	   hel gene (nsp13)															
-PR:000050286		orf1ab (rep)	   exoN gene (nsp14)															
-PR:000050287		orf1ab (rep)	   nsp15															
-PR:000050288		orf1ab (rep)	   nsp16															
-PR:P0DTC3		gene name 1	orf3a															
-		gene name 1	orf3b															
-PR:P0DTC6		gene name 1	orf6 (ns6)															
-PR:P0DTC7		gene name 1	orf7a															
-PR:P0DTD8		gene name 1	orf7b (ns7b)															
-PR:P0DTC8		gene name 1	orf8 (ns8)															
-PR:P0DTD2		gene name 1	orf9b															
-		gene name 1	orf9c															
-PR:A0A663DJA2		gene name 1	orf10															
-		gene name 1	orf14															
+PR:P0DTC4		gene name 1	E gene (orf4)												E gene	E gene	E (orf4)	
+PR:P0DTC5		gene name 1	M gene (orf5)														M (orf5)	
+PR:P0DTC9		gene name 1	N gene (orf9)														N (orf9)	
+PR:P0DTC2		gene name 1	Spike gene (orf2)														S (orf2)	
+PR:000050281		gene name 1	orf1ab (rep)														orf1ab (rep)	
+PR:P0DTC1-1		orf1ab (rep)	   orf1a (pp1a)														   orf1a (pp1a)	
+PR:000050280		orf1a (pp1a)	      nsp11														      nsp11	
+PR:000050270		orf1ab (rep)	   nsp1 														   nsp1 	
+PR:000050271		orf1ab (rep)	   nsp2 														   nsp2 	
+PR:000050272		orf1ab (rep)	   nsp3 														   nsp3 	
+PR:000050273		orf1ab (rep)	   nsp4 														   nsp4 	
+PR:000050274		orf1ab (rep)	   nsp5 														   nsp5 	
+PR:000050275		orf1ab (rep)	   nsp6 														   nsp6 	
+PR:000050276		orf1ab (rep)	   nsp7 														   nsp7 	
+PR:000050277		orf1ab (rep)	   nsp8 														   nsp8 	
+PR:000050278		orf1ab (rep)	   nsp9 														   nsp9 	
+PR:000050279		orf1ab (rep)	   nsp10 														   nsp10 	
+PR:000050284		orf1ab (rep)	   RdRp gene (nsp12)														   nsp12 (RdRp)	
+PR:000050285		orf1ab (rep)	   hel gene (nsp13)														   nsp13 (Hel)	
+PR:000050286		orf1ab (rep)	   exoN gene (nsp14)														   nsp14 (ExoN)	
+PR:000050287		orf1ab (rep)	   nsp15														   nsp15	
+PR:000050288		orf1ab (rep)	   nsp16														   nsp16	
+PR:P0DTC3		gene name 1	orf3a														orf3a	
+		gene name 1	orf3b														orf3b	
+PR:P0DTC6		gene name 1	orf6 (ns6)														orf6 (ns6)	
+PR:P0DTC7		gene name 1	orf7a														orf7a	
+PR:P0DTD8		gene name 1	orf7b (ns7b)														orf7b (ns7b)	
+PR:P0DTC8		gene name 1	orf8 (ns8)														orf8 (ns8)	
+PR:P0DTD2		gene name 1	orf9b														orf9b	
+		gene name 1	orf9c														orf9c	
+PR:A0A663DJA2		gene name 1	orf10														orf10	
+		gene name 1	orf14														orf14	
 		gene name 1	SARS-COV-2 5' UTR															
 																		
 																		
@@ -989,6 +989,8 @@ PR:A0A663DJA2		gene name 1	orf10
 		sequence submitted by	BCCDC Public Health Laboratory															
 		sequence submitted by	Canadore College															
 		sequence submitted by	The Centre for Applied Genomics (TCAG)															
+		sequence submitted by	Dynacare (Manitoba)													Dynacare Manitoba		
+		sequence submitted by	The Hospital for Sick Children (SickKids)													CANCOGEN_SICK_KIDS_HOSPITAL		
 		sequence submitted by	Laboratoire de santé publique du Québec (LSPQ)															
 		sequence submitted by	Manitoba Cadham Provincial Laboratory															
 		sequence submitted by	McMaster University															
@@ -1008,29 +1010,36 @@ PR:A0A663DJA2		gene name 1	orf10
 																		
 		 sample collected by	Alberta Precision Labs (APL)															
 		Alberta Precision Labs (APL)	Alberta ProvLab North (APLN)													CANCOGEN_EDMONTON_PROV_LAB		
-		Alberta Precision Labs (APL)	Alberta ProvLab South (APLS)													APL-C		
+		Alberta Precision Labs (APL)	Alberta ProvLab South (APLS)													CANCOGEN_CALGARY_PROV_LAB		
 		 sample collected by	BCCDC Public Health Laboratory													CANCOGEN_BCCDC		
-		 sample collected by	Eastern Ontario Regional Laboratory Association													Eastern Ontario Regional Laboratory Association		
-		 sample collected by	Hamilton Health Sciences													Hamilton Health Sciences		
+		 sample collected by	Dynacare (Manitoba)													Dynacare Manitoba		
+		 sample collected by	Eastern Ontario Regional Laboratory Association													CANCOGEN_EORLA		
+		 sample collected by	Hamilton Health Sciences													"	
+CANCOGEN_HAMILTON_HS"		
+		 sample collected by	The Hospital for Sick Children (SickKids)													CANCOGEN_SICK_KIDS_HOSPITAL		
 		 sample collected by	Laboratoire de santé publique du Québec (LSPQ)													CANCOGEN_LSPQ		
 		 sample collected by	Lake of the Woods District Hospital - Ontario													CANCOGEN_LAKE_OF_THE_WOODS		
 		 sample collected by	Manitoba Cadham Provincial Laboratory													CANCOGEN_CADHAM_LAB		
 		 sample collected by	McMaster University													CANCOGEN_MCMASTER_UNIVERSITY		
-		 sample collected by	Mount Sinai Hospital													Mount Sinai Hospital		
+		 sample collected by	Mount Sinai Hospital													"	
+CANCOGEN_MOUNT_SINAI"		
 		 sample collected by	National Microbiology Laboratory (NML)													CANCOGEN_NML_IRV		
 		 sample collected by	New Brunswick - Vitalité Health Network													CANCOGEN_G_L_DUMONT		
 		 sample collected by	Newfoundland and Labrador - Eastern Health													CANCOGEN_STJOHNS_PHL		
 		 sample collected by	Nova Scotia Health Authority													CANCOGEN_QEII_HSC		
 		 sample collected by	Nunuvut													CANCOGEN_NUNAVUT_		
-		 sample collected by	Ontario Institute for Cancer Research (OICR)													Ontario Institute for Cancer Research (OICR)		
+		 sample collected by	Ontario Institute for Cancer Research (OICR)													CANCOGEN_OICR		
 		 sample collected by	Prince Edward Island - Health PEI													CANCOGEN_QEH		
 		 sample collected by	Public Health Ontario (PHO)													CANCOGEN_ONTARIO_PHO		
-		 sample collected by	Queen's University / Kingston Health Sciences Centre													Queen's University / Kingston Health Sciences Centre		
+		 sample collected by	Queen's University / Kingston Health Sciences Centre													CANCOGEN_KINGSTON		
 		 sample collected by	Saskatchewan - Roy Romanow Provincial Laboratory (RRPL)													CANCOGEN_ROMANOW_PROV_LAB		
-		 sample collected by	St. John's Rehab at Sunnybrook Hospital													St. John's Rehab at Sunnybrook Hospital		
-		 sample collected by	Sunnybrook Health Sciences Centre													Sunnybrook Health Sciences Centre		
-		 sample collected by	Unity Health Toronto													Unity Health Toronto		
-		 sample collected by	William Osler Health System													William Osler Health System		
+		 sample collected by	St. John's Rehab at Sunnybrook Hospital													"	
+CANCOGEN_SJRH"		
+		 sample collected by	Sunnybrook Health Sciences Centre													CANCOGEN_SUNNYBROOK		
+		 sample collected by	Unity Health Toronto													"	
+CANCOGEN_UNITY_HEALTH"		
+		 sample collected by	William Osler Health System													"	
+CANCOGEN_WILLIAM_OSLER"		
 																		
 																		
 GAZ_00006882		geo_loc_name (country)	Afghanistan															
@@ -1304,5 +1313,3 @@ GAZ_00000564		geo_loc_name (country)	Western Sahara
 GAZ_00005284		geo_loc_name (country)	Yemen															
 GAZ_00001107		geo_loc_name (country)	Zambia															
 GAZ_00001106		geo_loc_name (country)	Zimbabwe															
-																		
-																		
