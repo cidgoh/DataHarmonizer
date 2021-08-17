@@ -80,4 +80,6 @@ occasionally.
 
 ## License
 
+DataHarmonizer is programmed to reference the "non-commercial-and-evaluation" handsontable license "for purposes not intended toward monetary compensation such as, but not limited to, teaching, academic research, evaluation, testing and experimentation"; if this application is used for commercial purposes, this should be revised as per https://handsontable.com/docs/license-key/
+
 [MIT](LICENSE)
