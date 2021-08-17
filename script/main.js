@@ -29,28 +29,11 @@ CURRENT_SELECTION = [null,null,null,null];
 const toggleDropdownVisibility = () => {
   $('.hidden-dropdown-item').hide();
 
-  /*
-  $('#file-dropdown-btn-group').off()
-    .on('show.bs.dropdown', () => {
-      if (jQuery.isEmptyObject(INVALID_CELLS)) {
-        $('#export-to-dropdown-item').removeClass('disabled');
-      } else {
-        $('#export-to-dropdown-item').addClass('disabled');
-      }
-    });
-  */
-
   $('#settings-dropdown-btn-group').off()
       .on('show.bs.dropdown', () => {
-        const hiddenCols = HOT.getPlugin('hiddenColumns').hiddenColumns;
+
         const hiddenRows = HOT.getPlugin('hiddenRows').hiddenRows;
-
-        if (hiddenCols.length) {
-          $('#show-all-cols-dropdown-item').show();
-        } else {
-          $('#show-required-cols-dropdown-item').show();
-        }
-
+        
         if (hiddenRows.length) {
           $('#show-all-rows-dropdown-item').show();
         }
@@ -967,11 +950,11 @@ const binChangeTest = (matrix, rowOffset, col, fields, binOffset, triggered_chan
 /**
  * Modify visibility of columns in grid. This function should only be called
  * after clicking a DOM element used to toggle column visibilities.
- * @param {String} id Id of element clicked to trigger this function.
+ * @param {String} id Id of element clicked to trigger this function. Defaults to show all.
  * @param {Object} data See `data.js`.
  * @param {Object} hot Handsontable instance of grid.
  */
-const changeColVisibility = (id, data, hot) => {
+const changeColVisibility = (id = 'show-all-cols-dropdown-item', data, hot) => {
   // Grid becomes sluggish if viewport outside visible grid upon re-rendering
   hot.scrollViewportTo(0, 1);
 
@@ -981,9 +964,17 @@ const changeColVisibility = (id, data, hot) => {
 
   // Hide user-specied cols
   const hiddenColumns = [];
-  if (id === 'show-required-cols-dropdown-item') {
+
+  // If accessed by menu, disable that menu item, and enable the others
+  const showColsSelectors = '#show-all-cols-dropdown-item, #show-required-cols-dropdown-item, #show-recommended-cols-dropdown-item';
+  $(showColsSelectors).removeClass('disabled');
+  $('#'+id).addClass('disabled');
+
+  //Request may be for only required fields, or required+recommended fields
+  const options = (id === 'show-required-cols-dropdown-item') ? ['required'] : (id === 'show-recommended-cols-dropdown-item') ? ['required','recommended'] : null;
+  if (options) {
     getFields(data).forEach(function(field, i) {
-      if (field.requirement !== 'required') hiddenColumns.push(i);
+      if (!options.includes(field.requirement)) hiddenColumns.push(i);
     });
   }
   hiddenColsPlugin.hideColumns(hiddenColumns);
@@ -1050,7 +1041,7 @@ const scrollTo = (row, column, data, hot) => {
 
   const hiddenCols = hot.getPlugin('hiddenColumns').hiddenColumns;
   if (hiddenCols.includes(column)) 
-    changeColVisibility('', data, hot);
+    changeColVisibility(undefined, data, hot);
 
   hot.selectCell(parseInt(row), parseInt(column), parseInt(row), parseInt(column), true);
   //Ensures field is positioned on left side of screen.
@@ -1568,8 +1559,11 @@ const setupTriggers = () => {
   });
 
   // Settings -> Show ... columns
-  const showColsSelectors =
-      ['#show-all-cols-dropdown-item', '#show-required-cols-dropdown-item'];
+  const showColsSelectors = [
+      '#show-all-cols-dropdown-item', 
+      '#show-required-cols-dropdown-item',
+      '#show-recommended-cols-dropdown-item',
+      ];
   $(showColsSelectors.join(',')).click((e) => {
     runBehindLoadingScreen(changeColVisibility, [e.target.id, DATA, HOT]);
   });
