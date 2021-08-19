@@ -467,12 +467,15 @@ var exportNML_LIMS = (baseName, hot, data, xlsx, fileType) => {
     ['PH_EXPOSURE_DETAILS',     []], 
     ['PH_HOST_ROLE',            []], 
     ['PH_REASON_FOR_SEQUENCING',[]], 
-    ['PH_INSTRUMENT_CGN',       []], 
+
     ['PH_REASON_FOR_SEQUENCING_DETAILS', []], 
+    ['PH_INSTRUMENT_CGN',       []], 
     ['ANALYSIS',                []], 
     ['PH_TESTING_PROTOCOL',     []],
     ['PH_CONSENSUS_SEQUENCE',   []], // from 'Consensus Sequence Method Name' or 'consensus sequence software name'
     ['PH_CONSENSUS_SEQUENCE_VERSION', []], // From 'Consensus Sequence Method Version Name' or 'consensus sequence software version'
+    ['PH_DEHOSTING_METHOD',     []],
+    ['PH_BIOINFORMATICS_PROTOCOL', []],
     ['PH_LINEAGE_CLADE_NAME',   []], 
     ['PH_LINEAGE_CLADE_SOFTWARE',[]], 
     ['PH_LINEAGE_CLADE_VERSION',[]], 
