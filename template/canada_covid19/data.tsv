@@ -30,7 +30,7 @@ GENEPIO_0001191		Sample collection and processing	organism	select		Not Applicabl
 GENEPIO_0001195		Sample collection and processing	isolate	xs:token		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				Identifier of the specific isolate.	Provide the GISAID virus name, which should be written in the format “hCov-19/CANADA/xxxxx/2020”.	hCov-19/CANADA/prov_rona_99/2020	Virus name	GISAID Virus Name	RESULT - CANCOGEN_SUBMISSIONS	isolate;GISAID_virus_name	isolate
 GENEPIO_0001198		Sample collection and processing	purpose of sampling	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				The reason that the sample was collected.	The reason a sample was collected may provide information about potential biases in sampling strategy. Provide the purpose of sampling from the picklist in the template. Most likely, the sample was collected for Diagnostic testing. The reason why a sample was originally collected may differ from the reason why it was selected for sequencing, which should be indicated in the "purpose of sequencing" field. 	Diagnostic testing		Reason for Sampling	HC_SAMPLE_CATEGORY	purpose_of_sampling	purpose of sampling
 GENEPIO_0001200		Sample collection and processing	purpose of sampling details	xs:token		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				The description of why the sample was collected, providing specific details.	Provide an expanded description of why the sample was collected using free text. The description may include the importance of the sample for a particular public health investigation/surveillance activity/research question. If details are not available, provide a null value.	The sample was collected to investigate the prevalence of variants associated with mink-to-human transmission in Canada. 		Details on the Reason for Sampling	PH_SAMPLING_DETAILS	description	purpose of sampling details
-GENEPIO_0001204		Sample collection and processing	NML submitted specimen type	select		 	required				The type of specimen submitted to the National Microbiology Laboratory (NML) for testing.	This information is required for upload through the CNPHI LaSER system. Select the specimen type from the pick list provided. If sequence data is being submitted rather than a specimen for testing, select “Not Applicable”.	swab		Specimen Type	PH_SPECIMEN_TYPE		
+GENEPIO_0001204		Sample collection and processing	NML submitted specimen type	select			required				The type of specimen submitted to the National Microbiology Laboratory (NML) for testing.	This information is required for upload through the CNPHI LaSER system. Select the specimen type from the pick list provided. If sequence data is being submitted rather than a specimen for testing, select “Not Applicable”.	swab		Specimen Type	PH_SPECIMEN_TYPE		
 GENEPIO_0001209		Sample collection and processing	NML related specimen relationship type	select							The relationship of the related specimen to the previous National Microbiology Laboratory (NML) submission.	Provide the specimen type of the original sample submitted from the pick list provided, so that additional specimen testing can be tracked in the system.	Follow-up		Related Specimen ID;Related Specimen Relationship Type			
 GENEPIO_0001211		Sample collection and processing	anatomical material	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				A substance obtained from an anatomical part of an organism e.g. tissue, blood.	Provide a descriptor if an anatomical material was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. 	Blood	Specimen source	Anatomical Material	PH_ISOLATION_SITE_DESC	isolation_source;anatomical_material	anatomical material
 GENEPIO_0001214		Sample collection and processing	anatomical part	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required				An anatomical part of an organism e.g. oropharynx.	Provide a descriptor if an anatomical part was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. 	Nasopharynx (NP)	Specimen source	Anatomical Site	PH_ISOLATION_SITE	isolation_source;anatomical_part	anatomical part
@@ -110,7 +110,7 @@ GENEPIO_0001456		Sequencing	amplicon pcr primer scheme	xs:token							The specif
 																		
 GENEPIO_0001457			Bioinformatics and QC metrics															
 GENEPIO_0001458		Bioinformatics and QC metrics	raw sequence data processing method	xs:token			recommended				The names of the software and version number used for raw data processing such as removing barcodes, adapter trimming, filtering etc.	Provide the software name followed by the version e.g. Trimmomatic v. 0.38, Porechop v. 0.2.3	Porechop 0.2.3			raw sequence data processing method		raw sequence data processing method
-GENEPIO_0001459		Bioinformatics and QC metrics	dehosting method	xs:token							The method used to remove host reads from the pathogen sequence.	Provide the name and version number of the software used to remove host reads.	Nanostripper			dehosting method		dehosting method
+GENEPIO_0001459		Bioinformatics and QC metrics	dehosting method	xs:token							The method used to remove host reads from the pathogen sequence.	Provide the name and version number of the software used to remove host reads.	Nanostripper			PH_DEHOSTING_METHOD		dehosting method
 GENEPIO_0001460		Bioinformatics and QC metrics	consensus sequence name	xs:token							The name of the consensus sequence.	Provide the name and version number of the consensus sequence.	ncov123assembly3			consensus sequence name		
 GENEPIO_0001461		Bioinformatics and QC metrics	consensus sequence filename	xs:token							The name of the consensus sequence file.	Provide the name and version number of the consensus sequence FASTA file.	ncov123assembly.fasta			consensus sequence filename		
 GENEPIO_0001462		Bioinformatics and QC metrics	consensus sequence filepath	xs:token							The filepath of the consesnsus sequence file.	Provide the filepath of the consensus sequence FASTA file.	/User/Documents/RespLab/Data/ncov123assembly.fasta			consensus sequence filepath		
@@ -129,7 +129,7 @@ GENEPIO_0001482		Bioinformatics and QC metrics	number of base pairs sequenced	xs
 GENEPIO_0001483		Bioinformatics and QC metrics	consensus genome length	xs:nonNegativeInteger							Size of the reconstructed genome described as the number of base pairs.	Provide a numerical value (no need to include units).	38677			consensus genome length		
 GENEPIO_0001484		Bioinformatics and QC metrics	Ns per 100 kbp	xs:decimal				0			The number of N symbols present in the consensus fasta sequence, per 100kbp of sequence.	Provide a numerical value (no need to include units).	330			Ns per 100 kbp		
 GENEPIO_0001485		Bioinformatics and QC metrics	reference genome accession	xs:token							A persistent, unique identifier of a genome database entry.	Provide the accession number of the reference genome.	NC_045512.2			reference genome accession		reference genome accession
-GENEPIO_0001489		Bioinformatics and QC metrics	bioinformatics protocol	xs:token							The name and version number of the bioinformatics protocol used.	Further details regarding the methods used to process raw data, and/or generate assemblies, and/or generate consensus sequences can be provided in an SOP or protocol. Provide the name and version number of the protocol.	https://www.protocols.io/groups/cphln-sarscov2-sequencing-consortium/members		Bioinformatics Protocol	bioinformatics protocol		bioinformatics protocol
+GENEPIO_0001489		Bioinformatics and QC metrics	bioinformatics protocol	xs:token							The name and version number of the bioinformatics protocol used.	Further details regarding the methods used to process raw data, and/or generate assemblies, and/or generate consensus sequences can be provided in an SOP or protocol. Provide the name and version number of the protocol.	https://www.protocols.io/groups/cphln-sarscov2-sequencing-consortium/members		Bioinformatics Protocol	PH_BIOINFORMATICS_PROTOCOL		bioinformatics protocol
 GENEPIO_0001498			Lineage and Variant information															
 GENEPIO_0001500		Lineage and Variant information	lineage/clade name	xs:token							The name of the lineage or clade.	Provide the Pangolin or Nextstrain lineage/clade name.	B.1.1.7			PH_LINEAGE_CLADE_NAME		
 GENEPIO_0001501		Lineage and Variant information	lineage/clade analysis software name	xs:token							The name of the software used to determine the lineage/clade.	Provide the name of the software used to determine the lineage/clade.	Pangolin			PH_LINEAGE_CLADE_SOFTWARE		
@@ -396,8 +396,9 @@ HP:0002789		pre-existing conditions and risk factors	Tachypnea (accelerated resp
 		variant designation	Variant of Concern (VOC)															
 		variant designation	Variant of Interest (VOI)															
 																		
-		variant evidence	RT-qPCR															
-		variant evidence	Sequencing															
+CIDO_0000019		variant evidence	RT-qPCR															
+CIDO_0000027		variant evidence	Sequencing															
+																		
 																		
 		complications	Abnormal blood oxygen level															
 		complications	Acute respiratory failure															
@@ -496,7 +497,7 @@ UBERON_0000479		anatomical material	Tissue													TISSUE
 																		
 																		
 UBERON_0001245		anatomical part	Anus													ANUS		
-		anatomical part	Buccal mucosa													BUCCAL_MUCOSA		
+UBERON_0006956 		anatomical part	Buccal mucosa													BUCCAL_MUCOSA		
 UBERON_0002114		anatomical part	Duodenum													DUODENUM		
 UBERON_0000970		anatomical part	Eye													EYE		
 		anatomical part	Intestine													INTESTINE		
@@ -507,7 +508,7 @@ UBERON_0001557		anatomical part	Upper respiratory tract													UPPER
 UBERON_2001427		Upper respiratory tract	      Anterior Nares													ANTERIOR_NARES		
 UBERON_0001043		Upper respiratory tract	      Esophagus													ESOPHAGUS		
 UBERON_0002453		Upper respiratory tract	      Ethmoid sinus													ETHMOID_SINUS		
-		Upper respiratory tract	      Nasal Cavity													NASAL_CAVITY		
+UBERON_0001707 		Upper respiratory tract	      Nasal Cavity													NASAL_CAVITY		
 UBERON_0005921 		Nasal Cavity	           Middle Nasal Turbinate													MIDDLE_NASAL		
 UBERON_0005922		Nasal Cavity	           Inferior Nasal Turbinate													INFERIOR_NASAL		
 UBERON_0001728		Upper respiratory tract	      Nasopharynx (NP)													NASOPHARYNX_NP		
@@ -663,16 +664,16 @@ NCBITaxon_9673		host (common name)	Civets													CIVETS
 NCBITaxon_9913		host (common name)	Cow												bovine			
 NCBITaxon_9615 		host (common name)	Dog															
 NCBITaxon_9689		host (common name)	Lion													LION		
-		host (common name)	Mink															
+NCBITaxon_452646		host (common name)	Mink															
 NCBITaxon_9973		host (common name)	Pangolin													PANGOLIN		
 NCBITaxon_9823		host (common name)	Pig												porcine			
 NCBITaxon_8930		host (common name)	Pigeon															
 NCBITaxon_9694		host (common name)	Tiger															
 																		
 																		
-		host health state	Asymptomatic													ASYMPTOMATIC		
-		host health state	Deceased													DECEASED		
-		host health state	Healthy													HEALTHY		
+NCIT_C3833		host health state	Asymptomatic													ASYMPTOMATIC		
+NCIT_C28554		host health state	Deceased													DECEASED		
+NCIT_C115935		host health state	Healthy													HEALTHY		
 		host health state	Recovered													RECOVERED		
 		host health state	Symptomatic													SYMPTOMATIC		
 																		
@@ -691,7 +692,7 @@ NCBITaxon_9694		host (common name)	Tiger
 		host health outcome	Stable															
 																		
 NCBITaxon_2697049		organism	Severe acute respiratory syndrome coronavirus 2															
-		organism	RaTG13															
+NCBITaxon_2709072		organism	RaTG13															
 		organism	RmYN02															
 																		
 																		
@@ -744,7 +745,7 @@ BTO_0001444 		lab host	Vero cell line
 BTO:0004755		lab host	   Vero E6 cell line															
 		lab host	      VeroE6/TMPRSS2 cell line															
 																		
-		host disease	COVID-19															
+DOID_0080600		host disease	COVID-19															
 																		
 		host age bin	0 - 9															
 		host age bin	10 - 19															
@@ -758,8 +759,8 @@ BTO:0004755		lab host	   Vero E6 cell line
 		host age bin	90 - 99															
 		host age bin	100+															
 																		
-OMRSE:00000009?		host gender	Female													FEMALE		
-OMRSE:00000008?		host gender	Male													MALE		
+NCIT_C46110		host gender	Female													FEMALE		
+NCIT_C46109		host gender	Male													MALE		
 		host gender	Non-binary gender													NON_BINARY_GENDER		
 		host gender	Transgender (Male to Female)													TRANSGENDER		
 		host gender	Transgender (Female to Male)													TRANSGENDER		
@@ -1313,3 +1314,4 @@ GAZ_00000564		geo_loc_name (country)	Western Sahara
 GAZ_00005284		geo_loc_name (country)	Yemen															
 GAZ_00001107		geo_loc_name (country)	Zambia															
 GAZ_00001106		geo_loc_name (country)	Zimbabwe															
+																		
