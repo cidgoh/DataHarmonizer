@@ -2228,7 +2228,9 @@ var DATA = [
           "Severe acute respiratory syndrome coronavirus 2": {
             "ontology_id": "NCBITaxon_2697049"
           },
-          "RaTG13": {},
+          "RaTG13": {
+            "ontology_id": "NCBITaxon_2709072"
+          },
           "RmYN02": {}
         }
       },
@@ -2380,9 +2382,7 @@ var DATA = [
         "ontology_id": "GENEPIO_0001204",
         "datatype": "select",
         "source": "",
-        "dataStatus": [
-          ""
-        ],
+        "dataStatus": null,
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "required",
@@ -2691,6 +2691,7 @@ var DATA = [
             }
           },
           "Buccal mucosa": {
+            "ontology_id": "UBERON_0006956 ",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -2799,6 +2800,7 @@ var DATA = [
                 }
               },
               "Nasal Cavity": {
+                "ontology_id": "UBERON_0001707 ",
                 "exportField": {
                   "NML_LIMS": [
                     {
@@ -4508,7 +4510,9 @@ var DATA = [
               ]
             }
           },
-          "Mink": {},
+          "Mink": {
+            "ontology_id": "NCBITaxon_452646"
+          },
           "Pangolin": {
             "ontology_id": "NCBITaxon_9973",
             "exportField": {
@@ -4672,6 +4676,7 @@ var DATA = [
         },
         "schema:ItemList": {
           "Asymptomatic": {
+            "ontology_id": "NCIT_C3833",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -4681,6 +4686,7 @@ var DATA = [
             }
           },
           "Deceased": {
+            "ontology_id": "NCIT_C28554",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -4690,6 +4696,7 @@ var DATA = [
             }
           },
           "Healthy": {
+            "ontology_id": "NCIT_C115935",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -4899,7 +4906,9 @@ var DATA = [
           ]
         },
         "schema:ItemList": {
-          "COVID-19": {}
+          "COVID-19": {
+            "ontology_id": "DOID_0080600"
+          }
         }
       },
       {
@@ -5106,7 +5115,7 @@ var DATA = [
         },
         "schema:ItemList": {
           "Female": {
-            "ontology_id": "OMRSE:00000009?",
+            "ontology_id": "NCIT_C46110",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -5116,7 +5125,7 @@ var DATA = [
             }
           },
           "Male": {
-            "ontology_id": "OMRSE:00000008?",
+            "ontology_id": "NCIT_C46109",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -7825,7 +7834,7 @@ var DATA = [
         "exportField": {
           "NML_LIMS": [
             {
-              "field": "dehosting method"
+              "field": "PH_DEHOSTING_METHOD"
             }
           ],
           "VirusSeq_Portal": [
@@ -8274,7 +8283,7 @@ var DATA = [
           ],
           "NML_LIMS": [
             {
-              "field": "bioinformatics protocol"
+              "field": "PH_BIOINFORMATICS_PROTOCOL"
             }
           ],
           "VirusSeq_Portal": [
@@ -8410,8 +8419,12 @@ var DATA = [
           ]
         },
         "schema:ItemList": {
-          "RT-qPCR": {},
-          "Sequencing": {}
+          "RT-qPCR": {
+            "ontology_id": "CIDO_0000019"
+          },
+          "Sequencing": {
+            "ontology_id": "CIDO_0000027"
+          }
         }
       },
       {
