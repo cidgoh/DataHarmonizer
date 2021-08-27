@@ -140,6 +140,7 @@ const createHot = (data) => {
     columns: getColumns(data),
     colHeaders: true,
     rowHeaders: true,
+    contextMenu: ["remove_row","row_above","row_below"],
     minRows: 100,
     minSpareRows: 100,
     width: '100%',
