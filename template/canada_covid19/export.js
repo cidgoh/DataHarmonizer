@@ -584,7 +584,6 @@ var exportNML_LIMS = (baseName, hot, data, xlsx, fileType) => {
 // A list of the above functions keyed by the Export menu name they should appear as:
 var EXPORT_FORMATS = {
   "VirusSeq_Portal": {'method': exportVirusSeq_Portal, 'fileType': 'tsv', 'status': 'published'},
-  //"IRIDA":        {'method': exportIRIDA, 'fileType': 'xls', 'status': 'published'},
   "GISAID":       {'method': exportGISAID,'fileType': 'xls', 'status': 'published'},
   "BioSample":    {'method': exportBioSample,'fileType': 'xls', 'status': 'published'},
   "CNPHI LaSER":  {'method': exportLASER, 'fileType': 'csv (ASCII)', 'status': 'published'},
