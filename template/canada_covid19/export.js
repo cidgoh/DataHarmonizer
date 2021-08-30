@@ -8,8 +8,121 @@
  */
 var exportVirusSeq_Portal = (baseName, hot, data, xlsx, fileType) => {
   // Create an export table with template's headers (2nd row) and remaining rows of data
-  const matrix = [getFlatHeaders(data)[1], ...getTrimmedData(hot)];
-  runBehindLoadingScreen(exportFile, [matrix, baseName, fileType, xlsx]);
+
+  // NOTE: NULL reason fields must follow immediately after column they are about.
+    const ExportHeaders = new Map([
+    ['sample_name',             []], // NOT MAPPED!!!
+    ['study_id',                []], // Intentionally left blank.
+    ['specimen collector sample ID', []],
+    ['GISAID accession',        []], // CAPITALIZATION Difference
+    ['sample collected by',     []],
+    ['sequence submitted by',   []],
+    ['sample collection date',  []],
+    ['sample collection date null reason',  []],// VirusSeq custom field
+    ['geo_loc_name (country)',  []],
+    ['geo_loc_name (state/province/territory)', []],
+    ['organism',                []],
+    ['isolate',                 []],
+    ['fasta header name',       ['isolate']],
+    ['purpose of sampling',     []],
+    ['purpose of sampling details', []],
+    ['anatomical material',     []],
+    ['anatomical part',         []],
+    ['body product',            []],
+    ['environmental material',  []],
+    ['environmental site',      []],
+    ['collection device',       []],
+    ['collection method',       []],
+    ['host (scientific name)',  []],
+    ['host disease',            []],
+    ['host age',                []],
+    ['host age null reason',    []],  // VirusSeq custom field
+    ['host age unit',           []],
+    ['host age bin',            []],
+    ['host gender',             []],
+    ['purpose of sequencing',   []],
+    ['purpose of sequencing details', []],
+    ['sequencing instrument',   []],
+    ['sequencing protocol',     []],
+    ['raw sequence data processing method', []],
+    ['dehosting method',        []],
+    ['consensus sequence software name', []],
+    ['consensus sequence software version', []],
+    ['breadth of coverage value', []], // Has extra "value" suffix
+    ['depth of coverage value', []],  // Has extra "value" suffix
+    ['reference genome accession', []],
+    ['bioinformatics protocol', []],
+    ['gene name',               []],
+    ['diagnostic pcr Ct value', []],
+    ['diagnostic pcr Ct value null reason', []],  // VirusSeq custom field
+  ]);
+
+  // various null options to recognize for "null reason" fields
+  const   // Conversion of all cancogen metadata keywords to NML LIMS version
+  nullOptionsMap = new Map([
+    ['not applicable', 'Not Applicable'],
+    ['missing', 'Missing'],
+    ['not collected', 'Not Collected'],
+    ['not provided', 'Not Provided'],
+    ['restricted access', 'Restricted Access']
+  ]);
+
+  const sourceFields = getFields(data);
+  const sourceFieldNameMap = getFieldNameMap(sourceFields);
+  // Fills in the above mapping (or just set manually above) 
+  getHeaderMap(ExportHeaders, sourceFields, 'VirusSeq_Portal');
+
+  // Copy headers to 1st row of new export table
+  const outputMatrix = [[...ExportHeaders.keys()]];
+
+
+  for (const inputRow of getTrimmedData(hot)) {
+    const outputRow = [];
+    var skip = false;
+    for (const [headerName, sources] of ExportHeaders) {
+      // Skips a column because it has already been set in previous column action.
+      if (skip === true)
+        skip = false;
+      else {
+        // Otherwise apply source (many to one) to target field transform:
+        var value = getMappedField(headerName, inputRow, sources, sourceFields, sourceFieldNameMap, ':', 'VirusSeq_Portal');
+
+        // Some columns have an extra ' null reason' field for demultiplexing null value into.
+        if (ExportHeaders.has(headerName + ' null reason')) {
+            //headerName = source field name in this format case.
+            if (sources.length > 0) {
+              // field and its null reason field must be 1-1
+              const sourceFieldIndex = sourceFieldNameMap[sources[0]];
+              const field = sourceFields[sourceFieldIndex];
+              if (field) {
+                // Null reason recognition comes from dataStatus values, or generic nullOptionsSet.
+                if (field.dataStatus && field.dataStatus.includes(value)) {
+                  // Clears original value field of its null value and puts it in next column where null reason is.
+                  outputRow.push(''); 
+                  skip = true; 
+                }
+                // Small gesture towards normalization: correct case
+                else if (nullOptionsMap.has(value.toLowerCase())) {
+                    value = nullOptionsMap.get(value.toLowerCase()); 
+                    outputRow.push(''); 
+                    skip = true;
+                  }
+
+              }
+              else
+                alert ('Template configuration error: "'+ headerName + '" has misnamed source field.');
+            }
+            else
+              alert ('Template configuration error: "'+ headerName + '" has no source mapped field.');
+          };
+
+        outputRow.push(value);
+      }
+    }
+    outputMatrix.push(outputRow);
+  }
+
+  runBehindLoadingScreen(exportFile, [outputMatrix, baseName, fileType, xlsx]);
 };
 
 var exportBioSample = (baseName, hot, data, xlsx, fileType) => {

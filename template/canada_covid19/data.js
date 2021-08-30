@@ -2251,8 +2251,8 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "required",
         "description": "Identifier of the specific isolate.",
-        "guidance": "Provide the GISAID virus name, which should be written in the format \u201chCov-19/CANADA/xxxxx/2020\u201d.",
-        "examples": "hCov-19/CANADA/prov_rona_99/2020",
+        "guidance": "Provide the GISAID virus name, which should be written in the format \u201chCov-19/CANADA/2 digit provincial ISO code-xxxxx/year\u201d.",
+        "examples": "hCov-19/CANADA/BC-prov_rona_99/2020",
         "exportField": {
           "GISAID": [
             {
