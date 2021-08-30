@@ -95,7 +95,7 @@ var exportVirusSeq_Portal = (baseName, hot, data, xlsx, fileType) => {
               const sourceFieldIndex = sourceFieldNameMap[sources[0]];
               const field = sourceFields[sourceFieldIndex];
               if (field) {
-                // Null reason recognition comes from dataStatus values, or generic nullOptionsSet.
+                // Null reason recognition comes from dataStatus values, or generic nullOptionsMap.
                 if (field.dataStatus && field.dataStatus.includes(value)) {
                   // Clears original value field of its null value and puts it in next column where null reason is.
                   outputRow.push(''); 
