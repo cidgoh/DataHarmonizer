@@ -75,13 +75,10 @@ occasionally.
 
 ## Acknowledgement
 
-[Handsontable](https://handsontable.com/) was used to build the grid.
-[SheetJS](https://sheetjs.com/) was used to open and save local files.
+- [Handsontable](https://handsontable.com/) was used to build the grid.  DataHarmonizer is configured to reference the "non-commercial-and-evaluation" handsontable license "for purposes not intended toward monetary compensation such as, but not limited to, teaching, academic research, evaluation, testing and experimentation"; if this application is used for commercial purposes, this should be revised as per https://handsontable.com/docs/license-key/
+- [SheetJS](https://sheetjs.com/) was used to open and save local files. The community edition was used under the [Apache 2.0](https://github.com/SheetJS/sheetjs/blob/master/LICENSE) license.
 
 ## License
 
-DataHarmonizer is programmed to reference the "non-commercial-and-evaluation" handsontable license "for purposes not intended toward monetary compensation such as, but not limited to, teaching, academic research, evaluation, testing and experimentation"; if this application is used for commercial purposes, this should be revised as per https://handsontable.com/docs/license-key/
+DataHarmonizer javascript, python and other code not mentioned in the Acknowledgement above is covered by the [MIT](LICENSE) license.
 
-DataHarmonizer javascript, python and other code (which is not part of Handsontable) is covered by this license:
-
-[MIT](LICENSE)
