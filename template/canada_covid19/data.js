@@ -2280,6 +2280,9 @@ var DATA = [
           "VirusSeq_Portal": [
             {
               "field": "isolate"
+            },
+            {
+              "field": "fasta header name"
             }
           ]
         }
@@ -8849,7 +8852,14 @@ var DATA = [
         "ontology_id": "GENEPIO_0001509",
         "datatype": "xs:decimal",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "Not Applicable",
+          "Missing",
+          "Not Collected",
+          "Not Provided",
+          "Restricted Access",
+          "Indeterminate"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -8937,7 +8947,14 @@ var DATA = [
         "ontology_id": "GENEPIO_0001512",
         "datatype": "xs:decimal",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "Not Applicable",
+          "Missing",
+          "Not Collected",
+          "Not Provided",
+          "Restricted Access",
+          "Indeterminate"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -9015,7 +9032,14 @@ var DATA = [
         "ontology_id": "GENEPIO_0001515",
         "datatype": "xs:decimal",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "Not Applicable",
+          "Missing",
+          "Not Collected",
+          "Not Provided",
+          "Restricted Access",
+          "Indeterminate"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
