@@ -87,6 +87,8 @@ var exportVirusSeq_Portal = (baseName, hot, data, xlsx, fileType) => {
         // Otherwise apply source (many to one) to target field transform:
         var value = getMappedField(headerName, inputRow, sources, sourceFields, sourceFieldNameMap, ':', 'VirusSeq_Portal');
 
+        const numeric_datatypes = new Set(['xs:nonNegativeInteger', 'xs:decimal']);
+
         // Some columns have an extra ' null reason' field for demultiplexing null value into.
         if (ExportHeaders.has(headerName + ' null reason')) {
             //headerName = source field name in this format case.
@@ -102,12 +104,21 @@ var exportVirusSeq_Portal = (baseName, hot, data, xlsx, fileType) => {
                   skip = true; 
                 }
                 // Small gesture towards normalization: correct case
-                else if (nullOptionsMap.has(value.toLowerCase())) {
+                else 
+                  if (nullOptionsMap.has(value.toLowerCase())) {
                     value = nullOptionsMap.get(value.toLowerCase()); 
                     outputRow.push(''); 
                     skip = true;
                   }
-
+                  else
+                    // If a numeric field has text in it then push that over
+                    // to null reason field.  This is occuring at data export
+                    // stage, after validation so text is assumed to be 
+                    // intentional 
+                    if (numeric_datatypes.has(field.datatype)  && isNaN(Number(value)) ) {
+                      outputRow.push(''); 
+                      skip = true;
+                    }
               }
               else
                 alert ('Template configuration error: "'+ headerName + '" has misnamed source field.');
