@@ -11,7 +11,6 @@ var exportVirusSeq_Portal = (baseName, hot, data, xlsx, fileType) => {
 
   // NOTE: NULL reason fields must follow immediately after column they are about.
     const ExportHeaders = new Map([
-    ['sample_name',             []], // NOT MAPPED!!!
     ['study_id',                []], // Intentionally left blank.
     ['specimen collector sample ID', []],
     ['GISAID accession',        []], // CAPITALIZATION Difference
