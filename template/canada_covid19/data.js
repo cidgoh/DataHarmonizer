@@ -888,7 +888,7 @@ var DATA = [
         },
         "schema:ItemList": {
           "year": {
-            "ontology_id": "UO:0000035",
+            "ontology_id": "UO:0000036",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -898,7 +898,7 @@ var DATA = [
             }
           },
           "month": {
-            "ontology_id": "UO:0000036",
+            "ontology_id": "UO:0000035",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3437,7 +3437,7 @@ var DATA = [
             }
           },
           "Wastewater": {
-            "ontology_id": "ENVO NTR?",
+            "ontology_id": "ENVO:00002001",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3669,7 +3669,7 @@ var DATA = [
             }
           },
           "Prison": {
-            "ontology_id": "ENVO_01001481",
+            "ontology_id": "ENVO:03501204",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -4600,7 +4600,7 @@ var DATA = [
             }
           },
           "Pig": {
-            "ontology_id": "NCBITaxon_9823",
+            "ontology_id": "NCBITaxon_9825",
             "exportField": {
               "CNPHI": [
                 {
@@ -4983,7 +4983,7 @@ var DATA = [
         },
         "schema:ItemList": {
           "COVID-19": {
-            "ontology_id": "DOID_0080600"
+            "ontology_id": "MONDO:0100096"
           }
         }
       },
@@ -5157,8 +5157,25 @@ var DATA = [
           "80 - 89": {
             "ontology_id": "GENEPIO NTR"
           },
-          "90+": {
-            "ontology_id": "GENEPIO NTR"
+          "90 - 99": {
+            "ontology_id": "GENEPIO NTR",
+            "exportField": {
+              "VirusSeq_Portal": [
+                {
+                  "value": "90+"
+                }
+              ]
+            }
+          },
+          "100+": {
+            "ontology_id": "GENEPIO NTR",
+            "exportField": {
+              "VirusSeq_Portal": [
+                {
+                  "value": "90+"
+                }
+              ]
+            }
           }
         }
       },
