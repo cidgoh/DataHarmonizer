@@ -178,8 +178,8 @@ GAZ_00002576		geo_loc_name (state/province/territory)	Yukon													CA-YT
 UO:0000035		host age unit	month													Month		
 UO:0000036		host age unit	year													Year		
 																		
-UO:0000035		sample collection date precision	year													Year		
-UO:0000036		sample collection date precision	month													Month		
+UO:0000036		sample collection date precision	year													Year		
+UO:0000035		sample collection date precision	month													Month		
 UO:0000033		sample collection date precision	day													Day		
 																		
 OBI:0000895		biomaterial extracted	RNA (total)															
@@ -569,7 +569,7 @@ ENVO:03501216		environmental material	Stainless steel													STAINLESS_STEE
 ENVO:03501217		environmental material	Tissue paper													TISSUE_PAPER		
 ENVO:03501218		environmental material	Toilet bowl													TOILET_BOWL		
 ENVO_00002006		environmental material	Water													WATER		
-ENVO NTR?		environmental material	     Wastewater													WASTEWATER		
+ENVO:00002001		environmental material	     Wastewater													WASTEWATER		
 ENVO:03501219		environmental material	Window													WINDOW		
 ENVO:00002040		environmental material	Wood													WOOD		
 																		
@@ -588,7 +588,7 @@ ENVO:00002173		environmental site	Hospital													HOSPITAL
 ENVO:03501152		environmental site	Intensive Care Unit (ICU)													INTENSIVE_CARE_UNIT_		
 ENVO:03501194		environmental site	Long Term Care Facility													LONG_TERM_CARE_FACIL		
 ENVO:03501180		environmental site	Patient room													PATIENT_ROOM		
-ENVO_01001481		environmental site	Prison													PRISON		
+ENVO:03501204		environmental site	Prison													PRISON		
 ENVO_01000536		environmental site	Production Facility													PRODUCTION_FACILITY		
 ENVO:03501130		environmental site	School													SCHOOL		
 ENVO:00003043		environmental site	Sewage Plant													SEWAGE_PLANT		
@@ -667,7 +667,7 @@ NCBITaxon_9615 		host (common name)	Dog
 NCBITaxon_9689		host (common name)	Lion													LION		
 NCBITaxon_452646		host (common name)	Mink															
 NCBITaxon_9973		host (common name)	Pangolin													PANGOLIN		
-NCBITaxon_9823		host (common name)	Pig												porcine			
+NCBITaxon_9825		host (common name)	Pig												porcine			
 NCBITaxon_8930		host (common name)	Pigeon															
 NCBITaxon_9694		host (common name)	Tiger															
 																		
@@ -745,7 +745,7 @@ BTO_0001444 		lab host	Vero cell line
 BTO:0004755		lab host	   Vero E6 cell line															
 BTO NTR		lab host	      VeroE6/TMPRSS2 cell line															
 																		
-DOID_0080600		host disease	COVID-19															
+MONDO:0100096		host disease	COVID-19															
 																		
 GENEPIO NTR		host age bin	0 - 9															
 GENEPIO NTR		host age bin	10 - 19															
@@ -756,8 +756,8 @@ GENEPIO NTR		host age bin	50 - 59
 GENEPIO NTR		host age bin	60 - 69															
 GENEPIO NTR		host age bin	70 - 79															
 GENEPIO NTR		host age bin	80 - 89															
-GENEPIO NTR		host age bin	90+															
-																		
+GENEPIO NTR		host age bin	90 - 99															90+
+GENEPIO NTR		host age bin	100+															90+
 																		
 NCIT_C46110		host gender	Female													FEMALE		
 NCIT_C46109		host gender	Male													MALE		
@@ -1316,4 +1316,3 @@ GAZ_00000564		geo_loc_name (country)	Western Sahara
 GAZ_00005284		geo_loc_name (country)	Yemen															
 GAZ_00001107		geo_loc_name (country)	Zambia															
 GAZ_00001106		geo_loc_name (country)	Zimbabwe															
-																		
