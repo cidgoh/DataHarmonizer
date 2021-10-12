@@ -11,7 +11,7 @@
  * main.html?template=test_template
  *
  */
-const VERSION = '0.14.1';
+const VERSION = '0.14.2';
 const VERSION_TEXT = 'DataHarmonizer provenance: v' + VERSION;
 const TEMPLATES = {
   'CanCOGeN Covid-19': {'folder': 'canada_covid19', 'status': 'published'},
@@ -274,6 +274,10 @@ const getColumns = (data) => {
     const col = {};
     if (field.requirement) {
       col.requirement = field.requirement;
+    }
+    // Compile field's regular expression for quick application.
+    if (field.pattern) {
+      field.pattern = new RegExp(field.pattern);
     }
     switch (field.datatype) {
       case 'xs:date': 
@@ -1073,7 +1077,8 @@ const getInvalidCells = (hot, data) => {
 
     for (let col=0; col<fields.length; col++) {
       const cellVal = hot.getDataAtCell(row, col);
-      const datatype = fields[col].datatype;
+      const field = fields[col];
+      const datatype = field.datatype;
       let valid = true;
       // TODO we could have messages for all types of invalidation, and add
       //  them as tooltips
@@ -1085,59 +1090,63 @@ const getInvalidCells = (hot, data) => {
         checkProvenance(provenanceChanges, cellVal, row, col);
       };
       if (!cellVal) {
-        valid = fields[col].requirement !== 'required';
+        valid = field.requirement !== 'required';
         msg = 'Required cells cannot be empty'
       } 
-      else switch (datatype) {
-        // Unique value field (a type of xs:token string) 
-        case 'xs:unique':
-          // Set up dictionary and count for this column's unique values
-          if (!uniquefield[col]) {
-            uniquefield[col] = {};
-            for (let keyrow=0; keyrow<hot.countRows(); keyrow++) {
-              if (!hot.isEmptyRow(keyrow)) {
-                let key = hot.getDataAtCell(keyrow, col);
-                if (key in uniquefield[col])
-                  uniquefield[col][key] += 1;
-                else
-                  uniquefield[col][key] = 1;
+      else {
+        switch (datatype) {
+          // Unique value field (a type of xs:token string) 
+          case 'xs:unique':
+            // Set up dictionary and count for this column's unique values
+            if (!uniquefield[col]) {
+              uniquefield[col] = {};
+              for (let keyrow=0; keyrow<hot.countRows(); keyrow++) {
+                if (!hot.isEmptyRow(keyrow)) {
+                  let key = hot.getDataAtCell(keyrow, col);
+                  if (key in uniquefield[col])
+                    uniquefield[col][key] += 1;
+                  else
+                    uniquefield[col][key] = 1;
+                }
               }
             }
-          }
-          // Must be only 1 unique value.  Case insensitive comparison
-          valid = uniquefield[col][cellVal] === 1;  
-          break;
-        case 'xs:nonNegativeInteger':
-          const parsedInt = parseInt(cellVal, 10);
-          valid = !isNaN(cellVal) && parsedInt>=0
-          valid &= parsedInt.toString()===cellVal;
-          valid &= testNumericRange(parsedInt, fields[col]);
-          break;
-        case 'xs:decimal':
-          const parsedDec = parseFloat(cellVal);
-          valid = !isNaN(cellVal) && regexDecimal.test(cellVal);
-          valid &= testNumericRange(parsedDec, fields[col]);
-          break;
-        case 'xs:date':
-          // moment is a date format addon
-          valid = moment(cellVal, 'YYYY-MM-DD', true).isValid();
-          if (valid) {
-            valid = testDateRange(cellVal, fields[col]);
-          }
-          break;
-        case 'select':
-          valid = validateValAgainstVocab(cellVal, fields[col].flatVocabulary);
-          break;
-        case 'multiple':
-          valid = validateValsAgainstVocab(cellVal, fields[col].flatVocabulary);
-          break;
-         
+            // Must be only 1 unique value.  Case insensitive comparison
+            valid = uniquefield[col][cellVal] === 1;  
+            break;
+          case 'xs:nonNegativeInteger':
+            const parsedInt = parseInt(cellVal, 10);
+            valid = !isNaN(cellVal) && parsedInt>=0
+            valid &= parsedInt.toString()===cellVal;
+            valid &= testNumericRange(parsedInt, field);
+            break;
+          case 'xs:decimal':
+            const parsedDec = parseFloat(cellVal);
+            valid = !isNaN(cellVal) && regexDecimal.test(cellVal);
+            valid &= testNumericRange(parsedDec, field);
+            break;
+          case 'xs:date':
+            // moment is a date format addon
+            valid = moment(cellVal, 'YYYY-MM-DD', true).isValid();
+            if (valid) {
+              valid = testDateRange(cellVal, field);
+            }
+            break;
+          case 'select':
+            valid = validateValAgainstVocab(cellVal, field.flatVocabulary);
+            break;
+          case 'multiple':
+            valid = validateValsAgainstVocab(cellVal, field.flatVocabulary);
+            break;
+           
+        }
+        // Test regular expression if it is given
+        if (valid && field.pattern) {
+          valid = field.pattern.test(cellVal);
+        }
       }
-
-      if (!valid && fields[col].dataStatus) {
-        valid = validateValAgainstVocab(cellVal, fields[col].dataStatus);
+      if (!valid && field.dataStatus) {
+        valid = validateValAgainstVocab(cellVal, field.dataStatus);
       }
-
       if (!valid) {
         if (!invalidCells.hasOwnProperty(row)) {
           invalidCells[row] = {};
