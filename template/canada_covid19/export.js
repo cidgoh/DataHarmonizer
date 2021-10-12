@@ -546,13 +546,14 @@ var exportNML_LIMS = (baseName, hot, data, xlsx, fileType) => {
   */
 
   const ExportHeaders = new Map([
-    ['VD_LAB_NUMBER',           []],
     ['TEXT_ID',                 []],
+    ['HC_TEXT5',                []],
+    ['PH_ID_NUMBER_PRIMARY',    []],
     ['PH_BIOPROJECT_ACCESSION', []],
     ['PH_BIOSAMPLE_ACCESSION',  []],
     ['PH_SRA_ACCESSION',        []],
     ['SUBMISSIONS - GISAID Accession ID', []],
-    ['CUSTOMER',    []],  
+    ['CUSTOMER',                []],  
     ['PH_SEQUENCING_CENTRE',    []],        
     ['HC_COLLECT_DATE',         []],
     ['HC_TEXT2',                []], 
@@ -592,12 +593,15 @@ var exportNML_LIMS = (baseName, hot, data, xlsx, fileType) => {
     ['PH_REASON_FOR_SEQUENCING',[]], 
 
     ['PH_REASON_FOR_SEQUENCING_DETAILS', []], 
+    ['PH_SEQUENCING_DATE',      []], 
     ['PH_INSTRUMENT_CGN',       []], 
     ['ANALYSIS',                []], 
     ['PH_TESTING_PROTOCOL',     []],
+    ['PH_RAW_SEQUENCE_METHOD',     []],
+    ['PH_DEHOSTING_METHOD',     []],
+
     ['PH_CONSENSUS_SEQUENCE',   []], // from 'Consensus Sequence Method Name' or 'consensus sequence software name'
     ['PH_CONSENSUS_SEQUENCE_VERSION', []], // From 'Consensus Sequence Method Version Name' or 'consensus sequence software version'
-    ['PH_DEHOSTING_METHOD',     []],
     ['PH_BIOINFORMATICS_PROTOCOL', []],
     ['PH_LINEAGE_CLADE_NAME',   []], 
     ['PH_LINEAGE_CLADE_SOFTWARE',[]], 
