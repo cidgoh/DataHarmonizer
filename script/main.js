@@ -1121,6 +1121,9 @@ const getInvalidCells = (hot, data) => {
         case 'xs:date':
           // moment is a date format addon
           valid = moment(cellVal, 'YYYY-MM-DD', true).isValid();
+          if (valid) {
+            valid = testDateRange(cellVal, fields[col]);
+          }
           break;
         case 'select':
           valid = validateValAgainstVocab(cellVal, fields[col].flatVocabulary);
@@ -1203,6 +1206,27 @@ const testNumericRange = (number, field) => {
   }
   return true
 }
+
+/**
+ * Test a given date against an upper or lower range, if any.
+ * @param {Date} date to be compared.
+ * @param {Object} field that contains min and max limits.
+ * @return {Boolean} validity of field.
+ */
+const testDateRange = (aDate, field) => {
+
+  if (field['xs:minInclusive'] !== '') {
+    if (aDate < field['xs:minInclusive']) {
+      return false
+    }
+  }
+  if (field['xs:maxInclusive'] !== '') {
+    if (aDate > field['xs:maxInclusive']) 
+      return false
+  }
+  return true
+}
+
 /**
  * Validate a value against an array of source values.
  * @param {String} val Cell value.
