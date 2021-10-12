@@ -65,7 +65,7 @@ var DATA = [
         "exportField": {
           "NML_LIMS": [
             {
-              "field": "VD_LAB_NUMBER"
+              "field": "HC_TEXT5"
             }
           ]
         }
@@ -86,7 +86,7 @@ var DATA = [
         "exportField": {
           "NML_LIMS": [
             {
-              "field": "third party lab sample ID"
+              "field": "PH_ID_NUMBER_PRIMARY"
             }
           ]
         }
@@ -642,6 +642,7 @@ var DATA = [
         "description": "The email address of the contact responsible for follow-up regarding the sample.",
         "guidance": "The email address can represent a specific individual or lab e.g. johnnyblogs@lab.ca, or RespLab@lab.ca",
         "examples": "RespLab@lab.ca",
+        "pattern": "^\\S+@\\S+\\.\\S+$",
         "exportField": {
           "NML_LIMS": [
             {
@@ -888,7 +889,7 @@ var DATA = [
         },
         "schema:ItemList": {
           "year": {
-            "ontology_id": "UO:0000035",
+            "ontology_id": "UO:0000036",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -898,7 +899,7 @@ var DATA = [
             }
           },
           "month": {
-            "ontology_id": "UO:0000036",
+            "ontology_id": "UO:0000035",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -1234,7 +1235,7 @@ var DATA = [
             "ontology_id": "GAZ_00003762"
           },
           "Curacao": {
-            "ontology_id": "GAZ_00004021"
+            "ontology_id": "GAZ:00012582"
           },
           "Cyprus": {
             "ontology_id": "GAZ_00004006"
@@ -1560,7 +1561,7 @@ var DATA = [
             "ontology_id": "GAZ_00000584"
           },
           "Malta": {
-            "ontology_id": "GAZ_00005459"
+            "ontology_id": "GAZ:00004017"
           },
           "Marshall Islands": {
             "ontology_id": "GAZ_00007161"
@@ -1829,7 +1830,7 @@ var DATA = [
             "ontology_id": "GAZ_00233439"
           },
           "Spain": {
-            "ontology_id": "GAZ_00003936"
+            "ontology_id": "GAZ:00000591"
           },
           "Spratly Islands": {
             "ontology_id": "GAZ_00010831"
@@ -2231,7 +2232,9 @@ var DATA = [
           "RaTG13": {
             "ontology_id": "NCBITaxon_2709072"
           },
-          "RmYN02": {}
+          "RmYN02": {
+            "ontology_id": "NCBITaxon NTR"
+          }
         }
       },
       {
@@ -2329,12 +2332,18 @@ var DATA = [
           ]
         },
         "schema:ItemList": {
-          "Cluster/Outbreak investigation": {},
-          "Diagnostic testing": {},
+          "Cluster/Outbreak investigation": {
+            "ontology_id": "HSO:0000371"
+          },
+          "Diagnostic testing": {
+            "ontology_id": "HSO or NCIT NTR?"
+          },
           "Research": {
             "ontology_id": "NCIT_c15429"
           },
-          "Surveillance": {}
+          "Surveillance": {
+            "ontology_id": "HSO:0000268"
+          }
         }
       },
       {
@@ -3129,6 +3138,7 @@ var DATA = [
         },
         "schema:ItemList": {
           "Air vent": {
+            "ontology_id": "ENVO:03501208",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3148,6 +3158,7 @@ var DATA = [
             }
           },
           "Bed rail": {
+            "ontology_id": "ENVO:03501209",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3177,6 +3188,7 @@ var DATA = [
             }
           },
           "Control panel": {
+            "ontology_id": "ENVO:03501210",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3186,7 +3198,7 @@ var DATA = [
             }
           },
           "Door": {
-            "ontology_id": "NCIT_C48950",
+            "ontology_id": "ENVO:03501220",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3196,6 +3208,7 @@ var DATA = [
             }
           },
           "Door handle": {
+            "ontology_id": "ENVO:03501211",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3205,6 +3218,7 @@ var DATA = [
             }
           },
           "Face mask": {
+            "ontology_id": "OBI:0002787",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3214,6 +3228,7 @@ var DATA = [
             }
           },
           "Face shield": {
+            "ontology_id": "OBI:0002791",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3253,6 +3268,7 @@ var DATA = [
             }
           },
           "Handrail": {
+            "ontology_id": "ENVO:03501212",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3262,6 +3278,7 @@ var DATA = [
             }
           },
           "Hospital gown": {
+            "ontology_id": "OBI:0002792",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3271,6 +3288,7 @@ var DATA = [
             }
           },
           "Light switch": {
+            "ontology_id": "ENVO:03501213",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3280,6 +3298,7 @@ var DATA = [
             }
           },
           "Locker": {
+            "ontology_id": "ENVO:03501214",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3289,6 +3308,7 @@ var DATA = [
             }
           },
           "N95 mask": {
+            "ontology_id": "OBI:0002790",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3298,6 +3318,7 @@ var DATA = [
             }
           },
           "Nurse call button": {
+            "ontology_id": "ENVO:03501215",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3307,6 +3328,7 @@ var DATA = [
             }
           },
           "Paper": {
+            "ontology_id": "ENVO:03501256",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3336,6 +3358,7 @@ var DATA = [
             }
           },
           "PPE gown": {
+            "ontology_id": "OBI NTR?",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3375,6 +3398,7 @@ var DATA = [
             }
           },
           "Stainless steel": {
+            "ontology_id": "ENVO:03501216",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3384,6 +3408,7 @@ var DATA = [
             }
           },
           "Tissue paper": {
+            "ontology_id": "ENVO:03501217",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3393,6 +3418,7 @@ var DATA = [
             }
           },
           "Toilet bowl": {
+            "ontology_id": "ENVO:03501218",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3412,6 +3438,7 @@ var DATA = [
             }
           },
           "Wastewater": {
+            "ontology_id": "ENVO:00002001",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3421,6 +3448,7 @@ var DATA = [
             }
           },
           "Window": {
+            "ontology_id": "ENVO:03501219",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3492,6 +3520,7 @@ var DATA = [
         },
         "schema:ItemList": {
           "Acute care facility": {
+            "ontology_id": "ENVO:03501135",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3521,6 +3550,7 @@ var DATA = [
             }
           },
           "Clinical assessment centre": {
+            "ontology_id": "ENVO:03501136",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3530,6 +3560,7 @@ var DATA = [
             }
           },
           "Conference venue": {
+            "ontology_id": "ENVO:03501127",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3539,7 +3570,7 @@ var DATA = [
             }
           },
           "Corridor": {
-            "ontology_id": "ENVO REQUEST",
+            "ontology_id": "ENVO:03501121",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3559,7 +3590,7 @@ var DATA = [
             }
           },
           "Emergency room (ER)": {
-            "ontology_id": "NCIT_C53513",
+            "ontology_id": "ENVO:03501144",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3569,6 +3600,7 @@ var DATA = [
             }
           },
           "Family practice clinic": {
+            "ontology_id": "ENVO:03501186",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3578,6 +3610,7 @@ var DATA = [
             }
           },
           "Group home": {
+            "ontology_id": "ENVO:03501196",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3587,6 +3620,7 @@ var DATA = [
             }
           },
           "Homeless shelter": {
+            "ontology_id": "ENVO:03501133",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3596,7 +3630,7 @@ var DATA = [
             }
           },
           "Hospital": {
-            "ontology_id": "OBI_0000844",
+            "ontology_id": "ENVO:00002173",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3606,7 +3640,7 @@ var DATA = [
             }
           },
           "Intensive Care Unit (ICU)": {
-            "ontology_id": "NCIT_C53511",
+            "ontology_id": "ENVO:03501152",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3616,7 +3650,7 @@ var DATA = [
             }
           },
           "Long Term Care Facility": {
-            "ontology_id": "GENEPIO_0001035",
+            "ontology_id": "ENVO:03501194",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3626,6 +3660,7 @@ var DATA = [
             }
           },
           "Patient room": {
+            "ontology_id": "ENVO:03501180",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3635,7 +3670,7 @@ var DATA = [
             }
           },
           "Prison": {
-            "ontology_id": "ENVO_01001481",
+            "ontology_id": "ENVO:03501204",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3655,7 +3690,7 @@ var DATA = [
             }
           },
           "School": {
-            "ontology_id": "NCIT_C17118",
+            "ontology_id": "ENVO:03501130",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3665,6 +3700,7 @@ var DATA = [
             }
           },
           "Sewage Plant": {
+            "ontology_id": "ENVO:00003043",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3674,6 +3710,7 @@ var DATA = [
             }
           },
           "Subway train": {
+            "ontology_id": "ENVO:03501109",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3683,6 +3720,7 @@ var DATA = [
             }
           },
           "Wet market": {
+            "ontology_id": "ENVO:03501198",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3744,6 +3782,7 @@ var DATA = [
         },
         "schema:ItemList": {
           "Air filter": {
+            "ontology_id": "ENVO:00003968",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3753,7 +3792,7 @@ var DATA = [
             }
           },
           "Blood Collection Tube": {
-            "ontology_id": "NCIT:C113122",
+            "ontology_id": "OBI:0002859",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3763,7 +3802,7 @@ var DATA = [
             }
           },
           "Bronchoscope": {
-            "ontology_id": "NCIT:C17611 ",
+            "ontology_id": "OBI:0002826",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3773,6 +3812,7 @@ var DATA = [
             }
           },
           "Collection Container": {
+            "ontology_id": "OBI:0002088",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3782,6 +3822,7 @@ var DATA = [
             }
           },
           "Collection Cup": {
+            "ontology_id": "OBI NTR?",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3791,6 +3832,7 @@ var DATA = [
             }
           },
           "Fibrobronchoscope Brush": {
+            "ontology_id": "OBI:0002825",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3800,6 +3842,7 @@ var DATA = [
             }
           },
           "Filter": {
+            "ontology_id": "ENVO NTR",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3809,6 +3852,7 @@ var DATA = [
             }
           },
           "Fine Needle": {
+            "ontology_id": "OBI:0002827",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3818,6 +3862,7 @@ var DATA = [
             }
           },
           "Microcapillary tube": {
+            "ontology_id": "OBI:0002858",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3847,7 +3892,7 @@ var DATA = [
             }
           },
           "Serum Collection Tube": {
-            "ontology_id": "NCIT:C113675 ",
+            "ontology_id": "OBI:0002860",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3857,6 +3902,7 @@ var DATA = [
             }
           },
           "Sputum Collection Tube": {
+            "ontology_id": "OBI:0002861",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3866,6 +3912,7 @@ var DATA = [
             }
           },
           "Suction Catheter": {
+            "ontology_id": "OBI:0002831",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3875,7 +3922,7 @@ var DATA = [
             }
           },
           "Swab": {
-            "ontology_id": "NCIT:c17627",
+            "ontology_id": "OBI NTR?",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3885,6 +3932,7 @@ var DATA = [
             }
           },
           "Urine Collection Tube": {
+            "ontology_id": "OBI:0002862",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3894,6 +3942,7 @@ var DATA = [
             }
           },
           "Virus Transport Medium": {
+            "ontology_id": "OBI:0002866",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3955,7 +4004,7 @@ var DATA = [
         },
         "schema:ItemList": {
           "Amniocentesis": {
-            "ontology_id": "NCIT:C52009",
+            "ontology_id": "OBI NTR",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3965,7 +4014,7 @@ var DATA = [
             }
           },
           "Aspiration": {
-            "ontology_id": "NCIT:C15631",
+            "ontology_id": "OBI NTR",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -3975,6 +4024,7 @@ var DATA = [
             },
             "schema:ItemList": {
               "Suprapubic Aspiration": {
+                "ontology_id": "OBI NTR",
                 "exportField": {
                   "NML_LIMS": [
                     {
@@ -3984,6 +4034,7 @@ var DATA = [
                 }
               },
               "Tracheal aspiration": {
+                "ontology_id": "OBI NTR",
                 "exportField": {
                   "NML_LIMS": [
                     {
@@ -3993,6 +4044,7 @@ var DATA = [
                 }
               },
               "Vacuum Aspiration": {
+                "ontology_id": "OBI NTR",
                 "exportField": {
                   "NML_LIMS": [
                     {
@@ -4026,6 +4078,7 @@ var DATA = [
             }
           },
           "Filtration": {
+            "ontology_id": "OBI:0302885",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -4035,6 +4088,7 @@ var DATA = [
             },
             "schema:ItemList": {
               "Air filtration": {
+                "ontology_id": "OBI NTR",
                 "exportField": {
                   "NML_LIMS": [
                     {
@@ -4056,7 +4110,7 @@ var DATA = [
             },
             "schema:ItemList": {
               "Bronchoalveolar lavage (BAL)": {
-                "ontology_id": "BTO:0000155",
+                "ontology_id": "OBI NTR",
                 "exportField": {
                   "NML_LIMS": [
                     {
@@ -4066,6 +4120,7 @@ var DATA = [
                 }
               },
               "Gastric Lavage": {
+                "ontology_id": "OBI NTR",
                 "exportField": {
                   "NML_LIMS": [
                     {
@@ -4077,7 +4132,7 @@ var DATA = [
             }
           },
           "Lumbar Puncture": {
-            "ontology_id": "NCIT:C15327",
+            "ontology_id": "OBI NTR",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -4087,7 +4142,7 @@ var DATA = [
             }
           },
           "Necropsy": {
-            "ontology_id": "MMO:0000344",
+            "ontology_id": "OBI NTR",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -4097,7 +4152,7 @@ var DATA = [
             }
           },
           "Phlebotomy": {
-            "ontology_id": "NCIT:c28221",
+            "ontology_id": "OBI NTR",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -4107,7 +4162,7 @@ var DATA = [
             }
           },
           "Rinsing": {
-            "ontology_id": "GENEPIO:0002116",
+            "ontology_id": "OBI NTR",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -4116,10 +4171,13 @@ var DATA = [
               ]
             },
             "schema:ItemList": {
-              "Saline gargle (mouth rinse and gargle)": {}
+              "Saline gargle (mouth rinse and gargle)": {
+                "ontology_id": "OBI NTR"
+              }
             }
           },
           "Scraping": {
+            "ontology_id": "OBI NTR",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -4129,7 +4187,7 @@ var DATA = [
             }
           },
           "Swabbing": {
-            "ontology_id": "GENEPIO:0002117",
+            "ontology_id": "OBI NTR",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -4139,6 +4197,7 @@ var DATA = [
             },
             "schema:ItemList": {
               "Finger Prick": {
+                "ontology_id": "OBI NTR",
                 "exportField": {
                   "NML_LIMS": [
                     {
@@ -4150,6 +4209,7 @@ var DATA = [
             }
           },
           "Wash": {
+            "ontology_id": "OBI NTR",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -4159,6 +4219,7 @@ var DATA = [
             }
           },
           "Washout Tear Collection": {
+            "ontology_id": "OBI NTR",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -4222,9 +4283,15 @@ var DATA = [
           ]
         },
         "schema:ItemList": {
-          "Virus passage": {},
-          "RNA re-extraction (post RT-PCR)": {},
-          "Specimens pooled": {}
+          "Virus passage": {
+            "ontology_id": "OBI NTR?"
+          },
+          "RNA re-extraction (post RT-PCR)": {
+            "ontology_id": "OBI NTR?"
+          },
+          "Specimens pooled": {
+            "ontology_id": "OBI:0600016"
+          }
         }
       },
       {
@@ -4264,18 +4331,24 @@ var DATA = [
           ]
         },
         "schema:ItemList": {
-          "293/ACE2 cell line": {},
+          "293/ACE2 cell line": {
+            "ontology_id": "BTO NTR"
+          },
           "Caco2 cell line": {
             "ontology_id": "BTO_0000195 "
           },
           "Calu3 cell line": {
             "ontology_id": "BTO_0002750"
           },
-          "EFK3B cell line": {},
+          "EFK3B cell line": {
+            "ontology_id": "BTO NTR"
+          },
           "HEK293T cell line": {
             "ontology_id": "BTO_0002181"
           },
-          "HRCE cell line": {},
+          "HRCE cell line": {
+            "ontology_id": "BTO NTR"
+          },
           "Huh7 cell line": {
             "ontology_id": "BTO_0001950"
           },
@@ -4285,7 +4358,6 @@ var DATA = [
           "MDBK cell line": {
             "ontology_id": "BTO_0000836 "
           },
-          "Mv1Lu cell line": {},
           "NHBE cell line": {
             "ontology_id": "BTO_0002924"
           },
@@ -4304,7 +4376,9 @@ var DATA = [
           "Vero E6 cell line": {
             "ontology_id": "BTO:0004755"
           },
-          "VeroE6/TMPRSS2 cell line": {}
+          "VeroE6/TMPRSS2 cell line": {
+            "ontology_id": "BTO NTR"
+          }
         }
       },
       {
@@ -4527,7 +4601,7 @@ var DATA = [
             }
           },
           "Pig": {
-            "ontology_id": "NCBITaxon_9823",
+            "ontology_id": "NCBITaxon_9825",
             "exportField": {
               "CNPHI": [
                 {
@@ -4910,7 +4984,7 @@ var DATA = [
         },
         "schema:ItemList": {
           "COVID-19": {
-            "ontology_id": "DOID_0080600"
+            "ontology_id": "MONDO:0100096"
           }
         }
       },
@@ -5057,17 +5131,53 @@ var DATA = [
           ]
         },
         "schema:ItemList": {
-          "0 - 9": {},
-          "10 - 19": {},
-          "20 - 29": {},
-          "30 - 39": {},
-          "40 - 49": {},
-          "50 - 59": {},
-          "60 - 69": {},
-          "70 - 79": {},
-          "80 - 89": {},
-          "90 - 99": {},
-          "100+": {}
+          "0 - 9": {
+            "ontology_id": "GENEPIO NTR"
+          },
+          "10 - 19": {
+            "ontology_id": "GENEPIO NTR"
+          },
+          "20 - 29": {
+            "ontology_id": "GENEPIO NTR"
+          },
+          "30 - 39": {
+            "ontology_id": "GENEPIO NTR"
+          },
+          "40 - 49": {
+            "ontology_id": "GENEPIO NTR"
+          },
+          "50 - 59": {
+            "ontology_id": "GENEPIO NTR"
+          },
+          "60 - 69": {
+            "ontology_id": "GENEPIO NTR"
+          },
+          "70 - 79": {
+            "ontology_id": "GENEPIO NTR"
+          },
+          "80 - 89": {
+            "ontology_id": "GENEPIO NTR"
+          },
+          "90 - 99": {
+            "ontology_id": "GENEPIO NTR",
+            "exportField": {
+              "VirusSeq_Portal": [
+                {
+                  "value": "90+"
+                }
+              ]
+            }
+          },
+          "100+": {
+            "ontology_id": "GENEPIO NTR",
+            "exportField": {
+              "VirusSeq_Portal": [
+                {
+                  "value": "90+"
+                }
+              ]
+            }
+          }
         }
       },
       {
@@ -5138,6 +5248,7 @@ var DATA = [
             }
           },
           "Non-binary gender": {
+            "ontology_id": "GSSO:000132",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -5147,6 +5258,7 @@ var DATA = [
             }
           },
           "Transgender (Male to Female)": {
+            "ontology_id": "GSSO:004004",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -5156,6 +5268,7 @@ var DATA = [
             }
           },
           "Transgender (Female to Male)": {
+            "ontology_id": "GSSO:004005",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -5330,7 +5443,9 @@ var DATA = [
           ]
         },
         "schema:ItemList": {
-          "Abnormal lung auscultation": {},
+          "Abnormal lung auscultation": {
+            "ontology_id": "HP REQUEST"
+          },
           "Abnormality of taste sensation": {
             "ontology_id": "HP:0000223",
             "exportField": {
@@ -5468,6 +5583,7 @@ var DATA = [
                 }
               },
               "Inability to arouse (inability to stay awake)": {
+                "ontology_id": "HP REQUEST",
                 "exportField": {
                   "NML_LIMS": [
                     {
@@ -5632,6 +5748,7 @@ var DATA = [
                     }
                   },
                   "Cyanotic face (bluish face)": {
+                    "ontology_id": "HP REQUEST",
                     "exportField": {
                       "NML_LIMS": [
                         {
@@ -5643,8 +5760,10 @@ var DATA = [
                 }
               },
               "Central Cyanosis": {
+                "ontology_id": "HP REQUEST",
                 "schema:ItemList": {
                   "Cyanotic lips (bluish lips)": {
+                    "ontology_id": "HP REQUEST",
                     "exportField": {
                       "NML_LIMS": [
                         {
@@ -5655,7 +5774,9 @@ var DATA = [
                   }
                 }
               },
-              "Peripheral Cyanosis": {}
+              "Peripheral Cyanosis": {
+                "ontology_id": "HP REQUEST"
+              }
             }
           },
           "Dyspnea (breathing difficulty)": {
@@ -5719,6 +5840,9 @@ var DATA = [
               ]
             }
           },
+          "Prostration (complete exhaustion)": {
+            "ontology_id": "HP REQUEST"
+          },
           "Fever": {
             "ontology_id": "HP_0001945 ",
             "exportField": {
@@ -5730,6 +5854,7 @@ var DATA = [
             },
             "schema:ItemList": {
               "Fever (>=38\u00b0C)": {
+                "ontology_id": "HP REQUEST",
                 "exportField": {
                   "CNPHI": [
                     {
@@ -5750,7 +5875,9 @@ var DATA = [
               ]
             }
           },
-          "Ground Glass Opacities (GGO)": {},
+          "Ground Glass Opacities (GGO)": {
+            "ontology_id": "HP REQUEST"
+          },
           "Headache": {
             "ontology_id": "HP_0002315",
             "exportField": {
@@ -5794,7 +5921,9 @@ var DATA = [
               ]
             },
             "schema:ItemList": {
-              "Silent hypoxemia": {}
+              "Silent hypoxemia": {
+                "ontology_id": "HP REQUEST"
+              }
             }
           },
           "Internal hemorrhage (internal bleeding)": {
@@ -5873,7 +6002,9 @@ var DATA = [
           "Nose bleed": {
             "ontology_id": "HP_0000421"
           },
-          "Otitis": {},
+          "Otitis": {
+            "ontology_id": "HP REQUEST"
+          },
           "Pain": {
             "ontology_id": "HP:0012531",
             "schema:ItemList": {
@@ -5934,18 +6065,20 @@ var DATA = [
               ]
             }
           },
-          "Pharyngeal exudate": {},
+          "Pharyngeal exudate": {
+            "ontology_id": "HP REQUEST"
+          },
           "Pleural effusion": {
             "ontology_id": "HP:0002202"
           },
           "Pneumonia": {
             "ontology_id": "HP:0002090"
           },
-          "Prostration": {},
           "Pseudo-chilblains": {
             "ontology_id": "HP:0033696",
             "schema:ItemList": {
               "Pseudo-chilblains on fingers (covid fingers)": {
+                "ontology_id": "HP REQUEST",
                 "exportField": {
                   "NML_LIMS": [
                     {
@@ -5955,6 +6088,7 @@ var DATA = [
                 }
               },
               "Pseudo-chilblains on toes (covid toes)": {
+                "ontology_id": "HP REQUEST",
                 "exportField": {
                   "NML_LIMS": [
                     {
@@ -6099,39 +6233,69 @@ var DATA = [
         },
         "schema:ItemList": {
           "Age 60+": {},
-          "Anemia": {},
-          "Anorexia": {},
-          "Birthing labor": {},
-          "Bone marrow failure": {},
+          "Anemia": {
+            "ontology_id": "HP:0001903"
+          },
+          "Anorexia": {
+            "ontology_id": "HP:0002039"
+          },
+          "Birthing labor": {
+            "ontology_id": "NCIT:C92743"
+          },
+          "Bone marrow failure": {
+            "ontology_id": "NCIT_C80693"
+          },
           "Cancer": {
+            "ontology_id": "MONDO:0004992",
             "schema:ItemList": {
-              "Breast cancer": {},
-              "Colorectal cancer": {},
-              "Hematologic malignancy": {},
-              "Lung cancer": {},
-              "Metastatic disease": {}
+              "Breast cancer": {
+                "ontology_id": "MONDO:0007254"
+              },
+              "Colorectal cancer": {
+                "ontology_id": "MONDO:0005575"
+              },
+              "Hematologic malignancy (cancer of the blood)": {
+                "ontology_id": "DOID:2531"
+              },
+              "Lung cancer": {
+                "ontology_id": "MONDO:0008903"
+              },
+              "Metastatic disease": {
+                "ontology_id": "MONDO:0024880"
+              }
             }
           },
           "Cancer treatment": {
+            "ontology_id": "NCIT:C16212",
             "schema:ItemList": {
-              "Cancer surgery": {},
+              "Cancer surgery": {
+                "ontology_id": "NCIT:C157740"
+              },
               "Chemotherapy": {
+                "ontology_id": "NCIT:C15632",
                 "schema:ItemList": {
-                  "Adjuvant chemotherapy": {}
+                  "Adjuvant chemotherapy": {
+                    "ontology_id": "NCIT:C15360"
+                  }
                 }
               }
             }
           },
           "Cardiac disorder": {
+            "ontology_id": "NCIT:C3079",
             "schema:ItemList": {
               "Arrhythmia": {
                 "ontology_id": "HP:0011675"
               },
-              "Cardiac disease": {},
+              "Cardiac disease": {
+                "ontology_id": "MONDO:0005267"
+              },
               "Cardiomyopathy": {
                 "ontology_id": "HP:0001638"
               },
-              "Cardiac injury": {},
+              "Cardiac injury": {
+                "ontology_id": "NCIT:C45430"
+              },
               "Hypertension (high blood pressure)": {
                 "ontology_id": "HP_0000822"
               },
@@ -6140,64 +6304,119 @@ var DATA = [
               }
             }
           },
-          "Cesarean section": {},
-          "Chronic cough": {},
-          "Chronic gastrointestinal disease": {},
-          "Chronic lung disease": {},
-          "Corticosteroids": {},
+          "Cesarean section": {
+            "ontology_id": "HP:0011410"
+          },
+          "Chronic cough": {
+            "ontology_id": "HP REQUEST"
+          },
+          "Chronic gastrointestinal disease": {
+            "ontology_id": "HP REQUEST"
+          },
+          "Chronic lung disease": {
+            "ontology_id": "HP:0006528"
+          },
+          "Corticosteroids": {
+            "ontology_id": "NCIT:C211"
+          },
           "Diabetes mellitus (diabetes)": {
+            "ontology_id": "HP:0000819",
             "schema:ItemList": {
-              "Type I diabetes mellitus (T1D)": {},
-              "Type II diabetes mellitus (T2D)": {}
+              "Type I diabetes mellitus (T1D)": {
+                "ontology_id": "HP:0100651"
+              },
+              "Type II diabetes mellitus (T2D)": {
+                "ontology_id": "HP:0005978"
+              }
             }
           },
-          "Eczema": {},
+          "Eczema": {
+            "ontology_id": "HP:0000964"
+          },
           "Electrolyte disturbance": {
+            "ontology_id": "HP:0003111",
             "schema:ItemList": {
-              "Hypocalcemia": {},
-              "Hypokalemia": {},
-              "Hypomagnesemia": {}
+              "Hypocalcemia": {
+                "ontology_id": "HP:0002901"
+              },
+              "Hypokalemia": {
+                "ontology_id": "HP:0002900"
+              },
+              "Hypomagnesemia": {
+                "ontology_id": "HP:0002917"
+              }
             }
           },
           "Encephalitis (brain inflammation)": {
             "ontology_id": "HP:0002383"
           },
-          "Epilepsy": {},
-          "Hemodialysis": {},
-          "Hemoglobinopathy": {},
+          "Epilepsy": {
+            "ontology_id": "MONDO:0005027"
+          },
+          "Hemodialysis": {
+            "ontology_id": "NCIT:C15248"
+          },
+          "Hemoglobinopathy": {
+            "ontology_id": "MONDO:0044348"
+          },
           "Human immunodeficiency virus (HIV)": {
+            "ontology_id": "MONDO:0005109",
             "schema:ItemList": {
-              "Acquired immunodeficiency syndrome (AIDS)": {},
-              "HIV and antiretroviral therapy (ART)": {}
+              "Acquired immunodeficiency syndrome (AIDS)": {
+                "ontology_id": "MONDO:0012268"
+              },
+              "HIV and antiretroviral therapy (ART)": {
+                "ontology_id": "NCIT:C16118"
+              }
             }
           },
           "Immunocompromised": {
+            "ontology_id": "NCIT:C14139",
             "schema:ItemList": {
-              "Lupus": {}
+              "Lupus": {
+                "ontology_id": "MONDO:0004670"
+              }
             }
           },
           "Inflammatory bowel disease (IBD)": {
+            "ontology_id": "MONDO:0005265",
             "schema:ItemList": {
               "Colitis": {
+                "ontology_id": "HP:0002583",
                 "schema:ItemList": {
-                  "Ulcerative colitis": {}
+                  "Ulcerative colitis": {
+                    "ontology_id": "HP:0100279"
+                  }
                 }
               },
-              "Crohn's disease": {}
+              "Crohn's disease": {
+                "ontology_id": "HP:0100280"
+              }
             }
           },
           "Renal disorder": {
+            "ontology_id": "NCIT:C3149",
             "schema:ItemList": {
-              "Renal disease": {},
-              "Chronic renal disease": {},
-              "Renal failure": {}
+              "Renal disease": {
+                "ontology_id": "MONDO:0005240"
+              },
+              "Chronic renal disease": {
+                "ontology_id": "HP:0012622"
+              },
+              "Renal failure": {
+                "ontology_id": "HP:0000084"
+              }
             }
           },
           "Liver disease": {
+            "ontology_id": "MONDO:0005154",
             "schema:ItemList": {
               "Chronic liver disease": {
+                "ontology_id": "NCIT:C113609",
                 "schema:ItemList": {
-                  "Fatty liver disease (FLD)": {}
+                  "Fatty liver disease (FLD)": {
+                    "ontology_id": "HP:0001397"
+                  }
                 }
               }
             }
@@ -6205,70 +6424,120 @@ var DATA = [
           "Myalgia (muscle pain)": {
             "ontology_id": "HP:0003326"
           },
-          "Myalgic encephalomyelitis (ME)": {},
+          "Myalgic encephalomyelitis (ME)": {
+            "ontology_id": "MONDO:0005404"
+          },
           "Neurological disorder": {
+            "ontology_id": "MONDO:0005071",
             "schema:ItemList": {
-              "Neuromuscular disorder": {}
+              "Neuromuscular disorder": {
+                "ontology_id": "MONDO:0019056"
+              }
             }
           },
           "Obesity": {
+            "ontology_id": "HP:0001513",
             "schema:ItemList": {
-              "Severe obesity": {}
+              "Severe obesity": {
+                "ontology_id": "MONDO:0005139"
+              }
             }
           },
           "Respiratory disorder": {
+            "ontology_id": "MONDO:0005087",
             "schema:ItemList": {
-              "Asthma": {},
-              "Chronic bronchitis": {},
+              "Asthma": {
+                "ontology_id": "HP:0002099"
+              },
+              "Chronic bronchitis": {
+                "ontology_id": "HP:0004469"
+              },
               "Chronic pulmonary disease": {
+                "ontology_id": "HP:0006528",
                 "schema:ItemList": {
-                  "Chronic obstructive pulmonary disease": {}
+                  "Chronic obstructive pulmonary disease": {
+                    "ontology_id": "HP:0006510"
+                  }
                 }
               },
-              "Emphysema": {},
+              "Emphysema": {
+                "ontology_id": "HP:0002097"
+              },
               "Lung disease": {
+                "ontology_id": "MONDO:0005275",
                 "schema:ItemList": {
-                  "Chronic lung disease": {},
-                  "Pulmonary fibrosis": {}
+                  "Chronic lung disease": {
+                    "ontology_id": "HP:0006528"
+                  },
+                  "Pulmonary fibrosis": {
+                    "ontology_id": "HP:0002206"
+                  }
                 }
               },
               "Pneumonia": {
                 "ontology_id": "HP:0002090"
               },
               "Respiratory failure": {
+                "ontology_id": "HP:0002878",
                 "schema:ItemList": {
-                  "Adult respiratory distress syndrome": {},
-                  "Newborn respiratory distress syndrome": {}
+                  "Adult respiratory distress syndrome": {
+                    "ontology_id": "HP:0033677"
+                  },
+                  "Newborn respiratory distress syndrome": {
+                    "ontology_id": "MONDO:0009971"
+                  }
                 }
               },
-              "Tuberculosis": {}
+              "Tuberculosis": {
+                "ontology_id": "MONDO:0018076"
+              }
             }
           },
           "Postpartum (\u22646 weeks)": {},
-          "Pregnancy": {},
-          "Rheumatic disease": {},
-          "Sickle cell disease": {},
+          "Pregnancy": {
+            "ontology_id": "NCIT:C25742"
+          },
+          "Rheumatic disease": {
+            "ontology_id": "MONDO:0005554"
+          },
+          "Sickle cell disease": {
+            "ontology_id": "MONDO:0011382"
+          },
           "Substance use": {
+            "ontology_id": "NBO:0001845",
             "schema:ItemList": {
-              "Alcohol abuse": {},
+              "Alcohol abuse": {
+                "ontology_id": "MONDO:0002046"
+              },
               "Drug abuse": {
                 "schema:ItemList": {
                   "Injection drug abuse": {}
                 }
               },
-              "Smoking": {},
-              "Vaping": {}
+              "Smoking": {
+                "ontology_id": "NBO:0015005"
+              },
+              "Vaping": {
+                "ontology_id": "NBO NTR"
+              }
             }
           },
           "Tachypnea (accelerated respiratory rate)": {
             "ontology_id": "HP:0002789"
           },
           "Transplant": {
+            "ontology_id": "NCIT:C159659",
             "schema:ItemList": {
-              "Bone marrow transplant": {},
+              "Bone marrow transplant": {
+                "ontology_id": "NCIT:C131759"
+              },
               "Cardiac transplant": {},
-              "Hematopoietic stem cell transplant (HSCT)": {},
-              "Kidney transplant": {},
+              "Hematopoietic stem cell transplant (HSCT)": {
+                "ontology_id": "NCIT:C126836"
+              },
+              "Kidney transplant": {
+                "ontology_id": "NCIT:C157332"
+              },
               "Liver transplant": {}
             }
           }
@@ -6301,128 +6570,247 @@ var DATA = [
           ]
         },
         "schema:ItemList": {
-          "Abnormal blood oxygen level": {},
-          "Acute respiratory failure": {},
+          "Abnormal blood oxygen level": {
+            "ontology_id": "HP:0500165"
+          },
+          "Acute respiratory failure": {
+            "ontology_id": "MONDO:0001208"
+          },
           "Arrhythmia (complication)": {
             "ontology_id": "HP:0011675",
             "schema:ItemList": {
               "Tachycardia": {
+                "ontology_id": "HP:0001649",
                 "schema:ItemList": {
-                  "Polymorphic ventricular tachycardia (VT)": {},
-                  "Tachyarrhythmia": {}
+                  "Polymorphic ventricular tachycardia (VT)": {
+                    "ontology_id": "HP:0031677"
+                  },
+                  "Tachyarrhythmia": {
+                    "ontology_id": "HP NTR"
+                  }
                 }
               }
             }
           },
           "Noncardiogenic pulmonary edema": {
+            "ontology_id": "HP NTR",
             "schema:ItemList": {
               "Acute respiratory distress syndrome (ARDS)": {
+                "ontology_id": "HP:0033677",
                 "schema:ItemList": {
-                  "COVID-19 associated ARDS (CARDS)": {},
-                  "Neurogenic pulmonary edema (NPE)": {}
+                  "COVID-19 associated ARDS (CARDS)": {
+                    "ontology_id": "HP NTR"
+                  },
+                  "Neurogenic pulmonary edema (NPE)": {
+                    "ontology_id": "HP NTR"
+                  }
                 }
               }
             }
           },
-          "Cardiac injury": {},
-          "Cardiac arrest": {},
-          "Cardiogenic shock": {},
+          "Cardiac injury": {
+            "ontology_id": "NCIT:C45430"
+          },
+          "Cardiac arrest": {
+            "ontology_id": "HP:0001695"
+          },
+          "Cardiogenic shock": {
+            "ontology_id": "HP:0030149"
+          },
           "Blood clot": {
+            "ontology_id": "UBERON:0010210",
             "schema:ItemList": {
-              "Arterial clot": {},
-              "Deep vein thrombosis (DVT)": {},
-              "Pulmonary embolism (PE)": {}
+              "Arterial clot": {
+                "ontology_id": "HP:0004420"
+              },
+              "Deep vein thrombosis (DVT)": {
+                "ontology_id": "HP:0002625"
+              },
+              "Pulmonary embolism (PE)": {
+                "ontology_id": "HP:0002204"
+              }
             }
           },
           "Cardiomyopathy": {
             "ontology_id": "HP:0001638"
           },
-          "Central nervous system invasion": {},
+          "Central nervous system invasion": {
+            "ontology_id": "MONDO:0024619"
+          },
           "Stroke (complication)": {
+            "ontology_id": "HP:0001297",
             "schema:ItemList": {
-              "Central Nervous System Vasculitis": {},
+              "Central Nervous System Vasculitis": {
+                "ontology_id": "MONDO:0003346"
+              },
               "Ischemic stroke": {
                 "schema:ItemList": {
-                  "Acute ischemic stroke": {}
+                  "Acute ischemic stroke": {
+                    "ontology_id": "HP:0002140"
+                  }
                 }
               }
             }
           },
-          "Coma": {},
-          "Convulsions": {},
-          "COVID-19 associated coagulopathy (CAC)": {},
-          "Cystic fibrosis": {},
-          "Cytokine release syndrome": {},
-          "Disseminated intravascular coagulation (DIC)": {},
-          "Encephalopathy": {},
-          "Fulminant myocarditis": {},
-          "Guillain-Barr\u00e9 syndrome": {},
+          "Coma": {
+            "ontology_id": "HP:0001259"
+          },
+          "Convulsions": {
+            "ontology_id": "HP:0011097"
+          },
+          "COVID-19 associated coagulopathy (CAC)": {
+            "ontology_id": "HP NTR"
+          },
+          "Cystic fibrosis": {
+            "ontology_id": "MONDO:0009061"
+          },
+          "Cytokine release syndrome": {
+            "ontology_id": "MONDO:0600008"
+          },
+          "Disseminated intravascular coagulation (DIC)": {
+            "ontology_id": "HP NTR"
+          },
+          "Encephalopathy": {
+            "ontology_id": "HP:0001298"
+          },
+          "Fulminant myocarditis": {
+            "ontology_id": "HP NTR"
+          },
+          "Guillain-Barr\u00e9 syndrome": {
+            "ontology_id": "MONDO:0016218"
+          },
           "Internal hemorrhage (complication; internal bleeding)": {
+            "ontology_id": "HP:0011029",
             "schema:ItemList": {
-              "Intracerebral haemorrhage": {}
+              "Intracerebral haemorrhage": {
+                "ontology_id": "MONDO:0013792"
+              }
             }
           },
           "Kawasaki disease": {
+            "ontology_id": "HP NTR",
             "schema:ItemList": {
-              "Typical Kawasaki disease": {},
-              "Incomplete Kawasaki disease": {}
+              "Typical Kawasaki disease": {
+                "ontology_id": "HP NTR"
+              },
+              "Incomplete Kawasaki disease": {
+                "ontology_id": "HP NTR"
+              }
             }
           },
           "Kidney injury": {
             "schema:ItemList": {
-              "Acute kidney injury": {}
+              "Acute kidney injury": {
+                "ontology_id": "HP:0001919"
+              }
             }
           },
-          "Liver dysfunction": {},
+          "Long COVID-19": {
+            "ontology_id": "MONDO:0100233"
+          },
+          "Liver dysfunction": {
+            "ontology_id": "HP:0001410"
+          },
           "Liver injury": {
             "schema:ItemList": {
-              "Acute liver injury": {}
+              "Acute liver injury": {
+                "ontology_id": "HP NTR"
+              }
             }
           },
           "Lung injury": {
             "schema:ItemList": {
-              "Acute lung injury": {}
+              "Acute lung injury": {
+                "ontology_id": "MONDO:0015796"
+              },
+              "Ventilation induced lung injury (VILI)": {
+                "ontology_id": "HP NTR"
+              }
             }
           },
-          "Meningitis": {},
-          "Migraine": {},
-          "Miscarriage": {},
-          "Multisystem inflammatory syndrome in children (MIS-C)": {},
-          "Muscle injury": {},
-          "Myalgic encephalomyelitis (ME)": {},
+          "Meningitis": {
+            "ontology_id": "HP:0001287"
+          },
+          "Migraine": {
+            "ontology_id": "HP:0002076"
+          },
+          "Miscarriage": {
+            "ontology_id": "HP:0005268"
+          },
+          "Multisystem inflammatory syndrome in children (MIS-C)": {
+            "ontology_id": "MONDO:0100163"
+          },
+          "Muscle injury": {
+            "ontology_id": "HP NTR"
+          },
+          "Myalgic encephalomyelitis (ME)": {
+            "ontology_id": "MONDO:0005404"
+          },
           "Myocardial infarction (heart attack)": {
+            "ontology_id": "MONDO:0005068",
             "schema:ItemList": {
-              "Acute myocardial infarction": {},
-              "Elevation myocardial infarction": {},
-              "ST-segment elevation myocardial infarction": {}
+              "Acute myocardial infarction": {
+                "ontology_id": "MONDO:0004781"
+              },
+              "ST-segment elevation myocardial infarction": {
+                "ontology_id": "MONDO:0041656"
+              }
             }
           },
-          "Myocardial injury": {},
-          "Neonatal complications": {},
+          "Myocardial injury": {
+            "ontology_id": "HP NTR"
+          },
+          "Neonatal complications": {
+            "ontology_id": "NCIT:C168498"
+          },
           "Organ failure": {
+            "ontology_id": "HP NTR",
             "schema:ItemList": {
-              "Heart failure": {},
-              "Liver failure": {}
+              "Heart failure": {
+                "ontology_id": "HP:0002878"
+              },
+              "Liver failure": {
+                "ontology_id": "HP:0001399"
+              }
             }
           },
-          "Paralysis": {},
+          "Paralysis": {
+            "ontology_id": "HP:0003470"
+          },
           "Pneumothorax (collapsed lung)": {
+            "ontology_id": "HP:0002107",
             "schema:ItemList": {
-              "Spontaneous pneumothorax": {},
-              "Spontaneous tension pneymothorax": {}
+              "Spontaneous pneumothorax": {
+                "ontology_id": "HP:0002108"
+              },
+              "Spontaneous tension pneumothorax": {
+                "ontology_id": "MONDO:0002075"
+              }
             }
           },
           "Pneumonia (complication)": {
+            "ontology_id": "HP:0002090",
             "schema:ItemList": {
-              "COVID-19 pneumonia": {}
+              "COVID-19 pneumonia": {
+                "ontology_id": "HP NTR"
+              }
             }
           },
-          "Pregancy complications": {},
-          "Rhabdomyolysis": {},
+          "Pregancy complications": {
+            "ontology_id": "HP:0001197"
+          },
+          "Rhabdomyolysis": {
+            "ontology_id": "HP:0003201"
+          },
           "Secondary infection": {
+            "ontology_id": "IDO:0000567",
             "schema:ItemList": {
-              "Secondary staph infection": {},
-              "Secondary strep infection": {}
+              "Secondary staph infection": {
+                "ontology_id": "IDO NTR"
+              },
+              "Secondary strep infection": {
+                "ontology_id": "IDO NTR"
+              }
             }
           },
           "Seizure (complication)": {
@@ -6433,18 +6821,32 @@ var DATA = [
               }
             }
           },
-          "Sepsis": {},
-          "Septicemia": {},
+          "Sepsis": {
+            "ontology_id": "HP:0100806"
+          },
+          "Septicemia": {
+            "ontology_id": "HP NTR"
+          },
           "Shock": {
+            "ontology_id": "HP:0031273",
             "schema:ItemList": {
-              "Hyperinflammatory shock": {},
-              "Refractory cardiogenic shock": {},
-              "Refractory cardiogenic plus vasoplegic shock": {},
-              "Septic shock": {}
+              "Hyperinflammatory shock": {
+                "ontology_id": "HP NTR"
+              },
+              "Refractory cardiogenic shock": {
+                "ontology_id": "HP NTR"
+              },
+              "Refractory cardiogenic plus vasoplegic shock": {
+                "ontology_id": "HP NTR"
+              },
+              "Septic shock": {
+                "ontology_id": "HP NTR"
+              }
             }
           },
-          "Vasculitis": {},
-          "Ventilation induced lung injury (VILI)": {}
+          "Vasculitis": {
+            "ontology_id": "HP:0002633"
+          }
         }
       }
     ]
@@ -6809,9 +7211,13 @@ var DATA = [
         },
         "schema:ItemList": {
           "Mass Gathering": {
+            "ontology_id": "PCO NTR",
             "schema:ItemList": {
-              "Agricultural Event": {},
+              "Agricultural Event": {
+                "ontology_id": "PCO NTR"
+              },
               "Convention": {
+                "ontology_id": "PCO NTR",
                 "exportField": {
                   "NML_LIMS": [
                     {
@@ -6820,16 +7226,24 @@ var DATA = [
                   ]
                 }
               },
-              "Convocation": {},
+              "Convocation": {
+                "ontology_id": "PCO NTR"
+              },
               "Recreational Event": {
+                "ontology_id": "PCO NTR",
                 "schema:ItemList": {
-                  "Concert": {},
-                  "Sporting Event": {}
+                  "Concert": {
+                    "ontology_id": "PCO NTR"
+                  },
+                  "Sporting Event": {
+                    "ontology_id": "PCO NTR"
+                  }
                 }
               }
             }
           },
           "Religious Gathering": {
+            "ontology_id": "PCO NTR",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -6838,10 +7252,13 @@ var DATA = [
               ]
             },
             "schema:ItemList": {
-              "Mass": {}
+              "Mass": {
+                "ontology_id": "PCO NTR"
+              }
             }
           },
           "Social Gathering": {
+            "ontology_id": "PCO:0000033",
             "exportField": {
               "NML_LIMS": [
                 {
@@ -6850,20 +7267,37 @@ var DATA = [
               ]
             },
             "schema:ItemList": {
-              "Baby Shower": {},
-              "Community Event": {},
+              "Baby Shower": {
+                "ontology_id": "PCO:0000039"
+              },
+              "Community Event": {
+                "ontology_id": "PCO:0000034"
+              },
               "Family Gathering": {
+                "ontology_id": "PCO NTR",
                 "schema:ItemList": {
-                  "Family Reunion": {}
+                  "Family Reunion": {
+                    "ontology_id": "PCO NTR"
+                  }
                 }
               },
-              "Funeral": {},
-              "Party": {},
-              "Potluck": {},
-              "Wedding": {}
+              "Funeral": {
+                "ontology_id": "PCO NTR"
+              },
+              "Party": {
+                "ontology_id": "PCO:0000035"
+              },
+              "Potluck": {
+                "ontology_id": "PCO:0000037"
+              },
+              "Wedding": {
+                "ontology_id": "PCO:0000038"
+              }
             }
           },
-          "Other exposure event": {}
+          "Other exposure event": {
+            "ontology_id": "NCIT:C168623"
+          }
         }
       },
       {
@@ -6894,12 +7328,20 @@ var DATA = [
         },
         "schema:ItemList": {
           "Contact with infected individual": {
+            "ontology_id": "NCIT NTR?",
             "schema:ItemList": {
-              "Direct contact (direct human-to-human contact)": {},
+              "Direct contact (direct human-to-human contact)": {
+                "ontology_id": "NCIT NTR?"
+              },
               "Indirect contact": {
+                "ontology_id": "NCIT NTR?",
                 "schema:ItemList": {
-                  "Close contact (face-to-face, no direct contact)": {},
-                  "Casual contact": {}
+                  "Close contact (face-to-face, no direct contact)": {
+                    "ontology_id": "NCIT NTR?"
+                  },
+                  "Casual contact": {
+                    "ontology_id": "NCIT:C102606"
+                  }
                 }
               }
             }
@@ -6928,66 +7370,141 @@ var DATA = [
         },
         "schema:ItemList": {
           "Attendee": {
+            "ontology_id": "OMRSE NTR",
             "schema:ItemList": {
-              "Student": {}
+              "Student": {
+                "ontology_id": "OMRSE:00000058"
+              }
             }
           },
           "Patient": {
+            "ontology_id": "OMRSE:00000030",
             "schema:ItemList": {
-              "Inpatient": {},
-              "Outpatient": {}
+              "Inpatient": {
+                "ontology_id": "OMRSE NTR"
+              },
+              "Outpatient": {
+                "ontology_id": "OMRSE NTR"
+              }
             }
           },
-          "Passenger": {},
-          "Resident": {},
-          "Visitor": {},
-          "Volunteer": {},
+          "Passenger": {
+            "ontology_id": "OMRSE NTR"
+          },
+          "Resident": {
+            "ontology_id": "OMRSE NTR"
+          },
+          "Visitor": {
+            "ontology_id": "OMRSE NTR"
+          },
+          "Volunteer": {
+            "ontology_id": "OMRSE NTR"
+          },
           "Work": {
+            "ontology_id": "OMRSE NTR",
             "schema:ItemList": {
-              "Administrator": {},
+              "Administrator": {
+                "ontology_id": "OMRSE NTR"
+              },
               "First Responder": {
+                "ontology_id": "OMRSE NTR",
                 "schema:ItemList": {
-                  "Firefighter": {},
-                  "Paramedic": {},
-                  "Police Officer": {}
+                  "Firefighter": {
+                    "ontology_id": "OMRSE NTR"
+                  },
+                  "Paramedic": {
+                    "ontology_id": "OMRSE NTR"
+                  },
+                  "Police Officer": {
+                    "ontology_id": "OMRSE NTR"
+                  }
                 }
               },
-              "Child Care/Education Worker": {},
-              "Essential Worker": {},
-              "Healthcare Worker": {},
-              "Nurse": {},
-              "Personal Care Aid": {},
-              "Pharmacist": {},
-              "Physician": {},
-              "Housekeeper": {},
-              "International worker": {},
-              "Kitchen Worker": {},
-              "Laboratory Worker": {},
-              "Rotational Worker": {},
-              "Seasonal Worker": {},
+              "Child Care/Education Worker": {
+                "ontology_id": "OMRSE NTR"
+              },
+              "Essential Worker": {
+                "ontology_id": "OMRSE NTR"
+              },
+              "Healthcare Worker": {
+                "ontology_id": "OMRSE NTR",
+                "schema:ItemList": {
+                  "Nurse": {
+                    "ontology_id": "OMRSE:00000014"
+                  },
+                  "Personal Care Aid": {
+                    "ontology_id": "OMRSE NTR"
+                  },
+                  "Pharmacist": {
+                    "ontology_id": "OMRSE NTR"
+                  },
+                  "Physician": {
+                    "ontology_id": "OMRSE:00000050"
+                  }
+                }
+              },
+              "Housekeeper": {
+                "ontology_id": "OMRSE NTR"
+              },
+              "International worker": {
+                "ontology_id": "OMRSE NTR"
+              },
+              "Kitchen Worker": {
+                "ontology_id": "OMRSE NTR"
+              },
+              "Laboratory Worker": {
+                "ontology_id": "OMRSE NTR"
+              },
+              "Rotational Worker": {
+                "ontology_id": "OMRSE NTR"
+              },
+              "Seasonal Worker": {
+                "ontology_id": "OMRSE NTR"
+              },
               "Transport Worker": {
+                "ontology_id": "OMRSE NTR",
                 "schema:ItemList": {
-                  "Transport Truck Driver": {}
+                  "Transport Truck Driver": {
+                    "ontology_id": "OMRSE NTR"
+                  }
                 }
               },
-              "Veterinarian": {}
+              "Veterinarian": {
+                "ontology_id": "OMRSE NTR"
+              }
             }
           },
           "Social role": {
+            "ontology_id": "OMRSE:00000001",
             "schema:ItemList": {
-              "Acquaintance of case": {},
+              "Acquaintance of case": {
+                "ontology_id": "OMRSE NTR"
+              },
               "Relative of case": {
+                "ontology_id": "OMRSE NTR",
                 "schema:ItemList": {
-                  "Child of case": {},
-                  "Parent of case": {},
-                  "Father of case": {},
-                  "Mother of case": {}
+                  "Child of case": {
+                    "ontology_id": "OMRSE NTR"
+                  },
+                  "Parent of case": {
+                    "ontology_id": "OMRSE NTR"
+                  },
+                  "Father of case": {
+                    "ontology_id": "OMRSE NTR"
+                  },
+                  "Mother of case": {
+                    "ontology_id": "OMRSE NTR"
+                  }
                 }
               },
-              "Spouse of case": {}
+              "Spouse of case": {
+                "ontology_id": "OMRSE NTR"
+              }
             }
           },
-          "Other Host Role": {}
+          "Other Host Role": {
+            "ontology_id": "OMRSE NTR"
+          }
         }
       },
       {
@@ -7014,84 +7531,156 @@ var DATA = [
           "Human Exposure": {
             "ontology_id": "ECTO_3000005",
             "schema:ItemList": {
-              "Contact with Known COVID-19 Case": {},
-              "Contact with Patient": {},
-              "Contact with Probable COVID-19 Case": {},
-              "Contact with Person with Acute Respiratory Illness": {},
-              "Contact with Person with Fever and/or Cough": {},
-              "Contact with Person who Recently Travelled": {}
+              "Contact with Known COVID-19 Case": {
+                "ontology_id": "ECTO NTR"
+              },
+              "Contact with Patient": {
+                "ontology_id": "ECTO NTR"
+              },
+              "Contact with Probable COVID-19 Case": {
+                "ontology_id": "ECTO NTR"
+              },
+              "Contact with Person with Acute Respiratory Illness": {
+                "ontology_id": "ECTO NTR"
+              },
+              "Contact with Person with Fever and/or Cough": {
+                "ontology_id": "ECTO NTR"
+              },
+              "Contact with Person who Recently Travelled": {
+                "ontology_id": "ECTO NTR"
+              }
             }
           },
           "Occupational, Residency or Patronage Exposure": {
+            "ontology_id": "ECTO NTR?",
             "schema:ItemList": {
               "Abbatoir": {
                 "ontology_id": "ECTO_1000033"
               },
-              "Animal Rescue": {},
+              "Animal Rescue": {
+                "ontology_id": "ECTO NTR"
+              },
               "Childcare": {
+                "ontology_id": "ECTO NTR",
                 "schema:ItemList": {
-                  "Daycare": {}
+                  "Daycare": {
+                    "ontology_id": "ECTO NTR"
+                  }
                 }
               },
-              "Funeral Home": {},
+              "Funeral Home": {
+                "ontology_id": "ECTO NTR"
+              },
               "Place of Worship": {
+                "ontology_id": "ECTO NTR",
                 "schema:ItemList": {
-                  "Church": {},
-                  "Mosque": {},
-                  "Temple": {}
+                  "Church": {
+                    "ontology_id": "ECTO NTR"
+                  },
+                  "Mosque": {
+                    "ontology_id": "ECTO NTR"
+                  },
+                  "Temple": {
+                    "ontology_id": "ECTO NTR"
+                  }
                 }
               },
-              "Nursery": {},
-              "Household": {},
-              "Community Service Centre": {},
-              "Correctional Facility": {},
-              "Dormitory": {},
+              "Nursery": {
+                "ontology_id": "ECTO NTR"
+              },
+              "Household": {
+                "ontology_id": "ECTO NTR"
+              },
+              "Community Service Centre": {
+                "ontology_id": "ECTO NTR"
+              },
+              "Correctional Facility": {
+                "ontology_id": "ECTO NTR"
+              },
+              "Dormitory": {
+                "ontology_id": "ECTO NTR"
+              },
               "Farm": {
                 "ontology_id": "ECTO_1000034"
               },
-              "First Nations Reserve": {},
-              "Group Home": {},
+              "First Nations Reserve": {
+                "ontology_id": "ECTO NTR"
+              },
+              "Group Home": {
+                "ontology_id": "ECTO NTR"
+              },
               "Healthcare Setting": {
-                "ontology_id": "ECTO_1000035",
+                "ontology_id": "ECTO NTR",
                 "schema:ItemList": {
-                  "Ambulance": {},
-                  "Acute Care Facility": {},
-                  "Clinic": {},
-                  "Community Health Centre": {},
+                  "Ambulance": {
+                    "ontology_id": "ECTO NTR"
+                  },
+                  "Acute Care Facility": {
+                    "ontology_id": "ECTO NTR"
+                  },
+                  "Clinic": {
+                    "ontology_id": "ECTO NTR"
+                  },
+                  "Community Health Centre": {
+                    "ontology_id": "ECTO NTR"
+                  },
                   "Hospital": {
+                    "ontology_id": "ECTO_1000035",
                     "schema:ItemList": {
-                      "Emergency Department": {},
-                      "ICU": {},
-                      "Ward": {}
+                      "Emergency Department": {
+                        "ontology_id": "ECTO NTR"
+                      },
+                      "ICU": {
+                        "ontology_id": "ECTO NTR"
+                      },
+                      "Ward": {
+                        "ontology_id": "ECTO NTR"
+                      }
                     }
                   },
                   "Laboratory": {
                     "ontology_id": "ECTO_1000036"
                   },
-                  "Long-Term Care Facility": {},
-                  "Pharmacy": {},
-                  "Physician's Office": {}
+                  "Long-Term Care Facility": {
+                    "ontology_id": "ECTO NTR"
+                  },
+                  "Pharmacy": {
+                    "ontology_id": "ECTO NTR"
+                  },
+                  "Physician's Office": {
+                    "ontology_id": "ECTO NTR"
+                  }
                 }
               },
-              "Insecure Housing (Homeless)": {},
+              "Insecure Housing (Homeless)": {
+                "ontology_id": "ECTO NTR"
+              },
               "Occupational Exposure": {
+                "ontology_id": "ECTO NTR",
                 "schema:ItemList": {
-                  "Worksite": {},
+                  "Worksite": {
+                    "ontology_id": "ECTO NTR"
+                  },
                   "Office": {
                     "ontology_id": "ECTO:1000037"
                   }
                 }
               },
               "Outdoors": {
+                "ontology_id": "ECTO NTR",
                 "schema:ItemList": {
                   "Camp/camping": {
                     "ontology_id": "ECTO_5000009"
                   },
-                  "Hiking Trail": {},
+                  "Hiking Trail": {
+                    "ontology_id": "ECTO NTR"
+                  },
                   "Hunting Ground": {
                     "ontology_id": "ECTO_6000030"
                   },
-                  "Ski Resort": {}
+                  "Ski Resort": {
+                    "ontology_id": "ECTO NTR"
+                  }
                 }
               },
               "Petting zoo": {
@@ -7103,34 +7692,48 @@ var DATA = [
               "Retail Store": {
                 "ontology_id": "ECTO_1000041"
               },
-              "School": {},
-              "Temporary Residence": {
-                "schema:ItemList": {
-                  "Homeless Shelter": {},
-                  "Hotel": {}
-                }
+              "School": {
+                "ontology_id": "ECTO NTR"
               },
-              "Veterinary Care Clinic": {}
-            }
-          },
-          "Travel Exposure": {
-            "schema:ItemList": {
-              "Travelled": {
+              "Temporary Residence": {
+                "ontology_id": "ECTO NTR",
                 "schema:ItemList": {
-                  "Travelled on a Cruise Ship": {},
-                  "Travelled on a Plane": {},
-                  "Travelled on Ground Transport": {},
-                  "Travelled outside Province/Territory": {
-                    "ontology_id": "GENEPIO_0001119"
+                  "Homeless Shelter": {
+                    "ontology_id": "ECTO NTR"
                   },
-                  "Travelled outside Canada": {
-                    "ontology_id": "GENEPIO_0001118"
+                  "Hotel": {
+                    "ontology_id": "ECTO NTR"
                   }
                 }
+              },
+              "Veterinary Care Clinic": {
+                "ontology_id": "ECTO NTR"
               }
             }
           },
-          "Other Exposure Setting": {}
+          "Travel Exposure": {
+            "ontology_id": "ECTO NTR",
+            "schema:ItemList": {
+              "Travelled on a Cruise Ship": {
+                "ontology_id": "ECTO NTR"
+              },
+              "Travelled on a Plane": {
+                "ontology_id": "ECTO NTR"
+              },
+              "Travelled on Ground Transport": {
+                "ontology_id": "ECTO NTR"
+              },
+              "Travelled outside Province/Territory": {
+                "ontology_id": "GENEPIO_0001119"
+              },
+              "Travelled outside Canada": {
+                "ontology_id": "GENEPIO_0001118"
+              }
+            }
+          },
+          "Other Exposure Setting": {
+            "ontology_id": "GENEPIO NTR?"
+          }
         }
       },
       {
@@ -7354,7 +7957,9 @@ var DATA = [
           ]
         },
         "schema:ItemList": {
-          "Baseline surveillance (random sampling)": {},
+          "Baseline surveillance (random sampling)": {
+            "ontology_id": "See comment"
+          },
           "Targeted surveillance (non-random sampling)": {
             "schema:ItemList": {
               "Priority surveillance project": {
@@ -7377,12 +7982,14 @@ var DATA = [
             }
           },
           "Cluster/Outbreak investigation": {
+            "ontology_id": "HSO:0000371",
             "schema:ItemList": {
               "Multi-jurisdictional outbreak investigation": {},
               "Intra-jurisdictional outbreak investigation": {}
             }
           },
           "Research": {
+            "ontology_id": "NCIT_c15429",
             "schema:ItemList": {
               "Viral passage experiment": {},
               "Protocol testing experiment": {}
@@ -7442,14 +8049,14 @@ var DATA = [
         ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
-        "requirement": "",
+        "requirement": "required",
         "description": "The date the sample was sequenced.",
         "guidance": "ISO 8601 standard \"YYYY-MM-DD\".",
         "examples": "2020-06-22",
         "exportField": {
           "NML_LIMS": [
             {
-              "field": "sequencing date"
+              "field": "PH_SEQUENCING_DATE"
             }
           ]
         }
@@ -7594,12 +8201,18 @@ var DATA = [
                   }
                 }
               },
-              "Illumina HiScanSQ": {},
-              "Illumina HiSeq": {},
+              "Illumina HiScanSQ": {
+                "ontology_id": "OBI NTR?"
+              },
+              "Illumina HiSeq": {
+                "ontology_id": "OBI NTR?"
+              },
               "Illumina HiSeq X": {
-                "ontology_id": "OBI_0002129",
+                "ontology_id": "OBI NTR?",
                 "schema:ItemList": {
-                  "Illumina HiSeq X Five": {},
+                  "Illumina HiSeq X Five": {
+                    "ontology_id": "OBI NTR?"
+                  },
                   "Illumina HiSeq X Ten": {
                     "ontology_id": "OBI_0002129"
                   }
@@ -7608,7 +8221,9 @@ var DATA = [
               "Illumina HiSeq 1000": {
                 "ontology_id": "OBI_0002022"
               },
-              "Illumina HiSeq 1500": {},
+              "Illumina HiSeq 1500": {
+                "ontology_id": "OBI NTR?"
+              },
               "Illumina HiSeq 2000": {
                 "ontology_id": "OBI_0002001"
               },
@@ -7622,13 +8237,15 @@ var DATA = [
                 "ontology_id": "OBI_0002049"
               },
               "Illumina iSeq": {
+                "ontology_id": "OBI NTR?",
                 "schema:ItemList": {
                   "Illumina iSeq 100": {
-                    "ontology_id": "EFO:0008635"
+                    "ontology_id": "OBI NTR?"
                   }
                 }
               },
               "Illumina NovaSeq": {
+                "ontology_id": "OBI NTR?",
                 "schema:ItemList": {
                   "Illumina NovaSeq 6000": {
                     "ontology_id": "OBI_0002630"
@@ -7636,23 +8253,31 @@ var DATA = [
                 }
               },
               "Illumina MiniSeq": {
-                "ontology_id": "EFO_0008636"
+                "ontology_id": "OBI NTR?"
               },
               "Illumina MiSeq": {
                 "ontology_id": "OBI_0002003"
               },
-              "Illumina NextSeq": {},
+              "Illumina NextSeq": {
+                "ontology_id": "OBI NTR?"
+              },
               "Illumina NextSeq 500": {
                 "ontology_id": "OBI_0002021"
               },
-              "Illumina NextSeq 550": {},
-              "Illumina NextSeq 2000": {}
+              "Illumina NextSeq 550": {
+                "ontology_id": "OBI NTR?"
+              },
+              "Illumina NextSeq 2000": {
+                "ontology_id": "OBI NTR?"
+              }
             }
           },
           "Pacific Biosciences": {
             "ontology_id": "OBI_0001856",
             "schema:ItemList": {
-              "PacBio RS": {},
+              "PacBio RS": {
+                "ontology_id": "OBI NTR?"
+              },
               "PacBio RS II": {
                 "ontology_id": "OBI_0002012"
               },
@@ -7665,33 +8290,59 @@ var DATA = [
             }
           },
           "Ion Torrent": {
+            "ontology_id": "OBI NTR?",
             "schema:ItemList": {
               "Ion Torrent PGM": {
                 "ontology_id": "GENEPIO_0001935"
               },
-              "Ion Torrent Proton": {},
-              "Ion Torrent S5 XL": {},
-              "Ion Torrent S5": {}
+              "Ion Torrent Proton": {
+                "ontology_id": "OBI NTR?"
+              },
+              "Ion Torrent S5 XL": {
+                "ontology_id": "OBI NTR?"
+              },
+              "Ion Torrent S5": {
+                "ontology_id": "OBI NTR?"
+              }
             }
           },
           "Oxford Nanopore": {
+            "ontology_id": "OBI NTR?",
             "schema:ItemList": {
-              "Oxford Nanopore GridION": {},
-              "Oxford Nanopore MinION": {},
-              "Oxford Nanopore PromethION": {}
+              "Oxford Nanopore GridION": {
+                "ontology_id": "OBI:0002751"
+              },
+              "Oxford Nanopore MinION": {
+                "ontology_id": "OBI:0002750"
+              },
+              "Oxford Nanopore PromethION": {
+                "ontology_id": "OBI:0002752"
+              }
             }
           },
           "BGI Genomics": {
+            "ontology_id": "OBI NTR?",
             "schema:ItemList": {
-              "BGI Genomics BGISEQ-500": {}
+              "BGI Genomics BGISEQ-500": {
+                "ontology_id": "OBI NTR?"
+              }
             }
           },
           "MGI": {
+            "ontology_id": "OBI NTR?",
             "schema:ItemList": {
-              "MGI DNBSEQ-T7": {},
-              "MGI DNBSEQ-G400": {},
-              "MGI DNBSEQ-G400 FAST": {},
-              "MGI DNBSEQ-G50": {}
+              "MGI DNBSEQ-T7": {
+                "ontology_id": "OBI NTR?"
+              },
+              "MGI DNBSEQ-G400": {
+                "ontology_id": "OBI NTR?"
+              },
+              "MGI DNBSEQ-G400 FAST": {
+                "ontology_id": "OBI NTR?"
+              },
+              "MGI DNBSEQ-G50": {
+                "ontology_id": "OBI NTR?"
+              }
             }
           }
         }
@@ -7804,14 +8455,14 @@ var DATA = [
         "dataStatus": null,
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
-        "requirement": "recommended",
+        "requirement": "required",
         "description": "The names of the software and version number used for raw data processing such as removing barcodes, adapter trimming, filtering etc.",
         "guidance": "Provide the software name followed by the version e.g. Trimmomatic v. 0.38, Porechop v. 0.2.3",
         "examples": "Porechop 0.2.3",
         "exportField": {
           "NML_LIMS": [
             {
-              "field": "raw sequence data processing method"
+              "field": "PH_RAW_SEQUENCE_METHOD"
             }
           ],
           "VirusSeq_Portal": [
@@ -7830,7 +8481,7 @@ var DATA = [
         "dataStatus": null,
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
-        "requirement": "",
+        "requirement": "required",
         "description": "The method used to remove host reads from the pathogen sequence.",
         "guidance": "Provide the name and version number of the software used to remove host reads.",
         "examples": "Nanostripper",
@@ -8274,10 +8925,10 @@ var DATA = [
         "dataStatus": null,
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The name and version number of the bioinformatics protocol used.",
-        "guidance": "Further details regarding the methods used to process raw data, and/or generate assemblies, and/or generate consensus sequences can be provided in an SOP or protocol. Provide the name and version number of the protocol.",
-        "examples": "https://www.protocols.io/groups/cphln-sarscov2-sequencing-consortium/members",
+        "requirement": "required",
+        "description": "A description of the overall bioinformatics strategy used.",
+        "guidance": "Further details regarding the methods used to process raw data, and/or generate assemblies, and/or generate consensus sequences can. This information can be provided in an SOP or protocol or pipeline/workflow. Provide the name and version number of the protocol, or a GitHub link to a pipeline or workflow.",
+        "examples": "https://github.com/phac-nml/ncov2019-artic-nf",
         "exportField": {
           "CNPHI": [
             {
@@ -8743,6 +9394,7 @@ var DATA = [
             }
           },
           "orf3b": {
+            "ontology_id": "PR NTR",
             "exportField": {
               "BIOSAMPLE": [
                 {
@@ -8802,6 +9454,7 @@ var DATA = [
             }
           },
           "orf9c": {
+            "ontology_id": "PR NTR?",
             "exportField": {
               "BIOSAMPLE": [
                 {
@@ -8821,6 +9474,7 @@ var DATA = [
             }
           },
           "orf14": {
+            "ontology_id": "PR NTR?",
             "exportField": {
               "BIOSAMPLE": [
                 {

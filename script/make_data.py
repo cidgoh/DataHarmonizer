@@ -150,6 +150,9 @@ with open(r_filename) as tsvfile:
 							'examples':			row['examples']
 						}
 						
+						if 'pattern' in row and len(row['pattern']) > 0:
+							field['pattern'] = row['pattern'];
+
 						export_fields (EXPORT_FORMAT, field, row, True);
 
 						reference_html += '''
