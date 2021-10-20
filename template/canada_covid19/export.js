@@ -628,6 +628,7 @@ var exportNML_LIMS = (baseName, hot, data, xlsx, fileType) => {
   const outputMatrix = [[...ExportHeaders.keys()]];
 
   // Conversion of all cancogen metadata keywords to NML LIMS version
+  /*
   nullOptionsMap = new Map([
     ['Not Applicable', 'NA'],
     ['Missing', 'MISSING'],
@@ -635,7 +636,8 @@ var exportNML_LIMS = (baseName, hot, data, xlsx, fileType) => {
     ['Not Provided', 'NOT_PROVIDED'],
     ['Restricted Access', 'RESTRICTED_ACCESS']
   ]);
-
+  */
+  
   for (const inputRow of getTrimmedData(hot)) {
     const outputRow = [];
     for (const [headerName, sources] of ExportHeaders) {
@@ -698,7 +700,7 @@ var exportNML_LIMS = (baseName, hot, data, xlsx, fileType) => {
       }
 
       // Otherwise apply source (many to one) to target field transform:
-      const value = getMappedField(headerName, inputRow, sources, sourceFields, sourceFieldNameMap, ';', 'NML_LIMS', nullOptionsMap);
+      const value = getMappedField(headerName, inputRow, sources, sourceFields, sourceFieldNameMap, ';', 'NML_LIMS');
 
       outputRow.push(value);
     }
