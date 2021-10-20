@@ -20,7 +20,7 @@ GENEPIO_0001158		Sample collection and processing	sample collector contact addre
 GENEPIO_0001159		Sample collection and processing	sequence submitted by	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required					The name of the agency that generated the sequence.	The name of the agency should be written out in full, (with minor exceptions) and be consistent across multple submissions. If submitting specimens rather than sequencing data, please put the "National Microbiology Laboratory (NML)".	Public Health Ontario (PHO)	Submitting lab	Sequencing Centre	PH_SEQUENCING_CENTRE	sequenced_by	sequence submitted by
 GENEPIO_0001165		Sample collection and processing	sequence submitter contact email	xs:token								The email address of the contact responsible for follow-up regarding the sequence.	The email address can represent a specific individual or lab e.g. johnnyblogs@lab.ca, or RespLab@lab.ca	RespLab@lab.ca			sequence submitter contact email		
 GENEPIO_0001167		Sample collection and processing	sequence submitter contact address	xs:token								The mailing address of the agency submitting the sequence.	The mailing address should be in the format: Street number and name, City, Province/Territory, Postal Code, Country	123 Sunnybrooke St, Toronto, Ontario, M4P 1L6, Canada	Address		sequence submitter contact address		
-GENEPIO_0001174		Sample collection and processing	sample collection date	xs:date		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required					The date on which the sample was collected.	Sample collection date is critical for surveillance and many types of analyses. Required granularity includes year, month and day. If this date is considered identifiable information, it is acceptable to add "jitter" by adding or subtracting a calendar day (acceptable by GISAID). Alternatively, ”received date” may be used as a substitute. The date should be provided in ISO 8601 standard format "YYYY-MM-DD".	2020-03-16	Collection date	Patient Sample Collected Date	HC_COLLECT_DATE	sample collection date	sample collection date
+GENEPIO_0001174		Sample collection and processing	sample collection date	xs:date		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required	2019-10-01				The date on which the sample was collected.	Sample collection date is critical for surveillance and many types of analyses. Required granularity includes year, month and day. If this date is considered identifiable information, it is acceptable to add "jitter" by adding or subtracting a calendar day (acceptable by GISAID). Alternatively, ”received date” may be used as a substitute. The date should be provided in ISO 8601 standard format "YYYY-MM-DD".	2020-03-16	Collection date	Patient Sample Collected Date	HC_COLLECT_DATE	sample collection date	sample collection date
 GENEPIO_0001177		Sample collection and processing	sample collection date precision	select			required					The precision to which the "sample collection date" was provided.	Provide the precision of granularity to the "day", "month", or "year" for the date provided in the "sample collection date" field. The "sample collection date" will be truncated to the precision specified upon export; "day" for "YYYY-MM-DD", "month" for "YYYY-MM", or "year" for "YYYY".	year		Precision of date collected	HC_TEXT2		
 GENEPIO_0001179		Sample collection and processing	sample received date	xs:date		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access						The date on which the sample was received.	ISO 8601 standard "YYYY-MM-DD".	2020-03-20			sample received date		
 GENEPIO_0001181		Sample collection and processing	geo_loc_name (country)	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required					The country where the sample was collected.	Provide the country name from the controlled vocabulary provided.	Canada	Location	Patient Country	HC_COUNTRY	geo_loc_name	geo_loc_name (country)
@@ -96,7 +96,7 @@ GENEPIO_0001440		Host reinfection information	prior SARS-CoV-2 antiviral treatme
 GENEPIO_0001441			Sequencing																
 GENEPIO_0001445		Sequencing	purpose of sequencing	multiple		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required					The reason that the sample was sequenced.	The reason why a sample was originally collected may differ from the reason why it was selected for sequencing. The reason a sample was sequenced may provide information about potential biases in sequencing strategy. Provide the purpose of sequencing from the picklist in the template. The reason for sample collection should be indicated in the "purpose of sampling" field. 	Baseline surveillance (random sampling)		Reason for Sequencing	PH_REASON_FOR_SEQUENCING	purpose_of_sequencing	purpose of sequencing
 GENEPIO_0001446		Sequencing	purpose of sequencing details	xs:token		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required					The description of why the sample was sequenced providing specific details.	Provide an expanded description of why the sample was sequenced using free text. The description may include the importance of the sequences for a particular public health investigation/surveillance activity/research question. Suggested standardized descriotions include: Screened for S gene target failure (S dropout), Screened for mink variants, Screened for B.1.1.7 variant, Screened for B.1.135 variant, Screened for P.1 variant, Screened due to travel history, Screened due to close contact with infected individual, Assessing public health control measures, Determining early introductions and spread, Investigating airline-related exposures, Investigating temporary foreign worker, Investigating remote regions, Investigating health care workers, Investigating schools/universities, Investigating reinfection.	Screened for S gene target failure (S dropout)		Details on the Reason for Sequencing	PH_REASON_FOR_SEQUENCING_DETAILS		purpose of sequencing details
-GENEPIO_0001447		Sequencing	sequencing date	xs:date		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required					The date the sample was sequenced.	ISO 8601 standard "YYYY-MM-DD".	2020-06-22			PH_SEQUENCING_DATE		
+GENEPIO_0001447		Sequencing	sequencing date	xs:date		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required	2019-10-01				The date the sample was sequenced.	ISO 8601 standard "YYYY-MM-DD".	2020-06-22			PH_SEQUENCING_DATE		
 GENEPIO_0001448		Sequencing	library ID	xs:token			recommended					The user-specified identifier for the library prepared for sequencing.	The library name should be unique, and can be an autogenerated ID from your LIMS, or modification of the isolate ID.	XYZ_123345			library ID		
 GENEPIO_0001449		Sequencing	amplicon size	xs:token								The length of the amplicon generated by PCR amplification.	Provide the amplicon size, including the units.	300bp			amplicon size		
 GENEPIO_0001450		Sequencing	library preparation kit	xs:token								The name of the DNA library preparation kit used to generate the library being sequenced.	Provide the name of the library preparation kit used.	Nextera XT			library preparation kit		
@@ -161,26 +161,26 @@ GENEPIO_0001518		Contributor acknowledgement	DataHarmonizer provenance	provenanc
 																			
 																			
 																			
-GAZ_00002566		geo_loc_name (state/province/territory)	Alberta														CA-AB		
-GAZ_00002562		geo_loc_name (state/province/territory)	British Columbia														CA-BC		
-GAZ_00002571		geo_loc_name (state/province/territory)	Manitoba														CA-MB		
-GAZ_00002570		geo_loc_name (state/province/territory)	New Brunswick														CA-NB		
-GAZ_00002567		geo_loc_name (state/province/territory)	Newfoundland and Labrador														CA-NL		
-GAZ_00002575		geo_loc_name (state/province/territory)	Northwest Territories														CA-NT		
-GAZ_00002565		geo_loc_name (state/province/territory)	Nova Scotia														CA-NS		
-GAZ:00002574		geo_loc_name (state/province/territory)	Nunavut														CA-NU		
-GAZ_00002563		geo_loc_name (state/province/territory)	Ontario														CA-ON		
-GAZ_00002572		geo_loc_name (state/province/territory)	Prince Edward Island														CA-PE		
-GAZ_00002569		geo_loc_name (state/province/territory)	Quebec														CA-QC		
-GAZ_00002564		geo_loc_name (state/province/territory)	Saskatchewan														CA-SK		
-GAZ_00002576		geo_loc_name (state/province/territory)	Yukon														CA-YT		
+GAZ_00002566		geo_loc_name (state/province/territory)	Alberta																
+GAZ_00002562		geo_loc_name (state/province/territory)	British Columbia																
+GAZ_00002571		geo_loc_name (state/province/territory)	Manitoba																
+GAZ_00002570		geo_loc_name (state/province/territory)	New Brunswick																
+GAZ_00002567		geo_loc_name (state/province/territory)	Newfoundland and Labrador																
+GAZ_00002575		geo_loc_name (state/province/territory)	Northwest Territories																
+GAZ_00002565		geo_loc_name (state/province/territory)	Nova Scotia																
+GAZ:00002574		geo_loc_name (state/province/territory)	Nunavut																
+GAZ_00002563		geo_loc_name (state/province/territory)	Ontario																
+GAZ_00002572		geo_loc_name (state/province/territory)	Prince Edward Island																
+GAZ_00002569		geo_loc_name (state/province/territory)	Quebec																
+GAZ_00002564		geo_loc_name (state/province/territory)	Saskatchewan																
+GAZ_00002576		geo_loc_name (state/province/territory)	Yukon																
 																			
-UO:0000035		host age unit	month														Month		
-UO:0000036		host age unit	year														Year		
+UO:0000035		host age unit	month																
+UO:0000036		host age unit	year																
 																			
-UO:0000036		sample collection date precision	year														Year		
-UO:0000035		sample collection date precision	month														Month		
-UO:0000033		sample collection date precision	day														Day		
+UO:0000036		sample collection date precision	year																
+UO:0000035		sample collection date precision	month																
+UO:0000033		sample collection date precision	day																
 																			
 OBI:0000895		biomaterial extracted	RNA (total)																
 OBI:0000869		biomaterial extracted	RNA (poly-A)																
@@ -190,93 +190,93 @@ OBI:0002754		biomaterial extracted	mRNA (cDNA)
 																			
 																			
 HP REQUEST		signs and symptoms	Abnormal lung auscultation																
-HP:0000223		signs and symptoms	Abnormality of taste sensation														SENSE_OF_TASTE		
-HP:0041051		Abnormality of taste sensation	      Ageusia (complete loss of taste)														AGEUSIA		
-HP:0031249		Abnormality of taste sensation	      Parageusia (distorted sense of taste)														PARAGEUSIA		
-HP_0000224 		Abnormality of taste sensation	      Hypogeusia (reduced sense of taste)														HYPOGEUSIA		
-HP:0004408		signs and symptoms	Abnormality of the sense of smell														SENSE_OF_SMELL		
-HP_0000458		Abnormality of the sense of smell	      Anosmia (lost sense of smell)														ANOSMIA		
-HP_0004409		Abnormality of the sense of smell	      Hyposmia (reduced sense of smell)														HYPOSMIA		
+HP:0000223		signs and symptoms	Abnormality of taste sensation																
+HP:0041051		Abnormality of taste sensation	      Ageusia (complete loss of taste)																
+HP:0031249		Abnormality of taste sensation	      Parageusia (distorted sense of taste)																
+HP_0000224 		Abnormality of taste sensation	      Hypogeusia (reduced sense of taste)																
+HP:0004408		signs and symptoms	Abnormality of the sense of smell																
+HP_0000458		Abnormality of the sense of smell	      Anosmia (lost sense of smell)																
+HP_0004409		Abnormality of the sense of smell	      Hyposmia (reduced sense of smell)																
 HP:0033677		signs and symptoms	Acute Respiratory Distress Syndrome													ARDS			
-HP:0011446		signs and symptoms	Altered mental status														ALTERED_CONSCIOUS		
+HP:0011446		signs and symptoms	Altered mental status																
 HP:0011675		signs and symptoms	Arrhythmia																
-HP:0100543		Altered mental status	      Cognitive impairment														COGNITIVE		
-HP_0001259		Altered mental status	      Coma														COMA		
-HP_0001289		Altered mental status	      Confusion														CONFUSION		
-HP_0031258		Confusion	            Delirium (sudden severe confusion)														DELIRIUM		
-HP REQUEST		Altered mental status	      Inability to arouse (inability to stay awake)														INABILITY_AWAKE		
-HP_0000737 		Altered mental status	      Irritability														IRRITABILITY		
-HP_0002371		Altered mental status	      Loss of speech														LOSS_OF_SPEECH		
-HP_0025406		signs and symptoms	Asthenia (generalized weakness)														ASTHENIA		
-HP:0031352		signs and symptoms	Chest tightness or pressure														CHEST_TIGHT		
-HP:0025145		Chest tightness or pressure	      Rigors (fever shakes)														RIGORS		
-HP_0025143 		signs and symptoms	Chills (sudden cold sensation)													Chills	CHILLS		
+HP:0100543		Altered mental status	      Cognitive impairment																
+HP_0001259		Altered mental status	      Coma																
+HP_0001289		Altered mental status	      Confusion																
+HP_0031258		Confusion	            Delirium (sudden severe confusion)																
+HP REQUEST		Altered mental status	      Inability to arouse (inability to stay awake)																
+HP_0000737 		Altered mental status	      Irritability																
+HP_0002371		Altered mental status	      Loss of speech																
+HP_0025406		signs and symptoms	Asthenia (generalized weakness)																
+HP:0031352		signs and symptoms	Chest tightness or pressure																
+HP:0025145		Chest tightness or pressure	      Rigors (fever shakes)																
+HP_0025143 		signs and symptoms	Chills (sudden cold sensation)													Chills			
 HP:0030953		signs and symptoms	Conjunctival injection																
-HP_0000509		signs and symptoms	Conjunctivitis (pink eye)													Conjunctivitis	CONJUNCTIVITIS		
+HP_0000509		signs and symptoms	Conjunctivitis (pink eye)													Conjunctivitis			
 MP:0001867		signs and symptoms	Coryza (rhinitis)																
-HP_0012735		signs and symptoms	Cough 														COUGH		
-HP:0031246		Cough	      Nonproductive cough (dry cough)														NONPRODUCT_COUGH		
-HP:0031245		Cough	      Productive cough (wet cough)														PRODUCTIVE_COUGH		
-HP:0000961		signs and symptoms	Cyanosis (blueish skin discolouration)														CYANOSIS		
-HP:0001063		Cyanosis (blueish skin discolouration)	      Acrocyanosis														ACROCYANOS		
-HP:0032556		Acrocyanosis	            Circumoral cyanosis (bluish around mouth)														CIRCUMORAL_CYANOSIS		
-HP REQUEST		Acrocyanosis	            Cyanotic face (bluish face)														CYANOTIC_FACE		
+HP_0012735		signs and symptoms	Cough 																
+HP:0031246		Cough	      Nonproductive cough (dry cough)																
+HP:0031245		Cough	      Productive cough (wet cough)																
+HP:0000961		signs and symptoms	Cyanosis (blueish skin discolouration)																
+HP:0001063		Cyanosis (blueish skin discolouration)	      Acrocyanosis																
+HP:0032556		Acrocyanosis	            Circumoral cyanosis (bluish around mouth)																
+HP REQUEST		Acrocyanosis	            Cyanotic face (bluish face)																
 HP REQUEST		Cyanosis (blueish skin discolouration)	      Central Cyanosis																
-HP REQUEST		Central Cyanosis	            Cyanotic lips (bluish lips) 														CYANOTIC_LIPS		
+HP REQUEST		Central Cyanosis	            Cyanotic lips (bluish lips) 																
 HP REQUEST		Cyanosis (blueish skin discolouration)	            Peripheral Cyanosis																
-HP_0002094		signs and symptoms	Dyspnea (breathing difficulty) 														DYSPNEA		
-HP_0002014		signs and symptoms	Diarrhea (watery stool)													Diarrhea, watery	DIARRHEA		
+HP_0002094		signs and symptoms	Dyspnea (breathing difficulty) 																
+HP_0002014		signs and symptoms	Diarrhea (watery stool)													Diarrhea, watery			
 MP:0031127		signs and symptoms	Dry gangrene																
-HP_0002383		signs and symptoms	Encephalitis (brain inflammation)													Encephalitis	ENCEPHALITIS		
+HP_0002383		signs and symptoms	Encephalitis (brain inflammation)													Encephalitis			
 HP:0001298		signs and symptoms	Encephalopathy																
-HP_0012378		signs and symptoms	Fatigue (tiredness)													Fatigue	FATIGUE		
+HP_0012378		signs and symptoms	Fatigue (tiredness)													Fatigue			
 HP REQUEST		signs and symptoms	    Prostration (complete exhaustion)																
-HP_0001945 		signs and symptoms	Fever														FEVER		
+HP_0001945 		signs and symptoms	Fever																
 HP REQUEST		Fever	      Fever (>=38°C)													Fever			
-HP:0000206		signs and symptoms	Glossitis (inflammation of the tongue)														GLOSSITIS		
+HP:0000206		signs and symptoms	Glossitis (inflammation of the tongue)																
 HP REQUEST		signs and symptoms	Ground Glass Opacities (GGO)																
-HP_0002315		signs and symptoms	Headache														HEADACHE		
-HP_0002105		signs and symptoms	Hemoptysis (coughing up blood)														HEMOPTYSIS		
+HP_0002315		signs and symptoms	Headache																
+HP_0002105		signs and symptoms	Hemoptysis (coughing up blood)																
 HP:0012417		signs and symptoms	Hypocapnia																
-HP_0002615		signs and symptoms	Hypotension (low blood pressure)														HYPOTENSION		
-HP_0012418		signs and symptoms	Hypoxemia (low blood oxygen)														HYPOXEMIA		
+HP_0002615		signs and symptoms	Hypotension (low blood pressure)																
+HP_0012418		signs and symptoms	Hypoxemia (low blood oxygen)																
 HP REQUEST		Hypoxemia (low blood oxygen)	      Silent hypoxemia																
-HP:0011029		signs and symptoms	Internal hemorrhage (internal bleeding)														INTERNAL_HEMORRHAGE		
-NCIT:C121416		signs and symptoms	Loss of Fine Movements														LOSS_OF_FINE_MOVE		
-HP_0004396 		signs and symptoms	Low appetite														LOW_APPETITE		
-HP:0033834		signs and symptoms	Malaise (general discomfort/unease)														MALAISE		
+HP:0011029		signs and symptoms	Internal hemorrhage (internal bleeding)																
+NCIT:C121416		signs and symptoms	Loss of Fine Movements																
+HP_0004396 		signs and symptoms	Low appetite																
+HP:0033834		signs and symptoms	Malaise (general discomfort/unease)																
 HP:0031179		signs and symptoms	Meningismus/nuchal rigidity																
-HP_0001324		signs and symptoms	Muscle weakness														MUSCLE_WEAK		
-HP_0001742		signs and symptoms	Nasal obstruction (stuffy nose)														NASAL_OBSTRUCT		
-HP_0002018		signs and symptoms	Nausea														NAUSEA		
+HP_0001324		signs and symptoms	Muscle weakness																
+HP_0001742		signs and symptoms	Nasal obstruction (stuffy nose)																
+HP_0002018		signs and symptoms	Nausea																
 HP_0000421		signs and symptoms	Nose bleed																
 HP REQUEST		signs and symptoms	Otitis																
 HP:0012531		signs and symptoms	Pain																
-HP:0002027		Pain	      Abdominal pain														ABDOMINAL		
-HP_0002829		Pain	      Arthralgia (painful joints)														ARTHRALGIA		
-HP_0100749		Pain	      Chest pain														CHEST_PAIN		
+HP:0002027		Pain	      Abdominal pain																
+HP_0002829		Pain	      Arthralgia (painful joints)																
+HP_0100749		Pain	      Chest pain																
 HP:0033771		Chest pain	            Pleuritic chest pain																
-HP_0003326		Pain	      Myalgia (muscle pain) 														MYALGIA		
-HP_0025439		signs and symptoms	Pharyngitis (sore throat) 														PHARYNGITIS		
+HP_0003326		Pain	      Myalgia (muscle pain) 																
+HP_0025439		signs and symptoms	Pharyngitis (sore throat) 																
 HP REQUEST		signs and symptoms	Pharyngeal exudate																
 HP:0002202		signs and symptoms	Pleural effusion																
 HP:0002090		signs and symptoms	Pneumonia																
 HP:0033696		signs and symptoms	Pseudo-chilblains																
-HP REQUEST		Pseudo-chilblains	      Pseudo-chilblains on fingers (covid fingers)														PSEUDO-CHIBLAINS_F		
-HP REQUEST		Pseudo-chilblains	      Pseudo-chilblains on toes (covid toes)														PSEUDO-CHIBLAINS_T		
-HP_0000988		signs and symptoms	Rash														RASH		
-HP_0031417		signs and symptoms	Rhinorrhea (runny nose)														RHINORRHEA		
-HP_0001250		signs and symptoms	Seizure														SEIZURE		
-HP:0020219		Seizure	      Motor seizure														MOTOR_SEIZURE		
-HP:0025144		signs and symptoms	Shivering (involuntary muscle twitching)														SHIVERING		
-HP_0001350		signs and symptoms	Slurred speech														SLURRED_SPEECH		
+HP REQUEST		Pseudo-chilblains	      Pseudo-chilblains on fingers (covid fingers)																
+HP REQUEST		Pseudo-chilblains	      Pseudo-chilblains on toes (covid toes)																
+HP_0000988		signs and symptoms	Rash																
+HP_0031417		signs and symptoms	Rhinorrhea (runny nose)																
+HP_0001250		signs and symptoms	Seizure																
+HP:0020219		Seizure	      Motor seizure																
+HP:0025144		signs and symptoms	Shivering (involuntary muscle twitching)																
+HP_0001350		signs and symptoms	Slurred speech																
 HP:0025095		signs and symptoms	Sneezing																
 HP:0033709		signs and symptoms	Sputum Production																
-HP:0001297		signs and symptoms	Stroke														STROKE		
+HP:0001297		signs and symptoms	Stroke																
 HP:0002716		signs and symptoms	Swollen Lymph Nodes																
-HP_0002789		signs and symptoms	Tachypnea (accelerated respiratory rate)														TACHYPNEA		
+HP_0002789		signs and symptoms	Tachypnea (accelerated respiratory rate)																
 HP:0002321		signs and symptoms	Vertigo (dizziness)																
-HP_0002013		signs and symptoms	Vomiting (throwing up)														VOMITING		
+HP_0002013		signs and symptoms	Vomiting (throwing up)																
 																			
 		host vaccination status	Fully Vaccinated																
 		host vaccination status	Partially Vaccinated																
@@ -286,11 +286,11 @@ HP_0002013		signs and symptoms	Vomiting (throwing up)														VOMITING
 		prior SARS-CoV-2 antiviral treatment	No prior antivrial treatment																
 		prior SARS-CoV-2 antiviral treatment	Unknown																
 																			
-OBI_0002600		NML submitted specimen type	Swab 														PH_SPECIMEN_TYPE:SWAB		
-OBI_0000880		NML submitted specimen type	RNA														PH_SPECIMEN_TYPE:RNA		
+OBI_0002600		NML submitted specimen type	Swab 																
+OBI_0000880		NML submitted specimen type	RNA																
 OBI:0002754		NML submitted specimen type	mRNA (cDNA)																
-OBI:0001010		NML submitted specimen type	Nucleic acid														PH_SPECIMEN_TYPE:NUCLEIC_ACID		
-GENEPIO:0001619		NML submitted specimen type	Not Applicable														PH_SPECIMEN_TYPE:NA		
+OBI:0001010		NML submitted specimen type	Nucleic acid																
+GENEPIO:0001619		NML submitted specimen type	Not Applicable																
 																			
 																			
 HP_0011009		NML related specimen relationship type	Acute																
@@ -300,7 +300,7 @@ EFO_0009642		NML related specimen relationship type	Follow-up
 		NML related specimen relationship type	Previously Submitted																
 																			
 																			
-		pre-existing conditions and risk factors	Age 60+																
+VO:0004925		pre-existing conditions and risk factors	Age 60+																
 HP:0001903		pre-existing conditions and risk factors	Anemia																
 HP:0002039		pre-existing conditions and risk factors	Anorexia																
 NCIT:C92743		pre-existing conditions and risk factors	Birthing labor																
@@ -351,12 +351,12 @@ HP:0100280		Inflammatory bowel disease (IBD)	      Crohn's disease
 NCIT:C3149		pre-existing conditions and risk factors	Renal disorder																
 MONDO:0005240		Renal disorder	      Renal disease																
 HP:0012622		Renal disorder	            Chronic renal disease																
-HP:0000084		Renal disorder	            Renal failure																
+HP:0000083		Renal disorder	            Renal failure																
 MONDO:0005154		pre-existing conditions and risk factors	Liver disease																
 NCIT:C113609		Liver disease	      Chronic liver disease																
 HP:0001397		Chronic liver disease	            Fatty liver disease (FLD)																
 HP:0003326		pre-existing conditions and risk factors	Myalgia (muscle pain) 																
-MONDO:0005404		pre-existing conditions and risk factors	Myalgic encephalomyelitis (ME)																
+MONDO:0005404		pre-existing conditions and risk factors	Myalgic encephalomyelitis (chronic fatigue syndrome)																
 MONDO:0005071		pre-existing conditions and risk factors	Neurological disorder																
 MONDO:0019056		Neurological disorder	      Neuromuscular disorder																
 HP:0001513		pre-existing conditions and risk factors	Obesity																
@@ -387,9 +387,8 @@ NBO:0015005		Substance use	      Smoking
 NBO NTR		Substance use	      Vaping																
 HP:0002789		pre-existing conditions and risk factors	Tachypnea (accelerated respiratory rate)																
 NCIT:C159659		pre-existing conditions and risk factors	Transplant																
-NCIT:C131759		Transplant	      Bone marrow transplant																
+NCIT:C131759		Transplant	      Hematopoietic stem cell transplant (bone marrow transplant)																
 		Transplant	      Cardiac transplant																
-NCIT:C126836		Transplant	      Hematopoietic stem cell transplant (HSCT)																
 NCIT:C157332		Transplant	      Kidney transplant																
 		Transplant	      Liver transplant																
 																			
@@ -408,12 +407,12 @@ HP:0031677		Tachycardia	            Polymorphic ventricular tachycardia (VT)
 HP NTR		Tachycardia	            Tachyarrhythmia																
 HP NTR		complications	Noncardiogenic pulmonary edema																
 HP:0033677		Noncardiogenic pulmonary edema	      Acute respiratory distress syndrome (ARDS)																
-HP NTR		Acute respiratory distress syndrome (ARDS)	            COVID-19 associated ARDS (CARDS)																
+NCIT:C171551		Acute respiratory distress syndrome (ARDS)	            COVID-19 associated ARDS (CARDS)																
 HP NTR		Acute respiratory distress syndrome (ARDS)	            Neurogenic pulmonary edema (NPE)																
 NCIT:C45430		complications	Cardiac injury																
 HP:0001695		complications	Cardiac arrest																
 HP:0030149		complications	Cardiogenic shock																
-UBERON:0010210		complications	Blood clot																
+HP:0001977		complications	Blood clot																
 HP:0004420		Blood clot	      Arterial clot																
 HP:0002625		Blood clot	      Deep vein thrombosis (DVT)																
 HP:0002204		Blood clot	      Pulmonary embolism (PE)																
@@ -421,31 +420,27 @@ HP:0001638		complications	Cardiomyopathy
 MONDO:0024619		complications	Central nervous system invasion																
 HP:0001297		complications	Stroke (complication)																
 MONDO:0003346		Stroke (complication)	      Central Nervous System Vasculitis																
-		Stroke (complication)	      Ischemic stroke																
-HP:0002140		Ischemic stroke	            Acute ischemic stroke																
+HP:0002140		Stroke (complication)	       Acute ischemic stroke																
 HP:0001259		complications	Coma																
 HP:0011097		complications	Convulsions																
 HP NTR		complications	COVID-19 associated coagulopathy (CAC)																
 MONDO:0009061		complications	Cystic fibrosis																
 MONDO:0600008		complications	Cytokine release syndrome																
-HP NTR		complications	Disseminated intravascular coagulation (DIC)																
+MPATH:108		complications	Disseminated intravascular coagulation (DIC)																
 HP:0001298		complications	Encephalopathy																
 HP NTR		complications	Fulminant myocarditis																
 MONDO:0016218		complications	Guillain-Barré syndrome																
 HP:0011029		complications	Internal hemorrhage (complication; internal bleeding)																
 MONDO:0013792		Internal hemorrhage (complication; internal bleeding)	      Intracerebral haemorrhage																
 HP NTR		complications	Kawasaki disease																
-HP NTR		Kawasaki disease	      Typical Kawasaki disease																
+HP NTR		Kawasaki disease	      Complete Kawasaki disease																
 HP NTR		Kawasaki disease	      Incomplete Kawasaki disease																
-		complications	Kidney injury																
-HP:0001919		Kidney injury	      Acute kidney injury																
+HP:0001919		complications	Acute kidney injury																
 MONDO:0100233		complications	Long COVID-19																
 HP:0001410		complications	Liver dysfunction																
-		complications	Liver injury																
-HP NTR		Liver injury	      Acute liver injury																
-		complications	Lung injury																
-MONDO:0015796		Lung injury	      Acute lung injury																
-HP NTR		Lung injury	      Ventilation induced lung injury (VILI)																
+HP NTR		Liver dysfunction	      Acute liver injury																
+MONDO:0015796		complications	Acute lung injury																
+HP NTR		Acute lung injury	      Ventilation induced lung injury (VILI)																
 HP:0001287		complications	Meningitis																
 HP:0002076		complications	Migraine																
 HP:0005268		complications	Miscarriage																
@@ -458,14 +453,14 @@ MONDO:0041656		Myocardial infarction (heart attack)	      ST-segment elevation m
 HP NTR		complications	Myocardial injury																
 NCIT:C168498		complications	Neonatal complications																
 HP NTR		complications	Organ failure																
-HP:0002878		Organ failure	      Heart failure																
-HP:0001399		Organ failure	      Liver failure																
+HP:0001635		Organ failure	      Heart failure																
+MONDO:0100192		Organ failure	      Liver failure																
 HP:0003470		complications	Paralysis																
 HP:0002107		complications	Pneumothorax (collapsed lung)																
 HP:0002108		Pneumothorax (collapsed lung)	      Spontaneous pneumothorax																
 MONDO:0002075		Pneumothorax (collapsed lung)	      Spontaneous tension pneumothorax																
 HP:0002090		complications	Pneumonia (complication)																
-HP NTR		Pneumonia (complication)	      COVID-19 pneumonia																
+NCIT:C171550		Pneumonia (complication)	      COVID-19 pneumonia																
 HP:0001197		complications	Pregancy complications																
 HP:0003201		complications	Rhabdomyolysis																
 IDO:0000567		complications	Secondary infection																
@@ -473,8 +468,9 @@ IDO NTR		Secondary infection	      Secondary staph infection
 IDO NTR		Secondary infection	      Secondary strep infection																
 HP:0001250		complications	Seizure (complication)																
 HP:0020219		Seizure (complication)	      Motor seizure																
-HP:0100806		complications	Sepsis																
-HP NTR		complications	Septicemia																
+HP:0100806		complications	Sepsis/Septicemia																
+IDO:0000636		Sepsis/Septicemia	      Sepsis																
+NCIT:C3364		Sepsis/Septicemia	      Septicemia																
 HP:0031273		complications	Shock																
 HP NTR		Shock	      Hyperinflammatory shock																
 HP NTR		Shock	      Refractory cardiogenic shock																
@@ -484,159 +480,159 @@ HP:0002633		complications	Vasculitis
 																			
 																			
 																			
-UBERON_0000178		anatomical material	Blood														BLOOD		
-UBERON_0006314		anatomical material	Fluid														FLUID		
-UBERON_0001836		Fluid	      Saliva														SALIVA		
-UBERON_0001359		Fluid	      Fluid (cerebrospinal (CSF))														FLUID_CSF		
-UBERON_0002409		Fluid	      Fluid (pericardial)														FLUID_PERICARDIAL		
-UBERON_0001087		Fluid	      Fluid (pleural)														FLUID_PLEURAL		
-UBERON_0036243		Fluid	      Fluid (vaginal)														FLUID_VAGINAL		
-UBERON_0000173		Fluid	      Fluid (amniotic)														FLUID_AMNIOTIC		
-UBERON_0000479		anatomical material	Tissue														TISSUE		
+UBERON_0000178		anatomical material	Blood																
+UBERON_0006314		anatomical material	Fluid																
+UBERON_0001836		Fluid	      Saliva																
+UBERON_0001359		Fluid	      Fluid (cerebrospinal (CSF))																
+UBERON_0002409		Fluid	      Fluid (pericardial)																
+UBERON_0001087		Fluid	      Fluid (pleural)																
+UBERON_0036243		Fluid	      Fluid (vaginal)																
+UBERON_0000173		Fluid	      Fluid (amniotic)																
+UBERON_0000479		anatomical material	Tissue																
 																			
 																			
 																			
-UBERON_0001245		anatomical part	Anus														ANUS		
-UBERON_0006956 		anatomical part	Buccal mucosa														BUCCAL_MUCOSA		
-UBERON_0002114		anatomical part	Duodenum														DUODENUM		
-UBERON_0000970		anatomical part	Eye														EYE		
-		anatomical part	Intestine														INTESTINE		
-UBERON_0001052		anatomical part	Rectum														RECTUM		
-UBERON_0001003		anatomical part	Skin														SKIN		
-UBERON_0000945		anatomical part	Stomach														STOMACH		
-UBERON_0001557		anatomical part	Upper respiratory tract														UPPER		
-UBERON_2001427		Upper respiratory tract	      Anterior Nares														ANTERIOR_NARES		
-UBERON_0001043		Upper respiratory tract	      Esophagus														ESOPHAGUS		
-UBERON_0002453		Upper respiratory tract	      Ethmoid sinus														ETHMOID_SINUS		
-UBERON_0001707 		Upper respiratory tract	      Nasal Cavity														NASAL_CAVITY		
-UBERON_0005921 		Nasal Cavity	           Middle Nasal Turbinate														MIDDLE_NASAL		
-UBERON_0005922		Nasal Cavity	           Inferior Nasal Turbinate														INFERIOR_NASAL		
-UBERON_0001728		Upper respiratory tract	      Nasopharynx (NP)														NASOPHARYNX_NP		
-UBERON_0001729		Upper respiratory tract	      Oropharynx (OP)														OROPHARYNX_OP		
-UBERON_0001558		anatomical part	Lower respiratory tract														LOWER		
-UBERON_0002185 		Lower respiratory tract	      Bronchus														BRONCHUS		
-UBERON_0002048		Lower respiratory tract	      Lung														LUNG		
-UBERON_0002186		Lung	           Bronchiole														BRONCHIOLE		
-UBERON_0002169		Lung	           Alveolar sac														ALVEOLAR_SAC		
-UBERON_0009778 		Lower respiratory tract	      Pleural sac														PLEURAL_SAC		
-UBERON_0002402		Pleural sac	           Pleural cavity														PLEURAL_CAVITY		
-UBERON_0003126		Lower respiratory tract	      Trachea														TRACHEA		
+UBERON_0001245		anatomical part	Anus																
+UBERON_0006956 		anatomical part	Buccal mucosa																
+UBERON_0002114		anatomical part	Duodenum																
+UBERON_0000970		anatomical part	Eye																
+		anatomical part	Intestine																
+UBERON_0001052		anatomical part	Rectum																
+UBERON_0001003		anatomical part	Skin																
+UBERON_0000945		anatomical part	Stomach																
+UBERON_0001557		anatomical part	Upper respiratory tract																
+UBERON_2001427		Upper respiratory tract	      Anterior Nares																
+UBERON_0001043		Upper respiratory tract	      Esophagus																
+UBERON_0002453		Upper respiratory tract	      Ethmoid sinus																
+UBERON_0001707 		Upper respiratory tract	      Nasal Cavity																
+UBERON_0005921 		Nasal Cavity	           Middle Nasal Turbinate																
+UBERON_0005922		Nasal Cavity	           Inferior Nasal Turbinate																
+UBERON_0001728		Upper respiratory tract	      Nasopharynx (NP)																
+UBERON_0001729		Upper respiratory tract	      Oropharynx (OP)																
+UBERON_0001558		anatomical part	Lower respiratory tract																
+UBERON_0002185 		Lower respiratory tract	      Bronchus																
+UBERON_0002048		Lower respiratory tract	      Lung																
+UBERON_0002186		Lung	           Bronchiole																
+UBERON_0002169		Lung	           Alveolar sac																
+UBERON_0009778 		Lower respiratory tract	      Pleural sac																
+UBERON_0002402		Pleural sac	           Pleural cavity																
+UBERON_0003126		Lower respiratory tract	      Trachea																
 																			
 																			
 																			
 																			
-UBERON_0001988		body product	Feces														FECES		
-UBERON_0001088		body product	Urine														URINE		
-UBERON_0001089		body product	Sweat														SWEAT		
-UBERON_0000912		body product	Mucus														MUCUS		
-UBERON_0007311		Mucus	      Sputum														SPUTUM		
-UBERON_0001827		body product	Tear														TEAR		
-UBERON_0006530		body product	Fluid (seminal)														FLUID_SEMINAL		
-UBERON_0001913		body product	Breast Milk														BREAST_MILK		
+UBERON_0001988		body product	Feces																
+UBERON_0001088		body product	Urine																
+UBERON_0001089		body product	Sweat																
+UBERON_0000912		body product	Mucus																
+UBERON_0007311		Mucus	      Sputum																
+UBERON_0001827		body product	Tear																
+UBERON_0006530		body product	Fluid (seminal)																
+UBERON_0001913		body product	Breast Milk																
 																			
 		prior SARS-CoV-2 infection	Yes																
 		prior SARS-CoV-2 infection	No																
 		prior SARS-CoV-2 infection	Unknown																
 																			
 																			
-ENVO:03501208		environmental material	Air vent														AIR_VENT		
-ENVO_00003896		environmental material	Banknote														BANKNOTE		
-ENVO:03501209		environmental material	Bed rail														BED_RAIL		
-ENVO_01000486		environmental material	Building floor														BUILDING_FLOOR		
-ENVO_02000058		environmental material	Cloth														CLOTH		
-ENVO:03501210		environmental material	Control panel														CONTROL_PANEL		
-ENVO:03501220		environmental material	Door  														DOOR		
-ENVO:03501211		environmental material	Door handle														DOOR_HANDLE		
-OBI:0002787		environmental material	Face mask														FACE_MASK		
-OBI:0002791		environmental material	Face shield														FACE_SHIELD		
-FOODON:00002403		environmental material	Food														FOOD		
-FOODON:03490100		environmental material	Food packaging														FOOD_PACKAGING		
-ENVO:01000481		environmental material	Glass														GLASS		
-ENVO:03501212		environmental material	Handrail														HANDRAIL		
-OBI:0002792		environmental material	Hospital gown														HOSPITAL_GOWN		
-ENVO:03501213		environmental material	Light switch														LIGHT_SWITCH		
-ENVO:03501214		environmental material	Locker														LOCKER		
-OBI:0002790		environmental material	N95 mask														N95_MASK		
-ENVO:03501215		environmental material	Nurse call button 														NURSE_CALL_BUTTON		
-ENVO:03501256		environmental material	Paper														PAPER		
-ENVO:01000060		environmental material	Particulate matter														PARTICULATE_MATTER		
-ENVO:01000404		environmental material	Plastic														PLASTIC		
-OBI NTR?		environmental material	PPE gown														PPE_GOWN		
-ENVO_00002018		environmental material	Sewage														SEWAGE		
-ENVO_01000990		environmental material	Sink														SINK		
-ENVO_00001998		environmental material	Soil														SOIL		
-ENVO:03501216		environmental material	Stainless steel														STAINLESS_STEEL		
-ENVO:03501217		environmental material	Tissue paper														TISSUE_PAPER		
-ENVO:03501218		environmental material	Toilet bowl														TOILET_BOWL		
-ENVO_00002006		environmental material	Water														WATER		
-ENVO:00002001		environmental material	     Wastewater														WASTEWATER		
-ENVO:03501219		environmental material	Window														WINDOW		
-ENVO:00002040		environmental material	Wood														WOOD		
+ENVO:03501208		environmental material	Air vent																
+ENVO_00003896		environmental material	Banknote																
+ENVO:03501209		environmental material	Bed rail																
+ENVO_01000486		environmental material	Building floor																
+ENVO_02000058		environmental material	Cloth																
+ENVO:03501210		environmental material	Control panel																
+ENVO:03501220		environmental material	Door  																
+ENVO:03501211		environmental material	Door handle																
+OBI:0002787		environmental material	Face mask																
+OBI:0002791		environmental material	Face shield																
+FOODON:00002403		environmental material	Food																
+FOODON:03490100		environmental material	Food packaging																
+ENVO:01000481		environmental material	Glass																
+ENVO:03501212		environmental material	Handrail																
+OBI:0002792		environmental material	Hospital gown																
+ENVO:03501213		environmental material	Light switch																
+ENVO:03501214		environmental material	Locker																
+OBI:0002790		environmental material	N95 mask																
+ENVO:03501215		environmental material	Nurse call button 																
+ENVO:03501256		environmental material	Paper																
+ENVO:01000060		environmental material	Particulate matter																
+ENVO:01000404		environmental material	Plastic																
+OBI NTR?		environmental material	PPE gown																
+ENVO_00002018		environmental material	Sewage																
+ENVO_01000990		environmental material	Sink																
+ENVO_00001998		environmental material	Soil																
+ENVO:03501216		environmental material	Stainless steel																
+ENVO:03501217		environmental material	Tissue paper																
+ENVO:03501218		environmental material	Toilet bowl																
+ENVO_00002006		environmental material	Water																
+ENVO:00002001		environmental material	     Wastewater																
+ENVO:03501219		environmental material	Window																
+ENVO:00002040		environmental material	Wood																
 																			
-ENVO:03501135		environmental site	Acute care facility														ACUTE_CARE_FACILITY		
-ENVO:00003040		environmental site	Animal house														ANIMAL_HOUSE		
-ENVO:01000422		environmental site	Bathroom														BATHROOM		
-ENVO:03501136		environmental site	Clinical assessment centre														CLINICAL_ASSESSMENT_		
-ENVO:03501127		environmental site	Conference venue														CONFERENCE_VENUE		
-ENVO:03501121		environmental site	Corridor														CORRIDOR		
-ENVO_01000927		environmental site	Daycare														DAYCARE		
-ENVO:03501144		environmental site	Emergency room (ER)														EMERGENCY_ROOM_ER		
-ENVO:03501186		environmental site	Family practice clinic														FAMILY_PRACTICE_CLIN		
-ENVO:03501196		environmental site	Group home														GROUP_HOME		
-ENVO:03501133		environmental site	Homeless shelter														HOMELESS_SHELTER		
-ENVO:00002173		environmental site	Hospital														HOSPITAL		
-ENVO:03501152		environmental site	Intensive Care Unit (ICU)														INTENSIVE_CARE_UNIT_		
-ENVO:03501194		environmental site	Long Term Care Facility														LONG_TERM_CARE_FACIL		
-ENVO:03501180		environmental site	Patient room														PATIENT_ROOM		
-ENVO:03501204		environmental site	Prison														PRISON		
-ENVO_01000536		environmental site	Production Facility														PRODUCTION_FACILITY		
-ENVO:03501130		environmental site	School														SCHOOL		
-ENVO:00003043		environmental site	Sewage Plant														SEWAGE_PLANT		
-ENVO:03501109		environmental site	Subway train														SUBWAY_TRAIN		
-ENVO:03501198		environmental site	Wet market														WET_MARKET		
+ENVO:03501135		environmental site	Acute care facility																
+ENVO:00003040		environmental site	Animal house																
+ENVO:01000422		environmental site	Bathroom																
+ENVO:03501136		environmental site	Clinical assessment centre																
+ENVO:03501127		environmental site	Conference venue																
+ENVO:03501121		environmental site	Corridor																
+ENVO_01000927		environmental site	Daycare																
+ENVO:03501144		environmental site	Emergency room (ER)																
+ENVO:03501186		environmental site	Family practice clinic																
+ENVO:03501196		environmental site	Group home																
+ENVO:03501133		environmental site	Homeless shelter																
+ENVO:00002173		environmental site	Hospital																
+ENVO:03501152		environmental site	Intensive Care Unit (ICU)																
+ENVO:03501194		environmental site	Long Term Care Facility																
+ENVO:03501180		environmental site	Patient room																
+ENVO:03501204		environmental site	Prison																
+ENVO_01000536		environmental site	Production Facility																
+ENVO:03501130		environmental site	School																
+ENVO:00003043		environmental site	Sewage Plant																
+ENVO:03501109		environmental site	Subway train																
+ENVO:03501198		environmental site	Wet market																
 																			
 																			
-OBI NTR		collection method	Amniocentesis														AMNIOCENTESIS		
-OBI NTR		collection method	Aspiration														ASPIRATION		
-OBI NTR		Aspiration	     Suprapubic Aspiration														SUPRAPUBIC_ASPIRATIO		
-OBI NTR		Aspiration	     Tracheal aspiration														TRACHEAL_ASPIRATION		
-OBI NTR		Aspiration	     Vacuum Aspiration														VACUUM_ASPIRATION		
-OBI:0002650		collection method	Biopsy														BIOPSY		
-OBI:0002651		Biopsy	     Needle Biopsy														NEEDLE_BIOPSY		
-OBI:0302885		collection method	Filtration														FILTRATION		
-OBI NTR		Filtration	      Air filtration														AIR_FILTRATION		
-OBI:0600044 		collection method	Lavage														LAVAGE		
-OBI NTR		Lavage	     Bronchoalveolar lavage (BAL)														BAL		
-OBI NTR		Lavage	     Gastric Lavage														GASTRIC_LAVAGE		
-OBI NTR		collection method	Lumbar Puncture														LUMBAR_PUNCTURE		
-OBI NTR		collection method	Necropsy														NECROPSY		
-OBI NTR		collection method	Phlebotomy														PHLEBOTOMY		
-OBI NTR		collection method	Rinsing														RINSING		
+OBI NTR		collection method	Amniocentesis																
+OBI NTR		collection method	Aspiration																
+OBI NTR		Aspiration	     Suprapubic Aspiration																
+OBI NTR		Aspiration	     Tracheal aspiration																
+OBI NTR		Aspiration	     Vacuum Aspiration																
+OBI:0002650		collection method	Biopsy																
+OBI:0002651		Biopsy	     Needle Biopsy																
+OBI:0302885		collection method	Filtration																
+OBI NTR		Filtration	      Air filtration																
+OBI:0600044 		collection method	Lavage																
+OBI NTR		Lavage	     Bronchoalveolar lavage (BAL)																
+OBI NTR		Lavage	     Gastric Lavage																
+OBI NTR		collection method	Lumbar Puncture																
+OBI NTR		collection method	Necropsy																
+OBI NTR		collection method	Phlebotomy																
+OBI NTR		collection method	Rinsing																
 OBI NTR		Rinsing	     Saline gargle (mouth rinse and gargle)																
-OBI NTR		collection method	Scraping														SCRAPING		
-OBI NTR		collection method	Swabbing														SWABBING		
-OBI NTR		Swabbing	     Finger Prick														FINGER_PRICK		
-OBI NTR		collection method	Wash														WASH		
-OBI NTR		collection method	Washout Tear Collection														WASHOUT		
+OBI NTR		collection method	Scraping																
+OBI NTR		collection method	Swabbing																
+OBI NTR		Swabbing	     Finger Prick																
+OBI NTR		collection method	Wash																
+OBI NTR		collection method	Washout Tear Collection																
 																			
 																			
-ENVO:00003968		collection device	Air filter														AIR_FILTER		
-OBI:0002859		collection device	Blood Collection Tube														BLOOD_TUBE		
-OBI:0002826		collection device	Bronchoscope														BRONCHOSCOPE		
-OBI:0002088		collection device	Collection Container														CONTAINER		
-OBI NTR?		collection device	Collection Cup														CUP		
-OBI:0002825		collection device	Fibrobronchoscope Brush														BRUSH		
-ENVO NTR		collection device	Filter														FILTER		
-OBI:0002827		collection device	Fine Needle														FINE_NEEDLE		
-OBI:0002858		collection device	Microcapillary tube														MICROCAPILLARY_TUBE		
-OBI:0001128		collection device	Micropipette														MICROPIPETTE		
-OBI:0000436		collection device	Needle														NEEDLE		
-OBI:0002860		collection device	Serum Collection Tube														SERUM_TUBE		
-OBI:0002861		collection device	Sputum Collection Tube														SPUTUM_TUBE		
-OBI:0002831		collection device	Suction Catheter														SUCTION_CATHETER		
-OBI NTR?		collection device	Swab														SWAB		
-OBI:0002862		collection device	Urine Collection Tube														URINE_TUBE		
-OBI:0002866		collection device	Virus Transport Medium														TRANSPORT_MEDIUM		
+ENVO:00003968		collection device	Air filter																
+OBI:0002859		collection device	Blood Collection Tube																
+OBI:0002826		collection device	Bronchoscope																
+OBI:0002088		collection device	Collection Container																
+OBI NTR?		collection device	Collection Cup																
+OBI:0002825		collection device	Fibrobronchoscope Brush																
+ENVO NTR		collection device	Filter																
+OBI:0002827		collection device	Fine Needle																
+OBI:0002858		collection device	Microcapillary tube																
+OBI:0001128		collection device	Micropipette																
+OBI:0000436		collection device	Needle																
+OBI:0002860		collection device	Serum Collection Tube																
+OBI:0002861		collection device	Sputum Collection Tube																
+OBI:0002831		collection device	Suction Catheter																
+OBI NTR?		collection device	Swab																
+OBI:0002862		collection device	Urine Collection Tube																
+OBI:0002866		collection device	Virus Transport Medium																
 																			
 																			
 NCBITaxon_9606		host (scientific name)	Homo sapiens																
@@ -657,35 +653,35 @@ NCBITaxon_9825		host (scientific name)	Sus scrofa domesticus
 NCBITaxon_9673		host (scientific name)	Viverridae																
 																			
 																			
-NCBITaxon_9606		host (common name)	Human														HUMAN		
-NCBITaxon_9397		host (common name)	Bat														BAT		
+NCBITaxon_9606		host (common name)	Human																
+NCBITaxon_9397		host (common name)	Bat																
 NCBITaxon_9685		host (common name)	Cat																
 NCBITaxon_9031		host (common name)	Chicken																
-NCBITaxon_9673		host (common name)	Civets														CIVETS		
+NCBITaxon_9673		host (common name)	Civets																
 NCBITaxon_9913		host (common name)	Cow													bovine			
 NCBITaxon_9615 		host (common name)	Dog																
-NCBITaxon_9689		host (common name)	Lion														LION		
+NCBITaxon_9689		host (common name)	Lion																
 NCBITaxon_452646		host (common name)	Mink																
-NCBITaxon_9973		host (common name)	Pangolin														PANGOLIN		
+NCBITaxon_9973		host (common name)	Pangolin																
 NCBITaxon_9825		host (common name)	Pig													porcine			
 NCBITaxon_8930		host (common name)	Pigeon																
 NCBITaxon_9694		host (common name)	Tiger																
 																			
 																			
-NCIT_C3833		host health state	Asymptomatic														ASYMPTOMATIC		
-NCIT_C28554		host health state	Deceased														DECEASED		
-NCIT_C115935		host health state	Healthy														HEALTHY		
-		host health state	Recovered														RECOVERED		
-		host health state	Symptomatic														SYMPTOMATIC		
+NCIT_C3833		host health state	Asymptomatic																
+NCIT_C28554		host health state	Deceased																
+NCIT_C115935		host health state	Healthy																
+		host health state	Recovered																
+		host health state	Symptomatic																
 																			
 																			
-		host health status details	Hospitalized														HOSPITALIZED		
-		Hospitalized	      Hospitalized (Non-ICU)														NON_ICU		
-		Hospitalized	      Hospitalized (ICU)														ICU		
-		host health status details	Mechanical Ventilation														VENTILATION		
-		host health status details	Medically Isolated														ISOLATED		
-		Medically Isolated	      Medically Isolated (Negative Pressure)														ISOLATED_NEGATIVE_PR		
-		host health status details	Self-quarantining														SELF_QUARANTINING		
+		host health status details	Hospitalized																
+		Hospitalized	      Hospitalized (Non-ICU)																
+		Hospitalized	      Hospitalized (ICU)																
+		host health status details	Mechanical Ventilation																
+		host health status details	Medically Isolated																
+		Medically Isolated	      Medically Isolated (Negative Pressure)																
+		host health status details	Self-quarantining																
 																			
 		host health outcome	Deceased																
 		host health outcome	Deteriorating																
@@ -712,10 +708,13 @@ See comment		purpose of sequencing	Baseline surveillance (random sampling)
 		Priority surveillance project	                    Vaccine escape surveillance																
 		Priority surveillance project	                    Travel-associated surveillance																
 		Travel-associated surveillance	                              Domestic travel surveillance																
+		                              Domestic travel surveillance	                                     Interstate/ interprovincial travel surveillance																
+		                              Domestic travel surveillance	                                     Intra-state/ intra-provincial travel surveillance																
 		Travel-associated surveillance	                              International travel surveillance																
+		Travel-associated surveillance	                                     Surveillance of international border crossing by air travel or ground transport																
 		Travel-associated surveillance	                                     Surveillance of international border crossing by air travel																
-		Travel-associated surveillance	                                      Surveillance of international border crossing by ground transport																
-		Travel-associated surveillance	                                      Surveillance from international worker testing																
+		Travel-associated surveillance	                                     Surveillance of international border crossing by ground transport																
+		Travel-associated surveillance	                                     Surveillance from international worker testing																
 HSO:0000371		purpose of sequencing	Cluster/Outbreak investigation																
 		Cluster/Outbreak investigation	          Multi-jurisdictional outbreak investigation																
 		Cluster/Outbreak investigation	          Intra-jurisdictional outbreak investigation																
@@ -759,24 +758,24 @@ GENEPIO NTR		host age bin	80 - 89
 GENEPIO NTR		host age bin	90 - 99																90+
 GENEPIO NTR		host age bin	100+																90+
 																			
-NCIT_C46110		host gender	Female														FEMALE		
-NCIT_C46109		host gender	Male														MALE		
-GSSO:000132		host gender	Non-binary gender														NON_BINARY_GENDER		
-GSSO:004004		host gender	Transgender (Male to Female)														TRANSGENDER		
-GSSO:004005		host gender	Transgender (Female to Male)														TRANSGENDER		
-		host gender	Undeclared														REFUSED		
-		host gender	Unknown														UNKNOWN		
+NCIT_C46110		host gender	Female																
+NCIT_C46109		host gender	Male																
+GSSO:000132		host gender	Non-binary gender																
+GSSO:004004		host gender	Transgender (Male to Female)																
+GSSO:004005		host gender	Transgender (Female to Male)																
+		host gender	Undeclared																
+		host gender	Unknown																
 																			
 PCO NTR		exposure event	Mass Gathering																
 PCO NTR		Mass Gathering	      Agricultural Event																
-PCO NTR		Mass Gathering	      Convention														CONVENTION		
+PCO NTR		Mass Gathering	      Convention																
 PCO NTR		Mass Gathering	      Convocation																
 PCO NTR		Mass Gathering	      Recreational Event																
 PCO NTR		Recreational Event	            Concert																
 PCO NTR		Recreational Event	            Sporting Event																
-PCO NTR		exposure event	Religious Gathering														RELIGIOUS		
+PCO NTR		exposure event	Religious Gathering																
 PCO NTR		Religious Gathering	      Mass																
-PCO:0000033		exposure event	Social Gathering														SOCIAL		
+PCO:0000033		exposure event	Social Gathering																
 PCO:0000039		Social Gathering	      Baby Shower																
 PCO:0000034		Social Gathering	      Community Event																
 PCO NTR		Social Gathering	      Family Gathering																
@@ -893,11 +892,11 @@ ECTO NTR		Temporary Residence	            Homeless Shelter
 ECTO NTR		Temporary Residence	            Hotel																
 ECTO NTR		Occupational, Residency or Patronage Exposure	      Veterinary Care Clinic																
 ECTO NTR		exposure setting	Travel Exposure																
-ECTO NTR		Travel Exposure	            Travelled on a Cruise Ship																
-ECTO NTR		Travel Exposure	            Travelled on a Plane																
-ECTO NTR		Travel Exposure	            Travelled on Ground Transport																
-GENEPIO_0001119		Travel Exposure	            Travelled outside Province/Territory																
-GENEPIO_0001118		Travel Exposure	            Travelled outside Canada																
+ECTO NTR		Travel Exposure	       Travelled on a Cruise Ship																
+ECTO NTR		Travel Exposure	       Travelled on a Plane																
+ECTO NTR		Travel Exposure	       Travelled on Ground Transport																
+GENEPIO_0001119		Travel Exposure	       Travelled outside Province/Territory																
+GENEPIO_0001118		Travel Exposure	       Travelled outside Canada																
 GENEPIO NTR?		exposure setting	Other Exposure Setting																
 																			
 																			
@@ -950,7 +949,7 @@ OBI NTR?		MGI	   MGI DNBSEQ-G400 FAST
 OBI NTR?		MGI	   MGI DNBSEQ-G50																
 																			
 																			
-PR:P0DTC4		gene name 1	E gene (orf4)													E gene	E gene	E (orf4)	
+PR:P0DTC4		gene name 1	E gene (orf4)													E gene		E (orf4)	
 PR:P0DTC5		gene name 1	M gene (orf5)															M (orf5)	
 PR:P0DTC9		gene name 1	N gene (orf9)															N (orf9)	
 PR:P0DTC2		gene name 1	Spike gene (orf2)															S (orf2)	
@@ -991,8 +990,8 @@ PR NTR?		gene name 1	orf14															orf14
 		sequence submitted by	BCCDC Public Health Laboratory																
 		sequence submitted by	Canadore College																
 		sequence submitted by	The Centre for Applied Genomics (TCAG)																
-		sequence submitted by	Dynacare (Manitoba)														Dynacare Manitoba		
-		sequence submitted by	The Hospital for Sick Children (SickKids)														CANCOGEN_SICK_KIDS_HOSPITAL		
+		sequence submitted by	Dynacare (Manitoba)																
+		sequence submitted by	The Hospital for Sick Children (SickKids)																
 		sequence submitted by	Laboratoire de santé publique du Québec (LSPQ)																
 		sequence submitted by	Manitoba Cadham Provincial Laboratory																
 		sequence submitted by	McMaster University																
@@ -1011,37 +1010,32 @@ PR NTR?		gene name 1	orf14															orf14
 																			
 																			
 		 sample collected by	Alberta Precision Labs (APL)																
-		Alberta Precision Labs (APL)	Alberta ProvLab North (APLN)														CANCOGEN_EDMONTON_PROV_LAB		
-		Alberta Precision Labs (APL)	Alberta ProvLab South (APLS)														CANCOGEN_CALGARY_PROV_LAB		
-		 sample collected by	BCCDC Public Health Laboratory														CANCOGEN_BCCDC		
-		 sample collected by	Dynacare (Manitoba)														Dynacare Manitoba		
-		 sample collected by	Eastern Ontario Regional Laboratory Association														CANCOGEN_EORLA		
-		 sample collected by	Hamilton Health Sciences														"	
-CANCOGEN_HAMILTON_HS"		
-		 sample collected by	The Hospital for Sick Children (SickKids)														CANCOGEN_SICK_KIDS_HOSPITAL		
-		 sample collected by	Laboratoire de santé publique du Québec (LSPQ)														CANCOGEN_LSPQ		
-		 sample collected by	Lake of the Woods District Hospital - Ontario														CANCOGEN_LAKE_OF_THE_WOODS		
-		 sample collected by	Manitoba Cadham Provincial Laboratory														CANCOGEN_CADHAM_LAB		
-		 sample collected by	McMaster University														CANCOGEN_MCMASTER_UNIVERSITY		
-		 sample collected by	Mount Sinai Hospital														"	
-CANCOGEN_MOUNT_SINAI"		
-		 sample collected by	National Microbiology Laboratory (NML)														CANCOGEN_NML_IRV		
-		 sample collected by	New Brunswick - Vitalité Health Network														CANCOGEN_G_L_DUMONT		
-		 sample collected by	Newfoundland and Labrador - Eastern Health														CANCOGEN_STJOHNS_PHL		
-		 sample collected by	Nova Scotia Health Authority														CANCOGEN_QEII_HSC		
-		 sample collected by	Nunuvut														CANCOGEN_NUNAVUT_		
-		 sample collected by	Ontario Institute for Cancer Research (OICR)														CANCOGEN_OICR		
-		 sample collected by	Prince Edward Island - Health PEI														CANCOGEN_QEH		
-		 sample collected by	Public Health Ontario (PHO)														CANCOGEN_ONTARIO_PHO		
-		 sample collected by	Queen's University / Kingston Health Sciences Centre														CANCOGEN_KINGSTON		
-		 sample collected by	Saskatchewan - Roy Romanow Provincial Laboratory (RRPL)														CANCOGEN_ROMANOW_PROV_LAB		
-		 sample collected by	St. John's Rehab at Sunnybrook Hospital														"	
-CANCOGEN_SJRH"		
-		 sample collected by	Sunnybrook Health Sciences Centre														CANCOGEN_SUNNYBROOK		
-		 sample collected by	Unity Health Toronto														"	
-CANCOGEN_UNITY_HEALTH"		
-		 sample collected by	William Osler Health System														"	
-CANCOGEN_WILLIAM_OSLER"		
+		Alberta Precision Labs (APL)	Alberta ProvLab North (APLN)																
+		Alberta Precision Labs (APL)	Alberta ProvLab South (APLS)																
+		 sample collected by	BCCDC Public Health Laboratory																
+		 sample collected by	Dynacare (Manitoba)																
+		 sample collected by	Eastern Ontario Regional Laboratory Association																
+		 sample collected by	Hamilton Health Sciences																
+		 sample collected by	The Hospital for Sick Children (SickKids)																
+		 sample collected by	Laboratoire de santé publique du Québec (LSPQ)																
+		 sample collected by	Lake of the Woods District Hospital - Ontario																
+		 sample collected by	Manitoba Cadham Provincial Laboratory																
+		 sample collected by	McMaster University																
+		 sample collected by	Mount Sinai Hospital																
+		 sample collected by	National Microbiology Laboratory (NML)																
+		 sample collected by	New Brunswick - Vitalité Health Network																
+		 sample collected by	Newfoundland and Labrador - Eastern Health																
+		 sample collected by	Nova Scotia Health Authority																
+		 sample collected by	Nunuvut																
+		 sample collected by	Ontario Institute for Cancer Research (OICR)																
+		 sample collected by	Prince Edward Island - Health PEI																
+		 sample collected by	Public Health Ontario (PHO)																
+		 sample collected by	Queen's University / Kingston Health Sciences Centre																
+		 sample collected by	Saskatchewan - Roy Romanow Provincial Laboratory (RRPL)																
+		 sample collected by	St. John's Rehab at Sunnybrook Hospital																
+		 sample collected by	Sunnybrook Health Sciences Centre																
+		 sample collected by	Unity Health Toronto																
+		 sample collected by	William Osler Health System																
 																			
 																			
 GAZ_00006882		geo_loc_name (country)	Afghanistan																
@@ -1053,11 +1047,11 @@ GAZ_00001095		geo_loc_name (country)	Angola
 GAZ_00009159		geo_loc_name (country)	Anguilla																
 GAZ_00000462		geo_loc_name (country)	Antarctica																
 GAZ_00006883		geo_loc_name (country)	Antigua and Barbuda																
-GAZ_00002928		geo_loc_name (country)	Argentina														ARGENTINA		
+GAZ_00002928		geo_loc_name (country)	Argentina																
 GAZ_00004094		geo_loc_name (country)	Armenia																
 GAZ_00004025		geo_loc_name (country)	Aruba																
 GAZ_00005901		geo_loc_name (country)	Ashmore and Cartier Islands																
-GAZ_00000463		geo_loc_name (country)	Australia														AUSTRALIA		
+GAZ_00000463		geo_loc_name (country)	Australia																
 GAZ_00002942		geo_loc_name (country)	Austria																
 GAZ_00004941		geo_loc_name (country)	Azerbaijan																
 GAZ_00002733		geo_loc_name (country)	Bahamas																
@@ -1067,7 +1061,7 @@ GAZ_00003750		geo_loc_name (country)	Bangladesh
 GAZ_00001251		geo_loc_name (country)	Barbados																
 GAZ_00005810		geo_loc_name (country)	Bassas da India																
 GAZ_00006886		geo_loc_name (country)	Belarus																
-GAZ_00002938		geo_loc_name (country)	Belgium														BELGIUM		
+GAZ_00002938		geo_loc_name (country)	Belgium																
 GAZ_00002934		geo_loc_name (country)	Belize																
 GAZ_00000904		geo_loc_name (country)	Benin																
 GAZ_00001264		geo_loc_name (country)	Bermuda																
@@ -1077,7 +1071,7 @@ GAZ_00025355		geo_loc_name (country)	Borneo
 GAZ_00006887		geo_loc_name (country)	Bosnia and Herzegovina																
 GAZ_00001097		geo_loc_name (country)	Botswana																
 GAZ_00001453		geo_loc_name (country)	Bouvet Island																
-GAZ_00002828		geo_loc_name (country)	Brazil														BRAZIL		
+GAZ_00002828		geo_loc_name (country)	Brazil																
 GAZ_00003961		geo_loc_name (country)	British Virgin Islands																
 GAZ_00003901		geo_loc_name (country)	Brunei																
 GAZ_00002950		geo_loc_name (country)	Bulgaria																
@@ -1085,21 +1079,21 @@ GAZ_00000905		geo_loc_name (country)	Burkina Faso
 GAZ_00001090		geo_loc_name (country)	Burundi																
 GAZ_00006888		geo_loc_name (country)	Cambodia																
 GAZ_00001093		geo_loc_name (country)	Cameroon																
-GAZ_00002560		geo_loc_name (country)	Canada														CA		
+GAZ_00002560		geo_loc_name (country)	Canada																
 GAZ_00001227		geo_loc_name (country)	Cape Verde																
 GAZ_00003986		geo_loc_name (country)	Cayman Islands																
 GAZ_00001089		geo_loc_name (country)	Central African Republic																
 GAZ_00000586		geo_loc_name (country)	Chad																
-GAZ_00002825		geo_loc_name (country)	Chile														CHILE		
-GAZ_00002845		geo_loc_name (country)	China														CHINA		
+GAZ_00002825		geo_loc_name (country)	Chile																
+GAZ_00002845		geo_loc_name (country)	China																
 GAZ_00005915		geo_loc_name (country)	Christmas Island																
 GAZ_00005838		geo_loc_name (country)	Clipperton Island																
 GAZ_00009721		geo_loc_name (country)	Cocos Islands																
-GAZ_00002929		geo_loc_name (country)	Colombia														COLUMBIA		
+GAZ_00002929		geo_loc_name (country)	Colombia																
 GAZ_00005820		geo_loc_name (country)	Comoros																
 GAZ_00053798		geo_loc_name (country)	Cook Islands																
 GAZ_00005917		geo_loc_name (country)	Coral Sea Islands																
-GAZ_00002901		geo_loc_name (country)	Costa Rica														COSTA_RICA		
+GAZ_00002901		geo_loc_name (country)	Costa Rica																
 GAZ_00000906		geo_loc_name (country)	Cote d'Ivoire																
 GAZ_00002719		geo_loc_name (country)	Croatia																
 GAZ_00003762		geo_loc_name (country)	Cuba																
@@ -1107,11 +1101,11 @@ GAZ:00012582		geo_loc_name (country)	Curacao
 GAZ_00004006		geo_loc_name (country)	Cyprus																
 GAZ_00002954		geo_loc_name (country)	Czech Republic																
 GAZ_00001086		geo_loc_name (country)	Democratic Republic of the Congo																
-GAZ_00005852		geo_loc_name (country)	Denmark														DENMARK		
+GAZ_00005852		geo_loc_name (country)	Denmark																
 GAZ_00000582		geo_loc_name (country)	Djibouti																
 GAZ_00006890		geo_loc_name (country)	Dominica																
 GAZ_00003952		geo_loc_name (country)	Dominican Republic																
-GAZ_00002912		geo_loc_name (country)	Ecuador														ECUADOR		
+GAZ_00002912		geo_loc_name (country)	Ecuador																
 GAZ_00003934		geo_loc_name (country)	Egypt																
 GAZ_00002935		geo_loc_name (country)	El Salvador																
 GAZ_00001091		geo_loc_name (country)	Equatorial Guinea																
@@ -1124,7 +1118,7 @@ GAZ_00001412		geo_loc_name (country)	Falkland Islands (Islas Malvinas)
 GAZ_00059206		geo_loc_name (country)	Faroe Islands																
 GAZ_00006891		geo_loc_name (country)	Fiji																
 GAZ_00002937		geo_loc_name (country)	Finland																
-GAZ_00003940		geo_loc_name (country)	France														FRANCE		
+GAZ_00003940		geo_loc_name (country)	France																
 GAZ_00002516		geo_loc_name (country)	French Guiana																
 GAZ_00002918		geo_loc_name (country)	French Polynesia																
 GAZ_00003753		geo_loc_name (country)	French Southern and Antarctic Lands																
@@ -1132,7 +1126,7 @@ GAZ_00001092		geo_loc_name (country)	Gabon
 GAZ_00000907		geo_loc_name (country)	Gambia																
 GAZ_00009571		geo_loc_name (country)	Gaza Strip																
 GAZ_00004942		geo_loc_name (country)	Georgia																
-GAZ_00002646		geo_loc_name (country)	Germany														GERMANY		
+GAZ_00002646		geo_loc_name (country)	Germany																
 GAZ_00000908		geo_loc_name (country)	Ghana																
 GAZ_00003987		geo_loc_name (country)	Gibraltar																
 GAZ_00005808		geo_loc_name (country)	Glorioso Islands																
@@ -1145,7 +1139,7 @@ GAZ_00002936		geo_loc_name (country)	Guatemala
 GAZ_00001550		geo_loc_name (country)	Guernsey																
 GAZ_00000909		geo_loc_name (country)	Guinea																
 GAZ_00000910		geo_loc_name (country)	Guinea-Bissau																
-GAZ_00002522		geo_loc_name (country)	Guyana														GUYANA		
+GAZ_00002522		geo_loc_name (country)	Guyana																
 GAZ_00003953		geo_loc_name (country)	Haiti																
 GAZ_00009718		geo_loc_name (country)	Heard Island and McDonald Islands																
 GAZ_00002894		geo_loc_name (country)	Honduras																
@@ -1153,7 +1147,7 @@ GAZ_00003203		geo_loc_name (country)	Hong Kong
 GAZ_00007120		geo_loc_name (country)	Howland Island																
 GAZ_00002952		geo_loc_name (country)	Hungary																
 GAZ_00000843		geo_loc_name (country)	Iceland																
-GAZ_00002839		geo_loc_name (country)	India														INDIA		
+GAZ_00002839		geo_loc_name (country)	India																
 GAZ_00003727		geo_loc_name (country)	Indonesia																
 GAZ_00004474		geo_loc_name (country)	Iran																
 GAZ_00004483		geo_loc_name (country)	Iraq																
@@ -1161,7 +1155,7 @@ GAZ_00002943		geo_loc_name (country)	Ireland
 GAZ_00052477		geo_loc_name (country)	Isle of Man																
 GAZ_00002476		geo_loc_name (country)	Israel																
 GAZ_00002650		geo_loc_name (country)	Italy																
-GAZ_00003781		geo_loc_name (country)	Jamaica														JAMAICA		
+GAZ_00003781		geo_loc_name (country)	Jamaica																
 GAZ_00005853		geo_loc_name (country)	Jan Mayen																
 GAZ_00002747		geo_loc_name (country)	Japan																
 GAZ_00007118		geo_loc_name (country)	Jarvis Island																
@@ -1170,7 +1164,7 @@ GAZ_00007114		geo_loc_name (country)	Johnston Atoll
 GAZ_00002473		geo_loc_name (country)	Jordan																
 GAZ_00005809		geo_loc_name (country)	Juan de Nova Island																
 GAZ_00004999		geo_loc_name (country)	Kazakhstan																
-GAZ_00001101		geo_loc_name (country)	Kenya														KENYA		
+GAZ_00001101		geo_loc_name (country)	Kenya																
 GAZ_00005682		geo_loc_name (country)	Kerguelen Archipelago																
 GAZ_00007116		geo_loc_name (country)	Kingman Reef																
 GAZ_00006894		geo_loc_name (country)	Kiribati																
@@ -1199,7 +1193,7 @@ GAZ_00067143		geo_loc_name (country)	Martinique
 GAZ_00000583		geo_loc_name (country)	Mauritania																
 GAZ_00003745		geo_loc_name (country)	Mauritius																
 GAZ_00003943		geo_loc_name (country)	Mayotte																
-GAZ_00002852		geo_loc_name (country)	Mexico														MEXICO		
+GAZ_00002852		geo_loc_name (country)	Mexico																
 GAZ_00005862		geo_loc_name (country)	Micronesia																
 GAZ_00007112		geo_loc_name (country)	Midway Islands																
 GAZ_00003897		geo_loc_name (country)	Moldova																
@@ -1214,12 +1208,12 @@ GAZ_00001096		geo_loc_name (country)	Namibia
 GAZ_00006900		geo_loc_name (country)	Nauru																
 GAZ_00007119		geo_loc_name (country)	Navassa Island																
 GAZ_00004399		geo_loc_name (country)	Nepal																
-GAZ_00002946		geo_loc_name (country)	Netherlands														NETHERLANDS		
+GAZ_00002946		geo_loc_name (country)	Netherlands																
 GAZ_00005206		geo_loc_name (country)	New Caledonia																
 GAZ_00000469		geo_loc_name (country)	New Zealand																
 GAZ_00002978		geo_loc_name (country)	Nicaragua																
 GAZ_00000585		geo_loc_name (country)	Niger																
-GAZ_00000912		geo_loc_name (country)	Nigeria														NIGERIA		
+GAZ_00000912		geo_loc_name (country)	Nigeria																
 GAZ_00006902		geo_loc_name (country)	Niue																
 GAZ_00005908		geo_loc_name (country)	Norfolk Island																
 GAZ_00002801		geo_loc_name (country)	North Korea																
@@ -1228,14 +1222,14 @@ GAZ_00002284		geo_loc_name (country)	North Sea
 GAZ_00003958		geo_loc_name (country)	Northern Mariana Islands																
 GAZ_00002699		geo_loc_name (country)	Norway																
 GAZ_00005283		geo_loc_name (country)	Oman																
-GAZ_00005246		geo_loc_name (country)	Pakistan														PAKISTAN		
+GAZ_00005246		geo_loc_name (country)	Pakistan																
 GAZ_00006905		geo_loc_name (country)	Palau																
 GAZ_00002892		geo_loc_name (country)	Panama																
 GAZ_00003922		geo_loc_name (country)	Papua New Guinea																
 GAZ_00010832		geo_loc_name (country)	Paracel Islands																
 GAZ_00002933		geo_loc_name (country)	Paraguay																
 GAZ_00002932		geo_loc_name (country)	Peru																
-GAZ_00004525		geo_loc_name (country)	Philippines														PHILIPPINE		
+GAZ_00004525		geo_loc_name (country)	Philippines																
 GAZ_00005867		geo_loc_name (country)	Pitcairn Islands																
 GAZ_00002939		geo_loc_name (country)	Poland																
 GAZ_00004126		geo_loc_name (country)	Portugal																
@@ -1297,12 +1291,12 @@ GAZ_00000558		geo_loc_name (country)	Turkey
 GAZ_00005018		geo_loc_name (country)	Turkmenistan																
 GAZ_00003955		geo_loc_name (country)	Turks and Caicos Islands																
 GAZ_00009715		geo_loc_name (country)	Tuvalu																
-GAZ_00002459		geo_loc_name (country)	United States of America														US		
+GAZ_00002459		geo_loc_name (country)	United States of America																
 GAZ_00001102		geo_loc_name (country)	Uganda																
 GAZ_00002724		geo_loc_name (country)	Ukraine																
 GAZ_00005282		geo_loc_name (country)	United Arab Emirates																
-GAZ_00002637		geo_loc_name (country)	United Kingdom														UNITEDKING		
-GAZ_00002930		geo_loc_name (country)	Uruguay														URUGUAY		
+GAZ_00002637		geo_loc_name (country)	United Kingdom																
+GAZ_00002930		geo_loc_name (country)	Uruguay																
 GAZ_00004979		geo_loc_name (country)	Uzbekistan																
 GAZ_00006918		geo_loc_name (country)	Vanuatu																
 GAZ_00002931		geo_loc_name (country)	Venezuela																
