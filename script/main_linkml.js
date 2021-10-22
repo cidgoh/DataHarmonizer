@@ -11,15 +11,12 @@
  * main.html?template=test_template
  *
  */
-const VERSION = '0.14.2';
+const VERSION = '0.14.3';
 const VERSION_TEXT = 'DataHarmonizer provenance: v' + VERSION;
 const TEMPLATES = {
-  'CanCOGeN Covid-19': {'folder': 'canada_covid19', 'status': 'published'},
-  'PHAC Dexa (ALPHA)': {'folder': 'phac_dexa', 'status': 'draft'},
-  'GRDI (ALPHA)':      {'folder': 'grdi', 'status': 'draft'},
-  'GISAID (ALPHA)':    {'folder': 'gisaid', 'status': 'draft'},
-  'PHA4GE':    {'folder': 'pha4ge', 'status': 'published'}
+  'MIxS soil': {'folder': 'MIxS_soil', 'status': 'published'},
 };
+
 // Currently selected cell range[row,col,row2,col2]
 CURRENT_SELECTION = [null,null,null,null];
 
@@ -1615,6 +1612,31 @@ const setupTriggers = () => {
 
 }
 
+/*
+  Can't load .yaml directly from computer without breaking Access to XMLHttpRequest at 'file:///Users/damion/Documents/GitHub/DataHarmonizer/template/MIxS_soil/data.js' from origin 'null' has been blocked by CORS policy: Cross origin requests are only supported for protocol schemes: http, data, ...
+
+    function get_UTF8_file(file_path) {
+        try {
+            return node_fs.readFileSync(file_path, 'utf8');
+        } catch (e) {
+            console.log(e);
+        }
+        return false;
+    }
+
+    function get_yaml_array(file_path) {
+        let fileContents = get_UTF8_file(file_path);
+        if (fileContents) {
+            try {
+                return node_yaml.loadAll(fileContents);
+            } catch (e) {
+                console.log(e);
+            }
+        };
+        return [];
+    }
+*/
+
 /**
  * Revise user interface elements to match template path, and trigger
  * load of data.js and export.js scripts.  data_script.onload goes on
@@ -1637,10 +1659,11 @@ const setupTemplate = (template_folder) => {
       $('#template_name_display').text(label);
     }
   };
-  
+
+  runBehindLoadingScreen(launch, [template_folder, DATA]);
   // Change in src triggers load of script and update to reference doc and SOP.
-  reloadJs(`template/${template_folder}/data.js`, function () { 
-    runBehindLoadingScreen(launch, [template_folder, DATA])
+  reloadJs(`template/${template_folder}/schema.js`, function () { 
+    runBehindLoadingScreen(launch, [template_folder, DATA]);
   });
 
   $("#help_reference").attr('href',`template/${template_folder}/reference.html`)
@@ -1665,7 +1688,7 @@ const reloadJs = (src_url, onloadfn) => {
       $('#missing-template-modal').modal('show');
       $('#template_name_display').text('');
     };
-
+    // triggers load
     script.src = src_url;
     document.head.appendChild(script);
 
