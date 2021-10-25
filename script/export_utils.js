@@ -8,12 +8,12 @@
  * @param {Object} fields A flat version of data.js.
  * @return {Dictionary<Integer>} Dictionary of all fields.
  */
-const getFieldNameMap = (fields) => {
-  const fieldNameMap = {};
+const gettitleMap = (fields) => {
+  const titleMap = {};
   for (const [fieldIndex, field] of fields.entries()) {
-    fieldNameMap[field.fieldName] = fieldIndex;
+    titleMap[field.title] = fieldIndex;
   }
-  return fieldNameMap;
+  return titleMap;
 }
 
 /**
@@ -68,8 +68,8 @@ const getHeaderMap = (exportHeaders, fields, prefix) => {
 						if (!sources)
 							console.log('Malformed export.js exportHeader field:', target.field)
 						// If given field isn't already mapped, add it.
-						if (sources.indexOf(field.fieldName) == -1) {
-							sources.push(field.fieldName);
+						if (sources.indexOf(field.title) == -1) {
+							sources.push(field.title);
 						};
 						exportHeaders.set(target.field, sources);
 					}
@@ -86,8 +86,8 @@ const getHeaderMap = (exportHeaders, fields, prefix) => {
 						}
 						sources = exportHeaders[headerMap[target.field]][1];
 						// As above
-						if (sources.indexOf(field.fieldName) == -1) {
-							sources.push(field.fieldName);
+						if (sources.indexOf(field.title) == -1) {
+							sources.push(field.title);
 						};
 						exportHeaders[headerMap[target.field]][1] = sources;
 					};
@@ -110,18 +110,18 @@ const getHeaderMap = (exportHeaders, fields, prefix) => {
  * target export system's version of these.
  * @param {String} headerName is field name of target export field
  * @param {Object} sourceRow 
- * @param {Array<Object>} sourceFieldNames array of all source fields.
- * @param {Object} fieldNameMap
+ * @param {Array<Object>} sourcetitles array of all source fields.
+ * @param {Object} titleMap
  * @param {String} delimiter to separate multi-source field values with
  * @param {String} prefix of export format
  * @param {Map} nullOptionsMap conversion of Missing etc. to export db equivalent.
  * @returm {String} Concatenated string of values.
  */
-const getMappedField = (headerName, sourceRow, sourceFieldNames, sourceFields, fieldNameMap, delimiter, prefix, nullOptionsMap = null, skipNull = false) => {
+const getMappedField = (headerName, sourceRow, sourcetitles, sourceFields, titleMap, delimiter, prefix, nullOptionsMap = null, skipNull = false) => {
 
 	const mappedCell = [];
-	for (const fieldName of sourceFieldNames) {
-		let mappedCellVal = sourceRow[fieldNameMap[fieldName]];
+	for (const title of sourcetitles) {
+		let mappedCellVal = sourceRow[titleMap[title]];
 		if (!mappedCellVal) continue;
 		mappedCellVal = mappedCellVal.trim();
 		if (mappedCellVal.length === 0) continue;
@@ -131,12 +131,12 @@ const getMappedField = (headerName, sourceRow, sourceFieldNames, sourceFields, f
 		if (skipNull === true && (!mappedCellVal || mappedCellVal.length === 0)) 
 			continue;
 
-		let field = sourceFields[fieldNameMap[fieldName]];
+		let field = sourceFields[titleMap[title]];
 
 		if (field.datatype === 'select') {
 			mappedCell.push( getTransformedField(headerName, mappedCellVal, field, prefix));
 		}
-		else if (field.datatype === 'multiple') {
+		else if (field.multivalued === true) {
 			// ISSUE: relying on semicolon delimiter in input
 
 			for (let cellVal of mappedCellVal.split(';')) {
@@ -208,17 +208,17 @@ function findById(o, key) {
  * @param {Array<String>} sourceFields list of source fields to examine for mappings.
  * @param {Array<Array>} RuleDB list of export fields modified by rules.
  * @param {Array<Array>} fields list of export fields modified by rules.
- * @param {Array<Integer>} fieldNameMap map of field names to column index.
+ * @param {Array<Integer>} titleMap map of field names to column index.
  * @param {String} prefix of export format to examine.
  * @return {Array<Object>} fields Dictionary of all fields.
  */
 
-const getRowMap = (sourceRow, sourceFields, RuleDB, fields, fieldNameMap, prefix) => {
-  for (const fieldName of sourceFields) {
-  	const sourceIndex = fieldNameMap[fieldName];
+const getRowMap = (sourceRow, sourceFields, RuleDB, fields, titleMap, prefix) => {
+  for (const title of sourceFields) {
+  	const sourceIndex = titleMap[title];
     let value = sourceRow[sourceIndex]; // All text values.
     // Sets source field to data value so that rules can reference it easily.
-    RuleDB[fieldName] = value;
+    RuleDB[title] = value;
     // Check to see if value is in vocabulary of given select field, and if it
     // has a mapping for export to a GRDI target field above, then set target
     // to value.

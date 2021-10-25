@@ -2,6 +2,11 @@
  * @fileOverview Handsontable grid with standardized COVID-19 metadata.
  * Implemented with vanilla JavaScript and locally downloaded libaries.
  * Functionality for uploading, downloading and validating data.
+ * 
+ * NOTE: If you are using Chrome javascript debugger console: using this
+ * tool disables double clicking on HandsonTable cells, so you won't see 
+ * column help or cell insert/delete row actions, and it seems to disable 
+ * the createHot afterRender event/method.
  */
 
 /* A list of templates available for this app, which will be displayed in a 
@@ -9,6 +14,9 @@
  * URL parameter. This enables testing of a template even if it hasn't been incorporated into the list below.
  *
  * main.html?template=test_template
+ *
+ * MIxS example schemas are available at:
+ * https://github.com/GenomicsStandardsConsortium/mixs-source/tree/main/model/schema
  *
  */
 const VERSION = '0.14.3';
@@ -61,7 +69,7 @@ const processData = (data) => {
   const fields = getFields(data);
   for (const field of fields) {
     if ('schema:ItemList' in field) {
-      flatVocabularies[field.fieldName] =
+      flatVocabularies[field.title] =
           stringifyNestedVocabulary(field['schema:ItemList']);
     }
   }
@@ -71,7 +79,7 @@ const processData = (data) => {
     // parent.children is list of fields
     for (const child of parent.children) {
       if ('schema:ItemList' in child) {
-        child.flatVocabulary = flatVocabularies[child.fieldName];
+        child.flatVocabulary = flatVocabularies[child.title];
 
         if (child.source) {
           // Duplicate vocabulary from other source field
@@ -180,17 +188,18 @@ const createHot = (data) => {
       $('#header-row').css('visibility', 'visible');
       $('#footer-row').css('visibility', 'visible');
 
-      // Bit of a hackey way to add classes to secondary headers
+      // Bit of a hackey way to RESTORE classes to secondary headers. They are
+      // removed by Handsontable when re-rendering main table.
       $('.secondary-header-text').each((_, e) => {
         const $cellElement = $(e).closest('th');
+        $cellElement.addClass('secondary-header-cell');
         if ($(e).hasClass('required')) {
-          $cellElement.addClass('secondary-header-cell required');
+          $cellElement.addClass('required');
         } else if ($(e).hasClass('recommended')) {
-          $cellElement.addClass('secondary-header-cell recommended');
-        } else {
-          $cellElement.addClass('secondary-header-cell');
-        }
+          $cellElement.addClass('recommended');
+        } 
       });
+
     },
     afterRenderer: (TD, row, col) => {
       if (INVALID_CELLS.hasOwnProperty(row)) {
@@ -216,13 +225,18 @@ const getNestedHeaders = (data) => {
   const rows = [[], []];
   for (const parent of data) {
     rows[0].push({
-      label: `<h5 class="pt-2 pl-1">${parent.fieldName}</h5>`,
+      label: `<h5 class="pt-2 pl-1">${parent.title}</h5>`,
       colspan: parent.children.length
     });
     for (const child of parent.children) {
-      const req = child.requirement;
-      const name = child.fieldName;
-      rows[1].push(`<div class="secondary-header-text ${req}">${name}</div>`);
+      let req = '';
+      if (child.required)
+        req = 'required';
+      else {
+        if (child.recommended)
+          req = 'recommended';
+      }
+      rows[1].push(`<div class="secondary-header-text ${req}">${child.title}</div>`);
     }
   }
   return rows;
@@ -244,16 +258,16 @@ const getFlatHeaders = (data) => {
       //$('specify-headers-modal').modal('hide');
       //$('#unmapped-headers-modal').modal('hide');
       const errMsg = `The template for the loaded file has a configuration error:<br/>
-      <strong>${parent.fieldName}</strong><br/>
+      <strong>${parent.title}</strong><br/>
       This is a field that has no parent, or a section that has no fields.`;
       $('#unmapped-headers-list').html(errMsg);
       $('#unmapped-headers-modal').modal('show');
 
       return false;
     }
-    rows[0].push(parent.fieldName);
+    rows[0].push(parent.title);
     rows[0].push(...Array(min_cols).fill(''));
-    rows[1].push(...parent.children.map(child => child.fieldName));
+    rows[1].push(...parent.children.map(child => child.title));
   }
   return rows;
 };
@@ -269,15 +283,22 @@ const getColumns = (data) => {
   let ret = [];
   for (const field of getFields(data)) {
     const col = {};
-    if (field.requirement) {
-      col.requirement = field.requirement;
-    }
+    // if (field.requirement) {
+    //  col.requirement = field.requirement;
+    //}
+    if (field.required && field.required === true)
+      col.required = true;
+    if (field.recommended && field.recommended === true)
+      col.recommended = true;  
+
     // Compile field's regular expression for quick application.
     if (field.pattern) {
-      field.pattern = new RegExp(field.pattern);
+      // Issue with NMDC MIxS "current land use" field pattern: "[ ....(all sorts of things) ]" syntax.
+      NMDC_regex = field.pattern.replaceAll("(", "\(").replaceAll(")", "\)").replace("[", "(").replace("]", ")")
+      field.pattern = new RegExp(NMDC_regex);
     }
     switch (field.datatype) {
-      case 'xs:date': 
+      case 'xsd:date': 
         col.type = 'date';
         // This controls calendar popup date format, default is mm/dd/yyyy
         // See https://handsontable.com/docs/8.3.0/Options.html#correctFormat
@@ -288,24 +309,24 @@ const getColumns = (data) => {
         col.correctFormat = false; 
         break;
       case 'select':
-        col.type = 'autocomplete';
         col.source = field.flatVocabulary;
+        if (field.multivalued === true) {
+          col.editor = 'text';
+          col.renderer = 'autocomplete';
+        }
+        else {
+          col.type = 'autocomplete';
+          col.trimDropdown = false;
+        }
+        // Add missing | not applicable etc. menu items 
         if (field.dataStatus) col.source.push(...field.dataStatus);
-        col.trimDropdown = false;
         break;
-      case 'xs:nonNegativeInteger':
-      case 'xs:decimal':
+      case 'xsd:nonNegativeInteger':
+      case 'xsd:decimal':
         if (field.dataStatus) {
           col.type = 'autocomplete';
           col.source = field.dataStatus;
         }
-        break;
-      case 'multiple':
-        // TODO: we need to find a better way to enable multi-selection
-        col.editor = 'text';
-        col.renderer = 'autocomplete';
-        col.source = field.flatVocabulary;
-        if (field.dataStatus) col.source.push(...field.dataStatus);
         break;
     }
     ret.push(col);
@@ -347,7 +368,8 @@ const enableMultiSelection = (hot, data) => {
   const fields = getFields(data);
   hot.updateSettings({
     afterBeginEditing: function(row, col) {
-      if (fields[col].datatype === 'multiple') {
+      //if (fields[col].datatype === 'multiple') {
+      if (fields[col].multivalued === true) {
         const value = this.getDataAtCell(row, col);
         let selections = value && value.split(';') || [];
         selections = selections.map(x => x.trim());
@@ -363,7 +385,7 @@ const enableMultiSelection = (hot, data) => {
           content += `<option value="${field_trim}" ${selected}'>${field}</option>`;
         })
 
-        $('#field-description-text').html(`${fields[col].fieldName}<select multiple class="multiselect" rows="15">${content}</select>`);
+        $('#field-description-text').html(`${fields[col].title}<select multiple class="multiselect" rows="15">${content}</select>`);
         $('#field-description-modal').modal('show');
         $('#field-description-text .multiselect')
           .chosen() // must be rendered when html is visible
@@ -696,17 +718,17 @@ const matrixFieldChangeRules = (matrix, hot, data) => {
 
     // Rules that require a column or two following current one.
     if (fields.length > col+1) {
-      const nextFieldName = fields[col+1].fieldName;
+      const nexttitle = fields[col+1].title;
 
       // Rule: for any "x bin" field label, following a "x" field,
       // find and set appropriate bin selection.
-      if (nextFieldName === field.fieldName + ' bin') {
+      if (nexttitle === field.title + ' bin') {
         binChangeTest(matrix, 0, col, fields, 1, triggered_changes);
       }
       // Rule: for any [x], [x unit], [x bin] series of fields
       else
-        if (nextFieldName === field.fieldName + ' unit') {
-          if (fields[col].datatype === 'xs:date') {
+        if (nexttitle === field.title + ' unit') {
+          if (fields[col].datatype === 'xsd:date') {
             //Validate 
             for (let row=0; row < matrix.length; row++) {
               if (!matrix[row][col]) continue;
@@ -764,13 +786,13 @@ const fieldChangeRules = (change, fields, triggered_changes) => {
     matrix[0] = {}; // Essential for creating sparse array.
     matrix[0][col] = change[3]; // prime changed value
 
-    const prevName = (col > 0) ? fields[col-1].fieldName : null;
-    const nextName = (fields.length > col+1) ? fields[col+1].fieldName : null;
+    const prevName = (col > 0) ? fields[col-1].title : null;
+    const nextName = (fields.length > col+1) ? fields[col+1].title : null;
 
     // Match <field>[field unit]
-    if (nextName === field.fieldName + ' unit') {
+    if (nextName === field.title + ' unit') {
 
-      if (field.datatype === 'xs:date') {
+      if (field.datatype === 'xsd:date') {
 
         // Transform ISO 8601 date to bin year / month granularity.
         // "day" granularity is taken care of by regular date validation.
@@ -784,8 +806,8 @@ const fieldChangeRules = (change, fields, triggered_changes) => {
       }
 
       // Match <field>[field unit][field bin]
-      const nextNextName = (fields.length > col+2) ? fields[col+2].fieldName : null;
-      if (nextNextName === field.fieldName + ' bin') {
+      const nextNextName = (fields.length > col+2) ? fields[col+2].title : null;
+      if (nextNextName === field.title + ' bin') {
         matrix[0][col+1] = window.HOT.getDataAtCell(row, col+1); //prime unit
         binChangeTest(matrix, row, col, fields, 2, triggered_changes);
         return;
@@ -793,13 +815,13 @@ const fieldChangeRules = (change, fields, triggered_changes) => {
     }
 
     // Match <field>[field bin]
-    if (nextName === field.fieldName + ' bin') {
+    if (nextName === field.title + ' bin') {
       binChangeTest(matrix, row, col, fields, 1, triggered_changes);
       return;
     }
 
     // Match [field]<field unit>
-    if (field.fieldName === prevName + ' unit') {
+    if (field.title === prevName + ' unit') {
 
       // Match [field]<field unit>[field bin]
       if (prevName + ' bin' === nextName) {
@@ -813,7 +835,7 @@ const fieldChangeRules = (change, fields, triggered_changes) => {
       // Match previous field as date field
       // A change from month to year or day to month/year triggers new 
       // date value 
-      if (fields[col-1].datatype === 'xs:date' && (change[3] === 'year' || change[3] === 'month') ) {
+      if (fields[col-1].datatype === 'xsd:date' && (change[3] === 'year' || change[3] === 'month') ) {
 
         let dateString = window.HOT.getDataAtCell(row, col-1);
         // If there is a date entered, adjust it
@@ -872,8 +894,8 @@ const setDateChange = (dateGranularity, dateString, dateBlank='__') => {
  */
 const fieldUnitBinTest = (fields, col) => {
   return ((fields.length > col+2) 
-    && (fields[col+1].fieldName == fields[col].fieldName + ' unit') 
-    && (fields[col+2].fieldName == fields[col].fieldName + ' bin'));
+    && (fields[col+1].title == fields[col].title + ' unit') 
+    && (fields[col+2].title == fields[col].title + ' bin'));
 }
 
 /**
@@ -976,7 +998,10 @@ const changeColVisibility = (id = 'show-all-cols-dropdown-item', data, hot) => {
   const options = (id === 'show-required-cols-dropdown-item') ? ['required'] : (id === 'show-recommended-cols-dropdown-item') ? ['required','recommended'] : null;
   if (options) {
     getFields(data).forEach(function(field, i) {
-      if (!options.includes(field.requirement)) hiddenColumns.push(i);
+      if ((field.required && options.includes('required')) || (field.recommended && options.includes('recommended'))) {}
+      else {
+        hiddenColumns.push(i);
+      }
     });
   }
   hiddenColsPlugin.hideColumns(hiddenColumns);
@@ -1027,7 +1052,7 @@ const changeRowVisibility = (id, invalidCells, hot) => {
 const getFieldYCoordinates = (data) => {
   const ret = {};
   for (const [i, field] of getFields(data).entries()) {
-    ret[field.fieldName] = i;
+    ret[field.title] = i;
   }
   return ret;
 };
@@ -1086,42 +1111,26 @@ const getInvalidCells = (hot, data) => {
       if (datatype === 'provenance') {
         checkProvenance(provenanceChanges, cellVal, row, col);
       };
+
       if (!cellVal) {
-        valid = field.requirement !== 'required';
+        valid = field.required !== true;
         msg = 'Required cells cannot be empty'
       } 
       else {
         switch (datatype) {
-          // Unique value field (a type of xs:token string) 
-          case 'xs:unique':
-            // Set up dictionary and count for this column's unique values
-            if (!uniquefield[col]) {
-              uniquefield[col] = {};
-              for (let keyrow=0; keyrow<hot.countRows(); keyrow++) {
-                if (!hot.isEmptyRow(keyrow)) {
-                  let key = hot.getDataAtCell(keyrow, col);
-                  if (key in uniquefield[col])
-                    uniquefield[col][key] += 1;
-                  else
-                    uniquefield[col][key] = 1;
-                }
-              }
-            }
-            // Must be only 1 unique value.  Case insensitive comparison
-            valid = uniquefield[col][cellVal] === 1;  
-            break;
-          case 'xs:nonNegativeInteger':
+         
+          case 'xsd:nonNegativeInteger':
             const parsedInt = parseInt(cellVal, 10);
             valid = !isNaN(cellVal) && parsedInt>=0
             valid &= parsedInt.toString()===cellVal;
             valid &= testNumericRange(parsedInt, field);
             break;
-          case 'xs:decimal':
+          case 'xsd:decimal':
             const parsedDec = parseFloat(cellVal);
             valid = !isNaN(cellVal) && regexDecimal.test(cellVal);
             valid &= testNumericRange(parsedDec, field);
             break;
-          case 'xs:date':
+          case 'xsd:date':
             // moment is a date format addon
             valid = moment(cellVal, 'YYYY-MM-DD', true).isValid();
             if (valid) {
@@ -1129,11 +1138,14 @@ const getInvalidCells = (hot, data) => {
             }
             break;
           case 'select':
-            valid = validateValAgainstVocab(cellVal, field.flatVocabulary);
+            if (field.multivalued === true)
+              valid = validateValsAgainstVocab(cellVal, field.flatVocabulary);
+            else
+              valid = validateValAgainstVocab(cellVal, field.flatVocabulary);
             break;
-          case 'multiple':
-            valid = validateValsAgainstVocab(cellVal, field.flatVocabulary);
-            break;
+          //case 'multiple':
+          //  valid = validateValsAgainstVocab(cellVal, field.flatVocabulary);
+          //  break;
            
         }
         // Test regular expression if it is given
@@ -1141,6 +1153,28 @@ const getInvalidCells = (hot, data) => {
           valid = field.pattern.test(cellVal);
         }
       }
+
+      // Unique value field (Usually xsd:token string)
+      // CORRECT PLACE FOR THIS? 
+      if (field.identifier && field.identifier === true) {
+
+        // Set up dictionary and count for this column's unique values
+        if (!uniquefield[col]) {
+          uniquefield[col] = {};
+          for (let keyrow=0; keyrow<hot.countRows(); keyrow++) {
+            if (!hot.isEmptyRow(keyrow)) {
+              let key = hot.getDataAtCell(keyrow, col);
+              if (key in uniquefield[col])
+                uniquefield[col][key] += 1;
+              else
+                uniquefield[col][key] = 1;
+            }
+          }
+        }
+        // Must be only 1 unique value.  Case insensitive comparison
+        valid &= uniquefield[col][cellVal] === 1;  
+      }
+
       if (!valid && field.dataStatus) {
         valid = validateValAgainstVocab(cellVal, field.dataStatus);
       }
@@ -1201,13 +1235,13 @@ const checkProvenance = (provenanceChanges, cellVal, row, col) => {
  */
 const testNumericRange = (number, field) => {
 
-  if (field['xs:minInclusive'] !== '') {
-    if (number < field['xs:minInclusive']) {
+  if (field.minimum_value !== '') {
+    if (number < field.minimum_value) {
       return false
     }
   }
-  if (field['xs:maxInclusive'] !== '') {
-    if (number > field['xs:maxInclusive']) 
+  if (field.maximum_value !== '') {
+    if (number > field.maximum_value) 
       return false
   }
   return true
@@ -1221,13 +1255,13 @@ const testNumericRange = (number, field) => {
  */
 const testDateRange = (aDate, field) => {
 
-  if (field['xs:minInclusive'] !== '') {
-    if (aDate < field['xs:minInclusive']) {
+  if (field.minimum_value !== '') {
+    if (aDate < field.minimum_value) {
       return false
     }
   }
-  if (field['xs:maxInclusive'] !== '') {
-    if (aDate > field['xs:maxInclusive']) 
+  if (field.maximum_value !== '') {
+    if (aDate > field.maximum_value) 
       return false
   }
   return true
@@ -1271,10 +1305,24 @@ const validateValsAgainstVocab = (valsCsv, source) => {
  * @return {String} HTML string describing field.
  */
 const getComment = (field) => {
-  let ret = `<p><strong>Label</strong>: ${field.fieldName}</p>
-<p><strong>Description</strong>: ${field.description}</p>
-<p><strong>Guidance</strong>: ${field.guidance}</p>
-<p><strong>Examples</strong>: ${field.examples}</p>`;
+  let ret = `<p><strong>Label</strong>: ${field.title}</p>
+<p><strong>Description</strong>: ${field.description}</p>`;
+  if (field.guidance) 
+    ret += `<p><strong>Guidance</strong>: ${field.guidance}</p>`;
+  if (field.examples) {
+    // Ignoring all but linkml .value now (which can be empty):
+    let examples = [];
+    for (const [key, item] of Object.entries(field.examples)) {
+      if (item.value.trim().length > 0) {
+        // Sometimes examples are separated by ";", but other times its part
+        // of a "yes; .... further information ... " format.
+        //examples.push(...item.value.split(';')); // 
+        examples.push(item.value);
+      } 
+    }
+    if (examples.length)
+      ret += `<p><strong>Examples</strong>: <li>${examples.join('</li>\n<li>')}</li></p>`;
+  }
   if (field.dataStatus) {
     ret += `<p><strong>Null values</strong>: ${field.dataStatus}</p>`;
   }
@@ -1576,7 +1624,7 @@ const setupTriggers = () => {
   $('#grid').on('dblclick', '.secondary-header-cell', (e) => {
     const innerText = e.target.innerText;
     const field =
-        getFields(DATA).filter(field => field.fieldName === innerText)[0];
+        getFields(DATA).filter(field => field.title === innerText)[0];
     $('#field-description-text').html(getComment(field));
     $('#field-description-modal').modal('show');
   });
@@ -1612,30 +1660,6 @@ const setupTriggers = () => {
 
 }
 
-/*
-  Can't load .yaml directly from computer without breaking Access to XMLHttpRequest at 'file:///Users/damion/Documents/GitHub/DataHarmonizer/template/MIxS_soil/data.js' from origin 'null' has been blocked by CORS policy: Cross origin requests are only supported for protocol schemes: http, data, ...
-
-    function get_UTF8_file(file_path) {
-        try {
-            return node_fs.readFileSync(file_path, 'utf8');
-        } catch (e) {
-            console.log(e);
-        }
-        return false;
-    }
-
-    function get_yaml_array(file_path) {
-        let fileContents = get_UTF8_file(file_path);
-        if (fileContents) {
-            try {
-                return node_yaml.loadAll(fileContents);
-            } catch (e) {
-                console.log(e);
-            }
-        };
-        return [];
-    }
-*/
 
 /**
  * Revise user interface elements to match template path, and trigger
@@ -1660,10 +1684,91 @@ const setupTemplate = (template_folder) => {
     }
   };
 
-  runBehindLoadingScreen(launch, [template_folder, DATA]);
   // Change in src triggers load of script and update to reference doc and SOP.
-  reloadJs(`template/${template_folder}/schema.js`, function () { 
-    runBehindLoadingScreen(launch, [template_folder, DATA]);
+  reloadJs(`template/${template_folder}/data.js`, function () { 
+    //const table = new Map();
+    const table = [];
+    const sectionIndex = new Map();
+    const newDATA = {'table': table}; // This will hold table sections
+
+    // Convert YAML array to object containing named yaml parts.
+    for (ptr in DATA) {
+      newDATA[DATA[ptr].name] = DATA[ptr];
+    }
+    console.log(newDATA)
+    // List of columns
+    for (const [key, name] of Object.entries(newDATA.soil.classes.soil.slots)) {
+      // lookup each column in terms table. A term looks like:
+      /*
+      is_a: "core field"
+      title: "history/fire"
+      slot_uri: "MIXS:0001086"
+      comments: (3) ['Expected value: date', 'Occurrence: 1', 'This field is used uniquely in: soil']
+      description: "Historical and/or physical evidence of fire"
+      examples: [{…}]
+      multivalued: false
+      range: "date"
+      */
+      const field = newDATA.terms.slots[name];
+      const slot_usage_dict = newDATA.soil.classes.soil.slot_usage;
+      if ('is_a' in field) {
+        // We have a field positioned within a section (or hierarchy)
+        section_title = field.is_a;
+        if (! sectionIndex.has(section_title)) {
+          sectionIndex.set(section_title, sectionIndex.size);
+          table.push({
+            'title':section_title, 
+            'children':[]}
+          );
+        }
+
+        section = table[sectionIndex.get(section_title)];
+        let new_field = {...field}; // shallow copy
+
+        new_field.datatype = null;
+        switch (new_field.range) {
+          case "string": 
+            new_field.datatype = "xsd:token"; // was "xs:token",
+            break;
+          
+          case "quantity value": 
+            new_field.datatype = "xsd:decimal";
+            //datatype = "xsd:nonNegativeInteger";
+            break;
+
+          case "date":
+            new_field.datatype = "xsd:date";
+            break;
+
+          default:
+            new_field.datatype = "xsd:token"; // was "xs:token"
+            if (new_field.range.substr(-5) === "_enum") {
+              new_field.source = newDATA.terms.enums[new_field.range];
+
+            }
+            //if (new_field.multivalued && new_field.multivalued == true)
+
+        } 
+
+
+
+
+        // Compatibility with data.js
+        if (name in slot_usage_dict) {
+          const usage = slot_usage_dict[name];
+          if (usage.required && usage.required === true) 
+            new_field.required = usage.required;
+          if (usage.recommended && usage.recommended === true) 
+            new_field.recommended = usage.recommended;
+        }
+
+        section['children'].push(new_field);
+      }
+
+
+    }
+    // DATA is an array of objects, one for each section (or field directly)
+    runBehindLoadingScreen(launch, [template_folder, table]);
   });
 
   $("#help_reference").attr('href',`template/${template_folder}/reference.html`)
@@ -1673,7 +1778,9 @@ const setupTemplate = (template_folder) => {
 /**
  * Reloads a given javascript by removing any old script happening to have the
  * same URL, and loading the given one. Only in this way will browsers reload
- * the code.
+ * the code. This is mainly designed to load a script that sets global DATA 
+ * variable.
+ * 
  * @param {String} src_url: path of template starting from app's template folder.
  * @param {Object} onloadfn: function to run when script is loaded. 
  */
