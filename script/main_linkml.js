@@ -304,28 +304,6 @@ const getColumns = (data) => {
   return ret;
 };
 
-/**
- * Recursively flatten vocabulary into an array of strings, with each string's
- * level of depth in the vocabulary being indicated by leading spaces.
- * e.g., `vocabulary: 'a': {'b':{}},, 'c': {}` becomes `['a', '  b', 'c']`.
- * @param {Object} vocabulary See `vocabulary` fields in `data.js`.
- * @param {number} level Nested level of `vocabulary` we are currently
- *     processing.
- * @return {Array<String>} Flattened vocabulary.
- */
-const stringifyNestedVocabulary = (vocab_list, level=0) => {
-
-  let ret = [];
-  for (const val of Object.keys(vocab_list)) {
-    ret.push('  '.repeat(level) + val);
-    //if ('schema:ItemList' in vocab_list[val]) {
-    //  ret = ret.concat(stringifyNestedVocabulary(vocab_list[val]['schema:ItemList'], level+1));
-    if (vocab_list[val].permissible_values) {
-      ret = ret.concat(stringifyNestedVocabulary(vocab_list[val][permissible_values], level+1));
-    }
-  }
-  return ret;
-};
 
 /**
  * Enable multiselection on select rows.
@@ -1774,6 +1752,28 @@ const setupTemplate = (template_folder) => {
 
   $("#help_reference").attr('href',`template/${template_folder}/reference.html`)
   $("#help_sop").attr('href',`template/${template_folder}/SOP.pdf`)
+};
+
+
+/**
+ * Recursively flatten vocabulary into an array of strings, with each string's
+ * level of depth in the vocabulary being indicated by leading spaces.
+ * e.g., `vocabulary: 'a': {'b':{}},, 'c': {}` becomes `['a', '  b', 'c']`.
+ * @param {Object} vocabulary See `vocabulary` fields in `data.js`.
+ * @param {number} level Nested level of `vocabulary` we are currently
+ *     processing.
+ * @return {Array<String>} Flattened vocabulary.
+ */
+const stringifyNestedVocabulary = (vocab_list, level=0) => {
+
+  let ret = [];
+  for (const val of Object.keys(vocab_list)) {
+    ret.push('  '.repeat(level) + val);
+    if (vocab_list[val].permissible_values) {
+      ret = ret.concat(stringifyNestedVocabulary(vocab_list[val].permissible_values, level+1));
+    }
+  }
+  return ret;
 };
 
 /**
