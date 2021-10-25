@@ -1,0 +1,67 @@
+IN DATAHARMONIZER CODE:
+datatype xs:token	-> datatype xsd:token (string)
+datatype xs:date	-> datatype xsd:date (ISO 8601 date)
+datatype xs:decimal -> datatype xsd:decimal
+
+datatype "multiple" -> field.multivalued === true
+
+field.fieldName -> field.title
+field.xs:minInclusive -> field.minimum_value
+field.xs:maxInclusive -> field.maximum_value
+field.guidance -> field.comments
+field.examples -> field.examples [{value: _____}, ... ]
+
+field.requirement = required -> field.required = true
+field.requirement = recommended -> field.recommended = true
+
+// PROBLEM: allow negative integers?
+field.datatype = xs:nonNegativeInteger -> linkml field.range = integer
+
+field.datatype = "xsd:decimal";
+// PROBLEM: There are a variety of quantity values specified, some allowing units
+
+field.schema:ItemList -> field.permissible_values
+						-> field.values_from  FOR 100% URIs.
+
+
+*************************************
+NEED TO DO: 
+field.exportField
+
+
+field.capitalize ???? [lower | UPPER | Title]
+field.dataStatus ???? [missing | not applicable | etc ... ]
+	POSSIBLE SOLUTION: Allow >1 range for a slot_definition?
+
+
+datatype xs:unique -> field.identifier === true			// OR field.key ??????
+Test multiple column unique vals: dates, integers, strings
+
+**************************************
+// Issue with NMDC MIxS "current land use" field pattern: "[ ....(all sorts of things) ]" syntax.
+   NMDC_regex = field.pattern.replaceAll("(", "\(").replaceAll(")", "\)").replace("[", "(").replace("]", ")")
+
+As well, 
+
+   - value: oceanic epipelagic zone biome [ENVO:01000033] for annotating a water
+        sample from the photic zone in middle of the Atlantic Ocean
+    comments:
+    - 'Expected value: The major environment type(s) where the sample was collected.
+      Recommend subclasses of biome [ENVO:00000428]. Multiple terms can be separated
+      by one or more pipes.'
+    pattern: '{termLabel} {[termID]}'
+
+NEED LIBRARY OF PATTERNS.
+*************************************
+Note: soil: slot usage mentions some names that are not in slot:
+
+    slot_usage:
+      samp_name:
+        required: true
+      project_name:
+        required: true
+      depth:
+        required: true
+      elev:
+        required: true
+

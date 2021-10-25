@@ -56,47 +56,6 @@ const toggleDropdownVisibility = () => {
       });
 };
 
-/**
- * Post-processing of values in `data.js` at runtime. This calculates for each
- * categorical field (table column) in data.js a flat list of allowed values
- * in field.flatVocabulary,
- * @param {Object} data See `data.js`.
- * @return {Object} Processed values of `data.js`.
- */
-const processData = (data) => {
-  // Useful to have this object for fields with a "source" vocabulary
-  const flatVocabularies = {};
-  const fields = getFields(data);
-  for (const field of fields) {
-    if ('schema:ItemList' in field) {
-      flatVocabularies[field.title] =
-          stringifyNestedVocabulary(field['schema:ItemList']);
-    }
-  }
-
-  // parent is each data section
-  for (const parent of data) {
-    // parent.children is list of fields
-    for (const child of parent.children) {
-      if ('schema:ItemList' in child) {
-        child.flatVocabulary = flatVocabularies[child.title];
-
-        if (child.source) {
-          // Duplicate vocabulary from other source field
-          child.flatVocabulary =
-              [...child.flatVocabulary, ...flatVocabularies[child.source]];
-        }
-
-        // Change case as needed
-        for (const [i, val] of child.flatVocabulary.entries()) {
-          if (!val || !child.capitalize) continue;
-          child.flatVocabulary[i] = changeCase(val, child.capitalize);
-        }
-      }
-    }
-  }
-  return data;
-};
 
 /**
  * Modify a string to match specified case.
@@ -283,13 +242,10 @@ const getColumns = (data) => {
   let ret = [];
   for (const field of getFields(data)) {
     const col = {};
-    // if (field.requirement) {
-    //  col.requirement = field.requirement;
-    //}
-    if (field.required && field.required === true)
-      col.required = true;
-    if (field.recommended && field.recommended === true)
-      col.recommended = true;  
+    if (field.required)
+      col.required = field.required;
+    if (field.recommended)
+      col.recommended = field.recommended;  
 
     // Compile field's regular expression for quick application.
     if (field.pattern) {
@@ -297,7 +253,29 @@ const getColumns = (data) => {
       NMDC_regex = field.pattern.replaceAll("(", "\(").replaceAll(")", "\)").replace("[", "(").replace("]", ")")
       field.pattern = new RegExp(NMDC_regex);
     }
+
+    col.source = null;
+
+    if (field.flatVocabulary) {
+        
+      col.source = field.flatVocabulary;
+
+      if (field.multivalued === true) {
+        col.editor = 'text';
+        col.renderer = 'autocomplete';
+      }
+      else {
+        col.type = 'autocomplete';
+        col.trimDropdown = false;
+      }
+
+    }
+
+    if (field.metadata_status) 
+      col.source.push(...field.metadata_status);
+
     switch (field.datatype) {
+
       case 'xsd:date': 
         col.type = 'date';
         // This controls calendar popup date format, default is mm/dd/yyyy
@@ -308,27 +286,19 @@ const getColumns = (data) => {
         // automatically.
         col.correctFormat = false; 
         break;
-      case 'select':
-        col.source = field.flatVocabulary;
-        if (field.multivalued === true) {
-          col.editor = 'text';
-          col.renderer = 'autocomplete';
-        }
-        else {
+
+      //case 'xsd:float':
+      //case 'xsd:integer':
+      //case 'xsd:nonNegativeInteger':
+      //case 'xsd:decimal':
+      default:
+        if (field.metadata_status) {
           col.type = 'autocomplete';
-          col.trimDropdown = false;
-        }
-        // Add missing | not applicable etc. menu items 
-        if (field.dataStatus) col.source.push(...field.dataStatus);
-        break;
-      case 'xsd:nonNegativeInteger':
-      case 'xsd:decimal':
-        if (field.dataStatus) {
-          col.type = 'autocomplete';
-          col.source = field.dataStatus;
         }
         break;
     }
+
+
     ret.push(col);
   }
   return ret;
@@ -347,10 +317,11 @@ const stringifyNestedVocabulary = (vocab_list, level=0) => {
 
   let ret = [];
   for (const val of Object.keys(vocab_list)) {
-    //if (val != 'exportField') { // Ignore field map values used for export.
     ret.push('  '.repeat(level) + val);
-    if ('schema:ItemList' in vocab_list[val]) {
-      ret = ret.concat(stringifyNestedVocabulary(vocab_list[val]['schema:ItemList'], level+1));
+    //if ('schema:ItemList' in vocab_list[val]) {
+    //  ret = ret.concat(stringifyNestedVocabulary(vocab_list[val]['schema:ItemList'], level+1));
+    if (vocab_list[val].permissible_values) {
+      ret = ret.concat(stringifyNestedVocabulary(vocab_list[val][permissible_values], level+1));
     }
   }
   return ret;
@@ -1117,36 +1088,37 @@ const getInvalidCells = (hot, data) => {
         msg = 'Required cells cannot be empty'
       } 
       else {
-        switch (datatype) {
-         
-          case 'xsd:nonNegativeInteger':
-            const parsedInt = parseInt(cellVal, 10);
-            valid = !isNaN(cellVal) && parsedInt>=0
-            valid &= parsedInt.toString()===cellVal;
-            valid &= testNumericRange(parsedInt, field);
-            break;
-          case 'xsd:decimal':
-            const parsedDec = parseFloat(cellVal);
-            valid = !isNaN(cellVal) && regexDecimal.test(cellVal);
-            valid &= testNumericRange(parsedDec, field);
-            break;
-          case 'xsd:date':
-            // moment is a date format addon
-            valid = moment(cellVal, 'YYYY-MM-DD', true).isValid();
-            if (valid) {
-              valid = testDateRange(cellVal, field);
-            }
-            break;
-          case 'select':
+        if (field.source && field.source.length) {
             if (field.multivalued === true)
               valid = validateValsAgainstVocab(cellVal, field.flatVocabulary);
             else
               valid = validateValAgainstVocab(cellVal, field.flatVocabulary);
-            break;
-          //case 'multiple':
-          //  valid = validateValsAgainstVocab(cellVal, field.flatVocabulary);
-          //  break;
+        }
+        else {
+          switch (datatype) {
            
+            case 'xsd:nonNegativeInteger':
+              const parsedInt = parseInt(cellVal, 10);
+              valid = !isNaN(cellVal) && parsedInt>=0
+              valid &= parsedInt.toString()===cellVal;
+              valid &= testNumericRange(parsedInt, field);
+              break;
+
+            case 'xsd:decimal':
+              const parsedDec = parseFloat(cellVal);
+              valid = !isNaN(cellVal) && regexDecimal.test(cellVal);
+              valid &= testNumericRange(parsedDec, field);
+              break;
+
+            case 'xsd:date':
+              // moment is a date format addon
+              valid = moment(cellVal, 'YYYY-MM-DD', true).isValid();
+              if (valid) {
+                valid = testDateRange(cellVal, field);
+              }
+              break;
+
+          }
         }
         // Test regular expression if it is given
         if (valid && field.pattern) {
@@ -1175,8 +1147,8 @@ const getInvalidCells = (hot, data) => {
         valid &= uniquefield[col][cellVal] === 1;  
       }
 
-      if (!valid && field.dataStatus) {
-        valid = validateValAgainstVocab(cellVal, field.dataStatus);
+      if (!valid && field.metadata_status) {
+        valid = validateValAgainstVocab(cellVal, field.metadata_status);
       }
       if (!valid) {
         if (!invalidCells.hasOwnProperty(row)) {
@@ -1307,24 +1279,27 @@ const validateValsAgainstVocab = (valsCsv, source) => {
 const getComment = (field) => {
   let ret = `<p><strong>Label</strong>: ${field.title}</p>
 <p><strong>Description</strong>: ${field.description}</p>`;
-  if (field.guidance) 
-    ret += `<p><strong>Guidance</strong>: ${field.guidance}</p>`;
+  //if (field.guidance) 
+  //  ret += `<p><strong>Guidance</strong>: ${field.guidance}</p>`;
+  if (field.comments && field.comments.length) {
+    ret += `<p><strong>Guidance</strong>: </p><p>${field.comments.join('</p>\n<p>')}</p>`;
+  }
   if (field.examples) {
     // Ignoring all but linkml .value now (which can be empty):
     let examples = [];
     for (const [key, item] of Object.entries(field.examples)) {
       if (item.value.trim().length > 0) {
-        // Sometimes examples are separated by ";", but other times its part
+        // Sometimes MIxS examples are separated by ";", but other times its part
         // of a "yes; .... further information ... " format.
         //examples.push(...item.value.split(';')); // 
         examples.push(item.value);
       } 
     }
     if (examples.length)
-      ret += `<p><strong>Examples</strong>: <li>${examples.join('</li>\n<li>')}</li></p>`;
+      ret += `<p><strong>Examples</strong>: </p><ul><li>${examples.join('</li>\n<li>')}</li></ul>`;
   }
-  if (field.dataStatus) {
-    ret += `<p><strong>Null values</strong>: ${field.dataStatus}</p>`;
+  if (field.metadata_status) {
+    ret += `<p><strong>Null values</strong>: ${field.metadata_status}</p>`;
   }
   return ret;
 };
@@ -1728,12 +1703,32 @@ const setupTemplate = (template_folder) => {
         new_field.datatype = null;
         switch (new_field.range) {
           case "string": 
+            // xsd:token means that string cannot have newlines, multiple-tabs
+            // or spaces.
             new_field.datatype = "xsd:token"; // was "xs:token",
             break;
-          
+
+          //case "uri":
+          //case "uriorcurie"
+          //case "datetime"
+          //case "time"
+          //case "double"
+          //case "float"
+          //case "boolean"
+          //case "ncname"
+          //case "objectidentifier"
+          //case "nodeidentifier"
+
+          case "decimal":
+            new_field.datatype = "xsd:decimal";
+
+          case "integer": // int ???
+            new_field.datatype = "xsd:nonNegativeInteger";
+
           case "quantity value": 
             new_field.datatype = "xsd:decimal";
-            //datatype = "xsd:nonNegativeInteger";
+            // PROBLEM: There are a variety of quantity values specified, some allowing units
+            // which would need to go in a second column unless validated as text within column.
             break;
 
           case "date":
@@ -1741,32 +1736,38 @@ const setupTemplate = (template_folder) => {
             break;
 
           default:
+            // Usually a selection list here, possibly .multivalued = true
             new_field.datatype = "xsd:token"; // was "xs:token"
-            if (new_field.range.substr(-5) === "_enum") {
-              new_field.source = newDATA.terms.enums[new_field.range];
+            if (new_field.range in newDATA.terms.enums) {
+              new_field.source = newDATA.terms.enums[new_field.range].permissible_values;
+              //This calculates for each categorical field in schema.yaml a 
+              // flat list of allowed values
+              new_field.flatVocabulary = stringifyNestedVocabulary(new_field.source);
 
+              // points to an object with .permissible_values ORDERED DICT array.
+              // FUTURE ???? :
+              // it may also have a metadata_values ORDERED DICT array.
+              // ISSUE: metadata_status [missing | not applicable etc. ]
+              // Allow > 1 range?
+              // OR allow {permitted_values: .... , metadata_values: .... }
             }
-            //if (new_field.multivalued && new_field.multivalued == true)
-
+            // .metadata_status is an ordered dict of permissible_values
+            // It is separate so it can be demultipliexed from content values.
+            if (new_field.metadata_status) {}
         } 
 
-
-
-
-        // Compatibility with data.js
+        // Copying in particular required/ recommended status of a field into
+        // this class / form's context
         if (name in slot_usage_dict) {
-          const usage = slot_usage_dict[name];
-          if (usage.required && usage.required === true) 
-            new_field.required = usage.required;
-          if (usage.recommended && usage.recommended === true) 
-            new_field.recommended = usage.recommended;
+          Object.assign(new_field, slot_usage_dict[name])
         }
 
         section['children'].push(new_field);
       }
 
-
     }
+
+    window.DATA = table;
     // DATA is an array of objects, one for each section (or field directly)
     runBehindLoadingScreen(launch, [template_folder, table]);
   });
@@ -1807,7 +1808,6 @@ const reloadJs = (src_url, onloadfn) => {
  */
 const launch = (template_folder, DATA) => {
 
-  window.DATA = processData(DATA);
   // Since data.js loaded, export.js should succeed as well
   reloadJs(`template/${template_folder}/export.js`, exportOnload);
 
