@@ -1039,10 +1039,8 @@ const launch = (template_folder, DATA) => {
     if (window.HOT) HOT.destroy(); // handles already existing data
     window.HOT = createHot(DATA);
   });
-  let HOT = window.HOT;
-  let INVALID_CELLS = window.INVALID_CELLS;
 
-  toggleDropdownVisibility(HOT, INVALID_CELLS);
+  toggleDropdownVisibility();
 
   const fieldYCoordinates = getFieldYCoordinates(DATA);
 
