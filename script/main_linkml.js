@@ -58,32 +58,6 @@ const toggleDropdownVisibility = () => {
 
 
 /**
- * Modify a string to match specified case.
- * @param {String} val String to modify.
- * @param {String} capitalize Case to modify string to; one of `'UPPER'`,
- *     `'lower'` or `'Title'`.
- * @return {String} String with modified case.
- */
-const changeCase = (val, capitalize) => {
-  switch (capitalize) {
-    case 'lower':
-      val = val.toLowerCase();
-      break;
-    case 'UPPER':
-      val = val.toUpperCase();
-      break;
-    case 'Title':
-      val = val.split(' ').
-      map(w => w[0].toUpperCase() + w.substr(1).toLowerCase()).
-      join(' ');
-      break;
-
-  }
-  return val
-
-};
-
-/**
  * Get a flat array of all fields in `data.json`.
  * @param {Object} data See `data.json`.
  * @return {Array<Object>} Array of all objects under `children` in `data.json`.
@@ -307,7 +281,6 @@ const getColumns = (data) => {
 
 /**
  * Enable multiselection on select rows.
- * This isn't really robust, and we should find a better way to do this.
  * @param {Object} hot Handonstable grid instance.
  * @param {Object} data See `data.js`.
  * @return {Object} Grid instance with multiselection enabled on columns
@@ -391,534 +364,6 @@ const runBehindLoadingScreen = (fn, args=[]) => {
   });
 };
 
-/**
- * Download matrix to file.
- * Note that BOM and UTF-8 can create problems on some systems when importing
- * file.  See "Supported Output Formats" and "UTF-16 Unicode Text" sections of
- * https://reactian.com/sheetjs-community-edition-spreadsheet-data-toolkit/
- * and https://github.com/SheetJS/sheetjs
- * Solution at bottom of: https://github.com/SheetJS/sheetjs/issues/943
- * The "Comma Separated Values" format is actually UTF-8 with BOM prefix.
- * @param {Array<Array<String>>} matrix Matrix to download.
- * @param {String} baseName Basename of downloaded file.
- * @param {String} ext Extension of downloaded file.
- * @param {Object} xlsx SheetJS variable.
- */
-const exportFile = (matrix, baseName, ext, xlsx) => {
-
-  const worksheet = xlsx.utils.aoa_to_sheet(matrix);
-  const workbook = xlsx.utils.book_new();
-  xlsx.utils.book_append_sheet(workbook, worksheet, 'Sheet1');
-  switch (ext) {
-    case 'xlsx':
-      xlsx.writeFile(workbook, `${baseName}.xlsx`);
-      break;
-    case 'xls':
-      xlsx.writeFile(workbook, `${baseName}.xls`);
-      break;
-    case 'tsv':
-      xlsx.writeFile(workbook, `${baseName}.tsv`, {bookType: 'csv', FS: '\t'});
-      break;
-    case 'csv':
-      xlsx.writeFile(workbook, `${baseName}.csv`, {bookType: 'csv', FS: ','});
-      break;
-    case 'tsv (UTF-16)':
-      xlsx.writeFile(workbook, `${baseName}.tsv`, {bookType: 'txt', FS: '\t'});
-      break;
-    case 'csv (UTF-16)':
-      xlsx.writeFile(workbook, `${baseName}.csv`, {bookType: 'txt', FS: ','});
-      break;
-    case 'csv (UTF-8, no BOM)': 
-      //Customization: skips BOM prefix '\uFEFF' 
-      const csv = xlsx.utils.sheet_to_csv(worksheet, {FS: ','});
-      const blob = new Blob([csv], {type: 'text/plain;charset=UTF-8'});
-      //A FileSaver module call, avoids {autoBom: true} parameter
-      saveAs(blob, `${baseName}.csv`);
-      break;
-    case 'csv (ASCII)': 
-      //Customization: skips BOM prefix, as above.
-      const csv2 = xlsx.utils.sheet_to_csv(worksheet, {FS: ','});
-      const blob2 = new Blob([csv2], {type: 'text/plain;charset=us-ascii'});
-      saveAs(blob2, `${baseName}.csv`);
-      break;
-  }
-};
-
-/**
- * Open file specified by user.
- * Only opens `xlsx`, `xlsx`, `csv` and `tsv` files. Will launch the specify
- * headers modal if the file's headers do not match the grid's headers.
- * @param {File} file User file.
- * @param {Object} hot Handsontable instance of grid.
- * @param {Object} data See `data.js`.
- * @param {Object} xlsx SheetJS variable.
- * @return {Promise<>} Resolves after loading data or launching specify headers
- *     modal.
- */
-const openFile = (file, hot, data, xlsx) => {
-  return new Promise((resolve) => {
-    const fileReader = new FileReader();
-    fileReader.readAsBinaryString(file);
-
-    fileReader.onload = (e) => {
-      $('#file_name_display').text(file.name);
-      
-      const workbook = xlsx.read(e.target.result, {
-        type: 'binary', 
-        raw: true,
-        cellDates: true, // Ensures date formatted as  YYYY-MM-DD dates
-        dateNF: 'yyyy-mm-dd' //'yyyy/mm/dd;@'
-      });
-      const worksheet =
-        updateSheetRange(workbook.Sheets[workbook.SheetNames[0]]);
-      const matrix = (xlsx.utils.sheet_to_json(
-        worksheet, 
-        {
-          header: 1, 
-          raw: false, 
-          range: 0
-        }
-        ));
-      const headerRowData = compareMatrixHeadersToGrid(matrix, data);
-      if (headerRowData > 0) {
-        hot.loadData(matrixFieldChangeRules(matrix.slice(headerRowData), hot, data));
-      } else {
-        launchSpecifyHeadersModal(matrix, hot, data);
-      }
-
-      resolve();
-    }
-  });
-};
-
-/**
- * Ask user to specify row in matrix containing secondary headers before load.
- * Calls `alertOfUnmappedHeaders` if necessary.
- * @param {Array<Array<String>} matrix Data that user must specify headers for.
- * @param {Object} hot Handsontable instance of grid.
- * @param {Object} data See `data.js`.
- */
-const launchSpecifyHeadersModal = (matrix, hot, data) => {
-  let flatHeaders = getFlatHeaders(data);
-  if (flatHeaders) {
-    $('#expected-headers-div')
-        .html(flatHeaders[1].join('   '));
-    $('#actual-headers-div')
-        .html(matrix[1].join('    '));
-    $('#specify-headers-modal').modal('show');
-    $('#specify-headers-confirm-btn').click(() => {
-      const specifiedHeaderRow =
-          parseInt($('#specify-headers-input').val());
-      if (!isValidHeaderRow(matrix, specifiedHeaderRow)) {
-        $('#specify-headers-err-msg').show();
-      } else {
-        const mappedMatrixObj =
-            mapMatrixToGrid(matrix, specifiedHeaderRow-1, data);
-        $('#specify-headers-modal').modal('hide');
-        runBehindLoadingScreen(() => {
-          hot.loadData(matrixFieldChangeRules(mappedMatrixObj.matrix.slice(2), hot, data));
-          if (mappedMatrixObj.unmappedHeaders.length) {
-            alertOfUnmappedHeaders(mappedMatrixObj.unmappedHeaders);
-          }
-        });
-      }
-    });
-  }
-};
-
-/**
- * Alert user of unmapped headers in a pop-up modal.
- * @param {Array<String>} unmappedHeaders Unmapped headers.
- */
-const alertOfUnmappedHeaders = (unmappedHeaders) => {
-  const unmappedHeaderDivs =
-      unmappedHeaders.map(header => `<li>${header}</li>`);
-  $('#unmapped-headers-list').html(unmappedHeaderDivs);
-  $('#unmapped-headers-modal').modal('show');
-};
-
-/**
- * Improve `XLSX.utils.sheet_to_json` performance for Libreoffice Calc files.
- * Ensures sheet range is accurate. See
- * https://github.com/SheetJS/sheetjs/issues/764 for more detail.
- * @param {Object} worksheet SheetJs object.
- * @returns {Object} SheetJs worksheet with correct range.
- */
-const updateSheetRange = (worksheet) => {
-  const range = {s:{r:20000000, c:20000000},e:{r:0,c:0}};
-  Object.keys(worksheet)
-      .filter((x) => {return x.charAt(0) !== '!'})
-      .map(XLSX.utils.decode_cell).forEach((x) => {
-        range.s.c = Math.min(range.s.c, x.c);
-        range.s.r = Math.min(range.s.r, x.r);
-        range.e.c = Math.max(range.e.c, x.c);
-        range.e.r = Math.max(range.e.r, x.r);
-      });
-  worksheet['!ref'] = XLSX.utils.encode_range(range);
-  return worksheet;
-}
-
-/**
- * Determine if first or second row of a matrix has the same headers as the 
- * grid's secondary (2nd row) headers.  If neither, return false.
- * @param {Array<Array<String>>} matrix
- * @param {Object} data See `data.js`.
- * @return {Integer} row that data starts on, or false if no exact header row
- * recognized.
- */
-const compareMatrixHeadersToGrid = (matrix, data) => {
-  const expectedSecondRow = getFlatHeaders(data)[1];
-  const actualFirstRow = matrix[0];
-  const actualSecondRow = matrix[1];
-  if (JSON.stringify(expectedSecondRow) === JSON.stringify(actualFirstRow))
-    return 1;
-  if (JSON.stringify(expectedSecondRow) === JSON.stringify(actualSecondRow))
-    return 2;
-  return false;
-};
-
-/**
- * Validates `$('#specify-headers-input')` input.
- * @param {Array<Array<String>>} matrix
- * @param {number} row 1-based index used to indicate header row in matrix.
- */
-const isValidHeaderRow = (matrix, row) => {
-  return Number.isInteger(row) && row > 0 && row <= matrix.length;
-};
-
-/**
- * `mapMatrixToGrid` return value.
- * @typedef {Object} MappedMatrixObj
- * @property {Array<Array<String>>} matrix Mapped matrix.
- * @property {Array<String>} unmappedHeaders Unmapped grid columns.
- */
-
-/**
- * Map matrix columns to grid columns.
- * Currently assumes mapped columns will have the same label, but allows them
- * to be in a different order. If the matrix is missing a column, a blank
- * column is used.
- * @param {Array<Array<String>>} matrix
- * @param {Number} matrixHeaderRow Row containing matrix's column labels.
- * @param {Object} data See `data.js`.
- * @return {MappedMatrixObj} Mapped matrix and details.
- */
-const mapMatrixToGrid = (matrix, matrixHeaderRow, data) => {
-  const expectedHeaders = getFlatHeaders(data);
-  const expectedSecondaryHeaders = expectedHeaders[1];
-  const actualSecondaryHeaders = matrix[matrixHeaderRow];
-
-  // Map current column indices to their indices in matrix to map
-  const headerMap = {};
-  const unmappedHeaders = [];
-  for (const [i, expectedVal] of expectedSecondaryHeaders.entries()) {
-    headerMap[i] = actualSecondaryHeaders.findIndex((actualVal) => {
-      return actualVal === expectedVal;
-    });
-    if (headerMap[i] === -1) unmappedHeaders.push(expectedVal);
-  }
-
-  const dataRows = matrix.slice(matrixHeaderRow + 1);
-  const mappedDataRows = [];
-  // Iterate over non-header-rows in matrix to map
-  for (const i of dataRows.keys()) {
-    mappedDataRows[i] = [];
-    // Iterate over columns in current validator version
-    for (const j of expectedSecondaryHeaders.keys()) {
-      // -1 means the matrix to map does not have this column
-      if (headerMap[j] === -1) {
-        mappedDataRows[i][j] = '';
-      } else {
-        mappedDataRows[i][j] = dataRows[i][headerMap[j]];
-      }
-    }
-  }
-
-  return {
-    matrix: [...expectedHeaders, ...mappedDataRows],
-    unmappedHeaders: unmappedHeaders,
-  };
-};
-
-/**
- * Modify matrix data for grid according to specified rules.
- * This is useful when calling `hot.loadData`, as cell changes from said method
- * are not recognized by `afterChange`.
- * @param {Array<Array<String>>} matrix Data meant for grid.
- * @param {Object} hot Handsontable instance of grid.
- * @param {Object} data See `data.js`.
- * @return {Array<Array<String>>} Modified matrix.
- */
-const matrixFieldChangeRules = (matrix, hot, data) => {
-  const fields = getFields(data);
-  for (let col=0; col < fields.length; col++) {
-
-    const field = fields[col];
-
-    // Test field against capitalization change.
-    if (field.capitalize !== null) {
-      for (let row=0; row < matrix.length; row++) {
-        if (!matrix[row][col]) continue;
-        matrix[row][col] = changeCase(matrix[row][col], field.capitalize);
-      }
-    }
-
-    var triggered_changes = [];
-
-    // Rules that require a column or two following current one.
-    if (fields.length > col+1) {
-      const nexttitle = fields[col+1].title;
-
-      // Rule: for any "x bin" field label, following a "x" field,
-      // find and set appropriate bin selection.
-      if (nexttitle === field.title + ' bin') {
-        binChangeTest(matrix, 0, col, fields, 1, triggered_changes);
-      }
-      // Rule: for any [x], [x unit], [x bin] series of fields
-      else
-        if (nexttitle === field.title + ' unit') {
-          if (fields[col].datatype === 'xsd:date') {
-            //Validate 
-            for (let row=0; row < matrix.length; row++) {
-              if (!matrix[row][col]) continue;
-              const dateGranularity = matrix[row][col + 1];
-              if (dateGranularity === 'year' || dateGranularity === 'month') {
-                matrix[row][col] = setDateChange(dateGranularity, matrix[row][col]);
-              }
-            }
-          }
-          else if (fieldUnitBinTest(fields, col)) {
-            // 2 specifies bin offset
-            binChangeTest(matrix, 0, col, fields, 2, triggered_changes);
-          }
-        }
-    }
-
-    // Do triggered changes:
-    for (const change of triggered_changes) {
-      matrix[change[0]][change[1]] = change[3];
-    }
-  }
-
-  return matrix;
-}
-
-
-/**
- * Iterate through rules set up for named columns
- * Like matrixFieldChangeRules but this is triggered by a single change
- * by a user edit on a field cell. This creates complexity for fields that
- * work together, e.g. either of first two fields of 
- * [field][field unit][field bin] could have been focus of change.
- *
- * @param {Array} change array [row, col, ? , value]
- * @param {Object} fields See `data.js`.
- * @param {Array} triggered_changes array BY REFERENCE. One or more changes is
- *                appended to this.
- */
-const fieldChangeRules = (change, fields, triggered_changes) => {
-
-  const row = change[0];
-  const col = change[1];
-  const field = fields[col];
-
-  // Test field against capitalization change.
-  if (field.capitalize !== null && change[3] && change[3].length > 0) 
-    change[3] = changeCase(change[3], field.capitalize);
-
-  // Rules that require a particular column following and/or preceeding
-  // current one.
-  if (fields.length > col+1) {
-
-    // We're prepping a SPARSE ARRAY here for binChangeTest()
-    var matrix = [0];
-    matrix[0] = {}; // Essential for creating sparse array.
-    matrix[0][col] = change[3]; // prime changed value
-
-    const prevName = (col > 0) ? fields[col-1].title : null;
-    const nextName = (fields.length > col+1) ? fields[col+1].title : null;
-
-    // Match <field>[field unit]
-    if (nextName === field.title + ' unit') {
-
-      if (field.datatype === 'xsd:date') {
-
-        // Transform ISO 8601 date to bin year / month granularity.
-        // "day" granularity is taken care of by regular date validation.
-        // Don't attempt to reformat x/y/z dates here.
-        const dateGranularity = window.HOT.getDataAtCell(row, col+1);
-        // previously had to block x/y/z with change[3].indexOf('/') === -1 && 
-        if (dateGranularity === 'year' || dateGranularity === 'month') {
-          change[3] = setDateChange(dateGranularity, change[3]);
-        }
-        return;
-      }
-
-      // Match <field>[field unit][field bin]
-      const nextNextName = (fields.length > col+2) ? fields[col+2].title : null;
-      if (nextNextName === field.title + ' bin') {
-        matrix[0][col+1] = window.HOT.getDataAtCell(row, col+1); //prime unit
-        binChangeTest(matrix, row, col, fields, 2, triggered_changes);
-        return;
-      }
-    }
-
-    // Match <field>[field bin]
-    if (nextName === field.title + ' bin') {
-      binChangeTest(matrix, row, col, fields, 1, triggered_changes);
-      return;
-    }
-
-    // Match [field]<field unit>
-    if (field.title === prevName + ' unit') {
-
-      // Match [field]<field unit>[field bin]
-      if (prevName + ' bin' === nextName) {
-        // trigger reevaluation of bin from field
-        matrix[0][col-1] = window.HOT.getDataAtCell(row, col-1);
-        binChangeTest(matrix, row, col-1, fields, 2, triggered_changes);
-        return;
-      }
-
-
-      // Match previous field as date field
-      // A change from month to year or day to month/year triggers new 
-      // date value 
-      if (fields[col-1].datatype === 'xsd:date' && (change[3] === 'year' || change[3] === 'month') ) {
-
-        let dateString = window.HOT.getDataAtCell(row, col-1);
-        // If there is a date entered, adjust it
-        // previously had to block x/y/z with  && dateString.indexOf('/') === -1 
-        if (dateString) {
-          dateString = setDateChange(change[3], dateString);
-          matrix[0][col-1] = dateString;
-          triggered_changes.push([row, col-1, undefined, dateString]);
-        }
-        return;
-      }
-    }
-
-  }
-
-};
-
-/**
- * Adjust given dateString date to match year or month granularity given by
- * dateGranularity parameter. If month unit required but not supplied, then
- * a yyyy-__-01 will be supplied to indicate that month needs attention.
- *
- * @param {String} dateGranularity, either 'year' or 'month'
- * @param {String} ISO 8601 date string or leading part, possibly just YYYY or
-                   YYYY-MM
- * @return {String} ISO 8601 date string.
- */
-const setDateChange = (dateGranularity, dateString, dateBlank='__') => {
-
-  var dateParts = dateString.split('-');
-  // Incomming date may have nothing in it.
-  if (dateParts[0].length > 0) {
-    switch (dateGranularity) {
-      case 'year':
-        dateParts[1] = '01';
-        dateParts[2] = '01';
-        break
-      case 'month':
-        if (!dateParts[1])
-          dateParts[1] = dateBlank; //by default triggers date validation error
-        dateParts[2] = '01';
-        break;
-      default: 
-        // do nothing
-    }
-  }
-  // Update changed value (note "change" object overrides triggered_changes)
-  return dateParts.join('-');
-
-}
-
-/**
- * Test to see if col's field is followed by [field unit],[field bin] fields
- * @param {Object} fields See `data.js`.
- * @param {Integer} column of numeric field.
- */
-const fieldUnitBinTest = (fields, col) => {
-  return ((fields.length > col+2) 
-    && (fields[col+1].title == fields[col].title + ' unit') 
-    && (fields[col+2].title == fields[col].title + ' bin'));
-}
-
-/**
- * Test [field],[field bin] or [field],[field unit],[field bin] combinations
- * to see if bin update needed.
- * @param {Array<Array<String>>} matrix Data meant for grid.
- * @param {Integer} rowOffset 
- * @param {Integer} col column of numeric field.
- * @param {Object} fields See `data.js`.
- * @param {Integer} binOffset column of bin field.
- * @param {Array} triggered_changes array of change which is appended to changes.
- */
-const binChangeTest = (matrix, rowOffset, col, fields, binOffset, triggered_changes) => {
-  for (let row in matrix) {
-    const value = matrix[row][col];
-    // For IMPORT, this is only run on fields that have a value.
-    // Note matrix pass cell by reference so its content can be changed.
-    if (value && value.length > 0) {
-      // Do parseFloat rather than parseInt to accomodate fractional bins.
-      let number = parseFloat(value);
-
-      var selection = '';
-      if (number >= 0) {
-        // Here we have the 3 field call, with units sandwitched in the middle
-        if (binOffset === 2) {
-          const unit = matrix[row][col+1];
-          // Host age unit is interpreted by default to be year.
-          // If user selects month, value is converted into years for binning.
-          // Future solution won't hardcode month / year assumption
-          if (unit) {
-            if (unit === 'month') {
-              number = number / 12;
-            }
-          }
-          // Force unit to be year if empty.
-          //else {
-          //  triggered_changes.push([rowOffset + parseInt(row), col+1, undefined, 'year']);
-          //}
-
-        }
-        // .flatVocabulary is an array of string bin ranges e.g. "10 - 19"
-        for (const number_range of fields[col+binOffset].flatVocabulary) {
-          // ParseInt just looks at first part of number 
-          if (number >= parseFloat(number_range)) {
-            selection = number_range;
-            continue;
-          }
-          break;
-        }
-      }
-      else {
-        // Integer/date field is a textual value, possibly a metadata 'Missing'
-        // etc. If bin field has a value, leave it unchanged; but if it doesn't
-        // then populate bin with input field metadata status too.
-        const bin_value = window.HOT.getDataAtCell(rowOffset, col+binOffset);
-        selection = bin_value; // Default value is itself.
-
-        const bin_values = fields[col+binOffset].flatVocabulary;
-        if (!bin_value || bin_value === '' && value in bin_values) {
-          selection = value
-        }
-        // If a unit field exists, then set that to metadata too.
-        if (binOffset == 2) {
-          const unit_value = window.HOT.getDataAtCell(rowOffset, col+1);
-          const unit_values = fields[col+1].flatVocabulary;
-          if (!unit_value || unit_value === '' && value in unit_values) {
-            triggered_changes.push([rowOffset + parseInt(row), col+1, undefined, value]);
-          }
-        }
-      }
-      triggered_changes.push([rowOffset + parseInt(row), col+binOffset, undefined, selection]);
-    }
-  }
-}
 
 /**
  * Modify visibility of columns in grid. This function should only be called
@@ -1025,229 +470,6 @@ const scrollTo = (row, column, data, hot) => {
 
 };
 
-/**
- * Get a collection of all invalid cells in the grid.
- * @param {Object} hot Handsontable instance of grid.
- * @param {Object} data See `data.js`.
- * @return {Object<Number, Object<Number, String>>} Object with invalid rows as
- *     keys, and objects containing the invalid cells for the row, along with a
- *     message explaining why, as values. e.g,
- *     `{0: {0: 'Required cells cannot be empty'}}`
- */
-const getInvalidCells = (hot, data) => {
-  const invalidCells = {};
-  const fields = getFields(data);
-
-  const regexDecimal = /^(-|\+|)(0|[1-9]\d*)(\.\d+)?$/;
-  let uniquefield = []; // holds lookup dictionary for any unique columns
-
-  let provenanceChanges = [];
-
-  for (let row=0; row<hot.countRows(); row++) {
-    if (hot.isEmptyRow(row)) continue;
-
-    for (let col=0; col<fields.length; col++) {
-      const cellVal = hot.getDataAtCell(row, col);
-      const field = fields[col];
-      const datatype = field.datatype;
-      let valid = true;
-      // TODO we could have messages for all types of invalidation, and add
-      //  them as tooltips
-      let msg = '';
-
-      // 1st row of provenance datatype field is forced to have a 
-      // 'DataHarmonizer Version: 0.13.0' etc. value.  Change happens silently. 
-      if (datatype === 'provenance') {
-        checkProvenance(provenanceChanges, cellVal, row, col);
-      };
-
-      if (!cellVal) {
-        valid = field.required !== true;
-        msg = 'Required cells cannot be empty'
-      } 
-      else {
-        if (field.source && field.source.length) {
-            if (field.multivalued === true)
-              valid = validateValsAgainstVocab(cellVal, field.flatVocabulary);
-            else
-              valid = validateValAgainstVocab(cellVal, field.flatVocabulary);
-        }
-        else {
-          switch (datatype) {
-           
-            case 'xsd:nonNegativeInteger':
-              const parsedInt = parseInt(cellVal, 10);
-              valid = !isNaN(cellVal) && parsedInt>=0
-              valid &= parsedInt.toString()===cellVal;
-              valid &= testNumericRange(parsedInt, field);
-              break;
-
-            case 'xsd:decimal':
-              const parsedDec = parseFloat(cellVal);
-              valid = !isNaN(cellVal) && regexDecimal.test(cellVal);
-              valid &= testNumericRange(parsedDec, field);
-              break;
-
-            case 'xsd:date':
-              // moment is a date format addon
-              valid = moment(cellVal, 'YYYY-MM-DD', true).isValid();
-              if (valid) {
-                valid = testDateRange(cellVal, field);
-              }
-              break;
-
-          }
-        }
-        // Test regular expression if it is given
-        if (valid && field.pattern) {
-          valid = field.pattern.test(cellVal);
-        }
-      }
-
-      // Unique value field (Usually xsd:token string)
-      // CORRECT PLACE FOR THIS? 
-      if (field.identifier && field.identifier === true) {
-
-        // Set up dictionary and count for this column's unique values
-        if (!uniquefield[col]) {
-          uniquefield[col] = {};
-          for (let keyrow=0; keyrow<hot.countRows(); keyrow++) {
-            if (!hot.isEmptyRow(keyrow)) {
-              let key = hot.getDataAtCell(keyrow, col);
-              if (key in uniquefield[col])
-                uniquefield[col][key] += 1;
-              else
-                uniquefield[col][key] = 1;
-            }
-          }
-        }
-        // Must be only 1 unique value.  Case insensitive comparison
-        valid &= uniquefield[col][cellVal] === 1;  
-      }
-
-      if (!valid && field.metadata_status) {
-        valid = validateValAgainstVocab(cellVal, field.metadata_status);
-      }
-      if (!valid) {
-        if (!invalidCells.hasOwnProperty(row)) {
-          invalidCells[row] = {};
-        }
-        invalidCells[row][col] = msg;
-      }
-    }
-  }
-  // Here an array of (row, column, value)... is being passed
-  if (provenanceChanges.length)
-    hot.setDataAtCell(provenanceChanges);
-
-  return invalidCells;
-};
-
-/**
- * Test cellVal against DataHarmonizer provenance: vX.Y.Z pattern and if it needs an
- * update, do so.
- * @param {Array} provenanceChanges array of provenance updates
- * @param {Object} cellVal field value to be tested.
- * @param {Integer} row index of data
- * @param {Integer} column index of data
- */
-const checkProvenance = (provenanceChanges, cellVal, row, col) => {
-
-  if (!cellVal) {
-    provenanceChanges.push([row, col, VERSION_TEXT]);
-    return;
-  }
-  // Most of the time this is the first return point.
-  if (cellVal === VERSION_TEXT)
-    return;
-
-  if (cellVal.substring(0,14) !== 'DataHarmonizer') {
-    provenanceChanges.push([row, col, VERSION_TEXT + ';' + cellVal]);
-    return;
-  }
-  // At this point we have a leading "DataHarmonizer v..." string
-  let splitVal = cellVal.split(';',2);
-
-  if (splitVal.length == 1)
-    provenanceChanges.push([row, col, VERSION_TEXT]);
-  else
-    provenanceChanges.push([row, col, VERSION_TEXT + ';' + splitVal[1]]);
-
-  return
-}
-
-
-/**
- * Test a given number against an upper or lower range, if any.
- * @param {Number} number to be compared.
- * @param {Object} field that contains min and max limits.
- * @return {Boolean} validity of field.
- */
-const testNumericRange = (number, field) => {
-
-  if (field.minimum_value !== '') {
-    if (number < field.minimum_value) {
-      return false
-    }
-  }
-  if (field.maximum_value !== '') {
-    if (number > field.maximum_value) 
-      return false
-  }
-  return true
-}
-
-/**
- * Test a given date against an upper or lower range, if any.
- * @param {Date} date to be compared.
- * @param {Object} field that contains min and max limits.
- * @return {Boolean} validity of field.
- */
-const testDateRange = (aDate, field) => {
-
-  if (field.minimum_value !== '') {
-    if (aDate < field.minimum_value) {
-      return false
-    }
-  }
-  if (field.maximum_value !== '') {
-    if (aDate > field.maximum_value) 
-      return false
-  }
-  return true
-}
-
-/**
- * Validate a value against an array of source values.
- * @param {String} val Cell value.
- * @param {Array<String>} source Source values.
- * @return {Boolean} If `val` is in `source`, while ignoring whitespace and
- *     case.
- */
-const validateValAgainstVocab = (val, source) => {
-  let valid = false;
-  if (val) {
-    const trimmedSource =
-        source.map(sourceVal => sourceVal.trim().toLowerCase());
-    const trimmedVal = val.trim().toLowerCase();
-    if (trimmedSource.includes(trimmedVal)) valid = true;
-  }
-  return valid;
-};
-
-/**
- * Validate csv values against an array of source values.
- * @param {String} valsCsv CSV string of values to validate.
- * @param {Array<String>} source Values to validate against.
- * @return {Boolean} If every value in `valsCsv` is in `source`, while ignoring
- *     whitespace and case.
- */
-const validateValsAgainstVocab = (valsCsv, source) => {
-  for (const val of valsCsv.split(';')) {
-    if (!validateValAgainstVocab(val, source)) return false;
-  }
-  return true;
-};
 
 /**
  * Get an HTML string that describes a field.
@@ -1285,7 +507,7 @@ const getComment = (field) => {
 /**
  * Enable template folder's export.js export options to be loaded dynamically.
  */
-const exportOnload = () =>  {
+const exportOnload = (template_folder) =>  {
   const select = $("#export-to-format-select")[0];
   while (select.options.length > 1) {
     select.remove(1);
@@ -1316,8 +538,6 @@ const templateOptions = () =>  {
 
 $(document).ready(() => {
 
-  setupTriggers();
-
   // Default template
   let template_label = Object.keys(TEMPLATES)[0];
   let template_folder = TEMPLATES[template_label].folder;
@@ -1345,10 +565,152 @@ $(document).ready(() => {
 
 });
 
+
+/**
+ * Revise user interface elements to match template path, and trigger
+ * load of data.js and export.js scripts.  data_script.onload goes on
+ * to trigger launch(DATA).
+ * @param {String} template: path of template starting from app's template
+ * folder.
+ */
+const setupTemplate = (template_folder) => {
+
+  // Redo of template triggers new data file
+  $('#file_name_display').text('');
+  
+  // If visible, show this as a selected item in template menu
+  $('#select-template').val(template_folder);
+
+  // Lookup name of requested template if possible
+  $('#template_name_display').text('');
+  for (const [label, template] of Object.entries(TEMPLATES)) {
+    if (template.folder == template_folder){
+      $('#template_name_display').text(label);
+    }
+  };
+
+  $("#help_reference").attr('href',`template/${template_folder}/reference.html`);
+  $("#help_sop").attr('href',`template/${template_folder}/SOP.pdf`);
+
+  // Change in src triggers load of script and update to reference doc and SOP.
+  reloadJs(template_folder, 'data.js', setupData);
+
+};
+
+
+const setupData = (template_folder) => {
+
+  const table = [];
+  const sectionIndex = new Map();
+  const newDATA = {'table': table}; // This will hold table sections
+
+  // Convert YAML array to object containing named yaml parts.
+  for (ptr in DATA) {
+    newDATA[DATA[ptr].name] = DATA[ptr];
+  }
+
+  // List of columns
+  for (const [key, name] of Object.entries(newDATA.soil.classes.soil.slots)) {
+    /* Lookup each column in terms table. A term looks like:
+    is_a: "core field", title: "history/fire", slot_uri: "MIXS:0001086"
+    comments: (3) ['Expected value: date', 'Occurrence: 1', 'This field is used uniquely in: soil']
+    description: "Historical and/or physical evidence of fire"
+    examples: [{…}], multivalued: false, range: "date"
+    */
+    const field = newDATA.terms.slots[name];
+    const slot_usage_dict = newDATA.soil.classes.soil.slot_usage;
+    if ('is_a' in field) {
+      // We have a field positioned within a section (or hierarchy)
+      section_title = field.is_a;
+      if (! sectionIndex.has(section_title)) {
+        sectionIndex.set(section_title, sectionIndex.size);
+        table.push({
+          'title':section_title, 
+          'children':[]}
+        );
+      }
+
+      section = table[sectionIndex.get(section_title)];
+      let new_field = {...field}; // shallow copy
+
+      new_field.datatype = null;
+      switch (new_field.range) {
+        case "string": 
+          // xsd:token means that string cannot have newlines, multiple-tabs
+          // or spaces.
+          new_field.datatype = "xsd:token"; // was "xs:token",
+          break;
+
+        //case "uri":
+        //case "uriorcurie"
+        //case "datetime"
+        //case "time"
+        //case "double"
+        //case "float"
+        //case "boolean"
+        //case "ncname"
+        //case "objectidentifier"
+        //case "nodeidentifier"
+
+        case "decimal":
+          new_field.datatype = "xsd:decimal";
+
+        case "integer": // int ???
+          new_field.datatype = "xsd:nonNegativeInteger";
+
+        case "quantity value": 
+          new_field.datatype = "xsd:decimal";
+          // PROBLEM: There are a variety of quantity values specified, some allowing units
+          // which would need to go in a second column unless validated as text within column.
+          break;
+
+        case "date":
+          new_field.datatype = "xsd:date";
+          break;
+
+        default:
+          // Usually a selection list here, possibly .multivalued = true
+          new_field.datatype = "xsd:token"; // was "xs:token"
+          if (new_field.range in newDATA.terms.enums) {
+            new_field.source = newDATA.terms.enums[new_field.range].permissible_values;
+            //This calculates for each categorical field in schema.yaml a 
+            // flat list of allowed values
+            new_field.flatVocabulary = stringifyNestedVocabulary(new_field.source);
+
+            // points to an object with .permissible_values ORDERED DICT array.
+            // FUTURE ???? :
+            // it may also have a metadata_values ORDERED DICT array.
+            // ISSUE: metadata_status [missing | not applicable etc. ]
+            // Allow > 1 range?
+            // OR allow {permitted_values: .... , metadata_values: .... }
+          }
+          // .metadata_status is an ordered dict of permissible_values
+          // It is separate so it can be demultipliexed from content values.
+          if (new_field.metadata_status) {}
+      } 
+
+      // Copying in particular required/ recommended status of a field into
+      // this class / form's context
+      if (name in slot_usage_dict) {
+        Object.assign(new_field, slot_usage_dict[name])
+      }
+
+      section['children'].push(new_field);
+    }
+
+  }
+
+  setupTriggers(table);
+
+  // DATA is an array of objects, one for each section (or field directly)
+  runBehindLoadingScreen(launch, [template_folder, table]);
+};
+
+
 /**
  * Wire up user controls which only need to happen once on load of page.
  */
-const setupTriggers = () => {
+const setupTriggers = (DATA) => {
 
   $('#version-dropdown-item').text(VERSION);
 
@@ -1615,147 +977,6 @@ const setupTriggers = () => {
 
 
 /**
- * Revise user interface elements to match template path, and trigger
- * load of data.js and export.js scripts.  data_script.onload goes on
- * to trigger launch(DATA).
- * @param {String} template: path of template starting from app's template
- * folder.
- */
-const setupTemplate = (template_folder) => {
-
-  // Redo of template triggers new data file
-  $('#file_name_display').text('');
-  
-  // If visible, show this as a selected item in template menu
-  $('#select-template').val(template_folder);
-
-  // Lookup name of requested template if possible
-  $('#template_name_display').text('');
-  for (const [label, template] of Object.entries(TEMPLATES)) {
-    if (template.folder == template_folder){
-      $('#template_name_display').text(label);
-    }
-  };
-
-  // Change in src triggers load of script and update to reference doc and SOP.
-  reloadJs(`template/${template_folder}/data.js`, function () { 
-    //const table = new Map();
-    const table = [];
-    const sectionIndex = new Map();
-    const newDATA = {'table': table}; // This will hold table sections
-
-    // Convert YAML array to object containing named yaml parts.
-    for (ptr in DATA) {
-      newDATA[DATA[ptr].name] = DATA[ptr];
-    }
-    console.log(newDATA)
-    // List of columns
-    for (const [key, name] of Object.entries(newDATA.soil.classes.soil.slots)) {
-      // lookup each column in terms table. A term looks like:
-      /*
-      is_a: "core field"
-      title: "history/fire"
-      slot_uri: "MIXS:0001086"
-      comments: (3) ['Expected value: date', 'Occurrence: 1', 'This field is used uniquely in: soil']
-      description: "Historical and/or physical evidence of fire"
-      examples: [{…}]
-      multivalued: false
-      range: "date"
-      */
-      const field = newDATA.terms.slots[name];
-      const slot_usage_dict = newDATA.soil.classes.soil.slot_usage;
-      if ('is_a' in field) {
-        // We have a field positioned within a section (or hierarchy)
-        section_title = field.is_a;
-        if (! sectionIndex.has(section_title)) {
-          sectionIndex.set(section_title, sectionIndex.size);
-          table.push({
-            'title':section_title, 
-            'children':[]}
-          );
-        }
-
-        section = table[sectionIndex.get(section_title)];
-        let new_field = {...field}; // shallow copy
-
-        new_field.datatype = null;
-        switch (new_field.range) {
-          case "string": 
-            // xsd:token means that string cannot have newlines, multiple-tabs
-            // or spaces.
-            new_field.datatype = "xsd:token"; // was "xs:token",
-            break;
-
-          //case "uri":
-          //case "uriorcurie"
-          //case "datetime"
-          //case "time"
-          //case "double"
-          //case "float"
-          //case "boolean"
-          //case "ncname"
-          //case "objectidentifier"
-          //case "nodeidentifier"
-
-          case "decimal":
-            new_field.datatype = "xsd:decimal";
-
-          case "integer": // int ???
-            new_field.datatype = "xsd:nonNegativeInteger";
-
-          case "quantity value": 
-            new_field.datatype = "xsd:decimal";
-            // PROBLEM: There are a variety of quantity values specified, some allowing units
-            // which would need to go in a second column unless validated as text within column.
-            break;
-
-          case "date":
-            new_field.datatype = "xsd:date";
-            break;
-
-          default:
-            // Usually a selection list here, possibly .multivalued = true
-            new_field.datatype = "xsd:token"; // was "xs:token"
-            if (new_field.range in newDATA.terms.enums) {
-              new_field.source = newDATA.terms.enums[new_field.range].permissible_values;
-              //This calculates for each categorical field in schema.yaml a 
-              // flat list of allowed values
-              new_field.flatVocabulary = stringifyNestedVocabulary(new_field.source);
-
-              // points to an object with .permissible_values ORDERED DICT array.
-              // FUTURE ???? :
-              // it may also have a metadata_values ORDERED DICT array.
-              // ISSUE: metadata_status [missing | not applicable etc. ]
-              // Allow > 1 range?
-              // OR allow {permitted_values: .... , metadata_values: .... }
-            }
-            // .metadata_status is an ordered dict of permissible_values
-            // It is separate so it can be demultipliexed from content values.
-            if (new_field.metadata_status) {}
-        } 
-
-        // Copying in particular required/ recommended status of a field into
-        // this class / form's context
-        if (name in slot_usage_dict) {
-          Object.assign(new_field, slot_usage_dict[name])
-        }
-
-        section['children'].push(new_field);
-      }
-
-    }
-
-    window.DATA = table;
-    // DATA is an array of objects, one for each section (or field directly)
-    runBehindLoadingScreen(launch, [template_folder, table]);
-  });
-
-  $("#help_reference").attr('href',`template/${template_folder}/reference.html`)
-  $("#help_sop").attr('href',`template/${template_folder}/SOP.pdf`)
-};
-
-
-/**
  * Recursively flatten vocabulary into an array of strings, with each string's
  * level of depth in the vocabulary being indicated by leading spaces.
  * e.g., `vocabulary: 'a': {'b':{}},, 'c': {}` becomes `['a', '  b', 'c']`.
@@ -1785,20 +1006,22 @@ const stringifyNestedVocabulary = (vocab_list, level=0) => {
  * @param {String} src_url: path of template starting from app's template folder.
  * @param {Object} onloadfn: function to run when script is loaded. 
  */
-const reloadJs = (src_url, onloadfn) => {
-    $('script[src="' + src_url + '"]').remove();
-    var script = document.createElement('script');
-    if (onloadfn) {
-      script.onload = onloadfn;
-    };
-    script.onerror = function() {
-      $('#missing-template-msg').text(`Unable to load template file "${src_url}". Is the template name correct?`);
-      $('#missing-template-modal').modal('show');
-      $('#template_name_display').text('');
-    };
-    // triggers load
-    script.src = src_url;
-    document.head.appendChild(script);
+const reloadJs = (template_folder, file_name, onloadfn) => {
+  const src_url = `./template/${template_folder}/${file_name}`;
+  $(`script[src="${src_url}"]`).remove();
+  var script = document.createElement('script');
+  if (onloadfn) {
+    // Trigger onload with indication
+    script.onload = function () {onloadfn(template_folder)};
+  };
+  script.onerror = function() {
+    $('#missing-template-msg').text(`Unable to load template file "${src_url}". Is the template name correct?`);
+    $('#missing-template-modal').modal('show');
+    $('#template_name_display').text('');
+  };
+  // triggers load
+  script.src = src_url;
+  document.head.appendChild(script);
 
 }
 
@@ -1809,7 +1032,7 @@ const reloadJs = (src_url, onloadfn) => {
 const launch = (template_folder, DATA) => {
 
   // Since data.js loaded, export.js should succeed as well
-  reloadJs(`template/${template_folder}/export.js`, exportOnload);
+  reloadJs(template_folder, 'export.js', exportOnload);
 
   runBehindLoadingScreen(() => {
     window.INVALID_CELLS = {};
