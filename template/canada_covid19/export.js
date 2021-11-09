@@ -652,16 +652,13 @@ var exportNML_LIMS = (baseName, hot, data, xlsx, fileType) => {
   // Copy headers to 1st row of new export table
   const outputMatrix = [[...ExportHeaders.keys()]];
 
-  // Conversion of all cancogen metadata keywords to NML LIMS version
-  /*
   nullOptionsMap = new Map([
-    ['Not Applicable', 'NA'],
-    ['Missing', 'MISSING'],
-    ['Not Collected', 'NOT_COLLECTED'],
-    ['Not Provided', 'NOT_PROVIDED'],
-    ['Restricted Access', 'RESTRICTED_ACCESS']
+    ['not applicable', 'Not Applicable'],
+    ['missing', 'Missing'],
+    ['not collected', 'Not Collected'],
+    ['not provided', 'Not Provided'],
+    ['restricted access', 'Restricted Access']
   ]);
-  */
   
   for (const inputRow of getTrimmedData(hot)) {
     const outputRow = [];
@@ -685,9 +682,9 @@ var exportNML_LIMS = (baseName, hot, data, xlsx, fileType) => {
       // Handle granularity of "HC_COLLECT_DATE"
       // by looking at year or month in "sample collection date precision"
       if (headerName === 'HC_COLLECT_DATE') {
-        const value = inputRow[sourceFieldNameMap['sample collection date']] || '';
+        let value = inputRow[sourceFieldNameMap['sample collection date']] || '';
+        value = fixNullOptionCase(value,nullOptionsMap);
         const date_unit = inputRow[sourceFieldNameMap['sample collection date precision']];
-
         outputRow.push(setDateChange(date_unit, value, '01'));
         continue;
       }
@@ -725,8 +722,8 @@ var exportNML_LIMS = (baseName, hot, data, xlsx, fileType) => {
       }
 
       // Otherwise apply source (many to one) to target field transform:
-      const value = getMappedField(headerName, inputRow, sources, sourceFields, sourceFieldNameMap, ';', 'NML_LIMS');
-
+      let value = getMappedField(headerName, inputRow, sources, sourceFields, sourceFieldNameMap, ';', 'NML_LIMS');
+      value = fixNullOptionCase(value, nullOptionsMap);
       outputRow.push(value);
     }
     outputMatrix.push(outputRow);
@@ -745,3 +742,20 @@ var EXPORT_FORMATS = {
 
 };
 
+/**
+ * If given value is a null value, normalize its capitalization
+ * @param {String} value to check.
+ * @param {Object} nullOptionsMap dictionary of null values.
+ * @return {String} value
+ */
+var fixNullOptionCase = (value, nullOptionsMap) => {
+  if (value) {
+    const valuelc = value.toLowerCase();
+    if (nullOptionsMap.has(valuelc)) {
+      const value2 = nullOptionsMap.get(valuelc);
+      if (value != value2)
+        value = value2;
+    }
+  }
+  return value;
+}
