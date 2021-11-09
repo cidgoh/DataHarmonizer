@@ -66,6 +66,18 @@ var exportVirusSeq_Portal = (baseName, hot, data, xlsx, fileType) => {
     ['restricted access', 'Restricted Access']
   ]);
 
+  studyMap = {
+    'Alberta Precision Labs (APL)': 'ABPL-AB',
+    'BCCDC Public Health Laboratory': 'BCCDC-BC',
+    'Manitoba Cadham Provincial Laboratory': 'MCPL-MB',
+    'New Brunswick - Vitalité Health Network': 'VHN-NB',
+    'Newfoundland and Labrador - Eastern Health': 'EH-NL',
+    'Nova Scotia Health Authority': 'NSHA-NS',
+    'Public Health Ontario (PHO)': 'PHO-ON',
+    'Laboratoire de santé publique du Québec (LSPQ)': 'LSPQ-QC',
+    'Saskatchewan - Roy Romanow Provincial Laboratory (RRPL)': 'RRPL-SK',
+  }
+
   const sourceFields = getFields(data);
   const sourceFieldNameMap = getFieldNameMap(sourceFields);
   // Fills in the above mapping (or just set manually above) 
@@ -74,6 +86,7 @@ var exportVirusSeq_Portal = (baseName, hot, data, xlsx, fileType) => {
   // Copy headers to 1st row of new export table
   const outputMatrix = [[...ExportHeaders.keys()]];
 
+  const numeric_datatypes = new Set(['xs:nonNegativeInteger', 'xs:decimal']);
 
   for (const inputRow of getTrimmedData(hot)) {
     const outputRow = [];
@@ -86,7 +99,19 @@ var exportVirusSeq_Portal = (baseName, hot, data, xlsx, fileType) => {
         // Otherwise apply source (many to one) to target field transform:
         var value = getMappedField(headerName, inputRow, sources, sourceFields, sourceFieldNameMap, ':', 'VirusSeq_Portal');
 
-        const numeric_datatypes = new Set(['xs:nonNegativeInteger', 'xs:decimal']);
+        if (headerName == 'study_id') {
+
+          // Autopopulate study_id based on studyMap
+          const lab = inputRow[sourceFieldNameMap['sequence submitted by']];     
+          if (lab && lab in studyMap) {
+            value = studyMap[lab];
+          }
+        }
+
+        // Add % to breadth of coverage since required.
+        if (headerName == 'breadth of coverage value' && value && value.length && value.substr(-1) != '%') {
+          value = value + '%';
+        }
 
         // Some columns have an extra ' null reason' field for demultiplexing null value into.
         if (ExportHeaders.has(headerName + ' null reason')) {
@@ -685,7 +710,7 @@ var exportNML_LIMS = (baseName, hot, data, xlsx, fileType) => {
           }
           if (fieldName === 'host (scientific name)' || fieldName === 'host (common name)') {
             if (value === 'Homo sapiens' || value === 'Human')
-              cellValue = 'HUMAN'
+              cellValue = 'Human'
             else
               cellValue = 'ANIMAL'
             break;
