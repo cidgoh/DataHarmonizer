@@ -241,7 +241,7 @@ const getFlatHeaders = (data) => {
   const rows = [[], []];
 
   for (const parent of data) {
-    let min_cols = parent.children.length - 1;
+    let min_cols = parent.children.length;
     if (min_cols < 1) {
       // Close current dialog and switch to error message
       //$('specify-headers-modal').modal('hide');

@@ -1,0 +1,115 @@
+Ontology ID	parent class	label	datatype	source	data status	requirement	min value	max value	capitalize	pattern	description	guidance	examples	comments	
+ID	SC %														
+ID_1		Identifiers													
+	Identifiers	ID	xs:unique			required					
+ID_2		Data													
+	Data	wine label	xs:token			required									
+	Data	year	xs:nonNegativeInteger			required	1900	2021							
+	Data	grape variety	multiple												
+	Data	distributor	select												
+	Data	domain of origin	select												
+	Data	cellar	select												
+	Data	type	select												
+	Data	alcohol content	xs:decimal												
+		Format													
+	Format	bottle size cl	select												
+	Format	notes	xs:token												
+															
+															
+	grape variety	Albarin													
+	grape variety	Albariño													
+	grape variety	Caberet Sauvignon													
+	grape variety	Cabernet Franc													
+	grape variety	Callet													
+	grape variety	Cariñena													
+	grape variety	Chardonnay													
+	grape variety	Fogoneu													
+	grape variety	Garnacha													
+	grape variety	Garnacha Blanca													
+	grape variety	Garnacha Tinta													
+	grape variety	Godello													
+	grape variety	Macabeo													
+	grape variety	Malvasia De Sitges													
+	grape variety	Mandó													
+	grape variety	Merlot													
+	grape variety	Moscatel													
+	grape variety	Picapoll													
+	grape variety	Picapoll Blanca													
+	grape variety	Picapoll Negre													
+	grape variety	Samsó													
+	grape variety	Samsó (Old Vineyards)													
+	grape variety	Sauvignon Blanc													
+	grape variety	Sumoll 													
+	grape variety	Syrah													
+	grape variety	Tempranillo													
+	grape variety	Tinta Fina													
+	grape variety	Trepat													
+	grape variety	Xarel-Lo													
+															
+															
+	distributor	Celler De La Ribera													
+	distributor	Kedivi													
+	distributor	Underground													
+															
+															
+	domain of origin	D.O. Conca Del Riu Anoia													
+	domain of origin	D.O. Montsant													
+	domain of origin	D.O. Conca De Barberà													
+	domain of origin	D.O. Penedès													
+	domain of origin	D.O. Pla I Llevat ( Mallorca)													
+	domain of origin	D.O. Ribera Del Duero													
+	domain of origin	D.O. Rioja													
+	domain of origin	D.O. Pla Del Bages													
+	domain of origin	D.O. Priorat													
+	domain of origin	D.O. Rías Baixas													
+	domain of origin	D.O. Ribeiro													
+	domain of origin	D.O. Rueda													
+	domain of origin	D.O. Utiel Requena													
+	domain of origin	D.O. Vt León													
+	domain of origin	D.O. Cava												https://www.cava.wine/en/	
+	domain of origin	D.O. Costers Del Segre													
+	domain of origin	D.O. Navarra													
+	domain of origin	D.O. Rías Baixas, Valdeorras													
+	domain of origin	D.O. Ribeira Sacra													
+															
+	cellar	Abadia Gomariz													
+	cellar	Aroa													
+	cellar	Baronia Del Montsant													
+	cellar	Benito Santos													
+	cellar	Bodega Classica Rioja Hacienda López de Haro													
+	cellar	Bodega de Bardos													
+	cellar	Bodegas Aragonesas Campo de Borja													
+	cellar	Bodegas Guimaro													
+	cellar	Bodegas Ostatu													
+	cellar	Bodegas San Valero Chardonnay Particular													
+	cellar	Bodegas Valderiz													
+	cellar	Bodegues Miquel Oliver													
+	cellar	Cal Pla													
+	cellar	Can Serra Dels Exibis													
+	cellar	Castillo de Maetierra Libalis													
+	cellar	Caves I Vins Eudald Massana Noya													
+	cellar	Celler Cal Pla													
+	cellar	Celler Carles Andreu													
+	cellar	Celler Sanmarti													
+	cellar	Celler Vega De Ribes													
+	cellar	Cellers Underground													
+	cellar	Collbaix El Moli													
+	cellar	Finca Santamaria													
+	cellar	Frank Margenat													
+	cellar	Jaumandreu													
+	cellar	Pazo de Señoráns													
+	cellar	Raventos I Blanc													
+	cellar	Rovellats													
+	cellar	Rovellats													
+	cellar	Tayaimgut													
+	cellar	Vinyes De Castellgali													
+															
+	type	white													
+	type	rose													
+	type	red													
+	type	sparkling													
+	type	desert													
+															
+	bottle size cl	75													
+	bottle size cl	150													
+															
