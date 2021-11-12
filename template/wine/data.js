@@ -65,7 +65,7 @@ var DATA = [
         "schema:ItemList": {
           "Albarin": {},
           "Albarin\u0303o": {},
-          "Caberet Sauvignon": {},
+          "Cabernet Sauvignon": {},
           "Cabernet Franc": {},
           "Callet": {},
           "Cari\u00f1ena": {},
