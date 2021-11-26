@@ -737,8 +737,7 @@ var EXPORT_FORMATS = {
   "VirusSeq_Portal": {'method': exportVirusSeq_Portal, 'fileType': 'tsv', 'status': 'published'},
   "GISAID":       {'method': exportGISAID,'fileType': 'xls', 'status': 'published'},
   "BioSample":    {'method': exportBioSample,'fileType': 'xls', 'status': 'published'},
-  "CNPHI LaSER":  {'method': exportLASER, 'fileType': 'csv (ASCII)', 'status': 'published'},
-  "NML LIMS":     {'method': exportNML_LIMS, 'fileType': 'csv (ASCII)', 'status': 'published'},
+  "NML LIMS":     {'method': exportNML_LIMS, 'fileType': 'csv', 'status': 'published'},
 
 };
 
