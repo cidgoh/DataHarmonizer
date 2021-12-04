@@ -34,6 +34,10 @@ html, body {
     display: none;
 }
 
+#no-error-button {
+	background-color: green;
+	cursor: default;
+}
 .ui-autocomplete {
 	max-height: 50vh;
 	overflow-y: auto;
