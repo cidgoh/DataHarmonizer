@@ -174,7 +174,7 @@ const createHot = (data) => {
         changes.push(...triggered_changes);
     },
     afterInit: () => {
-      $('#next-error-button').hide();
+      $('#next-error-button,#no-error-button').hide();
     },
     afterSelection: (row, column, row2, column2, preventScrolling, selectionLayerLevel) => {
       window.CURRENT_SELECTION = [row, column, row2, column2];
@@ -340,6 +340,8 @@ const stringifyNestedVocabulary = (vocab_list, level=0) => {
 
 /**
  * Enable multiselection on select rows.
+ * Indentation workaround: multiples of "  " double space before label are 
+ * taken to be indentation levels.
  * This isn't really robust, and we should find a better way to do this.
  * @param {Object} hot Handonstable grid instance.
  * @param {Object} data See `data.js`.
@@ -361,9 +363,10 @@ const enableMultiSelection = (hot, data) => {
         const self = this;
         let content = '';
         fields[col].flatVocabulary.forEach(function(field, i) {
-          const field_trim = field.trim()
+          const field_trim = field.trim();
           let selected = selections.includes(field_trim) ? 'selected="selected"' : '';
-          content += `<option value="${field_trim}" ${selected}'>${field}</option>`;
+          let indentation = field.search(/\S/) * 8; // pixels
+          content += `<option value="${field_trim}" ${selected}' style="padding-left:${indentation}px">${field}</option>`;
         })
 
         $('#field-description-text').html(`${fields[col].title}<select multiple class="multiselect" rows="15">${content}</select>`);
@@ -1132,10 +1135,12 @@ const getInvalidCells = (hot, data) => {
             }
             break;
           case 'select':
-            valid = validateValAgainstVocab(cellVal, field.flatVocabulary);
+            [valid, update] = validateValAgainstVocab(cellVal, field.flatVocabulary);
+            if (update) hot.setDataAtCell(row, col, update, 'thisChange');
             break;
           case 'multiple':
-            valid = validateValsAgainstVocab(cellVal, field.flatVocabulary);
+            [valid, update] = validateValsAgainstVocab(cellVal, field.flatVocabulary);
+            if (update) hot.setDataAtCell(row, col, update, 'thisChange');
             break;
            
         }
@@ -1144,8 +1149,10 @@ const getInvalidCells = (hot, data) => {
           valid = field.pattern.test(cellVal);
         }
       }
+      // This handles case where a null value may apply to field
       if (!valid && field.dataStatus) {
-        valid = validateValAgainstVocab(cellVal, field.dataStatus);
+        [valid, update] = validateValAgainstVocab(cellVal, field.dataStatus);
+        if (update) hot.setDataAtCell(row, col, update, 'thisChange');
       }
       if (!valid) {
         if (!invalidCells.hasOwnProperty(row)) {
@@ -1238,34 +1245,58 @@ const testDateRange = (aDate, field) => {
 
 /**
  * Validate a value against an array of source values.
+ * FUTURE: optimize - to precompile lowercased sources.
  * @param {String} val Cell value.
  * @param {Array<String>} source Source values.
- * @return {Boolean} If `val` is in `source`, while ignoring whitespace and
- *     case.
+ * @return {Array<Boolean><Boolean/String>} 
+ *         [false, false] `delimited_string` does not match `source`,
+ *         [true, false] `delimited_string` matches `source` exactly, 
+ *         [true, string] `delimited_string` matches`source` but formatting needs change
  */
-const validateValAgainstVocab = (val, source) => {
+const validateValAgainstVocab = (value, source) => {
   let valid = false;
-  if (val) {
+  let update = false;
+  if (value) {
     const trimmedSource =
         source.map(sourceVal => sourceVal.trim().toLowerCase());
-    const trimmedVal = val.trim().toLowerCase();
-    if (trimmedSource.includes(trimmedVal)) valid = true;
+    const trimmedVal = value.trim().toLowerCase();
+    const ptr = trimmedSource.indexOf(trimmedVal);
+    if (ptr >= 0 ) {
+      valid = true;
+      // Normalised value being suggested for update 
+      if (value != source[ptr])
+        update = source[ptr];
+    }
   }
-  return valid;
+  return [valid, update];
 };
 
 /**
- * Validate csv values against an array of source values.
- * @param {String} valsCsv CSV string of values to validate.
+ * Validate csv values against an array of source values.  Leading/tailing 
+ * whitespace and case are ignored in validation, but returned value will be 
+ * a suggested update to one or more values if any differ in capitalization.
+ * @param {String} delimited_string of values to validate.
  * @param {Array<String>} source Values to validate against.
- * @return {Boolean} If every value in `valsCsv` is in `source`, while ignoring
- *     whitespace and case.
+ * @return {Array<Boolean><Boolean/String>} 
+ *         [false, false] If some value in `delimited_string` is not in `source`,
+ *         [true, false] If every value in `delimited_string` is exactly in `source`, 
+ *         [true, string] If every value in `delimited_string` is in `source` but formatting needs change
  */
-const validateValsAgainstVocab = (valsCsv, source) => {
-  for (const val of valsCsv.split(';')) {
-    if (!validateValAgainstVocab(val, source)) return false;
-  }
-  return true;
+const validateValsAgainstVocab = (delimited_string, source) => {
+  let update_flag = false;
+  let value_array = delimited_string.split(';');
+  value_array.forEach(function (value, index) {
+    [valid, update] = validateValAgainstVocab(value, source);
+    if (!valid) return [false, false];
+    if (update) {
+      update_flag = true;
+      value_array[index] = update;
+    }
+  })
+  if (update_flag)
+    return [true, value_array.join(';')];
+  else 
+    return [true, false];
 };
 
 /**
@@ -1401,7 +1432,7 @@ const setupTriggers = () => {
     // Allow consecutive uploads of the same file
     $fileInput[0].value = '';
 
-    $('#next-error-button').hide();
+    $('#next-error-button,#no-error-button').hide();
     window.CURRENT_SELECTION = [null,null,null,null];
 
   });
@@ -1568,9 +1599,12 @@ const setupTriggers = () => {
       // If any rows have error, show this.
       if (Object.keys(window.INVALID_CELLS).length > 0) {
         $('#next-error-button').show();
+        $('#no-error-button').hide();
       }
-      else
+      else {
         $('#next-error-button').hide();
+        $('#no-error-button').show().delay(5000).fadeOut('slow');
+      }
     });
   });
 
