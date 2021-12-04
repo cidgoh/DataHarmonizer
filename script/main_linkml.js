@@ -112,7 +112,7 @@ const createHot = (data) => {
         changes.push(...triggered_changes);
     },
     afterInit: () => {
-      $('#next-error-button').hide();
+      $('#next-error-button,#no-error-button').hide();
     },
     afterSelection: (row, column, row2, column2, preventScrolling, selectionLayerLevel) => {
       window.CURRENT_SELECTION = [row, column, row2, column2];
@@ -281,6 +281,8 @@ const getColumns = (data) => {
 
 /**
  * Enable multiselection on select rows.
+ * Indentation workaround: multiples of "  " double space before label are 
+ * taken to be indentation levels.
  * @param {Object} hot Handonstable grid instance.
  * @param {Object} data See `data.js`.
  * @return {Object} Grid instance with multiselection enabled on columns
@@ -302,9 +304,10 @@ const enableMultiSelection = (hot, data) => {
         const self = this;
         let content = '';
         fields[col].flatVocabulary.forEach(function(field, i) {
-          const field_trim = field.trim()
+          const field_trim = field.trim();
           let selected = selections.includes(field_trim) ? 'selected="selected"' : '';
-          content += `<option value="${field_trim}" ${selected}'>${field}</option>`;
+          let indentation = field.search(/\S/) * 8; // pixels
+          content += `<option value="${field_trim}" ${selected}' style="padding-left:${indentation}px">${field}</option>`;
         })
 
         $('#field-description-text').html(`${fields[col].title}<select multiple class="multiselect" rows="15">${content}</select>`);
@@ -659,7 +662,7 @@ const setupData = (template_folder) => {
           new_field.datatype = "xsd:nonNegativeInteger";
 
         case "quantity value": 
-          new_field.datatype = "xsd:decimal";
+          new_field.datatype = "xsd:token"; //xsd:decimal + unit
           // PROBLEM: There are a variety of quantity values specified, some allowing units
           // which would need to go in a second column unless validated as text within column.
           break;
@@ -761,7 +764,7 @@ const setupTriggers = (DATA) => {
     // Allow consecutive uploads of the same file
     $fileInput[0].value = '';
 
-    $('#next-error-button').hide();
+    $('#next-error-button,#no-error-button').hide();
     window.CURRENT_SELECTION = [null,null,null,null];
 
   });
@@ -928,9 +931,12 @@ const setupTriggers = (DATA) => {
       // If any rows have error, show this.
       if (Object.keys(window.INVALID_CELLS).length > 0) {
         $('#next-error-button').show();
+        $('#no-error-button').hide();
       }
-      else
+      else {
         $('#next-error-button').hide();
+        $('#no-error-button').show().delay(5000).fadeOut('slow');
+      }
     });
   });
 
