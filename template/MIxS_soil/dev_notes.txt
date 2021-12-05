@@ -88,6 +88,7 @@ NEED LIBRARY OF PATTERNS.
 
 *************************************
 
+lower/ upper case revision showing auto correct, but getting flagged as error - not changing red error state?
 
 
 
