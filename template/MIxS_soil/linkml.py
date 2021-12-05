@@ -9,8 +9,10 @@
 
 import yaml
 import json
+from linkml_runtime.utils.schemaview import SchemaView
 
-data = [];
+
+"""data = [];
 
 for file in ['schema.yaml','terms.yaml','ranges.yaml']:
 
@@ -19,3 +21,15 @@ for file in ['schema.yaml','terms.yaml','ranges.yaml']:
 
 with open('data.js', 'w') as output_handle:
 	output_handle.write("var DATA = " + json.dumps(data, sort_keys = False, indent = 2, separators = (',', ': ')));
+"""
+
+mixs_file = "source/mixs.yaml"
+mixs_sv = SchemaView(mixs_file)
+
+
+data = mixs_sv.class_induced_slots("soil");
+
+with open('data.js', 'w') as output_handle:
+	output_handle.write("var DATA = " + json.dumps(data, sort_keys = False, indent = 2, separators = (',', ': ')));
+
+

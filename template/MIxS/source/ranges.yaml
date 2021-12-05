@@ -1,0 +1,22 @@
+id: http://w3id.org/mixs/ranges
+name: ranges
+imports:
+- linkml:types
+prefixes:
+  linkml: https://w3id.org/linkml/
+  mixs.vocab: https://w3id.org/mixs/vocab/
+  MIXS: https://w3id.org/mixs/terms/
+default_prefix: mixs.vocab
+slots: {}
+classes:
+  quantity value:
+    description: used to record a measurement
+    attributes:
+      has unit:
+        description: Example "m"
+      has numeric value:
+        range: double
+      has raw value:
+        string_serialization: '{has numeric value} {has unit}'
+subsets: {}
+enums: {}

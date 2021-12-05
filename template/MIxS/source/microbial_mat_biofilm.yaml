@@ -1,0 +1,215 @@
+id: http://w3id.org/mixs/microbial_mat_biofilm
+name: microbial_mat_biofilm
+imports:
+- linkml:types
+- terms
+prefixes:
+  linkml: https://w3id.org/linkml/
+  mixs.vocab: https://w3id.org/mixs/vocab/
+  MIXS: https://w3id.org/mixs/terms/
+default_prefix: mixs.vocab
+slots: {}
+classes:
+  microbial mat_biofilm:
+    description: microbial mat/biofilm
+    mappings: []
+    slots:
+    - lat_lon
+    - depth
+    - alt
+    - elev
+    - temp
+    - geo_loc_name
+    - collection_date
+    - env_broad_scale
+    - env_local_scale
+    - env_medium
+    - alkalinity
+    - alkyl_diethers
+    - aminopept_act
+    - ammonium
+    - bacteria_carb_prod
+    - biomass
+    - bishomohopanol
+    - bromide
+    - calcium
+    - carb_nitro_ratio
+    - chem_administration
+    - chloride
+    - chlorophyll
+    - diether_lipids
+    - diss_carb_dioxide
+    - diss_hydrogen
+    - diss_inorg_carb
+    - diss_org_carb
+    - diss_org_nitro
+    - diss_oxygen
+    - glucosidase_act
+    - magnesium
+    - mean_frict_vel
+    - mean_peak_frict_vel
+    - methane
+    - misc_param
+    - n_alkanes
+    - nitrate
+    - nitrite
+    - nitro
+    - org_carb
+    - org_matter
+    - org_nitro
+    - organism_count
+    - oxy_stat_samp
+    - ph
+    - part_org_carb
+    - perturbation
+    - petroleum_hydrocarb
+    - phaeopigments
+    - phosphate
+    - phosplipid_fatt_acid
+    - potassium
+    - pressure
+    - redox_potential
+    - salinity
+    - samp_store_dur
+    - samp_store_loc
+    - samp_store_temp
+    - silicate
+    - sodium
+    - sulfate
+    - sulfide
+    - tot_carb
+    - tot_nitro_content
+    - tot_org_carb
+    - turbidity
+    - water_content
+    slot_usage:
+      samp_name:
+        required: true
+      project_name:
+        required: true
+      depth:
+        required: false
+      elev:
+        required: false
+      alkalinity:
+        required: false
+      alkyl_diethers:
+        required: false
+      aminopept_act:
+        required: false
+      ammonium:
+        required: false
+      bacteria_carb_prod:
+        required: false
+      biomass:
+        required: false
+      bishomohopanol:
+        required: false
+      bromide:
+        required: false
+      calcium:
+        required: false
+      carb_nitro_ratio:
+        required: false
+      chem_administration:
+        required: false
+      chloride:
+        required: false
+      chlorophyll:
+        required: false
+      diether_lipids:
+        required: false
+      diss_carb_dioxide:
+        required: false
+      diss_hydrogen:
+        required: false
+      diss_inorg_carb:
+        required: false
+      diss_org_carb:
+        required: false
+      diss_org_nitro:
+        required: false
+      diss_oxygen:
+        required: false
+      glucosidase_act:
+        required: false
+      magnesium:
+        required: false
+      mean_frict_vel:
+        required: false
+      mean_peak_frict_vel:
+        required: false
+      methane:
+        required: false
+      misc_param:
+        required: false
+      n_alkanes:
+        required: false
+      nitrate:
+        required: false
+      nitrite:
+        required: false
+      nitro:
+        required: false
+      org_carb:
+        required: false
+      org_matter:
+        required: false
+      org_nitro:
+        required: false
+      organism_count:
+        required: false
+      oxy_stat_samp:
+        required: false
+      ph:
+        required: false
+      part_org_carb:
+        required: false
+      perturbation:
+        required: false
+      petroleum_hydrocarb:
+        required: false
+      phaeopigments:
+        required: false
+      phosphate:
+        required: false
+      phosplipid_fatt_acid:
+        required: false
+      potassium:
+        required: false
+      pressure:
+        required: false
+      redox_potential:
+        required: false
+      salinity:
+        required: false
+      samp_store_dur:
+        required: false
+      samp_store_loc:
+        required: false
+      samp_store_temp:
+        required: false
+      samp_vol_we_dna_ext:
+        required: false
+      silicate:
+        required: false
+      sodium:
+        required: false
+      sulfate:
+        required: false
+      sulfide:
+        required: false
+      temp:
+        required: false
+      tot_carb:
+        required: false
+      tot_nitro_content:
+        required: false
+      tot_org_carb:
+        required: false
+      turbidity:
+        required: false
+      water_content:
+        required: false
+subsets: {}
+enums: {}

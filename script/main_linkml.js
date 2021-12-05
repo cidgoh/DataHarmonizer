@@ -22,6 +22,7 @@
 const VERSION = '0.14.3';
 const VERSION_TEXT = 'DataHarmonizer provenance: v' + VERSION;
 const TEMPLATES = {
+  'MIxS': {'folder': 'MIxS', 'status': 'published'},
   'MIxS soil': {'folder': 'MIxS_soil', 'status': 'published'},
 };
 
@@ -58,9 +59,9 @@ const toggleDropdownVisibility = () => {
 
 
 /**
- * Get a flat array of all fields in `data.json`.
- * @param {Object} data See `data.json`.
- * @return {Array<Object>} Array of all objects under `children` in `data.json`.
+ * Get a flat array of all fields in `data.js`.
+ * @param {Object} data See `data.js`.
+ * @return {Array<Object>} Array of all objects under `children` in `data.js`.
  */
 const getFields = (data) => {
   return Array.prototype.concat.apply([], data.map(parent => parent.children));
@@ -605,30 +606,36 @@ const setupData = (template_folder) => {
 
   const table = [];
   const sectionIndex = new Map();
-  const newDATA = {'table': table}; // This will hold table sections
+  let newDATA = DATA;
+  newDATA['table']= table; // This will hold table sections
 
-  // Convert YAML array to object containing named yaml parts.
-  for (ptr in DATA) {
-    newDATA[DATA[ptr].name] = DATA[ptr];
-  }
+  // ISSUE: slots sometimes mentions a few fields that slot_usage doesn't have; 
+  // and similarly slot_usage has many imported/common fields not in slots
 
   // List of columns
-  for (const [key, name] of Object.entries(newDATA.soil.classes.soil.slots)) {
+  const specification_slots      = newDATA['specifications']['soil'].slots;
+  const specification_slot_usage = newDATA['specifications']['soil'].slot_usage;
+
+  const combined = [...new Set([...Object.keys(specification_slot_usage, ...specification_slots) ])];
+
+  combined.forEach(function (name) {
+
     /* Lookup each column in terms table. A term looks like:
     is_a: "core field", title: "history/fire", slot_uri: "MIXS:0001086"
     comments: (3) ['Expected value: date', 'Occurrence: 1', 'This field is used uniquely in: soil']
     description: "Historical and/or physical evidence of fire"
     examples: [{…}], multivalued: false, range: "date"
     */
-    const field = newDATA.terms.slots[name];
-    const slot_usage_dict = newDATA.soil.classes.soil.slot_usage;
+    const field = newDATA.slots[name];
+
     if ('is_a' in field) {
+
       // We have a field positioned within a section (or hierarchy)
       section_title = field.is_a;
       if (! sectionIndex.has(section_title)) {
         sectionIndex.set(section_title, sectionIndex.size);
         table.push({
-          'title':section_title, 
+          'title': section_title, 
           'children':[]}
         );
       }
@@ -674,8 +681,8 @@ const setupData = (template_folder) => {
         default:
           // Usually a selection list here, possibly .multivalued = true
           new_field.datatype = "xsd:token"; // was "xs:token"
-          if (new_field.range in newDATA.terms.enums) {
-            new_field.source = newDATA.terms.enums[new_field.range].permissible_values;
+          if (new_field.range in newDATA.enumerations) {
+            new_field.source = newDATA.enumerations[new_field.range].permissible_values;
             //This calculates for each categorical field in schema.yaml a 
             // flat list of allowed values
             new_field.flatVocabulary = stringifyNestedVocabulary(new_field.source);
@@ -694,14 +701,16 @@ const setupData = (template_folder) => {
 
       // Copying in particular required/ recommended status of a field into
       // this class / form's context
-      if (name in slot_usage_dict) {
-        Object.assign(new_field, slot_usage_dict[name])
+      if (name in specification_slot_usage) {
+        Object.assign(new_field, specification_slot_usage[name])
       }
 
       section['children'].push(new_field);
     }
-
-  }
+    else {
+     console.log("ERROR: not found", name );
+    }
+  });
 
   setupTriggers(table);
 

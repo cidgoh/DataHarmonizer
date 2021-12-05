@@ -1,0 +1,327 @@
+id: http://w3id.org/mixs/food_food_production_facility
+name: food_food_production_facility
+imports:
+- linkml:types
+- terms
+prefixes:
+  linkml: https://w3id.org/linkml/
+  mixs.vocab: https://w3id.org/mixs/vocab/
+  MIXS: https://w3id.org/mixs/terms/
+default_prefix: mixs.vocab
+slots: {}
+classes:
+  food-food production facility:
+    description: food-food production facility
+    mappings: []
+    slots:
+    - lat_lon
+    - depth
+    - alt
+    - elev
+    - temp
+    - geo_loc_name
+    - collection_date
+    - env_broad_scale
+    - env_local_scale
+    - env_medium
+    - samp_collect_device
+    - organism_count
+    - samp_stor_temp
+    - samp_stor_dur
+    - air_temp
+    - room_dim
+    - freq_clean
+    - samp_room_id
+    - pool_dna_extracts
+    - samp_stor_loc
+    - surf_material
+    - indoor_surf
+    - avg_occup
+    - samp_floor
+    - genetic_mod
+    - coll_site_geo_feat
+    - samp_source_mat_cat
+    - samp_type
+    - samp_stor_media
+    - samp_stor_device
+    - food_product_type
+    - IFSAC_category
+    - food_product_qual
+    - food_contact_surf
+    - facility_type
+    - food_trav_mode
+    - food_trav_vehic
+    - samp_transport_dur
+    - samp_transport_temp
+    - samp_collect_method
+    - num_samp_collect
+    - lot_number
+    - hygienic_area
+    - env_monitoring_zone
+    - area_samp_size
+    - samp_surf_moisture
+    - samp_loc_condition
+    - biocide_used
+    - ster_meth_samp_room
+    - enrichment_protocol
+    - cult_target
+    - microb_cult_med
+    - timepoint
+    - bacterial_density
+    - cult_isol_date
+    - cult_result
+    - cult_result_org
+    - samp_pooling
+    - samp_purpose
+    - samp_rep_tech
+    - samp_rep_biol
+    - samp_transport_cont
+    - study_design
+    - nucl_acid_ext_kit
+    - library_prep_kit
+    - sequencing_kit
+    - sequencing_location
+    - study_inc_temp
+    - study_inc_dur
+    - study_timecourse
+    - study_tmnt
+    - food_source
+    - food_dis_point
+    - food_dis_point_city
+    - food_origin
+    - food_prod_synonym
+    - food_additive
+    - food_trace_list
+    - part_plant_animal
+    - food_ingredient
+    - spec_intended_cons
+    - HACCP_term
+    - dietary_claim_use
+    - food_allergen_label
+    - food_prod_char
+    - prod_label_claims
+    - food_name_status
+    - food_preserv_proc
+    - food_cooking_proc
+    - food_treat_proc
+    - food_contain_wrap
+    - food_pack_capacity
+    - food_pack_medium
+    - food_prior_contact
+    - food_prod
+    - food_quality_date
+    - repository_name
+    - intended_consumer
+    - food_pack_integrity
+    - misc_param
+    slot_usage:
+      samp_name:
+        required: true
+      project_name:
+        required: true
+      lat_lon:
+        required: true
+      geo_loc_name:
+        required: true
+      collection_date:
+        required: true
+      env_broad_scale:
+        required: true
+      env_local_scale:
+        required: true
+      env_medium:
+        required: true
+      seq_meth:
+        required: true
+      samp_size:
+        required: false
+      samp_collect_device:
+        required: false
+      experimental_factor:
+        required: false
+      nucl_acid_ext:
+        required: false
+      organism_count:
+        required: false
+      samp_stor_temp:
+        required: false
+      samp_stor_dur:
+        required: false
+      air_temp:
+        required: false
+      room_dim:
+        required: false
+      freq_clean:
+        required: false
+      samp_room_id:
+        required: false
+      samp_vol_we_dna_ext:
+        required: false
+      pool_dna_extracts:
+        required: false
+      samp_stor_loc:
+        required: false
+      surf_material:
+        required: false
+      indoor_surf:
+        required: false
+      avg_occup:
+        required: false
+      samp_floor:
+        required: false
+      genetic_mod:
+        required: false
+      coll_site_geo_feat:
+        required: true
+      samp_source_mat_cat:
+        required: true
+      samp_type:
+        required: true
+      samp_stor_media:
+        required: true
+      samp_stor_device:
+        required: true
+      food_product_type:
+        required: true
+      IFSAC_category:
+        required: true
+      food_product_qual:
+        required: true
+      food_contact_surf:
+        required: true
+      facility_type:
+        required: false
+      food_trav_mode:
+        required: false
+      food_trav_vehic:
+        required: false
+      samp_transport_dur:
+        required: false
+      samp_transport_temp:
+        required: false
+      samp_collect_method:
+        required: false
+      num_samp_collect:
+        required: false
+      lot_number:
+        required: false
+      hygienic_area:
+        required: false
+      env_monitoring_zone:
+        required: false
+      area_samp_size:
+        required: false
+      samp_surf_moisture:
+        required: false
+      samp_loc_condition:
+        required: false
+      biocide_used:
+        required: false
+      ster_meth_samp_room:
+        required: false
+      enrichment_protocol:
+        required: false
+      cult_target:
+        required: false
+      microb_cult_med:
+        required: false
+      timepoint:
+        required: false
+      bacterial_density:
+        required: false
+      cult_isol_date:
+        required: false
+      cult_result:
+        required: false
+      cult_result_org:
+        required: false
+      subspecf_gen_lin:
+        required: false
+      samp_pooling:
+        required: false
+      samp_purpose:
+        required: false
+      samp_rep_tech:
+        required: false
+      samp_rep_biol:
+        required: false
+      samp_transport_cont:
+        required: false
+      study_design:
+        required: false
+      nucl_acid_ext_kit:
+        required: false
+      library_prep_kit:
+        required: false
+      sequencing_kit:
+        required: false
+      sequencing_location:
+        required: false
+      study_inc_temp:
+        required: false
+      study_inc_dur:
+        required: false
+      study_timecourse:
+        required: false
+      study_tmnt:
+        required: false
+      food_source:
+        required: false
+      food_dis_point:
+        required: false
+      food_dis_point_city:
+        required: false
+      food_origin:
+        required: false
+      food_prod_synonym:
+        required: false
+      food_additive:
+        required: false
+      food_trace_list:
+        required: false
+      part_plant_animal:
+        required: false
+      food_ingredient:
+        required: false
+      spec_intended_cons:
+        required: false
+      HACCP_term:
+        required: false
+      dietary_claim_use:
+        required: false
+      food_allergen_label:
+        required: false
+      food_prod_char:
+        required: false
+      prod_label_claims:
+        required: false
+      food_name_status:
+        required: false
+      food_preserv_proc:
+        required: false
+      food_cooking_proc:
+        required: false
+      food_treat_proc:
+        required: false
+      food_contain_wrap:
+        required: false
+      food_pack_capacity:
+        required: false
+      food_pack_medium:
+        required: false
+      food_prior_contact:
+        required: false
+      food_prod:
+        required: false
+      food_quality_date:
+        required: false
+      repository_name:
+        required: false
+      intended_consumer:
+        required: false
+      food_pack_integrity:
+        required: false
+      misc_param:
+        required: false
+subsets: {}
+enums: {}

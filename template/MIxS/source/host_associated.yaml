@@ -1,0 +1,171 @@
+id: http://w3id.org/mixs/host_associated
+name: host_associated
+imports:
+- linkml:types
+- terms
+prefixes:
+  linkml: https://w3id.org/linkml/
+  mixs.vocab: https://w3id.org/mixs/vocab/
+  MIXS: https://w3id.org/mixs/terms/
+default_prefix: mixs.vocab
+slots: {}
+classes:
+  host-associated:
+    description: host-associated
+    mappings: []
+    slots:
+    - lat_lon
+    - depth
+    - alt
+    - elev
+    - temp
+    - geo_loc_name
+    - collection_date
+    - env_broad_scale
+    - env_local_scale
+    - env_medium
+    - ances_data
+    - biol_stat
+    - genetic_mod
+    - host_common_name
+    - samp_capt_status
+    - samp_dis_stage
+    - host_taxid
+    - host_subject_id
+    - host_age
+    - host_life_stage
+    - host_sex
+    - chem_administration
+    - host_body_habitat
+    - host_body_site
+    - host_body_product
+    - host_tot_mass
+    - host_height
+    - host_length
+    - host_diet
+    - host_last_meal
+    - host_growth_cond
+    - host_substrate
+    - host_family_relation
+    - host_subspecf_genlin
+    - host_genotype
+    - host_phenotype
+    - host_body_temp
+    - host_dry_mass
+    - blood_press_diast
+    - blood_press_syst
+    - host_color
+    - host_shape
+    - gravidity
+    - perturbation
+    - salinity
+    - oxy_stat_samp
+    - organism_count
+    - samp_store_temp
+    - samp_store_dur
+    - samp_store_loc
+    - host_symbiont
+    - misc_param
+    slot_usage:
+      samp_name:
+        required: true
+      project_name:
+        required: true
+      alt:
+        required: false
+      depth:
+        required: false
+      elev:
+        required: false
+      ances_data:
+        required: false
+      biol_stat:
+        required: false
+      genetic_mod:
+        required: false
+      host_common_name:
+        required: false
+      samp_capt_status:
+        required: false
+      samp_dis_stage:
+        required: false
+      host_taxid:
+        required: false
+      host_subject_id:
+        required: false
+      host_age:
+        required: false
+      host_life_stage:
+        required: false
+      host_sex:
+        required: false
+      host_disease_stat:
+        required: false
+      chem_administration:
+        required: false
+      host_body_habitat:
+        required: false
+      host_body_site:
+        required: false
+      host_body_product:
+        required: false
+      host_tot_mass:
+        required: false
+      host_height:
+        required: false
+      host_length:
+        required: false
+      host_diet:
+        required: false
+      host_last_meal:
+        required: false
+      host_growth_cond:
+        required: false
+      host_substrate:
+        required: false
+      host_family_relation:
+        required: false
+      host_subspecf_genlin:
+        required: false
+      host_genotype:
+        required: false
+      host_phenotype:
+        required: false
+      host_body_temp:
+        required: false
+      host_dry_mass:
+        required: false
+      blood_press_diast:
+        required: false
+      blood_press_syst:
+        required: false
+      host_color:
+        required: false
+      host_shape:
+        required: false
+      gravidity:
+        required: false
+      perturbation:
+        required: false
+      salinity:
+        required: false
+      oxy_stat_samp:
+        required: false
+      temp:
+        required: false
+      organism_count:
+        required: false
+      samp_vol_we_dna_ext:
+        required: false
+      samp_store_temp:
+        required: false
+      samp_store_dur:
+        required: false
+      samp_store_loc:
+        required: false
+      host_symbiont:
+        required: false
+      misc_param:
+        required: false
+subsets: {}
+enums: {}

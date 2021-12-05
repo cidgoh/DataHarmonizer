@@ -52,16 +52,42 @@ As well,
     pattern: '{termLabel} {[termID]}'
 
 NEED LIBRARY OF PATTERNS.
-*************************************
-Note: soil: slot usage mentions some names that are not in slot:
+"{text}"
+"{text};{text}"
+"{rank name}:{text}"
+"{termLabel} {[termID]}" e.g. "Growth chamber [CO_715:0000189]"
+"{text}|{termLabel} {[termID]}" 
+"{boolean};{timestamp}"
+"{boolean}"
+"{boolean};{boolean}"
+"{text};{integer}/[year|month|week|day|hour]"
+"{boolean};{text}"
+"{boolean};{float} {unit}"
+"{boolean};[adverse event|non-compliance|lost to follow up|other-specify]"
+"{duration}"
+"{float} - {float} {unit}"
+"{integer} - {integer} {unit}"
+"{float} {unit};{float} {unit}" e.g. "5 days;-20 degree Celsius"
+"{text};FWD:{dna};REV:{dna};initial denaturation:degrees_minutes;denaturation:degrees_minutes;annealing:degrees_minutes;elongation:degrees_minutes;final elongation:degrees_minutes; total cycles"
+"{text};{text};{timestamp}"  e.g. "ALPHA 1427;Baker Hughes;2008-01-23"
+"{float} {unit};{Rn/start_time/end_time/duration};{duration}"
+"{text};{text};{timestamp}" e.g. "ACCENT 1125;DOW;2010-11-17"
 
-    slot_usage:
-      samp_name:
-        required: true
-      project_name:
-        required: true
-      depth:
-        required: true
-      elev:
-        required: true
+"{float} {unit};{Rn/start_time/end_time/duration}" e.g. "25 degree Celsius;R2/2018-05-11T14:30/2018-05-11T19:30/P1H30M"
+"{float} {unit};{Rn/start_time/end_time/duration}" e.g. "25 gram per cubic meter;R2/2018-05-11T14:30/2018-05-11T19:30/P1H30M"
+
+"{PMID}|{DOI}|{URL}|{text}"
+"{text}|{PMID}|{DOI}|{URL}" e.g. "http://himedialabs.com/TD/PT158.pdf"
+
+"{termLabel} {[termID]} or [husk|other artificial liquid medium|other artificial solid medium|peat moss|perlite|pumice|sand|soil|vermiculite|water]"  e.g. "hydroponic plant culture media [EO:0007067]"
+
+
+"[clean catch|catheter]"
+"[horizontal:castrator|horizontal:directly transmitted|horizontal:micropredator|horizontal:parasitoid|horizontal:trophically transmitted|horizontal:vector transmitted|vertical]"
+
+
+*************************************
+
+
+
 

@@ -1,0 +1,110 @@
+id: http://w3id.org/mixs/air
+name: air
+imports:
+- linkml:types
+- terms
+prefixes:
+  linkml: https://w3id.org/linkml/
+  mixs.vocab: https://w3id.org/mixs/vocab/
+  MIXS: https://w3id.org/mixs/terms/
+default_prefix: mixs.vocab
+slots: {}
+classes:
+  air:
+    description: air
+    mappings: []
+    slots:
+    - lat_lon
+    - depth
+    - alt
+    - elev
+    - temp
+    - geo_loc_name
+    - collection_date
+    - env_broad_scale
+    - env_local_scale
+    - env_medium
+    - barometric_press
+    - carb_dioxide
+    - carb_monoxide
+    - chem_administration
+    - humidity
+    - methane
+    - organism_count
+    - oxygen
+    - oxy_stat_samp
+    - perturbation
+    - pollutants
+    - air particulate matter concentration
+    - salinity
+    - samp_store_dur
+    - samp_store_loc
+    - samp_store_temp
+    - solar_irradiance
+    - ventilation_rate
+    - ventilation_type
+    - volatile_org_comp
+    - wind_direction
+    - wind_speed
+    - misc_param
+    slot_usage:
+      samp_name:
+        required: true
+      project_name:
+        required: true
+      alt:
+        required: true
+      elev:
+        required: false
+      barometric_press:
+        required: false
+      carb_dioxide:
+        required: false
+      carb_monoxide:
+        required: false
+      chem_administration:
+        required: false
+      humidity:
+        required: false
+      methane:
+        required: false
+      organism_count:
+        required: false
+      oxygen:
+        required: false
+      oxy_stat_samp:
+        required: false
+      perturbation:
+        required: false
+      pollutants:
+        required: false
+      air particulate matter concentration:
+        required: false
+      salinity:
+        required: false
+      samp_store_dur:
+        required: false
+      samp_store_loc:
+        required: false
+      samp_store_temp:
+        required: false
+      samp_vol_we_dna_ext:
+        required: false
+      solar_irradiance:
+        required: false
+      temp:
+        required: false
+      ventilation_rate:
+        required: false
+      ventilation_type:
+        required: false
+      volatile_org_comp:
+        required: false
+      wind_direction:
+        required: false
+      wind_speed:
+        required: false
+      misc_param:
+        required: false
+subsets: {}
+enums: {}

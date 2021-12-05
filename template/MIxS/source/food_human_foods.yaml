@@ -1,0 +1,351 @@
+id: http://w3id.org/mixs/food_human_foods
+name: food_human_foods
+imports:
+- linkml:types
+- terms
+prefixes:
+  linkml: https://w3id.org/linkml/
+  mixs.vocab: https://w3id.org/mixs/vocab/
+  MIXS: https://w3id.org/mixs/terms/
+default_prefix: mixs.vocab
+slots: {}
+classes:
+  food-human foods:
+    description: food-human foods
+    mappings: []
+    slots:
+    - lat_lon
+    - depth
+    - alt
+    - elev
+    - temp
+    - geo_loc_name
+    - collection_date
+    - env_broad_scale
+    - env_local_scale
+    - env_medium
+    - samp_collect_device
+    - organism_count
+    - spikein_count
+    - samp_stor_temp
+    - samp_stor_dur
+    - pool_dna_extracts
+    - samp_stor_loc
+    - genetic_mod
+    - perturbation
+    - coll_site_geo_feat
+    - food_product_type
+    - IFSAC_category
+    - ferm_chem_add
+    - ferm_chem_add_perc
+    - ferm_headspace_oxy
+    - ferm_medium
+    - ferm_pH
+    - ferm_rel_humidity
+    - ferm_temp
+    - ferm_time
+    - ferm_vessel
+    - bacterial_density
+    - cons_food_stor_dur
+    - cons_food_stor_temp
+    - cons_purch_date
+    - cons_qty_purchased
+    - cult_isol_date
+    - cult_result
+    - cult_result_org
+    - cult_target
+    - dietary_claim_use
+    - enrichment_protocol
+    - food_additive
+    - food_allergen_label
+    - food_contact_surf
+    - food_contain_wrap
+    - food_cooking_proc
+    - food_dis_point
+    - food_ingredient
+    - food_name_status
+    - food_origin
+    - food_pack_capacity
+    - food_pack_integrity
+    - food_pack_medium
+    - food_preserv_proc
+    - food_prior_contact
+    - food_prod
+    - food_prod_synonym
+    - food_product_qual
+    - food_quality_date
+    - food_source
+    - food_trace_list
+    - food_trav_mode
+    - food_trav_vehic
+    - food_treat_proc
+    - HACCP_term
+    - intended_consumer
+    - library_prep_kit
+    - lot_number
+    - microb_cult_med
+    - microb_start
+    - microb_start_count
+    - microb_start_inoc
+    - microb_start_prep
+    - microb_start_source
+    - microb_start_taxID
+    - nucl_acid_ext_kit
+    - num_samp_collect
+    - part_plant_animal
+    - repository_name
+    - sample_collec_method
+    - samp_pooling
+    - samp_rep_biol
+    - samp_rep_tech
+    - samp_source_mat_cat
+    - samp_stor_device
+    - samp_stor_media
+    - samp_transport_cont
+    - samp_transport_dur
+    - samp_transport_temp
+    - samp_purpose
+    - sequencing_kit
+    - sequencing_location
+    - serovar_or_serotype
+    - spikein_AMR
+    - spikein_antibiotic
+    - spikein_growth_med
+    - spikein_metal
+    - spikein_org
+    - spikein_serovar
+    - spikein_strain
+    - study_design
+    - study_inc_dur
+    - study_inc_temp
+    - study_timecourse
+    - study_tmnt
+    - timepoint
+    - misc_param
+    slot_usage:
+      samp_name:
+        required: true
+      project_name:
+        required: true
+      lat_lon:
+        required: true
+      geo_loc_name:
+        required: true
+      collection_date:
+        required: true
+      env_broad_scale:
+        required: true
+      env_local_scale:
+        required: true
+      env_medium:
+        required: true
+      seq_meth:
+        required: true
+      samp_size:
+        required: false
+      samp_collect_device:
+        required: false
+      experimental_factor:
+        required: false
+      nucl_acid_ext:
+        required: false
+      organism_count:
+        required: false
+      spikein_count:
+        required: false
+      samp_stor_temp:
+        required: false
+      samp_stor_dur:
+        required: false
+      samp_vol_we_dna_ext:
+        required: false
+      pool_dna_extracts:
+        required: false
+      temp:
+        required: false
+      samp_stor_loc:
+        required: false
+      genetic_mod:
+        required: false
+      perturbation:
+        required: false
+      coll_site_geo_feat:
+        required: true
+      food_product_type:
+        required: true
+      IFSAC_category:
+        required: true
+      ferm_chem_add:
+        required: false
+      ferm_chem_add_perc:
+        required: false
+      ferm_headspace_oxy:
+        required: false
+      ferm_medium:
+        required: false
+      ferm_pH:
+        required: false
+      ferm_rel_humidity:
+        required: false
+      ferm_temp:
+        required: false
+      ferm_time:
+        required: false
+      ferm_vessel:
+        required: false
+      bacterial_density:
+        required: false
+      cons_food_stor_dur:
+        required: false
+      cons_food_stor_temp:
+        required: false
+      cons_purch_date:
+        required: false
+      cons_qty_purchased:
+        required: false
+      cult_isol_date:
+        required: false
+      cult_result:
+        required: false
+      cult_result_org:
+        required: false
+      cult_target:
+        required: false
+      dietary_claim_use:
+        required: false
+      enrichment_protocol:
+        required: false
+      food_additive:
+        required: false
+      food_allergen_label:
+        required: false
+      food_contact_surf:
+        required: false
+      food_contain_wrap:
+        required: false
+      food_cooking_proc:
+        required: false
+      food_dis_point:
+        required: false
+      food_ingredient:
+        required: false
+      food_name_status:
+        required: false
+      food_origin:
+        required: false
+      food_pack_capacity:
+        required: false
+      food_pack_integrity:
+        required: false
+      food_pack_medium:
+        required: false
+      food_preserv_proc:
+        required: false
+      food_prior_contact:
+        required: false
+      food_prod:
+        required: false
+      food_prod_synonym:
+        required: false
+      food_product_qual:
+        required: false
+      food_quality_date:
+        required: false
+      food_source:
+        required: false
+      food_trace_list:
+        required: false
+      food_trav_mode:
+        required: false
+      food_trav_vehic:
+        required: false
+      food_treat_proc:
+        required: false
+      HACCP_term:
+        required: false
+      intended_consumer:
+        required: false
+      library_prep_kit:
+        required: false
+      lot_number:
+        required: false
+      microb_cult_med:
+        required: false
+      microb_start:
+        required: false
+      microb_start_count:
+        required: false
+      microb_start_inoc:
+        required: false
+      microb_start_prep:
+        required: false
+      microb_start_source:
+        required: false
+      microb_start_taxID:
+        required: false
+      nucl_acid_ext_kit:
+        required: false
+      num_samp_collect:
+        required: false
+      part_plant_animal:
+        required: false
+      repository_name:
+        required: false
+      sample_collec_method:
+        required: false
+      samp_pooling:
+        required: false
+      samp_rep_biol:
+        required: false
+      samp_rep_tech:
+        required: false
+      samp_source_mat_cat:
+        required: false
+      samp_stor_device:
+        required: false
+      samp_stor_media:
+        required: false
+      samp_transport_cont:
+        required: false
+      samp_transport_dur:
+        required: false
+      samp_transport_temp:
+        required: false
+      samp_purpose:
+        required: false
+      sequencing_kit:
+        required: false
+      sequencing_location:
+        required: false
+      serovar_or_serotype:
+        required: false
+      spikein_AMR:
+        required: false
+      spikein_antibiotic:
+        required: false
+      spikein_growth_med:
+        required: false
+      spikein_metal:
+        required: false
+      spikein_org:
+        required: false
+      spikein_serovar:
+        required: false
+      spikein_strain:
+        required: false
+      study_design:
+        required: false
+      study_inc_dur:
+        required: false
+      study_inc_temp:
+        required: false
+      study_timecourse:
+        required: false
+      study_tmnt:
+        required: false
+      timepoint:
+        required: false
+      misc_param:
+        required: false
+subsets: {}
+enums: {}
