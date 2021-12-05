@@ -1,26 +1,41 @@
 #linkml.py
-# Combines json version of main schema.yaml file and its imports into one 
-# single file in same form as multi-part yaml file
+# Combines json version of given root LinkML file and its imports into one 
+# single javascript-readable file in folder where command is run from.  Run
+# this in a given DataHarmonizer templates/[template X] folder.
 #
 # Author: Damion Dooley
 #
-# Future: could just assemble all yaml files in a folder into one json file.
-# Or: could be given a single schema yaml file and lookup imports.
+# Input examples, from templates/MIxS/ folder:
+#
+# > linkml.py -i source/mixs.yaml
+# > linkml.py -i https://raw.githubusercontent.com/biolink/biolink-model/master/biolink-model.yaml
+#
+
 
 import yaml
 import json
 from linkml_runtime.utils.schemaview import SchemaView
 from linkml_runtime.dumpers.json_dumper import JSONDumper
 import copy
+import optparse
+from sys import exit
+import os
 
+MENU = '../menu.js'
 
-INPUT_FILE = "source/mixs.yaml"
-#Test of direct URL fetch
-#INPUT_FILE = SchemaView("https://raw.githubusercontent.com/biolink/biolink-model/master/biolink-model.yaml")
+def init_parser():
 
+   parser = optparse.OptionParser();
+
+   parser.add_option('-i', '--input', dest="linkml_file",
+      help="Provide a relative file name and path to root LinkML to read.");
+   #parser.add_option('-o', '--output', dest="output_file",
+   #   help="Provide an output file name/path.", default='output');
+
+   return parser.parse_args();
 
 # Custom json serializer: see https://pynative.com/make-python-class-json-serializable/
-# This simply removes items with None/null values or empty lists or dictionaries
+# This simply removes items with None/null values or empty lists/dictionaries
 def encoder(obj):
 	obj_type = type(obj);
 
@@ -40,13 +55,18 @@ def encoder(obj):
 	return simple_dict
 
 
-mixs_sv = SchemaView(INPUT_FILE)
+options, args = init_parser(); 
+if not options.linkml_file:
+    exit('Input LinkML file not given')
+
+print ("Loading LinkML specification for", options.linkml_file)
+mixs_sv = SchemaView(options.linkml_file)
 
 #if a specific set of slots is required, add filter here.
 #data = mixs_sv.class_induced_slots("soil");
 
 content = {
-	"specifications": {}, # Includes slots and slot_usage
+	"specifications": {}, # Includes slots and slot_usage done below
 	"enumerations": mixs_sv.all_enums(),
 	"slots": mixs_sv.all_slots(),
 	"types": mixs_sv.all_types()
@@ -54,15 +74,32 @@ content = {
 
 # Get all top level classes
 for name, obj in mixs_sv.all_classes().items():
-	# Note classDef["@type"]: "ClassDefinition" is only available in json output
+	# Note classDef["@type"]: "ClassDefinition" is only available in json
+	# output
 
-	# Slots indicates hierarchy
+	# Presence of "slots" in class indicates field hierarchy
 	# NOTE: Skips special "quantity value" class
-	if 'slots' in obj and len(obj['slots'])>0: 
-		content['specifications'][name] = mixs_sv.class_induced_slots(name);
-		# brings in all induced slot content for each class including all 
+	if 'slots' in obj and len(obj['slots']) > 0:
+
+		content['specifications'][name] = obj;
+
+
+		# Brings in all induced slot content for each class including all 
 		# details, rather than just having code referencing shared slot info.
-		#content['specifications'][name] = mixs_sv.class_induced_slots(name);
+		try:
+			slot_defs = {};
+			slot_array = mixs_sv.class_induced_slots(name);
+			for obj in slot_array:
+				slot_defs[obj['name']] = obj;
+			content['specifications'][name]['slots'] = slot_defs;
+		except:
+			#ISSUE: default slots is array of string, but 
+			# class_induced_slots(name) is array of dict so this needs
+			# reformatting to dict.
+			print ('Unable to generate induced slots for: ', name);
+
+
+
 
 class_names = content['specifications'].keys();
 
@@ -72,7 +109,7 @@ print ("Created", len(class_names), "specifications:\n", '\n'.join(class_names),
 with open('data.js', 'w') as output_handle:
 	output_handle.write("var DATA = " + json.dumps(content, default=encoder, sort_keys = False, indent = 2, separators = (',', ': ')));
 
-""" Using linkml native dumper:
+""" Using linkml native dumper, but this escapes output ???
 dumper = JSONDumper();
 
 for name, obj in mixs_sv.all_classes().items():
@@ -93,4 +130,36 @@ with open('data.js', 'w') as output_handle:
 
 """
 
+
+# Add this folder's content to template menu.  Creating a javascript file
+# structure that looks like:
+# 
+#const TEMPLATES = {
+#  'MIxS': {'folder': 'MIxS', 'status': 'published'},
+#  'MIxS soil': {'folder': 'MIxS_soil', 'status': 'published'},
+#};
+
+template_folder = os.path.basename(os.getcwd());
+
+js_prefix = 'const TEMPLATES = ';
+
+if os.path.isfile(MENU):
+	with open(MENU, 'r') as f:
+		menu_text = f.read();
+		menu = json.loads( menu_text[len(js_prefix):] );
+		print ("loaded", menu);
+else:
+	menu = {};
+
+# Remove all dictionary entries which mention this folder so we can replace
+# them.
+for name in class_names:
+	template_name = template_folder + '/' + name;
+	menu[template_name] = {
+		'folder': template_folder,
+		'status': 'published'
+	}
+
+with open(MENU, 'w') as output_handle:
+	output_handle.write(js_prefix + json.dumps(menu, sort_keys = False, indent = 2, separators = (',', ': ')));
 

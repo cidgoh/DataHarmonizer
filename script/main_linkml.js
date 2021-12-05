@@ -19,12 +19,8 @@
  * https://github.com/GenomicsStandardsConsortium/mixs-source/tree/main/model/schema
  *
  */
-const VERSION = '0.14.3';
+const VERSION = '0.5.0';
 const VERSION_TEXT = 'DataHarmonizer provenance: v' + VERSION;
-const TEMPLATES = {
-  'MIxS': {'folder': 'MIxS', 'status': 'published'},
-  'MIxS soil': {'folder': 'MIxS_soil', 'status': 'published'},
-};
 
 // Currently selected cell range[row,col,row2,col2]
 CURRENT_SELECTION = [null,null,null,null];
@@ -603,7 +599,6 @@ const setupTemplate = (template_folder) => {
 
 
 const setupData = (template_folder) => {
-
   const table = [];
   const sectionIndex = new Map();
   let newDATA = DATA;
@@ -616,7 +611,7 @@ const setupData = (template_folder) => {
   const specification_slots      = newDATA['specifications']['soil'].slots;
   const specification_slot_usage = newDATA['specifications']['soil'].slot_usage;
 
-  const combined = [...new Set([...Object.keys(specification_slot_usage, ...specification_slots) ])];
+  const combined = [...new Set([...Object.keys(specification_slot_usage), ...Object.keys(specification_slots) ])];
 
   combined.forEach(function (name) {
 
