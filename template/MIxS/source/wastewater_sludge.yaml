@@ -1,0 +1,144 @@
+id: http://w3id.org/mixs/wastewater_sludge
+name: wastewater_sludge
+imports:
+- linkml:types
+- terms
+prefixes:
+  linkml: https://w3id.org/linkml/
+  mixs.vocab: https://w3id.org/mixs/vocab/
+  MIXS: https://w3id.org/mixs/terms/
+default_prefix: mixs.vocab
+slots: {}
+classes:
+  wastewater_sludge:
+    description: wastewater/sludge
+    mappings: []
+    slots:
+    - lat_lon
+    - depth
+    - alt
+    - elev
+    - temp
+    - geo_loc_name
+    - collection_date
+    - env_broad_scale
+    - env_local_scale
+    - env_medium
+    - alkalinity
+    - biochem_oxygen_dem
+    - chem_administration
+    - chem_oxygen_dem
+    - efficiency_percent
+    - emulsions
+    - gaseous_substances
+    - indust_eff_percent
+    - inorg_particles
+    - misc_param
+    - nitrate
+    - org_particles
+    - organism_count
+    - oxy_stat_samp
+    - ph
+    - perturbation
+    - phosphate
+    - pre_treatment
+    - primary_treatment
+    - reactor_type
+    - salinity
+    - samp_store_dur
+    - samp_store_loc
+    - samp_store_temp
+    - secondary_treatment
+    - sewage_type
+    - sludge_retent_time
+    - sodium
+    - soluble_inorg_mat
+    - soluble_org_mat
+    - suspend_solids
+    - tertiary_treatment
+    - tot_nitro
+    - tot_phosphate
+    - wastewater_type
+    slot_usage:
+      samp_name:
+        required: true
+      project_name:
+        required: true
+      depth:
+        required: false
+      alkalinity:
+        required: false
+      biochem_oxygen_dem:
+        required: false
+      chem_administration:
+        required: false
+      chem_oxygen_dem:
+        required: false
+      efficiency_percent:
+        required: false
+      emulsions:
+        required: false
+      gaseous_substances:
+        required: false
+      indust_eff_percent:
+        required: false
+      inorg_particles:
+        required: false
+      misc_param:
+        required: false
+      nitrate:
+        required: false
+      org_particles:
+        required: false
+      organism_count:
+        required: false
+      oxy_stat_samp:
+        required: false
+      ph:
+        required: false
+      perturbation:
+        required: false
+      phosphate:
+        required: false
+      pre_treatment:
+        required: false
+      primary_treatment:
+        required: false
+      reactor_type:
+        required: false
+      salinity:
+        required: false
+      samp_store_dur:
+        required: false
+      samp_store_loc:
+        required: false
+      samp_store_temp:
+        required: false
+      samp_vol_we_dna_ext:
+        required: false
+      secondary_treatment:
+        required: false
+      sewage_type:
+        required: false
+      sludge_retent_time:
+        required: false
+      sodium:
+        required: false
+      soluble_inorg_mat:
+        required: false
+      soluble_org_mat:
+        required: false
+      suspend_solids:
+        required: false
+      temp:
+        required: false
+      tertiary_treatment:
+        required: false
+      tot_nitro:
+        required: false
+      tot_phosphate:
+        required: false
+      wastewater_type:
+        required: false
+subsets: {}
+enums: {}

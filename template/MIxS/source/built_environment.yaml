@@ -1,0 +1,513 @@
+id: http://w3id.org/mixs/built_environment
+name: built_environment
+imports:
+- linkml:types
+- terms
+prefixes:
+  linkml: https://w3id.org/linkml/
+  mixs.vocab: https://w3id.org/mixs/vocab/
+  MIXS: https://w3id.org/mixs/terms/
+default_prefix: mixs.vocab
+slots: {}
+classes:
+  built environment:
+    description: built environment
+    mappings: []
+    slots:
+    - lat_lon
+    - depth
+    - alt
+    - elev
+    - temp
+    - geo_loc_name
+    - collection_date
+    - env_broad_scale
+    - env_local_scale
+    - env_medium
+    - surf_material
+    - surf_air_cont
+    - rel_air_humidity
+    - abs_air_humidity
+    - surf_humidity
+    - air_temp
+    - surf_temp
+    - surf_moisture_ph
+    - build_occup_type
+    - surf_moisture
+    - dew_point
+    - carb_dioxide
+    - ventilation_type
+    - organism_count
+    - indoor_space
+    - indoor_surf
+    - filter_type
+    - heat_cool_type
+    - substructure_type
+    - building_setting
+    - light_type
+    - samp_sort_meth
+    - space_typ_state
+    - typ_occup_density
+    - occup_samp
+    - occup_density_samp
+    - address
+    - adj_room
+    - aero_struc
+    - amount_light
+    - arch_struc
+    - avg_occup
+    - avg_dew_point
+    - avg_temp
+    - bathroom_count
+    - bedroom_count
+    - built_struc_age
+    - built_struc_set
+    - built_struc_type
+    - ceil_area
+    - ceil_cond
+    - ceil_finish_mat
+    - ceil_water_mold
+    - ceil_struc
+    - ceil_texture
+    - ceil_thermal_mass
+    - ceil_type
+    - cool_syst_id
+    - date_last_rain
+    - build_docs
+    - door_size
+    - door_cond
+    - door_direct
+    - door_loc
+    - door_mat
+    - door_move
+    - door_water_mold
+    - door_type
+    - door_comp_type
+    - door_type_metal
+    - door_type_wood
+    - drawings
+    - elevator
+    - escalator
+    - exp_duct
+    - exp_pipe
+    - ext_door
+    - fireplace_type
+    - floor_age
+    - floor_area
+    - floor_cond
+    - floor_count
+    - floor_finish_mat
+    - floor_water_mold
+    - floor_struc
+    - floor_thermal_mass
+    - freq_clean
+    - freq_cook
+    - furniture
+    - gender_restroom
+    - hall_count
+    - handidness
+    - heat_deliv_loc
+    - heat_sys_deliv_meth
+    - heat_system_id
+    - height_carper_fiber
+    - inside_lux
+    - int_wall_cond
+    - last_clean
+    - max_occup
+    - mech_struc
+    - number_plants
+    - number_pets
+    - number_resident
+    - occup_document
+    - ext_wall_orient
+    - ext_window_orient
+    - rel_humidity_out
+    - pres_animal_insect
+    - quad_pos
+    - rel_samp_loc
+    - room_air_exch_rate
+    - room_architec_elem
+    - room_condt
+    - room_count
+    - room_dim
+    - room_door_dist
+    - room_loc
+    - room_moist_dam_hist
+    - room_net_area
+    - room_occup
+    - room_samp_pos
+    - room_type
+    - room_vol
+    - room_window_count
+    - room_connected
+    - room_hallway
+    - room_door_share
+    - room_wall_share
+    - samp_weather
+    - samp_floor
+    - samp_room_id
+    - samp_time_out
+    - season
+    - season_use
+    - shading_device_cond
+    - shading_device_loc
+    - shading_device_mat
+    - shad_dev_water_mold
+    - shading_device_type
+    - specific_humidity
+    - specific
+    - temp_out
+    - train_line
+    - train_stat_loc
+    - train_stop_loc
+    - vis_media
+    - wall_area
+    - wall_const_type
+    - wall_finish_mat
+    - wall_height
+    - wall_loc
+    - wall_water_mold
+    - wall_surf_treatment
+    - wall_texture
+    - wall_thermal_mass
+    - water_feat_size
+    - water_feat_type
+    - weekday
+    - window_size
+    - window_cond
+    - window_cover
+    - window_horiz_pos
+    - window_loc
+    - window_mat
+    - window_open_freq
+    - window_water_mold
+    - window_status
+    - window_type
+    - window_vert_pos
+    slot_usage:
+      samp_name:
+        required: true
+      project_name:
+        required: true
+      surf_material:
+        required: false
+      surf_air_cont:
+        required: false
+      rel_air_humidity:
+        required: true
+      abs_air_humidity:
+        required: true
+      surf_humidity:
+        required: false
+      air_temp:
+        required: true
+      surf_temp:
+        required: false
+      surf_moisture_ph:
+        required: false
+      build_occup_type:
+        required: true
+      surf_moisture:
+        required: false
+      dew_point:
+        required: false
+      carb_dioxide:
+        required: true
+      ventilation_type:
+        required: true
+      organism_count:
+        required: true
+      indoor_space:
+        required: true
+      indoor_surf:
+        required: false
+      filter_type:
+        required: true
+      heat_cool_type:
+        required: true
+      substructure_type:
+        required: false
+      building_setting:
+        required: true
+      light_type:
+        required: true
+      samp_sort_meth:
+        required: false
+      space_typ_state:
+        required: true
+      typ_occup_density:
+        required: true
+      occup_samp:
+        required: true
+      occup_density_samp:
+        required: true
+      address:
+        required: false
+      adj_room:
+        required: false
+      aero_struc:
+        required: false
+      amount_light:
+        required: false
+      arch_struc:
+        required: false
+      avg_occup:
+        required: false
+      avg_dew_point:
+        required: false
+      avg_temp:
+        required: false
+      bathroom_count:
+        required: false
+      bedroom_count:
+        required: false
+      built_struc_age:
+        required: false
+      built_struc_set:
+        required: false
+      built_struc_type:
+        required: false
+      ceil_area:
+        required: false
+      ceil_cond:
+        required: false
+      ceil_finish_mat:
+        required: false
+      ceil_water_mold:
+        required: false
+      ceil_struc:
+        required: false
+      ceil_texture:
+        required: false
+      ceil_thermal_mass:
+        required: false
+      ceil_type:
+        required: false
+      cool_syst_id:
+        required: false
+      date_last_rain:
+        required: false
+      build_docs:
+        required: false
+      door_size:
+        required: false
+      door_cond:
+        required: false
+      door_direct:
+        required: false
+      door_loc:
+        required: false
+      door_mat:
+        required: false
+      door_move:
+        required: false
+      door_water_mold:
+        required: false
+      door_type:
+        required: false
+      door_comp_type:
+        required: false
+      door_type_metal:
+        required: false
+      door_type_wood:
+        required: false
+      drawings:
+        required: false
+      elevator:
+        required: false
+      escalator:
+        required: false
+      exp_duct:
+        required: false
+      exp_pipe:
+        required: false
+      ext_door:
+        required: false
+      fireplace_type:
+        required: false
+      floor_age:
+        required: false
+      floor_area:
+        required: false
+      floor_cond:
+        required: false
+      floor_count:
+        required: false
+      floor_finish_mat:
+        required: false
+      floor_water_mold:
+        required: false
+      floor_struc:
+        required: false
+      floor_thermal_mass:
+        required: false
+      freq_clean:
+        required: false
+      freq_cook:
+        required: false
+      furniture:
+        required: false
+      gender_restroom:
+        required: false
+      hall_count:
+        required: false
+      handidness:
+        required: false
+      heat_deliv_loc:
+        required: false
+      heat_sys_deliv_meth:
+        required: false
+      heat_system_id:
+        required: false
+      height_carper_fiber:
+        required: false
+      inside_lux:
+        required: false
+      int_wall_cond:
+        required: false
+      last_clean:
+        required: false
+      max_occup:
+        required: false
+      mech_struc:
+        required: false
+      number_plants:
+        required: false
+      number_pets:
+        required: false
+      number_resident:
+        required: false
+      occup_document:
+        required: false
+      ext_wall_orient:
+        required: false
+      ext_window_orient:
+        required: false
+      rel_humidity_out:
+        required: false
+      pres_animal_insect:
+        required: false
+      quad_pos:
+        required: false
+      rel_samp_loc:
+        required: false
+      room_air_exch_rate:
+        required: false
+      room_architec_elem:
+        required: false
+      room_condt:
+        required: false
+      room_count:
+        required: false
+      room_dim:
+        required: false
+      room_door_dist:
+        required: false
+      room_loc:
+        required: false
+      room_moist_dam_hist:
+        required: false
+      room_net_area:
+        required: false
+      room_occup:
+        required: false
+      room_samp_pos:
+        required: false
+      room_type:
+        required: false
+      room_vol:
+        required: false
+      room_window_count:
+        required: false
+      room_connected:
+        required: false
+      room_hallway:
+        required: false
+      room_door_share:
+        required: false
+      room_wall_share:
+        required: false
+      samp_weather:
+        required: false
+      samp_floor:
+        required: false
+      samp_room_id:
+        required: false
+      samp_time_out:
+        required: false
+      season:
+        required: false
+      season_use:
+        required: false
+      shading_device_cond:
+        required: false
+      shading_device_loc:
+        required: false
+      shading_device_mat:
+        required: false
+      shad_dev_water_mold:
+        required: false
+      shading_device_type:
+        required: false
+      specific_humidity:
+        required: false
+      specific:
+        required: false
+      temp_out:
+        required: false
+      train_line:
+        required: false
+      train_stat_loc:
+        required: false
+      train_stop_loc:
+        required: false
+      vis_media:
+        required: false
+      wall_area:
+        required: false
+      wall_const_type:
+        required: false
+      wall_finish_mat:
+        required: false
+      wall_height:
+        required: false
+      wall_loc:
+        required: false
+      wall_water_mold:
+        required: false
+      wall_surf_treatment:
+        required: false
+      wall_texture:
+        required: false
+      wall_thermal_mass:
+        required: false
+      water_feat_size:
+        required: false
+      water_feat_type:
+        required: false
+      weekday:
+        required: false
+      window_size:
+        required: false
+      window_cond:
+        required: false
+      window_cover:
+        required: false
+      window_horiz_pos:
+        required: false
+      window_loc:
+        required: false
+      window_mat:
+        required: false
+      window_open_freq:
+        required: false
+      window_water_mold:
+        required: false
+      window_status:
+        required: false
+      window_type:
+        required: false
+      window_vert_pos:
+        required: false
+subsets: {}
+enums: {}

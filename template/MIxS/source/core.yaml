@@ -1,0 +1,116 @@
+id: http://w3id.org/mixs/core
+name: core
+imports:
+- linkml:types
+- terms
+prefixes:
+  linkml: https://w3id.org/linkml/
+  mixs.vocab: https://w3id.org/mixs/vocab/
+  MIXS: https://w3id.org/mixs/terms/
+default_prefix: mixs.vocab
+slots: {}
+classes:
+  core:
+    description: Core package. Do not use this directly, this is used to build other
+      packages
+    slots:
+    - samp_name
+    - samp_taxon_id
+    - project_name
+    - experimental_factor
+    - lat_lon
+    - depth
+    - alt
+    - elev
+    - temp
+    - geo_loc_name
+    - collection_date
+    - neg_cont_type
+    - pos_cont_type
+    - env_broad_scale
+    - env_local_scale
+    - env_medium
+    - subspecf_gen_lin
+    - ploidy
+    - num_replicons
+    - extrachrom_elements
+    - estimated_size
+    - ref_biomaterial
+    - source_mat_id
+    - pathogenicity
+    - biotic_relationship
+    - specific_host
+    - host_spec_range
+    - host_disease_stat
+    - trophic_level
+    - propagation
+    - encoded_traits
+    - rel_to_oxygen
+    - isol_growth_condt
+    - samp_collec_device
+    - samp_collec_method
+    - samp_mat_process
+    - size_frac
+    - samp_size
+    - samp_vol_we_dna_ext
+    - source_uvig
+    - virus_enrich_appr
+    - nucl_acid_ext
+    - nucl_acid_amp
+    - lib_size
+    - lib_reads_seqd
+    - lib_layout
+    - lib_vector
+    - lib_screen
+    - target_gene
+    - target_subfragment
+    - pcr_primers
+    - mid
+    - adapters
+    - pcr_cond
+    - seq_meth
+    - seq_quality_check
+    - chimera_check
+    - tax_ident
+    - assembly_qual
+    - assembly_name
+    - assembly_software
+    - annot
+    - number_contig
+    - feat_pred
+    - ref_db
+    - sim_search_meth
+    - tax_class
+    - x_16s_recover
+    - x_16s_recover_software
+    - trnas
+    - trna_ext_software
+    - compl_score
+    - compl_software
+    - compl_appr
+    - contam_score
+    - contam_screen_input
+    - contam_screen_param
+    - decontam_software
+    - sort_tech
+    - single_cell_lysis_appr
+    - single_cell_lysis_prot
+    - wga_amp_appr
+    - wga_amp_kit
+    - bin_param
+    - bin_software
+    - reassembly_bin
+    - mag_cov_software
+    - vir_ident_software
+    - pred_genome_type
+    - pred_genome_struc
+    - detec_type
+    - otu_class_appr
+    - otu_seq_comp_appr
+    - otu_db
+    - host_pred_appr
+    - host_pred_est_acc
+    - associated resource
+    - sop
+subsets: {}
+enums: {}

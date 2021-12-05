@@ -1,0 +1,189 @@
+id: http://w3id.org/mixs/soil
+name: soil
+imports:
+- linkml:types
+- terms
+prefixes:
+  linkml: https://w3id.org/linkml/
+  mixs.vocab: https://w3id.org/mixs/vocab/
+  MIXS: https://w3id.org/mixs/terms/
+default_prefix: mixs.vocab
+slots: {}
+classes:
+  soil:
+    description: soil
+    mappings: []
+    slots:
+    - lat_lon
+    - depth
+    - alt
+    - elev
+    - temp
+    - geo_loc_name
+    - collection_date
+    - env_broad_scale
+    - env_local_scale
+    - env_medium
+    - cur_land_use
+    - cur_vegetation
+    - cur_vegetation_meth
+    - previous_land_use
+    - prev_land_use_meth
+    - crop_rotation
+    - agrochem_addition
+    - tillage
+    - fire
+    - flooding
+    - extreme_event
+    - soil_horizon
+    - horizon_meth
+    - sieving
+    - water_content
+    - water_cont_soil_meth
+    - pool_dna_extracts
+    - store_cond
+    - link_climate_info
+    - annual_temp
+    - season_temp
+    - annual_precpt
+    - season_precpt
+    - link_class_info
+    - fao_class
+    - local_class
+    - local_class_meth
+    - soil_type
+    - soil_type_meth
+    - slope_gradient
+    - slope_aspect
+    - profile_position
+    - drainage_class
+    - soil_text_measure
+    - soil_texture_meth
+    - ph
+    - ph_meth
+    - tot_org_carb
+    - tot_org_c_meth
+    - tot_nitro_content
+    - tot_nitro_cont_meth
+    - microbial_biomass
+    - micro_biomass_meth
+    - link_addit_analys
+    - salinity_meth
+    - heavy_metals
+    - heavy_metals_meth
+    - al_sat
+    - al_sat_meth
+    - misc_param
+    slot_usage:
+      samp_name:
+        required: true
+      project_name:
+        required: true
+      depth:
+        required: true
+      elev:
+        required: true
+      cur_land_use:
+        required: false
+      cur_vegetation:
+        required: false
+      cur_vegetation_meth:
+        required: false
+      previous_land_use:
+        required: false
+      prev_land_use_meth:
+        required: false
+      crop_rotation:
+        required: false
+      agrochem_addition:
+        required: false
+      tillage:
+        required: false
+      fire:
+        required: false
+      flooding:
+        required: false
+      extreme_event:
+        required: false
+      soil_horizon:
+        required: false
+      horizon_meth:
+        required: false
+      sieving:
+        required: false
+      water_content:
+        required: false
+      water_cont_soil_meth:
+        required: false
+      samp_vol_we_dna_ext:
+        required: false
+      pool_dna_extracts:
+        required: false
+      store_cond:
+        required: false
+      link_climate_info:
+        required: false
+      annual_temp:
+        required: false
+      season_temp:
+        required: false
+      annual_precpt:
+        required: false
+      season_precpt:
+        required: false
+      link_class_info:
+        required: false
+      fao_class:
+        required: false
+      local_class:
+        required: false
+      local_class_meth:
+        required: false
+      soil_type:
+        required: false
+      soil_type_meth:
+        required: false
+      slope_gradient:
+        required: false
+      slope_aspect:
+        required: false
+      profile_position:
+        required: false
+      drainage_class:
+        required: false
+      soil_text_measure:
+        required: false
+      soil_texture_meth:
+        required: false
+      ph:
+        required: false
+      ph_meth:
+        required: false
+      tot_org_carb:
+        required: false
+      tot_org_c_meth:
+        required: false
+      tot_nitro_content:
+        required: false
+      tot_nitro_cont_meth:
+        required: false
+      microbial_biomass:
+        required: false
+      micro_biomass_meth:
+        required: false
+      link_addit_analys:
+        required: false
+      salinity_meth:
+        required: false
+      heavy_metals:
+        required: false
+      heavy_metals_meth:
+        required: false
+      al_sat:
+        required: false
+      al_sat_meth:
+        required: false
+      misc_param:
+        required: false
+subsets: {}
+enums: {}

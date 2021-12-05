@@ -1,0 +1,283 @@
+id: http://w3id.org/mixs/hydrocarbon_resources_fluids_swabs
+name: hydrocarbon_resources_fluids_swabs
+imports:
+- linkml:types
+- terms
+prefixes:
+  linkml: https://w3id.org/linkml/
+  mixs.vocab: https://w3id.org/mixs/vocab/
+  MIXS: https://w3id.org/mixs/terms/
+default_prefix: mixs.vocab
+slots: {}
+classes:
+  hydrocarbon resources-fluids_swabs:
+    description: hydrocarbon resources-fluids/swabs
+    mappings: []
+    slots:
+    - lat_lon
+    - depth
+    - alt
+    - elev
+    - temp
+    - geo_loc_name
+    - collection_date
+    - env_broad_scale
+    - env_local_scale
+    - env_medium
+    - hcr
+    - hc_produced
+    - basin
+    - field
+    - reservoir
+    - hcr_temp
+    - tvdss_of_hcr_temp
+    - hcr_pressure
+    - tvdss_of_hcr_press
+    - lithology
+    - depos_env
+    - hcr_geol_age
+    - hcr_fw_salinity
+    - sulfate_fw
+    - vfa_fw
+    - prod_start_date
+    - prod_rate
+    - water_prod_rate
+    - water_cut
+    - iwf
+    - add_recov_method
+    - iw_bt_date_well
+    - biocide
+    - biocide_admin_method
+    - chem_treatment
+    - chem_treat_method
+    - samp_loc_corr_rate
+    - samp_well_name
+    - win
+    - samp_type
+    - samp_subtype
+    - samp_collect_point
+    - pressure
+    - oxy_stat_samp
+    - samp_preserv
+    - samp_transport_cond
+    - samp_store_temp
+    - samp_store_dur
+    - samp_store_loc
+    - organism_count
+    - org_count_qpcr_info
+    - ph
+    - salinity
+    - alkalinity
+    - alkalinity_method
+    - sulfate
+    - sulfide
+    - tot_sulfur
+    - nitrate
+    - nitrite
+    - ammonium
+    - tot_nitro
+    - diss_iron
+    - sodium
+    - chloride
+    - potassium
+    - magnesium
+    - calcium
+    - tot_iron
+    - diss_org_carb
+    - diss_inorg_carb
+    - diss_inorg_phosp
+    - tot_phosp
+    - suspend_solids
+    - density
+    - diss_carb_dioxide
+    - diss_oxygen_fluid
+    - vfa
+    - benzene
+    - toluene
+    - ethylbenzene
+    - xylene
+    - api
+    - tan
+    - viscosity
+    - pour_point
+    - saturates_pc
+    - aromatics_pc
+    - resins_pc
+    - asphaltenes_pc
+    - misc_param
+    - additional_info
+    slot_usage:
+      samp_name:
+        required: true
+      project_name:
+        required: true
+      hcr:
+        required: true
+      hc_produced:
+        required: true
+      basin:
+        required: true
+      field:
+        required: false
+      reservoir:
+        required: false
+      hcr_temp:
+        required: false
+      tvdss_of_hcr_temp:
+        required: false
+      hcr_pressure:
+        required: false
+      tvdss_of_hcr_press:
+        required: false
+      lithology:
+        required: false
+      depos_env:
+        required: false
+      hcr_geol_age:
+        required: false
+      hcr_fw_salinity:
+        required: false
+      sulfate_fw:
+        required: false
+      vfa_fw:
+        required: false
+      prod_start_date:
+        required: false
+      prod_rate:
+        required: false
+      water_prod_rate:
+        required: false
+      water_cut:
+        required: true
+      iwf:
+        required: true
+      add_recov_method:
+        required: true
+      iw_bt_date_well:
+        required: false
+      biocide:
+        required: false
+      biocide_admin_method:
+        required: false
+      chem_treatment:
+        required: false
+      chem_treat_method:
+        required: false
+      samp_loc_corr_rate:
+        required: false
+      samp_well_name:
+        required: false
+      win:
+        required: false
+      samp_type:
+        required: true
+      samp_subtype:
+        required: false
+      samp_collect_point:
+        required: true
+      temp:
+        required: true
+      pressure:
+        required: false
+      oxy_stat_samp:
+        required: false
+      samp_preserv:
+        required: false
+      samp_transport_cond:
+        required: false
+      samp_store_temp:
+        required: false
+      samp_store_dur:
+        required: false
+      samp_store_loc:
+        required: false
+      samp_vol_we_dna_ext:
+        required: false
+      organism_count:
+        required: false
+      org_count_qpcr_info:
+        required: false
+      ph:
+        required: false
+      salinity:
+        required: false
+      alkalinity:
+        required: false
+      alkalinity_method:
+        required: false
+      sulfate:
+        required: true
+      sulfide:
+        required: true
+      tot_sulfur:
+        required: false
+      nitrate:
+        required: true
+      nitrite:
+        required: false
+      ammonium:
+        required: false
+      tot_nitro:
+        required: false
+      diss_iron:
+        required: false
+      sodium:
+        required: false
+      chloride:
+        required: false
+      potassium:
+        required: false
+      magnesium:
+        required: false
+      calcium:
+        required: false
+      tot_iron:
+        required: false
+      diss_org_carb:
+        required: false
+      diss_inorg_carb:
+        required: false
+      diss_inorg_phosp:
+        required: false
+      tot_phosp:
+        required: false
+      suspend_solids:
+        required: false
+      density:
+        required: false
+      diss_carb_dioxide:
+        required: false
+      diss_oxygen_fluid:
+        required: false
+      vfa:
+        required: false
+      benzene:
+        required: false
+      toluene:
+        required: false
+      ethylbenzene:
+        required: false
+      xylene:
+        required: false
+      api:
+        required: true
+      tan:
+        required: false
+      viscosity:
+        required: false
+      pour_point:
+        required: false
+      saturates_pc:
+        required: false
+      aromatics_pc:
+        required: false
+      resins_pc:
+        required: false
+      asphaltenes_pc:
+        required: false
+      misc_param:
+        required: false
+      additional_info:
+        required: false
+subsets: {}
+enums: {}

@@ -1,0 +1,446 @@
+id: http://w3id.org/mixs/food_farm_environment
+name: food_farm_environment
+imports:
+- linkml:types
+- terms
+prefixes:
+  linkml: https://w3id.org/linkml/
+  mixs.vocab: https://w3id.org/mixs/vocab/
+  MIXS: https://w3id.org/mixs/terms/
+default_prefix: mixs.vocab
+slots: {}
+classes:
+  food-farm environment:
+    description: food-farm environment
+    mappings: []
+    slots:
+    - lat_lon
+    - depth
+    - alt
+    - elev
+    - temp
+    - geo_loc_name
+    - collection_date
+    - env_broad_scale
+    - env_local_scale
+    - env_medium
+    - samp_collect_device
+    - humidity
+    - organism_count
+    - spikein_count
+    - samp_stor_temp
+    - solar_irradiance
+    - ventilation_rate
+    - samp_stor_dur
+    - wind_speed
+    - salinity
+    - previous_land_use
+    - crop_rotation
+    - soil_type_meth
+    - tot_org_c_meth
+    - tot_nitro_cont_meth
+    - salinity_meth
+    - host_age
+    - host_dry_mass
+    - host_height
+    - host_length
+    - host_tot_mass
+    - root_med_carbon
+    - root_med_macronutr
+    - root_med_micronutr
+    - season_temp
+    - season_precpt
+    - tot_org_carb
+    - tot_nitro_content
+    - conduc
+    - turbidity
+    - size_frac_low
+    - size_frac_up
+    - ventilation_type
+    - wind_direction
+    - genetic_mod
+    - host_phenotype
+    - ph
+    - ances_data
+    - biotic_regm
+    - chem_administration
+    - growth_habit
+    - host_genotype
+    - host_taxid
+    - mechanical_damage
+    - perturbation
+    - root_cond
+    - root_med_ph
+    - tillage
+    - ph_meth
+    - growth_medium
+    - season
+    - food_product_type
+    - samp_type
+    - farm_water_source
+    - plant_water_method
+    - air_PM_concen
+    - animal_feed_equip
+    - animal_intrusion
+    - anim_water_method
+    - crop_yield
+    - cult_result
+    - cult_result_org
+    - cult_target
+    - plant_part_maturity
+    - adjacent_environment
+    - water_source_adjac
+    - farm_equip_shared
+    - farm_equip_san
+    - farm_equip_san_freq
+    - farm_equip
+    - fertilizer_admin
+    - fertilizer_date
+    - animal_group_size
+    - animal_diet
+    - food_contact_surf
+    - food_contain_wrap
+    - food_harvest_proc
+    - food_pack_medium
+    - food_preserv_proc
+    - food_prod_char
+    - prod_label_claims
+    - food_trav_mode
+    - food_trav_vehic
+    - food_source
+    - food_treat_proc
+    - extr_weather_event
+    - date_extr_weath
+    - host_subspecf_genlin
+    - intended_consumer
+    - library_prep_kit
+    - air_flow_impede
+    - lot_number
+    - season_humidity
+    - part_plant_animal
+    - plant_growth_med
+    - plant_reprod_crop
+    - samp_purpose
+    - repository_name
+    - samp_pooling
+    - samp_source_mat_cat
+    - sequencing_kit
+    - sequencing_location
+    - serovar_or_serotype
+    - soil_conductivity
+    - soil_cover
+    - soil_pH
+    - rel_location
+    - soil_porosity
+    - soil_temp
+    - soil_texture_class
+    - soil_texture_meth
+    - soil_type
+    - spikein_org
+    - spikein_serovar
+    - spikein_growth_med
+    - spikein_strain
+    - spikein_antibiotic
+    - spikein_metal
+    - timepoint
+    - water_frequency
+    - water_pH
+    - water_source_shared
+    - enrichment_protocol
+    - food_quality_date
+    - IFSAC_category
+    - animal_housing
+    - cult_isol_date
+    - food_clean_proc
+    - misc_param
+    slot_usage:
+      samp_name:
+        required: true
+      project_name:
+        required: true
+      lat_lon:
+        required: true
+      geo_loc_name:
+        required: true
+      collection_date:
+        required: true
+      env_broad_scale:
+        required: true
+      env_local_scale:
+        required: true
+      env_medium:
+        required: true
+      seq_meth:
+        required: true
+      samp_size:
+        required: false
+      samp_collect_device:
+        required: false
+      nucl_acid_ext:
+        required: false
+      humidity:
+        required: false
+      organism_count:
+        required: false
+      spikein_count:
+        required: false
+      samp_stor_temp:
+        required: false
+      solar_irradiance:
+        required: false
+      ventilation_rate:
+        required: false
+      samp_stor_dur:
+        required: false
+      wind_speed:
+        required: false
+      salinity:
+        required: false
+      samp_vol_we_dna_ext:
+        required: false
+      previous_land_use:
+        required: false
+      crop_rotation:
+        required: false
+      soil_type_meth:
+        required: false
+      tot_org_c_meth:
+        required: false
+      tot_nitro_cont_meth:
+        required: false
+      salinity_meth:
+        required: false
+      host_age:
+        required: false
+      host_dry_mass:
+        required: false
+      host_height:
+        required: false
+      host_length:
+        required: false
+      host_tot_mass:
+        required: false
+      root_med_carbon:
+        required: false
+      root_med_macronutr:
+        required: false
+      root_med_micronutr:
+        required: false
+      depth:
+        required: true
+      season_temp:
+        required: false
+      season_precpt:
+        required: false
+      tot_org_carb:
+        required: false
+      tot_nitro_content:
+        required: false
+      conduc:
+        required: false
+      turbidity:
+        required: false
+      size_frac_low:
+        required: false
+      size_frac_up:
+        required: false
+      temp:
+        required: false
+      ventilation_type:
+        required: false
+      wind_direction:
+        required: false
+      genetic_mod:
+        required: false
+      host_phenotype:
+        required: false
+      ph:
+        required: false
+      ances_data:
+        required: false
+      biotic_regm:
+        required: true
+      chem_administration:
+        required: true
+      growth_habit:
+        required: false
+      host_disease_stat:
+        required: false
+      host_genotype:
+        required: false
+      host_taxid:
+        required: false
+      mechanical_damage:
+        required: false
+      perturbation:
+        required: false
+      root_cond:
+        required: false
+      root_med_ph:
+        required: false
+      tillage:
+        required: false
+      ph_meth:
+        required: false
+      growth_medium:
+        required: false
+      season:
+        required: false
+      food_product_type:
+        required: true
+      samp_type:
+        required: true
+      farm_water_source:
+        required: false
+      plant_water_method:
+        required: false
+      air_PM_concen:
+        required: false
+      animal_feed_equip:
+        required: false
+      animal_intrusion:
+        required: false
+      anim_water_method:
+        required: false
+      crop_yield:
+        required: false
+      cult_result:
+        required: false
+      cult_result_org:
+        required: false
+      cult_target:
+        required: false
+      plant_part_maturity:
+        required: false
+      adjacent_environment:
+        required: false
+      water_source_adjac:
+        required: false
+      farm_equip_shared:
+        required: false
+      farm_equip_san:
+        required: false
+      farm_equip_san_freq:
+        required: false
+      farm_equip:
+        required: false
+      fertilizer_admin:
+        required: false
+      fertilizer_date:
+        required: false
+      animal_group_size:
+        required: false
+      animal_diet:
+        required: false
+      food_contact_surf:
+        required: false
+      food_contain_wrap:
+        required: false
+      food_harvest_proc:
+        required: false
+      food_pack_medium:
+        required: false
+      food_preserv_proc:
+        required: false
+      food_prod_char:
+        required: false
+      prod_label_claims:
+        required: false
+      food_trav_mode:
+        required: false
+      food_trav_vehic:
+        required: false
+      food_source:
+        required: false
+      food_treat_proc:
+        required: false
+      extr_weather_event:
+        required: false
+      date_extr_weath:
+        required: false
+      host_subspecf_genlin:
+        required: false
+      intended_consumer:
+        required: false
+      library_prep_kit:
+        required: false
+      air_flow_impede:
+        required: false
+      lot_number:
+        required: false
+      season_humidity:
+        required: false
+      part_plant_animal:
+        required: false
+      plant_growth_med:
+        required: false
+      plant_reprod_crop:
+        required: false
+      samp_purpose:
+        required: false
+      repository_name:
+        required: false
+      samp_pooling:
+        required: false
+      samp_source_mat_cat:
+        required: false
+      sequencing_kit:
+        required: false
+      sequencing_location:
+        required: false
+      serovar_or_serotype:
+        required: false
+      soil_conductivity:
+        required: false
+      soil_cover:
+        required: false
+      soil_pH:
+        required: false
+      rel_location:
+        required: false
+      soil_porosity:
+        required: false
+      soil_temp:
+        required: false
+      soil_texture_class:
+        required: false
+      soil_texture_meth:
+        required: false
+      soil_type:
+        required: false
+      spikein_org:
+        required: false
+      spikein_serovar:
+        required: false
+      spikein_growth_med:
+        required: false
+      spikein_strain:
+        required: false
+      spikein_antibiotic:
+        required: false
+      spikein_metal:
+        required: false
+      timepoint:
+        required: false
+      water_frequency:
+        required: false
+      water_pH:
+        required: false
+      water_source_shared:
+        required: false
+      enrichment_protocol:
+        required: false
+      food_quality_date:
+        required: false
+      IFSAC_category:
+        required: true
+      animal_housing:
+        required: false
+      cult_isol_date:
+        required: false
+      food_clean_proc:
+        required: false
+      misc_param:
+        required: false
+subsets: {}
+enums: {}

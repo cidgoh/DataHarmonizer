@@ -124,8 +124,8 @@ const getInvalidCells = (hot, data) => {
 };
 
 /**
- * Test cellVal against DataHarmonizer provenance: vX.Y.Z pattern and if it needs an
- * update, do so.
+ * Test cellVal against "DataHarmonizer provenance: vX.Y.Z" pattern and if it
+ * needs an update, do so.
  * @param {Array} provenanceChanges array of provenance updates
  * @param {Object} cellVal field value to be tested.
  * @param {Integer} row index of data

@@ -1,0 +1,232 @@
+id: http://w3id.org/mixs/symbiont_associated
+name: symbiont_associated
+imports:
+- linkml:types
+- terms
+prefixes:
+  linkml: https://w3id.org/linkml/
+  mixs.vocab: https://w3id.org/mixs/vocab/
+  MIXS: https://w3id.org/mixs/terms/
+default_prefix: mixs.vocab
+slots: {}
+classes:
+  symbiont-associated:
+    description: symbiont-associated
+    mappings: []
+    slots:
+    - lat_lon
+    - depth
+    - alt
+    - elev
+    - temp
+    - geo_loc_name
+    - collection_date
+    - env_broad_scale
+    - env_local_scale
+    - env_medium
+    - sample_name
+    - host_subject_id
+    - host_common_name
+    - host_taxid
+    - host_dependence
+    - type_of_symbiosis
+    - sym_life_cycle_type
+    - host_life_stage
+    - host_age
+    - host_sex
+    - mode_transmission
+    - route_transmission
+    - host_body_habitat
+    - host_body_site
+    - host_body_product
+    - host_tot_mass
+    - host_height
+    - host_length
+    - host_growth_cond
+    - host_substrate
+    - host_family_relationship
+    - host_infra_specific_name
+    - host_infra_specific_rank
+    - host_genotype
+    - host_phenotype
+    - host_dry_mass
+    - host_color
+    - host_shape
+    - gravidity
+    - host_number
+    - host_symbiont
+    - host_specificity
+    - symbiont_host_role
+    - host_cellular_loc
+    - association_duration
+    - host_of_host_coinf
+    - host_of_host_name
+    - host_of_host_env_loc
+    - host_of_host_env_med
+    - host_of_host_taxid
+    - host_of_host_sub_id
+    - host_of_host_disease
+    - host_of_host_fam_rel
+    - host_of_host_infname
+    - host_of_host_infrank
+    - host_of_host_geno
+    - host_of_host_pheno
+    - host_of_host_gravid
+    - host_of_host_totmass
+    - chem_administration
+    - perturbation
+    - samp_salinity
+    - oxy_stat_samp
+    - organism_count
+    - samp_store_temp
+    - samp_store_dur
+    - samp_store_loc
+    - samp_store_sol
+    - misc_param
+    slot_usage:
+      sample_name:
+        required: true
+      project_name:
+        required: true
+      lat_lon:
+        required: true
+      geo_loc_name:
+        required: true
+      collection_date:
+        required: true
+      env_broad_scale:
+        required: true
+      env_local_scale:
+        required: true
+      env_medium:
+        required: true
+      alt:
+        required: false
+      depth:
+        required: false
+      elev:
+        required: false
+      host_subject_id:
+        required: false
+      host_common_name:
+        required: false
+      host_taxid:
+        required: false
+      source_mat_id:
+        required: false
+      host_dependence:
+        required: true
+      type_of_symbiosis:
+        required: false
+      sym_life_cycle_type:
+        required: true
+      host_life_stage:
+        required: true
+      host_age:
+        required: false
+      host_sex:
+        required: false
+      mode_transmission:
+        required: false
+      route_transmission:
+        required: false
+      host_body_habitat:
+        required: false
+      host_body_site:
+        required: false
+      host_body_product:
+        required: false
+      host_tot_mass:
+        required: false
+      host_height:
+        required: false
+      host_length:
+        required: false
+      host_growth_cond:
+        required: false
+      host_substrate:
+        required: false
+      host_family_relationship:
+        required: false
+      host_infra_specific_name:
+        required: false
+      host_infra_specific_rank:
+        required: false
+      host_genotype:
+        required: false
+      host_phenotype:
+        required: false
+      host_dry_mass:
+        required: false
+      host_color:
+        required: false
+      host_shape:
+        required: false
+      gravidity:
+        required: false
+      host_number:
+        required: false
+      host_symbiont:
+        required: false
+      host_specificity:
+        required: false
+      symbiont_host_role:
+        required: false
+      host_cellular_loc:
+        required: false
+      association_duration:
+        required: false
+      host_of_host_coinf:
+        required: false
+      host_of_host_name:
+        required: false
+      host_of_host_env_loc:
+        required: false
+      host_of_host_env_med:
+        required: false
+      host_of_host_taxid:
+        required: false
+      host_of_host_sub_id:
+        required: false
+      host_of_host_disease:
+        required: false
+      host_of_host_fam_rel:
+        required: false
+      host_of_host_infname:
+        required: false
+      host_of_host_infrank:
+        required: false
+      host_of_host_geno:
+        required: false
+      host_of_host_pheno:
+        required: false
+      host_of_host_gravid:
+        required: false
+      host_of_host_totmass:
+        required: false
+      chem_administration:
+        required: false
+      perturbation:
+        required: false
+      samp_salinity:
+        required: false
+      oxy_stat_samp:
+        required: false
+      temp:
+        required: false
+      organism_count:
+        required: false
+      samp_vol_we_dna_ext:
+        required: false
+      samp_store_temp:
+        required: false
+      samp_store_dur:
+        required: false
+      samp_store_loc:
+        required: false
+      samp_store_sol:
+        required: false
+      misc_param:
+        required: false
+subsets: {}
+enums: {}

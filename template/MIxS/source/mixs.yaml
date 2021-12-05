@@ -1,0 +1,39 @@
+id: http://w3id.org/mixs
+name: MIxS
+description: Minimal Information about any Sequence Standard
+imports:
+- linkml:types
+- checklists
+- core
+- air
+- built_environment
+- host_associated
+- human_associated
+- human_gut
+- human_oral
+- human_skin
+- human_vaginal
+- hydrocarbon_resources_cores
+- hydrocarbon_resources_fluids_swabs
+- microbial_mat_biofilm
+- miscellaneous_natural_or_artificial_environment
+- plant_associated
+- sediment
+- soil
+- wastewater_sludge
+- water
+- symbiont_associated
+- food_human_foods
+- food_animal_and_animal_feed
+- food_food_production_facility
+- food_farm_environment
+- agriculture
+prefixes:
+  linkml: https://w3id.org/linkml/
+  mixs.vocab: https://w3id.org/mixs/vocab/
+  MIXS: https://w3id.org/mixs/terms/
+  MIGS: https://w3id.org/mixs/migs/
+default_prefix: mixs.vocab
+slots: {}
+classes: {}
+subsets: {}

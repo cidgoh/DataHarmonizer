@@ -1,0 +1,159 @@
+id: http://w3id.org/mixs/human_vaginal
+name: human_vaginal
+imports:
+- linkml:types
+- terms
+prefixes:
+  linkml: https://w3id.org/linkml/
+  mixs.vocab: https://w3id.org/mixs/vocab/
+  MIXS: https://w3id.org/mixs/terms/
+default_prefix: mixs.vocab
+slots: {}
+classes:
+  human-vaginal:
+    description: human-vaginal
+    mappings: []
+    slots:
+    - lat_lon
+    - depth
+    - alt
+    - elev
+    - temp
+    - geo_loc_name
+    - collection_date
+    - env_broad_scale
+    - env_local_scale
+    - env_medium
+    - menarche
+    - sexual_act
+    - pregnancy
+    - douche
+    - birth_control
+    - menopause
+    - hrt
+    - hysterectomy
+    - gynecologic_disord
+    - urogenit_disord
+    - host_subject_id
+    - host_age
+    - host_sex
+    - ihmc_medication_code
+    - chem_administration
+    - host_body_site
+    - host_body_product
+    - host_tot_mass
+    - host_height
+    - host_diet
+    - host_last_meal
+    - host_family_relation
+    - host_genotype
+    - host_phenotype
+    - host_body_temp
+    - host_body_mass_index
+    - ethnicity
+    - host_occupation
+    - medic_hist_perform
+    - host_pulse
+    - perturbation
+    - samp_salinity
+    - salinity
+    - oxy_stat_samp
+    - organism_count
+    - samp_store_temp
+    - samp_store_loc
+    - samp_store_dur
+    - host_symbiont
+    - misc_param
+    slot_usage:
+      samp_name:
+        required: true
+      project_name:
+        required: true
+      menarche:
+        required: false
+      sexual_act:
+        required: false
+      pregnancy:
+        required: false
+      douche:
+        required: false
+      birth_control:
+        required: false
+      menopause:
+        required: false
+      hrt:
+        required: false
+      hysterectomy:
+        required: false
+      gynecologic_disord:
+        required: false
+      urogenit_disord:
+        required: false
+      host_subject_id:
+        required: false
+      host_age:
+        required: false
+      host_sex:
+        required: false
+      host_disease_stat:
+        required: false
+      ihmc_medication_code:
+        required: false
+      chem_administration:
+        required: false
+      host_body_site:
+        required: false
+      host_body_product:
+        required: false
+      host_tot_mass:
+        required: false
+      host_height:
+        required: false
+      host_diet:
+        required: false
+      host_last_meal:
+        required: false
+      host_family_relation:
+        required: false
+      host_genotype:
+        required: false
+      host_phenotype:
+        required: false
+      host_body_temp:
+        required: false
+      host_body_mass_index:
+        required: false
+      ethnicity:
+        required: false
+      host_occupation:
+        required: false
+      medic_hist_perform:
+        required: false
+      host_pulse:
+        required: false
+      perturbation:
+        required: false
+      samp_salinity:
+        required: false
+      salinity:
+        required: false
+      oxy_stat_samp:
+        required: false
+      temp:
+        required: false
+      organism_count:
+        required: false
+      samp_vol_we_dna_ext:
+        required: false
+      samp_store_temp:
+        required: false
+      samp_store_loc:
+        required: false
+      samp_store_dur:
+        required: false
+      host_symbiont:
+        required: false
+      misc_param:
+        required: false
+subsets: {}
+enums: {}
