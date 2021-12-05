@@ -21,6 +21,7 @@ import optparse
 from sys import exit
 import os
 
+# Common menu shared with all template folders.
 MENU = '../menu.js'
 
 def init_parser():
@@ -31,6 +32,8 @@ def init_parser():
       help="Provide a relative file name and path to root LinkML to read.");
    #parser.add_option('-o', '--output', dest="output_file",
    #   help="Provide an output file name/path.", default='output');
+   
+   # FUTURE: add parameter for published/draft
 
    return parser.parse_args();
 
@@ -147,12 +150,18 @@ if os.path.isfile(MENU):
 	with open(MENU, 'r') as f:
 		menu_text = f.read();
 		menu = json.loads( menu_text[len(js_prefix):] );
-		print ("loaded", menu);
 else:
 	menu = {};
 
 # Remove all dictionary entries which mention this folder so we can replace
 # them.
+for name, obj in menu.items():
+	if obj and obj["folder"] == template_folder:
+		menu[name] = {};
+
+# Delete empty dictionaries created above.
+menu = {k:v for (k,v) in menu.items() if len(v)}
+
 for name in class_names:
 	template_name = template_folder + '/' + name;
 	menu[template_name] = {
