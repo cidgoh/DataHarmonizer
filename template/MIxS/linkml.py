@@ -23,6 +23,7 @@ import os
 
 # Common menu shared with all template folders.
 MENU = '../menu.js'
+template_folder = os.path.basename(os.getcwd());
 
 def init_parser():
 
@@ -32,7 +33,7 @@ def init_parser():
       help="Provide a relative file name and path to root LinkML to read.");
    #parser.add_option('-o', '--output', dest="output_file",
    #   help="Provide an output file name/path.", default='output');
-   
+
    # FUTURE: add parameter for published/draft
 
    return parser.parse_args();
@@ -69,6 +70,7 @@ mixs_sv = SchemaView(options.linkml_file)
 #data = mixs_sv.class_induced_slots("soil");
 
 content = {
+	"folder": template_folder,
 	"specifications": {}, # Includes slots and slot_usage done below
 	"enumerations": mixs_sv.all_enums(),
 	"slots": mixs_sv.all_slots(),
@@ -135,38 +137,32 @@ with open('data.js', 'w') as output_handle:
 
 
 # Add this folder's content to template menu.  Creating a javascript file
-# structure that looks like:
+# structure which can be loaded directly into DH:
 # 
 #const TEMPLATES = {
-#  'MIxS': {'folder': 'MIxS', 'status': 'published'},
-#  'MIxS soil': {'folder': 'MIxS_soil', 'status': 'published'},
+#  'MIxS': {'soil': {'name': 'soil', 'status': 'published'}, 
+#			etc/
+#	}
 #};
-
-template_folder = os.path.basename(os.getcwd());
 
 js_prefix = 'const TEMPLATES = ';
 
 if os.path.isfile(MENU):
 	with open(MENU, 'r') as f:
 		menu_text = f.read();
-		menu = json.loads( menu_text[len(js_prefix):] );
+		# Chops prefix off before interpretation
+		menu = json.loads( menu_text[len(js_prefix):] ); 
 else:
 	menu = {};
 
-# Remove all dictionary entries which mention this folder so we can replace
-# them.
-for name, obj in menu.items():
-	if obj and obj["folder"] == template_folder:
-		menu[name] = {};
-
-# Delete empty dictionaries created above.
-menu = {k:v for (k,v) in menu.items() if len(v)}
+# Overwrite this folder's menu content
+menu[template_folder] = {};
 
 for name in class_names:
-	template_name = template_folder + '/' + name;
-	menu[template_name] = {
-		'folder': template_folder,
-		'status': 'published'
+	menu[template_folder][name] = {
+		'name': name,
+		# Future, allow status to be changed by template curation status.
+		'status': 'published' 
 	}
 
 with open(MENU, 'w') as output_handle:
