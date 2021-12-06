@@ -507,7 +507,7 @@ const getComment = (field) => {
 /**
  * Enable template folder's export.js export options to be loaded dynamically.
  */
-const exportOnload = (template_folder) =>  {
+const exportMenuUpdate = () =>  {
   const select = $("#export-to-format-select")[0];
   while (select.options.length > 1) {
     select.remove(1);
@@ -527,9 +527,12 @@ const templateOptions = () =>  {
     select[0].remove(0);
   }
   const view_drafts = $("#view-template-drafts").is(':checked');
-  for (const [label, template] of Object.entries(TEMPLATES)) {
-    if (view_drafts || template.status == 'published') {
-      select.append(new Option(label, template.folder));
+  for ([folder, templates] of Object.entries(TEMPLATES)) {
+    for ([name, template] of Object.entries(templates)) {
+      let label = folder + '/' + name;
+      if (view_drafts || template.status == 'published') {
+        select.append(new Option(label, label));
+      }
     }
   }
 };
@@ -538,30 +541,18 @@ const templateOptions = () =>  {
 
 $(document).ready(() => {
 
-  // Default template
-  let template_label = Object.keys(TEMPLATES)[0];
-  let template_folder = TEMPLATES[template_label].folder;
+  let template_path_param = null;
 
-  // Allow URL parameter ?template=xxx_yyy to select template on page load.
+  // Allow URL parameter ?template=Folder/name to select template on page load.
   if (window.URLSearchParams) {
     let params = new URLSearchParams(location.search);
-    template_folder = params.get('template') || template_folder;
+    template_path_param = params.get('template');
   }
   else {//low-tech way:
-    template_folder = location.search.split("template=")[1] || template_folder;
+    let template_path_param = location.search.split("template=")[1];
   }
 
-  for (const [label, template] of Object.entries(TEMPLATES)) {
-    // Trigger template menu option so it is selected
-    if (template_folder == template.folder) {
-      setupTemplate(template_folder);
-      return;
-    }
-  }
-
-  // Here template not found in TEMPLATES, so it doesn't have a name
-  $('#template_name_display').text(template_folder);
-  setupTemplate (template_folder);
+  switchTemplate(template_path_param); // Default chosen if null
 
 });
 
@@ -570,46 +561,73 @@ $(document).ready(() => {
  * Revise user interface elements to match template path, and trigger
  * load of data.js and export.js scripts.  data_script.onload goes on
  * to trigger launch(DATA).
- * @param {String} template: path of template starting from app's template
- * folder.
+ * @param {String} template_path: path of template starting from app's
+ * template/ folder.
  */
-const setupTemplate = (template_folder) => {
-
+const switchTemplate = (template_path) => {
+  
   // Redo of template triggers new data file
   $('#file_name_display').text('');
-  
-  // If visible, show this as a selected item in template menu
-  $('#select-template').val(template_folder);
+  $('#select-template').val("");  // CLEARS OUT?
 
-  // Lookup name of requested template if possible
-  $('#template_name_display').text('');
-  for (const [label, template] of Object.entries(TEMPLATES)) {
-    if (template.folder == template_folder){
-      $('#template_name_display').text(label);
+  // Validate path if not null:
+  if (template_path) {
+    //if  && template_path.indexOf('/')>-1) 
+    [template_folder, template_name] = template_path.split('/',2); 
+
+
+    if (!(template_folder in TEMPLATES || template_name in TEMPLATES[template_folder]) ) {
+      $('#template_name_display').text('Template ' + template_path + " not found!");
+      // DISABLE MORE STUFF UNTIL GOOD TEMPLATE SELECTED?
+      return;
     }
-  };
+  }
+  // If null, do default template setup - the first one in menu
+  else {
+    // Default template is first in TEMPLATES
+    template_folder = Object.keys(TEMPLATES)[0];
+    template_name = Object.keys(TEMPLATES[template_folder])[0];
+    template_path = template_folder + '/' + template_name;
+  }
 
-  $("#help_reference").attr('href',`template/${template_folder}/reference.html`);
-  $("#help_sop").attr('href',`template/${template_folder}/SOP.pdf`);
+  if (window.DATA && DATA.folder == template_folder) {
+    // New data.js file needs loading
+    setupTemplate(template_path);
 
-  // Change in src triggers load of script and update to reference doc and SOP.
-  reloadJs(template_folder, 'data.js', setupData);
+    }
+  else 
+    reloadJs(template_folder, 'data.js', setupTemplate, [template_path]);
 
 };
 
 
-const setupData = (template_folder) => {
+const setupTemplate = (template_path) => {
+
+  templateOptions();
+
+  // If visible, show this as a selected item in template menu
+  $('#select-template').val(template_path);
+  $('#template_name_display').text(template_path);
+
+  let [template_folder, template_name] = template_path.split('/',2);
+
+  // Change in src triggers load of script and update to reference doc and SOP.
+  // TO DO: NEEDS TO VARY BASED ON TEMPLATE
+  $("#help_reference").attr('href',`template/${template_folder}/reference.html`);
+  $("#help_sop").attr('href',`template/${template_folder}/SOP.pdf`);
+
   const table = [];
   const sectionIndex = new Map();
-  let newDATA = DATA;
+  let newDATA = DATA; // Eventually multiple linkml data structures simultaneously loaded?
   newDATA['table']= table; // This will hold table sections
+  const specification = newDATA['specifications'][template_name];
 
   // ISSUE: slots sometimes mentions a few fields that slot_usage doesn't have; 
   // and similarly slot_usage has many imported/common fields not in slots
 
   // List of columns
-  const specification_slots      = newDATA['specifications']['soil'].slots;
-  const specification_slot_usage = newDATA['specifications']['soil'].slot_usage;
+  const specification_slots      = specification.slots;
+  const specification_slot_usage = specification.slot_usage;
 
   const combined = [...new Set([...Object.keys(specification_slot_usage), ...Object.keys(specification_slots) ])];
 
@@ -726,8 +744,8 @@ const setupTriggers = (DATA) => {
 
   // Enable template to be loaded dynamically
   $('#select-template-load').on('click', (e) => {
-    const template_folder = $('#select-template').val()
-    setupTemplate (template_folder);
+    const template_folder = $('#select-template').val();
+    setupTemplate(template_folder);
   })
   // Triggers show/hide of draft templates
   $("#view-template-drafts").on('change', templateOptions);
@@ -1010,19 +1028,25 @@ const stringifyNestedVocabulary = (vocab_list, level=0) => {
 /**
  * Reloads a given javascript by removing any old script happening to have the
  * same URL, and loading the given one. Only in this way will browsers reload
- * the code. This is mainly designed to load a script that sets global DATA 
- * variable.
+ * the code. This is mainly designed to load a script that sets a global DATA 
+ * or TEMPLATE variable.
  * 
  * @param {String} src_url: path of template starting from app's template folder.
  * @param {Object} onloadfn: function to run when script is loaded. 
  */
-const reloadJs = (template_folder, file_name, onloadfn) => {
+const reloadJs = (template_folder, file_name, onloadfn, load_parameters = null) => {
   const src_url = `./template/${template_folder}/${file_name}`;
   $(`script[src="${src_url}"]`).remove();
   var script = document.createElement('script');
   if (onloadfn) {
     // Trigger onload with indication
-    script.onload = function () {onloadfn(template_folder)};
+    script.onload = function () {
+      if (load_parameters) {
+        onloadfn.apply(null, load_parameters);
+      }
+      else
+        onloadfn();
+    };
   };
   script.onerror = function() {
     $('#missing-template-msg').text(`Unable to load template file "${src_url}". Is the template name correct?`);
@@ -1042,7 +1066,7 @@ const reloadJs = (template_folder, file_name, onloadfn) => {
 const launch = (template_folder, DATA) => {
 
   // Since data.js loaded, export.js should succeed as well
-  reloadJs(template_folder, 'export.js', exportOnload);
+  reloadJs(template_folder, 'export.js', exportMenuUpdate);
 
   runBehindLoadingScreen(() => {
     window.INVALID_CELLS = {};
