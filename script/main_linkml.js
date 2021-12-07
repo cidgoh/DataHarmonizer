@@ -13,7 +13,7 @@
  * menu. A template can also be accessed by adding it as a folder name in the
  * URL parameter. This enables testing of a template even if it hasn't been incorporated into the list below.
  *
- * main.html?template=test_template
+ * main.html?template=MIxS/soil
  *
  * MIxS example schemas are available at:
  * https://github.com/GenomicsStandardsConsortium/mixs-source/tree/main/model/schema
@@ -523,9 +523,8 @@ const exportMenuUpdate = () =>  {
 const templateOptions = () =>  {
   // Select menu for available templates
   const select = $("#select-template");
-  while (select[0].options.length > 0) {
-    select[0].remove(0);
-  }
+  select.empty();
+
   const view_drafts = $("#view-template-drafts").is(':checked');
   for ([folder, templates] of Object.entries(TEMPLATES)) {
     for ([name, template] of Object.entries(templates)) {
@@ -589,23 +588,23 @@ const switchTemplate = (template_path) => {
     template_name = Object.keys(TEMPLATES[template_folder])[0];
     template_path = template_folder + '/' + template_name;
   }
-
+ 
   if (window.DATA && DATA.folder == template_folder) {
     // New data.js file needs loading
     setupTemplate(template_path);
-
     }
-  else 
+  else {
+    // A switch to this template requires reloading DATA
     reloadJs(template_folder, 'data.js', setupTemplate, [template_path]);
+  }
 
 };
 
 
 const setupTemplate = (template_path) => {
 
-  templateOptions();
-
   // If visible, show this as a selected item in template menu
+  // ISSUE: setting of this menu item is triggering reload?????
   $('#select-template').val(template_path);
   $('#template_name_display').text(template_path);
 
@@ -745,7 +744,7 @@ const setupTriggers = (DATA) => {
   // Enable template to be loaded dynamically
   $('#select-template-load').on('click', (e) => {
     const template_folder = $('#select-template').val();
-    setupTemplate(template_folder);
+    switchTemplate(template_folder);
   })
   // Triggers show/hide of draft templates
   $("#view-template-drafts").on('change', templateOptions);

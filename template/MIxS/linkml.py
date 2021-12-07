@@ -10,6 +10,7 @@
 # > linkml.py -i source/mixs.yaml
 # > linkml.py -i https://raw.githubusercontent.com/biolink/biolink-model/master/biolink-model.yaml
 #
+# TO DO: Add reference.html generation (Decision: 1 per template?)
 
 
 import yaml
