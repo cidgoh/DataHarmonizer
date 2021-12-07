@@ -129,3 +129,6 @@ html, body {
 #footer-row {
     visibility: hidden;
 }
+
+
+#field-description-text select {min-width: 95%}

@@ -1,4 +1,5 @@
 var DATA = {
+  "folder": "MIxS",
   "specifications": {
     "agriculture": {
       "name": "agriculture",
