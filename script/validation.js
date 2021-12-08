@@ -47,8 +47,9 @@ const getInvalidCells = (hot, data) => {
             }
             else {
               [valid, update] = validateValAgainstVocab(cellVal, field.flatVocabulary);
-              if (update) hot.setDataAtCell(row, col, update, 'thisChange');
-              console.log('changing',cellVal, update)
+              if (update) {hot.setDataAtCell(row, col, update, 'thisChange');
+                console.log('changing',cellVal, update)
+              }
             }
         }
         else {

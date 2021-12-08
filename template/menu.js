@@ -140,5 +140,51 @@ const TEMPLATES = {
       "name": "MIUVIG",
       "status": "published"
     }
+  },
+  "MIxS_soil": {
+    "soil_biosample_class": {
+      "name": "soil_biosample_class",
+      "status": "published"
+    },
+    "activity": {
+      "name": "activity",
+      "status": "published"
+    },
+    "agent": {
+      "name": "agent",
+      "status": "published"
+    },
+    "attribute value": {
+      "name": "attribute value",
+      "status": "published"
+    },
+    "biosample": {
+      "name": "biosample",
+      "status": "published"
+    },
+    "controlled term value": {
+      "name": "controlled term value",
+      "status": "published"
+    },
+    "geolocation value": {
+      "name": "geolocation value",
+      "status": "published"
+    },
+    "named thing": {
+      "name": "named thing",
+      "status": "published"
+    },
+    "quantity value": {
+      "name": "quantity value",
+      "status": "published"
+    },
+    "soil": {
+      "name": "soil",
+      "status": "published"
+    },
+    "text value": {
+      "name": "text value",
+      "status": "published"
+    }
   }
 }
