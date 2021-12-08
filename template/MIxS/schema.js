@@ -1,4 +1,4 @@
-var DATA = {
+var SCHEMA = {
   "folder": "MIxS",
   "specifications": {
     "agriculture": {

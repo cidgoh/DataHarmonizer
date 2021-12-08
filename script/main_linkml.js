@@ -25,6 +25,9 @@ const VERSION_TEXT = 'DataHarmonizer provenance: v' + VERSION;
 // Currently selected cell range[row,col,row2,col2]
 CURRENT_SELECTION = [null,null,null,null];
 
+// Current data table content. FUTURE: Make into array for tabs.
+TABLE = [];
+
 /**
  * Controls what dropdown options are visible depending on grid settings.
  */
@@ -55,9 +58,9 @@ const toggleDropdownVisibility = () => {
 
 
 /**
- * Get a flat array of all fields in `data.js`.
- * @param {Object} data See `data.js`.
- * @return {Array<Object>} Array of all objects under `children` in `data.js`.
+ * Get a flat array of all fields (slot definitions) in SCHEMA.
+ * @param {Object} data See SCHEMA.
+ * @return {Array<Object>} Array of all objects under `children` in SCHEMA.
  */
 const getFields = (data) => {
   return Array.prototype.concat.apply([], data.map(parent => parent.children));
@@ -65,7 +68,7 @@ const getFields = (data) => {
 
 /**
  * Create a blank instance of Handsontable.
- * @param {Object} data See `data.js`.
+ * @param {Object} data See TABLE.
  * @return {Object} Handsontable instance.
  */
 const createHot = (data) => {
@@ -148,7 +151,7 @@ const createHot = (data) => {
  * Create a matrix containing the nested headers supplied to Handsontable.
  * These headers are HTML strings, with useful selectors for the primary and
  * secondary header cells.
- * @param {Object} data See `data.js`.
+ * @param {Object} data See TABLE.
  * @return {Array<Array>} Nested headers for Handontable grid.
  */
 const getNestedHeaders = (data) => {
@@ -175,7 +178,7 @@ const getNestedHeaders = (data) => {
 /**
  * Create a matrix containing the grid's headers. Empty strings are used to
  * indicate merged cells.
- * @param {Object} data See `data.js`.
+ * @param {Object} data See TABLE.
  * @return {Array<Array<String>>} Grid headers.
  */
 const getFlatHeaders = (data) => {
@@ -206,7 +209,7 @@ const getFlatHeaders = (data) => {
  * Create an array of cell properties specifying data type for all grid columns.
  * AVOID EMPLOYING VALIDATION LOGIC HERE -- HANDSONTABLE'S VALIDATION
  * PERFORMANCE IS AWFUL. WE MAKE OUR OWN IN `VALIDATE_GRID`.
- * @param {Object} data See `data.js`.
+ * @param {Object} data See TABLE.
  * @return {Array<Object>} Cell properties for each grid column.
  */
 const getColumns = (data) => {
@@ -281,7 +284,7 @@ const getColumns = (data) => {
  * Indentation workaround: multiples of "  " double space before label are 
  * taken to be indentation levels.
  * @param {Object} hot Handonstable grid instance.
- * @param {Object} data See `data.js`.
+ * @param {Object} data See TABLE.
  * @return {Object} Grid instance with multiselection enabled on columns
  * specified as such in the vocabulary.
  */
@@ -369,7 +372,7 @@ const runBehindLoadingScreen = (fn, args=[]) => {
  * Modify visibility of columns in grid. This function should only be called
  * after clicking a DOM element used to toggle column visibilities.
  * @param {String} id Id of element clicked to trigger this function. Defaults to show all.
- * @param {Object} data See `data.js`.
+ * @param {Object} data See TABLE.
  * @param {Object} hot Handsontable instance of grid.
  */
 const changeColVisibility = (id = 'show-all-cols-dropdown-item', data, hot) => {
@@ -439,7 +442,7 @@ const changeRowVisibility = (id, invalidCells, hot) => {
 
 /**
  * Get the 0-based y-index of every field on the grid.
- * @param {Object} data See `data.js`.
+ * @param {Object} data See TABLE.
  * @return {Object<String, Number>} Fields mapped to their 0-based y-index on
  *     the grid.
  */
@@ -455,7 +458,7 @@ const getFieldYCoordinates = (data) => {
  * Scroll grid to specified column.
  * @param {String} row 0-based index of row to scroll to.
  * @param {String} column 0-based index of column to scroll to.
- * @param {Object} data See `data.js`.
+ * @param {Object} data See TABLE.
  * @param {Object} hot Handsontable instance of grid.
  */
 const scrollTo = (row, column, data, hot) => {
@@ -473,7 +476,7 @@ const scrollTo = (row, column, data, hot) => {
 
 /**
  * Get an HTML string that describes a field.
- * @param {Object} field Any object under `children` in `data.js`.
+ * @param {Object} field Any object under `children` in TABLE.
  * @return {String} HTML string describing field.
  */
 const getComment = (field) => {
@@ -504,18 +507,6 @@ const getComment = (field) => {
   return ret;
 };
 
-/**
- * Enable template folder's export.js export options to be loaded dynamically.
- */
-const exportMenuUpdate = () =>  {
-  const select = $("#export-to-format-select")[0];
-  while (select.options.length > 1) {
-    select.remove(1);
-  }
-  for (const option in EXPORT_FORMATS) {
-    select.append(new Option(option, option));
-  }
-};
 
 /**
  * Show available templates, with sensitivity to "view draft template" checkbox
@@ -540,6 +531,8 @@ const templateOptions = () =>  {
 
 $(document).ready(() => {
 
+  setupTriggers();
+
   let template_path_param = null;
 
   // Allow URL parameter ?template=Folder/name to select template on page load.
@@ -557,184 +550,9 @@ $(document).ready(() => {
 
 
 /**
- * Revise user interface elements to match template path, and trigger
- * load of data.js and export.js scripts.  data_script.onload goes on
- * to trigger launch(DATA).
- * @param {String} template_path: path of template starting from app's
- * template/ folder.
- */
-const switchTemplate = (template_path) => {
-  
-  // Redo of template triggers new data file
-  $('#file_name_display').text('');
-  $('#select-template').val("");  // CLEARS OUT?
-
-  // Validate path if not null:
-  if (template_path) {
-    //if  && template_path.indexOf('/')>-1) 
-    [template_folder, template_name] = template_path.split('/',2); 
-
-
-    if (!(template_folder in TEMPLATES || template_name in TEMPLATES[template_folder]) ) {
-      $('#template_name_display').text('Template ' + template_path + " not found!");
-      // DISABLE MORE STUFF UNTIL GOOD TEMPLATE SELECTED?
-      return;
-    }
-  }
-  // If null, do default template setup - the first one in menu
-  else {
-    // Default template is first in TEMPLATES
-    template_folder = Object.keys(TEMPLATES)[0];
-    template_name = Object.keys(TEMPLATES[template_folder])[0];
-    template_path = template_folder + '/' + template_name;
-  }
- 
-  if (window.DATA && DATA.folder == template_folder) {
-    // New data.js file needs loading
-    setupTemplate(template_path);
-    }
-  else {
-    // A switch to this template requires reloading DATA
-    reloadJs(template_folder, 'data.js', setupTemplate, [template_path]);
-  }
-
-};
-
-
-const setupTemplate = (template_path) => {
-
-  // If visible, show this as a selected item in template menu
-  // ISSUE: setting of this menu item is triggering reload?????
-  $('#select-template').val(template_path);
-  $('#template_name_display').text(template_path);
-
-  let [template_folder, template_name] = template_path.split('/',2);
-
-  // Change in src triggers load of script and update to reference doc and SOP.
-  // TO DO: NEEDS TO VARY BASED ON TEMPLATE
-  $("#help_reference").attr('href',`template/${template_folder}/reference.html`);
-  $("#help_sop").attr('href',`template/${template_folder}/SOP.pdf`);
-
-  const table = [];
-  const sectionIndex = new Map();
-  let newDATA = DATA; // Eventually multiple linkml data structures simultaneously loaded?
-  newDATA['table']= table; // This will hold table sections
-  const specification = newDATA['specifications'][template_name];
-
-  // ISSUE: slots sometimes mentions a few fields that slot_usage doesn't have; 
-  // and similarly slot_usage has many imported/common fields not in slots
-
-  // List of columns
-  const specification_slots      = specification.slots;
-  const specification_slot_usage = specification.slot_usage;
-
-  const combined = [...new Set([...Object.keys(specification_slot_usage), ...Object.keys(specification_slots) ])];
-
-  combined.forEach(function (name) {
-
-    /* Lookup each column in terms table. A term looks like:
-    is_a: "core field", title: "history/fire", slot_uri: "MIXS:0001086"
-    comments: (3) ['Expected value: date', 'Occurrence: 1', 'This field is used uniquely in: soil']
-    description: "Historical and/or physical evidence of fire"
-    examples: [{…}], multivalued: false, range: "date"
-    */
-    const field = newDATA.slots[name];
-
-    if ('is_a' in field) {
-
-      // We have a field positioned within a section (or hierarchy)
-      section_title = field.is_a;
-      if (! sectionIndex.has(section_title)) {
-        sectionIndex.set(section_title, sectionIndex.size);
-        table.push({
-          'title': section_title, 
-          'children':[]}
-        );
-      }
-
-      section = table[sectionIndex.get(section_title)];
-      let new_field = {...field}; // shallow copy
-
-      new_field.datatype = null;
-      switch (new_field.range) {
-        case "string": 
-          // xsd:token means that string cannot have newlines, multiple-tabs
-          // or spaces.
-          new_field.datatype = "xsd:token"; // was "xs:token",
-          break;
-
-        //case "uri":
-        //case "uriorcurie"
-        //case "datetime"
-        //case "time"
-        //case "double"
-        //case "float"
-        //case "boolean"
-        //case "ncname"
-        //case "objectidentifier"
-        //case "nodeidentifier"
-
-        case "decimal":
-          new_field.datatype = "xsd:decimal";
-
-        case "integer": // int ???
-          new_field.datatype = "xsd:nonNegativeInteger";
-
-        case "quantity value": 
-          new_field.datatype = "xsd:token"; //xsd:decimal + unit
-          // PROBLEM: There are a variety of quantity values specified, some allowing units
-          // which would need to go in a second column unless validated as text within column.
-          break;
-
-        case "date":
-          new_field.datatype = "xsd:date";
-          break;
-
-        default:
-          // Usually a selection list here, possibly .multivalued = true
-          new_field.datatype = "xsd:token"; // was "xs:token"
-          if (new_field.range in newDATA.enumerations) {
-            new_field.source = newDATA.enumerations[new_field.range].permissible_values;
-            //This calculates for each categorical field in schema.yaml a 
-            // flat list of allowed values
-            new_field.flatVocabulary = stringifyNestedVocabulary(new_field.source);
-
-            // points to an object with .permissible_values ORDERED DICT array.
-            // FUTURE ???? :
-            // it may also have a metadata_values ORDERED DICT array.
-            // ISSUE: metadata_status [missing | not applicable etc. ]
-            // Allow > 1 range?
-            // OR allow {permitted_values: .... , metadata_values: .... }
-          }
-          // .metadata_status is an ordered dict of permissible_values
-          // It is separate so it can be demultipliexed from content values.
-          if (new_field.metadata_status) {}
-      } 
-
-      // Copying in particular required/ recommended status of a field into
-      // this class / form's context
-      if (name in specification_slot_usage) {
-        Object.assign(new_field, specification_slot_usage[name])
-      }
-
-      section['children'].push(new_field);
-    }
-    else {
-     console.log("ERROR: not found", name );
-    }
-  });
-
-  setupTriggers(table);
-
-  // DATA is an array of objects, one for each section (or field directly)
-  runBehindLoadingScreen(launch, [template_folder, table]);
-};
-
-
-/**
  * Wire up user controls which only need to happen once on load of page.
  */
-const setupTriggers = (DATA) => {
+const setupTriggers = () => {
 
   $('#version-dropdown-item').text(VERSION);
 
@@ -754,17 +572,18 @@ const setupTriggers = (DATA) => {
     const isNotEmpty = HOT.countRows() - HOT.countEmptyRows();
     if (e.target.id === 'new-dropdown-item' && isNotEmpty) {
       $('#clear-data-warning-modal').modal('show');
+      return
     } 
-    else {
-      // Clear current file indication
-      $('#file_name_display').text('');
 
-      runBehindLoadingScreen(() => {
-        window.INVALID_CELLS = {};
-        HOT.destroy();
-        window.HOT = createHot(DATA);
-      });
-    }
+    // Clear current file indication
+    $('#file_name_display').text('');
+
+    runBehindLoadingScreen(() => {
+      window.INVALID_CELLS = {};
+      HOT.destroy();
+      window.HOT = createHot(TABLE);
+    });
+
   });
 
   // File -> Open
@@ -780,7 +599,7 @@ const setupTriggers = (DATA) => {
       $('#open-error-modal').modal('show');
     } else {
       window.INVALID_CELLS = {};
-      runBehindLoadingScreen(openFile, [file, HOT, DATA, XLSX]);
+      runBehindLoadingScreen(openFile, [file, HOT, TABLE, XLSX]);
     }
     // Allow consecutive uploads of the same file
     $fileInput[0].value = '';
@@ -811,7 +630,7 @@ const setupTriggers = (DATA) => {
     try {
       const baseName = $('#base-name-save-as-input').val();
       const ext = $('#file-ext-save-as-select').val();
-      const matrix = [...getFlatHeaders(DATA), ...getTrimmedData(HOT)];
+      const matrix = [...getFlatHeaders(TABLE), ...getTrimmedData(HOT)];
       runBehindLoadingScreen(exportFile, [matrix, baseName, ext, XLSX]);
       $('#save-as-modal').modal('hide');
     } catch (err) {
@@ -834,7 +653,7 @@ const setupTriggers = (DATA) => {
     }
     if (exportFormat in EXPORT_FORMATS) {
       const format = EXPORT_FORMATS[exportFormat];
-      format['method'](baseName, HOT, DATA, XLSX, format.fileType);
+      format['method'](baseName, HOT, TABLE, XLSX, format.fileType);
     }
     $('#export-to-modal').modal('hide');
   });
@@ -878,10 +697,9 @@ const setupTriggers = (DATA) => {
   });
   $('#fill-button').on('click', () => {
     runBehindLoadingScreen(() => {
-      //const fields = getFields(DATA);
       let value = $fillValueInput.val();
       let colname = $fillColumnInput.val();
-      const fieldYCoordinates = getFieldYCoordinates(DATA);
+      const fieldYCoordinates = getFieldYCoordinates(TABLE);
       let changes = [];
       for (let row=0; row<HOT.countRows(); row++) {
         if (!HOT.isEmptyRow(row)) {
@@ -939,14 +757,14 @@ const setupTriggers = (DATA) => {
     window.CURRENT_SELECTION[1] = focus_col;
     window.CURRENT_SELECTION[2] = focus_row;
     window.CURRENT_SELECTION[3] = focus_col;   
-    scrollTo(focus_row, focus_col, DATA, HOT);
+    scrollTo(focus_row, focus_col, TABLE, HOT);
 
   });
 
   // Validate
   $('#validate-btn').on('click', () => {
     runBehindLoadingScreen(() => {
-      window.INVALID_CELLS = getInvalidCells(HOT, DATA);
+      window.INVALID_CELLS = getInvalidCells(HOT, TABLE);
       HOT.render();
 
       // If any rows have error, show this.
@@ -966,7 +784,7 @@ const setupTriggers = (DATA) => {
   $('#grid').on('dblclick', '.secondary-header-cell', (e) => {
     const innerText = e.target.innerText;
     const field =
-        getFields(DATA).filter(field => field.title === innerText)[0];
+        getFields(TABLE).filter(field => field.title === innerText)[0];
     $('#field-description-text').html(getComment(field));
     $('#field-description-modal').modal('show');
   });
@@ -986,7 +804,7 @@ const setupTriggers = (DATA) => {
       '#show-recommended-cols-dropdown-item',
       ];
   $(showColsSelectors.join(',')).click((e) => {
-    runBehindLoadingScreen(changeColVisibility, [e.target.id, DATA, HOT]);
+    runBehindLoadingScreen(changeColVisibility, [e.target.id, TABLE, HOT]);
   });
 
   // Settings -> Show ... rows
@@ -1004,10 +822,192 @@ const setupTriggers = (DATA) => {
 
 
 /**
+ * Revise user interface elements to match template path, and trigger
+ * load of schema.js and export.js scripts (if necessary).  script.onload goes on
+ * to trigger launch(DATA).
+ * @param {String} template_path: path of template starting from app's
+ * template/ folder.
+ */
+const switchTemplate = (template_path) => {
+
+
+  // Redo of template triggers new data file
+  $('#file_name_display').text('');
+  $('#select-template').val('');  // CLEARS OUT?
+
+  // Validate path if not null:
+  if (template_path) {
+
+    [template_folder, template_name] = template_path.split('/',2); 
+    if (!(template_folder in TEMPLATES || template_name in TEMPLATES[template_folder]) ) {
+      $('#template_name_display').text('Template ' + template_path + " not found!");
+      // DISABLE MORE STUFF UNTIL GOOD TEMPLATE SELECTED?
+      return;
+    }
+  }
+  // If null, do default template setup - the first one in menu
+  else {
+    // Default template is first in TEMPLATES
+    template_folder = Object.keys(TEMPLATES)[0];
+    template_name = Object.keys(TEMPLATES[template_folder])[0];
+    template_path = template_folder + '/' + template_name;
+  }
+ 
+  if (window.DATA && DATA.folder == template_folder) {
+    // DATA file of specifications already loaded
+    setupTemplate(template_path);
+    }
+  else {
+    // A switch to this template requires reloading DATA
+    reloadJs(template_folder, 'schema.js', setupTemplate, [template_path]);
+  }
+
+};
+
+/**
+ * With existing or newly loaded SCHEMA file, load of schema.js and then
+ * export.js scripts.
+ * @param {String} template_path: path of template starting from app's
+ * template/ folder.
+ */
+const setupTemplate = (template_path) => {
+
+  TABLE = []; // This will hold template's new data including table sections.
+  let [template_folder, template_name] = template_path.split('/',2);
+
+  // If visible, show this as a selected item in template menu
+  $('#select-template').val(template_path);
+  $('#template_name_display').text(template_path);
+  // Update reference doc links and SOP.
+  $("#help_reference").attr('href',`template/${template_folder}/reference.html`);
+  $("#help_sop").attr('href',`template/${template_folder}/SOP.pdf`);
+
+  const sectionIndex = new Map();
+  const specification = SCHEMA['specifications'][template_name];
+
+  // LinkML slots sometimes mentions a few fields that slot_usage doesn't have;
+  // and similarly slot_usage has many imported/common fields not in slots,
+  // so loop through a combined list of slots and slot_usages, and use them
+  // to determine sections and populate them
+  const specification_slots      = specification.slots;
+  const specification_slot_usage = specification.slot_usage || {};
+  const combined = [...new Set([...Object.keys(specification_slot_usage), ...Object.keys(specification_slots) ])];
+
+  /* Lookup each column in terms table. A term looks like:
+  is_a: "core field", title: "history/fire", slot_uri: "MIXS:0001086"
+  comments: (3) ['Expected value: date', 'Occurrence: 1', 'This field is used uniquely in: soil']
+  description: "Historical and/or physical evidence of fire"
+  examples: [{…}], multivalued: false, range: "date"
+  */
+  combined.forEach(function (name) {
+
+    // EXPERIMENTAL - should be merging in the order of overrided attributes?!
+    const field =  Object.assign({}, SCHEMA.slots[name], specification_slots[name], specification_slot_usage[name]);
+    console.log(field);
+
+    if ('is_a' in field) {
+
+      // We have a field positioned within a section (or hierarchy)
+      section_title = field.is_a;
+      if (! sectionIndex.has(section_title)) {
+        sectionIndex.set(section_title, sectionIndex.size);
+        TABLE.push({
+          'title': section_title, 
+          'children':[]}
+        );
+      }
+
+      section = TABLE[sectionIndex.get(section_title)];
+      let new_field = {...field}; // shallow copy
+
+      // Some specs don't add plain english title, so fill that with name
+      // for display.
+      if (!('title' in new_field)) {
+        new_field['title'] = new_field['name'];
+      }
+
+      new_field.datatype = null;
+      switch (new_field.range) {
+        case "string": 
+          // xsd:token means that string cannot have newlines, multiple-tabs
+          // or spaces.
+          new_field.datatype = "xsd:token"; // was "xs:token",
+          break;
+
+        //case "uri":
+        //case "uriorcurie"
+        //case "datetime"
+        //case "time"
+        //case "double"
+        //case "float"
+        //case "boolean"
+        //case "ncname"
+        //case "objectidentifier"
+        //case "nodeidentifier"
+
+        case "decimal":
+          new_field.datatype = "xsd:decimal";
+
+        case "integer": // int ???
+          new_field.datatype = "xsd:nonNegativeInteger";
+
+        case "quantity value": 
+          new_field.datatype = "xsd:token"; //xsd:decimal + unit
+          // PROBLEM: There are a variety of quantity values specified, some allowing units
+          // which would need to go in a second column unless validated as text within column.
+          break;
+
+        case "date":
+          new_field.datatype = "xsd:date";
+          break;
+
+        default:
+          // Usually a selection list here, possibly .multivalued = true
+          new_field.datatype = "xsd:token"; // was "xs:token"
+          if (new_field.range in SCHEMA.enumerations) {
+            new_field.source = SCHEMA.enumerations[new_field.range].permissible_values;
+            //This calculates for each categorical field in schema.yaml a 
+            // flat list of allowed values
+            new_field.flatVocabulary = stringifyNestedVocabulary(new_field.source);
+
+            // points to an object with .permissible_values ORDERED DICT array.
+            // FUTURE ???? :
+            // it may also have a metadata_values ORDERED DICT array.
+            // ISSUE: metadata_status [missing | not applicable etc. ]
+            // Allow > 1 range?
+            // OR allow {permitted_values: .... , metadata_values: .... }
+          }
+          // .metadata_status is an ordered dict of permissible_values
+          // It is separate so it can be demultipliexed from content values.
+          if (new_field.metadata_status) {}
+      } 
+
+      // Copying in particular required/ recommended status of a field into
+      // this class / form's context
+      //if (name in specification_slot_usage) {
+      //  Object.assign(new_field, specification_slot_usage[name])
+      //}
+
+      section['children'].push(new_field);
+    }
+    else {
+     console.log("ERROR: field doesn't have section: ", name );
+    }
+  });
+
+  // Asynchronous. Since SCHEMA loaded, export.js should succeed as well.
+  reloadJs(template_folder, 'export.js', exportMenuUpdate);
+
+  launch();
+  //runBehindLoadingScreen(launch, [TABLE]);
+};
+
+
+/**
  * Recursively flatten vocabulary into an array of strings, with each string's
  * level of depth in the vocabulary being indicated by leading spaces.
  * e.g., `vocabulary: 'a': {'b':{}},, 'c': {}` becomes `['a', '  b', 'c']`.
- * @param {Object} vocabulary See `vocabulary` fields in `data.js`.
+ * @param {Object} vocabulary See `vocabulary` fields in SCHEMA.
  * @param {number} level Nested level of `vocabulary` we are currently
  *     processing.
  * @return {Array<String>} Flattened vocabulary.
@@ -1027,7 +1027,7 @@ const stringifyNestedVocabulary = (vocab_list, level=0) => {
 /**
  * Reloads a given javascript by removing any old script happening to have the
  * same URL, and loading the given one. Only in this way will browsers reload
- * the code. This is mainly designed to load a script that sets a global DATA 
+ * the code. This is mainly designed to load a script that sets a global SCHEMA 
  * or TEMPLATE variable.
  * 
  * @param {String} src_url: path of template starting from app's template folder.
@@ -1059,23 +1059,20 @@ const reloadJs = (template_folder, file_name, onloadfn, load_parameters = null) 
 }
 
 /**
- * Clears and redraws grid based on DATA json.
- * @param {Object} DATA: hierarchy of field sections and fields to render. 
+ * Clears and redraws grid based on TABLE.
+ * //@param {Object} DATA: hierarchy of field sections and fields to render. 
  */
-const launch = (template_folder, DATA) => {
-
-  // Since data.js loaded, export.js should succeed as well
-  reloadJs(template_folder, 'export.js', exportMenuUpdate);
+const launch = () => {
 
   runBehindLoadingScreen(() => {
     window.INVALID_CELLS = {};
     if (window.HOT) HOT.destroy(); // handles already existing data
-    window.HOT = createHot(DATA);
+    window.HOT = createHot(TABLE);
   });
 
   toggleDropdownVisibility();
 
-  const fieldYCoordinates = getFieldYCoordinates(DATA);
+  const fieldYCoordinates = getFieldYCoordinates(TABLE);
 
   // Settings -> Jump to...
   const $jumpToInput = $('#jump-to-input');
@@ -1084,7 +1081,7 @@ const launch = (template_folder, DATA) => {
     minLength: 0,
     select: (e, ui) => {
       const column = fieldYCoordinates[ui.item.label];
-      scrollTo(0, column, DATA, window.HOT);
+      scrollTo(0, column, TABLE, window.HOT);
       $('#jump-to-modal').modal('hide');
     },
   })
@@ -1096,3 +1093,16 @@ const launch = (template_folder, DATA) => {
   })
 
 }
+
+/**
+ * Enable template folder's export.js export options to be loaded dynamically.
+ */
+const exportMenuUpdate = () =>  {
+  const select = $("#export-to-format-select")[0];
+  while (select.options.length > 1) {
+    select.remove(1);
+  }
+  for (const option in EXPORT_FORMATS) {
+    select.append(new Option(option, option));
+  }
+};
