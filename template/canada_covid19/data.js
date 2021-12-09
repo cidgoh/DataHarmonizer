@@ -397,6 +397,7 @@ var DATA = [
           },
           "BCCDC Public Health Laboratory": {},
           "Dynacare (Manitoba)": {},
+          "Dynacare (Brampton)": {},
           "Eastern Ontario Regional Laboratory Association": {},
           "Hamilton Health Sciences": {},
           "The Hospital for Sick Children (SickKids)": {},
@@ -2740,9 +2741,6 @@ var DATA = [
               }
             }
           },
-          "Wash": {
-            "ontology_id": "OBI NTR"
-          },
           "Washout Tear Collection": {
             "ontology_id": "OBI NTR"
           }
@@ -3144,7 +3142,14 @@ var DATA = [
         },
         "schema:ItemList": {
           "Homo sapiens": {
-            "ontology_id": "NCBITaxon_9606"
+            "ontology_id": "NCBITaxon_9606",
+            "exportField": {
+              "NML_LIMS": [
+                {
+                  "value": "Human"
+                }
+              ]
+            }
           },
           "Bos taurus": {
             "ontology_id": "NCBITaxon_9913"
@@ -6929,8 +6934,12 @@ var DATA = [
           ]
         },
         "schema:ItemList": {
-          "Variant of Concern (VOC)": {},
-          "Variant of Interest (VOI)": {}
+          "Variant of Concern (VOC)": {
+            "ontology_id": "GENEPIO"
+          },
+          "Variant of Interest (VOI)": {
+            "ontology_id": "GENEPIO"
+          }
         }
       },
       {
