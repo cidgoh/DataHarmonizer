@@ -392,8 +392,8 @@ NCIT:C131759		Transplant	      Hematopoietic stem cell transplant (bone marrow t
 NCIT:C157332		Transplant	      Kidney transplant																
 		Transplant	      Liver transplant																
 																			
-		variant designation	Variant of Concern (VOC)																
-		variant designation	Variant of Interest (VOI)																
+GENEPIO		variant designation	Variant of Concern (VOC)																
+GENEPIO		variant designation	Variant of Interest (VOI)																
 																			
 CIDO_0000019		variant evidence	RT-qPCR																
 CIDO_0000027		variant evidence	Sequencing																
@@ -612,7 +612,6 @@ OBI NTR		Rinsing	     Saline gargle (mouth rinse and gargle)
 OBI NTR		collection method	Scraping																
 OBI NTR		collection method	Swabbing																
 OBI NTR		Swabbing	     Finger Prick																
-OBI NTR		collection method	Wash																
 OBI NTR		collection method	Washout Tear Collection																
 																			
 																			
@@ -635,7 +634,7 @@ OBI:0002862		collection device	Urine Collection Tube
 OBI:0002866		collection device	Virus Transport Medium																
 																			
 																			
-NCBITaxon_9606		host (scientific name)	Homo sapiens																
+NCBITaxon_9606		host (scientific name)	Homo sapiens														Human		
 NCBITaxon_9913		host (scientific name)	Bos taurus																
 NCBITaxon_9615 		host (scientific name)	Canis lupus familiaris																
 NCBITaxon_9397		host (scientific name)	Chiroptera																
@@ -1014,6 +1013,7 @@ PR NTR?		gene name 1	orf14															orf14
 		Alberta Precision Labs (APL)	Alberta ProvLab South (APLS)																
 		 sample collected by	BCCDC Public Health Laboratory																
 		 sample collected by	Dynacare (Manitoba)																
+		 sample collected by	Dynacare (Brampton)																
 		 sample collected by	Eastern Ontario Regional Laboratory Association																
 		 sample collected by	Hamilton Health Sciences																
 		 sample collected by	The Hospital for Sick Children (SickKids)																

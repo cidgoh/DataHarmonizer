@@ -420,7 +420,6 @@ var exportNML_LIMS = (baseName, hot, data, xlsx, fileType) => {
     ['PH_REASON_FOR_SEQUENCING_DETAILS', []], 
     ['PH_SEQUENCING_DATE',      []], 
     ['PH_INSTRUMENT_CGN',       []], 
-    ['ANALYSIS',                []], 
     ['PH_TESTING_PROTOCOL',     []],
     ['PH_RAW_SEQUENCE_METHOD',     []],
     ['PH_DEHOSTING_METHOD',     []],
@@ -483,7 +482,7 @@ var exportNML_LIMS = (baseName, hot, data, xlsx, fileType) => {
       // by looking at year or month in "sample collection date precision"
       if (headerName === 'HC_COLLECT_DATE') {
         let value = inputRow[sourceFieldNameMap['sample collection date']] || '';
-        value = fixNullOptionCase(value,nullOptionsMap);
+        //value = fixNullOptionCase(value,nullOptionsMap);
         const date_unit = inputRow[sourceFieldNameMap['sample collection date precision']];
         outputRow.push(setDateChange(date_unit, value, '01'));
         continue;
@@ -523,7 +522,7 @@ var exportNML_LIMS = (baseName, hot, data, xlsx, fileType) => {
 
       // Otherwise apply source (many to one) to target field transform:
       let value = getMappedField(headerName, inputRow, sources, sourceFields, sourceFieldNameMap, ';', 'NML_LIMS');
-      value = fixNullOptionCase(value, nullOptionsMap);
+      //value = fixNullOptionCase(value, nullOptionsMap);
       outputRow.push(value);
     }
     outputMatrix.push(outputRow);
@@ -543,6 +542,7 @@ var EXPORT_FORMATS = {
 
 /**
  * If given value is a null value, normalize its capitalization
+ * Currently unused: superceded by normalization code triggered by validation.
  * @param {String} value to check.
  * @param {Object} nullOptionsMap dictionary of null values.
  * @return {String} value
