@@ -14,7 +14,6 @@
 const VERSION = '0.14.5';
 const VERSION_TEXT = 'DataHarmonizer provenance: v' + VERSION;
 const TEMPLATES = {
-  'MAM NMDC Dev Template': {'folder': 'dev', 'status': 'published'},
   'CanCOGeN Covid-19': {'folder': 'canada_covid19', 'status': 'published'},
   'PHAC Dexa (ALPHA)': {'folder': 'phac_dexa', 'status': 'draft'},
   'GRDI (ALPHA)':      {'folder': 'grdi', 'status': 'draft'},
@@ -1350,8 +1349,7 @@ $(document).ready(() => {
   setupTriggers();
 
   // Default template
-//  let template_label = 'CanCOGeN Covid-19';
-  let template_label = 'MAM NMDC Dev Template';
+  let template_label = 'CanCOGeN Covid-19';
   let template_folder = TEMPLATES[template_label].folder;
 
   // Allow URL parameter ?template=xxx_yyy to select template on page load.
