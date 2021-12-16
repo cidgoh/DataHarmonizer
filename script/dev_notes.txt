@@ -1,4 +1,16 @@
+Development notes about conversion of DataHarmonizer to use LinkML directly.
+
+test with /linkml.html instead of /main.html
+uses main_linkml.js instead of main.js
+The following scripts have been split off of a refactored main.js refactored main.js:
+   export_utils.js
+   field_rules.js
+   file_utils.js
+   validation.js
+
 IN DATAHARMONIZER CODE:
+TEMPLATES Global variable for template menu list now supplied via templates/menu.js
+
 datatype xs:token	-> datatype xsd:token (string)
 datatype xs:date	-> datatype xsd:date (ISO 8601 date)
 datatype xs:decimal -> datatype xsd:decimal
@@ -14,11 +26,7 @@ field.examples -> field.examples [{value: _____}, ... ]
 field.requirement = required -> field.required = true
 field.requirement = recommended -> field.recommended = true
 
-// PROBLEM: allow negative integers?
-field.datatype = xs:nonNegativeInteger -> linkml field.range = integer
 
-field.datatype = "xsd:decimal";
-// PROBLEM: There are a variety of quantity values specified, some allowing units
 
 field.schema:ItemList -> field.permissible_values
 						-> field.values_from  FOR 100% URIs.
@@ -28,6 +36,11 @@ field.schema:ItemList -> field.permissible_values
 NEED TO DO: 
 field.exportField
 
+// TO DO: allow negative integers
+field.datatype = xs:nonNegativeInteger -> linkml field.range = integer
+
+field.datatype = "xsd:decimal";
+// TO DO: There are a variety of quantity values specified, some allowing units
 
 field.capitalize ???? [lower | UPPER | Title]
 field.dataStatus ???? [missing | not applicable | etc ... ]
@@ -36,6 +49,9 @@ field.dataStatus ???? [missing | not applicable | etc ... ]
 
 datatype xs:unique -> field.identifier === true			// OR field.key ??????
 Test multiple column unique vals: dates, integers, strings
+
+BUG: lower/ upper case revision showing auto correct, but getting flagged as error - not changing red error state?
+
 
 **************************************
 // Issue with NMDC MIxS "current land use" field pattern: "[ ....(all sorts of things) ]" syntax.
@@ -88,7 +104,6 @@ NEED LIBRARY OF PATTERNS.
 
 *************************************
 
-lower/ upper case revision showing auto correct, but getting flagged as error - not changing red error state?
 
 
 
