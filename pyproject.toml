@@ -1,0 +1,35 @@
+[tool.poetry]
+name = "linkml-round-trips"
+version = "0.1.0"
+description = ""
+authors = ["Mark Andrew Miller <MAM@lbl.gov>"]
+
+[tool.poetry.dependencies]
+black = "*"
+click-log = "*"
+deepdiff = "*"
+glom = "*"
+jupyter = "*"
+linkml = "^1.1.13"
+linkml-model = "^1.0.6"
+# nmdc-schema = ""
+pygsheets = "*"
+python = "^3.9"
+strsimpy = "*"
+pytest = "*"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+## superceded by linkml_to_dh_light
+#linkml_to_dh_no_annotations = "linkml_round_trips.linkml_to_dh_no_annotations:linkml_to_dh_no_annotations"
+interleave_classes = "linkml_round_trips.interleave_classes:interleave_classes"
+get_dependencies = "linkml_round_trips.get_dependencies:get_dependencies"
+merge_dont_interleave = "linkml_round_trips.merge_dont_interleave:merge_dont_interleave"
+interleave_mergeds = "linkml_round_trips.interleave_mergeds:interleave_mergeds"
+linkml_to_dh_light = "linkml_round_trips.linkml_to_dh_light:linkml_to_dh_light"
+mixs_package_classes = "linkml_round_trips.mixs_package_classes:mixs_package_classes"
