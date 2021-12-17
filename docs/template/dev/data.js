@@ -8,7 +8,9 @@ var DATA = [
         "ontology_id": "nmdc:id",
         "datatype": "xs:unique",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "required",
@@ -29,7 +31,9 @@ var DATA = [
         "ontology_id": "nmdc:add_date",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -50,7 +54,9 @@ var DATA = [
         "ontology_id": "nmdc:alternative identifiers",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -71,7 +77,9 @@ var DATA = [
         "ontology_id": "nmdc:community",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -92,7 +100,9 @@ var DATA = [
         "ontology_id": "nmdc:depth2",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -114,7 +124,9 @@ var DATA = [
         "ontology_id": "nmdc:habitat",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -135,7 +147,9 @@ var DATA = [
         "ontology_id": "nmdc:host_name",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -156,7 +170,9 @@ var DATA = [
         "ontology_id": "nmdc:identifier",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -177,7 +193,9 @@ var DATA = [
         "ontology_id": "nmdc:location",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -198,7 +216,9 @@ var DATA = [
         "ontology_id": "nmdc:mod_date",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -219,7 +239,9 @@ var DATA = [
         "ontology_id": "nmdc:name",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -240,7 +262,9 @@ var DATA = [
         "ontology_id": "nmdc:ncbi_taxonomy_name",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -261,7 +285,9 @@ var DATA = [
         "ontology_id": "nmdc:proport_woa_temperature",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -282,7 +308,9 @@ var DATA = [
         "ontology_id": "nmdc:salinity_category",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -303,7 +331,9 @@ var DATA = [
         "ontology_id": "nmdc:sample_collection_site",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -324,7 +354,9 @@ var DATA = [
         "ontology_id": "nmdc:soluble_iron_micromol",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -345,7 +377,9 @@ var DATA = [
         "ontology_id": "nmdc:subsurface_depth",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -367,7 +401,9 @@ var DATA = [
         "ontology_id": "nmdc:subsurface_depth2",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -389,7 +425,9 @@ var DATA = [
         "ontology_id": "nmdc:type",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -415,7 +453,9 @@ var DATA = [
         "ontology_id": "MIXS:0000639",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -437,7 +477,9 @@ var DATA = [
         "ontology_id": "MIXS:0000607",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -459,7 +501,9 @@ var DATA = [
         "ontology_id": "MIXS:0000324",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -480,7 +524,9 @@ var DATA = [
         "ontology_id": "MIXS:0000644",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -502,7 +548,9 @@ var DATA = [
         "ontology_id": "MIXS:0000642",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -524,7 +572,9 @@ var DATA = [
         "ontology_id": "MIXS:0000318",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -545,7 +595,9 @@ var DATA = [
         "ontology_id": "MIXS:0001080",
         "datatype": "select",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -603,7 +655,9 @@ var DATA = [
         "ontology_id": "MIXS:0000312",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -624,7 +678,9 @@ var DATA = [
         "ontology_id": "MIXS:0000314",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -645,7 +701,9 @@ var DATA = [
         "ontology_id": "MIXS:0001085",
         "datatype": "select",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -674,7 +732,9 @@ var DATA = [
         "ontology_id": "MIXS:0000320",
         "datatype": "xs:date",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -695,7 +755,9 @@ var DATA = [
         "ontology_id": "MIXS:0000651",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -717,7 +779,9 @@ var DATA = [
         "ontology_id": "MIXS:0001083",
         "datatype": "select",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -766,7 +830,9 @@ var DATA = [
         "ontology_id": "MIXS:0001086",
         "datatype": "xs:date",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -787,7 +853,9 @@ var DATA = [
         "ontology_id": "MIXS:0000319",
         "datatype": "xs:date",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -808,7 +876,9 @@ var DATA = [
         "ontology_id": "MIXS:0000652",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -830,7 +900,9 @@ var DATA = [
         "ontology_id": "MIXS:0000343",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -851,7 +923,9 @@ var DATA = [
         "ontology_id": "MIXS:0000321",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -872,7 +946,9 @@ var DATA = [
         "ontology_id": "MIXS:0000340",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -893,7 +969,9 @@ var DATA = [
         "ontology_id": "MIXS:0000329",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -914,7 +992,9 @@ var DATA = [
         "ontology_id": "MIXS:0000328",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -935,7 +1015,9 @@ var DATA = [
         "ontology_id": "MIXS:0000330",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -956,7 +1038,9 @@ var DATA = [
         "ontology_id": "MIXS:0000331",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -977,7 +1061,9 @@ var DATA = [
         "ontology_id": "MIXS:0000339",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -998,7 +1084,9 @@ var DATA = [
         "ontology_id": "MIXS:0000650",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1020,7 +1108,9 @@ var DATA = [
         "ontology_id": "MIXS:0000752",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1042,7 +1132,9 @@ var DATA = [
         "ontology_id": "MIXS:0001001",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1064,7 +1156,9 @@ var DATA = [
         "ontology_id": "MIXS:0001106",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1085,7 +1179,9 @@ var DATA = [
         "ontology_id": "MIXS:0000325",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1106,7 +1202,9 @@ var DATA = [
         "ontology_id": "MIXS:0000316",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1127,7 +1225,9 @@ var DATA = [
         "ontology_id": "MIXS:0000315",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1148,7 +1248,9 @@ var DATA = [
         "ontology_id": "MIXS:0001084",
         "datatype": "select",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1176,7 +1278,9 @@ var DATA = [
         "ontology_id": "MIXS:0000341",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1197,7 +1301,9 @@ var DATA = [
         "ontology_id": "MIXS:0000645",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1219,7 +1325,9 @@ var DATA = [
         "ontology_id": "MIXS:0000643",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1241,7 +1349,9 @@ var DATA = [
         "ontology_id": "MIXS:0000322",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1263,7 +1373,9 @@ var DATA = [
         "ontology_id": "MIXS:0000647",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1285,7 +1397,9 @@ var DATA = [
         "ontology_id": "MIXS:0000646",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1307,7 +1421,9 @@ var DATA = [
         "ontology_id": "MIXS:0001082",
         "datatype": "select",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1337,7 +1453,9 @@ var DATA = [
         "ontology_id": "MIXS:0000335",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1359,7 +1477,9 @@ var DATA = [
         "ontology_id": "MIXS:0000336",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1380,7 +1500,9 @@ var DATA = [
         "ontology_id": "MIXS:0000332",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1401,7 +1523,9 @@ var DATA = [
         "ontology_id": "MIXS:0000334",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1422,7 +1546,9 @@ var DATA = [
         "ontology_id": "MIXS:0000327",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1443,7 +1569,9 @@ var DATA = [
         "ontology_id": "MIXS:0001081",
         "datatype": "multiple",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1475,7 +1603,9 @@ var DATA = [
         "ontology_id": "MIXS:0000338",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1496,7 +1626,9 @@ var DATA = [
         "ontology_id": "MIXS:0000530",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1518,7 +1650,9 @@ var DATA = [
         "ontology_id": "MIXS:0000337",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1539,7 +1673,9 @@ var DATA = [
         "ontology_id": "MIXS:0000533",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1561,7 +1697,9 @@ var DATA = [
         "ontology_id": "MIXS:0000323",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1582,7 +1720,9 @@ var DATA = [
         "ontology_id": "MIXS:0000185",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1609,7 +1749,9 @@ var DATA = [
         "ontology_id": "MIXS:0000094",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1631,7 +1773,9 @@ var DATA = [
         "ontology_id": "MIXS:0000011",
         "datatype": "xs:date",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1652,7 +1796,9 @@ var DATA = [
         "ontology_id": "MIXS:0000018",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "required",
@@ -1674,7 +1820,9 @@ var DATA = [
         "ontology_id": "MIXS:0000093",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "required",
@@ -1696,7 +1844,9 @@ var DATA = [
         "ontology_id": "MIXS:0000012",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "required",
@@ -1718,7 +1868,9 @@ var DATA = [
         "ontology_id": "MIXS:0000013",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "required",
@@ -1740,7 +1892,9 @@ var DATA = [
         "ontology_id": "MIXS:0000014",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "required",
@@ -1762,7 +1916,9 @@ var DATA = [
         "ontology_id": "MIXS:0000010",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1783,7 +1939,9 @@ var DATA = [
         "ontology_id": "MIXS:0000009",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1805,7 +1963,9 @@ var DATA = [
         "ontology_id": "MIXS:0000113",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1832,7 +1992,9 @@ var DATA = [
         "ontology_id": "dcterms:description",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1853,7 +2015,9 @@ var DATA = [
         "ontology_id": "dcterms:isPartOf",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1879,7 +2043,9 @@ var DATA = [
         "ontology_id": "nmdc:alkalinity",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1901,7 +2067,9 @@ var DATA = [
         "ontology_id": "nmdc:alkalinity_method",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1922,7 +2090,9 @@ var DATA = [
         "ontology_id": "nmdc:alkyl_diethers",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1944,7 +2114,9 @@ var DATA = [
         "ontology_id": "nmdc:aminopept_act",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1966,7 +2138,9 @@ var DATA = [
         "ontology_id": "nmdc:ammonium",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -1988,7 +2162,9 @@ var DATA = [
         "ontology_id": "nmdc:bacteria_carb_prod",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -2010,7 +2186,9 @@ var DATA = [
         "ontology_id": "nmdc:bishomohopanol",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -2032,7 +2210,9 @@ var DATA = [
         "ontology_id": "nmdc:bromide",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -2054,7 +2234,9 @@ var DATA = [
         "ontology_id": "nmdc:calcium",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -2076,7 +2258,9 @@ var DATA = [
         "ontology_id": "nmdc:carb_nitro_ratio",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -2098,7 +2282,9 @@ var DATA = [
         "ontology_id": "nmdc:chem_administration",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -2119,7 +2305,9 @@ var DATA = [
         "ontology_id": "nmdc:chloride",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -2141,7 +2329,9 @@ var DATA = [
         "ontology_id": "nmdc:chlorophyll",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -2163,7 +2353,9 @@ var DATA = [
         "ontology_id": "nmdc:density",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -2185,7 +2377,9 @@ var DATA = [
         "ontology_id": "nmdc:diss_carb_dioxide",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -2207,7 +2401,9 @@ var DATA = [
         "ontology_id": "nmdc:diss_hydrogen",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -2229,7 +2425,9 @@ var DATA = [
         "ontology_id": "nmdc:diss_inorg_carb",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -2251,7 +2449,9 @@ var DATA = [
         "ontology_id": "nmdc:diss_inorg_phosp",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -2273,7 +2473,9 @@ var DATA = [
         "ontology_id": "nmdc:diss_org_carb",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -2295,7 +2497,9 @@ var DATA = [
         "ontology_id": "nmdc:diss_org_nitro",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -2317,7 +2521,9 @@ var DATA = [
         "ontology_id": "nmdc:diss_oxygen",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -2339,7 +2545,9 @@ var DATA = [
         "ontology_id": "nmdc:env_package",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -2361,7 +2569,9 @@ var DATA = [
         "ontology_id": "nmdc:glucosidase_act",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -2383,7 +2593,9 @@ var DATA = [
         "ontology_id": "nmdc:horizon",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -2405,7 +2617,9 @@ var DATA = [
         "ontology_id": "nmdc:magnesium",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -2427,7 +2641,9 @@ var DATA = [
         "ontology_id": "nmdc:mean_frict_vel",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -2449,7 +2665,9 @@ var DATA = [
         "ontology_id": "nmdc:mean_peak_frict_vel",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -2471,7 +2689,9 @@ var DATA = [
         "ontology_id": "nmdc:microbial_biomass_meth",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -2492,7 +2712,9 @@ var DATA = [
         "ontology_id": "nmdc:n_alkanes",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -2514,7 +2736,9 @@ var DATA = [
         "ontology_id": "nmdc:nitrate",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -2536,7 +2760,9 @@ var DATA = [
         "ontology_id": "nmdc:nitrite",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -2558,7 +2784,9 @@ var DATA = [
         "ontology_id": "nmdc:org_matter",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -2580,7 +2808,9 @@ var DATA = [
         "ontology_id": "nmdc:org_nitro",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -2602,7 +2832,9 @@ var DATA = [
         "ontology_id": "nmdc:organism_count",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -2624,7 +2856,9 @@ var DATA = [
         "ontology_id": "nmdc:oxy_stat_samp",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -2646,7 +2880,9 @@ var DATA = [
         "ontology_id": "nmdc:part_org_carb",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -2668,7 +2904,9 @@ var DATA = [
         "ontology_id": "nmdc:perturbation",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -2689,7 +2927,9 @@ var DATA = [
         "ontology_id": "nmdc:petroleum_hydrocarb",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -2711,7 +2951,9 @@ var DATA = [
         "ontology_id": "nmdc:phaeopigments",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -2733,7 +2975,9 @@ var DATA = [
         "ontology_id": "nmdc:phosplipid_fatt_acid",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -2755,7 +2999,9 @@ var DATA = [
         "ontology_id": "nmdc:potassium",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -2777,7 +3023,9 @@ var DATA = [
         "ontology_id": "nmdc:pressure",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -2799,7 +3047,9 @@ var DATA = [
         "ontology_id": "nmdc:previous_land_use_meth",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -2820,7 +3070,9 @@ var DATA = [
         "ontology_id": "nmdc:redox_potential",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -2842,7 +3094,9 @@ var DATA = [
         "ontology_id": "nmdc:salinity",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -2864,7 +3118,9 @@ var DATA = [
         "ontology_id": "nmdc:samp_collect_device",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -2885,7 +3141,9 @@ var DATA = [
         "ontology_id": "nmdc:samp_mat_process",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -2906,7 +3164,9 @@ var DATA = [
         "ontology_id": "nmdc:samp_store_dur",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -2927,7 +3187,9 @@ var DATA = [
         "ontology_id": "nmdc:samp_store_loc",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -2948,7 +3210,9 @@ var DATA = [
         "ontology_id": "nmdc:samp_store_temp",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -2970,7 +3234,9 @@ var DATA = [
         "ontology_id": "nmdc:samp_vol_we_dna_ext",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -2992,7 +3258,9 @@ var DATA = [
         "ontology_id": "nmdc:size_frac_low",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -3014,7 +3282,9 @@ var DATA = [
         "ontology_id": "nmdc:size_frac_up",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -3036,7 +3306,9 @@ var DATA = [
         "ontology_id": "nmdc:sodium",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -3058,7 +3330,9 @@ var DATA = [
         "ontology_id": "nmdc:sulfate",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -3080,7 +3354,9 @@ var DATA = [
         "ontology_id": "nmdc:sulfide",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -3102,7 +3378,9 @@ var DATA = [
         "ontology_id": "nmdc:texture",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -3124,7 +3402,9 @@ var DATA = [
         "ontology_id": "nmdc:texture_meth",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -3145,7 +3425,9 @@ var DATA = [
         "ontology_id": "nmdc:tidal_stage",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -3167,7 +3449,9 @@ var DATA = [
         "ontology_id": "nmdc:tot_carb",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -3189,7 +3473,9 @@ var DATA = [
         "ontology_id": "nmdc:tot_depth_water_col",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -3211,7 +3497,9 @@ var DATA = [
         "ontology_id": "nmdc:tot_diss_nitro",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -3233,7 +3521,9 @@ var DATA = [
         "ontology_id": "nmdc:tot_nitro_content_meth",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -3254,7 +3544,9 @@ var DATA = [
         "ontology_id": "nmdc:tot_phosp",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -3276,7 +3568,9 @@ var DATA = [
         "ontology_id": "nmdc:water_content_soil_meth",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -3302,7 +3596,9 @@ var DATA = [
         "ontology_id": "nmdc:ecosystem",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -3323,7 +3619,9 @@ var DATA = [
         "ontology_id": "nmdc:ecosystem_category",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -3344,7 +3642,9 @@ var DATA = [
         "ontology_id": "nmdc:ecosystem_subtype",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -3365,7 +3665,9 @@ var DATA = [
         "ontology_id": "nmdc:ecosystem_type",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -3386,7 +3688,9 @@ var DATA = [
         "ontology_id": "nmdc:specific_ecosystem",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -3412,7 +3716,9 @@ var DATA = [
         "ontology_id": "nmdc:GOLD sample identifiers",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -3434,7 +3740,9 @@ var DATA = [
         "ontology_id": "nmdc:INSDC biosample identifiers",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
@@ -3456,7 +3764,9 @@ var DATA = [
         "ontology_id": "nmdc:INSDC secondary sample identifiers",
         "datatype": "xs:token",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "default"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
