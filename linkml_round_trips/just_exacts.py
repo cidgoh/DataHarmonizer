@@ -2,7 +2,8 @@ from linkml_runtime.linkml_model import SchemaDefinition, Prefix
 # ClassDefinition, TypeDefinition, EnumDefinition
 from typing import List
 from linkml_runtime.utils.schemaview import SchemaView
-from pathlib import Path
+# from pathlib import Path
+from linkml_runtime.dumpers import yaml_dumper
 
 
 # todo sid and def_expansion should really be an uri or curie
@@ -16,7 +17,6 @@ def just_exacts_schema(sname: str, sid: str, def_pref: str, def_expansion: str) 
 
 class DependencyResolver:
     def __init__(self, schema_files: List[str]):
-        self.reference_views = {}
         self.bookkeeping_dict = {
             "pending_ranges": set(),
             "pending_slots": set(),
@@ -31,12 +31,11 @@ class DependencyResolver:
             "slots": [],
             "types": []
         }
-        self.foreign_views = {}
+        self.reference_views = {}
         for i in schema_files:
-            # print(i)
             i_view = SchemaView(i)
-            i_name = Path(i).stem
-            self.foreign_views[i_name] = i_view
+            i_name = i_view.schema.name
+            self.reference_views[i_name] = i_view
 
     def add_pending_range(self, range_name: str):
         if range_name not in self.bookkeeping_dict["exhausted_classes"] and range_name not in self.bookkeeping_dict[
@@ -60,17 +59,24 @@ class DependencyResolver:
         self.bookkeeping_dict["pending_slots"].remove(slot_name)
         self.bookkeeping_dict["exhausted_slots"].add(slot_name)
 
+    def get_reference_prefixes(self, schema_name):
+        return self.reference_views[schema_name].schema.prefixes
+
+    def get_reference_subsets(self, schema_name):
+        return self.reference_views[schema_name].schema.subsets
+
+    def get_reference_schema(self, schema_name):
+        return self.reference_views[schema_name]
+
     # use the methods above as appropriate
-    def resolve_dependencies(self, model_files):
-        # add reference SchemaViews to instance once
-        if not self.reference_views:
-            for current_file in model_files:
-                model_sv = SchemaView(current_file)
-                model_name = model_sv.schema.name
-                self.reference_views[model_name] = model_sv
+    def resolve_dependencies(self):
+        if (
+                len(self.bookkeeping_dict["pending_ranges"]) == 0
+                and len(self.bookkeeping_dict["pending_slots"]) == 0
+        ):
+            return self.bookkeeping_dict
 
         # todo recalculate these every iteration?
-        # print(self.reference_views.keys())
         all_classes = self.reference_views['MIxS'].all_classes()
         all_class_names = list(all_classes.keys())
         all_enums = self.reference_views['MIxS'].all_enums()
@@ -79,18 +85,8 @@ class DependencyResolver:
         all_type_names = list(all_types.keys())
         all_slots_dict = self.reference_views['MIxS'].all_slots()
 
-        # model_def_pref = model_sv.schema.default_prefix
-        # mvp = model_sv.schema.prefixes
-        # mvs = model_sv.all_subsets()
-
-        if (
-                len(self.bookkeeping_dict["pending_ranges"]) == 0
-                and len(self.bookkeeping_dict["pending_slots"]) == 0
-        ):
-            return self.bookkeeping_dict
-        else:
-            class_parents = set()
-            usage_ranges = set()
+        class_parents = set()
+        usage_ranges = set()
         for pc in self.bookkeeping_dict["pending_ranges"]:
             self.bookkeeping_dict["exhausted_classes"].add(pc)
             i_s = self.reference_views['MIxS'].class_induced_slots(pc)
@@ -152,7 +148,7 @@ class DependencyResolver:
         for parent in isas:
             self.bookkeeping_dict["pending_slots"].add(parent)
 
-        return self.resolve_dependencies(self.bookkeeping_dict)
+        return self.resolve_dependencies()
 
 
 def main_meth():
@@ -162,37 +158,36 @@ def main_meth():
     # current_resolver.add_pending_range("person")
     current_resolver.add_pending_range("soil")
     print(current_resolver.get_bookeeping())
-    current_resolver.resolve_dependencies(
-        model_files=["../mixs-source/model/schema/mixs.yaml", "../nmdc-schema/src/schema/nmdc.yaml"])
-    # current_resolver.resolve_range("person", "exhausted_classes")
-    print(current_resolver.get_bookeeping())
-    # cr_fv = current_resolver.foreign_views
-    # cr_fv_keys = list(cr_fv.keys())
-    # print(cr_fv_keys)
+    current_resolver.resolve_dependencies()
+    bookkeeping_res = current_resolver.get_bookeeping()
+    print(bookkeeping_res)
+
+    sntc_name = "sntc"
+    sntc_id = "http://example.com/sntc"
+    sntc_scd = just_exacts_schema(sname=sntc_name, sid=sntc_id, def_pref=sntc_name, def_expansion=f"{sntc_id}/")
+
+    for i in bookkeeping_res['exhausted_classes']:
+        print(i)
+        sntc_scd.classes[i] = current_resolver.get_reference_schema("MIxS").get_class(i)
+    for i in bookkeeping_res['exhausted_enums']:
+        print(i)
+        sntc_scd.enums[i] = current_resolver.get_reference_schema("MIxS").get_enum(i)
+    for i in bookkeeping_res['exhausted_slots']:
+        print(i)
+        sntc_scd.slots[i] = current_resolver.get_reference_schema("MIxS").get_slot(i)
+    for i in bookkeeping_res['exhausted_types']:
+        print(i)
+        sntc_scd.types[i] = current_resolver.get_reference_schema("MIxS").get_type(i)
+
+    reference_prefixes = current_resolver.get_reference_prefixes(schema_name="MIxS")
+    for k, v in reference_prefixes.items():
+        print(f"{v.prefix_prefix}: {v.prefix_reference}")
+    reference_subsets = current_resolver.get_reference_subsets(schema_name="NMDC")
+    for k, v in reference_subsets.items():
+        print(f"{v.name}: {v.description}")
+
+    yaml_dumper.dump(sntc_scd, "soil.yaml")
 
 
 if __name__ == '__main__':
     main_meth()
-
-# iterator = iter(self.bookkeeping_dict["pending_ranges"])
-# current_range = next(iterator, None)
-# print(current_range)
-# for k, v in self.foreign_views.items():
-#     print(k)
-#     attempt = v.get_element(current_range)
-#     if attempt is not None:
-#         print(attempt)
-#         if isinstance(attempt, ClassDefinition):
-#             print("is a class")
-#             self.element_dict["classes"].append(attempt)
-#             self.resolve_range(current_range, "exhausted_classes")
-#         elif isinstance(attempt, EnumDefinition):
-#             print("is an enum")
-#             self.element_dict["enums"].append(attempt)
-#             self.resolve_range(current_range, "exhausted_enums")
-#         elif isinstance(attempt, TypeDefinition):
-#             print("is a type")
-#             self.element_dict["types"].append(attempt)
-#             self.resolve_range(current_range, "exhausted_types")
-#         # just trust the first schema in which the term appears?
-#         break

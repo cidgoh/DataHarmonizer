@@ -1,0 +1,1559 @@
+name: sntc
+id: http://example.com/sntc
+prefixes:
+  sntc:
+    prefix_prefix: sntc
+    prefix_reference: http://example.com/sntc/
+default_prefix: sntc
+types:
+  string:
+    name: string
+    description: A character string
+    base: str
+    uri: xsd:string
+  double:
+    name: double
+    description: A real number that conforms to the xsd:double specification
+    base: float
+    uri: xsd:double
+  date:
+    name: date
+    description: a date (year, month and day) in an idealized calendar
+    notes:
+    - URI is dateTime because OWL reasoners don't work with straight date or time
+    base: XSDDate
+    uri: xsd:date
+    repr: str
+enums:
+  soil_horizon_enum:
+    name: soil_horizon_enum
+    from_schema: http://w3id.org/mixs/terms
+    permissible_values:
+      O horizon:
+        text: O horizon
+      A horizon:
+        text: A horizon
+      E horizon:
+        text: E horizon
+      B horizon:
+        text: B horizon
+      C horizon:
+        text: C horizon
+      R layer:
+        text: R layer
+      Permafrost:
+        text: Permafrost
+  fao_class_enum:
+    name: fao_class_enum
+    from_schema: http://w3id.org/mixs/terms
+    permissible_values:
+      Acrisols:
+        text: Acrisols
+      Andosols:
+        text: Andosols
+      Arenosols:
+        text: Arenosols
+      Cambisols:
+        text: Cambisols
+      Chernozems:
+        text: Chernozems
+      Ferralsols:
+        text: Ferralsols
+      Fluvisols:
+        text: Fluvisols
+      Gleysols:
+        text: Gleysols
+      Greyzems:
+        text: Greyzems
+      Gypsisols:
+        text: Gypsisols
+      Histosols:
+        text: Histosols
+      Kastanozems:
+        text: Kastanozems
+      Lithosols:
+        text: Lithosols
+      Luvisols:
+        text: Luvisols
+      Nitosols:
+        text: Nitosols
+      Phaeozems:
+        text: Phaeozems
+      Planosols:
+        text: Planosols
+      Podzols:
+        text: Podzols
+      Podzoluvisols:
+        text: Podzoluvisols
+      Rankers:
+        text: Rankers
+      Regosols:
+        text: Regosols
+      Rendzinas:
+        text: Rendzinas
+      Solonchaks:
+        text: Solonchaks
+      Solonetz:
+        text: Solonetz
+      Vertisols:
+        text: Vertisols
+      Yermosols:
+        text: Yermosols
+  cur_land_use_enum:
+    name: cur_land_use_enum
+    from_schema: http://w3id.org/mixs/terms
+    permissible_values:
+      cities:
+        text: cities
+      farmstead:
+        text: farmstead
+      industrial areas:
+        text: industrial areas
+      roads/railroads:
+        text: roads/railroads
+      rock:
+        text: rock
+      sand:
+        text: sand
+      gravel:
+        text: gravel
+      mudflats:
+        text: mudflats
+      salt flats:
+        text: salt flats
+      badlands:
+        text: badlands
+      permanent snow or ice:
+        text: permanent snow or ice
+      saline seeps:
+        text: saline seeps
+      mines/quarries:
+        text: mines/quarries
+      oil waste areas:
+        text: oil waste areas
+      small grains:
+        text: small grains
+      row crops:
+        text: row crops
+      vegetable crops:
+        text: vegetable crops
+      horticultural plants (e.g. tulips):
+        text: horticultural plants (e.g. tulips)
+      marshlands (grass,sedges,rushes):
+        text: marshlands (grass,sedges,rushes)
+      tundra (mosses,lichens):
+        text: tundra (mosses,lichens)
+      rangeland:
+        text: rangeland
+      pastureland (grasslands used for livestock grazing):
+        text: pastureland (grasslands used for livestock grazing)
+      hayland:
+        text: hayland
+      meadows (grasses,alfalfa,fescue,bromegrass,timothy):
+        text: meadows (grasses,alfalfa,fescue,bromegrass,timothy)
+      shrub land (e.g. mesquite,sage-brush,creosote bush,shrub oak,eucalyptus):
+        text: shrub land (e.g. mesquite,sage-brush,creosote bush,shrub oak,eucalyptus)
+      successional shrub land (tree saplings,hazels,sumacs,chokecherry,shrub dogwoods,blackberries):
+        text: successional shrub land (tree saplings,hazels,sumacs,chokecherry,shrub
+          dogwoods,blackberries)
+      shrub crops (blueberries,nursery ornamentals,filberts):
+        text: shrub crops (blueberries,nursery ornamentals,filberts)
+      vine crops (grapes):
+        text: vine crops (grapes)
+      conifers (e.g. pine,spruce,fir,cypress):
+        text: conifers (e.g. pine,spruce,fir,cypress)
+      hardwoods (e.g. oak,hickory,elm,aspen):
+        text: hardwoods (e.g. oak,hickory,elm,aspen)
+      intermixed hardwood and conifers:
+        text: intermixed hardwood and conifers
+      tropical (e.g. mangrove,palms):
+        text: tropical (e.g. mangrove,palms)
+      rainforest (evergreen forest receiving >406 cm annual rainfall):
+        text: rainforest (evergreen forest receiving >406 cm annual rainfall)
+      swamp (permanent or semi-permanent water body dominated by woody plants):
+        text: swamp (permanent or semi-permanent water body dominated by woody plants)
+      crop trees (nuts,fruit,christmas trees,nursery trees):
+        text: crop trees (nuts,fruit,christmas trees,nursery trees)
+  tillage_enum:
+    name: tillage_enum
+    from_schema: http://w3id.org/mixs/terms
+    permissible_values:
+      drill:
+        text: drill
+      cutting disc:
+        text: cutting disc
+      ridge till:
+        text: ridge till
+      strip tillage:
+        text: strip tillage
+      zonal tillage:
+        text: zonal tillage
+      chisel:
+        text: chisel
+      tined:
+        text: tined
+      mouldboard:
+        text: mouldboard
+      disc plough:
+        text: disc plough
+  drainage_class_enum:
+    name: drainage_class_enum
+    from_schema: http://w3id.org/mixs/terms
+    permissible_values:
+      very poorly:
+        text: very poorly
+      poorly:
+        text: poorly
+      somewhat poorly:
+        text: somewhat poorly
+      moderately well:
+        text: moderately well
+      well:
+        text: well
+      excessively drained:
+        text: excessively drained
+  profile_position_enum:
+    name: profile_position_enum
+    from_schema: http://w3id.org/mixs/terms
+    permissible_values:
+      summit:
+        text: summit
+      shoulder:
+        text: shoulder
+      backslope:
+        text: backslope
+      footslope:
+        text: footslope
+      toeslope:
+        text: toeslope
+slots:
+  elev:
+    name: elev
+    aliases:
+    - elevation
+    description: Elevation of the sampling site is its height above a fixed reference
+      point, most commonly the mean sea level. Elevation is mainly used when referring
+      to points on the earth's surface, while altitude is used for points above the
+      surface, such as an aircraft in flight or a spacecraft in orbit.
+    title: elevation
+    comments:
+    - 'Expected value: measurement value'
+    examples:
+    - value: 100 meter
+    from_schema: http://w3id.org/mixs/terms
+    is_a: environment field
+    slot_uri: MIXS:0000093
+    multivalued: false
+    range: quantity value
+  sieving:
+    name: sieving
+    aliases:
+    - composite design/sieving
+    description: Collection design of pooled samples and/or sieve size and amount
+      of sample sieved
+    title: composite design/sieving
+    comments:
+    - 'Expected value: design name and/or size;amount'
+    examples:
+    - value: ''
+    from_schema: http://w3id.org/mixs/terms
+    is_a: core field
+    string_serialization: '{{text}|{float} {unit}};{float} {unit}'
+    slot_uri: MIXS:0000322
+    multivalued: false
+    range: string
+  temp:
+    name: temp
+    aliases:
+    - temperature
+    description: Temperature of the sample at the time of sampling.
+    title: temperature
+    comments:
+    - 'Expected value: measurement value'
+    - 'Preferred unit: degree Celsius'
+    examples:
+    - value: 25 degree Celsius
+    from_schema: http://w3id.org/mixs/terms
+    is_a: environment field
+    slot_uri: MIXS:0000113
+    multivalued: false
+    range: quantity value
+  microbial_biomass:
+    name: microbial_biomass
+    aliases:
+    - microbial biomass
+    description: The part of the organic matter in the soil that constitutes living
+      microorganisms smaller than 5-10 micrometer. If you keep this, you would need
+      to have correction factors used for conversion to the final units
+    title: microbial biomass
+    comments:
+    - 'Expected value: measurement value'
+    - 'Preferred unit: ton, kilogram, gram per kilogram soil'
+    examples:
+    - value: ''
+    from_schema: http://w3id.org/mixs/terms
+    is_a: core field
+    slot_uri: MIXS:0000650
+    multivalued: false
+    range: quantity value
+  al_sat_meth:
+    name: al_sat_meth
+    aliases:
+    - extreme_unusual_properties/Al saturation method
+    description: Reference or method used in determining Al saturation
+    title: extreme_unusual_properties/Al saturation method
+    comments:
+    - 'Expected value: PMID,DOI or URL'
+    examples:
+    - value: ''
+    from_schema: http://w3id.org/mixs/terms
+    is_a: core field
+    string_serialization: '{PMID}|{DOI}|{URL}'
+    slot_uri: MIXS:0000324
+    multivalued: false
+    range: string
+  fire:
+    name: fire
+    aliases:
+    - history/fire
+    description: Historical and/or physical evidence of fire
+    title: history/fire
+    comments:
+    - 'Expected value: date'
+    examples:
+    - value: ''
+    from_schema: http://w3id.org/mixs/terms
+    is_a: core field
+    slot_uri: MIXS:0001086
+    multivalued: false
+    range: date
+  pool_dna_extracts:
+    name: pool_dna_extracts
+    aliases:
+    - pooling of DNA extracts (if done)
+    description: Indicate whether multiple DNA extractions were mixed. If the answer
+      yes, the number of extracts that were pooled should be given
+    title: pooling of DNA extracts (if done)
+    comments:
+    - 'Expected value: pooling status;number of pooled extracts'
+    examples:
+    - value: yes;5
+    from_schema: http://w3id.org/mixs/terms
+    is_a: core field
+    string_serialization: '{boolean};{integer}'
+    slot_uri: MIXS:0000325
+    multivalued: false
+    range: string
+  slope_gradient:
+    name: slope_gradient
+    aliases:
+    - slope gradient
+    description: Commonly called 'slope'. The angle between ground surface and a horizontal
+      line (in percent). This is the direction that overland water would flow. This
+      measure is usually taken with a hand level meter or clinometer
+    title: slope gradient
+    comments:
+    - 'Expected value: measurement value'
+    - 'Preferred unit: percentage'
+    examples:
+    - value: ''
+    from_schema: http://w3id.org/mixs/terms
+    is_a: core field
+    slot_uri: MIXS:0000646
+    multivalued: false
+    range: quantity value
+  local_class:
+    name: local_class
+    aliases:
+    - soil_taxonomic/local classification
+    description: Soil classification based on local soil classification system
+    title: soil_taxonomic/local classification
+    comments:
+    - 'Expected value: local classification name'
+    examples:
+    - value: ''
+    from_schema: http://w3id.org/mixs/terms
+    is_a: core field
+    string_serialization: '{text}'
+    slot_uri: MIXS:0000330
+    multivalued: false
+    range: string
+  store_cond:
+    name: store_cond
+    aliases:
+    - storage conditions
+    description: Explain how and for how long the soil sample was stored before DNA
+      extraction (fresh/frozen/other).
+    title: storage conditions
+    comments:
+    - 'Expected value: storage condition type;duration'
+    examples:
+    - value: -20 degree Celsius freezer;P2Y10D
+    from_schema: http://w3id.org/mixs/terms
+    is_a: core field
+    string_serialization: '{text};{duration}'
+    slot_uri: MIXS:0000327
+    multivalued: false
+    range: string
+  tot_org_carb:
+    name: tot_org_carb
+    aliases:
+    - total organic carbon
+    description: 'Definition for soil: total organic carbon content of the soil, definition
+      otherwise: total organic carbon content'
+    title: total organic carbon
+    comments:
+    - 'Expected value: measurement value'
+    - 'Preferred unit: gram Carbon per kilogram sample material'
+    examples:
+    - value: ''
+    from_schema: http://w3id.org/mixs/terms
+    is_a: core field
+    slot_uri: MIXS:0000533
+    multivalued: false
+    range: quantity value
+  extreme_event:
+    name: extreme_event
+    aliases:
+    - history/extreme events
+    description: Unusual physical events that may have affected microbial populations
+    title: history/extreme events
+    comments:
+    - 'Expected value: date'
+    examples:
+    - value: ''
+    from_schema: http://w3id.org/mixs/terms
+    is_a: core field
+    slot_uri: MIXS:0000320
+    multivalued: false
+    range: date
+  env_local_scale:
+    name: env_local_scale
+    aliases:
+    - local environmental context
+    description: "Report the entity or entities which are in the sample or specimen\u2019\
+      s local vicinity and which you believe have significant causal influences on\
+      \ your sample or specimen. We recommend using EnvO terms which are of smaller\
+      \ spatial grain than your entry for env_broad_scale. Terms, such as anatomical\
+      \ sites, from other OBO Library ontologies which interoperate with EnvO (e.g.\
+      \ UBERON) are accepted in this field. EnvO documentation about how to use the\
+      \ field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS."
+    title: local environmental context
+    comments:
+    - 'Expected value: Environmental entities having causal influences upon the entity
+      at time of sampling.'
+    examples:
+    - value: 'litter layer [ENVO:01000338]; Annotating a pooled sample taken from
+        various vegetation layers in a forest consider: canopy [ENVO:00000047]|herb
+        and fern layer [ENVO:01000337]|litter layer [ENVO:01000338]|understory [01000335]|shrub
+        layer [ENVO:01000336].'
+    from_schema: http://w3id.org/mixs/terms
+    is_a: environment field
+    string_serialization: '{termLabel} {[termID]}'
+    slot_uri: MIXS:0000013
+    multivalued: false
+    range: string
+  cur_vegetation:
+    name: cur_vegetation
+    aliases:
+    - current vegetation
+    description: Vegetation classification from one or more standard classification
+      systems, or agricultural crop
+    title: current vegetation
+    comments:
+    - 'Expected value: current vegetation type'
+    examples:
+    - value: ''
+    from_schema: http://w3id.org/mixs/terms
+    is_a: core field
+    string_serialization: '{text}'
+    slot_uri: MIXS:0000312
+    multivalued: false
+    range: string
+  tillage:
+    name: tillage
+    aliases:
+    - history/tillage
+    description: Note method(s) used for tilling
+    title: history/tillage
+    comments:
+    - 'Expected value: enumeration'
+    examples:
+    - value: chisel
+    from_schema: http://w3id.org/mixs/terms
+    is_a: core field
+    string_serialization: '[drill|cutting disc|ridge till|strip tillage|zonal tillage|chisel|tined|mouldboard|disc
+      plough]'
+    slot_uri: MIXS:0001081
+    multivalued: true
+    range: tillage_enum
+  soil_text_measure:
+    name: soil_text_measure
+    aliases:
+    - soil texture measurement
+    description: The relative proportion of different grain sizes of mineral particles
+      in a soil, as described using a standard system; express as % sand (50 um to
+      2 mm), silt (2 um to 50 um), and clay (<2 um) with textural name (e.g., silty
+      clay loam) optional.
+    title: soil texture measurement
+    comments:
+    - 'Expected value: measurement value'
+    examples:
+    - value: ''
+    from_schema: http://w3id.org/mixs/terms
+    is_a: core field
+    slot_uri: MIXS:0000335
+    multivalued: false
+    range: quantity value
+  cur_vegetation_meth:
+    name: cur_vegetation_meth
+    aliases:
+    - current vegetation method
+    description: Reference or method used in vegetation classification
+    title: current vegetation method
+    comments:
+    - 'Expected value: PMID,DOI or url'
+    examples:
+    - value: ''
+    from_schema: http://w3id.org/mixs/terms
+    is_a: core field
+    string_serialization: '{PMID}|{DOI}|{URL}'
+    slot_uri: MIXS:0000314
+    multivalued: false
+    range: string
+  geo_loc_name:
+    name: geo_loc_name
+    aliases:
+    - geographic location (country and/or sea,region)
+    description: The geographical origin of the sample as defined by the country or
+      sea name followed by specific region name. Country or sea names should be chosen
+      from the INSDC country list (http://insdc.org/country.html), or the GAZ ontology
+      (http://purl.bioontology.org/ontology/GAZ)
+    title: geographic location (country and/or sea,region)
+    comments:
+    - 'Expected value: country or sea name (INSDC or GAZ): region(GAZ), specific location
+      name'
+    examples:
+    - value: 'USA: Maryland, Bethesda'
+    from_schema: http://w3id.org/mixs/terms
+    is_a: environment field
+    string_serialization: '{term}: {term}, {text}'
+    slot_uri: MIXS:0000010
+    multivalued: false
+    range: string
+  has numeric value:
+    name: has numeric value
+    from_schema: http://w3id.org/mixs/ranges
+    range: double
+  ph_meth:
+    name: ph_meth
+    aliases:
+    - pH method
+    description: Reference or method used in determining ph
+    title: pH method
+    comments:
+    - 'Expected value: PMID,DOI or url'
+    examples:
+    - value: ''
+    from_schema: http://w3id.org/mixs/terms
+    is_a: core field
+    string_serialization: '{PMID}|{DOI}|{URL}'
+    slot_uri: MIXS:0001106
+    multivalued: false
+    range: string
+  lat_lon:
+    name: lat_lon
+    aliases:
+    - geographic location (latitude and longitude)
+    description: The geographical origin of the sample as defined by latitude and
+      longitude. The values should be reported in decimal degrees and in WGS84 system
+    title: geographic location (latitude and longitude)
+    comments:
+    - 'Expected value: decimal degrees,  limit to 8 decimal points'
+    examples:
+    - value: 50.586825 6.408977
+    from_schema: http://w3id.org/mixs/terms
+    is_a: environment field
+    string_serialization: '{float} {float}'
+    slot_uri: MIXS:0000009
+    multivalued: false
+    range: string
+  water_content:
+    name: water_content
+    aliases:
+    - water content
+    description: Water content measurement
+    title: water content
+    comments:
+    - 'Expected value: measurement value'
+    - 'Preferred unit: gram per gram or cubic centimeter per cubic centimeter'
+    examples:
+    - value: ''
+    from_schema: http://w3id.org/mixs/terms
+    is_a: core field
+    slot_uri: MIXS:0000185
+    multivalued: false
+    range: quantity value
+  misc_param:
+    name: misc_param
+    aliases:
+    - miscellaneous parameter
+    description: Any other measurement performed or parameter collected, that is not
+      listed here
+    title: miscellaneous parameter
+    comments:
+    - 'Expected value: parameter name;measurement value'
+    examples:
+    - value: Bicarbonate ion concentration;2075 micromole per kilogram
+    from_schema: http://w3id.org/mixs/terms
+    is_a: core field
+    string_serialization: '{text};{float} {unit}'
+    slot_uri: MIXS:0000752
+    multivalued: true
+    range: string
+  micro_biomass_meth:
+    name: micro_biomass_meth
+    aliases:
+    - microbial biomass method
+    description: Reference or method used in determining microbial biomass
+    title: microbial biomass method
+    comments:
+    - 'Expected value: PMID,DOI or url'
+    examples:
+    - value: ''
+    from_schema: http://w3id.org/mixs/terms
+    is_a: core field
+    string_serialization: '{PMID}|{DOI}|{URL}'
+    slot_uri: MIXS:0000339
+    multivalued: false
+    range: string
+  local_class_meth:
+    name: local_class_meth
+    aliases:
+    - soil_taxonomic/local classification method
+    description: Reference or method used in determining the local soil classification
+    title: soil_taxonomic/local classification method
+    comments:
+    - 'Expected value: PMID,DOI or url'
+    examples:
+    - value: ''
+    from_schema: http://w3id.org/mixs/terms
+    is_a: core field
+    string_serialization: '{PMID}|{DOI}|{URL}'
+    slot_uri: MIXS:0000331
+    multivalued: false
+    range: string
+  link_class_info:
+    name: link_class_info
+    aliases:
+    - link to classification information
+    description: Link to digitized soil maps or other soil classification information
+    title: link to classification information
+    comments:
+    - 'Expected value: PMID,DOI or url'
+    examples:
+    - value: ''
+    from_schema: http://w3id.org/mixs/terms
+    is_a: core field
+    string_serialization: '{PMID}|{DOI}|{URL}'
+    slot_uri: MIXS:0000329
+    multivalued: false
+    range: string
+  annual_temp:
+    name: annual_temp
+    aliases:
+    - mean annual temperature
+    description: Mean annual temperature
+    title: mean annual temperature
+    comments:
+    - 'Expected value: measurement value'
+    - 'Preferred unit: degree Celsius'
+    examples:
+    - value: 12.5 degree Celsius
+    from_schema: http://w3id.org/mixs/terms
+    is_a: core field
+    slot_uri: MIXS:0000642
+    multivalued: false
+    range: quantity value
+  flooding:
+    name: flooding
+    aliases:
+    - history/flooding
+    description: Historical and/or physical evidence of flooding
+    title: history/flooding
+    comments:
+    - 'Expected value: date'
+    examples:
+    - value: ''
+    from_schema: http://w3id.org/mixs/terms
+    is_a: core field
+    slot_uri: MIXS:0000319
+    multivalued: false
+    range: date
+  al_sat:
+    name: al_sat
+    aliases:
+    - extreme_unusual_properties/Al saturation
+    description: Aluminum saturation (esp. For tropical soils)
+    title: extreme_unusual_properties/Al saturation
+    comments:
+    - 'Expected value: measurement value'
+    - 'Preferred unit: percentage'
+    examples:
+    - value: ''
+    from_schema: http://w3id.org/mixs/terms
+    is_a: core field
+    slot_uri: MIXS:0000607
+    multivalued: false
+    range: quantity value
+  depth:
+    name: depth
+    aliases:
+    - depth
+    description: The vertical distance below local surface, e.g. for sediment or soil
+      samples depth is measured from sediment or soil surface, respectively. Depth
+      can be reported as an interval for subsurface samples.
+    title: depth
+    comments:
+    - 'Expected value: measurement value'
+    examples:
+    - value: 10 meter
+    from_schema: http://w3id.org/mixs/terms
+    is_a: environment field
+    slot_uri: MIXS:0000018
+    multivalued: false
+    range: quantity value
+  previous_land_use:
+    name: previous_land_use
+    aliases:
+    - history/previous land use
+    description: Previous land use and dates
+    title: history/previous land use
+    comments:
+    - 'Expected value: land use name;date'
+    examples:
+    - value: ''
+    from_schema: http://w3id.org/mixs/terms
+    is_a: core field
+    string_serialization: '{text};{timestamp}'
+    slot_uri: MIXS:0000315
+    multivalued: false
+    range: string
+  slope_aspect:
+    name: slope_aspect
+    aliases:
+    - slope aspect
+    description: The direction a slope faces. While looking down a slope use a compass
+      to record the direction you are facing (direction or degrees); e.g., nw or 315
+      degrees. This measure provides an indication of sun and wind exposure that will
+      influence soil temperature and evapotranspiration.
+    title: slope aspect
+    comments:
+    - 'Expected value: measurement value'
+    - 'Preferred unit: degree'
+    examples:
+    - value: ''
+    from_schema: http://w3id.org/mixs/terms
+    is_a: core field
+    slot_uri: MIXS:0000647
+    multivalued: false
+    range: quantity value
+  salinity_meth:
+    name: salinity_meth
+    aliases:
+    - salinity method
+    description: Reference or method used in determining salinity
+    title: salinity method
+    comments:
+    - 'Expected value: PMID,DOI or url'
+    examples:
+    - value: ''
+    from_schema: http://w3id.org/mixs/terms
+    is_a: core field
+    string_serialization: '{PMID}|{DOI}|{URL}'
+    slot_uri: MIXS:0000341
+    multivalued: false
+    range: string
+  annual_precpt:
+    name: annual_precpt
+    aliases:
+    - mean annual precipitation
+    description: The average of all annual precipitation values known, or an estimated
+      equivalent value derived by such methods as regional indexes or Isohyetal maps.
+    title: mean annual precipitation
+    comments:
+    - 'Expected value: measurement value'
+    - 'Preferred unit: millimeter'
+    examples:
+    - value: ''
+    from_schema: http://w3id.org/mixs/terms
+    is_a: core field
+    slot_uri: MIXS:0000644
+    multivalued: false
+    range: quantity value
+  ph:
+    name: ph
+    aliases:
+    - pH
+    description: Ph measurement of the sample, or liquid portion of sample, or aqueous
+      phase of the fluid
+    title: pH
+    comments:
+    - 'Expected value: measurement value'
+    examples:
+    - value: '7.2'
+    from_schema: http://w3id.org/mixs/terms
+    is_a: core field
+    slot_uri: MIXS:0001001
+    multivalued: false
+    range: double
+  water_cont_soil_meth:
+    name: water_cont_soil_meth
+    aliases:
+    - water content method
+    description: Reference or method used in determining the water content of soil
+    title: water content method
+    comments:
+    - 'Expected value: PMID,DOI or url'
+    examples:
+    - value: ''
+    from_schema: http://w3id.org/mixs/terms
+    is_a: core field
+    string_serialization: '{PMID}|{DOI}|{URL}'
+    slot_uri: MIXS:0000323
+    multivalued: false
+    range: string
+  crop_rotation:
+    name: crop_rotation
+    aliases:
+    - history/crop rotation
+    description: Whether or not crop is rotated, and if yes, rotation schedule
+    title: history/crop rotation
+    comments:
+    - 'Expected value: crop rotation status;schedule'
+    examples:
+    - value: yes;R2/2017-01-01/2018-12-31/P6M
+    from_schema: http://w3id.org/mixs/terms
+    is_a: core field
+    string_serialization: '{boolean};{Rn/start_time/end_time/duration}'
+    slot_uri: MIXS:0000318
+    multivalued: false
+    range: string
+  soil_texture_meth:
+    name: soil_texture_meth
+    aliases:
+    - soil texture method
+    description: Reference or method used in determining soil texture
+    title: soil texture method
+    comments:
+    - 'Expected value: PMID,DOI or url'
+    examples:
+    - value: ''
+    from_schema: http://w3id.org/mixs/terms
+    is_a: core field
+    string_serialization: '{PMID}|{DOI}|{URL}'
+    slot_uri: MIXS:0000336
+    multivalued: false
+    range: string
+  drainage_class:
+    name: drainage_class
+    aliases:
+    - drainage classification
+    description: Drainage classification from a standard system such as the USDA system
+    title: drainage classification
+    comments:
+    - 'Expected value: enumeration'
+    examples:
+    - value: well
+    from_schema: http://w3id.org/mixs/terms
+    is_a: core field
+    string_serialization: '[very poorly|poorly|somewhat poorly|moderately well|well|excessively
+      drained]'
+    slot_uri: MIXS:0001085
+    multivalued: false
+    range: drainage_class_enum
+  env_broad_scale:
+    name: env_broad_scale
+    aliases:
+    - broad-scale environmental context
+    description: "Report the major environmental system the sample or specimen came\
+      \ from. The system(s) identified should have a coarse spatial grain, to provide\
+      \ the general environmental context of where the sampling was done (e.g. in\
+      \ the desert or a rainforest). We recommend using subclasses of EnvO\u2019s\
+      \ biome class:  http://purl.obolibrary.org/obo/ENVO_00000428. EnvO documentation\
+      \ about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS"
+    title: broad-scale environmental context
+    comments:
+    - 'Expected value: The major environment type(s) where the sample was collected.
+      Recommend subclasses of biome [ENVO:00000428]. Multiple terms can be separated
+      by one or more pipes.'
+    examples:
+    - value: oceanic epipelagic zone biome [ENVO:01000033] for annotating a water
+        sample from the photic zone in middle of the Atlantic Ocean
+    from_schema: http://w3id.org/mixs/terms
+    is_a: environment field
+    string_serialization: '{termLabel} {[termID]}'
+    slot_uri: MIXS:0000012
+    multivalued: false
+    range: string
+  collection_date:
+    name: collection_date
+    aliases:
+    - collection date
+    description: 'The time of sampling, either as an instance (single point in time)
+      or interval. In case no exact time is available, the date/time can be right
+      truncated i.e. all of these are valid times: 2008-01-23T19:23:10+00:00; 2008-01-23T19:23:10;
+      2008-01-23; 2008-01; 2008; Except: 2008-01; 2008 all are ISO8601 compliant'
+    title: collection date
+    comments:
+    - 'Expected value: date and time'
+    examples:
+    - value: 2018-05-11T10:00:00+01:00; 2018-05-11
+    from_schema: http://w3id.org/mixs/terms
+    is_a: environment field
+    slot_uri: MIXS:0000011
+    multivalued: false
+    range: date
+  agrochem_addition:
+    name: agrochem_addition
+    aliases:
+    - history/agrochemical additions
+    description: Addition of fertilizers, pesticides, etc. - amount and time of applications
+    title: history/agrochemical additions
+    comments:
+    - 'Expected value: agrochemical name;agrochemical amount;timestamp'
+    - 'Preferred unit: gram, mole per liter, milligram per liter'
+    examples:
+    - value: roundup;5 milligram per liter;2018-06-21
+    from_schema: http://w3id.org/mixs/terms
+    is_a: core field
+    string_serialization: '{text};{float} {unit};{timestamp}'
+    slot_uri: MIXS:0000639
+    multivalued: true
+    range: string
+  has raw value:
+    name: has raw value
+    from_schema: http://w3id.org/mixs/ranges
+    string_serialization: '{has numeric value} {has unit}'
+  horizon_meth:
+    name: horizon_meth
+    aliases:
+    - horizon method
+    description: Reference or method used in determining the horizon
+    title: horizon method
+    comments:
+    - 'Expected value: PMID,DOI or url'
+    examples:
+    - value: ''
+    from_schema: http://w3id.org/mixs/terms
+    is_a: core field
+    string_serialization: '{PMID}|{DOI}|{URL}'
+    slot_uri: MIXS:0000321
+    multivalued: false
+    range: string
+  heavy_metals_meth:
+    name: heavy_metals_meth
+    aliases:
+    - extreme_unusual_properties/heavy metals method
+    description: Reference or method used in determining heavy metals
+    title: extreme_unusual_properties/heavy metals method
+    comments:
+    - 'Expected value: PMID,DOI or url'
+    examples:
+    - value: ''
+    from_schema: http://w3id.org/mixs/terms
+    is_a: core field
+    string_serialization: '{PMID}|{DOI}|{URL}'
+    slot_uri: MIXS:0000343
+    multivalued: false
+    range: string
+  cur_land_use:
+    name: cur_land_use
+    aliases:
+    - current land use
+    description: Present state of sample site
+    title: current land use
+    comments:
+    - 'Expected value: enumeration'
+    examples:
+    - value: conifers
+    from_schema: http://w3id.org/mixs/terms
+    is_a: core field
+    string_serialization: '[cities|farmstead|industrial areas|roads/railroads|rock|sand|gravel|mudflats|salt
+      flats|badlands|permanent snow or ice|saline seeps|mines/quarries|oil waste areas|small
+      grains|row crops|vegetable crops|horticultural plants (e.g. tulips)|marshlands
+      (grass,sedges,rushes)|tundra (mosses,lichens)|rangeland|pastureland (grasslands
+      used for livestock grazing)|hayland|meadows (grasses,alfalfa,fescue,bromegrass,timothy)|shrub
+      land (e.g. mesquite,sage-brush,creosote bush,shrub oak,eucalyptus)|successional
+      shrub land (tree saplings,hazels,sumacs,chokecherry,shrub dogwoods,blackberries)|shrub
+      crops (blueberries,nursery ornamentals,filberts)|vine crops (grapes)|conifers
+      (e.g. pine,spruce,fir,cypress)|hardwoods (e.g. oak,hickory,elm,aspen)|intermixed
+      hardwood and conifers|tropical (e.g. mangrove,palms)|rainforest (evergreen forest
+      receiving >406 cm annual rainfall)|swamp (permanent or semi-permanent water
+      body dominated by woody plants)|crop trees (nuts,fruit,christmas trees,nursery
+      trees)]'
+    slot_uri: MIXS:0001080
+    multivalued: false
+    range: cur_land_use_enum
+  tot_org_c_meth:
+    name: tot_org_c_meth
+    aliases:
+    - total organic carbon method
+    description: Reference or method used in determining total organic carbon
+    title: total organic carbon method
+    comments:
+    - 'Expected value: PMID,DOI or url'
+    examples:
+    - value: ''
+    from_schema: http://w3id.org/mixs/terms
+    is_a: core field
+    string_serialization: '{PMID}|{DOI}|{URL}'
+    slot_uri: MIXS:0000337
+    multivalued: false
+    range: string
+  soil_type_meth:
+    name: soil_type_meth
+    aliases:
+    - soil type method
+    description: Reference or method used in determining soil series name or other
+      lower-level classification
+    title: soil type method
+    comments:
+    - 'Expected value: PMID,DOI or url'
+    examples:
+    - value: ''
+    from_schema: http://w3id.org/mixs/terms
+    is_a: core field
+    string_serialization: '{PMID}|{DOI}|{URL}'
+    slot_uri: MIXS:0000334
+    multivalued: false
+    range: string
+  extreme_salinity:
+    name: extreme_salinity
+    aliases:
+    - extreme_unusual_properties/salinity
+    description: Measured salinity
+    title: extreme_unusual_properties/salinity
+    comments:
+    - 'Expected value: measurement value'
+    - 'Preferred unit: millisiemens per meter'
+    examples:
+    - value: ''
+    from_schema: http://w3id.org/mixs/terms
+    is_a: core field
+    slot_uri: MIXS:0000651
+    multivalued: false
+    range: quantity value
+  alt:
+    name: alt
+    aliases:
+    - altitude
+    description: Altitude is a term used to identify heights of objects such as airplanes,
+      space shuttles, rockets, atmospheric balloons and heights of places such as
+      atmospheric layers and clouds. It is used to measure the height of an object
+      which is above the earth's surface. In this context, the altitude measurement
+      is the vertical distance between the earth's surface above sea level and the
+      sampled position in the air
+    title: altitude
+    comments:
+    - 'Expected value: measurement value'
+    examples:
+    - value: 100 meter
+    from_schema: http://w3id.org/mixs/terms
+    is_a: environment field
+    slot_uri: MIXS:0000094
+    multivalued: false
+    range: quantity value
+  season_precpt:
+    name: season_precpt
+    aliases:
+    - mean seasonal precipitation
+    description: The average of all seasonal precipitation values known, or an estimated
+      equivalent value derived by such methods as regional indexes or Isohyetal maps.
+    title: mean seasonal precipitation
+    comments:
+    - 'Expected value: measurement value'
+    - 'Preferred unit: millimeter'
+    examples:
+    - value: ''
+    from_schema: http://w3id.org/mixs/terms
+    is_a: core field
+    slot_uri: MIXS:0000645
+    multivalued: false
+    range: quantity value
+  env_medium:
+    name: env_medium
+    aliases:
+    - environmental medium
+    description: 'Report the environmental material(s) immediately surrounding the
+      sample or specimen at the time of sampling. We recommend using subclasses of
+      ''environmental material'' (http://purl.obolibrary.org/obo/ENVO_00010483). EnvO
+      documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS
+      . Terms from other OBO ontologies are permissible as long as they reference
+      mass/volume nouns (e.g. air, water, blood) and not discrete, countable entities
+      (e.g. a tree, a leaf, a table top).'
+    title: environmental medium
+    comments:
+    - 'Expected value: The material displaced by the entity at time of sampling. Recommend
+      subclasses of environmental material [ENVO:00010483].'
+    examples:
+    - value: 'soil [ENVO:00001998]; Annotating a fish swimming in the upper 100 m
+        of the Atlantic Ocean, consider: ocean water [ENVO:00002151]. Example: Annotating
+        a duck on a pond consider: pond water [ENVO:00002228]|air [ENVO_00002005]'
+    from_schema: http://w3id.org/mixs/terms
+    is_a: environment field
+    string_serialization: '{termLabel} {[termID]}'
+    slot_uri: MIXS:0000014
+    multivalued: false
+    range: string
+  environment field:
+    name: environment field
+    description: field describing environmental aspect of a sample
+    from_schema: http://w3id.org/mixs/terms
+    abstract: true
+  link_addit_analys:
+    name: link_addit_analys
+    aliases:
+    - links to additional analysis
+    description: Link to additional analysis results performed on the sample
+    title: links to additional analysis
+    comments:
+    - 'Expected value: PMID,DOI or url'
+    examples:
+    - value: ''
+    from_schema: http://w3id.org/mixs/terms
+    is_a: core field
+    string_serialization: '{PMID}|{DOI}|{URL}'
+    slot_uri: MIXS:0000340
+    multivalued: false
+    range: string
+  profile_position:
+    name: profile_position
+    aliases:
+    - profile position
+    description: Cross-sectional position in the hillslope where sample was collected.sample
+      area position in relation to surrounding areas
+    title: profile position
+    comments:
+    - 'Expected value: enumeration'
+    examples:
+    - value: summit
+    from_schema: http://w3id.org/mixs/terms
+    is_a: core field
+    string_serialization: '[summit|shoulder|backslope|footslope|toeslope]'
+    slot_uri: MIXS:0001084
+    multivalued: false
+    range: profile_position_enum
+  prev_land_use_meth:
+    name: prev_land_use_meth
+    aliases:
+    - history/previous land use method
+    description: Reference or method used in determining previous land use and dates
+    title: history/previous land use method
+    comments:
+    - 'Expected value: PMID,DOI or url'
+    examples:
+    - value: ''
+    from_schema: http://w3id.org/mixs/terms
+    is_a: core field
+    string_serialization: '{PMID}|{DOI}|{URL}'
+    slot_uri: MIXS:0000316
+    multivalued: false
+    range: string
+  fao_class:
+    name: fao_class
+    aliases:
+    - soil_taxonomic/FAO classification
+    description: Soil classification from the FAO World Reference Database for Soil
+      Resources. The list can be found at http://www.fao.org/nr/land/sols/soil/wrb-soil-maps/reference-groups
+    title: soil_taxonomic/FAO classification
+    comments:
+    - 'Expected value: enumeration'
+    examples:
+    - value: Luvisols
+    from_schema: http://w3id.org/mixs/terms
+    is_a: core field
+    string_serialization: '[Acrisols|Andosols|Arenosols|Cambisols|Chernozems|Ferralsols|Fluvisols|Gleysols|Greyzems|Gypsisols|Histosols|Kastanozems|Lithosols|Luvisols|Nitosols|Phaeozems|Planosols|Podzols|Podzoluvisols|Rankers|Regosols|Rendzinas|Solonchaks|Solonetz|Vertisols|Yermosols]'
+    slot_uri: MIXS:0001083
+    multivalued: false
+    range: fao_class_enum
+  core field:
+    name: core field
+    description: basic fields
+    from_schema: http://w3id.org/mixs/terms
+    abstract: true
+  tot_nitro_content:
+    name: tot_nitro_content
+    aliases:
+    - total nitrogen content
+    description: Total nitrogen content of the sample
+    title: total nitrogen content
+    comments:
+    - 'Expected value: measurement value'
+    - 'Preferred unit: microgram per liter, micromole per liter, milligram per liter'
+    examples:
+    - value: ''
+    from_schema: http://w3id.org/mixs/terms
+    is_a: core field
+    slot_uri: MIXS:0000530
+    multivalued: false
+    range: quantity value
+  link_climate_info:
+    name: link_climate_info
+    aliases:
+    - link to climate information
+    description: Link to climate resource
+    title: link to climate information
+    comments:
+    - 'Expected value: PMID,DOI or url'
+    examples:
+    - value: ''
+    from_schema: http://w3id.org/mixs/terms
+    is_a: core field
+    string_serialization: '{PMID}|{DOI}|{URL}'
+    slot_uri: MIXS:0000328
+    multivalued: false
+    range: string
+  tot_nitro_cont_meth:
+    name: tot_nitro_cont_meth
+    aliases:
+    - total nitrogen content method
+    description: Reference or method used in determining the total nitrogen
+    title: total nitrogen content method
+    comments:
+    - 'Expected value: PMID,DOI or url'
+    examples:
+    - value: ''
+    from_schema: http://w3id.org/mixs/terms
+    is_a: core field
+    string_serialization: '{PMID}|{DOI}|{URL}'
+    slot_uri: MIXS:0000338
+    multivalued: false
+    range: string
+  soil_type:
+    name: soil_type
+    aliases:
+    - soil type
+    description: Description of the soil type or classification. This field accepts
+      terms under soil (http://purl.obolibrary.org/obo/ENVO_00001998).  Multiple terms
+      can be separated by pipes.
+    title: soil type
+    comments:
+    - 'Expected value: ENVO_00001998'
+    examples:
+    - value: plinthosol [ENVO:00002250]
+    from_schema: http://w3id.org/mixs/terms
+    is_a: core field
+    string_serialization: '{termLabel} {[termID]}'
+    slot_uri: MIXS:0000332
+    multivalued: false
+    range: string
+  soil_horizon:
+    name: soil_horizon
+    aliases:
+    - soil horizon
+    description: Specific layer in the land area which measures parallel to the soil
+      surface and possesses physical characteristics which differ from the layers
+      above and beneath
+    title: soil horizon
+    comments:
+    - 'Expected value: enumeration'
+    examples:
+    - value: A horizon
+    from_schema: http://w3id.org/mixs/terms
+    is_a: core field
+    string_serialization: '[O horizon|A horizon|E horizon|B horizon|C horizon|R layer|Permafrost]'
+    slot_uri: MIXS:0001082
+    multivalued: false
+    range: soil_horizon_enum
+  has unit:
+    name: has unit
+    description: Example "m"
+    from_schema: http://w3id.org/mixs/ranges
+  heavy_metals:
+    name: heavy_metals
+    aliases:
+    - extreme_unusual_properties/heavy metals
+    description: Heavy metals present in the sequenced sample and their concentrations.
+      For multiple heavy metals and concentrations, add multiple copies of this field.
+    title: extreme_unusual_properties/heavy metals
+    comments:
+    - 'Expected value: heavy metal name;measurement value unit'
+    - 'Preferred unit: microgram per gram'
+    examples:
+    - value: mercury;0.09 micrograms per gram
+    from_schema: http://w3id.org/mixs/terms
+    is_a: core field
+    string_serialization: '{text};{float} {unit}'
+    slot_uri: MIXS:0000652
+    multivalued: true
+    range: string
+  season_temp:
+    name: season_temp
+    aliases:
+    - mean seasonal temperature
+    description: Mean seasonal temperature
+    title: mean seasonal temperature
+    comments:
+    - 'Expected value: measurement value'
+    - 'Preferred unit: degree Celsius'
+    examples:
+    - value: 18 degree Celsius
+    from_schema: http://w3id.org/mixs/terms
+    is_a: core field
+    slot_uri: MIXS:0000643
+    multivalued: false
+    range: quantity value
+classes:
+  soil:
+    name: soil
+    description: soil
+    from_schema: http://w3id.org/mixs/soil
+    slots:
+    - lat_lon
+    - depth
+    - alt
+    - elev
+    - temp
+    - geo_loc_name
+    - collection_date
+    - env_broad_scale
+    - env_local_scale
+    - env_medium
+    - cur_land_use
+    - cur_vegetation
+    - cur_vegetation_meth
+    - previous_land_use
+    - prev_land_use_meth
+    - crop_rotation
+    - agrochem_addition
+    - tillage
+    - fire
+    - flooding
+    - extreme_event
+    - soil_horizon
+    - horizon_meth
+    - sieving
+    - water_content
+    - water_cont_soil_meth
+    - pool_dna_extracts
+    - store_cond
+    - link_climate_info
+    - annual_temp
+    - season_temp
+    - annual_precpt
+    - season_precpt
+    - link_class_info
+    - fao_class
+    - local_class
+    - local_class_meth
+    - soil_type
+    - soil_type_meth
+    - slope_gradient
+    - slope_aspect
+    - profile_position
+    - drainage_class
+    - soil_text_measure
+    - soil_texture_meth
+    - ph
+    - ph_meth
+    - tot_org_carb
+    - tot_org_c_meth
+    - tot_nitro_content
+    - tot_nitro_cont_meth
+    - microbial_biomass
+    - micro_biomass_meth
+    - link_addit_analys
+    - extreme_salinity
+    - salinity_meth
+    - heavy_metals
+    - heavy_metals_meth
+    - al_sat
+    - al_sat_meth
+    - misc_param
+    slot_usage:
+      samp_name:
+        name: samp_name
+        required: true
+      project_name:
+        name: project_name
+        required: true
+      depth:
+        name: depth
+        required: true
+      elev:
+        name: elev
+        required: true
+      cur_land_use:
+        name: cur_land_use
+        required: false
+      cur_vegetation:
+        name: cur_vegetation
+        required: false
+      cur_vegetation_meth:
+        name: cur_vegetation_meth
+        required: false
+      previous_land_use:
+        name: previous_land_use
+        required: false
+      prev_land_use_meth:
+        name: prev_land_use_meth
+        required: false
+      crop_rotation:
+        name: crop_rotation
+        required: false
+      agrochem_addition:
+        name: agrochem_addition
+        required: false
+      tillage:
+        name: tillage
+        required: false
+      fire:
+        name: fire
+        required: false
+      flooding:
+        name: flooding
+        required: false
+      extreme_event:
+        name: extreme_event
+        required: false
+      soil_horizon:
+        name: soil_horizon
+        required: false
+      horizon_meth:
+        name: horizon_meth
+        required: false
+      sieving:
+        name: sieving
+        required: false
+      water_content:
+        name: water_content
+        required: false
+      water_cont_soil_meth:
+        name: water_cont_soil_meth
+        required: false
+      samp_vol_we_dna_ext:
+        name: samp_vol_we_dna_ext
+        required: false
+      pool_dna_extracts:
+        name: pool_dna_extracts
+        required: false
+      store_cond:
+        name: store_cond
+        required: false
+      link_climate_info:
+        name: link_climate_info
+        required: false
+      annual_temp:
+        name: annual_temp
+        required: false
+      season_temp:
+        name: season_temp
+        required: false
+      annual_precpt:
+        name: annual_precpt
+        required: false
+      season_precpt:
+        name: season_precpt
+        required: false
+      link_class_info:
+        name: link_class_info
+        required: false
+      fao_class:
+        name: fao_class
+        required: false
+      local_class:
+        name: local_class
+        required: false
+      local_class_meth:
+        name: local_class_meth
+        required: false
+      soil_type:
+        name: soil_type
+        required: false
+      soil_type_meth:
+        name: soil_type_meth
+        required: false
+      slope_gradient:
+        name: slope_gradient
+        required: false
+      slope_aspect:
+        name: slope_aspect
+        required: false
+      profile_position:
+        name: profile_position
+        required: false
+      drainage_class:
+        name: drainage_class
+        required: false
+      soil_text_measure:
+        name: soil_text_measure
+        required: false
+      soil_texture_meth:
+        name: soil_texture_meth
+        required: false
+      ph:
+        name: ph
+        required: false
+      ph_meth:
+        name: ph_meth
+        required: false
+      tot_org_carb:
+        name: tot_org_carb
+        required: false
+      tot_org_c_meth:
+        name: tot_org_c_meth
+        required: false
+      tot_nitro_content:
+        name: tot_nitro_content
+        required: false
+      tot_nitro_cont_meth:
+        name: tot_nitro_cont_meth
+        required: false
+      microbial_biomass:
+        name: microbial_biomass
+        required: false
+      micro_biomass_meth:
+        name: micro_biomass_meth
+        required: false
+      link_addit_analys:
+        name: link_addit_analys
+        required: false
+      extreme_salinity:
+        name: extreme_salinity
+        required: false
+      salinity_meth:
+        name: salinity_meth
+        required: false
+      heavy_metals:
+        name: heavy_metals
+        required: false
+      heavy_metals_meth:
+        name: heavy_metals_meth
+        required: false
+      al_sat:
+        name: al_sat
+        required: false
+      al_sat_meth:
+        name: al_sat_meth
+        required: false
+      misc_param:
+        name: misc_param
+        required: false
+  quantity value:
+    name: quantity value
+    description: used to record a measurement
+    from_schema: http://w3id.org/mixs/ranges
+    attributes:
+      has unit:
+        name: has unit
+        description: Example "m"
+        from_schema: http://w3id.org/mixs/ranges
+      has numeric value:
+        name: has numeric value
+        from_schema: http://w3id.org/mixs/ranges
+        range: double
+      has raw value:
+        name: has raw value
+        from_schema: http://w3id.org/mixs/ranges
+        string_serialization: '{has numeric value} {has unit}'
