@@ -11,6 +11,8 @@ It's possible to regenerate a DH interface based on MIxS `soil` and NMDC `biosam
 - configuring GH pages for this repo (`main` branch, `docs` directory)
 - `make all`
 
+Want to run some tests? Try `poetry run pytest test_sntc.py`
+
 ----
 
 # original cidgoh/DataHarmonizer DataHarmonizer README
