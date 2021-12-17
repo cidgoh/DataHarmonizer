@@ -17,6 +17,7 @@ pygsheets = "*"
 python = "^3.9"
 strsimpy = "*"
 pytest = "*"
+dpath = "^2.0.5"
 
 [tool.poetry.dev-dependencies]
 

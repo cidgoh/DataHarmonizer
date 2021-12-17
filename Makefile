@@ -1,20 +1,7 @@
-# for following workflow, must first create MIxS LinkML
-#   from main branch of forked https://github.com/turbomam/mixs-source
+.PHONY: all clean post_clone_submodule_steps serializastion_vs_pattern negative_case
 
-# (moves "patterns" to string serializastions and removes some comments)
-#   rm -rf model/schema/*yaml
-#   make model/schema/mixs.yaml
-
-# check with
-#   pipenv run gen-yaml model/schema/mixs.yaml | less
-
-# still having trouble instantiating annotations for what used to be comments
-#   Occurrence, "This field is used..."
-# yaml.representer.RepresenterError: ('cannot represent an object', JsonObj(Occurrence=Annotation(tag='Occurrence', value='', extensions={}, annotations={})))
-
-.PHONY: all clean serializastion_vs_pattern negative_case
-
-all: clean serializastion_vs_pattern target/data.tsv
+# serializastion_vs_pattern
+all: clean post_clone_submodule_steps serializastion_vs_pattern target/data.tsv
 
 clean:
 	rm -rf target/mixs_soil.yaml
@@ -22,21 +9,32 @@ clean:
 	rm -rf target/soil_biosample*
 	rm -rf target/data.tsv
 
+# turbomam's mixs-source
+#   moves "patterns" to string serializastions
+#   removes some comments)
+#   still having trouble instantiating annotations for what used to be comments about Occurrence, "This field is used..."
+# yaml.representer.RepresenterError: ('cannot represent an object', JsonObj(Occurrence=Annotation(tag='Occurrence', value='', extensions={}, annotations={})))
+#
+# does anything bad happen if we do this routinely?
+post_clone_submodule_steps:
+	git submodule init
+	git submodule update
+
 # this LinkML to DataHarmonizer workflow doesn't want stuff like {PMID}|{DOI}|{URL} in "patterns"
 # egrep may not behave the same way on all systems
 serializastion_vs_pattern:
-	egrep "string_serialization:.*{PMID}|{DOI}|{URL}" ../mixs-source/model/schema/terms.yaml
+	egrep "string_serialization:.*{PMID}|{DOI}|{URL}" mixs-source/model/schema/terms.yaml
 
 # demonstrating that a failed step terminates the make process
 negative_case:
 	egrep "string_serialization:.*oh my darling" ../mixs-source/model/schema/*yaml
 
-target/mixs_soil.yaml:../mixs-source/model/schema/mixs.yaml
+target/mixs_soil.yaml:mixs-source/model/schema/mixs.yaml
 	poetry run get_dependencies \
 		--model_file $< \
 		--selected_class soil > $@
 
-target/nmdc_biosample.yaml:../nmdc-schema/src/schema/nmdc.yaml
+target/nmdc_biosample.yaml:nmdc-schema/src/schema/nmdc.yaml
 	poetry run get_dependencies \
 		--model_file $< \
 		--selected_class biosample > $@
@@ -80,8 +78,8 @@ target/data.tsv: target/soil_biosample_interleaved.yaml
 		--output_file=$@
 
 templating_handoff: target/data.tsv
-	cp $< ../DataHarmonizer/template/dev
-	cp target/soil_biosample_interleaved.yaml ../DataHarmonizer/template/dev
+	cp $< template/dev
+	# cp target/soil_biosample_interleaved.yaml ../DataHarmonizer/template/dev
 
 
 # manually run when ready:
