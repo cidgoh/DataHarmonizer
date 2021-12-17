@@ -1,6 +1,5 @@
 .PHONY: all clean post_clone_submodule_steps serializastion_vs_pattern negative_case
 
-# serializastion_vs_pattern
 all: clean post_clone_submodule_steps serializastion_vs_pattern target/data.tsv
 
 clean:
