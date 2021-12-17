@@ -1,0 +1,29 @@
+body {
+	font-family: arial;
+	margin:5% 5% 5% 5%;
+}
+
+table {
+	width: 100%;
+	table-layout: fixed;
+}
+
+table tr.section {
+	background-color:#f0f0f0;
+	padding:10px;
+	font-size:1.5rem;
+}
+
+table td {vertical-align: top; padding:5px;border-bottom:1px dashed silver;}
+table td.label {font-weight:bold;}
+
+table th {font-weight: bold; text-align: left;font-size:1.3rem;}
+
+table th.label {width: 25%; font-weight:bold;}
+table th.description {width: 20%}
+table th.guidance {width: 30%}
+table th.example {width: 15%}
+table th.data_status {width: 15%}
+
+table td {vertical-align: top; padding:5px;}
+table td.label {font-weight:bold;}

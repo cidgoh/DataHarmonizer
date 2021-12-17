@@ -79,6 +79,11 @@ target/data.tsv: target/soil_biosample_interleaved.yaml
 templating_handoff: target/data.tsv
 	cp $< template/dev
 	# cp target/soil_biosample_interleaved.yaml ../DataHarmonizer/template/dev
+	cp -r images docs
+	cp -r libraries docs
+	cp -r script docs
+	cp -r template docs
+	cp main.css main.html docs
 
 
 # manually run when ready:
