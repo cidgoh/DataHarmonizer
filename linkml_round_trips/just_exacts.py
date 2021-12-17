@@ -5,9 +5,11 @@ from linkml_runtime.utils.schemaview import SchemaView
 # from pathlib import Path
 from linkml_runtime.dumpers import yaml_dumper
 
+from linkml.generators.yamlgen import YAMLGenerator
+
 
 # todo sid and def_expansion should really be an uri or curie
-def just_exacts_schema(sname: str, sid: str, def_pref: str, def_expansion: str) -> SchemaDefinition:
+def bootstrap_schema(sname: str, sid: str, def_pref: str, def_expansion: str) -> SchemaDefinition:
     p = Prefix(prefix_prefix=def_pref, prefix_reference=def_expansion)
     sd = SchemaDefinition(name=sname, id=sid)
     sd.prefixes[def_pref] = p
@@ -150,44 +152,55 @@ class DependencyResolver:
 
         return self.resolve_dependencies()
 
+    def merge_dependencies(self, unmerged_schema, pref_reference):
+        for i in self.bookkeeping_dict['exhausted_classes']:
+            # print(f"merging in class dependency {i}")
+            unmerged_schema.classes[i] = self.get_reference_schema(pref_reference).get_class(i)
+        for i in self.bookkeeping_dict['exhausted_enums']:
+            # print(f"merging in enum dependency {i}")
+            unmerged_schema.enums[i] = self.get_reference_schema(pref_reference).get_enum(i)
+        for i in self.bookkeeping_dict['exhausted_slots']:
+            # print(f"merging in slot dependency {i}")
+            unmerged_schema.slots[i] = self.get_reference_schema(pref_reference).get_slot(i)
+        for i in self.bookkeeping_dict['exhausted_types']:
+            # print(f"merging in type dependency {i}")
+            unmerged_schema.types[i] = self.get_reference_schema(pref_reference).get_type(i)
 
-def main_meth():
-    current_resolver = DependencyResolver(
-        schema_files=["../mixs-source/model/schema/mixs.yaml", "../nmdc-schema/src/schema/nmdc.yaml"])
-    print(current_resolver.get_bookeeping())
-    # current_resolver.add_pending_range("person")
-    current_resolver.add_pending_range("soil")
-    print(current_resolver.get_bookeeping())
-    current_resolver.resolve_dependencies()
-    bookkeeping_res = current_resolver.get_bookeeping()
-    print(bookkeeping_res)
+        reference_prefixes = self.get_reference_prefixes(schema_name=pref_reference)
 
-    je_name = "SNTC_exact_mixs_usages"
-    je_id = f"http://example.com/{je_name}"
-    je_scd = just_exacts_schema(sname=je_name, sid=je_id, def_pref=je_name, def_expansion=f"{je_id}/")
+        for k, v in reference_prefixes.items():
+            # print(f"{v.prefix_prefix}: {v.prefix_reference}")
+            unmerged_schema.prefixes[v.prefix_prefix] = Prefix(prefix_prefix=v.prefix_prefix,
+                                                               prefix_reference=v.prefix_reference)
+        reference_subsets = self.get_reference_subsets(schema_name="NMDC")
+        for k, v in reference_subsets.items():
+            unmerged_schema.subsets[v.name] = v
 
-    for i in bookkeeping_res['exhausted_classes']:
-        print(i)
-        je_scd.classes[i] = current_resolver.get_reference_schema("MIxS").get_class(i)
-    for i in bookkeeping_res['exhausted_enums']:
-        print(i)
-        je_scd.enums[i] = current_resolver.get_reference_schema("MIxS").get_enum(i)
-    for i in bookkeeping_res['exhausted_slots']:
-        print(i)
-        je_scd.slots[i] = current_resolver.get_reference_schema("MIxS").get_slot(i)
-    for i in bookkeeping_res['exhausted_types']:
-        print(i)
-        je_scd.types[i] = current_resolver.get_reference_schema("MIxS").get_type(i)
-
-    reference_prefixes = current_resolver.get_reference_prefixes(schema_name="MIxS")
-    for k, v in reference_prefixes.items():
-        je_scd.prefixes[v.prefix_prefix] = v.prefix_reference
-    reference_subsets = current_resolver.get_reference_subsets(schema_name="NMDC")
-    for k, v in reference_subsets.items():
-        je_scd.subsets[v.name] = v
-
-    yaml_dumper.dump(je_scd, "../target/soil.yaml")
+        return unmerged_schema
 
 
-if __name__ == '__main__':
-    main_meth()
+# def main_meth():
+#     current_resolver = DependencyResolver(
+#         schema_files=["../mixs-source/model/schema/mixs.yaml", "../nmdc-schema/src/schema/nmdc.yaml"])
+#     print(current_resolver.get_bookeeping())
+#     # current_resolver.add_pending_range("person")
+#     current_resolver.add_pending_range("soil")
+#     print(current_resolver.get_bookeeping())
+#     current_resolver.resolve_dependencies()
+#     bookkeeping_res = current_resolver.get_bookeeping()
+#     print(bookkeeping_res)
+#
+#     je_name = "SNTC_exact_mixs_usages"
+#     je_id = f"http://example.com/{je_name}"
+#     je_scd = bootstrap_schema(sname=je_name, sid=je_id, def_pref=je_name, def_expansion=f"{je_id}/")
+#
+#     with_dependencies = current_resolver.merge_dependencies(je_scd, "MIxS")
+#
+#     # this will fail if with_dependencies has any problems
+#     validity_check = YAMLGenerator(with_dependencies)
+#
+#     yaml_dumper.dump(with_dependencies, "../target/soil.yaml")
+#
+#
+# if __name__ == '__main__':
+#     main_meth()

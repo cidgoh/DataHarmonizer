@@ -238,6 +238,7 @@ def test_multi_mentioned_mixs(sntc_gsheet):
     aggregated = pd.Series(from_Terms + from_skipped + from_replaced).value_counts()
     print("\n")
     print(aggregated)
+    # max should be 1
 
 
 # this illustrates the simplest case of making a subset schema
@@ -246,20 +247,31 @@ def test_just_exacts_schema(mixs_view, sntc_gsheet):
     sntc_name = "sntc"
     sntc_id = "http://example.com/sntc"
     sntc_class = ClassDefinition(name=sntc_name)
-    sntc_scd = je.just_exacts_schema(sname=sntc_name, sid=sntc_id, def_pref=sntc_name, def_expansion=f"{sntc_id}/")
+    sntc_scd = je.bootstrap_schema(sname=sntc_name, sid=sntc_id, def_pref=sntc_name, def_expansion=f"{sntc_id}/")
     sntc_scd.classes[sntc_name] = sntc_class
 
     as_exacts = get_informative_from_tab_col(sntc_gsheet, selected_tab="EXACT MIxS Terms for DH",
                                              selected_col="mixs_6_slot_name")
+
+    current_resolver = je.DependencyResolver(
+        schema_files=["mixs-source/model/schema/mixs.yaml", "nmdc-schema/src/schema/nmdc.yaml"])
 
     for claimed_exact in as_exacts:
         # todo no error handling yet
         exact_result = mixs_view.induced_slot(claimed_exact, 'soil')
         sntc_scd.slots[claimed_exact] = exact_result
         sntc_scd.classes[sntc_name].slots.append(claimed_exact)
-    scd_yaml = yaml_dumper.dumps(sntc_scd)
-    # haven't resolved dependencies
-    # so expect to see unrecognized elements, like ranges
-    generated = YAMLGenerator(scd_yaml)
+        current_resolver.add_pending_slot(claimed_exact)
+
+    current_resolver.add_pending_range("soil")
+    current_resolver.resolve_dependencies()
+    with_dependencies = current_resolver.merge_dependencies(sntc_scd, "MIxS")
+
+    scd_yaml = yaml_dumper.dumps(with_dependencies)
+    # print(scd_yaml)
+
+    yaml_dumper.dump(with_dependencies, "target/test_sntc.yaml")
+    validity_check = YAMLGenerator(scd_yaml)
+    assert validity_check
 
 # next test: creating DH TSV
