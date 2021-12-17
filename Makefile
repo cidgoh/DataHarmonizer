@@ -40,13 +40,13 @@ target/nmdc_biosample.yaml:nmdc-schema/src/schema/nmdc.yaml
 
 target/nmdc_biosample_generated.yaml: target/nmdc_biosample.yaml
 	poetry run gen-yaml $< > $@ 2> $@.log
-
 # oops imports can't be found ???
 # merge_dont_interleave isn't splicing all dicts in (eg for slot usage)
 # rules are pretty MIxS/NMDC specific right now and expect the model in that order
 # todo: using target/nmdc_biosample_generated.yaml as input here
 #   forces the inclusion of reasonable slot uris, but also forces in-lining of enums?
-#   should put slot uri generation code in get_dependencies
+#   should put slot uri generation code in get_dependencies (DONE?)
+
 target/soil_biosample.yaml:target/mixs_soil.yaml target/nmdc_biosample_generated.yaml
 	poetry run merge_dont_interleave \
 		--model_file1 target/mixs_soil.yaml \

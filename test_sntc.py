@@ -11,16 +11,16 @@ import linkml_round_trips.just_exacts as je
 from linkml.generators.yamlgen import YAMLGenerator
 
 # where to put these configuration values?
-mixs_yaml = "/Users/MAM/Documents/gitrepos/mixs-source/model/schema/mixs.yaml"
+mixs_yaml = "mixs-source/model/schema/mixs.yaml"
 sntc_id = '1pSmxX6XGOxmoA7S7rKyj5OaEl3PmAl4jAOlROuNHrU0'
-client_secret_json = "/Users/MAM/Downloads/client_secret_770153802425-idc98ogfj1m89csf9a1deotgnfaobkm4.apps.googleusercontent.com.json"
+client_secret_json = "local/client_secret.apps.googleusercontent.com.json"
 
 # SheetIdentification
 # JGI Terms, Example Use
 # please add at end
-expected_tab_dict = {0: 'SheetIdentification', 1: 'Terms', 2: 'JGI Terms', 3: 'Terms-New Terms',
-                     4: 'EXACT MIxS Terms for DH', 5: 'Example Use', 6: 'MIxS Terms Replaced',
-                     7: 'MIxS Terms Skipped', 8: 'OtherPackages', 9: 'EMSL Term Skipped'}
+expected_tab_dict = {0: 'SheetIdentification', 1: 'Terms', 2: 'Terms-New Terms',
+                     3: 'EXACT MIxS Terms for DH', 4: 'Example Use', 5: 'MIxS Terms Replaced',
+                     6: 'MIxS Terms Skipped', 7: 'OtherPackages', 8: 'EMSL Term Skipped', 9: 'JGI Terms', }
 
 expected_Terms_col_names = ['row_ord', 'Column Header', 'To Do', 'NMDC_slot_name_schema', 'EMSL_slot_Name',
                             'mixs_6_slot_name', 'Definition', 'Guidance', 'syntax', 'Expected value',

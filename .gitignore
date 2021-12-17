@@ -1,10 +1,11 @@
-venv
 .DS_Store
 .idea
 .ipynb_checkpoints
-__pycache__
-local
-target
 .pytest_cache
+__pycache__
+client_secret.apps.googleusercontent.com.json
 downloads
-
+local
+sheets.googleapis.com-python.json
+target
+venv
