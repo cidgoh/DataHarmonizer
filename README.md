@@ -1,4 +1,19 @@
-# DataHarmonizer
+This repo is a combination of
+- cidgoh/DataHarmonizer
+- the MIxS and NMDC schemas (as submodules)
+- code that can convert between spreadsheets, one or more LinkML files, and a DataHarmonizer `data.tsv` file
+    - cidgoh/DataHarmonizer may be adopting its own LinkML conversion mechanism, but moving away from the `data.tsv` format
+
+It's possible to regenerate a DH interface based on MIxS `soil` and NMDC `biosample`  by
+- cloning this repo
+- installing the [python poetry](https://python-poetry.org/docs/#installation) tool
+- [installing the poetry environment](https://python-poetry.org/docs/basic-usage/#installing-dependencies)
+- configuring GH pages for this repo (`main` branch, `docs` directory)
+- `make all`
+
+----
+
+# original cidgoh/DataHarmonizer DataHarmonizer README
 
 A standardized spreadsheet editor and validator that can be run offline and locally, and which includes templates for SARS-CoV-2 sampling data.  
 
