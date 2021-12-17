@@ -10,7 +10,7 @@ clean:
 
 # turbomam's mixs-source
 #   moves "patterns" to string serializastions
-#   removes some comments)
+#   removes some comments
 #   still having trouble instantiating annotations for what used to be comments about Occurrence, "This field is used..."
 # yaml.representer.RepresenterError: ('cannot represent an object', JsonObj(Occurrence=Annotation(tag='Occurrence', value='', extensions={}, annotations={})))
 #
@@ -95,25 +95,25 @@ target/mixs_package_classes.tsv:
 # add, commit and push to GH (with GH pages enabled) so that people can see the results at
 #   https://turbomam.github.io/DataHarmonizer/main.html
 
+#   go to the GH pages setup screen eg https://github.com/org/repo/settings/pages
+#     ensure that the pages are being buit from the docs folder in  the master/main branch
+
 # todo may want to work on related files like SOP.pdf, reference_template.html (before make_data.py?)
 
 # todo: check export results
 #   the column headers in the exported file should use slot names, not slot titles
-#   corresponding to XXX and XXX from the SNTC google sheet
+#   corresponding to mixs_6_slot_name (etc)  and "Column Header" from the Soil-NMDC-Template_Compiled google sheet
 #   or EXPORT_dev and label from the DH template
 # data.tsv has an EXPORT_dev column populated with slot names
 # export.js was pasted in based a default-case advice from Damion
 
+# todo: slots with identifier=True are now required/unique. check that they appear on the left hand side of template
+
 # todo: provide more valid and invalid example data files in exampleInput
 
-
-#   static changes, based on cidgoh/DataHarmonizer branch as of early Dec 2021:
-#     edit the const TEMPLATES in script/main.js to refect what templates are avaialble,
+#   static deviations vs  cidgoh/DataHarmonizer, based on their main branch as of early Dec 2021:
+#     edited the const TEMPLATES in script/main.js to refect what templates are avaialble,
 #       how they should be labelled and tagged for publication vs draft
-#     update the definition of template_label (let template_label) to reflect the label of the desired default template
-#   go to the GH pages setup screen eg https://github.com/org/repo/settings/pages
-#     ensure that the pages are being buit from the docs folder in  the master/main branch
-
-# todo: slots with identifier=True are now required/unique. check that they appear on the left hand side of template
+#     updated the definition of template_label (let template_label) to reflect the label of the desired default template
 
 # general makefile thought: try using $(word 2,$^) for 2nd and later dependencies
