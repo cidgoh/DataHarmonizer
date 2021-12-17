@@ -1,3 +1,6 @@
 [submodule "mixs-source"]
 	path = mixs-source
 	url = git@github.com:turbomam/mixs-source.git
+[submodule "nmdc-schema"]
+	path = nmdc-schema
+	url = git@github.com:microbiomedata/nmdc-schema.git
