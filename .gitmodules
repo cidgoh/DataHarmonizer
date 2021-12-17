@@ -1,0 +1,3 @@
+[submodule "mixs-source"]
+	path = mixs-source
+	url = git@github.com:turbomam/mixs-source.git
