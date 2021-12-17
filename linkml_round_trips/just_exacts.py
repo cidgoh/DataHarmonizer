@@ -162,31 +162,31 @@ def main_meth():
     bookkeeping_res = current_resolver.get_bookeeping()
     print(bookkeeping_res)
 
-    sntc_name = "sntc"
-    sntc_id = "http://example.com/sntc"
-    sntc_scd = just_exacts_schema(sname=sntc_name, sid=sntc_id, def_pref=sntc_name, def_expansion=f"{sntc_id}/")
+    je_name = "SNTC_exact_mixs_usages"
+    je_id = f"http://example.com/{je_name}"
+    je_scd = just_exacts_schema(sname=je_name, sid=je_id, def_pref=je_name, def_expansion=f"{je_id}/")
 
     for i in bookkeeping_res['exhausted_classes']:
         print(i)
-        sntc_scd.classes[i] = current_resolver.get_reference_schema("MIxS").get_class(i)
+        je_scd.classes[i] = current_resolver.get_reference_schema("MIxS").get_class(i)
     for i in bookkeeping_res['exhausted_enums']:
         print(i)
-        sntc_scd.enums[i] = current_resolver.get_reference_schema("MIxS").get_enum(i)
+        je_scd.enums[i] = current_resolver.get_reference_schema("MIxS").get_enum(i)
     for i in bookkeeping_res['exhausted_slots']:
         print(i)
-        sntc_scd.slots[i] = current_resolver.get_reference_schema("MIxS").get_slot(i)
+        je_scd.slots[i] = current_resolver.get_reference_schema("MIxS").get_slot(i)
     for i in bookkeeping_res['exhausted_types']:
         print(i)
-        sntc_scd.types[i] = current_resolver.get_reference_schema("MIxS").get_type(i)
+        je_scd.types[i] = current_resolver.get_reference_schema("MIxS").get_type(i)
 
     reference_prefixes = current_resolver.get_reference_prefixes(schema_name="MIxS")
     for k, v in reference_prefixes.items():
-        print(f"{v.prefix_prefix}: {v.prefix_reference}")
+        je_scd.prefixes[v.prefix_prefix] = v.prefix_reference
     reference_subsets = current_resolver.get_reference_subsets(schema_name="NMDC")
     for k, v in reference_subsets.items():
-        print(f"{v.name}: {v.description}")
+        je_scd.subsets[v.name] = v
 
-    yaml_dumper.dump(sntc_scd, "soil.yaml")
+    yaml_dumper.dump(je_scd, "../target/soil.yaml")
 
 
 if __name__ == '__main__':
