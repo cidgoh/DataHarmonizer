@@ -85,35 +85,35 @@ templating_handoff: target/data.tsv
 	cp -r template docs
 	cp main.css main.html docs
 
+target/mixs_package_classes.tsv:
+	poetry run mixs_package_classes \
+		--model_file ../mixs-source/model/schema/mixs.yaml
 
 
 # manually run when ready:
 #   make templating_handoff
-# now open a terminal in ../DataHarmonizer and setup or activate the venv
-# then cd to template/dev
-# and run:
-#   python ../../script/make_data.py
-# may want to work on related files like SOP.pdf, reference_template.html (before make_data.py?)
-# todo: work on data.tsv and export.js so that the export operation with DH exports a file using
-#   the EXPORT-designated column headings (linkml names), not the DH labels (linkml titles)
-# todo: provide more valid and invalid example data files in exampleInput
 # add, commit and push to GH (with GH pages enabled) so that people can see the results at
 #   https://turbomam.github.io/DataHarmonizer/main.html
-# requirements for that:
-#   *using code from main DH branch as of early Dec 2021*:
-#     edit the const TEMPLATES in script/main.js to refect what templates are avaialble, how they should be labelled and tagged for publication vs draft
+
+# todo may want to work on related files like SOP.pdf, reference_template.html (before make_data.py?)
+
+# todo: check export results
+#   the column headers in the exported file should use slot names, not slot titles
+#   corresponding to XXX and XXX from the SNTC google sheet
+#   or EXPORT_dev and label from the DH template
+# data.tsv has an EXPORT_dev column populated with slot names
+# export.js was pasted in based a default-case advice from Damion
+
+# todo: provide more valid and invalid example data files in exampleInput
+
+
+#   static changes, based on cidgoh/DataHarmonizer branch as of early Dec 2021:
+#     edit the const TEMPLATES in script/main.js to refect what templates are avaialble,
+#       how they should be labelled and tagged for publication vs draft
 #     update the definition of template_label (let template_label) to reflect the label of the desired default template
 #   go to the GH pages setup screen eg https://github.com/org/repo/settings/pages
-#     ensure that the pages are being buit from the root of the master/main branch
+#     ensure that the pages are being buit from the docs folder in  the master/main branch
 
-
-# DH tempalte creation thought: slots with identifier=True are now required/unique. Now move to left hand side of template
+# todo: slots with identifier=True are now required/unique. check that they appear on the left hand side of template
 
 # general makefile thought: try using $(word 2,$^) for 2nd and later dependencies
-
-####
-
-
-target/mixs_package_classes.tsv:
-	poetry run mixs_package_classes \
-		--model_file ../mixs-source/model/schema/mixs.yaml
