@@ -5,6 +5,9 @@ This repo is a combination of
     - cidgoh/DataHarmonizer may be adopting its own LinkML conversion mechanism, but moving away from the `data.tsv` format
 
 It's possible to regenerate a DH interface based on MIxS `soil` and NMDC `biosample`  by
+- obtaining a Google client secrets JSON file that authorizes code in this repo to read Google Sheets. Place in `local/client_secret.apps.googleusercontent.com.json`
+    - additional interactive validation may be required the first time any code from this repo is executed
+    - more documentation to come
 - cloning this repo
 - installing the [python poetry](https://python-poetry.org/docs/#installation) tool
 - [installing the poetry environment](https://python-poetry.org/docs/basic-usage/#installing-dependencies)
@@ -12,6 +15,7 @@ It's possible to regenerate a DH interface based on MIxS `soil` and NMDC `biosam
 - `make all`
 
 Want to run some tests? Try `poetry run pytest test_sntc.py`
+
 
 ----
 
