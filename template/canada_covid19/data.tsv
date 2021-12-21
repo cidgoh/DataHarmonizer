@@ -4,8 +4,8 @@ GENEPIO:0001122			Database Identifiers
 GENEPIO:0001123		Database Identifiers	specimen collector sample ID	xs:unique		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required					The user-defined name for the sample.	Store the collector sample ID. If this number is considered identifiable information, provide an alternative ID. Be sure to store the key that maps between the original and alternative IDs for traceability and follow up if necessary. Every collector sample ID from a single submitter must be unique. It can have any format, but we suggest that you make it concise, unique and consistent within your lab.	prov_rona_99	Sample ID given by the sample provider	Primary Specimen ID	TEXT_ID	sample_name	specimen collector sample ID
 GENEPIO:0001202		Database Identifiers	third party lab service provider name	xs:token								The name of the third party company or laboratory that provided services.	Store the sample identifier supplied by the third party services provider.	Switch Health			HC_TEXT5		
 GENEPIO:0001149		Database Identifiers	third party lab sample ID	xs:token								The identifier assigned to a sample by a third party service provider.		SHK123456			PH_ID_NUMBER_PRIMARY		
-GENEPIO:0001125		Database Identifiers	NML submitted specimen primary ID	xs:token								The primary ID of the specimen submitted thorough the National Microbiology Laboratory (NML) LaSER.	Store the identifier for the specimen submitted through the NML LaSER system.	SR20-12345			NML submitted specimen primary ID		
-GENEPIO:0001128		Database Identifiers	NML related specimen primary ID	xs:token		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access						The primary ID of the related specimen previously submitted thorough the National Microbiology Laboratory (NML) LaSER.	Store the primary ID of the related specimen previously submitted thorough LaSER	SR20-12345		Related Specimen ID;Related Specimen Relationship Type	NML related specimen primary ID		
+GENEPIO:0100281		Database Identifiers	case ID	xs:unique			recommended					The identifier used to specify an epidemiologically detected case of disease.	Provide the case identifer. The case ID greatly facilitates linkage between laboratory and epidemiological data. The case ID may be considered identifiable information. Consult the data steward before sharing.	ABCD1234			case ID		
+GENEPIO:0001128		Database Identifiers	Related specimen primary ID	xs:token		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access						The primary ID of a related specimen previously submitted to the repository.	Store the primary ID of the related specimen previously submitted to the National Microbiology Laboratory so that the samples can be linked and tracked through the system.	SR20-12345		Related Specimen ID;Related Specimen Relationship Type	NML related specimen primary ID		
 GENEPIO:0001131		Database Identifiers	IRIDA sample name	xs:token								The identifier assigned to a sequenced isolate in IRIDA.	Store the IRIDA sample name. The IRIDA sample name will be created by the individual entering data into the IRIDA platform. IRIDA samples may be linked to metadata and sequence data, or just metadata alone. It is recommended that the IRIDA sample name be the same as, or contain, the specimen collector sample ID for better traceability. It is also recommended that the IRIDA sample name mirror the GISAID accession. IRIDA sample names cannot contain slashes. Slashes should be replaced by underscores. See IRIDA documentation for more information regarding special characters (https://irida.corefacility.ca/documentation/user/user/samples/#adding-a-new-sample). 	prov_rona_99			IRIDA sample name		
 GENEPIO:0001133		Database Identifiers	umbrella bioproject accession	select						UPPER		The INSDC accession number assigned to the umbrella BioProject for the Canadian SARS-CoV-2 sequencing effort.	Store the umbrella BioProject accession by selecting it from the picklist in the template. The umbrella BioProject accession will be identical for all CanCOGen submitters. Different provinces will have their own BioProjects, however these BioProjects will be linked under one umbrella BioProject.	PRJNA623807			umbrella bioproject accession		
 GENEPIO:0001136		Database Identifiers	bioproject accession	xs:token						UPPER		The INSDC accession number of the BioProject(s) to which the BioSample belongs.	Store the BioProject accession number. BioProjects are an organizing tool that links together raw sequence data, assemblies, and their associated metadata. Each province will be assigned a different bioproject accession number by the National Microbiology Lab. A valid NCBI BioProject accession has prefix PRJN e.g., PRJNA12345, and is created once at the beginning of a new sequencing project. 	PRJNA608651		BioProject Accession	PH_BIOPROJECT_ACCESSION	bioproject_accession	
@@ -31,7 +31,7 @@ GENEPIO:0001195		Sample collection and processing	isolate	xs:token		Not Applicab
 GENEPIO:0001198		Sample collection and processing	purpose of sampling	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required					The reason that the sample was collected.	The reason a sample was collected may provide information about potential biases in sampling strategy. Provide the purpose of sampling from the picklist in the template. Most likely, the sample was collected for Diagnostic testing. The reason why a sample was originally collected may differ from the reason why it was selected for sequencing, which should be indicated in the "purpose of sequencing" field. 	Diagnostic testing		Reason for Sampling	HC_SAMPLE_CATEGORY	purpose_of_sampling	purpose of sampling
 GENEPIO:0001200		Sample collection and processing	purpose of sampling details	xs:token		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required					The description of why the sample was collected, providing specific details.	Provide an expanded description of why the sample was collected using free text. The description may include the importance of the sample for a particular public health investigation/surveillance activity/research question. If details are not available, provide a null value.	The sample was collected to investigate the prevalence of variants associated with mink-to-human transmission in Canada. 		Details on the Reason for Sampling	PH_SAMPLING_DETAILS	description	purpose of sampling details
 GENEPIO:0001204		Sample collection and processing	NML submitted specimen type	select			required					The type of specimen submitted to the National Microbiology Laboratory (NML) for testing.	This information is required for upload through the CNPHI LaSER system. Select the specimen type from the pick list provided. If sequence data is being submitted rather than a specimen for testing, select “Not Applicable”.	swab		Specimen Type	PH_SPECIMEN_TYPE		
-GENEPIO:0001209		Sample collection and processing	NML related specimen relationship type	select								The relationship of the related specimen to the previous National Microbiology Laboratory (NML) submission.	Provide the specimen type of the original sample submitted from the pick list provided, so that additional specimen testing can be tracked in the system.	Follow-up		Related Specimen ID;Related Specimen Relationship Type			
+GENEPIO:0001209		Sample collection and processing	Related specimen relationship type	select								The relationship of the current specimen to the specimen/sample previously submitted to the repository.	Provide the tag that describes how the previous sample is related to the current sample being submitted from the pick list provided, so that the samples can be linked and tracked in the system.	Specimen sampling methods testing		Related Specimen ID;Related Specimen Relationship Type			
 GENEPIO:0001211		Sample collection and processing	anatomical material	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required					A substance obtained from an anatomical part of an organism e.g. tissue, blood.	Provide a descriptor if an anatomical material was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. 	Blood	Specimen source	Anatomical Material	PH_ISOLATION_SITE_DESC	isolation_source;anatomical_material	anatomical material
 GENEPIO:0001214		Sample collection and processing	anatomical part	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required					An anatomical part of an organism e.g. oropharynx.	Provide a descriptor if an anatomical part was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. 	Nasopharynx (NP)	Specimen source	Anatomical Site	PH_ISOLATION_SITE	isolation_source;anatomical_part	anatomical part
 GENEPIO:0001216		Sample collection and processing	body product	select		Not Applicable; Missing; Not Collected; Not Provided; Restricted Access	required					A substance excreted/secreted from an organism e.g. feces, urine, sweat.	Provide a descriptor if a body product was sampled. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. 	Feces	Specimen source	Body Product	PH_SPECIMEN_SOURCE_DESC	isolation_source;body_product	body product
@@ -293,11 +293,14 @@ OBI:0001010		NML submitted specimen type	Nucleic acid
 GENEPIO:0001619		NML submitted specimen type	Not Applicable																
 																			
 																			
-HP:0011009		NML related specimen relationship type	Acute																
-		NML related specimen relationship type	Convalescent																
-		NML related specimen relationship type	Familial																
-EFO:0009642		NML related specimen relationship type	Follow-up																
-		NML related specimen relationship type	Previously Submitted																
+HP:0011009		Related specimen relationship type	Acute																
+		Related specimen relationship type	Convalescent																
+		Related specimen relationship type	Familial																
+EFO:0009642		Related specimen relationship type	Follow-up																
+		Follow-up	     Reinfection testing																
+		Related specimen relationship type	Previously Submitted																
+		Related specimen relationship type	Sequencing/bioinformatics methods development/validation 																
+		Related specimen relationship type	Specimen sampling methods testing																
 																			
 																			
 VO:0004925		pre-existing conditions and risk factors	Age 60+																
@@ -394,6 +397,7 @@ NCIT:C157332		Transplant	      Kidney transplant
 																			
 GENEPIO		variant designation	Variant of Concern (VOC)																
 GENEPIO		variant designation	Variant of Interest (VOI)																
+		variant designation	Variant Under Monitoring																
 																			
 CIDO:0000019		variant evidence	RT-qPCR																
 CIDO:0000027		variant evidence	Sequencing																
@@ -530,9 +534,8 @@ UBERON:0001827		body product	Tear
 UBERON:0006530		body product	Fluid (seminal)																
 UBERON:0001913		body product	Breast Milk																
 																			
-		prior SARS-CoV-2 infection	Yes																
-		prior SARS-CoV-2 infection	No																
-		prior SARS-CoV-2 infection	Unknown																
+		prior SARS-CoV-2 infection	Prior antiviral treatment																
+		prior SARS-CoV-2 infection	No prior antiviral treatment																
 																			
 																			
 ENVO:03501208		environmental material	Air vent																
@@ -762,8 +765,8 @@ GENEPIO NTR		host age bin	100+																90+
 NCIT:C46110		host gender	Female																
 NCIT:C46109		host gender	Male																
 GSSO:000132		host gender	Non-binary gender																
-GSSO:004004		host gender	Transgender (Male to Female)																
-GSSO:004005		host gender	Transgender (Female to Male)																
+GSSO:004004		host gender	Transgender (assigned male at birth)																
+GSSO:004005		host gender	Transgender (assigned female at birth)																
 		host gender	Undeclared																
 		host gender	Unknown																
 																			
@@ -849,18 +852,13 @@ ECTO:1000033		Occupational, Residency or Patronage Exposure	      Abbatoir
 ECTO NTR		Occupational, Residency or Patronage Exposure	      Animal Rescue																
 ECTO NTR		Occupational, Residency or Patronage Exposure	      Childcare																
 ECTO NTR		Childcare	            Daycare																
-ECTO NTR		Occupational, Residency or Patronage Exposure	       Funeral Home																
-ECTO NTR		Occupational, Residency or Patronage Exposure	      Place of Worship																
-ECTO NTR		Place of Worship	            Church																
-ECTO NTR		Place of Worship	            Mosque																
-ECTO NTR		Place of Worship	            Temple																
-ECTO NTR		Occupational, Residency or Patronage Exposure	      Nursery																
-ECTO NTR		Occupational, Residency or Patronage Exposure	      Household																
+ECTO NTR		Occupational, Residency or Patronage Exposure	            Nursery																
 ECTO NTR		Occupational, Residency or Patronage Exposure	      Community Service Centre																
 ECTO NTR		Occupational, Residency or Patronage Exposure	      Correctional Facility																
 ECTO NTR		Occupational, Residency or Patronage Exposure	      Dormitory																
 ECTO:1000034		Occupational, Residency or Patronage Exposure	      Farm																
 ECTO NTR		Occupational, Residency or Patronage Exposure	      First Nations Reserve																
+ECTO NTR		Occupational, Residency or Patronage Exposure	      Funeral Home																
 ECTO NTR		Occupational, Residency or Patronage Exposure	      Group Home																
 ECTO NTR		Occupational, Residency or Patronage Exposure	      Healthcare Setting																
 ECTO NTR		Healthcare Setting	            Ambulance																
@@ -875,6 +873,7 @@ ECTO:1000036		Healthcare Setting	            Laboratory
 ECTO NTR		Healthcare Setting	            Long-Term Care Facility																
 ECTO NTR		Healthcare Setting	            Pharmacy																
 ECTO NTR		Healthcare Setting	            Physician's Office																
+ECTO NTR		Occupational, Residency or Patronage Exposure	      Household																
 ECTO NTR		Occupational, Residency or Patronage Exposure	      Insecure Housing (Homeless)																
 ECTO NTR		Occupational, Residency or Patronage Exposure	      Occupational Exposure																
 ECTO NTR		Occupational Exposure	            Worksite																
@@ -885,6 +884,10 @@ ECTO NTR		Outdoors	            Hiking Trail
 ECTO:6000030		Outdoors	            Hunting Ground																
 ECTO NTR		Outdoors	            Ski Resort																
 ECTO:5000008		Occupational, Residency or Patronage Exposure	      Petting zoo																
+ECTO NTR		Occupational, Residency or Patronage Exposure	      Place of Worship																
+ECTO NTR		Place of Worship	            Church																
+ECTO NTR		Place of Worship	            Mosque																
+ECTO NTR		Place of Worship	            Temple																
 ECTO:1000040		Occupational, Residency or Patronage Exposure	      Restaurant																
 ECTO:1000041		Occupational, Residency or Patronage Exposure	      Retail Store																
 ECTO NTR		Occupational, Residency or Patronage Exposure	      School																
@@ -991,6 +994,8 @@ PR NTR?		gene name 1	orf14															orf14
 		sequence submitted by	BCCDC Public Health Laboratory																
 		sequence submitted by	Canadore College																
 		sequence submitted by	The Centre for Applied Genomics (TCAG)																
+		sequence submitted by	Dynacare																
+		sequence submitted by	Dynacare (Brampton)																
 		sequence submitted by	Dynacare (Manitoba)																
 		sequence submitted by	The Hospital for Sick Children (SickKids)																
 		sequence submitted by	Laboratoire de santé publique du Québec (LSPQ)																
@@ -1014,6 +1019,7 @@ PR NTR?		gene name 1	orf14															orf14
 		Alberta Precision Labs (APL)	Alberta ProvLab North (APLN)																
 		Alberta Precision Labs (APL)	Alberta ProvLab South (APLS)																
 		 sample collected by	BCCDC Public Health Laboratory																
+		 sample collected by	Dynacare																
 		 sample collected by	Dynacare (Manitoba)																
 		 sample collected by	Dynacare (Brampton)																
 		 sample collected by	Eastern Ontario Regional Laboratory Association																
