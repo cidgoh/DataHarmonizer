@@ -2,7 +2,7 @@ Development notes about conversion of DataHarmonizer to use LinkML directly.
 
 test with /linkml.html instead of /main.html
 uses main_linkml.js instead of main.js
-The following scripts have been split off of a refactored main.js refactored main.js:
+The following scripts have been split off of a refactored main.js:
    export_utils.js
    field_rules.js
    file_utils.js
