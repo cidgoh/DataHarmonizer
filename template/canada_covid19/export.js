@@ -374,6 +374,8 @@ var exportNML_LIMS = (baseName, hot, data, xlsx, fileType) => {
     ['TEXT_ID',                 []],
     ['HC_TEXT5',                []],
     ['PH_ID_NUMBER_PRIMARY',    []],
+    ['PH_CASE_ID',              []],
+    ['PH_RELATED_PRIMARY_ID',   []],
     ['PH_BIOPROJECT_ACCESSION', []],
     ['PH_BIOSAMPLE_ACCESSION',  []],
     ['PH_SRA_ACCESSION',        []],
@@ -389,6 +391,7 @@ var exportNML_LIMS = (baseName, hot, data, xlsx, fileType) => {
     ['HC_SAMPLE_CATEGORY',      []], 
     ['PH_SAMPLING_DETAILS',     []],
     ['PH_SPECIMEN_TYPE',        []],
+    ['PH_RELATED_RELATIONSHIP_TYPE', []],
     ['PH_ISOLATION_SITE_DESC',  []],
     ['PH_ISOLATION_SITE',       []],
     ['PH_SPECIMEN_SOURCE',      []], // Calculated field (not in import)
