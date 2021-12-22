@@ -107,7 +107,7 @@ var DATA = [
         "exportField": {
           "NML_LIMS": [
             {
-              "field": "case ID"
+              "field": "PH_CASE_ID"
             }
           ]
         }
@@ -142,7 +142,7 @@ var DATA = [
           ],
           "NML_LIMS": [
             {
-              "field": "NML related specimen primary ID"
+              "field": "PH_RELATED_PRIMARY_ID"
             }
           ]
         }
@@ -1944,6 +1944,11 @@ var DATA = [
             },
             {
               "field": "Related Specimen Relationship Type"
+            }
+          ],
+          "NML_LIMS": [
+            {
+              "field": "PH_RELATED_RELATIONSHIP_TYPE"
             }
           ]
         },
