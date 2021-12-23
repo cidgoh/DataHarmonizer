@@ -454,6 +454,7 @@ var exportNML_LIMS = (baseName, hot, data, xlsx, fileType) => {
   // Copy headers to 1st row of new export table
   const outputMatrix = [[...ExportHeaders.keys()]];
 
+
   nullOptionsMap = new Map([
     ['not applicable', 'Not Applicable'],
     ['missing', 'Missing'],
@@ -461,7 +462,9 @@ var exportNML_LIMS = (baseName, hot, data, xlsx, fileType) => {
     ['not provided', 'Not Provided'],
     ['restricted access', 'Restricted Access']
   ]);
-  
+
+  null_values = new Set(['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']);
+
   for (const inputRow of getTrimmedData(hot)) {
     const outputRow = [];
     for (const [headerName, sources] of ExportHeaders) {
@@ -485,7 +488,6 @@ var exportNML_LIMS = (baseName, hot, data, xlsx, fileType) => {
       // by looking at year or month in "sample collection date precision"
       if (headerName === 'HC_COLLECT_DATE') {
         let value = inputRow[sourceFieldNameMap['sample collection date']] || '';
-        //value = fixNullOptionCase(value,nullOptionsMap);
         const date_unit = inputRow[sourceFieldNameMap['sample collection date precision']];
         outputRow.push(setDateChange(date_unit, value, '01'));
         continue;
@@ -525,7 +527,23 @@ var exportNML_LIMS = (baseName, hot, data, xlsx, fileType) => {
 
       // Otherwise apply source (many to one) to target field transform:
       let value = getMappedField(headerName, inputRow, sources, sourceFields, sourceFieldNameMap, ';', 'NML_LIMS');
-      //value = fixNullOptionCase(value, nullOptionsMap);
+
+
+      if (headerName === 'PH_TRAVEL') {
+        //Make unique any values in concatenated PH_TRAVEL merged field.
+        //FUTURE: Catch lowercase error too for travel fields not marked as allowing null values
+        //value = fixNullOptionCase(value, nullOptionsMap); 
+        let val_set = new Set(value.split(';'));
+        // Search for null values and remove them.
+        let val_set_size = val_set.size;
+        if (val_set.size > 1) {
+          null_values.forEach(Set.prototype.delete, val_set);
+          if (val_set.size == 0) // set was all null values so reset list 
+            val_set = new Set(value.split(';'));
+        }
+        value = [...val_set].join(';');
+      }
+
       outputRow.push(value);
     }
     outputMatrix.push(outputRow);
