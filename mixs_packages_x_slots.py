@@ -1,10 +1,23 @@
 import pandas as pd
+import pygsheets
 from linkml_runtime.utils.schemaview import SchemaView
 
 mixs_yaml = "mixs-source/model/schema/mixs.yaml"
 output_file = "target/mixs_packages_x_slots.tsv"
+sntc_id = '1pSmxX6XGOxmoA7S7rKyj5OaEl3PmAl4jAOlROuNHrU0'
+client_secret_json = "local/client_secret.apps.googleusercontent.com.json"
 
 mixs_view = SchemaView(mixs_yaml)
+
+
+def get_ignore_requests(some_google_auth_file, sheet_id, tab_title):
+    gc = pygsheets.authorize(client_secret=some_google_auth_file)
+    sntc_gsheet = gc.open_by_key(sheet_id)
+    current_tab = sntc_gsheet.worksheet("title", tab_title)
+    print(current_tab)
+
+
+get_ignore_requests(client_secret_json, sntc_id, "MIxS Terms Skipped")
 
 
 # I could swear I've already written something like this
