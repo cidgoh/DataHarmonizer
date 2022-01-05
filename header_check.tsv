@@ -1,0 +1,164 @@
+slot	Column Header_pxs	Column Header_terms	pxs_safe
+16s_recover			True
+16s_recover_software			True
+adapters			True
+agrochem_addition	history/agrochemical additions	history/agrochemical additions	True
+air_temp_regm		air temperature regimen	True
+al_sat	extreme_unusual_properties/Al saturation	extreme_unusual_properties/Al saturation	True
+al_sat_meth	extreme_unusual_properties/Al saturation method	extreme_unusual_properties/Al saturation method	True
+alt	altitude	altitude	True
+annot			True
+annual_precpt	mean annual precipitation	mean annual precipitation	True
+annual_temp	mean annual temperature	mean annual temperature	True
+assembly_name			True
+assembly_qual			True
+assembly_software			True
+associated resource			True
+bacteria_carb_prod			True
+bin_param			True
+bin_software			True
+biotic_regm		biotic regimen	True
+carb_nitro_ratio		carbon/nitrogen ratio	True
+chem_administration		chemical administration	True
+chimera_check			True
+climate_environment		climate environment	True
+collection_date			True
+compl_appr			True
+compl_score			True
+compl_software			True
+contam_score			True
+contam_screen_input			True
+contam_screen_param			True
+crop_rotation	history/crop rotation	history/crop rotation	True
+cur_land_use	current land use	current land use	True
+cur_vegetation	current vegetation	current vegetation	True
+cur_vegetation_meth	current vegetation method	current vegetation method	True
+decontam_software			True
+depth		depth	True
+detec_type			True
+drainage_class	drainage classification	drainage classification	True
+elev	elevation	elevation	True
+encoded_traits			True
+env_broad_scale	broad-scale environmental context	broad-scale environmental context	True
+env_local_scale	local environmental context	local environmental context	True
+env_medium	environmental medium	environmental medium	True
+estimated_size			True
+experimental_factor	experimental factor	experimental factor	True
+extrachrom_elements			True
+extreme_event	history/extreme events	history/extreme events	True
+extreme_salinity			True
+fao_class	soil_taxonomic/FAO classification	soil_taxonomic/FAO classification	True
+feat_pred			True
+fire	history/fire	history/fire	True
+flooding	history/flooding	history/flooding	True
+gaseous_environment		gaseous environment	True
+geo_loc_name	geographic location (country and/or sea,region)	geographic location (country and/or sea,region)	True
+heavy_metals	extreme_unusual_properties/heavy metals	extreme_unusual_properties/heavy metals	True
+heavy_metals_meth	extreme_unusual_properties/heavy metals method	extreme_unusual_properties/heavy metals method	True
+horizon_meth	horizon method	horizon method	True
+host_disease_stat			True
+host_pred_appr			True
+host_pred_est_acc			True
+host_spec_range			True
+humidity_regm		humidity regimen	True
+isol_growth_condt			True
+lat_lon	geographic location (latitude and longitude)	geographic location (latitude and longitude)	True
+lib_layout			True
+lib_reads_seqd			True
+lib_screen			True
+lib_size			True
+lib_vector			True
+light_regm		light regimen	True
+link_addit_analys			True
+link_class_info	link to classification information	link to classification information	True
+link_climate_info	link to climate information	link to climate information	True
+local_class	soil_taxonomic/local classification	soil_taxonomic/local classification	True
+local_class_meth	soil_taxonomic/local classification method	soil_taxonomic/local classification method	True
+mag_cov_software			True
+micro_biomass_meth	microbial biomass method	microbial biomass method	True
+microbial_biomass	microbial biomass	microbial biomass	True
+mid			True
+misc_param	miscellaneous parameter	miscellaneous parameter	True
+neg_cont_type			True
+nucl_acid_amp			True
+nucl_acid_ext			True
+num_replicons			True
+number_contig			True
+org_carb			True
+org_matter	organic matter	organic matter	True
+org_nitro		organic nitrogen	True
+otu_class_appr			True
+otu_db			True
+otu_seq_comp_appr			True
+oxy_stat_samp		oxygenation status of sample	True
+pathogenicity			True
+pcr_cond			True
+pcr_primers			True
+ph	pH	pH	True
+ph_meth	pH method	pH method	True
+phosphate		phosphate	True
+ploidy			True
+pool_dna_extracts			True
+pos_cont_type			True
+pred_genome_struc			True
+pred_genome_type			True
+prev_land_use_meth	history/previous land use method	history/previous land use method	True
+previous_land_use	history/previous land use	history/previous land use	True
+profile_position	profile position	profile position	True
+propagation			True
+reassembly_bin			True
+ref_biomaterial			True
+ref_db			True
+salinity		salinity	True
+salinity_meth	salinity method	salinity method	True
+samp_store_temp		sample storage temperature	True
+samp_taxon_id			True
+samp_vol_we_dna_ext			True
+samp_vol_we_dna_ext			True
+season_precpt	mean seasonal precipitation	mean seasonal precipitation	True
+season_temp	mean seasonal temperature	mean seasonal temperature	True
+seq_meth			True
+seq_quality_check			True
+sieving	composite design/sieving	composite design/sieving	True
+sim_search_meth			True
+single_cell_lysis_appr			True
+single_cell_lysis_prot			True
+size_frac			True
+size_frac_low		size-fraction lower threshold	True
+size_frac_up		size-fraction upper threshold	True
+slope_aspect	slope aspect	slope aspect	True
+slope_gradient	slope gradient	slope gradient	True
+soil_horizon		soil horizon	True
+soil_text_measure	soil texture measurement	soil texture measurement	True
+soil_texture_meth	soil texture method	soil texture method	True
+soil_type	soil type	soil type	True
+soil_type_meth	soil type method	soil type method	True
+sop			True
+sort_tech			True
+source_mat_id	source material ID		False
+source_uvig			True
+specific_host			True
+store_cond			True
+subspecf_gen_lin			True
+target_gene			True
+target_subfragment			True
+tax_class			True
+tax_ident			True
+temp		temperature	True
+tillage	history/tillage	history/tillage	True
+tot_carb		total carbon	True
+tot_nitro_cont_meth	total nitrogen content method	total nitrogen content method	True
+tot_nitro_content	total nitrogen content	total nitrogen content	True
+tot_org_c_meth	total organic carbon method	total organic carbon method	True
+tot_org_carb	total organic carbon	total organic carbon	True
+tot_phosp		total phosphorus	True
+trna_ext_software			True
+trnas			True
+trophic_level			True
+vir_ident_software			True
+virus_enrich_appr			True
+water_cont_soil_meth	water content method	water content method	True
+water_content	water content	water content	True
+watering_regm		watering regimen	True
+wga_amp_appr			True
+wga_amp_kit			True

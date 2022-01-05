@@ -1,0 +1,148 @@
+name	slot_uri	from_schema	required	identifier	description
+GOLD sample identifiers		https://microbiomedata/schema/external_identifiers			['identifiers for corresponding sample in GOLD']
+INSDC biosample identifiers		https://microbiomedata/schema/external_identifiers			['identifiers for corresponding sample in INSDC']
+INSDC secondary sample identifiers		https://microbiomedata/schema/external_identifiers			['secondary identifiers for corresponding sample in INSDC']
+add_date		https://microbiomedata/schema			The date on which the information was added to the database.
+agrochem_addition		https://microbiomedata/schema/mixs			"""Addition of fertilizers, pesticides, etc. - amount and time of applications"""
+al_sat		https://microbiomedata/schema/mixs			Aluminum saturation (esp. For tropical soils)
+al_sat_meth		https://microbiomedata/schema/mixs			Reference or method used in determining Al saturation
+alkalinity		https://microbiomedata/schema/mixs			"""Alkalinity, the ability of a solution to neutralize acids to the equivalence point of carbonate or bicarbonate"""
+alkalinity_method		https://microbiomedata/schema/mixs			Method used for alkalinity measurement
+alkyl_diethers		https://microbiomedata/schema/mixs			Concentration of alkyl diethers 
+alt		https://microbiomedata/schema/mixs			"""Altitude is a term used to identify heights of objects such as airplanes, space shuttles, rockets, atmospheric balloons and heights of places such as atmospheric layers and clouds. It is used to measure the height of an object which is above the earthbs surface. In this context, the altitude measurement is the vertical distance between the earth's surface above sea level and the sampled position in the air"""
+alternative identifiers		https://microbiomedata/schema/basic_slots			A list of alternative identifiers for the entity.
+aminopept_act		https://microbiomedata/schema/mixs			Measurement of aminopeptidase activity
+ammonium		https://microbiomedata/schema/mixs			Concentration of ammonium in the sample
+annual_precpt		https://microbiomedata/schema/mixs			"""The average of all annual precipitation values known, or an estimated equivalent value derived by such methods as regional indexes or Isohyetal maps. """
+annual_temp		https://microbiomedata/schema/mixs			Mean annual temperature
+bacteria_carb_prod		https://microbiomedata/schema/mixs			Measurement of bacterial carbon production
+bishomohopanol		https://microbiomedata/schema/mixs			Concentration of bishomohopanol 
+bromide		https://microbiomedata/schema/mixs			Concentration of bromide 
+calcium		https://microbiomedata/schema/mixs			Concentration of calcium in the sample
+carb_nitro_ratio		https://microbiomedata/schema/mixs			Ratio of amount or concentrations of carbon to nitrogen
+chem_administration		https://microbiomedata/schema/mixs			"""List of chemical compounds administered to the host or site where sampling occurred, and when (e.g. Antibiotics, n fertilizer, air filter); can include multiple compounds. For chemical entities of biological interest ontology (chebi) (v 163), http://purl.bioontology.org/ontology/chebi"""
+chloride		https://microbiomedata/schema/mixs			Concentration of chloride in the sample
+chlorophyll		https://microbiomedata/schema/mixs			Concentration of chlorophyll
+collection_date		https://microbiomedata/schema/mixs			"""The time of sampling, either as an instance (single point in time) or interval. In case no exact time is available, the date/time can be right truncated i.e. all of these are valid times: 2008-01-23T19:23:10+00:00; 2008-01-23T19:23:10; 2008-01-23; 2008-01; 2008; Except: 2008-01; 2008 all are ISO8601 compliant"""
+community		https://microbiomedata/schema			
+crop_rotation		https://microbiomedata/schema/mixs			"""Whether or not crop is rotated, and if yes, rotation schedule"""
+cur_land_use		https://microbiomedata/schema/mixs			Present state of sample site
+cur_vegetation		https://microbiomedata/schema/mixs			"""Vegetation classification from one or more standard classification systems, or agricultural crop"""
+cur_vegetation_meth		https://microbiomedata/schema/mixs			Reference or method used in vegetation classification 
+density		https://microbiomedata/schema/mixs			"""Density of the sample, which is its mass per unit volume (aka volumetric mass density)"""
+depth		https://microbiomedata/schema/mixs			Please refer to the definitions of depth in the environmental packages
+depth2		https://microbiomedata/schema			
+description	dcterms:description	https://microbiomedata/schema/basic_slots			a human-readable description of a thing
+diss_carb_dioxide		https://microbiomedata/schema/mixs			Concentration of dissolved carbon dioxide in the sample or liquid portion of the sample
+diss_hydrogen		https://microbiomedata/schema/mixs			Concentration of dissolved hydrogen
+diss_inorg_carb		https://microbiomedata/schema/mixs			"""Dissolved inorganic carbon concentration in the sample, typically measured after filtering the sample using a 0.45 micrometer filter"""
+diss_inorg_phosp		https://microbiomedata/schema/mixs			Concentration of dissolved inorganic phosphorus in the sample
+diss_org_carb		https://microbiomedata/schema/mixs			"""Concentration of dissolved organic carbon in the sample, liquid portion of the sample, or aqueous phase of the fluid"""
+diss_org_nitro		https://microbiomedata/schema/mixs			Dissolved organic nitrogen concentration measured as; total dissolved nitrogen - NH4 - NO3 - NO2
+diss_oxygen		https://microbiomedata/schema/mixs			Concentration of dissolved oxygen
+drainage_class		https://microbiomedata/schema/mixs			Drainage classification from a standard system such as the USDA system
+ecosystem		https://microbiomedata/schema			TODO
+ecosystem_category		https://microbiomedata/schema			TODO
+ecosystem_subtype		https://microbiomedata/schema			TODO
+ecosystem_type		https://microbiomedata/schema			TODO
+elev		https://microbiomedata/schema/mixs			"""Elevation of the sampling site is its height above a fixed reference point, most commonly the mean sea level. Elevation is mainly used when referring to points on the earth's surface, while altitude is used for points above the surface, such as an aircraft in flight or a spacecraft in orbit"""
+env_broad_scale		https://microbiomedata/schema/mixs	True		"""In this field, report which major environmental system your sample or specimen came from. The systems identified should have a coarse spatial grain, to provide the general environmental context of where the sampling was done (e.g. were you in the desert or a rainforest?). We recommend using subclasses of ENVOUs biome class: http://purl.obolibrary.org/obo/ENVO_00000428. Format (one term): termLabel [termID], Format (multiple terms): termLabel [termID]|termLabel [termID]|termLabel [termID]. Example: Annotating a water sample from the photic zone in middle of the Atlantic Ocean, consider: oceanic epipelagic zone biome [ENVO:01000033]. Example: Annotating a sample from the Amazon rainforest consider: tropical moist broadleaf forest biome [ENVO:01000228]. If needed, request new terms on the ENVO tracker, identified here: http://www.obofoundry.org/ontology/envo.html"""
+env_local_scale		https://microbiomedata/schema/mixs	True		"""In this field, report the entity or entities which are in your sample or specimenUs local vicinity and which you believe have significant causal influences on your sample or specimen. Please use terms that are present in ENVO and which are of smaller spatial grain than your entry for env_broad_scale. Format (one term): termLabel [termID]; Format (multiple terms): termLabel [termID]|termLabel [termID]|termLabel [termID]. Example: Annotating a pooled sample taken from various vegetation layers in a forest consider: canopy [ENVO:00000047]|herb and fern layer [ENVO:01000337]|litter layer [ENVO:01000338]|understory [01000335]|shrub layer [ENVO:01000336]. If needed, request new terms on the ENVO tracker, identified here: http://www.obofoundry.org/ontology/envo.html"""
+env_medium		https://microbiomedata/schema/mixs	True		"""In this field, report which environmental material or materials (pipe separated) immediately surrounded your sample or specimen prior to sampling, using one or more subclasses of ENVOUs environmental material class: http://purl.obolibrary.org/obo/ENVO_00010483. Format (one term): termLabel [termID]; Format (multiple terms): termLabel [termID]|termLabel [termID]|termLabel [termID]. Example: Annotating a fish swimming in the upper 100 m of the Atlantic Ocean, consider: ocean water [ENVO:00002151]. Example: Annotating a duck on a pond consider: pond water [ENVO:00002228]|air ENVO_00002005. If needed, request new terms on the ENVO tracker, identified here: http://www.obofoundry.org/ontology/envo.html"""
+env_package		https://microbiomedata/schema/mixs			"""MIxS extension for reporting of measurements and observations obtained from one or more of the environments where the sample was obtained. All environmental packages listed here are further defined in separate subtables. By giving the name of the environmental package, a selection of fields can be made from the subtables and can be reported"""
+extreme_event		https://microbiomedata/schema/mixs			Unusual physical events that may have affected microbial populations
+fao_class		https://microbiomedata/schema/mixs			Soil classification from the FAO World Reference Database for Soil Resources. The list can be found at http://www.fao.org/nr/land/sols/soil/wrb-soil-maps/reference-groups
+fire		https://microbiomedata/schema/mixs			Historical and/or physical evidence of fire
+flooding		https://microbiomedata/schema/mixs			Historical and/or physical evidence of flooding
+geo_loc_name		https://microbiomedata/schema/mixs			"""The geographical origin of the sample as defined by the country or sea name followed by specific region name. Country or sea names should be chosen from the INSDC country list (http://insdc.org/country.html), or the GAZ ontology (v 1.512) (http://purl.bioontology.org/ontology/GAZ)"""
+glucosidase_act		https://microbiomedata/schema/mixs			Measurement of glucosidase activity
+habitat		https://microbiomedata/schema			
+heavy_metals		https://microbiomedata/schema/mixs			Heavy metals present and concentrationsany drug used by subject and the frequency of usage; can include multiple heavy metals and concentrations
+heavy_metals_meth		https://microbiomedata/schema/mixs			Reference or method used in determining heavy metals
+horizon		https://microbiomedata/schema/mixs			Specific layer in the land area which measures parallel to the soil surface and possesses physical characteristics which differ from the layers above and beneath
+horizon_meth		https://microbiomedata/schema/mixs			Reference or method used in determining the horizon
+host_name		https://microbiomedata/schema			
+id		https://microbiomedata/schema/basic_slots		True	A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI
+identifier		https://microbiomedata/schema			
+lat_lon		https://microbiomedata/schema/mixs	False		This is currently a required field but it's not clear if this should be required for human hosts
+link_addit_analys		https://microbiomedata/schema/mixs			Link to additional analysis results performed on the sample
+link_class_info		https://microbiomedata/schema/mixs			Link to digitized soil maps or other soil classification information
+link_climate_info		https://microbiomedata/schema/mixs			Link to climate resource
+local_class		https://microbiomedata/schema/mixs			Soil classification based on local soil classification system
+local_class_meth		https://microbiomedata/schema/mixs			Reference or method used in determining the local soil classification 
+location		https://microbiomedata/schema			
+magnesium		https://microbiomedata/schema/mixs			Concentration of magnesium in the sample
+mean_frict_vel		https://microbiomedata/schema/mixs			Measurement of mean friction velocity
+mean_peak_frict_vel		https://microbiomedata/schema/mixs			Measurement of mean peak friction velocity
+microbial_biomass		https://microbiomedata/schema/mixs			"""The part of the organic matter in the soil that constitutes living microorganisms smaller than 5-10 micrometer. If you keep this, you would need to have correction factors used for conversion to the final units"""
+microbial_biomass_meth		https://microbiomedata/schema/mixs			Reference or method used in determining microbial biomass
+misc_param		https://microbiomedata/schema/mixs			"""Any other measurement performed or parameter collected, that is not listed here"""
+mod_date		https://microbiomedata/schema			The last date on which the database information was modified.
+n_alkanes		https://microbiomedata/schema/mixs			Concentration of n-alkanes; can include multiple n-alkanes
+name		https://microbiomedata/schema/basic_slots			A human readable label for an entity
+ncbi_taxonomy_name		https://microbiomedata/schema			
+nitrate		https://microbiomedata/schema/mixs			Concentration of nitrate in the sample
+nitrite		https://microbiomedata/schema/mixs			Concentration of nitrite in the sample
+org_matter		https://microbiomedata/schema/mixs			Concentration of organic matter 
+org_nitro		https://microbiomedata/schema/mixs			Concentration of organic nitrogen
+organism_count		https://microbiomedata/schema/mixs			"""Total cell count of any organism (or group of organisms) per gram, volume or area of sample, should include name of organism followed by count. The method that was used for the enumeration (e.g. qPCR, atp, mpn, etc.) Should also be provided. (example: total prokaryotes; 3.5e7 cells per ml; qpcr)"""
+oxy_stat_samp		https://microbiomedata/schema/mixs			Oxygenation status of sample
+part of	dcterms:isPartOf	https://microbiomedata/schema/core			Links a resource to another resource that either logically or physically includes it.
+part_org_carb		https://microbiomedata/schema/mixs			Concentration of particulate organic carbon
+perturbation		https://microbiomedata/schema/mixs			"""Type of perturbation, e.g. chemical administration, physical disturbance, etc., coupled with perturbation regimen including how many times the perturbation was repeated, how long each perturbation lasted, and the start and end time of the entire perturbation period; can include multiple perturbation types"""
+petroleum_hydrocarb		https://microbiomedata/schema/mixs			Concentration of petroleum hydrocarbon
+ph		https://microbiomedata/schema/mixs			"""Ph measurement of the sample, or liquid portion of sample, or aqueous phase of the fluid"""
+ph_meth		https://microbiomedata/schema/mixs			Reference or method used in determining ph
+phaeopigments		https://microbiomedata/schema/mixs			Concentration of phaeopigments; can include multiple phaeopigments
+phosplipid_fatt_acid		https://microbiomedata/schema/mixs			Concentration of phospholipid fatty acids; can include multiple values
+pool_dna_extracts		https://microbiomedata/schema/mixs			"""Indicate whether multiple DNA extractions were mixed. If the answer yes, the number of extracts that were pooled should be given"""
+potassium		https://microbiomedata/schema/mixs			Concentration of potassium in the sample
+pressure		https://microbiomedata/schema/mixs			"""Pressure to which the sample is subject to, in atmospheres"""
+previous_land_use		https://microbiomedata/schema/mixs			Previous land use and dates
+previous_land_use_meth		https://microbiomedata/schema/mixs			Reference or method used in determining previous land use and dates
+profile_position		https://microbiomedata/schema/mixs			Cross-sectional position in the hillslope where sample was collected.sample area position in relation to surrounding areas
+proport_woa_temperature		https://microbiomedata/schema			
+redox_potential		https://microbiomedata/schema/mixs			"""Redox potential, measured relative to a hydrogen cell, indicating oxidation or reduction potential"""
+salinity		https://microbiomedata/schema/mixs			"""Salinity is the total concentration of all dissolved salts in a water sample. While salinity can be measured by a complete chemical analysis, this method is difficult and time consuming. More often, it is instead derived from the conductivity measurement. This is known as practical salinity. These derivations compare the specific conductance of the sample to a salinity standard such as seawater"""
+salinity_category		https://microbiomedata/schema			Categorcial description of the sample's salinity. Examples: halophile, halotolerant, hypersaline, huryhaline
+salinity_meth		https://microbiomedata/schema/mixs			Reference or method used in determining salinity
+samp_collect_device		https://microbiomedata/schema/mixs			The method or device employed for collecting the sample
+samp_mat_process		https://microbiomedata/schema/mixs			"""Any processing applied to the sample during or after retrieving the sample from environment. This field accepts OBI, for a browser of OBI (v 2018-02-12) terms please see http://purl.bioontology.org/ontology/OBI"""
+samp_store_dur		https://microbiomedata/schema/mixs			Duration for which the sample was stored
+samp_store_loc		https://microbiomedata/schema/mixs			"""Location at which sample was stored, usually name of a specific freezer/room"""
+samp_store_temp		https://microbiomedata/schema/mixs			"""Temperature at which sample was stored, e.g. -80 degree Celsius"""
+samp_vol_we_dna_ext		https://microbiomedata/schema/mixs			"""Volume (ml), weight (g) of processed sample, or surface area swabbed from sample for DNA extraction"""
+sample_collection_site		https://microbiomedata/schema			
+season_precpt		https://microbiomedata/schema/mixs			"""The average of all seasonal precipitation values known, or an estimated equivalent value derived by such methods as regional indexes or Isohyetal maps. """
+season_temp		https://microbiomedata/schema/mixs			Mean seasonal temperature
+sieving		https://microbiomedata/schema/mixs			Collection design of pooled samples and/or sieve size and amount of sample sieved 
+size_frac_low		https://microbiomedata/schema/mixs			Refers to the mesh/pore size used to pre-filter/pre-sort the sample. Materials larger than the size threshold are excluded from the sample
+size_frac_up		https://microbiomedata/schema/mixs			Refers to the mesh/pore size used to retain the sample. Materials smaller than the size threshold are excluded from the sample
+slope_aspect		https://microbiomedata/schema/mixs			"""The direction a slope faces. While looking down a slope use a compass to record the direction you are facing (direction or degrees); e.g., nw or 315 degrees. This measure provides an indication of sun and wind exposure that will influence soil temperature and evapotranspiration."""
+slope_gradient		https://microbiomedata/schema/mixs			Commonly called 'slope'. The angle between ground surface and a horizontal line (in percent). This is the direction that overland water would flow. This measure is usually taken with a hand level meter or clinometer
+sodium		https://microbiomedata/schema/mixs			Sodium concentration in the sample
+soil_type		https://microbiomedata/schema/mixs			Soil series name or other lower-level classification
+soil_type_meth		https://microbiomedata/schema/mixs			Reference or method used in determining soil series name or other lower-level classification
+soluble_iron_micromol		https://microbiomedata/schema			
+specific_ecosystem		https://microbiomedata/schema			TODO
+store_cond		https://microbiomedata/schema/mixs			Explain how and for how long the soil sample was stored before DNA extraction
+subsurface_depth		https://microbiomedata/schema			
+subsurface_depth2		https://microbiomedata/schema			
+sulfate		https://microbiomedata/schema/mixs			Concentration of sulfate in the sample
+sulfide		https://microbiomedata/schema/mixs			Concentration of sulfide in the sample
+temp		https://microbiomedata/schema/mixs			Temperature of the sample at the time of sampling
+texture		https://microbiomedata/schema/mixs			"""The relative proportion of different grain sizes of mineral particles in a soil, as described using a standard system; express as % sand (50 um to 2 mm), silt (2 um to 50 um), and clay (<2 um) with textural name (e.g., silty clay loam) optional."""
+texture_meth		https://microbiomedata/schema/mixs			Reference or method used in determining soil texture
+tidal_stage		https://microbiomedata/schema/mixs			Stage of tide
+tillage		https://microbiomedata/schema/mixs			Note method(s) used for tilling
+tot_carb		https://microbiomedata/schema/mixs			Total carbon content
+tot_depth_water_col		https://microbiomedata/schema/mixs			Measurement of total depth of water column
+tot_diss_nitro		https://microbiomedata/schema/mixs			"""Total dissolved nitrogen concentration, reported as nitrogen, measured by: total dissolved nitrogen = NH4 + NO3NO2 + dissolved organic nitrogen"""
+tot_nitro_content		https://microbiomedata/schema/mixs			Total nitrogen content of the sample
+tot_nitro_content_meth		https://microbiomedata/schema/mixs			Reference or method used in determining the total nitrogen
+tot_org_c_meth		https://microbiomedata/schema/mixs			Reference or method used in determining total organic carbon
+tot_org_carb		https://microbiomedata/schema/mixs			"""Definition for soil: total organic carbon content of the soil, definition otherwise: total organic carbon content"""
+tot_phosp		https://microbiomedata/schema/mixs			"""Total phosphorus concentration in the sample, calculated by: total phosphorus = total dissolved phosphorus + particulate phosphorus"""
+type		https://microbiomedata/schema/basic_slots			An optional string that specifies the type object.  This is used to allow for searches for different kinds of objects.
+water_content		https://microbiomedata/schema/mixs			Water content measurement
+water_content_soil_meth		https://microbiomedata/schema/mixs			Reference or method used in determining the water content of soil
