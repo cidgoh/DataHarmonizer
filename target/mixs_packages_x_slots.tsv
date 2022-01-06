@@ -952,13 +952,19 @@ soil	16s_recover	verbose skip
 soil	16s_recover_software	verbose skip			
 soil	adapters	verbose skip			
 soil	agrochem_addition	use as-is			history/agrochemical additions
+soil	agrochem_addition	borrowed			history/agrochemical additions
 soil	air_temp_regm	borrowed			
 soil	al_sat	use as-is			extreme_unusual_properties/Al saturation
+soil	al_sat	borrowed			extreme_unusual_properties/Al saturation
 soil	al_sat_meth	use as-is			extreme_unusual_properties/Al saturation method
+soil	al_sat_meth	borrowed			extreme_unusual_properties/Al saturation method
 soil	alt	use as-is			altitude
+soil	alt	borrowed			altitude
 soil	annot	verbose skip			
 soil	annual_precpt	use as-is			mean annual precipitation
+soil	annual_precpt	borrowed			mean annual precipitation
 soil	annual_temp	use as-is			mean annual temperature
+soil	annual_temp	borrowed			mean annual temperature
 soil	assembly_name	verbose skip			
 soil	assembly_qual	verbose skip			
 soil	assembly_software	verbose skip			
@@ -981,32 +987,50 @@ soil	contam_score	verbose skip
 soil	contam_screen_input	verbose skip			
 soil	contam_screen_param	verbose skip			
 soil	crop_rotation	use as-is			history/crop rotation
+soil	crop_rotation	borrowed			history/crop rotation
 soil	cur_land_use	use as-is			current land use
+soil	cur_land_use	borrowed			current land use
 soil	cur_vegetation	use as-is			current vegetation
+soil	cur_vegetation	borrowed			current vegetation
 soil	cur_vegetation_meth	use as-is			current vegetation method
+soil	cur_vegetation_meth	borrowed			current vegetation method
 soil	decontam_software	verbose skip			
 soil	depth				
+soil	depth	borrowed			
 soil	detec_type	verbose skip			
 soil	drainage_class	use as-is			drainage classification
+soil	drainage_class	borrowed			drainage classification
 soil	elev	use as-is			elevation
+soil	elev	borrowed			elevation
 soil	encoded_traits	verbose skip			
 soil	env_broad_scale	use as-is			broad-scale environmental context
+soil	env_broad_scale	borrowed			broad-scale environmental context
 soil	env_local_scale	use as-is			local environmental context
+soil	env_local_scale	borrowed			local environmental context
 soil	env_medium	use as-is			environmental medium
+soil	env_medium	borrowed			environmental medium
 soil	estimated_size	verbose skip			
 soil	experimental_factor	borrowed			experimental factor
 soil	extrachrom_elements	verbose skip			
 soil	extreme_event	use as-is			history/extreme events
+soil	extreme_event	borrowed			history/extreme events
 soil	extreme_salinity	skip			
 soil	fao_class	use as-is			soil_taxonomic/FAO classification
+soil	fao_class	borrowed			soil_taxonomic/FAO classification
 soil	feat_pred	verbose skip			
 soil	fire	use as-is			history/fire
+soil	fire	borrowed			history/fire
 soil	flooding	use as-is			history/flooding
+soil	flooding	borrowed			history/flooding
 soil	gaseous_environment	borrowed			
 soil	geo_loc_name	use as-is			geographic location (country and/or sea,region)
+soil	geo_loc_name	borrowed			geographic location (country and/or sea,region)
 soil	heavy_metals	use as-is			extreme_unusual_properties/heavy metals
+soil	heavy_metals	borrowed			extreme_unusual_properties/heavy metals
 soil	heavy_metals_meth	use as-is			extreme_unusual_properties/heavy metals method
+soil	heavy_metals_meth	borrowed			extreme_unusual_properties/heavy metals method
 soil	horizon_meth	use as-is			horizon method
+soil	horizon_meth	borrowed			horizon method
 soil	host_disease_stat	verbose skip			
 soil	host_pred_appr	verbose skip			
 soil	host_pred_est_acc	verbose skip			
@@ -1014,6 +1038,7 @@ soil	host_spec_range	verbose skip
 soil	humidity_regm	borrowed			
 soil	isol_growth_condt	verbose skip			
 soil	lat_lon	use as-is			geographic location (latitude and longitude)
+soil	lat_lon	borrowed			geographic location (latitude and longitude)
 soil	lib_layout	verbose skip			
 soil	lib_reads_seqd	verbose skip			
 soil	lib_screen	verbose skip			
@@ -1022,14 +1047,21 @@ soil	lib_vector	verbose skip
 soil	light_regm	borrowed			
 soil	link_addit_analys	skip	Leaving this term out of NMDC		
 soil	link_class_info	use as-is			link to classification information
+soil	link_class_info	borrowed			link to classification information
 soil	link_climate_info	use as-is			link to climate information
+soil	link_climate_info	borrowed			link to climate information
 soil	local_class	use as-is			soil_taxonomic/local classification
+soil	local_class	borrowed			soil_taxonomic/local classification
 soil	local_class_meth	use as-is			soil_taxonomic/local classification method
+soil	local_class_meth	borrowed			soil_taxonomic/local classification method
 soil	mag_cov_software	verbose skip			
 soil	micro_biomass_meth	use as-is			microbial biomass method
+soil	micro_biomass_meth	borrowed			microbial biomass method
 soil	microbial_biomass	use as-is			microbial biomass
+soil	microbial_biomass	borrowed			microbial biomass
 soil	mid	verbose skip			
 soil	misc_param	use as-is			miscellaneous parameter
+soil	misc_param	borrowed			miscellaneous parameter
 soil	neg_cont_type	verbose skip	-I don't understand what this is? Instrument metadata?		
 soil	nucl_acid_amp	verbose skip			
 soil	nucl_acid_ext	verbose skip			
@@ -1047,7 +1079,9 @@ soil	pathogenicity	verbose skip
 soil	pcr_cond	verbose skip			
 soil	pcr_primers	verbose skip			
 soil	ph	use as-is			pH
+soil	ph	borrowed			pH
 soil	ph_meth	use as-is			pH method
+soil	ph_meth	borrowed			pH method
 soil	phosphate	borrowed			
 soil	ploidy	verbose skip			
 soil	pool_dna_extracts	skip			
@@ -1055,23 +1089,30 @@ soil	pos_cont_type	verbose skip	-I don't understand what this is? Instrument met
 soil	pred_genome_struc	verbose skip			
 soil	pred_genome_type	verbose skip			
 soil	prev_land_use_meth	use as-is			history/previous land use method
+soil	prev_land_use_meth	borrowed			history/previous land use method
 soil	previous_land_use	use as-is			history/previous land use
+soil	previous_land_use	borrowed			history/previous land use
 soil	profile_position	use as-is			profile position
+soil	profile_position	borrowed			profile position
 soil	propagation	verbose skip			
 soil	reassembly_bin	verbose skip			
 soil	ref_biomaterial	verbose skip			
 soil	ref_db	verbose skip			
 soil	salinity	borrowed			
 soil	salinity_meth	use as-is			salinity method
+soil	salinity_meth	borrowed			salinity method
 soil	samp_store_temp	borrowed			
 soil	samp_taxon_id	verbose skip			
 soil	samp_vol_we_dna_ext	verbose skip		https://github.com/GenomicsStandardsConsortium/mixs/issues/323	
 soil	samp_vol_we_dna_ext	verbose skip		https://github.com/GenomicsStandardsConsortium/mixs/issues/323	
 soil	season_precpt	use as-is			mean seasonal precipitation
+soil	season_precpt	borrowed			mean seasonal precipitation
 soil	season_temp	use as-is			mean seasonal temperature
+soil	season_temp	borrowed			mean seasonal temperature
 soil	seq_meth	verbose skip			
 soil	seq_quality_check	verbose skip			
 soil	sieving	use as-is			composite design/sieving
+soil	sieving	borrowed			composite design/sieving
 soil	sim_search_meth	verbose skip			
 soil	single_cell_lysis_appr	verbose skip			
 soil	single_cell_lysis_prot	verbose skip			
@@ -1081,12 +1122,19 @@ soil	size_frac	verbose skip	"-Relevant for soil that's been sent & water extract
 soil	size_frac_low	borrowed			
 soil	size_frac_up	borrowed			
 soil	slope_aspect	use as-is			slope aspect
+soil	slope_aspect	borrowed			slope aspect
 soil	slope_gradient	use as-is			slope gradient
+soil	slope_gradient	borrowed			slope gradient
 soil	soil_horizon				
+soil	soil_horizon	borrowed			
 soil	soil_text_measure	use as-is			soil texture measurement
+soil	soil_text_measure	borrowed			soil texture measurement
 soil	soil_texture_meth	use as-is			soil texture method
+soil	soil_texture_meth	borrowed			soil texture method
 soil	soil_type	use as-is			soil type
+soil	soil_type	borrowed			soil type
 soil	soil_type_meth	use as-is			soil type method
+soil	soil_type_meth	borrowed			soil type method
 soil	sop	verbose skip			
 soil	sort_tech	verbose skip			
 soil	source_mat_id	borrowed			source material ID
@@ -1099,12 +1147,18 @@ soil	target_subfragment	verbose skip
 soil	tax_class	verbose skip			
 soil	tax_ident	verbose skip			
 soil	temp				
+soil	temp	borrowed			
 soil	tillage	use as-is			history/tillage
+soil	tillage	borrowed			history/tillage
 soil	tot_carb	borrowed			
 soil	tot_nitro_cont_meth	use as-is			total nitrogen content method
+soil	tot_nitro_cont_meth	borrowed			total nitrogen content method
 soil	tot_nitro_content	use as-is			total nitrogen content
+soil	tot_nitro_content	borrowed			total nitrogen content
 soil	tot_org_c_meth	use as-is			total organic carbon method
+soil	tot_org_c_meth	borrowed			total organic carbon method
 soil	tot_org_carb	use as-is			total organic carbon
+soil	tot_org_carb	borrowed			total organic carbon
 soil	tot_phosp	borrowed			
 soil	trna_ext_software	verbose skip			
 soil	trnas	verbose skip			
@@ -1112,7 +1166,9 @@ soil	trophic_level	verbose skip
 soil	vir_ident_software	verbose skip			
 soil	virus_enrich_appr	verbose skip			
 soil	water_cont_soil_meth	use as-is			water content method
+soil	water_cont_soil_meth	borrowed			water content method
 soil	water_content	use as-is			water content
+soil	water_content	borrowed			water content
 soil	watering_regm	borrowed			
 soil	wga_amp_appr	verbose skip			
 soil	wga_amp_kit	verbose skip			

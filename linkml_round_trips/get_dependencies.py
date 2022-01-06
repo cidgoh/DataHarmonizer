@@ -18,7 +18,7 @@ global model_sv, mvp, mvs, all_class_names, all_enum_names, all_slots_dict, all_
 # use a dataclass instead of a dict?
 # or do better testing of the dict
 # todo document what this mysterious dict_to_exhaust should look like
-# todo it can also include starting slots and enven multiple starting classes or slots
+# todo it can also include starting slots and even multiple starting classes or slots
 # what about types?
 def exhaust_class(dict_to_exhaust):
     global model_sv, mvp, mvs, all_class_names, all_enum_names, all_slots_dict, all_type_names
