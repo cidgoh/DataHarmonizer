@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "linkml-round-trips"
+name = "linkml_round_trips"
 version = "0.1.0"
 description = ""
 authors = ["Mark Andrew Miller <MAM@lbl.gov>"]

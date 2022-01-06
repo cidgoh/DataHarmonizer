@@ -1,12 +1,15 @@
-.PHONY: all clean post_clone_submodule_steps serializastion_vs_pattern negative_case
+.PHONY: all clean test post_clone_submodule_steps serializastion_vs_pattern negative_case
 
-all: clean post_clone_submodule_steps serializastion_vs_pattern target/data.tsv
+all: clean test post_clone_submodule_steps serializastion_vs_pattern target/data.tsv
 
 clean:
 	rm -rf target/mixs_soil.yaml
 	rm -rf target/nmdc_biosample.yaml
 	rm -rf target/soil_biosample*
 	rm -rf target/data.tsv
+
+test:
+	poetry run pytest -vv test_sntc.py
 
 # turbomam's mixs-source
 #   moves "patterns" to string serializastions

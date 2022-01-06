@@ -1,14 +1,14 @@
+from itertools import dropwhile
+
+import pandas as pd
 import pygsheets
 import pytest
-from itertools import dropwhile
-import pandas as pd
-from linkml_runtime.utils.schemaview import SchemaView
-from linkml_runtime.linkml_model import SchemaDefinition, ClassDefinition
+from linkml.generators.yamlgen import YAMLGenerator
 from linkml_runtime.dumpers import yaml_dumper
+from linkml_runtime.linkml_model import ClassDefinition
+from linkml_runtime.utils.schemaview import SchemaView
 
 import linkml_round_trips.just_exacts as je
-
-from linkml.generators.yamlgen import YAMLGenerator
 
 # where to put these configuration values?
 mixs_yaml = "mixs-source/model/schema/mixs.yaml"
@@ -20,7 +20,10 @@ client_secret_json = "local/client_secret.apps.googleusercontent.com.json"
 # please add at end
 expected_tab_dict = {0: 'SheetIdentification', 1: 'Terms', 2: 'Terms-New Terms',
                      3: 'EXACT MIxS Terms for DH', 4: 'Example Use', 5: 'MIxS Terms Replaced',
-                     6: 'MIxS Terms Skipped', 7: 'OtherPackages', 8: 'EMSL Term Skipped', 9: 'JGI Terms', }
+                     6: 'MIxS Terms Skipped', 7: 'OtherPackages', 8: 'EMSL Term Skipped', 9: 'JGI Terms',
+                     10: 'mixs_packages_x_slots', 11: 'nmdc_biosample_slots', 12: 'mixs_modified_slots',
+                     13: 'EMSL_sample_slots', 14: 'JGI_sample_slots'
+                     }
 
 expected_Terms_col_names = ['row_ord', 'Column Header', 'To Do', 'NMDC_slot_name_schema', 'EMSL_slot_Name',
                             'mixs_6_slot_name', 'Definition', 'Guidance', 'syntax', 'Expected value',
