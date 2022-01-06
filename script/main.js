@@ -179,6 +179,7 @@ const createHot = (data) => {
     afterSelection: (row, column, row2, column2, preventScrolling, selectionLayerLevel) => {
       window.CURRENT_SELECTION = [row, column, row2, column2];
     },
+    //afterScrollVertically(){ this.render() },
     afterRender: (isForced) => {
       $('#header-row').css('visibility', 'visible');
       $('#footer-row').css('visibility', 'visible');
