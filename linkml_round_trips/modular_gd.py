@@ -1,5 +1,5 @@
 import pygsheets
-from linkml_runtime.linkml_model import SchemaDefinition, ClassDefinition
+from linkml_runtime.linkml_model import SchemaDefinition, ClassDefinition, Prefix
 from linkml_runtime.utils.schemaview import SchemaView
 from pandasql import sqldf
 
@@ -42,10 +42,13 @@ def get_slot_provenance(slot_list, helped_schema):
     return provenance_dict
 
 
-def construct_schema(schema_name, schema_id, class_name):
+def construct_schema(schema_name, schema_id, class_name, prefix_dict):
     constructed_schema = SchemaDefinition(name=schema_name, id=schema_id)
     constructed_class = ClassDefinition(name=class_name)
     constructed_schema.classes[class_name] = constructed_class
+    constructed_schema.classes[class_name].from_schema = schema_id
+    for k, v in prefix_dict.items():
+        constructed_schema.prefixes[k] = Prefix(prefix_prefix=k, prefix_reference=v)
     return constructed_schema
 
 
