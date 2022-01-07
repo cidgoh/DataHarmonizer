@@ -1,34 +1,7 @@
-import pprint
-
-import pandas as pd
 import pygsheets
-from linkml_runtime.dumpers import yaml_dumper
 from linkml_runtime.linkml_model import SchemaDefinition, ClassDefinition
 from linkml_runtime.utils.schemaview import SchemaView
-
-pd.options.display.width = 0
-
-sheet_id = '1pSmxX6XGOxmoA7S7rKyj5OaEl3PmAl4jAOlROuNHrU0'
-client_secret_json = "local/client_secret.apps.googleusercontent.com.json"
-
-mixs_yaml = "mixs-source/model/schema/mixs.yaml"
-mixs_sheet_title = "mixs_packages_x_slots"
-
-nmdc_yaml = "nmdc-schema/src/schema/nmdc.yaml"
-nmdc_sheet_title = "nmdc_biosample_slots"
-
-constructed_schema_name = "soil_biosample"
-constructed_schema_id = "http://example.com/soil_biosample"
-constructed_class_name = "soil_biosample"
-
-class_slot_dict = {
-    "pending_ranges": set(),
-    "pending_slots": set(),
-    "exhausted_ranges": set(),
-    "exhausted_slots": set(),
-    "exhausted_enums": set(),
-    "exhausted_types": set(),
-}
+from pandasql import sqldf
 
 
 def get_gsheet_frame(some_google_auth_file, sheet_id_arg, tab_title):
@@ -77,8 +50,6 @@ def construct_schema(schema_name, schema_id, class_name):
 
 
 def modular_exhaust_class(dict_to_exhaust, helped_schema):
-    # mvp = helped_schema['view'].schema.prefixes
-    # mvs = helped_schema['view'].schema.prefixes.all_subsets()
     all_slots_dict = helped_schema['schema_slot_dict']
     all_class_names = helped_schema['schema_class_names']
     all_enum_names = helped_schema['schema_enum_names']
@@ -88,6 +59,10 @@ def modular_exhaust_class(dict_to_exhaust, helped_schema):
             len(dict_to_exhaust["pending_ranges"]) == 0
             and len(dict_to_exhaust["pending_slots"]) == 0
     ):
+        mvp = helped_schema['view'].schema.prefixes
+        mvs = helped_schema['view'].all_subsets()
+        dict_to_exhaust['prefixes'] = mvp
+        dict_to_exhaust['subsets'] = mvs
         return dict_to_exhaust
     else:
         class_parents = set()
@@ -156,75 +131,57 @@ def modular_exhaust_class(dict_to_exhaust, helped_schema):
         return modular_exhaust_class(dict_to_exhaust, helped_schema)
 
 
-new_schema = construct_schema(constructed_schema_name, constructed_schema_id, constructed_class_name)
+def wrapper(yaml_file, schema_alias, selected_class, selected_slots, dest_schema, dest_class):
+    helped = make_view_helper(yaml_file, schema_alias, selected_class)
 
-mixs_frame = get_gsheet_frame(client_secret_json, sheet_id, mixs_sheet_title)
-soil_frame = mixs_frame.loc[mixs_frame["package"].eq("soil")]
-# sf_dispo_vc = soil_frame['disposition'].value_counts()
-soil_use_frame = soil_frame.loc[soil_frame["disposition"].eq("use as-is") | soil_frame["disposition"].eq("borrowed")]
-soil_use_slots = list(soil_use_frame["slot"])
-# soil_use_slots.sort()
-mixs_helped = make_view_helper(mixs_yaml, "mixs", "soil")
-mixs_soil_provenance = get_slot_provenance(soil_use_slots, mixs_helped)
+    slot_provenance = get_slot_provenance(selected_slots, helped)
 
-nmdc_frame = get_gsheet_frame(client_secret_json, sheet_id, nmdc_sheet_title)
-non_mixs_frame = nmdc_frame.loc[
-    ~(nmdc_frame["from_schema"].eq("https://microbiomedata/schema/mixs") | nmdc_frame["disposition"].eq(
-        "skip"))]
-non_mixs_frame_slots = list(non_mixs_frame['name'])
-nmdc_helped = make_view_helper(nmdc_yaml, "nmdc", "biosample")
-nmdc_biosample_provenance = get_slot_provenance(non_mixs_frame_slots, nmdc_helped)
+    class_slot_dict = {
+        "pending_ranges": set(),
+        "pending_slots": set(),
+        "exhausted_ranges": set(),
+        "exhausted_slots": set(),
+        "exhausted_enums": set(),
+        "exhausted_types": set(),
+    }
 
-for i in mixs_soil_provenance['schema_other']:
-    class_slot_dict['pending_slots'].add(i)
-for i in mixs_soil_provenance['class_induced']:
-    class_slot_dict['pending_slots'].add(i)
-class_slot_dict['pending_ranges'].add('soil')
-mixs_exhaustion = modular_exhaust_class(class_slot_dict, mixs_helped)
-pprint.pprint(mixs_exhaustion)
+    for i in slot_provenance['schema_other']:
+        class_slot_dict['pending_slots'].add(i)
+    for i in slot_provenance['class_induced']:
+        class_slot_dict['pending_slots'].add(i)
+    class_slot_dict['pending_ranges'].add(selected_class)
 
-# NMDC
+    exhaustion_res = modular_exhaust_class(class_slot_dict, helped)
 
-for i in mixs_exhaustion['exhausted_types']:
-    new_schema.types[i] = nmdc_helped['view'].get_type(i)
+    # REFACTOR ?
+    for i in exhaustion_res['exhausted_enums']:
+        dest_schema.enums[i] = helped['view'].get_enum(i)
+    # remember could handle differently for induces slots/slot usage
+    for i in exhaustion_res['exhausted_slots']:
+        dest_schema.slots[i] = helped['view'].get_slot(i)
+    for i in exhaustion_res['exhausted_ranges']:
+        temp = helped['view'].get_class(i)
+        dest_schema.classes[i] = temp
+    for i in exhaustion_res['exhausted_types']:
+        dest_schema.types[i] = helped['view'].get_type(i)
 
-# REFACTOR
-for i in mixs_exhaustion['exhausted_enums']:
-    new_schema.enums[i] = nmdc_helped['view'].get_enum(i)
+    # don't forget about possibility of adding induced slots as slot usages
+    for i in selected_slots:
+        dest_schema.classes[dest_class].slots.append(i)
 
-# remember could handle differently for induces slots/slot usage
-for i in mixs_exhaustion['exhausted_slots']:
-    new_schema.slots[i] = nmdc_helped['view'].get_slot(i)
+    for k, v in exhaustion_res['prefixes'].items():
+        dest_schema.prefixes[k] = v
 
-for i in mixs_exhaustion['exhausted_ranges']:
-    new_schema.classes[i] = nmdc_helped['view'].get_class(i)
+    for k, v in exhaustion_res['subsets'].items():
+        dest_schema.subsets[k] = v
 
-#  MIxS
+    return dest_schema
 
-for i in mixs_exhaustion['exhausted_types']:
-    new_schema.types[i] = mixs_helped['view'].get_type(i)
 
-# REFACTOR
-for i in mixs_exhaustion['exhausted_enums']:
-    new_schema.enums[i] = mixs_helped['view'].get_enum(i)
-
-# remember could handle differently for induces slots/slot usage
-for i in mixs_exhaustion['exhausted_slots']:
-    new_schema.slots[i] = mixs_helped['view'].get_slot(i)
-
-for i in mixs_exhaustion['exhausted_ranges']:
-    new_schema.classes[i] = mixs_helped['view'].get_class(i)
-
-# new_schema_yaml_string = yaml_dumper.dumps(new_schema)
-# print(new_schema_yaml_string)
-
-yaml_dumper.dump(new_schema, "modular_gd.yaml")
-
-# # refactor
-# for i in nmdc_biosample_provenance['schema_other']:
-#     class_slot_dict['pending_slots'].add(i)
-# for i in nmdc_biosample_provenance['class_induced']:
-#     class_slot_dict['pending_slots'].add(i)
-# class_slot_dict['pending_ranges'].add('biosample')
-# nmdc_exhaustion = modular_exhaust_class(class_slot_dict, nmdc_helped)
-# pprint.pprint(nmdc_exhaustion)
+def subset_slots_from_sheet(secret, id_of_sheet, sheet_title, query):
+    gsheet_frame = get_gsheet_frame(secret, id_of_sheet, sheet_title)
+    # Local variable 'gsheet_frame' value is not used
+    throwaway = type(gsheet_frame)
+    pysqldf_res = sqldf(query)
+    slot_list = list(pysqldf_res['slot'])
+    return slot_list
