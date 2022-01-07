@@ -1,0 +1,3038 @@
+name: soil_biosample
+id: http://example.com/soil_biosample
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  mixs.vocab:
+    prefix_prefix: mixs.vocab
+    prefix_reference: https://w3id.org/mixs/vocab/
+  MIXS:
+    prefix_prefix: MIXS
+    prefix_reference: https://w3id.org/mixs/terms/
+  MIGS:
+    prefix_prefix: MIGS
+    prefix_reference: https://w3id.org/mixs/migs/
+  nmdc:
+    prefix_prefix: nmdc
+    prefix_reference: https://microbiomedata/meta/
+  GOLD:
+    prefix_prefix: GOLD
+    prefix_reference: https://identifiers.org/gold/
+  mixs:
+    prefix_prefix: mixs
+    prefix_reference: https://w3id.org/gensc/
+  wgs:
+    prefix_prefix: wgs
+    prefix_reference: http://www.w3.org/2003/01/geo/wgs84_pos
+  qud:
+    prefix_prefix: qud
+    prefix_reference: http://qudt.org/1.1/schema/qudt#
+  dcterms:
+    prefix_prefix: dcterms
+    prefix_reference: http://purl.org/dc/terms/
+  MS:
+    prefix_prefix: MS
+    prefix_reference: http://purl.obolibrary.org/obo/MS_
+  OBI:
+    prefix_prefix: OBI
+    prefix_reference: http://purl.obolibrary.org/obo/OBI_
+  NCIT:
+    prefix_prefix: NCIT
+    prefix_reference: http://purl.obolibrary.org/obo/NCIT_
+  igsn:
+    prefix_prefix: igsn
+    prefix_reference: https://app.geosamples.org/sample/igsn/
+  img.taxon:
+    prefix_prefix: img.taxon
+    prefix_reference: http://img.jgi.doe.gov/cgi-bin/w/main.cgi?section=TaxonDetail&taxon_oid=
+default_prefix: http://example.com/soil_biosample/
+subsets:
+  checklist:
+    name: checklist
+    description: A MIxS checklist. These can be combined with packages
+    from_schema: http://w3id.org/mixs/terms
+  package:
+    name: package
+    description: A MIxS package. These can be combined with checklists
+    from_schema: http://w3id.org/mixs/terms
+  checklist_package_combination:
+    name: checklist_package_combination
+    description: A combination of a checklist and a package
+    from_schema: http://w3id.org/mixs/terms
+  sample subset:
+    name: sample subset
+    description: Subset consisting of entities linked to the processing of samples.  Currently,
+      this subset consists of study, omics process, and biosample.
+    from_schema: https://microbiomedata/schema
+  data object subset:
+    name: data object subset
+    description: Subset consisting of the data objects that either inputs or outputs
+      of processes or workflows.
+    from_schema: https://microbiomedata/schema
+  environment:
+    name: environment
+    from_schema: https://microbiomedata/schema/core
+  investigation:
+    name: investigation
+    from_schema: https://microbiomedata/schema/core
+  mixs extension:
+    name: mixs extension
+    from_schema: https://microbiomedata/schema/core
+  nucleic acid sequence source:
+    name: nucleic acid sequence source
+    from_schema: https://microbiomedata/schema/core
+  sequencing:
+    name: sequencing
+    from_schema: https://microbiomedata/schema/core
+  soil:
+    name: soil
+    from_schema: https://microbiomedata/schema/core
+  workflow subset:
+    name: workflow subset
+    description: Subset consisting of just the workflow exectution activities
+    from_schema: https://microbiomedata/schema/workflow_execution_activity
+types:
+  string:
+    name: string
+    description: A character string
+    base: str
+    uri: xsd:string
+  date:
+    name: date
+    description: a date (year, month and day) in an idealized calendar
+    notes:
+    - URI is dateTime because OWL reasoners don't work with straight date or time
+    base: XSDDate
+    uri: xsd:date
+    repr: str
+  double:
+    name: double
+    description: A real number that conforms to the xsd:double specification
+    base: float
+    uri: xsd:double
+  external identifier:
+    name: external identifier
+    description: A CURIE representing an external identifier
+    see_also:
+    - https://microbiomedata.github.io/nmdc-schema/identifiers.html
+    typeof: uriorcurie
+  uriorcurie:
+    name: uriorcurie
+    description: a URI or a CURIE
+    base: URIorCURIE
+    uri: xsd:anyURI
+    repr: str
+  decimal degree:
+    name: decimal degree
+    description: A decimal degree expresses latitude or longitude as decimal fractions.
+    see_also:
+    - https://en.wikipedia.org/wiki/Decimal_degrees
+    base: float
+    uri: xsd:decimal
+  unit:
+    name: unit
+    mappings:
+    - qud:Unit
+    - UO:0000000
+    base: str
+    uri: xsd:string
+  float:
+    name: float
+    description: A real number that conforms to the xsd:float specification
+    base: float
+    uri: xsd:float
+  language code:
+    name: language code
+    description: A language code conforming to ISO_639-1
+    see_also:
+    - https://en.wikipedia.org/wiki/ISO_639-1
+    base: str
+    uri: xsd:language
+enums:
+  fao_class_enum:
+    name: fao_class_enum
+    from_schema: http://w3id.org/mixs/terms
+    permissible_values:
+      Acrisols:
+        text: Acrisols
+      Andosols:
+        text: Andosols
+      Arenosols:
+        text: Arenosols
+      Cambisols:
+        text: Cambisols
+      Chernozems:
+        text: Chernozems
+      Ferralsols:
+        text: Ferralsols
+      Fluvisols:
+        text: Fluvisols
+      Gleysols:
+        text: Gleysols
+      Greyzems:
+        text: Greyzems
+      Gypsisols:
+        text: Gypsisols
+      Histosols:
+        text: Histosols
+      Kastanozems:
+        text: Kastanozems
+      Lithosols:
+        text: Lithosols
+      Luvisols:
+        text: Luvisols
+      Nitosols:
+        text: Nitosols
+      Phaeozems:
+        text: Phaeozems
+      Planosols:
+        text: Planosols
+      Podzols:
+        text: Podzols
+      Podzoluvisols:
+        text: Podzoluvisols
+      Rankers:
+        text: Rankers
+      Regosols:
+        text: Regosols
+      Rendzinas:
+        text: Rendzinas
+      Solonchaks:
+        text: Solonchaks
+      Solonetz:
+        text: Solonetz
+      Vertisols:
+        text: Vertisols
+      Yermosols:
+        text: Yermosols
+  drainage_class_enum:
+    name: drainage_class_enum
+    from_schema: http://w3id.org/mixs/terms
+    permissible_values:
+      very poorly:
+        text: very poorly
+      poorly:
+        text: poorly
+      somewhat poorly:
+        text: somewhat poorly
+      moderately well:
+        text: moderately well
+      well:
+        text: well
+      excessively drained:
+        text: excessively drained
+  cur_land_use_enum:
+    name: cur_land_use_enum
+    from_schema: http://w3id.org/mixs/terms
+    permissible_values:
+      cities:
+        text: cities
+      farmstead:
+        text: farmstead
+      industrial areas:
+        text: industrial areas
+      roads/railroads:
+        text: roads/railroads
+      rock:
+        text: rock
+      sand:
+        text: sand
+      gravel:
+        text: gravel
+      mudflats:
+        text: mudflats
+      salt flats:
+        text: salt flats
+      badlands:
+        text: badlands
+      permanent snow or ice:
+        text: permanent snow or ice
+      saline seeps:
+        text: saline seeps
+      mines/quarries:
+        text: mines/quarries
+      oil waste areas:
+        text: oil waste areas
+      small grains:
+        text: small grains
+      row crops:
+        text: row crops
+      vegetable crops:
+        text: vegetable crops
+      horticultural plants (e.g. tulips):
+        text: horticultural plants (e.g. tulips)
+      marshlands (grass,sedges,rushes):
+        text: marshlands (grass,sedges,rushes)
+      tundra (mosses,lichens):
+        text: tundra (mosses,lichens)
+      rangeland:
+        text: rangeland
+      pastureland (grasslands used for livestock grazing):
+        text: pastureland (grasslands used for livestock grazing)
+      hayland:
+        text: hayland
+      meadows (grasses,alfalfa,fescue,bromegrass,timothy):
+        text: meadows (grasses,alfalfa,fescue,bromegrass,timothy)
+      shrub land (e.g. mesquite,sage-brush,creosote bush,shrub oak,eucalyptus):
+        text: shrub land (e.g. mesquite,sage-brush,creosote bush,shrub oak,eucalyptus)
+      successional shrub land (tree saplings,hazels,sumacs,chokecherry,shrub dogwoods,blackberries):
+        text: successional shrub land (tree saplings,hazels,sumacs,chokecherry,shrub
+          dogwoods,blackberries)
+      shrub crops (blueberries,nursery ornamentals,filberts):
+        text: shrub crops (blueberries,nursery ornamentals,filberts)
+      vine crops (grapes):
+        text: vine crops (grapes)
+      conifers (e.g. pine,spruce,fir,cypress):
+        text: conifers (e.g. pine,spruce,fir,cypress)
+      hardwoods (e.g. oak,hickory,elm,aspen):
+        text: hardwoods (e.g. oak,hickory,elm,aspen)
+      intermixed hardwood and conifers:
+        text: intermixed hardwood and conifers
+      tropical (e.g. mangrove,palms):
+        text: tropical (e.g. mangrove,palms)
+      rainforest (evergreen forest receiving >406 cm annual rainfall):
+        text: rainforest (evergreen forest receiving >406 cm annual rainfall)
+      swamp (permanent or semi-permanent water body dominated by woody plants):
+        text: swamp (permanent or semi-permanent water body dominated by woody plants)
+      crop trees (nuts,fruit,christmas trees,nursery trees):
+        text: crop trees (nuts,fruit,christmas trees,nursery trees)
+  profile_position_enum:
+    name: profile_position_enum
+    from_schema: http://w3id.org/mixs/terms
+    permissible_values:
+      summit:
+        text: summit
+      shoulder:
+        text: shoulder
+      backslope:
+        text: backslope
+      footslope:
+        text: footslope
+      toeslope:
+        text: toeslope
+  soil_horizon_enum:
+    name: soil_horizon_enum
+    from_schema: http://w3id.org/mixs/terms
+    permissible_values:
+      O horizon:
+        text: O horizon
+      A horizon:
+        text: A horizon
+      E horizon:
+        text: E horizon
+      B horizon:
+        text: B horizon
+      C horizon:
+        text: C horizon
+      R layer:
+        text: R layer
+      Permafrost:
+        text: Permafrost
+  tillage_enum:
+    name: tillage_enum
+    from_schema: http://w3id.org/mixs/terms
+    permissible_values:
+      drill:
+        text: drill
+      cutting disc:
+        text: cutting disc
+      ridge till:
+        text: ridge till
+      strip tillage:
+        text: strip tillage
+      zonal tillage:
+        text: zonal tillage
+      chisel:
+        text: chisel
+      tined:
+        text: tined
+      mouldboard:
+        text: mouldboard
+      disc plough:
+        text: disc plough
+slots:
+  lat_lon:
+    name: lat_lon
+    aliases:
+    - geographic location (latitude and longitude)
+    mappings:
+    - mixs:lat_lon
+    description: The geographical origin of the sample as defined by latitude and
+      longitude. The values should be reported in decimal degrees and in WGS84 system
+    in_subset:
+    - environment
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    string_serialization: '{float} {float}'
+    multivalued: false
+    range: geolocation value
+    pattern: \d+[.\d+] \d+[.\d+]
+  slope_aspect:
+    name: slope_aspect
+    aliases:
+    - slope aspect
+    mappings:
+    - mixs:slope_aspect
+    description: '"The direction a slope faces. While looking down a slope use a compass
+      to record the direction you are facing (direction or degrees); e.g., nw or 315
+      degrees. This measure provides an indication of sun and wind exposure that will
+      influence soil temperature and evapotranspiration."'
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    string_serialization: '{float} {unit}'
+    multivalued: false
+    range: quantity value
+    pattern: \d+[.\d+] \S+
+  drainage_class:
+    name: drainage_class
+    aliases:
+    - drainage classification
+    mappings:
+    - mixs:drainage_class
+    description: Drainage classification from a standard system such as the USDA system
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    multivalued: false
+    range: text value
+    pattern: '[very poorly|poorly|somewhat poorly|moderately well|well|excessively
+      drained]'
+  cur_vegetation:
+    name: cur_vegetation
+    aliases:
+    - current vegetation
+    mappings:
+    - mixs:cur_vegetation
+    description: '"Vegetation classification from one or more standard classification
+      systems, or agricultural crop"'
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    multivalued: false
+    range: text value
+  water_cont_soil_meth:
+    name: water_cont_soil_meth
+    aliases:
+    - water content method
+    description: Reference or method used in determining the water content of soil
+    title: water content method
+    comments:
+    - 'Expected value: PMID,DOI or url'
+    examples:
+    - value: ''
+    from_schema: http://w3id.org/mixs/terms
+    is_a: core field
+    string_serialization: '{PMID}|{DOI}|{URL}'
+    slot_uri: MIXS:0000323
+    multivalued: false
+    range: string
+  crop_rotation:
+    name: crop_rotation
+    aliases:
+    - history/crop rotation
+    mappings:
+    - mixs:crop_rotation
+    description: '"Whether or not crop is rotated, and if yes, rotation schedule"'
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    multivalued: false
+    range: text value
+  geo_loc_name:
+    name: geo_loc_name
+    aliases:
+    - geographic location (country and/or sea,region)
+    mappings:
+    - mixs:geo_loc_name
+    description: '"The geographical origin of the sample as defined by the country
+      or sea name followed by specific region name. Country or sea names should be
+      chosen from the INSDC country list (http://insdc.org/country.html), or the GAZ
+      ontology (v 1.512) (http://purl.bioontology.org/ontology/GAZ)"'
+    in_subset:
+    - environment
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    multivalued: false
+    range: text value
+  soil_type:
+    name: soil_type
+    aliases:
+    - soil type
+    mappings:
+    - mixs:soil_type
+    description: Soil series name or other lower-level classification
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    multivalued: false
+    range: text value
+  pool_dna_extracts:
+    name: pool_dna_extracts
+    aliases:
+    - pooling of DNA extracts (if done)
+    mappings:
+    - mixs:pool_dna_extracts
+    description: '"Indicate whether multiple DNA extractions were mixed. If the answer
+      yes, the number of extracts that were pooled should be given"'
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    multivalued: false
+    range: text value
+  sieving:
+    name: sieving
+    aliases:
+    - composite design/sieving (if any)
+    mappings:
+    - mixs:sieving
+    description: 'Collection design of pooled samples and/or sieve size and amount
+      of sample sieved '
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    string_serialization: '{{text}|{float} {unit}};{float} {unit}'
+    multivalued: false
+    range: quantity value
+  ph:
+    name: ph
+    aliases:
+    - pH
+    mappings:
+    - mixs:ph
+    description: '"Ph measurement of the sample, or liquid portion of sample, or aqueous
+      phase of the fluid"'
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    multivalued: false
+    range: quantity value
+    pattern: \d+[.\d+]
+  link_addit_analys:
+    name: link_addit_analys
+    aliases:
+    - links to additional analysis
+    mappings:
+    - mixs:link_addit_analys
+    description: Link to additional analysis results performed on the sample
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    multivalued: false
+    range: text value
+  link_climate_info:
+    name: link_climate_info
+    aliases:
+    - link to climate information
+    mappings:
+    - mixs:link_climate_info
+    description: Link to climate resource
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    multivalued: false
+    range: text value
+  ph_meth:
+    name: ph_meth
+    aliases:
+    - pH method
+    mappings:
+    - mixs:ph_meth
+    description: Reference or method used in determining ph
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    multivalued: false
+    range: text value
+  store_cond:
+    name: store_cond
+    aliases:
+    - storage conditions (fresh/frozen/other)
+    mappings:
+    - mixs:store_cond
+    description: Explain how and for how long the soil sample was stored before DNA
+      extraction
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    multivalued: false
+    range: text value
+  season_precpt:
+    name: season_precpt
+    aliases:
+    - mean seasonal precipitation
+    mappings:
+    - mixs:season_precpt
+    description: '"The average of all seasonal precipitation values known, or an estimated
+      equivalent value derived by such methods as regional indexes or Isohyetal maps.
+      "'
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    string_serialization: '{float} {unit}'
+    multivalued: false
+    range: quantity value
+    pattern: \d+[.\d+] \S+
+  heavy_metals_meth:
+    name: heavy_metals_meth
+    aliases:
+    - extreme_unusual_properties/heavy metals method
+    mappings:
+    - mixs:heavy_metals_meth
+    description: Reference or method used in determining heavy metals
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    multivalued: false
+    range: text value
+  depth:
+    name: depth
+    aliases:
+    - geographic location (depth)
+    mappings:
+    - mixs:depth
+    description: Please refer to the definitions of depth in the environmental packages
+    in_subset:
+    - environment
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    multivalued: false
+    range: quantity value
+  slope_gradient:
+    name: slope_gradient
+    aliases:
+    - slope gradient
+    mappings:
+    - mixs:slope_gradient
+    description: Commonly called 'slope'. The angle between ground surface and a horizontal
+      line (in percent). This is the direction that overland water would flow. This
+      measure is usually taken with a hand level meter or clinometer
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    string_serialization: '{float} {unit}'
+    multivalued: false
+    range: quantity value
+    pattern: \d+[.\d+] \S+
+  elev:
+    name: elev
+    aliases:
+    - elevation
+    mappings:
+    - mixs:elev
+    description: '"Elevation of the sampling site is its height above a fixed reference
+      point, most commonly the mean sea level. Elevation is mainly used when referring
+      to points on the earth''s surface, while altitude is used for points above the
+      surface, such as an aircraft in flight or a spacecraft in orbit"'
+    in_subset:
+    - environment
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    string_serialization: '{float} {unit}'
+    multivalued: false
+    range: quantity value
+    pattern: \d+[.\d+] \S+
+  extreme_salinity:
+    name: extreme_salinity
+    aliases:
+    - extreme_unusual_properties/salinity
+    description: Measured salinity
+    title: extreme_unusual_properties/salinity
+    comments:
+    - 'Expected value: measurement value'
+    - 'Preferred unit: millisiemens per meter'
+    examples:
+    - value: ''
+    from_schema: http://w3id.org/mixs/terms
+    is_a: core field
+    slot_uri: MIXS:0000651
+    multivalued: false
+    range: quantity value
+  env_broad_scale:
+    name: env_broad_scale
+    aliases:
+    - broad-scale environmental context
+    mappings:
+    - mixs:env_broad_scale
+    description: '"In this field, report which major environmental system your sample
+      or specimen came from. The systems identified should have a coarse spatial grain,
+      to provide the general environmental context of where the sampling was done
+      (e.g. were you in the desert or a rainforest?). We recommend using subclasses
+      of ENVOUs biome class: http://purl.obolibrary.org/obo/ENVO_00000428. Format
+      (one term): termLabel [termID], Format (multiple terms): termLabel [termID]|termLabel
+      [termID]|termLabel [termID]. Example: Annotating a water sample from the photic
+      zone in middle of the Atlantic Ocean, consider: oceanic epipelagic zone biome
+      [ENVO:01000033]. Example: Annotating a sample from the Amazon rainforest consider:
+      tropical moist broadleaf forest biome [ENVO:01000228]. If needed, request new
+      terms on the ENVO tracker, identified here: http://www.obofoundry.org/ontology/envo.html"'
+    in_subset:
+    - environment
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    multivalued: false
+    range: controlled term value
+    pattern: .* \S+:\S+
+  has raw value:
+    name: has raw value
+    description: The value that was specified for an annotation in raw form, i.e.
+      a string. E.g. "2 cm" or "2-4 cm"
+    from_schema: https://microbiomedata/schema/core
+    domain: attribute value
+    multivalued: false
+    range: string
+    required: false
+  link_class_info:
+    name: link_class_info
+    aliases:
+    - link to classification information
+    mappings:
+    - mixs:link_class_info
+    description: Link to digitized soil maps or other soil classification information
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    multivalued: false
+    range: text value
+  fao_class:
+    name: fao_class
+    aliases:
+    - soil_taxonomic/FAO classification
+    mappings:
+    - mixs:fao_class
+    description: Soil classification from the FAO World Reference Database for Soil
+      Resources. The list can be found at http://www.fao.org/nr/land/sols/soil/wrb-soil-maps/reference-groups
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    multivalued: false
+    range: text value
+    pattern: '[Acrisols|Andosols|Arenosols|Cambisols|Chernozems|Ferralsols|Fluvisols|Gleysols|Greyzems|Gypsisols|Histosols|Kastanozems|Lithosols|Luvisols|Nitosols|Phaeozems|Planosols|Podzols|Podzoluvisols|Rankers|Regosols|Rendzinas|Solonchaks|Solonetz|Vertisols|Yermosols]'
+  prev_land_use_meth:
+    name: prev_land_use_meth
+    aliases:
+    - history/previous land use method
+    description: Reference or method used in determining previous land use and dates
+    title: history/previous land use method
+    comments:
+    - 'Expected value: PMID,DOI or url'
+    examples:
+    - value: ''
+    from_schema: http://w3id.org/mixs/terms
+    is_a: core field
+    string_serialization: '{PMID}|{DOI}|{URL}'
+    slot_uri: MIXS:0000316
+    multivalued: false
+    range: string
+  misc_param:
+    name: misc_param
+    aliases:
+    - miscellaneous parameter
+    mappings:
+    - mixs:misc_param
+    description: '"Any other measurement performed or parameter collected, that is
+      not listed here"'
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    string_serialization: '{text};{float} {unit}'
+    multivalued: false
+    range: quantity value
+  fire:
+    name: fire
+    aliases:
+    - history/fire
+    mappings:
+    - mixs:fire
+    description: Historical and/or physical evidence of fire
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    multivalued: false
+    range: timestamp value
+  soil_horizon:
+    name: soil_horizon
+    aliases:
+    - soil horizon
+    description: Specific layer in the land area which measures parallel to the soil
+      surface and possesses physical characteristics which differ from the layers
+      above and beneath
+    title: soil horizon
+    comments:
+    - 'Expected value: enumeration'
+    examples:
+    - value: A horizon
+    from_schema: http://w3id.org/mixs/terms
+    is_a: core field
+    string_serialization: '[O horizon|A horizon|E horizon|B horizon|C horizon|R layer|Permafrost]'
+    slot_uri: MIXS:0001082
+    multivalued: false
+    range: soil_horizon_enum
+  al_sat:
+    name: al_sat
+    aliases:
+    - extreme_unusual_properties/Al saturation
+    mappings:
+    - mixs:al_sat
+    description: Aluminum saturation (esp. For tropical soils)
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    string_serialization: '{float} {unit}'
+    multivalued: false
+    range: quantity value
+    pattern: \d+[.\d+] \S+
+  core field:
+    name: core field
+    description: basic fields
+    from_schema: http://w3id.org/mixs/terms
+    abstract: true
+  season_temp:
+    name: season_temp
+    aliases:
+    - mean seasonal temperature
+    mappings:
+    - mixs:season_temp
+    description: Mean seasonal temperature
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    string_serialization: '{float} {unit}'
+    multivalued: false
+    range: quantity value
+    pattern: \d+[.\d+] \S+
+  al_sat_meth:
+    name: al_sat_meth
+    aliases:
+    - extreme_unusual_properties/Al saturation method
+    mappings:
+    - mixs:al_sat_meth
+    description: Reference or method used in determining Al saturation
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    multivalued: false
+    range: text value
+  annual_precpt:
+    name: annual_precpt
+    aliases:
+    - mean annual precipitation
+    mappings:
+    - mixs:annual_precpt
+    description: '"The average of all annual precipitation values known, or an estimated
+      equivalent value derived by such methods as regional indexes or Isohyetal maps.
+      "'
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    string_serialization: '{float} {unit}'
+    multivalued: false
+    range: quantity value
+    pattern: \d+[.\d+] \S+
+  has numeric value:
+    name: has numeric value
+    mappings:
+    - qud:quantityValue
+    - schema:value
+    description: Links a quantity value to a number
+    from_schema: https://microbiomedata/schema/core
+    multivalued: false
+    range: float
+  local_class:
+    name: local_class
+    aliases:
+    - soil_taxonomic/local classification
+    mappings:
+    - mixs:local_class
+    description: Soil classification based on local soil classification system
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    multivalued: false
+    range: text value
+  salinity_meth:
+    name: salinity_meth
+    aliases:
+    - extreme_unusual_properties/salinity method
+    mappings:
+    - mixs:salinity_meth
+    description: Reference or method used in determining salinity
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    multivalued: false
+    range: text value
+  soil_type_meth:
+    name: soil_type_meth
+    aliases:
+    - soil type method
+    mappings:
+    - mixs:soil_type_meth
+    description: Reference or method used in determining soil series name or other
+      lower-level classification
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    multivalued: false
+    range: text value
+  tot_org_carb:
+    name: tot_org_carb
+    aliases:
+    - total organic carbon
+    mappings:
+    - mixs:tot_org_carb
+    description: '"Definition for soil: total organic carbon content of the soil,
+      definition otherwise: total organic carbon content"'
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    string_serialization: '{float} {unit}'
+    multivalued: false
+    range: quantity value
+    pattern: \d+[.\d+] \S+
+  soil_text_measure:
+    name: soil_text_measure
+    aliases:
+    - soil texture measurement
+    description: The relative proportion of different grain sizes of mineral particles
+      in a soil, as described using a standard system; express as % sand (50 um to
+      2 mm), silt (2 um to 50 um), and clay (<2 um) with textural name (e.g., silty
+      clay loam) optional.
+    title: soil texture measurement
+    comments:
+    - 'Expected value: measurement value'
+    examples:
+    - value: ''
+    from_schema: http://w3id.org/mixs/terms
+    is_a: core field
+    slot_uri: MIXS:0000335
+    multivalued: false
+    range: quantity value
+  local_class_meth:
+    name: local_class_meth
+    aliases:
+    - soil_taxonomic/local classification method
+    mappings:
+    - mixs:local_class_meth
+    description: 'Reference or method used in determining the local soil classification '
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    multivalued: false
+    range: text value
+  environment field:
+    name: environment field
+    description: field describing environmental aspect of a sample
+    from_schema: http://w3id.org/mixs/terms
+    abstract: true
+  micro_biomass_meth:
+    name: micro_biomass_meth
+    aliases:
+    - microbial biomass method
+    description: Reference or method used in determining microbial biomass
+    title: microbial biomass method
+    comments:
+    - 'Expected value: PMID,DOI or url'
+    examples:
+    - value: ''
+    from_schema: http://w3id.org/mixs/terms
+    is_a: core field
+    string_serialization: '{PMID}|{DOI}|{URL}'
+    slot_uri: MIXS:0000339
+    multivalued: false
+    range: string
+  previous_land_use:
+    name: previous_land_use
+    aliases:
+    - history/previous land use
+    mappings:
+    - mixs:previous_land_use
+    description: Previous land use and dates
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    multivalued: false
+    range: text value
+  temp:
+    name: temp
+    aliases:
+    - temperature
+    mappings:
+    - mixs:temp
+    description: Temperature of the sample at the time of sampling
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    string_serialization: '{float} {unit}'
+    multivalued: false
+    range: quantity value
+    pattern: \d+[.\d+] \S+
+  tot_nitro_content:
+    name: tot_nitro_content
+    aliases:
+    - total nitrogen content
+    mappings:
+    - mixs:tot_nitro_content
+    description: Total nitrogen content of the sample
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    string_serialization: '{float} {unit}'
+    multivalued: false
+    range: quantity value
+    pattern: \d+[.\d+] \S+
+  alt:
+    name: alt
+    aliases:
+    - altitude
+    mappings:
+    - mixs:alt
+    description: '"Altitude is a term used to identify heights of objects such as
+      airplanes, space shuttles, rockets, atmospheric balloons and heights of places
+      such as atmospheric layers and clouds. It is used to measure the height of an
+      object which is above the earthbs surface. In this context, the altitude measurement
+      is the vertical distance between the earth''s surface above sea level and the
+      sampled position in the air"'
+    in_subset:
+    - environment
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    string_serialization: '{float} {unit}'
+    multivalued: false
+    range: quantity value
+    pattern: \d+[.\d+] \S+
+  tot_org_c_meth:
+    name: tot_org_c_meth
+    aliases:
+    - total organic carbon method
+    mappings:
+    - mixs:tot_org_c_meth
+    description: Reference or method used in determining total organic carbon
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    multivalued: false
+    range: text value
+  env_local_scale:
+    name: env_local_scale
+    aliases:
+    - local environmental context
+    mappings:
+    - mixs:env_local_scale
+    description: '"In this field, report the entity or entities which are in your
+      sample or specimenUs local vicinity and which you believe have significant causal
+      influences on your sample or specimen. Please use terms that are present in
+      ENVO and which are of smaller spatial grain than your entry for env_broad_scale.
+      Format (one term): termLabel [termID]; Format (multiple terms): termLabel [termID]|termLabel
+      [termID]|termLabel [termID]. Example: Annotating a pooled sample taken from
+      various vegetation layers in a forest consider: canopy [ENVO:00000047]|herb
+      and fern layer [ENVO:01000337]|litter layer [ENVO:01000338]|understory [01000335]|shrub
+      layer [ENVO:01000336]. If needed, request new terms on the ENVO tracker, identified
+      here: http://www.obofoundry.org/ontology/envo.html"'
+    in_subset:
+    - environment
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    multivalued: false
+    range: controlled term value
+    pattern: .* \S+:\S+
+  flooding:
+    name: flooding
+    aliases:
+    - history/flooding
+    mappings:
+    - mixs:flooding
+    description: Historical and/or physical evidence of flooding
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    multivalued: false
+    range: timestamp value
+  horizon_meth:
+    name: horizon_meth
+    aliases:
+    - horizon method
+    mappings:
+    - mixs:horizon_meth
+    description: Reference or method used in determining the horizon
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    multivalued: false
+    range: text value
+  heavy_metals:
+    name: heavy_metals
+    aliases:
+    - extreme_unusual_properties/heavy metals
+    mappings:
+    - mixs:heavy_metals
+    description: Heavy metals present and concentrationsany drug used by subject and
+      the frequency of usage; can include multiple heavy metals and concentrations
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    string_serialization: '{text};{float} {unit}'
+    multivalued: false
+    range: quantity value
+  water_content:
+    name: water_content
+    aliases:
+    - water content
+    mappings:
+    - mixs:water_content
+    description: Water content measurement
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    string_serialization: '{float} {unit}'
+    multivalued: false
+    range: quantity value
+    pattern: \d+[.\d+] \S+
+  tot_nitro_cont_meth:
+    name: tot_nitro_cont_meth
+    aliases:
+    - total nitrogen content method
+    description: Reference or method used in determining the total nitrogen
+    title: total nitrogen content method
+    comments:
+    - 'Expected value: PMID,DOI or url'
+    examples:
+    - value: ''
+    from_schema: http://w3id.org/mixs/terms
+    is_a: core field
+    string_serialization: '{PMID}|{DOI}|{URL}'
+    slot_uri: MIXS:0000338
+    multivalued: false
+    range: string
+  profile_position:
+    name: profile_position
+    aliases:
+    - profile position
+    mappings:
+    - mixs:profile_position
+    description: Cross-sectional position in the hillslope where sample was collected.sample
+      area position in relation to surrounding areas
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    multivalued: false
+    range: text value
+    pattern: '[summit|shoulder|backslope|footslope|toeslope]'
+  soil_texture_meth:
+    name: soil_texture_meth
+    aliases:
+    - soil texture method
+    description: Reference or method used in determining soil texture
+    title: soil texture method
+    comments:
+    - 'Expected value: PMID,DOI or url'
+    examples:
+    - value: ''
+    from_schema: http://w3id.org/mixs/terms
+    is_a: core field
+    string_serialization: '{PMID}|{DOI}|{URL}'
+    slot_uri: MIXS:0000336
+    multivalued: false
+    range: string
+  env_medium:
+    name: env_medium
+    aliases:
+    - environmental medium
+    mappings:
+    - mixs:env_medium
+    description: '"In this field, report which environmental material or materials
+      (pipe separated) immediately surrounded your sample or specimen prior to sampling,
+      using one or more subclasses of ENVOUs environmental material class: http://purl.obolibrary.org/obo/ENVO_00010483.
+      Format (one term): termLabel [termID]; Format (multiple terms): termLabel [termID]|termLabel
+      [termID]|termLabel [termID]. Example: Annotating a fish swimming in the upper
+      100 m of the Atlantic Ocean, consider: ocean water [ENVO:00002151]. Example:
+      Annotating a duck on a pond consider: pond water [ENVO:00002228]|air ENVO_00002005.
+      If needed, request new terms on the ENVO tracker, identified here: http://www.obofoundry.org/ontology/envo.html"'
+    in_subset:
+    - environment
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    multivalued: false
+    range: controlled term value
+    pattern: .* \S+:\S+
+  agrochem_addition:
+    name: agrochem_addition
+    aliases:
+    - history/agrochemical additions
+    mappings:
+    - mixs:agrochem_addition
+    description: '"Addition of fertilizers, pesticides, etc. - amount and time of
+      applications"'
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    string_serialization: '{text};{float} {unit};{timestamp}'
+    multivalued: false
+    range: quantity value
+  tillage:
+    name: tillage
+    aliases:
+    - history/tillage
+    mappings:
+    - mixs:tillage
+    description: Note method(s) used for tilling
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    multivalued: false
+    range: text value
+    pattern: '[drill|cutting disc|ridge till|strip tillage|zonal tillage|chisel|tined|mouldboard|disc
+      plough]'
+  microbial_biomass:
+    name: microbial_biomass
+    aliases:
+    - microbial biomass
+    mappings:
+    - mixs:microbial_biomass
+    description: '"The part of the organic matter in the soil that constitutes living
+      microorganisms smaller than 5-10 micrometer. If you keep this, you would need
+      to have correction factors used for conversion to the final units"'
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    string_serialization: '{float} {unit}'
+    multivalued: false
+    range: quantity value
+    pattern: \d+[.\d+] \S+
+  collection_date:
+    name: collection_date
+    aliases:
+    - collection date
+    mappings:
+    - mixs:collection_date
+    description: '"The time of sampling, either as an instance (single point in time)
+      or interval. In case no exact time is available, the date/time can be right
+      truncated i.e. all of these are valid times: 2008-01-23T19:23:10+00:00; 2008-01-23T19:23:10;
+      2008-01-23; 2008-01; 2008; Except: 2008-01; 2008 all are ISO8601 compliant"'
+    in_subset:
+    - environment
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    multivalued: false
+    range: timestamp value
+  extreme_event:
+    name: extreme_event
+    aliases:
+    - history/extreme events
+    mappings:
+    - mixs:extreme_event
+    description: Unusual physical events that may have affected microbial populations
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    multivalued: false
+    range: timestamp value
+  cur_vegetation_meth:
+    name: cur_vegetation_meth
+    aliases:
+    - current vegetation method
+    mappings:
+    - mixs:cur_vegetation_meth
+    description: 'Reference or method used in vegetation classification '
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    multivalued: false
+    range: text value
+  cur_land_use:
+    name: cur_land_use
+    aliases:
+    - current land use
+    mappings:
+    - mixs:cur_land_use
+    description: Present state of sample site
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    multivalued: false
+    range: text value
+    pattern: '[cities|farmstead|industrial areas|roads\/railroads|rock|sand|gravel|mudflats|salt
+      flats|badlands|permanent snow or ice|saline seeps|mines\/quarries|oil waste
+      areas|small grains|row crops|vegetable crops|horticultural plants (e.g. tulips)|marshlands
+      (grass,sedges,rushes)|tundra (mosses,lichens)|rangeland|pastureland (grasslands
+      used for livestock grazing)|hayland|meadows (grasses,alfalfa,fescue,bromegrass,timothy)|shrub
+      land (e.g. mesquite,sage\-brush,creosote bush,shrub oak,eucalyptus)|successional
+      shrub land (tree saplings,hazels,sumacs,chokecherry,shrub dogwoods,blackberries)|shrub
+      crops (blueberries,nursery ornamentals,filberts)|vine crops (grapes)|conifers
+      (e.g. pine,spruce,fir,cypress)|hardwoods (e.g. oak,hickory,elm,aspen)|intermixed
+      hardwood and conifers|tropical (e.g. mangrove,palms)|rainforest (evergreen forest
+      receiving >406 cm annual rainfall)|swamp (permanent or semi\-permanent water
+      body dominated by woody plants)|crop trees (nuts,fruit,christmas trees,nursery
+      trees)]'
+  annual_temp:
+    name: annual_temp
+    aliases:
+    - mean annual temperature
+    mappings:
+    - mixs:annual_temp
+    description: Mean annual temperature
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    string_serialization: '{float} {unit}'
+    multivalued: false
+    range: quantity value
+    pattern: \d+[.\d+] \S+
+  has unit:
+    name: has unit
+    aliases:
+    - scale
+    mappings:
+    - qud:unit
+    - schema:unitCode
+    description: Links a quantity value to a unit
+    from_schema: https://microbiomedata/schema/core
+    range: unit
+  soluble_iron_micromol:
+    name: soluble_iron_micromol
+    from_schema: https://microbiomedata/schema
+    range: string
+  perturbation:
+    name: perturbation
+    aliases:
+    - perturbation
+    mappings:
+    - mixs:perturbation
+    description: '"Type of perturbation, e.g. chemical administration, physical disturbance,
+      etc., coupled with perturbation regimen including how many times the perturbation
+      was repeated, how long each perturbation lasted, and the start and end time
+      of the entire perturbation period; can include multiple perturbation types"'
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    multivalued: false
+    range: text value
+  salinity:
+    name: salinity
+    aliases:
+    - salinity
+    mappings:
+    - mixs:salinity
+    description: '"Salinity is the total concentration of all dissolved salts in a
+      water sample. While salinity can be measured by a complete chemical analysis,
+      this method is difficult and time consuming. More often, it is instead derived
+      from the conductivity measurement. This is known as practical salinity. These
+      derivations compare the specific conductance of the sample to a salinity standard
+      such as seawater"'
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    string_serialization: '{float} {unit}'
+    multivalued: false
+    range: quantity value
+    pattern: \d+[.\d+] \S+
+  n_alkanes:
+    name: n_alkanes
+    aliases:
+    - n-alkanes
+    mappings:
+    - mixs:n_alkanes
+    description: Concentration of n-alkanes; can include multiple n-alkanes
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    string_serialization: '{text};{float} {unit}'
+    multivalued: false
+    range: quantity value
+  samp_collect_device:
+    name: samp_collect_device
+    aliases:
+    - sample collection device or method
+    mappings:
+    - mixs:samp_collect_device
+    description: The method or device employed for collecting the sample
+    in_subset:
+    - nucleic acid sequence source
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    multivalued: false
+    range: text value
+  started at time:
+    name: started at time
+    mappings:
+    - prov:startedAtTime
+    from_schema: https://microbiomedata/schema/prov
+  part_org_carb:
+    name: part_org_carb
+    aliases:
+    - particulate organic carbon
+    mappings:
+    - mixs:part_org_carb
+    description: Concentration of particulate organic carbon
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    string_serialization: '{float} {unit}'
+    multivalued: false
+    range: quantity value
+    pattern: \d+[.\d+] \S+
+  size_frac_up:
+    name: size_frac_up
+    aliases:
+    - size-fraction upper threshold
+    mappings:
+    - mixs:size_frac_up
+    description: Refers to the mesh/pore size used to retain the sample. Materials
+      smaller than the size threshold are excluded from the sample
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    string_serialization: '{float} {unit}'
+    multivalued: false
+    range: quantity value
+    pattern: \d+[.\d+] \S+
+  latitude:
+    name: latitude
+    mappings:
+    - schema:latitude
+    description: latitude
+    from_schema: https://microbiomedata/schema/core
+    domain: geolocation value
+    slot_uri: wgs:lat
+    range: decimal degree
+  previous_land_use_meth:
+    name: previous_land_use_meth
+    aliases:
+    - history/previous land use method
+    mappings:
+    - mixs:previous_land_use_meth
+    description: Reference or method used in determining previous land use and dates
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    multivalued: false
+    range: text value
+  INSDC secondary sample identifiers:
+    name: INSDC secondary sample identifiers
+    description: '[''secondary identifiers for corresponding sample in INSDC'']'
+    comments:
+    - ENA redirects these to primary IDs, e.g. https://www.ebi.ac.uk/ena/browser/view/DRS166340
+      -> SAMD00212331
+    - MGnify uses these as their primary sample IDs
+    examples:
+    - value: https://identifiers.org/insdc.sra:DRS166340
+      description: I13_N_5-10 sample from Soil fungal diversity along elevational
+        gradients
+    from_schema: https://microbiomedata/schema/external_identifiers
+    is_a: sample identifiers
+    mixins:
+    - INSDC identifiers
+    pattern: ^biosample:(E|D|S)RS[0-9]{6,}$
+  acted on behalf of:
+    name: acted on behalf of
+    mappings:
+    - prov:actedOnBehalfOf
+    from_schema: https://microbiomedata/schema/prov
+    range: agent
+  texture_meth:
+    name: texture_meth
+    aliases:
+    - texture method
+    mappings:
+    - mixs:texture_meth
+    description: Reference or method used in determining soil texture
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    multivalued: false
+    range: text value
+  habitat:
+    name: habitat
+    from_schema: https://microbiomedata/schema
+    range: string
+  bishomohopanol:
+    name: bishomohopanol
+    aliases:
+    - bishomohopanol
+    mappings:
+    - mixs:bishomohopanol
+    description: 'Concentration of bishomohopanol '
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    string_serialization: '{float} {unit}'
+    multivalued: false
+    range: quantity value
+    pattern: \d+[.\d+] \S+
+  community:
+    name: community
+    from_schema: https://microbiomedata/schema
+    range: string
+  chloride:
+    name: chloride
+    aliases:
+    - chloride
+    mappings:
+    - mixs:chloride
+    description: Concentration of chloride in the sample
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    string_serialization: '{float} {unit}'
+    multivalued: false
+    range: quantity value
+    pattern: \d+[.\d+] \S+
+  tot_carb:
+    name: tot_carb
+    aliases:
+    - total carbon
+    mappings:
+    - mixs:tot_carb
+    description: Total carbon content
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    string_serialization: '{float} {unit}'
+    multivalued: false
+    range: quantity value
+    pattern: \d+[.\d+] \S+
+  diss_hydrogen:
+    name: diss_hydrogen
+    aliases:
+    - dissolved hydrogen
+    mappings:
+    - mixs:diss_hydrogen
+    description: Concentration of dissolved hydrogen
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    string_serialization: '{float} {unit}'
+    multivalued: false
+    range: quantity value
+    pattern: \d+[.\d+] \S+
+  magnesium:
+    name: magnesium
+    aliases:
+    - magnesium
+    mappings:
+    - mixs:magnesium
+    description: Concentration of magnesium in the sample
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    string_serialization: '{float} {unit}'
+    multivalued: false
+    range: quantity value
+    pattern: \d+[.\d+] \S+
+  location:
+    name: location
+    from_schema: https://microbiomedata/schema
+    range: string
+  samp_mat_process:
+    name: samp_mat_process
+    aliases:
+    - sample material processing
+    mappings:
+    - mixs:samp_mat_process
+    description: '"Any processing applied to the sample during or after retrieving
+      the sample from environment. This field accepts OBI, for a browser of OBI (v
+      2018-02-12) terms please see http://purl.bioontology.org/ontology/OBI"'
+    in_subset:
+    - nucleic acid sequence source
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    multivalued: false
+    range: controlled term value
+  nitrate:
+    name: nitrate
+    aliases:
+    - nitrate
+    mappings:
+    - mixs:nitrate
+    description: Concentration of nitrate in the sample
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    string_serialization: '{float} {unit}'
+    multivalued: false
+    range: quantity value
+    pattern: \d+[.\d+] \S+
+  ecosystem_category:
+    name: ecosystem_category
+    description: TODO
+    from_schema: https://microbiomedata/schema
+    is_a: gold_path_field
+  tot_phosp:
+    name: tot_phosp
+    aliases:
+    - total phosphorus
+    mappings:
+    - mixs:tot_phosp
+    description: '"Total phosphorus concentration in the sample, calculated by: total
+      phosphorus = total dissolved phosphorus + particulate phosphorus"'
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    string_serialization: '{float} {unit}'
+    multivalued: false
+    range: quantity value
+    pattern: \d+[.\d+] \S+
+  alkalinity:
+    name: alkalinity
+    aliases:
+    - alkalinity
+    mappings:
+    - mixs:alkalinity
+    description: '"Alkalinity, the ability of a solution to neutralize acids to the
+      equivalence point of carbonate or bicarbonate"'
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    string_serialization: '{float} {unit}'
+    multivalued: false
+    range: quantity value
+    pattern: \d+[.\d+] \S+
+  has maximum numeric value:
+    name: has maximum numeric value
+    description: The maximum value part, expressed as number, of the quantity value
+      when the value covers a range.
+    from_schema: https://microbiomedata/schema/core
+    is_a: has numeric value
+  bacteria_carb_prod:
+    name: bacteria_carb_prod
+    aliases:
+    - bacterial carbon production
+    mappings:
+    - mixs:bacteria_carb_prod
+    description: Measurement of bacterial carbon production
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    string_serialization: '{float} {unit}'
+    multivalued: false
+    range: quantity value
+    pattern: \d+[.\d+] \S+
+  phosplipid_fatt_acid:
+    name: phosplipid_fatt_acid
+    aliases:
+    - phospholipid fatty acid
+    mappings:
+    - mixs:phosplipid_fatt_acid
+    description: Concentration of phospholipid fatty acids; can include multiple values
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    string_serialization: '{text};{float} {unit}'
+    multivalued: false
+    range: quantity value
+  organism_count:
+    name: organism_count
+    aliases:
+    - organism count
+    mappings:
+    - mixs:organism_count
+    description: '"Total cell count of any organism (or group of organisms) per gram,
+      volume or area of sample, should include name of organism followed by count.
+      The method that was used for the enumeration (e.g. qPCR, atp, mpn, etc.) Should
+      also be provided. (example: total prokaryotes; 3.5e7 cells per ml; qpcr)"'
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    string_serialization: '{text};{float} {unit};[qPCR|ATP|MPN|other]'
+    multivalued: false
+    range: quantity value
+  diss_inorg_phosp:
+    name: diss_inorg_phosp
+    aliases:
+    - dissolved inorganic phosphorus
+    mappings:
+    - mixs:diss_inorg_phosp
+    description: Concentration of dissolved inorganic phosphorus in the sample
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    string_serialization: '{float} {unit}'
+    multivalued: false
+    range: quantity value
+    pattern: \d+[.\d+] \S+
+  alkalinity_method:
+    name: alkalinity_method
+    aliases:
+    - alkalinity method
+    mappings:
+    - mixs:alkalinity_method
+    description: Method used for alkalinity measurement
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    multivalued: false
+    range: text value
+  description:
+    name: description
+    description: a human-readable description of a thing
+    from_schema: https://microbiomedata/schema/basic_slots
+    slot_uri: dcterms:description
+    multivalued: false
+    range: string
+  ecosystem:
+    name: ecosystem
+    description: TODO
+    from_schema: https://microbiomedata/schema
+    is_a: gold_path_field
+  samp_store_loc:
+    name: samp_store_loc
+    aliases:
+    - sample storage location
+    mappings:
+    - mixs:samp_store_loc
+    description: '"Location at which sample was stored, usually name of a specific
+      freezer/room"'
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    multivalued: false
+    range: text value
+  sulfide:
+    name: sulfide
+    aliases:
+    - sulfide
+    mappings:
+    - mixs:sulfide
+    description: Concentration of sulfide in the sample
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    string_serialization: '{float} {unit}'
+    multivalued: false
+    range: quantity value
+    pattern: \d+[.\d+] \S+
+  GOLD sample identifiers:
+    name: GOLD sample identifiers
+    description: '[''identifiers for corresponding sample in GOLD'']'
+    examples:
+    - value: https://identifiers.org/gold:GbTODO
+    from_schema: https://microbiomedata/schema/external_identifiers
+    is_a: sample identifiers
+    mixins:
+    - GOLD identifiers
+    multivalued: true
+    pattern: ^GOLD:Gb[0-9]+$
+  gold_path_field:
+    name: gold_path_field
+    description: 'This is a grouping for any of the gold path fields          '
+    from_schema: https://microbiomedata/schema
+    is_a: attribute
+    abstract: true
+    range: string
+  was associated with:
+    name: was associated with
+    mappings:
+    - prov:wasAssociatedWith
+    from_schema: https://microbiomedata/schema/prov
+    range: agent
+  add_date:
+    name: add_date
+    description: The date on which the information was added to the database.
+    from_schema: https://microbiomedata/schema
+    range: string
+  org_nitro:
+    name: org_nitro
+    aliases:
+    - organic nitrogen
+    mappings:
+    - mixs:org_nitro
+    description: Concentration of organic nitrogen
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    string_serialization: '{float} {unit}'
+    multivalued: false
+    range: quantity value
+    pattern: \d+[.\d+] \S+
+  was generated by:
+    name: was generated by
+    mappings:
+    - prov:wasGeneratedBy
+    from_schema: https://microbiomedata/schema/prov
+    range: activity
+  specific_ecosystem:
+    name: specific_ecosystem
+    description: TODO
+    from_schema: https://microbiomedata/schema
+    is_a: gold_path_field
+  aminopept_act:
+    name: aminopept_act
+    aliases:
+    - aminopeptidase activity
+    mappings:
+    - mixs:aminopept_act
+    description: Measurement of aminopeptidase activity
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    string_serialization: '{float} {unit}'
+    multivalued: false
+    range: quantity value
+    pattern: \d+[.\d+] \S+
+  env_package:
+    name: env_package
+    aliases:
+    - environmental package
+    mappings:
+    - mixs:env_package
+    description: '"MIxS extension for reporting of measurements and observations obtained
+      from one or more of the environments where the sample was obtained. All environmental
+      packages listed here are further defined in separate subtables. By giving the
+      name of the environmental package, a selection of fields can be made from the
+      subtables and can be reported"'
+    in_subset:
+    - mixs extension
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    multivalued: false
+    range: text value
+    pattern: '[air|built environment|host\-associated|human\-associated|human\-skin|human\-oral|human\-gut|human\-vaginal|hydrocarbon
+      resources\-cores|hydrocarbon resources\-fluids\/swabs|microbial mat\/biofilm|misc
+      environment|plant\-associated|sediment|soil|wastewater\/sludge|water]'
+  petroleum_hydrocarb:
+    name: petroleum_hydrocarb
+    aliases:
+    - petroleum hydrocarbon
+    mappings:
+    - mixs:petroleum_hydrocarb
+    description: Concentration of petroleum hydrocarbon
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    string_serialization: '{float} {unit}'
+    multivalued: false
+    range: quantity value
+    pattern: \d+[.\d+] \S+
+  longitude:
+    name: longitude
+    mappings:
+    - schema:longitude
+    description: longitude
+    from_schema: https://microbiomedata/schema/core
+    domain: geolocation value
+    slot_uri: wgs:long
+    range: decimal degree
+  density:
+    name: density
+    aliases:
+    - density
+    mappings:
+    - mixs:density
+    description: '"Density of the sample, which is its mass per unit volume (aka volumetric
+      mass density)"'
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    string_serialization: '{float} {unit}'
+    multivalued: false
+    range: quantity value
+    pattern: \d+[.\d+] \S+
+  subsurface_depth:
+    name: subsurface_depth
+    from_schema: https://microbiomedata/schema
+    range: quantity value
+  GOLD identifiers:
+    name: GOLD identifiers
+    from_schema: https://microbiomedata/schema/external_identifiers
+    see_also:
+    - https://gold.jgi.doe.gov/
+    mixin: true
+  name:
+    name: name
+    description: A human readable label for an entity
+    from_schema: https://microbiomedata/schema/basic_slots
+    multivalued: false
+    range: string
+  calcium:
+    name: calcium
+    aliases:
+    - calcium
+    mappings:
+    - mixs:calcium
+    description: Concentration of calcium in the sample
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    string_serialization: '{float} {unit}'
+    multivalued: false
+    range: quantity value
+    pattern: \d+[.\d+] \S+
+  size_frac_low:
+    name: size_frac_low
+    aliases:
+    - size-fraction lower threshold
+    mappings:
+    - mixs:size_frac_low
+    description: Refers to the mesh/pore size used to pre-filter/pre-sort the sample.
+      Materials larger than the size threshold are excluded from the sample
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    string_serialization: '{float} {unit}'
+    multivalued: false
+    range: quantity value
+    pattern: \d+[.\d+] \S+
+  salinity_category:
+    name: salinity_category
+    description: 'Categorcial description of the sample''s salinity. Examples: halophile,
+      halotolerant, hypersaline, huryhaline'
+    from_schema: https://microbiomedata/schema
+    see_also:
+    - https://github.com/microbiomedata/nmdc-metadata/pull/297
+    range: string
+  id:
+    name: id
+    description: A unique identifier for a thing. Must be either a CURIE shorthand
+      for a URI or a complete URI
+    from_schema: https://microbiomedata/schema/basic_slots
+    multivalued: false
+    identifier: true
+  depth2:
+    name: depth2
+    from_schema: https://microbiomedata/schema
+    range: quantity value
+  sodium:
+    name: sodium
+    aliases:
+    - sodium
+    mappings:
+    - mixs:sodium
+    description: Sodium concentration in the sample
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    string_serialization: '{float} {unit}'
+    multivalued: false
+    range: quantity value
+    pattern: \d+[.\d+] \S+
+  water_content_soil_meth:
+    name: water_content_soil_meth
+    aliases:
+    - water content method
+    mappings:
+    - mixs:water_content_soil_meth
+    description: Reference or method used in determining the water content of soil
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    multivalued: false
+    range: text value
+  type:
+    name: type
+    description: An optional string that specifies the type object.  This is used
+      to allow for searches for different kinds of objects.
+    examples:
+    - value: nmdc:Biosample
+    - value: nmdc:Study
+    from_schema: https://microbiomedata/schema/basic_slots
+    designates_type: true
+    range: string
+  ecosystem_subtype:
+    name: ecosystem_subtype
+    description: TODO
+    from_schema: https://microbiomedata/schema
+    is_a: gold_path_field
+  has minimum numeric value:
+    name: has minimum numeric value
+    description: The minimum value part, expressed as number, of the quantity value
+      when the value covers a range.
+    from_schema: https://microbiomedata/schema/core
+    is_a: has numeric value
+  sample identifiers:
+    name: sample identifiers
+    from_schema: https://microbiomedata/schema/external_identifiers
+    is_a: external database identifiers
+    abstract: true
+  carb_nitro_ratio:
+    name: carb_nitro_ratio
+    aliases:
+    - carbon/nitrogen ratio
+    mappings:
+    - mixs:carb_nitro_ratio
+    description: Ratio of amount or concentrations of carbon to nitrogen
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    string_serialization: '{float} {unit}'
+    multivalued: false
+    range: quantity value
+    pattern: \d+[.\d+] \S+
+  ncbi_taxonomy_name:
+    name: ncbi_taxonomy_name
+    from_schema: https://microbiomedata/schema
+    range: string
+  ended at time:
+    name: ended at time
+    mappings:
+    - prov:endedAtTime
+    from_schema: https://microbiomedata/schema/prov
+  part of:
+    name: part of
+    aliases:
+    - is part of
+    description: Links a resource to another resource that either logically or physically
+      includes it.
+    from_schema: https://microbiomedata/schema/core
+    domain: named thing
+    slot_uri: dcterms:isPartOf
+    multivalued: true
+    range: named thing
+  mod_date:
+    name: mod_date
+    description: The last date on which the database information was modified.
+    from_schema: https://microbiomedata/schema
+    range: string
+  potassium:
+    name: potassium
+    aliases:
+    - potassium
+    mappings:
+    - mixs:potassium
+    description: Concentration of potassium in the sample
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    string_serialization: '{float} {unit}'
+    multivalued: false
+    range: quantity value
+    pattern: \d+[.\d+] \S+
+  phaeopigments:
+    name: phaeopigments
+    aliases:
+    - phaeopigments
+    mappings:
+    - mixs:phaeopigments
+    description: Concentration of phaeopigments; can include multiple phaeopigments
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    string_serialization: '{text};{float} {unit}'
+    multivalued: false
+    range: quantity value
+  external database identifiers:
+    name: external database identifiers
+    close_mappings:
+    - skos:closeMatch
+    description: Link to corresponding identifier in external database
+    comments:
+    - The value of this field is always a registered CURIE
+    from_schema: https://microbiomedata/schema/external_identifiers
+    is_a: alternative identifiers
+    abstract: true
+    multivalued: true
+    range: external identifier
+  samp_store_temp:
+    name: samp_store_temp
+    aliases:
+    - sample storage temperature
+    mappings:
+    - mixs:samp_store_temp
+    description: '"Temperature at which sample was stored, e.g. -80 degree Celsius"'
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    string_serialization: '{float} {unit}'
+    multivalued: false
+    range: quantity value
+    pattern: \d+[.\d+] \S+
+  tidal_stage:
+    name: tidal_stage
+    aliases:
+    - tidal stage
+    mappings:
+    - mixs:tidal_stage
+    description: Stage of tide
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    multivalued: false
+    range: text value
+    pattern: '[low tide|ebb tide|flood tide|high tide]'
+  identifier:
+    name: identifier
+    from_schema: https://microbiomedata/schema
+    range: string
+  language:
+    name: language
+    description: Should use ISO 639-1 code e.g. "en", "fr"
+    from_schema: https://microbiomedata/schema/core
+    range: language code
+  host_name:
+    name: host_name
+    from_schema: https://microbiomedata/schema
+    range: string
+  INSDC biosample identifiers:
+    name: INSDC biosample identifiers
+    aliases:
+    - EBI biosample identifiers
+    - NCBI biosample identifiers
+    - DDBJ biosample identifiers
+    description: '[''identifiers for corresponding sample in INSDC'']'
+    examples:
+    - value: https://identifiers.org/biosample:SAMEA5989477
+    - value: https://identifiers.org/biosample:SAMD00212331
+      description: I13_N_5-10 sample from Soil fungal diversity along elevational
+        gradients
+    from_schema: https://microbiomedata/schema/external_identifiers
+    see_also:
+    - https://github.com/bioregistry/bioregistry/issues/108
+    - https://www.ebi.ac.uk/biosamples/
+    - https://www.ncbi.nlm.nih.gov/biosample
+    - https://www.ddbj.nig.ac.jp/biosample/index-e.html
+    is_a: sample identifiers
+    mixins:
+    - INSDC identifiers
+    multivalued: true
+    pattern: ^biosample:SAM[NED]([A-Z])?[0-9]+$
+  used:
+    name: used
+    mappings:
+    - prov:used
+    from_schema: https://microbiomedata/schema/prov
+    domain: activity
+  horizon:
+    name: horizon
+    aliases:
+    - horizon
+    mappings:
+    - mixs:horizon
+    description: Specific layer in the land area which measures parallel to the soil
+      surface and possesses physical characteristics which differ from the layers
+      above and beneath
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    multivalued: false
+    range: text value
+    pattern: '[O horizon|A horizon|E horizon|B horizon|C horizon|R layer|Permafrost]'
+  oxy_stat_samp:
+    name: oxy_stat_samp
+    aliases:
+    - oxygenation status of sample
+    mappings:
+    - mixs:oxy_stat_samp
+    description: Oxygenation status of sample
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    multivalued: false
+    range: text value
+    pattern: '[aerobic|anaerobic|other]'
+  term:
+    name: term
+    description: pointer to an ontology class
+    from_schema: https://microbiomedata/schema/core
+    domain: controlled term value
+    slot_uri: rdf:type
+    inlined: true
+    range: ontology class
+  org_matter:
+    name: org_matter
+    aliases:
+    - organic matter
+    mappings:
+    - mixs:org_matter
+    description: 'Concentration of organic matter '
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    string_serialization: '{float} {unit}'
+    multivalued: false
+    range: quantity value
+    pattern: \d+[.\d+] \S+
+  mean_frict_vel:
+    name: mean_frict_vel
+    aliases:
+    - mean friction velocity
+    mappings:
+    - mixs:mean_frict_vel
+    description: Measurement of mean friction velocity
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    string_serialization: '{float} {unit}'
+    multivalued: false
+    range: quantity value
+    pattern: \d+[.\d+] \S+
+  was informed by:
+    name: was informed by
+    mappings:
+    - prov:wasInformedBy
+    from_schema: https://microbiomedata/schema/prov
+    range: activity
+  alkyl_diethers:
+    name: alkyl_diethers
+    aliases:
+    - alkyl diethers
+    mappings:
+    - mixs:alkyl_diethers
+    description: 'Concentration of alkyl diethers '
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    string_serialization: '{float} {unit}'
+    multivalued: false
+    range: quantity value
+    pattern: \d+[.\d+] \S+
+  sulfate:
+    name: sulfate
+    aliases:
+    - sulfate
+    mappings:
+    - mixs:sulfate
+    description: Concentration of sulfate in the sample
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    string_serialization: '{float} {unit}'
+    multivalued: false
+    range: quantity value
+    pattern: \d+[.\d+] \S+
+  diss_oxygen:
+    name: diss_oxygen
+    aliases:
+    - dissolved oxygen
+    mappings:
+    - mixs:diss_oxygen
+    description: Concentration of dissolved oxygen
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    string_serialization: '{float} {unit}'
+    multivalued: false
+    range: quantity value
+    pattern: \d+[.\d+] \S+
+  tot_depth_water_col:
+    name: tot_depth_water_col
+    aliases:
+    - total depth of water column
+    mappings:
+    - mixs:tot_depth_water_col
+    description: Measurement of total depth of water column
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    string_serialization: '{float} {unit}'
+    multivalued: false
+    range: quantity value
+    pattern: \d+[.\d+] \S+
+  attribute:
+    name: attribute
+    aliases:
+    - field
+    - property
+    - template field
+    - key
+    - characteristic
+    description: 'A attribute of a biosample. Examples: depth, habitat, material.
+      For NMDC, attributes SHOULD be mapped to terms within a MIxS template'
+    from_schema: https://microbiomedata/schema/core
+    abstract: true
+  redox_potential:
+    name: redox_potential
+    aliases:
+    - redox potential
+    mappings:
+    - mixs:redox_potential
+    description: '"Redox potential, measured relative to a hydrogen cell, indicating
+      oxidation or reduction potential"'
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    string_serialization: '{float} {unit}'
+    multivalued: false
+    range: quantity value
+    pattern: \d+[.\d+] \S+
+  pressure:
+    name: pressure
+    aliases:
+    - pressure
+    mappings:
+    - mixs:pressure
+    description: '"Pressure to which the sample is subject to, in atmospheres"'
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    string_serialization: '{float} {unit}'
+    multivalued: false
+    range: quantity value
+    pattern: \d+[.\d+] \S+
+  alternative identifiers:
+    name: alternative identifiers
+    description: A list of alternative identifiers for the entity.
+    from_schema: https://microbiomedata/schema/basic_slots
+    multivalued: true
+    range: string
+  chem_administration:
+    name: chem_administration
+    aliases:
+    - chemical administration
+    mappings:
+    - mixs:chem_administration
+    description: '"List of chemical compounds administered to the host or site where
+      sampling occurred, and when (e.g. Antibiotics, n fertilizer, air filter); can
+      include multiple compounds. For chemical entities of biological interest ontology
+      (chebi) (v 163), http://purl.bioontology.org/ontology/chebi"'
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    multivalued: false
+    range: controlled term value
+  proport_woa_temperature:
+    name: proport_woa_temperature
+    from_schema: https://microbiomedata/schema
+    range: string
+  ammonium:
+    name: ammonium
+    aliases:
+    - ammonium
+    mappings:
+    - mixs:ammonium
+    description: Concentration of ammonium in the sample
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    string_serialization: '{float} {unit}'
+    multivalued: false
+    range: quantity value
+    pattern: \d+[.\d+] \S+
+  nitrite:
+    name: nitrite
+    aliases:
+    - nitrite
+    mappings:
+    - mixs:nitrite
+    description: Concentration of nitrite in the sample
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    string_serialization: '{float} {unit}'
+    multivalued: false
+    range: quantity value
+    pattern: \d+[.\d+] \S+
+  mean_peak_frict_vel:
+    name: mean_peak_frict_vel
+    aliases:
+    - mean peak friction velocity
+    mappings:
+    - mixs:mean_peak_frict_vel
+    description: Measurement of mean peak friction velocity
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    string_serialization: '{float} {unit}'
+    multivalued: false
+    range: quantity value
+    pattern: \d+[.\d+] \S+
+  INSDC identifiers:
+    name: INSDC identifiers
+    aliases:
+    - EBI identifiers
+    - NCBI identifiers
+    - DDBJ identifiers
+    description: Any identifier covered by the International Nucleotide Sequence Database
+      Collaboration
+    comments:
+    - note that we deliberately abstract over which of the partner databases accepted
+      the initial submission
+    - '{''the first letter of the accession indicates which partner accepted the initial
+      submission'': ''E for ENA, D for DDBJ, or S or N for NCBI.''}'
+    from_schema: https://microbiomedata/schema/external_identifiers
+    see_also:
+    - https://www.insdc.org/
+    - https://ena-docs.readthedocs.io/en/latest/submit/general-guide/accessions.html
+    mixin: true
+  tot_nitro_content_meth:
+    name: tot_nitro_content_meth
+    aliases:
+    - total nitrogen content method
+    mappings:
+    - mixs:tot_nitro_content_meth
+    description: Reference or method used in determining the total nitrogen
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    multivalued: false
+    range: text value
+  bromide:
+    name: bromide
+    aliases:
+    - bromide
+    mappings:
+    - mixs:bromide
+    description: 'Concentration of bromide '
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    string_serialization: '{float} {unit}'
+    multivalued: false
+    range: quantity value
+    pattern: \d+[.\d+] \S+
+  tot_diss_nitro:
+    name: tot_diss_nitro
+    aliases:
+    - total dissolved nitrogen
+    mappings:
+    - mixs:tot_diss_nitro
+    description: '"Total dissolved nitrogen concentration, reported as nitrogen, measured
+      by: total dissolved nitrogen = NH4 + NO3NO2 + dissolved organic nitrogen"'
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    string_serialization: '{float} {unit}'
+    multivalued: false
+    range: quantity value
+    pattern: \d+[.\d+] \S+
+  samp_vol_we_dna_ext:
+    name: samp_vol_we_dna_ext
+    aliases:
+    - sample volume or weight for DNA extraction
+    mappings:
+    - mixs:samp_vol_we_dna_ext
+    description: '"Volume (ml), weight (g) of processed sample, or surface area swabbed
+      from sample for DNA extraction"'
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    string_serialization: '{float} {unit}'
+    multivalued: false
+    range: quantity value
+    pattern: \d+[.\d+] \S+
+  samp_store_dur:
+    name: samp_store_dur
+    aliases:
+    - sample storage duration
+    mappings:
+    - mixs:samp_store_dur
+    description: Duration for which the sample was stored
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    multivalued: false
+    range: text value
+  chlorophyll:
+    name: chlorophyll
+    aliases:
+    - chlorophyll
+    mappings:
+    - mixs:chlorophyll
+    description: Concentration of chlorophyll
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    string_serialization: '{float} {unit}'
+    multivalued: false
+    range: quantity value
+    pattern: \d+[.\d+] \S+
+  texture:
+    name: texture
+    aliases:
+    - texture
+    mappings:
+    - mixs:texture
+    description: '"The relative proportion of different grain sizes of mineral particles
+      in a soil, as described using a standard system; express as % sand (50 um to
+      2 mm), silt (2 um to 50 um), and clay (<2 um) with textural name (e.g., silty
+      clay loam) optional."'
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    string_serialization: '{float} {unit}'
+    multivalued: false
+    range: quantity value
+    pattern: \d+[.\d+] \S+
+  glucosidase_act:
+    name: glucosidase_act
+    aliases:
+    - glucosidase activity
+    mappings:
+    - mixs:glucosidase_act
+    description: Measurement of glucosidase activity
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    string_serialization: '{float} {unit}'
+    multivalued: false
+    range: quantity value
+    pattern: \d+[.\d+] \S+
+  diss_inorg_carb:
+    name: diss_inorg_carb
+    aliases:
+    - dissolved inorganic carbon
+    mappings:
+    - mixs:diss_inorg_carb
+    description: '"Dissolved inorganic carbon concentration in the sample, typically
+      measured after filtering the sample using a 0.45 micrometer filter"'
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    string_serialization: '{float} {unit}'
+    multivalued: false
+    range: quantity value
+    pattern: \d+[.\d+] \S+
+  subsurface_depth2:
+    name: subsurface_depth2
+    from_schema: https://microbiomedata/schema
+    range: quantity value
+  ecosystem_type:
+    name: ecosystem_type
+    description: TODO
+    from_schema: https://microbiomedata/schema
+    is_a: gold_path_field
+  diss_org_nitro:
+    name: diss_org_nitro
+    aliases:
+    - dissolved organic nitrogen
+    mappings:
+    - mixs:diss_org_nitro
+    description: Dissolved organic nitrogen concentration measured as; total dissolved
+      nitrogen - NH4 - NO3 - NO2
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    string_serialization: '{float} {unit}'
+    multivalued: false
+    range: quantity value
+    pattern: \d+[.\d+] \S+
+  diss_carb_dioxide:
+    name: diss_carb_dioxide
+    aliases:
+    - dissolved carbon dioxide
+    mappings:
+    - mixs:diss_carb_dioxide
+    description: Concentration of dissolved carbon dioxide in the sample or liquid
+      portion of the sample
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    string_serialization: '{float} {unit}'
+    multivalued: false
+    range: quantity value
+    pattern: \d+[.\d+] \S+
+  microbial_biomass_meth:
+    name: microbial_biomass_meth
+    aliases:
+    - microbial biomass method
+    mappings:
+    - mixs:microbial_biomass_meth
+    description: Reference or method used in determining microbial biomass
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    multivalued: false
+    range: text value
+  sample_collection_site:
+    name: sample_collection_site
+    from_schema: https://microbiomedata/schema
+    range: string
+  diss_org_carb:
+    name: diss_org_carb
+    aliases:
+    - dissolved organic carbon
+    mappings:
+    - mixs:diss_org_carb
+    description: '"Concentration of dissolved organic carbon in the sample, liquid
+      portion of the sample, or aqueous phase of the fluid"'
+    from_schema: https://microbiomedata/schema/mixs
+    is_a: attribute
+    string_serialization: '{float} {unit}'
+    multivalued: false
+    range: quantity value
+    pattern: \d+[.\d+] \S+
+classes:
+  soil_biosample:
+    name: soil_biosample
+    slots:
+    - agrochem_addition
+    - al_sat
+    - al_sat_meth
+    - alt
+    - annual_precpt
+    - annual_temp
+    - crop_rotation
+    - cur_land_use
+    - cur_vegetation
+    - cur_vegetation_meth
+    - drainage_class
+    - elev
+    - env_broad_scale
+    - env_local_scale
+    - env_medium
+    - extreme_event
+    - fao_class
+    - fire
+    - flooding
+    - geo_loc_name
+    - heavy_metals
+    - heavy_metals_meth
+    - horizon_meth
+    - lat_lon
+    - link_class_info
+    - link_climate_info
+    - local_class
+    - local_class_meth
+    - micro_biomass_meth
+    - microbial_biomass
+    - misc_param
+    - ph
+    - ph_meth
+    - prev_land_use_meth
+    - previous_land_use
+    - profile_position
+    - salinity_meth
+    - season_precpt
+    - season_temp
+    - sieving
+    - slope_aspect
+    - slope_gradient
+    - soil_horizon
+    - soil_text_measure
+    - soil_texture_meth
+    - soil_type
+    - soil_type_meth
+    - temp
+    - tillage
+    - tot_nitro_cont_meth
+    - tot_nitro_content
+    - tot_org_c_meth
+    - tot_org_carb
+    - water_cont_soil_meth
+    - water_content
+    - depth2
+    - ecosystem
+    - ecosystem_category
+    - ecosystem_subtype
+    - ecosystem_type
+    - identifier
+    - specific_ecosystem
+    - alternative identifiers
+    - description
+    - id
+    - name
+    - type
+    - part of
+    - GOLD sample identifiers
+    - INSDC biosample identifiers
+    - INSDC secondary sample identifiers
+  soil:
+    name: soil
+    description: soil
+    from_schema: http://w3id.org/mixs/soil
+    slots:
+    - lat_lon
+    - depth
+    - alt
+    - elev
+    - temp
+    - geo_loc_name
+    - collection_date
+    - env_broad_scale
+    - env_local_scale
+    - env_medium
+    - cur_land_use
+    - cur_vegetation
+    - cur_vegetation_meth
+    - previous_land_use
+    - prev_land_use_meth
+    - crop_rotation
+    - agrochem_addition
+    - tillage
+    - fire
+    - flooding
+    - extreme_event
+    - soil_horizon
+    - horizon_meth
+    - sieving
+    - water_content
+    - water_cont_soil_meth
+    - pool_dna_extracts
+    - store_cond
+    - link_climate_info
+    - annual_temp
+    - season_temp
+    - annual_precpt
+    - season_precpt
+    - link_class_info
+    - fao_class
+    - local_class
+    - local_class_meth
+    - soil_type
+    - soil_type_meth
+    - slope_gradient
+    - slope_aspect
+    - profile_position
+    - drainage_class
+    - soil_text_measure
+    - soil_texture_meth
+    - ph
+    - ph_meth
+    - tot_org_carb
+    - tot_org_c_meth
+    - tot_nitro_content
+    - tot_nitro_cont_meth
+    - microbial_biomass
+    - micro_biomass_meth
+    - link_addit_analys
+    - extreme_salinity
+    - salinity_meth
+    - heavy_metals
+    - heavy_metals_meth
+    - al_sat
+    - al_sat_meth
+    - misc_param
+    slot_usage:
+      samp_name:
+        name: samp_name
+        required: true
+      project_name:
+        name: project_name
+        required: true
+      depth:
+        name: depth
+        required: true
+      elev:
+        name: elev
+        required: true
+      cur_land_use:
+        name: cur_land_use
+        required: false
+      cur_vegetation:
+        name: cur_vegetation
+        required: false
+      cur_vegetation_meth:
+        name: cur_vegetation_meth
+        required: false
+      previous_land_use:
+        name: previous_land_use
+        required: false
+      prev_land_use_meth:
+        name: prev_land_use_meth
+        required: false
+      crop_rotation:
+        name: crop_rotation
+        required: false
+      agrochem_addition:
+        name: agrochem_addition
+        required: false
+      tillage:
+        name: tillage
+        required: false
+      fire:
+        name: fire
+        required: false
+      flooding:
+        name: flooding
+        required: false
+      extreme_event:
+        name: extreme_event
+        required: false
+      soil_horizon:
+        name: soil_horizon
+        required: false
+      horizon_meth:
+        name: horizon_meth
+        required: false
+      sieving:
+        name: sieving
+        required: false
+      water_content:
+        name: water_content
+        required: false
+      water_cont_soil_meth:
+        name: water_cont_soil_meth
+        required: false
+      samp_vol_we_dna_ext:
+        name: samp_vol_we_dna_ext
+        required: false
+      pool_dna_extracts:
+        name: pool_dna_extracts
+        required: false
+      store_cond:
+        name: store_cond
+        required: false
+      link_climate_info:
+        name: link_climate_info
+        required: false
+      annual_temp:
+        name: annual_temp
+        required: false
+      season_temp:
+        name: season_temp
+        required: false
+      annual_precpt:
+        name: annual_precpt
+        required: false
+      season_precpt:
+        name: season_precpt
+        required: false
+      link_class_info:
+        name: link_class_info
+        required: false
+      fao_class:
+        name: fao_class
+        required: false
+      local_class:
+        name: local_class
+        required: false
+      local_class_meth:
+        name: local_class_meth
+        required: false
+      soil_type:
+        name: soil_type
+        required: false
+      soil_type_meth:
+        name: soil_type_meth
+        required: false
+      slope_gradient:
+        name: slope_gradient
+        required: false
+      slope_aspect:
+        name: slope_aspect
+        required: false
+      profile_position:
+        name: profile_position
+        required: false
+      drainage_class:
+        name: drainage_class
+        required: false
+      soil_text_measure:
+        name: soil_text_measure
+        required: false
+      soil_texture_meth:
+        name: soil_texture_meth
+        required: false
+      ph:
+        name: ph
+        required: false
+      ph_meth:
+        name: ph_meth
+        required: false
+      tot_org_carb:
+        name: tot_org_carb
+        required: false
+      tot_org_c_meth:
+        name: tot_org_c_meth
+        required: false
+      tot_nitro_content:
+        name: tot_nitro_content
+        required: false
+      tot_nitro_cont_meth:
+        name: tot_nitro_cont_meth
+        required: false
+      microbial_biomass:
+        name: microbial_biomass
+        required: false
+      micro_biomass_meth:
+        name: micro_biomass_meth
+        required: false
+      link_addit_analys:
+        name: link_addit_analys
+        required: false
+      extreme_salinity:
+        name: extreme_salinity
+        required: false
+      salinity_meth:
+        name: salinity_meth
+        required: false
+      heavy_metals:
+        name: heavy_metals
+        required: false
+      heavy_metals_meth:
+        name: heavy_metals_meth
+        required: false
+      al_sat:
+        name: al_sat
+        required: false
+      al_sat_meth:
+        name: al_sat_meth
+        required: false
+      misc_param:
+        name: misc_param
+        required: false
+  quantity value:
+    name: quantity value
+    mappings:
+    - schema:QuantityValue
+    description: A simple quantity, e.g. 2cm
+    from_schema: https://microbiomedata/schema/core
+    is_a: attribute value
+    slots:
+    - has unit
+    - has numeric value
+    - has minimum numeric value
+    - has maximum numeric value
+    slot_usage:
+      has raw value:
+        name: has raw value
+        description: Unnormalized atomic string representation, should in syntax {number}
+          {unit}
+      has unit:
+        name: has unit
+        description: The unit of the quantity
+      has numeric value:
+        name: has numeric value
+        description: The number part of the quantity
+        range: double
+  controlled term value:
+    name: controlled term value
+    description: A controlled term or class from an ontology
+    from_schema: https://microbiomedata/schema/core
+    is_a: attribute value
+    slots:
+    - term
+  timestamp value:
+    name: timestamp value
+    description: A value that is a timestamp. The range should be ISO-8601
+    from_schema: https://microbiomedata/schema/core
+    is_a: attribute value
+  biosample:
+    name: biosample
+    id_prefixes:
+    - GOLD
+    aliases:
+    - sample
+    - material sample
+    - specimen
+    - biospecimen
+    exact_mappings:
+    - OBI:0000747
+    - NCIT:C43412
+    description: A material sample. It may be environmental (encompassing many organisms)
+      or isolate or tissue.   An environmental sample containing genetic material
+      from multiple individuals is commonly referred to as a biosample.
+    alt_descriptions:
+      embl.ena:
+        source: embl.ena
+        description: A sample contains information about the sequenced source material.
+          Samples are associated with checklists, which define the fields used to
+          annotate the samples. Samples are always associated with a taxon.
+    in_subset:
+    - sample subset
+    from_schema: https://microbiomedata/schema
+    is_a: named thing
+    slots:
+    - type
+    - alternative identifiers
+    - part of
+    - agrochem_addition
+    - alkalinity
+    - alkalinity_method
+    - alkyl_diethers
+    - alt
+    - al_sat
+    - al_sat_meth
+    - aminopept_act
+    - ammonium
+    - annual_precpt
+    - annual_temp
+    - bacteria_carb_prod
+    - bishomohopanol
+    - bromide
+    - calcium
+    - carb_nitro_ratio
+    - chem_administration
+    - chloride
+    - chlorophyll
+    - collection_date
+    - cur_land_use
+    - cur_vegetation
+    - cur_vegetation_meth
+    - crop_rotation
+    - density
+    - depth
+    - diss_carb_dioxide
+    - diss_hydrogen
+    - diss_inorg_carb
+    - diss_inorg_phosp
+    - diss_org_carb
+    - diss_org_nitro
+    - diss_oxygen
+    - drainage_class
+    - elev
+    - env_package
+    - env_broad_scale
+    - env_local_scale
+    - env_medium
+    - extreme_event
+    - fao_class
+    - fire
+    - flooding
+    - geo_loc_name
+    - glucosidase_act
+    - heavy_metals
+    - heavy_metals_meth
+    - horizon
+    - horizon_meth
+    - lat_lon
+    - link_addit_analys
+    - link_class_info
+    - link_climate_info
+    - local_class
+    - local_class_meth
+    - magnesium
+    - mean_frict_vel
+    - mean_peak_frict_vel
+    - microbial_biomass
+    - microbial_biomass_meth
+    - misc_param
+    - n_alkanes
+    - nitrate
+    - nitrite
+    - org_matter
+    - org_nitro
+    - organism_count
+    - oxy_stat_samp
+    - part_org_carb
+    - perturbation
+    - petroleum_hydrocarb
+    - ph
+    - ph_meth
+    - phaeopigments
+    - phosplipid_fatt_acid
+    - pool_dna_extracts
+    - potassium
+    - pressure
+    - previous_land_use
+    - previous_land_use_meth
+    - profile_position
+    - redox_potential
+    - salinity
+    - salinity_meth
+    - samp_collect_device
+    - samp_mat_process
+    - samp_store_dur
+    - samp_store_loc
+    - samp_store_temp
+    - samp_vol_we_dna_ext
+    - season_temp
+    - season_precpt
+    - sieving
+    - size_frac_low
+    - size_frac_up
+    - slope_gradient
+    - slope_aspect
+    - sodium
+    - soil_type
+    - soil_type_meth
+    - store_cond
+    - sulfate
+    - sulfide
+    - temp
+    - texture
+    - texture_meth
+    - tillage
+    - tidal_stage
+    - tot_carb
+    - tot_depth_water_col
+    - tot_diss_nitro
+    - tot_org_carb
+    - tot_org_c_meth
+    - tot_nitro_content
+    - tot_nitro_content_meth
+    - tot_phosp
+    - water_content
+    - water_content_soil_meth
+    - ecosystem
+    - ecosystem_category
+    - ecosystem_type
+    - ecosystem_subtype
+    - specific_ecosystem
+    - add_date
+    - community
+    - depth2
+    - habitat
+    - host_name
+    - identifier
+    - location
+    - mod_date
+    - ncbi_taxonomy_name
+    - proport_woa_temperature
+    - salinity_category
+    - sample_collection_site
+    - soluble_iron_micromol
+    - subsurface_depth
+    - subsurface_depth2
+    - GOLD sample identifiers
+    - INSDC biosample identifiers
+    - INSDC secondary sample identifiers
+    slot_usage:
+      lat_lon:
+        name: lat_lon
+        description: This is currently a required field but it's not clear if this
+          should be required for human hosts
+        required: false
+      env_broad_scale:
+        name: env_broad_scale
+        required: true
+      env_local_scale:
+        name: env_local_scale
+        required: true
+      env_medium:
+        name: env_medium
+        required: true
+  attribute value:
+    name: attribute value
+    description: The value for any value of a attribute for a sample. This object
+      can hold both the un-normalized atomic value and the structured value
+    from_schema: https://microbiomedata/schema/core
+    slots:
+    - has raw value
+    - was generated by
+    slot_usage:
+      type:
+        name: type
+        description: An optional string that specified the type of object.
+        required: false
+  text value:
+    name: text value
+    description: A basic string value
+    from_schema: https://microbiomedata/schema/core
+    is_a: attribute value
+    slots:
+    - language
+  ontology class:
+    name: ontology class
+    from_schema: https://microbiomedata/schema/core
+    is_a: named thing
+  agent:
+    name: agent
+    mappings:
+    - prov:Agent
+    description: a provence-generating agent
+    from_schema: https://microbiomedata/schema/prov
+    slots:
+    - acted on behalf of
+    - was informed by
+  named thing:
+    name: named thing
+    description: a databased entity or concept/class
+    from_schema: https://microbiomedata/schema/core
+    abstract: true
+    slots:
+    - id
+    - name
+    - description
+    - alternative identifiers
+  activity:
+    name: activity
+    mappings:
+    - prov:Activity
+    description: a provence-generating activity
+    from_schema: https://microbiomedata/schema/prov
+    slots:
+    - id
+    - name
+    - started at time
+    - ended at time
+    - was informed by
+    - was associated with
+    - used
+  geolocation value:
+    name: geolocation value
+    mappings:
+    - schema:GeoCoordinates
+    description: A normalized value for a location on the earth's surface
+    from_schema: https://microbiomedata/schema/core
+    is_a: attribute value
+    slots:
+    - latitude
+    - longitude
+    slot_usage:
+      has raw value:
+        name: has raw value
+        description: The raw value for a  geolocation should follow {lat} {long}
