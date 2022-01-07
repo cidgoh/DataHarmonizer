@@ -86,9 +86,9 @@ authority_name_cols = ["NMDC_slot_name_schema", "EMSL_slot_Name", "mixs_6_slot_n
 # when does she want to use an nmdc or mixs term in a package what is twas not formally associated with?
 #  that's always OK
 
-mixs_model_file = "../../mixs-source/model/schema/mixs.yaml"
+mixs_model_file = "../../../mixs-source/model/schema/mixs.yaml"
 mixs_class = "soil"
-nmdc_model_file = "../../nmdc-schema/src/schema/nmdc.yaml"
+nmdc_model_file = "../../../nmdc-schema/src/schema/nmdc.yaml"
 nmdc_class = "biosample"
 
 mixs_view = SchemaView(mixs_model_file)

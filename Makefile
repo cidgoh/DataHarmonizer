@@ -1,9 +1,11 @@
 .PHONY: all clean test post_clone_submodule_steps serializastion_vs_pattern negative_case
 
-target/soil_biosample_modular.yaml:
+target/soil_biosample_modular.yaml: clean  post_clone_submodule_steps serializastion_vs_pattern
 	poetry run python use_modular_gd.py > $@
+	poetry run linkml_to_dh_light --model_file target/soil_biosample_modular.yaml --selected_class soil_biosample
 
-all: clean test post_clone_submodule_steps serializastion_vs_pattern target/data.tsv
+# test needs work
+all: clean  post_clone_submodule_steps serializastion_vs_pattern target/data.tsv
 
 clean:
 	rm -rf target/mixs_soil.yaml

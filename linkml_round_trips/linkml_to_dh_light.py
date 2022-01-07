@@ -22,11 +22,11 @@ click_log.basic_config(logger)
 @click_log.simple_verbosity_option(logger)
 @click.option('--model_file', type=click.Path(exists=True), required=True)
 @click.option('--selected_class', required=True)
-@click.option('--default_section', default="default")
-@click.option('--default_source', default="")
-@click.option('--default_capitalize', default="")
-@click.option('--default_data_status', default="default")
-@click.option('--output_file', type=click.Path(), default="target/data.tsv")
+@click.option('--default_section', default="default", show_default=True)
+@click.option('--default_source', default="", show_default=True)
+@click.option('--default_capitalize', default="", show_default=True)
+@click.option('--default_data_status', default="default", show_default=True)
+@click.option('--output_file', type=click.Path(), default="target/data.tsv", show_default=True)
 def linkml_to_dh_light(model_file, selected_class, default_section, default_source, default_capitalize,
                        default_data_status, output_file):
     dht_column_order = ["Ontology ID", "label", "parent class", "description", "guidance", "datatype", "pattern",

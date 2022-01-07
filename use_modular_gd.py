@@ -16,19 +16,7 @@ additional_prefixes = {"prov": "http://www.w3.org/ns/prov#", "rdf": "http://www.
 new_schema = mgd.construct_schema(constructed_schema_name, constructed_schema_id, constructed_class_name,
                                   additional_prefixes)
 
-tasks = {"mixs": {"yaml": "mixs-source/model/schema/mixs.yaml", "title": "mixs_packages_x_slots", "focus_class": "soil",
-                  "query": """
-SELECT
-    slot as slot
-FROM
-    gsheet_frame
-where
-    package = 'soil'
-    and (
-    disposition = 'use as-is' or disposition = 'borrowed as-is'
-    )
-"""},
-         "nmdc": {"yaml": "nmdc-schema/src/schema/nmdc.yaml", "title": "nmdc_biosample_slots",
+tasks = {"nmdc": {"yaml": "nmdc-schema/src/schema/nmdc.yaml", "title": "nmdc_biosample_slots",
                   "focus_class": "biosample",
                   "query": """
 SELECT
@@ -38,6 +26,17 @@ FROM
 where
     from_schema != 'https://microbiomedata/schema/mixs'
     and disposition != 'skip';
+"""}, "mixs": {"yaml": "mixs-source/model/schema/mixs.yaml", "title": "mixs_packages_x_slots", "focus_class": "soil",
+               "query": """
+SELECT
+    slot as slot
+FROM
+    gsheet_frame
+where
+    package = 'soil'
+    and (
+    disposition = 'use as-is' or disposition = 'borrowed as-is'
+    )
 """}}
 
 for title, task in tasks.items():

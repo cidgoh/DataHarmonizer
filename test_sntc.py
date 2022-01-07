@@ -8,7 +8,7 @@ from linkml_runtime.dumpers import yaml_dumper
 from linkml_runtime.linkml_model import ClassDefinition
 from linkml_runtime.utils.schemaview import SchemaView
 
-import linkml_round_trips.just_exacts as je
+import linkml_round_trips.old.just_exacts as je
 
 # where to put these configuration values?
 mixs_yaml = "mixs-source/model/schema/mixs.yaml"
