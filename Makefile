@@ -1,5 +1,8 @@
 .PHONY: all clean test post_clone_submodule_steps serializastion_vs_pattern negative_case
 
+target/soil_biosample_modular.yaml:
+	poetry run python use_modular_gd.py > $@
+
 all: clean test post_clone_submodule_steps serializastion_vs_pattern target/data.tsv
 
 clean:
