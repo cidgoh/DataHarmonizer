@@ -1,8 +1,18 @@
 .PHONY: all clean test post_clone_submodule_steps serializastion_vs_pattern negative_case
 
 target/soil_biosample_modular.yaml: clean  post_clone_submodule_steps serializastion_vs_pattern
+	poetry run gen-yaml mixs-source/model/schema/mixs.yaml > target/mixs_generated.yaml
+	yq eval 'del(.imports)' target/mixs_generated.yaml > target/mixs_generated_no_imports.yaml
+	poetry run gen-yaml nmdc-schema/src/schema/nmdc.yaml > target/nmdc_generated.yaml
+	yq eval 'del(.imports)' target/nmdc_generated.yaml > target/nmdc_generated_no_imports.yaml
 	poetry run python use_modular_gd.py > $@
-	poetry run linkml_to_dh_light --model_file target/soil_biosample_modular.yaml --selected_class soil_biosample
+	poetry run enum_annotator \
+		--modelfile target/soil_biosample_modular.yaml \
+		--requested_enum_name fao_class_enum \
+		--ontology_string ENVO \
+		--max_cosine 0.1  > target/soil_biosample_modular_annotated.yaml
+	poetry run linkml_to_dh_light --model_file target/soil_biosample_modular_annotated.yaml --selected_class soil_biosample
+
 
 # test needs work
 all: clean  post_clone_submodule_steps serializastion_vs_pattern target/data.tsv
