@@ -1,6 +1,7 @@
-import linkml.generators.yamlgen as yg
+# import linkml.generators.yamlgen as yg
 import linkml_round_trips.modular_gd as mgd
-from linkml_runtime.linkml_model import Prefix, SlotDefinition, Example, EnumDefinition, PermissibleValue
+from linkml_runtime.linkml_model import SlotDefinition, Example, EnumDefinition
+# from linkml_runtime.linkml_model import Prefix, PermissibleValue
 from linkml_runtime.dumpers import yaml_dumper
 
 # place in __main__ in root of package
@@ -57,15 +58,17 @@ for title, task in tasks.items():
 
 # todo refactor
 enum_sheet = mgd.get_gsheet_frame(client_secret_json, sheet_id, 'enumerations')
-emsl_sheet = mgd.get_gsheet_frame(client_secret_json, sheet_id, 'EMSL_sample_slots')
-emsl_dict = emsl_sheet.to_dict(orient='records')
-def inject_supplementary(supplementary_tab_title):
-    for i in emsl_dict:
-        if i['slot'] in new_schema.slots:
-            print(f"slot {i['slot']} already in destination schema")
+
+
+def inject_supplementary(secret, supplementary_id, supplementary_tab_title, schema, prefix, class_name):
+    current_sheet = mgd.get_gsheet_frame(secret, supplementary_id, supplementary_tab_title)
+    current_dict = current_sheet.to_dict(orient='records')
+    for i in current_dict:
+        i_s = i['slot']
+        if i_s in schema.slots:
             exit
         else:
-            new_slot = SlotDefinition(name=i['slot'], slot_uri="emsl:" + i['slot'], title=i['name'])
+            new_slot = SlotDefinition(name=i_s, slot_uri=prefix + ":" + i_s, title=i['name'])
             if i['requirement status'] == "required":
                 new_slot.required = True
             if i['requirement status'] == "recommended":
@@ -81,20 +84,26 @@ def inject_supplementary(supplementary_tab_title):
                 new_slot.string_serialization = i['syntax']
                 # try to standardize where "enumeration" is expressed... expected value comment/guidance?
                 if i['syntax'] == "enumeration":
-                    if i['slot'] in enum_sheet.columns:
-                        raw_pvs = list(set(list(enum_sheet[i['slot']])))
+                    if i_s in enum_sheet.columns:
+                        raw_pvs = list(set(list(enum_sheet[i_s])))
                         raw_pvs = [i for i in raw_pvs if i]
                         if len(raw_pvs) > 0:
-                            te_name = i['slot'] + "_enum"
+                            te_name = i_s + "_enum"
                             temp_enum = EnumDefinition(name=te_name)
                             raw_pvs.sort()
                             for pv in raw_pvs:
                                 temp_enum.permissible_values[pv] = pv
                             new_slot.range = te_name
-                            new_schema.enums[te_name] = temp_enum
-            new_schema.slots[i['slot']] = new_slot
-            new_schema.classes[constructed_class_name].slots.append(i['slot'])
+                            schema.enums[te_name] = temp_enum
+            schema.slots[i_s] = new_slot
+            schema.classes[class_name].slots.append(i_s)
+    return schema
 
+
+new_schema = inject_supplementary(client_secret_json, sheet_id, 'EMSL_sample_slots', new_schema, "emsl",
+                                  constructed_class_name)
+new_schema = inject_supplementary(client_secret_json, sheet_id, 'mixs_modified_slots', new_schema, "mixs_modified",
+                                  constructed_class_name)
 
 # generated = yg.YAMLGenerator(new_schema)
 
