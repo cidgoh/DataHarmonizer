@@ -83,12 +83,25 @@
 						</tr>
 						
 						<tr class="section">
+							<td colspan="5"><h3>emsl:default</h3></td>
+						</tr>
+						
+						<tr class="section">
 							<td colspan="5"><h3>nmdc:gold_path_field</h3></td>
 						</tr>
 						
 						<tr class="section">
 							<td colspan="5"><h3>nmdc:sample identifiers</h3></td>
 						</tr>
+						
+						<tr>
+							<td class="label">EMSL Sample Storage Temperature</td>
+							<td>Temperature at which the sample sent to EMSL should be stored</td>
+							<td>pattern generalization: {float} C</td>
+							<td>-80</td>
+							<td>['default']</td>
+						</tr>
+
 						
 						<tr>
 							<td class="label">GOLD sample identifiers</td>
@@ -487,10 +500,46 @@
 
 						
 						<tr>
+							<td class="label">Project ID</td>
+							<td>Proposal IDs or names associated with dataset</td>
+							<td>pattern generalization: {text}</td>
+							<td></td>
+							<td>['default']</td>
+						</tr>
+
+						
+						<tr>
+							<td class="label">Replicate Number</td>
+							<td>If sending biological replicates, indicate the rep number here.</td>
+							<td>This will guide staff in ensuring your samples are block & randomized correctly | pattern generalization: {integer}</td>
+							<td></td>
+							<td>['default']</td>
+						</tr>
+
+						
+						<tr>
 							<td class="label">salinity method</td>
 							<td>Reference or method used in determining salinity</td>
 							<td>Expected value: PMID,DOI or url | pattern generalization: {PMID}|{DOI}|{URL}</td>
 							<td></td>
+							<td>['default']</td>
+						</tr>
+
+						
+						<tr>
+							<td class="label">sample shipped amount</td>
+							<td>The total amount or size (volume (ml), mass (g) or area (m2) ) of sample sent to EMSL</td>
+							<td>pattern generalization: {float} {unit}</td>
+							<td></td>
+							<td>['default']</td>
+						</tr>
+
+						
+						<tr>
+							<td class="label">sample type</td>
+							<td>Type of sample being submitted</td>
+							<td>This can vary from 'environmental package' if the sample is an extraction. | pattern generalization: enumeration</td>
+							<td>water extracted soil</td>
 							<td>['default']</td>
 						</tr>
 
@@ -589,6 +638,15 @@
 							<td class="label">specific_ecosystem</td>
 							<td>TODO</td>
 							<td></td>
+							<td></td>
+							<td>['default']</td>
+						</tr>
+
+						
+						<tr>
+							<td class="label">Number Technical Replicate</td>
+							<td>If sending multiple technical replicates of the same sample, indicate how many replicates are being sent</td>
+							<td>pattern generalization: {integer}</td>
 							<td></td>
 							<td>['default']</td>
 						</tr>

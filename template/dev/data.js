@@ -1547,6 +1547,149 @@ var DATA = [
     ]
   },
   {
+    "fieldName": "emsl:default",
+    "children": [
+      {
+        "fieldName": "EMSL Sample Storage Temperature",
+        "capitalize": "",
+        "ontology_id": "emsl:EMSL_store_temp",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": [
+          "default"
+        ],
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "required",
+        "description": "Temperature at which the sample sent to EMSL should be stored",
+        "guidance": "pattern generalization: {float} C",
+        "examples": "-80",
+        "exportField": {
+          "dev": [
+            {
+              "field": "EMSL_store_temp"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "Project ID",
+        "capitalize": "",
+        "ontology_id": "emsl:project_ID",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": [
+          "default"
+        ],
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "required",
+        "description": "Proposal IDs or names associated with dataset",
+        "guidance": "pattern generalization: {text}",
+        "examples": "",
+        "exportField": {
+          "dev": [
+            {
+              "field": "project_ID"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "Replicate Number",
+        "capitalize": "",
+        "ontology_id": "emsl:replicate_number",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": [
+          "default"
+        ],
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "recommended",
+        "description": "If sending biological replicates, indicate the rep number here.",
+        "guidance": "This will guide staff in ensuring your samples are block & randomized correctly | pattern generalization: {integer}",
+        "examples": "",
+        "exportField": {
+          "dev": [
+            {
+              "field": "replicate_number"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "sample shipped amount",
+        "capitalize": "",
+        "ontology_id": "emsl:sample_shipped",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": [
+          "default"
+        ],
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "required",
+        "description": "The total amount or size (volume (ml), mass (g) or area (m2) ) of sample sent to EMSL",
+        "guidance": "pattern generalization: {float} {unit}",
+        "examples": "",
+        "exportField": {
+          "dev": [
+            {
+              "field": "sample_shipped"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "sample type",
+        "capitalize": "",
+        "ontology_id": "emsl:sample_type",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": [
+          "default"
+        ],
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "required",
+        "description": "Type of sample being submitted",
+        "guidance": "This can vary from 'environmental package' if the sample is an extraction. | pattern generalization: enumeration",
+        "examples": "water extracted soil",
+        "exportField": {
+          "dev": [
+            {
+              "field": "sample_type"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "Number Technical Replicate",
+        "capitalize": "",
+        "ontology_id": "emsl:technical_reps",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": [
+          "default"
+        ],
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "recommended",
+        "description": "If sending multiple technical replicates of the same sample, indicate how many replicates are being sent",
+        "guidance": "pattern generalization: {integer}",
+        "examples": "",
+        "exportField": {
+          "dev": [
+            {
+              "field": "technical_reps"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
     "fieldName": "nmdc:gold_path_field",
     "children": [
       {
