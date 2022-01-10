@@ -1,5 +1,6 @@
 .PHONY: all clean test post_clone_submodule_steps serializastion_vs_pattern negative_case use_modular modular_templating_handoff
 
+# this generates the data.tsv file
 use_modular: clean  post_clone_submodule_steps serializastion_vs_pattern
 	poetry run gen-yaml mixs-source/model/schema/mixs.yaml > target/mixs_generated.yaml
 	yq eval 'del(.imports)' target/mixs_generated.yaml > target/mixs_generated_no_imports.yaml
@@ -13,6 +14,8 @@ use_modular: clean  post_clone_submodule_steps serializastion_vs_pattern
 		--max_cosine 0.1  > target/soil_biosample_modular_annotated.yaml
 	poetry run linkml_to_dh_light --model_file target/soil_biosample_modular_annotated.yaml --selected_class soil_biosample
 
+# this converts data.tsv to a data harmonizer main.html + main.js etc.
+#  and then stages it in the docs folder which will be exposed via GH pages
 modular_templating_handoff: use_modular
 	cp target/data.tsv template/dev/
 	cd template/dev && poetry run python ../../script/make_data.py && cd -
@@ -55,63 +58,63 @@ serializastion_vs_pattern:
 negative_case:
 	egrep "string_serialization:.*oh my darling" ../mixs-source/model/schema/*yaml
 
-target/mixs_soil.yaml:mixs-source/model/schema/mixs.yaml
-	poetry run get_dependencies \
-		--model_file $< \
-		--selected_class soil > $@
-
-target/nmdc_biosample.yaml:nmdc-schema/src/schema/nmdc.yaml
-	poetry run get_dependencies \
-		--model_file $< \
-		--selected_class biosample > $@
-
-target/nmdc_biosample_generated.yaml: target/nmdc_biosample.yaml
-	poetry run gen-yaml $< > $@ 2> $@.log
-# oops imports can't be found ???
-# merge_dont_interleave isn't splicing all dicts in (eg for slot usage)
-# rules are pretty MIxS/NMDC specific right now and expect the model in that order
-# todo: using target/nmdc_biosample_generated.yaml as input here
-#   forces the inclusion of reasonable slot uris, but also forces in-lining of enums?
-#   should put slot uri generation code in get_dependencies (DONE?)
-
-target/soil_biosample.yaml:target/mixs_soil.yaml target/nmdc_biosample_generated.yaml
-	poetry run merge_dont_interleave \
-		--model_file1 target/mixs_soil.yaml \
-		--model_file2 target/nmdc_biosample.yaml \
-		--output $@
-
-
-target/soil_biosample_interleaved.yaml: target/soil_biosample.yaml
-	#poetry run python linkml_round_trips/interleave_mergeds.py
-	poetry run interleave_mergeds \
-		--model_file=$< \
-		--class1 "soil" \
-		--class2 "biosample" \
-		--source_name1 "MIxS" \
-		--source_name2 "NMDC" \
-		--output $@
-	# can check the validity of any LinkML file (and generate a more explicit version?) with gen-yaml
-	poetry run gen-yaml \
-		target/soil_biosample_interleaved.yaml > target/soil_biosample_interleaved_generated.yaml \
-			2> target/soil_biosample_interleaved_generated.log
-
-# if range is one of the enums, then pattern is probably a string serialization
-#   *something* along those lines is being checked in linkml_to_dh_light.py, but that should be moved into make model/schema/mixs.yaml
-target/data.tsv: target/soil_biosample_interleaved.yaml
-	poetry run linkml_to_dh_light \
-		--model_file $< \
-		--selected_class soil_biosample_class \
-		--output_file=$@
-
-templating_handoff: target/data.tsv
-	cp $< template/dev
-	cd template/dev && poetry run python ../../script/make_data.py && cd -
-	cp -r images docs
-	cp -r libraries docs
-	cp -r script docs
-	cp -r template docs
-	cp main.css main.html docs
-	cp
+#target/mixs_soil.yaml:mixs-source/model/schema/mixs.yaml
+#	poetry run get_dependencies \
+#		--model_file $< \
+#		--selected_class soil > $@
+#
+#target/nmdc_biosample.yaml:nmdc-schema/src/schema/nmdc.yaml
+#	poetry run get_dependencies \
+#		--model_file $< \
+#		--selected_class biosample > $@
+#
+#target/nmdc_biosample_generated.yaml: target/nmdc_biosample.yaml
+#	poetry run gen-yaml $< > $@ 2> $@.log
+## oops imports can't be found ???
+## merge_dont_interleave isn't splicing all dicts in (eg for slot usage)
+## rules are pretty MIxS/NMDC specific right now and expect the model in that order
+## todo: using target/nmdc_biosample_generated.yaml as input here
+##   forces the inclusion of reasonable slot uris, but also forces in-lining of enums?
+##   should put slot uri generation code in get_dependencies (DONE?)
+#
+#target/soil_biosample.yaml:target/mixs_soil.yaml target/nmdc_biosample_generated.yaml
+#	poetry run merge_dont_interleave \
+#		--model_file1 target/mixs_soil.yaml \
+#		--model_file2 target/nmdc_biosample.yaml \
+#		--output $@
+#
+#
+#target/soil_biosample_interleaved.yaml: target/soil_biosample.yaml
+#	#poetry run python linkml_round_trips/interleave_mergeds.py
+#	poetry run interleave_mergeds \
+#		--model_file=$< \
+#		--class1 "soil" \
+#		--class2 "biosample" \
+#		--source_name1 "MIxS" \
+#		--source_name2 "NMDC" \
+#		--output $@
+#	# can check the validity of any LinkML file (and generate a more explicit version?) with gen-yaml
+#	poetry run gen-yaml \
+#		target/soil_biosample_interleaved.yaml > target/soil_biosample_interleaved_generated.yaml \
+#			2> target/soil_biosample_interleaved_generated.log
+#
+## if range is one of the enums, then pattern is probably a string serialization
+##   *something* along those lines is being checked in linkml_to_dh_light.py, but that should be moved into make model/schema/mixs.yaml
+#target/data.tsv: target/soil_biosample_interleaved.yaml
+#	poetry run linkml_to_dh_light \
+#		--model_file $< \
+#		--selected_class soil_biosample_class \
+#		--output_file=$@
+#
+#templating_handoff: target/data.tsv
+#	cp $< template/dev
+#	cd template/dev && poetry run python ../../script/make_data.py && cd -
+#	cp -r images docs
+#	cp -r libraries docs
+#	cp -r script docs
+#	cp -r template docs
+#	cp main.css main.html docs
+#	cp
 
 target/mixs_package_classes.tsv:
 	poetry run mixs_package_classes \

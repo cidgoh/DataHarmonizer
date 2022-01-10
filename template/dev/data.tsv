@@ -59,7 +59,7 @@ emsl:project_ID	Project ID	emsl:default	Proposal IDs or names associated with da
 emsl:replicate_number	Replicate Number	emsl:default	If sending biological replicates, indicate the rep number here.	This will guide staff in ensuring your samples are block & randomized correctly | pattern generalization: {integer}	xs:token		recommended				default			replicate_number
 MIXS:0000341	salinity method	MIXS:core field	Reference or method used in determining salinity	Expected value: PMID,DOI or url | pattern generalization: {PMID}|{DOI}|{URL}	xs:token						default			salinity_meth
 emsl:sample_shipped	sample shipped amount	emsl:default	The total amount or size (volume (ml), mass (g) or area (m2) ) of sample sent to EMSL	pattern generalization: {float} {unit}	xs:token		required				default			sample_shipped
-emsl:sample_type	sample type	emsl:default	Type of sample being submitted	This can vary from 'environmental package' if the sample is an extraction. | pattern generalization: enumeration	xs:token		required	water extracted soil			default			sample_type
+emsl:sample_type	sample type	emsl:default	Type of sample being submitted	This can vary from 'environmental package' if the sample is an extraction. | pattern generalization: enumeration	select		required	water extracted soil			default			sample_type
 MIXS:0000645	mean seasonal precipitation	MIXS:core field	The average of all seasonal precipitation values known, or an estimated equivalent value derived by such methods as regional indexes or Isohyetal maps.	Expected value: measurement value | Preferred unit: millimeter	xs:token	\d+[.\d+] \S+					default			season_precpt
 MIXS:0000643	mean seasonal temperature	MIXS:core field	Mean seasonal temperature	Expected value: measurement value | Preferred unit: degree Celsius	xs:token	\d+[.\d+] \S+		18 degree Celsius			default			season_temp
 MIXS:0000322	composite design/sieving	MIXS:core field	Collection design of pooled samples and/or sieve size and amount of sample sieved	Expected value: design name and/or size;amount | pattern generalization: {{text}|{float} {unit}};{float} {unit}	xs:token						default			sieving
@@ -145,6 +145,8 @@ ENVO:00002254	Vertisols	soil_taxonomic/FAO classification
 	shoulder	profile position												
 	summit	profile position												
 	toeslope	profile position												
+	soil	sample type												
+	water_extract_soil	sample type												
 	A horizon	soil horizon												
 	B horizon	soil horizon												
 	C horizon	soil horizon												

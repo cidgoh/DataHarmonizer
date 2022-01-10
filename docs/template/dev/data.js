@@ -1645,7 +1645,7 @@ var DATA = [
         "fieldName": "sample type",
         "capitalize": "",
         "ontology_id": "emsl:sample_type",
-        "datatype": "xs:token",
+        "datatype": "select",
         "source": "",
         "dataStatus": [
           "default"
@@ -1662,6 +1662,10 @@ var DATA = [
               "field": "sample_type"
             }
           ]
+        },
+        "schema:ItemList": {
+          "soil": {},
+          "water_extract_soil": {}
         }
       },
       {
