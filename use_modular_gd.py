@@ -104,6 +104,8 @@ new_schema = inject_supplementary(client_secret_json, sheet_id, 'EMSL_sample_slo
                                   constructed_class_name)
 new_schema = inject_supplementary(client_secret_json, sheet_id, 'mixs_modified_slots', new_schema, "mixs_modified",
                                   constructed_class_name)
+new_schema = inject_supplementary(client_secret_json, sheet_id, 'biosample_identification_slots', new_schema, "samp_id",
+                                  constructed_class_name)
 
 # generated = yg.YAMLGenerator(new_schema)
 

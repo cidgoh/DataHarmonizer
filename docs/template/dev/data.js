@@ -2433,5 +2433,109 @@ var DATA = [
         }
       }
     ]
+  },
+  {
+    "fieldName": "samp_id:default",
+    "children": [
+      {
+        "fieldName": "Analysis/Data Type",
+        "capitalize": "",
+        "ontology_id": "samp_id:analysis_type",
+        "datatype": "select",
+        "source": "",
+        "dataStatus": [
+          "default"
+        ],
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "required",
+        "description": "Include all the data types associated or available for this biosample, this field can have multiple values separated by a ;",
+        "guidance": "This field is constrained to contain only a set of limited terms indicate the types of data that were generated. | pattern generalization: enumeration",
+        "examples": "metagenomics; metabolomics; proteomics",
+        "exportField": {
+          "dev": [
+            {
+              "field": "analysis_type"
+            }
+          ]
+        },
+        "schema:ItemList": {
+          "metabolomics": {},
+          "metagenomics": {},
+          "metaproteomics": {},
+          "metatranscriptomics": {},
+          "natural organic matter": {}
+        }
+      },
+      {
+        "fieldName": "sample linkage",
+        "capitalize": "",
+        "ontology_id": "samp_id:sample_link",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": [
+          "default"
+        ],
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "recommended",
+        "description": "A unique identifier to assign parent-child, subsample, or sibling samples. This is relevant when a sample or other material was used to generate the new sample. This field allows multiple entries separated by ; (Examples: Soil collected from the field will link with the soil used in an incubation. The soil a plant was grown in links to the plant sample. An original culture sample was transferred to a new vial and generated a new sample)",
+        "guidance": "Multiple identifiers can be provided, separated by a ; | pattern generalization: {text}:{text}",
+        "examples": "IGSN:DSJ0284",
+        "exportField": {
+          "dev": [
+            {
+              "field": "sample_link"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "sample name",
+        "capitalize": "",
+        "ontology_id": "samp_id:sample_name",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": [
+          "default"
+        ],
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "required",
+        "description": "A local identifier or name that for the material sample collected. Refers to the original material collected or to any derived sub-samples. It can have any format, but we suggest that you make it concise, unique and consistent within your lab, and as informative as possible.",
+        "guidance": "Should be human readable | pattern generalization: {text}",
+        "examples": "",
+        "exportField": {
+          "dev": [
+            {
+              "field": "sample_name"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "Globally Unique ID",
+        "capitalize": "",
+        "ontology_id": "samp_id:unique_ID",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": [
+          "default"
+        ],
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "required",
+        "description": "A globally unique identifier assigned to the biological sample to link all analytes and subsamples derived from it.",
+        "guidance": "Field REQUIRED for ALL sample submission. Options: IGSN- http://www.geosamples.org/getigsn ; UUID- https://www.uuidgenerator.net/ | pattern generalization: {text}:{text}",
+        "examples": "",
+        "exportField": {
+          "dev": [
+            {
+              "field": "unique_ID"
+            }
+          ]
+        }
+      }
+    ]
   }
 ]
