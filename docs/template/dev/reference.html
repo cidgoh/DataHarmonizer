@@ -98,6 +98,10 @@
 							<td colspan="5"><h3>nmdc:sample identifiers</h3></td>
 						</tr>
 						
+						<tr class="section">
+							<td colspan="5"><h3>samp_id:default</h3></td>
+						</tr>
+						
 						<tr>
 							<td class="label">EMSL Sample Storage Temperature</td>
 							<td>Temperature at which the sample sent to EMSL should be stored</td>
@@ -166,6 +170,15 @@
 							<td>Altitude is a term used to identify heights of objects such as airplanes, space shuttles, rockets, atmospheric balloons and heights of places such as atmospheric layers and clouds. It is used to measure the height of an object which is above the earth's surface. In this context, the altitude measurement is the vertical distance between the earth's surface above sea level and the sampled position in the air</td>
 							<td>Expected value: measurement value</td>
 							<td>100 meter</td>
+							<td>['default']</td>
+						</tr>
+
+						
+						<tr>
+							<td class="label">Analysis/Data Type</td>
+							<td>Include all the data types associated or available for this biosample, this field can have multiple values separated by a ;</td>
+							<td>This field is constrained to contain only a set of limited terms indicate the types of data that were generated. | pattern generalization: enumeration</td>
+							<td>metagenomics; metabolomics; proteomics</td>
 							<td>['default']</td>
 						</tr>
 
@@ -702,6 +715,24 @@
 
 						
 						<tr>
+							<td class="label">sample linkage</td>
+							<td>A unique identifier to assign parent-child, subsample, or sibling samples. This is relevant when a sample or other material was used to generate the new sample. This field allows multiple entries separated by ; (Examples: Soil collected from the field will link with the soil used in an incubation. The soil a plant was grown in links to the plant sample. An original culture sample was transferred to a new vial and generated a new sample)</td>
+							<td>Multiple identifiers can be provided, separated by a ; | pattern generalization: {text}:{text}</td>
+							<td>IGSN:DSJ0284</td>
+							<td>['default']</td>
+						</tr>
+
+						
+						<tr>
+							<td class="label">sample name</td>
+							<td>A local identifier or name that for the material sample collected. Refers to the original material collected or to any derived sub-samples. It can have any format, but we suggest that you make it concise, unique and consistent within your lab, and as informative as possible.</td>
+							<td>Should be human readable | pattern generalization: {text}</td>
+							<td></td>
+							<td>['default']</td>
+						</tr>
+
+						
+						<tr>
 							<td class="label">sample material processing</td>
 							<td>A brief description of any processing applied to the sample during or after retrieving the sample from environment, or a link to the relevant protocol(s) performed.</td>
 							<td>pattern generalization: {text}</td>
@@ -903,6 +934,15 @@
 							<td class="label">total organic carbon</td>
 							<td>Definition for soil: total organic carbon content of the soil, definition otherwise: total organic carbon content</td>
 							<td>Expected value: measurement value | Preferred unit: gram Carbon per kilogram sample material</td>
+							<td></td>
+							<td>['default']</td>
+						</tr>
+
+						
+						<tr>
+							<td class="label">Globally Unique ID</td>
+							<td>A globally unique identifier assigned to the biological sample to link all analytes and subsamples derived from it.</td>
+							<td>Field REQUIRED for ALL sample submission. Options: IGSN- http://www.geosamples.org/getigsn ; UUID- https://www.uuidgenerator.net/ | pattern generalization: {text}:{text}</td>
 							<td></td>
 							<td>['default']</td>
 						</tr>
