@@ -1645,7 +1645,7 @@ var DATA = [
         "fieldName": "sample type",
         "capitalize": "",
         "ontology_id": "emsl:sample_type",
-        "datatype": "xs:token",
+        "datatype": "select",
         "source": "",
         "dataStatus": [
           "default"
@@ -1662,6 +1662,10 @@ var DATA = [
               "field": "sample_type"
             }
           ]
+        },
+        "schema:ItemList": {
+          "soil": {},
+          "water_extract_soil": {}
         }
       },
       {
@@ -1685,6 +1689,550 @@ var DATA = [
               "field": "technical_reps"
             }
           ]
+        }
+      }
+    ]
+  },
+  {
+    "fieldName": "mixs_modified:default",
+    "children": [
+      {
+        "fieldName": "Incubation Collection Date",
+        "capitalize": "",
+        "ontology_id": "mixs_modified:collection_date_inc",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": [
+          "default"
+        ],
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "recommended",
+        "description": "Date the incubation was harvested/collected/ended. Only relevant for incubation samples.",
+        "guidance": "date and time should be represented as YYYY-MM-DDTHH:MM:SS GMT | pattern generalization: {timestamp}",
+        "examples": "",
+        "exportField": {
+          "dev": [
+            {
+              "field": "collection_date_inc"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "collection time",
+        "capitalize": "",
+        "ontology_id": "mixs_modified:collection_time",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": [
+          "default"
+        ],
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "recommended",
+        "description": "The time of sampling, either as an instance (single point) or interval.",
+        "guidance": "Time should be formatted as HH:MM:SS | pattern generalization: HH:MM:SS",
+        "examples": "Time should be reported in GMT (LINK)",
+        "exportField": {
+          "dev": [
+            {
+              "field": "collection_time"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "experimental factor- other",
+        "capitalize": "",
+        "ontology_id": "mixs_modified:experimental_factor_other",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": [
+          "default"
+        ],
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "recommended",
+        "description": "Other details about your sample that you feel can't be accurately represented in the available columns.",
+        "guidance": "pattern generalization: {text}",
+        "examples": "",
+        "exportField": {
+          "dev": [
+            {
+              "field": "experimental_factor_other"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "Filter Method",
+        "capitalize": "",
+        "ontology_id": "mixs_modified:filter_method",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": [
+          "default"
+        ],
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "recommended",
+        "description": "Type of filter used or how the sample was filteres",
+        "guidance": "pattern generalization: {text}",
+        "examples": "",
+        "exportField": {
+          "dev": [
+            {
+              "field": "filter_method"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "growth facility",
+        "capitalize": "",
+        "ontology_id": "mixs_modified:growth_facility",
+        "datatype": "select",
+        "source": "",
+        "dataStatus": [
+          "default"
+        ],
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "required",
+        "description": "Type of facility/location where the sample was harvested; controlled vocabulary: growth chamber, open top chamber, glasshouse, experimental garden, field.",
+        "guidance": "pattern generalization: enumeration",
+        "examples": "",
+        "exportField": {
+          "dev": [
+            {
+              "field": "growth_facility"
+            }
+          ]
+        },
+        "schema:ItemList": {
+          "experimental_garden": {},
+          "field": {},
+          "field_incubation": {},
+          "glasshouse": {},
+          "greenhouse": {},
+          "growth_chamber": {},
+          "lab_incubation": {},
+          "open_top_chamber": {},
+          "other": {}
+        }
+      },
+      {
+        "fieldName": "isotope exposure/addition",
+        "capitalize": "",
+        "ontology_id": "mixs_modified:isotope_exposure",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": [
+          "default"
+        ],
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "recommended",
+        "description": "List isotope exposure or addition applied to your sample.",
+        "guidance": "pattern generalization: {termLabel} {[termID]}; {timestamp}",
+        "examples": "",
+        "exportField": {
+          "dev": [
+            {
+              "field": "isotope_exposure"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "microbial biomass carbon method",
+        "capitalize": "",
+        "ontology_id": "mixs_modified:micro_biomass_C_meth",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": [
+          "default"
+        ],
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Reference or method used in determining microbial biomass",
+        "guidance": "required if \"microbial_biomass_C\" is provided | pattern generalization: {PMID}|{DOI}|{URL}",
+        "examples": "",
+        "exportField": {
+          "dev": [
+            {
+              "field": "micro_biomass_C_meth"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "microbial biomass nitrogen method",
+        "capitalize": "",
+        "ontology_id": "mixs_modified:micro_biomass_N_meth",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": [
+          "default"
+        ],
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Reference or method used in determining microbial biomass nitrogen",
+        "guidance": "required if \"microbial_biomass_N\" is provided | pattern generalization: {PMID}|{DOI}|{URL}",
+        "examples": "",
+        "exportField": {
+          "dev": [
+            {
+              "field": "micro_biomass_N_meth"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "microbial biomass carbon",
+        "capitalize": "",
+        "ontology_id": "mixs_modified:microbial_biomass_C",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": [
+          "default"
+        ],
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "The part of the organic matter in the soil that constitutes living microorganisms smaller than 5-10 micrometer. If you keep this, you would need to have correction factors used for conversion to the final units",
+        "guidance": "pattern generalization: {float} {unit}",
+        "examples": "",
+        "exportField": {
+          "dev": [
+            {
+              "field": "microbial_biomass_C"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "microbial biomass nitrogen",
+        "capitalize": "",
+        "ontology_id": "mixs_modified:microbial_biomass_N",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": [
+          "default"
+        ],
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "The part of the organic matter in the soil that constitutes living microorganisms smaller than 5-10 micrometer. If you keep this, you would need to have correction factors used for conversion to the final units",
+        "guidance": "pattern generalization: {float} {unit}",
+        "examples": "",
+        "exportField": {
+          "dev": [
+            {
+              "field": "microbial_biomass_N"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "non-microbial biomass",
+        "capitalize": "",
+        "ontology_id": "mixs_modified:non_microb_biomass",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": [
+          "default"
+        ],
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Amount of biomass; should include the name for the part of biomass measured, e.g.insect, plant, total. Can include multiple measurements separated by ;",
+        "guidance": "pattern generalization: {text};{float} {unit}",
+        "examples": "",
+        "exportField": {
+          "dev": [
+            {
+              "field": "non_microb_biomass"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "non-microbial biomass method",
+        "capitalize": "",
+        "ontology_id": "mixs_modified:non_microb_biomass_method",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": [
+          "default"
+        ],
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Reference or method used in determining biomass",
+        "guidance": "required if \"non-microbial biomass\" is provided | pattern generalization: {PMID}|{DOI}|{URL}",
+        "examples": "",
+        "exportField": {
+          "dev": [
+            {
+              "field": "non_microb_biomass_method"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "organic nitrogen method",
+        "capitalize": "",
+        "ontology_id": "mixs_modified:org_nitro_method",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": [
+          "default"
+        ],
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Method used for obtaining organic nitrogen",
+        "guidance": "pattern generalization: {PMID}|{DOI}|{URL}",
+        "examples": "required if \"org_nitro_ is provided",
+        "exportField": {
+          "dev": [
+            {
+              "field": "org_nitro_method"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "other treatments",
+        "capitalize": "",
+        "ontology_id": "mixs_modified:other_treatment",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": [
+          "default"
+        ],
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "recommended",
+        "description": "Other treatments applied to your samples that are not applicable to the provided fields",
+        "guidance": "pattern generalization: {text}",
+        "examples": "",
+        "exportField": {
+          "dev": [
+            {
+              "field": "other_treatment"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "relationship to oxygen",
+        "capitalize": "",
+        "ontology_id": "mixs_modified:oxygen_relationship",
+        "datatype": "select",
+        "source": "",
+        "dataStatus": [
+          "default"
+        ],
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Is this organism an aerobe, anaerobe? Please note that aerobic and anaerobic are valid descriptors for microbial environments",
+        "guidance": "pattern generalization: enumeration",
+        "examples": "",
+        "exportField": {
+          "dev": [
+            {
+              "field": "oxygen_relationship"
+            }
+          ]
+        },
+        "schema:ItemList": {
+          "aerobe": {},
+          "anaerobe": {},
+          "facultative": {},
+          "microaerophilic": {},
+          "microanaerobe": {},
+          "obligate aerobe": {},
+          "obligate anaerobe": {}
+        }
+      },
+      {
+        "fieldName": "observed biotic relationship",
+        "capitalize": "",
+        "ontology_id": "mixs_modified:samp_biotic_relationship",
+        "datatype": "select",
+        "source": "",
+        "dataStatus": [
+          "default"
+        ],
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Description of relationship(s) between the subject organism and other organism(s) it is associated with. E.g., parasite on species X; mutualist with species Y. The target organism is the subject of the relationship, and the other organism(s) is the object",
+        "guidance": "pattern generalization: enumeration",
+        "examples": "",
+        "exportField": {
+          "dev": [
+            {
+              "field": "samp_biotic_relationship"
+            }
+          ]
+        },
+        "schema:ItemList": {
+          "commensalism": {},
+          "free living": {},
+          "mutualism": {},
+          "parasitism": {},
+          "symbiotic": {}
+        }
+      },
+      {
+        "fieldName": "amount or size of sample collected",
+        "capitalize": "",
+        "ontology_id": "mixs_modified:sample_collected",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": [
+          "default"
+        ],
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "recommended",
+        "description": "The total amount or size (volume (ml), mass (g) or area (m2) ) of sample collected.",
+        "guidance": "This referes to the TOTAL amount of sample collected from the experiment. NOT the amount sent to each institution or collected for a specific analysis. | pattern generalization: {float} {unit}",
+        "examples": "5 grams; 10 mL",
+        "exportField": {
+          "dev": [
+            {
+              "field": "sample_collected"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "sample collection device",
+        "capitalize": "",
+        "ontology_id": "mixs_modified:sample_collection_dev",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": [
+          "default"
+        ],
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "recommended",
+        "description": "The device used to collect an environmental sample. This field accepts terms listed under environmental sampling device (http://purl.obolibrary.org/obo/ENVO). This field also accepts terms listed under specimen collection device (http://purl.obolibrary.org/obo/GENEPIO_0002094).",
+        "guidance": "Report dimensions and details when applicable | pattern generalization: {termLabel} {[termID]}|{text}",
+        "examples": "",
+        "exportField": {
+          "dev": [
+            {
+              "field": "sample_collection_dev"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "sample collection method",
+        "capitalize": "",
+        "ontology_id": "mixs_modified:sample_collection_method",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": [
+          "default"
+        ],
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "recommended",
+        "description": "The method employed for collecting the sample.",
+        "guidance": "This can be a citation or description | pattern generalization: {PMID}|{DOI}|{URL}|{text}",
+        "examples": "",
+        "exportField": {
+          "dev": [
+            {
+              "field": "sample_collection_method"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "sample material processing",
+        "capitalize": "",
+        "ontology_id": "mixs_modified:sample_processing",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": [
+          "default"
+        ],
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "recommended",
+        "description": "A brief description of any processing applied to the sample during or after retrieving the sample from environment, or a link to the relevant protocol(s) performed.",
+        "guidance": "pattern generalization: {text}",
+        "examples": "",
+        "exportField": {
+          "dev": [
+            {
+              "field": "sample_processing"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "Incubation Start Date",
+        "capitalize": "",
+        "ontology_id": "mixs_modified:start_date_inc",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": [
+          "default"
+        ],
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "recommended",
+        "description": "Date the incubation was started. Only relevant for incubation samples.",
+        "guidance": "date and time should be represented as YYYY-MM-DDTHH:MM:SS GMT | pattern generalization: {timestamp}",
+        "examples": "",
+        "exportField": {
+          "dev": [
+            {
+              "field": "start_date_inc"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "storage conditions",
+        "capitalize": "",
+        "ontology_id": "mixs_modified:storage_condt",
+        "datatype": "select",
+        "source": "",
+        "dataStatus": [
+          "default"
+        ],
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "required",
+        "description": "Explain how the soil sample is stored (fresh/frozen/other).",
+        "guidance": "pattern generalization: enumeration",
+        "examples": "",
+        "exportField": {
+          "dev": [
+            {
+              "field": "storage_condt"
+            }
+          ]
+        },
+        "schema:ItemList": {
+          "fresh": {},
+          "frozen": {},
+          "lyophilized": {},
+          "other": {}
         }
       }
     ]

@@ -87,6 +87,10 @@
 						</tr>
 						
 						<tr class="section">
+							<td colspan="5"><h3>mixs_modified:default</h3></td>
+						</tr>
+						
+						<tr class="section">
 							<td colspan="5"><h3>nmdc:gold_path_field</h3></td>
 						</tr>
 						
@@ -180,6 +184,24 @@
 							<td>Mean annual temperature</td>
 							<td>Expected value: measurement value | Preferred unit: degree Celsius</td>
 							<td>12.5 degree Celsius</td>
+							<td>['default']</td>
+						</tr>
+
+						
+						<tr>
+							<td class="label">Incubation Collection Date</td>
+							<td>Date the incubation was harvested/collected/ended. Only relevant for incubation samples.</td>
+							<td>date and time should be represented as YYYY-MM-DDTHH:MM:SS GMT | pattern generalization: {timestamp}</td>
+							<td></td>
+							<td>['default']</td>
+						</tr>
+
+						
+						<tr>
+							<td class="label">collection time</td>
+							<td>The time of sampling, either as an instance (single point) or interval.</td>
+							<td>Time should be formatted as HH:MM:SS | pattern generalization: HH:MM:SS</td>
+							<td>Time should be reported in GMT (LINK)</td>
 							<td>['default']</td>
 						</tr>
 
@@ -311,6 +333,15 @@
 
 						
 						<tr>
+							<td class="label">experimental factor- other</td>
+							<td>Other details about your sample that you feel can't be accurately represented in the available columns.</td>
+							<td>pattern generalization: {text}</td>
+							<td></td>
+							<td>['default']</td>
+						</tr>
+
+						
+						<tr>
 							<td class="label">history/extreme events</td>
 							<td>Unusual physical events that may have affected microbial populations</td>
 							<td>Expected value: date</td>
@@ -324,6 +355,15 @@
 							<td>Soil classification from the FAO World Reference Database for Soil Resources. The list can be found at http://www.fao.org/nr/land/sols/soil/wrb-soil-maps/reference-groups</td>
 							<td>Expected value: enumeration | pattern generalization: [Acrisols|Andosols|Arenosols|Cambisols|Chernozems|Ferralsols|Fluvisols|Gleysols|Greyzems|Gypsisols|Histosols|Kastanozems|Lithosols|Luvisols|Nitosols|Phaeozems|Planosols|Podzols|Podzoluvisols|Rankers|Regosols|Rendzinas|Solonchaks|Solonetz|Vertisols|Yermosols]</td>
 							<td>Luvisols</td>
+							<td>['default']</td>
+						</tr>
+
+						
+						<tr>
+							<td class="label">Filter Method</td>
+							<td>Type of filter used or how the sample was filteres</td>
+							<td>pattern generalization: {text}</td>
+							<td></td>
 							<td>['default']</td>
 						</tr>
 
@@ -356,6 +396,15 @@
 
 						
 						<tr>
+							<td class="label">growth facility</td>
+							<td>Type of facility/location where the sample was harvested; controlled vocabulary: growth chamber, open top chamber, glasshouse, experimental garden, field.</td>
+							<td>pattern generalization: enumeration</td>
+							<td></td>
+							<td>['default']</td>
+						</tr>
+
+						
+						<tr>
 							<td class="label">extreme_unusual_properties/heavy metals</td>
 							<td>Heavy metals present in the sequenced sample and their concentrations. For multiple heavy metals and concentrations, add multiple copies of this field.</td>
 							<td>Expected value: heavy metal name;measurement value unit | Preferred unit: microgram per gram | pattern generalization: {text};{float} {unit}</td>
@@ -377,6 +426,15 @@
 							<td class="label">horizon method</td>
 							<td>Reference or method used in determining the horizon</td>
 							<td>Expected value: PMID,DOI or url | pattern generalization: {PMID}|{DOI}|{URL}</td>
+							<td></td>
+							<td>['default']</td>
+						</tr>
+
+						
+						<tr>
+							<td class="label">isotope exposure/addition</td>
+							<td>List isotope exposure or addition applied to your sample.</td>
+							<td>pattern generalization: {termLabel} {[termID]}; {timestamp}</td>
 							<td></td>
 							<td>['default']</td>
 						</tr>
@@ -428,6 +486,24 @@
 
 						
 						<tr>
+							<td class="label">microbial biomass carbon method</td>
+							<td>Reference or method used in determining microbial biomass</td>
+							<td>required if "microbial_biomass_C" is provided | pattern generalization: {PMID}|{DOI}|{URL}</td>
+							<td></td>
+							<td>['default']</td>
+						</tr>
+
+						
+						<tr>
+							<td class="label">microbial biomass nitrogen method</td>
+							<td>Reference or method used in determining microbial biomass nitrogen</td>
+							<td>required if "microbial_biomass_N" is provided | pattern generalization: {PMID}|{DOI}|{URL}</td>
+							<td></td>
+							<td>['default']</td>
+						</tr>
+
+						
+						<tr>
 							<td class="label">microbial biomass method</td>
 							<td>Reference or method used in determining microbial biomass</td>
 							<td>Expected value: PMID,DOI or url | pattern generalization: {PMID}|{DOI}|{URL}</td>
@@ -446,10 +522,73 @@
 
 						
 						<tr>
+							<td class="label">microbial biomass carbon</td>
+							<td>The part of the organic matter in the soil that constitutes living microorganisms smaller than 5-10 micrometer. If you keep this, you would need to have correction factors used for conversion to the final units</td>
+							<td>pattern generalization: {float} {unit}</td>
+							<td></td>
+							<td>['default']</td>
+						</tr>
+
+						
+						<tr>
+							<td class="label">microbial biomass nitrogen</td>
+							<td>The part of the organic matter in the soil that constitutes living microorganisms smaller than 5-10 micrometer. If you keep this, you would need to have correction factors used for conversion to the final units</td>
+							<td>pattern generalization: {float} {unit}</td>
+							<td></td>
+							<td>['default']</td>
+						</tr>
+
+						
+						<tr>
 							<td class="label">miscellaneous parameter</td>
 							<td>Any other measurement performed or parameter collected, that is not listed here</td>
 							<td>Expected value: parameter name;measurement value | pattern generalization: {text};{float} {unit}</td>
 							<td>Bicarbonate ion concentration;2075 micromole per kilogram</td>
+							<td>['default']</td>
+						</tr>
+
+						
+						<tr>
+							<td class="label">non-microbial biomass</td>
+							<td>Amount of biomass; should include the name for the part of biomass measured, e.g.insect, plant, total. Can include multiple measurements separated by ;</td>
+							<td>pattern generalization: {text};{float} {unit}</td>
+							<td></td>
+							<td>['default']</td>
+						</tr>
+
+						
+						<tr>
+							<td class="label">non-microbial biomass method</td>
+							<td>Reference or method used in determining biomass</td>
+							<td>required if "non-microbial biomass" is provided | pattern generalization: {PMID}|{DOI}|{URL}</td>
+							<td></td>
+							<td>['default']</td>
+						</tr>
+
+						
+						<tr>
+							<td class="label">organic nitrogen method</td>
+							<td>Method used for obtaining organic nitrogen</td>
+							<td>pattern generalization: {PMID}|{DOI}|{URL}</td>
+							<td>required if "org_nitro_ is provided</td>
+							<td>['default']</td>
+						</tr>
+
+						
+						<tr>
+							<td class="label">other treatments</td>
+							<td>Other treatments applied to your samples that are not applicable to the provided fields</td>
+							<td>pattern generalization: {text}</td>
+							<td></td>
+							<td>['default']</td>
+						</tr>
+
+						
+						<tr>
+							<td class="label">relationship to oxygen</td>
+							<td>Is this organism an aerobe, anaerobe? Please note that aerobic and anaerobic are valid descriptors for microbial environments</td>
+							<td>pattern generalization: enumeration</td>
+							<td></td>
 							<td>['default']</td>
 						</tr>
 
@@ -521,6 +660,51 @@
 							<td class="label">salinity method</td>
 							<td>Reference or method used in determining salinity</td>
 							<td>Expected value: PMID,DOI or url | pattern generalization: {PMID}|{DOI}|{URL}</td>
+							<td></td>
+							<td>['default']</td>
+						</tr>
+
+						
+						<tr>
+							<td class="label">observed biotic relationship</td>
+							<td>Description of relationship(s) between the subject organism and other organism(s) it is associated with. E.g., parasite on species X; mutualist with species Y. The target organism is the subject of the relationship, and the other organism(s) is the object</td>
+							<td>pattern generalization: enumeration</td>
+							<td></td>
+							<td>['default']</td>
+						</tr>
+
+						
+						<tr>
+							<td class="label">amount or size of sample collected</td>
+							<td>The total amount or size (volume (ml), mass (g) or area (m2) ) of sample collected.</td>
+							<td>This referes to the TOTAL amount of sample collected from the experiment. NOT the amount sent to each institution or collected for a specific analysis. | pattern generalization: {float} {unit}</td>
+							<td>5 grams; 10 mL</td>
+							<td>['default']</td>
+						</tr>
+
+						
+						<tr>
+							<td class="label">sample collection device</td>
+							<td>The device used to collect an environmental sample. This field accepts terms listed under environmental sampling device (http://purl.obolibrary.org/obo/ENVO). This field also accepts terms listed under specimen collection device (http://purl.obolibrary.org/obo/GENEPIO_0002094).</td>
+							<td>Report dimensions and details when applicable | pattern generalization: {termLabel} {[termID]}|{text}</td>
+							<td></td>
+							<td>['default']</td>
+						</tr>
+
+						
+						<tr>
+							<td class="label">sample collection method</td>
+							<td>The method employed for collecting the sample.</td>
+							<td>This can be a citation or description | pattern generalization: {PMID}|{DOI}|{URL}|{text}</td>
+							<td></td>
+							<td>['default']</td>
+						</tr>
+
+						
+						<tr>
+							<td class="label">sample material processing</td>
+							<td>A brief description of any processing applied to the sample during or after retrieving the sample from environment, or a link to the relevant protocol(s) performed.</td>
+							<td>pattern generalization: {text}</td>
 							<td></td>
 							<td>['default']</td>
 						</tr>
@@ -638,6 +822,24 @@
 							<td class="label">specific_ecosystem</td>
 							<td>TODO</td>
 							<td></td>
+							<td></td>
+							<td>['default']</td>
+						</tr>
+
+						
+						<tr>
+							<td class="label">Incubation Start Date</td>
+							<td>Date the incubation was started. Only relevant for incubation samples.</td>
+							<td>date and time should be represented as YYYY-MM-DDTHH:MM:SS GMT | pattern generalization: {timestamp}</td>
+							<td></td>
+							<td>['default']</td>
+						</tr>
+
+						
+						<tr>
+							<td class="label">storage conditions</td>
+							<td>Explain how the soil sample is stored (fresh/frozen/other).</td>
+							<td>pattern generalization: enumeration</td>
 							<td></td>
 							<td>['default']</td>
 						</tr>
