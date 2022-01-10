@@ -82,13 +82,14 @@ def linkml_to_dh_light(model_file, selected_class, default_section, default_sour
         else:
             # what if the slot uri is a full uri, not a curie?
             prefix_portion = i.slot_uri.split(":")[0] + ":"
-            logger.info(prefix_portion)
+            logger.info(f"saw the prefix {prefix_portion}")
         if i.is_a is None:
             relevant_isa = prefix_portion + default_section
         else:
             relevant_isa = prefix_portion + i.is_a
         isa_dict[i.name] = relevant_isa
         isa_set.add(relevant_isa)
+    logger.info("\n")
 
     isa_list = list(isa_set)
     isa_list = [i for i in isa_list if i]
@@ -106,7 +107,7 @@ def linkml_to_dh_light(model_file, selected_class, default_section, default_sour
     term_list = []
     pv_list = []
     for i in term_names:
-        logger.info(i)
+        logger.info(f"processing {i}")
         current_row = blank_row.copy()
         current_sd = rs_dict[i]
         current_row["Ontology ID"] = current_sd.slot_uri
@@ -132,9 +133,19 @@ def linkml_to_dh_light(model_file, selected_class, default_section, default_sour
         #   ~ half of the MixS soil/NMDC biosample fields lack comments for "guidance"
         #   Montana provides her own, to be concatenated on
         #   Damion's latest LinkML -> JS approach lays the comments and examples out nicer
-        current_row["guidance"] = "|".join(current_sd.comments)
+        current_row["guidance"] = " | ".join(current_sd.comments)
+        # todo refactor
         if current_sd.pattern is not None and current_sd.pattern != "":
-            current_row["guidance"] = current_row["guidance"] + "|" + current_sd.pattern
+            if current_row["guidance"] is not None and current_row["guidance"] != "":
+                current_row["guidance"] = current_row[
+                                              "guidance"] + " | pattern as regular expression: " + current_sd.pattern
+            else:
+                current_row["guidance"] = "pattern as regular expression: " + current_sd.pattern
+        if current_sd.string_serialization is not None and current_sd.string_serialization != "":
+            if current_row["guidance"] is not None and current_row["guidance"] != "":
+                current_row["guidance"] = current_row["guidance"] + " | pattern generalization: " + current_sd.string_serialization
+            else:
+                current_row["guidance"] = "pattern generalization: " + current_sd.string_serialization
         # todo map types
         # don't forget selects and multis
         # map selects to terms and indent
@@ -143,7 +154,7 @@ def linkml_to_dh_light(model_file, selected_class, default_section, default_sour
         if current_sd.identifier:
             current_row["datatype"] = "xs:unique"
             current_row["requirement"] = "required"
-        if current_sd.range == "timestamp value":
+        if current_sd.range == "timestamp value" or current_sd.range == "date":
             current_row["datatype"] = "xs:date"
         # other ways to infer pattern (mappings from range?) or string serialization
         # exclude any that reiterate an enum
@@ -157,7 +168,7 @@ def linkml_to_dh_light(model_file, selected_class, default_section, default_sour
             # update this once the enums are built
             if current_sd.multivalued:
                 current_row["datatype"] = "multiple"
-                logger.info(f"    {i} multiple")
+                logger.info(f"    {i} is multi-valued")
             else:
                 current_row["datatype"] = "select"
             pvs_obj = model_enums[current_sd.range].permissible_values
@@ -195,6 +206,7 @@ def linkml_to_dh_light(model_file, selected_class, default_section, default_sour
         current_row["EXPORT_dev"] = current_sd.name
 
         term_list.append(current_row)
+    logger.info("\n")
 
     final_list = section_list + term_list + pv_list
     needs_reordering = pd.DataFrame(final_list)
@@ -220,6 +232,7 @@ def linkml_to_dh_light(model_file, selected_class, default_section, default_sour
     reunited = reunited.append(coc_leftovers)
     reunited = reunited.append(nr_leftovers)
 
+    logger.info(f"TABULATION OF SLOT RANGES, for prioritizing range->regex conversion")
     logger.info(pd.Series(range_tally).value_counts())
 
     # todo also include source (slot URI prefix?) in sectio0n names?
@@ -231,17 +244,15 @@ def linkml_to_dh_light(model_file, selected_class, default_section, default_sour
 # # soil biosample
 # ranges that could be interpreted as datatypes or patterns
 # I already did quantity value
-# I have the following rules for any range that is defined as an enum" XXX
-# quantity value           74
-# text value               34
-# string                   21
-# controlled term value     5
-# timestamp value           4
+# I have the following rules for any range that is defined as an enum...???
+# string                   39
+# quantity value           16
+# external identifier       3
+# date                      3
 # cur_land_use_enum         1
 # drainage_class_enum       1
 # fao_class_enum            1
-# geolocation value         1
-# named thing               1
+# double                    1
 # profile_position_enum     1
 # soil_horizon_enum         1
 # tillage_enum              1

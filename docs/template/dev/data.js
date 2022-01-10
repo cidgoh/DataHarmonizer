@@ -113,7 +113,7 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "",
         "description": "Addition of fertilizers, pesticides, etc. - amount and time of applications",
-        "guidance": "Expected value: agrochemical name;agrochemical amount;timestamp|Preferred unit: gram, mole per liter, milligram per liter",
+        "guidance": "Expected value: agrochemical name;agrochemical amount;timestamp | Preferred unit: gram, mole per liter, milligram per liter | pattern generalization: {text};{float} {unit};{timestamp}",
         "examples": "roundup;5 milligram per liter;2018-06-21",
         "exportField": {
           "dev": [
@@ -136,7 +136,7 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "",
         "description": "Aluminum saturation (esp. For tropical soils)",
-        "guidance": "Expected value: measurement value|Preferred unit: percentage",
+        "guidance": "Expected value: measurement value | Preferred unit: percentage",
         "examples": "",
         "pattern": "\\d+[.\\d+] \\S+",
         "exportField": {
@@ -160,7 +160,7 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "",
         "description": "Reference or method used in determining Al saturation",
-        "guidance": "Expected value: PMID,DOI or URL",
+        "guidance": "Expected value: PMID,DOI or URL | pattern generalization: {PMID}|{DOI}|{URL}",
         "examples": "",
         "exportField": {
           "dev": [
@@ -183,7 +183,7 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "",
         "description": "The average of all annual precipitation values known, or an estimated equivalent value derived by such methods as regional indexes or Isohyetal maps.",
-        "guidance": "Expected value: measurement value|Preferred unit: millimeter",
+        "guidance": "Expected value: measurement value | Preferred unit: millimeter",
         "examples": "",
         "pattern": "\\d+[.\\d+] \\S+",
         "exportField": {
@@ -207,7 +207,7 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "",
         "description": "Mean annual temperature",
-        "guidance": "Expected value: measurement value|Preferred unit: degree Celsius",
+        "guidance": "Expected value: measurement value | Preferred unit: degree Celsius",
         "examples": "12.5 degree Celsius",
         "pattern": "\\d+[.\\d+] \\S+",
         "exportField": {
@@ -231,7 +231,7 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "",
         "description": "Whether or not crop is rotated, and if yes, rotation schedule",
-        "guidance": "Expected value: crop rotation status;schedule",
+        "guidance": "Expected value: crop rotation status;schedule | pattern generalization: {boolean};{Rn/start_time/end_time/duration}",
         "examples": "yes;R2/2017-01-01/2018-12-31/P6M",
         "exportField": {
           "dev": [
@@ -254,7 +254,7 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "",
         "description": "Present state of sample site",
-        "guidance": "Expected value: enumeration",
+        "guidance": "Expected value: enumeration | pattern generalization: [cities|farmstead|industrial areas|roads/railroads|rock|sand|gravel|mudflats|salt flats|badlands|permanent snow or ice|saline seeps|mines/quarries|oil waste areas|small grains|row crops|vegetable crops|horticultural plants (e.g. tulips)|marshlands (grass,sedges,rushes)|tundra (mosses,lichens)|rangeland|pastureland (grasslands used for livestock grazing)|hayland|meadows (grasses,alfalfa,fescue,bromegrass,timothy)|shrub land (e.g. mesquite,sage-brush,creosote bush,shrub oak,eucalyptus)|successional shrub land (tree saplings,hazels,sumacs,chokecherry,shrub dogwoods,blackberries)|shrub crops (blueberries,nursery ornamentals,filberts)|vine crops (grapes)|conifers (e.g. pine,spruce,fir,cypress)|hardwoods (e.g. oak,hickory,elm,aspen)|intermixed hardwood and conifers|tropical (e.g. mangrove,palms)|rainforest (evergreen forest receiving >406 cm annual rainfall)|swamp (permanent or semi-permanent water body dominated by woody plants)|crop trees (nuts,fruit,christmas trees,nursery trees)]",
         "examples": "conifers",
         "exportField": {
           "dev": [
@@ -314,7 +314,7 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "",
         "description": "Vegetation classification from one or more standard classification systems, or agricultural crop",
-        "guidance": "Expected value: current vegetation type",
+        "guidance": "Expected value: current vegetation type | pattern generalization: {text}",
         "examples": "",
         "exportField": {
           "dev": [
@@ -337,7 +337,7 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "",
         "description": "Reference or method used in vegetation classification",
-        "guidance": "Expected value: PMID,DOI or url",
+        "guidance": "Expected value: PMID,DOI or url | pattern generalization: {PMID}|{DOI}|{URL}",
         "examples": "",
         "exportField": {
           "dev": [
@@ -360,7 +360,7 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "",
         "description": "Drainage classification from a standard system such as the USDA system",
-        "guidance": "Expected value: enumeration",
+        "guidance": "Expected value: enumeration | pattern generalization: [very poorly|poorly|somewhat poorly|moderately well|well|excessively drained]",
         "examples": "well",
         "exportField": {
           "dev": [
@@ -382,7 +382,7 @@ var DATA = [
         "fieldName": "history/extreme events",
         "capitalize": "",
         "ontology_id": "MIXS:0000320",
-        "datatype": "xs:token",
+        "datatype": "xs:date",
         "source": "",
         "dataStatus": [
           "default"
@@ -414,7 +414,7 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "",
         "description": "Soil classification from the FAO World Reference Database for Soil Resources. The list can be found at http://www.fao.org/nr/land/sols/soil/wrb-soil-maps/reference-groups",
-        "guidance": "Expected value: enumeration",
+        "guidance": "Expected value: enumeration | pattern generalization: [Acrisols|Andosols|Arenosols|Cambisols|Chernozems|Ferralsols|Fluvisols|Gleysols|Greyzems|Gypsisols|Histosols|Kastanozems|Lithosols|Luvisols|Nitosols|Phaeozems|Planosols|Podzols|Podzoluvisols|Rankers|Regosols|Rendzinas|Solonchaks|Solonetz|Vertisols|Yermosols]",
         "examples": "Luvisols",
         "exportField": {
           "dev": [
@@ -487,7 +487,7 @@ var DATA = [
         "fieldName": "history/fire",
         "capitalize": "",
         "ontology_id": "MIXS:0001086",
-        "datatype": "xs:token",
+        "datatype": "xs:date",
         "source": "",
         "dataStatus": [
           "default"
@@ -510,7 +510,7 @@ var DATA = [
         "fieldName": "history/flooding",
         "capitalize": "",
         "ontology_id": "MIXS:0000319",
-        "datatype": "xs:token",
+        "datatype": "xs:date",
         "source": "",
         "dataStatus": [
           "default"
@@ -542,7 +542,7 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "",
         "description": "Heavy metals present in the sequenced sample and their concentrations. For multiple heavy metals and concentrations, add multiple copies of this field.",
-        "guidance": "Expected value: heavy metal name;measurement value unit|Preferred unit: microgram per gram",
+        "guidance": "Expected value: heavy metal name;measurement value unit | Preferred unit: microgram per gram | pattern generalization: {text};{float} {unit}",
         "examples": "mercury;0.09 micrograms per gram",
         "exportField": {
           "dev": [
@@ -565,7 +565,7 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "",
         "description": "Reference or method used in determining heavy metals",
-        "guidance": "Expected value: PMID,DOI or url",
+        "guidance": "Expected value: PMID,DOI or url | pattern generalization: {PMID}|{DOI}|{URL}",
         "examples": "",
         "exportField": {
           "dev": [
@@ -588,7 +588,7 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "",
         "description": "Reference or method used in determining the horizon",
-        "guidance": "Expected value: PMID,DOI or url",
+        "guidance": "Expected value: PMID,DOI or url | pattern generalization: {PMID}|{DOI}|{URL}",
         "examples": "",
         "exportField": {
           "dev": [
@@ -611,7 +611,7 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "",
         "description": "Link to digitized soil maps or other soil classification information",
-        "guidance": "Expected value: PMID,DOI or url",
+        "guidance": "Expected value: PMID,DOI or url | pattern generalization: {PMID}|{DOI}|{URL}",
         "examples": "",
         "exportField": {
           "dev": [
@@ -634,7 +634,7 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "",
         "description": "Link to climate resource",
-        "guidance": "Expected value: PMID,DOI or url",
+        "guidance": "Expected value: PMID,DOI or url | pattern generalization: {PMID}|{DOI}|{URL}",
         "examples": "",
         "exportField": {
           "dev": [
@@ -657,7 +657,7 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "",
         "description": "Soil classification based on local soil classification system",
-        "guidance": "Expected value: local classification name",
+        "guidance": "Expected value: local classification name | pattern generalization: {text}",
         "examples": "",
         "exportField": {
           "dev": [
@@ -680,7 +680,7 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "",
         "description": "Reference or method used in determining the local soil classification",
-        "guidance": "Expected value: PMID,DOI or url",
+        "guidance": "Expected value: PMID,DOI or url | pattern generalization: {PMID}|{DOI}|{URL}",
         "examples": "",
         "exportField": {
           "dev": [
@@ -703,7 +703,7 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "",
         "description": "Reference or method used in determining microbial biomass",
-        "guidance": "Expected value: PMID,DOI or url",
+        "guidance": "Expected value: PMID,DOI or url | pattern generalization: {PMID}|{DOI}|{URL}",
         "examples": "",
         "exportField": {
           "dev": [
@@ -726,7 +726,7 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "",
         "description": "The part of the organic matter in the soil that constitutes living microorganisms smaller than 5-10 micrometer. If you keep this, you would need to have correction factors used for conversion to the final units",
-        "guidance": "Expected value: measurement value|Preferred unit: ton, kilogram, gram per kilogram soil",
+        "guidance": "Expected value: measurement value | Preferred unit: ton, kilogram, gram per kilogram soil",
         "examples": "",
         "pattern": "\\d+[.\\d+] \\S+",
         "exportField": {
@@ -750,7 +750,7 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "",
         "description": "Any other measurement performed or parameter collected, that is not listed here",
-        "guidance": "Expected value: parameter name;measurement value",
+        "guidance": "Expected value: parameter name;measurement value | pattern generalization: {text};{float} {unit}",
         "examples": "Bicarbonate ion concentration;2075 micromole per kilogram",
         "exportField": {
           "dev": [
@@ -796,7 +796,7 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "",
         "description": "Reference or method used in determining ph",
-        "guidance": "Expected value: PMID,DOI or url",
+        "guidance": "Expected value: PMID,DOI or url | pattern generalization: {PMID}|{DOI}|{URL}",
         "examples": "",
         "exportField": {
           "dev": [
@@ -819,7 +819,7 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "",
         "description": "Reference or method used in determining previous land use and dates",
-        "guidance": "Expected value: PMID,DOI or url",
+        "guidance": "Expected value: PMID,DOI or url | pattern generalization: {PMID}|{DOI}|{URL}",
         "examples": "",
         "exportField": {
           "dev": [
@@ -842,7 +842,7 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "",
         "description": "Previous land use and dates",
-        "guidance": "Expected value: land use name;date",
+        "guidance": "Expected value: land use name;date | pattern generalization: {text};{timestamp}",
         "examples": "",
         "exportField": {
           "dev": [
@@ -865,7 +865,7 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "",
         "description": "Cross-sectional position in the hillslope where sample was collected.sample area position in relation to surrounding areas",
-        "guidance": "Expected value: enumeration",
+        "guidance": "Expected value: enumeration | pattern generalization: [summit|shoulder|backslope|footslope|toeslope]",
         "examples": "summit",
         "exportField": {
           "dev": [
@@ -895,7 +895,7 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "",
         "description": "Reference or method used in determining salinity",
-        "guidance": "Expected value: PMID,DOI or url",
+        "guidance": "Expected value: PMID,DOI or url | pattern generalization: {PMID}|{DOI}|{URL}",
         "examples": "",
         "exportField": {
           "dev": [
@@ -918,7 +918,7 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "",
         "description": "The average of all seasonal precipitation values known, or an estimated equivalent value derived by such methods as regional indexes or Isohyetal maps.",
-        "guidance": "Expected value: measurement value|Preferred unit: millimeter",
+        "guidance": "Expected value: measurement value | Preferred unit: millimeter",
         "examples": "",
         "pattern": "\\d+[.\\d+] \\S+",
         "exportField": {
@@ -942,7 +942,7 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "",
         "description": "Mean seasonal temperature",
-        "guidance": "Expected value: measurement value|Preferred unit: degree Celsius",
+        "guidance": "Expected value: measurement value | Preferred unit: degree Celsius",
         "examples": "18 degree Celsius",
         "pattern": "\\d+[.\\d+] \\S+",
         "exportField": {
@@ -966,7 +966,7 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "",
         "description": "Collection design of pooled samples and/or sieve size and amount of sample sieved",
-        "guidance": "Expected value: design name and/or size;amount",
+        "guidance": "Expected value: design name and/or size;amount | pattern generalization: {{text}|{float} {unit}};{float} {unit}",
         "examples": "",
         "exportField": {
           "dev": [
@@ -989,7 +989,7 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "",
         "description": "The direction a slope faces. While looking down a slope use a compass to record the direction you are facing (direction or degrees); e.g., nw or 315 degrees. This measure provides an indication of sun and wind exposure that will influence soil temperature and evapotranspiration.",
-        "guidance": "Expected value: measurement value|Preferred unit: degree",
+        "guidance": "Expected value: measurement value | Preferred unit: degree",
         "examples": "",
         "pattern": "\\d+[.\\d+] \\S+",
         "exportField": {
@@ -1013,7 +1013,7 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "",
         "description": "Commonly called 'slope'. The angle between ground surface and a horizontal line (in percent). This is the direction that overland water would flow. This measure is usually taken with a hand level meter or clinometer",
-        "guidance": "Expected value: measurement value|Preferred unit: percentage",
+        "guidance": "Expected value: measurement value | Preferred unit: percentage",
         "examples": "",
         "pattern": "\\d+[.\\d+] \\S+",
         "exportField": {
@@ -1037,7 +1037,7 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "",
         "description": "Specific layer in the land area which measures parallel to the soil surface and possesses physical characteristics which differ from the layers above and beneath",
-        "guidance": "Expected value: enumeration",
+        "guidance": "Expected value: enumeration | pattern generalization: [O horizon|A horizon|E horizon|B horizon|C horizon|R layer|Permafrost]",
         "examples": "A horizon",
         "exportField": {
           "dev": [
@@ -1093,7 +1093,7 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "",
         "description": "Reference or method used in determining soil texture",
-        "guidance": "Expected value: PMID,DOI or url",
+        "guidance": "Expected value: PMID,DOI or url | pattern generalization: {PMID}|{DOI}|{URL}",
         "examples": "",
         "exportField": {
           "dev": [
@@ -1116,7 +1116,7 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "",
         "description": "Description of the soil type or classification. This field accepts terms under soil (http://purl.obolibrary.org/obo/ENVO_00001998).  Multiple terms can be separated by pipes.",
-        "guidance": "Expected value: ENVO_00001998",
+        "guidance": "Expected value: ENVO_00001998 | pattern generalization: {termLabel} {[termID]}",
         "examples": "plinthosol [ENVO:00002250]",
         "exportField": {
           "dev": [
@@ -1139,7 +1139,7 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "",
         "description": "Reference or method used in determining soil series name or other lower-level classification",
-        "guidance": "Expected value: PMID,DOI or url",
+        "guidance": "Expected value: PMID,DOI or url | pattern generalization: {PMID}|{DOI}|{URL}",
         "examples": "",
         "exportField": {
           "dev": [
@@ -1162,7 +1162,7 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "",
         "description": "Note method(s) used for tilling",
-        "guidance": "Expected value: enumeration",
+        "guidance": "Expected value: enumeration | pattern generalization: [drill|cutting disc|ridge till|strip tillage|zonal tillage|chisel|tined|mouldboard|disc plough]",
         "examples": "chisel",
         "exportField": {
           "dev": [
@@ -1196,7 +1196,7 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "",
         "description": "Reference or method used in determining the total nitrogen",
-        "guidance": "Expected value: PMID,DOI or url",
+        "guidance": "Expected value: PMID,DOI or url | pattern generalization: {PMID}|{DOI}|{URL}",
         "examples": "",
         "exportField": {
           "dev": [
@@ -1219,7 +1219,7 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "",
         "description": "Total nitrogen content of the sample",
-        "guidance": "Expected value: measurement value|Preferred unit: microgram per liter, micromole per liter, milligram per liter",
+        "guidance": "Expected value: measurement value | Preferred unit: microgram per liter, micromole per liter, milligram per liter",
         "examples": "",
         "pattern": "\\d+[.\\d+] \\S+",
         "exportField": {
@@ -1243,7 +1243,7 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "",
         "description": "Reference or method used in determining total organic carbon",
-        "guidance": "Expected value: PMID,DOI or url",
+        "guidance": "Expected value: PMID,DOI or url | pattern generalization: {PMID}|{DOI}|{URL}",
         "examples": "",
         "exportField": {
           "dev": [
@@ -1266,7 +1266,7 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "",
         "description": "Definition for soil: total organic carbon content of the soil, definition otherwise: total organic carbon content",
-        "guidance": "Expected value: measurement value|Preferred unit: gram Carbon per kilogram sample material",
+        "guidance": "Expected value: measurement value | Preferred unit: gram Carbon per kilogram sample material",
         "examples": "",
         "pattern": "\\d+[.\\d+] \\S+",
         "exportField": {
@@ -1290,7 +1290,7 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "",
         "description": "Reference or method used in determining the water content of soil",
-        "guidance": "Expected value: PMID,DOI or url",
+        "guidance": "Expected value: PMID,DOI or url | pattern generalization: {PMID}|{DOI}|{URL}",
         "examples": "",
         "exportField": {
           "dev": [
@@ -1313,7 +1313,7 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "",
         "description": "Water content measurement",
-        "guidance": "Expected value: measurement value|Preferred unit: gram per gram or cubic centimeter per cubic centimeter",
+        "guidance": "Expected value: measurement value | Preferred unit: gram per gram or cubic centimeter per cubic centimeter",
         "examples": "",
         "pattern": "\\d+[.\\d+] \\S+",
         "exportField": {
@@ -1390,7 +1390,7 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "required",
         "description": "Report the major environmental system the sample or specimen came from. The system(s) identified should have a coarse spatial grain, to provide the general environmental context of where the sampling was done (e.g. in the desert or a rainforest). We recommend using subclasses of EnvO\u2019s biome class:  http://purl.obolibrary.org/obo/ENVO_00000428. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
-        "guidance": "Expected value: The major environment type(s) where the sample was collected. Recommend subclasses of biome [ENVO:00000428]. Multiple terms can be separated by one or more pipes.",
+        "guidance": "Expected value: The major environment type(s) where the sample was collected. Recommend subclasses of biome [ENVO:00000428]. Multiple terms can be separated by one or more pipes. | pattern generalization: {termLabel} {[termID]}",
         "examples": "oceanic epipelagic zone biome [ENVO:01000033] for annotating a water sample from the photic zone in middle of the Atlantic Ocean",
         "exportField": {
           "dev": [
@@ -1413,7 +1413,7 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "required",
         "description": "Report the entity or entities which are in the sample or specimen\u2019s local vicinity and which you believe have significant causal influences on your sample or specimen. We recommend using EnvO terms which are of smaller spatial grain than your entry for env_broad_scale. Terms, such as anatomical sites, from other OBO Library ontologies which interoperate with EnvO (e.g. UBERON) are accepted in this field. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS.",
-        "guidance": "Expected value: Environmental entities having causal influences upon the entity at time of sampling.",
+        "guidance": "Expected value: Environmental entities having causal influences upon the entity at time of sampling. | pattern generalization: {termLabel} {[termID]}",
         "examples": "litter layer [ENVO:01000338]; Annotating a pooled sample taken from various vegetation layers in a forest consider: canopy [ENVO:00000047]|herb and fern layer [ENVO:01000337]|litter layer [ENVO:01000338]|understory [01000335]|shrub layer [ENVO:01000336].",
         "exportField": {
           "dev": [
@@ -1436,7 +1436,7 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "required",
         "description": "Report the environmental material(s) immediately surrounding the sample or specimen at the time of sampling. We recommend using subclasses of 'environmental material' (http://purl.obolibrary.org/obo/ENVO_00010483). EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS . Terms from other OBO ontologies are permissible as long as they reference mass/volume nouns (e.g. air, water, blood) and not discrete, countable entities (e.g. a tree, a leaf, a table top).",
-        "guidance": "Expected value: The material displaced by the entity at time of sampling. Recommend subclasses of environmental material [ENVO:00010483].",
+        "guidance": "Expected value: The material displaced by the entity at time of sampling. Recommend subclasses of environmental material [ENVO:00010483]. | pattern generalization: {termLabel} {[termID]}",
         "examples": "soil [ENVO:00001998]; Annotating a fish swimming in the upper 100 m of the Atlantic Ocean, consider: ocean water [ENVO:00002151]. Example: Annotating a duck on a pond consider: pond water [ENVO:00002228]|air [ENVO_00002005]",
         "exportField": {
           "dev": [
@@ -1459,7 +1459,7 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "",
         "description": "The geographical origin of the sample as defined by the country or sea name followed by specific region name. Country or sea names should be chosen from the INSDC country list (http://insdc.org/country.html), or the GAZ ontology (http://purl.bioontology.org/ontology/GAZ)",
-        "guidance": "Expected value: country or sea name (INSDC or GAZ): region(GAZ), specific location name",
+        "guidance": "Expected value: country or sea name (INSDC or GAZ): region(GAZ), specific location name | pattern generalization: {term}: {term}, {text}",
         "examples": "USA: Maryland, Bethesda",
         "exportField": {
           "dev": [
@@ -1482,7 +1482,7 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "",
         "description": "The geographical origin of the sample as defined by latitude and longitude. The values should be reported in decimal degrees and in WGS84 system",
-        "guidance": "Expected value: decimal degrees,  limit to 8 decimal points",
+        "guidance": "Expected value: decimal degrees,  limit to 8 decimal points | pattern generalization: {float} {float}",
         "examples": "50.586825 6.408977",
         "exportField": {
           "dev": [
@@ -1505,7 +1505,7 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "",
         "description": "Temperature of the sample at the time of sampling.",
-        "guidance": "Expected value: measurement value|Preferred unit: degree Celsius",
+        "guidance": "Expected value: measurement value | Preferred unit: degree Celsius",
         "examples": "25 degree Celsius",
         "pattern": "\\d+[.\\d+] \\S+",
         "exportField": {
@@ -1540,6 +1540,149 @@ var DATA = [
           "dev": [
             {
               "field": "description"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "fieldName": "emsl:default",
+    "children": [
+      {
+        "fieldName": "EMSL Sample Storage Temperature",
+        "capitalize": "",
+        "ontology_id": "emsl:EMSL_store_temp",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": [
+          "default"
+        ],
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "required",
+        "description": "Temperature at which the sample sent to EMSL should be stored",
+        "guidance": "pattern generalization: {float} C",
+        "examples": "-80",
+        "exportField": {
+          "dev": [
+            {
+              "field": "EMSL_store_temp"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "Project ID",
+        "capitalize": "",
+        "ontology_id": "emsl:project_ID",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": [
+          "default"
+        ],
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "required",
+        "description": "Proposal IDs or names associated with dataset",
+        "guidance": "pattern generalization: {text}",
+        "examples": "",
+        "exportField": {
+          "dev": [
+            {
+              "field": "project_ID"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "Replicate Number",
+        "capitalize": "",
+        "ontology_id": "emsl:replicate_number",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": [
+          "default"
+        ],
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "recommended",
+        "description": "If sending biological replicates, indicate the rep number here.",
+        "guidance": "This will guide staff in ensuring your samples are block & randomized correctly | pattern generalization: {integer}",
+        "examples": "",
+        "exportField": {
+          "dev": [
+            {
+              "field": "replicate_number"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "sample shipped amount",
+        "capitalize": "",
+        "ontology_id": "emsl:sample_shipped",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": [
+          "default"
+        ],
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "required",
+        "description": "The total amount or size (volume (ml), mass (g) or area (m2) ) of sample sent to EMSL",
+        "guidance": "pattern generalization: {float} {unit}",
+        "examples": "",
+        "exportField": {
+          "dev": [
+            {
+              "field": "sample_shipped"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "sample type",
+        "capitalize": "",
+        "ontology_id": "emsl:sample_type",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": [
+          "default"
+        ],
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "required",
+        "description": "Type of sample being submitted",
+        "guidance": "This can vary from 'environmental package' if the sample is an extraction. | pattern generalization: enumeration",
+        "examples": "water extracted soil",
+        "exportField": {
+          "dev": [
+            {
+              "field": "sample_type"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "Number Technical Replicate",
+        "capitalize": "",
+        "ontology_id": "emsl:technical_reps",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": [
+          "default"
+        ],
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "recommended",
+        "description": "If sending multiple technical replicates of the same sample, indicate how many replicates are being sent",
+        "guidance": "pattern generalization: {integer}",
+        "examples": "",
+        "exportField": {
+          "dev": [
+            {
+              "field": "technical_reps"
             }
           ]
         }
@@ -1682,7 +1825,7 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "",
         "description": "identifiers for corresponding sample in GOLD",
-        "guidance": "|^GOLD:Gb[0-9]+$",
+        "guidance": "pattern as regular expression: ^GOLD:Gb[0-9]+$",
         "examples": "https://identifiers.org/gold:GbTODO",
         "pattern": "^GOLD:Gb[0-9]+$",
         "exportField": {
@@ -1706,7 +1849,7 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "",
         "description": "identifiers for corresponding sample in INSDC",
-        "guidance": "|^biosample:SAM[NED]([A-Z])?[0-9]+$",
+        "guidance": "pattern as regular expression: ^biosample:SAM[NED]([A-Z])?[0-9]+$",
         "examples": "https://identifiers.org/biosample:SAMEA5989477|https://identifiers.org/biosample:SAMD00212331",
         "pattern": "^biosample:SAM[NED]([A-Z])?[0-9]+$",
         "exportField": {
@@ -1730,7 +1873,7 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "",
         "description": "secondary identifiers for corresponding sample in INSDC",
-        "guidance": "ENA redirects these to primary IDs, e.g. https://www.ebi.ac.uk/ena/browser/view/DRS166340 -> SAMD00212331|MGnify uses these as their primary sample IDs|^biosample:(E|D|S)RS[0-9]{6,}$",
+        "guidance": "ENA redirects these to primary IDs, e.g. https://www.ebi.ac.uk/ena/browser/view/DRS166340 -> SAMD00212331 | MGnify uses these as their primary sample IDs | pattern as regular expression: ^biosample:(E|D|S)RS[0-9]{6,}$",
         "examples": "https://identifiers.org/insdc.sra:DRS166340",
         "pattern": "^biosample:(E|D|S)RS[0-9]{6,}$",
         "exportField": {

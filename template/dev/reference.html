@@ -83,6 +83,10 @@
 						</tr>
 						
 						<tr class="section">
+							<td colspan="5"><h3>emsl:default</h3></td>
+						</tr>
+						
+						<tr class="section">
 							<td colspan="5"><h3>nmdc:gold_path_field</h3></td>
 						</tr>
 						
@@ -91,9 +95,18 @@
 						</tr>
 						
 						<tr>
+							<td class="label">EMSL Sample Storage Temperature</td>
+							<td>Temperature at which the sample sent to EMSL should be stored</td>
+							<td>pattern generalization: {float} C</td>
+							<td>-80</td>
+							<td>['default']</td>
+						</tr>
+
+						
+						<tr>
 							<td class="label">GOLD sample identifiers</td>
 							<td>identifiers for corresponding sample in GOLD</td>
-							<td>|^GOLD:Gb[0-9]+$</td>
+							<td>pattern as regular expression: ^GOLD:Gb[0-9]+$</td>
 							<td>https://identifiers.org/gold:GbTODO</td>
 							<td>['default']</td>
 						</tr>
@@ -102,7 +115,7 @@
 						<tr>
 							<td class="label">INSDC biosample identifiers</td>
 							<td>identifiers for corresponding sample in INSDC</td>
-							<td>|^biosample:SAM[NED]([A-Z])?[0-9]+$</td>
+							<td>pattern as regular expression: ^biosample:SAM[NED]([A-Z])?[0-9]+$</td>
 							<td>https://identifiers.org/biosample:SAMEA5989477|https://identifiers.org/biosample:SAMD00212331</td>
 							<td>['default']</td>
 						</tr>
@@ -111,7 +124,7 @@
 						<tr>
 							<td class="label">INSDC secondary sample identifiers</td>
 							<td>secondary identifiers for corresponding sample in INSDC</td>
-							<td>ENA redirects these to primary IDs, e.g. https://www.ebi.ac.uk/ena/browser/view/DRS166340 -> SAMD00212331|MGnify uses these as their primary sample IDs|^biosample:(E|D|S)RS[0-9]{6,}$</td>
+							<td>ENA redirects these to primary IDs, e.g. https://www.ebi.ac.uk/ena/browser/view/DRS166340 -> SAMD00212331 | MGnify uses these as their primary sample IDs | pattern as regular expression: ^biosample:(E|D|S)RS[0-9]{6,}$</td>
 							<td>https://identifiers.org/insdc.sra:DRS166340</td>
 							<td>['default']</td>
 						</tr>
@@ -120,7 +133,7 @@
 						<tr>
 							<td class="label">history/agrochemical additions</td>
 							<td>Addition of fertilizers, pesticides, etc. - amount and time of applications</td>
-							<td>Expected value: agrochemical name;agrochemical amount;timestamp|Preferred unit: gram, mole per liter, milligram per liter</td>
+							<td>Expected value: agrochemical name;agrochemical amount;timestamp | Preferred unit: gram, mole per liter, milligram per liter | pattern generalization: {text};{float} {unit};{timestamp}</td>
 							<td>roundup;5 milligram per liter;2018-06-21</td>
 							<td>['default']</td>
 						</tr>
@@ -129,7 +142,7 @@
 						<tr>
 							<td class="label">extreme_unusual_properties/Al saturation</td>
 							<td>Aluminum saturation (esp. For tropical soils)</td>
-							<td>Expected value: measurement value|Preferred unit: percentage</td>
+							<td>Expected value: measurement value | Preferred unit: percentage</td>
 							<td></td>
 							<td>['default']</td>
 						</tr>
@@ -138,7 +151,7 @@
 						<tr>
 							<td class="label">extreme_unusual_properties/Al saturation method</td>
 							<td>Reference or method used in determining Al saturation</td>
-							<td>Expected value: PMID,DOI or URL</td>
+							<td>Expected value: PMID,DOI or URL | pattern generalization: {PMID}|{DOI}|{URL}</td>
 							<td></td>
 							<td>['default']</td>
 						</tr>
@@ -156,7 +169,7 @@
 						<tr>
 							<td class="label">mean annual precipitation</td>
 							<td>The average of all annual precipitation values known, or an estimated equivalent value derived by such methods as regional indexes or Isohyetal maps.</td>
-							<td>Expected value: measurement value|Preferred unit: millimeter</td>
+							<td>Expected value: measurement value | Preferred unit: millimeter</td>
 							<td></td>
 							<td>['default']</td>
 						</tr>
@@ -165,7 +178,7 @@
 						<tr>
 							<td class="label">mean annual temperature</td>
 							<td>Mean annual temperature</td>
-							<td>Expected value: measurement value|Preferred unit: degree Celsius</td>
+							<td>Expected value: measurement value | Preferred unit: degree Celsius</td>
 							<td>12.5 degree Celsius</td>
 							<td>['default']</td>
 						</tr>
@@ -174,7 +187,7 @@
 						<tr>
 							<td class="label">history/crop rotation</td>
 							<td>Whether or not crop is rotated, and if yes, rotation schedule</td>
-							<td>Expected value: crop rotation status;schedule</td>
+							<td>Expected value: crop rotation status;schedule | pattern generalization: {boolean};{Rn/start_time/end_time/duration}</td>
 							<td>yes;R2/2017-01-01/2018-12-31/P6M</td>
 							<td>['default']</td>
 						</tr>
@@ -183,7 +196,7 @@
 						<tr>
 							<td class="label">current land use</td>
 							<td>Present state of sample site</td>
-							<td>Expected value: enumeration</td>
+							<td>Expected value: enumeration | pattern generalization: [cities|farmstead|industrial areas|roads/railroads|rock|sand|gravel|mudflats|salt flats|badlands|permanent snow or ice|saline seeps|mines/quarries|oil waste areas|small grains|row crops|vegetable crops|horticultural plants (e.g. tulips)|marshlands (grass,sedges,rushes)|tundra (mosses,lichens)|rangeland|pastureland (grasslands used for livestock grazing)|hayland|meadows (grasses,alfalfa,fescue,bromegrass,timothy)|shrub land (e.g. mesquite,sage-brush,creosote bush,shrub oak,eucalyptus)|successional shrub land (tree saplings,hazels,sumacs,chokecherry,shrub dogwoods,blackberries)|shrub crops (blueberries,nursery ornamentals,filberts)|vine crops (grapes)|conifers (e.g. pine,spruce,fir,cypress)|hardwoods (e.g. oak,hickory,elm,aspen)|intermixed hardwood and conifers|tropical (e.g. mangrove,palms)|rainforest (evergreen forest receiving >406 cm annual rainfall)|swamp (permanent or semi-permanent water body dominated by woody plants)|crop trees (nuts,fruit,christmas trees,nursery trees)]</td>
 							<td>conifers</td>
 							<td>['default']</td>
 						</tr>
@@ -192,7 +205,7 @@
 						<tr>
 							<td class="label">current vegetation</td>
 							<td>Vegetation classification from one or more standard classification systems, or agricultural crop</td>
-							<td>Expected value: current vegetation type</td>
+							<td>Expected value: current vegetation type | pattern generalization: {text}</td>
 							<td></td>
 							<td>['default']</td>
 						</tr>
@@ -201,7 +214,7 @@
 						<tr>
 							<td class="label">current vegetation method</td>
 							<td>Reference or method used in vegetation classification</td>
-							<td>Expected value: PMID,DOI or url</td>
+							<td>Expected value: PMID,DOI or url | pattern generalization: {PMID}|{DOI}|{URL}</td>
 							<td></td>
 							<td>['default']</td>
 						</tr>
@@ -219,7 +232,7 @@
 						<tr>
 							<td class="label">drainage classification</td>
 							<td>Drainage classification from a standard system such as the USDA system</td>
-							<td>Expected value: enumeration</td>
+							<td>Expected value: enumeration | pattern generalization: [very poorly|poorly|somewhat poorly|moderately well|well|excessively drained]</td>
 							<td>well</td>
 							<td>['default']</td>
 						</tr>
@@ -273,7 +286,7 @@
 						<tr>
 							<td class="label">broad-scale environmental context</td>
 							<td>Report the major environmental system the sample or specimen came from. The system(s) identified should have a coarse spatial grain, to provide the general environmental context of where the sampling was done (e.g. in the desert or a rainforest). We recommend using subclasses of EnvO’s biome class:  http://purl.obolibrary.org/obo/ENVO_00000428. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS</td>
-							<td>Expected value: The major environment type(s) where the sample was collected. Recommend subclasses of biome [ENVO:00000428]. Multiple terms can be separated by one or more pipes.</td>
+							<td>Expected value: The major environment type(s) where the sample was collected. Recommend subclasses of biome [ENVO:00000428]. Multiple terms can be separated by one or more pipes. | pattern generalization: {termLabel} {[termID]}</td>
 							<td>oceanic epipelagic zone biome [ENVO:01000033] for annotating a water sample from the photic zone in middle of the Atlantic Ocean</td>
 							<td>['default']</td>
 						</tr>
@@ -282,7 +295,7 @@
 						<tr>
 							<td class="label">local environmental context</td>
 							<td>Report the entity or entities which are in the sample or specimen’s local vicinity and which you believe have significant causal influences on your sample or specimen. We recommend using EnvO terms which are of smaller spatial grain than your entry for env_broad_scale. Terms, such as anatomical sites, from other OBO Library ontologies which interoperate with EnvO (e.g. UBERON) are accepted in this field. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS.</td>
-							<td>Expected value: Environmental entities having causal influences upon the entity at time of sampling.</td>
+							<td>Expected value: Environmental entities having causal influences upon the entity at time of sampling. | pattern generalization: {termLabel} {[termID]}</td>
 							<td>litter layer [ENVO:01000338]; Annotating a pooled sample taken from various vegetation layers in a forest consider: canopy [ENVO:00000047]|herb and fern layer [ENVO:01000337]|litter layer [ENVO:01000338]|understory [01000335]|shrub layer [ENVO:01000336].</td>
 							<td>['default']</td>
 						</tr>
@@ -291,7 +304,7 @@
 						<tr>
 							<td class="label">environmental medium</td>
 							<td>Report the environmental material(s) immediately surrounding the sample or specimen at the time of sampling. We recommend using subclasses of 'environmental material' (http://purl.obolibrary.org/obo/ENVO_00010483). EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS . Terms from other OBO ontologies are permissible as long as they reference mass/volume nouns (e.g. air, water, blood) and not discrete, countable entities (e.g. a tree, a leaf, a table top).</td>
-							<td>Expected value: The material displaced by the entity at time of sampling. Recommend subclasses of environmental material [ENVO:00010483].</td>
+							<td>Expected value: The material displaced by the entity at time of sampling. Recommend subclasses of environmental material [ENVO:00010483]. | pattern generalization: {termLabel} {[termID]}</td>
 							<td>soil [ENVO:00001998]; Annotating a fish swimming in the upper 100 m of the Atlantic Ocean, consider: ocean water [ENVO:00002151]. Example: Annotating a duck on a pond consider: pond water [ENVO:00002228]|air [ENVO_00002005]</td>
 							<td>['default']</td>
 						</tr>
@@ -309,7 +322,7 @@
 						<tr>
 							<td class="label">soil_taxonomic/FAO classification</td>
 							<td>Soil classification from the FAO World Reference Database for Soil Resources. The list can be found at http://www.fao.org/nr/land/sols/soil/wrb-soil-maps/reference-groups</td>
-							<td>Expected value: enumeration</td>
+							<td>Expected value: enumeration | pattern generalization: [Acrisols|Andosols|Arenosols|Cambisols|Chernozems|Ferralsols|Fluvisols|Gleysols|Greyzems|Gypsisols|Histosols|Kastanozems|Lithosols|Luvisols|Nitosols|Phaeozems|Planosols|Podzols|Podzoluvisols|Rankers|Regosols|Rendzinas|Solonchaks|Solonetz|Vertisols|Yermosols]</td>
 							<td>Luvisols</td>
 							<td>['default']</td>
 						</tr>
@@ -336,7 +349,7 @@
 						<tr>
 							<td class="label">geographic location (country and/or sea,region)</td>
 							<td>The geographical origin of the sample as defined by the country or sea name followed by specific region name. Country or sea names should be chosen from the INSDC country list (http://insdc.org/country.html), or the GAZ ontology (http://purl.bioontology.org/ontology/GAZ)</td>
-							<td>Expected value: country or sea name (INSDC or GAZ): region(GAZ), specific location name</td>
+							<td>Expected value: country or sea name (INSDC or GAZ): region(GAZ), specific location name | pattern generalization: {term}: {term}, {text}</td>
 							<td>USA: Maryland, Bethesda</td>
 							<td>['default']</td>
 						</tr>
@@ -345,7 +358,7 @@
 						<tr>
 							<td class="label">extreme_unusual_properties/heavy metals</td>
 							<td>Heavy metals present in the sequenced sample and their concentrations. For multiple heavy metals and concentrations, add multiple copies of this field.</td>
-							<td>Expected value: heavy metal name;measurement value unit|Preferred unit: microgram per gram</td>
+							<td>Expected value: heavy metal name;measurement value unit | Preferred unit: microgram per gram | pattern generalization: {text};{float} {unit}</td>
 							<td>mercury;0.09 micrograms per gram</td>
 							<td>['default']</td>
 						</tr>
@@ -354,7 +367,7 @@
 						<tr>
 							<td class="label">extreme_unusual_properties/heavy metals method</td>
 							<td>Reference or method used in determining heavy metals</td>
-							<td>Expected value: PMID,DOI or url</td>
+							<td>Expected value: PMID,DOI or url | pattern generalization: {PMID}|{DOI}|{URL}</td>
 							<td></td>
 							<td>['default']</td>
 						</tr>
@@ -363,7 +376,7 @@
 						<tr>
 							<td class="label">horizon method</td>
 							<td>Reference or method used in determining the horizon</td>
-							<td>Expected value: PMID,DOI or url</td>
+							<td>Expected value: PMID,DOI or url | pattern generalization: {PMID}|{DOI}|{URL}</td>
 							<td></td>
 							<td>['default']</td>
 						</tr>
@@ -372,7 +385,7 @@
 						<tr>
 							<td class="label">geographic location (latitude and longitude)</td>
 							<td>The geographical origin of the sample as defined by latitude and longitude. The values should be reported in decimal degrees and in WGS84 system</td>
-							<td>Expected value: decimal degrees,  limit to 8 decimal points</td>
+							<td>Expected value: decimal degrees,  limit to 8 decimal points | pattern generalization: {float} {float}</td>
 							<td>50.586825 6.408977</td>
 							<td>['default']</td>
 						</tr>
@@ -381,7 +394,7 @@
 						<tr>
 							<td class="label">link to classification information</td>
 							<td>Link to digitized soil maps or other soil classification information</td>
-							<td>Expected value: PMID,DOI or url</td>
+							<td>Expected value: PMID,DOI or url | pattern generalization: {PMID}|{DOI}|{URL}</td>
 							<td></td>
 							<td>['default']</td>
 						</tr>
@@ -390,7 +403,7 @@
 						<tr>
 							<td class="label">link to climate information</td>
 							<td>Link to climate resource</td>
-							<td>Expected value: PMID,DOI or url</td>
+							<td>Expected value: PMID,DOI or url | pattern generalization: {PMID}|{DOI}|{URL}</td>
 							<td></td>
 							<td>['default']</td>
 						</tr>
@@ -399,7 +412,7 @@
 						<tr>
 							<td class="label">soil_taxonomic/local classification</td>
 							<td>Soil classification based on local soil classification system</td>
-							<td>Expected value: local classification name</td>
+							<td>Expected value: local classification name | pattern generalization: {text}</td>
 							<td></td>
 							<td>['default']</td>
 						</tr>
@@ -408,7 +421,7 @@
 						<tr>
 							<td class="label">soil_taxonomic/local classification method</td>
 							<td>Reference or method used in determining the local soil classification</td>
-							<td>Expected value: PMID,DOI or url</td>
+							<td>Expected value: PMID,DOI or url | pattern generalization: {PMID}|{DOI}|{URL}</td>
 							<td></td>
 							<td>['default']</td>
 						</tr>
@@ -417,7 +430,7 @@
 						<tr>
 							<td class="label">microbial biomass method</td>
 							<td>Reference or method used in determining microbial biomass</td>
-							<td>Expected value: PMID,DOI or url</td>
+							<td>Expected value: PMID,DOI or url | pattern generalization: {PMID}|{DOI}|{URL}</td>
 							<td></td>
 							<td>['default']</td>
 						</tr>
@@ -426,7 +439,7 @@
 						<tr>
 							<td class="label">microbial biomass</td>
 							<td>The part of the organic matter in the soil that constitutes living microorganisms smaller than 5-10 micrometer. If you keep this, you would need to have correction factors used for conversion to the final units</td>
-							<td>Expected value: measurement value|Preferred unit: ton, kilogram, gram per kilogram soil</td>
+							<td>Expected value: measurement value | Preferred unit: ton, kilogram, gram per kilogram soil</td>
 							<td></td>
 							<td>['default']</td>
 						</tr>
@@ -435,7 +448,7 @@
 						<tr>
 							<td class="label">miscellaneous parameter</td>
 							<td>Any other measurement performed or parameter collected, that is not listed here</td>
-							<td>Expected value: parameter name;measurement value</td>
+							<td>Expected value: parameter name;measurement value | pattern generalization: {text};{float} {unit}</td>
 							<td>Bicarbonate ion concentration;2075 micromole per kilogram</td>
 							<td>['default']</td>
 						</tr>
@@ -453,7 +466,7 @@
 						<tr>
 							<td class="label">pH method</td>
 							<td>Reference or method used in determining ph</td>
-							<td>Expected value: PMID,DOI or url</td>
+							<td>Expected value: PMID,DOI or url | pattern generalization: {PMID}|{DOI}|{URL}</td>
 							<td></td>
 							<td>['default']</td>
 						</tr>
@@ -462,7 +475,7 @@
 						<tr>
 							<td class="label">history/previous land use method</td>
 							<td>Reference or method used in determining previous land use and dates</td>
-							<td>Expected value: PMID,DOI or url</td>
+							<td>Expected value: PMID,DOI or url | pattern generalization: {PMID}|{DOI}|{URL}</td>
 							<td></td>
 							<td>['default']</td>
 						</tr>
@@ -471,7 +484,7 @@
 						<tr>
 							<td class="label">history/previous land use</td>
 							<td>Previous land use and dates</td>
-							<td>Expected value: land use name;date</td>
+							<td>Expected value: land use name;date | pattern generalization: {text};{timestamp}</td>
 							<td></td>
 							<td>['default']</td>
 						</tr>
@@ -480,8 +493,26 @@
 						<tr>
 							<td class="label">profile position</td>
 							<td>Cross-sectional position in the hillslope where sample was collected.sample area position in relation to surrounding areas</td>
-							<td>Expected value: enumeration</td>
+							<td>Expected value: enumeration | pattern generalization: [summit|shoulder|backslope|footslope|toeslope]</td>
 							<td>summit</td>
+							<td>['default']</td>
+						</tr>
+
+						
+						<tr>
+							<td class="label">Project ID</td>
+							<td>Proposal IDs or names associated with dataset</td>
+							<td>pattern generalization: {text}</td>
+							<td></td>
+							<td>['default']</td>
+						</tr>
+
+						
+						<tr>
+							<td class="label">Replicate Number</td>
+							<td>If sending biological replicates, indicate the rep number here.</td>
+							<td>This will guide staff in ensuring your samples are block & randomized correctly | pattern generalization: {integer}</td>
+							<td></td>
 							<td>['default']</td>
 						</tr>
 
@@ -489,8 +520,26 @@
 						<tr>
 							<td class="label">salinity method</td>
 							<td>Reference or method used in determining salinity</td>
-							<td>Expected value: PMID,DOI or url</td>
+							<td>Expected value: PMID,DOI or url | pattern generalization: {PMID}|{DOI}|{URL}</td>
 							<td></td>
+							<td>['default']</td>
+						</tr>
+
+						
+						<tr>
+							<td class="label">sample shipped amount</td>
+							<td>The total amount or size (volume (ml), mass (g) or area (m2) ) of sample sent to EMSL</td>
+							<td>pattern generalization: {float} {unit}</td>
+							<td></td>
+							<td>['default']</td>
+						</tr>
+
+						
+						<tr>
+							<td class="label">sample type</td>
+							<td>Type of sample being submitted</td>
+							<td>This can vary from 'environmental package' if the sample is an extraction. | pattern generalization: enumeration</td>
+							<td>water extracted soil</td>
 							<td>['default']</td>
 						</tr>
 
@@ -498,7 +547,7 @@
 						<tr>
 							<td class="label">mean seasonal precipitation</td>
 							<td>The average of all seasonal precipitation values known, or an estimated equivalent value derived by such methods as regional indexes or Isohyetal maps.</td>
-							<td>Expected value: measurement value|Preferred unit: millimeter</td>
+							<td>Expected value: measurement value | Preferred unit: millimeter</td>
 							<td></td>
 							<td>['default']</td>
 						</tr>
@@ -507,7 +556,7 @@
 						<tr>
 							<td class="label">mean seasonal temperature</td>
 							<td>Mean seasonal temperature</td>
-							<td>Expected value: measurement value|Preferred unit: degree Celsius</td>
+							<td>Expected value: measurement value | Preferred unit: degree Celsius</td>
 							<td>18 degree Celsius</td>
 							<td>['default']</td>
 						</tr>
@@ -516,7 +565,7 @@
 						<tr>
 							<td class="label">composite design/sieving</td>
 							<td>Collection design of pooled samples and/or sieve size and amount of sample sieved</td>
-							<td>Expected value: design name and/or size;amount</td>
+							<td>Expected value: design name and/or size;amount | pattern generalization: {{text}|{float} {unit}};{float} {unit}</td>
 							<td></td>
 							<td>['default']</td>
 						</tr>
@@ -525,7 +574,7 @@
 						<tr>
 							<td class="label">slope aspect</td>
 							<td>The direction a slope faces. While looking down a slope use a compass to record the direction you are facing (direction or degrees); e.g., nw or 315 degrees. This measure provides an indication of sun and wind exposure that will influence soil temperature and evapotranspiration.</td>
-							<td>Expected value: measurement value|Preferred unit: degree</td>
+							<td>Expected value: measurement value | Preferred unit: degree</td>
 							<td></td>
 							<td>['default']</td>
 						</tr>
@@ -534,7 +583,7 @@
 						<tr>
 							<td class="label">slope gradient</td>
 							<td>Commonly called 'slope'. The angle between ground surface and a horizontal line (in percent). This is the direction that overland water would flow. This measure is usually taken with a hand level meter or clinometer</td>
-							<td>Expected value: measurement value|Preferred unit: percentage</td>
+							<td>Expected value: measurement value | Preferred unit: percentage</td>
 							<td></td>
 							<td>['default']</td>
 						</tr>
@@ -543,7 +592,7 @@
 						<tr>
 							<td class="label">soil horizon</td>
 							<td>Specific layer in the land area which measures parallel to the soil surface and possesses physical characteristics which differ from the layers above and beneath</td>
-							<td>Expected value: enumeration</td>
+							<td>Expected value: enumeration | pattern generalization: [O horizon|A horizon|E horizon|B horizon|C horizon|R layer|Permafrost]</td>
 							<td>A horizon</td>
 							<td>['default']</td>
 						</tr>
@@ -561,7 +610,7 @@
 						<tr>
 							<td class="label">soil texture method</td>
 							<td>Reference or method used in determining soil texture</td>
-							<td>Expected value: PMID,DOI or url</td>
+							<td>Expected value: PMID,DOI or url | pattern generalization: {PMID}|{DOI}|{URL}</td>
 							<td></td>
 							<td>['default']</td>
 						</tr>
@@ -570,7 +619,7 @@
 						<tr>
 							<td class="label">soil type</td>
 							<td>Description of the soil type or classification. This field accepts terms under soil (http://purl.obolibrary.org/obo/ENVO_00001998).  Multiple terms can be separated by pipes.</td>
-							<td>Expected value: ENVO_00001998</td>
+							<td>Expected value: ENVO_00001998 | pattern generalization: {termLabel} {[termID]}</td>
 							<td>plinthosol [ENVO:00002250]</td>
 							<td>['default']</td>
 						</tr>
@@ -579,7 +628,7 @@
 						<tr>
 							<td class="label">soil type method</td>
 							<td>Reference or method used in determining soil series name or other lower-level classification</td>
-							<td>Expected value: PMID,DOI or url</td>
+							<td>Expected value: PMID,DOI or url | pattern generalization: {PMID}|{DOI}|{URL}</td>
 							<td></td>
 							<td>['default']</td>
 						</tr>
@@ -595,9 +644,18 @@
 
 						
 						<tr>
+							<td class="label">Number Technical Replicate</td>
+							<td>If sending multiple technical replicates of the same sample, indicate how many replicates are being sent</td>
+							<td>pattern generalization: {integer}</td>
+							<td></td>
+							<td>['default']</td>
+						</tr>
+
+						
+						<tr>
 							<td class="label">temperature</td>
 							<td>Temperature of the sample at the time of sampling.</td>
-							<td>Expected value: measurement value|Preferred unit: degree Celsius</td>
+							<td>Expected value: measurement value | Preferred unit: degree Celsius</td>
 							<td>25 degree Celsius</td>
 							<td>['default']</td>
 						</tr>
@@ -606,7 +664,7 @@
 						<tr>
 							<td class="label">history/tillage</td>
 							<td>Note method(s) used for tilling</td>
-							<td>Expected value: enumeration</td>
+							<td>Expected value: enumeration | pattern generalization: [drill|cutting disc|ridge till|strip tillage|zonal tillage|chisel|tined|mouldboard|disc plough]</td>
 							<td>chisel</td>
 							<td>['default']</td>
 						</tr>
@@ -615,7 +673,7 @@
 						<tr>
 							<td class="label">total nitrogen content method</td>
 							<td>Reference or method used in determining the total nitrogen</td>
-							<td>Expected value: PMID,DOI or url</td>
+							<td>Expected value: PMID,DOI or url | pattern generalization: {PMID}|{DOI}|{URL}</td>
 							<td></td>
 							<td>['default']</td>
 						</tr>
@@ -624,7 +682,7 @@
 						<tr>
 							<td class="label">total nitrogen content</td>
 							<td>Total nitrogen content of the sample</td>
-							<td>Expected value: measurement value|Preferred unit: microgram per liter, micromole per liter, milligram per liter</td>
+							<td>Expected value: measurement value | Preferred unit: microgram per liter, micromole per liter, milligram per liter</td>
 							<td></td>
 							<td>['default']</td>
 						</tr>
@@ -633,7 +691,7 @@
 						<tr>
 							<td class="label">total organic carbon method</td>
 							<td>Reference or method used in determining total organic carbon</td>
-							<td>Expected value: PMID,DOI or url</td>
+							<td>Expected value: PMID,DOI or url | pattern generalization: {PMID}|{DOI}|{URL}</td>
 							<td></td>
 							<td>['default']</td>
 						</tr>
@@ -642,7 +700,7 @@
 						<tr>
 							<td class="label">total organic carbon</td>
 							<td>Definition for soil: total organic carbon content of the soil, definition otherwise: total organic carbon content</td>
-							<td>Expected value: measurement value|Preferred unit: gram Carbon per kilogram sample material</td>
+							<td>Expected value: measurement value | Preferred unit: gram Carbon per kilogram sample material</td>
 							<td></td>
 							<td>['default']</td>
 						</tr>
@@ -651,7 +709,7 @@
 						<tr>
 							<td class="label">water content method</td>
 							<td>Reference or method used in determining the water content of soil</td>
-							<td>Expected value: PMID,DOI or url</td>
+							<td>Expected value: PMID,DOI or url | pattern generalization: {PMID}|{DOI}|{URL}</td>
 							<td></td>
 							<td>['default']</td>
 						</tr>
@@ -660,7 +718,7 @@
 						<tr>
 							<td class="label">water content</td>
 							<td>Water content measurement</td>
-							<td>Expected value: measurement value|Preferred unit: gram per gram or cubic centimeter per cubic centimeter</td>
+							<td>Expected value: measurement value | Preferred unit: gram per gram or cubic centimeter per cubic centimeter</td>
 							<td></td>
 							<td>['default']</td>
 						</tr>

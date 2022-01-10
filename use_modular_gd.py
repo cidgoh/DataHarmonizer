@@ -1,6 +1,6 @@
 import linkml.generators.yamlgen as yg
 import linkml_round_trips.modular_gd as mgd
-from linkml_runtime.linkml_model import Prefix
+from linkml_runtime.linkml_model import Prefix, SlotDefinition, Example
 from linkml_runtime.dumpers import yaml_dumper
 
 sheet_id = '1pSmxX6XGOxmoA7S7rKyj5OaEl3PmAl4jAOlROuNHrU0'
@@ -52,6 +52,47 @@ for title, task in tasks.items():
     # # pysqldf_slot_list.sort()
     new_schema = mgd.wrapper(task['yaml'], title, task['focus_class'], pysqldf_slot_list, new_schema,
                              constructed_class_name)
+
+emsl_sheet = mgd.get_gsheet_frame(client_secret_json, sheet_id, 'EMSL_sample_slots')
+emsl_dict = emsl_sheet.to_dict(orient='records')
+
+for i in emsl_dict:
+    if i['slot'] in new_schema.slots:
+        print(f"slot {i['slot']} already in destination schema")
+    else:
+        new_slot = SlotDefinition(name=i['slot'], slot_uri="emsl:" + i['slot'], title=i['name'],
+                                  string_serialization=i['syntax'])
+        if i['requirement status'] == "required":
+            new_slot.required = True
+        if i['requirement status'] == "recommended":
+            new_slot.recommended = True
+        if i['example'] != "" and i['example'] is not None:
+            temp_example = Example(i['example'])
+            new_slot.examples.append(temp_example)
+        if i['definition'] != "" and i['definition'] is not None:
+            new_slot.description = i['definition']
+        if i['guidance'] != "" and i['guidance'] is not None:
+            new_slot.comments.append(i['guidance'])
+        new_schema.slots[i['slot']] = new_slot
+        new_schema.classes[constructed_class_name].slots.append(i['slot'])
+
+# SlotDefinition(name='replicate_number', id_prefixes=[], definition_uri=None, aliases=[], local_names={},
+#                conforms_to=None, mappings=[], exact_mappings=[], close_mappings=[], related_mappings=[],
+#                narrow_mappings=[], broad_mappings=[], extensions={}, annotations={},
+#                description='If sending biological replicates, indicate the rep number here.', alt_descriptions={},
+#                title='Replicate Number', deprecated=None, todos=[], notes=[], comments=[], examples=[], in_subset=[],
+#                from_schema=None, imported_from=None, see_also=[], deprecated_element_has_exact_replacement=None,
+#                deprecated_element_has_possible_replacement=None, is_a=None, abstract=None, mixin=None, mixins=[],
+#                apply_to=[], values_from=[], created_by=None, created_on=None, last_updated_on=None, modified_by=None,
+#                status=None, string_serialization=None, singular_name=None, domain=None,
+#                slot_uri='emsl:replicate_number', multivalued=None, inherited=None, readonly=None, ifabsent=None,
+#                inlined=None, inlined_as_list=None, key=None, identifier=None, designates_type=None, alias=None,
+#                owner=None, domain_of=[], subproperty_of=None, symmetric=None, inverse=None, is_class_field=None,
+#                role=None, is_usage_slot=None, usage_slot_name=None, range=None, range_expression=None, required=None,
+#                recommended=None, minimum_value=None, maximum_value=None, pattern=None, equals_string=None,
+#                equals_string_in=[], equals_number=None, equals_expression=None, minimum_cardinality=None,
+#                maximum_cardinality=None, has_member=None, all_members={}, none_of=[], exactly_one_of=[], any_of=[],
+#                all_of=[])
 
 # generated = yg.YAMLGenerator(new_schema)
 
