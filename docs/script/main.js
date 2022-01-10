@@ -1348,6 +1348,7 @@ const templateOptions = () =>  {
 $(document).ready(() => {
 
   setupTriggers();
+  setupMessageInterface();
 
   // Default template
 //  let template_label = 'CanCOGeN Covid-19';
@@ -1358,6 +1359,9 @@ $(document).ready(() => {
   if (window.URLSearchParams) {
     let params = new URLSearchParams(location.search);
     template_folder = params.get('template') || template_folder;
+    if (params.get('minified') || false) {
+      $('#header-row').css('display', 'none');
+    }
   }
   else {//low-tech way:
     template_folder = location.search.split("template=")[1] || template_folder;
@@ -1374,7 +1378,6 @@ $(document).ready(() => {
   // Here template not found in TEMPLATES, so it doesn't have a name
   $('#template_name_display').text(template_folder);
   setupTemplate (template_folder);
-
 });
 
 /**
@@ -1725,6 +1728,7 @@ const launch = (template_folder, DATA) => {
   toggleDropdownVisibility(HOT, INVALID_CELLS);
 
   const fieldYCoordinates = getFieldYCoordinates(DATA);
+  updateParentState(fieldYCoordinates, INVALID_CELLS);
 
   // Settings -> Jump to...
   const $jumpToInput = $('#jump-to-input');
@@ -1744,4 +1748,54 @@ const launch = (template_folder, DATA) => {
     minLength: 0
   })
 
+}
+
+/************ Messaging interface ******************** */
+
+const updateParentState = (fieldYCoordinates, INVALID_CELLS) => {
+  window.parent.postMessage({ type: 'update', fieldYCoordinates, INVALID_CELLS });
+};
+
+
+const setupMessageInterface = () => {
+  console.log("Setting up message interface");
+  window.addEventListener("message", (event) => {
+    console.log('child received event', event.data.type);
+    const fieldYCoordinates = getFieldYCoordinates(DATA);
+    switch(event.data.type) {
+      case 'setupTemplate':
+        setupTemplate(event.data.folder);
+        break;
+
+      case 'open':
+        $('#open-dropdown-item').trigger('click');
+        break;
+
+      case 'validate':
+        runBehindLoadingScreen(() => {
+          window.INVALID_CELLS = getInvalidCells(HOT, DATA);
+          HOT.render();
+    
+          // If any rows have error, show this.
+          if (Object.keys(window.INVALID_CELLS).length > 0) {
+            $('#next-error-button').show();
+          }
+          else
+            $('#next-error-button').hide();
+          console.log('Sendint messsaged');
+          updateParentState(fieldYCoordinates, window.INVALID_CELLS);
+        });
+        break;
+
+      case 'jumpTo':
+        const column = fieldYCoordinates[event.data.columnName];
+        scrollTo(0, column, window.DATA, window.HOT);
+        break;
+      case 'jumpToRowCol':
+        scrollTo(event.data.row, event.data.column, DATA, HOT);
+        break;
+      default:
+        console.log('Unknown Type ', event.data.type);
+    }
+  });
 }

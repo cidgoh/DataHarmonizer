@@ -1,5 +1,6 @@
 from linkml_runtime.utils.schemaview import SchemaView
 import pandas as pd
+import re
 
 import click
 
@@ -37,6 +38,30 @@ def linkml_to_dh_light(model_file, selected_class, default_section, default_sour
     q_val_pattern = "\d+[.\d+] \S+"
 
     model_sv = SchemaView(model_file)
+
+    # ----
+    # trying to get term requirement within class slot usages
+    classes = model_sv.all_classes()
+    class_names = list(classes.keys())
+    class_names.sort()
+    reqs_from_usage = []
+    for cc in class_names:
+        current_class = classes[cc]
+        ccsu = current_class.slot_usage
+        ccsu_names = list(ccsu.keys())
+        ccsu_names.sort()
+        for current_usage in ccsu_names:
+            current_row_dict = {"class": cc, "slot": current_usage, "required": ccsu[current_usage].required,
+                                "recommended": ccsu[current_usage].recommended}
+            reqs_from_usage.append(current_row_dict)
+
+    reqs_from_usage_frame = pd.DataFrame(reqs_from_usage)
+    reqs_from_usage_frame['required'] = reqs_from_usage_frame['required'].fillna(False)
+    reqs_from_usage_frame['recommended'] = reqs_from_usage_frame['recommended'].fillna(False)
+    req_from_usage = list(reqs_from_usage_frame.loc[reqs_from_usage_frame.required, 'slot'])
+    rec_from_usage = list(reqs_from_usage_frame.loc[reqs_from_usage_frame.recommended, 'slot'])
+
+    # ----
 
     model_enums = model_sv.all_enums()
     model_enum_names = list(model_enums.keys())
@@ -92,8 +117,18 @@ def linkml_to_dh_light(model_file, selected_class, default_section, default_sour
         # useless parent classes:  attribute, <default>,
         current_row["parent class"] = isa_dict[i]
         # description: quote and or bracket wrappers, TODO, empty
-        current_row["description"] = current_sd.description
-        # guidance: I have moved slot used in... and Occurrence out of the MIxS comments
+        if current_sd.description is None:
+            pass
+        else:
+            # these are of type linkml_runtime.utils.yamlutils.extended_str
+            # even though GOLD sample identifiers ['identifiers for corresponding sample in GOLD'] looks like a list
+            # current_row["description"] = current_sd.description[0]
+            temp = current_sd.description
+            temp = re.sub(r"^[\['\"]*", "", temp)
+            temp = re.sub(r"['\]\"]*$", "", temp)
+            current_row["description"] = temp
+        # guidance: I have moved slot used in...  out of the MIxS comments
+        #  Occurrence is still in there
         #   ~ half of the MixS soil/NMDC biosample fields lack comments for "guidance"
         #   Montana provides her own, to be concatenated on
         #   Damion's latest LinkML -> JS approach lays the comments and examples out nicer
@@ -133,12 +168,14 @@ def linkml_to_dh_light(model_file, selected_class, default_section, default_sour
                 pv_row = blank_row.copy()
                 pv_row["label"] = pvk
                 pv_row["parent class"] = current_sd.title
+                # use term meaning as ontology ID if possible
+                pv_row["Ontology ID"] = pvs_obj[pvk].meaning
                 pv_list.append(pv_row)
         # seeing fewer required than I expected
         # current_row["requirement"] = ""
-        if current_sd.recommended:
+        if current_sd.recommended or current_sd.name in rec_from_usage:
             current_row["requirement"] = "recommended"
-        elif current_sd.required:
+        elif current_sd.required or current_sd.name in req_from_usage:
             current_row["requirement"] = "required"
         # --- examples
         example_list = []
@@ -147,7 +184,7 @@ def linkml_to_dh_light(model_file, selected_class, default_section, default_sour
             if exmpl.value is not None and len(exmpl.value) > 0:
                 example_list.append(exmpl.value)
                 example_cat = "|".join(example_list)
-                current_row["source"] = example_cat
+                current_row["examples"] = example_cat
         current_row["source"] = default_source  # for reuse of enums?
         current_row["capitalize"] = default_capitalize
         current_row["data status"] = default_data_status

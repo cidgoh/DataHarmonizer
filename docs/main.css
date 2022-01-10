@@ -8,7 +8,8 @@ html, body {
     height: 100%;
     margin: 0;
     /* Prevents track or mouse scroll gestures from triggering page navigation in chrome off of displayed page. */
-    overscroll-behavior: contain;    
+    overscroll-behavior: contain; 
+	overflow-y: hidden;   
 }
 
 #loading-screen {
