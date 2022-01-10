@@ -92,28 +92,28 @@ var DATA = [
         }
       },
       {
-        "fieldName": "NML submitted specimen primary ID",
+        "fieldName": "case ID",
         "capitalize": "",
-        "ontology_id": "GENEPIO:0001125",
-        "datatype": "xs:token",
+        "ontology_id": "GENEPIO:0100281",
+        "datatype": "xs:unique",
         "source": "",
         "dataStatus": null,
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The primary ID of the specimen submitted thorough the National Microbiology Laboratory (NML) LaSER.",
-        "guidance": "Store the identifier for the specimen submitted through the NML LaSER system.",
-        "examples": "SR20-12345",
+        "requirement": "recommended",
+        "description": "The identifier used to specify an epidemiologically detected case of disease.",
+        "guidance": "Provide the case identifer. The case ID greatly facilitates linkage between laboratory and epidemiological data. The case ID may be considered identifiable information. Consult the data steward before sharing.",
+        "examples": "ABCD1234",
         "exportField": {
           "NML_LIMS": [
             {
-              "field": "NML submitted specimen primary ID"
+              "field": "PH_CASE_ID"
             }
           ]
         }
       },
       {
-        "fieldName": "NML related specimen primary ID",
+        "fieldName": "Related specimen primary ID",
         "capitalize": "",
         "ontology_id": "GENEPIO:0001128",
         "datatype": "xs:token",
@@ -128,8 +128,8 @@ var DATA = [
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
-        "description": "The primary ID of the related specimen previously submitted thorough the National Microbiology Laboratory (NML) LaSER.",
-        "guidance": "Store the primary ID of the related specimen previously submitted thorough LaSER",
+        "description": "The primary ID of a related specimen previously submitted to the repository.",
+        "guidance": "Store the primary ID of the related specimen previously submitted to the National Microbiology Laboratory so that the samples can be linked and tracked through the system.",
         "examples": "SR20-12345",
         "exportField": {
           "CNPHI": [
@@ -142,7 +142,7 @@ var DATA = [
           ],
           "NML_LIMS": [
             {
-              "field": "NML related specimen primary ID"
+              "field": "PH_RELATED_PRIMARY_ID"
             }
           ]
         }
@@ -396,6 +396,7 @@ var DATA = [
             }
           },
           "BCCDC Public Health Laboratory": {},
+          "Dynacare": {},
           "Dynacare (Manitoba)": {},
           "Dynacare (Brampton)": {},
           "Eastern Ontario Regional Laboratory Association": {},
@@ -526,6 +527,8 @@ var DATA = [
           "BCCDC Public Health Laboratory": {},
           "Canadore College": {},
           "The Centre for Applied Genomics (TCAG)": {},
+          "Dynacare": {},
+          "Dynacare (Brampton)": {},
           "Dynacare (Manitoba)": {},
           "The Hospital for Sick Children (SickKids)": {},
           "Laboratoire de sant\u00e9 publique du Qu\u00e9bec (LSPQ)": {},
@@ -1922,7 +1925,7 @@ var DATA = [
         }
       },
       {
-        "fieldName": "NML related specimen relationship type",
+        "fieldName": "Related specimen relationship type",
         "capitalize": "",
         "ontology_id": "GENEPIO:0001209",
         "datatype": "select",
@@ -1931,9 +1934,9 @@ var DATA = [
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
-        "description": "The relationship of the related specimen to the previous National Microbiology Laboratory (NML) submission.",
-        "guidance": "Provide the specimen type of the original sample submitted from the pick list provided, so that additional specimen testing can be tracked in the system.",
-        "examples": "Follow-up",
+        "description": "The relationship of the current specimen to the specimen/sample previously submitted to the repository.",
+        "guidance": "Provide the tag that describes how the previous sample is related to the current sample being submitted from the pick list provided, so that the samples can be linked and tracked in the system.",
+        "examples": "Specimen sampling methods testing",
         "exportField": {
           "CNPHI": [
             {
@@ -1941,6 +1944,11 @@ var DATA = [
             },
             {
               "field": "Related Specimen Relationship Type"
+            }
+          ],
+          "NML_LIMS": [
+            {
+              "field": "PH_RELATED_RELATIONSHIP_TYPE"
             }
           ]
         },
@@ -1951,9 +1959,14 @@ var DATA = [
           "Convalescent": {},
           "Familial": {},
           "Follow-up": {
-            "ontology_id": "EFO:0009642"
+            "ontology_id": "EFO:0009642",
+            "schema:ItemList": {
+              "Reinfection testing": {}
+            }
           },
-          "Previously Submitted": {}
+          "Previously Submitted": {},
+          "Sequencing/bioinformatics methods development/validation": {},
+          "Specimen sampling methods testing": {}
         }
       },
       {
@@ -3619,10 +3632,10 @@ var DATA = [
           "Non-binary gender": {
             "ontology_id": "GSSO:000132"
           },
-          "Transgender (Male to Female)": {
+          "Transgender (assigned male at birth)": {
             "ontology_id": "GSSO:004004"
           },
-          "Transgender (Female to Male)": {
+          "Transgender (assigned female at birth)": {
             "ontology_id": "GSSO:004005"
           },
           "Undeclared": {},
@@ -5454,27 +5467,7 @@ var DATA = [
                   }
                 }
               },
-              "Funeral Home": {
-                "ontology_id": "ECTO NTR"
-              },
-              "Place of Worship": {
-                "ontology_id": "ECTO NTR",
-                "schema:ItemList": {
-                  "Church": {
-                    "ontology_id": "ECTO NTR"
-                  },
-                  "Mosque": {
-                    "ontology_id": "ECTO NTR"
-                  },
-                  "Temple": {
-                    "ontology_id": "ECTO NTR"
-                  }
-                }
-              },
               "Nursery": {
-                "ontology_id": "ECTO NTR"
-              },
-              "Household": {
                 "ontology_id": "ECTO NTR"
               },
               "Community Service Centre": {
@@ -5490,6 +5483,9 @@ var DATA = [
                 "ontology_id": "ECTO:1000034"
               },
               "First Nations Reserve": {
+                "ontology_id": "ECTO NTR"
+              },
+              "Funeral Home": {
                 "ontology_id": "ECTO NTR"
               },
               "Group Home": {
@@ -5538,6 +5534,9 @@ var DATA = [
                   }
                 }
               },
+              "Household": {
+                "ontology_id": "ECTO NTR"
+              },
               "Insecure Housing (Homeless)": {
                 "ontology_id": "ECTO NTR"
               },
@@ -5571,6 +5570,20 @@ var DATA = [
               },
               "Petting zoo": {
                 "ontology_id": "ECTO:5000008"
+              },
+              "Place of Worship": {
+                "ontology_id": "ECTO NTR",
+                "schema:ItemList": {
+                  "Church": {
+                    "ontology_id": "ECTO NTR"
+                  },
+                  "Mosque": {
+                    "ontology_id": "ECTO NTR"
+                  },
+                  "Temple": {
+                    "ontology_id": "ECTO NTR"
+                  }
+                }
               },
               "Restaurant": {
                 "ontology_id": "ECTO:1000040"
@@ -5675,9 +5688,8 @@ var DATA = [
           ]
         },
         "schema:ItemList": {
-          "Yes": {},
-          "No": {},
-          "Unknown": {}
+          "Prior antiviral treatment": {},
+          "No prior antiviral treatment": {}
         }
       },
       {
@@ -6947,7 +6959,8 @@ var DATA = [
           },
           "Variant of Interest (VOI)": {
             "ontology_id": "GENEPIO"
-          }
+          },
+          "Variant Under Monitoring": {}
         }
       },
       {
