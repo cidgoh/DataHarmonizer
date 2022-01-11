@@ -2,11 +2,18 @@
 
 # this generates the data.tsv file
 use_modular: clean  post_clone_submodule_steps serializastion_vs_pattern
+	# passing these schemas through the yaml generator ensures(?) prefixed term ids
+	#   and consolidates the model into a single file
 	poetry run gen-yaml mixs-source/model/schema/mixs.yaml > target/mixs_generated.yaml
+	# deleting the imports block since we've already generated complete models
+	#   and SchemaView won't find the imports
 	yq eval 'del(.imports)' target/mixs_generated.yaml > target/mixs_generated_no_imports.yaml
 	poetry run gen-yaml nmdc-schema/src/schema/nmdc.yaml > target/nmdc_generated.yaml
 	yq eval 'del(.imports)' target/nmdc_generated.yaml > target/nmdc_generated_no_imports.yaml
+	# combine or mint terms according to the Soil-NMDC-Template_Compiled Google Sheet
+	#   and consulting teh generated models above
 	poetry run python use_modular_gd.py > target/soil_biosample_modular.yaml
+	# find EnvO terms to account for FAO soil classes at least
 	poetry run enum_annotator \
 		--modelfile target/soil_biosample_modular.yaml \
 		--requested_enum_name fao_class_enum \
@@ -123,7 +130,7 @@ target/mixs_package_classes.tsv:
 
 # manually run when ready:
 #   make templating_handoff
-# add, commit and push to GH (with GH pages enabled) so that people can see the results at
+# add, commit, push and merge main (with GH pages enabled) so that people can see the results at
 #   https://turbomam.github.io/DataHarmonizer/main.html
 
 #   go to the GH pages setup screen eg https://github.com/org/repo/settings/pages

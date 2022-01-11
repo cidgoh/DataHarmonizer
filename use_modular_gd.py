@@ -60,12 +60,13 @@ for title, task in tasks.items():
 enum_sheet = mgd.get_gsheet_frame(client_secret_json, sheet_id, 'enumerations')
 
 
-def inject_supplementary(secret, supplementary_id, supplementary_tab_title, schema, prefix, class_name):
+def inject_supplementary(secret, supplementary_id, supplementary_tab_title, schema, prefix, class_name,
+                         overwrite=False):
     current_sheet = mgd.get_gsheet_frame(secret, supplementary_id, supplementary_tab_title)
     current_dict = current_sheet.to_dict(orient='records')
     for i in current_dict:
         i_s = i['slot']
-        if i_s in schema.slots:
+        if i_s in schema.slots and not overwrite:
             exit
         else:
             new_slot = SlotDefinition(name=i_s, slot_uri=prefix + ":" + i_s, title=i['name'])
@@ -80,6 +81,15 @@ def inject_supplementary(secret, supplementary_id, supplementary_tab_title, sche
                 new_slot.description = i['definition']
             if i['guidance'] != "" and i['guidance'] is not None:
                 new_slot.comments.append(i['guidance'])
+            if i['min'] != "" and i['min'] is not None:
+                new_slot.minimum_value = i['min']
+            if i['max'] != "" and i['max'] is not None:
+                new_slot.maximum_value = i['max']
+            # todo force these to be booleans
+            if i['multivalued'] != "" and i['multivalued'] is not None:
+                new_slot.multivalued = bool(i['multivalued'])
+            if i['identifier'] != "" and i['identifier'] is not None:
+                new_slot.identifier = bool(i['identifier'])
             if i['syntax'] != "" and i['syntax'] is not None:
                 new_slot.string_serialization = i['syntax']
                 # try to standardize where "enumeration" is expressed... expected value comment/guidance?
@@ -105,7 +115,7 @@ new_schema = inject_supplementary(client_secret_json, sheet_id, 'EMSL_sample_slo
 new_schema = inject_supplementary(client_secret_json, sheet_id, 'mixs_modified_slots', new_schema, "mixs_modified",
                                   constructed_class_name)
 new_schema = inject_supplementary(client_secret_json, sheet_id, 'biosample_identification_slots', new_schema, "samp_id",
-                                  constructed_class_name)
+                                  constructed_class_name, overwrite=True)
 
 # generated = yg.YAMLGenerator(new_schema)
 
