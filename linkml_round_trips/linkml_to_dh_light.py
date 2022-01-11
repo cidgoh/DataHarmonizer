@@ -11,15 +11,6 @@ logger = logging.getLogger(__name__)
 click_log.basic_config(logger)
 
 
-# model_file = "target/soil_biosample_interleaved.yaml"
-# selected_class = "soil_biosample_class"
-# default_section = "default"
-# default_source = ""  # for reuse of enums?
-# default_capitalize = ""
-# default_data_status = ""
-# output_file = "target/data.tsv"
-
-
 @click.command()
 @click_log.simple_verbosity_option(logger)
 @click.option('--model_file', type=click.Path(exists=True), required=True)
@@ -69,7 +60,6 @@ def linkml_to_dh_light(model_file, selected_class, default_section, default_sour
     model_enum_names.sort()
 
     blank_row = {i: "" for i in dht_column_order}
-    # logger.info(blank_row)
 
     isa_set = set()
     isa_dict = {}
@@ -78,13 +68,11 @@ def linkml_to_dh_light(model_file, selected_class, default_section, default_sour
     rs_dict = dict(zip(rs_names, relevant_slots))
     prefix_tally = []
     for i in relevant_slots:
-        # slotname = i.name
         if i.slot_uri is None or i.slot_uri == "":
             section_prefix = ""
         else:
             # what if the slot uri is a full uri, not a curie?
             prefix_portion = i.slot_uri.split(":")[0] + ":"
-            # logger.info(f"saw the prefix {prefix_portion}")
             prefix_tally.append(prefix_portion)
         if i.is_a is None:
             relevant_isa = prefix_portion + default_section
@@ -139,6 +127,7 @@ def linkml_to_dh_light(model_file, selected_class, default_section, default_sour
         #   Damion's latest LinkML -> JS approach lays the comments and examples out nicer
         current_row["guidance"] = " | ".join(current_sd.comments)
         # todo refactor
+        current_row["datatype"] = "xs:token"
         if current_sd.pattern is not None and current_sd.pattern != "":
             if current_row["guidance"] is not None and current_row["guidance"] != "":
                 current_row["guidance"] = current_row[
@@ -151,6 +140,8 @@ def linkml_to_dh_light(model_file, selected_class, default_section, default_sour
                                               "guidance"] + " | pattern generalization: " + current_sd.string_serialization
             else:
                 current_row["guidance"] = "pattern generalization: " + current_sd.string_serialization
+            if current_sd.string_serialization == '{float}':
+                current_row["datatype"] = "xs:decimal"
         # todo map types
         # don't forget selects and multis
         # map selects to terms and indent
@@ -159,7 +150,6 @@ def linkml_to_dh_light(model_file, selected_class, default_section, default_sour
             string_ser_tally.append(current_sd.string_serialization[0:99])
         else:
             string_ser_tally.append("<none>")
-        current_row["datatype"] = "xs:token"
         if current_sd.identifier:
             current_row["datatype"] = "xs:unique"
             current_row["requirement"] = "required"
@@ -189,20 +179,16 @@ def linkml_to_dh_light(model_file, selected_class, default_section, default_sour
             pv_keys = list(pvs_obj.keys())
             pv_keys.sort()
             for pvk in pv_keys:
-                # logger.info(pvk)
                 pv_row = blank_row.copy()
                 pv_row["label"] = pvk
                 pv_row["parent class"] = current_sd.title
                 # use term meaning as ontology ID if possible
                 pv_row["Ontology ID"] = pvs_obj[pvk].meaning
                 pv_list.append(pv_row)
-        # seeing fewer required than I expected
-        # current_row["requirement"] = ""
         if current_sd.recommended or current_sd.name in rec_from_usage:
             current_row["requirement"] = "recommended"
         elif current_sd.required or current_sd.name in req_from_usage:
             current_row["requirement"] = "required"
-        # --- examples
         example_list = []
         for exmpl in current_sd.examples:
             # ignoring description which always seems to be None
@@ -250,14 +236,6 @@ def linkml_to_dh_light(model_file, selected_class, default_section, default_sour
     log_tally(range_tally, "TABULATION OF SLOT RANGES, for prioritizing range->regex conversion")
     log_tally(string_ser_tally, "TABULATION OF STRING SERIALIZATIONS, for prioritizing serialization->regex conversion")
 
-    # logger.info(f"TABULATION OF SLOT RANGES, for prioritizing range->regex conversion")
-    # logger.info(pd.Series(range_tally).value_counts())
-    # logger.info("\n")
-    #
-    # logger.info(f"TABULATION OF STRING SERIALIZATIONS, for prioritizing serialization->regex conversion")
-    # logger.info(pd.Series(string_ser_tally).value_counts())
-    # logger.info("\n")
-
     reunited.to_csv(output_file, sep="\t", index=False)
 
 
@@ -266,18 +244,5 @@ def log_tally(tally, message):
     logger.info(pd.Series(tally).value_counts())
     logger.info("\n")
 
-# # soil biosample
-# ranges that could be interpreted as datatypes or patterns
-# I already did quantity value
-# I have the following rules for any range that is defined as an enum...???
-# string                   39
-# quantity value           16
-# external identifier       3
-# date                      3
-# cur_land_use_enum         1
-# drainage_class_enum       1
-# fao_class_enum            1
-# double                    1
-# profile_position_enum     1
-# soil_horizon_enum         1
-# tillage_enum              1
+# see https://github.com/microbiomedata/DataHarmonizer/issues/24
+#   for snapshots of tally results

@@ -2144,7 +2144,7 @@ var DATA = [
         "fieldName": "pH",
         "capitalize": "",
         "ontology_id": "mixs_modified:pH",
-        "datatype": "xs:token",
+        "datatype": "xs:decimal",
         "source": "",
         "dataStatus": [
           "default"
