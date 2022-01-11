@@ -1519,34 +1519,6 @@ var DATA = [
     ]
   },
   {
-    "fieldName": "dcterms:default",
-    "children": [
-      {
-        "fieldName": "description",
-        "capitalize": "",
-        "ontology_id": "dcterms:description",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": [
-          "default"
-        ],
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "a human-readable description of a thing",
-        "guidance": "",
-        "examples": "",
-        "exportField": {
-          "dev": [
-            {
-              "field": "description"
-            }
-          ]
-        }
-      }
-    ]
-  },
-  {
     "fieldName": "emsl:default",
     "children": [
       {
