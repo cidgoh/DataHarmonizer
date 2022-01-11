@@ -6,7 +6,6 @@ nmdc:identifier	identifier	nmdc:default			xs:token						default			identifier
 nmdc:name	name	nmdc:default	A human readable label for an entity		xs:token						default			name
 	MIXS:core field													
 	MIXS:environment field													
-	dcterms:default													
 	emsl:default													
 	mixs_modified:default													
 	nmdc:gold_path_field													
@@ -29,7 +28,6 @@ MIXS:0000318	history/crop rotation	MIXS:core field	Whether or not crop is rotate
 MIXS:0001080	current land use	MIXS:core field	Present state of sample site	Expected value: enumeration | pattern generalization: [cities|farmstead|industrial areas|roads/railroads|rock|sand|gravel|mudflats|salt flats|badlands|permanent snow or ice|saline seeps|mines/quarries|oil waste areas|small grains|row crops|vegetable crops|horticultural plants (e.g. tulips)|marshlands (grass,sedges,rushes)|tundra (mosses,lichens)|rangeland|pastureland (grasslands used for livestock grazing)|hayland|meadows (grasses,alfalfa,fescue,bromegrass,timothy)|shrub land (e.g. mesquite,sage-brush,creosote bush,shrub oak,eucalyptus)|successional shrub land (tree saplings,hazels,sumacs,chokecherry,shrub dogwoods,blackberries)|shrub crops (blueberries,nursery ornamentals,filberts)|vine crops (grapes)|conifers (e.g. pine,spruce,fir,cypress)|hardwoods (e.g. oak,hickory,elm,aspen)|intermixed hardwood and conifers|tropical (e.g. mangrove,palms)|rainforest (evergreen forest receiving >406 cm annual rainfall)|swamp (permanent or semi-permanent water body dominated by woody plants)|crop trees (nuts,fruit,christmas trees,nursery trees)]	select			conifers			default			cur_land_use
 MIXS:0000312	current vegetation	MIXS:core field	Vegetation classification from one or more standard classification systems, or agricultural crop	Expected value: current vegetation type | pattern generalization: {text}	xs:token						default			cur_vegetation
 MIXS:0000314	current vegetation method	MIXS:core field	Reference or method used in vegetation classification	Expected value: PMID,DOI or url | pattern generalization: {PMID}|{DOI}|{URL}	xs:token						default			cur_vegetation_meth
-dcterms:description	description	dcterms:default	a human-readable description of a thing		xs:token						default			description
 MIXS:0001085	drainage classification	MIXS:core field	Drainage classification from a standard system such as the USDA system	Expected value: enumeration | pattern generalization: [very poorly|poorly|somewhat poorly|moderately well|well|excessively drained]	select			well			default			drainage_class
 nmdc:ecosystem	ecosystem	nmdc:gold_path_field	TODO		xs:token						default			ecosystem
 nmdc:ecosystem_category	ecosystem_category	nmdc:gold_path_field	TODO		xs:token						default			ecosystem_category
