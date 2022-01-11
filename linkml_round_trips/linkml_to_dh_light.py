@@ -26,8 +26,17 @@ def linkml_to_dh_light(model_file, selected_class, default_section, default_sour
                         "requirement", "examples", "source", "capitalize", "data status", "max value", "min value",
                         "EXPORT_dev"]
 
+    # todo refactor
     # wrap in ^ and $?
     q_val_pattern = "\d+[.\d+] \S+"
+    range_data_types = {"string": "xs:token", "date": "xs:date"}
+    range_regexes = {"quantity value": "\d+[.\d+] \S+"}
+    # "{timestamp}": "xs:date" is a very approximate mapping
+    #   we need to work on time and date constrains in general
+    string_ser_data_types = {"{text}": "xs:token", "{integer}": "xs:nonNegativeInteger", "{timestamp}": "xs:date"}
+    # {text};{float} {unit} doesn't support negative floats yet
+    string_ser_regexes = {"{float} {unit}": "\d+[.\d+] \S+", "{termLabel} {[termID]}": "*. \[.*\]",
+                          "{text};{float} {unit}": ".*;\d+[.\d+] .*"}
 
     model_sv = SchemaView(model_file)
 
@@ -205,6 +214,14 @@ def linkml_to_dh_light(model_file, selected_class, default_section, default_sour
         # old issue... export menu saves a file but not with the briefer LinkML names (as opposed to titles)
         current_row["EXPORT_dev"] = current_sd.name
 
+        if current_sd.range in range_data_types:
+            current_row["datatype"] = range_data_types[current_sd.range]
+        elif current_sd.string_serialization in string_ser_data_types:
+            current_row["datatype"] = string_ser_data_types[current_sd.string_serialization]
+        elif current_sd.range in range_regexes:
+            current_row["pattern"] = range_regexes[current_sd.range]
+        elif current_sd.string_serialization in string_ser_regexes:
+            current_row["pattern"] = string_ser_regexes[current_sd.string_serialization]
         term_list.append(current_row)
     logger.info("\n")
 

@@ -6,7 +6,7 @@ var DATA = [
         "fieldName": "id",
         "capitalize": "",
         "ontology_id": "nmdc:id",
-        "datatype": "xs:unique",
+        "datatype": "xs:token",
         "source": "",
         "dataStatus": [
           "default"
@@ -1678,7 +1678,7 @@ var DATA = [
         "fieldName": "Replicate Number",
         "capitalize": "",
         "ontology_id": "emsl:replicate_number",
-        "datatype": "xs:token",
+        "datatype": "xs:nonNegativeInteger",
         "source": "",
         "dataStatus": [
           "default"
@@ -1712,6 +1712,7 @@ var DATA = [
         "description": "The total amount or size (volume (ml), mass (g) or area (m2) ) of sample sent to EMSL",
         "guidance": "pattern generalization: {float} {unit}",
         "examples": "",
+        "pattern": "\\d+[.\\d+] \\S+",
         "exportField": {
           "dev": [
             {
@@ -1751,7 +1752,7 @@ var DATA = [
         "fieldName": "Number Technical Replicate",
         "capitalize": "",
         "ontology_id": "emsl:technical_reps",
-        "datatype": "xs:token",
+        "datatype": "xs:nonNegativeInteger",
         "source": "",
         "dataStatus": [
           "default"
@@ -1779,7 +1780,7 @@ var DATA = [
         "fieldName": "Incubation Collection Date",
         "capitalize": "",
         "ontology_id": "mixs_modified:collection_date_inc",
-        "datatype": "xs:token",
+        "datatype": "xs:date",
         "source": "",
         "dataStatus": [
           "default"
@@ -1985,6 +1986,7 @@ var DATA = [
         "description": "The part of the organic matter in the soil that constitutes living microorganisms smaller than 5-10 micrometer. If you keep this, you would need to have correction factors used for conversion to the final units",
         "guidance": "pattern generalization: {float} {unit}",
         "examples": "",
+        "pattern": "\\d+[.\\d+] \\S+",
         "exportField": {
           "dev": [
             {
@@ -2008,6 +2010,7 @@ var DATA = [
         "description": "The part of the organic matter in the soil that constitutes living microorganisms smaller than 5-10 micrometer. If you keep this, you would need to have correction factors used for conversion to the final units",
         "guidance": "pattern generalization: {float} {unit}",
         "examples": "",
+        "pattern": "\\d+[.\\d+] \\S+",
         "exportField": {
           "dev": [
             {
@@ -2031,6 +2034,7 @@ var DATA = [
         "description": "Amount of biomass; should include the name for the part of biomass measured, e.g.insect, plant, total. Can include multiple measurements separated by ;",
         "guidance": "pattern generalization: {text};{float} {unit}",
         "examples": "",
+        "pattern": ".*;\\d+[.\\d+] .*",
         "exportField": {
           "dev": [
             {
@@ -2208,6 +2212,7 @@ var DATA = [
         "description": "The total amount or size (volume (ml), mass (g) or area (m2) ) of sample collected.",
         "guidance": "This referes to the TOTAL amount of sample collected from the experiment. NOT the amount sent to each institution or collected for a specific analysis. | pattern generalization: {float} {unit}",
         "examples": "5 grams; 10 mL",
+        "pattern": "\\d+[.\\d+] \\S+",
         "exportField": {
           "dev": [
             {
@@ -2289,7 +2294,7 @@ var DATA = [
         "fieldName": "Incubation Start Date",
         "capitalize": "",
         "ontology_id": "mixs_modified:start_date_inc",
-        "datatype": "xs:token",
+        "datatype": "xs:date",
         "source": "",
         "dataStatus": [
           "default"
