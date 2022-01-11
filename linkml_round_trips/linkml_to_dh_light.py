@@ -19,6 +19,7 @@ click_log.basic_config(logger)
 # default_data_status = ""
 # output_file = "target/data.tsv"
 
+
 @click.command()
 @click_log.simple_verbosity_option(logger)
 @click.option('--model_file', type=click.Path(exists=True), required=True)
@@ -75,6 +76,7 @@ def linkml_to_dh_light(model_file, selected_class, default_section, default_sour
     relevant_slots = model_sv.class_induced_slots(selected_class)
     rs_names = [i.name for i in relevant_slots]
     rs_dict = dict(zip(rs_names, relevant_slots))
+    prefix_tally = []
     for i in relevant_slots:
         # slotname = i.name
         if i.slot_uri is None or i.slot_uri == "":
@@ -82,7 +84,8 @@ def linkml_to_dh_light(model_file, selected_class, default_section, default_sour
         else:
             # what if the slot uri is a full uri, not a curie?
             prefix_portion = i.slot_uri.split(":")[0] + ":"
-            logger.info(f"saw the prefix {prefix_portion}")
+            # logger.info(f"saw the prefix {prefix_portion}")
+            prefix_tally.append(prefix_portion)
         if i.is_a is None:
             relevant_isa = prefix_portion + default_section
         else:
@@ -101,6 +104,7 @@ def linkml_to_dh_light(model_file, selected_class, default_section, default_sour
         section_list.append(current_row)
 
     range_tally = []
+    string_ser_tally = []
 
     term_names = list(isa_dict.keys())
     term_names.sort()
@@ -143,13 +147,18 @@ def linkml_to_dh_light(model_file, selected_class, default_section, default_sour
                 current_row["guidance"] = "pattern as regular expression: " + current_sd.pattern
         if current_sd.string_serialization is not None and current_sd.string_serialization != "":
             if current_row["guidance"] is not None and current_row["guidance"] != "":
-                current_row["guidance"] = current_row["guidance"] + " | pattern generalization: " + current_sd.string_serialization
+                current_row["guidance"] = current_row[
+                                              "guidance"] + " | pattern generalization: " + current_sd.string_serialization
             else:
                 current_row["guidance"] = "pattern generalization: " + current_sd.string_serialization
         # todo map types
         # don't forget selects and multis
         # map selects to terms and indent
         range_tally.append(current_sd.range)
+        if current_sd.string_serialization is not None and current_sd.string_serialization != "":
+            string_ser_tally.append(current_sd.string_serialization[0:99])
+        else:
+            string_ser_tally.append("<none>")
         current_row["datatype"] = "xs:token"
         if current_sd.identifier:
             current_row["datatype"] = "xs:unique"
@@ -162,6 +171,11 @@ def linkml_to_dh_light(model_file, selected_class, default_section, default_sour
         current_row["pattern"] = current_sd.pattern
         if (current_sd.pattern is None or current_sd.pattern == "") and current_sd.range == "quantity value":
             current_row["pattern"] = q_val_pattern
+        # todo check for numeric but don't force float when int will do?
+        if current_sd.minimum_value is not None and current_sd.minimum_value != "":
+            current_row["min value"] = current_sd.minimum_value
+        if current_sd.maximum_value is not None and current_sd.maximum_value != "":
+            current_row["max value"] = current_sd.maximum_value
         if current_sd.range in model_enum_names:
             # anything else to clear?
             current_row["pattern"] = ""
@@ -232,14 +246,25 @@ def linkml_to_dh_light(model_file, selected_class, default_section, default_sour
     reunited = reunited.append(coc_leftovers)
     reunited = reunited.append(nr_leftovers)
 
-    logger.info(f"TABULATION OF SLOT RANGES, for prioritizing range->regex conversion")
-    logger.info(pd.Series(range_tally).value_counts())
+    log_tally(prefix_tally, "TABULATION OF TERM PREFIXES, for prioritizing range->regex conversion")
+    log_tally(range_tally, "TABULATION OF SLOT RANGES, for prioritizing range->regex conversion")
+    log_tally(string_ser_tally, "TABULATION OF STRING SERIALIZATIONS, for prioritizing serialization->regex conversion")
 
-    # todo also include source (slot URI prefix?) in sectio0n names?
-
-    # todo make a similar table with the string serialization for each slot
+    # logger.info(f"TABULATION OF SLOT RANGES, for prioritizing range->regex conversion")
+    # logger.info(pd.Series(range_tally).value_counts())
+    # logger.info("\n")
+    #
+    # logger.info(f"TABULATION OF STRING SERIALIZATIONS, for prioritizing serialization->regex conversion")
+    # logger.info(pd.Series(string_ser_tally).value_counts())
+    # logger.info("\n")
 
     reunited.to_csv(output_file, sep="\t", index=False)
+
+
+def log_tally(tally, message):
+    logger.info(message)
+    logger.info(pd.Series(tally).value_counts())
+    logger.info("\n")
 
 # # soil biosample
 # ranges that could be interpreted as datatypes or patterns
