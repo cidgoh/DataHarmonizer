@@ -6,6 +6,12 @@ from linkml_runtime.dumpers import yaml_dumper
 
 import click
 
+import logging
+import click_log
+
+logger = logging.getLogger(__name__)
+click_log.basic_config(logger)
+
 
 # place in __main__ in root of package
 
@@ -22,7 +28,7 @@ import click
 @click.option('--sheet_id', default='1pSmxX6XGOxmoA7S7rKyj5OaEl3PmAl4jAOlROuNHrU0',
               help='id for Soil-NMDC-Template_CompiledGoogle Sheet.', show_default=True)
 @click.option('--client_secret_json', default='local/client_secret.apps.googleusercontent.com.json', show_default=True,
-              help='location of Google Sheets authentication file.')
+              help='location of Google Sheets authentication file.', type=click.Path(exists=True))
 @click.option('--constructed_schema_name', default='soil_biosample', show_default=True,
               help='what should the combined schema be called?')
 @click.option('--constructed_schema_id', default='http://example.com/soil_biosample', show_default=True,
