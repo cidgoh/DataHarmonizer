@@ -18,7 +18,8 @@ click_log.basic_config(logger)
 @click.option('--default_section', default="default", show_default=True)
 @click.option('--default_source', default="", show_default=True)
 @click.option('--default_capitalize', default="", show_default=True)
-@click.option('--default_data_status', default="default", show_default=True)
+# @click.option('--default_data_status', default="default", show_default=True)
+@click.option('--default_data_status', default="", show_default=True)
 @click.option('--output_file', type=click.Path(), default="target/data.tsv", show_default=True)
 def linkml_to_dh_light(model_file, selected_class, default_section, default_source, default_capitalize,
                        default_data_status, output_file):
@@ -26,17 +27,19 @@ def linkml_to_dh_light(model_file, selected_class, default_section, default_sour
                         "requirement", "examples", "source", "capitalize", "data status", "max value", "min value",
                         "EXPORT_dev"]
 
-    # todo refactor
+    # see https://github.com/microbiomedata/DataHarmonizer/issues/24
+    #   for snapshots of tally results
     # wrap in ^ and $?
-    q_val_pattern = "\d+[.\d+] \S+"
-    range_data_types = {"string": "xs:token", "date": "xs:date"}
-    range_regexes = {"quantity value": "\d+[.\d+] \S+"}
+    range_data_types = {"date": "xs:date", "timestamp value": "date", "string": "xs:token"}
     # "{timestamp}": "xs:date" is a very approximate mapping
     #   we need to work on time and date constrains in general
-    string_ser_data_types = {"{text}": "xs:token", "{integer}": "xs:nonNegativeInteger", "{timestamp}": "xs:date"}
-    # {text};{float} {unit} doesn't support negative floats yet
-    string_ser_regexes = {"{float} {unit}": "\d+[.\d+] \S+", "{termLabel} {[termID]}": "*. \[.*\]",
-                          "{text};{float} {unit}": ".*;\d+[.\d+] .*"}
+    string_ser_data_types = {"{integer}": "xs:nonNegativeInteger", "{timestamp}": "xs:date",
+                             "{float}": "xs:decimal"}
+
+    range_regexes = {"quantity value": r"[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)? \S+"}
+    string_ser_regexes = {"{float} {unit}": r"[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)? \S+",
+                          "{text};{float} {unit}": r"\S*;[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)? \S+",
+                          "{termLabel} {[termID]}": r".* \[ENVO:\d+\]", "{text}:{text}": r"[^\:\n\r]+\:[^\:\n\r]+"}
 
     model_sv = SchemaView(model_file)
 
@@ -77,8 +80,10 @@ def linkml_to_dh_light(model_file, selected_class, default_section, default_sour
     rs_dict = dict(zip(rs_names, relevant_slots))
     prefix_tally = []
     for i in relevant_slots:
+        prefix_portion = ""
         if i.slot_uri is None or i.slot_uri == "":
-            section_prefix = ""
+            # section_prefix = ""
+            pass
         else:
             # what if the slot uri is a full uri, not a curie?
             prefix_portion = i.slot_uri.split(":")[0] + ":"
@@ -149,8 +154,8 @@ def linkml_to_dh_light(model_file, selected_class, default_section, default_sour
                                               "guidance"] + " | pattern generalization: " + current_sd.string_serialization
             else:
                 current_row["guidance"] = "pattern generalization: " + current_sd.string_serialization
-            if current_sd.string_serialization == '{float}':
-                current_row["datatype"] = "xs:decimal"
+            # if current_sd.string_serialization == '{float}':
+            #     current_row["datatype"] = "xs:decimal"
         # todo map types
         # don't forget selects and multis
         # map selects to terms and indent
@@ -159,17 +164,14 @@ def linkml_to_dh_light(model_file, selected_class, default_section, default_sour
             string_ser_tally.append(current_sd.string_serialization[0:99])
         else:
             string_ser_tally.append("<none>")
-        if current_sd.identifier:
-            current_row["datatype"] = "xs:unique"
-            current_row["requirement"] = "required"
-        if current_sd.range == "timestamp value" or current_sd.range == "date":
-            current_row["datatype"] = "xs:date"
+        # if current_sd.range == "timestamp value" or current_sd.range == "date":
+        #     current_row["datatype"] = "xs:date"
         # other ways to infer pattern (mappings from range?) or string serialization
         # exclude any that reiterate an enum
         # select, multiple, xs:nonNegativeInteger, xs:decimal
         current_row["pattern"] = current_sd.pattern
-        if (current_sd.pattern is None or current_sd.pattern == "") and current_sd.range == "quantity value":
-            current_row["pattern"] = q_val_pattern
+        # if (current_sd.pattern is None or current_sd.pattern == "") and current_sd.range == "quantity value":
+        #     current_row["pattern"] = q_val_pattern
         # todo check for numeric but don't force float when int will do?
         if current_sd.minimum_value is not None and current_sd.minimum_value != "":
             current_row["min value"] = current_sd.minimum_value
@@ -218,10 +220,16 @@ def linkml_to_dh_light(model_file, selected_class, default_section, default_sour
             current_row["datatype"] = range_data_types[current_sd.range]
         elif current_sd.string_serialization in string_ser_data_types:
             current_row["datatype"] = string_ser_data_types[current_sd.string_serialization]
-        elif current_sd.range in range_regexes:
+
+        if current_sd.range in range_regexes:
             current_row["pattern"] = range_regexes[current_sd.range]
         elif current_sd.string_serialization in string_ser_regexes:
             current_row["pattern"] = string_ser_regexes[current_sd.string_serialization]
+
+        if current_sd.identifier:
+            current_row["datatype"] = "xs:unique"
+            current_row["requirement"] = "required"
+
         term_list.append(current_row)
     logger.info("\n")
 
@@ -260,6 +268,3 @@ def log_tally(tally, message):
     logger.info(message)
     logger.info(pd.Series(tally).value_counts())
     logger.info("\n")
-
-# see https://github.com/microbiomedata/DataHarmonizer/issues/24
-#   for snapshots of tally results

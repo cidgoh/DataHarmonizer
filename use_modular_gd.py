@@ -112,10 +112,13 @@ def inject_supplementary(secret, supplementary_id, supplementary_tab_title, sche
 
 new_schema = inject_supplementary(client_secret_json, sheet_id, 'EMSL_sample_slots', new_schema, "emsl",
                                   constructed_class_name)
+# override for depth
 new_schema = inject_supplementary(client_secret_json, sheet_id, 'mixs_modified_slots', new_schema, "mixs_modified",
-                                  constructed_class_name)
+                                  constructed_class_name, overwrite=True)
+# override for env_package
 new_schema = inject_supplementary(client_secret_json, sheet_id, 'biosample_identification_slots', new_schema, "samp_id",
                                   constructed_class_name, overwrite=True)
+# haven't documented is anything else comes along with those overrides yet
 
 # generated = yg.YAMLGenerator(new_schema)
 
