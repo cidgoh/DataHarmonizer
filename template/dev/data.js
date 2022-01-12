@@ -156,7 +156,7 @@ var DATA = [
         "description": "Aluminum saturation (esp. For tropical soils)",
         "guidance": "Expected value: measurement value | Preferred unit: percentage",
         "examples": "",
-        "pattern": "\\d+[.\\d+] \\S+",
+        "pattern": "[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S+",
         "exportField": {
           "dev": [
             {
@@ -199,7 +199,7 @@ var DATA = [
         "description": "The average of all annual precipitation values known, or an estimated equivalent value derived by such methods as regional indexes or Isohyetal maps.",
         "guidance": "Expected value: measurement value | Preferred unit: millimeter",
         "examples": "",
-        "pattern": "\\d+[.\\d+] \\S+",
+        "pattern": "[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S+",
         "exportField": {
           "dev": [
             {
@@ -221,7 +221,7 @@ var DATA = [
         "description": "Mean annual temperature",
         "guidance": "Expected value: measurement value | Preferred unit: degree Celsius",
         "examples": "12.5 degree Celsius",
-        "pattern": "\\d+[.\\d+] \\S+",
+        "pattern": "[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S+",
         "exportField": {
           "dev": [
             {
@@ -536,6 +536,7 @@ var DATA = [
         "description": "Heavy metals present in the sequenced sample and their concentrations. For multiple heavy metals and concentrations, add multiple copies of this field.",
         "guidance": "Expected value: heavy metal name;measurement value unit | Preferred unit: microgram per gram | pattern generalization: {text};{float} {unit}",
         "examples": "mercury;0.09 micrograms per gram",
+        "pattern": "\\S*;[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S+",
         "exportField": {
           "dev": [
             {
@@ -704,7 +705,7 @@ var DATA = [
         "description": "The part of the organic matter in the soil that constitutes living microorganisms smaller than 5-10 micrometer. If you keep this, you would need to have correction factors used for conversion to the final units",
         "guidance": "Expected value: measurement value | Preferred unit: ton, kilogram, gram per kilogram soil",
         "examples": "",
-        "pattern": "\\d+[.\\d+] \\S+",
+        "pattern": "[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S+",
         "exportField": {
           "dev": [
             {
@@ -726,6 +727,7 @@ var DATA = [
         "description": "Any other measurement performed or parameter collected, that is not listed here",
         "guidance": "Expected value: parameter name;measurement value | pattern generalization: {text};{float} {unit}",
         "examples": "Bicarbonate ion concentration;2075 micromole per kilogram",
+        "pattern": "\\S*;[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S+",
         "exportField": {
           "dev": [
             {
@@ -859,7 +861,7 @@ var DATA = [
         "description": "The average of all seasonal precipitation values known, or an estimated equivalent value derived by such methods as regional indexes or Isohyetal maps.",
         "guidance": "Expected value: measurement value | Preferred unit: millimeter",
         "examples": "",
-        "pattern": "\\d+[.\\d+] \\S+",
+        "pattern": "[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S+",
         "exportField": {
           "dev": [
             {
@@ -881,7 +883,7 @@ var DATA = [
         "description": "Mean seasonal temperature",
         "guidance": "Expected value: measurement value | Preferred unit: degree Celsius",
         "examples": "18 degree Celsius",
-        "pattern": "\\d+[.\\d+] \\S+",
+        "pattern": "[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S+",
         "exportField": {
           "dev": [
             {
@@ -924,7 +926,7 @@ var DATA = [
         "description": "The direction a slope faces. While looking down a slope use a compass to record the direction you are facing (direction or degrees); e.g., nw or 315 degrees. This measure provides an indication of sun and wind exposure that will influence soil temperature and evapotranspiration.",
         "guidance": "Expected value: measurement value | Preferred unit: degree",
         "examples": "",
-        "pattern": "\\d+[.\\d+] \\S+",
+        "pattern": "[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S+",
         "exportField": {
           "dev": [
             {
@@ -946,7 +948,7 @@ var DATA = [
         "description": "Commonly called 'slope'. The angle between ground surface and a horizontal line (in percent). This is the direction that overland water would flow. This measure is usually taken with a hand level meter or clinometer",
         "guidance": "Expected value: measurement value | Preferred unit: percentage",
         "examples": "",
-        "pattern": "\\d+[.\\d+] \\S+",
+        "pattern": "[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S+",
         "exportField": {
           "dev": [
             {
@@ -998,7 +1000,7 @@ var DATA = [
         "description": "The relative proportion of different grain sizes of mineral particles in a soil, as described using a standard system; express as % sand (50 um to 2 mm), silt (2 um to 50 um), and clay (<2 um) with textural name (e.g., silty clay loam) optional.",
         "guidance": "Expected value: measurement value",
         "examples": "",
-        "pattern": "\\d+[.\\d+] \\S+",
+        "pattern": "[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S+",
         "exportField": {
           "dev": [
             {
@@ -1041,6 +1043,7 @@ var DATA = [
         "description": "Description of the soil type or classification. This field accepts terms under soil (http://purl.obolibrary.org/obo/ENVO_00001998).  Multiple terms can be separated by pipes.",
         "guidance": "Expected value: ENVO_00001998 | pattern generalization: {termLabel} {[termID]}",
         "examples": "plinthosol [ENVO:00002250]",
+        "pattern": ".* \\[ENVO:\\d+\\]",
         "exportField": {
           "dev": [
             {
@@ -1136,7 +1139,7 @@ var DATA = [
         "description": "Total nitrogen content of the sample",
         "guidance": "Expected value: measurement value | Preferred unit: microgram per liter, micromole per liter, milligram per liter",
         "examples": "",
-        "pattern": "\\d+[.\\d+] \\S+",
+        "pattern": "[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S+",
         "exportField": {
           "dev": [
             {
@@ -1179,7 +1182,7 @@ var DATA = [
         "description": "Definition for soil: total organic carbon content of the soil, definition otherwise: total organic carbon content",
         "guidance": "Expected value: measurement value | Preferred unit: gram Carbon per kilogram sample material",
         "examples": "",
-        "pattern": "\\d+[.\\d+] \\S+",
+        "pattern": "[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S+",
         "exportField": {
           "dev": [
             {
@@ -1222,7 +1225,7 @@ var DATA = [
         "description": "Water content measurement",
         "guidance": "Expected value: measurement value | Preferred unit: gram per gram or cubic centimeter per cubic centimeter",
         "examples": "",
-        "pattern": "\\d+[.\\d+] \\S+",
+        "pattern": "[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S+",
         "exportField": {
           "dev": [
             {
@@ -1249,7 +1252,7 @@ var DATA = [
         "description": "Altitude is a term used to identify heights of objects such as airplanes, space shuttles, rockets, atmospheric balloons and heights of places such as atmospheric layers and clouds. It is used to measure the height of an object which is above the earth's surface. In this context, the altitude measurement is the vertical distance between the earth's surface above sea level and the sampled position in the air",
         "guidance": "Expected value: measurement value",
         "examples": "100 meter",
-        "pattern": "\\d+[.\\d+] \\S+",
+        "pattern": "[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S+",
         "exportField": {
           "dev": [
             {
@@ -1271,7 +1274,7 @@ var DATA = [
         "description": "Elevation of the sampling site is its height above a fixed reference point, most commonly the mean sea level. Elevation is mainly used when referring to points on the earth's surface, while altitude is used for points above the surface, such as an aircraft in flight or a spacecraft in orbit.",
         "guidance": "Expected value: measurement value",
         "examples": "100 meter",
-        "pattern": "\\d+[.\\d+] \\S+",
+        "pattern": "[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S+",
         "exportField": {
           "dev": [
             {
@@ -1293,6 +1296,7 @@ var DATA = [
         "description": "Report the major environmental system the sample or specimen came from. The system(s) identified should have a coarse spatial grain, to provide the general environmental context of where the sampling was done (e.g. in the desert or a rainforest). We recommend using subclasses of EnvO\u2019s biome class:  http://purl.obolibrary.org/obo/ENVO_00000428. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
         "guidance": "Expected value: The major environment type(s) where the sample was collected. Recommend subclasses of biome [ENVO:00000428]. Multiple terms can be separated by one or more pipes. | pattern generalization: {termLabel} {[termID]}",
         "examples": "oceanic epipelagic zone biome [ENVO:01000033] for annotating a water sample from the photic zone in middle of the Atlantic Ocean",
+        "pattern": ".* \\[ENVO:\\d+\\]",
         "exportField": {
           "dev": [
             {
@@ -1314,6 +1318,7 @@ var DATA = [
         "description": "Report the entity or entities which are in the sample or specimen\u2019s local vicinity and which you believe have significant causal influences on your sample or specimen. We recommend using EnvO terms which are of smaller spatial grain than your entry for env_broad_scale. Terms, such as anatomical sites, from other OBO Library ontologies which interoperate with EnvO (e.g. UBERON) are accepted in this field. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS.",
         "guidance": "Expected value: Environmental entities having causal influences upon the entity at time of sampling. | pattern generalization: {termLabel} {[termID]}",
         "examples": "litter layer [ENVO:01000338]; Annotating a pooled sample taken from various vegetation layers in a forest consider: canopy [ENVO:00000047]|herb and fern layer [ENVO:01000337]|litter layer [ENVO:01000338]|understory [01000335]|shrub layer [ENVO:01000336].",
+        "pattern": ".* \\[ENVO:\\d+\\]",
         "exportField": {
           "dev": [
             {
@@ -1335,6 +1340,7 @@ var DATA = [
         "description": "Report the environmental material(s) immediately surrounding the sample or specimen at the time of sampling. We recommend using subclasses of 'environmental material' (http://purl.obolibrary.org/obo/ENVO_00010483). EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS . Terms from other OBO ontologies are permissible as long as they reference mass/volume nouns (e.g. air, water, blood) and not discrete, countable entities (e.g. a tree, a leaf, a table top).",
         "guidance": "Expected value: The material displaced by the entity at time of sampling. Recommend subclasses of environmental material [ENVO:00010483]. | pattern generalization: {termLabel} {[termID]}",
         "examples": "soil [ENVO:00001998]; Annotating a fish swimming in the upper 100 m of the Atlantic Ocean, consider: ocean water [ENVO:00002151]. Example: Annotating a duck on a pond consider: pond water [ENVO:00002228]|air [ENVO_00002005]",
+        "pattern": ".* \\[ENVO:\\d+\\]",
         "exportField": {
           "dev": [
             {
@@ -1398,7 +1404,7 @@ var DATA = [
         "description": "Temperature of the sample at the time of sampling.",
         "guidance": "Expected value: measurement value | Preferred unit: degree Celsius",
         "examples": "25 degree Celsius",
-        "pattern": "\\d+[.\\d+] \\S+",
+        "pattern": "[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S+",
         "exportField": {
           "dev": [
             {
@@ -1488,7 +1494,7 @@ var DATA = [
         "description": "The total amount or size (volume (ml), mass (g) or area (m2) ) of sample sent to EMSL",
         "guidance": "pattern generalization: {float} {unit}",
         "examples": "",
-        "pattern": "\\d+[.\\d+] \\S+",
+        "pattern": "[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S+",
         "exportField": {
           "dev": [
             {
@@ -1782,7 +1788,7 @@ var DATA = [
         "description": "The part of the organic matter in the soil that constitutes living microorganisms smaller than 5-10 micrometer. If you keep this, you would need to have correction factors used for conversion to the final units",
         "guidance": "pattern generalization: {float} {unit}",
         "examples": "",
-        "pattern": "\\d+[.\\d+] \\S+",
+        "pattern": "[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S+",
         "exportField": {
           "dev": [
             {
@@ -1804,7 +1810,7 @@ var DATA = [
         "description": "The part of the organic matter in the soil that constitutes living microorganisms smaller than 5-10 micrometer. If you keep this, you would need to have correction factors used for conversion to the final units",
         "guidance": "pattern generalization: {float} {unit}",
         "examples": "",
-        "pattern": "\\d+[.\\d+] \\S+",
+        "pattern": "[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S+",
         "exportField": {
           "dev": [
             {
@@ -1826,7 +1832,7 @@ var DATA = [
         "description": "Amount of biomass; should include the name for the part of biomass measured, e.g.insect, plant, total. Can include multiple measurements separated by ;",
         "guidance": "pattern generalization: {text};{float} {unit}",
         "examples": "",
-        "pattern": ".*;\\d+[.\\d+] .*",
+        "pattern": "\\S*;[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S+",
         "exportField": {
           "dev": [
             {
@@ -1990,7 +1996,7 @@ var DATA = [
         "description": "The total amount or size (volume (ml), mass (g) or area (m2) ) of sample collected.",
         "guidance": "This referes to the TOTAL amount of sample collected from the experiment. NOT the amount sent to each institution or collected for a specific analysis. | pattern generalization: {float} {unit}",
         "examples": "5 grams; 10 mL",
-        "pattern": "\\d+[.\\d+] \\S+",
+        "pattern": "[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S+",
         "exportField": {
           "dev": [
             {
