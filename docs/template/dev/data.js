@@ -67,6 +67,7 @@ var DATA = [
         "description": "A unique identifier to assign parent-child, subsample, or sibling samples. This is relevant when a sample or other material was used to generate the new sample. This field allows multiple entries separated by ; (Examples: Soil collected from the field will link with the soil used in an incubation. The soil a plant was grown in links to the plant sample. An original culture sample was transferred to a new vial and generated a new sample)",
         "guidance": "Multiple identifiers can be provided, separated by a ; | pattern generalization: {text}:{text}",
         "examples": "IGSN:DSJ0284",
+        "pattern": "[^\\:\\n\\r]+\\:[^\\:\\n\\r]+",
         "exportField": {
           "dev": [
             {
@@ -109,6 +110,7 @@ var DATA = [
         "description": "A globally unique identifier assigned to the biological sample to link all analytes and subsamples derived from it.",
         "guidance": "Field REQUIRED for ALL sample submission. Options: IGSN- http://www.geosamples.org/getigsn ; UUID- https://www.uuidgenerator.net/ | pattern generalization: {text}:{text}",
         "examples": "",
+        "pattern": "[^\\:\\n\\r]+\\:[^\\:\\n\\r]+",
         "exportField": {
           "dev": [
             {
