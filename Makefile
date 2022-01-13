@@ -12,7 +12,7 @@ use_modular: clean  post_clone_submodule_steps serializastion_vs_pattern
 	yq eval 'del(.imports)' target/nmdc_generated.yaml > target/nmdc_generated_no_imports.yaml
 	# combine or mint terms according to the Soil-NMDC-Template_Compiled Google Sheet
 	#   and consulting the generated models above
-	poetry run python use_modular_gd.py > target/soil_biosample_modular.yaml
+	poetry run combine_schemas --inc_emsl > target/soil_biosample_modular.yaml
 	# find EnvO terms to account for FAO soil classes at least
 	poetry run enum_annotator \
 		--modelfile target/soil_biosample_modular.yaml \

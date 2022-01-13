@@ -1,7 +1,5 @@
-# import linkml.generators.yamlgen as yg
 import linkml_round_trips.modular_gd as mgd
 from linkml_runtime.linkml_model import SlotDefinition, Example, EnumDefinition
-# from linkml_runtime.linkml_model import Prefix, PermissibleValue
 from linkml_runtime.dumpers import yaml_dumper
 
 import click
@@ -15,16 +13,8 @@ click_log.basic_config(logger)
 
 # place in __main__ in root of package
 
-# # sheet_id = '1pSmxX6XGOxmoA7S7rKyj5OaEl3PmAl4jAOlROuNHrU0'
-# # client_secret_json = "local/client_secret.apps.googleusercontent.com.json"
-# # client_secret_json = "/home/mark/Downloads/client_secret_fresh-sheet2linkml.apps.googleusercontent.com.json"
-#
-# constructed_schema_name = "soil_biosample"
-# constructed_schema_id = "http://example.com/soil_biosample"
-# constructed_class_name = "soil_biosample"
-
-
 @click.command()
+@click_log.simple_verbosity_option()
 @click.option('--sheet_id', default='1pSmxX6XGOxmoA7S7rKyj5OaEl3PmAl4jAOlROuNHrU0',
               help='id for Soil-NMDC-Template_CompiledGoogle Sheet.', show_default=True)
 @click.option('--client_secret_json', default='local/client_secret.apps.googleusercontent.com.json', show_default=True,
@@ -35,8 +25,10 @@ click_log.basic_config(logger)
               help='URL "id" for combined schema?')
 @click.option('--constructed_class_name', default='soil_biosample', show_default=True,
               help='name for combined class within combined schema?')
-def combine_schema(sheet_id, client_secret_json, constructed_schema_name, constructed_schema_id,
-                   constructed_class_name):
+@click.option('--inc_emsl/--no_emsl', default=False, show_default=True)
+@click.option('--jgi', type=click.Choice(['dna', 'rna', 'omit']), default='omit', show_default=True)
+def combine_schemas(sheet_id, client_secret_json, constructed_schema_name, constructed_schema_id,
+                    constructed_class_name, inc_emsl, jgi):
     additional_prefixes = {"prov": "http://www.w3.org/ns/prov#", "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
                            "schema": "http://schema.org/", "xsd": "http://www.w3.org/2001/XMLSchema#",
                            "UO": "http://purl.obolibrary.org/obo/UO_"}
@@ -47,25 +39,26 @@ def combine_schema(sheet_id, client_secret_json, constructed_schema_name, constr
     tasks = {"nmdc": {"yaml": "target/nmdc_generated_no_imports.yaml", "title": "nmdc_biosample_slots",
                       "focus_class": "biosample",
                       "query": """
-    SELECT
-        name as slot
-    FROM
-        gsheet_frame
-    where
-        from_schema != 'https://microbiomedata/schema/mixs'
-        and disposition != 'skip';
-    """}, "mixs": {"yaml": "target/mixs_generated_no_imports.yaml", "title": "mixs_packages_x_slots",
-                   "focus_class": "soil",
-                   "query": """
-    SELECT
-        slot as slot
-    FROM
-        gsheet_frame
-    where
-        package = 'soil'
-        and (
-        disposition = 'use as-is' or disposition = 'borrowed as-is'
-        )
+                            SELECT
+                                name as slot
+                            FROM
+                                gsheet_frame
+                            where
+                                from_schema != 'https://microbiomedata/schema/mixs'
+                                and disposition != 'skip';
+    """},
+             "mixs": {"yaml": "target/mixs_generated_no_imports.yaml", "title": "mixs_packages_x_slots",
+                      "focus_class": "soil",
+                      "query": """
+                            SELECT
+                                slot as slot
+                            FROM
+                                gsheet_frame
+                            where
+                                package = 'soil'
+                                and (
+                                disposition = 'use as-is' or disposition = 'borrowed as-is'
+                                )
     """}, }
 
     for title, task in tasks.items():
@@ -126,8 +119,6 @@ def combine_schema(sheet_id, client_secret_json, constructed_schema_name, constr
                 schema.classes[class_name].slots.append(i_s)
         return schema
 
-    new_schema = inject_supplementary(client_secret_json, sheet_id, 'EMSL_sample_slots', new_schema, "emsl",
-                                      constructed_class_name)
     # override for depth
     new_schema = inject_supplementary(client_secret_json, sheet_id, 'mixs_modified_slots', new_schema, "mixs_modified",
                                       constructed_class_name, overwrite=True)
@@ -137,17 +128,24 @@ def combine_schema(sheet_id, client_secret_json, constructed_schema_name, constr
                                       constructed_class_name, overwrite=True)
     # haven't documented whether anything else comes along with those overrides yet
 
-    # generated = yg.YAMLGenerator(new_schema)
+    if inc_emsl:
+        logger.info("including EMSL terms")
+        new_schema = inject_supplementary(client_secret_json, sheet_id, 'EMSL_sample_slots', new_schema, "emsl",
+                                          constructed_class_name)
 
+    if jgi == "dna":
+        logger.info("would extract JGI DNA terms")
+    elif jgi == "rna":
+        logger.info("would extract JGI RNA terms")
+    elif jgi == "omit":
+        logger.info("would skip JGI terms")
+    else:
+        logger.info("unexpected JGI processing option")
+
+    # gen-yaml raises these concerns
     #   1 WARNING:Namespaces:MIXS namespace is already mapped to https://w3id.org/gensc/ - Mapping to https://w3id.org/mixs/terms/ ignored
     # 276 WARNING:YAMLGenerator:File "<file>" Prefix case mismatch - supplied: MIXS expected: mixs
     #   1 WARNING:YAMLGenerator:Overlapping subset and class names: soil
-
-    # serialized = generated.serialize()
-
-    # # todo use the "with" wrapper (if we want to write to a files instead of STDOUT)
-    # file = open("use_modular_gd.yaml", "w")
-    # yaml.safe_dump(serialized, file)
 
     dumped = yaml_dumper.dumps(new_schema)
 
@@ -155,4 +153,4 @@ def combine_schema(sheet_id, client_secret_json, constructed_schema_name, constr
 
 
 if __name__ == '__main__':
-    combine_schema()
+    combine_schemas()

@@ -19,7 +19,7 @@ strsimpy = "*"
 pytest = "*"
 dpath = "^2.0.5"
 pandasql = "^0.7.3"
-linkml-model-enrichment = "^0.0.2"
+linkml-model-enrichment = "^0.0.3"
 
 [tool.poetry.dev-dependencies]
 
@@ -36,4 +36,4 @@ build-backend = "poetry.core.masonry.api"
 #interleave_mergeds = "linkml_round_trips.old.interleave_mergeds:interleave_mergeds"
 #linkml_to_dh_light = "linkml_round_trips.linkml_to_dh_light:linkml_to_dh_light"
 mixs_package_classes = "linkml_round_trips.old.mixs_package_classes:mixs_package_classes"
-
+combine_schemas = "use_modular_gd:combine_schemas"
