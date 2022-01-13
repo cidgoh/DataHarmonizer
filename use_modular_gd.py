@@ -26,7 +26,8 @@ click_log.basic_config(logger)
 @click.option('--constructed_class_name', default='soil_biosample', show_default=True,
               help='name for combined class within combined schema?')
 @click.option('--inc_emsl/--no_emsl', default=False, show_default=True)
-@click.option('--jgi', type=click.Choice(['dna', 'rna', 'omit']), default='omit', show_default=True)
+@click.option('--jgi', type=click.Choice(['metagenomics', 'metatranscriptomics', 'omit']), default='omit',
+              show_default=True)
 def combine_schemas(sheet_id, client_secret_json, constructed_schema_name, constructed_schema_id,
                     constructed_class_name, inc_emsl, jgi):
     additional_prefixes = {"prov": "http://www.w3.org/ns/prov#", "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
@@ -71,8 +72,11 @@ def combine_schemas(sheet_id, client_secret_json, constructed_schema_name, const
     enum_sheet = mgd.get_gsheet_frame(client_secret_json, sheet_id, 'enumerations')
 
     def inject_supplementary(secret, supplementary_id, supplementary_tab_title, schema, prefix, class_name,
-                             overwrite=False):
+                             rule_col=None, rule_val=None, overwrite=False):
         current_sheet = mgd.get_gsheet_frame(secret, supplementary_id, supplementary_tab_title)
+        if rule_col != "" and rule_col is not None and rule_val != "" and rule_val is not None:
+            logger.info(f"requiring {rule_col} to equal {rule_val}")
+            current_sheet = current_sheet.loc[current_sheet[rule_col].eq(rule_val)]
         current_dict = current_sheet.to_dict(orient='records')
         for i in current_dict:
             i_s = i['slot']
@@ -133,10 +137,15 @@ def combine_schemas(sheet_id, client_secret_json, constructed_schema_name, const
         new_schema = inject_supplementary(client_secret_json, sheet_id, 'EMSL_sample_slots', new_schema, "emsl",
                                           constructed_class_name)
 
-    if jgi == "dna":
-        logger.info("would extract JGI DNA terms")
-    elif jgi == "rna":
-        logger.info("would extract JGI RNA terms")
+    if jgi == "metagenomics":
+        logger.info("would extract JGI metagenomics terms")
+        new_schema = inject_supplementary(client_secret_json, sheet_id, 'JGI_sample_slots', new_schema, "jgi_gen",
+                                          constructed_class_name, rule_col="analyte type", rule_val="metagenomics")
+    elif jgi == "metatranscriptomics":
+        logger.info("would extract JGI metatranscriptomics terms")
+        new_schema = inject_supplementary(client_secret_json, sheet_id, 'JGI_sample_slots', new_schema, "jgi_gen",
+                                          constructed_class_name, rule_col="analyte type",
+                                          rule_val="metatranscriptomics")
     elif jgi == "omit":
         logger.info("would skip JGI terms")
     else:
