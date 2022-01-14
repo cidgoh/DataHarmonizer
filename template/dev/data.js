@@ -1,5 +1,408 @@
 var DATA = [
   {
+    "fieldName": "jgi_gen:default",
+    "children": [
+      {
+        "fieldName": "DNA Absorbance 260/280",
+        "capitalize": "",
+        "ontology_id": "jgi_gen:dna_absorb1",
+        "datatype": "xs:decimal",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "260/280 measurement of sample purity",
+        "guidance": "Recommended value is between 1 and 3. | pattern generalization: {float}",
+        "examples": "",
+        "exportField": {
+          "dev": [
+            {
+              "field": "dna_absorb1"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "DNA Absorbance 260/230",
+        "capitalize": "",
+        "ontology_id": "jgi_gen:dna_absorb2",
+        "datatype": "xs:decimal",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "260/230 measurement of sample purity",
+        "guidance": "Recommended value is between 1 and 3. | pattern generalization: {float}",
+        "examples": "",
+        "exportField": {
+          "dev": [
+            {
+              "field": "dna_absorb2"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "DNA Concentration",
+        "capitalize": "",
+        "ontology_id": "jgi_gen:dna_concentration",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Must be calculated using a fluorometric method; value >0 and <2000.",
+        "guidance": "Units should be in ng/uL | pattern generalization: {float} ng/uL",
+        "examples": "100",
+        "exportField": {
+          "dev": [
+            {
+              "field": "dna_concentration"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "DNA Container Type",
+        "capitalize": "",
+        "ontology_id": "jgi_gen:dna_cont_type",
+        "datatype": "select",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "tube or plate (96-well)",
+        "guidance": "pattern generalization: enumeration",
+        "examples": "plate",
+        "exportField": {
+          "dev": [
+            {
+              "field": "dna_cont_type"
+            }
+          ]
+        },
+        "schema:ItemList": {
+          "plate": {},
+          "tube": {}
+        }
+      },
+      {
+        "fieldName": "DNA Well Number",
+        "capitalize": "",
+        "ontology_id": "jgi_gen:dna_cont_well",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Corner wells must be blank. For partial plates, fill by columns. Leave blank if the sample will be shipped in a tube.",
+        "guidance": "Required when 'plate' is selected for container type | pattern generalization: {text}",
+        "examples": "B2",
+        "exportField": {
+          "dev": [
+            {
+              "field": "dna_cont_well"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "DNA Container Label",
+        "capitalize": "",
+        "ontology_id": "jgi_gen:dna_container_ID",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Must be unique across all tubes and plates, and <20 characters. All samples in a plate should have the same plate label.",
+        "guidance": "pattern generalization: {text}",
+        "examples": "Pond_MT_041618",
+        "exportField": {
+          "dev": [
+            {
+              "field": "dna_container_ID"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "DNAse Treatment DNA",
+        "capitalize": "",
+        "ontology_id": "jgi_gen:dna_dnase",
+        "datatype": "select",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Y/N. Note DNAse treatment is required for all RNA samples.",
+        "guidance": "pattern generalization: enumeration",
+        "examples": "No",
+        "exportField": {
+          "dev": [
+            {
+              "field": "dna_dnase"
+            }
+          ]
+        },
+        "schema:ItemList": {
+          "no": {},
+          "yes": {}
+        }
+      },
+      {
+        "fieldName": "DNA Isolation Method",
+        "capitalize": "",
+        "ontology_id": "jgi_gen:dna_isolate_meth",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Describe the method/protocol/kit used to extract DNA/RNA.",
+        "guidance": "pattern generalization: {text}",
+        "examples": "phenol/chloroform extraction",
+        "exportField": {
+          "dev": [
+            {
+              "field": "dna_isolate_meth"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "DNA Expected Organisms",
+        "capitalize": "",
+        "ontology_id": "jgi_gen:dna_organisms",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "List any organisms known or suspected to grow in co-culture, as well as estimated % of the organism in that culture.",
+        "guidance": "pattern generalization: {text}",
+        "examples": "expected to contain microbes (59%) fungi (30%), viruses (10%), tadpoles (1%)",
+        "exportField": {
+          "dev": [
+            {
+              "field": "dna_organisms"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "DNA Seq Project Contact",
+        "capitalize": "",
+        "ontology_id": "jgi_gen:dna_project_contact",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Prefilled",
+        "guidance": "Do not edit this term, term will be provided by NMDC and can be uploaded | pattern generalization: {text}",
+        "examples": "John Jones",
+        "exportField": {
+          "dev": [
+            {
+              "field": "dna_project_contact"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "DNA Sample ID",
+        "capitalize": "",
+        "ontology_id": "jgi_gen:dna_samp_ID",
+        "datatype": "xs:unique",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "required",
+        "description": "Prefilled",
+        "guidance": "Do not edit this term, term will be provided by NMDC and can be uploaded | pattern generalization: {text}",
+        "examples": "187654",
+        "exportField": {
+          "dev": [
+            {
+              "field": "dna_samp_ID"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "DNA Sample Format",
+        "capitalize": "",
+        "ontology_id": "jgi_gen:dna_sample_format",
+        "datatype": "select",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Choose from the following: Pellet, RNAStable, DNAStable, Ethanol, MDA reaction buffer, PBS, TE, Water, Low EDTA TE, 10 mM Tris-HCl",
+        "guidance": "Identify what the DNA sample is suspended in | pattern generalization: enumeration",
+        "examples": "Water",
+        "exportField": {
+          "dev": [
+            {
+              "field": "dna_sample_format"
+            }
+          ]
+        },
+        "schema:ItemList": {
+          "10 mM Tris-HCl": {},
+          "DNAStable": {},
+          "Ethanol": {},
+          "Low EDTA TE": {},
+          "MDA reaction buffer": {},
+          "PBS": {},
+          "Pellet": {},
+          "RNAStable": {},
+          "TE": {},
+          "Water": {}
+        }
+      },
+      {
+        "fieldName": "DNA Sample Name",
+        "capitalize": "",
+        "ontology_id": "jgi_gen:dna_sample_name",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Give the DNA sample a name that is meaningful to you. Sample names must be unique across all JGI projects and contain ASCII characters only.",
+        "guidance": "pattern generalization: {text}",
+        "examples": "JGI_pond_041618",
+        "exportField": {
+          "dev": [
+            {
+              "field": "dna_sample_name"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "DNA Seq Project ID",
+        "capitalize": "",
+        "ontology_id": "jgi_gen:dna_seq_project",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Prefilled",
+        "guidance": "Do not edit this term, term will be provided by NMDC and can be uploaded | pattern generalization: {text}",
+        "examples": "1191234",
+        "exportField": {
+          "dev": [
+            {
+              "field": "dna_seq_project"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "DNA Seq Project PI",
+        "capitalize": "",
+        "ontology_id": "jgi_gen:dna_seq_project_PI",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Prefilled",
+        "guidance": "Do not edit this term, term will be provided by NMDC and can be uploaded | pattern generalization: {text}",
+        "examples": "Jane Johnson",
+        "exportField": {
+          "dev": [
+            {
+              "field": "dna_seq_project_PI"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "DNA Seq Project Name",
+        "capitalize": "",
+        "ontology_id": "jgi_gen:dna_seq_project_name",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Prefilled",
+        "guidance": "Do not edit this term, term will be provided by NMDC and can be uploaded | pattern generalization: {text}",
+        "examples": "JGI Pond metagenomics",
+        "exportField": {
+          "dev": [
+            {
+              "field": "dna_seq_project_name"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "DNA Volume",
+        "capitalize": "",
+        "ontology_id": "jgi_gen:dna_volume",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Value must be >0 and <1000 (values <25 by special permission only).",
+        "guidance": "Units should be in uL | pattern generalization: {float} uL",
+        "examples": "25",
+        "exportField": {
+          "dev": [
+            {
+              "field": "dna_volume"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "DNA Proposal ID",
+        "capitalize": "",
+        "ontology_id": "jgi_gen:proposal_dna",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Prefilled",
+        "guidance": "Do not edit this term, term will be provided by NMDC and can be uploaded | pattern generalization: {text}",
+        "examples": "504000",
+        "exportField": {
+          "dev": [
+            {
+              "field": "proposal_dna"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
     "fieldName": "samp_id:default",
     "children": [
       {
@@ -1557,409 +1960,6 @@ var DATA = [
           "dev": [
             {
               "field": "technical_reps"
-            }
-          ]
-        }
-      }
-    ]
-  },
-  {
-    "fieldName": "jgi_gen:default",
-    "children": [
-      {
-        "fieldName": "DNA Absorbance 260/280",
-        "capitalize": "",
-        "ontology_id": "jgi_gen:dna_absorb1",
-        "datatype": "xs:decimal",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "260/280 measurement of sample purity",
-        "guidance": "Recommended value is between 1 and 3. | pattern generalization: {float}",
-        "examples": "",
-        "exportField": {
-          "dev": [
-            {
-              "field": "dna_absorb1"
-            }
-          ]
-        }
-      },
-      {
-        "fieldName": "DNA Absorbance 260/230",
-        "capitalize": "",
-        "ontology_id": "jgi_gen:dna_absorb2",
-        "datatype": "xs:decimal",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "260/230 measurement of sample purity",
-        "guidance": "Recommended value is between 1 and 3. | pattern generalization: {float}",
-        "examples": "",
-        "exportField": {
-          "dev": [
-            {
-              "field": "dna_absorb2"
-            }
-          ]
-        }
-      },
-      {
-        "fieldName": "DNA Concentration",
-        "capitalize": "",
-        "ontology_id": "jgi_gen:dna_concentration",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "Must be calculated using a fluorometric method; value >0 and <2000.",
-        "guidance": "Units should be in ng/uL | pattern generalization: {float} ng/uL",
-        "examples": "100",
-        "exportField": {
-          "dev": [
-            {
-              "field": "dna_concentration"
-            }
-          ]
-        }
-      },
-      {
-        "fieldName": "DNA Container Type",
-        "capitalize": "",
-        "ontology_id": "jgi_gen:dna_cont_type",
-        "datatype": "select",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "tube or plate (96-well)",
-        "guidance": "pattern generalization: enumeration",
-        "examples": "plate",
-        "exportField": {
-          "dev": [
-            {
-              "field": "dna_cont_type"
-            }
-          ]
-        },
-        "schema:ItemList": {
-          "plate": {},
-          "tube": {}
-        }
-      },
-      {
-        "fieldName": "DNA Well Number",
-        "capitalize": "",
-        "ontology_id": "jgi_gen:dna_cont_well",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "Corner wells must be blank. For partial plates, fill by columns. Leave blank if the sample will be shipped in a tube.",
-        "guidance": "Required when 'plate' is selected for container type | pattern generalization: {text}",
-        "examples": "B2",
-        "exportField": {
-          "dev": [
-            {
-              "field": "dna_cont_well"
-            }
-          ]
-        }
-      },
-      {
-        "fieldName": "DNA Container Label",
-        "capitalize": "",
-        "ontology_id": "jgi_gen:dna_container_ID",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "Must be unique across all tubes and plates, and <20 characters. All samples in a plate should have the same plate label.",
-        "guidance": "pattern generalization: {text}",
-        "examples": "Pond_MT_041618",
-        "exportField": {
-          "dev": [
-            {
-              "field": "dna_container_ID"
-            }
-          ]
-        }
-      },
-      {
-        "fieldName": "DNAse Treatment DNA",
-        "capitalize": "",
-        "ontology_id": "jgi_gen:dna_dnase",
-        "datatype": "select",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "Y/N. Note DNAse treatment is required for all RNA samples.",
-        "guidance": "pattern generalization: enumeration",
-        "examples": "No",
-        "exportField": {
-          "dev": [
-            {
-              "field": "dna_dnase"
-            }
-          ]
-        },
-        "schema:ItemList": {
-          "no": {},
-          "yes": {}
-        }
-      },
-      {
-        "fieldName": "DNA Isolation Method",
-        "capitalize": "",
-        "ontology_id": "jgi_gen:dna_isolate_meth",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "Describe the method/protocol/kit used to extract DNA/RNA.",
-        "guidance": "pattern generalization: {text}",
-        "examples": "phenol/chloroform extraction",
-        "exportField": {
-          "dev": [
-            {
-              "field": "dna_isolate_meth"
-            }
-          ]
-        }
-      },
-      {
-        "fieldName": "DNA Expected Organisms",
-        "capitalize": "",
-        "ontology_id": "jgi_gen:dna_organisms",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "List any organisms known or suspected to grow in co-culture, as well as estimated % of the organism in that culture.",
-        "guidance": "pattern generalization: {text}",
-        "examples": "expected to contain microbes (59%) fungi (30%), viruses (10%), tadpoles (1%)",
-        "exportField": {
-          "dev": [
-            {
-              "field": "dna_organisms"
-            }
-          ]
-        }
-      },
-      {
-        "fieldName": "DNA Seq Project Contact",
-        "capitalize": "",
-        "ontology_id": "jgi_gen:dna_project_contact",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "Prefilled",
-        "guidance": "Do not edit this term, term will be provided by NMDC and can be uploaded | pattern generalization: {text}",
-        "examples": "John Jones",
-        "exportField": {
-          "dev": [
-            {
-              "field": "dna_project_contact"
-            }
-          ]
-        }
-      },
-      {
-        "fieldName": "DNA Sample ID",
-        "capitalize": "",
-        "ontology_id": "jgi_gen:dna_samp_ID",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "Prefilled",
-        "guidance": "Do not edit this term, term will be provided by NMDC and can be uploaded | pattern generalization: {text}",
-        "examples": "187654",
-        "exportField": {
-          "dev": [
-            {
-              "field": "dna_samp_ID"
-            }
-          ]
-        }
-      },
-      {
-        "fieldName": "DNA Sample Format",
-        "capitalize": "",
-        "ontology_id": "jgi_gen:dna_sample_format",
-        "datatype": "select",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "Choose from the following: Pellet, RNAStable, DNAStable, Ethanol, MDA reaction buffer, PBS, TE, Water, Low EDTA TE, 10 mM Tris-HCl",
-        "guidance": "Identify what the DNA sample is suspended in | pattern generalization: enumeration",
-        "examples": "Water",
-        "exportField": {
-          "dev": [
-            {
-              "field": "dna_sample_format"
-            }
-          ]
-        },
-        "schema:ItemList": {
-          "10 mM Tris-HCl": {},
-          "DNAStable": {},
-          "Ethanol": {},
-          "Low EDTA TE": {},
-          "MDA reaction buffer": {},
-          "PBS": {},
-          "Pellet": {},
-          "RNAStable": {},
-          "TE": {},
-          "Water": {}
-        }
-      },
-      {
-        "fieldName": "DNA Sample Name",
-        "capitalize": "",
-        "ontology_id": "jgi_gen:dna_sample_name",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "Give the DNA sample a name that is meaningful to you. Sample names must be unique across all JGI projects and contain ASCII characters only.",
-        "guidance": "pattern generalization: {text}",
-        "examples": "JGI_pond_041618",
-        "exportField": {
-          "dev": [
-            {
-              "field": "dna_sample_name"
-            }
-          ]
-        }
-      },
-      {
-        "fieldName": "DNA Seq Project ID",
-        "capitalize": "",
-        "ontology_id": "jgi_gen:dna_seq_project",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "Prefilled",
-        "guidance": "Do not edit this term, term will be provided by NMDC and can be uploaded | pattern generalization: {text}",
-        "examples": "1191234",
-        "exportField": {
-          "dev": [
-            {
-              "field": "dna_seq_project"
-            }
-          ]
-        }
-      },
-      {
-        "fieldName": "DNA Seq Project PI",
-        "capitalize": "",
-        "ontology_id": "jgi_gen:dna_seq_project_PI",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "Prefilled",
-        "guidance": "Do not edit this term, term will be provided by NMDC and can be uploaded | pattern generalization: {text}",
-        "examples": "Jane Johnson",
-        "exportField": {
-          "dev": [
-            {
-              "field": "dna_seq_project_PI"
-            }
-          ]
-        }
-      },
-      {
-        "fieldName": "DNA Seq Project Name",
-        "capitalize": "",
-        "ontology_id": "jgi_gen:dna_seq_project_name",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "Prefilled",
-        "guidance": "Do not edit this term, term will be provided by NMDC and can be uploaded | pattern generalization: {text}",
-        "examples": "JGI Pond metagenomics",
-        "exportField": {
-          "dev": [
-            {
-              "field": "dna_seq_project_name"
-            }
-          ]
-        }
-      },
-      {
-        "fieldName": "DNA Volume",
-        "capitalize": "",
-        "ontology_id": "jgi_gen:dna_volume",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "Value must be >0 and <1000 (values <25 by special permission only).",
-        "guidance": "Units should be in uL | pattern generalization: {float} uL",
-        "examples": "25",
-        "exportField": {
-          "dev": [
-            {
-              "field": "dna_volume"
-            }
-          ]
-        }
-      },
-      {
-        "fieldName": "DNA Proposal ID",
-        "capitalize": "",
-        "ontology_id": "jgi_gen:proposal_dna",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "Prefilled",
-        "guidance": "Do not edit this term, term will be provided by NMDC and can be uploaded | pattern generalization: {text}",
-        "examples": "504000",
-        "exportField": {
-          "dev": [
-            {
-              "field": "proposal_dna"
             }
           ]
         }

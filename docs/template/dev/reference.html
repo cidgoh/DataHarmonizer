@@ -31,6 +31,10 @@
 			<!-- python search and replace does this part -->	
   			
 						<tr class="section">
+							<td colspan="5"><h3>jgi_gen:default</h3></td>
+						</tr>
+						
+						<tr class="section">
 							<td colspan="5"><h3>samp_id:default</h3></td>
 						</tr>
 						
@@ -44,10 +48,172 @@
 
 						
 						<tr>
+							<td class="label">DNA Absorbance 260/280</td>
+							<td>260/280 measurement of sample purity</td>
+							<td>Recommended value is between 1 and 3. | pattern generalization: {float}</td>
+							<td></td>
+							<td>None</td>
+						</tr>
+
+						
+						<tr>
+							<td class="label">DNA Absorbance 260/230</td>
+							<td>260/230 measurement of sample purity</td>
+							<td>Recommended value is between 1 and 3. | pattern generalization: {float}</td>
+							<td></td>
+							<td>None</td>
+						</tr>
+
+						
+						<tr>
+							<td class="label">DNA Concentration</td>
+							<td>Must be calculated using a fluorometric method; value >0 and <2000.</td>
+							<td>Units should be in ng/uL | pattern generalization: {float} ng/uL</td>
+							<td>100</td>
+							<td>None</td>
+						</tr>
+
+						
+						<tr>
+							<td class="label">DNA Container Type</td>
+							<td>tube or plate (96-well)</td>
+							<td>pattern generalization: enumeration</td>
+							<td>plate</td>
+							<td>None</td>
+						</tr>
+
+						
+						<tr>
+							<td class="label">DNA Well Number</td>
+							<td>Corner wells must be blank. For partial plates, fill by columns. Leave blank if the sample will be shipped in a tube.</td>
+							<td>Required when 'plate' is selected for container type | pattern generalization: {text}</td>
+							<td>B2</td>
+							<td>None</td>
+						</tr>
+
+						
+						<tr>
+							<td class="label">DNA Container Label</td>
+							<td>Must be unique across all tubes and plates, and <20 characters. All samples in a plate should have the same plate label.</td>
+							<td>pattern generalization: {text}</td>
+							<td>Pond_MT_041618</td>
+							<td>None</td>
+						</tr>
+
+						
+						<tr>
+							<td class="label">DNAse Treatment DNA</td>
+							<td>Y/N. Note DNAse treatment is required for all RNA samples.</td>
+							<td>pattern generalization: enumeration</td>
+							<td>No</td>
+							<td>None</td>
+						</tr>
+
+						
+						<tr>
+							<td class="label">DNA Isolation Method</td>
+							<td>Describe the method/protocol/kit used to extract DNA/RNA.</td>
+							<td>pattern generalization: {text}</td>
+							<td>phenol/chloroform extraction</td>
+							<td>None</td>
+						</tr>
+
+						
+						<tr>
+							<td class="label">DNA Expected Organisms</td>
+							<td>List any organisms known or suspected to grow in co-culture, as well as estimated % of the organism in that culture.</td>
+							<td>pattern generalization: {text}</td>
+							<td>expected to contain microbes (59%) fungi (30%), viruses (10%), tadpoles (1%)</td>
+							<td>None</td>
+						</tr>
+
+						
+						<tr>
+							<td class="label">DNA Seq Project Contact</td>
+							<td>Prefilled</td>
+							<td>Do not edit this term, term will be provided by NMDC and can be uploaded | pattern generalization: {text}</td>
+							<td>John Jones</td>
+							<td>None</td>
+						</tr>
+
+						
+						<tr>
+							<td class="label">DNA Sample ID</td>
+							<td>Prefilled</td>
+							<td>Do not edit this term, term will be provided by NMDC and can be uploaded | pattern generalization: {text}</td>
+							<td>187654</td>
+							<td>None</td>
+						</tr>
+
+						
+						<tr>
+							<td class="label">DNA Sample Format</td>
+							<td>Choose from the following: Pellet, RNAStable, DNAStable, Ethanol, MDA reaction buffer, PBS, TE, Water, Low EDTA TE, 10 mM Tris-HCl</td>
+							<td>Identify what the DNA sample is suspended in | pattern generalization: enumeration</td>
+							<td>Water</td>
+							<td>None</td>
+						</tr>
+
+						
+						<tr>
+							<td class="label">DNA Sample Name</td>
+							<td>Give the DNA sample a name that is meaningful to you. Sample names must be unique across all JGI projects and contain ASCII characters only.</td>
+							<td>pattern generalization: {text}</td>
+							<td>JGI_pond_041618</td>
+							<td>None</td>
+						</tr>
+
+						
+						<tr>
+							<td class="label">DNA Seq Project ID</td>
+							<td>Prefilled</td>
+							<td>Do not edit this term, term will be provided by NMDC and can be uploaded | pattern generalization: {text}</td>
+							<td>1191234</td>
+							<td>None</td>
+						</tr>
+
+						
+						<tr>
+							<td class="label">DNA Seq Project PI</td>
+							<td>Prefilled</td>
+							<td>Do not edit this term, term will be provided by NMDC and can be uploaded | pattern generalization: {text}</td>
+							<td>Jane Johnson</td>
+							<td>None</td>
+						</tr>
+
+						
+						<tr>
+							<td class="label">DNA Seq Project Name</td>
+							<td>Prefilled</td>
+							<td>Do not edit this term, term will be provided by NMDC and can be uploaded | pattern generalization: {text}</td>
+							<td>JGI Pond metagenomics</td>
+							<td>None</td>
+						</tr>
+
+						
+						<tr>
+							<td class="label">DNA Volume</td>
+							<td>Value must be >0 and <1000 (values <25 by special permission only).</td>
+							<td>Units should be in uL | pattern generalization: {float} uL</td>
+							<td>25</td>
+							<td>None</td>
+						</tr>
+
+						
+						<tr>
 							<td class="label">environmental package</td>
 							<td>MIxS extension for reporting of measurements and observations obtained from one or more of the environments where the sample was obtained. All environmental packages listed here are further defined in separate subtables. By giving the name of the environmental package, a selection of fields can be made from the subtables and can be reported</td>
 							<td>pattern generalization: enumeration</td>
 							<td>soil</td>
+							<td>None</td>
+						</tr>
+
+						
+						<tr>
+							<td class="label">DNA Proposal ID</td>
+							<td>Prefilled</td>
+							<td>Do not edit this term, term will be provided by NMDC and can be uploaded | pattern generalization: {text}</td>
+							<td>504000</td>
 							<td>None</td>
 						</tr>
 
@@ -89,10 +255,6 @@
 						
 						<tr class="section">
 							<td colspan="5"><h3>emsl:default</h3></td>
-						</tr>
-						
-						<tr class="section">
-							<td colspan="5"><h3>jgi_gen:default</h3></td>
 						</tr>
 						
 						<tr class="section">
@@ -265,159 +427,6 @@
 							<td>The vertical distance below local surface, e.g. For sediment or soil samples depth is measured from sediment or soil surface, respectively. Depth can be reported as an interval for subsurface samples.</td>
 							<td>All depths should be reported in meters | pattern generalization: {float}; {float}-{float}</td>
 							<td>0-0.1 OR 1</td>
-							<td>None</td>
-						</tr>
-
-						
-						<tr>
-							<td class="label">DNA Absorbance 260/280</td>
-							<td>260/280 measurement of sample purity</td>
-							<td>Recommended value is between 1 and 3. | pattern generalization: {float}</td>
-							<td></td>
-							<td>None</td>
-						</tr>
-
-						
-						<tr>
-							<td class="label">DNA Absorbance 260/230</td>
-							<td>260/230 measurement of sample purity</td>
-							<td>Recommended value is between 1 and 3. | pattern generalization: {float}</td>
-							<td></td>
-							<td>None</td>
-						</tr>
-
-						
-						<tr>
-							<td class="label">DNA Concentration</td>
-							<td>Must be calculated using a fluorometric method; value >0 and <2000.</td>
-							<td>Units should be in ng/uL | pattern generalization: {float} ng/uL</td>
-							<td>100</td>
-							<td>None</td>
-						</tr>
-
-						
-						<tr>
-							<td class="label">DNA Container Type</td>
-							<td>tube or plate (96-well)</td>
-							<td>pattern generalization: enumeration</td>
-							<td>plate</td>
-							<td>None</td>
-						</tr>
-
-						
-						<tr>
-							<td class="label">DNA Well Number</td>
-							<td>Corner wells must be blank. For partial plates, fill by columns. Leave blank if the sample will be shipped in a tube.</td>
-							<td>Required when 'plate' is selected for container type | pattern generalization: {text}</td>
-							<td>B2</td>
-							<td>None</td>
-						</tr>
-
-						
-						<tr>
-							<td class="label">DNA Container Label</td>
-							<td>Must be unique across all tubes and plates, and <20 characters. All samples in a plate should have the same plate label.</td>
-							<td>pattern generalization: {text}</td>
-							<td>Pond_MT_041618</td>
-							<td>None</td>
-						</tr>
-
-						
-						<tr>
-							<td class="label">DNAse Treatment DNA</td>
-							<td>Y/N. Note DNAse treatment is required for all RNA samples.</td>
-							<td>pattern generalization: enumeration</td>
-							<td>No</td>
-							<td>None</td>
-						</tr>
-
-						
-						<tr>
-							<td class="label">DNA Isolation Method</td>
-							<td>Describe the method/protocol/kit used to extract DNA/RNA.</td>
-							<td>pattern generalization: {text}</td>
-							<td>phenol/chloroform extraction</td>
-							<td>None</td>
-						</tr>
-
-						
-						<tr>
-							<td class="label">DNA Expected Organisms</td>
-							<td>List any organisms known or suspected to grow in co-culture, as well as estimated % of the organism in that culture.</td>
-							<td>pattern generalization: {text}</td>
-							<td>expected to contain microbes (59%) fungi (30%), viruses (10%), tadpoles (1%)</td>
-							<td>None</td>
-						</tr>
-
-						
-						<tr>
-							<td class="label">DNA Seq Project Contact</td>
-							<td>Prefilled</td>
-							<td>Do not edit this term, term will be provided by NMDC and can be uploaded | pattern generalization: {text}</td>
-							<td>John Jones</td>
-							<td>None</td>
-						</tr>
-
-						
-						<tr>
-							<td class="label">DNA Sample ID</td>
-							<td>Prefilled</td>
-							<td>Do not edit this term, term will be provided by NMDC and can be uploaded | pattern generalization: {text}</td>
-							<td>187654</td>
-							<td>None</td>
-						</tr>
-
-						
-						<tr>
-							<td class="label">DNA Sample Format</td>
-							<td>Choose from the following: Pellet, RNAStable, DNAStable, Ethanol, MDA reaction buffer, PBS, TE, Water, Low EDTA TE, 10 mM Tris-HCl</td>
-							<td>Identify what the DNA sample is suspended in | pattern generalization: enumeration</td>
-							<td>Water</td>
-							<td>None</td>
-						</tr>
-
-						
-						<tr>
-							<td class="label">DNA Sample Name</td>
-							<td>Give the DNA sample a name that is meaningful to you. Sample names must be unique across all JGI projects and contain ASCII characters only.</td>
-							<td>pattern generalization: {text}</td>
-							<td>JGI_pond_041618</td>
-							<td>None</td>
-						</tr>
-
-						
-						<tr>
-							<td class="label">DNA Seq Project ID</td>
-							<td>Prefilled</td>
-							<td>Do not edit this term, term will be provided by NMDC and can be uploaded | pattern generalization: {text}</td>
-							<td>1191234</td>
-							<td>None</td>
-						</tr>
-
-						
-						<tr>
-							<td class="label">DNA Seq Project PI</td>
-							<td>Prefilled</td>
-							<td>Do not edit this term, term will be provided by NMDC and can be uploaded | pattern generalization: {text}</td>
-							<td>Jane Johnson</td>
-							<td>None</td>
-						</tr>
-
-						
-						<tr>
-							<td class="label">DNA Seq Project Name</td>
-							<td>Prefilled</td>
-							<td>Do not edit this term, term will be provided by NMDC and can be uploaded | pattern generalization: {text}</td>
-							<td>JGI Pond metagenomics</td>
-							<td>None</td>
-						</tr>
-
-						
-						<tr>
-							<td class="label">DNA Volume</td>
-							<td>Value must be >0 and <1000 (values <25 by special permission only).</td>
-							<td>Units should be in uL | pattern generalization: {float} uL</td>
-							<td>25</td>
 							<td>None</td>
 						</tr>
 
@@ -814,15 +823,6 @@
 							<td>Proposal IDs or names associated with dataset</td>
 							<td>pattern generalization: {text}</td>
 							<td></td>
-							<td>None</td>
-						</tr>
-
-						
-						<tr>
-							<td class="label">DNA Proposal ID</td>
-							<td>Prefilled</td>
-							<td>Do not edit this term, term will be provided by NMDC and can be uploaded | pattern generalization: {text}</td>
-							<td>504000</td>
 							<td>None</td>
 						</tr>
 
