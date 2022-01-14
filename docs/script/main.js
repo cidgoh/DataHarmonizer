@@ -11,7 +11,7 @@
  * main.html?template=test_template
  *
  */
-const VERSION = '0.14.5';
+const VERSION = '0.14.8';
 const VERSION_TEXT = 'DataHarmonizer provenance: v' + VERSION;
 const TEMPLATES = {
   'MAM NMDC Dev Template': {'folder': 'dev', 'status': 'published'},
@@ -180,6 +180,7 @@ const createHot = (data) => {
     afterSelection: (row, column, row2, column2, preventScrolling, selectionLayerLevel) => {
       window.CURRENT_SELECTION = [row, column, row2, column2];
     },
+    //afterScrollVertically(){ this.render() },
     afterRender: (isForced) => {
       $('#header-row').css('visibility', 'visible');
       $('#footer-row').css('visibility', 'visible');
