@@ -19,7 +19,7 @@ strsimpy = "*"
 pytest = "*"
 dpath = "^2.0.5"
 pandasql = "^0.7.3"
-linkml-model-enrichment = "^0.0.3"
+linkml-model-enrichment = "^0.0.4"
 
 [tool.poetry.dev-dependencies]
 

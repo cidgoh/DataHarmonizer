@@ -439,7 +439,7 @@ grpcio-gcp = ["grpcio-gcp (>=0.2.2)"]
 
 [[package]]
 name = "google-api-python-client"
-version = "2.34.0"
+version = "2.35.0"
 description = "Google API Client Library for Python"
 category = "main"
 optional = false
@@ -958,7 +958,7 @@ mkdocs = "*"
 
 [[package]]
 name = "linkml-model-enrichment"
-version = "0.0.3"
+version = "0.0.4"
 description = "Infer models, enrich with meaning for terms including enum permissible values"
 category = "main"
 optional = false
@@ -984,7 +984,7 @@ strsimpy = ">=0.2.1,<0.3.0"
 
 [[package]]
 name = "linkml-runtime"
-version = "1.1.15"
+version = "1.1.19"
 description = "Runtime environment for LinkML, the Linked open data modeling language"
 category = "main"
 optional = false
@@ -1185,11 +1185,11 @@ testing = ["beautifulsoup4", "coverage", "docutils (>=0.17.0,<0.18.0)", "pytest 
 
 [[package]]
 name = "nbclient"
-version = "0.5.9"
+version = "0.5.10"
 description = "A client library for executing notebooks. Formerly nbconvert's ExecutePreprocessor."
 category = "main"
 optional = false
-python-versions = ">=3.6.1"
+python-versions = ">=3.7.0"
 
 [package.dependencies]
 jupyter-client = ">=6.1.5"
@@ -1198,9 +1198,8 @@ nest-asyncio = "*"
 traitlets = ">=4.2"
 
 [package.extras]
-dev = ["codecov", "coverage", "ipython", "ipykernel", "ipywidgets", "pytest (>=4.1)", "pytest-cov (>=2.6.1)", "check-manifest", "flake8", "mypy", "tox", "xmltodict", "pip (>=18.1)", "wheel (>=0.31.0)", "setuptools (>=38.6.0)", "twine (>=1.11.0)", "black"]
 sphinx = ["Sphinx (>=1.7)", "sphinx-book-theme", "mock", "moto", "myst-parser"]
-test = ["codecov", "coverage", "ipython", "ipykernel", "ipywidgets", "pytest (>=4.1)", "pytest-cov (>=2.6.1)", "check-manifest", "flake8", "mypy", "tox", "xmltodict", "pip (>=18.1)", "wheel (>=0.31.0)", "setuptools (>=38.6.0)", "twine (>=1.11.0)", "black"]
+test = ["ipython", "ipykernel", "ipywidgets (<8.0.0)", "pytest (>=4.1)", "pytest-cov (>=2.6.1)", "check-manifest", "flake8", "mypy", "xmltodict", "black", "pip (>=18.1)", "wheel (>=0.31.0)", "setuptools (>=38.6.0)", "twine (>=1.11.0)"]
 
 [[package]]
 name = "nbconvert"
@@ -2394,7 +2393,7 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytest-
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "5b515fd0eb67a6333f45044da310e147b0d17311bc14b629a87a00cd744be3ef"
+content-hash = "b904e34f9b9538760552a75c8f21a082b4eb20342a3a5c523f0c950dc0789473"
 
 [metadata.files]
 alabaster = [
@@ -2645,8 +2644,8 @@ google-api-core = [
     {file = "google_api_core-2.4.0-py2.py3-none-any.whl", hash = "sha256:58e2c1171a3d51778bf4e428fbb4bf79cbd05007b4b44deaa80cf73c80eebc0f"},
 ]
 google-api-python-client = [
-    {file = "google-api-python-client-2.34.0.tar.gz", hash = "sha256:f4c602d1b49f7de53dca105fa1e021718f73ab8a40957e66226f7b0504e65e7c"},
-    {file = "google_api_python_client-2.34.0-py2.py3-none-any.whl", hash = "sha256:31eab065a8d01409af13632006a0bac4eae2ef02f0539092a4dd9575cdd724f0"},
+    {file = "google-api-python-client-2.35.0.tar.gz", hash = "sha256:038b12979ea86ef0e33962bd33f955c337bc28f0471522bd27a801d52bfb4ae2"},
+    {file = "google_api_python_client-2.35.0-py2.py3-none-any.whl", hash = "sha256:30ccd570ce0018dfc604438cc1e72d215f0d3d5844318729d29a1392ef131056"},
 ]
 google-auth = [
     {file = "google-auth-2.3.3.tar.gz", hash = "sha256:d83570a664c10b97a1dc6f8df87e5fdfff012f48f62be131e449c20dfc32630e"},
@@ -2839,12 +2838,12 @@ linkml-model = [
     {file = "linkml_model-1.0.6.tar.gz", hash = "sha256:eafac7eaadfc8140cb0826f170f51dba539eecc15c8e082cc8798d222d0b6fb6"},
 ]
 linkml-model-enrichment = [
-    {file = "linkml-model-enrichment-0.0.3.tar.gz", hash = "sha256:cc836775cb4b351f46a12f011e14b4b1f2dc39ec4e1d8f0d4f6b721afe32e1ee"},
-    {file = "linkml_model_enrichment-0.0.3-py3-none-any.whl", hash = "sha256:a70f05dc68b5a34e8d6d37715f6ea5685535f521c04367c8851bc4d8f81dc1d7"},
+    {file = "linkml-model-enrichment-0.0.4.tar.gz", hash = "sha256:04297f8c785a0837e5cf724fe7da2aa179ee233e8567055bcfd069e1da4fc8e6"},
+    {file = "linkml_model_enrichment-0.0.4-py3-none-any.whl", hash = "sha256:48f73567657a060bdd1689b51aac8623a069cac622c5d8b1451f673d9e69262f"},
 ]
 linkml-runtime = [
-    {file = "linkml_runtime-1.1.15-py3-none-any.whl", hash = "sha256:fdd1307e08bb71c7ba93d340c7355020e2d29188b51f3b8b788c5b3f35a9e999"},
-    {file = "linkml_runtime-1.1.15.tar.gz", hash = "sha256:2baa757f1925b1cd58fa8f7de167941247597334eaaa988b2f9e064ffc95f01b"},
+    {file = "linkml_runtime-1.1.19-py3-none-any.whl", hash = "sha256:8dbc8e46c4fb7bc5470a739cd0b107b25702fab8e856b796cd6b5f4c968471ea"},
+    {file = "linkml_runtime-1.1.19.tar.gz", hash = "sha256:a43bf06d7b8e8c5364be47ea57c90f7111cbcd7ac9e0655a71353307aff2d143"},
 ]
 linkml-runtime-api = [
     {file = "linkml_runtime_api-0.0.6-py3-none-any.whl", hash = "sha256:b567a8f678f96fa723f0ba2f225712ab989930f023f5bb84df2ae2ea19db04f5"},
@@ -3024,8 +3023,8 @@ myst-parser = [
     {file = "myst_parser-0.16.1-py3-none-any.whl", hash = "sha256:617a90ceda2162ebf81cd13ad17d879bd4f49e7fb5c4f177bb905272555a2268"},
 ]
 nbclient = [
-    {file = "nbclient-0.5.9-py3-none-any.whl", hash = "sha256:8a307be4129cce5f70eb83a57c3edbe45656623c31de54e38bb6fdfbadc428b3"},
-    {file = "nbclient-0.5.9.tar.gz", hash = "sha256:99e46ddafacd0b861293bf246fed8540a184adfa3aa7d641f89031ec070701e0"},
+    {file = "nbclient-0.5.10-py3-none-any.whl", hash = "sha256:5b582e21c8b464e6676a9d60acc6871d7fbc3b080f74bef265a9f90411b31f6f"},
+    {file = "nbclient-0.5.10.tar.gz", hash = "sha256:b5fdea88d6fa52ca38de6c2361401cfe7aaa7cd24c74effc5e489cec04d79088"},
 ]
 nbconvert = [
     {file = "nbconvert-6.4.0-py3-none-any.whl", hash = "sha256:f5ec6a1fad9e3aa2bee7c6a1c4ad3e0fafaa7ff64f29ba56d9da7e1669f8521c"},
