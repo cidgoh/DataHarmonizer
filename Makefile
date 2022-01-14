@@ -50,7 +50,7 @@ modular_templating_handoff: use_modular
 
 # test needs work
 #all: clean  post_clone_submodule_steps serializastion_vs_pattern target/data.tsv
-all: clean  post_clone_submodule_steps serializastion_vs_pattern modular_templating_handoff
+all: clean  test post_clone_submodule_steps serializastion_vs_pattern modular_templating_handoff
 
 clean:
 	rm -rf target/mixs_soil.yaml
@@ -59,7 +59,7 @@ clean:
 	rm -rf target/data.tsv
 
 test:
-	poetry run pytest -vv test_sntc.py
+	poetry run pytest -rsvv test_sntc.py
 
 # turbomam's mixs-source
 #   moves "patterns" to string serializastions
