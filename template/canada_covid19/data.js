@@ -3335,7 +3335,7 @@ var DATA = [
         "exportField": {
           "NML_LIMS": [
             {
-              "field": "host health outcome"
+              "field": "PH_HOST_HEALTH_OUTCOME"
             }
           ],
           "BIOSAMPLE": [
@@ -4796,7 +4796,7 @@ var DATA = [
         "exportField": {
           "NML_LIMS": [
             {
-              "field": "host vaccination status"
+              "field": "PH_VACCINATION_HISTORY"
             }
           ]
         },
@@ -4804,27 +4804,6 @@ var DATA = [
           "Fully Vaccinated": {},
           "Partially Vaccinated": {},
           "Not Vaccinated": {}
-        }
-      },
-      {
-        "fieldName": "vaccine name",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001405",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The name of the vaccine.",
-        "guidance": "Free text. Provide the name of the vaccine.",
-        "examples": "Pfizer-BioNTech COVID-19 vaccine",
-        "exportField": {
-          "NML_LIMS": [
-            {
-              "field": "vaccine name"
-            }
-          ]
         }
       },
       {
@@ -4839,53 +4818,251 @@ var DATA = [
         "requirement": "",
         "description": "The number of doses of the vaccine recived by the host.",
         "guidance": "Record how many doses of the vaccine the host has received.",
-        "examples": "2",
+        "examples": "2"
+      },
+      {
+        "fieldName": "vaccination dose 1 vaccine name",
+        "capitalize": "",
+        "ontology_id": "",
+        "datatype": "select",
+        "source": "",
+        "dataStatus": [
+          "Not Applicable",
+          "Missing",
+          "Not Collected",
+          "Not Provided",
+          "Restricted Access"
+        ],
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "The name of the vaccine administered as the first dose of a vaccine regimen.",
+        "guidance": "Provide the name and the corresponding manufacturer of the COVID-19 vaccine administered as the first dose by selecting a value from the pick list",
+        "examples": "Pfizer-BioNTech (Comirnaty)",
         "exportField": {
           "NML_LIMS": [
             {
-              "field": "number of vaccine doses received"
+              "field": "PH_VACCINATION_HISTORY"
+            }
+          ]
+        },
+        "schema:ItemList": {
+          "Moderna (Spikevax)": {},
+          "Pfizer-BioNTech (Comirnaty)": {},
+          "Pfizer-BioNTech (Comirnaty Pediatric)": {},
+          "Johnson & Johnson (Janssen)": {},
+          "Astrazeneca (Vaxzevria)": {}
+        }
+      },
+      {
+        "fieldName": "vaccination dose 1 vaccination date",
+        "capitalize": "",
+        "ontology_id": "",
+        "datatype": "xs:date",
+        "source": "",
+        "dataStatus": [
+          "Not Applicable",
+          "Missing",
+          "Not Collected",
+          "Not Provided",
+          "Restricted Access"
+        ],
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "The date the first dose of a vaccine was administered.",
+        "guidance": "Provide the date the first dose of COVID-19 vaccine was administered. The date should be provided in ISO 8601 standard format \"YYYY-MM-DD\".",
+        "examples": "",
+        "exportField": {
+          "NML_LIMS": [
+            {
+              "field": "PH_VACCINATION_HISTORY"
             }
           ]
         }
       },
       {
-        "fieldName": "first dose vaccination date",
+        "fieldName": "vaccination dose 2 vaccine name",
         "capitalize": "",
-        "ontology_id": "GENEPIO:0001407",
-        "datatype": "xs:date",
-        "source": "",
-        "dataStatus": null,
+        "ontology_id": "",
+        "datatype": "select",
+        "source": "vaccination dose 1 vaccine name",
+        "dataStatus": [
+          "Not Applicable",
+          "Missing",
+          "Not Collected",
+          "Not Provided",
+          "Restricted Access"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
-        "description": "The date the host was first vaccinated.",
-        "guidance": "Provide the vaccination date in ISO 8601 standard format \"YYYY-MM-DD\".",
-        "examples": "2021-02-26",
+        "description": "The name of the vaccine administered as the second dose of a vaccine regimen.",
+        "guidance": "Provide the name and the corresponding manufacturer of the COVID-19 vaccine administered as the second dose by selecting a value from the pick list",
+        "examples": "Pfizer-BioNTech (Comirnaty)",
         "exportField": {
           "NML_LIMS": [
             {
-              "field": "first dose vaccination date"
+              "field": "PH_VACCINATION_HISTORY"
+            }
+          ]
+        },
+        "schema:ItemList": {}
+      },
+      {
+        "fieldName": "vaccination dose 2 vaccination date",
+        "capitalize": "",
+        "ontology_id": "",
+        "datatype": "xs:date",
+        "source": "",
+        "dataStatus": [
+          "Not Applicable",
+          "Missing",
+          "Not Collected",
+          "Not Provided",
+          "Restricted Access"
+        ],
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "The date the second dose of a vaccine was administered.",
+        "guidance": "Provide the date the second dose of COVID-19 vaccine was administered. The date should be provided in ISO 8601 standard format \"YYYY-MM-DD\".",
+        "examples": "",
+        "exportField": {
+          "NML_LIMS": [
+            {
+              "field": "PH_VACCINATION_HISTORY"
             }
           ]
         }
       },
       {
-        "fieldName": "last dose vaccination date",
+        "fieldName": "vaccination dose 3 vaccine name",
         "capitalize": "",
-        "ontology_id": "GENEPIO:0001408",
+        "ontology_id": "",
+        "datatype": "select",
+        "source": "vaccination dose 1 vaccine name",
+        "dataStatus": [
+          "Not Applicable",
+          "Missing",
+          "Not Collected",
+          "Not Provided",
+          "Restricted Access"
+        ],
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "The name of the vaccine administered as the third dose of a vaccine regimen.",
+        "guidance": "Provide the name and the corresponding manufacturer of the COVID-19 vaccine administered as the third dose by selecting a value from the pick list",
+        "examples": "Pfizer-BioNTech (Comirnaty)",
+        "exportField": {
+          "NML_LIMS": [
+            {
+              "field": "PH_VACCINATION_HISTORY"
+            }
+          ]
+        },
+        "schema:ItemList": {}
+      },
+      {
+        "fieldName": "vaccination dose 3 vaccination date",
+        "capitalize": "",
+        "ontology_id": "",
         "datatype": "xs:date",
+        "source": "",
+        "dataStatus": [
+          "Not Applicable",
+          "Missing",
+          "Not Collected",
+          "Not Provided",
+          "Restricted Access"
+        ],
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "The date the third dose of a vaccine was administered.",
+        "guidance": "Provide the date the third dose of COVID-19 vaccine was administered. The date should be provided in ISO 8601 standard format \"YYYY-MM-DD\".",
+        "examples": "",
+        "exportField": {
+          "NML_LIMS": [
+            {
+              "field": "PH_VACCINATION_HISTORY"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "vaccination dose 4 vaccine name",
+        "capitalize": "",
+        "ontology_id": "",
+        "datatype": "select",
+        "source": "vaccination dose 1 vaccine name",
+        "dataStatus": [
+          "Not Applicable",
+          "Missing",
+          "Not Collected",
+          "Not Provided",
+          "Restricted Access"
+        ],
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "The name of the vaccine administered as the fourth dose of a vaccine regimen.",
+        "guidance": "Provide the name and the corresponding manufacturer of the COVID-19 vaccine administered as the fourth dose by selecting a value from the pick list",
+        "examples": "Pfizer-BioNTech (Comirnaty)",
+        "exportField": {
+          "NML_LIMS": [
+            {
+              "field": "PH_VACCINATION_HISTORY"
+            }
+          ]
+        },
+        "schema:ItemList": {}
+      },
+      {
+        "fieldName": "vaccination dose 4 vaccination date",
+        "capitalize": "",
+        "ontology_id": "",
+        "datatype": "xs:date",
+        "source": "",
+        "dataStatus": [
+          "Not Applicable",
+          "Missing",
+          "Not Collected",
+          "Not Provided",
+          "Restricted Access"
+        ],
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "The date the fourth dose of a vaccine was administered.",
+        "guidance": "Provide the date the fourth dose of COVID-19 vaccine was administered. The date should be provided in ISO 8601 standard format \"YYYY-MM-DD\".",
+        "examples": "",
+        "exportField": {
+          "NML_LIMS": [
+            {
+              "field": "PH_VACCINATION_HISTORY"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "vaccination history",
+        "capitalize": "",
+        "ontology_id": "",
+        "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
-        "description": "The date the host received their last dose of vaccine.",
-        "guidance": "Provide the date that the last dose of the vaccine was administered. Provide the last dose vaccination date in ISO 8601 standard format \"YYYY-MM-DD\".",
-        "examples": "2021-04-09",
+        "description": "A description of the vaccines received and the administration dates of a series of vaccinations against a specific disease or a set of diseases.",
+        "guidance": "",
+        "examples": "",
         "exportField": {
           "NML_LIMS": [
             {
-              "field": "last dose vaccination date"
+              "field": "PH_VACCINATION_HISTORY"
             }
           ]
         }
@@ -6031,7 +6208,7 @@ var DATA = [
         "exportField": {
           "NML_LIMS": [
             {
-              "field": "library preparation kit"
+              "field": "PH_LIBRARY_PREP_KIT"
             }
           ]
         }
@@ -6075,7 +6252,7 @@ var DATA = [
         "requirement": "required",
         "description": "The model of the sequencing instrument used.",
         "guidance": "Select a sequencing instrument from the picklist provided in the template.",
-        "examples": "MinIon",
+        "examples": "Oxford Nanopore MinION",
         "exportField": {
           "GISAID": [
             {
@@ -6485,7 +6662,7 @@ var DATA = [
         "requirement": "required",
         "description": "The name of software used to generate the consensus sequence.",
         "guidance": "Provide the name of the software used to generate the consensus sequence.",
-        "examples": "Ivar",
+        "examples": "iVar",
         "exportField": {
           "CNPHI": [
             {

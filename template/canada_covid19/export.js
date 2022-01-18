@@ -403,6 +403,7 @@ var exportNML_LIMS = (baseName, hot, data, xlsx, fileType) => {
     ['PH_ANIMAL_TYPE',          []],
     ['PH_HOST_HEALTH',          []],
     ['PH_HOST_HEALTH_DETAILS',  []],
+    ['PH_HOST_HEALTH_OUTCOME',  []],
     ['PH_HOST_DISEASE',         []],
     ['PH_AGE',                  []],
     ['PH_AGE_UNIT',             []],
@@ -412,6 +413,7 @@ var exportNML_LIMS = (baseName, hot, data, xlsx, fileType) => {
     ['PH_HOST_PROVINCE',        []], 
     ['HC_ONSET_DATE',           []],
     ['HC_SYMPTOMS',             []],
+    ['PH_VACCINATION_HISTORY',  []],
     ['VE_SYMP_AVAIL',           []], // Calculated field (not in import)
     ['PH_EXPOSURE_COUNTRY',     []], 
     ['PH_TRAVEL',               []],
@@ -422,6 +424,8 @@ var exportNML_LIMS = (baseName, hot, data, xlsx, fileType) => {
 
     ['PH_REASON_FOR_SEQUENCING_DETAILS', []], 
     ['PH_SEQUENCING_DATE',      []], 
+    ['PH_LIBRARY_PREP_KIT',      []], 
+
     ['PH_INSTRUMENT_CGN',       []], 
     ['PH_TESTING_PROTOCOL',     []],
     ['PH_RAW_SEQUENCE_METHOD',     []],
