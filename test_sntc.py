@@ -31,25 +31,23 @@ import pprint
 # enumerations
 
 
-
 # where to put these configuration values?
 mixs_yaml = "mixs-source/model/schema/mixs.yaml"
 sntc_id = '1pSmxX6XGOxmoA7S7rKyj5OaEl3PmAl4jAOlROuNHrU0'
 client_secret_json = "local/client_secret.apps.googleusercontent.com.json"
 
 expected_tab_dict = {0: 'SheetIdentification',
-                     1: 'Terms',
-                     2: 'Terms-New Terms',
-                     3: 'Example Use',
-                     4: 'OtherPackages',
-                     5: 'JGI Terms',
-                     6: 'mixs_packages_x_slots',
-                     7: 'mixs_modified_slots',
-                     8: 'biosample_identification_slots',
-                     9: 'nmdc_biosample_slots',
-                     10: 'EMSL_sample_slots',
-                     11: 'JGI_sample_slots',
-                     12: 'enumerations'}
+                     1: 'Example Use',
+                     2: 'OtherPackages',
+                     3: 'JGI Terms',
+                     4: 'mixs_packages_x_slots',
+                     5: 'mixs_modified_slots',
+                     6: 'biosample_identification_slots',
+                     7: 'nmdc_biosample_slots',
+                     8: 'EMSL_sample_slots',
+                     9: 'JGI_sample_slots',
+                     10: 'Sections_order',
+                     11: 'enumerations'}
 
 expected_Terms_col_names = ['row_ord', 'Column Header', 'To Do', 'NMDC_slot_name_schema', 'EMSL_slot_Name',
                             'mixs_6_slot_name', 'Definition', 'Guidance', 'syntax', 'Expected value',
@@ -221,26 +219,25 @@ def test_SI_vs_expected(SI_frame):
 #     blank_trunc = list(reversed(tuple(dropwhile(lambda x: x == "", reversed(row1)))))
 #     assert blank_trunc == expected
 
+# todo apply test like this to other sheets now that Terms has been deleted
+# # are there any rows in the Terms tab with an empty 'Column Header'
+# #   should apply to any named column form any named tab
+# def test_empty_Terms_ch(Terms_ch):
+#     blank_count = (Terms_ch == "").sum()
+#     assert blank_count == 0
 
-# are there any rows in the Terms tab with an empty 'Column Header'
-#   should apply to any named column form any named tab
-def test_empty_Terms_ch(Terms_ch):
-    blank_count = (Terms_ch == "").sum()
-    assert blank_count == 0
-
-
-# are any 'Column Header' values in the Terms tab repeated?
-def test_repeated_Term_ch(Terms_ch):
-    ch_vc = Terms_ch.value_counts()
-    dupes = ch_vc[ch_vc.gt(1)]
-    assert len(dupes) == 0
+# todo apply test like this to other sheets now that Terms has been deleted
+# # are any 'Column Header' values in the Terms tab repeated?
+# def test_repeated_Term_ch(Terms_ch):
+#     ch_vc = Terms_ch.value_counts()
+#     dupes = ch_vc[ch_vc.gt(1)]
+#     assert len(dupes) == 0
 
 
 def test_mixs_soil_ind_slot_names(mixs_view):
     ind_slots = mixs_view.class_induced_slots("soil")
     ind_slot_names = [i.name for i in ind_slots]
     assert ind_slot_names == expected_mixs_soil_ind_slot_names
-
 
 # todo ultimately, SNTC should be seen as describing all package classes,
 #   via Terms-> Associated Packages
@@ -272,14 +269,13 @@ def test_mixs_soil_ind_slot_names(mixs_view):
 #     sntc_missings = get_list_diif(from_mixs_soil, from_either)
 #     assert sntc_missings == []
 
-
-# does SNTC claim any slots that aren't defined for any package class?
-def test_undefined_mixs_slots(sntc_gsheet, mixs_view):
-    from_mixs = get_mixs_all_slots(mixs_view)
-    from_Terms = get_informative_from_tab_col(sntc_gsheet, selected_tab="Terms", selected_col="mixs_6_slot_name")
-    sntc_undefineds = get_list_diif(from_Terms, from_mixs)
-    assert sntc_undefineds == []
-
+# todo apply test like this to other sheets now that Terms has been deleted
+# # does SNTC claim any slots that aren't defined for any package class?
+# def test_undefined_mixs_slots(sntc_gsheet, mixs_view):
+#     from_mixs = get_mixs_all_slots(mixs_view)
+#     from_Terms = get_informative_from_tab_col(sntc_gsheet, selected_tab="Terms", selected_col="mixs_6_slot_name")
+#     sntc_undefineds = get_list_diif(from_Terms, from_mixs)
+#     assert sntc_undefineds == []
 
 # todo rewrite for new actionable tabs
 # # do any mixs terms appear in more than one of

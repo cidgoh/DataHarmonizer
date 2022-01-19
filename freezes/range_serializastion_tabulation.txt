@@ -1,0 +1,56 @@
+TABULATION OF SLOT RANGES, for prioritizing range->regex conversion
+string                           35
+quantity value                   15
+date                              3
+growth_facility_enum              1
+storage_condt_enum                1
+soil_horizon_enum                 1
+sample_type_enum                  1
+samp_biotic_relationship_enum     1
+profile_position_enum             1
+double                            1
+oxygen_relationship_enum          1
+fao_class_enum                    1
+env_package_enum                  1
+drainage_class_enum               1
+dna_sample_format_enum            1
+dna_dnase_enum                    1
+dna_cont_type_enum                1
+cur_land_use_enum                 1
+analysis_type_enum                1
+tillage_enum                      1
+dtype: int64
+
+
+TABULATION OF STRING SERIALIZATIONS, for prioritizing serialization->regex conversion
+<none>                                                                                                 24
+{text}                                                                                                 20
+{PMID}|{DOI}|{URL}                                                                                     20
+enumeration                                                                                            10
+{float} {unit}                                                                                          4
+{termLabel} {[termID]}                                                                                  4
+{float}                                                                                                 3
+{timestamp}                                                                                             3
+{text};{float} {unit}                                                                                   3
+{text}:{text}                                                                                           2
+{integer}                                                                                               2
+[O horizon|A horizon|E horizon|B horizon|C horizon|R layer|Permafrost]                                  1
+{{text}|{float} {unit}};{float} {unit}                                                                  1
+{termLabel} {[termID]}; {timestamp}                                                                     1
+{PMID}|{DOI}|{URL}|{text}                                                                               1
+{termLabel} {[termID]}|{text}                                                                           1
+[summit|shoulder|backslope|footslope|toeslope]                                                          1
+{text};{timestamp}                                                                                      1
+{float} {float}                                                                                         1
+{float} C                                                                                               1
+{term}: {term}, {text}                                                                                  1
+[Acrisols|Andosols|Arenosols|Cambisols|Chernozems|Ferralsols|Fluvisols|Gleysols|Greyzems|Gypsisols|     1
+{text};{float} {unit};{timestamp}                                                                       1
+[very poorly|poorly|somewhat poorly|moderately well|well|excessively drained]                           1
+{float} uL                                                                                              1
+{float} ng/uL                                                                                           1
+{float}; {float}-{float}                                                                                1
+[cities|farmstead|industrial areas|roads/railroads|rock|sand|gravel|mudflats|salt flats|badlands|pe     1
+{boolean};{Rn/start_time/end_time/duration}                                                             1
+HH:MM:SS                                                                                                1
+[drill|cutting disc|ridge till|strip tillage|zonal tillage|chisel|tined|mouldboard|disc plough]         1
