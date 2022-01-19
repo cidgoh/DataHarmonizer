@@ -265,42 +265,11 @@
 							<td colspan="5"><h3>nmdc:gold_path_field</h3></td>
 						</tr>
 						
-						<tr class="section">
-							<td colspan="5"><h3>nmdc:sample identifiers</h3></td>
-						</tr>
-						
 						<tr>
 							<td class="label">EMSL Sample Storage Temperature</td>
 							<td>Temperature at which the sample sent to EMSL should be stored</td>
 							<td>pattern generalization: {float} C</td>
 							<td>-80</td>
-							<td>None</td>
-						</tr>
-
-						
-						<tr>
-							<td class="label">GOLD sample identifiers</td>
-							<td>identifiers for corresponding sample in GOLD</td>
-							<td>pattern as regular expression: ^GOLD:Gb[0-9]+$</td>
-							<td>https://identifiers.org/gold:GbTODO</td>
-							<td>None</td>
-						</tr>
-
-						
-						<tr>
-							<td class="label">INSDC biosample identifiers</td>
-							<td>identifiers for corresponding sample in INSDC</td>
-							<td>pattern as regular expression: ^biosample:SAM[NED]([A-Z])?[0-9]+$</td>
-							<td>https://identifiers.org/biosample:SAMEA5989477|https://identifiers.org/biosample:SAMD00212331</td>
-							<td>None</td>
-						</tr>
-
-						
-						<tr>
-							<td class="label">INSDC secondary sample identifiers</td>
-							<td>secondary identifiers for corresponding sample in INSDC</td>
-							<td>ENA redirects these to primary IDs, e.g. https://www.ebi.ac.uk/ena/browser/view/DRS166340 -> SAMD00212331 | MGnify uses these as their primary sample IDs | pattern as regular expression: ^biosample:(E|D|S)RS[0-9]{6,}$</td>
-							<td>https://identifiers.org/insdc.sra:DRS166340</td>
 							<td>None</td>
 						</tr>
 
@@ -777,6 +746,15 @@
 							<td class="label">pH</td>
 							<td>Ph measurement of the sample, or liquid portion of sample, or aqueous phase of the fluid</td>
 							<td>Expected value: measurement value | pattern generalization: {float}</td>
+							<td>7.2</td>
+							<td>None</td>
+						</tr>
+
+						
+						<tr>
+							<td class="label">pH</td>
+							<td>Ph measurement of the sample, or liquid portion of sample, or aqueous phase of the fluid</td>
+							<td>Expected value: measurement value</td>
 							<td>7.2</td>
 							<td>None</td>
 						</tr>

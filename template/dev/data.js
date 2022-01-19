@@ -1152,6 +1152,27 @@ var DATA = [
         }
       },
       {
+        "fieldName": "pH",
+        "capitalize": "",
+        "ontology_id": "MIXS:0001001",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Ph measurement of the sample, or liquid portion of sample, or aqueous phase of the fluid",
+        "guidance": "Expected value: measurement value",
+        "examples": "7.2",
+        "exportField": {
+          "dev": [
+            {
+              "field": "ph"
+            }
+          ]
+        }
+      },
+      {
         "fieldName": "pH method",
         "capitalize": "",
         "ontology_id": "MIXS:0001106",
@@ -2637,77 +2658,6 @@ var DATA = [
           "dev": [
             {
               "field": "specific_ecosystem"
-            }
-          ]
-        }
-      }
-    ]
-  },
-  {
-    "fieldName": "nmdc:sample identifiers",
-    "children": [
-      {
-        "fieldName": "GOLD sample identifiers",
-        "capitalize": "",
-        "ontology_id": "nmdc:GOLD_sample_identifiers",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "identifiers for corresponding sample in GOLD",
-        "guidance": "pattern as regular expression: ^GOLD:Gb[0-9]+$",
-        "examples": "https://identifiers.org/gold:GbTODO",
-        "pattern": "^GOLD:Gb[0-9]+$",
-        "exportField": {
-          "dev": [
-            {
-              "field": "GOLD sample identifiers"
-            }
-          ]
-        }
-      },
-      {
-        "fieldName": "INSDC biosample identifiers",
-        "capitalize": "",
-        "ontology_id": "nmdc:INSDC_biosample_identifiers",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "identifiers for corresponding sample in INSDC",
-        "guidance": "pattern as regular expression: ^biosample:SAM[NED]([A-Z])?[0-9]+$",
-        "examples": "https://identifiers.org/biosample:SAMEA5989477|https://identifiers.org/biosample:SAMD00212331",
-        "pattern": "^biosample:SAM[NED]([A-Z])?[0-9]+$",
-        "exportField": {
-          "dev": [
-            {
-              "field": "INSDC biosample identifiers"
-            }
-          ]
-        }
-      },
-      {
-        "fieldName": "INSDC secondary sample identifiers",
-        "capitalize": "",
-        "ontology_id": "nmdc:INSDC_secondary_sample_identifiers",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "secondary identifiers for corresponding sample in INSDC",
-        "guidance": "ENA redirects these to primary IDs, e.g. https://www.ebi.ac.uk/ena/browser/view/DRS166340 -> SAMD00212331 | MGnify uses these as their primary sample IDs | pattern as regular expression: ^biosample:(E|D|S)RS[0-9]{6,}$",
-        "examples": "https://identifiers.org/insdc.sra:DRS166340",
-        "pattern": "^biosample:(E|D|S)RS[0-9]{6,}$",
-        "exportField": {
-          "dev": [
-            {
-              "field": "INSDC secondary sample identifiers"
             }
           ]
         }
