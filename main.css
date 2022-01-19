@@ -123,6 +123,8 @@ html, body {
 }
 #grid table.htCore > tbody > tr td:nth-child(2) {
 	border-right: medium solid gray;
+  	white-space: nowrap;
+	text-overflow: ellipsis;
 }
 #add-rows-input {max-width:5rem}
 
