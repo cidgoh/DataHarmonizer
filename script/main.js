@@ -11,7 +11,7 @@
  * main.html?template=test_template
  *
  */
-const VERSION = '0.14.8';
+const VERSION = '0.14.9';
 const VERSION_TEXT = 'DataHarmonizer provenance: v' + VERSION;
 const TEMPLATES = {
   'CanCOGeN Covid-19': {'folder': 'canada_covid19', 'status': 'published'},
@@ -140,6 +140,8 @@ const createHot = (data) => {
     columns: getColumns(data),
     colHeaders: true,
     rowHeaders: true,
+    //manualColumnResize: true,
+    //colWidths: [100], //Just fixes first column width
     contextMenu: ["remove_row","row_above","row_below"],
     minRows: 100,
     minSpareRows: 100,
@@ -179,7 +181,6 @@ const createHot = (data) => {
     afterSelection: (row, column, row2, column2, preventScrolling, selectionLayerLevel) => {
       window.CURRENT_SELECTION = [row, column, row2, column2];
     },
-    //afterScrollVertically(){ this.render() },
     afterRender: (isForced) => {
       $('#header-row').css('visibility', 'visible');
       $('#footer-row').css('visibility', 'visible');
