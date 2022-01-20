@@ -49,7 +49,7 @@ modular_templating_handoff: use_modular
 
 
 
-all: clean  test post_clone_submodule_steps serializastion_vs_pattern modular_templating_handoff
+all: clean test post_clone_submodule_steps serializastion_vs_pattern modular_templating_handoff
 
 clean:
 	rm -rf target/mixs_soil.yaml
