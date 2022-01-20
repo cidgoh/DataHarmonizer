@@ -48,8 +48,7 @@ modular_templating_handoff: use_modular
 	cp main.css main.html docs
 
 
-# test needs work
-#all: clean  post_clone_submodule_steps serializastion_vs_pattern target/data.tsv
+
 all: clean  test post_clone_submodule_steps serializastion_vs_pattern modular_templating_handoff
 
 clean:
@@ -58,8 +57,9 @@ clean:
 	rm -rf target/soil_biosample*
 	rm -rf target/data.tsv
 
+# avoiding tests in submodules
 test:
-	poetry run pytest -rsvv test_sntc.py
+	poetry run pytest -rsvv tests/
 
 # turbomam's mixs-source
 #   moves "patterns" to string serializastions
