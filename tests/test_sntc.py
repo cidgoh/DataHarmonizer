@@ -32,9 +32,9 @@ import pprint
 
 
 # where to put these configuration values?
-mixs_yaml = "mixs-source/model/schema/mixs.yaml"
+mixs_yaml = "../mixs-source/model/schema/mixs.yaml"
 sntc_id = '1pSmxX6XGOxmoA7S7rKyj5OaEl3PmAl4jAOlROuNHrU0'
-client_secret_json = "local/client_secret.apps.googleusercontent.com.json"
+client_secret_json = "../local/client_secret.apps.googleusercontent.com.json"
 
 expected_tab_dict = {0: 'SheetIdentification',
                      1: 'Example Use',

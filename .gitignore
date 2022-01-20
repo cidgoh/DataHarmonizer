@@ -2,6 +2,7 @@
 client_secret.apps.googleusercontent.com.json
 local
 sheets.googleapis.com-python.json
+*client_secret*apps.googleusercontent.com.json
 
 
 # Byte-compiled / optimized / DLL files
