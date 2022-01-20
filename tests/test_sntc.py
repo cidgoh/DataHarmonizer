@@ -222,7 +222,6 @@ def get_mixs_all_slots(mixs_view):
     slotnames = [str(k) for k, v in slots.items()]
     return slotnames
 
-
 # # Moot
 # # no longer processing the Terms tab
 # def test_Terms_columns(Terms_tab):
@@ -249,11 +248,11 @@ def get_mixs_all_slots(mixs_view):
 #     dupes = ch_vc[ch_vc.gt(1)]
 #     assert len(dupes) == 0
 
-
-def test_mixs_soil_ind_slot_names(mixs_view):
-    ind_slots = mixs_view.class_induced_slots("soil")
-    ind_slot_names = [i.name for i in ind_slots]
-    assert ind_slot_names == expected_mixs_soil_ind_slot_names
+# @pytest.skip
+# def test_mixs_soil_ind_slot_names(mixs_view):
+#     ind_slots = mixs_view.class_induced_slots("soil")
+#     ind_slot_names = [i.name for i in ind_slots]
+#     assert ind_slot_names == expected_mixs_soil_ind_slot_names
 
 # todo ultimately, SNTC should be seen as describing all package classes,
 #   via Terms-> Associated Packages
