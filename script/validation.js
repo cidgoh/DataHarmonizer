@@ -54,18 +54,41 @@ const getInvalidCells = (hot, data) => {
         }
         else {
           switch (datatype) {
-           
-            case 'xsd:nonNegativeInteger':
-              const parsedInt = parseInt(cellVal, 10);
-              valid = !isNaN(cellVal) && parsedInt>=0
+
+            case 'xsd:integer':
+              valid = !isNaN(cellVal);
               valid &= parsedInt.toString()===cellVal;
               valid &= testNumericRange(parsedInt, field);
+              break;
+
+            case 'xsd:nonNegativeInteger':
+              const parsedInt = parseInt(cellVal, 10);
+              valid = !isNaN(cellVal) && parsedInt>=0;
+              valid &= parsedInt.toString()===cellVal;
+              valid &= testNumericRange(parsedInt, field);
+              break;
+
+            case 'xsd:float':
+              const parsedFloat = parseFloat(cellVal);
+              valid = !isNaN(cellVal) && parsedFloat == cellVal;
+              valid &= testNumericRange(parsedFloat, field);
+              break;
+
+            case 'xsd:double':
+              // NEED DOUBLE RANGE VALIDATION
+              const parsedFloat = parseFloat(cellVal);
+              //valid = !isNaN(cellVal) && regexDouble.test(cellVal);
+              valid &= testNumericRange(parsedFloat, field);
               break;
 
             case 'xsd:decimal':
               const parsedDec = parseFloat(cellVal);
               valid = !isNaN(cellVal) && regexDecimal.test(cellVal);
               valid &= testNumericRange(parsedDec, field);
+              break;
+            
+            case 'xsd:boolean': 
+              valid = !isNaN(cellVal) && ['1','0','true','false'].indexOf(cellVal) >= 0;
               break;
 
             case 'xsd:date':
