@@ -19,7 +19,7 @@
  * https://github.com/GenomicsStandardsConsortium/mixs-source/tree/main/model/schema
  *
  */
-const VERSION = '0.5.0';
+const VERSION = '0.5.1';
 const VERSION_TEXT = 'DataHarmonizer provenance: v' + VERSION;
 
 // Currently selected cell range[row,col,row2,col2]
@@ -78,6 +78,8 @@ const createHot = (data) => {
     columns: getColumns(data),
     colHeaders: true,
     rowHeaders: true,
+    manualColumnResize: true,
+    //colWidths: [100], //Just fixes first column width
     contextMenu: ["remove_row","row_above","row_below"],
     minRows: 100,
     minSpareRows: 100,
@@ -245,8 +247,10 @@ const getColumns = (data) => {
 
     }
 
-    if (field.metadata_status) 
+    if (field.metadata_status) {
       col.source.push(...field.metadata_status);
+
+    }
 
     switch (field.datatype) {
 
@@ -475,7 +479,8 @@ const scrollTo = (row, column, data, hot) => {
 
 
 /**
- * Get an HTML string that describes a field.
+ * Get an HTML string that describes a field, its examples etc. for display
+ * in column header.
  * @param {Object} field Any object under `children` in TABLE.
  * @return {String} HTML string describing field.
  */
@@ -894,16 +899,21 @@ const setupTemplate = (template_path) => {
   const combined = [...new Set([...Object.keys(specification_slot_usage), ...Object.keys(specification_slots) ])];
 
   /* Lookup each column in terms table. A term looks like:
-  is_a: "core field", title: "history/fire", slot_uri: "MIXS:0001086"
-  comments: (3) ['Expected value: date', 'Occurrence: 1', 'This field is used uniquely in: soil']
-  description: "Historical and/or physical evidence of fire"
-  examples: [{…}], multivalued: false, range: "date"
+    is_a: "core field", 
+    title: "history/fire", 
+    slot_uri: "MIXS:0001086"
+    comments: (3) ['Expected value: date', 'Occurrence: 1', 'This field is used uniquely in: soil']
+    description: "Historical and/or physical evidence of fire"
+    examples: [{…}], 
+    multivalued: false, 
+    range: "date",
+    ...
   */
   combined.forEach(function (name) {
 
     // EXPERIMENTAL - should be merging in the order of overrided attributes?!
     const field =  Object.assign({}, SCHEMA.slots[name], specification_slots[name], specification_slot_usage[name]);
-    console.log(field);
+    //console.log(field);
 
     if ('is_a' in field) {
 
@@ -928,46 +938,113 @@ const setupTemplate = (template_path) => {
 
       new_field.datatype = null;
       switch (new_field.range) {
-        case "string": 
+        // LinkML typically translates "string" to "uri":"xsd:string" but
+        // this is problematic because that allows newlines which break
+        // spreadsheet saving of items.
+        //case "string": 
+        // new_field.datatype = "xsd:string";
+
+        case 'string': 
           // xsd:token means that string cannot have newlines, multiple-tabs
           // or spaces.
-          new_field.datatype = "xsd:token"; // was "xs:token",
+          new_field.datatype = 'xsd:token'; // was "xs:token",
           break;
 
-        //case "uri":
-        //case "uriorcurie"
         //case "datetime"
         //case "time"
-        //case "double"
-        //case "float"
-        //case "boolean"
         //case "ncname"
         //case "objectidentifier"
         //case "nodeidentifier"
 
-        case "decimal":
-          new_field.datatype = "xsd:decimal";
+        case 'decimal':
+          new_field.datatype = 'xsd:decimal'; // was xs:decimal
+          break;
 
-        case "integer": // int ???
-          new_field.datatype = "xsd:nonNegativeInteger";
+        case 'float':
+          new_field.datatype = 'xsd:float';
+          break;
 
-        case "quantity value": 
+        case 'double':
+          new_field.datatype = 'xsd:double'; 
+          break;
+
+        case 'integer': // int ???
+          new_field.datatype = 'xsd:integer'; // was xs:nonNegativeInteger
+          break;
+
+        // XML Boolean lexical space accepts true, false, and also 1 
+        // (for true) and 0 (for false).
+        case 'boolean': 
+          new_field.datatype = 'xsd:boolean';
+          break;
+
+        case 'uri': 
+        case 'uriorcurie': 
+          new_field.datatype = 'xsd:anyURI';
+          break;
+
+
+        // https://linkml.io/linkml-model/docs/string_serialization/
+        case 'string_serialization': 
+          // Value A string which provides "{has numeric value} {has unit}" style 
+          // named expressions.  These can be compiled into the .pattern field
+          // if nothing already exists in .pattern
+
+        case 'has unit': 
+          break;
+
+        case 'has numeric value':
+          break;
+
+        // This shows up as a LinkML class - but not formally defined as LinkML spec? 
+        case 'quantity value': // A LinkML class
+
+          /* LinkML model for quantity value, along lines of https://schema.org/QuantitativeValue
+
+            description: >-
+              A simple quantity, e.g. 2cm
+            attributes:
+              verbatim:
+                description: >-
+                  Unnormalized atomic string representation, should in syntax {number} {unit}
+              has unit:
+                description: >-
+                  The unit of the quantity
+                slot_uri: qudt:unit
+              has numeric value:
+                description: >-
+                  The number part of the quantity
+                range:
+                  double
+            class_uri: qudt:QuantityValue
+            mappings:
+              - schema:QuantityValue
+
+          */
           new_field.datatype = "xsd:token"; //xsd:decimal + unit
           // PROBLEM: There are a variety of quantity values specified, some allowing units
           // which would need to go in a second column unless validated as text within column.
           break;
 
-        case "date":
-          new_field.datatype = "xsd:date";
+        case 'time':
+          new_field.datatype = 'xsd:time';
+          break;
+          
+        case 'datetime':
+          new_field.datatype = 'xsd:datetime';
+          break;
+
+        case 'date':
+          new_field.datatype = 'xsd:date'; // was xs:date
           break;
 
         default:
           // Usually a selection list here, possibly .multivalued = true
-          new_field.datatype = "xsd:token"; // was "xs:token"
+          new_field.datatype = 'xsd:token'; // was "xs:token"
           if (new_field.range in SCHEMA.enumerations) {
             new_field.source = SCHEMA.enumerations[new_field.range].permissible_values;
             //This calculates for each categorical field in schema.yaml a 
-            // flat list of allowed values
+            // flat list of allowed values (indented to represent hierarchy)
             new_field.flatVocabulary = stringifyNestedVocabulary(new_field.source);
 
             // points to an object with .permissible_values ORDERED DICT array.
