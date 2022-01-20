@@ -1,16 +1,18 @@
-from itertools import dropwhile
+# from itertools import dropwhile
 
 import pandas as pd
 import pygsheets
 import pytest
-from linkml.generators.yamlgen import YAMLGenerator
-from linkml_runtime.dumpers import yaml_dumper
-from linkml_runtime.linkml_model import ClassDefinition
+# from linkml.generators.yamlgen import YAMLGenerator
+# from linkml_runtime.dumpers import yaml_dumper
+# from linkml_runtime.linkml_model import ClassDefinition
 from linkml_runtime.utils.schemaview import SchemaView
 
-import linkml_round_trips.old.just_exacts as je
+# import linkml_round_trips.old.just_exacts as je
 
 import pprint
+
+# ---
 
 # what is the spirit of these tests, especially the following which are failing
 # test_sntc_missing_soil_slots
@@ -30,29 +32,27 @@ import pprint
 # also check
 # enumerations
 
+# ---
+
 
 # where to put these configuration values?
-mixs_yaml = "../mixs-source/model/schema/mixs.yaml"
-sntc_id = '1pSmxX6XGOxmoA7S7rKyj5OaEl3PmAl4jAOlROuNHrU0'
 client_secret_json = "../local/client_secret.apps.googleusercontent.com.json"
+sntc_id = '1pSmxX6XGOxmoA7S7rKyj5OaEl3PmAl4jAOlROuNHrU0'
 
-expected_tab_dict = {0: 'SheetIdentification',
-                     1: 'Example Use',
-                     2: 'OtherPackages',
-                     3: 'JGI Terms',
-                     4: 'mixs_packages_x_slots',
-                     5: 'mixs_modified_slots',
-                     6: 'biosample_identification_slots',
-                     7: 'nmdc_biosample_slots',
-                     8: 'EMSL_sample_slots',
-                     9: 'JGI_sample_slots',
-                     10: 'Sections_order',
-                     11: 'enumerations'}
+expected_SI_frame_cols = ['sheet_name', 'notes', 'input for soil DH template generation']
 
-expected_Terms_col_names = ['row_ord', 'Column Header', 'To Do', 'NMDC_slot_name_schema', 'EMSL_slot_Name',
-                            'mixs_6_slot_name', 'Definition', 'Guidance', 'syntax', 'Expected value',
-                            'requirement status', 'Category', 'Associated Packages', 'Origin', 'Notes',
-                            'GitHub Ticket', 'version', 'Section', 'Example', 'Preferred unit']
+expected_tabs = ['SheetIdentification',
+                 'Example Use',
+                 'OtherPackages',
+                 'JGI Terms',
+                 'mixs_packages_x_slots',
+                 'mixs_modified_slots',
+                 'biosample_identification_slots',
+                 'nmdc_biosample_slots',
+                 'EMSL_sample_slots',
+                 'JGI_sample_slots',
+                 'Sections_order',
+                 'enumerations']
 
 # order matters
 expected_mixs_soil_ind_slot_names = ['lat_lon', 'depth', 'alt', 'elev', 'temp', 'geo_loc_name', 'collection_date',
@@ -69,26 +69,48 @@ expected_mixs_soil_ind_slot_names = ['lat_lon', 'depth', 'alt', 'elev', 'temp', 
                                      'micro_biomass_meth', 'link_addit_analys', 'extreme_salinity', 'salinity_meth',
                                      'heavy_metals', 'heavy_metals_meth', 'al_sat', 'al_sat_meth', 'misc_param']
 
+mixs_yaml = "../mixs-source/model/schema/mixs.yaml"
+
+
+# ---
+
+
+def get_list_diif(a, b):
+    return list(set(a) - set(b))
+
+
+def get_list_intersection(a, b):
+    return list(set(a).intersection(set(b)))
+
+
+def get_list_union(a, b):
+    return list(set(a).union(set(b)))
+
+
+def informative_check(string_to_test):
+    is_informative = string_to_test is not None and string_to_test != ""
+    return is_informative
+
+
+def test_bogus_gsheet():
+    gc = pygsheets.authorize(client_secret=client_secret_json)
+    with pytest.raises(Exception) as e_info:
+        gc.open_by_key("bogus_key_I_presume")
+
 
 @pytest.fixture(scope="module")
 def sntc_gsheet():
-    soil_nmdc_template_compiled = sntc_id
-    some_google_auth_file = client_secret_json
-    gc = pygsheets.authorize(client_secret=some_google_auth_file)
-    sh = gc.open_by_key(soil_nmdc_template_compiled)
+    # is providing these as globals a good idea?
+    # is passing parameters to a fixture a thing?
+    gc = pygsheets.authorize(client_secret=client_secret_json)
+    sh = gc.open_by_key(sntc_id)
     return sh
 
 
-@pytest.fixture(scope="module")
-def Terms_tab(sntc_gsheet):
-    Terms_tab = sntc_gsheet.worksheet("title", 'Terms')
-    return Terms_tab
-
-
-@pytest.fixture(scope="module")
-def Terms_frame(Terms_tab):
-    Terms_frame = Terms_tab.get_as_df()
-    return Terms_frame
+def test_sntc_gsheet_accessible(sntc_gsheet):
+    # Soil-NMDC-Template_Compiled
+    # 1pSmxX6XGOxmoA7S7rKyj5OaEl3PmAl4jAOlROuNHrU0
+    assert sntc_gsheet is not None
 
 
 @pytest.fixture(scope="module")
@@ -97,17 +119,44 @@ def SI_tab(sntc_gsheet):
     return SI_tab
 
 
+def test_SheetIdentification_accessible(SI_tab):
+    assert SI_tab is not None
+
+
 @pytest.fixture(scope="module")
 def SI_frame(SI_tab):
     SI_frame = SI_tab.get_as_df()
     return SI_frame
 
 
+def test_SI_frame(SI_frame):
+    assert type(SI_frame) == pd.DataFrame
+
+
+def test_SI_frame_columns(SI_frame):
+    assert list(SI_frame.columns) == expected_SI_frame_cols
+
+
 @pytest.fixture(scope="module")
-def Terms_ch(Terms_tab):
-    Terms_frame = Terms_tab.get_as_df()
-    ch_col = Terms_frame['Column Header']
-    return ch_col
+def tabs_list(sntc_gsheet):
+    return [tab.title for tab in sntc_gsheet.worksheets()]
+
+
+def test_ST_frame_sheet_name_col_vs_tabs(tabs_list, SI_frame):
+    ST_frame_sheet_name_val_list = list(SI_frame['sheet_name'])
+    assert ST_frame_sheet_name_val_list == tabs_list
+
+
+def test_tabs_vs_previous(tabs_list):
+    assert tabs_list == expected_tabs
+
+
+@pytest.fixture(scope="module")
+def enums_cols(Terms_tab):
+    pass
+
+
+# ---
 
 
 # allow arbitrary column name in a fixture?
@@ -129,23 +178,6 @@ def mixs_soil_ind_slot_names(mixs_view):
     ind_slots = mixs_view.class_induced_slots("soil")
     ind_slot_names = [i.name for i in ind_slots]
     return ind_slot_names
-
-
-def get_list_diif(a, b):
-    return list(set(a) - set(b))
-
-
-def get_list_intersection(a, b):
-    return list(set(a).intersection(set(b)))
-
-
-def get_list_union(a, b):
-    return list(set(a).union(set(b)))
-
-
-def informative_check(string_to_test):
-    is_informative = string_to_test is not None and string_to_test != ""
-    return is_informative
 
 
 # def make_informative_list(raw_list):
@@ -189,22 +221,6 @@ def get_mixs_all_slots(mixs_view):
     slots = mixs_view.all_slots()
     slotnames = [str(k) for k, v in slots.items()]
     return slotnames
-
-
-# has there been any change in the
-#   titles or indices of the soil_nmdc_template_compiled tabs?
-# order within expected dict shouldn't matter
-def test_tab_title_indices(sntc_gsheet):
-    sh_tabs = sntc_gsheet.worksheets()
-    obs_tab_dict = {tab.index: tab.title for tab in sh_tabs}
-    # pprint.pprint(obs_tab_dict)
-    # pprint.pprint(expected_tab_dict)
-    assert obs_tab_dict == expected_tab_dict
-
-
-def test_SI_vs_expected(SI_frame):
-    documented = dict(zip(list(SI_frame.index), list(SI_frame['sheet_name'])))
-    assert documented == expected_tab_dict
 
 
 # # Moot
