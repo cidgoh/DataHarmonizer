@@ -1038,6 +1038,19 @@ const getFieldYCoordinates = (data) => {
   return ret;
 };
 
+const getColumnCoordinates = (data) => {
+  const ret = {};
+  let column_ptr = 0;
+  for (section of data) {
+    ret[section.fieldName] = column_ptr;
+    for (column of section.children) {
+      ret[' . . ' + column.fieldName] = column_ptr;
+      column_ptr ++;
+    }
+  }
+  return ret;
+};
+
 /**
  * Scroll grid to specified column.
  * @param {String} row 0-based index of row to scroll to.
@@ -1528,17 +1541,21 @@ const setupTriggers = () => {
       let value = $fillValueInput.val();
       let colname = $fillColumnInput.val();
       const fieldYCoordinates = getFieldYCoordinates(DATA);
-      let changes = [];
-      for (let row=0; row<HOT.countRows(); row++) {
-        if (!HOT.isEmptyRow(row)) {
-          let col = fieldYCoordinates[colname];
-          if (HOT.getDataAtCell(row, col) !== value)      
-            changes.push([row, col, value]);
+      // ENSURE colname hasn't been tampered with (the autocomplete allows
+      // other text)
+      if (colname in fieldYCoordinates) {
+        let changes = [];
+        for (let row=0; row<HOT.countRows(); row++) {
+          if (!HOT.isEmptyRow(row)) {
+            let col = fieldYCoordinates[colname];
+            if (HOT.getDataAtCell(row, col) !== value)      
+              changes.push([row, col, value]);
+          }
         }
-      }
-      if (changes.length > 0) {
-        HOT.setDataAtCell(changes);
-        HOT.render();
+        if (changes.length > 0) {
+          HOT.setDataAtCell(changes);
+          HOT.render();
+        }
       }
     });
   });
@@ -1724,24 +1741,24 @@ const launch = (template_folder, DATA) => {
 
   toggleDropdownVisibility(HOT, INVALID_CELLS);
 
-  const fieldYCoordinates = getFieldYCoordinates(DATA);
+  // Allows columnCoordinates to be accessed within select() below.
+  const columnCoordinates = getColumnCoordinates(DATA);
 
   // Settings -> Jump to...
-  const $jumpToInput = $('#jump-to-input');
-  $jumpToInput.autocomplete({
-    source: Object.keys(fieldYCoordinates),
+  $('#jump-to-input').autocomplete({
+    source: Object.keys(columnCoordinates),
     minLength: 0,
     select: (e, ui) => {
-      const column = fieldYCoordinates[ui.item.label];
-      scrollTo(0, column, DATA, window.HOT);
+      const columnX = columnCoordinates[ui.item.label];
+      scrollTo(0, columnX, DATA, window.HOT);
       $('#jump-to-modal').modal('hide');
     },
   })
 
-  const $fillColumnInput = $('#fill-column-input');
-  $fillColumnInput.autocomplete({
-    source: Object.keys(fieldYCoordinates),
+  $('#fill-column-input').autocomplete({
+    source: getFields(DATA).map(a => a.fieldName),
     minLength: 0
   })
 
 }
+
