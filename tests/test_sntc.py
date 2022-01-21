@@ -41,6 +41,12 @@ sntc_id = '1pSmxX6XGOxmoA7S7rKyj5OaEl3PmAl4jAOlROuNHrU0'
 
 expected_SI_frame_cols = ['sheet_name', 'notes', 'input for soil DH template generation']
 
+expected_enums_frame_cols = ['env_package', 'enum', 'permissible_value']
+
+# all the MIxS env package classed?
+# plus the derived ones from EMSL? Montana can helo with that?
+allowed_env_packs = ['soil']
+
 expected_tabs = ['SheetIdentification',
                  'Example Use',
                  'OtherPackages',
@@ -52,7 +58,7 @@ expected_tabs = ['SheetIdentification',
                  'EMSL_sample_slots',
                  'JGI_sample_slots',
                  'Sections_order',
-                 'enumerations']
+                 'enumerations', 'enums_long']
 
 # order matters
 expected_mixs_soil_ind_slot_names = ['lat_lon', 'depth', 'alt', 'elev', 'temp', 'geo_loc_name', 'collection_date',
@@ -152,8 +158,34 @@ def test_tabs_vs_previous(tabs_list):
 
 
 @pytest.fixture(scope="module")
-def enums_cols(Terms_tab):
-    pass
+def enums_tab(sntc_gsheet):
+    enums_tab = sntc_gsheet.worksheet("title", 'enumerations')
+    return enums_tab
+
+
+def test_enums_tab(enums_tab):
+    assert enums_tab is not None
+
+
+# not really a test
+# just ran once for reshaping part of the SNTC Google sheet
+# def test_make_long_enums_frame(enums_tab, sntc_gsheet):
+#     orig_enums_frame = enums_tab.get_as_df()
+#     orig_enums_dict = orig_enums_frame.to_dict(orient='dict')
+#     row_list = []
+#     for ck, cv in orig_enums_dict.items():
+#         for rk, rv in cv.items():
+#             if informative_check(rv):
+#                 row_list.append({"enum": ck, "permissible_value": rv})
+#     reshaped_enum_frame = pd.DataFrame(row_list)
+#     sheet_name = 'enums_long'
+#     # try:
+#     sntc_gsheet.add_worksheet(sheet_name)
+#     wks_write = sntc_gsheet.worksheet_by_title(sheet_name)
+#     wks_write.clear('A1', None, '*')
+#     wks_write.set_dataframe(reshaped_enum_frame, (1, 1), encoding='utf-8', fit=True)
+#     wks_write.frozen_rows = 1
+#     assert True
 
 
 # ---
