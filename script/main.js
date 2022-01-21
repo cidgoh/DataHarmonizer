@@ -965,6 +965,7 @@ const binChangeTest = (matrix, rowOffset, col, fields, binOffset, triggered_chan
 const changeColVisibility = (id = 'show-all-cols-dropdown-item', data, hot) => {
   // Grid becomes sluggish if viewport outside visible grid upon re-rendering
   hot.scrollViewportTo(0, 1);
+  const domEl = $('#' + id);
 
   // Un-hide all currently hidden cols
   const hiddenColsPlugin = hot.getPlugin('hiddenColumns');
@@ -974,9 +975,9 @@ const changeColVisibility = (id = 'show-all-cols-dropdown-item', data, hot) => {
   const hiddenColumns = [];
 
   // If accessed by menu, disable that menu item, and enable the others
-  const showColsSelectors = '#show-all-cols-dropdown-item, #show-required-cols-dropdown-item, #show-recommended-cols-dropdown-item';
-  $(showColsSelectors).removeClass('disabled');
-  $('#'+id).addClass('disabled');
+  $('#show-all-cols-dropdown-item, #show-required-cols-dropdown-item, #show-recommended-cols-dropdown-item, .show-section-dropdown-item')
+    .removeClass('disabled');
+  domEl.addClass('disabled');
 
   //Request may be for only required fields, or required+recommended fields
   const options = (id === 'show-required-cols-dropdown-item') ? ['required'] : (id === 'show-recommended-cols-dropdown-item') ? ['required','recommended'] : null;
@@ -985,9 +986,24 @@ const changeColVisibility = (id = 'show-all-cols-dropdown-item', data, hot) => {
       if (!options.includes(field.requirement)) hiddenColumns.push(i);
     });
   }
+  // prefix of ID indicates if it is a command to show just one section.
+  else if (id.indexOf('show-section-') === 0) {
+    const section_name = domEl.text();
+    let column_ptr = 0;
+    for (section of data) {
+      for (column of section.children) {
+        // First condition ensures first (row identifier) column is not hidden
+        if (column_ptr > 0 && section.fieldName != section_name) {
+          hiddenColumns.push(column_ptr)
+        }
+        column_ptr ++;
+      }
+    };
+  }
   hiddenColsPlugin.hideColumns(hiddenColumns);
   hot.render();
 };
+
 
 /**
  * Modify visibility of rows in grid. This function should only be called
@@ -1642,15 +1658,7 @@ const setupTriggers = () => {
     });
   });
 
-  // Settings -> Show ... columns
-  const showColsSelectors = [
-      '#show-all-cols-dropdown-item', 
-      '#show-required-cols-dropdown-item',
-      '#show-recommended-cols-dropdown-item',
-      ];
-  $(showColsSelectors.join(',')).click((e) => {
-    runBehindLoadingScreen(changeColVisibility, [e.target.id, DATA, HOT]);
-  });
+
 
   // Settings -> Show ... rows
   const showRowsSelectors = [
@@ -1743,6 +1751,26 @@ const launch = (template_folder, DATA) => {
 
   // Allows columnCoordinates to be accessed within select() below.
   const columnCoordinates = getColumnCoordinates(DATA);
+
+
+  $('#section-menu').empty();
+  section_ptr = 0;
+  for (section of DATA) {
+    $('#section-menu').append(`<div id="show-section-${section_ptr}" class="dropdown-item show-section-dropdown-item">${section.fieldName}</div>`);
+    section_ptr ++;
+  }
+
+  // Settings -> Show ... columns
+  const showColsSelectors = [
+      '#show-all-cols-dropdown-item', 
+      '#show-required-cols-dropdown-item',
+      '#show-recommended-cols-dropdown-item',
+      '.show-section-dropdown-item',
+      ];
+
+    $(showColsSelectors.join(',')).on('click', function(e) {
+    runBehindLoadingScreen(changeColVisibility, [e.target.id, DATA, window.HOT]);
+  });
 
   // Settings -> Jump to...
   $('#jump-to-input').autocomplete({
