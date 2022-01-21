@@ -688,7 +688,7 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "",
         "description": "Present state of sample site",
-        "guidance": "Expected value: enumeration | pattern generalization: [cities|farmstead|industrial areas|roads/railroads|rock|sand|gravel|mudflats|salt flats|badlands|permanent snow or ice|saline seeps|mines/quarries|oil waste areas|small grains|row crops|vegetable crops|horticultural plants (e.g. tulips)|marshlands (grass,sedges,rushes)|tundra (mosses,lichens)|rangeland|pastureland (grasslands used for livestock grazing)|hayland|meadows (grasses,alfalfa,fescue,bromegrass,timothy)|shrub land (e.g. mesquite,sage-brush,creosote bush,shrub oak,eucalyptus)|successional shrub land (tree saplings,hazels,sumacs,chokecherry,shrub dogwoods,blackberries)|shrub crops (blueberries,nursery ornamentals,filberts)|vine crops (grapes)|conifers (e.g. pine,spruce,fir,cypress)|hardwoods (e.g. oak,hickory,elm,aspen)|intermixed hardwood and conifers|tropical (e.g. mangrove,palms)|rainforest (evergreen forest receiving >406 cm annual rainfall)|swamp (permanent or semi-permanent water body dominated by woody plants)|crop trees (nuts,fruit,christmas trees,nursery trees)]",
+        "guidance": "Expected value: enumeration",
         "examples": "conifers",
         "exportField": {
           "dev": [
@@ -798,7 +798,7 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "",
         "description": "Drainage classification from a standard system such as the USDA system",
-        "guidance": "Expected value: enumeration | pattern generalization: [very poorly|poorly|somewhat poorly|moderately well|well|excessively drained]",
+        "guidance": "Expected value: enumeration",
         "examples": "well",
         "exportField": {
           "dev": [
@@ -848,7 +848,7 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "",
         "description": "Soil classification from the FAO World Reference Database for Soil Resources. The list can be found at http://www.fao.org/nr/land/sols/soil/wrb-soil-maps/reference-groups",
-        "guidance": "Expected value: enumeration | pattern generalization: [Acrisols|Andosols|Arenosols|Cambisols|Chernozems|Ferralsols|Fluvisols|Gleysols|Greyzems|Gypsisols|Histosols|Kastanozems|Lithosols|Luvisols|Nitosols|Phaeozems|Planosols|Podzols|Podzoluvisols|Rankers|Regosols|Rendzinas|Solonchaks|Solonetz|Vertisols|Yermosols]",
+        "guidance": "Expected value: enumeration",
         "examples": "Luvisols",
         "exportField": {
           "dev": [
@@ -1267,7 +1267,7 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "",
         "description": "Cross-sectional position in the hillslope where sample was collected.sample area position in relation to surrounding areas",
-        "guidance": "Expected value: enumeration | pattern generalization: [summit|shoulder|backslope|footslope|toeslope]",
+        "guidance": "Expected value: enumeration",
         "examples": "summit",
         "exportField": {
           "dev": [
@@ -1425,7 +1425,7 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "",
         "description": "Specific layer in the land area which measures parallel to the soil surface and possesses physical characteristics which differ from the layers above and beneath",
-        "guidance": "Expected value: enumeration | pattern generalization: [O horizon|A horizon|E horizon|B horizon|C horizon|R layer|Permafrost]",
+        "guidance": "Expected value: enumeration",
         "examples": "A horizon",
         "exportField": {
           "dev": [
@@ -1541,7 +1541,7 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "",
         "description": "Note method(s) used for tilling",
-        "guidance": "Expected value: enumeration | pattern generalization: [drill|cutting disc|ridge till|strip tillage|zonal tillage|chisel|tined|mouldboard|disc plough]",
+        "guidance": "Expected value: enumeration",
         "examples": "chisel",
         "exportField": {
           "dev": [
