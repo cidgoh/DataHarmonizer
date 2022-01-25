@@ -303,31 +303,22 @@
           <div class="modal-body">
             <div class="container-fluid">
               <div class="row">
-                <div class="col">The second row in your imported file does not match the grid.</div>
+                <div class="col">The second row in your imported file does not match the template column specification. Mismatched column(s) are shown in orange.</div>
               </div>
               <div class="row my-3 border" id="specify-headers-comparison-row">
                 <div class="col">
-                  <div class="row">
-                    <div class="col"><b>Expected second row:</b></div>
-                  </div>
-                  <div class="row">
-                    <div class="col">
-                      <div id="expected-headers-div"></div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col"><b>Actual second row:</b></div>
-                  </div>
-                  <div class="row">
-                    <div class="col">
-                      <div id="actual-headers-div"></div>
-                    </div>
+                  <div class="row" id="field-mapping-container">
+                    <table id="field-mapping">
+                      <tr id="expected-headers-tr"></tr>
+                      <tr id="actual-headers-tr"></tr>
+                    </table>
                   </div>
                 </div>
               </div>
               <div class="row">
                 <div class="col">
-                  <p>We will try to map your headers. <b>Which row in your file has the column headers?</b></p>
+                  <p>We will try to map your headers.<br/>
+                  <b>Which row in your file has the column headers?</b></p>
                 </div>
               </div>
               <div class="row">
