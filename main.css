@@ -81,9 +81,20 @@ html, body {
 #grid .htAutocompleteArrow {
 	color: gray;
 }
+
+/* To left align 1st and second row headers, uncomment this.
+Otherwise first two rows of column headers are centered.*/
 #grid th {
-	text-align: left;
+	text-align: left; 
 }
+
+/* To center 2nd row headers, uncomment this style. */
+#grid thead > tr:nth-child(2) > th div.relative {
+	text-align: center;
+}
+
+
+
 #grid th.required {
 	background-color:yellow;
 }
@@ -131,7 +142,7 @@ html, body {
 	display: none;
 }
 
-
+ 
 #field-mapping-container {
 	overflow-x: scroll; 
 	padding-bottom: 1rem;

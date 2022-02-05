@@ -609,7 +609,7 @@ var DATA = [
           "Restricted Access"
         ],
         "xs:minInclusive": "2019-10-01",
-        "xs:maxInclusive": "",
+        "xs:maxInclusive": "{today}",
         "requirement": "required",
         "description": "The date on which the sample was collected.",
         "guidance": "Sample collection date is critical for surveillance and many types of analyses. Required granularity includes year, month and day. If this date is considered identifiable information, it is acceptable to add \"jitter\" by adding or subtracting a calendar day (acceptable by GISAID). Alternatively, \u201dreceived date\u201d may be used as a substitute. The date should be provided in ISO 8601 standard format \"YYYY-MM-DD\".",
@@ -648,7 +648,13 @@ var DATA = [
         "ontology_id": "GENEPIO:0001177",
         "datatype": "select",
         "source": "",
-        "dataStatus": null,
+        "dataStatus": [
+          "Not Applicable",
+          "Missing",
+          "Not Collected",
+          "Not Provided",
+          "Restricted Access"
+        ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "required",
@@ -4823,7 +4829,7 @@ var DATA = [
       {
         "fieldName": "vaccination dose 1 vaccine name",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO:0100313",
         "datatype": "select",
         "source": "",
         "dataStatus": [
@@ -4847,17 +4853,27 @@ var DATA = [
           ]
         },
         "schema:ItemList": {
-          "Moderna (Spikevax)": {},
-          "Pfizer-BioNTech (Comirnaty)": {},
-          "Pfizer-BioNTech (Comirnaty Pediatric)": {},
-          "Johnson & Johnson (Janssen)": {},
-          "Astrazeneca (Vaxzevria)": {}
+          "Astrazeneca (Vaxzevria)": {
+            "ontology_id": "GENEPIO:0100308"
+          },
+          "Johnson & Johnson (Janssen)": {
+            "ontology_id": "GENEPIO:0100307"
+          },
+          "Moderna (Spikevax)": {
+            "ontology_id": "GENEPIO:0100304"
+          },
+          "Pfizer-BioNTech (Comirnaty)": {
+            "ontology_id": "GENEPIO:0100305"
+          },
+          "Pfizer-BioNTech (Comirnaty Pediatric)": {
+            "ontology_id": "GENEPIO:0100306"
+          }
         }
       },
       {
         "fieldName": "vaccination dose 1 vaccination date",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO:0100314",
         "datatype": "xs:date",
         "source": "",
         "dataStatus": [
@@ -4872,7 +4888,7 @@ var DATA = [
         "requirement": "",
         "description": "The date the first dose of a vaccine was administered.",
         "guidance": "Provide the date the first dose of COVID-19 vaccine was administered. The date should be provided in ISO 8601 standard format \"YYYY-MM-DD\".",
-        "examples": "",
+        "examples": "2021-03-01",
         "exportField": {
           "NML_LIMS": [
             {
@@ -4884,7 +4900,7 @@ var DATA = [
       {
         "fieldName": "vaccination dose 2 vaccine name",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO:0100315",
         "datatype": "select",
         "source": "vaccination dose 1 vaccine name",
         "dataStatus": [
@@ -4912,7 +4928,7 @@ var DATA = [
       {
         "fieldName": "vaccination dose 2 vaccination date",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO:0100316",
         "datatype": "xs:date",
         "source": "",
         "dataStatus": [
@@ -4927,7 +4943,7 @@ var DATA = [
         "requirement": "",
         "description": "The date the second dose of a vaccine was administered.",
         "guidance": "Provide the date the second dose of COVID-19 vaccine was administered. The date should be provided in ISO 8601 standard format \"YYYY-MM-DD\".",
-        "examples": "",
+        "examples": "2021-09-01",
         "exportField": {
           "NML_LIMS": [
             {
@@ -4939,7 +4955,7 @@ var DATA = [
       {
         "fieldName": "vaccination dose 3 vaccine name",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO:0100317",
         "datatype": "select",
         "source": "vaccination dose 1 vaccine name",
         "dataStatus": [
@@ -4967,7 +4983,7 @@ var DATA = [
       {
         "fieldName": "vaccination dose 3 vaccination date",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO:0100318",
         "datatype": "xs:date",
         "source": "",
         "dataStatus": [
@@ -4982,7 +4998,7 @@ var DATA = [
         "requirement": "",
         "description": "The date the third dose of a vaccine was administered.",
         "guidance": "Provide the date the third dose of COVID-19 vaccine was administered. The date should be provided in ISO 8601 standard format \"YYYY-MM-DD\".",
-        "examples": "",
+        "examples": "2021-12-30",
         "exportField": {
           "NML_LIMS": [
             {
@@ -4994,7 +5010,7 @@ var DATA = [
       {
         "fieldName": "vaccination dose 4 vaccine name",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO:0100319",
         "datatype": "select",
         "source": "vaccination dose 1 vaccine name",
         "dataStatus": [
@@ -5022,7 +5038,7 @@ var DATA = [
       {
         "fieldName": "vaccination dose 4 vaccination date",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO:0100320",
         "datatype": "xs:date",
         "source": "",
         "dataStatus": [
@@ -5037,7 +5053,7 @@ var DATA = [
         "requirement": "",
         "description": "The date the fourth dose of a vaccine was administered.",
         "guidance": "Provide the date the fourth dose of COVID-19 vaccine was administered. The date should be provided in ISO 8601 standard format \"YYYY-MM-DD\".",
-        "examples": "",
+        "examples": "2022-01-15",
         "exportField": {
           "NML_LIMS": [
             {
@@ -5049,7 +5065,7 @@ var DATA = [
       {
         "fieldName": "vaccination history",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO:0100321",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
@@ -5057,8 +5073,8 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "",
         "description": "A description of the vaccines received and the administration dates of a series of vaccinations against a specific disease or a set of diseases.",
-        "guidance": "",
-        "examples": "",
+        "guidance": "Free text description of the dates and vaccines administered against a particular disease/set of diseases. It is also acceptable to concatenate the individual dose information (vaccine name, vaccination date) separated by semicolons.",
+        "examples": "Pfizer-BioNTech (Comirnaty); 2021-03-01; Pfizer-BioNTech (Comirnaty); 2022-01-15",
         "exportField": {
           "NML_LIMS": [
             {
@@ -6136,7 +6152,7 @@ var DATA = [
           "Not Provided",
           "Restricted Access"
         ],
-        "xs:minInclusive": "2019-10-01",
+        "xs:minInclusive": "{sample collection date}",
         "xs:maxInclusive": "",
         "requirement": "required",
         "description": "The date the sample was sequenced.",
@@ -6457,7 +6473,7 @@ var DATA = [
           ],
           "NML_LIMS": [
             {
-              "field": "sequencing protocol name"
+              "field": "PH_SEQ_PROTOCOL_NAME"
             }
           ]
         }
@@ -7137,7 +7153,7 @@ var DATA = [
           "Variant of Interest (VOI)": {
             "ontology_id": "GENEPIO"
           },
-          "Variant Under Monitoring": {}
+          "Variant Under Monitoring (VUM)": {}
         }
       },
       {

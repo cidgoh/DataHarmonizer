@@ -535,8 +535,6 @@ var exportNML_LIMS = (baseName, hot, data, xlsx, fileType) => {
 
       if (headerName === 'PH_TRAVEL') {
         //Make unique any values in concatenated PH_TRAVEL merged field.
-        //FUTURE: Catch lowercase error too for travel fields not marked as allowing null values
-        //value = fixNullOptionCase(value, nullOptionsMap); 
         let val_set = new Set(value.split(';'));
         // Search for null values and remove them.
         let val_set_size = val_set.size;
@@ -547,7 +545,9 @@ var exportNML_LIMS = (baseName, hot, data, xlsx, fileType) => {
         }
         value = [...val_set].join(';');
       }
-
+      // For any exported field that might mention a null value (not just 
+      // ones with null value picklist defined)
+      value = fixNullOptionCase(value.trim(), nullOptionsMap); 
       outputRow.push(value);
     }
     outputMatrix.push(outputRow);

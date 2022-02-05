@@ -153,6 +153,7 @@ const createHot = (data) => {
       indicators: true,
       columns: [],
     },
+    // className: 'htCenter', too powerful - applies to every cell of whole grid.
     hiddenRows: {
       rows: [],
     },
@@ -1106,6 +1107,9 @@ const scrollTo = (row, column, data, hot) => {
 const getInvalidCells = (hot, data) => {
   const invalidCells = {};
   const fields = getFields(data);
+  // dictionary of field name to value
+  const columnIndex = getFieldYCoordinates(data);
+  let TODAY = new Date();
 
   const regexDecimal = /^(-|\+|)(0|[1-9]\d*)(\.\d+)?$/;
   let uniquefield = []; // holds lookup dictionary for any unique columns
@@ -1168,7 +1172,7 @@ const getInvalidCells = (hot, data) => {
             // moment is a date format addon
             valid = moment(cellVal, 'YYYY-MM-DD', true).isValid();
             if (valid) {
-              valid = testDateRange(cellVal, field);
+              valid = testDateRange(cellVal, field, columnIndex, row, TODAY, hot);
             }
             break;
           case 'select':
@@ -1262,32 +1266,72 @@ const testNumericRange = (number, field) => {
 
 /**
  * Test a given date against an upper or lower range, if any.
+ * Goes through all possible upper/lower fails, returns true otherwise.
  * @param {Date} date to be compared.
  * @param {Object} field that contains min and max limits.
  * @return {Boolean} validity of field.
  */
-const testDateRange = (aDate, field) => {
+const testDateRange = (aDate, field, columnIndex, row, TODAY, hot) => {
 
-  if (field['xs:minInclusive'] !== '') {
-    if (aDate < field['xs:minInclusive']) {
-      return false
+  var jsDate = new Date(aDate);
+  const comparison = [field['xs:minInclusive'], field['xs:maxInclusive']];
+  //console.log(comparison);
+
+  for (ptr in comparison) {
+    let c_items = comparison[ptr];
+
+    // Delimited list allows for test against date AND other fields.
+    for (let c_item of c_items.split(";")) {
+      if (c_item !== '') {
+
+        // Signals lookup expressions:
+        if (c_item[0] === '{' ) {
+          if (c_item === '{today}') {
+            if (itemCompare(jsDate, TODAY, ptr)) return false;
+          }
+          else {
+            let field = c_item.substr(1,c_item.length-2);
+            let col = columnIndex[field];
+            let lookup_item = hot.getDataAtCell(row, col);
+            //console.log(ptr, c_item, '\n', jsDate, '\n','\n', itemCompare(jsDate, new Date(lookup_item), ptr))
+            if (lookup_item !== '')
+              if (itemCompare(jsDate, new Date(lookup_item), ptr)) return false;
+          }
+        }
+        else {
+          // Assumes this is just a constant date string.
+          if (itemCompare(jsDate, new Date(c_item), ptr)) return false;
+        }
+      }
+
     }
   }
-  if (field['xs:maxInclusive'] !== '') {
-    if (aDate > field['xs:maxInclusive']) 
-      return false
-  }
+
   return true
+}
+
+/**
+ * Simplifies logic to compare number or date ranges where test limit
+ * is either min_inclusive or max_inclusive
+ * @param {Date or Number} item_1 First value to compare
+ * @param {Date or Number} item_2 Second value to compare
+ * @param {Boolean} gt Type of comparison: 0 = > , 1 = <
+ * @return {Boolean} Result of comparison
+ */
+const itemCompare = (item_1, item_2, gt) => {
+  if (gt == 1) 
+    return item_1 > item_2;
+  return item_1 < item_2;
+
 }
 
 /**
  * Validate a value against an array of source values.
  * FUTURE: optimize - to precompile lowercased sources.
- * @param {String} val Cell value.
+ * @param {String} value Cell value.
  * @param {Array<String>} source Source values.
- * @return {Array<Boo>} 
- * @return {Boolean} If `val` is in `source`, while ignoring whitespace and
- *     case.
+ * @return {Array<Boolean><string>}  
+ * @return {Boolean} 
  */
 const validateValAgainstVocab = (value, source) => {
   let valid = false;
