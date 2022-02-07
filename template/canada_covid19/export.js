@@ -428,6 +428,7 @@ var exportNML_LIMS = (baseName, hot, data, xlsx, fileType) => {
 
     ['PH_INSTRUMENT_CGN',       []], 
     ['PH_TESTING_PROTOCOL',     []],
+    ['PH_SEQ_PROTOCOL_NAME',     []],
     ['PH_RAW_SEQUENCE_METHOD',     []],
     ['PH_DEHOSTING_METHOD',     []],
 
