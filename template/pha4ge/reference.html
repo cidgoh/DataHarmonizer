@@ -389,6 +389,15 @@
 
 						
 						<tr>
+							<td class="label">specimen processing details</td>
+							<td>Detailed information regarding the processing applied to a sample during or after receiving the sample.</td>
+							<td>Provide a free text description of any processing details applied to a sample.</td>
+							<td>25 swabs were pooled and further prepared as a single sample during library prep.</td>
+							<td>None</td>
+						</tr>
+
+						
+						<tr>
 							<td class="label">lab host</td>
 							<td>Name and description of the laboratory host used to propagate the source organism or material from which the sample was obtained.</td>
 							<td>Type of cell line used for propagation. Provide the name of the cell line using the picklist in the template. If not passaged, put "not applicable".</td>
@@ -513,7 +522,7 @@
 							<td class="label">host age bin</td>
 							<td>Age of host at the time of sampling, expressed as an age group.</td>
 							<td>Select the corresponding host age bin from the pick list provided in the template. If not available, provide a null value.</td>
-							<td></td>
+							<td>60 - 69</td>
 							<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
 						</tr>
 
@@ -555,10 +564,19 @@
 
 						
 						<tr>
+							<td class="label">case ID</td>
+							<td>The identifier used to specify an epidemiologically detected case of disease.</td>
+							<td>Provide the case identifer. The case ID greatly facilitates linkage between laboratory and epidemiological data. The case ID may be considered identifiable information. Consult the data steward before sharing.</td>
+							<td>ABCD1234</td>
+							<td>None</td>
+						</tr>
+
+						
+						<tr>
 							<td class="label">symptom onset date</td>
 							<td>The date on which the symptoms began or were first noted.</td>
 							<td>ISO 8601 standard "YYYY-MM-DD".</td>
-							<td>16-03-2020</td>
+							<td>2020-03-16</td>
 							<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
 						</tr>
 
@@ -604,15 +622,6 @@
 
 						
 						<tr>
-							<td class="label">vaccine name</td>
-							<td>The name of the vaccine.</td>
-							<td>Free text. Provide the name of the vaccine.</td>
-							<td>BNT162b2, Pfizer-BioNTech</td>
-							<td>None</td>
-						</tr>
-
-						
-						<tr>
 							<td class="label">number of vaccine doses received</td>
 							<td>The number of doses of the vaccine recived by the host.</td>
 							<td>Record how many doses of the vaccine the host has received.</td>
@@ -622,19 +631,82 @@
 
 						
 						<tr>
-							<td class="label">first dose vaccination date</td>
-							<td>The date the host was first vaccinated.</td>
-							<td>Provide the vaccination date in ISO 8601 standard format "YYYY-MM-DD".</td>
-							<td>2021-02-26</td>
+							<td class="label">vaccination dose 1 vaccine name</td>
+							<td>The name of the vaccine administered as the first dose of a vaccine regimen.</td>
+							<td>Provide the name and the corresponding manufacturer of the COVID-19 vaccine administered as the first dose by selecting a value from the pick list.</td>
+							<td>Pfizer-BioNTech (Comirnaty)</td>
 							<td>None</td>
 						</tr>
 
 						
 						<tr>
-							<td class="label">last dose vaccination date</td>
-							<td>The date the host received their last dose of vaccine.</td>
-							<td>Provide the date that the last dose of the vaccine was administered. Provide the last dose vaccination date in ISO 8601 standard format "YYYY-MM-DD".</td>
-							<td>2021-04-09</td>
+							<td class="label">vaccination dose 1 vaccination date</td>
+							<td>The date the first dose of a vaccine was administered.</td>
+							<td>Provide the date the first dose of COVID-19 vaccine was administered. The date should be provided in ISO 8601 standard format "YYYY-MM-DD".</td>
+							<td>2021-03-01</td>
+							<td>None</td>
+						</tr>
+
+						
+						<tr>
+							<td class="label">vaccination dose 2 vaccine name</td>
+							<td>The name of the vaccine administered as the second dose of a vaccine regimen.</td>
+							<td>Provide the name and the corresponding manufacturer of the COVID-19 vaccine administered as the second dose by selecting a value from the pick list.</td>
+							<td>Pfizer-BioNTech (Comirnaty)</td>
+							<td>None</td>
+						</tr>
+
+						
+						<tr>
+							<td class="label">vaccination dose 2 vaccination date</td>
+							<td>The date the second dose of a vaccine was administered.</td>
+							<td>Provide the date the second dose of COVID-19 vaccine was administered. The date should be provided in ISO 8601 standard format "YYYY-MM-DD".</td>
+							<td>2021-09-01</td>
+							<td>None</td>
+						</tr>
+
+						
+						<tr>
+							<td class="label">vaccination dose 3 vaccine name</td>
+							<td>The name of the vaccine administered as the third dose of a vaccine regimen.</td>
+							<td>Provide the name and the corresponding manufacturer of the COVID-19 vaccine administered as the third dose by selecting a value from the pick list.</td>
+							<td>Pfizer-BioNTech (Comirnaty)</td>
+							<td>None</td>
+						</tr>
+
+						
+						<tr>
+							<td class="label">vaccination dose 3 vaccination date</td>
+							<td>The date the third dose of a vaccine was administered.</td>
+							<td>Provide the date the third dose of COVID-19 vaccine was administered. The date should be provided in ISO 8601 standard format "YYYY-MM-DD".</td>
+							<td>2021-12-30</td>
+							<td>None</td>
+						</tr>
+
+						
+						<tr>
+							<td class="label">vaccination dose 4 vaccine name</td>
+							<td>The name of the vaccine administered as the fourth dose of a vaccine regimen.</td>
+							<td>Provide the name and the corresponding manufacturer of the COVID-19 vaccine administered as the fourth dose by selecting a value from the pick list.</td>
+							<td>Pfizer-BioNTech (Comirnaty)</td>
+							<td>None</td>
+						</tr>
+
+						
+						<tr>
+							<td class="label">vaccination dose 4 vaccination date</td>
+							<td>The date the fourth dose of a vaccine was administered.</td>
+							<td>Provide the date the fourth dose of COVID-19 vaccine was administered. The date should be provided in ISO 8601 standard format "YYYY-MM-DD".</td>
+							<td>2022-01-15</td>
+							<td>None</td>
+						</tr>
+
+						
+						<tr>
+							<td class="label">vaccination history</td>
+							<td>A description of the vaccines received and the administration dates of a series of vaccinations against a specific disease or a set of diseases.</td>
+							<td>Free text description of the dates and vaccines administered against a particular disease/set of diseases. It is also acceptable to concatenate the individual dose information (vaccine name, vaccination date) separated by semicolons.</td>
+							<td>Pfizer-BioNTech (Comirnaty); 2021-03-01; Pfizer-BioNTech (Comirnaty); 2022-01-15</td>
 							<td>None</td>
 						</tr>
 
@@ -1222,33 +1294,6 @@
 						</tr>
 
 						
-						<tr>
-							<td class="label">gene name 3</td>
-							<td>The name of the gene used in the diagnostic RT-PCR test.</td>
-							<td>Provide the full name of another gene used in an RT-PCR test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI</td>
-							<td>nsp12 (RdRp)</td>
-							<td>['Not Applicable', 'Missing', 'Not Collected', 'Not Provided', 'Restricted Access']</td>
-						</tr>
-
-						
-						<tr>
-							<td class="label">diagnostic pcr protocol 3</td>
-							<td>The name and version number of the protocol used for diagnostic marker amplification.</td>
-							<td>The name and version number of the protocol used for carrying out a second diagnostic PCR test. This information can be compared to sequence data for evaluation of performance and quality control.</td>
-							<td>RdRpGenePCRTest 3</td>
-							<td>None</td>
-						</tr>
-
-						
-						<tr>
-							<td class="label">diagnostic pcr Ct value 3</td>
-							<td>The Ct value result from a diagnostic SARS-CoV-2 RT-PCR test.</td>
-							<td>Provide the CT value of the sample from the second diagnostic RT-PCR test.</td>
-							<td>30</td>
-							<td>None</td>
-						</tr>
-
-						
 						<tr class="section">
 							<td colspan="5"><h3>NCBI SRA information</h3></td>
 						</tr>
@@ -1340,9 +1385,9 @@
 						
 						<tr>
 							<td class="label">DataHarmonizer provenance</td>
-							<td></td>
-							<td></td>
-							<td></td>
+							<td>The DataHarmonizer software version provenance.</td>
+							<td>The current software version information will be automatically generated in this field after the user utilizes the "validate" function. This information will be generated regardless as to whether the row is valid of not.</td>
+							<td>DataHarmonizer provenance: v0.13.21</td>
 							<td>None</td>
 						</tr>
 
@@ -1389,15 +1434,6 @@
 						
 						<tr>
 							<td class="label">Restricted Access</td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td>None</td>
-						</tr>
-
-						
-						<tr>
-							<td class="label">prior SARS-CoV-2 infection</td>
 							<td></td>
 							<td></td>
 							<td></td>
