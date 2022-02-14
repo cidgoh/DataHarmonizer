@@ -1,338 +1,1583 @@
 var DATA = [
   {
-    "fieldName": "Database Identifiers",
+    "fieldName": "Sample ID",
     "children": [
       {
-        "fieldName": "specimen collector sample ID",
+        "fieldName": "Globally Unique ID",
         "capitalize": "",
-        "ontology_id": "GENEPIO:0001123",
+        "ontology_id": "samp_id:unique_ID",
         "datatype": "xs:unique",
         "source": "",
-        "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
-        ],
+        "dataStatus": null,
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "required",
-        "description": "The user-defined name for the sample.",
-        "guidance": "Store the collector sample ID. If this number is considered identifiable information, provide an alternative ID. Be sure to store the key that maps between the original and alternative IDs for traceability and follow up if necessary. Every collector sample ID from a single submitter must be unique. It can have any format, but we suggest that you make it concise, unique and consistent within your lab.",
-        "examples": "prov_rona_99",
+        "description": "A globally unique identifier assigned to the biological sample.",
+        "guidance": "Identifiers must me prefixed. IGSNs (http://www.geosamples.org/getigsn) are unique and FAIR. UUIDs (https://www.uuidgenerator.net/) are globally unique but not FAIR. These IDs enable linking to derrived analytes and subsamples. | Pattern hint: {text}:{text}",
+        "examples": "IGSN:AU1243",
+        "pattern": "[^\\:\\n\\r]+\\:[^\\:\\n\\r]+",
         "exportField": {
-          "GISAID": [
+          "soil_emsl_jgi_mg": [
             {
-              "field": "Sample ID given by the sample provider"
+              "field": "unique_ID"
             }
-          ],
-          "CNPHI": [
-            {
-              "field": "Primary Specimen ID"
-            }
-          ],
-          "NML_LIMS": [
-            {
-              "field": "TEXT_ID"
-            }
-          ],
-          "BIOSAMPLE": [
+          ]
+        }
+      },
+      {
+        "fieldName": "sample name",
+        "capitalize": "",
+        "ontology_id": "samp_id:sample_name",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "required",
+        "description": "A local identifier or name that for the material sample collected. Refers to the original material collected or to any derived sub-samples.",
+        "guidance": "It can have any format, but we suggest that you make it concise, unique and consistent within your lab, and as informative as possible. | Pattern hint: {text}",
+        "examples": "Rock core CB1178(5-6) from NSW",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
             {
               "field": "sample_name"
             }
-          ],
-          "VirusSeq_Portal": [
-            {
-              "field": "specimen collector sample ID"
-            }
           ]
         }
       },
       {
-        "fieldName": "third party lab service provider name",
+        "fieldName": "environmental package",
         "capitalize": "",
-        "ontology_id": "GENEPIO:0001202",
-        "datatype": "xs:token",
+        "ontology_id": "samp_id:env_package",
+        "datatype": "select",
         "source": "",
         "dataStatus": null,
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The name of the third party company or laboratory that provided services.",
-        "guidance": "Store the sample identifier supplied by the third party services provider.",
-        "examples": "Switch Health",
+        "requirement": "required",
+        "description": "Select the MIxS enviromental package that best describes the environment from which your sample was collected.",
+        "guidance": "Pattern hint: enumeration",
+        "examples": "soil",
         "exportField": {
-          "NML_LIMS": [
+          "soil_emsl_jgi_mg": [
             {
-              "field": "HC_TEXT5"
+              "field": "env_package"
+            }
+          ]
+        },
+        "schema:ItemList": {
+          "soil": {}
+        }
+      },
+      {
+        "fieldName": "Analysis/Data Type",
+        "capitalize": "",
+        "ontology_id": "samp_id:analysis_type",
+        "datatype": "multiple",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "required",
+        "description": "Select all the data types associated or available for this biosample",
+        "guidance": "Pattern hint: enumeration",
+        "examples": "metagenomics; metabolomics; proteomics",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "analysis_type"
+            }
+          ]
+        },
+        "schema:ItemList": {
+          "metabolomics": {},
+          "metagenomics": {},
+          "metaproteomics": {},
+          "metatranscriptomics": {},
+          "natural organic matter": {}
+        }
+      },
+      {
+        "fieldName": "sample linkage",
+        "capitalize": "",
+        "ontology_id": "samp_id:sample_link",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "recommended",
+        "description": "A unique identifier to assign parent-child, subsample, or sibling samples. This is relevant when a sample or other material was used to generate the new sample. ",
+        "guidance": "This field allows multiple entries separated by ; (Examples: Soil collected from the field will link with the soil used in an incubation. The soil a plant was grown in links to the plant sample. An original culture sample was transferred to a new vial and generated a new sample) | Pattern hint: {text}:{text}",
+        "examples": "IGSN:DSJ0284",
+        "pattern": "[^\\:\\n\\r]+\\:[^\\:\\n\\r]+",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "sample_link"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "fieldName": "NMDC fields esp. GOLD paths",
+    "children": [
+      {
+        "fieldName": "ecosystem",
+        "capitalize": "",
+        "ontology_id": "samp_id:ecosystem",
+        "datatype": "select",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "An ecosystem is a combination of a physical environment (abiotic factors) and all the organisms (biotic factors) that interact with this environment. Ecosystem is in position 1/5 in a GOLD path.",
+        "guidance": "The abiotic factors play a profound role on the type and composition of organisms in a given environment. The GOLD Ecosystem at the top of the five-level classification system is aimed at capturing the broader environment from which an organism or environmental sample is collected. The three broad groups under Ecosystem are Environmental, Host-associated, and Engineered. They represent samples collected from a natural environment or from another organism or from engineered environments like bioreactors respectively. | Pattern hint: enumeration",
+        "examples": "",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "ecosystem"
+            }
+          ]
+        },
+        "schema:ItemList": {
+          "Environmental": {}
+        }
+      },
+      {
+        "fieldName": "ecosystem_category",
+        "capitalize": "",
+        "ontology_id": "samp_id:ecosystem_category",
+        "datatype": "select",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Ecosystem categories represent divisions within the ecosystem based on specific characteristics of the environment from where an organism or sample is isolated. Ecosystem category is in position 2/5 in a GOLD path.",
+        "guidance": "The Environmental ecosystem (for example) is divided into Air, Aquatic and Terrestrial. Ecosystem categories for Host-associated samples can be individual hosts or phyla and for engineered samples it may be manipulated environments like bioreactors, solid waste etc. | Pattern hint: enumeration",
+        "examples": "",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "ecosystem_category"
+            }
+          ]
+        },
+        "schema:ItemList": {
+          "Terrestrial": {}
+        }
+      },
+      {
+        "fieldName": "ecosystem_type",
+        "capitalize": "",
+        "ontology_id": "samp_id:ecosystem_type",
+        "datatype": "select",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Ecosystem types represent things having common characteristics within the Ecosystem Category. These common characteristics based grouping is still broad but specific to the characteristics of a given environment. Ecosystem type is in position 3/5 in a GOLD path.",
+        "guidance": "The Aquatic ecosystem category (for example) may have ecosystem types like Marine or Thermal springs etc. Ecosystem category Air may have Indoor air or Outdoor air as different Ecosystem Types. In the case of Host-associated samples, ecosystem type can represent Respiratory system, Digestive system, Roots etc. | Pattern hint: enumeration",
+        "examples": "",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "ecosystem_type"
+            }
+          ]
+        },
+        "schema:ItemList": {
+          "Soil": {}
+        }
+      },
+      {
+        "fieldName": "ecosystem_subtype",
+        "capitalize": "",
+        "ontology_id": "samp_id:ecosystem_subtype",
+        "datatype": "select",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Ecosystem subtypes represent further subdivision of Ecosystem types into more distinct subtypes. Ecosystem subtype is in position 4/5 in a GOLD path.",
+        "guidance": "Ecosystem Type Marine (Environmental -> Aquatic -> Marine) is further divided (for example) into Intertidal zone, Coastal, Pelagic, Intertidal zone etc. in the Ecosystem subtype category. | Pattern hint: enumeration",
+        "examples": "",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "ecosystem_subtype"
+            }
+          ]
+        },
+        "schema:ItemList": {
+          "Biocrust": {},
+          "Biofilm": {},
+          "Bulk soil": {},
+          "Clay": {},
+          "Floodplain": {},
+          "Fossil": {},
+          "Glacier": {},
+          "Loam": {},
+          "Mineral horizon": {},
+          "Nature reserve": {},
+          "Organic layer": {},
+          "Paddy field/soil": {},
+          "Pasture": {},
+          "Peat": {},
+          "Ranch": {},
+          "Sand": {},
+          "Silt": {},
+          "Soil crust": {},
+          "Unclassified": {},
+          "Watershed": {},
+          "Wetlands": {}
+        }
+      },
+      {
+        "fieldName": "specific_ecosystem",
+        "capitalize": "",
+        "ontology_id": "samp_id:specific_ecosystem",
+        "datatype": "select",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Specific ecosystems represent specific features of the environment like aphotic zone in an ocean or gastric mucosa within a host digestive system. Specific ecosystem is in position 5/5 in a GOLD path.\n",
+        "guidance": "Specific ecosystems help to define samples based on very specific characteristics of an environment under the five-level classification system.\n | Pattern hint: enumeration",
+        "examples": "",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "specific_ecosystem"
+            }
+          ]
+        },
+        "schema:ItemList": {
+          "Agricultural": {},
+          "Agricultural land": {},
+          "Agricultural soil": {},
+          "Alpine": {},
+          "Bog": {},
+          "Boreal forest": {},
+          "Contaminated": {},
+          "Desert": {},
+          "Farm": {},
+          "Forest Soil": {},
+          "Forest soil": {},
+          "Grasslands": {},
+          "Meadow": {},
+          "Mine": {},
+          "Mine drainage": {},
+          "Oil-contaminated": {},
+          "Orchard soil": {},
+          "Permafrost": {},
+          "Riparian soil": {},
+          "River": {},
+          "Shrubland": {},
+          "Tropical rainforest": {},
+          "Unclassified": {},
+          "Uranium contaminated": {}
+        }
+      }
+    ]
+  },
+  {
+    "fieldName": "EMSL",
+    "children": [
+      {
+        "fieldName": "Project ID",
+        "capitalize": "",
+        "ontology_id": "emsl:project_ID",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "required",
+        "description": "Proposal IDs or names associated with dataset",
+        "guidance": "Pattern hint: {text}",
+        "examples": "",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "project_ID"
             }
           ]
         }
       },
       {
-        "fieldName": "third party lab sample ID",
+        "fieldName": "sample type",
         "capitalize": "",
-        "ontology_id": "GENEPIO:0001149",
+        "ontology_id": "emsl:sample_type",
+        "datatype": "select",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "required",
+        "description": "Type of sample being submitted",
+        "guidance": "This can vary from 'environmental package' if the sample is an extraction. | Pattern hint: enumeration",
+        "examples": "water extracted soil",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "sample_type"
+            }
+          ]
+        },
+        "schema:ItemList": {
+          "soil": {},
+          "water_extract_soil": {}
+        }
+      },
+      {
+        "fieldName": "sample shipped amount",
+        "capitalize": "",
+        "ontology_id": "emsl:sample_shipped",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "required",
+        "description": "The total amount or size (volume (ml), mass (g) or area (m2) ) of sample sent to EMSL",
+        "guidance": "Pattern hint: {float} {unit}",
+        "examples": "",
+        "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S+$",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "sample_shipped"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "EMSL Sample Storage Temperature, deg. C",
+        "capitalize": "",
+        "ontology_id": "emsl:EMSL_store_temp",
+        "datatype": "xs:decimal",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "required",
+        "description": "Temperature at which the sample sent to EMSL should be stored",
+        "guidance": "Enter a temperature in celsius. Numeric portion only. | Pattern hint: {float}",
+        "examples": "-80",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "EMSL_store_temp"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "Number Technical Replicate",
+        "capitalize": "",
+        "ontology_id": "emsl:technical_reps",
+        "datatype": "xs:nonNegativeInteger",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "recommended",
+        "description": "If sending multiple technical replicates of the same sample, indicate how many replicates are being sent",
+        "guidance": "Pattern hint: {integer}",
+        "examples": "",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "technical_reps"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "Replicate Number",
+        "capitalize": "",
+        "ontology_id": "emsl:replicate_number",
+        "datatype": "xs:nonNegativeInteger",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "recommended",
+        "description": "If sending biological replicates, indicate the rep number here.",
+        "guidance": "This will guide staff in ensuring your samples are block & randomized correctly | Pattern hint: {integer}",
+        "examples": "",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "replicate_number"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "fieldName": "JGI-Metagenomics",
+    "children": [
+      {
+        "fieldName": "DNA Seq Project ID",
+        "capitalize": "",
+        "ontology_id": "jgi_gen:dna_seq_project",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "required",
+        "description": "",
+        "guidance": "Do not edit these values. A template will be provided by NMDC in which these values have been pre-filled. | Pattern hint: {text}",
+        "examples": "1191234",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "dna_seq_project"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "DNA Seq Project Name",
+        "capitalize": "",
+        "ontology_id": "jgi_gen:dna_seq_project_name",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "required",
+        "description": "",
+        "guidance": "Do not edit these values. A template will be provided by NMDC in which these values have been pre-filled. | Pattern hint: {text}",
+        "examples": "JGI Pond metagenomics",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "dna_seq_project_name"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "DNA Sample ID",
+        "capitalize": "",
+        "ontology_id": "jgi_gen:dna_samp_ID",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "required",
+        "description": "",
+        "guidance": "Do not edit these values. A template will be provided by NMDC in which these values have been pre-filled. | Pattern hint: {text}",
+        "examples": "187654",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "dna_samp_ID"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "DNA Sample Name",
+        "capitalize": "",
+        "ontology_id": "jgi_gen:dna_sample_name",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "required",
+        "description": "Give the DNA sample a name that is meaningful to you. Sample names must be unique across all JGI projects and contain a-z, A-Z, 0-9, - and _ only.",
+        "guidance": "Pattern hint: {text}",
+        "examples": "JGI_pond_041618",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "dna_sample_name"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "DNA Concentration in ng/uL",
+        "capitalize": "",
+        "ontology_id": "jgi_gen:dna_concentration",
+        "datatype": "xs:decimal",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "0.0",
+        "xs:maxInclusive": "2000.0",
+        "requirement": "required",
+        "description": "",
+        "guidance": "Units must be in ng/uL. Enter the numerical part only. Must be calculated using a fluorometric method. Acceptable values are 0-2000. | Pattern hint: {float}",
+        "examples": "100",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "dna_concentration"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "DNA Volume in uL",
+        "capitalize": "",
+        "ontology_id": "jgi_gen:dna_volume",
+        "datatype": "xs:decimal",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "0.0",
+        "xs:maxInclusive": "1000.0",
+        "requirement": "required",
+        "description": "",
+        "guidance": "Units must be in uL. Enter the numerical part only. Value must 0-1000. Values <25 by special permission only. | Pattern hint: {float}",
+        "examples": "25",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "dna_volume"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "DNA Absorbance 260/280",
+        "capitalize": "",
+        "ontology_id": "jgi_gen:dna_absorb1",
+        "datatype": "xs:decimal",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "required",
+        "description": "260/280 measurement of DNA sample purity",
+        "guidance": "Recommended value is between 1 and 3. | Pattern hint: {float}",
+        "examples": "2.02",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "dna_absorb1"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "DNA Absorbance 260/230",
+        "capitalize": "",
+        "ontology_id": "jgi_gen:dna_absorb2",
+        "datatype": "xs:decimal",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "recommended",
+        "description": "260/230 measurement of DNA sample purity",
+        "guidance": "Recommended value is between 1 and 3. | Pattern hint: {float}",
+        "examples": "2.02",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "dna_absorb2"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "DNA Container Label",
+        "capitalize": "",
+        "ontology_id": "jgi_gen:dna_container_ID",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "required",
+        "description": "",
+        "guidance": "Must be unique across all tubes and plates, and <20 characters. All samples in a plate should have the same plate label. | Pattern hint: {text < 20 characters}",
+        "examples": "Pond_MT_041618",
+        "pattern": "^.{1,20}$",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "dna_container_ID"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "DNA Container Type",
+        "capitalize": "",
+        "ontology_id": "jgi_gen:dna_cont_type",
+        "datatype": "select",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "required",
+        "description": "Tube or plate (96-well)",
+        "guidance": "Pattern hint: enumeration",
+        "examples": "plate",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "dna_cont_type"
+            }
+          ]
+        },
+        "schema:ItemList": {
+          "plate": {},
+          "tube": {}
+        }
+      },
+      {
+        "fieldName": "DNA Well Number",
+        "capitalize": "",
+        "ontology_id": "jgi_gen:dna_cont_well",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "required",
+        "description": "",
+        "guidance": "Required when 'plate' is selected for container type. Corner wells must be blank. For partial plates, fill by columns. Leave blank if the sample will be shipped in a tube. | Pattern hint: {96 well plate pos}",
+        "examples": "B2",
+        "pattern": "^[A-H](0?[1-9]$)|(^1[0-2])$",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "dna_cont_well"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "DNA Sample Format",
+        "capitalize": "",
+        "ontology_id": "jgi_gen:dna_sample_format",
+        "datatype": "select",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "required",
+        "description": "Solution in which the DNA sample has been suspended",
+        "guidance": "Pattern hint: enumeration",
+        "examples": "Water",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "dna_sample_format"
+            }
+          ]
+        },
+        "schema:ItemList": {
+          "10 mM Tris-HCl": {},
+          "DNAStable": {},
+          "Ethanol": {},
+          "Low EDTA TE": {},
+          "MDA reaction buffer": {},
+          "PBS": {},
+          "Pellet": {},
+          "RNAStable": {},
+          "TE": {},
+          "Water": {}
+        }
+      },
+      {
+        "fieldName": "DNAse Treatment DNA",
+        "capitalize": "",
+        "ontology_id": "jgi_gen:dna_dnase",
+        "datatype": "select",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "required",
+        "description": "",
+        "guidance": "Note DNAse treatment is required for all RNA samples. | Pattern hint: enumeration",
+        "examples": "no",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "dna_dnase"
+            }
+          ]
+        },
+        "schema:ItemList": {
+          "no": {},
+          "yes": {}
+        }
+      },
+      {
+        "fieldName": "DNA Expected Organisms",
+        "capitalize": "",
+        "ontology_id": "jgi_gen:dna_organisms",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "recommended",
+        "description": "List any organisms known or suspected to grow in co-culture, as well as estimated % of the organism in that culture.",
+        "guidance": "Pattern hint: {text}",
+        "examples": "expected to contain microbes (59%) fungi (30%), viruses (10%), tadpoles (1%)",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "dna_organisms"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "DNA Collection Site",
+        "capitalize": "",
+        "ontology_id": "jgi_gen:dna_collect_site",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "required",
+        "description": "Provide information on the site your DNA sample was collected from",
+        "guidance": "Pattern hint: {text}",
+        "examples": "untreated pond water",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "dna_collect_site"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "DNA Isolation Method",
+        "capitalize": "",
+        "ontology_id": "jgi_gen:dna_isolate_meth",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "required",
+        "description": "Describe the method/protocol/kit used to extract DNA/RNA.",
+        "guidance": "Pattern hint: {text}",
+        "examples": "phenol/chloroform extraction",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "dna_isolate_meth"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "DNA Seq Project PI",
+        "capitalize": "",
+        "ontology_id": "jgi_gen:dna_seq_project_PI",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "required",
+        "description": "",
+        "guidance": "Do not edit these values. A template will be provided by NMDC in which these values have been pre-filled. | Pattern hint: {text}",
+        "examples": "Jane Johnson",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "dna_seq_project_PI"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "DNA Seq Project Contact",
+        "capitalize": "",
+        "ontology_id": "jgi_gen:dna_project_contact",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "required",
+        "description": "",
+        "guidance": "Do not edit these values. A template will be provided by NMDC in which these values have been pre-filled. | Pattern hint: {text}",
+        "examples": "John Jones",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "dna_project_contact"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "DNA Proposal ID",
+        "capitalize": "",
+        "ontology_id": "jgi_gen:proposal_dna",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "required",
+        "description": "",
+        "guidance": "Do not edit these values. A template will be provided by NMDC in which these values have been pre-filled. | Pattern hint: {text}",
+        "examples": "504000",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "proposal_dna"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "fieldName": "Metadata- MIxS Modified Required",
+    "children": [
+      {
+        "fieldName": "growth facility",
+        "capitalize": "",
+        "ontology_id": "mixs_modified:growth_facility",
+        "datatype": "select",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "required",
+        "description": "Type of facility/location where the sample was harvested; controlled vocabulary: growth chamber, open top chamber, glasshouse, experimental garden, field.",
+        "guidance": "Pattern hint: enumeration",
+        "examples": "",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "growth_facility"
+            }
+          ]
+        },
+        "schema:ItemList": {
+          "experimental_garden": {},
+          "field": {},
+          "field_incubation": {},
+          "glasshouse": {},
+          "greenhouse": {},
+          "growth_chamber": {},
+          "lab_incubation": {},
+          "open_top_chamber": {},
+          "other": {}
+        }
+      },
+      {
+        "fieldName": "storage conditions",
+        "capitalize": "",
+        "ontology_id": "mixs_modified:storage_condt",
+        "datatype": "select",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "required",
+        "description": "Explain how the soil sample is stored (fresh/frozen/other).",
+        "guidance": "Pattern hint: enumeration",
+        "examples": "",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "storage_condt"
+            }
+          ]
+        },
+        "schema:ItemList": {
+          "fresh": {},
+          "frozen": {},
+          "lyophilized": {},
+          "other": {}
+        }
+      },
+      {
+        "fieldName": "Collection Date",
+        "capitalize": "",
+        "ontology_id": "mixs_modified:collection_date",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "required",
+        "description": "The date of sampling",
+        "guidance": "Date should be formatted as YYYY(-MM(-DD)) | Pattern hint: {date, arbitrary precision}",
+        "examples": "2021-04-15, 2021-04 and 2021 are all acceptable.",
+        "pattern": "^[12]\\d{3}(?:(?:-(?:0[1-9]|1[0-2]))(?:-(?:0[1-9]|[12]\\d|3[01]))?)?$",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "collection_date"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "fieldName": "Metadata- MIxS Required",
+    "children": [
+      {
+        "fieldName": "broad-scale environmental context",
+        "capitalize": "",
+        "ontology_id": "MIXS:0000012",
+        "datatype": "select",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "required",
+        "description": "Report the major environmental system the sample or specimen came from. The system(s) identified should have a coarse spatial grain, to provide the general environmental context of where the sampling was done (e.g. in the desert or a rainforest). We recommend using subclasses of EnvO\u2019s biome class:  http://purl.obolibrary.org/obo/ENVO_00000428. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
+        "guidance": "Pattern hint: {termLabel} {[termID]}",
+        "examples": "oceanic epipelagic zone biome [ENVO:01000033] for annotating a water sample from the photic zone in middle of the Atlantic Ocean",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "env_broad_scale"
+            }
+          ]
+        },
+        "schema:ItemList": {
+          "alpine biome [ENVO:01001835]": {
+            "ontology_id": "ENVO:01001835"
+          },
+          "__alpine tundra biome [ENVO:01001505]": {
+            "ontology_id": "ENVO:01001505"
+          },
+          "anthropogenic terrestrial biome [ENVO:01000219]": {
+            "ontology_id": "ENVO:01000219"
+          },
+          "__rangeland biome [ENVO:01000247]": {
+            "ontology_id": "ENVO:01000247"
+          },
+          "__village biome [ENVO:01000246]": {
+            "ontology_id": "ENVO:01000246"
+          },
+          "arid biome [ENVO:01001838]": {
+            "ontology_id": "ENVO:01001838"
+          },
+          "mangrove biome [ENVO:01000181]": {
+            "ontology_id": "ENVO:01000181"
+          },
+          "montane biome [ENVO:01001836]": {
+            "ontology_id": "ENVO:01001836"
+          },
+          "__montane savanna biome [ENVO:01000223]": {
+            "ontology_id": "ENVO:01000223"
+          },
+          "__montane shrubland biome [ENVO:01000216]": {
+            "ontology_id": "ENVO:01000216"
+          },
+          "polar biome [ENVO:01000339]": {
+            "ontology_id": "ENVO:01000339"
+          },
+          "shrubland biome [ENVO:01000176]": {
+            "ontology_id": "ENVO:01000176"
+          },
+          "__subtropical shrubland biome [ENVO:01000213]": {
+            "ontology_id": "ENVO:01000213"
+          },
+          "____mediterranean shrubland biome [ENVO:01000217]": {
+            "ontology_id": "ENVO:01000217"
+          },
+          "__temperate shrubland biome [ENVO:01000215]": {
+            "ontology_id": "ENVO:01000215"
+          },
+          "__tropical shrubland biome [ENVO:01000214]": {
+            "ontology_id": "ENVO:01000214"
+          },
+          "subalpine biome [ENVO:01001837]": {
+            "ontology_id": "ENVO:01001837"
+          },
+          "subpolar biome [ENVO:01001834]": {
+            "ontology_id": "ENVO:01001834"
+          },
+          "subtropical biome [ENVO:01001832]": {
+            "ontology_id": "ENVO:01001832"
+          },
+          "__mediterranean biome [ENVO:01001833]": {
+            "ontology_id": "ENVO:01001833"
+          },
+          "____mediterranean savanna biome [ENVO:01000229]": {
+            "ontology_id": "ENVO:01000229"
+          },
+          "____mediterranean woodland biome [ENVO:01000208]": {
+            "ontology_id": "ENVO:01000208"
+          },
+          "__subtropical savanna biome [ENVO:01000187]": {
+            "ontology_id": "ENVO:01000187"
+          },
+          "__subtropical woodland biome [ENVO:01000222]": {
+            "ontology_id": "ENVO:01000222"
+          },
+          "temperate biome [ENVO:01001831]": {
+            "ontology_id": "ENVO:01001831"
+          },
+          "__temperate savanna biome [ENVO:01000189]": {
+            "ontology_id": "ENVO:01000189"
+          },
+          "__temperate woodland biome [ENVO:01000221]": {
+            "ontology_id": "ENVO:01000221"
+          },
+          "tropical biome [ENVO:01001830]": {
+            "ontology_id": "ENVO:01001830"
+          },
+          "__tropical savanna biome [ENVO:01000188]": {
+            "ontology_id": "ENVO:01000188"
+          },
+          "__tropical woodland biome [ENVO:01000220]": {
+            "ontology_id": "ENVO:01000220"
+          },
+          "tundra biome [ENVO:01000180]": {
+            "ontology_id": "ENVO:01000180"
+          },
+          "urban biome [ENVO:01000249]": {
+            "ontology_id": "ENVO:01000249"
+          },
+          "woodland biome [ENVO:01000175]": {
+            "ontology_id": "ENVO:01000175"
+          },
+          "__savanna biome [ENVO:01000178]": {
+            "ontology_id": "ENVO:01000178"
+          },
+          "____flooded savanna biome [ENVO:01000190]": {
+            "ontology_id": "ENVO:01000190"
+          },
+          "____montane savanna biome [ENVO:01000223]": {
+            "ontology_id": "ENVO:01000223"
+          },
+          "____subtropical savanna biome [ENVO:01000187]": {
+            "ontology_id": "ENVO:01000187"
+          },
+          "______mediterranean savanna biome [ENVO:01000229]": {
+            "ontology_id": "ENVO:01000229"
+          },
+          "____temperate savanna biome [ENVO:01000189]": {
+            "ontology_id": "ENVO:01000189"
+          },
+          "____tropical savanna biome [ENVO:01000188]": {
+            "ontology_id": "ENVO:01000188"
+          }
+        }
+      },
+      {
+        "fieldName": "local environmental context",
+        "capitalize": "",
+        "ontology_id": "MIXS:0000013",
+        "datatype": "select",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "required",
+        "description": "Report the entity or entities which are in the sample or specimen\u2019s local vicinity and which you believe have significant causal influences on your sample or specimen. We recommend using EnvO terms which are of smaller spatial grain than your entry for env_broad_scale. Terms, such as anatomical sites, from other OBO Library ontologies which interoperate with EnvO (e.g. UBERON) are accepted in this field. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS.",
+        "guidance": "Pattern hint: {termLabel} {[termID]}",
+        "examples": "litter layer [ENVO:01000338]; Annotating a pooled sample taken from various vegetation layers in a forest consider: canopy [ENVO:00000047]|herb and fern layer [ENVO:01000337]|litter layer [ENVO:01000338]|understory [01000335]|shrub layer [ENVO:01000336].",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "env_local_scale"
+            }
+          ]
+        },
+        "schema:ItemList": {
+          "active geological fault [ENVO:01000669]": {
+            "ontology_id": "ENVO:01000669"
+          },
+          "agricultural field [ENVO:00000114]": {
+            "ontology_id": "ENVO:00000114"
+          },
+          "beach [ENVO:00000091]": {
+            "ontology_id": "ENVO:00000091"
+          },
+          "cave [ENVO:00000067]": {
+            "ontology_id": "ENVO:00000067"
+          },
+          "channel [ENVO:03000117]": {
+            "ontology_id": "ENVO:03000117"
+          },
+          "__tunnel [ENVO:00000068]": {
+            "ontology_id": "ENVO:00000068"
+          },
+          "coast [ENVO:01000687]": {
+            "ontology_id": "ENVO:01000687"
+          },
+          "dry lake [ENVO:00000277]": {
+            "ontology_id": "ENVO:00000277"
+          },
+          "dry river [ENVO:01000995]": {
+            "ontology_id": "ENVO:01000995"
+          },
+          "garden [ENVO:00000011]": {
+            "ontology_id": "ENVO:00000011"
+          },
+          "hill [ENVO:00000083]": {
+            "ontology_id": "ENVO:00000083"
+          },
+          "__dune [ENVO:00000170]": {
+            "ontology_id": "ENVO:00000170"
+          },
+          "hummock [ENVO:00000516]": {
+            "ontology_id": "ENVO:00000516"
+          },
+          "impact crater [ENVO:01001071]": {
+            "ontology_id": "ENVO:01001071"
+          },
+          "isthmus [ENVO:00000174]": {
+            "ontology_id": "ENVO:00000174"
+          },
+          "karst [ENVO:00000175]": {
+            "ontology_id": "ENVO:00000175"
+          },
+          "lake shore [ENVO:00000382]": {
+            "ontology_id": "ENVO:00000382"
+          },
+          "lava field [ENVO:01000437]": {
+            "ontology_id": "ENVO:01000437"
+          },
+          "mesa [ENVO:00000179]": {
+            "ontology_id": "ENVO:00000179"
+          },
+          "mountain [ENVO:00000081]": {
+            "ontology_id": "ENVO:00000081"
+          },
+          "peninsula [ENVO:00000305]": {
+            "ontology_id": "ENVO:00000305"
+          },
+          "plain [ENVO:00000086]": {
+            "ontology_id": "ENVO:00000086"
+          },
+          "plateau [ENVO:00000182]": {
+            "ontology_id": "ENVO:00000182"
+          },
+          "ridge [ENVO:00000283]": {
+            "ontology_id": "ENVO:00000283"
+          },
+          "slope [ENVO:00002000]": {
+            "ontology_id": "ENVO:00002000"
+          },
+          "__cliff [ENVO:00000087]": {
+            "ontology_id": "ENVO:00000087"
+          },
+          "__hillside [ENVO:01000333]": {
+            "ontology_id": "ENVO:01000333"
+          },
+          "snow field [ENVO:00000146]": {
+            "ontology_id": "ENVO:00000146"
+          },
+          "tombolo [ENVO:00000420]": {
+            "ontology_id": "ENVO:00000420"
+          },
+          "tuff cone [ENVO:01000664]": {
+            "ontology_id": "ENVO:01000664"
+          },
+          "valley [ENVO:00000100]": {
+            "ontology_id": "ENVO:00000100"
+          },
+          "__canyon [ENVO:00000169]": {
+            "ontology_id": "ENVO:00000169"
+          },
+          "__dry valley [ENVO:00000128]": {
+            "ontology_id": "ENVO:00000128"
+          },
+          "__glacial valley [ENVO:00000248]": {
+            "ontology_id": "ENVO:00000248"
+          },
+          "vein [ENVO:01000670]": {
+            "ontology_id": "ENVO:01000670"
+          },
+          "volcano [ENVO:00000247]": {
+            "ontology_id": "ENVO:00000247"
+          },
+          "woodland clearing [ENVO:00000444]": {
+            "ontology_id": "ENVO:00000444"
+          }
+        }
+      },
+      {
+        "fieldName": "environmental medium",
+        "capitalize": "",
+        "ontology_id": "MIXS:0000014",
+        "datatype": "select",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "required",
+        "description": "Report the environmental material(s) immediately surrounding the sample or specimen at the time of sampling. We recommend using subclasses of 'environmental material' (http://purl.obolibrary.org/obo/ENVO_00010483). EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS . Terms from other OBO ontologies are permissible as long as they reference mass/volume nouns (e.g. air, water, blood) and not discrete, countable entities (e.g. a tree, a leaf, a table top).",
+        "guidance": "Pattern hint: {termLabel} {[termID]}",
+        "examples": "soil [ENVO:00001998]; Annotating a fish swimming in the upper 100 m of the Atlantic Ocean, consider: ocean water [ENVO:00002151]. Example: Annotating a duck on a pond consider: pond water [ENVO:00002228]|air [ENVO_00002005]",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "env_medium"
+            }
+          ]
+        },
+        "schema:ItemList": {
+          "agricultural soil [ENVO:00002259]": {
+            "ontology_id": "ENVO:00002259"
+          },
+          "__bluegrass field soil [ENVO:00005789]": {
+            "ontology_id": "ENVO:00005789"
+          },
+          "__paddy field soil [ENVO:00005740]": {
+            "ontology_id": "ENVO:00005740"
+          },
+          "____peaty paddy field soil [ENVO:00005776]": {
+            "ontology_id": "ENVO:00005776"
+          },
+          "__rubber plantation soil [ENVO:00005788]": {
+            "ontology_id": "ENVO:00005788"
+          },
+          "albeluvisol [ENVO:00002233]": {
+            "ontology_id": "ENVO:00002233"
+          },
+          "alisol [ENVO:00002231]": {
+            "ontology_id": "ENVO:00002231"
+          },
+          "alluvial soil [ENVO:00002871]": {
+            "ontology_id": "ENVO:00002871"
+          },
+          "__alluvial swamp soil [ENVO:00005758]": {
+            "ontology_id": "ENVO:00005758"
+          },
+          "alpine soil [ENVO:00005741]": {
+            "ontology_id": "ENVO:00005741"
+          },
+          "andosol [ENVO:00002232]": {
+            "ontology_id": "ENVO:00002232"
+          },
+          "__volcanic soil [ENVO:01001841]": {
+            "ontology_id": "ENVO:01001841"
+          },
+          "anthrosol [ENVO:00002230]": {
+            "ontology_id": "ENVO:00002230"
+          },
+          "arenosol [ENVO:00002229]": {
+            "ontology_id": "ENVO:00002229"
+          },
+          "bare soil [ENVO:01001616]": {
+            "ontology_id": "ENVO:01001616"
+          },
+          "burned soil [ENVO:00005760]": {
+            "ontology_id": "ENVO:00005760"
+          },
+          "calcisol [ENVO:00002239]": {
+            "ontology_id": "ENVO:00002239"
+          },
+          "cambisol [ENVO:00002235]": {
+            "ontology_id": "ENVO:00002235"
+          },
+          "carbon nanotube enriched soil [ENVO:01000427]": {
+            "ontology_id": "ENVO:01000427"
+          },
+          "chernozem [ENVO:00002237]": {
+            "ontology_id": "ENVO:00002237"
+          },
+          "compost soil [ENVO:00005747]": {
+            "ontology_id": "ENVO:00005747"
+          },
+          "__frozen compost soil [ENVO:00005765]": {
+            "ontology_id": "ENVO:00005765"
+          },
+          "contaminated soil [ENVO:00002116]": {
+            "ontology_id": "ENVO:00002116"
+          },
+          "__xylene contaminated soil [ENVO:00002146]": {
+            "ontology_id": "ENVO:00002146"
+          },
+          "dune soil [ENVO:00002260]": {
+            "ontology_id": "ENVO:00002260"
+          },
+          "durisol [ENVO:00002238]": {
+            "ontology_id": "ENVO:00002238"
+          },
+          "ferralsol [ENVO:00002246]": {
+            "ontology_id": "ENVO:00002246"
+          },
+          "fluvisol [ENVO:00002273]": {
+            "ontology_id": "ENVO:00002273"
+          },
+          "forest soil [ENVO:00002261]": {
+            "ontology_id": "ENVO:00002261"
+          },
+          "__beech forest soil [ENVO:00005770]": {
+            "ontology_id": "ENVO:00005770"
+          },
+          "__eucalyptus forest soil [ENVO:00005787]": {
+            "ontology_id": "ENVO:00005787"
+          },
+          "__mountain forest soil [ENVO:00005769]": {
+            "ontology_id": "ENVO:00005769"
+          },
+          "frost-susceptible soil [ENVO:01001638]": {
+            "ontology_id": "ENVO:01001638"
+          },
+          "frozen soil [ENVO:01001526]": {
+            "ontology_id": "ENVO:01001526"
+          },
+          "__cryosol [ENVO:00002236]": {
+            "ontology_id": "ENVO:00002236"
+          },
+          "__friable-frozen soil [ENVO:01001528]": {
+            "ontology_id": "ENVO:01001528"
+          },
+          "__plastic-frozen soil [ENVO:01001527]": {
+            "ontology_id": "ENVO:01001527"
+          },
+          "gleysol [ENVO:00002244]": {
+            "ontology_id": "ENVO:00002244"
+          },
+          "grassland soil [ENVO:00005750]": {
+            "ontology_id": "ENVO:00005750"
+          },
+          "__savanna soil [ENVO:00005746]": {
+            "ontology_id": "ENVO:00005746"
+          },
+          "__steppe soil [ENVO:00005777]": {
+            "ontology_id": "ENVO:00005777"
+          },
+          "greenhouse soil [ENVO:00005780]": {
+            "ontology_id": "ENVO:00005780"
+          },
+          "gypsisol [ENVO:00002245]": {
+            "ontology_id": "ENVO:00002245"
+          },
+          "histosol [ENVO:00002243]": {
+            "ontology_id": "ENVO:00002243"
+          },
+          "humus-rich acidic ash soil [ENVO:00005763]": {
+            "ontology_id": "ENVO:00005763"
+          },
+          "jungle soil [ENVO:00005751]": {
+            "ontology_id": "ENVO:00005751"
+          },
+          "kastanozem [ENVO:00002240]": {
+            "ontology_id": "ENVO:00002240"
+          },
+          "leptosol [ENVO:00002241]": {
+            "ontology_id": "ENVO:00002241"
+          },
+          "limed soil [ENVO:00005766]": {
+            "ontology_id": "ENVO:00005766"
+          },
+          "lixisol [ENVO:00002242]": {
+            "ontology_id": "ENVO:00002242"
+          },
+          "loam [ENVO:00002258]": {
+            "ontology_id": "ENVO:00002258"
+          },
+          "luvisol [ENVO:00002248]": {
+            "ontology_id": "ENVO:00002248"
+          },
+          "manured soil [ENVO:00005767]": {
+            "ontology_id": "ENVO:00005767"
+          },
+          "meadow soil [ENVO:00005761]": {
+            "ontology_id": "ENVO:00005761"
+          },
+          "muddy soil [ENVO:00005771]": {
+            "ontology_id": "ENVO:00005771"
+          },
+          "nitisol [ENVO:00002247]": {
+            "ontology_id": "ENVO:00002247"
+          },
+          "orchard soil [ENVO:00005772]": {
+            "ontology_id": "ENVO:00005772"
+          },
+          "ornithogenic soil [ENVO:00005782]": {
+            "ontology_id": "ENVO:00005782"
+          },
+          "pantothenate enriched soil [ENVO:00003088]": {
+            "ontology_id": "ENVO:00003088"
+          },
+          "pasture soil [ENVO:00005773]": {
+            "ontology_id": "ENVO:00005773"
+          },
+          "peat soil [ENVO:00005774]": {
+            "ontology_id": "ENVO:00005774"
+          },
+          "phaeozem [ENVO:00002249]": {
+            "ontology_id": "ENVO:00002249"
+          },
+          "planosol [ENVO:00002251]": {
+            "ontology_id": "ENVO:00002251"
+          },
+          "plinthosol [ENVO:00002250]": {
+            "ontology_id": "ENVO:00002250"
+          },
+          "podzol [ENVO:00002257]": {
+            "ontology_id": "ENVO:00002257"
+          },
+          "poly-beta-hydroxybutyrate enriched soil [ENVO:00003093]": {
+            "ontology_id": "ENVO:00003093"
+          },
+          "pond soil [ENVO:00005764]": {
+            "ontology_id": "ENVO:00005764"
+          },
+          "quinate enriched soil [ENVO:00003095]": {
+            "ontology_id": "ENVO:00003095"
+          },
+          "regosol [ENVO:00002256]": {
+            "ontology_id": "ENVO:00002256"
+          },
+          "sarcosine enriched soil [ENVO:00003083]": {
+            "ontology_id": "ENVO:00003083"
+          },
+          "skatole enriched soil [ENVO:00003085]": {
+            "ontology_id": "ENVO:00003085"
+          },
+          "solonchak [ENVO:00002252]": {
+            "ontology_id": "ENVO:00002252"
+          },
+          "solonetz [ENVO:00002255]": {
+            "ontology_id": "ENVO:00002255"
+          },
+          "stagnosol [ENVO:00002274]": {
+            "ontology_id": "ENVO:00002274"
+          },
+          "surface soil [ENVO:02000059]": {
+            "ontology_id": "ENVO:02000059"
+          },
+          "technosol [ENVO:00002275]": {
+            "ontology_id": "ENVO:00002275"
+          },
+          "threonine enriched soil [ENVO:00003091]": {
+            "ontology_id": "ENVO:00003091"
+          },
+          "trimethylamine enriched soil [ENVO:00003084]": {
+            "ontology_id": "ENVO:00003084"
+          },
+          "tropical soil [ENVO:00005778]": {
+            "ontology_id": "ENVO:00005778"
+          },
+          "ultisol [ENVO:01001397]": {
+            "ontology_id": "ENVO:01001397"
+          },
+          "__acrisol [ENVO:00002234]": {
+            "ontology_id": "ENVO:00002234"
+          },
+          "umbrisol [ENVO:00002253]": {
+            "ontology_id": "ENVO:00002253"
+          },
+          "upland soil [ENVO:00005786]": {
+            "ontology_id": "ENVO:00005786"
+          },
+          "urea enriched soil [ENVO:00005753]": {
+            "ontology_id": "ENVO:00005753"
+          },
+          "vertisol [ENVO:00002254]": {
+            "ontology_id": "ENVO:00002254"
+          }
+        }
+      },
+      {
+        "fieldName": "geographic location (country and/or sea,region)",
+        "capitalize": "",
+        "ontology_id": "MIXS:0000010",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
-        "description": "The identifier assigned to a sample by a third party service provider.",
+        "description": "The geographical origin of the sample as defined by the country or sea name followed by specific region name. Country or sea names should be chosen from the INSDC country list (http://insdc.org/country.html), or the GAZ ontology (http://purl.bioontology.org/ontology/GAZ)",
+        "guidance": "Pattern hint: {term}: {term}, {text}",
+        "examples": "USA: Maryland, Bethesda",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "geo_loc_name"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "geographic location (latitude and longitude)",
+        "capitalize": "",
+        "ontology_id": "MIXS:0000009",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "The geographical origin of the sample as defined by latitude and longitude. The values should be reported in decimal degrees and in WGS84 system",
+        "guidance": "Pattern hint: {float} {float}",
+        "examples": "50.586825 6.408977",
+        "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? [-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?$",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "lat_lon"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "elevation",
+        "capitalize": "",
+        "ontology_id": "MIXS:0000093",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "required",
+        "description": "Elevation of the sampling site is its height above a fixed reference point, most commonly the mean sea level. Elevation is mainly used when referring to points on the earth's surface, while altitude is used for points above the surface, such as an aircraft in flight or a spacecraft in orbit.",
         "guidance": "",
-        "examples": "SHK123456",
+        "examples": "100 meter",
+        "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S+$",
         "exportField": {
-          "NML_LIMS": [
+          "soil_emsl_jgi_mg": [
             {
-              "field": "PH_ID_NUMBER_PRIMARY"
+              "field": "elev"
             }
           ]
         }
       },
       {
-        "fieldName": "case ID",
+        "fieldName": "sample storage temperature",
         "capitalize": "",
-        "ontology_id": "GENEPIO:0100281",
-        "datatype": "xs:unique",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "recommended",
-        "description": "The identifier used to specify an epidemiologically detected case of disease.",
-        "guidance": "Provide the case identifer. The case ID greatly facilitates linkage between laboratory and epidemiological data. The case ID may be considered identifiable information. Consult the data steward before sharing.",
-        "examples": "ABCD1234",
-        "exportField": {
-          "NML_LIMS": [
-            {
-              "field": "PH_CASE_ID"
-            }
-          ]
-        }
-      },
-      {
-        "fieldName": "Related specimen primary ID",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001128",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
-        ],
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The primary ID of a related specimen previously submitted to the repository.",
-        "guidance": "Store the primary ID of the related specimen previously submitted to the National Microbiology Laboratory so that the samples can be linked and tracked through the system.",
-        "examples": "SR20-12345",
-        "exportField": {
-          "CNPHI": [
-            {
-              "field": "Related Specimen ID"
-            },
-            {
-              "field": "Related Specimen Relationship Type"
-            }
-          ],
-          "NML_LIMS": [
-            {
-              "field": "PH_RELATED_PRIMARY_ID"
-            }
-          ]
-        }
-      },
-      {
-        "fieldName": "IRIDA sample name",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001131",
+        "ontology_id": "MIXS:0000110",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
-        "description": "The identifier assigned to a sequenced isolate in IRIDA.",
-        "guidance": "Store the IRIDA sample name. The IRIDA sample name will be created by the individual entering data into the IRIDA platform. IRIDA samples may be linked to metadata and sequence data, or just metadata alone. It is recommended that the IRIDA sample name be the same as, or contain, the specimen collector sample ID for better traceability. It is also recommended that the IRIDA sample name mirror the GISAID accession. IRIDA sample names cannot contain slashes. Slashes should be replaced by underscores. See IRIDA documentation for more information regarding special characters (https://irida.corefacility.ca/documentation/user/user/samples/#adding-a-new-sample). ",
-        "examples": "prov_rona_99",
+        "description": "Temperature at which sample was stored, e.g. -80 degree Celsius",
+        "guidance": "",
+        "examples": "-80 degree Celsius",
+        "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S+$",
         "exportField": {
-          "NML_LIMS": [
+          "soil_emsl_jgi_mg": [
             {
-              "field": "IRIDA sample name"
-            }
-          ]
-        }
-      },
-      {
-        "fieldName": "umbrella bioproject accession",
-        "capitalize": "UPPER",
-        "ontology_id": "GENEPIO:0001133",
-        "datatype": "select",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The INSDC accession number assigned to the umbrella BioProject for the Canadian SARS-CoV-2 sequencing effort.",
-        "guidance": "Store the umbrella BioProject accession by selecting it from the picklist in the template. The umbrella BioProject accession will be identical for all CanCOGen submitters. Different provinces will have their own BioProjects, however these BioProjects will be linked under one umbrella BioProject.",
-        "examples": "PRJNA623807",
-        "exportField": {
-          "NML_LIMS": [
-            {
-              "field": "umbrella bioproject accession"
-            }
-          ]
-        },
-        "schema:ItemList": {
-          "PRJNA623807": {}
-        }
-      },
-      {
-        "fieldName": "bioproject accession",
-        "capitalize": "UPPER",
-        "ontology_id": "GENEPIO:0001136",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The INSDC accession number of the BioProject(s) to which the BioSample belongs.",
-        "guidance": "Store the BioProject accession number. BioProjects are an organizing tool that links together raw sequence data, assemblies, and their associated metadata. Each province will be assigned a different bioproject accession number by the National Microbiology Lab. A valid NCBI BioProject accession has prefix PRJN e.g., PRJNA12345, and is created once at the beginning of a new sequencing project. ",
-        "examples": "PRJNA608651",
-        "exportField": {
-          "CNPHI": [
-            {
-              "field": "BioProject Accession"
-            }
-          ],
-          "NML_LIMS": [
-            {
-              "field": "PH_BIOPROJECT_ACCESSION"
-            }
-          ],
-          "BIOSAMPLE": [
-            {
-              "field": "bioproject_accession"
-            }
-          ]
-        }
-      },
-      {
-        "fieldName": "biosample accession",
-        "capitalize": "UPPER",
-        "ontology_id": "GENEPIO:0001139",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The identifier assigned to a BioSample in INSDC archives.",
-        "guidance": "Store the accession returned from the BioSample submission. NCBI BioSamples will have the prefix SAMN.",
-        "examples": "SAMN14180202",
-        "exportField": {
-          "CNPHI": [
-            {
-              "field": "BioSample Accession"
-            }
-          ],
-          "NML_LIMS": [
-            {
-              "field": "PH_BIOSAMPLE_ACCESSION"
-            }
-          ]
-        }
-      },
-      {
-        "fieldName": "SRA accession",
-        "capitalize": "UPPER",
-        "ontology_id": "GENEPIO:0001142",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The Sequence Read Archive (SRA) identifier linking raw read data, methodological metadata and quality control metrics submitted to the INSDC.",
-        "guidance": "Store the accession assigned to the submitted \"run\". NCBI-SRA accessions start with SRR.",
-        "examples": "SRR11177792",
-        "exportField": {
-          "CNPHI": [
-            {
-              "field": "SRA Accession"
-            }
-          ],
-          "NML_LIMS": [
-            {
-              "field": "PH_SRA_ACCESSION"
-            }
-          ]
-        }
-      },
-      {
-        "fieldName": "GenBank accession",
-        "capitalize": "UPPER",
-        "ontology_id": "GENEPIO:0001145",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The GenBank identifier assigned to the sequence in the INSDC archives.",
-        "guidance": "Store the accession returned from a GenBank submission (viral genome assembly).",
-        "examples": "MN908947.3",
-        "exportField": {
-          "CNPHI": [
-            {
-              "field": "GenBank Accession"
-            }
-          ],
-          "NML_LIMS": [
-            {
-              "field": "GenBank accession"
-            }
-          ]
-        }
-      },
-      {
-        "fieldName": "GISAID accession",
-        "capitalize": "UPPER",
-        "ontology_id": "GENEPIO:0001147",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The GISAID accession number assigned to the sequence.",
-        "guidance": "Store the accession returned from the GISAID submission.",
-        "examples": "EPI_ISL_436489",
-        "exportField": {
-          "CNPHI": [
-            {
-              "field": "GISAID Accession (if known)"
-            }
-          ],
-          "NML_LIMS": [
-            {
-              "field": "SUBMISSIONS - GISAID Accession ID"
-            }
-          ],
-          "BIOSAMPLE": [
-            {
-              "field": "GISAID_accession"
-            }
-          ],
-          "VirusSeq_Portal": [
-            {
-              "field": "GISAID accession"
+              "field": "samp_store_temp"
             }
           ]
         }
@@ -340,7547 +1585,2089 @@ var DATA = [
     ]
   },
   {
-    "fieldName": "Sample collection and processing",
+    "fieldName": "Metadata- MIxS Modified Required Where Applicable",
     "children": [
       {
-        "fieldName": "sample collected by",
+        "fieldName": "collection time, GMT",
         "capitalize": "",
-        "ontology_id": "GENEPIO:0001153",
-        "datatype": "select",
-        "source": "",
-        "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
-        ],
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "required",
-        "description": "The name of the agency that collected the original sample.",
-        "guidance": "The name of the sample collector should be written out in full, (with minor exceptions) and be consistent across multple submissions e.g. Public Health Agency of Canada, Public Health Ontario, BC Centre for Disease Control. The sample collector specified is at the discretion of the data provider (i.e. may be hospital, provincial public health lab, or other).",
-        "examples": "BC Centre for Disease Control",
-        "exportField": {
-          "GISAID": [
-            {
-              "field": "Originating lab"
-            }
-          ],
-          "CNPHI": [
-            {
-              "field": "Lab Name"
-            }
-          ],
-          "NML_LIMS": [
-            {
-              "field": "CUSTOMER"
-            }
-          ],
-          "BIOSAMPLE": [
-            {
-              "field": "collected_by"
-            }
-          ],
-          "VirusSeq_Portal": [
-            {
-              "field": "sample collected by"
-            }
-          ]
-        },
-        "schema:ItemList": {
-          "Alberta Precision Labs (APL)": {
-            "schema:ItemList": {
-              "Alberta ProvLab North (APLN)": {},
-              "Alberta ProvLab South (APLS)": {}
-            }
-          },
-          "BCCDC Public Health Laboratory": {},
-          "Dynacare": {},
-          "Dynacare (Manitoba)": {},
-          "Dynacare (Brampton)": {},
-          "Eastern Ontario Regional Laboratory Association": {},
-          "Hamilton Health Sciences": {},
-          "The Hospital for Sick Children (SickKids)": {},
-          "Laboratoire de sant\u00e9 publique du Qu\u00e9bec (LSPQ)": {},
-          "Lake of the Woods District Hospital - Ontario": {},
-          "Manitoba Cadham Provincial Laboratory": {},
-          "McMaster University": {},
-          "Mount Sinai Hospital": {},
-          "National Microbiology Laboratory (NML)": {},
-          "New Brunswick - Vitalit\u00e9 Health Network": {},
-          "Newfoundland and Labrador - Eastern Health": {},
-          "Nova Scotia Health Authority": {},
-          "Nunuvut": {},
-          "Ontario Institute for Cancer Research (OICR)": {},
-          "Prince Edward Island - Health PEI": {},
-          "Public Health Ontario (PHO)": {},
-          "Queen's University / Kingston Health Sciences Centre": {},
-          "Saskatchewan - Roy Romanow Provincial Laboratory (RRPL)": {},
-          "St. John's Rehab at Sunnybrook Hospital": {},
-          "Sunnybrook Health Sciences Centre": {},
-          "Unity Health Toronto": {},
-          "William Osler Health System": {}
-        }
-      },
-      {
-        "fieldName": "sample collector contact email",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001156",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The email address of the contact responsible for follow-up regarding the sample.",
-        "guidance": "The email address can represent a specific individual or lab e.g. johnnyblogs@lab.ca, or RespLab@lab.ca",
-        "examples": "RespLab@lab.ca",
-        "pattern": "^\\S+@\\S+\\.\\S+$",
-        "exportField": {
-          "NML_LIMS": [
-            {
-              "field": "sample collector contact email"
-            }
-          ]
-        }
-      },
-      {
-        "fieldName": "sample collector contact address",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001158",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The mailing address of the agency submitting the sample.",
-        "guidance": "The mailing address should be in the format: Street number and name, City, Province/Territory, Postal Code, Country",
-        "examples": "655 Lab St, Vancouver, British Columbia, V5N 2A2, Canada",
-        "exportField": {
-          "GISAID": [
-            {
-              "field": "Address"
-            }
-          ],
-          "NML_LIMS": [
-            {
-              "field": "sample collector contact address"
-            }
-          ]
-        }
-      },
-      {
-        "fieldName": "sequence submitted by",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001159",
-        "datatype": "select",
-        "source": "",
-        "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
-        ],
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "required",
-        "description": "The name of the agency that generated the sequence.",
-        "guidance": "The name of the agency should be written out in full, (with minor exceptions) and be consistent across multple submissions. If submitting specimens rather than sequencing data, please put the \"National Microbiology Laboratory (NML)\".",
-        "examples": "Public Health Ontario (PHO)",
-        "exportField": {
-          "GISAID": [
-            {
-              "field": "Submitting lab"
-            }
-          ],
-          "CNPHI": [
-            {
-              "field": "Sequencing Centre"
-            }
-          ],
-          "NML_LIMS": [
-            {
-              "field": "PH_SEQUENCING_CENTRE"
-            }
-          ],
-          "BIOSAMPLE": [
-            {
-              "field": "sequenced_by"
-            }
-          ],
-          "VirusSeq_Portal": [
-            {
-              "field": "sequence submitted by"
-            }
-          ]
-        },
-        "schema:ItemList": {
-          "Alberta Precision Labs (APL)": {
-            "schema:ItemList": {
-              "Alberta ProvLab North (APLN)": {},
-              "Alberta ProvLab South (APLS)": {}
-            }
-          },
-          "BCCDC Public Health Laboratory": {},
-          "Canadore College": {},
-          "The Centre for Applied Genomics (TCAG)": {},
-          "Dynacare": {},
-          "Dynacare (Brampton)": {},
-          "Dynacare (Manitoba)": {},
-          "The Hospital for Sick Children (SickKids)": {},
-          "Laboratoire de sant\u00e9 publique du Qu\u00e9bec (LSPQ)": {},
-          "Manitoba Cadham Provincial Laboratory": {},
-          "McMaster University": {},
-          "McGill University": {},
-          "National Microbiology Laboratory (NML)": {},
-          "New Brunswick - Vitalit\u00e9 Health Network": {},
-          "Newfoundland and Labrador - Eastern Health": {},
-          "Nova Scotia Health Authority": {},
-          "Ontario Institute for Cancer Research (OICR)": {},
-          "Prince Edward Island - Health PEI": {},
-          "Public Health Ontario (PHO)": {},
-          "Saskatchewan - Roy Romanow Provincial Laboratory (RRPL)": {},
-          "Sunnybrook Health Sciences Centre": {},
-          "Thunder Bay Regional Health Sciences Centre": {},
-          "Queen's University / Kingston Health Sciences Centre": {}
-        }
-      },
-      {
-        "fieldName": "sequence submitter contact email",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001165",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The email address of the contact responsible for follow-up regarding the sequence.",
-        "guidance": "The email address can represent a specific individual or lab e.g. johnnyblogs@lab.ca, or RespLab@lab.ca",
-        "examples": "RespLab@lab.ca",
-        "exportField": {
-          "NML_LIMS": [
-            {
-              "field": "sequence submitter contact email"
-            }
-          ]
-        }
-      },
-      {
-        "fieldName": "sequence submitter contact address",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001167",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The mailing address of the agency submitting the sequence.",
-        "guidance": "The mailing address should be in the format: Street number and name, City, Province/Territory, Postal Code, Country",
-        "examples": "123 Sunnybrooke St, Toronto, Ontario, M4P 1L6, Canada",
-        "exportField": {
-          "GISAID": [
-            {
-              "field": "Address"
-            }
-          ],
-          "NML_LIMS": [
-            {
-              "field": "sequence submitter contact address"
-            }
-          ]
-        }
-      },
-      {
-        "fieldName": "sample collection date",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001174",
-        "datatype": "xs:date",
-        "source": "",
-        "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
-        ],
-        "xs:minInclusive": "2019-10-01",
-        "xs:maxInclusive": "{today}",
-        "requirement": "required",
-        "description": "The date on which the sample was collected.",
-        "guidance": "Sample collection date is critical for surveillance and many types of analyses. Required granularity includes year, month and day. If this date is considered identifiable information, it is acceptable to add \"jitter\" by adding or subtracting a calendar day (acceptable by GISAID). Alternatively, \u201dreceived date\u201d may be used as a substitute. The date should be provided in ISO 8601 standard format \"YYYY-MM-DD\".",
-        "examples": "2020-03-16",
-        "exportField": {
-          "GISAID": [
-            {
-              "field": "Collection date"
-            }
-          ],
-          "CNPHI": [
-            {
-              "field": "Patient Sample Collected Date"
-            }
-          ],
-          "NML_LIMS": [
-            {
-              "field": "HC_COLLECT_DATE"
-            }
-          ],
-          "BIOSAMPLE": [
-            {
-              "field": "sample collection date"
-            }
-          ],
-          "VirusSeq_Portal": [
-            {
-              "field": "sample collection date"
-            }
-          ]
-        }
-      },
-      {
-        "fieldName": "sample collection date precision",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001177",
-        "datatype": "select",
-        "source": "",
-        "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
-        ],
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "required",
-        "description": "The precision to which the \"sample collection date\" was provided.",
-        "guidance": "Provide the precision of granularity to the \"day\", \"month\", or \"year\" for the date provided in the \"sample collection date\" field. The \"sample collection date\" will be truncated to the precision specified upon export; \"day\" for \"YYYY-MM-DD\", \"month\" for \"YYYY-MM\", or \"year\" for \"YYYY\".",
-        "examples": "year",
-        "exportField": {
-          "CNPHI": [
-            {
-              "field": "Precision of date collected"
-            }
-          ],
-          "NML_LIMS": [
-            {
-              "field": "HC_TEXT2"
-            }
-          ]
-        },
-        "schema:ItemList": {
-          "year": {
-            "ontology_id": "UO:0000036"
-          },
-          "month": {
-            "ontology_id": "UO:0000035"
-          },
-          "day": {
-            "ontology_id": "UO:0000033"
-          }
-        }
-      },
-      {
-        "fieldName": "sample received date",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001179",
-        "datatype": "xs:date",
-        "source": "",
-        "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
-        ],
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The date on which the sample was received.",
-        "guidance": "ISO 8601 standard \"YYYY-MM-DD\".",
-        "examples": "2020-03-20",
-        "exportField": {
-          "NML_LIMS": [
-            {
-              "field": "sample received date"
-            }
-          ]
-        }
-      },
-      {
-        "fieldName": "geo_loc_name (country)",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001181",
-        "datatype": "select",
-        "source": "",
-        "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
-        ],
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "required",
-        "description": "The country where the sample was collected.",
-        "guidance": "Provide the country name from the controlled vocabulary provided.",
-        "examples": "Canada",
-        "exportField": {
-          "GISAID": [
-            {
-              "field": "Location"
-            }
-          ],
-          "CNPHI": [
-            {
-              "field": "Patient Country"
-            }
-          ],
-          "NML_LIMS": [
-            {
-              "field": "HC_COUNTRY"
-            }
-          ],
-          "BIOSAMPLE": [
-            {
-              "field": "geo_loc_name"
-            }
-          ],
-          "VirusSeq_Portal": [
-            {
-              "field": "geo_loc_name (country)"
-            }
-          ]
-        },
-        "schema:ItemList": {
-          "Afghanistan": {
-            "ontology_id": "GAZ:00006882"
-          },
-          "Albania": {
-            "ontology_id": "GAZ:00002953"
-          },
-          "Algeria": {
-            "ontology_id": "GAZ:00000563"
-          },
-          "American Samoa": {
-            "ontology_id": "GAZ:00003957"
-          },
-          "Andorra": {
-            "ontology_id": "GAZ:00002948"
-          },
-          "Angola": {
-            "ontology_id": "GAZ:00001095"
-          },
-          "Anguilla": {
-            "ontology_id": "GAZ:00009159"
-          },
-          "Antarctica": {
-            "ontology_id": "GAZ:00000462"
-          },
-          "Antigua and Barbuda": {
-            "ontology_id": "GAZ:00006883"
-          },
-          "Argentina": {
-            "ontology_id": "GAZ:00002928"
-          },
-          "Armenia": {
-            "ontology_id": "GAZ:00004094"
-          },
-          "Aruba": {
-            "ontology_id": "GAZ:00004025"
-          },
-          "Ashmore and Cartier Islands": {
-            "ontology_id": "GAZ:00005901"
-          },
-          "Australia": {
-            "ontology_id": "GAZ:00000463"
-          },
-          "Austria": {
-            "ontology_id": "GAZ:00002942"
-          },
-          "Azerbaijan": {
-            "ontology_id": "GAZ:00004941"
-          },
-          "Bahamas": {
-            "ontology_id": "GAZ:00002733"
-          },
-          "Bahrain": {
-            "ontology_id": "GAZ:00005281"
-          },
-          "Baker Island": {
-            "ontology_id": "GAZ:00007117"
-          },
-          "Bangladesh": {
-            "ontology_id": "GAZ:00003750"
-          },
-          "Barbados": {
-            "ontology_id": "GAZ:00001251"
-          },
-          "Bassas da India": {
-            "ontology_id": "GAZ:00005810"
-          },
-          "Belarus": {
-            "ontology_id": "GAZ:00006886"
-          },
-          "Belgium": {
-            "ontology_id": "GAZ:00002938"
-          },
-          "Belize": {
-            "ontology_id": "GAZ:00002934"
-          },
-          "Benin": {
-            "ontology_id": "GAZ:00000904"
-          },
-          "Bermuda": {
-            "ontology_id": "GAZ:00001264"
-          },
-          "Bhutan": {
-            "ontology_id": "GAZ:00003920"
-          },
-          "Bolivia": {
-            "ontology_id": "GAZ:00002511"
-          },
-          "Borneo": {
-            "ontology_id": "GAZ:00025355"
-          },
-          "Bosnia and Herzegovina": {
-            "ontology_id": "GAZ:00006887"
-          },
-          "Botswana": {
-            "ontology_id": "GAZ:00001097"
-          },
-          "Bouvet Island": {
-            "ontology_id": "GAZ:00001453"
-          },
-          "Brazil": {
-            "ontology_id": "GAZ:00002828"
-          },
-          "British Virgin Islands": {
-            "ontology_id": "GAZ:00003961"
-          },
-          "Brunei": {
-            "ontology_id": "GAZ:00003901"
-          },
-          "Bulgaria": {
-            "ontology_id": "GAZ:00002950"
-          },
-          "Burkina Faso": {
-            "ontology_id": "GAZ:00000905"
-          },
-          "Burundi": {
-            "ontology_id": "GAZ:00001090"
-          },
-          "Cambodia": {
-            "ontology_id": "GAZ:00006888"
-          },
-          "Cameroon": {
-            "ontology_id": "GAZ:00001093"
-          },
-          "Canada": {
-            "ontology_id": "GAZ:00002560"
-          },
-          "Cape Verde": {
-            "ontology_id": "GAZ:00001227"
-          },
-          "Cayman Islands": {
-            "ontology_id": "GAZ:00003986"
-          },
-          "Central African Republic": {
-            "ontology_id": "GAZ:00001089"
-          },
-          "Chad": {
-            "ontology_id": "GAZ:00000586"
-          },
-          "Chile": {
-            "ontology_id": "GAZ:00002825"
-          },
-          "China": {
-            "ontology_id": "GAZ:00002845"
-          },
-          "Christmas Island": {
-            "ontology_id": "GAZ:00005915"
-          },
-          "Clipperton Island": {
-            "ontology_id": "GAZ:00005838"
-          },
-          "Cocos Islands": {
-            "ontology_id": "GAZ:00009721"
-          },
-          "Colombia": {
-            "ontology_id": "GAZ:00002929"
-          },
-          "Comoros": {
-            "ontology_id": "GAZ:00005820"
-          },
-          "Cook Islands": {
-            "ontology_id": "GAZ:00053798"
-          },
-          "Coral Sea Islands": {
-            "ontology_id": "GAZ:00005917"
-          },
-          "Costa Rica": {
-            "ontology_id": "GAZ:00002901"
-          },
-          "Cote d'Ivoire": {
-            "ontology_id": "GAZ:00000906"
-          },
-          "Croatia": {
-            "ontology_id": "GAZ:00002719"
-          },
-          "Cuba": {
-            "ontology_id": "GAZ:00003762"
-          },
-          "Curacao": {
-            "ontology_id": "GAZ:00012582"
-          },
-          "Cyprus": {
-            "ontology_id": "GAZ:00004006"
-          },
-          "Czech Republic": {
-            "ontology_id": "GAZ:00002954"
-          },
-          "Democratic Republic of the Congo": {
-            "ontology_id": "GAZ:00001086"
-          },
-          "Denmark": {
-            "ontology_id": "GAZ:00005852"
-          },
-          "Djibouti": {
-            "ontology_id": "GAZ:00000582"
-          },
-          "Dominica": {
-            "ontology_id": "GAZ:00006890"
-          },
-          "Dominican Republic": {
-            "ontology_id": "GAZ:00003952"
-          },
-          "Ecuador": {
-            "ontology_id": "GAZ:00002912"
-          },
-          "Egypt": {
-            "ontology_id": "GAZ:00003934"
-          },
-          "El Salvador": {
-            "ontology_id": "GAZ:00002935"
-          },
-          "Equatorial Guinea": {
-            "ontology_id": "GAZ:00001091"
-          },
-          "Eritrea": {
-            "ontology_id": "GAZ:00000581"
-          },
-          "Estonia": {
-            "ontology_id": "GAZ:00002959"
-          },
-          "Eswatini": {
-            "ontology_id": "GAZ:00001099"
-          },
-          "Ethiopia": {
-            "ontology_id": "GAZ:00000567"
-          },
-          "Europa Island": {
-            "ontology_id": "GAZ:00005811"
-          },
-          "Falkland Islands (Islas Malvinas)": {
-            "ontology_id": "GAZ:00001412"
-          },
-          "Faroe Islands": {
-            "ontology_id": "GAZ:00059206"
-          },
-          "Fiji": {
-            "ontology_id": "GAZ:00006891"
-          },
-          "Finland": {
-            "ontology_id": "GAZ:00002937"
-          },
-          "France": {
-            "ontology_id": "GAZ:00003940"
-          },
-          "French Guiana": {
-            "ontology_id": "GAZ:00002516"
-          },
-          "French Polynesia": {
-            "ontology_id": "GAZ:00002918"
-          },
-          "French Southern and Antarctic Lands": {
-            "ontology_id": "GAZ:00003753"
-          },
-          "Gabon": {
-            "ontology_id": "GAZ:00001092"
-          },
-          "Gambia": {
-            "ontology_id": "GAZ:00000907"
-          },
-          "Gaza Strip": {
-            "ontology_id": "GAZ:00009571"
-          },
-          "Georgia": {
-            "ontology_id": "GAZ:00004942"
-          },
-          "Germany": {
-            "ontology_id": "GAZ:00002646"
-          },
-          "Ghana": {
-            "ontology_id": "GAZ:00000908"
-          },
-          "Gibraltar": {
-            "ontology_id": "GAZ:00003987"
-          },
-          "Glorioso Islands": {
-            "ontology_id": "GAZ:00005808"
-          },
-          "Greece": {
-            "ontology_id": "GAZ:00002945"
-          },
-          "Greenland": {
-            "ontology_id": "GAZ:00001507"
-          },
-          "Grenada": {
-            "ontology_id": "GAZ:02000573"
-          },
-          "Guadeloupe": {
-            "ontology_id": "GAZ:00067142"
-          },
-          "Guam": {
-            "ontology_id": "GAZ:00003706"
-          },
-          "Guatemala": {
-            "ontology_id": "GAZ:00002936"
-          },
-          "Guernsey": {
-            "ontology_id": "GAZ:00001550"
-          },
-          "Guinea": {
-            "ontology_id": "GAZ:00000909"
-          },
-          "Guinea-Bissau": {
-            "ontology_id": "GAZ:00000910"
-          },
-          "Guyana": {
-            "ontology_id": "GAZ:00002522"
-          },
-          "Haiti": {
-            "ontology_id": "GAZ:00003953"
-          },
-          "Heard Island and McDonald Islands": {
-            "ontology_id": "GAZ:00009718"
-          },
-          "Honduras": {
-            "ontology_id": "GAZ:00002894"
-          },
-          "Hong Kong": {
-            "ontology_id": "GAZ:00003203"
-          },
-          "Howland Island": {
-            "ontology_id": "GAZ:00007120"
-          },
-          "Hungary": {
-            "ontology_id": "GAZ:00002952"
-          },
-          "Iceland": {
-            "ontology_id": "GAZ:00000843"
-          },
-          "India": {
-            "ontology_id": "GAZ:00002839"
-          },
-          "Indonesia": {
-            "ontology_id": "GAZ:00003727"
-          },
-          "Iran": {
-            "ontology_id": "GAZ:00004474"
-          },
-          "Iraq": {
-            "ontology_id": "GAZ:00004483"
-          },
-          "Ireland": {
-            "ontology_id": "GAZ:00002943"
-          },
-          "Isle of Man": {
-            "ontology_id": "GAZ:00052477"
-          },
-          "Israel": {
-            "ontology_id": "GAZ:00002476"
-          },
-          "Italy": {
-            "ontology_id": "GAZ:00002650"
-          },
-          "Jamaica": {
-            "ontology_id": "GAZ:00003781"
-          },
-          "Jan Mayen": {
-            "ontology_id": "GAZ:00005853"
-          },
-          "Japan": {
-            "ontology_id": "GAZ:00002747"
-          },
-          "Jarvis Island": {
-            "ontology_id": "GAZ:00007118"
-          },
-          "Jersey": {
-            "ontology_id": "GAZ:00001551"
-          },
-          "Johnston Atoll": {
-            "ontology_id": "GAZ:00007114"
-          },
-          "Jordan": {
-            "ontology_id": "GAZ:00002473"
-          },
-          "Juan de Nova Island": {
-            "ontology_id": "GAZ:00005809"
-          },
-          "Kazakhstan": {
-            "ontology_id": "GAZ:00004999"
-          },
-          "Kenya": {
-            "ontology_id": "GAZ:00001101"
-          },
-          "Kerguelen Archipelago": {
-            "ontology_id": "GAZ:00005682"
-          },
-          "Kingman Reef": {
-            "ontology_id": "GAZ:00007116"
-          },
-          "Kiribati": {
-            "ontology_id": "GAZ:00006894"
-          },
-          "Kosovo": {
-            "ontology_id": "GAZ:00011337"
-          },
-          "Kuwait": {
-            "ontology_id": "GAZ:00005285"
-          },
-          "Kyrgyzstan": {
-            "ontology_id": "GAZ:00006893"
-          },
-          "Laos": {
-            "ontology_id": "GAZ:00006889"
-          },
-          "Latvia": {
-            "ontology_id": "GAZ:00002958"
-          },
-          "Lebanon": {
-            "ontology_id": "GAZ:00002478"
-          },
-          "Lesotho": {
-            "ontology_id": "GAZ:00001098"
-          },
-          "Liberia": {
-            "ontology_id": "GAZ:00000911"
-          },
-          "Libya": {
-            "ontology_id": "GAZ:00000566"
-          },
-          "Liechtenstein": {
-            "ontology_id": "GAZ:00003858"
-          },
-          "Line Islands": {
-            "ontology_id": "GAZ:00007144"
-          },
-          "Lithuania": {
-            "ontology_id": "GAZ:00002960"
-          },
-          "Luxembourg": {
-            "ontology_id": "GAZ:00002947"
-          },
-          "Macau": {
-            "ontology_id": "GAZ:00003202"
-          },
-          "Madagascar": {
-            "ontology_id": "GAZ:00001108"
-          },
-          "Malawi": {
-            "ontology_id": "GAZ:00001105"
-          },
-          "Malaysia": {
-            "ontology_id": "GAZ:00003902"
-          },
-          "Maldives": {
-            "ontology_id": "GAZ:00006924"
-          },
-          "Mali": {
-            "ontology_id": "GAZ:00000584"
-          },
-          "Malta": {
-            "ontology_id": "GAZ:00004017"
-          },
-          "Marshall Islands": {
-            "ontology_id": "GAZ:00007161"
-          },
-          "Martinique": {
-            "ontology_id": "GAZ:00067143"
-          },
-          "Mauritania": {
-            "ontology_id": "GAZ:00000583"
-          },
-          "Mauritius": {
-            "ontology_id": "GAZ:00003745"
-          },
-          "Mayotte": {
-            "ontology_id": "GAZ:00003943"
-          },
-          "Mexico": {
-            "ontology_id": "GAZ:00002852"
-          },
-          "Micronesia": {
-            "ontology_id": "GAZ:00005862"
-          },
-          "Midway Islands": {
-            "ontology_id": "GAZ:00007112"
-          },
-          "Moldova": {
-            "ontology_id": "GAZ:00003897"
-          },
-          "Monaco": {
-            "ontology_id": "GAZ:00003857"
-          },
-          "Mongolia": {
-            "ontology_id": "GAZ:00008744"
-          },
-          "Montenegro": {
-            "ontology_id": "GAZ:00006898"
-          },
-          "Montserrat": {
-            "ontology_id": "GAZ:00003988"
-          },
-          "Morocco": {
-            "ontology_id": "GAZ:00000565"
-          },
-          "Mozambique": {
-            "ontology_id": "GAZ:00001100"
-          },
-          "Myanmar": {
-            "ontology_id": "GAZ:00006899"
-          },
-          "Namibia": {
-            "ontology_id": "GAZ:00001096"
-          },
-          "Nauru": {
-            "ontology_id": "GAZ:00006900"
-          },
-          "Navassa Island": {
-            "ontology_id": "GAZ:00007119"
-          },
-          "Nepal": {
-            "ontology_id": "GAZ:00004399"
-          },
-          "Netherlands": {
-            "ontology_id": "GAZ:00002946"
-          },
-          "New Caledonia": {
-            "ontology_id": "GAZ:00005206"
-          },
-          "New Zealand": {
-            "ontology_id": "GAZ:00000469"
-          },
-          "Nicaragua": {
-            "ontology_id": "GAZ:00002978"
-          },
-          "Niger": {
-            "ontology_id": "GAZ:00000585"
-          },
-          "Nigeria": {
-            "ontology_id": "GAZ:00000912"
-          },
-          "Niue": {
-            "ontology_id": "GAZ:00006902"
-          },
-          "Norfolk Island": {
-            "ontology_id": "GAZ:00005908"
-          },
-          "North Korea": {
-            "ontology_id": "GAZ:00002801"
-          },
-          "North Macedonia": {
-            "ontology_id": "GAZ:00006895"
-          },
-          "North Sea": {
-            "ontology_id": "GAZ:00002284"
-          },
-          "Northern Mariana Islands": {
-            "ontology_id": "GAZ:00003958"
-          },
-          "Norway": {
-            "ontology_id": "GAZ:00002699"
-          },
-          "Oman": {
-            "ontology_id": "GAZ:00005283"
-          },
-          "Pakistan": {
-            "ontology_id": "GAZ:00005246"
-          },
-          "Palau": {
-            "ontology_id": "GAZ:00006905"
-          },
-          "Panama": {
-            "ontology_id": "GAZ:00002892"
-          },
-          "Papua New Guinea": {
-            "ontology_id": "GAZ:00003922"
-          },
-          "Paracel Islands": {
-            "ontology_id": "GAZ:00010832"
-          },
-          "Paraguay": {
-            "ontology_id": "GAZ:00002933"
-          },
-          "Peru": {
-            "ontology_id": "GAZ:00002932"
-          },
-          "Philippines": {
-            "ontology_id": "GAZ:00004525"
-          },
-          "Pitcairn Islands": {
-            "ontology_id": "GAZ:00005867"
-          },
-          "Poland": {
-            "ontology_id": "GAZ:00002939"
-          },
-          "Portugal": {
-            "ontology_id": "GAZ:00004126"
-          },
-          "Puerto Rico": {
-            "ontology_id": "GAZ:00006935"
-          },
-          "Qatar": {
-            "ontology_id": "GAZ:00005286"
-          },
-          "Republic of the Congo": {
-            "ontology_id": "GAZ:00001088"
-          },
-          "Reunion": {
-            "ontology_id": "GAZ:00003945"
-          },
-          "Romania": {
-            "ontology_id": "GAZ:00002951"
-          },
-          "Ross Sea": {
-            "ontology_id": "GAZ:00023304"
-          },
-          "Russia": {
-            "ontology_id": "GAZ:00002721"
-          },
-          "Rwanda": {
-            "ontology_id": "GAZ:00001087"
-          },
-          "Saint Helena": {
-            "ontology_id": "GAZ:00000849"
-          },
-          "Saint Kitts and Nevis": {
-            "ontology_id": "GAZ:00006906"
-          },
-          "Saint Lucia": {
-            "ontology_id": "GAZ:00006909"
-          },
-          "Saint Pierre and Miquelon": {
-            "ontology_id": "GAZ:00003942"
-          },
-          "Saint Martin": {
-            "ontology_id": "GAZ:00005841"
-          },
-          "Saint Vincent and the Grenadines": {
-            "ontology_id": "GAZ:02000565"
-          },
-          "Samoa": {
-            "ontology_id": "GAZ:00006910"
-          },
-          "San Marino": {
-            "ontology_id": "GAZ:00003102"
-          },
-          "Sao Tome and Principe": {
-            "ontology_id": "GAZ:00006927"
-          },
-          "Saudi Arabia": {
-            "ontology_id": "GAZ:00005279"
-          },
-          "Senegal": {
-            "ontology_id": "GAZ:00000913"
-          },
-          "Serbia": {
-            "ontology_id": "GAZ:00002957"
-          },
-          "Seychelles": {
-            "ontology_id": "GAZ:00006922"
-          },
-          "Sierra Leone": {
-            "ontology_id": "GAZ:00000914"
-          },
-          "Singapore": {
-            "ontology_id": "GAZ:00003923"
-          },
-          "Sint Maarten": {
-            "ontology_id": "GAZ:00012579"
-          },
-          "Slovakia": {
-            "ontology_id": "GAZ:00002956"
-          },
-          "Slovenia": {
-            "ontology_id": "GAZ:00002955"
-          },
-          "Solomon Islands": {
-            "ontology_id": "GAZ:00005275"
-          },
-          "Somalia": {
-            "ontology_id": "GAZ:00001104"
-          },
-          "South Africa": {
-            "ontology_id": "GAZ:00001094"
-          },
-          "South Georgia and the South Sandwich Islands": {
-            "ontology_id": "GAZ:00003990"
-          },
-          "South Korea": {
-            "ontology_id": "GAZ:00002802"
-          },
-          "South Sudan": {
-            "ontology_id": "GAZ:00233439"
-          },
-          "Spain": {
-            "ontology_id": "GAZ:00000591"
-          },
-          "Spratly Islands": {
-            "ontology_id": "GAZ:00010831"
-          },
-          "Sri Lanka": {
-            "ontology_id": "GAZ:00003924"
-          },
-          "State of Palestine": {
-            "ontology_id": "GAZ:00002475"
-          },
-          "Sudan": {
-            "ontology_id": "GAZ:00000560"
-          },
-          "Suriname": {
-            "ontology_id": "GAZ:00002525"
-          },
-          "Svalbard": {
-            "ontology_id": "GAZ:00005396"
-          },
-          "Swaziland": {
-            "ontology_id": "GAZ:00001099"
-          },
-          "Sweden": {
-            "ontology_id": "GAZ:00002729"
-          },
-          "Switzerland": {
-            "ontology_id": "GAZ:00002941"
-          },
-          "Syria": {
-            "ontology_id": "GAZ:00002474"
-          },
-          "Taiwan": {
-            "ontology_id": "GAZ:00005341"
-          },
-          "Tajikistan": {
-            "ontology_id": "GAZ:00006912"
-          },
-          "Tanzania": {
-            "ontology_id": "GAZ:00001103"
-          },
-          "Thailand": {
-            "ontology_id": "GAZ:00003744"
-          },
-          "Timor-Leste": {
-            "ontology_id": "GAZ:00006913"
-          },
-          "Togo": {
-            "ontology_id": "GAZ:00000915"
-          },
-          "Tokelau": {
-            "ontology_id": "GAZ:00260188"
-          },
-          "Tonga": {
-            "ontology_id": "GAZ:00006916"
-          },
-          "Trinidad and Tobago": {
-            "ontology_id": "GAZ:00003767"
-          },
-          "Tromelin Island": {
-            "ontology_id": "GAZ:00005812"
-          },
-          "Tunisia": {
-            "ontology_id": "GAZ:00000562"
-          },
-          "Turkey": {
-            "ontology_id": "GAZ:00000558"
-          },
-          "Turkmenistan": {
-            "ontology_id": "GAZ:00005018"
-          },
-          "Turks and Caicos Islands": {
-            "ontology_id": "GAZ:00003955"
-          },
-          "Tuvalu": {
-            "ontology_id": "GAZ:00009715"
-          },
-          "United States of America": {
-            "ontology_id": "GAZ:00002459"
-          },
-          "Uganda": {
-            "ontology_id": "GAZ:00001102"
-          },
-          "Ukraine": {
-            "ontology_id": "GAZ:00002724"
-          },
-          "United Arab Emirates": {
-            "ontology_id": "GAZ:00005282"
-          },
-          "United Kingdom": {
-            "ontology_id": "GAZ:00002637"
-          },
-          "Uruguay": {
-            "ontology_id": "GAZ:00002930"
-          },
-          "Uzbekistan": {
-            "ontology_id": "GAZ:00004979"
-          },
-          "Vanuatu": {
-            "ontology_id": "GAZ:00006918"
-          },
-          "Venezuela": {
-            "ontology_id": "GAZ:00002931"
-          },
-          "Viet Nam": {
-            "ontology_id": "GAZ:00003756"
-          },
-          "Virgin Islands": {
-            "ontology_id": "GAZ:00003959"
-          },
-          "Wake Island": {
-            "ontology_id": "GAZ:00007111"
-          },
-          "Wallis and Futuna": {
-            "ontology_id": "GAZ:00007191"
-          },
-          "West Bank": {
-            "ontology_id": "GAZ:00009572"
-          },
-          "Western Sahara": {
-            "ontology_id": "GAZ:00000564"
-          },
-          "Yemen": {
-            "ontology_id": "GAZ:00005284"
-          },
-          "Zambia": {
-            "ontology_id": "GAZ:00001107"
-          },
-          "Zimbabwe": {
-            "ontology_id": "GAZ:00001106"
-          }
-        }
-      },
-      {
-        "fieldName": "geo_loc_name (state/province/territory)",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001185",
-        "datatype": "select",
-        "source": "",
-        "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
-        ],
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "required",
-        "description": "The province/territory where the sample was collected.",
-        "guidance": "Provide the province/territory name from the controlled vocabulary provided.",
-        "examples": "Saskatchewan",
-        "exportField": {
-          "CNPHI": [
-            {
-              "field": "Patient Province"
-            }
-          ],
-          "NML_LIMS": [
-            {
-              "field": "HC_PROVINCE"
-            }
-          ],
-          "BIOSAMPLE": [
-            {
-              "field": "geo_loc_name"
-            }
-          ],
-          "VirusSeq_Portal": [
-            {
-              "field": "geo_loc_name (state/province/territory)"
-            }
-          ]
-        },
-        "schema:ItemList": {
-          "Alberta": {
-            "ontology_id": "GAZ:00002566"
-          },
-          "British Columbia": {
-            "ontology_id": "GAZ:00002562"
-          },
-          "Manitoba": {
-            "ontology_id": "GAZ:00002571"
-          },
-          "New Brunswick": {
-            "ontology_id": "GAZ:00002570"
-          },
-          "Newfoundland and Labrador": {
-            "ontology_id": "GAZ:00002567"
-          },
-          "Northwest Territories": {
-            "ontology_id": "GAZ:00002575"
-          },
-          "Nova Scotia": {
-            "ontology_id": "GAZ:00002565"
-          },
-          "Nunavut": {
-            "ontology_id": "GAZ:00002574"
-          },
-          "Ontario": {
-            "ontology_id": "GAZ:00002563"
-          },
-          "Prince Edward Island": {
-            "ontology_id": "GAZ:00002572"
-          },
-          "Quebec": {
-            "ontology_id": "GAZ:00002569"
-          },
-          "Saskatchewan": {
-            "ontology_id": "GAZ:00002564"
-          },
-          "Yukon": {
-            "ontology_id": "GAZ:00002576"
-          }
-        }
-      },
-      {
-        "fieldName": "geo_loc_name (city)",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001189",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The city where the sample was collected.",
-        "guidance": "Provide the city name. Use this look-up service to identify the standardized term: https://www.ebi.ac.uk/ols/ontologies/gaz",
-        "examples": "Medicine Hat",
-        "exportField": {
-          "CNPHI": [
-            {
-              "field": "Patient City"
-            }
-          ],
-          "NML_LIMS": [
-            {
-              "field": "geo_loc_name (city)"
-            }
-          ]
-        }
-      },
-      {
-        "fieldName": "organism",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001191",
-        "datatype": "select",
-        "source": "",
-        "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
-        ],
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "required",
-        "description": "Taxonomic name of the organism.",
-        "guidance": "Use \"Severe acute respiratory syndrome coronavirus 2\". This value is provided in the template.",
-        "examples": "Severe acute respiratory syndrome coronavirus 2",
-        "exportField": {
-          "CNPHI": [
-            {
-              "field": "Pathogen"
-            }
-          ],
-          "NML_LIMS": [
-            {
-              "field": "HC_CURRENT_ID"
-            }
-          ],
-          "BIOSAMPLE": [
-            {
-              "field": "organism"
-            }
-          ],
-          "VirusSeq_Portal": [
-            {
-              "field": "organism"
-            }
-          ]
-        },
-        "schema:ItemList": {
-          "Severe acute respiratory syndrome coronavirus 2": {
-            "ontology_id": "NCBITaxon:2697049"
-          },
-          "RaTG13": {
-            "ontology_id": "NCBITaxon:2709072"
-          },
-          "RmYN02": {
-            "ontology_id": "NCBITaxon NTR"
-          }
-        }
-      },
-      {
-        "fieldName": "isolate",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001195",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
-        ],
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "required",
-        "description": "Identifier of the specific isolate.",
-        "guidance": "Provide the GISAID virus name, which should be written in the format \u201chCov-19/CANADA/2 digit provincial ISO code-xxxxx/year\u201d.",
-        "examples": "hCov-19/CANADA/BC-prov_rona_99/2020",
-        "exportField": {
-          "GISAID": [
-            {
-              "field": "Virus name"
-            }
-          ],
-          "CNPHI": [
-            {
-              "field": "GISAID Virus Name"
-            }
-          ],
-          "NML_LIMS": [
-            {
-              "field": "RESULT - CANCOGEN_SUBMISSIONS"
-            }
-          ],
-          "BIOSAMPLE": [
-            {
-              "field": "isolate"
-            },
-            {
-              "field": "GISAID_virus_name"
-            }
-          ],
-          "VirusSeq_Portal": [
-            {
-              "field": "isolate"
-            },
-            {
-              "field": "fasta header name"
-            }
-          ]
-        }
-      },
-      {
-        "fieldName": "purpose of sampling",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001198",
-        "datatype": "select",
-        "source": "",
-        "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
-        ],
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "required",
-        "description": "The reason that the sample was collected.",
-        "guidance": "The reason a sample was collected may provide information about potential biases in sampling strategy. Provide the purpose of sampling from the picklist in the template. Most likely, the sample was collected for Diagnostic testing. The reason why a sample was originally collected may differ from the reason why it was selected for sequencing, which should be indicated in the \"purpose of sequencing\" field. ",
-        "examples": "Diagnostic testing",
-        "exportField": {
-          "CNPHI": [
-            {
-              "field": "Reason for Sampling"
-            }
-          ],
-          "NML_LIMS": [
-            {
-              "field": "HC_SAMPLE_CATEGORY"
-            }
-          ],
-          "BIOSAMPLE": [
-            {
-              "field": "purpose_of_sampling"
-            }
-          ],
-          "VirusSeq_Portal": [
-            {
-              "field": "purpose of sampling"
-            }
-          ]
-        },
-        "schema:ItemList": {
-          "Cluster/Outbreak investigation": {
-            "ontology_id": "HSO:0000371"
-          },
-          "Diagnostic testing": {
-            "ontology_id": "HSO or NCIT NTR?"
-          },
-          "Research": {
-            "ontology_id": "NCIT:c15429"
-          },
-          "Surveillance": {
-            "ontology_id": "HSO:0000268"
-          }
-        }
-      },
-      {
-        "fieldName": "purpose of sampling details",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001200",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
-        ],
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "required",
-        "description": "The description of why the sample was collected, providing specific details.",
-        "guidance": "Provide an expanded description of why the sample was collected using free text. The description may include the importance of the sample for a particular public health investigation/surveillance activity/research question. If details are not available, provide a null value.",
-        "examples": "The sample was collected to investigate the prevalence of variants associated with mink-to-human transmission in Canada. ",
-        "exportField": {
-          "CNPHI": [
-            {
-              "field": "Details on the Reason for Sampling"
-            }
-          ],
-          "NML_LIMS": [
-            {
-              "field": "PH_SAMPLING_DETAILS"
-            }
-          ],
-          "BIOSAMPLE": [
-            {
-              "field": "description"
-            }
-          ],
-          "VirusSeq_Portal": [
-            {
-              "field": "purpose of sampling details"
-            }
-          ]
-        }
-      },
-      {
-        "fieldName": "NML submitted specimen type",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001204",
-        "datatype": "select",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "required",
-        "description": "The type of specimen submitted to the National Microbiology Laboratory (NML) for testing.",
-        "guidance": "This information is required for upload through the CNPHI LaSER system. Select the specimen type from the pick list provided. If sequence data is being submitted rather than a specimen for testing, select \u201cNot Applicable\u201d.",
-        "examples": "swab",
-        "exportField": {
-          "CNPHI": [
-            {
-              "field": "Specimen Type"
-            }
-          ],
-          "NML_LIMS": [
-            {
-              "field": "PH_SPECIMEN_TYPE"
-            }
-          ]
-        },
-        "schema:ItemList": {
-          "Swab": {
-            "ontology_id": "OBI:0002600"
-          },
-          "RNA": {
-            "ontology_id": "OBI:0000880"
-          },
-          "mRNA (cDNA)": {
-            "ontology_id": "OBI:0002754"
-          },
-          "Nucleic acid": {
-            "ontology_id": "OBI:0001010"
-          },
-          "Not Applicable": {
-            "ontology_id": "GENEPIO:0001619"
-          }
-        }
-      },
-      {
-        "fieldName": "Related specimen relationship type",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001209",
-        "datatype": "select",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The relationship of the current specimen to the specimen/sample previously submitted to the repository.",
-        "guidance": "Provide the tag that describes how the previous sample is related to the current sample being submitted from the pick list provided, so that the samples can be linked and tracked in the system.",
-        "examples": "Specimen sampling methods testing",
-        "exportField": {
-          "CNPHI": [
-            {
-              "field": "Related Specimen ID"
-            },
-            {
-              "field": "Related Specimen Relationship Type"
-            }
-          ],
-          "NML_LIMS": [
-            {
-              "field": "PH_RELATED_RELATIONSHIP_TYPE"
-            }
-          ]
-        },
-        "schema:ItemList": {
-          "Acute": {
-            "ontology_id": "HP:0011009"
-          },
-          "Convalescent": {},
-          "Familial": {},
-          "Follow-up": {
-            "ontology_id": "EFO:0009642",
-            "schema:ItemList": {
-              "Reinfection testing": {}
-            }
-          },
-          "Previously Submitted": {},
-          "Sequencing/bioinformatics methods development/validation": {},
-          "Specimen sampling methods testing": {}
-        }
-      },
-      {
-        "fieldName": "anatomical material",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001211",
-        "datatype": "select",
-        "source": "",
-        "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
-        ],
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "required",
-        "description": "A substance obtained from an anatomical part of an organism e.g. tissue, blood.",
-        "guidance": "Provide a descriptor if an anatomical material was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. ",
-        "examples": "Blood",
-        "exportField": {
-          "GISAID": [
-            {
-              "field": "Specimen source"
-            }
-          ],
-          "CNPHI": [
-            {
-              "field": "Anatomical Material"
-            }
-          ],
-          "NML_LIMS": [
-            {
-              "field": "PH_ISOLATION_SITE_DESC"
-            }
-          ],
-          "BIOSAMPLE": [
-            {
-              "field": "isolation_source"
-            },
-            {
-              "field": "anatomical_material"
-            }
-          ],
-          "VirusSeq_Portal": [
-            {
-              "field": "anatomical material"
-            }
-          ]
-        },
-        "schema:ItemList": {
-          "Blood": {
-            "ontology_id": "UBERON:0000178"
-          },
-          "Fluid": {
-            "ontology_id": "UBERON:0006314",
-            "schema:ItemList": {
-              "Saliva": {
-                "ontology_id": "UBERON:0001836"
-              },
-              "Fluid (cerebrospinal (CSF))": {
-                "ontology_id": "UBERON:0001359"
-              },
-              "Fluid (pericardial)": {
-                "ontology_id": "UBERON:0002409"
-              },
-              "Fluid (pleural)": {
-                "ontology_id": "UBERON:0001087"
-              },
-              "Fluid (vaginal)": {
-                "ontology_id": "UBERON:0036243"
-              },
-              "Fluid (amniotic)": {
-                "ontology_id": "UBERON:0000173"
-              }
-            }
-          },
-          "Tissue": {
-            "ontology_id": "UBERON:0000479"
-          }
-        }
-      },
-      {
-        "fieldName": "anatomical part",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001214",
-        "datatype": "select",
-        "source": "",
-        "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
-        ],
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "required",
-        "description": "An anatomical part of an organism e.g. oropharynx.",
-        "guidance": "Provide a descriptor if an anatomical part was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. ",
-        "examples": "Nasopharynx (NP)",
-        "exportField": {
-          "GISAID": [
-            {
-              "field": "Specimen source"
-            }
-          ],
-          "CNPHI": [
-            {
-              "field": "Anatomical Site"
-            }
-          ],
-          "NML_LIMS": [
-            {
-              "field": "PH_ISOLATION_SITE"
-            }
-          ],
-          "BIOSAMPLE": [
-            {
-              "field": "isolation_source"
-            },
-            {
-              "field": "anatomical_part"
-            }
-          ],
-          "VirusSeq_Portal": [
-            {
-              "field": "anatomical part"
-            }
-          ]
-        },
-        "schema:ItemList": {
-          "Anus": {
-            "ontology_id": "UBERON:0001245"
-          },
-          "Buccal mucosa": {
-            "ontology_id": "UBERON:0006956 "
-          },
-          "Duodenum": {
-            "ontology_id": "UBERON:0002114"
-          },
-          "Eye": {
-            "ontology_id": "UBERON:0000970"
-          },
-          "Intestine": {},
-          "Rectum": {
-            "ontology_id": "UBERON:0001052"
-          },
-          "Skin": {
-            "ontology_id": "UBERON:0001003"
-          },
-          "Stomach": {
-            "ontology_id": "UBERON:0000945"
-          },
-          "Upper respiratory tract": {
-            "ontology_id": "UBERON:0001557",
-            "schema:ItemList": {
-              "Anterior Nares": {
-                "ontology_id": "UBERON:2001427"
-              },
-              "Esophagus": {
-                "ontology_id": "UBERON:0001043"
-              },
-              "Ethmoid sinus": {
-                "ontology_id": "UBERON:0002453"
-              },
-              "Nasal Cavity": {
-                "ontology_id": "UBERON:0001707 ",
-                "schema:ItemList": {
-                  "Middle Nasal Turbinate": {
-                    "ontology_id": "UBERON:0005921 "
-                  },
-                  "Inferior Nasal Turbinate": {
-                    "ontology_id": "UBERON:0005922"
-                  }
-                }
-              },
-              "Nasopharynx (NP)": {
-                "ontology_id": "UBERON:0001728"
-              },
-              "Oropharynx (OP)": {
-                "ontology_id": "UBERON:0001729"
-              }
-            }
-          },
-          "Lower respiratory tract": {
-            "ontology_id": "UBERON:0001558",
-            "schema:ItemList": {
-              "Bronchus": {
-                "ontology_id": "UBERON:0002185 "
-              },
-              "Lung": {
-                "ontology_id": "UBERON:0002048",
-                "schema:ItemList": {
-                  "Bronchiole": {
-                    "ontology_id": "UBERON:0002186"
-                  },
-                  "Alveolar sac": {
-                    "ontology_id": "UBERON:0002169"
-                  }
-                }
-              },
-              "Pleural sac": {
-                "ontology_id": "UBERON:0009778 ",
-                "schema:ItemList": {
-                  "Pleural cavity": {
-                    "ontology_id": "UBERON:0002402"
-                  }
-                }
-              },
-              "Trachea": {
-                "ontology_id": "UBERON:0003126"
-              }
-            }
-          }
-        }
-      },
-      {
-        "fieldName": "body product",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001216",
-        "datatype": "select",
-        "source": "",
-        "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
-        ],
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "required",
-        "description": "A substance excreted/secreted from an organism e.g. feces, urine, sweat.",
-        "guidance": "Provide a descriptor if a body product was sampled. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. ",
-        "examples": "Feces",
-        "exportField": {
-          "GISAID": [
-            {
-              "field": "Specimen source"
-            }
-          ],
-          "CNPHI": [
-            {
-              "field": "Body Product"
-            }
-          ],
-          "NML_LIMS": [
-            {
-              "field": "PH_SPECIMEN_SOURCE_DESC"
-            }
-          ],
-          "BIOSAMPLE": [
-            {
-              "field": "isolation_source"
-            },
-            {
-              "field": "body_product"
-            }
-          ],
-          "VirusSeq_Portal": [
-            {
-              "field": "body product"
-            }
-          ]
-        },
-        "schema:ItemList": {
-          "Feces": {
-            "ontology_id": "UBERON:0001988"
-          },
-          "Urine": {
-            "ontology_id": "UBERON:0001088"
-          },
-          "Sweat": {
-            "ontology_id": "UBERON:0001089"
-          },
-          "Mucus": {
-            "ontology_id": "UBERON:0000912",
-            "schema:ItemList": {
-              "Sputum": {
-                "ontology_id": "UBERON:0007311"
-              }
-            }
-          },
-          "Tear": {
-            "ontology_id": "UBERON:0001827"
-          },
-          "Fluid (seminal)": {
-            "ontology_id": "UBERON:0006530"
-          },
-          "Breast Milk": {
-            "ontology_id": "UBERON:0001913"
-          }
-        }
-      },
-      {
-        "fieldName": "environmental material",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001223",
-        "datatype": "select",
-        "source": "",
-        "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
-        ],
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "required",
-        "description": "A substance obtained from the natural or man-made environment e.g. soil, water, sewage.",
-        "guidance": "Provide a descriptor if an environmental material was sampled. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. ",
-        "examples": "Face mask",
-        "exportField": {
-          "GISAID": [
-            {
-              "field": "Specimen source"
-            }
-          ],
-          "CNPHI": [
-            {
-              "field": "Environmental Material"
-            }
-          ],
-          "NML_LIMS": [
-            {
-              "field": "PH_ENVIRONMENTAL_MATERIAL"
-            }
-          ],
-          "BIOSAMPLE": [
-            {
-              "field": "isolation_source"
-            },
-            {
-              "field": "environmental_material"
-            }
-          ],
-          "VirusSeq_Portal": [
-            {
-              "field": "environmental material"
-            }
-          ]
-        },
-        "schema:ItemList": {
-          "Air vent": {
-            "ontology_id": "ENVO:03501208"
-          },
-          "Banknote": {
-            "ontology_id": "ENVO:00003896"
-          },
-          "Bed rail": {
-            "ontology_id": "ENVO:03501209"
-          },
-          "Building floor": {
-            "ontology_id": "ENVO:01000486"
-          },
-          "Cloth": {
-            "ontology_id": "ENVO:02000058"
-          },
-          "Control panel": {
-            "ontology_id": "ENVO:03501210"
-          },
-          "Door": {
-            "ontology_id": "ENVO:03501220"
-          },
-          "Door handle": {
-            "ontology_id": "ENVO:03501211"
-          },
-          "Face mask": {
-            "ontology_id": "OBI:0002787"
-          },
-          "Face shield": {
-            "ontology_id": "OBI:0002791"
-          },
-          "Food": {
-            "ontology_id": "FOODON:00002403"
-          },
-          "Food packaging": {
-            "ontology_id": "FOODON:03490100"
-          },
-          "Glass": {
-            "ontology_id": "ENVO:01000481"
-          },
-          "Handrail": {
-            "ontology_id": "ENVO:03501212"
-          },
-          "Hospital gown": {
-            "ontology_id": "OBI:0002792"
-          },
-          "Light switch": {
-            "ontology_id": "ENVO:03501213"
-          },
-          "Locker": {
-            "ontology_id": "ENVO:03501214"
-          },
-          "N95 mask": {
-            "ontology_id": "OBI:0002790"
-          },
-          "Nurse call button": {
-            "ontology_id": "ENVO:03501215"
-          },
-          "Paper": {
-            "ontology_id": "ENVO:03501256"
-          },
-          "Particulate matter": {
-            "ontology_id": "ENVO:01000060"
-          },
-          "Plastic": {
-            "ontology_id": "ENVO:01000404"
-          },
-          "PPE gown": {
-            "ontology_id": "OBI NTR?"
-          },
-          "Sewage": {
-            "ontology_id": "ENVO:00002018"
-          },
-          "Sink": {
-            "ontology_id": "ENVO:01000990"
-          },
-          "Soil": {
-            "ontology_id": "ENVO:00001998"
-          },
-          "Stainless steel": {
-            "ontology_id": "ENVO:03501216"
-          },
-          "Tissue paper": {
-            "ontology_id": "ENVO:03501217"
-          },
-          "Toilet bowl": {
-            "ontology_id": "ENVO:03501218"
-          },
-          "Water": {
-            "ontology_id": "ENVO:00002006"
-          },
-          "Wastewater": {
-            "ontology_id": "ENVO:00002001"
-          },
-          "Window": {
-            "ontology_id": "ENVO:03501219"
-          },
-          "Wood": {
-            "ontology_id": "ENVO:00002040"
-          }
-        }
-      },
-      {
-        "fieldName": "environmental site",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001232",
-        "datatype": "select",
-        "source": "",
-        "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
-        ],
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "required",
-        "description": "An environmental location may describe a site in the natural or built environment e.g. contact surface, metal can, hospital, wet market, bat cave.",
-        "guidance": "Provide a descriptor if an environmental site was sampled. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. ",
-        "examples": "Production Facility",
-        "exportField": {
-          "GISAID": [
-            {
-              "field": "Specimen source"
-            }
-          ],
-          "CNPHI": [
-            {
-              "field": "Environmental Site"
-            }
-          ],
-          "NML_LIMS": [
-            {
-              "field": "PH_ENVIRONMENTAL_SITE"
-            }
-          ],
-          "BIOSAMPLE": [
-            {
-              "field": "isolation_source"
-            },
-            {
-              "field": "environmental_site"
-            }
-          ],
-          "VirusSeq_Portal": [
-            {
-              "field": "environmental site"
-            }
-          ]
-        },
-        "schema:ItemList": {
-          "Acute care facility": {
-            "ontology_id": "ENVO:03501135"
-          },
-          "Animal house": {
-            "ontology_id": "ENVO:00003040"
-          },
-          "Bathroom": {
-            "ontology_id": "ENVO:01000422"
-          },
-          "Clinical assessment centre": {
-            "ontology_id": "ENVO:03501136"
-          },
-          "Conference venue": {
-            "ontology_id": "ENVO:03501127"
-          },
-          "Corridor": {
-            "ontology_id": "ENVO:03501121"
-          },
-          "Daycare": {
-            "ontology_id": "ENVO:01000927"
-          },
-          "Emergency room (ER)": {
-            "ontology_id": "ENVO:03501144"
-          },
-          "Family practice clinic": {
-            "ontology_id": "ENVO:03501186"
-          },
-          "Group home": {
-            "ontology_id": "ENVO:03501196"
-          },
-          "Homeless shelter": {
-            "ontology_id": "ENVO:03501133"
-          },
-          "Hospital": {
-            "ontology_id": "ENVO:00002173"
-          },
-          "Intensive Care Unit (ICU)": {
-            "ontology_id": "ENVO:03501152"
-          },
-          "Long Term Care Facility": {
-            "ontology_id": "ENVO:03501194"
-          },
-          "Patient room": {
-            "ontology_id": "ENVO:03501180"
-          },
-          "Prison": {
-            "ontology_id": "ENVO:03501204"
-          },
-          "Production Facility": {
-            "ontology_id": "ENVO:01000536"
-          },
-          "School": {
-            "ontology_id": "ENVO:03501130"
-          },
-          "Sewage Plant": {
-            "ontology_id": "ENVO:00003043"
-          },
-          "Subway train": {
-            "ontology_id": "ENVO:03501109"
-          },
-          "Wet market": {
-            "ontology_id": "ENVO:03501198"
-          }
-        }
-      },
-      {
-        "fieldName": "collection device",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001234",
-        "datatype": "select",
-        "source": "",
-        "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
-        ],
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "required",
-        "description": "The instrument or container used to collect the sample e.g. swab.",
-        "guidance": "Provide a descriptor if a device was used for sampling. Use the picklist provided in the template. If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. ",
-        "examples": "Swab",
-        "exportField": {
-          "GISAID": [
-            {
-              "field": "Specimen source"
-            }
-          ],
-          "CNPHI": [
-            {
-              "field": "Specimen Collection Matrix"
-            }
-          ],
-          "NML_LIMS": [
-            {
-              "field": "PH_SPECIMEN_TYPE_ORIG"
-            }
-          ],
-          "BIOSAMPLE": [
-            {
-              "field": "isolation_source"
-            },
-            {
-              "field": "collection_device"
-            }
-          ],
-          "VirusSeq_Portal": [
-            {
-              "field": "collection device"
-            }
-          ]
-        },
-        "schema:ItemList": {
-          "Air filter": {
-            "ontology_id": "ENVO:00003968"
-          },
-          "Blood Collection Tube": {
-            "ontology_id": "OBI:0002859"
-          },
-          "Bronchoscope": {
-            "ontology_id": "OBI:0002826"
-          },
-          "Collection Container": {
-            "ontology_id": "OBI:0002088"
-          },
-          "Collection Cup": {
-            "ontology_id": "OBI NTR?"
-          },
-          "Fibrobronchoscope Brush": {
-            "ontology_id": "OBI:0002825"
-          },
-          "Filter": {
-            "ontology_id": "ENVO NTR"
-          },
-          "Fine Needle": {
-            "ontology_id": "OBI:0002827"
-          },
-          "Microcapillary tube": {
-            "ontology_id": "OBI:0002858"
-          },
-          "Micropipette": {
-            "ontology_id": "OBI:0001128"
-          },
-          "Needle": {
-            "ontology_id": "OBI:0000436"
-          },
-          "Serum Collection Tube": {
-            "ontology_id": "OBI:0002860"
-          },
-          "Sputum Collection Tube": {
-            "ontology_id": "OBI:0002861"
-          },
-          "Suction Catheter": {
-            "ontology_id": "OBI:0002831"
-          },
-          "Swab": {
-            "ontology_id": "OBI NTR?"
-          },
-          "Urine Collection Tube": {
-            "ontology_id": "OBI:0002862"
-          },
-          "Virus Transport Medium": {
-            "ontology_id": "OBI:0002866"
-          }
-        }
-      },
-      {
-        "fieldName": "collection method",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001241",
-        "datatype": "select",
-        "source": "",
-        "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
-        ],
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "required",
-        "description": "The process used to collect the sample e.g. phlebotamy, necropsy.",
-        "guidance": "Provide a descriptor if a collection method was used for sampling. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. ",
-        "examples": "Bronchoalveolar lavage (BAL)",
-        "exportField": {
-          "GISAID": [
-            {
-              "field": "Specimen source"
-            }
-          ],
-          "CNPHI": [
-            {
-              "field": "Collection Method"
-            }
-          ],
-          "NML_LIMS": [
-            {
-              "field": "COLLECTION_METHOD"
-            }
-          ],
-          "BIOSAMPLE": [
-            {
-              "field": "isolation_source"
-            },
-            {
-              "field": "collection_method"
-            }
-          ],
-          "VirusSeq_Portal": [
-            {
-              "field": "collection method"
-            }
-          ]
-        },
-        "schema:ItemList": {
-          "Amniocentesis": {
-            "ontology_id": "OBI NTR"
-          },
-          "Aspiration": {
-            "ontology_id": "OBI NTR",
-            "schema:ItemList": {
-              "Suprapubic Aspiration": {
-                "ontology_id": "OBI NTR"
-              },
-              "Tracheal aspiration": {
-                "ontology_id": "OBI NTR"
-              },
-              "Vacuum Aspiration": {
-                "ontology_id": "OBI NTR"
-              }
-            }
-          },
-          "Biopsy": {
-            "ontology_id": "OBI:0002650",
-            "schema:ItemList": {
-              "Needle Biopsy": {
-                "ontology_id": "OBI:0002651"
-              }
-            }
-          },
-          "Filtration": {
-            "ontology_id": "OBI:0302885",
-            "schema:ItemList": {
-              "Air filtration": {
-                "ontology_id": "OBI NTR"
-              }
-            }
-          },
-          "Lavage": {
-            "ontology_id": "OBI:0600044 ",
-            "schema:ItemList": {
-              "Bronchoalveolar lavage (BAL)": {
-                "ontology_id": "OBI NTR"
-              },
-              "Gastric Lavage": {
-                "ontology_id": "OBI NTR"
-              }
-            }
-          },
-          "Lumbar Puncture": {
-            "ontology_id": "OBI NTR"
-          },
-          "Necropsy": {
-            "ontology_id": "OBI NTR"
-          },
-          "Phlebotomy": {
-            "ontology_id": "OBI NTR"
-          },
-          "Rinsing": {
-            "ontology_id": "OBI NTR",
-            "schema:ItemList": {
-              "Saline gargle (mouth rinse and gargle)": {
-                "ontology_id": "OBI NTR"
-              }
-            }
-          },
-          "Scraping": {
-            "ontology_id": "OBI NTR"
-          },
-          "Swabbing": {
-            "ontology_id": "OBI NTR",
-            "schema:ItemList": {
-              "Finger Prick": {
-                "ontology_id": "OBI NTR"
-              }
-            }
-          },
-          "Washout Tear Collection": {
-            "ontology_id": "OBI NTR"
-          }
-        }
-      },
-      {
-        "fieldName": "collection protocol",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001243",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The name and version of a particular protocol used for sampling.",
-        "guidance": "Free text.",
-        "examples": "BCRonaSamplingProtocol v. 1.2",
-        "exportField": {
-          "NML_LIMS": [
-            {
-              "field": "collection protocol"
-            }
-          ]
-        }
-      },
-      {
-        "fieldName": "specimen processing",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001253",
-        "datatype": "multiple",
-        "source": "",
-        "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
-        ],
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "recommended",
-        "description": "Any processing applied to the sample during or after receiving the sample.",
-        "guidance": "Critical for interpreting data. Select all the applicable processes from the pick list. If virus was passaged, include information in \"lab host\", \"passage number\", and \"passage method\" fields. If none of the processes in the pick list apply, put \"not applicable\".",
-        "examples": "Virus passage",
-        "exportField": {
-          "GISAID": [
-            {
-              "field": "Passage details/history"
-            }
-          ],
-          "NML_LIMS": [
-            {
-              "field": "specimen processing"
-            }
-          ]
-        },
-        "schema:ItemList": {
-          "Virus passage": {
-            "ontology_id": "OBI NTR?"
-          },
-          "RNA re-extraction (post RT-PCR)": {
-            "ontology_id": "OBI NTR?"
-          },
-          "Specimens pooled": {
-            "ontology_id": "OBI:0600016"
-          }
-        }
-      },
-      {
-        "fieldName": "lab host",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001255",
-        "datatype": "select",
-        "source": "",
-        "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
-        ],
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "recommended",
-        "description": "Name and description of the laboratory host used to propagate the source organism or material from which the sample was obtained.",
-        "guidance": "Type of cell line used for propagation. Provide the name of the cell line using the picklist in the template. If not passaged, put \"not applicable\".",
-        "examples": "Vero E6 cell line",
-        "exportField": {
-          "GISAID": [
-            {
-              "field": "Passage details/history"
-            }
-          ],
-          "NML_LIMS": [
-            {
-              "field": "lab host"
-            }
-          ],
-          "BIOSAMPLE": [
-            {
-              "field": "lab_host"
-            }
-          ]
-        },
-        "schema:ItemList": {
-          "293/ACE2 cell line": {
-            "ontology_id": "BTO NTR"
-          },
-          "Caco2 cell line": {
-            "ontology_id": "BTO:0000195 "
-          },
-          "Calu3 cell line": {
-            "ontology_id": "BTO:0002750"
-          },
-          "EFK3B cell line": {
-            "ontology_id": "BTO NTR"
-          },
-          "HEK293T cell line": {
-            "ontology_id": "BTO:0002181"
-          },
-          "HRCE cell line": {
-            "ontology_id": "BTO NTR"
-          },
-          "Huh7 cell line": {
-            "ontology_id": "BTO:0001950"
-          },
-          "LLCMk2 cell line": {
-            "ontology_id": "CLO:0007330"
-          },
-          "MDBK cell line": {
-            "ontology_id": "BTO:0000836 "
-          },
-          "NHBE cell line": {
-            "ontology_id": "BTO:0002924"
-          },
-          "PK-15 cell line": {
-            "ontology_id": "BTO:0001865"
-          },
-          "RK-13 cell line": {
-            "ontology_id": "BTO:0002909"
-          },
-          "U251 cell line": {
-            "ontology_id": "BTO:0002035"
-          },
-          "Vero cell line": {
-            "ontology_id": "BTO:0001444 "
-          },
-          "Vero E6 cell line": {
-            "ontology_id": "BTO:0004755"
-          },
-          "VeroE6/TMPRSS2 cell line": {
-            "ontology_id": "BTO NTR"
-          }
-        }
-      },
-      {
-        "fieldName": "passage number",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001261",
-        "datatype": "xs:nonNegativeInteger",
-        "source": "",
-        "dataStatus": [
-          "Not Applicable"
-        ],
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "recommended",
-        "description": "Number of passages.",
-        "guidance": "Provide number of known passages. If not passaged, put \"not applicable\"",
-        "examples": "3",
-        "exportField": {
-          "GISAID": [
-            {
-              "field": "Passage details/history"
-            }
-          ],
-          "NML_LIMS": [
-            {
-              "field": "passage number"
-            }
-          ],
-          "BIOSAMPLE": [
-            {
-              "field": "passage_history"
-            }
-          ]
-        }
-      },
-      {
-        "fieldName": "passage method",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001264",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": [
-          "Not Applicable"
-        ],
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "recommended",
-        "description": "Description of how organism was passaged.",
-        "guidance": "Free text. Provide a very short description (<10 words). If not passaged, put \"not applicable\".",
-        "examples": "0.25% trypsin + 0.02% EDTA",
-        "exportField": {
-          "GISAID": [
-            {
-              "field": "Passage details/history"
-            }
-          ],
-          "NML_LIMS": [
-            {
-              "field": "passage method"
-            }
-          ],
-          "BIOSAMPLE": [
-            {
-              "field": "passage_method"
-            }
-          ]
-        }
-      },
-      {
-        "fieldName": "biomaterial extracted",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001266",
-        "datatype": "select",
-        "source": "",
-        "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
-        ],
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The biomaterial extracted from samples for the purpose of sequencing.",
-        "guidance": "Provide the biomaterial extracted from the picklist in the template.",
-        "examples": "RNA (total)",
-        "exportField": {
-          "NML_LIMS": [
-            {
-              "field": "biomaterial extracted"
-            }
-          ]
-        },
-        "schema:ItemList": {
-          "RNA (total)": {
-            "ontology_id": "OBI:0000895"
-          },
-          "RNA (poly-A)": {
-            "ontology_id": "OBI:0000869"
-          },
-          "RNA (ribo-depleted)": {
-            "ontology_id": "OBI:0002627"
-          },
-          "mRNA (messenger RNA)": {
-            "ontology_id": "OBI REQUEST"
-          },
-          "mRNA (cDNA)": {
-            "ontology_id": "OBI:0002754"
-          }
-        }
-      }
-    ]
-  },
-  {
-    "fieldName": "Host Information",
-    "children": [
-      {
-        "fieldName": "host (common name)",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001386",
-        "datatype": "select",
-        "source": "",
-        "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
-        ],
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The commonly used name of the host.",
-        "guidance": "Common name or scientific name are required if there was a host. Both can be provided, if known. Use terms from the pick lists in the template. Common name e.g. human, bat. If the sample was environmental, put \"not applicable.",
-        "examples": "Human",
-        "exportField": {
-          "CNPHI": [
-            {
-              "field": "Animal Type"
-            }
-          ],
-          "NML_LIMS": [
-            {
-              "field": "PH_ANIMAL_TYPE"
-            }
-          ]
-        },
-        "schema:ItemList": {
-          "Human": {
-            "ontology_id": "NCBITaxon:9606"
-          },
-          "Bat": {
-            "ontology_id": "NCBITaxon:9397"
-          },
-          "Cat": {
-            "ontology_id": "NCBITaxon:9685"
-          },
-          "Chicken": {
-            "ontology_id": "NCBITaxon:9031"
-          },
-          "Civets": {
-            "ontology_id": "NCBITaxon:9673"
-          },
-          "Cow": {
-            "ontology_id": "NCBITaxon:9913",
-            "exportField": {
-              "CNPHI": [
-                {
-                  "value": "bovine"
-                }
-              ]
-            }
-          },
-          "Dog": {
-            "ontology_id": "NCBITaxon:9615 "
-          },
-          "Lion": {
-            "ontology_id": "NCBITaxon:9689"
-          },
-          "Mink": {
-            "ontology_id": "NCBITaxon:452646"
-          },
-          "Pangolin": {
-            "ontology_id": "NCBITaxon:9973"
-          },
-          "Pig": {
-            "ontology_id": "NCBITaxon:9825",
-            "exportField": {
-              "CNPHI": [
-                {
-                  "value": "porcine"
-                }
-              ]
-            }
-          },
-          "Pigeon": {
-            "ontology_id": "NCBITaxon:8930"
-          },
-          "Tiger": {
-            "ontology_id": "NCBITaxon:9694"
-          }
-        }
-      },
-      {
-        "fieldName": "host (scientific name)",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001387",
-        "datatype": "select",
-        "source": "",
-        "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
-        ],
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "required",
-        "description": "The taxonomic, or scientific name of the host.",
-        "guidance": "Common name or scientific name are required if there was a host. Both can be provided, if known. Use terms from the pick lists in the template. Scientific name e.g. Homo sapiens, If the sample was environmental, put \"not applicable",
-        "examples": "Homo sapiens",
-        "exportField": {
-          "GISAID": [
-            {
-              "field": "Host"
-            }
-          ],
-          "NML_LIMS": [
-            {
-              "field": "host (scientific name)"
-            }
-          ],
-          "BIOSAMPLE": [
-            {
-              "field": "host"
-            }
-          ],
-          "VirusSeq_Portal": [
-            {
-              "field": "host (scientific name)"
-            }
-          ]
-        },
-        "schema:ItemList": {
-          "Homo sapiens": {
-            "ontology_id": "NCBITaxon:9606",
-            "exportField": {
-              "NML_LIMS": [
-                {
-                  "value": "Human"
-                }
-              ]
-            }
-          },
-          "Bos taurus": {
-            "ontology_id": "NCBITaxon:9913"
-          },
-          "Canis lupus familiaris": {
-            "ontology_id": "NCBITaxon:9615 "
-          },
-          "Chiroptera": {
-            "ontology_id": "NCBITaxon:9397"
-          },
-          "Columbidae": {
-            "ontology_id": "NCBITaxon:8930"
-          },
-          "Felis catus": {
-            "ontology_id": "NCBITaxon:9685"
-          },
-          "Gallus gallus": {
-            "ontology_id": "NCBITaxon:9031"
-          },
-          "Manis": {
-            "ontology_id": "NCBITaxon:9973"
-          },
-          "Manis javanica": {
-            "ontology_id": "NCBITaxon:9974"
-          },
-          "Neovison vison": {
-            "ontology_id": "NCBITaxon:452646"
-          },
-          "Panthera leo": {
-            "ontology_id": "NCBITaxon:9689"
-          },
-          "Panthera tigris": {
-            "ontology_id": "NCBITaxon:9694"
-          },
-          "Rhinolophidae": {
-            "ontology_id": "NCBITaxon:58055 "
-          },
-          "Rhinolophus affinis": {
-            "ontology_id": "NCBITaxon:59477"
-          },
-          "Sus scrofa domesticus": {
-            "ontology_id": "NCBITaxon:9825"
-          },
-          "Viverridae": {
-            "ontology_id": "NCBITaxon:9673"
-          }
-        }
-      },
-      {
-        "fieldName": "host health state",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001388",
-        "datatype": "select",
-        "source": "",
-        "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
-        ],
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "Health status of the host at the time of sample collection.",
-        "guidance": "If known, select a descriptor from the pick list provided in the template.",
-        "examples": "Symptomatic",
-        "exportField": {
-          "GISAID": [
-            {
-              "field": "Patient status"
-            }
-          ],
-          "CNPHI": [
-            {
-              "field": "Host Health State"
-            }
-          ],
-          "NML_LIMS": [
-            {
-              "field": "PH_HOST_HEALTH"
-            }
-          ],
-          "BIOSAMPLE": [
-            {
-              "field": "host_health_state"
-            }
-          ]
-        },
-        "schema:ItemList": {
-          "Asymptomatic": {
-            "ontology_id": "NCIT:C3833"
-          },
-          "Deceased": {
-            "ontology_id": "NCIT:C28554"
-          },
-          "Healthy": {
-            "ontology_id": "NCIT:C115935"
-          },
-          "Recovered": {},
-          "Symptomatic": {}
-        }
-      },
-      {
-        "fieldName": "host health status details",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001389",
-        "datatype": "select",
-        "source": "",
-        "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
-        ],
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "Further details pertaining to the health or disease status of the host at time of collection.",
-        "guidance": "If known, select a descriptor from the pick list provided in the template.",
-        "examples": "Hospitalized (ICU)",
-        "exportField": {
-          "CNPHI": [
-            {
-              "field": "Host Health State Details"
-            }
-          ],
-          "NML_LIMS": [
-            {
-              "field": "PH_HOST_HEALTH_DETAILS"
-            }
-          ]
-        },
-        "schema:ItemList": {
-          "Hospitalized": {
-            "schema:ItemList": {
-              "Hospitalized (Non-ICU)": {},
-              "Hospitalized (ICU)": {}
-            }
-          },
-          "Mechanical Ventilation": {},
-          "Medically Isolated": {
-            "schema:ItemList": {
-              "Medically Isolated (Negative Pressure)": {}
-            }
-          },
-          "Self-quarantining": {}
-        }
-      },
-      {
-        "fieldName": "host health outcome",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001390",
-        "datatype": "select",
-        "source": "",
-        "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
-        ],
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "Disease outcome in the host.",
-        "guidance": "If known, select a descriptor from the pick list provided in the template.",
-        "examples": "Recovered",
-        "exportField": {
-          "NML_LIMS": [
-            {
-              "field": "PH_HOST_HEALTH_OUTCOME"
-            }
-          ],
-          "BIOSAMPLE": [
-            {
-              "field": "host_disease_outcome"
-            }
-          ]
-        },
-        "schema:ItemList": {
-          "Deceased": {},
-          "Deteriorating": {},
-          "Recovered": {},
-          "Stable": {}
-        }
-      },
-      {
-        "fieldName": "host disease",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001391",
-        "datatype": "select",
-        "source": "",
-        "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
-        ],
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "required",
-        "description": "The name of the disease experienced by the host.",
-        "guidance": "Select \"COVID-19\" from the pick list provided in the template.",
-        "examples": "COVID-19",
-        "exportField": {
-          "CNPHI": [
-            {
-              "field": "Host Disease"
-            }
-          ],
-          "NML_LIMS": [
-            {
-              "field": "PH_HOST_DISEASE"
-            }
-          ],
-          "BIOSAMPLE": [
-            {
-              "field": "host_disease"
-            }
-          ],
-          "VirusSeq_Portal": [
-            {
-              "field": "host disease"
-            }
-          ]
-        },
-        "schema:ItemList": {
-          "COVID-19": {
-            "ontology_id": "MONDO:0100096"
-          }
-        }
-      },
-      {
-        "fieldName": "host age",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001392",
-        "datatype": "xs:decimal",
-        "source": "",
-        "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
-        ],
-        "xs:minInclusive": "0",
-        "xs:maxInclusive": "130",
-        "requirement": "required",
-        "description": "Age of host at the time of sampling.",
-        "guidance": "Enter the age of the host in years. If not available, provide a null value. If there is not host, put \"Not Applicable\".",
-        "examples": "79",
-        "exportField": {
-          "GISAID": [
-            {
-              "field": "Patient age"
-            }
-          ],
-          "CNPHI": [
-            {
-              "field": "Patient Age"
-            }
-          ],
-          "NML_LIMS": [
-            {
-              "field": "PH_AGE"
-            }
-          ],
-          "BIOSAMPLE": [
-            {
-              "field": "host_age"
-            }
-          ],
-          "VirusSeq_Portal": [
-            {
-              "field": "host age"
-            }
-          ]
-        }
-      },
-      {
-        "fieldName": "host age unit",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001393",
-        "datatype": "select",
-        "source": "",
-        "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
-        ],
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "required",
-        "description": "The unit used to measure the host age, in either months or years.",
-        "guidance": "Indicate whether the host age is in months or years. Age indicated in months will be binned to the 0 - 9 year age bin. ",
-        "examples": "years",
-        "exportField": {
-          "CNPHI": [
-            {
-              "field": "Age Units"
-            }
-          ],
-          "NML_LIMS": [
-            {
-              "field": "PH_AGE_UNIT"
-            }
-          ],
-          "VirusSeq_Portal": [
-            {
-              "field": "host age unit"
-            }
-          ]
-        },
-        "schema:ItemList": {
-          "month": {
-            "ontology_id": "UO:0000035"
-          },
-          "year": {
-            "ontology_id": "UO:0000036"
-          }
-        }
-      },
-      {
-        "fieldName": "host age bin",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001394",
-        "datatype": "select",
-        "source": "",
-        "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
-        ],
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "required",
-        "description": "Age of host at the time of sampling, expressed as an age group.",
-        "guidance": "Select the corresponding host age bin from the pick list provided in the template. If not available, provide a null value.",
-        "examples": "60 - 69",
-        "exportField": {
-          "CNPHI": [
-            {
-              "field": "Host Age Category"
-            }
-          ],
-          "NML_LIMS": [
-            {
-              "field": "PH_AGE_GROUP"
-            }
-          ],
-          "VirusSeq_Portal": [
-            {
-              "field": "host age bin"
-            }
-          ]
-        },
-        "schema:ItemList": {
-          "0 - 9": {
-            "ontology_id": "GENEPIO NTR"
-          },
-          "10 - 19": {
-            "ontology_id": "GENEPIO NTR"
-          },
-          "20 - 29": {
-            "ontology_id": "GENEPIO NTR"
-          },
-          "30 - 39": {
-            "ontology_id": "GENEPIO NTR"
-          },
-          "40 - 49": {
-            "ontology_id": "GENEPIO NTR"
-          },
-          "50 - 59": {
-            "ontology_id": "GENEPIO NTR"
-          },
-          "60 - 69": {
-            "ontology_id": "GENEPIO NTR"
-          },
-          "70 - 79": {
-            "ontology_id": "GENEPIO NTR"
-          },
-          "80 - 89": {
-            "ontology_id": "GENEPIO NTR"
-          },
-          "90 - 99": {
-            "ontology_id": "GENEPIO NTR",
-            "exportField": {
-              "VirusSeq_Portal": [
-                {
-                  "value": "90+"
-                }
-              ]
-            }
-          },
-          "100+": {
-            "ontology_id": "GENEPIO NTR",
-            "exportField": {
-              "VirusSeq_Portal": [
-                {
-                  "value": "90+"
-                }
-              ]
-            }
-          }
-        }
-      },
-      {
-        "fieldName": "host gender",
-        "capitalize": "Title",
-        "ontology_id": "GENEPIO:0001395",
-        "datatype": "select",
-        "source": "",
-        "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
-        ],
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "required",
-        "description": "The gender of the host at the time of sample collection.",
-        "guidance": "Select the corresponding host gender from the pick list provided in the template. If not available, provide a null value. If there is no host, put \"Not Applicable\".",
-        "examples": "male",
-        "exportField": {
-          "GISAID": [
-            {
-              "field": "Gender"
-            }
-          ],
-          "CNPHI": [
-            {
-              "field": "Patient Sex"
-            }
-          ],
-          "NML_LIMS": [
-            {
-              "field": "VD_SEX"
-            }
-          ],
-          "BIOSAMPLE": [
-            {
-              "field": "host_sex"
-            }
-          ],
-          "VirusSeq_Portal": [
-            {
-              "field": "host gender"
-            }
-          ]
-        },
-        "schema:ItemList": {
-          "Female": {
-            "ontology_id": "NCIT:C46110"
-          },
-          "Male": {
-            "ontology_id": "NCIT:C46109"
-          },
-          "Non-binary gender": {
-            "ontology_id": "GSSO:000132"
-          },
-          "Transgender (assigned male at birth)": {
-            "ontology_id": "GSSO:004004"
-          },
-          "Transgender (assigned female at birth)": {
-            "ontology_id": "GSSO:004005"
-          },
-          "Undeclared": {},
-          "Unknown": {}
-        }
-      },
-      {
-        "fieldName": "host residence geo_loc name (country)",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001396",
-        "datatype": "select",
-        "source": "geo_loc_name (country)",
-        "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
-        ],
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The country of residence of the host.",
-        "guidance": "Select the country name from pick list provided in the template.",
-        "examples": "United Kingdom",
-        "exportField": {
-          "NML_LIMS": [
-            {
-              "field": "PH_HOST_COUNTRY"
-            }
-          ]
-        },
-        "schema:ItemList": {}
-      },
-      {
-        "fieldName": "host residence geo_loc name (state/province/territory)",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001397",
-        "datatype": "select",
-        "source": "geo_loc_name (state/province/territory)",
-        "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
-        ],
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The state/province/territory of residence of the host.",
-        "guidance": "Select the province/territory name from pick list provided in the template.",
-        "examples": "Quebec",
-        "exportField": {
-          "NML_LIMS": [
-            {
-              "field": "PH_HOST_PROVINCE"
-            }
-          ]
-        },
-        "schema:ItemList": {}
-      },
-      {
-        "fieldName": "host subject ID",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001398",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "A unique identifier by which each host can be referred to e.g. #131",
-        "guidance": "Provide the host identifier. Should be a unique, user-defined identifier.",
-        "examples": "BCxy123",
-        "exportField": {
-          "NML_LIMS": [
-            {
-              "field": "host subject ID"
-            }
-          ],
-          "BIOSAMPLE": [
-            {
-              "field": "host_subject_id"
-            }
-          ]
-        }
-      },
-      {
-        "fieldName": "symptom onset date",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001399",
-        "datatype": "xs:date",
-        "source": "",
-        "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
-        ],
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The date on which the symptoms began or were first noted.",
-        "guidance": "ISO 8601 standard \"YYYY-MM-DD\".",
-        "examples": "2020-03-16",
-        "exportField": {
-          "CNPHI": [
-            {
-              "field": "Symptoms Onset Date"
-            }
-          ],
-          "NML_LIMS": [
-            {
-              "field": "HC_ONSET_DATE"
-            }
-          ]
-        }
-      },
-      {
-        "fieldName": "signs and symptoms",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001400",
-        "datatype": "multiple",
-        "source": "",
-        "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
-        ],
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "A perceived change in function or sensation, (loss, disturbance or appearance) indicative of a disease, reported by a patient or clinician.",
-        "guidance": "Select all of the symptoms experienced by the host from the pick list.",
-        "examples": "Chills (sudden cold sensation); Cough; Fever",
-        "exportField": {
-          "CNPHI": [
-            {
-              "field": "Symptoms"
-            }
-          ],
-          "NML_LIMS": [
-            {
-              "field": "HC_SYMPTOMS"
-            }
-          ]
-        },
-        "schema:ItemList": {
-          "Abnormal lung auscultation": {
-            "ontology_id": "HP REQUEST"
-          },
-          "Abnormality of taste sensation": {
-            "ontology_id": "HP:0000223",
-            "schema:ItemList": {
-              "Ageusia (complete loss of taste)": {
-                "ontology_id": "HP:0041051"
-              },
-              "Parageusia (distorted sense of taste)": {
-                "ontology_id": "HP:0031249"
-              },
-              "Hypogeusia (reduced sense of taste)": {
-                "ontology_id": "HP:0000224 "
-              }
-            }
-          },
-          "Abnormality of the sense of smell": {
-            "ontology_id": "HP:0004408",
-            "schema:ItemList": {
-              "Anosmia (lost sense of smell)": {
-                "ontology_id": "HP:0000458"
-              },
-              "Hyposmia (reduced sense of smell)": {
-                "ontology_id": "HP:0004409"
-              }
-            }
-          },
-          "Acute Respiratory Distress Syndrome": {
-            "ontology_id": "HP:0033677",
-            "exportField": {
-              "CNPHI": [
-                {
-                  "value": "ARDS"
-                }
-              ]
-            }
-          },
-          "Altered mental status": {
-            "ontology_id": "HP:0011446",
-            "schema:ItemList": {
-              "Cognitive impairment": {
-                "ontology_id": "HP:0100543"
-              },
-              "Coma": {
-                "ontology_id": "HP:0001259"
-              },
-              "Confusion": {
-                "ontology_id": "HP:0001289",
-                "schema:ItemList": {
-                  "Delirium (sudden severe confusion)": {
-                    "ontology_id": "HP:0031258"
-                  }
-                }
-              },
-              "Inability to arouse (inability to stay awake)": {
-                "ontology_id": "HP REQUEST"
-              },
-              "Irritability": {
-                "ontology_id": "HP:0000737 "
-              },
-              "Loss of speech": {
-                "ontology_id": "HP:0002371"
-              }
-            }
-          },
-          "Arrhythmia": {
-            "ontology_id": "HP:0011675"
-          },
-          "Asthenia (generalized weakness)": {
-            "ontology_id": "HP:0025406"
-          },
-          "Chest tightness or pressure": {
-            "ontology_id": "HP:0031352",
-            "schema:ItemList": {
-              "Rigors (fever shakes)": {
-                "ontology_id": "HP:0025145"
-              }
-            }
-          },
-          "Chills (sudden cold sensation)": {
-            "ontology_id": "HP:0025143 ",
-            "exportField": {
-              "CNPHI": [
-                {
-                  "value": "Chills"
-                }
-              ]
-            }
-          },
-          "Conjunctival injection": {
-            "ontology_id": "HP:0030953"
-          },
-          "Conjunctivitis (pink eye)": {
-            "ontology_id": "HP:0000509",
-            "exportField": {
-              "CNPHI": [
-                {
-                  "value": "Conjunctivitis"
-                }
-              ]
-            }
-          },
-          "Coryza (rhinitis)": {
-            "ontology_id": "MP:0001867"
-          },
-          "Cough": {
-            "ontology_id": "HP:0012735",
-            "schema:ItemList": {
-              "Nonproductive cough (dry cough)": {
-                "ontology_id": "HP:0031246"
-              },
-              "Productive cough (wet cough)": {
-                "ontology_id": "HP:0031245"
-              }
-            }
-          },
-          "Cyanosis (blueish skin discolouration)": {
-            "ontology_id": "HP:0000961",
-            "schema:ItemList": {
-              "Acrocyanosis": {
-                "ontology_id": "HP:0001063",
-                "schema:ItemList": {
-                  "Circumoral cyanosis (bluish around mouth)": {
-                    "ontology_id": "HP:0032556"
-                  },
-                  "Cyanotic face (bluish face)": {
-                    "ontology_id": "HP REQUEST"
-                  }
-                }
-              },
-              "Central Cyanosis": {
-                "ontology_id": "HP REQUEST",
-                "schema:ItemList": {
-                  "Cyanotic lips (bluish lips)": {
-                    "ontology_id": "HP REQUEST"
-                  }
-                }
-              },
-              "Peripheral Cyanosis": {
-                "ontology_id": "HP REQUEST"
-              }
-            }
-          },
-          "Dyspnea (breathing difficulty)": {
-            "ontology_id": "HP:0002094"
-          },
-          "Diarrhea (watery stool)": {
-            "ontology_id": "HP:0002014",
-            "exportField": {
-              "CNPHI": [
-                {
-                  "value": "Diarrhea, watery"
-                }
-              ]
-            }
-          },
-          "Dry gangrene": {
-            "ontology_id": "MP:0031127"
-          },
-          "Encephalitis (brain inflammation)": {
-            "ontology_id": "HP:0002383",
-            "exportField": {
-              "CNPHI": [
-                {
-                  "value": "Encephalitis"
-                }
-              ]
-            }
-          },
-          "Encephalopathy": {
-            "ontology_id": "HP:0001298"
-          },
-          "Fatigue (tiredness)": {
-            "ontology_id": "HP:0012378",
-            "exportField": {
-              "CNPHI": [
-                {
-                  "value": "Fatigue"
-                }
-              ]
-            }
-          },
-          "Prostration (complete exhaustion)": {
-            "ontology_id": "HP REQUEST"
-          },
-          "Fever": {
-            "ontology_id": "HP:0001945 ",
-            "schema:ItemList": {
-              "Fever (>=38\u00b0C)": {
-                "ontology_id": "HP REQUEST",
-                "exportField": {
-                  "CNPHI": [
-                    {
-                      "value": "Fever"
-                    }
-                  ]
-                }
-              }
-            }
-          },
-          "Glossitis (inflammation of the tongue)": {
-            "ontology_id": "HP:0000206"
-          },
-          "Ground Glass Opacities (GGO)": {
-            "ontology_id": "HP REQUEST"
-          },
-          "Headache": {
-            "ontology_id": "HP:0002315"
-          },
-          "Hemoptysis (coughing up blood)": {
-            "ontology_id": "HP:0002105"
-          },
-          "Hypocapnia": {
-            "ontology_id": "HP:0012417"
-          },
-          "Hypotension (low blood pressure)": {
-            "ontology_id": "HP:0002615"
-          },
-          "Hypoxemia (low blood oxygen)": {
-            "ontology_id": "HP:0012418",
-            "schema:ItemList": {
-              "Silent hypoxemia": {
-                "ontology_id": "HP REQUEST"
-              }
-            }
-          },
-          "Internal hemorrhage (internal bleeding)": {
-            "ontology_id": "HP:0011029"
-          },
-          "Loss of Fine Movements": {
-            "ontology_id": "NCIT:C121416"
-          },
-          "Low appetite": {
-            "ontology_id": "HP:0004396 "
-          },
-          "Malaise (general discomfort/unease)": {
-            "ontology_id": "HP:0033834"
-          },
-          "Meningismus/nuchal rigidity": {
-            "ontology_id": "HP:0031179"
-          },
-          "Muscle weakness": {
-            "ontology_id": "HP:0001324"
-          },
-          "Nasal obstruction (stuffy nose)": {
-            "ontology_id": "HP:0001742"
-          },
-          "Nausea": {
-            "ontology_id": "HP:0002018"
-          },
-          "Nose bleed": {
-            "ontology_id": "HP:0000421"
-          },
-          "Otitis": {
-            "ontology_id": "HP REQUEST"
-          },
-          "Pain": {
-            "ontology_id": "HP:0012531",
-            "schema:ItemList": {
-              "Abdominal pain": {
-                "ontology_id": "HP:0002027"
-              },
-              "Arthralgia (painful joints)": {
-                "ontology_id": "HP:0002829"
-              },
-              "Chest pain": {
-                "ontology_id": "HP:0100749",
-                "schema:ItemList": {
-                  "Pleuritic chest pain": {
-                    "ontology_id": "HP:0033771"
-                  }
-                }
-              },
-              "Myalgia (muscle pain)": {
-                "ontology_id": "HP:0003326"
-              }
-            }
-          },
-          "Pharyngitis (sore throat)": {
-            "ontology_id": "HP:0025439"
-          },
-          "Pharyngeal exudate": {
-            "ontology_id": "HP REQUEST"
-          },
-          "Pleural effusion": {
-            "ontology_id": "HP:0002202"
-          },
-          "Pneumonia": {
-            "ontology_id": "HP:0002090"
-          },
-          "Pseudo-chilblains": {
-            "ontology_id": "HP:0033696",
-            "schema:ItemList": {
-              "Pseudo-chilblains on fingers (covid fingers)": {
-                "ontology_id": "HP REQUEST"
-              },
-              "Pseudo-chilblains on toes (covid toes)": {
-                "ontology_id": "HP REQUEST"
-              }
-            }
-          },
-          "Rash": {
-            "ontology_id": "HP:0000988"
-          },
-          "Rhinorrhea (runny nose)": {
-            "ontology_id": "HP:0031417"
-          },
-          "Seizure": {
-            "ontology_id": "HP:0001250",
-            "schema:ItemList": {
-              "Motor seizure": {
-                "ontology_id": "HP:0020219"
-              }
-            }
-          },
-          "Shivering (involuntary muscle twitching)": {
-            "ontology_id": "HP:0025144"
-          },
-          "Slurred speech": {
-            "ontology_id": "HP:0001350"
-          },
-          "Sneezing": {
-            "ontology_id": "HP:0025095"
-          },
-          "Sputum Production": {
-            "ontology_id": "HP:0033709"
-          },
-          "Stroke": {
-            "ontology_id": "HP:0001297"
-          },
-          "Swollen Lymph Nodes": {
-            "ontology_id": "HP:0002716"
-          },
-          "Tachypnea (accelerated respiratory rate)": {
-            "ontology_id": "HP:0002789"
-          },
-          "Vertigo (dizziness)": {
-            "ontology_id": "HP:0002321"
-          },
-          "Vomiting (throwing up)": {
-            "ontology_id": "HP:0002013"
-          }
-        }
-      },
-      {
-        "fieldName": "pre-existing conditions and risk factors",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001401",
-        "datatype": "multiple",
-        "source": "",
-        "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
-        ],
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "Patient pre-existing conditions and risk factors. <li>Pre-existing condition: A medical condition that existed prior to the current infection. <li>Risk Factor: A variable associated with an increased risk of disease or infection.",
-        "guidance": "Select all of the pre-existing conditions and risk factors experienced by the host from the pick list. If the desired term is missing, contact the curation team.",
-        "examples": "Asthma; Pregnancy; Smoking",
-        "exportField": {
-          "NML_LIMS": [
-            {
-              "field": "pre-existing conditions and risk factors"
-            }
-          ]
-        },
-        "schema:ItemList": {
-          "Age 60+": {
-            "ontology_id": "VO:0004925"
-          },
-          "Anemia": {
-            "ontology_id": "HP:0001903"
-          },
-          "Anorexia": {
-            "ontology_id": "HP:0002039"
-          },
-          "Birthing labor": {
-            "ontology_id": "NCIT:C92743"
-          },
-          "Bone marrow failure": {
-            "ontology_id": "NCIT:C80693"
-          },
-          "Cancer": {
-            "ontology_id": "MONDO:0004992",
-            "schema:ItemList": {
-              "Breast cancer": {
-                "ontology_id": "MONDO:0007254"
-              },
-              "Colorectal cancer": {
-                "ontology_id": "MONDO:0005575"
-              },
-              "Hematologic malignancy (cancer of the blood)": {
-                "ontology_id": "DOID:2531"
-              },
-              "Lung cancer": {
-                "ontology_id": "MONDO:0008903"
-              },
-              "Metastatic disease": {
-                "ontology_id": "MONDO:0024880"
-              }
-            }
-          },
-          "Cancer treatment": {
-            "ontology_id": "NCIT:C16212",
-            "schema:ItemList": {
-              "Cancer surgery": {
-                "ontology_id": "NCIT:C157740"
-              },
-              "Chemotherapy": {
-                "ontology_id": "NCIT:C15632",
-                "schema:ItemList": {
-                  "Adjuvant chemotherapy": {
-                    "ontology_id": "NCIT:C15360"
-                  }
-                }
-              }
-            }
-          },
-          "Cardiac disorder": {
-            "ontology_id": "NCIT:C3079",
-            "schema:ItemList": {
-              "Arrhythmia": {
-                "ontology_id": "HP:0011675"
-              },
-              "Cardiac disease": {
-                "ontology_id": "MONDO:0005267"
-              },
-              "Cardiomyopathy": {
-                "ontology_id": "HP:0001638"
-              },
-              "Cardiac injury": {
-                "ontology_id": "NCIT:C45430"
-              },
-              "Hypertension (high blood pressure)": {
-                "ontology_id": "HP:0000822"
-              },
-              "Hypotension (low blood pressure)": {
-                "ontology_id": "HP:0002615"
-              }
-            }
-          },
-          "Cesarean section": {
-            "ontology_id": "HP:0011410"
-          },
-          "Chronic cough": {
-            "ontology_id": "HP REQUEST"
-          },
-          "Chronic gastrointestinal disease": {
-            "ontology_id": "HP REQUEST"
-          },
-          "Chronic lung disease": {
-            "ontology_id": "HP:0006528"
-          },
-          "Corticosteroids": {
-            "ontology_id": "NCIT:C211"
-          },
-          "Diabetes mellitus (diabetes)": {
-            "ontology_id": "HP:0000819",
-            "schema:ItemList": {
-              "Type I diabetes mellitus (T1D)": {
-                "ontology_id": "HP:0100651"
-              },
-              "Type II diabetes mellitus (T2D)": {
-                "ontology_id": "HP:0005978"
-              }
-            }
-          },
-          "Eczema": {
-            "ontology_id": "HP:0000964"
-          },
-          "Electrolyte disturbance": {
-            "ontology_id": "HP:0003111",
-            "schema:ItemList": {
-              "Hypocalcemia": {
-                "ontology_id": "HP:0002901"
-              },
-              "Hypokalemia": {
-                "ontology_id": "HP:0002900"
-              },
-              "Hypomagnesemia": {
-                "ontology_id": "HP:0002917"
-              }
-            }
-          },
-          "Encephalitis (brain inflammation)": {
-            "ontology_id": "HP:0002383"
-          },
-          "Epilepsy": {
-            "ontology_id": "MONDO:0005027"
-          },
-          "Hemodialysis": {
-            "ontology_id": "NCIT:C15248"
-          },
-          "Hemoglobinopathy": {
-            "ontology_id": "MONDO:0044348"
-          },
-          "Human immunodeficiency virus (HIV)": {
-            "ontology_id": "MONDO:0005109",
-            "schema:ItemList": {
-              "Acquired immunodeficiency syndrome (AIDS)": {
-                "ontology_id": "MONDO:0012268"
-              },
-              "HIV and antiretroviral therapy (ART)": {
-                "ontology_id": "NCIT:C16118"
-              }
-            }
-          },
-          "Immunocompromised": {
-            "ontology_id": "NCIT:C14139",
-            "schema:ItemList": {
-              "Lupus": {
-                "ontology_id": "MONDO:0004670"
-              }
-            }
-          },
-          "Inflammatory bowel disease (IBD)": {
-            "ontology_id": "MONDO:0005265",
-            "schema:ItemList": {
-              "Colitis": {
-                "ontology_id": "HP:0002583",
-                "schema:ItemList": {
-                  "Ulcerative colitis": {
-                    "ontology_id": "HP:0100279"
-                  }
-                }
-              },
-              "Crohn's disease": {
-                "ontology_id": "HP:0100280"
-              }
-            }
-          },
-          "Renal disorder": {
-            "ontology_id": "NCIT:C3149",
-            "schema:ItemList": {
-              "Renal disease": {
-                "ontology_id": "MONDO:0005240"
-              },
-              "Chronic renal disease": {
-                "ontology_id": "HP:0012622"
-              },
-              "Renal failure": {
-                "ontology_id": "HP:0000083"
-              }
-            }
-          },
-          "Liver disease": {
-            "ontology_id": "MONDO:0005154",
-            "schema:ItemList": {
-              "Chronic liver disease": {
-                "ontology_id": "NCIT:C113609",
-                "schema:ItemList": {
-                  "Fatty liver disease (FLD)": {
-                    "ontology_id": "HP:0001397"
-                  }
-                }
-              }
-            }
-          },
-          "Myalgia (muscle pain)": {
-            "ontology_id": "HP:0003326"
-          },
-          "Myalgic encephalomyelitis (chronic fatigue syndrome)": {
-            "ontology_id": "MONDO:0005404"
-          },
-          "Neurological disorder": {
-            "ontology_id": "MONDO:0005071",
-            "schema:ItemList": {
-              "Neuromuscular disorder": {
-                "ontology_id": "MONDO:0019056"
-              }
-            }
-          },
-          "Obesity": {
-            "ontology_id": "HP:0001513",
-            "schema:ItemList": {
-              "Severe obesity": {
-                "ontology_id": "MONDO:0005139"
-              }
-            }
-          },
-          "Respiratory disorder": {
-            "ontology_id": "MONDO:0005087",
-            "schema:ItemList": {
-              "Asthma": {
-                "ontology_id": "HP:0002099"
-              },
-              "Chronic bronchitis": {
-                "ontology_id": "HP:0004469"
-              },
-              "Chronic pulmonary disease": {
-                "ontology_id": "HP:0006528",
-                "schema:ItemList": {
-                  "Chronic obstructive pulmonary disease": {
-                    "ontology_id": "HP:0006510"
-                  }
-                }
-              },
-              "Emphysema": {
-                "ontology_id": "HP:0002097"
-              },
-              "Lung disease": {
-                "ontology_id": "MONDO:0005275",
-                "schema:ItemList": {
-                  "Chronic lung disease": {
-                    "ontology_id": "HP:0006528"
-                  },
-                  "Pulmonary fibrosis": {
-                    "ontology_id": "HP:0002206"
-                  }
-                }
-              },
-              "Pneumonia": {
-                "ontology_id": "HP:0002090"
-              },
-              "Respiratory failure": {
-                "ontology_id": "HP:0002878",
-                "schema:ItemList": {
-                  "Adult respiratory distress syndrome": {
-                    "ontology_id": "HP:0033677"
-                  },
-                  "Newborn respiratory distress syndrome": {
-                    "ontology_id": "MONDO:0009971"
-                  }
-                }
-              },
-              "Tuberculosis": {
-                "ontology_id": "MONDO:0018076"
-              }
-            }
-          },
-          "Postpartum (\u22646 weeks)": {},
-          "Pregnancy": {
-            "ontology_id": "NCIT:C25742"
-          },
-          "Rheumatic disease": {
-            "ontology_id": "MONDO:0005554"
-          },
-          "Sickle cell disease": {
-            "ontology_id": "MONDO:0011382"
-          },
-          "Substance use": {
-            "ontology_id": "NBO:0001845",
-            "schema:ItemList": {
-              "Alcohol abuse": {
-                "ontology_id": "MONDO:0002046"
-              },
-              "Drug abuse": {
-                "schema:ItemList": {
-                  "Injection drug abuse": {}
-                }
-              },
-              "Smoking": {
-                "ontology_id": "NBO:0015005"
-              },
-              "Vaping": {
-                "ontology_id": "NBO NTR"
-              }
-            }
-          },
-          "Tachypnea (accelerated respiratory rate)": {
-            "ontology_id": "HP:0002789"
-          },
-          "Transplant": {
-            "ontology_id": "NCIT:C159659",
-            "schema:ItemList": {
-              "Hematopoietic stem cell transplant (bone marrow transplant)": {
-                "ontology_id": "NCIT:C131759"
-              },
-              "Cardiac transplant": {},
-              "Kidney transplant": {
-                "ontology_id": "NCIT:C157332"
-              },
-              "Liver transplant": {}
-            }
-          }
-        }
-      },
-      {
-        "fieldName": "complications",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001402",
-        "datatype": "multiple",
-        "source": "",
-        "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
-        ],
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "Patient medical complications that are believed to have occurred as a result of host disease.",
-        "guidance": "Select all of the complications experienced by the host from the pick list. If the desired term is missing, contact the curation team.",
-        "examples": "Acute Respiratory Failure; Coma; Septicemia",
-        "exportField": {
-          "NML_LIMS": [
-            {
-              "field": "complications"
-            }
-          ]
-        },
-        "schema:ItemList": {
-          "Abnormal blood oxygen level": {
-            "ontology_id": "HP:0500165"
-          },
-          "Acute respiratory failure": {
-            "ontology_id": "MONDO:0001208"
-          },
-          "Arrhythmia (complication)": {
-            "ontology_id": "HP:0011675",
-            "schema:ItemList": {
-              "Tachycardia": {
-                "ontology_id": "HP:0001649",
-                "schema:ItemList": {
-                  "Polymorphic ventricular tachycardia (VT)": {
-                    "ontology_id": "HP:0031677"
-                  },
-                  "Tachyarrhythmia": {
-                    "ontology_id": "HP NTR"
-                  }
-                }
-              }
-            }
-          },
-          "Noncardiogenic pulmonary edema": {
-            "ontology_id": "HP NTR",
-            "schema:ItemList": {
-              "Acute respiratory distress syndrome (ARDS)": {
-                "ontology_id": "HP:0033677",
-                "schema:ItemList": {
-                  "COVID-19 associated ARDS (CARDS)": {
-                    "ontology_id": "NCIT:C171551"
-                  },
-                  "Neurogenic pulmonary edema (NPE)": {
-                    "ontology_id": "HP NTR"
-                  }
-                }
-              }
-            }
-          },
-          "Cardiac injury": {
-            "ontology_id": "NCIT:C45430"
-          },
-          "Cardiac arrest": {
-            "ontology_id": "HP:0001695"
-          },
-          "Cardiogenic shock": {
-            "ontology_id": "HP:0030149"
-          },
-          "Blood clot": {
-            "ontology_id": "HP:0001977",
-            "schema:ItemList": {
-              "Arterial clot": {
-                "ontology_id": "HP:0004420"
-              },
-              "Deep vein thrombosis (DVT)": {
-                "ontology_id": "HP:0002625"
-              },
-              "Pulmonary embolism (PE)": {
-                "ontology_id": "HP:0002204"
-              }
-            }
-          },
-          "Cardiomyopathy": {
-            "ontology_id": "HP:0001638"
-          },
-          "Central nervous system invasion": {
-            "ontology_id": "MONDO:0024619"
-          },
-          "Stroke (complication)": {
-            "ontology_id": "HP:0001297",
-            "schema:ItemList": {
-              "Central Nervous System Vasculitis": {
-                "ontology_id": "MONDO:0003346"
-              },
-              "Acute ischemic stroke": {
-                "ontology_id": "HP:0002140"
-              }
-            }
-          },
-          "Coma": {
-            "ontology_id": "HP:0001259"
-          },
-          "Convulsions": {
-            "ontology_id": "HP:0011097"
-          },
-          "COVID-19 associated coagulopathy (CAC)": {
-            "ontology_id": "HP NTR"
-          },
-          "Cystic fibrosis": {
-            "ontology_id": "MONDO:0009061"
-          },
-          "Cytokine release syndrome": {
-            "ontology_id": "MONDO:0600008"
-          },
-          "Disseminated intravascular coagulation (DIC)": {
-            "ontology_id": "MPATH:108"
-          },
-          "Encephalopathy": {
-            "ontology_id": "HP:0001298"
-          },
-          "Fulminant myocarditis": {
-            "ontology_id": "HP NTR"
-          },
-          "Guillain-Barr\u00e9 syndrome": {
-            "ontology_id": "MONDO:0016218"
-          },
-          "Internal hemorrhage (complication; internal bleeding)": {
-            "ontology_id": "HP:0011029",
-            "schema:ItemList": {
-              "Intracerebral haemorrhage": {
-                "ontology_id": "MONDO:0013792"
-              }
-            }
-          },
-          "Kawasaki disease": {
-            "ontology_id": "HP NTR",
-            "schema:ItemList": {
-              "Complete Kawasaki disease": {
-                "ontology_id": "HP NTR"
-              },
-              "Incomplete Kawasaki disease": {
-                "ontology_id": "HP NTR"
-              }
-            }
-          },
-          "Acute kidney injury": {
-            "ontology_id": "HP:0001919"
-          },
-          "Long COVID-19": {
-            "ontology_id": "MONDO:0100233"
-          },
-          "Liver dysfunction": {
-            "ontology_id": "HP:0001410",
-            "schema:ItemList": {
-              "Acute liver injury": {
-                "ontology_id": "HP NTR"
-              }
-            }
-          },
-          "Acute lung injury": {
-            "ontology_id": "MONDO:0015796",
-            "schema:ItemList": {
-              "Ventilation induced lung injury (VILI)": {
-                "ontology_id": "HP NTR"
-              }
-            }
-          },
-          "Meningitis": {
-            "ontology_id": "HP:0001287"
-          },
-          "Migraine": {
-            "ontology_id": "HP:0002076"
-          },
-          "Miscarriage": {
-            "ontology_id": "HP:0005268"
-          },
-          "Multisystem inflammatory syndrome in children (MIS-C)": {
-            "ontology_id": "MONDO:0100163"
-          },
-          "Muscle injury": {
-            "ontology_id": "HP NTR"
-          },
-          "Myalgic encephalomyelitis (ME)": {
-            "ontology_id": "MONDO:0005404"
-          },
-          "Myocardial infarction (heart attack)": {
-            "ontology_id": "MONDO:0005068",
-            "schema:ItemList": {
-              "Acute myocardial infarction": {
-                "ontology_id": "MONDO:0004781"
-              },
-              "ST-segment elevation myocardial infarction": {
-                "ontology_id": "MONDO:0041656"
-              }
-            }
-          },
-          "Myocardial injury": {
-            "ontology_id": "HP NTR"
-          },
-          "Neonatal complications": {
-            "ontology_id": "NCIT:C168498"
-          },
-          "Organ failure": {
-            "ontology_id": "HP NTR",
-            "schema:ItemList": {
-              "Heart failure": {
-                "ontology_id": "HP:0001635"
-              },
-              "Liver failure": {
-                "ontology_id": "MONDO:0100192"
-              }
-            }
-          },
-          "Paralysis": {
-            "ontology_id": "HP:0003470"
-          },
-          "Pneumothorax (collapsed lung)": {
-            "ontology_id": "HP:0002107",
-            "schema:ItemList": {
-              "Spontaneous pneumothorax": {
-                "ontology_id": "HP:0002108"
-              },
-              "Spontaneous tension pneumothorax": {
-                "ontology_id": "MONDO:0002075"
-              }
-            }
-          },
-          "Pneumonia (complication)": {
-            "ontology_id": "HP:0002090",
-            "schema:ItemList": {
-              "COVID-19 pneumonia": {
-                "ontology_id": "NCIT:C171550"
-              }
-            }
-          },
-          "Pregancy complications": {
-            "ontology_id": "HP:0001197"
-          },
-          "Rhabdomyolysis": {
-            "ontology_id": "HP:0003201"
-          },
-          "Secondary infection": {
-            "ontology_id": "IDO:0000567",
-            "schema:ItemList": {
-              "Secondary staph infection": {
-                "ontology_id": "IDO NTR"
-              },
-              "Secondary strep infection": {
-                "ontology_id": "IDO NTR"
-              }
-            }
-          },
-          "Seizure (complication)": {
-            "ontology_id": "HP:0001250",
-            "schema:ItemList": {
-              "Motor seizure": {
-                "ontology_id": "HP:0020219"
-              }
-            }
-          },
-          "Sepsis/Septicemia": {
-            "ontology_id": "HP:0100806",
-            "schema:ItemList": {
-              "Sepsis": {
-                "ontology_id": "IDO:0000636"
-              },
-              "Septicemia": {
-                "ontology_id": "NCIT:C3364"
-              }
-            }
-          },
-          "Shock": {
-            "ontology_id": "HP:0031273",
-            "schema:ItemList": {
-              "Hyperinflammatory shock": {
-                "ontology_id": "HP NTR"
-              },
-              "Refractory cardiogenic shock": {
-                "ontology_id": "HP NTR"
-              },
-              "Refractory cardiogenic plus vasoplegic shock": {
-                "ontology_id": "HP NTR"
-              },
-              "Septic shock": {
-                "ontology_id": "HP NTR"
-              }
-            }
-          },
-          "Vasculitis": {
-            "ontology_id": "HP:0002633"
-          }
-        }
-      }
-    ]
-  },
-  {
-    "fieldName": "Host vaccination information",
-    "children": [
-      {
-        "fieldName": "host vaccination status",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001404",
-        "datatype": "select",
-        "source": "",
-        "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
-        ],
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The vaccination status of the host (fully vaccinated, partially vaccinated, or not vaccinated).",
-        "guidance": "Select the vaccination status of the host from the pick list.",
-        "examples": "Fully Vaccinated",
-        "exportField": {
-          "NML_LIMS": [
-            {
-              "field": "PH_VACCINATION_HISTORY"
-            }
-          ]
-        },
-        "schema:ItemList": {
-          "Fully Vaccinated": {},
-          "Partially Vaccinated": {},
-          "Not Vaccinated": {}
-        }
-      },
-      {
-        "fieldName": "number of vaccine doses received",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001406",
-        "datatype": "xs:nonNegativeInteger",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The number of doses of the vaccine recived by the host.",
-        "guidance": "Record how many doses of the vaccine the host has received.",
-        "examples": "2"
-      },
-      {
-        "fieldName": "vaccination dose 1 vaccine name",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0100313",
-        "datatype": "select",
-        "source": "",
-        "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
-        ],
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The name of the vaccine administered as the first dose of a vaccine regimen.",
-        "guidance": "Provide the name and the corresponding manufacturer of the COVID-19 vaccine administered as the first dose by selecting a value from the pick list",
-        "examples": "Pfizer-BioNTech (Comirnaty)",
-        "exportField": {
-          "NML_LIMS": [
-            {
-              "field": "PH_VACCINATION_HISTORY"
-            }
-          ]
-        },
-        "schema:ItemList": {
-          "Astrazeneca (Vaxzevria)": {
-            "ontology_id": "GENEPIO:0100308"
-          },
-          "Johnson & Johnson (Janssen)": {
-            "ontology_id": "GENEPIO:0100307"
-          },
-          "Moderna (Spikevax)": {
-            "ontology_id": "GENEPIO:0100304"
-          },
-          "Pfizer-BioNTech (Comirnaty)": {
-            "ontology_id": "GENEPIO:0100305"
-          },
-          "Pfizer-BioNTech (Comirnaty Pediatric)": {
-            "ontology_id": "GENEPIO:0100306"
-          }
-        }
-      },
-      {
-        "fieldName": "vaccination dose 1 vaccination date",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0100314",
-        "datatype": "xs:date",
-        "source": "",
-        "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
-        ],
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The date the first dose of a vaccine was administered.",
-        "guidance": "Provide the date the first dose of COVID-19 vaccine was administered. The date should be provided in ISO 8601 standard format \"YYYY-MM-DD\".",
-        "examples": "2021-03-01",
-        "exportField": {
-          "NML_LIMS": [
-            {
-              "field": "PH_VACCINATION_HISTORY"
-            }
-          ]
-        }
-      },
-      {
-        "fieldName": "vaccination dose 2 vaccine name",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0100315",
-        "datatype": "select",
-        "source": "vaccination dose 1 vaccine name",
-        "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
-        ],
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The name of the vaccine administered as the second dose of a vaccine regimen.",
-        "guidance": "Provide the name and the corresponding manufacturer of the COVID-19 vaccine administered as the second dose by selecting a value from the pick list",
-        "examples": "Pfizer-BioNTech (Comirnaty)",
-        "exportField": {
-          "NML_LIMS": [
-            {
-              "field": "PH_VACCINATION_HISTORY"
-            }
-          ]
-        },
-        "schema:ItemList": {}
-      },
-      {
-        "fieldName": "vaccination dose 2 vaccination date",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0100316",
-        "datatype": "xs:date",
-        "source": "",
-        "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
-        ],
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The date the second dose of a vaccine was administered.",
-        "guidance": "Provide the date the second dose of COVID-19 vaccine was administered. The date should be provided in ISO 8601 standard format \"YYYY-MM-DD\".",
-        "examples": "2021-09-01",
-        "exportField": {
-          "NML_LIMS": [
-            {
-              "field": "PH_VACCINATION_HISTORY"
-            }
-          ]
-        }
-      },
-      {
-        "fieldName": "vaccination dose 3 vaccine name",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0100317",
-        "datatype": "select",
-        "source": "vaccination dose 1 vaccine name",
-        "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
-        ],
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The name of the vaccine administered as the third dose of a vaccine regimen.",
-        "guidance": "Provide the name and the corresponding manufacturer of the COVID-19 vaccine administered as the third dose by selecting a value from the pick list",
-        "examples": "Pfizer-BioNTech (Comirnaty)",
-        "exportField": {
-          "NML_LIMS": [
-            {
-              "field": "PH_VACCINATION_HISTORY"
-            }
-          ]
-        },
-        "schema:ItemList": {}
-      },
-      {
-        "fieldName": "vaccination dose 3 vaccination date",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0100318",
-        "datatype": "xs:date",
-        "source": "",
-        "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
-        ],
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The date the third dose of a vaccine was administered.",
-        "guidance": "Provide the date the third dose of COVID-19 vaccine was administered. The date should be provided in ISO 8601 standard format \"YYYY-MM-DD\".",
-        "examples": "2021-12-30",
-        "exportField": {
-          "NML_LIMS": [
-            {
-              "field": "PH_VACCINATION_HISTORY"
-            }
-          ]
-        }
-      },
-      {
-        "fieldName": "vaccination dose 4 vaccine name",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0100319",
-        "datatype": "select",
-        "source": "vaccination dose 1 vaccine name",
-        "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
-        ],
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The name of the vaccine administered as the fourth dose of a vaccine regimen.",
-        "guidance": "Provide the name and the corresponding manufacturer of the COVID-19 vaccine administered as the fourth dose by selecting a value from the pick list",
-        "examples": "Pfizer-BioNTech (Comirnaty)",
-        "exportField": {
-          "NML_LIMS": [
-            {
-              "field": "PH_VACCINATION_HISTORY"
-            }
-          ]
-        },
-        "schema:ItemList": {}
-      },
-      {
-        "fieldName": "vaccination dose 4 vaccination date",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0100320",
-        "datatype": "xs:date",
-        "source": "",
-        "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
-        ],
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The date the fourth dose of a vaccine was administered.",
-        "guidance": "Provide the date the fourth dose of COVID-19 vaccine was administered. The date should be provided in ISO 8601 standard format \"YYYY-MM-DD\".",
-        "examples": "2022-01-15",
-        "exportField": {
-          "NML_LIMS": [
-            {
-              "field": "PH_VACCINATION_HISTORY"
-            }
-          ]
-        }
-      },
-      {
-        "fieldName": "vaccination history",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0100321",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "A description of the vaccines received and the administration dates of a series of vaccinations against a specific disease or a set of diseases.",
-        "guidance": "Free text description of the dates and vaccines administered against a particular disease/set of diseases. It is also acceptable to concatenate the individual dose information (vaccine name, vaccination date) separated by semicolons.",
-        "examples": "Pfizer-BioNTech (Comirnaty); 2021-03-01; Pfizer-BioNTech (Comirnaty); 2022-01-15",
-        "exportField": {
-          "NML_LIMS": [
-            {
-              "field": "PH_VACCINATION_HISTORY"
-            }
-          ]
-        }
-      }
-    ]
-  },
-  {
-    "fieldName": "Host exposure information",
-    "children": [
-      {
-        "fieldName": "location of exposure geo_loc name (country)",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001410",
-        "datatype": "select",
-        "source": "geo_loc_name (country)",
-        "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
-        ],
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The country where the host was likely exposed to the causative agent of the illness.",
-        "guidance": "Select the country name from pick list provided in the template.",
-        "examples": "Canada",
-        "exportField": {
-          "NML_LIMS": [
-            {
-              "field": "PH_EXPOSURE_COUNTRY"
-            }
-          ]
-        },
-        "schema:ItemList": {}
-      },
-      {
-        "fieldName": "destination of most recent travel (city)",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001411",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The name of the city that was the destination of most recent travel.",
-        "guidance": "Provide the name of the city that the host travelled to. Use this look-up service to identify the standardized term: https://www.ebi.ac.uk/ols/ontologies/gaz",
-        "examples": "New York City",
-        "exportField": {
-          "CNPHI": [
-            {
-              "field": "Country of Travel|Province of Travel|City of Travel|Travel start date|Travel End Date"
-            }
-          ],
-          "NML_LIMS": [
-            {
-              "field": "PH_TRAVEL"
-            }
-          ]
-        }
-      },
-      {
-        "fieldName": "destination of most recent travel (state/province/territory)",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001412",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The name of the province that was the destination of most recent travel.",
-        "guidance": "Provide the name of the state/province/territory that the host travelled to. Use this look-up service to identify the standardized term: https://www.ebi.ac.uk/ols/ontologies/gaz",
-        "examples": "California",
-        "exportField": {
-          "CNPHI": [
-            {
-              "field": "Country of Travel|Province of Travel|City of Travel|Travel start date|Travel End Date"
-            }
-          ],
-          "NML_LIMS": [
-            {
-              "field": "PH_TRAVEL"
-            }
-          ]
-        }
-      },
-      {
-        "fieldName": "destination of most recent travel (country)",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001413",
-        "datatype": "select",
-        "source": "geo_loc_name (country)",
-        "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
-        ],
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The name of the country that was the destination of most recent travel.",
-        "guidance": "Provide the name of the country that the host travelled to. Use this look-up service to identify the standardized term: https://www.ebi.ac.uk/ols/ontologies/gaz",
-        "examples": "United Kingdom",
-        "exportField": {
-          "CNPHI": [
-            {
-              "field": "Country of Travel|Province of Travel|City of Travel|Travel start date|Travel End Date"
-            }
-          ],
-          "NML_LIMS": [
-            {
-              "field": "PH_TRAVEL"
-            }
-          ]
-        },
-        "schema:ItemList": {}
-      },
-      {
-        "fieldName": "most recent travel departure date",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001414",
-        "datatype": "xs:date",
-        "source": "",
-        "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
-        ],
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The date of a person's most recent departure from their primary residence (at that time) on a journey to one or more other locations.",
-        "guidance": "Provide the travel departure date.",
-        "examples": "2020-03-16",
-        "exportField": {
-          "CNPHI": [
-            {
-              "field": "Country of Travel|Province of Travel|City of Travel|Travel start date|Travel End Date"
-            }
-          ],
-          "NML_LIMS": [
-            {
-              "field": "PH_TRAVEL"
-            }
-          ]
-        }
-      },
-      {
-        "fieldName": "most recent travel return date",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001415",
-        "datatype": "xs:date",
-        "source": "",
-        "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
-        ],
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The date of a person's most recent return to some residence from a journey originating at that residence.",
-        "guidance": "Provide the travel return date.",
-        "examples": "2020-04-26",
-        "exportField": {
-          "CNPHI": [
-            {
-              "field": "Country of Travel|Province of Travel|City of Travel|Travel start date|Travel End Date"
-            }
-          ],
-          "NML_LIMS": [
-            {
-              "field": "PH_TRAVEL"
-            }
-          ]
-        }
-      },
-      {
-        "fieldName": "travel history",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001416",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "Travel history in last six months.",
-        "guidance": "Specify the countries (and more granular locations if known, separated by a comma) travelled in the last six months; can include multiple travels. Separate multiple travel events with a semi-colon. List most recent travel first.",
-        "examples": "Canada, Vancouver; USA, Seattle; Italy, Milan",
-        "exportField": {
-          "NML_LIMS": [
-            {
-              "field": "PH_TRAVEL"
-            }
-          ]
-        }
-      },
-      {
-        "fieldName": "exposure event",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001417",
-        "datatype": "select",
-        "source": "",
-        "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
-        ],
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "Event leading to exposure.",
-        "guidance": "Select an exposure event from the pick list provided in the template. If the desired term is missing, contact the curation team.",
-        "examples": "Convention",
-        "exportField": {
-          "GISAID": [
-            {
-              "field": "Additional location information"
-            }
-          ],
-          "CNPHI": [
-            {
-              "field": "Exposure Event"
-            }
-          ],
-          "NML_LIMS": [
-            {
-              "field": "PH_EXPOSURE"
-            }
-          ]
-        },
-        "schema:ItemList": {
-          "Mass Gathering": {
-            "ontology_id": "PCO NTR",
-            "schema:ItemList": {
-              "Agricultural Event": {
-                "ontology_id": "PCO NTR"
-              },
-              "Convention": {
-                "ontology_id": "PCO NTR"
-              },
-              "Convocation": {
-                "ontology_id": "PCO NTR"
-              },
-              "Recreational Event": {
-                "ontology_id": "PCO NTR",
-                "schema:ItemList": {
-                  "Concert": {
-                    "ontology_id": "PCO NTR"
-                  },
-                  "Sporting Event": {
-                    "ontology_id": "PCO NTR"
-                  }
-                }
-              }
-            }
-          },
-          "Religious Gathering": {
-            "ontology_id": "PCO NTR",
-            "schema:ItemList": {
-              "Mass": {
-                "ontology_id": "PCO NTR"
-              }
-            }
-          },
-          "Social Gathering": {
-            "ontology_id": "PCO:0000033",
-            "schema:ItemList": {
-              "Baby Shower": {
-                "ontology_id": "PCO:0000039"
-              },
-              "Community Event": {
-                "ontology_id": "PCO:0000034"
-              },
-              "Family Gathering": {
-                "ontology_id": "PCO NTR",
-                "schema:ItemList": {
-                  "Family Reunion": {
-                    "ontology_id": "PCO NTR"
-                  }
-                }
-              },
-              "Funeral": {
-                "ontology_id": "PCO NTR"
-              },
-              "Party": {
-                "ontology_id": "PCO:0000035"
-              },
-              "Potluck": {
-                "ontology_id": "PCO:0000037"
-              },
-              "Wedding": {
-                "ontology_id": "PCO:0000038"
-              }
-            }
-          },
-          "Other exposure event": {
-            "ontology_id": "NCIT:C168623"
-          }
-        }
-      },
-      {
-        "fieldName": "exposure contact level",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001418",
-        "datatype": "select",
-        "source": "",
-        "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
-        ],
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The exposure transmission contact type.",
-        "guidance": "Select direct or indirect exposure from the pick-list.",
-        "examples": "Direct",
-        "exportField": {
-          "NML_LIMS": [
-            {
-              "field": "exposure contact level"
-            }
-          ]
-        },
-        "schema:ItemList": {
-          "Contact with infected individual": {
-            "ontology_id": "NCIT NTR?",
-            "schema:ItemList": {
-              "Direct contact (direct human-to-human contact)": {
-                "ontology_id": "NCIT NTR?"
-              },
-              "Indirect contact": {
-                "ontology_id": "NCIT NTR?",
-                "schema:ItemList": {
-                  "Close contact (face-to-face, no direct contact)": {
-                    "ontology_id": "NCIT NTR?"
-                  },
-                  "Casual contact": {
-                    "ontology_id": "NCIT:C102606"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        "fieldName": "host role",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001419",
-        "datatype": "multiple",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The role of the host in relation to the exposure setting.",
-        "guidance": "Select the host's personal role(s) from the pick list provided in the template. If the desired term is missing, contact the curation team.",
-        "examples": "Patient",
-        "exportField": {
-          "NML_LIMS": [
-            {
-              "field": "PH_HOST_ROLE"
-            }
-          ]
-        },
-        "schema:ItemList": {
-          "Attendee": {
-            "ontology_id": "OMRSE NTR",
-            "schema:ItemList": {
-              "Student": {
-                "ontology_id": "OMRSE:00000058"
-              }
-            }
-          },
-          "Patient": {
-            "ontology_id": "OMRSE:00000030",
-            "schema:ItemList": {
-              "Inpatient": {
-                "ontology_id": "OMRSE NTR"
-              },
-              "Outpatient": {
-                "ontology_id": "OMRSE NTR"
-              }
-            }
-          },
-          "Passenger": {
-            "ontology_id": "OMRSE NTR"
-          },
-          "Resident": {
-            "ontology_id": "OMRSE NTR"
-          },
-          "Visitor": {
-            "ontology_id": "OMRSE NTR"
-          },
-          "Volunteer": {
-            "ontology_id": "OMRSE NTR"
-          },
-          "Work": {
-            "ontology_id": "OMRSE NTR",
-            "schema:ItemList": {
-              "Administrator": {
-                "ontology_id": "OMRSE NTR"
-              },
-              "First Responder": {
-                "ontology_id": "OMRSE NTR",
-                "schema:ItemList": {
-                  "Firefighter": {
-                    "ontology_id": "OMRSE NTR"
-                  },
-                  "Paramedic": {
-                    "ontology_id": "OMRSE NTR"
-                  },
-                  "Police Officer": {
-                    "ontology_id": "OMRSE NTR"
-                  }
-                }
-              },
-              "Child Care/Education Worker": {
-                "ontology_id": "OMRSE NTR"
-              },
-              "Essential Worker": {
-                "ontology_id": "OMRSE NTR"
-              },
-              "Healthcare Worker": {
-                "ontology_id": "OMRSE NTR",
-                "schema:ItemList": {
-                  "Nurse": {
-                    "ontology_id": "OMRSE:00000014"
-                  },
-                  "Personal Care Aid": {
-                    "ontology_id": "OMRSE NTR"
-                  },
-                  "Pharmacist": {
-                    "ontology_id": "OMRSE NTR"
-                  },
-                  "Physician": {
-                    "ontology_id": "OMRSE:00000050"
-                  }
-                }
-              },
-              "Housekeeper": {
-                "ontology_id": "OMRSE NTR"
-              },
-              "International worker": {
-                "ontology_id": "OMRSE NTR"
-              },
-              "Kitchen Worker": {
-                "ontology_id": "OMRSE NTR"
-              },
-              "Laboratory Worker": {
-                "ontology_id": "OMRSE NTR"
-              },
-              "Rotational Worker": {
-                "ontology_id": "OMRSE NTR"
-              },
-              "Seasonal Worker": {
-                "ontology_id": "OMRSE NTR"
-              },
-              "Transport Worker": {
-                "ontology_id": "OMRSE NTR",
-                "schema:ItemList": {
-                  "Transport Truck Driver": {
-                    "ontology_id": "OMRSE NTR"
-                  }
-                }
-              },
-              "Veterinarian": {
-                "ontology_id": "OMRSE NTR"
-              }
-            }
-          },
-          "Social role": {
-            "ontology_id": "OMRSE:00000001",
-            "schema:ItemList": {
-              "Acquaintance of case": {
-                "ontology_id": "OMRSE NTR"
-              },
-              "Relative of case": {
-                "ontology_id": "OMRSE NTR",
-                "schema:ItemList": {
-                  "Child of case": {
-                    "ontology_id": "OMRSE NTR"
-                  },
-                  "Parent of case": {
-                    "ontology_id": "OMRSE NTR"
-                  },
-                  "Father of case": {
-                    "ontology_id": "OMRSE NTR"
-                  },
-                  "Mother of case": {
-                    "ontology_id": "OMRSE NTR"
-                  }
-                }
-              },
-              "Spouse of case": {
-                "ontology_id": "OMRSE NTR"
-              }
-            }
-          },
-          "Other Host Role": {
-            "ontology_id": "OMRSE NTR"
-          }
-        }
-      },
-      {
-        "fieldName": "exposure setting",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001428",
-        "datatype": "multiple",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The setting leading to exposure.",
-        "guidance": "Select the host exposure setting(s) from the pick list provided in the template. If a desired term is missing, contact the curation team.",
-        "examples": "Healthcare Setting",
-        "exportField": {
-          "NML_LIMS": [
-            {
-              "field": "PH_EXPOSURE"
-            }
-          ]
-        },
-        "schema:ItemList": {
-          "Human Exposure": {
-            "ontology_id": "ECTO:3000005",
-            "schema:ItemList": {
-              "Contact with Known COVID-19 Case": {
-                "ontology_id": "ECTO NTR"
-              },
-              "Contact with Patient": {
-                "ontology_id": "ECTO NTR"
-              },
-              "Contact with Probable COVID-19 Case": {
-                "ontology_id": "ECTO NTR"
-              },
-              "Contact with Person with Acute Respiratory Illness": {
-                "ontology_id": "ECTO NTR"
-              },
-              "Contact with Person with Fever and/or Cough": {
-                "ontology_id": "ECTO NTR"
-              },
-              "Contact with Person who Recently Travelled": {
-                "ontology_id": "ECTO NTR"
-              }
-            }
-          },
-          "Occupational, Residency or Patronage Exposure": {
-            "ontology_id": "ECTO NTR?",
-            "schema:ItemList": {
-              "Abbatoir": {
-                "ontology_id": "ECTO:1000033"
-              },
-              "Animal Rescue": {
-                "ontology_id": "ECTO NTR"
-              },
-              "Childcare": {
-                "ontology_id": "ECTO NTR",
-                "schema:ItemList": {
-                  "Daycare": {
-                    "ontology_id": "ECTO NTR"
-                  }
-                }
-              },
-              "Nursery": {
-                "ontology_id": "ECTO NTR"
-              },
-              "Community Service Centre": {
-                "ontology_id": "ECTO NTR"
-              },
-              "Correctional Facility": {
-                "ontology_id": "ECTO NTR"
-              },
-              "Dormitory": {
-                "ontology_id": "ECTO NTR"
-              },
-              "Farm": {
-                "ontology_id": "ECTO:1000034"
-              },
-              "First Nations Reserve": {
-                "ontology_id": "ECTO NTR"
-              },
-              "Funeral Home": {
-                "ontology_id": "ECTO NTR"
-              },
-              "Group Home": {
-                "ontology_id": "ECTO NTR"
-              },
-              "Healthcare Setting": {
-                "ontology_id": "ECTO NTR",
-                "schema:ItemList": {
-                  "Ambulance": {
-                    "ontology_id": "ECTO NTR"
-                  },
-                  "Acute Care Facility": {
-                    "ontology_id": "ECTO NTR"
-                  },
-                  "Clinic": {
-                    "ontology_id": "ECTO NTR"
-                  },
-                  "Community Health Centre": {
-                    "ontology_id": "ECTO NTR"
-                  },
-                  "Hospital": {
-                    "ontology_id": "ECTO:1000035",
-                    "schema:ItemList": {
-                      "Emergency Department": {
-                        "ontology_id": "ECTO NTR"
-                      },
-                      "ICU": {
-                        "ontology_id": "ECTO NTR"
-                      },
-                      "Ward": {
-                        "ontology_id": "ECTO NTR"
-                      }
-                    }
-                  },
-                  "Laboratory": {
-                    "ontology_id": "ECTO:1000036"
-                  },
-                  "Long-Term Care Facility": {
-                    "ontology_id": "ECTO NTR"
-                  },
-                  "Pharmacy": {
-                    "ontology_id": "ECTO NTR"
-                  },
-                  "Physician's Office": {
-                    "ontology_id": "ECTO NTR"
-                  }
-                }
-              },
-              "Household": {
-                "ontology_id": "ECTO NTR"
-              },
-              "Insecure Housing (Homeless)": {
-                "ontology_id": "ECTO NTR"
-              },
-              "Occupational Exposure": {
-                "ontology_id": "ECTO NTR",
-                "schema:ItemList": {
-                  "Worksite": {
-                    "ontology_id": "ECTO NTR"
-                  },
-                  "Office": {
-                    "ontology_id": "ECTO:1000037"
-                  }
-                }
-              },
-              "Outdoors": {
-                "ontology_id": "ECTO NTR",
-                "schema:ItemList": {
-                  "Camp/camping": {
-                    "ontology_id": "ECTO:5000009"
-                  },
-                  "Hiking Trail": {
-                    "ontology_id": "ECTO NTR"
-                  },
-                  "Hunting Ground": {
-                    "ontology_id": "ECTO:6000030"
-                  },
-                  "Ski Resort": {
-                    "ontology_id": "ECTO NTR"
-                  }
-                }
-              },
-              "Petting zoo": {
-                "ontology_id": "ECTO:5000008"
-              },
-              "Place of Worship": {
-                "ontology_id": "ECTO NTR",
-                "schema:ItemList": {
-                  "Church": {
-                    "ontology_id": "ECTO NTR"
-                  },
-                  "Mosque": {
-                    "ontology_id": "ECTO NTR"
-                  },
-                  "Temple": {
-                    "ontology_id": "ECTO NTR"
-                  }
-                }
-              },
-              "Restaurant": {
-                "ontology_id": "ECTO:1000040"
-              },
-              "Retail Store": {
-                "ontology_id": "ECTO:1000041"
-              },
-              "School": {
-                "ontology_id": "ECTO NTR"
-              },
-              "Temporary Residence": {
-                "ontology_id": "ECTO NTR",
-                "schema:ItemList": {
-                  "Homeless Shelter": {
-                    "ontology_id": "ECTO NTR"
-                  },
-                  "Hotel": {
-                    "ontology_id": "ECTO NTR"
-                  }
-                }
-              },
-              "Veterinary Care Clinic": {
-                "ontology_id": "ECTO NTR"
-              }
-            }
-          },
-          "Travel Exposure": {
-            "ontology_id": "ECTO NTR",
-            "schema:ItemList": {
-              "Travelled on a Cruise Ship": {
-                "ontology_id": "ECTO NTR"
-              },
-              "Travelled on a Plane": {
-                "ontology_id": "ECTO NTR"
-              },
-              "Travelled on Ground Transport": {
-                "ontology_id": "ECTO NTR"
-              },
-              "Travelled outside Province/Territory": {
-                "ontology_id": "GENEPIO:0001119"
-              },
-              "Travelled outside Canada": {
-                "ontology_id": "GENEPIO:0001118"
-              }
-            }
-          },
-          "Other Exposure Setting": {
-            "ontology_id": "GENEPIO NTR?"
-          }
-        }
-      },
-      {
-        "fieldName": "exposure details",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001431",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "Additional host exposure information.",
-        "guidance": "Free text description of the exposure.",
-        "examples": "Host role - Other: Bus Driver",
-        "exportField": {
-          "NML_LIMS": [
-            {
-              "field": "PH_EXPOSURE_DETAILS"
-            }
-          ]
-        }
-      }
-    ]
-  },
-  {
-    "fieldName": "Host reinfection information",
-    "children": [
-      {
-        "fieldName": "prior SARS-CoV-2 infection",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001435",
-        "datatype": "select",
-        "source": "",
-        "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
-        ],
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "Whether there was prior SARS-CoV-2 infection.",
-        "guidance": "If known, provide information about whether the individual had a previous SARS-CoV-2 infection. Select a value from the pick list.",
-        "examples": "Yes",
-        "exportField": {
-          "NML_LIMS": [
-            {
-              "field": "prior SARS-CoV-2 infection"
-            }
-          ]
-        },
-        "schema:ItemList": {
-          "Prior antiviral treatment": {},
-          "No prior antiviral treatment": {}
-        }
-      },
-      {
-        "fieldName": "prior SARS-CoV-2 infection isolate",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001436",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The identifier of the isolate found in the prior SARS-CoV-2 infection.",
-        "guidance": "Provide the isolate name of the most recent prior infection. Structure the \"isolate\" name to be ICTV/INSDC compliant in the following format: \"SARS-CoV-2/host/country/sampleID/date\".",
-        "examples": "SARS-CoV-2/human/USA/CA-CDPH-001/2020",
-        "exportField": {
-          "NML_LIMS": [
-            {
-              "field": "prior SARS-CoV-2 infection isolate"
-            }
-          ]
-        }
-      },
-      {
-        "fieldName": "prior SARS-CoV-2 infection date",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001437",
-        "datatype": "xs:date",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The date of diagnosis of the prior SARS-CoV-2 infection.",
-        "guidance": "Provide the date that the most recent prior infection was diagnosed. Provide the prior SARS-CoV-2 infection date in ISO 8601 standard format \"YYYY-MM-DD\".",
-        "examples": "2021-01-23",
-        "exportField": {
-          "NML_LIMS": [
-            {
-              "field": "prior SARS-CoV-2 infection date"
-            }
-          ]
-        }
-      },
-      {
-        "fieldName": "prior SARS-CoV-2 antiviral treatment",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001438",
-        "datatype": "select",
-        "source": "",
-        "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
-        ],
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "Whether there was prior SARS-CoV-2 treatment with an antiviral agent.",
-        "guidance": "If known, provide information about whether the individual had a previous SARS-CoV-2 antiviral treatment. Select a value from the pick list.",
-        "examples": "No prior antiviral treatment",
-        "exportField": {
-          "NML_LIMS": [
-            {
-              "field": "prior SARS-CoV-2 antiviral treatment"
-            }
-          ]
-        },
-        "schema:ItemList": {
-          "Prior antivrial treatment": {},
-          "No prior antivrial treatment": {},
-          "Unknown": {}
-        }
-      },
-      {
-        "fieldName": "prior SARS-CoV-2 antiviral treatment agent",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001439",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The name of the antiviral treatment agent administered during the prior SARS-CoV-2 infection.",
-        "guidance": "Provide the name of the antiviral treatment agent administered during the most recent prior infection. If no treatment was administered, put \"No treatment\". If multiple antiviral agents were administered, list them all separated by commas.",
-        "examples": "Remdesivir",
-        "exportField": {
-          "NML_LIMS": [
-            {
-              "field": "prior SARS-CoV-2 antiviral treatment agent"
-            }
-          ]
-        }
-      },
-      {
-        "fieldName": "prior SARS-CoV-2 antiviral treatment date",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001440",
-        "datatype": "xs:date",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The date treatment was first administered during the prior SARS-CoV-2 infection.",
-        "guidance": "Provide the date that the antiviral treatment agent was first administered during the most recenrt prior infection. Provide the prior SARS-CoV-2 treatment date in ISO 8601 standard format \"YYYY-MM-DD\".",
-        "examples": "2021-01-28",
-        "exportField": {
-          "NML_LIMS": [
-            {
-              "field": "prior SARS-CoV-2 antiviral treatment date"
-            }
-          ]
-        }
-      }
-    ]
-  },
-  {
-    "fieldName": "Sequencing",
-    "children": [
-      {
-        "fieldName": "purpose of sequencing",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001445",
-        "datatype": "multiple",
-        "source": "",
-        "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
-        ],
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "required",
-        "description": "The reason that the sample was sequenced.",
-        "guidance": "The reason why a sample was originally collected may differ from the reason why it was selected for sequencing. The reason a sample was sequenced may provide information about potential biases in sequencing strategy. Provide the purpose of sequencing from the picklist in the template. The reason for sample collection should be indicated in the \"purpose of sampling\" field. ",
-        "examples": "Baseline surveillance (random sampling)",
-        "exportField": {
-          "CNPHI": [
-            {
-              "field": "Reason for Sequencing"
-            }
-          ],
-          "NML_LIMS": [
-            {
-              "field": "PH_REASON_FOR_SEQUENCING"
-            }
-          ],
-          "BIOSAMPLE": [
-            {
-              "field": "purpose_of_sequencing"
-            }
-          ],
-          "VirusSeq_Portal": [
-            {
-              "field": "purpose of sequencing"
-            }
-          ]
-        },
-        "schema:ItemList": {
-          "Baseline surveillance (random sampling)": {
-            "ontology_id": "See comment"
-          },
-          "Targeted surveillance (non-random sampling)": {
-            "schema:ItemList": {
-              "Priority surveillance project": {
-                "schema:ItemList": {
-                  "Screening for Variants of Concern (VoC)": {
-                    "schema:ItemList": {
-                      "Sample has epidemiological link to Variant of Concern (VoC)": {
-                        "schema:ItemList": {
-                          "Sample has epidemiological link to Omicron Variant": {}
-                        }
-                      }
-                    }
-                  },
-                  "Longitudinal surveillance (repeat sampling of individuals)": {},
-                  "Re-infection surveillance": {},
-                  "Vaccine escape surveillance": {},
-                  "Travel-associated surveillance": {
-                    "schema:ItemList": {
-                      "Domestic travel surveillance": {
-                        "schema:ItemList": {
-                          "Interstate/ interprovincial travel surveillance": {},
-                          "Intra-state/ intra-provincial travel surveillance": {}
-                        }
-                      },
-                      "International travel surveillance": {},
-                      "Surveillance of international border crossing by air travel or ground transport": {},
-                      "Surveillance of international border crossing by air travel": {},
-                      "Surveillance of international border crossing by ground transport": {},
-                      "Surveillance from international worker testing": {}
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "Cluster/Outbreak investigation": {
-            "ontology_id": "HSO:0000371",
-            "schema:ItemList": {
-              "Multi-jurisdictional outbreak investigation": {},
-              "Intra-jurisdictional outbreak investigation": {}
-            }
-          },
-          "Research": {
-            "ontology_id": "NCIT:c15429",
-            "schema:ItemList": {
-              "Viral passage experiment": {},
-              "Protocol testing experiment": {}
-            }
-          }
-        }
-      },
-      {
-        "fieldName": "purpose of sequencing details",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001446",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
-        ],
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "required",
-        "description": "The description of why the sample was sequenced providing specific details.",
-        "guidance": "Provide an expanded description of why the sample was sequenced using free text. The description may include the importance of the sequences for a particular public health investigation/surveillance activity/research question. Suggested standardized descriotions include: Screened for S gene target failure (S dropout), Screened for mink variants, Screened for B.1.1.7 variant, Screened for B.1.135 variant, Screened for P.1 variant, Screened due to travel history, Screened due to close contact with infected individual, Assessing public health control measures, Determining early introductions and spread, Investigating airline-related exposures, Investigating temporary foreign worker, Investigating remote regions, Investigating health care workers, Investigating schools/universities, Investigating reinfection.",
-        "examples": "Screened for S gene target failure (S dropout)",
-        "exportField": {
-          "CNPHI": [
-            {
-              "field": "Details on the Reason for Sequencing"
-            }
-          ],
-          "NML_LIMS": [
-            {
-              "field": "PH_REASON_FOR_SEQUENCING_DETAILS"
-            }
-          ],
-          "VirusSeq_Portal": [
-            {
-              "field": "purpose of sequencing details"
-            }
-          ]
-        }
-      },
-      {
-        "fieldName": "sequencing date",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001447",
-        "datatype": "xs:date",
-        "source": "",
-        "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
-        ],
-        "xs:minInclusive": "{sample collection date}",
-        "xs:maxInclusive": "",
-        "requirement": "required",
-        "description": "The date the sample was sequenced.",
-        "guidance": "ISO 8601 standard \"YYYY-MM-DD\".",
-        "examples": "2020-06-22",
-        "exportField": {
-          "NML_LIMS": [
-            {
-              "field": "PH_SEQUENCING_DATE"
-            }
-          ]
-        }
-      },
-      {
-        "fieldName": "library ID",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001448",
+        "ontology_id": "mixs_modified:collection_time",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "recommended",
-        "description": "The user-specified identifier for the library prepared for sequencing.",
-        "guidance": "The library name should be unique, and can be an autogenerated ID from your LIMS, or modification of the isolate ID.",
-        "examples": "XYZ_123345",
+        "description": "The time of sampling, either as an instance (single point) or interval.",
+        "guidance": "Time should be entered as HH:MM(:SS) in GMT. See here for a converter: https://www.worldtimebuddy.com/pst-to-gmt-converter | Pattern hint: {time, seconds optional}",
+        "examples": "13:33 or 13:33:55",
+        "pattern": "^([01]?\\d|2[0-3]|24(?=:00?:00?$)):([0-5]\\d)(:([0-5]\\d))?$",
         "exportField": {
-          "NML_LIMS": [
+          "soil_emsl_jgi_mg": [
             {
-              "field": "library ID"
+              "field": "collection_time"
             }
           ]
         }
       },
       {
-        "fieldName": "amplicon size",
+        "fieldName": "Incubation Collection Date",
         "capitalize": "",
-        "ontology_id": "GENEPIO:0001449",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The length of the amplicon generated by PCR amplification.",
-        "guidance": "Provide the amplicon size, including the units.",
-        "examples": "300bp",
-        "exportField": {
-          "NML_LIMS": [
-            {
-              "field": "amplicon size"
-            }
-          ]
-        }
-      },
-      {
-        "fieldName": "library preparation kit",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001450",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The name of the DNA library preparation kit used to generate the library being sequenced.",
-        "guidance": "Provide the name of the library preparation kit used.",
-        "examples": "Nextera XT",
-        "exportField": {
-          "NML_LIMS": [
-            {
-              "field": "PH_LIBRARY_PREP_KIT"
-            }
-          ]
-        }
-      },
-      {
-        "fieldName": "flow cell barcode",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001451",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The barcode of the flow cell used for sequencing.",
-        "guidance": "Provide the barcode of the flow cell used for sequencing the sample.",
-        "examples": "FAB06069",
-        "exportField": {
-          "NML_LIMS": [
-            {
-              "field": "flow cell barcode"
-            }
-          ]
-        }
-      },
-      {
-        "fieldName": "sequencing instrument",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001452",
-        "datatype": "multiple",
-        "source": "",
-        "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
-        ],
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "required",
-        "description": "The model of the sequencing instrument used.",
-        "guidance": "Select a sequencing instrument from the picklist provided in the template.",
-        "examples": "Oxford Nanopore MinION",
-        "exportField": {
-          "GISAID": [
-            {
-              "field": "Sequencing technology"
-            }
-          ],
-          "CNPHI": [
-            {
-              "field": "Sequencing Instrument"
-            }
-          ],
-          "NML_LIMS": [
-            {
-              "field": "PH_INSTRUMENT_CGN"
-            }
-          ],
-          "VirusSeq_Portal": [
-            {
-              "field": "sequencing instrument"
-            }
-          ]
-        },
-        "schema:ItemList": {
-          "Illumina": {
-            "ontology_id": "OBI:0000759",
-            "schema:ItemList": {
-              "Illumina Genome Analyzer": {
-                "ontology_id": "OBI:0002128",
-                "schema:ItemList": {
-                  "Illumina Genome Analyzer II": {
-                    "ontology_id": "OBI:0000703"
-                  },
-                  "Illumina Genome Analyzer IIx": {
-                    "ontology_id": "OBI:0002000"
-                  }
-                }
-              },
-              "Illumina HiScanSQ": {
-                "ontology_id": "OBI NTR?"
-              },
-              "Illumina HiSeq": {
-                "ontology_id": "OBI NTR?"
-              },
-              "Illumina HiSeq X": {
-                "ontology_id": "OBI NTR?",
-                "schema:ItemList": {
-                  "Illumina HiSeq X Five": {
-                    "ontology_id": "OBI NTR?"
-                  },
-                  "Illumina HiSeq X Ten": {
-                    "ontology_id": "OBI:0002129"
-                  }
-                }
-              },
-              "Illumina HiSeq 1000": {
-                "ontology_id": "OBI:0002022"
-              },
-              "Illumina HiSeq 1500": {
-                "ontology_id": "OBI NTR?"
-              },
-              "Illumina HiSeq 2000": {
-                "ontology_id": "OBI:0002001"
-              },
-              "Illumina HiSeq 2500": {
-                "ontology_id": "OBI:0002002"
-              },
-              "Illumina HiSeq 3000": {
-                "ontology_id": "OBI:0002048"
-              },
-              "Illumina HiSeq 4000": {
-                "ontology_id": "OBI:0002049"
-              },
-              "Illumina iSeq": {
-                "ontology_id": "OBI NTR?",
-                "schema:ItemList": {
-                  "Illumina iSeq 100": {
-                    "ontology_id": "OBI NTR?"
-                  }
-                }
-              },
-              "Illumina NovaSeq": {
-                "ontology_id": "OBI NTR?",
-                "schema:ItemList": {
-                  "Illumina NovaSeq 6000": {
-                    "ontology_id": "OBI:0002630"
-                  }
-                }
-              },
-              "Illumina MiniSeq": {
-                "ontology_id": "OBI NTR?"
-              },
-              "Illumina MiSeq": {
-                "ontology_id": "OBI:0002003"
-              },
-              "Illumina NextSeq": {
-                "ontology_id": "OBI NTR?"
-              },
-              "Illumina NextSeq 500": {
-                "ontology_id": "OBI:0002021"
-              },
-              "Illumina NextSeq 550": {
-                "ontology_id": "OBI NTR?"
-              },
-              "Illumina NextSeq 2000": {
-                "ontology_id": "OBI NTR?"
-              }
-            }
-          },
-          "Pacific Biosciences": {
-            "ontology_id": "OBI:0001856",
-            "schema:ItemList": {
-              "PacBio RS": {
-                "ontology_id": "OBI NTR?"
-              },
-              "PacBio RS II": {
-                "ontology_id": "OBI:0002012"
-              },
-              "PacBio Sequel": {
-                "ontology_id": "OBI:0002632"
-              },
-              "PacBio Sequel II": {
-                "ontology_id": "OBI:0002633"
-              }
-            }
-          },
-          "Ion Torrent": {
-            "ontology_id": "OBI NTR?",
-            "schema:ItemList": {
-              "Ion Torrent PGM": {
-                "ontology_id": "GENEPIO:0001935"
-              },
-              "Ion Torrent Proton": {
-                "ontology_id": "OBI NTR?"
-              },
-              "Ion Torrent S5 XL": {
-                "ontology_id": "OBI NTR?"
-              },
-              "Ion Torrent S5": {
-                "ontology_id": "OBI NTR?"
-              }
-            }
-          },
-          "Oxford Nanopore": {
-            "ontology_id": "OBI NTR?",
-            "schema:ItemList": {
-              "Oxford Nanopore GridION": {
-                "ontology_id": "OBI:0002751"
-              },
-              "Oxford Nanopore MinION": {
-                "ontology_id": "OBI:0002750"
-              },
-              "Oxford Nanopore PromethION": {
-                "ontology_id": "OBI:0002752"
-              }
-            }
-          },
-          "BGI Genomics": {
-            "ontology_id": "OBI NTR?",
-            "schema:ItemList": {
-              "BGI Genomics BGISEQ-500": {
-                "ontology_id": "OBI NTR?"
-              }
-            }
-          },
-          "MGI": {
-            "ontology_id": "OBI NTR?",
-            "schema:ItemList": {
-              "MGI DNBSEQ-T7": {
-                "ontology_id": "OBI NTR?"
-              },
-              "MGI DNBSEQ-G400": {
-                "ontology_id": "OBI NTR?"
-              },
-              "MGI DNBSEQ-G400 FAST": {
-                "ontology_id": "OBI NTR?"
-              },
-              "MGI DNBSEQ-G50": {
-                "ontology_id": "OBI NTR?"
-              }
-            }
-          }
-        }
-      },
-      {
-        "fieldName": "sequencing protocol name",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001453",
+        "ontology_id": "mixs_modified:collection_date_inc",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "recommended",
-        "description": "The name and version number of the sequencing protocol used.",
-        "guidance": "Provide the name and version of the sequencing protocol e.g. 1D_DNA_MinION",
-        "examples": "https://www.protocols.io/view/covid-19-artic-v3-illumina-library-construction-an-bibtkann",
+        "description": "Date the incubation was harvested/collected/ended. Only relevant for incubation samples.",
+        "guidance": "Date should be formatted as YYYY(-MM(-DD)). Ie, 2021-04-15, 2021-04 and 2021 are all acceptable. | Pattern hint: {date, arbitrary precision}",
+        "examples": "2021-04-15, 2021-04 and 2021 are all acceptable.",
+        "pattern": "^[12]\\d{3}(?:(?:-(?:0[1-9]|1[0-2]))(?:-(?:0[1-9]|[12]\\d|3[01]))?)?$",
         "exportField": {
-          "CNPHI": [
+          "soil_emsl_jgi_mg": [
             {
-              "field": "Sequencing Protocol Name"
-            }
-          ],
-          "NML_LIMS": [
-            {
-              "field": "PH_SEQ_PROTOCOL_NAME"
+              "field": "collection_date_inc"
             }
           ]
         }
       },
       {
-        "fieldName": "sequencing protocol",
+        "fieldName": "Incubation Collection Time, GMT",
         "capitalize": "",
-        "ontology_id": "GENEPIO:0001454",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The protocol used to generate the sequence.",
-        "guidance": "Provide a free text description of the methods and materials used to generate the sequence. Suggested text, fill in information where indicated.: \"Viral sequencing was performed following a tiling amplicon strategy using the <fill in> primer scheme. Sequencing was performed using a <fill in> sequencing instrument. Libraries were prepared using <fill in> library kit. \"",
-        "examples": "Genomes were generated through amplicon sequencing of 1200 bp amplicons with Freed schema primers. Libraries were created using Illumina DNA Prep kits, and sequence data was produced using Miseq Micro v2 (500 cycles) sequencing kits.",
-        "exportField": {
-          "NML_LIMS": [
-            {
-              "field": "PH_TESTING_PROTOCOL"
-            }
-          ],
-          "VirusSeq_Portal": [
-            {
-              "field": "sequencing protocol"
-            }
-          ]
-        }
-      },
-      {
-        "fieldName": "sequencing kit number",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001455",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The manufacturer's kit number.",
-        "guidance": "Alphanumeric value.",
-        "examples": "AB456XYZ789",
-        "exportField": {
-          "NML_LIMS": [
-            {
-              "field": "sequencing kit number"
-            }
-          ]
-        }
-      },
-      {
-        "fieldName": "amplicon pcr primer scheme",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001456",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The specifications of the primers (primer sequences, binding positions, fragment size generated etc) used to generate the amplicons to be sequenced.",
-        "guidance": "Provide the name and version of the primer scheme used to generate the amplicons for sequencing.",
-        "examples": "https://github.com/joshquick/artic-ncov2019/blob/master/primer_schemes/nCoV-2019/V3/nCoV-2019.tsv",
-        "exportField": {
-          "NML_LIMS": [
-            {
-              "field": "amplicon pcr primer scheme"
-            }
-          ]
-        }
-      }
-    ]
-  },
-  {
-    "fieldName": "Bioinformatics and QC metrics",
-    "children": [
-      {
-        "fieldName": "raw sequence data processing method",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001458",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "required",
-        "description": "The names of the software and version number used for raw data processing such as removing barcodes, adapter trimming, filtering etc.",
-        "guidance": "Provide the software name followed by the version e.g. Trimmomatic v. 0.38, Porechop v. 0.2.3",
-        "examples": "Porechop 0.2.3",
-        "exportField": {
-          "NML_LIMS": [
-            {
-              "field": "PH_RAW_SEQUENCE_METHOD"
-            }
-          ],
-          "VirusSeq_Portal": [
-            {
-              "field": "raw sequence data processing method"
-            }
-          ]
-        }
-      },
-      {
-        "fieldName": "dehosting method",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001459",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "required",
-        "description": "The method used to remove host reads from the pathogen sequence.",
-        "guidance": "Provide the name and version number of the software used to remove host reads.",
-        "examples": "Nanostripper",
-        "exportField": {
-          "NML_LIMS": [
-            {
-              "field": "PH_DEHOSTING_METHOD"
-            }
-          ],
-          "VirusSeq_Portal": [
-            {
-              "field": "dehosting method"
-            }
-          ]
-        }
-      },
-      {
-        "fieldName": "consensus sequence name",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001460",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The name of the consensus sequence.",
-        "guidance": "Provide the name and version number of the consensus sequence.",
-        "examples": "ncov123assembly3",
-        "exportField": {
-          "NML_LIMS": [
-            {
-              "field": "consensus sequence name"
-            }
-          ]
-        }
-      },
-      {
-        "fieldName": "consensus sequence filename",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001461",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The name of the consensus sequence file.",
-        "guidance": "Provide the name and version number of the consensus sequence FASTA file.",
-        "examples": "ncov123assembly.fasta",
-        "exportField": {
-          "NML_LIMS": [
-            {
-              "field": "consensus sequence filename"
-            }
-          ]
-        }
-      },
-      {
-        "fieldName": "consensus sequence filepath",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001462",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The filepath of the consesnsus sequence file.",
-        "guidance": "Provide the filepath of the consensus sequence FASTA file.",
-        "examples": "/User/Documents/RespLab/Data/ncov123assembly.fasta",
-        "exportField": {
-          "NML_LIMS": [
-            {
-              "field": "consensus sequence filepath"
-            }
-          ]
-        }
-      },
-      {
-        "fieldName": "consensus sequence software name",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001463",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "required",
-        "description": "The name of software used to generate the consensus sequence.",
-        "guidance": "Provide the name of the software used to generate the consensus sequence.",
-        "examples": "iVar",
-        "exportField": {
-          "CNPHI": [
-            {
-              "field": "consensus sequence"
-            }
-          ],
-          "NML_LIMS": [
-            {
-              "field": "PH_CONSENSUS_SEQUENCE"
-            }
-          ],
-          "VirusSeq_Portal": [
-            {
-              "field": "consensus sequence software name"
-            }
-          ]
-        }
-      },
-      {
-        "fieldName": "consensus sequence software version",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001469",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "required",
-        "description": "The version of the software used to generate the consensus sequence.",
-        "guidance": "Provide the version of the software used to generate the consensus sequence.",
-        "examples": "1.3",
-        "exportField": {
-          "CNPHI": [
-            {
-              "field": "consensus sequence"
-            }
-          ],
-          "NML_LIMS": [
-            {
-              "field": "PH_CONSENSUS_SEQUENCE_VERSION"
-            }
-          ],
-          "VirusSeq_Portal": [
-            {
-              "field": "consensus sequence software version"
-            }
-          ]
-        }
-      },
-      {
-        "fieldName": "breadth of coverage value",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001472",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The percentage of the reference genome covered by the sequenced data, to a prescribed depth.",
-        "guidance": "Provide value as a percent.",
-        "examples": "95%",
-        "exportField": {
-          "NML_LIMS": [
-            {
-              "field": "breadth of coverage value"
-            }
-          ],
-          "VirusSeq_Portal": [
-            {
-              "field": "breadth of coverage value"
-            }
-          ]
-        }
-      },
-      {
-        "fieldName": "depth of coverage value",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001474",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The average number of reads representing a given nucleotide in the reconstructed sequence.",
-        "guidance": "Provide value as a fold of coverage.",
-        "examples": "400x",
-        "exportField": {
-          "GISAID": [
-            {
-              "field": "Coverage"
-            }
-          ],
-          "NML_LIMS": [
-            {
-              "field": "depth of coverage value"
-            }
-          ],
-          "VirusSeq_Portal": [
-            {
-              "field": "depth of coverage value"
-            }
-          ]
-        }
-      },
-      {
-        "fieldName": "depth of coverage threshold",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001475",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The threshold used as a cut-off for the depth of coverage.",
-        "guidance": "Provide the threshold fold coverage.",
-        "examples": "100x",
-        "exportField": {
-          "NML_LIMS": [
-            {
-              "field": "depth of coverage threshold"
-            }
-          ]
-        }
-      },
-      {
-        "fieldName": "r1 fastq filename",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001476",
+        "ontology_id": "mixs_modified:collection_time_inc",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "recommended",
-        "description": "The user-specified filename of the r1 FASTQ file.",
-        "guidance": "Provide the r1 FASTQ filename.",
-        "examples": "ABC123_S1_L001_R1_001.fastq.gz",
+        "description": "Time the incubation was harvested/collected/ended. Only relevant for incubation samples.",
+        "guidance": "Time should be entered as HH:MM(:SS) in GMT. See here for a converter: https://www.worldtimebuddy.com/pst-to-gmt-converter | Pattern hint: {time, seconds optional}",
+        "examples": "13:33 or 13:33:55",
+        "pattern": "^([01]?\\d|2[0-3]|24(?=:00?:00?$)):([0-5]\\d)(:([0-5]\\d))?$",
         "exportField": {
-          "NML_LIMS": [
+          "soil_emsl_jgi_mg": [
             {
-              "field": "r1 fastq filename"
+              "field": "collection_time_inc"
             }
           ]
         }
       },
       {
-        "fieldName": "r2 fastq filename",
+        "fieldName": "Incubation Start Date",
         "capitalize": "",
-        "ontology_id": "GENEPIO:0001477",
+        "ontology_id": "mixs_modified:start_date_inc",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "recommended",
-        "description": "The user-specified filename of the r2 FASTQ file.",
-        "guidance": "Provide the r2 FASTQ filename.",
-        "examples": "ABC123_S1_L001_R2_001.fastq.gz",
+        "description": "Date the incubation was started. Only relevant for incubation samples.",
+        "guidance": "Date should be formatted as YYYY(-MM(-DD)). Ie, 2021-04-15, 2021-04 and 2021 are all acceptable. | Pattern hint: {date, arbitrary precision}",
+        "examples": "2021-04-15, 2021-04 and 2021 are all acceptable.",
+        "pattern": "^[12]\\d{3}(?:(?:-(?:0[1-9]|1[0-2]))(?:-(?:0[1-9]|[12]\\d|3[01]))?)?$",
         "exportField": {
-          "NML_LIMS": [
+          "soil_emsl_jgi_mg": [
             {
-              "field": "r2 fastq filename"
+              "field": "start_date_inc"
             }
           ]
         }
       },
       {
-        "fieldName": "r1 fastq filepath",
+        "fieldName": "Incubation Start Time, GMT",
         "capitalize": "",
-        "ontology_id": "GENEPIO:0001478",
+        "ontology_id": "mixs_modified:start_time_inc",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The location of the r1 FASTQ file within a user's file system.",
-        "guidance": "Provide the filepath for the r1 FASTQ file. This information aids in data management. ",
-        "examples": "/User/Documents/RespLab/Data/ABC123_S1_L001_R1_001.fastq.gz",
+        "requirement": "recommended",
+        "description": "Time the incubation was started. Only relevant for incubation samples.",
+        "guidance": "Time should be entered as HH:MM(:SS) in GMT. See here for a converter: https://www.worldtimebuddy.com/pst-to-gmt-converter | Pattern hint: {time, seconds optional}",
+        "examples": "13:33 or 13:33:55",
+        "pattern": "^([01]?\\d|2[0-3]|24(?=:00?:00?$)):([0-5]\\d)(:([0-5]\\d))?$",
         "exportField": {
-          "NML_LIMS": [
+          "soil_emsl_jgi_mg": [
             {
-              "field": "r1 fastq filepath"
+              "field": "start_time_inc"
             }
           ]
         }
       },
       {
-        "fieldName": "r2 fastq filepath",
+        "fieldName": "depth, meters",
         "capitalize": "",
-        "ontology_id": "GENEPIO:0001479",
+        "ontology_id": "mixs_modified:depth",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The location of the r2 FASTQ file within a user's file system.",
-        "guidance": "Provide the filepath for the r2 FASTQ file. This information aids in data management. ",
-        "examples": "/User/Documents/RespLab/Data/ABC123_S1_L001_R2_001.fastq.gz",
+        "requirement": "required",
+        "description": "The vertical distance below local surface, e.g. For sediment or soil samples depth is measured from sediment or soil surface, respectively. Depth can be reported as an interval for subsurface samples.",
+        "guidance": "All depths must be reported in meters. Provide the numerical portion only. | Pattern hint: {float}| {float}-{float}",
+        "examples": "0-0.1 OR 1",
         "exportField": {
-          "NML_LIMS": [
+          "soil_emsl_jgi_mg": [
             {
-              "field": "r2 fastq filepath"
+              "field": "depth"
             }
           ]
         }
       },
       {
-        "fieldName": "fast5 filename",
+        "fieldName": "sample material processing",
         "capitalize": "",
-        "ontology_id": "GENEPIO:0001480",
+        "ontology_id": "mixs_modified:sample_processing",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The user-specified filename of the FAST5 file.",
-        "guidance": "Provide the FAST5 filename.",
-        "examples": "rona123assembly.fast5",
+        "requirement": "recommended",
+        "description": "A brief description of any processing applied to the sample during or after retrieving the sample from environment, or a link to the relevant protocol(s) performed.",
+        "guidance": "Pattern hint: {text}",
+        "examples": "",
         "exportField": {
-          "NML_LIMS": [
+          "soil_emsl_jgi_mg": [
             {
-              "field": "fast5 filename"
+              "field": "sample_processing"
             }
           ]
         }
       },
       {
-        "fieldName": "fast5 filepath",
+        "fieldName": "sample collection device",
         "capitalize": "",
-        "ontology_id": "GENEPIO:0001481",
+        "ontology_id": "mixs_modified:sample_collection_dev",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The location of the FAST5 file within a user's file system.",
-        "guidance": "Provide the filepath for the FAST5 file. This information aids in data management. ",
-        "examples": "/User/Documents/RespLab/Data/rona123assembly.fast5",
+        "requirement": "recommended",
+        "description": "The device used to collect an environmental sample. This field accepts terms listed under environmental sampling device (http://purl.obolibrary.org/obo/ENVO). This field also accepts terms listed under specimen collection device (http://purl.obolibrary.org/obo/GENEPIO_0002094).",
+        "guidance": "Report dimensions and details when applicable | Pattern hint: {termLabel} {[termID]}|{text}",
+        "examples": "",
         "exportField": {
-          "NML_LIMS": [
+          "soil_emsl_jgi_mg": [
             {
-              "field": "fast5 filepath"
+              "field": "sample_collection_dev"
             }
           ]
         }
       },
       {
-        "fieldName": "number of base pairs sequenced",
+        "fieldName": "sample collection method",
         "capitalize": "",
-        "ontology_id": "GENEPIO:0001482",
-        "datatype": "xs:nonNegativeInteger",
+        "ontology_id": "mixs_modified:sample_collection_method",
+        "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The number of total base pairs generated by the sequencing process.",
-        "guidance": "Provide a numerical value (no need to include units).",
-        "examples": "387566",
+        "requirement": "recommended",
+        "description": "The method employed for collecting the sample.",
+        "guidance": "This can be a citation or description | Pattern hint: {PMID}|{DOI}|{URL}|{text}",
+        "examples": "",
         "exportField": {
-          "NML_LIMS": [
+          "soil_emsl_jgi_mg": [
             {
-              "field": "number of base pairs sequenced"
+              "field": "sample_collection_method"
             }
           ]
         }
       },
       {
-        "fieldName": "consensus genome length",
+        "fieldName": "Filter Method",
         "capitalize": "",
-        "ontology_id": "GENEPIO:0001483",
-        "datatype": "xs:nonNegativeInteger",
+        "ontology_id": "mixs_modified:filter_method",
+        "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "Size of the reconstructed genome described as the number of base pairs.",
-        "guidance": "Provide a numerical value (no need to include units).",
-        "examples": "38677",
+        "requirement": "recommended",
+        "description": "Type of filter used or how the sample was filtered",
+        "guidance": "Pattern hint: {text}",
+        "examples": "",
         "exportField": {
-          "NML_LIMS": [
+          "soil_emsl_jgi_mg": [
             {
-              "field": "consensus genome length"
+              "field": "filter_method"
             }
           ]
         }
       },
       {
-        "fieldName": "Ns per 100 kbp",
+        "fieldName": "amount or size of sample collected",
         "capitalize": "",
-        "ontology_id": "GENEPIO:0001484",
+        "ontology_id": "mixs_modified:sample_collected",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "recommended",
+        "description": "The total amount or size (volume (ml), mass (g) or area (m2) ) of sample collected.",
+        "guidance": "This refers to the TOTAL amount of sample collected from the experiment. NOT the amount sent to each institution or collected for a specific analysis. | Pattern hint: {float} {unit}",
+        "examples": "5 grams; 10 mL",
+        "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S+$",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "sample_collected"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "experimental factor- other",
+        "capitalize": "",
+        "ontology_id": "mixs_modified:experimental_factor_other",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "recommended",
+        "description": "Other details about your sample that you feel can't be accurately represented in the available columns.",
+        "guidance": "Pattern hint: {text}",
+        "examples": "",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "experimental_factor_other"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "other treatments",
+        "capitalize": "",
+        "ontology_id": "mixs_modified:other_treatment",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "recommended",
+        "description": "Other treatments applied to your samples that are not applicable to the provided fields",
+        "guidance": "Pattern hint: {text}",
+        "examples": "",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "other_treatment"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "isotope exposure/addition",
+        "capitalize": "",
+        "ontology_id": "mixs_modified:isotope_exposure",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "recommended",
+        "description": "List isotope exposure or addition applied to your sample.",
+        "guidance": "Pattern hint: {termLabel} {[termID]}; {timestamp}",
+        "examples": "",
+        "pattern": "^\\S+.*\\S+ \\[ENVO:\\d+\\]; ([\\+-]?\\d{4}(?!\\d{2}\\b))((-?)((0[1-9]|1[0-2])(\\3([12]\\d|0[1-9]|3[01]))?|W([0-4]\\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\\d|[12]\\d{2}|3([0-5]\\d|6[1-6])))([T\\s]((([01]\\d|2[0-3])((:?)[0-5]\\d)?|24\\:?00)([\\.,]\\d+(?!:))?)?(\\17[0-5]\\d([\\.,]\\d+)?)?([zZ]|([\\+-])([01]\\d|2[0-3]):?([0-5]\\d)?)?)?)?$",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "isotope_exposure"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "pH",
+        "capitalize": "",
+        "ontology_id": "mixs_modified:pH",
         "datatype": "xs:decimal",
         "source": "",
         "dataStatus": null,
-        "xs:minInclusive": "0",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The number of N symbols present in the consensus fasta sequence, per 100kbp of sequence.",
-        "guidance": "Provide a numerical value (no need to include units).",
-        "examples": "330",
-        "exportField": {
-          "NML_LIMS": [
-            {
-              "field": "Ns per 100 kbp"
-            }
-          ]
-        }
-      },
-      {
-        "fieldName": "reference genome accession",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001485",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "A persistent, unique identifier of a genome database entry.",
-        "guidance": "Provide the accession number of the reference genome.",
-        "examples": "NC_045512.2",
-        "exportField": {
-          "NML_LIMS": [
-            {
-              "field": "reference genome accession"
-            }
-          ],
-          "VirusSeq_Portal": [
-            {
-              "field": "reference genome accession"
-            }
-          ]
-        }
-      },
-      {
-        "fieldName": "bioinformatics protocol",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001489",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "required",
-        "description": "A description of the overall bioinformatics strategy used.",
-        "guidance": "Further details regarding the methods used to process raw data, and/or generate assemblies, and/or generate consensus sequences can. This information can be provided in an SOP or protocol or pipeline/workflow. Provide the name and version number of the protocol, or a GitHub link to a pipeline or workflow.",
-        "examples": "https://github.com/phac-nml/ncov2019-artic-nf",
-        "exportField": {
-          "CNPHI": [
-            {
-              "field": "Bioinformatics Protocol"
-            }
-          ],
-          "NML_LIMS": [
-            {
-              "field": "PH_BIOINFORMATICS_PROTOCOL"
-            }
-          ],
-          "VirusSeq_Portal": [
-            {
-              "field": "bioinformatics protocol"
-            }
-          ]
-        }
-      }
-    ]
-  },
-  {
-    "fieldName": "Lineage and Variant information",
-    "children": [
-      {
-        "fieldName": "lineage/clade name",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001500",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The name of the lineage or clade.",
-        "guidance": "Provide the Pangolin or Nextstrain lineage/clade name.",
-        "examples": "B.1.1.7",
-        "exportField": {
-          "NML_LIMS": [
-            {
-              "field": "PH_LINEAGE_CLADE_NAME"
-            }
-          ]
-        }
-      },
-      {
-        "fieldName": "lineage/clade analysis software name",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001501",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The name of the software used to determine the lineage/clade.",
-        "guidance": "Provide the name of the software used to determine the lineage/clade.",
-        "examples": "Pangolin",
-        "exportField": {
-          "NML_LIMS": [
-            {
-              "field": "PH_LINEAGE_CLADE_SOFTWARE"
-            }
-          ]
-        }
-      },
-      {
-        "fieldName": "lineage/clade analysis software version",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001502",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The version of the software used to determine the lineage/clade.",
-        "guidance": "Provide the version of the software used ot determine the lineage/clade.",
-        "examples": "2.1.10",
-        "exportField": {
-          "NML_LIMS": [
-            {
-              "field": "PH_LINEAGE_CLADE_VERSION"
-            }
-          ]
-        }
-      },
-      {
-        "fieldName": "variant designation",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001503",
-        "datatype": "select",
-        "source": "",
-        "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
-        ],
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The variant classification of the lineage/clade i.e. variant, variant of concern.",
-        "guidance": "If the lineage/clade is considered a Variant of Concern, select Variant of Concern from the pick list. If the lineage/clade contains mutations of concern (mutations that increase transmission, clincal severity, or other epidemiological fa ctors) but it not a global Variant of Concern, select Variant. If the lineage/clade does not contain mutations of concern, leave blank.",
-        "examples": "Variant of Concern",
-        "exportField": {
-          "NML_LIMS": [
-            {
-              "field": "PH_VARIANT_DESIGNATION"
-            }
-          ]
-        },
-        "schema:ItemList": {
-          "Variant of Concern (VOC)": {
-            "ontology_id": "GENEPIO"
-          },
-          "Variant of Interest (VOI)": {
-            "ontology_id": "GENEPIO"
-          },
-          "Variant Under Monitoring (VUM)": {}
-        }
-      },
-      {
-        "fieldName": "variant evidence",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001504",
-        "datatype": "select",
-        "source": "",
-        "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
-        ],
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The evidence used to make the variant determination.",
-        "guidance": "Select whether the sample was screened using RT-qPCR or by sequencing from the pick list.",
-        "examples": "RT-qPCR",
-        "exportField": {
-          "NML_LIMS": [
-            {
-              "field": "PH_VARIANT_EVIDENCE"
-            }
-          ]
-        },
-        "schema:ItemList": {
-          "RT-qPCR": {
-            "ontology_id": "CIDO:0000019"
-          },
-          "Sequencing": {
-            "ontology_id": "CIDO:0000027"
-          }
-        }
-      },
-      {
-        "fieldName": "variant evidence details",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001505",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "Details about the evidence used to make the variant determination.",
-        "guidance": "Provide the assay and list the set of lineage-defining mutations used to make the variant determination. If there are mutations of interest/concern observed in addition to lineage-defining mutations, describe those here.",
-        "examples": "Lineage-defining mutations: ORF1ab (K1655N), Spike (K417N, E484K, N501Y, D614G, A701V), N (T205I), E (P71L).",
-        "exportField": {
-          "NML_LIMS": [
-            {
-              "field": "PH_VARIANT_EVIDENCE_DETAILS"
-            }
-          ]
-        }
-      }
-    ]
-  },
-  {
-    "fieldName": "Pathogen diagnostic testing",
-    "children": [
-      {
-        "fieldName": "gene name 1",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001507",
-        "datatype": "select",
-        "source": "",
-        "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
-        ],
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The name of the gene used in the diagnostic RT-PCR test.",
-        "guidance": "Provide the full name of the gene used in the test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI",
-        "examples": "E gene (orf4)",
-        "exportField": {
-          "CNPHI": [
-            {
-              "field": "Gene Target 1"
-            }
-          ],
-          "NML_LIMS": [
-            {
-              "field": "SUBMITTED_RESLT - Gene Target #1"
-            }
-          ],
-          "BIOSAMPLE": [
-            {
-              "field": "gene_name_1"
-            }
-          ],
-          "VirusSeq_Portal": [
-            {
-              "field": "gene name"
-            }
-          ]
-        },
-        "schema:ItemList": {
-          "E gene (orf4)": {
-            "ontology_id": "PR:P0DTC4",
-            "exportField": {
-              "CNPHI": [
-                {
-                  "value": "E gene"
-                }
-              ],
-              "BIOSAMPLE": [
-                {
-                  "value": "E (orf4)"
-                }
-              ]
-            }
-          },
-          "M gene (orf5)": {
-            "ontology_id": "PR:P0DTC5",
-            "exportField": {
-              "BIOSAMPLE": [
-                {
-                  "value": "M (orf5)"
-                }
-              ]
-            }
-          },
-          "N gene (orf9)": {
-            "ontology_id": "PR:P0DTC9",
-            "exportField": {
-              "BIOSAMPLE": [
-                {
-                  "value": "N (orf9)"
-                }
-              ]
-            }
-          },
-          "Spike gene (orf2)": {
-            "ontology_id": "PR:P0DTC2",
-            "exportField": {
-              "BIOSAMPLE": [
-                {
-                  "value": "S (orf2)"
-                }
-              ]
-            }
-          },
-          "orf1ab (rep)": {
-            "ontology_id": "PR:000050281",
-            "exportField": {
-              "BIOSAMPLE": [
-                {
-                  "value": "orf1ab (rep)"
-                }
-              ]
-            },
-            "schema:ItemList": {
-              "orf1a (pp1a)": {
-                "ontology_id": "PR:P0DTC1-1",
-                "exportField": {
-                  "BIOSAMPLE": [
-                    {
-                      "value": "orf1a (pp1a)"
-                    }
-                  ]
-                },
-                "schema:ItemList": {
-                  "nsp11": {
-                    "ontology_id": "PR:000050280",
-                    "exportField": {
-                      "BIOSAMPLE": [
-                        {
-                          "value": "nsp11"
-                        }
-                      ]
-                    }
-                  }
-                }
-              },
-              "nsp1": {
-                "ontology_id": "PR:000050270",
-                "exportField": {
-                  "BIOSAMPLE": [
-                    {
-                      "value": "nsp1"
-                    }
-                  ]
-                }
-              },
-              "nsp2": {
-                "ontology_id": "PR:000050271",
-                "exportField": {
-                  "BIOSAMPLE": [
-                    {
-                      "value": "nsp2"
-                    }
-                  ]
-                }
-              },
-              "nsp3": {
-                "ontology_id": "PR:000050272",
-                "exportField": {
-                  "BIOSAMPLE": [
-                    {
-                      "value": "nsp3"
-                    }
-                  ]
-                }
-              },
-              "nsp4": {
-                "ontology_id": "PR:000050273",
-                "exportField": {
-                  "BIOSAMPLE": [
-                    {
-                      "value": "nsp4"
-                    }
-                  ]
-                }
-              },
-              "nsp5": {
-                "ontology_id": "PR:000050274",
-                "exportField": {
-                  "BIOSAMPLE": [
-                    {
-                      "value": "nsp5"
-                    }
-                  ]
-                }
-              },
-              "nsp6": {
-                "ontology_id": "PR:000050275",
-                "exportField": {
-                  "BIOSAMPLE": [
-                    {
-                      "value": "nsp6"
-                    }
-                  ]
-                }
-              },
-              "nsp7": {
-                "ontology_id": "PR:000050276",
-                "exportField": {
-                  "BIOSAMPLE": [
-                    {
-                      "value": "nsp7"
-                    }
-                  ]
-                }
-              },
-              "nsp8": {
-                "ontology_id": "PR:000050277",
-                "exportField": {
-                  "BIOSAMPLE": [
-                    {
-                      "value": "nsp8"
-                    }
-                  ]
-                }
-              },
-              "nsp9": {
-                "ontology_id": "PR:000050278",
-                "exportField": {
-                  "BIOSAMPLE": [
-                    {
-                      "value": "nsp9"
-                    }
-                  ]
-                }
-              },
-              "nsp10": {
-                "ontology_id": "PR:000050279",
-                "exportField": {
-                  "BIOSAMPLE": [
-                    {
-                      "value": "nsp10"
-                    }
-                  ]
-                }
-              },
-              "RdRp gene (nsp12)": {
-                "ontology_id": "PR:000050284",
-                "exportField": {
-                  "BIOSAMPLE": [
-                    {
-                      "value": "nsp12 (RdRp)"
-                    }
-                  ]
-                }
-              },
-              "hel gene (nsp13)": {
-                "ontology_id": "PR:000050285",
-                "exportField": {
-                  "BIOSAMPLE": [
-                    {
-                      "value": "nsp13 (Hel)"
-                    }
-                  ]
-                }
-              },
-              "exoN gene (nsp14)": {
-                "ontology_id": "PR:000050286",
-                "exportField": {
-                  "BIOSAMPLE": [
-                    {
-                      "value": "nsp14 (ExoN)"
-                    }
-                  ]
-                }
-              },
-              "nsp15": {
-                "ontology_id": "PR:000050287",
-                "exportField": {
-                  "BIOSAMPLE": [
-                    {
-                      "value": "nsp15"
-                    }
-                  ]
-                }
-              },
-              "nsp16": {
-                "ontology_id": "PR:000050288",
-                "exportField": {
-                  "BIOSAMPLE": [
-                    {
-                      "value": "nsp16"
-                    }
-                  ]
-                }
-              }
-            }
-          },
-          "orf3a": {
-            "ontology_id": "PR:P0DTC3",
-            "exportField": {
-              "BIOSAMPLE": [
-                {
-                  "value": "orf3a"
-                }
-              ]
-            }
-          },
-          "orf3b": {
-            "ontology_id": "PR NTR",
-            "exportField": {
-              "BIOSAMPLE": [
-                {
-                  "value": "orf3b"
-                }
-              ]
-            }
-          },
-          "orf6 (ns6)": {
-            "ontology_id": "PR:P0DTC6",
-            "exportField": {
-              "BIOSAMPLE": [
-                {
-                  "value": "orf6 (ns6)"
-                }
-              ]
-            }
-          },
-          "orf7a": {
-            "ontology_id": "PR:P0DTC7",
-            "exportField": {
-              "BIOSAMPLE": [
-                {
-                  "value": "orf7a"
-                }
-              ]
-            }
-          },
-          "orf7b (ns7b)": {
-            "ontology_id": "PR:P0DTD8",
-            "exportField": {
-              "BIOSAMPLE": [
-                {
-                  "value": "orf7b (ns7b)"
-                }
-              ]
-            }
-          },
-          "orf8 (ns8)": {
-            "ontology_id": "PR:P0DTC8",
-            "exportField": {
-              "BIOSAMPLE": [
-                {
-                  "value": "orf8 (ns8)"
-                }
-              ]
-            }
-          },
-          "orf9b": {
-            "ontology_id": "PR:P0DTD2",
-            "exportField": {
-              "BIOSAMPLE": [
-                {
-                  "value": "orf9b"
-                }
-              ]
-            }
-          },
-          "orf9c": {
-            "ontology_id": "PR NTR?",
-            "exportField": {
-              "BIOSAMPLE": [
-                {
-                  "value": "orf9c"
-                }
-              ]
-            }
-          },
-          "orf10": {
-            "ontology_id": "PR:A0A663DJA2",
-            "exportField": {
-              "BIOSAMPLE": [
-                {
-                  "value": "orf10"
-                }
-              ]
-            }
-          },
-          "orf14": {
-            "ontology_id": "PR NTR?",
-            "exportField": {
-              "BIOSAMPLE": [
-                {
-                  "value": "orf14"
-                }
-              ]
-            }
-          },
-          "SARS-COV-2 5' UTR": {}
-        }
-      },
-      {
-        "fieldName": "diagnostic pcr protocol 1",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001508",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The name and version number of the protocol used for diagnostic marker amplification.",
-        "guidance": "The name and version number of the protocol used for carrying out a diagnostic PCR test. This information can be compared to sequence data for evaluation of performance and quality control.",
-        "examples": "EGenePCRTest 2"
-      },
-      {
-        "fieldName": "diagnostic pcr Ct value 1",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001509",
-        "datatype": "xs:decimal",
-        "source": "",
-        "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access",
-          "Indeterminate"
-        ],
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The Ct value result from a diagnostic SARS-CoV-2 RT-PCR test.",
-        "guidance": "Provide the CT value of the sample from the diagnostic RT-PCR test.",
-        "examples": "21",
-        "exportField": {
-          "CNPHI": [
-            {
-              "field": "Gene Target 1 CT Value"
-            }
-          ],
-          "NML_LIMS": [
-            {
-              "field": "SUBMITTED_RESLT - Gene Target #1 CT Value"
-            }
-          ],
-          "BIOSAMPLE": [
-            {
-              "field": "diagnostic_PCR_CT_value_1"
-            }
-          ],
-          "VirusSeq_Portal": [
-            {
-              "field": "diagnostic pcr Ct value"
-            }
-          ]
-        }
-      },
-      {
-        "fieldName": "gene name 2",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001510",
-        "datatype": "select",
-        "source": "gene name 1",
-        "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
-        ],
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The name of the gene used in the diagnostic RT-PCR test.",
-        "guidance": "Provide the full name of another gene used in an RT-PCR test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI",
-        "examples": "RdRp gene (nsp12)",
-        "exportField": {
-          "CNPHI": [
-            {
-              "field": "Gene Target 2"
-            }
-          ],
-          "NML_LIMS": [
-            {
-              "field": "SUBMITTED_RESLT - Gene Target #2"
-            }
-          ],
-          "BIOSAMPLE": [
-            {
-              "field": "gene_name_2"
-            }
-          ]
-        },
-        "schema:ItemList": {}
-      },
-      {
-        "fieldName": "diagnostic pcr protocol 2",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001511",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The name and version number of the protocol used for diagnostic marker amplification.",
-        "guidance": "The name and version number of the protocol used for carrying out a second diagnostic PCR test. This information can be compared to sequence data for evaluation of performance and quality control.",
-        "examples": "RdRpGenePCRTest 3"
-      },
-      {
-        "fieldName": "diagnostic pcr Ct value 2",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001512",
-        "datatype": "xs:decimal",
-        "source": "",
-        "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access",
-          "Indeterminate"
-        ],
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The Ct value result from a diagnostic SARS-CoV-2 RT-PCR test.",
-        "guidance": "Provide the CT value of the sample from the second diagnostic RT-PCR test.",
-        "examples": "36",
-        "exportField": {
-          "CNPHI": [
-            {
-              "field": "Gene Target 2 CT Value"
-            }
-          ],
-          "NML_LIMS": [
-            {
-              "field": "SUBMITTED_RESLT - Gene Target #2 CT Value"
-            }
-          ],
-          "BIOSAMPLE": [
-            {
-              "field": "diagnostic_PCR_CT_value_2"
-            }
-          ]
-        }
-      },
-      {
-        "fieldName": "gene name 3",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001513",
-        "datatype": "select",
-        "source": "gene name 1",
-        "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
-        ],
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The name of the gene used in the diagnostic RT-PCR test.",
-        "guidance": "Provide the full name of another gene used in an RT-PCR test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI",
-        "examples": "RdRp gene (nsp12)",
-        "exportField": {
-          "CNPHI": [
-            {
-              "field": "Gene Target 3"
-            }
-          ],
-          "NML_LIMS": [
-            {
-              "field": "SUBMITTED_RESLT - Gene Target #3"
-            }
-          ]
-        },
-        "schema:ItemList": {}
-      },
-      {
-        "fieldName": "diagnostic pcr protocol 3",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001514",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The name and version number of the protocol used for diagnostic marker amplification.",
-        "guidance": "The name and version number of the protocol used for carrying out a second diagnostic PCR test. This information can be compared to sequence data for evaluation of performance and quality control.",
-        "examples": "RdRpGenePCRTest 3"
-      },
-      {
-        "fieldName": "diagnostic pcr Ct value 3",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001515",
-        "datatype": "xs:decimal",
-        "source": "",
-        "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access",
-          "Indeterminate"
-        ],
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "The Ct value result from a diagnostic SARS-CoV-2 RT-PCR test.",
-        "guidance": "Provide the CT value of the sample from the second diagnostic RT-PCR test.",
-        "examples": "30",
-        "exportField": {
-          "CNPHI": [
-            {
-              "field": "Gene Target 3 CT Value"
-            }
-          ],
-          "NML_LIMS": [
-            {
-              "field": "SUBMITTED_RESLT - Gene Target #3 CT Value"
-            }
-          ]
-        }
-      }
-    ]
-  },
-  {
-    "fieldName": "Contributor acknowledgement",
-    "children": [
-      {
-        "fieldName": "authors",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001517",
-        "datatype": "xs:token",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
+        "xs:minInclusive": "0.0",
+        "xs:maxInclusive": "14.0",
         "requirement": "recommended",
-        "description": "Names of individuals contributing to the processes of sample collection, sequence generation, analysis, and data submission.",
-        "guidance": "Include the first and last names of all individuals that should be attributed, separated by a comma.",
-        "examples": "Tejinder Singh, Fei Hu, Joe Blogs",
+        "description": "pH measurement of the sample, or liquid portion of sample, or aqueous phase of the fluid",
+        "guidance": "Pattern hint: {float}",
+        "examples": "7.2",
         "exportField": {
-          "GISAID": [
+          "soil_emsl_jgi_mg": [
             {
-              "field": "Authors"
-            }
-          ],
-          "CNPHI": [
-            {
-              "field": "Authors"
-            }
-          ],
-          "NML_LIMS": [
-            {
-              "field": "PH_CANCOGEN_AUTHORS"
+              "field": "pH"
             }
           ]
         }
-      },
+      }
+    ]
+  },
+  {
+    "fieldName": "Metadata- MIxS Required Where Applicable",
+    "children": [
       {
-        "fieldName": "DataHarmonizer provenance",
+        "fieldName": "composite design/sieving",
         "capitalize": "",
-        "ontology_id": "GENEPIO:0001518",
-        "datatype": "provenance",
+        "ontology_id": "MIXS:0000322",
+        "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
-        "description": "The DataHarmonizer software version provenance.",
-        "guidance": "The current software version information will be automatically generated in this field after the user utilizes the \"validate\" function. This information will be generated regardless as to whether the row is valid of not.",
-        "examples": "DataHarmonizer provenance: v0.13.21",
+        "description": "Collection design of pooled samples and/or sieve size and amount of sample sieved",
+        "guidance": "Pattern hint: {{text}|{float} {unit}};{float} {unit}",
+        "examples": "",
         "exportField": {
-          "GISAID": [
+          "soil_emsl_jgi_mg": [
             {
-              "field": "DataHarmonizer provenance"
+              "field": "sieving"
             }
-          ],
-          "CNPHI": [
+          ]
+        }
+      },
+      {
+        "fieldName": "size-fraction lower threshold",
+        "capitalize": "",
+        "ontology_id": "MIXS:0000735",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Refers to the mesh/pore size used to pre-filter/pre-sort the sample. Materials larger than the size threshold are excluded from the sample",
+        "guidance": "",
+        "examples": "0.2 micrometer",
+        "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S+$",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
             {
-              "field": "Additional Comments"
+              "field": "size_frac_low"
             }
-          ],
-          "NML_LIMS": [
+          ]
+        }
+      },
+      {
+        "fieldName": "size-fraction upper threshold",
+        "capitalize": "",
+        "ontology_id": "MIXS:0000736",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Refers to the mesh/pore size used to retain the sample. Materials smaller than the size threshold are excluded from the sample",
+        "guidance": "",
+        "examples": "20 micrometer",
+        "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S+$",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
             {
-              "field": "HC_COMMENTS"
+              "field": "size_frac_up"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "biotic regimen",
+        "capitalize": "",
+        "ontology_id": "MIXS:0001038",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Information about treatment(s) involving use of biotic factors, such as bacteria, viruses or fungi.",
+        "guidance": "Pattern hint: {text}",
+        "examples": "sample inoculated with Rhizobium spp. Culture",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "biotic_regm"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "air temperature regimen",
+        "capitalize": "",
+        "ontology_id": "MIXS:0000551",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Information about treatment involving an exposure to varying temperatures; should include the temperature, treatment regimen including how many times the treatment was repeated, how long each treatment lasted, and the start and end time of the entire treatment; can include different temperature regimens",
+        "guidance": "Pattern hint: {float} {unit};{Rn/start_time/end_time/duration}",
+        "examples": "25 degree Celsius;R2/2018-05-11T14:30/2018-05-11T19:30/P1H30M",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "air_temp_regm"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "chemical administration",
+        "capitalize": "",
+        "ontology_id": "MIXS:0000751",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "List of chemical compounds administered to the host or site where sampling occurred, and when (e.g. Antibiotics, n fertilizer, air filter); can include multiple compounds. For chemical entities of biological interest ontology (chebi) (v 163), http://purl.bioontology.org/ontology/chebi",
+        "guidance": "Pattern hint: {termLabel} {[termID]};{timestamp}",
+        "examples": "agar [CHEBI:2509];2018-05-11T20:00Z",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "chem_administration"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "climate environment",
+        "capitalize": "",
+        "ontology_id": "MIXS:0001040",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Treatment involving an exposure to a particular climate; treatment regimen including how many times the treatment was repeated, how long each treatment lasted, and the start and end time of the entire treatment; can include multiple climates",
+        "guidance": "Pattern hint: {text};{Rn/start_time/end_time/duration}",
+        "examples": "tropical climate;R2/2018-05-11T14:30/2018-05-11T19:30/P1H30M",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "climate_environment"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "gaseous environment",
+        "capitalize": "",
+        "ontology_id": "MIXS:0000558",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Use of conditions with differing gaseous environments; should include the name of gaseous compound, amount administered, treatment duration, interval and total experimental duration; can include multiple gaseous environment regimens",
+        "guidance": "Pattern hint: {text};{float} {unit};{Rn/start_time/end_time/duration}",
+        "examples": "nitric oxide;0.5 micromole per liter;R2/2018-05-11T14:30/2018-05-11T19:30/P1H30M",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "gaseous_environment"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "humidity regimen",
+        "capitalize": "",
+        "ontology_id": "MIXS:0000568",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Information about treatment involving an exposure to varying degree of humidity; information about treatment involving use of growth hormones; should include amount of humidity administered, treatment regimen including how many times the treatment was repeated, how long each treatment lasted, and the start and end time of the entire treatment; can include multiple regimens",
+        "guidance": "Pattern hint: {float} {unit};{Rn/start_time/end_time/duration}",
+        "examples": "25 gram per cubic meter;R2/2018-05-11T14:30/2018-05-11T19:30/P1H30M",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "humidity_regm"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "light regimen",
+        "capitalize": "",
+        "ontology_id": "MIXS:0000569",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Information about treatment(s) involving exposure to light, including both light intensity and quality.",
+        "guidance": "Pattern hint: {text};{float} {unit};{float} {unit}",
+        "examples": "incandescant light;10 lux;450 nanometer",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "light_regm"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "watering regimen",
+        "capitalize": "",
+        "ontology_id": "MIXS:0000591",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Information about treatment involving an exposure to watering frequencies, treatment regimen including how many times the treatment was repeated, how long each treatment lasted, and the start and end time of the entire treatment; can include multiple regimens",
+        "guidance": "Pattern hint: {float} {unit};{Rn/start_time/end_time/duration}",
+        "examples": "1 liter;R2/2018-05-11T14:30/2018-05-11T19:30/P1H30M",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "watering_regm"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "altitude",
+        "capitalize": "",
+        "ontology_id": "MIXS:0000094",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Altitude is a term used to identify heights of objects such as airplanes, space shuttles, rockets, atmospheric balloons and heights of places such as atmospheric layers and clouds. It is used to measure the height of an object which is above the earth's surface. In this context, the altitude measurement is the vertical distance between the earth's surface above sea level and the sampled position in the air",
+        "guidance": "",
+        "examples": "100 meter",
+        "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S+$",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "alt"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "fieldName": "Metadata- MIxS Modified Optional",
+    "children": [
+      {
+        "fieldName": "observed biotic relationship",
+        "capitalize": "",
+        "ontology_id": "mixs_modified:samp_biotic_relationship",
+        "datatype": "select",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Description of relationship(s) between the subject organism and other organism(s) it is associated with. E.g., parasite on species X; mutualist with species Y. The target organism is the subject of the relationship, and the other organism(s) is the object",
+        "guidance": "Pattern hint: enumeration",
+        "examples": "",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "samp_biotic_relationship"
+            }
+          ]
+        },
+        "schema:ItemList": {
+          "commensalism": {},
+          "free living": {},
+          "mutualism": {},
+          "parasitism": {},
+          "symbiotic": {}
+        }
+      },
+      {
+        "fieldName": "relationship to oxygen",
+        "capitalize": "",
+        "ontology_id": "mixs_modified:oxygen_relationship",
+        "datatype": "select",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Is this organism an aerobe, anaerobe? Please note that aerobic and anaerobic are valid descriptors for microbial environments",
+        "guidance": "Pattern hint: enumeration",
+        "examples": "",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "oxygen_relationship"
+            }
+          ]
+        },
+        "schema:ItemList": {
+          "aerobe": {},
+          "anaerobe": {},
+          "facultative": {},
+          "microaerophilic": {},
+          "microanaerobe": {},
+          "obligate aerobe": {},
+          "obligate anaerobe": {}
+        }
+      },
+      {
+        "fieldName": "non-microbial biomass",
+        "capitalize": "",
+        "ontology_id": "mixs_modified:non_microb_biomass",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Amount of biomass; should include the name for the part of biomass measured, e.g.insect, plant, total. Can include multiple measurements separated by ;",
+        "guidance": "Pattern hint: {text};{float} {unit}",
+        "examples": "",
+        "pattern": "^\\S*;[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S+$",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "non_microb_biomass"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "non-microbial biomass method",
+        "capitalize": "",
+        "ontology_id": "mixs_modified:non_microb_biomass_method",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Reference or method used in determining biomass",
+        "guidance": "required if \"non-microbial biomass\" is provided | Pattern hint: {PMID}|{DOI}|{URL}",
+        "examples": "",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "non_microb_biomass_method"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "microbial biomass carbon",
+        "capitalize": "",
+        "ontology_id": "mixs_modified:microbial_biomass_C",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "The part of the organic matter in the soil that constitutes living microorganisms smaller than 5-10 micrometer. If you keep this, you would need to have correction factors used for conversion to the final units",
+        "guidance": "Pattern hint: {float} {unit}",
+        "examples": "",
+        "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S+$",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "microbial_biomass_C"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "microbial biomass carbon method",
+        "capitalize": "",
+        "ontology_id": "mixs_modified:micro_biomass_C_meth",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Reference or method used in determining microbial biomass",
+        "guidance": "required if \"microbial_biomass_C\" is provided | Pattern hint: {PMID}|{DOI}|{URL}",
+        "examples": "",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "micro_biomass_C_meth"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "microbial biomass nitrogen",
+        "capitalize": "",
+        "ontology_id": "mixs_modified:microbial_biomass_N",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "The part of the organic matter in the soil that constitutes living microorganisms smaller than 5-10 micrometer. If you keep this, you would need to have correction factors used for conversion to the final units",
+        "guidance": "Pattern hint: {float} {unit}",
+        "examples": "",
+        "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S+$",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "microbial_biomass_N"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "microbial biomass nitrogen method",
+        "capitalize": "",
+        "ontology_id": "mixs_modified:micro_biomass_N_meth",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Reference or method used in determining microbial biomass nitrogen",
+        "guidance": "required if \"microbial_biomass_N\" is provided | Pattern hint: {PMID}|{DOI}|{URL}",
+        "examples": "",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "micro_biomass_N_meth"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "organic nitrogen method",
+        "capitalize": "",
+        "ontology_id": "mixs_modified:org_nitro_method",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Method used for obtaining organic nitrogen",
+        "guidance": "required if \"org_nitro\" is provided | Pattern hint: {PMID}|{DOI}|{URL}",
+        "examples": "",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "org_nitro_method"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "fieldName": "Metadata- MIxS Optional",
+    "children": [
+      {
+        "fieldName": "slope aspect",
+        "capitalize": "",
+        "ontology_id": "MIXS:0000647",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "The direction a slope faces. While looking down a slope use a compass to record the direction you are facing (direction or degrees); e.g., nw or 315 degrees. This measure provides an indication of sun and wind exposure that will influence soil temperature and evapotranspiration.",
+        "guidance": "",
+        "examples": "",
+        "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S+$",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "slope_aspect"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "history/agrochemical additions",
+        "capitalize": "",
+        "ontology_id": "MIXS:0000639",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Addition of fertilizers, pesticides, etc. - amount and time of applications",
+        "guidance": "Pattern hint: {text};{float} {unit};{timestamp}",
+        "examples": "roundup;5 milligram per liter;2018-06-21",
+        "pattern": "^\\S+.*\\S+;[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S+;([\\+-]?\\d{4}(?!\\d{2}\\b))((-?)((0[1-9]|1[0-2])(\\3([12]\\d|0[1-9]|3[01]))?|W([0-4]\\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\\d|[12]\\d{2}|3([0-5]\\d|6[1-6])))([T\\s]((([01]\\d|2[0-3])((:?)[0-5]\\d)?|24\\:?00)([\\.,]\\d+(?!:))?)?(\\17[0-5]\\d([\\.,]\\d+)?)?([zZ]|([\\+-])([01]\\d|2[0-3]):?([0-5]\\d)?)?)?)?$",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "agrochem_addition"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "extreme_unusual_properties/Al saturation",
+        "capitalize": "",
+        "ontology_id": "MIXS:0000607",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Aluminum saturation (esp. For tropical soils)",
+        "guidance": "",
+        "examples": "",
+        "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S+$",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "al_sat"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "extreme_unusual_properties/Al saturation method",
+        "capitalize": "",
+        "ontology_id": "MIXS:0000324",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Reference or method used in determining Al saturation",
+        "guidance": "Pattern hint: {PMID}|{DOI}|{URL}",
+        "examples": "",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "al_sat_meth"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "mean annual precipitation",
+        "capitalize": "",
+        "ontology_id": "MIXS:0000644",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "The average of all annual precipitation values known, or an estimated equivalent value derived by such methods as regional indexes or Isohyetal maps.",
+        "guidance": "",
+        "examples": "",
+        "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S+$",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "annual_precpt"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "mean annual temperature",
+        "capitalize": "",
+        "ontology_id": "MIXS:0000642",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Mean annual temperature",
+        "guidance": "",
+        "examples": "12.5 degree Celsius",
+        "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S+$",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "annual_temp"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "history/crop rotation",
+        "capitalize": "",
+        "ontology_id": "MIXS:0000318",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Whether or not crop is rotated, and if yes, rotation schedule",
+        "guidance": "Pattern hint: {boolean};{Rn/start_time/end_time/duration}",
+        "examples": "yes;R2/2017-01-01/2018-12-31/P6M",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "crop_rotation"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "current land use",
+        "capitalize": "",
+        "ontology_id": "MIXS:0001080",
+        "datatype": "select",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Present state of sample site",
+        "guidance": "",
+        "examples": "conifers",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "cur_land_use"
+            }
+          ]
+        },
+        "schema:ItemList": {
+          "badlands": {},
+          "cities": {},
+          "conifers (e.g. pine,spruce,fir,cypress)": {},
+          "crop trees (nuts,fruit,christmas trees,nursery trees)": {},
+          "farmstead": {},
+          "gravel": {},
+          "hardwoods (e.g. oak,hickory,elm,aspen)": {},
+          "hayland": {},
+          "horticultural plants (e.g. tulips)": {},
+          "industrial areas": {},
+          "intermixed hardwood and conifers": {},
+          "marshlands (grass,sedges,rushes)": {},
+          "meadows (grasses,alfalfa,fescue,bromegrass,timothy)": {},
+          "mines/quarries": {},
+          "mudflats": {},
+          "oil waste areas": {},
+          "pastureland (grasslands used for livestock grazing)": {},
+          "permanent snow or ice": {},
+          "rainforest (evergreen forest receiving >406 cm annual rainfall)": {},
+          "rangeland": {},
+          "roads/railroads": {},
+          "rock": {},
+          "row crops": {},
+          "saline seeps": {},
+          "salt flats": {},
+          "sand": {},
+          "shrub crops (blueberries,nursery ornamentals,filberts)": {},
+          "shrub land (e.g. mesquite,sage-brush,creosote bush,shrub oak,eucalyptus)": {},
+          "small grains": {},
+          "successional shrub land (tree saplings,hazels,sumacs,chokecherry,shrub dogwoods,blackberries)": {},
+          "swamp (permanent or semi-permanent water body dominated by woody plants)": {},
+          "tropical (e.g. mangrove,palms)": {},
+          "tundra (mosses,lichens)": {},
+          "vegetable crops": {},
+          "vine crops (grapes)": {}
+        }
+      },
+      {
+        "fieldName": "current vegetation",
+        "capitalize": "",
+        "ontology_id": "MIXS:0000312",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Vegetation classification from one or more standard classification systems, or agricultural crop",
+        "guidance": "Pattern hint: {text}",
+        "examples": "",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "cur_vegetation"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "current vegetation method",
+        "capitalize": "",
+        "ontology_id": "MIXS:0000314",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Reference or method used in vegetation classification",
+        "guidance": "Pattern hint: {PMID}|{DOI}|{URL}",
+        "examples": "",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "cur_vegetation_meth"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "drainage classification",
+        "capitalize": "",
+        "ontology_id": "MIXS:0001085",
+        "datatype": "select",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Drainage classification from a standard system such as the USDA system",
+        "guidance": "",
+        "examples": "well",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "drainage_class"
+            }
+          ]
+        },
+        "schema:ItemList": {
+          "excessively drained": {},
+          "moderately well": {},
+          "poorly": {},
+          "somewhat poorly": {},
+          "very poorly": {},
+          "well": {}
+        }
+      },
+      {
+        "fieldName": "experimental factor",
+        "capitalize": "",
+        "ontology_id": "MIXS:0000008",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Experimental factors are essentially the variable aspects of an experiment design which can be used to describe an experiment, or set of experiments, in an increasingly detailed manner. This field accepts ontology terms from Experimental Factor Ontology (EFO) and/or Ontology for Biomedical Investigations (OBI). For a browser of EFO (v 2.95) terms, please see http://purl.bioontology.org/ontology/EFO; for a browser of OBI (v 2018-02-12) terms please see http://purl.bioontology.org/ontology/OBI",
+        "guidance": "Pattern hint: {termLabel} {[termID]}|{text}",
+        "examples": "time series design [EFO:EFO_0001779]",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "experimental_factor"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "history/extreme events",
+        "capitalize": "",
+        "ontology_id": "MIXS:0000320",
+        "datatype": "xs:date",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Unusual physical events that may have affected microbial populations",
+        "guidance": "",
+        "examples": "",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "extreme_event"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "soil_taxonomic/FAO classification",
+        "capitalize": "",
+        "ontology_id": "MIXS:0001083",
+        "datatype": "select",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Soil classification from the FAO World Reference Database for Soil Resources. The list can be found at http://www.fao.org/nr/land/sols/soil/wrb-soil-maps/reference-groups",
+        "guidance": "",
+        "examples": "Luvisols",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "fao_class"
+            }
+          ]
+        },
+        "schema:ItemList": {
+          "Acrisols": {},
+          "Andosols": {},
+          "Arenosols": {},
+          "Cambisols": {},
+          "Chernozems": {},
+          "Ferralsols": {},
+          "Fluvisols": {},
+          "Gleysols": {},
+          "Greyzems": {},
+          "Gypsisols": {},
+          "Histosols": {},
+          "Kastanozems": {},
+          "Lithosols": {},
+          "Luvisols": {},
+          "Nitosols": {},
+          "Phaeozems": {},
+          "Planosols": {},
+          "Podzols": {},
+          "Podzoluvisols": {},
+          "Rankers": {},
+          "Regosols": {},
+          "Rendzinas": {},
+          "Solonchaks": {},
+          "Solonetz": {},
+          "Vertisols": {},
+          "Yermosols": {}
+        }
+      },
+      {
+        "fieldName": "history/fire",
+        "capitalize": "",
+        "ontology_id": "MIXS:0001086",
+        "datatype": "xs:date",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Historical and/or physical evidence of fire",
+        "guidance": "",
+        "examples": "",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "fire"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "history/flooding",
+        "capitalize": "",
+        "ontology_id": "MIXS:0000319",
+        "datatype": "xs:date",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Historical and/or physical evidence of flooding",
+        "guidance": "",
+        "examples": "",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "flooding"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "extreme_unusual_properties/heavy metals",
+        "capitalize": "",
+        "ontology_id": "MIXS:0000652",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Heavy metals present in the sequenced sample and their concentrations. For multiple heavy metals and concentrations, add multiple copies of this field.",
+        "guidance": "Pattern hint: {text};{float} {unit}",
+        "examples": "mercury;0.09 micrograms per gram",
+        "pattern": "^\\S*;[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S+$",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "heavy_metals"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "extreme_unusual_properties/heavy metals method",
+        "capitalize": "",
+        "ontology_id": "MIXS:0000343",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Reference or method used in determining heavy metals",
+        "guidance": "Pattern hint: {PMID}|{DOI}|{URL}",
+        "examples": "",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "heavy_metals_meth"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "horizon method",
+        "capitalize": "",
+        "ontology_id": "MIXS:0000321",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Reference or method used in determining the horizon",
+        "guidance": "Pattern hint: {PMID}|{DOI}|{URL}",
+        "examples": "",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "horizon_meth"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "link to classification information",
+        "capitalize": "",
+        "ontology_id": "MIXS:0000329",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Link to digitized soil maps or other soil classification information",
+        "guidance": "Pattern hint: {PMID}|{DOI}|{URL}",
+        "examples": "",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "link_class_info"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "link to climate information",
+        "capitalize": "",
+        "ontology_id": "MIXS:0000328",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Link to climate resource",
+        "guidance": "Pattern hint: {PMID}|{DOI}|{URL}",
+        "examples": "",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "link_climate_info"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "soil_taxonomic/local classification",
+        "capitalize": "",
+        "ontology_id": "MIXS:0000330",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Soil classification based on local soil classification system",
+        "guidance": "Pattern hint: {text}",
+        "examples": "",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "local_class"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "soil_taxonomic/local classification method",
+        "capitalize": "",
+        "ontology_id": "MIXS:0000331",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Reference or method used in determining the local soil classification",
+        "guidance": "Pattern hint: {PMID}|{DOI}|{URL}",
+        "examples": "",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "local_class_meth"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "miscellaneous parameter",
+        "capitalize": "",
+        "ontology_id": "MIXS:0000752",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Any other measurement performed or parameter collected, that is not listed here",
+        "guidance": "Pattern hint: {text};{float} {unit}",
+        "examples": "Bicarbonate ion concentration;2075 micromole per kilogram",
+        "pattern": "^\\S*;[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S+$",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "misc_param"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "oxygenation status of sample",
+        "capitalize": "",
+        "ontology_id": "MIXS:0000753",
+        "datatype": "select",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Oxygenation status of sample",
+        "guidance": "",
+        "examples": "aerobic",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "oxy_stat_samp"
+            }
+          ]
+        },
+        "schema:ItemList": {
+          "aerobic": {},
+          "anaerobic": {},
+          "other": {}
+        }
+      },
+      {
+        "fieldName": "history/previous land use method",
+        "capitalize": "",
+        "ontology_id": "MIXS:0000316",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Reference or method used in determining previous land use and dates",
+        "guidance": "Pattern hint: {PMID}|{DOI}|{URL}",
+        "examples": "",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "prev_land_use_meth"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "history/previous land use",
+        "capitalize": "",
+        "ontology_id": "MIXS:0000315",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Previous land use and dates",
+        "guidance": "Pattern hint: {text};{timestamp}",
+        "examples": "",
+        "pattern": "^\\S+.*\\S+;([\\+-]?\\d{4}(?!\\d{2}\\b))((-?)((0[1-9]|1[0-2])(\\3([12]\\d|0[1-9]|3[01]))?|W([0-4]\\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\\d|[12]\\d{2}|3([0-5]\\d|6[1-6])))([T\\s]((([01]\\d|2[0-3])((:?)[0-5]\\d)?|24\\:?00)([\\.,]\\d+(?!:))?)?(\\17[0-5]\\d([\\.,]\\d+)?)?([zZ]|([\\+-])([01]\\d|2[0-3]):?([0-5]\\d)?)?)?)?$",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "previous_land_use"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "profile position",
+        "capitalize": "",
+        "ontology_id": "MIXS:0001084",
+        "datatype": "select",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Cross-sectional position in the hillslope where sample was collected.sample area position in relation to surrounding areas",
+        "guidance": "",
+        "examples": "summit",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "profile_position"
+            }
+          ]
+        },
+        "schema:ItemList": {
+          "backslope": {},
+          "footslope": {},
+          "shoulder": {},
+          "summit": {},
+          "toeslope": {}
+        }
+      },
+      {
+        "fieldName": "mean seasonal precipitation",
+        "capitalize": "",
+        "ontology_id": "MIXS:0000645",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "The average of all seasonal precipitation values known, or an estimated equivalent value derived by such methods as regional indexes or Isohyetal maps.",
+        "guidance": "",
+        "examples": "",
+        "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S+$",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "season_precpt"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "mean seasonal temperature",
+        "capitalize": "",
+        "ontology_id": "MIXS:0000643",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Mean seasonal temperature",
+        "guidance": "",
+        "examples": "18 degree Celsius",
+        "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S+$",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "season_temp"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "slope gradient",
+        "capitalize": "",
+        "ontology_id": "MIXS:0000646",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Commonly called 'slope'. The angle between ground surface and a horizontal line (in percent). This is the direction that overland water would flow. This measure is usually taken with a hand level meter or clinometer",
+        "guidance": "",
+        "examples": "",
+        "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S+$",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "slope_gradient"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "soil horizon",
+        "capitalize": "",
+        "ontology_id": "MIXS:0001082",
+        "datatype": "select",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Specific layer in the land area which measures parallel to the soil surface and possesses physical characteristics which differ from the layers above and beneath",
+        "guidance": "",
+        "examples": "A horizon",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "soil_horizon"
+            }
+          ]
+        },
+        "schema:ItemList": {
+          "A horizon": {},
+          "B horizon": {},
+          "C horizon": {},
+          "E horizon": {},
+          "O horizon": {},
+          "Permafrost": {},
+          "R layer": {}
+        }
+      },
+      {
+        "fieldName": "soil texture measurement",
+        "capitalize": "",
+        "ontology_id": "MIXS:0000335",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "The relative proportion of different grain sizes of mineral particles in a soil, as described using a standard system; express as % sand (50 um to 2 mm), silt (2 um to 50 um), and clay (<2 um) with textural name (e.g., silty clay loam) optional.",
+        "guidance": "",
+        "examples": "",
+        "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S+$",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "soil_text_measure"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "soil texture method",
+        "capitalize": "",
+        "ontology_id": "MIXS:0000336",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Reference or method used in determining soil texture",
+        "guidance": "Pattern hint: {PMID}|{DOI}|{URL}",
+        "examples": "",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "soil_texture_meth"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "soil type",
+        "capitalize": "",
+        "ontology_id": "MIXS:0000332",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Description of the soil type or classification. This field accepts terms under soil (http://purl.obolibrary.org/obo/ENVO_00001998).  Multiple terms can be separated by pipes.",
+        "guidance": "Pattern hint: {termLabel} {[termID]}",
+        "examples": "plinthosol [ENVO:00002250]",
+        "pattern": "^\\S+.*\\S+ \\[ENVO:\\d+\\]$",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "soil_type"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "soil type method",
+        "capitalize": "",
+        "ontology_id": "MIXS:0000334",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Reference or method used in determining soil series name or other lower-level classification",
+        "guidance": "Pattern hint: {PMID}|{DOI}|{URL}",
+        "examples": "",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "soil_type_meth"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "temperature",
+        "capitalize": "",
+        "ontology_id": "MIXS:0000113",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Temperature of the sample at the time of sampling.",
+        "guidance": "",
+        "examples": "25 degree Celsius",
+        "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S+$",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "temp"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "history/tillage",
+        "capitalize": "",
+        "ontology_id": "MIXS:0001081",
+        "datatype": "multiple",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Note method(s) used for tilling",
+        "guidance": "",
+        "examples": "chisel",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "tillage"
+            }
+          ]
+        },
+        "schema:ItemList": {
+          "chisel": {},
+          "cutting disc": {},
+          "disc plough": {},
+          "drill": {},
+          "mouldboard": {},
+          "ridge till": {},
+          "strip tillage": {},
+          "tined": {},
+          "zonal tillage": {}
+        }
+      },
+      {
+        "fieldName": "water content",
+        "capitalize": "",
+        "ontology_id": "MIXS:0000185",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Water content measurement",
+        "guidance": "",
+        "examples": "",
+        "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S+$",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "water_content"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "water content method",
+        "capitalize": "",
+        "ontology_id": "MIXS:0000323",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Reference or method used in determining the water content of soil",
+        "guidance": "Pattern hint: {PMID}|{DOI}|{URL}",
+        "examples": "",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "water_cont_soil_meth"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "pH method",
+        "capitalize": "",
+        "ontology_id": "MIXS:0001106",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Reference or method used in determining ph",
+        "guidance": "Pattern hint: {PMID}|{DOI}|{URL}",
+        "examples": "",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "ph_meth"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "microbial biomass",
+        "capitalize": "",
+        "ontology_id": "MIXS:0000650",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "The part of the organic matter in the soil that constitutes living microorganisms smaller than 5-10 micrometer. If you keep this, you would need to have correction factors used for conversion to the final units",
+        "guidance": "",
+        "examples": "",
+        "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S+$",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "microbial_biomass"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "microbial biomass method",
+        "capitalize": "",
+        "ontology_id": "MIXS:0000339",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Reference or method used in determining microbial biomass",
+        "guidance": "Pattern hint: {PMID}|{DOI}|{URL}",
+        "examples": "",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "micro_biomass_meth"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "carbon/nitrogen ratio",
+        "capitalize": "",
+        "ontology_id": "MIXS:0000310",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Ratio of amount or concentrations of carbon to nitrogen",
+        "guidance": "",
+        "examples": "0.417361111",
+        "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S+$",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "carb_nitro_ratio"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "organic matter",
+        "capitalize": "",
+        "ontology_id": "MIXS:0000204",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Concentration of organic matter",
+        "guidance": "",
+        "examples": "1.75 milligram per cubic meter",
+        "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S+$",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "org_matter"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "organic nitrogen",
+        "capitalize": "",
+        "ontology_id": "MIXS:0000205",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Concentration of organic nitrogen",
+        "guidance": "",
+        "examples": "4 micromole per liter",
+        "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S+$",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "org_nitro"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "total carbon",
+        "capitalize": "",
+        "ontology_id": "MIXS:0000525",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Total carbon content",
+        "guidance": "",
+        "examples": "",
+        "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S+$",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "tot_carb"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "total nitrogen content",
+        "capitalize": "",
+        "ontology_id": "MIXS:0000530",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Total nitrogen content of the sample",
+        "guidance": "",
+        "examples": "",
+        "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S+$",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "tot_nitro_content"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "total nitrogen content method",
+        "capitalize": "",
+        "ontology_id": "MIXS:0000338",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Reference or method used in determining the total nitrogen",
+        "guidance": "Pattern hint: {PMID}|{DOI}|{URL}",
+        "examples": "",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "tot_nitro_cont_meth"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "total organic carbon",
+        "capitalize": "",
+        "ontology_id": "MIXS:0000533",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Definition for soil: total organic carbon content of the soil, definition otherwise: total organic carbon content",
+        "guidance": "",
+        "examples": "",
+        "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S+$",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "tot_org_carb"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "total organic carbon method",
+        "capitalize": "",
+        "ontology_id": "MIXS:0000337",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Reference or method used in determining total organic carbon",
+        "guidance": "Pattern hint: {PMID}|{DOI}|{URL}",
+        "examples": "",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "tot_org_c_meth"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "total phosphorus",
+        "capitalize": "",
+        "ontology_id": "MIXS:0000117",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Total phosphorus concentration in the sample, calculated by: total phosphorus = total dissolved phosphorus + particulate phosphorus",
+        "guidance": "",
+        "examples": "0.03 milligram per liter",
+        "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S+$",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "tot_phosp"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "phosphate",
+        "capitalize": "",
+        "ontology_id": "MIXS:0000505",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Concentration of phosphate",
+        "guidance": "",
+        "examples": "0.7 micromole per liter",
+        "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S+$",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "phosphate"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "salinity",
+        "capitalize": "",
+        "ontology_id": "MIXS:0000183",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "The total concentration of all dissolved salts in a liquid or solid sample. While salinity can be measured by a complete chemical analysis, this method is difficult and time consuming. More often, it is instead derived from the conductivity measurement. This is known as practical salinity. These derivations compare the specific conductance of the sample to a salinity standard such as seawater.",
+        "guidance": "",
+        "examples": "25 practical salinity unit",
+        "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S+$",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "salinity"
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "salinity method",
+        "capitalize": "",
+        "ontology_id": "MIXS:0000341",
+        "datatype": "xs:token",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "Reference or method used in determining salinity",
+        "guidance": "Pattern hint: {PMID}|{DOI}|{URL}",
+        "examples": "",
+        "exportField": {
+          "soil_emsl_jgi_mg": [
+            {
+              "field": "salinity_meth"
             }
           ]
         }
