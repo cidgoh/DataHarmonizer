@@ -76,11 +76,11 @@ var exportNCBI_BioSample = (baseName, hot, data, xlsx, fileType) => {
   ]);
 
   const concatOptionsMap = new Map([
-    ['Not Applicable',    null],
-    ['Missing',           null],
-    ['Not Collected',     null],
-    ['Not Provided',      null],
-    ['Restricted Access', null]
+    ['Not Applicable [GENEPIO:0001619]',    null],
+    ['Missing [GENEPIO:0001618]',           null],
+    ['Not Collected [GENEPIO:0001620]',     null],
+    ['Not Provided [GENEPIO:0001668]',      null],
+    ['Restricted Access [GENEPIO:0001810]', null]
   ]);
 
   const sourceFields = getFields(data);
