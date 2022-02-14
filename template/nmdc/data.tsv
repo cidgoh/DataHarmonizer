@@ -1,0 +1,511 @@
+Ontology ID	label	parent class	description	guidance	datatype	pattern	requirement	examples	source	capitalize	data status	max value	min value	EXPORT_soil_emsl_jgi_mg	section	order	title	column_number
+	Sample ID														Sample ID	1.0	Sample ID	
+	NMDC fields esp. GOLD paths														NMDC fields esp. GOLD paths	2.0	NMDC fields esp. GOLD paths	
+	EMSL														EMSL	3.0	EMSL	
+	JGI-Metagenomics														JGI-Metagenomics	4.0	JGI-Metagenomics	
+	Metadata- MIxS Modified Required														Metadata- MIxS Modified Required	6.0	Metadata- MIxS Modified Required	
+	Metadata- MIxS Required														Metadata- MIxS Required	7.0	Metadata- MIxS Required	
+	Metadata- MIxS Modified Required Where Applicable														Metadata- MIxS Modified Required Where Applicable	8.0	Metadata- MIxS Modified Required Where Applicable	
+	Metadata- MIxS Required Where Applicable														Metadata- MIxS Required Where Applicable	9.0	Metadata- MIxS Required Where Applicable	
+	Metadata- MIxS Modified Optional														Metadata- MIxS Modified Optional	10.0	Metadata- MIxS Modified Optional	
+	Metadata- MIxS Optional														Metadata- MIxS Optional	11.0	Metadata- MIxS Optional	
+emsl:project_ID	Project ID	EMSL	Proposal IDs or names associated with dataset	Pattern hint: {text}	xs:token		required							project_ID				1.0
+emsl:sample_type	sample type	EMSL	Type of sample being submitted	This can vary from 'environmental package' if the sample is an extraction. | Pattern hint: enumeration	select		required	water extracted soil						sample_type				2.0
+emsl:sample_shipped	sample shipped amount	EMSL	The total amount or size (volume (ml), mass (g) or area (m2) ) of sample sent to EMSL	Pattern hint: {float} {unit}	xs:token	^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)? \S+$	required							sample_shipped				3.0
+emsl:EMSL_store_temp	EMSL Sample Storage Temperature, deg. C	EMSL	Temperature at which the sample sent to EMSL should be stored	Enter a temperature in celsius. Numeric portion only. | Pattern hint: {float}	xs:decimal		required	-80						EMSL_store_temp				4.0
+emsl:technical_reps	Number Technical Replicate	EMSL	If sending multiple technical replicates of the same sample, indicate how many replicates are being sent	Pattern hint: {integer}	xs:nonNegativeInteger		recommended							technical_reps				5.0
+emsl:replicate_number	Replicate Number	EMSL	If sending biological replicates, indicate the rep number here.	This will guide staff in ensuring your samples are block & randomized correctly | Pattern hint: {integer}	xs:nonNegativeInteger		recommended							replicate_number				6.0
+jgi_gen:dna_seq_project	DNA Seq Project ID	JGI-Metagenomics		Do not edit these values. A template will be provided by NMDC in which these values have been pre-filled. | Pattern hint: {text}	xs:token		required	1191234						dna_seq_project				1.0
+jgi_gen:dna_seq_project_name	DNA Seq Project Name	JGI-Metagenomics		Do not edit these values. A template will be provided by NMDC in which these values have been pre-filled. | Pattern hint: {text}	xs:token		required	JGI Pond metagenomics						dna_seq_project_name				2.0
+jgi_gen:dna_samp_ID	DNA Sample ID	JGI-Metagenomics		Do not edit these values. A template will be provided by NMDC in which these values have been pre-filled. | Pattern hint: {text}	xs:token		required	187654						dna_samp_ID				3.0
+jgi_gen:dna_sample_name	DNA Sample Name	JGI-Metagenomics	Give the DNA sample a name that is meaningful to you. Sample names must be unique across all JGI projects and contain a-z, A-Z, 0-9, - and _ only.	Pattern hint: {text}	xs:token		required	JGI_pond_041618						dna_sample_name				4.0
+jgi_gen:dna_concentration	DNA Concentration in ng/uL	JGI-Metagenomics		Units must be in ng/uL. Enter the numerical part only. Must be calculated using a fluorometric method. Acceptable values are 0-2000. | Pattern hint: {float}	xs:decimal		required	100				2000.0	0.0	dna_concentration				5.0
+jgi_gen:dna_volume	DNA Volume in uL	JGI-Metagenomics		Units must be in uL. Enter the numerical part only. Value must 0-1000. Values <25 by special permission only. | Pattern hint: {float}	xs:decimal		required	25				1000.0	0.0	dna_volume				6.0
+jgi_gen:dna_absorb1	DNA Absorbance 260/280	JGI-Metagenomics	260/280 measurement of DNA sample purity	Recommended value is between 1 and 3. | Pattern hint: {float}	xs:decimal		required	2.02						dna_absorb1				7.0
+jgi_gen:dna_absorb2	DNA Absorbance 260/230	JGI-Metagenomics	260/230 measurement of DNA sample purity	Recommended value is between 1 and 3. | Pattern hint: {float}	xs:decimal		recommended	2.02						dna_absorb2				8.0
+jgi_gen:dna_container_ID	DNA Container Label	JGI-Metagenomics		Must be unique across all tubes and plates, and <20 characters. All samples in a plate should have the same plate label. | Pattern hint: {text < 20 characters}	xs:token	^.{1,20}$	required	Pond_MT_041618						dna_container_ID				9.0
+jgi_gen:dna_cont_type	DNA Container Type	JGI-Metagenomics	Tube or plate (96-well)	Pattern hint: enumeration	select		required	plate						dna_cont_type				10.0
+jgi_gen:dna_cont_well	DNA Well Number	JGI-Metagenomics		Required when 'plate' is selected for container type. Corner wells must be blank. For partial plates, fill by columns. Leave blank if the sample will be shipped in a tube. | Pattern hint: {96 well plate pos}	xs:token	^[A-H](0?[1-9]$)|(^1[0-2])$	required	B2						dna_cont_well				11.0
+jgi_gen:dna_sample_format	DNA Sample Format	JGI-Metagenomics	Solution in which the DNA sample has been suspended	Pattern hint: enumeration	select		required	Water						dna_sample_format				12.0
+jgi_gen:dna_dnase	DNAse Treatment DNA	JGI-Metagenomics		Note DNAse treatment is required for all RNA samples. | Pattern hint: enumeration	select		required	no						dna_dnase				13.0
+jgi_gen:dna_organisms	DNA Expected Organisms	JGI-Metagenomics	List any organisms known or suspected to grow in co-culture, as well as estimated % of the organism in that culture.	Pattern hint: {text}	xs:token		recommended	expected to contain microbes (59%) fungi (30%), viruses (10%), tadpoles (1%)						dna_organisms				14.0
+jgi_gen:dna_collect_site	DNA Collection Site	JGI-Metagenomics	Provide information on the site your DNA sample was collected from	Pattern hint: {text}	xs:token		required	untreated pond water						dna_collect_site				15.0
+jgi_gen:dna_isolate_meth	DNA Isolation Method	JGI-Metagenomics	Describe the method/protocol/kit used to extract DNA/RNA.	Pattern hint: {text}	xs:token		required	phenol/chloroform extraction						dna_isolate_meth				16.0
+jgi_gen:dna_seq_project_PI	DNA Seq Project PI	JGI-Metagenomics		Do not edit these values. A template will be provided by NMDC in which these values have been pre-filled. | Pattern hint: {text}	xs:token		required	Jane Johnson						dna_seq_project_PI				17.0
+jgi_gen:dna_project_contact	DNA Seq Project Contact	JGI-Metagenomics		Do not edit these values. A template will be provided by NMDC in which these values have been pre-filled. | Pattern hint: {text}	xs:token		required	John Jones						dna_project_contact				18.0
+jgi_gen:proposal_dna	DNA Proposal ID	JGI-Metagenomics		Do not edit these values. A template will be provided by NMDC in which these values have been pre-filled. | Pattern hint: {text}	xs:token		required	504000						proposal_dna				19.0
+mixs_modified:samp_biotic_relationship	observed biotic relationship	Metadata- MIxS Modified Optional	Description of relationship(s) between the subject organism and other organism(s) it is associated with. E.g., parasite on species X; mutualist with species Y. The target organism is the subject of the relationship, and the other organism(s) is the object	Pattern hint: enumeration	select									samp_biotic_relationship				16.0
+mixs_modified:oxygen_relationship	relationship to oxygen	Metadata- MIxS Modified Optional	Is this organism an aerobe, anaerobe? Please note that aerobic and anaerobic are valid descriptors for microbial environments	Pattern hint: enumeration	select									oxygen_relationship				17.0
+mixs_modified:non_microb_biomass	non-microbial biomass	Metadata- MIxS Modified Optional	Amount of biomass; should include the name for the part of biomass measured, e.g.insect, plant, total. Can include multiple measurements separated by ;	Pattern hint: {text};{float} {unit}	xs:token	^\S*;[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)? \S+$								non_microb_biomass				18.0
+mixs_modified:non_microb_biomass_method	non-microbial biomass method	Metadata- MIxS Modified Optional	Reference or method used in determining biomass	"required if ""non-microbial biomass"" is provided | Pattern hint: {PMID}|{DOI}|{URL}"	xs:token									non_microb_biomass_method				19.0
+mixs_modified:microbial_biomass_C	microbial biomass carbon	Metadata- MIxS Modified Optional	The part of the organic matter in the soil that constitutes living microorganisms smaller than 5-10 micrometer. If you keep this, you would need to have correction factors used for conversion to the final units	Pattern hint: {float} {unit}	xs:token	^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)? \S+$								microbial_biomass_C				20.0
+mixs_modified:micro_biomass_C_meth	microbial biomass carbon method	Metadata- MIxS Modified Optional	Reference or method used in determining microbial biomass	"required if ""microbial_biomass_C"" is provided | Pattern hint: {PMID}|{DOI}|{URL}"	xs:token									micro_biomass_C_meth				21.0
+mixs_modified:microbial_biomass_N	microbial biomass nitrogen	Metadata- MIxS Modified Optional	The part of the organic matter in the soil that constitutes living microorganisms smaller than 5-10 micrometer. If you keep this, you would need to have correction factors used for conversion to the final units	Pattern hint: {float} {unit}	xs:token	^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)? \S+$								microbial_biomass_N				22.0
+mixs_modified:micro_biomass_N_meth	microbial biomass nitrogen method	Metadata- MIxS Modified Optional	Reference or method used in determining microbial biomass nitrogen	"required if ""microbial_biomass_N"" is provided | Pattern hint: {PMID}|{DOI}|{URL}"	xs:token									micro_biomass_N_meth				23.0
+mixs_modified:org_nitro_method	organic nitrogen method	Metadata- MIxS Modified Optional	Method used for obtaining organic nitrogen	"required if ""org_nitro"" is provided | Pattern hint: {PMID}|{DOI}|{URL}"	xs:token									org_nitro_method				24.0
+mixs_modified:growth_facility	growth facility	Metadata- MIxS Modified Required	Type of facility/location where the sample was harvested; controlled vocabulary: growth chamber, open top chamber, glasshouse, experimental garden, field.	Pattern hint: enumeration	select		required							growth_facility				1.0
+mixs_modified:storage_condt	storage conditions	Metadata- MIxS Modified Required	Explain how the soil sample is stored (fresh/frozen/other).	Pattern hint: enumeration	select		required							storage_condt				2.0
+mixs_modified:collection_date	Collection Date	Metadata- MIxS Modified Required	The date of sampling	Date should be formatted as YYYY(-MM(-DD)) | Pattern hint: {date, arbitrary precision}	xs:token	^[12]\d{3}(?:(?:-(?:0[1-9]|1[0-2]))(?:-(?:0[1-9]|[12]\d|3[01]))?)?$	required	2021-04-15, 2021-04 and 2021 are all acceptable.						collection_date				3.0
+mixs_modified:collection_time	collection time, GMT	Metadata- MIxS Modified Required Where Applicable	The time of sampling, either as an instance (single point) or interval.	Time should be entered as HH:MM(:SS) in GMT. See here for a converter: https://www.worldtimebuddy.com/pst-to-gmt-converter | Pattern hint: {time, seconds optional}	xs:token	^([01]?\d|2[0-3]|24(?=:00?:00?$)):([0-5]\d)(:([0-5]\d))?$	recommended	13:33 or 13:33:55						collection_time				4.0
+mixs_modified:collection_date_inc	Incubation Collection Date	Metadata- MIxS Modified Required Where Applicable	Date the incubation was harvested/collected/ended. Only relevant for incubation samples.	Date should be formatted as YYYY(-MM(-DD)). Ie, 2021-04-15, 2021-04 and 2021 are all acceptable. | Pattern hint: {date, arbitrary precision}	xs:token	^[12]\d{3}(?:(?:-(?:0[1-9]|1[0-2]))(?:-(?:0[1-9]|[12]\d|3[01]))?)?$	recommended	2021-04-15, 2021-04 and 2021 are all acceptable.						collection_date_inc				5.0
+mixs_modified:collection_time_inc	Incubation Collection Time, GMT	Metadata- MIxS Modified Required Where Applicable	Time the incubation was harvested/collected/ended. Only relevant for incubation samples.	Time should be entered as HH:MM(:SS) in GMT. See here for a converter: https://www.worldtimebuddy.com/pst-to-gmt-converter | Pattern hint: {time, seconds optional}	xs:token	^([01]?\d|2[0-3]|24(?=:00?:00?$)):([0-5]\d)(:([0-5]\d))?$	recommended	13:33 or 13:33:55						collection_time_inc				6.0
+mixs_modified:start_date_inc	Incubation Start Date	Metadata- MIxS Modified Required Where Applicable	Date the incubation was started. Only relevant for incubation samples.	Date should be formatted as YYYY(-MM(-DD)). Ie, 2021-04-15, 2021-04 and 2021 are all acceptable. | Pattern hint: {date, arbitrary precision}	xs:token	^[12]\d{3}(?:(?:-(?:0[1-9]|1[0-2]))(?:-(?:0[1-9]|[12]\d|3[01]))?)?$	recommended	2021-04-15, 2021-04 and 2021 are all acceptable.						start_date_inc				7.0
+mixs_modified:start_time_inc	Incubation Start Time, GMT	Metadata- MIxS Modified Required Where Applicable	Time the incubation was started. Only relevant for incubation samples.	Time should be entered as HH:MM(:SS) in GMT. See here for a converter: https://www.worldtimebuddy.com/pst-to-gmt-converter | Pattern hint: {time, seconds optional}	xs:token	^([01]?\d|2[0-3]|24(?=:00?:00?$)):([0-5]\d)(:([0-5]\d))?$	recommended	13:33 or 13:33:55						start_time_inc				8.0
+mixs_modified:depth	depth, meters	Metadata- MIxS Modified Required Where Applicable	The vertical distance below local surface, e.g. For sediment or soil samples depth is measured from sediment or soil surface, respectively. Depth can be reported as an interval for subsurface samples.	All depths must be reported in meters. Provide the numerical portion only. | Pattern hint: {float}| {float}-{float}	xs:token		required	0-0.1 OR 1						depth				9.0
+mixs_modified:sample_processing	sample material processing	Metadata- MIxS Modified Required Where Applicable	A brief description of any processing applied to the sample during or after retrieving the sample from environment, or a link to the relevant protocol(s) performed.	Pattern hint: {text}	xs:token		recommended							sample_processing				10.0
+mixs_modified:sample_collection_dev	sample collection device	Metadata- MIxS Modified Required Where Applicable	The device used to collect an environmental sample. This field accepts terms listed under environmental sampling device (http://purl.obolibrary.org/obo/ENVO). This field also accepts terms listed under specimen collection device (http://purl.obolibrary.org/obo/GENEPIO_0002094).	Report dimensions and details when applicable | Pattern hint: {termLabel} {[termID]}|{text}	xs:token		recommended							sample_collection_dev				11.0
+mixs_modified:sample_collection_method	sample collection method	Metadata- MIxS Modified Required Where Applicable	The method employed for collecting the sample.	This can be a citation or description | Pattern hint: {PMID}|{DOI}|{URL}|{text}	xs:token		recommended							sample_collection_method				12.0
+mixs_modified:filter_method	Filter Method	Metadata- MIxS Modified Required Where Applicable	Type of filter used or how the sample was filtered	Pattern hint: {text}	xs:token		recommended							filter_method				13.0
+mixs_modified:sample_collected	amount or size of sample collected	Metadata- MIxS Modified Required Where Applicable	The total amount or size (volume (ml), mass (g) or area (m2) ) of sample collected.	This refers to the TOTAL amount of sample collected from the experiment. NOT the amount sent to each institution or collected for a specific analysis. | Pattern hint: {float} {unit}	xs:token	^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)? \S+$	recommended	5 grams; 10 mL						sample_collected				14.0
+mixs_modified:experimental_factor_other	experimental factor- other	Metadata- MIxS Modified Required Where Applicable	Other details about your sample that you feel can't be accurately represented in the available columns.	Pattern hint: {text}	xs:token		recommended							experimental_factor_other				15.0
+mixs_modified:other_treatment	other treatments	Metadata- MIxS Modified Required Where Applicable	Other treatments applied to your samples that are not applicable to the provided fields	Pattern hint: {text}	xs:token		recommended							other_treatment				25.0
+mixs_modified:isotope_exposure	isotope exposure/addition	Metadata- MIxS Modified Required Where Applicable	List isotope exposure or addition applied to your sample.	Pattern hint: {termLabel} {[termID]}; {timestamp}	xs:token	^\S+.*\S+ \[ENVO:\d+\]; ([\+-]?\d{4}(?!\d{2}\b))((-?)((0[1-9]|1[0-2])(\3([12]\d|0[1-9]|3[01]))?|W([0-4]\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\d|[12]\d{2}|3([0-5]\d|6[1-6])))([T\s]((([01]\d|2[0-3])((:?)[0-5]\d)?|24\:?00)([\.,]\d+(?!:))?)?(\17[0-5]\d([\.,]\d+)?)?([zZ]|([\+-])([01]\d|2[0-3]):?([0-5]\d)?)?)?)?$	recommended							isotope_exposure				26.0
+mixs_modified:pH	pH	Metadata- MIxS Modified Required Where Applicable	pH measurement of the sample, or liquid portion of sample, or aqueous phase of the fluid	Pattern hint: {float}	xs:decimal		recommended	7.2				14.0	0.0	pH				27.0
+MIXS:0000647	slope aspect	Metadata- MIxS Optional	The direction a slope faces. While looking down a slope use a compass to record the direction you are facing (direction or degrees); e.g., nw or 315 degrees. This measure provides an indication of sun and wind exposure that will influence soil temperature and evapotranspiration.		xs:token	^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)? \S+$								slope_aspect				19.0
+MIXS:0000639	history/agrochemical additions	Metadata- MIxS Optional	Addition of fertilizers, pesticides, etc. - amount and time of applications	Pattern hint: {text};{float} {unit};{timestamp}	xs:token	^\S+.*\S+;[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)? \S+;([\+-]?\d{4}(?!\d{2}\b))((-?)((0[1-9]|1[0-2])(\3([12]\d|0[1-9]|3[01]))?|W([0-4]\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\d|[12]\d{2}|3([0-5]\d|6[1-6])))([T\s]((([01]\d|2[0-3])((:?)[0-5]\d)?|24\:?00)([\.,]\d+(?!:))?)?(\17[0-5]\d([\.,]\d+)?)?([zZ]|([\+-])([01]\d|2[0-3]):?([0-5]\d)?)?)?)?$		roundup;5 milligram per liter;2018-06-21						agrochem_addition				20.0
+MIXS:0000607	extreme_unusual_properties/Al saturation	Metadata- MIxS Optional	Aluminum saturation (esp. For tropical soils)		xs:token	^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)? \S+$								al_sat				21.0
+MIXS:0000324	extreme_unusual_properties/Al saturation method	Metadata- MIxS Optional	Reference or method used in determining Al saturation	Pattern hint: {PMID}|{DOI}|{URL}	xs:token									al_sat_meth				22.0
+MIXS:0000644	mean annual precipitation	Metadata- MIxS Optional	The average of all annual precipitation values known, or an estimated equivalent value derived by such methods as regional indexes or Isohyetal maps.		xs:token	^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)? \S+$								annual_precpt				24.0
+MIXS:0000642	mean annual temperature	Metadata- MIxS Optional	Mean annual temperature		xs:token	^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)? \S+$		12.5 degree Celsius						annual_temp				25.0
+MIXS:0000318	history/crop rotation	Metadata- MIxS Optional	Whether or not crop is rotated, and if yes, rotation schedule	Pattern hint: {boolean};{Rn/start_time/end_time/duration}	xs:token			yes;R2/2017-01-01/2018-12-31/P6M						crop_rotation				26.0
+MIXS:0001080	current land use	Metadata- MIxS Optional	Present state of sample site		select			conifers						cur_land_use				27.0
+MIXS:0000312	current vegetation	Metadata- MIxS Optional	Vegetation classification from one or more standard classification systems, or agricultural crop	Pattern hint: {text}	xs:token									cur_vegetation				28.0
+MIXS:0000314	current vegetation method	Metadata- MIxS Optional	Reference or method used in vegetation classification	Pattern hint: {PMID}|{DOI}|{URL}	xs:token									cur_vegetation_meth				29.0
+MIXS:0001085	drainage classification	Metadata- MIxS Optional	Drainage classification from a standard system such as the USDA system		select			well						drainage_class				30.0
+MIXS:0000008	experimental factor	Metadata- MIxS Optional	Experimental factors are essentially the variable aspects of an experiment design which can be used to describe an experiment, or set of experiments, in an increasingly detailed manner. This field accepts ontology terms from Experimental Factor Ontology (EFO) and/or Ontology for Biomedical Investigations (OBI). For a browser of EFO (v 2.95) terms, please see http://purl.bioontology.org/ontology/EFO; for a browser of OBI (v 2018-02-12) terms please see http://purl.bioontology.org/ontology/OBI	Pattern hint: {termLabel} {[termID]}|{text}	xs:token			time series design [EFO:EFO_0001779]						experimental_factor				31.0
+MIXS:0000320	history/extreme events	Metadata- MIxS Optional	Unusual physical events that may have affected microbial populations		xs:date									extreme_event				32.0
+MIXS:0001083	soil_taxonomic/FAO classification	Metadata- MIxS Optional	Soil classification from the FAO World Reference Database for Soil Resources. The list can be found at http://www.fao.org/nr/land/sols/soil/wrb-soil-maps/reference-groups		select			Luvisols						fao_class				33.0
+MIXS:0001086	history/fire	Metadata- MIxS Optional	Historical and/or physical evidence of fire		xs:date									fire				34.0
+MIXS:0000319	history/flooding	Metadata- MIxS Optional	Historical and/or physical evidence of flooding		xs:date									flooding				35.0
+MIXS:0000652	extreme_unusual_properties/heavy metals	Metadata- MIxS Optional	Heavy metals present in the sequenced sample and their concentrations. For multiple heavy metals and concentrations, add multiple copies of this field.	Pattern hint: {text};{float} {unit}	xs:token	^\S*;[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)? \S+$		mercury;0.09 micrograms per gram						heavy_metals				36.0
+MIXS:0000343	extreme_unusual_properties/heavy metals method	Metadata- MIxS Optional	Reference or method used in determining heavy metals	Pattern hint: {PMID}|{DOI}|{URL}	xs:token									heavy_metals_meth				37.0
+MIXS:0000321	horizon method	Metadata- MIxS Optional	Reference or method used in determining the horizon	Pattern hint: {PMID}|{DOI}|{URL}	xs:token									horizon_meth				38.0
+MIXS:0000329	link to classification information	Metadata- MIxS Optional	Link to digitized soil maps or other soil classification information	Pattern hint: {PMID}|{DOI}|{URL}	xs:token									link_class_info				39.0
+MIXS:0000328	link to climate information	Metadata- MIxS Optional	Link to climate resource	Pattern hint: {PMID}|{DOI}|{URL}	xs:token									link_climate_info				40.0
+MIXS:0000330	soil_taxonomic/local classification	Metadata- MIxS Optional	Soil classification based on local soil classification system	Pattern hint: {text}	xs:token									local_class				41.0
+MIXS:0000331	soil_taxonomic/local classification method	Metadata- MIxS Optional	Reference or method used in determining the local soil classification	Pattern hint: {PMID}|{DOI}|{URL}	xs:token									local_class_meth				42.0
+MIXS:0000752	miscellaneous parameter	Metadata- MIxS Optional	Any other measurement performed or parameter collected, that is not listed here	Pattern hint: {text};{float} {unit}	xs:token	^\S*;[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)? \S+$		Bicarbonate ion concentration;2075 micromole per kilogram						misc_param				43.0
+MIXS:0000753	oxygenation status of sample	Metadata- MIxS Optional	Oxygenation status of sample		select			aerobic						oxy_stat_samp				44.0
+MIXS:0000316	history/previous land use method	Metadata- MIxS Optional	Reference or method used in determining previous land use and dates	Pattern hint: {PMID}|{DOI}|{URL}	xs:token									prev_land_use_meth				45.0
+MIXS:0000315	history/previous land use	Metadata- MIxS Optional	Previous land use and dates	Pattern hint: {text};{timestamp}	xs:token	^\S+.*\S+;([\+-]?\d{4}(?!\d{2}\b))((-?)((0[1-9]|1[0-2])(\3([12]\d|0[1-9]|3[01]))?|W([0-4]\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\d|[12]\d{2}|3([0-5]\d|6[1-6])))([T\s]((([01]\d|2[0-3])((:?)[0-5]\d)?|24\:?00)([\.,]\d+(?!:))?)?(\17[0-5]\d([\.,]\d+)?)?([zZ]|([\+-])([01]\d|2[0-3]):?([0-5]\d)?)?)?)?$								previous_land_use				46.0
+MIXS:0001084	profile position	Metadata- MIxS Optional	Cross-sectional position in the hillslope where sample was collected.sample area position in relation to surrounding areas		select			summit						profile_position				47.0
+MIXS:0000645	mean seasonal precipitation	Metadata- MIxS Optional	The average of all seasonal precipitation values known, or an estimated equivalent value derived by such methods as regional indexes or Isohyetal maps.		xs:token	^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)? \S+$								season_precpt				48.0
+MIXS:0000643	mean seasonal temperature	Metadata- MIxS Optional	Mean seasonal temperature		xs:token	^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)? \S+$		18 degree Celsius						season_temp				49.0
+MIXS:0000646	slope gradient	Metadata- MIxS Optional	Commonly called 'slope'. The angle between ground surface and a horizontal line (in percent). This is the direction that overland water would flow. This measure is usually taken with a hand level meter or clinometer		xs:token	^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)? \S+$								slope_gradient				50.0
+MIXS:0001082	soil horizon	Metadata- MIxS Optional	Specific layer in the land area which measures parallel to the soil surface and possesses physical characteristics which differ from the layers above and beneath		select			A horizon						soil_horizon				51.0
+MIXS:0000335	soil texture measurement	Metadata- MIxS Optional	The relative proportion of different grain sizes of mineral particles in a soil, as described using a standard system; express as % sand (50 um to 2 mm), silt (2 um to 50 um), and clay (<2 um) with textural name (e.g., silty clay loam) optional.		xs:token	^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)? \S+$								soil_text_measure				52.0
+MIXS:0000336	soil texture method	Metadata- MIxS Optional	Reference or method used in determining soil texture	Pattern hint: {PMID}|{DOI}|{URL}	xs:token									soil_texture_meth				53.0
+MIXS:0000332	soil type	Metadata- MIxS Optional	Description of the soil type or classification. This field accepts terms under soil (http://purl.obolibrary.org/obo/ENVO_00001998).  Multiple terms can be separated by pipes.	Pattern hint: {termLabel} {[termID]}	xs:token	^\S+.*\S+ \[ENVO:\d+\]$		plinthosol [ENVO:00002250]						soil_type				54.0
+MIXS:0000334	soil type method	Metadata- MIxS Optional	Reference or method used in determining soil series name or other lower-level classification	Pattern hint: {PMID}|{DOI}|{URL}	xs:token									soil_type_meth				55.0
+MIXS:0000113	temperature	Metadata- MIxS Optional	Temperature of the sample at the time of sampling.		xs:token	^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)? \S+$		25 degree Celsius						temp				56.0
+MIXS:0001081	history/tillage	Metadata- MIxS Optional	Note method(s) used for tilling		multiple			chisel						tillage				57.0
+MIXS:0000185	water content	Metadata- MIxS Optional	Water content measurement		xs:token	^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)? \S+$								water_content				58.0
+MIXS:0000323	water content method	Metadata- MIxS Optional	Reference or method used in determining the water content of soil	Pattern hint: {PMID}|{DOI}|{URL}	xs:token									water_cont_soil_meth				59.0
+MIXS:0001106	pH method	Metadata- MIxS Optional	Reference or method used in determining ph	Pattern hint: {PMID}|{DOI}|{URL}	xs:token									ph_meth				61.0
+MIXS:0000650	microbial biomass	Metadata- MIxS Optional	The part of the organic matter in the soil that constitutes living microorganisms smaller than 5-10 micrometer. If you keep this, you would need to have correction factors used for conversion to the final units		xs:token	^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)? \S+$								microbial_biomass				62.0
+MIXS:0000339	microbial biomass method	Metadata- MIxS Optional	Reference or method used in determining microbial biomass	Pattern hint: {PMID}|{DOI}|{URL}	xs:token									micro_biomass_meth				63.0
+MIXS:0000310	carbon/nitrogen ratio	Metadata- MIxS Optional	Ratio of amount or concentrations of carbon to nitrogen		xs:token	^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)? \S+$		0.417361111						carb_nitro_ratio				64.0
+MIXS:0000204	organic matter	Metadata- MIxS Optional	Concentration of organic matter		xs:token	^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)? \S+$		1.75 milligram per cubic meter						org_matter				65.0
+MIXS:0000205	organic nitrogen	Metadata- MIxS Optional	Concentration of organic nitrogen		xs:token	^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)? \S+$		4 micromole per liter						org_nitro				66.0
+MIXS:0000525	total carbon	Metadata- MIxS Optional	Total carbon content		xs:token	^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)? \S+$								tot_carb				67.0
+MIXS:0000530	total nitrogen content	Metadata- MIxS Optional	Total nitrogen content of the sample		xs:token	^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)? \S+$								tot_nitro_content				68.0
+MIXS:0000338	total nitrogen content method	Metadata- MIxS Optional	Reference or method used in determining the total nitrogen	Pattern hint: {PMID}|{DOI}|{URL}	xs:token									tot_nitro_cont_meth				69.0
+MIXS:0000533	total organic carbon	Metadata- MIxS Optional	Definition for soil: total organic carbon content of the soil, definition otherwise: total organic carbon content		xs:token	^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)? \S+$								tot_org_carb				70.0
+MIXS:0000337	total organic carbon method	Metadata- MIxS Optional	Reference or method used in determining total organic carbon	Pattern hint: {PMID}|{DOI}|{URL}	xs:token									tot_org_c_meth				71.0
+MIXS:0000117	total phosphorus	Metadata- MIxS Optional	Total phosphorus concentration in the sample, calculated by: total phosphorus = total dissolved phosphorus + particulate phosphorus		xs:token	^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)? \S+$		0.03 milligram per liter						tot_phosp				72.0
+MIXS:0000505	phosphate	Metadata- MIxS Optional	Concentration of phosphate		xs:token	^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)? \S+$		0.7 micromole per liter						phosphate				73.0
+MIXS:0000183	salinity	Metadata- MIxS Optional	The total concentration of all dissolved salts in a liquid or solid sample. While salinity can be measured by a complete chemical analysis, this method is difficult and time consuming. More often, it is instead derived from the conductivity measurement. This is known as practical salinity. These derivations compare the specific conductance of the sample to a salinity standard such as seawater.		xs:token	^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)? \S+$		25 practical salinity unit						salinity				74.0
+MIXS:0000341	salinity method	Metadata- MIxS Optional	Reference or method used in determining salinity	Pattern hint: {PMID}|{DOI}|{URL}	xs:token									salinity_meth				75.0
+MIXS:0000012	broad-scale environmental context	Metadata- MIxS Required	Report the major environmental system the sample or specimen came from. The system(s) identified should have a coarse spatial grain, to provide the general environmental context of where the sampling was done (e.g. in the desert or a rainforest). We recommend using subclasses of EnvO’s biome class:  http://purl.obolibrary.org/obo/ENVO_00000428. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS	Pattern hint: {termLabel} {[termID]}	select		required	oceanic epipelagic zone biome [ENVO:01000033] for annotating a water sample from the photic zone in middle of the Atlantic Ocean						env_broad_scale				1.0
+MIXS:0000013	local environmental context	Metadata- MIxS Required	Report the entity or entities which are in the sample or specimen’s local vicinity and which you believe have significant causal influences on your sample or specimen. We recommend using EnvO terms which are of smaller spatial grain than your entry for env_broad_scale. Terms, such as anatomical sites, from other OBO Library ontologies which interoperate with EnvO (e.g. UBERON) are accepted in this field. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS.	Pattern hint: {termLabel} {[termID]}	select		required	litter layer [ENVO:01000338]; Annotating a pooled sample taken from various vegetation layers in a forest consider: canopy [ENVO:00000047]|herb and fern layer [ENVO:01000337]|litter layer [ENVO:01000338]|understory [01000335]|shrub layer [ENVO:01000336].						env_local_scale				2.0
+MIXS:0000014	environmental medium	Metadata- MIxS Required	Report the environmental material(s) immediately surrounding the sample or specimen at the time of sampling. We recommend using subclasses of 'environmental material' (http://purl.obolibrary.org/obo/ENVO_00010483). EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS . Terms from other OBO ontologies are permissible as long as they reference mass/volume nouns (e.g. air, water, blood) and not discrete, countable entities (e.g. a tree, a leaf, a table top).	Pattern hint: {termLabel} {[termID]}	select		required	soil [ENVO:00001998]; Annotating a fish swimming in the upper 100 m of the Atlantic Ocean, consider: ocean water [ENVO:00002151]. Example: Annotating a duck on a pond consider: pond water [ENVO:00002228]|air [ENVO_00002005]						env_medium				3.0
+MIXS:0000010	geographic location (country and/or sea,region)	Metadata- MIxS Required	The geographical origin of the sample as defined by the country or sea name followed by specific region name. Country or sea names should be chosen from the INSDC country list (http://insdc.org/country.html), or the GAZ ontology (http://purl.bioontology.org/ontology/GAZ)	Pattern hint: {term}: {term}, {text}	xs:token			USA: Maryland, Bethesda						geo_loc_name				4.0
+MIXS:0000009	geographic location (latitude and longitude)	Metadata- MIxS Required	The geographical origin of the sample as defined by latitude and longitude. The values should be reported in decimal degrees and in WGS84 system	Pattern hint: {float} {float}	xs:token	^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)? [-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?$		50.586825 6.408977						lat_lon				5.0
+MIXS:0000093	elevation	Metadata- MIxS Required	Elevation of the sampling site is its height above a fixed reference point, most commonly the mean sea level. Elevation is mainly used when referring to points on the earth's surface, while altitude is used for points above the surface, such as an aircraft in flight or a spacecraft in orbit.		xs:token	^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)? \S+$	required	100 meter						elev				6.0
+MIXS:0000110	sample storage temperature	Metadata- MIxS Required	Temperature at which sample was stored, e.g. -80 degree Celsius		xs:token	^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)? \S+$		-80 degree Celsius						samp_store_temp				7.0
+MIXS:0000322	composite design/sieving	Metadata- MIxS Required Where Applicable	Collection design of pooled samples and/or sieve size and amount of sample sieved	Pattern hint: {{text}|{float} {unit}};{float} {unit}	xs:token									sieving				8.0
+MIXS:0000735	size-fraction lower threshold	Metadata- MIxS Required Where Applicable	Refers to the mesh/pore size used to pre-filter/pre-sort the sample. Materials larger than the size threshold are excluded from the sample		xs:token	^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)? \S+$		0.2 micrometer						size_frac_low				9.0
+MIXS:0000736	size-fraction upper threshold	Metadata- MIxS Required Where Applicable	Refers to the mesh/pore size used to retain the sample. Materials smaller than the size threshold are excluded from the sample		xs:token	^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)? \S+$		20 micrometer						size_frac_up				10.0
+MIXS:0001038	biotic regimen	Metadata- MIxS Required Where Applicable	Information about treatment(s) involving use of biotic factors, such as bacteria, viruses or fungi.	Pattern hint: {text}	xs:token			sample inoculated with Rhizobium spp. Culture						biotic_regm				11.0
+MIXS:0000551	air temperature regimen	Metadata- MIxS Required Where Applicable	Information about treatment involving an exposure to varying temperatures; should include the temperature, treatment regimen including how many times the treatment was repeated, how long each treatment lasted, and the start and end time of the entire treatment; can include different temperature regimens	Pattern hint: {float} {unit};{Rn/start_time/end_time/duration}	xs:token			25 degree Celsius;R2/2018-05-11T14:30/2018-05-11T19:30/P1H30M						air_temp_regm				12.0
+MIXS:0000751	chemical administration	Metadata- MIxS Required Where Applicable	List of chemical compounds administered to the host or site where sampling occurred, and when (e.g. Antibiotics, n fertilizer, air filter); can include multiple compounds. For chemical entities of biological interest ontology (chebi) (v 163), http://purl.bioontology.org/ontology/chebi	Pattern hint: {termLabel} {[termID]};{timestamp}	xs:token			agar [CHEBI:2509];2018-05-11T20:00Z						chem_administration				13.0
+MIXS:0001040	climate environment	Metadata- MIxS Required Where Applicable	Treatment involving an exposure to a particular climate; treatment regimen including how many times the treatment was repeated, how long each treatment lasted, and the start and end time of the entire treatment; can include multiple climates	Pattern hint: {text};{Rn/start_time/end_time/duration}	xs:token			tropical climate;R2/2018-05-11T14:30/2018-05-11T19:30/P1H30M						climate_environment				14.0
+MIXS:0000558	gaseous environment	Metadata- MIxS Required Where Applicable	Use of conditions with differing gaseous environments; should include the name of gaseous compound, amount administered, treatment duration, interval and total experimental duration; can include multiple gaseous environment regimens	Pattern hint: {text};{float} {unit};{Rn/start_time/end_time/duration}	xs:token			nitric oxide;0.5 micromole per liter;R2/2018-05-11T14:30/2018-05-11T19:30/P1H30M						gaseous_environment				15.0
+MIXS:0000568	humidity regimen	Metadata- MIxS Required Where Applicable	Information about treatment involving an exposure to varying degree of humidity; information about treatment involving use of growth hormones; should include amount of humidity administered, treatment regimen including how many times the treatment was repeated, how long each treatment lasted, and the start and end time of the entire treatment; can include multiple regimens	Pattern hint: {float} {unit};{Rn/start_time/end_time/duration}	xs:token			25 gram per cubic meter;R2/2018-05-11T14:30/2018-05-11T19:30/P1H30M						humidity_regm				16.0
+MIXS:0000569	light regimen	Metadata- MIxS Required Where Applicable	Information about treatment(s) involving exposure to light, including both light intensity and quality.	Pattern hint: {text};{float} {unit};{float} {unit}	xs:token			incandescant light;10 lux;450 nanometer						light_regm				17.0
+MIXS:0000591	watering regimen	Metadata- MIxS Required Where Applicable	Information about treatment involving an exposure to watering frequencies, treatment regimen including how many times the treatment was repeated, how long each treatment lasted, and the start and end time of the entire treatment; can include multiple regimens	Pattern hint: {float} {unit};{Rn/start_time/end_time/duration}	xs:token			1 liter;R2/2018-05-11T14:30/2018-05-11T19:30/P1H30M						watering_regm				18.0
+MIXS:0000094	altitude	Metadata- MIxS Required Where Applicable	Altitude is a term used to identify heights of objects such as airplanes, space shuttles, rockets, atmospheric balloons and heights of places such as atmospheric layers and clouds. It is used to measure the height of an object which is above the earth's surface. In this context, the altitude measurement is the vertical distance between the earth's surface above sea level and the sampled position in the air		xs:token	^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)? \S+$		100 meter						alt				23.0
+samp_id:ecosystem	ecosystem	NMDC fields esp. GOLD paths	An ecosystem is a combination of a physical environment (abiotic factors) and all the organisms (biotic factors) that interact with this environment. Ecosystem is in position 1/5 in a GOLD path.	The abiotic factors play a profound role on the type and composition of organisms in a given environment. The GOLD Ecosystem at the top of the five-level classification system is aimed at capturing the broader environment from which an organism or environmental sample is collected. The three broad groups under Ecosystem are Environmental, Host-associated, and Engineered. They represent samples collected from a natural environment or from another organism or from engineered environments like bioreactors respectively. | Pattern hint: enumeration	select									ecosystem				6.0
+samp_id:ecosystem_category	ecosystem_category	NMDC fields esp. GOLD paths	Ecosystem categories represent divisions within the ecosystem based on specific characteristics of the environment from where an organism or sample is isolated. Ecosystem category is in position 2/5 in a GOLD path.	The Environmental ecosystem (for example) is divided into Air, Aquatic and Terrestrial. Ecosystem categories for Host-associated samples can be individual hosts or phyla and for engineered samples it may be manipulated environments like bioreactors, solid waste etc. | Pattern hint: enumeration	select									ecosystem_category				7.0
+samp_id:ecosystem_type	ecosystem_type	NMDC fields esp. GOLD paths	Ecosystem types represent things having common characteristics within the Ecosystem Category. These common characteristics based grouping is still broad but specific to the characteristics of a given environment. Ecosystem type is in position 3/5 in a GOLD path.	The Aquatic ecosystem category (for example) may have ecosystem types like Marine or Thermal springs etc. Ecosystem category Air may have Indoor air or Outdoor air as different Ecosystem Types. In the case of Host-associated samples, ecosystem type can represent Respiratory system, Digestive system, Roots etc. | Pattern hint: enumeration	select									ecosystem_type				8.0
+samp_id:ecosystem_subtype	ecosystem_subtype	NMDC fields esp. GOLD paths	Ecosystem subtypes represent further subdivision of Ecosystem types into more distinct subtypes. Ecosystem subtype is in position 4/5 in a GOLD path.	Ecosystem Type Marine (Environmental -> Aquatic -> Marine) is further divided (for example) into Intertidal zone, Coastal, Pelagic, Intertidal zone etc. in the Ecosystem subtype category. | Pattern hint: enumeration	select									ecosystem_subtype				9.0
+samp_id:specific_ecosystem	specific_ecosystem	NMDC fields esp. GOLD paths	"Specific ecosystems represent specific features of the environment like aphotic zone in an ocean or gastric mucosa within a host digestive system. Specific ecosystem is in position 5/5 in a GOLD path.
+"	"Specific ecosystems help to define samples based on very specific characteristics of an environment under the five-level classification system.
+ | Pattern hint: enumeration"	select									specific_ecosystem				10.0
+samp_id:unique_ID	Globally Unique ID	Sample ID	A globally unique identifier assigned to the biological sample.	Identifiers must me prefixed. IGSNs (http://www.geosamples.org/getigsn) are unique and FAIR. UUIDs (https://www.uuidgenerator.net/) are globally unique but not FAIR. These IDs enable linking to derrived analytes and subsamples. | Pattern hint: {text}:{text}	xs:unique	[^\:\n\r]+\:[^\:\n\r]+	required	IGSN:AU1243						unique_ID				1.0
+samp_id:sample_name	sample name	Sample ID	A local identifier or name that for the material sample collected. Refers to the original material collected or to any derived sub-samples.	It can have any format, but we suggest that you make it concise, unique and consistent within your lab, and as informative as possible. | Pattern hint: {text}	xs:token		required	Rock core CB1178(5-6) from NSW						sample_name				2.0
+samp_id:env_package	environmental package	Sample ID	Select the MIxS enviromental package that best describes the environment from which your sample was collected.	Pattern hint: enumeration	select		required	soil						env_package				3.0
+samp_id:analysis_type	Analysis/Data Type	Sample ID	Select all the data types associated or available for this biosample	Pattern hint: enumeration	multiple		required	metagenomics; metabolomics; proteomics						analysis_type				4.0
+samp_id:sample_link	sample linkage	Sample ID	A unique identifier to assign parent-child, subsample, or sibling samples. This is relevant when a sample or other material was used to generate the new sample. 	This field allows multiple entries separated by ; (Examples: Soil collected from the field will link with the soil used in an incubation. The soil a plant was grown in links to the plant sample. An original culture sample was transferred to a new vial and generated a new sample) | Pattern hint: {text}:{text}	xs:token	[^\:\n\r]+\:[^\:\n\r]+	recommended	IGSN:DSJ0284						sample_link				5.0
+	metabolomics	Analysis/Data Type																
+	metagenomics	Analysis/Data Type																
+	metaproteomics	Analysis/Data Type																
+	metatranscriptomics	Analysis/Data Type																
+	natural organic matter	Analysis/Data Type																
+	badlands	current land use																
+	cities	current land use																
+	conifers (e.g. pine,spruce,fir,cypress)	current land use																
+	crop trees (nuts,fruit,christmas trees,nursery trees)	current land use																
+	farmstead	current land use																
+	gravel	current land use																
+	hardwoods (e.g. oak,hickory,elm,aspen)	current land use																
+	hayland	current land use																
+	horticultural plants (e.g. tulips)	current land use																
+	industrial areas	current land use																
+	intermixed hardwood and conifers	current land use																
+	marshlands (grass,sedges,rushes)	current land use																
+	meadows (grasses,alfalfa,fescue,bromegrass,timothy)	current land use																
+	mines/quarries	current land use																
+	mudflats	current land use																
+	oil waste areas	current land use																
+	pastureland (grasslands used for livestock grazing)	current land use																
+	permanent snow or ice	current land use																
+	rainforest (evergreen forest receiving >406 cm annual rainfall)	current land use																
+	rangeland	current land use																
+	roads/railroads	current land use																
+	rock	current land use																
+	row crops	current land use																
+	saline seeps	current land use																
+	salt flats	current land use																
+	sand	current land use																
+	shrub crops (blueberries,nursery ornamentals,filberts)	current land use																
+	shrub land (e.g. mesquite,sage-brush,creosote bush,shrub oak,eucalyptus)	current land use																
+	small grains	current land use																
+	successional shrub land (tree saplings,hazels,sumacs,chokecherry,shrub dogwoods,blackberries)	current land use																
+	swamp (permanent or semi-permanent water body dominated by woody plants)	current land use																
+	tropical (e.g. mangrove,palms)	current land use																
+	tundra (mosses,lichens)	current land use																
+	vegetable crops	current land use																
+	vine crops (grapes)	current land use																
+	plate	DNA Container Type																
+	tube	DNA Container Type																
+	no	DNAse Treatment DNA																
+	yes	DNAse Treatment DNA																
+	10 mM Tris-HCl	DNA Sample Format																
+	DNAStable	DNA Sample Format																
+	Ethanol	DNA Sample Format																
+	Low EDTA TE	DNA Sample Format																
+	MDA reaction buffer	DNA Sample Format																
+	PBS	DNA Sample Format																
+	Pellet	DNA Sample Format																
+	RNAStable	DNA Sample Format																
+	TE	DNA Sample Format																
+	Water	DNA Sample Format																
+	excessively drained	drainage classification																
+	moderately well	drainage classification																
+	poorly	drainage classification																
+	somewhat poorly	drainage classification																
+	very poorly	drainage classification																
+	well	drainage classification																
+	Environmental	ecosystem																
+	Terrestrial	ecosystem_category																
+	Biocrust	ecosystem_subtype																
+	Biofilm	ecosystem_subtype																
+	Bulk soil	ecosystem_subtype																
+	Clay	ecosystem_subtype																
+	Floodplain	ecosystem_subtype																
+	Fossil	ecosystem_subtype																
+	Glacier	ecosystem_subtype																
+	Loam	ecosystem_subtype																
+	Mineral horizon	ecosystem_subtype																
+	Nature reserve	ecosystem_subtype																
+	Organic layer	ecosystem_subtype																
+	Paddy field/soil	ecosystem_subtype																
+	Pasture	ecosystem_subtype																
+	Peat	ecosystem_subtype																
+	Ranch	ecosystem_subtype																
+	Sand	ecosystem_subtype																
+	Silt	ecosystem_subtype																
+	Soil crust	ecosystem_subtype																
+	Unclassified	ecosystem_subtype																
+	Watershed	ecosystem_subtype																
+	Wetlands	ecosystem_subtype																
+	Soil	ecosystem_type																
+	soil	environmental package																
+	Acrisols	soil_taxonomic/FAO classification																
+	Andosols	soil_taxonomic/FAO classification																
+	Arenosols	soil_taxonomic/FAO classification																
+	Cambisols	soil_taxonomic/FAO classification																
+	Chernozems	soil_taxonomic/FAO classification																
+	Ferralsols	soil_taxonomic/FAO classification																
+	Fluvisols	soil_taxonomic/FAO classification																
+	Gleysols	soil_taxonomic/FAO classification																
+	Greyzems	soil_taxonomic/FAO classification																
+	Gypsisols	soil_taxonomic/FAO classification																
+	Histosols	soil_taxonomic/FAO classification																
+	Kastanozems	soil_taxonomic/FAO classification																
+	Lithosols	soil_taxonomic/FAO classification																
+	Luvisols	soil_taxonomic/FAO classification																
+	Nitosols	soil_taxonomic/FAO classification																
+	Phaeozems	soil_taxonomic/FAO classification																
+	Planosols	soil_taxonomic/FAO classification																
+	Podzols	soil_taxonomic/FAO classification																
+	Podzoluvisols	soil_taxonomic/FAO classification																
+	Rankers	soil_taxonomic/FAO classification																
+	Regosols	soil_taxonomic/FAO classification																
+	Rendzinas	soil_taxonomic/FAO classification																
+	Solonchaks	soil_taxonomic/FAO classification																
+	Solonetz	soil_taxonomic/FAO classification																
+	Vertisols	soil_taxonomic/FAO classification																
+	Yermosols	soil_taxonomic/FAO classification																
+	experimental_garden	growth facility																
+	field	growth facility																
+	field_incubation	growth facility																
+	glasshouse	growth facility																
+	greenhouse	growth facility																
+	growth_chamber	growth facility																
+	lab_incubation	growth facility																
+	open_top_chamber	growth facility																
+	other	growth facility																
+	aerobic	oxygenation status of sample																
+	anaerobic	oxygenation status of sample																
+	other	oxygenation status of sample																
+	aerobe	relationship to oxygen																
+	anaerobe	relationship to oxygen																
+	facultative	relationship to oxygen																
+	microaerophilic	relationship to oxygen																
+	microanaerobe	relationship to oxygen																
+	obligate aerobe	relationship to oxygen																
+	obligate anaerobe	relationship to oxygen																
+	backslope	profile position																
+	footslope	profile position																
+	shoulder	profile position																
+	summit	profile position																
+	toeslope	profile position																
+	commensalism	observed biotic relationship																
+	free living	observed biotic relationship																
+	mutualism	observed biotic relationship																
+	parasitism	observed biotic relationship																
+	symbiotic	observed biotic relationship																
+	soil	sample type																
+	water_extract_soil	sample type																
+	A horizon	soil horizon																
+	B horizon	soil horizon																
+	C horizon	soil horizon																
+	E horizon	soil horizon																
+	O horizon	soil horizon																
+	Permafrost	soil horizon																
+	R layer	soil horizon																
+	Agricultural	specific_ecosystem																
+	Agricultural land	specific_ecosystem																
+	Agricultural soil	specific_ecosystem																
+	Alpine	specific_ecosystem																
+	Bog	specific_ecosystem																
+	Boreal forest	specific_ecosystem																
+	Contaminated	specific_ecosystem																
+	Desert	specific_ecosystem																
+	Farm	specific_ecosystem																
+	Forest Soil	specific_ecosystem																
+	Forest soil	specific_ecosystem																
+	Grasslands	specific_ecosystem																
+	Meadow	specific_ecosystem																
+	Mine	specific_ecosystem																
+	Mine drainage	specific_ecosystem																
+	Oil-contaminated	specific_ecosystem																
+	Orchard soil	specific_ecosystem																
+	Permafrost	specific_ecosystem																
+	Riparian soil	specific_ecosystem																
+	River	specific_ecosystem																
+	Shrubland	specific_ecosystem																
+	Tropical rainforest	specific_ecosystem																
+	Unclassified	specific_ecosystem																
+	Uranium contaminated	specific_ecosystem																
+	fresh	storage conditions																
+	frozen	storage conditions																
+	lyophilized	storage conditions																
+	other	storage conditions																
+	chisel	history/tillage																
+	cutting disc	history/tillage																
+	disc plough	history/tillage																
+	drill	history/tillage																
+	mouldboard	history/tillage																
+	ridge till	history/tillage																
+	strip tillage	history/tillage																
+	tined	history/tillage																
+	zonal tillage	history/tillage																
+ENVO:01001835	alpine biome [ENVO:01001835]	broad-scale environmental context																
+ENVO:01001505	__alpine tundra biome [ENVO:01001505]	broad-scale environmental context																
+ENVO:01000219	anthropogenic terrestrial biome [ENVO:01000219]	broad-scale environmental context																
+ENVO:01000247	__rangeland biome [ENVO:01000247]	broad-scale environmental context																
+ENVO:01000246	__village biome [ENVO:01000246]	broad-scale environmental context																
+ENVO:01001838	arid biome [ENVO:01001838]	broad-scale environmental context																
+ENVO:01000181	mangrove biome [ENVO:01000181]	broad-scale environmental context																
+ENVO:01001836	montane biome [ENVO:01001836]	broad-scale environmental context																
+ENVO:01000223	__montane savanna biome [ENVO:01000223]	broad-scale environmental context																
+ENVO:01000216	__montane shrubland biome [ENVO:01000216]	broad-scale environmental context																
+ENVO:01000339	polar biome [ENVO:01000339]	broad-scale environmental context																
+ENVO:01000176	shrubland biome [ENVO:01000176]	broad-scale environmental context																
+ENVO:01000216	__montane shrubland biome [ENVO:01000216]	broad-scale environmental context																
+ENVO:01000213	__subtropical shrubland biome [ENVO:01000213]	broad-scale environmental context																
+ENVO:01000217	____mediterranean shrubland biome [ENVO:01000217]	broad-scale environmental context																
+ENVO:01000215	__temperate shrubland biome [ENVO:01000215]	broad-scale environmental context																
+ENVO:01000214	__tropical shrubland biome [ENVO:01000214]	broad-scale environmental context																
+ENVO:01001837	subalpine biome [ENVO:01001837]	broad-scale environmental context																
+ENVO:01001834	subpolar biome [ENVO:01001834]	broad-scale environmental context																
+ENVO:01001832	subtropical biome [ENVO:01001832]	broad-scale environmental context																
+ENVO:01001833	__mediterranean biome [ENVO:01001833]	broad-scale environmental context																
+ENVO:01000229	____mediterranean savanna biome [ENVO:01000229]	broad-scale environmental context																
+ENVO:01000217	____mediterranean shrubland biome [ENVO:01000217]	broad-scale environmental context																
+ENVO:01000208	____mediterranean woodland biome [ENVO:01000208]	broad-scale environmental context																
+ENVO:01000187	__subtropical savanna biome [ENVO:01000187]	broad-scale environmental context																
+ENVO:01000229	____mediterranean savanna biome [ENVO:01000229]	broad-scale environmental context																
+ENVO:01000213	__subtropical shrubland biome [ENVO:01000213]	broad-scale environmental context																
+ENVO:01000217	____mediterranean shrubland biome [ENVO:01000217]	broad-scale environmental context																
+ENVO:01000222	__subtropical woodland biome [ENVO:01000222]	broad-scale environmental context																
+ENVO:01000208	____mediterranean woodland biome [ENVO:01000208]	broad-scale environmental context																
+ENVO:01001831	temperate biome [ENVO:01001831]	broad-scale environmental context																
+ENVO:01000189	__temperate savanna biome [ENVO:01000189]	broad-scale environmental context																
+ENVO:01000215	__temperate shrubland biome [ENVO:01000215]	broad-scale environmental context																
+ENVO:01000221	__temperate woodland biome [ENVO:01000221]	broad-scale environmental context																
+ENVO:01001830	tropical biome [ENVO:01001830]	broad-scale environmental context																
+ENVO:01000188	__tropical savanna biome [ENVO:01000188]	broad-scale environmental context																
+ENVO:01000214	__tropical shrubland biome [ENVO:01000214]	broad-scale environmental context																
+ENVO:01000220	__tropical woodland biome [ENVO:01000220]	broad-scale environmental context																
+ENVO:01000180	tundra biome [ENVO:01000180]	broad-scale environmental context																
+ENVO:01001505	__alpine tundra biome [ENVO:01001505]	broad-scale environmental context																
+ENVO:01000249	urban biome [ENVO:01000249]	broad-scale environmental context																
+ENVO:01000175	woodland biome [ENVO:01000175]	broad-scale environmental context																
+ENVO:01000178	__savanna biome [ENVO:01000178]	broad-scale environmental context																
+ENVO:01000190	____flooded savanna biome [ENVO:01000190]	broad-scale environmental context																
+ENVO:01000223	____montane savanna biome [ENVO:01000223]	broad-scale environmental context																
+ENVO:01000187	____subtropical savanna biome [ENVO:01000187]	broad-scale environmental context																
+ENVO:01000229	______mediterranean savanna biome [ENVO:01000229]	broad-scale environmental context																
+ENVO:01000189	____temperate savanna biome [ENVO:01000189]	broad-scale environmental context																
+ENVO:01000188	____tropical savanna biome [ENVO:01000188]	broad-scale environmental context																
+ENVO:01000222	__subtropical woodland biome [ENVO:01000222]	broad-scale environmental context																
+ENVO:01000208	____mediterranean woodland biome [ENVO:01000208]	broad-scale environmental context																
+ENVO:01000221	__temperate woodland biome [ENVO:01000221]	broad-scale environmental context																
+ENVO:01000220	__tropical woodland biome [ENVO:01000220]	broad-scale environmental context																
+ENVO:01000669	active geological fault [ENVO:01000669]	local environmental context																
+ENVO:00000114	agricultural field [ENVO:00000114]	local environmental context																
+ENVO:00000091	beach [ENVO:00000091]	local environmental context																
+ENVO:00000067	cave [ENVO:00000067]	local environmental context																
+ENVO:03000117	channel [ENVO:03000117]	local environmental context																
+ENVO:00000068	__tunnel [ENVO:00000068]	local environmental context																
+ENVO:01000687	coast [ENVO:01000687]	local environmental context																
+ENVO:00000277	dry lake [ENVO:00000277]	local environmental context																
+ENVO:01000995	dry river [ENVO:01000995]	local environmental context																
+ENVO:00000011	garden [ENVO:00000011]	local environmental context																
+ENVO:00000083	hill [ENVO:00000083]	local environmental context																
+ENVO:00000170	__dune [ENVO:00000170]	local environmental context																
+ENVO:00000516	hummock [ENVO:00000516]	local environmental context																
+ENVO:01001071	impact crater [ENVO:01001071]	local environmental context																
+ENVO:00000174	isthmus [ENVO:00000174]	local environmental context																
+ENVO:00000175	karst [ENVO:00000175]	local environmental context																
+ENVO:00000382	lake shore [ENVO:00000382]	local environmental context																
+ENVO:01000437	lava field [ENVO:01000437]	local environmental context																
+ENVO:00000179	mesa [ENVO:00000179]	local environmental context																
+ENVO:00000081	mountain [ENVO:00000081]	local environmental context																
+ENVO:00000305	peninsula [ENVO:00000305]	local environmental context																
+ENVO:00000086	plain [ENVO:00000086]	local environmental context																
+ENVO:00000182	plateau [ENVO:00000182]	local environmental context																
+ENVO:00000283	ridge [ENVO:00000283]	local environmental context																
+ENVO:00002000	slope [ENVO:00002000]	local environmental context																
+ENVO:00000087	__cliff [ENVO:00000087]	local environmental context																
+ENVO:01000333	__hillside [ENVO:01000333]	local environmental context																
+ENVO:00000146	snow field [ENVO:00000146]	local environmental context																
+ENVO:00000420	tombolo [ENVO:00000420]	local environmental context																
+ENVO:01000664	tuff cone [ENVO:01000664]	local environmental context																
+ENVO:00000100	valley [ENVO:00000100]	local environmental context																
+ENVO:00000169	__canyon [ENVO:00000169]	local environmental context																
+ENVO:00000128	__dry valley [ENVO:00000128]	local environmental context																
+ENVO:00000248	__glacial valley [ENVO:00000248]	local environmental context																
+ENVO:01000670	vein [ENVO:01000670]	local environmental context																
+ENVO:00000247	volcano [ENVO:00000247]	local environmental context																
+ENVO:00000444	woodland clearing [ENVO:00000444]	local environmental context																
+ENVO:00002259	agricultural soil [ENVO:00002259]	environmental medium																
+ENVO:00005789	__bluegrass field soil [ENVO:00005789]	environmental medium																
+ENVO:00005740	__paddy field soil [ENVO:00005740]	environmental medium																
+ENVO:00005776	____peaty paddy field soil [ENVO:00005776]	environmental medium																
+ENVO:00005788	__rubber plantation soil [ENVO:00005788]	environmental medium																
+ENVO:00002233	albeluvisol [ENVO:00002233]	environmental medium																
+ENVO:00002231	alisol [ENVO:00002231]	environmental medium																
+ENVO:00002871	alluvial soil [ENVO:00002871]	environmental medium																
+ENVO:00005758	__alluvial swamp soil [ENVO:00005758]	environmental medium																
+ENVO:00005741	alpine soil [ENVO:00005741]	environmental medium																
+ENVO:00002232	andosol [ENVO:00002232]	environmental medium																
+ENVO:01001841	__volcanic soil [ENVO:01001841]	environmental medium																
+ENVO:00002230	anthrosol [ENVO:00002230]	environmental medium																
+ENVO:00002229	arenosol [ENVO:00002229]	environmental medium																
+ENVO:01001616	bare soil [ENVO:01001616]	environmental medium																
+ENVO:00005760	burned soil [ENVO:00005760]	environmental medium																
+ENVO:00002239	calcisol [ENVO:00002239]	environmental medium																
+ENVO:00002235	cambisol [ENVO:00002235]	environmental medium																
+ENVO:01000427	carbon nanotube enriched soil [ENVO:01000427]	environmental medium																
+ENVO:00002237	chernozem [ENVO:00002237]	environmental medium																
+ENVO:00005747	compost soil [ENVO:00005747]	environmental medium																
+ENVO:00005765	__frozen compost soil [ENVO:00005765]	environmental medium																
+ENVO:00002116	contaminated soil [ENVO:00002116]	environmental medium																
+ENVO:00002146	__xylene contaminated soil [ENVO:00002146]	environmental medium																
+ENVO:00002260	dune soil [ENVO:00002260]	environmental medium																
+ENVO:00002238	durisol [ENVO:00002238]	environmental medium																
+ENVO:00002246	ferralsol [ENVO:00002246]	environmental medium																
+ENVO:00002273	fluvisol [ENVO:00002273]	environmental medium																
+ENVO:00002261	forest soil [ENVO:00002261]	environmental medium																
+ENVO:00005770	__beech forest soil [ENVO:00005770]	environmental medium																
+ENVO:00005787	__eucalyptus forest soil [ENVO:00005787]	environmental medium																
+ENVO:00005769	__mountain forest soil [ENVO:00005769]	environmental medium																
+ENVO:01001638	frost-susceptible soil [ENVO:01001638]	environmental medium																
+ENVO:01001526	frozen soil [ENVO:01001526]	environmental medium																
+ENVO:00002236	__cryosol [ENVO:00002236]	environmental medium																
+ENVO:01001528	__friable-frozen soil [ENVO:01001528]	environmental medium																
+ENVO:00005765	__frozen compost soil [ENVO:00005765]	environmental medium																
+ENVO:01001527	__plastic-frozen soil [ENVO:01001527]	environmental medium																
+ENVO:00002244	gleysol [ENVO:00002244]	environmental medium																
+ENVO:00005750	grassland soil [ENVO:00005750]	environmental medium																
+ENVO:00005746	__savanna soil [ENVO:00005746]	environmental medium																
+ENVO:00005777	__steppe soil [ENVO:00005777]	environmental medium																
+ENVO:00005780	greenhouse soil [ENVO:00005780]	environmental medium																
+ENVO:00002245	gypsisol [ENVO:00002245]	environmental medium																
+ENVO:00002243	histosol [ENVO:00002243]	environmental medium																
+ENVO:00005763	humus-rich acidic ash soil [ENVO:00005763]	environmental medium																
+ENVO:00005751	jungle soil [ENVO:00005751]	environmental medium																
+ENVO:00002240	kastanozem [ENVO:00002240]	environmental medium																
+ENVO:00002241	leptosol [ENVO:00002241]	environmental medium																
+ENVO:00005766	limed soil [ENVO:00005766]	environmental medium																
+ENVO:00002242	lixisol [ENVO:00002242]	environmental medium																
+ENVO:00002258	loam [ENVO:00002258]	environmental medium																
+ENVO:00002248	luvisol [ENVO:00002248]	environmental medium																
+ENVO:00005767	manured soil [ENVO:00005767]	environmental medium																
+ENVO:00005761	meadow soil [ENVO:00005761]	environmental medium																
+ENVO:00005771	muddy soil [ENVO:00005771]	environmental medium																
+ENVO:00002247	nitisol [ENVO:00002247]	environmental medium																
+ENVO:00005772	orchard soil [ENVO:00005772]	environmental medium																
+ENVO:00005782	ornithogenic soil [ENVO:00005782]	environmental medium																
+ENVO:00003088	pantothenate enriched soil [ENVO:00003088]	environmental medium																
+ENVO:00005773	pasture soil [ENVO:00005773]	environmental medium																
+ENVO:00005774	peat soil [ENVO:00005774]	environmental medium																
+ENVO:00002249	phaeozem [ENVO:00002249]	environmental medium																
+ENVO:00002251	planosol [ENVO:00002251]	environmental medium																
+ENVO:00002250	plinthosol [ENVO:00002250]	environmental medium																
+ENVO:00002257	podzol [ENVO:00002257]	environmental medium																
+ENVO:00003093	poly-beta-hydroxybutyrate enriched soil [ENVO:00003093]	environmental medium																
+ENVO:00005764	pond soil [ENVO:00005764]	environmental medium																
+ENVO:00003095	quinate enriched soil [ENVO:00003095]	environmental medium																
+ENVO:00002256	regosol [ENVO:00002256]	environmental medium																
+ENVO:00003083	sarcosine enriched soil [ENVO:00003083]	environmental medium																
+ENVO:00003085	skatole enriched soil [ENVO:00003085]	environmental medium																
+ENVO:00002252	solonchak [ENVO:00002252]	environmental medium																
+ENVO:00002255	solonetz [ENVO:00002255]	environmental medium																
+ENVO:00002274	stagnosol [ENVO:00002274]	environmental medium																
+ENVO:02000059	surface soil [ENVO:02000059]	environmental medium																
+ENVO:00002275	technosol [ENVO:00002275]	environmental medium																
+ENVO:00003091	threonine enriched soil [ENVO:00003091]	environmental medium																
+ENVO:00003084	trimethylamine enriched soil [ENVO:00003084]	environmental medium																
+ENVO:00005778	tropical soil [ENVO:00005778]	environmental medium																
+ENVO:01001397	ultisol [ENVO:01001397]	environmental medium																
+ENVO:00002234	__acrisol [ENVO:00002234]	environmental medium																
+ENVO:00002253	umbrisol [ENVO:00002253]	environmental medium																
+ENVO:00005786	upland soil [ENVO:00005786]	environmental medium																
+ENVO:00005753	urea enriched soil [ENVO:00005753]	environmental medium																
+ENVO:00002254	vertisol [ENVO:00002254]	environmental medium																
