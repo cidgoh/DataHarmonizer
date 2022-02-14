@@ -9,11 +9,11 @@ var DATA = [
         "datatype": "xs:token",
         "source": "",
         "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
+          "Not Applicable [GENEPIO:0001619]",
+          "Not Collected [GENEPIO:0001620]",
+          "Not Provided [GENEPIO:0001668]",
+          "Missing [GENEPIO:0001618]",
+          "Restricted Access [GENEPIO:0001810]"
         ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
@@ -236,11 +236,11 @@ var DATA = [
         "datatype": "xs:token",
         "source": "",
         "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
+          "Not Applicable [GENEPIO:0001619]",
+          "Not Collected [GENEPIO:0001620]",
+          "Not Provided [GENEPIO:0001668]",
+          "Missing [GENEPIO:0001618]",
+          "Restricted Access [GENEPIO:0001810]"
         ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
@@ -303,11 +303,11 @@ var DATA = [
         "datatype": "xs:token",
         "source": "",
         "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
+          "Not Applicable [GENEPIO:0001619]",
+          "Not Collected [GENEPIO:0001620]",
+          "Not Provided [GENEPIO:0001668]",
+          "Missing [GENEPIO:0001618]",
+          "Restricted Access [GENEPIO:0001810]"
         ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
@@ -377,11 +377,11 @@ var DATA = [
         "datatype": "xs:date",
         "source": "",
         "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
+          "Not Applicable [GENEPIO:0001619]",
+          "Not Collected [GENEPIO:0001620]",
+          "Not Provided [GENEPIO:0001668]",
+          "Missing [GENEPIO:0001618]",
+          "Restricted Access [GENEPIO:0001810]"
         ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
@@ -414,11 +414,11 @@ var DATA = [
         "datatype": "xs:date",
         "source": "",
         "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
+          "Not Applicable [GENEPIO:0001619]",
+          "Not Collected [GENEPIO:0001620]",
+          "Not Provided [GENEPIO:0001668]",
+          "Missing [GENEPIO:0001618]",
+          "Restricted Access [GENEPIO:0001810]"
         ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
@@ -434,11 +434,11 @@ var DATA = [
         "datatype": "select",
         "source": "",
         "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
+          "Not Applicable [GENEPIO:0001619]",
+          "Not Collected [GENEPIO:0001620]",
+          "Not Provided [GENEPIO:0001668]",
+          "Missing [GENEPIO:0001618]",
+          "Restricted Access [GENEPIO:0001810]"
         ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
@@ -1286,11 +1286,11 @@ var DATA = [
         "datatype": "xs:token",
         "source": "",
         "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
+          "Not Applicable [GENEPIO:0001619]",
+          "Not Collected [GENEPIO:0001620]",
+          "Not Provided [GENEPIO:0001668]",
+          "Missing [GENEPIO:0001618]",
+          "Restricted Access [GENEPIO:0001810]"
         ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
@@ -1397,11 +1397,11 @@ var DATA = [
         "datatype": "select",
         "source": "",
         "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
+          "Not Applicable [GENEPIO:0001619]",
+          "Not Collected [GENEPIO:0001620]",
+          "Not Provided [GENEPIO:0001668]",
+          "Missing [GENEPIO:0001618]",
+          "Restricted Access [GENEPIO:0001810]"
         ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
@@ -1435,11 +1435,11 @@ var DATA = [
         "datatype": "xs:token",
         "source": "",
         "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
+          "Not Applicable [GENEPIO:0001619]",
+          "Not Collected [GENEPIO:0001620]",
+          "Not Provided [GENEPIO:0001668]",
+          "Missing [GENEPIO:0001618]",
+          "Restricted Access [GENEPIO:0001810]"
         ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
@@ -1481,11 +1481,11 @@ var DATA = [
         "datatype": "select",
         "source": "",
         "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
+          "Not Applicable [GENEPIO:0001619]",
+          "Not Collected [GENEPIO:0001620]",
+          "Not Provided [GENEPIO:0001668]",
+          "Missing [GENEPIO:0001618]",
+          "Restricted Access [GENEPIO:0001810]"
         ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
@@ -1553,11 +1553,11 @@ var DATA = [
         "datatype": "select",
         "source": "",
         "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
+          "Not Applicable [GENEPIO:0001619]",
+          "Not Collected [GENEPIO:0001620]",
+          "Not Provided [GENEPIO:0001668]",
+          "Missing [GENEPIO:0001618]",
+          "Restricted Access [GENEPIO:0001810]"
         ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
@@ -1578,17 +1578,17 @@ var DATA = [
         "datatype": "select",
         "source": "",
         "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
+          "Not Applicable [GENEPIO:0001619]",
+          "Not Collected [GENEPIO:0001620]",
+          "Not Provided [GENEPIO:0001668]",
+          "Missing [GENEPIO:0001618]",
+          "Restricted Access [GENEPIO:0001810]"
         ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
         "description": "A substance obtained from an anatomical part of an organism e.g. tissue, blood.",
-        "guidance": "Provide a descriptor if an anatomical material was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. ",
+        "guidance": "Provide a descriptor if an anatomical material was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, contact emma_griffiths@sfu.ca. If not applicable, do not leave blank. Choose a null value. ",
         "examples": "Blood",
         "exportField": {
           "GISAID": [
@@ -1649,17 +1649,17 @@ var DATA = [
         "datatype": "select",
         "source": "",
         "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
+          "Not Applicable [GENEPIO:0001619]",
+          "Not Collected [GENEPIO:0001620]",
+          "Not Provided [GENEPIO:0001668]",
+          "Missing [GENEPIO:0001618]",
+          "Restricted Access [GENEPIO:0001810]"
         ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
         "description": "An anatomical part of an organism e.g. oropharynx.",
-        "guidance": "Provide a descriptor if an anatomical part was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. ",
+        "guidance": "Provide a descriptor if an anatomical part was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, contact emma_griffiths@sfu.ca. If not applicable, do not leave blank. Choose a null value. ",
         "examples": "Nasopharynx",
         "exportField": {
           "GISAID": [
@@ -1776,17 +1776,17 @@ var DATA = [
         "datatype": "select",
         "source": "",
         "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
+          "Not Applicable [GENEPIO:0001619]",
+          "Not Collected [GENEPIO:0001620]",
+          "Not Provided [GENEPIO:0001668]",
+          "Missing [GENEPIO:0001618]",
+          "Restricted Access [GENEPIO:0001810]"
         ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
         "description": "A substance excreted/secreted from an organism e.g. feces, urine, sweat.",
-        "guidance": "Provide a descriptor if a body product was sampled. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. ",
+        "guidance": "Provide a descriptor if a body product was sampled. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma_griffiths@sfu.ca. If not applicable, do not leave blank. Choose a null value. ",
         "examples": "Feces",
         "exportField": {
           "GISAID": [
@@ -1844,17 +1844,17 @@ var DATA = [
         "datatype": "select",
         "source": "",
         "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
+          "Not Applicable [GENEPIO:0001619]",
+          "Not Collected [GENEPIO:0001620]",
+          "Not Provided [GENEPIO:0001668]",
+          "Missing [GENEPIO:0001618]",
+          "Restricted Access [GENEPIO:0001810]"
         ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
         "description": "A substance obtained from the natural or man-made environment e.g. soil, water, sewage.",
-        "guidance": "Provide a descriptor if an environmental material was sampled. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. ",
+        "guidance": "Provide a descriptor if an environmental material was sampled. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma_griffiths@sfu.ca. If not applicable, do not leave blank. Choose a null value. ",
         "examples": "Face mask",
         "exportField": {
           "GISAID": [
@@ -1985,17 +1985,17 @@ var DATA = [
         "datatype": "select",
         "source": "",
         "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
+          "Not Applicable [GENEPIO:0001619]",
+          "Not Collected [GENEPIO:0001620]",
+          "Not Provided [GENEPIO:0001668]",
+          "Missing [GENEPIO:0001618]",
+          "Restricted Access [GENEPIO:0001810]"
         ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
         "description": "An environmental location may describe a site in the natural or built environment e.g. contact surface, metal can, hospital, wet market, bat cave.",
-        "guidance": "Provide a descriptor if an environmental site was sampled. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. ",
+        "guidance": "Provide a descriptor if an environmental site was sampled. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma_griffiths@sfu.ca. If not applicable, do not leave blank. Choose a null value. ",
         "examples": "Hospital room",
         "exportField": {
           "GISAID": [
@@ -2090,17 +2090,17 @@ var DATA = [
         "datatype": "select",
         "source": "",
         "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
+          "Not Applicable [GENEPIO:0001619]",
+          "Not Collected [GENEPIO:0001620]",
+          "Not Provided [GENEPIO:0001668]",
+          "Missing [GENEPIO:0001618]",
+          "Restricted Access [GENEPIO:0001810]"
         ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
         "description": "The instrument or container used to collect the sample e.g. swab.",
-        "guidance": "Provide a descriptor if a device was used for sampling. Use the picklist provided in the template. If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. ",
+        "guidance": "Provide a descriptor if a device was used for sampling. Use the picklist provided in the template. If a desired term is missing from the picklist, contact emma_griffiths@sfu.ca. If not applicable, do not leave blank. Choose a null value. ",
         "examples": "Swab",
         "exportField": {
           "GISAID": [
@@ -2183,17 +2183,17 @@ var DATA = [
         "datatype": "select",
         "source": "",
         "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
+          "Not Applicable [GENEPIO:0001619]",
+          "Not Collected [GENEPIO:0001620]",
+          "Not Provided [GENEPIO:0001668]",
+          "Missing [GENEPIO:0001618]",
+          "Restricted Access [GENEPIO:0001810]"
         ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
         "description": "The process used to collect the sample e.g. phlebotamy, necropsy.",
-        "guidance": "Provide a descriptor if a collection method was used for sampling. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. ",
+        "guidance": "Provide a descriptor if a collection method was used for sampling. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma_griffiths@sfu.ca. If not applicable, do not leave blank. Choose a null value. ",
         "examples": "Bronchoalveolar lavage (BAL)",
         "exportField": {
           "GISAID": [
@@ -2314,11 +2314,11 @@ var DATA = [
         "datatype": "multiple",
         "source": "",
         "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
+          "Not Applicable [GENEPIO:0001619]",
+          "Not Collected [GENEPIO:0001620]",
+          "Not Provided [GENEPIO:0001668]",
+          "Missing [GENEPIO:0001618]",
+          "Restricted Access [GENEPIO:0001810]"
         ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
@@ -2362,11 +2362,11 @@ var DATA = [
         "datatype": "select",
         "source": "",
         "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
+          "Not Applicable [GENEPIO:0001619]",
+          "Not Collected [GENEPIO:0001620]",
+          "Not Provided [GENEPIO:0001668]",
+          "Missing [GENEPIO:0001618]",
+          "Restricted Access [GENEPIO:0001810]"
         ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
@@ -2453,11 +2453,11 @@ var DATA = [
         "datatype": "xs:token",
         "source": "",
         "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
+          "Not Applicable [GENEPIO:0001619]",
+          "Not Collected [GENEPIO:0001620]",
+          "Not Provided [GENEPIO:0001668]",
+          "Missing [GENEPIO:0001618]",
+          "Restricted Access [GENEPIO:0001810]"
         ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
@@ -2480,11 +2480,11 @@ var DATA = [
         "datatype": "select",
         "source": "",
         "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
+          "Not Applicable [GENEPIO:0001619]",
+          "Not Collected [GENEPIO:0001620]",
+          "Not Provided [GENEPIO:0001668]",
+          "Missing [GENEPIO:0001618]",
+          "Restricted Access [GENEPIO:0001810]"
         ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
@@ -2493,19 +2493,19 @@ var DATA = [
         "guidance": "Provide the biomaterial extracted from the picklist in the template.",
         "examples": "RNA (total)",
         "schema:ItemList": {
-          "RNA (total)": {
+          "RNA (Total) [OBI:0000895]": {
             "ontology_id": "OBI:0000895"
           },
-          "RNA (poly-A)": {
+          "RNA (Poly-A) [OBI:0000869]": {
             "ontology_id": "OBI:0000869"
           },
-          "RNA (ribo-depleted)": {
+          "RNA (Ribo-Depleted) [OBI:0002627]": {
             "ontology_id": "OBI:0002627"
           },
-          "mRNA (messenger RNA)": {
+          "mRNA (messenger RNA) [GENEPIO:0100104]": {
             "ontology_id": "GENEPIO:0100104"
           },
-          "mRNA (cDNA)": {
+          "mRNA (cDNA) [OBI:0002754]": {
             "ontology_id": "OBI:0002754"
           }
         }
@@ -2536,11 +2536,11 @@ var DATA = [
         "datatype": "select",
         "source": "",
         "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
+          "Not Applicable [GENEPIO:0001619]",
+          "Not Collected [GENEPIO:0001620]",
+          "Not Provided [GENEPIO:0001668]",
+          "Missing [GENEPIO:0001618]",
+          "Restricted Access [GENEPIO:0001810]"
         ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
@@ -2568,7 +2568,7 @@ var DATA = [
             "ontology_id": "NCBITaxon:9913"
           },
           "Dog": {
-            "ontology_id": "NCBITaxon:9615 "
+            "ontology_id": "NCBITaxon:9615"
           },
           "Lion": {
             "ontology_id": "NCBITaxon:9689"
@@ -2597,11 +2597,11 @@ var DATA = [
         "datatype": "select",
         "source": "",
         "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
+          "Not Applicable [GENEPIO:0001619]",
+          "Not Collected [GENEPIO:0001620]",
+          "Not Provided [GENEPIO:0001668]",
+          "Missing [GENEPIO:0001618]",
+          "Restricted Access [GENEPIO:0001810]"
         ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
@@ -2634,7 +2634,7 @@ var DATA = [
             "ontology_id": "NCBITaxon:9913"
           },
           "Canis lupus familiaris": {
-            "ontology_id": "NCBITaxon:9615 "
+            "ontology_id": "NCBITaxon:9615"
           },
           "Chiroptera": {
             "ontology_id": "NCBITaxon:9397"
@@ -2664,7 +2664,7 @@ var DATA = [
             "ontology_id": "NCBITaxon:9694"
           },
           "Rhinolophidae": {
-            "ontology_id": "NCBITaxon:58055 "
+            "ontology_id": "NCBITaxon:58055"
           },
           "Rhinolophus affinis": {
             "ontology_id": "NCBITaxon:59477"
@@ -2684,11 +2684,11 @@ var DATA = [
         "datatype": "select",
         "source": "",
         "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
+          "Not Applicable [GENEPIO:0001619]",
+          "Not Collected [GENEPIO:0001620]",
+          "Not Provided [GENEPIO:0001668]",
+          "Missing [GENEPIO:0001618]",
+          "Restricted Access [GENEPIO:0001810]"
         ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
@@ -2733,11 +2733,11 @@ var DATA = [
         "datatype": "select",
         "source": "",
         "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
+          "Not Applicable [GENEPIO:0001619]",
+          "Not Collected [GENEPIO:0001620]",
+          "Not Provided [GENEPIO:0001668]",
+          "Missing [GENEPIO:0001618]",
+          "Restricted Access [GENEPIO:0001810]"
         ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
@@ -2780,11 +2780,11 @@ var DATA = [
         "datatype": "select",
         "source": "",
         "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
+          "Not Applicable [GENEPIO:0001619]",
+          "Not Collected [GENEPIO:0001620]",
+          "Not Provided [GENEPIO:0001668]",
+          "Missing [GENEPIO:0001618]",
+          "Restricted Access [GENEPIO:0001810]"
         ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
@@ -2812,11 +2812,11 @@ var DATA = [
         "datatype": "select",
         "source": "",
         "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
+          "Not Applicable [GENEPIO:0001619]",
+          "Not Collected [GENEPIO:0001620]",
+          "Not Provided [GENEPIO:0001668]",
+          "Missing [GENEPIO:0001618]",
+          "Restricted Access [GENEPIO:0001810]"
         ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
@@ -2853,11 +2853,11 @@ var DATA = [
         "datatype": "xs:decimal",
         "source": "",
         "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
+          "Not Applicable [GENEPIO:0001619]",
+          "Not Collected [GENEPIO:0001620]",
+          "Not Provided [GENEPIO:0001668]",
+          "Missing [GENEPIO:0001618]",
+          "Restricted Access [GENEPIO:0001810]"
         ],
         "xs:minInclusive": "0",
         "xs:maxInclusive": "130",
@@ -2885,11 +2885,11 @@ var DATA = [
         "datatype": "select",
         "source": "",
         "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
+          "Not Applicable [GENEPIO:0001619]",
+          "Not Collected [GENEPIO:0001620]",
+          "Not Provided [GENEPIO:0001668]",
+          "Missing [GENEPIO:0001618]",
+          "Restricted Access [GENEPIO:0001810]"
         ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
@@ -2898,10 +2898,10 @@ var DATA = [
         "guidance": "Indicate whether the host age is in months or years. Age indicated in months will be binned to the 0 - 9 year age bin. ",
         "examples": "years",
         "schema:ItemList": {
-          "month": {
+          "month [UO:0000035]": {
             "ontology_id": "UO:0000035"
           },
-          "year": {
+          "year [UO:0000036]": {
             "ontology_id": "UO:0000036"
           }
         }
@@ -2913,11 +2913,11 @@ var DATA = [
         "datatype": "select",
         "source": "",
         "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
+          "Not Applicable [GENEPIO:0001619]",
+          "Not Collected [GENEPIO:0001620]",
+          "Not Provided [GENEPIO:0001668]",
+          "Missing [GENEPIO:0001618]",
+          "Restricted Access [GENEPIO:0001810]"
         ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
@@ -2968,11 +2968,11 @@ var DATA = [
         "datatype": "select",
         "source": "",
         "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
+          "Not Applicable [GENEPIO:0001619]",
+          "Not Collected [GENEPIO:0001620]",
+          "Not Provided [GENEPIO:0001668]",
+          "Missing [GENEPIO:0001618]",
+          "Restricted Access [GENEPIO:0001810]"
         ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
@@ -3020,11 +3020,11 @@ var DATA = [
         "datatype": "select",
         "source": "geo_loc_name (country)",
         "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
+          "Not Applicable [GENEPIO:0001619]",
+          "Not Collected [GENEPIO:0001620]",
+          "Not Provided [GENEPIO:0001668]",
+          "Missing [GENEPIO:0001618]",
+          "Restricted Access [GENEPIO:0001810]"
         ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
@@ -3037,7 +3037,7 @@ var DATA = [
       {
         "fieldName": "host ethnicity",
         "capitalize": "",
-        "ontology_id": "",
+        "ontology_id": "GENEPIO:0100312",
         "datatype": "xs:token",
         "source": "",
         "dataStatus": null,
@@ -3090,11 +3090,11 @@ var DATA = [
         "datatype": "xs:date",
         "source": "",
         "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
+          "Not Applicable [GENEPIO:0001619]",
+          "Not Collected [GENEPIO:0001620]",
+          "Not Provided [GENEPIO:0001668]",
+          "Missing [GENEPIO:0001618]",
+          "Restricted Access [GENEPIO:0001810]"
         ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
@@ -3110,11 +3110,11 @@ var DATA = [
         "datatype": "multiple",
         "source": "",
         "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
+          "Not Applicable [GENEPIO:0001619]",
+          "Not Collected [GENEPIO:0001620]",
+          "Not Provided [GENEPIO:0001668]",
+          "Missing [GENEPIO:0001618]",
+          "Restricted Access [GENEPIO:0001810]"
         ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
@@ -3423,11 +3423,11 @@ var DATA = [
         "datatype": "multiple",
         "source": "",
         "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
+          "Not Applicable [GENEPIO:0001619]",
+          "Not Collected [GENEPIO:0001620]",
+          "Not Provided [GENEPIO:0001668]",
+          "Missing [GENEPIO:0001618]",
+          "Restricted Access [GENEPIO:0001810]"
         ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
@@ -3762,11 +3762,11 @@ var DATA = [
         "datatype": "multiple",
         "source": "",
         "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
+          "Not Applicable [GENEPIO:0001619]",
+          "Not Collected [GENEPIO:0001620]",
+          "Not Provided [GENEPIO:0001668]",
+          "Missing [GENEPIO:0001618]",
+          "Restricted Access [GENEPIO:0001810]"
         ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
@@ -4059,11 +4059,11 @@ var DATA = [
         "datatype": "select",
         "source": "",
         "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
+          "Not Applicable [GENEPIO:0001619]",
+          "Not Collected [GENEPIO:0001620]",
+          "Not Provided [GENEPIO:0001668]",
+          "Missing [GENEPIO:0001618]",
+          "Restricted Access [GENEPIO:0001810]"
         ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
@@ -4280,11 +4280,11 @@ var DATA = [
         "datatype": "select",
         "source": "geo_loc_name (country)",
         "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
+          "Not Applicable [GENEPIO:0001619]",
+          "Not Collected [GENEPIO:0001620]",
+          "Not Provided [GENEPIO:0001668]",
+          "Missing [GENEPIO:0001618]",
+          "Restricted Access [GENEPIO:0001810]"
         ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
@@ -4350,11 +4350,11 @@ var DATA = [
         "datatype": "select",
         "source": "geo_loc_name (country)",
         "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
+          "Not Applicable [GENEPIO:0001619]",
+          "Not Collected [GENEPIO:0001620]",
+          "Not Provided [GENEPIO:0001668]",
+          "Missing [GENEPIO:0001618]",
+          "Restricted Access [GENEPIO:0001810]"
         ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
@@ -4378,11 +4378,11 @@ var DATA = [
         "datatype": "xs:date",
         "source": "",
         "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
+          "Not Applicable [GENEPIO:0001619]",
+          "Not Collected [GENEPIO:0001620]",
+          "Not Provided [GENEPIO:0001668]",
+          "Missing [GENEPIO:0001618]",
+          "Restricted Access [GENEPIO:0001810]"
         ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
@@ -4398,11 +4398,11 @@ var DATA = [
         "datatype": "xs:date",
         "source": "",
         "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
+          "Not Applicable [GENEPIO:0001619]",
+          "Not Collected [GENEPIO:0001620]",
+          "Not Provided [GENEPIO:0001668]",
+          "Missing [GENEPIO:0001618]",
+          "Restricted Access [GENEPIO:0001810]"
         ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
@@ -4439,11 +4439,11 @@ var DATA = [
         "datatype": "select",
         "source": "",
         "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
+          "Not Applicable [GENEPIO:0001619]",
+          "Not Collected [GENEPIO:0001620]",
+          "Not Provided [GENEPIO:0001668]",
+          "Missing [GENEPIO:0001618]",
+          "Restricted Access [GENEPIO:0001810]"
         ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
@@ -4527,11 +4527,11 @@ var DATA = [
         "datatype": "select",
         "source": "",
         "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
+          "Not Applicable [GENEPIO:0001619]",
+          "Not Collected [GENEPIO:0001620]",
+          "Not Provided [GENEPIO:0001668]",
+          "Missing [GENEPIO:0001618]",
+          "Restricted Access [GENEPIO:0001810]"
         ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
@@ -4947,11 +4947,11 @@ var DATA = [
         "datatype": "select",
         "source": "",
         "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
+          "Not Applicable [GENEPIO:0001619]",
+          "Not Collected [GENEPIO:0001620]",
+          "Not Provided [GENEPIO:0001668]",
+          "Missing [GENEPIO:0001618]",
+          "Restricted Access [GENEPIO:0001810]"
         ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
@@ -5017,11 +5017,11 @@ var DATA = [
         "datatype": "select",
         "source": "",
         "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
+          "Not Applicable [GENEPIO:0001619]",
+          "Not Collected [GENEPIO:0001620]",
+          "Not Provided [GENEPIO:0001668]",
+          "Missing [GENEPIO:0001618]",
+          "Restricted Access [GENEPIO:0001810]"
         ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
@@ -5121,11 +5121,11 @@ var DATA = [
         "datatype": "multiple",
         "source": "",
         "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
+          "Not Applicable [GENEPIO:0001619]",
+          "Not Collected [GENEPIO:0001620]",
+          "Not Provided [GENEPIO:0001668]",
+          "Missing [GENEPIO:0001618]",
+          "Restricted Access [GENEPIO:0001810]"
         ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
@@ -5241,11 +5241,11 @@ var DATA = [
         "datatype": "xs:token",
         "source": "",
         "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
+          "Not Applicable [GENEPIO:0001619]",
+          "Not Collected [GENEPIO:0001620]",
+          "Not Provided [GENEPIO:0001668]",
+          "Missing [GENEPIO:0001618]",
+          "Restricted Access [GENEPIO:0001810]"
         ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
@@ -5261,11 +5261,11 @@ var DATA = [
         "datatype": "xs:date",
         "source": "",
         "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
+          "Not Applicable [GENEPIO:0001619]",
+          "Not Collected [GENEPIO:0001620]",
+          "Not Provided [GENEPIO:0001668]",
+          "Missing [GENEPIO:0001618]",
+          "Restricted Access [GENEPIO:0001810]"
         ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
@@ -5351,11 +5351,11 @@ var DATA = [
         "datatype": "multiple",
         "source": "",
         "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
+          "Not Applicable [GENEPIO:0001619]",
+          "Not Collected [GENEPIO:0001620]",
+          "Not Provided [GENEPIO:0001668]",
+          "Missing [GENEPIO:0001618]",
+          "Restricted Access [GENEPIO:0001810]"
         ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
@@ -6412,11 +6412,11 @@ var DATA = [
         "datatype": "select",
         "source": "",
         "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
+          "Not Applicable [GENEPIO:0001619]",
+          "Not Collected [GENEPIO:0001620]",
+          "Not Provided [GENEPIO:0001668]",
+          "Missing [GENEPIO:0001618]",
+          "Restricted Access [GENEPIO:0001810]"
         ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
@@ -6462,18 +6462,18 @@ var DATA = [
         "datatype": "select",
         "source": "",
         "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
+          "Not Applicable [GENEPIO:0001619]",
+          "Not Collected [GENEPIO:0001620]",
+          "Not Provided [GENEPIO:0001668]",
+          "Missing [GENEPIO:0001618]",
+          "Restricted Access [GENEPIO:0001810]"
         ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
         "description": "The name of the gene used in the diagnostic RT-PCR test.",
         "guidance": "Provide the full name of the gene used in the test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI",
-        "examples": "E (orf4)",
+        "examples": "E gene (orf4)",
         "exportField": {
           "NCBI_BIOSAMPLE": [
             {
@@ -6629,18 +6629,18 @@ var DATA = [
         "datatype": "select",
         "source": "gene name 1",
         "dataStatus": [
-          "Not Applicable",
-          "Missing",
-          "Not Collected",
-          "Not Provided",
-          "Restricted Access"
+          "Not Applicable [GENEPIO:0001619]",
+          "Not Collected [GENEPIO:0001620]",
+          "Not Provided [GENEPIO:0001668]",
+          "Missing [GENEPIO:0001618]",
+          "Restricted Access [GENEPIO:0001810]"
         ],
         "xs:minInclusive": "",
         "xs:maxInclusive": "",
         "requirement": "",
         "description": "The name of the gene used in the diagnostic RT-PCR test.",
         "guidance": "Provide the full name of another gene used in an RT-PCR test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI",
-        "examples": "nsp12 (RdRp)",
+        "examples": "RdRp gene (nsp12)",
         "exportField": {
           "NCBI_BIOSAMPLE": [
             {
@@ -6985,7 +6985,7 @@ var DATA = [
     "fieldName": "data status",
     "children": [
       {
-        "fieldName": "Not Applicable",
+        "fieldName": "Not Applicable [GENEPIO:0001619]",
         "capitalize": "",
         "ontology_id": "GENEPIO:0001619",
         "datatype": "",
@@ -6999,21 +6999,7 @@ var DATA = [
         "examples": ""
       },
       {
-        "fieldName": "Missing",
-        "capitalize": "",
-        "ontology_id": "GENEPIO:0001618",
-        "datatype": "",
-        "source": "",
-        "dataStatus": null,
-        "xs:minInclusive": "",
-        "xs:maxInclusive": "",
-        "requirement": "",
-        "description": "",
-        "guidance": "",
-        "examples": ""
-      },
-      {
-        "fieldName": "Not Collected",
+        "fieldName": "Not Collected [GENEPIO:0001620]",
         "capitalize": "",
         "ontology_id": "GENEPIO:0001620",
         "datatype": "",
@@ -7027,7 +7013,7 @@ var DATA = [
         "examples": ""
       },
       {
-        "fieldName": "Not Provided",
+        "fieldName": "Not Provided [GENEPIO:0001668]",
         "capitalize": "",
         "ontology_id": "GENEPIO:0001668",
         "datatype": "",
@@ -7041,7 +7027,21 @@ var DATA = [
         "examples": ""
       },
       {
-        "fieldName": "Restricted Access",
+        "fieldName": "Missing [GENEPIO:0001618]",
+        "capitalize": "",
+        "ontology_id": "GENEPIO:0001618",
+        "datatype": "",
+        "source": "",
+        "dataStatus": null,
+        "xs:minInclusive": "",
+        "xs:maxInclusive": "",
+        "requirement": "",
+        "description": "",
+        "guidance": "",
+        "examples": ""
+      },
+      {
+        "fieldName": "Restricted Access [GENEPIO:0001810]",
         "capitalize": "",
         "ontology_id": "GENEPIO:0001810",
         "datatype": "",
