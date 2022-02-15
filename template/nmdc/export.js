@@ -18,7 +18,7 @@ var exportBioSample = (baseName, hot, data, xlsx, fileType) => {
   const sourceFields = getFields(data);
   const sourceFieldNameMap = getFieldNameMap(sourceFields);
   // Fills in the above mapping (or just set manually above)
-  getHeaderMap(ExportHeaders, sourceFields, ‘soil_emsl_jgi_mg’);
+  getHeaderMap(ExportHeaders, sourceFields, "soil_emsl_jgi_mg");
   // Copy headers to 1st row of new export table
   const outputMatrix = [[...ExportHeaders.keys()]];
   for (const inputRow of getTrimmedData(hot)) {
