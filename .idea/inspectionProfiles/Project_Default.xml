@@ -1,0 +1,30 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <value>
+          <list size="17">
+            <item index="0" class="java.lang.String" itemvalue="dataclasses" />
+            <item index="1" class="java.lang.String" itemvalue="pytest" />
+            <item index="2" class="java.lang.String" itemvalue="PyYAML" />
+            <item index="3" class="java.lang.String" itemvalue="python-dateutil" />
+            <item index="4" class="java.lang.String" itemvalue="strsimpy" />
+            <item index="5" class="java.lang.String" itemvalue="quantulum3" />
+            <item index="6" class="java.lang.String" itemvalue="rdflib" />
+            <item index="7" class="java.lang.String" itemvalue="psycopg2-binary" />
+            <item index="8" class="java.lang.String" itemvalue="click_log" />
+            <item index="9" class="java.lang.String" itemvalue="mkdocs" />
+            <item index="10" class="java.lang.String" itemvalue="requests" />
+            <item index="11" class="java.lang.String" itemvalue="click" />
+            <item index="12" class="java.lang.String" itemvalue="pandas" />
+            <item index="13" class="java.lang.String" itemvalue="linkml-model" />
+            <item index="14" class="java.lang.String" itemvalue="funowl" />
+            <item index="15" class="java.lang.String" itemvalue="jsonpatch" />
+            <item index="16" class="java.lang.String" itemvalue="linkml" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
