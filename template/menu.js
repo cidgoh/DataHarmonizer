@@ -186,5 +186,15 @@ const TEMPLATES = {
       "name": "text value",
       "status": "published"
     }
+  },
+  "soil_emls_jgi_mg": {
+    "soil_emsl_jgi_mg": {
+      "name": "soil_emsl_jgi_mg",
+      "status": "published"
+    },
+    "quantity value": {
+      "name": "quantity value",
+      "status": "published"
+    }
   }
 }
