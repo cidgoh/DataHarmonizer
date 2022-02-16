@@ -533,22 +533,23 @@ var exportNML_LIMS = (baseName, hot, data, xlsx, fileType) => {
       // Otherwise apply source (many to one) to target field transform:
       let value = getMappedField(headerName, inputRow, sources, sourceFields, sourceFieldNameMap, ';', 'NML_LIMS');
 
+      let val_array = value.split(';');
+      val_array = val_array.map(element => fixNullOptionCase(element.trim(), nullOptionsMap));
+      if (val_array.length > 1) {
+        //Make unique any null values in multiple-select concatenated field.
+        let val_set = new Set(val_array);
 
-      if (headerName === 'PH_TRAVEL') {
-        //Make unique any values in concatenated PH_TRAVEL merged field.
-        let val_set = new Set(value.split(';'));
-        // Search for null values and remove them.
-        let val_set_size = val_set.size;
-        if (val_set.size > 1) {
-          null_values.forEach(Set.prototype.delete, val_set);
-          if (val_set.size == 0) // set was all null values so reset list 
-            val_set = new Set(value.split(';'));
-        }
-        value = [...val_set].join(';');
+        // Search for null values and remove them. Using forEach format
+        // forEach(callbackFn, thisArg) i.e. val_set.delete(null_value)
+        null_values.forEach(Set.prototype.delete, val_set);
+        if (val_set.size == 0) // set was all null values so reset list 
+          val_set = new Set(val_array);
+        val_array = [...val_set];
       }
+      value = val_array.join(';');
+
       // For any exported field that might mention a null value (not just 
       // ones with null value picklist defined)
-      value = fixNullOptionCase(value.trim(), nullOptionsMap); 
       outputRow.push(value);
     }
     outputMatrix.push(outputRow);
