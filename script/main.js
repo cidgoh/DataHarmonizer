@@ -801,6 +801,7 @@ const fieldChangeRules = (change, fields, triggered_changes) => {
       // Match <field>[field unit][field bin]
       const nextNextName = (fields.length > col+2) ? fields[col+2].fieldName : null;
       if (nextNextName === field.fieldName + ' bin') {
+
         matrix[0][col+1] = window.HOT.getDataAtCell(row, col+1); //prime unit
         binChangeTest(matrix, row, col, fields, 2, triggered_changes);
         return;
@@ -813,6 +814,18 @@ const fieldChangeRules = (change, fields, triggered_changes) => {
       return;
     }
 
+    /*
+
+        const value = matrix[row][col];
+    // For IMPORT, this is only run on fields that have a value.
+    // Note matrix pass cell by reference so its content can be changed.
+    if (value && value.length > 0) {
+      // Do parseFloat rather than parseInt to accomodate fractional bins.
+      let number = parseFloat(value);
+
+      var selection = '';
+      if (number >= 0) {
+    */
     // Match [field]<field unit>
     if (field.fieldName === prevName + ' unit') {
 
@@ -938,28 +951,31 @@ const binChangeTest = (matrix, rowOffset, col, fields, binOffset, triggered_chan
           }
           break;
         }
+        triggered_changes.push([rowOffset + parseInt(row), col+binOffset, undefined, selection]);
       }
       else {
+        /*
+        REVISION: Keep host age bin data separate from host age.
         // Integer/date field is a textual value, possibly a metadata 'Missing'
         // etc. If bin field has a value, leave it unchanged; but if it doesn't
         // then populate bin with input field metadata status too.
-        const bin_value = window.HOT.getDataAtCell(rowOffset, col+binOffset);
+        const bin_value = matrix[row][col+binOffset]; //
         selection = bin_value; // Default value is itself.
-
         const bin_values = fields[col+binOffset].flatVocabulary;
         if (!bin_value || bin_value === '' && value in bin_values) {
           selection = value
         }
+        */
         // If a unit field exists, then set that to metadata too.
         if (binOffset == 2) {
-          const unit_value = window.HOT.getDataAtCell(rowOffset, col+1);
+          const unit_value = matrix[row][col+1]; //window.HOT.getDataAtCell(rowOffset, col+1);
           const unit_values = fields[col+1].flatVocabulary;
           if (!unit_value || unit_value === '' && value in unit_values) {
             triggered_changes.push([rowOffset + parseInt(row), col+1, undefined, value]);
           }
         }
       }
-      triggered_changes.push([rowOffset + parseInt(row), col+binOffset, undefined, selection]);
+
     }
   }
 }
@@ -1275,7 +1291,6 @@ const testDateRange = (aDate, field, columnIndex, row, TODAY, hot) => {
 
   var jsDate = new Date(aDate);
   const comparison = [field['xs:minInclusive'], field['xs:maxInclusive']];
-  //console.log(comparison);
 
   for (ptr in comparison) {
     let c_items = comparison[ptr];
@@ -1293,7 +1308,6 @@ const testDateRange = (aDate, field, columnIndex, row, TODAY, hot) => {
             let field = c_item.substr(1,c_item.length-2);
             let col = columnIndex[field];
             let lookup_item = hot.getDataAtCell(row, col);
-            //console.log(ptr, c_item, '\n', jsDate, '\n','\n', itemCompare(jsDate, new Date(lookup_item), ptr))
             if (lookup_item !== '')
               if (itemCompare(jsDate, new Date(lookup_item), ptr)) return false;
           }
@@ -1665,7 +1679,6 @@ const setupTriggers = () => {
       }
     };
 
-    //console.log("trying", focus_row, focus_col);
     window.CURRENT_SELECTION[0] = focus_row;
     window.CURRENT_SELECTION[1] = focus_col;
     window.CURRENT_SELECTION[2] = focus_row;
