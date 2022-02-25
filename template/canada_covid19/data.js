@@ -60,7 +60,7 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "",
         "description": "The name of the third party company or laboratory that provided services.",
-        "guidance": "Store the sample identifier supplied by the third party services provider.",
+        "guidance": "Provide the full, unabbreviated name of the company or laboratory.",
         "examples": "Switch Health",
         "exportField": {
           "NML_LIMS": [
@@ -81,7 +81,7 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "",
         "description": "The identifier assigned to a sample by a third party service provider.",
-        "guidance": "",
+        "guidance": "Store the sample identifier supplied by the third party services provider.",
         "examples": "SHK123456",
         "exportField": {
           "NML_LIMS": [
@@ -1992,7 +1992,7 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "required",
         "description": "A substance obtained from an anatomical part of an organism e.g. tissue, blood.",
-        "guidance": "Provide a descriptor if an anatomical material was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. ",
+        "guidance": "Provide a descriptor if an anatomical material was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, contact emma_griffiths@sfu.ca. If not applicable, do not leave blank. Choose a null value. ",
         "examples": "Blood",
         "exportField": {
           "GISAID": [
@@ -2073,7 +2073,7 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "required",
         "description": "An anatomical part of an organism e.g. oropharynx.",
-        "guidance": "Provide a descriptor if an anatomical part was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. ",
+        "guidance": "Provide a descriptor if an anatomical part was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, contact emma_griffiths@sfu.ca. If not applicable, do not leave blank. Choose a null value. ",
         "examples": "Nasopharynx (NP)",
         "exportField": {
           "GISAID": [
@@ -2208,7 +2208,7 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "required",
         "description": "A substance excreted/secreted from an organism e.g. feces, urine, sweat.",
-        "guidance": "Provide a descriptor if a body product was sampled. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. ",
+        "guidance": "Provide a descriptor if a body product was sampled. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma_griffiths@sfu.ca. If not applicable, do not leave blank. Choose a null value. ",
         "examples": "Feces",
         "exportField": {
           "GISAID": [
@@ -2286,7 +2286,7 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "required",
         "description": "A substance obtained from the natural or man-made environment e.g. soil, water, sewage.",
-        "guidance": "Provide a descriptor if an environmental material was sampled. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. ",
+        "guidance": "Provide a descriptor if an environmental material was sampled. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma_griffiths@sfu.ca. If not applicable, do not leave blank. Choose a null value. ",
         "examples": "Face mask",
         "exportField": {
           "GISAID": [
@@ -2437,7 +2437,7 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "required",
         "description": "An environmental location may describe a site in the natural or built environment e.g. contact surface, metal can, hospital, wet market, bat cave.",
-        "guidance": "Provide a descriptor if an environmental site was sampled. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. ",
+        "guidance": "Provide a descriptor if an environmental site was sampled. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma_griffiths@sfu.ca. If not applicable, do not leave blank. Choose a null value. ",
         "examples": "Production Facility",
         "exportField": {
           "GISAID": [
@@ -2552,7 +2552,7 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "required",
         "description": "The instrument or container used to collect the sample e.g. swab.",
-        "guidance": "Provide a descriptor if a device was used for sampling. Use the picklist provided in the template. If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. ",
+        "guidance": "Provide a descriptor if a device was used for sampling. Use the picklist provided in the template. If a desired term is missing from the picklist, contact emma_griffiths@sfu.ca. If not applicable, do not leave blank. Choose a null value. ",
         "examples": "Swab",
         "exportField": {
           "GISAID": [
@@ -2655,7 +2655,7 @@ var DATA = [
         "xs:maxInclusive": "",
         "requirement": "required",
         "description": "The process used to collect the sample e.g. phlebotamy, necropsy.",
-        "guidance": "Provide a descriptor if a collection method was used for sampling. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma.griffiths@bccdc.ca. If not applicable, do not leave blank. Choose a null value. ",
+        "guidance": "Provide a descriptor if a collection method was used for sampling. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma_griffiths@sfu.ca. If not applicable, do not leave blank. Choose a null value. ",
         "examples": "Bronchoalveolar lavage (BAL)",
         "exportField": {
           "GISAID": [
@@ -3666,7 +3666,7 @@ var DATA = [
         "requirement": "",
         "description": "The country of residence of the host.",
         "guidance": "Select the country name from pick list provided in the template.",
-        "examples": "United Kingdom",
+        "examples": "Canada",
         "exportField": {
           "NML_LIMS": [
             {
@@ -3976,9 +3976,6 @@ var DATA = [
                 }
               ]
             }
-          },
-          "Prostration (complete exhaustion)": {
-            "ontology_id": "HP REQUEST"
           },
           "Fever": {
             "ontology_id": "HP:0001945 ",
@@ -6099,7 +6096,8 @@ var DATA = [
               "Viral passage experiment": {},
               "Protocol testing experiment": {}
             }
-          }
+          },
+          "Retrospective sequencing": {}
         }
       },
       {
