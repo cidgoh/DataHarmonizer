@@ -1,2 +1,4 @@
 # version requirement?
-dpath
+dpath==2.0.6
+black
+
