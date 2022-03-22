@@ -92,7 +92,7 @@ for name, class_obj in mixs_sv.all_classes().items():
 
     # Presence of "slots" in class indicates field hierarchy
     # NOTE: Skips special "quantity value" class
-    if "slots" in class_obj and len(class_obj["slots"]) > 0:
+    if mixs_sv.class_slots(class_obj.name):
 
         content["specifications"][name] = class_obj
 
