@@ -948,12 +948,12 @@ const setupTemplate = (template_path) => {
 
     // EXPERIMENTAL - should be merging in the order of overrided attributes?!
     const field =  Object.assign({}, SCHEMA.slots[name], specification_slots[name], specification_slot_usage[name]);
-    //console.log(field);
+    // console.log(field);
 
-    if ('is_a' in field) {
+    if ('slot_group' in field) {
 
       // We have a field positioned within a section (or hierarchy)
-      section_title = field.is_a;
+      section_title = field.slot_group;
       if (! sectionIndex.has(section_title)) {
         sectionIndex.set(section_title, sectionIndex.size);
         TABLE.push({
