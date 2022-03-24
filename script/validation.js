@@ -69,14 +69,14 @@ const getInvalidCells = (hot, data) => {
               break;
 
             case 'xsd:float':
-              const parsedFloat = parseFloat(cellVal);
+              let parsedFloat = parseFloat(cellVal);
               valid = !isNaN(cellVal) && parsedFloat == cellVal;
               valid &= testNumericRange(parsedFloat, field);
               break;
 
             case 'xsd:double':
               // NEED DOUBLE RANGE VALIDATION
-              const parsedFloat = parseFloat(cellVal);
+              parsedFloat = parseFloat(cellVal);
               //valid = !isNaN(cellVal) && regexDouble.test(cellVal);
               valid &= testNumericRange(parsedFloat, field);
               break;

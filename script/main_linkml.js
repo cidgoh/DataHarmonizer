@@ -9,6 +9,9 @@
  * the createHot afterRender event/method.
  */
 
+const VERSION = '0.5.2';
+const VERSION_TEXT = 'DataHarmonizer provenance: v' + VERSION;
+
 /* A list of templates available for this app, which will be displayed in a 
  * menu. A template can also be accessed by adding it as a folder name in the
  * URL parameter. This enables testing of a template even if it hasn't been incorporated into the list below.
@@ -19,8 +22,8 @@
  * https://github.com/GenomicsStandardsConsortium/mixs-source/tree/main/model/schema
  *
  */
-const VERSION = '0.5.1';
-const VERSION_TEXT = 'DataHarmonizer provenance: v' + VERSION;
+
+//TEMPLATES = {} // Now loaded via templates/menu.js
 
 // Currently selected cell range[row,col,row2,col2]
 CURRENT_SELECTION = [null,null,null,null];
@@ -134,7 +137,6 @@ const createHot = (data) => {
           $cellElement.addClass('recommended');
         } 
       });
-
     },
     afterRenderer: (TD, row, col) => {
       if (INVALID_CELLS.hasOwnProperty(row)) {
@@ -164,14 +166,10 @@ const getNestedHeaders = (data) => {
       colspan: parent.children.length
     });
     for (const child of parent.children) {
-      let req = '';
-      if (child.required)
-        req = 'required';
-      else {
-        if (child.recommended)
-          req = 'recommended';
-      }
-      rows[1].push(`<div class="secondary-header-text ${req}">${child.title}</div>`);
+      const required = child.required ? ' required' : '';
+      const recommended = child.recommended ? ' recommended' : '';
+      const name = child.title;
+      rows[1].push(`<div class="secondary-header-text${required}${recommended}">${name}</div>`);
     }
   }
   return rows;
@@ -187,7 +185,7 @@ const getFlatHeaders = (data) => {
   const rows = [[], []];
 
   for (const parent of data) {
-    let min_cols = parent.children.length - 1;
+    let min_cols = parent.children.length;
     if (min_cols < 1) {
       // Close current dialog and switch to error message
       //$('specify-headers-modal').modal('hide');
@@ -201,7 +199,10 @@ const getFlatHeaders = (data) => {
       return false;
     }
     rows[0].push(parent.title);
-    rows[0].push(...Array(min_cols).fill(''));
+    // pad remainder of first row columns with empty values
+    if (min_cols > 1)
+      rows[0].push(...Array(min_cols-1).fill(''));
+    // Now add 2nd row child titles
     rows[1].push(...parent.children.map(child => child.title));
   }
   return rows;
@@ -218,11 +219,12 @@ const getColumns = (data) => {
   let ret = [];
   for (const field of getFields(data)) {
     const col = {};
-    if (field.required)
+    if (field.required) {
       col.required = field.required;
-    if (field.recommended)
-      col.recommended = field.recommended;  
-
+    }
+    if (field.recommended) {
+      col.recommended = field.recommended;
+    }
     // Compile field's regular expression for quick application.
     if (field.pattern) {
       // Issue with NMDC MIxS "current land use" field pattern: "[ ....(all sorts of things) ]" syntax.
@@ -296,7 +298,6 @@ const enableMultiSelection = (hot, data) => {
   const fields = getFields(data);
   hot.updateSettings({
     afterBeginEditing: function(row, col) {
-      //if (fields[col].datatype === 'multiple') {
       if (fields[col].multivalued === true) {
         const value = this.getDataAtCell(row, col);
         let selections = value && value.split(';') || [];
@@ -371,7 +372,6 @@ const runBehindLoadingScreen = (fn, args=[]) => {
   });
 };
 
-
 /**
  * Modify visibility of columns in grid. This function should only be called
  * after clicking a DOM element used to toggle column visibilities.
@@ -382,6 +382,7 @@ const runBehindLoadingScreen = (fn, args=[]) => {
 const changeColVisibility = (id = 'show-all-cols-dropdown-item', data, hot) => {
   // Grid becomes sluggish if viewport outside visible grid upon re-rendering
   hot.scrollViewportTo(0, 1);
+  const domEl = $('#' + id);
 
   // Un-hide all currently hidden cols
   const hiddenColsPlugin = hot.getPlugin('hiddenColumns');
@@ -391,19 +392,37 @@ const changeColVisibility = (id = 'show-all-cols-dropdown-item', data, hot) => {
   const hiddenColumns = [];
 
   // If accessed by menu, disable that menu item, and enable the others
-  const showColsSelectors = '#show-all-cols-dropdown-item, #show-required-cols-dropdown-item, #show-recommended-cols-dropdown-item';
-  $(showColsSelectors).removeClass('disabled');
-  $('#'+id).addClass('disabled');
+  $('#show-all-cols-dropdown-item, #show-required-cols-dropdown-item, #show-recommended-cols-dropdown-item, .show-section-dropdown-item')
+    .removeClass('disabled');
+  domEl.addClass('disabled');
+
 
   //Request may be for only required fields, or required+recommended fields
-  const options = (id === 'show-required-cols-dropdown-item') ? ['required'] : (id === 'show-recommended-cols-dropdown-item') ? ['required','recommended'] : null;
-  if (options) {
+  let required = (id === 'show-required-cols-dropdown-item');
+  let recommended = (id === 'show-recommended-cols-dropdown-item');
+  if (required || recommended) {
     getFields(data).forEach(function(field, i) {
-      if ((field.required && options.includes('required')) || (field.recommended && options.includes('recommended'))) {}
-      else {
+      if (required && !field.required)
         hiddenColumns.push(i);
-      }
+      else 
+        if (recommended && !(field.required || field.recommended))
+          hiddenColumns.push(i);
     });
+  }
+
+  // prefix of ID indicates if it is a command to show just one section.
+  else if (id.indexOf('show-section-') === 0) {
+    const section_name = domEl.text();
+    let column_ptr = 0;
+    for (section of data) {
+      for (column of section.children) {
+        // First condition ensures first (row identifier) column is not hidden
+        if (column_ptr > 0 && section.title != section_name) {
+          hiddenColumns.push(column_ptr)
+        }
+        column_ptr ++;
+      }
+    };
   }
   hiddenColsPlugin.hideColumns(hiddenColumns);
   hot.render();
@@ -454,6 +473,19 @@ const getFieldYCoordinates = (data) => {
   const ret = {};
   for (const [i, field] of getFields(data).entries()) {
     ret[field.title] = i;
+  }
+  return ret;
+};
+
+const getColumnCoordinates = (data) => {
+  const ret = {};
+  let column_ptr = 0;
+  for (section of data) {
+    ret[section.title] = column_ptr;
+    for (column of section.children) {
+      ret[' . . ' + column.title] = column_ptr;
+      column_ptr ++;
+    }
   }
   return ret;
 };
@@ -512,6 +544,18 @@ const getComment = (field) => {
   return ret;
 };
 
+/**
+ * Enable template folder's export.js export options to be loaded dynamically.
+ */
+const exportOnload = () =>  {
+  const select = $("#export-to-format-select")[0];
+  while (select.options.length > 1) {
+    select.remove(1);
+  }
+  for (const option in EXPORT_FORMATS) {
+    select.append(new Option(option, option));
+  }
+};
 
 /**
  * Show available templates, with sensitivity to "view draft template" checkbox
@@ -553,7 +597,6 @@ $(document).ready(() => {
 
 });
 
-
 /**
  * Wire up user controls which only need to happen once on load of page.
  */
@@ -577,18 +620,17 @@ const setupTriggers = () => {
     const isNotEmpty = HOT.countRows() - HOT.countEmptyRows();
     if (e.target.id === 'new-dropdown-item' && isNotEmpty) {
       $('#clear-data-warning-modal').modal('show');
-      return
     } 
+    else {
+      // Clear current file indication
+      $('#file_name_display').text('');
 
-    // Clear current file indication
-    $('#file_name_display').text('');
-
-    runBehindLoadingScreen(() => {
-      window.INVALID_CELLS = {};
-      HOT.destroy();
-      window.HOT = createHot(TABLE);
-    });
-
+      runBehindLoadingScreen(() => {
+        window.INVALID_CELLS = {};
+        HOT.destroy();
+        window.HOT = createHot(TABLE);
+      });
+    }
   });
 
   // File -> Open
@@ -705,17 +747,21 @@ const setupTriggers = () => {
       let value = $fillValueInput.val();
       let colname = $fillColumnInput.val();
       const fieldYCoordinates = getFieldYCoordinates(TABLE);
-      let changes = [];
-      for (let row=0; row<HOT.countRows(); row++) {
-        if (!HOT.isEmptyRow(row)) {
-          let col = fieldYCoordinates[colname];
-          if (HOT.getDataAtCell(row, col) !== value)      
-            changes.push([row, col, value]);
+      // ENSURE colname hasn't been tampered with (the autocomplete allows
+      // other text)
+      if (colname in fieldYCoordinates) {
+        let changes = [];
+        for (let row=0; row<HOT.countRows(); row++) {
+          if (!HOT.isEmptyRow(row)) {
+            let col = fieldYCoordinates[colname];
+            if (HOT.getDataAtCell(row, col) !== value)      
+              changes.push([row, col, value]);
+          }
         }
-      }
-      if (changes.length > 0) {
-        HOT.setDataAtCell(changes);
-        HOT.render();
+        if (changes.length > 0) {
+          HOT.setDataAtCell(changes);
+          HOT.render();
+        }
       }
     });
   });
@@ -757,7 +803,6 @@ const setupTriggers = () => {
       }
     };
 
-    //console.log("trying", focus_row, focus_col);
     window.CURRENT_SELECTION[0] = focus_row;
     window.CURRENT_SELECTION[1] = focus_col;
     window.CURRENT_SELECTION[2] = focus_row;
@@ -802,16 +847,6 @@ const setupTriggers = () => {
     });
   });
 
-  // Settings -> Show ... columns
-  const showColsSelectors = [
-      '#show-all-cols-dropdown-item', 
-      '#show-required-cols-dropdown-item',
-      '#show-recommended-cols-dropdown-item',
-      ];
-  $(showColsSelectors.join(',')).click((e) => {
-    runBehindLoadingScreen(changeColVisibility, [e.target.id, TABLE, HOT]);
-  });
-
   // Settings -> Show ... rows
   const showRowsSelectors = [
     '#show-all-rows-dropdown-item',
@@ -825,11 +860,10 @@ const setupTriggers = () => {
 
 }
 
-
 /**
  * Revise user interface elements to match template path, and trigger
  * load of schema.js and export.js scripts (if necessary).  script.onload goes on
- * to trigger launch(DATA).
+ * to trigger launch(TABLE).
  * @param {String} template_path: path of template starting from app's
  * template/ folder.
  */
@@ -858,16 +892,17 @@ const switchTemplate = (template_path) => {
     template_path = template_folder + '/' + template_name;
   }
  
-  if (window.DATA && DATA.folder == template_folder) {
-    // DATA file of specifications already loaded
+  if (window.TABLE && TABLE.folder == template_folder) {
+    // TABLE file of specifications already loaded
     setupTemplate(template_path);
     }
   else {
-    // A switch to this template requires reloading DATA
+    // A switch to this template requires reloading TABLE
     reloadJs(template_folder, 'schema.js', setupTemplate, [template_path]);
   }
 
 };
+
 
 /**
  * With existing or newly loaded SCHEMA file, load of schema.js and then
@@ -877,7 +912,7 @@ const switchTemplate = (template_path) => {
  */
 const setupTemplate = (template_path) => {
 
-  TABLE = []; // This will hold template's new data including table sections.
+  window.TABLE = []; // This will hold template's new data including table sections.
   let [template_folder, template_name] = template_path.split('/',2);
 
   // If visible, show this as a selected item in template menu
@@ -1073,7 +1108,7 @@ const setupTemplate = (template_path) => {
   });
 
   // Asynchronous. Since SCHEMA loaded, export.js should succeed as well.
-  reloadJs(template_folder, 'export.js', exportMenuUpdate);
+  reloadJs(template_folder, 'export.js', exportOnload);
 
   launch();
   //runBehindLoadingScreen(launch, [TABLE]);
@@ -1137,7 +1172,7 @@ const reloadJs = (template_folder, file_name, onloadfn, load_parameters = null) 
 
 /**
  * Clears and redraws grid based on TABLE.
- * //@param {Object} DATA: hierarchy of field sections and fields to render. 
+ * //@param {Object} TABLE: hierarchy of field sections and fields to render. 
  */
 const launch = () => {
 
@@ -1147,39 +1182,43 @@ const launch = () => {
     window.HOT = createHot(TABLE);
   });
 
-  toggleDropdownVisibility();
+  // Allows columnCoordinates to be accessed within select() below.
+  const columnCoordinates = getColumnCoordinates(TABLE);
 
-  const fieldYCoordinates = getFieldYCoordinates(TABLE);
+
+  $('#section-menu').empty();
+  section_ptr = 0;
+  for (section of TABLE) {
+    $('#section-menu').append(`<div id="show-section-${section_ptr}" class="dropdown-item show-section-dropdown-item">${section.title}</div>`);
+    section_ptr ++;
+  }
+
+  // Settings -> Show ... columns
+  const showColsSelectors = [
+      '#show-all-cols-dropdown-item', 
+      '#show-required-cols-dropdown-item',
+      '#show-recommended-cols-dropdown-item',
+      '.show-section-dropdown-item',
+      ];
+
+    $(showColsSelectors.join(',')).on('click', function(e) {
+    runBehindLoadingScreen(changeColVisibility, [e.target.id, TABLE, window.HOT]);
+  });
 
   // Settings -> Jump to...
-  const $jumpToInput = $('#jump-to-input');
-  $jumpToInput.autocomplete({
-    source: Object.keys(fieldYCoordinates),
+  $('#jump-to-input').autocomplete({
+    source: Object.keys(columnCoordinates),
     minLength: 0,
     select: (e, ui) => {
-      const column = fieldYCoordinates[ui.item.label];
-      scrollTo(0, column, TABLE, window.HOT);
+      const columnX = columnCoordinates[ui.item.label];
+      scrollTo(0, columnX, TABLE, window.HOT);
       $('#jump-to-modal').modal('hide');
     },
   })
 
-  const $fillColumnInput = $('#fill-column-input');
-  $fillColumnInput.autocomplete({
-    source: Object.keys(fieldYCoordinates),
+  $('#fill-column-input').autocomplete({
+    source: getFields(TABLE).map(a => a.title),
     minLength: 0
   })
 
 }
-
-/**
- * Enable template folder's export.js export options to be loaded dynamically.
- */
-const exportMenuUpdate = () =>  {
-  const select = $("#export-to-format-select")[0];
-  while (select.options.length > 1) {
-    select.remove(1);
-  }
-  for (const option in EXPORT_FORMATS) {
-    select.append(new Option(option, option));
-  }
-};
