@@ -23,7 +23,7 @@ html, body {
 }
 
 /* Toolbar */
-#header-row {
+.data-harmonizer-header {
     visibility: hidden;
 }
 .dropdown-item:hover {
@@ -75,28 +75,28 @@ html, body {
 }
 
 /* Grid */
-#grid {
+.data-harmonizer-grid {
 	overflow: hidden;
 }
-#grid .secondary-header-cell:hover {
+.data-harmonizer-grid .secondary-header-cell:hover {
 	cursor: pointer;
 }
-#grid td.invalid-cell {
+.data-harmonizer-grid td.invalid-cell {
 	background-color: #ffcccb !important;
 }
-#grid td.empty-invalid-cell {
+.data-harmonizer-grid td.empty-invalid-cell {
 	background-color: #ff91a4 !important;
 }
-#grid .htAutocompleteArrow {
+.data-harmonizer-grid .htAutocompleteArrow {
 	color: gray;
 }
-#grid th {
+.data-harmonizer-grid th {
 	text-align: left;
 }
-#grid th.required {
+.data-harmonizer-grid th.required {
 	background-color:yellow;
 }
-#grid th.recommended {
+.data-harmonizer-grid th.recommended {
 	background-color:plum;
 }
 
@@ -117,20 +117,21 @@ html, body {
 }
 
 /* Fixed col */
-#grid th.overlayEdge {
+.data-harmonizer-grid th.overlayEdge {
 	border-right: medium solid gray;
 }
-#grid table.htCore > tbody > tr td:nth-child(2) {
+.data-harmonizer-grid table.htCore > tbody > tr td:nth-child(2) {
 	border-right: medium solid gray;
   	white-space: nowrap;
 	text-overflow: ellipsis;
 }
-#add-rows-input {max-width:5rem}
+.add-rows-input {max-width:5rem !important}
 
 /* Below grid */
-#footer-row {
+.data-harmonizer-footer {
     visibility: hidden;
 }
 
+#data-harmonizer-toolbar-inset {visibility: hidden}
 
-#field-description-text select {min-width: 95%}
+.field-description-text select {min-width: 95%}
