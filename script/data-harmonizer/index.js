@@ -33,6 +33,7 @@ let DataHarmonizer = {
 	dhFooter: null,
 	schema_name: null,
 	template_name: null,
+	template_path: null,
 	schema: null,			// Schema holding all templates
 	template: null,			// Specific template from schema
 	table: null,			// Table data.
@@ -54,8 +55,8 @@ let DataHarmonizer = {
 		$(this.dhGrid).on('dblclick', '.secondary-header-cell', (e) => {
 			const innerText = e.target.innerText;
 			const field = this.getFields(self.template).filter(field => field.title === innerText)[0];
-			$(self.dhToolbar).find('.field-description-text').html(self.getComment(field));
-			$(self.dhToolbar).find('.field-description-modal').modal('show');
+			$('#field-description-text').html(self.getComment(field));
+			$('#field-description-modal').modal('show');
 		});
 
 		// Add more rows
@@ -65,35 +66,36 @@ let DataHarmonizer = {
 		  	self.hot.alter('insert_row', self.hot.countRows()-1 + numRows, numRows);
 			});
 		});
-
-
 	},
 
-	//useSchema: function(){},
+	useSchema: async function(template_folder) {
 
-	/**
-	 * Revise user interface elements to match template path, and trigger
-	 * load of schema.js and export.js scripts (if necessary).  script.onload goes on
-	 * to trigger launch(TABLE).
-	 * @param {String} template_path: path of template starting from app's
-	 * template/ folder.
-	 */
-	useTemplate: function(template_path = null) {
-		let self = this;
-		// If no template_path provided, allow URL parameter ?template=Folder/name 
-		// to select template on page load.
-		if (!template_path) {
-			if (window.URLSearchParams) {
-				let params = new URLSearchParams(location.search);
-				template_path = params.get('template');
+		if (!this.schema || this.schema.folder != template_folder) {
+			try {
+				this.schema_name = template_folder;
+				return (await this.reloadJs('schema.js'));
 			}
-			else {//low-tech way:
-				let template_path = location.search.split("template=")[1];
+			catch (err) {
+				// Problem loading schema
+				return false;
 			}
 		}
+		return this.schema_name
+	},
 
-		// Redo of template triggers new data file
-
+	/**
+	 * Determines template_path from a URL parameter ?template=Folder/name, 
+	 * or a default value from first template in menu.js
+	 */
+	getTemplate: function () {
+		let template_path = null;
+		if (window.URLSearchParams) {
+			let params = new URLSearchParams(location.search);
+			template_path = params.get('template');
+		}
+		else {//low-tech way:
+			template_path = location.search.split("template=")[1];
+		}
 		// Validate path if not null:
 		if (template_path) {
 			[template_folder, template_name] = template_path.split('/',2); 
@@ -105,31 +107,65 @@ let DataHarmonizer = {
 		// If null, do default template setup - the first one in menu
 		else {
 			// Default template is first key in menu structure
-			template_folder = Object.keys(this.menu)[0];
-			template_name = Object.keys(this.menu[template_folder])[0];
+			const template_folder = Object.keys(this.menu)[0];
+			const template_name = Object.keys(this.menu[template_folder])[0];
 			template_path = template_folder + '/' + template_name;
 		}
+		return template_path;
+	},
+
+	/**
+	 * Revise user interface elements to match template path, and trigger
+	 * load of schema.js and export.js scripts (if necessary).  script.onload goes on
+	 * to trigger launch(TABLE).
+	 * @param {String} template_path: path of template starting from app's
+	 * template/ folder.
+	 */
+	useTemplate: async function(template_path) {
+
+		if (!template_path) 
+			return false; // Error condition: no template path provided
+
+		[template_folder, template_name] = template_path.split('/',2); 
 
 		this.schema_name = template_folder;
 		this.template_name = template_name;
+		this.template_path = template_path;
 
-		// Here TABLE file of specifications already loaded 
-		if (this.schema && this.schema.folder == template_folder) {
+		try {
+			// Loading this template may require loading the SCHEMA it is under.
+			const schema_loaded = await this.useSchema(template_folder);
+			//if (!schema_loaded) 
+			//	return false;
 
-			this.template = this.processTemplate(template_name);
-			//setupToolbar(TABLE, template_path);
-
+			this.processTemplate(template_name);
 			//this.newHotFile();
 			this.createHot();
 			// Asynchronous. Since SCHEMA loaded, export.js should succeed as well.
-			this.reloadJs('export.js', this.exportOnload);
+			this.reloadJs('export.js');
 
+			return template_name;
 		}
-		// A switch to this template requires reloading the SCHEMA it is under
-		else {
-			this.reloadJs('schema.js', this.useTemplate, [template_path]);
+		catch(err) {
+		    console.log(err);
 		}
 
+	},
+
+	// https://simon-schraeder.de/posts/filereader-async/
+	readFileAsync: function (file) {
+	  return new Promise((resolve, reject) => {
+	    let reader = new FileReader();
+
+	    reader.onload = () => {
+	      resolve(reader.result);
+	    };
+
+	    reader.onerror = reject;
+
+		reader.readAsBinaryString(file);
+	    //reader.readAsArrayBuffer(file);
+	  })
 	},
 
 	/**
@@ -141,47 +177,69 @@ let DataHarmonizer = {
 	 * @return {Promise<>} Resolves after loading data or launching specify headers
 	 *     modal.
 	 */
-	openFile: function(file) {
-		return new Promise((resolve) => {
-			const fileReader = new FileReader();
-			const self = this;
 
-			fileReader.readAsBinaryString(file);
-
-			fileReader.onload = (e) => {
-
-// CHANGE: to function returns false or file.name
-
-				$('#file_name_display').text(file.name); 
-
-				const workbook = XLSX.read(e.target.result, {
-					type: 'binary', 
-					raw: true,
-					cellDates: true, // Ensures date formatted as  YYYY-MM-DD dates
-					dateNF: 'yyyy-mm-dd' //'yyyy/mm/dd;@'
-				});
-				const worksheet = this.updateSheetRange(workbook.Sheets[workbook.SheetNames[0]]);
-				const matrix = (XLSX.utils.sheet_to_json(
-					worksheet, 
-					{
-						header: 1, 
-						raw: false, 
-						range: 0
-					}
-					));
-				const headerRowData = this.compareMatrixHeadersToGrid(matrix, self.template);
-				if (headerRowData > 0) {
-					this.hot.loadData(matrixFieldChangeRules(matrix.slice(headerRowData), hot, data));
-				} 
-				else {
-					this.launchSpecifyHeadersModal(matrix, hot, data);
-				}
-
-				resolve();
-			}
-		});
+	/**
+	 * Loads a given javascript file.
+	 * 
+	 * @param {String} file_name: File in templates/[current schema]/ to load.
+	 */
+	openFile: async function(dh, file_name) {
+		try {
+			let contentBuffer = await dh.readFileAsync(file_name);
+			dh.loadSpreadsheetData (contentBuffer);
+		}
+		catch(err) {
+		    console.log(err);
+		}
 	},
 
+	loadSpreadsheetData: function (data) {
+		const workbook = XLSX.read(data, {
+			type: 'binary', 
+			raw: true,
+			cellDates: true, // Ensures date formatted as  YYYY-MM-DD dates
+			dateNF: 'yyyy-mm-dd' //'yyyy/mm/dd;@'
+		});
+	
+		const worksheet = this.updateSheetRange(workbook.Sheets[workbook.SheetNames[0]]);
+
+		const matrix = (XLSX.utils.sheet_to_json(
+			worksheet, 
+			{
+				header: 1, 
+				raw: false, 
+				range: 0
+			}
+			));
+		const headerRowData = this.compareMatrixHeadersToGrid(matrix);
+		if (headerRowData > 0) {
+			this.hot.loadData(this.matrixFieldChangeRules(matrix.slice(headerRowData)));
+		} 
+		else {
+			this.launchSpecifyHeadersModal(matrix, hot, data);
+		}
+	},
+
+	/**
+	* Improve `XLSX.utils.sheet_to_json` performance for Libreoffice Calc files.
+	* Ensures sheet range is accurate. See
+	* https://github.com/SheetJS/sheetjs/issues/764 for more detail.
+	* @param {Object} worksheet SheetJs object.
+	* @returns {Object} SheetJs worksheet with correct range.
+	*/
+	updateSheetRange: function (worksheet) {
+		const range = {s:{r:20000000, c:20000000},e:{r:0,c:0}};
+		Object.keys(worksheet)
+		.filter((x) => {return x.charAt(0) !== '!'})
+		.map(XLSX.utils.decode_cell).forEach((x) => {
+			range.s.c = Math.min(range.s.c, x.c);
+			range.s.r = Math.min(range.s.r, x.r);
+			range.e.c = Math.max(range.e.c, x.c);
+			range.e.r = Math.max(range.e.r, x.r);
+		});
+		worksheet['!ref'] = XLSX.utils.encode_range(range);
+		return worksheet;
+	},
 
 	validate: function(){
 
@@ -325,7 +383,7 @@ let DataHarmonizer = {
 	  else if (id.indexOf('show-section-') === 0) {
 	    const section_name = domEl.text();
 	    let column_ptr = 0;
-	    for (section of data) {
+	    for (section of this.template) {
 	      for (column of section.children) {
 	        // First condition ensures first (row identifier) column is not hidden
 	        if (column_ptr > 0 && section.title != section_name) {
@@ -352,7 +410,7 @@ let DataHarmonizer = {
 	  this.hot.scrollViewportTo(0, 1);
 
 	  // Un-hide all currently hidden cols
-	  const hiddenRowsPlugin = hot.getPlugin('hiddenRows');
+	  const hiddenRowsPlugin = this.hot.getPlugin('hiddenRows');
 	  hiddenRowsPlugin.showRows(hiddenRowsPlugin.hiddenRows);
 
 	  // Hide user-specified rows
@@ -361,11 +419,11 @@ let DataHarmonizer = {
 	  let hiddenRows = [];
 
 	  if (id === 'show-valid-rows-dropdown-item') {
-	    hiddenRows = Object.keys(invalidCells).map(Number);
+	    hiddenRows = Object.keys(this.invalid_cells).map(Number);
 	    hiddenRows = [...hiddenRows, ...emptyRows];
 	  } 
 	  else if (id === 'show-invalid-rows-dropdown-item') {
-	    const invalidRowsSet = new Set(Object.keys(invalidCells).map(Number));
+	    const invalidRowsSet = new Set(Object.keys(this.invalid_cells).map(Number));
 	    hiddenRows = rows.filter(row => !invalidRowsSet.has(row));
 	    hiddenRows = [...hiddenRows, ...emptyRows];
 	  }
@@ -445,10 +503,10 @@ let DataHarmonizer = {
 					$('#specify-headers-err-msg').show();
 				} 
 				else {
-					const mappedMatrixObj = this.mapMatrixToGrid(matrix, specifiedHeaderRow-1, this.template);
+					const mappedMatrixObj = self.mapMatrixToGrid(matrix, specifiedHeaderRow-1);
 					$('#specify-headers-modal').modal('hide');
 					runBehindLoadingScreen(() => {
-						self.hot.loadData(matrixFieldChangeRules(mappedMatrixObj.matrix.slice(2), hot, data));
+						self.hot.loadData(self.matrixFieldChangeRules(mappedMatrixObj.matrix.slice(2)));
 						if (mappedMatrixObj.unmappedHeaders.length) {
 							const unmappedHeaderDivs = mappedMatrixObj.unmappedHeaders.map(header => `<li>${header}</li>`);
 							$('#unmapped-headers-list').html(unmappedHeaderDivs);
@@ -583,8 +641,8 @@ let DataHarmonizer = {
 	*/
 	exportFile: function (matrix, baseName, ext) {
 
-		const worksheet = xlsx.utils.aoa_to_sheet(matrix);
-		const workbook = xlsx.utils.book_new();
+		const worksheet = XLSX.utils.aoa_to_sheet(matrix);
+		const workbook = XLSX.utils.book_new();
 		XLSX.utils.book_append_sheet(workbook, worksheet, 'Sheet1');
 		switch (ext) {
 			case 'xlsx':
@@ -675,9 +733,11 @@ let DataHarmonizer = {
 	    }
 	    // Compile field's regular expression for quick application.
 	    if (field.pattern) {
+	    	//console.log(field.pattern)
 	      // Issue with NMDC MIxS "current land use" field pattern: "[ ....(all sorts of things) ]" syntax.
 	      NMDC_regex = field.pattern.replaceAll("(", "\(").replaceAll(")", "\)").replace("[", "(").replace("]", ")")
 	      field.pattern = new RegExp(NMDC_regex);
+
 	    }
 
 	    col.source = null;
@@ -777,6 +837,28 @@ let DataHarmonizer = {
 	  });
 	},
 
+	fillColumn: function (colname, value) {
+
+		const fieldYCoordinates = this.getFieldYCoordinates();
+		// ENSURE colname hasn't been tampered with (the autocomplete allows
+		// other text)
+		if (colname in fieldYCoordinates) {
+			let changes = [];
+			for (let row=0; row < this.hot.countRows(); row++) {
+				if (!this.hot.isEmptyRow(row)) {
+					let col = fieldYCoordinates[colname];
+					if (this.hot.getDataAtCell(row, col) !== value)      
+						changes.push([row, col, value]);
+				}
+			}
+			if (changes.length > 0) {
+				this.hot.setDataAtCell(changes);
+				this.hot.render();
+			}
+		}
+	},
+
+
 	/**
 	 * Run void function behind loading screen.
 	 * Adds function to end of call queue. Does not handle functions with return
@@ -787,66 +869,59 @@ let DataHarmonizer = {
 	 * @param {Array} [args=[]] - Arguments for function to run.
 	 */
 	runBehindLoadingScreen: (fn, args=[]) => {
-		const self = this;
 
-	  	$('#loading-screen').show('fast', 'swing', function() {
-	    	setTimeout(() => {
-				const ret = fn.apply(self, args);
-				if (ret && ret.then) {
-					ret.then(() => {
-			  			$('#loading-screen').hide();
-					});
-				} else {
-					$('#loading-screen').hide();
-				}
-	    	}, 0);
-		});
+	  	$('#loading-screen').show('fast', 'swing');
+	  	if (args.length)
+	  		fn.apply(this, args).then($('#loading-screen').hide());
+	  	else
+	  		fn.apply(this).then($('#loading-screen').hide());
+
+	  	return
 	},
 
 	/**
-	 * Reloads a given javascript by removing any old script happening to have the
-	 * same URL, and loading the given one. Only in this way will browsers reload
-	 * the code. This is mainly designed to load a script that sets a global SCHEMA 
-	 * or TEMPLATE variable.
+	 * Loads a given javascript file.
 	 * 
-	 * @param {String} src_url: path of template starting from app's template folder.
-	 * @param {Object} onloadfn: function to run when script is loaded. 
+	 * @param {String} file_name: File in templates/[current schema]/ to load.
 	 */
-	reloadJs: function(file_name, onloadfn, load_parameters = null) {
-	  const src_url = `./template/${this.schema_name}/${file_name}`;
-	  const self = this;
+	reloadJs: async function(file_name) {
 
-	  $(`script[src="${src_url}"]`).remove();
-	  var script = document.createElement('script');
-	  if (onloadfn) {
+		const self = this;
+		const src_url = `./template/${this.schema_name}/${file_name}`;
 
-	  	// Important: when script is loaded the onload object context changes
-	  	// from the DataHarmonizer object to the script object. Referencing
-	  	// the DH context is achieved by "that":
+		var settings = {
+          'cache': false,
+          'dataType': "script",
+          //"async": false,
+          "crossDomain": true, // Critical
+          "url": src_url,
+          "method": "GET",
+          //"headers": {
+          //    "accept": "text/javascript",
+          //    "Access-Control-Allow-Origin":"*"
+          //}
+		}
+		try {
+			const response = await $.ajax(settings);
+			// script fetches don't return data. 
 
-	    script.onload = function () {
-	    	if (file_name == 'schema.js') {
-	    		self.schema = SCHEMA;
-	    	}
-	    	if (file_name == 'export.js')
-	    		self.export_formats = EXPORT_FORMATS
-			if (load_parameters) {
-				onloadfn.apply(self, load_parameters);
-			}
-			else
-				onloadfn.apply(self);
-	    };
-	  };
-	  script.onerror = function() {
-	    $('#missing-template-msg').text(`Unable to load template file "${src_url}". Is the template name correct?`);
-	    $('#missing-template-modal').modal('show');
-	    $('#template_name_display').text('');
-	    return false;
-	  };
-	  // triggers load
-	  script.src = src_url;
-	  document.head.appendChild(script);
+			// SCHEMA will be in place if script successful.
+			if (file_name == 'schema.js') {
+				// FUTURE: make this a json data object directly
+    			self.schema = SCHEMA;
+    		}
+			if (file_name == 'export.js')
+				self.export_formats = EXPORT_FORMATS;
 
+			return file_name;
+
+		}
+		catch (err) {
+			//console.log("fetch failed", err)
+			$('#missing-template-msg').text(`Unable to load file "${src_url}". Is the file location correct?`);
+    		$('#missing-template-modal').modal('show');
+			return false;
+		}
 	},
 
 	/**
@@ -1049,11 +1124,10 @@ let DataHarmonizer = {
 	      section['children'].push(new_field);
 	    }
 	    else {
-	     console.log("ERROR: field doesn't have section: ", name );
+			console.log("ERROR: field doesn't have section: ", name );
 	    }
 	  });
-
-	  return template
+	  this.template = template;
 	},
 
 
