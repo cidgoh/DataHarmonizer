@@ -524,9 +524,16 @@ let DataHarmonizer = {
 		let flatHeaders = this.getFlatHeaders();
 		const self = this;
 		if (flatHeaders) {
-			// CHANGE to class search:
-			$('#expected-headers-div').html(flatHeaders[1].join('   '));
-			$('#actual-headers-div').html(matrix[1].join('    '));
+		    $('#field-mapping').prepend('<col></col>'.repeat(flatHeaders[1].length+1));
+		    $('#expected-headers-tr')
+		        .html('<td><b>Expected second row</b></td> <td>' + flatHeaders[1].join('</td><td>') + '</td>');
+		    $('#actual-headers-tr')
+		        .html('<td><b>Imported second row</b></td> <td>' + matrix[1].join('</td><td>') + '</td>');
+		    flatHeaders[1].forEach(function (item, i) {
+		      if (item != matrix[1][i])
+		        $('#field-mapping col').get(i+1).style.backgroundColor = "orange";
+		    });
+
 			$('#specify-headers-modal').modal('show');
 			$('#specify-headers-confirm-btn').click(() => {
 				const specifiedHeaderRow = parseInt($('#specify-headers-input').val());
