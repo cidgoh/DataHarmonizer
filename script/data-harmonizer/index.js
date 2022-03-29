@@ -230,7 +230,7 @@ let DataHarmonizer = {
 				if (!changes) return;
 
 				// When a change in one field triggers a change in another field.
-				var triggered_changes = []; 
+				let triggered_changes = []; 
 
 				for (const change of changes) {
 					const column = change[1];
@@ -430,17 +430,21 @@ let DataHarmonizer = {
 	 * @param {Array} [args=[]] - Arguments for function to run.
 	 */
 	runBehindLoadingScreen: async function(fn, args=[]) {
-	  	$('#loading-screen').show('fast', 'swing');
+	  	await $('#loading-screen').show('fast', 'swing');
+	  	await this.wait(200); // Enough of a visual cue that something is happening
 	  	if (args.length)
 	  		await fn.apply(this, args);
 	  	else {
 	  		await fn.apply(this);
 	  	}
-		$('#loading-screen').hide();
+		await $('#loading-screen').hide();
 	  	return
 	},
 
-
+	// wait ms milliseconds
+	wait: function (ms) {
+	  return new Promise(r => setTimeout(r, ms));
+	},
 /***************************** PRIVATE functions *************************/
 
 
@@ -532,14 +536,14 @@ let DataHarmonizer = {
 				else {
 					const mappedMatrixObj = self.mapMatrixToGrid(matrix, specifiedHeaderRow-1);
 					$('#specify-headers-modal').modal('hide');
-					//this.runBehindLoadingScreen(() => {
+					this.runBehindLoadingScreen(() => {
 						self.hot.loadData(self.matrixFieldChangeRules(mappedMatrixObj.matrix.slice(2)));
 						if (mappedMatrixObj.unmappedHeaders.length) {
 							const unmappedHeaderDivs = mappedMatrixObj.unmappedHeaders.map(header => `<li>${header}</li>`);
 							$('#unmapped-headers-list').html(unmappedHeaderDivs);
 							$('#unmapped-headers-modal').modal('show');
 						}
-					//});
+					});
 				}
 			});
 		}
@@ -749,7 +753,7 @@ let DataHarmonizer = {
 	 */
 	getColumns: function () {
 	  let ret = [];
-	  for (var field of this.getFields()) {
+	  for (let field of this.getFields()) {
 	    const col = {};
 	    if (field.required) {
 	      col.required = field.required;
@@ -886,7 +890,7 @@ let DataHarmonizer = {
 		const self = this;
 		const src_url = `./template/${this.schema_name}/${file_name}`;
 
-		var settings = {
+		let settings = {
           'cache': false,
           'dataType': "script",
           //"async": false,
