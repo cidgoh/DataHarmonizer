@@ -217,8 +217,7 @@ DataHarmonizerToolbar = {
 
 	validate: function() {
 		//self.dh.runBehindLoadingScreen(() => {
-			self.dh.invalid_cells = self.dh.getInvalidCells();
-			self.dh.hot.render();	
+			self.dh.validate();
 		//});
 
 		// If any rows have error, show this.
@@ -231,9 +230,6 @@ DataHarmonizerToolbar = {
 			$('#no-error-button').show().delay(5000).fadeOut('slow');
 		}
 	},
-
-	// $('#template_name_display').text('Template ' + template_path + " not found!");
-	// $('#select-template').val('');  // Clear selection
 
 	refresh: function () {
 		self = this;

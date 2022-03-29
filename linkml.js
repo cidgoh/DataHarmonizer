@@ -13,9 +13,9 @@ $(document).ready(async () => {
 
 	var dh = new Object(DataHarmonizer);
 	// Note: TEMPLATES contains templates/menu.js object. It is only required 
-	// if using dh.getTemplate() below.
+	// if using dh.getTemplate() below without specifying a template.
 	dh.init(myDHGrid, myDHFooter, myDHToolbar, TEMPLATES);
-	console.log(dh.getInvalidCells)
+	
 	var toolbar = new Object(DataHarmonizerToolbar);
 	toolbar.init(dh, myDHToolbar);
 
