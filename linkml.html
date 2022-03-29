@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="./main.css">
   </head>
   <body>
+
+    <!-- DataHarmonizer uses this screen overlay for some longer operations -->
     <div class="w-100 h-100 position-fixed fixed-top" id="loading-screen">
       <div class="d-flex h-100 align-items-center justify-content-center">
         <div class="spinner-border text-primary" role="status">
@@ -445,13 +447,13 @@
           </div>
         </div>
       </div>
-      <div class="modal field-description-modal" tabindex="-1" role="dialog">
+      <div id="field-description-modal" class="modal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-body">
               <div class="container-fluid">
                 <div class="row">
-                  <div class="col field-description-text"></div>
+                  <div class="col" id="field-description-text"></div>
                 </div>
                 <div class="row mt-3">
                   <div class="col d-flex justify-content-end">
@@ -602,12 +604,9 @@
     <script src="script/data-harmonizer/index.js"></script>
     <script src="script/data-harmonizer/export_utils.js"></script>
     <script src="script/data-harmonizer/validation.js"></script>
-    <script src="script/data-harmonizer/file_utils.js"></script>  
     <script src="script/data-harmonizer/field_rules.js"></script> 
     <script src="script/data-harmonizer/toolbar.js"></script>    
     <script src="template/menu.js"></script>  
-    <script src="script/data-harmonizer/main_linkml.js"></script>
-
     <script src="linkml.js"></script>
   </body>
 </html>

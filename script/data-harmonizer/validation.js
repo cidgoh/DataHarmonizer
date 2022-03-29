@@ -1,13 +1,14 @@
-dhValidation = {
+// Adds existing functions/methods to DataHarminizer.
+Object.assign(DataHarmonizer, {
 
-/**
- * Get a collection of all invalid cells in the grid.
- * @return {Object<Number, Object<Number, String>>} Object with invalid rows as
- *     keys, and objects containing the invalid cells for the row, along with a
- *     message explaining why, as values. e.g,
- *     `{0: {0: 'Required cells cannot be empty'}}`
- */
-	 getInvalidCells: function () {
+	/**
+	 * Get a collection of all invalid cells in the grid.
+	 * @return {Object<Number, Object<Number, String>>} Object with invalid rows as
+	 *     keys, and objects containing the invalid cells for the row, along with a
+	 *     message explaining why, as values. e.g,
+	 *     `{0: {0: 'Required cells cannot be empty'}}`
+	 */
+	getInvalidCells: function () {
 		const invalidCells = {};
 		const fields = this.getFields();
 
@@ -24,127 +25,128 @@ dhValidation = {
 				const field = fields[col];
 				const datatype = field.datatype;
 				let valid = true;
-		// TODO we could have messages for all types of invalidation, and add
-		//  them as tooltips
-		let msg = '';
+				// TODO we could have messages for all types of invalidation, and add
+				//  them as tooltips
+				let msg = '';
 
-		// 1st row of provenance datatype field is forced to have a 
-		// 'DataHarmonizer Version: 0.13.0' etc. value.  Change happens silently. 
-		if (datatype === 'provenance') {
-			checkProvenance(provenanceChanges, cellVal, row, col);
-		};
+				// 1st row of provenance datatype field is forced to have a 
+				// 'DataHarmonizer Version: 0.13.0' etc. value.  Change happens silently. 
+				if (datatype === 'provenance') {
+					checkProvenance(provenanceChanges, cellVal, row, col);
+				};
 
-		if (!cellVal) {
-			valid = (field.required !== true);
-			msg = 'Required cells cannot be empty'
-		} 
-		else {
-		// If field's vocabulary comes from a (categorical) source:
-		if (field.source) {
-			if (field.multivalued === true) {
-				[valid, update] = this.validateValsAgainstVocab(cellVal, field.flatVocabulary);
-				if (update) this.hot.setDataAtCell(row, col, update, 'thisChange');
-			}
-			else {
-				[valid, update] = this.validateValAgainstVocab(cellVal, field.flatVocabulary);
-				if (update) {this.hot.setDataAtCell(row, col, update, 'thisChange');
-				console.log('changing',cellVal, update)
-			}
-		}
-		}
-		else {
-			switch (datatype) {
-
-				case 'xsd:integer':
-					valid = !isNaN(cellVal);
-					valid &= parsedInt.toString()===cellVal;
-					valid &= testNumericRange(parsedInt, field);
-					break;
-
-				case 'xsd:nonNegativeInteger':
-					const parsedInt = parseInt(cellVal, 10);
-					valid = !isNaN(cellVal) && parsedInt>=0;
-					valid &= parsedInt.toString()===cellVal;
-					valid &= testNumericRange(parsedInt, field);
-					break;
-
-				case 'xsd:float':
-					let parsedFloat = parseFloat(cellVal);
-					valid = !isNaN(cellVal) && parsedFloat == cellVal;
-					valid &= testNumericRange(parsedFloat, field);
-					break;
-
-				case 'xsd:double':
-					// NEED DOUBLE RANGE VALIDATION
-					parsedFloat = parseFloat(cellVal);
-					//valid = !isNaN(cellVal) && regexDouble.test(cellVal);
-					valid &= testNumericRange(parsedFloat, field);
-					break;
-
-				case 'xsd:decimal':
-					const parsedDec = parseFloat(cellVal);
-					valid = !isNaN(cellVal) && regexDecimal.test(cellVal);
-					valid &= testNumericRange(parsedDec, field);
-					break;
-
-				case 'xsd:boolean': 
-					valid = !isNaN(cellVal) && ['1','0','true','false'].indexOf(cellVal) >= 0;
-					break;
-
-				case 'xsd:date':
-					// moment is a date format addon
-					valid = moment(cellVal, 'YYYY-MM-DD', true).isValid();
-					if (valid) {
-						valid = testDateRange(cellVal, field);
+				if (!cellVal) {
+					valid = (field.required !== true);
+					msg = 'Required cells cannot be empty'
+				} 
+				else {
+					// If field's vocabulary comes from a (categorical) source:
+					if (field.source) {
+						if (field.multivalued === true) {
+							[valid, update] = this.validateValsAgainstVocab(cellVal, field.flatVocabulary);
+							if (update) this.hot.setDataAtCell(row, col, update, 'thisChange');
+						}
+						else {
+							[valid, update] = this.validateValAgainstVocab(cellVal, field.flatVocabulary);
+							if (update) {
+								this.hot.setDataAtCell(row, col, update, 'thisChange');
+								console.log('changing',cellVal, update)
+							}
+						}
 					}
-					break;
+					else {
+						switch (datatype) {
 
+							case 'xsd:integer':
+								valid = !isNaN(cellVal);
+								valid &= parsedInt.toString()===cellVal;
+								valid &= testNumericRange(parsedInt, field);
+								break;
+
+							case 'xsd:nonNegativeInteger':
+								const parsedInt = parseInt(cellVal, 10);
+								valid = !isNaN(cellVal) && parsedInt>=0;
+								valid &= parsedInt.toString()===cellVal;
+								valid &= testNumericRange(parsedInt, field);
+								break;
+
+							case 'xsd:float':
+								let parsedFloat = parseFloat(cellVal);
+								valid = !isNaN(cellVal) && parsedFloat == cellVal;
+								valid &= testNumericRange(parsedFloat, field);
+								break;
+
+							case 'xsd:double':
+								// NEED DOUBLE RANGE VALIDATION
+								parsedFloat = parseFloat(cellVal);
+								//valid = !isNaN(cellVal) && regexDouble.test(cellVal);
+								valid &= testNumericRange(parsedFloat, field);
+								break;
+
+							case 'xsd:decimal':
+								const parsedDec = parseFloat(cellVal);
+								valid = !isNaN(cellVal) && regexDecimal.test(cellVal);
+								valid &= testNumericRange(parsedDec, field);
+								break;
+
+							case 'xsd:boolean': 
+								valid = !isNaN(cellVal) && ['1','0','true','false'].indexOf(cellVal) >= 0;
+								break;
+
+							case 'xsd:date':
+								// moment is a date format addon
+								valid = moment(cellVal, 'YYYY-MM-DD', true).isValid();
+								if (valid) {
+									valid = testDateRange(cellVal, field);
+								}
+								break;
+
+						}
+					}
+					// Test regular expression if it is given
+					if (valid && field.pattern) {
+						valid = field.pattern.test(cellVal);
+					}
+				}
+
+				// Unique value field (Usually xsd:token string)
+				// CORRECT PLACE FOR THIS? 
+				if (field.identifier && field.identifier === true) {
+
+					// Set up dictionary and count for this column's unique values
+					if (!uniquefield[col]) {
+						uniquefield[col] = {};
+						for (let keyrow=0; keyrow < this.hot.countRows(); keyrow++) {
+							if (!this.hot.isEmptyRow(keyrow)) {
+								let key = this.hot.getDataAtCell(keyrow, col);
+								if (key in uniquefield[col])
+									uniquefield[col][key] += 1;
+								else
+									uniquefield[col][key] = 1;
+							}
+						}
+					}
+					// Must be only 1 unique value.  Case insensitive comparison
+					valid &= uniquefield[col][cellVal] === 1;  
+				}
+
+				if (!valid && field.metadata_status) {
+					[valid, update] = this.validateValAgainstVocab(cellVal, field.dataStatus);
+					if (update) this.hot.setDataAtCell(row, col, update, 'thisChange');
+				}
+				if (!valid) {
+					if (!invalidCells.hasOwnProperty(row)) {
+						invalidCells[row] = {};
+					}
+					invalidCells[row][col] = msg;
+				}
 			}
 		}
-		// Test regular expression if it is given
-		if (valid && field.pattern) {
-			valid = field.pattern.test(cellVal);
-		}
-	}
+		// Here an array of (row, column, value)... is being passed
+		if (provenanceChanges.length)
+			this.hot.setDataAtCell(provenanceChanges);
 
-	// Unique value field (Usually xsd:token string)
-	// CORRECT PLACE FOR THIS? 
-	if (field.identifier && field.identifier === true) {
-
-	// Set up dictionary and count for this column's unique values
-	if (!uniquefield[col]) {
-		uniquefield[col] = {};
-		for (let keyrow=0; keyrow < this.hot.countRows(); keyrow++) {
-			if (!this.hot.isEmptyRow(keyrow)) {
-				let key = this.hot.getDataAtCell(keyrow, col);
-				if (key in uniquefield[col])
-					uniquefield[col][key] += 1;
-				else
-					uniquefield[col][key] = 1;
-			}
-		}
-	}
-	// Must be only 1 unique value.  Case insensitive comparison
-	valid &= uniquefield[col][cellVal] === 1;  
-	}
-
-	if (!valid && field.metadata_status) {
-		[valid, update] = validateValAgainstVocab(cellVal, field.dataStatus);
-		if (update) this.hot.setDataAtCell(row, col, update, 'thisChange');
-	}
-	if (!valid) {
-		if (!invalidCells.hasOwnProperty(row)) {
-			invalidCells[row] = {};
-		}
-		invalidCells[row][col] = msg;
-	}
-	}
-	}
-	// Here an array of (row, column, value)... is being passed
-	if (provenanceChanges.length)
-		this.hot.setDataAtCell(provenanceChanges);
-
-	return invalidCells;
+		return invalidCells;
 	},
 
 	/**
@@ -161,23 +163,23 @@ dhValidation = {
 			provenanceChanges.push([row, col, VERSION_TEXT]);
 			return;
 		}
-	// Most of the time this is the first return point.
-	if (cellVal === VERSION_TEXT)
-		return;
+		// Most of the time this is the first return point.
+		if (cellVal === VERSION_TEXT)
+			return;
 
-	if (cellVal.substring(0,14) !== 'DataHarmonizer') {
-		provenanceChanges.push([row, col, VERSION_TEXT + ';' + cellVal]);
-		return;
-	}
-	// At this point we have a leading "DataHarmonizer v..." string
-	let splitVal = cellVal.split(';',2);
+		if (cellVal.substring(0,14) !== 'DataHarmonizer') {
+			provenanceChanges.push([row, col, VERSION_TEXT + ';' + cellVal]);
+			return;
+		}
+		// At this point we have a leading "DataHarmonizer v..." string
+		let splitVal = cellVal.split(';',2);
 
-	if (splitVal.length == 1)
-		provenanceChanges.push([row, col, VERSION_TEXT]);
-	else
-		provenanceChanges.push([row, col, VERSION_TEXT + ';' + splitVal[1]]);
+		if (splitVal.length == 1)
+			provenanceChanges.push([row, col, VERSION_TEXT]);
+		else
+			provenanceChanges.push([row, col, VERSION_TEXT + ';' + splitVal[1]]);
 
-	return
+		return
 	},
 
 
@@ -264,7 +266,7 @@ dhValidation = {
 		let update_flag = false;
 		let value_array = delimited_string.split(';');
 		value_array.forEach(function (value, index) {
-			[valid, update] = validateValAgainstVocab(value, source);
+			[valid, update] = this.validateValAgainstVocab(value, source);
 			if (!valid) return [false, false];
 			if (update) {
 				update_flag = true;
@@ -276,6 +278,4 @@ dhValidation = {
 		else 
 			return [true, false];
 	}
-}
-
-Object.assign(DataHarmonizer, dhValidation);
+});
