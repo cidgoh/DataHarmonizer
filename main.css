@@ -135,3 +135,21 @@ html, body {
 #data-harmonizer-toolbar-inset {visibility: hidden}
 
 .field-description-text select {min-width: 95%}
+
+#field-mapping-container {
+	overflow-x: scroll; 
+	padding-bottom: 1rem;
+	scrollbar-width: 1rem;
+}
+
+#field-mapping {
+	white-space: nowrap;
+}
+
+#field-mapping col {border-left: 2px solid black}
+#field-mapping col:first-child {background: #FF0}
+#field-mapping col:nth-child(2n+3) {background: #CCC}
+
+#field-mapping tr td , #field-mapping tr th {
+	padding: 3px;
+}
