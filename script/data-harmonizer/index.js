@@ -49,21 +49,21 @@ let DataHarmonizer = {
 		this.dhFooter = dhFooter;
 		this.dhToolbar = dhToolbar;
 		this.menu = menu;
-		const self = this;
+		this.self = this;
 
 		// Field descriptions. Need to account for dynamically rendered cells.
 		$(this.dhGrid).on('dblclick', '.secondary-header-cell', (e) => {
 			const innerText = e.target.innerText;
-			const field = this.getFields(self.template).filter(field => field.title === innerText)[0];
-			$('#field-description-text').html(self.getComment(field));
+			const field = this.getFields().filter(field => field.title === innerText)[0];
+			$('#field-description-text').html(this.getComment(field));
 			$('#field-description-modal').modal('show');
 		});
 
-		// Add more rows
+		// Add more rows.  Here because it needs referenc to self.hot
 		$(this.dhFooter).find('.add-rows-button').click((e) => {
-			self.runBehindLoadingScreen(() => {
-		  	const numRows = $(this.dhFooter).find('.add-rows-input').val();
-		  	self.hot.alter('insert_row', self.hot.countRows()-1 + numRows, numRows);
+			this.runBehindLoadingScreen(function() {
+		  		const numRows = $(this.dhFooter).find('.add-rows-input').val();
+		  		this.hot.alter('insert_row', this.hot.countRows()-1 + numRows, numRows);
 			});
 		});
 	},
@@ -141,6 +141,7 @@ let DataHarmonizer = {
 			this.processTemplate(template_name);
 			//this.newHotFile();
 			this.createHot();
+
 			// Asynchronous. Since SCHEMA loaded, export.js should succeed as well.
 			this.reloadJs('export.js');
 
@@ -417,6 +418,29 @@ let DataHarmonizer = {
 
 	},
 
+
+
+	/**
+	 * Run void function behind loading screen.
+	 * Adds function to end of call queue. Does not handle functions with return
+	 * vals, unless the return value is a promise. Even then, it only waits for the
+	 * promise to resolve, and does not actually do anything with the value
+	 * returned from the promise.
+	 * @param {function} fn - Void function to run.
+	 * @param {Array} [args=[]] - Arguments for function to run.
+	 */
+	runBehindLoadingScreen: async function(fn, args=[]) {
+	  	$('#loading-screen').show('fast', 'swing');
+	  	if (args.length)
+	  		await fn.apply(this, args);
+	  	else {
+	  		await fn.apply(this);
+	  	}
+		$('#loading-screen').hide();
+	  	return
+	},
+
+
 /***************************** PRIVATE functions *************************/
 
 
@@ -689,8 +713,7 @@ let DataHarmonizer = {
 	 * @return {Array<Object>} Array of all objects under `children` in SCHEMA.
 	 */
 	getFields: function() {
-		let self = this;
-		return Array.prototype.concat.apply([], self.template.map(parent => parent.children));
+		return Array.prototype.concat.apply([], this.template.map(parent => parent.children));
 	},
 
 	/**
@@ -726,22 +749,13 @@ let DataHarmonizer = {
 	 */
 	getColumns: function () {
 	  let ret = [];
-	  for (const field of this.getFields()) {
+	  for (var field of this.getFields()) {
 	    const col = {};
 	    if (field.required) {
 	      col.required = field.required;
 	    }
 	    if (field.recommended) {
 	      col.recommended = field.recommended;
-	    }
-	    // Compile field's regular expression for quick application.
-	    if (field.pattern) {
-	    	console.log(field.pattern)
-	    	//console.log(field.pattern)
-	    	// Issue with NMDC MIxS "current land use" field pattern: "[ ....(all sorts of things) ]" syntax.
-	    	NMDC_regex = field.pattern.replaceAll("(", "\(").replaceAll(")", "\)").replace("[", "(").replace("]", ")")
-	    	field.pattern = new RegExp(NMDC_regex);
-
 	    }
 
 	    col.source = null;
@@ -862,27 +876,6 @@ let DataHarmonizer = {
 		}
 	},
 
-
-	/**
-	 * Run void function behind loading screen.
-	 * Adds function to end of call queue. Does not handle functions with return
-	 * vals, unless the return value is a promise. Even then, it only waits for the
-	 * promise to resolve, and does not actually do anything with the value
-	 * returned from the promise.
-	 * @param {function} fn - Void function to run.
-	 * @param {Array} [args=[]] - Arguments for function to run.
-	 */
-	runBehindLoadingScreen: (fn, args=[]) => {
-
-	  	$('#loading-screen').show('fast', 'swing');
-	  	if (args.length)
-	  		fn.apply(this, args).then($('#loading-screen').hide());
-	  	else
-	  		fn.apply(this).then($('#loading-screen').hide());
-
-	  	return
-	},
-
 	/**
 	 * Loads a given javascript file.
 	 * 
@@ -936,7 +929,7 @@ let DataHarmonizer = {
 	 * @return {Object} Processed values of `data.js`.
 	 */
 	processTemplate: function (template_name) {
-	  let template = []; // This will hold template's new data including table sections.
+	  this.template = []; // This will hold template's new data including table sections.
 	  let self = this;
 
 	  const sectionIndex = new Map();
@@ -964,7 +957,7 @@ let DataHarmonizer = {
 	  combined.forEach(function (name) {
 
 	    // EXPERIMENTAL - should be merging in the order of overrided attributes?!
-	    const field =  Object.assign({}, self.schema.slots[name], specification_slots[name], specification_slot_usage[name]);
+	    let field =  Object.assign({}, self.schema.slots[name], specification_slots[name], specification_slot_usage[name]);
 
 	    let section_title = null;
 
@@ -981,13 +974,13 @@ let DataHarmonizer = {
 
 	      if (! sectionIndex.has(section_title)) {
 	        sectionIndex.set(section_title, sectionIndex.size);
-	        template.push({
+	        self.template.push({
 	          'title': section_title, 
 	          'children':[]}
 	        );
 	      }
 
-	      section = template[sectionIndex.get(section_title)];
+	      let section = self.template[sectionIndex.get(section_title)];
 	      let new_field = {...field}; // shallow copy
 
 	      // Some specs don't add plain english title, so fill that with name
@@ -1117,6 +1110,24 @@ let DataHarmonizer = {
 	          // .metadata_status is an ordered dict of permissible_values
 	          // It is separate so it can be demultipliexed from content values.
 	          if (new_field.metadata_status) {}
+
+
+			if ('pattern' in field && field.pattern.length) {
+				// Trap invalid regex
+				// Issue with NMDC MIxS "current land use" field pattern: "[ ....(all sorts of things) ]" syntax.
+				try {
+					//NMDC_regex = field.pattern.replaceAll("(", "\(").replaceAll(")", "\)").replace("[", "(").replace("]", ")")
+					new_field.pattern = new RegExp(field.pattern);
+				}
+				catch (err) {
+					console.log(`TEMPLATE ERROR: Check the regular expression syntax for "${new_field.title}".`);
+					console.log(err);
+					// Allow anything until regex fixed.
+					new_field.pattern = new RegExp(/.*/);
+				}
+			}
+
+
 	      } 
 
 	      // Copying in particular required/ recommended status of a field into
@@ -1125,13 +1136,16 @@ let DataHarmonizer = {
 	      //  Object.assign(new_field, specification_slot_usage[name])
 	      //}
 
+
+
+
 	      section['children'].push(new_field);
 	    }
 	    else {
 			console.log("ERROR: field doesn't have section: ", name );
 	    }
 	  });
-	  this.template = template;
+	  console.log(this.template)
 	},
 
 

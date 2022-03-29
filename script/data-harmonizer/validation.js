@@ -103,6 +103,8 @@ Object.assign(DataHarmonizer, {
 
 						}
 					}
+
+					// A field may be validated against an enumeration, or a regex pattern if given.
 					// Test regular expression if it is given
 					if (valid && field.pattern) {
 						valid = field.pattern.test(cellVal);

@@ -12,10 +12,11 @@ $(document).ready(async () => {
 	$('#data-harmonizer-toolbar-inset').css('visibility','visible');
 
 	var dh = new Object(DataHarmonizer);
+
 	// Note: TEMPLATES contains templates/menu.js object. It is only required 
 	// if using dh.getTemplate() below without specifying a template.
 	dh.init(myDHGrid, myDHFooter, myDHToolbar, TEMPLATES);
-	
+
 	var toolbar = new Object(DataHarmonizerToolbar);
 	toolbar.init(dh, myDHToolbar);
 
