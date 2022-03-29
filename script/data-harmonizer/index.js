@@ -152,22 +152,6 @@ let DataHarmonizer = {
 
 	},
 
-	// https://simon-schraeder.de/posts/filereader-async/
-	readFileAsync: function (file) {
-	  return new Promise((resolve, reject) => {
-	    let reader = new FileReader();
-
-	    reader.onload = () => {
-	      resolve(reader.result);
-	    };
-
-	    reader.onerror = reject;
-
-		reader.readAsBinaryString(file);
-	    //reader.readAsArrayBuffer(file);
-	  })
-	},
-
 	/**
 	 * Open file specified by user.
 	 * Only opens `xlsx`, `xlsx`, `csv` and `tsv` files. Will launch the specify
@@ -193,56 +177,9 @@ let DataHarmonizer = {
 		}
 	},
 
-	loadSpreadsheetData: function (data) {
-		const workbook = XLSX.read(data, {
-			type: 'binary', 
-			raw: true,
-			cellDates: true, // Ensures date formatted as  YYYY-MM-DD dates
-			dateNF: 'yyyy-mm-dd' //'yyyy/mm/dd;@'
-		});
-	
-		const worksheet = this.updateSheetRange(workbook.Sheets[workbook.SheetNames[0]]);
-
-		const matrix = (XLSX.utils.sheet_to_json(
-			worksheet, 
-			{
-				header: 1, 
-				raw: false, 
-				range: 0
-			}
-			));
-		const headerRowData = this.compareMatrixHeadersToGrid(matrix);
-		if (headerRowData > 0) {
-			this.hot.loadData(this.matrixFieldChangeRules(matrix.slice(headerRowData)));
-		} 
-		else {
-			this.launchSpecifyHeadersModal(matrix, hot, data);
-		}
-	},
-
-	/**
-	* Improve `XLSX.utils.sheet_to_json` performance for Libreoffice Calc files.
-	* Ensures sheet range is accurate. See
-	* https://github.com/SheetJS/sheetjs/issues/764 for more detail.
-	* @param {Object} worksheet SheetJs object.
-	* @returns {Object} SheetJs worksheet with correct range.
-	*/
-	updateSheetRange: function (worksheet) {
-		const range = {s:{r:20000000, c:20000000},e:{r:0,c:0}};
-		Object.keys(worksheet)
-		.filter((x) => {return x.charAt(0) !== '!'})
-		.map(XLSX.utils.decode_cell).forEach((x) => {
-			range.s.c = Math.min(range.s.c, x.c);
-			range.s.r = Math.min(range.s.r, x.r);
-			range.e.c = Math.max(range.e.c, x.c);
-			range.e.r = Math.max(range.e.r, x.r);
-		});
-		worksheet['!ref'] = XLSX.utils.encode_range(range);
-		return worksheet;
-	},
-
 	validate: function(){
-
+		self.dh.invalid_cells = self.dh.getInvalidCells();
+		self.dh.hot.render();
 	},
 
 	newHotFile: function () {
@@ -482,6 +419,72 @@ let DataHarmonizer = {
 
 /***************************** PRIVATE functions *************************/
 
+
+	// https://simon-schraeder.de/posts/filereader-async/
+	readFileAsync: function (file) {
+	  return new Promise((resolve, reject) => {
+	    let reader = new FileReader();
+
+	    reader.onload = () => {
+	      resolve(reader.result);
+	    };
+
+	    reader.onerror = reject;
+
+		reader.readAsBinaryString(file);
+	    //reader.readAsArrayBuffer(file);
+	  })
+	},
+
+	loadSpreadsheetData: function (data) {
+		const workbook = XLSX.read(data, {
+			type: 'binary', 
+			raw: true,
+			cellDates: true, // Ensures date formatted as  YYYY-MM-DD dates
+			dateNF: 'yyyy-mm-dd' //'yyyy/mm/dd;@'
+		});
+	
+		const worksheet = this.updateSheetRange(workbook.Sheets[workbook.SheetNames[0]]);
+
+		const matrix = (XLSX.utils.sheet_to_json(
+			worksheet, 
+			{
+				header: 1, 
+				raw: false, 
+				range: 0
+			}
+			));
+		const headerRowData = this.compareMatrixHeadersToGrid(matrix);
+		if (headerRowData > 0) {
+			this.hot.loadData(this.matrixFieldChangeRules(matrix.slice(headerRowData)));
+		} 
+		else {
+			this.launchSpecifyHeadersModal(matrix);
+		}
+	},
+
+	/**
+	* Improve `XLSX.utils.sheet_to_json` performance for Libreoffice Calc files.
+	* Ensures sheet range is accurate. See
+	* https://github.com/SheetJS/sheetjs/issues/764 for more detail.
+	* @param {Object} worksheet SheetJs object.
+	* @returns {Object} SheetJs worksheet with correct range.
+	*/
+	updateSheetRange: function (worksheet) {
+		const range = {s:{r:20000000, c:20000000},e:{r:0,c:0}};
+		Object.keys(worksheet)
+		.filter((x) => {return x.charAt(0) !== '!'})
+		.map(XLSX.utils.decode_cell).forEach((x) => {
+			range.s.c = Math.min(range.s.c, x.c);
+			range.s.r = Math.min(range.s.r, x.r);
+			range.e.c = Math.max(range.e.c, x.c);
+			range.e.r = Math.max(range.e.r, x.r);
+		});
+		worksheet['!ref'] = XLSX.utils.encode_range(range);
+		return worksheet;
+	},
+
+
 	/**
 	 * Ask user to specify row in matrix containing secondary headers before load.
 	 * Calls `alertOfUnmappedHeaders` if necessary.
@@ -505,14 +508,14 @@ let DataHarmonizer = {
 				else {
 					const mappedMatrixObj = self.mapMatrixToGrid(matrix, specifiedHeaderRow-1);
 					$('#specify-headers-modal').modal('hide');
-					runBehindLoadingScreen(() => {
+					//this.runBehindLoadingScreen(() => {
 						self.hot.loadData(self.matrixFieldChangeRules(mappedMatrixObj.matrix.slice(2)));
 						if (mappedMatrixObj.unmappedHeaders.length) {
 							const unmappedHeaderDivs = mappedMatrixObj.unmappedHeaders.map(header => `<li>${header}</li>`);
 							$('#unmapped-headers-list').html(unmappedHeaderDivs);
 							$('#unmapped-headers-modal').modal('show');
 						}
-					});
+					//});
 				}
 			});
 		}
@@ -733,10 +736,11 @@ let DataHarmonizer = {
 	    }
 	    // Compile field's regular expression for quick application.
 	    if (field.pattern) {
+	    	console.log(field.pattern)
 	    	//console.log(field.pattern)
-	      // Issue with NMDC MIxS "current land use" field pattern: "[ ....(all sorts of things) ]" syntax.
-	      NMDC_regex = field.pattern.replaceAll("(", "\(").replaceAll(")", "\)").replace("[", "(").replace("]", ")")
-	      field.pattern = new RegExp(NMDC_regex);
+	    	// Issue with NMDC MIxS "current land use" field pattern: "[ ....(all sorts of things) ]" syntax.
+	    	NMDC_regex = field.pattern.replaceAll("(", "\(").replaceAll(")", "\)").replace("[", "(").replace("]", ")")
+	    	field.pattern = new RegExp(NMDC_regex);
 
 	    }
 
