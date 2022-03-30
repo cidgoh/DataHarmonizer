@@ -38,6 +38,7 @@ let DataHarmonizer = {
 	template: null,			// Specific template from schema
 	table: null,			// Table data.
 	hot: null,
+	hot_settings: null,
 	menu: null,
 	export_formats: null,
 	invalid_cells: null,
@@ -62,8 +63,8 @@ let DataHarmonizer = {
 		// Add more rows.  Here because it needs referenc to self.hot
 		$(this.dhFooter).find('.add-rows-button').click((e) => {
 			this.runBehindLoadingScreen(function() {
-		  		const numRows = $(this.dhFooter).find('.add-rows-input').val();
-		  		this.hot.alter('insert_row', this.hot.countRows()-1 + numRows, numRows);
+				const numRows = $(this.dhFooter).find('.add-rows-input').val();
+				this.hot.alter('insert_row', this.hot.countRows()-1 + numRows, numRows);
 			});
 		});
 	},
@@ -101,7 +102,7 @@ let DataHarmonizer = {
 			[template_folder, template_name] = template_path.split('/',2); 
 
 			if (!(template_folder in this.menu || template_name in this.menu[template_folder]) ) {
-		  		return false;
+				return false;
 			}
 		}
 		// If null, do default template setup - the first one in menu
@@ -132,7 +133,7 @@ let DataHarmonizer = {
 		this.template_name = template_name;
 		this.template_path = template_path;
 
-		try {
+		//try {
 			// Loading this template may require loading the SCHEMA it is under.
 			const schema_loaded = await this.useSchema(template_folder);
 			//if (!schema_loaded) 
@@ -146,10 +147,10 @@ let DataHarmonizer = {
 			this.reloadJs('export.js');
 
 			return template_name;
-		}
-		catch(err) {
-		    console.log(err);
-		}
+		//}
+		//catch(err) {
+		//	console.log(err);
+		//}
 
 	},
 
@@ -174,7 +175,7 @@ let DataHarmonizer = {
 			dh.loadSpreadsheetData (contentBuffer);
 		}
 		catch(err) {
-		    console.log(err);
+			console.log(err);
 		}
 	},
 
@@ -199,35 +200,41 @@ let DataHarmonizer = {
 		const self = this;
 
 		this.invalid_cells = {};
-		if (this.hot) this.hot.destroy(); // handles already existing data
-	  	let fields = this.getFields();
-	  	this.hot = Handsontable(this.dhGrid, {
-		    nestedHeaders: this.getNestedHeaders(),
-		    columns: this.getColumns(),
-		    colHeaders: true,
-		    rowHeaders: true,
-		    manualColumnResize: true,
-		    //colWidths: [100], //Just fixes first column width
-		    contextMenu: ["remove_row","row_above","row_below"],
-		    minRows: 100,
-		    minSpareRows: 100,
-		    width: '100%',
-		    height: '75vh',
-		    fixedColumnsLeft: 1,
-		    hiddenColumns: {
-		      copyPasteEnabled: true,
-		      indicators: true,
-		      columns: [],
-		    },
-		    hiddenRows: {
-		      rows: [],
-		    },
-		    // Handsontable's validation is extremely slow with large datasets
-		    invalidCellClassName: '',
-		    licenseKey: 'non-commercial-and-evaluation',
-		    // beforeChange source: https://handsontable.com/docs/8.1.0/tutorial-using-callbacks.html#page-source-definition
-		    beforeChange: function(changes, source) { 
-				if (!changes) return;
+		if (this.hot) {
+			this.hot.destroy(); // handles already existing data
+			this.hot = null;
+		}
+		let fields = this.getFields();
+		if (fields.length) {
+
+			this.hot_settings = {
+				data: [], // Enables true reset
+				nestedHeaders: this.getNestedHeaders(),
+				columns: this.getColumns(),
+				colHeaders: true,
+				rowHeaders: true,
+				manualColumnResize: true,
+				//colWidths: [100], //Just fixes first column width
+				contextMenu: ["remove_row","row_above","row_below"],
+				minRows: 100,
+				minSpareRows: 100,
+				width: '100%',
+				height: '75vh',
+				fixedColumnsLeft: 1,
+				hiddenColumns: {
+					copyPasteEnabled: true,
+					indicators: true,
+					columns: [],
+				},
+				hiddenRows: {
+					rows: [],
+				},
+				// Handsontable's validation is extremely slow with large datasets
+				invalidCellClassName: '',
+				licenseKey: 'non-commercial-and-evaluation',
+				// beforeChange source: https://handsontable.com/docs/8.1.0/tutorial-using-callbacks.html#page-source-definition
+				beforeChange: function(changes, source) { 
+					if (!changes) return;
 
 				// When a change in one field triggers a change in another field.
 				let triggered_changes = []; 
@@ -240,42 +247,48 @@ let DataHarmonizer = {
 				// Add any indirect field changes onto end of existing changes.
 				if (triggered_changes) 
 					changes.push(...triggered_changes);
-		    },
-		    afterInit: () => {
-		      $('#next-error-button, #no-error-button').hide();
-		    },
-		    afterSelection: (row, column, row2, column2, preventScrolling, selectionLayerLevel) => {
-		      self.current_selection = [row, column, row2, column2];
-		    },
-		    afterRender: (isForced) => {
-		      $('.data-harmonizer-header').css('visibility', 'visible');
-		      $('.data-harmonizer-footer').css('visibility', 'visible');
+				},
+				afterInit: () => {
+					$('#next-error-button, #no-error-button').hide();
+				},
+				afterSelection: (row, column, row2, column2, preventScrolling, selectionLayerLevel) => {
+					self.current_selection = [row, column, row2, column2];
+				},
+				afterRender: (isForced) => {
+					$('.data-harmonizer-header').css('visibility', 'visible');
+					$('.data-harmonizer-footer').css('visibility', 'visible');
 
-		      // Bit of a hackey way to RESTORE classes to secondary headers. They are
-		      // removed by Handsontable when re-rendering main table.
-		      $('.secondary-header-text').each((_, e) => {
-		        const $cellElement = $(e).closest('th');
-		        $cellElement.addClass('secondary-header-cell');
-		        if ($(e).hasClass('required')) {
-		        	$cellElement.addClass('required');
-		        } else if ($(e).hasClass('recommended')) {
-		        	$cellElement.addClass('recommended');
-		        } 
-		      });
-		    },
-		    afterRenderer: (TD, row, col) => {
-		      if (self.invalid_cells.hasOwnProperty(row)) {
-		        if (self.invalid_cells[row].hasOwnProperty(col)) {
-		          const msg = self.invalid_cells[row][col];
-		          $(TD).addClass(msg ? 'empty-invalid-cell' : 'invalid-cell');
-		        }
-		      }
-		    },
-		  }
-		);
+				// Bit of a hackey way to RESTORE classes to secondary headers. They are
+				// removed by Handsontable when re-rendering main table.
+				$('.secondary-header-text').each((_, e) => {
+					const $cellElement = $(e).closest('th');
+					$cellElement.addClass('secondary-header-cell');
+					if ($(e).hasClass('required')) {
+						$cellElement.addClass('required');
+					} else if ($(e).hasClass('recommended')) {
+						$cellElement.addClass('recommended');
+					} 
+				});
+				},
+				afterRenderer: (TD, row, col) => {
+					if (self.invalid_cells.hasOwnProperty(row)) {
+						if (self.invalid_cells[row].hasOwnProperty(col)) {
+							const msg = self.invalid_cells[row][col];
+							$(TD).addClass(msg ? 'empty-invalid-cell' : 'invalid-cell');
+						}
+					}
+				},
+			};
+			//this.hot_settings.data = []; // Enables true reset.
 
-		this.enableMultiSelection();
+			this.hot = Handsontable(this.dhGrid, this.hot_settings);
 
+			this.enableMultiSelection();
+
+		}
+		else {
+			console.log("This template had no sections and fields: " + this.template_path)
+		}
 
 	},
 
@@ -300,7 +313,7 @@ let DataHarmonizer = {
 
 	  // If accessed by menu, disable that menu item, and enable the others
 	  $('#show-all-cols-dropdown-item, #show-required-cols-dropdown-item, #show-recommended-cols-dropdown-item, .show-section-dropdown-item')
-	    .removeClass('disabled');
+		.removeClass('disabled');
 	  domEl.addClass('disabled');
 
 
@@ -308,28 +321,28 @@ let DataHarmonizer = {
 	  let required = (id === 'show-required-cols-dropdown-item');
 	  let recommended = (id === 'show-recommended-cols-dropdown-item');
 	  if (required || recommended) {
-	    this.getFields().forEach(function(field, i) {
-	      if (required && !field.required)
-	        hiddenColumns.push(i);
-	      else 
-	        if (recommended && !(field.required || field.recommended))
-	          hiddenColumns.push(i);
-	    });
+		this.getFields().forEach(function(field, i) {
+		  if (required && !field.required)
+			hiddenColumns.push(i);
+		  else 
+			if (recommended && !(field.required || field.recommended))
+			  hiddenColumns.push(i);
+		});
 	  }
 
 	  // prefix of ID indicates if it is a command to show just one section.
 	  else if (id.indexOf('show-section-') === 0) {
-	    const section_name = domEl.text();
-	    let column_ptr = 0;
-	    for (section of this.template) {
-	      for (column of section.children) {
-	        // First condition ensures first (row identifier) column is not hidden
-	        if (column_ptr > 0 && section.title != section_name) {
-	          hiddenColumns.push(column_ptr)
-	        }
-	        column_ptr ++;
-	      }
-	    };
+		const section_name = domEl.text();
+		let column_ptr = 0;
+		for (section of this.template) {
+		  for (column of section.children) {
+			// First condition ensures first (row identifier) column is not hidden
+			if (column_ptr > 0 && section.title != section_name) {
+			  hiddenColumns.push(column_ptr)
+			}
+			column_ptr ++;
+		  }
+		};
 	  }
 	  hiddenColsPlugin.hideColumns(hiddenColumns);
 	  this.hot.render();
@@ -357,13 +370,13 @@ let DataHarmonizer = {
 	  let hiddenRows = [];
 
 	  if (id === 'show-valid-rows-dropdown-item') {
-	    hiddenRows = Object.keys(this.invalid_cells).map(Number);
-	    hiddenRows = [...hiddenRows, ...emptyRows];
+		hiddenRows = Object.keys(this.invalid_cells).map(Number);
+		hiddenRows = [...hiddenRows, ...emptyRows];
 	  } 
 	  else if (id === 'show-invalid-rows-dropdown-item') {
-	    const invalidRowsSet = new Set(Object.keys(this.invalid_cells).map(Number));
-	    hiddenRows = rows.filter(row => !invalidRowsSet.has(row));
-	    hiddenRows = [...hiddenRows, ...emptyRows];
+		const invalidRowsSet = new Set(Object.keys(this.invalid_cells).map(Number));
+		hiddenRows = rows.filter(row => !invalidRowsSet.has(row));
+		hiddenRows = [...hiddenRows, ...emptyRows];
 	  }
 
 	  hiddenRowsPlugin.hideRows(hiddenRows);
@@ -379,7 +392,7 @@ let DataHarmonizer = {
 	getFieldYCoordinates: function () {
 	  const ret = {};
 	  for (const [i, field] of this.getFields().entries()) {
-	    ret[field.title] = i;
+		ret[field.title] = i;
 	  }
 	  return ret;
 	},
@@ -388,11 +401,11 @@ let DataHarmonizer = {
 	  const ret = {};
 	  let column_ptr = 0;
 	  for (section of this.template) {
-	    ret[section.title] = column_ptr;
-	    for (column of section.children) {
-	      ret[' . . ' + column.title] = column_ptr;
-	      column_ptr ++;
-	    }
+		ret[section.title] = column_ptr;
+		for (column of section.children) {
+		  ret[' . . ' + column.title] = column_ptr;
+		  column_ptr ++;
+		}
 	  }
 	  return ret;
 	},
@@ -409,8 +422,8 @@ let DataHarmonizer = {
 	  const hiddenCols = this.hot.getPlugin('hiddenColumns').hiddenColumns;
 	  if (hiddenCols.includes(column)) 
 
-	  	// If user wants to scroll to a hidden column, make all columns unhidden
-	    this.changeColVisibility(undefined);
+		// If user wants to scroll to a hidden column, make all columns unhidden
+		this.changeColVisibility(undefined);
 
 	  this.hot.selectCell(parseInt(row), parseInt(column), parseInt(row), parseInt(column), true);
 	  //Ensures field is positioned on left side of screen.
@@ -430,15 +443,15 @@ let DataHarmonizer = {
 	 * @param {Array} [args=[]] - Arguments for function to run.
 	 */
 	runBehindLoadingScreen: async function(fn, args=[]) {
-	  	await $('#loading-screen').show('fast', 'swing');
-	  	await this.wait(200); // Enough of a visual cue that something is happening
-	  	if (args.length)
-	  		await fn.apply(this, args);
-	  	else {
-	  		await fn.apply(this);
-	  	}
+		await $('#loading-screen').show('fast', 'swing');
+		await this.wait(200); // Enough of a visual cue that something is happening
+		if (args.length)
+			await fn.apply(this, args);
+		else {
+			await fn.apply(this);
+		}
 		await $('#loading-screen').hide();
-	  	return
+		return
 	},
 
 	// wait ms milliseconds
@@ -451,16 +464,16 @@ let DataHarmonizer = {
 	// https://simon-schraeder.de/posts/filereader-async/
 	readFileAsync: function (file) {
 	  return new Promise((resolve, reject) => {
-	    let reader = new FileReader();
+		let reader = new FileReader();
 
-	    reader.onload = () => {
-	      resolve(reader.result);
-	    };
+		reader.onload = () => {
+		  resolve(reader.result);
+		};
 
-	    reader.onerror = reject;
+		reader.onerror = reject;
 
 		reader.readAsBinaryString(file);
-	    //reader.readAsArrayBuffer(file);
+		//reader.readAsArrayBuffer(file);
 	  })
 	},
 
@@ -524,15 +537,15 @@ let DataHarmonizer = {
 		let flatHeaders = this.getFlatHeaders();
 		const self = this;
 		if (flatHeaders) {
-		    $('#field-mapping').prepend('<col></col>'.repeat(flatHeaders[1].length+1));
-		    $('#expected-headers-tr')
-		        .html('<td><b>Expected second row</b></td> <td>' + flatHeaders[1].join('</td><td>') + '</td>');
-		    $('#actual-headers-tr')
-		        .html('<td><b>Imported second row</b></td> <td>' + matrix[1].join('</td><td>') + '</td>');
-		    flatHeaders[1].forEach(function (item, i) {
-		      if (item != matrix[1][i])
-		        $('#field-mapping col').get(i+1).style.backgroundColor = "orange";
-		    });
+			$('#field-mapping').prepend('<col></col>'.repeat(flatHeaders[1].length+1));
+			$('#expected-headers-tr')
+				.html('<td><b>Expected second row</b></td> <td>' + flatHeaders[1].join('</td><td>') + '</td>');
+			$('#actual-headers-tr')
+				.html('<td><b>Imported second row</b></td> <td>' + matrix[1].join('</td><td>') + '</td>');
+			flatHeaders[1].forEach(function (item, i) {
+			  if (item != matrix[1][i])
+				$('#field-mapping col').get(i+1).style.backgroundColor = "orange";
+			});
 
 			$('#specify-headers-modal').modal('show');
 			$('#specify-headers-confirm-btn').click(() => {
@@ -737,16 +750,16 @@ let DataHarmonizer = {
 	getNestedHeaders: function() {
 	  const rows = [[], []];
 	  for (const parent of this.template) {
-	    rows[0].push({
-	      label: `<h5 class="pt-2 pl-1">${parent.title}</h5>`,
-	      colspan: parent.children.length
-	    });
-	    for (const child of parent.children) {
-	      const required = child.required ? ' required' : '';
-	      const recommended = child.recommended ? ' recommended' : '';
-	      const name = child.title;
-	      rows[1].push(`<div class="secondary-header-text${required}${recommended}">${name}</div>`);
-	    }
+		rows[0].push({
+		  label: `<h5 class="pt-2 pl-1">${parent.title}</h5>`,
+		  colspan: parent.children.length
+		});
+		for (const child of parent.children) {
+		  const required = child.required ? ' required' : '';
+		  const recommended = child.recommended ? ' recommended' : '';
+		  const name = child.title;
+		  rows[1].push(`<div class="secondary-header-text${required}${recommended}">${name}</div>`);
+		}
 	  }
 	  return rows;
 	},
@@ -761,62 +774,62 @@ let DataHarmonizer = {
 	getColumns: function () {
 	  let ret = [];
 	  for (let field of this.getFields()) {
-	    const col = {};
-	    if (field.required) {
-	      col.required = field.required;
-	    }
-	    if (field.recommended) {
-	      col.recommended = field.recommended;
-	    }
+		const col = {};
+		if (field.required) {
+		  col.required = field.required;
+		}
+		if (field.recommended) {
+		  col.recommended = field.recommended;
+		}
 
-	    col.source = null;
+		col.source = null;
 
-	    if (field.flatVocabulary) {
-	        
-	      col.source = field.flatVocabulary;
+		if (field.flatVocabulary) {
+			
+		  col.source = field.flatVocabulary;
 
-	      if (field.multivalued === true) {
-	        col.editor = 'text';
-	        col.renderer = 'autocomplete';
-	      }
-	      else {
-	        col.type = 'autocomplete';
-	        col.trimDropdown = false;
-	      }
+		  if (field.multivalued === true) {
+			col.editor = 'text';
+			col.renderer = 'autocomplete';
+		  }
+		  else {
+			col.type = 'autocomplete';
+			col.trimDropdown = false;
+		  }
 
-	    }
+		}
 
-	    if (field.metadata_status) {
-	      col.source.push(...field.metadata_status);
+		if (field.metadata_status) {
+		  col.source.push(...field.metadata_status);
 
-	    }
+		}
 
-	    switch (field.datatype) {
+		switch (field.datatype) {
 
-	      case 'xsd:date': 
-	        col.type = 'date';
-	        // This controls calendar popup date format, default is mm/dd/yyyy
-	        // See https://handsontable.com/docs/8.3.0/Options.html#correctFormat
-	        col.dateFormat = 'YYYY-MM-DD';
-	        // If correctFormat = true, then on import and on data
-	        // entry of cell will convert date values like "2020" to "2020-01-01"
-	        // automatically.
-	        col.correctFormat = false; 
-	        break;
+		  case 'xsd:date': 
+			col.type = 'date';
+			// This controls calendar popup date format, default is mm/dd/yyyy
+			// See https://handsontable.com/docs/8.3.0/Options.html#correctFormat
+			col.dateFormat = 'YYYY-MM-DD';
+			// If correctFormat = true, then on import and on data
+			// entry of cell will convert date values like "2020" to "2020-01-01"
+			// automatically.
+			col.correctFormat = false; 
+			break;
 
-	      //case 'xsd:float':
-	      //case 'xsd:integer':
-	      //case 'xsd:nonNegativeInteger':
-	      //case 'xsd:decimal':
-	      default:
-	        if (field.metadata_status) {
-	          col.type = 'autocomplete';
-	        }
-	        break;
-	    }
+		  //case 'xsd:float':
+		  //case 'xsd:integer':
+		  //case 'xsd:nonNegativeInteger':
+		  //case 'xsd:decimal':
+		  default:
+			if (field.metadata_status) {
+			  col.type = 'autocomplete';
+			}
+			break;
+		}
 
 
-	    ret.push(col);
+		ret.push(col);
 	  }
 	  return ret;
 	},
@@ -834,35 +847,35 @@ let DataHarmonizer = {
 	enableMultiSelection: function () {
 	  const fields = this.getFields();
 	  this.hot.updateSettings({
-	    afterBeginEditing: function(row, col) {
-	      if (fields[col].multivalued === true) {
-	        const value = this.getDataAtCell(row, col);
-	        let selections = value && value.split(';') || [];
-	        selections = selections.map(x => x.trim());
-	        selections2 = selections.filter(function (el) {return el != ''});
-	        // Cleanup of empty values that can occur with leading/trailing or double ";"
-	        if (selections.length != selections2.length)
-	          this.setDataAtCell(row, col, selections2.join('; '), 'thisChange');
-	        const self = this;
-	        let content = '';
-	        if (fields[col].flatVocabulary)
-	          fields[col].flatVocabulary.forEach(function(field, i) {
-	            const field_trim = field.trim();
-	            let selected = selections.includes(field_trim) ? 'selected="selected"' : '';
-	            let indentation = field.search(/\S/) * 8; // pixels
-	            content += `<option value="${field_trim}" ${selected}' style="padding-left:${indentation}px">${field}</option>`;
-	          })
+		afterBeginEditing: function(row, col) {
+		  if (fields[col].multivalued === true) {
+			const value = this.getDataAtCell(row, col);
+			let selections = value && value.split(';') || [];
+			selections = selections.map(x => x.trim());
+			selections2 = selections.filter(function (el) {return el != ''});
+			// Cleanup of empty values that can occur with leading/trailing or double ";"
+			if (selections.length != selections2.length)
+			  this.setDataAtCell(row, col, selections2.join('; '), 'thisChange');
+			const self = this;
+			let content = '';
+			if (fields[col].flatVocabulary)
+			  fields[col].flatVocabulary.forEach(function(field, i) {
+				const field_trim = field.trim();
+				let selected = selections.includes(field_trim) ? 'selected="selected"' : '';
+				let indentation = field.search(/\S/) * 8; // pixels
+				content += `<option value="${field_trim}" ${selected}' style="padding-left:${indentation}px">${field}</option>`;
+			  })
 
-	        $('#field-description-text').html(`${fields[col].title}<select multiple class="multiselect" rows="15">${content}</select>`);
-	        $('#field-description-modal').modal('show');
-	        $('#field-description-text .multiselect')
-	          .chosen() // must be rendered when html is visible
-	          .change(function () {
-	            let newValCsv = $('#field-description-text .multiselect').val().join('; ')
-	            self.setDataAtCell(row, col, newValCsv, 'thisChange');
-	          }); 
-	      }
-	    },
+			$('#field-description-text').html(`${fields[col].title}<select multiple class="multiselect" rows="15">${content}</select>`);
+			$('#field-description-modal').modal('show');
+			$('#field-description-text .multiselect')
+			  .chosen() // must be rendered when html is visible
+			  .change(function () {
+				let newValCsv = $('#field-description-text .multiselect').val().join('; ')
+				self.setDataAtCell(row, col, newValCsv, 'thisChange');
+			  }); 
+		  }
+		},
 	  });
 	},
 
@@ -898,16 +911,16 @@ let DataHarmonizer = {
 		const src_url = `./template/${this.schema_name}/${file_name}`;
 
 		let settings = {
-          'cache': false,
-          'dataType': "script",
-          //"async": false,
-          "crossDomain": true, // Critical
-          "url": src_url,
-          "method": "GET",
-          //"headers": {
-          //    "accept": "text/javascript",
-          //    "Access-Control-Allow-Origin":"*"
-          //}
+		  'cache': false,
+		  'dataType': "script",
+		  //"async": false,
+		  "crossDomain": true, // Critical
+		  "url": src_url,
+		  "method": "GET",
+		  //"headers": {
+		  //    "accept": "text/javascript",
+		  //    "Access-Control-Allow-Origin":"*"
+		  //}
 		}
 		try {
 			const response = await $.ajax(settings);
@@ -916,8 +929,8 @@ let DataHarmonizer = {
 			// SCHEMA will be in place if script successful.
 			if (file_name == 'schema.js') {
 				// FUTURE: make this a json data object directly
-    			self.schema = SCHEMA;
-    		}
+				self.schema = SCHEMA;
+			}
 			if (file_name == 'export.js')
 				self.export_formats = EXPORT_FORMATS;
 
@@ -927,7 +940,7 @@ let DataHarmonizer = {
 		catch (err) {
 			//console.log("fetch failed", err)
 			$('#missing-template-msg').text(`Unable to load file "${src_url}". Is the file location correct?`);
-    		$('#missing-template-modal').modal('show');
+			$('#missing-template-modal').modal('show');
 			return false;
 		}
 	},
@@ -955,173 +968,174 @@ let DataHarmonizer = {
 	  const combined = [...new Set([...Object.keys(specification_slot_usage), ...Object.keys(specification_slots) ])];
 
 	  /* Lookup each column in terms table. A term looks like:
-	    is_a: "core field", 
-	    title: "history/fire", 
-	    slot_uri: "MIXS:0001086"
-	    comments: (3) ['Expected value: date', 'Occurrence: 1', 'This field is used uniquely in: soil']
-	    description: "Historical and/or physical evidence of fire"
-	    examples: [{…}], 
-	    multivalued: false, 
-	    range: "date",
-	    ...
+		is_a: "core field", 
+		title: "history/fire", 
+		slot_uri: "MIXS:0001086"
+		comments: (3) ['Expected value: date', 'Occurrence: 1', 'This field is used uniquely in: soil']
+		description: "Historical and/or physical evidence of fire"
+		examples: [{…}], 
+		multivalued: false, 
+		range: "date",
+		...
 	  */
 	  combined.forEach(function (name) {
 
-	    // EXPERIMENTAL - should be merging in the order of overrided attributes?!
-	    let field =  Object.assign({}, self.schema.slots[name], specification_slots[name], specification_slot_usage[name]);
+		// EXPERIMENTAL - should be merging in the order of overrided attributes?!
+		let field =  Object.assign({}, self.schema.slots[name], specification_slots[name], specification_slot_usage[name]);
 
-	    let section_title = null;
+		let section_title = null;
 
-	    if ('slot_group' in field) {
-	      // We have a field positioned within a section (or hierarchy)
-	      section_title = field.slot_group;
-	    }
-	    else if ('is_a' in field) {
-	      section_title = field.is_a;
-	    }
+		if ('slot_group' in field) {
+		  // We have a field positioned within a section (or hierarchy)
+		  section_title = field.slot_group;
+		}
+		else if ('is_a' in field) {
+		  section_title = field.is_a;
+		}
 
-	    // We have a field positioned within a section (or hierarchy)
-	    if (section_title) {
+		// We have a field positioned within a section (or hierarchy)
+		if (section_title) {
 
-	      if (! sectionIndex.has(section_title)) {
-	        sectionIndex.set(section_title, sectionIndex.size);
-	        self.template.push({
-	          'title': section_title, 
-	          'children':[]}
-	        );
-	      }
+		  if (! sectionIndex.has(section_title)) {
+			sectionIndex.set(section_title, sectionIndex.size);
+			self.template.push({
+			  'title': section_title, 
+			  'children':[]}
+			);
+		  }
 
-	      let section = self.template[sectionIndex.get(section_title)];
-	      let new_field = {...field}; // shallow copy
+		  let section = self.template[sectionIndex.get(section_title)];
+		  let new_field = {...field}; // shallow copy
 
-	      // Some specs don't add plain english title, so fill that with name
-	      // for display.
-	      if (!('title' in new_field)) {
-	        new_field['title'] = new_field['name'];
-	      }
+		  // Some specs don't add plain english title, so fill that with name
+		  // for display.
+		  if (!('title' in new_field)) {
+			new_field['title'] = new_field['name'];
+		  }
 
-	      new_field.datatype = null;
-	      switch (new_field.range) {
-	        // LinkML typically translates "string" to "uri":"xsd:string" but
-	        // this is problematic because that allows newlines which break
-	        // spreadsheet saving of items.
-	        //case "string": 
-	        // new_field.datatype = "xsd:string";
+		  new_field.datatype = null;
+		  switch (new_field.range) {
+			// LinkML typically translates "string" to "uri":"xsd:string" but
+			// this is problematic because that allows newlines which break
+			// spreadsheet saving of items.
+			//case "string": 
+			// new_field.datatype = "xsd:string";
 
-	        case 'string': 
-	          // xsd:token means that string cannot have newlines, multiple-tabs
-	          // or spaces.
-	          new_field.datatype = 'xsd:token'; // was "xs:token",
-	          break;
+			case 'string': 
+			  // xsd:token means that string cannot have newlines, multiple-tabs
+			  // or spaces.
+			  new_field.datatype = 'xsd:token'; // was "xs:token",
+			  break;
 
-	        //case "datetime"
-	        //case "time"
-	        //case "ncname"
-	        //case "objectidentifier"
-	        //case "nodeidentifier"
+			//case "datetime"
+			//case "time"
+			//case "ncname"
+			//case "objectidentifier"
+			//case "nodeidentifier"
 
-	        case 'decimal':
-	          new_field.datatype = 'xsd:decimal'; // was xs:decimal
-	          break;
+			case 'decimal':
+			  new_field.datatype = 'xsd:decimal'; // was xs:decimal
+			  break;
 
-	        case 'float':
-	          new_field.datatype = 'xsd:float';
-	          break;
+			case 'float':
+			  new_field.datatype = 'xsd:float';
+			  break;
 
-	        case 'double':
-	          new_field.datatype = 'xsd:double'; 
-	          break;
+			case 'double':
+			  new_field.datatype = 'xsd:double'; 
+			  break;
 
-	        case 'integer': // int ???
-	          new_field.datatype = 'xsd:integer'; // was xs:nonNegativeInteger
-	          break;
+			case 'integer': // int ???
+			  new_field.datatype = 'xsd:integer'; // was xs:nonNegativeInteger
+			  break;
 
-	        // XML Boolean lexical space accepts true, false, and also 1 
-	        // (for true) and 0 (for false).
-	        case 'boolean': 
-	          new_field.datatype = 'xsd:boolean';
-	          break;
+			// XML Boolean lexical space accepts true, false, and also 1 
+			// (for true) and 0 (for false).
+			case 'boolean': 
+			  new_field.datatype = 'xsd:boolean';
+			  break;
 
-	        case 'uri': 
-	        case 'uriorcurie': 
-	          new_field.datatype = 'xsd:anyURI';
-	          break;
+			case 'uri': 
+			case 'uriorcurie': 
+			  new_field.datatype = 'xsd:anyURI';
+			  break;
 
 
-	        // https://linkml.io/linkml-model/docs/string_serialization/
-	        case 'string_serialization': 
-	          // Value A string which provides "{has numeric value} {has unit}" style 
-	          // named expressions.  These can be compiled into the .pattern field
-	          // if nothing already exists in .pattern
+			// https://linkml.io/linkml-model/docs/string_serialization/
+			case 'string_serialization': 
+			  // Value A string which provides "{has numeric value} {has unit}" style 
+			  // named expressions.  These can be compiled into the .pattern field
+			  // if nothing already exists in .pattern
 
-	        case 'has unit': 
-	          break;
+			case 'has unit': 
+			  break;
 
-	        case 'has numeric value':
-	          break;
+			case 'has numeric value':
+			  break;
 
-	        // This shows up as a LinkML class - but not formally defined as LinkML spec? 
-	        case 'quantity value': // A LinkML class
+			// This shows up as a LinkML class - but not formally defined as LinkML spec? 
+			case 'quantity value': // A LinkML class
 
-	          /* LinkML model for quantity value, along lines of https://schema.org/QuantitativeValue
+			  /* LinkML model for quantity value, along lines of https://schema.org/QuantitativeValue
 
-	            description: >-
-	              A simple quantity, e.g. 2cm
-	            attributes:
-	              verbatim:
-	                description: >-
-	                  Unnormalized atomic string representation, should in syntax {number} {unit}
-	              has unit:
-	                description: >-
-	                  The unit of the quantity
-	                slot_uri: qudt:unit
-	              has numeric value:
-	                description: >-
-	                  The number part of the quantity
-	                range:
-	                  double
-	            class_uri: qudt:QuantityValue
-	            mappings:
-	              - schema:QuantityValue
+				description: >-
+				  A simple quantity, e.g. 2cm
+				attributes:
+				  verbatim:
+					description: >-
+					  Unnormalized atomic string representation, should in syntax {number} {unit}
+				  has unit:
+					description: >-
+					  The unit of the quantity
+					slot_uri: qudt:unit
+				  has numeric value:
+					description: >-
+					  The number part of the quantity
+					range:
+					  double
+				class_uri: qudt:QuantityValue
+				mappings:
+				  - schema:QuantityValue
 
-	          */
-	          new_field.datatype = "xsd:token"; //xsd:decimal + unit
-	          // PROBLEM: There are a variety of quantity values specified, some allowing units
-	          // which would need to go in a second column unless validated as text within column.
-	          break;
+			  */
+			  new_field.datatype = "xsd:token"; //xsd:decimal + unit
+			  // PROBLEM: There are a variety of quantity values specified, some allowing units
+			  // which would need to go in a second column unless validated as text within column.
+			  break;
 
-	        case 'time':
-	          new_field.datatype = 'xsd:time';
-	          break;
-	          
-	        case 'datetime':
-	          new_field.datatype = 'xsd:datetime';
-	          break;
+			case 'time':
+			  new_field.datatype = 'xsd:time';
+			  break;
+			  
+			case 'datetime':
+			  new_field.datatype = 'xsd:datetime';
+			  break;
 
-	        case 'date':
-	          new_field.datatype = 'xsd:date'; // was xs:date
-	          break;
+			case 'date':
+			  new_field.datatype = 'xsd:date'; // was xs:date
+			  break;
 
-	        default:
-	          // Usually a selection list here, possibly .multivalued = true
-	          new_field.datatype = 'xsd:token'; // was "xs:token"
-	          if (new_field.range in self.schema.enumerations) {
-	            new_field.source = self.schema.enumerations[new_field.range].permissible_values;
-	            //This calculates for each categorical field in schema.yaml a 
-	            // flat list of allowed values (indented to represent hierarchy)
-	            new_field.flatVocabulary = self.stringifyNestedVocabulary(new_field.source);
+			default:
+			  // Usually a selection list here, possibly .multivalued = true
+			  new_field.datatype = 'xsd:token'; // was "xs:token"
+			  if (new_field.range in self.schema.enumerations) {
+				new_field.source = self.schema.enumerations[new_field.range].permissible_values;
+				//This calculates for each categorical field in schema.yaml a 
+				// flat list of allowed values (indented to represent hierarchy)
+				new_field.flatVocabulary = self.stringifyNestedVocabulary(new_field.source);
 
-	            // points to an object with .permissible_values ORDERED DICT array.
-	            // FUTURE ???? :
-	            // it may also have a metadata_values ORDERED DICT array.
-	            // ISSUE: metadata_status [missing | not applicable etc. ]
-	            // Allow > 1 range?
-	            // OR allow {permitted_values: .... , metadata_values: .... }
-	          }
-	          // .metadata_status is an ordered dict of permissible_values
-	          // It is separate so it can be demultipliexed from content values.
-	          if (new_field.metadata_status) {}
+				// points to an object with .permissible_values ORDERED DICT array.
+				// FUTURE ???? :
+				// it may also have a metadata_values ORDERED DICT array.
+				// ISSUE: metadata_status [missing | not applicable etc. ]
+				// Allow > 1 range?
+				// OR allow {permitted_values: .... , metadata_values: .... }
+			  }
 
+			  // .metadata_status is an ordered dict of permissible_values
+			  // It is separate so it can be demultipliexed from content values.
+			  if (new_field.metadata_status) {}
+			} 
 
 			if ('pattern' in field && field.pattern.length) {
 				// Trap invalid regex
@@ -1138,25 +1152,18 @@ let DataHarmonizer = {
 				}
 			}
 
+		  // Copying in particular required/ recommended status of a field into
+		  // this class / form's context
+		  //if (name in specification_slot_usage) {
+		  //  Object.assign(new_field, specification_slot_usage[name])
+		  //}
 
-	      } 
-
-	      // Copying in particular required/ recommended status of a field into
-	      // this class / form's context
-	      //if (name in specification_slot_usage) {
-	      //  Object.assign(new_field, specification_slot_usage[name])
-	      //}
-
-
-
-
-	      section['children'].push(new_field);
-	    }
-	    else {
+		  section['children'].push(new_field);
+		}
+		else {
 			console.log("ERROR: field doesn't have section: ", name );
-	    }
+		}
 	  });
-	  console.log(this.template)
 	},
 
 
@@ -1173,10 +1180,10 @@ let DataHarmonizer = {
 
 	  let ret = [];
 	  for (const val of Object.keys(vocab_list)) {
-	    ret.push('  '.repeat(level) + val);
-	    if (vocab_list[val].permissible_values) {
-	      ret = ret.concat(this.stringifyNestedVocabulary(vocab_list[val].permissible_values, level+1));
-	    }
+		ret.push('  '.repeat(level) + val);
+		if (vocab_list[val].permissible_values) {
+		  ret = ret.concat(this.stringifyNestedVocabulary(vocab_list[val].permissible_values, level+1));
+		}
 	  }
 	  return ret;
 	},
@@ -1194,24 +1201,24 @@ let DataHarmonizer = {
 	  //if (field.guidance) 
 	  //  ret += `<p><strong>Guidance</strong>: ${field.guidance}</p>`;
 	  if (field.comments && field.comments.length) {
-	    ret += `<p><strong>Guidance</strong>: </p><p>${field.comments.join('</p>\n<p>')}</p>`;
+		ret += `<p><strong>Guidance</strong>: </p><p>${field.comments.join('</p>\n<p>')}</p>`;
 	  }
 	  if (field.examples) {
-	    // Ignoring all but linkml .value now (which can be empty):
-	    let examples = [];
-	    for (const [key, item] of Object.entries(field.examples)) {
-	      if (item.value.trim().length > 0) {
-	        // Sometimes MIxS examples are separated by ";", but other times its part
-	        // of a "yes; .... further information ... " format.
-	        //examples.push(...item.value.split(';')); // 
-	        examples.push(item.value);
-	      } 
-	    }
-	    if (examples.length)
-	      ret += `<p><strong>Examples</strong>: </p><ul><li>${examples.join('</li>\n<li>')}</li></ul>`;
+		// Ignoring all but linkml .value now (which can be empty):
+		let examples = [];
+		for (const [key, item] of Object.entries(field.examples)) {
+		  if (item.value.trim().length > 0) {
+			// Sometimes MIxS examples are separated by ";", but other times its part
+			// of a "yes; .... further information ... " format.
+			//examples.push(...item.value.split(';')); // 
+			examples.push(item.value);
+		  } 
+		}
+		if (examples.length)
+		  ret += `<p><strong>Examples</strong>: </p><ul><li>${examples.join('</li>\n<li>')}</li></ul>`;
 	  }
 	  if (field.metadata_status) {
-	    ret += `<p><strong>Null values</strong>: ${field.metadata_status}</p>`;
+		ret += `<p><strong>Null values</strong>: ${field.metadata_status}</p>`;
 	  }
 	  return ret;
 	},
@@ -1225,11 +1232,11 @@ let DataHarmonizer = {
 	  const gridData = this.hot.getData();
 	  let lastEmptyRow = -1;
 	  for (let i=gridData.length; i>=0; i--) {
-	    if (this.hot.isEmptyRow(i)) {
-	      lastEmptyRow = i;
-	    } else {
-	      break;
-	    }
+		if (this.hot.isEmptyRow(i)) {
+		  lastEmptyRow = i;
+		} else {
+		  break;
+		}
 	  }
 
 	  return lastEmptyRow === -1 ? gridData : gridData.slice(0, lastEmptyRow);
