@@ -12,11 +12,11 @@ clean:
 
 template/MIxS/schema.js: template/MIxS/source/mixs.yaml
 	$(eval DIRNAME=$(shell dirname $@))
-	cd $(DIRNAME) ; python $(DEEP_PREF)/$(CONVERSION_SCRIPT) --input $(DEEP_PREF)/$<
+	cd $(DIRNAME) ; python3 $(DEEP_PREF)/$(CONVERSION_SCRIPT) --input $(DEEP_PREF)/$<
 	# now open linkml.html in a web browser
 
 template/nmdc_dh/schema.js: template/nmdc_dh/source/nmdc_dh.yaml
 	$(eval DIRNAME=$(shell dirname $@))
-	cd $(DIRNAME) ; python $(DEEP_PREF)/$(CONVERSION_SCRIPT) --input $(DEEP_PREF)/$<
+	cd $(DIRNAME) ; python3 $(DEEP_PREF)/$(CONVERSION_SCRIPT) --input $(DEEP_PREF)/$<
 	# now open linkml.html in a web browser
 
