@@ -60,33 +60,33 @@ Object.assign(DataHarmonizer, {
 							case 'xsd:integer':
 								valid = !isNaN(cellVal);
 								valid &= parsedInt.toString()===cellVal;
-								valid &= testNumericRange(parsedInt, field);
+								valid &= this.testNumericRange(parsedInt, field);
 								break;
 
 							case 'xsd:nonNegativeInteger':
 								const parsedInt = parseInt(cellVal, 10);
 								valid = !isNaN(cellVal) && parsedInt>=0;
 								valid &= parsedInt.toString()===cellVal;
-								valid &= testNumericRange(parsedInt, field);
+								valid &= this.testNumericRange(parsedInt, field);
 								break;
 
 							case 'xsd:float':
-								let parsedFloat = parseFloat(cellVal);
+								var parsedFloat = parseFloat(cellVal);
 								valid = !isNaN(cellVal) && parsedFloat == cellVal;
-								valid &= testNumericRange(parsedFloat, field);
+								valid &= this.testNumericRange(parsedFloat, field);
 								break;
 
 							case 'xsd:double':
 								// NEED DOUBLE RANGE VALIDATION
-								parsedFloat = parseFloat(cellVal);
+								var parsedFloat = parseFloat(cellVal);
 								//valid = !isNaN(cellVal) && regexDouble.test(cellVal);
-								valid &= testNumericRange(parsedFloat, field);
+								valid &= !isNaN(cellVal) && this.testNumericRange(parsedFloat, field);
 								break;
 
 							case 'xsd:decimal':
 								const parsedDec = parseFloat(cellVal);
 								valid = !isNaN(cellVal) && regexDecimal.test(cellVal);
-								valid &= testNumericRange(parsedDec, field);
+								valid &= this.testNumericRange(parsedDec, field);
 								break;
 
 							case 'xsd:boolean': 
@@ -97,7 +97,7 @@ Object.assign(DataHarmonizer, {
 								// moment is a date format addon
 								valid = moment(cellVal, 'YYYY-MM-DD', true).isValid();
 								if (valid) {
-									valid = testDateRange(cellVal, field);
+									valid = this.testDateRange(cellVal, field);
 								}
 								break;
 
