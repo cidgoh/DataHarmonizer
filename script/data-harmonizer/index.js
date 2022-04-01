@@ -180,8 +180,8 @@ let DataHarmonizer = {
 	},
 
 	validate: function(){
-		self.dh.invalid_cells = self.dh.getInvalidCells();
-		self.dh.hot.render();
+		this.invalid_cells = this.getInvalidCells();
+		this.hot.render();
 	},
 
 	newHotFile: function () {
