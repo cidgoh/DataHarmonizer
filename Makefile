@@ -14,7 +14,7 @@ clean:
 	rm -rf template/nmdc_dh/source/nmdc_dh.yaml
 
 template/nmdc_dh/source/nmdc_dh.yaml:
-	wget https://raw.githubusercontent.com/microbiomedata/sheets_and_friends/main/artifacts/nmdc_dh.yaml -O $@
+	wget -O $@ https://raw.githubusercontent.com/microbiomedata/sheets_and_friends/main/artifacts/nmdc_dh.yaml
 
 template/MIxS/schema.js: template/MIxS/source/mixs.yaml
 	$(eval DIRNAME=$(shell dirname $@))
