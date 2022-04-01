@@ -732,19 +732,17 @@ let DataHarmonizer = {
 
 
 	/**
-	 * Get a flat array of all fields (slot definitions) in SCHEMA.
-	 * @param {Object} data See SCHEMA.
-	 * @return {Array<Object>} Array of all objects under `children` in SCHEMA.
+	 * Get a flat array of all fields (slot definitions) in TEMPLATE.
+	 * @return {Array<Object>} Array of all objects under `children` in TEMPLATE.
 	 */
 	getFields: function() {
-		return Array.prototype.concat.apply([], this.template.map(parent => parent.children));
+		return Array.prototype.concat.apply([], this.template.map(section => section.children));
 	},
 
 	/**
 	 * Create a matrix containing the nested headers supplied to Handsontable.
 	 * These headers are HTML strings, with useful selectors for the primary and
 	 * secondary header cells.
-	 * @param {Object} data See TABLE.
 	 * @return {Array<Array>} Nested headers for Handontable grid.
 	 */
 	getNestedHeaders: function() {
@@ -757,8 +755,7 @@ let DataHarmonizer = {
 		for (const child of parent.children) {
 		  const required = child.required ? ' required' : '';
 		  const recommended = child.recommended ? ' recommended' : '';
-		  const name = child.title;
-		  rows[1].push(`<div class="secondary-header-text${required}${recommended}">${name}</div>`);
+		  rows[1].push(`<div class="secondary-header-text${required}${recommended}">${child.title}</div>`);
 		}
 	  }
 	  return rows;
@@ -928,7 +925,7 @@ let DataHarmonizer = {
 
 			// SCHEMA will be in place if script successful.
 			if (file_name == 'schema.js') {
-				// FUTURE: make this a json data object directly
+				// FUTURE: make this a json data object directly?
 				self.schema = SCHEMA;
 			}
 			if (file_name == 'export.js')
@@ -953,189 +950,206 @@ let DataHarmonizer = {
 	 * @return {Object} Processed values of `data.js`.
 	 */
 	processTemplate: function (template_name) {
-	  this.template = []; // This will hold template's new data including table sections.
-	  let self = this;
+		this.template = []; // This will hold template's new data including table sections.
+		let self = this;
 
-	  const sectionIndex = new Map();
-	  const specification = self.schema['specifications'][template_name];
+		const sectionIndex = new Map();
+		const specification = self.schema['specifications'][template_name];
 
-	  // LinkML slots sometimes mentions a few fields that slot_usage doesn't have;
-	  // and similarly slot_usage has many imported/common fields not in slots,
-	  // so loop through a combined list of slots and slot_usages, and use them
-	  // to determine sections and populate them
-	  const specification_slots      = specification.slots;
-	  const specification_slot_usage = specification.slot_usage || {};
-	  const combined = [...new Set([...Object.keys(specification_slot_usage), ...Object.keys(specification_slots) ])];
+		// LinkML slots sometimes mentions a few fields that slot_usage doesn't have;
+		// and similarly slot_usage has many imported/common fields not in slots,
+		// so loop through a combined list of slots and slot_usages, and use them
+		// to determine sections and populate them
+		//const specification_slots = specification.slots;
+		//const specification_slot_usage = specification.slot_usage || {};
+		//const combined = [...new Set([...Object.keys(specification_slot_usage), ...Object.keys(specification_slots) ])];
 
-	  /* Lookup each column in terms table. A term looks like:
-		is_a: "core field", 
-		title: "history/fire", 
-		slot_uri: "MIXS:0001086"
-		comments: (3) ['Expected value: date', 'Occurrence: 1', 'This field is used uniquely in: soil']
-		description: "Historical and/or physical evidence of fire"
-		examples: [{…}], 
-		multivalued: false, 
-		range: "date",
-		...
-	  */
-	  combined.forEach(function (name) {
+		/* Lookup each column in terms table. A term looks like:
+			is_a: "core field", 
+			title: "history/fire", 
+			slot_uri: "MIXS:0001086"
+			comments: (3) ['Expected value: date', 'Occurrence: 1', 'This field is used uniquely in: soil']
+			description: "Historical and/or physical evidence of fire"
+			examples: [{…}], 
+			multivalued: false, 
+			range: "date",
+			...
+		*/
+		//console.log(specification)
 
 		// EXPERIMENTAL - should be merging in the order of overrided attributes?!
-		let field =  Object.assign({}, self.schema.slots[name], specification_slots[name], specification_slot_usage[name]);
+		// With use of Schema_View(), , specification_slot_usage[name] is not needed.
+		// combined.forEach(function (name) {
+		//	let field =  Object.assign({}, self.schema.slots[name], specification_slots[name], specification_slot_usage[name]);
 
-		let section_title = null;
+		for (let name in specification.slots) {
 
-		if ('slot_group' in field) {
-		  // We have a field positioned within a section (or hierarchy)
-		  section_title = field.slot_group;
-		}
-		else if ('is_a' in field) {
-		  section_title = field.is_a;
-		}
+			let field = specification.slots[name];
+			let section_title = null;
 
-		// We have a field positioned within a section (or hierarchy)
-		if (section_title) {
+			if ('slot_group' in field) {
+			  // We have a field positioned within a section (or hierarchy)
+			  section_title = field.slot_group;
+			}
+			else {
+				if ('is_a' in field) {
+					section_title = field.is_a;
+				}
+				else {
+					section_title = 'Generic';
+					console.log("Template field doesn't have section: ", name );
+				}
+			}
 
-		  if (! sectionIndex.has(section_title)) {
-			sectionIndex.set(section_title, sectionIndex.size);
-			self.template.push({
-			  'title': section_title, 
-			  'children':[]}
-			);
-		  }
+			// We have a field positioned within a section (or hierarchy)
 
-		  let section = self.template[sectionIndex.get(section_title)];
-		  let new_field = {...field}; // shallow copy
+			if (! sectionIndex.has(section_title)) {
+				sectionIndex.set(section_title, sectionIndex.size);
+				let section_parts = {
+				  'title': section_title, 
+				  'children':[]
+				}
+				// Awaiting data structure for "slot_group" ranking.
+				//if ('rank' in field)
+				//	section_parts['rank'] = field.rank;
 
-		  // Some specs don't add plain english title, so fill that with name
-		  // for display.
-		  if (!('title' in new_field)) {
-			new_field['title'] = new_field['name'];
-		  }
+				self.template.push(section_parts);
+			}
 
-		  new_field.datatype = null;
-		  switch (new_field.range) {
-			// LinkML typically translates "string" to "uri":"xsd:string" but
-			// this is problematic because that allows newlines which break
-			// spreadsheet saving of items.
-			//case "string": 
-			// new_field.datatype = "xsd:string";
+			let section = self.template[sectionIndex.get(section_title)];
+			let new_field = {...field}; // shallow copy
 
-			case 'string': 
-			  // xsd:token means that string cannot have newlines, multiple-tabs
-			  // or spaces.
-			  new_field.datatype = 'xsd:token'; // was "xs:token",
-			  break;
+			// Some specs don't add plain english title, so fill that with name
+			// for display.
+			if (!('title' in new_field)) {
+				new_field['title'] = new_field['name'];
+			}
 
-			//case "datetime"
-			//case "time"
-			//case "ncname"
-			//case "objectidentifier"
-			//case "nodeidentifier"
+			new_field.datatype = null;
+			switch (new_field.range) {
+				// LinkML typically translates "string" to "uri":"xsd:string" but
+				// this is problematic because that allows newlines which break
+				// spreadsheet saving of items.
+				//case "string": 
+				// new_field.datatype = "xsd:string";
 
-			case 'decimal':
-			  new_field.datatype = 'xsd:decimal'; // was xs:decimal
-			  break;
+				case 'string': 
+				  // xsd:token means that string cannot have newlines, multiple-tabs
+				  // or spaces.
+				  new_field.datatype = 'xsd:token'; // was "xs:token",
+				  break;
 
-			case 'float':
-			  new_field.datatype = 'xsd:float';
-			  break;
+				//case "datetime"
+				//case "time"
+				//case "ncname"
+				//case "objectidentifier"
+				//case "nodeidentifier"
 
-			case 'double':
-			  new_field.datatype = 'xsd:double'; 
-			  break;
+				case 'decimal':
+				  new_field.datatype = 'xsd:decimal'; // was xs:decimal
+				  break;
 
-			case 'integer': // int ???
-			  new_field.datatype = 'xsd:integer'; // was xs:nonNegativeInteger
-			  break;
+				case 'float':
+				  new_field.datatype = 'xsd:float';
+				  break;
 
-			// XML Boolean lexical space accepts true, false, and also 1 
-			// (for true) and 0 (for false).
-			case 'boolean': 
-			  new_field.datatype = 'xsd:boolean';
-			  break;
+				case 'double':
+				  new_field.datatype = 'xsd:double'; 
+				  break;
 
-			case 'uri': 
-			case 'uriorcurie': 
-			  new_field.datatype = 'xsd:anyURI';
-			  break;
+				case 'integer': // int ???
+				  new_field.datatype = 'xsd:integer'; // was xs:nonNegativeInteger
+				  break;
+
+				// XML Boolean lexical space accepts true, false, and also 1 
+				// (for true) and 0 (for false).
+				case 'boolean': 
+				  new_field.datatype = 'xsd:boolean';
+				  break;
+
+				case 'uri': 
+				case 'uriorcurie': 
+				  new_field.datatype = 'xsd:anyURI';
+				  break;
 
 
-			// https://linkml.io/linkml-model/docs/string_serialization/
-			case 'string_serialization': 
-			  // Value A string which provides "{has numeric value} {has unit}" style 
-			  // named expressions.  These can be compiled into the .pattern field
-			  // if nothing already exists in .pattern
+				// https://linkml.io/linkml-model/docs/string_serialization/
+				case 'string_serialization': 
+					// Value A string which provides "{has numeric value} {has unit}" style 
+					// named expressions.  These can be compiled into the .pattern field
+					// if nothing already exists in .pattern
 
-			case 'has unit': 
-			  break;
+				case 'has unit': 
+				  break;
 
-			case 'has numeric value':
-			  break;
+				case 'has numeric value':
+				  break;
 
-			// This shows up as a LinkML class - but not formally defined as LinkML spec? 
-			case 'quantity value': // A LinkML class
+				// This shows up as a LinkML class - but not formally defined as LinkML spec? 
+				case 'quantity value': // A LinkML class
 
-			  /* LinkML model for quantity value, along lines of https://schema.org/QuantitativeValue
+					/* LinkML model for quantity value, along lines of https://schema.org/QuantitativeValue
 
-				description: >-
-				  A simple quantity, e.g. 2cm
-				attributes:
-				  verbatim:
-					description: >-
-					  Unnormalized atomic string representation, should in syntax {number} {unit}
-				  has unit:
-					description: >-
-					  The unit of the quantity
-					slot_uri: qudt:unit
-				  has numeric value:
-					description: >-
-					  The number part of the quantity
-					range:
-					  double
-				class_uri: qudt:QuantityValue
-				mappings:
-				  - schema:QuantityValue
+						description: >-
+						  A simple quantity, e.g. 2cm
+						attributes:
+						  verbatim:
+							description: >-
+							  Unnormalized atomic string representation, should in syntax {number} {unit}
+						  has unit:
+							description: >-
+							  The unit of the quantity
+							slot_uri: qudt:unit
+						  has numeric value:
+							description: >-
+							  The number part of the quantity
+							range:
+							  double
+						class_uri: qudt:QuantityValue
+						mappings:
+						  - schema:QuantityValue
 
-			  */
-			  new_field.datatype = "xsd:token"; //xsd:decimal + unit
-			  // PROBLEM: There are a variety of quantity values specified, some allowing units
-			  // which would need to go in a second column unless validated as text within column.
-			  break;
+					*/
+					new_field.datatype = "xsd:token"; //xsd:decimal + unit
+					// PROBLEM: There are a variety of quantity values specified, some allowing units
+					// which would need to go in a second column unless validated as text within column.
+					break;
 
-			case 'time':
-			  new_field.datatype = 'xsd:time';
-			  break;
-			  
-			case 'datetime':
-			  new_field.datatype = 'xsd:datetime';
-			  break;
+				case 'time':
+					new_field.datatype = 'xsd:time';
+					break;
 
-			case 'date':
-			  new_field.datatype = 'xsd:date'; // was xs:date
-			  break;
+				case 'datetime':
+					new_field.datatype = 'xsd:datetime';
+					break;
 
-			default:
-			  // Usually a selection list here, possibly .multivalued = true
-			  new_field.datatype = 'xsd:token'; // was "xs:token"
-			  if (new_field.range in self.schema.enumerations) {
-				new_field.source = self.schema.enumerations[new_field.range].permissible_values;
-				//This calculates for each categorical field in schema.yaml a 
-				// flat list of allowed values (indented to represent hierarchy)
-				new_field.flatVocabulary = self.stringifyNestedVocabulary(new_field.source);
+				case 'date':
+					new_field.datatype = 'xsd:date'; // was xs:date
+					break;
 
-				// points to an object with .permissible_values ORDERED DICT array.
-				// FUTURE ???? :
-				// it may also have a metadata_values ORDERED DICT array.
-				// ISSUE: metadata_status [missing | not applicable etc. ]
-				// Allow > 1 range?
-				// OR allow {permitted_values: .... , metadata_values: .... }
-			  }
+				default:
+					// Usually a selection list here, possibly .multivalued = true
+					new_field.datatype = 'xsd:token'; // was "xs:token"
+					if (new_field.range in self.schema.enumerations) {
+						new_field.source = self.schema.enumerations[new_field.range].permissible_values;
+						//This calculates for each categorical field in schema.yaml a 
+						// flat list of allowed values (indented to represent hierarchy)
+						new_field.flatVocabulary = self.stringifyNestedVocabulary(new_field.source);
 
-			  // .metadata_status is an ordered dict of permissible_values
-			  // It is separate so it can be demultipliexed from content values.
-			  if (new_field.metadata_status) {}
-			} 
+						// points to an object with .permissible_values ORDERED DICT array.
+						// FUTURE ???? :
+						// it may also have a metadata_values ORDERED DICT array.
+						// ISSUE: metadata_status [missing | not applicable etc. ]
+						// Allow > 1 range?
+						// OR allow {permitted_values: .... , metadata_values: .... }
+					}
+
+					// LINKML CHANGING TO ALLOW RANGE OVER MULTIPLE ENUMERATIONS
+					// .metadata_status is an ordered dict of permissible_values
+					// It is separate so it can be demultipliexed from content values.
+					// if (new_field.metadata_status) {}
+
+			}// End switch
 
 			if ('pattern' in field && field.pattern.length) {
 				// Trap invalid regex
@@ -1152,18 +1166,22 @@ let DataHarmonizer = {
 				}
 			}
 
-		  // Copying in particular required/ recommended status of a field into
-		  // this class / form's context
-		  //if (name in specification_slot_usage) {
-		  //  Object.assign(new_field, specification_slot_usage[name])
-		  //}
+			// Copying in particular required/ recommended status of a field into
+			// this class / form's context
+			//if (name in specification_slot_usage) {
+			//  Object.assign(new_field, specification_slot_usage[name])
+			//}
 
-		  section['children'].push(new_field);
+			section['children'].push(new_field);
+
+		}; // End for loop
+
+		// Sections and their children are sorted by .rank parameter if available
+		//this.template.sort((a, b) => a.rank - b.rank );
+		// Sort kids in each section
+		for (let ptr in this.template) {
+			this.template[ptr]['children'].sort((a, b) => a.rank - b.rank);
 		}
-		else {
-			console.log("ERROR: field doesn't have section: ", name );
-		}
-	  });
 	},
 
 
