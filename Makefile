@@ -1,14 +1,20 @@
 DEEP_PREF=../..
 CONVERSION_SCRIPT=script/linkml.py
 
-.PHONY: all clean
+.PHONY: all clean mix nmdc
 
 all: clean template/MIxS/schema.js template/nmdc_dh/schema.js
+mixs: clean template/MIxS/schema.js
+nmdc: clean template/nmdc_dh/schema.js
 
 clean:
 	rm -rf template/menu.js
 	rm -rf template/MIxS/schema.js
 	rm -rf template/nmdc_dh/schema.js
+	rm -rf template/nmdc_dh/source/nmdc_dh.yaml
+
+template/nmdc_dh/source/nmdc_dh.yaml:
+	wget https://raw.githubusercontent.com/microbiomedata/sheets_and_friends/main/artifacts/nmdc_dh.yaml -O $@
 
 template/MIxS/schema.js: template/MIxS/source/mixs.yaml
 	$(eval DIRNAME=$(shell dirname $@))
