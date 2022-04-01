@@ -6,10 +6,8 @@ DataHarmonizerToolbar = {
 	 * Wire up user controls which only need to happen once on load of page.
 	 */
 	init: function (dh, dhToolbar) {
-
+		self = this; //For anonymous button functions etc.
 		this.dh = dh;
-		this.dhToolbar = dhToolbar;
-		//self = this;
 
 		$('#version-dropdown-item').text('version ' + VERSION);
 
@@ -199,7 +197,7 @@ DataHarmonizerToolbar = {
 		});
 
 		// Validate
-		$('#validate-btn').on('click', this.validate);
+		$('#validate-btn').on('click', () => {self.validate()} );
 
 		// Settings -> Show ... rows
 		const showRowsSelectors = [
@@ -209,19 +207,18 @@ DataHarmonizerToolbar = {
 		];
 		$(showRowsSelectors.join(',')).click((e) => {
 			//dh.runBehindLoadingScreen(dh.changeRowVisibility, [e.target.id]);
-			dh.changeRowVisibility(e.target.id);
+			self.dh.changeRowVisibility(e.target.id);
 		});
 
 
 	},
 
 	validate: function() {
-		//self.dh.runBehindLoadingScreen(() => {
-			self.dh.validate();
-		//});
+
+		this.dh.runBehindLoadingScreen(this.dh.validate);
 
 		// If any rows have error, show this.
-		if (Object.keys(self.dh.invalid_cells).length > 0) {
+		if (Object.keys(this.dh.invalid_cells).length > 0) {
 			$('#next-error-button').show();
 			$('#no-error-button').hide();
 		}
@@ -233,7 +230,7 @@ DataHarmonizerToolbar = {
 
 	refresh: function () {
 		self = this;
-
+		//console.log(this.dh)
 		$('#select-template').val(this.dh.template_path);
 		$('#template_name_display').text(this.dh.template_path);
 		$('#file_name_display').text('');
