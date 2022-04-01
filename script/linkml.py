@@ -15,6 +15,7 @@
 
 # from linkml_runtime.dumpers.json_dumper import JSONDumper
 import copy
+
 # import yaml
 import json
 import optparse
@@ -112,6 +113,19 @@ for name, class_obj in mixs_sv.all_classes().items():
 
 class_names = content["specifications"].keys()
 
+# code block to sort class slots by rank
+for cls_name in class_names:
+
+    # NOTE: if conditional to ignore quantity value class
+    if cls_name != "quantity value":
+        content["specifications"][cls_name]["slots"] = {
+            k: v
+            for k, v in sorted(
+                content["specifications"][cls_name]["slots"].items(),
+                key=lambda x: x[1].rank,
+            )
+        }
+
 # listing classes from merged SchemaView?
 print("Created", len(class_names), "specifications:\n", "\n".join(class_names), "\n")
 
@@ -160,7 +174,7 @@ if os.path.isfile(MENU):
     with open(MENU, "r") as f:
         menu_text = f.read()
         # Chops prefix off before interpretation
-        menu = json.loads(menu_text[len(js_prefix):])
+        menu = json.loads(menu_text[len(js_prefix) :])
 else:
     menu = {}
 
