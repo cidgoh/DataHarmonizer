@@ -22,7 +22,7 @@
  *
  */
 
-const VERSION = '0.6.0';
+const VERSION = '0.6.1';
 const VERSION_TEXT = 'DataHarmonizer provenance: v' + VERSION;
 
 let DataHarmonizer = {
@@ -954,15 +954,9 @@ let DataHarmonizer = {
 		let self = this;
 
 		const sectionIndex = new Map();
-		const specification = self.schema['specifications'][template_name];
 
-		// LinkML slots sometimes mentions a few fields that slot_usage doesn't have;
-		// and similarly slot_usage has many imported/common fields not in slots,
-		// so loop through a combined list of slots and slot_usages, and use them
-		// to determine sections and populate them
-		//const specification_slots = specification.slots;
-		//const specification_slot_usage = specification.slot_usage || {};
-		//const combined = [...new Set([...Object.keys(specification_slot_usage), ...Object.keys(specification_slots) ])];
+		// Gets LinkML SchemaView() of given template
+		const specification = self.schema['specifications'][template_name];
 
 		/* Lookup each column in terms table. A term looks like:
 			is_a: "core field", 
@@ -975,12 +969,6 @@ let DataHarmonizer = {
 			range: "date",
 			...
 		*/
-		//console.log(specification)
-
-		// EXPERIMENTAL - should be merging in the order of overrided attributes?!
-		// With use of Schema_View(), , specification_slot_usage[name] is not needed.
-		// combined.forEach(function (name) {
-		//	let field =  Object.assign({}, self.schema.slots[name], specification_slots[name], specification_slot_usage[name]);
 
 		for (let name in specification.slots) {
 
@@ -1009,9 +997,9 @@ let DataHarmonizer = {
 				  'title': section_title, 
 				  'children':[]
 				}
-				// Awaiting data structure for "slot_group" ranking.
-				//if ('rank' in field)
-				//	section_parts['rank'] = field.rank;
+				const section = self.schema['slots'][section_title];
+				if (section)
+					Object.assign(section_parts, section);
 
 				self.template.push(section_parts);
 			}
@@ -1177,7 +1165,8 @@ let DataHarmonizer = {
 		}; // End for loop
 
 		// Sections and their children are sorted by .rank parameter if available
-		//this.template.sort((a, b) => a.rank - b.rank );
+		this.template.sort((a, b) => a.rank - b.rank );
+		
 		// Sort kids in each section
 		for (let ptr in this.template) {
 			this.template[ptr]['children'].sort((a, b) => a.rank - b.rank);
