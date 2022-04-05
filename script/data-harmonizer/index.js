@@ -29,7 +29,6 @@ let DataHarmonizer = {
 
 	//An instance of DataHarmonizer has a schema, a domElement, and a handsontable .hot object
 	dhGrid: null,
-	dhToolbar: null,
 	dhFooter: null,
 	schema_name: null,
 	template_name: null,
@@ -45,10 +44,9 @@ let DataHarmonizer = {
 	// Currently selected cell range[row,col,row2,col2]
 	current_selection: [null,null,null,null],
 
-	init: function(dhGrid, dhFooter=null, dhToolbar=null, menu=null) {
+	init: function(dhGrid, dhFooter=null, menu=null) {
 		this.dhGrid = dhGrid;
 		this.dhFooter = dhFooter;
-		this.dhToolbar = dhToolbar;
 		this.menu = menu;
 		this.self = this;
 

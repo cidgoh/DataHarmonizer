@@ -15,9 +15,9 @@ DataHarmonizerToolbar = {
 		this.templateOptions(dh);
 
 		// Enable template to be loaded dynamically
-		$('#select-template-load').on('click', (e) => {
-			this.dh.useTemplate($('#select-template').val());
-			this.refresh();
+		$('#select-template-load').on('click', async function () {
+			await self.dh.useTemplate($('#select-template').val());
+			await self.refresh();
 		})
 		// Triggers show/hide of draft templates
 		$("#view-template-drafts").on('change', this.templateOptions(dh));
@@ -230,7 +230,6 @@ DataHarmonizerToolbar = {
 
 	refresh: function () {
 		self = this;
-		//console.log(this.dh)
 		$('#select-template').val(this.dh.template_path);
 		$('#template_name_display').text(this.dh.template_path);
 		$('#file_name_display').text('');
