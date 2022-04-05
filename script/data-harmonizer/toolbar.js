@@ -128,6 +128,19 @@ DataHarmonizerToolbar = {
 			}
 		});
 
+		// Settings -> Show ... columns
+		const showColsSelectors = [
+			'#show-all-cols-dropdown-item', 
+			'#show-required-cols-dropdown-item',
+			'#show-recommended-cols-dropdown-item',
+			'.show-section-dropdown-item',
+		];
+
+		$(dhToolbar).on('click', showColsSelectors.join(','), function(e) {
+			//self.dh.runBehindLoadingScreen(self.dh.changeColVisibility, [e.target.id]);
+			self.dh.changeColVisibility(e.target.id);
+		});
+
 		// Settings -> Jump to...
 		const $jumpToInput = $('#jump-to-input');
 		$jumpToInput.bind('focus', () => void $jumpToInput.autocomplete('search'));
@@ -256,19 +269,6 @@ DataHarmonizerToolbar = {
 			$('#section-menu').append(`<div id="show-section-${section_ptr}" class="dropdown-item show-section-dropdown-item">${section.title}</div>`);
 			section_ptr ++;
 		}
-
-		// Settings -> Show ... columns
-		const showColsSelectors = [
-			'#show-all-cols-dropdown-item', 
-			'#show-required-cols-dropdown-item',
-			'#show-recommended-cols-dropdown-item',
-			'.show-section-dropdown-item',
-		];
-
-		$(showColsSelectors.join(',')).off().on('click', function(e) {
-			//self.dh.runBehindLoadingScreen(self.dh.changeColVisibility, [e.target.id]);
-			self.dh.changeColVisibility(e.target.id);
-		});
 
 		// Settings -> Jump to...
 		$('#jump-to-input').autocomplete({
