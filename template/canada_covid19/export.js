@@ -417,6 +417,8 @@ var exportNML_LIMS = (baseName, hot, data, xlsx, fileType) => {
     ['VE_SYMP_AVAIL',           []], // Calculated field (not in import)
     ['PH_EXPOSURE_COUNTRY',     []], 
     ['PH_TRAVEL',               []],
+    ['PH_POINT_OF_ENTRY',       []],
+    ['PH_DAY',                  []],
     ['PH_EXPOSURE',             []],
     ['PH_EXPOSURE_DETAILS',     []], 
     ['PH_HOST_ROLE',            []], 
