@@ -226,9 +226,9 @@ DataHarmonizerToolbar = {
 
 	},
 
-	validate: function() {
+	validate: async function() {
 
-		this.dh.runBehindLoadingScreen(this.dh.validate);
+		await this.dh.runBehindLoadingScreen(this.dh.validate);
 
 		// If any rows have error, show this.
 		if (Object.keys(this.dh.invalid_cells).length > 0) {
