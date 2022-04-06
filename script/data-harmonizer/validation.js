@@ -266,7 +266,7 @@ Object.assign(DataHarmonizer, {
 	*         [true, string] If every value in `delimited_string` is in `source` but formatting needs change
 	*/
 	validateValsAgainstVocab: function (delimited_string, source) {
-		self = this;
+		const self = this;
 		let update_flag = false;
 		let value_array = delimited_string.split(';');
 		value_array.forEach(function (value, index) {

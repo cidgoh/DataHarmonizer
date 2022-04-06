@@ -6,7 +6,7 @@ DataHarmonizerToolbar = {
 	 * Wire up user controls which only need to happen once on load of page.
 	 */
 	init: function (dh, dhToolbar) {
-		self = this; //For anonymous button functions etc.
+		const self = this; //For anonymous button functions etc.
 		this.dh = dh;
 
 		$('#version-dropdown-item').text('version ' + VERSION);
@@ -242,7 +242,7 @@ DataHarmonizerToolbar = {
 	},
 
 	refresh: function () {
-		self = this;
+		const self = this;
 		$('#select-template').val(this.dh.template_path);
 		$('#template_name_display').text(this.dh.template_path);
 		$('#file_name_display').text('');
@@ -293,7 +293,7 @@ DataHarmonizerToolbar = {
 	 * Show available templates, with sensitivity to "view draft template" checkbox
 	 */
 	templateOptions: function (dh) {
-		self = this;
+		const self = this;
 		// Select menu for available templates
 		const select = $("#select-template");
 		select.empty();
