@@ -91,40 +91,38 @@ for name, class_obj in mixs_sv.all_classes().items():
     # Note classDef["@type"]: "ClassDefinition" is only available in json
     # output
 
-    # Presence of "slots" in class indicates field hierarchy
-    # NOTE: Skips special "quantity value" class
-    if mixs_sv.class_slots(class_obj.name):
+    if mixs_sv.class_slots(name):
+        if class_obj.is_a == "dh_interface":
+            content["specifications"][name] = class_obj
 
-        content["specifications"][name] = class_obj
-
-        # Brings in all induced slot content for each class including all
-        # details, rather than just having code referencing shared slot info.
-        try:
-            slot_defs = {}
-            slot_array = mixs_sv.class_induced_slots(name)
-            for slot_obj in slot_array:
-                slot_defs[slot_obj["name"]] = slot_obj
-            content["specifications"][name]["slots"] = slot_defs
-        except Exception as e:
-            # ISSUE: default slots is array of string, but
-            # class_induced_slots(name) is array of dict so this needs
-            # reformatting to dict.
-            print("Unable to generate induced slots for: ", name, e)
+            # Brings in all induced slot content for each class including all
+            # details, rather than just having code referencing shared slot info.
+            try:
+                slot_defs = {}
+                slot_array = mixs_sv.class_induced_slots(name)
+                for slot_obj in slot_array:
+                    slot_defs[slot_obj["name"]] = slot_obj
+                content["specifications"][name]["slots"] = slot_defs
+            except Exception as e:
+                # ISSUE: default slots is array of string, but
+                # class_induced_slots(name) is array of dict so this needs
+                # reformatting to dict.
+                print("Unable to generate induced slots for: ", name, e)
 
 class_names = content["specifications"].keys()
+
+# TODO: add section ordering implementation block
 
 # code block to sort class slots by rank
 for cls_name in class_names:
 
-    # NOTE: if conditional to ignore quantity value class
-    if cls_name != "quantity value":
-        content["specifications"][cls_name]["slots"] = {
-            k: v
-            for k, v in sorted(
-                content["specifications"][cls_name]["slots"].items(),
-                key=lambda x: x[1].rank,
-            )
-        }
+    content["specifications"][cls_name]["slots"] = {
+        k: v
+        for k, v in sorted(
+            content["specifications"][cls_name]["slots"].items(),
+            key=lambda x: x[1].rank,
+        )
+    }
 
 # listing classes from merged SchemaView?
 print("Created", len(class_names), "specifications:\n", "\n".join(class_names), "\n")
