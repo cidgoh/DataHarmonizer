@@ -57,6 +57,24 @@ You can also automatically fill a column with a specified value, but only in row
 
 For _more information_ on available application features, select the **Help** button followed by **Getting Started** from within the DataHarmonizer application.
 
+## Example Data
+
+Templates with example data testing functionalities can be found within the following folder structure when available:
+
+```
+. TOP LEVEL DIRECTORY
+├── images
+├── libraries
+├── script
+└── template
+│   ├── templateOfInterest
+│   │   └── exampleInput
+│   └── ...
+```
+
+Alternatively, you can find links to all available test data below:
+- [`canada_covid19`](https://github.com/cidgoh/DataHarmonizer/tree/master/template/canada_covid19/exampleInput) CanCOGeN Covid-19
+
 ## Additional Information
 
 For more information about the DataHarmonizer, it's templates, and how to use them, check out the [DataHarmonizer Wiki](https://github.com/Public-Health-Bioinformatics/DataHarmonizer/wiki).
