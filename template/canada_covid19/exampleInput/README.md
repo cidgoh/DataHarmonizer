@@ -15,8 +15,8 @@ There are special validation rules for some fields, for example:
 
 > There cannot be duplicates of the database identifier `specimen collector sample ID` field. When duplicates occur the corresponding cells will be flagged light red:
 
-![invalidData_specimenCollectorSampleID.png](./images/invalid/invalidData_specimenCollectorSampleID.png)
+![invalidData_specimenCollectorSampleID.png](DataHarmonizer/images/invalid/invalidData_specimenCollectorSampleID.png)
 
 > Sample collection date cannot be before SARS-CoV-2 sampling began even when formatted using the appropriate ISO 8601 standard format "YYYY-MM-DD":
 
-![invalidData_sampleCollectionDate.png](./images/invalid/invalidData_sampleCollectionDate.png)
+![invalidData_sampleCollectionDate.png](DataHarmonizer/images/invalid/invalidData_sampleCollectionDate.png)
