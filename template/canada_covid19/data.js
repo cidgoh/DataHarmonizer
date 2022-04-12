@@ -404,6 +404,7 @@ var DATA = [
           "The Hospital for Sick Children (SickKids)": {},
           "Laboratoire de sant\u00e9 publique du Qu\u00e9bec (LSPQ)": {},
           "Lake of the Woods District Hospital - Ontario": {},
+          "LifeLabs": {},
           "Manitoba Cadham Provincial Laboratory": {},
           "McMaster University": {},
           "Mount Sinai Hospital": {},
@@ -418,6 +419,7 @@ var DATA = [
           "Queen's University / Kingston Health Sciences Centre": {},
           "Saskatchewan - Roy Romanow Provincial Laboratory (RRPL)": {},
           "St. John's Rehab at Sunnybrook Hospital": {},
+          "Switch Health": {},
           "Sunnybrook Health Sciences Centre": {},
           "Unity Health Toronto": {},
           "William Osler Health System": {}
@@ -1979,7 +1981,7 @@ var DATA = [
         "fieldName": "anatomical material",
         "capitalize": "",
         "ontology_id": "GENEPIO:0001211",
-        "datatype": "select",
+        "datatype": "multiple",
         "source": "",
         "dataStatus": [
           "Not Applicable",
@@ -2060,7 +2062,7 @@ var DATA = [
         "fieldName": "anatomical part",
         "capitalize": "",
         "ontology_id": "GENEPIO:0001214",
-        "datatype": "select",
+        "datatype": "multiple",
         "source": "",
         "dataStatus": [
           "Not Applicable",
@@ -2197,7 +2199,7 @@ var DATA = [
         "fieldName": "body product",
         "capitalize": "",
         "ontology_id": "GENEPIO:0001216",
-        "datatype": "select",
+        "datatype": "multiple",
         "source": "",
         "dataStatus": [
           "Not Applicable",
@@ -2275,7 +2277,7 @@ var DATA = [
         "fieldName": "environmental material",
         "capitalize": "",
         "ontology_id": "GENEPIO:0001223",
-        "datatype": "select",
+        "datatype": "multiple",
         "source": "",
         "dataStatus": [
           "Not Applicable",
@@ -2426,7 +2428,7 @@ var DATA = [
         "fieldName": "environmental site",
         "capitalize": "",
         "ontology_id": "GENEPIO:0001232",
-        "datatype": "select",
+        "datatype": "multiple",
         "source": "",
         "dataStatus": [
           "Not Applicable",
@@ -2544,7 +2546,7 @@ var DATA = [
         "fieldName": "collection device",
         "capitalize": "",
         "ontology_id": "GENEPIO:0001234",
-        "datatype": "select",
+        "datatype": "multiple",
         "source": "",
         "dataStatus": [
           "Not Applicable",
@@ -2647,7 +2649,7 @@ var DATA = [
         "fieldName": "collection method",
         "capitalize": "",
         "ontology_id": "GENEPIO:0001241",
-        "datatype": "select",
+        "datatype": "multiple",
         "source": "",
         "dataStatus": [
           "Not Applicable",
