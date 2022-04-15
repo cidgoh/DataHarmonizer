@@ -1203,11 +1203,27 @@ let DataHarmonizer = {
 	getComment: function (field) {
 	  let ret = `<p><strong>Label</strong>: ${field.title}</p>
 	<p><strong>Description</strong>: ${field.description}</p>`;
-	  //if (field.guidance) 
-	  //  ret += `<p><strong>Guidance</strong>: ${field.guidance}</p>`;
+
+	  let guidance = [];
 	  if (field.comments && field.comments.length) {
-		ret += `<p><strong>Guidance</strong>: </p><p>${field.comments.join('</p>\n<p>')}</p>`;
+		guidance = guidance.concat(field.comments);
 	  }
+	  if (field.pattern) {
+		guidance.push('Pattern as regular expression: ' + field.pattern);
+	  }
+	  if (field.string_serialization) {
+		guidance.push('Pattern hint: ' + field.string_serialization);
+	  }
+	  if (guidance.length) {
+		guidance[0] = '<strong>Guidance</strong>: ' + guidance[0]
+		const renderedParagraphs = guidance
+		  .map(function (paragraph) {
+		    return '<p>' + paragraph + '</p>';
+		  })
+		  .join('\n');
+		ret += renderedParagraphs;
+	  }
+
 	  if (field.examples) {
 		// Ignoring all but linkml .value now (which can be empty):
 		let examples = [];
