@@ -1210,8 +1210,11 @@ let DataHarmonizer = {
 	 * @return {String} HTML string describing field.
 	 */
 	getComment: function (field) {
-	  let ret = `<p><strong>Label</strong>: ${field.title}</p>
-	<p><strong>Description</strong>: ${field.description}</p>`;
+	  let ret = `<p><strong>Label</strong>: ${field.title}</p>`;
+
+	  if (field.description) {
+		ret += `<p><strong>Description</strong>: ${field.description}</p>`;
+	  }
 
 	  let guidance = [];
 	  if (field.comments && field.comments.length) {
