@@ -1214,6 +1214,19 @@ let DataHarmonizer = {
 	  if (field.string_serialization) {
 		guidance.push('Pattern hint: ' + field.string_serialization);
 	  }
+	  const hasMinValue = field.minimum_value != null;
+	  const hasMaxValue = field.maximum_value != null;
+	  if (hasMinValue || hasMaxValue) {
+		  let paragraph = 'Value should be '
+		  if (hasMinValue && hasMaxValue) {
+			  paragraph += `between ${field.minimum_value} and ${field.maximum_value}.`
+		  } else if (hasMinValue) {
+			  paragraph += `greater than ${field.minimum_value}.`
+		  } else if (hasMaxValue) {
+			  paragraph += `less than ${field.maximum_value}.`
+		  }
+		  guidance.push(paragraph);
+	  }
 	  if (guidance.length) {
 		guidance[0] = '<strong>Guidance</strong>: ' + guidance[0]
 		const renderedParagraphs = guidance
