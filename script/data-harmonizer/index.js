@@ -1201,8 +1201,11 @@ let DataHarmonizer = {
 	 * @return {String} HTML string describing field.
 	 */
 	getComment: function (field) {
-	  let ret = `<p><strong>Label</strong>: ${field.title}</p>
-	<p><strong>Description</strong>: ${field.description}</p>`;
+	  let ret = `<p><strong>Label</strong>: ${field.title}</p>`;
+
+	  if (field.description) {
+		ret += `<p><strong>Description</strong>: ${field.description}</p>`;
+	  }
 
 	  let guidance = [];
 	  if (field.comments && field.comments.length) {
@@ -1213,6 +1216,19 @@ let DataHarmonizer = {
 	  }
 	  if (field.string_serialization) {
 		guidance.push('Pattern hint: ' + field.string_serialization);
+	  }
+	  const hasMinValue = field.minimum_value != null;
+	  const hasMaxValue = field.maximum_value != null;
+	  if (hasMinValue || hasMaxValue) {
+		  let paragraph = 'Value should be '
+		  if (hasMinValue && hasMaxValue) {
+			  paragraph += `between ${field.minimum_value} and ${field.maximum_value} (inclusive).`
+		  } else if (hasMinValue) {
+			  paragraph += `greater than or equal to ${field.minimum_value}.`
+		  } else if (hasMaxValue) {
+			  paragraph += `less than or equal to ${field.maximum_value}.`
+		  }
+		  guidance.push(paragraph);
 	  }
 	  if (guidance.length) {
 		guidance[0] = '<strong>Guidance</strong>: ' + guidance[0]
