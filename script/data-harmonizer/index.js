@@ -1011,15 +1011,6 @@ let DataHarmonizer = {
 				new_field['title'] = new_field['name'];
 			}
 
-			// The presence of a min/max value implies that this field is numeric
-			// and should be validated as such. But a lot of slots don't define
-			// a `range` along with `minimum_value` or `maximum_value`. This is a 
-			// hack to get the validation to work even though this should really
-			// be handled by defining an appropriate `range` in the schema.
-			if ('minimum_value' in new_field || 'maximum_value' in new_field) {
-				new_field.range = 'float'
-			}
-
 			new_field.datatype = null;
 			switch (new_field.range) {
 				// LinkML typically translates "string" to "uri":"xsd:string" but
