@@ -1231,11 +1231,11 @@ let DataHarmonizer = {
 	  if (hasMinValue || hasMaxValue) {
 		  let paragraph = 'Value should be '
 		  if (hasMinValue && hasMaxValue) {
-			  paragraph += `between ${field.minimum_value} and ${field.maximum_value}.`
+			  paragraph += `between ${field.minimum_value} and ${field.maximum_value} (inclusive).`
 		  } else if (hasMinValue) {
-			  paragraph += `greater than ${field.minimum_value}.`
+			  paragraph += `greater than or equal to ${field.minimum_value}.`
 		  } else if (hasMaxValue) {
-			  paragraph += `less than ${field.maximum_value}.`
+			  paragraph += `less than or equal to ${field.maximum_value}.`
 		  }
 		  guidance.push(paragraph);
 	  }
