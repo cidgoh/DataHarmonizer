@@ -3,15 +3,13 @@
 # single javascript-readable file in folder where command is run from.  Run
 # this in a given DataHarmonizer templates/[template X] folder.
 #
-# Author: Damion Dooley
+# Created by: Damion Dooley
 #
 # Input examples, from template/MIxS/ folder:
 #
 # > linkml.py -i source/mixs.yaml
 # > linkml.py -i https://raw.githubusercontent.com/biolink/biolink-model/master/biolink-model.yaml
 #
-# TO DO: Add reference.html generation (Decision: 1 per template?)
-
 
 # from linkml_runtime.dumpers.json_dumper import JSONDumper
 import copy
@@ -73,27 +71,26 @@ if not options.linkml_file:
     exit("Input LinkML file not given")
 
 print("Loading LinkML specification for", options.linkml_file)
-mixs_sv = SchemaView(options.linkml_file)
+schema_spec = SchemaView(options.linkml_file)
 
 # if a specific set of slots is required, add filter here.
-# data = mixs_sv.class_induced_slots("soil");
+# data = schema_spec.class_induced_slots("soil");
 
 content = {
     "folder": template_folder,
     "specifications": {},  # Includes slots and slot_usage done below
-    "enumerations": mixs_sv.all_enums(),
-    "slots": mixs_sv.all_slots(),
-    "types": mixs_sv.all_types(),
+    "enumerations": schema_spec.all_enums(),
+    "slots": schema_spec.all_slots(),
+    "types": schema_spec.all_types(),
 }
 
 # Get all top level classes
-for name, class_obj in mixs_sv.all_classes().items():
+for name, class_obj in schema_spec.all_classes().items():
     # Note classDef["@type"]: "ClassDefinition" is only available in json
     # output
 
     # Presence of "slots" in class indicates field hierarchy
-    # NOTE: Skips special "quantity value" class
-    if mixs_sv.class_slots(class_obj.name):
+    if schema_spec.class_slots(class_obj.name):
 
         content["specifications"][name] = class_obj
 
@@ -101,7 +98,7 @@ for name, class_obj in mixs_sv.all_classes().items():
         # details, rather than just having code referencing shared slot info.
         try:
             slot_defs = {}
-            slot_array = mixs_sv.class_induced_slots(name)
+            slot_array = schema_spec.class_induced_slots(name)
             for slot_obj in slot_array:
                 slot_defs[slot_obj["name"]] = slot_obj
             content["specifications"][name]["slots"] = slot_defs
@@ -115,14 +112,13 @@ class_names = content["specifications"].keys()
 
 # code block to sort class slots by rank
 for cls_name in class_names:
-
-    # NOTE: if conditional to ignore quantity value class
-    if cls_name != "quantity value":
-        content["specifications"][cls_name]["slots"] = {
+    specification = content["specifications"][cls_name]
+    if 'slots' in specification:
+        specification["slots"] = {
             k: v
             for k, v in sorted(
-                content["specifications"][cls_name]["slots"].items(),
-                key=lambda x: x[1].rank,
+                specification["slots"].items(),
+                key=lambda x: x[1].rank or 0,
             )
         }
 
@@ -141,17 +137,17 @@ with open("schema.js", "w") as output_handle:
 """ Using linkml native dumper, but this escapes output ???
 dumper = JSONDumper();
 
-for name, obj in mixs_sv.all_classes().items():
+for name, obj in schema_spec.all_classes().items():
     if 'slots' in obj and len(obj['slots'])>0: 
         content['specifications'][name] = dumper.dumps(obj);
 
-for name, obj in mixs_sv.all_enums().items(): # all_enums is a dictionary
+for name, obj in schema_spec.all_enums().items(): # all_enums is a dictionary
     content['enumerations'][name] = dumper.dumps(obj);
 
-for name, obj in mixs_sv.all_slots().items(): # all_types is a dictionary
+for name, obj in schema_spec.all_slots().items(): # all_types is a dictionary
     content['slots'][name] = dumper.dumps(obj);
 
-for name, obj in mixs_sv.all_types().items(): # all_types is a dictionary
+for name, obj in schema_spec.all_types().items(): # all_types is a dictionary
     content['types'][name] = dumper.dumps(obj);
 
 with open('data.js', 'w') as output_handle:
