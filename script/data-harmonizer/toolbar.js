@@ -302,9 +302,10 @@ DataHarmonizerToolbar = {
 		for ([folder, templates] of Object.entries(dh.menu)) {
 			for ([name, template] of Object.entries(templates)) {
 				let label = folder + '/' + name;
-				if (view_drafts || template.status == 'published') {
-					select.append(new Option(label, label));
-				}
+				if (template.display)
+					if (view_drafts || template.status == 'published') {
+						select.append(new Option(label, label));
+					}
 			}
 		}
 	},
