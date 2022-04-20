@@ -182,10 +182,12 @@ else:
 menu[template_folder] = {}
 
 for name in class_names:
+    specification = content["specifications"][name]
     menu[template_folder][name] = {
         "name": name,
         # Future, allow status to be changed by template curation status.
         "status": "published",
+        "display": 'is_a' in specification and specification['is_a'] == 'dh_interface'
     }
 
 with open(MENU, "w") as output_handle:
