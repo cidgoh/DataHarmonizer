@@ -441,7 +441,7 @@ let DataHarmonizer = {
 					<td class="label">${slot_dict.title}</td>
 					<td>${slot_dict.description}</td>
 					<td>${slot_dict.guidance}</td>
-					<td>${slot_dict.examples}</td>
+					<td><ul>${slot_dict.examples}</ul></td>
 					<td>${slot_dict.dataStatus || ''}</td>
 				</tr>
 				`
@@ -1369,7 +1369,7 @@ let DataHarmonizer = {
 			title: field.title,
 			description: field.description || '',
 			guidance: field.comments || [],
-			examples: [],
+			examples: '',
 			metadata_status: field.metadata_status || ''
 		}
 
@@ -1399,14 +1399,15 @@ let DataHarmonizer = {
 		  })
 		  .join('\n');
 
-		if (field.examples) {
+		if (field.examples && field.examples.length) {
+			let examples = []
 			// Only including example.value now (which can be empty):
 			for (const [key, item] of Object.entries(field.examples)) {
 				if (item.value.trim().length > 0) {
-					guide.examples.push(item.value);
+					examples.push(item.value);
 				} 
 			}
-			guide.examples = guide.examples.join('</li>\n<li>')
+			guide.examples = '<li>' + examples.join('</li>\n<li>') + '</li>'
 		}
 
 	  return guide;
