@@ -96,6 +96,17 @@ occasionally.
 - [Handsontable](https://handsontable.com/) was used to build the grid.  DataHarmonizer is configured to reference the "non-commercial-and-evaluation" handsontable license "for purposes not intended toward monetary compensation such as, but not limited to, teaching, academic research, evaluation, testing and experimentation"; if this application is used for commercial purposes, this should be revised as per https://handsontable.com/docs/license-key/
 - [SheetJS](https://sheetjs.com/) was used to open and save local files. The community edition was used under the [Apache 2.0](https://github.com/SheetJS/sheetjs/blob/master/LICENSE) license.
 
+## Version Control
+
+Versioning of templates, features, and functionality is modeled on semantic versioning (i.e. versions are expressed as “DataHarmonizer X.Y.Z”).
+Changes to vocabulary in template pick lists are updated by incremental increases to the third position in the version (i.e. “Z” position).
+Changes to fields and features are updated by incremental increases to the second position in the version (i.e. “Y” position).
+Changes to basic infrastructure or major changes to functionality are updated by incremental increases to the first position in the version (i.e. “X” position).
+
+Descriptions of updates are provided in release notes for every new version.
+
+Discussions contributing to updates may be tracked on the DataHarmonizer GitHub Issuetracker.
+
 ## License
 
 DataHarmonizer javascript, python and other code not mentioned in the Acknowledgement above is covered by the [MIT](LICENSE) license.
