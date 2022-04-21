@@ -91,11 +91,6 @@ problems running the application, [please open an issue for discussion][1].
 This project is currently in the beta phase, with new features being added
 occasionally.
 
-## Acknowledgement
-
-- [Handsontable](https://handsontable.com/) was used to build the grid.  DataHarmonizer is configured to reference the "non-commercial-and-evaluation" handsontable license "for purposes not intended toward monetary compensation such as, but not limited to, teaching, academic research, evaluation, testing and experimentation"; if this application is used for commercial purposes, this should be revised as per https://handsontable.com/docs/license-key/
-- [SheetJS](https://sheetjs.com/) was used to open and save local files. The community edition was used under the [Apache 2.0](https://github.com/SheetJS/sheetjs/blob/master/LICENSE) license.
-
 ## Version Control
 
 Versioning of templates, features, and functionality is modeled on semantic versioning (i.e. versions are expressed as “DataHarmonizer X.Y.Z”).
@@ -106,6 +101,11 @@ Changes to basic infrastructure or major changes to functionality are updated by
 Descriptions of updates are provided in release notes for every new version.
 
 Discussions contributing to updates may be tracked on the DataHarmonizer GitHub Issuetracker.
+
+## Acknowledgement
+
+- [Handsontable](https://handsontable.com/) was used to build the grid.  DataHarmonizer is configured to reference the "non-commercial-and-evaluation" handsontable license "for purposes not intended toward monetary compensation such as, but not limited to, teaching, academic research, evaluation, testing and experimentation"; if this application is used for commercial purposes, this should be revised as per https://handsontable.com/docs/license-key/
+- [SheetJS](https://sheetjs.com/) was used to open and save local files. The community edition was used under the [Apache 2.0](https://github.com/SheetJS/sheetjs/blob/master/LICENSE) license.
 
 ## License
 
