@@ -452,14 +452,14 @@ let DataHarmonizer = {
 
 		win.document.head.innerHTML = `
 	<meta charset="utf-8">
-	<title>${schema_template.title || schema_template.name} reference guide</title>
+	<title>Reference guide for "${schema_template.title || schema_template.name}" template</title>
 	<meta name="description" content="${schema_template.description || ''}">
 	<style>${style}</style>
 	`
 
 		win.document.body.innerHTML = `  
 	<div>
-		<h2>${schema_template.title || schema_template.name} reference guide</h2>
+		<h2>Reference guide for "${schema_template.title || schema_template.name}" template</h2>
 		<hr size="2"/>
 		<p>${schema_template.description || ''}</p>
 
