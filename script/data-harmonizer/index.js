@@ -33,9 +33,9 @@ let DataHarmonizer = {
 	schema_name: null,
 	template_name: null,
 	template_path: null,
-	schema: null,			// Schema holding all templates
-	template: null,			// Specific template from schema
-	table: null,			// Table data.
+	schema: null,           // Schema holding all templates
+	template: null,         // Specific template from schema
+	table: null,            // Table data.
 	hot: null,
 	hot_settings: null,
 	menu: null,
@@ -135,7 +135,7 @@ let DataHarmonizer = {
 			// Loading this template may require loading the SCHEMA it is under.
 			const schema_loaded = await this.useSchema(template_folder);
 			//if (!schema_loaded) 
-			//	return false;
+			//  return false;
 
 			this.processTemplate(template_name);
 			//this.newHotFile();
@@ -147,7 +147,7 @@ let DataHarmonizer = {
 			return template_name;
 		//}
 		//catch(err) {
-		//	console.log(err);
+		//  console.log(err);
 		//}
 
 	},
@@ -380,6 +380,110 @@ let DataHarmonizer = {
 	  hiddenRowsPlugin.hideRows(hiddenRows);
 	  this.hot.render();
 	},
+
+	/**
+	 * Presents reference guide in a popup.
+	 * @param {String} mystyle simple css stylesheet commands to override default.
+	 */
+	renderReference: function(mystyle = null) {
+
+		schema_template = this.schema['specifications'][this.template_name]
+
+		let style = `
+	body {
+		font-family: arial;
+		margin:5% 5% 5% 5%;
+	}
+
+	table {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table tr.section {
+		background-color:#f0f0f0;
+		padding:10px;
+		font-size:1.5rem;
+	}
+
+	table td {vertical-align: top; padding:5px;border-bottom:1px dashed silver;}
+	table td.label {font-weight:bold;}
+
+	table th {font-weight: bold; text-align: left;font-size:1.3rem;}
+
+	table th.label {width: 25%; font-weight:bold;}
+	table th.description {width: 20%}
+	table th.guidance {width: 30%}
+	table th.example {width: 15%}
+	table th.data_status {width: 15%}
+
+	table td {vertical-align: top; padding:5px;}
+	table td.label {font-weight:bold;}
+		`;
+
+		if (mystyle != null)
+			style == mystyle;
+
+		row_html = '';
+		for (section of this.template) {
+
+			row_html +=
+				`<tr class="section">
+					<td colspan="5"><h3>${section.name}</h3></td>
+				</tr>
+				`
+			for (slot of section.children) {
+
+				slot_dict = this.getCommentDict(slot);
+
+				row_html +=
+				`<tr>
+					<td class="label">${slot_dict.title}</td>
+					<td>${slot_dict.description}</td>
+					<td>${slot_dict.guidance}</td>
+					<td>${slot_dict.examples}</td>
+					<td>${slot_dict.dataStatus || ''}</td>
+				</tr>
+				`
+			}
+		}
+
+		var win = window.open("", "Reference", "toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=1000,height=600");
+
+		win.document.head.innerHTML = `
+	<meta charset="utf-8">
+	<title>${schema_template.title || schema_template.name} reference guide</title>
+	<meta name="description" content="${schema_template.description || ''}">
+	<style>${style}</style>
+	`
+
+		win.document.body.innerHTML = `  
+	<div>
+		<h2>${schema_template.title || schema_template.name} reference guide</h2>
+		<hr size="2"/>
+		<p>${schema_template.description || ''}</p>
+
+		<table>
+			<thead>
+				<tr>
+					<th class="label">Field</th>
+					<th class="description">Description</th>
+					<th class="guidance">Guidance</th>
+					<th class="example">Examples</th>
+					<th class="data_status">Data Status</th>
+				</tr>
+			</thead>
+			<tbody>
+				${row_html}
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>
+	`
+		return false;
+	},
+
 
 	/**
 	 * Get the 0-based y-index of every field on the grid.
@@ -1234,7 +1338,7 @@ let DataHarmonizer = {
 		guidance[0] = '<strong>Guidance</strong>: ' + guidance[0]
 		const renderedParagraphs = guidance
 		  .map(function (paragraph) {
-		    return '<p>' + paragraph + '</p>';
+			return '<p>' + paragraph + '</p>';
 		  })
 		  .join('\n');
 		ret += renderedParagraphs;
@@ -1258,6 +1362,54 @@ let DataHarmonizer = {
 		ret += `<p><strong>Null values</strong>: ${field.metadata_status}</p>`;
 	  }
 	  return ret;
+	},
+
+	getCommentDict: function (field) {
+		let guide = {
+			title: field.title,
+			description: field.description || '',
+			guidance: field.comments || [],
+			examples: [],
+			metadata_status: field.metadata_status || ''
+		}
+
+		if (field.pattern) {
+			guide.guidance.push('Pattern as regular expression: ' + field.pattern);
+		}
+		if (field.string_serialization) {
+			guide.guidance.push('Pattern hint: ' + field.string_serialization);
+		}
+		const hasMinValue = field.minimum_value != null;
+		const hasMaxValue = field.maximum_value != null;
+		if (hasMinValue || hasMaxValue) {
+			let paragraph = 'Value should be '
+			if (hasMinValue && hasMaxValue) {
+				paragraph += `between ${field.minimum_value} and ${field.maximum_value} (inclusive).`
+			} else if (hasMinValue) {
+				paragraph += `greater than or equal to ${field.minimum_value}.`
+			} else if (hasMaxValue) {
+				paragraph += `less than or equal to ${field.maximum_value}.`
+			}
+			guide.guidance.push(paragraph);
+		}
+
+		guide.guidance = guide.guidance
+		  .map(function (paragraph) {
+			return '<p>' + paragraph + '</p>';
+		  })
+		  .join('\n');
+
+		if (field.examples) {
+			// Only including example.value now (which can be empty):
+			for (const [key, item] of Object.entries(field.examples)) {
+				if (item.value.trim().length > 0) {
+					guide.examples.push(item.value);
+				} 
+			}
+			guide.examples = guide.examples.join('</li>\n<li>')
+		}
+
+	  return guide;
 	},
 
 	/**
