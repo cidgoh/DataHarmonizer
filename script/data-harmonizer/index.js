@@ -1305,63 +1305,25 @@ let DataHarmonizer = {
 	 * @return {String} HTML string describing field.
 	 */
 	getComment: function (field) {
-	  let ret = `<p><strong>Label</strong>: ${field.title}</p>`;
+		let slot_dict = this.getCommentDict(field);
 
-	  if (field.description) {
-		ret += `<p><strong>Description</strong>: ${field.description}</p>`;
-	  }
+		let ret = `<p><strong>Label</strong>: ${field.title}</p>`;
 
-	  let guidance = [];
-	  if (field.comments && field.comments.length) {
-		guidance = guidance.concat(field.comments);
-	  }
-	  if (field.pattern) {
-		guidance.push('Pattern as regular expression: ' + field.pattern);
-	  }
-	  if (field.string_serialization) {
-		guidance.push('Pattern hint: ' + field.string_serialization);
-	  }
-	  const hasMinValue = field.minimum_value != null;
-	  const hasMaxValue = field.maximum_value != null;
-	  if (hasMinValue || hasMaxValue) {
-		  let paragraph = 'Value should be '
-		  if (hasMinValue && hasMaxValue) {
-			  paragraph += `between ${field.minimum_value} and ${field.maximum_value} (inclusive).`
-		  } else if (hasMinValue) {
-			  paragraph += `greater than or equal to ${field.minimum_value}.`
-		  } else if (hasMaxValue) {
-			  paragraph += `less than or equal to ${field.maximum_value}.`
-		  }
-		  guidance.push(paragraph);
-	  }
-	  if (guidance.length) {
-		guidance[0] = '<strong>Guidance</strong>: ' + guidance[0]
-		const renderedParagraphs = guidance
-		  .map(function (paragraph) {
-			return '<p>' + paragraph + '</p>';
-		  })
-		  .join('\n');
-		ret += renderedParagraphs;
-	  }
-
-	  if (field.examples) {
-		// Ignoring all but linkml .value now (which can be empty):
-		let examples = [];
-		for (const [key, item] of Object.entries(field.examples)) {
-		  if (item.value.trim().length > 0) {
-			// Sometimes MIxS examples are separated by ";", but other times its part
-			// of a "yes; .... further information ... " format.
-			//examples.push(...item.value.split(';')); // 
-			examples.push(item.value);
-		  } 
+		if (field.description) {
+			ret += `<p><strong>Description</strong>: ${field.description}</p>`;
 		}
-		if (examples.length)
-		  ret += `<p><strong>Examples</strong>: </p><ul><li>${examples.join('</li>\n<li>')}</li></ul>`;
-	  }
-	  if (field.metadata_status) {
-		ret += `<p><strong>Null values</strong>: ${field.metadata_status}</p>`;
-	  }
-	  return ret;
+
+		if (slot_dict.guidance) {
+			ret += `<p><strong>Guidance</strong>: ${slot_dict.guidance}</p>`;
+		}
+
+		if (slot_dict.examples) {
+			ret += `<p><strong>Examples</strong>: </p>${slot_dict.examples}`;
+		}
+		if (slot_dict.metadata_status) {
+			ret += `<p><strong>Null values</strong>: ${slot_dict.metadata_status}</p>`;
+		}
+		return ret;
 	},
 
 	getCommentDict: function (field) {
@@ -1407,7 +1369,7 @@ let DataHarmonizer = {
 					examples.push(item.value);
 				} 
 			}
-			guide.examples = '<li>' + examples.join('</li>\n<li>') + '</li>'
+			guide.examples = '<ul><li>' + examples.join('</li>\n<li>') + '</li></ul>'
 		}
 
 	  return guide;
