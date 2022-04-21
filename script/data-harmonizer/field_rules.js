@@ -97,6 +97,13 @@ Object.assign(DataHarmonizer, {
 
 		}
 
+		if (field.clearOnChange && change[2] !== change[3]) {
+			for (let other of field.clearOnChange) {
+				const otherIdx = fields.findIndex(f => f.title === other)
+				triggered_changes.push([row, otherIdx, change[2], null])
+			}
+		}
+
 	},
 
 
