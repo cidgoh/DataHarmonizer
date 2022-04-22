@@ -223,6 +223,7 @@ DataHarmonizerToolbar = {
 			self.dh.changeRowVisibility(e.target.id);
 		});
 
+		$("#help_reference").on('click', () => this.dh.renderReference() );
 
 	},
 
@@ -256,8 +257,7 @@ DataHarmonizerToolbar = {
 			select.append(new Option(option, option));
 		}
 
-		// Update reference doc links and SOP.
-		$("#help_reference").attr('href',`template/${this.dh.template_folder}/reference.html`);
+		// Update SOP.
 		$("#help_sop").attr('href',`template/${this.dh.template_folder}/SOP.pdf`);
 
 		// Allows columnCoordinates to be accessed within select() below.
@@ -302,9 +302,10 @@ DataHarmonizerToolbar = {
 		for ([folder, templates] of Object.entries(dh.menu)) {
 			for ([name, template] of Object.entries(templates)) {
 				let label = folder + '/' + name;
-				if (view_drafts || template.status == 'published') {
-					select.append(new Option(label, label));
-				}
+				if (template.display)
+					if (view_drafts || template.status == 'published') {
+						select.append(new Option(label, label));
+					}
 			}
 		}
 	},
