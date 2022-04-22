@@ -90,7 +90,7 @@ for name, class_obj in schema_spec.all_classes().items():
     # output
 
     # Presence of "slots" in class indicates field hierarchy
-    if schema_spec.class_slots(class_obj.name):
+    if schema_spec.class_slots(name):
 
         content["specifications"][name] = class_obj
 
@@ -109,6 +109,8 @@ for name, class_obj in schema_spec.all_classes().items():
             print("Unable to generate induced slots for: ", name, e)
 
 class_names = content["specifications"].keys()
+
+# TODO: add section ordering implementation block
 
 # code block to sort class slots by rank
 for cls_name in class_names:
