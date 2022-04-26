@@ -419,6 +419,8 @@ let DataHarmonizer = {
 
 	table td {vertical-align: top; padding:5px;}
 	table td.label {font-weight:bold;}
+
+	ul { padding: 0; }
 		`;
 
 		if (mystyle != null)
