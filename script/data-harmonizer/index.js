@@ -387,7 +387,7 @@ let DataHarmonizer = {
 	 */
 	renderReference: function(mystyle = null) {
 
-		schema_template = this.schema['specifications'][this.template_name]
+		let schema_template = this.schema['specifications'][this.template_name]
 
 		let style = `
 	body {
@@ -422,9 +422,9 @@ let DataHarmonizer = {
 		`;
 
 		if (mystyle != null)
-			style == mystyle;
+			style = mystyle;
 
-		row_html = '';
+		let row_html = '';
 		for (section of this.template) {
 
 			row_html +=
@@ -434,7 +434,7 @@ let DataHarmonizer = {
 				`
 			for (slot of section.children) {
 
-				slot_dict = this.getCommentDict(slot);
+				const slot_dict = this.getCommentDict(slot);
 
 				row_html +=
 				`<tr>
