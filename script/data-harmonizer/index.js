@@ -1330,16 +1330,20 @@ let DataHarmonizer = {
 		let guide = {
 			title: field.title,
 			description: field.description || '',
-			guidance: field.comments || [],
+			guidance: '',
 			examples: '',
 			metadata_status: field.metadata_status || ''
 		}
 
+		let guidance = [];
+		if (field.comments && field.comments.length) {
+			guidance = guidance.concat(field.comments);
+		}
 		if (field.pattern) {
-			guide.guidance.push('Pattern as regular expression: ' + field.pattern);
+			guidance.push('Pattern as regular expression: ' + field.pattern);
 		}
 		if (field.string_serialization) {
-			guide.guidance.push('Pattern hint: ' + field.string_serialization);
+			guidance.push('Pattern hint: ' + field.string_serialization);
 		}
 		const hasMinValue = field.minimum_value != null;
 		const hasMaxValue = field.maximum_value != null;
@@ -1352,10 +1356,10 @@ let DataHarmonizer = {
 			} else if (hasMaxValue) {
 				paragraph += `less than or equal to ${field.maximum_value}.`
 			}
-			guide.guidance.push(paragraph);
+			guidance.push(paragraph);
 		}
 
-		guide.guidance = guide.guidance
+		guide.guidance = guidance
 		  .map(function (paragraph) {
 			return '<p>' + paragraph + '</p>';
 		  })
@@ -1367,7 +1371,7 @@ let DataHarmonizer = {
 			for (const [key, item] of Object.entries(field.examples)) {
 				if (item.value.trim().length > 0) {
 					examples.push(item.value);
-				} 
+				}
 			}
 			guide.examples = '<ul><li>' + examples.join('</li>\n<li>') + '</li></ul>'
 		}
