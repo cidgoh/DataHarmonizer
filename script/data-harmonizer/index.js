@@ -387,7 +387,7 @@ let DataHarmonizer = {
 	 */
 	renderReference: function(mystyle = null) {
 
-		schema_template = this.schema['specifications'][this.template_name]
+		let schema_template = this.schema['specifications'][this.template_name]
 
 		let style = `
 	body {
@@ -419,12 +419,14 @@ let DataHarmonizer = {
 
 	table td {vertical-align: top; padding:5px;}
 	table td.label {font-weight:bold;}
+
+	ul { padding: 0; }
 		`;
 
 		if (mystyle != null)
-			style == mystyle;
+			style = mystyle;
 
-		row_html = '';
+		let row_html = '';
 		for (section of this.template) {
 
 			row_html +=
@@ -434,7 +436,7 @@ let DataHarmonizer = {
 				`
 			for (slot of section.children) {
 
-				slot_dict = this.getCommentDict(slot);
+				const slot_dict = this.getCommentDict(slot);
 
 				row_html +=
 				`<tr>
@@ -1330,16 +1332,20 @@ let DataHarmonizer = {
 		let guide = {
 			title: field.title,
 			description: field.description || '',
-			guidance: field.comments || [],
+			guidance: '',
 			examples: '',
 			metadata_status: field.metadata_status || ''
 		}
 
+		let guidance = [];
+		if (field.comments && field.comments.length) {
+			guidance = guidance.concat(field.comments);
+		}
 		if (field.pattern) {
-			guide.guidance.push('Pattern as regular expression: ' + field.pattern);
+			guidance.push('Pattern as regular expression: ' + field.pattern);
 		}
 		if (field.string_serialization) {
-			guide.guidance.push('Pattern hint: ' + field.string_serialization);
+			guidance.push('Pattern hint: ' + field.string_serialization);
 		}
 		const hasMinValue = field.minimum_value != null;
 		const hasMaxValue = field.maximum_value != null;
@@ -1352,10 +1358,10 @@ let DataHarmonizer = {
 			} else if (hasMaxValue) {
 				paragraph += `less than or equal to ${field.maximum_value}.`
 			}
-			guide.guidance.push(paragraph);
+			guidance.push(paragraph);
 		}
 
-		guide.guidance = guide.guidance
+		guide.guidance = guidance
 		  .map(function (paragraph) {
 			return '<p>' + paragraph + '</p>';
 		  })
@@ -1367,7 +1373,7 @@ let DataHarmonizer = {
 			for (const [key, item] of Object.entries(field.examples)) {
 				if (item.value.trim().length > 0) {
 					examples.push(item.value);
-				} 
+				}
 			}
 			guide.examples = '<ul><li>' + examples.join('</li>\n<li>') + '</li></ul>'
 		}
