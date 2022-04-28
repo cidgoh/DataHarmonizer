@@ -1117,156 +1117,131 @@ let DataHarmonizer = {
 				new_field['title'] = new_field['name'];
 			}
 
-			new_field.datatype = null;
-			switch (new_field.range) {
-				// LinkML typically translates "string" to "uri":"xsd:string" but
-				// this is problematic because that allows newlines which break
-				// spreadsheet saving of items.
-				//case "string": 
-				// new_field.datatype = "xsd:string";
+			// Default field type xsd:token allows all strings that don't have 
+			// newlines or tabs
+			new_field.datatype = 'xsd:token'; // was "xs:token"
 
-				case 'string': 
-				  // xsd:token means that string cannot have newlines, multiple-tabs
-				  // or spaces.
-				  new_field.datatype = 'xsd:token'; // was "xs:token",
-				  break;
+			let range_array = [];
+			// Multiple ranges allowed.  For now just accepting enumerations
+			if ('any_of' in new_field) {
+				for (let range in new_field.any_of) {
+					if (range in self.schema.enumerations)
+						range_array.push(range)
+				}
+			}
+			else {
+				range_array.push(new_field.range)
+			}
 
-				//case "datetime"
-				//case "time"
-				//case "ncname"
-				//case "objectidentifier"
-				//case "nodeidentifier"
+			// Parse slot's range(s)
+			for (let range of range_array) {
 
-				case 'decimal':
-				  new_field.datatype = 'xsd:decimal'; // was xs:decimal
-				  break;
+				// Range is a datatype?
+				if (range in self.schema.types) {
 
-				case 'float':
-				  new_field.datatype = 'xsd:float';
-				  break;
+					range_obj = self.schema.types[range];
 
-				case 'double':
-				  new_field.datatype = 'xsd:double'; 
-				  break;
-
-				case 'integer': // int ???
-				  new_field.datatype = 'xsd:integer'; // was xs:nonNegativeInteger
-				  break;
-
-				// XML Boolean lexical space accepts true, false, and also 1 
-				// (for true) and 0 (for false).
-				case 'boolean': 
-				  new_field.datatype = 'xsd:boolean';
-				  break;
-
-				case 'uri': 
-				case 'uriorcurie': 
-				  new_field.datatype = 'xsd:anyURI';
-				  break;
-
-
-				// https://linkml.io/linkml-model/docs/string_serialization/
-				case 'string_serialization': 
-					// Value A string which provides "{has numeric value} {has unit}" style 
-					// named expressions.  These can be compiled into the .pattern field
-					// if nothing already exists in .pattern
-
-				case 'has unit': 
-				  break;
-
-				case 'has numeric value':
-				  break;
-
-				// This shows up as a LinkML class - but not formally defined as LinkML spec? 
-				case 'quantity value': // A LinkML class
-
-					/* LinkML model for quantity value, along lines of https://schema.org/QuantitativeValue
-
-						description: >-
-						  A simple quantity, e.g. 2cm
-						attributes:
-						  verbatim:
-							description: >-
-							  Unnormalized atomic string representation, should in syntax {number} {unit}
-						  has unit:
-							description: >-
-							  The unit of the quantity
-							slot_uri: qudt:unit
-						  has numeric value:
-							description: >-
-							  The number part of the quantity
-							range:
-							  double
-						class_uri: qudt:QuantityValue
-						mappings:
-						  - schema:QuantityValue
-
-					*/
-					new_field.datatype = "xsd:token"; //xsd:decimal + unit
-					// PROBLEM: There are a variety of quantity values specified, some allowing units
-					// which would need to go in a second column unless validated as text within column.
-					break;
-
-				case 'time':
-					new_field.datatype = 'xsd:time';
-					break;
-
-				case 'datetime':
-					new_field.datatype = 'xsd:datetime';
-					break;
-
-				case 'date':
-					new_field.datatype = 'xsd:date'; // was xs:date
-					break;
-
-				default:
-					// Usually a selection list here, possibly .multivalued = true
-					new_field.datatype = 'xsd:token'; // was "xs:token"
-					if (new_field.range in self.schema.enumerations) {
-						new_field.source = self.schema.enumerations[new_field.range].permissible_values;
-						//This calculates for each categorical field in schema.yaml a 
-						// flat list of allowed values (indented to represent hierarchy)
-						new_field.flatVocabulary = self.stringifyNestedVocabulary(new_field.source);
-
-						// points to an object with .permissible_values ORDERED DICT array.
-						// FUTURE ???? :
-						// it may also have a metadata_values ORDERED DICT array.
-						// ISSUE: metadata_status [missing | not applicable etc. ]
-						// Allow > 1 range?
-						// OR allow {permitted_values: .... , metadata_values: .... }
+					// LinkML typically translates "string" to "uri":"xsd:string" 
+					// but this is problematic because that allows newlines which
+					// break spreadsheet saving of items in tsv/csv format. Use
+					// xsd:token to block newlines and tabs.
+					// FUTURE: figure out how to accomodate newlines?
+					if (range == 'string') {
+						new_field.datatype = 'xsd:token'; // was "xs:token",
+					}
+					else {
+						new_field.datatype = range_obj.uri;
+						// e.g. 'time' and 'datetime' -> xsd:dateTime'; 'date' -> xsd:date
 					}
 
-					// LINKML CHANGING TO ALLOW RANGE OVER MULTIPLE ENUMERATIONS
-					// .metadata_status is an ordered dict of permissible_values
-					// It is separate so it can be demultipliexed from content values.
-					// if (new_field.metadata_status) {}
-
-			}// End switch
-
-			if ('pattern' in field && field.pattern.length) {
-				// Trap invalid regex
-				// Issue with NMDC MIxS "current land use" field pattern: "[ ....(all sorts of things) ]" syntax.
-				try {
-					//NMDC_regex = field.pattern.replaceAll("(", "\(").replaceAll(")", "\)").replace("[", "(").replace("]", ")")
-					new_field.pattern = new RegExp(field.pattern);
 				}
-				catch (err) {
-					console.log(`TEMPLATE ERROR: Check the regular expression syntax for "${new_field.title}".`);
-					console.log(err);
-					// Allow anything until regex fixed.
-					new_field.pattern = new RegExp(/.*/);
+				else {
+					// Range is an Enumeration?
+					if (range in self.schema.enumerations) {
+						range_obj = self.schema.enumerations[range];
+						new_field.datatype = 'xsd:token';
+
+						if (!('sources' in new_field)) 
+							new_field.sources = [];
+						if (!('flatVocabulary' in new_field)) 
+							new_field.flatVocabulary = [];
+						if (!('flatVocabularyLCase' in new_field)) 
+							new_field.flatVocabularyLCase = [];
+
+						new_field.sources.push(range);
+						//This calculates for each categorical field in schema.yaml a 
+						// flat list of allowed values (indented to represent hierarchy)
+						let flatVocab = self.stringifyNestedVocabulary(range_obj.permissible_values)
+						new_field.flatVocabulary.push(... flatVocab );
+						new_field.flatVocabularyLCase.push(... flatVocab.map(val => val.trim().toLowerCase()) );
+
+					}
+					else {
+						// Range is a Class?
+						if (range in self.schema.specifications) {
+							range_obj = self.schema.enumerations[range];
+
+							if (range == 'quantity value') {
+
+								/* LinkML model for quantity value, along lines of https://schema.org/QuantitativeValue, e.g. xsd:decimal + unit
+								PROBLEM: There are a variety of quantity values specified, some allowing units
+								which would need to go in a second column unless validated as text within column.
+
+								description: >-
+								  A simple quantity, e.g. 2cm
+								attributes:
+								  verbatim:
+									description: >-
+									  Unnormalized atomic string representation, should in syntax {number} {unit}
+								  has unit:
+									description: >-
+									  The unit of the quantity
+									slot_uri: qudt:unit
+								  has numeric value:
+									description: >-
+									  The number part of the quantity
+									range:
+									  double
+								class_uri: qudt:QuantityValue
+								mappings:
+								  - schema:QuantityValue
+							*/
+
+							}
+						}
+					}
+
+				} // End range parsing
+			}
+
+			// https://linkml.io/linkml-model/docs/string_serialization/
+			// Look up its parts in "settings", and assemble a regular 
+			// expression for them into "pattern" field. 
+			// This augments basic datatype validation
+			if ('string_serialization' in new_field) {
+
+
+			}
+			else {
+				if ('pattern' in field && field.pattern.length) {
+					// Trap invalid regex
+					// Issue with NMDC MIxS "current land use" field pattern: "[ ....(all sorts of things) ]" syntax.
+					try {
+						//NMDC_regex = field.pattern.replaceAll("(", "\(").replaceAll(")", "\)").replace("[", "(").replace("]", ")")
+						new_field.pattern = new RegExp(field.pattern);
+					}
+					catch (err) {
+						console.log(`TEMPLATE ERROR: Check the regular expression syntax for "${new_field.title}".`);
+						console.log(err);
+						// Allow anything until regex fixed.
+						new_field.pattern = new RegExp(/.*/);
+					}
 				}
 			}
 
-			// Copying in particular required/ recommended status of a field into
-			// this class / form's context
-			//if (name in specification_slot_usage) {
-			//  Object.assign(new_field, specification_slot_usage[name])
-			//}
+			section.children.push(new_field);
 
-			section['children'].push(new_field);
-
-		}; // End for loop
+		}; // End slot processing loop
 
 		// Sections and their children are sorted by .rank parameter if available
 		this.template.sort((a, b) => a.rank - b.rank );

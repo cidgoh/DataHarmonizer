@@ -41,16 +41,15 @@ Object.assign(DataHarmonizer, {
 				} 
 				else {
 					// If field's vocabulary comes from a (categorical) source:
-					if (field.source) {
+					if (field.flatVocabulary) {
 						if (field.multivalued === true) {
-							[valid, update] = this.validateValsAgainstVocab(cellVal, field.flatVocabulary);
+							[valid, update] = this.validateValsAgainstVocab(cellVal, field);
 							if (update) this.hot.setDataAtCell(row, col, update, 'thisChange');
 						}
 						else {
-							[valid, update] = this.validateValAgainstVocab(cellVal, field.flatVocabulary);
+							[valid, update] = this.validateValAgainstVocab(cellVal, field);
 							if (update) {
 								this.hot.setDataAtCell(row, col, update, 'thisChange');
-								console.log('changing',cellVal, update)
 							}
 						}
 					}
@@ -89,6 +88,8 @@ Object.assign(DataHarmonizer, {
 								valid &= this.testNumericRange(parsedDec, field);
 								break;
 
+							// XML Boolean lexical space accepts true, false, and also 1 
+							// (for true) and 0 (for false).
 							case 'xsd:boolean': 
 								valid = !isNaN(cellVal) && ['1','0','true','false'].indexOf(cellVal) >= 0;
 								break;
@@ -101,14 +102,16 @@ Object.assign(DataHarmonizer, {
 								}
 								break;
 
+							case 'xsd:token':
+								// range: string_serialization / quantity value /
+								break;	
 						}
 					}
 
 					// A field may be validated against an enumeration, or a regex pattern if given.
 					if (valid && field.pattern) {
 						// Pattern shouldn't be anything other than a regular expression object
-						//if (typeof field.pattern === 'object') 
-							valid = field.pattern.test(cellVal);
+						valid = field.pattern.test(cellVal);
 					}
 				}
 
@@ -133,10 +136,11 @@ Object.assign(DataHarmonizer, {
 					valid &= uniquefield[col][cellVal] === 1;  
 				}
 
-				if (!valid && field.metadata_status) {
-					[valid, update] = this.validateValAgainstVocab(cellVal, field.dataStatus);
-					if (update) this.hot.setDataAtCell(row, col, update, 'thisChange');
-				}
+				// OBSOLETE: field.flatVocabulary now contains metadata null value options
+				//if (!valid && field.metadata_status) {
+				//	[valid, update] = this.validateValAgainstVocab(cellVal, field.dataStatus);
+				//	if (update) this.hot.setDataAtCell(row, col, update, 'thisChange');
+				//}
 				if (!valid) {
 					if (!invalidCells.hasOwnProperty(row)) {
 						invalidCells[row] = {};
@@ -230,25 +234,23 @@ Object.assign(DataHarmonizer, {
 	* Validate a value against an array of source values.
 	* FUTURE: optimize - to precompile lowercased sources.
 	* @param {String} val Cell value.
-	* @param {Array<String>} source Source values.
+	* @param {field} field to look for flatVocabulary value in.
 	* @return {Array<Boolean><Boolean/String>} 
 	*         [false, false] `delimited_string` does not match `source`,
 	*         [true, false] `delimited_string` matches `source` exactly, 
 	*         [true, string] `delimited_string` matches`source` but formatting needs change
 	*/
-	validateValAgainstVocab: function (value, source) {
+	validateValAgainstVocab: function (value, field) {
 		let valid = false;
 		let update = false;
 		if (value) {
-			const trimmedSource =
-			source.map(sourceVal => sourceVal.trim().toLowerCase());
 			const trimmedVal = value.trim().toLowerCase();
-			const ptr = trimmedSource.indexOf(trimmedVal);
+			const ptr = field.flatVocabularyLCase.indexOf(trimmedVal);
 			if (ptr >= 0 ) {
 				valid = true;
 				// Normalised value being suggested for update 
-				if (value != source[ptr])
-					update = source[ptr];
+				if (value != field.flatVocabulary[ptr])
+					update = field.flatVocabulary[ptr];
 			}
 		}
 		return [valid, update];
@@ -259,18 +261,18 @@ Object.assign(DataHarmonizer, {
 	* whitespace and case are ignored in validation, but returned value will be 
 	* a suggested update to one or more values if any differ in capitalization.
 	* @param {String} delimited_string of values to validate.
-	* @param {Array<String>} source Values to validate against.
+	* @param {Object} field to validate values against.
 	* @return {Array<Boolean><Boolean/String>} 
 	*         [false, false] If some value in `delimited_string` is not in `source`,
 	*         [true, false] If every value in `delimited_string` is exactly in `source`, 
 	*         [true, string] If every value in `delimited_string` is in `source` but formatting needs change
 	*/
-	validateValsAgainstVocab: function (delimited_string, source) {
+	validateValsAgainstVocab: function (delimited_string, field) {
 		const self = this;
 		let update_flag = false;
 		let value_array = delimited_string.split(';');
 		value_array.forEach(function (value, index) {
-			[valid, update] = self.validateValAgainstVocab(value, source);
+			[valid, update] = self.validateValAgainstVocab(value, field);
 			if (!valid) return [false, false];
 			if (update) {
 				update_flag = true;
