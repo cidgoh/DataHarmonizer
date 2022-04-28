@@ -900,10 +900,10 @@ let DataHarmonizer = {
 
 		}
 
-		if (field.metadata_status) {
-		  col.source.push(...field.metadata_status);
-
-		}
+		// OBSOLETE: metadata_status is now merged with flatVocabulary
+		//if (field.metadata_status) {
+		//  col.source.push(...field.metadata_status);
+		//}
 
 		switch (field.datatype) {
 
