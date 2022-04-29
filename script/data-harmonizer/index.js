@@ -895,7 +895,9 @@ let DataHarmonizer = {
 		  }
 		  else {
 			col.type = 'autocomplete';
-			col.trimDropdown = false;
+			// ISSUE: provide trimDropdown if field is using flatVocabulary just for accepting null values
+			if (!field.sources.includes('null values') or field.sources.length > 1)
+				col.trimDropdown = false;
 		  }
 
 		}
@@ -905,9 +907,8 @@ let DataHarmonizer = {
 		//  col.source.push(...field.metadata_status);
 		//}
 
-		switch (field.datatype) {
+		if (field.datatype == 'xsd:date') {
 
-		  case 'xsd:date': 
 			col.type = 'date';
 			// This controls calendar popup date format, default is mm/dd/yyyy
 			// See https://handsontable.com/docs/8.3.0/Options.html#correctFormat
@@ -916,19 +917,8 @@ let DataHarmonizer = {
 			// entry of cell will convert date values like "2020" to "2020-01-01"
 			// automatically.
 			col.correctFormat = false; 
-			break;
 
-		  //case 'xsd:float':
-		  //case 'xsd:integer':
-		  //case 'xsd:nonNegativeInteger':
-		  //case 'xsd:decimal':
-		  default:
-			if (field.metadata_status) {
-			  col.type = 'autocomplete';
-			}
-			break;
 		}
-
 
 		ret.push(col);
 	  }
