@@ -418,6 +418,7 @@ var DATA = [
           "Public Health Ontario (PHO)": {},
           "Queen's University / Kingston Health Sciences Centre": {},
           "Saskatchewan - Roy Romanow Provincial Laboratory (RRPL)": {},
+          "Shared Hospital Laboratory": {},
           "St. John's Rehab at Sunnybrook Hospital": {},
           "Switch Health": {},
           "Sunnybrook Health Sciences Centre": {},
