@@ -115,8 +115,8 @@ let DataHarmonizer = {
 
 	/**
 	 * Revise user interface elements to match template path, and trigger
-	 * load of schema.js and export.js scripts (if necessary).  script.onload goes on
-	 * to trigger launch(TABLE).
+	 * load of schema.js and export.js scripts (if necessary).
+	 * 
 	 * @param {String} template_path: path of template starting from app's
 	 * template/ folder.
 	 */
@@ -277,7 +277,6 @@ let DataHarmonizer = {
 					}
 				},
 			};
-			//this.hot_settings.data = []; // Enables true reset.
 
 			this.hot = Handsontable(this.dhGrid, this.hot_settings);
 
@@ -406,18 +405,13 @@ let DataHarmonizer = {
 		font-size:1.5rem;
 	}
 
-	table td {vertical-align: top; padding:5px;border-bottom:1px dashed silver;}
-	table td.label {font-weight:bold;}
-
-	table th {font-weight: bold; text-align: left;font-size:1.3rem;}
-
-	table th.label {width: 25%; font-weight:bold;}
+	table th {font-weight: bold; text-align: left; font-size:1.3rem;}
+	table th.label {font-weight:bold; width: 25%}
 	table th.description {width: 20%}
 	table th.guidance {width: 30%}
 	table th.example {width: 15%}
 	table th.data_status {width: 15%}
-
-	table td {vertical-align: top; padding:5px;}
+	table td {vertical-align: top; padding:5px;border-bottom:1px dashed silver;}
 	table td.label {font-weight:bold;}
 
 	ul { padding: 0; }
@@ -896,7 +890,7 @@ let DataHarmonizer = {
 		  else {
 			col.type = 'autocomplete';
 			// ISSUE: provide trimDropdown if field is using flatVocabulary just for accepting null values
-			if (!field.sources.includes('null values') or field.sources.length > 1)
+			if (!field.sources.includes('null values') || field.sources.length > 1)
 				col.trimDropdown = false;
 		  }
 
@@ -1205,6 +1199,7 @@ let DataHarmonizer = {
 			}
 
 			// https://linkml.io/linkml-model/docs/string_serialization/
+			// https://github.com/linkml/linkml/issues/674
 			// Look up its parts in "settings", and assemble a regular 
 			// expression for them into "pattern" field. 
 			// This augments basic datatype validation
@@ -1212,21 +1207,21 @@ let DataHarmonizer = {
 
 
 			}
-			else {
-				if ('pattern' in field && field.pattern.length) {
-					// Trap invalid regex
-					// Issue with NMDC MIxS "current land use" field pattern: "[ ....(all sorts of things) ]" syntax.
-					try {
-						//NMDC_regex = field.pattern.replaceAll("(", "\(").replaceAll(")", "\)").replace("[", "(").replace("]", ")")
-						new_field.pattern = new RegExp(field.pattern);
-					}
-					catch (err) {
-						console.log(`TEMPLATE ERROR: Check the regular expression syntax for "${new_field.title}".`);
-						console.log(err);
-						// Allow anything until regex fixed.
-						new_field.pattern = new RegExp(/.*/);
-					}
+
+			// pattern is supposed to be exlusive to string_serialization
+			if ('pattern' in field && field.pattern.length) {
+				// Trap invalid regex
+				// Issue with NMDC MIxS "current land use" field pattern: "[ ....(all sorts of things) ]" syntax.
+				try {
+					new_field.pattern = new RegExp(field.pattern);
 				}
+				catch (err) {
+					console.log(`TEMPLATE ERROR: Check the regular expression syntax for "${new_field.title}".`);
+					console.log(err);
+					// Allow anything until regex fixed.
+					new_field.pattern = new RegExp(/.*/);
+				}
+
 			}
 
 			section.children.push(new_field);
