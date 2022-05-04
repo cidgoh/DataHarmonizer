@@ -17,6 +17,8 @@ Object.assign(DataHarmonizer, {
 
 		let provenanceChanges = [];
 
+		let bad_pattern = {};
+
 		for (let row=0; row < this.hot.countRows(); row++) {
 			if (this.hot.isEmptyRow(row)) continue;
 
@@ -111,7 +113,17 @@ Object.assign(DataHarmonizer, {
 					// A field may be validated against an enumeration, or a regex pattern if given.
 					if (valid && field.pattern) {
 						// Pattern shouldn't be anything other than a regular expression object
-						valid = field.pattern.test(cellVal);
+						try {
+							valid = field.pattern.test(cellVal);
+						}
+						catch (err) {
+							if (!(field.pattern in bad_pattern)) {
+								bad_pattern[field.pattern] = true;
+								console.log(`Regular expression /${field.pattern}/ in ${field.title} failed`, err)
+							}
+							continue;
+						}
+
 					}
 				}
 
