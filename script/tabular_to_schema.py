@@ -86,16 +86,20 @@ with open(r_schema_slots) as tsvfile:
 				slot['slot_uri'] = row['slot_uri'];
 
 			if row.get('range','') > '':
-				#if row.get('range_2','') > '':
-				slot['range'] = row['range'];		
+				# 2nd range_2 column gets semi-colon separated list of additional ranges
+				if row.get('range_2','') > '':
+					merged_ranges = [[row.get('range')].extend(row.get('range_2').split(';')) ]
+					slot['any_of'] = map(lambda x: {'range': x }, merged_ranges)
+				else:
+					slot['range'] = row['range'];		
 
-			if row.get('slot_uri',False) == True:
+			if row.get('slot_uri','') == 'TRUE':
 				slot['identifier'] = True;
-			if row.get('multivalued',False) == True:
+			if row.get('multivalued','') == 'TRUE':
 				slot['multivalued'] = True;
-			if row.get('required',False) == True:
+			if row.get('required','') == 'TRUE':
 				slot['required'] = True;
-			if row.get('recommended', False) == True:
+			if row.get('recommended', '') == 'TRUE':
 				slot['recommended'] = True;
 
 			# NEED TO FIX TO ACCEPT Dates, and "{today}"
@@ -187,24 +191,13 @@ with open(r_schema_enums) as tsvfile:
 				'text' : text
 			}
 
-			search_path = menu_path.copy()
-			# insert permissible_values in between menu item depth
-			for x in range(len(search_path)):
-				search_path.insert(2*x, 'permissible_values')
-
-			parent = reduce(dict.get, search_path, enum);
-
 			if row.get('description','') > '':
 				choice['description'] = row.get('description');
 
 			if row.get('meaning','') > '':
 				choice['meaning'] = row.get('meaning');
-
-			# Add choice dependency relations on other choices here
-
-			if not ('permissible_values' in parent):
-				parent['permissible_values'] = {}
-
+			'''
+			# At moment linkml doesn't support exact_mappings on 
 			if len(EXPORT_FORMAT) > 0:
 				mappings = []
 				for export_field in EXPORT_FORMAT:
@@ -215,10 +208,30 @@ with open(r_schema_enums) as tsvfile:
 
 				if len(mappings) > 0:
 					choice['exact_mappings'] = mappings
+			
+			'''
 
-			parent['permissible_values'][text] = choice
+			# FUTURE: Add choice dependency relations on other choices here
+
+			# IMPLEMENTS permissible_values HIERARCHY (not in linkml yet)
+			# insert permissible_values in between menu item depth
+			#
+
+			#search_path = menu_path.copy()
+			#for x in range(len(search_path)):
+			#	search_path.insert(2*x, 'permissible_values')
+			# This returns parent as a result of dictionary traversal of
+			# search_path
+			#parent = reduce(dict.get, search_path, enum);
+			#if not ('permissible_values' in parent):
+			#	parent['permissible_values'] = {}
+			#parent['permissible_values'][text] = choice
+
+			# IMPLEMENTS FLAT LIST WITH IS_A HIERARCHY
+			if len(menu_path) > 0:
+				choice['is_a'] = menu_path[-1] # Last item in path
+			enum['permissible_values'][text] = choice
 			menu_path.append(text)
-
 
 with open(w_filename, 'w') as output_handle:
 	yaml.dump(SCHEMA, output_handle, sort_keys=False)
