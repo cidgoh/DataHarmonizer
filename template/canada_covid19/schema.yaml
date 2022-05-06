@@ -6,6 +6,10 @@ imports:
 prefixes:
   linkml: https://w3id.org/linkml/
 classes:
+  dh_interface:
+    name: dh_interface
+    description: A DataHarmonizer interface
+    from_schema: https://example.com/CanCOGeN_Covid-19
   CanCOGeN Covid-19:
     name: CanCOGeN Covid-19
     description: Canadian specification for Covid-19 clinical virus biosample data
@@ -596,6 +600,7 @@ slots:
     - value: prov_rona_99
     slot_uri: GENEPIO:0001123
     range: xs:unique
+    required: true
     exact_mappings:
     - GISAID:Sample ID given by the sample provider
     - CNPHI:Primary Specimen ID
@@ -636,6 +641,7 @@ slots:
     - value: ABCD1234
     slot_uri: GENEPIO:0100281
     range: xs:unique
+    recommended: true
     exact_mappings:
     - NML_LIMS:PH_CASE_ID
   Related specimen primary ID:
@@ -649,7 +655,12 @@ slots:
     examples:
     - value: SR20-12345
     slot_uri: GENEPIO:0001128
-    range: xs:token
+    any_of: !!python/object/apply:builtins.map
+    - !!python/name:__main__.%3Clambda%3E ''
+    - !!python/object/apply:builtins.iter
+      args:
+      - - null
+      state: 0
     exact_mappings:
     - CNPHI:Related Specimen ID
     - CNPHI:Related Specimen Relationship Type
@@ -778,7 +789,13 @@ slots:
     examples:
     - value: BC Centre for Disease Control
     slot_uri: GENEPIO:0001153
-    range: sample collected by menu
+    any_of: !!python/object/apply:builtins.map
+    - !!python/name:__main__.%3Clambda%3E ''
+    - !!python/object/apply:builtins.iter
+      args:
+      - - null
+      state: 0
+    required: true
     exact_mappings:
     - GISAID:Originating lab
     - CNPHI:Lab Name
@@ -822,7 +839,13 @@ slots:
     examples:
     - value: Public Health Ontario (PHO)
     slot_uri: GENEPIO:0001159
-    range: selectsequence submitted by menu
+    any_of: !!python/object/apply:builtins.map
+    - !!python/name:__main__.%3Clambda%3E ''
+    - !!python/object/apply:builtins.iter
+      args:
+      - - null
+      state: 0
+    required: true
     exact_mappings:
     - GISAID:Submitting lab
     - CNPHI:Sequencing Centre
@@ -868,7 +891,13 @@ slots:
     examples:
     - value: '2020-03-16'
     slot_uri: GENEPIO:0001174
-    range: xs:date
+    any_of: !!python/object/apply:builtins.map
+    - !!python/name:__main__.%3Clambda%3E ''
+    - !!python/object/apply:builtins.iter
+      args:
+      - - null
+      state: 0
+    required: true
     exact_mappings:
     - GISAID:Collection date
     - CNPHI:Patient Sample Collected Date
@@ -886,7 +915,13 @@ slots:
     examples:
     - value: year
     slot_uri: GENEPIO:0001177
-    range: sample collection date precision menu
+    any_of: !!python/object/apply:builtins.map
+    - !!python/name:__main__.%3Clambda%3E ''
+    - !!python/object/apply:builtins.iter
+      args:
+      - - null
+      state: 0
+    required: true
     exact_mappings:
     - CNPHI:Precision of date collected
     - NML_LIMS:HC_TEXT2
@@ -898,7 +933,12 @@ slots:
     examples:
     - value: '2020-03-20'
     slot_uri: GENEPIO:0001179
-    range: xs:date
+    any_of: !!python/object/apply:builtins.map
+    - !!python/name:__main__.%3Clambda%3E ''
+    - !!python/object/apply:builtins.iter
+      args:
+      - - null
+      state: 0
     exact_mappings:
     - NML_LIMS:sample received date
   geo_loc_name (country):
@@ -909,7 +949,13 @@ slots:
     examples:
     - value: Canada
     slot_uri: GENEPIO:0001181
-    range: geo_loc_name (country) menu
+    any_of: !!python/object/apply:builtins.map
+    - !!python/name:__main__.%3Clambda%3E ''
+    - !!python/object/apply:builtins.iter
+      args:
+      - - null
+      state: 0
+    required: true
     exact_mappings:
     - GISAID:Location
     - CNPHI:Patient Country
@@ -924,7 +970,13 @@ slots:
     examples:
     - value: Saskatchewan
     slot_uri: GENEPIO:0001185
-    range: geo_loc_name (state/province/territory) menu
+    any_of: !!python/object/apply:builtins.map
+    - !!python/name:__main__.%3Clambda%3E ''
+    - !!python/object/apply:builtins.iter
+      args:
+      - - null
+      state: 0
+    required: true
     exact_mappings:
     - CNPHI:Patient Province
     - NML_LIMS:HC_PROVINCE
@@ -952,7 +1004,13 @@ slots:
     examples:
     - value: Severe acute respiratory syndrome coronavirus 2
     slot_uri: GENEPIO:0001191
-    range: organism menu
+    any_of: !!python/object/apply:builtins.map
+    - !!python/name:__main__.%3Clambda%3E ''
+    - !!python/object/apply:builtins.iter
+      args:
+      - - null
+      state: 0
+    required: true
     exact_mappings:
     - CNPHI:Pathogen
     - NML_LIMS:HC_CURRENT_ID
@@ -967,7 +1025,13 @@ slots:
     examples:
     - value: hCov-19/CANADA/BC-prov_rona_99/2020
     slot_uri: GENEPIO:0001195
-    range: xs:token
+    any_of: !!python/object/apply:builtins.map
+    - !!python/name:__main__.%3Clambda%3E ''
+    - !!python/object/apply:builtins.iter
+      args:
+      - - null
+      state: 0
+    required: true
     exact_mappings:
     - GISAID:Virus name
     - CNPHI:GISAID Virus Name
@@ -989,7 +1053,13 @@ slots:
     examples:
     - value: Diagnostic testing
     slot_uri: GENEPIO:0001198
-    range: purpose of sampling menu
+    any_of: !!python/object/apply:builtins.map
+    - !!python/name:__main__.%3Clambda%3E ''
+    - !!python/object/apply:builtins.iter
+      args:
+      - - null
+      state: 0
+    required: true
     exact_mappings:
     - CNPHI:Reason for Sampling
     - NML_LIMS:HC_SAMPLE_CATEGORY
@@ -1008,7 +1078,13 @@ slots:
     - value: The sample was collected to investigate the prevalence of variants associated
         with mink-to-human transmission in Canada.
     slot_uri: GENEPIO:0001200
-    range: xs:token
+    any_of: !!python/object/apply:builtins.map
+    - !!python/name:__main__.%3Clambda%3E ''
+    - !!python/object/apply:builtins.iter
+      args:
+      - - null
+      state: 0
+    required: true
     exact_mappings:
     - CNPHI:Details on the Reason for Sampling
     - NML_LIMS:PH_SAMPLING_DETAILS
@@ -1027,6 +1103,7 @@ slots:
     - value: swab
     slot_uri: GENEPIO:0001204
     range: selectNML submitted specimen type menu
+    required: true
     exact_mappings:
     - CNPHI:Specimen Type
     - NML_LIMS:PH_SPECIMEN_TYPE
@@ -1058,7 +1135,14 @@ slots:
     examples:
     - value: Blood
     slot_uri: GENEPIO:0001211
-    range: anatomical material menu
+    any_of: !!python/object/apply:builtins.map
+    - !!python/name:__main__.%3Clambda%3E ''
+    - !!python/object/apply:builtins.iter
+      args:
+      - - null
+      state: 0
+    multivalued: true
+    required: true
     exact_mappings:
     - GISAID:Specimen source
     - CNPHI:Anatomical Material
@@ -1077,7 +1161,14 @@ slots:
     examples:
     - value: Nasopharynx (NP)
     slot_uri: GENEPIO:0001214
-    range: anatomical part menu
+    any_of: !!python/object/apply:builtins.map
+    - !!python/name:__main__.%3Clambda%3E ''
+    - !!python/object/apply:builtins.iter
+      args:
+      - - null
+      state: 0
+    multivalued: true
+    required: true
     exact_mappings:
     - GISAID:Specimen source
     - CNPHI:Anatomical Site
@@ -1097,7 +1188,14 @@ slots:
     examples:
     - value: Feces
     slot_uri: GENEPIO:0001216
-    range: body product menu menu
+    any_of: !!python/object/apply:builtins.map
+    - !!python/name:__main__.%3Clambda%3E ''
+    - !!python/object/apply:builtins.iter
+      args:
+      - - null
+      state: 0
+    multivalued: true
+    required: true
     exact_mappings:
     - GISAID:Specimen source
     - CNPHI:Body Product
@@ -1117,7 +1215,14 @@ slots:
     examples:
     - value: Face mask
     slot_uri: GENEPIO:0001223
-    range: environmental material menu
+    any_of: !!python/object/apply:builtins.map
+    - !!python/name:__main__.%3Clambda%3E ''
+    - !!python/object/apply:builtins.iter
+      args:
+      - - null
+      state: 0
+    multivalued: true
+    required: true
     exact_mappings:
     - GISAID:Specimen source
     - CNPHI:Environmental Material
@@ -1137,7 +1242,14 @@ slots:
     examples:
     - value: Production Facility
     slot_uri: GENEPIO:0001232
-    range: environmental site menu
+    any_of: !!python/object/apply:builtins.map
+    - !!python/name:__main__.%3Clambda%3E ''
+    - !!python/object/apply:builtins.iter
+      args:
+      - - null
+      state: 0
+    multivalued: true
+    required: true
     exact_mappings:
     - GISAID:Specimen source
     - CNPHI:Environmental Site
@@ -1156,7 +1268,14 @@ slots:
     examples:
     - value: Swab
     slot_uri: GENEPIO:0001234
-    range: collection device menu
+    any_of: !!python/object/apply:builtins.map
+    - !!python/name:__main__.%3Clambda%3E ''
+    - !!python/object/apply:builtins.iter
+      args:
+      - - null
+      state: 0
+    multivalued: true
+    required: true
     exact_mappings:
     - GISAID:Specimen source
     - CNPHI:Specimen Collection Matrix
@@ -1175,7 +1294,14 @@ slots:
     examples:
     - value: Bronchoalveolar lavage (BAL)
     slot_uri: GENEPIO:0001241
-    range: collection method menu
+    any_of: !!python/object/apply:builtins.map
+    - !!python/name:__main__.%3Clambda%3E ''
+    - !!python/object/apply:builtins.iter
+      args:
+      - - null
+      state: 0
+    multivalued: true
+    required: true
     exact_mappings:
     - GISAID:Specimen source
     - CNPHI:Collection Method
@@ -1206,7 +1332,14 @@ slots:
     examples:
     - value: Virus passage
     slot_uri: GENEPIO:0001253
-    range: specimen processing menu
+    any_of: !!python/object/apply:builtins.map
+    - !!python/name:__main__.%3Clambda%3E ''
+    - !!python/object/apply:builtins.iter
+      args:
+      - - null
+      state: 0
+    multivalued: true
+    recommended: true
     exact_mappings:
     - GISAID:Passage details/history
     - NML_LIMS:specimen processing
@@ -1232,7 +1365,13 @@ slots:
     examples:
     - value: Vero E6 cell line
     slot_uri: GENEPIO:0001255
-    range: lab host menu
+    any_of: !!python/object/apply:builtins.map
+    - !!python/name:__main__.%3Clambda%3E ''
+    - !!python/object/apply:builtins.iter
+      args:
+      - - null
+      state: 0
+    recommended: true
     exact_mappings:
     - GISAID:Passage details/history
     - NML_LIMS:lab host
@@ -1245,7 +1384,13 @@ slots:
     examples:
     - value: '3'
     slot_uri: GENEPIO:0001261
-    range: xs:nonNegativeInteger
+    any_of: !!python/object/apply:builtins.map
+    - !!python/name:__main__.%3Clambda%3E ''
+    - !!python/object/apply:builtins.iter
+      args:
+      - - null
+      state: 0
+    recommended: true
     exact_mappings:
     - GISAID:Passage details/history
     - NML_LIMS:passage number
@@ -1259,7 +1404,13 @@ slots:
     examples:
     - value: 0.25% trypsin + 0.02% EDTA
     slot_uri: GENEPIO:0001264
-    range: xs:token
+    any_of: !!python/object/apply:builtins.map
+    - !!python/name:__main__.%3Clambda%3E ''
+    - !!python/object/apply:builtins.iter
+      args:
+      - - null
+      state: 0
+    recommended: true
     exact_mappings:
     - GISAID:Passage details/history
     - NML_LIMS:passage method
@@ -1272,7 +1423,12 @@ slots:
     examples:
     - value: RNA (total)
     slot_uri: GENEPIO:0001266
-    range: biomaterial extracted menu
+    any_of: !!python/object/apply:builtins.map
+    - !!python/name:__main__.%3Clambda%3E ''
+    - !!python/object/apply:builtins.iter
+      args:
+      - - null
+      state: 0
     exact_mappings:
     - NML_LIMS:biomaterial extracted
   host (common name):
@@ -1285,7 +1441,12 @@ slots:
     examples:
     - value: Human
     slot_uri: GENEPIO:0001386
-    range: host (common name) menu
+    any_of: !!python/object/apply:builtins.map
+    - !!python/name:__main__.%3Clambda%3E ''
+    - !!python/object/apply:builtins.iter
+      args:
+      - - null
+      state: 0
     exact_mappings:
     - CNPHI:Animal Type
     - NML_LIMS:PH_ANIMAL_TYPE
@@ -1299,7 +1460,13 @@ slots:
     examples:
     - value: Homo sapiens
     slot_uri: GENEPIO:0001387
-    range: host (scientific name) menu
+    any_of: !!python/object/apply:builtins.map
+    - !!python/name:__main__.%3Clambda%3E ''
+    - !!python/object/apply:builtins.iter
+      args:
+      - - null
+      state: 0
+    required: true
     exact_mappings:
     - GISAID:Host
     - NML_LIMS:host (scientific name)
@@ -1313,7 +1480,12 @@ slots:
     examples:
     - value: Symptomatic
     slot_uri: GENEPIO:0001388
-    range: host health state menu
+    any_of: !!python/object/apply:builtins.map
+    - !!python/name:__main__.%3Clambda%3E ''
+    - !!python/object/apply:builtins.iter
+      args:
+      - - null
+      state: 0
     exact_mappings:
     - GISAID:Patient status
     - CNPHI:Host Health State
@@ -1328,7 +1500,12 @@ slots:
     examples:
     - value: Hospitalized (ICU)
     slot_uri: GENEPIO:0001389
-    range: host health status details menu
+    any_of: !!python/object/apply:builtins.map
+    - !!python/name:__main__.%3Clambda%3E ''
+    - !!python/object/apply:builtins.iter
+      args:
+      - - null
+      state: 0
     exact_mappings:
     - CNPHI:Host Health State Details
     - NML_LIMS:PH_HOST_HEALTH_DETAILS
@@ -1340,7 +1517,12 @@ slots:
     examples:
     - value: Recovered
     slot_uri: GENEPIO:0001390
-    range: host health outcome menu
+    any_of: !!python/object/apply:builtins.map
+    - !!python/name:__main__.%3Clambda%3E ''
+    - !!python/object/apply:builtins.iter
+      args:
+      - - null
+      state: 0
     exact_mappings:
     - NML_LIMS:PH_HOST_HEALTH_OUTCOME
     - BIOSAMPLE:host_disease_outcome
@@ -1352,7 +1534,13 @@ slots:
     examples:
     - value: COVID-19
     slot_uri: GENEPIO:0001391
-    range: host disease menu
+    any_of: !!python/object/apply:builtins.map
+    - !!python/name:__main__.%3Clambda%3E ''
+    - !!python/object/apply:builtins.iter
+      args:
+      - - null
+      state: 0
+    required: true
     exact_mappings:
     - CNPHI:Host Disease
     - NML_LIMS:PH_HOST_DISEASE
@@ -1367,7 +1555,13 @@ slots:
     examples:
     - value: '79'
     slot_uri: GENEPIO:0001392
-    range: xs:decimal
+    any_of: !!python/object/apply:builtins.map
+    - !!python/name:__main__.%3Clambda%3E ''
+    - !!python/object/apply:builtins.iter
+      args:
+      - - null
+      state: 0
+    required: true
     minimum_value: '0'
     maximum_value: '130'
     exact_mappings:
@@ -1385,7 +1579,13 @@ slots:
     examples:
     - value: years
     slot_uri: GENEPIO:0001393
-    range: host age unit menu
+    any_of: !!python/object/apply:builtins.map
+    - !!python/name:__main__.%3Clambda%3E ''
+    - !!python/object/apply:builtins.iter
+      args:
+      - - null
+      state: 0
+    required: true
     exact_mappings:
     - CNPHI:Age Units
     - NML_LIMS:PH_AGE_UNIT
@@ -1399,7 +1599,13 @@ slots:
     examples:
     - value: 60 - 69
     slot_uri: GENEPIO:0001394
-    range: host age bin menu
+    any_of: !!python/object/apply:builtins.map
+    - !!python/name:__main__.%3Clambda%3E ''
+    - !!python/object/apply:builtins.iter
+      args:
+      - - null
+      state: 0
+    required: true
     exact_mappings:
     - CNPHI:Host Age Category
     - NML_LIMS:PH_AGE_GROUP
@@ -1414,7 +1620,13 @@ slots:
     examples:
     - value: male
     slot_uri: GENEPIO:0001395
-    range: host gender menu
+    any_of: !!python/object/apply:builtins.map
+    - !!python/name:__main__.%3Clambda%3E ''
+    - !!python/object/apply:builtins.iter
+      args:
+      - - null
+      state: 0
+    required: true
     string_serialization: '{Title Case}'
     exact_mappings:
     - GISAID:Gender
@@ -1430,7 +1642,12 @@ slots:
     examples:
     - value: Canada
     slot_uri: GENEPIO:0001396
-    range: geo_loc_name (country) menu
+    any_of: !!python/object/apply:builtins.map
+    - !!python/name:__main__.%3Clambda%3E ''
+    - !!python/object/apply:builtins.iter
+      args:
+      - - null
+      state: 0
     exact_mappings:
     - NML_LIMS:PH_HOST_COUNTRY
   host residence geo_loc name (state/province/territory):
@@ -1441,7 +1658,12 @@ slots:
     examples:
     - value: Quebec
     slot_uri: GENEPIO:0001397
-    range: geo_loc_name (state/province/territory) menu
+    any_of: !!python/object/apply:builtins.map
+    - !!python/name:__main__.%3Clambda%3E ''
+    - !!python/object/apply:builtins.iter
+      args:
+      - - null
+      state: 0
     exact_mappings:
     - NML_LIMS:PH_HOST_PROVINCE
   host subject ID:
@@ -1464,7 +1686,12 @@ slots:
     examples:
     - value: '2020-03-16'
     slot_uri: GENEPIO:0001399
-    range: xs:date
+    any_of: !!python/object/apply:builtins.map
+    - !!python/name:__main__.%3Clambda%3E ''
+    - !!python/object/apply:builtins.iter
+      args:
+      - - null
+      state: 0
     exact_mappings:
     - CNPHI:Symptoms Onset Date
     - NML_LIMS:HC_ONSET_DATE
@@ -1479,7 +1706,13 @@ slots:
     - value: ' Cough'
     - value: ' Fever'
     slot_uri: GENEPIO:0001400
-    range: signs and symptoms menu
+    any_of: !!python/object/apply:builtins.map
+    - !!python/name:__main__.%3Clambda%3E ''
+    - !!python/object/apply:builtins.iter
+      args:
+      - - null
+      state: 0
+    multivalued: true
     exact_mappings:
     - CNPHI:Symptoms
     - NML_LIMS:HC_SYMPTOMS
@@ -1498,7 +1731,13 @@ slots:
     - value: ' Pregnancy'
     - value: ' Smoking'
     slot_uri: GENEPIO:0001401
-    range: pre-existing conditions and risk factors menu
+    any_of: !!python/object/apply:builtins.map
+    - !!python/name:__main__.%3Clambda%3E ''
+    - !!python/object/apply:builtins.iter
+      args:
+      - - null
+      state: 0
+    multivalued: true
     exact_mappings:
     - NML_LIMS:pre-existing conditions and risk factors
   complications:
@@ -1513,7 +1752,13 @@ slots:
     - value: ' Coma'
     - value: ' Septicemia'
     slot_uri: GENEPIO:0001402
-    range: complications menu
+    any_of: !!python/object/apply:builtins.map
+    - !!python/name:__main__.%3Clambda%3E ''
+    - !!python/object/apply:builtins.iter
+      args:
+      - - null
+      state: 0
+    multivalued: true
     exact_mappings:
     - NML_LIMS:complications
   host vaccination status:
@@ -1525,7 +1770,12 @@ slots:
     examples:
     - value: Fully Vaccinated
     slot_uri: GENEPIO:0001404
-    range: host vaccination status menu
+    any_of: !!python/object/apply:builtins.map
+    - !!python/name:__main__.%3Clambda%3E ''
+    - !!python/object/apply:builtins.iter
+      args:
+      - - null
+      state: 0
     exact_mappings:
     - NML_LIMS:PH_VACCINATION_HISTORY
   number of vaccine doses received:
@@ -1547,7 +1797,12 @@ slots:
     examples:
     - value: Pfizer-BioNTech (Comirnaty)
     slot_uri: GENEPIO:0100313
-    range: vaccine name menu
+    any_of: !!python/object/apply:builtins.map
+    - !!python/name:__main__.%3Clambda%3E ''
+    - !!python/object/apply:builtins.iter
+      args:
+      - - null
+      state: 0
     exact_mappings:
     - NML_LIMS:PH_VACCINATION_HISTORY
   vaccination dose 1 vaccination date:
@@ -1559,7 +1814,12 @@ slots:
     examples:
     - value: '2021-03-01'
     slot_uri: GENEPIO:0100314
-    range: xs:date
+    any_of: !!python/object/apply:builtins.map
+    - !!python/name:__main__.%3Clambda%3E ''
+    - !!python/object/apply:builtins.iter
+      args:
+      - - null
+      state: 0
     exact_mappings:
     - NML_LIMS:PH_VACCINATION_HISTORY
   vaccination dose 2 vaccine name:
@@ -1572,7 +1832,12 @@ slots:
     examples:
     - value: Pfizer-BioNTech (Comirnaty)
     slot_uri: GENEPIO:0100315
-    range: vaccine name menu
+    any_of: !!python/object/apply:builtins.map
+    - !!python/name:__main__.%3Clambda%3E ''
+    - !!python/object/apply:builtins.iter
+      args:
+      - - null
+      state: 0
     exact_mappings:
     - NML_LIMS:PH_VACCINATION_HISTORY
   vaccination dose 2 vaccination date:
@@ -1584,7 +1849,12 @@ slots:
     examples:
     - value: '2021-09-01'
     slot_uri: GENEPIO:0100316
-    range: xs:date
+    any_of: !!python/object/apply:builtins.map
+    - !!python/name:__main__.%3Clambda%3E ''
+    - !!python/object/apply:builtins.iter
+      args:
+      - - null
+      state: 0
     exact_mappings:
     - NML_LIMS:PH_VACCINATION_HISTORY
   vaccination dose 3 vaccine name:
@@ -1597,7 +1867,12 @@ slots:
     examples:
     - value: Pfizer-BioNTech (Comirnaty)
     slot_uri: GENEPIO:0100317
-    range: vaccine name menu
+    any_of: !!python/object/apply:builtins.map
+    - !!python/name:__main__.%3Clambda%3E ''
+    - !!python/object/apply:builtins.iter
+      args:
+      - - null
+      state: 0
     exact_mappings:
     - NML_LIMS:PH_VACCINATION_HISTORY
   vaccination dose 3 vaccination date:
@@ -1609,7 +1884,12 @@ slots:
     examples:
     - value: '2021-12-30'
     slot_uri: GENEPIO:0100318
-    range: xs:date
+    any_of: !!python/object/apply:builtins.map
+    - !!python/name:__main__.%3Clambda%3E ''
+    - !!python/object/apply:builtins.iter
+      args:
+      - - null
+      state: 0
     exact_mappings:
     - NML_LIMS:PH_VACCINATION_HISTORY
   vaccination dose 4 vaccine name:
@@ -1622,7 +1902,12 @@ slots:
     examples:
     - value: Pfizer-BioNTech (Comirnaty)
     slot_uri: GENEPIO:0100319
-    range: vaccine name menu
+    any_of: !!python/object/apply:builtins.map
+    - !!python/name:__main__.%3Clambda%3E ''
+    - !!python/object/apply:builtins.iter
+      args:
+      - - null
+      state: 0
     exact_mappings:
     - NML_LIMS:PH_VACCINATION_HISTORY
   vaccination dose 4 vaccination date:
@@ -1634,7 +1919,12 @@ slots:
     examples:
     - value: '2022-01-15'
     slot_uri: GENEPIO:0100320
-    range: xs:date
+    any_of: !!python/object/apply:builtins.map
+    - !!python/name:__main__.%3Clambda%3E ''
+    - !!python/object/apply:builtins.iter
+      args:
+      - - null
+      state: 0
     exact_mappings:
     - NML_LIMS:PH_VACCINATION_HISTORY
   vaccination history:
@@ -1663,7 +1953,12 @@ slots:
     examples:
     - value: Canada
     slot_uri: GENEPIO:0001410
-    range: geo_loc_name (country) menu
+    any_of: !!python/object/apply:builtins.map
+    - !!python/name:__main__.%3Clambda%3E ''
+    - !!python/object/apply:builtins.iter
+      args:
+      - - null
+      state: 0
     exact_mappings:
     - NML_LIMS:PH_EXPOSURE_COUNTRY
   destination of most recent travel (city):
@@ -1704,7 +1999,12 @@ slots:
     examples:
     - value: United Kingdom
     slot_uri: GENEPIO:0001413
-    range: geo_loc_name (country) menu
+    any_of: !!python/object/apply:builtins.map
+    - !!python/name:__main__.%3Clambda%3E ''
+    - !!python/object/apply:builtins.iter
+      args:
+      - - null
+      state: 0
     exact_mappings:
     - CNPHI:Country of Travel|Province of Travel|City of Travel|Travel start date|Travel
       End Date
@@ -1718,7 +2018,12 @@ slots:
     examples:
     - value: '2020-03-16'
     slot_uri: GENEPIO:0001414
-    range: xs:date
+    any_of: !!python/object/apply:builtins.map
+    - !!python/name:__main__.%3Clambda%3E ''
+    - !!python/object/apply:builtins.iter
+      args:
+      - - null
+      state: 0
     exact_mappings:
     - CNPHI:Country of Travel|Province of Travel|City of Travel|Travel start date|Travel
       End Date
@@ -1732,7 +2037,12 @@ slots:
     examples:
     - value: '2020-04-26'
     slot_uri: GENEPIO:0001415
-    range: xs:date
+    any_of: !!python/object/apply:builtins.map
+    - !!python/name:__main__.%3Clambda%3E ''
+    - !!python/object/apply:builtins.iter
+      args:
+      - - null
+      state: 0
     exact_mappings:
     - CNPHI:Country of Travel|Province of Travel|City of Travel|Travel start date|Travel
       End Date
@@ -1744,7 +2054,13 @@ slots:
     comments: Select the point of entry type.
     examples:
     - value: Air
-    range: travel point of entry type menu
+    any_of: !!python/object/apply:builtins.map
+    - !!python/name:__main__.%3Clambda%3E ''
+    - !!python/object/apply:builtins.iter
+      args:
+      - - null
+      state: 0
+    recommended: true
     exact_mappings:
     - NML_LIMS:PH_POINT_OF_ENTRY
   border testing test day type:
@@ -1755,7 +2071,13 @@ slots:
     comments: Select the test day.
     examples:
     - value: day 1
-    range: border testing test day type menu
+    any_of: !!python/object/apply:builtins.map
+    - !!python/name:__main__.%3Clambda%3E ''
+    - !!python/object/apply:builtins.iter
+      args:
+      - - null
+      state: 0
+    recommended: true
     exact_mappings:
     - NML_LIMS:PH_DAY
   travel history:
@@ -1782,7 +2104,12 @@ slots:
     examples:
     - value: Convention
     slot_uri: GENEPIO:0001417
-    range: exposure event menu
+    any_of: !!python/object/apply:builtins.map
+    - !!python/name:__main__.%3Clambda%3E ''
+    - !!python/object/apply:builtins.iter
+      args:
+      - - null
+      state: 0
     exact_mappings:
     - GISAID:Additional location information
     - CNPHI:Exposure Event
@@ -1795,7 +2122,12 @@ slots:
     examples:
     - value: Direct
     slot_uri: GENEPIO:0001418
-    range: exposure contact level menu
+    any_of: !!python/object/apply:builtins.map
+    - !!python/name:__main__.%3Clambda%3E ''
+    - !!python/object/apply:builtins.iter
+      args:
+      - - null
+      state: 0
     exact_mappings:
     - NML_LIMS:exposure contact level
   host role:
@@ -1808,6 +2140,7 @@ slots:
     - value: Patient
     slot_uri: GENEPIO:0001419
     range: host role menu
+    multivalued: true
     exact_mappings:
     - NML_LIMS:PH_HOST_ROLE
   exposure setting:
@@ -1820,6 +2153,7 @@ slots:
     - value: Healthcare Setting
     slot_uri: GENEPIO:0001428
     range: exposure setting menu
+    multivalued: true
     exact_mappings:
     - NML_LIMS:PH_EXPOSURE
   exposure details:
@@ -1842,7 +2176,12 @@ slots:
     examples:
     - value: 'Yes'
     slot_uri: GENEPIO:0001435
-    range: prior SARS-CoV-2 infection menu
+    any_of: !!python/object/apply:builtins.map
+    - !!python/name:__main__.%3Clambda%3E ''
+    - !!python/object/apply:builtins.iter
+      args:
+      - - null
+      state: 0
     exact_mappings:
     - NML_LIMS:prior SARS-CoV-2 infection
   prior SARS-CoV-2 infection isolate:
@@ -1878,7 +2217,12 @@ slots:
     examples:
     - value: No prior antiviral treatment
     slot_uri: GENEPIO:0001438
-    range: prior SARS-CoV-2 antiviral treatment menu
+    any_of: !!python/object/apply:builtins.map
+    - !!python/name:__main__.%3Clambda%3E ''
+    - !!python/object/apply:builtins.iter
+      args:
+      - - null
+      state: 0
     exact_mappings:
     - NML_LIMS:prior SARS-CoV-2 antiviral treatment
   prior SARS-CoV-2 antiviral treatment agent:
@@ -1921,7 +2265,14 @@ slots:
     examples:
     - value: Baseline surveillance (random sampling)
     slot_uri: GENEPIO:0001445
-    range: purpose of sequencing menu
+    any_of: !!python/object/apply:builtins.map
+    - !!python/name:__main__.%3Clambda%3E ''
+    - !!python/object/apply:builtins.iter
+      args:
+      - - null
+      state: 0
+    multivalued: true
+    required: true
     exact_mappings:
     - CNPHI:Reason for Sequencing
     - NML_LIMS:PH_REASON_FOR_SEQUENCING
@@ -1946,7 +2297,13 @@ slots:
     examples:
     - value: Screened for S gene target failure (S dropout)
     slot_uri: GENEPIO:0001446
-    range: xs:tokenxs:token
+    any_of: !!python/object/apply:builtins.map
+    - !!python/name:__main__.%3Clambda%3E ''
+    - !!python/object/apply:builtins.iter
+      args:
+      - - null
+      state: 0
+    required: true
     exact_mappings:
     - CNPHI:Details on the Reason for Sequencing
     - NML_LIMS:PH_REASON_FOR_SEQUENCING_DETAILS
@@ -1959,7 +2316,13 @@ slots:
     examples:
     - value: '2020-06-22'
     slot_uri: GENEPIO:0001447
-    range: xs:datexs:token
+    any_of: !!python/object/apply:builtins.map
+    - !!python/name:__main__.%3Clambda%3E ''
+    - !!python/object/apply:builtins.iter
+      args:
+      - - null
+      state: 0
+    required: true
     exact_mappings:
     - NML_LIMS:PH_SEQUENCING_DATE
   library ID:
@@ -1972,6 +2335,7 @@ slots:
     - value: XYZ_123345
     slot_uri: GENEPIO:0001448
     range: xs:token
+    recommended: true
     exact_mappings:
     - NML_LIMS:library ID
   amplicon size:
@@ -2016,7 +2380,14 @@ slots:
     examples:
     - value: Oxford Nanopore MinION
     slot_uri: GENEPIO:0001452
-    range: sequencing instrument menu
+    any_of: !!python/object/apply:builtins.map
+    - !!python/name:__main__.%3Clambda%3E ''
+    - !!python/object/apply:builtins.iter
+      args:
+      - - null
+      state: 0
+    multivalued: true
+    required: true
     exact_mappings:
     - GISAID:Sequencing technology
     - CNPHI:Sequencing Instrument
@@ -2031,6 +2402,7 @@ slots:
     - value: https://www.protocols.io/view/covid-19-artic-v3-illumina-library-construction-an-bibtkann
     slot_uri: GENEPIO:0001453
     range: xs:token
+    recommended: true
     exact_mappings:
     - CNPHI:Sequencing Protocol Name
     - NML_LIMS:PH_SEQ_PROTOCOL_NAME
@@ -2088,6 +2460,7 @@ slots:
     - value: Porechop 0.2.3
     slot_uri: GENEPIO:0001458
     range: xs:token
+    required: true
     exact_mappings:
     - NML_LIMS:PH_RAW_SEQUENCE_METHOD
     - VirusSeq_Portal:raw sequence data processing method
@@ -2101,6 +2474,7 @@ slots:
     - value: Nanostripper
     slot_uri: GENEPIO:0001459
     range: xs:token
+    required: true
     exact_mappings:
     - NML_LIMS:PH_DEHOSTING_METHOD
     - VirusSeq_Portal:dehosting method
@@ -2147,6 +2521,7 @@ slots:
     - value: iVar
     slot_uri: GENEPIO:0001463
     range: xs:token
+    required: true
     exact_mappings:
     - CNPHI:consensus sequence
     - NML_LIMS:PH_CONSENSUS_SEQUENCE
@@ -2160,6 +2535,7 @@ slots:
     - value: '1.3'
     slot_uri: GENEPIO:0001469
     range: xs:token
+    required: true
     exact_mappings:
     - CNPHI:consensus sequence
     - NML_LIMS:PH_CONSENSUS_SEQUENCE_VERSION
@@ -2211,6 +2587,7 @@ slots:
     - value: ABC123_S1_L001_R1_001.fastq.gz
     slot_uri: GENEPIO:0001476
     range: xs:token
+    recommended: true
     exact_mappings:
     - NML_LIMS:r1 fastq filename
   r2 fastq filename:
@@ -2222,6 +2599,7 @@ slots:
     - value: ABC123_S1_L001_R2_001.fastq.gz
     slot_uri: GENEPIO:0001477
     range: xs:token
+    recommended: true
     exact_mappings:
     - NML_LIMS:r2 fastq filename
   r1 fastq filepath:
@@ -2331,6 +2709,7 @@ slots:
     - value: https://github.com/phac-nml/ncov2019-artic-nf
     slot_uri: GENEPIO:0001489
     range: xs:token
+    required: true
     exact_mappings:
     - CNPHI:Bioinformatics Protocol
     - NML_LIMS:PH_BIOINFORMATICS_PROTOCOL
@@ -2381,7 +2760,12 @@ slots:
     examples:
     - value: Variant of Concern
     slot_uri: GENEPIO:0001503
-    range: variant designation menu
+    any_of: !!python/object/apply:builtins.map
+    - !!python/name:__main__.%3Clambda%3E ''
+    - !!python/object/apply:builtins.iter
+      args:
+      - - null
+      state: 0
     exact_mappings:
     - NML_LIMS:PH_VARIANT_DESIGNATION
   variant evidence:
@@ -2393,7 +2777,12 @@ slots:
     examples:
     - value: RT-qPCR
     slot_uri: GENEPIO:0001504
-    range: variant evidence menu
+    any_of: !!python/object/apply:builtins.map
+    - !!python/name:__main__.%3Clambda%3E ''
+    - !!python/object/apply:builtins.iter
+      args:
+      - - null
+      state: 0
     exact_mappings:
     - NML_LIMS:PH_VARIANT_EVIDENCE
   variant evidence details:
@@ -2420,7 +2809,12 @@ slots:
     examples:
     - value: E gene (orf4)
     slot_uri: GENEPIO:0001507
-    range: gene name menu
+    any_of: !!python/object/apply:builtins.map
+    - !!python/name:__main__.%3Clambda%3E ''
+    - !!python/object/apply:builtins.iter
+      args:
+      - - null
+      state: 0
     exact_mappings:
     - CNPHI:Gene Target 1
     - 'NML_LIMS:SUBMITTED_RESLT - Gene Target #1'
@@ -2446,7 +2840,12 @@ slots:
     examples:
     - value: '21'
     slot_uri: GENEPIO:0001509
-    range: xs:decimal
+    any_of: !!python/object/apply:builtins.map
+    - !!python/name:__main__.%3Clambda%3E ''
+    - !!python/object/apply:builtins.iter
+      args:
+      - - null
+      state: 0
     exact_mappings:
     - CNPHI:Gene Target 1 CT Value
     - 'NML_LIMS:SUBMITTED_RESLT - Gene Target #1 CT Value'
@@ -2462,7 +2861,12 @@ slots:
     examples:
     - value: RdRp gene (nsp12)
     slot_uri: GENEPIO:0001510
-    range: gene name menu
+    any_of: !!python/object/apply:builtins.map
+    - !!python/name:__main__.%3Clambda%3E ''
+    - !!python/object/apply:builtins.iter
+      args:
+      - - null
+      state: 0
     exact_mappings:
     - CNPHI:Gene Target 2
     - 'NML_LIMS:SUBMITTED_RESLT - Gene Target #2'
@@ -2488,7 +2892,12 @@ slots:
     examples:
     - value: '36'
     slot_uri: GENEPIO:0001512
-    range: xs:decimal
+    any_of: !!python/object/apply:builtins.map
+    - !!python/name:__main__.%3Clambda%3E ''
+    - !!python/object/apply:builtins.iter
+      args:
+      - - null
+      state: 0
     exact_mappings:
     - CNPHI:Gene Target 2 CT Value
     - 'NML_LIMS:SUBMITTED_RESLT - Gene Target #2 CT Value'
@@ -2503,7 +2912,12 @@ slots:
     examples:
     - value: RdRp gene (nsp12)
     slot_uri: GENEPIO:0001513
-    range: gene name menu
+    any_of: !!python/object/apply:builtins.map
+    - !!python/name:__main__.%3Clambda%3E ''
+    - !!python/object/apply:builtins.iter
+      args:
+      - - null
+      state: 0
     exact_mappings:
     - CNPHI:Gene Target 3
     - 'NML_LIMS:SUBMITTED_RESLT - Gene Target #3'
@@ -2528,7 +2942,12 @@ slots:
     examples:
     - value: '30'
     slot_uri: GENEPIO:0001515
-    range: xs:decimal
+    any_of: !!python/object/apply:builtins.map
+    - !!python/name:__main__.%3Clambda%3E ''
+    - !!python/object/apply:builtins.iter
+      args:
+      - - null
+      state: 0
     exact_mappings:
     - CNPHI:Gene Target 3 CT Value
     - 'NML_LIMS:SUBMITTED_RESLT - Gene Target #3 CT Value'
@@ -2543,6 +2962,7 @@ slots:
     - value: Tejinder Singh, Fei Hu, Joe Blogs
     slot_uri: GENEPIO:0001517
     range: xs:token
+    recommended: true
     exact_mappings:
     - GISAID:Authors
     - CNPHI:Authors
@@ -2676,57 +3096,63 @@ enums:
       Abnormality of taste sensation:
         text: Abnormality of taste sensation
         meaning: HP:0000223
-        permissible_values:
-          Ageusia (complete loss of taste):
-            text: Ageusia (complete loss of taste)
-            meaning: HP:0041051
-          Parageusia (distorted sense of taste):
-            text: Parageusia (distorted sense of taste)
-            meaning: HP:0031249
-          Hypogeusia (reduced sense of taste):
-            text: Hypogeusia (reduced sense of taste)
-            meaning: HP:0000224
+      Ageusia (complete loss of taste):
+        text: Ageusia (complete loss of taste)
+        meaning: HP:0041051
+        is_a: Abnormality of taste sensation
+      Parageusia (distorted sense of taste):
+        text: Parageusia (distorted sense of taste)
+        meaning: HP:0031249
+        is_a: Abnormality of taste sensation
+      Hypogeusia (reduced sense of taste):
+        text: Hypogeusia (reduced sense of taste)
+        meaning: HP:0000224
+        is_a: Abnormality of taste sensation
       Abnormality of the sense of smell:
         text: Abnormality of the sense of smell
         meaning: HP:0004408
-        permissible_values:
-          Anosmia (lost sense of smell):
-            text: Anosmia (lost sense of smell)
-            meaning: HP:0000458
-          Hyposmia (reduced sense of smell):
-            text: Hyposmia (reduced sense of smell)
-            meaning: HP:0004409
+      Anosmia (lost sense of smell):
+        text: Anosmia (lost sense of smell)
+        meaning: HP:0000458
+        is_a: Abnormality of the sense of smell
+      Hyposmia (reduced sense of smell):
+        text: Hyposmia (reduced sense of smell)
+        meaning: HP:0004409
+        is_a: Abnormality of the sense of smell
       Acute Respiratory Distress Syndrome:
         text: Acute Respiratory Distress Syndrome
         meaning: HP:0033677
-        exact_mappings:
-        - CNPHI:ARDS
       Altered mental status:
         text: Altered mental status
         meaning: HP:0011446
-        permissible_values:
-          Cognitive impairment:
-            text: Cognitive impairment
-            meaning: HP:0100543
-          Coma:
-            text: Coma
-            meaning: HP:0001259
-          Confusion:
-            text: Confusion
-            meaning: HP:0001289
-            permissible_values:
-              Delirium (sudden severe confusion):
-                text: Delirium (sudden severe confusion)
-                meaning: HP:0031258
-          Inability to arouse (inability to stay awake):
-            text: Inability to arouse (inability to stay awake)
-            meaning: GENEPIO:0100061
-          Irritability:
-            text: Irritability
-            meaning: HP:0000737
-          Loss of speech:
-            text: Loss of speech
-            meaning: HP:0002371
+      Cognitive impairment:
+        text: Cognitive impairment
+        meaning: HP:0100543
+        is_a: Altered mental status
+      Coma:
+        text: Coma
+        meaning: HP:0001259
+        is_a: Altered mental status
+      Confusion:
+        text: Confusion
+        meaning: HP:0001289
+        is_a: Altered mental status
+      Delirium (sudden severe confusion):
+        text: Delirium (sudden severe confusion)
+        meaning: HP:0031258
+        is_a: Confusion
+      Inability to arouse (inability to stay awake):
+        text: Inability to arouse (inability to stay awake)
+        meaning: GENEPIO:0100061
+        is_a: Altered mental status
+      Irritability:
+        text: Irritability
+        meaning: HP:0000737
+        is_a: Altered mental status
+      Loss of speech:
+        text: Loss of speech
+        meaning: HP:0002371
+        is_a: Altered mental status
       Arrhythmia:
         text: Arrhythmia
         meaning: HP:0011675
@@ -2736,93 +3162,85 @@ enums:
       Chest tightness or pressure:
         text: Chest tightness or pressure
         meaning: HP:0031352
-        permissible_values:
-          Rigors (fever shakes):
-            text: Rigors (fever shakes)
-            meaning: HP:0025145
+      Rigors (fever shakes):
+        text: Rigors (fever shakes)
+        meaning: HP:0025145
+        is_a: Chest tightness or pressure
       Chills (sudden cold sensation):
         text: Chills (sudden cold sensation)
         meaning: HP:0025143
-        exact_mappings:
-        - CNPHI:Chills
       Conjunctival injection:
         text: Conjunctival injection
         meaning: HP:0030953
       Conjunctivitis (pink eye):
         text: Conjunctivitis (pink eye)
         meaning: HP:0000509
-        exact_mappings:
-        - CNPHI:Conjunctivitis
       Coryza (rhinitis):
         text: Coryza (rhinitis)
         meaning: MP:0001867
       Cough:
         text: Cough
         meaning: HP:0012735
-        permissible_values:
-          Nonproductive cough (dry cough):
-            text: Nonproductive cough (dry cough)
-            meaning: HP:0031246
-          Productive cough (wet cough):
-            text: Productive cough (wet cough)
-            meaning: HP:0031245
+      Nonproductive cough (dry cough):
+        text: Nonproductive cough (dry cough)
+        meaning: HP:0031246
+        is_a: Cough
+      Productive cough (wet cough):
+        text: Productive cough (wet cough)
+        meaning: HP:0031245
+        is_a: Cough
       Cyanosis (blueish skin discolouration):
         text: Cyanosis (blueish skin discolouration)
         meaning: HP:0000961
-        permissible_values:
-          Acrocyanosis:
-            text: Acrocyanosis
-            meaning: HP:0001063
-            permissible_values:
-              Circumoral cyanosis (bluish around mouth):
-                text: Circumoral cyanosis (bluish around mouth)
-                meaning: HP:0032556
-              Cyanotic face (bluish face):
-                text: Cyanotic face (bluish face)
-                meaning: GENEPIO:0100062
-          Central Cyanosis:
-            text: Central Cyanosis
-            meaning: GENEPIO:0100063
-            permissible_values:
-              Cyanotic lips (bluish lips):
-                text: Cyanotic lips (bluish lips)
-                meaning: GENEPIO:0100064
-          Peripheral Cyanosis:
-            text: Peripheral Cyanosis
-            meaning: GENEPIO:0100065
+      Acrocyanosis:
+        text: Acrocyanosis
+        meaning: HP:0001063
+        is_a: Cyanosis (blueish skin discolouration)
+      Circumoral cyanosis (bluish around mouth):
+        text: Circumoral cyanosis (bluish around mouth)
+        meaning: HP:0032556
+        is_a: Acrocyanosis
+      Cyanotic face (bluish face):
+        text: Cyanotic face (bluish face)
+        meaning: GENEPIO:0100062
+        is_a: Acrocyanosis
+      Central Cyanosis:
+        text: Central Cyanosis
+        meaning: GENEPIO:0100063
+        is_a: Cyanosis (blueish skin discolouration)
+      Cyanotic lips (bluish lips):
+        text: Cyanotic lips (bluish lips)
+        meaning: GENEPIO:0100064
+        is_a: Central Cyanosis
+      Peripheral Cyanosis:
+        text: Peripheral Cyanosis
+        meaning: GENEPIO:0100065
+        is_a: Cyanosis (blueish skin discolouration)
       Dyspnea (breathing difficulty):
         text: Dyspnea (breathing difficulty)
         meaning: HP:0002094
       Diarrhea (watery stool):
         text: Diarrhea (watery stool)
         meaning: HP:0002014
-        exact_mappings:
-        - CNPHI:Diarrhea, watery
       Dry gangrene:
         text: Dry gangrene
         meaning: MP:0031127
       Encephalitis (brain inflammation):
         text: Encephalitis (brain inflammation)
         meaning: HP:0002383
-        exact_mappings:
-        - CNPHI:Encephalitis
       Encephalopathy:
         text: Encephalopathy
         meaning: HP:0001298
       Fatigue (tiredness):
         text: Fatigue (tiredness)
         meaning: HP:0012378
-        exact_mappings:
-        - CNPHI:Fatigue
       Fever:
         text: Fever
         meaning: HP:0001945
-        permissible_values:
-          "Fever (>=38\xB0C)":
-            text: "Fever (>=38\xB0C)"
-            meaning: GENEPIO:0100066
-            exact_mappings:
-            - CNPHI:Fever
+      "Fever (>=38\xB0C)":
+        text: "Fever (>=38\xB0C)"
+        meaning: GENEPIO:0100066
+        is_a: Fever
       Glossitis (inflammation of the tongue):
         text: Glossitis (inflammation of the tongue)
         meaning: HP:0000206
@@ -2844,10 +3262,10 @@ enums:
       Hypoxemia (low blood oxygen):
         text: Hypoxemia (low blood oxygen)
         meaning: HP:0012418
-        permissible_values:
-          Silent hypoxemia:
-            text: Silent hypoxemia
-            meaning: GENEPIO:0100068
+      Silent hypoxemia:
+        text: Silent hypoxemia
+        meaning: GENEPIO:0100068
+        is_a: Hypoxemia (low blood oxygen)
       Internal hemorrhage (internal bleeding):
         text: Internal hemorrhage (internal bleeding)
         meaning: HP:0011029
@@ -2881,23 +3299,26 @@ enums:
       Pain:
         text: Pain
         meaning: HP:0012531
-        permissible_values:
-          Abdominal pain:
-            text: Abdominal pain
-            meaning: HP:0002027
-          Arthralgia (painful joints):
-            text: Arthralgia (painful joints)
-            meaning: HP:0002829
-          Chest pain:
-            text: Chest pain
-            meaning: HP:0100749
-            permissible_values:
-              Pleuritic chest pain:
-                text: Pleuritic chest pain
-                meaning: HP:0033771
-          Myalgia (muscle pain):
-            text: Myalgia (muscle pain)
-            meaning: HP:0003326
+      Abdominal pain:
+        text: Abdominal pain
+        meaning: HP:0002027
+        is_a: Pain
+      Arthralgia (painful joints):
+        text: Arthralgia (painful joints)
+        meaning: HP:0002829
+        is_a: Pain
+      Chest pain:
+        text: Chest pain
+        meaning: HP:0100749
+        is_a: Pain
+      Pleuritic chest pain:
+        text: Pleuritic chest pain
+        meaning: HP:0033771
+        is_a: Chest pain
+      Myalgia (muscle pain):
+        text: Myalgia (muscle pain)
+        meaning: HP:0003326
+        is_a: Pain
       Pharyngitis (sore throat):
         text: Pharyngitis (sore throat)
         meaning: HP:0025439
@@ -2913,13 +3334,14 @@ enums:
       Pseudo-chilblains:
         text: Pseudo-chilblains
         meaning: HP:0033696
-        permissible_values:
-          Pseudo-chilblains on fingers (covid fingers):
-            text: Pseudo-chilblains on fingers (covid fingers)
-            meaning: GENEPIO:0100072
-          Pseudo-chilblains on toes (covid toes):
-            text: Pseudo-chilblains on toes (covid toes)
-            meaning: GENEPIO:0100073
+      Pseudo-chilblains on fingers (covid fingers):
+        text: Pseudo-chilblains on fingers (covid fingers)
+        meaning: GENEPIO:0100072
+        is_a: Pseudo-chilblains
+      Pseudo-chilblains on toes (covid toes):
+        text: Pseudo-chilblains on toes (covid toes)
+        meaning: GENEPIO:0100073
+        is_a: Pseudo-chilblains
       Rash:
         text: Rash
         meaning: HP:0000988
@@ -2929,10 +3351,10 @@ enums:
       Seizure:
         text: Seizure
         meaning: HP:0001250
-        permissible_values:
-          Motor seizure:
-            text: Motor seizure
-            meaning: HP:0020219
+      Motor seizure:
+        text: Motor seizure
+        meaning: HP:0020219
+        is_a: Seizure
       Shivering (involuntary muscle twitching):
         text: Shivering (involuntary muscle twitching)
         meaning: HP:0025144
@@ -3014,9 +3436,9 @@ enums:
       Follow-up:
         text: Follow-up
         meaning: EFO:0009642
-        permissible_values:
-          Reinfection testing:
-            text: Reinfection testing
+      Reinfection testing:
+        text: Reinfection testing
+        is_a: Follow-up
       Previously Submitted:
         text: Previously Submitted
       Sequencing/bioinformatics methods development/validation:
@@ -3044,58 +3466,68 @@ enums:
       Cancer:
         text: Cancer
         meaning: MONDO:0004992
-        permissible_values:
-          Breast cancer:
-            text: Breast cancer
-            meaning: MONDO:0007254
-          Colorectal cancer:
-            text: Colorectal cancer
-            meaning: MONDO:0005575
-          Hematologic malignancy (cancer of the blood):
-            text: Hematologic malignancy (cancer of the blood)
-            meaning: DOID:2531
-          Lung cancer:
-            text: Lung cancer
-            meaning: MONDO:0008903
-          Metastatic disease:
-            text: Metastatic disease
-            meaning: MONDO:0024880
+      Breast cancer:
+        text: Breast cancer
+        meaning: MONDO:0007254
+        is_a: Cancer
+      Colorectal cancer:
+        text: Colorectal cancer
+        meaning: MONDO:0005575
+        is_a: Cancer
+      Hematologic malignancy (cancer of the blood):
+        text: Hematologic malignancy (cancer of the blood)
+        meaning: DOID:2531
+        is_a: Cancer
+      Lung cancer:
+        text: Lung cancer
+        meaning: MONDO:0008903
+        is_a: Cancer
+      Metastatic disease:
+        text: Metastatic disease
+        meaning: MONDO:0024880
+        is_a: Cancer
       Cancer treatment:
         text: Cancer treatment
         meaning: NCIT:C16212
-        permissible_values:
-          Cancer surgery:
-            text: Cancer surgery
-            meaning: NCIT:C157740
-          Chemotherapy:
-            text: Chemotherapy
-            meaning: NCIT:C15632
-            permissible_values:
-              Adjuvant chemotherapy:
-                text: Adjuvant chemotherapy
-                meaning: NCIT:C15360
+      Cancer surgery:
+        text: Cancer surgery
+        meaning: NCIT:C157740
+        is_a: Cancer treatment
+      Chemotherapy:
+        text: Chemotherapy
+        meaning: NCIT:C15632
+        is_a: Cancer treatment
+      Adjuvant chemotherapy:
+        text: Adjuvant chemotherapy
+        meaning: NCIT:C15360
+        is_a: Chemotherapy
       Cardiac disorder:
         text: Cardiac disorder
         meaning: NCIT:C3079
-        permissible_values:
-          Arrhythmia:
-            text: Arrhythmia
-            meaning: HP:0011675
-          Cardiac disease:
-            text: Cardiac disease
-            meaning: MONDO:0005267
-          Cardiomyopathy:
-            text: Cardiomyopathy
-            meaning: HP:0001638
-          Cardiac injury:
-            text: Cardiac injury
-            meaning: GENEPIO:0100074
-          Hypertension (high blood pressure):
-            text: Hypertension (high blood pressure)
-            meaning: HP:0000822
-          Hypotension (low blood pressure):
-            text: Hypotension (low blood pressure)
-            meaning: HP:0002615
+      Arrhythmia:
+        text: Arrhythmia
+        meaning: HP:0011675
+        is_a: Cardiac disorder
+      Cardiac disease:
+        text: Cardiac disease
+        meaning: MONDO:0005267
+        is_a: Cardiac disorder
+      Cardiomyopathy:
+        text: Cardiomyopathy
+        meaning: HP:0001638
+        is_a: Cardiac disorder
+      Cardiac injury:
+        text: Cardiac injury
+        meaning: GENEPIO:0100074
+        is_a: Cardiac disorder
+      Hypertension (high blood pressure):
+        text: Hypertension (high blood pressure)
+        meaning: HP:0000822
+        is_a: Cardiac disorder
+      Hypotension (low blood pressure):
+        text: Hypotension (low blood pressure)
+        meaning: HP:0002615
+        is_a: Cardiac disorder
       Cesarean section:
         text: Cesarean section
         meaning: HP:0011410
@@ -3108,35 +3540,39 @@ enums:
       Chronic lung disease:
         text: Chronic lung disease
         meaning: HP:0006528
+        is_a: Lung disease
       Corticosteroids:
         text: Corticosteroids
         meaning: NCIT:C211
       Diabetes mellitus (diabetes):
         text: Diabetes mellitus (diabetes)
         meaning: HP:0000819
-        permissible_values:
-          Type I diabetes mellitus (T1D):
-            text: Type I diabetes mellitus (T1D)
-            meaning: HP:0100651
-          Type II diabetes mellitus (T2D):
-            text: Type II diabetes mellitus (T2D)
-            meaning: HP:0005978
+      Type I diabetes mellitus (T1D):
+        text: Type I diabetes mellitus (T1D)
+        meaning: HP:0100651
+        is_a: Diabetes mellitus (diabetes)
+      Type II diabetes mellitus (T2D):
+        text: Type II diabetes mellitus (T2D)
+        meaning: HP:0005978
+        is_a: Diabetes mellitus (diabetes)
       Eczema:
         text: Eczema
         meaning: HP:0000964
       Electrolyte disturbance:
         text: Electrolyte disturbance
         meaning: HP:0003111
-        permissible_values:
-          Hypocalcemia:
-            text: Hypocalcemia
-            meaning: HP:0002901
-          Hypokalemia:
-            text: Hypokalemia
-            meaning: HP:0002900
-          Hypomagnesemia:
-            text: Hypomagnesemia
-            meaning: HP:0002917
+      Hypocalcemia:
+        text: Hypocalcemia
+        meaning: HP:0002901
+        is_a: Electrolyte disturbance
+      Hypokalemia:
+        text: Hypokalemia
+        meaning: HP:0002900
+        is_a: Electrolyte disturbance
+      Hypomagnesemia:
+        text: Hypomagnesemia
+        meaning: HP:0002917
+        is_a: Electrolyte disturbance
       Encephalitis (brain inflammation):
         text: Encephalitis (brain inflammation)
         meaning: HP:0002383
@@ -3152,59 +3588,62 @@ enums:
       Human immunodeficiency virus (HIV):
         text: Human immunodeficiency virus (HIV)
         meaning: MONDO:0005109
-        permissible_values:
-          Acquired immunodeficiency syndrome (AIDS):
-            text: Acquired immunodeficiency syndrome (AIDS)
-            meaning: MONDO:0012268
-          HIV and antiretroviral therapy (ART):
-            text: HIV and antiretroviral therapy (ART)
-            meaning: NCIT:C16118
+      Acquired immunodeficiency syndrome (AIDS):
+        text: Acquired immunodeficiency syndrome (AIDS)
+        meaning: MONDO:0012268
+        is_a: Human immunodeficiency virus (HIV)
+      HIV and antiretroviral therapy (ART):
+        text: HIV and antiretroviral therapy (ART)
+        meaning: NCIT:C16118
+        is_a: Human immunodeficiency virus (HIV)
       Immunocompromised:
         text: Immunocompromised
         meaning: NCIT:C14139
-        permissible_values:
-          Lupus:
-            text: Lupus
-            meaning: MONDO:0004670
+      Lupus:
+        text: Lupus
+        meaning: MONDO:0004670
+        is_a: Immunocompromised
       Inflammatory bowel disease (IBD):
         text: Inflammatory bowel disease (IBD)
         meaning: MONDO:0005265
-        permissible_values:
-          Colitis:
-            text: Colitis
-            meaning: HP:0002583
-            permissible_values:
-              Ulcerative colitis:
-                text: Ulcerative colitis
-                meaning: HP:0100279
-          Crohn's disease:
-            text: Crohn's disease
-            meaning: HP:0100280
+      Colitis:
+        text: Colitis
+        meaning: HP:0002583
+        is_a: Inflammatory bowel disease (IBD)
+      Ulcerative colitis:
+        text: Ulcerative colitis
+        meaning: HP:0100279
+        is_a: Colitis
+      Crohn's disease:
+        text: Crohn's disease
+        meaning: HP:0100280
+        is_a: Inflammatory bowel disease (IBD)
       Renal disorder:
         text: Renal disorder
         meaning: NCIT:C3149
-        permissible_values:
-          Renal disease:
-            text: Renal disease
-            meaning: MONDO:0005240
-            permissible_values:
-              Chronic renal disease:
-                text: Chronic renal disease
-                meaning: HP:0012622
-              Renal failure:
-                text: Renal failure
-                meaning: HP:0000083
+      Renal disease:
+        text: Renal disease
+        meaning: MONDO:0005240
+        is_a: Renal disorder
+      Chronic renal disease:
+        text: Chronic renal disease
+        meaning: HP:0012622
+        is_a: Renal disease
+      Renal failure:
+        text: Renal failure
+        meaning: HP:0000083
+        is_a: Renal disease
       Liver disease:
         text: Liver disease
         meaning: MONDO:0005154
-        permissible_values:
-          Chronic liver disease:
-            text: Chronic liver disease
-            meaning: NCIT:C113609
-            permissible_values:
-              Fatty liver disease (FLD):
-                text: Fatty liver disease (FLD)
-                meaning: HP:0001397
+      Chronic liver disease:
+        text: Chronic liver disease
+        meaning: NCIT:C113609
+        is_a: Liver disease
+      Fatty liver disease (FLD):
+        text: Fatty liver disease (FLD)
+        meaning: HP:0001397
+        is_a: Chronic liver disease
       Myalgia (muscle pain):
         text: Myalgia (muscle pain)
         meaning: HP:0003326
@@ -3214,63 +3653,68 @@ enums:
       Neurological disorder:
         text: Neurological disorder
         meaning: MONDO:0005071
-        permissible_values:
-          Neuromuscular disorder:
-            text: Neuromuscular disorder
-            meaning: MONDO:0019056
+      Neuromuscular disorder:
+        text: Neuromuscular disorder
+        meaning: MONDO:0019056
+        is_a: Neurological disorder
       Obesity:
         text: Obesity
         meaning: HP:0001513
-        permissible_values:
-          Severe obesity:
-            text: Severe obesity
-            meaning: MONDO:0005139
+      Severe obesity:
+        text: Severe obesity
+        meaning: MONDO:0005139
+        is_a: Obesity
       Respiratory disorder:
         text: Respiratory disorder
         meaning: MONDO:0005087
-        permissible_values:
-          Asthma:
-            text: Asthma
-            meaning: HP:0002099
-          Chronic bronchitis:
-            text: Chronic bronchitis
-            meaning: HP:0004469
-          Chronic pulmonary disease:
-            text: Chronic pulmonary disease
-            meaning: HP:0006528
-            permissible_values:
-              Chronic obstructive pulmonary disease:
-                text: Chronic obstructive pulmonary disease
-                meaning: HP:0006510
-          Emphysema:
-            text: Emphysema
-            meaning: HP:0002097
-          Lung disease:
-            text: Lung disease
-            meaning: MONDO:0005275
-            permissible_values:
-              Chronic lung disease:
-                text: Chronic lung disease
-                meaning: HP:0006528
-              Pulmonary fibrosis:
-                text: Pulmonary fibrosis
-                meaning: HP:0002206
-          Pneumonia:
-            text: Pneumonia
-            meaning: HP:0002090
-          Respiratory failure:
-            text: Respiratory failure
-            meaning: HP:0002878
-            permissible_values:
-              Adult respiratory distress syndrome:
-                text: Adult respiratory distress syndrome
-                meaning: HP:0033677
-              Newborn respiratory distress syndrome:
-                text: Newborn respiratory distress syndrome
-                meaning: MONDO:0009971
-          Tuberculosis:
-            text: Tuberculosis
-            meaning: MONDO:0018076
+      Asthma:
+        text: Asthma
+        meaning: HP:0002099
+        is_a: Respiratory disorder
+      Chronic bronchitis:
+        text: Chronic bronchitis
+        meaning: HP:0004469
+        is_a: Respiratory disorder
+      Chronic pulmonary disease:
+        text: Chronic pulmonary disease
+        meaning: HP:0006528
+        is_a: Respiratory disorder
+      Chronic obstructive pulmonary disease:
+        text: Chronic obstructive pulmonary disease
+        meaning: HP:0006510
+        is_a: Chronic pulmonary disease
+      Emphysema:
+        text: Emphysema
+        meaning: HP:0002097
+        is_a: Respiratory disorder
+      Lung disease:
+        text: Lung disease
+        meaning: MONDO:0005275
+        is_a: Respiratory disorder
+      Pulmonary fibrosis:
+        text: Pulmonary fibrosis
+        meaning: HP:0002206
+        is_a: Lung disease
+      Pneumonia:
+        text: Pneumonia
+        meaning: HP:0002090
+        is_a: Respiratory disorder
+      Respiratory failure:
+        text: Respiratory failure
+        meaning: HP:0002878
+        is_a: Respiratory disorder
+      Adult respiratory distress syndrome:
+        text: Adult respiratory distress syndrome
+        meaning: HP:0033677
+        is_a: Respiratory failure
+      Newborn respiratory distress syndrome:
+        text: Newborn respiratory distress syndrome
+        meaning: MONDO:0009971
+        is_a: Respiratory failure
+      Tuberculosis:
+        text: Tuberculosis
+        meaning: MONDO:0018076
+        is_a: Respiratory disorder
       "Postpartum (\u22646 weeks)":
         text: "Postpartum (\u22646 weeks)"
         meaning: GENEPIO:0100077
@@ -3286,42 +3730,48 @@ enums:
       Substance use:
         text: Substance use
         meaning: NBO:0001845
-        permissible_values:
-          Alcohol abuse:
-            text: Alcohol abuse
-            meaning: MONDO:0002046
-          Drug abuse:
-            text: Drug abuse
-            meaning: GENEPIO:0100078
-            permissible_values:
-              Injection drug abuse:
-                text: Injection drug abuse
-                meaning: GENEPIO:0100079
-          Smoking:
-            text: Smoking
-            meaning: NBO:0015005
-          Vaping:
-            text: Vaping
-            meaning: NCIT:C173621
+      Alcohol abuse:
+        text: Alcohol abuse
+        meaning: MONDO:0002046
+        is_a: Substance use
+      Drug abuse:
+        text: Drug abuse
+        meaning: GENEPIO:0100078
+        is_a: Substance use
+      Injection drug abuse:
+        text: Injection drug abuse
+        meaning: GENEPIO:0100079
+        is_a: Drug abuse
+      Smoking:
+        text: Smoking
+        meaning: NBO:0015005
+        is_a: Substance use
+      Vaping:
+        text: Vaping
+        meaning: NCIT:C173621
+        is_a: Substance use
       Tachypnea (accelerated respiratory rate):
         text: Tachypnea (accelerated respiratory rate)
         meaning: HP:0002789
       Transplant:
         text: Transplant
         meaning: NCIT:C159659
-        permissible_values:
-          Hematopoietic stem cell transplant (bone marrow transplant):
-            text: Hematopoietic stem cell transplant (bone marrow transplant)
-            meaning: NCIT:C131759
-          Cardiac transplant:
-            text: Cardiac transplant
-            meaning: GENEPIO:0100080
-          Kidney transplant:
-            text: Kidney transplant
-            meaning: NCIT:C157332
-          Liver transplant:
-            text: Liver transplant
-            meaning: GENEPIO:0100081
+      Hematopoietic stem cell transplant (bone marrow transplant):
+        text: Hematopoietic stem cell transplant (bone marrow transplant)
+        meaning: NCIT:C131759
+        is_a: Transplant
+      Cardiac transplant:
+        text: Cardiac transplant
+        meaning: GENEPIO:0100080
+        is_a: Transplant
+      Kidney transplant:
+        text: Kidney transplant
+        meaning: NCIT:C157332
+        is_a: Transplant
+      Liver transplant:
+        text: Liver transplant
+        meaning: GENEPIO:0100081
+        is_a: Transplant
   variant designation menu:
     name: variant designation menu
     permissible_values:
@@ -3355,27 +3805,28 @@ enums:
       Acute lung injury:
         text: Acute lung injury
         meaning: MONDO:0015796
-        permissible_values:
-          Ventilation induced lung injury (VILI):
-            text: Ventilation induced lung injury (VILI)
-            meaning: GENEPIO:0100092
+      Ventilation induced lung injury (VILI):
+        text: Ventilation induced lung injury (VILI)
+        meaning: GENEPIO:0100092
+        is_a: Acute lung injury
       Acute respiratory failure:
         text: Acute respiratory failure
         meaning: MONDO:0001208
       Arrhythmia (complication):
         text: Arrhythmia (complication)
         meaning: HP:0011675
-        permissible_values:
-          Tachycardia:
-            text: Tachycardia
-            meaning: HP:0001649
-            permissible_values:
-              Polymorphic ventricular tachycardia (VT):
-                text: Polymorphic ventricular tachycardia (VT)
-                meaning: HP:0031677
-              Tachyarrhythmia:
-                text: Tachyarrhythmia
-                meaning: GENEPIO:0100084
+      Tachycardia:
+        text: Tachycardia
+        meaning: HP:0001649
+        is_a: Arrhythmia (complication)
+      Polymorphic ventricular tachycardia (VT):
+        text: Polymorphic ventricular tachycardia (VT)
+        meaning: HP:0031677
+        is_a: Tachycardia
+      Tachyarrhythmia:
+        text: Tachyarrhythmia
+        meaning: GENEPIO:0100084
+        is_a: Tachycardia
       Cardiac injury:
         text: Cardiac injury
         meaning: GENEPIO:0100074
@@ -3388,16 +3839,18 @@ enums:
       Blood clot:
         text: Blood clot
         meaning: HP:0001977
-        permissible_values:
-          Arterial clot:
-            text: Arterial clot
-            meaning: HP:0004420
-          Deep vein thrombosis (DVT):
-            text: Deep vein thrombosis (DVT)
-            meaning: HP:0002625
-          Pulmonary embolism (PE):
-            text: Pulmonary embolism (PE)
-            meaning: HP:0002204
+      Arterial clot:
+        text: Arterial clot
+        meaning: HP:0004420
+        is_a: Blood clot
+      Deep vein thrombosis (DVT):
+        text: Deep vein thrombosis (DVT)
+        meaning: HP:0002625
+        is_a: Blood clot
+      Pulmonary embolism (PE):
+        text: Pulmonary embolism (PE)
+        meaning: HP:0002204
+        is_a: Blood clot
       Cardiomyopathy:
         text: Cardiomyopathy
         meaning: HP:0001638
@@ -3407,13 +3860,14 @@ enums:
       Stroke (complication):
         text: Stroke (complication)
         meaning: HP:0001297
-        permissible_values:
-          Central Nervous System Vasculitis:
-            text: Central Nervous System Vasculitis
-            meaning: MONDO:0003346
-          Acute ischemic stroke:
-            text: Acute ischemic stroke
-            meaning: HP:0002140
+      Central Nervous System Vasculitis:
+        text: Central Nervous System Vasculitis
+        meaning: MONDO:0003346
+        is_a: Stroke (complication)
+      Acute ischemic stroke:
+        text: Acute ischemic stroke
+        meaning: HP:0002140
+        is_a: Stroke (complication)
       Coma:
         text: Coma
         meaning: HP:0001259
@@ -3444,27 +3898,28 @@ enums:
       Internal hemorrhage (complication; internal bleeding):
         text: Internal hemorrhage (complication; internal bleeding)
         meaning: HP:0011029
-        permissible_values:
-          Intracerebral haemorrhage:
-            text: Intracerebral haemorrhage
-            meaning: MONDO:0013792
+      Intracerebral haemorrhage:
+        text: Intracerebral haemorrhage
+        meaning: MONDO:0013792
+        is_a: Internal hemorrhage (complication; internal bleeding)
       Kawasaki disease:
         text: Kawasaki disease
         meaning: MONDO:0012727
-        permissible_values:
-          Complete Kawasaki disease:
-            text: Complete Kawasaki disease
-            meaning: GENEPIO:0100089
-          Incomplete Kawasaki disease:
-            text: Incomplete Kawasaki disease
-            meaning: GENEPIO:0100090
+      Complete Kawasaki disease:
+        text: Complete Kawasaki disease
+        meaning: GENEPIO:0100089
+        is_a: Kawasaki disease
+      Incomplete Kawasaki disease:
+        text: Incomplete Kawasaki disease
+        meaning: GENEPIO:0100090
+        is_a: Kawasaki disease
       Liver dysfunction:
         text: Liver dysfunction
         meaning: HP:0001410
-        permissible_values:
-          Acute liver injury:
-            text: Acute liver injury
-            meaning: GENEPIO:0100091
+      Acute liver injury:
+        text: Acute liver injury
+        meaning: GENEPIO:0100091
+        is_a: Liver dysfunction
       Long COVID-19:
         text: Long COVID-19
         meaning: MONDO:0100233
@@ -3492,13 +3947,14 @@ enums:
       Myocardial infarction (heart attack):
         text: Myocardial infarction (heart attack)
         meaning: MONDO:0005068
-        permissible_values:
-          Acute myocardial infarction:
-            text: Acute myocardial infarction
-            meaning: MONDO:0004781
-          ST-segment elevation myocardial infarction:
-            text: ST-segment elevation myocardial infarction
-            meaning: MONDO:0041656
+      Acute myocardial infarction:
+        text: Acute myocardial infarction
+        meaning: MONDO:0004781
+        is_a: Myocardial infarction (heart attack)
+      ST-segment elevation myocardial infarction:
+        text: ST-segment elevation myocardial infarction
+        meaning: MONDO:0041656
+        is_a: Myocardial infarction (heart attack)
       Myocardial injury:
         text: Myocardial injury
         meaning: HP:0001700
@@ -3508,47 +3964,50 @@ enums:
       Noncardiogenic pulmonary edema:
         text: Noncardiogenic pulmonary edema
         meaning: GENEPIO:0100085
-        permissible_values:
-          Acute respiratory distress syndrome (ARDS):
-            text: Acute respiratory distress syndrome (ARDS)
-            meaning: HP:0033677
-            permissible_values:
-              COVID-19 associated ARDS (CARDS):
-                text: COVID-19 associated ARDS (CARDS)
-                meaning: NCIT:C171551
-              Neurogenic pulmonary edema (NPE):
-                text: Neurogenic pulmonary edema (NPE)
-                meaning: GENEPIO:0100086
+      Acute respiratory distress syndrome (ARDS):
+        text: Acute respiratory distress syndrome (ARDS)
+        meaning: HP:0033677
+        is_a: Noncardiogenic pulmonary edema
+      COVID-19 associated ARDS (CARDS):
+        text: COVID-19 associated ARDS (CARDS)
+        meaning: NCIT:C171551
+        is_a: Acute respiratory distress syndrome (ARDS)
+      Neurogenic pulmonary edema (NPE):
+        text: Neurogenic pulmonary edema (NPE)
+        meaning: GENEPIO:0100086
+        is_a: Acute respiratory distress syndrome (ARDS)
       Organ failure:
         text: Organ failure
         meaning: GENEPIO:0100094
-        permissible_values:
-          Heart failure:
-            text: Heart failure
-            meaning: HP:0001635
-          Liver failure:
-            text: Liver failure
-            meaning: MONDO:0100192
+      Heart failure:
+        text: Heart failure
+        meaning: HP:0001635
+        is_a: Organ failure
+      Liver failure:
+        text: Liver failure
+        meaning: MONDO:0100192
+        is_a: Organ failure
       Paralysis:
         text: Paralysis
         meaning: HP:0003470
       Pneumothorax (collapsed lung):
         text: Pneumothorax (collapsed lung)
         meaning: HP:0002107
-        permissible_values:
-          Spontaneous pneumothorax:
-            text: Spontaneous pneumothorax
-            meaning: HP:0002108
-          Spontaneous tension pneumothorax:
-            text: Spontaneous tension pneumothorax
-            meaning: MONDO:0002075
+      Spontaneous pneumothorax:
+        text: Spontaneous pneumothorax
+        meaning: HP:0002108
+        is_a: Pneumothorax (collapsed lung)
+      Spontaneous tension pneumothorax:
+        text: Spontaneous tension pneumothorax
+        meaning: MONDO:0002075
+        is_a: Pneumothorax (collapsed lung)
       Pneumonia (complication):
         text: Pneumonia (complication)
         meaning: HP:0002090
-        permissible_values:
-          COVID-19 pneumonia:
-            text: COVID-19 pneumonia
-            meaning: NCIT:C171550
+      COVID-19 pneumonia:
+        text: COVID-19 pneumonia
+        meaning: NCIT:C171550
+        is_a: Pneumonia (complication)
       Pregancy complications:
         text: Pregancy complications
         meaning: HP:0001197
@@ -3558,46 +4017,51 @@ enums:
       Secondary infection:
         text: Secondary infection
         meaning: IDO:0000567
-        permissible_values:
-          Secondary staph infection:
-            text: Secondary staph infection
-            meaning: GENEPIO:0100095
-          Secondary strep infection:
-            text: Secondary strep infection
-            meaning: GENEPIO:0100096
+      Secondary staph infection:
+        text: Secondary staph infection
+        meaning: GENEPIO:0100095
+        is_a: Secondary infection
+      Secondary strep infection:
+        text: Secondary strep infection
+        meaning: GENEPIO:0100096
+        is_a: Secondary infection
       Seizure (complication):
         text: Seizure (complication)
         meaning: HP:0001250
-        permissible_values:
-          Motor seizure:
-            text: Motor seizure
-            meaning: HP:0020219
+      Motor seizure:
+        text: Motor seizure
+        meaning: HP:0020219
+        is_a: Seizure (complication)
       Sepsis/Septicemia:
         text: Sepsis/Septicemia
         meaning: HP:0100806
-        permissible_values:
-          Sepsis:
-            text: Sepsis
-            meaning: IDO:0000636
-          Septicemia:
-            text: Septicemia
-            meaning: NCIT:C3364
+      Sepsis:
+        text: Sepsis
+        meaning: IDO:0000636
+        is_a: Sepsis/Septicemia
+      Septicemia:
+        text: Septicemia
+        meaning: NCIT:C3364
+        is_a: Sepsis/Septicemia
       Shock:
         text: Shock
         meaning: HP:0031273
-        permissible_values:
-          Hyperinflammatory shock:
-            text: Hyperinflammatory shock
-            meaning: GENEPIO:0100097
-          Refractory cardiogenic shock:
-            text: Refractory cardiogenic shock
-            meaning: GENEPIO:0100098
-          Refractory cardiogenic plus vasoplegic shock:
-            text: Refractory cardiogenic plus vasoplegic shock
-            meaning: GENEPIO:0100099
-          Septic shock:
-            text: Septic shock
-            meaning: NCIT:C35018
+      Hyperinflammatory shock:
+        text: Hyperinflammatory shock
+        meaning: GENEPIO:0100097
+        is_a: Shock
+      Refractory cardiogenic shock:
+        text: Refractory cardiogenic shock
+        meaning: GENEPIO:0100098
+        is_a: Shock
+      Refractory cardiogenic plus vasoplegic shock:
+        text: Refractory cardiogenic plus vasoplegic shock
+        meaning: GENEPIO:0100099
+        is_a: Shock
+      Septic shock:
+        text: Septic shock
+        meaning: NCIT:C35018
+        is_a: Shock
       Vasculitis:
         text: Vasculitis
         meaning: HP:0002633
@@ -3628,25 +4092,30 @@ enums:
       Fluid:
         text: Fluid
         meaning: UBERON:0006314
-        permissible_values:
-          Saliva:
-            text: Saliva
-            meaning: UBERON:0001836
-          Fluid (cerebrospinal (CSF)):
-            text: Fluid (cerebrospinal (CSF))
-            meaning: UBERON:0001359
-          Fluid (pericardial):
-            text: Fluid (pericardial)
-            meaning: UBERON:0002409
-          Fluid (pleural):
-            text: Fluid (pleural)
-            meaning: UBERON:0001087
-          Fluid (vaginal):
-            text: Fluid (vaginal)
-            meaning: UBERON:0036243
-          Fluid (amniotic):
-            text: Fluid (amniotic)
-            meaning: UBERON:0000173
+      Saliva:
+        text: Saliva
+        meaning: UBERON:0001836
+        is_a: Fluid
+      Fluid (cerebrospinal (CSF)):
+        text: Fluid (cerebrospinal (CSF))
+        meaning: UBERON:0001359
+        is_a: Fluid
+      Fluid (pericardial):
+        text: Fluid (pericardial)
+        meaning: UBERON:0002409
+        is_a: Fluid
+      Fluid (pleural):
+        text: Fluid (pleural)
+        meaning: UBERON:0001087
+        is_a: Fluid
+      Fluid (vaginal):
+        text: Fluid (vaginal)
+        meaning: UBERON:0036243
+        is_a: Fluid
+      Fluid (amniotic):
+        text: Fluid (amniotic)
+        meaning: UBERON:0000173
+        is_a: Fluid
       Tissue:
         text: Tissue
         meaning: UBERON:0000479
@@ -3671,30 +4140,34 @@ enums:
       Lower respiratory tract:
         text: Lower respiratory tract
         meaning: UBERON:0001558
-        permissible_values:
-          Bronchus:
-            text: Bronchus
-            meaning: UBERON:0002185
-          Lung:
-            text: Lung
-            meaning: UBERON:0002048
-            permissible_values:
-              Bronchiole:
-                text: Bronchiole
-                meaning: UBERON:0002186
-              Alveolar sac:
-                text: Alveolar sac
-                meaning: UBERON:0002169
-          Pleural sac:
-            text: Pleural sac
-            meaning: UBERON:0009778
-            permissible_values:
-              Pleural cavity:
-                text: Pleural cavity
-                meaning: UBERON:0002402
-          Trachea:
-            text: Trachea
-            meaning: UBERON:0003126
+      Bronchus:
+        text: Bronchus
+        meaning: UBERON:0002185
+        is_a: Lower respiratory tract
+      Lung:
+        text: Lung
+        meaning: UBERON:0002048
+        is_a: Lower respiratory tract
+      Bronchiole:
+        text: Bronchiole
+        meaning: UBERON:0002186
+        is_a: Lung
+      Alveolar sac:
+        text: Alveolar sac
+        meaning: UBERON:0002169
+        is_a: Lung
+      Pleural sac:
+        text: Pleural sac
+        meaning: UBERON:0009778
+        is_a: Lower respiratory tract
+      Pleural cavity:
+        text: Pleural cavity
+        meaning: UBERON:0002402
+        is_a: Pleural sac
+      Trachea:
+        text: Trachea
+        meaning: UBERON:0003126
+        is_a: Lower respiratory tract
       Rectum:
         text: Rectum
         meaning: UBERON:0001052
@@ -3707,32 +4180,38 @@ enums:
       Upper respiratory tract:
         text: Upper respiratory tract
         meaning: UBERON:0001557
-        permissible_values:
-          Anterior Nares:
-            text: Anterior Nares
-            meaning: UBERON:2001427
-          Esophagus:
-            text: Esophagus
-            meaning: UBERON:0001043
-          Ethmoid sinus:
-            text: Ethmoid sinus
-            meaning: UBERON:0002453
-          Nasal Cavity:
-            text: Nasal Cavity
-            meaning: UBERON:0001707
-            permissible_values:
-              Middle Nasal Turbinate:
-                text: Middle Nasal Turbinate
-                meaning: UBERON:0005921
-              Inferior Nasal Turbinate:
-                text: Inferior Nasal Turbinate
-                meaning: UBERON:0005922
-          Nasopharynx (NP):
-            text: Nasopharynx (NP)
-            meaning: UBERON:0001728
-          Oropharynx (OP):
-            text: Oropharynx (OP)
-            meaning: UBERON:0001729
+      Anterior Nares:
+        text: Anterior Nares
+        meaning: UBERON:2001427
+        is_a: Upper respiratory tract
+      Esophagus:
+        text: Esophagus
+        meaning: UBERON:0001043
+        is_a: Upper respiratory tract
+      Ethmoid sinus:
+        text: Ethmoid sinus
+        meaning: UBERON:0002453
+        is_a: Upper respiratory tract
+      Nasal Cavity:
+        text: Nasal Cavity
+        meaning: UBERON:0001707
+        is_a: Upper respiratory tract
+      Middle Nasal Turbinate:
+        text: Middle Nasal Turbinate
+        meaning: UBERON:0005921
+        is_a: Nasal Cavity
+      Inferior Nasal Turbinate:
+        text: Inferior Nasal Turbinate
+        meaning: UBERON:0005922
+        is_a: Nasal Cavity
+      Nasopharynx (NP):
+        text: Nasopharynx (NP)
+        meaning: UBERON:0001728
+        is_a: Upper respiratory tract
+      Oropharynx (OP):
+        text: Oropharynx (OP)
+        meaning: UBERON:0001729
+        is_a: Upper respiratory tract
   body product menu:
     name: body product menu
     permissible_values:
@@ -3748,10 +4227,10 @@ enums:
       Mucus:
         text: Mucus
         meaning: UBERON:0000912
-        permissible_values:
-          Sputum:
-            text: Sputum
-            meaning: UBERON:0007311
+      Sputum:
+        text: Sputum
+        meaning: UBERON:0007311
+        is_a: Mucus
       Sweat:
         text: Sweat
         meaning: UBERON:0001089
@@ -3863,10 +4342,10 @@ enums:
       Water:
         text: Water
         meaning: ENVO:00002006
-        permissible_values:
-          Wastewater:
-            text: Wastewater
-            meaning: ENVO:00002001
+      Wastewater:
+        text: Wastewater
+        meaning: ENVO:00002001
+        is_a: Water
       Window:
         text: Window
         meaning: ENVO:03501219
@@ -3951,40 +4430,43 @@ enums:
       Aspiration:
         text: Aspiration
         meaning: NCIT:C15631
-        permissible_values:
-          Suprapubic Aspiration:
-            text: Suprapubic Aspiration
-            meaning: GENEPIO:0100028
-          Tracheal aspiration:
-            text: Tracheal aspiration
-            meaning: GENEPIO:0100029
-          Vacuum Aspiration:
-            text: Vacuum Aspiration
-            meaning: GENEPIO:0100030
+      Suprapubic Aspiration:
+        text: Suprapubic Aspiration
+        meaning: GENEPIO:0100028
+        is_a: Aspiration
+      Tracheal aspiration:
+        text: Tracheal aspiration
+        meaning: GENEPIO:0100029
+        is_a: Aspiration
+      Vacuum Aspiration:
+        text: Vacuum Aspiration
+        meaning: GENEPIO:0100030
+        is_a: Aspiration
       Biopsy:
         text: Biopsy
         meaning: OBI:0002650
-        permissible_values:
-          Needle Biopsy:
-            text: Needle Biopsy
-            meaning: OBI:0002651
+      Needle Biopsy:
+        text: Needle Biopsy
+        meaning: OBI:0002651
+        is_a: Biopsy
       Filtration:
         text: Filtration
         meaning: OBI:0302885
-        permissible_values:
-          Air filtration:
-            text: Air filtration
-            meaning: GENEPIO:0100031
+      Air filtration:
+        text: Air filtration
+        meaning: GENEPIO:0100031
+        is_a: Filtration
       Lavage:
         text: Lavage
         meaning: OBI:0600044
-        permissible_values:
-          Bronchoalveolar lavage (BAL):
-            text: Bronchoalveolar lavage (BAL)
-            meaning: GENEPIO:0100032
-          Gastric Lavage:
-            text: Gastric Lavage
-            meaning: GENEPIO:0100033
+      Bronchoalveolar lavage (BAL):
+        text: Bronchoalveolar lavage (BAL)
+        meaning: GENEPIO:0100032
+        is_a: Lavage
+      Gastric Lavage:
+        text: Gastric Lavage
+        meaning: GENEPIO:0100033
+        is_a: Lavage
       Lumbar Puncture:
         text: Lumbar Puncture
         meaning: NCIT:C15327
@@ -3997,20 +4479,20 @@ enums:
       Rinsing:
         text: Rinsing
         meaning: GENEPIO:0002116
-        permissible_values:
-          Saline gargle (mouth rinse and gargle):
-            text: Saline gargle (mouth rinse and gargle)
-            meaning: GENEPIO:0100034
+      Saline gargle (mouth rinse and gargle):
+        text: Saline gargle (mouth rinse and gargle)
+        meaning: GENEPIO:0100034
+        is_a: Rinsing
       Scraping:
         text: Scraping
         meaning: GENEPIO:0100035
       Swabbing:
         text: Swabbing
         meaning: GENEPIO:0002117
-        permissible_values:
-          Finger Prick:
-            text: Finger Prick
-            meaning: GENEPIO:0100036
+      Finger Prick:
+        text: Finger Prick
+        meaning: GENEPIO:0100036
+        is_a: Swabbing
       Washout Tear Collection:
         text: Washout Tear Collection
         meaning: GENEPIO:0100038
@@ -4074,8 +4556,6 @@ enums:
       Homo sapiens:
         text: Homo sapiens
         meaning: NCBITaxon:9606
-        exact_mappings:
-        - NML_LIMS:Human
       Bos taurus:
         text: Bos taurus
         meaning: NCBITaxon:9913
@@ -4142,8 +4622,6 @@ enums:
       Cow:
         text: Cow
         meaning: NCBITaxon:9913
-        exact_mappings:
-        - CNPHI:bovine
       Dog:
         text: Dog
         meaning: NCBITaxon:9615
@@ -4159,8 +4637,6 @@ enums:
       Pig:
         text: Pig
         meaning: NCBITaxon:9825
-        exact_mappings:
-        - CNPHI:porcine
       Pigeon:
         text: Pigeon
         meaning: NCBITaxon:8930
@@ -4191,23 +4667,24 @@ enums:
       Hospitalized:
         text: Hospitalized
         meaning: NCIT:C25179
-        permissible_values:
-          Hospitalized (Non-ICU):
-            text: Hospitalized (Non-ICU)
-            meaning: GENEPIO:0100045
-          Hospitalized (ICU):
-            text: Hospitalized (ICU)
-            meaning: GENEPIO:0100046
+      Hospitalized (Non-ICU):
+        text: Hospitalized (Non-ICU)
+        meaning: GENEPIO:0100045
+        is_a: Hospitalized
+      Hospitalized (ICU):
+        text: Hospitalized (ICU)
+        meaning: GENEPIO:0100046
+        is_a: Hospitalized
       Mechanical Ventilation:
         text: Mechanical Ventilation
         meaning: NCIT:C70909
       Medically Isolated:
         text: Medically Isolated
         meaning: GENEPIO:0100047
-        permissible_values:
-          Medically Isolated (Negative Pressure):
-            text: Medically Isolated (Negative Pressure)
-            meaning: GENEPIO:0100048
+      Medically Isolated (Negative Pressure):
+        text: Medically Isolated (Negative Pressure)
+        meaning: GENEPIO:0100048
+        is_a: Medically Isolated
       Self-quarantining:
         text: Self-quarantining
         meaning: NCIT:C173768
@@ -4262,84 +4739,93 @@ enums:
       Targeted surveillance (non-random sampling):
         text: Targeted surveillance (non-random sampling)
         meaning: GENEPIO:0100006
-        permissible_values:
-          Priority surveillance project:
-            text: Priority surveillance project
-            meaning: GENEPIO:0100007
-            permissible_values:
-              Screening for Variants of Concern (VoC):
-                text: Screening for Variants of Concern (VoC)
-                meaning: GENEPIO:0100008
-                permissible_values:
-                  Sample has epidemiological link to Variant of Concern (VoC):
-                    text: Sample has epidemiological link to Variant of Concern (VoC)
-                    meaning: GENEPIO:0100273
-                    permissible_values:
-                      Sample has epidemiological link to Omicron Variant:
-                        text: Sample has epidemiological link to Omicron Variant
-                        meaning: GENEPIO:0100274
-              Longitudinal surveillance (repeat sampling of individuals):
-                text: Longitudinal surveillance (repeat sampling of individuals)
-                meaning: GENEPIO:0100009
-              Re-infection surveillance:
-                text: Re-infection surveillance
-                meaning: GENEPIO:0100010
-              Vaccine escape surveillance:
-                text: Vaccine escape surveillance
-                meaning: GENEPIO:0100011
-              Travel-associated surveillance:
-                text: Travel-associated surveillance
-                meaning: GENEPIO:0100012
-                permissible_values:
-                  Domestic travel surveillance:
-                    text: Domestic travel surveillance
-                    meaning: GENEPIO:0100013
-                    permissible_values:
-                      Interstate/ interprovincial travel surveillance:
-                        text: Interstate/ interprovincial travel surveillance
-                        meaning: GENEPIO:0100275
-                      Intra-state/ intra-provincial travel surveillance:
-                        text: Intra-state/ intra-provincial travel surveillance
-                        meaning: GENEPIO:0100276
-                  International travel surveillance:
-                    text: International travel surveillance
-                    meaning: GENEPIO:0100014
-                    permissible_values:
-                      Surveillance of international border crossing by air travel or ground transport:
-                        text: Surveillance of international border crossing by air
-                          travel or ground transport
-                        meaning: GENEPIO:0100015
-                      Surveillance of international border crossing by air travel:
-                        text: Surveillance of international border crossing by air
-                          travel
-                        meaning: GENEPIO:0100016
-                      Surveillance of international border crossing by ground transport:
-                        text: Surveillance of international border crossing by ground
-                          transport
-                        meaning: GENEPIO:0100017
-                      Surveillance from international worker testing:
-                        text: Surveillance from international worker testing
-                        meaning: GENEPIO:0100018
+      Priority surveillance project:
+        text: Priority surveillance project
+        meaning: GENEPIO:0100007
+        is_a: Targeted surveillance (non-random sampling)
+      Screening for Variants of Concern (VoC):
+        text: Screening for Variants of Concern (VoC)
+        meaning: GENEPIO:0100008
+        is_a: Priority surveillance project
+      Sample has epidemiological link to Variant of Concern (VoC):
+        text: Sample has epidemiological link to Variant of Concern (VoC)
+        meaning: GENEPIO:0100273
+        is_a: Screening for Variants of Concern (VoC)
+      Sample has epidemiological link to Omicron Variant:
+        text: Sample has epidemiological link to Omicron Variant
+        meaning: GENEPIO:0100274
+        is_a: Sample has epidemiological link to Variant of Concern (VoC)
+      Longitudinal surveillance (repeat sampling of individuals):
+        text: Longitudinal surveillance (repeat sampling of individuals)
+        meaning: GENEPIO:0100009
+        is_a: Priority surveillance project
+      Re-infection surveillance:
+        text: Re-infection surveillance
+        meaning: GENEPIO:0100010
+        is_a: Priority surveillance project
+      Vaccine escape surveillance:
+        text: Vaccine escape surveillance
+        meaning: GENEPIO:0100011
+        is_a: Priority surveillance project
+      Travel-associated surveillance:
+        text: Travel-associated surveillance
+        meaning: GENEPIO:0100012
+        is_a: Priority surveillance project
+      Domestic travel surveillance:
+        text: Domestic travel surveillance
+        meaning: GENEPIO:0100013
+        is_a: Travel-associated surveillance
+      Interstate/ interprovincial travel surveillance:
+        text: Interstate/ interprovincial travel surveillance
+        meaning: GENEPIO:0100275
+        is_a: Domestic travel surveillance
+      Intra-state/ intra-provincial travel surveillance:
+        text: Intra-state/ intra-provincial travel surveillance
+        meaning: GENEPIO:0100276
+        is_a: Domestic travel surveillance
+      International travel surveillance:
+        text: International travel surveillance
+        meaning: GENEPIO:0100014
+        is_a: Travel-associated surveillance
+      Surveillance of international border crossing by air travel or ground transport:
+        text: Surveillance of international border crossing by air travel or ground
+          transport
+        meaning: GENEPIO:0100015
+        is_a: International travel surveillance
+      Surveillance of international border crossing by air travel:
+        text: Surveillance of international border crossing by air travel
+        meaning: GENEPIO:0100016
+        is_a: International travel surveillance
+      Surveillance of international border crossing by ground transport:
+        text: Surveillance of international border crossing by ground transport
+        meaning: GENEPIO:0100017
+        is_a: International travel surveillance
+      Surveillance from international worker testing:
+        text: Surveillance from international worker testing
+        meaning: GENEPIO:0100018
+        is_a: International travel surveillance
       Cluster/Outbreak investigation:
         text: Cluster/Outbreak investigation
         meaning: GENEPIO:0100019
-        permissible_values:
-          Multi-jurisdictional outbreak investigation:
-            text: Multi-jurisdictional outbreak investigation
-            meaning: GENEPIO:0100020
-          Intra-jurisdictional outbreak investigation:
-            text: Intra-jurisdictional outbreak investigation
-            meaning: GENEPIO:0100021
+      Multi-jurisdictional outbreak investigation:
+        text: Multi-jurisdictional outbreak investigation
+        meaning: GENEPIO:0100020
+        is_a: Cluster/Outbreak investigation
+      Intra-jurisdictional outbreak investigation:
+        text: Intra-jurisdictional outbreak investigation
+        meaning: GENEPIO:0100021
+        is_a: Cluster/Outbreak investigation
       Research:
         text: Research
         meaning: GENEPIO:0100022
-        permissible_values:
-          Viral passage experiment:
-            text: Viral passage experiment
-            meaning: GENEPIO:0100023
-          Protocol testing experiment:
-            text: Protocol testing experiment
-            meaning: GENEPIO:0100024
+      Viral passage experiment:
+        text: Viral passage experiment
+        meaning: GENEPIO:0100023
+        is_a: Research
+      Protocol testing experiment:
+        text: Protocol testing experiment
+        meaning: GENEPIO:0100024
+        is_a: Research
       Retrospective sequencing:
         text: Retrospective sequencing
         meaning: GENEPIO:0100356
@@ -4400,14 +4886,14 @@ enums:
       Vero cell line:
         text: Vero cell line
         meaning: BTO:0001444
-        permissible_values:
-          Vero E6 cell line:
-            text: Vero E6 cell line
-            meaning: BTO:0004755
-            permissible_values:
-              VeroE6/TMPRSS2 cell line:
-                text: VeroE6/TMPRSS2 cell line
-                meaning: GENEPIO:0100044
+      Vero E6 cell line:
+        text: Vero E6 cell line
+        meaning: BTO:0004755
+        is_a: Vero cell line
+      VeroE6/TMPRSS2 cell line:
+        text: VeroE6/TMPRSS2 cell line
+        meaning: GENEPIO:0100044
+        is_a: Vero E6 cell line
   host disease menu:
     name: host disease menu
     permissible_values:
@@ -4447,13 +4933,9 @@ enums:
       90 - 99:
         text: 90 - 99
         meaning: GENEPIO:0100058
-        exact_mappings:
-        - VirusSeq_Portal:90+
       100+:
         text: 100+
         meaning: GENEPIO:0100059
-        exact_mappings:
-        - VirusSeq_Portal:90+
   host gender menu:
     name: host gender menu
     permissible_values:
@@ -4481,62 +4963,72 @@ enums:
       Mass Gathering:
         text: Mass Gathering
         meaning: GENEPIO:0100237
-        permissible_values:
-          Agricultural Event:
-            text: Agricultural Event
-            meaning: GENEPIO:0100240
-          Convention:
-            text: Convention
-            meaning: GENEPIO:0100238
-          Convocation:
-            text: Convocation
-            meaning: GENEPIO:0100239
-          Recreational Event:
-            text: Recreational Event
-            meaning: GENEPIO:0100417
-            permissible_values:
-              Concert:
-                text: Concert
-                meaning: GENEPIO:0100418
-              Sporting Event:
-                text: Sporting Event
-                meaning: GENEPIO:0100419
+      Agricultural Event:
+        text: Agricultural Event
+        meaning: GENEPIO:0100240
+        is_a: Mass Gathering
+      Convention:
+        text: Convention
+        meaning: GENEPIO:0100238
+        is_a: Mass Gathering
+      Convocation:
+        text: Convocation
+        meaning: GENEPIO:0100239
+        is_a: Mass Gathering
+      Recreational Event:
+        text: Recreational Event
+        meaning: GENEPIO:0100417
+        is_a: Mass Gathering
+      Concert:
+        text: Concert
+        meaning: GENEPIO:0100418
+        is_a: Recreational Event
+      Sporting Event:
+        text: Sporting Event
+        meaning: GENEPIO:0100419
+        is_a: Recreational Event
       Religious Gathering:
         text: Religious Gathering
         meaning: GENEPIO:0100241
-        permissible_values:
-          Mass:
-            text: Mass
-            meaning: GENEPIO:0100242
+      Mass:
+        text: Mass
+        meaning: GENEPIO:0100242
+        is_a: Religious Gathering
       Social Gathering:
         text: Social Gathering
         meaning: PCO:0000033
-        permissible_values:
-          Baby Shower:
-            text: Baby Shower
-            meaning: PCO:0000039
-          Community Event:
-            text: Community Event
-            meaning: PCO:0000034
-          Family Gathering:
-            text: Family Gathering
-            meaning: GENEPIO:0100243
-            permissible_values:
-              Family Reunion:
-                text: Family Reunion
-                meaning: GENEPIO:0100244
-          Funeral:
-            text: Funeral
-            meaning: GENEPIO:0100245
-          Party:
-            text: Party
-            meaning: PCO:0000035
-          Potluck:
-            text: Potluck
-            meaning: PCO:0000037
-          Wedding:
-            text: Wedding
-            meaning: PCO:0000038
+      Baby Shower:
+        text: Baby Shower
+        meaning: PCO:0000039
+        is_a: Social Gathering
+      Community Event:
+        text: Community Event
+        meaning: PCO:0000034
+        is_a: Social Gathering
+      Family Gathering:
+        text: Family Gathering
+        meaning: GENEPIO:0100243
+        is_a: Social Gathering
+      Family Reunion:
+        text: Family Reunion
+        meaning: GENEPIO:0100244
+        is_a: Family Gathering
+      Funeral:
+        text: Funeral
+        meaning: GENEPIO:0100245
+        is_a: Social Gathering
+      Party:
+        text: Party
+        meaning: PCO:0000035
+        is_a: Social Gathering
+      Potluck:
+        text: Potluck
+        meaning: PCO:0000037
+        is_a: Social Gathering
+      Wedding:
+        text: Wedding
+        meaning: PCO:0000038
+        is_a: Social Gathering
       Other exposure event:
         text: Other exposure event
   exposure contact level menu:
@@ -4545,40 +5037,43 @@ enums:
       Contact with infected individual:
         text: Contact with infected individual
         meaning: GENEPIO:0100357
-        permissible_values:
-          Direct contact (direct human-to-human contact):
-            text: Direct contact (direct human-to-human contact)
-            meaning: TRANS:0000001
-          Indirect contact:
-            text: Indirect contact
-            meaning: GENEPIO:0100246
-            permissible_values:
-              Close contact (face-to-face, no direct contact):
-                text: Close contact (face-to-face, no direct contact)
-                meaning: GENEPIO:0100247
-              Casual contact:
-                text: Casual contact
-                meaning: GENEPIO:0100248
+      Direct contact (direct human-to-human contact):
+        text: Direct contact (direct human-to-human contact)
+        meaning: TRANS:0000001
+        is_a: Contact with infected individual
+      Indirect contact:
+        text: Indirect contact
+        meaning: GENEPIO:0100246
+        is_a: Contact with infected individual
+      Close contact (face-to-face, no direct contact):
+        text: Close contact (face-to-face, no direct contact)
+        meaning: GENEPIO:0100247
+        is_a: Indirect contact
+      Casual contact:
+        text: Casual contact
+        meaning: GENEPIO:0100248
+        is_a: Indirect contact
   host role menu:
     name: host role menu
     permissible_values:
       Attendee:
         text: Attendee
         meaning: GENEPIO:0100249
-        permissible_values:
-          Student:
-            text: Student
-            meaning: OMRSE:00000058
+      Student:
+        text: Student
+        meaning: OMRSE:00000058
+        is_a: Attendee
       Patient:
         text: Patient
         meaning: OMRSE:00000030
-        permissible_values:
-          Inpatient:
-            text: Inpatient
-            meaning: NCIT:C25182
-          Outpatient:
-            text: Outpatient
-            meaning: NCIT:C28293
+      Inpatient:
+        text: Inpatient
+        meaning: NCIT:C25182
+        is_a: Patient
+      Outpatient:
+        text: Outpatient
+        meaning: NCIT:C28293
+        is_a: Patient
       Passenger:
         text: Passenger
         meaning: GENEPIO:0100250
@@ -4594,98 +5089,120 @@ enums:
       Work:
         text: Work
         meaning: GENEPIO:0100254
-        permissible_values:
-          Administrator:
-            text: Administrator
-            meaning: GENEPIO:0100255
-          Child Care/Education Worker:
-            text: Child Care/Education Worker
-          Essential Worker:
-            text: Essential Worker
-          First Responder:
-            text: First Responder
-            meaning: GENEPIO:0100256
-            permissible_values:
-              Firefighter:
-                text: Firefighter
-                meaning: GENEPIO:0100257
-              Paramedic:
-                text: Paramedic
-                meaning: GENEPIO:0100258
-              Police Officer:
-                text: Police Officer
-                meaning: GENEPIO:0100259
-          Healthcare Worker:
-            text: Healthcare Worker
-            meaning: GENEPIO:0100334
-            permissible_values:
-              Community Healthcare Worker:
-                text: Community Healthcare Worker
-                meaning: GENEPIO:0100420
-              Laboratory Worker:
-                text: Laboratory Worker
-                meaning: GENEPIO:0100262
-              Nurse:
-                text: Nurse
-                meaning: OMRSE:00000014
-              Personal Care Aid:
-                text: Personal Care Aid
-                meaning: GENEPIO:0100263
-              Pharmacist:
-                text: Pharmacist
-                meaning: GENEPIO:0100264
-              Physician:
-                text: Physician
-                meaning: OMRSE:00000013
-          Housekeeper:
-            text: Housekeeper
-            meaning: GENEPIO:0100260
-          International worker:
-            text: International worker
-          Kitchen Worker:
-            text: Kitchen Worker
-            meaning: GENEPIO:0100261
-          Rotational Worker:
-            text: Rotational Worker
-            meaning: GENEPIO:0100354
-          Seasonal Worker:
-            text: Seasonal Worker
-            meaning: GENEPIO:0100355
-          Transport Worker:
-            text: Transport Worker
-            permissible_values:
-              Transport Truck Driver:
-                text: Transport Truck Driver
-          Veterinarian:
-            text: Veterinarian
-            meaning: GENEPIO:0100265
+      Administrator:
+        text: Administrator
+        meaning: GENEPIO:0100255
+        is_a: Work
+      Child Care/Education Worker:
+        text: Child Care/Education Worker
+        is_a: Work
+      Essential Worker:
+        text: Essential Worker
+        is_a: Work
+      First Responder:
+        text: First Responder
+        meaning: GENEPIO:0100256
+        is_a: Work
+      Firefighter:
+        text: Firefighter
+        meaning: GENEPIO:0100257
+        is_a: First Responder
+      Paramedic:
+        text: Paramedic
+        meaning: GENEPIO:0100258
+        is_a: First Responder
+      Police Officer:
+        text: Police Officer
+        meaning: GENEPIO:0100259
+        is_a: First Responder
+      Healthcare Worker:
+        text: Healthcare Worker
+        meaning: GENEPIO:0100334
+        is_a: Work
+      Community Healthcare Worker:
+        text: Community Healthcare Worker
+        meaning: GENEPIO:0100420
+        is_a: Healthcare Worker
+      Laboratory Worker:
+        text: Laboratory Worker
+        meaning: GENEPIO:0100262
+        is_a: Healthcare Worker
+      Nurse:
+        text: Nurse
+        meaning: OMRSE:00000014
+        is_a: Healthcare Worker
+      Personal Care Aid:
+        text: Personal Care Aid
+        meaning: GENEPIO:0100263
+        is_a: Healthcare Worker
+      Pharmacist:
+        text: Pharmacist
+        meaning: GENEPIO:0100264
+        is_a: Healthcare Worker
+      Physician:
+        text: Physician
+        meaning: OMRSE:00000013
+        is_a: Healthcare Worker
+      Housekeeper:
+        text: Housekeeper
+        meaning: GENEPIO:0100260
+        is_a: Work
+      International worker:
+        text: International worker
+        is_a: Work
+      Kitchen Worker:
+        text: Kitchen Worker
+        meaning: GENEPIO:0100261
+        is_a: Work
+      Rotational Worker:
+        text: Rotational Worker
+        meaning: GENEPIO:0100354
+        is_a: Work
+      Seasonal Worker:
+        text: Seasonal Worker
+        meaning: GENEPIO:0100355
+        is_a: Work
+      Transport Worker:
+        text: Transport Worker
+        is_a: Work
+      Transport Truck Driver:
+        text: Transport Truck Driver
+        is_a: Transport Worker
+      Veterinarian:
+        text: Veterinarian
+        meaning: GENEPIO:0100265
+        is_a: Work
       Social role:
         text: Social role
         meaning: OMRSE:00000001
-        permissible_values:
-          Acquaintance of case:
-            text: Acquaintance of case
-            meaning: GENEPIO:0100266
-          Relative of case:
-            text: Relative of case
-            meaning: GENEPIO:0100267
-            permissible_values:
-              Child of case:
-                text: Child of case
-                meaning: GENEPIO:0100268
-              Parent of case:
-                text: Parent of case
-                meaning: GENEPIO:0100269
-                permissible_values:
-                  Father of case:
-                    text: Father of case
-                    meaning: GENEPIO:0100270
-                  Mother of case:
-                    text: Mother of case
-                    meaning: GENEPIO:0100271
-          Spouse of case:
-            text: Spouse of case
-            meaning: GENEPIO:0100272
+      Acquaintance of case:
+        text: Acquaintance of case
+        meaning: GENEPIO:0100266
+        is_a: Social role
+      Relative of case:
+        text: Relative of case
+        meaning: GENEPIO:0100267
+        is_a: Social role
+      Child of case:
+        text: Child of case
+        meaning: GENEPIO:0100268
+        is_a: Relative of case
+      Parent of case:
+        text: Parent of case
+        meaning: GENEPIO:0100269
+        is_a: Relative of case
+      Father of case:
+        text: Father of case
+        meaning: GENEPIO:0100270
+        is_a: Parent of case
+      Mother of case:
+        text: Mother of case
+        meaning: GENEPIO:0100271
+        is_a: Parent of case
+      Spouse of case:
+        text: Spouse of case
+        meaning: GENEPIO:0100272
+        is_a: Social role
       Other Host Role:
         text: Other Host Role
   exposure setting menu:
@@ -4694,200 +5211,248 @@ enums:
       Human Exposure:
         text: Human Exposure
         meaning: ECTO:3000005
-        permissible_values:
-          Contact with Known COVID-19 Case:
-            text: Contact with Known COVID-19 Case
-            meaning: GENEPIO:0100184
-          Contact with Patient:
-            text: Contact with Patient
-            meaning: GENEPIO:0100185
-          Contact with Probable COVID-19 Case:
-            text: Contact with Probable COVID-19 Case
-            meaning: GENEPIO:0100186
-          Contact with Person with Acute Respiratory Illness:
-            text: Contact with Person with Acute Respiratory Illness
-            meaning: GENEPIO:0100187
-          Contact with Person with Fever and/or Cough:
-            text: Contact with Person with Fever and/or Cough
-            meaning: GENEPIO:0100188
-          Contact with Person who Recently Travelled:
-            text: Contact with Person who Recently Travelled
-            meaning: GENEPIO:0100189
+      Contact with Known COVID-19 Case:
+        text: Contact with Known COVID-19 Case
+        meaning: GENEPIO:0100184
+        is_a: Human Exposure
+      Contact with Patient:
+        text: Contact with Patient
+        meaning: GENEPIO:0100185
+        is_a: Human Exposure
+      Contact with Probable COVID-19 Case:
+        text: Contact with Probable COVID-19 Case
+        meaning: GENEPIO:0100186
+        is_a: Human Exposure
+      Contact with Person with Acute Respiratory Illness:
+        text: Contact with Person with Acute Respiratory Illness
+        meaning: GENEPIO:0100187
+        is_a: Human Exposure
+      Contact with Person with Fever and/or Cough:
+        text: Contact with Person with Fever and/or Cough
+        meaning: GENEPIO:0100188
+        is_a: Human Exposure
+      Contact with Person who Recently Travelled:
+        text: Contact with Person who Recently Travelled
+        meaning: GENEPIO:0100189
+        is_a: Human Exposure
       Occupational, Residency or Patronage Exposure:
         text: Occupational, Residency or Patronage Exposure
         meaning: GENEPIO:0100190
-        permissible_values:
-          Abbatoir:
-            text: Abbatoir
-            meaning: ECTO:1000033
-          Animal Rescue:
-            text: Animal Rescue
-            meaning: GENEPIO:0100191
-          Childcare:
-            text: Childcare
-            meaning: GENEPIO:0100192
-            permissible_values:
-              Daycare:
-                text: Daycare
-                meaning: GENEPIO:0100193
-              Nursery:
-                text: Nursery
-                meaning: GENEPIO:0100194
-          Community Service Centre:
-            text: Community Service Centre
-            meaning: GENEPIO:0100195
-          Correctional Facility:
-            text: Correctional Facility
-            meaning: GENEPIO:0100196
-          Dormitory:
-            text: Dormitory
-            meaning: GENEPIO:0100197
-          Farm:
-            text: Farm
-            meaning: ECTO:1000034
-          First Nations Reserve:
-            text: First Nations Reserve
-            meaning: GENEPIO:0100198
-          Funeral Home:
-            text: Funeral Home
-            meaning: GENEPIO:0100199
-          Group Home:
-            text: Group Home
-            meaning: GENEPIO:0100200
-          Healthcare Setting:
-            text: Healthcare Setting
-            meaning: GENEPIO:0100201
-            permissible_values:
-              Ambulance:
-                text: Ambulance
-                meaning: GENEPIO:0100202
-              Acute Care Facility:
-                text: Acute Care Facility
-                meaning: GENEPIO:0100203
-              Clinic:
-                text: Clinic
-                meaning: GENEPIO:0100204
-              Community Healthcare (At-Home) Setting:
-                text: Community Healthcare (At-Home) Setting
-                meaning: GENEPIO:0100415
-              Community Health Centre:
-                text: Community Health Centre
-                meaning: GENEPIO:0100205
-              Hospital:
-                text: Hospital
-                meaning: ECTO:1000035
-                permissible_values:
-                  Emergency Department:
-                    text: Emergency Department
-                    meaning: GENEPIO:0100206
-                  ICU:
-                    text: ICU
-                    meaning: GENEPIO:0100207
-                  Ward:
-                    text: Ward
-                    meaning: GENEPIO:0100208
-              Laboratory:
-                text: Laboratory
-                meaning: ECTO:1000036
-              Long-Term Care Facility:
-                text: Long-Term Care Facility
-                meaning: GENEPIO:0100209
-              Pharmacy:
-                text: Pharmacy
-                meaning: GENEPIO:0100210
-              Physician's Office:
-                text: Physician's Office
-                meaning: GENEPIO:0100211
-          Household:
-            text: Household
-            meaning: GENEPIO:0100212
-          Insecure Housing (Homeless):
-            text: Insecure Housing (Homeless)
-            meaning: GENEPIO:0100213
-          Occupational Exposure:
-            text: Occupational Exposure
-            meaning: GENEPIO:0100214
-            permissible_values:
-              Worksite:
-                text: Worksite
-                meaning: GENEPIO:0100215
-                permissible_values:
-                  Office:
-                    text: Office
-                    meaning: ECTO:1000037
-          Outdoors:
-            text: Outdoors
-            meaning: GENEPIO:0100216
-            permissible_values:
-              Camp/camping:
-                text: Camp/camping
-                meaning: ECTO:5000009
-              Hiking Trail:
-                text: Hiking Trail
-                meaning: GENEPIO:0100217
-              Hunting Ground:
-                text: Hunting Ground
-                meaning: ECTO:6000030
-              Ski Resort:
-                text: Ski Resort
-                meaning: GENEPIO:0100218
-          Petting zoo:
-            text: Petting zoo
-            meaning: ECTO:5000008
-          Place of Worship:
-            text: Place of Worship
-            meaning: GENEPIO:0100220
-            permissible_values:
-              Church:
-                text: Church
-                meaning: GENEPIO:0100221
-              Mosque:
-                text: Mosque
-                meaning: GENEPIO:0100222
-              Temple:
-                text: Temple
-                meaning: GENEPIO:0100223
-          Restaurant:
-            text: Restaurant
-            meaning: ECTO:1000040
-          Retail Store:
-            text: Retail Store
-            meaning: ECTO:1000041
-          School:
-            text: School
-            meaning: GENEPIO:0100224
-          Temporary Residence:
-            text: Temporary Residence
-            meaning: GENEPIO:0100225
-            permissible_values:
-              Homeless Shelter:
-                text: Homeless Shelter
-                meaning: GENEPIO:0100226
-              Hotel:
-                text: Hotel
-                meaning: GENEPIO:0100227
-          Veterinary Care Clinic:
-            text: Veterinary Care Clinic
-            meaning: GENEPIO:0100228
+      Abbatoir:
+        text: Abbatoir
+        meaning: ECTO:1000033
+        is_a: Occupational, Residency or Patronage Exposure
+      Animal Rescue:
+        text: Animal Rescue
+        meaning: GENEPIO:0100191
+        is_a: Occupational, Residency or Patronage Exposure
+      Childcare:
+        text: Childcare
+        meaning: GENEPIO:0100192
+        is_a: Occupational, Residency or Patronage Exposure
+      Daycare:
+        text: Daycare
+        meaning: GENEPIO:0100193
+        is_a: Childcare
+      Nursery:
+        text: Nursery
+        meaning: GENEPIO:0100194
+        is_a: Childcare
+      Community Service Centre:
+        text: Community Service Centre
+        meaning: GENEPIO:0100195
+        is_a: Occupational, Residency or Patronage Exposure
+      Correctional Facility:
+        text: Correctional Facility
+        meaning: GENEPIO:0100196
+        is_a: Occupational, Residency or Patronage Exposure
+      Dormitory:
+        text: Dormitory
+        meaning: GENEPIO:0100197
+        is_a: Occupational, Residency or Patronage Exposure
+      Farm:
+        text: Farm
+        meaning: ECTO:1000034
+        is_a: Occupational, Residency or Patronage Exposure
+      First Nations Reserve:
+        text: First Nations Reserve
+        meaning: GENEPIO:0100198
+        is_a: Occupational, Residency or Patronage Exposure
+      Funeral Home:
+        text: Funeral Home
+        meaning: GENEPIO:0100199
+        is_a: Occupational, Residency or Patronage Exposure
+      Group Home:
+        text: Group Home
+        meaning: GENEPIO:0100200
+        is_a: Occupational, Residency or Patronage Exposure
+      Healthcare Setting:
+        text: Healthcare Setting
+        meaning: GENEPIO:0100201
+        is_a: Occupational, Residency or Patronage Exposure
+      Ambulance:
+        text: Ambulance
+        meaning: GENEPIO:0100202
+        is_a: Healthcare Setting
+      Acute Care Facility:
+        text: Acute Care Facility
+        meaning: GENEPIO:0100203
+        is_a: Healthcare Setting
+      Clinic:
+        text: Clinic
+        meaning: GENEPIO:0100204
+        is_a: Healthcare Setting
+      Community Healthcare (At-Home) Setting:
+        text: Community Healthcare (At-Home) Setting
+        meaning: GENEPIO:0100415
+        is_a: Healthcare Setting
+      Community Health Centre:
+        text: Community Health Centre
+        meaning: GENEPIO:0100205
+        is_a: Healthcare Setting
+      Hospital:
+        text: Hospital
+        meaning: ECTO:1000035
+        is_a: Healthcare Setting
+      Emergency Department:
+        text: Emergency Department
+        meaning: GENEPIO:0100206
+        is_a: Hospital
+      ICU:
+        text: ICU
+        meaning: GENEPIO:0100207
+        is_a: Hospital
+      Ward:
+        text: Ward
+        meaning: GENEPIO:0100208
+        is_a: Hospital
+      Laboratory:
+        text: Laboratory
+        meaning: ECTO:1000036
+        is_a: Healthcare Setting
+      Long-Term Care Facility:
+        text: Long-Term Care Facility
+        meaning: GENEPIO:0100209
+        is_a: Healthcare Setting
+      Pharmacy:
+        text: Pharmacy
+        meaning: GENEPIO:0100210
+        is_a: Healthcare Setting
+      Physician's Office:
+        text: Physician's Office
+        meaning: GENEPIO:0100211
+        is_a: Healthcare Setting
+      Household:
+        text: Household
+        meaning: GENEPIO:0100212
+        is_a: Occupational, Residency or Patronage Exposure
+      Insecure Housing (Homeless):
+        text: Insecure Housing (Homeless)
+        meaning: GENEPIO:0100213
+        is_a: Occupational, Residency or Patronage Exposure
+      Occupational Exposure:
+        text: Occupational Exposure
+        meaning: GENEPIO:0100214
+        is_a: Occupational, Residency or Patronage Exposure
+      Worksite:
+        text: Worksite
+        meaning: GENEPIO:0100215
+        is_a: Occupational Exposure
+      Office:
+        text: Office
+        meaning: ECTO:1000037
+        is_a: Worksite
+      Outdoors:
+        text: Outdoors
+        meaning: GENEPIO:0100216
+        is_a: Occupational, Residency or Patronage Exposure
+      Camp/camping:
+        text: Camp/camping
+        meaning: ECTO:5000009
+        is_a: Outdoors
+      Hiking Trail:
+        text: Hiking Trail
+        meaning: GENEPIO:0100217
+        is_a: Outdoors
+      Hunting Ground:
+        text: Hunting Ground
+        meaning: ECTO:6000030
+        is_a: Outdoors
+      Ski Resort:
+        text: Ski Resort
+        meaning: GENEPIO:0100218
+        is_a: Outdoors
+      Petting zoo:
+        text: Petting zoo
+        meaning: ECTO:5000008
+        is_a: Occupational, Residency or Patronage Exposure
+      Place of Worship:
+        text: Place of Worship
+        meaning: GENEPIO:0100220
+        is_a: Occupational, Residency or Patronage Exposure
+      Church:
+        text: Church
+        meaning: GENEPIO:0100221
+        is_a: Place of Worship
+      Mosque:
+        text: Mosque
+        meaning: GENEPIO:0100222
+        is_a: Place of Worship
+      Temple:
+        text: Temple
+        meaning: GENEPIO:0100223
+        is_a: Place of Worship
+      Restaurant:
+        text: Restaurant
+        meaning: ECTO:1000040
+        is_a: Occupational, Residency or Patronage Exposure
+      Retail Store:
+        text: Retail Store
+        meaning: ECTO:1000041
+        is_a: Occupational, Residency or Patronage Exposure
+      School:
+        text: School
+        meaning: GENEPIO:0100224
+        is_a: Occupational, Residency or Patronage Exposure
+      Temporary Residence:
+        text: Temporary Residence
+        meaning: GENEPIO:0100225
+        is_a: Occupational, Residency or Patronage Exposure
+      Homeless Shelter:
+        text: Homeless Shelter
+        meaning: GENEPIO:0100226
+        is_a: Temporary Residence
+      Hotel:
+        text: Hotel
+        meaning: GENEPIO:0100227
+        is_a: Temporary Residence
+      Veterinary Care Clinic:
+        text: Veterinary Care Clinic
+        meaning: GENEPIO:0100228
+        is_a: Occupational, Residency or Patronage Exposure
       Travel Exposure:
         text: Travel Exposure
         meaning: GENEPIO:0100229
-        permissible_values:
-          Travelled on a Cruise Ship:
-            text: Travelled on a Cruise Ship
-            meaning: GENEPIO:0100230
-          Travelled on a Plane:
-            text: Travelled on a Plane
-            meaning: GENEPIO:0100231
-          Travelled on Ground Transport:
-            text: Travelled on Ground Transport
-            meaning: GENEPIO:0100232
-          Travelled outside Province/Territory:
-            text: Travelled outside Province/Territory
-            meaning: GENEPIO:0001118
-          Travelled outside Canada:
-            text: Travelled outside Canada
-            meaning: GENEPIO:0001119
+      Travelled on a Cruise Ship:
+        text: Travelled on a Cruise Ship
+        meaning: GENEPIO:0100230
+        is_a: Travel Exposure
+      Travelled on a Plane:
+        text: Travelled on a Plane
+        meaning: GENEPIO:0100231
+        is_a: Travel Exposure
+      Travelled on Ground Transport:
+        text: Travelled on Ground Transport
+        meaning: GENEPIO:0100232
+        is_a: Travel Exposure
+      Travelled outside Province/Territory:
+        text: Travelled outside Province/Territory
+        meaning: GENEPIO:0001118
+        is_a: Travel Exposure
+      Travelled outside Canada:
+        text: Travelled outside Canada
+        meaning: GENEPIO:0001119
+        is_a: Travel Exposure
       Other Exposure Setting:
         text: Other Exposure Setting
         meaning: GENEPIO:0100235
@@ -4918,319 +5483,297 @@ enums:
       Illumina:
         text: Illumina
         meaning: GENEPIO:0100105
-        permissible_values:
-          Illumina Genome Analyzer:
-            text: Illumina Genome Analyzer
-            meaning: GENEPIO:0100106
-            permissible_values:
-              Illumina Genome Analyzer II:
-                text: Illumina Genome Analyzer II
-                meaning: GENEPIO:0100107
-              Illumina Genome Analyzer IIx:
-                text: Illumina Genome Analyzer IIx
-                meaning: GENEPIO:0100108
-          Illumina HiScanSQ:
-            text: Illumina HiScanSQ
-            meaning: GENEPIO:0100109
-          Illumina HiSeq:
-            text: Illumina HiSeq
-            meaning: GENEPIO:0100110
-            permissible_values:
-              Illumina HiSeq X:
-                text: Illumina HiSeq X
-                meaning: GENEPIO:0100111
-                permissible_values:
-                  Illumina HiSeq X Five:
-                    text: Illumina HiSeq X Five
-                    meaning: GENEPIO:0100112
-                  Illumina HiSeq X Ten:
-                    text: Illumina HiSeq X Ten
-                    meaning: GENEPIO:0100113
-              Illumina HiSeq 1000:
-                text: Illumina HiSeq 1000
-                meaning: GENEPIO:0100114
-              Illumina HiSeq 1500:
-                text: Illumina HiSeq 1500
-                meaning: GENEPIO:0100115
-              Illumina HiSeq 2000:
-                text: Illumina HiSeq 2000
-                meaning: GENEPIO:0100116
-              Illumina HiSeq 2500:
-                text: Illumina HiSeq 2500
-                meaning: GENEPIO:0100117
-              Illumina HiSeq 3000:
-                text: Illumina HiSeq 3000
-                meaning: GENEPIO:0100118
-              Illumina HiSeq 4000:
-                text: Illumina HiSeq 4000
-                meaning: GENEPIO:0100119
-          Illumina iSeq:
-            text: Illumina iSeq
-            meaning: GENEPIO:0100120
-            permissible_values:
-              Illumina iSeq 100:
-                text: Illumina iSeq 100
-                meaning: GENEPIO:0100121
-          Illumina NovaSeq:
-            text: Illumina NovaSeq
-            meaning: GENEPIO:0100122
-            permissible_values:
-              Illumina NovaSeq 6000:
-                text: Illumina NovaSeq 6000
-                meaning: GENEPIO:0100123
-          Illumina MiniSeq:
-            text: Illumina MiniSeq
-            meaning: GENEPIO:0100124
-          Illumina MiSeq:
-            text: Illumina MiSeq
-            meaning: GENEPIO:0100125
-          Illumina NextSeq:
-            text: Illumina NextSeq
-            meaning: GENEPIO:0100126
-            permissible_values:
-              Illumina NextSeq 500:
-                text: Illumina NextSeq 500
-                meaning: GENEPIO:0100127
-              Illumina NextSeq 550:
-                text: Illumina NextSeq 550
-                meaning: GENEPIO:0100128
-              Illumina NextSeq 2000:
-                text: Illumina NextSeq 2000
-                meaning: GENEPIO:0100129
+      Illumina Genome Analyzer:
+        text: Illumina Genome Analyzer
+        meaning: GENEPIO:0100106
+        is_a: Illumina
+      Illumina Genome Analyzer II:
+        text: Illumina Genome Analyzer II
+        meaning: GENEPIO:0100107
+        is_a: Illumina Genome Analyzer
+      Illumina Genome Analyzer IIx:
+        text: Illumina Genome Analyzer IIx
+        meaning: GENEPIO:0100108
+        is_a: Illumina Genome Analyzer
+      Illumina HiScanSQ:
+        text: Illumina HiScanSQ
+        meaning: GENEPIO:0100109
+        is_a: Illumina
+      Illumina HiSeq:
+        text: Illumina HiSeq
+        meaning: GENEPIO:0100110
+        is_a: Illumina
+      Illumina HiSeq X:
+        text: Illumina HiSeq X
+        meaning: GENEPIO:0100111
+        is_a: Illumina HiSeq
+      Illumina HiSeq X Five:
+        text: Illumina HiSeq X Five
+        meaning: GENEPIO:0100112
+        is_a: Illumina HiSeq X
+      Illumina HiSeq X Ten:
+        text: Illumina HiSeq X Ten
+        meaning: GENEPIO:0100113
+        is_a: Illumina HiSeq X
+      Illumina HiSeq 1000:
+        text: Illumina HiSeq 1000
+        meaning: GENEPIO:0100114
+        is_a: Illumina HiSeq
+      Illumina HiSeq 1500:
+        text: Illumina HiSeq 1500
+        meaning: GENEPIO:0100115
+        is_a: Illumina HiSeq
+      Illumina HiSeq 2000:
+        text: Illumina HiSeq 2000
+        meaning: GENEPIO:0100116
+        is_a: Illumina HiSeq
+      Illumina HiSeq 2500:
+        text: Illumina HiSeq 2500
+        meaning: GENEPIO:0100117
+        is_a: Illumina HiSeq
+      Illumina HiSeq 3000:
+        text: Illumina HiSeq 3000
+        meaning: GENEPIO:0100118
+        is_a: Illumina HiSeq
+      Illumina HiSeq 4000:
+        text: Illumina HiSeq 4000
+        meaning: GENEPIO:0100119
+        is_a: Illumina HiSeq
+      Illumina iSeq:
+        text: Illumina iSeq
+        meaning: GENEPIO:0100120
+        is_a: Illumina
+      Illumina iSeq 100:
+        text: Illumina iSeq 100
+        meaning: GENEPIO:0100121
+        is_a: Illumina iSeq
+      Illumina NovaSeq:
+        text: Illumina NovaSeq
+        meaning: GENEPIO:0100122
+        is_a: Illumina
+      Illumina NovaSeq 6000:
+        text: Illumina NovaSeq 6000
+        meaning: GENEPIO:0100123
+        is_a: Illumina NovaSeq
+      Illumina MiniSeq:
+        text: Illumina MiniSeq
+        meaning: GENEPIO:0100124
+        is_a: Illumina
+      Illumina MiSeq:
+        text: Illumina MiSeq
+        meaning: GENEPIO:0100125
+        is_a: Illumina
+      Illumina NextSeq:
+        text: Illumina NextSeq
+        meaning: GENEPIO:0100126
+        is_a: Illumina
+      Illumina NextSeq 500:
+        text: Illumina NextSeq 500
+        meaning: GENEPIO:0100127
+        is_a: Illumina NextSeq
+      Illumina NextSeq 550:
+        text: Illumina NextSeq 550
+        meaning: GENEPIO:0100128
+        is_a: Illumina NextSeq
+      Illumina NextSeq 2000:
+        text: Illumina NextSeq 2000
+        meaning: GENEPIO:0100129
+        is_a: Illumina NextSeq
       Pacific Biosciences:
         text: Pacific Biosciences
         meaning: GENEPIO:0100130
-        permissible_values:
-          PacBio RS:
-            text: PacBio RS
-            meaning: GENEPIO:0100131
-          PacBio RS II:
-            text: PacBio RS II
-            meaning: GENEPIO:0100132
-          PacBio Sequel:
-            text: PacBio Sequel
-            meaning: GENEPIO:0100133
-          PacBio Sequel II:
-            text: PacBio Sequel II
-            meaning: GENEPIO:0100134
+      PacBio RS:
+        text: PacBio RS
+        meaning: GENEPIO:0100131
+        is_a: Pacific Biosciences
+      PacBio RS II:
+        text: PacBio RS II
+        meaning: GENEPIO:0100132
+        is_a: Pacific Biosciences
+      PacBio Sequel:
+        text: PacBio Sequel
+        meaning: GENEPIO:0100133
+        is_a: Pacific Biosciences
+      PacBio Sequel II:
+        text: PacBio Sequel II
+        meaning: GENEPIO:0100134
+        is_a: Pacific Biosciences
       Ion Torrent:
         text: Ion Torrent
         meaning: GENEPIO:0100135
-        permissible_values:
-          Ion Torrent PGM:
-            text: Ion Torrent PGM
-            meaning: GENEPIO:0100136
-          Ion Torrent Proton:
-            text: Ion Torrent Proton
-            meaning: GENEPIO:0100137
-          Ion Torrent S5 XL:
-            text: Ion Torrent S5 XL
-            meaning: GENEPIO:0100138
-          Ion Torrent S5:
-            text: Ion Torrent S5
-            meaning: GENEPIO:0100139
+      Ion Torrent PGM:
+        text: Ion Torrent PGM
+        meaning: GENEPIO:0100136
+        is_a: Ion Torrent
+      Ion Torrent Proton:
+        text: Ion Torrent Proton
+        meaning: GENEPIO:0100137
+        is_a: Ion Torrent
+      Ion Torrent S5 XL:
+        text: Ion Torrent S5 XL
+        meaning: GENEPIO:0100138
+        is_a: Ion Torrent
+      Ion Torrent S5:
+        text: Ion Torrent S5
+        meaning: GENEPIO:0100139
+        is_a: Ion Torrent
       Oxford Nanopore:
         text: Oxford Nanopore
         meaning: GENEPIO:0100140
-        permissible_values:
-          Oxford Nanopore GridION:
-            text: Oxford Nanopore GridION
-            meaning: GENEPIO:0100141
-          Oxford Nanopore MinION:
-            text: Oxford Nanopore MinION
-            meaning: GENEPIO:0100142
-          Oxford Nanopore PromethION:
-            text: Oxford Nanopore PromethION
-            meaning: GENEPIO:0100143
+      Oxford Nanopore GridION:
+        text: Oxford Nanopore GridION
+        meaning: GENEPIO:0100141
+        is_a: Oxford Nanopore
+      Oxford Nanopore MinION:
+        text: Oxford Nanopore MinION
+        meaning: GENEPIO:0100142
+        is_a: Oxford Nanopore
+      Oxford Nanopore PromethION:
+        text: Oxford Nanopore PromethION
+        meaning: GENEPIO:0100143
+        is_a: Oxford Nanopore
       BGI Genomics:
         text: BGI Genomics
         meaning: GENEPIO:0100144
-        permissible_values:
-          BGI Genomics BGISEQ-500:
-            text: BGI Genomics BGISEQ-500
-            meaning: GENEPIO:0100145
+      BGI Genomics BGISEQ-500:
+        text: BGI Genomics BGISEQ-500
+        meaning: GENEPIO:0100145
+        is_a: BGI Genomics
       MGI:
         text: MGI
         meaning: GENEPIO:0100146
-        permissible_values:
-          MGI DNBSEQ-T7:
-            text: MGI DNBSEQ-T7
-            meaning: GENEPIO:0100147
-          MGI DNBSEQ-G400:
-            text: MGI DNBSEQ-G400
-            meaning: GENEPIO:0100148
-          MGI DNBSEQ-G400 FAST:
-            text: MGI DNBSEQ-G400 FAST
-            meaning: GENEPIO:0100149
-          MGI DNBSEQ-G50:
-            text: MGI DNBSEQ-G50
-            meaning: GENEPIO:0100150
+      MGI DNBSEQ-T7:
+        text: MGI DNBSEQ-T7
+        meaning: GENEPIO:0100147
+        is_a: MGI
+      MGI DNBSEQ-G400:
+        text: MGI DNBSEQ-G400
+        meaning: GENEPIO:0100148
+        is_a: MGI
+      MGI DNBSEQ-G400 FAST:
+        text: MGI DNBSEQ-G400 FAST
+        meaning: GENEPIO:0100149
+        is_a: MGI
+      MGI DNBSEQ-G50:
+        text: MGI DNBSEQ-G50
+        meaning: GENEPIO:0100150
+        is_a: MGI
   gene name menu:
     name: gene name menu
     permissible_values:
       E gene (orf4):
         text: E gene (orf4)
         meaning: GENEPIO:0100151
-        exact_mappings:
-        - CNPHI:E gene
-        - BIOSAMPLE:E (orf4)
       M gene (orf5):
         text: M gene (orf5)
         meaning: GENEPIO:0100152
-        exact_mappings:
-        - BIOSAMPLE:M (orf5)
       N gene (orf9):
         text: N gene (orf9)
         meaning: GENEPIO:0100153
-        exact_mappings:
-        - BIOSAMPLE:N (orf9)
       Spike gene (orf2):
         text: Spike gene (orf2)
         meaning: GENEPIO:0100154
-        exact_mappings:
-        - BIOSAMPLE:S (orf2)
       orf1ab (rep):
         text: orf1ab (rep)
         meaning: GENEPIO:0100155
-        exact_mappings:
-        - BIOSAMPLE:orf1ab (rep)
-        permissible_values:
-          orf1a (pp1a):
-            text: orf1a (pp1a)
-            meaning: GENEPIO:0100156
-            exact_mappings:
-            - BIOSAMPLE:orf1a (pp1a)
-            permissible_values:
-              nsp11:
-                text: nsp11
-                meaning: GENEPIO:0100157
-                exact_mappings:
-                - BIOSAMPLE:nsp11
-          nsp1:
-            text: nsp1
-            meaning: GENEPIO:0100158
-            exact_mappings:
-            - BIOSAMPLE:nsp1
-          nsp2:
-            text: nsp2
-            meaning: GENEPIO:0100159
-            exact_mappings:
-            - BIOSAMPLE:nsp2
-          nsp3:
-            text: nsp3
-            meaning: GENEPIO:0100160
-            exact_mappings:
-            - BIOSAMPLE:nsp3
-          nsp4:
-            text: nsp4
-            meaning: GENEPIO:0100161
-            exact_mappings:
-            - BIOSAMPLE:nsp4
-          nsp5:
-            text: nsp5
-            meaning: GENEPIO:0100162
-            exact_mappings:
-            - BIOSAMPLE:nsp5
-          nsp6:
-            text: nsp6
-            meaning: GENEPIO:0100163
-            exact_mappings:
-            - BIOSAMPLE:nsp6
-          nsp7:
-            text: nsp7
-            meaning: GENEPIO:0100164
-            exact_mappings:
-            - BIOSAMPLE:nsp7
-          nsp8:
-            text: nsp8
-            meaning: GENEPIO:0100165
-            exact_mappings:
-            - BIOSAMPLE:nsp8
-          nsp9:
-            text: nsp9
-            meaning: GENEPIO:0100166
-            exact_mappings:
-            - BIOSAMPLE:nsp9
-          nsp10:
-            text: nsp10
-            meaning: GENEPIO:0100167
-            exact_mappings:
-            - BIOSAMPLE:nsp10
-          RdRp gene (nsp12):
-            text: RdRp gene (nsp12)
-            meaning: GENEPIO:0100168
-            exact_mappings:
-            - BIOSAMPLE:nsp12 (RdRp)
-          hel gene (nsp13):
-            text: hel gene (nsp13)
-            meaning: GENEPIO:0100169
-            exact_mappings:
-            - BIOSAMPLE:nsp13 (Hel)
-          exoN gene (nsp14):
-            text: exoN gene (nsp14)
-            meaning: GENEPIO:0100170
-            exact_mappings:
-            - BIOSAMPLE:nsp14 (ExoN)
-          nsp15:
-            text: nsp15
-            meaning: GENEPIO:0100171
-            exact_mappings:
-            - BIOSAMPLE:nsp15
-          nsp16:
-            text: nsp16
-            meaning: GENEPIO:0100172
-            exact_mappings:
-            - BIOSAMPLE:nsp16
+      orf1a (pp1a):
+        text: orf1a (pp1a)
+        meaning: GENEPIO:0100156
+        is_a: orf1ab (rep)
+      nsp11:
+        text: nsp11
+        meaning: GENEPIO:0100157
+        is_a: orf1a (pp1a)
+      nsp1:
+        text: nsp1
+        meaning: GENEPIO:0100158
+        is_a: orf1ab (rep)
+      nsp2:
+        text: nsp2
+        meaning: GENEPIO:0100159
+        is_a: orf1ab (rep)
+      nsp3:
+        text: nsp3
+        meaning: GENEPIO:0100160
+        is_a: orf1ab (rep)
+      nsp4:
+        text: nsp4
+        meaning: GENEPIO:0100161
+        is_a: orf1ab (rep)
+      nsp5:
+        text: nsp5
+        meaning: GENEPIO:0100162
+        is_a: orf1ab (rep)
+      nsp6:
+        text: nsp6
+        meaning: GENEPIO:0100163
+        is_a: orf1ab (rep)
+      nsp7:
+        text: nsp7
+        meaning: GENEPIO:0100164
+        is_a: orf1ab (rep)
+      nsp8:
+        text: nsp8
+        meaning: GENEPIO:0100165
+        is_a: orf1ab (rep)
+      nsp9:
+        text: nsp9
+        meaning: GENEPIO:0100166
+        is_a: orf1ab (rep)
+      nsp10:
+        text: nsp10
+        meaning: GENEPIO:0100167
+        is_a: orf1ab (rep)
+      RdRp gene (nsp12):
+        text: RdRp gene (nsp12)
+        meaning: GENEPIO:0100168
+        is_a: orf1ab (rep)
+      hel gene (nsp13):
+        text: hel gene (nsp13)
+        meaning: GENEPIO:0100169
+        is_a: orf1ab (rep)
+      exoN gene (nsp14):
+        text: exoN gene (nsp14)
+        meaning: GENEPIO:0100170
+        is_a: orf1ab (rep)
+      nsp15:
+        text: nsp15
+        meaning: GENEPIO:0100171
+        is_a: orf1ab (rep)
+      nsp16:
+        text: nsp16
+        meaning: GENEPIO:0100172
+        is_a: orf1ab (rep)
       orf3a:
         text: orf3a
         meaning: GENEPIO:0100173
-        exact_mappings:
-        - BIOSAMPLE:orf3a
       orf3b:
         text: orf3b
         meaning: GENEPIO:0100174
-        exact_mappings:
-        - BIOSAMPLE:orf3b
       orf6 (ns6):
         text: orf6 (ns6)
         meaning: GENEPIO:0100175
-        exact_mappings:
-        - BIOSAMPLE:orf6 (ns6)
       orf7a:
         text: orf7a
         meaning: GENEPIO:0100176
-        exact_mappings:
-        - BIOSAMPLE:orf7a
       orf7b (ns7b):
         text: orf7b (ns7b)
         meaning: GENEPIO:0100177
-        exact_mappings:
-        - BIOSAMPLE:orf7b (ns7b)
       orf8 (ns8):
         text: orf8 (ns8)
         meaning: GENEPIO:0100178
-        exact_mappings:
-        - BIOSAMPLE:orf8 (ns8)
       orf9b:
         text: orf9b
         meaning: GENEPIO:0100179
-        exact_mappings:
-        - BIOSAMPLE:orf9b
       orf9c:
         text: orf9c
         meaning: GENEPIO:0100180
-        exact_mappings:
-        - BIOSAMPLE:orf9c
       orf10:
         text: orf10
         meaning: GENEPIO:0100181
-        exact_mappings:
-        - BIOSAMPLE:orf10
       orf14:
         text: orf14
         meaning: GENEPIO:0100182
-        exact_mappings:
-        - BIOSAMPLE:orf14
       SARS-COV-2 5' UTR:
         text: SARS-COV-2 5' UTR
         meaning: GENEPIO:0100183
@@ -5239,11 +5782,12 @@ enums:
     permissible_values:
       Alberta Precision Labs (APL):
         text: Alberta Precision Labs (APL)
-        permissible_values:
-          Alberta ProvLab North (APLN):
-            text: Alberta ProvLab North (APLN)
-          Alberta ProvLab South (APLS):
-            text: Alberta ProvLab South (APLS)
+      Alberta ProvLab North (APLN):
+        text: Alberta ProvLab North (APLN)
+        is_a: Alberta Precision Labs (APL)
+      Alberta ProvLab South (APLS):
+        text: Alberta ProvLab South (APLS)
+        is_a: Alberta Precision Labs (APL)
       BCCDC Public Health Laboratory:
         text: BCCDC Public Health Laboratory
       Canadore College:
@@ -5293,11 +5837,12 @@ enums:
     permissible_values:
       Alberta Precision Labs (APL):
         text: Alberta Precision Labs (APL)
-        permissible_values:
-          Alberta ProvLab North (APLN):
-            text: Alberta ProvLab North (APLN)
-          Alberta ProvLab South (APLS):
-            text: Alberta ProvLab South (APLS)
+      Alberta ProvLab North (APLN):
+        text: Alberta ProvLab North (APLN)
+        is_a: Alberta Precision Labs (APL)
+      Alberta ProvLab South (APLS):
+        text: Alberta ProvLab South (APLS)
+        is_a: Alberta Precision Labs (APL)
       BCCDC Public Health Laboratory:
         text: BCCDC Public Health Laboratory
       Dynacare:
@@ -6174,6 +6719,6 @@ enums:
         meaning: GAZ:00001106
 types: {}
 settings:
-  lower case: ^[a-z\W\d_]*$
-  UPPER CASE: ^[A-Z\W\d_]*$
-  Title Case: "^(((?<=\b)[^a-z\\W]\\w*?|[\\W])+)$"
+  lower_case: ^[a-z\W\d_]*$
+  UPPER_CASE: ^[A-Z\W\d_]*$
+  Title_Case: ^(((?<=\b)[^a-z\W]\w*?|[\W])+)$

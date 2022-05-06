@@ -6,6 +6,11 @@ imports:
 prefixes:
   linkml: https://w3id.org/linkml/
 classes:
+  dh_interface:
+    name: dh_interface
+    description: A DataHarmonizer interface
+    from_schema: https://example.com/CanCOGeN_Covid-19
+
   CanCOGeN Covid-19:
     name: CanCOGeN Covid-19
     description: Canadian specification for Covid-19 clinical virus biosample data gathering
@@ -14,6 +19,6 @@ slots: {}
 enums: {}
 types: {}
 settings:
-  lower case: "^[a-z\\W\\d_]*$"
-  UPPER CASE: "^[A-Z\\W\\d_]*$"
-  Title Case: "^(((?<=\b)[^a-z\\W]\\w*?|[\\W])+)$"
+  lower_case: ^[a-z\W\d_]*$
+  UPPER_CASE: ^[A-Z\W\d_]*$
+  Title_Case: ^(((?<=\b)[^a-z\W]\w*?|[\W])+)$

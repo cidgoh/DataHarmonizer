@@ -1153,10 +1153,11 @@ let DataHarmonizer = {
 							new_field.flatVocabularyLCase = [];
 
 						new_field.sources.push(range);
-						//This calculates for each categorical field in schema.yaml a 
+						// This calculates for each categorical field in schema.yaml a 
 						// flat list of allowed values (indented to represent hierarchy)
 						let flatVocab = self.stringifyNestedVocabulary(range_obj.permissible_values)
 						new_field.flatVocabulary.push(... flatVocab );
+						// Lowercase version used for easy lookup/validation
 						new_field.flatVocabularyLCase.push(... flatVocab.map(val => val.trim().toLowerCase()) );
 
 					}
