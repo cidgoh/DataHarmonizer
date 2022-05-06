@@ -1,0 +1,19 @@
+id: https://example.com/CanCOGeN_Covid-19
+name: CanCOGeN_Covid-19
+description: ''
+imports:
+- linkml:types
+prefixes:
+  linkml: https://w3id.org/linkml/
+classes:
+  CanCOGeN Covid-19:
+    name: CanCOGeN Covid-19
+    description: Canadian specification for Covid-19 clinical virus biosample data gathering
+    is_a: dh_interface
+slots: {}
+enums: {}
+types: {}
+settings:
+  lower case: "^[a-z\\W\\d_]*$"
+  UPPER CASE: "^[A-Z\\W\\d_]*$"
+  Title Case: "^(((?<=\b)[^a-z\\W]\\w*?|[\\W])+)$"
