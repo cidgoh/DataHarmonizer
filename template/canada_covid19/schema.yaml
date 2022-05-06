@@ -655,12 +655,7 @@ slots:
     examples:
     - value: SR20-12345
     slot_uri: GENEPIO:0001128
-    any_of: !!python/object/apply:builtins.map
-    - !!python/name:__main__.%3Clambda%3E ''
-    - !!python/object/apply:builtins.iter
-      args:
-      - - null
-      state: 0
+    range: xs:token
     exact_mappings:
     - CNPHI:Related Specimen ID
     - CNPHI:Related Specimen Relationship Type
@@ -789,12 +784,7 @@ slots:
     examples:
     - value: BC Centre for Disease Control
     slot_uri: GENEPIO:0001153
-    any_of: !!python/object/apply:builtins.map
-    - !!python/name:__main__.%3Clambda%3E ''
-    - !!python/object/apply:builtins.iter
-      args:
-      - - null
-      state: 0
+    range: sample collected by menu
     required: true
     exact_mappings:
     - GISAID:Originating lab
@@ -839,12 +829,7 @@ slots:
     examples:
     - value: Public Health Ontario (PHO)
     slot_uri: GENEPIO:0001159
-    any_of: !!python/object/apply:builtins.map
-    - !!python/name:__main__.%3Clambda%3E ''
-    - !!python/object/apply:builtins.iter
-      args:
-      - - null
-      state: 0
+    range: selectsequence submitted by menu
     required: true
     exact_mappings:
     - GISAID:Submitting lab
@@ -891,12 +876,7 @@ slots:
     examples:
     - value: '2020-03-16'
     slot_uri: GENEPIO:0001174
-    any_of: !!python/object/apply:builtins.map
-    - !!python/name:__main__.%3Clambda%3E ''
-    - !!python/object/apply:builtins.iter
-      args:
-      - - null
-      state: 0
+    range: xs:date
     required: true
     exact_mappings:
     - GISAID:Collection date
@@ -915,12 +895,7 @@ slots:
     examples:
     - value: year
     slot_uri: GENEPIO:0001177
-    any_of: !!python/object/apply:builtins.map
-    - !!python/name:__main__.%3Clambda%3E ''
-    - !!python/object/apply:builtins.iter
-      args:
-      - - null
-      state: 0
+    range: sample collection date precision menu
     required: true
     exact_mappings:
     - CNPHI:Precision of date collected
@@ -933,12 +908,7 @@ slots:
     examples:
     - value: '2020-03-20'
     slot_uri: GENEPIO:0001179
-    any_of: !!python/object/apply:builtins.map
-    - !!python/name:__main__.%3Clambda%3E ''
-    - !!python/object/apply:builtins.iter
-      args:
-      - - null
-      state: 0
+    range: xs:date
     exact_mappings:
     - NML_LIMS:sample received date
   geo_loc_name (country):
@@ -949,12 +919,7 @@ slots:
     examples:
     - value: Canada
     slot_uri: GENEPIO:0001181
-    any_of: !!python/object/apply:builtins.map
-    - !!python/name:__main__.%3Clambda%3E ''
-    - !!python/object/apply:builtins.iter
-      args:
-      - - null
-      state: 0
+    range: geo_loc_name (country) menu
     required: true
     exact_mappings:
     - GISAID:Location
@@ -970,12 +935,7 @@ slots:
     examples:
     - value: Saskatchewan
     slot_uri: GENEPIO:0001185
-    any_of: !!python/object/apply:builtins.map
-    - !!python/name:__main__.%3Clambda%3E ''
-    - !!python/object/apply:builtins.iter
-      args:
-      - - null
-      state: 0
+    range: geo_loc_name (state/province/territory) menu
     required: true
     exact_mappings:
     - CNPHI:Patient Province
@@ -1004,12 +964,7 @@ slots:
     examples:
     - value: Severe acute respiratory syndrome coronavirus 2
     slot_uri: GENEPIO:0001191
-    any_of: !!python/object/apply:builtins.map
-    - !!python/name:__main__.%3Clambda%3E ''
-    - !!python/object/apply:builtins.iter
-      args:
-      - - null
-      state: 0
+    range: organism menu
     required: true
     exact_mappings:
     - CNPHI:Pathogen
@@ -1025,12 +980,7 @@ slots:
     examples:
     - value: hCov-19/CANADA/BC-prov_rona_99/2020
     slot_uri: GENEPIO:0001195
-    any_of: !!python/object/apply:builtins.map
-    - !!python/name:__main__.%3Clambda%3E ''
-    - !!python/object/apply:builtins.iter
-      args:
-      - - null
-      state: 0
+    range: xs:token
     required: true
     exact_mappings:
     - GISAID:Virus name
@@ -1053,12 +1003,7 @@ slots:
     examples:
     - value: Diagnostic testing
     slot_uri: GENEPIO:0001198
-    any_of: !!python/object/apply:builtins.map
-    - !!python/name:__main__.%3Clambda%3E ''
-    - !!python/object/apply:builtins.iter
-      args:
-      - - null
-      state: 0
+    range: purpose of sampling menu
     required: true
     exact_mappings:
     - CNPHI:Reason for Sampling
@@ -1078,12 +1023,7 @@ slots:
     - value: The sample was collected to investigate the prevalence of variants associated
         with mink-to-human transmission in Canada.
     slot_uri: GENEPIO:0001200
-    any_of: !!python/object/apply:builtins.map
-    - !!python/name:__main__.%3Clambda%3E ''
-    - !!python/object/apply:builtins.iter
-      args:
-      - - null
-      state: 0
+    range: xs:token
     required: true
     exact_mappings:
     - CNPHI:Details on the Reason for Sampling
@@ -1135,12 +1075,7 @@ slots:
     examples:
     - value: Blood
     slot_uri: GENEPIO:0001211
-    any_of: !!python/object/apply:builtins.map
-    - !!python/name:__main__.%3Clambda%3E ''
-    - !!python/object/apply:builtins.iter
-      args:
-      - - null
-      state: 0
+    range: anatomical material menu
     multivalued: true
     required: true
     exact_mappings:
@@ -1161,12 +1096,7 @@ slots:
     examples:
     - value: Nasopharynx (NP)
     slot_uri: GENEPIO:0001214
-    any_of: !!python/object/apply:builtins.map
-    - !!python/name:__main__.%3Clambda%3E ''
-    - !!python/object/apply:builtins.iter
-      args:
-      - - null
-      state: 0
+    range: anatomical part menu
     multivalued: true
     required: true
     exact_mappings:
@@ -1188,12 +1118,7 @@ slots:
     examples:
     - value: Feces
     slot_uri: GENEPIO:0001216
-    any_of: !!python/object/apply:builtins.map
-    - !!python/name:__main__.%3Clambda%3E ''
-    - !!python/object/apply:builtins.iter
-      args:
-      - - null
-      state: 0
+    range: body product menu menu
     multivalued: true
     required: true
     exact_mappings:
@@ -1215,12 +1140,7 @@ slots:
     examples:
     - value: Face mask
     slot_uri: GENEPIO:0001223
-    any_of: !!python/object/apply:builtins.map
-    - !!python/name:__main__.%3Clambda%3E ''
-    - !!python/object/apply:builtins.iter
-      args:
-      - - null
-      state: 0
+    range: environmental material menu
     multivalued: true
     required: true
     exact_mappings:
@@ -1242,12 +1162,7 @@ slots:
     examples:
     - value: Production Facility
     slot_uri: GENEPIO:0001232
-    any_of: !!python/object/apply:builtins.map
-    - !!python/name:__main__.%3Clambda%3E ''
-    - !!python/object/apply:builtins.iter
-      args:
-      - - null
-      state: 0
+    range: environmental site menu
     multivalued: true
     required: true
     exact_mappings:
@@ -1268,12 +1183,7 @@ slots:
     examples:
     - value: Swab
     slot_uri: GENEPIO:0001234
-    any_of: !!python/object/apply:builtins.map
-    - !!python/name:__main__.%3Clambda%3E ''
-    - !!python/object/apply:builtins.iter
-      args:
-      - - null
-      state: 0
+    range: collection device menu
     multivalued: true
     required: true
     exact_mappings:
@@ -1294,12 +1204,7 @@ slots:
     examples:
     - value: Bronchoalveolar lavage (BAL)
     slot_uri: GENEPIO:0001241
-    any_of: !!python/object/apply:builtins.map
-    - !!python/name:__main__.%3Clambda%3E ''
-    - !!python/object/apply:builtins.iter
-      args:
-      - - null
-      state: 0
+    range: collection method menu
     multivalued: true
     required: true
     exact_mappings:
@@ -1332,12 +1237,7 @@ slots:
     examples:
     - value: Virus passage
     slot_uri: GENEPIO:0001253
-    any_of: !!python/object/apply:builtins.map
-    - !!python/name:__main__.%3Clambda%3E ''
-    - !!python/object/apply:builtins.iter
-      args:
-      - - null
-      state: 0
+    range: specimen processing menu
     multivalued: true
     recommended: true
     exact_mappings:
@@ -1365,12 +1265,7 @@ slots:
     examples:
     - value: Vero E6 cell line
     slot_uri: GENEPIO:0001255
-    any_of: !!python/object/apply:builtins.map
-    - !!python/name:__main__.%3Clambda%3E ''
-    - !!python/object/apply:builtins.iter
-      args:
-      - - null
-      state: 0
+    range: lab host menu
     recommended: true
     exact_mappings:
     - GISAID:Passage details/history
@@ -1384,12 +1279,7 @@ slots:
     examples:
     - value: '3'
     slot_uri: GENEPIO:0001261
-    any_of: !!python/object/apply:builtins.map
-    - !!python/name:__main__.%3Clambda%3E ''
-    - !!python/object/apply:builtins.iter
-      args:
-      - - null
-      state: 0
+    range: xs:nonNegativeInteger
     recommended: true
     exact_mappings:
     - GISAID:Passage details/history
@@ -1404,12 +1294,7 @@ slots:
     examples:
     - value: 0.25% trypsin + 0.02% EDTA
     slot_uri: GENEPIO:0001264
-    any_of: !!python/object/apply:builtins.map
-    - !!python/name:__main__.%3Clambda%3E ''
-    - !!python/object/apply:builtins.iter
-      args:
-      - - null
-      state: 0
+    range: xs:token
     recommended: true
     exact_mappings:
     - GISAID:Passage details/history
@@ -1423,12 +1308,7 @@ slots:
     examples:
     - value: RNA (total)
     slot_uri: GENEPIO:0001266
-    any_of: !!python/object/apply:builtins.map
-    - !!python/name:__main__.%3Clambda%3E ''
-    - !!python/object/apply:builtins.iter
-      args:
-      - - null
-      state: 0
+    range: biomaterial extracted menu
     exact_mappings:
     - NML_LIMS:biomaterial extracted
   host (common name):
@@ -1441,12 +1321,7 @@ slots:
     examples:
     - value: Human
     slot_uri: GENEPIO:0001386
-    any_of: !!python/object/apply:builtins.map
-    - !!python/name:__main__.%3Clambda%3E ''
-    - !!python/object/apply:builtins.iter
-      args:
-      - - null
-      state: 0
+    range: host (common name) menu
     exact_mappings:
     - CNPHI:Animal Type
     - NML_LIMS:PH_ANIMAL_TYPE
@@ -1460,12 +1335,7 @@ slots:
     examples:
     - value: Homo sapiens
     slot_uri: GENEPIO:0001387
-    any_of: !!python/object/apply:builtins.map
-    - !!python/name:__main__.%3Clambda%3E ''
-    - !!python/object/apply:builtins.iter
-      args:
-      - - null
-      state: 0
+    range: host (scientific name) menu
     required: true
     exact_mappings:
     - GISAID:Host
@@ -1480,12 +1350,7 @@ slots:
     examples:
     - value: Symptomatic
     slot_uri: GENEPIO:0001388
-    any_of: !!python/object/apply:builtins.map
-    - !!python/name:__main__.%3Clambda%3E ''
-    - !!python/object/apply:builtins.iter
-      args:
-      - - null
-      state: 0
+    range: host health state menu
     exact_mappings:
     - GISAID:Patient status
     - CNPHI:Host Health State
@@ -1500,12 +1365,7 @@ slots:
     examples:
     - value: Hospitalized (ICU)
     slot_uri: GENEPIO:0001389
-    any_of: !!python/object/apply:builtins.map
-    - !!python/name:__main__.%3Clambda%3E ''
-    - !!python/object/apply:builtins.iter
-      args:
-      - - null
-      state: 0
+    range: host health status details menu
     exact_mappings:
     - CNPHI:Host Health State Details
     - NML_LIMS:PH_HOST_HEALTH_DETAILS
@@ -1517,12 +1377,7 @@ slots:
     examples:
     - value: Recovered
     slot_uri: GENEPIO:0001390
-    any_of: !!python/object/apply:builtins.map
-    - !!python/name:__main__.%3Clambda%3E ''
-    - !!python/object/apply:builtins.iter
-      args:
-      - - null
-      state: 0
+    range: host health outcome menu
     exact_mappings:
     - NML_LIMS:PH_HOST_HEALTH_OUTCOME
     - BIOSAMPLE:host_disease_outcome
@@ -1534,12 +1389,7 @@ slots:
     examples:
     - value: COVID-19
     slot_uri: GENEPIO:0001391
-    any_of: !!python/object/apply:builtins.map
-    - !!python/name:__main__.%3Clambda%3E ''
-    - !!python/object/apply:builtins.iter
-      args:
-      - - null
-      state: 0
+    range: host disease menu
     required: true
     exact_mappings:
     - CNPHI:Host Disease
@@ -1555,12 +1405,7 @@ slots:
     examples:
     - value: '79'
     slot_uri: GENEPIO:0001392
-    any_of: !!python/object/apply:builtins.map
-    - !!python/name:__main__.%3Clambda%3E ''
-    - !!python/object/apply:builtins.iter
-      args:
-      - - null
-      state: 0
+    range: xs:decimal
     required: true
     minimum_value: '0'
     maximum_value: '130'
@@ -1579,12 +1424,7 @@ slots:
     examples:
     - value: years
     slot_uri: GENEPIO:0001393
-    any_of: !!python/object/apply:builtins.map
-    - !!python/name:__main__.%3Clambda%3E ''
-    - !!python/object/apply:builtins.iter
-      args:
-      - - null
-      state: 0
+    range: host age unit menu
     required: true
     exact_mappings:
     - CNPHI:Age Units
@@ -1599,12 +1439,7 @@ slots:
     examples:
     - value: 60 - 69
     slot_uri: GENEPIO:0001394
-    any_of: !!python/object/apply:builtins.map
-    - !!python/name:__main__.%3Clambda%3E ''
-    - !!python/object/apply:builtins.iter
-      args:
-      - - null
-      state: 0
+    range: host age bin menu
     required: true
     exact_mappings:
     - CNPHI:Host Age Category
@@ -1620,12 +1455,7 @@ slots:
     examples:
     - value: male
     slot_uri: GENEPIO:0001395
-    any_of: !!python/object/apply:builtins.map
-    - !!python/name:__main__.%3Clambda%3E ''
-    - !!python/object/apply:builtins.iter
-      args:
-      - - null
-      state: 0
+    range: host gender menu
     required: true
     string_serialization: '{Title Case}'
     exact_mappings:
@@ -1642,12 +1472,7 @@ slots:
     examples:
     - value: Canada
     slot_uri: GENEPIO:0001396
-    any_of: !!python/object/apply:builtins.map
-    - !!python/name:__main__.%3Clambda%3E ''
-    - !!python/object/apply:builtins.iter
-      args:
-      - - null
-      state: 0
+    range: geo_loc_name (country) menu
     exact_mappings:
     - NML_LIMS:PH_HOST_COUNTRY
   host residence geo_loc name (state/province/territory):
@@ -1658,12 +1483,7 @@ slots:
     examples:
     - value: Quebec
     slot_uri: GENEPIO:0001397
-    any_of: !!python/object/apply:builtins.map
-    - !!python/name:__main__.%3Clambda%3E ''
-    - !!python/object/apply:builtins.iter
-      args:
-      - - null
-      state: 0
+    range: geo_loc_name (state/province/territory) menu
     exact_mappings:
     - NML_LIMS:PH_HOST_PROVINCE
   host subject ID:
@@ -1686,12 +1506,7 @@ slots:
     examples:
     - value: '2020-03-16'
     slot_uri: GENEPIO:0001399
-    any_of: !!python/object/apply:builtins.map
-    - !!python/name:__main__.%3Clambda%3E ''
-    - !!python/object/apply:builtins.iter
-      args:
-      - - null
-      state: 0
+    range: xs:date
     exact_mappings:
     - CNPHI:Symptoms Onset Date
     - NML_LIMS:HC_ONSET_DATE
@@ -1706,12 +1521,7 @@ slots:
     - value: ' Cough'
     - value: ' Fever'
     slot_uri: GENEPIO:0001400
-    any_of: !!python/object/apply:builtins.map
-    - !!python/name:__main__.%3Clambda%3E ''
-    - !!python/object/apply:builtins.iter
-      args:
-      - - null
-      state: 0
+    range: signs and symptoms menu
     multivalued: true
     exact_mappings:
     - CNPHI:Symptoms
@@ -1731,12 +1541,7 @@ slots:
     - value: ' Pregnancy'
     - value: ' Smoking'
     slot_uri: GENEPIO:0001401
-    any_of: !!python/object/apply:builtins.map
-    - !!python/name:__main__.%3Clambda%3E ''
-    - !!python/object/apply:builtins.iter
-      args:
-      - - null
-      state: 0
+    range: pre-existing conditions and risk factors menu
     multivalued: true
     exact_mappings:
     - NML_LIMS:pre-existing conditions and risk factors
@@ -1752,12 +1557,7 @@ slots:
     - value: ' Coma'
     - value: ' Septicemia'
     slot_uri: GENEPIO:0001402
-    any_of: !!python/object/apply:builtins.map
-    - !!python/name:__main__.%3Clambda%3E ''
-    - !!python/object/apply:builtins.iter
-      args:
-      - - null
-      state: 0
+    range: complications menu
     multivalued: true
     exact_mappings:
     - NML_LIMS:complications
@@ -1770,12 +1570,7 @@ slots:
     examples:
     - value: Fully Vaccinated
     slot_uri: GENEPIO:0001404
-    any_of: !!python/object/apply:builtins.map
-    - !!python/name:__main__.%3Clambda%3E ''
-    - !!python/object/apply:builtins.iter
-      args:
-      - - null
-      state: 0
+    range: host vaccination status menu
     exact_mappings:
     - NML_LIMS:PH_VACCINATION_HISTORY
   number of vaccine doses received:
@@ -1797,12 +1592,7 @@ slots:
     examples:
     - value: Pfizer-BioNTech (Comirnaty)
     slot_uri: GENEPIO:0100313
-    any_of: !!python/object/apply:builtins.map
-    - !!python/name:__main__.%3Clambda%3E ''
-    - !!python/object/apply:builtins.iter
-      args:
-      - - null
-      state: 0
+    range: vaccine name menu
     exact_mappings:
     - NML_LIMS:PH_VACCINATION_HISTORY
   vaccination dose 1 vaccination date:
@@ -1814,12 +1604,7 @@ slots:
     examples:
     - value: '2021-03-01'
     slot_uri: GENEPIO:0100314
-    any_of: !!python/object/apply:builtins.map
-    - !!python/name:__main__.%3Clambda%3E ''
-    - !!python/object/apply:builtins.iter
-      args:
-      - - null
-      state: 0
+    range: xs:date
     exact_mappings:
     - NML_LIMS:PH_VACCINATION_HISTORY
   vaccination dose 2 vaccine name:
@@ -1832,12 +1617,7 @@ slots:
     examples:
     - value: Pfizer-BioNTech (Comirnaty)
     slot_uri: GENEPIO:0100315
-    any_of: !!python/object/apply:builtins.map
-    - !!python/name:__main__.%3Clambda%3E ''
-    - !!python/object/apply:builtins.iter
-      args:
-      - - null
-      state: 0
+    range: vaccine name menu
     exact_mappings:
     - NML_LIMS:PH_VACCINATION_HISTORY
   vaccination dose 2 vaccination date:
@@ -1849,12 +1629,7 @@ slots:
     examples:
     - value: '2021-09-01'
     slot_uri: GENEPIO:0100316
-    any_of: !!python/object/apply:builtins.map
-    - !!python/name:__main__.%3Clambda%3E ''
-    - !!python/object/apply:builtins.iter
-      args:
-      - - null
-      state: 0
+    range: xs:date
     exact_mappings:
     - NML_LIMS:PH_VACCINATION_HISTORY
   vaccination dose 3 vaccine name:
@@ -1867,12 +1642,7 @@ slots:
     examples:
     - value: Pfizer-BioNTech (Comirnaty)
     slot_uri: GENEPIO:0100317
-    any_of: !!python/object/apply:builtins.map
-    - !!python/name:__main__.%3Clambda%3E ''
-    - !!python/object/apply:builtins.iter
-      args:
-      - - null
-      state: 0
+    range: vaccine name menu
     exact_mappings:
     - NML_LIMS:PH_VACCINATION_HISTORY
   vaccination dose 3 vaccination date:
@@ -1884,12 +1654,7 @@ slots:
     examples:
     - value: '2021-12-30'
     slot_uri: GENEPIO:0100318
-    any_of: !!python/object/apply:builtins.map
-    - !!python/name:__main__.%3Clambda%3E ''
-    - !!python/object/apply:builtins.iter
-      args:
-      - - null
-      state: 0
+    range: xs:date
     exact_mappings:
     - NML_LIMS:PH_VACCINATION_HISTORY
   vaccination dose 4 vaccine name:
@@ -1902,12 +1667,7 @@ slots:
     examples:
     - value: Pfizer-BioNTech (Comirnaty)
     slot_uri: GENEPIO:0100319
-    any_of: !!python/object/apply:builtins.map
-    - !!python/name:__main__.%3Clambda%3E ''
-    - !!python/object/apply:builtins.iter
-      args:
-      - - null
-      state: 0
+    range: vaccine name menu
     exact_mappings:
     - NML_LIMS:PH_VACCINATION_HISTORY
   vaccination dose 4 vaccination date:
@@ -1919,12 +1679,7 @@ slots:
     examples:
     - value: '2022-01-15'
     slot_uri: GENEPIO:0100320
-    any_of: !!python/object/apply:builtins.map
-    - !!python/name:__main__.%3Clambda%3E ''
-    - !!python/object/apply:builtins.iter
-      args:
-      - - null
-      state: 0
+    range: xs:date
     exact_mappings:
     - NML_LIMS:PH_VACCINATION_HISTORY
   vaccination history:
@@ -1953,12 +1708,7 @@ slots:
     examples:
     - value: Canada
     slot_uri: GENEPIO:0001410
-    any_of: !!python/object/apply:builtins.map
-    - !!python/name:__main__.%3Clambda%3E ''
-    - !!python/object/apply:builtins.iter
-      args:
-      - - null
-      state: 0
+    range: geo_loc_name (country) menu
     exact_mappings:
     - NML_LIMS:PH_EXPOSURE_COUNTRY
   destination of most recent travel (city):
@@ -1999,12 +1749,7 @@ slots:
     examples:
     - value: United Kingdom
     slot_uri: GENEPIO:0001413
-    any_of: !!python/object/apply:builtins.map
-    - !!python/name:__main__.%3Clambda%3E ''
-    - !!python/object/apply:builtins.iter
-      args:
-      - - null
-      state: 0
+    range: geo_loc_name (country) menu
     exact_mappings:
     - CNPHI:Country of Travel|Province of Travel|City of Travel|Travel start date|Travel
       End Date
@@ -2018,12 +1763,7 @@ slots:
     examples:
     - value: '2020-03-16'
     slot_uri: GENEPIO:0001414
-    any_of: !!python/object/apply:builtins.map
-    - !!python/name:__main__.%3Clambda%3E ''
-    - !!python/object/apply:builtins.iter
-      args:
-      - - null
-      state: 0
+    range: xs:date
     exact_mappings:
     - CNPHI:Country of Travel|Province of Travel|City of Travel|Travel start date|Travel
       End Date
@@ -2037,12 +1777,7 @@ slots:
     examples:
     - value: '2020-04-26'
     slot_uri: GENEPIO:0001415
-    any_of: !!python/object/apply:builtins.map
-    - !!python/name:__main__.%3Clambda%3E ''
-    - !!python/object/apply:builtins.iter
-      args:
-      - - null
-      state: 0
+    range: xs:date
     exact_mappings:
     - CNPHI:Country of Travel|Province of Travel|City of Travel|Travel start date|Travel
       End Date
@@ -2054,12 +1789,7 @@ slots:
     comments: Select the point of entry type.
     examples:
     - value: Air
-    any_of: !!python/object/apply:builtins.map
-    - !!python/name:__main__.%3Clambda%3E ''
-    - !!python/object/apply:builtins.iter
-      args:
-      - - null
-      state: 0
+    range: travel point of entry type menu
     recommended: true
     exact_mappings:
     - NML_LIMS:PH_POINT_OF_ENTRY
@@ -2071,12 +1801,7 @@ slots:
     comments: Select the test day.
     examples:
     - value: day 1
-    any_of: !!python/object/apply:builtins.map
-    - !!python/name:__main__.%3Clambda%3E ''
-    - !!python/object/apply:builtins.iter
-      args:
-      - - null
-      state: 0
+    range: border testing test day type menu
     recommended: true
     exact_mappings:
     - NML_LIMS:PH_DAY
@@ -2104,12 +1829,7 @@ slots:
     examples:
     - value: Convention
     slot_uri: GENEPIO:0001417
-    any_of: !!python/object/apply:builtins.map
-    - !!python/name:__main__.%3Clambda%3E ''
-    - !!python/object/apply:builtins.iter
-      args:
-      - - null
-      state: 0
+    range: exposure event menu
     exact_mappings:
     - GISAID:Additional location information
     - CNPHI:Exposure Event
@@ -2122,12 +1842,7 @@ slots:
     examples:
     - value: Direct
     slot_uri: GENEPIO:0001418
-    any_of: !!python/object/apply:builtins.map
-    - !!python/name:__main__.%3Clambda%3E ''
-    - !!python/object/apply:builtins.iter
-      args:
-      - - null
-      state: 0
+    range: exposure contact level menu
     exact_mappings:
     - NML_LIMS:exposure contact level
   host role:
@@ -2176,12 +1891,7 @@ slots:
     examples:
     - value: 'Yes'
     slot_uri: GENEPIO:0001435
-    any_of: !!python/object/apply:builtins.map
-    - !!python/name:__main__.%3Clambda%3E ''
-    - !!python/object/apply:builtins.iter
-      args:
-      - - null
-      state: 0
+    range: prior SARS-CoV-2 infection menu
     exact_mappings:
     - NML_LIMS:prior SARS-CoV-2 infection
   prior SARS-CoV-2 infection isolate:
@@ -2217,12 +1927,7 @@ slots:
     examples:
     - value: No prior antiviral treatment
     slot_uri: GENEPIO:0001438
-    any_of: !!python/object/apply:builtins.map
-    - !!python/name:__main__.%3Clambda%3E ''
-    - !!python/object/apply:builtins.iter
-      args:
-      - - null
-      state: 0
+    range: prior SARS-CoV-2 antiviral treatment menu
     exact_mappings:
     - NML_LIMS:prior SARS-CoV-2 antiviral treatment
   prior SARS-CoV-2 antiviral treatment agent:
@@ -2265,12 +1970,7 @@ slots:
     examples:
     - value: Baseline surveillance (random sampling)
     slot_uri: GENEPIO:0001445
-    any_of: !!python/object/apply:builtins.map
-    - !!python/name:__main__.%3Clambda%3E ''
-    - !!python/object/apply:builtins.iter
-      args:
-      - - null
-      state: 0
+    range: purpose of sequencing menu
     multivalued: true
     required: true
     exact_mappings:
@@ -2297,12 +1997,7 @@ slots:
     examples:
     - value: Screened for S gene target failure (S dropout)
     slot_uri: GENEPIO:0001446
-    any_of: !!python/object/apply:builtins.map
-    - !!python/name:__main__.%3Clambda%3E ''
-    - !!python/object/apply:builtins.iter
-      args:
-      - - null
-      state: 0
+    range: xs:tokenxs:token
     required: true
     exact_mappings:
     - CNPHI:Details on the Reason for Sequencing
@@ -2316,12 +2011,7 @@ slots:
     examples:
     - value: '2020-06-22'
     slot_uri: GENEPIO:0001447
-    any_of: !!python/object/apply:builtins.map
-    - !!python/name:__main__.%3Clambda%3E ''
-    - !!python/object/apply:builtins.iter
-      args:
-      - - null
-      state: 0
+    range: xs:datexs:token
     required: true
     exact_mappings:
     - NML_LIMS:PH_SEQUENCING_DATE
@@ -2380,12 +2070,7 @@ slots:
     examples:
     - value: Oxford Nanopore MinION
     slot_uri: GENEPIO:0001452
-    any_of: !!python/object/apply:builtins.map
-    - !!python/name:__main__.%3Clambda%3E ''
-    - !!python/object/apply:builtins.iter
-      args:
-      - - null
-      state: 0
+    range: sequencing instrument menu
     multivalued: true
     required: true
     exact_mappings:
@@ -2760,12 +2445,7 @@ slots:
     examples:
     - value: Variant of Concern
     slot_uri: GENEPIO:0001503
-    any_of: !!python/object/apply:builtins.map
-    - !!python/name:__main__.%3Clambda%3E ''
-    - !!python/object/apply:builtins.iter
-      args:
-      - - null
-      state: 0
+    range: variant designation menu
     exact_mappings:
     - NML_LIMS:PH_VARIANT_DESIGNATION
   variant evidence:
@@ -2777,12 +2457,7 @@ slots:
     examples:
     - value: RT-qPCR
     slot_uri: GENEPIO:0001504
-    any_of: !!python/object/apply:builtins.map
-    - !!python/name:__main__.%3Clambda%3E ''
-    - !!python/object/apply:builtins.iter
-      args:
-      - - null
-      state: 0
+    range: variant evidence menu
     exact_mappings:
     - NML_LIMS:PH_VARIANT_EVIDENCE
   variant evidence details:
@@ -2809,12 +2484,7 @@ slots:
     examples:
     - value: E gene (orf4)
     slot_uri: GENEPIO:0001507
-    any_of: !!python/object/apply:builtins.map
-    - !!python/name:__main__.%3Clambda%3E ''
-    - !!python/object/apply:builtins.iter
-      args:
-      - - null
-      state: 0
+    range: gene name menu
     exact_mappings:
     - CNPHI:Gene Target 1
     - 'NML_LIMS:SUBMITTED_RESLT - Gene Target #1'
@@ -2840,12 +2510,7 @@ slots:
     examples:
     - value: '21'
     slot_uri: GENEPIO:0001509
-    any_of: !!python/object/apply:builtins.map
-    - !!python/name:__main__.%3Clambda%3E ''
-    - !!python/object/apply:builtins.iter
-      args:
-      - - null
-      state: 0
+    range: xs:decimal
     exact_mappings:
     - CNPHI:Gene Target 1 CT Value
     - 'NML_LIMS:SUBMITTED_RESLT - Gene Target #1 CT Value'
@@ -2861,12 +2526,7 @@ slots:
     examples:
     - value: RdRp gene (nsp12)
     slot_uri: GENEPIO:0001510
-    any_of: !!python/object/apply:builtins.map
-    - !!python/name:__main__.%3Clambda%3E ''
-    - !!python/object/apply:builtins.iter
-      args:
-      - - null
-      state: 0
+    range: gene name menu
     exact_mappings:
     - CNPHI:Gene Target 2
     - 'NML_LIMS:SUBMITTED_RESLT - Gene Target #2'
@@ -2892,12 +2552,7 @@ slots:
     examples:
     - value: '36'
     slot_uri: GENEPIO:0001512
-    any_of: !!python/object/apply:builtins.map
-    - !!python/name:__main__.%3Clambda%3E ''
-    - !!python/object/apply:builtins.iter
-      args:
-      - - null
-      state: 0
+    range: xs:decimal
     exact_mappings:
     - CNPHI:Gene Target 2 CT Value
     - 'NML_LIMS:SUBMITTED_RESLT - Gene Target #2 CT Value'
@@ -2912,12 +2567,7 @@ slots:
     examples:
     - value: RdRp gene (nsp12)
     slot_uri: GENEPIO:0001513
-    any_of: !!python/object/apply:builtins.map
-    - !!python/name:__main__.%3Clambda%3E ''
-    - !!python/object/apply:builtins.iter
-      args:
-      - - null
-      state: 0
+    range: gene name menu
     exact_mappings:
     - CNPHI:Gene Target 3
     - 'NML_LIMS:SUBMITTED_RESLT - Gene Target #3'
@@ -2942,12 +2592,7 @@ slots:
     examples:
     - value: '30'
     slot_uri: GENEPIO:0001515
-    any_of: !!python/object/apply:builtins.map
-    - !!python/name:__main__.%3Clambda%3E ''
-    - !!python/object/apply:builtins.iter
-      args:
-      - - null
-      state: 0
+    range: xs:decimal
     exact_mappings:
     - CNPHI:Gene Target 3 CT Value
     - 'NML_LIMS:SUBMITTED_RESLT - Gene Target #3 CT Value'
@@ -3122,6 +2767,8 @@ enums:
       Acute Respiratory Distress Syndrome:
         text: Acute Respiratory Distress Syndrome
         meaning: HP:0033677
+        exact_mappings:
+        - CNPHI:ARDS
       Altered mental status:
         text: Altered mental status
         meaning: HP:0011446
@@ -3169,12 +2816,16 @@ enums:
       Chills (sudden cold sensation):
         text: Chills (sudden cold sensation)
         meaning: HP:0025143
+        exact_mappings:
+        - CNPHI:Chills
       Conjunctival injection:
         text: Conjunctival injection
         meaning: HP:0030953
       Conjunctivitis (pink eye):
         text: Conjunctivitis (pink eye)
         meaning: HP:0000509
+        exact_mappings:
+        - CNPHI:Conjunctivitis
       Coryza (rhinitis):
         text: Coryza (rhinitis)
         meaning: MP:0001867
@@ -3222,24 +2873,32 @@ enums:
       Diarrhea (watery stool):
         text: Diarrhea (watery stool)
         meaning: HP:0002014
+        exact_mappings:
+        - CNPHI:Diarrhea, watery
       Dry gangrene:
         text: Dry gangrene
         meaning: MP:0031127
       Encephalitis (brain inflammation):
         text: Encephalitis (brain inflammation)
         meaning: HP:0002383
+        exact_mappings:
+        - CNPHI:Encephalitis
       Encephalopathy:
         text: Encephalopathy
         meaning: HP:0001298
       Fatigue (tiredness):
         text: Fatigue (tiredness)
         meaning: HP:0012378
+        exact_mappings:
+        - CNPHI:Fatigue
       Fever:
         text: Fever
         meaning: HP:0001945
       "Fever (>=38\xB0C)":
         text: "Fever (>=38\xB0C)"
         meaning: GENEPIO:0100066
+        exact_mappings:
+        - CNPHI:Fever
         is_a: Fever
       Glossitis (inflammation of the tongue):
         text: Glossitis (inflammation of the tongue)
@@ -4556,6 +4215,8 @@ enums:
       Homo sapiens:
         text: Homo sapiens
         meaning: NCBITaxon:9606
+        exact_mappings:
+        - NML_LIMS:Human
       Bos taurus:
         text: Bos taurus
         meaning: NCBITaxon:9913
@@ -4622,6 +4283,8 @@ enums:
       Cow:
         text: Cow
         meaning: NCBITaxon:9913
+        exact_mappings:
+        - CNPHI:bovine
       Dog:
         text: Dog
         meaning: NCBITaxon:9615
@@ -4637,6 +4300,8 @@ enums:
       Pig:
         text: Pig
         meaning: NCBITaxon:9825
+        exact_mappings:
+        - CNPHI:porcine
       Pigeon:
         text: Pigeon
         meaning: NCBITaxon:8930
@@ -4933,9 +4598,13 @@ enums:
       90 - 99:
         text: 90 - 99
         meaning: GENEPIO:0100058
+        exact_mappings:
+        - VirusSeq_Portal:90+
       100+:
         text: 100+
         meaning: GENEPIO:0100059
+        exact_mappings:
+        - VirusSeq_Portal:90+
   host gender menu:
     name: host gender menu
     permissible_values:
@@ -5664,116 +5333,181 @@ enums:
       E gene (orf4):
         text: E gene (orf4)
         meaning: GENEPIO:0100151
+        exact_mappings:
+        - CNPHI:E gene
+        - BIOSAMPLE:E (orf4)
       M gene (orf5):
         text: M gene (orf5)
         meaning: GENEPIO:0100152
+        exact_mappings:
+        - BIOSAMPLE:M (orf5)
       N gene (orf9):
         text: N gene (orf9)
         meaning: GENEPIO:0100153
+        exact_mappings:
+        - BIOSAMPLE:N (orf9)
       Spike gene (orf2):
         text: Spike gene (orf2)
         meaning: GENEPIO:0100154
+        exact_mappings:
+        - BIOSAMPLE:S (orf2)
       orf1ab (rep):
         text: orf1ab (rep)
         meaning: GENEPIO:0100155
+        exact_mappings:
+        - BIOSAMPLE:orf1ab (rep)
       orf1a (pp1a):
         text: orf1a (pp1a)
         meaning: GENEPIO:0100156
+        exact_mappings:
+        - BIOSAMPLE:orf1a (pp1a)
         is_a: orf1ab (rep)
       nsp11:
         text: nsp11
         meaning: GENEPIO:0100157
+        exact_mappings:
+        - BIOSAMPLE:nsp11
         is_a: orf1a (pp1a)
       nsp1:
         text: nsp1
         meaning: GENEPIO:0100158
+        exact_mappings:
+        - BIOSAMPLE:nsp1
         is_a: orf1ab (rep)
       nsp2:
         text: nsp2
         meaning: GENEPIO:0100159
+        exact_mappings:
+        - BIOSAMPLE:nsp2
         is_a: orf1ab (rep)
       nsp3:
         text: nsp3
         meaning: GENEPIO:0100160
+        exact_mappings:
+        - BIOSAMPLE:nsp3
         is_a: orf1ab (rep)
       nsp4:
         text: nsp4
         meaning: GENEPIO:0100161
+        exact_mappings:
+        - BIOSAMPLE:nsp4
         is_a: orf1ab (rep)
       nsp5:
         text: nsp5
         meaning: GENEPIO:0100162
+        exact_mappings:
+        - BIOSAMPLE:nsp5
         is_a: orf1ab (rep)
       nsp6:
         text: nsp6
         meaning: GENEPIO:0100163
+        exact_mappings:
+        - BIOSAMPLE:nsp6
         is_a: orf1ab (rep)
       nsp7:
         text: nsp7
         meaning: GENEPIO:0100164
+        exact_mappings:
+        - BIOSAMPLE:nsp7
         is_a: orf1ab (rep)
       nsp8:
         text: nsp8
         meaning: GENEPIO:0100165
+        exact_mappings:
+        - BIOSAMPLE:nsp8
         is_a: orf1ab (rep)
       nsp9:
         text: nsp9
         meaning: GENEPIO:0100166
+        exact_mappings:
+        - BIOSAMPLE:nsp9
         is_a: orf1ab (rep)
       nsp10:
         text: nsp10
         meaning: GENEPIO:0100167
+        exact_mappings:
+        - BIOSAMPLE:nsp10
         is_a: orf1ab (rep)
       RdRp gene (nsp12):
         text: RdRp gene (nsp12)
         meaning: GENEPIO:0100168
+        exact_mappings:
+        - BIOSAMPLE:nsp12 (RdRp)
         is_a: orf1ab (rep)
       hel gene (nsp13):
         text: hel gene (nsp13)
         meaning: GENEPIO:0100169
+        exact_mappings:
+        - BIOSAMPLE:nsp13 (Hel)
         is_a: orf1ab (rep)
       exoN gene (nsp14):
         text: exoN gene (nsp14)
         meaning: GENEPIO:0100170
+        exact_mappings:
+        - BIOSAMPLE:nsp14 (ExoN)
         is_a: orf1ab (rep)
       nsp15:
         text: nsp15
         meaning: GENEPIO:0100171
+        exact_mappings:
+        - BIOSAMPLE:nsp15
         is_a: orf1ab (rep)
       nsp16:
         text: nsp16
         meaning: GENEPIO:0100172
+        exact_mappings:
+        - BIOSAMPLE:nsp16
         is_a: orf1ab (rep)
       orf3a:
         text: orf3a
         meaning: GENEPIO:0100173
+        exact_mappings:
+        - BIOSAMPLE:orf3a
       orf3b:
         text: orf3b
         meaning: GENEPIO:0100174
+        exact_mappings:
+        - BIOSAMPLE:orf3b
       orf6 (ns6):
         text: orf6 (ns6)
         meaning: GENEPIO:0100175
+        exact_mappings:
+        - BIOSAMPLE:orf6 (ns6)
       orf7a:
         text: orf7a
         meaning: GENEPIO:0100176
+        exact_mappings:
+        - BIOSAMPLE:orf7a
       orf7b (ns7b):
         text: orf7b (ns7b)
         meaning: GENEPIO:0100177
+        exact_mappings:
+        - BIOSAMPLE:orf7b (ns7b)
       orf8 (ns8):
         text: orf8 (ns8)
         meaning: GENEPIO:0100178
+        exact_mappings:
+        - BIOSAMPLE:orf8 (ns8)
       orf9b:
         text: orf9b
         meaning: GENEPIO:0100179
+        exact_mappings:
+        - BIOSAMPLE:orf9b
       orf9c:
         text: orf9c
         meaning: GENEPIO:0100180
+        exact_mappings:
+        - BIOSAMPLE:orf9c
       orf10:
         text: orf10
         meaning: GENEPIO:0100181
+        exact_mappings:
+        - BIOSAMPLE:orf10
       orf14:
         text: orf14
         meaning: GENEPIO:0100182
+        exact_mappings:
+        - BIOSAMPLE:orf14
       SARS-COV-2 5' UTR:
         text: SARS-COV-2 5' UTR
         meaning: GENEPIO:0100183
