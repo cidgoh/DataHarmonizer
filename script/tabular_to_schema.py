@@ -87,13 +87,14 @@ with open(r_schema_slots) as tsvfile:
 
 			if row.get('range','') > '':
 				# 2nd range_2 column gets semi-colon separated list of additional ranges
-				#if row.get('range_2','') > '':
-				#	merged_ranges = [[row.get('range')].extend(row.get('range_2').split(';')) ]
-				#	slot['any_of'] = map(lambda x: {'range': x }, merged_ranges)
-				#else:
+				if row.get('range_2','') > '':
+					merged_ranges = [row.get('range')]
+					merged_ranges.extend(row.get('range_2').split(';'))
+					slot['any_of'] = list(map(lambda x: {'range': x }, merged_ranges))
+				else:
 					slot['range'] = row['range'];		
 
-			if row.get('slot_uri','') == 'TRUE':
+			if row.get('identifier','') == 'TRUE':
 				slot['identifier'] = True;
 			if row.get('multivalued','') == 'TRUE':
 				slot['multivalued'] = True;
@@ -196,7 +197,7 @@ with open(r_schema_enums) as tsvfile:
 
 			if row.get('meaning','') > '':
 				choice['meaning'] = row.get('meaning');
-			
+
 			# At moment linkml doesn't support exact_mappings on 
 			if len(EXPORT_FORMAT) > 0:
 				mappings = []
@@ -209,7 +210,7 @@ with open(r_schema_enums) as tsvfile:
 				if len(mappings) > 0:
 					choice['exact_mappings'] = mappings
 			
-			
+
 
 			# FUTURE: Add choice dependency relations on other choices here
 

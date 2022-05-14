@@ -1044,7 +1044,7 @@ let DataHarmonizer = {
 		const sectionIndex = new Map();
 
 		// Gets LinkML SchemaView() of given template
-		const specification = self.schema['specifications'][template_name];
+		const specification = self.schema.specifications[template_name];
 
 		/* Lookup each column in terms table. A term looks like:
 			is_a: "core field", 
@@ -1060,7 +1060,13 @@ let DataHarmonizer = {
 
 		for (let name in specification.slots) {
 
-			let field = specification.slots[name];
+
+			// ISSUE: a template's slot definition via SchemaView() currently 
+			// doesn't get any_of or exact_mapping constructs. So we start
+			// with slot, then add class's slots reference.
+			let field = Object.assign(self.schema.slots[name], specification.slots[name]);
+
+			//let field = specification.slots[name];
 			let section_title = null;
 
 			if ('slot_group' in field) {
@@ -1098,7 +1104,7 @@ let DataHarmonizer = {
 			// Some specs don't add plain english title, so fill that with name
 			// for display.
 			if (!('title' in new_field)) {
-				new_field['title'] = new_field['name'];
+				new_field.title = new_field.name;
 			}
 
 			// Default field type xsd:token allows all strings that don't have 
@@ -1106,19 +1112,25 @@ let DataHarmonizer = {
 			new_field.datatype = 'xsd:token'; // was "xs:token"
 
 			let range_array = [];
+
+
 			// Multiple ranges allowed.  For now just accepting enumerations
 			if ('any_of' in new_field) {
-				for (let range in new_field.any_of) {
-					if (range in self.schema.enumerations)
-						range_array.push(range)
+				for (let item of new_field.any_of) {
+					if (item.range in self.schema.enumerations) {
+						range_array.push(item.range)
+					}
 				}
 			}
 			else {
 				range_array.push(new_field.range)
 			}
+			
 
 			// Parse slot's range(s)
 			for (let range of range_array) {
+				if (range === undefined)			
+					console.log ("field has no range", new_field.title);
 
 				// Range is a datatype?
 				if (range in self.schema.types) {
@@ -1155,7 +1167,7 @@ let DataHarmonizer = {
 						new_field.sources.push(range);
 						// This calculates for each categorical field in schema.yaml a 
 						// flat list of allowed values (indented to represent hierarchy)
-						let flatVocab = self.stringifyNestedVocabulary(range_obj.permissible_values)
+						let flatVocab = self.stringifyNestedVocabulary(range_obj.permissible_values);
 						new_field.flatVocabulary.push(... flatVocab );
 						// Lowercase version used for easy lookup/validation
 						new_field.flatVocabularyLCase.push(... flatVocab.map(val => val.trim().toLowerCase()) );
@@ -1240,22 +1252,32 @@ let DataHarmonizer = {
 
 
 	/**
-	 * Recursively flatten vocabulary into an array of strings, with each string's
-	 * level of depth in the vocabulary being indicated by leading spaces.
-	 * e.g., `vocabulary: 'a': {'b':{}},, 'c': {}` becomes `['a', '  b', 'c']`.
+	 * Recursively flatten vocabulary into an array of strings, with each
+	 * string's level of depth in the vocabulary being indicated by leading
+	 * spaces.
+	 * FUTURE possible functionality:
+	 * Both validation and display of picklist item becomes conditional on
+	 * other picklist item if "depends on" indicated in picklist item/branch.
 	 * @param {Object} vocabulary See `vocabulary` fields in SCHEMA.
-	 * @param {number} level Nested level of `vocabulary` we are currently
-	 *     processing.
 	 * @return {Array<String>} Flattened vocabulary.
 	 */
-	stringifyNestedVocabulary: function (vocab_list, level=0) {
+	stringifyNestedVocabulary: function (vocab_list) {
 
 	  let ret = [];
-	  for (const val of Object.keys(vocab_list)) {
-		ret.push('  '.repeat(level) + val);
-		if (vocab_list[val].permissible_values) {
-		  ret = ret.concat(this.stringifyNestedVocabulary(vocab_list[val].permissible_values, level+1));
-		}
+	  let stack = [];
+	  for (const pointer in vocab_list) {
+	  	let choice = vocab_list[pointer];
+	  	let level = 0;
+	  	if ('is_a' in choice) {
+	  		level = stack.indexOf(choice.is_a)+1;
+	  		stack.splice(level+1, 1000, choice.text)
+	  	}
+	  	else {
+	  		stack = [choice.text];
+	  	}
+
+		ret.push('  '.repeat(level) + choice.text);
+
 	  }
 	  return ret;
 	},
