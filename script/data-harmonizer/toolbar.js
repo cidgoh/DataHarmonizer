@@ -103,7 +103,8 @@ DataHarmonizerToolbar = {
 			}
 			if (exportFormat in dh.export_formats) {
 				const format = dh.export_formats[exportFormat];
-				format['method'](baseName, XLSX, format.fileType);
+				let outputMatrix = format.method(dh);
+				dh.runBehindLoadingScreen(dh.exportFile, [outputMatrix, baseName, format.fileType, XLSX]);
 			}
 			$('#export-to-modal').modal('hide');
 		});
@@ -256,6 +257,7 @@ DataHarmonizerToolbar = {
 		for (const option in this.dh.export_formats) {
 			select.append(new Option(option, option));
 		}
+		//alert(this.dh.export_formats.length)
 
 		// Update SOP.
 		$("#help_sop").attr('href',`template/${this.dh.template_folder}/SOP.pdf`);

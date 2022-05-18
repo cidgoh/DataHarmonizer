@@ -21,6 +21,7 @@ import os
 from sys import exit
 
 from linkml_runtime.utils.schemaview import SchemaView
+from linkml_runtime.dumpers.json_dumper import JSONDumper
 
 # Common menu shared with all template folders.
 MENU = "../menu.js"
