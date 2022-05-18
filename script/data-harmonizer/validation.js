@@ -106,6 +106,9 @@ Object.assign(DataHarmonizer, {
 
 							case 'xsd:token':
 								// range: string_serialization / quantity value /
+								/* if (field.string_serialization) {
+								}
+								*/
 								break;	
 						}
 					}

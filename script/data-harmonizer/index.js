@@ -39,7 +39,7 @@ let DataHarmonizer = {
 	hot: null,
 	hot_settings: null,
 	menu: null,
-	export_formats: null,
+	export_formats: {},		// Formats that a given template can export to.
 	invalid_cells: null,
 	// Currently selected cell range[row,col,row2,col2]
 	current_selection: [null,null,null,null],
@@ -131,24 +131,23 @@ let DataHarmonizer = {
 		this.template_name = template_name;
 		this.template_path = template_path;
 
-		//try {
+		try {
 			// Loading this template may require loading the SCHEMA it is under.
 			const schema_loaded = await this.useSchema(template_folder);
 			//if (!schema_loaded) 
 			//  return false;
 
 			this.processTemplate(template_name);
-			//this.newHotFile();
 			this.createHot();
 
 			// Asynchronous. Since SCHEMA loaded, export.js should succeed as well.
-			this.reloadJs('export.js');
+			await this.reloadJs('export.js');
 
 			return template_name;
-		//}
-		//catch(err) {
-		//  console.log(err);
-		//}
+		}
+		catch(err) {
+		  console.log(err);
+		}
 
 	},
 
@@ -1007,7 +1006,7 @@ let DataHarmonizer = {
 		  //    "Access-Control-Allow-Origin":"*"
 		  //}
 		}
-		try {
+		//try {
 			const response = await $.ajax(settings);
 			// script fetches don't return data. 
 
@@ -1021,13 +1020,13 @@ let DataHarmonizer = {
 
 			return file_name;
 
-		}
-		catch (err) {
+		//}
+		//catch (err) {
 			//console.log("fetch failed", err)
 			$('#missing-template-msg').text(`Unable to load file "${src_url}". Is the file location correct?`);
 			$('#missing-template-modal').modal('show');
 			return false;
-		}
+		//}
 	},
 
 	/**
@@ -1202,7 +1201,7 @@ let DataHarmonizer = {
 								class_uri: qudt:QuantityValue
 								mappings:
 								  - schema:QuantityValue
-							*/
+								*/
 
 							}
 						}
@@ -1210,6 +1209,10 @@ let DataHarmonizer = {
 
 				} // End range parsing
 			}
+			/* Older DH enables mappings of one template field to one or more 
+			export format fields
+			*/
+			this.setExportField(new_field, true)
 
 			// https://linkml.io/linkml-model/docs/string_serialization/
 			// https://github.com/linkml/linkml/issues/674
@@ -1217,8 +1220,12 @@ let DataHarmonizer = {
 			// expression for them into "pattern" field. 
 			// This augments basic datatype validation
 			if ('string_serialization' in new_field) {
-
-
+				switch (new_field.string_serialization) {
+					case '{UPPER CASE}':
+					case '{lower case}':
+					case '{Title Case}':
+						new_field.capitalize = true;
+				}
 			}
 
 			// pattern is supposed to be exlusive to string_serialization
@@ -1276,12 +1283,57 @@ let DataHarmonizer = {
 	  		stack = [choice.text];
 	  	}
 
+	  	this.setExportField(choice, false);
+
 		ret.push('  '.repeat(level) + choice.text);
 
 	  }
 	  return ret;
 	},
 
+	setExportField: function (field, as_field) {
+		if (field.exact_mappings) {
+			field.exportField = {};
+			for (let item of field.exact_mappings) {
+				let ptr = item.indexOf(':')
+				if (ptr != -1) {
+					prefix = item.substr(0, ptr);
+					if (!(prefix in field.exportField)) {
+						field.exportField[prefix] = [];
+					}
+
+					mappings = item.substr(ptr+1);
+					for (let mapping of mappings.split(';')) {
+						mapping = mapping.trim()
+						conversion = {}
+						//A colon alone means to map value to empty string
+						if (mapping == ':') {
+							conversion.value = '';
+						}
+						//colon with contents = field & value
+						else {
+							if (':' in mapping) {
+								binding = mapping.split(':')
+								binding[0] = binding[0].trim();
+								binding[1] = binding[1].trim();
+								if binding[0] > '':
+									conversion.field = binding[0];
+								if binding[1] > '':
+									conversion.value = binding[1];
+							}
+							//No colon means its just field or value
+							else
+								if (as_field == true)
+									conversion.field = mapping
+								else
+									conversion.value = mapping
+						}
+						field.exportField[prefix].push(conversion)
+					}
+				}
+			}
+		}
+	},
 
 	/**
 	 * Get an HTML string that describes a field, its examples etc. for display

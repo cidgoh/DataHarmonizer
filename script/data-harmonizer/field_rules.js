@@ -20,8 +20,8 @@ Object.assign(DataHarmonizer, {
 		const field = fields[col];
 
 		// Test field against capitalization change.
-		if (field.capitalize !== null && change[3] && change[3].length > 0) 
-			change[3] = this.changeCase(change[3], field.capitalize);
+		if (field.capitalize && change[3] && change[3].length > 0) 
+			change[3] = this.changeCase(change[3], field);
 
 		// Rules that require a particular column following and/or preceeding
 		// current one.
@@ -107,15 +107,15 @@ Object.assign(DataHarmonizer, {
 	*     `'lower'` or `'Title'`.
 	* @return {String} String with modified case.
 	*/
-	changeCase: function (val, capitalize) {
-		switch (capitalize) {
-			case 'lower':
+	changeCase: function (val, field) {
+		switch (field.string_serialization) {
+			case '{lower case}':
 				val = val.toLowerCase();
 				break;
-			case 'UPPER':
+			case '{UPPER CASE}':
 				val = val.toUpperCase();
 				break;
-			case 'Title':
+			case '{Title Case}':
 				val = val.split(' ').
 				map(w => w[0].toUpperCase() + w.substr(1).toLowerCase()).
 				join(' ');
@@ -140,10 +140,10 @@ Object.assign(DataHarmonizer, {
 			const field = fields[col];
 
 			// Test field against capitalization change.
-			if (field.capitalize !== null) {
+			if (field.capitalize) {
 				for (let row=0; row < matrix.length; row++) {
 					if (!matrix[row][col]) continue;
-					matrix[row][col] = this.changeCase(matrix[row][col], field.capitalize);
+					matrix[row][col] = this.changeCase(matrix[row][col], field);
 				}
 			}
 
@@ -171,9 +171,9 @@ Object.assign(DataHarmonizer, {
 							}
 						}
 					}
-					else if (fieldUnitBinTest(fields, col)) {
+					else if (this.fieldUnitBinTest(fields, col)) {
 						// 2 specifies bin offset
-						binChangeTest(matrix, 0, col, fields, 2, triggered_changes);
+						this.binChangeTest(matrix, 0, col, fields, 2, triggered_changes);
 					}
 				}
 			}
