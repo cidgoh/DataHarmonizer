@@ -385,7 +385,7 @@ let DataHarmonizer = {
 	 */
 	renderReference: function(mystyle = null) {
 
-		let schema_template = this.schema['specifications'][this.template_name]
+		let schema_template = this.schema.classes[this.template_name]
 
 		let style = `
 	body {
@@ -1043,8 +1043,9 @@ let DataHarmonizer = {
 		const sectionIndex = new Map();
 
 		// Gets LinkML SchemaView() of given template
-		const specification = self.schema.specifications[template_name];
-
+		const specification = self.schema.classes[template_name];
+		// Class contains inferred attributes ... for now pop back into slots
+		specification.slots = specification.attributes;
 		/* Lookup each column in terms table. A term looks like:
 			is_a: "core field", 
 			title: "history/fire", 
@@ -1058,7 +1059,6 @@ let DataHarmonizer = {
 		*/
 
 		for (let name in specification.slots) {
-
 
 			// ISSUE: a template's slot definition via SchemaView() currently 
 			// doesn't get any_of or exact_mapping constructs. So we start
@@ -1116,7 +1116,7 @@ let DataHarmonizer = {
 			// Multiple ranges allowed.  For now just accepting enumerations
 			if ('any_of' in new_field) {
 				for (let item of new_field.any_of) {
-					if (item.range in self.schema.enumerations) {
+					if (item.range in self.schema.enums) {
 						range_array.push(item.range)
 					}
 				}
@@ -1152,8 +1152,8 @@ let DataHarmonizer = {
 				}
 				else {
 					// Range is an Enumeration?
-					if (range in self.schema.enumerations) {
-						range_obj = self.schema.enumerations[range];
+					if (range in self.schema.enums) {
+						range_obj = self.schema.enums[range];
 						new_field.datatype = 'xsd:token';
 
 						if (!('sources' in new_field)) 
@@ -1174,8 +1174,8 @@ let DataHarmonizer = {
 					}
 					else {
 						// Range is a Class?
-						if (range in self.schema.specifications) {
-							range_obj = self.schema.enumerations[range];
+						if (range in self.schema.classes) {
+							range_obj = self.schema.enums[range];
 
 							if (range == 'quantity value') {
 
@@ -1312,13 +1312,13 @@ let DataHarmonizer = {
 						}
 						//colon with contents = field & value
 						else {
-							if (':' in mapping) {
+							if (mapping.indexOf(':') != -1) {
 								binding = mapping.split(':')
 								binding[0] = binding[0].trim();
 								binding[1] = binding[1].trim();
-								if binding[0] > '':
+								if (binding[0] > '')
 									conversion.field = binding[0];
-								if binding[1] > '':
+								if (binding[1] > '')
 									conversion.value = binding[1];
 							}
 							//No colon means its just field or value
