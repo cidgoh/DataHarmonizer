@@ -19,9 +19,9 @@ with open(r_schema_core, 'r') as file:
 
 '''
 settings: not allowed yet.
-  lower case: "^[a-z\\W\\d_]*$"
-  UPPER CASE: "^[A-Z\\W\\d_]*$"
-  Title Case: "^(((?<=\b)[^a-z\\W]\\w*?|[\\W])+)$"
+  lower_case: "^[a-z\\W\\d_]*$"
+  UPPER_CASE: "^[A-Z\\W\\d_]*$"
+  Title_Case: "^(((?<=\b)[^a-z\\W]\\w*?|[\\W])+)$"
 '''
 '''
 Process each slot given in tabular format.
