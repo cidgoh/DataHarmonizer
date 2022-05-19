@@ -1,3 +1,5 @@
+// Taken from https://gold.jgi.doe.gov/download?mode=biosampleEcosystemsJson
+// See also: https://gold.jgi.doe.gov/ecosystemtree 
 var GOLD_ECOSYSTEM_TREE = { 
 "name": "Ecosystems", 
 "children": [ 
