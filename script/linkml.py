@@ -62,9 +62,9 @@ for name, class_obj in schema_spec.all_classes().items():
     # Presence of "slots" in class indicates field hierarchy
     if schema_spec.class_slots(name):
         # Replace class with its induced version
+        # this shifts each slot's content into an attributes dictionary object
         new_obj = schema_spec.induced_class(name)
         schema_spec.add_class(new_obj)
-
 
 # Output the amalgamated content:
 with open("schema.js", "w") as output_handle:
@@ -111,7 +111,7 @@ for name, class_obj in schema_spec.all_classes().items():
 print("Created", len(class_menu), "specifications:\n", "\n".join(class_menu.keys() ), "\n")
 
 
-for name in name, class_obj in class_menu.items():
+for name, class_obj in class_menu.items():
 
     menu[template_folder][name] = {
         "name": name,
