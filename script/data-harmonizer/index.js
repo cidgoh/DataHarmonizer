@@ -144,7 +144,7 @@ let DataHarmonizer = {
 
 			// Asynchronous. Since SCHEMA loaded, export.js should succeed as well.
 			this.reloadJs('export.js');
-			
+
 			return template_name;
 		//}
 		//catch(err) {
@@ -780,18 +780,18 @@ let DataHarmonizer = {
 
 		col.source = null;
 
-		if (field.flatVocabulary) {
-				
-			col.source = field.flatVocabulary;
+		if (field.flatVocabulary) {	
 
-			if (field.multivalued === true) {
-				col.editor = 'text';
-				col.renderer = 'autocomplete';
-			}
-			else {
-				col.type = 'autocomplete';
-				col.trimDropdown = false;
-			}
+		  col.source = field.flatVocabulary;
+
+		  if (field.multivalued === true) {
+			col.editor = 'text';
+			col.renderer = 'autocomplete';
+		  }
+		  else {
+			col.type = 'autocomplete';
+			col.trimDropdown = false;
+		  }
 		}
 
 		if (field.metadata_status) {
