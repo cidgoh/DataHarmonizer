@@ -27,29 +27,6 @@ const VERSION_TEXT = 'DataHarmonizer provenance: v' + VERSION;
 
 let DataHarmonizer = {
 
-	GOLD_FIELDS: {
-		ecosystem: {
-			upstream: [],
-			downstream: ['ecosystem_category', 'ecosystem_type', 'ecosystem_subtype', 'specific_ecosystem'],
-		},
-		ecosystem_category: {
-			upstream: ['ecosystem'],
-			downstream: ['ecosystem_type', 'ecosystem_subtype', 'specific_ecosystem'],
-		},
-		ecosystem_type: {
-			upstream: ['ecosystem', 'ecosystem_category'],
-			downstream: ['ecosystem_subtype', 'specific_ecosystem'],
-		},
-		ecosystem_subtype: {
-			upstream: ['ecosystem', 'ecosystem_category', 'ecosystem_type'],
-			downstream: ['specific_ecosystem'],
-		},
-		specific_ecosystem: {
-			upstream: ['ecosystem', 'ecosystem_category', 'ecosystem_type', 'ecosystem_subtype'],
-			downstream: [],
-		},
-	},
-
 	//An instance of DataHarmonizer has a schema, a domElement, and a handsontable .hot object
 	dhGrid: null,
 	dhFooter: null,
@@ -66,7 +43,7 @@ let DataHarmonizer = {
 	invalid_cells: null,
 	// Currently selected cell range[row,col,row2,col2]
 	current_selection: [null,null,null,null],
-	goldEcosystemTree: null,
+	field_settings: {},
 
 	init: function(dhGrid, dhFooter=null, menu=null) {
 		this.dhGrid = dhGrid;
@@ -158,7 +135,6 @@ let DataHarmonizer = {
 		//try {
 			// Loading this template may require loading the SCHEMA it is under.
 			const schema_loaded = await this.useSchema(template_folder);
-			await this.reloadJs(`organismEcosystemTree.js`)
 			//if (!schema_loaded) 
 			//	return false;
 
@@ -784,30 +760,6 @@ let DataHarmonizer = {
 	  return rows;
 	},
 
-	getGoldOptions(path = []) {
-		let options = window.GOLD_ECOSYSTEM_TREE.children;
-		for (let name of path) {
-			const item = options.find(child => child.name === name);
-			if (!item) {
-				options = [];
-				break;
-			}
-			options = item.children;
-		}
-		return options.map(child => child.name)
-	},
-
-	getSameRowCellData(columnNames) {
-		const [row, rest] = this.hot.getSelectedLast();
-		return columnNames.map(columnName => {
-			const col = this.getFields().findIndex(field => field.name === columnName);
-			if (col < 0) {
-				return null;
-			}
-			return this.hot.getDataAtCell(row, col);
-		})
-	},
-
 	/**
 	 * Create an array of cell properties specifying data type for all grid columns.
 	 * AVOID EMPLOYING VALIDATION LOGIC HERE -- HANDSONTABLE'S VALIDATION
@@ -818,7 +770,7 @@ let DataHarmonizer = {
 	getColumns: function () {
 	  let ret = [];
 	  for (let field of this.getFields()) {
-		const col = {};
+		let col = {};
 		if (field.required) {
 		  col.required = field.required;
 		}
@@ -828,15 +780,7 @@ let DataHarmonizer = {
 
 		col.source = null;
 
-		if (typeof field.dependentSource === 'function') {
-			col.source = (_, next) => {
-				const dependentRowData = this.getSameRowCellData(field.dependentFields)
-				const options = field.dependentSource(dependentRowData);
-				next(options);
-			};
-			col.type = 'autocomplete';
-			col.trimDropdown = false;
-		} else if (field.flatVocabulary) {
+		if (field.flatVocabulary) {
 				
 			col.source = field.flatVocabulary;
 
@@ -879,6 +823,9 @@ let DataHarmonizer = {
 			break;
 		}
 
+		if (typeof field.getColumn === 'function') {
+			col = field.getColumn(this, col);
+		}
 
 		ret.push(col);
 	  }
@@ -1208,10 +1155,8 @@ let DataHarmonizer = {
 				}
 			}
 
-			if (field.name in this.GOLD_FIELDS) {
-				new_field.dependentFields = this.GOLD_FIELDS[field.name].upstream;
-				new_field.dependentSource = this.getGoldOptions;
-				new_field.clearOnChange = this.GOLD_FIELDS[field.name].downstream;
+			if (this.field_settings[name]) {
+				Object.assign(new_field, this.field_settings[name]);
 			}
 
 			// Copying in particular required/ recommended status of a field into
