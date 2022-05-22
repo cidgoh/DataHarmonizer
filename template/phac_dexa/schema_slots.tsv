@@ -1,0 +1,157 @@
+class_name	slot_group	slot_uri	title	name	range	range_2	identifier	required	recommended	multivalued	minimum_value	maximum_value	pattern	string_serialization	description	comments	examples	EXPORT_GRDI
+PHAC Dexa	Database Identifiers																	
+	Database Identifiers		SPECIMEN_ID		xsd:token													alternative_sample_ID
+	Database Identifiers		ISOLATE_ID		xsd:token			TRUE										isolate_ID
+	Database Identifiers		SAMPLE_ID		xsd:token			TRUE										sample_collector_sample_ID
+	Fields to put in sections																	
+	Fields to put in sections		SENTINEL_SITE		xsd:token													
+	Fields to put in sections		LFZ_ADDITIONAL_SAMPLE_ID		xsd:token													
+	Fields to put in sections		LFZ_ORIGIN_COUNTRY		xsd:token													
+	Fields to put in sections		SUBJECT_CODE		xsd:token													
+	Fields to put in sections		SUBJECT_DESCRIPTIONS		SUBJECT_DESCRIPTIONS menu													
+	Fields to put in sections		SUBMITTINGORG_1		xsd:token													collected_by
+	Fields to put in sections		SUBMITTINGLAB_1		xsd:token													laboratory_name
+	Fields to put in sections		PROJECT_1		xsd:token													
+	Fields to put in sections		COUNTRY_1		xsd:token													geo_loc_name (country)
+	Fields to put in sections		PROVINCE_1		xsd:token													geo_loc_name (state/province/region)
+	Fields to put in sections		CENSUSDIVISION_1		xsd:token													
+	Fields to put in sections		REGION		xsd:token													
+	Fields to put in sections		YEAR		xsd:token													
+	Fields to put in sections		MONTH		xsd:token													
+	Fields to put in sections		QTR		xsd:token													
+	Fields to put in sections		DATECOLLECTED_1		date													sample_collection_date
+	Fields to put in sections		DATERECEIVED_1		xsd:token													
+	Fields to put in sections		DATESHIPPED_1		xsd:token													
+	Fields to put in sections		ESTABLISHMENT_1		xsd:token													
+	Fields to put in sections		SPECIES		SPECIES menu													host (common name):
+	Fields to put in sections		STTYPE		STTYPE menu													
+	Fields to put in sections		STYPE		STYPE menu													
+	Fields to put in sections		COMMODITY		COMMODITY menu													
+	Fields to put in sections		SPECIMENSOURCE_1		SPECIMENSOURCE_1 menu													
+	Fields to put in sections		SPECIMENSUBSOURCE_1		SPECIMENSUBSOURCE_1 menu													
+	Fields to put in sections		SUBJECT_SUBTYPE		SUBJECT_SUBTYPE menu													
+	Fields to put in sections		FIELDSTAFF_1		xsd:token													
+	Fields to put in sections		IN_STORE_PROCESSING		xsd:token													
+	Fields to put in sections		MAYCONTAINFROZENMEAT_1		xsd:token													
+	Fields to put in sections		NOOFCASHREGISTERS_1		xsd:token													
+	Fields to put in sections		PRICEPERKG_1		xsd:token													
+	Fields to put in sections		STORETYPE_SAMPLINGSITE_1		xsd:token													
+	Fields to put in sections		TEMPERATUREMAX_1		xsd:token													
+	Fields to put in sections		TEMPERATUREMIN_1		xsd:token													
+	Fields to put in sections		TEMPERATUREARRIVAL_1		xsd:token													
+	Fields to put in sections		VETID		xsd:token													
+	Fields to put in sections		ROOMID		xsd:token													
+	Fields to put in sections		PENID		xsd:token													
+	Fields to put in sections		SAMPLING_TYPE		xsd:token													
+	Fields to put in sections		BARN_ID		xsd:token													
+	Fields to put in sections		DATE_PACKED		xsd:token													
+	Fields to put in sections		FINAL_ID_GENUS		xsd:token													organism
+	Fields to put in sections		FINAL_ID_SPECIES		xsd:token													organism
+	Fields to put in sections		FINAL_ID_SUBSPECIES		xsd:token													
+	Fields to put in sections		FINAL_ID_SEROTYPE		xsd:token													serovar
+	Fields to put in sections		FINAL_ID_ANTIGEN		xsd:token													
+	Fields to put in sections		FINAL_ID_PHAGETYPE		xsd:token													phagetype
+	Fields to put in sections		SA_Serotype_Method		xsd:token													serotyping_method
+	Fields to put in sections		SEROTYPE_GR		xsd:token													
+	Fields to put in sections		MIC_AMC		xsd:token													
+	Fields to put in sections		MIC_AMK		xsd:token													
+	Fields to put in sections		MIC_AMP		xsd:token													
+	Fields to put in sections		MIC_AZM		xsd:token													
+	Fields to put in sections		MIC_CEP		xsd:token													
+	Fields to put in sections		MIC_CHL		xsd:token													
+	Fields to put in sections		MIC_CIP		xsd:token													
+	Fields to put in sections		MIC_CRO		xsd:token													
+	Fields to put in sections		MIC_FOX		xsd:token													
+	Fields to put in sections		MIC_GEN		xsd:token													
+	Fields to put in sections		MIC_KAN		xsd:token													
+	Fields to put in sections		MIC_MEM		xsd:token													
+	Fields to put in sections		MIC_NAL		xsd:token													
+	Fields to put in sections		MIC_SSS		xsd:token													
+	Fields to put in sections		MIC_STR		xsd:token													
+	Fields to put in sections		MIC_SXT		xsd:token													
+	Fields to put in sections		MIC_TET		xsd:token													
+	Fields to put in sections		MIC_TIO		xsd:token													
+	Fields to put in sections		N_OF_RESISTANCE		xsd:token													
+	Fields to put in sections		NBTESTED		xsd:token													
+	Fields to put in sections		R_PATTERN		xsd:token													
+	Fields to put in sections		AMR_PA2C		xsd:token													
+	Fields to put in sections		RLEAST1		xsd:token													
+	Fields to put in sections		RLEAST2		xsd:token													
+	Fields to put in sections		RLEAST3		xsd:token													
+	Fields to put in sections		RLEAST4		xsd:token													
+	Fields to put in sections		RLEAST5		xsd:token													
+	Fields to put in sections		SIR_AMC		xsd:token													
+	Fields to put in sections		SIR_AMK		xsd:token													
+	Fields to put in sections		SIR_AMP		xsd:token													
+	Fields to put in sections		SIR_AZM		xsd:token													
+	Fields to put in sections		SIR_CEP		xsd:token													
+	Fields to put in sections		SIR_CHL		xsd:token													
+	Fields to put in sections		SIR_CIP		xsd:token													
+	Fields to put in sections		SIR_CRO		xsd:token													
+	Fields to put in sections		SIR_FOX		xsd:token													
+	Fields to put in sections		SIR_GEN		xsd:token													
+	Fields to put in sections		SIR_KAN		xsd:token													
+	Fields to put in sections		SIR_MEM		xsd:token													
+	Fields to put in sections		SIR_NAL		xsd:token													
+	Fields to put in sections		SIR_SSS		xsd:token													
+	Fields to put in sections		SIR_STR		xsd:token													
+	Fields to put in sections		SIR_SXT		xsd:token													
+	Fields to put in sections		SIR_TET		xsd:token													
+	Fields to put in sections		SIR_TIO		xsd:token													
+	Fields to put in sections		RAMC		xsd:token													
+	Fields to put in sections		RAMK		xsd:token													
+	Fields to put in sections		RAMP		xsd:token													
+	Fields to put in sections		RAZM		xsd:token													
+	Fields to put in sections		RCEP		xsd:token													
+	Fields to put in sections		RCHL		xsd:token													
+	Fields to put in sections		RCIP		xsd:token													
+	Fields to put in sections		RCRO		xsd:token													
+	Fields to put in sections		RFOX		xsd:token													
+	Fields to put in sections		RGEN		xsd:token													
+	Fields to put in sections		RKAN		xsd:token													
+	Fields to put in sections		RMEM		xsd:token													
+	Fields to put in sections		RNAL		xsd:token													
+	Fields to put in sections		RSSS		xsd:token													
+	Fields to put in sections		RSTR		xsd:token													
+	Fields to put in sections		RSXT		xsd:token													
+	Fields to put in sections		RTET		xsd:token													
+	Fields to put in sections		RTIO		xsd:token													
+	Fields to put in sections		A2C		xsd:token													
+	Fields to put in sections		CAMC		xsd:token													
+	Fields to put in sections		CAMK		xsd:token													
+	Fields to put in sections		CAMP		xsd:token													
+	Fields to put in sections		CAZM		xsd:token													
+	Fields to put in sections		CCEP		xsd:token													
+	Fields to put in sections		CCHL		xsd:token													
+	Fields to put in sections		CCIP		xsd:token													
+	Fields to put in sections		CCRO		xsd:token													
+	Fields to put in sections		CFOX		xsd:token													
+	Fields to put in sections		CGEN		xsd:token													
+	Fields to put in sections		CKAN		xsd:token													
+	Fields to put in sections		CMEM		xsd:token													
+	Fields to put in sections		CNAL		xsd:token													
+	Fields to put in sections		CSSS		xsd:token													
+	Fields to put in sections		CSTR		xsd:token													
+	Fields to put in sections		CSXT		xsd:token													
+	Fields to put in sections		CTET		xsd:token													
+	Fields to put in sections		CTIO		xsd:token													
+	Fields to put in sections		STHY_TESTSRC_ID		xsd:token													
+	Fields to put in sections		WINN_TESTSRC_ID		xsd:token													
+	Fields to put in sections		GUEL_TESTSRC_ID		xsd:token													
+	Fields to put in sections		RCIP_DANMAP		xsd:token													
+	Fields to put in sections		EPIDATESTAMP_1		xsd:token													
+	Fields to put in sections		ACSSUT		xsd:token													
+	Fields to put in sections		AKSSUT		xsd:token													
+	Fields to put in sections		ACKSSUT		xsd:token													
+	Fields to put in sections		MDR_A_SSUT		xsd:token													
+	Fields to put in sections		EXCLUSION		xsd:token													
+	Fields to put in sections		RAMINOGLY		xsd:token													
+	Fields to put in sections		RBETALACTAM		xsd:token													
+	Fields to put in sections		RQUINOLONES		xsd:token													
+	Fields to put in sections		RFOLINHIBITOR		xsd:token													
+	Fields to put in sections		MDR		xsd:token													
+	Fields to put in sections		specimen_number		xsd:token													
+	Fields to put in sections		EXTERNAL_AGENT		xsd:token													
+	Fields to put in sections		FARM_FLAG		xsd:token													
+	Fields to put in sections		AMIKACINGELET		xsd:token													
+																		
