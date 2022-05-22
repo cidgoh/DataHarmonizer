@@ -12,7 +12,7 @@ var EXPORT_FORMATS = {
 	"VirusSeq_Portal": {
 		'fileType': 'tsv',
 		'status': 'published',
-		method: function (dh, baseName, xlsx, fileType) {
+		method: function (dh) {
 			// Create an export table with template's headers (2nd row) and remaining rows of data
 
 			// NOTE: NULL reason fields must follow immediately after column they are about.
@@ -163,14 +163,14 @@ var EXPORT_FORMATS = {
 				outputMatrix.push(outputRow);
 			}
 
-			dh.runBehindLoadingScreen(dh.exportFile, [outputMatrix, baseName, fileType, xlsx]);
-			}
+			return outputMatrix
+		}
 	},
 
 	BioSample: {
 		'fileType': 'xls',
 		'status': 'published',
-		method:	function (dh, baseName, xlsx, fileType) {
+		method:	function (dh) {
 			// Create an export table with template's headers (2nd row) and remaining rows of data
 			const ExportHeaders = new Map([
 				['sample_name', []],
@@ -236,7 +236,7 @@ var EXPORT_FORMATS = {
 				outputMatrix.push(outputRow);
 			}
 
-			dh.runBehindLoadingScreen(dh.exportFile, [outputMatrix, baseName, fileType, xlsx]);
+			return outputMatrix
 		}
 	},
 
@@ -253,7 +253,7 @@ var EXPORT_FORMATS = {
 	"GISAID": {
 		'fileType': 'xls',
 		'status': 'published',
-		method: function (dh, baseName, xlsx, fileType) {
+		method: function (dh) {
 			// ExportHeaders below is NOT a map. It is an array because it can happen,
 			// as below with 'Address', that a column name appears two or more times.
 
@@ -362,8 +362,7 @@ var EXPORT_FORMATS = {
 			// Insert header fields into top row of export file
 			outputMatrix.splice(0, 0, header_GISAID);
 
-			dh.runBehindLoadingScreen(dh.exportFile, [outputMatrix, baseName, fileType, xlsx]);
-			}
+			return outputMatrix
 		},
 
 		/**

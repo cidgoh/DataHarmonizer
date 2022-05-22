@@ -424,7 +424,7 @@ let DataHarmonizer = {
 
 			row_html +=
 				`<tr class="section">
-					<td colspan="5"><h3>${section.name}</h3></td>
+					<td colspan="5"><h3>${section.title || section.name}</h3></td>
 				</tr>
 				`
 			for (slot of section.children) {
@@ -889,7 +889,7 @@ let DataHarmonizer = {
 		  else {
 			col.type = 'autocomplete';
 			// ISSUE: provide trimDropdown if field is using flatVocabulary just for accepting null values
-			if (!field.sources.includes('null values') || field.sources.length > 1)
+			if (!field.sources.includes('null value menu') || field.sources.length > 1)
 				col.trimDropdown = false;
 		  }
 
@@ -1100,6 +1100,8 @@ let DataHarmonizer = {
 			let section = self.template[sectionIndex.get(section_title)];
 			let new_field = {...field}; // shallow copy
 
+			//console.log(new_field)
+
 			// Some specs don't add plain english title, so fill that with name
 			// for display.
 			if (!('title' in new_field)) {
@@ -1108,7 +1110,7 @@ let DataHarmonizer = {
 
 			// Default field type xsd:token allows all strings that don't have 
 			// newlines or tabs
-			new_field.datatype = 'xsd:token'; // was "xs:token"
+			new_field.datatype = null;
 
 			let range_array = [];
 
@@ -1116,7 +1118,7 @@ let DataHarmonizer = {
 			// Multiple ranges allowed.  For now just accepting enumerations
 			if ('any_of' in new_field) {
 				for (let item of new_field.any_of) {
-					if (item.range in self.schema.enums) {
+					if (item.range in self.schema.enums || item.range in self.schema.types) {
 						range_array.push(item.range)
 					}
 				}
@@ -1124,7 +1126,6 @@ let DataHarmonizer = {
 			else {
 				range_array.push(new_field.range)
 			}
-			
 
 			// Parse slot's range(s)
 			for (let range of range_array) {
@@ -1142,7 +1143,7 @@ let DataHarmonizer = {
 					// xsd:token to block newlines and tabs.
 					// FUTURE: figure out how to accomodate newlines?
 					if (range == 'string') {
-						new_field.datatype = 'xsd:token'; // was "xs:token",
+						new_field.datatype = 'xsd:token';
 					}
 					else {
 						new_field.datatype = range_obj.uri;
@@ -1151,10 +1152,9 @@ let DataHarmonizer = {
 
 				}
 				else {
-					// Range is an Enumeration?
+					// If range is an enumeration ...
 					if (range in self.schema.enums) {
 						range_obj = self.schema.enums[range];
-						new_field.datatype = 'xsd:token';
 
 						if (!('sources' in new_field)) 
 							new_field.sources = [];
@@ -1173,7 +1173,8 @@ let DataHarmonizer = {
 
 					}
 					else {
-						// Range is a Class?
+						// If range is a class ...
+						// multiple => 1-many complex object
 						if (range in self.schema.classes) {
 							range_obj = self.schema.enums[range];
 
@@ -1209,6 +1210,11 @@ let DataHarmonizer = {
 
 				} // End range parsing
 			}
+
+			// Provide default datatype if no other selected
+			if (!new_field.datatype)
+				new_field.datatype = 'xsd:token';
+
 			/* Older DH enables mappings of one template field to one or more 
 			export format fields
 			*/
@@ -1221,9 +1227,9 @@ let DataHarmonizer = {
 			// This augments basic datatype validation
 			if ('string_serialization' in new_field) {
 				switch (new_field.string_serialization) {
-					case '{UPPER CASE}':
-					case '{lower case}':
-					case '{Title Case}':
+					case '{UPPER_CASE}':
+					case '{lower_case}':
+					case '{Title_Case}':
 						new_field.capitalize = true;
 				}
 			}
@@ -1418,7 +1424,6 @@ let DataHarmonizer = {
 
 	/**
 	 * Get grid data without trailing blank rows.
-	 * @param {Object} hot Handonstable grid instance.
 	 * @return {Array<Array<String>>} Grid data without trailing blank rows.
 	 */
 	getTrimmedData: function() {

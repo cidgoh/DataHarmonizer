@@ -20,13 +20,14 @@ Object.assign(DataHarmonizer, {
 		let bad_pattern = {};
 
 		for (let row=0; row < this.hot.countRows(); row++) {
-			if (this.hot.isEmptyRow(row)) continue;
+			if (this.hot.isEmptyRow(row)) 
+				continue;
 
 			for (let col=0; col<fields.length; col++) {
 				const cellVal = this.hot.getDataAtCell(row, col);
 				const field = fields[col];
 				const datatype = field.datatype;
-				let valid = true;
+
 				// TODO we could have messages for all types of invalidation, and add
 				//  them as tooltips
 				let msg = '';
@@ -37,83 +38,80 @@ Object.assign(DataHarmonizer, {
 					checkProvenance(provenanceChanges, cellVal, row, col);
 				};
 
+				let	valid = false;
+
 				if (!cellVal) {
-					valid = (field.required !== true);
-					msg = 'Required cells cannot be empty'
-				} 
+					if (field.required)
+						msg = 'Required cells cannot be empty'
+					else 
+						valid = true;
+				}
+
+				// If not an empty field, check its contents against field datatype AND/OR other kind of range
 				else {
-					// If field's vocabulary comes from a (categorical) source:
-					if (field.flatVocabulary) {
-						if (field.multivalued === true) {
-							[valid, update] = this.validateValsAgainstVocab(cellVal, field);
-							if (update) this.hot.setDataAtCell(row, col, update, 'thisChange');
-						}
-						else {
-							[valid, update] = this.validateValAgainstVocab(cellVal, field);
-							if (update) {
-								this.hot.setDataAtCell(row, col, update, 'thisChange');
+
+					switch (datatype) {
+
+						case 'xsd:integer':
+							var parsedInt = parseInt(cellVal, 10);
+							valid = !isNaN(cellVal);
+							valid &= parsedInt.toString()===cellVal;
+							valid &= this.testNumericRange(parsedInt, field);
+							break;
+
+						case 'xsd:nonNegativeInteger':
+							var parsedInt = parseInt(cellVal, 10);
+							valid = !isNaN(cellVal) && parsedInt>=0;
+							valid &= parsedInt.toString()===cellVal;
+							valid &= this.testNumericRange(parsedInt, field);
+							break;
+
+						case 'xsd:float':
+							var parsedFloat = parseFloat(cellVal);
+							valid = !isNaN(cellVal) && parsedFloat == cellVal;
+							valid &= this.testNumericRange(parsedFloat, field);
+							break;
+
+						case 'xsd:double':
+							// NEED DOUBLE RANGE VALIDATION
+							var parsedFloat = parseFloat(cellVal);
+							//valid = !isNaN(cellVal) && regexDouble.test(cellVal);
+							valid &= !isNaN(cellVal) && this.testNumericRange(parsedFloat, field);
+							break;
+
+						case 'xsd:decimal':
+							const parsedDec = parseFloat(cellVal);
+							valid = !isNaN(cellVal) && regexDecimal.test(cellVal);
+							valid &= this.testNumericRange(parsedDec, field);
+							break;
+
+						// XML Boolean lexical space accepts true, false, and also 1 
+						// (for true) and 0 (for false).
+						case 'xsd:boolean': 
+							valid = !isNaN(cellVal) && ['1','0','true','false'].indexOf(cellVal) >= 0;
+							break;
+
+						case 'xsd:date':
+
+							// moment is a date format addon
+							valid = moment(cellVal, 'YYYY-MM-DD', true).isValid();
+							if (valid) {
+								valid = this.testDateRange(cellVal, field);
 							}
-						}
-					}
-					else {
-						switch (datatype) {
+							break;
 
-							case 'xsd:integer':
-								valid = !isNaN(cellVal);
-								valid &= parsedInt.toString()===cellVal;
-								valid &= this.testNumericRange(parsedInt, field);
-								break;
+						case 'xsd:token':
+							// Default: any token is valid.
+							valid = true;
+							// range: string_serialization / quantity value /
+							/* if (field.string_serialization) {
+							}
+							*/
+							break;	
+					} // End switch
 
-							case 'xsd:nonNegativeInteger':
-								const parsedInt = parseInt(cellVal, 10);
-								valid = !isNaN(cellVal) && parsedInt>=0;
-								valid &= parsedInt.toString()===cellVal;
-								valid &= this.testNumericRange(parsedInt, field);
-								break;
 
-							case 'xsd:float':
-								var parsedFloat = parseFloat(cellVal);
-								valid = !isNaN(cellVal) && parsedFloat == cellVal;
-								valid &= this.testNumericRange(parsedFloat, field);
-								break;
-
-							case 'xsd:double':
-								// NEED DOUBLE RANGE VALIDATION
-								var parsedFloat = parseFloat(cellVal);
-								//valid = !isNaN(cellVal) && regexDouble.test(cellVal);
-								valid &= !isNaN(cellVal) && this.testNumericRange(parsedFloat, field);
-								break;
-
-							case 'xsd:decimal':
-								const parsedDec = parseFloat(cellVal);
-								valid = !isNaN(cellVal) && regexDecimal.test(cellVal);
-								valid &= this.testNumericRange(parsedDec, field);
-								break;
-
-							// XML Boolean lexical space accepts true, false, and also 1 
-							// (for true) and 0 (for false).
-							case 'xsd:boolean': 
-								valid = !isNaN(cellVal) && ['1','0','true','false'].indexOf(cellVal) >= 0;
-								break;
-
-							case 'xsd:date':
-								// moment is a date format addon
-								valid = moment(cellVal, 'YYYY-MM-DD', true).isValid();
-								if (valid) {
-									valid = this.testDateRange(cellVal, field);
-								}
-								break;
-
-							case 'xsd:token':
-								// range: string_serialization / quantity value /
-								/* if (field.string_serialization) {
-								}
-								*/
-								break;	
-						}
-					}
-
-					// A field may be validated against an enumeration, or a regex pattern if given.
+					// A regular expression can be applied against a string or numeric or date value. It doesn't make sense against a categorical value.
 					if (valid && field.pattern) {
 						// Pattern shouldn't be anything other than a regular expression object
 						try {
@@ -128,7 +126,33 @@ Object.assign(DataHarmonizer, {
 						}
 
 					}
-				}
+
+					// Now perhaps value is invalid from numeric or date datatype 
+					// perspective, or its an xsd:token where anything goes. Check if 
+					// there are other enumeration values possible in flatVocabulary.
+
+					else 
+						if ((!valid || datatype === 'xsd:token') && field.flatVocabulary) {
+							if (field.multivalued === true) {
+								[valid, update] = this.validateValsAgainstVocab(cellVal, field);
+								if (update) 
+									this.hot.setDataAtCell(row, col, update, 'thisChange');
+							}
+							else {
+								[valid, update] = this.validateValAgainstVocab(cellVal, field);
+								if (update) {
+									this.hot.setDataAtCell(row, col, update, 'thisChange');
+								}
+							}
+							// Hardcoded case: If field is xsd:token, and 1st picklist is 
+							// "null value menu" then ignore validation on free-text stuff.
+							if (!valid && field.datatype === 'xsd:token' && field.sources.length == 1 && field.sources[0] === 'null value menu')
+								valid = true;
+							console.log(field.sources, field.datatype, valid, update, datatype)
+						}
+
+				} // End of field-not empty section
+
 
 				// Unique value field (Usually xsd:token string)
 				// CORRECT PLACE FOR THIS? 
@@ -151,19 +175,15 @@ Object.assign(DataHarmonizer, {
 					valid &= uniquefield[col][cellVal] === 1;  
 				}
 
-				// OBSOLETE: field.flatVocabulary now contains metadata null value options
-				//if (!valid && field.metadata_status) {
-				//	[valid, update] = this.validateValAgainstVocab(cellVal, field.dataStatus);
-				//	if (update) this.hot.setDataAtCell(row, col, update, 'thisChange');
-				//}
 				if (!valid) {
 					if (!invalidCells.hasOwnProperty(row)) {
 						invalidCells[row] = {};
 					}
 					invalidCells[row][col] = msg;
 				}
-			}
-		}
+			} // column/field loop end
+		} // row loop end
+
 		// Here an array of (row, column, value)... is being passed
 		if (provenanceChanges.length)
 			this.hot.setDataAtCell(provenanceChanges);
