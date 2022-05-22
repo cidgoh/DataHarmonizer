@@ -46,7 +46,7 @@ Object.assign(DataHarmonizer, {
 					const dateGranularity = this.hot.getDataAtCell(row, col+1);
 					// previously had to block x/y/z with change[3].indexOf('/') === -1 && 
 					if (dateGranularity === 'year' || dateGranularity === 'month') {
-						change[3] = setDateChange(dateGranularity, change[3]);
+						change[3] = this.setDateChange(dateGranularity, change[3]);
 					}
 					return;
 				}
@@ -55,14 +55,14 @@ Object.assign(DataHarmonizer, {
 				const nextNextName = (fields.length > col+2) ? fields[col+2].title : null;
 				if (nextNextName === field.title + ' bin') {
 					matrix[0][col+1] = this.hot.getDataAtCell(row, col+1); //prime unit
-					binChangeTest(matrix, row, col, fields, 2, triggered_changes);
+					this.binChangeTest(matrix, row, col, fields, 2, triggered_changes);
 					return;
 				}
 			}
 
 			// Match <field>[field bin]
 			if (nextName === field.title + ' bin') {
-				binChangeTest(matrix, row, col, fields, 1, triggered_changes);
+				this.binChangeTest(matrix, row, col, fields, 1, triggered_changes);
 				return;
 			}
 
@@ -73,7 +73,7 @@ Object.assign(DataHarmonizer, {
 				if (prevName + ' bin' === nextName) {
 					// trigger reevaluation of bin from field
 					matrix[0][col-1] = this.hot.getDataAtCell(row, col-1);
-					binChangeTest(matrix, row, col-1, fields, 2, triggered_changes);
+					this.binChangeTest(matrix, row, col-1, fields, 2, triggered_changes);
 					return;
 				}
 
@@ -87,7 +87,7 @@ Object.assign(DataHarmonizer, {
 					// If there is a date entered, adjust it
 					// previously had to block x/y/z with  && dateString.indexOf('/') === -1 
 					if (dateString) {
-						dateString = setDateChange(change[3], dateString);
+						dateString = this.setDateChange(change[3], dateString);
 						matrix[0][col-1] = dateString;
 						triggered_changes.push([row, col-1, undefined, dateString]);
 					}
@@ -109,13 +109,13 @@ Object.assign(DataHarmonizer, {
 	*/
 	changeCase: function (val, field) {
 		switch (field.string_serialization) {
-			case '{lower case}':
+			case '{lower_case}':
 				val = val.toLowerCase();
 				break;
-			case '{UPPER CASE}':
+			case '{UPPER_CASE}':
 				val = val.toUpperCase();
 				break;
-			case '{Title Case}':
+			case '{Title_Case}':
 				val = val.split(' ').
 				map(w => w[0].toUpperCase() + w.substr(1).toLowerCase()).
 				join(' ');
@@ -156,7 +156,7 @@ Object.assign(DataHarmonizer, {
 			// Rule: for any "x bin" field label, following a "x" field,
 			// find and set appropriate bin selection.
 			if (nexttitle === field.title + ' bin') {
-				binChangeTest(matrix, 0, col, fields, 1, triggered_changes);
+				this.binChangeTest(matrix, 0, col, fields, 1, triggered_changes);
 			}
 			// Rule: for any [x], [x unit], [x bin] series of fields
 			else
@@ -167,7 +167,7 @@ Object.assign(DataHarmonizer, {
 							if (!matrix[row][col]) continue;
 							const dateGranularity = matrix[row][col + 1];
 							if (dateGranularity === 'year' || dateGranularity === 'month') {
-								matrix[row][col] = setDateChange(dateGranularity, matrix[row][col]);
+								matrix[row][col] = this.setDateChange(dateGranularity, matrix[row][col]);
 							}
 						}
 					}

@@ -2,17 +2,14 @@
 // A list of the export functions keyed by the Export menu name they should appear as:
 var EXPORT_FORMATS = {
 
-/**
- * Download secondary headers and grid data.
- * @param {String} baseName Basename of downloaded file.
- * @param {Object} hot Handonstable grid instance.
- * @param {Object} data See `data.js`.
- * @param {Object} xlsx SheetJS variable.
- */
+	/**
+	 * Download secondary headers and grid data.
+	 * @param {String} dh DataHarmonizer object.
+	 */
   NCBI_BioSample: {
     fileType: 'xls',
     status: 'published',
-    method: function (dh, baseName, xlsx, fileType) {
+    method: function (dh) {
       // Create an export table with template's headers (2nd row) and remaining rows of data
       const ExportHeaders = new Map([
         ['sample_name',             []],
@@ -122,7 +119,7 @@ var EXPORT_FORMATS = {
             // Otherwise apply source (many to one) to target field transform:
             const value = dh.getMappedField(headerName, inputRow, sources, sourceFields,sourceFieldNameMap, ':', 'NCBI_BIOSAMPLE', concatOptionsMap, true);
             // Issue: if no concatenated field content, then metadata status?
-            outputRow.push(concatFirstLastField (value, ':'));
+            outputRow.push(dh.concatFirstLastField (value, ':'));
             continue;
           };
           
@@ -140,14 +137,14 @@ var EXPORT_FORMATS = {
         outputMatrix.push(outputRow);
       }
 
-
-    };
+      return outputMatrix
+    }
   },
 
   NCBI_SRA: {
     fileType: 'xls',
     status: 'published',
-    method: function (dh, baseName, xlsx, fileType) {
+    method: function (dh) {
 
       const ExportHeaders = new Map([
         ['sample_name',          []],
@@ -184,7 +181,7 @@ var EXPORT_FORMATS = {
       for (const inputRow of dh.getTrimmedData(dh.hot)) {
         const outputRow = [];
         for (const [headerName, sources] of ExportHeaders) {
-          console.log(headerName, sources)
+
           // Otherwise apply source (many to one) to target field transform:
           const value = dh.getMappedField(headerName, inputRow, sources, sourceFields, sourceFieldNameMap, ':', 'NCBI_SRA') 
           outputRow.push(value);
@@ -192,14 +189,14 @@ var EXPORT_FORMATS = {
         outputMatrix.push(outputRow);
       }
 
-      dh.runBehindLoadingScreen(dh.exportFile, [outputMatrix, baseName, fileType, xlsx]);
+      return outputMatrix
     }
   },
 
   NCBI_Genbank: {
     fileType: 'xls',
     status: 'published',
-    method: function (dh, baseName, xlsx, fileType) {
+    method: function (dh) {
 
       const ExportHeaders = new Map([
         ['biosample_accession',    []],
@@ -220,7 +217,7 @@ var EXPORT_FORMATS = {
       // Copy headers to 1st row of new export table
       const outputMatrix = [[...ExportHeaders.keys()]];
 
-      for (const inputRow of getTrimmedData(dh.hot)) {
+      for (const inputRow of dh.getTrimmedData(dh.hot)) {
         const outputRow = [];
         for (const [headerName, sources] of ExportHeaders) {
 
@@ -231,14 +228,14 @@ var EXPORT_FORMATS = {
         outputMatrix.push(outputRow);
       }
 
-      dh.runBehindLoadingScreen(dh.exportFile, [outputMatrix, baseName, fileType, xlsx]);
+      return outputMatrix
     }
   },
 
   NCBI_Genbank_source_modifiers: {
     fileType: 'xls',
     status: 'published',
-    method: function (dh, baseName, xlsx, fileType) {
+    method: function (dh) {
 
       const ExportHeaders = new Map([
         ['Sequence_ID',        []],
@@ -270,7 +267,7 @@ var EXPORT_FORMATS = {
         outputMatrix.push(outputRow);
       }
 
-      dh.runBehindLoadingScreen(dh.exportFile, [outputMatrix, baseName, fileType, xlsx]);
+      return outputMatrix
     }
   },
 
@@ -287,7 +284,7 @@ var EXPORT_FORMATS = {
   exportGISAID: {
     fileType: 'xls', 
     status: 'published',
-    method: function (dh, baseName, xlsx, fileType) {
+    method: function (dh) {
 
       // ExportHeaders below is NOT a map. It is an array because it can happen,
       // as below with 'Address', that a column name appears two or more times.
@@ -397,6 +394,7 @@ var EXPORT_FORMATS = {
       // Insert header fields into top row of export file
       outputMatrix.splice(0, 0, header_GISAID);
 
-      dh.runBehindLoadingScreen(dh.exportFile, [outputMatrix, baseName, fileType, xlsx]);
+      return outputMatrix
     }
   }
+}
