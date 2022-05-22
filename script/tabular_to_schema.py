@@ -90,7 +90,9 @@ with open(r_schema_slots) as tsvfile:
 				if row.get('range_2','') > '':
 					merged_ranges = [row.get('range')]
 					merged_ranges.extend(row.get('range_2').split(';'))
-					slot['any_of'] = list(map(lambda x: {'range': x }, merged_ranges))
+					slot['any_of'] = []
+					for x in merged_ranges:
+						slot['any_of'].append({'range': x })
 				else:
 					slot['range'] = row['range'];		
 
@@ -131,6 +133,9 @@ with open(r_schema_slots) as tsvfile:
 			SCHEMA['slots'][slot['name']] = slot;
 
 			schema_class['slots'].append(slot['name'])
+
+			# Future: in_subset: The in_subset slot can be used tag your class
+			# (or slot) to belong to a pre-defined subset.
 
 			#### Now add particular slot_usage requirements
 			slot_usage = {
@@ -217,7 +222,6 @@ with open(r_schema_enums) as tsvfile:
 			# IMPLEMENTS permissible_values HIERARCHY (not in linkml yet)
 			# insert permissible_values in between menu item depth
 			#
-
 			#search_path = menu_path.copy()
 			#for x in range(len(search_path)):
 			#	search_path.insert(2*x, 'permissible_values')
