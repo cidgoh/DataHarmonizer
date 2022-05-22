@@ -104,7 +104,7 @@ DataHarmonizerToolbar = {
 			if (exportFormat in dh.export_formats) {
 				const format = dh.export_formats[exportFormat];
 				let outputMatrix = format.method(dh);
-				dh.runBehindLoadingScreen(dh.exportFile, [outputMatrix, baseName, format.fileType, XLSX]);
+				dh.runBehindLoadingScreen(dh.exportFile, [outputMatrix, baseName, format.fileType]);
 			}
 			$('#export-to-modal').modal('hide');
 		});
