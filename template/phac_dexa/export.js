@@ -1,348 +1,339 @@
-/**
- * Download phac_dexa grid mapped to GRDI format.
- * DEXA to GRDI is 3 step process:
- * 1: Normalize DEXA fields
- *  - All input is lowercase at moment except for one term: 'bursa of Fabricius'
- * 2: Merge field values into target fields according to rules. Done in setRuleDB
- * 3: Ontology id addition to merged fields
- * 
- * @param {String} baseName Basename of downloaded file.
- * @param {Object} hot Handonstable grid instance.
- * @param {Object} data See `data.js`.
- * @param {Object} xlsx SheetJS variable.
- */
-var exportGRDI = (baseName, hot, data, xlsx, fileType) => {
-  // Provides a map from each export format field to the linear list of source
-  // fields it derives content from.
-  const ExportHeaders = new Map([
-		// Sample collection and processing
-  	['sample_collector_sample_ID',                []], // takes DEXA SPECIMEN_ID, SAMPLE_ID
-    ['alternative_sample_ID',                     []], // takes DEXA LFZ_ADDITIONAL_SAMPLE_ID
-    ['collected_by_institution_name',             []], // takes DEXA SUBMITTINGORG_1
-    ['collected_by_laboratory_name',              []], // takes DEXA SUBMITTINGLAB_1
-    ['sample_collection_project_name',            []],
-    ['sample_plan_name',                     			[]],
-    ['sample_plan_ID',                     				[]],
-    ['sample_collector_contact_name',             []],
-    ['sample_collector_contact_email',            []], //CIPARS generic email ???
-    ['purpose_of_sampling',                     	[]],
-    ['experimental_activity',                     []],
-    ['experimental_activity_details',             []],
-    ['sample_processing',                     		[]],
-    ['geo_loc_name (country)',                    []], // takes DEXA COUNTRY_1
-    ['geo_loc_name (state/province/region)',      []], // takes DEXA PROVINCE_1
-    ['food_product_origin geo_loc_name (country)',[]],
-    ['host_origin geo_loc_name (country)',        []],
-    ['latitude_of_sample_collection',             []],
-    ['longitude_of_sample_collection',            []],
-    ['sample_collection_date',                    []], // takes DEXA DATECOLLECTED_1
-    ['sample_received_date',                     	[]],
-    ['original_sample_description',               []],
-    ['environmental_site',                     		[]], // CALCULATED in RuleDB
-    ['animal_or_plant_population',                []], // CALCULATED in RuleDB
-    ['environmental_material',                    []], // CALCULATED in RuleDB
-    ['body_product',                     					[]], // CALCULATED in RuleDB
-    ['anatomical_part',                     			[]], // CALCULATED in RuleDB
-    ['food_product',                     					[]], // CALCULATED in RuleDB
-    ['food_product_properties',                   []], // CALCULATED in RuleDB
-    ['animal_source_of_food',                     []],
-    ['food_packaging',                     				[]],
-    ['collection_device',                     		[]], // CALCULATED in RuleDB
-    ['collection_method',                     		[]], // CALCULATED in RuleDB
-		//	Host information
-    ['host (common name)',                     		[]], // takes DEXA SPECIES BUT ALSO  // CALCULATED in RuleDB
-    ['host (scientific name)',                    []],
-    ['host_disease',                     					[]],
-    
-    ['host_developmental_stage',										[]], // CALCULATED in RuleDB
-
-		//	Strain and isolation information
-    ['microbiological_method',                    []],
-    ['strain',                     								[]],
-    ['isolate_ID',                     						[]], // takes DEXA ISOLATE_ID
-    ['alternative_isolate_ID',                    []],
-    ['progeny_isolate_ID',                     		[]],
-    ['IRIDA_isolate_ID',                     			[]],
-    ['IRIDA_project_ID',                     			[]],
-    ['isolated_by_institution_name',              []],
-    ['isolated_by_laboratory_name',               []],
-    ['isolated_by_contact_name',                  []],
-    ['isolated_by_contact_email',                 []],
-    ['isolation_date',                     				[]],
-    ['isolate_received_date',                     []],
-    ['organism',                     							[]], // takes DEXA FINAL_ID_GENUS, FINAL_ID_SPECIES
-    ['serovar',                     							[]], // takes DEXA FINAL_ID_SEROTYPE
-    ['serotyping_method',                     		[]], // takes DEXA SA_Serotype_Method
-    ['phagetype',                     						[]], // takes DEXA FINAL_ID_PHAGETYPE
-		// Sequence information
-    ['library_ID',                     						[]],
-    ['sequenced_by_institution_name',             []],
-    ['sequenced_by_laboratory_name',              []],
-    ['sequenced_by_contact_name',                 []],
-    ['sequenced_by_contact_email',                []],
-    ['purpose_of_sequencing',                     []],
-    ['sequencing_project_name',                   []],
-    ['sequencing_platform',                     	[]],
-    ['sequencing_instrument',                     []],
-    ['sequencing_method',                     		[]],
-    ['r1_fastq_filename',                     		[]],
-    ['r1_fastq_filename',                     		[]],
-    ['fast5_filename',                     				[]],
-    ['assembly_filename',                     		[]],
-		//	Public repository information
-    ['publication_ID',                     				[]],
-    ['attribute_package',                     		[]],
-    ['biosample_accession',                     	[]],
-    ['SRA_accession',                     				[]],
-    ['GenBank_accession',                     		[]],
-    // Antimicrobial Resistance
-    // ...
-
-    //['sample_name',                     				[]], NEW FIELD??
-    //['collected_by',                    				[]], DIFFERENT FIELD
-    ['anatomical_material',             					[]], // MISSING FIELD  // CALCULATED in RuleDB
-    //['laboratory_name',                 				[]], --> collected_by_laboratory_name?? // takes SUBMITTINGLAB_1
-    ['DataHarmonizer provenance',									[]],
-  ]);
-
-  let preserveCapsFields = [
-  	'geo_loc_name (country)',
-  	'geo_loc_name (state/province/region)',
-  	'sequenced_by_institution_name',
-  	'sequenced_by_laboratory_name',
-  	'sequenced_by_contact_name'];
-
-  const sourceFields = getFields(data);
-  const sourceFieldNameMap = getFieldNameMap(sourceFields);
-
-  // Fills in the above mapping of export field to source fields (or just set
-  // source fields manually above) 
-  getHeaderMap(ExportHeaders, sourceFields, 'GRDI');
-
-  // Copy headers to 1st row of new export table
-  const outputMatrix = [[...ExportHeaders.keys()]];
-
-	let normalize = initLookup();
-
-  const inputMatrix = getTrimmedData(hot);
-  for (const inputRow of inputMatrix) {
-
-  	// Does all 
-    let RuleDB = setRuleDB(inputRow, sourceFields, sourceFieldNameMap, normalize, preserveCapsFields);
-
-    const outputRow = [];
-    for (const headerName of ExportHeaders.keys()) {
-
-      // If Export Header field is in RuleDB, set output value from it, and
-      // continue.
-      // Sometimes fields have been set to 0 length.
-      if ((headerName in RuleDB) && RuleDB[headerName] || RuleDB[headerName] === null) {
-        let value = RuleDB[headerName];
-        if (value !== null) {
-      		value = map_ontology(value, normalize, headerName);
-        }
-        outputRow.push(value);
-        continue;
-      };
-
-      // Otherwise apply source (many to one) to target field transform:
-      const sources = ExportHeaders.get(headerName);
-      let value = getMappedField(headerName, inputRow, sources, sourceFields, sourceFieldNameMap, ';', 'GRDI');
-      // semicolon-separated list of values.  Issue is terms have come from other source fields. 
-      outputRow.push(value);
-    };
-    outputMatrix.push(outputRow);
-  };
-
-  runBehindLoadingScreen(exportFile, [outputMatrix, baseName, fileType, xlsx]);
-}
-
-/** Determine if text label for field is in an existing ontology or not.
- * @param {String} labels delimited by semicolons.
- * @param {Object} normalize dictionary of label -> field & ontology_id.
- */
-var map_ontology = (labels, normalize, field) => {
-  value = [];
-  for (let label of labels.split(';').map(function(e){return e.trim()})) {
-    // If it is a selection list picklist item it may have an ontology ID.
-    let lookup = label.toLowerCase();
-    // Otherwise it may be a compound term
-    if (lookup in normalize) {
-    	let ontology_id = normalize[lookup].ontology_id;
-    	if (ontology_id) {
-      	label += ': ' + ontology_id;
-			}
-    }
-    value.push(label);
-  }
-
-  return value.join(';');
-}
-
-        
-
-/** Rule-based target field value calculation based on given data row
- * @param {Object} dataRow.
- * @param {Object} sourceFields.
- * @param {Object} sourceFieldNameMap.
- * @param {Object} normalize term lookup table.
- */
-var setRuleDB = (dataRow, sourceFields, sourceFieldNameMap, normalize, preserveCapsFields) => {
-
-  // RuleDB is a holding bin of target fields/variables to populate with custom
-  // rule content. None of these fields receive DEXA field content directly.
-  let RuleDB = {
-    'anatomical_material':       '',
-    'anatomical_part':           '',
-    'animal_or_plant_population':'',
-    'body_product':              '',
-    'collection_device':         '',
-    'collection_method':         '', // NEW!
-    'environmental_material':    '',
-    'environmental_site':        '',
-    'food_product':              '',
-
-    'food_product_properties':  	'',
-    'host (common name)':					'',
-    'host_developmental_stage':   '', // NEW!!!!
-		'sample_processing':          ''  // NEW!!!!
-    // Source fields and their content added below
-  };
-
-  let ruleSourceFieldNames = ['STTYPE', 'STYPE', 'SPECIMENSUBSOURCE_1', 'SUBJECT_DESCRIPTIONS', 'SPECIES', 'COMMODITY'];
-
-  // Loads RuleDB with the additional ruleSourceFieldNames.
-  // This will set content of a target field based on data.js vocabulary
-  // exportField {'field':[target column],'value':[replacement value]]}
-  // mapping if any.
-  getRowMap(dataRow, ruleSourceFieldNames, RuleDB, sourceFields, sourceFieldNameMap, 'GRDI');
-
-  for (let sourceField of Object.keys(RuleDB)) {
-  	if (RuleDB[sourceField])
-  		RuleDB[sourceField] = RuleDB[sourceField].toLowerCase();
- 	};
-
-  // STTYPE: ANIMAL ENVIRONMENT FOOD HUMAN PRODUCT QA UNKNOWN
-  switch (RuleDB.STTYPE) {
-
-    case 'animal': {
-      // species-> host (common name);
-      RuleDB['host (common name)'] = RuleDB.SPECIES;
-
-		  if (RuleDB.collection_device === 'swab' 
-		  	&& RuleDB.environmental_site.length > 0 
-		  	&& RuleDB.SPECIES) {
-		     RuleDB.animal_or_plant_population = RuleDB.SPECIES;
-		  };
-      break; // prevents advancing to FOOD
-      
-    };
-
-    case 'food' : {
-      // species-> food product
-      // Issue, sometimes species = "Other" ????
-      if (RuleDB.SPECIES)
-        RuleDB.food_product = RuleDB.SPECIES;
-      RuleDB['host (common name)'] = null; //wHY ISNT THIS WORKING???
-
-      if (RuleDB.SUBJECT_DESCRIPTIONS)
-        add_item(RuleDB,'food_product', RuleDB.SUBJECT_DESCRIPTIONS);
-
-      if (RuleDB.STYPE && RuleDB.COMMODITY) {
-				//add_item(RuleDB.food_product, RuleDB.STYPE);
-	  		switch (RuleDB.STYPE) {
-	        case 'porcine':
-	        case 'avian':
-	        case 'crustacean': 
-	          add_item(RuleDB,'food_product', RuleDB.COMMODITY);
-	      };
-      }
-
-      // Here a food_product might be a conjunction of animal + food product:
-      let merged = RuleDB.food_product.replace('; ',' ');
-      if (merged in normalize) {
-      	RuleDB.food_product = normalize[merged].label;
-      }
-
-      break; // prevents advancing to blank/UNKNOWN
-    };
-
-    case 'environment':
-      // species-> host (common name);
-      RuleDB['host (common name)'] = RuleDB.SPECIES;
-
-    	if (RuleDB.STYPE)
-      	add_item(RuleDB,'environmental_material', RuleDB.STYPE);
-      break;
-
-    case 'product':
-      // species-> food product
-      RuleDB.food_product = RuleDB.SPECIES;
-
-      switch (RuleDB.STYPE) {
-        case 'feed and ingredients':
-        case 'fertilizer': 
-					add_item(RuleDB,'food_product', RuleDB.SUBJECT_DESCRIPTIONS);
-      };
-      break;
-
-    default: // Any other STTYPE Value:
-    //case '':
-    //case 'unknown': {// no <n/a>
-    
-  };
-
-  return RuleDB;
-};
-
-/**
- * Add a value to a field's existing string value, delimited by semicolon.
- */
-var add_item = (RuleDB, field, value) => {
-	if (RuleDB[field] === '')
-		RuleDB[field] = value;
-	else
-		RuleDB[field] += '; ' + value;
-}
-
-// A list of the above functions keyed by the Export menu name they should appear as:
+// Adds existing functions/methods to DataHarminizer.
 var EXPORT_FORMATS = {
-  "Dexa to GRDI": {'method': exportGRDI, 'fileType': 'xls', 'status': 'draft'}
-};
+
+	"Dexa to GRDI": {
+		'fileType': 'xls',
+		'status': 'published',
+		method: function (dh) {
+
+			self = this;
+
+			// Provides a map from each export format field to the linear list of source
+			// fields it derives content from.
+			const ExportHeaders = new Map([
+				// Sample collection and processing
+				['sample_collector_sample_ID',                []], // takes DEXA SPECIMEN_ID, SAMPLE_ID
+				['alternative_sample_ID',                     []], // takes DEXA LFZ_ADDITIONAL_SAMPLE_ID
+				['collected_by_institution_name',             []], // takes DEXA SUBMITTINGORG_1
+				['collected_by_laboratory_name',              []], // takes DEXA SUBMITTINGLAB_1
+				['sample_collection_project_name',            []],
+				['sample_plan_name',                          []],
+				['sample_plan_ID',                            []],
+				['sample_collector_contact_name',             []],
+				['sample_collector_contact_email',            []], //CIPARS generic email ???
+				['purpose_of_sampling',                       []],
+				['experimental_activity',                     []],
+				['experimental_activity_details',             []],
+				['sample_processing',                         []],
+				['geo_loc_name (country)',                    []], // takes DEXA COUNTRY_1
+				['geo_loc_name (state/province/region)',      []], // takes DEXA PROVINCE_1
+				['food_product_origin geo_loc_name (country)',[]],
+				['host_origin geo_loc_name (country)',        []],
+				['latitude_of_sample_collection',             []],
+				['longitude_of_sample_collection',            []],
+				['sample_collection_date',                    []], // takes DEXA DATECOLLECTED_1
+				['sample_received_date',                      []],
+				['original_sample_description',               []],
+				['environmental_site',                        []], // CALCULATED in RuleDB
+				['animal_or_plant_population',                []], // CALCULATED in RuleDB
+				['environmental_material',                    []], // CALCULATED in RuleDB
+				['body_product',                              []], // CALCULATED in RuleDB
+				['anatomical_part',                           []], // CALCULATED in RuleDB
+				['food_product',                              []], // CALCULATED in RuleDB
+				['food_product_properties',                   []], // CALCULATED in RuleDB
+				['animal_source_of_food',                     []],
+				['food_packaging',                            []],
+				['collection_device',                         []], // CALCULATED in RuleDB
+				['collection_method',                         []], // CALCULATED in RuleDB
+				//  Host information
+				['host (common name)',                        []], // takes DEXA SPECIES BUT ALSO  // CALCULATED in RuleDB
+				['host (scientific name)',                    []],
+				['host_disease',                              []],
+				
+				['host_developmental_stage',                    []], // CALCULATED in RuleDB
+
+				//  Strain and isolation information
+				['microbiological_method',                    []],
+				['strain',                                    []],
+				['isolate_ID',                                []], // takes DEXA ISOLATE_ID
+				['alternative_isolate_ID',                    []],
+				['progeny_isolate_ID',                        []],
+				['IRIDA_isolate_ID',                          []],
+				['IRIDA_project_ID',                          []],
+				['isolated_by_institution_name',              []],
+				['isolated_by_laboratory_name',               []],
+				['isolated_by_contact_name',                  []],
+				['isolated_by_contact_email',                 []],
+				['isolation_date',                            []],
+				['isolate_received_date',                     []],
+				['organism',                                  []], // takes DEXA FINAL_ID_GENUS, FINAL_ID_SPECIES
+				['serovar',                                   []], // takes DEXA FINAL_ID_SEROTYPE
+				['serotyping_method',                         []], // takes DEXA SA_Serotype_Method
+				['phagetype',                                 []], // takes DEXA FINAL_ID_PHAGETYPE
+				// Sequence information
+				['library_ID',                                []],
+				['sequenced_by_institution_name',             []],
+				['sequenced_by_laboratory_name',              []],
+				['sequenced_by_contact_name',                 []],
+				['sequenced_by_contact_email',                []],
+				['purpose_of_sequencing',                     []],
+				['sequencing_project_name',                   []],
+				['sequencing_platform',                       []],
+				['sequencing_instrument',                     []],
+				['sequencing_method',                         []],
+				['r1_fastq_filename',                         []],
+				['r1_fastq_filename',                         []],
+				['fast5_filename',                            []],
+				['assembly_filename',                         []],
+				//  Public repository information
+				['publication_ID',                            []],
+				['attribute_package',                         []],
+				['biosample_accession',                       []],
+				['SRA_accession',                             []],
+				['GenBank_accession',                         []],
+				// Antimicrobial Resistance
+				// ...
+
+				//['sample_name',                             []], NEW FIELD??
+				//['collected_by',                            []], DIFFERENT FIELD
+				['anatomical_material',                       []], // MISSING FIELD  // CALCULATED in RuleDB
+				//['laboratory_name',                         []], --> collected_by_laboratory_name?? // takes SUBMITTINGLAB_1
+				['DataHarmonizer provenance',                 []],
+			]);
+
+			let preserveCapsFields = [
+				'geo_loc_name (country)',
+				'geo_loc_name (state/province/region)',
+				'sequenced_by_institution_name',
+				'sequenced_by_laboratory_name',
+				'sequenced_by_contact_name'];
+
+			const sourceFields = dh.getFields(dh.table);
+			const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
+
+			// Fills in the above mapping of export field to source fields (or just set
+			// source fields manually above) 
+			dh.getHeaderMap(ExportHeaders, sourceFields, 'GRDI');
+
+			// Copy headers to 1st row of new export table
+			const outputMatrix = [[...ExportHeaders.keys()]];
+
+			let normalize = self.initLookup();
+
+			const inputMatrix = dh.getTrimmedData(dh.hot);
+			for (const inputRow of inputMatrix) {
+
+				// Does all 
+				let RuleDB = self.setRuleDB(dh, inputRow, sourceFields, sourceFieldNameMap, normalize, preserveCapsFields);
+
+				const outputRow = [];
+				for (const headerName of ExportHeaders.keys()) {
+
+					// If Export Header field is in RuleDB, set output value from it, and
+					// continue.
+					// Sometimes fields have been set to 0 length.
+					if ((headerName in RuleDB) && RuleDB[headerName] || RuleDB[headerName] === null) {
+						let value = RuleDB[headerName];
+						if (value !== null) {
+							value = self.map_ontology(value, normalize, headerName);
+						}
+						outputRow.push(value);
+						continue;
+					};
+
+					// Otherwise apply source (many to one) to target field transform:
+					const sources = ExportHeaders.get(headerName);
+					let value = dh.getMappedField(headerName, inputRow, sources, sourceFields, sourceFieldNameMap, ';', 'GRDI');
+					// semicolon-separated list of values.  Issue is terms have come from other source fields. 
+					outputRow.push(value);
+				};
+				outputMatrix.push(outputRow);
+			};
+
+			return outputMatrix
+		},
+
+	/** Determine if text label for field is in an existing ontology or not.
+	 * @param {String} labels delimited by semicolons.
+	 * @param {Object} normalize dictionary of label -> field & ontology_id.
+	 */
+	map_ontology: function(labels, normalize, field) {
+		value = [];
+		for (let label of labels.split(';').map(function(e){return e.trim()})) {
+			// If it is a selection list picklist item it may have an ontology ID.
+			let lookup = label.toLowerCase();
+			// Otherwise it may be a compound term
+			if (lookup in normalize) {
+				let ontology_id = normalize[lookup].ontology_id;
+				if (ontology_id) {
+					label += ': ' + ontology_id;
+				}
+			}
+			value.push(label);
+		}
+
+		return value.join(';');
+	},
 
 
-/**
- * Initialize lookup table for normalizing DEXA terms: term -> normalized term.
- * NOTE: This lookup doesn't handle one term occuring under different parents.
- * 
- * Cut & paste from DataHarmonizer Templates GRDI Normalization tab into LOOKUP
- * https://docs.google.com/spreadsheets/d/1jPQAIJcL_xa3oBVFEsYRGLGf7ESTOwzsTSjKZ-0CTYE/ 
- * MUST BE TAB DELIMITED!
- *
- * @return {Object} term normalize lookup table.
- */
-var initLookup = () => {
+	/** Rule-based target field value calculation based on given data row
+	 * @param {Object} dataRow.
+	 * @param {Object} sourceFields.
+	 * @param {Object} sourceFieldNameMap.
+	 * @param {Object} normalize term lookup table.
+	 */
+	setRuleDB: function (dh, dataRow, sourceFields, sourceFieldNameMap, normalize, preserveCapsFields) {
 
-  let normalize = {};
-  for (const line of LOOKUP.split('\n')) {
-    let [ontology_id, parent, label, normalization] = line.split('\t').map(function(e){return e.trim();});
+		// RuleDB is a holding bin of target fields/variables to populate with custom
+		// rule content. None of these fields receive DEXA field content directly.
+		let RuleDB = {
+			'anatomical_material':       '',
+			'anatomical_part':           '',
+			'animal_or_plant_population':'',
+			'body_product':              '',
+			'collection_device':         '',
+			'collection_method':         '', // NEW!
+			'environmental_material':    '',
+			'environmental_site':        '',
+			'food_product':              '',
 
-    normalize[label] = {
-    	'ontology_id': ontology_id,
-    	'parent': parent,
-    	'label': label
-    };
+			'food_product_properties':    '',
+			'host (common name)':         '',
+			'host_developmental_stage':   '', // NEW!!!!
+			'sample_processing':          ''  // NEW!!!!
+			// Source fields and their content added below
+		};
 
-    // Various other abnormal/synonym text strings point to normalized record.
-    let normalizations = normalization.split(';').map(function(e){return e.trim()});
-    if (normalizations.length>0)
-    	for (const key of normalizations) 
-  			normalize[key] = normalize[label];
-  }
-  return normalize;
-}
+		let ruleSourceFieldNames = ['STTYPE', 'STYPE', 'SPECIMENSUBSOURCE_1', 'SUBJECT_DESCRIPTIONS', 'SPECIES', 'COMMODITY'];
 
-var LOOKUP = `ENVO_01000925	environmental_site	abattoir	a.a. abattoir; abattior; abattoir af; abattoir ah; abattoir ah-02; abattoir al; abattoir al; abattoir b; abattoir d-02; abattoir dd-02; abattoir g-02; abattoir o; abbatoir; abbatoire; abbattoir; amr abattoir al; amr abattoir dd; amr-abattoir; amr-abattoir-ah; amr-abattoir-b
+		// Loads RuleDB with the additional ruleSourceFieldNames.
+		// This will set content of a target field based on data.js vocabulary
+		// exportField {'field':[target column],'value':[replacement value]]}
+		// mapping if any.
+		dh.getRowMap(dataRow, ruleSourceFieldNames, RuleDB, sourceFields, sourceFieldNameMap, 'GRDI');
+
+		for (let sourceField of Object.keys(RuleDB)) {
+			if (RuleDB[sourceField])
+				RuleDB[sourceField] = RuleDB[sourceField].toLowerCase();
+		};
+
+		// STTYPE: ANIMAL ENVIRONMENT FOOD HUMAN PRODUCT QA UNKNOWN
+		switch (RuleDB.STTYPE) {
+
+			case 'animal': {
+				// species-> host (common name);
+				RuleDB['host (common name)'] = RuleDB.SPECIES;
+
+				if (RuleDB.collection_device === 'swab' 
+					&& RuleDB.environmental_site.length > 0 
+					&& RuleDB.SPECIES) {
+					 RuleDB.animal_or_plant_population = RuleDB.SPECIES;
+				};
+				break; // prevents advancing to FOOD
+				
+			};
+
+			case 'food' : {
+				// species-> food product
+				// Issue, sometimes species = "Other" ????
+				if (RuleDB.SPECIES)
+					RuleDB.food_product = RuleDB.SPECIES;
+				RuleDB['host (common name)'] = null; //wHY ISNT THIS WORKING???
+
+				if (RuleDB.SUBJECT_DESCRIPTIONS)
+					add_item(RuleDB,'food_product', RuleDB.SUBJECT_DESCRIPTIONS);
+
+				if (RuleDB.STYPE && RuleDB.COMMODITY) {
+					//add_item(RuleDB.food_product, RuleDB.STYPE);
+					switch (RuleDB.STYPE) {
+						case 'porcine':
+						case 'avian':
+						case 'crustacean': 
+							add_item(RuleDB,'food_product', RuleDB.COMMODITY);
+					};
+				}
+
+				// Here a food_product might be a conjunction of animal + food product:
+				let merged = RuleDB.food_product.replace('; ',' ');
+				if (merged in normalize) {
+					RuleDB.food_product = normalize[merged].label;
+				}
+
+				break; // prevents advancing to blank/UNKNOWN
+			};
+
+			case 'environment':
+				// species-> host (common name);
+				RuleDB['host (common name)'] = RuleDB.SPECIES;
+
+				if (RuleDB.STYPE)
+					add_item(RuleDB,'environmental_material', RuleDB.STYPE);
+				break;
+
+			case 'product':
+				// species-> food product
+				RuleDB.food_product = RuleDB.SPECIES;
+
+				switch (RuleDB.STYPE) {
+					case 'feed and ingredients':
+					case 'fertilizer': 
+						add_item(RuleDB,'food_product', RuleDB.SUBJECT_DESCRIPTIONS);
+				};
+				break;
+
+			default: // Any other STTYPE Value:
+			//case '':
+			//case 'unknown': {// no <n/a>
+			
+		};
+
+		return RuleDB;
+	},
+
+
+	/**
+	 * Add a value to a field's existing string value, delimited by semicolon.
+	 */
+	add_item: function (RuleDB, field, value) {
+		if (RuleDB[field] === '')
+			RuleDB[field] = value;
+		else
+			RuleDB[field] += '; ' + value;
+	},
+
+
+	/**
+	 * Initialize lookup table for normalizing DEXA terms: term -> normalized term.
+	 * NOTE: This lookup doesn't handle one term occuring under different parents.
+	 * 
+	 * Cut & paste from DataHarmonizer Templates GRDI Normalization tab into LOOKUP
+	 * https://docs.google.com/spreadsheets/d/1jPQAIJcL_xa3oBVFEsYRGLGf7ESTOwzsTSjKZ-0CTYE/ 
+	 * MUST BE TAB DELIMITED!
+	 *
+	 * @return {Object} term normalize lookup table.
+	 */
+	initLookup: function() {
+
+		let normalize = {};
+		for (const line of self.LOOKUP.split('\n')) {
+			let [ontology_id, parent, label, normalization] = line.split('\t').map(function(e){return e.trim();});
+
+			normalize[label] = {
+				'ontology_id': ontology_id,
+				'parent': parent,
+				'label': label
+			};
+
+			// Various other abnormal/synonym text strings point to normalized record.
+			let normalizations = normalization.split(';').map(function(e){return e.trim()});
+			if (normalizations.length>0)
+				for (const key of normalizations) 
+					normalize[key] = normalize[label];
+		}
+		return normalize;
+	},
+
+LOOKUP: `ENVO_01000925	environmental_site	abattoir	a.a. abattoir; abattior; abattoir af; abattoir ah; abattoir ah-02; abattoir al; abattoir al; abattoir b; abattoir d-02; abattoir dd-02; abattoir g-02; abattoir o; abbatoir; abbatoire; abbattoir; amr abattoir al; amr abattoir dd; amr-abattoir; amr-abattoir-ah; amr-abattoir-b
 UBERON_0000916	anatomical_part	abdomen	
 UBERON_0007358	anatomical_part	abomasum	
 HP_0025615	anatomical_part	abscess	
@@ -781,7 +772,12 @@ FOODON_00002361	food_product	white pepper
 	environmental_site	window sill	shelf / sill
 FOODON_03411345	food_product	yeast	
 UBERON_0001040	anatomical_part	yolk sac	
-ENVO_00010625	environmental_site	zoo	pet/zoo; calgary zoo`;
+ENVO_00010625	environmental_site	zoo	pet/zoo; calgary zoo`
+
+	},
+
+
+}
 
 
 
