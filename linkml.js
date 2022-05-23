@@ -12,11 +12,6 @@ $(document).ready(async () => {
 	$('#data-harmonizer-toolbar-inset').css('visibility','visible');
 
 	let dh = new Object(DataHarmonizer);
-	// TODO: it would be better if DataHarmonizer were a class with a constructor
-	// that could accept a configuration object
-	if (DATA_HARMONIZER_CONFIG) {
-		dh.field_settings = DATA_HARMONIZER_CONFIG.fieldSettings;
-	}
 	let toolbar = new Object(DataHarmonizerToolbar);
 
 	// Note: TEMPLATES contains templates/menu.js object. It is only required 
