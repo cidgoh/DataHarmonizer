@@ -1,0 +1,32 @@
+class_name	slot_group	slot_uri	title	name	range	range_2	identifier	required	recommended	multivalued	minimum_value	maximum_value	pattern	string_serialization	description	comments	examples
+GISAID	GISAID Submission Form		Submitter		xsd:token			TRUE							enter your GISAID-Username		
+	GISAID Submission Form		FASTA filename		xsd:token			TRUE							the filename that contains the sequence without path (e.g. all_sequences.fasta not c:\users\meier\docs\all_sequences.fasta)		
+	GISAID Submission Form		Virus name		xsd:token			TRUE							e.g. hCoV-19/Netherlands/Gelderland-01/2020 (Must be FASTA-Header from the FASTA file all_sequences.fasta)		
+	GISAID Submission Form		Type		Type menu			TRUE							default must remain "betacoronavirus"		
+	GISAID Submission Form		Passage details/history		xsd:token			TRUE							e.g. Original, Vero		
+	GISAID Submission Form		Collection date		xsd:token			TRUE							Date in the format YYYY or YYYY-MM or YYYY-MM-DD		
+	GISAID Submission Form		Location		xsd:token			TRUE							e.g. Europe / Germany / Bavaria / Munich		
+	GISAID Submission Form		Additional location information		xsd:token										e.g. Cruise Ship, Convention, Live animal market		
+	GISAID Submission Form		Host		xsd:token			TRUE							e.g. Human, Environment, Canine, Manis javanica, Rhinolophus affinis, etc		
+	GISAID Submission Form		Additional host information		xsd:token										e.g. Patient infected while traveling in ….		
+	GISAID Submission Form		Sampling Strategy		xsd:token										e.g. Sentinel surveillance (ILI), Sentinel surveillance (ARI), Sentinel surveillance (SARI), Non-sentinel-surveillance (hospital), Non-sentinel-surveillance (GP network), Longitudinal sampling on same patient(s), S gene dropout		
+	GISAID Submission Form		Gender		xsd:token			TRUE							Male, Female, or unknown		
+	GISAID Submission Form		Patient age		xsd:token			TRUE							e.g.  65 or 7 months, or unknown		
+	GISAID Submission Form		Patient status		xsd:token			TRUE							e.g.  Hospitalized, Released, Live, Deceased, or unknown		
+	GISAID Submission Form		Specimen source		xsd:token										e.g. Sputum, Alveolar lavage fluid, Oro-pharyngeal swab, Blood, Tracheal swab, Urine, Stool, Cloakal swab, Organ, Feces, Other		
+	GISAID Submission Form		Outbreak		xsd:token										Date, Location e.g. type of gathering, Family cluster, etc.		
+	GISAID Submission Form		Last vaccinated		xsd:token										provide details if applicable		
+	GISAID Submission Form		Treatment		xsd:token										Include drug name, dosage		
+	GISAID Submission Form		Sequencing technology		xsd:token			TRUE							e.g.  Illumina Miseq, Sanger, Nanopore MinION, Ion Torrent, etc.		
+	GISAID Submission Form		Assembly method		xsd:token										e.g. CLC Genomics Workbench 12, Geneious 10.2.4, SPAdes/MEGAHIT v1.2.9, UGENE v. 33, etc.		
+	GISAID Submission Form		Coverage		xsd:token										e.g. 70x, 1,000x, 10,000x (average)		
+	GISAID Submission Form		Originating lab		xsd:token			TRUE							Where the clinical specimen or virus isolate was first obtained		
+	GISAID Submission Form		Address		xsd:token			TRUE									
+	GISAID Submission Form		Sample ID given by the sample provider		xsd:token												
+	GISAID Submission Form		Submitting lab		xsd:token			TRUE							Where sequence data have been generated and submitted to GISAID		
+	GISAID Submission Form		Address		xsd:token			TRUE									
+	GISAID Submission Form		Sample ID given by the submitting laboratory		xsd:token												
+	GISAID Submission Form		Authors		xsd:token										a comma separated list of Authors with complete First followed by Last Name		
+																	
+																	
+																	
