@@ -246,7 +246,8 @@ DataHarmonizerToolbar = {
 	refresh: function () {
 		const self = this;
 		$('#select-template').val(this.dh.template_path);
-		$('#template_name_display').text(this.dh.template_path);
+		let template_name = this.dh.template_path.substr(this.dh.template_path.indexOf('/')+1)
+		$('#template_name_display').text(template_name);
 		$('#file_name_display').text('');
 
 		// Enable template folder's export.js export options to be loaded dynamically.
@@ -257,7 +258,6 @@ DataHarmonizerToolbar = {
 		for (const option in this.dh.export_formats) {
 			select.append(new Option(option, option));
 		}
-		//alert(this.dh.export_formats.length)
 
 		// Update SOP.
 		$("#help_sop").attr('href',`template/${this.dh.template_folder}/SOP.pdf`);
