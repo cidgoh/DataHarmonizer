@@ -246,6 +246,7 @@ DataHarmonizerToolbar = {
 	refresh: function () {
 		const self = this;
 		$('#select-template').val(this.dh.template_path);
+		// Display template without folder part
 		let template_name = this.dh.template_path.substr(this.dh.template_path.indexOf('/')+1)
 		$('#template_name_display').text(template_name);
 		$('#file_name_display').text('');
@@ -303,10 +304,10 @@ DataHarmonizerToolbar = {
 		const view_drafts = $("#view-template-drafts").is(':checked');
 		for ([folder, templates] of Object.entries(dh.menu)) {
 			for ([name, template] of Object.entries(templates)) {
-				let label = folder + '/' + name;
+				let path = folder + '/' + name;
 				if (template.display)
 					if (view_drafts || template.status == 'published') {
-						select.append(new Option(label, label));
+						select.append(new Option(path, path));
 					}
 			}
 		}
