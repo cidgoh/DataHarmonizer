@@ -108,7 +108,7 @@ Object.assign(DataHarmonizer, {
 	* @return {String} String with modified case.
 	*/
 	changeCase: function (val, field) {
-		switch (field.string_serialization) {
+		switch (field.structured_pattern) {
 			case '{lower_case}':
 				val = val.toLowerCase();
 				break;

@@ -103,10 +103,6 @@ Object.assign(DataHarmonizer, {
 						case 'xsd:token':
 							// Default: any token is valid.
 							valid = true;
-							// range: string_serialization / quantity value /
-							/* if (field.string_serialization) {
-							}
-							*/
 							break;	
 					} // End switch
 

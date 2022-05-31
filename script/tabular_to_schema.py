@@ -115,8 +115,8 @@ with open(r_schema_slots) as tsvfile:
 
 			if row.get('pattern','') > '':
 				slot['pattern'] = row['pattern'];				
-			if row.get('string_serialization','') > '':
-				slot['string_serialization'] = row.get('string_serialization')
+			if row.get('structured_pattern','') > '':
+				slot['structured_pattern'] = row.get('structured_pattern')
 
 			if len(EXPORT_FORMAT) > 0:
 				mappings = []
