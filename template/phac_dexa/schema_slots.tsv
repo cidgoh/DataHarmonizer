@@ -1,4 +1,4 @@
-class_name	slot_group	slot_uri	title	name	range	range_2	identifier	required	recommended	multivalued	minimum_value	maximum_value	pattern	string_serialization	description	comments	examples	EXPORT_GRDI
+class_name	slot_group	slot_uri	title	name	range	range_2	identifier	required	recommended	multivalued	minimum_value	maximum_value	pattern	structured_pattern	description	comments	examples	EXPORT_GRDI
 PHAC Dexa	Database Identifiers																	
 	Database Identifiers		SPECIMEN_ID		xsd:token													alternative_sample_ID
 	Database Identifiers		ISOLATE_ID		xsd:token			TRUE										isolate_ID

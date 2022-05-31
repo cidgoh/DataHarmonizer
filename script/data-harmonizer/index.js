@@ -1220,18 +1220,20 @@ let DataHarmonizer = {
 			*/
 			this.setExportField(new_field, true)
 
-			// https://linkml.io/linkml-model/docs/string_serialization/
+			// https://linkml.io/linkml-model/docs/structured_pattern/
 			// https://github.com/linkml/linkml/issues/674
 			// Look up its parts in "settings", and assemble a regular 
 			// expression for them into "pattern" field. 
 			// This augments basic datatype validation
-			if ('string_serialization' in new_field) {
-				switch (new_field.string_serialization) {
+			if ('structured_pattern' in new_field) {
+				switch (new_field.structured_pattern) {
 					case '{UPPER_CASE}':
 					case '{lower_case}':
 					case '{Title_Case}':
 						new_field.capitalize = true;
 				}
+				// TO DO: Do conversion here into pattern field.
+
 			}
 
 			// pattern is supposed to be exlusive to string_serialization
@@ -1385,8 +1387,8 @@ let DataHarmonizer = {
 		if (field.pattern) {
 			guidance.push('Pattern as regular expression: ' + field.pattern);
 		}
-		if (field.string_serialization) {
-			guidance.push('Pattern hint: ' + field.string_serialization);
+		if (field.structured_pattern) {
+			guidance.push('Pattern hint: ' + field.structured_pattern);
 		}
 		const hasMinValue = field.minimum_value != null;
 		const hasMaxValue = field.maximum_value != null;
