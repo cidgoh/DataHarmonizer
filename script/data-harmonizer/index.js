@@ -1238,7 +1238,6 @@ let DataHarmonizer = {
 
 			}
 
-			// pattern is supposed to be exlusive to string_serialization
 			if ('pattern' in field && field.pattern.length) {
 				// Trap invalid regex
 				// Issue with NMDC MIxS "current land use" field pattern: "[ ....(all sorts of things) ]" syntax.
