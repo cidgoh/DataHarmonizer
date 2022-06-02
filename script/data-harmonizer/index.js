@@ -43,6 +43,7 @@ let DataHarmonizer = {
 	invalid_cells: null,
 	// Currently selected cell range[row,col,row2,col2]
 	current_selection: [null,null,null,null],
+	field_settings: {},
 
 	init: function(dhGrid, dhFooter=null, menu=null) {
 		this.dhGrid = dhGrid;
@@ -875,7 +876,7 @@ let DataHarmonizer = {
 	getColumns: function () {
 	  let ret = [];
 	  for (let field of this.getFields()) {
-		const col = {};
+		let col = {};
 		if (field.required) {
 		  col.required = field.required;
 		}
@@ -885,8 +886,8 @@ let DataHarmonizer = {
 
 		col.source = null;
 
-		if (field.flatVocabulary) {
-			
+		if (field.flatVocabulary) {	
+
 		  col.source = field.flatVocabulary;
 
 		  if (field.multivalued === true) {
@@ -897,7 +898,6 @@ let DataHarmonizer = {
 			col.type = 'autocomplete';
 			col.trimDropdown = false;
 		  }
-
 		}
 
 		if (field.metadata_status) {
@@ -929,6 +929,9 @@ let DataHarmonizer = {
 			break;
 		}
 
+		if (typeof field.getColumn === 'function') {
+			col = field.getColumn(this, col);
+		}
 
 		ret.push(col);
 	  }
@@ -1256,6 +1259,10 @@ let DataHarmonizer = {
 					// Allow anything until regex fixed.
 					new_field.pattern = new RegExp(/.*/);
 				}
+			}
+
+			if (this.field_settings[name]) {
+				Object.assign(new_field, this.field_settings[name]);
 			}
 
 			// Copying in particular required/ recommended status of a field into
