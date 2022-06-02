@@ -1137,12 +1137,14 @@ let DataHarmonizer = {
 
 					range_obj = self.schema.types[range];
 
-					// LinkML typically translates "string" to "uri":"xsd:string" 
+					/* LinkML typically translates "string" to "uri":"xsd:string" 
 					// but this is problematic because that allows newlines which
 					// break spreadsheet saving of items in tsv/csv format. Use
-					// xsd:token to block newlines and tabs.
+					// xsd:token to block newlines and tabs, and clean out leading 
+					// and trailing space. xsd:normalizedString allows lead and trai
 					// FUTURE: figure out how to accomodate newlines?
-					if (range == 'string') {
+					*/
+					if (range === 'string' || range === 'WhitespaceMinimizedString') {
 						new_field.datatype = 'xsd:token';
 					}
 					else {

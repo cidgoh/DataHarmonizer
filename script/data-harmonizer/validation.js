@@ -100,6 +100,16 @@ Object.assign(DataHarmonizer, {
 							}
 							break;
 
+						case 'xsd:string':
+							// Default: any string is valid.
+							valid = true;
+							break;
+
+						case 'xsd:normalizedString':
+							// Default: any string is valid.
+							valid = true;
+							break;
+
 						case 'xsd:token':
 							// Default: any token is valid.
 							valid = true;
