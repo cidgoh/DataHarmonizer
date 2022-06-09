@@ -1217,6 +1217,20 @@ let DataHarmonizer = {
 			if (!new_field.datatype)
 				new_field.datatype = 'xsd:token';
 
+			// field.todos used to store some date tests that haven't been 
+			// implemented as rules yet.
+			if (new_field.datatype == 'xsd:date' && field.todos) {
+				// Have to feed any min/max date comparison back into min max value fields
+				for (test of new_field.todos) {
+					if (test.substr(0,2) == '>=')
+						new_field.minimum_value = test.substr(2)
+					if (test.substr(0,2) == '<=')
+						new_field.maximum_value = test.substr(2)		
+				}
+			}
+
+
+
 			/* Older DH enables mappings of one template field to one or more 
 			export format fields
 			*/
@@ -1228,7 +1242,7 @@ let DataHarmonizer = {
 			// expression for them into "pattern" field. 
 			// This augments basic datatype validation
 			if ('structured_pattern' in new_field) {
-				switch (new_field.structured_pattern) {
+				switch (new_field.structured_pattern.syntax) {
 					case '{UPPER_CASE}':
 					case '{lower_case}':
 					case '{Title_Case}':
@@ -1238,6 +1252,7 @@ let DataHarmonizer = {
 
 			}
 
+			// pattern is supposed to be exlusive to string_serialization
 			if ('pattern' in field && field.pattern.length) {
 				// Trap invalid regex
 				// Issue with NMDC MIxS "current land use" field pattern: "[ ....(all sorts of things) ]" syntax.
@@ -1389,7 +1404,7 @@ let DataHarmonizer = {
 			guidance.push('Pattern as regular expression: ' + field.pattern);
 		}
 		if (field.structured_pattern) {
-			guidance.push('Pattern hint: ' + field.structured_pattern);
+			guidance.push('Pattern hint: ' + field.structured_pattern.syntax);
 		}
 		const hasMinValue = field.minimum_value != null;
 		const hasMaxValue = field.maximum_value != null;
