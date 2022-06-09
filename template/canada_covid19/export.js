@@ -363,7 +363,8 @@ var EXPORT_FORMATS = {
 			outputMatrix.splice(0, 0, header_GISAID);
 
 			return outputMatrix
-		},
+		}
+	},
 
 		/**
 		 * Download grid mapped to NML_LIMS format.
