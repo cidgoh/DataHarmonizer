@@ -18,9 +18,10 @@ var SCHEMA = {
   },
   "default_prefix": "https://example.com/PHAC_Dexa/",
   "types": {
-    "xsd:token": {
-      "name": "xsd:token",
-      "description": "A string that has no whitespace; i.e., after any occurrence of #x9 (tab), #xA (linefeed), or #xD (carriage return).",
+    "WhiteSpaceMinimizedString": {
+      "name": "WhiteSpaceMinimizedString",
+      "description": "A string that has all whitespace trimmed off of beginning and end, and all internal whitespace segments reduced to single spaces. Whitespace includes #x9 (tab), #xA (linefeed), and #xD (carriage return).",
+      "typeof": "string",
       "base": "str",
       "uri": "xsd:token"
     },
@@ -4498,7 +4499,7 @@ var SCHEMA = {
       "exact_mappings": [
         "GRDI:alternative_sample_ID"
       ],
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "ISOLATE_ID": {
       "name": "ISOLATE_ID",
@@ -4507,7 +4508,7 @@ var SCHEMA = {
       "exact_mappings": [
         "GRDI:isolate_ID"
       ],
-      "range": "xsd:token",
+      "range": "WhitespaceMinimizedString",
       "required": true
     },
     "SAMPLE_ID": {
@@ -4517,32 +4518,32 @@ var SCHEMA = {
       "exact_mappings": [
         "GRDI:sample_collector_sample_ID"
       ],
-      "range": "xsd:token",
+      "range": "WhitespaceMinimizedString",
       "required": true
     },
     "SENTINEL_SITE": {
       "name": "SENTINEL_SITE",
       "title": "SENTINEL_SITE",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "LFZ_ADDITIONAL_SAMPLE_ID": {
       "name": "LFZ_ADDITIONAL_SAMPLE_ID",
       "title": "LFZ_ADDITIONAL_SAMPLE_ID",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "LFZ_ORIGIN_COUNTRY": {
       "name": "LFZ_ORIGIN_COUNTRY",
       "title": "LFZ_ORIGIN_COUNTRY",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "SUBJECT_CODE": {
       "name": "SUBJECT_CODE",
       "title": "SUBJECT_CODE",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "SUBJECT_DESCRIPTIONS": {
       "name": "SUBJECT_DESCRIPTIONS",
@@ -4557,7 +4558,7 @@ var SCHEMA = {
       "exact_mappings": [
         "GRDI:collected_by"
       ],
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "SUBMITTINGLAB_1": {
       "name": "SUBMITTINGLAB_1",
@@ -4566,13 +4567,13 @@ var SCHEMA = {
       "exact_mappings": [
         "GRDI:laboratory_name"
       ],
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "PROJECT_1": {
       "name": "PROJECT_1",
       "title": "PROJECT_1",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "COUNTRY_1": {
       "name": "COUNTRY_1",
@@ -4581,7 +4582,7 @@ var SCHEMA = {
       "exact_mappings": [
         "GRDI:geo_loc_name (country)"
       ],
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "PROVINCE_1": {
       "name": "PROVINCE_1",
@@ -4590,37 +4591,37 @@ var SCHEMA = {
       "exact_mappings": [
         "GRDI:geo_loc_name (state/province/region)"
       ],
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "CENSUSDIVISION_1": {
       "name": "CENSUSDIVISION_1",
       "title": "CENSUSDIVISION_1",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "REGION": {
       "name": "REGION",
       "title": "REGION",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "YEAR": {
       "name": "YEAR",
       "title": "YEAR",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "MONTH": {
       "name": "MONTH",
       "title": "MONTH",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "QTR": {
       "name": "QTR",
       "title": "QTR",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "DATECOLLECTED_1": {
       "name": "DATECOLLECTED_1",
@@ -4635,19 +4636,19 @@ var SCHEMA = {
       "name": "DATERECEIVED_1",
       "title": "DATERECEIVED_1",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "DATESHIPPED_1": {
       "name": "DATESHIPPED_1",
       "title": "DATESHIPPED_1",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "ESTABLISHMENT_1": {
       "name": "ESTABLISHMENT_1",
       "title": "ESTABLISHMENT_1",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "SPECIES": {
       "name": "SPECIES",
@@ -4698,91 +4699,91 @@ var SCHEMA = {
       "name": "FIELDSTAFF_1",
       "title": "FIELDSTAFF_1",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "IN_STORE_PROCESSING": {
       "name": "IN_STORE_PROCESSING",
       "title": "IN_STORE_PROCESSING",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "MAYCONTAINFROZENMEAT_1": {
       "name": "MAYCONTAINFROZENMEAT_1",
       "title": "MAYCONTAINFROZENMEAT_1",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "NOOFCASHREGISTERS_1": {
       "name": "NOOFCASHREGISTERS_1",
       "title": "NOOFCASHREGISTERS_1",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "PRICEPERKG_1": {
       "name": "PRICEPERKG_1",
       "title": "PRICEPERKG_1",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "STORETYPE_SAMPLINGSITE_1": {
       "name": "STORETYPE_SAMPLINGSITE_1",
       "title": "STORETYPE_SAMPLINGSITE_1",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "TEMPERATUREMAX_1": {
       "name": "TEMPERATUREMAX_1",
       "title": "TEMPERATUREMAX_1",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "TEMPERATUREMIN_1": {
       "name": "TEMPERATUREMIN_1",
       "title": "TEMPERATUREMIN_1",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "TEMPERATUREARRIVAL_1": {
       "name": "TEMPERATUREARRIVAL_1",
       "title": "TEMPERATUREARRIVAL_1",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "VETID": {
       "name": "VETID",
       "title": "VETID",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "ROOMID": {
       "name": "ROOMID",
       "title": "ROOMID",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "PENID": {
       "name": "PENID",
       "title": "PENID",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "SAMPLING_TYPE": {
       "name": "SAMPLING_TYPE",
       "title": "SAMPLING_TYPE",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "BARN_ID": {
       "name": "BARN_ID",
       "title": "BARN_ID",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "DATE_PACKED": {
       "name": "DATE_PACKED",
       "title": "DATE_PACKED",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "FINAL_ID_GENUS": {
       "name": "FINAL_ID_GENUS",
@@ -4791,7 +4792,7 @@ var SCHEMA = {
       "exact_mappings": [
         "GRDI:organism"
       ],
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "FINAL_ID_SPECIES": {
       "name": "FINAL_ID_SPECIES",
@@ -4800,13 +4801,13 @@ var SCHEMA = {
       "exact_mappings": [
         "GRDI:organism"
       ],
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "FINAL_ID_SUBSPECIES": {
       "name": "FINAL_ID_SUBSPECIES",
       "title": "FINAL_ID_SUBSPECIES",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "FINAL_ID_SEROTYPE": {
       "name": "FINAL_ID_SEROTYPE",
@@ -4815,13 +4816,13 @@ var SCHEMA = {
       "exact_mappings": [
         "GRDI:serovar"
       ],
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "FINAL_ID_ANTIGEN": {
       "name": "FINAL_ID_ANTIGEN",
       "title": "FINAL_ID_ANTIGEN",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "FINAL_ID_PHAGETYPE": {
       "name": "FINAL_ID_PHAGETYPE",
@@ -4830,7 +4831,7 @@ var SCHEMA = {
       "exact_mappings": [
         "GRDI:phagetype"
       ],
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "SA_Serotype_Method": {
       "name": "SA_Serotype_Method",
@@ -4839,619 +4840,619 @@ var SCHEMA = {
       "exact_mappings": [
         "GRDI:serotyping_method"
       ],
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "SEROTYPE_GR": {
       "name": "SEROTYPE_GR",
       "title": "SEROTYPE_GR",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "MIC_AMC": {
       "name": "MIC_AMC",
       "title": "MIC_AMC",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "MIC_AMK": {
       "name": "MIC_AMK",
       "title": "MIC_AMK",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "MIC_AMP": {
       "name": "MIC_AMP",
       "title": "MIC_AMP",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "MIC_AZM": {
       "name": "MIC_AZM",
       "title": "MIC_AZM",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "MIC_CEP": {
       "name": "MIC_CEP",
       "title": "MIC_CEP",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "MIC_CHL": {
       "name": "MIC_CHL",
       "title": "MIC_CHL",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "MIC_CIP": {
       "name": "MIC_CIP",
       "title": "MIC_CIP",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "MIC_CRO": {
       "name": "MIC_CRO",
       "title": "MIC_CRO",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "MIC_FOX": {
       "name": "MIC_FOX",
       "title": "MIC_FOX",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "MIC_GEN": {
       "name": "MIC_GEN",
       "title": "MIC_GEN",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "MIC_KAN": {
       "name": "MIC_KAN",
       "title": "MIC_KAN",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "MIC_MEM": {
       "name": "MIC_MEM",
       "title": "MIC_MEM",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "MIC_NAL": {
       "name": "MIC_NAL",
       "title": "MIC_NAL",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "MIC_SSS": {
       "name": "MIC_SSS",
       "title": "MIC_SSS",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "MIC_STR": {
       "name": "MIC_STR",
       "title": "MIC_STR",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "MIC_SXT": {
       "name": "MIC_SXT",
       "title": "MIC_SXT",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "MIC_TET": {
       "name": "MIC_TET",
       "title": "MIC_TET",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "MIC_TIO": {
       "name": "MIC_TIO",
       "title": "MIC_TIO",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "N_OF_RESISTANCE": {
       "name": "N_OF_RESISTANCE",
       "title": "N_OF_RESISTANCE",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "NBTESTED": {
       "name": "NBTESTED",
       "title": "NBTESTED",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "R_PATTERN": {
       "name": "R_PATTERN",
       "title": "R_PATTERN",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "AMR_PA2C": {
       "name": "AMR_PA2C",
       "title": "AMR_PA2C",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "RLEAST1": {
       "name": "RLEAST1",
       "title": "RLEAST1",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "RLEAST2": {
       "name": "RLEAST2",
       "title": "RLEAST2",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "RLEAST3": {
       "name": "RLEAST3",
       "title": "RLEAST3",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "RLEAST4": {
       "name": "RLEAST4",
       "title": "RLEAST4",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "RLEAST5": {
       "name": "RLEAST5",
       "title": "RLEAST5",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "SIR_AMC": {
       "name": "SIR_AMC",
       "title": "SIR_AMC",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "SIR_AMK": {
       "name": "SIR_AMK",
       "title": "SIR_AMK",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "SIR_AMP": {
       "name": "SIR_AMP",
       "title": "SIR_AMP",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "SIR_AZM": {
       "name": "SIR_AZM",
       "title": "SIR_AZM",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "SIR_CEP": {
       "name": "SIR_CEP",
       "title": "SIR_CEP",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "SIR_CHL": {
       "name": "SIR_CHL",
       "title": "SIR_CHL",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "SIR_CIP": {
       "name": "SIR_CIP",
       "title": "SIR_CIP",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "SIR_CRO": {
       "name": "SIR_CRO",
       "title": "SIR_CRO",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "SIR_FOX": {
       "name": "SIR_FOX",
       "title": "SIR_FOX",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "SIR_GEN": {
       "name": "SIR_GEN",
       "title": "SIR_GEN",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "SIR_KAN": {
       "name": "SIR_KAN",
       "title": "SIR_KAN",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "SIR_MEM": {
       "name": "SIR_MEM",
       "title": "SIR_MEM",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "SIR_NAL": {
       "name": "SIR_NAL",
       "title": "SIR_NAL",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "SIR_SSS": {
       "name": "SIR_SSS",
       "title": "SIR_SSS",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "SIR_STR": {
       "name": "SIR_STR",
       "title": "SIR_STR",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "SIR_SXT": {
       "name": "SIR_SXT",
       "title": "SIR_SXT",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "SIR_TET": {
       "name": "SIR_TET",
       "title": "SIR_TET",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "SIR_TIO": {
       "name": "SIR_TIO",
       "title": "SIR_TIO",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "RAMC": {
       "name": "RAMC",
       "title": "RAMC",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "RAMK": {
       "name": "RAMK",
       "title": "RAMK",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "RAMP": {
       "name": "RAMP",
       "title": "RAMP",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "RAZM": {
       "name": "RAZM",
       "title": "RAZM",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "RCEP": {
       "name": "RCEP",
       "title": "RCEP",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "RCHL": {
       "name": "RCHL",
       "title": "RCHL",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "RCIP": {
       "name": "RCIP",
       "title": "RCIP",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "RCRO": {
       "name": "RCRO",
       "title": "RCRO",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "RFOX": {
       "name": "RFOX",
       "title": "RFOX",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "RGEN": {
       "name": "RGEN",
       "title": "RGEN",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "RKAN": {
       "name": "RKAN",
       "title": "RKAN",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "RMEM": {
       "name": "RMEM",
       "title": "RMEM",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "RNAL": {
       "name": "RNAL",
       "title": "RNAL",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "RSSS": {
       "name": "RSSS",
       "title": "RSSS",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "RSTR": {
       "name": "RSTR",
       "title": "RSTR",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "RSXT": {
       "name": "RSXT",
       "title": "RSXT",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "RTET": {
       "name": "RTET",
       "title": "RTET",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "RTIO": {
       "name": "RTIO",
       "title": "RTIO",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "A2C": {
       "name": "A2C",
       "title": "A2C",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "CAMC": {
       "name": "CAMC",
       "title": "CAMC",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "CAMK": {
       "name": "CAMK",
       "title": "CAMK",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "CAMP": {
       "name": "CAMP",
       "title": "CAMP",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "CAZM": {
       "name": "CAZM",
       "title": "CAZM",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "CCEP": {
       "name": "CCEP",
       "title": "CCEP",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "CCHL": {
       "name": "CCHL",
       "title": "CCHL",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "CCIP": {
       "name": "CCIP",
       "title": "CCIP",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "CCRO": {
       "name": "CCRO",
       "title": "CCRO",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "CFOX": {
       "name": "CFOX",
       "title": "CFOX",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "CGEN": {
       "name": "CGEN",
       "title": "CGEN",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "CKAN": {
       "name": "CKAN",
       "title": "CKAN",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "CMEM": {
       "name": "CMEM",
       "title": "CMEM",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "CNAL": {
       "name": "CNAL",
       "title": "CNAL",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "CSSS": {
       "name": "CSSS",
       "title": "CSSS",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "CSTR": {
       "name": "CSTR",
       "title": "CSTR",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "CSXT": {
       "name": "CSXT",
       "title": "CSXT",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "CTET": {
       "name": "CTET",
       "title": "CTET",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "CTIO": {
       "name": "CTIO",
       "title": "CTIO",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "STHY_TESTSRC_ID": {
       "name": "STHY_TESTSRC_ID",
       "title": "STHY_TESTSRC_ID",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "WINN_TESTSRC_ID": {
       "name": "WINN_TESTSRC_ID",
       "title": "WINN_TESTSRC_ID",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "GUEL_TESTSRC_ID": {
       "name": "GUEL_TESTSRC_ID",
       "title": "GUEL_TESTSRC_ID",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "RCIP_DANMAP": {
       "name": "RCIP_DANMAP",
       "title": "RCIP_DANMAP",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "EPIDATESTAMP_1": {
       "name": "EPIDATESTAMP_1",
       "title": "EPIDATESTAMP_1",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "ACSSUT": {
       "name": "ACSSUT",
       "title": "ACSSUT",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "AKSSUT": {
       "name": "AKSSUT",
       "title": "AKSSUT",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "ACKSSUT": {
       "name": "ACKSSUT",
       "title": "ACKSSUT",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "MDR_A_SSUT": {
       "name": "MDR_A_SSUT",
       "title": "MDR_A_SSUT",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "EXCLUSION": {
       "name": "EXCLUSION",
       "title": "EXCLUSION",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "RAMINOGLY": {
       "name": "RAMINOGLY",
       "title": "RAMINOGLY",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "RBETALACTAM": {
       "name": "RBETALACTAM",
       "title": "RBETALACTAM",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "RQUINOLONES": {
       "name": "RQUINOLONES",
       "title": "RQUINOLONES",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "RFOLINHIBITOR": {
       "name": "RFOLINHIBITOR",
       "title": "RFOLINHIBITOR",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "MDR": {
       "name": "MDR",
       "title": "MDR",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "specimen_number": {
       "name": "specimen_number",
       "title": "specimen_number",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "EXTERNAL_AGENT": {
       "name": "EXTERNAL_AGENT",
       "title": "EXTERNAL_AGENT",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "FARM_FLAG": {
       "name": "FARM_FLAG",
       "title": "FARM_FLAG",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "AMIKACINGELET": {
       "name": "AMIKACINGELET",
       "title": "AMIKACINGELET",
       "from_schema": "https://example.com/PHAC_Dexa",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     }
   },
   "classes": {
@@ -6241,7 +6242,7 @@ var SCHEMA = {
           "alias": "SPECIMEN_ID",
           "owner": "PHAC Dexa",
           "slot_group": "Database Identifiers",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "ISOLATE_ID": {
           "name": "ISOLATE_ID",
@@ -6251,7 +6252,7 @@ var SCHEMA = {
           "alias": "ISOLATE_ID",
           "owner": "PHAC Dexa",
           "slot_group": "Database Identifiers",
-          "range": "xsd:token",
+          "range": "WhitespaceMinimizedString",
           "required": true
         },
         "SAMPLE_ID": {
@@ -6262,7 +6263,7 @@ var SCHEMA = {
           "alias": "SAMPLE_ID",
           "owner": "PHAC Dexa",
           "slot_group": "Database Identifiers",
-          "range": "xsd:token",
+          "range": "WhitespaceMinimizedString",
           "required": true
         },
         "SENTINEL_SITE": {
@@ -6273,7 +6274,7 @@ var SCHEMA = {
           "alias": "SENTINEL_SITE",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "LFZ_ADDITIONAL_SAMPLE_ID": {
           "name": "LFZ_ADDITIONAL_SAMPLE_ID",
@@ -6283,7 +6284,7 @@ var SCHEMA = {
           "alias": "LFZ_ADDITIONAL_SAMPLE_ID",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "LFZ_ORIGIN_COUNTRY": {
           "name": "LFZ_ORIGIN_COUNTRY",
@@ -6293,7 +6294,7 @@ var SCHEMA = {
           "alias": "LFZ_ORIGIN_COUNTRY",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "SUBJECT_CODE": {
           "name": "SUBJECT_CODE",
@@ -6303,7 +6304,7 @@ var SCHEMA = {
           "alias": "SUBJECT_CODE",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "SUBJECT_DESCRIPTIONS": {
           "name": "SUBJECT_DESCRIPTIONS",
@@ -6323,7 +6324,7 @@ var SCHEMA = {
           "alias": "SUBMITTINGORG_1",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "SUBMITTINGLAB_1": {
           "name": "SUBMITTINGLAB_1",
@@ -6333,7 +6334,7 @@ var SCHEMA = {
           "alias": "SUBMITTINGLAB_1",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "PROJECT_1": {
           "name": "PROJECT_1",
@@ -6343,7 +6344,7 @@ var SCHEMA = {
           "alias": "PROJECT_1",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "COUNTRY_1": {
           "name": "COUNTRY_1",
@@ -6353,7 +6354,7 @@ var SCHEMA = {
           "alias": "COUNTRY_1",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "PROVINCE_1": {
           "name": "PROVINCE_1",
@@ -6363,7 +6364,7 @@ var SCHEMA = {
           "alias": "PROVINCE_1",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "CENSUSDIVISION_1": {
           "name": "CENSUSDIVISION_1",
@@ -6373,7 +6374,7 @@ var SCHEMA = {
           "alias": "CENSUSDIVISION_1",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "REGION": {
           "name": "REGION",
@@ -6383,7 +6384,7 @@ var SCHEMA = {
           "alias": "REGION",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "YEAR": {
           "name": "YEAR",
@@ -6393,7 +6394,7 @@ var SCHEMA = {
           "alias": "YEAR",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "MONTH": {
           "name": "MONTH",
@@ -6403,7 +6404,7 @@ var SCHEMA = {
           "alias": "MONTH",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "QTR": {
           "name": "QTR",
@@ -6413,7 +6414,7 @@ var SCHEMA = {
           "alias": "QTR",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "DATECOLLECTED_1": {
           "name": "DATECOLLECTED_1",
@@ -6433,7 +6434,7 @@ var SCHEMA = {
           "alias": "DATERECEIVED_1",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "DATESHIPPED_1": {
           "name": "DATESHIPPED_1",
@@ -6443,7 +6444,7 @@ var SCHEMA = {
           "alias": "DATESHIPPED_1",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "ESTABLISHMENT_1": {
           "name": "ESTABLISHMENT_1",
@@ -6453,7 +6454,7 @@ var SCHEMA = {
           "alias": "ESTABLISHMENT_1",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "SPECIES": {
           "name": "SPECIES",
@@ -6533,7 +6534,7 @@ var SCHEMA = {
           "alias": "FIELDSTAFF_1",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "IN_STORE_PROCESSING": {
           "name": "IN_STORE_PROCESSING",
@@ -6543,7 +6544,7 @@ var SCHEMA = {
           "alias": "IN_STORE_PROCESSING",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "MAYCONTAINFROZENMEAT_1": {
           "name": "MAYCONTAINFROZENMEAT_1",
@@ -6553,7 +6554,7 @@ var SCHEMA = {
           "alias": "MAYCONTAINFROZENMEAT_1",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "NOOFCASHREGISTERS_1": {
           "name": "NOOFCASHREGISTERS_1",
@@ -6563,7 +6564,7 @@ var SCHEMA = {
           "alias": "NOOFCASHREGISTERS_1",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "PRICEPERKG_1": {
           "name": "PRICEPERKG_1",
@@ -6573,7 +6574,7 @@ var SCHEMA = {
           "alias": "PRICEPERKG_1",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "STORETYPE_SAMPLINGSITE_1": {
           "name": "STORETYPE_SAMPLINGSITE_1",
@@ -6583,7 +6584,7 @@ var SCHEMA = {
           "alias": "STORETYPE_SAMPLINGSITE_1",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "TEMPERATUREMAX_1": {
           "name": "TEMPERATUREMAX_1",
@@ -6593,7 +6594,7 @@ var SCHEMA = {
           "alias": "TEMPERATUREMAX_1",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "TEMPERATUREMIN_1": {
           "name": "TEMPERATUREMIN_1",
@@ -6603,7 +6604,7 @@ var SCHEMA = {
           "alias": "TEMPERATUREMIN_1",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "TEMPERATUREARRIVAL_1": {
           "name": "TEMPERATUREARRIVAL_1",
@@ -6613,7 +6614,7 @@ var SCHEMA = {
           "alias": "TEMPERATUREARRIVAL_1",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "VETID": {
           "name": "VETID",
@@ -6623,7 +6624,7 @@ var SCHEMA = {
           "alias": "VETID",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "ROOMID": {
           "name": "ROOMID",
@@ -6633,7 +6634,7 @@ var SCHEMA = {
           "alias": "ROOMID",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "PENID": {
           "name": "PENID",
@@ -6643,7 +6644,7 @@ var SCHEMA = {
           "alias": "PENID",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "SAMPLING_TYPE": {
           "name": "SAMPLING_TYPE",
@@ -6653,7 +6654,7 @@ var SCHEMA = {
           "alias": "SAMPLING_TYPE",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "BARN_ID": {
           "name": "BARN_ID",
@@ -6663,7 +6664,7 @@ var SCHEMA = {
           "alias": "BARN_ID",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "DATE_PACKED": {
           "name": "DATE_PACKED",
@@ -6673,7 +6674,7 @@ var SCHEMA = {
           "alias": "DATE_PACKED",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "FINAL_ID_GENUS": {
           "name": "FINAL_ID_GENUS",
@@ -6683,7 +6684,7 @@ var SCHEMA = {
           "alias": "FINAL_ID_GENUS",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "FINAL_ID_SPECIES": {
           "name": "FINAL_ID_SPECIES",
@@ -6693,7 +6694,7 @@ var SCHEMA = {
           "alias": "FINAL_ID_SPECIES",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "FINAL_ID_SUBSPECIES": {
           "name": "FINAL_ID_SUBSPECIES",
@@ -6703,7 +6704,7 @@ var SCHEMA = {
           "alias": "FINAL_ID_SUBSPECIES",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "FINAL_ID_SEROTYPE": {
           "name": "FINAL_ID_SEROTYPE",
@@ -6713,7 +6714,7 @@ var SCHEMA = {
           "alias": "FINAL_ID_SEROTYPE",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "FINAL_ID_ANTIGEN": {
           "name": "FINAL_ID_ANTIGEN",
@@ -6723,7 +6724,7 @@ var SCHEMA = {
           "alias": "FINAL_ID_ANTIGEN",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "FINAL_ID_PHAGETYPE": {
           "name": "FINAL_ID_PHAGETYPE",
@@ -6733,7 +6734,7 @@ var SCHEMA = {
           "alias": "FINAL_ID_PHAGETYPE",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "SA_Serotype_Method": {
           "name": "SA_Serotype_Method",
@@ -6743,7 +6744,7 @@ var SCHEMA = {
           "alias": "SA_Serotype_Method",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "SEROTYPE_GR": {
           "name": "SEROTYPE_GR",
@@ -6753,7 +6754,7 @@ var SCHEMA = {
           "alias": "SEROTYPE_GR",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "MIC_AMC": {
           "name": "MIC_AMC",
@@ -6763,7 +6764,7 @@ var SCHEMA = {
           "alias": "MIC_AMC",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "MIC_AMK": {
           "name": "MIC_AMK",
@@ -6773,7 +6774,7 @@ var SCHEMA = {
           "alias": "MIC_AMK",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "MIC_AMP": {
           "name": "MIC_AMP",
@@ -6783,7 +6784,7 @@ var SCHEMA = {
           "alias": "MIC_AMP",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "MIC_AZM": {
           "name": "MIC_AZM",
@@ -6793,7 +6794,7 @@ var SCHEMA = {
           "alias": "MIC_AZM",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "MIC_CEP": {
           "name": "MIC_CEP",
@@ -6803,7 +6804,7 @@ var SCHEMA = {
           "alias": "MIC_CEP",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "MIC_CHL": {
           "name": "MIC_CHL",
@@ -6813,7 +6814,7 @@ var SCHEMA = {
           "alias": "MIC_CHL",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "MIC_CIP": {
           "name": "MIC_CIP",
@@ -6823,7 +6824,7 @@ var SCHEMA = {
           "alias": "MIC_CIP",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "MIC_CRO": {
           "name": "MIC_CRO",
@@ -6833,7 +6834,7 @@ var SCHEMA = {
           "alias": "MIC_CRO",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "MIC_FOX": {
           "name": "MIC_FOX",
@@ -6843,7 +6844,7 @@ var SCHEMA = {
           "alias": "MIC_FOX",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "MIC_GEN": {
           "name": "MIC_GEN",
@@ -6853,7 +6854,7 @@ var SCHEMA = {
           "alias": "MIC_GEN",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "MIC_KAN": {
           "name": "MIC_KAN",
@@ -6863,7 +6864,7 @@ var SCHEMA = {
           "alias": "MIC_KAN",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "MIC_MEM": {
           "name": "MIC_MEM",
@@ -6873,7 +6874,7 @@ var SCHEMA = {
           "alias": "MIC_MEM",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "MIC_NAL": {
           "name": "MIC_NAL",
@@ -6883,7 +6884,7 @@ var SCHEMA = {
           "alias": "MIC_NAL",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "MIC_SSS": {
           "name": "MIC_SSS",
@@ -6893,7 +6894,7 @@ var SCHEMA = {
           "alias": "MIC_SSS",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "MIC_STR": {
           "name": "MIC_STR",
@@ -6903,7 +6904,7 @@ var SCHEMA = {
           "alias": "MIC_STR",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "MIC_SXT": {
           "name": "MIC_SXT",
@@ -6913,7 +6914,7 @@ var SCHEMA = {
           "alias": "MIC_SXT",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "MIC_TET": {
           "name": "MIC_TET",
@@ -6923,7 +6924,7 @@ var SCHEMA = {
           "alias": "MIC_TET",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "MIC_TIO": {
           "name": "MIC_TIO",
@@ -6933,7 +6934,7 @@ var SCHEMA = {
           "alias": "MIC_TIO",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "N_OF_RESISTANCE": {
           "name": "N_OF_RESISTANCE",
@@ -6943,7 +6944,7 @@ var SCHEMA = {
           "alias": "N_OF_RESISTANCE",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "NBTESTED": {
           "name": "NBTESTED",
@@ -6953,7 +6954,7 @@ var SCHEMA = {
           "alias": "NBTESTED",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "R_PATTERN": {
           "name": "R_PATTERN",
@@ -6963,7 +6964,7 @@ var SCHEMA = {
           "alias": "R_PATTERN",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "AMR_PA2C": {
           "name": "AMR_PA2C",
@@ -6973,7 +6974,7 @@ var SCHEMA = {
           "alias": "AMR_PA2C",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "RLEAST1": {
           "name": "RLEAST1",
@@ -6983,7 +6984,7 @@ var SCHEMA = {
           "alias": "RLEAST1",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "RLEAST2": {
           "name": "RLEAST2",
@@ -6993,7 +6994,7 @@ var SCHEMA = {
           "alias": "RLEAST2",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "RLEAST3": {
           "name": "RLEAST3",
@@ -7003,7 +7004,7 @@ var SCHEMA = {
           "alias": "RLEAST3",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "RLEAST4": {
           "name": "RLEAST4",
@@ -7013,7 +7014,7 @@ var SCHEMA = {
           "alias": "RLEAST4",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "RLEAST5": {
           "name": "RLEAST5",
@@ -7023,7 +7024,7 @@ var SCHEMA = {
           "alias": "RLEAST5",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "SIR_AMC": {
           "name": "SIR_AMC",
@@ -7033,7 +7034,7 @@ var SCHEMA = {
           "alias": "SIR_AMC",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "SIR_AMK": {
           "name": "SIR_AMK",
@@ -7043,7 +7044,7 @@ var SCHEMA = {
           "alias": "SIR_AMK",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "SIR_AMP": {
           "name": "SIR_AMP",
@@ -7053,7 +7054,7 @@ var SCHEMA = {
           "alias": "SIR_AMP",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "SIR_AZM": {
           "name": "SIR_AZM",
@@ -7063,7 +7064,7 @@ var SCHEMA = {
           "alias": "SIR_AZM",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "SIR_CEP": {
           "name": "SIR_CEP",
@@ -7073,7 +7074,7 @@ var SCHEMA = {
           "alias": "SIR_CEP",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "SIR_CHL": {
           "name": "SIR_CHL",
@@ -7083,7 +7084,7 @@ var SCHEMA = {
           "alias": "SIR_CHL",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "SIR_CIP": {
           "name": "SIR_CIP",
@@ -7093,7 +7094,7 @@ var SCHEMA = {
           "alias": "SIR_CIP",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "SIR_CRO": {
           "name": "SIR_CRO",
@@ -7103,7 +7104,7 @@ var SCHEMA = {
           "alias": "SIR_CRO",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "SIR_FOX": {
           "name": "SIR_FOX",
@@ -7113,7 +7114,7 @@ var SCHEMA = {
           "alias": "SIR_FOX",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "SIR_GEN": {
           "name": "SIR_GEN",
@@ -7123,7 +7124,7 @@ var SCHEMA = {
           "alias": "SIR_GEN",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "SIR_KAN": {
           "name": "SIR_KAN",
@@ -7133,7 +7134,7 @@ var SCHEMA = {
           "alias": "SIR_KAN",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "SIR_MEM": {
           "name": "SIR_MEM",
@@ -7143,7 +7144,7 @@ var SCHEMA = {
           "alias": "SIR_MEM",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "SIR_NAL": {
           "name": "SIR_NAL",
@@ -7153,7 +7154,7 @@ var SCHEMA = {
           "alias": "SIR_NAL",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "SIR_SSS": {
           "name": "SIR_SSS",
@@ -7163,7 +7164,7 @@ var SCHEMA = {
           "alias": "SIR_SSS",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "SIR_STR": {
           "name": "SIR_STR",
@@ -7173,7 +7174,7 @@ var SCHEMA = {
           "alias": "SIR_STR",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "SIR_SXT": {
           "name": "SIR_SXT",
@@ -7183,7 +7184,7 @@ var SCHEMA = {
           "alias": "SIR_SXT",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "SIR_TET": {
           "name": "SIR_TET",
@@ -7193,7 +7194,7 @@ var SCHEMA = {
           "alias": "SIR_TET",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "SIR_TIO": {
           "name": "SIR_TIO",
@@ -7203,7 +7204,7 @@ var SCHEMA = {
           "alias": "SIR_TIO",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "RAMC": {
           "name": "RAMC",
@@ -7213,7 +7214,7 @@ var SCHEMA = {
           "alias": "RAMC",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "RAMK": {
           "name": "RAMK",
@@ -7223,7 +7224,7 @@ var SCHEMA = {
           "alias": "RAMK",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "RAMP": {
           "name": "RAMP",
@@ -7233,7 +7234,7 @@ var SCHEMA = {
           "alias": "RAMP",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "RAZM": {
           "name": "RAZM",
@@ -7243,7 +7244,7 @@ var SCHEMA = {
           "alias": "RAZM",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "RCEP": {
           "name": "RCEP",
@@ -7253,7 +7254,7 @@ var SCHEMA = {
           "alias": "RCEP",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "RCHL": {
           "name": "RCHL",
@@ -7263,7 +7264,7 @@ var SCHEMA = {
           "alias": "RCHL",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "RCIP": {
           "name": "RCIP",
@@ -7273,7 +7274,7 @@ var SCHEMA = {
           "alias": "RCIP",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "RCRO": {
           "name": "RCRO",
@@ -7283,7 +7284,7 @@ var SCHEMA = {
           "alias": "RCRO",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "RFOX": {
           "name": "RFOX",
@@ -7293,7 +7294,7 @@ var SCHEMA = {
           "alias": "RFOX",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "RGEN": {
           "name": "RGEN",
@@ -7303,7 +7304,7 @@ var SCHEMA = {
           "alias": "RGEN",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "RKAN": {
           "name": "RKAN",
@@ -7313,7 +7314,7 @@ var SCHEMA = {
           "alias": "RKAN",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "RMEM": {
           "name": "RMEM",
@@ -7323,7 +7324,7 @@ var SCHEMA = {
           "alias": "RMEM",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "RNAL": {
           "name": "RNAL",
@@ -7333,7 +7334,7 @@ var SCHEMA = {
           "alias": "RNAL",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "RSSS": {
           "name": "RSSS",
@@ -7343,7 +7344,7 @@ var SCHEMA = {
           "alias": "RSSS",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "RSTR": {
           "name": "RSTR",
@@ -7353,7 +7354,7 @@ var SCHEMA = {
           "alias": "RSTR",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "RSXT": {
           "name": "RSXT",
@@ -7363,7 +7364,7 @@ var SCHEMA = {
           "alias": "RSXT",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "RTET": {
           "name": "RTET",
@@ -7373,7 +7374,7 @@ var SCHEMA = {
           "alias": "RTET",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "RTIO": {
           "name": "RTIO",
@@ -7383,7 +7384,7 @@ var SCHEMA = {
           "alias": "RTIO",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "A2C": {
           "name": "A2C",
@@ -7393,7 +7394,7 @@ var SCHEMA = {
           "alias": "A2C",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "CAMC": {
           "name": "CAMC",
@@ -7403,7 +7404,7 @@ var SCHEMA = {
           "alias": "CAMC",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "CAMK": {
           "name": "CAMK",
@@ -7413,7 +7414,7 @@ var SCHEMA = {
           "alias": "CAMK",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "CAMP": {
           "name": "CAMP",
@@ -7423,7 +7424,7 @@ var SCHEMA = {
           "alias": "CAMP",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "CAZM": {
           "name": "CAZM",
@@ -7433,7 +7434,7 @@ var SCHEMA = {
           "alias": "CAZM",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "CCEP": {
           "name": "CCEP",
@@ -7443,7 +7444,7 @@ var SCHEMA = {
           "alias": "CCEP",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "CCHL": {
           "name": "CCHL",
@@ -7453,7 +7454,7 @@ var SCHEMA = {
           "alias": "CCHL",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "CCIP": {
           "name": "CCIP",
@@ -7463,7 +7464,7 @@ var SCHEMA = {
           "alias": "CCIP",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "CCRO": {
           "name": "CCRO",
@@ -7473,7 +7474,7 @@ var SCHEMA = {
           "alias": "CCRO",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "CFOX": {
           "name": "CFOX",
@@ -7483,7 +7484,7 @@ var SCHEMA = {
           "alias": "CFOX",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "CGEN": {
           "name": "CGEN",
@@ -7493,7 +7494,7 @@ var SCHEMA = {
           "alias": "CGEN",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "CKAN": {
           "name": "CKAN",
@@ -7503,7 +7504,7 @@ var SCHEMA = {
           "alias": "CKAN",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "CMEM": {
           "name": "CMEM",
@@ -7513,7 +7514,7 @@ var SCHEMA = {
           "alias": "CMEM",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "CNAL": {
           "name": "CNAL",
@@ -7523,7 +7524,7 @@ var SCHEMA = {
           "alias": "CNAL",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "CSSS": {
           "name": "CSSS",
@@ -7533,7 +7534,7 @@ var SCHEMA = {
           "alias": "CSSS",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "CSTR": {
           "name": "CSTR",
@@ -7543,7 +7544,7 @@ var SCHEMA = {
           "alias": "CSTR",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "CSXT": {
           "name": "CSXT",
@@ -7553,7 +7554,7 @@ var SCHEMA = {
           "alias": "CSXT",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "CTET": {
           "name": "CTET",
@@ -7563,7 +7564,7 @@ var SCHEMA = {
           "alias": "CTET",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "CTIO": {
           "name": "CTIO",
@@ -7573,7 +7574,7 @@ var SCHEMA = {
           "alias": "CTIO",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "STHY_TESTSRC_ID": {
           "name": "STHY_TESTSRC_ID",
@@ -7583,7 +7584,7 @@ var SCHEMA = {
           "alias": "STHY_TESTSRC_ID",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "WINN_TESTSRC_ID": {
           "name": "WINN_TESTSRC_ID",
@@ -7593,7 +7594,7 @@ var SCHEMA = {
           "alias": "WINN_TESTSRC_ID",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "GUEL_TESTSRC_ID": {
           "name": "GUEL_TESTSRC_ID",
@@ -7603,7 +7604,7 @@ var SCHEMA = {
           "alias": "GUEL_TESTSRC_ID",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "RCIP_DANMAP": {
           "name": "RCIP_DANMAP",
@@ -7613,7 +7614,7 @@ var SCHEMA = {
           "alias": "RCIP_DANMAP",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "EPIDATESTAMP_1": {
           "name": "EPIDATESTAMP_1",
@@ -7623,7 +7624,7 @@ var SCHEMA = {
           "alias": "EPIDATESTAMP_1",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "ACSSUT": {
           "name": "ACSSUT",
@@ -7633,7 +7634,7 @@ var SCHEMA = {
           "alias": "ACSSUT",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "AKSSUT": {
           "name": "AKSSUT",
@@ -7643,7 +7644,7 @@ var SCHEMA = {
           "alias": "AKSSUT",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "ACKSSUT": {
           "name": "ACKSSUT",
@@ -7653,7 +7654,7 @@ var SCHEMA = {
           "alias": "ACKSSUT",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "MDR_A_SSUT": {
           "name": "MDR_A_SSUT",
@@ -7663,7 +7664,7 @@ var SCHEMA = {
           "alias": "MDR_A_SSUT",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "EXCLUSION": {
           "name": "EXCLUSION",
@@ -7673,7 +7674,7 @@ var SCHEMA = {
           "alias": "EXCLUSION",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "RAMINOGLY": {
           "name": "RAMINOGLY",
@@ -7683,7 +7684,7 @@ var SCHEMA = {
           "alias": "RAMINOGLY",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "RBETALACTAM": {
           "name": "RBETALACTAM",
@@ -7693,7 +7694,7 @@ var SCHEMA = {
           "alias": "RBETALACTAM",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "RQUINOLONES": {
           "name": "RQUINOLONES",
@@ -7703,7 +7704,7 @@ var SCHEMA = {
           "alias": "RQUINOLONES",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "RFOLINHIBITOR": {
           "name": "RFOLINHIBITOR",
@@ -7713,7 +7714,7 @@ var SCHEMA = {
           "alias": "RFOLINHIBITOR",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "MDR": {
           "name": "MDR",
@@ -7723,7 +7724,7 @@ var SCHEMA = {
           "alias": "MDR",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "specimen_number": {
           "name": "specimen_number",
@@ -7733,7 +7734,7 @@ var SCHEMA = {
           "alias": "specimen_number",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "EXTERNAL_AGENT": {
           "name": "EXTERNAL_AGENT",
@@ -7743,7 +7744,7 @@ var SCHEMA = {
           "alias": "EXTERNAL_AGENT",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "FARM_FLAG": {
           "name": "FARM_FLAG",
@@ -7753,7 +7754,7 @@ var SCHEMA = {
           "alias": "FARM_FLAG",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "AMIKACINGELET": {
           "name": "AMIKACINGELET",
@@ -7763,24 +7764,24 @@ var SCHEMA = {
           "alias": "AMIKACINGELET",
           "owner": "PHAC Dexa",
           "slot_group": "Fields to put in sections",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         }
       }
     }
   },
-  "source_file": "../../template/phac_dexa/schema.yaml",
+  "source_file": "schema.yaml",
   "settings": {
     "Title_Case": {
       "setting_key": "Title_Case",
-      "setting_value": "^(((?<=\\b)[^a-z\\W]\\w*?|[\\W])+)$"
+      "setting_value": "(((?<=\\b)[^a-z\\W]\\w*?|[\\W])+)"
     },
     "UPPER_CASE": {
       "setting_key": "UPPER_CASE",
-      "setting_value": "^[A-Z\\W\\d_]*$"
+      "setting_value": "[A-Z\\W\\d_]*"
     },
     "lower_case": {
       "setting_key": "lower_case",
-      "setting_value": "^[a-z\\W\\d_]*$"
+      "setting_value": "[a-z\\W\\d_]*"
     }
   },
   "@type": "SchemaDefinition"

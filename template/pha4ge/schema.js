@@ -18,15 +18,10 @@ var SCHEMA = {
   },
   "default_prefix": "https://example.com/CanCOGeN_Covid-19/",
   "types": {
-    "xsd:token": {
-      "name": "xsd:token",
-      "description": "A string that has no whitespace; i.e., after any occurrence of #x9 (tab), #xA (linefeed), or #xD (carriage return).",
-      "base": "str",
-      "uri": "xsd:token"
-    },
-    "provenance": {
-      "name": "provenance",
-      "description": "A DataHarmonizer prefix version stamp",
+    "WhiteSpaceMinimizedString": {
+      "name": "WhiteSpaceMinimizedString",
+      "description": "A string that has all whitespace trimmed off of beginning and end, and all internal whitespace segments reduced to single spaces. Whitespace includes #x9 (tab), #xA (linefeed), and #xD (carriage return).",
+      "typeof": "string",
       "base": "str",
       "uri": "xsd:token"
     },
@@ -5118,7 +5113,7 @@ var SCHEMA = {
         "NCBI_Genbank_source_modifiers:Sequence_ID"
       ],
       "slot_uri": "GENEPIO:0001123",
-      "range": "xsd:token",
+      "range": "WhitespaceMinimizedString",
       "required": true
     },
     "umbrella bioproject accession": {
@@ -5135,7 +5130,12 @@ var SCHEMA = {
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "slot_uri": "GENEPIO:0001133",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString",
+      "structured_pattern": {
+        "syntax": "{UPPER_CASE}",
+        "interpolated": true,
+        "partial_match": false
+      }
     },
     "bioproject accession": {
       "name": "bioproject accession",
@@ -5156,7 +5156,12 @@ var SCHEMA = {
         "NCBI_Genbank_source_modifiers:BioProject"
       ],
       "slot_uri": "GENEPIO:0001136",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString",
+      "structured_pattern": {
+        "syntax": "{UPPER_CASE}",
+        "interpolated": true,
+        "partial_match": false
+      }
     },
     "biosample accession": {
       "name": "biosample accession",
@@ -5177,8 +5182,13 @@ var SCHEMA = {
         "NCBI_Genbank_source_modifiers:BioSample"
       ],
       "slot_uri": "GENEPIO:0001139",
-      "range": "xsd:token",
-      "recommended": true
+      "range": "WhitespaceMinimizedString",
+      "recommended": true,
+      "structured_pattern": {
+        "syntax": "{UPPER_CASE}",
+        "interpolated": true,
+        "partial_match": false
+      }
     },
     "SRA accession": {
       "name": "SRA accession",
@@ -5194,7 +5204,12 @@ var SCHEMA = {
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "slot_uri": "GENEPIO:0001142",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString",
+      "structured_pattern": {
+        "syntax": "{UPPER_CASE}",
+        "interpolated": true,
+        "partial_match": false
+      }
     },
     "GenBank/ENA/DDBJ accession": {
       "name": "GenBank/ENA/DDBJ accession",
@@ -5210,7 +5225,12 @@ var SCHEMA = {
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "slot_uri": "GENEPIO:0001145",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString",
+      "structured_pattern": {
+        "syntax": "{UPPER_CASE}",
+        "interpolated": true,
+        "partial_match": false
+      }
     },
     "GISAID accession": {
       "name": "GISAID accession",
@@ -5229,7 +5249,12 @@ var SCHEMA = {
         "NCBI_BIOSAMPLE:gisaid_accession"
       ],
       "slot_uri": "GENEPIO:0001147",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString",
+      "structured_pattern": {
+        "syntax": "{UPPER_CASE}",
+        "interpolated": true,
+        "partial_match": false
+      }
     },
     "GISAID virus name": {
       "name": "GISAID virus name",
@@ -5249,7 +5274,12 @@ var SCHEMA = {
         "NCBI_BIOSAMPLE:gisaid_virus_name"
       ],
       "slot_uri": "GENEPIO:0100282",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString",
+      "structured_pattern": {
+        "syntax": "{UPPER_CASE}",
+        "interpolated": true,
+        "partial_match": false
+      }
     },
     "host specimen voucher": {
       "name": "host specimen voucher",
@@ -5268,7 +5298,12 @@ var SCHEMA = {
         "NCBI_BIOSAMPLE:host_specimen_voucher"
       ],
       "slot_uri": "GENEPIO:0100283",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString",
+      "structured_pattern": {
+        "syntax": "{UPPER_CASE}",
+        "interpolated": true,
+        "partial_match": false
+      }
     },
     "sample collected by": {
       "name": "sample collected by",
@@ -5291,7 +5326,7 @@ var SCHEMA = {
       "required": true,
       "any_of": [
         {
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         {
           "range": "null value menu"
@@ -5312,7 +5347,7 @@ var SCHEMA = {
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "slot_uri": "GENEPIO:0001156",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "sample collector contact address": {
       "name": "sample collector contact address",
@@ -5331,7 +5366,7 @@ var SCHEMA = {
         "GISAID:Address"
       ],
       "slot_uri": "GENEPIO:0001158",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "sequence submitted by": {
       "name": "sequence submitted by",
@@ -5354,7 +5389,7 @@ var SCHEMA = {
       "required": true,
       "any_of": [
         {
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         {
           "range": "null value menu"
@@ -5378,7 +5413,7 @@ var SCHEMA = {
         "NCBI_SRA:sequence_submitter_contact_email"
       ],
       "slot_uri": "GENEPIO:0001165",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "sequence submitter contact address": {
       "name": "sequence submitter contact address",
@@ -5397,7 +5432,7 @@ var SCHEMA = {
         "GISAID:Address"
       ],
       "slot_uri": "GENEPIO:0001167",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "sample collection date": {
       "name": "sample collection date",
@@ -5500,7 +5535,7 @@ var SCHEMA = {
       "required": true,
       "any_of": [
         {
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         {
           "range": "null value menu"
@@ -5524,7 +5559,7 @@ var SCHEMA = {
         "NCBI_BIOSAMPLE:geo_loc_name"
       ],
       "slot_uri": "GENEPIO:0100280",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "geo_loc name (city)": {
       "name": "geo_loc name (city)",
@@ -5543,7 +5578,7 @@ var SCHEMA = {
         "NCBI_BIOSAMPLE:geo_loc_name"
       ],
       "slot_uri": "GENEPIO:0001189",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "geo_loc latitude": {
       "name": "geo_loc latitude",
@@ -5562,7 +5597,7 @@ var SCHEMA = {
         "NCBI_BIOSAMPLE:lat_lon"
       ],
       "slot_uri": "GENEPIO:0100309",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "geo_loc longitude": {
       "name": "geo_loc longitude",
@@ -5581,7 +5616,7 @@ var SCHEMA = {
         "NCBI_BIOSAMPLE:lat_lon"
       ],
       "slot_uri": "GENEPIO:0100310",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "organism": {
       "name": "organism",
@@ -5631,7 +5666,7 @@ var SCHEMA = {
       "required": true,
       "any_of": [
         {
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         {
           "range": "null value menu"
@@ -5652,7 +5687,7 @@ var SCHEMA = {
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "slot_uri": "GENEPIO:0100284",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "purpose of sampling": {
       "name": "purpose of sampling",
@@ -5695,7 +5730,7 @@ var SCHEMA = {
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "slot_uri": "GENEPIO:0001200",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "sample plan name": {
       "name": "sample plan name",
@@ -5711,7 +5746,7 @@ var SCHEMA = {
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "slot_uri": "GENEPIO:0100285",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "sample collected in quarantine": {
       "name": "sample collected in quarantine",
@@ -5960,7 +5995,7 @@ var SCHEMA = {
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "slot_uri": "GENEPIO:0001243",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "specimen processing": {
       "name": "specimen processing",
@@ -6001,7 +6036,7 @@ var SCHEMA = {
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "slot_uri": "GENEPIO:0100311",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "lab host": {
       "name": "lab host",
@@ -6065,7 +6100,7 @@ var SCHEMA = {
       "slot_uri": "GENEPIO:0001264",
       "any_of": [
         {
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         {
           "range": "null value menu"
@@ -6109,7 +6144,7 @@ var SCHEMA = {
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "slot_uri": "GENEPIO:0100278",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "host (common name)": {
       "name": "host (common name)",
@@ -6408,7 +6443,7 @@ var SCHEMA = {
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "slot_uri": "GENEPIO:0100312",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "host subject ID": {
       "name": "host subject ID",
@@ -6427,7 +6462,7 @@ var SCHEMA = {
         "NCBI_BIOSAMPLE:host_subject_id"
       ],
       "slot_uri": "GENEPIO:0001398",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "case ID": {
       "name": "case ID",
@@ -6443,7 +6478,7 @@ var SCHEMA = {
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "slot_uri": "GENEPIO:0100281",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "symptom onset date": {
       "name": "symptom onset date",
@@ -6597,7 +6632,7 @@ var SCHEMA = {
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "slot_uri": "GENEPIO:0100313",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "vaccination dose 1 vaccination date": {
       "name": "vaccination dose 1 vaccination date",
@@ -6629,7 +6664,7 @@ var SCHEMA = {
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "slot_uri": "GENEPIO:0100315",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "vaccination dose 2 vaccination date": {
       "name": "vaccination dose 2 vaccination date",
@@ -6661,7 +6696,7 @@ var SCHEMA = {
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "slot_uri": "GENEPIO:0100317",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "vaccination dose 3 vaccination date": {
       "name": "vaccination dose 3 vaccination date",
@@ -6696,7 +6731,7 @@ var SCHEMA = {
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "slot_uri": "GENEPIO:0100319",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "vaccination dose 4 vaccination date": {
       "name": "vaccination dose 4 vaccination date",
@@ -6740,7 +6775,7 @@ var SCHEMA = {
         "GISAID:Last vaccinated"
       ],
       "slot_uri": "GENEPIO:0100321",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "location of exposure geo_loc name (country)": {
       "name": "location of exposure geo_loc name (country)",
@@ -6785,7 +6820,7 @@ var SCHEMA = {
         "NCBI_BIOSAMPLE:host_recent_travel_loc"
       ],
       "slot_uri": "GENEPIO:0001411",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "destination of most recent travel (state/province/territory)": {
       "name": "destination of most recent travel (state/province/territory)",
@@ -6804,7 +6839,7 @@ var SCHEMA = {
         "NCBI_BIOSAMPLE:host_recent_travel_loc"
       ],
       "slot_uri": "GENEPIO:0001412",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "destination of most recent travel (country)": {
       "name": "destination of most recent travel (country)",
@@ -6901,7 +6936,7 @@ var SCHEMA = {
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "slot_uri": "GENEPIO:0001416",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "exposure event": {
       "name": "exposure event",
@@ -7007,7 +7042,7 @@ var SCHEMA = {
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "slot_uri": "GENEPIO:0001431",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "prior SARS-CoV-2 infection": {
       "name": "prior SARS-CoV-2 infection",
@@ -7052,7 +7087,7 @@ var SCHEMA = {
         "NCBI_BIOSAMPLE:virus_isolate_of_prior_infection"
       ],
       "slot_uri": "GENEPIO:0001436",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "prior SARS-CoV-2 infection date": {
       "name": "prior SARS-CoV-2 infection date",
@@ -7116,7 +7151,7 @@ var SCHEMA = {
         "NCBI_BIOSAMPLE:antiviral_treatment_agent"
       ],
       "slot_uri": "GENEPIO:0001439",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "prior SARS-CoV-2 antiviral treatment date": {
       "name": "prior SARS-CoV-2 antiviral treatment date",
@@ -7183,7 +7218,7 @@ var SCHEMA = {
       "required": true,
       "any_of": [
         {
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         {
           "range": "null value menu"
@@ -7230,7 +7265,7 @@ var SCHEMA = {
         "NCBI_SRA:library_ID"
       ],
       "slot_uri": "GENEPIO:0001448",
-      "range": "xsd:token",
+      "range": "WhitespaceMinimizedString",
       "recommended": true
     },
     "amplicon size": {
@@ -7250,7 +7285,7 @@ var SCHEMA = {
         "NCBI_SRA:amplicon_size"
       ],
       "slot_uri": "GENEPIO:0001449",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "library preparation kit": {
       "name": "library preparation kit",
@@ -7266,7 +7301,7 @@ var SCHEMA = {
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "slot_uri": "GENEPIO:0001450",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "flow cell barcode": {
       "name": "flow cell barcode",
@@ -7282,7 +7317,7 @@ var SCHEMA = {
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "slot_uri": "GENEPIO:0001451",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "sequencing instrument": {
       "name": "sequencing instrument",
@@ -7332,7 +7367,7 @@ var SCHEMA = {
         "NCBI_SRA:sequencing_protocol_name"
       ],
       "slot_uri": "GENEPIO:0001453",
-      "range": "xsd:token",
+      "range": "WhitespaceMinimizedString",
       "recommended": true
     },
     "sequencing protocol": {
@@ -7352,7 +7387,7 @@ var SCHEMA = {
         "NCBI_SRA:design_description"
       ],
       "slot_uri": "GENEPIO:0001454",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "sequencing kit number": {
       "name": "sequencing kit number",
@@ -7368,7 +7403,7 @@ var SCHEMA = {
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "slot_uri": "GENEPIO:0001455",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "amplicon pcr primer scheme": {
       "name": "amplicon pcr primer scheme",
@@ -7387,7 +7422,7 @@ var SCHEMA = {
         "NCBI_SRA:amplicon_pcr_primer_scheme"
       ],
       "slot_uri": "GENEPIO:0001456",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "raw sequence data processing method": {
       "name": "raw sequence data processing method",
@@ -7406,7 +7441,7 @@ var SCHEMA = {
         "NCBI_SRA:raw_sequence_data_processing_method"
       ],
       "slot_uri": "GENEPIO:0001458",
-      "range": "xsd:token",
+      "range": "WhitespaceMinimizedString",
       "recommended": true
     },
     "dehosting method": {
@@ -7426,7 +7461,7 @@ var SCHEMA = {
         "NCBI_SRA:dehosting_method"
       ],
       "slot_uri": "GENEPIO:0001459",
-      "range": "xsd:token",
+      "range": "WhitespaceMinimizedString",
       "recommended": true
     },
     "consensus sequence name": {
@@ -7443,7 +7478,7 @@ var SCHEMA = {
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "slot_uri": "GENEPIO:0001460",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "consensus sequence filename": {
       "name": "consensus sequence filename",
@@ -7462,7 +7497,7 @@ var SCHEMA = {
         "NCBI_Genbank:filename"
       ],
       "slot_uri": "GENEPIO:0001461",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "consensus sequence filepath": {
       "name": "consensus sequence filepath",
@@ -7478,7 +7513,7 @@ var SCHEMA = {
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "slot_uri": "GENEPIO:0001462",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "consensus sequence software name": {
       "name": "consensus sequence software name",
@@ -7498,7 +7533,7 @@ var SCHEMA = {
         "NCBI_Genbank:assembly_method"
       ],
       "slot_uri": "GENEPIO:0001463",
-      "range": "xsd:token",
+      "range": "WhitespaceMinimizedString",
       "required": true
     },
     "consensus sequence software version": {
@@ -7536,7 +7571,7 @@ var SCHEMA = {
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "slot_uri": "GENEPIO:0001472",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "depth of coverage value": {
       "name": "depth of coverage value",
@@ -7556,7 +7591,7 @@ var SCHEMA = {
         "NCBI_Genbank:genome_coverage"
       ],
       "slot_uri": "GENEPIO:0001474",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "depth of coverage threshold": {
       "name": "depth of coverage threshold",
@@ -7572,7 +7607,7 @@ var SCHEMA = {
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "slot_uri": "GENEPIO:0001475",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "r1 fastq filename": {
       "name": "r1 fastq filename",
@@ -7588,7 +7623,7 @@ var SCHEMA = {
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "slot_uri": "GENEPIO:0001476",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "r2 fastq filename": {
       "name": "r2 fastq filename",
@@ -7604,7 +7639,7 @@ var SCHEMA = {
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "slot_uri": "GENEPIO:0001477",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "r1 fastq filepath": {
       "name": "r1 fastq filepath",
@@ -7620,7 +7655,7 @@ var SCHEMA = {
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "slot_uri": "GENEPIO:0001478",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "r2 fastq filepath": {
       "name": "r2 fastq filepath",
@@ -7636,7 +7671,7 @@ var SCHEMA = {
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "slot_uri": "GENEPIO:0001479",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "fast5 filename": {
       "name": "fast5 filename",
@@ -7652,7 +7687,7 @@ var SCHEMA = {
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "slot_uri": "GENEPIO:0001480",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "fast5 filepath": {
       "name": "fast5 filepath",
@@ -7668,7 +7703,7 @@ var SCHEMA = {
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "slot_uri": "GENEPIO:0001481",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "number of base pairs sequenced": {
       "name": "number of base pairs sequenced",
@@ -7737,7 +7772,7 @@ var SCHEMA = {
         "NCBI_Genbank:reference_genome"
       ],
       "slot_uri": "GENEPIO:0001485",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "bioinformatics protocol": {
       "name": "bioinformatics protocol",
@@ -7753,7 +7788,7 @@ var SCHEMA = {
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "slot_uri": "GENEPIO:0001489",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "lineage/clade name": {
       "name": "lineage/clade name",
@@ -7769,7 +7804,7 @@ var SCHEMA = {
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "slot_uri": "GENEPIO:0001500",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "lineage/clade analysis software name": {
       "name": "lineage/clade analysis software name",
@@ -7785,7 +7820,7 @@ var SCHEMA = {
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "slot_uri": "GENEPIO:0001501",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "lineage/clade analysis software version": {
       "name": "lineage/clade analysis software version",
@@ -7801,7 +7836,7 @@ var SCHEMA = {
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "slot_uri": "GENEPIO:0001502",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "variant designation": {
       "name": "variant designation",
@@ -7840,7 +7875,7 @@ var SCHEMA = {
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "slot_uri": "GENEPIO:0001504",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "gene name 1": {
       "name": "gene name 1",
@@ -7882,7 +7917,7 @@ var SCHEMA = {
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "slot_uri": "GENEPIO:0001508",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "diagnostic pcr Ct value 1": {
       "name": "diagnostic pcr Ct value 1",
@@ -7901,7 +7936,7 @@ var SCHEMA = {
         "NCBI_BIOSAMPLE:sars_cov_2_diag_pcr_ct_value_1"
       ],
       "slot_uri": "GENEPIO:0001509",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "gene name 2": {
       "name": "gene name 2",
@@ -7943,7 +7978,7 @@ var SCHEMA = {
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "slot_uri": "GENEPIO:0001511",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "diagnostic pcr Ct value 2": {
       "name": "diagnostic pcr Ct value 2",
@@ -7962,7 +7997,7 @@ var SCHEMA = {
         "NCBI_BIOSAMPLE:sars_cov_2_diag_pcr_ct_value_2"
       ],
       "slot_uri": "GENEPIO:0001512",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "title": {
       "name": "title",
@@ -7981,7 +8016,7 @@ var SCHEMA = {
         "NCBI_SRA:title"
       ],
       "slot_uri": "GENEPIO:0100323",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "library_strategy": {
       "name": "library_strategy",
@@ -8065,7 +8100,7 @@ var SCHEMA = {
         "NCBI_SRA:filename"
       ],
       "slot_uri": "GENEPIO:0100329",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "filename2": {
       "name": "filename2",
@@ -8079,7 +8114,7 @@ var SCHEMA = {
         "NCBI_SRA:filename2"
       ],
       "slot_uri": "GENEPIO:0100330",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "authors": {
       "name": "authors",
@@ -8098,7 +8133,7 @@ var SCHEMA = {
         "GISAID:Authors"
       ],
       "slot_uri": "GENEPIO:0001517",
-      "range": "xsd:token",
+      "range": "WhitespaceMinimizedString",
       "recommended": true
     },
     "DataHarmonizer provenance": {
@@ -8872,7 +8907,7 @@ var SCHEMA = {
           "alias": "specimen_collector_sample_ID",
           "owner": "PHA4GE",
           "slot_group": "Database Identifiers",
-          "range": "xsd:token",
+          "range": "WhitespaceMinimizedString",
           "required": true
         },
         "umbrella bioproject accession": {
@@ -8885,7 +8920,12 @@ var SCHEMA = {
           "alias": "umbrella_bioproject_accession",
           "owner": "PHA4GE",
           "slot_group": "Database Identifiers",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString",
+          "structured_pattern": {
+            "syntax": "{UPPER_CASE}",
+            "interpolated": true,
+            "partial_match": false
+          }
         },
         "bioproject accession": {
           "name": "bioproject accession",
@@ -8897,7 +8937,12 @@ var SCHEMA = {
           "alias": "bioproject_accession",
           "owner": "PHA4GE",
           "slot_group": "Database Identifiers",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString",
+          "structured_pattern": {
+            "syntax": "{UPPER_CASE}",
+            "interpolated": true,
+            "partial_match": false
+          }
         },
         "biosample accession": {
           "name": "biosample accession",
@@ -8909,8 +8954,13 @@ var SCHEMA = {
           "alias": "biosample_accession",
           "owner": "PHA4GE",
           "slot_group": "Database Identifiers",
-          "range": "xsd:token",
-          "recommended": true
+          "range": "WhitespaceMinimizedString",
+          "recommended": true,
+          "structured_pattern": {
+            "syntax": "{UPPER_CASE}",
+            "interpolated": true,
+            "partial_match": false
+          }
         },
         "SRA accession": {
           "name": "SRA accession",
@@ -8922,7 +8972,12 @@ var SCHEMA = {
           "alias": "SRA_accession",
           "owner": "PHA4GE",
           "slot_group": "Database Identifiers",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString",
+          "structured_pattern": {
+            "syntax": "{UPPER_CASE}",
+            "interpolated": true,
+            "partial_match": false
+          }
         },
         "GenBank/ENA/DDBJ accession": {
           "name": "GenBank/ENA/DDBJ accession",
@@ -8934,7 +8989,12 @@ var SCHEMA = {
           "alias": "GenBank/ENA/DDBJ_accession",
           "owner": "PHA4GE",
           "slot_group": "Database Identifiers",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString",
+          "structured_pattern": {
+            "syntax": "{UPPER_CASE}",
+            "interpolated": true,
+            "partial_match": false
+          }
         },
         "GISAID accession": {
           "name": "GISAID accession",
@@ -8946,7 +9006,12 @@ var SCHEMA = {
           "alias": "GISAID_accession",
           "owner": "PHA4GE",
           "slot_group": "Database Identifiers",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString",
+          "structured_pattern": {
+            "syntax": "{UPPER_CASE}",
+            "interpolated": true,
+            "partial_match": false
+          }
         },
         "GISAID virus name": {
           "name": "GISAID virus name",
@@ -8958,7 +9023,12 @@ var SCHEMA = {
           "alias": "GISAID_virus_name",
           "owner": "PHA4GE",
           "slot_group": "Database Identifiers",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString",
+          "structured_pattern": {
+            "syntax": "{UPPER_CASE}",
+            "interpolated": true,
+            "partial_match": false
+          }
         },
         "host specimen voucher": {
           "name": "host specimen voucher",
@@ -8970,7 +9040,12 @@ var SCHEMA = {
           "alias": "host_specimen_voucher",
           "owner": "PHA4GE",
           "slot_group": "Database Identifiers",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString",
+          "structured_pattern": {
+            "syntax": "{UPPER_CASE}",
+            "interpolated": true,
+            "partial_match": false
+          }
         },
         "sample collected by": {
           "name": "sample collected by",
@@ -8994,7 +9069,7 @@ var SCHEMA = {
           "alias": "sample_collector_contact_email",
           "owner": "PHA4GE",
           "slot_group": "Sample collection and processing",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "sample collector contact address": {
           "name": "sample collector contact address",
@@ -9006,7 +9081,7 @@ var SCHEMA = {
           "alias": "sample_collector_contact_address",
           "owner": "PHA4GE",
           "slot_group": "Sample collection and processing",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "sequence submitted by": {
           "name": "sequence submitted by",
@@ -9030,7 +9105,7 @@ var SCHEMA = {
           "alias": "sequence_submitter_contact_email",
           "owner": "PHA4GE",
           "slot_group": "Sample collection and processing",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "sequence submitter contact address": {
           "name": "sequence submitter contact address",
@@ -9042,7 +9117,7 @@ var SCHEMA = {
           "alias": "sequence_submitter_contact_address",
           "owner": "PHA4GE",
           "slot_group": "Sample collection and processing",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "sample collection date": {
           "name": "sample collection date",
@@ -9101,7 +9176,7 @@ var SCHEMA = {
           "alias": "geo_loc_name_(county/region)",
           "owner": "PHA4GE",
           "slot_group": "Sample collection and processing",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "geo_loc name (city)": {
           "name": "geo_loc name (city)",
@@ -9113,7 +9188,7 @@ var SCHEMA = {
           "alias": "geo_loc_name_(city)",
           "owner": "PHA4GE",
           "slot_group": "Sample collection and processing",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "geo_loc latitude": {
           "name": "geo_loc latitude",
@@ -9125,7 +9200,7 @@ var SCHEMA = {
           "alias": "geo_loc_latitude",
           "owner": "PHA4GE",
           "slot_group": "Sample collection and processing",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "geo_loc longitude": {
           "name": "geo_loc longitude",
@@ -9137,7 +9212,7 @@ var SCHEMA = {
           "alias": "geo_loc_longitude",
           "owner": "PHA4GE",
           "slot_group": "Sample collection and processing",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "organism": {
           "name": "organism",
@@ -9173,7 +9248,7 @@ var SCHEMA = {
           "alias": "culture_collection",
           "owner": "PHA4GE",
           "slot_group": "Sample collection and processing",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "purpose of sampling": {
           "name": "purpose of sampling",
@@ -9197,7 +9272,7 @@ var SCHEMA = {
           "alias": "purpose_of_sampling_details",
           "owner": "PHA4GE",
           "slot_group": "Sample collection and processing",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "sample plan name": {
           "name": "sample plan name",
@@ -9209,7 +9284,7 @@ var SCHEMA = {
           "alias": "sample_plan_name",
           "owner": "PHA4GE",
           "slot_group": "Sample collection and processing",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "sample collected in quarantine": {
           "name": "sample collected in quarantine",
@@ -9316,7 +9391,7 @@ var SCHEMA = {
           "alias": "collection_protocol",
           "owner": "PHA4GE",
           "slot_group": "Sample collection and processing",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "specimen processing": {
           "name": "specimen processing",
@@ -9341,7 +9416,7 @@ var SCHEMA = {
           "alias": "specimen_processing_details",
           "owner": "PHA4GE",
           "slot_group": "Sample collection and processing",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "lab host": {
           "name": "lab host",
@@ -9399,7 +9474,7 @@ var SCHEMA = {
           "alias": "data_abstraction_details",
           "owner": "PHA4GE",
           "slot_group": "Sample collection and processing",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "host (common name)": {
           "name": "host (common name)",
@@ -9539,7 +9614,7 @@ var SCHEMA = {
           "alias": "host_ethnicity",
           "owner": "PHA4GE",
           "slot_group": "Host Information",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "host subject ID": {
           "name": "host subject ID",
@@ -9551,7 +9626,7 @@ var SCHEMA = {
           "alias": "host_subject_ID",
           "owner": "PHA4GE",
           "slot_group": "Host Information",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "case ID": {
           "name": "case ID",
@@ -9563,7 +9638,7 @@ var SCHEMA = {
           "alias": "case_ID",
           "owner": "PHA4GE",
           "slot_group": "Host Information",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "symptom onset date": {
           "name": "symptom onset date",
@@ -9646,7 +9721,7 @@ var SCHEMA = {
           "alias": "vaccination_dose_1_vaccine_name",
           "owner": "PHA4GE",
           "slot_group": "Host vaccination information",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "vaccination dose 1 vaccination date": {
           "name": "vaccination dose 1 vaccination date",
@@ -9670,7 +9745,7 @@ var SCHEMA = {
           "alias": "vaccination_dose_2_vaccine_name",
           "owner": "PHA4GE",
           "slot_group": "Host vaccination information",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "vaccination dose 2 vaccination date": {
           "name": "vaccination dose 2 vaccination date",
@@ -9694,7 +9769,7 @@ var SCHEMA = {
           "alias": "vaccination_dose_3_vaccine_name",
           "owner": "PHA4GE",
           "slot_group": "Host vaccination information",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "vaccination dose 3 vaccination date": {
           "name": "vaccination dose 3 vaccination date",
@@ -9718,7 +9793,7 @@ var SCHEMA = {
           "alias": "vaccination_dose_4_vaccine_name",
           "owner": "PHA4GE",
           "slot_group": "Host vaccination information",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "vaccination dose 4 vaccination date": {
           "name": "vaccination dose 4 vaccination date",
@@ -9742,7 +9817,7 @@ var SCHEMA = {
           "alias": "vaccination_history",
           "owner": "PHA4GE",
           "slot_group": "Host vaccination information",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "location of exposure geo_loc name (country)": {
           "name": "location of exposure geo_loc name (country)",
@@ -9765,7 +9840,7 @@ var SCHEMA = {
           "alias": "destination_of_most_recent_travel_(city)",
           "owner": "PHA4GE",
           "slot_group": "Host exposure information",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "destination of most recent travel (state/province/territory)": {
           "name": "destination of most recent travel (state/province/territory)",
@@ -9777,7 +9852,7 @@ var SCHEMA = {
           "alias": "destination_of_most_recent_travel_(state/province/territory)",
           "owner": "PHA4GE",
           "slot_group": "Host exposure information",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "destination of most recent travel (country)": {
           "name": "destination of most recent travel (country)",
@@ -9822,7 +9897,7 @@ var SCHEMA = {
           "alias": "travel_history",
           "owner": "PHA4GE",
           "slot_group": "Host exposure information",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "exposure event": {
           "name": "exposure event",
@@ -9882,7 +9957,7 @@ var SCHEMA = {
           "alias": "exposure_details",
           "owner": "PHA4GE",
           "slot_group": "Host exposure information",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "prior SARS-CoV-2 infection": {
           "name": "prior SARS-CoV-2 infection",
@@ -9905,7 +9980,7 @@ var SCHEMA = {
           "alias": "prior_SARS_CoV_2_infection_isolate",
           "owner": "PHA4GE",
           "slot_group": "Host reinfection information",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "prior SARS-CoV-2 infection date": {
           "name": "prior SARS-CoV-2 infection date",
@@ -9940,7 +10015,7 @@ var SCHEMA = {
           "alias": "prior_SARS_CoV_2_antiviral_treatment_agent",
           "owner": "PHA4GE",
           "slot_group": "Host reinfection information",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "prior SARS-CoV-2 antiviral treatment date": {
           "name": "prior SARS-CoV-2 antiviral treatment date",
@@ -10000,7 +10075,7 @@ var SCHEMA = {
           "alias": "library_ID",
           "owner": "PHA4GE",
           "slot_group": "Sequencing",
-          "range": "xsd:token",
+          "range": "WhitespaceMinimizedString",
           "recommended": true
         },
         "amplicon size": {
@@ -10013,7 +10088,7 @@ var SCHEMA = {
           "alias": "amplicon_size",
           "owner": "PHA4GE",
           "slot_group": "Sequencing",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "library preparation kit": {
           "name": "library preparation kit",
@@ -10025,7 +10100,7 @@ var SCHEMA = {
           "alias": "library_preparation_kit",
           "owner": "PHA4GE",
           "slot_group": "Sequencing",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "flow cell barcode": {
           "name": "flow cell barcode",
@@ -10037,7 +10112,7 @@ var SCHEMA = {
           "alias": "flow_cell_barcode",
           "owner": "PHA4GE",
           "slot_group": "Sequencing",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "sequencing instrument": {
           "name": "sequencing instrument",
@@ -10062,7 +10137,7 @@ var SCHEMA = {
           "alias": "sequencing_protocol_name",
           "owner": "PHA4GE",
           "slot_group": "Sequencing",
-          "range": "xsd:token",
+          "range": "WhitespaceMinimizedString",
           "recommended": true
         },
         "sequencing protocol": {
@@ -10075,7 +10150,7 @@ var SCHEMA = {
           "alias": "sequencing_protocol",
           "owner": "PHA4GE",
           "slot_group": "Sequencing",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "sequencing kit number": {
           "name": "sequencing kit number",
@@ -10087,7 +10162,7 @@ var SCHEMA = {
           "alias": "sequencing_kit_number",
           "owner": "PHA4GE",
           "slot_group": "Sequencing",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "amplicon pcr primer scheme": {
           "name": "amplicon pcr primer scheme",
@@ -10099,7 +10174,7 @@ var SCHEMA = {
           "alias": "amplicon_pcr_primer_scheme",
           "owner": "PHA4GE",
           "slot_group": "Sequencing",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "raw sequence data processing method": {
           "name": "raw sequence data processing method",
@@ -10111,7 +10186,7 @@ var SCHEMA = {
           "alias": "raw_sequence_data_processing_method",
           "owner": "PHA4GE",
           "slot_group": "Bioinformatics and QC metrics",
-          "range": "xsd:token",
+          "range": "WhitespaceMinimizedString",
           "recommended": true
         },
         "dehosting method": {
@@ -10124,7 +10199,7 @@ var SCHEMA = {
           "alias": "dehosting_method",
           "owner": "PHA4GE",
           "slot_group": "Bioinformatics and QC metrics",
-          "range": "xsd:token",
+          "range": "WhitespaceMinimizedString",
           "recommended": true
         },
         "consensus sequence name": {
@@ -10137,7 +10212,7 @@ var SCHEMA = {
           "alias": "consensus_sequence_name",
           "owner": "PHA4GE",
           "slot_group": "Bioinformatics and QC metrics",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "consensus sequence filename": {
           "name": "consensus sequence filename",
@@ -10149,7 +10224,7 @@ var SCHEMA = {
           "alias": "consensus_sequence_filename",
           "owner": "PHA4GE",
           "slot_group": "Bioinformatics and QC metrics",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "consensus sequence filepath": {
           "name": "consensus sequence filepath",
@@ -10161,7 +10236,7 @@ var SCHEMA = {
           "alias": "consensus_sequence_filepath",
           "owner": "PHA4GE",
           "slot_group": "Bioinformatics and QC metrics",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "consensus sequence software name": {
           "name": "consensus sequence software name",
@@ -10173,7 +10248,7 @@ var SCHEMA = {
           "alias": "consensus_sequence_software_name",
           "owner": "PHA4GE",
           "slot_group": "Bioinformatics and QC metrics",
-          "range": "xsd:token",
+          "range": "WhitespaceMinimizedString",
           "required": true
         },
         "consensus sequence software version": {
@@ -10199,7 +10274,7 @@ var SCHEMA = {
           "alias": "breadth_of_coverage_value",
           "owner": "PHA4GE",
           "slot_group": "Bioinformatics and QC metrics",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "depth of coverage value": {
           "name": "depth of coverage value",
@@ -10211,7 +10286,7 @@ var SCHEMA = {
           "alias": "depth_of_coverage_value",
           "owner": "PHA4GE",
           "slot_group": "Bioinformatics and QC metrics",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "depth of coverage threshold": {
           "name": "depth of coverage threshold",
@@ -10223,7 +10298,7 @@ var SCHEMA = {
           "alias": "depth_of_coverage_threshold",
           "owner": "PHA4GE",
           "slot_group": "Bioinformatics and QC metrics",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "r1 fastq filename": {
           "name": "r1 fastq filename",
@@ -10235,7 +10310,7 @@ var SCHEMA = {
           "alias": "r1_fastq_filename",
           "owner": "PHA4GE",
           "slot_group": "Bioinformatics and QC metrics",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "r2 fastq filename": {
           "name": "r2 fastq filename",
@@ -10247,7 +10322,7 @@ var SCHEMA = {
           "alias": "r2_fastq_filename",
           "owner": "PHA4GE",
           "slot_group": "Bioinformatics and QC metrics",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "r1 fastq filepath": {
           "name": "r1 fastq filepath",
@@ -10259,7 +10334,7 @@ var SCHEMA = {
           "alias": "r1_fastq_filepath",
           "owner": "PHA4GE",
           "slot_group": "Bioinformatics and QC metrics",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "r2 fastq filepath": {
           "name": "r2 fastq filepath",
@@ -10271,7 +10346,7 @@ var SCHEMA = {
           "alias": "r2_fastq_filepath",
           "owner": "PHA4GE",
           "slot_group": "Bioinformatics and QC metrics",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "fast5 filename": {
           "name": "fast5 filename",
@@ -10283,7 +10358,7 @@ var SCHEMA = {
           "alias": "fast5_filename",
           "owner": "PHA4GE",
           "slot_group": "Bioinformatics and QC metrics",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "fast5 filepath": {
           "name": "fast5 filepath",
@@ -10295,7 +10370,7 @@ var SCHEMA = {
           "alias": "fast5_filepath",
           "owner": "PHA4GE",
           "slot_group": "Bioinformatics and QC metrics",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "number of base pairs sequenced": {
           "name": "number of base pairs sequenced",
@@ -10345,7 +10420,7 @@ var SCHEMA = {
           "alias": "reference_genome_accession",
           "owner": "PHA4GE",
           "slot_group": "Bioinformatics and QC metrics",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "bioinformatics protocol": {
           "name": "bioinformatics protocol",
@@ -10357,7 +10432,7 @@ var SCHEMA = {
           "alias": "bioinformatics_protocol",
           "owner": "PHA4GE",
           "slot_group": "Bioinformatics and QC metrics",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "lineage/clade name": {
           "name": "lineage/clade name",
@@ -10369,7 +10444,7 @@ var SCHEMA = {
           "alias": "lineage/clade_name",
           "owner": "PHA4GE",
           "slot_group": "Lineage and Variant information",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "lineage/clade analysis software name": {
           "name": "lineage/clade analysis software name",
@@ -10381,7 +10456,7 @@ var SCHEMA = {
           "alias": "lineage/clade_analysis_software_name",
           "owner": "PHA4GE",
           "slot_group": "Lineage and Variant information",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "lineage/clade analysis software version": {
           "name": "lineage/clade analysis software version",
@@ -10393,7 +10468,7 @@ var SCHEMA = {
           "alias": "lineage/clade_analysis_software_version",
           "owner": "PHA4GE",
           "slot_group": "Lineage and Variant information",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "variant designation": {
           "name": "variant designation",
@@ -10416,7 +10491,7 @@ var SCHEMA = {
           "alias": "variant_evidence_details",
           "owner": "PHA4GE",
           "slot_group": "Lineage and Variant information",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "gene name 1": {
           "name": "gene name 1",
@@ -10439,7 +10514,7 @@ var SCHEMA = {
           "alias": "diagnostic_pcr_protocol_1",
           "owner": "PHA4GE",
           "slot_group": "Pathogen diagnostic testing",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "diagnostic pcr Ct value 1": {
           "name": "diagnostic pcr Ct value 1",
@@ -10451,7 +10526,7 @@ var SCHEMA = {
           "alias": "diagnostic_pcr_Ct_value_1",
           "owner": "PHA4GE",
           "slot_group": "Pathogen diagnostic testing",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "gene name 2": {
           "name": "gene name 2",
@@ -10474,7 +10549,7 @@ var SCHEMA = {
           "alias": "diagnostic_pcr_protocol_2",
           "owner": "PHA4GE",
           "slot_group": "Pathogen diagnostic testing",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "diagnostic pcr Ct value 2": {
           "name": "diagnostic pcr Ct value 2",
@@ -10486,7 +10561,7 @@ var SCHEMA = {
           "alias": "diagnostic_pcr_Ct_value_2",
           "owner": "PHA4GE",
           "slot_group": "Pathogen diagnostic testing",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "title": {
           "name": "title",
@@ -10498,7 +10573,7 @@ var SCHEMA = {
           "alias": "title",
           "owner": "PHA4GE",
           "slot_group": "NCBI SRA information",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "library_strategy": {
           "name": "library_strategy",
@@ -10570,7 +10645,7 @@ var SCHEMA = {
           "alias": "filename",
           "owner": "PHA4GE",
           "slot_group": "NCBI SRA information",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "filename2": {
           "name": "filename2",
@@ -10582,7 +10657,7 @@ var SCHEMA = {
           "alias": "filename2",
           "owner": "PHA4GE",
           "slot_group": "NCBI SRA information",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "authors": {
           "name": "authors",
@@ -10594,7 +10669,7 @@ var SCHEMA = {
           "alias": "authors",
           "owner": "PHA4GE",
           "slot_group": "Contributor acknowledgement",
-          "range": "xsd:token",
+          "range": "WhitespaceMinimizedString",
           "recommended": true
         },
         "DataHarmonizer provenance": {
@@ -10616,15 +10691,15 @@ var SCHEMA = {
   "settings": {
     "Title_Case": {
       "setting_key": "Title_Case",
-      "setting_value": "^(((?<=\\b)[^a-z\\W]\\w*?|[\\W])+)$"
+      "setting_value": "(((?<=\\b)[^a-z\\W]\\w*?|[\\W])+)"
     },
     "UPPER_CASE": {
       "setting_key": "UPPER_CASE",
-      "setting_value": "^[A-Z\\W\\d_]*$"
+      "setting_value": "[A-Z\\W\\d_]*"
     },
     "lower_case": {
       "setting_key": "lower_case",
-      "setting_value": "^[a-z\\W\\d_]*$"
+      "setting_value": "[a-z\\W\\d_]*"
     }
   },
   "@type": "SchemaDefinition"

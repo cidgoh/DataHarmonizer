@@ -18,9 +18,10 @@ var SCHEMA = {
   },
   "default_prefix": "https://example.com/GISAID/",
   "types": {
-    "xsd:token": {
-      "name": "xsd:token",
-      "description": "A string that has no whitespace; i.e., after any occurrence of #x9 (tab), #xA (linefeed), or #xD (carriage return).",
+    "WhiteSpaceMinimizedString": {
+      "name": "WhiteSpaceMinimizedString",
+      "description": "A string that has all whitespace trimmed off of beginning and end, and all internal whitespace segments reduced to single spaces. Whitespace includes #x9 (tab), #xA (linefeed), and #xD (carriage return).",
+      "typeof": "string",
       "base": "str",
       "uri": "xsd:token"
     },
@@ -144,7 +145,7 @@ var SCHEMA = {
       "description": "enter your GISAID-Username",
       "title": "Submitter",
       "from_schema": "https://example.com/GISAID",
-      "range": "xsd:token",
+      "range": "WhitespaceMinimizedString",
       "required": true
     },
     "FASTA filename": {
@@ -152,7 +153,7 @@ var SCHEMA = {
       "description": "the filename that contains the sequence without path (e.g. all_sequences.fasta not c:\\users\\meier\\docs\\all_sequences.fasta)",
       "title": "FASTA filename",
       "from_schema": "https://example.com/GISAID",
-      "range": "xsd:token",
+      "range": "WhitespaceMinimizedString",
       "required": true
     },
     "Virus name": {
@@ -160,7 +161,7 @@ var SCHEMA = {
       "description": "e.g. hCoV-19/Netherlands/Gelderland-01/2020 (Must be FASTA-Header from the FASTA file all_sequences.fasta)",
       "title": "Virus name",
       "from_schema": "https://example.com/GISAID",
-      "range": "xsd:token",
+      "range": "WhitespaceMinimizedString",
       "required": true
     },
     "Type": {
@@ -176,7 +177,7 @@ var SCHEMA = {
       "description": "e.g. Original, Vero",
       "title": "Passage details/history",
       "from_schema": "https://example.com/GISAID",
-      "range": "xsd:token",
+      "range": "WhitespaceMinimizedString",
       "required": true
     },
     "Collection date": {
@@ -184,7 +185,7 @@ var SCHEMA = {
       "description": "Date in the format YYYY or YYYY-MM or YYYY-MM-DD",
       "title": "Collection date",
       "from_schema": "https://example.com/GISAID",
-      "range": "xsd:token",
+      "range": "WhitespaceMinimizedString",
       "required": true
     },
     "Location": {
@@ -192,7 +193,7 @@ var SCHEMA = {
       "description": "e.g. Europe / Germany / Bavaria / Munich",
       "title": "Location",
       "from_schema": "https://example.com/GISAID",
-      "range": "xsd:token",
+      "range": "WhitespaceMinimizedString",
       "required": true
     },
     "Additional location information": {
@@ -200,14 +201,14 @@ var SCHEMA = {
       "description": "e.g. Cruise Ship, Convention, Live animal market",
       "title": "Additional location information",
       "from_schema": "https://example.com/GISAID",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "Host": {
       "name": "Host",
       "description": "e.g. Human, Environment, Canine, Manis javanica, Rhinolophus affinis, etc",
       "title": "Host",
       "from_schema": "https://example.com/GISAID",
-      "range": "xsd:token",
+      "range": "WhitespaceMinimizedString",
       "required": true
     },
     "Additional host information": {
@@ -215,21 +216,21 @@ var SCHEMA = {
       "description": "e.g. Patient infected while traveling in ….",
       "title": "Additional host information",
       "from_schema": "https://example.com/GISAID",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "Sampling Strategy": {
       "name": "Sampling Strategy",
       "description": "e.g. Sentinel surveillance (ILI), Sentinel surveillance (ARI), Sentinel surveillance (SARI), Non-sentinel-surveillance (hospital), Non-sentinel-surveillance (GP network), Longitudinal sampling on same patient(s), S gene dropout",
       "title": "Sampling Strategy",
       "from_schema": "https://example.com/GISAID",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "Gender": {
       "name": "Gender",
       "description": "Male, Female, or unknown",
       "title": "Gender",
       "from_schema": "https://example.com/GISAID",
-      "range": "xsd:token",
+      "range": "WhitespaceMinimizedString",
       "required": true
     },
     "Patient age": {
@@ -237,7 +238,7 @@ var SCHEMA = {
       "description": "e.g.  65 or 7 months, or unknown",
       "title": "Patient age",
       "from_schema": "https://example.com/GISAID",
-      "range": "xsd:token",
+      "range": "WhitespaceMinimizedString",
       "required": true
     },
     "Patient status": {
@@ -245,7 +246,7 @@ var SCHEMA = {
       "description": "e.g.  Hospitalized, Released, Live, Deceased, or unknown",
       "title": "Patient status",
       "from_schema": "https://example.com/GISAID",
-      "range": "xsd:token",
+      "range": "WhitespaceMinimizedString",
       "required": true
     },
     "Specimen source": {
@@ -253,35 +254,35 @@ var SCHEMA = {
       "description": "e.g. Sputum, Alveolar lavage fluid, Oro-pharyngeal swab, Blood, Tracheal swab, Urine, Stool, Cloakal swab, Organ, Feces, Other",
       "title": "Specimen source",
       "from_schema": "https://example.com/GISAID",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "Outbreak": {
       "name": "Outbreak",
       "description": "Date, Location e.g. type of gathering, Family cluster, etc.",
       "title": "Outbreak",
       "from_schema": "https://example.com/GISAID",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "Last vaccinated": {
       "name": "Last vaccinated",
       "description": "provide details if applicable",
       "title": "Last vaccinated",
       "from_schema": "https://example.com/GISAID",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "Treatment": {
       "name": "Treatment",
       "description": "Include drug name, dosage",
       "title": "Treatment",
       "from_schema": "https://example.com/GISAID",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "Sequencing technology": {
       "name": "Sequencing technology",
       "description": "e.g.  Illumina Miseq, Sanger, Nanopore MinION, Ion Torrent, etc.",
       "title": "Sequencing technology",
       "from_schema": "https://example.com/GISAID",
-      "range": "xsd:token",
+      "range": "WhitespaceMinimizedString",
       "required": true
     },
     "Assembly method": {
@@ -289,56 +290,56 @@ var SCHEMA = {
       "description": "e.g. CLC Genomics Workbench 12, Geneious 10.2.4, SPAdes/MEGAHIT v1.2.9, UGENE v. 33, etc.",
       "title": "Assembly method",
       "from_schema": "https://example.com/GISAID",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "Coverage": {
       "name": "Coverage",
       "description": "e.g. 70x, 1,000x, 10,000x (average)",
       "title": "Coverage",
       "from_schema": "https://example.com/GISAID",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "Originating lab": {
       "name": "Originating lab",
       "description": "Where the clinical specimen or virus isolate was first obtained",
       "title": "Originating lab",
       "from_schema": "https://example.com/GISAID",
-      "range": "xsd:token",
+      "range": "WhitespaceMinimizedString",
       "required": true
     },
     "Address": {
       "name": "Address",
       "title": "Address",
       "from_schema": "https://example.com/GISAID",
-      "range": "xsd:token",
+      "range": "WhitespaceMinimizedString",
       "required": true
     },
     "Sample ID given by the sample provider": {
       "name": "Sample ID given by the sample provider",
       "title": "Sample ID given by the sample provider",
       "from_schema": "https://example.com/GISAID",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "Submitting lab": {
       "name": "Submitting lab",
       "description": "Where sequence data have been generated and submitted to GISAID",
       "title": "Submitting lab",
       "from_schema": "https://example.com/GISAID",
-      "range": "xsd:token",
+      "range": "WhitespaceMinimizedString",
       "required": true
     },
     "Sample ID given by the submitting laboratory": {
       "name": "Sample ID given by the submitting laboratory",
       "title": "Sample ID given by the submitting laboratory",
       "from_schema": "https://example.com/GISAID",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     },
     "Authors": {
       "name": "Authors",
       "description": "a comma separated list of Authors with complete First followed by Last Name",
       "title": "Authors",
       "from_schema": "https://example.com/GISAID",
-      "range": "xsd:token"
+      "range": "WhitespaceMinimizedString"
     }
   },
   "classes": {
@@ -499,7 +500,7 @@ var SCHEMA = {
           "alias": "Submitter",
           "owner": "GISAID",
           "slot_group": "GISAID Submission Form",
-          "range": "xsd:token",
+          "range": "WhitespaceMinimizedString",
           "required": true
         },
         "FASTA filename": {
@@ -511,7 +512,7 @@ var SCHEMA = {
           "alias": "FASTA_filename",
           "owner": "GISAID",
           "slot_group": "GISAID Submission Form",
-          "range": "xsd:token",
+          "range": "WhitespaceMinimizedString",
           "required": true
         },
         "Virus name": {
@@ -523,7 +524,7 @@ var SCHEMA = {
           "alias": "Virus_name",
           "owner": "GISAID",
           "slot_group": "GISAID Submission Form",
-          "range": "xsd:token",
+          "range": "WhitespaceMinimizedString",
           "required": true
         },
         "Type": {
@@ -547,7 +548,7 @@ var SCHEMA = {
           "alias": "Passage_details/history",
           "owner": "GISAID",
           "slot_group": "GISAID Submission Form",
-          "range": "xsd:token",
+          "range": "WhitespaceMinimizedString",
           "required": true
         },
         "Collection date": {
@@ -559,7 +560,7 @@ var SCHEMA = {
           "alias": "Collection_date",
           "owner": "GISAID",
           "slot_group": "GISAID Submission Form",
-          "range": "xsd:token",
+          "range": "WhitespaceMinimizedString",
           "required": true
         },
         "Location": {
@@ -571,7 +572,7 @@ var SCHEMA = {
           "alias": "Location",
           "owner": "GISAID",
           "slot_group": "GISAID Submission Form",
-          "range": "xsd:token",
+          "range": "WhitespaceMinimizedString",
           "required": true
         },
         "Additional location information": {
@@ -583,7 +584,7 @@ var SCHEMA = {
           "alias": "Additional_location_information",
           "owner": "GISAID",
           "slot_group": "GISAID Submission Form",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "Host": {
           "name": "Host",
@@ -594,7 +595,7 @@ var SCHEMA = {
           "alias": "Host",
           "owner": "GISAID",
           "slot_group": "GISAID Submission Form",
-          "range": "xsd:token",
+          "range": "WhitespaceMinimizedString",
           "required": true
         },
         "Additional host information": {
@@ -606,7 +607,7 @@ var SCHEMA = {
           "alias": "Additional_host_information",
           "owner": "GISAID",
           "slot_group": "GISAID Submission Form",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "Sampling Strategy": {
           "name": "Sampling Strategy",
@@ -617,7 +618,7 @@ var SCHEMA = {
           "alias": "Sampling_Strategy",
           "owner": "GISAID",
           "slot_group": "GISAID Submission Form",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "Gender": {
           "name": "Gender",
@@ -628,7 +629,7 @@ var SCHEMA = {
           "alias": "Gender",
           "owner": "GISAID",
           "slot_group": "GISAID Submission Form",
-          "range": "xsd:token",
+          "range": "WhitespaceMinimizedString",
           "required": true
         },
         "Patient age": {
@@ -640,7 +641,7 @@ var SCHEMA = {
           "alias": "Patient_age",
           "owner": "GISAID",
           "slot_group": "GISAID Submission Form",
-          "range": "xsd:token",
+          "range": "WhitespaceMinimizedString",
           "required": true
         },
         "Patient status": {
@@ -652,7 +653,7 @@ var SCHEMA = {
           "alias": "Patient_status",
           "owner": "GISAID",
           "slot_group": "GISAID Submission Form",
-          "range": "xsd:token",
+          "range": "WhitespaceMinimizedString",
           "required": true
         },
         "Specimen source": {
@@ -664,7 +665,7 @@ var SCHEMA = {
           "alias": "Specimen_source",
           "owner": "GISAID",
           "slot_group": "GISAID Submission Form",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "Outbreak": {
           "name": "Outbreak",
@@ -675,7 +676,7 @@ var SCHEMA = {
           "alias": "Outbreak",
           "owner": "GISAID",
           "slot_group": "GISAID Submission Form",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "Last vaccinated": {
           "name": "Last vaccinated",
@@ -686,7 +687,7 @@ var SCHEMA = {
           "alias": "Last_vaccinated",
           "owner": "GISAID",
           "slot_group": "GISAID Submission Form",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "Treatment": {
           "name": "Treatment",
@@ -697,7 +698,7 @@ var SCHEMA = {
           "alias": "Treatment",
           "owner": "GISAID",
           "slot_group": "GISAID Submission Form",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "Sequencing technology": {
           "name": "Sequencing technology",
@@ -708,7 +709,7 @@ var SCHEMA = {
           "alias": "Sequencing_technology",
           "owner": "GISAID",
           "slot_group": "GISAID Submission Form",
-          "range": "xsd:token",
+          "range": "WhitespaceMinimizedString",
           "required": true
         },
         "Assembly method": {
@@ -720,7 +721,7 @@ var SCHEMA = {
           "alias": "Assembly_method",
           "owner": "GISAID",
           "slot_group": "GISAID Submission Form",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "Coverage": {
           "name": "Coverage",
@@ -731,7 +732,7 @@ var SCHEMA = {
           "alias": "Coverage",
           "owner": "GISAID",
           "slot_group": "GISAID Submission Form",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "Originating lab": {
           "name": "Originating lab",
@@ -742,7 +743,7 @@ var SCHEMA = {
           "alias": "Originating_lab",
           "owner": "GISAID",
           "slot_group": "GISAID Submission Form",
-          "range": "xsd:token",
+          "range": "WhitespaceMinimizedString",
           "required": true
         },
         "Address": {
@@ -753,7 +754,7 @@ var SCHEMA = {
           "alias": "Address",
           "owner": "GISAID",
           "slot_group": "GISAID Submission Form",
-          "range": "xsd:token",
+          "range": "WhitespaceMinimizedString",
           "required": true
         },
         "Sample ID given by the sample provider": {
@@ -764,7 +765,7 @@ var SCHEMA = {
           "alias": "Sample_ID_given_by_the_sample_provider",
           "owner": "GISAID",
           "slot_group": "GISAID Submission Form",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "Submitting lab": {
           "name": "Submitting lab",
@@ -775,7 +776,7 @@ var SCHEMA = {
           "alias": "Submitting_lab",
           "owner": "GISAID",
           "slot_group": "GISAID Submission Form",
-          "range": "xsd:token",
+          "range": "WhitespaceMinimizedString",
           "required": true
         },
         "Sample ID given by the submitting laboratory": {
@@ -786,7 +787,7 @@ var SCHEMA = {
           "alias": "Sample_ID_given_by_the_submitting_laboratory",
           "owner": "GISAID",
           "slot_group": "GISAID Submission Form",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         },
         "Authors": {
           "name": "Authors",
@@ -797,24 +798,24 @@ var SCHEMA = {
           "alias": "Authors",
           "owner": "GISAID",
           "slot_group": "GISAID Submission Form",
-          "range": "xsd:token"
+          "range": "WhitespaceMinimizedString"
         }
       }
     }
   },
-  "source_file": "../../template/gisaid/schema.yaml",
+  "source_file": "schema.yaml",
   "settings": {
     "Title_Case": {
       "setting_key": "Title_Case",
-      "setting_value": "^(((?<=\\b)[^a-z\\W]\\w*?|[\\W])+)$"
+      "setting_value": "(((?<=\\b)[^a-z\\W]\\w*?|[\\W])+)"
     },
     "UPPER_CASE": {
       "setting_key": "UPPER_CASE",
-      "setting_value": "^[A-Z\\W\\d_]*$"
+      "setting_value": "[A-Z\\W\\d_]*"
     },
     "lower_case": {
       "setting_key": "lower_case",
-      "setting_value": "^[a-z\\W\\d_]*$"
+      "setting_value": "[a-z\\W\\d_]*"
     }
   },
   "@type": "SchemaDefinition"

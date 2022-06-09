@@ -17,12 +17,13 @@ classes:
 slots: {}
 enums: {}
 types:
-  xsd:token:
-    name: "xsd:token"
-    description: "A string that has no whitespace; i.e., after any occurrence of #x9 (tab), #xA (linefeed), or #xD (carriage return)."
+  WhiteSpaceMinimizedString:
+    name: "WhiteSpaceMinimizedString"
+    typeof: string
+    description: "A string that has all whitespace trimmed off of beginning and end, and all internal whitespace segments reduced to single spaces. Whitespace includes #x9 (tab), #xA (linefeed), and #xD (carriage return)."
     base: str
-    uri: "xsd:token"
+    uri: xsd:token
 settings:
-  Title_Case: "^(((?<=\\b)[^a-z\\W]\\w*?|[\\W])+)$"
-  UPPER_CASE: "^[A-Z\\W\\d_]*$"
-  lower_case: "^[a-z\\W\\d_]*$"
+  Title_Case: "(((?<=\\b)[^a-z\\W]\\w*?|[\\W])+)"
+  UPPER_CASE: "[A-Z\\W\\d_]*"
+  lower_case: "[a-z\\W\\d_]*"

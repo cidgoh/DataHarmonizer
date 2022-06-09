@@ -1,0 +1,3054 @@
+id: https://example.com/GRDI
+name: GRDI
+description: ''
+imports:
+- linkml:types
+prefixes:
+  linkml: https://w3id.org/linkml/
+classes:
+  dh_interface:
+    name: dh_interface
+    description: A DataHarmonizer interface
+    from_schema: https://example.com/GRDI
+  GRDI:
+    name: GRDI
+    description: Specification for GRDI virus biosample data gathering
+    is_a: dh_interface
+    slots:
+    - sample_collector_sample_ID
+    - alternative_sample_ID
+    - sample_collected_by
+    - collected_by_laboratory_name
+    - sample_collection_project_name
+    - sample_plan_name
+    - sample_plan_ID
+    - sample_collector_contact_name
+    - sample_collector_contact_email
+    - purpose_of_sampling
+    - experimental_activity
+    - experimental_activity_details
+    - sample_processing
+    - geo_loc_name (country)
+    - geo_loc_name (state/province/region)
+    - food_product_origin geo_loc_name (country)
+    - host_origin geo_loc_name (country)
+    - latitude_of_sample_collection
+    - longitude_of_sample_collection
+    - sample_collection_date
+    - sample_received_date
+    - original_sample_description
+    - environmental_site
+    - animal_or_plant_population
+    - environmental_material
+    - body_product
+    - anatomical_part
+    - food_product
+    - food_product_properties
+    - animal_source_of_food
+    - food_packaging
+    - collection_device
+    - collection_method
+    - host (common name)
+    - host (scientific name)
+    - host_disease
+    - microbiological_method
+    - strain
+    - isolate_ID
+    - alternative_isolate_ID
+    - progeny_isolate_ID
+    - IRIDA_isolate_ID
+    - IRIDA_project_ID
+    - isolated_by_institution_name
+    - isolated_by_laboratory_name
+    - isolated_by_contact_name
+    - isolated_by_contact_email
+    - isolation_date
+    - isolate_received_date
+    - organism
+    - serovar
+    - serotyping_method
+    - phagetype
+    - library_ID
+    - sequenced_by_institution_name
+    - sequenced_by_laboratory_name
+    - sequenced_by_contact_name
+    - sequenced_by_contact_email
+    - purpose_of_sequencing
+    - sequencing_project_name
+    - sequencing_platform
+    - sequencing_instrument
+    - sequencing_protocol
+    - r1_fastq_filename
+    - r2_fastq_filename
+    - fast5_filename
+    - assembly_filename
+    - publication_ID
+    - attribute_package
+    - biosample_accession
+    - SRA_accession
+    - GenBank_accession
+    - prevalence_metrics
+    - prevalence_metrics_details
+    - stage_of_production
+    - experimental_intervention
+    - experiment_intervention_details
+    - AMR_laboratory_typing_method
+    - AMR_laboratory_typing_platform
+    - AMR_laboratory_typing_platform_version
+    - AMR_measurement_units
+    - amoxicillin-clavulanic_acid_resistance_phenotype
+    - amoxicillin-clavulanic_acid_measurement_sign
+    - amoxicillin-clavulanic_acid_measurement
+    - ampicillin_resistance_phenotype
+    - ampicillin_measurement_sign
+    - ampicillin_measurement
+    - azithromycin_resistance_phenotype
+    - azithromycin_measurement_sign
+    - azithromycin_measurement
+    - cefoxitin_resistance_phenotype
+    - cefoxitin_measurement_sign
+    - cefoxitin_measurement
+    - ceftriaxone_resistance_phenotype
+    - ceftriaxone_measurement_sign
+    - ceftriaxone_measurement
+    - chloramphenicol_resistance_phenotype
+    - chloramphenicol_measurement_sign
+    - chloramphenicol_measurement
+    - ciprofloxacin_resistance_phenotype
+    - ciprofloxacin_measurement_sign
+    - ciprofloxacin_measurement
+    - gentamicin_resistance_phenotype
+    - gentamicin_measurement_sign
+    - gentamicin_measurement
+    - meropenem_resistance_phenotype
+    - meropenem_measurement_sign
+    - meropenem_measurement
+    - nalidixic_acid_resistance_phenotype
+    - nalidixic_acid_measurement_sign
+    - nalidixic_acid_measurement
+    - streptomycin_resistance_phenotype
+    - streptomycin_measurement_sign
+    - streptomycin_measurement
+    - sulfisoxazole_resistance_phenotype
+    - sulfisoxazole_measurement_sign
+    - sulfisoxazole_measurement
+    - tetracycline_resistance_phenotype
+    - tetracycline_measurement_sign
+    - tetracycline_measurement
+    - amoxicillin-clavulanic_acid_testing_standard
+    - amoxicillin-clavulanic_acid_testing_standard_version
+    - amoxicillin-clavulanic_acid_testing_standard_details
+    - amoxicillin-clavulanic_acid_susceptible_breakpoint
+    - amoxicillin-clavulanic_acid_intermediate_breakpoint
+    - amoxicillin-clavulanic_acid_resistant_breakpoint
+    - ampicillin_testing_standard
+    - ampicillin_testing_standard_version
+    - ampicillin_testing_standard_details
+    - ampicillin_susceptible_breakpoint
+    - ampicillin_intermediate_breakpoint
+    - ampicillin_resistant_breakpoint
+    - azithromycin_testing_standard
+    - azithromycin_testing_standard_version
+    - azithromycin_testing_standard_details
+    - azithromycin_susceptible_breakpoint
+    - azithromycin_intermediate_breakpoint
+    - azithromycin_resistant_breakpoint
+    - cefoxitin_testing_standard
+    - cefoxitin_testing_standard_version
+    - cefoxitin_testing_standard_details
+    - cefoxitin_susceptible_breakpoint
+    - cefoxitin_intermediate_breakpoint
+    - cefoxitin_resistant_breakpoint
+    - ceftriaxone_testing_standard
+    - ceftriaxone_testing_standard_version
+    - ceftriaxone_testing_standard_details
+    - ceftriaxone_susceptible_breakpoint
+    - ceftriaxone_intermediate_breakpoint
+    - ceftriaxone_resistant_breakpoint
+    - chloramphenicol_testing_standard
+    - chloramphenicol_testing_standard_version
+    - chloramphenicol_testing_standard_details
+    - chloramphenicol_susceptible_breakpoint
+    - chloramphenicol_intermediate_breakpoint
+    - chloramphenicol_resistant_breakpoint
+    - ciprofloxacin_testing_standard
+    - ciprofloxacin_testing_standard_version
+    - ciprofloxacin_testing_standard_details
+    - ciprofloxacin_susceptible_breakpoint
+    - ciprofloxacin_intermediate_breakpoint
+    - ciprofloxacin_resistant_breakpoint
+    - gentamicin_testing_standard
+    - gentamicin_testing_standard_version
+    - gentamicin_testing_standard_details
+    - gentamicin_susceptible_breakpoint
+    - gentamicin_intermediate_breakpoint
+    - gentamicin_resistant_breakpoint
+    - meropenem_testing_standard
+    - meropenem_testing_standard_version
+    - meropenem_testing_standard_details
+    - meropenem_susceptible_breakpoint
+    - meropenem_intermediate_breakpoint
+    - meropenem_resistant_breakpoint
+    - nalidixic_acid_testing_standard
+    - nalidixic_acid_testing_standard_version
+    - nalidixic_acid_testing_standard_details
+    - nalidixic_acid_susceptible_breakpoint
+    - nalidixic_acid_intermediate_breakpoint
+    - nalidixic_acid_resistant_breakpoint
+    - streptomycin_testing_standard
+    - streptomycin_testing_standard_version
+    - streptomycin_testing_standard_details
+    - streptomycin_susceptible_breakpoint
+    - streptomycin_intermediate_breakpoint
+    - streptomycin_resistant_breakpoint
+    - sulfisoxazole_testing_standard
+    - sulfisoxazole_testing_standard_version
+    - sulfisoxazole_testing_standard_details
+    - sulfisoxazole_susceptible_breakpoint
+    - sulfisoxazole_intermediate_breakpoint
+    - sulfisoxazole_resistant_breakpoint
+    - tetracycline_testing_standard
+    - tetracycline_testing_standard_version
+    - tetracycline_testing_standard_details
+    - tetracycline_susceptible_breakpoint
+    - tetracycline_intermediate_breakpoint
+    - tetracycline_resistant_breakpoint
+    slot_usage:
+      sample_collector_sample_ID:
+        rank: 1
+        slot_group: Sample collection and processing
+      alternative_sample_ID:
+        rank: 2
+        slot_group: Sample collection and processing
+      sample_collected_by:
+        rank: 3
+        slot_group: Sample collection and processing
+      collected_by_laboratory_name:
+        rank: 4
+        slot_group: Sample collection and processing
+      sample_collection_project_name:
+        rank: 5
+        slot_group: Sample collection and processing
+      sample_plan_name:
+        rank: 6
+        slot_group: Sample collection and processing
+      sample_plan_ID:
+        rank: 7
+        slot_group: Sample collection and processing
+      sample_collector_contact_name:
+        rank: 8
+        slot_group: Sample collection and processing
+      sample_collector_contact_email:
+        rank: 9
+        slot_group: Sample collection and processing
+      purpose_of_sampling:
+        rank: 10
+        slot_group: Sample collection and processing
+      experimental_activity:
+        rank: 11
+        slot_group: Sample collection and processing
+      experimental_activity_details:
+        rank: 12
+        slot_group: Sample collection and processing
+      sample_processing:
+        rank: 13
+        slot_group: Sample collection and processing
+      geo_loc_name (country):
+        rank: 14
+        slot_group: Sample collection and processing
+      geo_loc_name (state/province/region):
+        rank: 15
+        slot_group: Sample collection and processing
+      food_product_origin geo_loc_name (country):
+        rank: 16
+        slot_group: Sample collection and processing
+      host_origin geo_loc_name (country):
+        rank: 17
+        slot_group: Sample collection and processing
+      latitude_of_sample_collection:
+        rank: 18
+        slot_group: Sample collection and processing
+      longitude_of_sample_collection:
+        rank: 19
+        slot_group: Sample collection and processing
+      sample_collection_date:
+        rank: 20
+        slot_group: Sample collection and processing
+      sample_received_date:
+        rank: 21
+        slot_group: Sample collection and processing
+      original_sample_description:
+        rank: 22
+        slot_group: Sample collection and processing
+      environmental_site:
+        rank: 23
+        slot_group: Sample collection and processing
+      animal_or_plant_population:
+        rank: 24
+        slot_group: Sample collection and processing
+      environmental_material:
+        rank: 25
+        slot_group: Sample collection and processing
+      body_product:
+        rank: 26
+        slot_group: Sample collection and processing
+      anatomical_part:
+        rank: 27
+        slot_group: Sample collection and processing
+      food_product:
+        rank: 28
+        slot_group: Sample collection and processing
+      food_product_properties:
+        rank: 29
+        slot_group: Sample collection and processing
+      animal_source_of_food:
+        rank: 30
+        slot_group: Sample collection and processing
+      food_packaging:
+        rank: 31
+        slot_group: Sample collection and processing
+      collection_device:
+        rank: 32
+        slot_group: Sample collection and processing
+      collection_method:
+        rank: 33
+        slot_group: Sample collection and processing
+      host (common name):
+        rank: 34
+        slot_group: Host information
+      host (scientific name):
+        rank: 35
+        slot_group: Host information
+      host_disease:
+        rank: 36
+        slot_group: Host information
+      microbiological_method:
+        rank: 37
+        slot_group: Strain and isolation information
+      strain:
+        rank: 38
+        slot_group: Strain and isolation information
+      isolate_ID:
+        rank: 39
+        slot_group: Strain and isolation information
+      alternative_isolate_ID:
+        rank: 40
+        slot_group: Strain and isolation information
+      progeny_isolate_ID:
+        rank: 41
+        slot_group: Strain and isolation information
+      IRIDA_isolate_ID:
+        rank: 42
+        slot_group: Strain and isolation information
+      IRIDA_project_ID:
+        rank: 43
+        slot_group: Strain and isolation information
+      isolated_by_institution_name:
+        rank: 44
+        slot_group: Strain and isolation information
+      isolated_by_laboratory_name:
+        rank: 45
+        slot_group: Strain and isolation information
+      isolated_by_contact_name:
+        rank: 46
+        slot_group: Strain and isolation information
+      isolated_by_contact_email:
+        rank: 47
+        slot_group: Strain and isolation information
+      isolation_date:
+        rank: 48
+        slot_group: Strain and isolation information
+      isolate_received_date:
+        rank: 49
+        slot_group: Strain and isolation information
+      organism:
+        rank: 50
+        slot_group: Strain and isolation information
+      serovar:
+        rank: 51
+        slot_group: Strain and isolation information
+      serotyping_method:
+        rank: 52
+        slot_group: Strain and isolation information
+      phagetype:
+        rank: 53
+        slot_group: Strain and isolation information
+      library_ID:
+        rank: 54
+        slot_group: Sequence information
+      sequenced_by_institution_name:
+        rank: 55
+        slot_group: Sequence information
+      sequenced_by_laboratory_name:
+        rank: 56
+        slot_group: Sequence information
+      sequenced_by_contact_name:
+        rank: 57
+        slot_group: Sequence information
+      sequenced_by_contact_email:
+        rank: 58
+        slot_group: Sequence information
+      purpose_of_sequencing:
+        rank: 59
+        slot_group: Sequence information
+      sequencing_project_name:
+        rank: 60
+        slot_group: Sequence information
+      sequencing_platform:
+        rank: 61
+        slot_group: Sequence information
+      sequencing_instrument:
+        rank: 62
+        slot_group: Sequence information
+      sequencing_protocol:
+        rank: 63
+        slot_group: Sequence information
+      r1_fastq_filename:
+        rank: 64
+        slot_group: Sequence information
+      r2_fastq_filename:
+        rank: 65
+        slot_group: Sequence information
+      fast5_filename:
+        rank: 66
+        slot_group: Sequence information
+      assembly_filename:
+        rank: 67
+        slot_group: Sequence information
+      publication_ID:
+        rank: 68
+        slot_group: Public repository information
+      attribute_package:
+        rank: 69
+        slot_group: Public repository information
+      biosample_accession:
+        rank: 70
+        slot_group: Public repository information
+      SRA_accession:
+        rank: 71
+        slot_group: Public repository information
+      GenBank_accession:
+        rank: 72
+        slot_group: Public repository information
+      prevalence_metrics:
+        rank: 73
+        slot_group: Risk assessment information
+      prevalence_metrics_details:
+        rank: 74
+        slot_group: Risk assessment information
+      stage_of_production:
+        rank: 75
+        slot_group: Risk assessment information
+      experimental_intervention:
+        rank: 76
+        slot_group: Risk assessment information
+      experiment_intervention_details:
+        rank: 77
+        slot_group: Risk assessment information
+      AMR_laboratory_typing_method:
+        rank: 78
+        slot_group: Antimicrobial resistance
+      AMR_laboratory_typing_platform:
+        rank: 79
+        slot_group: Antimicrobial resistance
+      AMR_laboratory_typing_platform_version:
+        rank: 80
+        slot_group: Antimicrobial resistance
+      AMR_measurement_units:
+        rank: 81
+        slot_group: Antimicrobial resistance
+      amoxicillin-clavulanic_acid_resistance_phenotype:
+        rank: 82
+        slot_group: Antimicrobial resistance
+      amoxicillin-clavulanic_acid_measurement_sign:
+        rank: 83
+        slot_group: Antimicrobial resistance
+      amoxicillin-clavulanic_acid_measurement:
+        rank: 84
+        slot_group: Antimicrobial resistance
+      ampicillin_resistance_phenotype:
+        rank: 85
+        slot_group: Antimicrobial resistance
+      ampicillin_measurement_sign:
+        rank: 86
+        slot_group: Antimicrobial resistance
+      ampicillin_measurement:
+        rank: 87
+        slot_group: Antimicrobial resistance
+      azithromycin_resistance_phenotype:
+        rank: 88
+        slot_group: Antimicrobial resistance
+      azithromycin_measurement_sign:
+        rank: 89
+        slot_group: Antimicrobial resistance
+      azithromycin_measurement:
+        rank: 90
+        slot_group: Antimicrobial resistance
+      cefoxitin_resistance_phenotype:
+        rank: 91
+        slot_group: Antimicrobial resistance
+      cefoxitin_measurement_sign:
+        rank: 92
+        slot_group: Antimicrobial resistance
+      cefoxitin_measurement:
+        rank: 93
+        slot_group: Antimicrobial resistance
+      ceftriaxone_resistance_phenotype:
+        rank: 94
+        slot_group: Antimicrobial resistance
+      ceftriaxone_measurement_sign:
+        rank: 95
+        slot_group: Antimicrobial resistance
+      ceftriaxone_measurement:
+        rank: 96
+        slot_group: Antimicrobial resistance
+      chloramphenicol_resistance_phenotype:
+        rank: 97
+        slot_group: Antimicrobial resistance
+      chloramphenicol_measurement_sign:
+        rank: 98
+        slot_group: Antimicrobial resistance
+      chloramphenicol_measurement:
+        rank: 99
+        slot_group: Antimicrobial resistance
+      ciprofloxacin_resistance_phenotype:
+        rank: 100
+        slot_group: Antimicrobial resistance
+      ciprofloxacin_measurement_sign:
+        rank: 101
+        slot_group: Antimicrobial resistance
+      ciprofloxacin_measurement:
+        rank: 102
+        slot_group: Antimicrobial resistance
+      gentamicin_resistance_phenotype:
+        rank: 103
+        slot_group: Antimicrobial resistance
+      gentamicin_measurement_sign:
+        rank: 104
+        slot_group: Antimicrobial resistance
+      gentamicin_measurement:
+        rank: 105
+        slot_group: Antimicrobial resistance
+      meropenem_resistance_phenotype:
+        rank: 106
+        slot_group: Antimicrobial resistance
+      meropenem_measurement_sign:
+        rank: 107
+        slot_group: Antimicrobial resistance
+      meropenem_measurement:
+        rank: 108
+        slot_group: Antimicrobial resistance
+      nalidixic_acid_resistance_phenotype:
+        rank: 109
+        slot_group: Antimicrobial resistance
+      nalidixic_acid_measurement_sign:
+        rank: 110
+        slot_group: Antimicrobial resistance
+      nalidixic_acid_measurement:
+        rank: 111
+        slot_group: Antimicrobial resistance
+      streptomycin_resistance_phenotype:
+        rank: 112
+        slot_group: Antimicrobial resistance
+      streptomycin_measurement_sign:
+        rank: 113
+        slot_group: Antimicrobial resistance
+      streptomycin_measurement:
+        rank: 114
+        slot_group: Antimicrobial resistance
+      sulfisoxazole_resistance_phenotype:
+        rank: 115
+        slot_group: Antimicrobial resistance
+      sulfisoxazole_measurement_sign:
+        rank: 116
+        slot_group: Antimicrobial resistance
+      sulfisoxazole_measurement:
+        rank: 117
+        slot_group: Antimicrobial resistance
+      tetracycline_resistance_phenotype:
+        rank: 118
+        slot_group: Antimicrobial resistance
+      tetracycline_measurement_sign:
+        rank: 119
+        slot_group: Antimicrobial resistance
+      tetracycline_measurement:
+        rank: 120
+        slot_group: Antimicrobial resistance
+      amoxicillin-clavulanic_acid_testing_standard:
+        rank: 121
+        slot_group: Antimicrobial resistance
+      amoxicillin-clavulanic_acid_testing_standard_version:
+        rank: 122
+        slot_group: Antimicrobial resistance
+      amoxicillin-clavulanic_acid_testing_standard_details:
+        rank: 123
+        slot_group: Antimicrobial resistance
+      amoxicillin-clavulanic_acid_susceptible_breakpoint:
+        rank: 124
+        slot_group: Antimicrobial resistance
+      amoxicillin-clavulanic_acid_intermediate_breakpoint:
+        rank: 125
+        slot_group: Antimicrobial resistance
+      amoxicillin-clavulanic_acid_resistant_breakpoint:
+        rank: 126
+        slot_group: Antimicrobial resistance
+      ampicillin_testing_standard:
+        rank: 127
+        slot_group: Antimicrobial resistance
+      ampicillin_testing_standard_version:
+        rank: 128
+        slot_group: Antimicrobial resistance
+      ampicillin_testing_standard_details:
+        rank: 129
+        slot_group: Antimicrobial resistance
+      ampicillin_susceptible_breakpoint:
+        rank: 130
+        slot_group: Antimicrobial resistance
+      ampicillin_intermediate_breakpoint:
+        rank: 131
+        slot_group: Antimicrobial resistance
+      ampicillin_resistant_breakpoint:
+        rank: 132
+        slot_group: Antimicrobial resistance
+      azithromycin_testing_standard:
+        rank: 133
+        slot_group: Antimicrobial resistance
+      azithromycin_testing_standard_version:
+        rank: 134
+        slot_group: Antimicrobial resistance
+      azithromycin_testing_standard_details:
+        rank: 135
+        slot_group: Antimicrobial resistance
+      azithromycin_susceptible_breakpoint:
+        rank: 136
+        slot_group: Antimicrobial resistance
+      azithromycin_intermediate_breakpoint:
+        rank: 137
+        slot_group: Antimicrobial resistance
+      azithromycin_resistant_breakpoint:
+        rank: 138
+        slot_group: Antimicrobial resistance
+      cefoxitin_testing_standard:
+        rank: 139
+        slot_group: Antimicrobial resistance
+      cefoxitin_testing_standard_version:
+        rank: 140
+        slot_group: Antimicrobial resistance
+      cefoxitin_testing_standard_details:
+        rank: 141
+        slot_group: Antimicrobial resistance
+      cefoxitin_susceptible_breakpoint:
+        rank: 142
+        slot_group: Antimicrobial resistance
+      cefoxitin_intermediate_breakpoint:
+        rank: 143
+        slot_group: Antimicrobial resistance
+      cefoxitin_resistant_breakpoint:
+        rank: 144
+        slot_group: Antimicrobial resistance
+      ceftriaxone_testing_standard:
+        rank: 145
+        slot_group: Antimicrobial resistance
+      ceftriaxone_testing_standard_version:
+        rank: 146
+        slot_group: Antimicrobial resistance
+      ceftriaxone_testing_standard_details:
+        rank: 147
+        slot_group: Antimicrobial resistance
+      ceftriaxone_susceptible_breakpoint:
+        rank: 148
+        slot_group: Antimicrobial resistance
+      ceftriaxone_intermediate_breakpoint:
+        rank: 149
+        slot_group: Antimicrobial resistance
+      ceftriaxone_resistant_breakpoint:
+        rank: 150
+        slot_group: Antimicrobial resistance
+      chloramphenicol_testing_standard:
+        rank: 151
+        slot_group: Antimicrobial resistance
+      chloramphenicol_testing_standard_version:
+        rank: 152
+        slot_group: Antimicrobial resistance
+      chloramphenicol_testing_standard_details:
+        rank: 153
+        slot_group: Antimicrobial resistance
+      chloramphenicol_susceptible_breakpoint:
+        rank: 154
+        slot_group: Antimicrobial resistance
+      chloramphenicol_intermediate_breakpoint:
+        rank: 155
+        slot_group: Antimicrobial resistance
+      chloramphenicol_resistant_breakpoint:
+        rank: 156
+        slot_group: Antimicrobial resistance
+      ciprofloxacin_testing_standard:
+        rank: 157
+        slot_group: Antimicrobial resistance
+      ciprofloxacin_testing_standard_version:
+        rank: 158
+        slot_group: Antimicrobial resistance
+      ciprofloxacin_testing_standard_details:
+        rank: 159
+        slot_group: Antimicrobial resistance
+      ciprofloxacin_susceptible_breakpoint:
+        rank: 160
+        slot_group: Antimicrobial resistance
+      ciprofloxacin_intermediate_breakpoint:
+        rank: 161
+        slot_group: Antimicrobial resistance
+      ciprofloxacin_resistant_breakpoint:
+        rank: 162
+        slot_group: Antimicrobial resistance
+      gentamicin_testing_standard:
+        rank: 163
+        slot_group: Antimicrobial resistance
+      gentamicin_testing_standard_version:
+        rank: 164
+        slot_group: Antimicrobial resistance
+      gentamicin_testing_standard_details:
+        rank: 165
+        slot_group: Antimicrobial resistance
+      gentamicin_susceptible_breakpoint:
+        rank: 166
+        slot_group: Antimicrobial resistance
+      gentamicin_intermediate_breakpoint:
+        rank: 167
+        slot_group: Antimicrobial resistance
+      gentamicin_resistant_breakpoint:
+        rank: 168
+        slot_group: Antimicrobial resistance
+      meropenem_testing_standard:
+        rank: 169
+        slot_group: Antimicrobial resistance
+      meropenem_testing_standard_version:
+        rank: 170
+        slot_group: Antimicrobial resistance
+      meropenem_testing_standard_details:
+        rank: 171
+        slot_group: Antimicrobial resistance
+      meropenem_susceptible_breakpoint:
+        rank: 172
+        slot_group: Antimicrobial resistance
+      meropenem_intermediate_breakpoint:
+        rank: 173
+        slot_group: Antimicrobial resistance
+      meropenem_resistant_breakpoint:
+        rank: 174
+        slot_group: Antimicrobial resistance
+      nalidixic_acid_testing_standard:
+        rank: 175
+        slot_group: Antimicrobial resistance
+      nalidixic_acid_testing_standard_version:
+        rank: 176
+        slot_group: Antimicrobial resistance
+      nalidixic_acid_testing_standard_details:
+        rank: 177
+        slot_group: Antimicrobial resistance
+      nalidixic_acid_susceptible_breakpoint:
+        rank: 178
+        slot_group: Antimicrobial resistance
+      nalidixic_acid_intermediate_breakpoint:
+        rank: 179
+        slot_group: Antimicrobial resistance
+      nalidixic_acid_resistant_breakpoint:
+        rank: 180
+        slot_group: Antimicrobial resistance
+      streptomycin_testing_standard:
+        rank: 181
+        slot_group: Antimicrobial resistance
+      streptomycin_testing_standard_version:
+        rank: 182
+        slot_group: Antimicrobial resistance
+      streptomycin_testing_standard_details:
+        rank: 183
+        slot_group: Antimicrobial resistance
+      streptomycin_susceptible_breakpoint:
+        rank: 184
+        slot_group: Antimicrobial resistance
+      streptomycin_intermediate_breakpoint:
+        rank: 185
+        slot_group: Antimicrobial resistance
+      streptomycin_resistant_breakpoint:
+        rank: 186
+        slot_group: Antimicrobial resistance
+      sulfisoxazole_testing_standard:
+        rank: 187
+        slot_group: Antimicrobial resistance
+      sulfisoxazole_testing_standard_version:
+        rank: 188
+        slot_group: Antimicrobial resistance
+      sulfisoxazole_testing_standard_details:
+        rank: 189
+        slot_group: Antimicrobial resistance
+      sulfisoxazole_susceptible_breakpoint:
+        rank: 190
+        slot_group: Antimicrobial resistance
+      sulfisoxazole_intermediate_breakpoint:
+        rank: 191
+        slot_group: Antimicrobial resistance
+      sulfisoxazole_resistant_breakpoint:
+        rank: 192
+        slot_group: Antimicrobial resistance
+      tetracycline_testing_standard:
+        rank: 193
+        slot_group: Antimicrobial resistance
+      tetracycline_testing_standard_version:
+        rank: 194
+        slot_group: Antimicrobial resistance
+      tetracycline_testing_standard_details:
+        rank: 195
+        slot_group: Antimicrobial resistance
+      tetracycline_susceptible_breakpoint:
+        rank: 196
+        slot_group: Antimicrobial resistance
+      tetracycline_intermediate_breakpoint:
+        rank: 197
+        slot_group: Antimicrobial resistance
+      tetracycline_resistant_breakpoint:
+        rank: 198
+        slot_group: Antimicrobial resistance
+slots:
+  sample_collector_sample_ID:
+    name: sample_collector_sample_ID
+    title: sample_collector_sample_ID
+    description: The user-defined name for the sample.
+    comments: The sample_ID should represent the identifier assigned to the sample
+      at time of collection, for which all the descriptive information applies. If
+      the original sample_ID is unknown or cannot be provided, leave blank or provide
+      a null value.
+    examples:
+    - value: ABCD123
+    slot_uri: GENEPIO:0001123
+    range: WhitespaceMinimizedString
+    recommended: true
+  alternative_sample_ID:
+    name: alternative_sample_ID
+    title: alternative_sample_ID
+    description: An alternative sample_ID assigned to the sample by another organization.
+    comments: Provide any alternative identifiers for the sample here, separated by
+      commas. Alternative identifiers assigned to the sample should be tracked along
+      with original IDs to establish chain of custody. If the information is unknown
+      or cannot be provided, leave blank or provide a null value.
+    examples:
+    - value: bvn5567, RA1-HH789
+    range: WhitespaceMinimizedString
+  sample_collected_by:
+    name: sample_collected_by
+    title: sample_collected_by
+    description: The name of the agency, organization or institution with which the
+      sample collector is affiliated.
+    comments: Provide the name of the agency, organization or institution that collected
+      the sample in full (avoid abbreviations). If the information is unknown or cannot
+      be provided, leave blank or provide a null value.
+    examples:
+    - value: Public Health Agency of Canada
+    slot_uri: GENEPIO:0001153
+    range: WhitespaceMinimizedString
+  collected_by_laboratory_name:
+    name: collected_by_laboratory_name
+    title: collected_by_laboratory_name
+    description: The specific laboratory affiliation of the sample collector.
+    comments: Provide the name of the specific laboratory that collected the sample
+      (avoid abbreviations). If the information is unknown or cannot be provided,
+      leave blank or provide a null value.
+    examples:
+    - value: Topp Lab
+    range: WhitespaceMinimizedString
+  sample_collection_project_name:
+    name: sample_collection_project_name
+    title: sample_collection_project_name
+    description: The name of the project/initiative/program for which the sample was
+      collected.
+    comments: Provide the name of the project and/or the project ID here. If the information
+      is unknown or cannot be provided, leave blank or provide a null value.
+    examples:
+    - value: Watershed Project (HA-120)
+    range: WhitespaceMinimizedString
+    recommended: true
+  sample_plan_name:
+    name: sample_plan_name
+    title: sample_plan_name
+    description: The name of the study design for a surveillance project.
+    comments: Provide the name of the sample plan used for sample collection. If the
+      information is unknown or cannot be provided, leave blank or provide a null
+      value.
+    examples:
+    - value: National Microbiological Baseline Study in Broiler Chicken
+    range: WhitespaceMinimizedString
+    recommended: true
+  sample_plan_ID:
+    name: sample_plan_ID
+    title: sample_plan_ID
+    description: The identifier of the study design for a surveillance project.
+    comments: Provide the identifier of the sample plan used for sample collection.
+      If the information is unknown or cannot be provided, leave blank or provide
+      a null value.
+    examples:
+    - value: 2001_M205
+    range: WhitespaceMinimizedString
+  sample_collector_contact_name:
+    name: sample_collector_contact_name
+    title: sample_collector_contact_name
+    description: The name or job title of the contact responsible for follow-up regarding
+      the sample.
+    comments: Provide the name of an individual or their job title. As personnel turnover
+      may render the contact's name obsolete, it is more preferable to provide a job
+      title for ensuring accuracy of information and institutional memory. If the
+      information is unknown or cannot be provided, leave blank or provide a null
+      value.
+    examples:
+    - value: Enterics Lab Manager
+    range: WhitespaceMinimizedString
+    required: true
+  sample_collector_contact_email:
+    name: sample_collector_contact_email
+    title: sample_collector_contact_email
+    description: The email address of the contact responsible for follow-up regarding
+      the sample.
+    comments: Provide the email associated with the listed contact. As personnel turnover
+      may render an individual's email obsolete, it is more preferable to provide
+      an address for a position or lab, to ensure accuracy of information and institutional
+      memory. If the information is unknown or cannot be provided, leave blank or
+      provide a null value.
+    examples:
+    - value: johnnyblogs@lab.ca
+    range: WhitespaceMinimizedString
+    required: true
+  purpose_of_sampling:
+    name: purpose_of_sampling
+    title: purpose_of_sampling
+    description: The reason that the sample was collected.
+    comments: The reason a sample was collected may provide information about potential
+      biases in sampling strategy. Provide the purpose of sampling from the picklist
+      in the template. Most likely, the sample was collected for Diagnostic testing.
+      The reason why a sample was originally collected may differ from the reason
+      why it was selected for sequencing, which should be indicated in the "purpose
+      of sequencing" field.
+    examples:
+    - value: Surveillance
+    slot_uri: GENEPIO:0001198
+    range: purpose_of_sampling menu
+  experimental_activity:
+    name: experimental_activity
+    title: experimental_activity
+    description: The experimental activities or variables that affected the sample
+      collected.
+    comments: If there was experimental activity that would affect the sample prior
+      to collection (this is different than sample processing), provide the experimental
+      activities by selecting one or more values from the template pick list. If the
+      information is unknown or cannot be provided, leave blank or provide a null
+      value.
+    examples:
+    - value: Antimicrobial Pre-treatment
+    range: experimental_activity menu
+  experimental_activity_details:
+    name: experimental_activity_details
+    title: experimental_activity_details
+    description: The details of the experimental activities or variables that affected
+      the sample collected.
+    comments: Briefly describe the experimental details using free text.
+    examples:
+    - value: Chicken feed containing X amount of novobiocin was fed to chickens for
+        72 hours prior to collection of litter.
+    range: WhitespaceMinimizedString
+  sample_processing:
+    name: sample_processing
+    title: sample_processing
+    description: The processing applied to samples post-collection, prior to further
+      testing, characterization, or isolation procedures.
+    comments: Provide the sample processing information by selecting a value from
+      the template pick list. If the information is unknown or cannot be provided,
+      leave blank or provide a null value.
+    examples:
+    - value: Samples pooled
+    range: sample_processing menu
+    required: true
+  geo_loc_name (country):
+    name: geo_loc_name (country)
+    title: geo_loc_name (country)
+    description: The country of origin of the sample.
+    comments: Provide the name of the country where the sample was collected. Use
+      the controlled vocabulary provided in the template pick list.  If the information
+      is unknown or cannot be provided, provide a null value.
+    examples:
+    - value: Canada
+    slot_uri: GENEPIO:0001181
+    range: geo_loc_name (country) menu
+    required: true
+  geo_loc_name (state/province/region):
+    name: geo_loc_name (state/province/region)
+    title: geo_loc_name (state/province/region)
+    description: The state/province/territory of origin of the sample.
+    comments: Provide the name of the province/state/region where the sample was collected.  If
+      the information is unknown or cannot be provided, provide a null value.
+    examples:
+    - value: British Columbia
+    slot_uri: GENEPIO:0001185
+    range: geo_loc_name (state/province/region) menu
+  food_product_origin geo_loc_name (country):
+    name: food_product_origin geo_loc_name (country)
+    title: food_product_origin geo_loc_name (country)
+    description: The country of origin of a food product.
+    comments: If a food product was sampled and the food product was manufactured
+      outside of Canada, provide the name of the country where the food product originated
+      by selecting a value from the template pick list. If the information is unknown
+      or cannot be provided, leave blank or provide a null value.
+    examples:
+    - value: United States of America
+    range: geo_loc_name (country) menu
+  host_origin geo_loc_name (country):
+    name: host_origin geo_loc_name (country)
+    title: host_origin geo_loc_name (country)
+    description: The country of origin of the host.
+    comments: If a sample is from a human or animal host that originated from outside
+      of Canada, provide the the name of the country where the host originated by
+      selecting a value from the template pick list. If the information is unknown
+      or cannot be provided, leave blank or provide a null value.
+    examples:
+    - value: South Africa
+    range: geo_loc_name (country) menu
+  latitude_of_sample_collection:
+    name: latitude_of_sample_collection
+    title: latitude_of_sample_collection
+    description: The latitude coordinates of the geographical location of sample collection.
+    comments: If known, provide the degrees latitude.  Do NOT simply provide latitude
+      of the institution if this is not where the sample was collected, nor the centre
+      of the city/region where the sample was collected as this falsely implicates
+      an existing geographical location and creates data inaccuracies. If the information
+      is unknown or cannot be provided, leave blank or provide a null value.
+    examples:
+    - value: 38.98 N
+    slot_uri: GENEPIO:0100309
+    range: WhitespaceMinimizedString
+  longitude_of_sample_collection:
+    name: longitude_of_sample_collection
+    title: longitude_of_sample_collection
+    description: The longitude coordinates of the geographical location of sample
+      collection.
+    comments: If known, provide the degrees longitude.  Do NOT simply provide longitude
+      of the institution if this is not where the sample was collected, nor the centre
+      of the city/region where the sample was collected as this falsely implicates
+      an existing geographical location and creates data inaccuracies. If the information
+      is unknown or cannot be provided, leave blank or provide a null value.
+    examples:
+    - value: 77.11 W
+    slot_uri: GENEPIO:0100310
+    range: WhitespaceMinimizedString
+    required: true
+  sample_collection_date:
+    name: sample_collection_date
+    title: sample_collection_date
+    description: The date on which the sample was collected.
+    comments: Provide the date according to the ISO 8601 standard "YYYY-MM-DD", "YYYY-MM"
+      or "YYYY".
+    examples:
+    - value: '2020-10-30'
+    slot_uri: GENEPIO:0001174
+    range: date
+  sample_received_date:
+    name: sample_received_date
+    title: sample_received_date
+    description: The date on which the sample was received.
+    comments: Provide the date according to the ISO 8601 standard "YYYY-MM-DD", "YYYY-MM"
+      or "YYYY".
+    examples:
+    - value: '2020-11-15'
+    slot_uri: GENEPIO:0001179
+    range: date
+  original_sample_description:
+    name: original_sample_description
+    title: original_sample_description
+    description: The original sample description provided by the sample collector.
+    comments: Provide the sample description provided by the original sample collector.
+      The original description is useful as it may provide further details, or can
+      be used to clarify higher level classifications.
+    examples:
+    - value: RTE Prosciutto from deli
+    range: WhitespaceMinimizedString
+    recommended: true
+  environmental_site:
+    name: environmental_site
+    title: environmental_site
+    description: An environmental location may describe a site in the natural or built
+      environment e.g. hospital, wet market, bat cave.
+    comments: 'If applicable, provide the standardized term and ontology ID for the
+      environmental site. The standardized term can be sourced from these look-up
+      services: https://www.ebi.ac.uk/ols/ontologies/envo or https://www.ebi.ac.uk/ols/ontologies/genepio.'
+    examples:
+    - value: contact surface, production facility, floor drain, hatchery.
+    slot_uri: GENEPIO:0001232
+    range: WhitespaceMinimizedString
+    recommended: true
+  animal_or_plant_population:
+    name: animal_or_plant_population
+    title: animal_or_plant_population
+    description: The type of animal or plant population inhabiting an area.
+    comments: 'This field should be used when a sample is taken from an environmental
+      location inhabited by many individuals of a specific type, rather than describing
+      a sample taken from one particular host. If applicable, provide the standardized
+      term and ontology ID for the animal or plant population name. The standardized
+      term can be sourced from this look-up service: https://www.ebi.ac.uk/ols/ontologies/genepio.
+      If not applicable, leave blank.'
+    examples:
+    - value: turkey
+    range: WhitespaceMinimizedString
+    recommended: true
+  environmental_material:
+    name: environmental_material
+    title: environmental_material
+    description: A substance obtained from the natural or man-made environment e.g.
+      soil, water, sewage, door handle, bed handrail, face mask.
+    comments: 'If applicable, provide the standardized term and ontology ID for the
+      environmental material. The standardized term can be sourced from these look-up
+      services: https://www.ebi.ac.uk/ols/ontologies/envo or https://www.ebi.ac.uk/ols/ontologies/genepio.
+      If not applicable, leave blank.'
+    examples:
+    - value: soil, water, sewage, tractor
+    slot_uri: GENEPIO:0001223
+    range: WhitespaceMinimizedString
+    recommended: true
+  body_product:
+    name: body_product
+    title: body_product
+    description: A substance excreted/secreted from an organism e.g. feces, urine,
+      sweat.
+    comments: 'If applicable, provide the standardized term and ontology ID for the
+      body product. The standardized term can be sourced from this look-up service:
+      https://www.ebi.ac.uk/ols/ontologies/uberon. If not applicable, leave blank.'
+    examples:
+    - value: feces, urine, sweat.
+    slot_uri: GENEPIO:0001216
+    range: WhitespaceMinimizedString
+    recommended: true
+  anatomical_part:
+    name: anatomical_part
+    title: anatomical_part
+    description: An anatomical part of an organism e.g. oropharynx.
+    comments: 'If applicable, provide the standardized term and ontology ID for the
+      anatomical material. The standardized term can be sourced from this look-up
+      service: https://www.ebi.ac.uk/ols/ontologies/uberon. If not applicable, leave
+      blank.'
+    examples:
+    - value: tissue, blood
+    slot_uri: GENEPIO:0001214
+    range: WhitespaceMinimizedString
+    recommended: true
+  food_product:
+    name: food_product
+    title: food_product
+    description: A material consumed and digested for nutritional value or enjoyment.
+    comments: 'This field includes animal feed. If applicable, provide the standardized
+      term and ontology ID for the anatomical material. The standardized term can
+      be sourced from this look-up service: https://www.ebi.ac.uk/ols/ontologies/foodon.
+      If not applicable, leave blank.'
+    examples:
+    - value: feather and bone meal, chicken breast
+    range: WhitespaceMinimizedString
+    recommended: true
+  food_product_properties:
+    name: food_product_properties
+    title: food_product_properties
+    description: Any characteristic of the food product pertaining to its state, processing,
+      a label claim, or implications for consumers.
+    comments: Provide any characteristics of the food product including whether it
+      has been cooked, processed, preserved, any known information about its state
+      (e.g. raw, ready-to-eat), any known information about its containment (e.g.
+      canned), and any information about a label claim (e.g. organic, fat-free).
+    examples:
+    - value: smoked, chopped, ready-to-eat
+    range: WhitespaceMinimizedString
+    recommended: true
+  animal_source_of_food:
+    name: animal_source_of_food
+    title: animal_source_of_food
+    description: The animal from which the food product was derived.
+    comments: Provide the common name of the animal. If not applicable, leave blank.
+      Multiple entries can be provided, separated by a comma.
+    examples:
+    - value: chicken
+    range: WhitespaceMinimizedString
+    recommended: true
+  food_packaging:
+    name: food_packaging
+    title: food_packaging
+    description: The type of packaging used to contain a food product.
+    comments: If known, provide information regarding how the food product was packaged.
+    examples:
+    - value: box, tray
+    range: WhitespaceMinimizedString
+    recommended: true
+  collection_device:
+    name: collection_device
+    title: collection_device
+    description: The instrument or container used to collect the sample e.g. swab.
+    comments: 'This field includes animal feed. If applicable, provide the standardized
+      term and ontology ID for the anatomical material. The standardized term can
+      be sourced from this look-up service: https://www.ebi.ac.uk/ols/ontologies/genepio.
+      If not applicable, leave blank.'
+    examples:
+    - value: swab
+    slot_uri: GENEPIO:0001234
+    range: WhitespaceMinimizedString
+    recommended: true
+  collection_method:
+    name: collection_method
+    title: collection_method
+    description: The process used to collect the sample e.g. phlebotomy, necropsy.
+    comments: 'If applicable, provide the standardized term and ontology ID for the
+      anatomical material. The standardized term can be sourced from this look-up
+      service: https://www.ebi.ac.uk/ols/ontologies/genepio. If not applicable, leave
+      blank.'
+    examples:
+    - value: phlebotomy, necropsy, rinsing
+    slot_uri: GENEPIO:0001241
+    range: WhitespaceMinimizedString
+  host (common name):
+    name: host (common name)
+    title: host (common name)
+    description: The commonly used name of the host.
+    comments: If the sample is directly from a host, either a common or scientific
+      name must be provided (although both can be included, if known).  If known,
+      provide the common name.
+    examples:
+    - value: cow, chicken, human
+    slot_uri: GENEPIO:0001386
+    range: WhitespaceMinimizedString
+    recommended: true
+  host (scientific name):
+    name: host (scientific name)
+    title: host (scientific name)
+    description: The taxonomic, or scientific name of the host.
+    comments: 'If the sample is directly from a host, either a common or scientific
+      name must be provided (although both can be included, if known).  If known,
+      provide the scientific name. The standardized term can be sourced from this
+      look-up service: https://www.ebi.ac.uk/ols/ontologies/ncbitaxon.'
+    examples:
+    - value: Bos taurus, Homo sapiens
+    slot_uri: GENEPIO:0001387
+    range: WhitespaceMinimizedString
+  host_disease:
+    name: host_disease
+    title: host_disease
+    description: The name of the disease experienced by the host.
+    comments: "This field is only required if the Pathogen.cl package was selected.\
+      \ If the host was sick, provide the name of the disease.The standardized term\
+      \ can be sourced from this look-up service: https://www.ebi.ac.uk/ols/ontologies/doid\
+      \ If the disease is not known, put \u201Cmissing\u201D."
+    examples:
+    - value: mastitis, gastroenteritis
+    slot_uri: GENEPIO:0001391
+    range: WhitespaceMinimizedString
+  microbiological_method:
+    name: microbiological_method
+    title: microbiological_method
+    description: The laboratory method used to grow, prepare, and/or isolate the microbial
+      isolate.
+    comments: Provide the name and version number of the microbiological method. The
+      ID of the method is also acceptable if the ID can be linked to the laboratory
+      that created the procedure.
+    examples:
+    - value: MFHPB-30
+    range: WhitespaceMinimizedString
+  strain:
+    name: strain
+    title: strain
+    description: The strain identifier.
+    comments: If the isolate represents or is derived from, a lab reference strain
+      or strain from a type culture collection, provide the strain identifier.
+    examples:
+    - value: K12
+    range: WhitespaceMinimizedString
+    required: true
+  isolate_ID:
+    name: isolate_ID
+    title: isolate_ID
+    description: The user-defined identifier for the isolate, as provided by the laboratory
+      that originally isolated the isolate.
+    comments: Provide the isolate_ID created by the lab that first isolated the isolate
+      (i.e. the original isolate ID). If the information is unknown or cannot be provided,
+      leave blank or provide a null value. If only an alternate isolate ID is known
+      (e.g. the ID from your lab, if your lab did not isolate the isolate from the
+      original sample), make asure to include it in the alternative_isolate_ID field.
+    examples:
+    - value: SA20131043
+    range: WhitespaceMinimizedString
+    recommended: true
+  alternative_isolate_ID:
+    name: alternative_isolate_ID
+    title: alternative_isolate_ID
+    description: An alternative isolate_ID assigned to the isolate by another organization.
+    comments: If one or more alternative isolate_IDs are available, record them all
+      here, separated by a comma.
+    examples:
+    - value: PHAC_45678
+    range: WhitespaceMinimizedString
+  progeny_isolate_ID:
+    name: progeny_isolate_ID
+    title: progeny_isolate_ID
+    description: The identifier assigned to a progenitor isolate derived from an isolate
+      that was directly obtained from a sample.
+    comments: If your sequence data pertains to progeny of an original isolate, provide
+      the progeny_isolate_ID.
+    examples:
+    - value: SUB_ON_1526
+    range: WhitespaceMinimizedString
+    required: true
+  IRIDA_isolate_ID:
+    name: IRIDA_isolate_ID
+    title: IRIDA_isolate_ID
+    description: The identifier of the isolate in the IRIDA platform.
+    comments: Provide the "sample ID" used to track information linked to the isolate
+      in IRIDA. IRIDA sample IDs should be unqiue to avoid ID clash. This is very
+      important in large Projects, especially when samples are shared from different
+      organizations. Download the IRIDA sample ID and add it to the sample data in
+      your spreadsheet as part of good data management practices.
+    examples:
+    - value: GRDI_LL_12345
+    range: WhitespaceMinimizedString
+    required: true
+  IRIDA_project_ID:
+    name: IRIDA_project_ID
+    title: IRIDA_project_ID
+    description: The identifier of the Project in the iRIDA platform.
+    comments: Provide the IRIDA "project ID".
+    examples:
+    - value: '666'
+    range: WhitespaceMinimizedString
+  isolated_by_institution_name:
+    name: isolated_by_institution_name
+    title: isolated_by_institution_name
+    description: The name of the agency, organization or institution with which the
+      individual who performed the isolation procedure is affiliated.
+    comments: Provide the name of the agency, organization or institution that isolated
+      the original isolate in full (avoid abbreviations). If the information is unknown
+      or cannot be provided, leave blank or provide a null value.
+    examples:
+    - value: Public Health Agency of Canada
+    range: WhitespaceMinimizedString
+  isolated_by_laboratory_name:
+    name: isolated_by_laboratory_name
+    title: isolated_by_laboratory_name
+    description: The specific laboratory affiliation of the individual who performed
+      the isolation procedure.
+    comments: Provide the name of the specific laboratory that that isolated the original
+      isolate (avoid abbreviations). If the information is unknown or cannot be provided,
+      leave blank or provide a null value.
+    examples:
+    - value: Topp Lab
+    range: WhitespaceMinimizedString
+  isolated_by_contact_name:
+    name: isolated_by_contact_name
+    title: isolated_by_contact_name
+    description: The name or title of the contact responsible for follow-up regarding
+      the isolate.
+    comments: Provide the name of an individual or their job title. As personnel turnover
+      may render the contact's name obsolete, it is prefereable to provide a job title
+      for ensuring accuracy of information and institutional memory. If the information
+      is unknown or cannot be provided, leave blank or provide a null value.
+    examples:
+    - value: Enterics Lab Manager
+    range: WhitespaceMinimizedString
+  isolated_by_contact_email:
+    name: isolated_by_contact_email
+    title: isolated_by_contact_email
+    description: The email address of the contact responsible for follow-up regarding
+      the isolate.
+    comments: Provide the email associated with the listed contact. As personnel turnover
+      may render an individual's email obsolete, it is more prefereable to provide
+      an address for a position or lab, to ensure accuracy of information and institutional
+      memory. If the information is unknown or cannot be provided, leave blank or
+      provide a null value.
+    examples:
+    - value: enterics@lab.ca
+    range: WhitespaceMinimizedString
+  isolation_date:
+    name: isolation_date
+    title: isolation_date
+    description: The date on which the isolate was isolated from a sample.
+    comments: Provide the date according to the ISO 8601 standard "YYYY-MM-DD", "YYYY-MM"
+      or "YYYY".
+    examples:
+    - value: '2020-10-30'
+    range: date
+  isolate_received_date:
+    name: isolate_received_date
+    title: isolate_received_date
+    description: The date on which the isolate was received by the laboratory.
+    comments: Provide the date according to the ISO 8601 standard "YYYY-MM-DD", "YYYY-MM"
+      or "YYYY".
+    examples:
+    - value: '2020-11-15'
+    range: WhitespaceMinimizedString
+    required: true
+  organism:
+    name: organism
+    title: organism
+    description: Taxonomic name of the organism.
+    comments: 'Put the genus and species (and subspecies if applicable) of the bacteria,
+      if known. The standardized term can be sourced from this look-up service: https://www.ebi.ac.uk/ols/ontologies/ncbitaxon.'
+    examples:
+    - value: Salmonella enterica subspecies enterica
+    slot_uri: GENEPIO:0001191
+    range: WhitespaceMinimizedString
+    recommended: true
+  serovar:
+    name: serovar
+    title: serovar
+    description: The serovar of the organism.
+    comments: Only include this information if it has been determined by traditional
+      serological methods or a validated in silico prediction tool e.g. SISTR.
+    examples:
+    - value: Heidelberg
+    range: WhitespaceMinimizedString
+    recommended: true
+  serotyping_method:
+    name: serotyping_method
+    title: serotyping_method
+    description: The method used to determine the serovar.
+    comments: "If the serovar was determined via traditional serotyping methods, put\
+      \ \u201CTraditional serotyping\u201D. If the serovar was determined via in silico\
+      \ methods, provide the name and version number of the software."
+    examples:
+    - value: SISTR 1.0.1
+    range: WhitespaceMinimizedString
+  phagetype:
+    name: phagetype
+    title: phagetype
+    description: The phagetype of the organism.
+    comments: "Provide if known. If unknown, put \u201Cmissing\u201D."
+    examples:
+    - value: '47'
+    range: WhitespaceMinimizedString
+  library_ID:
+    name: library_ID
+    title: library_ID
+    description: The user-specified identifier for the library prepared for sequencing.
+    comments: Every "library ID" from a single submitter must be unique. It can have
+      any format, but we suggest that you make it concise, unique and consistent within
+      your lab, and as informative as possible.
+    examples:
+    - value: LS_2010_NP_123446
+    slot_uri: GENEPIO:0001448
+    range: WhitespaceMinimizedString
+    required: true
+  sequenced_by_institution_name:
+    name: sequenced_by_institution_name
+    title: sequenced_by_institution_name
+    description: The name of the agency, organization or institution responsible for
+      sequencing the isolate's genome.
+    comments: Provide the name of the agency, organization or institution that performed
+      the sequencing in full (avoid abbreviations). If the information is unknown
+      or cannot be provided, leave blank or provide a null value.
+    examples:
+    - value: Public Health Agency of Canada
+    range: WhitespaceMinimizedString
+  sequenced_by_laboratory_name:
+    name: sequenced_by_laboratory_name
+    title: sequenced_by_laboratory_name
+    description: The specific laboratory affiliation of the responsible for sequencing
+      the isolate's genome.
+    comments: Provide the name of the specific laboratory that that performed the
+      sequencing in full (avoid abbreviations). If the information is unknown or cannot
+      be provided, leave blank or provide a null value.
+    examples:
+    - value: Topp Lab
+    range: WhitespaceMinimizedString
+  sequenced_by_contact_name:
+    name: sequenced_by_contact_name
+    title: sequenced_by_contact_name
+    description: The name or title of the contact responsible for follow-up regarding
+      the sequence.
+    comments: Provide the name of an individual or their job title. As personnel turnover
+      may render the contact's name obsolete, it is more prefereable to provide a
+      job title for ensuring accuracy of information and institutional memory. If
+      the information is unknown or cannot be provided, leave blank or provide a null
+      value.
+    examples:
+    - value: Enterics Lab Manager
+    range: WhitespaceMinimizedString
+    required: true
+  sequenced_by_contact_email:
+    name: sequenced_by_contact_email
+    title: sequenced_by_contact_email
+    description: The email address of the contact responsible for follow-up regarding
+      the sequence.
+    comments: Provide the email associated with the listed contact. As personnel turnover
+      may render an individual's email obsolete, it is more prefereable to provide
+      an address for a position or lab, to ensure accuracy of information and institutional
+      memory. If the information is unknown or cannot be provided, leave blank or
+      provide a null value.
+    examples:
+    - value: enterics@lab.ca
+    range: WhitespaceMinimizedString
+    required: true
+  purpose_of_sequencing:
+    name: purpose_of_sequencing
+    title: purpose_of_sequencing
+    description: The reason that the sample was sequenced.
+    comments: 'Provide the reason for sequencing by selecting a value from the following
+      pick list: Diagnostic testing, Surveillance, Monitoring, Clinical trial, Field
+      experiment, Environmental testing. If the information is unknown or cannot be
+      provided, leave blank or provide a null value.'
+    examples:
+    - value: Research
+    slot_uri: GENEPIO:0001445
+    range: purpose_of_sequencing menu
+  sequencing_project_name:
+    name: sequencing_project_name
+    title: sequencing_project_name
+    description: The name of the project/initiative/program for which sequencing was
+      performed.
+    comments: Provide the name of the project and/or the project ID here. If the information
+      is unknown or cannot be provided, leave blank or provide a null value.
+    examples:
+    - value: AMR-GRDI (PA-1356)
+    range: WhitespaceMinimizedString
+  sequencing_platform:
+    name: sequencing_platform
+    title: sequencing_platform
+    description: The platform technology used to perform the sequencing.
+    comments: Provide the name of the company that created the sequencing instrument
+      by selecting a value from the template pick list. If the information is unknown
+      or cannot be provided, leave blank or provide a null value.
+    examples:
+    - value: Illumina
+    range: sequencing_platform menu
+  sequencing_instrument:
+    name: sequencing_instrument
+    title: sequencing_instrument
+    description: The model of the sequencing instrument used.
+    comments: Provide the model sequencing instrument by selecting a value from the
+      template pick list. If the information is unknown or cannot be provided, leave
+      blank or provide a null value.
+    examples:
+    - value: MiSeq
+    slot_uri: GENEPIO:0001452
+    range: sequencing_instrument menu
+  sequencing_protocol:
+    name: sequencing_protocol
+    title: sequencing_protocol
+    description: The protocol or method used for sequencing.
+    comments: Provide the name and version of the procedure or protocol used for sequencing.
+      You can also provide a link to a protocol online.
+    examples:
+    - value: https://www.protocols.io/view/ncov-2019-sequencing-protocol-bbmuik6w?version_warning=no
+    slot_uri: GENEPIO:0001454
+    range: WhitespaceMinimizedString
+  r1_fastq_filename:
+    name: r1_fastq_filename
+    title: r1_fastq_filename
+    description: The user-specified filename of the r1 FASTQ file.
+    comments: Provide the r1 FASTQ filename.
+    examples:
+    - value: ABC123_S1_L001_R1_001.fastq.gz
+    slot_uri: GENEPIO:0001476
+    range: WhitespaceMinimizedString
+  r2_fastq_filename:
+    name: r2_fastq_filename
+    title: r2_fastq_filename
+    description: The user-specified filename of the r2 FASTQ file.
+    comments: Provide the r2 FASTQ filename.
+    examples:
+    - value: ABC123_S1_L001_R2_001.fastq.gz
+    slot_uri: GENEPIO:0001477
+    range: WhitespaceMinimizedString
+  fast5_filename:
+    name: fast5_filename
+    title: fast5_filename
+    description: The user-specified filename of the FAST5 file.
+    comments: Provide the FAST5 filename.
+    examples:
+    - value: batch1a_sequences.fast5
+    slot_uri: GENEPIO:0001480
+    range: WhitespaceMinimizedString
+  assembly_filename:
+    name: assembly_filename
+    title: assembly_filename
+    description: The user-defined filename of the FASTA file.
+    comments: Provide the FASTA filename.
+    examples:
+    - value: pathogenassembly123.fasta
+    range: WhitespaceMinimizedString
+  publication_ID:
+    name: publication_ID
+    title: publication_ID
+    description: The identifier for a publication.
+    comments: If the isolate is associated with a published work which can provide
+      additional information, provide the PubMed identifier of the publication. Other
+      types of identifiers (e.g. DOI) are also acceptable.
+    examples:
+    - value: 'PMID: 33205991'
+    range: WhitespaceMinimizedString
+  attribute_package:
+    name: attribute_package
+    title: attribute_package
+    description: The attribute package used to structure metadata in an INSDC BioSample.
+    comments: "If the sample is from a specific human or animal, put \u201CPathogen.cl\u201D\
+      . If the sample is from an environmental sample including food, feed, production\
+      \ facility, farm, water source, manure etc, put \u201CPathogen.env\u201D."
+    examples:
+    - value: Pathogen.env
+    range: attribute_package menu
+  biosample_accession:
+    name: biosample_accession
+    title: biosample_accession
+    description: The identifier assigned to a BioSample in INSDC archives.
+    comments: Store the accession returned from the BioSample submission. NCBI BioSamples
+      will have the prefix SAMN, whileEMBL- EBI BioSamples will have the prefix SAMEA.
+    examples:
+    - value: SAMN14180202
+    slot_uri: GENEPIO:0001139
+    range: WhitespaceMinimizedString
+  SRA_accession:
+    name: SRA_accession
+    title: SRA_accession
+    description: The Sequence Read Archive (SRA), European Nucleotide Archive (ENA)
+      or DDBJ Sequence Read Archive (DRA) identifier linking raw read data, methodological
+      metadata and quality control metrics submitted to the INSDC.
+    comments: Store the accession assigned to the submitted "run". NCBI-SRA accessions
+      start with SRR, EBI-ENA runs start with ERR and DRA accessions start with DRR.
+    examples:
+    - value: SRR11177792
+    slot_uri: GENEPIO:0001142
+    range: WhitespaceMinimizedString
+  GenBank_accession:
+    name: GenBank_accession
+    title: GenBank_accession
+    description: The GenBank/ENA/DDBJ identifier assigned to the sequence in the INSDC
+      archives.
+    comments: Store the accession returned from a GenBank/ENA/DDBJ submission.
+    examples:
+    - value: MN908947.3
+    slot_uri: GENEPIO:0001145
+    range: WhitespaceMinimizedString
+  prevalence_metrics:
+    name: prevalence_metrics
+    title: prevalence_metrics
+    description: Metrics regarding the prevalence of the pathogen of interest obtained
+      from a surveillance project.
+    comments: Risk assessment requires detailed information regarding the quantities
+      of a pathogen in a specified location, commodity, or environment. As such, it
+      is useful for risk assessors to know what types of information are available
+      through documented methods and results. Provide the metric types that are available
+      in the surveillance project sample plan by selecting them from the pick list.
+      The metrics of interest are " Number of total samples collected", "Number of
+      positive samples", "Average count of hazard organism", "Average count of indicator
+      organism". You do not need to provide the actual values, just indicate that
+      the information is available.
+    examples:
+    - value: Number of total samples collected, Number of positive samples
+    range: prevalence_metrics menu
+    recommended: true
+  prevalence_metrics_details:
+    name: prevalence_metrics_details
+    title: prevalence_metrics_details
+    description: The details pertaining to the prevalence metrics from a surveillance
+      project.
+    comments: If there are details pertaining to samples or organism counts in the
+      sample plan that might be informative, provide details using free text.
+    examples:
+    - value: Hazard organism counts (i.e. Salmonella) do not distinguish between serovars.
+    range: WhitespaceMinimizedString
+    recommended: true
+  stage_of_production:
+    name: stage_of_production
+    title: stage_of_production
+    description: The stage of food production.
+    comments: Provide the stage of food production from which the sample was taken.
+      Select a value form the pick list provided.
+    examples:
+    - value: abattoir
+    range: stage_of_production menu
+    recommended: true
+  experimental_intervention:
+    name: experimental_intervention
+    title: experimental_intervention
+    description: The category of the experimental intervention applied in the food
+      production system.
+    comments: In some surveys, a particular intervention in the food supply chain
+      in studied. If there was an intervention specified in the sample plan, select
+      the intervention category from the pick list provided.
+    examples:
+    - value: Vaccination
+    range: experimental_intervention menu
+    recommended: true
+  experiment_intervention_details:
+    name: experiment_intervention_details
+    title: experiment_intervention_details
+    description: The details of the experimental intervention applied in the food
+      production system.
+    comments: If an experimental intervention was applied in the survey, provide details
+      in this field as free text.
+    range: WhitespaceMinimizedString
+  AMR_laboratory_typing_method:
+    name: AMR_laboratory_typing_method
+    title: AMR_laboratory_typing_method
+    description: Type of method used for antibiotic susceptibility testing.
+    comments: "\u201CMIC\u201D, \u201Cagar dilution\u201D, \u201Cdisk diffusion\u201D\
+      , or \u201Cmissing\u201D"
+    examples:
+    - value: MIC
+    range: WhitespaceMinimizedString
+  AMR_laboratory_typing_platform:
+    name: AMR_laboratory_typing_platform
+    title: AMR_laboratory_typing_platform
+    description: The brand/platform used for antibiotic susceptibility testing
+    comments: "\u201CMicroscan\u201D, \u201CPhoenix\u201D, \u201CSensititre\u201D\
+      , or \u201CVitek\u201D"
+    examples:
+    - value: Sensititre
+    range: WhitespaceMinimizedString
+  AMR_laboratory_typing_platform_version:
+    name: AMR_laboratory_typing_platform_version
+    title: AMR_laboratory_typing_platform_version
+    description: The specific name and version of the plate, panel, or other platform
+      used for antibiotic susceptibility testing.
+    comments: Any additional information about the nature of the antimicrobial susceptibility
+      test can go in this field.
+    examples:
+    - value: CMV3AGNF
+    range: WhitespaceMinimizedString
+  AMR_measurement_units:
+    name: AMR_measurement_units
+    title: AMR_measurement_units
+    description: Units used for measuring antibiotic susceptibility
+    comments: "\u201Cmg/L\u201D or \u201Cmm\u201D"
+    examples:
+    - value: mg/L
+    range: WhitespaceMinimizedString
+  amoxicillin-clavulanic_acid_resistance_phenotype:
+    name: amoxicillin-clavulanic_acid_resistance_phenotype
+    title: amoxicillin-clavulanic_acid_resistance_phenotype
+    description: Antimicrobial resistance phenotype, as determined by the antibiotic
+      susceptibility measurement and testing standard for this antibiotic
+    comments: "\u201Cresistant\u201D, \u201Csusceptible\u201D, \u201Cintermediate\u201D\
+      , \u201Cnonsusceptible\u201D, \u201Csuceptible-dose dependent\u201D, or \u201C\
+      not defined\u201D"
+    examples:
+    - value: sensitive
+    range: WhitespaceMinimizedString
+  amoxicillin-clavulanic_acid_measurement_sign:
+    name: amoxicillin-clavulanic_acid_measurement_sign
+    title: amoxicillin-clavulanic_acid_measurement_sign
+    description: Qualifier associated with the antibiotic susceptibility measurement
+    comments: "\u201C<\u201D, \u201C<=\u201D, \u201C==\u201D, \u201C>=\u201D, or \u201C\
+      >\". If the susceptibility measurement for this antibiotic and for this sample\
+      \ is exact, use \u201C==\u201D."
+    examples:
+    - value: ==
+    range: WhitespaceMinimizedString
+  amoxicillin-clavulanic_acid_measurement:
+    name: amoxicillin-clavulanic_acid_measurement
+    title: amoxicillin-clavulanic_acid_measurement
+    description: "Antibiotic susceptibility measurement, measured in the units specified\
+      \ in the \u201CAMR_measurement_units\u201D field."
+    comments: This field should only contain a number (either an integer or a number
+      with decimals).
+    examples:
+    - value: '4'
+    range: WhitespaceMinimizedString
+  ampicillin_resistance_phenotype:
+    name: ampicillin_resistance_phenotype
+    title: ampicillin_resistance_phenotype
+    examples:
+    - value: CLSI
+    range: WhitespaceMinimizedString
+  ampicillin_measurement_sign:
+    name: ampicillin_measurement_sign
+    title: ampicillin_measurement_sign
+    examples:
+    - value: M100
+    range: WhitespaceMinimizedString
+  ampicillin_measurement:
+    name: ampicillin_measurement
+    title: ampicillin_measurement
+    examples:
+    - value: '27th ed. Wayne, PA: Clinical and Laboratory Standards Institute'
+    - value: ' 2017.'
+    range: WhitespaceMinimizedString
+  azithromycin_resistance_phenotype:
+    name: azithromycin_resistance_phenotype
+    title: azithromycin_resistance_phenotype
+    examples:
+    - value: '8'
+    range: WhitespaceMinimizedString
+  azithromycin_measurement_sign:
+    name: azithromycin_measurement_sign
+    title: azithromycin_measurement_sign
+    examples:
+    - value: '16'
+    range: WhitespaceMinimizedString
+  azithromycin_measurement:
+    name: azithromycin_measurement
+    title: azithromycin_measurement
+    examples:
+    - value: '32'
+    range: WhitespaceMinimizedString
+  cefoxitin_resistance_phenotype:
+    name: cefoxitin_resistance_phenotype
+    title: cefoxitin_resistance_phenotype
+    range: WhitespaceMinimizedString
+  cefoxitin_measurement_sign:
+    name: cefoxitin_measurement_sign
+    title: cefoxitin_measurement_sign
+    range: WhitespaceMinimizedString
+  cefoxitin_measurement:
+    name: cefoxitin_measurement
+    title: cefoxitin_measurement
+    range: WhitespaceMinimizedString
+  ceftriaxone_resistance_phenotype:
+    name: ceftriaxone_resistance_phenotype
+    title: ceftriaxone_resistance_phenotype
+    range: WhitespaceMinimizedString
+  ceftriaxone_measurement_sign:
+    name: ceftriaxone_measurement_sign
+    title: ceftriaxone_measurement_sign
+    range: WhitespaceMinimizedString
+  ceftriaxone_measurement:
+    name: ceftriaxone_measurement
+    title: ceftriaxone_measurement
+    range: WhitespaceMinimizedString
+  chloramphenicol_resistance_phenotype:
+    name: chloramphenicol_resistance_phenotype
+    title: chloramphenicol_resistance_phenotype
+    range: WhitespaceMinimizedString
+  chloramphenicol_measurement_sign:
+    name: chloramphenicol_measurement_sign
+    title: chloramphenicol_measurement_sign
+    range: WhitespaceMinimizedString
+  chloramphenicol_measurement:
+    name: chloramphenicol_measurement
+    title: chloramphenicol_measurement
+    range: WhitespaceMinimizedString
+  ciprofloxacin_resistance_phenotype:
+    name: ciprofloxacin_resistance_phenotype
+    title: ciprofloxacin_resistance_phenotype
+    range: WhitespaceMinimizedString
+  ciprofloxacin_measurement_sign:
+    name: ciprofloxacin_measurement_sign
+    title: ciprofloxacin_measurement_sign
+    range: WhitespaceMinimizedString
+  ciprofloxacin_measurement:
+    name: ciprofloxacin_measurement
+    title: ciprofloxacin_measurement
+    range: WhitespaceMinimizedString
+  gentamicin_resistance_phenotype:
+    name: gentamicin_resistance_phenotype
+    title: gentamicin_resistance_phenotype
+    range: WhitespaceMinimizedString
+  gentamicin_measurement_sign:
+    name: gentamicin_measurement_sign
+    title: gentamicin_measurement_sign
+    range: WhitespaceMinimizedString
+  gentamicin_measurement:
+    name: gentamicin_measurement
+    title: gentamicin_measurement
+    range: WhitespaceMinimizedString
+  meropenem_resistance_phenotype:
+    name: meropenem_resistance_phenotype
+    title: meropenem_resistance_phenotype
+    range: WhitespaceMinimizedString
+  meropenem_measurement_sign:
+    name: meropenem_measurement_sign
+    title: meropenem_measurement_sign
+    range: WhitespaceMinimizedString
+  meropenem_measurement:
+    name: meropenem_measurement
+    title: meropenem_measurement
+    range: WhitespaceMinimizedString
+  nalidixic_acid_resistance_phenotype:
+    name: nalidixic_acid_resistance_phenotype
+    title: nalidixic_acid_resistance_phenotype
+    range: WhitespaceMinimizedString
+  nalidixic_acid_measurement_sign:
+    name: nalidixic_acid_measurement_sign
+    title: nalidixic_acid_measurement_sign
+    range: WhitespaceMinimizedString
+  nalidixic_acid_measurement:
+    name: nalidixic_acid_measurement
+    title: nalidixic_acid_measurement
+    range: WhitespaceMinimizedString
+  streptomycin_resistance_phenotype:
+    name: streptomycin_resistance_phenotype
+    title: streptomycin_resistance_phenotype
+    range: WhitespaceMinimizedString
+  streptomycin_measurement_sign:
+    name: streptomycin_measurement_sign
+    title: streptomycin_measurement_sign
+    range: WhitespaceMinimizedString
+  streptomycin_measurement:
+    name: streptomycin_measurement
+    title: streptomycin_measurement
+    range: WhitespaceMinimizedString
+  sulfisoxazole_resistance_phenotype:
+    name: sulfisoxazole_resistance_phenotype
+    title: sulfisoxazole_resistance_phenotype
+    range: WhitespaceMinimizedString
+  sulfisoxazole_measurement_sign:
+    name: sulfisoxazole_measurement_sign
+    title: sulfisoxazole_measurement_sign
+    range: WhitespaceMinimizedString
+  sulfisoxazole_measurement:
+    name: sulfisoxazole_measurement
+    title: sulfisoxazole_measurement
+    range: WhitespaceMinimizedString
+  tetracycline_resistance_phenotype:
+    name: tetracycline_resistance_phenotype
+    title: tetracycline_resistance_phenotype
+    range: WhitespaceMinimizedString
+  tetracycline_measurement_sign:
+    name: tetracycline_measurement_sign
+    title: tetracycline_measurement_sign
+    range: WhitespaceMinimizedString
+  tetracycline_measurement:
+    name: tetracycline_measurement
+    title: tetracycline_measurement
+    range: WhitespaceMinimizedString
+  amoxicillin-clavulanic_acid_testing_standard:
+    name: amoxicillin-clavulanic_acid_testing_standard
+    title: amoxicillin-clavulanic_acid_testing_standard
+    description: Testing standard used for determination of resistance phenotype
+    comments: "\u201CCLSI\u201D, \u201CNARMS\u201D, \u201CBSAC\u201D, \u201CDIN\u201D\
+      , \u201CEUCAST\u201D, \u201CNCCLS\u201D, \u201CSFM\u201D, \u201CSIR\u201D, \u201C\
+      WRG\u201D, or \u201Cmissing\u201D"
+    range: WhitespaceMinimizedString
+  amoxicillin-clavulanic_acid_testing_standard_version:
+    name: amoxicillin-clavulanic_acid_testing_standard_version
+    title: amoxicillin-clavulanic_acid_testing_standard_version
+    description: Version number associated with the testing standard used for determination
+      of resistance phenotype
+    comments: If applicable, include a version number for the testing standard used.
+    range: WhitespaceMinimizedString
+  amoxicillin-clavulanic_acid_testing_standard_details:
+    name: amoxicillin-clavulanic_acid_testing_standard_details
+    title: amoxicillin-clavulanic_acid_testing_standard_details
+    description: Additional details associated with the testing standard used for
+      determination of resistance phenotype
+    comments: This information may include the year or location where the testing
+      standard was published. If not applicable, leave blank.
+    range: WhitespaceMinimizedString
+  amoxicillin-clavulanic_acid_susceptible_breakpoint:
+    name: amoxicillin-clavulanic_acid_susceptible_breakpoint
+    title: amoxicillin-clavulanic_acid_susceptible_breakpoint
+    description: "Maximum measurement, in the units specified in the \u201CAMR_measurement_units\u201D\
+      \ field, for a sample to be considered \u201Csensitive\u201D to this antibiotic"
+    comments: "This field should only contain a number (either an integer or a number\
+      \ with decimals), since the \u201C<=\u201D qualifier is implied."
+    range: WhitespaceMinimizedString
+  amoxicillin-clavulanic_acid_intermediate_breakpoint:
+    name: amoxicillin-clavulanic_acid_intermediate_breakpoint
+    title: amoxicillin-clavulanic_acid_intermediate_breakpoint
+    description: "Intermediate measurement(s), in the units specified in the \u201C\
+      AMR_measurement_units\u201D field, where a sample would be considered to have\
+      \ an \u201Cintermediate\u201D phenotype for this antibiotic"
+    range: WhitespaceMinimizedString
+  amoxicillin-clavulanic_acid_resistant_breakpoint:
+    name: amoxicillin-clavulanic_acid_resistant_breakpoint
+    title: amoxicillin-clavulanic_acid_resistant_breakpoint
+    description: "Minimum measurement, in the units specified in the \u201CAMR_measurement_units\u201D\
+      \ field, for a sample to be considered \u201Cresistant\u201D to this antibiotic"
+    comments: "This field should only contain a number (either an integer or a number\
+      \ with decimals), since the \u201C>=\u201D qualifier is implied."
+    range: WhitespaceMinimizedString
+  ampicillin_testing_standard:
+    name: ampicillin_testing_standard
+    title: ampicillin_testing_standard
+    range: WhitespaceMinimizedString
+  ampicillin_testing_standard_version:
+    name: ampicillin_testing_standard_version
+    title: ampicillin_testing_standard_version
+    range: WhitespaceMinimizedString
+  ampicillin_testing_standard_details:
+    name: ampicillin_testing_standard_details
+    title: ampicillin_testing_standard_details
+    range: WhitespaceMinimizedString
+  ampicillin_susceptible_breakpoint:
+    name: ampicillin_susceptible_breakpoint
+    title: ampicillin_susceptible_breakpoint
+    range: WhitespaceMinimizedString
+  ampicillin_intermediate_breakpoint:
+    name: ampicillin_intermediate_breakpoint
+    title: ampicillin_intermediate_breakpoint
+    range: WhitespaceMinimizedString
+  ampicillin_resistant_breakpoint:
+    name: ampicillin_resistant_breakpoint
+    title: ampicillin_resistant_breakpoint
+    range: WhitespaceMinimizedString
+  azithromycin_testing_standard:
+    name: azithromycin_testing_standard
+    title: azithromycin_testing_standard
+    range: WhitespaceMinimizedString
+  azithromycin_testing_standard_version:
+    name: azithromycin_testing_standard_version
+    title: azithromycin_testing_standard_version
+    range: WhitespaceMinimizedString
+  azithromycin_testing_standard_details:
+    name: azithromycin_testing_standard_details
+    title: azithromycin_testing_standard_details
+    range: WhitespaceMinimizedString
+  azithromycin_susceptible_breakpoint:
+    name: azithromycin_susceptible_breakpoint
+    title: azithromycin_susceptible_breakpoint
+    range: WhitespaceMinimizedString
+  azithromycin_intermediate_breakpoint:
+    name: azithromycin_intermediate_breakpoint
+    title: azithromycin_intermediate_breakpoint
+    range: WhitespaceMinimizedString
+  azithromycin_resistant_breakpoint:
+    name: azithromycin_resistant_breakpoint
+    title: azithromycin_resistant_breakpoint
+    range: WhitespaceMinimizedString
+  cefoxitin_testing_standard:
+    name: cefoxitin_testing_standard
+    title: cefoxitin_testing_standard
+    range: WhitespaceMinimizedString
+  cefoxitin_testing_standard_version:
+    name: cefoxitin_testing_standard_version
+    title: cefoxitin_testing_standard_version
+    range: WhitespaceMinimizedString
+  cefoxitin_testing_standard_details:
+    name: cefoxitin_testing_standard_details
+    title: cefoxitin_testing_standard_details
+    range: WhitespaceMinimizedString
+  cefoxitin_susceptible_breakpoint:
+    name: cefoxitin_susceptible_breakpoint
+    title: cefoxitin_susceptible_breakpoint
+    range: WhitespaceMinimizedString
+  cefoxitin_intermediate_breakpoint:
+    name: cefoxitin_intermediate_breakpoint
+    title: cefoxitin_intermediate_breakpoint
+    range: WhitespaceMinimizedString
+  cefoxitin_resistant_breakpoint:
+    name: cefoxitin_resistant_breakpoint
+    title: cefoxitin_resistant_breakpoint
+    range: WhitespaceMinimizedString
+  ceftriaxone_testing_standard:
+    name: ceftriaxone_testing_standard
+    title: ceftriaxone_testing_standard
+    range: WhitespaceMinimizedString
+  ceftriaxone_testing_standard_version:
+    name: ceftriaxone_testing_standard_version
+    title: ceftriaxone_testing_standard_version
+    range: WhitespaceMinimizedString
+  ceftriaxone_testing_standard_details:
+    name: ceftriaxone_testing_standard_details
+    title: ceftriaxone_testing_standard_details
+    range: WhitespaceMinimizedString
+  ceftriaxone_susceptible_breakpoint:
+    name: ceftriaxone_susceptible_breakpoint
+    title: ceftriaxone_susceptible_breakpoint
+    range: WhitespaceMinimizedString
+  ceftriaxone_intermediate_breakpoint:
+    name: ceftriaxone_intermediate_breakpoint
+    title: ceftriaxone_intermediate_breakpoint
+    range: WhitespaceMinimizedString
+  ceftriaxone_resistant_breakpoint:
+    name: ceftriaxone_resistant_breakpoint
+    title: ceftriaxone_resistant_breakpoint
+    range: WhitespaceMinimizedString
+  chloramphenicol_testing_standard:
+    name: chloramphenicol_testing_standard
+    title: chloramphenicol_testing_standard
+    range: WhitespaceMinimizedString
+  chloramphenicol_testing_standard_version:
+    name: chloramphenicol_testing_standard_version
+    title: chloramphenicol_testing_standard_version
+    range: WhitespaceMinimizedString
+  chloramphenicol_testing_standard_details:
+    name: chloramphenicol_testing_standard_details
+    title: chloramphenicol_testing_standard_details
+    range: WhitespaceMinimizedString
+  chloramphenicol_susceptible_breakpoint:
+    name: chloramphenicol_susceptible_breakpoint
+    title: chloramphenicol_susceptible_breakpoint
+    range: WhitespaceMinimizedString
+  chloramphenicol_intermediate_breakpoint:
+    name: chloramphenicol_intermediate_breakpoint
+    title: chloramphenicol_intermediate_breakpoint
+    range: WhitespaceMinimizedString
+  chloramphenicol_resistant_breakpoint:
+    name: chloramphenicol_resistant_breakpoint
+    title: chloramphenicol_resistant_breakpoint
+    range: WhitespaceMinimizedString
+  ciprofloxacin_testing_standard:
+    name: ciprofloxacin_testing_standard
+    title: ciprofloxacin_testing_standard
+    range: WhitespaceMinimizedString
+  ciprofloxacin_testing_standard_version:
+    name: ciprofloxacin_testing_standard_version
+    title: ciprofloxacin_testing_standard_version
+    range: WhitespaceMinimizedString
+  ciprofloxacin_testing_standard_details:
+    name: ciprofloxacin_testing_standard_details
+    title: ciprofloxacin_testing_standard_details
+    range: WhitespaceMinimizedString
+  ciprofloxacin_susceptible_breakpoint:
+    name: ciprofloxacin_susceptible_breakpoint
+    title: ciprofloxacin_susceptible_breakpoint
+    range: WhitespaceMinimizedString
+  ciprofloxacin_intermediate_breakpoint:
+    name: ciprofloxacin_intermediate_breakpoint
+    title: ciprofloxacin_intermediate_breakpoint
+    range: WhitespaceMinimizedString
+  ciprofloxacin_resistant_breakpoint:
+    name: ciprofloxacin_resistant_breakpoint
+    title: ciprofloxacin_resistant_breakpoint
+    range: WhitespaceMinimizedString
+  gentamicin_testing_standard:
+    name: gentamicin_testing_standard
+    title: gentamicin_testing_standard
+    range: WhitespaceMinimizedString
+  gentamicin_testing_standard_version:
+    name: gentamicin_testing_standard_version
+    title: gentamicin_testing_standard_version
+    range: WhitespaceMinimizedString
+  gentamicin_testing_standard_details:
+    name: gentamicin_testing_standard_details
+    title: gentamicin_testing_standard_details
+    range: WhitespaceMinimizedString
+  gentamicin_susceptible_breakpoint:
+    name: gentamicin_susceptible_breakpoint
+    title: gentamicin_susceptible_breakpoint
+    range: WhitespaceMinimizedString
+  gentamicin_intermediate_breakpoint:
+    name: gentamicin_intermediate_breakpoint
+    title: gentamicin_intermediate_breakpoint
+    range: WhitespaceMinimizedString
+  gentamicin_resistant_breakpoint:
+    name: gentamicin_resistant_breakpoint
+    title: gentamicin_resistant_breakpoint
+    range: WhitespaceMinimizedString
+  meropenem_testing_standard:
+    name: meropenem_testing_standard
+    title: meropenem_testing_standard
+    range: WhitespaceMinimizedString
+  meropenem_testing_standard_version:
+    name: meropenem_testing_standard_version
+    title: meropenem_testing_standard_version
+    range: WhitespaceMinimizedString
+  meropenem_testing_standard_details:
+    name: meropenem_testing_standard_details
+    title: meropenem_testing_standard_details
+    range: WhitespaceMinimizedString
+  meropenem_susceptible_breakpoint:
+    name: meropenem_susceptible_breakpoint
+    title: meropenem_susceptible_breakpoint
+    range: WhitespaceMinimizedString
+  meropenem_intermediate_breakpoint:
+    name: meropenem_intermediate_breakpoint
+    title: meropenem_intermediate_breakpoint
+    range: WhitespaceMinimizedString
+  meropenem_resistant_breakpoint:
+    name: meropenem_resistant_breakpoint
+    title: meropenem_resistant_breakpoint
+    range: WhitespaceMinimizedString
+  nalidixic_acid_testing_standard:
+    name: nalidixic_acid_testing_standard
+    title: nalidixic_acid_testing_standard
+    range: WhitespaceMinimizedString
+  nalidixic_acid_testing_standard_version:
+    name: nalidixic_acid_testing_standard_version
+    title: nalidixic_acid_testing_standard_version
+    range: WhitespaceMinimizedString
+  nalidixic_acid_testing_standard_details:
+    name: nalidixic_acid_testing_standard_details
+    title: nalidixic_acid_testing_standard_details
+    range: WhitespaceMinimizedString
+  nalidixic_acid_susceptible_breakpoint:
+    name: nalidixic_acid_susceptible_breakpoint
+    title: nalidixic_acid_susceptible_breakpoint
+    range: WhitespaceMinimizedString
+  nalidixic_acid_intermediate_breakpoint:
+    name: nalidixic_acid_intermediate_breakpoint
+    title: nalidixic_acid_intermediate_breakpoint
+    range: WhitespaceMinimizedString
+  nalidixic_acid_resistant_breakpoint:
+    name: nalidixic_acid_resistant_breakpoint
+    title: nalidixic_acid_resistant_breakpoint
+    range: WhitespaceMinimizedString
+  streptomycin_testing_standard:
+    name: streptomycin_testing_standard
+    title: streptomycin_testing_standard
+    range: WhitespaceMinimizedString
+  streptomycin_testing_standard_version:
+    name: streptomycin_testing_standard_version
+    title: streptomycin_testing_standard_version
+    range: WhitespaceMinimizedString
+  streptomycin_testing_standard_details:
+    name: streptomycin_testing_standard_details
+    title: streptomycin_testing_standard_details
+    range: WhitespaceMinimizedString
+  streptomycin_susceptible_breakpoint:
+    name: streptomycin_susceptible_breakpoint
+    title: streptomycin_susceptible_breakpoint
+    range: WhitespaceMinimizedString
+  streptomycin_intermediate_breakpoint:
+    name: streptomycin_intermediate_breakpoint
+    title: streptomycin_intermediate_breakpoint
+    range: WhitespaceMinimizedString
+  streptomycin_resistant_breakpoint:
+    name: streptomycin_resistant_breakpoint
+    title: streptomycin_resistant_breakpoint
+    range: WhitespaceMinimizedString
+  sulfisoxazole_testing_standard:
+    name: sulfisoxazole_testing_standard
+    title: sulfisoxazole_testing_standard
+    range: WhitespaceMinimizedString
+  sulfisoxazole_testing_standard_version:
+    name: sulfisoxazole_testing_standard_version
+    title: sulfisoxazole_testing_standard_version
+    range: WhitespaceMinimizedString
+  sulfisoxazole_testing_standard_details:
+    name: sulfisoxazole_testing_standard_details
+    title: sulfisoxazole_testing_standard_details
+    range: WhitespaceMinimizedString
+  sulfisoxazole_susceptible_breakpoint:
+    name: sulfisoxazole_susceptible_breakpoint
+    title: sulfisoxazole_susceptible_breakpoint
+    range: WhitespaceMinimizedString
+  sulfisoxazole_intermediate_breakpoint:
+    name: sulfisoxazole_intermediate_breakpoint
+    title: sulfisoxazole_intermediate_breakpoint
+    range: WhitespaceMinimizedString
+  sulfisoxazole_resistant_breakpoint:
+    name: sulfisoxazole_resistant_breakpoint
+    title: sulfisoxazole_resistant_breakpoint
+    range: WhitespaceMinimizedString
+  tetracycline_testing_standard:
+    name: tetracycline_testing_standard
+    title: tetracycline_testing_standard
+    range: WhitespaceMinimizedString
+  tetracycline_testing_standard_version:
+    name: tetracycline_testing_standard_version
+    title: tetracycline_testing_standard_version
+    range: WhitespaceMinimizedString
+  tetracycline_testing_standard_details:
+    name: tetracycline_testing_standard_details
+    title: tetracycline_testing_standard_details
+    range: WhitespaceMinimizedString
+  tetracycline_susceptible_breakpoint:
+    name: tetracycline_susceptible_breakpoint
+    title: tetracycline_susceptible_breakpoint
+    range: WhitespaceMinimizedString
+  tetracycline_intermediate_breakpoint:
+    name: tetracycline_intermediate_breakpoint
+    title: tetracycline_intermediate_breakpoint
+    range: WhitespaceMinimizedString
+  tetracycline_resistant_breakpoint:
+    name: tetracycline_resistant_breakpoint
+    title: tetracycline_resistant_breakpoint
+    range: WhitespaceMinimizedString
+enums:
+  purpose_of_sampling menu:
+    name: purpose_of_sampling menu
+    permissible_values:
+      Cluster/Outbreak investigation:
+        text: Cluster/Outbreak investigation
+      Diagnostic testing:
+        text: Diagnostic testing
+      Research:
+        text: Research
+      Surveillance:
+        text: Surveillance
+      Monitoring:
+        text: Monitoring
+      Field experiment:
+        text: Field experiment
+      Clinical trial:
+        text: Clinical trial
+      Environmental testing:
+        text: Environmental testing
+  purpose_of_sequencing menu:
+    name: purpose_of_sequencing menu
+    permissible_values:
+      Cluster/Outbreak investigation:
+        text: Cluster/Outbreak investigation
+      Diagnostic testing:
+        text: Diagnostic testing
+      Research:
+        text: Research
+      Surveillance:
+        text: Surveillance
+      Monitoring:
+        text: Monitoring
+      Field experiment:
+        text: Field experiment
+      Clinical trial:
+        text: Clinical trial
+      Environmental testing:
+        text: Environmental testing
+  sample_processing menu:
+    name: sample_processing menu
+    permissible_values:
+      Samples pooled:
+        text: Samples pooled
+      Isolated from single source:
+        text: Isolated from single source
+  sequencing_platform menu:
+    name: sequencing_platform menu
+    permissible_values:
+      Illumina:
+        text: Illumina
+      Pacific Biosciences:
+        text: Pacific Biosciences
+      Ion Torrent:
+        text: Ion Torrent
+      Oxford Nanopore Technologies:
+        text: Oxford Nanopore Technologies
+      BGI Genomics:
+        text: BGI Genomics
+      MGI:
+        text: MGI
+  sequencing_instrument menu:
+    name: sequencing_instrument menu
+    permissible_values:
+      Illumina:
+        text: Illumina
+      Illumina Genome Analyzer:
+        text: Illumina Genome Analyzer
+        is_a: Illumina
+      Illumina Genome Analyzer II:
+        text: Illumina Genome Analyzer II
+        is_a: Illumina
+      Illumina Genome Analyzer IIx:
+        text: Illumina Genome Analyzer IIx
+        is_a: Illumina
+      Illumina HiScanSQ:
+        text: Illumina HiScanSQ
+        is_a: Illumina
+      Illumina HiSeq:
+        text: Illumina HiSeq
+        is_a: Illumina
+      Illumina HiSeq X:
+        text: Illumina HiSeq X
+        is_a: Illumina HiSeq
+      Illumina HiSeq X Five:
+        text: Illumina HiSeq X Five
+        is_a: Illumina HiSeq
+      Illumina HiSeq X Ten:
+        text: Illumina HiSeq X Ten
+        is_a: Illumina HiSeq
+      Illumina HiSeq 1000:
+        text: Illumina HiSeq 1000
+        is_a: Illumina HiSeq
+      Illumina HiSeq 1500:
+        text: Illumina HiSeq 1500
+        is_a: Illumina HiSeq
+      Illumina HiSeq 2000:
+        text: Illumina HiSeq 2000
+        is_a: Illumina HiSeq
+      Illumina HiSeq 2500:
+        text: Illumina HiSeq 2500
+        is_a: Illumina HiSeq
+      Illumina HiSeq 3000:
+        text: Illumina HiSeq 3000
+        is_a: Illumina HiSeq
+      Illumina HiSeq 4000:
+        text: Illumina HiSeq 4000
+        is_a: Illumina HiSeq
+      Illumina iSeq:
+        text: Illumina iSeq
+        is_a: Illumina
+      Illumina iSeq 100:
+        text: Illumina iSeq 100
+        is_a: Illumina iSeq
+      Illumina NovaSeq:
+        text: Illumina NovaSeq
+        is_a: Illumina
+      Illumina NovaSeq 6000:
+        text: Illumina NovaSeq 6000
+        is_a: Illumina NovaSeq
+      Illumina MiniSeq:
+        text: Illumina MiniSeq
+        is_a: Illumina
+      Illumina MiSeq:
+        text: Illumina MiSeq
+        is_a: Illumina
+      Illumina NextSeq:
+        text: Illumina NextSeq
+        is_a: Illumina
+      Illumina NextSeq 500:
+        text: Illumina NextSeq 500
+        is_a: Illumina NextSeq
+      Illumina NextSeq 550:
+        text: Illumina NextSeq 550
+        is_a: Illumina NextSeq
+      Illumina NextSeq 2000:
+        text: Illumina NextSeq 2000
+        is_a: Illumina NextSeq
+      PacBio:
+        text: PacBio
+      PacBio RS:
+        text: PacBio RS
+        is_a: PacBio
+      PacBio RS II:
+        text: PacBio RS II
+        is_a: PacBio
+      PacBio Sequel:
+        text: PacBio Sequel
+        is_a: PacBio
+      PacBio Sequel II:
+        text: PacBio Sequel II
+        is_a: PacBio
+      Ion Torrent:
+        text: Ion Torrent
+      Ion Torrent PGM:
+        text: Ion Torrent PGM
+        is_a: Ion Torrent
+      Ion Torrent Proton:
+        text: Ion Torrent Proton
+        is_a: Ion Torrent
+      Ion Torrent S5 XL:
+        text: Ion Torrent S5 XL
+        is_a: Ion Torrent
+      Ion Torrent S5:
+        text: Ion Torrent S5
+        is_a: Ion Torrent
+      Oxford Nanopore:
+        text: Oxford Nanopore
+      Oxford Nanopore GridION:
+        text: Oxford Nanopore GridION
+        is_a: Oxford Nanopore
+      Oxford Nanopore MinION:
+        text: Oxford Nanopore MinION
+        is_a: Oxford Nanopore
+      Oxford Nanopore PromethION:
+        text: Oxford Nanopore PromethION
+        is_a: Oxford Nanopore
+      BGISEQ:
+        text: BGISEQ
+      BGISEQ-500:
+        text: BGISEQ-500
+        is_a: BGISEQ
+      DNBSEQ:
+        text: DNBSEQ
+      DNBSEQ-T7:
+        text: DNBSEQ-T7
+        is_a: DNBSEQ
+      DNBSEQ-G400:
+        text: DNBSEQ-G400
+        is_a: DNBSEQ
+      DNBSEQ-G400 FAST:
+        text: DNBSEQ-G400 FAST
+        is_a: DNBSEQ
+      DNBSEQ-G50:
+        text: DNBSEQ-G50
+        is_a: DNBSEQ
+  experimental_activity menu:
+    name: experimental_activity menu
+    permissible_values:
+      Antimicrobial pre-treatment:
+        text: Antimicrobial pre-treatment
+      Probiotic pre-treatment:
+        text: Probiotic pre-treatment
+      Microbial pre-treatment:
+        text: Microbial pre-treatment
+      Genetic mutation:
+        text: Genetic mutation
+  experimental_intervention menu:
+    name: experimental_intervention menu
+    permissible_values:
+      Addition of substances to food/water:
+        text: Addition of substances to food/water
+      Administration of drug:
+        text: Administration of drug
+      Administration of probiotic:
+        text: Administration of probiotic
+      Change in storage conditions:
+        text: Change in storage conditions
+      Cleaning/disinfection:
+        text: Cleaning/disinfection
+      Extended downtime between activities:
+        text: Extended downtime between activities
+      Logistic slaughter:
+        text: Logistic slaughter
+      Vaccination:
+        text: Vaccination
+  geo_loc_name (state/province/region) menu:
+    name: geo_loc_name (state/province/region) menu
+    permissible_values:
+      Alberta:
+        text: Alberta
+      British Columbia:
+        text: British Columbia
+      Manitoba:
+        text: Manitoba
+      New Brunswick:
+        text: New Brunswick
+      Newfoundland and Labrador:
+        text: Newfoundland and Labrador
+      Northwest Territories:
+        text: Northwest Territories
+      Nova Scotia:
+        text: Nova Scotia
+      Nunavut:
+        text: Nunavut
+      Ontario:
+        text: Ontario
+      Prince Edward Island:
+        text: Prince Edward Island
+      Quebec:
+        text: Quebec
+      Saskatchewan:
+        text: Saskatchewan
+      Yukon:
+        text: Yukon
+  geo_loc_name (country) menu:
+    name: geo_loc_name (country) menu
+    permissible_values:
+      Afghanistan:
+        text: Afghanistan
+      Albania:
+        text: Albania
+      Algeria:
+        text: Algeria
+      American Samoa:
+        text: American Samoa
+      Andorra:
+        text: Andorra
+      Angola:
+        text: Angola
+      Anguilla:
+        text: Anguilla
+      Antarctica:
+        text: Antarctica
+      Antigua and Barbuda:
+        text: Antigua and Barbuda
+      Argentina:
+        text: Argentina
+      Armenia:
+        text: Armenia
+      Aruba:
+        text: Aruba
+      Ashmore and Cartier Islands:
+        text: Ashmore and Cartier Islands
+      Australia:
+        text: Australia
+      Austria:
+        text: Austria
+      Azerbaijan:
+        text: Azerbaijan
+      Bahamas:
+        text: Bahamas
+      Bahrain:
+        text: Bahrain
+      Baker Island:
+        text: Baker Island
+      Bangladesh:
+        text: Bangladesh
+      Barbados:
+        text: Barbados
+      Bassas da India:
+        text: Bassas da India
+      Belarus:
+        text: Belarus
+      Belgium:
+        text: Belgium
+      Belize:
+        text: Belize
+      Benin:
+        text: Benin
+      Bermuda:
+        text: Bermuda
+      Bhutan:
+        text: Bhutan
+      Bolivia:
+        text: Bolivia
+      Borneo:
+        text: Borneo
+      Bosnia and Herzegovina:
+        text: Bosnia and Herzegovina
+      Botswana:
+        text: Botswana
+      Bouvet Island:
+        text: Bouvet Island
+      Brazil:
+        text: Brazil
+      British Virgin Islands:
+        text: British Virgin Islands
+      Brunei:
+        text: Brunei
+      Bulgaria:
+        text: Bulgaria
+      Burkina Faso:
+        text: Burkina Faso
+      Burundi:
+        text: Burundi
+      Cambodia:
+        text: Cambodia
+      Cameroon:
+        text: Cameroon
+      Canada:
+        text: Canada
+      Cape Verde:
+        text: Cape Verde
+      Cayman Islands:
+        text: Cayman Islands
+      Central African Republic:
+        text: Central African Republic
+      Chad:
+        text: Chad
+      Chile:
+        text: Chile
+      China:
+        text: China
+      Christmas Island:
+        text: Christmas Island
+      Clipperton Island:
+        text: Clipperton Island
+      Cocos Islands:
+        text: Cocos Islands
+      Colombia:
+        text: Colombia
+      Comoros:
+        text: Comoros
+      Cook Islands:
+        text: Cook Islands
+      Coral Sea Islands:
+        text: Coral Sea Islands
+      Costa Rica:
+        text: Costa Rica
+      Cote d'Ivoire:
+        text: Cote d'Ivoire
+      Croatia:
+        text: Croatia
+      Cuba:
+        text: Cuba
+      Curacao:
+        text: Curacao
+      Cyprus:
+        text: Cyprus
+      Czech Republic:
+        text: Czech Republic
+      Democratic Republic of the Congo:
+        text: Democratic Republic of the Congo
+      Denmark:
+        text: Denmark
+      Djibouti:
+        text: Djibouti
+      Dominica:
+        text: Dominica
+      Dominican Republic:
+        text: Dominican Republic
+      Ecuador:
+        text: Ecuador
+      Egypt:
+        text: Egypt
+      El Salvador:
+        text: El Salvador
+      Equatorial Guinea:
+        text: Equatorial Guinea
+      Eritrea:
+        text: Eritrea
+      Estonia:
+        text: Estonia
+      Eswatini:
+        text: Eswatini
+      Ethiopia:
+        text: Ethiopia
+      Europa Island:
+        text: Europa Island
+      Falkland Islands (Islas Malvinas):
+        text: Falkland Islands (Islas Malvinas)
+      Faroe Islands:
+        text: Faroe Islands
+      Fiji:
+        text: Fiji
+      Finland:
+        text: Finland
+      France:
+        text: France
+      French Guiana:
+        text: French Guiana
+      French Polynesia:
+        text: French Polynesia
+      French Southern and Antarctic Lands:
+        text: French Southern and Antarctic Lands
+      Gabon:
+        text: Gabon
+      Gambia:
+        text: Gambia
+      Gaza Strip:
+        text: Gaza Strip
+      Georgia:
+        text: Georgia
+      Germany:
+        text: Germany
+      Ghana:
+        text: Ghana
+      Gibraltar:
+        text: Gibraltar
+      Glorioso Islands:
+        text: Glorioso Islands
+      Greece:
+        text: Greece
+      Greenland:
+        text: Greenland
+      Grenada:
+        text: Grenada
+      Guadeloupe:
+        text: Guadeloupe
+      Guam:
+        text: Guam
+      Guatemala:
+        text: Guatemala
+      Guernsey:
+        text: Guernsey
+      Guinea:
+        text: Guinea
+      Guinea-Bissau:
+        text: Guinea-Bissau
+      Guyana:
+        text: Guyana
+      Haiti:
+        text: Haiti
+      Heard Island and McDonald Islands:
+        text: Heard Island and McDonald Islands
+      Honduras:
+        text: Honduras
+      Hong Kong:
+        text: Hong Kong
+      Howland Island:
+        text: Howland Island
+      Hungary:
+        text: Hungary
+      Iceland:
+        text: Iceland
+      India:
+        text: India
+      Indonesia:
+        text: Indonesia
+      Iran:
+        text: Iran
+      Iraq:
+        text: Iraq
+      Ireland:
+        text: Ireland
+      Isle of Man:
+        text: Isle of Man
+      Israel:
+        text: Israel
+      Italy:
+        text: Italy
+      Jamaica:
+        text: Jamaica
+      Jan Mayen:
+        text: Jan Mayen
+      Japan:
+        text: Japan
+      Jarvis Island:
+        text: Jarvis Island
+      Jersey:
+        text: Jersey
+      Johnston Atoll:
+        text: Johnston Atoll
+      Jordan:
+        text: Jordan
+      Juan de Nova Island:
+        text: Juan de Nova Island
+      Kazakhstan:
+        text: Kazakhstan
+      Kenya:
+        text: Kenya
+      Kerguelen Archipelago:
+        text: Kerguelen Archipelago
+      Kingman Reef:
+        text: Kingman Reef
+      Kiribati:
+        text: Kiribati
+      Kosovo:
+        text: Kosovo
+      Kuwait:
+        text: Kuwait
+      Kyrgyzstan:
+        text: Kyrgyzstan
+      Laos:
+        text: Laos
+      Latvia:
+        text: Latvia
+      Lebanon:
+        text: Lebanon
+      Lesotho:
+        text: Lesotho
+      Liberia:
+        text: Liberia
+      Libya:
+        text: Libya
+      Liechtenstein:
+        text: Liechtenstein
+      Line Islands:
+        text: Line Islands
+      Lithuania:
+        text: Lithuania
+      Luxembourg:
+        text: Luxembourg
+      Macau:
+        text: Macau
+      Madagascar:
+        text: Madagascar
+      Malawi:
+        text: Malawi
+      Malaysia:
+        text: Malaysia
+      Maldives:
+        text: Maldives
+      Mali:
+        text: Mali
+      Malta:
+        text: Malta
+      Marshall Islands:
+        text: Marshall Islands
+      Martinique:
+        text: Martinique
+      Mauritania:
+        text: Mauritania
+      Mauritius:
+        text: Mauritius
+      Mayotte:
+        text: Mayotte
+      Mexico:
+        text: Mexico
+      Micronesia:
+        text: Micronesia
+      Midway Islands:
+        text: Midway Islands
+      Moldova:
+        text: Moldova
+      Monaco:
+        text: Monaco
+      Mongolia:
+        text: Mongolia
+      Montenegro:
+        text: Montenegro
+      Montserrat:
+        text: Montserrat
+      Morocco:
+        text: Morocco
+      Mozambique:
+        text: Mozambique
+      Myanmar:
+        text: Myanmar
+      Namibia:
+        text: Namibia
+      Nauru:
+        text: Nauru
+      Navassa Island:
+        text: Navassa Island
+      Nepal:
+        text: Nepal
+      Netherlands:
+        text: Netherlands
+      New Caledonia:
+        text: New Caledonia
+      New Zealand:
+        text: New Zealand
+      Nicaragua:
+        text: Nicaragua
+      Niger:
+        text: Niger
+      Nigeria:
+        text: Nigeria
+      Niue:
+        text: Niue
+      Norfolk Island:
+        text: Norfolk Island
+      North Korea:
+        text: North Korea
+      North Macedonia:
+        text: North Macedonia
+      North Sea:
+        text: North Sea
+      Northern Mariana Islands:
+        text: Northern Mariana Islands
+      Norway:
+        text: Norway
+      Oman:
+        text: Oman
+      Pakistan:
+        text: Pakistan
+      Palau:
+        text: Palau
+      Panama:
+        text: Panama
+      Papua New Guinea:
+        text: Papua New Guinea
+      Paracel Islands:
+        text: Paracel Islands
+      Paraguay:
+        text: Paraguay
+      Peru:
+        text: Peru
+      Philippines:
+        text: Philippines
+      Pitcairn Islands:
+        text: Pitcairn Islands
+      Poland:
+        text: Poland
+      Portugal:
+        text: Portugal
+      Puerto Rico:
+        text: Puerto Rico
+      Qatar:
+        text: Qatar
+      Republic of the Congo:
+        text: Republic of the Congo
+      Reunion:
+        text: Reunion
+      Romania:
+        text: Romania
+      Ross Sea:
+        text: Ross Sea
+      Russia:
+        text: Russia
+      Rwanda:
+        text: Rwanda
+      Saint Helena:
+        text: Saint Helena
+      Saint Kitts and Nevis:
+        text: Saint Kitts and Nevis
+      Saint Lucia:
+        text: Saint Lucia
+      Saint Pierre and Miquelon:
+        text: Saint Pierre and Miquelon
+      Saint Martin:
+        text: Saint Martin
+      Saint Vincent and the Grenadines:
+        text: Saint Vincent and the Grenadines
+      Samoa:
+        text: Samoa
+      San Marino:
+        text: San Marino
+      Sao Tome and Principe:
+        text: Sao Tome and Principe
+      Saudi Arabia:
+        text: Saudi Arabia
+      Senegal:
+        text: Senegal
+      Serbia:
+        text: Serbia
+      Seychelles:
+        text: Seychelles
+      Sierra Leone:
+        text: Sierra Leone
+      Singapore:
+        text: Singapore
+      Sint Maarten:
+        text: Sint Maarten
+      Slovakia:
+        text: Slovakia
+      Slovenia:
+        text: Slovenia
+      Solomon Islands:
+        text: Solomon Islands
+      Somalia:
+        text: Somalia
+      South Africa:
+        text: South Africa
+      South Georgia and the South Sandwich Islands:
+        text: South Georgia and the South Sandwich Islands
+      South Korea:
+        text: South Korea
+      South Sudan:
+        text: South Sudan
+      Spain:
+        text: Spain
+      Spratly Islands:
+        text: Spratly Islands
+      Sri Lanka:
+        text: Sri Lanka
+      State of Palestine:
+        text: State of Palestine
+      Sudan:
+        text: Sudan
+      Suriname:
+        text: Suriname
+      Svalbard:
+        text: Svalbard
+      Swaziland:
+        text: Swaziland
+      Sweden:
+        text: Sweden
+      Switzerland:
+        text: Switzerland
+      Syria:
+        text: Syria
+      Taiwan:
+        text: Taiwan
+      Tajikistan:
+        text: Tajikistan
+      Tanzania:
+        text: Tanzania
+      Thailand:
+        text: Thailand
+      Timor-Leste:
+        text: Timor-Leste
+      Togo:
+        text: Togo
+      Tokelau:
+        text: Tokelau
+      Tonga:
+        text: Tonga
+      Trinidad and Tobago:
+        text: Trinidad and Tobago
+      Tromelin Island:
+        text: Tromelin Island
+      Tunisia:
+        text: Tunisia
+      Turkey:
+        text: Turkey
+      Turkmenistan:
+        text: Turkmenistan
+      Turks and Caicos Islands:
+        text: Turks and Caicos Islands
+      Tuvalu:
+        text: Tuvalu
+      United States of America:
+        text: United States of America
+      Uganda:
+        text: Uganda
+      Ukraine:
+        text: Ukraine
+      United Arab Emirates:
+        text: United Arab Emirates
+      United Kingdom:
+        text: United Kingdom
+      Uruguay:
+        text: Uruguay
+      Uzbekistan:
+        text: Uzbekistan
+      Vanuatu:
+        text: Vanuatu
+      Venezuela:
+        text: Venezuela
+      Viet Nam:
+        text: Viet Nam
+      Virgin Islands:
+        text: Virgin Islands
+      Wake Island:
+        text: Wake Island
+      Wallis and Futuna:
+        text: Wallis and Futuna
+      West Bank:
+        text: West Bank
+      Western Sahara:
+        text: Western Sahara
+      Yemen:
+        text: Yemen
+      Zambia:
+        text: Zambia
+      Zimbabwe:
+        text: Zimbabwe
+types:
+  WhiteSpaceMinimizedString:
+    name: WhiteSpaceMinimizedString
+    typeof: string
+    description: 'A string that has all whitespace trimmed off of beginning and end,
+      and all internal whitespace segments reduced to single spaces. Whitespace includes
+      #x9 (tab), #xA (linefeed), and #xD (carriage return).'
+    base: str
+    uri: xsd:token
+settings:
+  Title_Case: (((?<=\b)[^a-z\W]\w*?|[\W])+)
+  UPPER_CASE: '[A-Z\W\d_]*'
+  lower_case: '[a-z\W\d_]*'
