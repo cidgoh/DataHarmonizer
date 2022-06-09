@@ -599,7 +599,8 @@ slots:
     examples:
     - value: prov_rona_99
     slot_uri: GENEPIO:0001123
-    range: xs:unique
+    range: WhitespaceMinimizedString
+    identifier: true
     required: true
     exact_mappings:
     - GISAID:Sample ID given by the sample provider
@@ -615,7 +616,7 @@ slots:
     examples:
     - value: Switch Health
     slot_uri: GENEPIO:0001202
-    range: xs:token
+    range: WhitespaceMinimizedString
     exact_mappings:
     - NML_LIMS:HC_TEXT5
   third party lab sample ID:
@@ -626,7 +627,7 @@ slots:
     examples:
     - value: SHK123456
     slot_uri: GENEPIO:0001149
-    range: xs:token
+    range: WhitespaceMinimizedString
     exact_mappings:
     - NML_LIMS:PH_ID_NUMBER_PRIMARY
   case ID:
@@ -640,7 +641,8 @@ slots:
     examples:
     - value: ABCD1234
     slot_uri: GENEPIO:0100281
-    range: xs:unique
+    range: WhitespaceMinimizedString
+    identifier: true
     recommended: true
     exact_mappings:
     - NML_LIMS:PH_CASE_ID
@@ -655,7 +657,9 @@ slots:
     examples:
     - value: SR20-12345
     slot_uri: GENEPIO:0001128
-    range: xs:token
+    any_of:
+    - range: WhitespaceMinimizedString
+    - range: null value menu
     exact_mappings:
     - CNPHI:Related Specimen ID
     - CNPHI:Related Specimen Relationship Type
@@ -675,7 +679,7 @@ slots:
     examples:
     - value: prov_rona_99
     slot_uri: GENEPIO:0001131
-    range: xs:token
+    range: WhitespaceMinimizedString
     exact_mappings:
     - NML_LIMS:IRIDA sample name
   umbrella bioproject accession:
@@ -691,7 +695,10 @@ slots:
     - value: PRJNA623807
     slot_uri: GENEPIO:0001133
     range: umbrella bioproject accession menu
-    string_serialization: '{UPPER CASE}'
+    structured_pattern:
+      syntax: '{UPPER_CASE}'
+      partial_match: false
+      interpolated: true
     exact_mappings:
     - NML_LIMS:umbrella bioproject accession
   bioproject accession:
@@ -708,8 +715,11 @@ slots:
     examples:
     - value: PRJNA608651
     slot_uri: GENEPIO:0001136
-    range: xs:token
-    string_serialization: '{UPPER CASE}'
+    range: WhitespaceMinimizedString
+    structured_pattern:
+      syntax: '{UPPER_CASE}'
+      partial_match: false
+      interpolated: true
     exact_mappings:
     - CNPHI:BioProject Accession
     - NML_LIMS:PH_BIOPROJECT_ACCESSION
@@ -723,8 +733,11 @@ slots:
     examples:
     - value: SAMN14180202
     slot_uri: GENEPIO:0001139
-    range: xs:token
-    string_serialization: '{UPPER CASE}'
+    range: WhitespaceMinimizedString
+    structured_pattern:
+      syntax: '{UPPER_CASE}'
+      partial_match: false
+      interpolated: true
     exact_mappings:
     - CNPHI:BioSample Accession
     - NML_LIMS:PH_BIOSAMPLE_ACCESSION
@@ -738,8 +751,11 @@ slots:
     examples:
     - value: SRR11177792
     slot_uri: GENEPIO:0001142
-    range: xs:token
-    string_serialization: '{UPPER CASE}'
+    range: WhitespaceMinimizedString
+    structured_pattern:
+      syntax: '{UPPER_CASE}'
+      partial_match: false
+      interpolated: true
     exact_mappings:
     - CNPHI:SRA Accession
     - NML_LIMS:PH_SRA_ACCESSION
@@ -752,8 +768,11 @@ slots:
     examples:
     - value: MN908947.3
     slot_uri: GENEPIO:0001145
-    range: xs:token
-    string_serialization: '{UPPER CASE}'
+    range: WhitespaceMinimizedString
+    structured_pattern:
+      syntax: '{UPPER_CASE}'
+      partial_match: false
+      interpolated: true
     exact_mappings:
     - CNPHI:GenBank Accession
     - NML_LIMS:GenBank accession
@@ -765,8 +784,11 @@ slots:
     examples:
     - value: EPI_ISL_436489
     slot_uri: GENEPIO:0001147
-    range: xs:token
-    string_serialization: '{UPPER CASE}'
+    range: WhitespaceMinimizedString
+    structured_pattern:
+      syntax: '{UPPER_CASE}'
+      partial_match: false
+      interpolated: true
     exact_mappings:
     - CNPHI:GISAID Accession (if known)
     - NML_LIMS:SUBMISSIONS - GISAID Accession ID
@@ -784,7 +806,9 @@ slots:
     examples:
     - value: BC Centre for Disease Control
     slot_uri: GENEPIO:0001153
-    range: sample collected by menu
+    any_of:
+    - range: sample collected by menu
+    - range: null value menu
     required: true
     exact_mappings:
     - GISAID:Originating lab
@@ -802,7 +826,7 @@ slots:
     examples:
     - value: RespLab@lab.ca
     slot_uri: GENEPIO:0001156
-    range: xs:token
+    range: WhitespaceMinimizedString
     pattern: ^\S+@\S+\.\S+$
     exact_mappings:
     - NML_LIMS:sample collector contact email
@@ -815,7 +839,7 @@ slots:
     examples:
     - value: 655 Lab St, Vancouver, British Columbia, V5N 2A2, Canada
     slot_uri: GENEPIO:0001158
-    range: xs:token
+    range: WhitespaceMinimizedString
     exact_mappings:
     - GISAID:Address
     - NML_LIMS:sample collector contact address
@@ -829,7 +853,9 @@ slots:
     examples:
     - value: Public Health Ontario (PHO)
     slot_uri: GENEPIO:0001159
-    range: selectsequence submitted by menu
+    any_of:
+    - range: sequence submitted by menu
+    - range: null value menu
     required: true
     exact_mappings:
     - GISAID:Submitting lab
@@ -847,7 +873,7 @@ slots:
     examples:
     - value: RespLab@lab.ca
     slot_uri: GENEPIO:0001165
-    range: xs:token
+    range: WhitespaceMinimizedString
     exact_mappings:
     - NML_LIMS:sequence submitter contact email
   sequence submitter contact address:
@@ -859,7 +885,7 @@ slots:
     examples:
     - value: 123 Sunnybrooke St, Toronto, Ontario, M4P 1L6, Canada
     slot_uri: GENEPIO:0001167
-    range: xs:token
+    range: WhitespaceMinimizedString
     exact_mappings:
     - GISAID:Address
     - NML_LIMS:sequence submitter contact address
@@ -876,8 +902,11 @@ slots:
     examples:
     - value: '2020-03-16'
     slot_uri: GENEPIO:0001174
-    range: xs:date
+    any_of:
+    - range: date
+    - range: null value menu
     required: true
+    todos: <={today}
     exact_mappings:
     - GISAID:Collection date
     - CNPHI:Patient Sample Collected Date
@@ -895,7 +924,9 @@ slots:
     examples:
     - value: year
     slot_uri: GENEPIO:0001177
-    range: sample collection date precision menu
+    any_of:
+    - range: sample collection date precision menu
+    - range: null value menu
     required: true
     exact_mappings:
     - CNPHI:Precision of date collected
@@ -908,7 +939,9 @@ slots:
     examples:
     - value: '2020-03-20'
     slot_uri: GENEPIO:0001179
-    range: xs:date
+    any_of:
+    - range: date
+    - range: null value menu
     exact_mappings:
     - NML_LIMS:sample received date
   geo_loc_name (country):
@@ -919,7 +952,9 @@ slots:
     examples:
     - value: Canada
     slot_uri: GENEPIO:0001181
-    range: geo_loc_name (country) menu
+    any_of:
+    - range: geo_loc_name (country) menu
+    - range: null value menu
     required: true
     exact_mappings:
     - GISAID:Location
@@ -935,7 +970,9 @@ slots:
     examples:
     - value: Saskatchewan
     slot_uri: GENEPIO:0001185
-    range: geo_loc_name (state/province/territory) menu
+    any_of:
+    - range: geo_loc_name (state/province/territory) menu
+    - range: null value menu
     required: true
     exact_mappings:
     - CNPHI:Patient Province
@@ -951,7 +988,7 @@ slots:
     examples:
     - value: Medicine Hat
     slot_uri: GENEPIO:0001189
-    range: xs:token
+    range: WhitespaceMinimizedString
     exact_mappings:
     - CNPHI:Patient City
     - NML_LIMS:geo_loc_name (city)
@@ -964,7 +1001,9 @@ slots:
     examples:
     - value: Severe acute respiratory syndrome coronavirus 2
     slot_uri: GENEPIO:0001191
-    range: organism menu
+    any_of:
+    - range: organism menu
+    - range: null value menu
     required: true
     exact_mappings:
     - CNPHI:Pathogen
@@ -980,7 +1019,9 @@ slots:
     examples:
     - value: hCov-19/CANADA/BC-prov_rona_99/2020
     slot_uri: GENEPIO:0001195
-    range: xs:token
+    any_of:
+    - range: WhitespaceMinimizedString
+    - range: null value menu
     required: true
     exact_mappings:
     - GISAID:Virus name
@@ -1003,7 +1044,9 @@ slots:
     examples:
     - value: Diagnostic testing
     slot_uri: GENEPIO:0001198
-    range: purpose of sampling menu
+    any_of:
+    - range: purpose of sampling menu
+    - range: null value menu
     required: true
     exact_mappings:
     - CNPHI:Reason for Sampling
@@ -1023,7 +1066,9 @@ slots:
     - value: The sample was collected to investigate the prevalence of variants associated
         with mink-to-human transmission in Canada.
     slot_uri: GENEPIO:0001200
-    range: xs:token
+    any_of:
+    - range: WhitespaceMinimizedString
+    - range: null value menu
     required: true
     exact_mappings:
     - CNPHI:Details on the Reason for Sampling
@@ -1042,7 +1087,7 @@ slots:
     examples:
     - value: swab
     slot_uri: GENEPIO:0001204
-    range: selectNML submitted specimen type menu
+    range: NML submitted specimen type menu
     required: true
     exact_mappings:
     - CNPHI:Specimen Type
@@ -1075,7 +1120,9 @@ slots:
     examples:
     - value: Blood
     slot_uri: GENEPIO:0001211
-    range: anatomical material menu
+    any_of:
+    - range: anatomical material menu
+    - range: null value menu
     multivalued: true
     required: true
     exact_mappings:
@@ -1096,7 +1143,9 @@ slots:
     examples:
     - value: Nasopharynx (NP)
     slot_uri: GENEPIO:0001214
-    range: anatomical part menu
+    any_of:
+    - range: anatomical part menu
+    - range: null value menu
     multivalued: true
     required: true
     exact_mappings:
@@ -1118,7 +1167,9 @@ slots:
     examples:
     - value: Feces
     slot_uri: GENEPIO:0001216
-    range: body product menu menu
+    any_of:
+    - range: body product menu menu
+    - range: null value menu
     multivalued: true
     required: true
     exact_mappings:
@@ -1140,7 +1191,9 @@ slots:
     examples:
     - value: Face mask
     slot_uri: GENEPIO:0001223
-    range: environmental material menu
+    any_of:
+    - range: environmental material menu
+    - range: null value menu
     multivalued: true
     required: true
     exact_mappings:
@@ -1162,7 +1215,9 @@ slots:
     examples:
     - value: Production Facility
     slot_uri: GENEPIO:0001232
-    range: environmental site menu
+    any_of:
+    - range: environmental site menu
+    - range: null value menu
     multivalued: true
     required: true
     exact_mappings:
@@ -1183,7 +1238,9 @@ slots:
     examples:
     - value: Swab
     slot_uri: GENEPIO:0001234
-    range: collection device menu
+    any_of:
+    - range: collection device menu
+    - range: null value menu
     multivalued: true
     required: true
     exact_mappings:
@@ -1204,7 +1261,9 @@ slots:
     examples:
     - value: Bronchoalveolar lavage (BAL)
     slot_uri: GENEPIO:0001241
-    range: collection method menu
+    any_of:
+    - range: collection method menu
+    - range: null value menu
     multivalued: true
     required: true
     exact_mappings:
@@ -1222,7 +1281,7 @@ slots:
     examples:
     - value: BCRonaSamplingProtocol v. 1.2
     slot_uri: GENEPIO:0001243
-    range: xs:token
+    range: WhitespaceMinimizedString
     exact_mappings:
     - NML_LIMS:collection protocol
   specimen processing:
@@ -1237,7 +1296,9 @@ slots:
     examples:
     - value: Virus passage
     slot_uri: GENEPIO:0001253
-    range: specimen processing menu
+    any_of:
+    - range: specimen processing menu
+    - range: null value menu
     multivalued: true
     recommended: true
     exact_mappings:
@@ -1254,7 +1315,7 @@ slots:
     - value: 25 swabs were pooled and further prepared as a single sample during library
         prep.
     slot_uri: GENEPIO:0100311
-    range: xs:token
+    range: WhitespaceMinimizedString
   lab host:
     name: lab host
     title: lab host
@@ -1265,7 +1326,9 @@ slots:
     examples:
     - value: Vero E6 cell line
     slot_uri: GENEPIO:0001255
-    range: lab host menu
+    any_of:
+    - range: lab host menu
+    - range: null value menu
     recommended: true
     exact_mappings:
     - GISAID:Passage details/history
@@ -1279,8 +1342,11 @@ slots:
     examples:
     - value: '3'
     slot_uri: GENEPIO:0001261
-    range: xs:nonNegativeInteger
+    any_of:
+    - range: integer
+    - range: null value menu
     recommended: true
+    minimum_value: '0'
     exact_mappings:
     - GISAID:Passage details/history
     - NML_LIMS:passage number
@@ -1294,7 +1360,9 @@ slots:
     examples:
     - value: 0.25% trypsin + 0.02% EDTA
     slot_uri: GENEPIO:0001264
-    range: xs:token
+    any_of:
+    - range: WhitespaceMinimizedString
+    - range: null value menu
     recommended: true
     exact_mappings:
     - GISAID:Passage details/history
@@ -1308,7 +1376,9 @@ slots:
     examples:
     - value: RNA (total)
     slot_uri: GENEPIO:0001266
-    range: biomaterial extracted menu
+    any_of:
+    - range: biomaterial extracted menu
+    - range: null value menu
     exact_mappings:
     - NML_LIMS:biomaterial extracted
   host (common name):
@@ -1321,7 +1391,9 @@ slots:
     examples:
     - value: Human
     slot_uri: GENEPIO:0001386
-    range: host (common name) menu
+    any_of:
+    - range: host (common name) menu
+    - range: null value menu
     exact_mappings:
     - CNPHI:Animal Type
     - NML_LIMS:PH_ANIMAL_TYPE
@@ -1335,7 +1407,9 @@ slots:
     examples:
     - value: Homo sapiens
     slot_uri: GENEPIO:0001387
-    range: host (scientific name) menu
+    any_of:
+    - range: host (scientific name) menu
+    - range: null value menu
     required: true
     exact_mappings:
     - GISAID:Host
@@ -1350,7 +1424,9 @@ slots:
     examples:
     - value: Symptomatic
     slot_uri: GENEPIO:0001388
-    range: host health state menu
+    any_of:
+    - range: host health state menu
+    - range: null value menu
     exact_mappings:
     - GISAID:Patient status
     - CNPHI:Host Health State
@@ -1365,7 +1441,9 @@ slots:
     examples:
     - value: Hospitalized (ICU)
     slot_uri: GENEPIO:0001389
-    range: host health status details menu
+    any_of:
+    - range: host health status details menu
+    - range: null value menu
     exact_mappings:
     - CNPHI:Host Health State Details
     - NML_LIMS:PH_HOST_HEALTH_DETAILS
@@ -1377,7 +1455,9 @@ slots:
     examples:
     - value: Recovered
     slot_uri: GENEPIO:0001390
-    range: host health outcome menu
+    any_of:
+    - range: host health outcome menu
+    - range: null value menu
     exact_mappings:
     - NML_LIMS:PH_HOST_HEALTH_OUTCOME
     - BIOSAMPLE:host_disease_outcome
@@ -1389,7 +1469,9 @@ slots:
     examples:
     - value: COVID-19
     slot_uri: GENEPIO:0001391
-    range: host disease menu
+    any_of:
+    - range: host disease menu
+    - range: null value menu
     required: true
     exact_mappings:
     - CNPHI:Host Disease
@@ -1405,7 +1487,9 @@ slots:
     examples:
     - value: '79'
     slot_uri: GENEPIO:0001392
-    range: xs:decimal
+    any_of:
+    - range: decimal
+    - range: null value menu
     required: true
     minimum_value: '0'
     maximum_value: '130'
@@ -1424,7 +1508,9 @@ slots:
     examples:
     - value: years
     slot_uri: GENEPIO:0001393
-    range: host age unit menu
+    any_of:
+    - range: host age unit menu
+    - range: null value menu
     required: true
     exact_mappings:
     - CNPHI:Age Units
@@ -1439,7 +1525,9 @@ slots:
     examples:
     - value: 60 - 69
     slot_uri: GENEPIO:0001394
-    range: host age bin menu
+    any_of:
+    - range: host age bin menu
+    - range: null value menu
     required: true
     exact_mappings:
     - CNPHI:Host Age Category
@@ -1455,9 +1543,14 @@ slots:
     examples:
     - value: male
     slot_uri: GENEPIO:0001395
-    range: host gender menu
+    any_of:
+    - range: host gender menu
+    - range: null value menu
     required: true
-    string_serialization: '{Title Case}'
+    structured_pattern:
+      syntax: '{Title_Case}'
+      partial_match: false
+      interpolated: true
     exact_mappings:
     - GISAID:Gender
     - CNPHI:Patient Sex
@@ -1472,7 +1565,9 @@ slots:
     examples:
     - value: Canada
     slot_uri: GENEPIO:0001396
-    range: geo_loc_name (country) menu
+    any_of:
+    - range: geo_loc_name (country) menu
+    - range: null value menu
     exact_mappings:
     - NML_LIMS:PH_HOST_COUNTRY
   host residence geo_loc name (state/province/territory):
@@ -1483,7 +1578,9 @@ slots:
     examples:
     - value: Quebec
     slot_uri: GENEPIO:0001397
-    range: geo_loc_name (state/province/territory) menu
+    any_of:
+    - range: geo_loc_name (state/province/territory) menu
+    - range: null value menu
     exact_mappings:
     - NML_LIMS:PH_HOST_PROVINCE
   host subject ID:
@@ -1494,7 +1591,7 @@ slots:
     examples:
     - value: BCxy123
     slot_uri: GENEPIO:0001398
-    range: xs:token
+    range: WhitespaceMinimizedString
     exact_mappings:
     - NML_LIMS:host subject ID
     - BIOSAMPLE:host_subject_id
@@ -1506,7 +1603,9 @@ slots:
     examples:
     - value: '2020-03-16'
     slot_uri: GENEPIO:0001399
-    range: xs:date
+    any_of:
+    - range: date
+    - range: null value menu
     exact_mappings:
     - CNPHI:Symptoms Onset Date
     - NML_LIMS:HC_ONSET_DATE
@@ -1521,7 +1620,9 @@ slots:
     - value: ' Cough'
     - value: ' Fever'
     slot_uri: GENEPIO:0001400
-    range: signs and symptoms menu
+    any_of:
+    - range: signs and symptoms menu
+    - range: null value menu
     multivalued: true
     exact_mappings:
     - CNPHI:Symptoms
@@ -1541,7 +1642,9 @@ slots:
     - value: ' Pregnancy'
     - value: ' Smoking'
     slot_uri: GENEPIO:0001401
-    range: pre-existing conditions and risk factors menu
+    any_of:
+    - range: pre-existing conditions and risk factors menu
+    - range: null value menu
     multivalued: true
     exact_mappings:
     - NML_LIMS:pre-existing conditions and risk factors
@@ -1557,7 +1660,9 @@ slots:
     - value: ' Coma'
     - value: ' Septicemia'
     slot_uri: GENEPIO:0001402
-    range: complications menu
+    any_of:
+    - range: complications menu
+    - range: null value menu
     multivalued: true
     exact_mappings:
     - NML_LIMS:complications
@@ -1570,7 +1675,9 @@ slots:
     examples:
     - value: Fully Vaccinated
     slot_uri: GENEPIO:0001404
-    range: host vaccination status menu
+    any_of:
+    - range: host vaccination status menu
+    - range: null value menu
     exact_mappings:
     - NML_LIMS:PH_VACCINATION_HISTORY
   number of vaccine doses received:
@@ -1581,7 +1688,7 @@ slots:
     examples:
     - value: '2'
     slot_uri: GENEPIO:0001406
-    range: xs:nonNegativeInteger
+    range: integer
   vaccination dose 1 vaccine name:
     name: vaccination dose 1 vaccine name
     title: vaccination dose 1 vaccine name
@@ -1592,7 +1699,9 @@ slots:
     examples:
     - value: Pfizer-BioNTech (Comirnaty)
     slot_uri: GENEPIO:0100313
-    range: vaccine name menu
+    any_of:
+    - range: vaccine name menu
+    - range: null value menu
     exact_mappings:
     - NML_LIMS:PH_VACCINATION_HISTORY
   vaccination dose 1 vaccination date:
@@ -1604,7 +1713,9 @@ slots:
     examples:
     - value: '2021-03-01'
     slot_uri: GENEPIO:0100314
-    range: xs:date
+    any_of:
+    - range: date
+    - range: null value menu
     exact_mappings:
     - NML_LIMS:PH_VACCINATION_HISTORY
   vaccination dose 2 vaccine name:
@@ -1617,7 +1728,9 @@ slots:
     examples:
     - value: Pfizer-BioNTech (Comirnaty)
     slot_uri: GENEPIO:0100315
-    range: vaccine name menu
+    any_of:
+    - range: vaccine name menu
+    - range: null value menu
     exact_mappings:
     - NML_LIMS:PH_VACCINATION_HISTORY
   vaccination dose 2 vaccination date:
@@ -1629,7 +1742,9 @@ slots:
     examples:
     - value: '2021-09-01'
     slot_uri: GENEPIO:0100316
-    range: xs:date
+    any_of:
+    - range: date
+    - range: null value menu
     exact_mappings:
     - NML_LIMS:PH_VACCINATION_HISTORY
   vaccination dose 3 vaccine name:
@@ -1642,7 +1757,9 @@ slots:
     examples:
     - value: Pfizer-BioNTech (Comirnaty)
     slot_uri: GENEPIO:0100317
-    range: vaccine name menu
+    any_of:
+    - range: vaccine name menu
+    - range: null value menu
     exact_mappings:
     - NML_LIMS:PH_VACCINATION_HISTORY
   vaccination dose 3 vaccination date:
@@ -1654,7 +1771,9 @@ slots:
     examples:
     - value: '2021-12-30'
     slot_uri: GENEPIO:0100318
-    range: xs:date
+    any_of:
+    - range: date
+    - range: null value menu
     exact_mappings:
     - NML_LIMS:PH_VACCINATION_HISTORY
   vaccination dose 4 vaccine name:
@@ -1667,7 +1786,9 @@ slots:
     examples:
     - value: Pfizer-BioNTech (Comirnaty)
     slot_uri: GENEPIO:0100319
-    range: vaccine name menu
+    any_of:
+    - range: vaccine name menu
+    - range: null value menu
     exact_mappings:
     - NML_LIMS:PH_VACCINATION_HISTORY
   vaccination dose 4 vaccination date:
@@ -1679,7 +1800,9 @@ slots:
     examples:
     - value: '2022-01-15'
     slot_uri: GENEPIO:0100320
-    range: xs:date
+    any_of:
+    - range: date
+    - range: null value menu
     exact_mappings:
     - NML_LIMS:PH_VACCINATION_HISTORY
   vaccination history:
@@ -1696,7 +1819,7 @@ slots:
     - value: ' Pfizer-BioNTech (Comirnaty)'
     - value: ' 2022-01-15'
     slot_uri: GENEPIO:0100321
-    range: xs:token
+    range: WhitespaceMinimizedString
     exact_mappings:
     - NML_LIMS:PH_VACCINATION_HISTORY
   location of exposure geo_loc name (country):
@@ -1708,7 +1831,9 @@ slots:
     examples:
     - value: Canada
     slot_uri: GENEPIO:0001410
-    range: geo_loc_name (country) menu
+    any_of:
+    - range: geo_loc_name (country) menu
+    - range: null value menu
     exact_mappings:
     - NML_LIMS:PH_EXPOSURE_COUNTRY
   destination of most recent travel (city):
@@ -1720,7 +1845,7 @@ slots:
     examples:
     - value: New York City
     slot_uri: GENEPIO:0001411
-    range: xs:token
+    range: WhitespaceMinimizedString
     exact_mappings:
     - CNPHI:Country of Travel|Province of Travel|City of Travel|Travel start date|Travel
       End Date
@@ -1735,7 +1860,7 @@ slots:
     examples:
     - value: California
     slot_uri: GENEPIO:0001412
-    range: xs:token
+    range: WhitespaceMinimizedString
     exact_mappings:
     - CNPHI:Country of Travel|Province of Travel|City of Travel|Travel start date|Travel
       End Date
@@ -1749,7 +1874,9 @@ slots:
     examples:
     - value: United Kingdom
     slot_uri: GENEPIO:0001413
-    range: geo_loc_name (country) menu
+    any_of:
+    - range: geo_loc_name (country) menu
+    - range: null value menu
     exact_mappings:
     - CNPHI:Country of Travel|Province of Travel|City of Travel|Travel start date|Travel
       End Date
@@ -1763,7 +1890,9 @@ slots:
     examples:
     - value: '2020-03-16'
     slot_uri: GENEPIO:0001414
-    range: xs:date
+    any_of:
+    - range: date
+    - range: null value menu
     exact_mappings:
     - CNPHI:Country of Travel|Province of Travel|City of Travel|Travel start date|Travel
       End Date
@@ -1777,7 +1906,9 @@ slots:
     examples:
     - value: '2020-04-26'
     slot_uri: GENEPIO:0001415
-    range: xs:date
+    any_of:
+    - range: date
+    - range: null value menu
     exact_mappings:
     - CNPHI:Country of Travel|Province of Travel|City of Travel|Travel start date|Travel
       End Date
@@ -1789,7 +1920,9 @@ slots:
     comments: Select the point of entry type.
     examples:
     - value: Air
-    range: travel point of entry type menu
+    any_of:
+    - range: travel point of entry type menu
+    - range: null value menu
     recommended: true
     exact_mappings:
     - NML_LIMS:PH_POINT_OF_ENTRY
@@ -1801,7 +1934,9 @@ slots:
     comments: Select the test day.
     examples:
     - value: day 1
-    range: border testing test day type menu
+    any_of:
+    - range: border testing test day type menu
+    - range: null value menu
     recommended: true
     exact_mappings:
     - NML_LIMS:PH_DAY
@@ -1817,7 +1952,7 @@ slots:
     - value: ' USA, Seattle'
     - value: ' Italy, Milan'
     slot_uri: GENEPIO:0001416
-    range: xs:token
+    range: WhitespaceMinimizedString
     exact_mappings:
     - NML_LIMS:PH_TRAVEL
   exposure event:
@@ -1829,7 +1964,9 @@ slots:
     examples:
     - value: Convention
     slot_uri: GENEPIO:0001417
-    range: exposure event menu
+    any_of:
+    - range: exposure event menu
+    - range: null value menu
     exact_mappings:
     - GISAID:Additional location information
     - CNPHI:Exposure Event
@@ -1842,7 +1979,9 @@ slots:
     examples:
     - value: Direct
     slot_uri: GENEPIO:0001418
-    range: exposure contact level menu
+    any_of:
+    - range: exposure contact level menu
+    - range: null value menu
     exact_mappings:
     - NML_LIMS:exposure contact level
   host role:
@@ -1879,7 +2018,7 @@ slots:
     examples:
     - value: 'Host role - Other: Bus Driver'
     slot_uri: GENEPIO:0001431
-    range: xs:token
+    range: WhitespaceMinimizedString
     exact_mappings:
     - NML_LIMS:PH_EXPOSURE_DETAILS
   prior SARS-CoV-2 infection:
@@ -1891,7 +2030,9 @@ slots:
     examples:
     - value: 'Yes'
     slot_uri: GENEPIO:0001435
-    range: prior SARS-CoV-2 infection menu
+    any_of:
+    - range: prior SARS-CoV-2 infection menu
+    - range: null value menu
     exact_mappings:
     - NML_LIMS:prior SARS-CoV-2 infection
   prior SARS-CoV-2 infection isolate:
@@ -1903,7 +2044,7 @@ slots:
     examples:
     - value: SARS-CoV-2/human/USA/CA-CDPH-001/2020
     slot_uri: GENEPIO:0001436
-    range: xs:token
+    range: WhitespaceMinimizedString
     exact_mappings:
     - NML_LIMS:prior SARS-CoV-2 infection isolate
   prior SARS-CoV-2 infection date:
@@ -1915,7 +2056,7 @@ slots:
     examples:
     - value: '2021-01-23'
     slot_uri: GENEPIO:0001437
-    range: xs:date
+    range: date
     exact_mappings:
     - NML_LIMS:prior SARS-CoV-2 infection date
   prior SARS-CoV-2 antiviral treatment:
@@ -1927,7 +2068,9 @@ slots:
     examples:
     - value: No prior antiviral treatment
     slot_uri: GENEPIO:0001438
-    range: prior SARS-CoV-2 antiviral treatment menu
+    any_of:
+    - range: prior SARS-CoV-2 antiviral treatment menu
+    - range: null value menu
     exact_mappings:
     - NML_LIMS:prior SARS-CoV-2 antiviral treatment
   prior SARS-CoV-2 antiviral treatment agent:
@@ -1941,7 +2084,7 @@ slots:
     examples:
     - value: Remdesivir
     slot_uri: GENEPIO:0001439
-    range: xs:token
+    range: WhitespaceMinimizedString
     exact_mappings:
     - NML_LIMS:prior SARS-CoV-2 antiviral treatment agent
   prior SARS-CoV-2 antiviral treatment date:
@@ -1955,7 +2098,7 @@ slots:
     examples:
     - value: '2021-01-28'
     slot_uri: GENEPIO:0001440
-    range: xs:date
+    range: date
     exact_mappings:
     - NML_LIMS:prior SARS-CoV-2 antiviral treatment date
   purpose of sequencing:
@@ -1970,7 +2113,9 @@ slots:
     examples:
     - value: Baseline surveillance (random sampling)
     slot_uri: GENEPIO:0001445
-    range: purpose of sequencing menu
+    any_of:
+    - range: purpose of sequencing menu
+    - range: null value menu
     multivalued: true
     required: true
     exact_mappings:
@@ -1997,7 +2142,9 @@ slots:
     examples:
     - value: Screened for S gene target failure (S dropout)
     slot_uri: GENEPIO:0001446
-    range: xs:tokenxs:token
+    any_of:
+    - range: WhitespaceMinimizedString
+    - range: null value menu
     required: true
     exact_mappings:
     - CNPHI:Details on the Reason for Sequencing
@@ -2011,8 +2158,12 @@ slots:
     examples:
     - value: '2020-06-22'
     slot_uri: GENEPIO:0001447
-    range: xs:datexs:token
+    any_of:
+    - range: date
+    - range: null value menu
     required: true
+    todos:
+    - '>={sample collection date}'
     exact_mappings:
     - NML_LIMS:PH_SEQUENCING_DATE
   library ID:
@@ -2024,7 +2175,7 @@ slots:
     examples:
     - value: XYZ_123345
     slot_uri: GENEPIO:0001448
-    range: xs:token
+    range: WhitespaceMinimizedString
     recommended: true
     exact_mappings:
     - NML_LIMS:library ID
@@ -2036,7 +2187,7 @@ slots:
     examples:
     - value: 300bp
     slot_uri: GENEPIO:0001449
-    range: xs:token
+    range: WhitespaceMinimizedString
     exact_mappings:
     - NML_LIMS:amplicon size
   library preparation kit:
@@ -2048,7 +2199,7 @@ slots:
     examples:
     - value: Nextera XT
     slot_uri: GENEPIO:0001450
-    range: xs:token
+    range: WhitespaceMinimizedString
     exact_mappings:
     - NML_LIMS:PH_LIBRARY_PREP_KIT
   flow cell barcode:
@@ -2059,7 +2210,7 @@ slots:
     examples:
     - value: FAB06069
     slot_uri: GENEPIO:0001451
-    range: xs:token
+    range: WhitespaceMinimizedString
     exact_mappings:
     - NML_LIMS:flow cell barcode
   sequencing instrument:
@@ -2070,7 +2221,9 @@ slots:
     examples:
     - value: Oxford Nanopore MinION
     slot_uri: GENEPIO:0001452
-    range: sequencing instrument menu
+    any_of:
+    - range: sequencing instrument menu
+    - range: null value menu
     multivalued: true
     required: true
     exact_mappings:
@@ -2086,7 +2239,7 @@ slots:
     examples:
     - value: https://www.protocols.io/view/covid-19-artic-v3-illumina-library-construction-an-bibtkann
     slot_uri: GENEPIO:0001453
-    range: xs:token
+    range: WhitespaceMinimizedString
     recommended: true
     exact_mappings:
     - CNPHI:Sequencing Protocol Name
@@ -2106,7 +2259,7 @@ slots:
         kits, and sequence data was produced using Miseq Micro v2 (500 cycles) sequencing
         kits.
     slot_uri: GENEPIO:0001454
-    range: xs:token
+    range: WhitespaceMinimizedString
     exact_mappings:
     - NML_LIMS:PH_TESTING_PROTOCOL
     - VirusSeq_Portal:sequencing protocol
@@ -2118,7 +2271,7 @@ slots:
     examples:
     - value: AB456XYZ789
     slot_uri: GENEPIO:0001455
-    range: xs:token
+    range: WhitespaceMinimizedString
     exact_mappings:
     - NML_LIMS:sequencing kit number
   amplicon pcr primer scheme:
@@ -2131,7 +2284,7 @@ slots:
     examples:
     - value: https://github.com/joshquick/artic-ncov2019/blob/master/primer_schemes/nCoV-2019/V3/nCoV-2019.tsv
     slot_uri: GENEPIO:0001456
-    range: xs:token
+    range: WhitespaceMinimizedString
     exact_mappings:
     - NML_LIMS:amplicon pcr primer scheme
   raw sequence data processing method:
@@ -2144,7 +2297,7 @@ slots:
     examples:
     - value: Porechop 0.2.3
     slot_uri: GENEPIO:0001458
-    range: xs:token
+    range: WhitespaceMinimizedString
     required: true
     exact_mappings:
     - NML_LIMS:PH_RAW_SEQUENCE_METHOD
@@ -2158,7 +2311,7 @@ slots:
     examples:
     - value: Nanostripper
     slot_uri: GENEPIO:0001459
-    range: xs:token
+    range: WhitespaceMinimizedString
     required: true
     exact_mappings:
     - NML_LIMS:PH_DEHOSTING_METHOD
@@ -2171,7 +2324,7 @@ slots:
     examples:
     - value: ncov123assembly3
     slot_uri: GENEPIO:0001460
-    range: xs:token
+    range: WhitespaceMinimizedString
     exact_mappings:
     - NML_LIMS:consensus sequence name
   consensus sequence filename:
@@ -2183,7 +2336,7 @@ slots:
     examples:
     - value: ncov123assembly.fasta
     slot_uri: GENEPIO:0001461
-    range: xs:token
+    range: WhitespaceMinimizedString
     exact_mappings:
     - NML_LIMS:consensus sequence filename
   consensus sequence filepath:
@@ -2194,7 +2347,7 @@ slots:
     examples:
     - value: /User/Documents/RespLab/Data/ncov123assembly.fasta
     slot_uri: GENEPIO:0001462
-    range: xs:token
+    range: WhitespaceMinimizedString
     exact_mappings:
     - NML_LIMS:consensus sequence filepath
   consensus sequence software name:
@@ -2205,7 +2358,7 @@ slots:
     examples:
     - value: iVar
     slot_uri: GENEPIO:0001463
-    range: xs:token
+    range: WhitespaceMinimizedString
     required: true
     exact_mappings:
     - CNPHI:consensus sequence
@@ -2219,7 +2372,7 @@ slots:
     examples:
     - value: '1.3'
     slot_uri: GENEPIO:0001469
-    range: xs:token
+    range: WhitespaceMinimizedString
     required: true
     exact_mappings:
     - CNPHI:consensus sequence
@@ -2234,7 +2387,7 @@ slots:
     examples:
     - value: 95%
     slot_uri: GENEPIO:0001472
-    range: xs:token
+    range: WhitespaceMinimizedString
     exact_mappings:
     - NML_LIMS:breadth of coverage value
     - VirusSeq_Portal:breadth of coverage value
@@ -2247,7 +2400,7 @@ slots:
     examples:
     - value: 400x
     slot_uri: GENEPIO:0001474
-    range: xs:token
+    range: WhitespaceMinimizedString
     exact_mappings:
     - GISAID:Coverage
     - NML_LIMS:depth of coverage value
@@ -2260,7 +2413,7 @@ slots:
     examples:
     - value: 100x
     slot_uri: GENEPIO:0001475
-    range: xs:token
+    range: WhitespaceMinimizedString
     exact_mappings:
     - NML_LIMS:depth of coverage threshold
   r1 fastq filename:
@@ -2271,7 +2424,7 @@ slots:
     examples:
     - value: ABC123_S1_L001_R1_001.fastq.gz
     slot_uri: GENEPIO:0001476
-    range: xs:token
+    range: WhitespaceMinimizedString
     recommended: true
     exact_mappings:
     - NML_LIMS:r1 fastq filename
@@ -2283,7 +2436,7 @@ slots:
     examples:
     - value: ABC123_S1_L001_R2_001.fastq.gz
     slot_uri: GENEPIO:0001477
-    range: xs:token
+    range: WhitespaceMinimizedString
     recommended: true
     exact_mappings:
     - NML_LIMS:r2 fastq filename
@@ -2296,7 +2449,7 @@ slots:
     examples:
     - value: /User/Documents/RespLab/Data/ABC123_S1_L001_R1_001.fastq.gz
     slot_uri: GENEPIO:0001478
-    range: xs:token
+    range: WhitespaceMinimizedString
     exact_mappings:
     - NML_LIMS:r1 fastq filepath
   r2 fastq filepath:
@@ -2308,7 +2461,7 @@ slots:
     examples:
     - value: /User/Documents/RespLab/Data/ABC123_S1_L001_R2_001.fastq.gz
     slot_uri: GENEPIO:0001479
-    range: xs:token
+    range: WhitespaceMinimizedString
     exact_mappings:
     - NML_LIMS:r2 fastq filepath
   fast5 filename:
@@ -2319,7 +2472,7 @@ slots:
     examples:
     - value: rona123assembly.fast5
     slot_uri: GENEPIO:0001480
-    range: xs:token
+    range: WhitespaceMinimizedString
     exact_mappings:
     - NML_LIMS:fast5 filename
   fast5 filepath:
@@ -2331,7 +2484,7 @@ slots:
     examples:
     - value: /User/Documents/RespLab/Data/rona123assembly.fast5
     slot_uri: GENEPIO:0001481
-    range: xs:token
+    range: WhitespaceMinimizedString
     exact_mappings:
     - NML_LIMS:fast5 filepath
   number of base pairs sequenced:
@@ -2342,7 +2495,8 @@ slots:
     examples:
     - value: '387566'
     slot_uri: GENEPIO:0001482
-    range: xs:nonNegativeInteger
+    range: integer
+    minimum_value: '0'
     exact_mappings:
     - NML_LIMS:number of base pairs sequenced
   consensus genome length:
@@ -2354,7 +2508,8 @@ slots:
     examples:
     - value: '38677'
     slot_uri: GENEPIO:0001483
-    range: xs:nonNegativeInteger
+    range: integer
+    minimum_value: '0'
     exact_mappings:
     - NML_LIMS:consensus genome length
   Ns per 100 kbp:
@@ -2366,7 +2521,7 @@ slots:
     examples:
     - value: '330'
     slot_uri: GENEPIO:0001484
-    range: xs:decimal
+    range: decimal
     minimum_value: '0'
     exact_mappings:
     - NML_LIMS:Ns per 100 kbp
@@ -2378,7 +2533,7 @@ slots:
     examples:
     - value: NC_045512.2
     slot_uri: GENEPIO:0001485
-    range: xs:token
+    range: WhitespaceMinimizedString
     exact_mappings:
     - NML_LIMS:reference genome accession
     - VirusSeq_Portal:reference genome accession
@@ -2393,7 +2548,7 @@ slots:
     examples:
     - value: https://github.com/phac-nml/ncov2019-artic-nf
     slot_uri: GENEPIO:0001489
-    range: xs:token
+    range: WhitespaceMinimizedString
     required: true
     exact_mappings:
     - CNPHI:Bioinformatics Protocol
@@ -2407,7 +2562,7 @@ slots:
     examples:
     - value: B.1.1.7
     slot_uri: GENEPIO:0001500
-    range: xs:token
+    range: WhitespaceMinimizedString
     exact_mappings:
     - NML_LIMS:PH_LINEAGE_CLADE_NAME
   lineage/clade analysis software name:
@@ -2418,7 +2573,7 @@ slots:
     examples:
     - value: Pangolin
     slot_uri: GENEPIO:0001501
-    range: xs:token
+    range: WhitespaceMinimizedString
     exact_mappings:
     - NML_LIMS:PH_LINEAGE_CLADE_SOFTWARE
   lineage/clade analysis software version:
@@ -2429,7 +2584,7 @@ slots:
     examples:
     - value: 2.1.10
     slot_uri: GENEPIO:0001502
-    range: xs:token
+    range: WhitespaceMinimizedString
     exact_mappings:
     - NML_LIMS:PH_LINEAGE_CLADE_VERSION
   variant designation:
@@ -2445,7 +2600,9 @@ slots:
     examples:
     - value: Variant of Concern
     slot_uri: GENEPIO:0001503
-    range: variant designation menu
+    any_of:
+    - range: variant designation menu
+    - range: null value menu
     exact_mappings:
     - NML_LIMS:PH_VARIANT_DESIGNATION
   variant evidence:
@@ -2457,7 +2614,9 @@ slots:
     examples:
     - value: RT-qPCR
     slot_uri: GENEPIO:0001504
-    range: variant evidence menu
+    any_of:
+    - range: variant evidence menu
+    - range: null value menu
     exact_mappings:
     - NML_LIMS:PH_VARIANT_EVIDENCE
   variant evidence details:
@@ -2471,7 +2630,7 @@ slots:
     - value: 'Lineage-defining mutations: ORF1ab (K1655N), Spike (K417N, E484K, N501Y,
         D614G, A701V), N (T205I), E (P71L).'
     slot_uri: GENEPIO:0001505
-    range: xs:token
+    range: WhitespaceMinimizedString
     exact_mappings:
     - NML_LIMS:PH_VARIANT_EVIDENCE_DETAILS
   gene name 1:
@@ -2484,7 +2643,9 @@ slots:
     examples:
     - value: E gene (orf4)
     slot_uri: GENEPIO:0001507
-    range: gene name menu
+    any_of:
+    - range: gene name menu
+    - range: null value menu
     exact_mappings:
     - CNPHI:Gene Target 1
     - 'NML_LIMS:SUBMITTED_RESLT - Gene Target #1'
@@ -2501,7 +2662,7 @@ slots:
     examples:
     - value: EGenePCRTest 2
     slot_uri: GENEPIO:0001508
-    range: xs:token
+    range: WhitespaceMinimizedString
   diagnostic pcr Ct value 1:
     name: diagnostic pcr Ct value 1
     title: diagnostic pcr Ct value 1
@@ -2510,7 +2671,9 @@ slots:
     examples:
     - value: '21'
     slot_uri: GENEPIO:0001509
-    range: xs:decimal
+    any_of:
+    - range: decimal
+    - range: null value menu
     exact_mappings:
     - CNPHI:Gene Target 1 CT Value
     - 'NML_LIMS:SUBMITTED_RESLT - Gene Target #1 CT Value'
@@ -2526,7 +2689,9 @@ slots:
     examples:
     - value: RdRp gene (nsp12)
     slot_uri: GENEPIO:0001510
-    range: gene name menu
+    any_of:
+    - range: gene name menu
+    - range: null value menu
     exact_mappings:
     - CNPHI:Gene Target 2
     - 'NML_LIMS:SUBMITTED_RESLT - Gene Target #2'
@@ -2542,7 +2707,7 @@ slots:
     examples:
     - value: RdRpGenePCRTest 3
     slot_uri: GENEPIO:0001511
-    range: xs:token
+    range: WhitespaceMinimizedString
   diagnostic pcr Ct value 2:
     name: diagnostic pcr Ct value 2
     title: diagnostic pcr Ct value 2
@@ -2552,7 +2717,9 @@ slots:
     examples:
     - value: '36'
     slot_uri: GENEPIO:0001512
-    range: xs:decimal
+    any_of:
+    - range: decimal
+    - range: null value menu
     exact_mappings:
     - CNPHI:Gene Target 2 CT Value
     - 'NML_LIMS:SUBMITTED_RESLT - Gene Target #2 CT Value'
@@ -2567,7 +2734,9 @@ slots:
     examples:
     - value: RdRp gene (nsp12)
     slot_uri: GENEPIO:0001513
-    range: gene name menu
+    any_of:
+    - range: gene name menu
+    - range: null value menu
     exact_mappings:
     - CNPHI:Gene Target 3
     - 'NML_LIMS:SUBMITTED_RESLT - Gene Target #3'
@@ -2582,7 +2751,7 @@ slots:
     examples:
     - value: RdRpGenePCRTest 3
     slot_uri: GENEPIO:0001514
-    range: xs:token
+    range: WhitespaceMinimizedString
   diagnostic pcr Ct value 3:
     name: diagnostic pcr Ct value 3
     title: diagnostic pcr Ct value 3
@@ -2592,7 +2761,9 @@ slots:
     examples:
     - value: '30'
     slot_uri: GENEPIO:0001515
-    range: xs:decimal
+    any_of:
+    - range: decimal
+    - range: null value menu
     exact_mappings:
     - CNPHI:Gene Target 3 CT Value
     - 'NML_LIMS:SUBMITTED_RESLT - Gene Target #3 CT Value'
@@ -2606,7 +2777,7 @@ slots:
     examples:
     - value: Tejinder Singh, Fei Hu, Joe Blogs
     slot_uri: GENEPIO:0001517
-    range: xs:token
+    range: WhitespaceMinimizedString
     recommended: true
     exact_mappings:
     - GISAID:Authors
@@ -6451,8 +6622,16 @@ enums:
       Zimbabwe:
         text: Zimbabwe
         meaning: GAZ:00001106
-types: {}
+types:
+  WhiteSpaceMinimizedString:
+    name: WhiteSpaceMinimizedString
+    typeof: string
+    description: 'A string that has all whitespace trimmed off of beginning and end,
+      and all internal whitespace segments reduced to single spaces. Whitespace includes
+      #x9 (tab), #xA (linefeed), and #xD (carriage return).'
+    base: str
+    uri: xsd:token
 settings:
-  lower_case: ^[a-z\W\d_]*$
-  UPPER_CASE: ^[A-Z\W\d_]*$
-  Title_Case: ^(((?<=\b)[^a-z\W]\w*?|[\W])+)$
+  Title_Case: (((?<=\b)[^a-z\W]\w*?|[\W])+)
+  UPPER_CASE: '[A-Z\W\d_]*'
+  lower_case: '[a-z\W\d_]*'

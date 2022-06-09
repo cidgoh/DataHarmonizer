@@ -1,0 +1,302 @@
+id: https://example.com/GISAID
+name: GISAID
+description: ''
+imports:
+- linkml:types
+prefixes:
+  linkml: https://w3id.org/linkml/
+classes:
+  dh_interface:
+    name: dh_interface
+    description: A DataHarmonizer interface
+    from_schema: https://example.com/GISAID
+  GISAID:
+    name: GISAID
+    description: Specification for GISAID virus biosample data gathering
+    is_a: dh_interface
+    slots:
+    - Submitter
+    - FASTA filename
+    - Virus name
+    - Type
+    - Passage details/history
+    - Collection date
+    - Location
+    - Additional location information
+    - Host
+    - Additional host information
+    - Sampling Strategy
+    - Gender
+    - Patient age
+    - Patient status
+    - Specimen source
+    - Outbreak
+    - Last vaccinated
+    - Treatment
+    - Sequencing technology
+    - Assembly method
+    - Coverage
+    - Originating lab
+    - Address
+    - Sample ID given by the sample provider
+    - Submitting lab
+    - Address
+    - Sample ID given by the submitting laboratory
+    - Authors
+    slot_usage:
+      Submitter:
+        rank: 1
+        slot_group: GISAID Submission Form
+      FASTA filename:
+        rank: 2
+        slot_group: GISAID Submission Form
+      Virus name:
+        rank: 3
+        slot_group: GISAID Submission Form
+      Type:
+        rank: 4
+        slot_group: GISAID Submission Form
+      Passage details/history:
+        rank: 5
+        slot_group: GISAID Submission Form
+      Collection date:
+        rank: 6
+        slot_group: GISAID Submission Form
+      Location:
+        rank: 7
+        slot_group: GISAID Submission Form
+      Additional location information:
+        rank: 8
+        slot_group: GISAID Submission Form
+      Host:
+        rank: 9
+        slot_group: GISAID Submission Form
+      Additional host information:
+        rank: 10
+        slot_group: GISAID Submission Form
+      Sampling Strategy:
+        rank: 11
+        slot_group: GISAID Submission Form
+      Gender:
+        rank: 12
+        slot_group: GISAID Submission Form
+      Patient age:
+        rank: 13
+        slot_group: GISAID Submission Form
+      Patient status:
+        rank: 14
+        slot_group: GISAID Submission Form
+      Specimen source:
+        rank: 15
+        slot_group: GISAID Submission Form
+      Outbreak:
+        rank: 16
+        slot_group: GISAID Submission Form
+      Last vaccinated:
+        rank: 17
+        slot_group: GISAID Submission Form
+      Treatment:
+        rank: 18
+        slot_group: GISAID Submission Form
+      Sequencing technology:
+        rank: 19
+        slot_group: GISAID Submission Form
+      Assembly method:
+        rank: 20
+        slot_group: GISAID Submission Form
+      Coverage:
+        rank: 21
+        slot_group: GISAID Submission Form
+      Originating lab:
+        rank: 22
+        slot_group: GISAID Submission Form
+      Address:
+        rank: 26
+        slot_group: GISAID Submission Form
+      Sample ID given by the sample provider:
+        rank: 24
+        slot_group: GISAID Submission Form
+      Submitting lab:
+        rank: 25
+        slot_group: GISAID Submission Form
+      Sample ID given by the submitting laboratory:
+        rank: 27
+        slot_group: GISAID Submission Form
+      Authors:
+        rank: 28
+        slot_group: GISAID Submission Form
+slots:
+  Submitter:
+    name: Submitter
+    title: Submitter
+    description: enter your GISAID-Username
+    range: WhitespaceMinimizedString
+    required: true
+  FASTA filename:
+    name: FASTA filename
+    title: FASTA filename
+    description: the filename that contains the sequence without path (e.g. all_sequences.fasta
+      not c:\users\meier\docs\all_sequences.fasta)
+    range: WhitespaceMinimizedString
+    required: true
+  Virus name:
+    name: Virus name
+    title: Virus name
+    description: e.g. hCoV-19/Netherlands/Gelderland-01/2020 (Must be FASTA-Header
+      from the FASTA file all_sequences.fasta)
+    range: WhitespaceMinimizedString
+    required: true
+  Type:
+    name: Type
+    title: Type
+    description: default must remain "betacoronavirus"
+    range: Type menu
+    required: true
+  Passage details/history:
+    name: Passage details/history
+    title: Passage details/history
+    description: e.g. Original, Vero
+    range: WhitespaceMinimizedString
+    required: true
+  Collection date:
+    name: Collection date
+    title: Collection date
+    description: Date in the format YYYY or YYYY-MM or YYYY-MM-DD
+    range: WhitespaceMinimizedString
+    required: true
+  Location:
+    name: Location
+    title: Location
+    description: e.g. Europe / Germany / Bavaria / Munich
+    range: WhitespaceMinimizedString
+    required: true
+  Additional location information:
+    name: Additional location information
+    title: Additional location information
+    description: e.g. Cruise Ship, Convention, Live animal market
+    range: WhitespaceMinimizedString
+  Host:
+    name: Host
+    title: Host
+    description: e.g. Human, Environment, Canine, Manis javanica, Rhinolophus affinis,
+      etc
+    range: WhitespaceMinimizedString
+    required: true
+  Additional host information:
+    name: Additional host information
+    title: Additional host information
+    description: "e.g. Patient infected while traveling in \u2026."
+    range: WhitespaceMinimizedString
+  Sampling Strategy:
+    name: Sampling Strategy
+    title: Sampling Strategy
+    description: e.g. Sentinel surveillance (ILI), Sentinel surveillance (ARI), Sentinel
+      surveillance (SARI), Non-sentinel-surveillance (hospital), Non-sentinel-surveillance
+      (GP network), Longitudinal sampling on same patient(s), S gene dropout
+    range: WhitespaceMinimizedString
+  Gender:
+    name: Gender
+    title: Gender
+    description: Male, Female, or unknown
+    range: WhitespaceMinimizedString
+    required: true
+  Patient age:
+    name: Patient age
+    title: Patient age
+    description: e.g.  65 or 7 months, or unknown
+    range: WhitespaceMinimizedString
+    required: true
+  Patient status:
+    name: Patient status
+    title: Patient status
+    description: e.g.  Hospitalized, Released, Live, Deceased, or unknown
+    range: WhitespaceMinimizedString
+    required: true
+  Specimen source:
+    name: Specimen source
+    title: Specimen source
+    description: e.g. Sputum, Alveolar lavage fluid, Oro-pharyngeal swab, Blood, Tracheal
+      swab, Urine, Stool, Cloakal swab, Organ, Feces, Other
+    range: WhitespaceMinimizedString
+  Outbreak:
+    name: Outbreak
+    title: Outbreak
+    description: Date, Location e.g. type of gathering, Family cluster, etc.
+    range: WhitespaceMinimizedString
+  Last vaccinated:
+    name: Last vaccinated
+    title: Last vaccinated
+    description: provide details if applicable
+    range: WhitespaceMinimizedString
+  Treatment:
+    name: Treatment
+    title: Treatment
+    description: Include drug name, dosage
+    range: WhitespaceMinimizedString
+  Sequencing technology:
+    name: Sequencing technology
+    title: Sequencing technology
+    description: e.g.  Illumina Miseq, Sanger, Nanopore MinION, Ion Torrent, etc.
+    range: WhitespaceMinimizedString
+    required: true
+  Assembly method:
+    name: Assembly method
+    title: Assembly method
+    description: e.g. CLC Genomics Workbench 12, Geneious 10.2.4, SPAdes/MEGAHIT v1.2.9,
+      UGENE v. 33, etc.
+    range: WhitespaceMinimizedString
+  Coverage:
+    name: Coverage
+    title: Coverage
+    description: e.g. 70x, 1,000x, 10,000x (average)
+    range: WhitespaceMinimizedString
+  Originating lab:
+    name: Originating lab
+    title: Originating lab
+    description: Where the clinical specimen or virus isolate was first obtained
+    range: WhitespaceMinimizedString
+    required: true
+  Address:
+    name: Address
+    title: Address
+    range: WhitespaceMinimizedString
+    required: true
+  Sample ID given by the sample provider:
+    name: Sample ID given by the sample provider
+    title: Sample ID given by the sample provider
+    range: WhitespaceMinimizedString
+  Submitting lab:
+    name: Submitting lab
+    title: Submitting lab
+    description: Where sequence data have been generated and submitted to GISAID
+    range: WhitespaceMinimizedString
+    required: true
+  Sample ID given by the submitting laboratory:
+    name: Sample ID given by the submitting laboratory
+    title: Sample ID given by the submitting laboratory
+    range: WhitespaceMinimizedString
+  Authors:
+    name: Authors
+    title: Authors
+    description: a comma separated list of Authors with complete First followed by
+      Last Name
+    range: WhitespaceMinimizedString
+enums:
+  Type menu:
+    name: Type menu
+    permissible_values:
+      betacoronavirus:
+        text: betacoronavirus
+types:
+  WhiteSpaceMinimizedString:
+    name: WhiteSpaceMinimizedString
+    typeof: string
+    description: 'A string that has all whitespace trimmed off of beginning and end,
+      and all internal whitespace segments reduced to single spaces. Whitespace includes
+      #x9 (tab), #xA (linefeed), and #xD (carriage return).'
+    base: str
+    uri: xsd:token
+settings:
+  Title_Case: (((?<=\b)[^a-z\W]\w*?|[\W])+)
+  UPPER_CASE: '[A-Z\W\d_]*'
+  lower_case: '[a-z\W\d_]*'
