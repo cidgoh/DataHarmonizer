@@ -105,18 +105,30 @@ with open(r_schema_slots) as tsvfile:
 			if row.get('recommended', '') == 'TRUE':
 				slot['recommended'] = True;
 
-			# NEED TO FIX TO ACCEPT Dates, and "{today}"
+			# NEED TO FIX TO ACCEPT Dates, and "{today}". Currently have to stuff
+			# comparison in via todos array of things to work on.
 			if row.get('minimum_value','') > '':
 				if row['minimum_value'].isnumeric():
 					slot['minimum_value'] = row['minimum_value'];
+				else:
+					slot['todos'] = ['>=' + row['minimum_value']];
 			if row.get('maximum_value','') > '':
 				if row['maximum_value'].isnumeric():
 					slot['maximum_value'] = row['maximum_value'];
+				else:
+					if row.get('todos','') > '':
+						slot['todos'].append('<=' + row['maximum_value']);
+					else:
+						slot['todos'] = '<=' + row['maximum_value'];
 
 			if row.get('pattern','') > '':
 				slot['pattern'] = row['pattern'];				
 			if row.get('structured_pattern','') > '':
-				slot['structured_pattern'] = row.get('structured_pattern')
+				slot['structured_pattern'] = {
+					'syntax': row.get('structured_pattern'),
+					'partial_match': False,
+					'interpolated': True
+				}
 
 			if len(EXPORT_FORMAT) > 0:
 				mappings = []

@@ -11,6 +11,8 @@ Object.assign(DataHarmonizer, {
 	getInvalidCells: function () {
 		const invalidCells = {};
 		const fields = this.getFields();
+ 		const columnIndex = this.getFieldYCoordinates();
+ 		let TODAY = new Date();
 
 		const regexDecimal = /^(-|\+|)(0|[1-9]\d*)(\.\d+)?$/;
 		let uniquefield = []; // holds lookup dictionary for any unique columns
@@ -95,8 +97,9 @@ Object.assign(DataHarmonizer, {
 
 							// moment is a date format addon
 							valid = moment(cellVal, 'YYYY-MM-DD', true).isValid();
+
 							if (valid) {
-								valid = this.testDateRange(cellVal, field);
+              					valid = this.testDateRange(cellVal, field, columnIndex, row, TODAY);
 							}
 							break;
 
@@ -154,7 +157,7 @@ Object.assign(DataHarmonizer, {
 							// "null value menu" then ignore validation on free-text stuff.
 							if (!valid && field.datatype === 'xsd:token' && field.sources.length == 1 && field.sources[0] === 'null value menu')
 								valid = true;
-							console.log(field.sources, field.datatype, valid, update, datatype)
+							//console.log(field.sources, field.datatype, valid, update, datatype)
 						}
 
 				} // End of field-not empty section
@@ -257,19 +260,59 @@ Object.assign(DataHarmonizer, {
 	* @param {Object} field that contains min and max limits.
 	* @return {Boolean} validity of field.
 	*/
-	testDateRange: function (aDate, field) {
+	testDateRange: function (aDate, field, columnIndex, row, TODAY) {
+	  const self = this;
+	  var jsDate = new Date(aDate);
 
-		if (field.minimum_value !== '') {
-			if (aDate < field.minimum_value) {
-				return false
-			}
-		}
-		if (field.maximum_value !== '') {
-			if (aDate > field.maximum_value) 
-				return false
-		}
-		return true
+	  const comparison = [field.minimum_value, field.maximum_value];
+
+	  for (ptr in comparison) {
+	    let c_items = comparison[ptr];
+	    if (c_items) {
+		    // Delimited list allows for test against date AND other fields.
+		    for (let c_item of c_items.split(";")) {
+		      if (c_item !== '') {
+
+		        // Signals lookup expressions:
+		        if (c_item[0] === '{' ) {
+		          if (c_item === '{today}') {
+		            if (self.itemCompare(jsDate, TODAY, ptr)) return false;
+		          }
+		          else {
+		            let field = c_item.substr(1,c_item.length-2);
+		            let col = columnIndex[field];
+		            let lookup_item = self.hot.getDataAtCell(row, col);
+		            if (lookup_item !== '')
+		              if (self.itemCompare(jsDate, new Date(lookup_item), ptr)) return false;
+		          }
+		        }
+		        else {
+		          // Assumes this is just a constant date string.
+		          if (self.itemCompare(jsDate, new Date(c_item), ptr)) return false;
+		        }
+		      }
+		    }
+	    }
+	  }
+
+	  return true
 	},
+
+	/**
+	 * Simplifies logic to compare number or date ranges where test limit
+	 * is either min_inclusive or max_inclusive
+	 * @param {Date or Number} item_1 First value to compare
+	 * @param {Date or Number} item_2 Second value to compare
+	 * @param {Boolean} gt Type of comparison: 0 = > , 1 = <
+	 * @return {Boolean} Result of comparison
+	 */
+	itemCompare: function (item_1, item_2, gt) {
+	  if (gt == 1) 
+	    return item_1 > item_2;
+	  return item_1 < item_2;
+
+	},
+
 
 	/**
 	* Validate a value against an array of source values.
