@@ -1369,7 +1369,8 @@ let DataHarmonizer = {
 		let slot_dict = this.getCommentDict(field);
 
 		let ret = `<p><strong>Label</strong>: ${field.title}</p>`;
-
+		ret += `<p><strong>Name</strong>: ${field.name}</p>`;
+		
 		if (field.description) {
 			ret += `<p><strong>Description</strong>: ${field.description}</p>`;
 		}
