@@ -437,7 +437,7 @@ let DataHarmonizer = {
 					<td>${slot_dict.description}</td>
 					<td>${slot_dict.guidance}</td>
 					<td><ul>${slot_dict.examples}</ul></td>
-					<td>${slot_dict.dataStatus || ''}</td>
+					<td>${slot_dict.sources || ''}</td>
 				</tr>
 				`
 			}
@@ -465,7 +465,7 @@ let DataHarmonizer = {
 					<th class="description">Description</th>
 					<th class="guidance">Guidance</th>
 					<th class="example">Examples</th>
-					<th class="data_status">Data Status</th>
+					<th class="data_status">Menus</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -1381,19 +1381,22 @@ let DataHarmonizer = {
 		if (slot_dict.examples) {
 			ret += `<p><strong>Examples</strong>: </p>${slot_dict.examples}`;
 		}
-		if (slot_dict.metadata_status) {
-			ret += `<p><strong>Null values</strong>: ${slot_dict.metadata_status}</p>`;
+		if (slot_dict.sources) {
+			ret += `<p><strong>Menus</strong>: ${slot_dict.sources}</p>`;
 		}
 		return ret;
 	},
 
 	getCommentDict: function (field) {
+		let self = this;
+
 		let guide = {
 			title: field.title,
+			name: field.name,
 			description: field.description || '',
 			guidance: '',
 			examples: '',
-			metadata_status: field.metadata_status || ''
+			sources: ''
 		}
 
 		let guidance = [];
@@ -1418,6 +1421,25 @@ let DataHarmonizer = {
 				paragraph += `less than or equal to ${field.maximum_value}.`
 			}
 			guidance.push(paragraph);
+		}
+		if (field.identifier) {
+			guidance.push('Each record must have a unique value for this field.');
+		}
+		if (field.sources && field.sources.length) {
+			let sources = [];
+			for (const [key, item] of Object.entries(field.sources)) {
+				// List null value menu items directly
+				if (item === 'null value menu') {
+					let null_values = Object.keys(self.schema.enums[item].permissible_values);
+					sources.push(item + ': (' + null_values.join('; ') + ')' );
+				}
+				else
+					sources.push(item);
+			}
+			guide.sources = '<ul><li>' + sources.join('</li>\n<li>') + '</li></ul>'
+		}
+		if (field.multivalued) {
+			guidance.push('More than one selection is allowed.');
 		}
 
 		guide.guidance = guidance
