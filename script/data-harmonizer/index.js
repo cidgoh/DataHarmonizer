@@ -1383,7 +1383,7 @@ let DataHarmonizer = {
 			ret += `<p><strong>Examples</strong>: </p>${slot_dict.examples}`;
 		}
 		if (slot_dict.sources) {
-			ret += `<p><strong>Menus</strong>: ${slot_dict.sources}</p>`;
+			ret += `<p><strong>Menus</strong>: </p>${slot_dict.sources}`;
 		}
 		return ret;
 	},
