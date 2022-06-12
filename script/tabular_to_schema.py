@@ -31,9 +31,9 @@ EXPORT_FORMAT = [];
 with open(r_schema_slots) as tsvfile:
 	reader = csv.DictReader(tsvfile, dialect='excel-tab');
 
-    # Row has keys: specification slot_uri	is_a	title	range	range_2	identifier	
+    # Row has keys: class_name slot_group slot_uri	title	name range range_2 identifier	
     # multivalued	required	recommended	minimum_value	maximum_value	
-    # capitalize	pattern	description	comments	examples	...
+    # pattern	structured_pattern description	comments	examples	...
 
 	firstrow = True;
 	rank = 1;
@@ -42,12 +42,15 @@ with open(r_schema_slots) as tsvfile:
 
 		# Cleanup of cell contents.
 		for field in row:
-			row[field] = row[field].strip();
+			if field != None:
+				row[field] = row[field].strip();
+
 
 		if row.get('class_name','') > '':
 			schema_class = SCHEMA['classes'][row.get('class_name')];
 			schema_class['slots'] = []
 			schema_class['slot_usage'] = {}
+
 
 		# Get list of slot (field) export mappings. Each has "EXPORT_" 
 		# prefixed into it.
@@ -59,7 +62,6 @@ with open(r_schema_slots) as tsvfile:
 
 		# All slots have a range
 		if row.get('range','') > '':
-
 			label = row.get('name',False) or row.get('title','[UNNAMED!!!]')
 
 			print ("processing SLOT:", label)
@@ -79,8 +81,21 @@ with open(r_schema_slots) as tsvfile:
 				slot['description'] = row['description'];
 			if row.get('comments','') >'':
 				slot['comments'] = row['comments'];
+
 			if row.get('examples','') > '':
-				slot['examples'] = [{'value': v} for v in row['examples'].split(';')];
+				examples = [];
+				for v in row['examples'].split(';'):
+					# A special trigger to create description is ":  " (2 spaces following)
+					ptr = v.find(':  ');
+					if ptr == -1:
+						examples.append({'value': v.strip() });
+					else:
+						# Capturing description field as [description]:[value]
+						description = v[0:ptr].strip();
+						value = v[ptr+1:].strip();
+						examples.append({'description': description, 'value': value})
+
+				slot['examples'] = examples;
 
 			if row.get('slot_uri','') > '':
 				slot['slot_uri'] = row['slot_uri'];
@@ -178,7 +193,8 @@ with open(r_schema_enums) as tsvfile:
 	for row in reader:
 
 		for field in row:
-			row[field] = row[field].strip();
+			if field != None:
+				row[field] = row[field].strip();
 
 		if row.get('title','') > '':
 			title = row.get('title');

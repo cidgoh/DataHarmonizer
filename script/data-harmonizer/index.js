@@ -1370,7 +1370,7 @@ let DataHarmonizer = {
 
 		let ret = `<p><strong>Label</strong>: ${field.title}</p>`;
 		ret += `<p><strong>Name</strong>: ${field.name}</p>`;
-		
+
 		if (field.description) {
 			ret += `<p><strong>Description</strong>: ${field.description}</p>`;
 		}
@@ -1451,13 +1451,24 @@ let DataHarmonizer = {
 
 		if (field.examples && field.examples.length) {
 			let examples = []
-			// Only including example.value now (which can be empty):
+			first_item = true;
 			for (const [key, item] of Object.entries(field.examples)) {
-				if (item.value.trim().length > 0) {
-					examples.push(item.value);
+				if (item.description && item.description.length > 0)
+					if (first_item === true) {
+						examples.push(item.description + ':\n<ul>');
+						first_item = false;
+					}
+					else
+						examples += '</ul>' + item.description + ':\n<ul>';	
+
+				if (first_item === true) {
+					first_item = false;
+					examples += '<ul><li>' + item.value + '</li>\n';
 				}
+				else
+					examples += '<li>' + item.value + '</li>\n';
 			}
-			guide.examples = '<ul><li>' + examples.join('</li>\n<li>') + '</li></ul>'
+			guide.examples = examples + '</ul>'
 		}
 
 	  return guide;
