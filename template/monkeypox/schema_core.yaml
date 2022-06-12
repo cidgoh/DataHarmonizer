@@ -1,0 +1,29 @@
+id: https://example.com/monkeypox
+name: Monkeypox
+description: ""
+imports:
+  - "linkml:types"
+prefixes:
+  linkml: "https://w3id.org/linkml/"
+classes:
+  dh_interface:
+    name: dh_interface
+    description: "A DataHarmonizer interface"
+    from_schema: https://example.com/Monkeypox
+  "Monkeypox":
+    name: "Monkeypox"
+    description: Canadian specification for Monkeypox clinical virus biosample data gathering
+    is_a: dh_interface
+slots: {}
+enums: {}
+types:
+  WhiteSpaceMinimizedString:
+    name: "WhiteSpaceMinimizedString"
+    typeof: string
+    description: "A string that has all whitespace trimmed off of beginning and end, and all internal whitespace segments reduced to single spaces. Whitespace includes #x9 (tab), #xA (linefeed), and #xD (carriage return)."
+    base: str
+    uri: xsd:token
+settings:
+  Title_Case: "(((?<=\\b)[^a-z\\W]\\w*?|[\\W])+)"
+  UPPER_CASE: "[A-Z\\W\\d_]*"
+  lower_case: "[a-z\\W\\d_]*"

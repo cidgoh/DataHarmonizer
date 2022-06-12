@@ -33,5 +33,12 @@ const TEMPLATES = {
       "status": "published",
       "display": true
     }
+  },
+  "monkeypox": {
+    "Monkeypox": {
+      "name": "Monkeypox",
+      "status": "published",
+      "display": true
+    }
   }
 }
