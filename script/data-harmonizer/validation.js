@@ -318,7 +318,7 @@ Object.assign(DataHarmonizer, {
 	* Validate a value against an array of source values.
 	* FUTURE: optimize - to precompile lowercased sources.
 	* @param {String} val Cell value.
-	* @param {field} field to look for flatVocabulary value in.
+	* @param {Object} field Field to look for flatVocabulary value in.
 	* @return {Array<Boolean><Boolean/String>} 
 	*         [false, false] `delimited_string` does not match `source`,
 	*         [true, false] `delimited_string` matches `source` exactly, 
