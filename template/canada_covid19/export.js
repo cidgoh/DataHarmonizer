@@ -3,10 +3,7 @@ var EXPORT_FORMATS = {
 
 	/**
 	 * Download secondary headers and grid data.
-	 * @param {String} baseName Basename of downloaded file.
-	 * @param {Object} hot Handonstable grid instance.
-	 * @param {Object} data See `data.js`.
-	 * @param {Object} xlsx SheetJS variable.
+	 * @param {Object} dh DataHarmonizer instance.
 	 */
 
 	"VirusSeq_Portal": {
