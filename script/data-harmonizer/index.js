@@ -436,7 +436,7 @@ let DataHarmonizer = {
 					<td class="label">${slot_dict.title}</td>
 					<td>${slot_dict.description}</td>
 					<td>${slot_dict.guidance}</td>
-					<td><ul>${slot_dict.examples}</ul></td>
+					<td>${slot_dict.examples}</td>
 					<td>${slot_dict.sources || ''}</td>
 				</tr>
 				`
