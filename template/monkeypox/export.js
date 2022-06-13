@@ -248,7 +248,7 @@ var EXPORT_FORMATS = {
 				['PH_SEQUENCING_CENTRE',    []],     
 				['sequenced by contact email', []],
 				['sequenced by contact address', []],
-				['PH_SEQUENCING_SUBMITTER ', []], 
+				['PH_SEQUENCING_SUBMITTER', []], 
 				['sequence submitter contact email', []],
 				['sequence submitter contact address', []],
 				['HC_COLLECT_DATE',         []],
