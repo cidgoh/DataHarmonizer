@@ -243,20 +243,17 @@ var EXPORT_FORMATS = {
 				//['PH_SRA_ACCESSION',        []],
 				['SUBMISSIONS - GISAID Accession ID', []],
 				['CUSTOMER',                []],  
-				['sample collector contact email', []],
-				['sample collector contact address', []],
+
 				['PH_SEQUENCING_CENTRE',    []],     
-				['sequenced by contact email', []],
-				['sequenced by contact address', []],
+
 				['PH_SEQUENCING_SUBMITTER', []], 
-				['sequence submitter contact email', []],
-				['sequence submitter contact address', []],
+
 				['HC_COLLECT_DATE',         []],
 				['HC_TEXT2',                []], 
-				['sample received date',		[]],
+
 				['HC_COUNTRY',              []],
 				['HC_PROVINCE',             []],
-				['geo_loc_name (city)',		[]],
+
 				['HC_CURRENT_ID',           []],
 				['RESULT - CANCOGEN_SUBMISSIONS',   []],
 				['HC_SAMPLE_CATEGORY',      []], 
@@ -271,7 +268,7 @@ var EXPORT_FORMATS = {
 				//['PH_ENVIRONMENTAL_SITE',   []],
 				//['PH_SPECIMEN_TYPE_ORIG',   []],           
 				['COLLECTION_METHOD',       []],
-				['host (scientific name)',	[]],
+
 				//['PH_ANIMAL_TYPE',          []],
 				//['PH_HOST_HEALTH',          []],
 				//['PH_HOST_HEALTH_DETAILS',  []],
@@ -308,11 +305,7 @@ var EXPORT_FORMATS = {
 
 				['PH_CONSENSUS_SEQUENCE',   []], // from 'Consensus Sequence Method Name' or 'consensus sequence software name'
 				['PH_CONSENSUS_SEQUENCE_VERSION', []], // From 'Consensus Sequence Method Version Name' or 'consensus sequence software version'
-				['breadth of coverage value', []],
-				['depth of coverage value', []],
-				['depth of coverage threshold', []],
-				['number of base pairs sequenced', []],
-				['consensus genome length', []],
+
 				['PH_BIOINFORMATICS_PROTOCOL', []],
 				//['PH_LINEAGE_CLADE_NAME',   []], 
 				//['PH_LINEAGE_CLADE_SOFTWARE',[]], 
@@ -327,7 +320,29 @@ var EXPORT_FORMATS = {
 				//['SUBMITTED_RESLT - Gene Target #3',   []],
 				//['SUBMITTED_RESLT - Gene Target #3 CT Value', []],
 				['PH_CANCOGEN_AUTHORS',     []],
-				['HC_COMMENTS',             []]
+				['HC_COMMENTS',             []],
+
+				['sample collector contact email', []],
+				['sample collector contact address', []],
+
+				['sequenced by contact email', []],
+				['sequenced by contact address', []],
+
+				['sequence submitter contact email', []],
+				['sequence submitter contact address', []],
+
+				['sample received date',		[]],
+
+				['host (scientific name)',	[]],
+
+				['geo_loc_name (city)',		[]],
+
+								['breadth of coverage value', []],
+				['depth of coverage value', []],
+				['depth of coverage threshold', []],
+				['number of base pairs sequenced', []],
+				['consensus genome length', []],
+
 			]);
 
 			const sourceFields = dh.getFields(dh.table);
