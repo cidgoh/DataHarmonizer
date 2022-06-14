@@ -1,12 +1,16 @@
 Development notes about conversion of DataHarmonizer to use LinkML directly.
 
-test with /linkml.html instead of /main.html
-uses main_linkml.js instead of main.js
+test with /linkml.html (using main_linkml.js) instead of /main.html (using main.js)
+
 The following scripts have been split off of a refactored main.js:
    export_utils.js
    field_rules.js
    file_utils.js
    validation.js
+
+What was data.tsv (leading to data.js)
+is now:
+schema.tsv, schema_slots.tsv and schema_enums.tsv, (leading to schema.yaml)
 
 IN DATAHARMONIZER CODE:
 TEMPLATES Global variable for template menu list now supplied via templates/menu.js
@@ -26,7 +30,7 @@ field.examples -> field.examples [{value: _____}, ... ]
 field.requirement = required -> field.required = true
 field.requirement = recommended -> field.recommended = true
 
-
+field.exportField -> field.'exact_mappings' ; with ARRAY of [EXPORTPREFIX:[field:value] rather than two separate properties
 
 field.schema:ItemList -> field.permissible_values
 						-> field.values_from  FOR 100% URIs.
@@ -34,7 +38,6 @@ field.schema:ItemList -> field.permissible_values
 
 *************************************
 NEED TO DO: 
-field.exportField
 
 // TO DO: allow negative integers
 field.datatype = xs:nonNegativeInteger -> linkml field.range = integer

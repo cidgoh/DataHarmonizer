@@ -3,166 +3,11 @@ var EXPORT_FORMATS = {
 
 	/**
 	 * Download secondary headers and grid data.
-	 * @param {Object} dh DataHarmonizer instance.
+	 * @param {String} baseName Basename of downloaded file.
+	 * @param {Object} hot Handonstable grid instance.
+	 * @param {Object} data See `data.js`.
+	 * @param {Object} xlsx SheetJS variable.
 	 */
-
-	"VirusSeq_Portal": {
-		'fileType': 'tsv',
-		'status': 'published',
-		method: function (dh) {
-			// Create an export table with template's headers (2nd row) and remaining rows of data
-
-			// NOTE: NULL reason fields must follow immediately after column they are about.
-				const ExportHeaders = new Map([
-				['study_id',                []], // Intentionally left blank.
-				['specimen collector sample ID', []],
-				['GISAID accession',        []], // CAPITALIZATION Difference
-				['sample collected by',     []],
-				['sequence submitted by',   []],
-				['sample collection date',  []],
-				['sample collection date null reason',  []],// VirusSeq custom field
-				['geo_loc_name (country)',  []],
-				['geo_loc_name (state/province/territory)', []],
-				['organism',                []],
-				['isolate',                 []],
-				['fasta header name',       ['isolate']],
-				['purpose of sampling',     []],
-				['purpose of sampling details', []],
-				['anatomical material',     []],
-				['anatomical part',         []],
-				['body product',            []],
-				['environmental material',  []],
-				['environmental site',      []],
-				['collection device',       []],
-				['collection method',       []],
-				['host (scientific name)',  []],
-				['host disease',            []],
-				['host age',                []],
-				['host age null reason',    []],  // VirusSeq custom field
-				['host age unit',           []],
-				['host age bin',            []],
-				['host gender',             []],
-				['purpose of sequencing',   []],
-				['purpose of sequencing details', []],
-				['sequencing instrument',   []],
-				['sequencing protocol',     []],
-				['raw sequence data processing method', []],
-				['dehosting method',        []],
-				['consensus sequence software name', []],
-				['consensus sequence software version', []],
-				['breadth of coverage value', []], // Has extra "value" suffix
-				['depth of coverage value', []],  // Has extra "value" suffix
-				['reference genome accession', []],
-				['bioinformatics protocol', []],
-				['gene name',               []],
-				['diagnostic pcr Ct value', []],
-				['diagnostic pcr Ct value null reason', []],  // VirusSeq custom field
-			]);
-
-			// various null options to recognize for "null reason" fields
-			const   // Conversion of all cancogen metadata keywords to NML LIMS version
-			nullOptionsMap = new Map([
-				['not applicable', 'Not Applicable'],
-				['missing', 'Missing'],
-				['not collected', 'Not Collected'],
-				['not provided', 'Not Provided'],
-				['restricted access', 'Restricted Access']
-			]);
-
-			studyMap = {
-				'Alberta Precision Labs (APL)': 'ABPL-AB',
-				'BCCDC Public Health Laboratory': 'BCCDC-BC',
-				'Manitoba Cadham Provincial Laboratory': 'MCPL-MB',
-				'New Brunswick - Vitalité Health Network': 'VHN-NB',
-				'Newfoundland and Labrador - Eastern Health': 'EH-NL',
-				'Nova Scotia Health Authority': 'NSHA-NS',
-				'Public Health Ontario (PHO)': 'PHO-ON',
-				'Laboratoire de santé publique du Québec (LSPQ)': 'LSPQ-QC',
-				'Saskatchewan - Roy Romanow Provincial Laboratory (RRPL)': 'RRPL-SK',
-			}
-
-			const sourceFields = dh.getFields(dh.table);
-			const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
-			// Fills in the above mapping (or just set manually above) 
-			dh.getHeaderMap(ExportHeaders, sourceFields, 'VirusSeq_Portal');
-
-			// Copy headers to 1st row of new export table
-			const outputMatrix = [[...ExportHeaders.keys()]];
-
-			const numeric_datatypes = new Set(['xs:nonNegativeInteger', 'xs:decimal']);
-
-			for (const inputRow of dh.getTrimmedData(dh.hot)) {
-				const outputRow = [];
-				var skip = false;
-				for (const [headerName, sources] of ExportHeaders) {
-					// Skips a column because it has already been set in previous column action.
-					if (skip === true)
-						skip = false;
-					else {
-						// Otherwise apply source (many to one) to target field transform:
-						var value = dh.getMappedField(headerName, inputRow, sources, sourceFields, sourceFieldNameMap, ':', 'VirusSeq_Portal');
-
-						if (headerName == 'study_id') {
-
-							// Autopopulate study_id based on studyMap
-							const lab = inputRow[sourceFieldNameMap['sequence submitted by']];     
-							if (lab && lab in studyMap) {
-								value = studyMap[lab];
-							}
-						}
-
-						// Add % to breadth of coverage since required.
-						if (headerName == 'breadth of coverage value' && value && value.length && value.substr(-1) != '%') {
-							value = value + '%';
-						}
-
-						// Some columns have an extra ' null reason' field for demultiplexing null value into.
-						if (ExportHeaders.has(headerName + ' null reason')) {
-								//headerName = source field name in this format case.
-								if (sources.length > 0) {
-									// field and its null reason field must be 1-1
-									const sourceFieldIndex = sourceFieldNameMap[sources[0]];
-									const field = sourceFields[sourceFieldIndex];
-									if (field) {
-										// Null reason recognition comes from dataStatus values, or generic nullOptionsMap.
-										if (field.dataStatus && field.dataStatus.includes(value)) {
-											// Clears original value field of its null value and puts it in next column where null reason is.
-											outputRow.push(''); 
-											skip = true; 
-										}
-										// Small gesture towards normalization: correct case
-										else 
-											if (nullOptionsMap.has(value.toLowerCase())) {
-												value = nullOptionsMap.get(value.toLowerCase()); 
-												outputRow.push(''); 
-												skip = true;
-											}
-											else
-												// If a numeric field has text in it then push that over
-												// to null reason field.  This is occuring at data export
-												// stage, after validation so text is assumed to be 
-												// intentional 
-												if (numeric_datatypes.has(field.datatype)  && isNaN(Number(value)) ) {
-													outputRow.push(''); 
-													skip = true;
-												}
-									}
-									else
-										alert ('Template configuration error: "'+ headerName + '" has misnamed source field.');
-								}
-								else
-									alert ('Template configuration error: "'+ headerName + '" has no source mapped field.');
-							};
-
-						outputRow.push(value);
-					}
-				}
-				outputMatrix.push(outputRow);
-			}
-
-			return outputMatrix
-		}
-	},
 
 	BioSample: {
 		'fileType': 'xls',
@@ -389,20 +234,26 @@ var EXPORT_FORMATS = {
 
 			const ExportHeaders = new Map([
 				['TEXT_ID',                 []],
-				['HC_TEXT5',                []],
-				['PH_ID_NUMBER_PRIMARY',    []],
-				['PH_CASE_ID',              []],
+				//['HC_TEXT5',                []],
+				//['PH_ID_NUMBER_PRIMARY',    []],
+				//['PH_CASE_ID',              []],
 				['PH_RELATED_PRIMARY_ID',   []],
-				['PH_BIOPROJECT_ACCESSION', []],
-				['PH_BIOSAMPLE_ACCESSION',  []],
-				['PH_SRA_ACCESSION',        []],
+				//['PH_BIOPROJECT_ACCESSION', []],
+				//['PH_BIOSAMPLE_ACCESSION',  []],
+				//['PH_SRA_ACCESSION',        []],
 				['SUBMISSIONS - GISAID Accession ID', []],
 				['CUSTOMER',                []],  
-				['PH_SEQUENCING_CENTRE',    []],        
+
+				['PH_SEQUENCING_CENTRE',    []],     
+
+				['PH_SEQUENCING_SUBMITTER', []], 
+
 				['HC_COLLECT_DATE',         []],
 				['HC_TEXT2',                []], 
+
 				['HC_COUNTRY',              []],
 				['HC_PROVINCE',             []],
+
 				['HC_CURRENT_ID',           []],
 				['RESULT - CANCOGEN_SUBMISSIONS',   []],
 				['HC_SAMPLE_CATEGORY',      []], 
@@ -411,63 +262,87 @@ var EXPORT_FORMATS = {
 				['PH_RELATED_RELATIONSHIP_TYPE', []],
 				['PH_ISOLATION_SITE_DESC',  []],
 				['PH_ISOLATION_SITE',       []],
-				['PH_SPECIMEN_SOURCE',      []], // Calculated field (not in import)
+				//['PH_SPECIMEN_SOURCE',      []], // Calculated field (not in import)
 				['PH_SPECIMEN_SOURCE_DESC', []],
-				['PH_ENVIRONMENTAL_MATERIAL', []],
-				['PH_ENVIRONMENTAL_SITE',   []],
-				['PH_SPECIMEN_TYPE_ORIG',   []],           
+				//['PH_ENVIRONMENTAL_MATERIAL', []],
+				//['PH_ENVIRONMENTAL_SITE',   []],
+				//['PH_SPECIMEN_TYPE_ORIG',   []],           
 				['COLLECTION_METHOD',       []],
-				['PH_ANIMAL_TYPE',          []],
-				['PH_HOST_HEALTH',          []],
-				['PH_HOST_HEALTH_DETAILS',  []],
-				['PH_HOST_HEALTH_OUTCOME',  []],
+
+				//['PH_ANIMAL_TYPE',          []],
+				//['PH_HOST_HEALTH',          []],
+				//['PH_HOST_HEALTH_DETAILS',  []],
+				//['PH_HOST_HEALTH_OUTCOME',  []],
 				['PH_HOST_DISEASE',         []],
-				['PH_AGE',                  []],
-				['PH_AGE_UNIT',             []],
-				['PH_AGE_GROUP',            []],
-				['VD_SEX',                  []],
-				['PH_HOST_COUNTRY',         []],
-				['PH_HOST_PROVINCE',        []], 
-				['HC_ONSET_DATE',           []],
-				['HC_SYMPTOMS',             []],
-				['PH_VACCINATION_HISTORY',  []],
-				['VE_SYMP_AVAIL',           []], // Calculated field (not in import)
-				['PH_EXPOSURE_COUNTRY',     []], 
-				['PH_TRAVEL',               []],
-				['PH_POINT_OF_ENTRY',       []],
-				['PH_DAY',                  []],
-				['PH_EXPOSURE',             []],
-				['PH_EXPOSURE_DETAILS',     []], 
-				['PH_HOST_ROLE',            []], 
+				//['PH_AGE',                  []],
+				//['PH_AGE_UNIT',             []],
+				//['PH_AGE_GROUP',            []],
+				//['VD_SEX',                  []],
+				//['PH_HOST_COUNTRY',         []],
+				//['PH_HOST_PROVINCE',        []], 
+				//['HC_ONSET_DATE',           []],
+				//['HC_SYMPTOMS',             []],
+				//['PH_VACCINATION_HISTORY',  []],
+				//['VE_SYMP_AVAIL',           []], // Calculated field (not in import)
+				//['PH_EXPOSURE_COUNTRY',     []], 
+				//['PH_TRAVEL',               []],
+				//['PH_POINT_OF_ENTRY',       []],
+				//['PH_DAY',                  []],
+				//['PH_EXPOSURE',             []],
+				//['PH_EXPOSURE_DETAILS',     []], 
+				//['PH_HOST_ROLE',            []], 
 				['PH_REASON_FOR_SEQUENCING',[]], 
 
 				['PH_REASON_FOR_SEQUENCING_DETAILS', []], 
 				['PH_SEQUENCING_DATE',      []], 
 				['PH_LIBRARY_PREP_KIT',      []], 
 
-				['PH_INSTRUMENT_CGN',       []], 
+				//['PH_INSTRUMENT_CGN',       []], 
 				['PH_TESTING_PROTOCOL',     []],
-				['PH_SEQ_PROTOCOL_NAME',     []],
+				//['PH_SEQ_PROTOCOL_NAME',     []],
 				['PH_RAW_SEQUENCE_METHOD',     []],
 				['PH_DEHOSTING_METHOD',     []],
 
 				['PH_CONSENSUS_SEQUENCE',   []], // from 'Consensus Sequence Method Name' or 'consensus sequence software name'
 				['PH_CONSENSUS_SEQUENCE_VERSION', []], // From 'Consensus Sequence Method Version Name' or 'consensus sequence software version'
+
 				['PH_BIOINFORMATICS_PROTOCOL', []],
-				['PH_LINEAGE_CLADE_NAME',   []], 
-				['PH_LINEAGE_CLADE_SOFTWARE',[]], 
-				['PH_LINEAGE_CLADE_VERSION',[]], 
-				['PH_VARIANT_DESIGNATION',  []], 
-				['PH_VARIANT_EVIDENCE',     []], 
-				['PH_VARIANT_EVIDENCE_DETAILS', []], 
-				['SUBMITTED_RESLT - Gene Target #1',   []], 
-				['SUBMITTED_RESLT - Gene Target #1 CT Value', []],
-				['SUBMITTED_RESLT - Gene Target #2',   []],
-				['SUBMITTED_RESLT - Gene Target #2 CT Value', []],
-				['SUBMITTED_RESLT - Gene Target #3',   []],
-				['SUBMITTED_RESLT - Gene Target #3 CT Value', []],
+				//['PH_LINEAGE_CLADE_NAME',   []], 
+				//['PH_LINEAGE_CLADE_SOFTWARE',[]], 
+				//['PH_LINEAGE_CLADE_VERSION',[]], 
+				//['PH_VARIANT_DESIGNATION',  []], 
+				//['PH_VARIANT_EVIDENCE',     []], 
+				//['PH_VARIANT_EVIDENCE_DETAILS', []], 
+				//['SUBMITTED_RESLT - Gene Target #1',   []], 
+				//['SUBMITTED_RESLT - Gene Target #1 CT Value', []],
+				//['SUBMITTED_RESLT - Gene Target #2',   []],
+				//['SUBMITTED_RESLT - Gene Target #2 CT Value', []],
+				//['SUBMITTED_RESLT - Gene Target #3',   []],
+				//['SUBMITTED_RESLT - Gene Target #3 CT Value', []],
 				['PH_CANCOGEN_AUTHORS',     []],
-				['HC_COMMENTS',             []]
+				['HC_COMMENTS',             []],
+
+				['sample collector contact email', []],
+				['sample collector contact address', []],
+
+				['sequenced by contact email', []],
+				['sequenced by contact address', []],
+
+				['sequence submitter contact email', []],
+				['sequence submitter contact address', []],
+
+				['sample received date',		[]],
+
+				['host (scientific name)',	[]],
+
+				['geo_loc_name (city)',		[]],
+
+				['breadth of coverage value', []],
+				['depth of coverage value', []],
+				['depth of coverage threshold', []],
+				['number of base pairs sequenced', []],
+				['consensus genome length', []],
+
 			]);
 
 			const sourceFields = dh.getFields(dh.table);
