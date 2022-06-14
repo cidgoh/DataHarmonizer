@@ -94,10 +94,10 @@ html, body {
 	text-align: left;
 }
 .data-harmonizer-grid th.required {
-	background-color:yellow;
+	background-color:yellow !important;
 }
 .data-harmonizer-grid th.recommended {
-	background-color:plum;
+	background-color:plum !important;
 }
 
 /* Autocomplete */
