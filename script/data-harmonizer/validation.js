@@ -37,7 +37,7 @@ Object.assign(DataHarmonizer, {
 				// 1st row of provenance datatype field is forced to have a 
 				// 'DataHarmonizer Version: 0.13.0' etc. value.  Change happens silently. 
 				if (datatype === 'provenance') {
-					checkProvenance(provenanceChanges, cellVal, row, col);
+					this.checkProvenance(provenanceChanges, cellVal, row, col);
 				};
 
 				let	valid = false;
