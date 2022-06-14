@@ -134,7 +134,7 @@ with open(r_schema_slots) as tsvfile:
 					if slot['todos']:
 						slot['todos'].append('<=' + row['maximum_value']);
 					else:
-						slot['todos'] = '<=' + row['maximum_value'];
+						slot['todos'] = ['<=' + row['maximum_value']];
 
 			if row.get('pattern','') > '':
 				slot['pattern'] = row['pattern'];				
