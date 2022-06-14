@@ -2659,12 +2659,17 @@ var SCHEMA = {
       "comments": [
         "The name of the agency should be written out in full, (with minor exceptions) and be consistent across multiple submissions. If submitting specimens rather than sequencing data, please put the \"National Microbiology Laboratory (NML)\"."
       ],
+      "examples": [
+        {
+          "value": "Public Health Ontario (PHO)"
+        }
+      ],
       "from_schema": "https://example.com/monkeypox",
       "exact_mappings": [
         "NML_LIMS:PH_SEQUENCING_CENTRE",
         "BIOSAMPLE:sequenced_by"
       ],
-      "slot_uri": "GENEPIO:0001159",
+      "slot_uri": "GENEPIO:0100416",
       "required": true,
       "any_of": [
         {
@@ -2691,7 +2696,7 @@ var SCHEMA = {
       "exact_mappings": [
         "NML_LIMS:sequenced by contact email"
       ],
-      "slot_uri": "GENEPIO:0001165",
+      "slot_uri": "GENEPIO:0100422",
       "range": "WhitespaceMinimizedString"
     },
     "sequenced by contact address": {
@@ -2710,7 +2715,7 @@ var SCHEMA = {
       "exact_mappings": [
         "NML_LIMS:sequenced by contact address"
       ],
-      "slot_uri": "GENEPIO:0001167",
+      "slot_uri": "GENEPIO:0100423",
       "range": "WhitespaceMinimizedString"
     },
     "sequence submitted by": {
@@ -2733,6 +2738,7 @@ var SCHEMA = {
         "BIOSAMPLE:sequence_submitted_by",
         "VirusSeq_Portal:sequence submitted by"
       ],
+      "slot_uri": "GENEPIO:0001159",
       "required": true,
       "any_of": [
         {
@@ -2759,6 +2765,7 @@ var SCHEMA = {
       "exact_mappings": [
         "NML_LIMS:sequence submitter contact email"
       ],
+      "slot_uri": "GENEPIO:0001165",
       "range": "WhitespaceMinimizedString"
     },
     "sequence submitter contact address": {
@@ -2778,6 +2785,7 @@ var SCHEMA = {
         "GISAID:Address",
         "NML_LIMS:sequence submitter contact address"
       ],
+      "slot_uri": "GENEPIO:0001167",
       "range": "WhitespaceMinimizedString"
     },
     "sample collection date": {
@@ -2785,6 +2793,7 @@ var SCHEMA = {
       "description": "The date on which the sample was collected.",
       "title": "sample collection date",
       "todos": [
+        ">=2019-10-01",
         "<={today}"
       ],
       "comments": [
@@ -3206,7 +3215,7 @@ var SCHEMA = {
       "required": true,
       "any_of": [
         {
-          "range": "body product menu menu"
+          "range": "body product menu"
         },
         {
           "range": "null value menu"
@@ -4153,7 +4162,7 @@ var SCHEMA = {
           "title": "sequenced by",
           "from_schema": "https://example.com/monkeypox",
           "rank": 7,
-          "slot_uri": "GENEPIO:0001159",
+          "slot_uri": "GENEPIO:0100416",
           "alias": "sequenced_by",
           "owner": "Monkeypox",
           "slot_group": "Sample collection and processing",
@@ -4165,7 +4174,7 @@ var SCHEMA = {
           "title": "sequenced by contact email",
           "from_schema": "https://example.com/monkeypox",
           "rank": 8,
-          "slot_uri": "GENEPIO:0001165",
+          "slot_uri": "GENEPIO:0100422",
           "alias": "sequenced_by_contact_email",
           "owner": "Monkeypox",
           "slot_group": "Sample collection and processing",
@@ -4177,7 +4186,7 @@ var SCHEMA = {
           "title": "sequenced by contact address",
           "from_schema": "https://example.com/monkeypox",
           "rank": 9,
-          "slot_uri": "GENEPIO:0001167",
+          "slot_uri": "GENEPIO:0100423",
           "alias": "sequenced_by_contact_address",
           "owner": "Monkeypox",
           "slot_group": "Sample collection and processing",
@@ -4189,6 +4198,7 @@ var SCHEMA = {
           "title": "sequence submitted by",
           "from_schema": "https://example.com/monkeypox",
           "rank": 10,
+          "slot_uri": "GENEPIO:0001159",
           "alias": "sequence_submitted_by",
           "owner": "Monkeypox",
           "slot_group": "Sample collection and processing",
@@ -4200,6 +4210,7 @@ var SCHEMA = {
           "title": "sequence submitter contact email",
           "from_schema": "https://example.com/monkeypox",
           "rank": 11,
+          "slot_uri": "GENEPIO:0001165",
           "alias": "sequence_submitter_contact_email",
           "owner": "Monkeypox",
           "slot_group": "Sample collection and processing",
@@ -4211,6 +4222,7 @@ var SCHEMA = {
           "title": "sequence submitter contact address",
           "from_schema": "https://example.com/monkeypox",
           "rank": 12,
+          "slot_uri": "GENEPIO:0001167",
           "alias": "sequence_submitter_contact_address",
           "owner": "Monkeypox",
           "slot_group": "Sample collection and processing",
