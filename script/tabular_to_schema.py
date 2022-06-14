@@ -131,7 +131,7 @@ with open(r_schema_slots) as tsvfile:
 				if row['maximum_value'].isnumeric():
 					slot['maximum_value'] = row['maximum_value'];
 				else:
-					if row.get('todos','') > '':
+					if slot['todos']:
 						slot['todos'].append('<=' + row['maximum_value']);
 					else:
 						slot['todos'] = '<=' + row['maximum_value'];
