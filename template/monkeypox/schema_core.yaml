@@ -5,6 +5,7 @@ imports:
   - "linkml:types"
 prefixes:
   linkml: "https://w3id.org/linkml/"
+  GENEPIO: "http://purl.obolibrary.org/obo/GENEPIO_"
 classes:
   dh_interface:
     name: dh_interface
@@ -17,10 +18,16 @@ classes:
 slots: {}
 enums: {}
 types:
-  WhiteSpaceMinimizedString:
-    name: "WhiteSpaceMinimizedString"
+  WhitespaceMinimizedString:
+    name: "WhitespaceMinimizedString"
     typeof: string
     description: "A string that has all whitespace trimmed off of beginning and end, and all internal whitespace segments reduced to single spaces. Whitespace includes #x9 (tab), #xA (linefeed), and #xD (carriage return)."
+    base: str
+    uri: xsd:token
+  Provenance:
+    name: "Provenance"
+    typeof: string
+    description: "A field containing a DataHarmonizer versioning marker. It is issued by DataHarmonizer when validation is applied to a given row of data."
     base: str
     uri: xsd:token
 settings:

@@ -7,6 +7,10 @@ var SCHEMA = {
       "prefix_prefix": "linkml",
       "prefix_reference": "https://w3id.org/linkml/"
     },
+    "GENEPIO": {
+      "prefix_prefix": "GENEPIO",
+      "prefix_reference": "http://purl.obolibrary.org/obo/GENEPIO_"
+    },
     "xsd": {
       "prefix_prefix": "xsd",
       "prefix_reference": "http://www.w3.org/2001/XMLSchema#"
@@ -18,9 +22,16 @@ var SCHEMA = {
   },
   "default_prefix": "https://example.com/CanCOGeN_Covid-19/",
   "types": {
-    "WhiteSpaceMinimizedString": {
-      "name": "WhiteSpaceMinimizedString",
+    "WhitespaceMinimizedString": {
+      "name": "WhitespaceMinimizedString",
       "description": "A string that has all whitespace trimmed off of beginning and end, and all internal whitespace segments reduced to single spaces. Whitespace includes #x9 (tab), #xA (linefeed), and #xD (carriage return).",
+      "typeof": "string",
+      "base": "str",
+      "uri": "xsd:token"
+    },
+    "Provenance": {
+      "name": "Provenance",
+      "description": "A field containing a DataHarmonizer versioning marker. It is issued by DataHarmonizer when validation is applied to a given row of data.",
       "typeof": "string",
       "base": "str",
       "uri": "xsd:token"
@@ -5326,7 +5337,6 @@ var SCHEMA = {
         "NML_LIMS:PH_CASE_ID"
       ],
       "slot_uri": "GENEPIO:0100281",
-      "identifier": true,
       "range": "WhitespaceMinimizedString",
       "recommended": true
     },
@@ -6097,7 +6107,7 @@ var SCHEMA = {
       "required": true,
       "any_of": [
         {
-          "range": "body product menu"
+          "range": "body product menu menu"
         },
         {
           "range": "null value menu"
@@ -8736,7 +8746,7 @@ var SCHEMA = {
         "NML_LIMS:HC_COMMENTS"
       ],
       "slot_uri": "GENEPIO:0001518",
-      "range": "provenance"
+      "range": "Provenance"
     }
   },
   "classes": {
@@ -9508,7 +9518,6 @@ var SCHEMA = {
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 4,
           "slot_uri": "GENEPIO:0100281",
-          "identifier": true,
           "alias": "case_ID",
           "owner": "CanCOGeN Covid-19",
           "slot_group": "Database Identifiers",
@@ -11197,7 +11206,7 @@ var SCHEMA = {
           "alias": "DataHarmonizer_provenance",
           "owner": "CanCOGeN Covid-19",
           "slot_group": "Contributor acknowledgement",
-          "range": "provenance"
+          "range": "Provenance"
         }
       }
     }
