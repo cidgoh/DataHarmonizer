@@ -866,56 +866,60 @@ let DataHarmonizer = {
 	 * @return {Array<Object>} Cell properties for each grid column.
 	 */
 	getColumns: function () {
-	  let ret = [];
-	  for (let field of this.getFields()) {
+		let ret = [];
+		for (let field of this.getFields()) {
 		const col = {};
 		if (field.required) {
-		  col.required = field.required;
+			col.required = field.required;
 		}
 		if (field.recommended) {
-		  col.recommended = field.recommended;
+			col.recommended = field.recommended;
 		}
 
 		col.source = null;
 
 		if (field.flatVocabulary) {
-			
-		  col.source = field.flatVocabulary;
 
-		  if (field.multivalued === true) {
-			col.editor = 'text';
-			col.renderer = 'autocomplete';
-		  }
-		  else {
-			col.type = 'autocomplete';
-			// ISSUE: provide trimDropdown if field is using flatVocabulary just for accepting null values
-			if (!field.sources.includes('null value menu') || field.sources.length > 1)
-				col.trimDropdown = false;
-		  }
+			col.source = field.flatVocabulary;
 
+			if (field.multivalued === true) {
+				col.editor = 'text';
+				col.renderer = 'autocomplete';
+			}
+			else {
+				col.type = 'autocomplete';
+				// ISSUE: provide trimDropdown if field is using flatVocabulary just for accepting null values
+				if (!field.sources.includes('null value menu') || field.sources.length > 1)
+					col.trimDropdown = false;
+			  }
+
+			}
+
+			// OBSOLETE: metadata_status is now merged with flatVocabulary
+			//if (field.metadata_status) {
+			//  col.source.push(...field.metadata_status);
+			//}
+
+			if (field.datatype == 'xsd:date') {
+
+				col.type = 'date';
+				// This controls calendar popup date format, default is mm/dd/yyyy
+				// See https://handsontable.com/docs/8.3.0/Options.html#correctFormat
+				col.dateFormat = 'YYYY-MM-DD';
+				// If correctFormat = true, then on import and on data
+				// entry of cell will convert date values like "2020" to "2020-01-01"
+				// automatically.
+				col.correctFormat = false; 
+
+			}
+
+			if (typeof field.getColumn === 'function') {
+				col = field.getColumn(this, col);
+			}
+
+			ret.push(col);
 		}
-
-		// OBSOLETE: metadata_status is now merged with flatVocabulary
-		//if (field.metadata_status) {
-		//  col.source.push(...field.metadata_status);
-		//}
-
-		if (field.datatype == 'xsd:date') {
-
-			col.type = 'date';
-			// This controls calendar popup date format, default is mm/dd/yyyy
-			// See https://handsontable.com/docs/8.3.0/Options.html#correctFormat
-			col.dateFormat = 'YYYY-MM-DD';
-			// If correctFormat = true, then on import and on data
-			// entry of cell will convert date values like "2020" to "2020-01-01"
-			// automatically.
-			col.correctFormat = false; 
-
-		}
-
-		ret.push(col);
-	  }
-	  return ret;
+		return ret;
 	},
 
 
@@ -1272,7 +1276,10 @@ let DataHarmonizer = {
 				}
 
 			}
-
+			if (this.field_settings[name]) {
+				Object.assign(new_field, this.field_settings[name]);
+			}
+			
 			section.children.push(new_field);
 
 		}; // End slot processing loop
@@ -1299,25 +1306,25 @@ let DataHarmonizer = {
 	 */
 	stringifyNestedVocabulary: function (vocab_list) {
 
-	  let ret = [];
-	  let stack = [];
-	  for (const pointer in vocab_list) {
-	  	let choice = vocab_list[pointer];
-	  	let level = 0;
-	  	if ('is_a' in choice) {
-	  		level = stack.indexOf(choice.is_a)+1;
-	  		stack.splice(level+1, 1000, choice.text)
-	  	}
-	  	else {
-	  		stack = [choice.text];
-	  	}
+	let ret = [];
+	let stack = [];
+	for (const pointer in vocab_list) {
+		let choice = vocab_list[pointer];
+		let level = 0;
+		if ('is_a' in choice) {
+			level = stack.indexOf(choice.is_a)+1;
+			stack.splice(level+1, 1000, choice.text)
+		}
+		else {
+			stack = [choice.text];
+		}
 
-	  	this.setExportField(choice, false);
+		this.setExportField(choice, false);
 
 		ret.push('  '.repeat(level) + choice.text);
 
-	  }
-	  return ret;
+		}
+		return ret;
 	},
 
 	setExportField: function (field, as_field) {
