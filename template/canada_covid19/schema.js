@@ -5675,6 +5675,7 @@ var SCHEMA = {
       "description": "The date on which the sample was collected.",
       "title": "sample collection date",
       "todos": [
+        ">=2019-10-01",
         "<={today}"
       ],
       "comments": [
@@ -6096,7 +6097,7 @@ var SCHEMA = {
       "required": true,
       "any_of": [
         {
-          "range": "body product menu menu"
+          "range": "body product menu"
         },
         {
           "range": "null value menu"
@@ -6821,10 +6822,10 @@ var SCHEMA = {
           "value": "Chills (sudden cold sensation)"
         },
         {
-          "value": " Cough"
+          "value": "Cough"
         },
         {
-          "value": " Fever"
+          "value": "Fever"
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -6855,10 +6856,10 @@ var SCHEMA = {
           "value": "Asthma"
         },
         {
-          "value": " Pregnancy"
+          "value": "Pregnancy"
         },
         {
-          "value": " Smoking"
+          "value": "Smoking"
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -6888,10 +6889,10 @@ var SCHEMA = {
           "value": "Acute Respiratory Failure"
         },
         {
-          "value": " Coma"
+          "value": "Coma"
         },
         {
-          "value": " Septicemia"
+          "value": "Septicemia"
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -7171,13 +7172,13 @@ var SCHEMA = {
           "value": "Pfizer-BioNTech (Comirnaty)"
         },
         {
-          "value": " 2021-03-01"
+          "value": "2021-03-01"
         },
         {
-          "value": " Pfizer-BioNTech (Comirnaty)"
+          "value": "Pfizer-BioNTech (Comirnaty)"
         },
         {
-          "value": " 2022-01-15"
+          "value": "2022-01-15"
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -7398,10 +7399,10 @@ var SCHEMA = {
           "value": "Canada, Vancouver"
         },
         {
-          "value": " USA, Seattle"
+          "value": "USA, Seattle"
         },
         {
-          "value": " Italy, Milan"
+          "value": "Italy, Milan"
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
