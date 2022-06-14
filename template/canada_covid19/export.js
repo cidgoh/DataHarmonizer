@@ -475,7 +475,6 @@ var EXPORT_FORMATS = {
 
 			// Fills in the above mapping (or just set manually above) 
 			dh.getHeaderMap(ExportHeaders, sourceFields, 'NML_LIMS');
-			console.log(ExportHeaders)
 
 			// Copy headers to 1st row of new export table
 			const outputMatrix = [[...ExportHeaders.keys()]];
