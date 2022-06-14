@@ -1144,7 +1144,7 @@ let DataHarmonizer = {
 					// and trailing space. xsd:normalizedString allows lead and trai
 					// FUTURE: figure out how to accomodate newlines?
 					*/
-					if (range === 'string' || range === 'WhitespaceMinimizedString') {
+					if (range === 'string') {
 						new_field.datatype = 'xsd:token';
 					}
 					else {
@@ -1208,6 +1208,11 @@ let DataHarmonizer = {
 
 							}
 						}
+						else
+							// Special case for now - functionality depends on code
+							if (range === 'provenance')
+								new_field.datatype = 'provenance';
+
 					}
 
 				} // End range parsing
@@ -1217,9 +1222,9 @@ let DataHarmonizer = {
 			if (!new_field.datatype)
 				new_field.datatype = 'xsd:token';
 
-			// field.todos used to store some date tests that haven't been 
+			// field.todos is used to store some date tests that haven't been 
 			// implemented as rules yet.
-			if (new_field.datatype == 'xsd:date' && field.todos) {
+			if (new_field.datatype == 'xsd:date' && new_field.todos) {
 				// Have to feed any min/max date comparison back into min max value fields
 				for (test of new_field.todos) {
 					if (test.substr(0,2) == '>=')
