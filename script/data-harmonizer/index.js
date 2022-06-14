@@ -43,6 +43,7 @@ let DataHarmonizer = {
 	invalid_cells: null,
 	// Currently selected cell range[row,col,row2,col2]
 	current_selection: [null,null,null,null],
+	field_settings: {},
 
 	init: function(dhGrid, dhFooter=null, menu=null) {
 		this.dhGrid = dhGrid;
@@ -892,7 +893,6 @@ let DataHarmonizer = {
 				if (!field.sources.includes('null value menu') || field.sources.length > 1)
 					col.trimDropdown = false;
 			  }
-
 			}
 
 			// OBSOLETE: metadata_status is now merged with flatVocabulary
@@ -1274,7 +1274,6 @@ let DataHarmonizer = {
 					// Allow anything until regex fixed.
 					new_field.pattern = new RegExp(/.*/);
 				}
-
 			}
 			if (this.field_settings[name]) {
 				Object.assign(new_field, this.field_settings[name]);

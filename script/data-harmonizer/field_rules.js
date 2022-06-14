@@ -97,6 +97,10 @@ Object.assign(DataHarmonizer, {
 
 		}
 
+		if (typeof field.onChange === 'function') {
+			field.onChange(change, fields, triggered_changes);
+		}
+
 	},
 
 
