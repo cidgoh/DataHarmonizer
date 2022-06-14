@@ -332,7 +332,9 @@ slots:
     comments: The name of the agency should be written out in full, (with minor exceptions)
       and be consistent across multiple submissions. If submitting specimens rather
       than sequencing data, please put the "National Microbiology Laboratory (NML)".
-    slot_uri: GENEPIO:0001159
+    examples:
+    - value: Public Health Ontario (PHO)
+    slot_uri: GENEPIO:0100416
     any_of:
     - range: sequence submitted by menu
     - range: null value menu
@@ -349,7 +351,7 @@ slots:
       or RespLab@lab.ca
     examples:
     - value: RespLab@lab.ca
-    slot_uri: GENEPIO:0001165
+    slot_uri: GENEPIO:0100422
     range: WhitespaceMinimizedString
     exact_mappings:
     - NML_LIMS:sequenced by contact email
@@ -361,7 +363,7 @@ slots:
       City, Province/Territory, Postal Code, Country'
     examples:
     - value: 123 Sunnybrooke St, Toronto, Ontario, M4P 1L6, Canada
-    slot_uri: GENEPIO:0001167
+    slot_uri: GENEPIO:0100423
     range: WhitespaceMinimizedString
     exact_mappings:
     - NML_LIMS:sequenced by contact address
@@ -374,6 +376,7 @@ slots:
       than sequencing data, please put the "National Microbiology Laboratory (NML)".
     examples:
     - value: Public Health Ontario (PHO)
+    slot_uri: GENEPIO:0001159
     any_of:
     - range: sequence submitted by menu
     - range: null value menu
@@ -393,6 +396,7 @@ slots:
       or RespLab@lab.ca
     examples:
     - value: RespLab@lab.ca
+    slot_uri: GENEPIO:0001165
     range: WhitespaceMinimizedString
     exact_mappings:
     - NML_LIMS:sequence submitter contact email
@@ -405,6 +409,7 @@ slots:
       City, Province/Territory, Postal Code, Country'
     examples:
     - value: 123 Sunnybrooke St, Toronto, Ontario, M4P 1L6, Canada
+    slot_uri: GENEPIO:0001167
     range: WhitespaceMinimizedString
     exact_mappings:
     - GISAID:Address
@@ -426,7 +431,9 @@ slots:
     - range: date
     - range: null value menu
     required: true
-    todos: <={today}
+    todos:
+    - '>=2019-10-01'
+    - <={today}
     exact_mappings:
     - GISAID:Collection date
     - CNPHI:Patient Sample Collected Date
@@ -686,7 +693,7 @@ slots:
     - value: Feces
     slot_uri: GENEPIO:0001216
     any_of:
-    - range: body product menu menu
+    - range: body product menu
     - range: null value menu
     multivalued: true
     required: true
