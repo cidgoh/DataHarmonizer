@@ -906,7 +906,9 @@ slots:
     - range: date
     - range: null value menu
     required: true
-    todos: <={today}
+    todos:
+    - '>=2019-10-01'
+    - <={today}
     exact_mappings:
     - GISAID:Collection date
     - CNPHI:Patient Sample Collected Date
@@ -1168,7 +1170,7 @@ slots:
     - value: Feces
     slot_uri: GENEPIO:0001216
     any_of:
-    - range: body product menu menu
+    - range: body product menu
     - range: null value menu
     multivalued: true
     required: true
@@ -1617,8 +1619,8 @@ slots:
     comments: Select all of the symptoms experienced by the host from the pick list.
     examples:
     - value: Chills (sudden cold sensation)
-    - value: ' Cough'
-    - value: ' Fever'
+    - value: Cough
+    - value: Fever
     slot_uri: GENEPIO:0001400
     any_of:
     - range: signs and symptoms menu
@@ -1639,8 +1641,8 @@ slots:
       curation team.
     examples:
     - value: Asthma
-    - value: ' Pregnancy'
-    - value: ' Smoking'
+    - value: Pregnancy
+    - value: Smoking
     slot_uri: GENEPIO:0001401
     any_of:
     - range: pre-existing conditions and risk factors menu
@@ -1657,8 +1659,8 @@ slots:
       list. If the desired term is missing, contact the curation team.
     examples:
     - value: Acute Respiratory Failure
-    - value: ' Coma'
-    - value: ' Septicemia'
+    - value: Coma
+    - value: Septicemia
     slot_uri: GENEPIO:0001402
     any_of:
     - range: complications menu
@@ -1815,9 +1817,9 @@ slots:
       individual dose information (vaccine name, vaccination date) separated by semicolons.
     examples:
     - value: Pfizer-BioNTech (Comirnaty)
-    - value: ' 2021-03-01'
-    - value: ' Pfizer-BioNTech (Comirnaty)'
-    - value: ' 2022-01-15'
+    - value: '2021-03-01'
+    - value: Pfizer-BioNTech (Comirnaty)
+    - value: '2022-01-15'
     slot_uri: GENEPIO:0100321
     range: WhitespaceMinimizedString
     exact_mappings:
@@ -1949,8 +1951,8 @@ slots:
       Separate multiple travel events with a semi-colon. List most recent travel first.
     examples:
     - value: Canada, Vancouver
-    - value: ' USA, Seattle'
-    - value: ' Italy, Milan'
+    - value: USA, Seattle
+    - value: Italy, Milan
     slot_uri: GENEPIO:0001416
     range: WhitespaceMinimizedString
     exact_mappings:
