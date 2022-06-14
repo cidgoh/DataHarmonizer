@@ -22,7 +22,7 @@
  *
  */
 
-const VERSION = '0.6.1';
+const VERSION = '0.6.2';
 const VERSION_TEXT = 'DataHarmonizer provenance: v' + VERSION;
 
 let DataHarmonizer = {
@@ -39,7 +39,7 @@ let DataHarmonizer = {
 	hot: null,
 	hot_settings: null,
 	menu: null,
-	export_formats: null,
+	export_formats: {},		// Formats that a given template can export to.
 	invalid_cells: null,
 	// Currently selected cell range[row,col,row2,col2]
 	current_selection: [null,null,null,null],
@@ -116,8 +116,8 @@ let DataHarmonizer = {
 
 	/**
 	 * Revise user interface elements to match template path, and trigger
-	 * load of schema.js and export.js scripts (if necessary).  script.onload goes on
-	 * to trigger launch(TABLE).
+	 * load of schema.js and export.js scripts (if necessary).
+	 * 
 	 * @param {String} template_path: path of template starting from app's
 	 * template/ folder.
 	 */
@@ -132,24 +132,23 @@ let DataHarmonizer = {
 		this.template_name = template_name;
 		this.template_path = template_path;
 
-		//try {
+		try {
 			// Loading this template may require loading the SCHEMA it is under.
 			const schema_loaded = await this.useSchema(template_folder);
 			//if (!schema_loaded) 
 			//  return false;
 
 			this.processTemplate(template_name);
-			//this.newHotFile();
 			this.createHot();
 
 			// Asynchronous. Since SCHEMA loaded, export.js should succeed as well.
-			this.reloadJs('export.js');
+			await this.reloadJs('export.js');
 
 			return template_name;
-		//}
-		//catch(err) {
-		//  console.log(err);
-		//}
+		}
+		catch(err) {
+		  console.log(err);
+		}
 
 	},
 
@@ -278,7 +277,6 @@ let DataHarmonizer = {
 					}
 				},
 			};
-			//this.hot_settings.data = []; // Enables true reset.
 
 			this.hot = Handsontable(this.dhGrid, this.hot_settings);
 
@@ -388,7 +386,7 @@ let DataHarmonizer = {
 	 */
 	renderReference: function(mystyle = null) {
 
-		let schema_template = this.schema['specifications'][this.template_name]
+		let schema_template = this.schema.classes[this.template_name]
 
 		let style = `
 	body {
@@ -407,18 +405,13 @@ let DataHarmonizer = {
 		font-size:1.5rem;
 	}
 
-	table td {vertical-align: top; padding:5px;border-bottom:1px dashed silver;}
-	table td.label {font-weight:bold;}
-
-	table th {font-weight: bold; text-align: left;font-size:1.3rem;}
-
-	table th.label {width: 25%; font-weight:bold;}
+	table th {font-weight: bold; text-align: left; font-size:1.3rem;}
+	table th.label {font-weight:bold; width: 25%}
 	table th.description {width: 20%}
 	table th.guidance {width: 30%}
 	table th.example {width: 15%}
 	table th.data_status {width: 15%}
-
-	table td {vertical-align: top; padding:5px;}
+	table td {vertical-align: top; padding:5px;border-bottom:1px dashed silver;}
 	table td.label {font-weight:bold;}
 
 	ul { padding: 0; }
@@ -432,7 +425,7 @@ let DataHarmonizer = {
 
 			row_html +=
 				`<tr class="section">
-					<td colspan="5"><h3>${section.name}</h3></td>
+					<td colspan="5"><h3>${section.title || section.name}</h3></td>
 				</tr>
 				`
 			for (slot of section.children) {
@@ -444,8 +437,8 @@ let DataHarmonizer = {
 					<td class="label">${slot_dict.title}</td>
 					<td>${slot_dict.description}</td>
 					<td>${slot_dict.guidance}</td>
-					<td><ul>${slot_dict.examples}</ul></td>
-					<td>${slot_dict.dataStatus || ''}</td>
+					<td>${slot_dict.examples}</td>
+					<td>${slot_dict.sources || ''}</td>
 				</tr>
 				`
 			}
@@ -473,7 +466,7 @@ let DataHarmonizer = {
 					<th class="description">Description</th>
 					<th class="guidance">Guidance</th>
 					<th class="example">Examples</th>
-					<th class="data_status">Data Status</th>
+					<th class="data_status">Menus</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -874,68 +867,59 @@ let DataHarmonizer = {
 	 * @return {Array<Object>} Cell properties for each grid column.
 	 */
 	getColumns: function () {
-	  let ret = [];
-	  for (let field of this.getFields()) {
-		let col = {};
+		let ret = [];
+		for (let field of this.getFields()) {
+		const col = {};
 		if (field.required) {
-		  col.required = field.required;
+			col.required = field.required;
 		}
 		if (field.recommended) {
-		  col.recommended = field.recommended;
+			col.recommended = field.recommended;
 		}
 
 		col.source = null;
 
-		if (field.flatVocabulary) {	
+		if (field.flatVocabulary) {
 
-		  col.source = field.flatVocabulary;
+			col.source = field.flatVocabulary;
 
-		  if (field.multivalued === true) {
-			col.editor = 'text';
-			col.renderer = 'autocomplete';
-		  }
-		  else {
-			col.type = 'autocomplete';
-			col.trimDropdown = false;
-		  }
-		}
-
-		if (field.metadata_status) {
-		  col.source.push(...field.metadata_status);
-
-		}
-
-		switch (field.datatype) {
-
-		  case 'xsd:date': 
-			col.type = 'date';
-			// This controls calendar popup date format, default is mm/dd/yyyy
-			// See https://handsontable.com/docs/8.3.0/Options.html#correctFormat
-			col.dateFormat = 'YYYY-MM-DD';
-			// If correctFormat = true, then on import and on data
-			// entry of cell will convert date values like "2020" to "2020-01-01"
-			// automatically.
-			col.correctFormat = false; 
-			break;
-
-		  //case 'xsd:float':
-		  //case 'xsd:integer':
-		  //case 'xsd:nonNegativeInteger':
-		  //case 'xsd:decimal':
-		  default:
-			if (field.metadata_status) {
-			  col.type = 'autocomplete';
+			if (field.multivalued === true) {
+				col.editor = 'text';
+				col.renderer = 'autocomplete';
 			}
-			break;
-		}
+			else {
+				col.type = 'autocomplete';
+				// ISSUE: provide trimDropdown if field is using flatVocabulary just for accepting null values
+				if (!field.sources.includes('null value menu') || field.sources.length > 1)
+					col.trimDropdown = false;
+			  }
+			}
 
-		if (typeof field.getColumn === 'function') {
-			col = field.getColumn(this, col);
-		}
+			// OBSOLETE: metadata_status is now merged with flatVocabulary
+			//if (field.metadata_status) {
+			//  col.source.push(...field.metadata_status);
+			//}
 
-		ret.push(col);
-	  }
-	  return ret;
+			if (field.datatype == 'xsd:date') {
+
+				col.type = 'date';
+				// This controls calendar popup date format, default is mm/dd/yyyy
+				// See https://handsontable.com/docs/8.3.0/Options.html#correctFormat
+				col.dateFormat = 'YYYY-MM-DD';
+				// If correctFormat = true, then on import and on data
+				// entry of cell will convert date values like "2020" to "2020-01-01"
+				// automatically.
+				col.correctFormat = false; 
+
+			}
+
+			if (typeof field.getColumn === 'function') {
+				col = field.getColumn(this, col);
+			}
+
+			ret.push(col);
+		}
+		return ret;
 	},
 
 
@@ -1026,7 +1010,7 @@ let DataHarmonizer = {
 		  //    "Access-Control-Allow-Origin":"*"
 		  //}
 		}
-		try {
+		//try {
 			const response = await $.ajax(settings);
 			// script fetches don't return data. 
 
@@ -1040,13 +1024,13 @@ let DataHarmonizer = {
 
 			return file_name;
 
-		}
-		catch (err) {
+		//}
+		//catch (err) {
 			//console.log("fetch failed", err)
 			$('#missing-template-msg').text(`Unable to load file "${src_url}". Is the file location correct?`);
 			$('#missing-template-modal').modal('show');
 			return false;
-		}
+		//}
 	},
 
 	/**
@@ -1063,8 +1047,9 @@ let DataHarmonizer = {
 		const sectionIndex = new Map();
 
 		// Gets LinkML SchemaView() of given template
-		const specification = self.schema['specifications'][template_name];
-
+		const specification = self.schema.classes[template_name];
+		// Class contains inferred attributes ... for now pop back into slots
+		specification.slots = specification.attributes;
 		/* Lookup each column in terms table. A term looks like:
 			is_a: "core field", 
 			title: "history/fire", 
@@ -1079,7 +1064,12 @@ let DataHarmonizer = {
 
 		for (let name in specification.slots) {
 
-			let field = specification.slots[name];
+			// ISSUE: a template's slot definition via SchemaView() currently 
+			// doesn't get any_of or exact_mapping constructs. So we start
+			// with slot, then add class's slots reference.
+			let field = Object.assign(self.schema.slots[name], specification.slots[name]);
+
+			//let field = specification.slots[name];
 			let section_title = null;
 
 			if ('slot_group' in field) {
@@ -1114,143 +1104,168 @@ let DataHarmonizer = {
 			let section = self.template[sectionIndex.get(section_title)];
 			let new_field = {...field}; // shallow copy
 
+			//console.log(new_field)
+
 			// Some specs don't add plain english title, so fill that with name
 			// for display.
 			if (!('title' in new_field)) {
-				new_field['title'] = new_field['name'];
+				new_field.title = new_field.name;
 			}
 
+			// Default field type xsd:token allows all strings that don't have 
+			// newlines or tabs
 			new_field.datatype = null;
-			switch (new_field.range) {
-				// LinkML typically translates "string" to "uri":"xsd:string" but
-				// this is problematic because that allows newlines which break
-				// spreadsheet saving of items.
-				//case "string": 
-				// new_field.datatype = "xsd:string";
 
-				case 'string': 
-				  // xsd:token means that string cannot have newlines, multiple-tabs
-				  // or spaces.
-				  new_field.datatype = 'xsd:token'; // was "xs:token",
-				  break;
-
-				//case "datetime"
-				//case "time"
-				//case "ncname"
-				//case "objectidentifier"
-				//case "nodeidentifier"
-
-				case 'decimal':
-				  new_field.datatype = 'xsd:decimal'; // was xs:decimal
-				  break;
-
-				case 'float':
-				  new_field.datatype = 'xsd:float';
-				  break;
-
-				case 'double':
-				  new_field.datatype = 'xsd:double'; 
-				  break;
-
-				case 'integer': // int ???
-				  new_field.datatype = 'xsd:integer'; // was xs:nonNegativeInteger
-				  break;
-
-				// XML Boolean lexical space accepts true, false, and also 1 
-				// (for true) and 0 (for false).
-				case 'boolean': 
-				  new_field.datatype = 'xsd:boolean';
-				  break;
-
-				case 'uri': 
-				case 'uriorcurie': 
-				  new_field.datatype = 'xsd:anyURI';
-				  break;
+			let range_array = [];
 
 
-				// https://linkml.io/linkml-model/docs/string_serialization/
-				case 'string_serialization': 
-					// Value A string which provides "{has numeric value} {has unit}" style 
-					// named expressions.  These can be compiled into the .pattern field
-					// if nothing already exists in .pattern
+			// Multiple ranges allowed.  For now just accepting enumerations
+			if ('any_of' in new_field) {
+				for (let item of new_field.any_of) {
+					if (item.range in self.schema.enums || item.range in self.schema.types) {
+						range_array.push(item.range)
+					}
+				}
+			}
+			else {
+				range_array.push(new_field.range)
+			}
 
-				case 'has unit': 
-				  break;
+			// Parse slot's range(s)
+			for (let range of range_array) {
+				if (range === undefined)			
+					console.log ("field has no range", new_field.title);
 
-				case 'has numeric value':
-				  break;
+				// Range is a datatype?
+				if (range in self.schema.types) {
 
-				// This shows up as a LinkML class - but not formally defined as LinkML spec? 
-				case 'quantity value': // A LinkML class
+					range_obj = self.schema.types[range];
 
-					/* LinkML model for quantity value, along lines of https://schema.org/QuantitativeValue
-
-						description: >-
-						  A simple quantity, e.g. 2cm
-						attributes:
-						  verbatim:
-							description: >-
-							  Unnormalized atomic string representation, should in syntax {number} {unit}
-						  has unit:
-							description: >-
-							  The unit of the quantity
-							slot_uri: qudt:unit
-						  has numeric value:
-							description: >-
-							  The number part of the quantity
-							range:
-							  double
-						class_uri: qudt:QuantityValue
-						mappings:
-						  - schema:QuantityValue
-
+					/* LinkML typically translates "string" to "uri":"xsd:string" 
+					// but this is problematic because that allows newlines which
+					// break spreadsheet saving of items in tsv/csv format. Use
+					// xsd:token to block newlines and tabs, and clean out leading 
+					// and trailing space. xsd:normalizedString allows lead and trai
+					// FUTURE: figure out how to accomodate newlines?
 					*/
-					new_field.datatype = "xsd:token"; //xsd:decimal + unit
-					// PROBLEM: There are a variety of quantity values specified, some allowing units
-					// which would need to go in a second column unless validated as text within column.
-					break;
-
-				case 'time':
-					new_field.datatype = 'xsd:time';
-					break;
-
-				case 'datetime':
-					new_field.datatype = 'xsd:datetime';
-					break;
-
-				case 'date':
-					new_field.datatype = 'xsd:date'; // was xs:date
-					break;
-
-				default:
-					// Usually a selection list here, possibly .multivalued = true
-					new_field.datatype = 'xsd:token'; // was "xs:token"
-					if (new_field.range in self.schema.enumerations) {
-						new_field.source = self.schema.enumerations[new_field.range].permissible_values;
-						//This calculates for each categorical field in schema.yaml a 
-						// flat list of allowed values (indented to represent hierarchy)
-						new_field.flatVocabulary = self.stringifyNestedVocabulary(new_field.source);
-
-						// points to an object with .permissible_values ORDERED DICT array.
-						// FUTURE ???? :
-						// it may also have a metadata_values ORDERED DICT array.
-						// ISSUE: metadata_status [missing | not applicable etc. ]
-						// Allow > 1 range?
-						// OR allow {permitted_values: .... , metadata_values: .... }
+					switch (range) {
+						case "string":
+							new_field.datatype = 'xsd:token';
+							break;
+						case "Provenance":
+							new_field.datatype = 'Provenance';
+							break;
+						default:
+							new_field.datatype = range_obj.uri;
+						// e.g. 'time' and 'datetime' -> xsd:dateTime'; 'date' -> xsd:date				
 					}
 
-					// LINKML CHANGING TO ALLOW RANGE OVER MULTIPLE ENUMERATIONS
-					// .metadata_status is an ordered dict of permissible_values
-					// It is separate so it can be demultipliexed from content values.
-					// if (new_field.metadata_status) {}
+				}
+				else {
+					// If range is an enumeration ...
+					if (range in self.schema.enums) {
+						range_obj = self.schema.enums[range];
 
-			}// End switch
+						if (!('sources' in new_field)) 
+							new_field.sources = [];
+						if (!('flatVocabulary' in new_field)) 
+							new_field.flatVocabulary = [];
+						if (!('flatVocabularyLCase' in new_field)) 
+							new_field.flatVocabularyLCase = [];
 
+						new_field.sources.push(range);
+						// This calculates for each categorical field in schema.yaml a 
+						// flat list of allowed values (indented to represent hierarchy)
+						let flatVocab = self.stringifyNestedVocabulary(range_obj.permissible_values);
+						new_field.flatVocabulary.push(... flatVocab );
+						// Lowercase version used for easy lookup/validation
+						new_field.flatVocabularyLCase.push(... flatVocab.map(val => val.trim().toLowerCase()) );
+
+					}
+					else {
+						// If range is a class ...
+						// multiple => 1-many complex object
+						if (range in self.schema.classes) {
+							range_obj = self.schema.enums[range];
+
+							if (range == 'quantity value') {
+
+								/* LinkML model for quantity value, along lines of https://schema.org/QuantitativeValue, e.g. xsd:decimal + unit
+								PROBLEM: There are a variety of quantity values specified, some allowing units
+								which would need to go in a second column unless validated as text within column.
+
+								description: >-
+								  A simple quantity, e.g. 2cm
+								attributes:
+								  verbatim:
+									description: >-
+									  Unnormalized atomic string representation, should in syntax {number} {unit}
+								  has unit:
+									description: >-
+									  The unit of the quantity
+									slot_uri: qudt:unit
+								  has numeric value:
+									description: >-
+									  The number part of the quantity
+									range:
+									  double
+								class_uri: qudt:QuantityValue
+								mappings:
+								  - schema:QuantityValue
+								*/
+
+							}
+						}
+
+					}
+
+				} // End range parsing
+			}
+
+			// Provide default datatype if no other selected
+			if (!new_field.datatype)
+				new_field.datatype = 'xsd:token';
+
+			// field.todos is used to store some date tests that haven't been 
+			// implemented as rules yet.
+			if (new_field.datatype == 'xsd:date' && new_field.todos) {
+				// Have to feed any min/max date comparison back into min max value fields
+				for (test of new_field.todos) {
+					if (test.substr(0,2) == '>=')
+						new_field.minimum_value = test.substr(2)
+					if (test.substr(0,2) == '<=')
+						new_field.maximum_value = test.substr(2)		
+				}
+			}
+
+
+
+			/* Older DH enables mappings of one template field to one or more 
+			export format fields
+			*/
+			this.setExportField(new_field, true)
+
+			// https://linkml.io/linkml-model/docs/structured_pattern/
+			// https://github.com/linkml/linkml/issues/674
+			// Look up its parts in "settings", and assemble a regular 
+			// expression for them into "pattern" field. 
+			// This augments basic datatype validation
+			if ('structured_pattern' in new_field) {
+				switch (new_field.structured_pattern.syntax) {
+					case '{UPPER_CASE}':
+					case '{lower_case}':
+					case '{Title_Case}':
+						new_field.capitalize = true;
+				}
+				// TO DO: Do conversion here into pattern field.
+
+			}
+
+			// pattern is supposed to be exlusive to string_serialization
 			if ('pattern' in field && field.pattern.length) {
 				// Trap invalid regex
 				// Issue with NMDC MIxS "current land use" field pattern: "[ ....(all sorts of things) ]" syntax.
 				try {
-					//NMDC_regex = field.pattern.replaceAll("(", "\(").replaceAll(")", "\)").replace("[", "(").replace("]", ")")
 					new_field.pattern = new RegExp(field.pattern);
 				}
 				catch (err) {
@@ -1260,20 +1275,13 @@ let DataHarmonizer = {
 					new_field.pattern = new RegExp(/.*/);
 				}
 			}
-
 			if (this.field_settings[name]) {
 				Object.assign(new_field, this.field_settings[name]);
 			}
+			
+			section.children.push(new_field);
 
-			// Copying in particular required/ recommended status of a field into
-			// this class / form's context
-			//if (name in specification_slot_usage) {
-			//  Object.assign(new_field, specification_slot_usage[name])
-			//}
-
-			section['children'].push(new_field);
-
-		}; // End for loop
+		}; // End slot processing loop
 
 		// Sections and their children are sorted by .rank parameter if available
 		this.template.sort((a, b) => a.rank - b.rank );
@@ -1286,26 +1294,81 @@ let DataHarmonizer = {
 
 
 	/**
-	 * Recursively flatten vocabulary into an array of strings, with each string's
-	 * level of depth in the vocabulary being indicated by leading spaces.
-	 * e.g., `vocabulary: 'a': {'b':{}},, 'c': {}` becomes `['a', '  b', 'c']`.
+	 * Recursively flatten vocabulary into an array of strings, with each
+	 * string's level of depth in the vocabulary being indicated by leading
+	 * spaces.
+	 * FUTURE possible functionality:
+	 * Both validation and display of picklist item becomes conditional on
+	 * other picklist item if "depends on" indicated in picklist item/branch.
 	 * @param {Object} vocabulary See `vocabulary` fields in SCHEMA.
-	 * @param {number} level Nested level of `vocabulary` we are currently
-	 *     processing.
 	 * @return {Array<String>} Flattened vocabulary.
 	 */
-	stringifyNestedVocabulary: function (vocab_list, level=0) {
+	stringifyNestedVocabulary: function (vocab_list) {
 
-	  let ret = [];
-	  for (const val of Object.keys(vocab_list)) {
-		ret.push('  '.repeat(level) + val);
-		if (vocab_list[val].permissible_values) {
-		  ret = ret.concat(this.stringifyNestedVocabulary(vocab_list[val].permissible_values, level+1));
+	let ret = [];
+	let stack = [];
+	for (const pointer in vocab_list) {
+		let choice = vocab_list[pointer];
+		let level = 0;
+		if ('is_a' in choice) {
+			level = stack.indexOf(choice.is_a)+1;
+			stack.splice(level+1, 1000, choice.text)
 		}
-	  }
-	  return ret;
+		else {
+			stack = [choice.text];
+		}
+
+		this.setExportField(choice, false);
+
+		ret.push('  '.repeat(level) + choice.text);
+
+		}
+		return ret;
 	},
 
+	setExportField: function (field, as_field) {
+		if (field.exact_mappings) {
+			field.exportField = {};
+			for (let item of field.exact_mappings) {
+				let ptr = item.indexOf(':')
+				if (ptr != -1) {
+					prefix = item.substr(0, ptr);
+					if (!(prefix in field.exportField)) {
+						field.exportField[prefix] = [];
+					}
+
+					mappings = item.substr(ptr+1);
+					for (let mapping of mappings.split(';')) {
+						mapping = mapping.trim()
+						conversion = {}
+						//A colon alone means to map value to empty string
+						if (mapping == ':') {
+							conversion.value = '';
+						}
+						//colon with contents = field & value
+						else {
+							if (mapping.indexOf(':') != -1) {
+								binding = mapping.split(':')
+								binding[0] = binding[0].trim();
+								binding[1] = binding[1].trim();
+								if (binding[0] > '')
+									conversion.field = binding[0];
+								if (binding[1] > '')
+									conversion.value = binding[1];
+							}
+							//No colon means its just field or value
+							else
+								if (as_field == true)
+									conversion.field = mapping
+								else
+									conversion.value = mapping
+						}
+						field.exportField[prefix].push(conversion)
+					}
+				}
+			}
+		}
+	},
 
 	/**
 	 * Get an HTML string that describes a field, its examples etc. for display
@@ -1317,6 +1380,7 @@ let DataHarmonizer = {
 		let slot_dict = this.getCommentDict(field);
 
 		let ret = `<p><strong>Label</strong>: ${field.title}</p>`;
+		ret += `<p><strong>Name</strong>: ${field.name}</p>`;
 
 		if (field.description) {
 			ret += `<p><strong>Description</strong>: ${field.description}</p>`;
@@ -1329,19 +1393,22 @@ let DataHarmonizer = {
 		if (slot_dict.examples) {
 			ret += `<p><strong>Examples</strong>: </p>${slot_dict.examples}`;
 		}
-		if (slot_dict.metadata_status) {
-			ret += `<p><strong>Null values</strong>: ${slot_dict.metadata_status}</p>`;
+		if (slot_dict.sources) {
+			ret += `<p><strong>Menus</strong>: </p>${slot_dict.sources}`;
 		}
 		return ret;
 	},
 
 	getCommentDict: function (field) {
+		let self = this;
+
 		let guide = {
 			title: field.title,
+			name: field.name,
 			description: field.description || '',
 			guidance: '',
 			examples: '',
-			metadata_status: field.metadata_status || ''
+			sources: ''
 		}
 
 		let guidance = [];
@@ -1351,8 +1418,8 @@ let DataHarmonizer = {
 		if (field.pattern) {
 			guidance.push('Pattern as regular expression: ' + field.pattern);
 		}
-		if (field.string_serialization) {
-			guidance.push('Pattern hint: ' + field.string_serialization);
+		if (field.structured_pattern) {
+			guidance.push('Pattern hint: ' + field.structured_pattern.syntax);
 		}
 		const hasMinValue = field.minimum_value != null;
 		const hasMaxValue = field.maximum_value != null;
@@ -1367,6 +1434,25 @@ let DataHarmonizer = {
 			}
 			guidance.push(paragraph);
 		}
+		if (field.identifier) {
+			guidance.push('Each record must have a unique value for this field.');
+		}
+		if (field.sources && field.sources.length) {
+			let sources = [];
+			for (const [key, item] of Object.entries(field.sources)) {
+				// List null value menu items directly
+				if (item === 'null value menu') {
+					let null_values = Object.keys(self.schema.enums[item].permissible_values);
+					sources.push(item + ': (' + null_values.join('; ') + ')' );
+				}
+				else
+					sources.push(item);
+			}
+			guide.sources = '<ul><li>' + sources.join('</li>\n<li>') + '</li></ul>'
+		}
+		if (field.multivalued) {
+			guidance.push('More than one selection is allowed.');
+		}
 
 		guide.guidance = guidance
 		  .map(function (paragraph) {
@@ -1376,13 +1462,24 @@ let DataHarmonizer = {
 
 		if (field.examples && field.examples.length) {
 			let examples = []
-			// Only including example.value now (which can be empty):
+			first_item = true;
 			for (const [key, item] of Object.entries(field.examples)) {
-				if (item.value.trim().length > 0) {
-					examples.push(item.value);
+				if (item.description && item.description.length > 0)
+					if (first_item === true) {
+						examples.push(item.description + ':\n<ul>');
+						first_item = false;
+					}
+					else
+						examples += '</ul>' + item.description + ':\n<ul>';	
+
+				if (first_item === true) {
+					first_item = false;
+					examples += '<ul><li>' + item.value + '</li>\n';
 				}
+				else
+					examples += '<li>' + item.value + '</li>\n';
 			}
-			guide.examples = '<ul><li>' + examples.join('</li>\n<li>') + '</li></ul>'
+			guide.examples = examples + '</ul>'
 		}
 
 	  return guide;
@@ -1390,7 +1487,6 @@ let DataHarmonizer = {
 
 	/**
 	 * Get grid data without trailing blank rows.
-	 * @param {Object} hot Handonstable grid instance.
 	 * @return {Array<Array<String>>} Grid data without trailing blank rows.
 	 */
 	getTrimmedData: function() {

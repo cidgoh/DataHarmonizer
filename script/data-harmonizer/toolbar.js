@@ -103,7 +103,8 @@ DataHarmonizerToolbar = {
 			}
 			if (exportFormat in dh.export_formats) {
 				const format = dh.export_formats[exportFormat];
-				format['method'](baseName, XLSX, format.fileType);
+				let outputMatrix = format.method(dh);
+				dh.runBehindLoadingScreen(dh.exportFile, [outputMatrix, baseName, format.fileType]);
 			}
 			$('#export-to-modal').modal('hide');
 		});
@@ -245,7 +246,12 @@ DataHarmonizerToolbar = {
 	refresh: function () {
 		const self = this;
 		$('#select-template').val(this.dh.template_path);
-		$('#template_name_display').text(this.dh.template_path);
+		// Display template without folder part
+		let path_array = this.dh.template_path.split('/');
+
+		let template_folder = path_array[0];
+		let template_name = path_array[1];
+		$('#template_name_display').text(template_name);
 		$('#file_name_display').text('');
 
 		// Enable template folder's export.js export options to be loaded dynamically.
@@ -258,7 +264,7 @@ DataHarmonizerToolbar = {
 		}
 
 		// Update SOP.
-		$("#help_sop").attr('href',`template/${this.dh.template_folder}/SOP.pdf`);
+		$("#help_sop").attr('href',`template/${template_folder}/SOP.pdf`);
 
 		// Allows columnCoordinates to be accessed within select() below.
 		const columnCoordinates = this.dh.getColumnCoordinates();
@@ -301,10 +307,10 @@ DataHarmonizerToolbar = {
 		const view_drafts = $("#view-template-drafts").is(':checked');
 		for ([folder, templates] of Object.entries(dh.menu)) {
 			for ([name, template] of Object.entries(templates)) {
-				let label = folder + '/' + name;
+				let path = folder + '/' + name;
 				if (template.display)
 					if (view_drafts || template.status == 'published') {
-						select.append(new Option(label, label));
+						select.append(new Option(path, path));
 					}
 			}
 		}

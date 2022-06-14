@@ -1,5 +1,2 @@
-
-// A list of the above functions keyed by the Export menu name they should appear as:
-var EXPORT_FORMATS = {
-  // "Dexa to GRDI": exportGRDI
-};
+// A dictionary of possible export formats
+var EXPORT_FORMATS = {};
