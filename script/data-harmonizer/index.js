@@ -1144,12 +1144,16 @@ let DataHarmonizer = {
 					// and trailing space. xsd:normalizedString allows lead and trai
 					// FUTURE: figure out how to accomodate newlines?
 					*/
-					if (range === 'string') {
-						new_field.datatype = 'xsd:token';
-					}
-					else {
-						new_field.datatype = range_obj.uri;
-						// e.g. 'time' and 'datetime' -> xsd:dateTime'; 'date' -> xsd:date
+					switch (range) {
+						case "string":
+							new_field.datatype = 'xsd:token';
+							break;
+						case "Provenance":
+							new_field.datatype = 'Provenance';
+							break;
+						default:
+							new_field.datatype = range_obj.uri;
+						// e.g. 'time' and 'datetime' -> xsd:dateTime'; 'date' -> xsd:date				
 					}
 
 				}
@@ -1208,10 +1212,6 @@ let DataHarmonizer = {
 
 							}
 						}
-						else
-							// Special case for now - functionality depends on code
-							if (range === 'provenance')
-								new_field.datatype = 'provenance';
 
 					}
 
