@@ -5,6 +5,7 @@ imports:
 - linkml:types
 prefixes:
   linkml: https://w3id.org/linkml/
+  GENEPIO: http://purl.obolibrary.org/obo/GENEPIO_
 classes:
   dh_interface:
     name: dh_interface
@@ -1666,9 +1667,9 @@ slots:
       individual dose information (vaccine name, vaccination date) separated by semicolons.
     examples:
     - value: Pfizer-BioNTech (Comirnaty)
-    - value: ' 2021-03-01'
-    - value: ' Pfizer-BioNTech (Comirnaty)'
-    - value: ' 2022-01-15'
+    - value: '2021-03-01'
+    - value: Pfizer-BioNTech (Comirnaty)
+    - value: '2022-01-15'
     slot_uri: GENEPIO:0100321
     range: WhitespaceMinimizedString
     exact_mappings:
@@ -1763,8 +1764,8 @@ slots:
       events with a semicolon. Provide as free text.
     examples:
     - value: Canada, Vancouver
-    - value: ' USA, Seattle'
-    - value: ' Italy, Milan'
+    - value: USA, Seattle
+    - value: Italy, Milan
     slot_uri: GENEPIO:0001416
     range: WhitespaceMinimizedString
   exposure event:
@@ -2538,7 +2539,7 @@ slots:
     examples:
     - value: 'DataHarmonizer provenance: v0.13.21'
     slot_uri: GENEPIO:0001518
-    range: provenance
+    range: Provenance
 enums:
   null value menu:
     name: null value menu
@@ -6256,12 +6257,19 @@ enums:
       CompleteGenomics_native:
         text: CompleteGenomics_native
 types:
-  WhiteSpaceMinimizedString:
-    name: WhiteSpaceMinimizedString
+  WhitespaceMinimizedString:
+    name: WhitespaceMinimizedString
     typeof: string
     description: 'A string that has all whitespace trimmed off of beginning and end,
       and all internal whitespace segments reduced to single spaces. Whitespace includes
       #x9 (tab), #xA (linefeed), and #xD (carriage return).'
+    base: str
+    uri: xsd:token
+  Provenance:
+    name: Provenance
+    typeof: string
+    description: A field containing a DataHarmonizer versioning marker. It is issued
+      by DataHarmonizer when validation is applied to a given row of data.
     base: str
     uri: xsd:token
 settings:

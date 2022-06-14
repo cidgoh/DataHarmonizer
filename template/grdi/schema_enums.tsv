@@ -24,6 +24,12 @@ sample_processing menu		Samples pooled
 		Isolated from single source					
 							
 							
+attribute_package menu		Pathogen.cl					
+		Pathogen.env					
+							
+stage_of_production menu		abattoir					
+							
+							
 sequencing_platform menu		Illumina					
 		Pacific Biosciences					
 		Ion Torrent					

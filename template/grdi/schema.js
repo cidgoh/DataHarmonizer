@@ -7,6 +7,10 @@ var SCHEMA = {
       "prefix_prefix": "linkml",
       "prefix_reference": "https://w3id.org/linkml/"
     },
+    "GENEPIO": {
+      "prefix_prefix": "GENEPIO",
+      "prefix_reference": "http://purl.obolibrary.org/obo/GENEPIO_"
+    },
     "xsd": {
       "prefix_prefix": "xsd",
       "prefix_reference": "http://www.w3.org/2001/XMLSchema#"
@@ -18,9 +22,16 @@ var SCHEMA = {
   },
   "default_prefix": "https://example.com/GRDI/",
   "types": {
-    "WhiteSpaceMinimizedString": {
-      "name": "WhiteSpaceMinimizedString",
+    "WhitespaceMinimizedString": {
+      "name": "WhitespaceMinimizedString",
       "description": "A string that has all whitespace trimmed off of beginning and end, and all internal whitespace segments reduced to single spaces. Whitespace includes #x9 (tab), #xA (linefeed), and #xD (carriage return).",
+      "typeof": "string",
+      "base": "str",
+      "uri": "xsd:token"
+    },
+    "Provenance": {
+      "name": "Provenance",
+      "description": "A field containing a DataHarmonizer versioning marker. It is issued by DataHarmonizer when validation is applied to a given row of data.",
       "typeof": "string",
       "base": "str",
       "uri": "xsd:token"
@@ -198,6 +209,27 @@ var SCHEMA = {
         },
         "Isolated from single source": {
           "text": "Isolated from single source"
+        }
+      }
+    },
+    "attribute_package menu": {
+      "name": "attribute_package menu",
+      "from_schema": "https://example.com/GRDI",
+      "permissible_values": {
+        "Pathogen.cl": {
+          "text": "Pathogen.cl"
+        },
+        "Pathogen.env": {
+          "text": "Pathogen.env"
+        }
+      }
+    },
+    "stage_of_production menu": {
+      "name": "stage_of_production menu",
+      "from_schema": "https://example.com/GRDI",
+      "permissible_values": {
+        "abattoir": {
+          "text": "abattoir"
         }
       }
     },
@@ -1338,7 +1370,7 @@ var SCHEMA = {
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0001123",
       "range": "WhitespaceMinimizedString",
-      "recommended": true
+      "required": true
     },
     "alternative_sample_ID": {
       "name": "alternative_sample_ID",
@@ -1353,7 +1385,8 @@ var SCHEMA = {
         }
       ],
       "from_schema": "https://example.com/GRDI",
-      "range": "WhitespaceMinimizedString"
+      "range": "WhitespaceMinimizedString",
+      "required": true
     },
     "sample_collected_by": {
       "name": "sample_collected_by",
@@ -1399,8 +1432,7 @@ var SCHEMA = {
         }
       ],
       "from_schema": "https://example.com/GRDI",
-      "range": "WhitespaceMinimizedString",
-      "recommended": true
+      "range": "WhitespaceMinimizedString"
     },
     "sample_plan_name": {
       "name": "sample_plan_name",
@@ -1431,7 +1463,8 @@ var SCHEMA = {
         }
       ],
       "from_schema": "https://example.com/GRDI",
-      "range": "WhitespaceMinimizedString"
+      "range": "WhitespaceMinimizedString",
+      "recommended": true
     },
     "sample_collector_contact_name": {
       "name": "sample_collector_contact_name",
@@ -1446,8 +1479,7 @@ var SCHEMA = {
         }
       ],
       "from_schema": "https://example.com/GRDI",
-      "range": "WhitespaceMinimizedString",
-      "required": true
+      "range": "WhitespaceMinimizedString"
     },
     "sample_collector_contact_email": {
       "name": "sample_collector_contact_email",
@@ -1479,7 +1511,8 @@ var SCHEMA = {
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0001198",
-      "range": "purpose_of_sampling menu"
+      "range": "purpose_of_sampling menu",
+      "required": true
     },
     "experimental_activity": {
       "name": "experimental_activity",
@@ -1524,8 +1557,7 @@ var SCHEMA = {
         }
       ],
       "from_schema": "https://example.com/GRDI",
-      "range": "sample_processing menu",
-      "required": true
+      "range": "sample_processing menu"
     },
     "geo_loc_name (country)": {
       "name": "geo_loc_name (country)",
@@ -1558,7 +1590,8 @@ var SCHEMA = {
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0001185",
-      "range": "geo_loc_name (state/province/region) menu"
+      "range": "geo_loc_name (state/province/region) menu",
+      "required": true
     },
     "food_product_origin geo_loc_name (country)": {
       "name": "food_product_origin geo_loc_name (country)",
@@ -1620,8 +1653,7 @@ var SCHEMA = {
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0100310",
-      "range": "WhitespaceMinimizedString",
-      "required": true
+      "range": "WhitespaceMinimizedString"
     },
     "sample_collection_date": {
       "name": "sample_collection_date",
@@ -1637,7 +1669,8 @@ var SCHEMA = {
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0001174",
-      "range": "date"
+      "range": "date",
+      "required": true
     },
     "sample_received_date": {
       "name": "sample_received_date",
@@ -1668,8 +1701,7 @@ var SCHEMA = {
         }
       ],
       "from_schema": "https://example.com/GRDI",
-      "range": "WhitespaceMinimizedString",
-      "recommended": true
+      "range": "WhitespaceMinimizedString"
     },
     "environmental_site": {
       "name": "environmental_site",
@@ -1850,7 +1882,8 @@ var SCHEMA = {
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0001241",
-      "range": "WhitespaceMinimizedString"
+      "range": "WhitespaceMinimizedString",
+      "recommended": true
     },
     "host (common name)": {
       "name": "host (common name)",
@@ -1883,7 +1916,8 @@ var SCHEMA = {
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0001387",
-      "range": "WhitespaceMinimizedString"
+      "range": "WhitespaceMinimizedString",
+      "recommended": true
     },
     "host_disease": {
       "name": "host_disease",
@@ -1914,7 +1948,8 @@ var SCHEMA = {
         }
       ],
       "from_schema": "https://example.com/GRDI",
-      "range": "WhitespaceMinimizedString"
+      "range": "WhitespaceMinimizedString",
+      "recommended": true
     },
     "strain": {
       "name": "strain",
@@ -1929,8 +1964,7 @@ var SCHEMA = {
         }
       ],
       "from_schema": "https://example.com/GRDI",
-      "range": "WhitespaceMinimizedString",
-      "required": true
+      "range": "WhitespaceMinimizedString"
     },
     "isolate_ID": {
       "name": "isolate_ID",
@@ -1946,7 +1980,7 @@ var SCHEMA = {
       ],
       "from_schema": "https://example.com/GRDI",
       "range": "WhitespaceMinimizedString",
-      "recommended": true
+      "required": true
     },
     "alternative_isolate_ID": {
       "name": "alternative_isolate_ID",
@@ -1961,7 +1995,8 @@ var SCHEMA = {
         }
       ],
       "from_schema": "https://example.com/GRDI",
-      "range": "WhitespaceMinimizedString"
+      "range": "WhitespaceMinimizedString",
+      "recommended": true
     },
     "progeny_isolate_ID": {
       "name": "progeny_isolate_ID",
@@ -1976,8 +2011,7 @@ var SCHEMA = {
         }
       ],
       "from_schema": "https://example.com/GRDI",
-      "range": "WhitespaceMinimizedString",
-      "required": true
+      "range": "WhitespaceMinimizedString"
     },
     "IRIDA_isolate_ID": {
       "name": "IRIDA_isolate_ID",
@@ -2008,7 +2042,8 @@ var SCHEMA = {
         }
       ],
       "from_schema": "https://example.com/GRDI",
-      "range": "WhitespaceMinimizedString"
+      "range": "WhitespaceMinimizedString",
+      "required": true
     },
     "isolated_by_institution_name": {
       "name": "isolated_by_institution_name",
@@ -2098,8 +2133,7 @@ var SCHEMA = {
         }
       ],
       "from_schema": "https://example.com/GRDI",
-      "range": "WhitespaceMinimizedString",
-      "required": true
+      "range": "WhitespaceMinimizedString"
     },
     "organism": {
       "name": "organism",
@@ -2116,7 +2150,7 @@ var SCHEMA = {
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0001191",
       "range": "WhitespaceMinimizedString",
-      "recommended": true
+      "required": true
     },
     "serovar": {
       "name": "serovar",
@@ -2147,7 +2181,8 @@ var SCHEMA = {
         }
       ],
       "from_schema": "https://example.com/GRDI",
-      "range": "WhitespaceMinimizedString"
+      "range": "WhitespaceMinimizedString",
+      "recommended": true
     },
     "phagetype": {
       "name": "phagetype",
@@ -2178,8 +2213,7 @@ var SCHEMA = {
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0001448",
-      "range": "WhitespaceMinimizedString",
-      "required": true
+      "range": "WhitespaceMinimizedString"
     },
     "sequenced_by_institution_name": {
       "name": "sequenced_by_institution_name",
@@ -2194,7 +2228,8 @@ var SCHEMA = {
         }
       ],
       "from_schema": "https://example.com/GRDI",
-      "range": "WhitespaceMinimizedString"
+      "range": "WhitespaceMinimizedString",
+      "required": true
     },
     "sequenced_by_laboratory_name": {
       "name": "sequenced_by_laboratory_name",
@@ -2224,8 +2259,7 @@ var SCHEMA = {
         }
       ],
       "from_schema": "https://example.com/GRDI",
-      "range": "WhitespaceMinimizedString",
-      "required": true
+      "range": "WhitespaceMinimizedString"
     },
     "sequenced_by_contact_email": {
       "name": "sequenced_by_contact_email",
@@ -2257,7 +2291,8 @@ var SCHEMA = {
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0001445",
-      "range": "purpose_of_sequencing menu"
+      "range": "purpose_of_sequencing menu",
+      "required": true
     },
     "sequencing_project_name": {
       "name": "sequencing_project_name",
@@ -2475,7 +2510,7 @@ var SCHEMA = {
         }
       ],
       "from_schema": "https://example.com/GRDI",
-      "range": "prevalence_metrics menu",
+      "range": "WhitespaceMinimizedString",
       "recommended": true
     },
     "prevalence_metrics_details": {
@@ -2534,7 +2569,8 @@ var SCHEMA = {
         "If an experimental intervention was applied in the survey, provide details in this field as free text."
       ],
       "from_schema": "https://example.com/GRDI",
-      "range": "WhitespaceMinimizedString"
+      "range": "WhitespaceMinimizedString",
+      "recommended": true
     },
     "AMR_laboratory_typing_method": {
       "name": "AMR_laboratory_typing_method",
@@ -2671,7 +2707,7 @@ var SCHEMA = {
           "value": "27th ed. Wayne, PA: Clinical and Laboratory Standards Institute"
         },
         {
-          "value": " 2017."
+          "value": "2017."
         }
       ],
       "from_schema": "https://example.com/GRDI",
@@ -4395,7 +4431,7 @@ var SCHEMA = {
           "owner": "GRDI",
           "slot_group": "Sample collection and processing",
           "range": "WhitespaceMinimizedString",
-          "recommended": true
+          "required": true
         },
         "alternative_sample_ID": {
           "name": "alternative_sample_ID",
@@ -4406,7 +4442,8 @@ var SCHEMA = {
           "alias": "alternative_sample_ID",
           "owner": "GRDI",
           "slot_group": "Sample collection and processing",
-          "range": "WhitespaceMinimizedString"
+          "range": "WhitespaceMinimizedString",
+          "required": true
         },
         "sample_collected_by": {
           "name": "sample_collected_by",
@@ -4440,8 +4477,7 @@ var SCHEMA = {
           "alias": "sample_collection_project_name",
           "owner": "GRDI",
           "slot_group": "Sample collection and processing",
-          "range": "WhitespaceMinimizedString",
-          "recommended": true
+          "range": "WhitespaceMinimizedString"
         },
         "sample_plan_name": {
           "name": "sample_plan_name",
@@ -4464,7 +4500,8 @@ var SCHEMA = {
           "alias": "sample_plan_ID",
           "owner": "GRDI",
           "slot_group": "Sample collection and processing",
-          "range": "WhitespaceMinimizedString"
+          "range": "WhitespaceMinimizedString",
+          "recommended": true
         },
         "sample_collector_contact_name": {
           "name": "sample_collector_contact_name",
@@ -4475,8 +4512,7 @@ var SCHEMA = {
           "alias": "sample_collector_contact_name",
           "owner": "GRDI",
           "slot_group": "Sample collection and processing",
-          "range": "WhitespaceMinimizedString",
-          "required": true
+          "range": "WhitespaceMinimizedString"
         },
         "sample_collector_contact_email": {
           "name": "sample_collector_contact_email",
@@ -4500,7 +4536,8 @@ var SCHEMA = {
           "alias": "purpose_of_sampling",
           "owner": "GRDI",
           "slot_group": "Sample collection and processing",
-          "range": "purpose_of_sampling menu"
+          "range": "purpose_of_sampling menu",
+          "required": true
         },
         "experimental_activity": {
           "name": "experimental_activity",
@@ -4533,8 +4570,7 @@ var SCHEMA = {
           "alias": "sample_processing",
           "owner": "GRDI",
           "slot_group": "Sample collection and processing",
-          "range": "sample_processing menu",
-          "required": true
+          "range": "sample_processing menu"
         },
         "geo_loc_name (country)": {
           "name": "geo_loc_name (country)",
@@ -4559,7 +4595,8 @@ var SCHEMA = {
           "alias": "geo_loc_name_(state/province/region)",
           "owner": "GRDI",
           "slot_group": "Sample collection and processing",
-          "range": "geo_loc_name (state/province/region) menu"
+          "range": "geo_loc_name (state/province/region) menu",
+          "required": true
         },
         "food_product_origin geo_loc_name (country)": {
           "name": "food_product_origin geo_loc_name (country)",
@@ -4605,8 +4642,7 @@ var SCHEMA = {
           "alias": "longitude_of_sample_collection",
           "owner": "GRDI",
           "slot_group": "Sample collection and processing",
-          "range": "WhitespaceMinimizedString",
-          "required": true
+          "range": "WhitespaceMinimizedString"
         },
         "sample_collection_date": {
           "name": "sample_collection_date",
@@ -4618,7 +4654,8 @@ var SCHEMA = {
           "alias": "sample_collection_date",
           "owner": "GRDI",
           "slot_group": "Sample collection and processing",
-          "range": "date"
+          "range": "date",
+          "required": true
         },
         "sample_received_date": {
           "name": "sample_received_date",
@@ -4641,8 +4678,7 @@ var SCHEMA = {
           "alias": "original_sample_description",
           "owner": "GRDI",
           "slot_group": "Sample collection and processing",
-          "range": "WhitespaceMinimizedString",
-          "recommended": true
+          "range": "WhitespaceMinimizedString"
         },
         "environmental_site": {
           "name": "environmental_site",
@@ -4779,7 +4815,8 @@ var SCHEMA = {
           "alias": "collection_method",
           "owner": "GRDI",
           "slot_group": "Sample collection and processing",
-          "range": "WhitespaceMinimizedString"
+          "range": "WhitespaceMinimizedString",
+          "recommended": true
         },
         "host (common name)": {
           "name": "host (common name)",
@@ -4804,7 +4841,8 @@ var SCHEMA = {
           "alias": "host_(scientific_name)",
           "owner": "GRDI",
           "slot_group": "Host information",
-          "range": "WhitespaceMinimizedString"
+          "range": "WhitespaceMinimizedString",
+          "recommended": true
         },
         "host_disease": {
           "name": "host_disease",
@@ -4827,7 +4865,8 @@ var SCHEMA = {
           "alias": "microbiological_method",
           "owner": "GRDI",
           "slot_group": "Strain and isolation information",
-          "range": "WhitespaceMinimizedString"
+          "range": "WhitespaceMinimizedString",
+          "recommended": true
         },
         "strain": {
           "name": "strain",
@@ -4838,8 +4877,7 @@ var SCHEMA = {
           "alias": "strain",
           "owner": "GRDI",
           "slot_group": "Strain and isolation information",
-          "range": "WhitespaceMinimizedString",
-          "required": true
+          "range": "WhitespaceMinimizedString"
         },
         "isolate_ID": {
           "name": "isolate_ID",
@@ -4851,7 +4889,7 @@ var SCHEMA = {
           "owner": "GRDI",
           "slot_group": "Strain and isolation information",
           "range": "WhitespaceMinimizedString",
-          "recommended": true
+          "required": true
         },
         "alternative_isolate_ID": {
           "name": "alternative_isolate_ID",
@@ -4862,7 +4900,8 @@ var SCHEMA = {
           "alias": "alternative_isolate_ID",
           "owner": "GRDI",
           "slot_group": "Strain and isolation information",
-          "range": "WhitespaceMinimizedString"
+          "range": "WhitespaceMinimizedString",
+          "recommended": true
         },
         "progeny_isolate_ID": {
           "name": "progeny_isolate_ID",
@@ -4873,8 +4912,7 @@ var SCHEMA = {
           "alias": "progeny_isolate_ID",
           "owner": "GRDI",
           "slot_group": "Strain and isolation information",
-          "range": "WhitespaceMinimizedString",
-          "required": true
+          "range": "WhitespaceMinimizedString"
         },
         "IRIDA_isolate_ID": {
           "name": "IRIDA_isolate_ID",
@@ -4897,7 +4935,8 @@ var SCHEMA = {
           "alias": "IRIDA_project_ID",
           "owner": "GRDI",
           "slot_group": "Strain and isolation information",
-          "range": "WhitespaceMinimizedString"
+          "range": "WhitespaceMinimizedString",
+          "required": true
         },
         "isolated_by_institution_name": {
           "name": "isolated_by_institution_name",
@@ -4963,8 +5002,7 @@ var SCHEMA = {
           "alias": "isolate_received_date",
           "owner": "GRDI",
           "slot_group": "Strain and isolation information",
-          "range": "WhitespaceMinimizedString",
-          "required": true
+          "range": "WhitespaceMinimizedString"
         },
         "organism": {
           "name": "organism",
@@ -4977,7 +5015,7 @@ var SCHEMA = {
           "owner": "GRDI",
           "slot_group": "Strain and isolation information",
           "range": "WhitespaceMinimizedString",
-          "recommended": true
+          "required": true
         },
         "serovar": {
           "name": "serovar",
@@ -5000,7 +5038,8 @@ var SCHEMA = {
           "alias": "serotyping_method",
           "owner": "GRDI",
           "slot_group": "Strain and isolation information",
-          "range": "WhitespaceMinimizedString"
+          "range": "WhitespaceMinimizedString",
+          "recommended": true
         },
         "phagetype": {
           "name": "phagetype",
@@ -5023,8 +5062,7 @@ var SCHEMA = {
           "alias": "library_ID",
           "owner": "GRDI",
           "slot_group": "Sequence information",
-          "range": "WhitespaceMinimizedString",
-          "required": true
+          "range": "WhitespaceMinimizedString"
         },
         "sequenced_by_institution_name": {
           "name": "sequenced_by_institution_name",
@@ -5035,7 +5073,8 @@ var SCHEMA = {
           "alias": "sequenced_by_institution_name",
           "owner": "GRDI",
           "slot_group": "Sequence information",
-          "range": "WhitespaceMinimizedString"
+          "range": "WhitespaceMinimizedString",
+          "required": true
         },
         "sequenced_by_laboratory_name": {
           "name": "sequenced_by_laboratory_name",
@@ -5057,8 +5096,7 @@ var SCHEMA = {
           "alias": "sequenced_by_contact_name",
           "owner": "GRDI",
           "slot_group": "Sequence information",
-          "range": "WhitespaceMinimizedString",
-          "required": true
+          "range": "WhitespaceMinimizedString"
         },
         "sequenced_by_contact_email": {
           "name": "sequenced_by_contact_email",
@@ -5082,7 +5120,8 @@ var SCHEMA = {
           "alias": "purpose_of_sequencing",
           "owner": "GRDI",
           "slot_group": "Sequence information",
-          "range": "purpose_of_sequencing menu"
+          "range": "purpose_of_sequencing menu",
+          "required": true
         },
         "sequencing_project_name": {
           "name": "sequencing_project_name",
@@ -5244,7 +5283,7 @@ var SCHEMA = {
           "alias": "prevalence_metrics",
           "owner": "GRDI",
           "slot_group": "Risk assessment information",
-          "range": "prevalence_metrics menu",
+          "range": "WhitespaceMinimizedString",
           "recommended": true
         },
         "prevalence_metrics_details": {
@@ -5292,7 +5331,8 @@ var SCHEMA = {
           "alias": "experiment_intervention_details",
           "owner": "GRDI",
           "slot_group": "Risk assessment information",
-          "range": "WhitespaceMinimizedString"
+          "range": "WhitespaceMinimizedString",
+          "recommended": true
         },
         "AMR_laboratory_typing_method": {
           "name": "AMR_laboratory_typing_method",

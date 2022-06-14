@@ -7,6 +7,10 @@ var SCHEMA = {
       "prefix_prefix": "linkml",
       "prefix_reference": "https://w3id.org/linkml/"
     },
+    "GENEPIO": {
+      "prefix_prefix": "GENEPIO",
+      "prefix_reference": "http://purl.obolibrary.org/obo/GENEPIO_"
+    },
     "xsd": {
       "prefix_prefix": "xsd",
       "prefix_reference": "http://www.w3.org/2001/XMLSchema#"
@@ -18,9 +22,16 @@ var SCHEMA = {
   },
   "default_prefix": "https://example.com/monkeypox/",
   "types": {
-    "WhiteSpaceMinimizedString": {
-      "name": "WhiteSpaceMinimizedString",
+    "WhitespaceMinimizedString": {
+      "name": "WhitespaceMinimizedString",
       "description": "A string that has all whitespace trimmed off of beginning and end, and all internal whitespace segments reduced to single spaces. Whitespace includes #x9 (tab), #xA (linefeed), and #xD (carriage return).",
+      "typeof": "string",
+      "base": "str",
+      "uri": "xsd:token"
+    },
+    "Provenance": {
+      "name": "Provenance",
+      "description": "A field containing a DataHarmonizer versioning marker. It is issued by DataHarmonizer when validation is applied to a given row of data.",
       "typeof": "string",
       "base": "str",
       "uri": "xsd:token"
@@ -3810,7 +3821,7 @@ var SCHEMA = {
         "NML_LIMS:HC_COMMENTS"
       ],
       "slot_uri": "GENEPIO:0001518",
-      "range": "provenance"
+      "range": "Provenance"
     }
   },
   "classes": {
@@ -4697,7 +4708,7 @@ var SCHEMA = {
           "alias": "DataHarmonizer_provenance",
           "owner": "Monkeypox",
           "slot_group": "Contributor acknowledgement",
-          "range": "provenance"
+          "range": "Provenance"
         }
       }
     }

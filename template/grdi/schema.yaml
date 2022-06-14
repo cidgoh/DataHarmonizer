@@ -5,6 +5,7 @@ imports:
 - linkml:types
 prefixes:
   linkml: https://w3id.org/linkml/
+  GENEPIO: http://purl.obolibrary.org/obo/GENEPIO_
 classes:
   dh_interface:
     name: dh_interface
@@ -821,7 +822,7 @@ slots:
     - value: ABCD123
     slot_uri: GENEPIO:0001123
     range: WhitespaceMinimizedString
-    recommended: true
+    required: true
   alternative_sample_ID:
     name: alternative_sample_ID
     title: alternative_sample_ID
@@ -833,6 +834,7 @@ slots:
     examples:
     - value: bvn5567, RA1-HH789
     range: WhitespaceMinimizedString
+    required: true
   sample_collected_by:
     name: sample_collected_by
     title: sample_collected_by
@@ -865,7 +867,6 @@ slots:
     examples:
     - value: Watershed Project (HA-120)
     range: WhitespaceMinimizedString
-    recommended: true
   sample_plan_name:
     name: sample_plan_name
     title: sample_plan_name
@@ -887,6 +888,7 @@ slots:
     examples:
     - value: 2001_M205
     range: WhitespaceMinimizedString
+    recommended: true
   sample_collector_contact_name:
     name: sample_collector_contact_name
     title: sample_collector_contact_name
@@ -900,7 +902,6 @@ slots:
     examples:
     - value: Enterics Lab Manager
     range: WhitespaceMinimizedString
-    required: true
   sample_collector_contact_email:
     name: sample_collector_contact_email
     title: sample_collector_contact_email
@@ -929,6 +930,7 @@ slots:
     - value: Surveillance
     slot_uri: GENEPIO:0001198
     range: purpose_of_sampling menu
+    required: true
   experimental_activity:
     name: experimental_activity
     title: experimental_activity
@@ -963,7 +965,6 @@ slots:
     examples:
     - value: Samples pooled
     range: sample_processing menu
-    required: true
   geo_loc_name (country):
     name: geo_loc_name (country)
     title: geo_loc_name (country)
@@ -986,6 +987,7 @@ slots:
     - value: British Columbia
     slot_uri: GENEPIO:0001185
     range: geo_loc_name (state/province/region) menu
+    required: true
   food_product_origin geo_loc_name (country):
     name: food_product_origin geo_loc_name (country)
     title: food_product_origin geo_loc_name (country)
@@ -1035,7 +1037,6 @@ slots:
     - value: 77.11 W
     slot_uri: GENEPIO:0100310
     range: WhitespaceMinimizedString
-    required: true
   sample_collection_date:
     name: sample_collection_date
     title: sample_collection_date
@@ -1046,6 +1047,7 @@ slots:
     - value: '2020-10-30'
     slot_uri: GENEPIO:0001174
     range: date
+    required: true
   sample_received_date:
     name: sample_received_date
     title: sample_received_date
@@ -1066,7 +1068,6 @@ slots:
     examples:
     - value: RTE Prosciutto from deli
     range: WhitespaceMinimizedString
-    recommended: true
   environmental_site:
     name: environmental_site
     title: environmental_site
@@ -1203,6 +1204,7 @@ slots:
     - value: phlebotomy, necropsy, rinsing
     slot_uri: GENEPIO:0001241
     range: WhitespaceMinimizedString
+    recommended: true
   host (common name):
     name: host (common name)
     title: host (common name)
@@ -1227,6 +1229,7 @@ slots:
     - value: Bos taurus, Homo sapiens
     slot_uri: GENEPIO:0001387
     range: WhitespaceMinimizedString
+    recommended: true
   host_disease:
     name: host_disease
     title: host_disease
@@ -1250,6 +1253,7 @@ slots:
     examples:
     - value: MFHPB-30
     range: WhitespaceMinimizedString
+    recommended: true
   strain:
     name: strain
     title: strain
@@ -1259,7 +1263,6 @@ slots:
     examples:
     - value: K12
     range: WhitespaceMinimizedString
-    required: true
   isolate_ID:
     name: isolate_ID
     title: isolate_ID
@@ -1273,7 +1276,7 @@ slots:
     examples:
     - value: SA20131043
     range: WhitespaceMinimizedString
-    recommended: true
+    required: true
   alternative_isolate_ID:
     name: alternative_isolate_ID
     title: alternative_isolate_ID
@@ -1283,6 +1286,7 @@ slots:
     examples:
     - value: PHAC_45678
     range: WhitespaceMinimizedString
+    recommended: true
   progeny_isolate_ID:
     name: progeny_isolate_ID
     title: progeny_isolate_ID
@@ -1293,7 +1297,6 @@ slots:
     examples:
     - value: SUB_ON_1526
     range: WhitespaceMinimizedString
-    required: true
   IRIDA_isolate_ID:
     name: IRIDA_isolate_ID
     title: IRIDA_isolate_ID
@@ -1315,6 +1318,7 @@ slots:
     examples:
     - value: '666'
     range: WhitespaceMinimizedString
+    required: true
   isolated_by_institution_name:
     name: isolated_by_institution_name
     title: isolated_by_institution_name
@@ -1380,7 +1384,6 @@ slots:
     examples:
     - value: '2020-11-15'
     range: WhitespaceMinimizedString
-    required: true
   organism:
     name: organism
     title: organism
@@ -1391,7 +1394,7 @@ slots:
     - value: Salmonella enterica subspecies enterica
     slot_uri: GENEPIO:0001191
     range: WhitespaceMinimizedString
-    recommended: true
+    required: true
   serovar:
     name: serovar
     title: serovar
@@ -1412,6 +1415,7 @@ slots:
     examples:
     - value: SISTR 1.0.1
     range: WhitespaceMinimizedString
+    recommended: true
   phagetype:
     name: phagetype
     title: phagetype
@@ -1431,7 +1435,6 @@ slots:
     - value: LS_2010_NP_123446
     slot_uri: GENEPIO:0001448
     range: WhitespaceMinimizedString
-    required: true
   sequenced_by_institution_name:
     name: sequenced_by_institution_name
     title: sequenced_by_institution_name
@@ -1443,6 +1446,7 @@ slots:
     examples:
     - value: Public Health Agency of Canada
     range: WhitespaceMinimizedString
+    required: true
   sequenced_by_laboratory_name:
     name: sequenced_by_laboratory_name
     title: sequenced_by_laboratory_name
@@ -1467,7 +1471,6 @@ slots:
     examples:
     - value: Enterics Lab Manager
     range: WhitespaceMinimizedString
-    required: true
   sequenced_by_contact_email:
     name: sequenced_by_contact_email
     title: sequenced_by_contact_email
@@ -1494,6 +1497,7 @@ slots:
     - value: Research
     slot_uri: GENEPIO:0001445
     range: purpose_of_sequencing menu
+    required: true
   sequencing_project_name:
     name: sequencing_project_name
     title: sequencing_project_name
@@ -1638,7 +1642,7 @@ slots:
       the information is available.
     examples:
     - value: Number of total samples collected, Number of positive samples
-    range: prevalence_metrics menu
+    range: WhitespaceMinimizedString
     recommended: true
   prevalence_metrics_details:
     name: prevalence_metrics_details
@@ -1681,6 +1685,7 @@ slots:
     comments: If an experimental intervention was applied in the survey, provide details
       in this field as free text.
     range: WhitespaceMinimizedString
+    recommended: true
   AMR_laboratory_typing_method:
     name: AMR_laboratory_typing_method
     title: AMR_laboratory_typing_method
@@ -1765,7 +1770,7 @@ slots:
     title: ampicillin_measurement
     examples:
     - value: '27th ed. Wayne, PA: Clinical and Laboratory Standards Institute'
-    - value: ' 2017.'
+    - value: '2017.'
     range: WhitespaceMinimizedString
   azithromycin_resistance_phenotype:
     name: azithromycin_resistance_phenotype
@@ -2285,6 +2290,18 @@ enums:
         text: Samples pooled
       Isolated from single source:
         text: Isolated from single source
+  attribute_package menu:
+    name: attribute_package menu
+    permissible_values:
+      Pathogen.cl:
+        text: Pathogen.cl
+      Pathogen.env:
+        text: Pathogen.env
+  stage_of_production menu:
+    name: stage_of_production menu
+    permissible_values:
+      abattoir:
+        text: abattoir
   sequencing_platform menu:
     name: sequencing_platform menu
     permissible_values:
@@ -3040,12 +3057,19 @@ enums:
       Zimbabwe:
         text: Zimbabwe
 types:
-  WhiteSpaceMinimizedString:
-    name: WhiteSpaceMinimizedString
+  WhitespaceMinimizedString:
+    name: WhitespaceMinimizedString
     typeof: string
     description: 'A string that has all whitespace trimmed off of beginning and end,
       and all internal whitespace segments reduced to single spaces. Whitespace includes
       #x9 (tab), #xA (linefeed), and #xD (carriage return).'
+    base: str
+    uri: xsd:token
+  Provenance:
+    name: Provenance
+    typeof: string
+    description: A field containing a DataHarmonizer versioning marker. It is issued
+      by DataHarmonizer when validation is applied to a given row of data.
     base: str
     uri: xsd:token
 settings:
