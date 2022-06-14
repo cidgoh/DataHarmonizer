@@ -57,6 +57,24 @@ You can also automatically fill a column with a specified value, but only in row
 
 For _more information_ on available application features, select the **Help** button followed by **Getting Started** from within the DataHarmonizer application.
 
+## Example Data
+
+Templates with example data testing functionalities can be found within the following folder structure when available:
+
+```
+. TOP LEVEL DIRECTORY
+├── images
+├── libraries
+├── script
+└── template
+│   ├── templateOfInterest
+│   │   └── exampleInput
+│   └── ...
+```
+
+Alternatively, you can find links to all available test data below:
+- [`canada_covid19`](https://github.com/cidgoh/DataHarmonizer/tree/master/template/canada_covid19/exampleInput) CanCOGeN Covid-19
+
 ## Additional Information
 
 For more information about the DataHarmonizer, it's templates, and how to use them, check out the [DataHarmonizer Wiki](https://github.com/Public-Health-Bioinformatics/DataHarmonizer/wiki).
@@ -72,6 +90,17 @@ problems running the application, [please open an issue for discussion][1].
 
 This project is currently in the beta phase, with new features being added
 occasionally.
+
+## Version Control
+
+Versioning of templates, features, and functionality is modeled on semantic versioning (i.e. versions are expressed as “DataHarmonizer X.Y.Z”).
+Changes to vocabulary in template pick lists are updated by incremental increases to the third position in the version (i.e. “Z” position).
+Changes to fields and features are updated by incremental increases to the second position in the version (i.e. “Y” position).
+Changes to basic infrastructure or major changes to functionality are updated by incremental increases to the first position in the version (i.e. “X” position).
+
+Descriptions of updates are provided in release notes for every new version.
+
+Discussions contributing to updates may be tracked on the DataHarmonizer GitHub Issuetracker.
 
 ## Acknowledgement
 
