@@ -337,7 +337,7 @@ var EXPORT_FORMATS = {
 
 				['geo_loc_name (city)',		[]],
 
-								['breadth of coverage value', []],
+				['breadth of coverage value', []],
 				['depth of coverage value', []],
 				['depth of coverage threshold', []],
 				['number of base pairs sequenced', []],
@@ -350,7 +350,6 @@ var EXPORT_FORMATS = {
 
 			// Fills in the above mapping (or just set manually above) 
 			dh.getHeaderMap(ExportHeaders, sourceFields, 'NML_LIMS');
-			console.log(ExportHeaders)
 
 			// Copy headers to 1st row of new export table
 			const outputMatrix = [[...ExportHeaders.keys()]];
