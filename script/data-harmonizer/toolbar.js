@@ -247,7 +247,10 @@ DataHarmonizerToolbar = {
 		const self = this;
 		$('#select-template').val(this.dh.template_path);
 		// Display template without folder part
-		let template_name = this.dh.template_path.substr(this.dh.template_path.indexOf('/')+1)
+		let path_array = this.dh.template_path.split('/');
+
+		let template_folder = path_array[0];
+		let template_name = path_array[1];
 		$('#template_name_display').text(template_name);
 		$('#file_name_display').text('');
 
@@ -261,7 +264,7 @@ DataHarmonizerToolbar = {
 		}
 
 		// Update SOP.
-		$("#help_sop").attr('href',`template/${this.dh.template_folder}/SOP.pdf`);
+		$("#help_sop").attr('href',`template/${template_folder}/SOP.pdf`);
 
 		// Allows columnCoordinates to be accessed within select() below.
 		const columnCoordinates = this.dh.getColumnCoordinates();
