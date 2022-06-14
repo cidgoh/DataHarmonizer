@@ -266,7 +266,7 @@ var EXPORT_FORMATS = {
 				['PH_SPECIMEN_SOURCE_DESC', []],
 				//['PH_ENVIRONMENTAL_MATERIAL', []],
 				//['PH_ENVIRONMENTAL_SITE',   []],
-				//['PH_SPECIMEN_TYPE_ORIG',   []],           
+				['PH_SPECIMEN_TYPE_ORIG',   []],           
 				['COLLECTION_METHOD',       []],
 
 				//['PH_ANIMAL_TYPE',          []],
@@ -285,7 +285,7 @@ var EXPORT_FORMATS = {
 				//['PH_VACCINATION_HISTORY',  []],
 				//['VE_SYMP_AVAIL',           []], // Calculated field (not in import)
 				//['PH_EXPOSURE_COUNTRY',     []], 
-				//['PH_TRAVEL',               []],
+				['PH_TRAVEL',               []],
 				//['PH_POINT_OF_ENTRY',       []],
 				//['PH_DAY',                  []],
 				//['PH_EXPOSURE',             []],
@@ -297,7 +297,7 @@ var EXPORT_FORMATS = {
 				['PH_SEQUENCING_DATE',      []], 
 				['PH_LIBRARY_PREP_KIT',      []], 
 
-				//['PH_INSTRUMENT_CGN',       []], 
+				['PH_INSTRUMENT_CGN',       []], 
 				['PH_TESTING_PROTOCOL',     []],
 				//['PH_SEQ_PROTOCOL_NAME',     []],
 				['PH_RAW_SEQUENCE_METHOD',     []],
