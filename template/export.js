@@ -26,7 +26,7 @@ var EXPORT_FORMATS = {
           // Any custom rules here for data conversions
           
           // Otherwise apply source (many to one) to target field transform:
-          const value = dh.getMappedField(headerName, inputRow, sources, sourceFields,sourceFieldNameMap, ':', 'BIOSAMPLE') 
+          const value = dh.getMappedField(headerName, inputRow, sources, sourceFields,sourceFieldNameMap, ':', 'Example_Format_Name') 
           outputRow.push(value);
         }
         outputMatrix.push(outputRow);
