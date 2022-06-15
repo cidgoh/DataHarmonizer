@@ -4,7 +4,9 @@
   "description": "A standardized spreadsheet editor and validator that can be run offline and locally",
   "repository": "git@github.com:cidgoh/DataHarmonizer.git",
   "license": "MIT",
-  "files": ["./lib/dist"],
+  "files": [
+    "./lib/dist"
+  ],
   "main": "./lib/dist/data-harmonizer.umd.js",
   "module": "./lib/dist/data-harmonizer.es.js",
   "exports": {
@@ -14,9 +16,11 @@
     }
   },
   "scripts": {
+    "lint": "eslint lib",
     "build:lib": "rollup --config lib/rollup.config.js"
   },
   "devDependencies": {
+    "eslint": "^8.17.0",
     "rollup": "^2.75.6"
   }
 }
