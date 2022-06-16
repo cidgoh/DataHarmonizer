@@ -1,5 +1,8 @@
 module.exports = {
     "ignorePatterns": [
+        ".eslintrc.js",
+        "web/webpack.config.js",
+        "lib/rollup.config.js",
         "main.js",
         "script/**/*.js",
         "**/dist/**/*.js"
