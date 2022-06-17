@@ -17,8 +17,13 @@ module.exports = (env, argv) => {
     module: {
       rules: [
         {
-          test: /\.css$/i,
+          test: /\.css$/,
           use: ['style-loader', 'css-loader'],
+        },
+        {
+          test: /\.html$/,
+          exclude: path.resolve(__dirname, 'index.html'),
+          type: 'asset/source',
         },
       ],
     },
