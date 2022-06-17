@@ -147,7 +147,10 @@ let DataHarmonizer = {
 			return template_name;
 		}
 		catch(err) {
-		  console.log(err);
+			console.log(err);
+			$('#missing-template-msg').text(`Unable to load template at path "${template_path}". Path should consist of [template folder name]/[template name] with correct capitalization.`);
+			$('#missing-template-modal').modal('show');
+			return false;
 		}
 
 	},
