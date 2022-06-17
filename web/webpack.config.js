@@ -25,6 +25,10 @@ module.exports = (env, argv) => {
           exclude: path.resolve(__dirname, 'index.html'),
           type: 'asset/source',
         },
+        {
+          test: /\.(png|svg|jpg|jpeg|gif)$/i,
+          type: 'asset/resource',
+        },
       ],
     },
     devServer: {
