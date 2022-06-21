@@ -34,7 +34,6 @@ classes:
     - sample received date
     - geo_loc_name (country)
     - geo_loc_name (state/province/territory)
-    - geo_loc_name (city)
     - organism
     - isolate
     - purpose of sampling
@@ -80,6 +79,15 @@ classes:
       sample collected by:
         rank: 4
         slot_group: Sample collection and processing
+        any_of:
+        - range: sample collected by menu
+        - range: null value menu
+        exact_mappings:
+        - GISAID:Originating lab
+        - CNPHI:Lab Name
+        - NML_LIMS:CUSTOMER
+        - BIOSAMPLE:collected_by
+        - VirusSeq_Portal:sample collected by
       sample collector contact email:
         rank: 5
         slot_group: Sample collection and processing
@@ -89,6 +97,9 @@ classes:
       sequenced by:
         rank: 7
         slot_group: Sample collection and processing
+        any_of:
+        - range: sequence submitted by menu
+        - range: null value menu
       sequenced by contact email:
         rank: 8
         slot_group: Sample collection and processing
@@ -98,6 +109,15 @@ classes:
       sequence submitted by:
         rank: 10
         slot_group: Sample collection and processing
+        any_of:
+        - range: sequence submitted by menu
+        - range: null value menu
+        exact_mappings:
+        - GISAID:Submitting lab
+        - CNPHI:Sequencing Centre
+        - NML_LIMS:PH_SEQUENCING_SUBMITTER
+        - BIOSAMPLE:sequence_submitted_by
+        - VirusSeq_Portal:sequence submitted by
       sequence submitter contact email:
         rank: 11
         slot_group: Sample collection and processing
@@ -119,104 +139,332 @@ classes:
       geo_loc_name (state/province/territory):
         rank: 17
         slot_group: Sample collection and processing
-      geo_loc_name (city):
+      organism:
         rank: 18
         slot_group: Sample collection and processing
-      organism:
+      isolate:
         rank: 19
         slot_group: Sample collection and processing
-      isolate:
+        slot_uri: GENEPIO:0001195
+        comments: "Provide the GISAID EpiPox virus name, which should be written in\
+          \ the format \u201ChMpxV/Canada/2 digit provincial ISO code-xxxxx/year\u201D\
+          . If the province code cannot be shared for privacy reasons, put \"UN\"\
+          \ for \"Unknown\"."
+        examples:
+        - value: hMpxV/Canada/UN-NML-12345/2022
+        exact_mappings:
+        - GISAID:Virus name
+        - CNPHI:GISAID Virus Name
+        - NML_LIMS:RESULT - CANCOGEN_SUBMISSIONS
+        - BIOSAMPLE:isolate
+        - BIOSAMPLE:GISAID_virus_name
+        - VirusSeq_Portal:isolate
+        - VirusSeq_Portal:fasta header name
+      purpose of sampling:
         rank: 20
         slot_group: Sample collection and processing
-      purpose of sampling:
+      purpose of sampling details:
         rank: 21
         slot_group: Sample collection and processing
-      purpose of sampling details:
+      NML submitted specimen type:
         rank: 22
         slot_group: Sample collection and processing
-      NML submitted specimen type:
+      Related specimen relationship type:
         rank: 23
         slot_group: Sample collection and processing
-      Related specimen relationship type:
+      anatomical material:
         rank: 24
         slot_group: Sample collection and processing
-      anatomical material:
+      anatomical part:
         rank: 25
         slot_group: Sample collection and processing
-      anatomical part:
+      body product:
         rank: 26
         slot_group: Sample collection and processing
-      body product:
+      collection device:
         rank: 27
         slot_group: Sample collection and processing
-      collection device:
+      collection method:
         rank: 28
         slot_group: Sample collection and processing
-      collection method:
-        rank: 29
-        slot_group: Sample collection and processing
       host (scientific name):
-        rank: 30
+        rank: 29
         slot_group: Host Information
       host disease:
-        rank: 31
+        rank: 30
         slot_group: Host Information
       travel history:
-        rank: 32
+        rank: 31
         slot_group: Host exposure information
       purpose of sequencing:
-        rank: 33
+        rank: 32
         slot_group: Sequencing
       purpose of sequencing details:
-        rank: 34
+        rank: 33
         slot_group: Sequencing
       sequencing date:
-        rank: 35
+        rank: 34
         slot_group: Sequencing
       library preparation kit:
-        rank: 36
+        rank: 35
         slot_group: Sequencing
       sequencing instrument:
-        rank: 37
+        rank: 36
         slot_group: Sequencing
       sequencing protocol:
-        rank: 38
+        rank: 37
         slot_group: Sequencing
       raw sequence data processing method:
-        rank: 39
+        rank: 38
         slot_group: Bioinformatics and QC metrics
       dehosting method:
-        rank: 40
+        rank: 39
         slot_group: Bioinformatics and QC metrics
       de novo assembly software name:
-        rank: 41
+        rank: 40
         slot_group: Bioinformatics and QC metrics
       de novo assembly software version:
-        rank: 42
+        rank: 41
         slot_group: Bioinformatics and QC metrics
       breadth of coverage value:
-        rank: 43
+        rank: 42
         slot_group: Bioinformatics and QC metrics
       depth of coverage value:
-        rank: 44
+        rank: 43
         slot_group: Bioinformatics and QC metrics
       depth of coverage threshold:
-        rank: 45
+        rank: 44
         slot_group: Bioinformatics and QC metrics
       number of base pairs sequenced:
-        rank: 46
+        rank: 45
         slot_group: Bioinformatics and QC metrics
       assembled genome length:
-        rank: 47
+        rank: 46
         slot_group: Bioinformatics and QC metrics
       bioinformatics protocol:
-        rank: 48
+        rank: 47
         slot_group: Bioinformatics and QC metrics
       authors:
-        rank: 49
+        rank: 48
         slot_group: Contributor acknowledgement
       DataHarmonizer provenance:
-        rank: 50
+        rank: 49
+        slot_group: Contributor acknowledgement
+  Monkeypox_international:
+    name: Monkeypox_international
+    description: International specification for Monkeypox clinical virus biosample
+      data gathering
+    is_a: dh_interface
+    slots:
+    - specimen collector sample ID
+    - GISAID virus name
+    - GISAID accession
+    - sample collected by
+    - sample collector contact email
+    - sample collector contact address
+    - sequenced by
+    - sequenced by contact email
+    - sequenced by contact address
+    - sequence submitted by
+    - sequence submitter contact email
+    - sequence submitter contact address
+    - sample collection date
+    - sample received date
+    - geo_loc_name (country)
+    - geo_loc_name (state/province/territory)
+    - organism
+    - isolate
+    - purpose of sampling
+    - purpose of sampling details
+    - anatomical material
+    - anatomical part
+    - body product
+    - collection device
+    - collection method
+    - host (scientific name)
+    - host disease
+    - travel history
+    - purpose of sequencing
+    - purpose of sequencing details
+    - sequencing date
+    - library preparation kit
+    - sequencing instrument
+    - sequencing protocol
+    - raw sequence data processing method
+    - dehosting method
+    - de novo assembly software name
+    - de novo assembly software version
+    - breadth of coverage value
+    - depth of coverage value
+    - depth of coverage threshold
+    - number of base pairs sequenced
+    - assembled genome length
+    - bioinformatics protocol
+    - authors
+    - DataHarmonizer provenance
+    slot_usage:
+      specimen collector sample ID:
+        rank: 1
+        slot_group: Database Identifiers
+      GISAID virus name:
+        rank: 2
+        slot_group: Database Identifiers
+      GISAID accession:
+        rank: 3
+        slot_group: Database Identifiers
+      sample collected by:
+        rank: 4
+        slot_group: Sample collection and processing
+        any_of:
+        - range: WhitespaceMinimizedString
+        - range: null value menu
+        exact_mappings:
+        - GISAID:Originating lab
+        - BIOSAMPLE:collected_by
+      sample collector contact email:
+        rank: 5
+        slot_group: Sample collection and processing
+      sample collector contact address:
+        rank: 6
+        slot_group: Sample collection and processing
+      sequenced by:
+        rank: 7
+        slot_group: Sample collection and processing
+        any_of:
+        - range: WhitespaceMinimizedString
+        - range: null value menu
+      sequenced by contact email:
+        rank: 8
+        slot_group: Sample collection and processing
+      sequenced by contact address:
+        rank: 9
+        slot_group: Sample collection and processing
+      sequence submitted by:
+        rank: 10
+        slot_group: Sample collection and processing
+        any_of:
+        - range: WhitespaceMinimizedString
+        - range: null value menu
+        exact_mappings:
+        - GISAID:Submitting lab
+        - BIOSAMPLE:sequence_submitted_by
+      sequence submitter contact email:
+        rank: 11
+        slot_group: Sample collection and processing
+      sequence submitter contact address:
+        rank: 12
+        slot_group: Sample collection and processing
+      sample collection date:
+        rank: 13
+        slot_group: Sample collection and processing
+      sample received date:
+        rank: 14
+        slot_group: Sample collection and processing
+      geo_loc_name (country):
+        rank: 15
+        slot_group: Sample collection and processing
+      geo_loc_name (state/province/territory):
+        rank: 16
+        slot_group: Sample collection and processing
+      organism:
+        rank: 17
+        slot_group: Sample collection and processing
+      isolate:
+        rank: 18
+        slot_group: Sample collection and processing
+        slot_uri: GENEPIO:0001644
+        comments: 'This identifier should be an unique, indexed, alpha-numeric ID
+          within your laboratory. If submitted to the INSDC, the "isolate" name is
+          propagated throughtout different databases. As such, structure the "isolate"
+          name to be ICTV/INSDC compliant in the following format: "MpxV/host/country/sampleID/date".'
+        examples:
+        - value: MpxV/human/USA/CA-CDPH-001/2020
+        exact_mappings:
+        - GISAID:Virus name
+        - BIOSAMPLE:isolate
+      purpose of sampling:
+        rank: 19
+        slot_group: Sample collection and processing
+      purpose of sampling details:
+        rank: 20
+        slot_group: Sample collection and processing
+      anatomical material:
+        rank: 21
+        slot_group: Sample collection and processing
+      anatomical part:
+        rank: 22
+        slot_group: Sample collection and processing
+      body product:
+        rank: 23
+        slot_group: Sample collection and processing
+      collection device:
+        rank: 24
+        slot_group: Sample collection and processing
+      collection method:
+        rank: 25
+        slot_group: Sample collection and processing
+      host (scientific name):
+        rank: 26
+        slot_group: Host Information
+      host disease:
+        rank: 27
+        slot_group: Host Information
+      travel history:
+        rank: 28
+        slot_group: Host exposure information
+      purpose of sequencing:
+        rank: 29
+        slot_group: Sequencing
+      purpose of sequencing details:
+        rank: 30
+        slot_group: Sequencing
+      sequencing date:
+        rank: 31
+        slot_group: Sequencing
+      library preparation kit:
+        rank: 32
+        slot_group: Sequencing
+      sequencing instrument:
+        rank: 33
+        slot_group: Sequencing
+      sequencing protocol:
+        rank: 34
+        slot_group: Sequencing
+      raw sequence data processing method:
+        rank: 35
+        slot_group: Bioinformatics and QC metrics
+      dehosting method:
+        rank: 36
+        slot_group: Bioinformatics and QC metrics
+      de novo assembly software name:
+        rank: 37
+        slot_group: Bioinformatics and QC metrics
+      de novo assembly software version:
+        rank: 38
+        slot_group: Bioinformatics and QC metrics
+      breadth of coverage value:
+        rank: 39
+        slot_group: Bioinformatics and QC metrics
+      depth of coverage value:
+        rank: 40
+        slot_group: Bioinformatics and QC metrics
+      depth of coverage threshold:
+        rank: 41
+        slot_group: Bioinformatics and QC metrics
+      number of base pairs sequenced:
+        rank: 42
+        slot_group: Bioinformatics and QC metrics
+      assembled genome length:
+        rank: 43
+        slot_group: Bioinformatics and QC metrics
+      bioinformatics protocol:
+        rank: 44
+        slot_group: Bioinformatics and QC metrics
+      authors:
+        rank: 45
+        slot_group: Contributor acknowledgement
+      DataHarmonizer provenance:
+        rank: 46
         slot_group: Contributor acknowledgement
 slots:
   specimen collector sample ID:
@@ -259,6 +507,21 @@ slots:
     - CNPHI:Related Specimen ID
     - CNPHI:Related Specimen Relationship Type
     - NML_LIMS:PH_RELATED_PRIMARY_ID
+    - BIOSAMPLE:sample_name
+  GISAID virus name:
+    name: GISAID virus name
+    title: GISAID virus name
+    description: Identifier of the specific isolate.
+    comments: "Provide the GISAID EpiPox virus name, which should be written in the\
+      \ format \u201ChMpxV/Canada/2 digit provincial ISO code-xxxxx/year\u201D. If\
+      \ the province code cannot be shared for privacy reasons, put \"UN\" for \"\
+      Unknown\"."
+    examples:
+    - value: hMpxV/Canada/UN-NML-12345/2022
+    slot_uri: GENEPIO:0100282
+    range: WhitespaceMinimizedString
+    exact_mappings:
+    - BIOSAMPLE:GISAID_virus_name
   GISAID accession:
     name: GISAID accession
     title: GISAID accession
@@ -289,16 +552,7 @@ slots:
     examples:
     - value: BC Centre for Disease Control
     slot_uri: GENEPIO:0001153
-    any_of:
-    - range: sample collected by menu
-    - range: null value menu
     required: true
-    exact_mappings:
-    - GISAID:Originating lab
-    - CNPHI:Lab Name
-    - NML_LIMS:CUSTOMER
-    - BIOSAMPLE:collected_by
-    - VirusSeq_Portal:sample collected by
   sample collector contact email:
     name: sample collector contact email
     title: sample collector contact email
@@ -336,9 +590,6 @@ slots:
     examples:
     - value: Public Health Ontario (PHO)
     slot_uri: GENEPIO:0100416
-    any_of:
-    - range: sequence submitted by menu
-    - range: null value menu
     required: true
     exact_mappings:
     - NML_LIMS:PH_SEQUENCING_CENTRE
@@ -378,16 +629,7 @@ slots:
     examples:
     - value: Public Health Ontario (PHO)
     slot_uri: GENEPIO:0001159
-    any_of:
-    - range: sequence submitted by menu
-    - range: null value menu
     required: true
-    exact_mappings:
-    - GISAID:Submitting lab
-    - CNPHI:Sequencing Centre
-    - NML_LIMS:PH_SEQUENCING_SUBMITTER
-    - BIOSAMPLE:sequence_submitted_by
-    - VirusSeq_Portal:sequence submitted by
   sequence submitter contact email:
     name: sequence submitter contact email
     title: sequence submitter contact email
@@ -507,19 +749,6 @@ slots:
     - NML_LIMS:HC_PROVINCE
     - BIOSAMPLE:geo_loc_name
     - VirusSeq_Portal:geo_loc_name (state/province/territory)
-  geo_loc_name (city):
-    name: geo_loc_name (city)
-    title: geo_loc_name (city)
-    description: The city where the sample was collected.
-    comments: 'Provide the city name. Use this look-up service to identify the standardized
-      term: https://www.ebi.ac.uk/ols/ontologies/gaz'
-    examples:
-    - value: Medicine Hat
-    slot_uri: GENEPIO:0001189
-    range: WhitespaceMinimizedString
-    exact_mappings:
-    - CNPHI:Patient City
-    - NML_LIMS:geo_loc_name (city)
   organism:
     name: organism
     title: organism
@@ -541,25 +770,10 @@ slots:
     name: isolate
     title: isolate
     description: Identifier of the specific isolate.
-    comments: "Provide the GISAID EpiPox virus name, which should be written in the\
-      \ format \u201ChMpxV/CANADA/2 digit provincial ISO code-xxxxx/year\u201D. If\
-      \ the province code cannot be shared for privacy reasons, put \"UN\" for \"\
-      Unknown\"."
-    examples:
-    - value: hMpxV/Canada/UN-NML-12345/2022
-    slot_uri: GENEPIO:0001195
     any_of:
     - range: WhitespaceMinimizedString
     - range: null value menu
     required: true
-    exact_mappings:
-    - GISAID:Virus name
-    - CNPHI:GISAID Virus Name
-    - NML_LIMS:RESULT - CANCOGEN_SUBMISSIONS
-    - BIOSAMPLE:isolate
-    - BIOSAMPLE:GISAID_virus_name
-    - VirusSeq_Portal:isolate
-    - VirusSeq_Portal:fasta header name
   purpose of sampling:
     name: purpose of sampling
     title: purpose of sampling
