@@ -2,4 +2,3 @@
 dpath==2.0.6
 black
 linkml-runtime
-linkml # Sujay suggested this instead
