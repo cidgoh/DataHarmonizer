@@ -1,5 +1,5 @@
 # version requirement?
 dpath==2.0.6
 black
-linkml_runtime
+linkml-runtime
 linkml # Sujay suggested this instead
