@@ -2553,7 +2553,8 @@ var SCHEMA = {
       "exact_mappings": [
         "CNPHI:Related Specimen ID",
         "CNPHI:Related Specimen Relationship Type",
-        "NML_LIMS:PH_RELATED_PRIMARY_ID"
+        "NML_LIMS:PH_RELATED_PRIMARY_ID",
+        "BIOSAMPLE:sample_name"
       ],
       "slot_uri": "GENEPIO:0001128",
       "any_of": [
@@ -2564,6 +2565,25 @@ var SCHEMA = {
           "range": "null value menu"
         }
       ]
+    },
+    "GISAID virus name": {
+      "name": "GISAID virus name",
+      "description": "Identifier of the specific isolate.",
+      "title": "GISAID virus name",
+      "comments": [
+        "Provide the GISAID EpiPox virus name, which should be written in the format “hMpxV/Canada/2 digit provincial ISO code-xxxxx/year”. If the province code cannot be shared for privacy reasons, put \"UN\" for \"Unknown\"."
+      ],
+      "examples": [
+        {
+          "value": "hMpxV/Canada/UN-NML-12345/2022"
+        }
+      ],
+      "from_schema": "https://example.com/monkeypox",
+      "exact_mappings": [
+        "BIOSAMPLE:GISAID_virus_name"
+      ],
+      "slot_uri": "GENEPIO:0100282",
+      "range": "WhitespaceMinimizedString"
     },
     "GISAID accession": {
       "name": "GISAID accession",
@@ -2605,23 +2625,8 @@ var SCHEMA = {
         }
       ],
       "from_schema": "https://example.com/monkeypox",
-      "exact_mappings": [
-        "GISAID:Originating lab",
-        "CNPHI:Lab Name",
-        "NML_LIMS:CUSTOMER",
-        "BIOSAMPLE:collected_by",
-        "VirusSeq_Portal:sample collected by"
-      ],
       "slot_uri": "GENEPIO:0001153",
-      "required": true,
-      "any_of": [
-        {
-          "range": "sample collected by menu"
-        },
-        {
-          "range": "null value menu"
-        }
-      ]
+      "required": true
     },
     "sample collector contact email": {
       "name": "sample collector contact email",
@@ -2681,15 +2686,7 @@ var SCHEMA = {
         "BIOSAMPLE:sequenced_by"
       ],
       "slot_uri": "GENEPIO:0100416",
-      "required": true,
-      "any_of": [
-        {
-          "range": "sequence submitted by menu"
-        },
-        {
-          "range": "null value menu"
-        }
-      ]
+      "required": true
     },
     "sequenced by contact email": {
       "name": "sequenced by contact email",
@@ -2742,23 +2739,8 @@ var SCHEMA = {
         }
       ],
       "from_schema": "https://example.com/monkeypox",
-      "exact_mappings": [
-        "GISAID:Submitting lab",
-        "CNPHI:Sequencing Centre",
-        "NML_LIMS:PH_SEQUENCING_SUBMITTER",
-        "BIOSAMPLE:sequence_submitted_by",
-        "VirusSeq_Portal:sequence submitted by"
-      ],
       "slot_uri": "GENEPIO:0001159",
-      "required": true,
-      "any_of": [
-        {
-          "range": "sequence submitted by menu"
-        },
-        {
-          "range": "null value menu"
-        }
-      ]
+      "required": true
     },
     "sequence submitter contact email": {
       "name": "sequence submitter contact email",
@@ -2949,26 +2931,6 @@ var SCHEMA = {
         }
       ]
     },
-    "geo_loc_name (city)": {
-      "name": "geo_loc_name (city)",
-      "description": "The city where the sample was collected.",
-      "title": "geo_loc_name (city)",
-      "comments": [
-        "Provide the city name. Use this look-up service to identify the standardized term: https://www.ebi.ac.uk/ols/ontologies/gaz"
-      ],
-      "examples": [
-        {
-          "value": "Medicine Hat"
-        }
-      ],
-      "from_schema": "https://example.com/monkeypox",
-      "exact_mappings": [
-        "CNPHI:Patient City",
-        "NML_LIMS:geo_loc_name (city)"
-      ],
-      "slot_uri": "GENEPIO:0001189",
-      "range": "WhitespaceMinimizedString"
-    },
     "organism": {
       "name": "organism",
       "description": "Taxonomic name of the organism.",
@@ -3003,25 +2965,7 @@ var SCHEMA = {
       "name": "isolate",
       "description": "Identifier of the specific isolate.",
       "title": "isolate",
-      "comments": [
-        "Provide the GISAID EpiPox virus name, which should be written in the format “hMpxV/CANADA/2 digit provincial ISO code-xxxxx/year”. If the province code cannot be shared for privacy reasons, put \"UN\" for \"Unknown\"."
-      ],
-      "examples": [
-        {
-          "value": "hMpxV/Canada/UN-NML-12345/2022"
-        }
-      ],
       "from_schema": "https://example.com/monkeypox",
-      "exact_mappings": [
-        "GISAID:Virus name",
-        "CNPHI:GISAID Virus Name",
-        "NML_LIMS:RESULT - CANCOGEN_SUBMISSIONS",
-        "BIOSAMPLE:isolate",
-        "BIOSAMPLE:GISAID_virus_name",
-        "VirusSeq_Portal:isolate",
-        "VirusSeq_Portal:fasta header name"
-      ],
-      "slot_uri": "GENEPIO:0001195",
       "required": true,
       "any_of": [
         {
@@ -3853,8 +3797,23 @@ var SCHEMA = {
         },
         "sample collected by": {
           "name": "sample collected by",
+          "exact_mappings": [
+            "GISAID:Originating lab",
+            "CNPHI:Lab Name",
+            "NML_LIMS:CUSTOMER",
+            "BIOSAMPLE:collected_by",
+            "VirusSeq_Portal:sample collected by"
+          ],
           "rank": 4,
-          "slot_group": "Sample collection and processing"
+          "slot_group": "Sample collection and processing",
+          "any_of": [
+            {
+              "range": "sample collected by menu"
+            },
+            {
+              "range": "null value menu"
+            }
+          ]
         },
         "sample collector contact email": {
           "name": "sample collector contact email",
@@ -3869,7 +3828,15 @@ var SCHEMA = {
         "sequenced by": {
           "name": "sequenced by",
           "rank": 7,
-          "slot_group": "Sample collection and processing"
+          "slot_group": "Sample collection and processing",
+          "any_of": [
+            {
+              "range": "sequence submitted by menu"
+            },
+            {
+              "range": "null value menu"
+            }
+          ]
         },
         "sequenced by contact email": {
           "name": "sequenced by contact email",
@@ -3883,8 +3850,23 @@ var SCHEMA = {
         },
         "sequence submitted by": {
           "name": "sequence submitted by",
+          "exact_mappings": [
+            "GISAID:Submitting lab",
+            "CNPHI:Sequencing Centre",
+            "NML_LIMS:PH_SEQUENCING_SUBMITTER",
+            "BIOSAMPLE:sequence_submitted_by",
+            "VirusSeq_Portal:sequence submitted by"
+          ],
           "rank": 10,
-          "slot_group": "Sample collection and processing"
+          "slot_group": "Sample collection and processing",
+          "any_of": [
+            {
+              "range": "sequence submitted by menu"
+            },
+            {
+              "range": "null value menu"
+            }
+          ]
         },
         "sequence submitter contact email": {
           "name": "sequence submitter contact email",
@@ -3921,169 +3903,182 @@ var SCHEMA = {
           "rank": 17,
           "slot_group": "Sample collection and processing"
         },
-        "geo_loc_name (city)": {
-          "name": "geo_loc_name (city)",
-          "rank": 18,
-          "slot_group": "Sample collection and processing"
-        },
         "organism": {
           "name": "organism",
-          "rank": 19,
+          "rank": 18,
           "slot_group": "Sample collection and processing"
         },
         "isolate": {
           "name": "isolate",
-          "rank": 20,
+          "comments": [
+            "Provide the GISAID EpiPox virus name, which should be written in the format “hMpxV/Canada/2 digit provincial ISO code-xxxxx/year”. If the province code cannot be shared for privacy reasons, put \"UN\" for \"Unknown\"."
+          ],
+          "examples": [
+            {
+              "value": "hMpxV/Canada/UN-NML-12345/2022"
+            }
+          ],
+          "exact_mappings": [
+            "GISAID:Virus name",
+            "CNPHI:GISAID Virus Name",
+            "NML_LIMS:RESULT - CANCOGEN_SUBMISSIONS",
+            "BIOSAMPLE:isolate",
+            "BIOSAMPLE:GISAID_virus_name",
+            "VirusSeq_Portal:isolate",
+            "VirusSeq_Portal:fasta header name"
+          ],
+          "rank": 19,
+          "slot_uri": "GENEPIO:0001195",
           "slot_group": "Sample collection and processing"
         },
         "purpose of sampling": {
           "name": "purpose of sampling",
-          "rank": 21,
+          "rank": 20,
           "slot_group": "Sample collection and processing"
         },
         "purpose of sampling details": {
           "name": "purpose of sampling details",
-          "rank": 22,
+          "rank": 21,
           "slot_group": "Sample collection and processing"
         },
         "NML submitted specimen type": {
           "name": "NML submitted specimen type",
-          "rank": 23,
+          "rank": 22,
           "slot_group": "Sample collection and processing"
         },
         "Related specimen relationship type": {
           "name": "Related specimen relationship type",
-          "rank": 24,
+          "rank": 23,
           "slot_group": "Sample collection and processing"
         },
         "anatomical material": {
           "name": "anatomical material",
-          "rank": 25,
+          "rank": 24,
           "slot_group": "Sample collection and processing"
         },
         "anatomical part": {
           "name": "anatomical part",
-          "rank": 26,
+          "rank": 25,
           "slot_group": "Sample collection and processing"
         },
         "body product": {
           "name": "body product",
-          "rank": 27,
+          "rank": 26,
           "slot_group": "Sample collection and processing"
         },
         "collection device": {
           "name": "collection device",
-          "rank": 28,
+          "rank": 27,
           "slot_group": "Sample collection and processing"
         },
         "collection method": {
           "name": "collection method",
-          "rank": 29,
+          "rank": 28,
           "slot_group": "Sample collection and processing"
         },
         "host (scientific name)": {
           "name": "host (scientific name)",
-          "rank": 30,
+          "rank": 29,
           "slot_group": "Host Information"
         },
         "host disease": {
           "name": "host disease",
-          "rank": 31,
+          "rank": 30,
           "slot_group": "Host Information"
         },
         "travel history": {
           "name": "travel history",
-          "rank": 32,
+          "rank": 31,
           "slot_group": "Host exposure information"
         },
         "purpose of sequencing": {
           "name": "purpose of sequencing",
-          "rank": 33,
+          "rank": 32,
           "slot_group": "Sequencing"
         },
         "purpose of sequencing details": {
           "name": "purpose of sequencing details",
-          "rank": 34,
+          "rank": 33,
           "slot_group": "Sequencing"
         },
         "sequencing date": {
           "name": "sequencing date",
-          "rank": 35,
+          "rank": 34,
           "slot_group": "Sequencing"
         },
         "library preparation kit": {
           "name": "library preparation kit",
-          "rank": 36,
+          "rank": 35,
           "slot_group": "Sequencing"
         },
         "sequencing instrument": {
           "name": "sequencing instrument",
-          "rank": 37,
+          "rank": 36,
           "slot_group": "Sequencing"
         },
         "sequencing protocol": {
           "name": "sequencing protocol",
-          "rank": 38,
+          "rank": 37,
           "slot_group": "Sequencing"
         },
         "raw sequence data processing method": {
           "name": "raw sequence data processing method",
-          "rank": 39,
+          "rank": 38,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "dehosting method": {
           "name": "dehosting method",
-          "rank": 40,
+          "rank": 39,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "de novo assembly software name": {
           "name": "de novo assembly software name",
-          "rank": 41,
+          "rank": 40,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "de novo assembly software version": {
           "name": "de novo assembly software version",
-          "rank": 42,
+          "rank": 41,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "breadth of coverage value": {
           "name": "breadth of coverage value",
-          "rank": 43,
+          "rank": 42,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "depth of coverage value": {
           "name": "depth of coverage value",
-          "rank": 44,
+          "rank": 43,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "depth of coverage threshold": {
           "name": "depth of coverage threshold",
-          "rank": 45,
+          "rank": 44,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "number of base pairs sequenced": {
           "name": "number of base pairs sequenced",
-          "rank": 46,
+          "rank": 45,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "assembled genome length": {
           "name": "assembled genome length",
-          "rank": 47,
+          "rank": 46,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "bioinformatics protocol": {
           "name": "bioinformatics protocol",
-          "rank": 48,
+          "rank": 47,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "authors": {
           "name": "authors",
-          "rank": 49,
+          "rank": 48,
           "slot_group": "Contributor acknowledgement"
         },
         "DataHarmonizer provenance": {
           "name": "DataHarmonizer provenance",
-          "rank": 50,
+          "rank": 49,
           "slot_group": "Contributor acknowledgement"
         }
       },
@@ -4135,12 +4130,27 @@ var SCHEMA = {
           "description": "The name of the agency that collected the original sample.",
           "title": "sample collected by",
           "from_schema": "https://example.com/monkeypox",
+          "exact_mappings": [
+            "GISAID:Originating lab",
+            "CNPHI:Lab Name",
+            "NML_LIMS:CUSTOMER",
+            "BIOSAMPLE:collected_by",
+            "VirusSeq_Portal:sample collected by"
+          ],
           "rank": 4,
           "slot_uri": "GENEPIO:0001153",
           "alias": "sample_collected_by",
           "owner": "Monkeypox",
           "slot_group": "Sample collection and processing",
-          "required": true
+          "required": true,
+          "any_of": [
+            {
+              "range": "sample collected by menu"
+            },
+            {
+              "range": "null value menu"
+            }
+          ]
         },
         "sample collector contact email": {
           "name": "sample collector contact email",
@@ -4177,7 +4187,15 @@ var SCHEMA = {
           "alias": "sequenced_by",
           "owner": "Monkeypox",
           "slot_group": "Sample collection and processing",
-          "required": true
+          "required": true,
+          "any_of": [
+            {
+              "range": "sequence submitted by menu"
+            },
+            {
+              "range": "null value menu"
+            }
+          ]
         },
         "sequenced by contact email": {
           "name": "sequenced by contact email",
@@ -4208,12 +4226,27 @@ var SCHEMA = {
           "description": "The name of the agency that submitted the sequence to a database.",
           "title": "sequence submitted by",
           "from_schema": "https://example.com/monkeypox",
+          "exact_mappings": [
+            "GISAID:Submitting lab",
+            "CNPHI:Sequencing Centre",
+            "NML_LIMS:PH_SEQUENCING_SUBMITTER",
+            "BIOSAMPLE:sequence_submitted_by",
+            "VirusSeq_Portal:sequence submitted by"
+          ],
           "rank": 10,
           "slot_uri": "GENEPIO:0001159",
           "alias": "sequence_submitted_by",
           "owner": "Monkeypox",
           "slot_group": "Sample collection and processing",
-          "required": true
+          "required": true,
+          "any_of": [
+            {
+              "range": "sequence submitted by menu"
+            },
+            {
+              "range": "null value menu"
+            }
+          ]
         },
         "sequence submitter contact email": {
           "name": "sequence submitter contact email",
@@ -4298,24 +4331,12 @@ var SCHEMA = {
           "slot_group": "Sample collection and processing",
           "required": true
         },
-        "geo_loc_name (city)": {
-          "name": "geo_loc_name (city)",
-          "description": "The city where the sample was collected.",
-          "title": "geo_loc_name (city)",
-          "from_schema": "https://example.com/monkeypox",
-          "rank": 18,
-          "slot_uri": "GENEPIO:0001189",
-          "alias": "geo_loc_name_(city)",
-          "owner": "Monkeypox",
-          "slot_group": "Sample collection and processing",
-          "range": "WhitespaceMinimizedString"
-        },
         "organism": {
           "name": "organism",
           "description": "Taxonomic name of the organism.",
           "title": "organism",
           "from_schema": "https://example.com/monkeypox",
-          "rank": 19,
+          "rank": 18,
           "slot_uri": "GENEPIO:0001191",
           "alias": "organism",
           "owner": "Monkeypox",
@@ -4326,8 +4347,25 @@ var SCHEMA = {
           "name": "isolate",
           "description": "Identifier of the specific isolate.",
           "title": "isolate",
+          "comments": [
+            "Provide the GISAID EpiPox virus name, which should be written in the format “hMpxV/Canada/2 digit provincial ISO code-xxxxx/year”. If the province code cannot be shared for privacy reasons, put \"UN\" for \"Unknown\"."
+          ],
+          "examples": [
+            {
+              "value": "hMpxV/Canada/UN-NML-12345/2022"
+            }
+          ],
           "from_schema": "https://example.com/monkeypox",
-          "rank": 20,
+          "exact_mappings": [
+            "GISAID:Virus name",
+            "CNPHI:GISAID Virus Name",
+            "NML_LIMS:RESULT - CANCOGEN_SUBMISSIONS",
+            "BIOSAMPLE:isolate",
+            "BIOSAMPLE:GISAID_virus_name",
+            "VirusSeq_Portal:isolate",
+            "VirusSeq_Portal:fasta header name"
+          ],
+          "rank": 19,
           "slot_uri": "GENEPIO:0001195",
           "alias": "isolate",
           "owner": "Monkeypox",
@@ -4339,7 +4377,7 @@ var SCHEMA = {
           "description": "The reason that the sample was collected.",
           "title": "purpose of sampling",
           "from_schema": "https://example.com/monkeypox",
-          "rank": 21,
+          "rank": 20,
           "slot_uri": "GENEPIO:0001198",
           "alias": "purpose_of_sampling",
           "owner": "Monkeypox",
@@ -4351,7 +4389,7 @@ var SCHEMA = {
           "description": "The description of why the sample was collected, providing specific details.",
           "title": "purpose of sampling details",
           "from_schema": "https://example.com/monkeypox",
-          "rank": 22,
+          "rank": 21,
           "slot_uri": "GENEPIO:0001200",
           "alias": "purpose_of_sampling_details",
           "owner": "Monkeypox",
@@ -4363,7 +4401,7 @@ var SCHEMA = {
           "description": "The type of specimen submitted to the National Microbiology Laboratory (NML) for testing.",
           "title": "NML submitted specimen type",
           "from_schema": "https://example.com/monkeypox",
-          "rank": 23,
+          "rank": 22,
           "slot_uri": "GENEPIO:0001204",
           "alias": "NML_submitted_specimen_type",
           "owner": "Monkeypox",
@@ -4376,7 +4414,7 @@ var SCHEMA = {
           "description": "The relationship of the current specimen to the specimen/sample previously submitted to the repository.",
           "title": "Related specimen relationship type",
           "from_schema": "https://example.com/monkeypox",
-          "rank": 24,
+          "rank": 23,
           "slot_uri": "GENEPIO:0001209",
           "alias": "Related_specimen_relationship_type",
           "owner": "Monkeypox",
@@ -4388,7 +4426,7 @@ var SCHEMA = {
           "description": "A substance obtained from an anatomical part of an organism e.g. tissue, blood.",
           "title": "anatomical material",
           "from_schema": "https://example.com/monkeypox",
-          "rank": 25,
+          "rank": 24,
           "slot_uri": "GENEPIO:0001211",
           "multivalued": true,
           "alias": "anatomical_material",
@@ -4401,7 +4439,7 @@ var SCHEMA = {
           "description": "An anatomical part of an organism e.g. oropharynx.",
           "title": "anatomical part",
           "from_schema": "https://example.com/monkeypox",
-          "rank": 26,
+          "rank": 25,
           "slot_uri": "GENEPIO:0001214",
           "multivalued": true,
           "alias": "anatomical_part",
@@ -4414,7 +4452,7 @@ var SCHEMA = {
           "description": "A substance excreted/secreted from an organism e.g. feces, urine, sweat.",
           "title": "body product",
           "from_schema": "https://example.com/monkeypox",
-          "rank": 27,
+          "rank": 26,
           "slot_uri": "GENEPIO:0001216",
           "multivalued": true,
           "alias": "body_product",
@@ -4427,7 +4465,7 @@ var SCHEMA = {
           "description": "The instrument or container used to collect the sample e.g. swab.",
           "title": "collection device",
           "from_schema": "https://example.com/monkeypox",
-          "rank": 28,
+          "rank": 27,
           "slot_uri": "GENEPIO:0001234",
           "multivalued": true,
           "alias": "collection_device",
@@ -4440,7 +4478,7 @@ var SCHEMA = {
           "description": "The process used to collect the sample e.g. phlebotamy, necropsy.",
           "title": "collection method",
           "from_schema": "https://example.com/monkeypox",
-          "rank": 29,
+          "rank": 28,
           "slot_uri": "GENEPIO:0001241",
           "multivalued": true,
           "alias": "collection_method",
@@ -4453,7 +4491,7 @@ var SCHEMA = {
           "description": "The taxonomic, or scientific name of the host.",
           "title": "host (scientific name)",
           "from_schema": "https://example.com/monkeypox",
-          "rank": 30,
+          "rank": 29,
           "slot_uri": "GENEPIO:0001387",
           "alias": "host_(scientific_name)",
           "owner": "Monkeypox",
@@ -4465,7 +4503,7 @@ var SCHEMA = {
           "description": "The name of the disease experienced by the host.",
           "title": "host disease",
           "from_schema": "https://example.com/monkeypox",
-          "rank": 31,
+          "rank": 30,
           "slot_uri": "GENEPIO:0001391",
           "alias": "host_disease",
           "owner": "Monkeypox",
@@ -4477,7 +4515,7 @@ var SCHEMA = {
           "description": "Travel history in last six months.",
           "title": "travel history",
           "from_schema": "https://example.com/monkeypox",
-          "rank": 32,
+          "rank": 31,
           "slot_uri": "GENEPIO:0001416",
           "alias": "travel_history",
           "owner": "Monkeypox",
@@ -4489,7 +4527,7 @@ var SCHEMA = {
           "description": "The reason that the sample was sequenced.",
           "title": "purpose of sequencing",
           "from_schema": "https://example.com/monkeypox",
-          "rank": 33,
+          "rank": 32,
           "slot_uri": "GENEPIO:0001445",
           "multivalued": true,
           "alias": "purpose_of_sequencing",
@@ -4502,7 +4540,7 @@ var SCHEMA = {
           "description": "The description of why the sample was sequenced providing specific details.",
           "title": "purpose of sequencing details",
           "from_schema": "https://example.com/monkeypox",
-          "rank": 34,
+          "rank": 33,
           "slot_uri": "GENEPIO:0001446",
           "alias": "purpose_of_sequencing_details",
           "owner": "Monkeypox",
@@ -4514,7 +4552,7 @@ var SCHEMA = {
           "description": "The date the sample was sequenced.",
           "title": "sequencing date",
           "from_schema": "https://example.com/monkeypox",
-          "rank": 35,
+          "rank": 34,
           "slot_uri": "GENEPIO:0001447",
           "alias": "sequencing_date",
           "owner": "Monkeypox",
@@ -4526,7 +4564,7 @@ var SCHEMA = {
           "description": "The name of the DNA library preparation kit used to generate the library being sequenced.",
           "title": "library preparation kit",
           "from_schema": "https://example.com/monkeypox",
-          "rank": 36,
+          "rank": 35,
           "slot_uri": "GENEPIO:0001450",
           "alias": "library_preparation_kit",
           "owner": "Monkeypox",
@@ -4538,7 +4576,7 @@ var SCHEMA = {
           "description": "The model of the sequencing instrument used.",
           "title": "sequencing instrument",
           "from_schema": "https://example.com/monkeypox",
-          "rank": 37,
+          "rank": 36,
           "slot_uri": "GENEPIO:0001452",
           "multivalued": true,
           "alias": "sequencing_instrument",
@@ -4551,7 +4589,7 @@ var SCHEMA = {
           "description": "The protocol used to generate the sequence.",
           "title": "sequencing protocol",
           "from_schema": "https://example.com/monkeypox",
-          "rank": 38,
+          "rank": 37,
           "slot_uri": "GENEPIO:0001454",
           "alias": "sequencing_protocol",
           "owner": "Monkeypox",
@@ -4563,7 +4601,7 @@ var SCHEMA = {
           "description": "The names of the software and version number used for raw data processing such as removing barcodes, adapter trimming, filtering etc.",
           "title": "raw sequence data processing method",
           "from_schema": "https://example.com/monkeypox",
-          "rank": 39,
+          "rank": 38,
           "slot_uri": "GENEPIO:0001458",
           "alias": "raw_sequence_data_processing_method",
           "owner": "Monkeypox",
@@ -4576,7 +4614,7 @@ var SCHEMA = {
           "description": "The method used to remove host reads from the pathogen sequence.",
           "title": "dehosting method",
           "from_schema": "https://example.com/monkeypox",
-          "rank": 40,
+          "rank": 39,
           "slot_uri": "GENEPIO:0001459",
           "alias": "dehosting_method",
           "owner": "Monkeypox",
@@ -4589,7 +4627,7 @@ var SCHEMA = {
           "description": "The name of software used to generate the consensus sequence.",
           "title": "de novo assembly software name",
           "from_schema": "https://example.com/monkeypox",
-          "rank": 41,
+          "rank": 40,
           "slot_uri": "GENEPIO:0001463",
           "alias": "de_novo_assembly_software_name",
           "owner": "Monkeypox",
@@ -4602,7 +4640,7 @@ var SCHEMA = {
           "description": "The version of the software used to generate the consensus sequence.",
           "title": "de novo assembly software version",
           "from_schema": "https://example.com/monkeypox",
-          "rank": 42,
+          "rank": 41,
           "slot_uri": "GENEPIO:0001469",
           "alias": "de_novo_assembly_software_version",
           "owner": "Monkeypox",
@@ -4615,7 +4653,7 @@ var SCHEMA = {
           "description": "The percentage of the reference genome covered by the sequenced data, to a prescribed depth.",
           "title": "breadth of coverage value",
           "from_schema": "https://example.com/monkeypox",
-          "rank": 43,
+          "rank": 42,
           "slot_uri": "GENEPIO:0001472",
           "alias": "breadth_of_coverage_value",
           "owner": "Monkeypox",
@@ -4627,7 +4665,7 @@ var SCHEMA = {
           "description": "The average number of reads representing a given nucleotide in the reconstructed sequence.",
           "title": "depth of coverage value",
           "from_schema": "https://example.com/monkeypox",
-          "rank": 44,
+          "rank": 43,
           "slot_uri": "GENEPIO:0001474",
           "alias": "depth_of_coverage_value",
           "owner": "Monkeypox",
@@ -4639,7 +4677,7 @@ var SCHEMA = {
           "description": "The threshold used as a cut-off for the depth of coverage.",
           "title": "depth of coverage threshold",
           "from_schema": "https://example.com/monkeypox",
-          "rank": 45,
+          "rank": 44,
           "slot_uri": "GENEPIO:0001475",
           "alias": "depth_of_coverage_threshold",
           "owner": "Monkeypox",
@@ -4651,7 +4689,7 @@ var SCHEMA = {
           "description": "The number of total base pairs generated by the sequencing process.",
           "title": "number of base pairs sequenced",
           "from_schema": "https://example.com/monkeypox",
-          "rank": 46,
+          "rank": 45,
           "slot_uri": "GENEPIO:0001482",
           "alias": "number_of_base_pairs_sequenced",
           "owner": "Monkeypox",
@@ -4664,7 +4702,7 @@ var SCHEMA = {
           "description": "Size of the reconstructed genome described as the number of base pairs.",
           "title": "assembled genome length",
           "from_schema": "https://example.com/monkeypox",
-          "rank": 47,
+          "rank": 46,
           "slot_uri": "GENEPIO:0001483",
           "alias": "assembled_genome_length",
           "owner": "Monkeypox",
@@ -4677,7 +4715,7 @@ var SCHEMA = {
           "description": "A description of the overall bioinformatics strategy used.",
           "title": "bioinformatics protocol",
           "from_schema": "https://example.com/monkeypox",
-          "rank": 48,
+          "rank": 47,
           "slot_uri": "GENEPIO:0001489",
           "alias": "bioinformatics_protocol",
           "owner": "Monkeypox",
@@ -4690,7 +4728,7 @@ var SCHEMA = {
           "description": "Names of individuals contributing to the processes of sample collection, sequence generation, analysis, and data submission.",
           "title": "authors",
           "from_schema": "https://example.com/monkeypox",
-          "rank": 49,
+          "rank": 48,
           "slot_uri": "GENEPIO:0001517",
           "alias": "authors",
           "owner": "Monkeypox",
@@ -4703,10 +4741,913 @@ var SCHEMA = {
           "description": "The DataHarmonizer software version provenance.",
           "title": "DataHarmonizer provenance",
           "from_schema": "https://example.com/monkeypox",
-          "rank": 50,
+          "rank": 49,
           "slot_uri": "GENEPIO:0001518",
           "alias": "DataHarmonizer_provenance",
           "owner": "Monkeypox",
+          "slot_group": "Contributor acknowledgement",
+          "range": "Provenance"
+        }
+      }
+    },
+    "Monkeypox_international": {
+      "name": "Monkeypox_international",
+      "description": "International specification for Monkeypox clinical virus biosample data gathering",
+      "from_schema": "https://example.com/monkeypox",
+      "is_a": "dh_interface",
+      "slot_usage": {
+        "specimen collector sample ID": {
+          "name": "specimen collector sample ID",
+          "rank": 1,
+          "slot_group": "Database Identifiers"
+        },
+        "GISAID virus name": {
+          "name": "GISAID virus name",
+          "rank": 2,
+          "slot_group": "Database Identifiers"
+        },
+        "GISAID accession": {
+          "name": "GISAID accession",
+          "rank": 3,
+          "slot_group": "Database Identifiers"
+        },
+        "sample collected by": {
+          "name": "sample collected by",
+          "exact_mappings": [
+            "GISAID:Originating lab",
+            "BIOSAMPLE:collected_by"
+          ],
+          "rank": 4,
+          "slot_group": "Sample collection and processing",
+          "any_of": [
+            {
+              "range": "WhitespaceMinimizedString"
+            },
+            {
+              "range": "null value menu"
+            }
+          ]
+        },
+        "sample collector contact email": {
+          "name": "sample collector contact email",
+          "rank": 5,
+          "slot_group": "Sample collection and processing"
+        },
+        "sample collector contact address": {
+          "name": "sample collector contact address",
+          "rank": 6,
+          "slot_group": "Sample collection and processing"
+        },
+        "sequenced by": {
+          "name": "sequenced by",
+          "rank": 7,
+          "slot_group": "Sample collection and processing",
+          "any_of": [
+            {
+              "range": "WhitespaceMinimizedString"
+            },
+            {
+              "range": "null value menu"
+            }
+          ]
+        },
+        "sequenced by contact email": {
+          "name": "sequenced by contact email",
+          "rank": 8,
+          "slot_group": "Sample collection and processing"
+        },
+        "sequenced by contact address": {
+          "name": "sequenced by contact address",
+          "rank": 9,
+          "slot_group": "Sample collection and processing"
+        },
+        "sequence submitted by": {
+          "name": "sequence submitted by",
+          "exact_mappings": [
+            "GISAID:Submitting lab",
+            "BIOSAMPLE:sequence_submitted_by"
+          ],
+          "rank": 10,
+          "slot_group": "Sample collection and processing",
+          "any_of": [
+            {
+              "range": "WhitespaceMinimizedString"
+            },
+            {
+              "range": "null value menu"
+            }
+          ]
+        },
+        "sequence submitter contact email": {
+          "name": "sequence submitter contact email",
+          "rank": 11,
+          "slot_group": "Sample collection and processing"
+        },
+        "sequence submitter contact address": {
+          "name": "sequence submitter contact address",
+          "rank": 12,
+          "slot_group": "Sample collection and processing"
+        },
+        "sample collection date": {
+          "name": "sample collection date",
+          "rank": 13,
+          "slot_group": "Sample collection and processing"
+        },
+        "sample received date": {
+          "name": "sample received date",
+          "rank": 14,
+          "slot_group": "Sample collection and processing"
+        },
+        "geo_loc_name (country)": {
+          "name": "geo_loc_name (country)",
+          "rank": 15,
+          "slot_group": "Sample collection and processing"
+        },
+        "geo_loc_name (state/province/territory)": {
+          "name": "geo_loc_name (state/province/territory)",
+          "rank": 16,
+          "slot_group": "Sample collection and processing"
+        },
+        "organism": {
+          "name": "organism",
+          "rank": 17,
+          "slot_group": "Sample collection and processing"
+        },
+        "isolate": {
+          "name": "isolate",
+          "comments": [
+            "This identifier should be an unique, indexed, alpha-numeric ID within your laboratory. If submitted to the INSDC, the \"isolate\" name is propagated throughtout different databases. As such, structure the \"isolate\" name to be ICTV/INSDC compliant in the following format: \"MpxV/host/country/sampleID/date\"."
+          ],
+          "examples": [
+            {
+              "value": "MpxV/human/USA/CA-CDPH-001/2020"
+            }
+          ],
+          "exact_mappings": [
+            "GISAID:Virus name",
+            "BIOSAMPLE:isolate"
+          ],
+          "rank": 18,
+          "slot_uri": "GENEPIO:0001644",
+          "slot_group": "Sample collection and processing"
+        },
+        "purpose of sampling": {
+          "name": "purpose of sampling",
+          "rank": 19,
+          "slot_group": "Sample collection and processing"
+        },
+        "purpose of sampling details": {
+          "name": "purpose of sampling details",
+          "rank": 20,
+          "slot_group": "Sample collection and processing"
+        },
+        "anatomical material": {
+          "name": "anatomical material",
+          "rank": 21,
+          "slot_group": "Sample collection and processing"
+        },
+        "anatomical part": {
+          "name": "anatomical part",
+          "rank": 22,
+          "slot_group": "Sample collection and processing"
+        },
+        "body product": {
+          "name": "body product",
+          "rank": 23,
+          "slot_group": "Sample collection and processing"
+        },
+        "collection device": {
+          "name": "collection device",
+          "rank": 24,
+          "slot_group": "Sample collection and processing"
+        },
+        "collection method": {
+          "name": "collection method",
+          "rank": 25,
+          "slot_group": "Sample collection and processing"
+        },
+        "host (scientific name)": {
+          "name": "host (scientific name)",
+          "rank": 26,
+          "slot_group": "Host Information"
+        },
+        "host disease": {
+          "name": "host disease",
+          "rank": 27,
+          "slot_group": "Host Information"
+        },
+        "travel history": {
+          "name": "travel history",
+          "rank": 28,
+          "slot_group": "Host exposure information"
+        },
+        "purpose of sequencing": {
+          "name": "purpose of sequencing",
+          "rank": 29,
+          "slot_group": "Sequencing"
+        },
+        "purpose of sequencing details": {
+          "name": "purpose of sequencing details",
+          "rank": 30,
+          "slot_group": "Sequencing"
+        },
+        "sequencing date": {
+          "name": "sequencing date",
+          "rank": 31,
+          "slot_group": "Sequencing"
+        },
+        "library preparation kit": {
+          "name": "library preparation kit",
+          "rank": 32,
+          "slot_group": "Sequencing"
+        },
+        "sequencing instrument": {
+          "name": "sequencing instrument",
+          "rank": 33,
+          "slot_group": "Sequencing"
+        },
+        "sequencing protocol": {
+          "name": "sequencing protocol",
+          "rank": 34,
+          "slot_group": "Sequencing"
+        },
+        "raw sequence data processing method": {
+          "name": "raw sequence data processing method",
+          "rank": 35,
+          "slot_group": "Bioinformatics and QC metrics"
+        },
+        "dehosting method": {
+          "name": "dehosting method",
+          "rank": 36,
+          "slot_group": "Bioinformatics and QC metrics"
+        },
+        "de novo assembly software name": {
+          "name": "de novo assembly software name",
+          "rank": 37,
+          "slot_group": "Bioinformatics and QC metrics"
+        },
+        "de novo assembly software version": {
+          "name": "de novo assembly software version",
+          "rank": 38,
+          "slot_group": "Bioinformatics and QC metrics"
+        },
+        "breadth of coverage value": {
+          "name": "breadth of coverage value",
+          "rank": 39,
+          "slot_group": "Bioinformatics and QC metrics"
+        },
+        "depth of coverage value": {
+          "name": "depth of coverage value",
+          "rank": 40,
+          "slot_group": "Bioinformatics and QC metrics"
+        },
+        "depth of coverage threshold": {
+          "name": "depth of coverage threshold",
+          "rank": 41,
+          "slot_group": "Bioinformatics and QC metrics"
+        },
+        "number of base pairs sequenced": {
+          "name": "number of base pairs sequenced",
+          "rank": 42,
+          "slot_group": "Bioinformatics and QC metrics"
+        },
+        "assembled genome length": {
+          "name": "assembled genome length",
+          "rank": 43,
+          "slot_group": "Bioinformatics and QC metrics"
+        },
+        "bioinformatics protocol": {
+          "name": "bioinformatics protocol",
+          "rank": 44,
+          "slot_group": "Bioinformatics and QC metrics"
+        },
+        "authors": {
+          "name": "authors",
+          "rank": 45,
+          "slot_group": "Contributor acknowledgement"
+        },
+        "DataHarmonizer provenance": {
+          "name": "DataHarmonizer provenance",
+          "rank": 46,
+          "slot_group": "Contributor acknowledgement"
+        }
+      },
+      "attributes": {
+        "specimen collector sample ID": {
+          "name": "specimen collector sample ID",
+          "description": "The user-defined name for the sample.",
+          "title": "specimen collector sample ID",
+          "from_schema": "https://example.com/monkeypox",
+          "rank": 1,
+          "slot_uri": "GENEPIO:0001123",
+          "identifier": true,
+          "alias": "specimen_collector_sample_ID",
+          "owner": "Monkeypox_international",
+          "slot_group": "Database Identifiers",
+          "range": "WhitespaceMinimizedString",
+          "required": true
+        },
+        "GISAID virus name": {
+          "name": "GISAID virus name",
+          "description": "Identifier of the specific isolate.",
+          "title": "GISAID virus name",
+          "from_schema": "https://example.com/monkeypox",
+          "rank": 2,
+          "slot_uri": "GENEPIO:0100282",
+          "alias": "GISAID_virus_name",
+          "owner": "Monkeypox_international",
+          "slot_group": "Database Identifiers",
+          "range": "WhitespaceMinimizedString"
+        },
+        "GISAID accession": {
+          "name": "GISAID accession",
+          "description": "The GISAID accession number assigned to the sequence.",
+          "title": "GISAID accession",
+          "from_schema": "https://example.com/monkeypox",
+          "rank": 3,
+          "slot_uri": "GENEPIO:0001147",
+          "alias": "GISAID_accession",
+          "owner": "Monkeypox_international",
+          "slot_group": "Database Identifiers",
+          "range": "WhitespaceMinimizedString",
+          "structured_pattern": {
+            "syntax": "{UPPER_CASE}",
+            "interpolated": true,
+            "partial_match": false
+          }
+        },
+        "sample collected by": {
+          "name": "sample collected by",
+          "description": "The name of the agency that collected the original sample.",
+          "title": "sample collected by",
+          "from_schema": "https://example.com/monkeypox",
+          "exact_mappings": [
+            "GISAID:Originating lab",
+            "BIOSAMPLE:collected_by"
+          ],
+          "rank": 4,
+          "slot_uri": "GENEPIO:0001153",
+          "alias": "sample_collected_by",
+          "owner": "Monkeypox_international",
+          "slot_group": "Sample collection and processing",
+          "required": true,
+          "any_of": [
+            {
+              "range": "WhitespaceMinimizedString"
+            },
+            {
+              "range": "null value menu"
+            }
+          ]
+        },
+        "sample collector contact email": {
+          "name": "sample collector contact email",
+          "description": "The email address of the contact responsible for follow-up regarding the sample.",
+          "title": "sample collector contact email",
+          "from_schema": "https://example.com/monkeypox",
+          "rank": 5,
+          "slot_uri": "GENEPIO:0001156",
+          "alias": "sample_collector_contact_email",
+          "owner": "Monkeypox_international",
+          "slot_group": "Sample collection and processing",
+          "range": "WhitespaceMinimizedString",
+          "pattern": "^\\S+@\\S+\\.\\S+$"
+        },
+        "sample collector contact address": {
+          "name": "sample collector contact address",
+          "description": "The mailing address of the agency submitting the sample.",
+          "title": "sample collector contact address",
+          "from_schema": "https://example.com/monkeypox",
+          "rank": 6,
+          "slot_uri": "GENEPIO:0001158",
+          "alias": "sample_collector_contact_address",
+          "owner": "Monkeypox_international",
+          "slot_group": "Sample collection and processing",
+          "range": "WhitespaceMinimizedString"
+        },
+        "sequenced by": {
+          "name": "sequenced by",
+          "description": "The name of the agency that generated the sequence.",
+          "title": "sequenced by",
+          "from_schema": "https://example.com/monkeypox",
+          "rank": 7,
+          "slot_uri": "GENEPIO:0100416",
+          "alias": "sequenced_by",
+          "owner": "Monkeypox_international",
+          "slot_group": "Sample collection and processing",
+          "required": true,
+          "any_of": [
+            {
+              "range": "WhitespaceMinimizedString"
+            },
+            {
+              "range": "null value menu"
+            }
+          ]
+        },
+        "sequenced by contact email": {
+          "name": "sequenced by contact email",
+          "description": "The email address of the contact responsible for follow-up regarding the sequence.",
+          "title": "sequenced by contact email",
+          "from_schema": "https://example.com/monkeypox",
+          "rank": 8,
+          "slot_uri": "GENEPIO:0100422",
+          "alias": "sequenced_by_contact_email",
+          "owner": "Monkeypox_international",
+          "slot_group": "Sample collection and processing",
+          "range": "WhitespaceMinimizedString"
+        },
+        "sequenced by contact address": {
+          "name": "sequenced by contact address",
+          "description": "The mailing address of the agency submitting the sequence.",
+          "title": "sequenced by contact address",
+          "from_schema": "https://example.com/monkeypox",
+          "rank": 9,
+          "slot_uri": "GENEPIO:0100423",
+          "alias": "sequenced_by_contact_address",
+          "owner": "Monkeypox_international",
+          "slot_group": "Sample collection and processing",
+          "range": "WhitespaceMinimizedString"
+        },
+        "sequence submitted by": {
+          "name": "sequence submitted by",
+          "description": "The name of the agency that submitted the sequence to a database.",
+          "title": "sequence submitted by",
+          "from_schema": "https://example.com/monkeypox",
+          "exact_mappings": [
+            "GISAID:Submitting lab",
+            "BIOSAMPLE:sequence_submitted_by"
+          ],
+          "rank": 10,
+          "slot_uri": "GENEPIO:0001159",
+          "alias": "sequence_submitted_by",
+          "owner": "Monkeypox_international",
+          "slot_group": "Sample collection and processing",
+          "required": true,
+          "any_of": [
+            {
+              "range": "WhitespaceMinimizedString"
+            },
+            {
+              "range": "null value menu"
+            }
+          ]
+        },
+        "sequence submitter contact email": {
+          "name": "sequence submitter contact email",
+          "description": "The email address of the agency responsible for submission of the sequence.",
+          "title": "sequence submitter contact email",
+          "from_schema": "https://example.com/monkeypox",
+          "rank": 11,
+          "slot_uri": "GENEPIO:0001165",
+          "alias": "sequence_submitter_contact_email",
+          "owner": "Monkeypox_international",
+          "slot_group": "Sample collection and processing",
+          "range": "WhitespaceMinimizedString"
+        },
+        "sequence submitter contact address": {
+          "name": "sequence submitter contact address",
+          "description": "The mailing address of the agency responsible for submission of the sequence.",
+          "title": "sequence submitter contact address",
+          "from_schema": "https://example.com/monkeypox",
+          "rank": 12,
+          "slot_uri": "GENEPIO:0001167",
+          "alias": "sequence_submitter_contact_address",
+          "owner": "Monkeypox_international",
+          "slot_group": "Sample collection and processing",
+          "range": "WhitespaceMinimizedString"
+        },
+        "sample collection date": {
+          "name": "sample collection date",
+          "description": "The date on which the sample was collected.",
+          "title": "sample collection date",
+          "from_schema": "https://example.com/monkeypox",
+          "rank": 13,
+          "slot_uri": "GENEPIO:0001174",
+          "alias": "sample_collection_date",
+          "owner": "Monkeypox_international",
+          "slot_group": "Sample collection and processing",
+          "required": true
+        },
+        "sample received date": {
+          "name": "sample received date",
+          "description": "The date on which the sample was received.",
+          "title": "sample received date",
+          "from_schema": "https://example.com/monkeypox",
+          "rank": 14,
+          "slot_uri": "GENEPIO:0001179",
+          "alias": "sample_received_date",
+          "owner": "Monkeypox_international",
+          "slot_group": "Sample collection and processing"
+        },
+        "geo_loc_name (country)": {
+          "name": "geo_loc_name (country)",
+          "description": "The country where the sample was collected.",
+          "title": "geo_loc_name (country)",
+          "from_schema": "https://example.com/monkeypox",
+          "rank": 15,
+          "slot_uri": "GENEPIO:0001181",
+          "alias": "geo_loc_name_(country)",
+          "owner": "Monkeypox_international",
+          "slot_group": "Sample collection and processing",
+          "required": true
+        },
+        "geo_loc_name (state/province/territory)": {
+          "name": "geo_loc_name (state/province/territory)",
+          "description": "The province/territory where the sample was collected.",
+          "title": "geo_loc_name (state/province/territory)",
+          "from_schema": "https://example.com/monkeypox",
+          "rank": 16,
+          "slot_uri": "GENEPIO:0001185",
+          "alias": "geo_loc_name_(state/province/territory)",
+          "owner": "Monkeypox_international",
+          "slot_group": "Sample collection and processing",
+          "required": true
+        },
+        "organism": {
+          "name": "organism",
+          "description": "Taxonomic name of the organism.",
+          "title": "organism",
+          "from_schema": "https://example.com/monkeypox",
+          "rank": 17,
+          "slot_uri": "GENEPIO:0001191",
+          "alias": "organism",
+          "owner": "Monkeypox_international",
+          "slot_group": "Sample collection and processing",
+          "required": true
+        },
+        "isolate": {
+          "name": "isolate",
+          "description": "Identifier of the specific isolate.",
+          "title": "isolate",
+          "comments": [
+            "This identifier should be an unique, indexed, alpha-numeric ID within your laboratory. If submitted to the INSDC, the \"isolate\" name is propagated throughtout different databases. As such, structure the \"isolate\" name to be ICTV/INSDC compliant in the following format: \"MpxV/host/country/sampleID/date\"."
+          ],
+          "examples": [
+            {
+              "value": "MpxV/human/USA/CA-CDPH-001/2020"
+            }
+          ],
+          "from_schema": "https://example.com/monkeypox",
+          "exact_mappings": [
+            "GISAID:Virus name",
+            "BIOSAMPLE:isolate"
+          ],
+          "rank": 18,
+          "slot_uri": "GENEPIO:0001644",
+          "alias": "isolate",
+          "owner": "Monkeypox_international",
+          "slot_group": "Sample collection and processing",
+          "required": true
+        },
+        "purpose of sampling": {
+          "name": "purpose of sampling",
+          "description": "The reason that the sample was collected.",
+          "title": "purpose of sampling",
+          "from_schema": "https://example.com/monkeypox",
+          "rank": 19,
+          "slot_uri": "GENEPIO:0001198",
+          "alias": "purpose_of_sampling",
+          "owner": "Monkeypox_international",
+          "slot_group": "Sample collection and processing",
+          "required": true
+        },
+        "purpose of sampling details": {
+          "name": "purpose of sampling details",
+          "description": "The description of why the sample was collected, providing specific details.",
+          "title": "purpose of sampling details",
+          "from_schema": "https://example.com/monkeypox",
+          "rank": 20,
+          "slot_uri": "GENEPIO:0001200",
+          "alias": "purpose_of_sampling_details",
+          "owner": "Monkeypox_international",
+          "slot_group": "Sample collection and processing",
+          "required": true
+        },
+        "anatomical material": {
+          "name": "anatomical material",
+          "description": "A substance obtained from an anatomical part of an organism e.g. tissue, blood.",
+          "title": "anatomical material",
+          "from_schema": "https://example.com/monkeypox",
+          "rank": 21,
+          "slot_uri": "GENEPIO:0001211",
+          "multivalued": true,
+          "alias": "anatomical_material",
+          "owner": "Monkeypox_international",
+          "slot_group": "Sample collection and processing",
+          "required": true
+        },
+        "anatomical part": {
+          "name": "anatomical part",
+          "description": "An anatomical part of an organism e.g. oropharynx.",
+          "title": "anatomical part",
+          "from_schema": "https://example.com/monkeypox",
+          "rank": 22,
+          "slot_uri": "GENEPIO:0001214",
+          "multivalued": true,
+          "alias": "anatomical_part",
+          "owner": "Monkeypox_international",
+          "slot_group": "Sample collection and processing",
+          "required": true
+        },
+        "body product": {
+          "name": "body product",
+          "description": "A substance excreted/secreted from an organism e.g. feces, urine, sweat.",
+          "title": "body product",
+          "from_schema": "https://example.com/monkeypox",
+          "rank": 23,
+          "slot_uri": "GENEPIO:0001216",
+          "multivalued": true,
+          "alias": "body_product",
+          "owner": "Monkeypox_international",
+          "slot_group": "Sample collection and processing",
+          "required": true
+        },
+        "collection device": {
+          "name": "collection device",
+          "description": "The instrument or container used to collect the sample e.g. swab.",
+          "title": "collection device",
+          "from_schema": "https://example.com/monkeypox",
+          "rank": 24,
+          "slot_uri": "GENEPIO:0001234",
+          "multivalued": true,
+          "alias": "collection_device",
+          "owner": "Monkeypox_international",
+          "slot_group": "Sample collection and processing",
+          "required": true
+        },
+        "collection method": {
+          "name": "collection method",
+          "description": "The process used to collect the sample e.g. phlebotamy, necropsy.",
+          "title": "collection method",
+          "from_schema": "https://example.com/monkeypox",
+          "rank": 25,
+          "slot_uri": "GENEPIO:0001241",
+          "multivalued": true,
+          "alias": "collection_method",
+          "owner": "Monkeypox_international",
+          "slot_group": "Sample collection and processing",
+          "required": true
+        },
+        "host (scientific name)": {
+          "name": "host (scientific name)",
+          "description": "The taxonomic, or scientific name of the host.",
+          "title": "host (scientific name)",
+          "from_schema": "https://example.com/monkeypox",
+          "rank": 26,
+          "slot_uri": "GENEPIO:0001387",
+          "alias": "host_(scientific_name)",
+          "owner": "Monkeypox_international",
+          "slot_group": "Host Information",
+          "required": true
+        },
+        "host disease": {
+          "name": "host disease",
+          "description": "The name of the disease experienced by the host.",
+          "title": "host disease",
+          "from_schema": "https://example.com/monkeypox",
+          "rank": 27,
+          "slot_uri": "GENEPIO:0001391",
+          "alias": "host_disease",
+          "owner": "Monkeypox_international",
+          "slot_group": "Host Information",
+          "required": true
+        },
+        "travel history": {
+          "name": "travel history",
+          "description": "Travel history in last six months.",
+          "title": "travel history",
+          "from_schema": "https://example.com/monkeypox",
+          "rank": 28,
+          "slot_uri": "GENEPIO:0001416",
+          "alias": "travel_history",
+          "owner": "Monkeypox_international",
+          "slot_group": "Host exposure information",
+          "range": "WhitespaceMinimizedString"
+        },
+        "purpose of sequencing": {
+          "name": "purpose of sequencing",
+          "description": "The reason that the sample was sequenced.",
+          "title": "purpose of sequencing",
+          "from_schema": "https://example.com/monkeypox",
+          "rank": 29,
+          "slot_uri": "GENEPIO:0001445",
+          "multivalued": true,
+          "alias": "purpose_of_sequencing",
+          "owner": "Monkeypox_international",
+          "slot_group": "Sequencing",
+          "required": true
+        },
+        "purpose of sequencing details": {
+          "name": "purpose of sequencing details",
+          "description": "The description of why the sample was sequenced providing specific details.",
+          "title": "purpose of sequencing details",
+          "from_schema": "https://example.com/monkeypox",
+          "rank": 30,
+          "slot_uri": "GENEPIO:0001446",
+          "alias": "purpose_of_sequencing_details",
+          "owner": "Monkeypox_international",
+          "slot_group": "Sequencing",
+          "required": true
+        },
+        "sequencing date": {
+          "name": "sequencing date",
+          "description": "The date the sample was sequenced.",
+          "title": "sequencing date",
+          "from_schema": "https://example.com/monkeypox",
+          "rank": 31,
+          "slot_uri": "GENEPIO:0001447",
+          "alias": "sequencing_date",
+          "owner": "Monkeypox_international",
+          "slot_group": "Sequencing",
+          "required": true
+        },
+        "library preparation kit": {
+          "name": "library preparation kit",
+          "description": "The name of the DNA library preparation kit used to generate the library being sequenced.",
+          "title": "library preparation kit",
+          "from_schema": "https://example.com/monkeypox",
+          "rank": 32,
+          "slot_uri": "GENEPIO:0001450",
+          "alias": "library_preparation_kit",
+          "owner": "Monkeypox_international",
+          "slot_group": "Sequencing",
+          "range": "WhitespaceMinimizedString"
+        },
+        "sequencing instrument": {
+          "name": "sequencing instrument",
+          "description": "The model of the sequencing instrument used.",
+          "title": "sequencing instrument",
+          "from_schema": "https://example.com/monkeypox",
+          "rank": 33,
+          "slot_uri": "GENEPIO:0001452",
+          "multivalued": true,
+          "alias": "sequencing_instrument",
+          "owner": "Monkeypox_international",
+          "slot_group": "Sequencing",
+          "required": true
+        },
+        "sequencing protocol": {
+          "name": "sequencing protocol",
+          "description": "The protocol used to generate the sequence.",
+          "title": "sequencing protocol",
+          "from_schema": "https://example.com/monkeypox",
+          "rank": 34,
+          "slot_uri": "GENEPIO:0001454",
+          "alias": "sequencing_protocol",
+          "owner": "Monkeypox_international",
+          "slot_group": "Sequencing",
+          "range": "WhitespaceMinimizedString"
+        },
+        "raw sequence data processing method": {
+          "name": "raw sequence data processing method",
+          "description": "The names of the software and version number used for raw data processing such as removing barcodes, adapter trimming, filtering etc.",
+          "title": "raw sequence data processing method",
+          "from_schema": "https://example.com/monkeypox",
+          "rank": 35,
+          "slot_uri": "GENEPIO:0001458",
+          "alias": "raw_sequence_data_processing_method",
+          "owner": "Monkeypox_international",
+          "slot_group": "Bioinformatics and QC metrics",
+          "range": "WhitespaceMinimizedString",
+          "required": true
+        },
+        "dehosting method": {
+          "name": "dehosting method",
+          "description": "The method used to remove host reads from the pathogen sequence.",
+          "title": "dehosting method",
+          "from_schema": "https://example.com/monkeypox",
+          "rank": 36,
+          "slot_uri": "GENEPIO:0001459",
+          "alias": "dehosting_method",
+          "owner": "Monkeypox_international",
+          "slot_group": "Bioinformatics and QC metrics",
+          "range": "WhitespaceMinimizedString",
+          "required": true
+        },
+        "de novo assembly software name": {
+          "name": "de novo assembly software name",
+          "description": "The name of software used to generate the consensus sequence.",
+          "title": "de novo assembly software name",
+          "from_schema": "https://example.com/monkeypox",
+          "rank": 37,
+          "slot_uri": "GENEPIO:0001463",
+          "alias": "de_novo_assembly_software_name",
+          "owner": "Monkeypox_international",
+          "slot_group": "Bioinformatics and QC metrics",
+          "range": "WhitespaceMinimizedString",
+          "required": true
+        },
+        "de novo assembly software version": {
+          "name": "de novo assembly software version",
+          "description": "The version of the software used to generate the consensus sequence.",
+          "title": "de novo assembly software version",
+          "from_schema": "https://example.com/monkeypox",
+          "rank": 38,
+          "slot_uri": "GENEPIO:0001469",
+          "alias": "de_novo_assembly_software_version",
+          "owner": "Monkeypox_international",
+          "slot_group": "Bioinformatics and QC metrics",
+          "range": "WhitespaceMinimizedString",
+          "required": true
+        },
+        "breadth of coverage value": {
+          "name": "breadth of coverage value",
+          "description": "The percentage of the reference genome covered by the sequenced data, to a prescribed depth.",
+          "title": "breadth of coverage value",
+          "from_schema": "https://example.com/monkeypox",
+          "rank": 39,
+          "slot_uri": "GENEPIO:0001472",
+          "alias": "breadth_of_coverage_value",
+          "owner": "Monkeypox_international",
+          "slot_group": "Bioinformatics and QC metrics",
+          "range": "WhitespaceMinimizedString"
+        },
+        "depth of coverage value": {
+          "name": "depth of coverage value",
+          "description": "The average number of reads representing a given nucleotide in the reconstructed sequence.",
+          "title": "depth of coverage value",
+          "from_schema": "https://example.com/monkeypox",
+          "rank": 40,
+          "slot_uri": "GENEPIO:0001474",
+          "alias": "depth_of_coverage_value",
+          "owner": "Monkeypox_international",
+          "slot_group": "Bioinformatics and QC metrics",
+          "range": "WhitespaceMinimizedString"
+        },
+        "depth of coverage threshold": {
+          "name": "depth of coverage threshold",
+          "description": "The threshold used as a cut-off for the depth of coverage.",
+          "title": "depth of coverage threshold",
+          "from_schema": "https://example.com/monkeypox",
+          "rank": 41,
+          "slot_uri": "GENEPIO:0001475",
+          "alias": "depth_of_coverage_threshold",
+          "owner": "Monkeypox_international",
+          "slot_group": "Bioinformatics and QC metrics",
+          "range": "WhitespaceMinimizedString"
+        },
+        "number of base pairs sequenced": {
+          "name": "number of base pairs sequenced",
+          "description": "The number of total base pairs generated by the sequencing process.",
+          "title": "number of base pairs sequenced",
+          "from_schema": "https://example.com/monkeypox",
+          "rank": 42,
+          "slot_uri": "GENEPIO:0001482",
+          "alias": "number_of_base_pairs_sequenced",
+          "owner": "Monkeypox_international",
+          "slot_group": "Bioinformatics and QC metrics",
+          "range": "integer",
+          "minimum_value": 0
+        },
+        "assembled genome length": {
+          "name": "assembled genome length",
+          "description": "Size of the reconstructed genome described as the number of base pairs.",
+          "title": "assembled genome length",
+          "from_schema": "https://example.com/monkeypox",
+          "rank": 43,
+          "slot_uri": "GENEPIO:0001483",
+          "alias": "assembled_genome_length",
+          "owner": "Monkeypox_international",
+          "slot_group": "Bioinformatics and QC metrics",
+          "range": "integer",
+          "minimum_value": 0
+        },
+        "bioinformatics protocol": {
+          "name": "bioinformatics protocol",
+          "description": "A description of the overall bioinformatics strategy used.",
+          "title": "bioinformatics protocol",
+          "from_schema": "https://example.com/monkeypox",
+          "rank": 44,
+          "slot_uri": "GENEPIO:0001489",
+          "alias": "bioinformatics_protocol",
+          "owner": "Monkeypox_international",
+          "slot_group": "Bioinformatics and QC metrics",
+          "range": "WhitespaceMinimizedString",
+          "required": true
+        },
+        "authors": {
+          "name": "authors",
+          "description": "Names of individuals contributing to the processes of sample collection, sequence generation, analysis, and data submission.",
+          "title": "authors",
+          "from_schema": "https://example.com/monkeypox",
+          "rank": 45,
+          "slot_uri": "GENEPIO:0001517",
+          "alias": "authors",
+          "owner": "Monkeypox_international",
+          "slot_group": "Contributor acknowledgement",
+          "range": "WhitespaceMinimizedString",
+          "recommended": true
+        },
+        "DataHarmonizer provenance": {
+          "name": "DataHarmonizer provenance",
+          "description": "The DataHarmonizer software version provenance.",
+          "title": "DataHarmonizer provenance",
+          "from_schema": "https://example.com/monkeypox",
+          "rank": 46,
+          "slot_uri": "GENEPIO:0001518",
+          "alias": "DataHarmonizer_provenance",
+          "owner": "Monkeypox_international",
           "slot_group": "Contributor acknowledgement",
           "range": "Provenance"
         }
