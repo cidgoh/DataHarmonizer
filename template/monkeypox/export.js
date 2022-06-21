@@ -262,7 +262,7 @@ var EXPORT_FORMATS = {
 				['PH_RELATED_RELATIONSHIP_TYPE', []],
 				['PH_ISOLATION_SITE_DESC',  []],
 				['PH_ISOLATION_SITE',       []],
-				//['PH_SPECIMEN_SOURCE',      []], // Calculated field (not in import)
+				['PH_SPECIMEN_SOURCE',      []], // Calculated field (not in import)
 				['PH_SPECIMEN_SOURCE_DESC', []],
 				//['PH_ENVIRONMENTAL_MATERIAL', []],
 				//['PH_ENVIRONMENTAL_SITE',   []],
