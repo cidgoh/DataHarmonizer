@@ -56,9 +56,11 @@
     "webpack-dev-server": "^4.9.2"
   },
   "dependencies": {
+    "@selectize/selectize": "^0.13.5",
     "date-fns": "^2.28.0",
     "file-saver": "^2.0.5",
     "handsontable": "^7.4.2",
+    "sifter": "^0.5.4",
     "xlsx": "^0.18.5"
   }
 }
