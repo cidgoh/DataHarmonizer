@@ -15,6 +15,10 @@ classes:
     name: "Monkeypox"
     description: Canadian specification for Monkeypox clinical virus biosample data gathering
     is_a: dh_interface
+  "Monkeypox_international":
+    name: "Monkeypox_international"
+    description: International specification for Monkeypox clinical virus biosample data gathering
+    is_a: dh_interface
 slots: {}
 enums: {}
 types:

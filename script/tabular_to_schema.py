@@ -6,6 +6,8 @@
 # 
 
 import csv
+import copy
+import sys
 import yaml
 from functools import reduce
 
@@ -29,151 +31,210 @@ Process each slot given in tabular format.
 EXPORT_FORMAT = [];
 
 with open(r_schema_slots) as tsvfile:
+
 	reader = csv.DictReader(tsvfile, dialect='excel-tab');
 
-    # Row has keys: class_name slot_group slot_uri	title	name range range_2 identifier	
-    # multivalued	required	recommended	minimum_value	maximum_value	
-    # pattern	structured_pattern description	comments	examples	...
+  # Row has keys: class_name slot_group slot_uri	title	name range range_2 identifier	
+  # multivalued	required	recommended	minimum_value	maximum_value	
+  # pattern	structured_pattern description	comments	examples	...
 
 	firstrow = True;
-	rank = 1;
+	ranks = {}; #A dictionary holding the current rank for each class.
+	schema_class_names = None;
 
-	for row in reader:
+	for row in reader: # Reader strips off first row of headers.
 
 		# Cleanup of cell contents.
 		for field in row:
 			if field != None:
 				row[field] = row[field].strip();
 
-
+		# A row may set a list of new class names to cycle through, which remain 
+		# pertinent until a subsequent row changes that list. First data row must
+		# start with at least one class name.
 		if row.get('class_name','') > '':
-			schema_class = SCHEMA['classes'][row.get('class_name')];
-			schema_class['slots'] = []
-			schema_class['slot_usage'] = {}
+			schema_class_names = row.get('class_name').split(';');
 
+		if schema_class_names is None:
+			print ("ERROR: class_name column is missing a class (template) name in first row of schema_slots.tsv")
+			sys.exit(0)
 
-		# Get list of slot (field) export mappings. Each has "EXPORT_" 
-		# prefixed into it.
-		if (firstrow):
-			firstrow = False;
-			for key in row:
-				if key[0:7] == 'EXPORT_':
-					EXPORT_FORMAT.append(key);
+		for class_name in schema_class_names:
 
-		# All slots have a range
-		if row.get('range','') > '':
-			label = row.get('name',False) or row.get('title','[UNNAMED!!!]')
+			if len(class_name) > 0:
+				if not (class_name in SCHEMA['classes']): 
+					print ("ERROR: class (template) ", class_name, "is missing in schema_core.yaml")
+					sys.exit(0)
 
-			print ("processing SLOT:", label)
+				schema_class = SCHEMA['classes'][class_name];
+				if not ('slots' in schema_class):
+					schema_class['slots'] = []
+				if not ('slot_usage' in schema_class):
+					schema_class['slot_usage'] = {}
 
-			#Append this slot:
-			slot = {
-				'name': label
-			}
+			# Get list of slot (field) export mappings. Each has "EXPORT_" 
+			# prefixed into it.
+			if (firstrow):
+				firstrow = False;
+				for key in row:
+					if key[0:7] == 'EXPORT_':
+						EXPORT_FORMAT.append(key);
 
-			# from_schema
-			# owner
-
-			if row.get('title','') > '':
-				slot['title'] = row['title'];
-
-			if row.get('description','') > '':
-				slot['description'] = row['description'];
-			if row.get('comments','') >'':
-				slot['comments'] = row['comments'];
-
-			if row.get('examples','') > '':
-				examples = [];
-				for v in row['examples'].split(';'):
-					# A special trigger to create description is ":  " (2 spaces following)
-					ptr = v.find(':  ');
-					if ptr == -1:
-						examples.append({'value': v.strip() });
-					else:
-						# Capturing description field as [description]:[value]
-						description = v[0:ptr].strip();
-						value = v[ptr+1:].strip();
-						examples.append({'description': description, 'value': value})
-
-				slot['examples'] = examples;
-
-			if row.get('slot_uri','') > '':
-				slot['slot_uri'] = row['slot_uri'];
-
+			# All slots have a range
 			if row.get('range','') > '':
-				# 2nd range_2 column gets semi-colon separated list of additional ranges
-				if row.get('range_2','') > '':
-					merged_ranges = [row.get('range')]
-					merged_ranges.extend(row.get('range_2').split(';'))
-					slot['any_of'] = []
-					for x in merged_ranges:
-						slot['any_of'].append({'range': x })
-				else:
-					slot['range'] = row['range'];		
+				label = row.get('name',False) or row.get('title','[UNNAMED!!!]')
 
-			if row.get('identifier','') == 'TRUE':
-				slot['identifier'] = True;
-			if row.get('multivalued','') == 'TRUE':
-				slot['multivalued'] = True;
-			if row.get('required','') == 'TRUE':
-				slot['required'] = True;
-			if row.get('recommended', '') == 'TRUE':
-				slot['recommended'] = True;
+				print ("processing SLOT:", label)
 
-			# NEED TO FIX TO ACCEPT Dates, and "{today}". Currently have to stuff
-			# comparison in via todos array of things to work on.
-			if row.get('minimum_value','') > '':
-				if row['minimum_value'].isnumeric():
-					slot['minimum_value'] = row['minimum_value'];
-				else:
-					slot['todos'] = ['>=' + row['minimum_value']];
-			if row.get('maximum_value','') > '':
-				if row['maximum_value'].isnumeric():
-					slot['maximum_value'] = row['maximum_value'];
-				else:
-					if slot['todos']:
-						slot['todos'].append('<=' + row['maximum_value']);
-					else:
-						slot['todos'] = ['<=' + row['maximum_value']];
-
-			if row.get('pattern','') > '':
-				slot['pattern'] = row['pattern'];				
-			if row.get('structured_pattern','') > '':
-				slot['structured_pattern'] = {
-					'syntax': row.get('structured_pattern'),
-					'partial_match': False,
-					'interpolated': True
+				# Define basics of slot:
+				slot = {
+					'name': label
 				}
 
-			if len(EXPORT_FORMAT) > 0:
-				mappings = []
-				for export_field in EXPORT_FORMAT:
-					if row[export_field] > '':
-						prefix = export_field[7:] + ':'
-						# Can be multiple targets for an exportable field
-						for value in row[export_field].split(';'):
-							mappings.append(prefix + value)
+				if row.get('title','') > '':
+					slot['title'] = row['title'];
 
-				if len(mappings) > 0:
-					slot['exact_mappings'] = mappings
+				if row.get('description','') > '':
+					slot['description'] = row['description'];
+				if row.get('comments','') >'':
+					slot['comments'] = row['comments'];
 
-			SCHEMA['slots'][slot['name']] = slot;
+				if row.get('examples','') > '':
+					examples = [];
+					for v in row['examples'].split(';'):
+						# A special trigger to create description is ":  " (2 spaces following)
+						ptr = v.find(':  ');
+						if ptr == -1:
+							examples.append({'value': v.strip() });
+						else:
+							# Capturing description field as [description]:[value]
+							description = v[0:ptr].strip();
+							value = v[ptr+1:].strip();
+							examples.append({'description': description, 'value': value})
 
-			schema_class['slots'].append(slot['name'])
+					slot['examples'] = examples;
 
-			# Future: in_subset: The in_subset slot can be used tag your class
-			# (or slot) to belong to a pre-defined subset.
+				if row.get('slot_uri','') > '':
+					slot['slot_uri'] = row['slot_uri'];
 
-			#### Now add particular slot_usage requirements
-			slot_usage = {
-				#'name': label,
-				'rank': rank
-			}
-			rank += 1;
-			if row.get('slot_group','') > '':
-				slot_usage['slot_group'] = row['slot_group'];
+				if row.get('range','') > '':
+					# 2nd range_2 column gets semi-colon separated list of additional ranges
+					if row.get('range_2','') > '':
+						merged_ranges = [row.get('range')]
+						merged_ranges.extend(row.get('range_2').split(';'))
+						slot['any_of'] = []
+						for x in merged_ranges:
+							slot['any_of'].append({'range': x })
+					else:
+						slot['range'] = row['range'];		
 
-			schema_class['slot_usage'][slot['name']] = slot_usage
+				if row.get('identifier','') == 'TRUE':
+					slot['identifier'] = True;
+				if row.get('multivalued','') == 'TRUE':
+					slot['multivalued'] = True;
+				if row.get('required','') == 'TRUE':
+					slot['required'] = True;
+				if row.get('recommended', '') == 'TRUE':
+					slot['recommended'] = True;
+
+				# NEED TO FIX TO ACCEPT Dates, and "{today}". Currently have to stuff
+				# comparison in via todos array of things to work on.
+				if row.get('minimum_value','') > '':
+					if row['minimum_value'].isnumeric():
+						slot['minimum_value'] = row['minimum_value'];
+					else:
+						slot['todos'] = ['>=' + row['minimum_value']];
+				if row.get('maximum_value','') > '':
+					if row['maximum_value'].isnumeric():
+						slot['maximum_value'] = row['maximum_value'];
+					else:
+						if slot['todos']:
+							slot['todos'].append('<=' + row['maximum_value']);
+						else:
+							slot['todos'] = ['<=' + row['maximum_value']];
+
+				if row.get('pattern','') > '':
+					slot['pattern'] = row['pattern'];				
+				if row.get('structured_pattern','') > '':
+					slot['structured_pattern'] = {
+						'syntax': row.get('structured_pattern'),
+						'partial_match': False,
+						'interpolated': True
+					}
+
+				if len(EXPORT_FORMAT) > 0:
+					mappings = []
+					for export_field in EXPORT_FORMAT:
+						if row[export_field] > '':
+							prefix = export_field[7:] + ':'
+							# Can be multiple targets for an exportable field
+							for value in row[export_field].split(';'):
+								mappings.append(prefix + value)
+
+					if len(mappings) > 0:
+						slot['exact_mappings'] = mappings
+
+				schema_class['slots'].append(slot['name'])
+
+				# Each Class gets its own rank counter.
+				if (not (class_name in ranks)):
+					ranks[class_name] = 1
+
+				#### Now add particular slot_usage requirements
+				slot_usage = {
+					'rank': ranks[class_name]
+				}
+
+				ranks[class_name] += 1;
+
+				if row.get('slot_group','') > '':
+					slot_usage['slot_group'] = row['slot_group'];
+
+				if slot['name'] in SCHEMA['slots']:
+					# If slot has already been set up then compare new slot to existing
+					# generic one, and where there are any differences in parameters, 
+					# move those differences off to individual class slot_usages, and
+					# drop generic_slot parameters
+					generic_slot = SCHEMA['slots'][slot['name']]
+
+					field_list = [field for field in row]
+					field_list.extend(['any_of','exact_mappings'])
+					# block empty field too
+					for field in field_list:
+						if not (field == None):
+							if field in generic_slot:
+								# If no generic_slot established, or generic value doesn't match slot value
+								if not (field in slot) or slot[field] != generic_slot[field]:
+									print ("	Slot param difference:", field)
+									if field in slot:
+										slot_usage[field] = slot[field] # copy.copy(slot[field])
+										del slot[field]
+
+									# Find existing class's references to generic_slot and replace 
+									# existing class slot_usage[field] = generic_slot[field].
+									for class_name2 in SCHEMA['classes']:
+										if class_name2 != class_name:
+											other_class = SCHEMA['classes'][class_name2]
+											if 'slot_usage' in other_class:
+												if slot['name'] in other_class['slot_usage']:
+													if not (field in other_class['slot_usage'][slot['name']]):
+														#print ("here", class_name2, slot['name'], field, generic_slot[field])
+														other_class['slot_usage'][slot['name']][field] = generic_slot[field]
+
+									del generic_slot[field]
+
+							# Field never got into generic_slot on previous iteration
+							elif field in slot: 
+								slot_usage[field] = slot[field]
+								del slot[field]
+
+					# Issue is if one slot uses "range" and another uses "any_of" !!!!!
+
+				else:
+					# Establish generic slot:
+					SCHEMA['slots'][slot['name']] = slot;
+
+				schema_class['slot_usage'][slot['name']] = slot_usage
 
 '''
 Process each enumeration provided in tabular tsv format.
