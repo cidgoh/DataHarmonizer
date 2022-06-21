@@ -39,6 +39,11 @@ const TEMPLATES = {
       "name": "Monkeypox",
       "status": "published",
       "display": true
+    },
+    "Monkeypox_international": {
+      "name": "Monkeypox_international",
+      "status": "published",
+      "display": true
     }
   }
 }
