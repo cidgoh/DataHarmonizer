@@ -1,5 +1,5 @@
 // Adds existing functions/methods to DataHarminizer.
-var EXPORT_FORMATS = {
+export default {
   /**
    * Download secondary headers and grid data.
    * @param {String} baseName Basename of downloaded file.
@@ -184,7 +184,7 @@ var EXPORT_FORMATS = {
       const outputMatrix = [Array.from(ExportHeaders, (x) => x[0])];
       for (const inputRow of dh.getTrimmedData(dh.hot)) {
         const outputRow = [];
-        for (const [headerIndex, headerItem] of ExportHeaders.entries()) {
+        for (const [headerIndex,] of ExportHeaders.entries()) {
           const headerName = ExportHeaders[headerIndex][0];
           const sources = ExportHeaders[headerIndex][1];
 
@@ -393,7 +393,7 @@ var EXPORT_FORMATS = {
       // Copy headers to 1st row of new export table
       const outputMatrix = [[...ExportHeaders.keys()]];
 
-      nullOptionsMap = new Map([
+      const nullOptionsMap = new Map([
         ['not applicable', 'Not Applicable'],
         ['missing', 'Missing'],
         ['not collected', 'Not Collected'],
@@ -401,7 +401,7 @@ var EXPORT_FORMATS = {
         ['restricted access', 'Restricted Access'],
       ]);
 
-      null_values = new Set([
+      const null_values = new Set([
         'Not Applicable',
         'Missing',
         'Not Collected',
@@ -448,7 +448,6 @@ var EXPORT_FORMATS = {
               'environmental material',
               'environmental site',
             ]) {
-              const field = sourceFields[sourceFieldNameMap[fieldName]];
               const value = inputRow[sourceFieldNameMap[fieldName]];
 
               // Ignore all null value types
