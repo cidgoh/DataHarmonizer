@@ -15,5 +15,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
   new Footer(dhFooterRoot, dh);
 
-  new Toolbar(dhToolbarRoot, dh, menu);
+  let templatePath;
+  if (window.URLSearchParams) {
+    let params = new URLSearchParams(location.search);
+    templatePath = params.get('template');
+  } else {
+    templatePath = location.search.split('template=')[1];
+  }
+  new Toolbar(dhToolbarRoot, dh, menu, {
+    templatePath: templatePath,
+  });
 });
