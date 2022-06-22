@@ -1,6 +1,3 @@
-import canadaCovid19 from './canada_covid19/schema.json';
-import monkeypox from './monkeypox/schema.json';
-
 export default {
   "canada_covid19": {
     "CanCOGeN Covid-19": {
@@ -8,7 +5,8 @@ export default {
       "status": "published",
       "display": true
     },
-    schema: canadaCovid19
+    schema: async () => (await import('./canada_covid19/schema.json')).default,
+    exportFormats: async () => (await import('./canada_covid19/export.js')).default
   },
   // "gisaid": {
   //   "GISAID": {
@@ -44,6 +42,7 @@ export default {
       "status": "published",
       "display": true,
     },
-    schema: monkeypox
+    schema: async () => (await import('./monkeypox/schema.json')).default,
+    exportFormats: async () => (await import('./monkeypox/export.js')).default
   }
 }
