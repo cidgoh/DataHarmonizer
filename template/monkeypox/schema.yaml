@@ -1385,18 +1385,24 @@ enums:
   NML submitted specimen type menu:
     name: NML submitted specimen type menu
     permissible_values:
-      Swab:
-        text: Swab
-        meaning: OBI:0002600
-      RNA:
-        text: RNA
-        meaning: OBI:0000880
-      mRNA (cDNA):
-        text: mRNA (cDNA)
-        meaning: OBI:0002754
+      Bodily fluid:
+        text: Bodily fluid
+        meaning: UBERON:0006314
+      DNA:
+        text: DNA
+        meaning: OBI:0001051
       Nucleic acid:
         text: Nucleic acid
         meaning: OBI:0001010
+      RNA:
+        text: RNA
+        meaning: OBI:0000880
+      Swab:
+        text: Swab
+        meaning: OBI:0002600
+      Tissue:
+        text: Tissue
+        meaning: UBERON:0000479
       Not Applicable:
         text: Not Applicable
         meaning: GENEPIO:0001619

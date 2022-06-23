@@ -246,21 +246,29 @@ var SCHEMA = {
       "name": "NML submitted specimen type menu",
       "from_schema": "https://example.com/monkeypox",
       "permissible_values": {
-        "Swab": {
-          "text": "Swab",
-          "meaning": "OBI:0002600"
+        "Bodily fluid": {
+          "text": "Bodily fluid",
+          "meaning": "UBERON:0006314"
+        },
+        "DNA": {
+          "text": "DNA",
+          "meaning": "OBI:0001051"
+        },
+        "Nucleic acid": {
+          "text": "Nucleic acid",
+          "meaning": "OBI:0001010"
         },
         "RNA": {
           "text": "RNA",
           "meaning": "OBI:0000880"
         },
-        "mRNA (cDNA)": {
-          "text": "mRNA (cDNA)",
-          "meaning": "OBI:0002754"
+        "Swab": {
+          "text": "Swab",
+          "meaning": "OBI:0002600"
         },
-        "Nucleic acid": {
-          "text": "Nucleic acid",
-          "meaning": "OBI:0001010"
+        "Tissue": {
+          "text": "Tissue",
+          "meaning": "UBERON:0000479"
         },
         "Not Applicable": {
           "text": "Not Applicable",

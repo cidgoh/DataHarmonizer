@@ -1248,11 +1248,16 @@ let DataHarmonizer = {
 			*/
 			this.setExportField(new_field, true)
 
-			// https://linkml.io/linkml-model/docs/structured_pattern/
-			// https://github.com/linkml/linkml/issues/674
-			// Look up its parts in "settings", and assemble a regular 
-			// expression for them into "pattern" field. 
-			// This augments basic datatype validation
+			/* https://linkml.io/linkml-model/docs/structured_pattern/
+			 https://github.com/linkml/linkml/issues/674
+			 Look up its parts in "settings", and assemble a regular 
+			 expression for them to compile into "pattern" field. 
+			 This augments basic datatype validation
+			    structured_pattern:
+      				syntax: "{float} {unit.length}"
+      				interpolated: true   ## all {...}s are replaced using settings
+      				partial_match: false
+			*/
 			if ('structured_pattern' in new_field) {
 				switch (new_field.structured_pattern.syntax) {
 					case '{UPPER_CASE}':
