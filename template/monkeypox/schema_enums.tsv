@@ -26,11 +26,14 @@ sample collection date precision menu	UO:0000036	year
 	UO:0000033	day																							
 																									
 																									
-NML submitted specimen type menu	OBI:0002600	Swab 											collecting specimen with swab						specimen collection process	OBI:0000659					
-	OBI:0000880	RNA																	Nucleic acid	OBI:0001010					
-	OBI:0002754	mRNA (cDNA)											cDNA library						processed material	OBI:0000047					
-	OBI:0001010	Nucleic acid											nucleic acid extract						processed material	OBI:0000047					
+NML submitted specimen type menu	UBERON:0006314	Bodily fluid											collecting specimen with swab						specimen collection process	OBI:0000659					
+	OBI:0001051	DNA																	Nucleic acid	OBI:0001010					
+	OBI:0001010	Nucleic acid											cDNA library						processed material	OBI:0000047					
+	OBI:0000880	RNA 											nucleic acid extract						processed material	OBI:0000047					
+	OBI:0002600	Swab 																							
+	UBERON:0000479	Tissue																							
 	GENEPIO:0001619	Not Applicable																							
+																									
 																									
 																									
 Related specimen relationship type menu	HP:0011009	Acute																							
