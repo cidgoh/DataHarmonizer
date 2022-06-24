@@ -1037,9 +1037,7 @@ let DataHarmonizer = {
 	},
 
 	/**
-	 * Post-processing of values in `data.js` at runtime. This calculates for each
-	 * categorical field (table column) in data.js a flat list of allowed values
-	 * in field.flatVocabulary,
+	 * Convert schema.js into needed field and menu datastructures.
 	 * @param {Object} template_name.
 	 * @return {Object} Processed values of `data.js`.
 	 */
@@ -1106,8 +1104,6 @@ let DataHarmonizer = {
 
 			let section = self.template[sectionIndex.get(section_title)];
 			let new_field = {...field}; // shallow copy
-
-			//console.log(new_field)
 
 			// Some specs don't add plain english title, so fill that with name
 			// for display.
