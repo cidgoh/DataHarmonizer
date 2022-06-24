@@ -939,7 +939,7 @@ let DataHarmonizer = {
 	  const fields = this.getFields();
 	  this.hot.updateSettings({
 		afterBeginEditing: function(row, col) {
-		  if (fields[col].multivalued === true) {
+		  if (fields[col].flatVocabulary && fields[col].multivalued === true) {
 			const value = this.getDataAtCell(row, col);
 			let selections = value && value.split(';') || [];
 			selections = selections.map(x => x.trim());
