@@ -103,7 +103,6 @@ var EXPORT_FORMATS = {
 				['Submitter',               []], // submitter
 				['FASTA filename',          []], // fn
 				['Virus name',              []], // covv_virus_name
-				['Type',                    []], // covv_type
 				['Passage details/history', []], // covv_passage
 				['Collection date',         []], // covv_collection_date
 				['Location',                []], // covv_location
@@ -132,9 +131,7 @@ var EXPORT_FORMATS = {
 			];
 
 		// GISAID has new sampling_strategy field as of May 12, 2021
-			const header_GISAID = ['submitter','fn','covv_virus_name','covv_type','covv_passage','covv_collection_date','covv_location','covv_add_location','covv_host','covv_add_host_info','covv_sampling_strategy','covv_gender','covv_patient_age','covv_patient_status','covv_specimen','covv_outbreak','covv_last_vaccinated','covv_treatment','covv_seq_technology','covv_assembly_method','covv_coverage','covv_orig_lab','covv_orig_lab_addr','covv_provider_sample_id','covv_subm_lab','covv_subm_lab_addr','covv_subm_sample_id','covv_authors'];
-
-
+			const header_GISAID = ['submitter','fn','pox_virus_name','pox_passage','pox_collection_date','pox_location','pox_add_location','pox_host','pox_add_host_info','pox_sampling_strategy','pox_gender','pox_patient_age','pox_patient_status','pox_specimen','pox_outbreak','pox_last_vaccinated','pox_treatment','pox_seq_technology','pox_assembly_method','pox_coverage','pox_orig_lab','pox_orig_lab_addr','pox_provider_sample_id','pox_subm_lab','pox_subm_lab_addr','pox_subm_sample_id','pox_authors'];
 
 			const sourceFields = dh.getFields(dh.table);
 			const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
@@ -218,6 +215,7 @@ var EXPORT_FORMATS = {
 
 		"NML LIMS": {
 			fileType: 'csv',
+			pertains_to: ['Monkeypox'],
 			status: 'published',
 			method: function (dh) {
 			// A full export table field list enables ordering of these fields in export
