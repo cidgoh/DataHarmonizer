@@ -24,6 +24,6 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   new Toolbar(dhToolbarRoot, dh, menu, {
     templatePath: templatePath,
-    staticAssetPath: 'static/'
+    staticAssetPath: 'static/',
   });
 });

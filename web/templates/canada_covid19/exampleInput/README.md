@@ -1,4 +1,5 @@
 # CanCOGeN Example Input Data
+
 This directory contains example input/test data for the Canadian COVID Genomics Network (CanCOGeN) DataHarmonizer application template: `CanCOGeN Covid-19`. This data is appropriate for testing up to the version appended to the end of the file name, for example:
 
 - `validTestData_1-0-0.csv` is _valid_ for version `1-0-0` of the DataHarmonizer.
@@ -19,4 +20,4 @@ There are special validation rules for some fields, for example:
 
 - Sample collection date cannot be before SARS-CoV-2 sampling began even when formatted using the appropriate ISO 8601 standard format "YYYY-MM-DD":
 
- > ![invalidData_sampleCollectionDate.png](/images/invalid/invalidData_sampleCollectionDate.png?raw=true)
+> ![invalidData_sampleCollectionDate.png](/images/invalid/invalidData_sampleCollectionDate.png?raw=true)

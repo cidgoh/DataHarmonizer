@@ -184,7 +184,7 @@ export default {
       const outputMatrix = [Array.from(ExportHeaders, (x) => x[0])];
       for (const inputRow of dh.getTrimmedData(dh.hot)) {
         const outputRow = [];
-        for (const [headerIndex,] of ExportHeaders.entries()) {
+        for (const [headerIndex] of ExportHeaders.entries()) {
           const headerName = ExportHeaders[headerIndex][0];
           const sources = ExportHeaders[headerIndex][1];
 
