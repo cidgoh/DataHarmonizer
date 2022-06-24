@@ -260,7 +260,9 @@ DataHarmonizerToolbar = {
 			select.remove(1);
 		}
 		for (const option in this.dh.export_formats) {
-			select.append(new Option(option, option));
+			if (! ('pertains_to' in this.dh.export_formats[option]) || this.dh.export_formats[option].pertains_to.includes(this.dh.template_name) ) {
+				select.append(new Option(option, option));
+			}
 		}
 
 		// Update SOP.
