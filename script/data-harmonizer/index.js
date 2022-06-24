@@ -872,7 +872,7 @@ let DataHarmonizer = {
 	getColumns: function () {
 		let ret = [];
 		for (let field of this.getFields()) {
-		const col = {};
+		let col = {};
 		if (field.required) {
 			col.required = field.required;
 		}
