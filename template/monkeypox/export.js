@@ -17,10 +17,15 @@ var EXPORT_FORMATS = {
 			const ExportHeaders = new Map([
 				['sample_name', []],
 				['bioproject_accession',[]],
+				['attribute_package',[]],				
 				['GISAID_accession',[]],
+				['GISAID_virus_name',[]],
+				['collection_date',[]],
 				['collected_by', []],
 				['sequenced_by',       []],
-				['sample collection date',[]],
+				['sequence_submitted_by',       []],
+
+				//['sample collection date',[]],
 
 				['geo_loc_name',
 					[
@@ -30,9 +35,6 @@ var EXPORT_FORMATS = {
 				],
 				['organism',[]],
 				['isolate',[]],
-				['GISAID_virus_name',[]],
-				['purpose_of_sampling',[]],
-				['description',[]],
 				['isolation_source',     
 					['anatomical material','anatomical part','body product','environmental material','environmental site','collection device','collection method']],
 				['anatomical_material',    []],
@@ -46,17 +48,21 @@ var EXPORT_FORMATS = {
 				['passage_history',   []],
 				['passage_method',   []],
 				['host',   []],
+				['host_disease',   []],
 				['host_health_state',   []],
 				['host_disease_outcome',   []],
-				['host_disease',   []],
 				['host_age',   []],
+				['host_age_unit',   []],	
+				['host_age_bin',   []],	
 				['host_sex',   []],
 				['host_subject_id',   []],
+				['purpose_of_sampling',[]],
 				['purpose_of_sequencing',   []],
 				['gene_name_1',   []],
 				['diagnostic_PCR_CT_value_1',   []],
 				['gene_name_2',   []],
 				['diagnostic_PCR_CT_value_2',   []], 
+				['description',[]],
 			]);
 
 			const sourceFields = dh.getFields(dh.table);
@@ -132,6 +138,7 @@ var EXPORT_FORMATS = {
 
 		// GISAID has new sampling_strategy field as of May 12, 2021
 			const header_GISAID = ['submitter','fn','pox_virus_name','pox_passage','pox_collection_date','pox_location','pox_add_location','pox_host','pox_add_host_info','pox_sampling_strategy','pox_gender','pox_patient_age','pox_patient_status','pox_specimen','pox_outbreak','pox_last_vaccinated','pox_treatment','pox_seq_technology','pox_assembly_method','pox_coverage','pox_orig_lab','pox_orig_lab_addr','pox_provider_sample_id','pox_subm_lab','pox_subm_lab_addr','pox_subm_sample_id','pox_authors'];
+
 
 			const sourceFields = dh.getFields(dh.table);
 			const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
