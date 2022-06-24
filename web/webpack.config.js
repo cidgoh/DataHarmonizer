@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = (env, argv) => {
   var config = {
@@ -13,6 +14,15 @@ module.exports = (env, argv) => {
       new HtmlWebpackPlugin({
         template: './index.html',
       }),
+      new CopyPlugin({
+        patterns: [
+          {
+            context: 'templates',
+            from: '**/SOP.pdf',
+            to: 'static/[path][name][ext]'
+          }
+        ]
+      })
     ],
     module: {
       rules: [
