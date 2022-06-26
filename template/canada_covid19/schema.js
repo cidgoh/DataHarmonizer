@@ -8759,6 +8759,9 @@ var SCHEMA = {
       "name": "CanCOGeN Covid-19",
       "description": "Canadian specification for Covid-19 clinical virus biosample data gathering",
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "see_also": [
+        "template/canada_covid19/SOP.pdf"
+      ],
       "is_a": "dh_interface",
       "slot_usage": {
         "specimen collector sample ID": {
