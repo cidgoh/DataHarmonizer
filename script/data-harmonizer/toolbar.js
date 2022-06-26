@@ -265,8 +265,15 @@ DataHarmonizerToolbar = {
 			}
 		}
 
-		// Update SOP.
-		$("#help_sop").attr('href',`template/${template_folder}/SOP.pdf`);
+		const schema_class = this.dh.schema.classes[this.dh.template_name];
+		console.log(schema_class)
+		// Update SOP
+		if (schema_class.see_also) {
+			$("#help_sop").attr('href', schema_class.see_also).show();
+		}
+		else {
+			$("#help_sop").hide();
+		}
 
 		// Allows columnCoordinates to be accessed within select() below.
 		const columnCoordinates = this.dh.getColumnCoordinates();
