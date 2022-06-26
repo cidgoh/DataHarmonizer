@@ -15,6 +15,7 @@ classes:
     name: PHA4GE
     description: Public Health Alliance for Genomic Epidemiology biosample specification
     is_a: dh_interface
+    see_also: template/pha4ge/SOP.pdf
     slots:
     - specimen collector sample ID
     - umbrella bioproject accession

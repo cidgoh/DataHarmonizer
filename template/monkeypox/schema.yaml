@@ -16,6 +16,7 @@ classes:
     description: Canadian specification for Monkeypox clinical virus biosample data
       gathering
     is_a: dh_interface
+    see_also: template/monkeypox/SOP_Monkeypox.pdf
     slots:
     - specimen collector sample ID
     - Related specimen primary ID

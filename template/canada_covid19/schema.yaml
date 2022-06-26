@@ -16,6 +16,7 @@ classes:
     description: Canadian specification for Covid-19 clinical virus biosample data
       gathering
     is_a: dh_interface
+    see_also: template/canada_covid19/SOP.pdf
     slots:
     - specimen collector sample ID
     - third party lab service provider name

@@ -8174,6 +8174,9 @@ var SCHEMA = {
       "name": "PHA4GE",
       "description": "Public Health Alliance for Genomic Epidemiology biosample specification",
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "see_also": [
+        "template/pha4ge/SOP.pdf"
+      ],
       "is_a": "dh_interface",
       "slot_usage": {
         "specimen collector sample ID": {

@@ -5853,6 +5853,9 @@ var SCHEMA = {
       "name": "Monkeypox",
       "description": "Canadian specification for Monkeypox clinical virus biosample data gathering",
       "from_schema": "https://example.com/monkeypox",
+      "see_also": [
+        "template/monkeypox/SOP_Monkeypox.pdf"
+      ],
       "is_a": "dh_interface",
       "slot_usage": {
         "specimen collector sample ID": {
