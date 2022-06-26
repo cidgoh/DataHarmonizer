@@ -126,15 +126,15 @@ let DataHarmonizer = {
 		if (!template_path) 
 			return false; // Error condition: no template path provided
 
-		[template_folder, template_name] = template_path.split('/',2); 
+		[schema_name, template_name] = template_path.split('/',2); 
 
-		this.schema_name = template_folder;
+		this.schema_name = schema_name;
 		this.template_name = template_name;
 		this.template_path = template_path;
 
 		try {
 			// Loading this template may require loading the SCHEMA it is under.
-			const schema_loaded = await this.useSchema(template_folder);
+			const schema_loaded = await this.useSchema(schema_name);
 			//if (!schema_loaded) 
 			//  return false;
 
