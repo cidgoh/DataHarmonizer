@@ -166,8 +166,8 @@ Object.assign(DataHarmonizer, {
 
 		if (field.sources) {
 			// iterate thru and will return the first match found in field.sources
-			for ( source in field.sources) {
-				term = DataHarmonizer.schema.enums[field.sources].permissible_values[value];
+			for ( source_index in field.sources) {
+				term = DataHarmonizer.schema.enums[field.sources[source_index]].permissible_values[value];
 
 				// Looking for term.exportField['GRDI'] for example:
 				if (term && 'exportField' in term && prefix in term.exportField) {
