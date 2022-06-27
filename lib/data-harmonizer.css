@@ -3,3 +3,36 @@
   background-color: rgba(108, 117, 125, 0.2);
   z-index: 1000;
 }
+
+#specify-headers-comparison-row {
+  overflow-x: auto;
+}
+
+#specify-headers-err-msg {
+  display: none;
+}
+
+#field-mapping-container {
+  overflow-x: scroll;
+  padding-bottom: 1rem;
+  scrollbar-width: 1rem;
+}
+
+#field-mapping {
+  white-space: nowrap;
+}
+
+#field-mapping col {
+  border-left: 2px solid black;
+}
+#field-mapping col:first-child {
+  background: #ff0;
+}
+#field-mapping col:nth-child(2n + 3) {
+  background: #ccc;
+}
+
+#field-mapping tr td,
+#field-mapping tr th {
+  padding: 3px;
+}
