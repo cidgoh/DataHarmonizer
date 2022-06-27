@@ -266,7 +266,7 @@ DataHarmonizerToolbar = {
 		}
 
 		const schema_class = this.dh.schema.classes[this.dh.template_name];
-		console.log(schema_class)
+
 		// Update SOP
 		if (schema_class.see_also) {
 			$("#help_sop").attr('href', schema_class.see_also).show();
