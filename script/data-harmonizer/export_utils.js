@@ -136,7 +136,8 @@ Object.assign(DataHarmonizer, {
 
 			let field = sourceFields[titleMap[title]];
 
-			if (field.datatype === 'select') {
+			// if sources exist, fetch transformed Value
+			if (field.sources) {
 				mappedCell.push( self.getTransformedField(headerName, mappedCellVal, field, prefix));
 			}
 			else if (field.multivalued === true) {
@@ -163,8 +164,8 @@ Object.assign(DataHarmonizer, {
 	 */
 	getTransformedField: function (headerName, value, field, prefix) {
 
-	 	if (field['schema:ItemList']) {
-	 		const term = this.findById(field['schema:ItemList'], value);
+		if (field['sources']) {
+			term = DataHarmonizer.schema.enums[field.sources].permissible_values[value];		
 
 			// Looking for term.exportField['GRDI'] for example:
 			if (term && 'exportField' in term && prefix in term.exportField) {
