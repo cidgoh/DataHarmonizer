@@ -165,19 +165,22 @@ Object.assign(DataHarmonizer, {
 	getTransformedField: function (headerName, value, field, prefix) {
 
 		if (field.sources) {
-			term = DataHarmonizer.schema.enums[field.sources].permissible_values[value];		
+			// iterate thru and will return the first match found in field.sources
+			for ( source in field.sources) {
+				term = DataHarmonizer.schema.enums[field.sources].permissible_values[value];
 
-			// Looking for term.exportField['GRDI'] for example:
-			if (term && 'exportField' in term && prefix in term.exportField) {
-				// Here mapping involves a value substitution
-				// Note possible [target field]:[value] twist
-				for (let mapping of term.exportField[prefix]) {
-					// Usually there's just one target field, but one can map a
-					// source field to more than one target.
-					if (!('field' in mapping) || mapping.field === headerName)
-						return mapping.value;
+				// Looking for term.exportField['GRDI'] for example:
+				if (term && 'exportField' in term && prefix in term.exportField) {
+					// Here mapping involves a value substitution
+					// Note possible [target field]:[value] twist
+					for (let mapping of term.exportField[prefix]) {
+						// Usually there's just one target field, but one can map a
+						// source field to more than one target.
+						if (!('field' in mapping) || mapping.field === headerName)
+							return mapping.value;
+					};
 				};
-			};
+			}
 
 		};
 		return value;
