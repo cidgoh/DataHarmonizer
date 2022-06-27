@@ -164,7 +164,7 @@ Object.assign(DataHarmonizer, {
 	 */
 	getTransformedField: function (headerName, value, field, prefix) {
 
-		if (field['sources']) {
+		if (field.sources) {
 			term = DataHarmonizer.schema.enums[field.sources].permissible_values[value];		
 
 			// Looking for term.exportField['GRDI'] for example:
