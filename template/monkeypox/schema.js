@@ -6103,15 +6103,8 @@ var SCHEMA = {
         "NML_LIMS:PH_SPECIMEN_TYPE"
       ],
       "slot_uri": "GENEPIO:0001204",
-      "required": true,
-      "any_of": [
-        {
-          "range": "NML submitted specimen type menu"
-        },
-        {
-          "range": "null value menu"
-        }
-      ]
+      "range": "NML submitted specimen type menu",
+      "required": true
     },
     "Related specimen relationship type": {
       "name": "Related specimen relationship type",
@@ -6993,6 +6986,7 @@ var SCHEMA = {
       ],
       "from_schema": "https://example.com/monkeypox",
       "exact_mappings": [
+        "GISAID:Assembly method",
         "CNPHI:consensus sequence",
         "NML_LIMS:PH_CONSENSUS_SEQUENCE_VERSION",
         "VirusSeq_Portal:consensus sequence software version"
@@ -7081,10 +7075,10 @@ var SCHEMA = {
       "range": "integer",
       "minimum_value": 0
     },
-    "assembled genome length": {
-      "name": "assembled genome length",
+    "consensus genome length": {
+      "name": "consensus genome length",
       "description": "Size of the reconstructed genome described as the number of base pairs.",
-      "title": "assembled genome length",
+      "title": "consensus genome length",
       "comments": [
         "Provide a numerical value (no need to include units)."
       ],
@@ -7273,7 +7267,7 @@ var SCHEMA = {
       ],
       "from_schema": "https://example.com/monkeypox",
       "exact_mappings": [
-        "CNPHI:Gene Target 3",
+        "CNPHI:Gene Target 4",
         "NML_LIMS:SUBMITTED_RESLT - Gene Target #4",
         "BIOSAMPLE:gene_name_4"
       ],
@@ -7300,7 +7294,7 @@ var SCHEMA = {
       ],
       "from_schema": "https://example.com/monkeypox",
       "exact_mappings": [
-        "CNPHI:Gene Target 3 CT Value",
+        "CNPHI:Gene Target 4 CT Value",
         "NML_LIMS:SUBMITTED_RESLT - Gene Target #4 CT Value",
         "BIOSAMPLE:diagnostic_PCR_CT_value_4"
       ],
@@ -7327,9 +7321,9 @@ var SCHEMA = {
       ],
       "from_schema": "https://example.com/monkeypox",
       "exact_mappings": [
-        "CNPHI:Gene Target 3",
-        "NML_LIMS:SUBMITTED_RESLT - Gene Target #4",
-        "BIOSAMPLE:gene_name_4"
+        "CNPHI:Gene Target 5",
+        "NML_LIMS:SUBMITTED_RESLT - Gene Target #5",
+        "BIOSAMPLE:gene_name_5"
       ],
       "any_of": [
         {
@@ -7354,9 +7348,9 @@ var SCHEMA = {
       ],
       "from_schema": "https://example.com/monkeypox",
       "exact_mappings": [
-        "CNPHI:Gene Target 3 CT Value",
-        "NML_LIMS:SUBMITTED_RESLT - Gene Target #4 CT Value",
-        "BIOSAMPLE:diagnostic_PCR_CT_value_4"
+        "CNPHI:Gene Target 5 CT Value",
+        "NML_LIMS:SUBMITTED_RESLT - Gene Target #5 CT Value",
+        "BIOSAMPLE:diagnostic_PCR_CT_value_5"
       ],
       "any_of": [
         {
@@ -7900,8 +7894,8 @@ var SCHEMA = {
           "rank": 44,
           "slot_group": "Bioinformatics and QC metrics"
         },
-        "assembled genome length": {
-          "name": "assembled genome length",
+        "consensus genome length": {
+          "name": "consensus genome length",
           "rank": 45,
           "slot_group": "Bioinformatics and QC metrics"
         },
@@ -8383,6 +8377,7 @@ var SCHEMA = {
           "alias": "NML_submitted_specimen_type",
           "owner": "Monkeypox",
           "slot_group": "Sample collection and processing",
+          "range": "NML submitted specimen type menu",
           "required": true
         },
         "Related specimen relationship type": {
@@ -8797,14 +8792,14 @@ var SCHEMA = {
           "range": "integer",
           "minimum_value": 0
         },
-        "assembled genome length": {
-          "name": "assembled genome length",
+        "consensus genome length": {
+          "name": "consensus genome length",
           "description": "Size of the reconstructed genome described as the number of base pairs.",
-          "title": "assembled genome length",
+          "title": "consensus genome length",
           "from_schema": "https://example.com/monkeypox",
           "rank": 45,
           "slot_uri": "GENEPIO:0001483",
-          "alias": "assembled_genome_length",
+          "alias": "consensus_genome_length",
           "owner": "Monkeypox",
           "slot_group": "Bioinformatics and QC metrics",
           "range": "integer",
@@ -9552,8 +9547,8 @@ var SCHEMA = {
           "rank": 68,
           "slot_group": "Bioinformatics and QC metrics"
         },
-        "assembled genome length": {
-          "name": "assembled genome length",
+        "consensus genome length": {
+          "name": "consensus genome length",
           "rank": 69,
           "slot_group": "Bioinformatics and QC metrics"
         },
@@ -10666,14 +10661,14 @@ var SCHEMA = {
           "range": "integer",
           "minimum_value": 0
         },
-        "assembled genome length": {
-          "name": "assembled genome length",
+        "consensus genome length": {
+          "name": "consensus genome length",
           "description": "Size of the reconstructed genome described as the number of base pairs.",
-          "title": "assembled genome length",
+          "title": "consensus genome length",
           "from_schema": "https://example.com/monkeypox",
           "rank": 69,
           "slot_uri": "GENEPIO:0001483",
-          "alias": "assembled_genome_length",
+          "alias": "consensus_genome_length",
           "owner": "Monkeypox_international",
           "slot_group": "Bioinformatics and QC metrics",
           "range": "integer",
