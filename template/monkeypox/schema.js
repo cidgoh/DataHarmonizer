@@ -100,6 +100,13 @@ var SCHEMA = {
       "uri": "xsd:dateTime",
       "repr": "str"
     },
+    "date_or_datetime": {
+      "name": "date_or_datetime",
+      "description": "Either a date or a datetime",
+      "base": "str",
+      "uri": "linkml:DateOrDatetime",
+      "repr": "str"
+    },
     "uriorcurie": {
       "name": "uriorcurie",
       "description": "a URI or a CURIE",
@@ -392,10 +399,12 @@ var SCHEMA = {
         },
         "Lesion (Scab)": {
           "text": "Lesion (Scab)",
+          "meaning": "GENEPIO:0100490",
           "is_a": "Lesion"
         },
         "Lesion (Vesicle)": {
           "text": "Lesion (Vesicle)",
+          "meaning": "GENEPIO:0100491",
           "is_a": "Lesion"
         },
         "Rash": {
@@ -409,6 +418,11 @@ var SCHEMA = {
         "Tissue": {
           "text": "Tissue",
           "meaning": "UBERON:0000479"
+        },
+        "Wound tissue (injury)": {
+          "text": "Wound tissue (injury)",
+          "meaning": "NCIT:C3671",
+          "is_a": "Tissue"
         }
       }
     },
@@ -493,12 +507,14 @@ var SCHEMA = {
           "meaning": "NCIT:C78582",
           "is_a": "Lesion [NCIT:C3824]"
         },
-        "Lesion (Scab)": {
-          "text": "Lesion (Scab)",
+        "Lesion (Scab) [GENEPIO:0100490]": {
+          "text": "Lesion (Scab) [GENEPIO:0100490]",
+          "meaning": "GENEPIO:0100490",
           "is_a": "Lesion [NCIT:C3824]"
         },
-        "Lesion (Vesicle)": {
-          "text": "Lesion (Vesicle)",
+        "Lesion (Vesicle) [GENEPIO:0100491]": {
+          "text": "Lesion (Vesicle) [GENEPIO:0100491]",
+          "meaning": "GENEPIO:0100491",
           "is_a": "Lesion [NCIT:C3824]"
         },
         "Rash [SYMP:0000487]": {
@@ -512,6 +528,11 @@ var SCHEMA = {
         "Tissue [UBERON:0000479]": {
           "text": "Tissue [UBERON:0000479]",
           "meaning": "UBERON:0000479"
+        },
+        "Wound tissue (injury) [NCIT:C3671]": {
+          "text": "Wound tissue (injury) [NCIT:C3671]",
+          "meaning": "NCIT:C3671",
+          "is_a": "Tissue [UBERON:0000479]"
         }
       }
     },
@@ -522,6 +543,11 @@ var SCHEMA = {
         "Anus": {
           "text": "Anus",
           "meaning": "UBERON:0001245"
+        },
+        "Perianal skin": {
+          "text": "Perianal skin",
+          "meaning": "UBERON:0012336",
+          "is_a": "Anus"
         },
         "Arm": {
           "text": "Arm",
@@ -541,6 +567,14 @@ var SCHEMA = {
           "text": "Back",
           "meaning": "FMA:14181"
         },
+        "Buttock": {
+          "text": "Buttock",
+          "meaning": "UBERON:0013691"
+        },
+        "Cervix": {
+          "text": "Cervix",
+          "meaning": "UBERON:0000002"
+        },
         "Chest": {
           "text": "Chest",
           "meaning": "UBERON:0001443"
@@ -558,6 +592,11 @@ var SCHEMA = {
           "meaning": "UBERON:0000989",
           "is_a": "Genital area"
         },
+        "Prepuce of penis (foreskin)": {
+          "text": "Prepuce of penis (foreskin)",
+          "meaning": "UBERON:0001332",
+          "is_a": "Penis"
+        },
         "Perineum": {
           "text": "Perineum",
           "meaning": "UBERON:0002356",
@@ -567,6 +606,15 @@ var SCHEMA = {
           "text": "Scrotum",
           "meaning": "UBERON:0001300",
           "is_a": "Genital area"
+        },
+        "Vagina": {
+          "text": "Vagina",
+          "meaning": "UBERON:0000996",
+          "is_a": "Genital area"
+        },
+        "Gland": {
+          "text": "Gland",
+          "meaning": "UBERON:0002530"
         },
         "Hand": {
           "text": "Hand",
@@ -591,6 +639,16 @@ var SCHEMA = {
           "meaning": "UBERON:0006956",
           "is_a": "Head"
         },
+        "Ear": {
+          "text": "Ear",
+          "meaning": "UBERON:0001690",
+          "is_a": "Head"
+        },
+        "Preauricular region": {
+          "text": "Preauricular region",
+          "meaning": "NCIT:C103848",
+          "is_a": "Ear"
+        },
         "Eye": {
           "text": "Eye",
           "meaning": "UBERON:0000970",
@@ -609,6 +667,16 @@ var SCHEMA = {
         "Lip": {
           "text": "Lip",
           "meaning": "UBERON:0001833",
+          "is_a": "Head"
+        },
+        "Jaw": {
+          "text": "Jaw",
+          "meaning": "UBERON:0011595",
+          "is_a": "Head"
+        },
+        "Tongue": {
+          "text": "Tongue",
+          "meaning": "UBERON:0001723",
           "is_a": "Head"
         },
         "Hypogastrium (suprapubic region)": {
@@ -634,6 +702,10 @@ var SCHEMA = {
           "meaning": "UBERON:0000376",
           "is_a": "Leg"
         },
+        "Lower body": {
+          "text": "Lower body",
+          "meaning": "GENEPIO:0100492"
+        },
         "Nasal Cavity": {
           "text": "Nasal Cavity",
           "meaning": "UBERON:0001707"
@@ -653,29 +725,41 @@ var SCHEMA = {
           "meaning": "UBERON:0005922",
           "is_a": "Nasal Cavity"
         },
-        "Nasopharynx (NP)": {
-          "text": "Nasopharynx (NP)",
-          "meaning": "UBERON:0001728"
-        },
         "Neck": {
           "text": "Neck",
           "meaning": "UBERON:0000974"
         },
+        "Pharynx (throat)": {
+          "text": "Pharynx (throat)",
+          "meaning": "UBERON:0000341",
+          "is_a": "Neck"
+        },
+        "Nasopharynx (NP)": {
+          "text": "Nasopharynx (NP)",
+          "meaning": "UBERON:0001728",
+          "is_a": "Pharynx (throat)"
+        },
         "Oropharynx (OP)": {
           "text": "Oropharynx (OP)",
-          "meaning": "UBERON:0001729"
+          "meaning": "UBERON:0001729",
+          "is_a": "Pharynx (throat)"
+        },
+        "Trachea": {
+          "text": "Trachea",
+          "meaning": "UBERON:0003126",
+          "is_a": "Neck"
         },
         "Rectum": {
           "text": "Rectum",
           "meaning": "UBERON:0001052"
         },
+        "Shoulder": {
+          "text": "Shoulder",
+          "meaning": "UBERON:0001467"
+        },
         "Skin": {
           "text": "Skin",
           "meaning": "UBERON:0001003"
-        },
-        "Trachea": {
-          "text": "Trachea",
-          "meaning": "UBERON:0003126"
         }
       }
     },
@@ -686,6 +770,11 @@ var SCHEMA = {
         "Anus [UBERON:0001245]": {
           "text": "Anus [UBERON:0001245]",
           "meaning": "UBERON:0001245"
+        },
+        "Perianal skin [UBERON:0012336]": {
+          "text": "Perianal skin [UBERON:0012336]",
+          "meaning": "UBERON:0012336",
+          "is_a": "Anus [UBERON:0001245]"
         },
         "Arm [UBERON:0001460]": {
           "text": "Arm [UBERON:0001460]",
@@ -705,6 +794,14 @@ var SCHEMA = {
           "text": "Back [FMA:14181]",
           "meaning": "FMA:14181"
         },
+        "Buttock [UBERON:0013691]": {
+          "text": "Buttock [UBERON:0013691]",
+          "meaning": "UBERON:0013691"
+        },
+        "Cervix [UBERON:0000002]": {
+          "text": "Cervix [UBERON:0000002]",
+          "meaning": "UBERON:0000002"
+        },
         "Chest [UBERON:0001443]": {
           "text": "Chest [UBERON:0001443]",
           "meaning": "UBERON:0001443"
@@ -722,6 +819,11 @@ var SCHEMA = {
           "meaning": "UBERON:0000989",
           "is_a": "Genital area [BTO:0003358]"
         },
+        "Prepuce of penis (foreskin)": {
+          "text": "Prepuce of penis (foreskin)",
+          "meaning": "UBERON:0001332",
+          "is_a": "Penis [UBERON:0000989]"
+        },
         "Perineum [UBERON:0002356]": {
           "text": "Perineum [UBERON:0002356]",
           "meaning": "UBERON:0002356",
@@ -731,6 +833,15 @@ var SCHEMA = {
           "text": "Scrotum [UBERON:0001300]",
           "meaning": "UBERON:0001300",
           "is_a": "Genital area [BTO:0003358]"
+        },
+        "Vagina [UBERON:0000996]": {
+          "text": "Vagina [UBERON:0000996]",
+          "meaning": "UBERON:0000996",
+          "is_a": "Genital area [BTO:0003358]"
+        },
+        "Gland [UBERON:0002530]": {
+          "text": "Gland [UBERON:0002530]",
+          "meaning": "UBERON:0002530"
         },
         "Hand [BTO:0004668]": {
           "text": "Hand [BTO:0004668]",
@@ -755,6 +866,16 @@ var SCHEMA = {
           "meaning": "UBERON:0006956",
           "is_a": "Head [UBERON:0000033]"
         },
+        "Ear [UBERON:0001690]": {
+          "text": "Ear [UBERON:0001690]",
+          "meaning": "UBERON:0001690",
+          "is_a": "Head [UBERON:0000033]"
+        },
+        "Preauricular region [NCIT:C103848]": {
+          "text": "Preauricular region [NCIT:C103848]",
+          "meaning": "NCIT:C103848",
+          "is_a": "Ear [UBERON:0001690]"
+        },
         "Eye [UBERON:0000970]": {
           "text": "Eye [UBERON:0000970]",
           "meaning": "UBERON:0000970",
@@ -773,6 +894,16 @@ var SCHEMA = {
         "Lip [UBERON:0001833]": {
           "text": "Lip [UBERON:0001833]",
           "meaning": "UBERON:0001833",
+          "is_a": "Head [UBERON:0000033]"
+        },
+        "Jaw [UBERON:0011595]": {
+          "text": "Jaw [UBERON:0011595]",
+          "meaning": "UBERON:0011595",
+          "is_a": "Head [UBERON:0000033]"
+        },
+        "Tongue [UBERON:0001723]": {
+          "text": "Tongue [UBERON:0001723]",
+          "meaning": "UBERON:0001723",
           "is_a": "Head [UBERON:0000033]"
         },
         "Hypogastrium (suprapubic region) [UBERON:0013203]": {
@@ -798,6 +929,10 @@ var SCHEMA = {
           "meaning": "UBERON:0000376",
           "is_a": "Leg [UBERON:0000978]"
         },
+        "Lower body [GENEPIO:0100492]": {
+          "text": "Lower body [GENEPIO:0100492]",
+          "meaning": "GENEPIO:0100492"
+        },
         "Nasal Cavity [UBERON:0001707]": {
           "text": "Nasal Cavity [UBERON:0001707]",
           "meaning": "UBERON:0001707"
@@ -817,29 +952,41 @@ var SCHEMA = {
           "meaning": "UBERON:0005922",
           "is_a": "Nasal Cavity [UBERON:0001707]"
         },
-        "Nasopharynx (NP) [UBERON:0001728]": {
-          "text": "Nasopharynx (NP) [UBERON:0001728]",
-          "meaning": "UBERON:0001728"
-        },
         "Neck [UBERON:0000974]": {
           "text": "Neck [UBERON:0000974]",
           "meaning": "UBERON:0000974"
         },
+        "Pharynx (throat) [UBERON:0000341]": {
+          "text": "Pharynx (throat) [UBERON:0000341]",
+          "meaning": "UBERON:0000341",
+          "is_a": "Neck [UBERON:0000974]"
+        },
+        "Nasopharynx (NP) [UBERON:0001728]": {
+          "text": "Nasopharynx (NP) [UBERON:0001728]",
+          "meaning": "UBERON:0001728",
+          "is_a": "Pharynx (throat) [UBERON:0000341]"
+        },
         "Oropharynx (OP) [UBERON:0001729]": {
           "text": "Oropharynx (OP) [UBERON:0001729]",
-          "meaning": "UBERON:0001729"
+          "meaning": "UBERON:0001729",
+          "is_a": "Pharynx (throat) [UBERON:0000341]"
+        },
+        "Trachea [UBERON:0003126]": {
+          "text": "Trachea [UBERON:0003126]",
+          "meaning": "UBERON:0003126",
+          "is_a": "Neck [UBERON:0000974]"
         },
         "Rectum [UBERON:0001052]": {
           "text": "Rectum [UBERON:0001052]",
           "meaning": "UBERON:0001052"
         },
+        "Shoulder [UBERON:0001467]": {
+          "text": "Shoulder [UBERON:0001467]",
+          "meaning": "UBERON:0001467"
+        },
         "Skin [UBERON:0001003]": {
           "text": "Skin [UBERON:0001003]",
           "meaning": "UBERON:0001003"
-        },
-        "Trachea [UBERON:0003126]": {
-          "text": "Trachea [UBERON:0003126]",
-          "meaning": "UBERON:0003126"
         }
       }
     },
@@ -1183,6 +1330,7 @@ var SCHEMA = {
         },
         "Dry swab": {
           "text": "Dry swab",
+          "meaning": "GENEPIO:0100493",
           "is_a": "Swab"
         },
         "Urine Collection Tube": {
@@ -1190,7 +1338,8 @@ var SCHEMA = {
           "meaning": "OBI:0002862"
         },
         "Universal Transport Medium (UTM)": {
-          "text": "Universal Transport Medium (UTM)"
+          "text": "Universal Transport Medium (UTM)",
+          "meaning": "GENEPIO:0100509"
         },
         "Virus Transport Medium": {
           "text": "Virus Transport Medium",
@@ -1242,16 +1391,18 @@ var SCHEMA = {
           "text": "Swab [GENEPIO:0100027]",
           "meaning": "GENEPIO:0100027"
         },
-        "Dry swab": {
-          "text": "Dry swab",
+        "Dry swab [GENEPIO:0100493]": {
+          "text": "Dry swab [GENEPIO:0100493]",
+          "meaning": "GENEPIO:0100493",
           "is_a": "Swab [GENEPIO:0100027]"
         },
         "Urine Collection Tube [OBI:0002862]": {
           "text": "Urine Collection Tube [OBI:0002862]",
           "meaning": "OBI:0002862"
         },
-        "Universal Transport Medium (UTM)": {
-          "text": "Universal Transport Medium (UTM)"
+        "Universal Transport Medium (UTM) [GENEPIO:0100509]": {
+          "text": "Universal Transport Medium (UTM) [GENEPIO:0100509]",
+          "meaning": "GENEPIO:0100509"
         },
         "Virus Transport Medium [OBI:0002866]": {
           "text": "Virus Transport Medium [OBI:0002866]",
@@ -1308,6 +1459,28 @@ var SCHEMA = {
         "Symptomatic [NCIT:C25269]": {
           "text": "Symptomatic [NCIT:C25269]",
           "meaning": "NCIT:C25269"
+        }
+      }
+    },
+    "host health outcome international menu": {
+      "name": "host health outcome international menu",
+      "from_schema": "https://example.com/monkeypox",
+      "permissible_values": {
+        "Deceased [NCIT:C28554]": {
+          "text": "Deceased [NCIT:C28554]",
+          "meaning": "NCIT:C28554"
+        },
+        "Deteriorating [NCIT:C25254]": {
+          "text": "Deteriorating [NCIT:C25254]",
+          "meaning": "NCIT:C25254"
+        },
+        "Recovered [NCIT:C49498]": {
+          "text": "Recovered [NCIT:C49498]",
+          "meaning": "NCIT:C49498"
+        },
+        "Stable [NCIT:C30103]": {
+          "text": "Stable [NCIT:C30103]",
+          "meaning": "NCIT:C30103"
         }
       }
     },
@@ -1379,29 +1552,754 @@ var SCHEMA = {
       "name": "host gender international menu",
       "from_schema": "https://example.com/monkeypox",
       "permissible_values": {
-        "Female": {
-          "text": "Female",
+        "Female [NCIT:C46110]": {
+          "text": "Female [NCIT:C46110]",
           "meaning": "NCIT:C46110"
         },
-        "Male": {
-          "text": "Male",
+        "Male [NCIT:C46109]": {
+          "text": "Male [NCIT:C46109]",
           "meaning": "NCIT:C46109"
         },
-        "Non-binary gender": {
-          "text": "Non-binary gender",
+        "Non-binary gender [GSSO:000132]": {
+          "text": "Non-binary gender [GSSO:000132]",
           "meaning": "GSSO:000132"
         },
-        "Transgender (assigned male at birth)": {
-          "text": "Transgender (assigned male at birth)",
+        "Transgender (assigned male at birth) [GSSO:004004]": {
+          "text": "Transgender (assigned male at birth) [GSSO:004004]",
           "meaning": "GSSO:004004"
         },
-        "Transgender (assigned female at birth)": {
-          "text": "Transgender (assigned female at birth)",
+        "Transgender (assigned female at birth) [GSSO:004005]": {
+          "text": "Transgender (assigned female at birth) [GSSO:004005]",
           "meaning": "GSSO:004005"
         },
-        "Undeclared": {
-          "text": "Undeclared",
+        "Undeclared [NCIT:C110959]": {
+          "text": "Undeclared [NCIT:C110959]",
           "meaning": "NCIT:C110959"
+        }
+      }
+    },
+    "signs and symptoms menu": {
+      "name": "signs and symptoms menu",
+      "from_schema": "https://example.com/monkeypox",
+      "permissible_values": {
+        "Chills (sudden cold sensation) [HP:0025143]": {
+          "text": "Chills (sudden cold sensation) [HP:0025143]",
+          "description": "A sudden sensation of feeling cold.",
+          "meaning": "HP:0025143"
+        },
+        "Conjunctivitis (pink eye) [HP:0000509]": {
+          "text": "Conjunctivitis (pink eye) [HP:0000509]",
+          "description": "Inflammation of the conjunctiva.",
+          "meaning": "HP:0000509"
+        },
+        "Cough [HP:0012735]": {
+          "text": "Cough [HP:0012735]",
+          "description": "A sudden, audible expulsion of air from the lungs through a partially closed glottis, preceded by inhalation.",
+          "meaning": "HP:0012735"
+        },
+        "Fatigue (tiredness) [HP:0012378]": {
+          "text": "Fatigue (tiredness) [HP:0012378]",
+          "description": "A subjective feeling of tiredness characterized by a lack of energy and motivation.",
+          "meaning": "HP:0012378"
+        },
+        "Fever [HP:0001945]": {
+          "text": "Fever [HP:0001945]",
+          "description": "Body temperature elevated above the normal range.",
+          "meaning": "HP:0001945"
+        },
+        "Headache [HP:0002315]": {
+          "text": "Headache [HP:0002315]",
+          "description": "Cephalgia, or pain sensed in various parts of the head, not confined to the area of distribution of any nerve.",
+          "meaning": "HP:0002315"
+        },
+        "Lesion [NCIT:C3824]": {
+          "text": "Lesion [NCIT:C3824]",
+          "meaning": "NCIT:C3824"
+        },
+        "Lesion (Macule) [NCIT:C43278]": {
+          "text": "Lesion (Macule) [NCIT:C43278]",
+          "meaning": "NCIT:C43278",
+          "is_a": "Lesion [NCIT:C3824]"
+        },
+        "Lesion (Papule) [NCIT:C39690]": {
+          "text": "Lesion (Papule) [NCIT:C39690]",
+          "meaning": "NCIT:C39690",
+          "is_a": "Lesion [NCIT:C3824]"
+        },
+        "Lesion (Pustule) [NCIT:C78582]": {
+          "text": "Lesion (Pustule) [NCIT:C78582]",
+          "meaning": "NCIT:C78582",
+          "is_a": "Lesion [NCIT:C3824]"
+        },
+        "Lesion (Scab) [GENEPIO:0100490]": {
+          "text": "Lesion (Scab) [GENEPIO:0100490]",
+          "meaning": "GENEPIO:0100490",
+          "is_a": "Lesion [NCIT:C3824]"
+        },
+        "Lesion (Vesicle) [GENEPIO:0100491]": {
+          "text": "Lesion (Vesicle) [GENEPIO:0100491]",
+          "meaning": "GENEPIO:0100491",
+          "is_a": "Lesion [NCIT:C3824]"
+        },
+        "Myalgia (muscle pain) [HP:0003326]": {
+          "text": "Myalgia (muscle pain) [HP:0003326]",
+          "description": "Pain in muscle.",
+          "meaning": "HP:0003326"
+        },
+        "Nausea [HP:0002018]": {
+          "text": "Nausea [HP:0002018]",
+          "description": "A sensation of unease in the stomach together with an urge to vomit.",
+          "meaning": "HP:0002018"
+        },
+        "Rash [HP:0000988]": {
+          "text": "Rash [HP:0000988]",
+          "description": "A red eruption of the skin.",
+          "meaning": "HP:0000988"
+        },
+        "Sore throat [NCIT:C50747]": {
+          "text": "Sore throat [NCIT:C50747]",
+          "description": "Any kind of inflammatory process of the tonsils, pharynx, or/and larynx characterized by pain in swallowing.",
+          "meaning": "NCIT:C50747"
+        },
+        "Swollen Lymph Nodes [HP:0002716]": {
+          "text": "Swollen Lymph Nodes [HP:0002716]",
+          "description": "Enlargment (swelling) of a lymph node.",
+          "meaning": "HP:0002716"
+        },
+        "Vomiting (throwing up) [HP:0002013]": {
+          "text": "Vomiting (throwing up) [HP:0002013]",
+          "description": "Forceful ejection of the contents of the stomach through the mouth by means of a series of involuntary spasmic contractions.",
+          "meaning": "HP:0002013"
+        }
+      }
+    },
+    "pre-existing conditions and risk factors menu": {
+      "name": "pre-existing conditions and risk factors menu",
+      "from_schema": "https://example.com/monkeypox",
+      "permissible_values": {
+        "Human immunodeficiency virus (HIV) [MONDO:0005109]": {
+          "text": "Human immunodeficiency virus (HIV) [MONDO:0005109]",
+          "meaning": "MONDO:0005109"
+        },
+        "Acquired immunodeficiency syndrome (AIDS) [MONDO:0012268]": {
+          "text": "Acquired immunodeficiency syndrome (AIDS) [MONDO:0012268]",
+          "meaning": "MONDO:0012268",
+          "is_a": "Human immunodeficiency virus (HIV) [MONDO:0005109]"
+        },
+        "HIV and antiretroviral therapy (ART) [NCIT:C16118]": {
+          "text": "HIV and antiretroviral therapy (ART) [NCIT:C16118]",
+          "meaning": "NCIT:C16118",
+          "is_a": "Human immunodeficiency virus (HIV) [MONDO:0005109]"
+        },
+        "Immunocompromised [NCIT:C14139]": {
+          "text": "Immunocompromised [NCIT:C14139]",
+          "meaning": "NCIT:C14139"
+        },
+        "Pregnancy [NCIT:C25742]": {
+          "text": "Pregnancy [NCIT:C25742]",
+          "meaning": "NCIT:C25742"
+        }
+      }
+    },
+    "exposure event menu": {
+      "name": "exposure event menu",
+      "from_schema": "https://example.com/monkeypox",
+      "permissible_values": {
+        "Mass Gathering": {
+          "text": "Mass Gathering",
+          "description": "A gathering or event attended by a sufficient number of people to strain the planning and response resources of the host community, state/province, nation, or region where it is being held.",
+          "meaning": "GENEPIO:0100237"
+        },
+        "Convention (conference)": {
+          "text": "Convention (conference)",
+          "description": "A gathering of individuals who meet at an arranged place and time in order to discuss or engage in some common interest. The most common conventions are based upon industry, profession, and fandom.",
+          "meaning": "GENEPIO:0100238"
+        },
+        "Agricultural Event": {
+          "text": "Agricultural Event",
+          "description": "A gathering exhibiting the equipment, animals, sports and recreation associated with agriculture and animal husbandry.",
+          "meaning": "GENEPIO:0100240",
+          "is_a": "Convention (conference)"
+        },
+        "Social Gathering": {
+          "text": "Social Gathering",
+          "description": "A type of social behavior in which a collection of humans intentionally gathers together on a temporary basis to engage socially.",
+          "meaning": "PCO:0000033"
+        },
+        "Community Event": {
+          "text": "Community Event",
+          "description": "A human social event in which humans living in the same area or neighborhood gather to carry out activiites relevent to the people living in the area.",
+          "meaning": "PCO:0000034",
+          "is_a": "Social Gathering"
+        },
+        "Party": {
+          "text": "Party",
+          "description": "A human social gathering in which the intention is to have a good time. Often the intention is to celebrate something like a birthday, anniversary, or holiday, but there is not always a purpose.",
+          "meaning": "PCO:0000035",
+          "is_a": "Social Gathering"
+        },
+        "Other exposure event": {
+          "text": "Other exposure event",
+          "description": "An exposure event not specified in the picklist."
+        }
+      }
+    },
+    "exposure contact level menu": {
+      "name": "exposure contact level menu",
+      "from_schema": "https://example.com/monkeypox",
+      "permissible_values": {
+        "Contact with animal [GENEPIO:0100494]": {
+          "text": "Contact with animal [GENEPIO:0100494]",
+          "meaning": "GENEPIO:0100494"
+        },
+        "Contact with rodent [GENEPIO:0100495]": {
+          "text": "Contact with rodent [GENEPIO:0100495]",
+          "meaning": "GENEPIO:0100495",
+          "is_a": "Contact with animal [GENEPIO:0100494]"
+        },
+        "Contact with fomite [GENEPIO:0100496]": {
+          "text": "Contact with fomite [GENEPIO:0100496]",
+          "meaning": "GENEPIO:0100496"
+        },
+        "Contact with infected individual": {
+          "text": "Contact with infected individual",
+          "meaning": "GENEPIO:0100357"
+        },
+        "Direct (human-to-human contact) [TRANS:0000001]": {
+          "text": "Direct (human-to-human contact) [TRANS:0000001]",
+          "meaning": "TRANS:0000001",
+          "is_a": "Contact with infected individual"
+        },
+        "Mother-to-child transmission [TRANS:0000006]": {
+          "text": "Mother-to-child transmission [TRANS:0000006]",
+          "meaning": "TRANS:0000006",
+          "is_a": "Direct (human-to-human contact) [TRANS:0000001]"
+        },
+        "Sexual transmission[NCIT:C19085]": {
+          "text": "Sexual transmission[NCIT:C19085]",
+          "meaning": "NCIT:C19085",
+          "is_a": "Direct (human-to-human contact) [TRANS:0000001]"
+        },
+        "Indirect contact [GENEPIO:0100246]": {
+          "text": "Indirect contact [GENEPIO:0100246]",
+          "meaning": "GENEPIO:0100246",
+          "is_a": "Contact with infected individual"
+        },
+        "Close contact (face-to-face contact) [GENEPIO:0100247]": {
+          "text": "Close contact (face-to-face contact) [GENEPIO:0100247]",
+          "meaning": "GENEPIO:0100247",
+          "is_a": "Indirect contact [GENEPIO:0100246]"
+        },
+        "Casual contact [GENEPIO:0100248]": {
+          "text": "Casual contact [GENEPIO:0100248]",
+          "meaning": "GENEPIO:0100248",
+          "is_a": "Indirect contact [GENEPIO:0100246]"
+        },
+        "Workplace associated transmission [GENEPIO:0100497]": {
+          "text": "Workplace associated transmission [GENEPIO:0100497]",
+          "meaning": "GENEPIO:0100497"
+        },
+        "Healthcare associated transmission [GENEPIO:0100498]": {
+          "text": "Healthcare associated transmission [GENEPIO:0100498]",
+          "meaning": "GENEPIO:0100498",
+          "is_a": "Workplace associated transmission [GENEPIO:0100497]"
+        },
+        "Laboratory associated transmission [GENEPIO:0100499]": {
+          "text": "Laboratory associated transmission [GENEPIO:0100499]",
+          "meaning": "GENEPIO:0100499",
+          "is_a": "Workplace associated transmission [GENEPIO:0100497]"
+        }
+      }
+    },
+    "host role menu": {
+      "name": "host role menu",
+      "from_schema": "https://example.com/monkeypox",
+      "permissible_values": {
+        "Attendee [GENEPIO:0100249]": {
+          "text": "Attendee [GENEPIO:0100249]",
+          "meaning": "GENEPIO:0100249"
+        },
+        "Student [OMRSE:00000058]": {
+          "text": "Student [OMRSE:00000058]",
+          "meaning": "OMRSE:00000058",
+          "is_a": "Attendee [GENEPIO:0100249]"
+        },
+        "Patient [OMRSE:00000030]": {
+          "text": "Patient [OMRSE:00000030]",
+          "meaning": "OMRSE:00000030"
+        },
+        "Inpatient [NCIT:C25182]": {
+          "text": "Inpatient [NCIT:C25182]",
+          "meaning": "NCIT:C25182",
+          "is_a": "Patient [OMRSE:00000030]"
+        },
+        "Outpatient [NCIT:C28293]": {
+          "text": "Outpatient [NCIT:C28293]",
+          "meaning": "NCIT:C28293",
+          "is_a": "Patient [OMRSE:00000030]"
+        },
+        "Passenger [GENEPIO:0100250]": {
+          "text": "Passenger [GENEPIO:0100250]",
+          "meaning": "GENEPIO:0100250"
+        },
+        "Resident [GENEPIO:0100251]": {
+          "text": "Resident [GENEPIO:0100251]",
+          "meaning": "GENEPIO:0100251"
+        },
+        "Visitor [GENEPIO:0100252]": {
+          "text": "Visitor [GENEPIO:0100252]",
+          "meaning": "GENEPIO:0100252"
+        },
+        "Volunteer [GENEPIO:0100253]": {
+          "text": "Volunteer [GENEPIO:0100253]",
+          "meaning": "GENEPIO:0100253"
+        },
+        "Work [GENEPIO:0100254]": {
+          "text": "Work [GENEPIO:0100254]",
+          "meaning": "GENEPIO:0100254"
+        },
+        "Administrator [GENEPIO:0100255]": {
+          "text": "Administrator [GENEPIO:0100255]",
+          "meaning": "GENEPIO:0100255",
+          "is_a": "Work [GENEPIO:0100254]"
+        },
+        "First Responder [GENEPIO:0100256]": {
+          "text": "First Responder [GENEPIO:0100256]",
+          "meaning": "GENEPIO:0100256",
+          "is_a": "Work [GENEPIO:0100254]"
+        },
+        "Housekeeper [GENEPIO:0100260]": {
+          "text": "Housekeeper [GENEPIO:0100260]",
+          "meaning": "GENEPIO:0100260",
+          "is_a": "Work [GENEPIO:0100254]"
+        },
+        "Kitchen Worker [GENEPIO:0100261]": {
+          "text": "Kitchen Worker [GENEPIO:0100261]",
+          "meaning": "GENEPIO:0100261",
+          "is_a": "Work [GENEPIO:0100254]"
+        },
+        "Healthcare Worker [GENEPIO:0100334]": {
+          "text": "Healthcare Worker [GENEPIO:0100334]",
+          "meaning": "GENEPIO:0100334",
+          "is_a": "Work [GENEPIO:0100254]"
+        },
+        "Community Healthcare Worker [GENEPIO:0100420]": {
+          "text": "Community Healthcare Worker [GENEPIO:0100420]",
+          "meaning": "GENEPIO:0100420",
+          "is_a": "Healthcare Worker [GENEPIO:0100334]"
+        },
+        "Laboratory Worker [GENEPIO:0100262]": {
+          "text": "Laboratory Worker [GENEPIO:0100262]",
+          "meaning": "GENEPIO:0100262",
+          "is_a": "Healthcare Worker [GENEPIO:0100334]"
+        },
+        "Nurse [OMRSE:00000014]": {
+          "text": "Nurse [OMRSE:00000014]",
+          "meaning": "OMRSE:00000014",
+          "is_a": "Healthcare Worker [GENEPIO:0100334]"
+        },
+        "Personal Care Aid [GENEPIO:0100263]": {
+          "text": "Personal Care Aid [GENEPIO:0100263]",
+          "meaning": "GENEPIO:0100263",
+          "is_a": "Healthcare Worker [GENEPIO:0100334]"
+        },
+        "Pharmacist [GENEPIO:0100264]": {
+          "text": "Pharmacist [GENEPIO:0100264]",
+          "meaning": "GENEPIO:0100264",
+          "is_a": "Healthcare Worker [GENEPIO:0100334]"
+        },
+        "Physician [OMRSE:00000013]": {
+          "text": "Physician [OMRSE:00000013]",
+          "meaning": "OMRSE:00000013",
+          "is_a": "Healthcare Worker [GENEPIO:0100334]"
+        },
+        "Rotational Worker [GENEPIO:0100354]": {
+          "text": "Rotational Worker [GENEPIO:0100354]",
+          "meaning": "GENEPIO:0100354",
+          "is_a": "Work [GENEPIO:0100254]"
+        },
+        "Seasonal Worker [GENEPIO:0100355]": {
+          "text": "Seasonal Worker [GENEPIO:0100355]",
+          "meaning": "GENEPIO:0100355",
+          "is_a": "Work [GENEPIO:0100254]"
+        },
+        "Veterinarian [GENEPIO:0100265]": {
+          "text": "Veterinarian [GENEPIO:0100265]",
+          "meaning": "GENEPIO:0100265",
+          "is_a": "Work [GENEPIO:0100254]"
+        },
+        "Social role [OMRSE:00000001]": {
+          "text": "Social role [OMRSE:00000001]",
+          "meaning": "OMRSE:00000001"
+        },
+        "Acquaintance of case [GENEPIO:0100266]": {
+          "text": "Acquaintance of case [GENEPIO:0100266]",
+          "meaning": "GENEPIO:0100266",
+          "is_a": "Social role [OMRSE:00000001]"
+        },
+        "Relative of case [GENEPIO:0100267]": {
+          "text": "Relative of case [GENEPIO:0100267]",
+          "meaning": "GENEPIO:0100267",
+          "is_a": "Social role [OMRSE:00000001]"
+        },
+        "Child of case [GENEPIO:0100268]": {
+          "text": "Child of case [GENEPIO:0100268]",
+          "meaning": "GENEPIO:0100268",
+          "is_a": "Relative of case [GENEPIO:0100267]"
+        },
+        "Parent of case [GENEPIO:0100269]": {
+          "text": "Parent of case [GENEPIO:0100269]",
+          "meaning": "GENEPIO:0100269",
+          "is_a": "Relative of case [GENEPIO:0100267]"
+        },
+        "Father of case [GENEPIO:0100270]": {
+          "text": "Father of case [GENEPIO:0100270]",
+          "meaning": "GENEPIO:0100270",
+          "is_a": "Parent of case [GENEPIO:0100269]"
+        },
+        "Mother of case [GENEPIO:0100271]": {
+          "text": "Mother of case [GENEPIO:0100271]",
+          "meaning": "GENEPIO:0100271",
+          "is_a": "Parent of case [GENEPIO:0100269]"
+        },
+        "Sexual partner of case [GENEPIO:0100500]": {
+          "text": "Sexual partner of case [GENEPIO:0100500]",
+          "meaning": "GENEPIO:0100500",
+          "is_a": "Social role [OMRSE:00000001]"
+        },
+        "Spouse of case [GENEPIO:0100272]": {
+          "text": "Spouse of case [GENEPIO:0100272]",
+          "meaning": "GENEPIO:0100272",
+          "is_a": "Social role [OMRSE:00000001]"
+        },
+        "Other Host Role": {
+          "text": "Other Host Role"
+        }
+      }
+    },
+    "exposure setting menu": {
+      "name": "exposure setting menu",
+      "from_schema": "https://example.com/monkeypox",
+      "permissible_values": {
+        "Human Exposure [ECTO:3000005]": {
+          "text": "Human Exposure [ECTO:3000005]",
+          "meaning": "ECTO:3000005"
+        },
+        "Contact with Known Monkeypox Case [GENEPIO:0100501]": {
+          "text": "Contact with Known Monkeypox Case [GENEPIO:0100501]",
+          "meaning": "GENEPIO:0100501",
+          "is_a": "Human Exposure [ECTO:3000005]"
+        },
+        "Contact with Patient [GENEPIO:0100185]": {
+          "text": "Contact with Patient [GENEPIO:0100185]",
+          "meaning": "GENEPIO:0100185",
+          "is_a": "Human Exposure [ECTO:3000005]"
+        },
+        "Contact with Probable Monkeypox Case [GENEPIO:0100502]": {
+          "text": "Contact with Probable Monkeypox Case [GENEPIO:0100502]",
+          "meaning": "GENEPIO:0100502",
+          "is_a": "Human Exposure [ECTO:3000005]"
+        },
+        "Contact with Person who Recently Travelled [GENEPIO:0100189]": {
+          "text": "Contact with Person who Recently Travelled [GENEPIO:0100189]",
+          "meaning": "GENEPIO:0100189",
+          "is_a": "Human Exposure [ECTO:3000005]"
+        },
+        "Occupational, Residency or Patronage Exposure [GENEPIO:0100190]": {
+          "text": "Occupational, Residency or Patronage Exposure [GENEPIO:0100190]",
+          "meaning": "GENEPIO:0100190"
+        },
+        "Abbatoir [ECTO:1000033]": {
+          "text": "Abbatoir [ECTO:1000033]",
+          "meaning": "ECTO:1000033",
+          "is_a": "Occupational, Residency or Patronage Exposure [GENEPIO:0100190]"
+        },
+        "Animal Rescue [GENEPIO:0100191]": {
+          "text": "Animal Rescue [GENEPIO:0100191]",
+          "meaning": "GENEPIO:0100191",
+          "is_a": "Occupational, Residency or Patronage Exposure [GENEPIO:0100190]"
+        },
+        "Bar (pub) [GENEPIO:0100503]": {
+          "text": "Bar (pub) [GENEPIO:0100503]",
+          "meaning": "GENEPIO:0100503",
+          "is_a": "Occupational, Residency or Patronage Exposure [GENEPIO:0100190]"
+        },
+        "Childcare [GENEPIO:0100192]": {
+          "text": "Childcare [GENEPIO:0100192]",
+          "meaning": "GENEPIO:0100192",
+          "is_a": "Occupational, Residency or Patronage Exposure [GENEPIO:0100190]"
+        },
+        "Daycare [GENEPIO:0100193]": {
+          "text": "Daycare [GENEPIO:0100193]",
+          "meaning": "GENEPIO:0100193",
+          "is_a": "Childcare [GENEPIO:0100192]"
+        },
+        "Nursery [GENEPIO:0100194]": {
+          "text": "Nursery [GENEPIO:0100194]",
+          "meaning": "GENEPIO:0100194",
+          "is_a": "Childcare [GENEPIO:0100192]"
+        },
+        "Community Service Centre [GENEPIO:0100195]": {
+          "text": "Community Service Centre [GENEPIO:0100195]",
+          "meaning": "GENEPIO:0100195",
+          "is_a": "Occupational, Residency or Patronage Exposure [GENEPIO:0100190]"
+        },
+        "Correctional Facility [GENEPIO:0100196]": {
+          "text": "Correctional Facility [GENEPIO:0100196]",
+          "meaning": "GENEPIO:0100196",
+          "is_a": "Occupational, Residency or Patronage Exposure [GENEPIO:0100190]"
+        },
+        "Dormitory [GENEPIO:0100197]": {
+          "text": "Dormitory [GENEPIO:0100197]",
+          "meaning": "GENEPIO:0100197",
+          "is_a": "Occupational, Residency or Patronage Exposure [GENEPIO:0100190]"
+        },
+        "Farm [ECTO:1000034]": {
+          "text": "Farm [ECTO:1000034]",
+          "meaning": "ECTO:1000034",
+          "is_a": "Occupational, Residency or Patronage Exposure [GENEPIO:0100190]"
+        },
+        "First Nations Reserve [GENEPIO:0100198]": {
+          "text": "First Nations Reserve [GENEPIO:0100198]",
+          "meaning": "GENEPIO:0100198",
+          "is_a": "Occupational, Residency or Patronage Exposure [GENEPIO:0100190]"
+        },
+        "Funeral Home [GENEPIO:0100199]": {
+          "text": "Funeral Home [GENEPIO:0100199]",
+          "meaning": "GENEPIO:0100199",
+          "is_a": "Occupational, Residency or Patronage Exposure [GENEPIO:0100190]"
+        },
+        "Group Home [GENEPIO:0100200]": {
+          "text": "Group Home [GENEPIO:0100200]",
+          "meaning": "GENEPIO:0100200",
+          "is_a": "Occupational, Residency or Patronage Exposure [GENEPIO:0100190]"
+        },
+        "Healthcare Setting [GENEPIO:0100201]": {
+          "text": "Healthcare Setting [GENEPIO:0100201]",
+          "meaning": "GENEPIO:0100201",
+          "is_a": "Occupational, Residency or Patronage Exposure [GENEPIO:0100190]"
+        },
+        "Ambulance [GENEPIO:0100202]": {
+          "text": "Ambulance [GENEPIO:0100202]",
+          "meaning": "GENEPIO:0100202",
+          "is_a": "Healthcare Setting [GENEPIO:0100201]"
+        },
+        "Acute Care Facility [GENEPIO:0100203]": {
+          "text": "Acute Care Facility [GENEPIO:0100203]",
+          "meaning": "GENEPIO:0100203",
+          "is_a": "Healthcare Setting [GENEPIO:0100201]"
+        },
+        "Clinic [GENEPIO:0100204]": {
+          "text": "Clinic [GENEPIO:0100204]",
+          "meaning": "GENEPIO:0100204",
+          "is_a": "Healthcare Setting [GENEPIO:0100201]"
+        },
+        "Community Healthcare (At-Home) Setting [GENEPIO:0100415]": {
+          "text": "Community Healthcare (At-Home) Setting [GENEPIO:0100415]",
+          "meaning": "GENEPIO:0100415",
+          "is_a": "Healthcare Setting [GENEPIO:0100201]"
+        },
+        "Community Health Centre [GENEPIO:0100205]": {
+          "text": "Community Health Centre [GENEPIO:0100205]",
+          "meaning": "GENEPIO:0100205",
+          "is_a": "Healthcare Setting [GENEPIO:0100201]"
+        },
+        "Hospital [ECTO:1000035]": {
+          "text": "Hospital [ECTO:1000035]",
+          "meaning": "ECTO:1000035",
+          "is_a": "Healthcare Setting [GENEPIO:0100201]"
+        },
+        "Emergency Department [GENEPIO:0100206]": {
+          "text": "Emergency Department [GENEPIO:0100206]",
+          "meaning": "GENEPIO:0100206",
+          "is_a": "Hospital [ECTO:1000035]"
+        },
+        "ICU [GENEPIO:0100207]": {
+          "text": "ICU [GENEPIO:0100207]",
+          "meaning": "GENEPIO:0100207",
+          "is_a": "Hospital [ECTO:1000035]"
+        },
+        "Ward [GENEPIO:0100208]": {
+          "text": "Ward [GENEPIO:0100208]",
+          "meaning": "GENEPIO:0100208",
+          "is_a": "Hospital [ECTO:1000035]"
+        },
+        "Laboratory [ECTO:1000036]": {
+          "text": "Laboratory [ECTO:1000036]",
+          "meaning": "ECTO:1000036",
+          "is_a": "Healthcare Setting [GENEPIO:0100201]"
+        },
+        "Long-Term Care Facility [GENEPIO:0100209]": {
+          "text": "Long-Term Care Facility [GENEPIO:0100209]",
+          "meaning": "GENEPIO:0100209",
+          "is_a": "Healthcare Setting [GENEPIO:0100201]"
+        },
+        "Pharmacy [GENEPIO:0100210]": {
+          "text": "Pharmacy [GENEPIO:0100210]",
+          "meaning": "GENEPIO:0100210",
+          "is_a": "Healthcare Setting [GENEPIO:0100201]"
+        },
+        "Physician's Office [GENEPIO:0100211]": {
+          "text": "Physician's Office [GENEPIO:0100211]",
+          "meaning": "GENEPIO:0100211",
+          "is_a": "Healthcare Setting [GENEPIO:0100201]"
+        },
+        "Household [GENEPIO:0100212]": {
+          "text": "Household [GENEPIO:0100212]",
+          "meaning": "GENEPIO:0100212",
+          "is_a": "Occupational, Residency or Patronage Exposure [GENEPIO:0100190]"
+        },
+        "Insecure Housing (Homeless) [GENEPIO:0100213]": {
+          "text": "Insecure Housing (Homeless) [GENEPIO:0100213]",
+          "meaning": "GENEPIO:0100213",
+          "is_a": "Occupational, Residency or Patronage Exposure [GENEPIO:0100190]"
+        },
+        "Occupational Exposure [GENEPIO:0100214]": {
+          "text": "Occupational Exposure [GENEPIO:0100214]",
+          "meaning": "GENEPIO:0100214",
+          "is_a": "Occupational, Residency or Patronage Exposure [GENEPIO:0100190]"
+        },
+        "Worksite [GENEPIO:0100215]": {
+          "text": "Worksite [GENEPIO:0100215]",
+          "meaning": "GENEPIO:0100215",
+          "is_a": "Occupational Exposure [GENEPIO:0100214]"
+        },
+        "Office [ECTO:1000037]": {
+          "text": "Office [ECTO:1000037]",
+          "meaning": "ECTO:1000037",
+          "is_a": "Worksite [GENEPIO:0100215]"
+        },
+        "Outdoors [GENEPIO:0100216]": {
+          "text": "Outdoors [GENEPIO:0100216]",
+          "meaning": "GENEPIO:0100216",
+          "is_a": "Occupational, Residency or Patronage Exposure [GENEPIO:0100190]"
+        },
+        "Camp/camping [ECTO:5000009]": {
+          "text": "Camp/camping [ECTO:5000009]",
+          "meaning": "ECTO:5000009",
+          "is_a": "Outdoors [GENEPIO:0100216]"
+        },
+        "Hiking Trail [GENEPIO:0100217]": {
+          "text": "Hiking Trail [GENEPIO:0100217]",
+          "meaning": "GENEPIO:0100217",
+          "is_a": "Outdoors [GENEPIO:0100216]"
+        },
+        "Hunting Ground [ECTO:6000030]": {
+          "text": "Hunting Ground [ECTO:6000030]",
+          "meaning": "ECTO:6000030",
+          "is_a": "Outdoors [GENEPIO:0100216]"
+        },
+        "Ski Resort [GENEPIO:0100218]": {
+          "text": "Ski Resort [GENEPIO:0100218]",
+          "meaning": "GENEPIO:0100218",
+          "is_a": "Outdoors [GENEPIO:0100216]"
+        },
+        "Petting zoo [ECTO:5000008]": {
+          "text": "Petting zoo [ECTO:5000008]",
+          "meaning": "ECTO:5000008",
+          "is_a": "Occupational, Residency or Patronage Exposure [GENEPIO:0100190]"
+        },
+        "Place of Worship [GENEPIO:0100220]": {
+          "text": "Place of Worship [GENEPIO:0100220]",
+          "meaning": "GENEPIO:0100220",
+          "is_a": "Occupational, Residency or Patronage Exposure [GENEPIO:0100190]"
+        },
+        "Church [GENEPIO:0100221]": {
+          "text": "Church [GENEPIO:0100221]",
+          "meaning": "GENEPIO:0100221",
+          "is_a": "Place of Worship [GENEPIO:0100220]"
+        },
+        "Mosque [GENEPIO:0100222]": {
+          "text": "Mosque [GENEPIO:0100222]",
+          "meaning": "GENEPIO:0100222",
+          "is_a": "Place of Worship [GENEPIO:0100220]"
+        },
+        "Temple [GENEPIO:0100223]": {
+          "text": "Temple [GENEPIO:0100223]",
+          "meaning": "GENEPIO:0100223",
+          "is_a": "Place of Worship [GENEPIO:0100220]"
+        },
+        "Restaurant [ECTO:1000040]": {
+          "text": "Restaurant [ECTO:1000040]",
+          "meaning": "ECTO:1000040",
+          "is_a": "Occupational, Residency or Patronage Exposure [GENEPIO:0100190]"
+        },
+        "Retail Store [ECTO:1000041]": {
+          "text": "Retail Store [ECTO:1000041]",
+          "meaning": "ECTO:1000041",
+          "is_a": "Occupational, Residency or Patronage Exposure [GENEPIO:0100190]"
+        },
+        "School [GENEPIO:0100224]": {
+          "text": "School [GENEPIO:0100224]",
+          "meaning": "GENEPIO:0100224",
+          "is_a": "Occupational, Residency or Patronage Exposure [GENEPIO:0100190]"
+        },
+        "Temporary Residence [GENEPIO:0100225]": {
+          "text": "Temporary Residence [GENEPIO:0100225]",
+          "meaning": "GENEPIO:0100225",
+          "is_a": "Occupational, Residency or Patronage Exposure [GENEPIO:0100190]"
+        },
+        "Homeless Shelter [GENEPIO:0100226]": {
+          "text": "Homeless Shelter [GENEPIO:0100226]",
+          "meaning": "GENEPIO:0100226",
+          "is_a": "Temporary Residence [GENEPIO:0100225]"
+        },
+        "Hotel [GENEPIO:0100227]": {
+          "text": "Hotel [GENEPIO:0100227]",
+          "meaning": "GENEPIO:0100227",
+          "is_a": "Temporary Residence [GENEPIO:0100225]"
+        },
+        "Veterinary Care Clinic [GENEPIO:0100228]": {
+          "text": "Veterinary Care Clinic [GENEPIO:0100228]",
+          "meaning": "GENEPIO:0100228",
+          "is_a": "Occupational, Residency or Patronage Exposure [GENEPIO:0100190]"
+        },
+        "Travel Exposure [GENEPIO:0100229]": {
+          "text": "Travel Exposure [GENEPIO:0100229]",
+          "meaning": "GENEPIO:0100229"
+        },
+        "Travelled on a Cruise Ship [GENEPIO:0100230]": {
+          "text": "Travelled on a Cruise Ship [GENEPIO:0100230]",
+          "meaning": "GENEPIO:0100230",
+          "is_a": "Travel Exposure [GENEPIO:0100229]"
+        },
+        "Travelled on a Plane [GENEPIO:0100231]": {
+          "text": "Travelled on a Plane [GENEPIO:0100231]",
+          "meaning": "GENEPIO:0100231",
+          "is_a": "Travel Exposure [GENEPIO:0100229]"
+        },
+        "Travelled on Ground Transport [GENEPIO:0100232]": {
+          "text": "Travelled on Ground Transport [GENEPIO:0100232]",
+          "meaning": "GENEPIO:0100232",
+          "is_a": "Travel Exposure [GENEPIO:0100229]"
+        },
+        "Travelled outside Province/Territory [GENEPIO:0001118]": {
+          "text": "Travelled outside Province/Territory [GENEPIO:0001118]",
+          "meaning": "GENEPIO:0001118",
+          "is_a": "Travel Exposure [GENEPIO:0100229]"
+        },
+        "Travelled outside Canada [GENEPIO:0001119]": {
+          "text": "Travelled outside Canada [GENEPIO:0001119]",
+          "meaning": "GENEPIO:0001119",
+          "is_a": "Travel Exposure [GENEPIO:0100229]"
+        },
+        "Other Exposure Setting [GENEPIO:0100235]": {
+          "text": "Other Exposure Setting [GENEPIO:0100235]",
+          "meaning": "GENEPIO:0100235"
+        }
+      }
+    },
+    "host vaccination status menu": {
+      "name": "host vaccination status menu",
+      "from_schema": "https://example.com/monkeypox",
+      "permissible_values": {
+        "Fully Vaccinated": {
+          "text": "Fully Vaccinated",
+          "meaning": "GENEPIO:0100100"
+        },
+        "Not Vaccinated": {
+          "text": "Not Vaccinated",
+          "meaning": "GENEPIO:0100102"
         }
       }
     },
@@ -2401,6 +3299,56 @@ var SCHEMA = {
         },
         "William Osler Health System": {
           "text": "William Osler Health System"
+        }
+      }
+    },
+    "gene name 1 menu": {
+      "name": "gene name 1 menu",
+      "from_schema": "https://example.com/monkeypox",
+      "permissible_values": {
+        "MPX (orf B6R)": {
+          "text": "MPX (orf B6R)",
+          "meaning": "GENEPIO:0100505"
+        }
+      }
+    },
+    "gene name 2 menu": {
+      "name": "gene name 2 menu",
+      "from_schema": "https://example.com/monkeypox",
+      "permissible_values": {
+        "OVP (orf 17L)": {
+          "text": "OVP (orf 17L)",
+          "meaning": "GENEPIO:0100506"
+        }
+      }
+    },
+    "gene name 3 menu": {
+      "name": "gene name 3 menu",
+      "from_schema": "https://example.com/monkeypox",
+      "permissible_values": {
+        "OPHA (orf B2R)": {
+          "text": "OPHA (orf B2R)",
+          "meaning": "GENEPIO:0100507"
+        }
+      }
+    },
+    "gene name 4 menu": {
+      "name": "gene name 4 menu",
+      "from_schema": "https://example.com/monkeypox",
+      "permissible_values": {
+        "G2R_G (TNFR)": {
+          "text": "G2R_G (TNFR)",
+          "meaning": "GENEPIO:0100510"
+        }
+      }
+    },
+    "gene name 5 menu": {
+      "name": "gene name 5 menu",
+      "from_schema": "https://example.com/monkeypox",
+      "permissible_values": {
+        "RNAse P gene (RNP)": {
+          "text": "RNAse P gene (RNP)",
+          "meaning": "GENEPIO:0100508"
         }
       }
     },
@@ -4640,6 +5588,48 @@ var SCHEMA = {
         }
       ]
     },
+    "bioproject accession": {
+      "name": "bioproject accession",
+      "description": "The INSDC accession number of the BioProject(s) to which the BioSample belongs.",
+      "title": "bioproject accession",
+      "comments": [
+        "Required if submission is linked to a BioProject. BioProjects are an organizing tool that links together raw sequence data, assemblies, and their associated metadata. A valid BioProject accession has prefix PRJN, PRJE or PRJD, e.g., PRJNA12345 and is created once at the beginning of a new sequencing project. Your laboratory can have one or many BioProjects."
+      ],
+      "examples": [
+        {
+          "value": "PRJNA12345"
+        }
+      ],
+      "from_schema": "https://example.com/monkeypox",
+      "slot_uri": "GENEPIO:0001136",
+      "range": "WhitespaceMinimizedString",
+      "structured_pattern": {
+        "syntax": "{UPPER_CASE}",
+        "interpolated": true,
+        "partial_match": false
+      }
+    },
+    "biosample accession": {
+      "name": "biosample accession",
+      "description": "The identifier assigned to a BioSample in INSDC archives.",
+      "title": "biosample accession",
+      "comments": [
+        "Store the accession returned from the BioSample submission. NCBI BioSamples will have the prefix SAMN, while ENA BioSamples will have the prefix SAMEA."
+      ],
+      "examples": [
+        {
+          "value": "SAMN14180202"
+        }
+      ],
+      "from_schema": "https://example.com/monkeypox",
+      "slot_uri": "GENEPIO:0001139",
+      "range": "WhitespaceMinimizedString",
+      "structured_pattern": {
+        "syntax": "{UPPER_CASE}",
+        "interpolated": true,
+        "partial_match": false
+      }
+    },
     "GISAID virus name": {
       "name": "GISAID virus name",
       "description": "Identifier of the specific isolate.",
@@ -4978,6 +5968,44 @@ var SCHEMA = {
       "slot_uri": "GENEPIO:0001185",
       "required": true
     },
+    "geo_loc latitude": {
+      "name": "geo_loc latitude",
+      "description": "The latitude coordinates of the geographical location of sample collection.",
+      "title": "geo_loc latitude",
+      "comments": [
+        "Provide latitude coordinates if available. Do not use the centre of the city/region/province/state/country or the location of your agency as a proxy, as this implicates a real location and is misleading. Specify as degrees latitude in format \"d[d.dddd] N|S\"."
+      ],
+      "examples": [
+        {
+          "value": "38.98 N"
+        }
+      ],
+      "from_schema": "https://example.com/monkeypox",
+      "exact_mappings": [
+        "BIOSAMPLE:lat_lon"
+      ],
+      "slot_uri": "GENEPIO:0100309",
+      "range": "WhitespaceMinimizedString"
+    },
+    "geo_loc longitude": {
+      "name": "geo_loc longitude",
+      "description": "The longitude coordinates of the geographical location of sample collection.",
+      "title": "geo_loc longitude",
+      "comments": [
+        "Provide longitude coordinates if available. Do not use the centre of the city/region/province/state/country or the location of your agency as a proxy, as this implicates a real location and is misleading. Specify as degrees longitude in format \"d[dd.dddd] W|E\"."
+      ],
+      "examples": [
+        {
+          "value": "77.11 W"
+        }
+      ],
+      "from_schema": "https://example.com/monkeypox",
+      "exact_mappings": [
+        "BIOSAMPLE:lat_lon"
+      ],
+      "slot_uri": "GENEPIO:0100310",
+      "range": "WhitespaceMinimizedString"
+    },
     "organism": {
       "name": "organism",
       "description": "Taxonomic name of the organism.",
@@ -5130,8 +6158,7 @@ var SCHEMA = {
         "VirusSeq_Portal:anatomical material"
       ],
       "slot_uri": "GENEPIO:0001211",
-      "multivalued": true,
-      "required": true
+      "multivalued": true
     },
     "anatomical part": {
       "name": "anatomical part",
@@ -5150,8 +6177,7 @@ var SCHEMA = {
         "VirusSeq_Portal:anatomical part"
       ],
       "slot_uri": "GENEPIO:0001214",
-      "multivalued": true,
-      "required": true
+      "multivalued": true
     },
     "body product": {
       "name": "body product",
@@ -5171,7 +6197,6 @@ var SCHEMA = {
       ],
       "slot_uri": "GENEPIO:0001216",
       "multivalued": true,
-      "required": true,
       "any_of": [
         {
           "range": "body product menu"
@@ -5198,8 +6223,7 @@ var SCHEMA = {
         "VirusSeq_Portal:collection device"
       ],
       "slot_uri": "GENEPIO:0001234",
-      "multivalued": true,
-      "required": true
+      "multivalued": true
     },
     "collection method": {
       "name": "collection method",
@@ -5218,8 +6242,7 @@ var SCHEMA = {
         "VirusSeq_Portal:collection method"
       ],
       "slot_uri": "GENEPIO:0001241",
-      "multivalued": true,
-      "required": true
+      "multivalued": true
     },
     "host (scientific name)": {
       "name": "host (scientific name)",
@@ -5236,15 +6259,7 @@ var SCHEMA = {
         "VirusSeq_Portal:host (scientific name)"
       ],
       "slot_uri": "GENEPIO:0001387",
-      "required": true,
-      "any_of": [
-        {
-          "range": "host (scientific name) menu"
-        },
-        {
-          "range": "null value menu"
-        }
-      ]
+      "required": true
     },
     "host disease": {
       "name": "host disease",
@@ -5263,9 +6278,20 @@ var SCHEMA = {
       "slot_uri": "GENEPIO:0001391",
       "required": true
     },
+    "host subject ID": {
+      "name": "host subject ID",
+      "title": "host subject ID",
+      "from_schema": "https://example.com/monkeypox",
+      "slot_uri": "GENEPIO:0001398",
+      "range": "WhitespaceMinimizedString"
+    },
     "host health state": {
       "name": "host health state",
+      "description": "Health status of the host at the time of sample collection.",
       "title": "host health state",
+      "comments": [
+        "If known, select a value from the pick list."
+      ],
       "examples": [
         {
           "value": "Asymptomatic [NCIT:C3833]"
@@ -5277,10 +6303,35 @@ var SCHEMA = {
         "BIOSAMPLE:host_health_state"
       ],
       "slot_uri": "GENEPIO:0001388",
-      "recommended": true,
       "any_of": [
         {
           "range": "host health state international menu"
+        },
+        {
+          "range": "null value menu"
+        }
+      ]
+    },
+    "host health outcome": {
+      "name": "host health outcome",
+      "description": "Disease outcome in the host.",
+      "title": "host health outcome",
+      "comments": [
+        "If known, select a value from the pick list."
+      ],
+      "examples": [
+        {
+          "value": "Recovered [NCIT:C49498]"
+        }
+      ],
+      "from_schema": "https://example.com/monkeypox",
+      "exact_mappings": [
+        "BIOSAMPLE:host_health_outcome"
+      ],
+      "slot_uri": "GENEPIO:0001389",
+      "any_of": [
+        {
+          "range": "host health outcome international menu"
         },
         {
           "range": "null value menu"
@@ -5397,6 +6448,202 @@ var SCHEMA = {
         }
       ]
     },
+    "symptom onset date": {
+      "name": "symptom onset date",
+      "description": "The date on which the symptoms began or were first noted.",
+      "title": "symptom onset date",
+      "comments": [
+        "If known, provide the symptom onset date in ISO 8601 standard format \"YYYY-MM-DD\"."
+      ],
+      "examples": [
+        {
+          "value": "2022-05-25"
+        }
+      ],
+      "from_schema": "https://example.com/monkeypox",
+      "slot_uri": "GENEPIO:0001399",
+      "any_of": [
+        {
+          "range": "date"
+        },
+        {
+          "range": "null value menu"
+        }
+      ]
+    },
+    "signs and symptoms": {
+      "name": "signs and symptoms",
+      "description": "A perceived change in function or sensation, (loss, disturbance or appearance) indicative of a disease, reported by a patient.",
+      "title": "signs and symptoms",
+      "comments": [
+        "Select all of the symptoms experienced by the host from the pick list."
+      ],
+      "examples": [
+        {
+          "value": "Cough [HP:0012735], Fever [HP:0001945],  Rigors (fever shakes) [HP:0025145]"
+        }
+      ],
+      "from_schema": "https://example.com/monkeypox",
+      "slot_uri": "GENEPIO:0001400",
+      "multivalued": true,
+      "any_of": [
+        {
+          "range": "signs and symptoms menu"
+        },
+        {
+          "range": "null value menu"
+        }
+      ]
+    },
+    "pre-existing conditions and risk factors": {
+      "name": "pre-existing conditions and risk factors",
+      "description": "Patient pre-existing conditions and risk factors. <li>Pre-existing condition: A medical condition that existed prior to the current infection. <li>Risk Factor: A variable associated with an increased risk of disease or infection.",
+      "title": "pre-existing conditions and risk factors",
+      "comments": [
+        "Select all of the pre-existing conditions and risk factors experienced by the host from the pick list. If the desired term is missing, contact the curation team."
+      ],
+      "examples": [
+        {
+          "value": "Asthma"
+        },
+        {
+          "value": "Pregnancy"
+        },
+        {
+          "value": "Smoking"
+        }
+      ],
+      "from_schema": "https://example.com/monkeypox",
+      "exact_mappings": [
+        "NML_LIMS:pre-existing conditions and risk factors"
+      ],
+      "slot_uri": "GENEPIO:0001401",
+      "multivalued": true,
+      "any_of": [
+        {
+          "range": "pre-existing conditions and risk factors menu"
+        },
+        {
+          "range": "null value menu"
+        }
+      ]
+    },
+    "host vaccination status": {
+      "name": "host vaccination status",
+      "description": "The vaccination status of the host (fully vaccinated, partially vaccinated, or not vaccinated).",
+      "title": "host vaccination status",
+      "comments": [
+        "Select the vaccination status of the host from the pick list."
+      ],
+      "examples": [
+        {
+          "value": "Fully Vaccinated"
+        }
+      ],
+      "from_schema": "https://example.com/monkeypox",
+      "exact_mappings": [
+        "NML_LIMS:PH_VACCINATION_HISTORY"
+      ],
+      "slot_uri": "GENEPIO:0001404",
+      "any_of": [
+        {
+          "range": "host vaccination status menu"
+        },
+        {
+          "range": "null value menu"
+        }
+      ]
+    },
+    "number of vaccine doses received": {
+      "name": "number of vaccine doses received",
+      "description": "The number of doses of the vaccine recived by the host.",
+      "title": "number of vaccine doses received",
+      "comments": [
+        "Record how many doses of the vaccine the host has received."
+      ],
+      "examples": [
+        {
+          "value": "1"
+        }
+      ],
+      "from_schema": "https://example.com/monkeypox",
+      "slot_uri": "GENEPIO:0001406",
+      "range": "integer"
+    },
+    "vaccination dose 1 vaccine name": {
+      "name": "vaccination dose 1 vaccine name",
+      "description": "The name of the vaccine administered as the first dose of a vaccine regimen.",
+      "title": "vaccination dose 1 vaccine name",
+      "comments": [
+        "Provide the name and the corresponding manufacturer of the Smallpox vaccine administered as the first dose."
+      ],
+      "examples": [
+        {
+          "value": "IMVAMUNE (Bavarian Nordic)"
+        }
+      ],
+      "from_schema": "https://example.com/monkeypox",
+      "exact_mappings": [
+        "NML_LIMS:PH_VACCINATION_HISTORY"
+      ],
+      "slot_uri": "GENEPIO:0100313",
+      "any_of": [
+        {
+          "range": "WhitespaceMinimizedString"
+        },
+        {
+          "range": "null value menu"
+        }
+      ]
+    },
+    "vaccination dose 1 vaccination date": {
+      "name": "vaccination dose 1 vaccination date",
+      "description": "The date the first dose of a vaccine was administered.",
+      "title": "vaccination dose 1 vaccination date",
+      "comments": [
+        "Provide the date the first dose of Smallpox vaccine was administered. The date should be provided in ISO 8601 standard format \"YYYY-MM-DD\"."
+      ],
+      "examples": [
+        {
+          "value": "2022-06-01"
+        }
+      ],
+      "from_schema": "https://example.com/monkeypox",
+      "exact_mappings": [
+        "NML_LIMS:PH_VACCINATION_HISTORY"
+      ],
+      "slot_uri": "GENEPIO:0100314",
+      "any_of": [
+        {
+          "range": "date"
+        },
+        {
+          "range": "null value menu"
+        }
+      ]
+    },
+    "vaccination history": {
+      "name": "vaccination history",
+      "description": "A description of the vaccines received and the administration dates of a series of vaccinations against a specific disease or a set of diseases.",
+      "title": "vaccination history",
+      "comments": [
+        "Free text description of the dates and vaccines administered against a particular disease/set of diseases. It is also acceptable to concatenate the individual dose information (vaccine name, vaccination date) separated by semicolons."
+      ],
+      "examples": [
+        {
+          "value": "IMVAMUNE (Bavarian Nordic)"
+        },
+        {
+          "value": "2022-06-01"
+        }
+      ],
+      "from_schema": "https://example.com/monkeypox",
+      "exact_mappings": [
+        "NML_LIMS:PH_VACCINATION_HISTORY"
+      ],
+      "slot_uri": "GENEPIO:0100321",
+      "range": "WhitespaceMinimizedString"
+    },
     "travel history": {
       "name": "travel history",
       "description": "Travel history in last six months.",
@@ -5422,45 +6669,125 @@ var SCHEMA = {
       "slot_uri": "GENEPIO:0001416",
       "range": "WhitespaceMinimizedString"
     },
+    "exposure event": {
+      "name": "exposure event",
+      "description": "Event leading to exposure.",
+      "title": "exposure event",
+      "comments": [
+        "Select an exposure event from the pick list provided in the template. If the desired term is missing, contact the curation team."
+      ],
+      "examples": [
+        {
+          "value": "Party [PCO:0000035]"
+        }
+      ],
+      "from_schema": "https://example.com/monkeypox",
+      "exact_mappings": [
+        "GISAID:Additional location information",
+        "CNPHI:Exposure Event",
+        "NML_LIMS:PH_EXPOSURE"
+      ],
+      "slot_uri": "GENEPIO:0001417",
+      "any_of": [
+        {
+          "range": "exposure event menu"
+        },
+        {
+          "range": "null value menu"
+        }
+      ]
+    },
+    "exposure contact level": {
+      "name": "exposure contact level",
+      "description": "The exposure transmission contact type.",
+      "title": "exposure contact level",
+      "comments": [
+        "Select direct or indirect exposure from the pick-list."
+      ],
+      "examples": [
+        {
+          "value": "Contact with infected individual [GENEPIO:0100357]"
+        }
+      ],
+      "from_schema": "https://example.com/monkeypox",
+      "exact_mappings": [
+        "NML_LIMS:exposure contact level"
+      ],
+      "slot_uri": "GENEPIO:0001418",
+      "any_of": [
+        {
+          "range": "exposure contact level menu"
+        },
+        {
+          "range": "null value menu"
+        }
+      ]
+    },
+    "host role": {
+      "name": "host role",
+      "description": "The role of the host in relation to the exposure setting.",
+      "title": "host role",
+      "comments": [
+        "Select the host's personal role(s) from the pick list provided in the template. If the desired term is missing, contact the curation team."
+      ],
+      "examples": [
+        {
+          "value": "Acquaintance of case [GENEPIO:0100266]"
+        }
+      ],
+      "from_schema": "https://example.com/monkeypox",
+      "exact_mappings": [
+        "NML_LIMS:PH_HOST_ROLE"
+      ],
+      "slot_uri": "GENEPIO:0001419",
+      "multivalued": true,
+      "range": "host role menu"
+    },
+    "exposure setting": {
+      "name": "exposure setting",
+      "description": "The setting leading to exposure.",
+      "title": "exposure setting",
+      "comments": [
+        "Select the host exposure setting(s) from the pick list provided in the template. If a desired term is missing, contact the curation team."
+      ],
+      "examples": [
+        {
+          "value": "Healthcare Setting [GENEPIO:0100201]"
+        }
+      ],
+      "from_schema": "https://example.com/monkeypox",
+      "exact_mappings": [
+        "NML_LIMS:PH_EXPOSURE"
+      ],
+      "slot_uri": "GENEPIO:0001428",
+      "multivalued": true,
+      "range": "exposure setting menu"
+    },
+    "exposure details": {
+      "name": "exposure details",
+      "description": "Additional host exposure information.",
+      "title": "exposure details",
+      "comments": [
+        "Free text description of the exposure."
+      ],
+      "examples": [
+        {
+          "value": "Large party, many contacts"
+        }
+      ],
+      "from_schema": "https://example.com/monkeypox",
+      "exact_mappings": [
+        "NML_LIMS:PH_EXPOSURE_DETAILS"
+      ],
+      "slot_uri": "GENEPIO:0001431",
+      "range": "WhitespaceMinimizedString"
+    },
     "purpose of sequencing": {
       "name": "purpose of sequencing",
       "description": "The reason that the sample was sequenced.",
       "title": "purpose of sequencing",
       "comments": [
         "The reason why a sample was originally collected may differ from the reason why it was selected for sequencing. The reason a sample was sequenced may provide information about potential biases in sequencing strategy. Provide the purpose of sequencing from the picklist in the template. The reason for sample collection should be indicated in the \"purpose of sampling\" field."
-      ],
-      "examples": [
-        {
-          "value": "Specimens attributed to individuals with no known intimate contacts to positive cases",
-          "description": "Select \"Targeted surveillance (non-random sampling)\" if the specimen fits any of the following criteria"
-        },
-        {
-          "value": "Specimens attributed to youth/minors <18 yrs."
-        },
-        {
-          "value": "Specimens attributed to vulnerable persons living in transient shelters or congregant settings"
-        },
-        {
-          "value": "Specimens attributed to individuals self-identifying as “female”"
-        },
-        {
-          "value": "Domestic travel surveillance",
-          "description": "For specimens with a recent international and/or domestic travel history, please select the most appropriate tag from the following three options"
-        },
-        {
-          "value": "International travel surveillance"
-        },
-        {
-          "value": "Travel-associated surveillance"
-        },
-        {
-          "value": "Cluster/Outbreak investigation",
-          "description": "For specimens targeted for sequencing as part of an outbreak investigation, please select"
-        },
-        {
-          "value": "Baseline surveillance (random sampling).",
-          "description": "In all other cases use"
-        }
       ],
       "from_schema": "https://example.com/monkeypox",
       "exact_mappings": [
@@ -5557,11 +6884,6 @@ var SCHEMA = {
       "title": "sequencing instrument",
       "comments": [
         "Select a sequencing instrument from the picklist provided in the template."
-      ],
-      "examples": [
-        {
-          "value": "Oxford Nanopore MinION"
-        }
       ],
       "from_schema": "https://example.com/monkeypox",
       "exact_mappings": [
@@ -5799,6 +7121,251 @@ var SCHEMA = {
       ],
       "slot_uri": "GENEPIO:0001489",
       "range": "WhitespaceMinimizedString"
+    },
+    "gene name 1": {
+      "name": "gene name 1",
+      "description": "The name of the gene used in the diagnostic RT-PCR test.",
+      "title": "gene name 1",
+      "examples": [
+        {
+          "value": "MPX (orf B6R)"
+        }
+      ],
+      "from_schema": "https://example.com/monkeypox",
+      "exact_mappings": [
+        "CNPHI:Gene Target 1",
+        "NML_LIMS:SUBMITTED_RESLT - Gene Target #1",
+        "BIOSAMPLE:gene_name_1",
+        "VirusSeq_Portal:gene name"
+      ],
+      "slot_uri": "GENEPIO:0001507"
+    },
+    "diagnostic pcr Ct value 1": {
+      "name": "diagnostic pcr Ct value 1",
+      "description": "The Ct value result from a diagnostic SARS-CoV-2 RT-PCR test.",
+      "title": "diagnostic pcr Ct value 1",
+      "comments": [
+        "Provide the CT value of the sample from the diagnostic RT-PCR test."
+      ],
+      "examples": [
+        {
+          "value": "21"
+        }
+      ],
+      "from_schema": "https://example.com/monkeypox",
+      "exact_mappings": [
+        "CNPHI:Gene Target 1 CT Value",
+        "NML_LIMS:SUBMITTED_RESLT - Gene Target #1 CT Value",
+        "BIOSAMPLE:diagnostic_PCR_CT_value_1",
+        "VirusSeq_Portal:diagnostic pcr Ct value"
+      ],
+      "slot_uri": "GENEPIO:0001509",
+      "any_of": [
+        {
+          "range": "decimal"
+        },
+        {
+          "range": "null value menu"
+        }
+      ]
+    },
+    "gene name 2": {
+      "name": "gene name 2",
+      "description": "The name of the gene used in the diagnostic RT-PCR test.",
+      "title": "gene name 2",
+      "examples": [
+        {
+          "value": "OVP (orf 17L)"
+        }
+      ],
+      "from_schema": "https://example.com/monkeypox",
+      "exact_mappings": [
+        "CNPHI:Gene Target 2",
+        "NML_LIMS:SUBMITTED_RESLT - Gene Target #2",
+        "BIOSAMPLE:gene_name_2"
+      ],
+      "slot_uri": "GENEPIO:0001510"
+    },
+    "diagnostic pcr Ct value 2": {
+      "name": "diagnostic pcr Ct value 2",
+      "description": "The Ct value result from a diagnostic SARS-CoV-2 RT-PCR test.",
+      "title": "diagnostic pcr Ct value 2",
+      "comments": [
+        "Provide the CT value of the sample from the second diagnostic RT-PCR test."
+      ],
+      "examples": [
+        {
+          "value": "36"
+        }
+      ],
+      "from_schema": "https://example.com/monkeypox",
+      "exact_mappings": [
+        "CNPHI:Gene Target 2 CT Value",
+        "NML_LIMS:SUBMITTED_RESLT - Gene Target #2 CT Value",
+        "BIOSAMPLE:diagnostic_PCR_CT_value_2"
+      ],
+      "slot_uri": "GENEPIO:0001512",
+      "any_of": [
+        {
+          "range": "decimal"
+        },
+        {
+          "range": "null value menu"
+        }
+      ]
+    },
+    "gene name 3": {
+      "name": "gene name 3",
+      "description": "The name of the gene used in the diagnostic RT-PCR test.",
+      "title": "gene name 3",
+      "examples": [
+        {
+          "value": "OPHA (orf B2R)"
+        }
+      ],
+      "from_schema": "https://example.com/monkeypox",
+      "exact_mappings": [
+        "CNPHI:Gene Target 3",
+        "NML_LIMS:SUBMITTED_RESLT - Gene Target #3",
+        "BIOSAMPLE:gene_name_3"
+      ],
+      "slot_uri": "GENEPIO:0001513"
+    },
+    "diagnostic pcr Ct value 3": {
+      "name": "diagnostic pcr Ct value 3",
+      "description": "The Ct value result from a diagnostic SARS-CoV-2 RT-PCR test.",
+      "title": "diagnostic pcr Ct value 3",
+      "comments": [
+        "Provide the CT value of the sample from the second diagnostic RT-PCR test."
+      ],
+      "examples": [
+        {
+          "value": "19"
+        }
+      ],
+      "from_schema": "https://example.com/monkeypox",
+      "exact_mappings": [
+        "CNPHI:Gene Target 3 CT Value",
+        "NML_LIMS:SUBMITTED_RESLT - Gene Target #3 CT Value",
+        "BIOSAMPLE:diagnostic_PCR_CT_value_3"
+      ],
+      "slot_uri": "GENEPIO:0001515",
+      "any_of": [
+        {
+          "range": "decimal"
+        },
+        {
+          "range": "null value menu"
+        }
+      ]
+    },
+    "gene name 4": {
+      "name": "gene name 4",
+      "description": "The name of the gene used in the diagnostic RT-PCR test.",
+      "title": "gene name 4",
+      "comments": [
+        "Select the name of the gene used for the diagnostic PCR from the standardized pick list."
+      ],
+      "examples": [
+        {
+          "value": "G2R_G (TNFR)"
+        }
+      ],
+      "from_schema": "https://example.com/monkeypox",
+      "exact_mappings": [
+        "CNPHI:Gene Target 3",
+        "NML_LIMS:SUBMITTED_RESLT - Gene Target #4",
+        "BIOSAMPLE:gene_name_4"
+      ],
+      "any_of": [
+        {
+          "range": "gene name 4 menu"
+        },
+        {
+          "range": "null value menu"
+        }
+      ]
+    },
+    "diagnostic pcr Ct value 4": {
+      "name": "diagnostic pcr Ct value 4",
+      "description": "The Ct value result from a diagnostic SARS-CoV-2 RT-PCR test.",
+      "title": "diagnostic pcr Ct value 4",
+      "comments": [
+        "Provide the CT value of the sample from the second diagnostic RT-PCR test."
+      ],
+      "examples": [
+        {
+          "value": "27"
+        }
+      ],
+      "from_schema": "https://example.com/monkeypox",
+      "exact_mappings": [
+        "CNPHI:Gene Target 3 CT Value",
+        "NML_LIMS:SUBMITTED_RESLT - Gene Target #4 CT Value",
+        "BIOSAMPLE:diagnostic_PCR_CT_value_4"
+      ],
+      "any_of": [
+        {
+          "range": "decimal"
+        },
+        {
+          "range": "null value menu"
+        }
+      ]
+    },
+    "gene name 5": {
+      "name": "gene name 5",
+      "description": "The name of the gene used in the diagnostic RT-PCR test.",
+      "title": "gene name 5",
+      "comments": [
+        "Select the name of the gene used for the diagnostic PCR from the standardized pick list."
+      ],
+      "examples": [
+        {
+          "value": "RNAse P"
+        }
+      ],
+      "from_schema": "https://example.com/monkeypox",
+      "exact_mappings": [
+        "CNPHI:Gene Target 3",
+        "NML_LIMS:SUBMITTED_RESLT - Gene Target #4",
+        "BIOSAMPLE:gene_name_4"
+      ],
+      "any_of": [
+        {
+          "range": "gene name 5 menu"
+        },
+        {
+          "range": "null value menu"
+        }
+      ]
+    },
+    "diagnostic pcr Ct value 5": {
+      "name": "diagnostic pcr Ct value 5",
+      "description": "The Ct value result from a diagnostic SARS-CoV-2 RT-PCR test.",
+      "title": "diagnostic pcr Ct value 5",
+      "comments": [
+        "Provide the CT value of the sample from the second diagnostic RT-PCR test."
+      ],
+      "examples": [
+        {
+          "value": "30"
+        }
+      ],
+      "from_schema": "https://example.com/monkeypox",
+      "exact_mappings": [
+        "CNPHI:Gene Target 3 CT Value",
+        "NML_LIMS:SUBMITTED_RESLT - Gene Target #4 CT Value",
+        "BIOSAMPLE:diagnostic_PCR_CT_value_4"
+      ],
+      "any_of": [
+        {
+          "range": "decimal"
+        },
+        {
+          "range": "null value menu"
+        }
+      ]
     },
     "authors": {
       "name": "authors",
@@ -6092,6 +7659,7 @@ var SCHEMA = {
           ],
           "rank": 24,
           "slot_group": "Sample collection and processing",
+          "required": true,
           "any_of": [
             {
               "range": "anatomical material menu"
@@ -6110,6 +7678,7 @@ var SCHEMA = {
           ],
           "rank": 25,
           "slot_group": "Sample collection and processing",
+          "required": true,
           "any_of": [
             {
               "range": "anatomical part menu"
@@ -6127,7 +7696,8 @@ var SCHEMA = {
             }
           ],
           "rank": 26,
-          "slot_group": "Sample collection and processing"
+          "slot_group": "Sample collection and processing",
+          "required": true
         },
         "collection device": {
           "name": "collection device",
@@ -6138,6 +7708,7 @@ var SCHEMA = {
           ],
           "rank": 27,
           "slot_group": "Sample collection and processing",
+          "required": true,
           "any_of": [
             {
               "range": "collection device menu"
@@ -6156,6 +7727,7 @@ var SCHEMA = {
           ],
           "rank": 28,
           "slot_group": "Sample collection and processing",
+          "required": true,
           "any_of": [
             {
               "range": "collection method menu"
@@ -6173,7 +7745,15 @@ var SCHEMA = {
             }
           ],
           "rank": 29,
-          "slot_group": "Host Information"
+          "slot_group": "Host Information",
+          "any_of": [
+            {
+              "range": "host (scientific name) menu"
+            },
+            {
+              "range": "null value menu"
+            }
+          ]
         },
         "host disease": {
           "name": "host disease",
@@ -6200,6 +7780,39 @@ var SCHEMA = {
         },
         "purpose of sequencing": {
           "name": "purpose of sequencing",
+          "examples": [
+            {
+              "value": "Specimens attributed to individuals with no known intimate contacts to positive cases",
+              "description": "Select \"Targeted surveillance (non-random sampling)\" if the specimen fits any of the following criteria"
+            },
+            {
+              "value": "Specimens attributed to youth/minors <18 yrs."
+            },
+            {
+              "value": "Specimens attributed to vulnerable persons living in transient shelters or congregant settings"
+            },
+            {
+              "value": "Specimens attributed to individuals self-identifying as “female”"
+            },
+            {
+              "value": "Domestic travel surveillance",
+              "description": "For specimens with a recent international and/or domestic travel history, please select the most appropriate tag from the following three options"
+            },
+            {
+              "value": "International travel surveillance"
+            },
+            {
+              "value": "Travel-associated surveillance"
+            },
+            {
+              "value": "Cluster/Outbreak investigation",
+              "description": "For specimens targeted for sequencing as part of an outbreak investigation, please select"
+            },
+            {
+              "value": "Baseline surveillance (random sampling).",
+              "description": "In all other cases use"
+            }
+          ],
           "rank": 32,
           "slot_group": "Sequencing",
           "any_of": [
@@ -6229,11 +7842,16 @@ var SCHEMA = {
         },
         "sequencing instrument": {
           "name": "sequencing instrument",
-          "rank": 37,
+          "examples": [
+            {
+              "value": "Oxford Nanopore MinION"
+            }
+          ],
+          "rank": 36,
           "slot_group": "Sequencing",
           "any_of": [
             {
-              "range": "sequencing instrument international menu"
+              "range": "sequencing instrument menu"
             },
             {
               "range": "null value menu"
@@ -6242,65 +7860,148 @@ var SCHEMA = {
         },
         "raw sequence data processing method": {
           "name": "raw sequence data processing method",
-          "rank": 38,
+          "rank": 37,
           "slot_group": "Bioinformatics and QC metrics",
           "required": true
         },
         "dehosting method": {
           "name": "dehosting method",
-          "rank": 39,
+          "rank": 38,
           "slot_group": "Bioinformatics and QC metrics",
           "required": true
         },
         "consensus sequence software name": {
           "name": "consensus sequence software name",
-          "rank": 40,
+          "rank": 39,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "consensus sequence software version": {
           "name": "consensus sequence software version",
-          "rank": 41,
+          "rank": 40,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "breadth of coverage value": {
           "name": "breadth of coverage value",
-          "rank": 42,
+          "rank": 41,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "depth of coverage value": {
           "name": "depth of coverage value",
-          "rank": 43,
+          "rank": 42,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "depth of coverage threshold": {
           "name": "depth of coverage threshold",
-          "rank": 44,
+          "rank": 43,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "number of base pairs sequenced": {
           "name": "number of base pairs sequenced",
-          "rank": 45,
+          "rank": 44,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "assembled genome length": {
           "name": "assembled genome length",
-          "rank": 46,
+          "rank": 45,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "bioinformatics protocol": {
           "name": "bioinformatics protocol",
-          "rank": 47,
+          "rank": 46,
           "slot_group": "Bioinformatics and QC metrics",
           "required": true
         },
+        "gene name 1": {
+          "name": "gene name 1",
+          "comments": [
+            "Select the name of the gene used for the diagnostic PCR from the standardized pick list."
+          ],
+          "rank": 47,
+          "slot_group": "Pathogen diagnostic testing",
+          "any_of": [
+            {
+              "range": "gene name 1 menu"
+            },
+            {
+              "range": "null value menu"
+            }
+          ]
+        },
+        "diagnostic pcr Ct value 1": {
+          "name": "diagnostic pcr Ct value 1",
+          "rank": 48,
+          "slot_group": "Pathogen diagnostic testing"
+        },
+        "gene name 2": {
+          "name": "gene name 2",
+          "comments": [
+            "Select the name of the gene used for the diagnostic PCR from the standardized pick list."
+          ],
+          "rank": 49,
+          "slot_group": "Pathogen diagnostic testing",
+          "any_of": [
+            {
+              "range": "gene name 2 menu"
+            },
+            {
+              "range": "null value menu"
+            }
+          ]
+        },
+        "diagnostic pcr Ct value 2": {
+          "name": "diagnostic pcr Ct value 2",
+          "rank": 50,
+          "slot_group": "Pathogen diagnostic testing"
+        },
+        "gene name 3": {
+          "name": "gene name 3",
+          "comments": [
+            "Select the name of the gene used for the diagnostic PCR from the standardized pick list."
+          ],
+          "rank": 51,
+          "slot_group": "Pathogen diagnostic testing",
+          "any_of": [
+            {
+              "range": "gene name 3 menu"
+            },
+            {
+              "range": "null value menu"
+            }
+          ]
+        },
+        "diagnostic pcr Ct value 3": {
+          "name": "diagnostic pcr Ct value 3",
+          "rank": 52,
+          "slot_group": "Pathogen diagnostic testing"
+        },
+        "gene name 4": {
+          "name": "gene name 4",
+          "rank": 53,
+          "slot_group": "Pathogen diagnostic testing"
+        },
+        "diagnostic pcr Ct value 4": {
+          "name": "diagnostic pcr Ct value 4",
+          "rank": 54,
+          "slot_group": "Pathogen diagnostic testing"
+        },
+        "gene name 5": {
+          "name": "gene name 5",
+          "rank": 55,
+          "slot_group": "Pathogen diagnostic testing"
+        },
+        "diagnostic pcr Ct value 5": {
+          "name": "diagnostic pcr Ct value 5",
+          "rank": 56,
+          "slot_group": "Pathogen diagnostic testing"
+        },
         "authors": {
           "name": "authors",
-          "rank": 48,
+          "rank": 57,
           "slot_group": "Contributor acknowledgement"
         },
         "DataHarmonizer provenance": {
           "name": "DataHarmonizer provenance",
-          "rank": 49,
+          "rank": 58,
           "slot_group": "Contributor acknowledgement"
         }
       },
@@ -6832,7 +8533,15 @@ var SCHEMA = {
           "alias": "host_(scientific_name)",
           "owner": "Monkeypox",
           "slot_group": "Host Information",
-          "required": true
+          "required": true,
+          "any_of": [
+            {
+              "range": "host (scientific name) menu"
+            },
+            {
+              "range": "null value menu"
+            }
+          ]
         },
         "host disease": {
           "name": "host disease",
@@ -6875,6 +8584,39 @@ var SCHEMA = {
           "name": "purpose of sequencing",
           "description": "The reason that the sample was sequenced.",
           "title": "purpose of sequencing",
+          "examples": [
+            {
+              "value": "Specimens attributed to individuals with no known intimate contacts to positive cases",
+              "description": "Select \"Targeted surveillance (non-random sampling)\" if the specimen fits any of the following criteria"
+            },
+            {
+              "value": "Specimens attributed to youth/minors <18 yrs."
+            },
+            {
+              "value": "Specimens attributed to vulnerable persons living in transient shelters or congregant settings"
+            },
+            {
+              "value": "Specimens attributed to individuals self-identifying as “female”"
+            },
+            {
+              "value": "Domestic travel surveillance",
+              "description": "For specimens with a recent international and/or domestic travel history, please select the most appropriate tag from the following three options"
+            },
+            {
+              "value": "International travel surveillance"
+            },
+            {
+              "value": "Travel-associated surveillance"
+            },
+            {
+              "value": "Cluster/Outbreak investigation",
+              "description": "For specimens targeted for sequencing as part of an outbreak investigation, please select"
+            },
+            {
+              "value": "Baseline surveillance (random sampling).",
+              "description": "In all other cases use"
+            }
+          ],
           "from_schema": "https://example.com/monkeypox",
           "rank": 32,
           "slot_uri": "GENEPIO:0001445",
@@ -6932,8 +8674,13 @@ var SCHEMA = {
           "name": "sequencing instrument",
           "description": "The model of the sequencing instrument used.",
           "title": "sequencing instrument",
+          "examples": [
+            {
+              "value": "Oxford Nanopore MinION"
+            }
+          ],
           "from_schema": "https://example.com/monkeypox",
-          "rank": 37,
+          "rank": 36,
           "slot_uri": "GENEPIO:0001452",
           "multivalued": true,
           "alias": "sequencing_instrument",
@@ -6942,7 +8689,7 @@ var SCHEMA = {
           "required": true,
           "any_of": [
             {
-              "range": "sequencing instrument international menu"
+              "range": "sequencing instrument menu"
             },
             {
               "range": "null value menu"
@@ -6954,7 +8701,7 @@ var SCHEMA = {
           "description": "The names of the software and version number used for raw data processing such as removing barcodes, adapter trimming, filtering etc.",
           "title": "raw sequence data processing method",
           "from_schema": "https://example.com/monkeypox",
-          "rank": 38,
+          "rank": 37,
           "slot_uri": "GENEPIO:0001458",
           "alias": "raw_sequence_data_processing_method",
           "owner": "Monkeypox",
@@ -6967,7 +8714,7 @@ var SCHEMA = {
           "description": "The method used to remove host reads from the pathogen sequence.",
           "title": "dehosting method",
           "from_schema": "https://example.com/monkeypox",
-          "rank": 39,
+          "rank": 38,
           "slot_uri": "GENEPIO:0001459",
           "alias": "dehosting_method",
           "owner": "Monkeypox",
@@ -6980,7 +8727,7 @@ var SCHEMA = {
           "description": "The name of software used to generate the consensus sequence.",
           "title": "consensus sequence software name",
           "from_schema": "https://example.com/monkeypox",
-          "rank": 40,
+          "rank": 39,
           "slot_uri": "GENEPIO:0001463",
           "alias": "consensus_sequence_software_name",
           "owner": "Monkeypox",
@@ -6993,7 +8740,7 @@ var SCHEMA = {
           "description": "The version of the software used to generate the consensus sequence.",
           "title": "consensus sequence software version",
           "from_schema": "https://example.com/monkeypox",
-          "rank": 41,
+          "rank": 40,
           "slot_uri": "GENEPIO:0001469",
           "alias": "consensus_sequence_software_version",
           "owner": "Monkeypox",
@@ -7006,7 +8753,7 @@ var SCHEMA = {
           "description": "The percentage of the reference genome covered by the sequenced data, to a prescribed depth.",
           "title": "breadth of coverage value",
           "from_schema": "https://example.com/monkeypox",
-          "rank": 42,
+          "rank": 41,
           "slot_uri": "GENEPIO:0001472",
           "alias": "breadth_of_coverage_value",
           "owner": "Monkeypox",
@@ -7018,7 +8765,7 @@ var SCHEMA = {
           "description": "The average number of reads representing a given nucleotide in the reconstructed sequence.",
           "title": "depth of coverage value",
           "from_schema": "https://example.com/monkeypox",
-          "rank": 43,
+          "rank": 42,
           "slot_uri": "GENEPIO:0001474",
           "alias": "depth_of_coverage_value",
           "owner": "Monkeypox",
@@ -7030,7 +8777,7 @@ var SCHEMA = {
           "description": "The threshold used as a cut-off for the depth of coverage.",
           "title": "depth of coverage threshold",
           "from_schema": "https://example.com/monkeypox",
-          "rank": 44,
+          "rank": 43,
           "slot_uri": "GENEPIO:0001475",
           "alias": "depth_of_coverage_threshold",
           "owner": "Monkeypox",
@@ -7042,7 +8789,7 @@ var SCHEMA = {
           "description": "The number of total base pairs generated by the sequencing process.",
           "title": "number of base pairs sequenced",
           "from_schema": "https://example.com/monkeypox",
-          "rank": 45,
+          "rank": 44,
           "slot_uri": "GENEPIO:0001482",
           "alias": "number_of_base_pairs_sequenced",
           "owner": "Monkeypox",
@@ -7055,7 +8802,7 @@ var SCHEMA = {
           "description": "Size of the reconstructed genome described as the number of base pairs.",
           "title": "assembled genome length",
           "from_schema": "https://example.com/monkeypox",
-          "rank": 46,
+          "rank": 45,
           "slot_uri": "GENEPIO:0001483",
           "alias": "assembled_genome_length",
           "owner": "Monkeypox",
@@ -7068,7 +8815,7 @@ var SCHEMA = {
           "description": "A description of the overall bioinformatics strategy used.",
           "title": "bioinformatics protocol",
           "from_schema": "https://example.com/monkeypox",
-          "rank": 47,
+          "rank": 46,
           "slot_uri": "GENEPIO:0001489",
           "alias": "bioinformatics_protocol",
           "owner": "Monkeypox",
@@ -7076,12 +8823,151 @@ var SCHEMA = {
           "range": "WhitespaceMinimizedString",
           "required": true
         },
+        "gene name 1": {
+          "name": "gene name 1",
+          "description": "The name of the gene used in the diagnostic RT-PCR test.",
+          "title": "gene name 1",
+          "comments": [
+            "Select the name of the gene used for the diagnostic PCR from the standardized pick list."
+          ],
+          "from_schema": "https://example.com/monkeypox",
+          "rank": 47,
+          "slot_uri": "GENEPIO:0001507",
+          "alias": "gene_name_1",
+          "owner": "Monkeypox",
+          "slot_group": "Pathogen diagnostic testing",
+          "any_of": [
+            {
+              "range": "gene name 1 menu"
+            },
+            {
+              "range": "null value menu"
+            }
+          ]
+        },
+        "diagnostic pcr Ct value 1": {
+          "name": "diagnostic pcr Ct value 1",
+          "description": "The Ct value result from a diagnostic SARS-CoV-2 RT-PCR test.",
+          "title": "diagnostic pcr Ct value 1",
+          "from_schema": "https://example.com/monkeypox",
+          "rank": 48,
+          "slot_uri": "GENEPIO:0001509",
+          "alias": "diagnostic_pcr_Ct_value_1",
+          "owner": "Monkeypox",
+          "slot_group": "Pathogen diagnostic testing"
+        },
+        "gene name 2": {
+          "name": "gene name 2",
+          "description": "The name of the gene used in the diagnostic RT-PCR test.",
+          "title": "gene name 2",
+          "comments": [
+            "Select the name of the gene used for the diagnostic PCR from the standardized pick list."
+          ],
+          "from_schema": "https://example.com/monkeypox",
+          "rank": 49,
+          "slot_uri": "GENEPIO:0001510",
+          "alias": "gene_name_2",
+          "owner": "Monkeypox",
+          "slot_group": "Pathogen diagnostic testing",
+          "any_of": [
+            {
+              "range": "gene name 2 menu"
+            },
+            {
+              "range": "null value menu"
+            }
+          ]
+        },
+        "diagnostic pcr Ct value 2": {
+          "name": "diagnostic pcr Ct value 2",
+          "description": "The Ct value result from a diagnostic SARS-CoV-2 RT-PCR test.",
+          "title": "diagnostic pcr Ct value 2",
+          "from_schema": "https://example.com/monkeypox",
+          "rank": 50,
+          "slot_uri": "GENEPIO:0001512",
+          "alias": "diagnostic_pcr_Ct_value_2",
+          "owner": "Monkeypox",
+          "slot_group": "Pathogen diagnostic testing"
+        },
+        "gene name 3": {
+          "name": "gene name 3",
+          "description": "The name of the gene used in the diagnostic RT-PCR test.",
+          "title": "gene name 3",
+          "comments": [
+            "Select the name of the gene used for the diagnostic PCR from the standardized pick list."
+          ],
+          "from_schema": "https://example.com/monkeypox",
+          "rank": 51,
+          "slot_uri": "GENEPIO:0001513",
+          "alias": "gene_name_3",
+          "owner": "Monkeypox",
+          "slot_group": "Pathogen diagnostic testing",
+          "any_of": [
+            {
+              "range": "gene name 3 menu"
+            },
+            {
+              "range": "null value menu"
+            }
+          ]
+        },
+        "diagnostic pcr Ct value 3": {
+          "name": "diagnostic pcr Ct value 3",
+          "description": "The Ct value result from a diagnostic SARS-CoV-2 RT-PCR test.",
+          "title": "diagnostic pcr Ct value 3",
+          "from_schema": "https://example.com/monkeypox",
+          "rank": 52,
+          "slot_uri": "GENEPIO:0001515",
+          "alias": "diagnostic_pcr_Ct_value_3",
+          "owner": "Monkeypox",
+          "slot_group": "Pathogen diagnostic testing"
+        },
+        "gene name 4": {
+          "name": "gene name 4",
+          "description": "The name of the gene used in the diagnostic RT-PCR test.",
+          "title": "gene name 4",
+          "from_schema": "https://example.com/monkeypox",
+          "rank": 53,
+          "alias": "gene_name_4",
+          "owner": "Monkeypox",
+          "slot_group": "Pathogen diagnostic testing"
+        },
+        "diagnostic pcr Ct value 4": {
+          "name": "diagnostic pcr Ct value 4",
+          "description": "The Ct value result from a diagnostic SARS-CoV-2 RT-PCR test.",
+          "title": "diagnostic pcr Ct value 4",
+          "from_schema": "https://example.com/monkeypox",
+          "rank": 54,
+          "alias": "diagnostic_pcr_Ct_value_4",
+          "owner": "Monkeypox",
+          "slot_group": "Pathogen diagnostic testing"
+        },
+        "gene name 5": {
+          "name": "gene name 5",
+          "description": "The name of the gene used in the diagnostic RT-PCR test.",
+          "title": "gene name 5",
+          "from_schema": "https://example.com/monkeypox",
+          "rank": 55,
+          "alias": "gene_name_5",
+          "owner": "Monkeypox",
+          "slot_group": "Pathogen diagnostic testing"
+        },
+        "diagnostic pcr Ct value 5": {
+          "name": "diagnostic pcr Ct value 5",
+          "description": "The Ct value result from a diagnostic SARS-CoV-2 RT-PCR test.",
+          "title": "diagnostic pcr Ct value 5",
+          "from_schema": "https://example.com/monkeypox",
+          "rank": 56,
+          "alias": "diagnostic_pcr_Ct_value_5",
+          "owner": "Monkeypox",
+          "slot_group": "Pathogen diagnostic testing"
+        },
         "authors": {
           "name": "authors",
           "description": "Names of individuals contributing to the processes of sample collection, sequence generation, analysis, and data submission.",
           "title": "authors",
           "from_schema": "https://example.com/monkeypox",
-          "rank": 48,
+          "rank": 57,
           "slot_uri": "GENEPIO:0001517",
           "alias": "authors",
           "owner": "Monkeypox",
@@ -7094,7 +8980,7 @@ var SCHEMA = {
           "description": "The DataHarmonizer software version provenance.",
           "title": "DataHarmonizer provenance",
           "from_schema": "https://example.com/monkeypox",
-          "rank": 49,
+          "rank": 58,
           "slot_uri": "GENEPIO:0001518",
           "alias": "DataHarmonizer_provenance",
           "owner": "Monkeypox",
@@ -7107,6 +8993,9 @@ var SCHEMA = {
       "name": "Monkeypox_international",
       "description": "International specification for Monkeypox clinical virus biosample data gathering",
       "from_schema": "https://example.com/monkeypox",
+      "see_also": [
+        "template/monkeypox/SOP_Monkeypox_international.pdf"
+      ],
       "is_a": "dh_interface",
       "slot_usage": {
         "specimen collector sample ID": {
@@ -7114,14 +9003,24 @@ var SCHEMA = {
           "rank": 1,
           "slot_group": "Database Identifiers"
         },
+        "bioproject accession": {
+          "name": "bioproject accession",
+          "rank": 2,
+          "slot_group": "Database Identifiers"
+        },
+        "biosample accession": {
+          "name": "biosample accession",
+          "rank": 3,
+          "slot_group": "Database Identifiers"
+        },
         "GISAID virus name": {
           "name": "GISAID virus name",
-          "rank": 2,
+          "rank": 4,
           "slot_group": "Database Identifiers"
         },
         "GISAID accession": {
           "name": "GISAID accession",
-          "rank": 3,
+          "rank": 5,
           "slot_group": "Database Identifiers"
         },
         "sample collected by": {
@@ -7130,7 +9029,7 @@ var SCHEMA = {
             "GISAID:Originating lab",
             "BIOSAMPLE:collected_by"
           ],
-          "rank": 4,
+          "rank": 6,
           "slot_group": "Sample collection and processing",
           "any_of": [
             {
@@ -7143,12 +9042,12 @@ var SCHEMA = {
         },
         "sample collector contact email": {
           "name": "sample collector contact email",
-          "rank": 5,
+          "rank": 7,
           "slot_group": "Sample collection and processing"
         },
         "sample collector contact address": {
           "name": "sample collector contact address",
-          "rank": 6,
+          "rank": 8,
           "slot_group": "Sample collection and processing"
         },
         "sequenced by": {
@@ -7156,7 +9055,7 @@ var SCHEMA = {
           "exact_mappings": [
             "BIOSAMPLE:sequenced_by"
           ],
-          "rank": 7,
+          "rank": 9,
           "slot_group": "Sample collection and processing",
           "any_of": [
             {
@@ -7169,12 +9068,12 @@ var SCHEMA = {
         },
         "sequenced by contact email": {
           "name": "sequenced by contact email",
-          "rank": 8,
+          "rank": 10,
           "slot_group": "Sample collection and processing"
         },
         "sequenced by contact address": {
           "name": "sequenced by contact address",
-          "rank": 9,
+          "rank": 11,
           "slot_group": "Sample collection and processing"
         },
         "sequence submitted by": {
@@ -7183,7 +9082,7 @@ var SCHEMA = {
             "GISAID:Submitting lab",
             "BIOSAMPLE:sequence_submitted_by"
           ],
-          "rank": 10,
+          "rank": 12,
           "slot_group": "Sample collection and processing",
           "any_of": [
             {
@@ -7196,22 +9095,22 @@ var SCHEMA = {
         },
         "sequence submitter contact email": {
           "name": "sequence submitter contact email",
-          "rank": 11,
+          "rank": 13,
           "slot_group": "Sample collection and processing"
         },
         "sequence submitter contact address": {
           "name": "sequence submitter contact address",
-          "rank": 12,
+          "rank": 14,
           "slot_group": "Sample collection and processing"
         },
         "sample collection date": {
           "name": "sample collection date",
-          "rank": 13,
+          "rank": 15,
           "slot_group": "Sample collection and processing"
         },
         "sample received date": {
           "name": "sample received date",
-          "rank": 14,
+          "rank": 16,
           "slot_group": "Sample collection and processing"
         },
         "geo_loc_name (country)": {
@@ -7221,7 +9120,7 @@ var SCHEMA = {
               "value": "United States of America [GAZ:00002459]"
             }
           ],
-          "rank": 15,
+          "rank": 17,
           "slot_group": "Sample collection and processing",
           "any_of": [
             {
@@ -7237,7 +9136,7 @@ var SCHEMA = {
           "comments": [
             "Provide the state/province/territory name from the controlled vocabulary provided."
           ],
-          "rank": 17,
+          "rank": 19,
           "slot_group": "Sample collection and processing",
           "any_of": [
             {
@@ -7248,6 +9147,16 @@ var SCHEMA = {
             }
           ]
         },
+        "geo_loc latitude": {
+          "name": "geo_loc latitude",
+          "rank": 20,
+          "slot_group": "Sample collection and processing"
+        },
+        "geo_loc longitude": {
+          "name": "geo_loc longitude",
+          "rank": 21,
+          "slot_group": "Sample collection and processing"
+        },
         "organism": {
           "name": "organism",
           "examples": [
@@ -7255,7 +9164,7 @@ var SCHEMA = {
               "value": "Monkeypox virus [NCBITaxon:10244]"
             }
           ],
-          "rank": 18,
+          "rank": 22,
           "slot_group": "Sample collection and processing",
           "any_of": [
             {
@@ -7279,7 +9188,7 @@ var SCHEMA = {
           "exact_mappings": [
             "BIOSAMPLE:isolate"
           ],
-          "rank": 19,
+          "rank": 23,
           "slot_uri": "GENEPIO:0001644",
           "slot_group": "Sample collection and processing"
         },
@@ -7290,7 +9199,7 @@ var SCHEMA = {
               "value": "Diagnostic testing [GENEPIO:0100002]"
             }
           ],
-          "rank": 20,
+          "rank": 24,
           "slot_group": "Sample collection and processing",
           "any_of": [
             {
@@ -7303,7 +9212,7 @@ var SCHEMA = {
         },
         "purpose of sampling details": {
           "name": "purpose of sampling details",
-          "rank": 21,
+          "rank": 25,
           "slot_group": "Sample collection and processing"
         },
         "anatomical material": {
@@ -7313,8 +9222,9 @@ var SCHEMA = {
               "value": "Lesion (Pustule) [NCIT:C78582]"
             }
           ],
-          "rank": 22,
+          "rank": 26,
           "slot_group": "Sample collection and processing",
+          "recommended": true,
           "any_of": [
             {
               "range": "anatomical material international menu"
@@ -7331,8 +9241,9 @@ var SCHEMA = {
               "value": "Genital area [BTO:0003358]"
             }
           ],
-          "rank": 23,
+          "rank": 27,
           "slot_group": "Sample collection and processing",
+          "recommended": true,
           "any_of": [
             {
               "range": "anatomical part international menu"
@@ -7349,8 +9260,9 @@ var SCHEMA = {
               "value": "Pus [UBERON:0000177]"
             }
           ],
-          "rank": 24,
-          "slot_group": "Sample collection and processing"
+          "rank": 28,
+          "slot_group": "Sample collection and processing",
+          "recommended": true
         },
         "collection device": {
           "name": "collection device",
@@ -7359,8 +9271,9 @@ var SCHEMA = {
               "value": "Swab [GENEPIO:0100027]"
             }
           ],
-          "rank": 25,
+          "rank": 29,
           "slot_group": "Sample collection and processing",
+          "recommended": true,
           "any_of": [
             {
               "range": "collection device international menu"
@@ -7377,8 +9290,9 @@ var SCHEMA = {
               "value": "Biopsy [OBI:0002650]"
             }
           ],
-          "rank": 26,
+          "rank": 30,
           "slot_group": "Sample collection and processing",
+          "recommended": true,
           "any_of": [
             {
               "range": "collection method international menu"
@@ -7395,8 +9309,16 @@ var SCHEMA = {
               "value": "Homo sapiens [NCBITaxon:9606]"
             }
           ],
-          "rank": 27,
-          "slot_group": "Host Information"
+          "rank": 31,
+          "slot_group": "Host Information",
+          "any_of": [
+            {
+              "range": "host (scientific name) international menu"
+            },
+            {
+              "range": "null value menu"
+            }
+          ]
         },
         "host disease": {
           "name": "host disease",
@@ -7405,7 +9327,7 @@ var SCHEMA = {
               "value": "Monkeypox [MONDO:0002594]"
             }
           ],
-          "rank": 28,
+          "rank": 32,
           "slot_group": "Host Information",
           "any_of": [
             {
@@ -7416,39 +9338,132 @@ var SCHEMA = {
             }
           ]
         },
+        "host subject ID": {
+          "name": "host subject ID",
+          "description": "A unique identifier by which each host can be referred to e.g. #131",
+          "comments": [
+            "Provide the host identifier. Should be a unique, user-defined identifier."
+          ],
+          "examples": [
+            {
+              "value": "BCxy123"
+            }
+          ],
+          "exact_mappings": [
+            "NML_LIMS:host subject ID",
+            "BIOSAMPLE:host_subject_id"
+          ],
+          "rank": 40,
+          "slot_group": "Host Information"
+        },
         "host health state": {
           "name": "host health state",
-          "rank": 29,
+          "rank": 34,
+          "slot_group": "Host Information"
+        },
+        "host health outcome": {
+          "name": "host health outcome",
+          "rank": 35,
           "slot_group": "Host Information"
         },
         "host age": {
           "name": "host age",
-          "rank": 30,
+          "rank": 36,
           "slot_group": "Host Information"
         },
         "host age unit": {
           "name": "host age unit",
-          "rank": 31,
+          "rank": 37,
           "slot_group": "Host Information"
         },
         "host age bin": {
           "name": "host age bin",
-          "rank": 32,
+          "rank": 38,
           "slot_group": "Host Information"
         },
         "host gender": {
           "name": "host gender",
-          "rank": 33,
+          "rank": 39,
           "slot_group": "Host Information"
+        },
+        "symptom onset date": {
+          "name": "symptom onset date",
+          "rank": 41,
+          "slot_group": "Host Information"
+        },
+        "signs and symptoms": {
+          "name": "signs and symptoms",
+          "rank": 42,
+          "slot_group": "Host Information"
+        },
+        "pre-existing conditions and risk factors": {
+          "name": "pre-existing conditions and risk factors",
+          "rank": 43,
+          "slot_group": "Host Information"
+        },
+        "host vaccination status": {
+          "name": "host vaccination status",
+          "rank": 44,
+          "slot_group": "Host vaccination information"
+        },
+        "number of vaccine doses received": {
+          "name": "number of vaccine doses received",
+          "rank": 45,
+          "slot_group": "Host vaccination information"
+        },
+        "vaccination dose 1 vaccine name": {
+          "name": "vaccination dose 1 vaccine name",
+          "rank": 46,
+          "slot_group": "Host vaccination information"
+        },
+        "vaccination dose 1 vaccination date": {
+          "name": "vaccination dose 1 vaccination date",
+          "rank": 47,
+          "slot_group": "Host vaccination information"
+        },
+        "vaccination history": {
+          "name": "vaccination history",
+          "rank": 48,
+          "slot_group": "Host vaccination information"
         },
         "travel history": {
           "name": "travel history",
-          "rank": 34,
+          "rank": 49,
+          "slot_group": "Host exposure information"
+        },
+        "exposure event": {
+          "name": "exposure event",
+          "rank": 50,
+          "slot_group": "Host exposure information"
+        },
+        "exposure contact level": {
+          "name": "exposure contact level",
+          "rank": 51,
+          "slot_group": "Host exposure information"
+        },
+        "host role": {
+          "name": "host role",
+          "rank": 52,
+          "slot_group": "Host exposure information"
+        },
+        "exposure setting": {
+          "name": "exposure setting",
+          "rank": 53,
+          "slot_group": "Host exposure information"
+        },
+        "exposure details": {
+          "name": "exposure details",
+          "rank": 54,
           "slot_group": "Host exposure information"
         },
         "purpose of sequencing": {
           "name": "purpose of sequencing",
-          "rank": 35,
+          "examples": [
+            {
+              "value": "Baseline surveillance (random sampling) [GENEPIO:0100005]"
+            }
+          ],
+          "rank": 55,
           "slot_group": "Sequencing",
           "any_of": [
             {
@@ -7461,22 +9476,27 @@ var SCHEMA = {
         },
         "purpose of sequencing details": {
           "name": "purpose of sequencing details",
-          "rank": 36,
+          "rank": 56,
           "slot_group": "Sequencing"
         },
         "sequencing date": {
           "name": "sequencing date",
-          "rank": 38,
+          "rank": 57,
           "slot_group": "Sequencing"
         },
         "library preparation kit": {
           "name": "library preparation kit",
-          "rank": 39,
+          "rank": 58,
           "slot_group": "Sequencing"
         },
         "sequencing instrument": {
           "name": "sequencing instrument",
-          "rank": 40,
+          "examples": [
+            {
+              "value": "Oxford Nanopore MinION [GENEPIO:0100142]"
+            }
+          ],
+          "rank": 59,
           "slot_group": "Sequencing",
           "any_of": [
             {
@@ -7489,67 +9509,130 @@ var SCHEMA = {
         },
         "sequencing protocol": {
           "name": "sequencing protocol",
-          "rank": 41,
+          "rank": 60,
           "slot_group": "Sequencing"
         },
         "raw sequence data processing method": {
           "name": "raw sequence data processing method",
-          "rank": 42,
+          "rank": 61,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "dehosting method": {
           "name": "dehosting method",
-          "rank": 43,
+          "rank": 62,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "consensus sequence software name": {
           "name": "consensus sequence software name",
-          "rank": 44,
+          "rank": 63,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "consensus sequence software version": {
           "name": "consensus sequence software version",
-          "rank": 45,
+          "rank": 64,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "breadth of coverage value": {
           "name": "breadth of coverage value",
-          "rank": 46,
+          "rank": 65,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "depth of coverage value": {
           "name": "depth of coverage value",
-          "rank": 47,
+          "rank": 66,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "depth of coverage threshold": {
           "name": "depth of coverage threshold",
-          "rank": 48,
+          "rank": 67,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "number of base pairs sequenced": {
           "name": "number of base pairs sequenced",
-          "rank": 49,
+          "rank": 68,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "assembled genome length": {
           "name": "assembled genome length",
-          "rank": 50,
+          "rank": 69,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "bioinformatics protocol": {
           "name": "bioinformatics protocol",
-          "rank": 51,
+          "rank": 70,
           "slot_group": "Bioinformatics and QC metrics"
+        },
+        "gene name 1": {
+          "name": "gene name 1",
+          "comments": [
+            "Provide the full name of the gene used in the test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI"
+          ],
+          "rank": 71,
+          "slot_group": "Pathogen diagnostic testing",
+          "any_of": [
+            {
+              "range": "WhitespaceMinimizedString"
+            },
+            {
+              "range": "null value menu"
+            }
+          ]
+        },
+        "diagnostic pcr Ct value 1": {
+          "name": "diagnostic pcr Ct value 1",
+          "rank": 72,
+          "slot_group": "Pathogen diagnostic testing"
+        },
+        "gene name 2": {
+          "name": "gene name 2",
+          "comments": [
+            "Provide the full name of another gene used in an RT-PCR test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI"
+          ],
+          "rank": 73,
+          "slot_group": "Pathogen diagnostic testing",
+          "any_of": [
+            {
+              "range": "WhitespaceMinimizedString"
+            },
+            {
+              "range": "null value menu"
+            }
+          ]
+        },
+        "diagnostic pcr Ct value 2": {
+          "name": "diagnostic pcr Ct value 2",
+          "rank": 74,
+          "slot_group": "Pathogen diagnostic testing"
+        },
+        "gene name 3": {
+          "name": "gene name 3",
+          "comments": [
+            "Provide the full name of another gene used in an RT-PCR test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI"
+          ],
+          "rank": 75,
+          "slot_group": "Pathogen diagnostic testing",
+          "any_of": [
+            {
+              "range": "WhitespaceMinimizedString"
+            },
+            {
+              "range": "null value menu"
+            }
+          ]
+        },
+        "diagnostic pcr Ct value 3": {
+          "name": "diagnostic pcr Ct value 3",
+          "rank": 76,
+          "slot_group": "Pathogen diagnostic testing"
         },
         "authors": {
           "name": "authors",
-          "rank": 52,
+          "rank": 77,
           "slot_group": "Contributor acknowledgement"
         },
         "DataHarmonizer provenance": {
           "name": "DataHarmonizer provenance",
-          "rank": 53,
+          "rank": 78,
           "slot_group": "Contributor acknowledgement"
         }
       },
@@ -7568,12 +9651,46 @@ var SCHEMA = {
           "range": "WhitespaceMinimizedString",
           "required": true
         },
+        "bioproject accession": {
+          "name": "bioproject accession",
+          "description": "The INSDC accession number of the BioProject(s) to which the BioSample belongs.",
+          "title": "bioproject accession",
+          "from_schema": "https://example.com/monkeypox",
+          "rank": 2,
+          "slot_uri": "GENEPIO:0001136",
+          "alias": "bioproject_accession",
+          "owner": "Monkeypox_international",
+          "slot_group": "Database Identifiers",
+          "range": "WhitespaceMinimizedString",
+          "structured_pattern": {
+            "syntax": "{UPPER_CASE}",
+            "interpolated": true,
+            "partial_match": false
+          }
+        },
+        "biosample accession": {
+          "name": "biosample accession",
+          "description": "The identifier assigned to a BioSample in INSDC archives.",
+          "title": "biosample accession",
+          "from_schema": "https://example.com/monkeypox",
+          "rank": 3,
+          "slot_uri": "GENEPIO:0001139",
+          "alias": "biosample_accession",
+          "owner": "Monkeypox_international",
+          "slot_group": "Database Identifiers",
+          "range": "WhitespaceMinimizedString",
+          "structured_pattern": {
+            "syntax": "{UPPER_CASE}",
+            "interpolated": true,
+            "partial_match": false
+          }
+        },
         "GISAID virus name": {
           "name": "GISAID virus name",
           "description": "Identifier of the specific isolate.",
           "title": "GISAID virus name",
           "from_schema": "https://example.com/monkeypox",
-          "rank": 2,
+          "rank": 4,
           "slot_uri": "GENEPIO:0100282",
           "alias": "GISAID_virus_name",
           "owner": "Monkeypox_international",
@@ -7585,7 +9702,7 @@ var SCHEMA = {
           "description": "The GISAID accession number assigned to the sequence.",
           "title": "GISAID accession",
           "from_schema": "https://example.com/monkeypox",
-          "rank": 3,
+          "rank": 5,
           "slot_uri": "GENEPIO:0001147",
           "alias": "GISAID_accession",
           "owner": "Monkeypox_international",
@@ -7606,7 +9723,7 @@ var SCHEMA = {
             "GISAID:Originating lab",
             "BIOSAMPLE:collected_by"
           ],
-          "rank": 4,
+          "rank": 6,
           "slot_uri": "GENEPIO:0001153",
           "alias": "sample_collected_by",
           "owner": "Monkeypox_international",
@@ -7626,7 +9743,7 @@ var SCHEMA = {
           "description": "The email address of the contact responsible for follow-up regarding the sample.",
           "title": "sample collector contact email",
           "from_schema": "https://example.com/monkeypox",
-          "rank": 5,
+          "rank": 7,
           "slot_uri": "GENEPIO:0001156",
           "alias": "sample_collector_contact_email",
           "owner": "Monkeypox_international",
@@ -7639,7 +9756,7 @@ var SCHEMA = {
           "description": "The mailing address of the agency submitting the sample.",
           "title": "sample collector contact address",
           "from_schema": "https://example.com/monkeypox",
-          "rank": 6,
+          "rank": 8,
           "slot_uri": "GENEPIO:0001158",
           "alias": "sample_collector_contact_address",
           "owner": "Monkeypox_international",
@@ -7654,7 +9771,7 @@ var SCHEMA = {
           "exact_mappings": [
             "BIOSAMPLE:sequenced_by"
           ],
-          "rank": 7,
+          "rank": 9,
           "slot_uri": "GENEPIO:0100416",
           "alias": "sequenced_by",
           "owner": "Monkeypox_international",
@@ -7674,7 +9791,7 @@ var SCHEMA = {
           "description": "The email address of the contact responsible for follow-up regarding the sequence.",
           "title": "sequenced by contact email",
           "from_schema": "https://example.com/monkeypox",
-          "rank": 8,
+          "rank": 10,
           "slot_uri": "GENEPIO:0100422",
           "alias": "sequenced_by_contact_email",
           "owner": "Monkeypox_international",
@@ -7686,7 +9803,7 @@ var SCHEMA = {
           "description": "The mailing address of the agency submitting the sequence.",
           "title": "sequenced by contact address",
           "from_schema": "https://example.com/monkeypox",
-          "rank": 9,
+          "rank": 11,
           "slot_uri": "GENEPIO:0100423",
           "alias": "sequenced_by_contact_address",
           "owner": "Monkeypox_international",
@@ -7702,7 +9819,7 @@ var SCHEMA = {
             "GISAID:Submitting lab",
             "BIOSAMPLE:sequence_submitted_by"
           ],
-          "rank": 10,
+          "rank": 12,
           "slot_uri": "GENEPIO:0001159",
           "alias": "sequence_submitted_by",
           "owner": "Monkeypox_international",
@@ -7722,7 +9839,7 @@ var SCHEMA = {
           "description": "The email address of the agency responsible for submission of the sequence.",
           "title": "sequence submitter contact email",
           "from_schema": "https://example.com/monkeypox",
-          "rank": 11,
+          "rank": 13,
           "slot_uri": "GENEPIO:0001165",
           "alias": "sequence_submitter_contact_email",
           "owner": "Monkeypox_international",
@@ -7734,7 +9851,7 @@ var SCHEMA = {
           "description": "The mailing address of the agency responsible for submission of the sequence.",
           "title": "sequence submitter contact address",
           "from_schema": "https://example.com/monkeypox",
-          "rank": 12,
+          "rank": 14,
           "slot_uri": "GENEPIO:0001167",
           "alias": "sequence_submitter_contact_address",
           "owner": "Monkeypox_international",
@@ -7746,7 +9863,7 @@ var SCHEMA = {
           "description": "The date on which the sample was collected.",
           "title": "sample collection date",
           "from_schema": "https://example.com/monkeypox",
-          "rank": 13,
+          "rank": 15,
           "slot_uri": "GENEPIO:0001174",
           "alias": "sample_collection_date",
           "owner": "Monkeypox_international",
@@ -7758,7 +9875,7 @@ var SCHEMA = {
           "description": "The date on which the sample was received.",
           "title": "sample received date",
           "from_schema": "https://example.com/monkeypox",
-          "rank": 14,
+          "rank": 16,
           "slot_uri": "GENEPIO:0001179",
           "alias": "sample_received_date",
           "owner": "Monkeypox_international",
@@ -7774,7 +9891,7 @@ var SCHEMA = {
             }
           ],
           "from_schema": "https://example.com/monkeypox",
-          "rank": 15,
+          "rank": 17,
           "slot_uri": "GENEPIO:0001181",
           "alias": "geo_loc_name_(country)",
           "owner": "Monkeypox_international",
@@ -7797,7 +9914,7 @@ var SCHEMA = {
             "Provide the state/province/territory name from the controlled vocabulary provided."
           ],
           "from_schema": "https://example.com/monkeypox",
-          "rank": 17,
+          "rank": 19,
           "slot_uri": "GENEPIO:0001185",
           "alias": "geo_loc_name_(state/province/territory)",
           "owner": "Monkeypox_international",
@@ -7812,6 +9929,30 @@ var SCHEMA = {
             }
           ]
         },
+        "geo_loc latitude": {
+          "name": "geo_loc latitude",
+          "description": "The latitude coordinates of the geographical location of sample collection.",
+          "title": "geo_loc latitude",
+          "from_schema": "https://example.com/monkeypox",
+          "rank": 20,
+          "slot_uri": "GENEPIO:0100309",
+          "alias": "geo_loc_latitude",
+          "owner": "Monkeypox_international",
+          "slot_group": "Sample collection and processing",
+          "range": "WhitespaceMinimizedString"
+        },
+        "geo_loc longitude": {
+          "name": "geo_loc longitude",
+          "description": "The longitude coordinates of the geographical location of sample collection.",
+          "title": "geo_loc longitude",
+          "from_schema": "https://example.com/monkeypox",
+          "rank": 21,
+          "slot_uri": "GENEPIO:0100310",
+          "alias": "geo_loc_longitude",
+          "owner": "Monkeypox_international",
+          "slot_group": "Sample collection and processing",
+          "range": "WhitespaceMinimizedString"
+        },
         "organism": {
           "name": "organism",
           "description": "Taxonomic name of the organism.",
@@ -7822,7 +9963,7 @@ var SCHEMA = {
             }
           ],
           "from_schema": "https://example.com/monkeypox",
-          "rank": 18,
+          "rank": 22,
           "slot_uri": "GENEPIO:0001191",
           "alias": "organism",
           "owner": "Monkeypox_international",
@@ -7853,7 +9994,7 @@ var SCHEMA = {
           "exact_mappings": [
             "BIOSAMPLE:isolate"
           ],
-          "rank": 19,
+          "rank": 23,
           "slot_uri": "GENEPIO:0001644",
           "alias": "isolate",
           "owner": "Monkeypox_international",
@@ -7870,7 +10011,7 @@ var SCHEMA = {
             }
           ],
           "from_schema": "https://example.com/monkeypox",
-          "rank": 20,
+          "rank": 24,
           "slot_uri": "GENEPIO:0001198",
           "alias": "purpose_of_sampling",
           "owner": "Monkeypox_international",
@@ -7890,7 +10031,7 @@ var SCHEMA = {
           "description": "The description of why the sample was collected, providing specific details.",
           "title": "purpose of sampling details",
           "from_schema": "https://example.com/monkeypox",
-          "rank": 21,
+          "rank": 25,
           "slot_uri": "GENEPIO:0001200",
           "alias": "purpose_of_sampling_details",
           "owner": "Monkeypox_international",
@@ -7907,13 +10048,13 @@ var SCHEMA = {
             }
           ],
           "from_schema": "https://example.com/monkeypox",
-          "rank": 22,
+          "rank": 26,
           "slot_uri": "GENEPIO:0001211",
           "multivalued": true,
           "alias": "anatomical_material",
           "owner": "Monkeypox_international",
           "slot_group": "Sample collection and processing",
-          "required": true,
+          "recommended": true,
           "any_of": [
             {
               "range": "anatomical material international menu"
@@ -7933,13 +10074,13 @@ var SCHEMA = {
             }
           ],
           "from_schema": "https://example.com/monkeypox",
-          "rank": 23,
+          "rank": 27,
           "slot_uri": "GENEPIO:0001214",
           "multivalued": true,
           "alias": "anatomical_part",
           "owner": "Monkeypox_international",
           "slot_group": "Sample collection and processing",
-          "required": true,
+          "recommended": true,
           "any_of": [
             {
               "range": "anatomical part international menu"
@@ -7959,13 +10100,13 @@ var SCHEMA = {
             }
           ],
           "from_schema": "https://example.com/monkeypox",
-          "rank": 24,
+          "rank": 28,
           "slot_uri": "GENEPIO:0001216",
           "multivalued": true,
           "alias": "body_product",
           "owner": "Monkeypox_international",
           "slot_group": "Sample collection and processing",
-          "required": true
+          "recommended": true
         },
         "collection device": {
           "name": "collection device",
@@ -7977,13 +10118,13 @@ var SCHEMA = {
             }
           ],
           "from_schema": "https://example.com/monkeypox",
-          "rank": 25,
+          "rank": 29,
           "slot_uri": "GENEPIO:0001234",
           "multivalued": true,
           "alias": "collection_device",
           "owner": "Monkeypox_international",
           "slot_group": "Sample collection and processing",
-          "required": true,
+          "recommended": true,
           "any_of": [
             {
               "range": "collection device international menu"
@@ -8003,13 +10144,13 @@ var SCHEMA = {
             }
           ],
           "from_schema": "https://example.com/monkeypox",
-          "rank": 26,
+          "rank": 30,
           "slot_uri": "GENEPIO:0001241",
           "multivalued": true,
           "alias": "collection_method",
           "owner": "Monkeypox_international",
           "slot_group": "Sample collection and processing",
-          "required": true,
+          "recommended": true,
           "any_of": [
             {
               "range": "collection method international menu"
@@ -8029,12 +10170,20 @@ var SCHEMA = {
             }
           ],
           "from_schema": "https://example.com/monkeypox",
-          "rank": 27,
+          "rank": 31,
           "slot_uri": "GENEPIO:0001387",
           "alias": "host_(scientific_name)",
           "owner": "Monkeypox_international",
           "slot_group": "Host Information",
-          "required": true
+          "required": true,
+          "any_of": [
+            {
+              "range": "host (scientific name) international menu"
+            },
+            {
+              "range": "null value menu"
+            }
+          ]
         },
         "host disease": {
           "name": "host disease",
@@ -8046,7 +10195,7 @@ var SCHEMA = {
             }
           ],
           "from_schema": "https://example.com/monkeypox",
-          "rank": 28,
+          "rank": 32,
           "slot_uri": "GENEPIO:0001391",
           "alias": "host_disease",
           "owner": "Monkeypox_international",
@@ -8061,23 +10210,58 @@ var SCHEMA = {
             }
           ]
         },
+        "host subject ID": {
+          "name": "host subject ID",
+          "description": "A unique identifier by which each host can be referred to e.g. #131",
+          "title": "host subject ID",
+          "comments": [
+            "Provide the host identifier. Should be a unique, user-defined identifier."
+          ],
+          "examples": [
+            {
+              "value": "BCxy123"
+            }
+          ],
+          "from_schema": "https://example.com/monkeypox",
+          "exact_mappings": [
+            "NML_LIMS:host subject ID",
+            "BIOSAMPLE:host_subject_id"
+          ],
+          "rank": 40,
+          "slot_uri": "GENEPIO:0001398",
+          "alias": "host_subject_ID",
+          "owner": "Monkeypox_international",
+          "slot_group": "Host Information",
+          "range": "WhitespaceMinimizedString"
+        },
         "host health state": {
           "name": "host health state",
+          "description": "Health status of the host at the time of sample collection.",
           "title": "host health state",
           "from_schema": "https://example.com/monkeypox",
-          "rank": 29,
+          "rank": 34,
           "slot_uri": "GENEPIO:0001388",
           "alias": "host_health_state",
           "owner": "Monkeypox_international",
-          "slot_group": "Host Information",
-          "recommended": true
+          "slot_group": "Host Information"
+        },
+        "host health outcome": {
+          "name": "host health outcome",
+          "description": "Disease outcome in the host.",
+          "title": "host health outcome",
+          "from_schema": "https://example.com/monkeypox",
+          "rank": 35,
+          "slot_uri": "GENEPIO:0001389",
+          "alias": "host_health_outcome",
+          "owner": "Monkeypox_international",
+          "slot_group": "Host Information"
         },
         "host age": {
           "name": "host age",
           "description": "Age of host at the time of sampling.",
           "title": "host age",
           "from_schema": "https://example.com/monkeypox",
-          "rank": 30,
+          "rank": 36,
           "slot_uri": "GENEPIO:0001392",
           "alias": "host_age",
           "owner": "Monkeypox_international",
@@ -8089,7 +10273,7 @@ var SCHEMA = {
           "description": "The units used to measure the host's age.",
           "title": "host age unit",
           "from_schema": "https://example.com/monkeypox",
-          "rank": 31,
+          "rank": 37,
           "slot_uri": "GENEPIO:0001393",
           "alias": "host_age_unit",
           "owner": "Monkeypox_international",
@@ -8101,7 +10285,7 @@ var SCHEMA = {
           "description": "The age category of the host at the time of sampling.",
           "title": "host age bin",
           "from_schema": "https://example.com/monkeypox",
-          "rank": 32,
+          "rank": 38,
           "slot_uri": "GENEPIO:0001394",
           "alias": "host_age_bin",
           "owner": "Monkeypox_international",
@@ -8113,21 +10297,173 @@ var SCHEMA = {
           "description": "The gender of the host at the time of sample collection.",
           "title": "host gender",
           "from_schema": "https://example.com/monkeypox",
-          "rank": 33,
+          "rank": 39,
           "slot_uri": "GENEPIO:0001395",
           "alias": "host_gender",
           "owner": "Monkeypox_international",
           "slot_group": "Host Information",
           "recommended": true
         },
+        "symptom onset date": {
+          "name": "symptom onset date",
+          "description": "The date on which the symptoms began or were first noted.",
+          "title": "symptom onset date",
+          "from_schema": "https://example.com/monkeypox",
+          "rank": 41,
+          "slot_uri": "GENEPIO:0001399",
+          "alias": "symptom_onset_date",
+          "owner": "Monkeypox_international",
+          "slot_group": "Host Information"
+        },
+        "signs and symptoms": {
+          "name": "signs and symptoms",
+          "description": "A perceived change in function or sensation, (loss, disturbance or appearance) indicative of a disease, reported by a patient.",
+          "title": "signs and symptoms",
+          "from_schema": "https://example.com/monkeypox",
+          "rank": 42,
+          "slot_uri": "GENEPIO:0001400",
+          "multivalued": true,
+          "alias": "signs_and_symptoms",
+          "owner": "Monkeypox_international",
+          "slot_group": "Host Information"
+        },
+        "pre-existing conditions and risk factors": {
+          "name": "pre-existing conditions and risk factors",
+          "description": "Patient pre-existing conditions and risk factors. <li>Pre-existing condition: A medical condition that existed prior to the current infection. <li>Risk Factor: A variable associated with an increased risk of disease or infection.",
+          "title": "pre-existing conditions and risk factors",
+          "from_schema": "https://example.com/monkeypox",
+          "rank": 43,
+          "slot_uri": "GENEPIO:0001401",
+          "multivalued": true,
+          "alias": "pre_existing_conditions_and_risk_factors",
+          "owner": "Monkeypox_international",
+          "slot_group": "Host Information"
+        },
+        "host vaccination status": {
+          "name": "host vaccination status",
+          "description": "The vaccination status of the host (fully vaccinated, partially vaccinated, or not vaccinated).",
+          "title": "host vaccination status",
+          "from_schema": "https://example.com/monkeypox",
+          "rank": 44,
+          "slot_uri": "GENEPIO:0001404",
+          "alias": "host_vaccination_status",
+          "owner": "Monkeypox_international",
+          "slot_group": "Host vaccination information"
+        },
+        "number of vaccine doses received": {
+          "name": "number of vaccine doses received",
+          "description": "The number of doses of the vaccine recived by the host.",
+          "title": "number of vaccine doses received",
+          "from_schema": "https://example.com/monkeypox",
+          "rank": 45,
+          "slot_uri": "GENEPIO:0001406",
+          "alias": "number_of_vaccine_doses_received",
+          "owner": "Monkeypox_international",
+          "slot_group": "Host vaccination information",
+          "range": "integer"
+        },
+        "vaccination dose 1 vaccine name": {
+          "name": "vaccination dose 1 vaccine name",
+          "description": "The name of the vaccine administered as the first dose of a vaccine regimen.",
+          "title": "vaccination dose 1 vaccine name",
+          "from_schema": "https://example.com/monkeypox",
+          "rank": 46,
+          "slot_uri": "GENEPIO:0100313",
+          "alias": "vaccination_dose_1_vaccine_name",
+          "owner": "Monkeypox_international",
+          "slot_group": "Host vaccination information"
+        },
+        "vaccination dose 1 vaccination date": {
+          "name": "vaccination dose 1 vaccination date",
+          "description": "The date the first dose of a vaccine was administered.",
+          "title": "vaccination dose 1 vaccination date",
+          "from_schema": "https://example.com/monkeypox",
+          "rank": 47,
+          "slot_uri": "GENEPIO:0100314",
+          "alias": "vaccination_dose_1_vaccination_date",
+          "owner": "Monkeypox_international",
+          "slot_group": "Host vaccination information"
+        },
+        "vaccination history": {
+          "name": "vaccination history",
+          "description": "A description of the vaccines received and the administration dates of a series of vaccinations against a specific disease or a set of diseases.",
+          "title": "vaccination history",
+          "from_schema": "https://example.com/monkeypox",
+          "rank": 48,
+          "slot_uri": "GENEPIO:0100321",
+          "alias": "vaccination_history",
+          "owner": "Monkeypox_international",
+          "slot_group": "Host vaccination information",
+          "range": "WhitespaceMinimizedString"
+        },
         "travel history": {
           "name": "travel history",
           "description": "Travel history in last six months.",
           "title": "travel history",
           "from_schema": "https://example.com/monkeypox",
-          "rank": 34,
+          "rank": 49,
           "slot_uri": "GENEPIO:0001416",
           "alias": "travel_history",
+          "owner": "Monkeypox_international",
+          "slot_group": "Host exposure information",
+          "range": "WhitespaceMinimizedString"
+        },
+        "exposure event": {
+          "name": "exposure event",
+          "description": "Event leading to exposure.",
+          "title": "exposure event",
+          "from_schema": "https://example.com/monkeypox",
+          "rank": 50,
+          "slot_uri": "GENEPIO:0001417",
+          "alias": "exposure_event",
+          "owner": "Monkeypox_international",
+          "slot_group": "Host exposure information"
+        },
+        "exposure contact level": {
+          "name": "exposure contact level",
+          "description": "The exposure transmission contact type.",
+          "title": "exposure contact level",
+          "from_schema": "https://example.com/monkeypox",
+          "rank": 51,
+          "slot_uri": "GENEPIO:0001418",
+          "alias": "exposure_contact_level",
+          "owner": "Monkeypox_international",
+          "slot_group": "Host exposure information"
+        },
+        "host role": {
+          "name": "host role",
+          "description": "The role of the host in relation to the exposure setting.",
+          "title": "host role",
+          "from_schema": "https://example.com/monkeypox",
+          "rank": 52,
+          "slot_uri": "GENEPIO:0001419",
+          "multivalued": true,
+          "alias": "host_role",
+          "owner": "Monkeypox_international",
+          "slot_group": "Host exposure information",
+          "range": "host role menu"
+        },
+        "exposure setting": {
+          "name": "exposure setting",
+          "description": "The setting leading to exposure.",
+          "title": "exposure setting",
+          "from_schema": "https://example.com/monkeypox",
+          "rank": 53,
+          "slot_uri": "GENEPIO:0001428",
+          "multivalued": true,
+          "alias": "exposure_setting",
+          "owner": "Monkeypox_international",
+          "slot_group": "Host exposure information",
+          "range": "exposure setting menu"
+        },
+        "exposure details": {
+          "name": "exposure details",
+          "description": "Additional host exposure information.",
+          "title": "exposure details",
+          "from_schema": "https://example.com/monkeypox",
+          "rank": 54,
+          "slot_uri": "GENEPIO:0001431",
+          "alias": "exposure_details",
           "owner": "Monkeypox_international",
           "slot_group": "Host exposure information",
           "range": "WhitespaceMinimizedString"
@@ -8136,8 +10472,13 @@ var SCHEMA = {
           "name": "purpose of sequencing",
           "description": "The reason that the sample was sequenced.",
           "title": "purpose of sequencing",
+          "examples": [
+            {
+              "value": "Baseline surveillance (random sampling) [GENEPIO:0100005]"
+            }
+          ],
           "from_schema": "https://example.com/monkeypox",
-          "rank": 35,
+          "rank": 55,
           "slot_uri": "GENEPIO:0001445",
           "multivalued": true,
           "alias": "purpose_of_sequencing",
@@ -8158,7 +10499,7 @@ var SCHEMA = {
           "description": "The description of why the sample was sequenced providing specific details.",
           "title": "purpose of sequencing details",
           "from_schema": "https://example.com/monkeypox",
-          "rank": 36,
+          "rank": 56,
           "slot_uri": "GENEPIO:0001446",
           "alias": "purpose_of_sequencing_details",
           "owner": "Monkeypox_international",
@@ -8170,7 +10511,7 @@ var SCHEMA = {
           "description": "The date the sample was sequenced.",
           "title": "sequencing date",
           "from_schema": "https://example.com/monkeypox",
-          "rank": 38,
+          "rank": 57,
           "slot_uri": "GENEPIO:0001447",
           "alias": "sequencing_date",
           "owner": "Monkeypox_international",
@@ -8181,7 +10522,7 @@ var SCHEMA = {
           "description": "The name of the DNA library preparation kit used to generate the library being sequenced.",
           "title": "library preparation kit",
           "from_schema": "https://example.com/monkeypox",
-          "rank": 39,
+          "rank": 58,
           "slot_uri": "GENEPIO:0001450",
           "alias": "library_preparation_kit",
           "owner": "Monkeypox_international",
@@ -8192,8 +10533,13 @@ var SCHEMA = {
           "name": "sequencing instrument",
           "description": "The model of the sequencing instrument used.",
           "title": "sequencing instrument",
+          "examples": [
+            {
+              "value": "Oxford Nanopore MinION [GENEPIO:0100142]"
+            }
+          ],
           "from_schema": "https://example.com/monkeypox",
-          "rank": 40,
+          "rank": 59,
           "slot_uri": "GENEPIO:0001452",
           "multivalued": true,
           "alias": "sequencing_instrument",
@@ -8214,7 +10560,7 @@ var SCHEMA = {
           "description": "The protocol used to generate the sequence.",
           "title": "sequencing protocol",
           "from_schema": "https://example.com/monkeypox",
-          "rank": 41,
+          "rank": 60,
           "slot_uri": "GENEPIO:0001454",
           "alias": "sequencing_protocol",
           "owner": "Monkeypox_international",
@@ -8226,7 +10572,7 @@ var SCHEMA = {
           "description": "The names of the software and version number used for raw data processing such as removing barcodes, adapter trimming, filtering etc.",
           "title": "raw sequence data processing method",
           "from_schema": "https://example.com/monkeypox",
-          "rank": 42,
+          "rank": 61,
           "slot_uri": "GENEPIO:0001458",
           "alias": "raw_sequence_data_processing_method",
           "owner": "Monkeypox_international",
@@ -8238,7 +10584,7 @@ var SCHEMA = {
           "description": "The method used to remove host reads from the pathogen sequence.",
           "title": "dehosting method",
           "from_schema": "https://example.com/monkeypox",
-          "rank": 43,
+          "rank": 62,
           "slot_uri": "GENEPIO:0001459",
           "alias": "dehosting_method",
           "owner": "Monkeypox_international",
@@ -8250,7 +10596,7 @@ var SCHEMA = {
           "description": "The name of software used to generate the consensus sequence.",
           "title": "consensus sequence software name",
           "from_schema": "https://example.com/monkeypox",
-          "rank": 44,
+          "rank": 63,
           "slot_uri": "GENEPIO:0001463",
           "alias": "consensus_sequence_software_name",
           "owner": "Monkeypox_international",
@@ -8263,7 +10609,7 @@ var SCHEMA = {
           "description": "The version of the software used to generate the consensus sequence.",
           "title": "consensus sequence software version",
           "from_schema": "https://example.com/monkeypox",
-          "rank": 45,
+          "rank": 64,
           "slot_uri": "GENEPIO:0001469",
           "alias": "consensus_sequence_software_version",
           "owner": "Monkeypox_international",
@@ -8276,7 +10622,7 @@ var SCHEMA = {
           "description": "The percentage of the reference genome covered by the sequenced data, to a prescribed depth.",
           "title": "breadth of coverage value",
           "from_schema": "https://example.com/monkeypox",
-          "rank": 46,
+          "rank": 65,
           "slot_uri": "GENEPIO:0001472",
           "alias": "breadth_of_coverage_value",
           "owner": "Monkeypox_international",
@@ -8288,7 +10634,7 @@ var SCHEMA = {
           "description": "The average number of reads representing a given nucleotide in the reconstructed sequence.",
           "title": "depth of coverage value",
           "from_schema": "https://example.com/monkeypox",
-          "rank": 47,
+          "rank": 66,
           "slot_uri": "GENEPIO:0001474",
           "alias": "depth_of_coverage_value",
           "owner": "Monkeypox_international",
@@ -8300,7 +10646,7 @@ var SCHEMA = {
           "description": "The threshold used as a cut-off for the depth of coverage.",
           "title": "depth of coverage threshold",
           "from_schema": "https://example.com/monkeypox",
-          "rank": 48,
+          "rank": 67,
           "slot_uri": "GENEPIO:0001475",
           "alias": "depth_of_coverage_threshold",
           "owner": "Monkeypox_international",
@@ -8312,7 +10658,7 @@ var SCHEMA = {
           "description": "The number of total base pairs generated by the sequencing process.",
           "title": "number of base pairs sequenced",
           "from_schema": "https://example.com/monkeypox",
-          "rank": 49,
+          "rank": 68,
           "slot_uri": "GENEPIO:0001482",
           "alias": "number_of_base_pairs_sequenced",
           "owner": "Monkeypox_international",
@@ -8325,7 +10671,7 @@ var SCHEMA = {
           "description": "Size of the reconstructed genome described as the number of base pairs.",
           "title": "assembled genome length",
           "from_schema": "https://example.com/monkeypox",
-          "rank": 50,
+          "rank": 69,
           "slot_uri": "GENEPIO:0001483",
           "alias": "assembled_genome_length",
           "owner": "Monkeypox_international",
@@ -8338,19 +10684,118 @@ var SCHEMA = {
           "description": "A description of the overall bioinformatics strategy used.",
           "title": "bioinformatics protocol",
           "from_schema": "https://example.com/monkeypox",
-          "rank": 51,
+          "rank": 70,
           "slot_uri": "GENEPIO:0001489",
           "alias": "bioinformatics_protocol",
           "owner": "Monkeypox_international",
           "slot_group": "Bioinformatics and QC metrics",
           "range": "WhitespaceMinimizedString"
         },
+        "gene name 1": {
+          "name": "gene name 1",
+          "description": "The name of the gene used in the diagnostic RT-PCR test.",
+          "title": "gene name 1",
+          "comments": [
+            "Provide the full name of the gene used in the test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI"
+          ],
+          "from_schema": "https://example.com/monkeypox",
+          "rank": 71,
+          "slot_uri": "GENEPIO:0001507",
+          "alias": "gene_name_1",
+          "owner": "Monkeypox_international",
+          "slot_group": "Pathogen diagnostic testing",
+          "any_of": [
+            {
+              "range": "WhitespaceMinimizedString"
+            },
+            {
+              "range": "null value menu"
+            }
+          ]
+        },
+        "diagnostic pcr Ct value 1": {
+          "name": "diagnostic pcr Ct value 1",
+          "description": "The Ct value result from a diagnostic SARS-CoV-2 RT-PCR test.",
+          "title": "diagnostic pcr Ct value 1",
+          "from_schema": "https://example.com/monkeypox",
+          "rank": 72,
+          "slot_uri": "GENEPIO:0001509",
+          "alias": "diagnostic_pcr_Ct_value_1",
+          "owner": "Monkeypox_international",
+          "slot_group": "Pathogen diagnostic testing"
+        },
+        "gene name 2": {
+          "name": "gene name 2",
+          "description": "The name of the gene used in the diagnostic RT-PCR test.",
+          "title": "gene name 2",
+          "comments": [
+            "Provide the full name of another gene used in an RT-PCR test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI"
+          ],
+          "from_schema": "https://example.com/monkeypox",
+          "rank": 73,
+          "slot_uri": "GENEPIO:0001510",
+          "alias": "gene_name_2",
+          "owner": "Monkeypox_international",
+          "slot_group": "Pathogen diagnostic testing",
+          "any_of": [
+            {
+              "range": "WhitespaceMinimizedString"
+            },
+            {
+              "range": "null value menu"
+            }
+          ]
+        },
+        "diagnostic pcr Ct value 2": {
+          "name": "diagnostic pcr Ct value 2",
+          "description": "The Ct value result from a diagnostic SARS-CoV-2 RT-PCR test.",
+          "title": "diagnostic pcr Ct value 2",
+          "from_schema": "https://example.com/monkeypox",
+          "rank": 74,
+          "slot_uri": "GENEPIO:0001512",
+          "alias": "diagnostic_pcr_Ct_value_2",
+          "owner": "Monkeypox_international",
+          "slot_group": "Pathogen diagnostic testing"
+        },
+        "gene name 3": {
+          "name": "gene name 3",
+          "description": "The name of the gene used in the diagnostic RT-PCR test.",
+          "title": "gene name 3",
+          "comments": [
+            "Provide the full name of another gene used in an RT-PCR test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI"
+          ],
+          "from_schema": "https://example.com/monkeypox",
+          "rank": 75,
+          "slot_uri": "GENEPIO:0001513",
+          "alias": "gene_name_3",
+          "owner": "Monkeypox_international",
+          "slot_group": "Pathogen diagnostic testing",
+          "any_of": [
+            {
+              "range": "WhitespaceMinimizedString"
+            },
+            {
+              "range": "null value menu"
+            }
+          ]
+        },
+        "diagnostic pcr Ct value 3": {
+          "name": "diagnostic pcr Ct value 3",
+          "description": "The Ct value result from a diagnostic SARS-CoV-2 RT-PCR test.",
+          "title": "diagnostic pcr Ct value 3",
+          "from_schema": "https://example.com/monkeypox",
+          "rank": 76,
+          "slot_uri": "GENEPIO:0001515",
+          "alias": "diagnostic_pcr_Ct_value_3",
+          "owner": "Monkeypox_international",
+          "slot_group": "Pathogen diagnostic testing"
+        },
         "authors": {
           "name": "authors",
           "description": "Names of individuals contributing to the processes of sample collection, sequence generation, analysis, and data submission.",
           "title": "authors",
           "from_schema": "https://example.com/monkeypox",
-          "rank": 52,
+          "rank": 77,
           "slot_uri": "GENEPIO:0001517",
           "alias": "authors",
           "owner": "Monkeypox_international",
@@ -8363,7 +10808,7 @@ var SCHEMA = {
           "description": "The DataHarmonizer software version provenance.",
           "title": "DataHarmonizer provenance",
           "from_schema": "https://example.com/monkeypox",
-          "rank": 53,
+          "rank": 78,
           "slot_uri": "GENEPIO:0001518",
           "alias": "DataHarmonizer_provenance",
           "owner": "Monkeypox_international",
