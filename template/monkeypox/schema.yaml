@@ -62,7 +62,7 @@ classes:
     - depth of coverage value
     - depth of coverage threshold
     - number of base pairs sequenced
-    - assembled genome length
+    - consensus genome length
     - bioinformatics protocol
     - gene name 1
     - diagnostic pcr Ct value 1
@@ -336,7 +336,7 @@ classes:
       number of base pairs sequenced:
         rank: 44
         slot_group: Bioinformatics and QC metrics
-      assembled genome length:
+      consensus genome length:
         rank: 45
         slot_group: Bioinformatics and QC metrics
       bioinformatics protocol:
@@ -469,7 +469,7 @@ classes:
     - depth of coverage value
     - depth of coverage threshold
     - number of base pairs sequenced
-    - assembled genome length
+    - consensus genome length
     - bioinformatics protocol
     - gene name 1
     - diagnostic pcr Ct value 1
@@ -779,7 +779,7 @@ classes:
       number of base pairs sequenced:
         rank: 68
         slot_group: Bioinformatics and QC metrics
-      assembled genome length:
+      consensus genome length:
         rank: 69
         slot_group: Bioinformatics and QC metrics
       bioinformatics protocol:
@@ -1231,9 +1231,7 @@ slots:
     examples:
     - value: Nucleic Acid
     slot_uri: GENEPIO:0001204
-    any_of:
-    - range: NML submitted specimen type menu
-    - range: null value menu
+    range: NML submitted specimen type menu
     required: true
     exact_mappings:
     - CNPHI:Specimen Type
@@ -1809,6 +1807,7 @@ slots:
     range: WhitespaceMinimizedString
     required: true
     exact_mappings:
+    - GISAID:Assembly method
     - CNPHI:consensus sequence
     - NML_LIMS:PH_CONSENSUS_SEQUENCE_VERSION
     - VirusSeq_Portal:consensus sequence software version
@@ -1862,9 +1861,9 @@ slots:
     minimum_value: '0'
     exact_mappings:
     - NML_LIMS:number of base pairs sequenced
-  assembled genome length:
-    name: assembled genome length
-    title: assembled genome length
+  consensus genome length:
+    name: consensus genome length
+    title: consensus genome length
     description: Size of the reconstructed genome described as the number of base
       pairs.
     comments: Provide a numerical value (no need to include units).
@@ -1985,7 +1984,7 @@ slots:
     - range: gene name 4 menu
     - range: null value menu
     exact_mappings:
-    - CNPHI:Gene Target 3
+    - CNPHI:Gene Target 4
     - 'NML_LIMS:SUBMITTED_RESLT - Gene Target #4'
     - BIOSAMPLE:gene_name_4
   diagnostic pcr Ct value 4:
@@ -2000,7 +1999,7 @@ slots:
     - range: decimal
     - range: null value menu
     exact_mappings:
-    - CNPHI:Gene Target 3 CT Value
+    - CNPHI:Gene Target 4 CT Value
     - 'NML_LIMS:SUBMITTED_RESLT - Gene Target #4 CT Value'
     - BIOSAMPLE:diagnostic_PCR_CT_value_4
   gene name 5:
@@ -2015,9 +2014,9 @@ slots:
     - range: gene name 5 menu
     - range: null value menu
     exact_mappings:
-    - CNPHI:Gene Target 3
-    - 'NML_LIMS:SUBMITTED_RESLT - Gene Target #4'
-    - BIOSAMPLE:gene_name_4
+    - CNPHI:Gene Target 5
+    - 'NML_LIMS:SUBMITTED_RESLT - Gene Target #5'
+    - BIOSAMPLE:gene_name_5
   diagnostic pcr Ct value 5:
     name: diagnostic pcr Ct value 5
     title: diagnostic pcr Ct value 5
@@ -2030,9 +2029,9 @@ slots:
     - range: decimal
     - range: null value menu
     exact_mappings:
-    - CNPHI:Gene Target 3 CT Value
-    - 'NML_LIMS:SUBMITTED_RESLT - Gene Target #4 CT Value'
-    - BIOSAMPLE:diagnostic_PCR_CT_value_4
+    - CNPHI:Gene Target 5 CT Value
+    - 'NML_LIMS:SUBMITTED_RESLT - Gene Target #5 CT Value'
+    - BIOSAMPLE:diagnostic_PCR_CT_value_5
   authors:
     name: authors
     title: authors
