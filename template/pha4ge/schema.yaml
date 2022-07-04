@@ -2889,17 +2889,17 @@ enums:
         text: Fully Vaccinated [GENEPIO:0100100]
         meaning: GENEPIO:0100100
         exact_mappings:
-        - NCBI_BIOSAMPLE:prior_SARS-CoV-2_vaccination:Yes
+        - NCBI_BIOSAMPLE:prior_sars_cov_2_vaccination:Yes
       Partially Vaccinated [GENEPIO:0100101]:
         text: Partially Vaccinated [GENEPIO:0100101]
         meaning: GENEPIO:0100101
         exact_mappings:
-        - NCBI_BIOSAMPLE:prior_SARS-CoV-2_vaccination:Yes
+        - NCBI_BIOSAMPLE:prior_sars_cov_2_vaccination:Yes
       Not Vaccinated [GENEPIO:0100102]:
         text: Not Vaccinated [GENEPIO:0100102]
         meaning: GENEPIO:0100102
         exact_mappings:
-        - NCBI_BIOSAMPLE:prior_SARS-CoV-2_vaccination:No
+        - NCBI_BIOSAMPLE:prior_sars_cov_2_vaccination:No
   prior SARS-CoV-2 antiviral treatment menu:
     name: prior SARS-CoV-2 antiviral treatment menu
     permissible_values:
@@ -2907,12 +2907,12 @@ enums:
         text: Prior antiviral treatment [GENEPIO:0100037]
         meaning: GENEPIO:0100237
         exact_mappings:
-        - NCBI_BIOSAMPLE:prior_SARS-CoV-2_antiviral_treatment:Yes
+        - NCBI_BIOSAMPLE:prior_sars_cov_2_antiviral_treatment:Yes
       No prior antiviral treatment [GENEPIO:0100233]:
         text: No prior antiviral treatment [GENEPIO:0100233]
         meaning: GENEPIO:0100233
         exact_mappings:
-        - NCBI_BIOSAMPLE:prior_SARS-CoV-2_antiviral_treatment:No
+        - NCBI_BIOSAMPLE:prior_sars_cov_2_antiviral_treatment:No
   pre-existing conditions and risk factors menu:
     name: pre-existing conditions and risk factors menu
     permissible_values:
@@ -4395,11 +4395,11 @@ enums:
       Non-binary gender [GSSO:000132]:
         text: Non-binary gender [GSSO:000132]
         meaning: GSSO:000132
-      Transgender (Male to Female) [GSSO:004004]:
-        text: Transgender (Male to Female) [GSSO:004004]
+      Transgender (assigned male at birth) [GSSO:004004]:
+        text: Transgender (assigned male at birth) [GSSO:004004]
         meaning: GSSO:004004
-      Transgender (Female to Male) [GSSO:004005]:
-        text: Transgender (Female to Male) [GSSO:004005]
+      Transgender (assigned female at birth) [GSSO:004005]:
+        text: Transgender (assigned female at birth) [GSSO:004005]
         meaning: GSSO:004005
       Undeclared [NCIT:C110959]:
         text: Undeclared [NCIT:C110959]
