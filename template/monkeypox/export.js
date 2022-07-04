@@ -125,6 +125,7 @@ var EXPORT_FORMATS = {
 				['Treatment',               []], // covv_treatment
 				['Sequencing technology',   []], // covv_seq_technology
 				['Assembly method',         []], // covv_assembly_method
+				['Depth of coverage',       []],
 				['Coverage',                []], // covv_coverage
 				['Originating lab',         []], // covv_orig_lab
 				['Address',                 []], // covv_orig_lab_addr
@@ -381,9 +382,10 @@ var EXPORT_FORMATS = {
 
 					if (headerName === 'HC_CURRENT_ID') {
 						// Assign constant value.
-						outputRow.push('SARS-CoV-2');
+						outputRow.push('Monkeypox virus');
 						continue;
 					}
+					
 					
 					// yes/no calculated field
 					if (headerName === 'VE_SYMP_AVAIL') {
