@@ -199,7 +199,7 @@ var EXPORT_FORMATS = {
 						mappedCell.push(mappedCellVal);
 					}
 					if (headerName === 'Assembly method')
-						outputRow.push(mappedCell.join(':'))
+						outputRow.push(mappedCell.join(' '))
 					else
 						outputRow.push(mappedCell.join(';'))
 				}
@@ -386,7 +386,7 @@ var EXPORT_FORMATS = {
 						continue;
 					}
 					
-					
+
 					// yes/no calculated field
 					if (headerName === 'VE_SYMP_AVAIL') {
 						// Note: if this field eventually gets null values, then must do 
