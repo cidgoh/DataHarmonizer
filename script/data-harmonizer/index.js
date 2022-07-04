@@ -22,7 +22,7 @@
  *
  */
 
-const VERSION = '1.1.0';
+const VERSION = '1.1.1';
 const VERSION_TEXT = 'DataHarmonizer provenance: v' + VERSION;
 
 let DataHarmonizer = {
