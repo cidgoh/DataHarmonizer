@@ -136,7 +136,8 @@ Object.assign(DataHarmonizer, {
 
 			let field = sourceFields[titleMap[title]];
 
-			if (field.datatype === 'select') {
+			// if sources exist, fetch transformed Value
+			if (field.sources) {
 				mappedCell.push( self.getTransformedField(headerName, mappedCellVal, field, prefix));
 			}
 			else if (field.multivalued === true) {
@@ -158,25 +159,32 @@ Object.assign(DataHarmonizer, {
 	 *
 	 * @param {String} headerName column to export to.
 	 * @param {String} value to be exported.
-	 * @param {Array<String>} fields list of source fields to examine for mappings.
-	 * @param {String} prefix of export format to examine.
+	 * @param {Array<String>} field to examine for mappings.
+	 * @param {String} prefix of export format to access in .exportField dictionary.
 	 */
 	getTransformedField: function (headerName, value, field, prefix) {
 
-	 	if (field['schema:ItemList']) {
-	 		const term = this.findById(field['schema:ItemList'], value);
+		if (field.sources) {
+			// iterate thru and will return the first match found in field.sources
+			for ( source_index in field.sources) {
 
-			// Looking for term.exportField['GRDI'] for example:
-			if (term && 'exportField' in term && prefix in term.exportField) {
-				// Here mapping involves a value substitution
-				// Note possible [target field]:[value] twist
-				for (let mapping of term.exportField[prefix]) {
-					// Usually there's just one target field, but one can map a
-					// source field to more than one target.
-					if (!('field' in mapping) || mapping.field === headerName)
-						return mapping.value;
+				term = DataHarmonizer.schema.enums[field.sources[source_index]].permissible_values[value];
+
+				// Looking for term.exportField['GRDI'] for example:
+				if (term && term.exportField && prefix in term.exportField) {
+					// Here mapping involves a value substitution
+					// Note possible [target field]:[value] twist
+					for (let mapping of term.exportField[prefix]) {
+						// Usually there's just one target field, but one can map a
+						// source field to more than one target.
+						if (!mapping.field)
+							return mapping.value;
+						if (mapping.field === headerName) {
+							return mapping.value;
+						}
+					};
 				};
-			};
+			}
 
 		};
 		return value;

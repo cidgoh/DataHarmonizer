@@ -107,13 +107,13 @@ signs and symptoms menu	HP:0030829	Covid-19	Abnormal lung auscultation [HP:00308
 	HP:0002013	Covid-19	Vomiting (throwing up) [HP:0002013]										
 													
 													
-host vaccination status menu	GENEPIO:0100100	Covid-19	Fully Vaccinated [GENEPIO:0100100]							prior_SARS-CoV-2_vaccination:Yes			
-	GENEPIO:0100101	Covid-19	Partially Vaccinated [GENEPIO:0100101]							prior_SARS-CoV-2_vaccination:Yes			
-	GENEPIO:0100102	Covid-19	Not Vaccinated [GENEPIO:0100102]							prior_SARS-CoV-2_vaccination:No			
+host vaccination status menu	GENEPIO:0100100	Covid-19	Fully Vaccinated [GENEPIO:0100100]							prior_sars_cov_2_vaccination:Yes			
+	GENEPIO:0100101	Covid-19	Partially Vaccinated [GENEPIO:0100101]							prior_sars_cov_2_vaccination:Yes			
+	GENEPIO:0100102	Covid-19	Not Vaccinated [GENEPIO:0100102]							prior_sars_cov_2_vaccination:No			
 													
 													
-prior SARS-CoV-2 antiviral treatment menu	GENEPIO:0100237	Covid-19	Prior antiviral treatment [GENEPIO:0100037]							prior_SARS-CoV-2_antiviral_treatment:Yes			
-	GENEPIO:0100233	Covid-19	No prior antiviral treatment [GENEPIO:0100233]							prior_SARS-CoV-2_antiviral_treatment:No			
+prior SARS-CoV-2 antiviral treatment menu	GENEPIO:0100237	Covid-19	Prior antiviral treatment [GENEPIO:0100037]							prior_sars_cov_2_antiviral_treatment:Yes			
+	GENEPIO:0100233	Covid-19	No prior antiviral treatment [GENEPIO:0100233]							prior_sars_cov_2_antiviral_treatment:No			
 													
 													
 pre-existing conditions and risk factors menu	VO:0004925	Covid-19	Age 60+ [VO:0004925]										
@@ -585,8 +585,8 @@ host age bin menu	GENEPIO:0100049	Covid-19	0 - 9 [GENEPIO:0100049]
 host gender menu	NCIT:C46110	Covid-19	Female [NCIT:C46110]										
 	NCIT:C46109	Covid-19	Male [NCIT:C46109]										
 	GSSO:000132	Covid-19	Non-binary gender [GSSO:000132]										
-	GSSO:004004	Covid-19	Transgender (Male to Female) [GSSO:004004]										
-	GSSO:004005	Covid-19	Transgender (Female to Male) [GSSO:004005]										
+	GSSO:004004	Covid-19	Transgender (assigned male at birth) [GSSO:004004]										
+	GSSO:004005	Covid-19	Transgender (assigned female at birth) [GSSO:004005]										
 	NCIT:C110959	Covid-19	Undeclared [NCIT:C110959]										
 													
 													

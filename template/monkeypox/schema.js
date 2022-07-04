@@ -2273,16 +2273,6 @@ var SCHEMA = {
           "meaning": "GENEPIO:0100232",
           "is_a": "Travel Exposure [GENEPIO:0100229]"
         },
-        "Travelled outside Province/Territory [GENEPIO:0001118]": {
-          "text": "Travelled outside Province/Territory [GENEPIO:0001118]",
-          "meaning": "GENEPIO:0001118",
-          "is_a": "Travel Exposure [GENEPIO:0100229]"
-        },
-        "Travelled outside Canada [GENEPIO:0001119]": {
-          "text": "Travelled outside Canada [GENEPIO:0001119]",
-          "meaning": "GENEPIO:0001119",
-          "is_a": "Travel Exposure [GENEPIO:0100229]"
-        },
         "Other Exposure Setting [GENEPIO:0100235]": {
           "text": "Other Exposure Setting [GENEPIO:0100235]",
           "meaning": "GENEPIO:0100235"

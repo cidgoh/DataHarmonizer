@@ -478,8 +478,6 @@ exposure setting menu	ECTO:3000005	Human Exposure [ECTO:3000005]
 	GENEPIO:0100230		Travelled on a Cruise Ship [GENEPIO:0100230]									
 	GENEPIO:0100231		Travelled on a Plane [GENEPIO:0100231]									
 	GENEPIO:0100232		Travelled on Ground Transport [GENEPIO:0100232]									
-	GENEPIO:0001118		Travelled outside Province/Territory [GENEPIO:0001118]									
-	GENEPIO:0001119		Travelled outside Canada [GENEPIO:0001119]									
 	GENEPIO:0100235	Other Exposure Setting [GENEPIO:0100235]										
 												
 												
