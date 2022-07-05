@@ -1,5 +1,6 @@
 id: https://example.com/monkeypox
 name: Monkeypox
+version: 1.0.0
 description: ""
 imports:
   - "linkml:types"

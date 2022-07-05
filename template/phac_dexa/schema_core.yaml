@@ -1,6 +1,7 @@
 id: https://example.com/PHAC_Dexa
 name: "PHAC_Dexa"
 description: ""
+version: 1.0.0
 imports:
   - "linkml:types"
 prefixes:

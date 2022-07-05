@@ -2,6 +2,7 @@ var SCHEMA = {
   "name": "Monkeypox",
   "description": "",
   "id": "https://example.com/monkeypox",
+  "version": "1.0.0",
   "prefixes": {
     "linkml": {
       "prefix_prefix": "linkml",
