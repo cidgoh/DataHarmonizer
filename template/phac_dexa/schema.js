@@ -2,10 +2,15 @@ var SCHEMA = {
   "name": "PHAC_Dexa",
   "description": "",
   "id": "https://example.com/PHAC_Dexa",
+  "version": "1.0.0",
   "prefixes": {
     "linkml": {
       "prefix_prefix": "linkml",
       "prefix_reference": "https://w3id.org/linkml/"
+    },
+    "GENEPIO": {
+      "prefix_prefix": "GENEPIO",
+      "prefix_reference": "http://purl.obolibrary.org/obo/GENEPIO_"
     },
     "xsd": {
       "prefix_prefix": "xsd",
@@ -18,9 +23,16 @@ var SCHEMA = {
   },
   "default_prefix": "https://example.com/PHAC_Dexa/",
   "types": {
-    "WhiteSpaceMinimizedString": {
-      "name": "WhiteSpaceMinimizedString",
+    "WhitespaceMinimizedString": {
+      "name": "WhitespaceMinimizedString",
       "description": "A string that has all whitespace trimmed off of beginning and end, and all internal whitespace segments reduced to single spaces. Whitespace includes #x9 (tab), #xA (linefeed), and #xD (carriage return).",
+      "typeof": "string",
+      "base": "str",
+      "uri": "xsd:token"
+    },
+    "Provenance": {
+      "name": "Provenance",
+      "description": "A field containing a DataHarmonizer versioning marker. It is issued by DataHarmonizer when validation is applied to a given row of data.",
       "typeof": "string",
       "base": "str",
       "uri": "xsd:token"
@@ -87,6 +99,13 @@ var SCHEMA = {
       "description": "The combination of a date and time",
       "base": "XSDDateTime",
       "uri": "xsd:dateTime",
+      "repr": "str"
+    },
+    "date_or_datetime": {
+      "name": "date_or_datetime",
+      "description": "Either a date or a datetime",
+      "base": "str",
+      "uri": "linkml:DateOrDatetime",
       "repr": "str"
     },
     "uriorcurie": {

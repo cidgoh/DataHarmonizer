@@ -2,6 +2,7 @@ var SCHEMA = {
   "name": "PHA4GE",
   "description": "",
   "id": "https://example.com/CanCOGeN_Covid-19",
+  "version": "1.0.0",
   "prefixes": {
     "linkml": {
       "prefix_prefix": "linkml",

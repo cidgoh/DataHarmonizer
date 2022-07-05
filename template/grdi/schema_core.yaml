@@ -1,6 +1,7 @@
 id: https://example.com/GRDI
 name: "GRDI"
 description: ""
+version: 1.0.0
 imports:
   - "linkml:types"
 prefixes:
