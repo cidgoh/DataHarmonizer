@@ -1705,38 +1705,38 @@ var SCHEMA = {
       "name": "exposure event menu",
       "from_schema": "https://example.com/monkeypox",
       "permissible_values": {
-        "Mass Gathering": {
-          "text": "Mass Gathering",
+        "Mass Gathering [GENEPIO:0100237]": {
+          "text": "Mass Gathering [GENEPIO:0100237]",
           "description": "A gathering or event attended by a sufficient number of people to strain the planning and response resources of the host community, state/province, nation, or region where it is being held.",
           "meaning": "GENEPIO:0100237"
         },
-        "Convention (conference)": {
-          "text": "Convention (conference)",
+        "Convention (conference) [GENEPIO:0100238]": {
+          "text": "Convention (conference) [GENEPIO:0100238]",
           "description": "A gathering of individuals who meet at an arranged place and time in order to discuss or engage in some common interest. The most common conventions are based upon industry, profession, and fandom.",
           "meaning": "GENEPIO:0100238"
         },
-        "Agricultural Event": {
-          "text": "Agricultural Event",
+        "Agricultural Event [GENEPIO:0100240]": {
+          "text": "Agricultural Event [GENEPIO:0100240]",
           "description": "A gathering exhibiting the equipment, animals, sports and recreation associated with agriculture and animal husbandry.",
           "meaning": "GENEPIO:0100240",
-          "is_a": "Convention (conference)"
+          "is_a": "Convention (conference) [GENEPIO:0100238]"
         },
-        "Social Gathering": {
-          "text": "Social Gathering",
+        "Social Gathering [PCO:0000033]": {
+          "text": "Social Gathering [PCO:0000033]",
           "description": "A type of social behavior in which a collection of humans intentionally gathers together on a temporary basis to engage socially.",
           "meaning": "PCO:0000033"
         },
-        "Community Event": {
-          "text": "Community Event",
+        "Community Event [PCO:0000034]": {
+          "text": "Community Event [PCO:0000034]",
           "description": "A human social event in which humans living in the same area or neighborhood gather to carry out activiites relevent to the people living in the area.",
           "meaning": "PCO:0000034",
-          "is_a": "Social Gathering"
+          "is_a": "Social Gathering [PCO:0000033]"
         },
-        "Party": {
-          "text": "Party",
+        "Party [PCO:0000035]": {
+          "text": "Party [PCO:0000035]",
           "description": "A human social gathering in which the intention is to have a good time. Often the intention is to celebrate something like a birthday, anniversary, or holiday, but there is not always a purpose.",
           "meaning": "PCO:0000035",
-          "is_a": "Social Gathering"
+          "is_a": "Social Gathering [PCO:0000033]"
         },
         "Other exposure event": {
           "text": "Other exposure event",
@@ -2283,12 +2283,12 @@ var SCHEMA = {
       "name": "host vaccination status menu",
       "from_schema": "https://example.com/monkeypox",
       "permissible_values": {
-        "Fully Vaccinated": {
-          "text": "Fully Vaccinated",
+        "Fully Vaccinated [GENEPIO:0100100]": {
+          "text": "Fully Vaccinated [GENEPIO:0100100]",
           "meaning": "GENEPIO:0100100"
         },
-        "Not Vaccinated": {
-          "text": "Not Vaccinated",
+        "Not Vaccinated [GENEPIO:0100102]": {
+          "text": "Not Vaccinated [GENEPIO:0100102]",
           "meaning": "GENEPIO:0100102"
         }
       }
@@ -6179,15 +6179,7 @@ var SCHEMA = {
         "VirusSeq_Portal:body product"
       ],
       "slot_uri": "GENEPIO:0001216",
-      "multivalued": true,
-      "any_of": [
-        {
-          "range": "body product menu"
-        },
-        {
-          "range": "null value menu"
-        }
-      ]
+      "multivalued": true
     },
     "collection device": {
       "name": "collection device",
@@ -7681,7 +7673,15 @@ var SCHEMA = {
           ],
           "rank": 26,
           "slot_group": "Sample collection and processing",
-          "required": true
+          "required": true,
+          "any_of": [
+            {
+              "range": "body product menu"
+            },
+            {
+              "range": "null value menu"
+            }
+          ]
         },
         "collection device": {
           "name": "collection device",
@@ -8449,7 +8449,15 @@ var SCHEMA = {
           "alias": "body_product",
           "owner": "Monkeypox",
           "slot_group": "Sample collection and processing",
-          "required": true
+          "required": true,
+          "any_of": [
+            {
+              "range": "body product menu"
+            },
+            {
+              "range": "null value menu"
+            }
+          ]
         },
         "collection device": {
           "name": "collection device",
@@ -9247,7 +9255,15 @@ var SCHEMA = {
           ],
           "rank": 28,
           "slot_group": "Sample collection and processing",
-          "recommended": true
+          "recommended": true,
+          "any_of": [
+            {
+              "range": "body product international menu"
+            },
+            {
+              "range": "null value menu"
+            }
+          ]
         },
         "collection device": {
           "name": "collection device",
@@ -10091,7 +10107,15 @@ var SCHEMA = {
           "alias": "body_product",
           "owner": "Monkeypox_international",
           "slot_group": "Sample collection and processing",
-          "recommended": true
+          "recommended": true,
+          "any_of": [
+            {
+              "range": "body product international menu"
+            },
+            {
+              "range": "null value menu"
+            }
+          ]
         },
         "collection device": {
           "name": "collection device",

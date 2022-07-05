@@ -229,6 +229,9 @@ classes:
         required: true
         examples:
         - value: Pus
+        any_of:
+        - range: body product menu
+        - range: null value menu
       collection device:
         rank: 27
         slot_group: Sample collection and processing
@@ -622,6 +625,9 @@ classes:
         recommended: true
         examples:
         - value: Pus [UBERON:0000177]
+        any_of:
+        - range: body product international menu
+        - range: null value menu
       collection device:
         rank: 29
         slot_group: Sample collection and processing
@@ -1299,9 +1305,6 @@ slots:
       emma_griffiths@sfu.ca. If not applicable, do not leave blank. Choose a null
       value.
     slot_uri: GENEPIO:0001216
-    any_of:
-    - range: body product menu
-    - range: null value menu
     multivalued: true
     exact_mappings:
     - GISAID:Specimen source
@@ -3233,43 +3236,43 @@ enums:
   exposure event menu:
     name: exposure event menu
     permissible_values:
-      Mass Gathering:
-        text: Mass Gathering
+      Mass Gathering [GENEPIO:0100237]:
+        text: Mass Gathering [GENEPIO:0100237]
         description: A gathering or event attended by a sufficient number of people
           to strain the planning and response resources of the host community, state/province,
           nation, or region where it is being held.
         meaning: GENEPIO:0100237
-      Convention (conference):
-        text: Convention (conference)
+      Convention (conference) [GENEPIO:0100238]:
+        text: Convention (conference) [GENEPIO:0100238]
         description: A gathering of individuals who meet at an arranged place and
           time in order to discuss or engage in some common interest. The most common
           conventions are based upon industry, profession, and fandom.
         meaning: GENEPIO:0100238
-      Agricultural Event:
-        text: Agricultural Event
+      Agricultural Event [GENEPIO:0100240]:
+        text: Agricultural Event [GENEPIO:0100240]
         description: A gathering exhibiting the equipment, animals, sports and recreation
           associated with agriculture and animal husbandry.
         meaning: GENEPIO:0100240
-        is_a: Convention (conference)
-      Social Gathering:
-        text: Social Gathering
+        is_a: Convention (conference) [GENEPIO:0100238]
+      Social Gathering [PCO:0000033]:
+        text: Social Gathering [PCO:0000033]
         description: A type of social behavior in which a collection of humans intentionally
           gathers together on a temporary basis to engage socially.
         meaning: PCO:0000033
-      Community Event:
-        text: Community Event
+      Community Event [PCO:0000034]:
+        text: Community Event [PCO:0000034]
         description: A human social event in which humans living in the same area
           or neighborhood gather to carry out activiites relevent to the people living
           in the area.
         meaning: PCO:0000034
-        is_a: Social Gathering
-      Party:
-        text: Party
+        is_a: Social Gathering [PCO:0000033]
+      Party [PCO:0000035]:
+        text: Party [PCO:0000035]
         description: A human social gathering in which the intention is to have a
           good time. Often the intention is to celebrate something like a birthday,
           anniversary, or holiday, but there is not always a purpose.
         meaning: PCO:0000035
-        is_a: Social Gathering
+        is_a: Social Gathering [PCO:0000033]
       Other exposure event:
         text: Other exposure event
         description: An exposure event not specified in the picklist.
@@ -3695,11 +3698,11 @@ enums:
   host vaccination status menu:
     name: host vaccination status menu
     permissible_values:
-      Fully Vaccinated:
-        text: Fully Vaccinated
+      Fully Vaccinated [GENEPIO:0100100]:
+        text: Fully Vaccinated [GENEPIO:0100100]
         meaning: GENEPIO:0100100
-      Not Vaccinated:
-        text: Not Vaccinated
+      Not Vaccinated [GENEPIO:0100102]:
+        text: Not Vaccinated [GENEPIO:0100102]
         meaning: GENEPIO:0100102
   organism menu:
     name: organism menu
