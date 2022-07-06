@@ -2,6 +2,7 @@
   "name": "GISAID",
   "description": "",
   "id": "https://example.com/GISAID",
+  "version": "1.0.0",
   "prefixes": {
     "linkml": {
       "prefix_prefix": "linkml",
@@ -98,6 +99,13 @@
       "description": "The combination of a date and time",
       "base": "XSDDateTime",
       "uri": "xsd:dateTime",
+      "repr": "str"
+    },
+    "date_or_datetime": {
+      "name": "date_or_datetime",
+      "description": "Either a date or a datetime",
+      "base": "str",
+      "uri": "linkml:DateOrDatetime",
       "repr": "str"
     },
     "uriorcurie": {

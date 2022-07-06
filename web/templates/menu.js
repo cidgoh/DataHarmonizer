@@ -51,6 +51,11 @@ export default {
       status: 'published',
       display: true,
     },
+    "Monkeypox_international": {
+      "name": "Monkeypox_international",
+      "status": "published",
+      "display": true
+    },
     schema: async () => (await import('./monkeypox/schema.json')).default,
     exportFormats: async () => (await import('./monkeypox/export.js')).default,
   },
