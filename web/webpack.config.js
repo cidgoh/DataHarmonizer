@@ -18,8 +18,8 @@ module.exports = (env, argv) => {
         patterns: [
           {
             context: 'templates',
-            from: '**/SOP.pdf',
-            to: 'static/[path][name][ext]',
+            from: '**/*.pdf',
+            to: 'template/[path][name][ext]',
           },
         ],
       }),
