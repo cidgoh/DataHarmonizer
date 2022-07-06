@@ -1,6 +1,7 @@
 id: https://example.com/monkeypox
 name: Monkeypox
-description: ''
+version: 1.0.0
+description: ""
 imports:
   - 'linkml:types'
 prefixes:
@@ -15,6 +16,12 @@ classes:
     name: 'Monkeypox'
     description: Canadian specification for Monkeypox clinical virus biosample data gathering
     is_a: dh_interface
+    see_also: template/monkeypox/SOP_Monkeypox.pdf
+  "Monkeypox_international":
+    name: "Monkeypox_international"
+    description: International specification for Monkeypox clinical virus biosample data gathering
+    is_a: dh_interface
+    see_also: template/monkeypox/SOP_Monkeypox_international.pdf
 slots: {}
 enums: {}
 types:

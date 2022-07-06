@@ -1,6 +1,7 @@
 id: https://example.com/CanCOGeN_Covid-19
 name: CanCOGeN_Covid-19
-description: ''
+description: ""
+version: 1.0.0
 imports:
   - 'linkml:types'
 prefixes:
@@ -15,6 +16,7 @@ classes:
     name: 'CanCOGeN Covid-19'
     description: Canadian specification for Covid-19 clinical virus biosample data gathering
     is_a: dh_interface
+    see_also: template/canada_covid19/SOP.pdf
 slots: {}
 enums: {}
 types:

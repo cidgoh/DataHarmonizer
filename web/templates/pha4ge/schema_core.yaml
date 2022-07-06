@@ -1,6 +1,7 @@
 id: https://example.com/CanCOGeN_Covid-19
 name: PHA4GE
-description: ''
+description: ""
+version: 1.0.0
 imports:
   - 'linkml:types'
 prefixes:
@@ -15,6 +16,7 @@ classes:
     name: 'PHA4GE'
     description: Public Health Alliance for Genomic Epidemiology biosample specification
     is_a: dh_interface
+    see_also: template/pha4ge/SOP.pdf
 slots: {}
 enums: {}
 types:

@@ -2,6 +2,7 @@
   "name": "PHA4GE",
   "description": "",
   "id": "https://example.com/CanCOGeN_Covid-19",
+  "version": "1.0.0",
   "prefixes": {
     "linkml": {
       "prefix_prefix": "linkml",
@@ -7956,6 +7957,9 @@
       "name": "PHA4GE",
       "description": "Public Health Alliance for Genomic Epidemiology biosample specification",
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "see_also": [
+        "template/pha4ge/SOP.pdf"
+      ],
       "is_a": "dh_interface",
       "slot_usage": {
         "specimen collector sample ID": {

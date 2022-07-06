@@ -15,11 +15,16 @@ export default {
       // Create an export table with template's headers (2nd row) and remaining rows of data
       const ExportHeaders = new Map([
         ['sample_name', []],
-        ['bioproject_accession', []],
-        ['GISAID_accession', []],
-        ['collected_by', []],
-        ['sequenced_by', []],
-        ['sample collection date', []],
+				['bioproject_accession',[]],
+				['attribute_package',[]],				
+				['GISAID_accession',[]],
+				['GISAID_virus_name',[]],
+				['collection_date',[]],
+				['collected_by', []],
+				['sequenced_by',       []],
+				['sequence_submitted_by',       []],
+
+				//['sample collection date',[]],
 
         [
           'geo_loc_name',
@@ -27,9 +32,6 @@ export default {
         ],
         ['organism', []],
         ['isolate', []],
-        ['GISAID_virus_name', []],
-        ['purpose_of_sampling', []],
-        ['description', []],
         [
           'isolation_source',
           [
@@ -53,17 +55,21 @@ export default {
         ['passage_history', []],
         ['passage_method', []],
         ['host', []],
+        ['host_disease', []],
         ['host_health_state', []],
         ['host_disease_outcome', []],
-        ['host_disease', []],
         ['host_age', []],
+        ['host_age_unit',   []],	
+				['host_age_bin',   []],	
         ['host_sex', []],
         ['host_subject_id', []],
+        ['purpose_of_sampling',[]],
         ['purpose_of_sequencing', []],
         ['gene_name_1', []],
         ['diagnostic_PCR_CT_value_1', []],
         ['gene_name_2', []],
         ['diagnostic_PCR_CT_value_2', []],
+        ['description',[]],
       ]);
 
       const sourceFields = dh.getFields(dh.table);
@@ -116,7 +122,6 @@ export default {
         ['Submitter', []], // submitter
         ['FASTA filename', []], // fn
         ['Virus name', []], // covv_virus_name
-        ['Type', []], // covv_type
         ['Passage details/history', []], // covv_passage
         ['Collection date', []], // covv_collection_date
         ['Location', []], // covv_location
@@ -133,6 +138,7 @@ export default {
         ['Treatment', []], // covv_treatment
         ['Sequencing technology', []], // covv_seq_technology
         ['Assembly method', []], // covv_assembly_method
+        ['Depth of coverage',       []],
         ['Coverage', []], // covv_coverage
         ['Originating lab', []], // covv_orig_lab
         ['Address', []], // covv_orig_lab_addr
@@ -145,36 +151,7 @@ export default {
       ];
 
       // GISAID has new sampling_strategy field as of May 12, 2021
-      const header_GISAID = [
-        'submitter',
-        'fn',
-        'covv_virus_name',
-        'covv_type',
-        'covv_passage',
-        'covv_collection_date',
-        'covv_location',
-        'covv_add_location',
-        'covv_host',
-        'covv_add_host_info',
-        'covv_sampling_strategy',
-        'covv_gender',
-        'covv_patient_age',
-        'covv_patient_status',
-        'covv_specimen',
-        'covv_outbreak',
-        'covv_last_vaccinated',
-        'covv_treatment',
-        'covv_seq_technology',
-        'covv_assembly_method',
-        'covv_coverage',
-        'covv_orig_lab',
-        'covv_orig_lab_addr',
-        'covv_provider_sample_id',
-        'covv_subm_lab',
-        'covv_subm_lab_addr',
-        'covv_subm_sample_id',
-        'covv_authors',
-      ];
+      const header_GISAID = ['submitter','fn','pox_virus_name','pox_passage','pox_collection_date','pox_location','pox_add_location','pox_host','pox_add_host_info','pox_sampling_strategy','pox_gender','pox_patient_age','pox_patient_status','pox_specimen','pox_outbreak','pox_last_vaccinated','pox_treatment','pox_seq_technology','pox_assembly_method','pox_coverage','pox_orig_lab','pox_orig_lab_addr','pox_provider_sample_id','pox_subm_lab','pox_subm_lab_addr','pox_subm_sample_id','pox_authors'];
 
       const sourceFields = dh.getFields(dh.table);
       const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
@@ -234,9 +211,11 @@ export default {
 
             mappedCell.push(mappedCellVal);
           }
-          if (headerName === 'Assembly method')
-            outputRow.push(mappedCell.join(':'));
-          else outputRow.push(mappedCell.join(';'));
+          if (headerName === 'Assembly method') {
+            outputRow.push(mappedCell.join(' '));
+          } else {
+            outputRow.push(mappedCell.join(';'));
+          }
         }
         outputMatrix.push(outputRow);
       }
@@ -258,6 +237,7 @@ export default {
 
   'NML LIMS': {
     fileType: 'csv',
+    pertains_to: ['Monkeypox'],
     status: 'published',
     method: function (dh) {
       // A full export table field list enables ordering of these fields in export
@@ -353,12 +333,17 @@ export default {
         //['PH_VARIANT_DESIGNATION',  []],
         //['PH_VARIANT_EVIDENCE',     []],
         //['PH_VARIANT_EVIDENCE_DETAILS', []],
-        //['SUBMITTED_RESLT - Gene Target #1',   []],
-        //['SUBMITTED_RESLT - Gene Target #1 CT Value', []],
-        //['SUBMITTED_RESLT - Gene Target #2',   []],
-        //['SUBMITTED_RESLT - Gene Target #2 CT Value', []],
-        //['SUBMITTED_RESLT - Gene Target #3',   []],
-        //['SUBMITTED_RESLT - Gene Target #3 CT Value', []],
+        ['SUBMITTED_RESLT - Gene Target #1',   []], 
+				['SUBMITTED_RESLT - Gene Target #1 CT Value', []],
+				['SUBMITTED_RESLT - Gene Target #2',   []],
+				['SUBMITTED_RESLT - Gene Target #2 CT Value', []],
+				['SUBMITTED_RESLT - Gene Target #3',   []],
+				['SUBMITTED_RESLT - Gene Target #3 CT Value', []],
+				['SUBMITTED_RESLT - Gene Target #4',   []],
+				['SUBMITTED_RESLT - Gene Target #4 CT Value', []],
+				['SUBMITTED_RESLT - Gene Target #5',   []],
+				['SUBMITTED_RESLT - Gene Target #5 CT Value', []],
+
         ['PH_CANCOGEN_AUTHORS', []],
         ['HC_COMMENTS', []],
 
@@ -414,7 +399,7 @@ export default {
         for (const [headerName, sources] of ExportHeaders) {
           if (headerName === 'HC_CURRENT_ID') {
             // Assign constant value.
-            outputRow.push('SARS-CoV-2');
+            outputRow.push('Monkeypox virus');
             continue;
           }
 
