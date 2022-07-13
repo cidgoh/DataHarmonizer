@@ -1,5 +1,5 @@
 import { DataHarmonizer, Footer, Toolbar } from '../lib';
-import menu from './templates/menu';
+import menu from './templates/menu.json';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
@@ -24,6 +24,11 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   new Toolbar(dhToolbarRoot, dh, menu, {
     templatePath: templatePath,
-    staticAssetPath: 'static/',
+    getSchema: async (schema) => {
+      return (await import(`./templates/${schema}/schema.json`)).default
+    },
+    getExportFormats: async (schema) => {
+      return (await import(`./templates/${schema}/export.js`)).default
+    },
   });
 });
