@@ -1,6 +1,6 @@
 id: https://example.com/monkeypox
 name: Monkeypox
-version: 1.0.0
+version: 1.1.0
 description: ''
 imports:
 - linkml:types
@@ -18,6 +18,7 @@ classes:
       gathering
     is_a: dh_interface
     see_also: template/monkeypox/SOP_Monkeypox.pdf
+    version: 1.1.0
     slots:
     - specimen collector sample ID
     - Related specimen primary ID
@@ -404,6 +405,7 @@ classes:
       data gathering
     is_a: dh_interface
     see_also: template/monkeypox/SOP_Monkeypox_international.pdf
+    version: 1.1.0
     slots:
     - specimen collector sample ID
     - bioproject accession
@@ -2398,6 +2400,10 @@ enums:
         text: Penis
         meaning: UBERON:0000989
         is_a: Genital area
+      Glans (tip of penis):
+        text: Glans (tip of penis)
+        meaning: UBERON:0035651
+        is_a: Penis
       Prepuce of penis (foreskin):
         text: Prepuce of penis (foreskin)
         meaning: UBERON:0001332
@@ -2574,6 +2580,10 @@ enums:
         text: Penis [UBERON:0000989]
         meaning: UBERON:0000989
         is_a: Genital area [BTO:0003358]
+      Glans (tip of penis) [UBERON:0035651]:
+        text: Glans (tip of penis) [UBERON:0035651]
+        meaning: UBERON:0035651
+        is_a: Penis [UBERON:0000989]
       Prepuce of penis (foreskin):
         text: Prepuce of penis (foreskin)
         meaning: UBERON:0001332
