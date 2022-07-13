@@ -2,7 +2,7 @@ var SCHEMA = {
   "name": "Monkeypox",
   "description": "",
   "id": "https://example.com/monkeypox",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "prefixes": {
     "linkml": {
       "prefix_prefix": "linkml",
@@ -593,6 +593,11 @@ var SCHEMA = {
           "meaning": "UBERON:0000989",
           "is_a": "Genital area"
         },
+        "Glans (tip of penis)": {
+          "text": "Glans (tip of penis)",
+          "meaning": "UBERON:0035651",
+          "is_a": "Penis"
+        },
         "Prepuce of penis (foreskin)": {
           "text": "Prepuce of penis (foreskin)",
           "meaning": "UBERON:0001332",
@@ -819,6 +824,11 @@ var SCHEMA = {
           "text": "Penis [UBERON:0000989]",
           "meaning": "UBERON:0000989",
           "is_a": "Genital area [BTO:0003358]"
+        },
+        "Glans (tip of penis) [UBERON:0035651]": {
+          "text": "Glans (tip of penis) [UBERON:0035651]",
+          "meaning": "UBERON:0035651",
+          "is_a": "Penis [UBERON:0000989]"
         },
         "Prepuce of penis (foreskin)": {
           "text": "Prepuce of penis (foreskin)",

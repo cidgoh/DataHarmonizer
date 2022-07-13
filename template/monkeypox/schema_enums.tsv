@@ -104,6 +104,7 @@ anatomical part menu	UBERON:0001245	Anus
 	BTO:0000476	Foot										
 	BTO:0003358	Genital area										
 	UBERON:0000989		      Penis									
+	UBERON:0035651			      Glans (tip of penis)								
 	UBERON:0001332			      Prepuce of penis (foreskin)								
 	UBERON:0002356		      Perineum									
 	UBERON:0001300		      Scrotum									
@@ -156,6 +157,7 @@ anatomical part international menu	UBERON:0001245	Anus [UBERON:0001245]
 	BTO:0000476	Foot [BTO:0000476]										
 	BTO:0003358	Genital area [BTO:0003358]										
 	UBERON:0000989		      Penis [UBERON:0000989]									
+	UBERON:0035651			      Glans (tip of penis) [UBERON:0035651]								
 	UBERON:0001332			      Prepuce of penis (foreskin)								
 	UBERON:0002356		      Perineum [UBERON:0002356]									
 	UBERON:0001300		      Scrotum [UBERON:0001300]									
