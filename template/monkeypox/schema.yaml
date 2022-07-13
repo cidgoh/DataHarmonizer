@@ -21,6 +21,10 @@ classes:
     slots:
     - specimen collector sample ID
     - Related specimen primary ID
+    - bioproject accession
+    - biosample accession
+    - SRA accession
+    - GenBank accession
     - GISAID accession
     - sample collected by
     - sample collector contact email
@@ -84,11 +88,23 @@ classes:
       Related specimen primary ID:
         rank: 2
         slot_group: Database Identifiers
-      GISAID accession:
+      bioproject accession:
         rank: 3
         slot_group: Database Identifiers
-      sample collected by:
+      biosample accession:
         rank: 4
+        slot_group: Database Identifiers
+      SRA accession:
+        rank: 5
+        slot_group: Database Identifiers
+      GenBank accession:
+        rank: 6
+        slot_group: Database Identifiers
+      GISAID accession:
+        rank: 7
+        slot_group: Database Identifiers
+      sample collected by:
+        rank: 8
         slot_group: Sample collection and processing
         any_of:
         - range: sample collected by menu
@@ -100,13 +116,13 @@ classes:
         - BIOSAMPLE:collected_by
         - VirusSeq_Portal:sample collected by
       sample collector contact email:
-        rank: 5
+        rank: 9
         slot_group: Sample collection and processing
       sample collector contact address:
-        rank: 6
+        rank: 10
         slot_group: Sample collection and processing
       sequenced by:
-        rank: 7
+        rank: 11
         slot_group: Sample collection and processing
         any_of:
         - range: sequence submitted by menu
@@ -115,13 +131,13 @@ classes:
         - NML_LIMS:PH_SEQUENCING_CENTRE
         - BIOSAMPLE:sequenced_by
       sequenced by contact email:
-        rank: 8
+        rank: 12
         slot_group: Sample collection and processing
       sequenced by contact address:
-        rank: 9
+        rank: 13
         slot_group: Sample collection and processing
       sequence submitted by:
-        rank: 10
+        rank: 14
         slot_group: Sample collection and processing
         any_of:
         - range: sequence submitted by menu
@@ -133,22 +149,22 @@ classes:
         - BIOSAMPLE:sequence_submitted_by
         - VirusSeq_Portal:sequence submitted by
       sequence submitter contact email:
-        rank: 11
-        slot_group: Sample collection and processing
-      sequence submitter contact address:
-        rank: 12
-        slot_group: Sample collection and processing
-      sample collection date:
-        rank: 13
-        slot_group: Sample collection and processing
-      sample collection date precision:
-        rank: 14
-        slot_group: Sample collection and processing
-      sample received date:
         rank: 15
         slot_group: Sample collection and processing
-      geo_loc_name (country):
+      sequence submitter contact address:
         rank: 16
+        slot_group: Sample collection and processing
+      sample collection date:
+        rank: 17
+        slot_group: Sample collection and processing
+      sample collection date precision:
+        rank: 18
+        slot_group: Sample collection and processing
+      sample received date:
+        rank: 19
+        slot_group: Sample collection and processing
+      geo_loc_name (country):
+        rank: 20
         slot_group: Sample collection and processing
         examples:
         - value: Canada
@@ -156,7 +172,7 @@ classes:
         - range: geo_loc_name (country) menu
         - range: null value menu
       geo_loc_name (state/province/territory):
-        rank: 17
+        rank: 21
         slot_group: Sample collection and processing
         comments: Provide the province/territory name from the controlled vocabulary
           provided.
@@ -164,7 +180,7 @@ classes:
         - range: geo_loc_name (state/province/territory) menu
         - range: null value menu
       organism:
-        rank: 18
+        rank: 22
         slot_group: Sample collection and processing
         examples:
         - value: Monkeypox virus
@@ -172,7 +188,7 @@ classes:
         - range: organism menu
         - range: null value menu
       isolate:
-        rank: 19
+        rank: 23
         slot_group: Sample collection and processing
         slot_uri: GENEPIO:0001195
         comments: "Provide the GISAID EpiPox virus name, which should be written in\
@@ -184,13 +200,13 @@ classes:
         exact_mappings:
         - GISAID:Virus name
         - CNPHI:GISAID Virus Name
-        - NML_LIMS:RESULT - CANCOGEN_SUBMISSIONS
+        - NML_LIMS:SUBMISSIONS - GISAID Virus Name
         - BIOSAMPLE:isolate
         - BIOSAMPLE:GISAID_virus_name
         - VirusSeq_Portal:isolate
         - VirusSeq_Portal:fasta header name
       purpose of sampling:
-        rank: 20
+        rank: 24
         slot_group: Sample collection and processing
         examples:
         - value: Diagnostic testing
@@ -198,16 +214,16 @@ classes:
         - range: purpose of sampling menu
         - range: null value menu
       purpose of sampling details:
-        rank: 21
+        rank: 25
         slot_group: Sample collection and processing
       NML submitted specimen type:
-        rank: 22
+        rank: 26
         slot_group: Sample collection and processing
       Related specimen relationship type:
-        rank: 23
+        rank: 27
         slot_group: Sample collection and processing
       anatomical material:
-        rank: 24
+        rank: 28
         slot_group: Sample collection and processing
         required: true
         examples:
@@ -216,7 +232,7 @@ classes:
         - range: anatomical material menu
         - range: null value menu
       anatomical part:
-        rank: 25
+        rank: 29
         slot_group: Sample collection and processing
         required: true
         examples:
@@ -225,7 +241,7 @@ classes:
         - range: anatomical part menu
         - range: null value menu
       body product:
-        rank: 26
+        rank: 30
         slot_group: Sample collection and processing
         required: true
         examples:
@@ -234,7 +250,7 @@ classes:
         - range: body product menu
         - range: null value menu
       collection device:
-        rank: 27
+        rank: 31
         slot_group: Sample collection and processing
         required: true
         examples:
@@ -243,7 +259,7 @@ classes:
         - range: collection device menu
         - range: null value menu
       collection method:
-        rank: 28
+        rank: 32
         slot_group: Sample collection and processing
         required: true
         examples:
@@ -252,7 +268,7 @@ classes:
         - range: collection method menu
         - range: null value menu
       host (scientific name):
-        rank: 29
+        rank: 33
         slot_group: Host Information
         examples:
         - value: Homo sapiens
@@ -260,7 +276,7 @@ classes:
         - range: host (scientific name) menu
         - range: null value menu
       host disease:
-        rank: 30
+        rank: 34
         slot_group: Host Information
         examples:
         - value: Monkeypox
@@ -268,10 +284,10 @@ classes:
         - range: host disease menu
         - range: null value menu
       travel history:
-        rank: 31
+        rank: 35
         slot_group: Host exposure information
       purpose of sequencing:
-        rank: 32
+        rank: 36
         slot_group: Sequencing
         examples:
         - description: Select "Targeted surveillance (non-random sampling)" if the
@@ -297,17 +313,17 @@ classes:
         - range: purpose of sequencing menu
         - range: null value menu
       purpose of sequencing details:
-        rank: 33
+        rank: 37
         slot_group: Sequencing
       sequencing date:
-        rank: 34
+        rank: 38
         slot_group: Sequencing
         required: true
       library preparation kit:
-        rank: 35
+        rank: 39
         slot_group: Sequencing
       sequencing instrument:
-        rank: 36
+        rank: 40
         slot_group: Sequencing
         examples:
         - value: Oxford Nanopore MinION
@@ -315,40 +331,40 @@ classes:
         - range: sequencing instrument menu
         - range: null value menu
       raw sequence data processing method:
-        rank: 37
+        rank: 41
         slot_group: Bioinformatics and QC metrics
         required: true
       dehosting method:
-        rank: 38
+        rank: 42
         slot_group: Bioinformatics and QC metrics
         required: true
       consensus sequence software name:
-        rank: 39
-        slot_group: Bioinformatics and QC metrics
-      consensus sequence software version:
-        rank: 40
-        slot_group: Bioinformatics and QC metrics
-      breadth of coverage value:
-        rank: 41
-        slot_group: Bioinformatics and QC metrics
-      depth of coverage value:
-        rank: 42
-        slot_group: Bioinformatics and QC metrics
-      depth of coverage threshold:
         rank: 43
         slot_group: Bioinformatics and QC metrics
-      number of base pairs sequenced:
+      consensus sequence software version:
         rank: 44
         slot_group: Bioinformatics and QC metrics
-      consensus genome length:
+      breadth of coverage value:
         rank: 45
         slot_group: Bioinformatics and QC metrics
-      bioinformatics protocol:
+      depth of coverage value:
         rank: 46
+        slot_group: Bioinformatics and QC metrics
+      depth of coverage threshold:
+        rank: 47
+        slot_group: Bioinformatics and QC metrics
+      number of base pairs sequenced:
+        rank: 48
+        slot_group: Bioinformatics and QC metrics
+      consensus genome length:
+        rank: 49
+        slot_group: Bioinformatics and QC metrics
+      bioinformatics protocol:
+        rank: 50
         slot_group: Bioinformatics and QC metrics
         required: true
       gene name 1:
-        rank: 47
+        rank: 51
         slot_group: Pathogen diagnostic testing
         comments: Select the name of the gene used for the diagnostic PCR from the
           standardized pick list.
@@ -356,10 +372,10 @@ classes:
         - range: gene name 1 menu
         - range: null value menu
       diagnostic pcr Ct value 1:
-        rank: 48
+        rank: 52
         slot_group: Pathogen diagnostic testing
       gene name 2:
-        rank: 49
+        rank: 53
         slot_group: Pathogen diagnostic testing
         comments: Select the name of the gene used for the diagnostic PCR from the
           standardized pick list.
@@ -367,10 +383,10 @@ classes:
         - range: gene name 2 menu
         - range: null value menu
       diagnostic pcr Ct value 2:
-        rank: 50
+        rank: 54
         slot_group: Pathogen diagnostic testing
       gene name 3:
-        rank: 51
+        rank: 55
         slot_group: Pathogen diagnostic testing
         comments: Select the name of the gene used for the diagnostic PCR from the
           standardized pick list.
@@ -378,25 +394,25 @@ classes:
         - range: gene name 3 menu
         - range: null value menu
       diagnostic pcr Ct value 3:
-        rank: 52
-        slot_group: Pathogen diagnostic testing
-      gene name 4:
-        rank: 53
-        slot_group: Pathogen diagnostic testing
-      diagnostic pcr Ct value 4:
-        rank: 54
-        slot_group: Pathogen diagnostic testing
-      gene name 5:
-        rank: 55
-        slot_group: Pathogen diagnostic testing
-      diagnostic pcr Ct value 5:
         rank: 56
         slot_group: Pathogen diagnostic testing
-      authors:
+      gene name 4:
         rank: 57
+        slot_group: Pathogen diagnostic testing
+      diagnostic pcr Ct value 4:
+        rank: 58
+        slot_group: Pathogen diagnostic testing
+      gene name 5:
+        rank: 59
+        slot_group: Pathogen diagnostic testing
+      diagnostic pcr Ct value 5:
+        rank: 60
+        slot_group: Pathogen diagnostic testing
+      authors:
+        rank: 61
         slot_group: Contributor acknowledgement
       DataHarmonizer provenance:
-        rank: 58
+        rank: 62
         slot_group: Contributor acknowledgement
   Monkeypox_international:
     name: Monkeypox_international
@@ -408,6 +424,8 @@ classes:
     - specimen collector sample ID
     - bioproject accession
     - biosample accession
+    - SRA accession
+    - GenBank accession
     - GISAID virus name
     - GISAID accession
     - sample collected by
@@ -493,14 +511,20 @@ classes:
       biosample accession:
         rank: 3
         slot_group: Database Identifiers
-      GISAID virus name:
+      SRA accession:
         rank: 4
         slot_group: Database Identifiers
-      GISAID accession:
+      GenBank accession:
         rank: 5
         slot_group: Database Identifiers
-      sample collected by:
+      GISAID virus name:
         rank: 6
+        slot_group: Database Identifiers
+      GISAID accession:
+        rank: 7
+        slot_group: Database Identifiers
+      sample collected by:
+        rank: 8
         slot_group: Sample collection and processing
         any_of:
         - range: WhitespaceMinimizedString
@@ -509,13 +533,13 @@ classes:
         - GISAID:Originating lab
         - BIOSAMPLE:collected_by
       sample collector contact email:
-        rank: 7
+        rank: 9
         slot_group: Sample collection and processing
       sample collector contact address:
-        rank: 8
+        rank: 10
         slot_group: Sample collection and processing
       sequenced by:
-        rank: 9
+        rank: 11
         slot_group: Sample collection and processing
         any_of:
         - range: WhitespaceMinimizedString
@@ -523,13 +547,13 @@ classes:
         exact_mappings:
         - BIOSAMPLE:sequenced_by
       sequenced by contact email:
-        rank: 10
+        rank: 12
         slot_group: Sample collection and processing
       sequenced by contact address:
-        rank: 11
+        rank: 13
         slot_group: Sample collection and processing
       sequence submitted by:
-        rank: 12
+        rank: 14
         slot_group: Sample collection and processing
         any_of:
         - range: WhitespaceMinimizedString
@@ -538,19 +562,19 @@ classes:
         - GISAID:Submitting lab
         - BIOSAMPLE:sequence_submitted_by
       sequence submitter contact email:
-        rank: 13
-        slot_group: Sample collection and processing
-      sequence submitter contact address:
-        rank: 14
-        slot_group: Sample collection and processing
-      sample collection date:
         rank: 15
         slot_group: Sample collection and processing
-      sample received date:
+      sequence submitter contact address:
         rank: 16
         slot_group: Sample collection and processing
-      geo_loc_name (country):
+      sample collection date:
         rank: 17
+        slot_group: Sample collection and processing
+      sample received date:
+        rank: 18
+        slot_group: Sample collection and processing
+      geo_loc_name (country):
+        rank: 19
         slot_group: Sample collection and processing
         examples:
         - value: United States of America [GAZ:00002459]
@@ -558,7 +582,7 @@ classes:
         - range: geo_loc_name (country) international menu
         - range: null value menu
       geo_loc_name (state/province/territory):
-        rank: 19
+        rank: 21
         slot_group: Sample collection and processing
         comments: Provide the state/province/territory name from the controlled vocabulary
           provided.
@@ -566,13 +590,13 @@ classes:
         - range: WhitespaceMinimizedString
         - range: null value menu
       geo_loc latitude:
-        rank: 20
+        rank: 22
         slot_group: Sample collection and processing
       geo_loc longitude:
-        rank: 21
+        rank: 23
         slot_group: Sample collection and processing
       organism:
-        rank: 22
+        rank: 24
         slot_group: Sample collection and processing
         examples:
         - value: Monkeypox virus [NCBITaxon:10244]
@@ -580,7 +604,7 @@ classes:
         - range: organism international menu
         - range: null value menu
       isolate:
-        rank: 23
+        rank: 25
         slot_group: Sample collection and processing
         slot_uri: GENEPIO:0001644
         comments: 'This identifier should be an unique, indexed, alpha-numeric ID
@@ -592,7 +616,7 @@ classes:
         exact_mappings:
         - BIOSAMPLE:isolate
       purpose of sampling:
-        rank: 24
+        rank: 26
         slot_group: Sample collection and processing
         examples:
         - value: Diagnostic testing [GENEPIO:0100002]
@@ -600,10 +624,10 @@ classes:
         - range: purpose of sampling international menu
         - range: null value menu
       purpose of sampling details:
-        rank: 25
+        rank: 27
         slot_group: Sample collection and processing
       anatomical material:
-        rank: 26
+        rank: 28
         slot_group: Sample collection and processing
         recommended: true
         examples:
@@ -612,7 +636,7 @@ classes:
         - range: anatomical material international menu
         - range: null value menu
       anatomical part:
-        rank: 27
+        rank: 29
         slot_group: Sample collection and processing
         recommended: true
         examples:
@@ -621,7 +645,7 @@ classes:
         - range: anatomical part international menu
         - range: null value menu
       body product:
-        rank: 28
+        rank: 30
         slot_group: Sample collection and processing
         recommended: true
         examples:
@@ -630,7 +654,7 @@ classes:
         - range: body product international menu
         - range: null value menu
       collection device:
-        rank: 29
+        rank: 31
         slot_group: Sample collection and processing
         recommended: true
         examples:
@@ -639,7 +663,7 @@ classes:
         - range: collection device international menu
         - range: null value menu
       collection method:
-        rank: 30
+        rank: 32
         slot_group: Sample collection and processing
         recommended: true
         examples:
@@ -648,7 +672,7 @@ classes:
         - range: collection method international menu
         - range: null value menu
       host (scientific name):
-        rank: 31
+        rank: 33
         slot_group: Host Information
         examples:
         - value: Homo sapiens [NCBITaxon:9606]
@@ -656,7 +680,7 @@ classes:
         - range: host (scientific name) international menu
         - range: null value menu
       host disease:
-        rank: 32
+        rank: 34
         slot_group: Host Information
         examples:
         - value: Monkeypox [MONDO:0002594]
@@ -664,7 +688,7 @@ classes:
         - range: host disease international menu
         - range: null value menu
       host subject ID:
-        rank: 40
+        rank: 42
         slot_group: Host Information
         description: 'A unique identifier by which each host can be referred to e.g.
           #131'
@@ -675,67 +699,67 @@ classes:
         - NML_LIMS:host subject ID
         - BIOSAMPLE:host_subject_id
       host health state:
-        rank: 34
-        slot_group: Host Information
-      host health outcome:
-        rank: 35
-        slot_group: Host Information
-      host age:
         rank: 36
         slot_group: Host Information
-      host age unit:
+      host health outcome:
         rank: 37
         slot_group: Host Information
-      host age bin:
+      host age:
         rank: 38
         slot_group: Host Information
-      host gender:
+      host age unit:
         rank: 39
         slot_group: Host Information
-      symptom onset date:
+      host age bin:
+        rank: 40
+        slot_group: Host Information
+      host gender:
         rank: 41
         slot_group: Host Information
-      signs and symptoms:
-        rank: 42
-        slot_group: Host Information
-      pre-existing conditions and risk factors:
+      symptom onset date:
         rank: 43
         slot_group: Host Information
-      host vaccination status:
+      signs and symptoms:
         rank: 44
-        slot_group: Host vaccination information
-      number of vaccine doses received:
+        slot_group: Host Information
+      pre-existing conditions and risk factors:
         rank: 45
-        slot_group: Host vaccination information
-      vaccination dose 1 vaccine name:
+        slot_group: Host Information
+      host vaccination status:
         rank: 46
         slot_group: Host vaccination information
-      vaccination dose 1 vaccination date:
+      number of vaccine doses received:
         rank: 47
         slot_group: Host vaccination information
-      vaccination history:
+      vaccination dose 1 vaccine name:
         rank: 48
         slot_group: Host vaccination information
-      travel history:
+      vaccination dose 1 vaccination date:
         rank: 49
-        slot_group: Host exposure information
-      exposure event:
+        slot_group: Host vaccination information
+      vaccination history:
         rank: 50
-        slot_group: Host exposure information
-      exposure contact level:
+        slot_group: Host vaccination information
+      travel history:
         rank: 51
         slot_group: Host exposure information
-      host role:
+      exposure event:
         rank: 52
         slot_group: Host exposure information
-      exposure setting:
+      exposure contact level:
         rank: 53
         slot_group: Host exposure information
-      exposure details:
+      host role:
         rank: 54
         slot_group: Host exposure information
-      purpose of sequencing:
+      exposure setting:
         rank: 55
+        slot_group: Host exposure information
+      exposure details:
+        rank: 56
+        slot_group: Host exposure information
+      purpose of sequencing:
+        rank: 57
         slot_group: Sequencing
         examples:
         - value: Baseline surveillance (random sampling) [GENEPIO:0100005]
@@ -743,16 +767,16 @@ classes:
         - range: purpose of sequencing international menu
         - range: null value menu
       purpose of sequencing details:
-        rank: 56
-        slot_group: Sequencing
-      sequencing date:
-        rank: 57
-        slot_group: Sequencing
-      library preparation kit:
         rank: 58
         slot_group: Sequencing
-      sequencing instrument:
+      sequencing date:
         rank: 59
+        slot_group: Sequencing
+      library preparation kit:
+        rank: 60
+        slot_group: Sequencing
+      sequencing instrument:
+        rank: 61
         slot_group: Sequencing
         examples:
         - value: Oxford Nanopore MinION [GENEPIO:0100142]
@@ -760,40 +784,40 @@ classes:
         - range: sequencing instrument international menu
         - range: null value menu
       sequencing protocol:
-        rank: 60
+        rank: 62
         slot_group: Sequencing
       raw sequence data processing method:
-        rank: 61
-        slot_group: Bioinformatics and QC metrics
-      dehosting method:
-        rank: 62
-        slot_group: Bioinformatics and QC metrics
-      consensus sequence software name:
         rank: 63
         slot_group: Bioinformatics and QC metrics
-      consensus sequence software version:
+      dehosting method:
         rank: 64
         slot_group: Bioinformatics and QC metrics
-      breadth of coverage value:
+      consensus sequence software name:
         rank: 65
         slot_group: Bioinformatics and QC metrics
-      depth of coverage value:
+      consensus sequence software version:
         rank: 66
         slot_group: Bioinformatics and QC metrics
-      depth of coverage threshold:
+      breadth of coverage value:
         rank: 67
         slot_group: Bioinformatics and QC metrics
-      number of base pairs sequenced:
+      depth of coverage value:
         rank: 68
         slot_group: Bioinformatics and QC metrics
-      consensus genome length:
+      depth of coverage threshold:
         rank: 69
         slot_group: Bioinformatics and QC metrics
-      bioinformatics protocol:
+      number of base pairs sequenced:
         rank: 70
         slot_group: Bioinformatics and QC metrics
-      gene name 1:
+      consensus genome length:
         rank: 71
+        slot_group: Bioinformatics and QC metrics
+      bioinformatics protocol:
+        rank: 72
+        slot_group: Bioinformatics and QC metrics
+      gene name 1:
+        rank: 73
         slot_group: Pathogen diagnostic testing
         comments: 'Provide the full name of the gene used in the test. The gene symbol
           (short form of gene name) can also be provided. Standardized gene names
@@ -803,22 +827,9 @@ classes:
         - range: WhitespaceMinimizedString
         - range: null value menu
       diagnostic pcr Ct value 1:
-        rank: 72
-        slot_group: Pathogen diagnostic testing
-      gene name 2:
-        rank: 73
-        slot_group: Pathogen diagnostic testing
-        comments: 'Provide the full name of another gene used in an RT-PCR test. The
-          gene symbol (short form of gene name) can also be provided. Standardized
-          gene names and symbols can be found in the Gene Ontology using this look-up
-          service: https://bit.ly/2Sq1LbI'
-        any_of:
-        - range: WhitespaceMinimizedString
-        - range: null value menu
-      diagnostic pcr Ct value 2:
         rank: 74
         slot_group: Pathogen diagnostic testing
-      gene name 3:
+      gene name 2:
         rank: 75
         slot_group: Pathogen diagnostic testing
         comments: 'Provide the full name of another gene used in an RT-PCR test. The
@@ -828,14 +839,27 @@ classes:
         any_of:
         - range: WhitespaceMinimizedString
         - range: null value menu
-      diagnostic pcr Ct value 3:
+      diagnostic pcr Ct value 2:
         rank: 76
         slot_group: Pathogen diagnostic testing
-      authors:
+      gene name 3:
         rank: 77
+        slot_group: Pathogen diagnostic testing
+        comments: 'Provide the full name of another gene used in an RT-PCR test. The
+          gene symbol (short form of gene name) can also be provided. Standardized
+          gene names and symbols can be found in the Gene Ontology using this look-up
+          service: https://bit.ly/2Sq1LbI'
+        any_of:
+        - range: WhitespaceMinimizedString
+        - range: null value menu
+      diagnostic pcr Ct value 3:
+        rank: 78
+        slot_group: Pathogen diagnostic testing
+      authors:
+        rank: 79
         slot_group: Contributor acknowledgement
       DataHarmonizer provenance:
-        rank: 78
+        rank: 80
         slot_group: Contributor acknowledgement
 slots:
   specimen collector sample ID:
@@ -897,6 +921,8 @@ slots:
       syntax: '{UPPER_CASE}'
       partial_match: false
       interpolated: true
+    exact_mappings:
+    - NML_LIMS:SUBMISSIONS - BioProject Accession
   biosample accession:
     name: biosample accession
     title: biosample accession
@@ -911,6 +937,41 @@ slots:
       syntax: '{UPPER_CASE}'
       partial_match: false
       interpolated: true
+    exact_mappings:
+    - NML_LIMS:SUBMISSIONS - BioSample Accession
+  SRA accession:
+    name: SRA accession
+    title: SRA accession
+    description: The Sequence Read Archive (SRA) identifier linking raw read data,
+      methodological metadata and quality control metrics submitted to the INSDC.
+    comments: Store the accession assigned to the submitted "run". NCBI-SRA accessions
+      start with SRR.
+    examples:
+    - value: SRR11177792
+    slot_uri: GENEPIO:0001142
+    range: WhitespaceMinimizedString
+    structured_pattern:
+      syntax: '{UPPER_CASE}'
+      partial_match: false
+      interpolated: true
+    exact_mappings:
+    - NML_LIMS:SUBMISSIONS - SRA Accession
+  GenBank accession:
+    name: GenBank accession
+    title: GenBank accession
+    description: The GenBank identifier assigned to the sequence in the INSDC archives.
+    comments: Store the accession returned from a GenBank submission (viral genome
+      assembly).
+    examples:
+    - value: MN908947.3
+    slot_uri: GENEPIO:0001145
+    range: WhitespaceMinimizedString
+    structured_pattern:
+      syntax: '{UPPER_CASE}'
+      partial_match: false
+      interpolated: true
+    exact_mappings:
+    - NML_LIMS:SUBMISSIONS - GenBank Accession
   GISAID virus name:
     name: GISAID virus name
     title: GISAID virus name
@@ -941,7 +1002,7 @@ slots:
       interpolated: true
     exact_mappings:
     - CNPHI:GISAID Accession (if known)
-    - NML_LIMS:SUBMISSIONS - GISAID Accession ID
+    - NML_LIMS:SUBMISSIONS - GISAID Accession
     - BIOSAMPLE:GISAID_accession
     - VirusSeq_Portal:GISAID accession
   sample collected by:
