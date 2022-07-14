@@ -244,10 +244,7 @@ var EXPORT_FORMATS = {
 				//['PH_ID_NUMBER_PRIMARY',    []],
 				//['PH_CASE_ID',              []],
 				['PH_RELATED_PRIMARY_ID',   []],
-				//['PH_BIOPROJECT_ACCESSION', []],
-				//['PH_BIOSAMPLE_ACCESSION',  []],
-				//['PH_SRA_ACCESSION',        []],
-				['SUBMISSIONS - GISAID Accession ID', []],
+
 				['CUSTOMER',                []],  
 
 				['PH_SEQUENCING_CENTRE',    []],     
@@ -261,7 +258,14 @@ var EXPORT_FORMATS = {
 				['HC_PROVINCE',             []],
 
 				['HC_CURRENT_ID',           []],
-				['RESULT - CANCOGEN_SUBMISSIONS',   []],
+
+				['SUBMISSIONS - BioProject Accession', []],
+				['SUBMISSIONS - BioSample Accession', []],
+				['SUBMISSIONS - SRA Accession', []],
+				['SUBMISSIONS - GenBank Accession', []],
+				['SUBMISSIONS - GISAID Virus Name', []],
+				['SUBMISSIONS - GISAID Accession', []],
+
 				['HC_SAMPLE_CATEGORY',      []], 
 				['PH_SAMPLING_DETAILS',     []],
 				['PH_SPECIMEN_TYPE',        []],
@@ -355,6 +359,7 @@ var EXPORT_FORMATS = {
 				['consensus genome length', []],
 
 			]);
+
 
 			const sourceFields = dh.getFields(dh.table);
 			const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
