@@ -266,8 +266,6 @@ var EXPORT_FORMATS = {
 				['SUBMISSIONS - GISAID Virus Name', []],
 				['SUBMISSIONS - GISAID Accession', []],
 
-
-				['RESULT - CANCOGEN_SUBMISSIONS',   []],
 				['HC_SAMPLE_CATEGORY',      []], 
 				['PH_SAMPLING_DETAILS',     []],
 				['PH_SPECIMEN_TYPE',        []],
