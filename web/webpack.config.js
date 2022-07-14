@@ -21,6 +21,9 @@ module.exports = (env, argv) => {
             from: '**/*.pdf',
             to: 'template/[path][name][ext]',
           },
+          {
+            from: 'main.html',
+          }
         ],
       }),
     ],
