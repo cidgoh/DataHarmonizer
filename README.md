@@ -17,7 +17,7 @@ https://github.com/Public-Health-Bioinformatics/DataHarmonizer/releases
 
 Extract the zipped file.
 
-To run the application, navigate to the extracted folder and open `main.html`.
+To run the application, navigate to the extracted folder and open `index.html`.
 
 ## Select Template
 
@@ -101,6 +101,40 @@ Changes to basic infrastructure or major changes to functionality are updated by
 Descriptions of updates are provided in release notes for every new version.
 
 Discussions contributing to updates may be tracked on the DataHarmonizer GitHub Issuetracker.
+
+## Development
+
+Code in this repository is split mainly between two folders: `lib` and `web`. The `lib` folder contains the core interface components which are published to NPM and can be used by any client to build a user interface. The `web` folder contains an implementation of one such interface, using the components defined in `lib`. The interface implemented in the `web` folder is packaged and [made available to users as releases of this repository](#Installation).
+
+### Prerequisites
+
+For development, you must have [Node.js](https://nodejs.org) and [Yarn](https://yarnpkg.com/getting-started/install) installed. If you have Node.js version 16.10 or later (highly recommended) and you have not used Yarn before, you can enable it by running:
+
+```shell
+corepack enable
+```
+
+### Installing
+
+To install the dependencies of this package for development simply run:
+
+```shell
+yarn
+```
+
+### Running Locally
+
+Developing either the library components in `lib` or the interface in `web` can be done using the same command:
+
+```shell
+yarn dev
+```
+
+This will start a [webpack development server](https://webpack.js.org/configuration/dev-server/) running locally on `localhost:8080`. Changes to either `lib` or `web` should be loaded automatically in your browser.
+
+### Publishing and Releasing
+
+`TODO`
 
 ## Acknowledgement
 
