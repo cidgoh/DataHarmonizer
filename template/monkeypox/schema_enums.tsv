@@ -297,9 +297,28 @@ collection device international menu	OBI:0002859	Blood Collection Tube [OBI:0002
 	OBI:0002866	Virus Transport Medium [OBI:0002866]										
 												
 												
+specimen processing menu	GENEPIO:0100039	Virus passage										
+	GENEPIO:0100040	RNA re-extraction (post RT-PCR)										
+	OBI:0600016	Specimens pooled										
+												
+specimen processing international menu	GENEPIO:0100039	Virus passage [GENEPIO:0100039]										
+	GENEPIO:0100040	RNA re-extraction (post RT-PCR) [GENEPIO:0100040]										
+	OBI:0600016	Specimens pooled [OBI:0600016]										
+												
+												
+host (common name) menu	NCBITaxon:9606	Human										
+												
+host (common name) international menu	NCBITaxon:9606	Human [NCBITaxon:9606]										
+												
 host (scientific name) menu	NCBITaxon:9606	Homo sapiens								Human		
 												
 host (scientific name) international menu	NCBITaxon:9606	Homo sapiens [NCBITaxon:9606]								Human		
+												
+host health state menu	NCIT:C3833	Asymptomatic 										
+	NCIT:C28554	Deceased 										
+	NCIT:C115935	Healthy 										
+	NCIT:C49498	Recovered 										
+	NCIT:C25269	Symptomatic 										
 												
 host health state international menu	NCIT:C3833	Asymptomatic [NCIT:C3833]										
 	NCIT:C28554	Deceased [NCIT:C28554]										
@@ -307,14 +326,48 @@ host health state international menu	NCIT:C3833	Asymptomatic [NCIT:C3833]
 	NCIT:C49498	Recovered [NCIT:C49498]										
 	NCIT:C25269	Symptomatic [NCIT:C25269]										
 												
+host health status details menu	NCIT:C25179	Hospitalized										
+	GENEPIO:0100045		Hospitalized (Non-ICU)									
+	GENEPIO:0100046		Hospitalized (ICU)									
+	GENEPIO:0100047	Medically Isolated										
+	GENEPIO:0100048		Medically Isolated (Negative Pressure)									
+	NCIT:C173768	Self-quarantining										
+												
+host health status details international menu	NCIT:C25179	Hospitalized [NCIT:C25179]										
+	GENEPIO:0100045		Hospitalized (Non-ICU) [GENEPIO:0100045]									
+	GENEPIO:0100046		Hospitalized (ICU) [GENEPIO:0100046]									
+	GENEPIO:0100047	Medically Isolated [GENEPIO:0100047]										
+	GENEPIO:0100048		Medically Isolated (Negative Pressure) [GENEPIO:0100048]									
+	NCIT:C173768	Self-quarantining [NCIT:C173768]										
+												
+host health outcome menu	NCIT:C28554	Deceased 										
+	NCIT:C25254	Deteriorating 										
+	NCIT:C49498	Recovered 										
+	NCIT:C30103	Stable 										
+												
 host health outcome international menu	NCIT:C28554	Deceased [NCIT:C28554]										
 	NCIT:C25254	Deteriorating [NCIT:C25254]										
 	NCIT:C49498	Recovered [NCIT:C49498]										
 	NCIT:C30103	Stable [NCIT:C30103]										
 												
 												
+host age unit menu	UO:0000035	month 										
+	UO:0000036	year 										
+												
 host age unit international menu	UO:0000035	month [UO:0000035]										
 	UO:0000036	year [UO:0000036]										
+												
+host age bin menu	GENEPIO:0100049	0 - 9 										
+	GENEPIO:0100050	10 - 19 										
+	GENEPIO:0100051	20 - 29 										
+	GENEPIO:0100052	30 - 39 										
+	GENEPIO:0100053	40 - 49 										
+	GENEPIO:0100054	50 - 59 										
+	GENEPIO:0100055	60 - 69 										
+	GENEPIO:0100056	70 - 79 										
+	GENEPIO:0100057	80 - 89 										
+	GENEPIO:0100058	90 - 99 										
+	GENEPIO:0100059	100+ 										
 												
 host age bin international menu	GENEPIO:0100049	0 - 9 [GENEPIO:0100049]										
 	GENEPIO:0100050	10 - 19 [GENEPIO:0100050]										
@@ -336,7 +389,30 @@ host gender international menu	NCIT:C46110	Female [NCIT:C46110]
 	NCIT:C110959	Undeclared [NCIT:C110959]										
 												
 												
-signs and symptoms menu	HP:0025143	Chills (sudden cold sensation) [HP:0025143]					A sudden sensation of feeling cold.					
+signs and symptoms menu	HP:0025143	Chills (sudden cold sensation) 					A sudden sensation of feeling cold.					
+	HP:0000509	Conjunctivitis (pink eye) 					Inflammation of the conjunctiva.					
+	HP:0012735	Cough 					A sudden, audible expulsion of air from the lungs through a partially closed glottis, preceded by inhalation.					
+	HP:0012378	Fatigue (tiredness) 					A subjective feeling of tiredness characterized by a lack of energy and motivation.					
+	HP:0001945	Fever 					Body temperature elevated above the normal range.					
+	HP:0002315	Headache 					Cephalgia, or pain sensed in various parts of the head, not confined to the area of distribution of any nerve.					
+	NCIT:C3824	Lesion 										
+	NCIT:C43278		      Lesion (Macule) 									
+	NCIT:C39690		      Lesion (Papule) 									
+	NCIT:C78582		      Lesion (Pustule) 									
+	GENEPIO:0100490		      Lesion (Scab) 									
+	GENEPIO:0100491		      Lesion (Vesicle) 									
+	HP:0003326	Myalgia (muscle pain) 					Pain in muscle.					
+	HP:0003418		Back pain									
+	HP:0002018	Nausea 					A sensation of unease in the stomach together with an urge to vomit.					
+	HP:0000988	Rash 					A red eruption of the skin.					
+	NCIT:C50747	Sore throat 					Any kind of inflammatory process of the tonsils, pharynx, or/and larynx characterized by pain in swallowing.					
+	NCIT:C36172	Sweating										
+	HP:0002716	Swollen Lymph Nodes 					Enlargment (swelling) of a lymph node.					
+	NCIT:C3426	Ulcer										
+	HP:0002013	Vomiting (throwing up) 					Forceful ejection of the contents of the stomach through the mouth by means of a series of involuntary spasmic contractions.					
+												
+												
+signs and symptoms international menu	HP:0025143	Chills (sudden cold sensation) [HP:0025143]					A sudden sensation of feeling cold.					
 	HP:0000509	Conjunctivitis (pink eye) [HP:0000509]					Inflammation of the conjunctiva.					
 	HP:0012735	Cough [HP:0012735]					A sudden, audible expulsion of air from the lungs through a partially closed glottis, preceded by inhalation.					
 	HP:0012378	Fatigue (tiredness) [HP:0012378]					A subjective feeling of tiredness characterized by a lack of energy and motivation.					
@@ -349,21 +425,99 @@ signs and symptoms menu	HP:0025143	Chills (sudden cold sensation) [HP:0025143]		
 	GENEPIO:0100490		      Lesion (Scab) [GENEPIO:0100490]									
 	GENEPIO:0100491		      Lesion (Vesicle) [GENEPIO:0100491]									
 	HP:0003326	Myalgia (muscle pain) [HP:0003326]					Pain in muscle.					
+	HP:0003418		Back pain [HP:0003418]									
 	HP:0002018	Nausea [HP:0002018]					A sensation of unease in the stomach together with an urge to vomit.					
 	HP:0000988	Rash [HP:0000988]					A red eruption of the skin.					
 	NCIT:C50747	Sore throat [NCIT:C50747]					Any kind of inflammatory process of the tonsils, pharynx, or/and larynx characterized by pain in swallowing.					
+	NCIT:C36172	Sweating [NCIT:C36172]										
 	HP:0002716	Swollen Lymph Nodes [HP:0002716]					Enlargment (swelling) of a lymph node.					
+	NCIT:C3426	Ulcer [NCIT:C3426]										
 	HP:0002013	Vomiting (throwing up) [HP:0002013]					Forceful ejection of the contents of the stomach through the mouth by means of a series of involuntary spasmic contractions.					
 												
 												
-pre-existing conditions and risk factors menu	MONDO:0005109	Human immunodeficiency virus (HIV) [MONDO:0005109]										
-	MONDO:0012268		Acquired immunodeficiency syndrome (AIDS) [MONDO:0012268]									
-	NCIT:C16118		HIV and antiretroviral therapy (ART) [NCIT:C16118]									
+pre-existing conditions and risk factors menu	MONDO:0004992	Cancer										
+	HP:0000819	Diabetes mellitus (diabetes)										
+	HP:0100651		Type I diabetes mellitus (T1D)									
+	HP:0005978		Type II diabetes mellitus (T2D)									
+	NCIT:C14139	Immunocompromised 										
+	NCIT:C26726	Infectious disorder										
+	DOID:13778		Chancroid (Haemophilus ducreyi)									
+	DOID:11263		Chlamydia									
+	DOID:7551		Gonorrhea									
+	NCIT:C155871		Herpes Simplex Virus infection (HSV)									
+	MONDO:0005109		Human immunodeficiency virus (HIV) 									
+	MONDO:0012268			Acquired immunodeficiency syndrome (AIDS) 								
+	MONDO:0005161		Human papilloma virus infection (HPV)									
+	DOID:13819		Lymphogranuloma venereum									
+	NCBITaxon:2097		Mycoplsma genitalium									
+	DOID:4166		Syphilis									
+	DOID:1947		Trichomoniasis									
+	MONDO:0004670	Lupus										
+	NCIT:C25742	Pregnancy										
+	NCIT:C16124	Prior therapy										
+	NCIT:C16212		Cancer treatment									
+	NCIT:C15632			Chemotherapy								
+	NCIT:C16118		HIV and Antiretroviral therapy (ART) 									
+	CHEBI:35341		Steroid									
+	NCIT:C159659	Transplant										
+												
+pre-existing conditions and risk factors international menu	MONDO:0004992	Cancer [MONDO:0004992]										
+	HP:0000819	Diabetes mellitus (diabetes) [HP:0000819]										
+	HP:0100651		Type I diabetes mellitus (T1D) [HP:0100651]									
+	HP:0005978		Type II diabetes mellitus (T2D) [HP:0005978]									
 	NCIT:C14139	Immunocompromised [NCIT:C14139]										
+	NCIT:C26726	Infectious disorder [NCIT:C26726]										
+	DOID:13778		Chancroid (Haemophilus ducreyi) [DOID:13778]									
+	DOID:11263		Chlamydia [DOID:11263]									
+	DOID:7551		Gonorrhea [DOID:7551]									
+	NCIT:C155871		Herpes Simplex Virus infection (HSV) [NCIT:C155871]									
+	MONDO:0005109		Human immunodeficiency virus (HIV) [MONDO:0005109]									
+	MONDO:0012268			Acquired immunodeficiency syndrome (AIDS) [MONDO:0012268]								
+	MONDO:0005161		Human papilloma virus infection (HPV) [MONDO:0005161]									
+	DOID:13819		Lymphogranuloma venereum [DOID:13819]									
+	NCBITaxon:2097		Mycoplsma genitalium [NCBITaxon:2097]									
+	DOID:4166		Syphilis [DOID:4166]									
+	DOID:1947		Trichomoniasis [DOID:1947]									
+	MONDO:0004670	Lupus [MONDO:0004670]										
 	NCIT:C25742	Pregnancy [NCIT:C25742]										
+	NCIT:C16124	Prior therapy [NCIT:C16124]										
+	NCIT:C16212		Cancer treatment [NCIT:C16212]									
+	NCIT:C15632			Chemotherapy [NCIT:C15632]								
+	NCIT:C16118		HIV and Antiretroviral therapy (ART)  [NCIT:C16118]									
+	CHEBI:35341		Steroid [CHEBI:35341]									
+	NCIT:C159659	Transplant [NCIT:C159659]										
 												
+complications menu	MONDO:0005682	Bronchopneumonia										
+	MONDO:0023865	Corneal infection										
+	MP:0002908	Delayed wound healing (lesion healing)										
+	DOID:9588	Encephalitis										
+	DOID:820	Myocarditis										
+	IDO:0000567	Secondary infection										
+	HP:0100806	Sepsis										
 												
-exposure event menu	GENEPIO:0100237	Mass Gathering [GENEPIO:0100237]					A gathering or event attended by a sufficient number of people to strain the planning and response resources of the host community, state/province, nation, or region where it is being held.					
+complications international menu	MONDO:0005682	Bronchopneumonia [MONDO:0005682]										
+	MONDO:0023865	Corneal infection [MONDO:0023865]										
+	MP:0002908	Delayed wound healing (lesion healing) [MP:0002908]										
+	DOID:9588	Encephalitis [DOID:9588]										
+	DOID:820	Myocarditis [DOID:820]										
+	IDO:0000567	Secondary infection [IDO:0000567]										
+	HP:0100806	Sepsis [HP:0100806]										
+												
+host vaccination status menu	GENEPIO:0100100	Fully Vaccinated 										
+	GENEPIO:0100102	Not Vaccinated 										
+												
+host vaccination status international menu	GENEPIO:0100100	Fully Vaccinated [GENEPIO:0100100]										
+	GENEPIO:0100102	Not Vaccinated [GENEPIO:0100102]										
+												
+exposure event menu	GENEPIO:0100237	Mass Gathering 										
+	GENEPIO:0100238	Convention (conference) 										
+	GENEPIO:0100240		      Agricultural Event 									
+	PCO:0000033	Social Gathering 										
+	PCO:0000034		      Community Event 									
+	PCO:0000035		      Party 									
+		Other exposure event										
+												
+exposure event international menu	GENEPIO:0100237	Mass Gathering [GENEPIO:0100237]					A gathering or event attended by a sufficient number of people to strain the planning and response resources of the host community, state/province, nation, or region where it is being held.					
 	GENEPIO:0100238	Convention (conference) [GENEPIO:0100238]					A gathering of individuals who meet at an arranged place and time in order to discuss or engage in some common interest. The most common conventions are based upon industry, profession, and fandom.					
 	GENEPIO:0100240		      Agricultural Event [GENEPIO:0100240]				A gathering exhibiting the equipment, animals, sports and recreation associated with agriculture and animal husbandry.					
 	PCO:0000033	Social Gathering [PCO:0000033]					A type of social behavior in which a collection of humans intentionally gathers together on a temporary basis to engage socially.					
@@ -372,13 +526,27 @@ exposure event menu	GENEPIO:0100237	Mass Gathering [GENEPIO:0100237]					A gathe
 		Other exposure event					An exposure event not specified in the picklist.					
 												
 												
-exposure contact level menu	GENEPIO:0100494	Contact with animal [GENEPIO:0100494]										
+exposure contact level menu	GENEPIO:0100494	Contact with animal 										
+	GENEPIO:0100495		Contact with rodent 									
+	GENEPIO:0100496	Contact with fomite 										
+	GENEPIO:0100357	Contact with infected individual										
+	TRANS:0000001		Direct (human-to-human contact) 									
+	TRANS:0000006			Mother-to-child transmission 								
+	NCIT:C19085			Sexual transmission 								
+	GENEPIO:0100246		Indirect contact 									
+	GENEPIO:0100247			Close contact (face-to-face contact) 								
+	GENEPIO:0100248			Casual contact 								
+	GENEPIO:0100497	Workplace associated transmission 										
+	GENEPIO:0100498		Healthcare associated transmission 									
+	GENEPIO:0100499		Laboratory associated transmission 									
+												
+exposure contact level international menu	GENEPIO:0100494	Contact with animal [GENEPIO:0100494]										
 	GENEPIO:0100495		Contact with rodent [GENEPIO:0100495]									
 	GENEPIO:0100496	Contact with fomite [GENEPIO:0100496]										
-	GENEPIO:0100357	Contact with infected individual										
+	GENEPIO:0100357	Contact with infected individual [GENEPIO:0100357]										
 	TRANS:0000001		Direct (human-to-human contact) [TRANS:0000001]									
 	TRANS:0000006			Mother-to-child transmission [TRANS:0000006]								
-	NCIT:C19085			Sexual transmission[NCIT:C19085]								
+	NCIT:C19085			Sexual transmission [NCIT:C19085]								
 	GENEPIO:0100246		Indirect contact [GENEPIO:0100246]									
 	GENEPIO:0100247			Close contact (face-to-face contact) [GENEPIO:0100247]								
 	GENEPIO:0100248			Casual contact [GENEPIO:0100248]								
@@ -386,7 +554,43 @@ exposure contact level menu	GENEPIO:0100494	Contact with animal [GENEPIO:0100494
 	GENEPIO:0100498		Healthcare associated transmission [GENEPIO:0100498]									
 	GENEPIO:0100499		Laboratory associated transmission [GENEPIO:0100499]									
 												
-host role menu	GENEPIO:0100249	Attendee [GENEPIO:0100249]										
+host role menu	GENEPIO:0100249	Attendee 										
+	OMRSE:00000058		Student 									
+	OMRSE:00000030	Patient 										
+	NCIT:C25182		Inpatient 									
+	NCIT:C28293		Outpatient 									
+	GENEPIO:0100250	Passenger 										
+	GENEPIO:0100251	Resident 										
+	GENEPIO:0100252	Visitor 										
+	GENEPIO:0100253	Volunteer 										
+	GENEPIO:0100254	Work 										
+	GENEPIO:0100255		Administrator 									
+	GENEPIO:0100256		First Responder 									
+	GENEPIO:0100260		Housekeeper 									
+	GENEPIO:0100261		Kitchen Worker 									
+	GENEPIO:0100334		Healthcare Worker 									
+	GENEPIO:0100420			Community Healthcare Worker 								
+	GENEPIO:0100262			Laboratory Worker 								
+	OMRSE:00000014			Nurse 								
+	GENEPIO:0100263			Personal Care Aid 								
+	GENEPIO:0100264			Pharmacist 								
+	OMRSE:00000013			Physician 								
+	GENEPIO:0100354		Rotational Worker 									
+	GENEPIO:0100355		Seasonal Worker 									
+	GSSO:005831		Sex Worker 									
+	GENEPIO:0100265		Veterinarian 									
+	OMRSE:00000001	Social role 										
+	GENEPIO:0100266		Acquaintance of case 									
+	GENEPIO:0100267		Relative of case 									
+	GENEPIO:0100268			Child of case								
+	GENEPIO:0100269			Parent of case 								
+	GENEPIO:0100270				Father of case 							
+	GENEPIO:0100271				Mother of case 							
+	GENEPIO:0100500		Sexual partner of case 									
+	GENEPIO:0100272		Spouse of case 									
+		Other Host Role										
+												
+host role international menu	GENEPIO:0100249	Attendee [GENEPIO:0100249]										
 	OMRSE:00000058		Student [OMRSE:00000058]									
 	OMRSE:00000030	Patient [OMRSE:00000030]										
 	NCIT:C25182		Inpatient [NCIT:C25182]									
@@ -409,6 +613,7 @@ host role menu	GENEPIO:0100249	Attendee [GENEPIO:0100249]
 	OMRSE:00000013			Physician [OMRSE:00000013]								
 	GENEPIO:0100354		Rotational Worker [GENEPIO:0100354]									
 	GENEPIO:0100355		Seasonal Worker [GENEPIO:0100355]									
+	GSSO:005831		Sex Worker [GSSO:005831]									
 	GENEPIO:0100265		Veterinarian [GENEPIO:0100265]									
 	OMRSE:00000001	Social role [OMRSE:00000001]										
 	GENEPIO:0100266		Acquaintance of case [GENEPIO:0100266]									
@@ -420,6 +625,68 @@ host role menu	GENEPIO:0100249	Attendee [GENEPIO:0100249]
 	GENEPIO:0100500		Sexual partner of case [GENEPIO:0100500]									
 	GENEPIO:0100272		Spouse of case [GENEPIO:0100272]									
 		Other Host Role										
+												
+exposure setting international menu	ECTO:3000005	Human Exposure 										
+	GENEPIO:0100501		Contact with Known Monkeypox Case 									
+	GENEPIO:0100185		Contact with Patient 									
+	GENEPIO:0100502		Contact with Probable Monkeypox Case 									
+	GENEPIO:0100189		Contact with Person who Recently Travelled 									
+	GENEPIO:0100190	Occupational, Residency or Patronage Exposure 										
+	ECTO:1000033		Abbatoir 									
+	GENEPIO:0100191		Animal Rescue 									
+	GENEPIO:0100503		Bar (pub) 									
+	GENEPIO:0100192		Childcare 									
+	GENEPIO:0100193			Daycare 								
+	GENEPIO:0100194			Nursery 								
+	GENEPIO:0100195		Community Service Centre 									
+	GENEPIO:0100196		Correctional Facility 									
+	GENEPIO:0100197		Dormitory 									
+	ECTO:1000034		Farm 									
+	GENEPIO:0100198		First Nations Reserve 									
+	GENEPIO:0100199		Funeral Home 									
+	GENEPIO:0100200		Group Home 									
+	GENEPIO:0100201		Healthcare Setting 									
+	GENEPIO:0100202			Ambulance 								
+	GENEPIO:0100203			Acute Care Facility 								
+	GENEPIO:0100204			Clinic 								
+	GENEPIO:0100415			Community Healthcare (At-Home) Setting 								
+	GENEPIO:0100205			Community Health Centre 								
+	ECTO:1000035			Hospital 								
+	GENEPIO:0100206				Emergency Department 							
+	GENEPIO:0100207				ICU 							
+	GENEPIO:0100208				Ward 							
+	ECTO:1000036			Laboratory 								
+	GENEPIO:0100209			Long-Term Care Facility 								
+	GENEPIO:0100210			Pharmacy 								
+	GENEPIO:0100211			Physician's Office 								
+	GENEPIO:0100212		Household 									
+	GENEPIO:0100213		Insecure Housing (Homeless) 									
+	GENEPIO:0100214		Occupational Exposure 									
+	GENEPIO:0100215			Worksite 								
+	ECTO:1000037				Office 							
+	GENEPIO:0100216		Outdoors 									
+	ECTO:5000009			Camp/camping 								
+	GENEPIO:0100217			Hiking Trail 								
+	ECTO:6000030			Hunting Ground 								
+	GENEPIO:0100218			Ski Resort 								
+	ECTO:5000008		Petting zoo 									
+	GENEPIO:0100220		Place of Worship 									
+	GENEPIO:0100221			Church 								
+	GENEPIO:0100222			Mosque 								
+	GENEPIO:0100223			Temple 								
+	ECTO:1000040		Restaurant 									
+	ECTO:1000041		Retail Store 									
+	GENEPIO:0100224		School 									
+	GENEPIO:0100225		Temporary Residence 									
+	GENEPIO:0100226			Homeless Shelter 								
+	GENEPIO:0100227			Hotel 								
+	GENEPIO:0100228		Veterinary Care Clinic 									
+	GENEPIO:0100229	Travel Exposure 										
+	GENEPIO:0100230		Travelled on a Cruise Ship 									
+	GENEPIO:0100231		Travelled on a Plane 									
+	GENEPIO:0100232		Travelled on Ground Transport 									
+	GENEPIO:0100235	Other Exposure Setting										
+												
 												
 exposure setting menu	ECTO:3000005	Human Exposure [ECTO:3000005]										
 	GENEPIO:0100501		Contact with Known Monkeypox Case [GENEPIO:0100501]									
@@ -482,11 +749,17 @@ exposure setting menu	ECTO:3000005	Human Exposure [ECTO:3000005]
 	GENEPIO:0100232		Travelled on Ground Transport [GENEPIO:0100232]									
 	GENEPIO:0100235	Other Exposure Setting [GENEPIO:0100235]										
 												
+prior Monkeypox infection menu	GENEPIO:0100037	Prior infection										
+	GENEPIO:0100233	No prior infection										
 												
+prior Monkeypox infection international menu	GENEPIO:0100037	Prior infection [GENEPIO:0100037]										
+	GENEPIO:0100233	No prior infection [GENEPIO:0100233]										
 												
-host vaccination status menu	GENEPIO:0100100	Fully Vaccinated [GENEPIO:0100100]										
-	GENEPIO:0100102	Not Vaccinated [GENEPIO:0100102]										
+prior Monkeypox antiviral treatment menu	GENEPIO:0100037	Prior antiviral treatment										
+	GENEPIO:0100233	No prior antiviral treatment										
 												
+prior Monkeypox antiviral treatment international menu	GENEPIO:0100037	Prior antiviral treatment [GENEPIO:0100037]										
+	GENEPIO:0100233	No prior antiviral treatment [GENEPIO:0100233]										
 												
 organism menu	NCBITaxon:10244	Monkeypox virus										
 												
