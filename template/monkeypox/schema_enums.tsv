@@ -381,6 +381,13 @@ host age bin international menu	GENEPIO:0100049	0 - 9 [GENEPIO:0100049]
 	GENEPIO:0100058	90 - 99 [GENEPIO:0100058]										
 	GENEPIO:0100059	100+ [GENEPIO:0100059]										
 												
+host gender menu	NCIT:C46110	Female 										
+	NCIT:C46109	Male 										
+	GSSO:000132	Non-binary gender 										
+	GSSO:004004	Transgender (assigned male at birth) 										
+	GSSO:004005	Transgender (assigned female at birth) 										
+	NCIT:C110959	Undeclared 										
+												
 host gender international menu	NCIT:C46110	Female [NCIT:C46110]										
 	NCIT:C46109	Male [NCIT:C46109]										
 	GSSO:000132	Non-binary gender [GSSO:000132]										
@@ -626,7 +633,7 @@ host role international menu	GENEPIO:0100249	Attendee [GENEPIO:0100249]
 	GENEPIO:0100272		Spouse of case [GENEPIO:0100272]									
 		Other Host Role										
 												
-exposure setting international menu	ECTO:3000005	Human Exposure 										
+exposure setting menu	ECTO:3000005	Human Exposure 										
 	GENEPIO:0100501		Contact with Known Monkeypox Case 									
 	GENEPIO:0100185		Contact with Patient 									
 	GENEPIO:0100502		Contact with Probable Monkeypox Case 									
@@ -688,7 +695,7 @@ exposure setting international menu	ECTO:3000005	Human Exposure
 	GENEPIO:0100235	Other Exposure Setting										
 												
 												
-exposure setting menu	ECTO:3000005	Human Exposure [ECTO:3000005]										
+exposure setting international menu	ECTO:3000005	Human Exposure [ECTO:3000005]										
 	GENEPIO:0100501		Contact with Known Monkeypox Case [GENEPIO:0100501]									
 	GENEPIO:0100185		Contact with Patient [GENEPIO:0100185]									
 	GENEPIO:0100502		Contact with Probable Monkeypox Case [GENEPIO:0100502]									
