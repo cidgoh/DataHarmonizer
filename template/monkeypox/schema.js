@@ -78,7 +78,7 @@ var SCHEMA = {
       "name": "time",
       "description": "A time object represents a (local) time of day, independent of any particular day",
       "notes": [
-        "URI is dateTime because OWL reasoners don't work with straight date or time"
+        "URI is dateTime because OWL reasoners do not work with straight date or time"
       ],
       "base": "XSDTime",
       "uri": "xsd:dateTime",
@@ -645,6 +645,11 @@ var SCHEMA = {
           "meaning": "UBERON:0006956",
           "is_a": "Head"
         },
+        "Cheek": {
+          "text": "Cheek",
+          "meaning": "UBERON:0001567",
+          "is_a": "Head"
+        },
         "Ear": {
           "text": "Ear",
           "meaning": "UBERON:0001690",
@@ -875,6 +880,11 @@ var SCHEMA = {
         "Buccal mucosa [UBERON:0006956]": {
           "text": "Buccal mucosa [UBERON:0006956]",
           "meaning": "UBERON:0006956",
+          "is_a": "Head [UBERON:0000033]"
+        },
+        "Cheek [UBERON:0001567]": {
+          "text": "Cheek [UBERON:0001567]",
+          "meaning": "UBERON:0001567",
           "is_a": "Head [UBERON:0000033]"
         },
         "Ear [UBERON:0001690]": {
@@ -4625,50 +4635,29 @@ var SCHEMA = {
         }
       }
     },
-    "gene name 1 menu": {
-      "name": "gene name 1 menu",
+    "gene name menu": {
+      "name": "gene name menu",
       "from_schema": "https://example.com/monkeypox",
       "permissible_values": {
         "MPX (orf B6R)": {
           "text": "MPX (orf B6R)",
           "meaning": "GENEPIO:0100505"
-        }
-      }
-    },
-    "gene name 2 menu": {
-      "name": "gene name 2 menu",
-      "from_schema": "https://example.com/monkeypox",
-      "permissible_values": {
+        },
         "OVP (orf 17L)": {
           "text": "OVP (orf 17L)",
           "meaning": "GENEPIO:0100506"
-        }
-      }
-    },
-    "gene name 3 menu": {
-      "name": "gene name 3 menu",
-      "from_schema": "https://example.com/monkeypox",
-      "permissible_values": {
+        },
         "OPHA (orf B2R)": {
           "text": "OPHA (orf B2R)",
           "meaning": "GENEPIO:0100507"
-        }
-      }
-    },
-    "gene name 4 menu": {
-      "name": "gene name 4 menu",
-      "from_schema": "https://example.com/monkeypox",
-      "permissible_values": {
+        },
         "G2R_G (TNFR)": {
           "text": "G2R_G (TNFR)",
           "meaning": "GENEPIO:0100510"
-        }
-      }
-    },
-    "gene name 5 menu": {
-      "name": "gene name 5 menu",
-      "from_schema": "https://example.com/monkeypox",
-      "permissible_values": {
+        },
+        "G2R_G (WA)": {
+          "text": "G2R_G (WA)"
+        },
         "RNAse P gene (RNP)": {
           "text": "RNAse P gene (RNP)",
           "meaning": "GENEPIO:0100508"
@@ -9051,7 +9040,7 @@ var SCHEMA = {
       ],
       "any_of": [
         {
-          "range": "gene name 4 menu"
+          "range": "gene name menu"
         },
         {
           "range": "null value menu"
@@ -9105,7 +9094,7 @@ var SCHEMA = {
       ],
       "any_of": [
         {
-          "range": "gene name 5 menu"
+          "range": "gene name menu"
         },
         {
           "range": "null value menu"
@@ -10309,7 +10298,7 @@ var SCHEMA = {
           "slot_group": "Pathogen diagnostic testing",
           "any_of": [
             {
-              "range": "gene name 1 menu"
+              "range": "gene name menu"
             },
             {
               "range": "null value menu"
@@ -10330,7 +10319,7 @@ var SCHEMA = {
           "slot_group": "Pathogen diagnostic testing",
           "any_of": [
             {
-              "range": "gene name 2 menu"
+              "range": "gene name menu"
             },
             {
               "range": "null value menu"
@@ -10351,7 +10340,7 @@ var SCHEMA = {
           "slot_group": "Pathogen diagnostic testing",
           "any_of": [
             {
-              "range": "gene name 3 menu"
+              "range": "gene name menu"
             },
             {
               "range": "null value menu"
@@ -12250,7 +12239,7 @@ var SCHEMA = {
           "slot_group": "Pathogen diagnostic testing",
           "any_of": [
             {
-              "range": "gene name 1 menu"
+              "range": "gene name menu"
             },
             {
               "range": "null value menu"
@@ -12283,7 +12272,7 @@ var SCHEMA = {
           "slot_group": "Pathogen diagnostic testing",
           "any_of": [
             {
-              "range": "gene name 2 menu"
+              "range": "gene name menu"
             },
             {
               "range": "null value menu"
@@ -12316,7 +12305,7 @@ var SCHEMA = {
           "slot_group": "Pathogen diagnostic testing",
           "any_of": [
             {
-              "range": "gene name 3 menu"
+              "range": "gene name menu"
             },
             {
               "range": "null value menu"
