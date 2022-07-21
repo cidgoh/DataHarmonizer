@@ -117,6 +117,12 @@ Object.assign(DataHarmonizer, {
 							// Default: any token is valid.
 							valid = true;
 							break;	
+
+						case 'Provenance':
+							// Any provenance string is valid.
+							valid = true;
+							break;	
+
 					} // End switch
 
 
