@@ -22,6 +22,7 @@ classes:
     slots:
     - specimen collector sample ID
     - Related specimen primary ID
+    - case ID
     - bioproject accession
     - biosample accession
     - SRA accession
@@ -52,23 +53,75 @@ classes:
     - body product
     - collection device
     - collection method
+    - specimen processing
+    - specimen processing details
+    - host (common name)
     - host (scientific name)
+    - host health state
+    - host health status details
+    - host health outcome
     - host disease
+    - host age
+    - host age unit
+    - host age bin
+    - host gender
+    - host residence geo_loc name (country)
+    - host residence geo_loc name (state/province/territory)
+    - symptom onset date
+    - signs and symptoms
+    - pre-existing conditions and risk factors
+    - complications
+    - antiviral therapy
+    - host vaccination status
+    - number of vaccine doses received
+    - vaccination dose 1 vaccine name
+    - vaccination dose 1 vaccination date
+    - vaccination history
+    - location of exposure geo_loc name (country)
+    - destination of most recent travel (city)
+    - destination of most recent travel (state/province/territory)
+    - destination of most recent travel (country)
+    - most recent travel departure date
+    - most recent travel return date
     - travel history
+    - exposure event
+    - exposure contact level
+    - host role
+    - exposure setting
+    - exposure details
+    - prior Monkeypox infection
+    - prior Monkeypox infection date
+    - prior Monkeypox antiviral treatment
+    - prior antiviral treatment during prior Monkeypox infection
     - purpose of sequencing
     - purpose of sequencing details
     - sequencing date
+    - library ID
+    - amplicon size
     - library preparation kit
     - sequencing instrument
+    - sequencing protocol
+    - sequencing kit number
+    - amplicon pcr primer scheme
     - raw sequence data processing method
     - dehosting method
+    - consensus sequence name
+    - consensus sequence filename
+    - consensus sequence filepath
     - consensus sequence software name
     - consensus sequence software version
     - breadth of coverage value
     - depth of coverage value
     - depth of coverage threshold
+    - r1 fastq filename
+    - r2 fastq filename
+    - r1 fastq filepath
+    - r2 fastq filepath
+    - fast5 filename
+    - fast5 filepath
     - number of base pairs sequenced
     - consensus genome length
+    - reference genome accession
     - bioinformatics protocol
     - gene name 1
     - diagnostic pcr Ct value 1
@@ -89,23 +142,26 @@ classes:
       Related specimen primary ID:
         rank: 2
         slot_group: Database Identifiers
-      bioproject accession:
+      case ID:
         rank: 3
         slot_group: Database Identifiers
-      biosample accession:
+      bioproject accession:
         rank: 4
         slot_group: Database Identifiers
-      SRA accession:
+      biosample accession:
         rank: 5
         slot_group: Database Identifiers
-      GenBank accession:
+      SRA accession:
         rank: 6
         slot_group: Database Identifiers
-      GISAID accession:
+      GenBank accession:
         rank: 7
         slot_group: Database Identifiers
-      sample collected by:
+      GISAID accession:
         rank: 8
+        slot_group: Database Identifiers
+      sample collected by:
+        rank: 9
         slot_group: Sample collection and processing
         any_of:
         - range: sample collected by menu
@@ -117,13 +173,13 @@ classes:
         - BIOSAMPLE:collected_by
         - VirusSeq_Portal:sample collected by
       sample collector contact email:
-        rank: 9
-        slot_group: Sample collection and processing
-      sample collector contact address:
         rank: 10
         slot_group: Sample collection and processing
-      sequenced by:
+      sample collector contact address:
         rank: 11
+        slot_group: Sample collection and processing
+      sequenced by:
+        rank: 12
         slot_group: Sample collection and processing
         any_of:
         - range: sequence submitted by menu
@@ -132,13 +188,13 @@ classes:
         - NML_LIMS:PH_SEQUENCING_CENTRE
         - BIOSAMPLE:sequenced_by
       sequenced by contact email:
-        rank: 12
-        slot_group: Sample collection and processing
-      sequenced by contact address:
         rank: 13
         slot_group: Sample collection and processing
-      sequence submitted by:
+      sequenced by contact address:
         rank: 14
+        slot_group: Sample collection and processing
+      sequence submitted by:
+        rank: 15
         slot_group: Sample collection and processing
         any_of:
         - range: sequence submitted by menu
@@ -150,22 +206,22 @@ classes:
         - BIOSAMPLE:sequence_submitted_by
         - VirusSeq_Portal:sequence submitted by
       sequence submitter contact email:
-        rank: 15
-        slot_group: Sample collection and processing
-      sequence submitter contact address:
         rank: 16
         slot_group: Sample collection and processing
-      sample collection date:
+      sequence submitter contact address:
         rank: 17
         slot_group: Sample collection and processing
-      sample collection date precision:
+      sample collection date:
         rank: 18
         slot_group: Sample collection and processing
-      sample received date:
+      sample collection date precision:
         rank: 19
         slot_group: Sample collection and processing
-      geo_loc_name (country):
+      sample received date:
         rank: 20
+        slot_group: Sample collection and processing
+      geo_loc_name (country):
+        rank: 21
         slot_group: Sample collection and processing
         examples:
         - value: Canada
@@ -173,7 +229,7 @@ classes:
         - range: geo_loc_name (country) menu
         - range: null value menu
       geo_loc_name (state/province/territory):
-        rank: 21
+        rank: 22
         slot_group: Sample collection and processing
         comments: Provide the province/territory name from the controlled vocabulary
           provided.
@@ -181,7 +237,7 @@ classes:
         - range: geo_loc_name (state/province/territory) menu
         - range: null value menu
       organism:
-        rank: 22
+        rank: 23
         slot_group: Sample collection and processing
         examples:
         - value: Monkeypox virus
@@ -189,7 +245,7 @@ classes:
         - range: organism menu
         - range: null value menu
       isolate:
-        rank: 23
+        rank: 24
         slot_group: Sample collection and processing
         slot_uri: GENEPIO:0001195
         comments: "Provide the GISAID EpiPox virus name, which should be written in\
@@ -207,7 +263,7 @@ classes:
         - VirusSeq_Portal:isolate
         - VirusSeq_Portal:fasta header name
       purpose of sampling:
-        rank: 24
+        rank: 25
         slot_group: Sample collection and processing
         examples:
         - value: Diagnostic testing
@@ -215,16 +271,16 @@ classes:
         - range: purpose of sampling menu
         - range: null value menu
       purpose of sampling details:
-        rank: 25
-        slot_group: Sample collection and processing
-      NML submitted specimen type:
         rank: 26
         slot_group: Sample collection and processing
-      Related specimen relationship type:
+      NML submitted specimen type:
         rank: 27
         slot_group: Sample collection and processing
-      anatomical material:
+      Related specimen relationship type:
         rank: 28
+        slot_group: Sample collection and processing
+      anatomical material:
+        rank: 29
         slot_group: Sample collection and processing
         required: true
         examples:
@@ -233,7 +289,7 @@ classes:
         - range: anatomical material menu
         - range: null value menu
       anatomical part:
-        rank: 29
+        rank: 30
         slot_group: Sample collection and processing
         required: true
         examples:
@@ -242,7 +298,7 @@ classes:
         - range: anatomical part menu
         - range: null value menu
       body product:
-        rank: 30
+        rank: 31
         slot_group: Sample collection and processing
         required: true
         examples:
@@ -251,7 +307,7 @@ classes:
         - range: body product menu
         - range: null value menu
       collection device:
-        rank: 31
+        rank: 32
         slot_group: Sample collection and processing
         required: true
         examples:
@@ -260,7 +316,7 @@ classes:
         - range: collection device menu
         - range: null value menu
       collection method:
-        rank: 32
+        rank: 33
         slot_group: Sample collection and processing
         required: true
         examples:
@@ -268,27 +324,286 @@ classes:
         any_of:
         - range: collection method menu
         - range: null value menu
+      specimen processing:
+        rank: 34
+        slot_group: Sample collection and processing
+        examples:
+        - value: Specimens pooled
+        any_of:
+        - range: specimen processing menu
+        - range: null value menu
+        exact_mappings:
+        - NML_LIMS:specimen processing
+      specimen processing details:
+        rank: 35
+        slot_group: Sample collection and processing
+      host (common name):
+        rank: 36
+        slot_group: Host Information
+        any_of:
+        - range: host (common name) menu
+        - range: null value menu
+        exact_mappings:
+        - NML_LIMS:PH_ANIMAL_TYPE
       host (scientific name):
-        rank: 33
+        rank: 37
         slot_group: Host Information
         examples:
         - value: Homo sapiens
         any_of:
         - range: host (scientific name) menu
         - range: null value menu
+      host health state:
+        rank: 38
+        slot_group: Host Information
+        examples:
+        - value: Asymptomatic
+        any_of:
+        - range: host health state menu
+        - range: null value menu
+        exact_mappings:
+        - GISAID:Patient status
+        - NML_LIMS:PH_HOST_HEALTH
+        - BIOSAMPLE:host_health_state
+      host health status details:
+        rank: 39
+        slot_group: Host Information
+        examples:
+        - value: Hospitalized
+        any_of:
+        - range: host health status details menu
+        - range: null value menu
+        exact_mappings:
+        - NML_LIMS:PH_HOST_HEALTH_DETAILS
+      host health outcome:
+        rank: 40
+        slot_group: Host Information
+        examples:
+        - value: Recovered
+        any_of:
+        - range: host health outcome menu
+        - range: null value menu
+        exact_mappings:
+        - NML_LIMS:PH_HOST_HEALTH_OUTCOME
+        - BIOSAMPLE:host_health_outcome
       host disease:
-        rank: 34
+        rank: 41
         slot_group: Host Information
         examples:
         - value: Monkeypox
         any_of:
         - range: host disease menu
         - range: null value menu
-      travel history:
-        rank: 35
+      host age:
+        rank: 42
+        slot_group: Host Information
+        required: true
+        exact_mappings:
+        - GISAID:Patient age
+        - NML_LIMS:PH_AGE
+        - BIOSAMPLE:host_age
+      host age unit:
+        rank: 43
+        slot_group: Host Information
+        required: true
+        examples:
+        - value: year
+        any_of:
+        - range: host age unit menu
+        - range: null value menu
+        exact_mappings:
+        - NML_LIMS:PH_AGE_UNIT
+        - BIOSAMPLE:host_age_unit
+      host age bin:
+        rank: 44
+        slot_group: Host Information
+        required: true
+        examples:
+        - value: 50 - 59
+        any_of:
+        - range: host age bin menu
+        - range: null value menu
+        exact_mappings:
+        - NML_LIMS:PH_AGE_GROUP
+        - BIOSAMPLE:host_age_bin
+      host gender:
+        rank: 45
+        slot_group: Host Information
+        required: true
+        examples:
+        - value: Male
+        any_of:
+        - range: host gender menu
+        - range: null value menu
+        exact_mappings:
+        - GISAID:Gender
+        - NML_LIMS:VD_SEX
+        - BIOSAMPLE:host_sex
+      host residence geo_loc name (country):
+        rank: 46
+        slot_group: Host Information
+        examples:
+        - value: Canada
+        any_of:
+        - range: geo_loc_name (country) menu
+        - range: null value menu
+        exact_mappings:
+        - NML_LIMS:PH_HOST_COUNTRY
+      host residence geo_loc name (state/province/territory):
+        rank: 47
+        slot_group: Host Information
+      symptom onset date:
+        rank: 48
+        slot_group: Host Information
+      signs and symptoms:
+        rank: 49
+        slot_group: Host Information
+        examples:
+        - value: Lesion (Pustule), Swollen Lymph Nodes, Myalgia (muscle pain)
+        any_of:
+        - range: signs and symptoms menu
+        - range: null value menu
+        exact_mappings:
+        - NML_LIMS:HC_SYMPTOMS
+      pre-existing conditions and risk factors:
+        rank: 50
+        slot_group: Host Information
+        any_of:
+        - range: pre-existing conditions and risk factors menu
+        - range: null value menu
+      complications:
+        rank: 51
+        slot_group: Host Information
+        examples:
+        - value: Delayed wound healing (lesion healing)
+        any_of:
+        - range: complications menu
+        - range: null value menu
+        exact_mappings:
+        - NML_LIMS:complications
+      antiviral therapy:
+        rank: 52
+        slot_group: Host Information
+      host vaccination status:
+        rank: 53
+        slot_group: Host vaccination information
+        examples:
+        - value: Not Vaccinated
+        any_of:
+        - range: host vaccination status menu
+        - range: null value menu
+      number of vaccine doses received:
+        rank: 54
+        slot_group: Host vaccination information
+      vaccination dose 1 vaccine name:
+        rank: 55
+        slot_group: Host vaccination information
+      vaccination dose 1 vaccination date:
+        rank: 56
+        slot_group: Host vaccination information
+      vaccination history:
+        rank: 57
+        slot_group: Host vaccination information
+      location of exposure geo_loc name (country):
+        rank: 58
         slot_group: Host exposure information
+        examples:
+        - value: Canada
+        any_of:
+        - range: geo_loc_name (country) menu
+        - range: null value menu
+        exact_mappings:
+        - NML_LIMS:PH_EXPOSURE_COUNTRY
+      destination of most recent travel (city):
+        rank: 59
+        slot_group: Host exposure information
+      destination of most recent travel (state/province/territory):
+        rank: 60
+        slot_group: Host exposure information
+        comments: Select the province name from the pick list provided in the template.
+        any_of:
+        - range: geo_loc_name (state/province/territory) menu
+        - range: null value menu
+        exact_mappings:
+        - NML_LIMS:PH_TRAVEL
+      destination of most recent travel (country):
+        rank: 61
+        slot_group: Host exposure information
+        examples:
+        - value: Canada
+        any_of:
+        - range: geo_loc_name (country) menu
+        - range: null value menu
+        exact_mappings:
+        - NML_LIMS:PH_TRAVEL
+      most recent travel departure date:
+        rank: 62
+        slot_group: Host exposure information
+      most recent travel return date:
+        rank: 63
+        slot_group: Host exposure information
+      travel history:
+        rank: 64
+        slot_group: Host exposure information
+      exposure event:
+        rank: 65
+        slot_group: Host exposure information
+        examples:
+        - value: Party
+        any_of:
+        - range: exposure event menu
+        - range: null value menu
+      exposure contact level:
+        rank: 66
+        slot_group: Host exposure information
+        examples:
+        - value: Contact with infected individual
+        any_of:
+        - range: exposure contact level menu
+        - range: null value menu
+      host role:
+        rank: 67
+        slot_group: Host exposure information
+        range: host role menu
+        examples:
+        - value: Acquaintance of case
+      exposure setting:
+        rank: 68
+        slot_group: Host exposure information
+        range: exposure setting menu
+        examples:
+        - value: Healthcare Setting
+      exposure details:
+        rank: 69
+        slot_group: Host exposure information
+      prior Monkeypox infection:
+        rank: 70
+        slot_group: Host reinfection information
+        examples:
+        - value: Prior infection
+        any_of:
+        - range: prior Monkeypox infection menu
+        - range: null value menu
+        exact_mappings:
+        - NML_LIMS:prior Monkeypox infection
+      prior Monkeypox infection date:
+        rank: 71
+        slot_group: Host reinfection information
+      prior Monkeypox antiviral treatment:
+        rank: 72
+        slot_group: Host reinfection information
+        examples:
+        - value: Prior antiviral treatment
+        any_of:
+        - range: prior Monkeypox antiviral treatment menu
+        - range: null value menu
+        exact_mappings:
+        - NML_LIMS:prior Monkeypox antiviral treatment
+      prior antiviral treatment during prior Monkeypox infection:
+        rank: 73
+        slot_group: Host reinfection information
       purpose of sequencing:
-        rank: 36
+        rank: 74
         slot_group: Sequencing
         examples:
         - description: Select "Targeted surveillance (non-random sampling)" if the
@@ -314,58 +629,103 @@ classes:
         - range: purpose of sequencing menu
         - range: null value menu
       purpose of sequencing details:
-        rank: 37
+        rank: 75
         slot_group: Sequencing
       sequencing date:
-        rank: 38
+        rank: 76
         slot_group: Sequencing
         required: true
+      library ID:
+        rank: 77
+        slot_group: Sequencing
+      amplicon size:
+        rank: 78
+        slot_group: Sequencing
       library preparation kit:
-        rank: 39
+        rank: 79
         slot_group: Sequencing
       sequencing instrument:
-        rank: 40
+        rank: 80
         slot_group: Sequencing
         examples:
         - value: Oxford Nanopore MinION
         any_of:
         - range: sequencing instrument menu
         - range: null value menu
+      sequencing protocol:
+        rank: 81
+        slot_group: Sequencing
+      sequencing kit number:
+        rank: 82
+        slot_group: Sequencing
+      amplicon pcr primer scheme:
+        rank: 83
+        slot_group: Sequencing
       raw sequence data processing method:
-        rank: 41
+        rank: 84
         slot_group: Bioinformatics and QC metrics
         required: true
       dehosting method:
-        rank: 42
+        rank: 85
         slot_group: Bioinformatics and QC metrics
         required: true
+      consensus sequence name:
+        rank: 86
+        slot_group: Bioinformatics and QC metrics
+      consensus sequence filename:
+        rank: 87
+        slot_group: Bioinformatics and QC metrics
+      consensus sequence filepath:
+        rank: 88
+        slot_group: Bioinformatics and QC metrics
       consensus sequence software name:
-        rank: 43
+        rank: 89
         slot_group: Bioinformatics and QC metrics
       consensus sequence software version:
-        rank: 44
+        rank: 90
         slot_group: Bioinformatics and QC metrics
       breadth of coverage value:
-        rank: 45
+        rank: 91
         slot_group: Bioinformatics and QC metrics
       depth of coverage value:
-        rank: 46
+        rank: 92
         slot_group: Bioinformatics and QC metrics
       depth of coverage threshold:
-        rank: 47
+        rank: 93
+        slot_group: Bioinformatics and QC metrics
+      r1 fastq filename:
+        rank: 94
+        slot_group: Bioinformatics and QC metrics
+      r2 fastq filename:
+        rank: 95
+        slot_group: Bioinformatics and QC metrics
+      r1 fastq filepath:
+        rank: 96
+        slot_group: Bioinformatics and QC metrics
+      r2 fastq filepath:
+        rank: 97
+        slot_group: Bioinformatics and QC metrics
+      fast5 filename:
+        rank: 98
+        slot_group: Bioinformatics and QC metrics
+      fast5 filepath:
+        rank: 99
         slot_group: Bioinformatics and QC metrics
       number of base pairs sequenced:
-        rank: 48
+        rank: 100
         slot_group: Bioinformatics and QC metrics
       consensus genome length:
-        rank: 49
+        rank: 101
+        slot_group: Bioinformatics and QC metrics
+      reference genome accession:
+        rank: 102
         slot_group: Bioinformatics and QC metrics
       bioinformatics protocol:
-        rank: 50
+        rank: 103
         slot_group: Bioinformatics and QC metrics
         required: true
       gene name 1:
-        rank: 51
+        rank: 104
         slot_group: Pathogen diagnostic testing
         comments: Select the name of the gene used for the diagnostic PCR from the
           standardized pick list.
@@ -373,10 +733,10 @@ classes:
         - range: gene name 1 menu
         - range: null value menu
       diagnostic pcr Ct value 1:
-        rank: 52
+        rank: 105
         slot_group: Pathogen diagnostic testing
       gene name 2:
-        rank: 53
+        rank: 106
         slot_group: Pathogen diagnostic testing
         comments: Select the name of the gene used for the diagnostic PCR from the
           standardized pick list.
@@ -384,10 +744,10 @@ classes:
         - range: gene name 2 menu
         - range: null value menu
       diagnostic pcr Ct value 2:
-        rank: 54
+        rank: 107
         slot_group: Pathogen diagnostic testing
       gene name 3:
-        rank: 55
+        rank: 108
         slot_group: Pathogen diagnostic testing
         comments: Select the name of the gene used for the diagnostic PCR from the
           standardized pick list.
@@ -395,25 +755,25 @@ classes:
         - range: gene name 3 menu
         - range: null value menu
       diagnostic pcr Ct value 3:
-        rank: 56
+        rank: 109
         slot_group: Pathogen diagnostic testing
       gene name 4:
-        rank: 57
+        rank: 110
         slot_group: Pathogen diagnostic testing
       diagnostic pcr Ct value 4:
-        rank: 58
+        rank: 111
         slot_group: Pathogen diagnostic testing
       gene name 5:
-        rank: 59
+        rank: 112
         slot_group: Pathogen diagnostic testing
       diagnostic pcr Ct value 5:
-        rank: 60
+        rank: 113
         slot_group: Pathogen diagnostic testing
       authors:
-        rank: 61
+        rank: 114
         slot_group: Contributor acknowledgement
       DataHarmonizer provenance:
-        rank: 62
+        rank: 115
         slot_group: Contributor acknowledgement
   Monkeypox_international:
     name: Monkeypox_international
@@ -423,6 +783,7 @@ classes:
     see_also: template/monkeypox/SOP_Monkeypox_international.pdf
     slots:
     - specimen collector sample ID
+    - case ID
     - bioproject accession
     - biosample accession
     - SRA accession
@@ -454,45 +815,76 @@ classes:
     - body product
     - collection device
     - collection method
+    - specimen processing
+    - specimen processing details
+    - host (common name)
     - host (scientific name)
+    - host health state
+    - host health status details
+    - host health outcome
     - host disease
     - host subject ID
-    - host health state
-    - host health outcome
     - host age
     - host age unit
     - host age bin
     - host gender
     - host subject ID
+    - host residence geo_loc name (country)
     - symptom onset date
     - signs and symptoms
     - pre-existing conditions and risk factors
+    - complications
+    - antiviral therapy
     - host vaccination status
     - number of vaccine doses received
     - vaccination dose 1 vaccine name
     - vaccination dose 1 vaccination date
     - vaccination history
+    - location of exposure geo_loc name (country)
+    - destination of most recent travel (city)
+    - destination of most recent travel (state/province/territory)
+    - destination of most recent travel (country)
+    - most recent travel departure date
+    - most recent travel return date
     - travel history
     - exposure event
     - exposure contact level
     - host role
     - exposure setting
     - exposure details
+    - prior Monkeypox infection
+    - prior Monkeypox infection date
+    - prior Monkeypox antiviral treatment
+    - prior antiviral treatment during prior Monkeypox infection
     - purpose of sequencing
     - purpose of sequencing details
     - sequencing date
+    - library ID
+    - amplicon size
     - library preparation kit
     - sequencing instrument
     - sequencing protocol
+    - sequencing kit number
+    - amplicon pcr primer scheme
     - raw sequence data processing method
     - dehosting method
+    - consensus sequence name
+    - consensus sequence filename
+    - consensus sequence filepath
     - consensus sequence software name
     - consensus sequence software version
     - breadth of coverage value
     - depth of coverage value
     - depth of coverage threshold
+    - r1 fastq filename
+    - r2 fastq filename
+    - r1 fastq filepath
+    - r2 fastq filepath
+    - fast5 filename
+    - fast5 filepath
     - number of base pairs sequenced
     - consensus genome length
+    - reference genome accession
     - bioinformatics protocol
     - gene name 1
     - diagnostic pcr Ct value 1
@@ -506,26 +898,29 @@ classes:
       specimen collector sample ID:
         rank: 1
         slot_group: Database Identifiers
-      bioproject accession:
+      case ID:
         rank: 2
         slot_group: Database Identifiers
-      biosample accession:
+      bioproject accession:
         rank: 3
         slot_group: Database Identifiers
-      SRA accession:
+      biosample accession:
         rank: 4
         slot_group: Database Identifiers
-      GenBank accession:
+      SRA accession:
         rank: 5
         slot_group: Database Identifiers
-      GISAID virus name:
+      GenBank accession:
         rank: 6
         slot_group: Database Identifiers
-      GISAID accession:
+      GISAID virus name:
         rank: 7
         slot_group: Database Identifiers
-      sample collected by:
+      GISAID accession:
         rank: 8
+        slot_group: Database Identifiers
+      sample collected by:
+        rank: 9
         slot_group: Sample collection and processing
         any_of:
         - range: WhitespaceMinimizedString
@@ -534,13 +929,13 @@ classes:
         - GISAID:Originating lab
         - BIOSAMPLE:collected_by
       sample collector contact email:
-        rank: 9
-        slot_group: Sample collection and processing
-      sample collector contact address:
         rank: 10
         slot_group: Sample collection and processing
-      sequenced by:
+      sample collector contact address:
         rank: 11
+        slot_group: Sample collection and processing
+      sequenced by:
+        rank: 12
         slot_group: Sample collection and processing
         any_of:
         - range: WhitespaceMinimizedString
@@ -548,13 +943,13 @@ classes:
         exact_mappings:
         - BIOSAMPLE:sequenced_by
       sequenced by contact email:
-        rank: 12
-        slot_group: Sample collection and processing
-      sequenced by contact address:
         rank: 13
         slot_group: Sample collection and processing
-      sequence submitted by:
+      sequenced by contact address:
         rank: 14
+        slot_group: Sample collection and processing
+      sequence submitted by:
+        rank: 15
         slot_group: Sample collection and processing
         any_of:
         - range: WhitespaceMinimizedString
@@ -563,19 +958,19 @@ classes:
         - GISAID:Submitting lab
         - BIOSAMPLE:sequence_submitted_by
       sequence submitter contact email:
-        rank: 15
-        slot_group: Sample collection and processing
-      sequence submitter contact address:
         rank: 16
         slot_group: Sample collection and processing
-      sample collection date:
+      sequence submitter contact address:
         rank: 17
         slot_group: Sample collection and processing
-      sample received date:
+      sample collection date:
         rank: 18
         slot_group: Sample collection and processing
-      geo_loc_name (country):
+      sample received date:
         rank: 19
+        slot_group: Sample collection and processing
+      geo_loc_name (country):
+        rank: 20
         slot_group: Sample collection and processing
         examples:
         - value: United States of America [GAZ:00002459]
@@ -583,7 +978,7 @@ classes:
         - range: geo_loc_name (country) international menu
         - range: null value menu
       geo_loc_name (state/province/territory):
-        rank: 21
+        rank: 22
         slot_group: Sample collection and processing
         comments: Provide the state/province/territory name from the controlled vocabulary
           provided.
@@ -591,13 +986,13 @@ classes:
         - range: WhitespaceMinimizedString
         - range: null value menu
       geo_loc latitude:
-        rank: 22
-        slot_group: Sample collection and processing
-      geo_loc longitude:
         rank: 23
         slot_group: Sample collection and processing
-      organism:
+      geo_loc longitude:
         rank: 24
+        slot_group: Sample collection and processing
+      organism:
+        rank: 25
         slot_group: Sample collection and processing
         examples:
         - value: Monkeypox virus [NCBITaxon:10244]
@@ -605,7 +1000,7 @@ classes:
         - range: organism international menu
         - range: null value menu
       isolate:
-        rank: 25
+        rank: 26
         slot_group: Sample collection and processing
         slot_uri: GENEPIO:0001644
         comments: 'This identifier should be an unique, indexed, alpha-numeric ID
@@ -617,7 +1012,7 @@ classes:
         exact_mappings:
         - BIOSAMPLE:isolate
       purpose of sampling:
-        rank: 26
+        rank: 27
         slot_group: Sample collection and processing
         examples:
         - value: Diagnostic testing [GENEPIO:0100002]
@@ -625,10 +1020,10 @@ classes:
         - range: purpose of sampling international menu
         - range: null value menu
       purpose of sampling details:
-        rank: 27
+        rank: 28
         slot_group: Sample collection and processing
       anatomical material:
-        rank: 28
+        rank: 29
         slot_group: Sample collection and processing
         recommended: true
         examples:
@@ -637,7 +1032,7 @@ classes:
         - range: anatomical material international menu
         - range: null value menu
       anatomical part:
-        rank: 29
+        rank: 30
         slot_group: Sample collection and processing
         recommended: true
         examples:
@@ -646,7 +1041,7 @@ classes:
         - range: anatomical part international menu
         - range: null value menu
       body product:
-        rank: 30
+        rank: 31
         slot_group: Sample collection and processing
         recommended: true
         examples:
@@ -655,7 +1050,7 @@ classes:
         - range: body product international menu
         - range: null value menu
       collection device:
-        rank: 31
+        rank: 32
         slot_group: Sample collection and processing
         recommended: true
         examples:
@@ -664,7 +1059,7 @@ classes:
         - range: collection device international menu
         - range: null value menu
       collection method:
-        rank: 32
+        rank: 33
         slot_group: Sample collection and processing
         recommended: true
         examples:
@@ -672,16 +1067,62 @@ classes:
         any_of:
         - range: collection method international menu
         - range: null value menu
+      specimen processing:
+        rank: 34
+        slot_group: Sample collection and processing
+        examples:
+        - value: Specimens pooled [OBI:0600016]
+        any_of:
+        - range: specimen processing international menu
+        - range: null value menu
+      specimen processing details:
+        rank: 35
+        slot_group: Sample collection and processing
+      host (common name):
+        rank: 36
+        slot_group: Host Information
+        any_of:
+        - range: host (common name) international menu
+        - range: null value menu
       host (scientific name):
-        rank: 33
+        rank: 37
         slot_group: Host Information
         examples:
         - value: Homo sapiens [NCBITaxon:9606]
         any_of:
         - range: host (scientific name) international menu
         - range: null value menu
+      host health state:
+        rank: 38
+        slot_group: Host Information
+        examples:
+        - value: Asymptomatic [NCIT:C3833]
+        any_of:
+        - range: host health state international menu
+        - range: null value menu
+        exact_mappings:
+        - GISAID:Patient status
+        - BIOSAMPLE:host_health_state
+      host health status details:
+        rank: 39
+        slot_group: Host Information
+        examples:
+        - value: Hospitalized [NCIT:C25179]
+        any_of:
+        - range: host health status details international menu
+        - range: null value menu
+      host health outcome:
+        rank: 40
+        slot_group: Host Information
+        examples:
+        - value: Recovered [NCIT:C49498]
+        any_of:
+        - range: host health outcome international menu
+        - range: null value menu
+        exact_mappings:
+        - BIOSAMPLE:host_health_outcome
       host disease:
-        rank: 34
+        rank: 41
         slot_group: Host Information
         examples:
         - value: Monkeypox [MONDO:0002594]
@@ -689,7 +1130,7 @@ classes:
         - range: host disease international menu
         - range: null value menu
       host subject ID:
-        rank: 42
+        rank: 47
         slot_group: Host Information
         description: 'A unique identifier by which each host can be referred to e.g.
           #131'
@@ -699,68 +1140,196 @@ classes:
         exact_mappings:
         - NML_LIMS:host subject ID
         - BIOSAMPLE:host_subject_id
-      host health state:
-        rank: 36
-        slot_group: Host Information
-      host health outcome:
-        rank: 37
-        slot_group: Host Information
       host age:
-        rank: 38
-        slot_group: Host Information
-      host age unit:
-        rank: 39
-        slot_group: Host Information
-      host age bin:
-        rank: 40
-        slot_group: Host Information
-      host gender:
-        rank: 41
-        slot_group: Host Information
-      symptom onset date:
         rank: 43
         slot_group: Host Information
-      signs and symptoms:
+        recommended: true
+        exact_mappings:
+        - GISAID:Patient age
+        - BIOSAMPLE:host_age
+      host age unit:
         rank: 44
         slot_group: Host Information
-      pre-existing conditions and risk factors:
+        recommended: true
+        examples:
+        - value: year [UO:0000036]
+        any_of:
+        - range: host age unit international menu
+        - range: null value menu
+        exact_mappings:
+        - BIOSAMPLE:host_age_unit
+      host age bin:
         rank: 45
         slot_group: Host Information
-      host vaccination status:
+        recommended: true
+        examples:
+        - value: 50 - 59 [GENEPIO:0100054]
+        any_of:
+        - range: host age bin international menu
+        - range: null value menu
+        exact_mappings:
+        - BIOSAMPLE:host_age_bin
+      host gender:
         rank: 46
+        slot_group: Host Information
+        recommended: true
+        examples:
+        - value: Male [NCIT:C46109]
+        any_of:
+        - range: host gender international menu
+        - range: null value menu
+        exact_mappings:
+        - GISAID:Gender
+        - BIOSAMPLE:host_sex
+      host residence geo_loc name (country):
+        rank: 48
+        slot_group: Host Information
+        examples:
+        - value: Canada [GAZ:00002560]
+        any_of:
+        - range: geo_loc_name (country) international menu
+        - range: null value menu
+      symptom onset date:
+        rank: 49
+        slot_group: Host Information
+      signs and symptoms:
+        rank: 50
+        slot_group: Host Information
+        examples:
+        - value: Lesion (Pustule) [NCIT:C78582], Swollen Lymph Nodes [HP:0002716],
+            Myalgia (muscle pain) [HP:0003326]
+        any_of:
+        - range: signs and symptoms international menu
+        - range: null value menu
+      pre-existing conditions and risk factors:
+        rank: 51
+        slot_group: Host Information
+        any_of:
+        - range: pre-existing conditions and risk factors international menu
+        - range: null value menu
+      complications:
+        rank: 52
+        slot_group: Host Information
+        examples:
+        - value: Delayed wound healing (lesion healing) [MP:0002908]
+        any_of:
+        - range: complications international menu
+        - range: null value menu
+      antiviral therapy:
+        rank: 53
+        slot_group: Host Information
+      host vaccination status:
+        rank: 54
         slot_group: Host vaccination information
+        examples:
+        - value: Not Vaccinated [GENEPIO:0100102]
+        any_of:
+        - range: host vaccination status international menu
+        - range: null value menu
       number of vaccine doses received:
-        rank: 47
+        rank: 55
         slot_group: Host vaccination information
       vaccination dose 1 vaccine name:
-        rank: 48
+        rank: 56
         slot_group: Host vaccination information
       vaccination dose 1 vaccination date:
-        rank: 49
+        rank: 57
         slot_group: Host vaccination information
       vaccination history:
-        rank: 50
+        rank: 58
         slot_group: Host vaccination information
+      location of exposure geo_loc name (country):
+        rank: 59
+        slot_group: Host exposure information
+        examples:
+        - value: Canada [GAZ:00002560]
+        any_of:
+        - range: geo_loc_name (country) international menu
+        - range: null value menu
+      destination of most recent travel (city):
+        rank: 60
+        slot_group: Host exposure information
+      destination of most recent travel (state/province/territory):
+        rank: 61
+        slot_group: Host exposure information
+        range: WhitespaceMinimizedString
+        comments: 'Provide the name of the state/province/territory that the host
+          travelled to. Use this look-up service to identify the standardized term:
+          https://www.ebi.ac.uk/ols/ontologies/gaz'
+        examples:
+        - value: California
+      destination of most recent travel (country):
+        rank: 62
+        slot_group: Host exposure information
+        examples:
+        - value: United Kingdom [GAZ:00002637]
+        any_of:
+        - range: geo_loc_name (country) international menu
+        - range: null value menu
+      most recent travel departure date:
+        rank: 63
+        slot_group: Host exposure information
+      most recent travel return date:
+        rank: 64
+        slot_group: Host exposure information
       travel history:
-        rank: 51
+        rank: 65
         slot_group: Host exposure information
       exposure event:
-        rank: 52
+        rank: 66
         slot_group: Host exposure information
+        examples:
+        - value: Party [PCO:0000035]
+        any_of:
+        - range: exposure event international menu
+        - range: null value menu
       exposure contact level:
-        rank: 53
+        rank: 67
         slot_group: Host exposure information
+        examples:
+        - value: Contact with infected individual [GENEPIO:0100357]
+        any_of:
+        - range: exposure contact level international menu
+        - range: null value menu
       host role:
-        rank: 54
+        rank: 68
         slot_group: Host exposure information
+        range: host role international menu
+        examples:
+        - value: Acquaintance of case [GENEPIO:0100266]
       exposure setting:
-        rank: 55
+        rank: 69
         slot_group: Host exposure information
+        range: exposure setting international menu
+        examples:
+        - value: Healthcare Setting [GENEPIO:0100201]
       exposure details:
-        rank: 56
+        rank: 70
         slot_group: Host exposure information
+      prior Monkeypox infection:
+        rank: 71
+        slot_group: Host reinfection information
+        examples:
+        - value: Prior infection [GENEPIO:0100037]
+        any_of:
+        - range: prior Monkeypox infection international menu
+        - range: null value menu
+      prior Monkeypox infection date:
+        rank: 72
+        slot_group: Host reinfection information
+      prior Monkeypox antiviral treatment:
+        rank: 73
+        slot_group: Host reinfection information
+        examples:
+        - value: Prior antiviral treatment [GENEPIO:0100037]
+        any_of:
+        - range: prior Monkeypox antiviral treatment international menu
+        - range: null value menu
+      prior antiviral treatment during prior Monkeypox infection:
+        rank: 74
+        slot_group: Host reinfection information
       purpose of sequencing:
-        rank: 57
+        rank: 75
         slot_group: Sequencing
         examples:
         - value: Baseline surveillance (random sampling) [GENEPIO:0100005]
@@ -768,16 +1337,22 @@ classes:
         - range: purpose of sequencing international menu
         - range: null value menu
       purpose of sequencing details:
-        rank: 58
+        rank: 76
         slot_group: Sequencing
       sequencing date:
-        rank: 59
+        rank: 77
+        slot_group: Sequencing
+      library ID:
+        rank: 78
+        slot_group: Sequencing
+      amplicon size:
+        rank: 79
         slot_group: Sequencing
       library preparation kit:
-        rank: 60
+        rank: 80
         slot_group: Sequencing
       sequencing instrument:
-        rank: 61
+        rank: 81
         slot_group: Sequencing
         examples:
         - value: Oxford Nanopore MinION [GENEPIO:0100142]
@@ -785,40 +1360,76 @@ classes:
         - range: sequencing instrument international menu
         - range: null value menu
       sequencing protocol:
-        rank: 62
+        rank: 82
+        slot_group: Sequencing
+      sequencing kit number:
+        rank: 83
+        slot_group: Sequencing
+      amplicon pcr primer scheme:
+        rank: 84
         slot_group: Sequencing
       raw sequence data processing method:
-        rank: 63
+        rank: 85
         slot_group: Bioinformatics and QC metrics
       dehosting method:
-        rank: 64
+        rank: 86
+        slot_group: Bioinformatics and QC metrics
+      consensus sequence name:
+        rank: 87
+        slot_group: Bioinformatics and QC metrics
+      consensus sequence filename:
+        rank: 88
+        slot_group: Bioinformatics and QC metrics
+      consensus sequence filepath:
+        rank: 89
         slot_group: Bioinformatics and QC metrics
       consensus sequence software name:
-        rank: 65
+        rank: 90
         slot_group: Bioinformatics and QC metrics
       consensus sequence software version:
-        rank: 66
+        rank: 91
         slot_group: Bioinformatics and QC metrics
       breadth of coverage value:
-        rank: 67
+        rank: 92
         slot_group: Bioinformatics and QC metrics
       depth of coverage value:
-        rank: 68
+        rank: 93
         slot_group: Bioinformatics and QC metrics
       depth of coverage threshold:
-        rank: 69
+        rank: 94
+        slot_group: Bioinformatics and QC metrics
+      r1 fastq filename:
+        rank: 95
+        slot_group: Bioinformatics and QC metrics
+      r2 fastq filename:
+        rank: 96
+        slot_group: Bioinformatics and QC metrics
+      r1 fastq filepath:
+        rank: 97
+        slot_group: Bioinformatics and QC metrics
+      r2 fastq filepath:
+        rank: 98
+        slot_group: Bioinformatics and QC metrics
+      fast5 filename:
+        rank: 99
+        slot_group: Bioinformatics and QC metrics
+      fast5 filepath:
+        rank: 100
         slot_group: Bioinformatics and QC metrics
       number of base pairs sequenced:
-        rank: 70
+        rank: 101
         slot_group: Bioinformatics and QC metrics
       consensus genome length:
-        rank: 71
+        rank: 102
+        slot_group: Bioinformatics and QC metrics
+      reference genome accession:
+        rank: 103
         slot_group: Bioinformatics and QC metrics
       bioinformatics protocol:
-        rank: 72
+        rank: 104
         slot_group: Bioinformatics and QC metrics
       gene name 1:
-        rank: 73
+        rank: 105
         slot_group: Pathogen diagnostic testing
         comments: 'Provide the full name of the gene used in the test. The gene symbol
           (short form of gene name) can also be provided. Standardized gene names
@@ -828,10 +1439,10 @@ classes:
         - range: WhitespaceMinimizedString
         - range: null value menu
       diagnostic pcr Ct value 1:
-        rank: 74
+        rank: 106
         slot_group: Pathogen diagnostic testing
       gene name 2:
-        rank: 75
+        rank: 107
         slot_group: Pathogen diagnostic testing
         comments: 'Provide the full name of another gene used in an RT-PCR test. The
           gene symbol (short form of gene name) can also be provided. Standardized
@@ -841,10 +1452,10 @@ classes:
         - range: WhitespaceMinimizedString
         - range: null value menu
       diagnostic pcr Ct value 2:
-        rank: 76
+        rank: 108
         slot_group: Pathogen diagnostic testing
       gene name 3:
-        rank: 77
+        rank: 109
         slot_group: Pathogen diagnostic testing
         comments: 'Provide the full name of another gene used in an RT-PCR test. The
           gene symbol (short form of gene name) can also be provided. Standardized
@@ -854,13 +1465,13 @@ classes:
         - range: WhitespaceMinimizedString
         - range: null value menu
       diagnostic pcr Ct value 3:
-        rank: 78
+        rank: 110
         slot_group: Pathogen diagnostic testing
       authors:
-        rank: 79
+        rank: 111
         slot_group: Contributor acknowledgement
       DataHarmonizer provenance:
-        rank: 80
+        rank: 112
         slot_group: Contributor acknowledgement
 slots:
   specimen collector sample ID:
@@ -904,6 +1515,20 @@ slots:
     - CNPHI:Related Specimen Relationship Type
     - NML_LIMS:PH_RELATED_PRIMARY_ID
     - BIOSAMPLE:host_subject_ID
+  case ID:
+    name: case ID
+    title: case ID
+    description: The identifier used to specify an epidemiologically detected case
+      of disease.
+    comments: Provide the case identifer. The case ID greatly facilitates linkage
+      between laboratory and epidemiological data. The case ID may be considered identifiable
+      information. Consult the data steward before sharing.
+    examples:
+    - value: ABCD1234
+    slot_uri: GENEPIO:0100281
+    range: WhitespaceMinimizedString
+    exact_mappings:
+    - NML_LIMS:PH_CASE_ID
   bioproject accession:
     name: bioproject accession
     title: bioproject accession
@@ -1174,8 +1799,11 @@ slots:
       - value: '2020-03-20'
     slot_uri: GENEPIO:0001179
     any_of:
-      - range: date
-      - range: null value menu
+    - range: date
+    - range: null value menu
+    todos:
+    - '>=2019-10-01'
+    - <={today}
     exact_mappings:
       - NML_LIMS:sample received date
   geo_loc_name (country):
@@ -1419,12 +2047,47 @@ slots:
     slot_uri: GENEPIO:0001241
     multivalued: true
     exact_mappings:
-      - GISAID:Specimen source
-      - CNPHI:Collection Method
-      - NML_LIMS:COLLECTION_METHOD
-      - BIOSAMPLE:isolation_source
-      - BIOSAMPLE:collection_method
-      - VirusSeq_Portal:collection method
+    - GISAID:Specimen source
+    - CNPHI:Collection Method
+    - NML_LIMS:COLLECTION_METHOD
+    - BIOSAMPLE:isolation_source
+    - BIOSAMPLE:collection_method
+    - VirusSeq_Portal:collection method
+  specimen processing:
+    name: specimen processing
+    title: specimen processing
+    description: Any processing applied to the sample during or after receiving the
+      sample.
+    comments: Critical for interpreting data. Select all the applicable processes
+      from the pick list. If virus was passaged, include information in "lab host",
+      "passage number", and "passage method" fields. If none of the processes in the
+      pick list apply, put "not applicable".
+    slot_uri: GENEPIO:0001253
+    multivalued: true
+  specimen processing details:
+    name: specimen processing details
+    title: specimen processing details
+    description: Detailed information regarding the processing applied to a sample
+      during or after receiving the sample.
+    comments: Provide a free text description of any processing details applied to
+      a sample.
+    examples:
+    - value: 5 swabs from different body sites were pooled and further prepared as
+        a single sample during library prep.
+    slot_uri: GENEPIO:0100311
+    range: WhitespaceMinimizedString
+    exact_mappings:
+    - NML_LIMS:specimen processing details
+  host (common name):
+    name: host (common name)
+    title: host (common name)
+    description: The commonly used name of the host.
+    comments: Common name or scientific name are required if there was a host. Both
+      can be provided, if known. Use terms from the pick lists in the template. Common
+      name e.g. human.
+    examples:
+    - value: Human
+    slot_uri: GENEPIO:0001386
   host (scientific name):
     name: host (scientific name)
     title: host (scientific name)
@@ -1436,10 +2099,29 @@ slots:
     slot_uri: GENEPIO:0001387
     required: true
     exact_mappings:
-      - GISAID:Host
-      - NML_LIMS:host (scientific name)
-      - BIOSAMPLE:host
-      - VirusSeq_Portal:host (scientific name)
+    - GISAID:Host
+    - NML_LIMS:host (scientific name)
+    - BIOSAMPLE:host
+    - VirusSeq_Portal:host (scientific name)
+  host health state:
+    name: host health state
+    title: host health state
+    description: Health status of the host at the time of sample collection.
+    comments: If known, select a value from the pick list.
+    slot_uri: GENEPIO:0001388
+  host health status details:
+    name: host health status details
+    title: host health status details
+    description: Further details pertaining to the health or disease status of the
+      host at time of collection.
+    comments: If known, select a descriptor from the pick list provided in the template.
+    slot_uri: GENEPIO:0001389
+  host health outcome:
+    name: host health outcome
+    title: host health outcome
+    description: Disease outcome in the host.
+    comments: If known, select a value from the pick list.
+    slot_uri: GENEPIO:0001389
   host disease:
     name: host disease
     title: host disease
@@ -1457,33 +2139,6 @@ slots:
     title: host subject ID
     slot_uri: GENEPIO:0001398
     range: WhitespaceMinimizedString
-  host health state:
-    name: host health state
-    title: host health state
-    description: Health status of the host at the time of sample collection.
-    comments: If known, select a value from the pick list.
-    examples:
-    - value: Asymptomatic [NCIT:C3833]
-    slot_uri: GENEPIO:0001388
-    any_of:
-    - range: host health state international menu
-    - range: null value menu
-    exact_mappings:
-    - GISAID:Patient status
-    - BIOSAMPLE:host_health_state
-  host health outcome:
-    name: host health outcome
-    title: host health outcome
-    description: Disease outcome in the host.
-    comments: If known, select a value from the pick list.
-    examples:
-    - value: Recovered [NCIT:C49498]
-    slot_uri: GENEPIO:0001389
-    any_of:
-    - range: host health outcome international menu
-    - range: null value menu
-    exact_mappings:
-    - BIOSAMPLE:host_health_outcome
   host age:
     name: host age
     title: host age
@@ -1495,55 +2150,51 @@ slots:
     any_of:
     - range: decimal
     - range: null value menu
-    recommended: true
-    exact_mappings:
-    - GISAID:Patient age
-    - BIOSAMPLE:host_age
+    minimum_value: '0'
+    maximum_value: '130'
   host age unit:
     name: host age unit
     title: host age unit
     description: The units used to measure the host's age.
     comments: If known, provide the age units used to measure the host's age from
       the pick list.
-    examples:
-    - value: year [UO:0000036]
     slot_uri: GENEPIO:0001393
-    any_of:
-    - range: host age unit international menu
-    - range: null value menu
-    recommended: true
-    exact_mappings:
-    - BIOSAMPLE:host_age_unit
   host age bin:
     name: host age bin
     title: host age bin
     description: The age category of the host at the time of sampling.
     comments: Age bins in 10 year intervals have been provided. If a host's age cannot
       be specified due to provacy concerns, an age bin can be used as an alternative.
-    examples:
-    - value: 50 - 59 [GENEPIO:0100054]
     slot_uri: GENEPIO:0001394
-    any_of:
-    - range: host age bin international menu
-    - range: null value menu
-    recommended: true
-    exact_mappings:
-    - BIOSAMPLE:host_age_bin
   host gender:
     name: host gender
     title: host gender
     description: The gender of the host at the time of sample collection.
     comments: If known, select a value from the pick list.
-    examples:
-    - value: Male [NCIT:C46109]
     slot_uri: GENEPIO:0001395
+    structured_pattern:
+      syntax: '{Title_Case}'
+      partial_match: false
+      interpolated: true
+  host residence geo_loc name (country):
+    name: host residence geo_loc name (country)
+    title: host residence geo_loc name (country)
+    description: The country of residence of the host.
+    comments: Select the country name from pick list provided in the template.
+    slot_uri: GENEPIO:0001396
+  host residence geo_loc name (state/province/territory):
+    name: host residence geo_loc name (state/province/territory)
+    title: host residence geo_loc name (state/province/territory)
+    description: The state/province/territory of residence of the host.
+    comments: Select the province/territory name from pick list provided in the template.
+    examples:
+    - value: Quebec
+    slot_uri: GENEPIO:0001397
     any_of:
-    - range: host gender international menu
+    - range: geo_loc_name (state/province/territory) menu
     - range: null value menu
-    recommended: true
     exact_mappings:
-    - GISAID:Gender
-    - BIOSAMPLE:host_sex
+    - NML_LIMS:PH_HOST_PROVINCE
   symptom onset date:
     name: symptom onset date
     title: symptom onset date
@@ -1556,18 +2207,18 @@ slots:
     any_of:
     - range: date
     - range: null value menu
+    todos:
+    - '>=2019-10-01'
+    - <={today}
+    exact_mappings:
+    - NML_LIMS:HC_ONSET_DATE
   signs and symptoms:
     name: signs and symptoms
     title: signs and symptoms
     description: A perceived change in function or sensation, (loss, disturbance or
       appearance) indicative of a disease, reported by a patient.
     comments: Select all of the symptoms experienced by the host from the pick list.
-    examples:
-    - value: Cough [HP:0012735], Fever [HP:0001945],  Rigors (fever shakes) [HP:0025145]
     slot_uri: GENEPIO:0001400
-    any_of:
-    - range: signs and symptoms menu
-    - range: null value menu
     multivalued: true
   pre-existing conditions and risk factors:
     name: pre-existing conditions and risk factors
@@ -1579,29 +2230,41 @@ slots:
     comments: Select all of the pre-existing conditions and risk factors experienced
       by the host from the pick list. If the desired term is missing, contact the
       curation team.
-    examples:
-    - value: Asthma
-    - value: Pregnancy
-    - value: Smoking
     slot_uri: GENEPIO:0001401
-    any_of:
-    - range: pre-existing conditions and risk factors menu
-    - range: null value menu
     multivalued: true
     exact_mappings:
     - NML_LIMS:pre-existing conditions and risk factors
+  complications:
+    name: complications
+    title: complications
+    description: Patient medical complications that are believed to have occurred
+      as a result of host disease.
+    comments: Select all of the complications experienced by the host from the pick
+      list. If the desired term is missing, contact the curation team.
+    slot_uri: GENEPIO:0001402
+    multivalued: true
+  antiviral therapy:
+    name: antiviral therapy
+    title: antiviral therapy
+    description: Treatment of viral infections with agents that prevent viral replication
+      in infected cells without impairing the host cell function.
+    comments: Provide details of all current antiviral treatment during the current
+      Monkeypox infection period. Consult with the data steward prior to sharing this
+      information.
+    examples:
+    - value: Tecovirimat used to treat current Monkeypox infection
+    - value: AZT administered for concurrent HIV infection
+    slot_uri: NCIT:C16119
+    range: WhitespaceMinimizedString
+    exact_mappings:
+    - NML_LIMS:antiviral therapy
   host vaccination status:
     name: host vaccination status
     title: host vaccination status
     description: The vaccination status of the host (fully vaccinated, partially vaccinated,
       or not vaccinated).
     comments: Select the vaccination status of the host from the pick list.
-    examples:
-    - value: Fully Vaccinated
     slot_uri: GENEPIO:0001404
-    any_of:
-    - range: host vaccination status menu
-    - range: null value menu
     exact_mappings:
     - NML_LIMS:PH_VACCINATION_HISTORY
   number of vaccine doses received:
@@ -1613,6 +2276,8 @@ slots:
     - value: '1'
     slot_uri: GENEPIO:0001406
     range: integer
+    exact_mappings:
+    - NML_LIMS:number of vaccine doses received
   vaccination dose 1 vaccine name:
     name: vaccination dose 1 vaccine name
     title: vaccination dose 1 vaccine name
@@ -1640,6 +2305,9 @@ slots:
     any_of:
     - range: date
     - range: null value menu
+    todos:
+    - '>=2019-10-01'
+    - <={today}
     exact_mappings:
     - NML_LIMS:PH_VACCINATION_HISTORY
   vaccination history:
@@ -1657,6 +2325,65 @@ slots:
     range: WhitespaceMinimizedString
     exact_mappings:
     - NML_LIMS:PH_VACCINATION_HISTORY
+  location of exposure geo_loc name (country):
+    name: location of exposure geo_loc name (country)
+    title: location of exposure geo_loc name (country)
+    description: The country where the host was likely exposed to the causative agent
+      of the illness.
+    comments: Select the country name from the pick list provided in the template.
+    slot_uri: GENEPIO:0001410
+  destination of most recent travel (city):
+    name: destination of most recent travel (city)
+    title: destination of most recent travel (city)
+    description: The name of the city that was the destination of most recent travel.
+    comments: 'Provide the name of the city that the host travelled to. Use this look-up
+      service to identify the standardized term: https://www.ebi.ac.uk/ols/ontologies/gaz'
+    examples:
+    - value: New York City
+    slot_uri: GENEPIO:0001411
+    range: WhitespaceMinimizedString
+    exact_mappings:
+    - NML_LIMS:PH_TRAVEL
+  destination of most recent travel (state/province/territory):
+    name: destination of most recent travel (state/province/territory)
+    title: destination of most recent travel (state/province/territory)
+    description: The name of the state/province/territory that was the destination
+      of most recent travel.
+    slot_uri: GENEPIO:0001412
+  destination of most recent travel (country):
+    name: destination of most recent travel (country)
+    title: destination of most recent travel (country)
+    description: The name of the country that was the destination of most recent travel.
+    comments: Select the country name from the pick list provided in the template.
+    slot_uri: GENEPIO:0001413
+  most recent travel departure date:
+    name: most recent travel departure date
+    title: most recent travel departure date
+    description: The date of a person's most recent departure from their primary residence
+      (at that time) on a journey to one or more other locations.
+    comments: Provide the travel departure date.
+    examples:
+    - value: '2020-03-16'
+    slot_uri: GENEPIO:0001414
+    any_of:
+    - range: date
+    - range: null value menu
+    exact_mappings:
+    - NML_LIMS:PH_TRAVEL
+  most recent travel return date:
+    name: most recent travel return date
+    title: most recent travel return date
+    description: The date of a person's most recent return to some residence from
+      a journey originating at that residence.
+    comments: Provide the travel return date.
+    examples:
+    - value: '2020-04-26'
+    slot_uri: GENEPIO:0001415
+    any_of:
+    - range: date
+    - range: null value menu
+    exact_mappings:
+    - NML_LIMS:PH_TRAVEL
   travel history:
     name: travel history
     title: travel history
@@ -1677,13 +2404,8 @@ slots:
     title: exposure event
     description: Event leading to exposure.
     comments: Select an exposure event from the pick list provided in the template.
-      If the desired term is missing, contact the curation team.
-    examples:
-    - value: Party [PCO:0000035]
+      If the desired term is missing, contact the DataHarmonizer curation team.
     slot_uri: GENEPIO:0001417
-    any_of:
-    - range: exposure event menu
-    - range: null value menu
     exact_mappings:
     - GISAID:Additional location information
     - CNPHI:Exposure Event
@@ -1692,13 +2414,8 @@ slots:
     name: exposure contact level
     title: exposure contact level
     description: The exposure transmission contact type.
-    comments: Select direct or indirect exposure from the pick-list.
-    examples:
-    - value: Contact with infected individual [GENEPIO:0100357]
+    comments: Select exposure contact level from the pick-list.
     slot_uri: GENEPIO:0001418
-    any_of:
-    - range: exposure contact level menu
-    - range: null value menu
     exact_mappings:
     - NML_LIMS:exposure contact level
   host role:
@@ -1706,11 +2423,9 @@ slots:
     title: host role
     description: The role of the host in relation to the exposure setting.
     comments: Select the host's personal role(s) from the pick list provided in the
-      template. If the desired term is missing, contact the curation team.
-    examples:
-    - value: Acquaintance of case [GENEPIO:0100266]
+      template. If the desired term is missing, contact the DataHarmonizer curation
+      team.
     slot_uri: GENEPIO:0001419
-    range: host role menu
     multivalued: true
     exact_mappings:
     - NML_LIMS:PH_HOST_ROLE
@@ -1719,11 +2434,9 @@ slots:
     title: exposure setting
     description: The setting leading to exposure.
     comments: Select the host exposure setting(s) from the pick list provided in the
-      template. If a desired term is missing, contact the curation team.
-    examples:
-    - value: Healthcare Setting [GENEPIO:0100201]
+      template. If a desired term is missing, contact the DataHarmonizer curation
+      team.
     slot_uri: GENEPIO:0001428
-    range: exposure setting menu
     multivalued: true
     exact_mappings:
     - NML_LIMS:PH_EXPOSURE
@@ -1738,6 +2451,49 @@ slots:
     range: WhitespaceMinimizedString
     exact_mappings:
     - NML_LIMS:PH_EXPOSURE_DETAILS
+  prior Monkeypox infection:
+    name: prior Monkeypox infection
+    title: prior Monkeypox infection
+    description: The absence or presence of a prior Monkeypox infection.
+    comments: If known, provide information about whether the individual had a previous
+      Monkeypox infection. Select a value from the pick list.
+    slot_uri: GENEPIO:0100532
+  prior Monkeypox infection date:
+    name: prior Monkeypox infection date
+    title: prior Monkeypox infection date
+    description: The date of diagnosis of the prior Monkeypox infection.
+    comments: Provide the date that the most recent prior infection was diagnosed.
+      Provide the prior Monkeypox infection date in ISO 8601 standard format "YYYY-MM-DD".
+    examples:
+    - value: '2022-06-20'
+    slot_uri: GENEPIO:0100533
+    any_of:
+    - range: date
+    - range: null value menu
+    exact_mappings:
+    - NML_LIMS:prior Monkeypox infection date
+  prior Monkeypox antiviral treatment:
+    name: prior Monkeypox antiviral treatment
+    title: prior Monkeypox antiviral treatment
+    description: The absence or presence of antiviral treatment for a prior Monkeypox
+      infection.
+    comments: If known, provide information about whether the individual had a previous
+      Monkeypox antiviral treatment. Select a value from the pick list.
+    slot_uri: GENEPIO:0100534
+  prior antiviral treatment during prior Monkeypox infection:
+    name: prior antiviral treatment during prior Monkeypox infection
+    title: prior antiviral treatment during prior Monkeypox infection
+    description: Antiviral treatment for any infection during the prior Moneypox infection
+      period.
+    comments: Provide a description of any antiviral treatment administered for viral
+      infections (not including Monkeypox treatment) during the prior Monkeypox infection
+      period. This field is meant to capture concurrent treatment information.
+    examples:
+    - value: AZT was administered for HIV infection during the prior Monkeypox infection.
+    slot_uri: GENEPIO:0100535
+    range: WhitespaceMinimizedString
+    exact_mappings:
+    - NML_LIMS:prior antiviral treatment during Monkeypox infection
   purpose of sequencing:
     name: purpose of sequencing
     title: purpose of sequencing
@@ -1793,7 +2549,31 @@ slots:
     todos:
       - '>={sample collection date}'
     exact_mappings:
-      - NML_LIMS:PH_SEQUENCING_DATE
+    - NML_LIMS:PH_SEQUENCING_DATE
+  library ID:
+    name: library ID
+    title: library ID
+    description: The user-specified identifier for the library prepared for sequencing.
+    comments: The library name should be unique, and can be an autogenerated ID from
+      your LIMS, or modification of the isolate ID.
+    examples:
+    - value: XYZ_123345
+    slot_uri: GENEPIO:0001448
+    range: WhitespaceMinimizedString
+    recommended: true
+    exact_mappings:
+    - NML_LIMS:library ID
+  amplicon size:
+    name: amplicon size
+    title: amplicon size
+    description: The length of the amplicon generated by PCR amplification.
+    comments: Provide the amplicon size, including the units.
+    examples:
+    - value: 300bp
+    slot_uri: GENEPIO:0001449
+    range: WhitespaceMinimizedString
+    exact_mappings:
+    - NML_LIMS:amplicon size
   library preparation kit:
     name: library preparation kit
     title: library preparation kit
@@ -1827,20 +2607,42 @@ slots:
     comments:
       'Provide a free text description of the methods and materials used to
       generate the sequence. Suggested text, fill in information where indicated.:
-      "Viral sequencing was performed following a tiling amplicon strategy using the
-      <fill in> primer scheme. Sequencing was performed using a <fill in> sequencing
-      instrument. Libraries were prepared using <fill in> library kit. "'
+      "Viral sequencing was performed following a metagenomic shotgun sequencing approach.
+      Sequencing was performed using a <fill in> sequencing instrument. Libraries
+      were prepared using <fill in> library kit. "'
     examples:
-      - value:
-          Genomes were generated through amplicon sequencing of 1200 bp amplicons
-          with Freed schema primers. Libraries were created using Illumina DNA Prep
-          kits, and sequence data was produced using Miseq Micro v2 (500 cycles) sequencing
-          kits.
+    - value: Viral sequencing was performed following a metagenomic shotgun sequencing
+        approach. Libraries were created using Illumina DNA Prep kits, and sequence
+        data was produced using Miseq Micro v2 (500 cycles) sequencing kits.
     slot_uri: GENEPIO:0001454
     range: WhitespaceMinimizedString
     exact_mappings:
-      - NML_LIMS:PH_TESTING_PROTOCOL
-      - VirusSeq_Portal:sequencing protocol
+    - NML_LIMS:PH_TESTING_PROTOCOL
+    - VirusSeq_Portal:sequencing protocol
+  sequencing kit number:
+    name: sequencing kit number
+    title: sequencing kit number
+    description: The manufacturer's kit number.
+    comments: Alphanumeric value.
+    examples:
+    - value: AB456XYZ789
+    slot_uri: GENEPIO:0001455
+    range: WhitespaceMinimizedString
+    exact_mappings:
+    - NML_LIMS:sequencing kit number
+  amplicon pcr primer scheme:
+    name: amplicon pcr primer scheme
+    title: amplicon pcr primer scheme
+    description: The specifications of the primers (primer sequences, binding positions,
+      fragment size generated etc) used to generate the amplicons to be sequenced.
+    comments: Provide the name and version of the primer scheme used to generate the
+      amplicons for sequencing.
+    examples:
+    - value: MPXV Sunrise 3.1
+    slot_uri: GENEPIO:0001456
+    range: WhitespaceMinimizedString
+    exact_mappings:
+    - NML_LIMS:amplicon pcr primer scheme
   raw sequence data processing method:
     name: raw sequence data processing method
     title: raw sequence data processing method
@@ -1871,6 +2673,40 @@ slots:
     exact_mappings:
     - NML_LIMS:PH_DEHOSTING_METHOD
     - VirusSeq_Portal:dehosting method
+  consensus sequence name:
+    name: consensus sequence name
+    title: consensus sequence name
+    description: The name of the consensus sequence.
+    comments: Provide the name and version number of the consensus sequence.
+    examples:
+    - value: mpxvassembly3
+    slot_uri: GENEPIO:0001460
+    range: WhitespaceMinimizedString
+    exact_mappings:
+    - NML_LIMS:consensus sequence name
+  consensus sequence filename:
+    name: consensus sequence filename
+    title: consensus sequence filename
+    description: The name of the consensus sequence file.
+    comments: Provide the name and version number of the consensus sequence FASTA
+      file.
+    examples:
+    - value: mpxvassembly.fasta
+    slot_uri: GENEPIO:0001461
+    range: WhitespaceMinimizedString
+    exact_mappings:
+    - NML_LIMS:consensus sequence filename
+  consensus sequence filepath:
+    name: consensus sequence filepath
+    title: consensus sequence filepath
+    description: The filepath of the consesnsus sequence file.
+    comments: Provide the filepath of the consensus sequence FASTA file.
+    examples:
+    - value: /User/Documents/ViralLab/Data/mpxvassembly.fasta
+    slot_uri: GENEPIO:0001462
+    range: WhitespaceMinimizedString
+    exact_mappings:
+    - NML_LIMS:consensus sequence filepath
   consensus sequence software name:
     name: consensus sequence software name
     title: consensus sequence software name
@@ -1940,7 +2776,66 @@ slots:
     slot_uri: GENEPIO:0001475
     range: WhitespaceMinimizedString
     exact_mappings:
-      - NML_LIMS:depth of coverage threshold
+    - NML_LIMS:depth of coverage threshold
+  r1 fastq filename:
+    name: r1 fastq filename
+    title: r1 fastq filename
+    description: The user-specified filename of the r1 FASTQ file.
+    comments: Provide the r1 FASTQ filename. This information aids in data management.
+    examples:
+    - value: ABC123_S1_L001_R1_001.fastq.gz
+    slot_uri: GENEPIO:0001476
+    range: WhitespaceMinimizedString
+    recommended: true
+  r2 fastq filename:
+    name: r2 fastq filename
+    title: r2 fastq filename
+    description: The user-specified filename of the r2 FASTQ file.
+    comments: Provide the r2 FASTQ filename. This information aids in data management.
+    examples:
+    - value: ABC123_S1_L001_R2_001.fastq.gz
+    slot_uri: GENEPIO:0001477
+    range: WhitespaceMinimizedString
+    recommended: true
+  r1 fastq filepath:
+    name: r1 fastq filepath
+    title: r1 fastq filepath
+    description: The location of the r1 FASTQ file within a user's file system.
+    comments: Provide the filepath for the r1 FASTQ file. This information aids in
+      data management.
+    examples:
+    - value: /User/Documents/ViralLab/Data/ABC123_S1_L001_R1_001.fastq.gz
+    slot_uri: GENEPIO:0001478
+    range: WhitespaceMinimizedString
+  r2 fastq filepath:
+    name: r2 fastq filepath
+    title: r2 fastq filepath
+    description: The location of the r2 FASTQ file within a user's file system.
+    comments: Provide the filepath for the r2 FASTQ file. This information aids in
+      data management.
+    examples:
+    - value: /User/Documents/ViralLab/Data/ABC123_S1_L001_R2_001.fastq.gz
+    slot_uri: GENEPIO:0001479
+    range: WhitespaceMinimizedString
+  fast5 filename:
+    name: fast5 filename
+    title: fast5 filename
+    description: The user-specified filename of the FAST5 file.
+    comments: Provide the FAST5 filename. This information aids in data management.
+    examples:
+    - value: mpxv123seq.fast5
+    slot_uri: GENEPIO:0001480
+    range: WhitespaceMinimizedString
+  fast5 filepath:
+    name: fast5 filepath
+    title: fast5 filepath
+    description: The location of the FAST5 file within a user's file system.
+    comments: Provide the filepath for the FAST5 file. This information aids in data
+      management.
+    examples:
+    - value: /User/Documents/RespLab/Data/mpxv123seq.fast5
+    slot_uri: GENEPIO:0001481
+    range: WhitespaceMinimizedString
   number of base pairs sequenced:
     name: number of base pairs sequenced
     title: number of base pairs sequenced
@@ -1965,7 +2860,18 @@ slots:
     range: integer
     minimum_value: '0'
     exact_mappings:
-      - NML_LIMS:consensus genome length
+    - NML_LIMS:consensus genome length
+  reference genome accession:
+    name: reference genome accession
+    title: reference genome accession
+    description: A persistent, unique identifier of a genome database entry.
+    comments: Provide the accession number of the reference genome.
+    examples:
+    - value: NC_063383.1
+    slot_uri: GENEPIO:0001485
+    range: WhitespaceMinimizedString
+    exact_mappings:
+    - NML_LIMS:reference genome accession
   bioinformatics protocol:
     name: bioinformatics protocol
     title: bioinformatics protocol
@@ -1976,7 +2882,7 @@ slots:
       can be provided in an SOP or protocol or pipeline/workflow. Provide the name
       and version number of the protocol, or a GitHub link to a pipeline or workflow.
     examples:
-      - value: https://github.com/phac-nml/ncov2019-artic-nf
+    - value: https://github.com/phac-nml/monkeypox-nf
     slot_uri: GENEPIO:0001489
     range: WhitespaceMinimizedString
     exact_mappings:
@@ -3119,6 +4025,42 @@ enums:
       Virus Transport Medium [OBI:0002866]:
         text: Virus Transport Medium [OBI:0002866]
         meaning: OBI:0002866
+  specimen processing menu:
+    name: specimen processing menu
+    permissible_values:
+      Virus passage:
+        text: Virus passage
+        meaning: GENEPIO:0100039
+      RNA re-extraction (post RT-PCR):
+        text: RNA re-extraction (post RT-PCR)
+        meaning: GENEPIO:0100040
+      Specimens pooled:
+        text: Specimens pooled
+        meaning: OBI:0600016
+  specimen processing international menu:
+    name: specimen processing international menu
+    permissible_values:
+      Virus passage [GENEPIO:0100039]:
+        text: Virus passage [GENEPIO:0100039]
+        meaning: GENEPIO:0100039
+      RNA re-extraction (post RT-PCR) [GENEPIO:0100040]:
+        text: RNA re-extraction (post RT-PCR) [GENEPIO:0100040]
+        meaning: GENEPIO:0100040
+      Specimens pooled [OBI:0600016]:
+        text: Specimens pooled [OBI:0600016]
+        meaning: OBI:0600016
+  host (common name) menu:
+    name: host (common name) menu
+    permissible_values:
+      Human:
+        text: Human
+        meaning: NCBITaxon:9606
+  host (common name) international menu:
+    name: host (common name) international menu
+    permissible_values:
+      Human [NCBITaxon:9606]:
+        text: Human [NCBITaxon:9606]
+        meaning: NCBITaxon:9606
   host (scientific name) menu:
     name: host (scientific name) menu
     permissible_values:
@@ -3135,6 +4077,24 @@ enums:
         meaning: NCBITaxon:9606
         exact_mappings:
         - NML_LIMS:Human
+  host health state menu:
+    name: host health state menu
+    permissible_values:
+      Asymptomatic:
+        text: Asymptomatic
+        meaning: NCIT:C3833
+      Deceased:
+        text: Deceased
+        meaning: NCIT:C28554
+      Healthy:
+        text: Healthy
+        meaning: NCIT:C115935
+      Recovered:
+        text: Recovered
+        meaning: NCIT:C49498
+      Symptomatic:
+        text: Symptomatic
+        meaning: NCIT:C25269
   host health state international menu:
     name: host health state international menu
     permissible_values:
@@ -3153,6 +4113,69 @@ enums:
       Symptomatic [NCIT:C25269]:
         text: Symptomatic [NCIT:C25269]
         meaning: NCIT:C25269
+  host health status details menu:
+    name: host health status details menu
+    permissible_values:
+      Hospitalized:
+        text: Hospitalized
+        meaning: NCIT:C25179
+      Hospitalized (Non-ICU):
+        text: Hospitalized (Non-ICU)
+        meaning: GENEPIO:0100045
+        is_a: Hospitalized
+      Hospitalized (ICU):
+        text: Hospitalized (ICU)
+        meaning: GENEPIO:0100046
+        is_a: Hospitalized
+      Medically Isolated:
+        text: Medically Isolated
+        meaning: GENEPIO:0100047
+      Medically Isolated (Negative Pressure):
+        text: Medically Isolated (Negative Pressure)
+        meaning: GENEPIO:0100048
+        is_a: Medically Isolated
+      Self-quarantining:
+        text: Self-quarantining
+        meaning: NCIT:C173768
+  host health status details international menu:
+    name: host health status details international menu
+    permissible_values:
+      Hospitalized [NCIT:C25179]:
+        text: Hospitalized [NCIT:C25179]
+        meaning: NCIT:C25179
+      Hospitalized (Non-ICU) [GENEPIO:0100045]:
+        text: Hospitalized (Non-ICU) [GENEPIO:0100045]
+        meaning: GENEPIO:0100045
+        is_a: Hospitalized [NCIT:C25179]
+      Hospitalized (ICU) [GENEPIO:0100046]:
+        text: Hospitalized (ICU) [GENEPIO:0100046]
+        meaning: GENEPIO:0100046
+        is_a: Hospitalized [NCIT:C25179]
+      Medically Isolated [GENEPIO:0100047]:
+        text: Medically Isolated [GENEPIO:0100047]
+        meaning: GENEPIO:0100047
+      Medically Isolated (Negative Pressure) [GENEPIO:0100048]:
+        text: Medically Isolated (Negative Pressure) [GENEPIO:0100048]
+        meaning: GENEPIO:0100048
+        is_a: Medically Isolated [GENEPIO:0100047]
+      Self-quarantining [NCIT:C173768]:
+        text: Self-quarantining [NCIT:C173768]
+        meaning: NCIT:C173768
+  host health outcome menu:
+    name: host health outcome menu
+    permissible_values:
+      Deceased:
+        text: Deceased
+        meaning: NCIT:C28554
+      Deteriorating:
+        text: Deteriorating
+        meaning: NCIT:C25254
+      Recovered:
+        text: Recovered
+        meaning: NCIT:C49498
+      Stable:
+        text: Stable
+        meaning: NCIT:C30103
   host health outcome international menu:
     name: host health outcome international menu
     permissible_values:
@@ -3168,6 +4191,15 @@ enums:
       Stable [NCIT:C30103]:
         text: Stable [NCIT:C30103]
         meaning: NCIT:C30103
+  host age unit menu:
+    name: host age unit menu
+    permissible_values:
+      month:
+        text: month
+        meaning: UO:0000035
+      year:
+        text: year
+        meaning: UO:0000036
   host age unit international menu:
     name: host age unit international menu
     permissible_values:
@@ -3177,6 +4209,42 @@ enums:
       year [UO:0000036]:
         text: year [UO:0000036]
         meaning: UO:0000036
+  host age bin menu:
+    name: host age bin menu
+    permissible_values:
+      0 - 9:
+        text: 0 - 9
+        meaning: GENEPIO:0100049
+      10 - 19:
+        text: 10 - 19
+        meaning: GENEPIO:0100050
+      20 - 29:
+        text: 20 - 29
+        meaning: GENEPIO:0100051
+      30 - 39:
+        text: 30 - 39
+        meaning: GENEPIO:0100052
+      40 - 49:
+        text: 40 - 49
+        meaning: GENEPIO:0100053
+      50 - 59:
+        text: 50 - 59
+        meaning: GENEPIO:0100054
+      60 - 69:
+        text: 60 - 69
+        meaning: GENEPIO:0100055
+      70 - 79:
+        text: 70 - 79
+        meaning: GENEPIO:0100056
+      80 - 89:
+        text: 80 - 89
+        meaning: GENEPIO:0100057
+      90 - 99:
+        text: 90 - 99
+        meaning: GENEPIO:0100058
+      100+:
+        text: 100+
+        meaning: GENEPIO:0100059
   host age bin international menu:
     name: host age bin international menu
     permissible_values:
@@ -3213,6 +4281,27 @@ enums:
       100+ [GENEPIO:0100059]:
         text: 100+ [GENEPIO:0100059]
         meaning: GENEPIO:0100059
+  host gender menu:
+    name: host gender menu
+    permissible_values:
+      Female:
+        text: Female
+        meaning: NCIT:C46110
+      Male:
+        text: Male
+        meaning: NCIT:C46109
+      Non-binary gender:
+        text: Non-binary gender
+        meaning: GSSO:000132
+      Transgender (assigned male at birth):
+        text: Transgender (assigned male at birth)
+        meaning: GSSO:004004
+      Transgender (assigned female at birth):
+        text: Transgender (assigned female at birth)
+        meaning: GSSO:004005
+      Undeclared:
+        text: Undeclared
+        meaning: NCIT:C110959
   host gender international menu:
     name: host gender international menu
     permissible_values:
@@ -3236,6 +4325,96 @@ enums:
         meaning: NCIT:C110959
   signs and symptoms menu:
     name: signs and symptoms menu
+    permissible_values:
+      Chills (sudden cold sensation):
+        text: Chills (sudden cold sensation)
+        description: A sudden sensation of feeling cold.
+        meaning: HP:0025143
+      Conjunctivitis (pink eye):
+        text: Conjunctivitis (pink eye)
+        description: Inflammation of the conjunctiva.
+        meaning: HP:0000509
+      Cough:
+        text: Cough
+        description: A sudden, audible expulsion of air from the lungs through a partially
+          closed glottis, preceded by inhalation.
+        meaning: HP:0012735
+      Fatigue (tiredness):
+        text: Fatigue (tiredness)
+        description: A subjective feeling of tiredness characterized by a lack of
+          energy and motivation.
+        meaning: HP:0012378
+      Fever:
+        text: Fever
+        description: Body temperature elevated above the normal range.
+        meaning: HP:0001945
+      Headache:
+        text: Headache
+        description: Cephalgia, or pain sensed in various parts of the head, not confined
+          to the area of distribution of any nerve.
+        meaning: HP:0002315
+      Lesion:
+        text: Lesion
+        meaning: NCIT:C3824
+      Lesion (Macule):
+        text: Lesion (Macule)
+        meaning: NCIT:C43278
+        is_a: Lesion
+      Lesion (Papule):
+        text: Lesion (Papule)
+        meaning: NCIT:C39690
+        is_a: Lesion
+      Lesion (Pustule):
+        text: Lesion (Pustule)
+        meaning: NCIT:C78582
+        is_a: Lesion
+      Lesion (Scab):
+        text: Lesion (Scab)
+        meaning: GENEPIO:0100490
+        is_a: Lesion
+      Lesion (Vesicle):
+        text: Lesion (Vesicle)
+        meaning: GENEPIO:0100491
+        is_a: Lesion
+      Myalgia (muscle pain):
+        text: Myalgia (muscle pain)
+        description: Pain in muscle.
+        meaning: HP:0003326
+      Back pain:
+        text: Back pain
+        meaning: HP:0003418
+        is_a: Myalgia (muscle pain)
+      Nausea:
+        text: Nausea
+        description: A sensation of unease in the stomach together with an urge to
+          vomit.
+        meaning: HP:0002018
+      Rash:
+        text: Rash
+        description: A red eruption of the skin.
+        meaning: HP:0000988
+      Sore throat:
+        text: Sore throat
+        description: Any kind of inflammatory process of the tonsils, pharynx, or/and
+          larynx characterized by pain in swallowing.
+        meaning: NCIT:C50747
+      Sweating:
+        text: Sweating
+        meaning: NCIT:C36172
+      Swollen Lymph Nodes:
+        text: Swollen Lymph Nodes
+        description: Enlargment (swelling) of a lymph node.
+        meaning: HP:0002716
+      Ulcer:
+        text: Ulcer
+        meaning: NCIT:C3426
+      Vomiting (throwing up):
+        text: Vomiting (throwing up)
+        description: Forceful ejection of the contents of the stomach through the
+          mouth by means of a series of involuntary spasmic contractions.
+        meaning: HP:0002013
+  signs and symptoms international menu:
+    name: signs and symptoms international menu
     permissible_values:
       Chills (sudden cold sensation) [HP:0025143]:
         text: Chills (sudden cold sensation) [HP:0025143]
@@ -3291,6 +4470,10 @@ enums:
         text: Myalgia (muscle pain) [HP:0003326]
         description: Pain in muscle.
         meaning: HP:0003326
+      Back pain [HP:0003418]:
+        text: Back pain [HP:0003418]
+        meaning: HP:0003418
+        is_a: Myalgia (muscle pain) [HP:0003326]
       Nausea [HP:0002018]:
         text: Nausea [HP:0002018]
         description: A sensation of unease in the stomach together with an urge to
@@ -3305,10 +4488,16 @@ enums:
         description: Any kind of inflammatory process of the tonsils, pharynx, or/and
           larynx characterized by pain in swallowing.
         meaning: NCIT:C50747
+      Sweating [NCIT:C36172]:
+        text: Sweating [NCIT:C36172]
+        meaning: NCIT:C36172
       Swollen Lymph Nodes [HP:0002716]:
         text: Swollen Lymph Nodes [HP:0002716]
         description: Enlargment (swelling) of a lymph node.
         meaning: HP:0002716
+      Ulcer [NCIT:C3426]:
+        text: Ulcer [NCIT:C3426]
+        meaning: NCIT:C3426
       Vomiting (throwing up) [HP:0002013]:
         text: Vomiting (throwing up) [HP:0002013]
         description: Forceful ejection of the contents of the stomach through the
@@ -3317,25 +4506,287 @@ enums:
   pre-existing conditions and risk factors menu:
     name: pre-existing conditions and risk factors menu
     permissible_values:
+      Cancer:
+        text: Cancer
+        meaning: MONDO:0004992
+      Diabetes mellitus (diabetes):
+        text: Diabetes mellitus (diabetes)
+        meaning: HP:0000819
+      Type I diabetes mellitus (T1D):
+        text: Type I diabetes mellitus (T1D)
+        meaning: HP:0100651
+        is_a: Diabetes mellitus (diabetes)
+      Type II diabetes mellitus (T2D):
+        text: Type II diabetes mellitus (T2D)
+        meaning: HP:0005978
+        is_a: Diabetes mellitus (diabetes)
+      Immunocompromised:
+        text: Immunocompromised
+        meaning: NCIT:C14139
+      Infectious disorder:
+        text: Infectious disorder
+        meaning: NCIT:C26726
+      Chancroid (Haemophilus ducreyi):
+        text: Chancroid (Haemophilus ducreyi)
+        meaning: DOID:13778
+        is_a: Infectious disorder
+      Chlamydia:
+        text: Chlamydia
+        meaning: DOID:11263
+        is_a: Infectious disorder
+      Gonorrhea:
+        text: Gonorrhea
+        meaning: DOID:7551
+        is_a: Infectious disorder
+      Herpes Simplex Virus infection (HSV):
+        text: Herpes Simplex Virus infection (HSV)
+        meaning: NCIT:C155871
+        is_a: Infectious disorder
+      Human immunodeficiency virus (HIV):
+        text: Human immunodeficiency virus (HIV)
+        meaning: MONDO:0005109
+        is_a: Infectious disorder
+      Acquired immunodeficiency syndrome (AIDS):
+        text: Acquired immunodeficiency syndrome (AIDS)
+        meaning: MONDO:0012268
+        is_a: Human immunodeficiency virus (HIV)
+      Human papilloma virus infection (HPV):
+        text: Human papilloma virus infection (HPV)
+        meaning: MONDO:0005161
+        is_a: Infectious disorder
+      Lymphogranuloma venereum:
+        text: Lymphogranuloma venereum
+        meaning: DOID:13819
+        is_a: Infectious disorder
+      Mycoplsma genitalium:
+        text: Mycoplsma genitalium
+        meaning: NCBITaxon:2097
+        is_a: Infectious disorder
+      Syphilis:
+        text: Syphilis
+        meaning: DOID:4166
+        is_a: Infectious disorder
+      Trichomoniasis:
+        text: Trichomoniasis
+        meaning: DOID:1947
+        is_a: Infectious disorder
+      Lupus:
+        text: Lupus
+        meaning: MONDO:0004670
+      Pregnancy:
+        text: Pregnancy
+        meaning: NCIT:C25742
+      Prior therapy:
+        text: Prior therapy
+        meaning: NCIT:C16124
+      Cancer treatment:
+        text: Cancer treatment
+        meaning: NCIT:C16212
+        is_a: Prior therapy
+      Chemotherapy:
+        text: Chemotherapy
+        meaning: NCIT:C15632
+        is_a: Cancer treatment
+      HIV and Antiretroviral therapy (ART):
+        text: HIV and Antiretroviral therapy (ART)
+        meaning: NCIT:C16118
+        is_a: Prior therapy
+      Steroid:
+        text: Steroid
+        meaning: CHEBI:35341
+        is_a: Prior therapy
+      Transplant:
+        text: Transplant
+        meaning: NCIT:C159659
+  pre-existing conditions and risk factors international menu:
+    name: pre-existing conditions and risk factors international menu
+    permissible_values:
+      Cancer [MONDO:0004992]:
+        text: Cancer [MONDO:0004992]
+        meaning: MONDO:0004992
+      Diabetes mellitus (diabetes) [HP:0000819]:
+        text: Diabetes mellitus (diabetes) [HP:0000819]
+        meaning: HP:0000819
+      Type I diabetes mellitus (T1D) [HP:0100651]:
+        text: Type I diabetes mellitus (T1D) [HP:0100651]
+        meaning: HP:0100651
+        is_a: Diabetes mellitus (diabetes) [HP:0000819]
+      Type II diabetes mellitus (T2D) [HP:0005978]:
+        text: Type II diabetes mellitus (T2D) [HP:0005978]
+        meaning: HP:0005978
+        is_a: Diabetes mellitus (diabetes) [HP:0000819]
+      Immunocompromised [NCIT:C14139]:
+        text: Immunocompromised [NCIT:C14139]
+        meaning: NCIT:C14139
+      Infectious disorder [NCIT:C26726]:
+        text: Infectious disorder [NCIT:C26726]
+        meaning: NCIT:C26726
+      Chancroid (Haemophilus ducreyi) [DOID:13778]:
+        text: Chancroid (Haemophilus ducreyi) [DOID:13778]
+        meaning: DOID:13778
+        is_a: Infectious disorder [NCIT:C26726]
+      Chlamydia [DOID:11263]:
+        text: Chlamydia [DOID:11263]
+        meaning: DOID:11263
+        is_a: Infectious disorder [NCIT:C26726]
+      Gonorrhea [DOID:7551]:
+        text: Gonorrhea [DOID:7551]
+        meaning: DOID:7551
+        is_a: Infectious disorder [NCIT:C26726]
+      Herpes Simplex Virus infection (HSV) [NCIT:C155871]:
+        text: Herpes Simplex Virus infection (HSV) [NCIT:C155871]
+        meaning: NCIT:C155871
+        is_a: Infectious disorder [NCIT:C26726]
       Human immunodeficiency virus (HIV) [MONDO:0005109]:
         text: Human immunodeficiency virus (HIV) [MONDO:0005109]
         meaning: MONDO:0005109
+        is_a: Infectious disorder [NCIT:C26726]
       Acquired immunodeficiency syndrome (AIDS) [MONDO:0012268]:
         text: Acquired immunodeficiency syndrome (AIDS) [MONDO:0012268]
         meaning: MONDO:0012268
         is_a: Human immunodeficiency virus (HIV) [MONDO:0005109]
-      HIV and antiretroviral therapy (ART) [NCIT:C16118]:
-        text: HIV and antiretroviral therapy (ART) [NCIT:C16118]
-        meaning: NCIT:C16118
-        is_a: Human immunodeficiency virus (HIV) [MONDO:0005109]
-      Immunocompromised [NCIT:C14139]:
-        text: Immunocompromised [NCIT:C14139]
-        meaning: NCIT:C14139
+      Human papilloma virus infection (HPV) [MONDO:0005161]:
+        text: Human papilloma virus infection (HPV) [MONDO:0005161]
+        meaning: MONDO:0005161
+        is_a: Infectious disorder [NCIT:C26726]
+      Lymphogranuloma venereum [DOID:13819]:
+        text: Lymphogranuloma venereum [DOID:13819]
+        meaning: DOID:13819
+        is_a: Infectious disorder [NCIT:C26726]
+      Mycoplsma genitalium [NCBITaxon:2097]:
+        text: Mycoplsma genitalium [NCBITaxon:2097]
+        meaning: NCBITaxon:2097
+        is_a: Infectious disorder [NCIT:C26726]
+      Syphilis [DOID:4166]:
+        text: Syphilis [DOID:4166]
+        meaning: DOID:4166
+        is_a: Infectious disorder [NCIT:C26726]
+      Trichomoniasis [DOID:1947]:
+        text: Trichomoniasis [DOID:1947]
+        meaning: DOID:1947
+        is_a: Infectious disorder [NCIT:C26726]
+      Lupus [MONDO:0004670]:
+        text: Lupus [MONDO:0004670]
+        meaning: MONDO:0004670
       Pregnancy [NCIT:C25742]:
         text: Pregnancy [NCIT:C25742]
         meaning: NCIT:C25742
+      Prior therapy [NCIT:C16124]:
+        text: Prior therapy [NCIT:C16124]
+        meaning: NCIT:C16124
+      Cancer treatment [NCIT:C16212]:
+        text: Cancer treatment [NCIT:C16212]
+        meaning: NCIT:C16212
+        is_a: Prior therapy [NCIT:C16124]
+      Chemotherapy [NCIT:C15632]:
+        text: Chemotherapy [NCIT:C15632]
+        meaning: NCIT:C15632
+        is_a: Cancer treatment [NCIT:C16212]
+      HIV and Antiretroviral therapy (ART)  [NCIT:C16118]:
+        text: HIV and Antiretroviral therapy (ART)  [NCIT:C16118]
+        meaning: NCIT:C16118
+        is_a: Prior therapy [NCIT:C16124]
+      Steroid [CHEBI:35341]:
+        text: Steroid [CHEBI:35341]
+        meaning: CHEBI:35341
+        is_a: Prior therapy [NCIT:C16124]
+      Transplant [NCIT:C159659]:
+        text: Transplant [NCIT:C159659]
+        meaning: NCIT:C159659
+  complications menu:
+    name: complications menu
+    permissible_values:
+      Bronchopneumonia:
+        text: Bronchopneumonia
+        meaning: MONDO:0005682
+      Corneal infection:
+        text: Corneal infection
+        meaning: MONDO:0023865
+      Delayed wound healing (lesion healing):
+        text: Delayed wound healing (lesion healing)
+        meaning: MP:0002908
+      Encephalitis:
+        text: Encephalitis
+        meaning: DOID:9588
+      Myocarditis:
+        text: Myocarditis
+        meaning: DOID:820
+      Secondary infection:
+        text: Secondary infection
+        meaning: IDO:0000567
+      Sepsis:
+        text: Sepsis
+        meaning: HP:0100806
+  complications international menu:
+    name: complications international menu
+    permissible_values:
+      Bronchopneumonia [MONDO:0005682]:
+        text: Bronchopneumonia [MONDO:0005682]
+        meaning: MONDO:0005682
+      Corneal infection [MONDO:0023865]:
+        text: Corneal infection [MONDO:0023865]
+        meaning: MONDO:0023865
+      Delayed wound healing (lesion healing) [MP:0002908]:
+        text: Delayed wound healing (lesion healing) [MP:0002908]
+        meaning: MP:0002908
+      Encephalitis [DOID:9588]:
+        text: Encephalitis [DOID:9588]
+        meaning: DOID:9588
+      Myocarditis [DOID:820]:
+        text: Myocarditis [DOID:820]
+        meaning: DOID:820
+      Secondary infection [IDO:0000567]:
+        text: Secondary infection [IDO:0000567]
+        meaning: IDO:0000567
+      Sepsis [HP:0100806]:
+        text: Sepsis [HP:0100806]
+        meaning: HP:0100806
+  host vaccination status menu:
+    name: host vaccination status menu
+    permissible_values:
+      Fully Vaccinated:
+        text: Fully Vaccinated
+        meaning: GENEPIO:0100100
+      Not Vaccinated:
+        text: Not Vaccinated
+        meaning: GENEPIO:0100102
+  host vaccination status international menu:
+    name: host vaccination status international menu
+    permissible_values:
+      Fully Vaccinated [GENEPIO:0100100]:
+        text: Fully Vaccinated [GENEPIO:0100100]
+        meaning: GENEPIO:0100100
+      Not Vaccinated [GENEPIO:0100102]:
+        text: Not Vaccinated [GENEPIO:0100102]
+        meaning: GENEPIO:0100102
   exposure event menu:
     name: exposure event menu
+    permissible_values:
+      Mass Gathering:
+        text: Mass Gathering
+        meaning: GENEPIO:0100237
+      Convention (conference):
+        text: Convention (conference)
+        meaning: GENEPIO:0100238
+      Agricultural Event:
+        text: Agricultural Event
+        meaning: GENEPIO:0100240
+        is_a: Convention (conference)
+      Social Gathering:
+        text: Social Gathering
+        meaning: PCO:0000033
+      Community Event:
+        text: Community Event
+        meaning: PCO:0000034
+        is_a: Social Gathering
+      Party:
+        text: Party
+        meaning: PCO:0000035
+        is_a: Social Gathering
+      Other exposure event:
+        text: Other exposure event
+  exposure event international menu:
+    name: exposure event international menu
     permissible_values:
       Mass Gathering [GENEPIO:0100237]:
         text: Mass Gathering [GENEPIO:0100237]
@@ -3380,6 +4831,57 @@ enums:
   exposure contact level menu:
     name: exposure contact level menu
     permissible_values:
+      Contact with animal:
+        text: Contact with animal
+        meaning: GENEPIO:0100494
+      Contact with rodent:
+        text: Contact with rodent
+        meaning: GENEPIO:0100495
+        is_a: Contact with animal
+      Contact with fomite:
+        text: Contact with fomite
+        meaning: GENEPIO:0100496
+      Contact with infected individual:
+        text: Contact with infected individual
+        meaning: GENEPIO:0100357
+      Direct (human-to-human contact):
+        text: Direct (human-to-human contact)
+        meaning: TRANS:0000001
+        is_a: Contact with infected individual
+      Mother-to-child transmission:
+        text: Mother-to-child transmission
+        meaning: TRANS:0000006
+        is_a: Direct (human-to-human contact)
+      Sexual transmission:
+        text: Sexual transmission
+        meaning: NCIT:C19085
+        is_a: Direct (human-to-human contact)
+      Indirect contact:
+        text: Indirect contact
+        meaning: GENEPIO:0100246
+        is_a: Contact with infected individual
+      Close contact (face-to-face contact):
+        text: Close contact (face-to-face contact)
+        meaning: GENEPIO:0100247
+        is_a: Indirect contact
+      Casual contact:
+        text: Casual contact
+        meaning: GENEPIO:0100248
+        is_a: Indirect contact
+      Workplace associated transmission:
+        text: Workplace associated transmission
+        meaning: GENEPIO:0100497
+      Healthcare associated transmission:
+        text: Healthcare associated transmission
+        meaning: GENEPIO:0100498
+        is_a: Workplace associated transmission
+      Laboratory associated transmission:
+        text: Laboratory associated transmission
+        meaning: GENEPIO:0100499
+        is_a: Workplace associated transmission
+  exposure contact level international menu:
+    name: exposure contact level international menu
+    permissible_values:
       Contact with animal [GENEPIO:0100494]:
         text: Contact with animal [GENEPIO:0100494]
         meaning: GENEPIO:0100494
@@ -3390,25 +4892,25 @@ enums:
       Contact with fomite [GENEPIO:0100496]:
         text: Contact with fomite [GENEPIO:0100496]
         meaning: GENEPIO:0100496
-      Contact with infected individual:
-        text: Contact with infected individual
+      Contact with infected individual [GENEPIO:0100357]:
+        text: Contact with infected individual [GENEPIO:0100357]
         meaning: GENEPIO:0100357
       Direct (human-to-human contact) [TRANS:0000001]:
         text: Direct (human-to-human contact) [TRANS:0000001]
         meaning: TRANS:0000001
-        is_a: Contact with infected individual
+        is_a: Contact with infected individual [GENEPIO:0100357]
       Mother-to-child transmission [TRANS:0000006]:
         text: Mother-to-child transmission [TRANS:0000006]
         meaning: TRANS:0000006
         is_a: Direct (human-to-human contact) [TRANS:0000001]
-      Sexual transmission[NCIT:C19085]:
-        text: Sexual transmission[NCIT:C19085]
+      Sexual transmission [NCIT:C19085]:
+        text: Sexual transmission [NCIT:C19085]
         meaning: NCIT:C19085
         is_a: Direct (human-to-human contact) [TRANS:0000001]
       Indirect contact [GENEPIO:0100246]:
         text: Indirect contact [GENEPIO:0100246]
         meaning: GENEPIO:0100246
-        is_a: Contact with infected individual
+        is_a: Contact with infected individual [GENEPIO:0100357]
       Close contact (face-to-face contact) [GENEPIO:0100247]:
         text: Close contact (face-to-face contact) [GENEPIO:0100247]
         meaning: GENEPIO:0100247
@@ -3430,6 +4932,139 @@ enums:
         is_a: Workplace associated transmission [GENEPIO:0100497]
   host role menu:
     name: host role menu
+    permissible_values:
+      Attendee:
+        text: Attendee
+        meaning: GENEPIO:0100249
+      Student:
+        text: Student
+        meaning: OMRSE:00000058
+        is_a: Attendee
+      Patient:
+        text: Patient
+        meaning: OMRSE:00000030
+      Inpatient:
+        text: Inpatient
+        meaning: NCIT:C25182
+        is_a: Patient
+      Outpatient:
+        text: Outpatient
+        meaning: NCIT:C28293
+        is_a: Patient
+      Passenger:
+        text: Passenger
+        meaning: GENEPIO:0100250
+      Resident:
+        text: Resident
+        meaning: GENEPIO:0100251
+      Visitor:
+        text: Visitor
+        meaning: GENEPIO:0100252
+      Volunteer:
+        text: Volunteer
+        meaning: GENEPIO:0100253
+      Work:
+        text: Work
+        meaning: GENEPIO:0100254
+      Administrator:
+        text: Administrator
+        meaning: GENEPIO:0100255
+        is_a: Work
+      First Responder:
+        text: First Responder
+        meaning: GENEPIO:0100256
+        is_a: Work
+      Housekeeper:
+        text: Housekeeper
+        meaning: GENEPIO:0100260
+        is_a: Work
+      Kitchen Worker:
+        text: Kitchen Worker
+        meaning: GENEPIO:0100261
+        is_a: Work
+      Healthcare Worker:
+        text: Healthcare Worker
+        meaning: GENEPIO:0100334
+        is_a: Work
+      Community Healthcare Worker:
+        text: Community Healthcare Worker
+        meaning: GENEPIO:0100420
+        is_a: Healthcare Worker
+      Laboratory Worker:
+        text: Laboratory Worker
+        meaning: GENEPIO:0100262
+        is_a: Healthcare Worker
+      Nurse:
+        text: Nurse
+        meaning: OMRSE:00000014
+        is_a: Healthcare Worker
+      Personal Care Aid:
+        text: Personal Care Aid
+        meaning: GENEPIO:0100263
+        is_a: Healthcare Worker
+      Pharmacist:
+        text: Pharmacist
+        meaning: GENEPIO:0100264
+        is_a: Healthcare Worker
+      Physician:
+        text: Physician
+        meaning: OMRSE:00000013
+        is_a: Healthcare Worker
+      Rotational Worker:
+        text: Rotational Worker
+        meaning: GENEPIO:0100354
+        is_a: Work
+      Seasonal Worker:
+        text: Seasonal Worker
+        meaning: GENEPIO:0100355
+        is_a: Work
+      Sex Worker:
+        text: Sex Worker
+        meaning: GSSO:005831
+        is_a: Work
+      Veterinarian:
+        text: Veterinarian
+        meaning: GENEPIO:0100265
+        is_a: Work
+      Social role:
+        text: Social role
+        meaning: OMRSE:00000001
+      Acquaintance of case:
+        text: Acquaintance of case
+        meaning: GENEPIO:0100266
+        is_a: Social role
+      Relative of case:
+        text: Relative of case
+        meaning: GENEPIO:0100267
+        is_a: Social role
+      Child of case:
+        text: Child of case
+        meaning: GENEPIO:0100268
+        is_a: Relative of case
+      Parent of case:
+        text: Parent of case
+        meaning: GENEPIO:0100269
+        is_a: Relative of case
+      Father of case:
+        text: Father of case
+        meaning: GENEPIO:0100270
+        is_a: Parent of case
+      Mother of case:
+        text: Mother of case
+        meaning: GENEPIO:0100271
+        is_a: Parent of case
+      Sexual partner of case:
+        text: Sexual partner of case
+        meaning: GENEPIO:0100500
+        is_a: Social role
+      Spouse of case:
+        text: Spouse of case
+        meaning: GENEPIO:0100272
+        is_a: Social role
+      Other Host Role:
+        text: Other Host Role
+  host role international menu:
+    name: host role international menu
     permissible_values:
       Attendee [GENEPIO:0100249]:
         text: Attendee [GENEPIO:0100249]
@@ -3516,6 +5151,10 @@ enums:
         text: Seasonal Worker [GENEPIO:0100355]
         meaning: GENEPIO:0100355
         is_a: Work [GENEPIO:0100254]
+      Sex Worker [GSSO:005831]:
+        text: Sex Worker [GSSO:005831]
+        meaning: GSSO:005831
+        is_a: Work [GENEPIO:0100254]
       Veterinarian [GENEPIO:0100265]:
         text: Veterinarian [GENEPIO:0100265]
         meaning: GENEPIO:0100265
@@ -3559,6 +5198,245 @@ enums:
         text: Other Host Role
   exposure setting menu:
     name: exposure setting menu
+    permissible_values:
+      Human Exposure:
+        text: Human Exposure
+        meaning: ECTO:3000005
+      Contact with Known Monkeypox Case:
+        text: Contact with Known Monkeypox Case
+        meaning: GENEPIO:0100501
+        is_a: Human Exposure
+      Contact with Patient:
+        text: Contact with Patient
+        meaning: GENEPIO:0100185
+        is_a: Human Exposure
+      Contact with Probable Monkeypox Case:
+        text: Contact with Probable Monkeypox Case
+        meaning: GENEPIO:0100502
+        is_a: Human Exposure
+      Contact with Person who Recently Travelled:
+        text: Contact with Person who Recently Travelled
+        meaning: GENEPIO:0100189
+        is_a: Human Exposure
+      Occupational, Residency or Patronage Exposure:
+        text: Occupational, Residency or Patronage Exposure
+        meaning: GENEPIO:0100190
+      Abbatoir:
+        text: Abbatoir
+        meaning: ECTO:1000033
+        is_a: Occupational, Residency or Patronage Exposure
+      Animal Rescue:
+        text: Animal Rescue
+        meaning: GENEPIO:0100191
+        is_a: Occupational, Residency or Patronage Exposure
+      Bar (pub):
+        text: Bar (pub)
+        meaning: GENEPIO:0100503
+        is_a: Occupational, Residency or Patronage Exposure
+      Childcare:
+        text: Childcare
+        meaning: GENEPIO:0100192
+        is_a: Occupational, Residency or Patronage Exposure
+      Daycare:
+        text: Daycare
+        meaning: GENEPIO:0100193
+        is_a: Childcare
+      Nursery:
+        text: Nursery
+        meaning: GENEPIO:0100194
+        is_a: Childcare
+      Community Service Centre:
+        text: Community Service Centre
+        meaning: GENEPIO:0100195
+        is_a: Occupational, Residency or Patronage Exposure
+      Correctional Facility:
+        text: Correctional Facility
+        meaning: GENEPIO:0100196
+        is_a: Occupational, Residency or Patronage Exposure
+      Dormitory:
+        text: Dormitory
+        meaning: GENEPIO:0100197
+        is_a: Occupational, Residency or Patronage Exposure
+      Farm:
+        text: Farm
+        meaning: ECTO:1000034
+        is_a: Occupational, Residency or Patronage Exposure
+      First Nations Reserve:
+        text: First Nations Reserve
+        meaning: GENEPIO:0100198
+        is_a: Occupational, Residency or Patronage Exposure
+      Funeral Home:
+        text: Funeral Home
+        meaning: GENEPIO:0100199
+        is_a: Occupational, Residency or Patronage Exposure
+      Group Home:
+        text: Group Home
+        meaning: GENEPIO:0100200
+        is_a: Occupational, Residency or Patronage Exposure
+      Healthcare Setting:
+        text: Healthcare Setting
+        meaning: GENEPIO:0100201
+        is_a: Occupational, Residency or Patronage Exposure
+      Ambulance:
+        text: Ambulance
+        meaning: GENEPIO:0100202
+        is_a: Healthcare Setting
+      Acute Care Facility:
+        text: Acute Care Facility
+        meaning: GENEPIO:0100203
+        is_a: Healthcare Setting
+      Clinic:
+        text: Clinic
+        meaning: GENEPIO:0100204
+        is_a: Healthcare Setting
+      Community Healthcare (At-Home) Setting:
+        text: Community Healthcare (At-Home) Setting
+        meaning: GENEPIO:0100415
+        is_a: Healthcare Setting
+      Community Health Centre:
+        text: Community Health Centre
+        meaning: GENEPIO:0100205
+        is_a: Healthcare Setting
+      Hospital:
+        text: Hospital
+        meaning: ECTO:1000035
+        is_a: Healthcare Setting
+      Emergency Department:
+        text: Emergency Department
+        meaning: GENEPIO:0100206
+        is_a: Hospital
+      ICU:
+        text: ICU
+        meaning: GENEPIO:0100207
+        is_a: Hospital
+      Ward:
+        text: Ward
+        meaning: GENEPIO:0100208
+        is_a: Hospital
+      Laboratory:
+        text: Laboratory
+        meaning: ECTO:1000036
+        is_a: Healthcare Setting
+      Long-Term Care Facility:
+        text: Long-Term Care Facility
+        meaning: GENEPIO:0100209
+        is_a: Healthcare Setting
+      Pharmacy:
+        text: Pharmacy
+        meaning: GENEPIO:0100210
+        is_a: Healthcare Setting
+      Physician's Office:
+        text: Physician's Office
+        meaning: GENEPIO:0100211
+        is_a: Healthcare Setting
+      Household:
+        text: Household
+        meaning: GENEPIO:0100212
+        is_a: Occupational, Residency or Patronage Exposure
+      Insecure Housing (Homeless):
+        text: Insecure Housing (Homeless)
+        meaning: GENEPIO:0100213
+        is_a: Occupational, Residency or Patronage Exposure
+      Occupational Exposure:
+        text: Occupational Exposure
+        meaning: GENEPIO:0100214
+        is_a: Occupational, Residency or Patronage Exposure
+      Worksite:
+        text: Worksite
+        meaning: GENEPIO:0100215
+        is_a: Occupational Exposure
+      Office:
+        text: Office
+        meaning: ECTO:1000037
+        is_a: Worksite
+      Outdoors:
+        text: Outdoors
+        meaning: GENEPIO:0100216
+        is_a: Occupational, Residency or Patronage Exposure
+      Camp/camping:
+        text: Camp/camping
+        meaning: ECTO:5000009
+        is_a: Outdoors
+      Hiking Trail:
+        text: Hiking Trail
+        meaning: GENEPIO:0100217
+        is_a: Outdoors
+      Hunting Ground:
+        text: Hunting Ground
+        meaning: ECTO:6000030
+        is_a: Outdoors
+      Ski Resort:
+        text: Ski Resort
+        meaning: GENEPIO:0100218
+        is_a: Outdoors
+      Petting zoo:
+        text: Petting zoo
+        meaning: ECTO:5000008
+        is_a: Occupational, Residency or Patronage Exposure
+      Place of Worship:
+        text: Place of Worship
+        meaning: GENEPIO:0100220
+        is_a: Occupational, Residency or Patronage Exposure
+      Church:
+        text: Church
+        meaning: GENEPIO:0100221
+        is_a: Place of Worship
+      Mosque:
+        text: Mosque
+        meaning: GENEPIO:0100222
+        is_a: Place of Worship
+      Temple:
+        text: Temple
+        meaning: GENEPIO:0100223
+        is_a: Place of Worship
+      Restaurant:
+        text: Restaurant
+        meaning: ECTO:1000040
+        is_a: Occupational, Residency or Patronage Exposure
+      Retail Store:
+        text: Retail Store
+        meaning: ECTO:1000041
+        is_a: Occupational, Residency or Patronage Exposure
+      School:
+        text: School
+        meaning: GENEPIO:0100224
+        is_a: Occupational, Residency or Patronage Exposure
+      Temporary Residence:
+        text: Temporary Residence
+        meaning: GENEPIO:0100225
+        is_a: Occupational, Residency or Patronage Exposure
+      Homeless Shelter:
+        text: Homeless Shelter
+        meaning: GENEPIO:0100226
+        is_a: Temporary Residence
+      Hotel:
+        text: Hotel
+        meaning: GENEPIO:0100227
+        is_a: Temporary Residence
+      Veterinary Care Clinic:
+        text: Veterinary Care Clinic
+        meaning: GENEPIO:0100228
+        is_a: Occupational, Residency or Patronage Exposure
+      Travel Exposure:
+        text: Travel Exposure
+        meaning: GENEPIO:0100229
+      Travelled on a Cruise Ship:
+        text: Travelled on a Cruise Ship
+        meaning: GENEPIO:0100230
+        is_a: Travel Exposure
+      Travelled on a Plane:
+        text: Travelled on a Plane
+        meaning: GENEPIO:0100231
+        is_a: Travel Exposure
+      Travelled on Ground Transport:
+        text: Travelled on Ground Transport
+        meaning: GENEPIO:0100232
+        is_a: Travel Exposure
+      Other Exposure Setting:
+        text: Other Exposure Setting
+        meaning: GENEPIO:0100235
+  exposure setting international menu:
+    name: exposure setting international menu
     permissible_values:
       Human Exposure [ECTO:3000005]:
         text: Human Exposure [ECTO:3000005]
@@ -3796,15 +5674,42 @@ enums:
       Other Exposure Setting [GENEPIO:0100235]:
         text: Other Exposure Setting [GENEPIO:0100235]
         meaning: GENEPIO:0100235
-  host vaccination status menu:
-    name: host vaccination status menu
+  prior Monkeypox infection menu:
+    name: prior Monkeypox infection menu
     permissible_values:
-      Fully Vaccinated [GENEPIO:0100100]:
-        text: Fully Vaccinated [GENEPIO:0100100]
-        meaning: GENEPIO:0100100
-      Not Vaccinated [GENEPIO:0100102]:
-        text: Not Vaccinated [GENEPIO:0100102]
-        meaning: GENEPIO:0100102
+      Prior infection:
+        text: Prior infection
+        meaning: GENEPIO:0100037
+      No prior infection:
+        text: No prior infection
+        meaning: GENEPIO:0100233
+  prior Monkeypox infection international menu:
+    name: prior Monkeypox infection international menu
+    permissible_values:
+      Prior infection [GENEPIO:0100037]:
+        text: Prior infection [GENEPIO:0100037]
+        meaning: GENEPIO:0100037
+      No prior infection [GENEPIO:0100233]:
+        text: No prior infection [GENEPIO:0100233]
+        meaning: GENEPIO:0100233
+  prior Monkeypox antiviral treatment menu:
+    name: prior Monkeypox antiviral treatment menu
+    permissible_values:
+      Prior antiviral treatment:
+        text: Prior antiviral treatment
+        meaning: GENEPIO:0100037
+      No prior antiviral treatment:
+        text: No prior antiviral treatment
+        meaning: GENEPIO:0100233
+  prior Monkeypox antiviral treatment international menu:
+    name: prior Monkeypox antiviral treatment international menu
+    permissible_values:
+      Prior antiviral treatment [GENEPIO:0100037]:
+        text: Prior antiviral treatment [GENEPIO:0100037]
+        meaning: GENEPIO:0100037
+      No prior antiviral treatment [GENEPIO:0100233]:
+        text: No prior antiviral treatment [GENEPIO:0100233]
+        meaning: GENEPIO:0100233
   organism menu:
     name: organism menu
     permissible_values:
