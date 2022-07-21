@@ -2,7 +2,7 @@
 
 This directory contains example input/test data for the Canadian Network for Public Health Intelligence (CNPHI) DataHarmonizer application template: `Monkeypox`. This data is appropriate for testing up to the version appended to the end of the file name, for example:
 
-- `DH_Canadian_MPX_validTestDataset_1-1-0_Jul13_2022.xlsx` is _valid_ for version `1-3-2` of the DataHarmonizer.
+- `DH_Canadian_MPX_validTestDataset_2-1-1_July202022.xlsx` is _valid_ for version `1-3-3` of the DataHarmonizer.
 
 ## Valid Test Data
 
