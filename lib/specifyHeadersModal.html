@@ -1,0 +1,62 @@
+<div class="modal" id="specify-headers-modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col">
+              The second row in your imported file does not match the template
+              column specification. Mismatched column(s) are shown in orange.
+            </div>
+          </div>
+          <div class="row my-3 border" id="specify-headers-comparison-row">
+            <div class="col">
+              <div class="row" id="field-mapping-container">
+                <table id="field-mapping">
+                  <tr id="expected-headers-tr"></tr>
+                  <tr id="actual-headers-tr"></tr>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <p>
+                We will try to map your headers.<br />
+                <b>Which row in your file has the column headers?</b>
+              </p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <input
+                class="form-control"
+                id="specify-headers-input"
+                value="2"
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col"><i>First row = 1, Second row = 2, etc.</i></div>
+          </div>
+          <div class="row">
+            <div class="col text-danger" id="specify-headers-err-msg">
+              Invalid row
+            </div>
+          </div>
+          <div class="row mt-3">
+            <div class="col d-flex justify-content-end">
+              <button
+                type="button"
+                class="btn btn-primary"
+                id="specify-headers-confirm-btn"
+              >
+                Ok
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
