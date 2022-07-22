@@ -730,7 +730,7 @@ classes:
         comments: Select the name of the gene used for the diagnostic PCR from the
           standardized pick list.
         any_of:
-        - range: gene name 1 menu
+        - range: gene name menu
         - range: null value menu
       diagnostic pcr Ct value 1:
         rank: 105
@@ -741,7 +741,7 @@ classes:
         comments: Select the name of the gene used for the diagnostic PCR from the
           standardized pick list.
         any_of:
-        - range: gene name 2 menu
+        - range: gene name menu
         - range: null value menu
       diagnostic pcr Ct value 2:
         rank: 107
@@ -752,7 +752,7 @@ classes:
         comments: Select the name of the gene used for the diagnostic PCR from the
           standardized pick list.
         any_of:
-        - range: gene name 3 menu
+        - range: gene name menu
         - range: null value menu
       diagnostic pcr Ct value 3:
         rank: 109
@@ -2980,7 +2980,7 @@ slots:
     examples:
     - value: G2R_G (TNFR)
     any_of:
-    - range: gene name 4 menu
+    - range: gene name menu
     - range: null value menu
     exact_mappings:
     - CNPHI:Gene Target 4
@@ -3010,7 +3010,7 @@ slots:
     examples:
     - value: RNAse P
     any_of:
-    - range: gene name 5 menu
+    - range: gene name menu
     - range: null value menu
     exact_mappings:
     - CNPHI:Gene Target 5
@@ -3437,6 +3437,10 @@ enums:
         text: Buccal mucosa
         meaning: UBERON:0006956
         is_a: Head
+      Cheek:
+        text: Cheek
+        meaning: UBERON:0001567
+        is_a: Head
       Ear:
         text: Ear
         meaning: UBERON:0001690
@@ -3616,6 +3620,10 @@ enums:
       Buccal mucosa [UBERON:0006956]:
         text: Buccal mucosa [UBERON:0006956]
         meaning: UBERON:0006956
+        is_a: Head [UBERON:0000033]
+      Cheek [UBERON:0001567]:
+        text: Cheek [UBERON:0001567]
+        meaning: UBERON:0001567
         is_a: Head [UBERON:0000033]
       Ear [UBERON:0001690]:
         text: Ear [UBERON:0001690]
@@ -6447,33 +6455,23 @@ enums:
         text: Unity Health Toronto
       William Osler Health System:
         text: William Osler Health System
-  gene name 1 menu:
-    name: gene name 1 menu
+  gene name menu:
+    name: gene name menu
     permissible_values:
       MPX (orf B6R):
         text: MPX (orf B6R)
         meaning: GENEPIO:0100505
-  gene name 2 menu:
-    name: gene name 2 menu
-    permissible_values:
       OVP (orf 17L):
         text: OVP (orf 17L)
         meaning: GENEPIO:0100506
-  gene name 3 menu:
-    name: gene name 3 menu
-    permissible_values:
       OPHA (orf B2R):
         text: OPHA (orf B2R)
         meaning: GENEPIO:0100507
-  gene name 4 menu:
-    name: gene name 4 menu
-    permissible_values:
       G2R_G (TNFR):
         text: G2R_G (TNFR)
         meaning: GENEPIO:0100510
-  gene name 5 menu:
-    name: gene name 5 menu
-    permissible_values:
+      G2R_G (WA):
+        text: G2R_G (WA)
       RNAse P gene (RNP):
         text: RNAse P gene (RNP)
         meaning: GENEPIO:0100508
