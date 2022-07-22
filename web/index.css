@@ -1,0 +1,56 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  /* Prevents track or mouse scroll gestures from triggering page navigation in chrome off of displayed page. */
+  overscroll-behavior: contain;
+}
+
+.data-harmonizer-grid {
+  overflow: hidden;
+}
+.data-harmonizer-grid .secondary-header-cell:hover {
+  cursor: pointer;
+}
+.data-harmonizer-grid td.invalid-cell {
+  background-color: #ffcccb !important;
+}
+.data-harmonizer-grid td.empty-invalid-cell {
+  background-color: #ff91a4 !important;
+}
+.data-harmonizer-grid .htAutocompleteArrow {
+  color: gray;
+}
+.data-harmonizer-grid th {
+  text-align: left;
+}
+.data-harmonizer-grid th.required {
+  background-color: yellow !important;
+}
+.data-harmonizer-grid th.recommended {
+  background-color: plum !important;
+}
+.data-harmonizer-grid th.overlayEdge {
+  border-right: medium solid gray;
+}
+.data-harmonizer-grid table.htCore > tbody > tr td:nth-child(2) {
+  border-right: medium solid gray;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.handsontable.listbox {
+  white-space: pre !important;
+}
+.handsontable.listbox td {
+  border-radius: 3px;
+  border: 1px solid silver;
+  background-color: #ddd;
+}
+.handsontable.listbox td:hover {
+  background-color: lightblue !important;
+}
+.handsontable.listbox td.current.highlight {
+  background-color: lightblue !important;
+}

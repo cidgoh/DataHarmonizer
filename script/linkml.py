@@ -24,7 +24,7 @@ from linkml_runtime.utils.schemaview import SchemaView
 from linkml_runtime.dumpers.json_dumper import JSONDumper
 
 # Common menu shared with all template folders.
-MENU = "../menu.js"
+MENU = "../menu.json"
 template_folder = os.path.basename(os.getcwd())
 
 
@@ -67,26 +67,24 @@ for name, class_obj in schema_spec.all_classes().items():
         schema_spec.add_class(new_obj)
 
 # Output the amalgamated content:
-with open("schema.js", "w") as output_handle:
-    dumper = JSONDumper();
-    output_handle.write("var SCHEMA = " + dumper.dumps(schema_spec.schema) )
+JSONDumper().dump(schema_spec.schema, 'schema.json')
 
 # ********* Adjust the menu to include this schema and its classes ******
-# Creating a javascript file structure which can be loaded directly into DH:
+# Creating a JSON file structure which can be loaded directly into DH:
 #
-# const TEMPLATES = {
-#  'MIxS': {'soil': {'name': 'soil', 'status': 'published'},
-#             etc/
-#     }
-# };
-
-js_prefix = "const TEMPLATES = "
+# {
+#   "MIxS": {
+#     "soil": {
+#       "name": 'soil', 
+#       "status": "published"
+#     },
+#     ... etc
+#   }
+# }
 
 if os.path.isfile(MENU):
     with open(MENU, "r") as f:
-        menu_text = f.read()
-        # Chops prefix off before interpretation
-        menu = json.loads(menu_text[len(js_prefix) :])
+        menu = json.load(f)
 else:
     menu = {}
 
@@ -121,6 +119,4 @@ for name, class_obj in class_menu.items():
     }
 
 with open(MENU, "w") as output_handle:
-    output_handle.write(
-        js_prefix + json.dumps(menu, sort_keys=False, indent=2, separators=(",", ": "))
-    )
+    json.dump(menu, fp=output_handle, sort_keys=False, indent=2, separators=(",", ": "))
