@@ -115,6 +115,7 @@ anatomical part menu	UBERON:0001245	Anus
 	FMA:24920		      Hand (palm)									
 	UBERON:0000033	Head										
 	UBERON:0006956		      Buccal mucosa									
+	UBERON:0001567		      Cheek									
 	UBERON:0001690		      Ear									
 	NCIT:C103848			Preauricular region								
 	UBERON:0000970		      Eye									
@@ -168,6 +169,7 @@ anatomical part international menu	UBERON:0001245	Anus [UBERON:0001245]
 	FMA:24920		      Hand (palm) [FMA:24920]									
 	UBERON:0000033	Head [UBERON:0000033]										
 	UBERON:0006956		      Buccal mucosa [UBERON:0006956]									
+	UBERON:0001567		      Cheek [UBERON:0001567]									
 	UBERON:0001690		      Ear [UBERON:0001690]									
 	NCIT:C103848			Preauricular region [NCIT:C103848]								
 	UBERON:0000970		      Eye [UBERON:0000970]									
@@ -1006,15 +1008,13 @@ sequenced by menu		Alberta Precision Labs (APL)
 		Unity Health Toronto										
 		William Osler Health System										
 												
-gene name 1 menu	GENEPIO:0100505	MPX (orf B6R)										
+gene name menu	GENEPIO:0100505	MPX (orf B6R)										
+	GENEPIO:0100506	OVP (orf 17L)										
+	GENEPIO:0100507	OPHA (orf B2R)										
+	GENEPIO:0100510	G2R_G (TNFR)										
+		G2R_G (WA)										
+	GENEPIO:0100508	RNAse P gene (RNP)										
 												
-gene name 2 menu	GENEPIO:0100506	OVP (orf 17L)										
-												
-gene name 3 menu	GENEPIO:0100507	OPHA (orf B2R)										
-												
-gene name 4 menu	GENEPIO:0100510	G2R_G (TNFR)										
-												
-gene name 5 menu	GENEPIO:0100508	RNAse P gene (RNP)										
 												
 geo_loc_name (country) menu	GAZ:00006882	Afghanistan										
 	GAZ:00002953	Albania										
