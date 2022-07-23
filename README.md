@@ -134,11 +134,20 @@ This will start a [webpack development server](https://webpack.js.org/configurat
 
 ### Publishing and Releasing
 
-Run yarn build:web to bundle the canonical interface. You can open web/dist/index.html in your browser to test the distributable bundle and verify it runs in "offline".
+To bundle the canonical interface run:
 
-Run yarn build:lib to bundle the library components into lib/dist. That’s what will be published for downstream clients to use (there will be some follow-up work to document and automate that process). For now there isn’t much interesting to do with it, unless you really want to go the extra mile and consume your local DH project in another local project to see that working.
+```shell
+yarn build:web
+```
+You can open web/dist/index.html in your browser to test the distributable bundle and verify it runs in "offline".
 
-`TODO: describe how to prepare a release containing just the web/dist/ folder and templates`
+To bundle the library components into lib/dist for downstream clients to use via API instead of the canonical interface, run:
+
+```shell
+Run yarn build:lib
+```
+
+`TODO: describe how to prepare a release containing just the web/dist/ folder and templates; and describe how to use the API.`
 
 ## Acknowledgement
 
