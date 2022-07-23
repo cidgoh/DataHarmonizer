@@ -144,7 +144,7 @@ You can open web/dist/index.html in your browser to test the distributable bundl
 To bundle the library components into lib/dist for downstream clients to use via API instead of the canonical interface, run:
 
 ```shell
-Run yarn build:lib
+yarn build:lib
 ```
 
 `TODO: describe how to prepare a release containing just the web/dist/ folder and templates; and describe how to use the API.`
