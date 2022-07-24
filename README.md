@@ -1,6 +1,6 @@
 # DataHarmonizer
 
-A standardized spreadsheet editor and validator that can be run offline and locally, and which includes templates for SARS-CoV-2 sampling data.  
+A standardized browser-based spreadsheet editor and validator that can be run offline and locally, which works of of [LinkML](https://linkml.io/) data specifications. This project, created by the Centre for Infectious Disease Genomics and One Health (CIDGOH), at Simon Fraser University, is now an open-source collaboration with contributions from the National Microbiome Data Collaborative (NMDC), the LinkML development team, and others.
 
 Watch Rhiannon Cameron and Damion Dooley describe this application on [YouTube](https://www.youtube.com/watch?v=rdN2_Vhwb8E&t=38s&ab_channel=CANARIEInc.) at the Canadian Research Software Conference (CRSC2021).
 
@@ -12,12 +12,19 @@ Watch Rhiannon Cameron and Damion Dooley describe this application on [YouTube](
 
 ## Installation
 
-Download the zipped source code from the latest release at:
+This repository currently contains two kinds of release. 
+1) A stand-alone browser-based version of DataHarmonizer that includes templates for detailing **SARS-CoV-2 and Monkeypox** sample contextual data. Release notes indicate which versions of these templates are included. More infectious disease templates will be included in the comming year. Other organizations are adopting this version of DataHarmonizer for their own data management purposes.
+```
+To get the stand-alone version, download the zipped source code from the latest release at:
 https://github.com/Public-Health-Bioinformatics/DataHarmonizer/releases
 
 Extract the zipped file.
 
 To run the application, navigate to the extracted folder and open `index.html`.
+```
+
+2) A full development environment including the scripts necessary to generate a code library for **API** use, as well as the stand-alone version. Instructions for setting this up is in the ##Development## section below. The API is used by the https://data.microbiomedata.org/ project for data collection.
+
 
 ## Select Template
 
