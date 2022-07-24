@@ -67,7 +67,7 @@ For _more information_ on available application features, select the **Help** bu
 
 ## Example Data
 
-In the stand-alone version of DataHarmonizer, templates with example data testing functionalities can be found within the following folder structure when available:
+The stand-alone version of DataHarmonizer when built is placed in the /web/dist/ folder, with the following structure.  Templates with example data testing functionalities can be found within the following folder structure leading to the "exampleInput/" folder, when available:
 
 ```
 . TOP LEVEL DIRECTORY
@@ -80,11 +80,9 @@ In the stand-alone version of DataHarmonizer, templates with example data testin
 │   └── ...
 ```
 
-Alternatively, you can find links to all available test data below:
+Note that the source of the built "template/" folder above is actually in /web/templates/, where example input data should be placed before performing the build process.  Here is an example links to all available test data for the CanCOGeN Covid-19 template:
 
 - [`canada_covid19`](https://github.com/cidgoh/DataHarmonizer/tree/master/web/templates/canada_covid19/exampleInput) CanCOGeN Covid-19
-
-https://github.com/cidgoh/DataHarmonizer/tree/master/web/templates/canada_covid19/exampleInput
 
 
 ## Version Control
