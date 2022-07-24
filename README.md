@@ -23,8 +23,9 @@ Extract the zipped file.
 To run the application, navigate to the extracted folder and open `index.html`.
 ```
 
-2) A full development environment including the scripts necessary to generate a code library for **API** use, as well as the stand-alone version. Instructions for setting this up is in the ##Development## section below. The API is used by the https://data.microbiomedata.org/ project for data collection.
+2) A full development environment including the scripts necessary to generate a code library for **API** use, as well as the stand-alone version. Instructions for setting this up is in the ##Development## section below. The API is used by the https://data.microbiomedata.org/ project for data collection.  Using the API allows DataHarmonizer to be presented in a custom user interface, with a specific template pre-loaded for example, and select controls menu items constructed as desired in the interface.
 
+# Stand-Alone DataHarmonizer Functionality
 
 ## Select Template
 
@@ -66,7 +67,7 @@ For _more information_ on available application features, select the **Help** bu
 
 ## Example Data
 
-Templates with example data testing functionalities can be found within the following folder structure when available:
+In the stand-alone version of DataHarmonizer, templates with example data testing functionalities can be found within the following folder structure when available:
 
 ```
 . TOP LEVEL DIRECTORY
@@ -80,23 +81,11 @@ Templates with example data testing functionalities can be found within the foll
 ```
 
 Alternatively, you can find links to all available test data below:
-- [`canada_covid19`](https://github.com/cidgoh/DataHarmonizer/tree/master/template/canada_covid19/exampleInput) CanCOGeN Covid-19
 
-## Additional Information
+- [`canada_covid19`](https://github.com/cidgoh/DataHarmonizer/tree/master/web/templates/canada_covid19/exampleInput) CanCOGeN Covid-19
 
-For more information about the DataHarmonizer, it's templates, and how to use them, check out the [DataHarmonizer Wiki](https://github.com/Public-Health-Bioinformatics/DataHarmonizer/wiki).
+https://github.com/cidgoh/DataHarmonizer/tree/master/web/templates/canada_covid19/exampleInput
 
-## Support
-
-If you have any ideas for improving the application, or have encountered any
-problems running the application, [please open an issue for discussion][1].
-
-[1]: https://github.com/Public-Health-Bioinformatics/DataHarmonizer/issues
-
-## Roadmap
-
-This project is currently in the beta phase, with new features being added
-occasionally.
 
 ## Version Control
 
@@ -105,15 +94,15 @@ Changes to vocabulary in template pick lists are updated by incremental increase
 Changes to fields and features are updated by incremental increases to the second position in the version (i.e. “Y” position).
 Changes to basic infrastructure or major changes to functionality are updated by incremental increases to the first position in the version (i.e. “X” position).
 
-Descriptions of updates are provided in release notes for every new version.
+Descriptions of updates are provided in [release notes](https://github.com/cidgoh/DataHarmonizer/releases) for every new version.
 
-Discussions contributing to updates may be tracked on the DataHarmonizer GitHub Issuetracker.
+Discussions contributing to updates may be tracked on the DataHarmonizer GitHub issue tracker.
 
-## Development
+# Development
 
 Code in this repository is split mainly between two folders: `lib` and `web`. The `lib` folder contains the core interface components which are published to NPM and can be used by any client to build a user interface. The `web` folder contains an implementation of one such interface, using the components defined in `lib`. The interface implemented in the `web` folder is packaged and [made available to users as releases of this repository](#Installation).
 
-### Prerequisites
+## Prerequisites
 
 For development, you must have [Node.js](https://nodejs.org) and [Yarn](https://yarnpkg.com/getting-started/install) installed. If you have Node.js version 16.10 or later (highly recommended) and you have not used Yarn before, you can enable it by running:
 
@@ -121,7 +110,7 @@ For development, you must have [Node.js](https://nodejs.org) and [Yarn](https://
 corepack enable
 ```
 
-### Installing
+## Installing
 
 To install the dependencies of this package for development simply run:
 
@@ -129,7 +118,7 @@ To install the dependencies of this package for development simply run:
 yarn
 ```
 
-### Running Locally
+## Running Locally
 
 Developing either the library components in `lib` or the interface in `web` can be done using the same command:
 
@@ -139,7 +128,7 @@ yarn dev
 
 This will start a [webpack development server](https://webpack.js.org/configuration/dev-server/) running locally on `localhost:8080`. Changes to either `lib` or `web` should be loaded automatically in your browser. This serves as interface for testing and debugging the core library components (in the lib directory) and that interface itself (the web directory).
 
-### Publishing and Releasing
+## Publishing and Releasing
 
 To bundle the canonical interface run:
 
@@ -155,6 +144,20 @@ yarn build:lib
 ```
 
 `TODO: describe how to prepare a release containing just the web/dist/ folder and templates; and describe how to use the API.`
+
+## Roadmap
+
+This project is now in production, with new features being added occasionally.  The [Projects](https://github.com/cidgoh/DataHarmonizer/projects/1) tab indicates anticipated functionality.
+
+# Support
+
+If you have any ideas for improving the application, or have encountered any problems running the application, [please open an issue for discussion][1].
+
+[1]: https://github.com/Public-Health-Bioinformatics/DataHarmonizer/issues
+
+## Additional Information
+
+For more information about the DataHarmonizer, it's templates, and how to use them, check out the [DataHarmonizer Wiki](https://github.com/Public-Health-Bioinformatics/DataHarmonizer/wiki).
 
 ## Acknowledgement
 
