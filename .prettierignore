@@ -1,2 +1,4 @@
 **/dist/**/*
 web/templates/**/*
+.venv
+README.md

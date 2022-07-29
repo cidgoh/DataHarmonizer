@@ -23,8 +23,8 @@
     "#lib": "./lib/index.js"
   },
   "scripts": {
-    "format": "prettier --write {lib,web,tests}",
-    "lint": "prettier --check {lib,web,tests} && eslint {lib,web,tests}",
+    "format": "prettier --write .",
+    "lint": "prettier --check . && eslint .",
     "clean:lib": "rimraf lib/dist",
     "clean:web": "rimraf web/dist",
     "clean": "yarn clean:lib && yarn clean:web",
