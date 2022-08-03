@@ -23,7 +23,7 @@ module.exports = (env, argv) => {
           },
           {
             from: 'main.html',
-          }
+          },
         ],
       }),
     ],

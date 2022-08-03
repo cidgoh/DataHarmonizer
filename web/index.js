@@ -25,10 +25,10 @@ document.addEventListener('DOMContentLoaded', function () {
   new Toolbar(dhToolbarRoot, dh, menu, {
     templatePath: templatePath,
     getSchema: async (schema) => {
-      return (await import(`./templates/${schema}/schema.json`)).default
+      return (await import(`./templates/${schema}/schema.json`)).default;
     },
     getExportFormats: async (schema) => {
-      return (await import(`./templates/${schema}/export.js`)).default
+      return (await import(`./templates/${schema}/export.js`)).default;
     },
   });
 });
