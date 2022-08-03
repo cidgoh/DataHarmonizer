@@ -1,3 +1,4 @@
-main.js
 **/dist/**/*
-script/**/*
+web/templates/**/*
+.venv
+README.md
