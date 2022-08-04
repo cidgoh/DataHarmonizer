@@ -221,6 +221,14 @@ body product international menu	UBERON:0001913	Breast Milk [UBERON:0001913]
 	UBERON:0001827	Tear [UBERON:0001827]										
 	UBERON:0001088	Urine [UBERON:0001088]										
 												
+environmental material international menu		Animal carcass										
+	GSSO:005304	Bedding (Bed linen)										
+	GSSO:003405	Clothing										
+		Drinkware										
+		Tableware										
+			Dish									
+			Utensil									
+												
 												
 collection method menu	NCIT:C52009	Amniocentesis										
 	NCIT:C15631	Aspiration										
@@ -311,6 +319,11 @@ specimen processing international menu	GENEPIO:0100039	Virus passage [GENEPIO:01
 host (common name) menu	NCBITaxon:9606	Human										
 												
 host (common name) international menu	NCBITaxon:9606	Human [NCBITaxon:9606]										
+	NCBITaxon:9989	Rodent										
+	NCBITaxon:10090		Mouse									
+			Prairie Dog									
+	NCBITaxon:10116		Rat									
+	FOODON:03411389		Squirrel									
 												
 host (scientific name) menu	NCBITaxon:9606	Homo sapiens								Human		
 												
