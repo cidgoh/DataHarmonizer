@@ -263,7 +263,7 @@ export default {
 
         ['PH_SEQUENCING_CENTRE', []],
 
-        ['PH_SEQUENCING_SUBMITTER', []],
+        ['PH_SEQUENCE_SUBMITTER', []],
 
         ['HC_COLLECT_DATE', []],
         ['HC_TEXT2', []],
