@@ -35,7 +35,7 @@ def init_parser():
         "-i",
         "--input",
         dest="linkml_file",
-        help="Provide a relative file name and path to root LinkML to read.",
+        help="Provide a relative file name and path to root LinkML schema file to read.",
     )
     # parser.add_option('-o', '--output', dest="output_file",
     #   help="Provide an output file name/path.", default='output');
@@ -46,9 +46,9 @@ def init_parser():
 
 options, args = init_parser()
 if not options.linkml_file:
-    exit("Input LinkML file not given")
+    exit("Input LinkML schema file not given")
 
-print("Loading LinkML specification for", options.linkml_file)
+print("Loading LinkML schema for", options.linkml_file)
 schema_spec = SchemaView(options.linkml_file)
 
 # Brings in any "imports:" including linkml:types
