@@ -8,7 +8,8 @@ module.exports = (env, argv) => {
     entry: './index.js',
     output: {
       path: path.resolve(__dirname, 'dist'),
-      filename: 'bundle.js',
+      filename: 'scripts/[name].js',
+      assetModuleFilename: 'assets/[hash][ext][query]'
     },
     plugins: [
       new HtmlWebpackPlugin({
