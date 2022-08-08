@@ -19,7 +19,12 @@ module.exports = (env, argv) => {
           {
             context: 'templates',
             from: '**/*.pdf',
-            to: 'template/[path][name][ext]',
+            to: 'templates/[path][name][ext]',
+          },
+          {
+            context: 'templates',
+            from: '**/schema.yaml',
+            to: 'templates/[path][name][ext]',
           },
           {
             from: 'main.html',
