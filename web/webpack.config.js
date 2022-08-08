@@ -9,7 +9,7 @@ module.exports = (env, argv) => {
     output: {
       path: path.resolve(__dirname, 'dist'),
       filename: 'scripts/[name].js',
-      assetModuleFilename: 'assets/[hash][ext][query]'
+      assetModuleFilename: 'assets/[hash][ext][query]',
     },
     plugins: [
       new HtmlWebpackPlugin({
