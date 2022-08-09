@@ -17,7 +17,7 @@ classes:
     description: Canadian specification for Monkeypox clinical virus biosample data
       gathering
     is_a: dh_interface
-    see_also: template/monkeypox/SOP_Monkeypox.pdf
+    see_also: templates/monkeypox/SOP_Monkeypox.pdf
     annotations:
       version: 3.2.1
     slots:
@@ -781,7 +781,7 @@ classes:
     description: International specification for Monkeypox clinical virus biosample
       data gathering
     is_a: dh_interface
-    see_also: template/monkeypox/SOP_Monkeypox_international.pdf
+    see_also: templates/monkeypox/SOP_Monkeypox_international.pdf
     annotations:
       version: 3.3.1
     slots:
