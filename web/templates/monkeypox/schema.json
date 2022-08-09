@@ -9272,7 +9272,7 @@
       "description": "Canadian specification for Monkeypox clinical virus biosample data gathering",
       "from_schema": "https://example.com/monkeypox",
       "see_also": [
-        "template/monkeypox/SOP_Monkeypox.pdf"
+        "templates/monkeypox/SOP_Monkeypox.pdf"
       ],
       "is_a": "dh_interface",
       "slot_usage": {
@@ -12491,7 +12491,7 @@
       "description": "International specification for Monkeypox clinical virus biosample data gathering",
       "from_schema": "https://example.com/monkeypox",
       "see_also": [
-        "template/monkeypox/SOP_Monkeypox_international.pdf"
+        "templates/monkeypox/SOP_Monkeypox_international.pdf"
       ],
       "is_a": "dh_interface",
       "slot_usage": {

@@ -16,7 +16,7 @@ classes:
     name: 'CanCOGeN Covid-19'
     description: Canadian specification for Covid-19 clinical virus biosample data gathering
     is_a: dh_interface
-    see_also: template/canada_covid19/SOP.pdf
+    see_also: templates/canada_covid19/SOP.pdf
 slots: {}
 enums: {}
 types:
