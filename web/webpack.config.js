@@ -28,6 +28,11 @@ module.exports = (env, argv) => {
             to: 'templates/[path][name][ext]',
           },
           {
+            context: 'templates',
+            from: '**/exampleInput/*',
+            to: 'templates/[path][name][ext]',
+          },
+          {
             from: 'main.html',
           },
         ],
