@@ -4,6 +4,8 @@ A standardized browser-based spreadsheet editor and validator that can be run of
 
 Watch Rhiannon Cameron and Damion Dooley describe this application on [YouTube](https://www.youtube.com/watch?v=rdN2_Vhwb8E&t=38s&ab_channel=CANARIEInc.) at the Canadian Research Software Conference (CRSC2021).
 
+Note that the **Pathogen Genomics Package** of DataHarmonizer templates, which includes Covid-19 and Monkeypox, is available now as a simpler stand-alone zip file at [https://github.com/cidgoh/pathogen-genomics-package](https://github.com/cidgoh/pathogen-genomics-package).
+
 |Chrome|Firefox|Edge|
 |---|---|---|
 |49+|34+|12+|
@@ -21,8 +23,6 @@ https://github.com/Public-Health-Bioinformatics/DataHarmonizer/releases
 Extract the zipped file.
 
 To run the application, navigate to the extracted folder and open `index.html`.
-
-Note that the **Pathogen Genomics Package** of DataHarmonizer templates, which includes Covid-19 and Monkeypox, is available now as a simpler stand-alone zip file at [https://github.com/cidgoh/pathogen-genomics-package](https://github.com/cidgoh/pathogen-genomics-package).
 
 ```
 
