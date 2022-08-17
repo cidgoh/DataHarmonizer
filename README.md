@@ -21,6 +21,9 @@ https://github.com/Public-Health-Bioinformatics/DataHarmonizer/releases
 Extract the zipped file.
 
 To run the application, navigate to the extracted folder and open `index.html`.
+
+Note that the **Pathogen Genomics Package** of DataHarmonizer templates, which includes Covid-19 and Monkeypox, is available now as a simpler stand-alone zip file at [https://github.com/cidgoh/pathogen-genomics-package](https://github.com/cidgoh/pathogen-genomics-package).
+
 ```
 
 2) A full development environment including the scripts necessary to generate a code library for **API** use, as well as the stand-alone version. Instructions for setting this up is in the **Development** section below. The API is used by the https://data.microbiomedata.org/ project for data collection.  Using the API allows DataHarmonizer to be presented in a custom user interface, with a specific template pre-loaded for example, and select controls menu items constructed as desired in the interface.
