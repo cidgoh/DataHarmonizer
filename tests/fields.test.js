@@ -72,9 +72,9 @@ describe('dataArrayToObject', () => {
     const dataArray = ['5.85', '21.25', '', '', '', '5; asdf; 18'];
     const dataObject = dataArrayToObject(dataArray, fields, { strict: false });
     expect(dataObject).toEqual({
-      a: "5.85",
-      b: "21.25",
-      f: ["5", "asdf", "18"],
+      a: '5.85',
+      b: '21.25',
+      f: ['5', 'asdf', '18'],
     });
-  })
+  });
 });
