@@ -1,35 +1,35 @@
-import { dataArrayToObject } from '../lib/utils/fields';
+import { dataArrayToObject, dataObjectToArray } from '../lib/utils/fields';
+
+const fields = [
+  {
+    name: 'a',
+    datatype: 'xsd:integer',
+  },
+  {
+    name: 'b',
+    datatype: 'xsd:float',
+  },
+  {
+    name: 'c',
+    datatype: 'xsd:boolean',
+  },
+  {
+    name: 'd',
+    datatype: 'xsd:date',
+  },
+  {
+    name: 'e',
+    datatype: 'xsd:token',
+    multivalued: true,
+  },
+  {
+    name: 'f',
+    datatype: 'xsd:float',
+    multivalued: true,
+  },
+];
 
 describe('dataArrayToObject', () => {
-  const fields = [
-    {
-      name: 'a',
-      datatype: 'xsd:integer',
-    },
-    {
-      name: 'b',
-      datatype: 'xsd:float',
-    },
-    {
-      name: 'c',
-      datatype: 'xsd:boolean',
-    },
-    {
-      name: 'd',
-      datatype: 'xsd:date',
-    },
-    {
-      name: 'e',
-      datatype: 'xsd:token',
-      multivalued: true,
-    },
-    {
-      name: 'f',
-      datatype: 'xsd:float',
-      multivalued: true,
-    },
-  ];
-
   test('returns object with correct datatypes', () => {
     const dataArray = ['1', '1.5', '1', '2018-02-15'];
     const dataObject = dataArrayToObject(dataArray, fields);
@@ -66,5 +66,28 @@ describe('dataArrayToObject', () => {
       b: 21.25,
       f: [5, 18],
     });
+  });
+});
+
+describe('dataObjectToArray', () => {
+  test('returns data array with correct elements populated', () => {
+    const dataObject = {
+      a: 1,
+      b: 1.5,
+      c: true,
+      d: new Date(2018, 1, 15),
+    };
+    const dataArray = dataObjectToArray(dataObject, fields);
+    expect(dataArray).toEqual(['1', '1.5', 'true', '2018-02-15', '', '']);
+  });
+
+  test('returns delimited strings for multivalued fields', () => {
+    const dataObject = {
+      b: 33.333,
+      e: ['a', 'b', 'c'],
+      f: 33,
+    };
+    const dataArray = dataObjectToArray(dataObject, fields);
+    expect(dataArray).toEqual(['', '33.333', '', '', 'a; b; c', '33']);
   });
 });
