@@ -1,4 +1,4 @@
-import { parseDatatype } from '../lib/utils/datatypes';
+import { parseDatatype, stringifyDatatype } from '../lib/utils/datatypes';
 
 test.each([
   // value, datatype, expected
@@ -78,5 +78,18 @@ test.each([
   ['whatever', 'unknown', 'whatever'],
 ])('parseDatatype(%s, %s)', (value, datatype, expected) => {
   const actual = parseDatatype(value, datatype);
+  expect(actual).toEqual(expected);
+});
+
+test.each([
+  [103, 'xsd:integer', '103'],
+  [33, 'xsd:nonNegativeInteger', '33'],
+  [0.1217, 'xsd:float', '0.1217'],
+  [-42.19, 'xsd:double', '-42.19'],
+  [1.1, 'xsd:decimal', '1.1'],
+  [true, 'xsd:boolean', 'true'],
+  [new Date(1993, 3, 16), 'xsd:date', '1993-04-16'],
+])('stringifyDatatype(%s, %s)', (value, datatype, expected) => {
+  const actual = stringifyDatatype(value, datatype);
   expect(actual).toEqual(expected);
 });
