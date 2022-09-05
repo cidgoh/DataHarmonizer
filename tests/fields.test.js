@@ -67,4 +67,14 @@ describe('dataArrayToObject', () => {
       f: [5, 18],
     });
   });
+
+  test('includes all values when strict = false', () => {
+    const dataArray = ['5.85', '21.25', '', '', '', '5; asdf; 18'];
+    const dataObject = dataArrayToObject(dataArray, fields, { strict: false });
+    expect(dataObject).toEqual({
+      a: '5.85',
+      b: '21.25',
+      f: ['5', 'asdf', '18'],
+    });
+  });
 });
