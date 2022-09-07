@@ -2924,7 +2924,7 @@ slots:
     title: gene name 2
     description: The name of the gene used in the diagnostic RT-PCR test.
     examples:
-    - value: OVP (orf 17L)
+    - value: OPV (orf 17L)
     slot_uri: GENEPIO:0001510
     exact_mappings:
     - CNPHI:Gene Target 2
@@ -6499,8 +6499,8 @@ enums:
       MPX (orf B6R):
         text: MPX (orf B6R)
         meaning: GENEPIO:0100505
-      OVP (orf 17L):
-        text: OVP (orf 17L)
+      OPV (orf 17L):
+        text: OPV (orf 17L)
         meaning: GENEPIO:0100506
       OPHA (orf B2R):
         text: OPHA (orf B2R)

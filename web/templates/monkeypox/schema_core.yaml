@@ -18,7 +18,7 @@ classes:
     is_a: dh_interface
     see_also: templates/monkeypox/SOP_Monkeypox.pdf
     annotations:
-      version: 3.2.1
+      version: 3.3.1
   "Monkeypox_international":
     name: "Monkeypox_international"
     description: International specification for Monkeypox clinical virus biosample data gathering
