@@ -18,6 +18,11 @@
   scrollbar-width: 1rem;
 }
 
+.handsontable.listbox th,
+.handsontable.listbox td {
+  white-space: pre;
+}
+
 #field-mapping {
   white-space: nowrap;
 }
