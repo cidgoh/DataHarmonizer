@@ -19,7 +19,7 @@ classes:
     is_a: dh_interface
     see_also: templates/monkeypox/SOP_Monkeypox.pdf
     annotations:
-      version: 3.2.1
+      version: 3.3.1
     slots:
     - specimen collector sample ID
     - Related specimen primary ID
@@ -2924,7 +2924,7 @@ slots:
     title: gene name 2
     description: The name of the gene used in the diagnostic RT-PCR test.
     examples:
-    - value: OPV (orf 17L)
+    - value: OVP (orf 17L)
     slot_uri: GENEPIO:0001510
     exact_mappings:
     - CNPHI:Gene Target 2
