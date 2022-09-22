@@ -4697,8 +4697,8 @@
           "text": "MPX (orf B6R)",
           "meaning": "GENEPIO:0100505"
         },
-        "OVP (orf 17L)": {
-          "text": "OVP (orf 17L)",
+        "OPV (orf 17L)": {
+          "text": "OPV (orf 17L)",
           "meaning": "GENEPIO:0100506"
         },
         "OPHA (orf B2R)": {
@@ -9266,7 +9266,7 @@
       "annotations": {
         "version": {
           "tag": "version",
-          "value": "3.2.1"
+          "value": "3.3.1"
         }
       },
       "description": "Canadian specification for Monkeypox clinical virus biosample data gathering",
