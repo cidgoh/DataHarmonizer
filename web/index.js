@@ -12,13 +12,13 @@ document.addEventListener('DOMContentLoaded', function () {
   // this is defined inline for convenience but could just as easily be
   // imported from a JSON file
   const uiConfig = {
-    'fields': {
+    fields: {
       'third party lab service provider name': {
-        'widget': 'ols-autocomplete',
-        'ontology': 'zfa,zfs'
-      }
-    }
-  }
+        widget: 'ols-autocomplete',
+        ontology: 'zfa,zfs',
+      },
+    },
+  };
 
   const dh = new DataHarmonizer(dhRoot, {
     loadingScreenRoot: document.querySelector('body'),
