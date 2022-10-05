@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   new Toolbar(dhToolbarRoot, dh, menu, {
     templatePath: templatePath,
+    releasesURL: 'https://github.com/cidgoh/pathogen-genomics-package/releases',
     getSchema: async (schema) => {
       return (await import(`./templates/${schema}/schema.json`)).default;
     },
