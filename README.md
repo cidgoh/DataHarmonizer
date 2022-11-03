@@ -14,21 +14,11 @@ Note that the **Pathogen Genomics Package** of DataHarmonizer templates, which i
 
 ## Installation
 
-This repository currently contains two kinds of release. 
-1) A stand-alone browser-based version of DataHarmonizer that includes templates for detailing **SARS-CoV-2 and Monkeypox** sample contextual data. Release notes indicate which versions of these templates are included. More infectious disease templates will be included in the comming year. Other organizations are adopting this version of DataHarmonizer for their own data management purposes.
-```
-To get the stand-alone version, download the zipped source code from the latest release at:
-https://github.com/Public-Health-Bioinformatics/DataHarmonizer/releases
-
-Extract the zipped file.
-
-To run the application, navigate to the extracted folder and open `index.html`.
-
-```
-
-2) A full development environment including the scripts necessary to generate a code library for **API** use, as well as the stand-alone version. Instructions for setting this up is in the **Development** section below. The API is used by the https://data.microbiomedata.org/ project for data collection.  Using the API allows DataHarmonizer to be presented in a custom user interface, with a specific template pre-loaded for example, and select controls menu items constructed as desired in the interface.
+This repository contains a full DataHarmonizer development environment including the scripts necessary to generate a code library for **API** use, as well as the stand-alone version. Instructions for setting this up is in the **Development** section below. The API is used by the https://data.microbiomedata.org/ project for data collection.  Using the API allows DataHarmonizer to be presented in a custom user interface, with a specific template pre-loaded for example, and select controls menu items constructed as desired in the interface.
 
 # Stand-Alone DataHarmonizer Functionality
+
+In addition to API use, as detailed in the **Development* section, the development environment includes a script for generating a stand-alone browser-based version of DataHarmonizer that includes templates for detailing **SARS-CoV-2 and Monkeypox** sample contextual data.  More infectious disease templates will be included in the comming year. Other organizations are adopting this version of DataHarmonizer for their own data management purposes.
 
 ## Select Template
 
