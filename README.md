@@ -18,7 +18,7 @@ This repository contains a full DataHarmonizer development environment including
 
 # Stand-Alone DataHarmonizer Functionality
 
-In addition to API use, as detailed in the **Development* section, the development environment includes a script for generating a stand-alone browser-based version of DataHarmonizer that includes templates for detailing **SARS-CoV-2 and Monkeypox** sample contextual data.  More infectious disease templates will be included in the comming year. Other organizations are adopting this version of DataHarmonizer for their own data management purposes.
+In addition to API use, as detailed in the **Development** section, the development environment includes a script for generating a stand-alone browser-based version of DataHarmonizer that includes templates for detailing **SARS-CoV-2 and Monkeypox** sample contextual data.  More infectious disease templates will be included in the comming year. Other organizations are adopting this version of DataHarmonizer for their own data management purposes.
 
 ## Select Template
 
