@@ -130,7 +130,7 @@ To bundle the canonical interface run:
 ```shell
 yarn build:web
 ```
-You can open web/dist/index.html in your browser to test the distributable bundle and verify it runs in "offline".
+You can open `web/dist/index.html` in your browser to test the distributable bundle and verify it runs in "offline".
 
 To bundle the library components into lib/dist for downstream clients to use via API instead of the canonical interface, run:
 
