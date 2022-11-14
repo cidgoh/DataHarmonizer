@@ -22,7 +22,7 @@ In addition to API use, as detailed in the **Development** section, the developm
 
 ## Select Template
 
-The default template loaded is the "CanCOGeN Covid-19" template. To change the spreadsheet template, select the white text box to the right of **Template**, it always contains the name of template currently active, or navigated to **File** followed by **Change Template**. An in-app window will appear that allows you to select from the available templates in the drop-down menu. After selecting the desired template, click **Open** to activate the template.
+The default template loaded is the "CanCOGeN Covid-19" template. To change the spreadsheet template, select the white text box to the right of **Template**, it always contains the name of the template currently active, or navigated to **File** followed by **Change Template**. An in-app window will appear that allows you to select from the available templates in the drop-down menu. After selecting the desired template, click **Open** to activate the template.
 
 ![change template](./images/changeTemplate.gif)
 
@@ -35,7 +35,7 @@ See more on the Wiki [DataHarmonizer templates](https://github.com/Public-Health
 
 ## Usage
 
-You can edit the cells manually, or upload `xlsx`, `xls`, `tsv` and `csv` files via **File** > **Open**. You can also save the spreadsheet's contents to your local hard-drive in the aforementioned formats, or **File** > **Export** your data as an `.xls` document formatted for submission a specified portal, database, or repository.
+You can edit the cells manually, or upload `xlsx`, `xls`, `tsv`, `csv` and `json` files via **File** > **Open**. You can also save the spreadsheet's contents to your local hard-drive in the aforementioned formats, or **File** > **Export** your data as a document formatted for submission a specified portal, database, or repository.
 
 ![saving and exporting files](./images/exportingFiles.gif)
 
