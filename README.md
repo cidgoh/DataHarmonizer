@@ -4,11 +4,15 @@ A standardized browser-based spreadsheet editor and validator that can be run of
 
 Watch Rhiannon Cameron and Damion Dooley describe this application on [YouTube](https://www.youtube.com/watch?v=rdN2_Vhwb8E&t=38s&ab_channel=CANARIEInc.) at the Canadian Research Software Conference (CRSC2021).
 
-Note that the **Pathogen Genomics Package** of DataHarmonizer templates, which includes Covid-19 and Monkeypox, is available now as a simpler stand-alone zip file at [https://github.com/cidgoh/pathogen-genomics-package](https://github.com/cidgoh/pathogen-genomics-package).
-
 |Chrome|Firefox|Edge|
 |---|---|---|
 |49+|34+|12+|
+
+## Pathogen Genomics Templates
+
+Note that the **Pathogen Genomics Package** of DataHarmonizer templates, which includes Covid-19 and Monkeypox, is available now as a simpler stand-alone zip file at [https://github.com/cidgoh/pathogen-genomics-package](https://github.com/cidgoh/pathogen-genomics-package). This version does not require the use of the developer environment and can be run simply by loading the `index.html` or `main.html` files in your local web browser.
+
+
 
 ![alt text](./images/editCopyPasteDelete.gif)
 
@@ -40,19 +44,19 @@ You can edit the cells manually, or upload `xlsx`, `xls`, `tsv`, `csv` and `json
 ![saving and exporting files](./images/exportingFiles.gif)
 
 Click the **Validate** button to validate your spreadsheet's values against a
-standardized vocabulary. You can then browse through the errors using the **Next Error** button. Missing value are indicated in _dark red_, while incorrect values are _light red_.
+standardized vocabulary. You can then browse through the errors using the **Next Error** button. Missing value are indicated in _dark red_, while incorrect values are _light red_. After resolving these errors, revalidate to see if any remain. If there are no more errors the “Next Error” button will change to “No Errors” and then dissapear.
 
 ![validating cells and checking next error](./images/validatingCells.gif)
 
-Double click any column headers for information on the template's vocabulary.
+Double click any column headers for information on the template's vocabulary. This usually includes the definition of the field, guidance on filling in the field, and examples of how data might look structured according to the constraints of the validator.
 
 ![double click headers for more info](./images/doubleClickHeaders.gif)
 
-You can quickly navigate to a column by selecting **Settings** > **Jump to...**. An in-app window will appear, select the desired column header from the drop-down list or begin typing it's name to narrow down the list options. Selecting the column header from the drop down list will immediately relocate you to that column on the spreadsheet.
+You can quickly navigate to a column by selecting **Settings** > **Jump to...**. An in-app window will appear, select the desired column header from the drop-down list or begin typing its name to narrow down the list options. Selecting the column header from the drop down list will immediately relocate you to that column on the spreadsheet.
 
 ![jump to column](./images/jumpToColumn.gif)
 
-You can also automatically fill a column with a specified value, but only in rows with corresponding values in the first `sample ID` column. To use this feature select **Settings** > **Fill column...**. Select the desired column header from the drop-down list or begin typing it's name to narrow down the list options, then specify the value to fill with and click **Ok** to apply.
+You can also automatically fill a column with a specified value, but only in rows with corresponding values in the first `sample ID` column. To use this feature select **Settings** > **Fill column...**. Select the desired column header from the drop-down list or begin typing its name to narrow down the list options, then specify the value to fill with and click **Ok** to apply.
 
 ![fill column, in rows with corresponding sample IDs, with specified value](./images/fillColumn.gif)
 
@@ -73,7 +77,7 @@ The stand-alone version of DataHarmonizer when built is placed in the /web/dist/
 │   └── ...
 ```
 
-Note that the source of the built "template/" folder above is actually in /web/templates/, where example input data should be placed before performing the build process.  Here is an example links to all available test data for the CanCOGeN Covid-19 template:
+Note that the source of the built "template/" folder above is actually in /web/templates/, where example input data should be placed before performing the build process.  Here is an example that links to all available test data for the CanCOGeN Covid-19 template:
 
 - [`canada_covid19`](https://github.com/cidgoh/DataHarmonizer/tree/master/web/templates/canada_covid19/exampleInput) CanCOGeN Covid-19
 
@@ -126,7 +130,7 @@ To bundle the canonical interface run:
 ```shell
 yarn build:web
 ```
-You can open web/dist/index.html in your browser to test the distributable bundle and verify it runs in "offline".
+You can open `web/dist/index.html` in your browser to test the distributable bundle and verify it runs in "offline".
 
 To bundle the library components into lib/dist for downstream clients to use via API instead of the canonical interface, run:
 
