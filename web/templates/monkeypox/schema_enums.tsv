@@ -29,8 +29,8 @@ sample collection date precision menu	UO:0000036	year
 NML submitted specimen type menu	UBERON:0006314	Bodily fluid										
 	OBI:0001051	DNA										
 	OBI:0001010	Nucleic acid										
-	OBI:0000880	RNA 										
-	OBI:0002600	Swab 										
+	OBI:0000880	RNA										
+	OBI:0002600	Swab										
 	UBERON:0000479	Tissue										
 	GENEPIO:0001619	Not Applicable										
 												
@@ -42,52 +42,52 @@ Related specimen relationship type menu	HP:0011009	Acute
 	EFO:0009642	Follow-up										
 			Reinfection testing									
 		Previously Submitted										
-		Sequencing/bioinformatics methods development/validation 										
+		Sequencing/bioinformatics methods development/validation										
 		Specimen sampling methods testing										
 												
 anatomical material menu	UBERON:0000178	Blood										
-	UBERON:0010210		      Blood clot									
-	UBERON:0001977		      Blood serum									
-	UBERON:0001969		      Blood plasma									
-	NCIT:C41067		      Whole blood									
+	UBERON:0010210		Blood clot									
+	UBERON:0001977		Blood serum									
+	UBERON:0001969		Blood plasma									
+	NCIT:C41067		Whole blood									
 	UBERON:0006314	Fluid										
-	UBERON:0001836		      Saliva									
-	UBERON:0001359		      Fluid (cerebrospinal (CSF))									
-	UBERON:0002409		      Fluid (pericardial)									
-	UBERON:0001087		      Fluid (pleural)									
-	UBERON:0036243		      Fluid (vaginal)									
-	UBERON:0000173		      Fluid (amniotic)									
+	UBERON:0001836		Saliva									
+	UBERON:0001359		Fluid (cerebrospinal (CSF))									
+	UBERON:0002409		Fluid (pericardial)									
+	UBERON:0001087		Fluid (pleural)									
+	UBERON:0036243		Fluid (vaginal)									
+	UBERON:0000173		Fluid (amniotic)									
 	NCIT:C3824	Lesion										
-	NCIT:C43278		      Lesion (Macule)									
-	NCIT:C39690		      Lesion (Papule)									
-	NCIT:C78582		      Lesion (Pustule)									
-	GENEPIO:0100490		      Lesion (Scab)									
-	GENEPIO:0100491		      Lesion (Vesicle)									
-	SYMP:0000487	      Rash										
-	NCIT:C3426	      Ulcer										
+	NCIT:C43278		Lesion (Macule)									
+	NCIT:C39690		Lesion (Papule)									
+	NCIT:C78582		Lesion (Pustule)									
+	GENEPIO:0100490		Lesion (Scab)									
+	GENEPIO:0100491		Lesion (Vesicle)									
+	SYMP:0000487	Rash										
+	NCIT:C3426	Ulcer										
 	UBERON:0000479	Tissue										
-	NCIT:C3671		Wound tissue (injury) 									
+	NCIT:C3671		Wound tissue (injury)									
 												
 anatomical material international menu	UBERON:0000178	Blood [UBERON:0000178]										
-	UBERON:0010210		      Blood clot [UBERON:0010210]									
-	UBERON:0001977		      Blood serum [UBERON:0001977]									
-	UBERON:0001969		      Blood plasma [UBERON:0001969]									
-	NCIT:C41067		      Whole blood [NCIT:C41067]									
+	UBERON:0010210		Blood clot [UBERON:0010210]									
+	UBERON:0001977		Blood serum [UBERON:0001977]									
+	UBERON:0001969		Blood plasma [UBERON:0001969]									
+	NCIT:C41067		Whole blood [NCIT:C41067]									
 	UBERON:0006314	Fluid [UBERON:0006314]										
-	UBERON:0001836		      Saliva [UBERON:0001836]									
-	UBERON:0001359		      Fluid (cerebrospinal (CSF)) [UBERON:0001359]									
-	UBERON:0002409		      Fluid (pericardial) [UBERON:0002409]									
-	UBERON:0001087		      Fluid (pleural) [UBERON:0001087]									
-	UBERON:0036243		      Fluid (vaginal) [UBERON:0036243]									
-	UBERON:0000173		      Fluid (amniotic) [UBERON:0000173]									
+	UBERON:0001836		Saliva [UBERON:0001836]									
+	UBERON:0001359		Fluid (cerebrospinal (CSF)) [UBERON:0001359]									
+	UBERON:0002409		Fluid (pericardial) [UBERON:0002409]									
+	UBERON:0001087		Fluid (pleural) [UBERON:0001087]									
+	UBERON:0036243		Fluid (vaginal) [UBERON:0036243]									
+	UBERON:0000173		Fluid (amniotic) [UBERON:0000173]									
 	NCIT:C3824	Lesion [NCIT:C3824]										
-	NCIT:C43278		      Lesion (Macule) [NCIT:C43278]									
-	NCIT:C39690		      Lesion (Papule) [NCIT:C39690]									
-	NCIT:C78582		      Lesion (Pustule) [NCIT:C78582]									
-	GENEPIO:0100490		      Lesion (Scab) [GENEPIO:0100490]									
-	GENEPIO:0100491		      Lesion (Vesicle) [GENEPIO:0100491]									
-	SYMP:0000487	      Rash [SYMP:0000487]										
-	NCIT:C3426	      Ulcer [NCIT:C3426]										
+	NCIT:C43278		Lesion (Macule) [NCIT:C43278]									
+	NCIT:C39690		Lesion (Papule) [NCIT:C39690]									
+	NCIT:C78582		Lesion (Pustule) [NCIT:C78582]									
+	GENEPIO:0100490		Lesion (Scab) [GENEPIO:0100490]									
+	GENEPIO:0100491		Lesion (Vesicle) [GENEPIO:0100491]									
+	SYMP:0000487	Rash [SYMP:0000487]										
+	NCIT:C3426	Ulcer [NCIT:C3426]										
 	UBERON:0000479	Tissue [UBERON:0000479]										
 	NCIT:C3671		Wound tissue (injury) [NCIT:C3671]									
 												
@@ -95,45 +95,45 @@ anatomical material international menu	UBERON:0000178	Blood [UBERON:0000178]
 anatomical part menu	UBERON:0001245	Anus										
 	UBERON:0012336		Perianal skin									
 	UBERON:0001460	Arm										
-	NCIT:C32628		      Arm (forearm)									
-	UBERON:0001461		      Elbow									
+	NCIT:C32628		Arm (forearm)									
+	UBERON:0001461		Elbow									
 	FMA:14181	Back										
 	UBERON:0013691	Buttock										
 	UBERON:0000002	Cervix										
 	UBERON:0001443	Chest										
 	BTO:0000476	Foot										
 	BTO:0003358	Genital area										
-	UBERON:0000989		      Penis									
-	UBERON:0035651			      Glans (tip of penis)								
-	UBERON:0001332			      Prepuce of penis (foreskin)								
-	UBERON:0002356		      Perineum									
-	UBERON:0001300		      Scrotum									
-	UBERON:0000996		      Vagina									
+	UBERON:0000989		Penis									
+	UBERON:0035651			Glans (tip of penis)								
+	UBERON:0001332			Prepuce of penis (foreskin)								
+	UBERON:0002356		Perineum									
+	UBERON:0001300		Scrotum									
+	UBERON:0000996		Vagina									
 	UBERON:0002530	Gland										
-	BTO:0004668	Hand 										
-	FMA:9666		      Finger									
-	FMA:24920		      Hand (palm)									
+	BTO:0004668	Hand										
+	FMA:9666		Finger									
+	FMA:24920		Hand (palm)									
 	UBERON:0000033	Head										
-	UBERON:0006956		      Buccal mucosa									
-	UBERON:0001567		      Cheek									
-	UBERON:0001690		      Ear									
+	UBERON:0006956		Buccal mucosa									
+	UBERON:0001567		Cheek									
+	UBERON:0001690		Ear									
 	NCIT:C103848			Preauricular region								
-	UBERON:0000970		      Eye									
-	UBERON:0001456		      Face									
-	UBERON:0008200		      Forehead									
-	UBERON:0001833		      Lip									
-	UBERON:0011595		      Jaw 									
-	UBERON:0001723		      Tongue									
+	UBERON:0000970		Eye									
+	UBERON:0001456		Face									
+	UBERON:0008200		Forehead									
+	UBERON:0001833		Lip									
+	UBERON:0011595		Jaw									
+	UBERON:0001723		Tongue									
 	UBERON:0013203	Hypogastrium (suprapubic region)										
 	UBERON:0000978	Leg										
-	UBERON:0001512		      Ankle									
-	UBERON:0001465		      Knee									
-	UBERON:0000376		      Thigh									
+	UBERON:0001512		Ankle									
+	UBERON:0001465		Knee									
+	UBERON:0000376		Thigh									
 	GENEPIO:0100492	Lower body										
 	UBERON:0001707	Nasal Cavity										
-	UBERON:2001427		      Anterior Nares									
-	UBERON:0005921		      Inferior Nasal Turbinate									
-	UBERON:0005922		      Middle Nasal Turbinate									
+	UBERON:2001427		Anterior Nares									
+	UBERON:0005921		Inferior Nasal Turbinate									
+	UBERON:0005922		Middle Nasal Turbinate									
 	UBERON:0000974	Neck										
 	UBERON:0000341		Pharynx (throat)									
 	UBERON:0001728			Nasopharynx (NP)								
@@ -149,45 +149,45 @@ anatomical part menu	UBERON:0001245	Anus
 anatomical part international menu	UBERON:0001245	Anus [UBERON:0001245]										
 	UBERON:0012336		Perianal skin [UBERON:0012336]									
 	UBERON:0001460	Arm [UBERON:0001460]										
-	NCIT:C32628		      Arm (forearm) [NCIT:C32628]									
-	UBERON:0001461		      Elbow [UBERON:0001461]									
+	NCIT:C32628		Arm (forearm) [NCIT:C32628]									
+	UBERON:0001461		Elbow [UBERON:0001461]									
 	FMA:14181	Back [FMA:14181]										
 	UBERON:0013691	Buttock [UBERON:0013691]										
 	UBERON:0000002	Cervix [UBERON:0000002]										
 	UBERON:0001443	Chest [UBERON:0001443]										
 	BTO:0000476	Foot [BTO:0000476]										
 	BTO:0003358	Genital area [BTO:0003358]										
-	UBERON:0000989		      Penis [UBERON:0000989]									
-	UBERON:0035651			      Glans (tip of penis) [UBERON:0035651]								
-	UBERON:0001332			      Prepuce of penis (foreskin)								
-	UBERON:0002356		      Perineum [UBERON:0002356]									
-	UBERON:0001300		      Scrotum [UBERON:0001300]									
-	UBERON:0000996		      Vagina [UBERON:0000996]									
+	UBERON:0000989		Penis [UBERON:0000989]									
+	UBERON:0035651			Glans (tip of penis) [UBERON:0035651]								
+	UBERON:0001332			Prepuce of penis (foreskin)								
+	UBERON:0002356		Perineum [UBERON:0002356]									
+	UBERON:0001300		Scrotum [UBERON:0001300]									
+	UBERON:0000996		Vagina [UBERON:0000996]									
 	UBERON:0002530	Gland [UBERON:0002530]										
 	BTO:0004668	Hand [BTO:0004668]										
-	FMA:9666		      Finger [FMA:9666]									
-	FMA:24920		      Hand (palm) [FMA:24920]									
+	FMA:9666		Finger [FMA:9666]									
+	FMA:24920		Hand (palm) [FMA:24920]									
 	UBERON:0000033	Head [UBERON:0000033]										
-	UBERON:0006956		      Buccal mucosa [UBERON:0006956]									
-	UBERON:0001567		      Cheek [UBERON:0001567]									
-	UBERON:0001690		      Ear [UBERON:0001690]									
+	UBERON:0006956		Buccal mucosa [UBERON:0006956]									
+	UBERON:0001567		Cheek [UBERON:0001567]									
+	UBERON:0001690		Ear [UBERON:0001690]									
 	NCIT:C103848			Preauricular region [NCIT:C103848]								
-	UBERON:0000970		      Eye [UBERON:0000970]									
-	UBERON:0001456		      Face [UBERON:0001456]									
-	UBERON:0008200		      Forehead [UBERON:0008200]									
-	UBERON:0001833		      Lip [UBERON:0001833]									
-	UBERON:0011595		      Jaw [UBERON:0011595]									
-	UBERON:0001723		      Tongue [UBERON:0001723]									
+	UBERON:0000970		Eye [UBERON:0000970]									
+	UBERON:0001456		Face [UBERON:0001456]									
+	UBERON:0008200		Forehead [UBERON:0008200]									
+	UBERON:0001833		Lip [UBERON:0001833]									
+	UBERON:0011595		Jaw [UBERON:0011595]									
+	UBERON:0001723		Tongue [UBERON:0001723]									
 	UBERON:0013203	Hypogastrium (suprapubic region) [UBERON:0013203]										
 	UBERON:0000978	Leg [UBERON:0000978]										
-	UBERON:0001512		      Ankle [UBERON:0001512]									
-	UBERON:0001465		      Knee [UBERON:0001465]									
-	UBERON:0000376		      Thigh [UBERON:0000376]									
+	UBERON:0001512		Ankle [UBERON:0001512]									
+	UBERON:0001465		Knee [UBERON:0001465]									
+	UBERON:0000376		Thigh [UBERON:0000376]									
 	GENEPIO:0100492	Lower body [GENEPIO:0100492]										
 	UBERON:0001707	Nasal Cavity [UBERON:0001707]										
-	UBERON:2001427		      Anterior Nares [UBERON:2001427]									
-	UBERON:0005921		      Inferior Nasal Turbinate [UBERON:0005921]									
-	UBERON:0005922		      Middle Nasal Turbinate [UBERON:0005922]									
+	UBERON:2001427		Anterior Nares [UBERON:2001427]									
+	UBERON:0005921		Inferior Nasal Turbinate [UBERON:0005921]									
+	UBERON:0005922		Middle Nasal Turbinate [UBERON:0005922]									
 	UBERON:0000974	Neck [UBERON:0000974]										
 	UBERON:0000341		Pharynx (throat) [UBERON:0000341]									
 	UBERON:0001728			Nasopharynx (NP) [UBERON:0001728]								
@@ -285,7 +285,7 @@ collection device menu	OBI:0002859	Blood Collection Tube
 	OBI:0002861	Sputum Collection Tube										
 	OBI:0002831	Suction Catheter										
 	GENEPIO:0100027	Swab										
-	GENEPIO:0100493		      Dry swab									
+	GENEPIO:0100493		Dry swab									
 	OBI:0002862	Urine Collection Tube										
 	GENEPIO:0100509	Universal Transport Medium (UTM)										
 	OBI:0002866	Virus Transport Medium										
@@ -301,7 +301,7 @@ collection device international menu	OBI:0002859	Blood Collection Tube [OBI:0002
 	OBI:0002861	Sputum Collection Tube [OBI:0002861]										
 	OBI:0002831	Suction Catheter [OBI:0002831]										
 	GENEPIO:0100027	Swab [GENEPIO:0100027]										
-	GENEPIO:0100493		      Dry swab [GENEPIO:0100493]									
+	GENEPIO:0100493		Dry swab [GENEPIO:0100493]									
 	OBI:0002862	Urine Collection Tube [OBI:0002862]										
 	GENEPIO:0100509	Universal Transport Medium (UTM) [GENEPIO:0100509]										
 	OBI:0002866	Virus Transport Medium [OBI:0002866]										
@@ -329,11 +329,11 @@ host (scientific name) menu	NCBITaxon:9606	Homo sapiens								Human
 												
 host (scientific name) international menu	NCBITaxon:9606	Homo sapiens [NCBITaxon:9606]								Human		
 												
-host health state menu	NCIT:C3833	Asymptomatic 										
-	NCIT:C28554	Deceased 										
-	NCIT:C115935	Healthy 										
-	NCIT:C49498	Recovered 										
-	NCIT:C25269	Symptomatic 										
+host health state menu	NCIT:C3833	Asymptomatic										
+	NCIT:C28554	Deceased										
+	NCIT:C115935	Healthy										
+	NCIT:C49498	Recovered										
+	NCIT:C25269	Symptomatic										
 												
 host health state international menu	NCIT:C3833	Asymptomatic [NCIT:C3833]										
 	NCIT:C28554	Deceased [NCIT:C28554]										
@@ -355,10 +355,10 @@ host health status details international menu	NCIT:C25179	Hospitalized [NCIT:C25
 	GENEPIO:0100048		Medically Isolated (Negative Pressure) [GENEPIO:0100048]									
 	NCIT:C173768	Self-quarantining [NCIT:C173768]										
 												
-host health outcome menu	NCIT:C28554	Deceased 										
-	NCIT:C25254	Deteriorating 										
-	NCIT:C49498	Recovered 										
-	NCIT:C30103	Stable 										
+host health outcome menu	NCIT:C28554	Deceased										
+	NCIT:C25254	Deteriorating										
+	NCIT:C49498	Recovered										
+	NCIT:C30103	Stable										
 												
 host health outcome international menu	NCIT:C28554	Deceased [NCIT:C28554]										
 	NCIT:C25254	Deteriorating [NCIT:C25254]										
@@ -366,23 +366,23 @@ host health outcome international menu	NCIT:C28554	Deceased [NCIT:C28554]
 	NCIT:C30103	Stable [NCIT:C30103]										
 												
 												
-host age unit menu	UO:0000035	month 										
-	UO:0000036	year 										
+host age unit menu	UO:0000035	month										
+	UO:0000036	year										
 												
 host age unit international menu	UO:0000035	month [UO:0000035]										
 	UO:0000036	year [UO:0000036]										
 												
-host age bin menu	GENEPIO:0100049	0 - 9 										
-	GENEPIO:0100050	10 - 19 										
-	GENEPIO:0100051	20 - 29 										
-	GENEPIO:0100052	30 - 39 										
-	GENEPIO:0100053	40 - 49 										
-	GENEPIO:0100054	50 - 59 										
-	GENEPIO:0100055	60 - 69 										
-	GENEPIO:0100056	70 - 79 										
-	GENEPIO:0100057	80 - 89 										
-	GENEPIO:0100058	90 - 99 										
-	GENEPIO:0100059	100+ 										
+host age bin menu	GENEPIO:0100049	0 - 9										
+	GENEPIO:0100050	10 - 19										
+	GENEPIO:0100051	20 - 29										
+	GENEPIO:0100052	30 - 39										
+	GENEPIO:0100053	40 - 49										
+	GENEPIO:0100054	50 - 59										
+	GENEPIO:0100055	60 - 69										
+	GENEPIO:0100056	70 - 79										
+	GENEPIO:0100057	80 - 89										
+	GENEPIO:0100058	90 - 99										
+	GENEPIO:0100059	100+										
 												
 host age bin international menu	GENEPIO:0100049	0 - 9 [GENEPIO:0100049]										
 	GENEPIO:0100050	10 - 19 [GENEPIO:0100050]										
@@ -396,12 +396,12 @@ host age bin international menu	GENEPIO:0100049	0 - 9 [GENEPIO:0100049]
 	GENEPIO:0100058	90 - 99 [GENEPIO:0100058]										
 	GENEPIO:0100059	100+ [GENEPIO:0100059]										
 												
-host gender menu	NCIT:C46110	Female 										
-	NCIT:C46109	Male 										
-	GSSO:000132	Non-binary gender 										
-	GSSO:004004	Transgender (assigned male at birth) 										
-	GSSO:004005	Transgender (assigned female at birth) 										
-	NCIT:C110959	Undeclared 										
+host gender menu	NCIT:C46110	Female										
+	NCIT:C46109	Male										
+	GSSO:000132	Non-binary gender										
+	GSSO:004004	Transgender (assigned male at birth)										
+	GSSO:004005	Transgender (assigned female at birth)										
+	NCIT:C110959	Undeclared										
 												
 host gender international menu	NCIT:C46110	Female [NCIT:C46110]										
 	NCIT:C46109	Male [NCIT:C46109]										
@@ -411,27 +411,27 @@ host gender international menu	NCIT:C46110	Female [NCIT:C46110]
 	NCIT:C110959	Undeclared [NCIT:C110959]										
 												
 												
-signs and symptoms menu	HP:0025143	Chills (sudden cold sensation) 					A sudden sensation of feeling cold.					
-	HP:0000509	Conjunctivitis (pink eye) 					Inflammation of the conjunctiva.					
-	HP:0012735	Cough 					A sudden, audible expulsion of air from the lungs through a partially closed glottis, preceded by inhalation.					
-	HP:0012378	Fatigue (tiredness) 					A subjective feeling of tiredness characterized by a lack of energy and motivation.					
-	HP:0001945	Fever 					Body temperature elevated above the normal range.					
-	HP:0002315	Headache 					Cephalgia, or pain sensed in various parts of the head, not confined to the area of distribution of any nerve.					
-	NCIT:C3824	Lesion 										
-	NCIT:C43278		      Lesion (Macule) 									
-	NCIT:C39690		      Lesion (Papule) 									
-	NCIT:C78582		      Lesion (Pustule) 									
-	GENEPIO:0100490		      Lesion (Scab) 									
-	GENEPIO:0100491		      Lesion (Vesicle) 									
-	HP:0003326	Myalgia (muscle pain) 					Pain in muscle.					
+signs and symptoms menu	HP:0025143	Chills (sudden cold sensation)					A sudden sensation of feeling cold.					
+	HP:0000509	Conjunctivitis (pink eye)					Inflammation of the conjunctiva.					
+	HP:0012735	Cough					A sudden, audible expulsion of air from the lungs through a partially closed glottis, preceded by inhalation.					
+	HP:0012378	Fatigue (tiredness)					A subjective feeling of tiredness characterized by a lack of energy and motivation.					
+	HP:0001945	Fever					Body temperature elevated above the normal range.					
+	HP:0002315	Headache					Cephalgia, or pain sensed in various parts of the head, not confined to the area of distribution of any nerve.					
+	NCIT:C3824	Lesion										
+	NCIT:C43278		Lesion (Macule)									
+	NCIT:C39690		Lesion (Papule)									
+	NCIT:C78582		Lesion (Pustule)									
+	GENEPIO:0100490		Lesion (Scab)									
+	GENEPIO:0100491		Lesion (Vesicle)									
+	HP:0003326	Myalgia (muscle pain)					Pain in muscle.					
 	HP:0003418		Back pain									
-	HP:0002018	Nausea 					A sensation of unease in the stomach together with an urge to vomit.					
-	HP:0000988	Rash 					A red eruption of the skin.					
-	NCIT:C50747	Sore throat 					Any kind of inflammatory process of the tonsils, pharynx, or/and larynx characterized by pain in swallowing.					
+	HP:0002018	Nausea					A sensation of unease in the stomach together with an urge to vomit.					
+	HP:0000988	Rash					A red eruption of the skin.					
+	NCIT:C50747	Sore throat					Any kind of inflammatory process of the tonsils, pharynx, or/and larynx characterized by pain in swallowing.					
 	NCIT:C36172	Sweating										
-	HP:0002716	Swollen Lymph Nodes 					Enlargment (swelling) of a lymph node.					
+	HP:0002716	Swollen Lymph Nodes					Enlargment (swelling) of a lymph node.					
 	NCIT:C3426	Ulcer										
-	HP:0002013	Vomiting (throwing up) 					Forceful ejection of the contents of the stomach through the mouth by means of a series of involuntary spasmic contractions.					
+	HP:0002013	Vomiting (throwing up)					Forceful ejection of the contents of the stomach through the mouth by means of a series of involuntary spasmic contractions.					
 												
 												
 signs and symptoms international menu	HP:0025143	Chills (sudden cold sensation) [HP:0025143]					A sudden sensation of feeling cold.					
@@ -441,11 +441,11 @@ signs and symptoms international menu	HP:0025143	Chills (sudden cold sensation) 
 	HP:0001945	Fever [HP:0001945]					Body temperature elevated above the normal range.					
 	HP:0002315	Headache [HP:0002315]					Cephalgia, or pain sensed in various parts of the head, not confined to the area of distribution of any nerve.					
 	NCIT:C3824	Lesion [NCIT:C3824]										
-	NCIT:C43278		      Lesion (Macule) [NCIT:C43278]									
-	NCIT:C39690		      Lesion (Papule) [NCIT:C39690]									
-	NCIT:C78582		      Lesion (Pustule) [NCIT:C78582]									
-	GENEPIO:0100490		      Lesion (Scab) [GENEPIO:0100490]									
-	GENEPIO:0100491		      Lesion (Vesicle) [GENEPIO:0100491]									
+	NCIT:C43278		Lesion (Macule) [NCIT:C43278]									
+	NCIT:C39690		Lesion (Papule) [NCIT:C39690]									
+	NCIT:C78582		Lesion (Pustule) [NCIT:C78582]									
+	GENEPIO:0100490		Lesion (Scab) [GENEPIO:0100490]									
+	GENEPIO:0100491		Lesion (Vesicle) [GENEPIO:0100491]									
 	HP:0003326	Myalgia (muscle pain) [HP:0003326]					Pain in muscle.					
 	HP:0003418		Back pain [HP:0003418]									
 	HP:0002018	Nausea [HP:0002018]					A sensation of unease in the stomach together with an urge to vomit.					
@@ -461,14 +461,14 @@ pre-existing conditions and risk factors menu	MONDO:0004992	Cancer
 	HP:0000819	Diabetes mellitus (diabetes)										
 	HP:0100651		Type I diabetes mellitus (T1D)									
 	HP:0005978		Type II diabetes mellitus (T2D)									
-	NCIT:C14139	Immunocompromised 										
+	NCIT:C14139	Immunocompromised										
 	NCIT:C26726	Infectious disorder										
 	DOID:13778		Chancroid (Haemophilus ducreyi)									
 	DOID:11263		Chlamydia									
 	DOID:7551		Gonorrhea									
 	NCIT:C155871		Herpes Simplex Virus infection (HSV)									
-	MONDO:0005109		Human immunodeficiency virus (HIV) 									
-	MONDO:0012268			Acquired immunodeficiency syndrome (AIDS) 								
+	MONDO:0005109		Human immunodeficiency virus (HIV)									
+	MONDO:0012268			Acquired immunodeficiency syndrome (AIDS)								
 	MONDO:0005161		Human papilloma virus infection (HPV)									
 	DOID:13819		Lymphogranuloma venereum									
 	NCBITaxon:2097		Mycoplsma genitalium									
@@ -479,7 +479,7 @@ pre-existing conditions and risk factors menu	MONDO:0004992	Cancer
 	NCIT:C16124	Prior therapy										
 	NCIT:C16212		Cancer treatment									
 	NCIT:C15632			Chemotherapy								
-	NCIT:C16118		HIV and Antiretroviral therapy (ART) 									
+	NCIT:C16118		HIV and Antiretroviral therapy (ART)									
 	CHEBI:35341		Steroid									
 	NCIT:C159659	Transplant										
 												
@@ -525,42 +525,42 @@ complications international menu	MONDO:0005682	Bronchopneumonia [MONDO:0005682]
 	IDO:0000567	Secondary infection [IDO:0000567]										
 	HP:0100806	Sepsis [HP:0100806]										
 												
-host vaccination status menu	GENEPIO:0100100	Fully Vaccinated 										
-	GENEPIO:0100102	Not Vaccinated 										
+host vaccination status menu	GENEPIO:0100100	Fully Vaccinated										
+	GENEPIO:0100102	Not Vaccinated										
 												
 host vaccination status international menu	GENEPIO:0100100	Fully Vaccinated [GENEPIO:0100100]										
 	GENEPIO:0100102	Not Vaccinated [GENEPIO:0100102]										
 												
-exposure event menu	GENEPIO:0100237	Mass Gathering 										
-	GENEPIO:0100238	Convention (conference) 										
-	GENEPIO:0100240		      Agricultural Event 									
-	PCO:0000033	Social Gathering 										
-	PCO:0000034		      Community Event 									
-	PCO:0000035		      Party 									
+exposure event menu	GENEPIO:0100237	Mass Gathering										
+	GENEPIO:0100238	Convention (conference)										
+	GENEPIO:0100240		Agricultural Event									
+	PCO:0000033	Social Gathering										
+	PCO:0000034		Community Event									
+	PCO:0000035		Party									
 		Other exposure event										
 												
 exposure event international menu	GENEPIO:0100237	Mass Gathering [GENEPIO:0100237]					A gathering or event attended by a sufficient number of people to strain the planning and response resources of the host community, state/province, nation, or region where it is being held.					
 	GENEPIO:0100238	Convention (conference) [GENEPIO:0100238]					A gathering of individuals who meet at an arranged place and time in order to discuss or engage in some common interest. The most common conventions are based upon industry, profession, and fandom.					
-	GENEPIO:0100240		      Agricultural Event [GENEPIO:0100240]				A gathering exhibiting the equipment, animals, sports and recreation associated with agriculture and animal husbandry.					
+	GENEPIO:0100240		Agricultural Event [GENEPIO:0100240]				A gathering exhibiting the equipment, animals, sports and recreation associated with agriculture and animal husbandry.					
 	PCO:0000033	Social Gathering [PCO:0000033]					A type of social behavior in which a collection of humans intentionally gathers together on a temporary basis to engage socially.					
-	PCO:0000034		      Community Event [PCO:0000034]				A human social event in which humans living in the same area or neighborhood gather to carry out activiites relevent to the people living in the area.					
-	PCO:0000035		      Party [PCO:0000035]				A human social gathering in which the intention is to have a good time. Often the intention is to celebrate something like a birthday, anniversary, or holiday, but there is not always a purpose.					
+	PCO:0000034		Community Event [PCO:0000034]				A human social event in which humans living in the same area or neighborhood gather to carry out activiites relevent to the people living in the area.					
+	PCO:0000035		Party [PCO:0000035]				A human social gathering in which the intention is to have a good time. Often the intention is to celebrate something like a birthday, anniversary, or holiday, but there is not always a purpose.					
 		Other exposure event					An exposure event not specified in the picklist.					
 												
 												
-exposure contact level menu	GENEPIO:0100494	Contact with animal 										
-	GENEPIO:0100495		Contact with rodent 									
-	GENEPIO:0100496	Contact with fomite 										
+exposure contact level menu	GENEPIO:0100494	Contact with animal										
+	GENEPIO:0100495		Contact with rodent									
+	GENEPIO:0100496	Contact with fomite										
 	GENEPIO:0100357	Contact with infected individual										
-	TRANS:0000001		Direct (human-to-human contact) 									
-	TRANS:0000006			Mother-to-child transmission 								
-	NCIT:C19085			Sexual transmission 								
-	GENEPIO:0100246		Indirect contact 									
-	GENEPIO:0100247			Close contact (face-to-face contact) 								
-	GENEPIO:0100248			Casual contact 								
-	GENEPIO:0100497	Workplace associated transmission 										
-	GENEPIO:0100498		Healthcare associated transmission 									
-	GENEPIO:0100499		Laboratory associated transmission 									
+	TRANS:0000001		Direct (human-to-human contact)									
+	TRANS:0000006			Mother-to-child transmission								
+	NCIT:C19085			Sexual transmission								
+	GENEPIO:0100246		Indirect contact									
+	GENEPIO:0100247			Close contact (face-to-face contact)								
+	GENEPIO:0100248			Casual contact								
+	GENEPIO:0100497	Workplace associated transmission										
+	GENEPIO:0100498		Healthcare associated transmission									
+	GENEPIO:0100499		Laboratory associated transmission									
 												
 exposure contact level international menu	GENEPIO:0100494	Contact with animal [GENEPIO:0100494]										
 	GENEPIO:0100495		Contact with rodent [GENEPIO:0100495]									
@@ -576,40 +576,40 @@ exposure contact level international menu	GENEPIO:0100494	Contact with animal [G
 	GENEPIO:0100498		Healthcare associated transmission [GENEPIO:0100498]									
 	GENEPIO:0100499		Laboratory associated transmission [GENEPIO:0100499]									
 												
-host role menu	GENEPIO:0100249	Attendee 										
-	OMRSE:00000058		Student 									
-	OMRSE:00000030	Patient 										
-	NCIT:C25182		Inpatient 									
-	NCIT:C28293		Outpatient 									
-	GENEPIO:0100250	Passenger 										
-	GENEPIO:0100251	Resident 										
-	GENEPIO:0100252	Visitor 										
-	GENEPIO:0100253	Volunteer 										
-	GENEPIO:0100254	Work 										
-	GENEPIO:0100255		Administrator 									
-	GENEPIO:0100256		First Responder 									
-	GENEPIO:0100260		Housekeeper 									
-	GENEPIO:0100261		Kitchen Worker 									
-	GENEPIO:0100334		Healthcare Worker 									
-	GENEPIO:0100420			Community Healthcare Worker 								
-	GENEPIO:0100262			Laboratory Worker 								
-	OMRSE:00000014			Nurse 								
-	GENEPIO:0100263			Personal Care Aid 								
-	GENEPIO:0100264			Pharmacist 								
-	OMRSE:00000013			Physician 								
-	GENEPIO:0100354		Rotational Worker 									
-	GENEPIO:0100355		Seasonal Worker 									
-	GSSO:005831		Sex Worker 									
-	GENEPIO:0100265		Veterinarian 									
-	OMRSE:00000001	Social role 										
-	GENEPIO:0100266		Acquaintance of case 									
-	GENEPIO:0100267		Relative of case 									
+host role menu	GENEPIO:0100249	Attendee										
+	OMRSE:00000058		Student									
+	OMRSE:00000030	Patient										
+	NCIT:C25182		Inpatient									
+	NCIT:C28293		Outpatient									
+	GENEPIO:0100250	Passenger										
+	GENEPIO:0100251	Resident										
+	GENEPIO:0100252	Visitor										
+	GENEPIO:0100253	Volunteer										
+	GENEPIO:0100254	Work										
+	GENEPIO:0100255		Administrator									
+	GENEPIO:0100256		First Responder									
+	GENEPIO:0100260		Housekeeper									
+	GENEPIO:0100261		Kitchen Worker									
+	GENEPIO:0100334		Healthcare Worker									
+	GENEPIO:0100420			Community Healthcare Worker								
+	GENEPIO:0100262			Laboratory Worker								
+	OMRSE:00000014			Nurse								
+	GENEPIO:0100263			Personal Care Aid								
+	GENEPIO:0100264			Pharmacist								
+	OMRSE:00000013			Physician								
+	GENEPIO:0100354		Rotational Worker									
+	GENEPIO:0100355		Seasonal Worker									
+	GSSO:005831		Sex Worker									
+	GENEPIO:0100265		Veterinarian									
+	OMRSE:00000001	Social role										
+	GENEPIO:0100266		Acquaintance of case									
+	GENEPIO:0100267		Relative of case									
 	GENEPIO:0100268			Child of case								
-	GENEPIO:0100269			Parent of case 								
-	GENEPIO:0100270				Father of case 							
-	GENEPIO:0100271				Mother of case 							
-	GENEPIO:0100500		Sexual partner of case 									
-	GENEPIO:0100272		Spouse of case 									
+	GENEPIO:0100269			Parent of case								
+	GENEPIO:0100270				Father of case							
+	GENEPIO:0100271				Mother of case							
+	GENEPIO:0100500		Sexual partner of case									
+	GENEPIO:0100272		Spouse of case									
 		Other Host Role										
 												
 host role international menu	GENEPIO:0100249	Attendee [GENEPIO:0100249]										
@@ -648,65 +648,65 @@ host role international menu	GENEPIO:0100249	Attendee [GENEPIO:0100249]
 	GENEPIO:0100272		Spouse of case [GENEPIO:0100272]									
 		Other Host Role										
 												
-exposure setting menu	ECTO:3000005	Human Exposure 										
-	GENEPIO:0100501		Contact with Known Monkeypox Case 									
-	GENEPIO:0100185		Contact with Patient 									
-	GENEPIO:0100502		Contact with Probable Monkeypox Case 									
-	GENEPIO:0100189		Contact with Person who Recently Travelled 									
-	GENEPIO:0100190	Occupational, Residency or Patronage Exposure 										
-	ECTO:1000033		Abbatoir 									
-	GENEPIO:0100191		Animal Rescue 									
-	GENEPIO:0100503		Bar (pub) 									
-	GENEPIO:0100192		Childcare 									
-	GENEPIO:0100193			Daycare 								
-	GENEPIO:0100194			Nursery 								
-	GENEPIO:0100195		Community Service Centre 									
-	GENEPIO:0100196		Correctional Facility 									
-	GENEPIO:0100197		Dormitory 									
-	ECTO:1000034		Farm 									
-	GENEPIO:0100198		First Nations Reserve 									
-	GENEPIO:0100199		Funeral Home 									
-	GENEPIO:0100200		Group Home 									
-	GENEPIO:0100201		Healthcare Setting 									
-	GENEPIO:0100202			Ambulance 								
-	GENEPIO:0100203			Acute Care Facility 								
-	GENEPIO:0100204			Clinic 								
-	GENEPIO:0100415			Community Healthcare (At-Home) Setting 								
-	GENEPIO:0100205			Community Health Centre 								
-	ECTO:1000035			Hospital 								
-	GENEPIO:0100206				Emergency Department 							
-	GENEPIO:0100207				ICU 							
-	GENEPIO:0100208				Ward 							
-	ECTO:1000036			Laboratory 								
-	GENEPIO:0100209			Long-Term Care Facility 								
-	GENEPIO:0100210			Pharmacy 								
-	GENEPIO:0100211			Physician's Office 								
-	GENEPIO:0100212		Household 									
-	GENEPIO:0100213		Insecure Housing (Homeless) 									
-	GENEPIO:0100214		Occupational Exposure 									
-	GENEPIO:0100215			Worksite 								
-	ECTO:1000037				Office 							
-	GENEPIO:0100216		Outdoors 									
-	ECTO:5000009			Camp/camping 								
-	GENEPIO:0100217			Hiking Trail 								
-	ECTO:6000030			Hunting Ground 								
-	GENEPIO:0100218			Ski Resort 								
-	ECTO:5000008		Petting zoo 									
-	GENEPIO:0100220		Place of Worship 									
-	GENEPIO:0100221			Church 								
-	GENEPIO:0100222			Mosque 								
-	GENEPIO:0100223			Temple 								
-	ECTO:1000040		Restaurant 									
-	ECTO:1000041		Retail Store 									
-	GENEPIO:0100224		School 									
-	GENEPIO:0100225		Temporary Residence 									
-	GENEPIO:0100226			Homeless Shelter 								
-	GENEPIO:0100227			Hotel 								
-	GENEPIO:0100228		Veterinary Care Clinic 									
-	GENEPIO:0100229	Travel Exposure 										
-	GENEPIO:0100230		Travelled on a Cruise Ship 									
-	GENEPIO:0100231		Travelled on a Plane 									
-	GENEPIO:0100232		Travelled on Ground Transport 									
+exposure setting menu	ECTO:3000005	Human Exposure										
+	GENEPIO:0100501		Contact with Known Monkeypox Case									
+	GENEPIO:0100185		Contact with Patient									
+	GENEPIO:0100502		Contact with Probable Monkeypox Case									
+	GENEPIO:0100189		Contact with Person who Recently Travelled									
+	GENEPIO:0100190	Occupational, Residency or Patronage Exposure										
+	ECTO:1000033		Abbatoir									
+	GENEPIO:0100191		Animal Rescue									
+	GENEPIO:0100503		Bar (pub)									
+	GENEPIO:0100192		Childcare									
+	GENEPIO:0100193			Daycare								
+	GENEPIO:0100194			Nursery								
+	GENEPIO:0100195		Community Service Centre									
+	GENEPIO:0100196		Correctional Facility									
+	GENEPIO:0100197		Dormitory									
+	ECTO:1000034		Farm									
+	GENEPIO:0100198		First Nations Reserve									
+	GENEPIO:0100199		Funeral Home									
+	GENEPIO:0100200		Group Home									
+	GENEPIO:0100201		Healthcare Setting									
+	GENEPIO:0100202			Ambulance								
+	GENEPIO:0100203			Acute Care Facility								
+	GENEPIO:0100204			Clinic								
+	GENEPIO:0100415			Community Healthcare (At-Home) Setting								
+	GENEPIO:0100205			Community Health Centre								
+	ECTO:1000035			Hospital								
+	GENEPIO:0100206				Emergency Department							
+	GENEPIO:0100207				ICU							
+	GENEPIO:0100208				Ward							
+	ECTO:1000036			Laboratory								
+	GENEPIO:0100209			Long-Term Care Facility								
+	GENEPIO:0100210			Pharmacy								
+	GENEPIO:0100211			Physician's Office								
+	GENEPIO:0100212		Household									
+	GENEPIO:0100213		Insecure Housing (Homeless)									
+	GENEPIO:0100214		Occupational Exposure									
+	GENEPIO:0100215			Worksite								
+	ECTO:1000037				Office							
+	GENEPIO:0100216		Outdoors									
+	ECTO:5000009			Camp/camping								
+	GENEPIO:0100217			Hiking Trail								
+	ECTO:6000030			Hunting Ground								
+	GENEPIO:0100218			Ski Resort								
+	ECTO:5000008		Petting zoo									
+	GENEPIO:0100220		Place of Worship									
+	GENEPIO:0100221			Church								
+	GENEPIO:0100222			Mosque								
+	GENEPIO:0100223			Temple								
+	ECTO:1000040		Restaurant									
+	ECTO:1000041		Retail Store									
+	GENEPIO:0100224		School									
+	GENEPIO:0100225		Temporary Residence									
+	GENEPIO:0100226			Homeless Shelter								
+	GENEPIO:0100227			Hotel								
+	GENEPIO:0100228		Veterinary Care Clinic									
+	GENEPIO:0100229	Travel Exposure										
+	GENEPIO:0100230		Travelled on a Cruise Ship									
+	GENEPIO:0100231		Travelled on a Plane									
+	GENEPIO:0100232		Travelled on Ground Transport									
 	GENEPIO:0100235	Other Exposure Setting										
 												
 												
@@ -795,7 +795,7 @@ host disease international menu	MONDO:0002594	Monkeypox [MONDO:0002594]
 purpose of sampling menu	GENEPIO:0100001	Cluster/Outbreak investigation										
 	GENEPIO:0100002	Diagnostic testing										
 	GENEPIO:0100003	Research										
-	GENEPIO:0100004	Surveillance 										
+	GENEPIO:0100004	Surveillance										
 												
 purpose of sampling international menu	GENEPIO:0100001	Cluster/Outbreak investigation [GENEPIO:0100001]										
 	GENEPIO:0100002	Diagnostic testing [GENEPIO:0100002]										
@@ -805,8 +805,8 @@ purpose of sampling international menu	GENEPIO:0100001	Cluster/Outbreak investig
 purpose of sequencing menu	GENEPIO:0100005	Baseline surveillance (random sampling)										
 	GENEPIO:0100006	Targeted surveillance (non-random sampling)										
 	GENEPIO:0100007		Priority surveillance project									
-	GENEPIO:0100009			Longitudinal surveillance (repeat sampling of individuals) 								
-	GENEPIO:0100010			Re-infection surveillance 								
+	GENEPIO:0100009			Longitudinal surveillance (repeat sampling of individuals)								
+	GENEPIO:0100010			Re-infection surveillance								
 	GENEPIO:0100011			Vaccine escape surveillance								
 	GENEPIO:0100012			Travel-associated surveillance								
 	GENEPIO:0100013				Domestic travel surveillance							
@@ -845,8 +845,8 @@ sequencing instrument menu	GENEPIO:0100105	Illumina
 	GENEPIO:0100107			Illumina Genome Analyzer II								
 	GENEPIO:0100108			Illumina Genome Analyzer IIx								
 	GENEPIO:0100109		Illumina HiScanSQ									
-	GENEPIO:0100110		Illumina HiSeq 									
-	GENEPIO:0100111			Illumina HiSeq X 								
+	GENEPIO:0100110		Illumina HiSeq									
+	GENEPIO:0100111			Illumina HiSeq X								
 	GENEPIO:0100112				Illumina HiSeq X Five							
 	GENEPIO:0100113				Illumina HiSeq X Ten							
 	GENEPIO:0100114			Illumina HiSeq 1000								
@@ -861,7 +861,7 @@ sequencing instrument menu	GENEPIO:0100105	Illumina
 	GENEPIO:0100123			Illumina NovaSeq 6000								
 	GENEPIO:0100124		Illumina MiniSeq									
 	GENEPIO:0100125		Illumina MiSeq									
-	GENEPIO:0100126		Illumina NextSeq 									
+	GENEPIO:0100126		Illumina NextSeq									
 	GENEPIO:0100127			Illumina NextSeq 500								
 	GENEPIO:0100128			Illumina NextSeq 550								
 	GENEPIO:0100129			Illumina NextSeq 2000								
@@ -987,7 +987,7 @@ sequenced by menu		Alberta Precision Labs (APL)
 		Sunnybrook Health Sciences Centre										
 		Thunder Bay Regional Health Sciences Centre										
 												
- sample collected by menu		Alberta Precision Labs (APL)										
+sample collected by menu		Alberta Precision Labs (APL)										
 			Alberta ProvLab North (APLN)									
 			Alberta ProvLab South (APLS)									
 		BCCDC Public Health Laboratory										

@@ -1,6 +1,6 @@
 id: https://example.com/monkeypox
 name: Monkeypox
-version: 3.3.1
+version: 3.3.2
 description: ''
 imports:
 - linkml:types
@@ -19,7 +19,7 @@ classes:
     is_a: dh_interface
     see_also: templates/monkeypox/SOP_Monkeypox.pdf
     annotations:
-      version: 3.3.1
+      version: 3.3.2
     slots:
     - specimen collector sample ID
     - Related specimen primary ID
@@ -783,7 +783,7 @@ classes:
     is_a: dh_interface
     see_also: templates/monkeypox/SOP_Monkeypox_international.pdf
     annotations:
-      version: 3.3.1
+      version: 3.3.2
     slots:
     - specimen collector sample ID
     - case ID
@@ -2266,7 +2266,7 @@ slots:
     examples:
     - value: Tecovirimat used to treat current Monkeypox infection
     - value: AZT administered for concurrent HIV infection
-    slot_uri: NCIT:C16119
+    slot_uri: GENEPIO:0100580
     range: WhitespaceMinimizedString
     exact_mappings:
     - NML_LIMS:antiviral therapy
@@ -2607,7 +2607,7 @@ slots:
     exact_mappings:
     - GISAID:Sequencing technology
     - CNPHI:Sequencing Instrument
-    - NML_LIMS:PH_INSTRUMENT_CGN
+    - NML_LIMS:PH_SEQUENCING_INSTRUMENT
     - VirusSeq_Portal:sequencing instrument
   sequencing protocol:
     name: sequencing protocol
@@ -2981,6 +2981,7 @@ slots:
       pick list.
     examples:
     - value: G2R_G (TNFR)
+    slot_uri: GENEPIO:0100576
     any_of:
     - range: gene name menu
     - range: null value menu
@@ -2996,6 +2997,7 @@ slots:
       test.
     examples:
     - value: '27'
+    slot_uri: GENEPIO:0100577
     any_of:
     - range: decimal
     - range: null value menu
@@ -3011,6 +3013,7 @@ slots:
       pick list.
     examples:
     - value: RNAse P
+    slot_uri: GENEPIO:0100578
     any_of:
     - range: gene name menu
     - range: null value menu
@@ -3026,6 +3029,7 @@ slots:
       test.
     examples:
     - value: '30'
+    slot_uri: GENEPIO:0100579
     any_of:
     - range: decimal
     - range: null value menu
@@ -3048,16 +3052,16 @@ slots:
     exact_mappings:
     - GISAID:Authors
     - CNPHI:Authors
-    - NML_LIMS:PH_CANCOGEN_AUTHORS
+    - NML_LIMS:PH_SEQUENCING_AUTHORS
   DataHarmonizer provenance:
     name: DataHarmonizer provenance
     title: DataHarmonizer provenance
-    description: The DataHarmonizer software version provenance.
-    comments: The current software version information will be automatically generated
-      in this field after the user utilizes the "validate" function. This information
-      will be generated regardless as to whether the row is valid of not.
+    description: The DataHarmonizer software and template version provenance.
+    comments: The current software and template version information will be automatically
+      generated in this field after the user utilizes the "validate" function. This
+      information will be generated regardless as to whether the row is valid of not.
     examples:
-    - value: 'DataHarmonizer provenance: v0.13.21'
+    - value: DataHarmonizer v1.4.3, Monkeypox v3.3.1
     slot_uri: GENEPIO:0001518
     range: Provenance
     exact_mappings:
