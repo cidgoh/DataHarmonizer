@@ -78,7 +78,7 @@
       "name": "time",
       "description": "A time object represents a (local) time of day, independent of any particular day",
       "notes": [
-        "URI is dateTime because OWL reasoners don't work with straight date or time"
+        "URI is dateTime because OWL reasoners do not work with straight date or time"
       ],
       "base": "XSDTime",
       "uri": "xsd:dateTime",
@@ -132,7 +132,9 @@
     "objectidentifier": {
       "name": "objectidentifier",
       "description": "A URI or CURIE that represents an object in the model.",
-      "comments": ["Used for inheritence and type checking"],
+      "comments": [
+        "Used for inheritence and type checking"
+      ],
       "base": "ElementIdentifier",
       "uri": "shex:iri",
       "repr": "str"
@@ -341,7 +343,9 @@
         "Acute Respiratory Distress Syndrome": {
           "text": "Acute Respiratory Distress Syndrome",
           "meaning": "HP:0033677",
-          "exact_mappings": ["CNPHI:ARDS"]
+          "exact_mappings": [
+            "CNPHI:ARDS"
+          ]
         },
         "Altered mental status": {
           "text": "Altered mental status",
@@ -402,7 +406,9 @@
         "Chills (sudden cold sensation)": {
           "text": "Chills (sudden cold sensation)",
           "meaning": "HP:0025143",
-          "exact_mappings": ["CNPHI:Chills"]
+          "exact_mappings": [
+            "CNPHI:Chills"
+          ]
         },
         "Conjunctival injection": {
           "text": "Conjunctival injection",
@@ -411,7 +417,9 @@
         "Conjunctivitis (pink eye)": {
           "text": "Conjunctivitis (pink eye)",
           "meaning": "HP:0000509",
-          "exact_mappings": ["CNPHI:Conjunctivitis"]
+          "exact_mappings": [
+            "CNPHI:Conjunctivitis"
+          ]
         },
         "Coryza (rhinitis)": {
           "text": "Coryza (rhinitis)",
@@ -472,7 +480,9 @@
         "Diarrhea (watery stool)": {
           "text": "Diarrhea (watery stool)",
           "meaning": "HP:0002014",
-          "exact_mappings": ["CNPHI:Diarrhea, watery"]
+          "exact_mappings": [
+            "CNPHI:Diarrhea, watery"
+          ]
         },
         "Dry gangrene": {
           "text": "Dry gangrene",
@@ -481,7 +491,9 @@
         "Encephalitis (brain inflammation)": {
           "text": "Encephalitis (brain inflammation)",
           "meaning": "HP:0002383",
-          "exact_mappings": ["CNPHI:Encephalitis"]
+          "exact_mappings": [
+            "CNPHI:Encephalitis"
+          ]
         },
         "Encephalopathy": {
           "text": "Encephalopathy",
@@ -490,7 +502,9 @@
         "Fatigue (tiredness)": {
           "text": "Fatigue (tiredness)",
           "meaning": "HP:0012378",
-          "exact_mappings": ["CNPHI:Fatigue"]
+          "exact_mappings": [
+            "CNPHI:Fatigue"
+          ]
         },
         "Fever": {
           "text": "Fever",
@@ -500,7 +514,9 @@
           "text": "Fever (>=38°C)",
           "meaning": "GENEPIO:0100066",
           "is_a": "Fever",
-          "exact_mappings": ["CNPHI:Fever"]
+          "exact_mappings": [
+            "CNPHI:Fever"
+          ]
         },
         "Glossitis (inflammation of the tongue)": {
           "text": "Glossitis (inflammation of the tongue)",
@@ -718,9 +734,6 @@
         "No prior antiviral treatment": {
           "text": "No prior antiviral treatment",
           "meaning": "GENEPIO:0100233"
-        },
-        "Unknown": {
-          "text": "Unknown"
         }
       }
     },
@@ -1078,15 +1091,10 @@
           "meaning": "HP:0004469",
           "is_a": "Respiratory disorder"
         },
-        "Chronic pulmonary disease": {
-          "text": "Chronic pulmonary disease",
-          "meaning": "HP:0006528",
-          "is_a": "Respiratory disorder"
-        },
         "Chronic obstructive pulmonary disease": {
           "text": "Chronic obstructive pulmonary disease",
           "meaning": "HP:0006510",
-          "is_a": "Chronic pulmonary disease"
+          "is_a": "Respiratory disorder"
         },
         "Emphysema": {
           "text": "Emphysema",
@@ -2160,8 +2168,7 @@
         },
         "Finger Prick": {
           "text": "Finger Prick",
-          "meaning": "GENEPIO:0100036",
-          "is_a": "Swabbing"
+          "meaning": "GENEPIO:0100036"
         },
         "Washout Tear Collection": {
           "text": "Washout Tear Collection",
@@ -2250,7 +2257,9 @@
         "Homo sapiens": {
           "text": "Homo sapiens",
           "meaning": "NCBITaxon:9606",
-          "exact_mappings": ["NML_LIMS:Human"]
+          "exact_mappings": [
+            "NML_LIMS:Human"
+          ]
         },
         "Bos taurus": {
           "text": "Bos taurus",
@@ -2341,7 +2350,9 @@
         "Cow": {
           "text": "Cow",
           "meaning": "NCBITaxon:9913",
-          "exact_mappings": ["CNPHI:bovine"]
+          "exact_mappings": [
+            "CNPHI:bovine"
+          ]
         },
         "Dog": {
           "text": "Dog",
@@ -2362,7 +2373,9 @@
         "Pig": {
           "text": "Pig",
           "meaning": "NCBITaxon:9825",
-          "exact_mappings": ["CNPHI:porcine"]
+          "exact_mappings": [
+            "CNPHI:porcine"
+          ]
         },
         "Pigeon": {
           "text": "Pigeon",
@@ -2768,12 +2781,16 @@
         "90 - 99": {
           "text": "90 - 99",
           "meaning": "GENEPIO:0100058",
-          "exact_mappings": ["VirusSeq_Portal:90+"]
+          "exact_mappings": [
+            "VirusSeq_Portal:90+"
+          ]
         },
         "100+": {
           "text": "100+",
           "meaning": "GENEPIO:0100059",
-          "exact_mappings": ["VirusSeq_Portal:90+"]
+          "exact_mappings": [
+            "VirusSeq_Portal:90+"
+          ]
         }
       }
     },
@@ -3715,179 +3732,244 @@
         "E gene (orf4)": {
           "text": "E gene (orf4)",
           "meaning": "GENEPIO:0100151",
-          "exact_mappings": ["CNPHI:E gene", "BIOSAMPLE:E (orf4)"]
+          "exact_mappings": [
+            "CNPHI:E gene",
+            "BIOSAMPLE:E (orf4)"
+          ]
         },
         "M gene (orf5)": {
           "text": "M gene (orf5)",
           "meaning": "GENEPIO:0100152",
-          "exact_mappings": ["BIOSAMPLE:M (orf5)"]
+          "exact_mappings": [
+            "BIOSAMPLE:M (orf5)"
+          ]
         },
         "N gene (orf9)": {
           "text": "N gene (orf9)",
           "meaning": "GENEPIO:0100153",
-          "exact_mappings": ["BIOSAMPLE:N (orf9)"]
+          "exact_mappings": [
+            "BIOSAMPLE:N (orf9)"
+          ]
         },
         "Spike gene (orf2)": {
           "text": "Spike gene (orf2)",
           "meaning": "GENEPIO:0100154",
-          "exact_mappings": ["BIOSAMPLE:S (orf2)"]
+          "exact_mappings": [
+            "BIOSAMPLE:S (orf2)"
+          ]
         },
         "orf1ab (rep)": {
           "text": "orf1ab (rep)",
           "meaning": "GENEPIO:0100155",
-          "exact_mappings": ["BIOSAMPLE:orf1ab (rep)"]
+          "exact_mappings": [
+            "BIOSAMPLE:orf1ab (rep)"
+          ]
         },
         "orf1a (pp1a)": {
           "text": "orf1a (pp1a)",
           "meaning": "GENEPIO:0100156",
           "is_a": "orf1ab (rep)",
-          "exact_mappings": ["BIOSAMPLE:orf1a (pp1a)"]
+          "exact_mappings": [
+            "BIOSAMPLE:orf1a (pp1a)"
+          ]
         },
         "nsp11": {
           "text": "nsp11",
           "meaning": "GENEPIO:0100157",
           "is_a": "orf1a (pp1a)",
-          "exact_mappings": ["BIOSAMPLE:nsp11"]
+          "exact_mappings": [
+            "BIOSAMPLE:nsp11"
+          ]
         },
         "nsp1": {
           "text": "nsp1",
           "meaning": "GENEPIO:0100158",
           "is_a": "orf1ab (rep)",
-          "exact_mappings": ["BIOSAMPLE:nsp1"]
+          "exact_mappings": [
+            "BIOSAMPLE:nsp1"
+          ]
         },
         "nsp2": {
           "text": "nsp2",
           "meaning": "GENEPIO:0100159",
           "is_a": "orf1ab (rep)",
-          "exact_mappings": ["BIOSAMPLE:nsp2"]
+          "exact_mappings": [
+            "BIOSAMPLE:nsp2"
+          ]
         },
         "nsp3": {
           "text": "nsp3",
           "meaning": "GENEPIO:0100160",
           "is_a": "orf1ab (rep)",
-          "exact_mappings": ["BIOSAMPLE:nsp3"]
+          "exact_mappings": [
+            "BIOSAMPLE:nsp3"
+          ]
         },
         "nsp4": {
           "text": "nsp4",
           "meaning": "GENEPIO:0100161",
           "is_a": "orf1ab (rep)",
-          "exact_mappings": ["BIOSAMPLE:nsp4"]
+          "exact_mappings": [
+            "BIOSAMPLE:nsp4"
+          ]
         },
         "nsp5": {
           "text": "nsp5",
           "meaning": "GENEPIO:0100162",
           "is_a": "orf1ab (rep)",
-          "exact_mappings": ["BIOSAMPLE:nsp5"]
+          "exact_mappings": [
+            "BIOSAMPLE:nsp5"
+          ]
         },
         "nsp6": {
           "text": "nsp6",
           "meaning": "GENEPIO:0100163",
           "is_a": "orf1ab (rep)",
-          "exact_mappings": ["BIOSAMPLE:nsp6"]
+          "exact_mappings": [
+            "BIOSAMPLE:nsp6"
+          ]
         },
         "nsp7": {
           "text": "nsp7",
           "meaning": "GENEPIO:0100164",
           "is_a": "orf1ab (rep)",
-          "exact_mappings": ["BIOSAMPLE:nsp7"]
+          "exact_mappings": [
+            "BIOSAMPLE:nsp7"
+          ]
         },
         "nsp8": {
           "text": "nsp8",
           "meaning": "GENEPIO:0100165",
           "is_a": "orf1ab (rep)",
-          "exact_mappings": ["BIOSAMPLE:nsp8"]
+          "exact_mappings": [
+            "BIOSAMPLE:nsp8"
+          ]
         },
         "nsp9": {
           "text": "nsp9",
           "meaning": "GENEPIO:0100166",
           "is_a": "orf1ab (rep)",
-          "exact_mappings": ["BIOSAMPLE:nsp9"]
+          "exact_mappings": [
+            "BIOSAMPLE:nsp9"
+          ]
         },
         "nsp10": {
           "text": "nsp10",
           "meaning": "GENEPIO:0100167",
           "is_a": "orf1ab (rep)",
-          "exact_mappings": ["BIOSAMPLE:nsp10"]
+          "exact_mappings": [
+            "BIOSAMPLE:nsp10"
+          ]
         },
         "RdRp gene (nsp12)": {
           "text": "RdRp gene (nsp12)",
           "meaning": "GENEPIO:0100168",
           "is_a": "orf1ab (rep)",
-          "exact_mappings": ["BIOSAMPLE:nsp12 (RdRp)"]
+          "exact_mappings": [
+            "BIOSAMPLE:nsp12 (RdRp)"
+          ]
         },
         "hel gene (nsp13)": {
           "text": "hel gene (nsp13)",
           "meaning": "GENEPIO:0100169",
           "is_a": "orf1ab (rep)",
-          "exact_mappings": ["BIOSAMPLE:nsp13 (Hel)"]
+          "exact_mappings": [
+            "BIOSAMPLE:nsp13 (Hel)"
+          ]
         },
         "exoN gene (nsp14)": {
           "text": "exoN gene (nsp14)",
           "meaning": "GENEPIO:0100170",
           "is_a": "orf1ab (rep)",
-          "exact_mappings": ["BIOSAMPLE:nsp14 (ExoN)"]
+          "exact_mappings": [
+            "BIOSAMPLE:nsp14 (ExoN)"
+          ]
         },
         "nsp15": {
           "text": "nsp15",
           "meaning": "GENEPIO:0100171",
           "is_a": "orf1ab (rep)",
-          "exact_mappings": ["BIOSAMPLE:nsp15"]
+          "exact_mappings": [
+            "BIOSAMPLE:nsp15"
+          ]
         },
         "nsp16": {
           "text": "nsp16",
           "meaning": "GENEPIO:0100172",
           "is_a": "orf1ab (rep)",
-          "exact_mappings": ["BIOSAMPLE:nsp16"]
+          "exact_mappings": [
+            "BIOSAMPLE:nsp16"
+          ]
         },
         "orf3a": {
           "text": "orf3a",
           "meaning": "GENEPIO:0100173",
-          "exact_mappings": ["BIOSAMPLE:orf3a"]
+          "exact_mappings": [
+            "BIOSAMPLE:orf3a"
+          ]
         },
         "orf3b": {
           "text": "orf3b",
           "meaning": "GENEPIO:0100174",
-          "exact_mappings": ["BIOSAMPLE:orf3b"]
+          "exact_mappings": [
+            "BIOSAMPLE:orf3b"
+          ]
         },
         "orf6 (ns6)": {
           "text": "orf6 (ns6)",
           "meaning": "GENEPIO:0100175",
-          "exact_mappings": ["BIOSAMPLE:orf6 (ns6)"]
+          "exact_mappings": [
+            "BIOSAMPLE:orf6 (ns6)"
+          ]
         },
         "orf7a": {
           "text": "orf7a",
           "meaning": "GENEPIO:0100176",
-          "exact_mappings": ["BIOSAMPLE:orf7a"]
+          "exact_mappings": [
+            "BIOSAMPLE:orf7a"
+          ]
         },
         "orf7b (ns7b)": {
           "text": "orf7b (ns7b)",
           "meaning": "GENEPIO:0100177",
-          "exact_mappings": ["BIOSAMPLE:orf7b (ns7b)"]
+          "exact_mappings": [
+            "BIOSAMPLE:orf7b (ns7b)"
+          ]
         },
         "orf8 (ns8)": {
           "text": "orf8 (ns8)",
           "meaning": "GENEPIO:0100178",
-          "exact_mappings": ["BIOSAMPLE:orf8 (ns8)"]
+          "exact_mappings": [
+            "BIOSAMPLE:orf8 (ns8)"
+          ]
         },
         "orf9b": {
           "text": "orf9b",
           "meaning": "GENEPIO:0100179",
-          "exact_mappings": ["BIOSAMPLE:orf9b"]
+          "exact_mappings": [
+            "BIOSAMPLE:orf9b"
+          ]
         },
         "orf9c": {
           "text": "orf9c",
           "meaning": "GENEPIO:0100180",
-          "exact_mappings": ["BIOSAMPLE:orf9c"]
+          "exact_mappings": [
+            "BIOSAMPLE:orf9c"
+          ]
         },
         "orf10": {
           "text": "orf10",
           "meaning": "GENEPIO:0100181",
-          "exact_mappings": ["BIOSAMPLE:orf10"]
+          "exact_mappings": [
+            "BIOSAMPLE:orf10"
+          ]
         },
         "orf14": {
           "text": "orf14",
           "meaning": "GENEPIO:0100182",
-          "exact_mappings": ["BIOSAMPLE:orf14"]
+          "exact_mappings": [
+            "BIOSAMPLE:orf14"
+          ]
         },
         "SARS-COV-2 5' UTR": {
           "text": "SARS-COV-2 5' UTR",
@@ -4023,6 +4105,9 @@
         "LifeLabs": {
           "text": "LifeLabs"
         },
+        "LifeLabs (Ontario)": {
+          "text": "LifeLabs (Ontario)"
+        },
         "Manitoba Cadham Provincial Laboratory": {
           "text": "Manitoba Cadham Provincial Laboratory"
         },
@@ -4044,8 +4129,8 @@
         "Nova Scotia Health Authority": {
           "text": "Nova Scotia Health Authority"
         },
-        "Nunuvut": {
-          "text": "Nunuvut"
+        "Nunavut": {
+          "text": "Nunavut"
         },
         "Ontario Institute for Cancer Research (OICR)": {
           "text": "Ontario Institute for Cancer Research (OICR)"
@@ -5212,7 +5297,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "exact_mappings": ["NML_LIMS:HC_TEXT5"],
+      "exact_mappings": [
+        "NML_LIMS:HC_TEXT5"
+      ],
       "slot_uri": "GENEPIO:0001202",
       "range": "WhitespaceMinimizedString"
     },
@@ -5229,7 +5316,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "exact_mappings": ["NML_LIMS:PH_ID_NUMBER_PRIMARY"],
+      "exact_mappings": [
+        "NML_LIMS:PH_ID_NUMBER_PRIMARY"
+      ],
       "slot_uri": "GENEPIO:0001149",
       "range": "WhitespaceMinimizedString"
     },
@@ -5246,7 +5335,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "exact_mappings": ["NML_LIMS:PH_CASE_ID"],
+      "exact_mappings": [
+        "NML_LIMS:PH_CASE_ID"
+      ],
       "slot_uri": "GENEPIO:0100281",
       "range": "WhitespaceMinimizedString",
       "recommended": true
@@ -5292,7 +5383,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "exact_mappings": ["NML_LIMS:IRIDA sample name"],
+      "exact_mappings": [
+        "NML_LIMS:IRIDA sample name"
+      ],
       "slot_uri": "GENEPIO:0001131",
       "range": "WhitespaceMinimizedString"
     },
@@ -5309,7 +5402,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "exact_mappings": ["NML_LIMS:umbrella bioproject accession"],
+      "exact_mappings": [
+        "NML_LIMS:umbrella bioproject accession"
+      ],
       "slot_uri": "GENEPIO:0001133",
       "range": "umbrella bioproject accession menu",
       "structured_pattern": {
@@ -5382,7 +5477,10 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "exact_mappings": ["CNPHI:SRA Accession", "NML_LIMS:PH_SRA_ACCESSION"],
+      "exact_mappings": [
+        "CNPHI:SRA Accession",
+        "NML_LIMS:PH_SRA_ACCESSION"
+      ],
       "slot_uri": "GENEPIO:0001142",
       "range": "WhitespaceMinimizedString",
       "structured_pattern": {
@@ -5420,7 +5518,9 @@
       "name": "GISAID accession",
       "description": "The GISAID accession number assigned to the sequence.",
       "title": "GISAID accession",
-      "comments": ["Store the accession returned from the GISAID submission."],
+      "comments": [
+        "Store the accession returned from the GISAID submission."
+      ],
       "examples": [
         {
           "value": "EPI_ISL_436489"
@@ -5485,7 +5585,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "exact_mappings": ["NML_LIMS:sample collector contact email"],
+      "exact_mappings": [
+        "NML_LIMS:sample collector contact email"
+      ],
       "slot_uri": "GENEPIO:0001156",
       "range": "WhitespaceMinimizedString",
       "pattern": "^\\S+@\\S+\\.\\S+$"
@@ -5554,7 +5656,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "exact_mappings": ["NML_LIMS:sequence submitter contact email"],
+      "exact_mappings": [
+        "NML_LIMS:sequence submitter contact email"
+      ],
       "slot_uri": "GENEPIO:0001165",
       "range": "WhitespaceMinimizedString"
     },
@@ -5582,7 +5686,10 @@
       "name": "sample collection date",
       "description": "The date on which the sample was collected.",
       "title": "sample collection date",
-      "todos": [">=2019-10-01", "<={today}"],
+      "todos": [
+        ">=2019-10-01",
+        "<={today}"
+      ],
       "comments": [
         "Sample collection date is critical for surveillance and many types of analyses. Required granularity includes year, month and day. If this date is considered identifiable information, it is acceptable to add \"jitter\" by adding or subtracting a calendar day (acceptable by GISAID). Alternatively, ”received date” may be used as a substitute. The date should be provided in ISO 8601 standard format \"YYYY-MM-DD\"."
       ],
@@ -5642,14 +5749,18 @@
       "name": "sample received date",
       "description": "The date on which the sample was received.",
       "title": "sample received date",
-      "comments": ["ISO 8601 standard \"YYYY-MM-DD\"."],
+      "comments": [
+        "ISO 8601 standard \"YYYY-MM-DD\"."
+      ],
       "examples": [
         {
           "value": "2020-03-20"
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "exact_mappings": ["NML_LIMS:sample received date"],
+      "exact_mappings": [
+        "NML_LIMS:sample received date"
+      ],
       "slot_uri": "GENEPIO:0001179",
       "any_of": [
         {
@@ -5734,7 +5845,10 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "exact_mappings": ["CNPHI:Patient City", "NML_LIMS:geo_loc_name (city)"],
+      "exact_mappings": [
+        "CNPHI:Patient City",
+        "NML_LIMS:geo_loc_name (city)"
+      ],
       "slot_uri": "GENEPIO:0001189",
       "range": "WhitespaceMinimizedString"
     },
@@ -5874,7 +5988,10 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "exact_mappings": ["CNPHI:Specimen Type", "NML_LIMS:PH_SPECIMEN_TYPE"],
+      "exact_mappings": [
+        "CNPHI:Specimen Type",
+        "NML_LIMS:PH_SPECIMEN_TYPE"
+      ],
       "slot_uri": "GENEPIO:0001204",
       "range": "NML submitted specimen type menu",
       "required": true
@@ -5992,7 +6109,7 @@
       "required": true,
       "any_of": [
         {
-          "range": "body product menu menu"
+          "range": "body product menu"
         },
         {
           "range": "null value menu"
@@ -6135,14 +6252,18 @@
       "name": "collection protocol",
       "description": "The name and version of a particular protocol used for sampling.",
       "title": "collection protocol",
-      "comments": ["Free text."],
+      "comments": [
+        "Free text."
+      ],
       "examples": [
         {
           "value": "BCRonaSamplingProtocol v. 1.2"
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "exact_mappings": ["NML_LIMS:collection protocol"],
+      "exact_mappings": [
+        "NML_LIMS:collection protocol"
+      ],
       "slot_uri": "GENEPIO:0001243",
       "range": "WhitespaceMinimizedString"
     },
@@ -6292,7 +6413,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "exact_mappings": ["NML_LIMS:biomaterial extracted"],
+      "exact_mappings": [
+        "NML_LIMS:biomaterial extracted"
+      ],
       "slot_uri": "GENEPIO:0001266",
       "any_of": [
         {
@@ -6316,7 +6439,10 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "exact_mappings": ["CNPHI:Animal Type", "NML_LIMS:PH_ANIMAL_TYPE"],
+      "exact_mappings": [
+        "CNPHI:Animal Type",
+        "NML_LIMS:PH_ANIMAL_TYPE"
+      ],
       "slot_uri": "GENEPIO:0001386",
       "any_of": [
         {
@@ -6570,7 +6696,7 @@
       ],
       "examples": [
         {
-          "value": "male"
+          "value": "Male"
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -6610,7 +6736,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "exact_mappings": ["NML_LIMS:PH_HOST_COUNTRY"],
+      "exact_mappings": [
+        "NML_LIMS:PH_HOST_COUNTRY"
+      ],
       "slot_uri": "GENEPIO:0001396",
       "any_of": [
         {
@@ -6634,7 +6762,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "exact_mappings": ["NML_LIMS:PH_HOST_PROVINCE"],
+      "exact_mappings": [
+        "NML_LIMS:PH_HOST_PROVINCE"
+      ],
       "slot_uri": "GENEPIO:0001397",
       "any_of": [
         {
@@ -6669,14 +6799,19 @@
       "name": "symptom onset date",
       "description": "The date on which the symptoms began or were first noted.",
       "title": "symptom onset date",
-      "comments": ["ISO 8601 standard \"YYYY-MM-DD\"."],
+      "comments": [
+        "ISO 8601 standard \"YYYY-MM-DD\"."
+      ],
       "examples": [
         {
           "value": "2020-03-16"
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "exact_mappings": ["CNPHI:Symptoms Onset Date", "NML_LIMS:HC_ONSET_DATE"],
+      "exact_mappings": [
+        "CNPHI:Symptoms Onset Date",
+        "NML_LIMS:HC_ONSET_DATE"
+      ],
       "slot_uri": "GENEPIO:0001399",
       "any_of": [
         {
@@ -6706,7 +6841,10 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "exact_mappings": ["CNPHI:Symptoms", "NML_LIMS:HC_SYMPTOMS"],
+      "exact_mappings": [
+        "CNPHI:Symptoms",
+        "NML_LIMS:HC_SYMPTOMS"
+      ],
       "slot_uri": "GENEPIO:0001400",
       "multivalued": true,
       "any_of": [
@@ -6737,7 +6875,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "exact_mappings": ["NML_LIMS:pre-existing conditions and risk factors"],
+      "exact_mappings": [
+        "NML_LIMS:pre-existing conditions and risk factors"
+      ],
       "slot_uri": "GENEPIO:0001401",
       "multivalued": true,
       "any_of": [
@@ -6768,7 +6908,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "exact_mappings": ["NML_LIMS:complications"],
+      "exact_mappings": [
+        "NML_LIMS:complications"
+      ],
       "slot_uri": "GENEPIO:0001402",
       "multivalued": true,
       "any_of": [
@@ -6793,7 +6935,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "exact_mappings": ["NML_LIMS:PH_VACCINATION_HISTORY"],
+      "exact_mappings": [
+        "NML_LIMS:PH_VACCINATION_HISTORY"
+      ],
       "slot_uri": "GENEPIO:0001404",
       "any_of": [
         {
@@ -6833,7 +6977,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "exact_mappings": ["NML_LIMS:PH_VACCINATION_HISTORY"],
+      "exact_mappings": [
+        "NML_LIMS:PH_VACCINATION_HISTORY"
+      ],
       "slot_uri": "GENEPIO:0100313",
       "any_of": [
         {
@@ -6857,7 +7003,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "exact_mappings": ["NML_LIMS:PH_VACCINATION_HISTORY"],
+      "exact_mappings": [
+        "NML_LIMS:PH_VACCINATION_HISTORY"
+      ],
       "slot_uri": "GENEPIO:0100314",
       "any_of": [
         {
@@ -6881,7 +7029,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "exact_mappings": ["NML_LIMS:PH_VACCINATION_HISTORY"],
+      "exact_mappings": [
+        "NML_LIMS:PH_VACCINATION_HISTORY"
+      ],
       "slot_uri": "GENEPIO:0100315",
       "any_of": [
         {
@@ -6905,7 +7055,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "exact_mappings": ["NML_LIMS:PH_VACCINATION_HISTORY"],
+      "exact_mappings": [
+        "NML_LIMS:PH_VACCINATION_HISTORY"
+      ],
       "slot_uri": "GENEPIO:0100316",
       "any_of": [
         {
@@ -6929,7 +7081,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "exact_mappings": ["NML_LIMS:PH_VACCINATION_HISTORY"],
+      "exact_mappings": [
+        "NML_LIMS:PH_VACCINATION_HISTORY"
+      ],
       "slot_uri": "GENEPIO:0100317",
       "any_of": [
         {
@@ -6953,7 +7107,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "exact_mappings": ["NML_LIMS:PH_VACCINATION_HISTORY"],
+      "exact_mappings": [
+        "NML_LIMS:PH_VACCINATION_HISTORY"
+      ],
       "slot_uri": "GENEPIO:0100318",
       "any_of": [
         {
@@ -6977,7 +7133,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "exact_mappings": ["NML_LIMS:PH_VACCINATION_HISTORY"],
+      "exact_mappings": [
+        "NML_LIMS:PH_VACCINATION_HISTORY"
+      ],
       "slot_uri": "GENEPIO:0100319",
       "any_of": [
         {
@@ -7001,7 +7159,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "exact_mappings": ["NML_LIMS:PH_VACCINATION_HISTORY"],
+      "exact_mappings": [
+        "NML_LIMS:PH_VACCINATION_HISTORY"
+      ],
       "slot_uri": "GENEPIO:0100320",
       "any_of": [
         {
@@ -7034,7 +7194,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "exact_mappings": ["NML_LIMS:PH_VACCINATION_HISTORY"],
+      "exact_mappings": [
+        "NML_LIMS:PH_VACCINATION_HISTORY"
+      ],
       "slot_uri": "GENEPIO:0100321",
       "range": "WhitespaceMinimizedString"
     },
@@ -7051,7 +7213,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "exact_mappings": ["NML_LIMS:PH_EXPOSURE_COUNTRY"],
+      "exact_mappings": [
+        "NML_LIMS:PH_EXPOSURE_COUNTRY"
+      ],
       "slot_uri": "GENEPIO:0001410",
       "any_of": [
         {
@@ -7133,7 +7297,9 @@
       "name": "most recent travel departure date",
       "description": "The date of a person's most recent departure from their primary residence (at that time) on a journey to one or more other locations.",
       "title": "most recent travel departure date",
-      "comments": ["Provide the travel departure date."],
+      "comments": [
+        "Provide the travel departure date."
+      ],
       "examples": [
         {
           "value": "2020-03-16"
@@ -7158,7 +7324,9 @@
       "name": "most recent travel return date",
       "description": "The date of a person's most recent return to some residence from a journey originating at that residence.",
       "title": "most recent travel return date",
-      "comments": ["Provide the travel return date."],
+      "comments": [
+        "Provide the travel return date."
+      ],
       "examples": [
         {
           "value": "2020-04-26"
@@ -7183,14 +7351,19 @@
       "name": "travel point of entry type",
       "description": "The type of entry point a traveler arrives through.",
       "title": "travel point of entry type",
-      "comments": ["Select the point of entry type."],
+      "comments": [
+        "Select the point of entry type."
+      ],
       "examples": [
         {
           "value": "Air"
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "exact_mappings": ["NML_LIMS:PH_POINT_OF_ENTRY"],
+      "exact_mappings": [
+        "NML_LIMS:PH_POINT_OF_ENTRY"
+      ],
+      "slot_uri": "GENEPIO:0100413",
       "recommended": true,
       "any_of": [
         {
@@ -7205,14 +7378,19 @@
       "name": "border testing test day type",
       "description": "The day a traveller was tested on or after arrival at their point of entry.",
       "title": "border testing test day type",
-      "comments": ["Select the test day."],
+      "comments": [
+        "Select the test day."
+      ],
       "examples": [
         {
           "value": "day 1"
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "exact_mappings": ["NML_LIMS:PH_DAY"],
+      "exact_mappings": [
+        "NML_LIMS:PH_DAY"
+      ],
+      "slot_uri": "GENEPIO:0100414",
       "recommended": true,
       "any_of": [
         {
@@ -7242,7 +7420,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "exact_mappings": ["NML_LIMS:PH_TRAVEL"],
+      "exact_mappings": [
+        "NML_LIMS:PH_TRAVEL"
+      ],
       "slot_uri": "GENEPIO:0001416",
       "range": "WhitespaceMinimizedString"
     },
@@ -7278,14 +7458,18 @@
       "name": "exposure contact level",
       "description": "The exposure transmission contact type.",
       "title": "exposure contact level",
-      "comments": ["Select direct or indirect exposure from the pick-list."],
+      "comments": [
+        "Select direct or indirect exposure from the pick-list."
+      ],
       "examples": [
         {
           "value": "Direct"
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "exact_mappings": ["NML_LIMS:exposure contact level"],
+      "exact_mappings": [
+        "NML_LIMS:exposure contact level"
+      ],
       "slot_uri": "GENEPIO:0001418",
       "any_of": [
         {
@@ -7309,7 +7493,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "exact_mappings": ["NML_LIMS:PH_HOST_ROLE"],
+      "exact_mappings": [
+        "NML_LIMS:PH_HOST_ROLE"
+      ],
       "slot_uri": "GENEPIO:0001419",
       "multivalued": true,
       "range": "host role menu"
@@ -7327,7 +7513,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "exact_mappings": ["NML_LIMS:PH_EXPOSURE"],
+      "exact_mappings": [
+        "NML_LIMS:PH_EXPOSURE"
+      ],
       "slot_uri": "GENEPIO:0001428",
       "multivalued": true,
       "range": "exposure setting menu"
@@ -7336,14 +7524,18 @@
       "name": "exposure details",
       "description": "Additional host exposure information.",
       "title": "exposure details",
-      "comments": ["Free text description of the exposure."],
+      "comments": [
+        "Free text description of the exposure."
+      ],
       "examples": [
         {
           "value": "Host role - Other: Bus Driver"
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "exact_mappings": ["NML_LIMS:PH_EXPOSURE_DETAILS"],
+      "exact_mappings": [
+        "NML_LIMS:PH_EXPOSURE_DETAILS"
+      ],
       "slot_uri": "GENEPIO:0001431",
       "range": "WhitespaceMinimizedString"
     },
@@ -7360,7 +7552,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "exact_mappings": ["NML_LIMS:prior SARS-CoV-2 infection"],
+      "exact_mappings": [
+        "NML_LIMS:prior SARS-CoV-2 infection"
+      ],
       "slot_uri": "GENEPIO:0001435",
       "any_of": [
         {
@@ -7384,7 +7578,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "exact_mappings": ["NML_LIMS:prior SARS-CoV-2 infection isolate"],
+      "exact_mappings": [
+        "NML_LIMS:prior SARS-CoV-2 infection isolate"
+      ],
       "slot_uri": "GENEPIO:0001436",
       "range": "WhitespaceMinimizedString"
     },
@@ -7401,7 +7597,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "exact_mappings": ["NML_LIMS:prior SARS-CoV-2 infection date"],
+      "exact_mappings": [
+        "NML_LIMS:prior SARS-CoV-2 infection date"
+      ],
       "slot_uri": "GENEPIO:0001437",
       "range": "date"
     },
@@ -7418,7 +7616,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "exact_mappings": ["NML_LIMS:prior SARS-CoV-2 antiviral treatment"],
+      "exact_mappings": [
+        "NML_LIMS:prior SARS-CoV-2 antiviral treatment"
+      ],
       "slot_uri": "GENEPIO:0001438",
       "any_of": [
         {
@@ -7442,7 +7642,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "exact_mappings": ["NML_LIMS:prior SARS-CoV-2 antiviral treatment agent"],
+      "exact_mappings": [
+        "NML_LIMS:prior SARS-CoV-2 antiviral treatment agent"
+      ],
       "slot_uri": "GENEPIO:0001439",
       "range": "WhitespaceMinimizedString"
     },
@@ -7459,7 +7661,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "exact_mappings": ["NML_LIMS:prior SARS-CoV-2 antiviral treatment date"],
+      "exact_mappings": [
+        "NML_LIMS:prior SARS-CoV-2 antiviral treatment date"
+      ],
       "slot_uri": "GENEPIO:0001440",
       "range": "date"
     },
@@ -7527,15 +7731,21 @@
       "name": "sequencing date",
       "description": "The date the sample was sequenced.",
       "title": "sequencing date",
-      "todos": [">={sample collection date}"],
-      "comments": ["ISO 8601 standard \"YYYY-MM-DD\"."],
+      "todos": [
+        ">={sample collection date}"
+      ],
+      "comments": [
+        "ISO 8601 standard \"YYYY-MM-DD\"."
+      ],
       "examples": [
         {
           "value": "2020-06-22"
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "exact_mappings": ["NML_LIMS:PH_SEQUENCING_DATE"],
+      "exact_mappings": [
+        "NML_LIMS:PH_SEQUENCING_DATE"
+      ],
       "slot_uri": "GENEPIO:0001447",
       "required": true,
       "any_of": [
@@ -7560,7 +7770,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "exact_mappings": ["NML_LIMS:library ID"],
+      "exact_mappings": [
+        "NML_LIMS:library ID"
+      ],
       "slot_uri": "GENEPIO:0001448",
       "range": "WhitespaceMinimizedString",
       "recommended": true
@@ -7569,14 +7781,18 @@
       "name": "amplicon size",
       "description": "The length of the amplicon generated by PCR amplification.",
       "title": "amplicon size",
-      "comments": ["Provide the amplicon size, including the units."],
+      "comments": [
+        "Provide the amplicon size, including the units."
+      ],
       "examples": [
         {
           "value": "300bp"
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "exact_mappings": ["NML_LIMS:amplicon size"],
+      "exact_mappings": [
+        "NML_LIMS:amplicon size"
+      ],
       "slot_uri": "GENEPIO:0001449",
       "range": "WhitespaceMinimizedString"
     },
@@ -7584,14 +7800,18 @@
       "name": "library preparation kit",
       "description": "The name of the DNA library preparation kit used to generate the library being sequenced.",
       "title": "library preparation kit",
-      "comments": ["Provide the name of the library preparation kit used."],
+      "comments": [
+        "Provide the name of the library preparation kit used."
+      ],
       "examples": [
         {
           "value": "Nextera XT"
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "exact_mappings": ["NML_LIMS:PH_LIBRARY_PREP_KIT"],
+      "exact_mappings": [
+        "NML_LIMS:PH_LIBRARY_PREP_KIT"
+      ],
       "slot_uri": "GENEPIO:0001450",
       "range": "WhitespaceMinimizedString"
     },
@@ -7608,7 +7828,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "exact_mappings": ["NML_LIMS:flow cell barcode"],
+      "exact_mappings": [
+        "NML_LIMS:flow cell barcode"
+      ],
       "slot_uri": "GENEPIO:0001451",
       "range": "WhitespaceMinimizedString"
     },
@@ -7688,14 +7910,18 @@
       "name": "sequencing kit number",
       "description": "The manufacturer's kit number.",
       "title": "sequencing kit number",
-      "comments": ["Alphanumeric value."],
+      "comments": [
+        "Alphanumeric value."
+      ],
       "examples": [
         {
           "value": "AB456XYZ789"
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "exact_mappings": ["NML_LIMS:sequencing kit number"],
+      "exact_mappings": [
+        "NML_LIMS:sequencing kit number"
+      ],
       "slot_uri": "GENEPIO:0001455",
       "range": "WhitespaceMinimizedString"
     },
@@ -7712,7 +7938,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "exact_mappings": ["NML_LIMS:amplicon pcr primer scheme"],
+      "exact_mappings": [
+        "NML_LIMS:amplicon pcr primer scheme"
+      ],
       "slot_uri": "GENEPIO:0001456",
       "range": "WhitespaceMinimizedString"
     },
@@ -7771,7 +7999,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "exact_mappings": ["NML_LIMS:consensus sequence name"],
+      "exact_mappings": [
+        "NML_LIMS:consensus sequence name"
+      ],
       "slot_uri": "GENEPIO:0001460",
       "range": "WhitespaceMinimizedString"
     },
@@ -7788,7 +8018,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "exact_mappings": ["NML_LIMS:consensus sequence filename"],
+      "exact_mappings": [
+        "NML_LIMS:consensus sequence filename"
+      ],
       "slot_uri": "GENEPIO:0001461",
       "range": "WhitespaceMinimizedString"
     },
@@ -7805,7 +8037,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "exact_mappings": ["NML_LIMS:consensus sequence filepath"],
+      "exact_mappings": [
+        "NML_LIMS:consensus sequence filepath"
+      ],
       "slot_uri": "GENEPIO:0001462",
       "range": "WhitespaceMinimizedString"
     },
@@ -7823,6 +8057,7 @@
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "exact_mappings": [
+        "GISAID:Assembly method",
         "CNPHI:consensus sequence",
         "NML_LIMS:PH_CONSENSUS_SEQUENCE",
         "VirusSeq_Portal:consensus sequence software name"
@@ -7857,7 +8092,9 @@
       "name": "breadth of coverage value",
       "description": "The percentage of the reference genome covered by the sequenced data, to a prescribed depth.",
       "title": "breadth of coverage value",
-      "comments": ["Provide value as a percent."],
+      "comments": [
+        "Provide value as a percent."
+      ],
       "examples": [
         {
           "value": "95%"
@@ -7875,7 +8112,9 @@
       "name": "depth of coverage value",
       "description": "The average number of reads representing a given nucleotide in the reconstructed sequence.",
       "title": "depth of coverage value",
-      "comments": ["Provide value as a fold of coverage."],
+      "comments": [
+        "Provide value as a fold of coverage."
+      ],
       "examples": [
         {
           "value": "400x"
@@ -7894,14 +8133,18 @@
       "name": "depth of coverage threshold",
       "description": "The threshold used as a cut-off for the depth of coverage.",
       "title": "depth of coverage threshold",
-      "comments": ["Provide the threshold fold coverage."],
+      "comments": [
+        "Provide the threshold fold coverage."
+      ],
       "examples": [
         {
           "value": "100x"
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "exact_mappings": ["NML_LIMS:depth of coverage threshold"],
+      "exact_mappings": [
+        "NML_LIMS:depth of coverage threshold"
+      ],
       "slot_uri": "GENEPIO:0001475",
       "range": "WhitespaceMinimizedString"
     },
@@ -7909,14 +8152,18 @@
       "name": "r1 fastq filename",
       "description": "The user-specified filename of the r1 FASTQ file.",
       "title": "r1 fastq filename",
-      "comments": ["Provide the r1 FASTQ filename."],
+      "comments": [
+        "Provide the r1 FASTQ filename."
+      ],
       "examples": [
         {
           "value": "ABC123_S1_L001_R1_001.fastq.gz"
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "exact_mappings": ["NML_LIMS:r1 fastq filename"],
+      "exact_mappings": [
+        "NML_LIMS:r1 fastq filename"
+      ],
       "slot_uri": "GENEPIO:0001476",
       "range": "WhitespaceMinimizedString",
       "recommended": true
@@ -7925,14 +8172,18 @@
       "name": "r2 fastq filename",
       "description": "The user-specified filename of the r2 FASTQ file.",
       "title": "r2 fastq filename",
-      "comments": ["Provide the r2 FASTQ filename."],
+      "comments": [
+        "Provide the r2 FASTQ filename."
+      ],
       "examples": [
         {
           "value": "ABC123_S1_L001_R2_001.fastq.gz"
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "exact_mappings": ["NML_LIMS:r2 fastq filename"],
+      "exact_mappings": [
+        "NML_LIMS:r2 fastq filename"
+      ],
       "slot_uri": "GENEPIO:0001477",
       "range": "WhitespaceMinimizedString",
       "recommended": true
@@ -7950,7 +8201,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "exact_mappings": ["NML_LIMS:r1 fastq filepath"],
+      "exact_mappings": [
+        "NML_LIMS:r1 fastq filepath"
+      ],
       "slot_uri": "GENEPIO:0001478",
       "range": "WhitespaceMinimizedString"
     },
@@ -7967,7 +8220,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "exact_mappings": ["NML_LIMS:r2 fastq filepath"],
+      "exact_mappings": [
+        "NML_LIMS:r2 fastq filepath"
+      ],
       "slot_uri": "GENEPIO:0001479",
       "range": "WhitespaceMinimizedString"
     },
@@ -7975,14 +8230,18 @@
       "name": "fast5 filename",
       "description": "The user-specified filename of the FAST5 file.",
       "title": "fast5 filename",
-      "comments": ["Provide the FAST5 filename."],
+      "comments": [
+        "Provide the FAST5 filename."
+      ],
       "examples": [
         {
           "value": "rona123assembly.fast5"
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "exact_mappings": ["NML_LIMS:fast5 filename"],
+      "exact_mappings": [
+        "NML_LIMS:fast5 filename"
+      ],
       "slot_uri": "GENEPIO:0001480",
       "range": "WhitespaceMinimizedString"
     },
@@ -7999,7 +8258,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "exact_mappings": ["NML_LIMS:fast5 filepath"],
+      "exact_mappings": [
+        "NML_LIMS:fast5 filepath"
+      ],
       "slot_uri": "GENEPIO:0001481",
       "range": "WhitespaceMinimizedString"
     },
@@ -8007,14 +8268,18 @@
       "name": "number of base pairs sequenced",
       "description": "The number of total base pairs generated by the sequencing process.",
       "title": "number of base pairs sequenced",
-      "comments": ["Provide a numerical value (no need to include units)."],
+      "comments": [
+        "Provide a numerical value (no need to include units)."
+      ],
       "examples": [
         {
           "value": "387566"
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "exact_mappings": ["NML_LIMS:number of base pairs sequenced"],
+      "exact_mappings": [
+        "NML_LIMS:number of base pairs sequenced"
+      ],
       "slot_uri": "GENEPIO:0001482",
       "range": "integer",
       "minimum_value": 0
@@ -8023,14 +8288,18 @@
       "name": "consensus genome length",
       "description": "Size of the reconstructed genome described as the number of base pairs.",
       "title": "consensus genome length",
-      "comments": ["Provide a numerical value (no need to include units)."],
+      "comments": [
+        "Provide a numerical value (no need to include units)."
+      ],
       "examples": [
         {
           "value": "38677"
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "exact_mappings": ["NML_LIMS:consensus genome length"],
+      "exact_mappings": [
+        "NML_LIMS:consensus genome length"
+      ],
       "slot_uri": "GENEPIO:0001483",
       "range": "integer",
       "minimum_value": 0
@@ -8039,14 +8308,18 @@
       "name": "Ns per 100 kbp",
       "description": "The number of N symbols present in the consensus fasta sequence, per 100kbp of sequence.",
       "title": "Ns per 100 kbp",
-      "comments": ["Provide a numerical value (no need to include units)."],
+      "comments": [
+        "Provide a numerical value (no need to include units)."
+      ],
       "examples": [
         {
           "value": "330"
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "exact_mappings": ["NML_LIMS:Ns per 100 kbp"],
+      "exact_mappings": [
+        "NML_LIMS:Ns per 100 kbp"
+      ],
       "slot_uri": "GENEPIO:0001484",
       "range": "decimal",
       "minimum_value": 0
@@ -8055,7 +8328,9 @@
       "name": "reference genome accession",
       "description": "A persistent, unique identifier of a genome database entry.",
       "title": "reference genome accession",
-      "comments": ["Provide the accession number of the reference genome."],
+      "comments": [
+        "Provide the accession number of the reference genome."
+      ],
       "examples": [
         {
           "value": "NC_045512.2"
@@ -8095,14 +8370,18 @@
       "name": "lineage/clade name",
       "description": "The name of the lineage or clade.",
       "title": "lineage/clade name",
-      "comments": ["Provide the Pangolin or Nextstrain lineage/clade name."],
+      "comments": [
+        "Provide the Pangolin or Nextstrain lineage/clade name."
+      ],
       "examples": [
         {
           "value": "B.1.1.7"
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "exact_mappings": ["NML_LIMS:PH_LINEAGE_CLADE_NAME"],
+      "exact_mappings": [
+        "NML_LIMS:PH_LINEAGE_CLADE_NAME"
+      ],
       "slot_uri": "GENEPIO:0001500",
       "range": "WhitespaceMinimizedString"
     },
@@ -8119,7 +8398,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "exact_mappings": ["NML_LIMS:PH_LINEAGE_CLADE_SOFTWARE"],
+      "exact_mappings": [
+        "NML_LIMS:PH_LINEAGE_CLADE_SOFTWARE"
+      ],
       "slot_uri": "GENEPIO:0001501",
       "range": "WhitespaceMinimizedString"
     },
@@ -8136,7 +8417,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "exact_mappings": ["NML_LIMS:PH_LINEAGE_CLADE_VERSION"],
+      "exact_mappings": [
+        "NML_LIMS:PH_LINEAGE_CLADE_VERSION"
+      ],
       "slot_uri": "GENEPIO:0001502",
       "range": "WhitespaceMinimizedString"
     },
@@ -8153,7 +8436,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "exact_mappings": ["NML_LIMS:PH_VARIANT_DESIGNATION"],
+      "exact_mappings": [
+        "NML_LIMS:PH_VARIANT_DESIGNATION"
+      ],
       "slot_uri": "GENEPIO:0001503",
       "any_of": [
         {
@@ -8177,7 +8462,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "exact_mappings": ["NML_LIMS:PH_VARIANT_EVIDENCE"],
+      "exact_mappings": [
+        "NML_LIMS:PH_VARIANT_EVIDENCE"
+      ],
       "slot_uri": "GENEPIO:0001504",
       "any_of": [
         {
@@ -8201,7 +8488,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "exact_mappings": ["NML_LIMS:PH_VARIANT_EVIDENCE_DETAILS"],
+      "exact_mappings": [
+        "NML_LIMS:PH_VARIANT_EVIDENCE_DETAILS"
+      ],
       "slot_uri": "GENEPIO:0001505",
       "range": "WhitespaceMinimizedString"
     },
@@ -8445,14 +8734,14 @@
     },
     "DataHarmonizer provenance": {
       "name": "DataHarmonizer provenance",
-      "description": "The DataHarmonizer software version provenance.",
+      "description": "The DataHarmonizer software and template version provenance.",
       "title": "DataHarmonizer provenance",
       "comments": [
-        "The current software version information will be automatically generated in this field after the user utilizes the \"validate\" function. This information will be generated regardless as to whether the row is valid of not."
+        "The current software and template version information will be automatically generated in this field after the user utilizes the \"validate\" function. This information will be generated regardless as to whether the row is valid of not."
       ],
       "examples": [
         {
-          "value": "DataHarmonizer provenance: v0.13.21"
+          "value": "DataHarmonizer v1.4.3, CanCOGeN Covid-19 v1.0.0"
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -10162,6 +10451,7 @@
           "title": "travel point of entry type",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 79,
+          "slot_uri": "GENEPIO:0100413",
           "alias": "travel_point_of_entry_type",
           "owner": "CanCOGeN Covid-19",
           "slot_group": "Host exposure information",
@@ -10173,6 +10463,7 @@
           "title": "border testing test day type",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 80,
+          "slot_uri": "GENEPIO:0100414",
           "alias": "border_testing_test_day_type",
           "owner": "CanCOGeN Covid-19",
           "slot_group": "Host exposure information",
@@ -10917,7 +11208,7 @@
         },
         "DataHarmonizer provenance": {
           "name": "DataHarmonizer provenance",
-          "description": "The DataHarmonizer software version provenance.",
+          "description": "The DataHarmonizer software and template version provenance.",
           "title": "DataHarmonizer provenance",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 142,
