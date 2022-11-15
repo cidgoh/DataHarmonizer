@@ -2,7 +2,7 @@
   "name": "Monkeypox",
   "description": "",
   "id": "https://example.com/monkeypox",
-  "version": "3.3.1",
+  "version": "3.3.2",
   "prefixes": {
     "linkml": {
       "prefix_prefix": "linkml",
@@ -7999,7 +7999,7 @@
       "exact_mappings": [
         "NML_LIMS:antiviral therapy"
       ],
-      "slot_uri": "NCIT:C16119",
+      "slot_uri": "GENEPIO:0100580",
       "range": "WhitespaceMinimizedString"
     },
     "host vaccination status": {
@@ -8521,7 +8521,7 @@
       "exact_mappings": [
         "GISAID:Sequencing technology",
         "CNPHI:Sequencing Instrument",
-        "NML_LIMS:PH_INSTRUMENT_CGN",
+        "NML_LIMS:PH_SEQUENCING_INSTRUMENT",
         "VirusSeq_Portal:sequencing instrument"
       ],
       "slot_uri": "GENEPIO:0001452",
@@ -9122,6 +9122,7 @@
         "NML_LIMS:SUBMITTED_RESLT - Gene Target #4",
         "BIOSAMPLE:gene_name_4"
       ],
+      "slot_uri": "GENEPIO:0100576",
       "any_of": [
         {
           "range": "gene name menu"
@@ -9149,6 +9150,7 @@
         "NML_LIMS:SUBMITTED_RESLT - Gene Target #4 CT Value",
         "BIOSAMPLE:diagnostic_PCR_CT_value_4"
       ],
+      "slot_uri": "GENEPIO:0100577",
       "any_of": [
         {
           "range": "decimal"
@@ -9176,6 +9178,7 @@
         "NML_LIMS:SUBMITTED_RESLT - Gene Target #5",
         "BIOSAMPLE:gene_name_5"
       ],
+      "slot_uri": "GENEPIO:0100578",
       "any_of": [
         {
           "range": "gene name menu"
@@ -9203,6 +9206,7 @@
         "NML_LIMS:SUBMITTED_RESLT - Gene Target #5 CT Value",
         "BIOSAMPLE:diagnostic_PCR_CT_value_5"
       ],
+      "slot_uri": "GENEPIO:0100579",
       "any_of": [
         {
           "range": "decimal"
@@ -9228,7 +9232,7 @@
       "exact_mappings": [
         "GISAID:Authors",
         "CNPHI:Authors",
-        "NML_LIMS:PH_CANCOGEN_AUTHORS"
+        "NML_LIMS:PH_SEQUENCING_AUTHORS"
       ],
       "slot_uri": "GENEPIO:0001517",
       "range": "WhitespaceMinimizedString",
@@ -9236,14 +9240,14 @@
     },
     "DataHarmonizer provenance": {
       "name": "DataHarmonizer provenance",
-      "description": "The DataHarmonizer software version provenance.",
+      "description": "The DataHarmonizer software and template version provenance.",
       "title": "DataHarmonizer provenance",
       "comments": [
-        "The current software version information will be automatically generated in this field after the user utilizes the \"validate\" function. This information will be generated regardless as to whether the row is valid of not."
+        "The current software and template version information will be automatically generated in this field after the user utilizes the \"validate\" function. This information will be generated regardless as to whether the row is valid of not."
       ],
       "examples": [
         {
-          "value": "DataHarmonizer provenance: v0.13.21"
+          "value": "DataHarmonizer v1.4.3, Monkeypox v3.3.1"
         }
       ],
       "from_schema": "https://example.com/monkeypox",
@@ -9266,7 +9270,7 @@
       "annotations": {
         "version": {
           "tag": "version",
-          "value": "3.3.1"
+          "value": "3.3.2"
         }
       },
       "description": "Canadian specification for Monkeypox clinical virus biosample data gathering",
@@ -11514,7 +11518,7 @@
           "title": "antiviral therapy",
           "from_schema": "https://example.com/monkeypox",
           "rank": 52,
-          "slot_uri": "NCIT:C16119",
+          "slot_uri": "GENEPIO:0100580",
           "alias": "antiviral_therapy",
           "owner": "Monkeypox",
           "slot_group": "Host Information",
@@ -12419,6 +12423,7 @@
           "title": "gene name 4",
           "from_schema": "https://example.com/monkeypox",
           "rank": 110,
+          "slot_uri": "GENEPIO:0100576",
           "alias": "gene_name_4",
           "owner": "Monkeypox",
           "slot_group": "Pathogen diagnostic testing"
@@ -12429,6 +12434,7 @@
           "title": "diagnostic pcr Ct value 4",
           "from_schema": "https://example.com/monkeypox",
           "rank": 111,
+          "slot_uri": "GENEPIO:0100577",
           "alias": "diagnostic_pcr_Ct_value_4",
           "owner": "Monkeypox",
           "slot_group": "Pathogen diagnostic testing"
@@ -12439,6 +12445,7 @@
           "title": "gene name 5",
           "from_schema": "https://example.com/monkeypox",
           "rank": 112,
+          "slot_uri": "GENEPIO:0100578",
           "alias": "gene_name_5",
           "owner": "Monkeypox",
           "slot_group": "Pathogen diagnostic testing"
@@ -12449,6 +12456,7 @@
           "title": "diagnostic pcr Ct value 5",
           "from_schema": "https://example.com/monkeypox",
           "rank": 113,
+          "slot_uri": "GENEPIO:0100579",
           "alias": "diagnostic_pcr_Ct_value_5",
           "owner": "Monkeypox",
           "slot_group": "Pathogen diagnostic testing"
@@ -12468,7 +12476,7 @@
         },
         "DataHarmonizer provenance": {
           "name": "DataHarmonizer provenance",
-          "description": "The DataHarmonizer software version provenance.",
+          "description": "The DataHarmonizer software and template version provenance.",
           "title": "DataHarmonizer provenance",
           "from_schema": "https://example.com/monkeypox",
           "rank": 115,
@@ -12485,7 +12493,7 @@
       "annotations": {
         "version": {
           "tag": "version",
-          "value": "3.3.1"
+          "value": "3.3.2"
         }
       },
       "description": "International specification for Monkeypox clinical virus biosample data gathering",
@@ -14618,7 +14626,7 @@
           "title": "antiviral therapy",
           "from_schema": "https://example.com/monkeypox",
           "rank": 54,
-          "slot_uri": "NCIT:C16119",
+          "slot_uri": "GENEPIO:0100580",
           "alias": "antiviral_therapy",
           "owner": "Monkeypox_international",
           "slot_group": "Host Information",
@@ -15483,7 +15491,7 @@
         },
         "DataHarmonizer provenance": {
           "name": "DataHarmonizer provenance",
-          "description": "The DataHarmonizer software version provenance.",
+          "description": "The DataHarmonizer software and template version provenance.",
           "title": "DataHarmonizer provenance",
           "from_schema": "https://example.com/monkeypox",
           "rank": 113,
