@@ -19,7 +19,6 @@ classes:
     is_a: dh_interface
     see_also: templates/canada_covid19/SOP.pdf
     slots:
-      - sample received date
     - specimen collector sample ID
     - third party lab service provider name
     - third party lab sample ID
