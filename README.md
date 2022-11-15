@@ -60,7 +60,7 @@ You can also automatically fill a column with a specified value, but only in row
 
 ![fill column, in rows with corresponding sample IDs, with specified value](./images/fillColumn.gif)
 
-For _more information_ on available application features, select the **Help** button followed by **Getting Started** from within the DataHarmonizer application.
+For _more information_ on available application features, select the **Help** button followed by **Getting Started** from within the DataHarmonizer application or navigate to the [**Getting Started**](https://github.com/cidgoh/DataHarmonizer/wiki/DataHarmonizer---Getting-Started) GitHub wiki..
 
 ## Example Data
 
@@ -121,7 +121,7 @@ Developing either the library components in `lib` or the interface in `web` can 
 yarn dev
 ```
 
-This will start a [webpack development server](https://webpack.js.org/configuration/dev-server/) running locally on `localhost:8080`. Changes to either `lib` or `web` should be loaded automatically in your browser. This serves as interface for testing and debugging the core library components (in the lib directory) and that interface itself (the web directory).
+This will start a [webpack development server](https://webpack.js.org/configuration/dev-server/) running locally on `localhost:8080`. You can connect to `localhost:8080` by inputing it into your browser URL bar while `yarn dev` is running. Changes to either `lib` or `web` should be loaded automatically in your browser. This serves as interface for testing and debugging the core library components (in the lib directory) and that interface itself (the web directory).
 
 ## Publishing and Releasing
 
