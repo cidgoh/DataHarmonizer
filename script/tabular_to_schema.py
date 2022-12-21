@@ -327,6 +327,13 @@ with open(r_schema_enums) as tsvfile:
 			enum['permissible_values'][text] = choice
 			menu_path.append(text)
 
+	if len(SCHEMA['slots']) == 0:
+		print("WARNING: there are no slots in this specification!", title)
+
+	if len(enumerations) == 0:
+		print("WARNING: there are no enumerations in this specification!", title)
+
+
 with open(w_filename, 'w') as output_handle:
 	yaml.dump(SCHEMA, output_handle, sort_keys=False)
 
