@@ -45,5 +45,12 @@
       "status": "published",
       "display": true
     }
+  },
+  "ambr": {
+    "AMBR": {
+      "name": "AMBR",
+      "status": "published",
+      "display": true
+    }
   }
 }
