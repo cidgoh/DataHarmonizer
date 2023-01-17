@@ -40,16 +40,16 @@ describe('validateUniqueValues', () => {
       [3, 3, 3, 3, 3, 3],
       [4, 4, 5, 5, 4, 6],
     ];
-    results = validateUniqueValues(input)
-    expect(results).toEqual([false, false, false, false, false, true])
+    results = validateUniqueValues(input);
+    expect(results).toEqual([false, false, false, false, false, true]);
   });
 
   test('it should handle unequal inner array lengths', () => {
     let input = [
       [1, 2, 3, 4, 5],
-      [2, 3, 4, 5]
-    ]
-    let results = validateUniqueValues(input)
-    expect(results).toEqual([true, true, true, true, true])
-  })
+      [2, 3, 4, 5],
+    ];
+    let results = validateUniqueValues(input);
+    expect(results).toEqual([true, true, true, true, true]);
+  });
 });
