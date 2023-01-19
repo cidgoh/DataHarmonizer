@@ -52,4 +52,20 @@ describe('validateUniqueValues', () => {
     let results = validateUniqueValues(input);
     expect(results).toEqual([true, true, true, true, true]);
   });
+
+  test('it should handle nulls within a column', () => {
+    let validInput = [
+      [2, 2, null,    2, 2],
+      [1, 2,    2, null, 3]
+    ];
+    let results = validateUniqueValues(validInput);
+    expect(results).toEqual([true, true, true, true, true]);
+
+    let invalidInput = [
+      [2, 2, null, null, 2],
+      [1, 2, null, null, 3],
+    ];
+    results = validateUniqueValues(invalidInput);
+    expect(results).toEqual([true, true, false, false, true]);
+  })
 });
