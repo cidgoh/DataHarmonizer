@@ -780,6 +780,13 @@ border testing test day type menu	GENEPIO:0100410	day 1
 	GENEPIO:0100412	day 10										
 												
 												
+travel history availability menu	GENEPIO:0100650	Travel history available										
+	GENEPIO:0100651		Domestic travel history available									
+	GENEPIO:0100652		International travel history available									
+	GENEPIO:0100653		International and domestic travel history available									
+	GENEPIO:0100654	No travel history available										
+												
+												
 sequencing instrument menu	GENEPIO:0100105	Illumina										
 	GENEPIO:0100106		Illumina Genome Analyzer									
 	GENEPIO:0100107			Illumina Genome Analyzer II								
