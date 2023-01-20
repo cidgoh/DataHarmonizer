@@ -418,19 +418,19 @@ isolation medium menu		AMBR	1/10 869
 		AMBR	Supplement 2.0																	
 																				
 																				
-taxonomic identification process menu	OBI:0002117	AMBR	Whole genome sequencing assay																	
+taxonomic identification method menu	OBI:0002117	AMBR	Whole genome sequencing assay																	
 	OBI:0002763	AMBR	16S ribosomal gene sequencing assay																	
 	OBI:0002740	AMBR	PCR assay																	
 	OBI:0001546	AMBR	Comparative phenotypic assessment																	
 																				
 																				
-taxonomic identification process details menu		AMBR	Species-level ID: >99.3% identity and unambiguous match to one type (T) sequence in a curated database																	
+taxonomic identification method details menu		AMBR	Species-level ID: >99.3% identity and unambiguous match to one type (T) sequence in a curated database																	
 		AMBR	Genus-level ID: >99.0% identity but ambiguous match to >1 type (T) sequence in databases																	
 		AMBR	Genus-level ID: >98.7% identity to a type (T) sequence AND/OR >99.0% identity with a sequence that has not been typed*																	
 		AMBR	Need to do whole genome sequencing to confirm their identity																	
 																				
 																				
-celular respiration type menu	GO:0009060	AMBR	Aerobic respiration																	
+cellular respiration type menu	GO:0009060	AMBR	Aerobic respiration																	
 	GO:0009061	AMBR	Anaerobic respiration																	
 																				
 																				
