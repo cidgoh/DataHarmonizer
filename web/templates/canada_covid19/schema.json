@@ -2,7 +2,7 @@
   "name": "CanCOGeN_Covid-19",
   "description": "",
   "id": "https://example.com/CanCOGeN_Covid-19",
-  "version": "1.0.1",
+  "version": "2.1.2",
   "prefixes": {
     "linkml": {
       "prefix_prefix": "linkml",
@@ -3492,6 +3492,35 @@
         "day 10": {
           "text": "day 10",
           "meaning": "GENEPIO:0100412"
+        }
+      }
+    },
+    "travel history availability menu": {
+      "name": "travel history availability menu",
+      "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "permissible_values": {
+        "Travel history available": {
+          "text": "Travel history available",
+          "meaning": "GENEPIO:0100650"
+        },
+        "Domestic travel history available": {
+          "text": "Domestic travel history available",
+          "meaning": "GENEPIO:0100651",
+          "is_a": "Travel history available"
+        },
+        "International travel history available": {
+          "text": "International travel history available",
+          "meaning": "GENEPIO:0100652",
+          "is_a": "Travel history available"
+        },
+        "International and domestic travel history available": {
+          "text": "International and domestic travel history available",
+          "meaning": "GENEPIO:0100653",
+          "is_a": "Travel history available"
+        },
+        "No travel history available": {
+          "text": "No travel history available",
+          "meaning": "GENEPIO:0100654"
         }
       }
     },
@@ -7426,6 +7455,32 @@
       "slot_uri": "GENEPIO:0001416",
       "range": "WhitespaceMinimizedString"
     },
+    "travel history availability": {
+      "name": "travel history availability",
+      "description": "The availability of different types of travel history in the last 6 months (e.g. international, domestic).",
+      "title": "travel history availability",
+      "comments": [
+        "If travel history is available, but the details of travel cannot be provided, indicate this and the type of travel history availble by selecting a value from the picklist. The values in this field can be used to indicate a sample is associated with a travel when the \"purpose of sequencing\" is not travel-associated."
+      ],
+      "examples": [
+        {
+          "value": "International travel history available"
+        }
+      ],
+      "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "exact_mappings": [
+        "NML_LIMS:PH_TRAVEL"
+      ],
+      "slot_uri": "GENEPIO:0100649",
+      "any_of": [
+        {
+          "range": "travel history availability menu"
+        },
+        {
+          "range": "null value menu"
+        }
+      ]
+    },
     "exposure event": {
       "name": "exposure event",
       "description": "Event leading to exposure.",
@@ -8026,7 +8081,7 @@
     },
     "consensus sequence filepath": {
       "name": "consensus sequence filepath",
-      "description": "The filepath of the consesnsus sequence file.",
+      "description": "The filepath of the consensus sequence file.",
       "title": "consensus sequence filepath",
       "comments": [
         "Provide the filepath of the consensus sequence FASTA file."
@@ -9174,309 +9229,314 @@
           "rank": 81,
           "slot_group": "Host exposure information"
         },
+        "travel history availability": {
+          "name": "travel history availability",
+          "rank": 82,
+          "slot_group": "Host exposure information"
+        },
         "exposure event": {
           "name": "exposure event",
-          "rank": 82,
+          "rank": 83,
           "slot_group": "Host exposure information"
         },
         "exposure contact level": {
           "name": "exposure contact level",
-          "rank": 83,
+          "rank": 84,
           "slot_group": "Host exposure information"
         },
         "host role": {
           "name": "host role",
-          "rank": 84,
+          "rank": 85,
           "slot_group": "Host exposure information"
         },
         "exposure setting": {
           "name": "exposure setting",
-          "rank": 85,
+          "rank": 86,
           "slot_group": "Host exposure information"
         },
         "exposure details": {
           "name": "exposure details",
-          "rank": 86,
+          "rank": 87,
           "slot_group": "Host exposure information"
         },
         "prior SARS-CoV-2 infection": {
           "name": "prior SARS-CoV-2 infection",
-          "rank": 87,
+          "rank": 88,
           "slot_group": "Host reinfection information"
         },
         "prior SARS-CoV-2 infection isolate": {
           "name": "prior SARS-CoV-2 infection isolate",
-          "rank": 88,
+          "rank": 89,
           "slot_group": "Host reinfection information"
         },
         "prior SARS-CoV-2 infection date": {
           "name": "prior SARS-CoV-2 infection date",
-          "rank": 89,
+          "rank": 90,
           "slot_group": "Host reinfection information"
         },
         "prior SARS-CoV-2 antiviral treatment": {
           "name": "prior SARS-CoV-2 antiviral treatment",
-          "rank": 90,
+          "rank": 91,
           "slot_group": "Host reinfection information"
         },
         "prior SARS-CoV-2 antiviral treatment agent": {
           "name": "prior SARS-CoV-2 antiviral treatment agent",
-          "rank": 91,
+          "rank": 92,
           "slot_group": "Host reinfection information"
         },
         "prior SARS-CoV-2 antiviral treatment date": {
           "name": "prior SARS-CoV-2 antiviral treatment date",
-          "rank": 92,
+          "rank": 93,
           "slot_group": "Host reinfection information"
         },
         "purpose of sequencing": {
           "name": "purpose of sequencing",
-          "rank": 93,
+          "rank": 94,
           "slot_group": "Sequencing"
         },
         "purpose of sequencing details": {
           "name": "purpose of sequencing details",
-          "rank": 94,
+          "rank": 95,
           "slot_group": "Sequencing"
         },
         "sequencing date": {
           "name": "sequencing date",
-          "rank": 95,
+          "rank": 96,
           "slot_group": "Sequencing"
         },
         "library ID": {
           "name": "library ID",
-          "rank": 96,
+          "rank": 97,
           "slot_group": "Sequencing"
         },
         "amplicon size": {
           "name": "amplicon size",
-          "rank": 97,
+          "rank": 98,
           "slot_group": "Sequencing"
         },
         "library preparation kit": {
           "name": "library preparation kit",
-          "rank": 98,
+          "rank": 99,
           "slot_group": "Sequencing"
         },
         "flow cell barcode": {
           "name": "flow cell barcode",
-          "rank": 99,
+          "rank": 100,
           "slot_group": "Sequencing"
         },
         "sequencing instrument": {
           "name": "sequencing instrument",
-          "rank": 100,
+          "rank": 101,
           "slot_group": "Sequencing"
         },
         "sequencing protocol name": {
           "name": "sequencing protocol name",
-          "rank": 101,
+          "rank": 102,
           "slot_group": "Sequencing"
         },
         "sequencing protocol": {
           "name": "sequencing protocol",
-          "rank": 102,
+          "rank": 103,
           "slot_group": "Sequencing"
         },
         "sequencing kit number": {
           "name": "sequencing kit number",
-          "rank": 103,
+          "rank": 104,
           "slot_group": "Sequencing"
         },
         "amplicon pcr primer scheme": {
           "name": "amplicon pcr primer scheme",
-          "rank": 104,
+          "rank": 105,
           "slot_group": "Sequencing"
         },
         "raw sequence data processing method": {
           "name": "raw sequence data processing method",
-          "rank": 105,
+          "rank": 106,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "dehosting method": {
           "name": "dehosting method",
-          "rank": 106,
+          "rank": 107,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "consensus sequence name": {
           "name": "consensus sequence name",
-          "rank": 107,
+          "rank": 108,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "consensus sequence filename": {
           "name": "consensus sequence filename",
-          "rank": 108,
+          "rank": 109,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "consensus sequence filepath": {
           "name": "consensus sequence filepath",
-          "rank": 109,
+          "rank": 110,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "consensus sequence software name": {
           "name": "consensus sequence software name",
-          "rank": 110,
+          "rank": 111,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "consensus sequence software version": {
           "name": "consensus sequence software version",
-          "rank": 111,
+          "rank": 112,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "breadth of coverage value": {
           "name": "breadth of coverage value",
-          "rank": 112,
+          "rank": 113,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "depth of coverage value": {
           "name": "depth of coverage value",
-          "rank": 113,
+          "rank": 114,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "depth of coverage threshold": {
           "name": "depth of coverage threshold",
-          "rank": 114,
+          "rank": 115,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "r1 fastq filename": {
           "name": "r1 fastq filename",
-          "rank": 115,
+          "rank": 116,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "r2 fastq filename": {
           "name": "r2 fastq filename",
-          "rank": 116,
+          "rank": 117,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "r1 fastq filepath": {
           "name": "r1 fastq filepath",
-          "rank": 117,
+          "rank": 118,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "r2 fastq filepath": {
           "name": "r2 fastq filepath",
-          "rank": 118,
+          "rank": 119,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "fast5 filename": {
           "name": "fast5 filename",
-          "rank": 119,
+          "rank": 120,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "fast5 filepath": {
           "name": "fast5 filepath",
-          "rank": 120,
+          "rank": 121,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "number of base pairs sequenced": {
           "name": "number of base pairs sequenced",
-          "rank": 121,
+          "rank": 122,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "consensus genome length": {
           "name": "consensus genome length",
-          "rank": 122,
+          "rank": 123,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "Ns per 100 kbp": {
           "name": "Ns per 100 kbp",
-          "rank": 123,
+          "rank": 124,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "reference genome accession": {
           "name": "reference genome accession",
-          "rank": 124,
+          "rank": 125,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "bioinformatics protocol": {
           "name": "bioinformatics protocol",
-          "rank": 125,
+          "rank": 126,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "lineage/clade name": {
           "name": "lineage/clade name",
-          "rank": 126,
+          "rank": 127,
           "slot_group": "Lineage and Variant information"
         },
         "lineage/clade analysis software name": {
           "name": "lineage/clade analysis software name",
-          "rank": 127,
+          "rank": 128,
           "slot_group": "Lineage and Variant information"
         },
         "lineage/clade analysis software version": {
           "name": "lineage/clade analysis software version",
-          "rank": 128,
+          "rank": 129,
           "slot_group": "Lineage and Variant information"
         },
         "variant designation": {
           "name": "variant designation",
-          "rank": 129,
+          "rank": 130,
           "slot_group": "Lineage and Variant information"
         },
         "variant evidence": {
           "name": "variant evidence",
-          "rank": 130,
+          "rank": 131,
           "slot_group": "Lineage and Variant information"
         },
         "variant evidence details": {
           "name": "variant evidence details",
-          "rank": 131,
+          "rank": 132,
           "slot_group": "Lineage and Variant information"
         },
         "gene name 1": {
           "name": "gene name 1",
-          "rank": 132,
+          "rank": 133,
           "slot_group": "Pathogen diagnostic testing"
         },
         "diagnostic pcr protocol 1": {
           "name": "diagnostic pcr protocol 1",
-          "rank": 133,
+          "rank": 134,
           "slot_group": "Pathogen diagnostic testing"
         },
         "diagnostic pcr Ct value 1": {
           "name": "diagnostic pcr Ct value 1",
-          "rank": 134,
+          "rank": 135,
           "slot_group": "Pathogen diagnostic testing"
         },
         "gene name 2": {
           "name": "gene name 2",
-          "rank": 135,
+          "rank": 136,
           "slot_group": "Pathogen diagnostic testing"
         },
         "diagnostic pcr protocol 2": {
           "name": "diagnostic pcr protocol 2",
-          "rank": 136,
+          "rank": 137,
           "slot_group": "Pathogen diagnostic testing"
         },
         "diagnostic pcr Ct value 2": {
           "name": "diagnostic pcr Ct value 2",
-          "rank": 137,
+          "rank": 138,
           "slot_group": "Pathogen diagnostic testing"
         },
         "gene name 3": {
           "name": "gene name 3",
-          "rank": 138,
+          "rank": 139,
           "slot_group": "Pathogen diagnostic testing"
         },
         "diagnostic pcr protocol 3": {
           "name": "diagnostic pcr protocol 3",
-          "rank": 139,
+          "rank": 140,
           "slot_group": "Pathogen diagnostic testing"
         },
         "diagnostic pcr Ct value 3": {
           "name": "diagnostic pcr Ct value 3",
-          "rank": 140,
+          "rank": 141,
           "slot_group": "Pathogen diagnostic testing"
         },
         "authors": {
           "name": "authors",
-          "rank": 141,
+          "rank": 142,
           "slot_group": "Contributor acknowledgement"
         },
         "DataHarmonizer provenance": {
           "name": "DataHarmonizer provenance",
-          "rank": 142,
+          "rank": 143,
           "slot_group": "Contributor acknowledgement"
         }
       },
@@ -10481,12 +10541,23 @@
           "slot_group": "Host exposure information",
           "range": "WhitespaceMinimizedString"
         },
+        "travel history availability": {
+          "name": "travel history availability",
+          "description": "The availability of different types of travel history in the last 6 months (e.g. international, domestic).",
+          "title": "travel history availability",
+          "from_schema": "https://example.com/CanCOGeN_Covid-19",
+          "rank": 82,
+          "slot_uri": "GENEPIO:0100649",
+          "alias": "travel_history_availability",
+          "owner": "CanCOGeN Covid-19",
+          "slot_group": "Host exposure information"
+        },
         "exposure event": {
           "name": "exposure event",
           "description": "Event leading to exposure.",
           "title": "exposure event",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 82,
+          "rank": 83,
           "slot_uri": "GENEPIO:0001417",
           "alias": "exposure_event",
           "owner": "CanCOGeN Covid-19",
@@ -10497,7 +10568,7 @@
           "description": "The exposure transmission contact type.",
           "title": "exposure contact level",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 83,
+          "rank": 84,
           "slot_uri": "GENEPIO:0001418",
           "alias": "exposure_contact_level",
           "owner": "CanCOGeN Covid-19",
@@ -10508,7 +10579,7 @@
           "description": "The role of the host in relation to the exposure setting.",
           "title": "host role",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 84,
+          "rank": 85,
           "slot_uri": "GENEPIO:0001419",
           "multivalued": true,
           "alias": "host_role",
@@ -10521,7 +10592,7 @@
           "description": "The setting leading to exposure.",
           "title": "exposure setting",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 85,
+          "rank": 86,
           "slot_uri": "GENEPIO:0001428",
           "multivalued": true,
           "alias": "exposure_setting",
@@ -10534,7 +10605,7 @@
           "description": "Additional host exposure information.",
           "title": "exposure details",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 86,
+          "rank": 87,
           "slot_uri": "GENEPIO:0001431",
           "alias": "exposure_details",
           "owner": "CanCOGeN Covid-19",
@@ -10546,7 +10617,7 @@
           "description": "Whether there was prior SARS-CoV-2 infection.",
           "title": "prior SARS-CoV-2 infection",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 87,
+          "rank": 88,
           "slot_uri": "GENEPIO:0001435",
           "alias": "prior_SARS_CoV_2_infection",
           "owner": "CanCOGeN Covid-19",
@@ -10557,7 +10628,7 @@
           "description": "The identifier of the isolate found in the prior SARS-CoV-2 infection.",
           "title": "prior SARS-CoV-2 infection isolate",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 88,
+          "rank": 89,
           "slot_uri": "GENEPIO:0001436",
           "alias": "prior_SARS_CoV_2_infection_isolate",
           "owner": "CanCOGeN Covid-19",
@@ -10569,7 +10640,7 @@
           "description": "The date of diagnosis of the prior SARS-CoV-2 infection.",
           "title": "prior SARS-CoV-2 infection date",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 89,
+          "rank": 90,
           "slot_uri": "GENEPIO:0001437",
           "alias": "prior_SARS_CoV_2_infection_date",
           "owner": "CanCOGeN Covid-19",
@@ -10581,7 +10652,7 @@
           "description": "Whether there was prior SARS-CoV-2 treatment with an antiviral agent.",
           "title": "prior SARS-CoV-2 antiviral treatment",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 90,
+          "rank": 91,
           "slot_uri": "GENEPIO:0001438",
           "alias": "prior_SARS_CoV_2_antiviral_treatment",
           "owner": "CanCOGeN Covid-19",
@@ -10592,7 +10663,7 @@
           "description": "The name of the antiviral treatment agent administered during the prior SARS-CoV-2 infection.",
           "title": "prior SARS-CoV-2 antiviral treatment agent",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 91,
+          "rank": 92,
           "slot_uri": "GENEPIO:0001439",
           "alias": "prior_SARS_CoV_2_antiviral_treatment_agent",
           "owner": "CanCOGeN Covid-19",
@@ -10604,7 +10675,7 @@
           "description": "The date treatment was first administered during the prior SARS-CoV-2 infection.",
           "title": "prior SARS-CoV-2 antiviral treatment date",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 92,
+          "rank": 93,
           "slot_uri": "GENEPIO:0001440",
           "alias": "prior_SARS_CoV_2_antiviral_treatment_date",
           "owner": "CanCOGeN Covid-19",
@@ -10616,7 +10687,7 @@
           "description": "The reason that the sample was sequenced.",
           "title": "purpose of sequencing",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 93,
+          "rank": 94,
           "slot_uri": "GENEPIO:0001445",
           "multivalued": true,
           "alias": "purpose_of_sequencing",
@@ -10629,7 +10700,7 @@
           "description": "The description of why the sample was sequenced providing specific details.",
           "title": "purpose of sequencing details",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 94,
+          "rank": 95,
           "slot_uri": "GENEPIO:0001446",
           "alias": "purpose_of_sequencing_details",
           "owner": "CanCOGeN Covid-19",
@@ -10641,7 +10712,7 @@
           "description": "The date the sample was sequenced.",
           "title": "sequencing date",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 95,
+          "rank": 96,
           "slot_uri": "GENEPIO:0001447",
           "alias": "sequencing_date",
           "owner": "CanCOGeN Covid-19",
@@ -10653,7 +10724,7 @@
           "description": "The user-specified identifier for the library prepared for sequencing.",
           "title": "library ID",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 96,
+          "rank": 97,
           "slot_uri": "GENEPIO:0001448",
           "alias": "library_ID",
           "owner": "CanCOGeN Covid-19",
@@ -10666,7 +10737,7 @@
           "description": "The length of the amplicon generated by PCR amplification.",
           "title": "amplicon size",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 97,
+          "rank": 98,
           "slot_uri": "GENEPIO:0001449",
           "alias": "amplicon_size",
           "owner": "CanCOGeN Covid-19",
@@ -10678,7 +10749,7 @@
           "description": "The name of the DNA library preparation kit used to generate the library being sequenced.",
           "title": "library preparation kit",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 98,
+          "rank": 99,
           "slot_uri": "GENEPIO:0001450",
           "alias": "library_preparation_kit",
           "owner": "CanCOGeN Covid-19",
@@ -10690,7 +10761,7 @@
           "description": "The barcode of the flow cell used for sequencing.",
           "title": "flow cell barcode",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 99,
+          "rank": 100,
           "slot_uri": "GENEPIO:0001451",
           "alias": "flow_cell_barcode",
           "owner": "CanCOGeN Covid-19",
@@ -10702,7 +10773,7 @@
           "description": "The model of the sequencing instrument used.",
           "title": "sequencing instrument",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 100,
+          "rank": 101,
           "slot_uri": "GENEPIO:0001452",
           "multivalued": true,
           "alias": "sequencing_instrument",
@@ -10715,7 +10786,7 @@
           "description": "The name and version number of the sequencing protocol used.",
           "title": "sequencing protocol name",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 101,
+          "rank": 102,
           "slot_uri": "GENEPIO:0001453",
           "alias": "sequencing_protocol_name",
           "owner": "CanCOGeN Covid-19",
@@ -10728,7 +10799,7 @@
           "description": "The protocol used to generate the sequence.",
           "title": "sequencing protocol",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 102,
+          "rank": 103,
           "slot_uri": "GENEPIO:0001454",
           "alias": "sequencing_protocol",
           "owner": "CanCOGeN Covid-19",
@@ -10740,7 +10811,7 @@
           "description": "The manufacturer's kit number.",
           "title": "sequencing kit number",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 103,
+          "rank": 104,
           "slot_uri": "GENEPIO:0001455",
           "alias": "sequencing_kit_number",
           "owner": "CanCOGeN Covid-19",
@@ -10752,7 +10823,7 @@
           "description": "The specifications of the primers (primer sequences, binding positions, fragment size generated etc) used to generate the amplicons to be sequenced.",
           "title": "amplicon pcr primer scheme",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 104,
+          "rank": 105,
           "slot_uri": "GENEPIO:0001456",
           "alias": "amplicon_pcr_primer_scheme",
           "owner": "CanCOGeN Covid-19",
@@ -10764,7 +10835,7 @@
           "description": "The names of the software and version number used for raw data processing such as removing barcodes, adapter trimming, filtering etc.",
           "title": "raw sequence data processing method",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 105,
+          "rank": 106,
           "slot_uri": "GENEPIO:0001458",
           "alias": "raw_sequence_data_processing_method",
           "owner": "CanCOGeN Covid-19",
@@ -10777,7 +10848,7 @@
           "description": "The method used to remove host reads from the pathogen sequence.",
           "title": "dehosting method",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 106,
+          "rank": 107,
           "slot_uri": "GENEPIO:0001459",
           "alias": "dehosting_method",
           "owner": "CanCOGeN Covid-19",
@@ -10790,7 +10861,7 @@
           "description": "The name of the consensus sequence.",
           "title": "consensus sequence name",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 107,
+          "rank": 108,
           "slot_uri": "GENEPIO:0001460",
           "alias": "consensus_sequence_name",
           "owner": "CanCOGeN Covid-19",
@@ -10802,7 +10873,7 @@
           "description": "The name of the consensus sequence file.",
           "title": "consensus sequence filename",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 108,
+          "rank": 109,
           "slot_uri": "GENEPIO:0001461",
           "alias": "consensus_sequence_filename",
           "owner": "CanCOGeN Covid-19",
@@ -10811,10 +10882,10 @@
         },
         "consensus sequence filepath": {
           "name": "consensus sequence filepath",
-          "description": "The filepath of the consesnsus sequence file.",
+          "description": "The filepath of the consensus sequence file.",
           "title": "consensus sequence filepath",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 109,
+          "rank": 110,
           "slot_uri": "GENEPIO:0001462",
           "alias": "consensus_sequence_filepath",
           "owner": "CanCOGeN Covid-19",
@@ -10826,7 +10897,7 @@
           "description": "The name of software used to generate the consensus sequence.",
           "title": "consensus sequence software name",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 110,
+          "rank": 111,
           "slot_uri": "GENEPIO:0001463",
           "alias": "consensus_sequence_software_name",
           "owner": "CanCOGeN Covid-19",
@@ -10839,7 +10910,7 @@
           "description": "The version of the software used to generate the consensus sequence.",
           "title": "consensus sequence software version",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 111,
+          "rank": 112,
           "slot_uri": "GENEPIO:0001469",
           "alias": "consensus_sequence_software_version",
           "owner": "CanCOGeN Covid-19",
@@ -10852,7 +10923,7 @@
           "description": "The percentage of the reference genome covered by the sequenced data, to a prescribed depth.",
           "title": "breadth of coverage value",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 112,
+          "rank": 113,
           "slot_uri": "GENEPIO:0001472",
           "alias": "breadth_of_coverage_value",
           "owner": "CanCOGeN Covid-19",
@@ -10864,7 +10935,7 @@
           "description": "The average number of reads representing a given nucleotide in the reconstructed sequence.",
           "title": "depth of coverage value",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 113,
+          "rank": 114,
           "slot_uri": "GENEPIO:0001474",
           "alias": "depth_of_coverage_value",
           "owner": "CanCOGeN Covid-19",
@@ -10876,7 +10947,7 @@
           "description": "The threshold used as a cut-off for the depth of coverage.",
           "title": "depth of coverage threshold",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 114,
+          "rank": 115,
           "slot_uri": "GENEPIO:0001475",
           "alias": "depth_of_coverage_threshold",
           "owner": "CanCOGeN Covid-19",
@@ -10888,7 +10959,7 @@
           "description": "The user-specified filename of the r1 FASTQ file.",
           "title": "r1 fastq filename",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 115,
+          "rank": 116,
           "slot_uri": "GENEPIO:0001476",
           "alias": "r1_fastq_filename",
           "owner": "CanCOGeN Covid-19",
@@ -10901,7 +10972,7 @@
           "description": "The user-specified filename of the r2 FASTQ file.",
           "title": "r2 fastq filename",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 116,
+          "rank": 117,
           "slot_uri": "GENEPIO:0001477",
           "alias": "r2_fastq_filename",
           "owner": "CanCOGeN Covid-19",
@@ -10914,7 +10985,7 @@
           "description": "The location of the r1 FASTQ file within a user's file system.",
           "title": "r1 fastq filepath",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 117,
+          "rank": 118,
           "slot_uri": "GENEPIO:0001478",
           "alias": "r1_fastq_filepath",
           "owner": "CanCOGeN Covid-19",
@@ -10926,7 +10997,7 @@
           "description": "The location of the r2 FASTQ file within a user's file system.",
           "title": "r2 fastq filepath",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 118,
+          "rank": 119,
           "slot_uri": "GENEPIO:0001479",
           "alias": "r2_fastq_filepath",
           "owner": "CanCOGeN Covid-19",
@@ -10938,7 +11009,7 @@
           "description": "The user-specified filename of the FAST5 file.",
           "title": "fast5 filename",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 119,
+          "rank": 120,
           "slot_uri": "GENEPIO:0001480",
           "alias": "fast5_filename",
           "owner": "CanCOGeN Covid-19",
@@ -10950,7 +11021,7 @@
           "description": "The location of the FAST5 file within a user's file system.",
           "title": "fast5 filepath",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 120,
+          "rank": 121,
           "slot_uri": "GENEPIO:0001481",
           "alias": "fast5_filepath",
           "owner": "CanCOGeN Covid-19",
@@ -10962,7 +11033,7 @@
           "description": "The number of total base pairs generated by the sequencing process.",
           "title": "number of base pairs sequenced",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 121,
+          "rank": 122,
           "slot_uri": "GENEPIO:0001482",
           "alias": "number_of_base_pairs_sequenced",
           "owner": "CanCOGeN Covid-19",
@@ -10975,7 +11046,7 @@
           "description": "Size of the reconstructed genome described as the number of base pairs.",
           "title": "consensus genome length",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 122,
+          "rank": 123,
           "slot_uri": "GENEPIO:0001483",
           "alias": "consensus_genome_length",
           "owner": "CanCOGeN Covid-19",
@@ -10988,7 +11059,7 @@
           "description": "The number of N symbols present in the consensus fasta sequence, per 100kbp of sequence.",
           "title": "Ns per 100 kbp",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 123,
+          "rank": 124,
           "slot_uri": "GENEPIO:0001484",
           "alias": "Ns_per_100_kbp",
           "owner": "CanCOGeN Covid-19",
@@ -11001,7 +11072,7 @@
           "description": "A persistent, unique identifier of a genome database entry.",
           "title": "reference genome accession",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 124,
+          "rank": 125,
           "slot_uri": "GENEPIO:0001485",
           "alias": "reference_genome_accession",
           "owner": "CanCOGeN Covid-19",
@@ -11013,7 +11084,7 @@
           "description": "A description of the overall bioinformatics strategy used.",
           "title": "bioinformatics protocol",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 125,
+          "rank": 126,
           "slot_uri": "GENEPIO:0001489",
           "alias": "bioinformatics_protocol",
           "owner": "CanCOGeN Covid-19",
@@ -11026,7 +11097,7 @@
           "description": "The name of the lineage or clade.",
           "title": "lineage/clade name",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 126,
+          "rank": 127,
           "slot_uri": "GENEPIO:0001500",
           "alias": "lineage/clade_name",
           "owner": "CanCOGeN Covid-19",
@@ -11038,7 +11109,7 @@
           "description": "The name of the software used to determine the lineage/clade.",
           "title": "lineage/clade analysis software name",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 127,
+          "rank": 128,
           "slot_uri": "GENEPIO:0001501",
           "alias": "lineage/clade_analysis_software_name",
           "owner": "CanCOGeN Covid-19",
@@ -11050,7 +11121,7 @@
           "description": "The version of the software used to determine the lineage/clade.",
           "title": "lineage/clade analysis software version",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 128,
+          "rank": 129,
           "slot_uri": "GENEPIO:0001502",
           "alias": "lineage/clade_analysis_software_version",
           "owner": "CanCOGeN Covid-19",
@@ -11062,7 +11133,7 @@
           "description": "The variant classification of the lineage/clade i.e. variant, variant of concern.",
           "title": "variant designation",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 129,
+          "rank": 130,
           "slot_uri": "GENEPIO:0001503",
           "alias": "variant_designation",
           "owner": "CanCOGeN Covid-19",
@@ -11073,7 +11144,7 @@
           "description": "The evidence used to make the variant determination.",
           "title": "variant evidence",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 130,
+          "rank": 131,
           "slot_uri": "GENEPIO:0001504",
           "alias": "variant_evidence",
           "owner": "CanCOGeN Covid-19",
@@ -11084,7 +11155,7 @@
           "description": "Details about the evidence used to make the variant determination.",
           "title": "variant evidence details",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 131,
+          "rank": 132,
           "slot_uri": "GENEPIO:0001505",
           "alias": "variant_evidence_details",
           "owner": "CanCOGeN Covid-19",
@@ -11096,7 +11167,7 @@
           "description": "The name of the gene used in the diagnostic RT-PCR test.",
           "title": "gene name 1",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 132,
+          "rank": 133,
           "slot_uri": "GENEPIO:0001507",
           "alias": "gene_name_1",
           "owner": "CanCOGeN Covid-19",
@@ -11107,7 +11178,7 @@
           "description": "The name and version number of the protocol used for diagnostic marker amplification.",
           "title": "diagnostic pcr protocol 1",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 133,
+          "rank": 134,
           "slot_uri": "GENEPIO:0001508",
           "alias": "diagnostic_pcr_protocol_1",
           "owner": "CanCOGeN Covid-19",
@@ -11119,7 +11190,7 @@
           "description": "The Ct value result from a diagnostic SARS-CoV-2 RT-PCR test.",
           "title": "diagnostic pcr Ct value 1",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 134,
+          "rank": 135,
           "slot_uri": "GENEPIO:0001509",
           "alias": "diagnostic_pcr_Ct_value_1",
           "owner": "CanCOGeN Covid-19",
@@ -11130,7 +11201,7 @@
           "description": "The name of the gene used in the diagnostic RT-PCR test.",
           "title": "gene name 2",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 135,
+          "rank": 136,
           "slot_uri": "GENEPIO:0001510",
           "alias": "gene_name_2",
           "owner": "CanCOGeN Covid-19",
@@ -11141,7 +11212,7 @@
           "description": "The name and version number of the protocol used for diagnostic marker amplification.",
           "title": "diagnostic pcr protocol 2",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 136,
+          "rank": 137,
           "slot_uri": "GENEPIO:0001511",
           "alias": "diagnostic_pcr_protocol_2",
           "owner": "CanCOGeN Covid-19",
@@ -11153,7 +11224,7 @@
           "description": "The Ct value result from a diagnostic SARS-CoV-2 RT-PCR test.",
           "title": "diagnostic pcr Ct value 2",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 137,
+          "rank": 138,
           "slot_uri": "GENEPIO:0001512",
           "alias": "diagnostic_pcr_Ct_value_2",
           "owner": "CanCOGeN Covid-19",
@@ -11164,7 +11235,7 @@
           "description": "The name of the gene used in the diagnostic RT-PCR test.",
           "title": "gene name 3",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 138,
+          "rank": 139,
           "slot_uri": "GENEPIO:0001513",
           "alias": "gene_name_3",
           "owner": "CanCOGeN Covid-19",
@@ -11175,7 +11246,7 @@
           "description": "The name and version number of the protocol used for diagnostic marker amplification.",
           "title": "diagnostic pcr protocol 3",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 139,
+          "rank": 140,
           "slot_uri": "GENEPIO:0001514",
           "alias": "diagnostic_pcr_protocol_3",
           "owner": "CanCOGeN Covid-19",
@@ -11187,7 +11258,7 @@
           "description": "The Ct value result from a diagnostic SARS-CoV-2 RT-PCR test.",
           "title": "diagnostic pcr Ct value 3",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 140,
+          "rank": 141,
           "slot_uri": "GENEPIO:0001515",
           "alias": "diagnostic_pcr_Ct_value_3",
           "owner": "CanCOGeN Covid-19",
@@ -11198,7 +11269,7 @@
           "description": "Names of individuals contributing to the processes of sample collection, sequence generation, analysis, and data submission.",
           "title": "authors",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 141,
+          "rank": 142,
           "slot_uri": "GENEPIO:0001517",
           "alias": "authors",
           "owner": "CanCOGeN Covid-19",
@@ -11211,7 +11282,7 @@
           "description": "The DataHarmonizer software and template version provenance.",
           "title": "DataHarmonizer provenance",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 142,
+          "rank": 143,
           "slot_uri": "GENEPIO:0001518",
           "alias": "DataHarmonizer_provenance",
           "owner": "CanCOGeN Covid-19",
