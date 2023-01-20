@@ -1709,8 +1709,8 @@
         }
       }
     },
-    "taxonomic identification process menu": {
-      "name": "taxonomic identification process menu",
+    "taxonomic identification method menu": {
+      "name": "taxonomic identification method menu",
       "from_schema": "https://example.com/AMBR",
       "permissible_values": {
         "Whole genome sequencing assay": {
@@ -1731,8 +1731,8 @@
         }
       }
     },
-    "taxonomic identification process details menu": {
-      "name": "taxonomic identification process details menu",
+    "taxonomic identification method details menu": {
+      "name": "taxonomic identification method details menu",
       "from_schema": "https://example.com/AMBR",
       "permissible_values": {
         "Species-level ID: >99.3% identity and unambiguous match to one type (T) sequence in a curated database": {
@@ -1749,8 +1749,8 @@
         }
       }
     },
-    "celular respiration type menu": {
-      "name": "celular respiration type menu",
+    "cellular respiration type menu": {
+      "name": "cellular respiration type menu",
       "from_schema": "https://example.com/AMBR",
       "permissible_values": {
         "Aerobic respiration": {
@@ -3024,12 +3024,12 @@
         }
       ]
     },
-    "sequencing run identifier": {
-      "name": "sequencing run identifier",
-      "description": "A centrally registered identifier symbol that specifies the identifier associated with a particular run of a sequencing instrument.",
-      "title": "sequencing run identifier",
+    "library ID": {
+      "name": "library ID",
+      "description": "The user-specified identifier for the library prepared for sequencing.",
+      "title": "library ID",
       "comments": [
-        "Provide the \"sequence batch\" information in the field."
+        "Provide the \"Sequencing Batch #\" information in the field."
       ],
       "examples": [
         {
@@ -3037,7 +3037,7 @@
         }
       ],
       "from_schema": "https://example.com/AMBR",
-      "slot_uri": "GENEPIO:0100622",
+      "slot_uri": "GENEPIO:0001448",
       "range": "WhitespaceMinimizedString"
     },
     "sequencing instrument": {
@@ -3321,6 +3321,29 @@
         }
       ]
     },
+    "top-hit strain determination": {
+      "name": "top-hit strain determination",
+      "description": "The strain designation derived from the top hit in search results produced from a sequence similarity comparison.",
+      "title": "top-hit strain determination",
+      "comments": [
+        "Enter the EZBioCloud strain best-hit."
+      ],
+      "examples": [
+        {
+          "value": "MSHR1132(T)"
+        }
+      ],
+      "from_schema": "https://example.com/AMBR",
+      "required": true,
+      "any_of": [
+        {
+          "range": "WhitespaceMinimizedString"
+        },
+        {
+          "range": "null value menu"
+        }
+      ]
+    },
     "trimmed ribosomal gene sequence": {
       "name": "trimmed ribosomal gene sequence",
       "description": "The results of a data transformation of sequence data in which (e.g., low quality) read bases are removed to produce a trimmed ribosomal RNA sequence.",
@@ -3405,6 +3428,7 @@
       "name": "AMBR",
       "description": "The AMBR Project, led by the Harrison Lab at the University of Calgary, is an interdisciplinary study aimed at using 16S sequencing as part of a culturomics platform to identify antibiotic potentiators from the natural products of microbiota. The AMBR DataHarmonizer template was designed to standardize contextual data associated with the isolate repository from this work.",
       "from_schema": "https://example.com/AMBR",
+      "is_a": "dh_interface",
       "slot_usage": {
         "isolate ID": {
           "name": "isolate ID",
@@ -3631,8 +3655,8 @@
           "rank": 45,
           "slot_group": "Sequencing"
         },
-        "sequencing run identifier": {
-          "name": "sequencing run identifier",
+        "library ID": {
+          "name": "library ID",
           "rank": 46,
           "slot_group": "Sequencing"
         },
@@ -3701,24 +3725,29 @@
           "rank": 59,
           "slot_group": "Bioinformatics and QC metrics"
         },
+        "top-hit strain determination": {
+          "name": "top-hit strain determination",
+          "rank": 60,
+          "slot_group": "Bioinformatics and QC metrics"
+        },
         "trimmed ribosomal gene sequence": {
           "name": "trimmed ribosomal gene sequence",
-          "rank": 60,
+          "rank": 61,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "bioinformatics analysis details": {
           "name": "bioinformatics analysis details",
-          "rank": 61,
+          "rank": 62,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "authors": {
           "name": "authors",
-          "rank": 62,
+          "rank": 63,
           "slot_group": "Contributor acknowledgement"
         },
         "DataHarmonizer provenance": {
           "name": "DataHarmonizer provenance",
-          "rank": 63,
+          "rank": 64,
           "slot_group": "Contributor acknowledgement"
         }
       },
@@ -4268,14 +4297,14 @@
           "owner": "AMBR",
           "slot_group": "Sequencing"
         },
-        "sequencing run identifier": {
-          "name": "sequencing run identifier",
-          "description": "A centrally registered identifier symbol that specifies the identifier associated with a particular run of a sequencing instrument.",
-          "title": "sequencing run identifier",
+        "library ID": {
+          "name": "library ID",
+          "description": "The user-specified identifier for the library prepared for sequencing.",
+          "title": "library ID",
           "from_schema": "https://example.com/AMBR",
           "rank": 46,
-          "slot_uri": "GENEPIO:0100622",
-          "alias": "sequencing_run_identifier",
+          "slot_uri": "GENEPIO:0001448",
+          "alias": "library_ID",
           "owner": "AMBR",
           "slot_group": "Sequencing",
           "range": "WhitespaceMinimizedString"
@@ -4437,12 +4466,23 @@
           "slot_group": "Bioinformatics and QC metrics",
           "required": true
         },
+        "top-hit strain determination": {
+          "name": "top-hit strain determination",
+          "description": "The strain designation derived from the top hit in search results produced from a sequence similarity comparison.",
+          "title": "top-hit strain determination",
+          "from_schema": "https://example.com/AMBR",
+          "rank": 60,
+          "alias": "top_hit_strain_determination",
+          "owner": "AMBR",
+          "slot_group": "Bioinformatics and QC metrics",
+          "required": true
+        },
         "trimmed ribosomal gene sequence": {
           "name": "trimmed ribosomal gene sequence",
           "description": "The results of a data transformation of sequence data in which (e.g., low quality) read bases are removed to produce a trimmed ribosomal RNA sequence.",
           "title": "trimmed ribosomal gene sequence",
           "from_schema": "https://example.com/AMBR",
-          "rank": 60,
+          "rank": 61,
           "slot_uri": "GENEPIO:0100626",
           "alias": "trimmed_ribosomal_gene_sequence",
           "owner": "AMBR",
@@ -4454,7 +4494,7 @@
           "description": "Any notes regarding the bioinformatics analysis.",
           "title": "bioinformatics analysis details",
           "from_schema": "https://example.com/AMBR",
-          "rank": 61,
+          "rank": 62,
           "slot_uri": "GENEPIO:0100627",
           "alias": "bioinformatics_analysis_details",
           "owner": "AMBR",
@@ -4466,7 +4506,7 @@
           "description": "Names of individuals contributing to the processes of sample collection, sequence generation, analysis, and data submission.",
           "title": "authors",
           "from_schema": "https://example.com/AMBR",
-          "rank": 62,
+          "rank": 63,
           "slot_uri": "GENEPIO:0001517",
           "alias": "authors",
           "owner": "AMBR",
@@ -4479,7 +4519,7 @@
           "description": "The DataHarmonizer software and template version provenance.",
           "title": "DataHarmonizer provenance",
           "from_schema": "https://example.com/AMBR",
-          "rank": 63,
+          "rank": 64,
           "slot_uri": "GENEPIO:0001518",
           "alias": "DataHarmonizer_provenance",
           "owner": "AMBR",

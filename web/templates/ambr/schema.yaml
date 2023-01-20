@@ -19,6 +19,7 @@ classes:
       platform to identify antibiotic potentiators from the natural products of microbiota.
       The AMBR DataHarmonizer template was designed to standardize contextual data
       associated with the isolate repository from this work.
+    is_a: dh_interface
     slots:
     - isolate ID
     - alternative isolate ID
@@ -65,7 +66,7 @@ classes:
     - purpose of sequencing
     - purpose of sequencing details
     - sequencing date
-    - sequencing run identifier
+    - library ID
     - sequencing instrument
     - sequencing protocol name
     - sequencing protocol
@@ -79,6 +80,7 @@ classes:
     - sequence identity percentage
     - sequence identity (variance ratio)
     - top-hit taxon determination
+    - top-hit strain determination
     - trimmed ribosomal gene sequence
     - bioinformatics analysis details
     - authors
@@ -219,7 +221,7 @@ classes:
       sequencing date:
         rank: 45
         slot_group: Sequencing
-      sequencing run identifier:
+      library ID:
         rank: 46
         slot_group: Sequencing
       sequencing instrument:
@@ -261,17 +263,20 @@ classes:
       top-hit taxon determination:
         rank: 59
         slot_group: Bioinformatics and QC metrics
-      trimmed ribosomal gene sequence:
+      top-hit strain determination:
         rank: 60
         slot_group: Bioinformatics and QC metrics
-      bioinformatics analysis details:
+      trimmed ribosomal gene sequence:
         rank: 61
         slot_group: Bioinformatics and QC metrics
-      authors:
+      bioinformatics analysis details:
         rank: 62
+        slot_group: Bioinformatics and QC metrics
+      authors:
+        rank: 63
         slot_group: Contributor acknowledgement
       DataHarmonizer provenance:
-        rank: 63
+        rank: 64
         slot_group: Contributor acknowledgement
 slots:
   isolate ID:
@@ -904,15 +909,14 @@ slots:
     - range: null value menu
     todos:
     - '>={sample collection date}'
-  sequencing run identifier:
-    name: sequencing run identifier
-    title: sequencing run identifier
-    description: A centrally registered identifier symbol that specifies the identifier
-      associated with a particular run of a sequencing instrument.
-    comments: Provide the "sequence batch" information in the field.
+  library ID:
+    name: library ID
+    title: library ID
+    description: The user-specified identifier for the library prepared for sequencing.
+    comments: 'Provide the "Sequencing Batch #" information in the field.'
     examples:
     - value: 1876515_SA01_Plate 02
-    slot_uri: GENEPIO:0100622
+    slot_uri: GENEPIO:0001448
     range: WhitespaceMinimizedString
   sequencing instrument:
     name: sequencing instrument
@@ -1075,6 +1079,18 @@ slots:
     examples:
     - value: Staphylococcus argenteus
     slot_uri: GENEPIO:0100625
+    any_of:
+    - range: WhitespaceMinimizedString
+    - range: null value menu
+    required: true
+  top-hit strain determination:
+    name: top-hit strain determination
+    title: top-hit strain determination
+    description: The strain designation derived from the top hit in search results
+      produced from a sequence similarity comparison.
+    comments: Enter the EZBioCloud strain best-hit.
+    examples:
+    - value: MSHR1132(T)
     any_of:
     - range: WhitespaceMinimizedString
     - range: null value menu
@@ -2255,8 +2271,8 @@ enums:
         text: Supplement B
       Supplement 2.0:
         text: Supplement 2.0
-  taxonomic identification process menu:
-    name: taxonomic identification process menu
+  taxonomic identification method menu:
+    name: taxonomic identification method menu
     permissible_values:
       Whole genome sequencing assay:
         text: Whole genome sequencing assay
@@ -2270,8 +2286,8 @@ enums:
       Comparative phenotypic assessment:
         text: Comparative phenotypic assessment
         meaning: OBI:0001546
-  taxonomic identification process details menu:
-    name: taxonomic identification process details menu
+  taxonomic identification method details menu:
+    name: taxonomic identification method details menu
     permissible_values:
       'Species-level ID: >99.3% identity and unambiguous match to one type (T) sequence in a curated database':
         text: 'Species-level ID: >99.3% identity and unambiguous match to one type
@@ -2284,8 +2300,8 @@ enums:
           identity with a sequence that has not been typed*'
       Need to do whole genome sequencing to confirm their identity:
         text: Need to do whole genome sequencing to confirm their identity
-  celular respiration type menu:
-    name: celular respiration type menu
+  cellular respiration type menu:
+    name: cellular respiration type menu
     permissible_values:
       Aerobic respiration:
         text: Aerobic respiration
