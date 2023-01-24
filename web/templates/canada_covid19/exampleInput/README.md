@@ -2,7 +2,8 @@
 
 This directory contains example input/test data for the Canadian COVID Genomics Network (CanCOGeN) DataHarmonizer application template: `CanCOGeN Covid-19`. This data is appropriate for testing up to the version appended to the end of the file name, for example:
 
-- `validTestData_1-0-0.csv` is _valid_ for version `1-0-0` of the DataHarmonizer.
+- `validTestData_2-1-2.csv` is _valid_ for version `2-1-2` of the DataHarmonizer template.
+- `invalidTestData_1-0-0.csv` is still _invalid_ for version `2-1-2` of the DataHarmonizer template, and thus can still be used to explore validation features.
 
 ## Valid Test Data
 
