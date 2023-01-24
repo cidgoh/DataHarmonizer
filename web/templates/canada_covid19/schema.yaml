@@ -1,7 +1,7 @@
 id: https://example.com/CanCOGeN_Covid-19
 name: CanCOGeN_Covid-19
 description: ''
-version: 1.0.1
+version: 2.1.2
 imports:
 - linkml:types
 prefixes:
@@ -100,6 +100,7 @@ classes:
     - travel point of entry type
     - border testing test day type
     - travel history
+    - travel history availability
     - exposure event
     - exposure contact level
     - host role
@@ -405,188 +406,191 @@ classes:
       travel history:
         rank: 81
         slot_group: Host exposure information
-      exposure event:
+      travel history availability:
         rank: 82
         slot_group: Host exposure information
-      exposure contact level:
+      exposure event:
         rank: 83
         slot_group: Host exposure information
-      host role:
+      exposure contact level:
         rank: 84
         slot_group: Host exposure information
-      exposure setting:
+      host role:
         rank: 85
         slot_group: Host exposure information
-      exposure details:
+      exposure setting:
         rank: 86
         slot_group: Host exposure information
-      prior SARS-CoV-2 infection:
+      exposure details:
         rank: 87
-        slot_group: Host reinfection information
-      prior SARS-CoV-2 infection isolate:
+        slot_group: Host exposure information
+      prior SARS-CoV-2 infection:
         rank: 88
         slot_group: Host reinfection information
-      prior SARS-CoV-2 infection date:
+      prior SARS-CoV-2 infection isolate:
         rank: 89
         slot_group: Host reinfection information
-      prior SARS-CoV-2 antiviral treatment:
+      prior SARS-CoV-2 infection date:
         rank: 90
         slot_group: Host reinfection information
-      prior SARS-CoV-2 antiviral treatment agent:
+      prior SARS-CoV-2 antiviral treatment:
         rank: 91
         slot_group: Host reinfection information
-      prior SARS-CoV-2 antiviral treatment date:
+      prior SARS-CoV-2 antiviral treatment agent:
         rank: 92
         slot_group: Host reinfection information
-      purpose of sequencing:
+      prior SARS-CoV-2 antiviral treatment date:
         rank: 93
-        slot_group: Sequencing
-      purpose of sequencing details:
+        slot_group: Host reinfection information
+      purpose of sequencing:
         rank: 94
         slot_group: Sequencing
-      sequencing date:
+      purpose of sequencing details:
         rank: 95
         slot_group: Sequencing
-      library ID:
+      sequencing date:
         rank: 96
         slot_group: Sequencing
-      amplicon size:
+      library ID:
         rank: 97
         slot_group: Sequencing
-      library preparation kit:
+      amplicon size:
         rank: 98
         slot_group: Sequencing
-      flow cell barcode:
+      library preparation kit:
         rank: 99
         slot_group: Sequencing
-      sequencing instrument:
+      flow cell barcode:
         rank: 100
         slot_group: Sequencing
-      sequencing protocol name:
+      sequencing instrument:
         rank: 101
         slot_group: Sequencing
-      sequencing protocol:
+      sequencing protocol name:
         rank: 102
         slot_group: Sequencing
-      sequencing kit number:
+      sequencing protocol:
         rank: 103
         slot_group: Sequencing
-      amplicon pcr primer scheme:
+      sequencing kit number:
         rank: 104
         slot_group: Sequencing
-      raw sequence data processing method:
+      amplicon pcr primer scheme:
         rank: 105
-        slot_group: Bioinformatics and QC metrics
-      dehosting method:
+        slot_group: Sequencing
+      raw sequence data processing method:
         rank: 106
         slot_group: Bioinformatics and QC metrics
-      consensus sequence name:
+      dehosting method:
         rank: 107
         slot_group: Bioinformatics and QC metrics
-      consensus sequence filename:
+      consensus sequence name:
         rank: 108
         slot_group: Bioinformatics and QC metrics
-      consensus sequence filepath:
+      consensus sequence filename:
         rank: 109
         slot_group: Bioinformatics and QC metrics
-      consensus sequence software name:
+      consensus sequence filepath:
         rank: 110
         slot_group: Bioinformatics and QC metrics
-      consensus sequence software version:
+      consensus sequence software name:
         rank: 111
         slot_group: Bioinformatics and QC metrics
-      breadth of coverage value:
+      consensus sequence software version:
         rank: 112
         slot_group: Bioinformatics and QC metrics
-      depth of coverage value:
+      breadth of coverage value:
         rank: 113
         slot_group: Bioinformatics and QC metrics
-      depth of coverage threshold:
+      depth of coverage value:
         rank: 114
         slot_group: Bioinformatics and QC metrics
-      r1 fastq filename:
+      depth of coverage threshold:
         rank: 115
         slot_group: Bioinformatics and QC metrics
-      r2 fastq filename:
+      r1 fastq filename:
         rank: 116
         slot_group: Bioinformatics and QC metrics
-      r1 fastq filepath:
+      r2 fastq filename:
         rank: 117
         slot_group: Bioinformatics and QC metrics
-      r2 fastq filepath:
+      r1 fastq filepath:
         rank: 118
         slot_group: Bioinformatics and QC metrics
-      fast5 filename:
+      r2 fastq filepath:
         rank: 119
         slot_group: Bioinformatics and QC metrics
-      fast5 filepath:
+      fast5 filename:
         rank: 120
         slot_group: Bioinformatics and QC metrics
-      number of base pairs sequenced:
+      fast5 filepath:
         rank: 121
         slot_group: Bioinformatics and QC metrics
-      consensus genome length:
+      number of base pairs sequenced:
         rank: 122
         slot_group: Bioinformatics and QC metrics
-      Ns per 100 kbp:
+      consensus genome length:
         rank: 123
         slot_group: Bioinformatics and QC metrics
-      reference genome accession:
+      Ns per 100 kbp:
         rank: 124
         slot_group: Bioinformatics and QC metrics
-      bioinformatics protocol:
+      reference genome accession:
         rank: 125
         slot_group: Bioinformatics and QC metrics
-      lineage/clade name:
+      bioinformatics protocol:
         rank: 126
-        slot_group: Lineage and Variant information
-      lineage/clade analysis software name:
+        slot_group: Bioinformatics and QC metrics
+      lineage/clade name:
         rank: 127
         slot_group: Lineage and Variant information
-      lineage/clade analysis software version:
+      lineage/clade analysis software name:
         rank: 128
         slot_group: Lineage and Variant information
-      variant designation:
+      lineage/clade analysis software version:
         rank: 129
         slot_group: Lineage and Variant information
-      variant evidence:
+      variant designation:
         rank: 130
         slot_group: Lineage and Variant information
-      variant evidence details:
+      variant evidence:
         rank: 131
         slot_group: Lineage and Variant information
-      gene name 1:
+      variant evidence details:
         rank: 132
-        slot_group: Pathogen diagnostic testing
-      diagnostic pcr protocol 1:
+        slot_group: Lineage and Variant information
+      gene name 1:
         rank: 133
         slot_group: Pathogen diagnostic testing
-      diagnostic pcr Ct value 1:
+      diagnostic pcr protocol 1:
         rank: 134
         slot_group: Pathogen diagnostic testing
-      gene name 2:
+      diagnostic pcr Ct value 1:
         rank: 135
         slot_group: Pathogen diagnostic testing
-      diagnostic pcr protocol 2:
+      gene name 2:
         rank: 136
         slot_group: Pathogen diagnostic testing
-      diagnostic pcr Ct value 2:
+      diagnostic pcr protocol 2:
         rank: 137
         slot_group: Pathogen diagnostic testing
-      gene name 3:
+      diagnostic pcr Ct value 2:
         rank: 138
         slot_group: Pathogen diagnostic testing
-      diagnostic pcr protocol 3:
+      gene name 3:
         rank: 139
         slot_group: Pathogen diagnostic testing
-      diagnostic pcr Ct value 3:
+      diagnostic pcr protocol 3:
         rank: 140
         slot_group: Pathogen diagnostic testing
-      authors:
+      diagnostic pcr Ct value 3:
         rank: 141
+        slot_group: Pathogen diagnostic testing
+      authors:
+        rank: 142
         slot_group: Contributor acknowledgement
       DataHarmonizer provenance:
-        rank: 142
+        rank: 143
         slot_group: Contributor acknowledgement
 slots:
   specimen collector sample ID:
@@ -1961,6 +1965,24 @@ slots:
     range: WhitespaceMinimizedString
     exact_mappings:
     - NML_LIMS:PH_TRAVEL
+  travel history availability:
+    name: travel history availability
+    title: travel history availability
+    description: The availability of different types of travel history in the last
+      6 months (e.g. international, domestic).
+    comments: If travel history is available, but the details of travel cannot be
+      provided, indicate this and the type of travel history availble by selecting
+      a value from the picklist. The values in this field can be used to indicate
+      a sample is associated with a travel when the "purpose of sequencing" is not
+      travel-associated.
+    examples:
+    - value: International travel history available
+    slot_uri: GENEPIO:0100649
+    any_of:
+    - range: travel history availability menu
+    - range: null value menu
+    exact_mappings:
+    - NML_LIMS:PH_TRAVEL
   exposure event:
     name: exposure event
     title: exposure event
@@ -2348,7 +2370,7 @@ slots:
   consensus sequence filepath:
     name: consensus sequence filepath
     title: consensus sequence filepath
-    description: The filepath of the consesnsus sequence file.
+    description: The filepath of the consensus sequence file.
     comments: Provide the filepath of the consensus sequence FASTA file.
     examples:
     - value: /User/Documents/RespLab/Data/ncov123assembly.fasta
@@ -5317,6 +5339,27 @@ enums:
       day 10:
         text: day 10
         meaning: GENEPIO:0100412
+  travel history availability menu:
+    name: travel history availability menu
+    permissible_values:
+      Travel history available:
+        text: Travel history available
+        meaning: GENEPIO:0100650
+      Domestic travel history available:
+        text: Domestic travel history available
+        meaning: GENEPIO:0100651
+        is_a: Travel history available
+      International travel history available:
+        text: International travel history available
+        meaning: GENEPIO:0100652
+        is_a: Travel history available
+      International and domestic travel history available:
+        text: International and domestic travel history available
+        meaning: GENEPIO:0100653
+        is_a: Travel history available
+      No travel history available:
+        text: No travel history available
+        meaning: GENEPIO:0100654
   sequencing instrument menu:
     name: sequencing instrument menu
     permissible_values:
