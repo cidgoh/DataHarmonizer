@@ -1,6 +1,6 @@
 # DataHarmonizer
 
-A standardized browser-based spreadsheet editor and validator that can be run offline and locally, which works of of [LinkML](https://linkml.io/) data specifications. This project, created by the Centre for Infectious Disease Genomics and One Health (CIDGOH), at Simon Fraser University, is now an open-source collaboration with contributions from the National Microbiome Data Collaborative (NMDC), the LinkML development team, and others.
+A standardized browser-based spreadsheet editor and validator that can be run offline and locally, which works of of [LinkML](https://linkml.io/) data specifications. This project, created by the Centre for Infectious Disease Genomics and One Health (CIDGOH), at Simon Fraser University, is now an open-source collaboration with contributions from the National Microbiome Data Collaborative (NMDC), the LinkML development team, and others. Read the open-source DataHarmonizer [manuscript](#manuscript) for more about the application's theory and design.
 
 Watch Rhiannon Cameron and Damion Dooley describe this application on [YouTube](https://www.youtube.com/watch?v=rdN2_Vhwb8E&t=38s&ab_channel=CANARIEInc.) at the Canadian Research Software Conference (CRSC2021).
 
@@ -12,9 +12,17 @@ Watch Rhiannon Cameron and Damion Dooley describe this application on [YouTube](
 
 Note that the **Pathogen Genomics Package** of DataHarmonizer templates, which includes Covid-19 and Monkeypox, is available now as a simpler stand-alone zip file at [https://github.com/cidgoh/pathogen-genomics-package](https://github.com/cidgoh/pathogen-genomics-package). This version does not require the use of the developer environment and can be run simply by loading the `index.html` or `main.html` files in your local web browser.
 
-
-
 ![alt text](./images/editCopyPasteDelete.gif)
+
+## Manuscript
+
+**The DataHarmonizer: a tool for faster data harmonization, validation, aggregation and analysis of pathogen genomics contextual information**
+
+Microbial Genomics (9:1) 2023
+
+DOI: https://doi.org/10.1099/mgen.0.000908
+
+_Ivan S. Gill, Emma J. Griffiths​, Damion Dooley​, Rhiannon Cameron​, Sarah Savić Kallesøe​, Nithu Sara John​, Anoosha Sehar​, Gurinder Gosal​, David Alexander​, Madison Chapel​, Matthew A. Croxen​​, Benjamin Delisle​, Rachelle Di Tullio​, Daniel Gaston​, Ana Duggan​, Jennifer L. Guthrie​, Mark Horsman4​, Esha Joshi​, Levon Kearny​, Natalie Knox​, Lynette Lau​, Jason J. LeBlanc9, Vincent Li​, Pierre Lyons​, Keith MacKenzie1, Andrew G. McArthur​, Emily M. Panousis​, John Palmer​, Natalie Prystajecky​, Kerri N. Smith​, Jennifer Tanner​, Christopher Townend​, Andrea Tyler, Gary Van Domselaar​, William W. L. Hsiao_
 
 ## Installation
 
