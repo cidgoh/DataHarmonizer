@@ -9,8 +9,20 @@ document.addEventListener('DOMContentLoaded', function () {
   const dhFooterRoot = document.querySelector('#data-harmonizer-footer');
   const dhToolbarRoot = document.querySelector('#data-harmonizer-toolbar');
 
+  // this is defined inline for convenience but could just as easily be
+  // imported from a JSON file
+  const uiConfig = {
+    fields: {
+      'third party lab service provider name': {
+        widget: 'ols-autocomplete',
+        ontology: 'zfa,zfs',
+      },
+    },
+  };
+
   const dh = new DataHarmonizer(dhRoot, {
     loadingScreenRoot: document.querySelector('body'),
+    uiConfig: uiConfig,
   });
 
   new Footer(dhFooterRoot, dh);
