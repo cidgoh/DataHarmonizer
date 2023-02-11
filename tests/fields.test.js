@@ -1,4 +1,9 @@
-import { dataArrayToObject, dataObjectToArray } from '../lib/utils/fields';
+import {
+  dataArrayToObject,
+  dataObjectToArray,
+  parseMultivaluedValue,
+  formatMultivaluedValue,
+} from '../lib/utils/fields';
 
 const fields = [
   {
@@ -99,5 +104,63 @@ describe('dataObjectToArray', () => {
     };
     const dataArray = dataObjectToArray(dataObject, fields);
     expect(dataArray).toEqual(['', '33.333', '', '', 'a; b; c', '33']);
+  });
+});
+
+describe('parseMultivaluedValue', () => {
+  test('parses values delimited by "; "', () => {
+    const input = 'one two; three; four';
+    const parsed = parseMultivaluedValue(input);
+    expect(parsed).toEqual(['one two', 'three', 'four']);
+  });
+
+  test('parses values delimited by ";"', () => {
+    const input = 'one two;three;four';
+    const parsed = parseMultivaluedValue(input);
+    expect(parsed).toEqual(['one two', 'three', 'four']);
+  });
+
+  test('ignores leading and trailing spaces', () => {
+    const input = 'one two;three; four ;five';
+    const parsed = parseMultivaluedValue(input);
+    expect(parsed).toEqual(['one two', 'three', 'four', 'five']);
+  });
+
+  test('discards empty entries', () => {
+    const input = ';one two;three; ;five;;;';
+    const parsed = parseMultivaluedValue(input);
+    expect(parsed).toEqual(['one two', 'three', 'five']);
+  });
+
+  test('returns empty array for null or empty input', () => {
+    expect(parseMultivaluedValue('')).toEqual([]);
+    expect(parseMultivaluedValue(null)).toEqual([]);
+    expect(parseMultivaluedValue(undefined)).toEqual([]);
+  });
+});
+
+describe('formatMultivaluedValue', () => {
+  test('formats values with correct delimiter and space', () => {
+    const input = ['one two', 'three', 'four'];
+    const formatted = formatMultivaluedValue(input);
+    expect(formatted).toEqual('one two; three; four');
+  });
+
+  test('handles non-string values', () => {
+    const input = ['one two', 3, 'four'];
+    const formatted = formatMultivaluedValue(input);
+    expect(formatted).toEqual('one two; 3; four');
+  });
+
+  test('discards empty entries', () => {
+    const input = ['one two', '', 'three', null, 'four'];
+    const formatted = formatMultivaluedValue(input);
+    expect(formatted).toEqual('one two; three; four');
+  });
+
+  test('returns empty string for null or empty input', () => {
+    expect(formatMultivaluedValue([])).toEqual('');
+    expect(formatMultivaluedValue(null)).toEqual('');
+    expect(formatMultivaluedValue(undefined)).toEqual('');
   });
 });
