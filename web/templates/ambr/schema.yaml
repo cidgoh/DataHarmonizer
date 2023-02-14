@@ -1,7 +1,7 @@
 id: https://example.com/AMBR
 name: AMBR
 description: ''
-version: 2.1.1
+version: 2.2.2
 imports:
 - linkml:types
 prefixes:
@@ -25,7 +25,7 @@ classes:
     - alternative isolate ID
     - specimen collector sample ID
     - sample collected by
-    - sample_collection_project_name
+    - sample collection project name
     - sample collector contact email
     - sample collector contact address
     - sample collection date
@@ -97,7 +97,7 @@ classes:
       sample collected by:
         rank: 4
         slot_group: Sample collection and processing
-      sample_collection_project_name:
+      sample collection project name:
         rank: 5
         slot_group: Sample collection and processing
       sample collector contact email:
@@ -291,7 +291,7 @@ slots:
   alternative isolate ID:
     name: alternative isolate ID
     title: alternative isolate ID
-    description: An alternative isolate_ID assigned to the isolate by another organization.
+    description: An alternative isolate ID assigned to the isolate by another organization.
     comments: Provide the identifier that represents the site code, source and/or
       patient identifier, media type, strain identifier, colony number, growth condition
       and dilution factor as a single code. This value corresponds maps to the "Label
@@ -330,9 +330,9 @@ slots:
     - range: WhitespaceMinimizedString
     - range: null value menu
     recommended: true
-  sample_collection_project_name:
-    name: sample_collection_project_name
-    title: sample_collection_project_name
+  sample collection project name:
+    name: sample collection project name
+    title: sample collection project name
     description: The name of the project/initiative/program for which the sample was
       collected.
     comments: Provide the name of the project and/or the project ID here. If the information
@@ -700,6 +700,7 @@ slots:
     any_of:
     - range: taxonomic identification method menu
     - range: null value menu
+    required: true
   taxonomic identification method details:
     name: taxonomic identification method details
     title: taxonomic identification method details
@@ -719,6 +720,7 @@ slots:
     any_of:
     - range: taxonomic identification method details menu
     - range: null value menu
+    required: true
   incubation temperature value:
     name: incubation temperature value
     title: incubation temperature value
@@ -800,18 +802,21 @@ slots:
     name: host (common name)
     title: host (common name)
     description: The commonly used name of the host.
-    comments: Common name or scientific name are required if there was a host. Both
-      can be provided, if known. Use terms from the pick lists in the template. Hosts
-      can be animals (including humans) and plants. Common name e.g. Human, Canola
-      plant. If the sample was environmental, select "Not Applicable". Information
-      for populating this field may be available in the "Source of Isolation" field
-      in the Alberta Microbiota Repository (AMBR) Master file.
+    comments: "Common name is required if there was a host. Both common anime and\
+      \ scientific name can be provided, if known. Use terms from the pick lists in\
+      \ the template. Hosts can be animals (including humans) and plants. Examples\
+      \ of common names are \u201CHuman\u201D and \u201CCanola plant\u201D. Examples\
+      \ of scientific names are \u201CHomo sapiens\u201D and \u201CEquus caballus\u201D\
+      . If the sample was environmental, select \"Not Applicable\". Information for\
+      \ populating this field may be available in the \"Source of Isolation\" field\
+      \ in the Alberta Microbiota Repository (AMBR) Master file."
     examples:
     - value: Human
     slot_uri: GENEPIO:0001386
     any_of:
     - range: host (common name) menu
     - range: null value menu
+    required: true
   host (scientific name):
     name: host (scientific name)
     title: host (scientific name)
@@ -913,7 +918,6 @@ slots:
     any_of:
     - range: purpose of sequencing menu
     - range: null value menu
-    multivalued: true
   purpose of sequencing details:
     name: purpose of sequencing details
     title: purpose of sequencing details
@@ -990,6 +994,7 @@ slots:
     any_of:
     - range: amplicon pcr primer list menu
     - range: null value menu
+    multivalued: true
     required: true
   input file name:
     name: input file name
@@ -2329,6 +2334,10 @@ enums:
         meaning: MICRO:0000558
       Marine broth agar (MBA):
         text: Marine broth agar (MBA)
+      Medium 10 agar (M10):
+        text: Medium 10 agar (M10)
+      Medium DAMS5.8 simple:
+        text: Medium DAMS5.8 simple
       No salt lysogeny broth agar (NSLB):
         text: No salt lysogeny broth agar (NSLB)
       No salt lysogeny broth agar + 5-15% sucrose (NSLB + 5-15% sucrose):
