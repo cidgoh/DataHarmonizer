@@ -2,7 +2,7 @@
   "name": "AMBR",
   "description": "",
   "id": "https://example.com/AMBR",
-  "version": "2.1.1",
+  "version": "2.2.2",
   "prefixes": {
     "linkml": {
       "prefix_prefix": "linkml",
@@ -19,6 +19,10 @@
     "shex": {
       "prefix_prefix": "shex",
       "prefix_reference": "http://www.w3.org/ns/shex#"
+    },
+    "schema": {
+      "prefix_prefix": "schema",
+      "prefix_reference": "http://schema.org/"
     }
   },
   "default_prefix": "https://example.com/AMBR/",
@@ -40,18 +44,27 @@
     "string": {
       "name": "string",
       "description": "A character string",
+      "exact_mappings": [
+        "schema:Text"
+      ],
       "base": "str",
       "uri": "xsd:string"
     },
     "integer": {
       "name": "integer",
       "description": "An integer",
+      "exact_mappings": [
+        "schema:Integer"
+      ],
       "base": "int",
       "uri": "xsd:integer"
     },
     "boolean": {
       "name": "boolean",
       "description": "A binary (true or false) value",
+      "exact_mappings": [
+        "schema:Boolean"
+      ],
       "base": "Bool",
       "uri": "xsd:boolean",
       "repr": "bool"
@@ -59,18 +72,27 @@
     "float": {
       "name": "float",
       "description": "A real number that conforms to the xsd:float specification",
+      "exact_mappings": [
+        "schema:Float"
+      ],
       "base": "float",
       "uri": "xsd:float"
     },
     "double": {
       "name": "double",
       "description": "A real number that conforms to the xsd:double specification",
+      "close_mappings": [
+        "schema:Float"
+      ],
       "base": "float",
       "uri": "xsd:double"
     },
     "decimal": {
       "name": "decimal",
       "description": "A real number with arbitrary precision that conforms to the xsd:decimal specification",
+      "broad_mappings": [
+        "schema:Number"
+      ],
       "base": "Decimal",
       "uri": "xsd:decimal"
     },
@@ -79,6 +101,9 @@
       "description": "A time object represents a (local) time of day, independent of any particular day",
       "notes": [
         "URI is dateTime because OWL reasoners do not work with straight date or time"
+      ],
+      "exact_mappings": [
+        "schema:Time"
       ],
       "base": "XSDTime",
       "uri": "xsd:dateTime",
@@ -90,6 +115,9 @@
       "notes": [
         "URI is dateTime because OWL reasoners don't work with straight date or time"
       ],
+      "exact_mappings": [
+        "schema:Date"
+      ],
       "base": "XSDDate",
       "uri": "xsd:date",
       "repr": "str"
@@ -97,6 +125,9 @@
     "datetime": {
       "name": "datetime",
       "description": "The combination of a date and time",
+      "exact_mappings": [
+        "schema:DateTime"
+      ],
       "base": "XSDDateTime",
       "uri": "xsd:dateTime",
       "repr": "str"
@@ -115,9 +146,28 @@
       "uri": "xsd:anyURI",
       "repr": "str"
     },
+    "curie": {
+      "name": "curie",
+      "conforms_to": "https://www.w3.org/TR/curie/",
+      "description": "a compact URI",
+      "comments": [
+        "in RDF serializations this MUST be expanded to a URI",
+        "in non-RDF serializations MAY be serialized as the compact representation"
+      ],
+      "base": "Curie",
+      "uri": "xsd:string",
+      "repr": "str"
+    },
     "uri": {
       "name": "uri",
+      "conforms_to": "https://www.ietf.org/rfc/rfc3987.txt",
       "description": "a complete URI",
+      "comments": [
+        "in RDF serializations a slot with range of uri is treated as a literal or type xsd:anyURI unless it is an identifier or a reference to an identifier, in which case it is translated directly to a node"
+      ],
+      "close_mappings": [
+        "schema:URL"
+      ],
       "base": "URI",
       "uri": "xsd:anyURI",
       "repr": "str"
@@ -1715,6 +1765,12 @@
         "Marine broth agar (MBA)": {
           "text": "Marine broth agar (MBA)"
         },
+        "Medium 10 agar (M10)": {
+          "text": "Medium 10 agar (M10)"
+        },
+        "Medium DAMS5.8 simple": {
+          "text": "Medium DAMS5.8 simple"
+        },
         "No salt lysogeny broth agar (NSLB)": {
           "text": "No salt lysogeny broth agar (NSLB)"
         },
@@ -2184,7 +2240,7 @@
     },
     "alternative isolate ID": {
       "name": "alternative isolate ID",
-      "description": "An alternative isolate_ID assigned to the isolate by another organization.",
+      "description": "An alternative isolate ID assigned to the isolate by another organization.",
       "title": "alternative isolate ID",
       "comments": [
         "Provide the identifier that represents the site code, source and/or patient identifier, media type, strain identifier, colony number, growth condition and dilution factor as a single code. This value corresponds maps to the \"Label ID\" in the Alberta Microbiota Repository (AMBR) Master file."
@@ -2240,10 +2296,10 @@
         }
       ]
     },
-    "sample_collection_project_name": {
-      "name": "sample_collection_project_name",
+    "sample collection project name": {
+      "name": "sample collection project name",
       "description": "The name of the project/initiative/program for which the sample was collected.",
-      "title": "sample_collection_project_name",
+      "title": "sample collection project name",
       "comments": [
         "Provide the name of the project and/or the project ID here. If the information is unknown or cannot be provided, leave blank or provide a null value."
       ],
@@ -2779,6 +2835,7 @@
       ],
       "from_schema": "https://example.com/AMBR",
       "slot_uri": "GENEPIO:0100583",
+      "required": true,
       "any_of": [
         {
           "range": "taxonomic identification method menu"
@@ -2802,6 +2859,7 @@
       ],
       "from_schema": "https://example.com/AMBR",
       "slot_uri": "GENEPIO:0100584",
+      "required": true,
       "any_of": [
         {
           "range": "taxonomic identification method details menu"
@@ -2929,7 +2987,7 @@
       "description": "The commonly used name of the host.",
       "title": "host (common name)",
       "comments": [
-        "Common name or scientific name are required if there was a host. Both can be provided, if known. Use terms from the pick lists in the template. Hosts can be animals (including humans) and plants. Common name e.g. Human, Canola plant. If the sample was environmental, select \"Not Applicable\". Information for populating this field may be available in the \"Source of Isolation\" field in the Alberta Microbiota Repository (AMBR) Master file."
+        "Common name is required if there was a host. Both common anime and scientific name can be provided, if known. Use terms from the pick lists in the template. Hosts can be animals (including humans) and plants. Examples of common names are “Human” and “Canola plant”. Examples of scientific names are “Homo sapiens” and “Equus caballus”. If the sample was environmental, select \"Not Applicable\". Information for populating this field may be available in the \"Source of Isolation\" field in the Alberta Microbiota Repository (AMBR) Master file."
       ],
       "examples": [
         {
@@ -2938,6 +2996,7 @@
       ],
       "from_schema": "https://example.com/AMBR",
       "slot_uri": "GENEPIO:0001386",
+      "required": true,
       "any_of": [
         {
           "range": "host (common name) menu"
@@ -3078,7 +3137,6 @@
       ],
       "from_schema": "https://example.com/AMBR",
       "slot_uri": "GENEPIO:0001445",
-      "multivalued": true,
       "any_of": [
         {
           "range": "purpose of sequencing menu"
@@ -3212,6 +3270,7 @@
       ],
       "from_schema": "https://example.com/AMBR",
       "slot_uri": "GENEPIO:0100623",
+      "multivalued": true,
       "required": true,
       "any_of": [
         {
@@ -3551,8 +3610,8 @@
           "rank": 4,
           "slot_group": "Sample collection and processing"
         },
-        "sample_collection_project_name": {
-          "name": "sample_collection_project_name",
+        "sample collection project name": {
+          "name": "sample collection project name",
           "rank": 5,
           "slot_group": "Sample collection and processing"
         },
@@ -3863,7 +3922,7 @@
         },
         "alternative isolate ID": {
           "name": "alternative isolate ID",
-          "description": "An alternative isolate_ID assigned to the isolate by another organization.",
+          "description": "An alternative isolate ID assigned to the isolate by another organization.",
           "title": "alternative isolate ID",
           "from_schema": "https://example.com/AMBR",
           "rank": 2,
@@ -3899,10 +3958,10 @@
           "slot_group": "Sample collection and processing",
           "recommended": true
         },
-        "sample_collection_project_name": {
-          "name": "sample_collection_project_name",
+        "sample collection project name": {
+          "name": "sample collection project name",
           "description": "The name of the project/initiative/program for which the sample was collected.",
-          "title": "sample_collection_project_name",
+          "title": "sample collection project name",
           "from_schema": "https://example.com/AMBR",
           "rank": 5,
           "slot_uri": "GENEPIO:0100429",
@@ -4205,7 +4264,8 @@
           "slot_uri": "GENEPIO:0100583",
           "alias": "taxonomic_identification_method",
           "owner": "AMBR",
-          "slot_group": "Strain and isolation information"
+          "slot_group": "Strain and isolation information",
+          "required": true
         },
         "taxonomic identification method details": {
           "name": "taxonomic identification method details",
@@ -4216,7 +4276,8 @@
           "slot_uri": "GENEPIO:0100584",
           "alias": "taxonomic_identification_method_details",
           "owner": "AMBR",
-          "slot_group": "Strain and isolation information"
+          "slot_group": "Strain and isolation information",
+          "required": true
         },
         "incubation temperature value": {
           "name": "incubation temperature value",
@@ -4288,7 +4349,8 @@
           "slot_uri": "GENEPIO:0001386",
           "alias": "host_(common_name)",
           "owner": "AMBR",
-          "slot_group": "Host Information"
+          "slot_group": "Host Information",
+          "required": true
         },
         "host (scientific name)": {
           "name": "host (scientific name)",
@@ -4366,7 +4428,6 @@
           "from_schema": "https://example.com/AMBR",
           "rank": 43,
           "slot_uri": "GENEPIO:0001445",
-          "multivalued": true,
           "alias": "purpose_of_sequencing",
           "owner": "AMBR",
           "slot_group": "Sequencing"
@@ -4438,6 +4499,7 @@
           "from_schema": "https://example.com/AMBR",
           "rank": 49,
           "slot_uri": "GENEPIO:0100623",
+          "multivalued": true,
           "alias": "amplicon_pcr_primer_list",
           "owner": "AMBR",
           "slot_group": "Sequencing",

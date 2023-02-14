@@ -1,6 +1,6 @@
 id: https://example.com/monkeypox
 name: Monkeypox
-version: 3.3.2
+version: 3.3.3
 description: ''
 imports:
 - linkml:types
@@ -19,7 +19,7 @@ classes:
     is_a: dh_interface
     see_also: templates/monkeypox/SOP_Monkeypox.pdf
     annotations:
-      version: 3.3.2
+      version: 3.3.3
     slots:
     - specimen collector sample ID
     - Related specimen primary ID
