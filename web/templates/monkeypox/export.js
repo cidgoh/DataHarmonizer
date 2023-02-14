@@ -321,7 +321,6 @@ export default {
         ['PH_SEQUENCING_DATE', []],
         ['PH_LIBRARY_PREP_KIT', []],
 
-        ['PH_INSTRUMENT_CGN', []],
         ['PH_TESTING_PROTOCOL', []],
         //['PH_SEQ_PROTOCOL_NAME',     []],
         ['PH_RAW_SEQUENCE_METHOD', []],
