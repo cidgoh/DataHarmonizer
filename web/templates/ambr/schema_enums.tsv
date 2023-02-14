@@ -403,6 +403,8 @@ isolation medium menu		AMBR	1/10 869
 		AMBR	M17 minimal medium (M17)					
 	MICRO:0000558	AMBR	MacConkey agar (MCA)					
 		AMBR	Marine broth agar (MBA)					
+		AMBR	Medium 10 agar (M10)					
+		AMBR	Medium DAMS5.8 simple					
 		AMBR	No salt lysogeny broth agar (NSLB)					
 		AMBR		No salt lysogeny broth agar + 5-15% sucrose (NSLB + 5-15% sucrose)				
 	MICRO:0000553	AMBR	Nutrient agar					
