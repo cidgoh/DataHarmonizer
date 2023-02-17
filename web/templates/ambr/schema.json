@@ -2,7 +2,7 @@
   "name": "AMBR",
   "description": "",
   "id": "https://example.com/AMBR",
-  "version": "2.2.2",
+  "version": "2.2.3",
   "prefixes": {
     "linkml": {
       "prefix_prefix": "linkml",
@@ -2201,9 +2201,9 @@
           "text": "27F",
           "meaning": "GENEPIO:0100640"
         },
-        "375F": {
-          "text": "375F",
-          "meaning": "GENEPIO:0100641"
+        "357F": {
+          "text": "357F",
+          "meaning": "GENEPIO:0100645"
         },
         "543R": {
           "text": "543R",
@@ -2216,6 +2216,22 @@
         "1492R": {
           "text": "1492R",
           "meaning": "GENEPIO:0100644"
+        },
+        "ITS1F": {
+          "text": "ITS1F",
+          "meaning": "GENEPIO:0100668"
+        },
+        "ITS3F": {
+          "text": "ITS3F",
+          "meaning": "GENEPIO:0100646"
+        },
+        "ITS4F": {
+          "text": "ITS4F",
+          "meaning": "GENEPIO:0100647"
+        },
+        "ITS4R": {
+          "text": "ITS4R",
+          "meaning": "GENEPIO:0100669"
         }
       }
     }
