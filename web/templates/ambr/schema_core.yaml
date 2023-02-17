@@ -1,7 +1,7 @@
 id: https://example.com/AMBR
 name: AMBR
 description: ""
-version: 2.2.2
+version: 2.2.3
 imports:
 - 'linkml:types'
 prefixes:
