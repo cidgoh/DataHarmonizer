@@ -12543,7 +12543,7 @@
       "annotations": {
         "version": {
           "tag": "version",
-          "value": "3.3.2"
+          "value": "3.3.3"
         }
       },
       "description": "International specification for Monkeypox clinical virus biosample data gathering",

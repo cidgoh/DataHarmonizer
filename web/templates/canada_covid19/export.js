@@ -587,6 +587,8 @@ export default {
           }
 
           // A complicated rule about what is stored in 'Specimen Source'
+          // Note that common name field will override scientific name in
+          // export to PH_SPECIMEN_SOURCE
           if (headerName === 'PH_SPECIMEN_SOURCE') {
             let cellValue = '';
             for (const fieldName of [
@@ -602,7 +604,8 @@ export default {
                 continue;
               }
               if (
-                fieldName === 'host (scientific name)' ||
+                // error, obsolete: scientific name shouldn't be converted to "Human"
+                // fieldName === 'host (scientific name)' ||  
                 fieldName === 'host (common name)'
               ) {
                 if (value === 'Homo sapiens' || value === 'Human')
