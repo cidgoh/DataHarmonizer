@@ -529,6 +529,9 @@ export default {
         ['SUBMITTED_RESLT - Gene Target #3 CT Value', []],
         ['PH_CANCOGEN_AUTHORS', []],
         ['HC_COMMENTS', []],
+
+        ['host (scientific name)', []] // Special rule below
+
       ]);
 
       const sourceFields = dh.getFields(dh.table);
@@ -558,6 +561,7 @@ export default {
 
       for (const inputRow of dh.getTrimmedData(dh.hot)) {
         const outputRow = [];
+
         for (const [headerName, sources] of ExportHeaders) {
           if (headerName === 'HC_CURRENT_ID') {
             // Assign constant value.
@@ -587,6 +591,8 @@ export default {
           }
 
           // A complicated rule about what is stored in 'Specimen Source'
+          // Note that common name field will override scientific name in
+          // export to PH_SPECIMEN_SOURCE
           if (headerName === 'PH_SPECIMEN_SOURCE') {
             let cellValue = '';
             for (const fieldName of [
@@ -595,19 +601,21 @@ export default {
               'environmental material',
               'environmental site',
             ]) {
-              const value = inputRow[sourceFieldNameMap[fieldName]];
+              let value = inputRow[sourceFieldNameMap[fieldName]];
 
               // Ignore all null value types
               if (!value || null_values.has(value)) {
                 continue;
               }
+              value = value.toLowerCase();
               if (
-                fieldName === 'host (scientific name)' ||
+                fieldName === 'host (scientific name)' ||  
                 fieldName === 'host (common name)'
               ) {
-                if (value === 'Homo sapiens' || value === 'Human')
+                if (value === 'homo sapiens' || value === 'human')
                   cellValue = 'Human';
-                else cellValue = 'ANIMAL';
+                else 
+                  cellValue = 'ANIMAL';
                 break;
               }
               if (

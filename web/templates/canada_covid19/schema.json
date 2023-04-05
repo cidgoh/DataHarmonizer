@@ -2306,10 +2306,7 @@
       "permissible_values": {
         "Homo sapiens": {
           "text": "Homo sapiens",
-          "meaning": "NCBITaxon:9606",
-          "exact_mappings": [
-            "NML_LIMS:Human"
-          ]
+          "meaning": "NCBITaxon:9606"
         },
         "Bos taurus": {
           "text": "Bos taurus",
