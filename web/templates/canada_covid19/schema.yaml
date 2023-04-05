@@ -4408,8 +4408,6 @@ enums:
       Homo sapiens:
         text: Homo sapiens
         meaning: NCBITaxon:9606
-        exact_mappings:
-        - NML_LIMS:Human
       Bos taurus:
         text: Bos taurus
         meaning: NCBITaxon:9913

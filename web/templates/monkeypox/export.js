@@ -320,7 +320,7 @@ export default {
         ['PH_REASON_FOR_SEQUENCING_DETAILS', []],
         ['PH_SEQUENCING_DATE', []],
         ['PH_LIBRARY_PREP_KIT', []],
-
+        ['PH_SEQUENCING_INSTRUMENT', []],
         ['PH_TESTING_PROTOCOL', []],
         //['PH_SEQ_PROTOCOL_NAME',     []],
         ['PH_RAW_SEQUENCE_METHOD', []],
@@ -347,7 +347,7 @@ export default {
 				['SUBMITTED_RESLT - Gene Target #5',   []],
 				['SUBMITTED_RESLT - Gene Target #5 CT Value', []],
 
-        ['PH_CANCOGEN_AUTHORS', []],
+        ['PH_SEQUENCING_AUTHORS', []],
         ['HC_COMMENTS', []],
 
         ['sample collector contact email', []],
@@ -428,6 +428,8 @@ export default {
           }
 
           // A complicated rule about what is stored in 'Specimen Source'
+          // Note that common name field will override scientific name in
+          // export to PH_SPECIMEN_SOURCE
           if (headerName === 'PH_SPECIMEN_SOURCE') {
             let cellValue = '';
             for (const fieldName of [

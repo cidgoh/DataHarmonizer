@@ -496,7 +496,7 @@ collection device menu	ENVO:00003968	Air filter
 	OBI:0002866	Virus Transport Medium										
 												
 												
-host (scientific name) menu	NCBITaxon:9606	Homo sapiens								Human		
+host (scientific name) menu	NCBITaxon:9606	Homo sapiens										
 	NCBITaxon:9913	Bos taurus										
 	NCBITaxon:9615	Canis lupus familiaris										
 	NCBITaxon:9397	Chiroptera										
