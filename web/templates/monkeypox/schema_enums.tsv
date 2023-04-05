@@ -325,9 +325,9 @@ host (common name) international menu	NCBITaxon:9606	Human [NCBITaxon:9606]
 	NCBITaxon:10116		Rat									
 	FOODON:03411389		Squirrel									
 												
-host (scientific name) menu	NCBITaxon:9606	Homo sapiens								Human		
+host (scientific name) menu	NCBITaxon:9606	Homo sapiens										
 												
-host (scientific name) international menu	NCBITaxon:9606	Homo sapiens [NCBITaxon:9606]								Human		
+host (scientific name) international menu	NCBITaxon:9606	Homo sapiens [NCBITaxon:9606]										
 												
 host health state menu	NCIT:C3833	Asymptomatic										
 	NCIT:C28554	Deceased										
