@@ -1597,10 +1597,7 @@
       "permissible_values": {
         "Homo sapiens": {
           "text": "Homo sapiens",
-          "meaning": "NCBITaxon:9606",
-          "exact_mappings": [
-            "NML_LIMS:Human"
-          ]
+          "meaning": "NCBITaxon:9606"
         }
       }
     },
@@ -1610,10 +1607,7 @@
       "permissible_values": {
         "Homo sapiens [NCBITaxon:9606]": {
           "text": "Homo sapiens [NCBITaxon:9606]",
-          "meaning": "NCBITaxon:9606",
-          "exact_mappings": [
-            "NML_LIMS:Human"
-          ]
+          "meaning": "NCBITaxon:9606"
         }
       }
     },

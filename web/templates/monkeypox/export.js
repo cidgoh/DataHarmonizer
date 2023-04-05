@@ -445,7 +445,7 @@ export default {
                 continue;
               }
               if (
-                // fieldName === 'host (scientific name)' ||
+                fieldName === 'host (scientific name)' ||
                 fieldName === 'host (common name)'
               ) {
                 if (value === 'Homo sapiens' || value === 'Human')

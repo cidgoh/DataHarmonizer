@@ -529,6 +529,9 @@ export default {
         ['SUBMITTED_RESLT - Gene Target #3 CT Value', []],
         ['PH_CANCOGEN_AUTHORS', []],
         ['HC_COMMENTS', []],
+
+        ['host (scientific name)', []] // Special rule below
+
       ]);
 
       const sourceFields = dh.getFields(dh.table);
@@ -558,6 +561,7 @@ export default {
 
       for (const inputRow of dh.getTrimmedData(dh.hot)) {
         const outputRow = [];
+
         for (const [headerName, sources] of ExportHeaders) {
           if (headerName === 'HC_CURRENT_ID') {
             // Assign constant value.
@@ -597,20 +601,21 @@ export default {
               'environmental material',
               'environmental site',
             ]) {
-              const value = inputRow[sourceFieldNameMap[fieldName]];
+              let value = inputRow[sourceFieldNameMap[fieldName]];
 
               // Ignore all null value types
               if (!value || null_values.has(value)) {
                 continue;
               }
+              value = value.toLowerCase();
               if (
-                // error, obsolete: scientific name shouldn't be converted to "Human"
-                // fieldName === 'host (scientific name)' ||  
+                fieldName === 'host (scientific name)' ||  
                 fieldName === 'host (common name)'
               ) {
-                if (value === 'Homo sapiens' || value === 'Human')
+                if (value === 'homo sapiens' || value === 'human')
                   cellValue = 'Human';
-                else cellValue = 'ANIMAL';
+                else 
+                  cellValue = 'ANIMAL';
                 break;
               }
               if (

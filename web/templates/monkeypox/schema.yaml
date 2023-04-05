@@ -4117,16 +4117,12 @@ enums:
       Homo sapiens:
         text: Homo sapiens
         meaning: NCBITaxon:9606
-        exact_mappings:
-        - NML_LIMS:Human
   host (scientific name) international menu:
     name: host (scientific name) international menu
     permissible_values:
       Homo sapiens [NCBITaxon:9606]:
         text: Homo sapiens [NCBITaxon:9606]
         meaning: NCBITaxon:9606
-        exact_mappings:
-        - NML_LIMS:Human
   host health state menu:
     name: host health state menu
     permissible_values:
