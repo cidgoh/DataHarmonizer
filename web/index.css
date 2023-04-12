@@ -7,9 +7,6 @@ body {
   overscroll-behavior: contain;
 }
 
-.data-harmonizer-grid {
-  overflow: hidden;
-}
 .data-harmonizer-grid .secondary-header-cell:hover {
   cursor: pointer;
 }
