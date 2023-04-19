@@ -52,5 +52,12 @@
       "status": "published",
       "display": true
     }
+  },
+  "pathogen": {
+    "Pathogen Agnostic": {
+      "name": "Pathogen Agnostic",
+      "status": "published",
+      "display": true
+    }
   }
 }

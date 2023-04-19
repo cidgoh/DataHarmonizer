@@ -51,3 +51,7 @@ body {
 .handsontable.listbox td.current.highlight {
   background-color: lightblue !important;
 }
+
+.add-rows-input {
+  max-width: 100px;
+}
