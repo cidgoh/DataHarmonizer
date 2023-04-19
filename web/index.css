@@ -52,4 +52,6 @@ body {
   background-color: lightblue !important;
 }
 
-.add-rows-input {max-width:100px}
+.add-rows-input {
+  max-width: 100px;
+}
