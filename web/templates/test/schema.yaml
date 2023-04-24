@@ -1,0 +1,24 @@
+id: http://example.org/test
+name: test
+imports:
+- linkml:types
+prefixes:
+  linkml: https://w3id.org/linkml/
+
+slots:
+  string:
+    range: string
+  time:
+    range: time
+  date:
+    range: date
+  datetime:
+    range: datetime
+
+classes:
+  Entry:
+    slots:
+      - string
+      - time
+      - date
+      - datetime
