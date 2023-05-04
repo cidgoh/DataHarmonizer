@@ -46,7 +46,7 @@ with open(r_schema_slots) as tsvfile:
 
 		# Cleanup of cell contents.
 		for field in row:
-			if field != None:
+			if field != None and field != '':
 				row[field] = row[field].strip();
 
 		# A row may set a list of new class names to cycle through, which remain 
@@ -292,11 +292,11 @@ with open(r_schema_enums) as tsvfile:
 			if row.get('meaning','') > '':
 				choice['meaning'] = row.get('meaning');
 
-			# At moment linkml doesn't support exact_mappings on 
+			# Export mappings can be established for any enumeration items too.
 			if len(EXPORT_FORMAT) > 0:
 				mappings = []
 				for export_field in EXPORT_FORMAT:
-					if row[export_field] > '':
+					if export_field in row and row[export_field] > '':
 						prefix = export_field[7:] + ':'
 						for value in row[export_field].split(';'):
 							mappings.append(prefix + value)
