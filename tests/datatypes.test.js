@@ -1,4 +1,4 @@
-import { parseDatatype, stringifyDatatype } from '../lib/utils/datatypes';
+import Datatypes from '../lib/utils/datatypes';
 
 test.each([
   // value, datatype, expected
@@ -77,7 +77,8 @@ test.each([
   // value, datatype, expected
   ['whatever', 'unknown', 'whatever'],
 ])('parseDatatype(%s, %s)', (value, datatype, expected) => {
-  const actual = parseDatatype(value, datatype);
+  const datatypes = new Datatypes()
+  const actual = datatypes.parse(value, datatype);
   expect(actual).toEqual(expected);
 });
 
@@ -90,6 +91,7 @@ test.each([
   [true, 'xsd:boolean', 'true'],
   [new Date(1993, 3, 16), 'xsd:date', '1993-04-16'],
 ])('stringifyDatatype(%s, %s)', (value, datatype, expected) => {
-  const actual = stringifyDatatype(value, datatype);
+  const datatypes = new Datatypes();
+  const actual = datatypes.stringify(value, datatype);
   expect(actual).toEqual(expected);
 });
