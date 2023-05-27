@@ -6,7 +6,7 @@ sample_collected_by menu		Public Health Agency of Canada (PHAC) [GENEPIO:0100551
 		Health Canada (HC) [GENEPIO:0100554]					
 		Environment and Climate Change Canada (ECCC) [GENEPIO:0100555]					
 		Fisheries and Oceans Canada (DFO) [GENEPIO:0100556]					
-							
+		University of Manitoba (UM)					
 							
 purpose_of_sampling menu		Cluster/Outbreak investigation [GENEPIO:0100001]					
 		Diagnostic testing [GENEPIO:0100002]					
@@ -315,19 +315,29 @@ geo_loc_name (country) menu		Afghanistan [GAZ:00006882]
 		Zimbabwe [GAZ:00001106]					
 							
 							
-geo_loc_name (state/province/region) menu		Alberta [GAZ:00002566]					
-		British Columbia [GAZ:00002562]					
-		Manitoba [GAZ:00002571]					
-		New Brunswick [GAZ:00002570]					
-		Newfoundland and Labrador [GAZ:00002567]					
-		Northwest Territories [GAZ:00002575]					
-		Nova Scotia [GAZ:00002565]					
-		Nunuvut [GAZ:00002574]					
-		Ontario [GAZ:00002563]					
-		Prince Edward Island [GAZ:00002572]					
-		Quebec [GAZ:00002569]					
-		Saskatchewan [GAZ:00002564]					
-		Yukon Territory [GAZ:00002576]					
+geo_loc_name (state/province/region) menu		Atlantic region (Canada)					
+			     New Brunswick [GAZ:00002570]				
+			     Newfoundland & Labrador [GAZ:00002567]				
+			     Nova Scotia [GAZ:00002565]				
+			     Prince Edward Island [GAZ:00002572]				
+		Central region (Canada)					
+			     Ontario [GAZ:00002563]				
+			     Quebec [GAZ:00002569]				
+		Northern region (Canada)					
+			     Northwest Territories [GAZ:00002575]				
+			     Nunuvut [GAZ:00002574]				
+			     Yukon [GAZ:00002576]				
+		Pacific region (Canada)					
+			     British Columbia [GAZ:00002562]				
+		Prairie region (Canada)					
+			     Alberta [GAZ:00002566]				
+			     Manitoba [GAZ:00002571]				
+			     Saskatchewan [GAZ:00002564]				
+							
+							
+sample_collection_date_precision menu		year [UO:0000036]					
+		month [UO:0000035]					
+		day [UO:0000033]					
 							
 							
 environmental_site menu		Abattoir [ENVO:01000925]					
@@ -400,54 +410,54 @@ environmental_site menu		Abattoir [ENVO:01000925]
 		Zoo [ENVO:00010625]					
 							
 							
-available_data_types menu		Documentation					
-			Experimental parameters documentation				
-			Feed history				
-			Land use information				
-			Therapeutic administration history 				
-		Chemical characterization					
-			pH measurement				
-			Dissolved oxygen measurement				
-			Nitrate measurement				
-			Nitrite measurement				
-			Phosphorous measurement				
-			Salinity measurement				
-		Microbiological characterization					
-			Microbiological identification				
-				Microbiological identification (Beckson Dickson BBL Crystal)			
-				Microbiological identification (bioMérieux API) 			
-				Microbiological identification (Biolog) 			
-				Microbiological identification (FAME) 			
-				Microbiological identification (Sensititre) 			
-				Microbiological identification (ViTek) 			
-				Phage type			
-				Serotype			
-			Phenotypic microbiological characterization				
-				AMR phenotypic testing			
-				Biolog phenotype microarray			
-		Microbiological quantification					
-			Colony count				
-				Total coliform count			
-				Total fecal coliform count			
-			Infectivity assay				
-			ELISA toxin binding				
-		Molecular characterization					
-			16S rRNA Sanger sequencing data				
-			PCR marker detection data				
-				BOX PCR fingerprint data			
-				ERIC PCR fingerprint data			
-			Plasmid type data				
-			Ribotype data				
-		Molecular quantification					
-			qPCR marker organism quantification				
-		Physical characterization					
-			Conductivity measurement				
-			Mollusc shell measurement				
-				Mollusc shell length			
-			Matter compostion				
-				Dry matter composition			
-				Organic matter composition			
-			Turbidity measurement				
+available_data_types menu		Documentation [GENEPIO:0100702]					
+			Experimental parameters documentation [GENEPIO:0100703]				
+			Feed history [GENEPIO:0100704]				
+			Land use information [GENEPIO:0100705]				
+			Therapeutic administration history  [GENEPIO:0100706]				
+		Chemical characterization [GENEPIO:0100707]					
+			pH measurement [GENEPIO:0100708]				
+			Dissolved oxygen measurement [GENEPIO:0100709]				
+			Nitrate measurement [GENEPIO:0100710]				
+			Nitrite measurement [GENEPIO:0100711]				
+			Phosphorous measurement [GENEPIO:0100712]				
+			Salinity measurement [GENEPIO:0100713]				
+		Microbiological characterization [GENEPIO:0100714]					
+			Microbiological identification [GENEPIO:0100715]				
+				Microbiological identification (Beckson Dickson BBL Crystal) [GENEPIO:0100716]			
+				Microbiological identification (bioMérieux API) [GENEPIO:0100717]			
+				Microbiological identification (Biolog) [GENEPIO:0100718]			
+				Microbiological identification (FAME) [GENEPIO:0100719]			
+				Microbiological identification (Sensititre) [GENEPIO:0100720]			
+				Microbiological identification (ViTek) [GENEPIO:0100721]			
+				Phage type [GENEPIO:0100722]			
+				Serotype [GENEPIO:0100723]			
+			Phenotypic microbiological characterization [GENEPIO:0100724]				
+				AMR phenotypic testing [GENEPIO:0100725]			
+				Biolog phenotype microarray [GENEPIO:0100726]			
+		Microbiological quantification [GENEPIO:0100727]					
+			Colony count [GENEPIO:0100728]				
+				Total coliform count [GENEPIO:0100729]			
+				Total fecal coliform count [GENEPIO:0100730]			
+			Infectivity assay [GENEPIO:0100731]				
+			ELISA toxin binding [GENEPIO:0100732]				
+		Molecular characterization [GENEPIO:0100733]					
+			16S rRNA Sanger sequencing [GENEPIO:0100734]				
+			PCR marker detection [GENEPIO:0100735]				
+				BOX PCR fingerprint [GENEPIO:0100736]			
+				ERIC PCR fingerprint [GENEPIO:0100737]			
+			Plasmid type [GENEPIO:0100738]				
+			Ribotype [GENEPIO:0100739]				
+		Molecular quantification [GENEPIO:0100740]					
+			qPCR marker organism quantification [GENEPIO:0100741]				
+		Physical characterization [GENEPIO:0100742]					
+			Conductivity measurement [GENEPIO:0100743]				
+			Mollusc shell measurement [GENEPIO:0100744]				
+				Mollusc shell length [GENEPIO:0100745]			
+			Matter compostion [GENEPIO:0100746]				
+				Dry matter composition [GENEPIO:0100747]			
+				Organic matter composition [GENEPIO:0100748]			
+			Turbidity measurement [GENEPIO:0100749]				
 							
 							
 weather_type menu		Cloudy/Overcast [ENVO:03501418]					
@@ -736,7 +746,7 @@ food_product menu		Animal feed [ENVO:02000047]
 				Chicken meat (ground or minced, regular) [FOODON:03000404]			
 				Chicken meat (ground or minced, boneless) [FOODON:03000410]			
 			Chicken nugget [FOODON:00002672]				
-			Chicken thigh [GENEPIO:0002752]				
+			Chicken thigh				
 				Chicken thigh (skinless) [FOODON:00003331]			
 				Chicken thigh (skinless, boneless) [FOODON:03000417]			
 				Chicken thigh (with skin) [FOODON:00003330]			
@@ -907,6 +917,18 @@ animal_source_of_food menu		Cow [NCBITaxon:9913]
 			Chicken [NCBITaxon:9031]				
 			Turkey [NCBITaxon:9103]				
 		Sheep [NCBITaxon:9940]					
+							
+							
+production_stream menu		Food animal production stream					
+			Beef cattle production stream				
+			Broiler chicken production stream				
+			Dairy cattle production stream				
+			Layer chicken production stream				
+		Food product production stream					
+			Egg production stream				
+			Meat production stream				
+				Veal production stream			
+			Milk production stream				
 							
 							
 collection_device menu		Auger (earth auger) [AGRO:00000405]					
