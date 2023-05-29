@@ -4139,10 +4139,6 @@
           "text": "Enterobacter roggenkampii [NCBITaxon:1812935]",
           "is_a": "Enterobacter [NCBITaxon:547]"
         },
-        "Enterobacter sp. [NCBITaxon:42895]": {
-          "text": "Enterobacter sp. [NCBITaxon:42895]",
-          "is_a": "Enterobacter [NCBITaxon:547]"
-        },
         "Lelliottia amnigena [NCBITaxon:61646]": {
           "text": "Lelliottia amnigena [NCBITaxon:61646]",
           "is_a": "Enterobacter [NCBITaxon:547]"
@@ -6024,7 +6020,7 @@
       "recommended": true,
       "any_of": [
         {
-          "range": "host (common name) menu"
+          "range": "host (scientific name) menu"
         },
         {
           "range": "null value menu"
