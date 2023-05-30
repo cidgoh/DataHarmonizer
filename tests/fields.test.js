@@ -3,6 +3,8 @@ import {
   dataObjectToArray,
   parseMultivaluedValue,
   formatMultivaluedValue,
+  REMOVE,
+  JSON_SCHEMA_FORMAT,
 } from '../lib/utils/fields';
 
 const fields = [
@@ -31,6 +33,14 @@ const fields = [
     name: 'f',
     datatype: 'xsd:float',
     multivalued: true,
+  },
+  {
+    name: 'g',
+    datatype: 'xsd:dateTime',
+  },
+  {
+    name: 'h',
+    datatype: 'xsd:time',
   },
 ];
 
@@ -68,18 +78,41 @@ describe('dataArrayToObject', () => {
     const dataArray = ['5.85', '21.25', '', '', '', '5; asdf; 18'];
     const dataObject = dataArrayToObject(dataArray, fields);
     expect(dataObject).toEqual({
+      a: '5.85',
+      b: 21.25,
+      f: [5, 'asdf', 18],
+    });
+  });
+
+  test('includes all values when parseFailureBehavior = REMOVE', () => {
+    const dataArray = ['5.85', '21.25', '', '', '', '5; asdf; 18'];
+    const dataObject = dataArrayToObject(dataArray, fields, {
+      parseFailureBehavior: REMOVE,
+    });
+    expect(dataObject).toEqual({
       b: 21.25,
       f: [5, 18],
     });
   });
 
-  test('includes all values when strict = false', () => {
-    const dataArray = ['5.85', '21.25', '', '', '', '5; asdf; 18'];
-    const dataObject = dataArrayToObject(dataArray, fields, { strict: false });
+  test('returns correctly formatted string with dateBehavior = JSON_SCHEMA_FORMAT', () => {
+    const dataArray = [
+      '',
+      '',
+      '',
+      '2023-05-25',
+      '',
+      '',
+      '2023-05-25 16:30',
+      '04:44',
+    ];
+    const dataObject = dataArrayToObject(dataArray, fields, {
+      dateBehavior: JSON_SCHEMA_FORMAT,
+    });
     expect(dataObject).toEqual({
-      a: '5.85',
-      b: '21.25',
-      f: ['5', 'asdf', '18'],
+      d: '2023-05-25',
+      g: '2023-05-25T16:30:00',
+      h: '04:44:00',
     });
   });
 });
@@ -93,7 +126,16 @@ describe('dataObjectToArray', () => {
       d: new Date(2018, 1, 15),
     };
     const dataArray = dataObjectToArray(dataObject, fields);
-    expect(dataArray).toEqual(['1', '1.5', 'true', '2018-02-15', '', '']);
+    expect(dataArray).toEqual([
+      '1',
+      '1.5',
+      'true',
+      '2018-02-15',
+      '',
+      '',
+      '',
+      '',
+    ]);
   });
 
   test('returns delimited strings for multivalued fields', () => {
@@ -103,7 +145,7 @@ describe('dataObjectToArray', () => {
       f: 33,
     };
     const dataArray = dataObjectToArray(dataObject, fields);
-    expect(dataArray).toEqual(['', '33.333', '', '', 'a; b; c', '33']);
+    expect(dataArray).toEqual(['', '33.333', '', '', 'a; b; c', '33', '', '']);
   });
 });
 
