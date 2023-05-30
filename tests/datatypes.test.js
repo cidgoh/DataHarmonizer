@@ -1,5 +1,11 @@
 import Datatypes, { stringifyJsonSchemaDate } from '../lib/utils/datatypes';
 
+function getDateObjectForTime(hours, minutes, seconds) {
+  const dateObject = new Date(0);
+  dateObject.setHours(hours, minutes, seconds);
+  return dateObject;
+}
+
 test.each([
   // value, datatype, expected
   ['13', 'xsd:integer', 13],
@@ -83,7 +89,7 @@ test.each([
   [' ', 'xsd:dateTime', undefined],
   ['asdf', 'xsd:dateTime', undefined],
   // value, datatype, expected
-  ['15:15', 'xsd:time', new Date(1969, 11, 31, 15, 15)],
+  ['15:15', 'xsd:time', getDateObjectForTime(15, 15, 0)],
   ['3:15 PM', 'xsd:time', undefined],
   ['May 15, 2007 15:15', 'xsd:time', undefined],
   ['', 'xsd:time', undefined],
@@ -129,7 +135,7 @@ test('it should accept custom formats', () => {
   expect(datatypes.parseDate('2023-10-04 15:33')).toEqual(undefined);
 
   expect(datatypes.parseTime('3:44:55 PM')).toEqual(
-    new Date(1969, 11, 31, 15, 44, 55)
+    getDateObjectForTime(15, 44, 55)
   );
   expect(datatypes.parseDate('15:44:55')).toEqual(undefined);
 
