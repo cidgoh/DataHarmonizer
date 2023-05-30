@@ -1,6 +1,4 @@
-import Datatypes, {
-  stringifyDateObjectForJsonSchema,
-} from '../lib/utils/datatypes';
+import Datatypes, { stringifyJsonSchemaDate } from '../lib/utils/datatypes';
 
 test.each([
   // value, datatype, expected
@@ -145,13 +143,9 @@ test('it should accept custom formats', () => {
 
 test('stringifyDateObjectForJsonSchema', () => {
   const input = new Date(2023, 9, 31, 16, 45);
-  expect(stringifyDateObjectForJsonSchema(input, 'xsd:date')).toEqual(
-    '2023-10-31'
-  );
-  expect(stringifyDateObjectForJsonSchema(input, 'xsd:dateTime')).toEqual(
+  expect(stringifyJsonSchemaDate(input, 'xsd:date')).toEqual('2023-10-31');
+  expect(stringifyJsonSchemaDate(input, 'xsd:dateTime')).toEqual(
     '2023-10-31T16:45:00'
   );
-  expect(stringifyDateObjectForJsonSchema(input, 'xsd:time')).toEqual(
-    '16:45:00'
-  );
+  expect(stringifyJsonSchemaDate(input, 'xsd:time')).toEqual('16:45:00');
 });
