@@ -1,4 +1,6 @@
-import Datatypes from '../lib/utils/datatypes';
+import Datatypes, {
+  stringifyDateObjectForJsonSchema,
+} from '../lib/utils/datatypes';
 
 test.each([
   // value, datatype, expected
@@ -83,7 +85,7 @@ test.each([
   [' ', 'xsd:dateTime', undefined],
   ['asdf', 'xsd:dateTime', undefined],
   // value, datatype, expected
-  ['15:15', 'xsd:time', '15:15'],
+  ['15:15', 'xsd:time', new Date(1969, 11, 31, 15, 15)],
   ['3:15 PM', 'xsd:time', undefined],
   ['May 15, 2007 15:15', 'xsd:time', undefined],
   ['', 'xsd:time', undefined],
@@ -128,7 +130,9 @@ test('it should accept custom formats', () => {
   );
   expect(datatypes.parseDate('2023-10-04 15:33')).toEqual(undefined);
 
-  expect(datatypes.parseTime('3:44:55 PM')).toEqual('3:44:55 PM');
+  expect(datatypes.parseTime('3:44:55 PM')).toEqual(
+    new Date(1969, 11, 31, 15, 44, 55)
+  );
   expect(datatypes.parseDate('15:44:55')).toEqual(undefined);
 
   expect(datatypes.stringifyDate(new Date(1999, 4, 15, 15, 35, 22))).toEqual(
@@ -136,5 +140,18 @@ test('it should accept custom formats', () => {
   );
   expect(datatypes.stringifyDateTime(new Date(1994, 8, 1, 15, 25, 35))).toEqual(
     '01 September 1994 @ 3:25 PM'
+  );
+});
+
+test('stringifyDateObjectForJsonSchema', () => {
+  const input = new Date(2023, 9, 31, 16, 45);
+  expect(stringifyDateObjectForJsonSchema(input, 'xsd:date')).toEqual(
+    '2023-10-31'
+  );
+  expect(stringifyDateObjectForJsonSchema(input, 'xsd:dateTime')).toEqual(
+    '2023-10-31T16:45:00'
+  );
+  expect(stringifyDateObjectForJsonSchema(input, 'xsd:time')).toEqual(
+    '16:45:00'
   );
 });
