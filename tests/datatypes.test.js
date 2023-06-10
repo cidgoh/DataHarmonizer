@@ -1,4 +1,10 @@
-import { parseDatatype, stringifyDatatype } from '../lib/utils/datatypes';
+import { Datatypes, stringifyJsonSchemaDate } from '../lib/utils/datatypes';
+
+function getDateObjectForTime(hours, minutes, seconds) {
+  const dateObject = new Date(0);
+  dateObject.setHours(hours, minutes, seconds);
+  return dateObject;
+}
 
 test.each([
   // value, datatype, expected
@@ -75,9 +81,25 @@ test.each([
   [' ', 'xsd:date', undefined],
   ['asdf', 'xsd:date', undefined],
   // value, datatype, expected
+  ['1993-04-16 15:15', 'xsd:dateTime', new Date(1993, 3, 16, 15, 15)],
+  ['1993-13-16 15:15', 'xsd:dateTime', undefined],
+  ['1993-04-16 3:15 PM', 'xsd:dateTime', undefined],
+  ['May 15, 2007 15:15', 'xsd:dateTime', undefined],
+  ['', 'xsd:dateTime', undefined],
+  [' ', 'xsd:dateTime', undefined],
+  ['asdf', 'xsd:dateTime', undefined],
+  // value, datatype, expected
+  ['15:15', 'xsd:time', getDateObjectForTime(15, 15, 0)],
+  ['3:15 PM', 'xsd:time', undefined],
+  ['May 15, 2007 15:15', 'xsd:time', undefined],
+  ['', 'xsd:time', undefined],
+  [' ', 'xsd:time', undefined],
+  ['asdf', 'xsd:time', undefined],
+  // value, datatype, expected
   ['whatever', 'unknown', 'whatever'],
-])('parseDatatype(%s, %s)', (value, datatype, expected) => {
-  const actual = parseDatatype(value, datatype);
+])('parse("%s", "%s")', (value, datatype, expected) => {
+  const datatypes = new Datatypes();
+  const actual = datatypes.parse(value, datatype);
   expect(actual).toEqual(expected);
 });
 
@@ -88,8 +110,48 @@ test.each([
   [-42.19, 'xsd:double', '-42.19'],
   [1.1, 'xsd:decimal', '1.1'],
   [true, 'xsd:boolean', 'true'],
-  [new Date(1993, 3, 16), 'xsd:date', '1993-04-16'],
-])('stringifyDatatype(%s, %s)', (value, datatype, expected) => {
-  const actual = stringifyDatatype(value, datatype);
+  [new Date(1993, 3, 16, 15, 16, 17), 'xsd:date', '1993-04-16'],
+  [new Date(1993, 3, 16, 15, 16, 17), 'xsd:dateTime', '1993-04-16 15:16'],
+  ['15:16', 'xsd:time', '15:16'],
+])('stringify("%s", "%s")', (value, datatype, expected) => {
+  const datatypes = new Datatypes();
+  const actual = datatypes.stringify(value, datatype);
   expect(actual).toEqual(expected);
+});
+
+test('it should accept custom formats', () => {
+  const datatypes = new Datatypes({
+    dateFormat: 'MMM d, yyyy',
+    datetimeFormat: 'dd MMMM yyyy @ h:mm a',
+    timeFormat: 'h:mm:ss a',
+  });
+
+  expect(datatypes.parseDate('Jan 2, 2022')).toEqual(new Date(2022, 0, 2));
+  expect(datatypes.parseDate('2022-01-02')).toEqual(undefined);
+
+  expect(datatypes.parseDateTime('04 Oct 2023 @ 3:33 PM')).toEqual(
+    new Date(2023, 9, 4, 15, 33)
+  );
+  expect(datatypes.parseDate('2023-10-04 15:33')).toEqual(undefined);
+
+  expect(datatypes.parseTime('3:44:55 PM')).toEqual(
+    getDateObjectForTime(15, 44, 55)
+  );
+  expect(datatypes.parseDate('15:44:55')).toEqual(undefined);
+
+  expect(datatypes.stringifyDate(new Date(1999, 4, 15, 15, 35, 22))).toEqual(
+    'May 15, 1999'
+  );
+  expect(datatypes.stringifyDateTime(new Date(1994, 8, 1, 15, 25, 35))).toEqual(
+    '01 September 1994 @ 3:25 PM'
+  );
+});
+
+test('stringifyDateObjectForJsonSchema', () => {
+  const input = new Date(2023, 9, 31, 16, 45);
+  expect(stringifyJsonSchemaDate(input, 'xsd:date')).toEqual('2023-10-31');
+  expect(stringifyJsonSchemaDate(input, 'xsd:dateTime')).toEqual(
+    '2023-10-31T16:45:00'
+  );
+  expect(stringifyJsonSchemaDate(input, 'xsd:time')).toEqual('16:45:00');
 });
