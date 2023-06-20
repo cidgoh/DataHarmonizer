@@ -189,17 +189,17 @@ types:
 ```
 then with command prompt in that file’s template folder, run
  
-> python ../../../script/linkml.py -i schema.yaml
+> > python ../../../script/linkml.py -i schema.yaml
  
 This will generate the schema.json file, it also adds a menu item for your specification by adjusting /web/templates/menu.js.
  
 To test and run go to DH root folder and type (as documented on github main code page):
 
-> yarn dev
+> > yarn dev
 
 To build a stand alone set of JS files in /web/dist/
 
-> yarn build:web
+> > yarn build:web
 
 The /web/dist/ folder can then be zipped or copied separately to wherever you want to make the app available.
 
