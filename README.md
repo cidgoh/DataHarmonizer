@@ -153,7 +153,7 @@ With a [schema name] of your choice, Work in **/web/templates/[schema name]/**
 // A dictionary of possible export formats
 export default {};
 ```
-- Assemble 1 **schema.yaml** file by hand. It should be a merger of what you have for a valid linkml schema.yaml file (your existing schema) and at least an extra **dh_interface** class. The “dh_interface” stuff below that signals to DH to show the given class. Below we are using an AMBR class as an example:
+- Assemble one **schema.yaml** file by hand. It should be a merger of a valid linkml schema.yaml file (your existing schema) and at least an extra **dh_interface** class. The “dh_interface” class signals to DH to show the given class as a template menu option. Below we are using an AMBR class as an example:
  
 ```
 classes:
@@ -170,7 +170,7 @@ classes:
       associated with the isolate repository from this work.
     is_a: dh_interface
 ```
- - You might want to add all the “types: {}” from one of the other specification schema.core.yaml file examples existing in /web/templates/, since this allows DH things like the "provenance" slot, and allows use of the "whitespaceMinimizedString" datatype which blocks unnecessary spaces, but this is not essential.
+ - Optionally add all the “types: {}” from one of the other specification schema.core.yaml file examples existing in /web/templates/, since this allows DH things like the "provenance" slot, and allows use of the "whitespaceMinimizedString" datatype which blocks unnecessary spaces, but this is not essential.
 
 ```
 types:
@@ -189,7 +189,7 @@ types:
 ```
 then with command prompt in that file’s template folder, run
  
-> python3 ../../../script/linkml.py -i schema.yaml
+> python ../../../script/linkml.py -i schema.yaml
  
 This will generate the schema.json file, it also adds a menu item for your specification by adjusting /web/templates/menu.js.
  
@@ -201,7 +201,7 @@ To build a stand alone set of JS files in /web/dist/
 
 > yarn build:web
 
-These can then be zipped or copied separately to wherever you want to make them available.
+The /web/dist/ folder can then be zipped or copied separately to wherever you want to make the app available.
 
 
 `TODO: describe how to use the DataHarmonizer javascript API.`
