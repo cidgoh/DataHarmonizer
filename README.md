@@ -146,22 +146,23 @@ To bundle the library components into lib/dist for downstream clients to use via
 yarn build:lib
 ```
 
-## Making templates:
-With a [schema name] of your choice, Work in **/web/templates/[schema name]/**
-- Add one almost empty file “**export.js**” to the same folder.   It contains:
+## Making templates
+
+With a `[schema name]` of your choice, work in **`/web/templates/[schema name]/`**
+- Add one almost empty file **`export.js`** to the same folder.   It contains:
 ```
 // A dictionary of possible export formats
 export default {};
 ```
-- Assemble one **schema.yaml** file by hand. It should be a merger of a valid linkml schema.yaml file (your existing schema) and at least an extra **dh_interface** class. The “dh_interface” class signals to DH to show the given class as a template menu option. Below we are using an AMBR class as an example:
+- Assemble one **`schema.yaml`** file by hand. It should be a merger of a valid linkml `schema.yaml` file (your existing schema) and at least an extra **`dh_interface`** class. The `dh_interface` class signals to DH to show the given class as a template menu option. Below we are using an AMBR class as an example:
  
 ```
 classes:
   dh_interface:
     name: dh_interface
     description: A DataHarmonizer interface
-    from_schema: https://example.com/AMBR
-  AMBR:
+    from_schema: https://example.com/AMBR # HERE CHANGE TO [schema name] URI
+  AMBR:    # HERE CHANGE TO [schema name]
     name: AMBR
     description: The AMBR Project, led by the Harrison Lab at the University of Calgary,
       is an interdisciplinary study aimed at using 16S sequencing as part of a culturomics
@@ -170,7 +171,7 @@ classes:
       associated with the isolate repository from this work.
     is_a: dh_interface
 ```
- - Optionally add all the “types: {}” from one of the other specification schema.core.yaml file examples existing in /web/templates/, since this allows DH things like the "provenance" slot, and allows use of the "whitespaceMinimizedString" datatype which blocks unnecessary spaces, but this is not essential.
+ - Optionally add all the `types: {}` from one of the other specification `schema.core.yaml` file examples existing in `/web/templates/`, since this allows DH things like the "provenance" slot, and allows use of the `whitespaceMinimizedString` datatype which blocks unnecessary spaces, but this is not essential.
 
 ```
 types:
@@ -187,21 +188,39 @@ types:
     base: str
     uri: xsd:token
 ```
-then with command prompt in that file’s template folder, run
+- Generate the `schema.json` file in that file’s template folder (`/web/templates/[schema name]/`) by running
+
+```shell
+python ../../../script/linkml.py -i schema.yaml
+```
  
-> python ../../../script/linkml.py -i schema.yaml
+This will also add a menu item for your specification by adjusting `/web/templates/menu.json`.
+
+- Check the updated `/web/templates/menu.json`. With this example, the template menu will be "ambr/AMBR".
+
+```json
+ "ambr": {
+    "AMBR": { # Make sure the right class is called by DH
+      "name": "AMBR",
+      "status": "published",
+      "display": true # Make sure the status is set to true
+    }
+```
  
-This will generate the schema.json file, it also adds a menu item for your specification by adjusting /web/templates/menu.js.
- 
-To test and run go to DH root folder and type (as documented on github main code page):
+- Test your template, by going to the DH root folder and type (as documented on github main code page):
 
-> yarn dev
+```shell
+yarn dev
+```
 
-To build a stand alone set of JS files in /web/dist/
+You can then browse to <http://localhost:8080> to try out the template.
 
-> yarn build:web
+- you can then build a stand alone set of JS files in `/web/dist/`
 
-The /web/dist/ folder can then be zipped or copied separately to wherever you want to make the app available.
+```shell
+yarn build:web
+```
+The `/web/dist/` folder can then be zipped or copied separately to wherever you want to make the app available.
 
 
 `TODO: describe how to use the DataHarmonizer javascript API.`
