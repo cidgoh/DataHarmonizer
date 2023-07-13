@@ -1314,7 +1314,7 @@ AMR_testing_by menu		Public Health Agency of Canada (PHAC) [GENEPIO:0100551]
 		Fisheries and Oceans Canada (DFO) [GENEPIO:0100556]					
 							
 							
-AMR_phenotype menu		Antibiotic resistance not defined [GENEPIO:0002040]					
+antimicrobial_phenotype menu		Antibiotic resistance not defined [GENEPIO:0002040]					
 			Intermediate antimicrobial phenotype [ARO:3004300]				
 			Indeterminate antimicrobial phenotype [GENEPIO:0100585]				
 		Nonsusceptible antimicrobial phenotype [ARO:3004303]					
@@ -1323,32 +1323,38 @@ AMR_phenotype menu		Antibiotic resistance not defined [GENEPIO:0002040]
 		Susceptible dose dependent antimicrobial phenotype [ARO:3004304]					
 							
 							
-AMR_measurement_units menu		mg/L [UO:0000273]					
+antimicrobial_measurement_units menu		mg/L [UO:0000273]					
 		mm [UO:0000016]					
 		ug/mL [UO:0000274]					
 							
 							
-AMR_measurement_sign menu		less than  (<) [GENEPIO:0001002]					
+antimicrobial_measurement_sign menu		less than  (<) [GENEPIO:0001002]					
 		less than or equal to (<=) [GENEPIO:0001003]					
 		equal to (==) [GENEPIO:0001004]					
 		greater than (>) [GENEPIO:0001006]					
 		greater than or equal to (>=) [GENEPIO:0001005]					
 							
 							
-AMR_laboratory_typing_method menu		Agar diffusion [NCIT:85595]					
+antimicrobial_laboratory_typing_method menu		Agar diffusion [NCIT:85595]					
 		Antimicrobial gradient (E-test) [NCIT:85596]					
 		Agar dilution [ARO:3004411]					
 		Broth dilution [ARO:3004397]					
 							
 							
-AMR_laboratory_typing_platform menu		BIOMIC Microbiology System					
+antimicrobial_laboratory_typing_platform menu		BIOMIC Microbiology System					
 		Microscan [ARO:3004400]					
 		Phoenix [ARO:3004401]					
 		Sensititre [ARO:3004402]					
 		Vitek System [ARO:3004403]					
 							
+antimicrobial_vendor_name		Becton Dickinson [ARO:3004405]					
+		bioMérieux [ARO:3004406]					
+		Omron [ARO:3004408]					
+		Siemens [ARO:3004407]					
+		Trek [ARO:3004409]					
 							
-AMR_testing_standard menu		British Society for Antimicrobial Chemotherapy (BSAC) [ARO:3004365]					
+							
+antimicrobial_testing_standard menu		British Society for Antimicrobial Chemotherapy (BSAC) [ARO:3004365]					
 		Clinical Laboratory and Standards Institute (CLSI) [ARO:3004366]					
 		Deutsches Institut für Normung (DIN) [ARO:3004367]					
 		European Committee on Antimicrobial Susceptibility Testing (EUCAST) [ARO:3004368]					
