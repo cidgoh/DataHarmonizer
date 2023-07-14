@@ -15,8 +15,20 @@
           class="dropdown-item"
           data-toggle="modal"
           data-target="#select-template-modal"
-          >Change Template</span
+          >Select Template</span
         >
+        <label
+          for="upload-template-input"
+          class="dropdown-item mb-0"
+          id="upload-template-dropdown-item"
+          >Upload Template</label
+        >
+        <input
+          type="file"
+          accept=".json"
+          class="form-control-file"
+          id="upload-template-input"
+        />
         <span class="dropdown-item" id="new-dropdown-item">New</span>
         <label
           for="open-file-input"
@@ -505,6 +517,35 @@
           <div class="container-fluid">
             <div class="row">
               <div class="col text-danger" id="open-err-msg"></div>
+            </div>
+            <div class="row mt-3">
+              <div class="col d-flex justify-content-end">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-dismiss="modal"
+                >
+                  Ok
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="modal"
+    id="upload-template-error-modal"
+    tabindex="-1"
+    role="dialog"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col text-danger" id="upload-template-err-msg"></div>
             </div>
             <div class="row mt-3">
               <div class="col d-flex justify-content-end">
