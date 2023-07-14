@@ -1,0 +1,38 @@
+id: https://w3id.org/ess-dive
+name: ess-dive
+description: ess-dive
+version: 2.3.0
+imports:
+- linkml:types
+prefixes:
+  linkml: https://w3id.org/linkml/
+  ess-dive: https://w3id.org/ess-dive
+default_prefix: ess-dive
+classes:
+  dh_interface:
+    name: dh_interface
+    description: "A DataHarmonizer interface"
+    from_schema: https://example.com/ESS-DIVE
+  "ESS-DIVE":
+    name: "ESS-DIVE"
+    description: ESS-DIVE specification for data
+    is_a: dh_interface
+slots: {}
+enums: {}
+types:
+  WhitespaceMinimizedString:
+    name: 'WhitespaceMinimizedString'
+    typeof: string
+    description: 'A string that has all whitespace trimmed off of beginning and end, and all internal whitespace segments reduced to single spaces. Whitespace includes #x9 (tab), #xA (linefeed), and #xD (carriage return).'
+    base: str
+    uri: xsd:token
+  Provenance:
+    name: 'Provenance'
+    typeof: string
+    description: 'A field containing a DataHarmonizer versioning marker. It is issued by DataHarmonizer when validation is applied to a given row of data.'
+    base: str
+    uri: xsd:token
+settings:
+  Title_Case: "(((?<=\\b)[^a-z\\W]\\w*?|[\\W])+)"
+  UPPER_CASE: "[A-Z\\W\\d_]*"
+  lower_case: "[a-z\\W\\d_]*"
