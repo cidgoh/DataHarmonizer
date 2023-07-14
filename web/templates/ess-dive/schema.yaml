@@ -1,0 +1,388 @@
+name: ess-dive
+description: ess-dive
+id: https://w3id.org/ess-dive
+imports:
+- linkml:types
+prefixes:
+  linkml: https://w3id.org/linkml/
+  ess-dive: https://w3id.org/ess-dive
+default_prefix: ess-dive
+classes:
+  dh_interface:
+    name: dh_interface
+    description: "A DataHarmonizer interface"
+    from_schema: FILL IN THE BLANK
+    is_a: dh_interface
+  "ESS-DIVE":
+    name: "ESS-DIVE"
+    description: ESS-DIVE specification for data
+    slots:
+    - Object Type
+    - User Code
+    - Sample Name
+    - Other names
+    - IGSN
+    - Parent IGSN
+    - Collection ID
+    - Event ID
+    - Location ID
+    - Material
+    - Field name informal classification
+    - Sample Description
+    - Purpose
+    - Size
+    - Size unit
+    - Filter Size
+    - Filter Size Unit
+    - Scientific Name
+    - Sample Remarks
+    - Collector Chief Scientist
+    - Collection Date
+    - Collection Time
+    - Collection Method Description
+    - Sample Processing
+    - Field Program or Project Name
+    - Latitude Coordinate system WGS 84
+    - Longitude Coordinate system WGS 84
+    - Navigation Type
+    - Location Description
+    - Country
+    - Elevation start
+    - Elevation end
+    - Elevation unit
+    - Minimum Depth in Meters
+    - Maximum Depth in Meters
+    - Depth scale
+    - Minimum Distance above Surface in Meters
+    - Maximum Distance above Surface in Meters
+    - Physiolographic feature
+    - Biome
+    - Release Date
+    - Current Archive
+    - Current Archive Contact
+    slot_usage:
+      Sample Name:
+        rank: 1
+        slot_group: Sample IDs and Related Identifiers
+      Other names:
+        rank: 2
+        slot_group: Sample IDs and Related Identifiers
+      IGSN:
+        rank: 3
+        slot_group: Sample IDs and Related Identifiers
+      Parent IGSN:
+        rank: 4
+        slot_group: Sample IDs and Related Identifiers
+      Collection ID:
+        rank: 5
+        slot_group: Sample IDs and Related Identifiers
+      Event ID:
+        rank: 6
+        slot_group: Sample IDs and Related Identifiers
+      Location ID:
+        rank: 7
+        slot_group: Sample IDs and Related Identifiers
+      Material:
+        rank: 8
+        slot_group: Sample Description
+      Field name informal classification:
+        rank: 9
+        slot_group: Sample Description
+      Sample Description:
+        rank: 10
+        slot_group: Sample Description
+      Purpose:
+        rank: 11
+        slot_group: Sample Description
+      Size:
+        rank: 12
+        slot_group: Sample Description
+      Size unit:
+        rank: 13
+        slot_group: Sample Description
+      Filter Size:
+        rank: 14
+        slot_group: Sample Description
+      Filter Size Unit:
+        rank: 15
+        slot_group: Sample Description
+      Scientific Name:
+        rank: 16
+        slot_group: Sample Description
+      Sample Remarks:
+        rank: 17
+        slot_group: Sample Description
+      Collector Chief Scientist:
+        rank: 18
+        slot_group: Sample Collection Details
+      Collection Date:
+        rank: 18
+        slot_group: Sample Collection Details
+      Collection Time:
+        rank: 19
+        slot_group: Sample Collection Details
+      Collection Method Description:
+        rank: 20
+        slot_group: Sample Collection Details
+      Sample Processing:
+        rank: 21
+        slot_group: Sample Collection Details
+      Field Program or Project Name:
+        rank: 22
+        slot_group: Sample Collection Details
+      Latitude Coordinate system WGS 84:
+        rank: 23
+        slot_group: Location
+      Longitude Coordinate system WGS 84:
+        rank: 24
+        slot_group: Location
+      Navigation Type:
+        rank: 25
+        slot_group: Location
+      Location Description:
+        rank: 26
+        slot_group: Location
+      Country:
+        rank: 27
+        slot_group: Location
+      Elevation start:
+        rank: 28
+        slot_group: Location
+      Elevation end:
+        rank: 29
+        slot_group: Location
+      Elevation unit:
+        rank: 30
+        slot_group: Location
+      Minimum Depth in Meters:
+        rank: 31
+        slot_group: Location
+      Maximum Depth in Meters:
+        rank: 32
+        slot_group: Location
+      Depth scale:
+        rank: 33
+        slot_group: Location
+      Minimum Distance above Surface in Meters:
+        rank: 34
+        slot_group: Location
+      Maximum Distance above Surface in Meters:
+        rank: 35
+        slot_group: Location
+      Physiographic feature:
+        rank: 36
+        slot_group: Environmental Context
+      Biome:
+        rank: 37
+        slot_group: Environmental Context
+      Release Date:
+        rank: 38
+        slot_group: Sample Access
+      Current Archive:
+        rank: 39
+        slot_group: Sample Access
+      Current Archive Contact:
+        rank: 40
+        slot_group: Sample Access
+    enums:
+      Sample Type menu:
+        name: Sample Type menu
+        permissable_vales:
+          Core:
+            text: Core
+          Core Catcher:
+            text: Core Catcher
+          Core Half Round:
+            text: Core Half Round
+          Core Piece:
+            text: Core Piece
+          Core Quarter Round:
+            text: Core Quarter Round
+          Core Section:
+            text: Core Section
+          Core Section Half:
+            text: Core Section Half
+          Core Slab:
+            text: Core Slab
+          Core Sub-Piece:
+            text: Core Sub-Piece
+          Core U-Channel:
+            text: Core U-Channel
+          Core Whole Round:
+            text: Core Whole Round
+          CTD:
+            text: CTD
+          Cuttings:
+            text: Cuttings
+          Dredge:
+            text: Dredge
+          Experimental Specimen:
+            text: Experimental Specimen
+          Grab:
+            text: Grab
+          Hole:
+            text: Hole
+          Individual Sample:
+            text: Individual Sample
+          Oriented Core:
+            text: Oriented Core
+          Other:
+            text: Other
+          Rock Powder:
+            text: Rock Powder
+          Site:
+            text: Site
+          Terrestrial Section:
+            text: Terrestrial Section
+      Material menu:
+        name: Material menu
+        permissable_vales:
+          Gas:
+            text: Gas
+          Particulate:
+            text: Particulate
+          Rock:
+            text: Rock
+          Soil:
+            text: Soil
+          Ice:
+            text: Ice
+          Liquid Aqueous:
+            text: Liquid>Aqueous
+          Organic Material:
+            text: Organic Material
+          Plant Structure:
+            text: Plant Structure
+      Size unit menu:
+        name: Size unit menu
+        permissable_values:
+          meter:
+            text: meter
+            is_a: length
+          centimeter:
+            text: centimenter
+            is_a: length
+          millimeter:
+            text: millimeter
+            is_a: length
+          micrometer:
+            text: micrometer
+            is_a: length
+          square meter:
+            text: square meter
+            is_a: area
+          square centimeter:
+            text: square centimeter
+            is_a: area
+          square millimeter:
+            text: square millimeter
+            is_a: area
+          square micrometer:
+            text: square micrometer
+            is_a: area
+          kilogram:
+            text: kilogram
+            is_a: mass
+          gram:
+            text: gram
+            is_a: mass
+          milligram:
+            text: milligram
+            is_a: mass
+          microgram:
+            text: microgram
+            is_a: mass
+          nanogram:
+            text: nanogram
+            is_a: mass
+          picogram:
+            text: picogram
+            is_a: mass
+          cubic meter:
+            text: cubic meter
+            is_a: volume
+          cubic centimeter:
+            text: cubic centimeter
+            is_a: volume
+          cubic deimeter:
+            text: cubic decimeter
+            is_a: volume
+          milliliter:
+            text: milliliter
+            is_a: volume
+          liter:
+            text: liter
+            is_a: volume
+          nanoliter:
+            text: nanoliter
+            is_a: volume
+          picoliter:
+            text: picoliter
+            is_a: volume
+      Navigation Type menu:
+        name: Navigation Type menu
+        permissable values:
+          Acoustic Ranging GPS:
+            text: ACOUSTIC_RANGING/GPS
+          DGPS:
+            text: DGPS
+          DVL:
+            text: DVL
+          DVL LBL:
+            text: DVL/LBL
+          DVL LBL Renav:
+            text: DVL/LBL:Renav
+          DVL LBL Renav Confirmed:
+            text: DVL/LBL:Renav:Confirmed
+          DVL USBL:
+            text: DVL/USBL
+          DVL USBL INS:
+            text: DVL/USBL/INS
+          DVL USBL Renav:
+            text: DVL/USBL:Renav
+          DVL Renav:
+            text: DVL:Renav
+          DVL Renav Confirmed:
+            text: DVL:Renav:Confirmed
+          GLONASS:
+            text: GLONASS
+          GPS:
+            text: GPS
+          GPS WireOut:
+            text: GPS/WireOut
+          GPS Assumed:
+            text: GPS:Assumed
+          INS DVL Renav:
+            text: INS/DVL:Renav
+          LAYBACK:
+            text: LAYBACK
+          LAYBACK LBL:
+            text: LAYBACK/LBL
+          LAYBACK Renav:
+            text: LAYBACK:Renav
+          LBL:
+            text: LBL
+          LBL Renav:
+            text: LBL:Renav
+          Locale:
+            text: Locale
+          LORAN:
+            text: LORAN
+          RTK GPS:
+            text: RTK GPS
+          USBL:
+            text: USBL
+    types:
+      types:
+        WhitespaceMinimizedString:
+          name: "WhitespaceMinimizedString"
+          typeof: string
+          description: "A string that has all whitespace trimmed off of beginning and end, and all internal whitespace segments reduced to single spaces. Whitespace includes #x9 (tab), #xA (linefeed), and #xD (carriage return)."
+          base: str
+          uri: xsd:token
+        Provenance:
+          name: "Provenance"
+          typeof: string
+          description: "A field containing a DataHarmonizer versioning marker. It is issued by DataHarmonizer when validation is applied to a given row of data."
+          base: str
+          uri: xsd:token
