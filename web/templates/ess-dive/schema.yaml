@@ -55,7 +55,7 @@ classes:
     - Depth scale
     - Minimum Distance above Surface in Meters
     - Maximum Distance above Surface in Meters
-    - Physiolographic feature
+    - Physiographic feature
     - Biome
     - Release Date
     - Current Archive
@@ -209,7 +209,7 @@ slots:
     comments: User codes should be unique to an individual or large project managed by a team; avoid creating multiple user codes. If assigning IGSNs in the IGSN column, the user code must match the user code in the IGSNs. For example, if the user specifies IEMEG is the user code, any user-specified IGSNs must begin with IEMEG. If you do not specify the user code to be used, a default user code belonging to the registrant will be used.
     examples:
     - value: IEMEG
-    range: WhitespaceMinimizedString
+    range: string
     required: true
     structured_pattern:
       syntax: '{UPPER_CASE}'
@@ -217,376 +217,404 @@ slots:
   Sample Name:
     name: Sample Name
     title: Sample Name
-    description:
-    comments:
+    description: Collector's project-specific sample name, which must be unique for each sample that you are submitting.
+    comments: You can develop a sample ID that has meaning to you and may help in your internal, project sample management.
     examples:
-    - value:
-    range: WhitespaceMinimizedString
-    required:
+    - value: 001-ER18-FO
+    range: string
+    required: true
   Other names:
-    name:
-    title:
-    description:
-    comments:
+    name: Other names
+    title: Other names
+    description: Other sample name(s) that have been used in the past.
+    comments: Use a semi-colon to delimit multiple names where needed.
     examples:
       - value:
-    range: WhitespaceMinimizedString
-    required:
+    range: string
+    required: false
   IGSN:
-    name:
-    title:
-    description:
-    comments:
+    name: IGSN
+    title: IGSN
+    description: Globally unique and persistent identifier for the sample. Leave blank if you want SESAR to assign the IGSN, which is recommended.
+    comments: For split samples/subsamples, you can assign your own 1-2 character extensions from the Parent IGSN, and submit your own IGSNs for registering these child samples. This is not required, but is an option if desired. For assigning your own IGSNS, you must use upper-case alpha-numeric characters.
     examples:
-      - value:
-    range: WhitespaceMinimizedString
-    required:
+      - value: IEWER7214
+      - value: IEMEG0215
+    range: string
+    recommended: true
   Parent IGSN:
-    name:
-    title:
-    description:
-    comments:
+    name: Parent IGSN
+    title: Parent IGSN
+    description: The larger sample from which a child sample was derived. For example, a core section may be the parent of a series of subsamples or split samples. Parent and child samples are linked in the SESAR catalog. Sibling samples are inferred from parent-child relationships and are linked on the landing page for a sample.
+    comments: Leave blank if a parent IGSN does not exist.
     examples:
-      - value:
-    range: WhitespaceMinimizedString
-    required:
+      - value: IEMEG0002
+    range: string
+    required: false
   Collection ID:
-    name:
-    title:
-    description:
-    comments:
+    name: Collection ID
+    title: Collection ID
+    description: A unique identifier for the set of information associated with a collection of samples; collections may be organized around a particular project, data set, field season, region, site, etc.
+    comments: Must be unique within the data package (project-assigned, and does not need to be globally unique). See link to diagram that demonstrates linking related collection, site, event, and sample IDs. A collection identifier can be used to link a set of samples together, and/or to enable efficient entry of metadata that is the same across all samples in a "sample collection."
     examples:
-      - value:
-    range: WhitespaceMinimizedString
-    required:
+      - value: WSFA_June2019
+    range: string
+    required: false
   Event ID:
-    name:
-    title:
-    description:
-    comments:
+    name: Event ID
+    title: Event ID
+    description: A unique identifier for the set of information associated with an Event (something that occurs at a place and time).
+    comments: Must be unique within the data package (project-assigned, and does not need to be globally unique). See link to diagram that demonstrates linking related
+      collection, site, event, and sample IDs. An event identifier can be used to link a set of samples collected on a specific date, and/or to enable efficient entry of metadata that is the same across these samples.
     examples:
-      - value:
-    range: WhitespaceMinimizedString
-    required:
+      - value: WSFA_20191023
+    range: string
+    required: false
   Location ID:
-    name:
-    title:
-    description:
-    comments:
+    name: Location ID
+    title: Location ID
+    description: A unique identifier for the set of location information. May be a global unique identifier or an identifier specific to the data set.
+    comments: Must be unique within the data package (project-assigned, and does not need to be globally unique). See link to diagram that demonstrates linking related collection, site, event, and sample IDs. A site identifier can be used to link a set of samples collected from a specific site, and/or to enable efficient entry of metadata that is the same across these samples.
     examples:
-      - value:
-    range: WhitespaceMinimizedString
-    required:
+      - value: CoyoteRiver_D22
+    range: string
+    required: false
   Material:
-    name:
-    title:
-    description:
-    comments:
+    name: Material
+    title: Material
+    description: Material that the sample consists of.
+    comments: Use a semi-colon to delimit multiple materials where needed. Please provide feedback on any other terms needed.
     examples:
-      - value:
-    range: WhitespaceMinimizedString
-    required:
-  Field name informal classification
-    name:
-    title:
-    description:
-    comments:
+      - value: Soil
+      - value: Sediment
+      - value: Gas
+      - value: Liquid>aqueous
+    range: Material menu
+    required: true
+  Field name informal classification:
+    name: Field name informal classification
+    title: Field name informal classification
+    description: Informal classification of sample
+    comments: Here you can add additional material classifications that are not in the current SESAR IGSN controlled fields.
     examples:
-      - value:
-    range: WhitespaceMinimizedString
-    required:
+      - value: leaf
+      - value: root
+      - value: surface water
+      - value: groundwater
+    range: string
+    required: false
   Sample Description:
-    name:
-    title:
-    description:
-    comments:
+    name: Sample Description
+    title: Sample Description
+    description: Description of sample features, such as its components, texture, color, shape, treatments, plot ID from which the sample was taken, etc.
+    comments: None
     examples:
-      - value:
-    range: WhitespaceMinimizedString
-    required:
+      - value: Day 223 core section from unheated control plot 1C of a deep soil warming
+      - value: Filter used for filtered surface water samples
+    range: string
+    recommended: true
   Purpose:
-    name:
-    title:
-    description:
-    comments:
+    name: Purpose
+    title: Purpose
+    description: The scientific purpose for collecting the sample.
+    comments: Purpose may often be the same across a series/collection of samples; To avoid entering the same information across numerous samples, you can create a separate file with metadata to describe a sample collection, which contains a "collectionID", and any associated metadata fields (e.g. "collectionMethodDescription", "Purpose" "Chief Scientist", etc.).
     examples:
-      - value:
-    range: WhitespaceMinimizedString
-    required:
+      - value: Characterize the biogeochemistry
+      - value: geochemistry and microbiology of soils associated with trees and shrubs
+    range: string
+    recommended: true
   Size:
-    name:
-    title:
-    description:
-    comments:
+    name: Size
+    title: Size
+    description: Size of the registered object, such as the surface area, length of a core, weight, or volume.
+    comments: Must be associated with Size unit.
     examples:
-      - value:
-    range: WhitespaceMinimizedString
-    required:
+      - value: 4
+      - value: 6.8
+    any_of:
+    - range: integer
+    - range: double
+    required: false
   Size unit:
-    name:
-    title:
-    description:
-    comments:
+    name: Size unit
+    title: Size unit
+    description: Unit for the numerical value provided for ‘size’.
+    comments: Use any additional unit terms from Units Ontology, and provide feedback.
     examples:
-      - value:
-    range: WhitespaceMinimizedString
-    required:
+      - value: square centimeter
+      - value: kilogram
+    range: Size unit menu
+    required: false
   Filter Size:
-    name:
-    title:
-    description:
-    comments:
+    name: Filter Size
+    title: Filter Size
+    description: Filtering pore size used in sample preparation (filter size value range). Filter size value range.
+    comments: Number range (float-float)
     examples:
-      - value:
-    range: WhitespaceMinimizedString
-    required:
+      - value: 0-0.22
+    range: double
+    required: true
   Filter Size Unit:
-    name:
-    title:
-    description:
-    comments:
+    name: Filter Size Unit
+    title: Filter Size Unit
+    description: Filtering pore size unit.
+    comments: unit (float-float unit)
     examples:
-      - value:
-    range: WhitespaceMinimizedString
-    required:
+      - value: micrometer
+    range: double
+    required: false
   Scientific Name:
-    name:
-    title:
-    description:
-    comments:
+    name: Scientific Name
+    title: Scientific Name
+    description: The full scientific name, with authorship and date information if known. When forming part of an Identification, this should be the name in lowest level taxonomic rank that can be determined.
     examples:
-      - value:
-    range: WhitespaceMinimizedString
-    required:
+      - value: Vochysia ferruginea
+      - value: Viconia borealis
+    range: string
+    required: false
   Sample Remarks:
-    name:
-    title:
-    description:
-    comments:
-    examples:
-      - value:
-    range: WhitespaceMinimizedString
-    required:
+    name: Sample Remarks
+    title: Sample Remarks
+    description: Comments or notes about the sample.
+    comments: You can include weather descriptions here, if relevant.
+    range: string
+    required: false
   Collector Chief Scientist:
-    name:
-    title:
-    description:
-    comments:
+    name: Collector Chief Scientist
+    title: Collector Chief Scientist
+    description: Name of the person(s) who collected the sample.
+    comments: You can enter multiple collectors/sampling team for large sampling efforts, separated with a semi-colon. If the collector(s) of the sample(s) is/are not known, enter name of the person responsible for the sample
     examples:
-      - value:
-    range: WhitespaceMinimizedString
-    required:
+      - value: John Smith
+      - value: John Smith; Jane Johnson
+    range: string
+    required: true
   Collection Date:
-    name:
-    title:
-    description:
-    comments:
+    name: Collection Date
+    title: Collection Date
+    description: Date when the sample was collected.
+    comments: All dates and times must be reported in Coordinated Universal Time (UTC) and follow the ISO 8601 standard (RFC 3339). Temporal data using different standards can be provided as a separate variable (column) in addition to UTC format; YYYY-MM-DD
     examples:
-      - value:
-    range: WhitespaceMinimizedString
-    required:
+      - value: 2019-08-14
+    range: date
+    required: true
   Collection Time:
-    name:
-    title:
-    description:
-    comments:
+    name: Collection Time
+    title: Collection Time
+    description: Time when the sample was collected.
+    comments: All dates and times must be reported in Coordinated Universal Time (UTC) and follow the ISO 8601 standard (RFC 3339). Temporal data using different standards can be provided as a separate variable (column) in addition to UTC format; HH:MM:SSZ
     examples:
-      - value:
-    range: WhitespaceMinimizedString
-    required:
+      - value: 12:05:03Z
+    range: dateTime
+    required: false
   Collection Method Description:
-    name:
-    title:
-    description:
-    comments:
+    name: Collection Method Description
+    title: Collection Method Description
+    description: Description of the collection method for the sample. Include any important terms and details for potential users to understand how your sample was collected.
+    comments: Collection methods may often be the same across a series/collection of samples; there are two options for providing collection method details at a higher level. Option 1 -  Create a separate file with metadata to describe a sample collection, which contains a "collectionID", and any associated metadata fields (e.g. "collectionMethodDescription", "Purpose", "Chief Scientist", etc.). Option 2 - Create a methods file, with a series of methods descriptions that are each associated with a "methodID" and an associated "methodDescription."
     examples:
-      - value:
-    range: WhitespaceMinimizedString
-    required:
+      - value: Example 1) Collect soil samples from top 10 cm using 2-3 cores from with meadow plot or under the bulk of tree/shrub canopies.
+      - value: Example 2) Excised branch.
+      - value: Example 3) Pumped water at specific depths using tubing connected to CTD.
+    range: string
+    required: true
   Sample Processing:
-    name:
-    title:
-    description:
-    comments:
+    name: Sample Processing
+    title: Sample Processing
+    description: Any processing applied to the sample during or after retrieving the sample from the environment. Can provide a list of preparations and preservation methods for the sample.
+    comments: Sample processing may often be the same across a series/collection of samples. To avoid entering the same information across numerous samples, you can create a separate file with metadata to describe a sample collection, which contains a "collectionID", and any associated metadata fields (e.g. "sampleProcessing", "collectionMethodDescription", "Purpose", "Chief Scientist", etc.). Separate multiple sample processing methods with a semi-colon.
     examples:
-      - value:
-    range: WhitespaceMinimizedString
-    required:
+      - value: filter water
+      - value: store samples in ethanol
+    range: string
+    recommended: true
   Field Program or Project Name:
-    name:
-    title:
-    description:
-    comments:
+    name: Field Program or Project Name
+    title: Field Program or Project Name
+    description: Enter the name of the DOE project to associate with this/these sample(s).
+    comments: Required at dataset level, but want to associate with samples for data search and integration. Project details may often be the same across a series/collection of samples; To avoid entering the same information across numerous samples, you can create a separate file with metadata to describe a project or sample collection, which contains a "collectionID" or "Field Program/Cruise", and any associated metadata fields (e.g. "Collection Method Description", "Purpose", "Chief Scientist"...
     examples:
-      - value:
-    range: WhitespaceMinimizedString
-    required:
+      - value: Next Generation Ecosystem Experiments (NGEE) Tropics
+      - value: LBNL Watershed Function SFA
+    range: string
+    required: true
   Latitude Coordinate system WGS 84:
-    name:
-    title:
-    description:
-    comments:
+    name: Latitude Coordinate system WGS 84
+    title: Latitude Coordinate system WGS 84
+    description: Latitude of the location where the sample was collected, entered in decimal degrees. Negative values for South latitudes.
+    comments: Decimal degrees, coordinate system is WGS 84. Please supply no more than 6 decimal places (meter scale resolution) in the actual number (not just display format.) No letters are allowed.
     examples:
-      - value:
-    range: WhitespaceMinimizedString
-    required:
+      - value: 5.89634
+    range: double
+    maximum_value: 90
+    minimum_value: -90
+    recommended: true
   Longitude Coordinate system WGS 84:
-    name:
-    title:
-    description:
-    comments:
+    name: Longitude Coordinate system WGS 84
+    title: Longitude Coordinate system WGS 84
+    description: Longitude of the location where the sample was collected. Negative values for ‘West’ longitudes.
+    comments: Decimal degrees, coordinate system is WGS 84. Please supply no more than 6 decimal places (meter scale resolution) in the actual number (not just display format.) No letters are allowed.
     examples:
-      - value:
-    range: WhitespaceMinimizedString
+      - value: -103.785
+    range: double
+    maximum_value: 180
+    minimum_value: -180
     required:
   Navigation Type:
-    name:
-    title:
-    description:
-    comments:
+    name: Navigation Type
+    title: Navigation Type
+    description: Type of geolocation instrument used to obtain geographic coordinates.
+    comments: Provide feedback on additional terms needed.
     examples:
-      - value:
-    range: WhitespaceMinimizedString
-    required:
+      - value: GPS
+      - value: RTK GPS
+    range: Navigation Type menu
+    recommended: true
   Location Description:
-    name:
-    title:
-    description:
-    comments:
+    name: Location Description
+    title: Location Description
+    description: Free text description of the location.
+    comments: You can also include details here about the location type, e.g. whether it is an absolute or reference location, plot ID and description.
     examples:
-      - value:
-    range: WhitespaceMinimizedString
-    required:
+      - value: 300 year old low-land tropical rainforest in Parque Natural San Lorenzo
+      - value: Panama
+    range: string
+    recommended: true
   Country:
-    name:
-    title:
-    description:
-    comments:
+    name: Country
+    title: Country
+    description: Country where the sample was collected.
+    comments: Use SESAR list, but may change controlled list to GAZ ontology.
     examples:
-      - value:
-    range: WhitespaceMinimizedString
-    required:
+      - value: United States
+    range: string
+    required: true
   Elevation start:
-    name:
-    title:
-    description:
-    comments:
+    name: Elevation start
+    title: Elevation start
+    description: Elevation at which a sample was collected. Minimum elevation value, if elevation taken over a range.
+    comments: Provide elevation in meters where possible.
     examples:
-      - value:
-    range: WhitespaceMinimizedString
-    required:
+      - value: 678.5
+    range: double
+    required: false
   Elevation end:
-    name:
-    title:
-    description:
-    comments:
+    name: Elevation end
+    title: Elevation end
+    description: Maximum elevation at which a sample was collected, if elevation was taken over a range.
+    comments: Leave blank if elevation is a single value and not range. Provide elevation in meters where possible.
     examples:
-      - value:
-    range: WhitespaceMinimizedString
-    required:
+      - value: 689.2
+    range: double
+    required: false
   Elevation unit:
-    name:
-    title:
-    description:
-    comments:
+    name: Elevation unit
+    title: Elevation unit
+    description: Unit that elevation start and/or end are provided in.
+    comments: Recommend meters. This will be removed when elevation field is changed to specify meters.
     examples:
-      - value:
-    range: WhitespaceMinimizedString
-    required:
+      - value: meters
+    range: string
+    recommended: true
   Minimum Depth in Meters:
-    name:
-    title:
-    description:
-    comments:
+    name: Minimum Depth in Meters
+    title: Minimum Depth in Meters
+    description: Depth, or minimum depth (if taken over a range) at which a sample was collected, below ground or under water.
+    comments: Recommend using meters.
     examples:
-      - value:
-    range: WhitespaceMinimizedString
-    required:
+      - value: 0.001
+    range: double
+    recommended: true
   Maximum Depth in Meters:
-    name:
-    title:
-    description:
-    comments:
+    name: Maximum Depth in Meters
+    title: Maximum Depth in Meters
+    description: Maximum depth at which a sample was collected, below ground or under water.
+    comments: Recommend using meters.
     examples:
-      - value:
-    range: WhitespaceMinimizedString
-    required:
+      - value: 0.003
+    range: double
+    recommended: true
   Depth scale:
-    name:
-    title:
-    description:
-    comments:
+    name: Depth scale
+    title: Depth scale
+    description: Unit in which the depth is provided, should be meters.
+    comments: This field will be deleted when we change the depth field to be required in meters.
     examples:
-      - value:
-    range: WhitespaceMinimizedString
-    required:
+      - value: meters
+    range: string
+    recommended: true
   Minimum Distance above Surface in Meters:
-    name:
-    title:
-    description:
-    comments:
+    name: Minimum Distance above Surface in Meters
+    title: Minimum Distance above Surface in Meters
+    description: Minimum height above the ground surface, in meters. If no range of values collected, provide height measurement here.
+    comments: Recommend using meters.
     examples:
-      - value:
-    range: WhitespaceMinimizedString
-    required:
+      - value: 4.2
+    range: double
+    required: false
   Maximum Distance above Surface in Meters:
-    name:
-    title:
-    description:
-    comments:
+    name: Maximum Distance above Surface in Meters
+    title: Maximum Distance above Surface in Meters
+    description: Maximum height above the ground surface, in meters.
+    comments: Recommend using meters.
     examples:
-      - value:
-    range: WhitespaceMinimizedString
-    required:
+      - value: 7.2
+    range: double
+    required: false
   Physiographic feature:
-    name:
-    title:
-    description:
-    comments:
+    name: Physiographic feature
+    title: Physiographic feature
+    description: Entity or entities which are in your sample or specimen’s local vicinity and which you believe have significant causal influences on your sample or specimen.
+    comments: <a href="https://www.ebi.ac.uk/ols/ontologies/envo">Terms from Environment Ontology (ENVO)</a>. Provide the appropriate term and ENVO identifier - see examples below. Choose environmental context that is a smaller spatial grain than your entry for biome. Delimit multiple values using semi-colon. If needed, request new terms on the ENVO tracker, identified <a href="http://obofoundry.org/ontology/envo.html">here</a>.
     examples:
-      - value:
-    range: WhitespaceMinimizedString
-    required:
+      - value: river [ENVO:00000022]
+      - value: wet meadow ecosystem [ENVO:01000449]; mountain [ENVO:00000081]
+      - value: For annotating a pooled sample taken from various vegetation layers in a forest, consider - canopy [ENVO:00000047]; herb and fern layer [ENVO:01000337]; litter layer [ENVO:01000338]; understory [01000335]; shrub layer [ENVO:01000336].
+    range: string
+    recommended: true
   Biome:
-    name:
-    title:
-    description:
-    comments:
+    name: Biome
+    title: Biome
+    description: Major environmental system your sample or specimen came from. The systems identified should have a coarse spatial grain, to provide the general environmental context of where the sampling was done (e.g. were you in the desert or a rainforest?).
+    comments: <a href="https://www.ebi.ac.uk/ols/ontologies/envo">Terms from Environment Ontology (ENVO)</a>. Provide the appropriate term and ENVO identifier - see examples below. We recommend using subclasses of <a href="https://ontobee.org/ontology/ENVO?iri=http://purl.obolibrary.org/obo/ENVO_00000428">ENVO’s biome class</a>. Use a semi-colon to delimit multiple biomes where needed. If needed, request new terms on the ENVO tracker, identified <a href="http://obofoundry.org/ontology/envo.html">here</a>.
     examples:
-      - value:
-    range: WhitespaceMinimizedString
-    required:
+      - value: shrubland biome [ENVO:01000176]
+      - value: tropical moist broadleaf forest biome [ENVO:01000228]; estuarine biome [ENVO:01000020]
+    range: string
+    recommended: true
   Release Date:
-    name:
-    title:
-    description:
-    comments:
+    name: Release Date
+    title: Release Date
+    description: Date when sample metadata should be publicly accessible and searchable. If null, defaults to date of registration in SESAR (recommended).
+    comments: SESAR recommends that sample metadata become public within 2 years of sample registration; YYYY-MM-DD format
     examples:
-      - value:
-    range: WhitespaceMinimizedString
-    required:
+      - value: 2018-03-15
+    range: date
+    required: true
   Current Archive:
-    name:
-    title:
-    description:
-    comments:
+    name: Current Archive
+    title: Current Archive
+    description: Name of institution, museum, or repository where the sample is currently stored.
+    comments: Only applies to physical samples that are archived in a collection for some period of time.
     examples:
-      - value:
-    range: WhitespaceMinimizedString
-    required:
+      - value: Geosciences and Environmental Change Science Center
+      - value: USGS Federal Center
+      - value: Lakewood, CO
+    range: string
+    required: false
   Current Archive Contact:
-    name:
-    title:
-    description:
-    comments:
+    name: Current Archive Contact
+    title: Current Archive Contact
+    description: Address and/or email of the person who should be contacted for information about or access to the sample.
+    comments: Email is not mandatory, but helps with communication about samples.
     examples:
-      - value:
-    range: WhitespaceMinimizedString
+      - value: scientist@lbl.gov
+    range: string
     required: false
 enums:
   Object Type menu:
     name: Object Type menu
-    permissable_vales:
+    permissible_values:
       Core:
         text: Core
       Core Catcher:
@@ -635,7 +663,7 @@ enums:
         text: Terrestrial Section
   Material menu:
     name: Material menu
-    permissable_vales:
+    permissible_values:
       Gas:
         text: Gas
       Particulate:
@@ -646,7 +674,7 @@ enums:
         text: Soil
       Ice:
         text: Ice
-      Liquid Aqueous:
+      Liquid>Aqueous:
         text: Liquid>Aqueous
       Organic Material:
         text: Organic Material
@@ -654,12 +682,12 @@ enums:
         text: Plant Structure
   Size unit menu:
     name: Size unit menu
-    permissable_values:
+    permissible_values:
       meter:
         text: meter
         is_a: length
       centimeter:
-        text: centimenter
+        text: centimeter
         is_a: length
       millimeter:
         text: millimeter
@@ -703,7 +731,7 @@ enums:
       cubic centimeter:
         text: cubic centimeter
         is_a: volume
-      cubic deimeter:
+      cubic decimeter:
         text: cubic decimeter
         is_a: volume
       milliliter:
@@ -720,48 +748,55 @@ enums:
         is_a: volume
   Navigation Type menu:
     name: Navigation Type menu
-    permissable values:
-      Acoustic Ranging GPS:
+    permissible_values:
+      ACOUSTIC_RANGING/GPS:
         text: ACOUSTIC_RANGING/GPS
+        description: Acoustic ranging from a GPS-navigated ship to identify the location of instrumentation on the seafloor.
       DGPS:
         text: DGPS
+        description: Differential GPS
       DVL:
         text: DVL
-      DVL LBL:
+        description: Doppler Velocity Log
+      DVL/LBL:
         text: DVL/LBL
-      DVL LBL Renav:
+        description: Real-time DVL dead-reckoning navigation supplemented with LBL navigation to help constrain fixes to a geographic coordinate system. Errors on the order of 10s (sometimes 100s) of meters are likely in these data.
+      DVL/LBL/INS:
+        text: DVL/LBL/INS
+        description: Real-time DVL dead-reckoning navigation supplemented with LBL navigation and INS (Inertial Navigation System) navigation.
+      DVL/LBL:Renav:
         text: DVL/LBL:Renav
-      DVL LBL Renav Confirmed:
+      DVL/LBL:Renav:Confirmed:
         text: DVL/LBL:Renav:Confirmed
-      DVL USBL:
+      DVL/USBL:
         text: DVL/USBL
-      DVL USBL INS:
+      DVL/USBL/INS:
         text: DVL/USBL/INS
-      DVL USBL Renav:
+      DVL/USBL:Renav:
         text: DVL/USBL:Renav
-      DVL Renav:
+      DVL:Renav:
         text: DVL:Renav
-      DVL Renav Confirmed:
+      DVL:Renav:Confirmed:
         text: DVL:Renav:Confirmed
       GLONASS:
         text: GLONASS
       GPS:
         text: GPS
-      GPS WireOut:
+      GPS/WireOut:
         text: GPS/WireOut
-      GPS Assumed:
+      GPS:Assumed:
         text: GPS:Assumed
-      INS DVL Renav:
+      INS/DVL:Renav:
         text: INS/DVL:Renav
       LAYBACK:
         text: LAYBACK
-      LAYBACK LBL:
+      LAYBACK/LBL:
         text: LAYBACK/LBL
-      LAYBACK Renav:
+      LAYBACK:Renav:
         text: LAYBACK:Renav
       LBL:
         text: LBL
-      LBL Renav:
+      LBL:Renav:
         text: LBL:Renav
       Locale:
         text: Locale
@@ -772,12 +807,6 @@ enums:
       USBL:
         text: USBL
 types:
-  WhitespaceMinimizedString:
-    name: "WhitespaceMinimizedString"
-    typeof: string
-    description: "A string that has all whitespace trimmed off of beginning and end, and all internal whitespace segments reduced to single spaces. Whitespace includes #x9 (tab), #xA (linefeed), and #xD (carriage return)."
-    base: str
-    uri: xsd:token
   Provenance:
     name: "Provenance"
     typeof: string
@@ -787,4 +816,4 @@ types:
 settings:
   Title_Case: (((?<=\b)[^a-z\W]\w*?|[\W])+)
   UPPER_CASE: '[A-Z\W\d_]*'
-  lower_case: '[a-z\W\d_]*
+  lower_case: '[a-z\W\d_]*'

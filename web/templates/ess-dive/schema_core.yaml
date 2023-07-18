@@ -20,12 +20,6 @@ classes:
 slots: {}
 enums: {}
 types:
-  WhitespaceMinimizedString:
-    name: 'WhitespaceMinimizedString'
-    typeof: string
-    description: 'A string that has all whitespace trimmed off of beginning and end, and all internal whitespace segments reduced to single spaces. Whitespace includes #x9 (tab), #xA (linefeed), and #xD (carriage return).'
-    base: str
-    uri: xsd:token
   Provenance:
     name: 'Provenance'
     typeof: string

@@ -1,0 +1,2164 @@
+{
+  "name": "ess-dive",
+  "description": "ess-dive",
+  "id": "https://w3id.org/ess-dive",
+  "version": "2.3.0",
+  "prefixes": {
+    "linkml": {
+      "prefix_prefix": "linkml",
+      "prefix_reference": "https://w3id.org/linkml/"
+    },
+    "ess-dive": {
+      "prefix_prefix": "ess-dive",
+      "prefix_reference": "https://w3id.org/ess-dive"
+    },
+    "xsd": {
+      "prefix_prefix": "xsd",
+      "prefix_reference": "http://www.w3.org/2001/XMLSchema#"
+    },
+    "shex": {
+      "prefix_prefix": "shex",
+      "prefix_reference": "http://www.w3.org/ns/shex#"
+    },
+    "schema": {
+      "prefix_prefix": "schema",
+      "prefix_reference": "http://schema.org/"
+    }
+  },
+  "default_prefix": "https://w3id.org/ess-dive/",
+  "types": {
+    "Provenance": {
+      "name": "Provenance",
+      "description": "A field containing a DataHarmonizer versioning marker. It is issued by DataHarmonizer when validation is applied to a given row of data.",
+      "from_schema": "https://w3id.org/ess-dive",
+      "typeof": "string",
+      "base": "str",
+      "uri": "xsd:token"
+    },
+    "string": {
+      "name": "string",
+      "description": "A character string",
+      "from_schema": "https://w3id.org/ess-dive",
+      "exact_mappings": [
+        "schema:Text"
+      ],
+      "base": "str",
+      "uri": "xsd:string"
+    },
+    "integer": {
+      "name": "integer",
+      "description": "An integer",
+      "from_schema": "https://w3id.org/ess-dive",
+      "exact_mappings": [
+        "schema:Integer"
+      ],
+      "base": "int",
+      "uri": "xsd:integer"
+    },
+    "boolean": {
+      "name": "boolean",
+      "description": "A binary (true or false) value",
+      "from_schema": "https://w3id.org/ess-dive",
+      "exact_mappings": [
+        "schema:Boolean"
+      ],
+      "base": "Bool",
+      "uri": "xsd:boolean",
+      "repr": "bool"
+    },
+    "float": {
+      "name": "float",
+      "description": "A real number that conforms to the xsd:float specification",
+      "from_schema": "https://w3id.org/ess-dive",
+      "exact_mappings": [
+        "schema:Float"
+      ],
+      "base": "float",
+      "uri": "xsd:float"
+    },
+    "double": {
+      "name": "double",
+      "description": "A real number that conforms to the xsd:double specification",
+      "from_schema": "https://w3id.org/ess-dive",
+      "close_mappings": [
+        "schema:Float"
+      ],
+      "base": "float",
+      "uri": "xsd:double"
+    },
+    "decimal": {
+      "name": "decimal",
+      "description": "A real number with arbitrary precision that conforms to the xsd:decimal specification",
+      "from_schema": "https://w3id.org/ess-dive",
+      "broad_mappings": [
+        "schema:Number"
+      ],
+      "base": "Decimal",
+      "uri": "xsd:decimal"
+    },
+    "time": {
+      "name": "time",
+      "description": "A time object represents a (local) time of day, independent of any particular day",
+      "notes": [
+        "URI is dateTime because OWL reasoners do not work with straight date or time"
+      ],
+      "from_schema": "https://w3id.org/ess-dive",
+      "exact_mappings": [
+        "schema:Time"
+      ],
+      "base": "XSDTime",
+      "uri": "xsd:dateTime",
+      "repr": "str"
+    },
+    "date": {
+      "name": "date",
+      "description": "a date (year, month and day) in an idealized calendar",
+      "notes": [
+        "URI is dateTime because OWL reasoners don't work with straight date or time"
+      ],
+      "from_schema": "https://w3id.org/ess-dive",
+      "exact_mappings": [
+        "schema:Date"
+      ],
+      "base": "XSDDate",
+      "uri": "xsd:date",
+      "repr": "str"
+    },
+    "datetime": {
+      "name": "datetime",
+      "description": "The combination of a date and time",
+      "from_schema": "https://w3id.org/ess-dive",
+      "exact_mappings": [
+        "schema:DateTime"
+      ],
+      "base": "XSDDateTime",
+      "uri": "xsd:dateTime",
+      "repr": "str"
+    },
+    "date_or_datetime": {
+      "name": "date_or_datetime",
+      "description": "Either a date or a datetime",
+      "from_schema": "https://w3id.org/ess-dive",
+      "base": "str",
+      "uri": "linkml:DateOrDatetime",
+      "repr": "str"
+    },
+    "uriorcurie": {
+      "name": "uriorcurie",
+      "description": "a URI or a CURIE",
+      "from_schema": "https://w3id.org/ess-dive",
+      "base": "URIorCURIE",
+      "uri": "xsd:anyURI",
+      "repr": "str"
+    },
+    "curie": {
+      "name": "curie",
+      "conforms_to": "https://www.w3.org/TR/curie/",
+      "description": "a compact URI",
+      "comments": [
+        "in RDF serializations this MUST be expanded to a URI",
+        "in non-RDF serializations MAY be serialized as the compact representation"
+      ],
+      "from_schema": "https://w3id.org/ess-dive",
+      "base": "Curie",
+      "uri": "xsd:string",
+      "repr": "str"
+    },
+    "uri": {
+      "name": "uri",
+      "conforms_to": "https://www.ietf.org/rfc/rfc3987.txt",
+      "description": "a complete URI",
+      "comments": [
+        "in RDF serializations a slot with range of uri is treated as a literal or type xsd:anyURI unless it is an identifier or a reference to an identifier, in which case it is translated directly to a node"
+      ],
+      "from_schema": "https://w3id.org/ess-dive",
+      "close_mappings": [
+        "schema:URL"
+      ],
+      "base": "URI",
+      "uri": "xsd:anyURI",
+      "repr": "str"
+    },
+    "ncname": {
+      "name": "ncname",
+      "description": "Prefix part of CURIE",
+      "from_schema": "https://w3id.org/ess-dive",
+      "base": "NCName",
+      "uri": "xsd:string",
+      "repr": "str"
+    },
+    "objectidentifier": {
+      "name": "objectidentifier",
+      "description": "A URI or CURIE that represents an object in the model.",
+      "comments": [
+        "Used for inheritence and type checking"
+      ],
+      "from_schema": "https://w3id.org/ess-dive",
+      "base": "ElementIdentifier",
+      "uri": "shex:iri",
+      "repr": "str"
+    },
+    "nodeidentifier": {
+      "name": "nodeidentifier",
+      "description": "A URI, CURIE or BNODE that represents a node in a model.",
+      "from_schema": "https://w3id.org/ess-dive",
+      "base": "NodeIdentifier",
+      "uri": "shex:nonLiteral",
+      "repr": "str"
+    }
+  },
+  "enums": {
+    "Object Type menu": {
+      "name": "Object Type menu",
+      "from_schema": "https://w3id.org/ess-dive",
+      "permissible_values": {
+        "Core": {
+          "text": "Core"
+        },
+        "Core Catcher": {
+          "text": "Core Catcher"
+        },
+        "Core Half Round": {
+          "text": "Core Half Round"
+        },
+        "Core Piece": {
+          "text": "Core Piece"
+        },
+        "Core Quarter Round": {
+          "text": "Core Quarter Round"
+        },
+        "Core Section": {
+          "text": "Core Section"
+        },
+        "Core Section Half": {
+          "text": "Core Section Half"
+        },
+        "Core Slab": {
+          "text": "Core Slab"
+        },
+        "Core Sub-Piece": {
+          "text": "Core Sub-Piece"
+        },
+        "Core U-Channel": {
+          "text": "Core U-Channel"
+        },
+        "Core Whole Round": {
+          "text": "Core Whole Round"
+        },
+        "CTD": {
+          "text": "CTD"
+        },
+        "Cuttings": {
+          "text": "Cuttings"
+        },
+        "Dredge": {
+          "text": "Dredge"
+        },
+        "Experimental Specimen": {
+          "text": "Experimental Specimen"
+        },
+        "Grab": {
+          "text": "Grab"
+        },
+        "Hole": {
+          "text": "Hole"
+        },
+        "Individual Sample": {
+          "text": "Individual Sample"
+        },
+        "Oriented Core": {
+          "text": "Oriented Core"
+        },
+        "Other": {
+          "text": "Other"
+        },
+        "Rock Powder": {
+          "text": "Rock Powder"
+        },
+        "Site": {
+          "text": "Site"
+        },
+        "Terrestrial Section": {
+          "text": "Terrestrial Section"
+        }
+      }
+    },
+    "Material menu": {
+      "name": "Material menu",
+      "from_schema": "https://w3id.org/ess-dive",
+      "permissible_values": {
+        "Gas": {
+          "text": "Gas"
+        },
+        "Particulate": {
+          "text": "Particulate"
+        },
+        "Rock": {
+          "text": "Rock"
+        },
+        "Soil": {
+          "text": "Soil"
+        },
+        "Ice": {
+          "text": "Ice"
+        },
+        "Liquid>Aqueous": {
+          "text": "Liquid>Aqueous"
+        },
+        "Organic Material": {
+          "text": "Organic Material"
+        },
+        "Plant Structure": {
+          "text": "Plant Structure"
+        }
+      }
+    },
+    "Size unit menu": {
+      "name": "Size unit menu",
+      "from_schema": "https://w3id.org/ess-dive",
+      "permissible_values": {
+        "meter": {
+          "text": "meter",
+          "is_a": "length"
+        },
+        "centimeter": {
+          "text": "centimeter",
+          "is_a": "length"
+        },
+        "millimeter": {
+          "text": "millimeter",
+          "is_a": "length"
+        },
+        "micrometer": {
+          "text": "micrometer",
+          "is_a": "length"
+        },
+        "square meter": {
+          "text": "square meter",
+          "is_a": "area"
+        },
+        "square centimeter": {
+          "text": "square centimeter",
+          "is_a": "area"
+        },
+        "square millimeter": {
+          "text": "square millimeter",
+          "is_a": "area"
+        },
+        "square micrometer": {
+          "text": "square micrometer",
+          "is_a": "area"
+        },
+        "kilogram": {
+          "text": "kilogram",
+          "is_a": "mass"
+        },
+        "gram": {
+          "text": "gram",
+          "is_a": "mass"
+        },
+        "milligram": {
+          "text": "milligram",
+          "is_a": "mass"
+        },
+        "microgram": {
+          "text": "microgram",
+          "is_a": "mass"
+        },
+        "nanogram": {
+          "text": "nanogram",
+          "is_a": "mass"
+        },
+        "picogram": {
+          "text": "picogram",
+          "is_a": "mass"
+        },
+        "cubic meter": {
+          "text": "cubic meter",
+          "is_a": "volume"
+        },
+        "cubic centimeter": {
+          "text": "cubic centimeter",
+          "is_a": "volume"
+        },
+        "cubic decimeter": {
+          "text": "cubic decimeter",
+          "is_a": "volume"
+        },
+        "milliliter": {
+          "text": "milliliter",
+          "is_a": "volume"
+        },
+        "liter": {
+          "text": "liter",
+          "is_a": "volume"
+        },
+        "nanoliter": {
+          "text": "nanoliter",
+          "is_a": "volume"
+        },
+        "picoliter": {
+          "text": "picoliter",
+          "is_a": "volume"
+        }
+      }
+    },
+    "Navigation Type menu": {
+      "name": "Navigation Type menu",
+      "from_schema": "https://w3id.org/ess-dive",
+      "permissible_values": {
+        "ACOUSTIC_RANGING/GPS": {
+          "text": "ACOUSTIC_RANGING/GPS",
+          "description": "Acoustic ranging from a GPS-navigated ship to identify the location of instrumentation on the seafloor."
+        },
+        "DGPS": {
+          "text": "DGPS",
+          "description": "Differential GPS"
+        },
+        "DVL": {
+          "text": "DVL",
+          "description": "Doppler Velocity Log"
+        },
+        "DVL/LBL": {
+          "text": "DVL/LBL",
+          "description": "Real-time DVL dead-reckoning navigation supplemented with LBL navigation to help constrain fixes to a geographic coordinate system. Errors on the order of 10s (sometimes 100s) of meters are likely in these data."
+        },
+        "DVL/LBL/INS": {
+          "text": "DVL/LBL/INS",
+          "description": "Real-time DVL dead-reckoning navigation supplemented with LBL navigation and INS (Inertial Navigation System) navigation."
+        },
+        "DVL/LBL:Renav": {
+          "text": "DVL/LBL:Renav"
+        },
+        "DVL/LBL:Renav:Confirmed": {
+          "text": "DVL/LBL:Renav:Confirmed"
+        },
+        "DVL/USBL": {
+          "text": "DVL/USBL"
+        },
+        "DVL/USBL/INS": {
+          "text": "DVL/USBL/INS"
+        },
+        "DVL/USBL:Renav": {
+          "text": "DVL/USBL:Renav"
+        },
+        "DVL:Renav": {
+          "text": "DVL:Renav"
+        },
+        "DVL:Renav:Confirmed": {
+          "text": "DVL:Renav:Confirmed"
+        },
+        "GLONASS": {
+          "text": "GLONASS"
+        },
+        "GPS": {
+          "text": "GPS"
+        },
+        "GPS/WireOut": {
+          "text": "GPS/WireOut"
+        },
+        "GPS:Assumed": {
+          "text": "GPS:Assumed"
+        },
+        "INS/DVL:Renav": {
+          "text": "INS/DVL:Renav"
+        },
+        "LAYBACK": {
+          "text": "LAYBACK"
+        },
+        "LAYBACK/LBL": {
+          "text": "LAYBACK/LBL"
+        },
+        "LAYBACK:Renav": {
+          "text": "LAYBACK:Renav"
+        },
+        "LBL": {
+          "text": "LBL"
+        },
+        "LBL:Renav": {
+          "text": "LBL:Renav"
+        },
+        "Locale": {
+          "text": "Locale"
+        },
+        "LORAN": {
+          "text": "LORAN"
+        },
+        "RTK GPS": {
+          "text": "RTK GPS"
+        },
+        "USBL": {
+          "text": "USBL"
+        }
+      }
+    }
+  },
+  "slots": {
+    "Object Type": {
+      "name": "Object Type",
+      "description": "Broad characterization of the nature of a sample or specimen.",
+      "title": "Object Type",
+      "comments": [
+        "Provide feedback on additional terms or revisions needed."
+      ],
+      "examples": [
+        {
+          "value": "Core"
+        },
+        {
+          "value": "Individual Sample"
+        },
+        {
+          "value": "Rock Powder"
+        }
+      ],
+      "from_schema": "https://w3id.org/ess-dive",
+      "range": "Object Type menu",
+      "required": true
+    },
+    "User Code": {
+      "name": "User Code",
+      "description": "Globally unique IGSN code that will be used as a prefix for IGSNs in the submitted batch template.",
+      "title": "User Code",
+      "comments": [
+        "User codes should be unique to an individual or large project managed by a team; avoid creating multiple user codes. If assigning IGSNs in the IGSN column, the user code must match the user code in the IGSNs. For example, if the user specifies IEMEG is the user code, any user-specified IGSNs must begin with IEMEG. If you do not specify the user code to be used, a default user code belonging to the registrant will be used."
+      ],
+      "examples": [
+        {
+          "value": "IEMEG"
+        }
+      ],
+      "from_schema": "https://w3id.org/ess-dive",
+      "range": "string",
+      "required": true,
+      "structured_pattern": {
+        "syntax": "{UPPER_CASE}",
+        "partial_match": true
+      }
+    },
+    "Sample Name": {
+      "name": "Sample Name",
+      "description": "Collector's project-specific sample name, which must be unique for each sample that you are submitting.",
+      "title": "Sample Name",
+      "comments": [
+        "You can develop a sample ID that has meaning to you and may help in your internal, project sample management."
+      ],
+      "examples": [
+        {
+          "value": "001-ER18-FO"
+        }
+      ],
+      "from_schema": "https://w3id.org/ess-dive",
+      "range": "string",
+      "required": true
+    },
+    "Other names": {
+      "name": "Other names",
+      "description": "Other sample name(s) that have been used in the past.",
+      "title": "Other names",
+      "comments": [
+        "Use a semi-colon to delimit multiple names where needed."
+      ],
+      "from_schema": "https://w3id.org/ess-dive",
+      "range": "string",
+      "required": false
+    },
+    "IGSN": {
+      "name": "IGSN",
+      "description": "Globally unique and persistent identifier for the sample. Leave blank if you want SESAR to assign the IGSN, which is recommended.",
+      "title": "IGSN",
+      "comments": [
+        "For split samples/subsamples, you can assign your own 1-2 character extensions from the Parent IGSN, and submit your own IGSNs for registering these child samples. This is not required, but is an option if desired. For assigning your own IGSNS, you must use upper-case alpha-numeric characters."
+      ],
+      "examples": [
+        {
+          "value": "IEWER7214"
+        },
+        {
+          "value": "IEMEG0215"
+        }
+      ],
+      "from_schema": "https://w3id.org/ess-dive",
+      "range": "string",
+      "recommended": true
+    },
+    "Parent IGSN": {
+      "name": "Parent IGSN",
+      "description": "The larger sample from which a child sample was derived. For example, a core section may be the parent of a series of subsamples or split samples. Parent and child samples are linked in the SESAR catalog. Sibling samples are inferred from parent-child relationships and are linked on the landing page for a sample.",
+      "title": "Parent IGSN",
+      "comments": [
+        "Leave blank if a parent IGSN does not exist."
+      ],
+      "examples": [
+        {
+          "value": "IEMEG0002"
+        }
+      ],
+      "from_schema": "https://w3id.org/ess-dive",
+      "range": "string",
+      "required": false
+    },
+    "Collection ID": {
+      "name": "Collection ID",
+      "description": "A unique identifier for the set of information associated with a collection of samples; collections may be organized around a particular project, data set, field season, region, site, etc.",
+      "title": "Collection ID",
+      "comments": [
+        "Must be unique within the data package (project-assigned, and does not need to be globally unique). See link to diagram that demonstrates linking related collection, site, event, and sample IDs. A collection identifier can be used to link a set of samples together, and/or to enable efficient entry of metadata that is the same across all samples in a \"sample collection.\""
+      ],
+      "examples": [
+        {
+          "value": "WSFA_June2019"
+        }
+      ],
+      "from_schema": "https://w3id.org/ess-dive",
+      "range": "string",
+      "required": false
+    },
+    "Event ID": {
+      "name": "Event ID",
+      "description": "A unique identifier for the set of information associated with an Event (something that occurs at a place and time).",
+      "title": "Event ID",
+      "comments": [
+        "Must be unique within the data package (project-assigned, and does not need to be globally unique). See link to diagram that demonstrates linking related collection, site, event, and sample IDs. An event identifier can be used to link a set of samples collected on a specific date, and/or to enable efficient entry of metadata that is the same across these samples."
+      ],
+      "examples": [
+        {
+          "value": "WSFA_20191023"
+        }
+      ],
+      "from_schema": "https://w3id.org/ess-dive",
+      "range": "string",
+      "required": false
+    },
+    "Location ID": {
+      "name": "Location ID",
+      "description": "A unique identifier for the set of location information. May be a global unique identifier or an identifier specific to the data set.",
+      "title": "Location ID",
+      "comments": [
+        "Must be unique within the data package (project-assigned, and does not need to be globally unique). See link to diagram that demonstrates linking related collection, site, event, and sample IDs. A site identifier can be used to link a set of samples collected from a specific site, and/or to enable efficient entry of metadata that is the same across these samples."
+      ],
+      "examples": [
+        {
+          "value": "CoyoteRiver_D22"
+        }
+      ],
+      "from_schema": "https://w3id.org/ess-dive",
+      "range": "string",
+      "required": false
+    },
+    "Material": {
+      "name": "Material",
+      "description": "Material that the sample consists of.",
+      "title": "Material",
+      "comments": [
+        "Use a semi-colon to delimit multiple materials where needed. Please provide feedback on any other terms needed."
+      ],
+      "examples": [
+        {
+          "value": "Soil"
+        },
+        {
+          "value": "Sediment"
+        },
+        {
+          "value": "Gas"
+        },
+        {
+          "value": "Liquid>aqueous"
+        }
+      ],
+      "from_schema": "https://w3id.org/ess-dive",
+      "range": "Material menu",
+      "required": true
+    },
+    "Field name informal classification": {
+      "name": "Field name informal classification",
+      "description": "Informal classification of sample",
+      "title": "Field name informal classification",
+      "comments": [
+        "Here you can add additional material classifications that are not in the current SESAR IGSN controlled fields."
+      ],
+      "examples": [
+        {
+          "value": "leaf"
+        },
+        {
+          "value": "root"
+        },
+        {
+          "value": "surface water"
+        },
+        {
+          "value": "groundwater"
+        }
+      ],
+      "from_schema": "https://w3id.org/ess-dive",
+      "range": "string",
+      "required": false
+    },
+    "Sample Description": {
+      "name": "Sample Description",
+      "description": "Description of sample features, such as its components, texture, color, shape, treatments, plot ID from which the sample was taken, etc.",
+      "title": "Sample Description",
+      "comments": [
+        "None"
+      ],
+      "examples": [
+        {
+          "value": "Day 223 core section from unheated control plot 1C of a deep soil warming"
+        },
+        {
+          "value": "Filter used for filtered surface water samples"
+        }
+      ],
+      "from_schema": "https://w3id.org/ess-dive",
+      "range": "string",
+      "recommended": true
+    },
+    "Purpose": {
+      "name": "Purpose",
+      "description": "The scientific purpose for collecting the sample.",
+      "title": "Purpose",
+      "comments": [
+        "Purpose may often be the same across a series/collection of samples; To avoid entering the same information across numerous samples, you can create a separate file with metadata to describe a sample collection, which contains a \"collectionID\", and any associated metadata fields (e.g. \"collectionMethodDescription\", \"Purpose\" \"Chief Scientist\", etc.)."
+      ],
+      "examples": [
+        {
+          "value": "Characterize the biogeochemistry"
+        },
+        {
+          "value": "geochemistry and microbiology of soils associated with trees and shrubs"
+        }
+      ],
+      "from_schema": "https://w3id.org/ess-dive",
+      "range": "string",
+      "recommended": true
+    },
+    "Size": {
+      "name": "Size",
+      "description": "Size of the registered object, such as the surface area, length of a core, weight, or volume.",
+      "title": "Size",
+      "comments": [
+        "Must be associated with Size unit."
+      ],
+      "examples": [
+        {
+          "value": "4"
+        },
+        {
+          "value": "6.8"
+        }
+      ],
+      "from_schema": "https://w3id.org/ess-dive",
+      "required": false,
+      "any_of": [
+        {
+          "range": "integer"
+        },
+        {
+          "range": "double"
+        }
+      ]
+    },
+    "Size unit": {
+      "name": "Size unit",
+      "description": "Unit for the numerical value provided for ‘size’.",
+      "title": "Size unit",
+      "comments": [
+        "Use any additional unit terms from Units Ontology, and provide feedback."
+      ],
+      "examples": [
+        {
+          "value": "square centimeter"
+        },
+        {
+          "value": "kilogram"
+        }
+      ],
+      "from_schema": "https://w3id.org/ess-dive",
+      "range": "Size unit menu",
+      "required": false
+    },
+    "Filter Size": {
+      "name": "Filter Size",
+      "description": "Filtering pore size used in sample preparation (filter size value range). Filter size value range.",
+      "title": "Filter Size",
+      "comments": [
+        "Number range (float-float)"
+      ],
+      "examples": [
+        {
+          "value": "0-0.22"
+        }
+      ],
+      "from_schema": "https://w3id.org/ess-dive",
+      "range": "double",
+      "required": true
+    },
+    "Filter Size Unit": {
+      "name": "Filter Size Unit",
+      "description": "Filtering pore size unit.",
+      "title": "Filter Size Unit",
+      "comments": [
+        "unit (float-float unit)"
+      ],
+      "examples": [
+        {
+          "value": "micrometer"
+        }
+      ],
+      "from_schema": "https://w3id.org/ess-dive",
+      "range": "double",
+      "required": false
+    },
+    "Scientific Name": {
+      "name": "Scientific Name",
+      "description": "The full scientific name, with authorship and date information if known. When forming part of an Identification, this should be the name in lowest level taxonomic rank that can be determined.",
+      "title": "Scientific Name",
+      "examples": [
+        {
+          "value": "Vochysia ferruginea"
+        },
+        {
+          "value": "Viconia borealis"
+        }
+      ],
+      "from_schema": "https://w3id.org/ess-dive",
+      "range": "string",
+      "required": false
+    },
+    "Sample Remarks": {
+      "name": "Sample Remarks",
+      "description": "Comments or notes about the sample.",
+      "title": "Sample Remarks",
+      "comments": [
+        "You can include weather descriptions here, if relevant."
+      ],
+      "from_schema": "https://w3id.org/ess-dive",
+      "range": "string",
+      "required": false
+    },
+    "Collector Chief Scientist": {
+      "name": "Collector Chief Scientist",
+      "description": "Name of the person(s) who collected the sample.",
+      "title": "Collector Chief Scientist",
+      "comments": [
+        "You can enter multiple collectors/sampling team for large sampling efforts, separated with a semi-colon. If the collector(s) of the sample(s) is/are not known, enter name of the person responsible for the sample"
+      ],
+      "examples": [
+        {
+          "value": "John Smith"
+        },
+        {
+          "value": "John Smith; Jane Johnson"
+        }
+      ],
+      "from_schema": "https://w3id.org/ess-dive",
+      "range": "string",
+      "required": true
+    },
+    "Collection Date": {
+      "name": "Collection Date",
+      "description": "Date when the sample was collected.",
+      "title": "Collection Date",
+      "comments": [
+        "All dates and times must be reported in Coordinated Universal Time (UTC) and follow the ISO 8601 standard (RFC 3339). Temporal data using different standards can be provided as a separate variable (column) in addition to UTC format; YYYY-MM-DD"
+      ],
+      "examples": [
+        {
+          "value": "2019-08-14"
+        }
+      ],
+      "from_schema": "https://w3id.org/ess-dive",
+      "range": "date",
+      "required": true
+    },
+    "Collection Time": {
+      "name": "Collection Time",
+      "description": "Time when the sample was collected.",
+      "title": "Collection Time",
+      "comments": [
+        "All dates and times must be reported in Coordinated Universal Time (UTC) and follow the ISO 8601 standard (RFC 3339). Temporal data using different standards can be provided as a separate variable (column) in addition to UTC format; HH:MM:SSZ"
+      ],
+      "examples": [
+        {
+          "value": "12:05:03Z"
+        }
+      ],
+      "from_schema": "https://w3id.org/ess-dive",
+      "range": "dateTime",
+      "required": false
+    },
+    "Collection Method Description": {
+      "name": "Collection Method Description",
+      "description": "Description of the collection method for the sample. Include any important terms and details for potential users to understand how your sample was collected.",
+      "title": "Collection Method Description",
+      "comments": [
+        "Collection methods may often be the same across a series/collection of samples; there are two options for providing collection method details at a higher level. Option 1 -  Create a separate file with metadata to describe a sample collection, which contains a \"collectionID\", and any associated metadata fields (e.g. \"collectionMethodDescription\", \"Purpose\", \"Chief Scientist\", etc.). Option 2 - Create a methods file, with a series of methods descriptions that are each associated with a \"methodID\" and an associated \"methodDescription.\""
+      ],
+      "examples": [
+        {
+          "value": "Example 1) Collect soil samples from top 10 cm using 2-3 cores from with meadow plot or under the bulk of tree/shrub canopies."
+        },
+        {
+          "value": "Example 2) Excised branch."
+        },
+        {
+          "value": "Example 3) Pumped water at specific depths using tubing connected to CTD."
+        }
+      ],
+      "from_schema": "https://w3id.org/ess-dive",
+      "range": "string",
+      "required": true
+    },
+    "Sample Processing": {
+      "name": "Sample Processing",
+      "description": "Any processing applied to the sample during or after retrieving the sample from the environment. Can provide a list of preparations and preservation methods for the sample.",
+      "title": "Sample Processing",
+      "comments": [
+        "Sample processing may often be the same across a series/collection of samples. To avoid entering the same information across numerous samples, you can create a separate file with metadata to describe a sample collection, which contains a \"collectionID\", and any associated metadata fields (e.g. \"sampleProcessing\", \"collectionMethodDescription\", \"Purpose\", \"Chief Scientist\", etc.). Separate multiple sample processing methods with a semi-colon."
+      ],
+      "examples": [
+        {
+          "value": "filter water"
+        },
+        {
+          "value": "store samples in ethanol"
+        }
+      ],
+      "from_schema": "https://w3id.org/ess-dive",
+      "range": "string",
+      "recommended": true
+    },
+    "Field Program or Project Name": {
+      "name": "Field Program or Project Name",
+      "description": "Enter the name of the DOE project to associate with this/these sample(s).",
+      "title": "Field Program or Project Name",
+      "comments": [
+        "Required at dataset level, but want to associate with samples for data search and integration. Project details may often be the same across a series/collection of samples; To avoid entering the same information across numerous samples, you can create a separate file with metadata to describe a project or sample collection, which contains a \"collectionID\" or \"Field Program/Cruise\", and any associated metadata fields (e.g. \"Collection Method Description\", \"Purpose\", \"Chief Scientist\"..."
+      ],
+      "examples": [
+        {
+          "value": "Next Generation Ecosystem Experiments (NGEE) Tropics"
+        },
+        {
+          "value": "LBNL Watershed Function SFA"
+        }
+      ],
+      "from_schema": "https://w3id.org/ess-dive",
+      "range": "string",
+      "required": true
+    },
+    "Latitude Coordinate system WGS 84": {
+      "name": "Latitude Coordinate system WGS 84",
+      "description": "Latitude of the location where the sample was collected, entered in decimal degrees. Negative values for South latitudes.",
+      "title": "Latitude Coordinate system WGS 84",
+      "comments": [
+        "Decimal degrees, coordinate system is WGS 84. Please supply no more than 6 decimal places (meter scale resolution) in the actual number (not just display format.) No letters are allowed."
+      ],
+      "examples": [
+        {
+          "value": "5.89634"
+        }
+      ],
+      "from_schema": "https://w3id.org/ess-dive",
+      "range": "double",
+      "recommended": true,
+      "minimum_value": -90,
+      "maximum_value": 90
+    },
+    "Longitude Coordinate system WGS 84": {
+      "name": "Longitude Coordinate system WGS 84",
+      "description": "Longitude of the location where the sample was collected. Negative values for ‘West’ longitudes.",
+      "title": "Longitude Coordinate system WGS 84",
+      "comments": [
+        "Decimal degrees, coordinate system is WGS 84. Please supply no more than 6 decimal places (meter scale resolution) in the actual number (not just display format.) No letters are allowed."
+      ],
+      "examples": [
+        {
+          "value": "-103.785"
+        }
+      ],
+      "from_schema": "https://w3id.org/ess-dive",
+      "range": "double",
+      "minimum_value": -180,
+      "maximum_value": 180
+    },
+    "Navigation Type": {
+      "name": "Navigation Type",
+      "description": "Type of geolocation instrument used to obtain geographic coordinates.",
+      "title": "Navigation Type",
+      "comments": [
+        "Provide feedback on additional terms needed."
+      ],
+      "examples": [
+        {
+          "value": "GPS"
+        },
+        {
+          "value": "RTK GPS"
+        }
+      ],
+      "from_schema": "https://w3id.org/ess-dive",
+      "range": "Navigation Type menu",
+      "recommended": true
+    },
+    "Location Description": {
+      "name": "Location Description",
+      "description": "Free text description of the location.",
+      "title": "Location Description",
+      "comments": [
+        "You can also include details here about the location type, e.g. whether it is an absolute or reference location, plot ID and description."
+      ],
+      "examples": [
+        {
+          "value": "300 year old low-land tropical rainforest in Parque Natural San Lorenzo"
+        },
+        {
+          "value": "Panama"
+        }
+      ],
+      "from_schema": "https://w3id.org/ess-dive",
+      "range": "string",
+      "recommended": true
+    },
+    "Country": {
+      "name": "Country",
+      "description": "Country where the sample was collected.",
+      "title": "Country",
+      "comments": [
+        "Use SESAR list, but may change controlled list to GAZ ontology."
+      ],
+      "examples": [
+        {
+          "value": "United States"
+        }
+      ],
+      "from_schema": "https://w3id.org/ess-dive",
+      "range": "string",
+      "required": true
+    },
+    "Elevation start": {
+      "name": "Elevation start",
+      "description": "Elevation at which a sample was collected. Minimum elevation value, if elevation taken over a range.",
+      "title": "Elevation start",
+      "comments": [
+        "Provide elevation in meters where possible."
+      ],
+      "examples": [
+        {
+          "value": "678.5"
+        }
+      ],
+      "from_schema": "https://w3id.org/ess-dive",
+      "range": "double",
+      "required": false
+    },
+    "Elevation end": {
+      "name": "Elevation end",
+      "description": "Maximum elevation at which a sample was collected, if elevation was taken over a range.",
+      "title": "Elevation end",
+      "comments": [
+        "Leave blank if elevation is a single value and not range. Provide elevation in meters where possible."
+      ],
+      "examples": [
+        {
+          "value": "689.2"
+        }
+      ],
+      "from_schema": "https://w3id.org/ess-dive",
+      "range": "double",
+      "required": false
+    },
+    "Elevation unit": {
+      "name": "Elevation unit",
+      "description": "Unit that elevation start and/or end are provided in.",
+      "title": "Elevation unit",
+      "comments": [
+        "Recommend meters. This will be removed when elevation field is changed to specify meters."
+      ],
+      "examples": [
+        {
+          "value": "meters"
+        }
+      ],
+      "from_schema": "https://w3id.org/ess-dive",
+      "range": "string",
+      "recommended": true
+    },
+    "Minimum Depth in Meters": {
+      "name": "Minimum Depth in Meters",
+      "description": "Depth, or minimum depth (if taken over a range) at which a sample was collected, below ground or under water.",
+      "title": "Minimum Depth in Meters",
+      "comments": [
+        "Recommend using meters."
+      ],
+      "examples": [
+        {
+          "value": "0.001"
+        }
+      ],
+      "from_schema": "https://w3id.org/ess-dive",
+      "range": "double",
+      "recommended": true
+    },
+    "Maximum Depth in Meters": {
+      "name": "Maximum Depth in Meters",
+      "description": "Maximum depth at which a sample was collected, below ground or under water.",
+      "title": "Maximum Depth in Meters",
+      "comments": [
+        "Recommend using meters."
+      ],
+      "examples": [
+        {
+          "value": "0.003"
+        }
+      ],
+      "from_schema": "https://w3id.org/ess-dive",
+      "range": "double",
+      "recommended": true
+    },
+    "Depth scale": {
+      "name": "Depth scale",
+      "description": "Unit in which the depth is provided, should be meters.",
+      "title": "Depth scale",
+      "comments": [
+        "This field will be deleted when we change the depth field to be required in meters."
+      ],
+      "examples": [
+        {
+          "value": "meters"
+        }
+      ],
+      "from_schema": "https://w3id.org/ess-dive",
+      "range": "string",
+      "recommended": true
+    },
+    "Minimum Distance above Surface in Meters": {
+      "name": "Minimum Distance above Surface in Meters",
+      "description": "Minimum height above the ground surface, in meters. If no range of values collected, provide height measurement here.",
+      "title": "Minimum Distance above Surface in Meters",
+      "comments": [
+        "Recommend using meters."
+      ],
+      "examples": [
+        {
+          "value": "4.2"
+        }
+      ],
+      "from_schema": "https://w3id.org/ess-dive",
+      "range": "double",
+      "required": false
+    },
+    "Maximum Distance above Surface in Meters": {
+      "name": "Maximum Distance above Surface in Meters",
+      "description": "Maximum height above the ground surface, in meters.",
+      "title": "Maximum Distance above Surface in Meters",
+      "comments": [
+        "Recommend using meters."
+      ],
+      "examples": [
+        {
+          "value": "7.2"
+        }
+      ],
+      "from_schema": "https://w3id.org/ess-dive",
+      "range": "double",
+      "required": false
+    },
+    "Physiographic feature": {
+      "name": "Physiographic feature",
+      "description": "Entity or entities which are in your sample or specimen’s local vicinity and which you believe have significant causal influences on your sample or specimen.",
+      "title": "Physiographic feature",
+      "comments": [
+        "<a href=\"https://www.ebi.ac.uk/ols/ontologies/envo\">Terms from Environment Ontology (ENVO)</a>. Provide the appropriate term and ENVO identifier - see examples below. Choose environmental context that is a smaller spatial grain than your entry for biome. Delimit multiple values using semi-colon. If needed, request new terms on the ENVO tracker, identified <a href=\"http://obofoundry.org/ontology/envo.html\">here</a>."
+      ],
+      "examples": [
+        {
+          "value": "river [ENVO:00000022]"
+        },
+        {
+          "value": "wet meadow ecosystem [ENVO:01000449]; mountain [ENVO:00000081]"
+        },
+        {
+          "value": "For annotating a pooled sample taken from various vegetation layers in a forest, consider - canopy [ENVO:00000047]; herb and fern layer [ENVO:01000337]; litter layer [ENVO:01000338]; understory [01000335]; shrub layer [ENVO:01000336]."
+        }
+      ],
+      "from_schema": "https://w3id.org/ess-dive",
+      "range": "string",
+      "recommended": true
+    },
+    "Biome": {
+      "name": "Biome",
+      "description": "Major environmental system your sample or specimen came from. The systems identified should have a coarse spatial grain, to provide the general environmental context of where the sampling was done (e.g. were you in the desert or a rainforest?).",
+      "title": "Biome",
+      "comments": [
+        "<a href=\"https://www.ebi.ac.uk/ols/ontologies/envo\">Terms from Environment Ontology (ENVO)</a>. Provide the appropriate term and ENVO identifier - see examples below. We recommend using subclasses of <a href=\"https://ontobee.org/ontology/ENVO?iri=http://purl.obolibrary.org/obo/ENVO_00000428\">ENVO’s biome class</a>. Use a semi-colon to delimit multiple biomes where needed. If needed, request new terms on the ENVO tracker, identified <a href=\"http://obofoundry.org/ontology/envo.html\">here</a>."
+      ],
+      "examples": [
+        {
+          "value": "shrubland biome [ENVO:01000176]"
+        },
+        {
+          "value": "tropical moist broadleaf forest biome [ENVO:01000228]; estuarine biome [ENVO:01000020]"
+        }
+      ],
+      "from_schema": "https://w3id.org/ess-dive",
+      "range": "string",
+      "recommended": true
+    },
+    "Release Date": {
+      "name": "Release Date",
+      "description": "Date when sample metadata should be publicly accessible and searchable. If null, defaults to date of registration in SESAR (recommended).",
+      "title": "Release Date",
+      "comments": [
+        "SESAR recommends that sample metadata become public within 2 years of sample registration; YYYY-MM-DD format"
+      ],
+      "examples": [
+        {
+          "value": "2018-03-15"
+        }
+      ],
+      "from_schema": "https://w3id.org/ess-dive",
+      "range": "date",
+      "required": true
+    },
+    "Current Archive": {
+      "name": "Current Archive",
+      "description": "Name of institution, museum, or repository where the sample is currently stored.",
+      "title": "Current Archive",
+      "comments": [
+        "Only applies to physical samples that are archived in a collection for some period of time."
+      ],
+      "examples": [
+        {
+          "value": "Geosciences and Environmental Change Science Center"
+        },
+        {
+          "value": "USGS Federal Center"
+        },
+        {
+          "value": "Lakewood, CO"
+        }
+      ],
+      "from_schema": "https://w3id.org/ess-dive",
+      "range": "string",
+      "required": false
+    },
+    "Current Archive Contact": {
+      "name": "Current Archive Contact",
+      "description": "Address and/or email of the person who should be contacted for information about or access to the sample.",
+      "title": "Current Archive Contact",
+      "comments": [
+        "Email is not mandatory, but helps with communication about samples."
+      ],
+      "examples": [
+        {
+          "value": "scientist@lbl.gov"
+        }
+      ],
+      "from_schema": "https://w3id.org/ess-dive",
+      "range": "string",
+      "required": false
+    }
+  },
+  "classes": {
+    "dh_interface": {
+      "name": "dh_interface",
+      "description": "A DataHarmonizer interface",
+      "from_schema": "https://w3id.org/ess-dive"
+    },
+    "ESS-DIVE": {
+      "name": "ESS-DIVE",
+      "description": "ESS-DIVE specification for data",
+      "from_schema": "https://w3id.org/ess-dive",
+      "is_a": "dh_interface",
+      "slot_usage": {
+        "Object Type": {
+          "name": "Object Type",
+          "rank": 1,
+          "slot_group": "Sample IDs and Related Identifiers"
+        },
+        "User Code": {
+          "name": "User Code",
+          "rank": 2,
+          "slot_group": "Sample IDs and Related Identifiers"
+        },
+        "Sample Name": {
+          "name": "Sample Name",
+          "rank": 3,
+          "slot_group": "Sample IDs and Related Identifiers"
+        },
+        "Other names": {
+          "name": "Other names",
+          "rank": 4,
+          "slot_group": "Sample IDs and Related Identifiers"
+        },
+        "IGSN": {
+          "name": "IGSN",
+          "rank": 5,
+          "slot_group": "Sample IDs and Related Identifiers"
+        },
+        "Parent IGSN": {
+          "name": "Parent IGSN",
+          "rank": 6,
+          "slot_group": "Sample IDs and Related Identifiers"
+        },
+        "Collection ID": {
+          "name": "Collection ID",
+          "rank": 7,
+          "slot_group": "Sample IDs and Related Identifiers"
+        },
+        "Event ID": {
+          "name": "Event ID",
+          "rank": 8,
+          "slot_group": "Sample IDs and Related Identifiers"
+        },
+        "Location ID": {
+          "name": "Location ID",
+          "rank": 9,
+          "slot_group": "Sample IDs and Related Identifiers"
+        },
+        "Material": {
+          "name": "Material",
+          "rank": 10,
+          "slot_group": "Sample Description"
+        },
+        "Field name informal classification": {
+          "name": "Field name informal classification",
+          "rank": 11,
+          "slot_group": "Sample Description"
+        },
+        "Sample Description": {
+          "name": "Sample Description",
+          "rank": 12,
+          "slot_group": "Sample Description"
+        },
+        "Purpose": {
+          "name": "Purpose",
+          "rank": 13,
+          "slot_group": "Sample Description"
+        },
+        "Size": {
+          "name": "Size",
+          "rank": 14,
+          "slot_group": "Sample Description"
+        },
+        "Size unit": {
+          "name": "Size unit",
+          "rank": 15,
+          "slot_group": "Sample Description"
+        },
+        "Filter Size": {
+          "name": "Filter Size",
+          "rank": 16,
+          "slot_group": "Sample Description"
+        },
+        "Filter Size Unit": {
+          "name": "Filter Size Unit",
+          "rank": 17,
+          "slot_group": "Sample Description"
+        },
+        "Scientific Name": {
+          "name": "Scientific Name",
+          "rank": 18,
+          "slot_group": "Sample Description"
+        },
+        "Sample Remarks": {
+          "name": "Sample Remarks",
+          "rank": 19,
+          "slot_group": "Sample Description"
+        },
+        "Collector Chief Scientist": {
+          "name": "Collector Chief Scientist",
+          "rank": 20,
+          "slot_group": "Sample Collection Details"
+        },
+        "Collection Date": {
+          "name": "Collection Date",
+          "rank": 21,
+          "slot_group": "Sample Collection Details"
+        },
+        "Collection Time": {
+          "name": "Collection Time",
+          "rank": 22,
+          "slot_group": "Sample Collection Details"
+        },
+        "Collection Method Description": {
+          "name": "Collection Method Description",
+          "rank": 23,
+          "slot_group": "Sample Collection Details"
+        },
+        "Sample Processing": {
+          "name": "Sample Processing",
+          "rank": 24,
+          "slot_group": "Sample Collection Details"
+        },
+        "Field Program or Project Name": {
+          "name": "Field Program or Project Name",
+          "rank": 25,
+          "slot_group": "Sample Collection Details"
+        },
+        "Latitude Coordinate system WGS 84": {
+          "name": "Latitude Coordinate system WGS 84",
+          "rank": 26,
+          "slot_group": "Location"
+        },
+        "Longitude Coordinate system WGS 84": {
+          "name": "Longitude Coordinate system WGS 84",
+          "rank": 27,
+          "slot_group": "Location"
+        },
+        "Navigation Type": {
+          "name": "Navigation Type",
+          "rank": 28,
+          "slot_group": "Location"
+        },
+        "Location Description": {
+          "name": "Location Description",
+          "rank": 29,
+          "slot_group": "Location"
+        },
+        "Country": {
+          "name": "Country",
+          "rank": 30,
+          "slot_group": "Location"
+        },
+        "Elevation start": {
+          "name": "Elevation start",
+          "rank": 31,
+          "slot_group": "Location"
+        },
+        "Elevation end": {
+          "name": "Elevation end",
+          "rank": 32,
+          "slot_group": "Location"
+        },
+        "Elevation unit": {
+          "name": "Elevation unit",
+          "rank": 33,
+          "slot_group": "Location"
+        },
+        "Minimum Depth in Meters": {
+          "name": "Minimum Depth in Meters",
+          "rank": 34,
+          "slot_group": "Location"
+        },
+        "Maximum Depth in Meters": {
+          "name": "Maximum Depth in Meters",
+          "rank": 35,
+          "slot_group": "Location"
+        },
+        "Depth scale": {
+          "name": "Depth scale",
+          "rank": 36,
+          "slot_group": "Location"
+        },
+        "Minimum Distance above Surface in Meters": {
+          "name": "Minimum Distance above Surface in Meters",
+          "rank": 37,
+          "slot_group": "Location"
+        },
+        "Maximum Distance above Surface in Meters": {
+          "name": "Maximum Distance above Surface in Meters",
+          "rank": 38,
+          "slot_group": "Location"
+        },
+        "Physiographic feature": {
+          "name": "Physiographic feature",
+          "rank": 39,
+          "slot_group": "Environmental Context"
+        },
+        "Biome": {
+          "name": "Biome",
+          "rank": 40,
+          "slot_group": "Environmental Context"
+        },
+        "Release Date": {
+          "name": "Release Date",
+          "rank": 41,
+          "slot_group": "Sample Access"
+        },
+        "Current Archive": {
+          "name": "Current Archive",
+          "rank": 42,
+          "slot_group": "Sample Access"
+        },
+        "Current Archive Contact": {
+          "name": "Current Archive Contact",
+          "rank": 43,
+          "slot_group": "Sample Access"
+        }
+      },
+      "attributes": {
+        "Object Type": {
+          "name": "Object Type",
+          "description": "Broad characterization of the nature of a sample or specimen.",
+          "title": "Object Type",
+          "from_schema": "https://w3id.org/ess-dive",
+          "rank": 1,
+          "alias": "Object_Type",
+          "owner": "ESS-DIVE",
+          "domain_of": [
+            "ESS-DIVE"
+          ],
+          "slot_group": "Sample IDs and Related Identifiers",
+          "range": "Object Type menu",
+          "required": true
+        },
+        "User Code": {
+          "name": "User Code",
+          "description": "Globally unique IGSN code that will be used as a prefix for IGSNs in the submitted batch template.",
+          "title": "User Code",
+          "from_schema": "https://w3id.org/ess-dive",
+          "rank": 2,
+          "alias": "User_Code",
+          "owner": "ESS-DIVE",
+          "domain_of": [
+            "ESS-DIVE"
+          ],
+          "slot_group": "Sample IDs and Related Identifiers",
+          "range": "string",
+          "required": true,
+          "structured_pattern": {
+            "syntax": "{UPPER_CASE}",
+            "partial_match": true
+          }
+        },
+        "Sample Name": {
+          "name": "Sample Name",
+          "description": "Collector's project-specific sample name, which must be unique for each sample that you are submitting.",
+          "title": "Sample Name",
+          "from_schema": "https://w3id.org/ess-dive",
+          "rank": 3,
+          "alias": "Sample_Name",
+          "owner": "ESS-DIVE",
+          "domain_of": [
+            "ESS-DIVE"
+          ],
+          "slot_group": "Sample IDs and Related Identifiers",
+          "range": "string",
+          "required": true
+        },
+        "Other names": {
+          "name": "Other names",
+          "description": "Other sample name(s) that have been used in the past.",
+          "title": "Other names",
+          "from_schema": "https://w3id.org/ess-dive",
+          "rank": 4,
+          "alias": "Other_names",
+          "owner": "ESS-DIVE",
+          "domain_of": [
+            "ESS-DIVE"
+          ],
+          "slot_group": "Sample IDs and Related Identifiers",
+          "range": "string",
+          "required": false
+        },
+        "IGSN": {
+          "name": "IGSN",
+          "description": "Globally unique and persistent identifier for the sample. Leave blank if you want SESAR to assign the IGSN, which is recommended.",
+          "title": "IGSN",
+          "from_schema": "https://w3id.org/ess-dive",
+          "rank": 5,
+          "alias": "IGSN",
+          "owner": "ESS-DIVE",
+          "domain_of": [
+            "ESS-DIVE"
+          ],
+          "slot_group": "Sample IDs and Related Identifiers",
+          "range": "string",
+          "recommended": true
+        },
+        "Parent IGSN": {
+          "name": "Parent IGSN",
+          "description": "The larger sample from which a child sample was derived. For example, a core section may be the parent of a series of subsamples or split samples. Parent and child samples are linked in the SESAR catalog. Sibling samples are inferred from parent-child relationships and are linked on the landing page for a sample.",
+          "title": "Parent IGSN",
+          "from_schema": "https://w3id.org/ess-dive",
+          "rank": 6,
+          "alias": "Parent_IGSN",
+          "owner": "ESS-DIVE",
+          "domain_of": [
+            "ESS-DIVE"
+          ],
+          "slot_group": "Sample IDs and Related Identifiers",
+          "range": "string",
+          "required": false
+        },
+        "Collection ID": {
+          "name": "Collection ID",
+          "description": "A unique identifier for the set of information associated with a collection of samples; collections may be organized around a particular project, data set, field season, region, site, etc.",
+          "title": "Collection ID",
+          "from_schema": "https://w3id.org/ess-dive",
+          "rank": 7,
+          "alias": "Collection_ID",
+          "owner": "ESS-DIVE",
+          "domain_of": [
+            "ESS-DIVE"
+          ],
+          "slot_group": "Sample IDs and Related Identifiers",
+          "range": "string",
+          "required": false
+        },
+        "Event ID": {
+          "name": "Event ID",
+          "description": "A unique identifier for the set of information associated with an Event (something that occurs at a place and time).",
+          "title": "Event ID",
+          "from_schema": "https://w3id.org/ess-dive",
+          "rank": 8,
+          "alias": "Event_ID",
+          "owner": "ESS-DIVE",
+          "domain_of": [
+            "ESS-DIVE"
+          ],
+          "slot_group": "Sample IDs and Related Identifiers",
+          "range": "string",
+          "required": false
+        },
+        "Location ID": {
+          "name": "Location ID",
+          "description": "A unique identifier for the set of location information. May be a global unique identifier or an identifier specific to the data set.",
+          "title": "Location ID",
+          "from_schema": "https://w3id.org/ess-dive",
+          "rank": 9,
+          "alias": "Location_ID",
+          "owner": "ESS-DIVE",
+          "domain_of": [
+            "ESS-DIVE"
+          ],
+          "slot_group": "Sample IDs and Related Identifiers",
+          "range": "string",
+          "required": false
+        },
+        "Material": {
+          "name": "Material",
+          "description": "Material that the sample consists of.",
+          "title": "Material",
+          "from_schema": "https://w3id.org/ess-dive",
+          "rank": 10,
+          "alias": "Material",
+          "owner": "ESS-DIVE",
+          "domain_of": [
+            "ESS-DIVE"
+          ],
+          "slot_group": "Sample Description",
+          "range": "Material menu",
+          "required": true
+        },
+        "Field name informal classification": {
+          "name": "Field name informal classification",
+          "description": "Informal classification of sample",
+          "title": "Field name informal classification",
+          "from_schema": "https://w3id.org/ess-dive",
+          "rank": 11,
+          "alias": "Field_name_informal_classification",
+          "owner": "ESS-DIVE",
+          "domain_of": [
+            "ESS-DIVE"
+          ],
+          "slot_group": "Sample Description",
+          "range": "string",
+          "required": false
+        },
+        "Sample Description": {
+          "name": "Sample Description",
+          "description": "Description of sample features, such as its components, texture, color, shape, treatments, plot ID from which the sample was taken, etc.",
+          "title": "Sample Description",
+          "from_schema": "https://w3id.org/ess-dive",
+          "rank": 12,
+          "alias": "Sample_Description",
+          "owner": "ESS-DIVE",
+          "domain_of": [
+            "ESS-DIVE"
+          ],
+          "slot_group": "Sample Description",
+          "range": "string",
+          "recommended": true
+        },
+        "Purpose": {
+          "name": "Purpose",
+          "description": "The scientific purpose for collecting the sample.",
+          "title": "Purpose",
+          "from_schema": "https://w3id.org/ess-dive",
+          "rank": 13,
+          "alias": "Purpose",
+          "owner": "ESS-DIVE",
+          "domain_of": [
+            "ESS-DIVE"
+          ],
+          "slot_group": "Sample Description",
+          "range": "string",
+          "recommended": true
+        },
+        "Size": {
+          "name": "Size",
+          "description": "Size of the registered object, such as the surface area, length of a core, weight, or volume.",
+          "title": "Size",
+          "from_schema": "https://w3id.org/ess-dive",
+          "rank": 14,
+          "alias": "Size",
+          "owner": "ESS-DIVE",
+          "domain_of": [
+            "ESS-DIVE"
+          ],
+          "slot_group": "Sample Description",
+          "required": false
+        },
+        "Size unit": {
+          "name": "Size unit",
+          "description": "Unit for the numerical value provided for ‘size’.",
+          "title": "Size unit",
+          "from_schema": "https://w3id.org/ess-dive",
+          "rank": 15,
+          "alias": "Size_unit",
+          "owner": "ESS-DIVE",
+          "domain_of": [
+            "ESS-DIVE"
+          ],
+          "slot_group": "Sample Description",
+          "range": "Size unit menu",
+          "required": false
+        },
+        "Filter Size": {
+          "name": "Filter Size",
+          "description": "Filtering pore size used in sample preparation (filter size value range). Filter size value range.",
+          "title": "Filter Size",
+          "from_schema": "https://w3id.org/ess-dive",
+          "rank": 16,
+          "alias": "Filter_Size",
+          "owner": "ESS-DIVE",
+          "domain_of": [
+            "ESS-DIVE"
+          ],
+          "slot_group": "Sample Description",
+          "range": "double",
+          "required": true
+        },
+        "Filter Size Unit": {
+          "name": "Filter Size Unit",
+          "description": "Filtering pore size unit.",
+          "title": "Filter Size Unit",
+          "from_schema": "https://w3id.org/ess-dive",
+          "rank": 17,
+          "alias": "Filter_Size_Unit",
+          "owner": "ESS-DIVE",
+          "domain_of": [
+            "ESS-DIVE"
+          ],
+          "slot_group": "Sample Description",
+          "range": "double",
+          "required": false
+        },
+        "Scientific Name": {
+          "name": "Scientific Name",
+          "description": "The full scientific name, with authorship and date information if known. When forming part of an Identification, this should be the name in lowest level taxonomic rank that can be determined.",
+          "title": "Scientific Name",
+          "from_schema": "https://w3id.org/ess-dive",
+          "rank": 18,
+          "alias": "Scientific_Name",
+          "owner": "ESS-DIVE",
+          "domain_of": [
+            "ESS-DIVE"
+          ],
+          "slot_group": "Sample Description",
+          "range": "string",
+          "required": false
+        },
+        "Sample Remarks": {
+          "name": "Sample Remarks",
+          "description": "Comments or notes about the sample.",
+          "title": "Sample Remarks",
+          "from_schema": "https://w3id.org/ess-dive",
+          "rank": 19,
+          "alias": "Sample_Remarks",
+          "owner": "ESS-DIVE",
+          "domain_of": [
+            "ESS-DIVE"
+          ],
+          "slot_group": "Sample Description",
+          "range": "string",
+          "required": false
+        },
+        "Collector Chief Scientist": {
+          "name": "Collector Chief Scientist",
+          "description": "Name of the person(s) who collected the sample.",
+          "title": "Collector Chief Scientist",
+          "from_schema": "https://w3id.org/ess-dive",
+          "rank": 20,
+          "alias": "Collector_Chief_Scientist",
+          "owner": "ESS-DIVE",
+          "domain_of": [
+            "ESS-DIVE"
+          ],
+          "slot_group": "Sample Collection Details",
+          "range": "string",
+          "required": true
+        },
+        "Collection Date": {
+          "name": "Collection Date",
+          "description": "Date when the sample was collected.",
+          "title": "Collection Date",
+          "from_schema": "https://w3id.org/ess-dive",
+          "rank": 21,
+          "alias": "Collection_Date",
+          "owner": "ESS-DIVE",
+          "domain_of": [
+            "ESS-DIVE"
+          ],
+          "slot_group": "Sample Collection Details",
+          "range": "date",
+          "required": true
+        },
+        "Collection Time": {
+          "name": "Collection Time",
+          "description": "Time when the sample was collected.",
+          "title": "Collection Time",
+          "from_schema": "https://w3id.org/ess-dive",
+          "rank": 22,
+          "alias": "Collection_Time",
+          "owner": "ESS-DIVE",
+          "domain_of": [
+            "ESS-DIVE"
+          ],
+          "slot_group": "Sample Collection Details",
+          "range": "dateTime",
+          "required": false
+        },
+        "Collection Method Description": {
+          "name": "Collection Method Description",
+          "description": "Description of the collection method for the sample. Include any important terms and details for potential users to understand how your sample was collected.",
+          "title": "Collection Method Description",
+          "from_schema": "https://w3id.org/ess-dive",
+          "rank": 23,
+          "alias": "Collection_Method_Description",
+          "owner": "ESS-DIVE",
+          "domain_of": [
+            "ESS-DIVE"
+          ],
+          "slot_group": "Sample Collection Details",
+          "range": "string",
+          "required": true
+        },
+        "Sample Processing": {
+          "name": "Sample Processing",
+          "description": "Any processing applied to the sample during or after retrieving the sample from the environment. Can provide a list of preparations and preservation methods for the sample.",
+          "title": "Sample Processing",
+          "from_schema": "https://w3id.org/ess-dive",
+          "rank": 24,
+          "alias": "Sample_Processing",
+          "owner": "ESS-DIVE",
+          "domain_of": [
+            "ESS-DIVE"
+          ],
+          "slot_group": "Sample Collection Details",
+          "range": "string",
+          "recommended": true
+        },
+        "Field Program or Project Name": {
+          "name": "Field Program or Project Name",
+          "description": "Enter the name of the DOE project to associate with this/these sample(s).",
+          "title": "Field Program or Project Name",
+          "from_schema": "https://w3id.org/ess-dive",
+          "rank": 25,
+          "alias": "Field_Program_or_Project_Name",
+          "owner": "ESS-DIVE",
+          "domain_of": [
+            "ESS-DIVE"
+          ],
+          "slot_group": "Sample Collection Details",
+          "range": "string",
+          "required": true
+        },
+        "Latitude Coordinate system WGS 84": {
+          "name": "Latitude Coordinate system WGS 84",
+          "description": "Latitude of the location where the sample was collected, entered in decimal degrees. Negative values for South latitudes.",
+          "title": "Latitude Coordinate system WGS 84",
+          "from_schema": "https://w3id.org/ess-dive",
+          "rank": 26,
+          "alias": "Latitude_Coordinate_system_WGS_84",
+          "owner": "ESS-DIVE",
+          "domain_of": [
+            "ESS-DIVE"
+          ],
+          "slot_group": "Location",
+          "range": "double",
+          "recommended": true,
+          "minimum_value": -90,
+          "maximum_value": 90
+        },
+        "Longitude Coordinate system WGS 84": {
+          "name": "Longitude Coordinate system WGS 84",
+          "description": "Longitude of the location where the sample was collected. Negative values for ‘West’ longitudes.",
+          "title": "Longitude Coordinate system WGS 84",
+          "from_schema": "https://w3id.org/ess-dive",
+          "rank": 27,
+          "alias": "Longitude_Coordinate_system_WGS_84",
+          "owner": "ESS-DIVE",
+          "domain_of": [
+            "ESS-DIVE"
+          ],
+          "slot_group": "Location",
+          "range": "double",
+          "minimum_value": -180,
+          "maximum_value": 180
+        },
+        "Navigation Type": {
+          "name": "Navigation Type",
+          "description": "Type of geolocation instrument used to obtain geographic coordinates.",
+          "title": "Navigation Type",
+          "from_schema": "https://w3id.org/ess-dive",
+          "rank": 28,
+          "alias": "Navigation_Type",
+          "owner": "ESS-DIVE",
+          "domain_of": [
+            "ESS-DIVE"
+          ],
+          "slot_group": "Location",
+          "range": "Navigation Type menu",
+          "recommended": true
+        },
+        "Location Description": {
+          "name": "Location Description",
+          "description": "Free text description of the location.",
+          "title": "Location Description",
+          "from_schema": "https://w3id.org/ess-dive",
+          "rank": 29,
+          "alias": "Location_Description",
+          "owner": "ESS-DIVE",
+          "domain_of": [
+            "ESS-DIVE"
+          ],
+          "slot_group": "Location",
+          "range": "string",
+          "recommended": true
+        },
+        "Country": {
+          "name": "Country",
+          "description": "Country where the sample was collected.",
+          "title": "Country",
+          "from_schema": "https://w3id.org/ess-dive",
+          "rank": 30,
+          "alias": "Country",
+          "owner": "ESS-DIVE",
+          "domain_of": [
+            "ESS-DIVE"
+          ],
+          "slot_group": "Location",
+          "range": "string",
+          "required": true
+        },
+        "Elevation start": {
+          "name": "Elevation start",
+          "description": "Elevation at which a sample was collected. Minimum elevation value, if elevation taken over a range.",
+          "title": "Elevation start",
+          "from_schema": "https://w3id.org/ess-dive",
+          "rank": 31,
+          "alias": "Elevation_start",
+          "owner": "ESS-DIVE",
+          "domain_of": [
+            "ESS-DIVE"
+          ],
+          "slot_group": "Location",
+          "range": "double",
+          "required": false
+        },
+        "Elevation end": {
+          "name": "Elevation end",
+          "description": "Maximum elevation at which a sample was collected, if elevation was taken over a range.",
+          "title": "Elevation end",
+          "from_schema": "https://w3id.org/ess-dive",
+          "rank": 32,
+          "alias": "Elevation_end",
+          "owner": "ESS-DIVE",
+          "domain_of": [
+            "ESS-DIVE"
+          ],
+          "slot_group": "Location",
+          "range": "double",
+          "required": false
+        },
+        "Elevation unit": {
+          "name": "Elevation unit",
+          "description": "Unit that elevation start and/or end are provided in.",
+          "title": "Elevation unit",
+          "from_schema": "https://w3id.org/ess-dive",
+          "rank": 33,
+          "alias": "Elevation_unit",
+          "owner": "ESS-DIVE",
+          "domain_of": [
+            "ESS-DIVE"
+          ],
+          "slot_group": "Location",
+          "range": "string",
+          "recommended": true
+        },
+        "Minimum Depth in Meters": {
+          "name": "Minimum Depth in Meters",
+          "description": "Depth, or minimum depth (if taken over a range) at which a sample was collected, below ground or under water.",
+          "title": "Minimum Depth in Meters",
+          "from_schema": "https://w3id.org/ess-dive",
+          "rank": 34,
+          "alias": "Minimum_Depth_in_Meters",
+          "owner": "ESS-DIVE",
+          "domain_of": [
+            "ESS-DIVE"
+          ],
+          "slot_group": "Location",
+          "range": "double",
+          "recommended": true
+        },
+        "Maximum Depth in Meters": {
+          "name": "Maximum Depth in Meters",
+          "description": "Maximum depth at which a sample was collected, below ground or under water.",
+          "title": "Maximum Depth in Meters",
+          "from_schema": "https://w3id.org/ess-dive",
+          "rank": 35,
+          "alias": "Maximum_Depth_in_Meters",
+          "owner": "ESS-DIVE",
+          "domain_of": [
+            "ESS-DIVE"
+          ],
+          "slot_group": "Location",
+          "range": "double",
+          "recommended": true
+        },
+        "Depth scale": {
+          "name": "Depth scale",
+          "description": "Unit in which the depth is provided, should be meters.",
+          "title": "Depth scale",
+          "from_schema": "https://w3id.org/ess-dive",
+          "rank": 36,
+          "alias": "Depth_scale",
+          "owner": "ESS-DIVE",
+          "domain_of": [
+            "ESS-DIVE"
+          ],
+          "slot_group": "Location",
+          "range": "string",
+          "recommended": true
+        },
+        "Minimum Distance above Surface in Meters": {
+          "name": "Minimum Distance above Surface in Meters",
+          "description": "Minimum height above the ground surface, in meters. If no range of values collected, provide height measurement here.",
+          "title": "Minimum Distance above Surface in Meters",
+          "from_schema": "https://w3id.org/ess-dive",
+          "rank": 37,
+          "alias": "Minimum_Distance_above_Surface_in_Meters",
+          "owner": "ESS-DIVE",
+          "domain_of": [
+            "ESS-DIVE"
+          ],
+          "slot_group": "Location",
+          "range": "double",
+          "required": false
+        },
+        "Maximum Distance above Surface in Meters": {
+          "name": "Maximum Distance above Surface in Meters",
+          "description": "Maximum height above the ground surface, in meters.",
+          "title": "Maximum Distance above Surface in Meters",
+          "from_schema": "https://w3id.org/ess-dive",
+          "rank": 38,
+          "alias": "Maximum_Distance_above_Surface_in_Meters",
+          "owner": "ESS-DIVE",
+          "domain_of": [
+            "ESS-DIVE"
+          ],
+          "slot_group": "Location",
+          "range": "double",
+          "required": false
+        },
+        "Physiographic feature": {
+          "name": "Physiographic feature",
+          "description": "Entity or entities which are in your sample or specimen’s local vicinity and which you believe have significant causal influences on your sample or specimen.",
+          "title": "Physiographic feature",
+          "from_schema": "https://w3id.org/ess-dive",
+          "rank": 39,
+          "alias": "Physiographic_feature",
+          "owner": "ESS-DIVE",
+          "domain_of": [
+            "ESS-DIVE"
+          ],
+          "slot_group": "Environmental Context",
+          "range": "string",
+          "recommended": true
+        },
+        "Biome": {
+          "name": "Biome",
+          "description": "Major environmental system your sample or specimen came from. The systems identified should have a coarse spatial grain, to provide the general environmental context of where the sampling was done (e.g. were you in the desert or a rainforest?).",
+          "title": "Biome",
+          "from_schema": "https://w3id.org/ess-dive",
+          "rank": 40,
+          "alias": "Biome",
+          "owner": "ESS-DIVE",
+          "domain_of": [
+            "ESS-DIVE"
+          ],
+          "slot_group": "Environmental Context",
+          "range": "string",
+          "recommended": true
+        },
+        "Release Date": {
+          "name": "Release Date",
+          "description": "Date when sample metadata should be publicly accessible and searchable. If null, defaults to date of registration in SESAR (recommended).",
+          "title": "Release Date",
+          "from_schema": "https://w3id.org/ess-dive",
+          "rank": 41,
+          "alias": "Release_Date",
+          "owner": "ESS-DIVE",
+          "domain_of": [
+            "ESS-DIVE"
+          ],
+          "slot_group": "Sample Access",
+          "range": "date",
+          "required": true
+        },
+        "Current Archive": {
+          "name": "Current Archive",
+          "description": "Name of institution, museum, or repository where the sample is currently stored.",
+          "title": "Current Archive",
+          "from_schema": "https://w3id.org/ess-dive",
+          "rank": 42,
+          "alias": "Current_Archive",
+          "owner": "ESS-DIVE",
+          "domain_of": [
+            "ESS-DIVE"
+          ],
+          "slot_group": "Sample Access",
+          "range": "string",
+          "required": false
+        },
+        "Current Archive Contact": {
+          "name": "Current Archive Contact",
+          "description": "Address and/or email of the person who should be contacted for information about or access to the sample.",
+          "title": "Current Archive Contact",
+          "from_schema": "https://w3id.org/ess-dive",
+          "rank": 43,
+          "alias": "Current_Archive_Contact",
+          "owner": "ESS-DIVE",
+          "domain_of": [
+            "ESS-DIVE"
+          ],
+          "slot_group": "Sample Access",
+          "range": "string",
+          "required": false
+        }
+      }
+    }
+  },
+  "source_file": "schema.yaml",
+  "settings": {
+    "Title_Case": {
+      "setting_key": "Title_Case",
+      "setting_value": "(((?<=\\b)[^a-z\\W]\\w*?|[\\W])+)"
+    },
+    "UPPER_CASE": {
+      "setting_key": "UPPER_CASE",
+      "setting_value": "[A-Z\\W\\d_]*"
+    },
+    "lower_case": {
+      "setting_key": "lower_case",
+      "setting_value": "[a-z\\W\\d_]*"
+    }
+  },
+  "@type": "SchemaDefinition"
+}
