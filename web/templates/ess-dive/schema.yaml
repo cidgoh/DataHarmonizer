@@ -1,12 +1,13 @@
 id: https://w3id.org/ess-dive
 name: ess-dive
-description: ess-dive
+description: ess-dive physical sample record
 version: 2.3.0
 imports:
 - linkml:types
 prefixes:
   linkml: https://w3id.org/linkml/
   ess-dive: https://w3id.org/ess-dive
+  ENVO: http://purl.obolibrary.org/obo/envo.owl
 classes:
   dh_interface:
     name: dh_interface
@@ -223,6 +224,7 @@ slots:
     - value: 001-ER18-FO
     range: string
     required: true
+    identifier: true
   Other names:
     name: Other names
     title: Other names
@@ -250,7 +252,7 @@ slots:
     examples:
       - value: IEMEG0002
     range: string
-    required: false
+    recommended: true
   Collection ID:
     name: Collection ID
     title: Collection ID
@@ -260,6 +262,7 @@ slots:
       - value: WSFA_June2019
     range: string
     required: false
+    identifier: true
   Event ID:
     name: Event ID
     title: Event ID
@@ -270,6 +273,7 @@ slots:
       - value: WSFA_20191023
     range: string
     required: false
+    identifier: true
   Location ID:
     name: Location ID
     title: Location ID
@@ -279,6 +283,7 @@ slots:
       - value: CoyoteRiver_D22
     range: string
     required: false
+    identifier: true
   Material:
     name: Material
     title: Material
@@ -334,6 +339,8 @@ slots:
     any_of:
     - range: integer
     - range: double
+    - range: float
+    - range: decimal
     required: false
   Size unit:
     name: Size unit
@@ -344,7 +351,7 @@ slots:
       - value: square centimeter
       - value: kilogram
     range: Size unit menu
-    required: false
+    recommended: true
   Filter Size:
     name: Filter Size
     title: Filter Size
@@ -352,17 +359,22 @@ slots:
     comments: Number range (float-float)
     examples:
       - value: 0-0.22
-    range: double
-    required: true
+    any_of:
+    - range: double
+    - range: float
+    - range: decimal
+    - range: integer
+    pattern: '^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\s-]{1,2}|[^\s-]+.+[^\s-]+)$'
+    recommended: true
   Filter Size Unit:
     name: Filter Size Unit
     title: Filter Size Unit
     description: Filtering pore size unit.
-    comments: unit (float-float unit)
+    comments: Unit for the numerical values provided for "Filter Size"
     examples:
       - value: micrometer
-    range: double
-    required: false
+    range: string
+    recommended: false
   Scientific Name:
     name: Scientific Name
     title: Scientific Name
@@ -371,7 +383,7 @@ slots:
       - value: Vochysia ferruginea
       - value: Viconia borealis
     range: string
-    required: false
+    recommended: true
   Sample Remarks:
     name: Sample Remarks
     title: Sample Remarks
@@ -445,9 +457,14 @@ slots:
     comments: Decimal degrees, coordinate system is WGS 84. Please supply no more than 6 decimal places (meter scale resolution) in the actual number (not just display format.) No letters are allowed.
     examples:
       - value: 5.89634
-    range: double
+    any_of:
+    - range: double
+    - range: decimal
+    - range: float
+    - range: integer
     maximum_value: 90
     minimum_value: -90
+    pattern: '^\d+(\.\d{1,6})?$'
     recommended: true
   Longitude Coordinate system WGS 84:
     name: Longitude Coordinate system WGS 84
@@ -456,10 +473,15 @@ slots:
     comments: Decimal degrees, coordinate system is WGS 84. Please supply no more than 6 decimal places (meter scale resolution) in the actual number (not just display format.) No letters are allowed.
     examples:
       - value: -103.785
-    range: double
+    any_of:
+      - range: double
+      - range: decimal
+      - range: float
+      - range: integer
     maximum_value: 180
     minimum_value: -180
-    required:
+    pattern: '^\d+(\.\d{1,6})?$'
+    recommended: true
   Navigation Type:
     name: Navigation Type
     title: Navigation Type
@@ -487,7 +509,7 @@ slots:
     comments: Use SESAR list, but may change controlled list to GAZ ontology.
     examples:
       - value: United States
-    range: string
+    range: Country menu
     required: true
   Elevation start:
     name: Elevation start
@@ -496,8 +518,12 @@ slots:
     comments: Provide elevation in meters where possible.
     examples:
       - value: 678.5
-    range: double
-    required: false
+    any_of:
+      - range: double
+      - range: decimal
+      - range: float
+      - range: integer
+    recommended: false
   Elevation end:
     name: Elevation end
     title: Elevation end
@@ -505,8 +531,12 @@ slots:
     comments: Leave blank if elevation is a single value and not range. Provide elevation in meters where possible.
     examples:
       - value: 689.2
-    range: double
-    required: false
+    any_of:
+      - range: double
+      - range: decimal
+      - range: float
+      - range: integer
+    recommended: false
   Elevation unit:
     name: Elevation unit
     title: Elevation unit
@@ -523,7 +553,12 @@ slots:
     comments: Recommend using meters.
     examples:
       - value: 0.001
-    range: double
+    any_of:
+      - range: double
+      - range: decimal
+      - range: float
+      - range: integer
+    pattern: '^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\s-]{1,2}|[^\s-]+.+[^\s-]+)$'
     recommended: true
   Maximum Depth in Meters:
     name: Maximum Depth in Meters
@@ -532,7 +567,12 @@ slots:
     comments: Recommend using meters.
     examples:
       - value: 0.003
-    range: double
+    any_of:
+      - range: double
+      - range: decimal
+      - range: float
+      - range: integer
+    pattern: '^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\s-]{1,2}|[^\s-]+.+[^\s-]+)$'
     recommended: true
   Depth scale:
     name: Depth scale
@@ -550,7 +590,11 @@ slots:
     comments: Recommend using meters.
     examples:
       - value: 4.2
-    range: double
+    any_of:
+      - range: double
+      - range: decimal
+      - range: float
+      - range: integer
     required: false
   Maximum Distance above Surface in Meters:
     name: Maximum Distance above Surface in Meters
@@ -559,7 +603,11 @@ slots:
     comments: Recommend using meters.
     examples:
       - value: 7.2
-    range: double
+    any_of:
+      - range: double
+      - range: decimal
+      - range: float
+      - range: integer
     required: false
   Physiographic feature:
     name: Physiographic feature
@@ -571,6 +619,7 @@ slots:
       - value: wet meadow ecosystem [ENVO:01000449]; mountain [ENVO:00000081]
       - value: For annotating a pooled sample taken from various vegetation layers in a forest, consider - canopy [ENVO:00000047]; herb and fern layer [ENVO:01000337]; litter layer [ENVO:01000338]; understory [01000335]; shrub layer [ENVO:01000336].
     range: string
+    slot_uri: ENVO
     recommended: true
   Biome:
     name: Biome
@@ -581,6 +630,7 @@ slots:
       - value: shrubland biome [ENVO:01000176]
       - value: tropical moist broadleaf forest biome [ENVO:01000228]; estuarine biome [ENVO:01000020]
     range: string
+    slot_uri: ENVO
     recommended: true
   Release Date:
     name: Release Date
@@ -806,6 +856,519 @@ enums:
         text: RTK GPS
       USBL:
         text: USBL
+  Country menu:
+    name: Country menu
+    permissible_values:
+      Afghanistan:
+        text: Afghanistan
+      Åland Islands:
+        text: Åland Islands
+      Albania:
+        text: Albania
+      Algeria:
+        text: Algeria
+      American Samoa:
+        text: American Samoa
+      Andorra:
+        text: Andorra
+      Angola:
+        text: Angola
+      Anguilla:
+        text: Anguilla
+      Antarctica:
+        text: Antarctica
+      Antigua And Barbuda:
+        text: Antigua And Barbuda
+      Argentina:
+        text: Argentina
+      Armenia:
+        text: Armenia
+      Aruba:
+        text: Aruba
+      Australia:
+        text: Australia
+      Austria:
+        text: Austria
+      Azerbaijan:
+        text: Azerbaijan
+      Bahamas:
+        text: Bahamas
+      Bahrain:
+        text: Bahrain
+      Bangladesh:
+        text: Bangladesh
+      Barbados:
+        text: Barbados
+      Belarus:
+        text: Belarus
+      Belgium:
+        text: Belgium
+      Belize:
+        text: Belize
+      Benin:
+        text: Benin
+      Bermuda:
+        text: Bermuda
+      Bhutan:
+        text: Bhutan
+      Bolivia:
+        text: Bolivia
+      Bonaire, Sint Eustatius and Saba:
+        text: Bonaire, Sint Eustatius and Saba
+      Bosnia And Herzegovina:
+        text: Bosnia And Herzegovina
+      Botswana:
+        text: Botswana
+      Bouvet Island:
+        text: Bouvet Island
+      Brazil:
+        text: Brazil
+      British Indian Ocean Territory:
+        text: British Indian Ocean Territory
+      Brunei Darussalam:
+        text: Brunei Darussalam
+      Bulgaria:
+        text: Bulgaria
+      Burkina Faso:
+        text: Burkina Faso
+      Burundi:
+        text: Burundi
+      Cambodia:
+        text: Cambodia
+      Cameroon:
+        text: Cameroon
+      Canada:
+        text: Canada
+      Cape Verde:
+        text: Cape Verde
+      Cayman Islands:
+        text: Cayman Islands
+      Central African Republic:
+        text: Central African Republic
+      Chad:
+        text: Chad
+      Chile:
+        text: Chile
+      China:
+        text: China
+      Christmas Island:
+        text: Christmas Island
+      Cocos (keeling) Islands:
+        text: Cocos (keeling) Islands
+      Colombia:
+        text: Colombia
+      Comoros:
+        text: Comoros
+      Congo:
+        text: Congo
+      Congo, The Democratic Republic Of The:
+        text: Congo, The Democratic Republic Of The
+      Cook Islands:
+        text: Cook Islands
+      Costa Rica:
+        text: Costa Rica
+      Cote D’ivoire:
+        text: Cote D’ivoire
+      Croatia:
+        text: Croatia
+      Cuba:
+        text: Cuba
+      Curaçao:
+        text: Curaçao
+      Cyprus:
+        text: Cyprus
+      Czech Republic:
+        text: Czech Republic
+      Denmark:
+        text: Denmark
+      Djibouti:
+        text: Djibouti
+      Dominica:
+        text: Dominica
+      Dominican Republic:
+        text: Dominican Republic
+      East Timor:
+        text: East Timor
+      Ecuador:
+        text: Ecuador
+      Egypt:
+        text: Egypt
+      El Salvador:
+        text: El Salvador
+      Equatorial Guinea:
+        text: Equatorial Guinea
+      Eritrea:
+        text: Eritrea
+      Estonia:
+        text: Estonia
+      Ethiopia:
+        text: Ethiopia
+      Falkland Islands (Malvinas):
+        text: Falkland Islands (Malvinas)
+      Faroe Islands:
+        text: Faroe Islands
+      Fiji:
+        text: Fiji
+      Finland:
+        text: Finland
+      France:
+        text: France
+      French Guiana:
+        text: French Guiana
+      French Polynesia:
+        text: French Polynesia
+      French Southern Territories:
+        text: French Southern Territories
+      Gabon:
+        text: Gabon
+      Gambia:
+        text: Gambia
+      Georgia:
+        text: Georgia
+      Germany:
+        text: Germany
+      Ghana:
+        text: Ghana
+      Gibraltar:
+        text: Gibraltar
+      Greece:
+        text: Greece
+      Greenland:
+        text: Greenland
+      Grenada:
+        text: Grenada
+      Guadeloupe:
+        text: Guadeloupe
+      Guam:
+        text: Guam
+      Guatemala:
+        text: Guatemala
+      Guernsey:
+        text: Guernsey
+      Guinea:
+        text: Guinea
+      Guinea-Bissau:
+        text: Guinea-Bissau
+      Guyana:
+        text: Guyana
+      Haiti:
+        text: Haiti
+      Heard Island And Mcdonald Islands:
+        text: Heard Island And Mcdonald Islands
+      Holy See (Vatican City State):
+        text: Holy See (Vatican City State)
+      Honduras:
+        text: Honduras
+      Hong Kong:
+        text: Hong Kong
+      Hungary:
+        text: Hungary
+      Iceland:
+        text: Iceland
+      India:
+        text: India
+      Indonesia:
+        text: Indonesia
+      Iran:
+        text: Iran
+      Iraq:
+        text: Iraq
+      Ireland:
+        text: Ireland
+      Isle of Man:
+        text: Isle of Man
+      Israel:
+        text: Israel
+      Italy:
+        text: Italy
+      Jamaica:
+        text: Jamaica
+      Japan:
+        text: Japan
+      Jersey:
+        text: Jersey
+      Jordan:
+        text: Jordan
+      Kazakhstan:
+        text: Kazakhstan
+      Kenya:
+        text: Kenya
+      Kiribati:
+        text: Kiribati
+      South Korea:
+        text: South Korea
+      North Korea:
+        text: North Korea
+      Kosovo:
+        text: Kosovo
+      Kuwait:
+        text: Kuwait
+      Kyrgyzstan:
+        text: Kyrgyzstan
+      Lao People’s Democratic Republic:
+        text: Lao People’s Democratic Republic
+      Latvia:
+        text: Latvia
+      Lebanon:
+        text: Lebanon
+      Lesotho:
+        text: Lesotho
+      Liberia:
+        text: Liberia
+      Libya:
+        text: Libya
+      Libyan Arab Jamahiriya:
+        text: Libyan Arab Jamahiriya
+      Liechtenstein:
+        text: Liechtenstein
+      Lithuania:
+        text: Lithuania
+      Luxembourg:
+        text: Luxembourg
+      Macao:
+        text: Macao
+      Macedonia:
+        text: Macedonia
+      Madagascar:
+        text: Madagascar
+      Malawi:
+        text: Malawi
+      Malaysia:
+        text: Malaysia
+      Maldives:
+        text: Maldives
+      Mali:
+        text: Mali
+      Malta:
+        text: Malta
+      Marshall Islands:
+        text: Marshall Islands
+      Martinique:
+        text: Martinique
+      Mauritania:
+        text: Mauritania
+      Mauritius:
+        text: Mauritius
+      Mayotte:
+        text: Mayotte
+      Mexico:
+        text: Mexico
+      Micronesia, Federated States Of:
+        text: Micronesia, Federated States Of
+      Moldova, Republic Of:
+        text: Moldova, Republic Of
+      Monaco:
+        text: Monaco
+      Mongolia:
+        text: Mongolia
+      Montserrat:
+        text: Montserrat
+      Montenegro:
+        text: Montenegro
+      Morocco:
+        text: Morocco
+      Mozambique:
+        text: Mozambique
+      Myanmar (Burma):
+        text: Myanmar (Burma)
+      Namibia:
+        text: Namibia
+      Nauru:
+        text: Nauru
+      Nepal:
+        text: Nepal
+      Netherlands:
+        text: Netherlands
+      Netherlands Antilles:
+        text: Netherlands Antilles
+      New Caledonia:
+        text: New Caledonia
+      New Zealand:
+        text: New Zealand
+      Nicaragua:
+        text: Nicaragua
+      Niger:
+        text: Niger
+      Nigeria:
+        text: Nigeria
+      Niue:
+        text: Niue
+      Norfolk Island:
+        text: Norfolk Island
+      North Macedonia:
+        text: North Macedonia
+      Northern Mariana Islands:
+        text: Northern Mariana Islands
+      Norway:
+        text: Norway
+      Oman:
+        text: Oman
+      Pakistan:
+        text: Pakistan
+      Palau:
+        text: Palau
+      Palestine:
+        text: Palestine
+      Panama:
+        text: Panama
+      Papua New Guinea:
+        text: Papua New Guinea
+      Paraguay:
+        text: Paraguay
+      Peru:
+        text: Peru
+      Philippines:
+        text: Philippines
+      Pitcairn:
+        text: Pitcairn
+      Poland:
+        text: Poland
+      Portugal:
+        text: Portugal
+      Puerto Rico:
+        text: Puerto Rico
+      Qatar:
+        text: Qatar
+      Reunion:
+        text: Reunion
+      Romania:
+        text: Romania
+      Russia:
+        text: Russia
+      Rwanda:
+        text: Rwanda
+      Saint Barthélemy:
+        text: Saint Barthélemy
+      Saint Helena:
+        text: Saint Helena
+      Saint Helena, Ascension and Tristan da Cunha:
+        text: Saint Helena, Ascension and Tristan da Cunha
+      St. Kitts And Nevis:
+        text: St. Kitts And Nevis
+      Saint Lucia:
+        text: Saint Lucia
+      Saint Martin (French part):
+        text: Saint Martin (French part)
+      Saint Pierre And Miquelon:
+        text: Saint Pierre And Miquelon
+      Saint Vincent And The Grenadines:
+        text: Saint Vincent And The Grenadines
+      Samoa:
+        text: Samoa
+      San Marino:
+        text: San Marino
+      Sao Tome And Principe:
+        text: Sao Tome And Principe
+      Saudi Arabia:
+        text: Saudi Arabia
+      Senegal:
+        text: Senegal
+      Serbia:
+        text: Serbia
+      Seychelles:
+        text: Seychelles
+      Sierra Leone:
+        text: Sierra Leone
+      Singapore:
+        text: Singapore
+      Slovakia:
+        text: Slovakia
+      Slovenia:
+        text: Slovenia
+      Solomon Islands:
+        text: Solomon Islands
+      Somalia:
+        text: Somalia
+      South Africa:
+        text: South Africa
+      South Georgia And The South Sandwich Islands:
+        text: South Georgia And The South Sandwich Islands
+      South Sudan:
+        text: South Sudan
+      Spain:
+        text: Spain
+      Sri Lanka:
+        text: Sri Lanka
+      Sudan:
+        text: Sudan
+      Suriname:
+        text: Suriname
+      Svalbard And Jan Mayen:
+        text: Svalbard And Jan Mayen
+      Swaziland:
+        text: Swaziland
+      Sweden:
+        text: Sweden
+      Switzerland:
+        text: Switzerland
+      Syria:
+        text: Syria
+      Taiwan:
+        text: Taiwan
+      Taiwan, Republic Of China:
+        text: Taiwan, Republic Of China
+      Tajikistan:
+        text: Tajikistan
+      Tanzania:
+        text: Tanzania
+      Thailand:
+        text: Thailand
+      Timor-Leste:
+        text: Timor-Leste
+      Togo:
+        text: Togo
+      Tokelau:
+        text: Tokelau
+      Tonga:
+        text: Tonga
+      Trinidad And Tobago:
+        text: Trinidad And Tobago
+      Tunisia:
+        text: Tunisia
+      Turkey:
+        text: Turkey
+      Türkiye:
+        text: Türkiye
+      Turkmenistan:
+        text: Turkmenistan
+      Turks And Caicos Islands:
+        text: Turks And Caicos Islands
+      Tuvalu:
+        text: Tuvalu
+      Uganda:
+        text: Uganda
+      Ukraine:
+        text: Ukraine
+      United Arab Emirates:
+        text: United Arab Emirates
+      United Kingdom:
+        text: United Kingdom
+      United States:
+        text: United States
+      United States Minor Outlying Islands:
+        text: United States Minor Outlying Islands
+      Uruguay:
+        text: Uruguay
+      Uzbekistan:
+        text: Uzbekistan
+      Vanuatu:
+        text: Vanuatu
+      Venezuela:
+        text: Venezuela
+      Viet Nam:
+        text: Viet Nam
+      British Virgin Islands:
+        text: British Virgin Islands
+      U.S. Virgin Islands:
+        text: U.S. Virgin Islands
+      Wallis And Futuna:
+        text: Wallis And Futuna
+      Western Sahara:
+        text: Western Sahara
+      Yemen:
+        text: Yemen
+      Zambia:
+        text: Zambia
 types:
   Provenance:
     name: "Provenance"

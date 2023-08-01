@@ -1,6 +1,6 @@
 {
   "name": "ess-dive",
-  "description": "ess-dive",
+  "description": "ess-dive physical sample record",
   "id": "https://w3id.org/ess-dive",
   "version": "2.3.0",
   "prefixes": {
@@ -11,6 +11,10 @@
     "ess-dive": {
       "prefix_prefix": "ess-dive",
       "prefix_reference": "https://w3id.org/ess-dive"
+    },
+    "ENVO": {
+      "prefix_prefix": "ENVO",
+      "prefix_reference": "http://purl.obolibrary.org/obo/envo.owl"
     },
     "xsd": {
       "prefix_prefix": "xsd",
@@ -491,6 +495,777 @@
           "text": "USBL"
         }
       }
+    },
+    "Country menu": {
+      "name": "Country menu",
+      "from_schema": "https://w3id.org/ess-dive",
+      "permissible_values": {
+        "Afghanistan": {
+          "text": "Afghanistan"
+        },
+        "Åland Islands": {
+          "text": "Åland Islands"
+        },
+        "Albania": {
+          "text": "Albania"
+        },
+        "Algeria": {
+          "text": "Algeria"
+        },
+        "American Samoa": {
+          "text": "American Samoa"
+        },
+        "Andorra": {
+          "text": "Andorra"
+        },
+        "Angola": {
+          "text": "Angola"
+        },
+        "Anguilla": {
+          "text": "Anguilla"
+        },
+        "Antarctica": {
+          "text": "Antarctica"
+        },
+        "Antigua And Barbuda": {
+          "text": "Antigua And Barbuda"
+        },
+        "Argentina": {
+          "text": "Argentina"
+        },
+        "Armenia": {
+          "text": "Armenia"
+        },
+        "Aruba": {
+          "text": "Aruba"
+        },
+        "Australia": {
+          "text": "Australia"
+        },
+        "Austria": {
+          "text": "Austria"
+        },
+        "Azerbaijan": {
+          "text": "Azerbaijan"
+        },
+        "Bahamas": {
+          "text": "Bahamas"
+        },
+        "Bahrain": {
+          "text": "Bahrain"
+        },
+        "Bangladesh": {
+          "text": "Bangladesh"
+        },
+        "Barbados": {
+          "text": "Barbados"
+        },
+        "Belarus": {
+          "text": "Belarus"
+        },
+        "Belgium": {
+          "text": "Belgium"
+        },
+        "Belize": {
+          "text": "Belize"
+        },
+        "Benin": {
+          "text": "Benin"
+        },
+        "Bermuda": {
+          "text": "Bermuda"
+        },
+        "Bhutan": {
+          "text": "Bhutan"
+        },
+        "Bolivia": {
+          "text": "Bolivia"
+        },
+        "Bonaire, Sint Eustatius and Saba": {
+          "text": "Bonaire, Sint Eustatius and Saba"
+        },
+        "Bosnia And Herzegovina": {
+          "text": "Bosnia And Herzegovina"
+        },
+        "Botswana": {
+          "text": "Botswana"
+        },
+        "Bouvet Island": {
+          "text": "Bouvet Island"
+        },
+        "Brazil": {
+          "text": "Brazil"
+        },
+        "British Indian Ocean Territory": {
+          "text": "British Indian Ocean Territory"
+        },
+        "Brunei Darussalam": {
+          "text": "Brunei Darussalam"
+        },
+        "Bulgaria": {
+          "text": "Bulgaria"
+        },
+        "Burkina Faso": {
+          "text": "Burkina Faso"
+        },
+        "Burundi": {
+          "text": "Burundi"
+        },
+        "Cambodia": {
+          "text": "Cambodia"
+        },
+        "Cameroon": {
+          "text": "Cameroon"
+        },
+        "Canada": {
+          "text": "Canada"
+        },
+        "Cape Verde": {
+          "text": "Cape Verde"
+        },
+        "Cayman Islands": {
+          "text": "Cayman Islands"
+        },
+        "Central African Republic": {
+          "text": "Central African Republic"
+        },
+        "Chad": {
+          "text": "Chad"
+        },
+        "Chile": {
+          "text": "Chile"
+        },
+        "China": {
+          "text": "China"
+        },
+        "Christmas Island": {
+          "text": "Christmas Island"
+        },
+        "Cocos (keeling) Islands": {
+          "text": "Cocos (keeling) Islands"
+        },
+        "Colombia": {
+          "text": "Colombia"
+        },
+        "Comoros": {
+          "text": "Comoros"
+        },
+        "Congo": {
+          "text": "Congo"
+        },
+        "Congo, The Democratic Republic Of The": {
+          "text": "Congo, The Democratic Republic Of The"
+        },
+        "Cook Islands": {
+          "text": "Cook Islands"
+        },
+        "Costa Rica": {
+          "text": "Costa Rica"
+        },
+        "Cote D’ivoire": {
+          "text": "Cote D’ivoire"
+        },
+        "Croatia": {
+          "text": "Croatia"
+        },
+        "Cuba": {
+          "text": "Cuba"
+        },
+        "Curaçao": {
+          "text": "Curaçao"
+        },
+        "Cyprus": {
+          "text": "Cyprus"
+        },
+        "Czech Republic": {
+          "text": "Czech Republic"
+        },
+        "Denmark": {
+          "text": "Denmark"
+        },
+        "Djibouti": {
+          "text": "Djibouti"
+        },
+        "Dominica": {
+          "text": "Dominica"
+        },
+        "Dominican Republic": {
+          "text": "Dominican Republic"
+        },
+        "East Timor": {
+          "text": "East Timor"
+        },
+        "Ecuador": {
+          "text": "Ecuador"
+        },
+        "Egypt": {
+          "text": "Egypt"
+        },
+        "El Salvador": {
+          "text": "El Salvador"
+        },
+        "Equatorial Guinea": {
+          "text": "Equatorial Guinea"
+        },
+        "Eritrea": {
+          "text": "Eritrea"
+        },
+        "Estonia": {
+          "text": "Estonia"
+        },
+        "Ethiopia": {
+          "text": "Ethiopia"
+        },
+        "Falkland Islands (Malvinas)": {
+          "text": "Falkland Islands (Malvinas)"
+        },
+        "Faroe Islands": {
+          "text": "Faroe Islands"
+        },
+        "Fiji": {
+          "text": "Fiji"
+        },
+        "Finland": {
+          "text": "Finland"
+        },
+        "France": {
+          "text": "France"
+        },
+        "French Guiana": {
+          "text": "French Guiana"
+        },
+        "French Polynesia": {
+          "text": "French Polynesia"
+        },
+        "French Southern Territories": {
+          "text": "French Southern Territories"
+        },
+        "Gabon": {
+          "text": "Gabon"
+        },
+        "Gambia": {
+          "text": "Gambia"
+        },
+        "Georgia": {
+          "text": "Georgia"
+        },
+        "Germany": {
+          "text": "Germany"
+        },
+        "Ghana": {
+          "text": "Ghana"
+        },
+        "Gibraltar": {
+          "text": "Gibraltar"
+        },
+        "Greece": {
+          "text": "Greece"
+        },
+        "Greenland": {
+          "text": "Greenland"
+        },
+        "Grenada": {
+          "text": "Grenada"
+        },
+        "Guadeloupe": {
+          "text": "Guadeloupe"
+        },
+        "Guam": {
+          "text": "Guam"
+        },
+        "Guatemala": {
+          "text": "Guatemala"
+        },
+        "Guernsey": {
+          "text": "Guernsey"
+        },
+        "Guinea": {
+          "text": "Guinea"
+        },
+        "Guinea-Bissau": {
+          "text": "Guinea-Bissau"
+        },
+        "Guyana": {
+          "text": "Guyana"
+        },
+        "Haiti": {
+          "text": "Haiti"
+        },
+        "Heard Island And Mcdonald Islands": {
+          "text": "Heard Island And Mcdonald Islands"
+        },
+        "Holy See (Vatican City State)": {
+          "text": "Holy See (Vatican City State)"
+        },
+        "Honduras": {
+          "text": "Honduras"
+        },
+        "Hong Kong": {
+          "text": "Hong Kong"
+        },
+        "Hungary": {
+          "text": "Hungary"
+        },
+        "Iceland": {
+          "text": "Iceland"
+        },
+        "India": {
+          "text": "India"
+        },
+        "Indonesia": {
+          "text": "Indonesia"
+        },
+        "Iran": {
+          "text": "Iran"
+        },
+        "Iraq": {
+          "text": "Iraq"
+        },
+        "Ireland": {
+          "text": "Ireland"
+        },
+        "Isle of Man": {
+          "text": "Isle of Man"
+        },
+        "Israel": {
+          "text": "Israel"
+        },
+        "Italy": {
+          "text": "Italy"
+        },
+        "Jamaica": {
+          "text": "Jamaica"
+        },
+        "Japan": {
+          "text": "Japan"
+        },
+        "Jersey": {
+          "text": "Jersey"
+        },
+        "Jordan": {
+          "text": "Jordan"
+        },
+        "Kazakhstan": {
+          "text": "Kazakhstan"
+        },
+        "Kenya": {
+          "text": "Kenya"
+        },
+        "Kiribati": {
+          "text": "Kiribati"
+        },
+        "South Korea": {
+          "text": "South Korea"
+        },
+        "North Korea": {
+          "text": "North Korea"
+        },
+        "Kosovo": {
+          "text": "Kosovo"
+        },
+        "Kuwait": {
+          "text": "Kuwait"
+        },
+        "Kyrgyzstan": {
+          "text": "Kyrgyzstan"
+        },
+        "Lao People’s Democratic Republic": {
+          "text": "Lao People’s Democratic Republic"
+        },
+        "Latvia": {
+          "text": "Latvia"
+        },
+        "Lebanon": {
+          "text": "Lebanon"
+        },
+        "Lesotho": {
+          "text": "Lesotho"
+        },
+        "Liberia": {
+          "text": "Liberia"
+        },
+        "Libya": {
+          "text": "Libya"
+        },
+        "Libyan Arab Jamahiriya": {
+          "text": "Libyan Arab Jamahiriya"
+        },
+        "Liechtenstein": {
+          "text": "Liechtenstein"
+        },
+        "Lithuania": {
+          "text": "Lithuania"
+        },
+        "Luxembourg": {
+          "text": "Luxembourg"
+        },
+        "Macao": {
+          "text": "Macao"
+        },
+        "Macedonia": {
+          "text": "Macedonia"
+        },
+        "Madagascar": {
+          "text": "Madagascar"
+        },
+        "Malawi": {
+          "text": "Malawi"
+        },
+        "Malaysia": {
+          "text": "Malaysia"
+        },
+        "Maldives": {
+          "text": "Maldives"
+        },
+        "Mali": {
+          "text": "Mali"
+        },
+        "Malta": {
+          "text": "Malta"
+        },
+        "Marshall Islands": {
+          "text": "Marshall Islands"
+        },
+        "Martinique": {
+          "text": "Martinique"
+        },
+        "Mauritania": {
+          "text": "Mauritania"
+        },
+        "Mauritius": {
+          "text": "Mauritius"
+        },
+        "Mayotte": {
+          "text": "Mayotte"
+        },
+        "Mexico": {
+          "text": "Mexico"
+        },
+        "Micronesia, Federated States Of": {
+          "text": "Micronesia, Federated States Of"
+        },
+        "Moldova, Republic Of": {
+          "text": "Moldova, Republic Of"
+        },
+        "Monaco": {
+          "text": "Monaco"
+        },
+        "Mongolia": {
+          "text": "Mongolia"
+        },
+        "Montserrat": {
+          "text": "Montserrat"
+        },
+        "Montenegro": {
+          "text": "Montenegro"
+        },
+        "Morocco": {
+          "text": "Morocco"
+        },
+        "Mozambique": {
+          "text": "Mozambique"
+        },
+        "Myanmar (Burma)": {
+          "text": "Myanmar (Burma)"
+        },
+        "Namibia": {
+          "text": "Namibia"
+        },
+        "Nauru": {
+          "text": "Nauru"
+        },
+        "Nepal": {
+          "text": "Nepal"
+        },
+        "Netherlands": {
+          "text": "Netherlands"
+        },
+        "Netherlands Antilles": {
+          "text": "Netherlands Antilles"
+        },
+        "New Caledonia": {
+          "text": "New Caledonia"
+        },
+        "New Zealand": {
+          "text": "New Zealand"
+        },
+        "Nicaragua": {
+          "text": "Nicaragua"
+        },
+        "Niger": {
+          "text": "Niger"
+        },
+        "Nigeria": {
+          "text": "Nigeria"
+        },
+        "Niue": {
+          "text": "Niue"
+        },
+        "Norfolk Island": {
+          "text": "Norfolk Island"
+        },
+        "North Macedonia": {
+          "text": "North Macedonia"
+        },
+        "Northern Mariana Islands": {
+          "text": "Northern Mariana Islands"
+        },
+        "Norway": {
+          "text": "Norway"
+        },
+        "Oman": {
+          "text": "Oman"
+        },
+        "Pakistan": {
+          "text": "Pakistan"
+        },
+        "Palau": {
+          "text": "Palau"
+        },
+        "Palestine": {
+          "text": "Palestine"
+        },
+        "Panama": {
+          "text": "Panama"
+        },
+        "Papua New Guinea": {
+          "text": "Papua New Guinea"
+        },
+        "Paraguay": {
+          "text": "Paraguay"
+        },
+        "Peru": {
+          "text": "Peru"
+        },
+        "Philippines": {
+          "text": "Philippines"
+        },
+        "Pitcairn": {
+          "text": "Pitcairn"
+        },
+        "Poland": {
+          "text": "Poland"
+        },
+        "Portugal": {
+          "text": "Portugal"
+        },
+        "Puerto Rico": {
+          "text": "Puerto Rico"
+        },
+        "Qatar": {
+          "text": "Qatar"
+        },
+        "Reunion": {
+          "text": "Reunion"
+        },
+        "Romania": {
+          "text": "Romania"
+        },
+        "Russia": {
+          "text": "Russia"
+        },
+        "Rwanda": {
+          "text": "Rwanda"
+        },
+        "Saint Barthélemy": {
+          "text": "Saint Barthélemy"
+        },
+        "Saint Helena": {
+          "text": "Saint Helena"
+        },
+        "Saint Helena, Ascension and Tristan da Cunha": {
+          "text": "Saint Helena, Ascension and Tristan da Cunha"
+        },
+        "St. Kitts And Nevis": {
+          "text": "St. Kitts And Nevis"
+        },
+        "Saint Lucia": {
+          "text": "Saint Lucia"
+        },
+        "Saint Martin (French part)": {
+          "text": "Saint Martin (French part)"
+        },
+        "Saint Pierre And Miquelon": {
+          "text": "Saint Pierre And Miquelon"
+        },
+        "Saint Vincent And The Grenadines": {
+          "text": "Saint Vincent And The Grenadines"
+        },
+        "Samoa": {
+          "text": "Samoa"
+        },
+        "San Marino": {
+          "text": "San Marino"
+        },
+        "Sao Tome And Principe": {
+          "text": "Sao Tome And Principe"
+        },
+        "Saudi Arabia": {
+          "text": "Saudi Arabia"
+        },
+        "Senegal": {
+          "text": "Senegal"
+        },
+        "Serbia": {
+          "text": "Serbia"
+        },
+        "Seychelles": {
+          "text": "Seychelles"
+        },
+        "Sierra Leone": {
+          "text": "Sierra Leone"
+        },
+        "Singapore": {
+          "text": "Singapore"
+        },
+        "Slovakia": {
+          "text": "Slovakia"
+        },
+        "Slovenia": {
+          "text": "Slovenia"
+        },
+        "Solomon Islands": {
+          "text": "Solomon Islands"
+        },
+        "Somalia": {
+          "text": "Somalia"
+        },
+        "South Africa": {
+          "text": "South Africa"
+        },
+        "South Georgia And The South Sandwich Islands": {
+          "text": "South Georgia And The South Sandwich Islands"
+        },
+        "South Sudan": {
+          "text": "South Sudan"
+        },
+        "Spain": {
+          "text": "Spain"
+        },
+        "Sri Lanka": {
+          "text": "Sri Lanka"
+        },
+        "Sudan": {
+          "text": "Sudan"
+        },
+        "Suriname": {
+          "text": "Suriname"
+        },
+        "Svalbard And Jan Mayen": {
+          "text": "Svalbard And Jan Mayen"
+        },
+        "Swaziland": {
+          "text": "Swaziland"
+        },
+        "Sweden": {
+          "text": "Sweden"
+        },
+        "Switzerland": {
+          "text": "Switzerland"
+        },
+        "Syria": {
+          "text": "Syria"
+        },
+        "Taiwan": {
+          "text": "Taiwan"
+        },
+        "Taiwan, Republic Of China": {
+          "text": "Taiwan, Republic Of China"
+        },
+        "Tajikistan": {
+          "text": "Tajikistan"
+        },
+        "Tanzania": {
+          "text": "Tanzania"
+        },
+        "Thailand": {
+          "text": "Thailand"
+        },
+        "Timor-Leste": {
+          "text": "Timor-Leste"
+        },
+        "Togo": {
+          "text": "Togo"
+        },
+        "Tokelau": {
+          "text": "Tokelau"
+        },
+        "Tonga": {
+          "text": "Tonga"
+        },
+        "Trinidad And Tobago": {
+          "text": "Trinidad And Tobago"
+        },
+        "Tunisia": {
+          "text": "Tunisia"
+        },
+        "Turkey": {
+          "text": "Turkey"
+        },
+        "Türkiye": {
+          "text": "Türkiye"
+        },
+        "Turkmenistan": {
+          "text": "Turkmenistan"
+        },
+        "Turks And Caicos Islands": {
+          "text": "Turks And Caicos Islands"
+        },
+        "Tuvalu": {
+          "text": "Tuvalu"
+        },
+        "Uganda": {
+          "text": "Uganda"
+        },
+        "Ukraine": {
+          "text": "Ukraine"
+        },
+        "United Arab Emirates": {
+          "text": "United Arab Emirates"
+        },
+        "United Kingdom": {
+          "text": "United Kingdom"
+        },
+        "United States": {
+          "text": "United States"
+        },
+        "United States Minor Outlying Islands": {
+          "text": "United States Minor Outlying Islands"
+        },
+        "Uruguay": {
+          "text": "Uruguay"
+        },
+        "Uzbekistan": {
+          "text": "Uzbekistan"
+        },
+        "Vanuatu": {
+          "text": "Vanuatu"
+        },
+        "Venezuela": {
+          "text": "Venezuela"
+        },
+        "Viet Nam": {
+          "text": "Viet Nam"
+        },
+        "British Virgin Islands": {
+          "text": "British Virgin Islands"
+        },
+        "U.S. Virgin Islands": {
+          "text": "U.S. Virgin Islands"
+        },
+        "Wallis And Futuna": {
+          "text": "Wallis And Futuna"
+        },
+        "Western Sahara": {
+          "text": "Western Sahara"
+        },
+        "Yemen": {
+          "text": "Yemen"
+        },
+        "Zambia": {
+          "text": "Zambia"
+        }
+      }
     }
   },
   "slots": {
@@ -549,6 +1324,7 @@
         }
       ],
       "from_schema": "https://w3id.org/ess-dive",
+      "identifier": true,
       "range": "string",
       "required": true
     },
@@ -596,7 +1372,7 @@
       ],
       "from_schema": "https://w3id.org/ess-dive",
       "range": "string",
-      "required": false
+      "recommended": true
     },
     "Collection ID": {
       "name": "Collection ID",
@@ -611,8 +1387,9 @@
         }
       ],
       "from_schema": "https://w3id.org/ess-dive",
+      "identifier": true,
       "range": "string",
-      "required": false
+      "required": true
     },
     "Event ID": {
       "name": "Event ID",
@@ -627,8 +1404,9 @@
         }
       ],
       "from_schema": "https://w3id.org/ess-dive",
+      "identifier": true,
       "range": "string",
-      "required": false
+      "required": true
     },
     "Location ID": {
       "name": "Location ID",
@@ -643,8 +1421,9 @@
         }
       ],
       "from_schema": "https://w3id.org/ess-dive",
+      "identifier": true,
       "range": "string",
-      "required": false
+      "required": true
     },
     "Material": {
       "name": "Material",
@@ -757,6 +1536,12 @@
         },
         {
           "range": "double"
+        },
+        {
+          "range": "float"
+        },
+        {
+          "range": "decimal"
         }
       ]
     },
@@ -777,7 +1562,7 @@
       ],
       "from_schema": "https://w3id.org/ess-dive",
       "range": "Size unit menu",
-      "required": false
+      "recommended": true
     },
     "Filter Size": {
       "name": "Filter Size",
@@ -792,15 +1577,29 @@
         }
       ],
       "from_schema": "https://w3id.org/ess-dive",
-      "range": "double",
-      "required": true
+      "recommended": true,
+      "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+      "any_of": [
+        {
+          "range": "double"
+        },
+        {
+          "range": "float"
+        },
+        {
+          "range": "decimal"
+        },
+        {
+          "range": "integer"
+        }
+      ]
     },
     "Filter Size Unit": {
       "name": "Filter Size Unit",
       "description": "Filtering pore size unit.",
       "title": "Filter Size Unit",
       "comments": [
-        "unit (float-float unit)"
+        "Unit for the numerical values provided for \"Filter Size\""
       ],
       "examples": [
         {
@@ -808,8 +1607,8 @@
         }
       ],
       "from_schema": "https://w3id.org/ess-dive",
-      "range": "double",
-      "required": false
+      "range": "string",
+      "recommended": false
     },
     "Scientific Name": {
       "name": "Scientific Name",
@@ -825,7 +1624,7 @@
       ],
       "from_schema": "https://w3id.org/ess-dive",
       "range": "string",
-      "required": false
+      "recommended": true
     },
     "Sample Remarks": {
       "name": "Sample Remarks",
@@ -962,10 +1761,24 @@
         }
       ],
       "from_schema": "https://w3id.org/ess-dive",
-      "range": "double",
       "recommended": true,
       "minimum_value": -90,
-      "maximum_value": 90
+      "maximum_value": 90,
+      "pattern": "^\\d+(\\.\\d{1,6})?$",
+      "any_of": [
+        {
+          "range": "double"
+        },
+        {
+          "range": "decimal"
+        },
+        {
+          "range": "float"
+        },
+        {
+          "range": "integer"
+        }
+      ]
     },
     "Longitude Coordinate system WGS 84": {
       "name": "Longitude Coordinate system WGS 84",
@@ -980,9 +1793,24 @@
         }
       ],
       "from_schema": "https://w3id.org/ess-dive",
-      "range": "double",
+      "recommended": true,
       "minimum_value": -180,
-      "maximum_value": 180
+      "maximum_value": 180,
+      "pattern": "^\\d+(\\.\\d{1,6})?$",
+      "any_of": [
+        {
+          "range": "double"
+        },
+        {
+          "range": "decimal"
+        },
+        {
+          "range": "float"
+        },
+        {
+          "range": "integer"
+        }
+      ]
     },
     "Navigation Type": {
       "name": "Navigation Type",
@@ -1035,7 +1863,7 @@
         }
       ],
       "from_schema": "https://w3id.org/ess-dive",
-      "range": "string",
+      "range": "Country menu",
       "required": true
     },
     "Elevation start": {
@@ -1051,8 +1879,21 @@
         }
       ],
       "from_schema": "https://w3id.org/ess-dive",
-      "range": "double",
-      "required": false
+      "recommended": false,
+      "any_of": [
+        {
+          "range": "double"
+        },
+        {
+          "range": "decimal"
+        },
+        {
+          "range": "float"
+        },
+        {
+          "range": "integer"
+        }
+      ]
     },
     "Elevation end": {
       "name": "Elevation end",
@@ -1067,8 +1908,21 @@
         }
       ],
       "from_schema": "https://w3id.org/ess-dive",
-      "range": "double",
-      "required": false
+      "recommended": false,
+      "any_of": [
+        {
+          "range": "double"
+        },
+        {
+          "range": "decimal"
+        },
+        {
+          "range": "float"
+        },
+        {
+          "range": "integer"
+        }
+      ]
     },
     "Elevation unit": {
       "name": "Elevation unit",
@@ -1099,8 +1953,22 @@
         }
       ],
       "from_schema": "https://w3id.org/ess-dive",
-      "range": "double",
-      "recommended": true
+      "recommended": true,
+      "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+      "any_of": [
+        {
+          "range": "double"
+        },
+        {
+          "range": "decimal"
+        },
+        {
+          "range": "float"
+        },
+        {
+          "range": "integer"
+        }
+      ]
     },
     "Maximum Depth in Meters": {
       "name": "Maximum Depth in Meters",
@@ -1115,8 +1983,22 @@
         }
       ],
       "from_schema": "https://w3id.org/ess-dive",
-      "range": "double",
-      "recommended": true
+      "recommended": true,
+      "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+      "any_of": [
+        {
+          "range": "double"
+        },
+        {
+          "range": "decimal"
+        },
+        {
+          "range": "float"
+        },
+        {
+          "range": "integer"
+        }
+      ]
     },
     "Depth scale": {
       "name": "Depth scale",
@@ -1147,8 +2029,21 @@
         }
       ],
       "from_schema": "https://w3id.org/ess-dive",
-      "range": "double",
-      "required": false
+      "required": false,
+      "any_of": [
+        {
+          "range": "double"
+        },
+        {
+          "range": "decimal"
+        },
+        {
+          "range": "float"
+        },
+        {
+          "range": "integer"
+        }
+      ]
     },
     "Maximum Distance above Surface in Meters": {
       "name": "Maximum Distance above Surface in Meters",
@@ -1163,8 +2058,21 @@
         }
       ],
       "from_schema": "https://w3id.org/ess-dive",
-      "range": "double",
-      "required": false
+      "required": false,
+      "any_of": [
+        {
+          "range": "double"
+        },
+        {
+          "range": "decimal"
+        },
+        {
+          "range": "float"
+        },
+        {
+          "range": "integer"
+        }
+      ]
     },
     "Physiographic feature": {
       "name": "Physiographic feature",
@@ -1185,6 +2093,7 @@
         }
       ],
       "from_schema": "https://w3id.org/ess-dive",
+      "slot_uri": "ENVO",
       "range": "string",
       "recommended": true
     },
@@ -1204,6 +2113,7 @@
         }
       ],
       "from_schema": "https://w3id.org/ess-dive",
+      "slot_uri": "ENVO",
       "range": "string",
       "recommended": true
     },
@@ -1531,6 +2441,7 @@
           "title": "Sample Name",
           "from_schema": "https://w3id.org/ess-dive",
           "rank": 3,
+          "identifier": true,
           "alias": "Sample_Name",
           "owner": "ESS-DIVE",
           "domain_of": [
@@ -1583,7 +2494,7 @@
           ],
           "slot_group": "Sample IDs and Related Identifiers",
           "range": "string",
-          "required": false
+          "recommended": true
         },
         "Collection ID": {
           "name": "Collection ID",
@@ -1591,6 +2502,7 @@
           "title": "Collection ID",
           "from_schema": "https://w3id.org/ess-dive",
           "rank": 7,
+          "identifier": true,
           "alias": "Collection_ID",
           "owner": "ESS-DIVE",
           "domain_of": [
@@ -1606,6 +2518,7 @@
           "title": "Event ID",
           "from_schema": "https://w3id.org/ess-dive",
           "rank": 8,
+          "identifier": true,
           "alias": "Event_ID",
           "owner": "ESS-DIVE",
           "domain_of": [
@@ -1621,6 +2534,7 @@
           "title": "Location ID",
           "from_schema": "https://w3id.org/ess-dive",
           "rank": 9,
+          "identifier": true,
           "alias": "Location_ID",
           "owner": "ESS-DIVE",
           "domain_of": [
@@ -1717,7 +2631,7 @@
           ],
           "slot_group": "Sample Description",
           "range": "Size unit menu",
-          "required": false
+          "recommended": true
         },
         "Filter Size": {
           "name": "Filter Size",
@@ -1731,8 +2645,8 @@
             "ESS-DIVE"
           ],
           "slot_group": "Sample Description",
-          "range": "double",
-          "required": true
+          "recommended": true,
+          "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$"
         },
         "Filter Size Unit": {
           "name": "Filter Size Unit",
@@ -1746,8 +2660,8 @@
             "ESS-DIVE"
           ],
           "slot_group": "Sample Description",
-          "range": "double",
-          "required": false
+          "range": "string",
+          "recommended": false
         },
         "Scientific Name": {
           "name": "Scientific Name",
@@ -1762,7 +2676,7 @@
           ],
           "slot_group": "Sample Description",
           "range": "string",
-          "required": false
+          "recommended": true
         },
         "Sample Remarks": {
           "name": "Sample Remarks",
@@ -1881,10 +2795,10 @@
             "ESS-DIVE"
           ],
           "slot_group": "Location",
-          "range": "double",
           "recommended": true,
           "minimum_value": -90,
-          "maximum_value": 90
+          "maximum_value": 90,
+          "pattern": "^\\d+(\\.\\d{1,6})?$"
         },
         "Longitude Coordinate system WGS 84": {
           "name": "Longitude Coordinate system WGS 84",
@@ -1898,9 +2812,10 @@
             "ESS-DIVE"
           ],
           "slot_group": "Location",
-          "range": "double",
+          "recommended": true,
           "minimum_value": -180,
-          "maximum_value": 180
+          "maximum_value": 180,
+          "pattern": "^\\d+(\\.\\d{1,6})?$"
         },
         "Navigation Type": {
           "name": "Navigation Type",
@@ -1944,7 +2859,7 @@
             "ESS-DIVE"
           ],
           "slot_group": "Location",
-          "range": "string",
+          "range": "Country menu",
           "required": true
         },
         "Elevation start": {
@@ -1959,8 +2874,7 @@
             "ESS-DIVE"
           ],
           "slot_group": "Location",
-          "range": "double",
-          "required": false
+          "recommended": false
         },
         "Elevation end": {
           "name": "Elevation end",
@@ -1974,8 +2888,7 @@
             "ESS-DIVE"
           ],
           "slot_group": "Location",
-          "range": "double",
-          "required": false
+          "recommended": false
         },
         "Elevation unit": {
           "name": "Elevation unit",
@@ -2004,8 +2917,8 @@
             "ESS-DIVE"
           ],
           "slot_group": "Location",
-          "range": "double",
-          "recommended": true
+          "recommended": true,
+          "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$"
         },
         "Maximum Depth in Meters": {
           "name": "Maximum Depth in Meters",
@@ -2019,8 +2932,8 @@
             "ESS-DIVE"
           ],
           "slot_group": "Location",
-          "range": "double",
-          "recommended": true
+          "recommended": true,
+          "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$"
         },
         "Depth scale": {
           "name": "Depth scale",
@@ -2049,7 +2962,6 @@
             "ESS-DIVE"
           ],
           "slot_group": "Location",
-          "range": "double",
           "required": false
         },
         "Maximum Distance above Surface in Meters": {
@@ -2064,7 +2976,6 @@
             "ESS-DIVE"
           ],
           "slot_group": "Location",
-          "range": "double",
           "required": false
         },
         "Physiographic feature": {
@@ -2073,6 +2984,7 @@
           "title": "Physiographic feature",
           "from_schema": "https://w3id.org/ess-dive",
           "rank": 39,
+          "slot_uri": "ENVO",
           "alias": "Physiographic_feature",
           "owner": "ESS-DIVE",
           "domain_of": [
@@ -2088,6 +3000,7 @@
           "title": "Biome",
           "from_schema": "https://w3id.org/ess-dive",
           "rank": 40,
+          "slot_uri": "ENVO",
           "alias": "Biome",
           "owner": "ESS-DIVE",
           "domain_of": [
