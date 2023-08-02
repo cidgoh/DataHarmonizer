@@ -227,7 +227,7 @@ slots:
     identifier: true
   Other name(s):
     name: Other name(s)
-    title: Other names
+    title: Other name(s)
     description: Other sample name(s) that have been used in the past.
     comments: Use a semi-colon to delimit multiple names where needed.
     examples:
@@ -255,7 +255,7 @@ slots:
     recommended: true
   collectionID:
     name: collectionID
-    title: Collection ID
+    title: collectionID
     description: A unique identifier for the set of information associated with a collection of samples; collections may be organized around a particular project, data set, field season, region, site, etc.
     comments: Must be unique within the data package (project-assigned, and does not need to be globally unique). See link to diagram that demonstrates linking related collection, site, event, and sample IDs. A collection identifier can be used to link a set of samples together, and/or to enable efficient entry of metadata that is the same across all samples in a "sample collection."
     examples:
@@ -265,7 +265,7 @@ slots:
     identifier: true
   eventID:
     name: eventID
-    title: Event ID
+    title: eventID
     description: A unique identifier for the set of information associated with an Event (something that occurs at a place and time).
     comments: Must be unique within the data package (project-assigned, and does not need to be globally unique). See link to diagram that demonstrates linking related
       collection, site, event, and sample IDs. An event identifier can be used to link a set of samples collected on a specific date, and/or to enable efficient entry of metadata that is the same across these samples.
@@ -276,7 +276,7 @@ slots:
     identifier: true
   siteID:
     name: siteID
-    title: Site ID
+    title: siteID
     description: A unique identifier for the set of location information. May be a global unique identifier or an identifier specific to the data set.
     comments: Must be unique within the data package (project-assigned, and does not need to be globally unique). See link to diagram that demonstrates linking related collection, site, event, and sample IDs. A site identifier can be used to link a set of samples collected from a specific site, and/or to enable efficient entry of metadata that is the same across these samples.
     examples:
@@ -354,7 +354,7 @@ slots:
     recommended: true
   filterSize:
     name: filterSize
-    title: Filter Size
+    title: filterSize
     description: Filtering pore size used in sample preparation (filter size value range). Filter size value range.
     comments: Number range (float-float)
     examples:
@@ -377,7 +377,7 @@ slots:
     recommended: false
   scientificName:
     name: scientificName
-    title: Scientific Name
+    title: scientificName
     description: The full scientific name, with authorship and date information if known. When forming part of an Identification, this should be the name in lowest level taxonomic rank that can be determined.
     examples:
       - value: Vochysia ferruginea
@@ -386,7 +386,7 @@ slots:
     recommended: true
   sampleRemarks:
     name: sampleRemarks
-    title: Sample Remarks
+    title: sampleRemarks
     description: Comments or notes about the sample.
     comments: You can include weather descriptions here, if relevant.
     range: string
@@ -403,7 +403,7 @@ slots:
     required: true
   Collection date:
     name: Collection date
-    title: Collection Date
+    title: Collection date
     description: Date when the sample was collected.
     comments: All dates and times must be reported in Coordinated Universal Time (UTC) and follow the ISO 8601 standard (RFC 3339). Temporal data using different standards can be provided as a separate variable (column) in addition to UTC format; YYYY-MM-DD
     examples:
@@ -412,7 +412,7 @@ slots:
     required: true
   Collection time:
     name: Collection time
-    title: Collection Time
+    title: Collection time
     description: Time when the sample was collected.
     comments: All dates and times must be reported in Coordinated Universal Time (UTC) and follow the ISO 8601 standard (RFC 3339). Temporal data using different standards can be provided as a separate variable (column) in addition to UTC format; HH:MM:SSZ
     examples:
@@ -421,7 +421,7 @@ slots:
     required: false
   Collection method description:
     name: Collection method description
-    title: Collection Method Description
+    title: Collection method description
     description: Description of the collection method for the sample. Include any important terms and details for potential users to understand how your sample was collected.
     comments: Collection methods may often be the same across a series/collection of samples; there are two options for providing collection method details at a higher level. Option 1 -  Create a separate file with metadata to describe a sample collection, which contains a "collectionID", and any associated metadata fields (e.g. "collectionMethodDescription", "Purpose", "Chief Scientist", etc.). Option 2 - Create a methods file, with a series of methods descriptions that are each associated with a "methodID" and an associated "methodDescription."
     examples:
@@ -432,7 +432,7 @@ slots:
     required: true
   sampleProcessing:
     name: sampleProcessing
-    title: Sample Processing
+    title: sampleProcessing
     description: Any processing applied to the sample during or after retrieving the sample from the environment. Can provide a list of preparations and preservation methods for the sample.
     comments: Sample processing may often be the same across a series/collection of samples. To avoid entering the same information across numerous samples, you can create a separate file with metadata to describe a sample collection, which contains a "collectionID", and any associated metadata fields (e.g. "sampleProcessing", "collectionMethodDescription", "Purpose", "Chief Scientist", etc.). Separate multiple sample processing methods with a semi-colon.
     examples:
@@ -442,7 +442,7 @@ slots:
     recommended: true
   Field program/cruise:
     name: Field program/cruise
-    title: Field Program or Project Name
+    title: Field program/cruise
     description: Enter the name of the DOE project to associate with this/these sample(s).
     comments: Required at dataset level, but want to associate with samples for data search and integration. Project details may often be the same across a series/collection of samples; To avoid entering the same information across numerous samples, you can create a separate file with metadata to describe a project or sample collection, which contains a "collectionID" or "Field Program/Cruise", and any associated metadata fields (e.g. "Collection Method Description", "Purpose", "Chief Scientist"...
     examples:
@@ -452,7 +452,7 @@ slots:
     required: true
   Latitude (Coordinate system WGS 84):
     name: Latitude (Coordinate system WGS 84)
-    title: Latitude Coordinate system WGS 84
+    title: Latitude (Coordinate system WGS 84)
     description: Latitude of the location where the sample was collected, entered in decimal degrees. Negative values for South latitudes.
     comments: Decimal degrees, coordinate system is WGS 84. Please supply no more than 6 decimal places (meter scale resolution) in the actual number (not just display format.) No letters are allowed.
     examples:
@@ -468,7 +468,7 @@ slots:
     recommended: true
   Longitude (Coordinate system WGS 84):
     name: Longitude (Coordinate system WGS 84)
-    title: Longitude Coordinate system WGS 84
+    title: Longitude (Coordinate system WGS 84)
     description: Longitude of the location where the sample was collected. Negative values for ‘West’ longitudes.
     comments: Decimal degrees, coordinate system is WGS 84. Please supply no more than 6 decimal places (meter scale resolution) in the actual number (not just display format.) No letters are allowed.
     examples:
@@ -484,7 +484,7 @@ slots:
     recommended: true
   Navigation type:
     name: Navigation type
-    title: Navigation Type
+    title: Navigation type
     description: Type of geolocation instrument used to obtain geographic coordinates.
     comments: Provide feedback on additional terms needed.
     examples:
@@ -494,7 +494,7 @@ slots:
     recommended: true
   Location description:
     name: Location description
-    title: Location Description
+    title: Location description
     description: Free text description of the location.
     comments: You can also include details here about the location type, e.g. whether it is an absolute or reference location, plot ID and description.
     examples:
@@ -548,7 +548,7 @@ slots:
     recommended: true
   Depth in core (min):
     name: Depth in core (min)
-    title: Minimum Depth in Meters
+    title: Depth in core (min)
     description: Depth, or minimum depth (if taken over a range) at which a sample was collected, below ground or under water.
     comments: Recommend using meters.
     examples:
@@ -562,7 +562,7 @@ slots:
     recommended: true
   Depth in core (max):
     name: Depth in core (max)
-    title: Maximum Depth in Meters
+    title: Depth in core (max)
     description: Maximum depth at which a sample was collected, below ground or under water.
     comments: Recommend using meters.
     examples:
@@ -585,7 +585,7 @@ slots:
     recommended: true
   minimumDistanceAboveSurfaceInMeters:
     name: minimumDistanceAboveSurfaceInMeters
-    title: Minimum Distance above Surface in Meters
+    title: minimumDistanceAboveSurfaceInMeters
     description: Minimum height above the ground surface, in meters. If no range of values collected, provide height measurement here.
     comments: Recommend using meters.
     examples:
@@ -598,7 +598,7 @@ slots:
     required: false
   maximumDistanceAboveSurfaceInMeters:
     name: maximumDistanceAboveSurfaceInMeters
-    title: Maximum Distance above Surface in Meters
+    title: maximumDistanceAboveSurfaceInMeters
     description: Maximum height above the ground surface, in meters.
     comments: Recommend using meters.
     examples:
@@ -611,7 +611,7 @@ slots:
     required: false
   Primary physiographic feature:
     name: Primary physiographic feature
-    title: Primary Physiographic Feature
+    title: Primary physiographic feature
     description: Entity or entities which are in your sample or specimen’s local vicinity and which you believe have significant causal influences on your sample or specimen.
     comments: <a href="https://www.ebi.ac.uk/ols/ontologies/envo">Terms from Environment Ontology (ENVO)</a>. Provide the appropriate term and ENVO identifier - see examples below. Choose environmental context that is a smaller spatial grain than your entry for biome. Delimit multiple values using semi-colon. If needed, request new terms on the ENVO tracker, identified <a href="http://obofoundry.org/ontology/envo.html">here</a>.
     examples:
@@ -623,7 +623,7 @@ slots:
     recommended: true
   biome:
     name: biome
-    title: Biome
+    title: biome
     description: Major environmental system your sample or specimen came from. The systems identified should have a coarse spatial grain, to provide the general environmental context of where the sampling was done (e.g. were you in the desert or a rainforest?).
     comments: <a href="https://www.ebi.ac.uk/ols/ontologies/envo">Terms from Environment Ontology (ENVO)</a>. Provide the appropriate term and ENVO identifier - see examples below. We recommend using subclasses of <a href="https://ontobee.org/ontology/ENVO?iri=http://purl.obolibrary.org/obo/ENVO_00000428">ENVO’s biome class</a>. Use a semi-colon to delimit multiple biomes where needed. If needed, request new terms on the ENVO tracker, identified <a href="http://obofoundry.org/ontology/envo.html">here</a>.
     examples:
@@ -643,7 +643,7 @@ slots:
     required: true
   Current archive:
     name: Current archive
-    title: Current Archive
+    title: Current archive
     description: Name of institution, museum, or repository where the sample is currently stored.
     comments: Only applies to physical samples that are archived in a collection for some period of time.
     examples:
@@ -654,7 +654,7 @@ slots:
     required: false
   Current archive contact:
     name: Current archive contact
-    title: Current Archive Contact
+    title: Current archive contact
     description: Address and/or email of the person who should be contacted for information about or access to the sample.
     comments: Email is not mandatory, but helps with communication about samples.
     examples:

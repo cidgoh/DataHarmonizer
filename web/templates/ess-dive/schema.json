@@ -1334,7 +1334,7 @@
     "Other name(s)": {
       "name": "Other name(s)",
       "description": "Other sample name(s) that have been used in the past.",
-      "title": "Other names",
+      "title": "Other name(s)",
       "comments": [
         "Use a semi-colon to delimit multiple names where needed."
       ],
@@ -1380,7 +1380,7 @@
     "collectionID": {
       "name": "collectionID",
       "description": "A unique identifier for the set of information associated with a collection of samples; collections may be organized around a particular project, data set, field season, region, site, etc.",
-      "title": "Collection ID",
+      "title": "collectionID",
       "comments": [
         "Must be unique within the data package (project-assigned, and does not need to be globally unique). See link to diagram that demonstrates linking related collection, site, event, and sample IDs. A collection identifier can be used to link a set of samples together, and/or to enable efficient entry of metadata that is the same across all samples in a \"sample collection.\""
       ],
@@ -1397,7 +1397,7 @@
     "eventID": {
       "name": "eventID",
       "description": "A unique identifier for the set of information associated with an Event (something that occurs at a place and time).",
-      "title": "Event ID",
+      "title": "eventID",
       "comments": [
         "Must be unique within the data package (project-assigned, and does not need to be globally unique). See link to diagram that demonstrates linking related collection, site, event, and sample IDs. An event identifier can be used to link a set of samples collected on a specific date, and/or to enable efficient entry of metadata that is the same across these samples."
       ],
@@ -1414,7 +1414,7 @@
     "siteID": {
       "name": "siteID",
       "description": "A unique identifier for the set of location information. May be a global unique identifier or an identifier specific to the data set.",
-      "title": "Site ID",
+      "title": "siteID",
       "comments": [
         "Must be unique within the data package (project-assigned, and does not need to be globally unique). See link to diagram that demonstrates linking related collection, site, event, and sample IDs. A site identifier can be used to link a set of samples collected from a specific site, and/or to enable efficient entry of metadata that is the same across these samples."
       ],
@@ -1570,7 +1570,7 @@
     "filterSize": {
       "name": "filterSize",
       "description": "Filtering pore size used in sample preparation (filter size value range). Filter size value range.",
-      "title": "Filter Size",
+      "title": "filterSize",
       "comments": [
         "Number range (float-float)"
       ],
@@ -1616,7 +1616,7 @@
     "scientificName": {
       "name": "scientificName",
       "description": "The full scientific name, with authorship and date information if known. When forming part of an Identification, this should be the name in lowest level taxonomic rank that can be determined.",
-      "title": "Scientific Name",
+      "title": "scientificName",
       "examples": [
         {
           "value": "Vochysia ferruginea"
@@ -1632,7 +1632,7 @@
     "sampleRemarks": {
       "name": "sampleRemarks",
       "description": "Comments or notes about the sample.",
-      "title": "Sample Remarks",
+      "title": "sampleRemarks",
       "comments": [
         "You can include weather descriptions here, if relevant."
       ],
@@ -1662,7 +1662,7 @@
     "Collection date": {
       "name": "Collection date",
       "description": "Date when the sample was collected.",
-      "title": "Collection Date",
+      "title": "Collection date",
       "comments": [
         "All dates and times must be reported in Coordinated Universal Time (UTC) and follow the ISO 8601 standard (RFC 3339). Temporal data using different standards can be provided as a separate variable (column) in addition to UTC format; YYYY-MM-DD"
       ],
@@ -1678,7 +1678,7 @@
     "Collection time": {
       "name": "Collection time",
       "description": "Time when the sample was collected.",
-      "title": "Collection Time",
+      "title": "Collection time",
       "comments": [
         "All dates and times must be reported in Coordinated Universal Time (UTC) and follow the ISO 8601 standard (RFC 3339). Temporal data using different standards can be provided as a separate variable (column) in addition to UTC format; HH:MM:SSZ"
       ],
@@ -1694,7 +1694,7 @@
     "Collection method description": {
       "name": "Collection method description",
       "description": "Description of the collection method for the sample. Include any important terms and details for potential users to understand how your sample was collected.",
-      "title": "Collection Method Description",
+      "title": "Collection method description",
       "comments": [
         "Collection methods may often be the same across a series/collection of samples; there are two options for providing collection method details at a higher level. Option 1 -  Create a separate file with metadata to describe a sample collection, which contains a \"collectionID\", and any associated metadata fields (e.g. \"collectionMethodDescription\", \"Purpose\", \"Chief Scientist\", etc.). Option 2 - Create a methods file, with a series of methods descriptions that are each associated with a \"methodID\" and an associated \"methodDescription.\""
       ],
@@ -1716,7 +1716,7 @@
     "sampleProcessing": {
       "name": "sampleProcessing",
       "description": "Any processing applied to the sample during or after retrieving the sample from the environment. Can provide a list of preparations and preservation methods for the sample.",
-      "title": "Sample Processing",
+      "title": "sampleProcessing",
       "comments": [
         "Sample processing may often be the same across a series/collection of samples. To avoid entering the same information across numerous samples, you can create a separate file with metadata to describe a sample collection, which contains a \"collectionID\", and any associated metadata fields (e.g. \"sampleProcessing\", \"collectionMethodDescription\", \"Purpose\", \"Chief Scientist\", etc.). Separate multiple sample processing methods with a semi-colon."
       ],
@@ -1735,7 +1735,7 @@
     "Field program/cruise": {
       "name": "Field program/cruise",
       "description": "Enter the name of the DOE project to associate with this/these sample(s).",
-      "title": "Field Program or Project Name",
+      "title": "Field program/cruise",
       "comments": [
         "Required at dataset level, but want to associate with samples for data search and integration. Project details may often be the same across a series/collection of samples; To avoid entering the same information across numerous samples, you can create a separate file with metadata to describe a project or sample collection, which contains a \"collectionID\" or \"Field Program/Cruise\", and any associated metadata fields (e.g. \"Collection Method Description\", \"Purpose\", \"Chief Scientist\"..."
       ],
@@ -1754,7 +1754,7 @@
     "Latitude (Coordinate system WGS 84)": {
       "name": "Latitude (Coordinate system WGS 84)",
       "description": "Latitude of the location where the sample was collected, entered in decimal degrees. Negative values for South latitudes.",
-      "title": "Latitude Coordinate system WGS 84",
+      "title": "Latitude (Coordinate system WGS 84)",
       "comments": [
         "Decimal degrees, coordinate system is WGS 84. Please supply no more than 6 decimal places (meter scale resolution) in the actual number (not just display format.) No letters are allowed."
       ],
@@ -1786,7 +1786,7 @@
     "Longitude (Coordinate system WGS 84)": {
       "name": "Longitude (Coordinate system WGS 84)",
       "description": "Longitude of the location where the sample was collected. Negative values for ‘West’ longitudes.",
-      "title": "Longitude Coordinate system WGS 84",
+      "title": "Longitude (Coordinate system WGS 84)",
       "comments": [
         "Decimal degrees, coordinate system is WGS 84. Please supply no more than 6 decimal places (meter scale resolution) in the actual number (not just display format.) No letters are allowed."
       ],
@@ -1818,7 +1818,7 @@
     "Navigation type": {
       "name": "Navigation type",
       "description": "Type of geolocation instrument used to obtain geographic coordinates.",
-      "title": "Navigation Type",
+      "title": "Navigation type",
       "comments": [
         "Provide feedback on additional terms needed."
       ],
@@ -1837,7 +1837,7 @@
     "Location description": {
       "name": "Location description",
       "description": "Free text description of the location.",
-      "title": "Location Description",
+      "title": "Location description",
       "comments": [
         "You can also include details here about the location type, e.g. whether it is an absolute or reference location, plot ID and description."
       ],
@@ -1946,7 +1946,7 @@
     "Depth in core (min)": {
       "name": "Depth in core (min)",
       "description": "Depth, or minimum depth (if taken over a range) at which a sample was collected, below ground or under water.",
-      "title": "Minimum Depth in Meters",
+      "title": "Depth in core (min)",
       "comments": [
         "Recommend using meters."
       ],
@@ -1976,7 +1976,7 @@
     "Depth in core (max)": {
       "name": "Depth in core (max)",
       "description": "Maximum depth at which a sample was collected, below ground or under water.",
-      "title": "Maximum Depth in Meters",
+      "title": "Depth in core (max)",
       "comments": [
         "Recommend using meters."
       ],
@@ -2022,7 +2022,7 @@
     "minimumDistanceAboveSurfaceInMeters": {
       "name": "minimumDistanceAboveSurfaceInMeters",
       "description": "Minimum height above the ground surface, in meters. If no range of values collected, provide height measurement here.",
-      "title": "Minimum Distance above Surface in Meters",
+      "title": "minimumDistanceAboveSurfaceInMeters",
       "comments": [
         "Recommend using meters."
       ],
@@ -2051,7 +2051,7 @@
     "maximumDistanceAboveSurfaceInMeters": {
       "name": "maximumDistanceAboveSurfaceInMeters",
       "description": "Maximum height above the ground surface, in meters.",
-      "title": "Maximum Distance above Surface in Meters",
+      "title": "maximumDistanceAboveSurfaceInMeters",
       "comments": [
         "Recommend using meters."
       ],
@@ -2080,7 +2080,7 @@
     "Primary physiographic feature": {
       "name": "Primary physiographic feature",
       "description": "Entity or entities which are in your sample or specimen’s local vicinity and which you believe have significant causal influences on your sample or specimen.",
-      "title": "Primary Physiographic Feature",
+      "title": "Primary physiographic feature",
       "comments": [
         "<a href=\"https://www.ebi.ac.uk/ols/ontologies/envo\">Terms from Environment Ontology (ENVO)</a>. Provide the appropriate term and ENVO identifier - see examples below. Choose environmental context that is a smaller spatial grain than your entry for biome. Delimit multiple values using semi-colon. If needed, request new terms on the ENVO tracker, identified <a href=\"http://obofoundry.org/ontology/envo.html\">here</a>."
       ],
@@ -2103,7 +2103,7 @@
     "biome": {
       "name": "biome",
       "description": "Major environmental system your sample or specimen came from. The systems identified should have a coarse spatial grain, to provide the general environmental context of where the sampling was done (e.g. were you in the desert or a rainforest?).",
-      "title": "Biome",
+      "title": "biome",
       "comments": [
         "<a href=\"https://www.ebi.ac.uk/ols/ontologies/envo\">Terms from Environment Ontology (ENVO)</a>. Provide the appropriate term and ENVO identifier - see examples below. We recommend using subclasses of <a href=\"https://ontobee.org/ontology/ENVO?iri=http://purl.obolibrary.org/obo/ENVO_00000428\">ENVO’s biome class</a>. Use a semi-colon to delimit multiple biomes where needed. If needed, request new terms on the ENVO tracker, identified <a href=\"http://obofoundry.org/ontology/envo.html\">here</a>."
       ],
@@ -2139,7 +2139,7 @@
     "Current archive": {
       "name": "Current archive",
       "description": "Name of institution, museum, or repository where the sample is currently stored.",
-      "title": "Current Archive",
+      "title": "Current archive",
       "comments": [
         "Only applies to physical samples that are archived in a collection for some period of time."
       ],
@@ -2161,7 +2161,7 @@
     "Current archive contact": {
       "name": "Current archive contact",
       "description": "Address and/or email of the person who should be contacted for information about or access to the sample.",
-      "title": "Current Archive Contact",
+      "title": "Current archive contact",
       "comments": [
         "Email is not mandatory, but helps with communication about samples."
       ],
@@ -2457,7 +2457,7 @@
         "Other name(s)": {
           "name": "Other name(s)",
           "description": "Other sample name(s) that have been used in the past.",
-          "title": "Other names",
+          "title": "Other name(s)",
           "from_schema": "https://w3id.org/ess-dive",
           "rank": 4,
           "alias": "Other_name(s)",
@@ -2502,7 +2502,7 @@
         "collectionID": {
           "name": "collectionID",
           "description": "A unique identifier for the set of information associated with a collection of samples; collections may be organized around a particular project, data set, field season, region, site, etc.",
-          "title": "Collection ID",
+          "title": "collectionID",
           "from_schema": "https://w3id.org/ess-dive",
           "rank": 7,
           "identifier": true,
@@ -2518,7 +2518,7 @@
         "eventID": {
           "name": "eventID",
           "description": "A unique identifier for the set of information associated with an Event (something that occurs at a place and time).",
-          "title": "Event ID",
+          "title": "eventID",
           "from_schema": "https://w3id.org/ess-dive",
           "rank": 8,
           "identifier": true,
@@ -2534,7 +2534,7 @@
         "siteID": {
           "name": "siteID",
           "description": "A unique identifier for the set of location information. May be a global unique identifier or an identifier specific to the data set.",
-          "title": "Site ID",
+          "title": "siteID",
           "from_schema": "https://w3id.org/ess-dive",
           "rank": 9,
           "identifier": true,
@@ -2639,7 +2639,7 @@
         "filterSize": {
           "name": "filterSize",
           "description": "Filtering pore size used in sample preparation (filter size value range). Filter size value range.",
-          "title": "Filter Size",
+          "title": "filterSize",
           "from_schema": "https://w3id.org/ess-dive",
           "rank": 16,
           "alias": "filterSize",
@@ -2669,7 +2669,7 @@
         "scientificName": {
           "name": "scientificName",
           "description": "The full scientific name, with authorship and date information if known. When forming part of an Identification, this should be the name in lowest level taxonomic rank that can be determined.",
-          "title": "Scientific Name",
+          "title": "scientificName",
           "from_schema": "https://w3id.org/ess-dive",
           "rank": 18,
           "alias": "scientificName",
@@ -2684,7 +2684,7 @@
         "sampleRemarks": {
           "name": "sampleRemarks",
           "description": "Comments or notes about the sample.",
-          "title": "Sample Remarks",
+          "title": "sampleRemarks",
           "from_schema": "https://w3id.org/ess-dive",
           "rank": 19,
           "alias": "sampleRemarks",
@@ -2714,7 +2714,7 @@
         "Collection date": {
           "name": "Collection date",
           "description": "Date when the sample was collected.",
-          "title": "Collection Date",
+          "title": "Collection date",
           "from_schema": "https://w3id.org/ess-dive",
           "rank": 21,
           "alias": "Collection_date",
@@ -2729,7 +2729,7 @@
         "Collection time": {
           "name": "Collection time",
           "description": "Time when the sample was collected.",
-          "title": "Collection Time",
+          "title": "Collection time",
           "from_schema": "https://w3id.org/ess-dive",
           "rank": 22,
           "alias": "Collection_time",
@@ -2744,7 +2744,7 @@
         "Collection method description": {
           "name": "Collection method description",
           "description": "Description of the collection method for the sample. Include any important terms and details for potential users to understand how your sample was collected.",
-          "title": "Collection Method Description",
+          "title": "Collection method description",
           "from_schema": "https://w3id.org/ess-dive",
           "rank": 23,
           "alias": "Collection_method_description",
@@ -2759,7 +2759,7 @@
         "sampleProcessing": {
           "name": "sampleProcessing",
           "description": "Any processing applied to the sample during or after retrieving the sample from the environment. Can provide a list of preparations and preservation methods for the sample.",
-          "title": "Sample Processing",
+          "title": "sampleProcessing",
           "from_schema": "https://w3id.org/ess-dive",
           "rank": 24,
           "alias": "sampleProcessing",
@@ -2774,7 +2774,7 @@
         "Field program/cruise": {
           "name": "Field program/cruise",
           "description": "Enter the name of the DOE project to associate with this/these sample(s).",
-          "title": "Field Program or Project Name",
+          "title": "Field program/cruise",
           "from_schema": "https://w3id.org/ess-dive",
           "rank": 25,
           "alias": "Field_program/cruise",
@@ -2789,7 +2789,7 @@
         "Latitude (Coordinate system WGS 84)": {
           "name": "Latitude (Coordinate system WGS 84)",
           "description": "Latitude of the location where the sample was collected, entered in decimal degrees. Negative values for South latitudes.",
-          "title": "Latitude Coordinate system WGS 84",
+          "title": "Latitude (Coordinate system WGS 84)",
           "from_schema": "https://w3id.org/ess-dive",
           "rank": 26,
           "alias": "Latitude_(Coordinate_system_WGS_84)",
@@ -2806,7 +2806,7 @@
         "Longitude (Coordinate system WGS 84)": {
           "name": "Longitude (Coordinate system WGS 84)",
           "description": "Longitude of the location where the sample was collected. Negative values for ‘West’ longitudes.",
-          "title": "Longitude Coordinate system WGS 84",
+          "title": "Longitude (Coordinate system WGS 84)",
           "from_schema": "https://w3id.org/ess-dive",
           "rank": 27,
           "alias": "Longitude_(Coordinate_system_WGS_84)",
@@ -2823,7 +2823,7 @@
         "Navigation type": {
           "name": "Navigation type",
           "description": "Type of geolocation instrument used to obtain geographic coordinates.",
-          "title": "Navigation Type",
+          "title": "Navigation type",
           "from_schema": "https://w3id.org/ess-dive",
           "rank": 28,
           "alias": "Navigation_type",
@@ -2838,7 +2838,7 @@
         "Location description": {
           "name": "Location description",
           "description": "Free text description of the location.",
-          "title": "Location Description",
+          "title": "Location description",
           "from_schema": "https://w3id.org/ess-dive",
           "rank": 29,
           "alias": "Location_description",
@@ -2911,7 +2911,7 @@
         "Depth in core (min)": {
           "name": "Depth in core (min)",
           "description": "Depth, or minimum depth (if taken over a range) at which a sample was collected, below ground or under water.",
-          "title": "Minimum Depth in Meters",
+          "title": "Depth in core (min)",
           "from_schema": "https://w3id.org/ess-dive",
           "rank": 34,
           "alias": "Depth_in_core_(min)",
@@ -2926,7 +2926,7 @@
         "Depth in core (max)": {
           "name": "Depth in core (max)",
           "description": "Maximum depth at which a sample was collected, below ground or under water.",
-          "title": "Maximum Depth in Meters",
+          "title": "Depth in core (max)",
           "from_schema": "https://w3id.org/ess-dive",
           "rank": 35,
           "alias": "Depth_in_core_(max)",
@@ -2956,7 +2956,7 @@
         "minimumDistanceAboveSurfaceInMeters": {
           "name": "minimumDistanceAboveSurfaceInMeters",
           "description": "Minimum height above the ground surface, in meters. If no range of values collected, provide height measurement here.",
-          "title": "Minimum Distance above Surface in Meters",
+          "title": "minimumDistanceAboveSurfaceInMeters",
           "from_schema": "https://w3id.org/ess-dive",
           "rank": 37,
           "alias": "minimumDistanceAboveSurfaceInMeters",
@@ -2970,7 +2970,7 @@
         "maximumDistanceAboveSurfaceInMeters": {
           "name": "maximumDistanceAboveSurfaceInMeters",
           "description": "Maximum height above the ground surface, in meters.",
-          "title": "Maximum Distance above Surface in Meters",
+          "title": "maximumDistanceAboveSurfaceInMeters",
           "from_schema": "https://w3id.org/ess-dive",
           "rank": 38,
           "alias": "maximumDistanceAboveSurfaceInMeters",
@@ -2984,7 +2984,7 @@
         "Primary physiographic feature": {
           "name": "Primary physiographic feature",
           "description": "Entity or entities which are in your sample or specimen’s local vicinity and which you believe have significant causal influences on your sample or specimen.",
-          "title": "Primary Physiographic Feature",
+          "title": "Primary physiographic feature",
           "from_schema": "https://w3id.org/ess-dive",
           "rank": 39,
           "slot_uri": "ENVO",
@@ -3000,7 +3000,7 @@
         "biome": {
           "name": "biome",
           "description": "Major environmental system your sample or specimen came from. The systems identified should have a coarse spatial grain, to provide the general environmental context of where the sampling was done (e.g. were you in the desert or a rainforest?).",
-          "title": "Biome",
+          "title": "biome",
           "from_schema": "https://w3id.org/ess-dive",
           "rank": 40,
           "slot_uri": "ENVO",
@@ -3031,7 +3031,7 @@
         "Current archive": {
           "name": "Current archive",
           "description": "Name of institution, museum, or repository where the sample is currently stored.",
-          "title": "Current Archive",
+          "title": "Current archive",
           "from_schema": "https://w3id.org/ess-dive",
           "rank": 42,
           "alias": "Current_archive",
@@ -3046,7 +3046,7 @@
         "Current archive contact": {
           "name": "Current archive contact",
           "description": "Address and/or email of the person who should be contacted for information about or access to the sample.",
-          "title": "Current Archive Contact",
+          "title": "Current archive contact",
           "from_schema": "https://w3id.org/ess-dive",
           "rank": 43,
           "alias": "Current_archive_contact",
