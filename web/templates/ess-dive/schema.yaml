@@ -21,46 +21,46 @@ classes:
     - Object Type
     - User Code
     - Sample Name
-    - Other names
+    - Other name(s)
     - IGSN
     - Parent IGSN
-    - Collection ID
-    - Event ID
-    - Location ID
+    - collectionID
+    - eventID
+    - siteID
     - Material
-    - Field name informal classification
+    - Field name (informal classification)
     - Sample Description
     - Purpose
     - Size
     - Size unit
-    - Filter Size
+    - filterSize
     - Filter Size Unit
-    - Scientific Name
-    - Sample Remarks
-    - Collector Chief Scientist
-    - Collection Date
-    - Collection Time
-    - Collection Method Description
-    - Sample Processing
-    - Field Program or Project Name
-    - Latitude Coordinate system WGS 84
-    - Longitude Coordinate system WGS 84
-    - Navigation Type
-    - Location Description
+    - scientificName
+    - sampleRemarks
+    - Collector/Chief Scientist
+    - Collection date
+    - Collection time
+    - Collection method description
+    - sampleProcessing
+    - Field program/cruise
+    - Latitude (Coordinate system WGS 84)
+    - Longitude (Coordinate system WGS 84)
+    - Navigation type
+    - Location description
     - Country
     - Elevation start
     - Elevation end
     - Elevation unit
-    - Minimum Depth in Meters
-    - Maximum Depth in Meters
+    - Depth in core (min)
+    - Depth in core (max)
     - Depth scale
-    - Minimum Distance above Surface in Meters
-    - Maximum Distance above Surface in Meters
-    - Physiographic feature
-    - Biome
+    - minimumDistanceAboveSurfaceInMeters
+    - maximumDistanceAboveSurfaceInMeters
+    - Primary physiographic feature
+    - biome
     - Release Date
-    - Current Archive
-    - Current Archive Contact
+    - Current archive
+    - Current archive contact
     slot_usage:
       Object Type:
         rank: 1
@@ -71,7 +71,7 @@ classes:
       Sample Name:
         rank: 3
         slot_group: Sample IDs and Related Identifiers
-      Other names:
+      Other name(s):
         rank: 4
         slot_group: Sample IDs and Related Identifiers
       IGSN:
@@ -80,19 +80,19 @@ classes:
       Parent IGSN:
         rank: 6
         slot_group: Sample IDs and Related Identifiers
-      Collection ID:
+      collectionID:
         rank: 7
         slot_group: Sample IDs and Related Identifiers
-      Event ID:
+      eventID:
         rank: 8
         slot_group: Sample IDs and Related Identifiers
-      Location ID:
+      siteID:
         rank: 9
         slot_group: Sample IDs and Related Identifiers
       Material:
         rank: 10
         slot_group: Sample Description
-      Field name informal classification:
+      Field name (informal classification):
         rank: 11
         slot_group: Sample Description
       Sample Description:
@@ -107,46 +107,46 @@ classes:
       Size unit:
         rank: 15
         slot_group: Sample Description
-      Filter Size:
+      filterSize:
         rank: 16
         slot_group: Sample Description
       Filter Size Unit:
         rank: 17
         slot_group: Sample Description
-      Scientific Name:
+      scientificName:
         rank: 18
         slot_group: Sample Description
-      Sample Remarks:
+      sampleRemarks:
         rank: 19
         slot_group: Sample Description
-      Collector Chief Scientist:
+      Collector/Chief Scientist:
         rank: 20
         slot_group: Sample Collection Details
-      Collection Date:
+      Collection date:
         rank: 21
         slot_group: Sample Collection Details
-      Collection Time:
+      Collection time:
         rank: 22
         slot_group: Sample Collection Details
-      Collection Method Description:
+      Collection method description:
         rank: 23
         slot_group: Sample Collection Details
-      Sample Processing:
+      sampleProcessing:
         rank: 24
         slot_group: Sample Collection Details
-      Field Program or Project Name:
+      Field program/cruise:
         rank: 25
         slot_group: Sample Collection Details
-      Latitude Coordinate system WGS 84:
+      Latitude (Coordinate system WGS 84):
         rank: 26
         slot_group: Location
-      Longitude Coordinate system WGS 84:
+      Longitude (Coordinate system WGS 84):
         rank: 27
         slot_group: Location
-      Navigation Type:
+      Navigation type:
         rank: 28
         slot_group: Location
-      Location Description:
+      Location description:
         rank: 29
         slot_group: Location
       Country:
@@ -161,34 +161,34 @@ classes:
       Elevation unit:
         rank: 33
         slot_group: Location
-      Minimum Depth in Meters:
+      Depth in core (min):
         rank: 34
         slot_group: Location
-      Maximum Depth in Meters:
+      Depth in core (max):
         rank: 35
         slot_group: Location
       Depth scale:
         rank: 36
         slot_group: Location
-      Minimum Distance above Surface in Meters:
+      minimumDistanceAboveSurfaceInMeters:
         rank: 37
         slot_group: Location
-      Maximum Distance above Surface in Meters:
+      maximumDistanceAboveSurfaceInMeters:
         rank: 38
         slot_group: Location
-      Physiographic feature:
+      Primary physiographic feature:
         rank: 39
         slot_group: Environmental Context
-      Biome:
+      biome:
         rank: 40
         slot_group: Environmental Context
       Release Date:
         rank: 41
         slot_group: Sample Access
-      Current Archive:
+      Current archive:
         rank: 42
         slot_group: Sample Access
-      Current Archive Contact:
+      Current archive contact:
         rank: 43
         slot_group: Sample Access
 slots:
@@ -225,8 +225,8 @@ slots:
     range: string
     required: true
     identifier: true
-  Other names:
-    name: Other names
+  Other name(s):
+    name: Other name(s)
     title: Other names
     description: Other sample name(s) that have been used in the past.
     comments: Use a semi-colon to delimit multiple names where needed.
@@ -253,8 +253,8 @@ slots:
       - value: IEMEG0002
     range: string
     recommended: true
-  Collection ID:
-    name: Collection ID
+  collectionID:
+    name: collectionID
     title: Collection ID
     description: A unique identifier for the set of information associated with a collection of samples; collections may be organized around a particular project, data set, field season, region, site, etc.
     comments: Must be unique within the data package (project-assigned, and does not need to be globally unique). See link to diagram that demonstrates linking related collection, site, event, and sample IDs. A collection identifier can be used to link a set of samples together, and/or to enable efficient entry of metadata that is the same across all samples in a "sample collection."
@@ -263,8 +263,8 @@ slots:
     range: string
     required: false
     identifier: true
-  Event ID:
-    name: Event ID
+  eventID:
+    name: eventID
     title: Event ID
     description: A unique identifier for the set of information associated with an Event (something that occurs at a place and time).
     comments: Must be unique within the data package (project-assigned, and does not need to be globally unique). See link to diagram that demonstrates linking related
@@ -274,9 +274,9 @@ slots:
     range: string
     required: false
     identifier: true
-  Location ID:
-    name: Location ID
-    title: Location ID
+  siteID:
+    name: siteID
+    title: Site ID
     description: A unique identifier for the set of location information. May be a global unique identifier or an identifier specific to the data set.
     comments: Must be unique within the data package (project-assigned, and does not need to be globally unique). See link to diagram that demonstrates linking related collection, site, event, and sample IDs. A site identifier can be used to link a set of samples collected from a specific site, and/or to enable efficient entry of metadata that is the same across these samples.
     examples:
@@ -296,9 +296,9 @@ slots:
       - value: Liquid>aqueous
     range: Material menu
     required: true
-  Field name informal classification:
-    name: Field name informal classification
-    title: Field name informal classification
+  Field name (informal classification):
+    name: Field name (informal classification)
+    title: Field name (informal classification)
     description: Informal classification of sample
     comments: Here you can add additional material classifications that are not in the current SESAR IGSN controlled fields.
     examples:
@@ -352,8 +352,8 @@ slots:
       - value: kilogram
     range: Size unit menu
     recommended: true
-  Filter Size:
-    name: Filter Size
+  filterSize:
+    name: filterSize
     title: Filter Size
     description: Filtering pore size used in sample preparation (filter size value range). Filter size value range.
     comments: Number range (float-float)
@@ -375,8 +375,8 @@ slots:
       - value: micrometer
     range: string
     recommended: false
-  Scientific Name:
-    name: Scientific Name
+  scientificName:
+    name: scientificName
     title: Scientific Name
     description: The full scientific name, with authorship and date information if known. When forming part of an Identification, this should be the name in lowest level taxonomic rank that can be determined.
     examples:
@@ -384,16 +384,16 @@ slots:
       - value: Viconia borealis
     range: string
     recommended: true
-  Sample Remarks:
-    name: Sample Remarks
+  sampleRemarks:
+    name: sampleRemarks
     title: Sample Remarks
     description: Comments or notes about the sample.
     comments: You can include weather descriptions here, if relevant.
     range: string
     required: false
-  Collector Chief Scientist:
-    name: Collector Chief Scientist
-    title: Collector Chief Scientist
+  Collector/Chief Scientist:
+    name: Collector/Chief Scientist
+    title: Collector/Chief Scientist
     description: Name of the person(s) who collected the sample.
     comments: You can enter multiple collectors/sampling team for large sampling efforts, separated with a semi-colon. If the collector(s) of the sample(s) is/are not known, enter name of the person responsible for the sample
     examples:
@@ -401,8 +401,8 @@ slots:
       - value: John Smith; Jane Johnson
     range: string
     required: true
-  Collection Date:
-    name: Collection Date
+  Collection date:
+    name: Collection date
     title: Collection Date
     description: Date when the sample was collected.
     comments: All dates and times must be reported in Coordinated Universal Time (UTC) and follow the ISO 8601 standard (RFC 3339). Temporal data using different standards can be provided as a separate variable (column) in addition to UTC format; YYYY-MM-DD
@@ -410,8 +410,8 @@ slots:
       - value: 2019-08-14
     range: date
     required: true
-  Collection Time:
-    name: Collection Time
+  Collection time:
+    name: Collection time
     title: Collection Time
     description: Time when the sample was collected.
     comments: All dates and times must be reported in Coordinated Universal Time (UTC) and follow the ISO 8601 standard (RFC 3339). Temporal data using different standards can be provided as a separate variable (column) in addition to UTC format; HH:MM:SSZ
@@ -419,8 +419,8 @@ slots:
       - value: 12:05:03Z
     range: dateTime
     required: false
-  Collection Method Description:
-    name: Collection Method Description
+  Collection method description:
+    name: Collection method description
     title: Collection Method Description
     description: Description of the collection method for the sample. Include any important terms and details for potential users to understand how your sample was collected.
     comments: Collection methods may often be the same across a series/collection of samples; there are two options for providing collection method details at a higher level. Option 1 -  Create a separate file with metadata to describe a sample collection, which contains a "collectionID", and any associated metadata fields (e.g. "collectionMethodDescription", "Purpose", "Chief Scientist", etc.). Option 2 - Create a methods file, with a series of methods descriptions that are each associated with a "methodID" and an associated "methodDescription."
@@ -430,8 +430,8 @@ slots:
       - value: Example 3) Pumped water at specific depths using tubing connected to CTD.
     range: string
     required: true
-  Sample Processing:
-    name: Sample Processing
+  sampleProcessing:
+    name: sampleProcessing
     title: Sample Processing
     description: Any processing applied to the sample during or after retrieving the sample from the environment. Can provide a list of preparations and preservation methods for the sample.
     comments: Sample processing may often be the same across a series/collection of samples. To avoid entering the same information across numerous samples, you can create a separate file with metadata to describe a sample collection, which contains a "collectionID", and any associated metadata fields (e.g. "sampleProcessing", "collectionMethodDescription", "Purpose", "Chief Scientist", etc.). Separate multiple sample processing methods with a semi-colon.
@@ -440,8 +440,8 @@ slots:
       - value: store samples in ethanol
     range: string
     recommended: true
-  Field Program or Project Name:
-    name: Field Program or Project Name
+  Field program/cruise:
+    name: Field program/cruise
     title: Field Program or Project Name
     description: Enter the name of the DOE project to associate with this/these sample(s).
     comments: Required at dataset level, but want to associate with samples for data search and integration. Project details may often be the same across a series/collection of samples; To avoid entering the same information across numerous samples, you can create a separate file with metadata to describe a project or sample collection, which contains a "collectionID" or "Field Program/Cruise", and any associated metadata fields (e.g. "Collection Method Description", "Purpose", "Chief Scientist"...
@@ -450,8 +450,8 @@ slots:
       - value: LBNL Watershed Function SFA
     range: string
     required: true
-  Latitude Coordinate system WGS 84:
-    name: Latitude Coordinate system WGS 84
+  Latitude (Coordinate system WGS 84):
+    name: Latitude (Coordinate system WGS 84)
     title: Latitude Coordinate system WGS 84
     description: Latitude of the location where the sample was collected, entered in decimal degrees. Negative values for South latitudes.
     comments: Decimal degrees, coordinate system is WGS 84. Please supply no more than 6 decimal places (meter scale resolution) in the actual number (not just display format.) No letters are allowed.
@@ -466,8 +466,8 @@ slots:
     minimum_value: -90
     pattern: '^\d+(\.\d{1,6})?$'
     recommended: true
-  Longitude Coordinate system WGS 84:
-    name: Longitude Coordinate system WGS 84
+  Longitude (Coordinate system WGS 84):
+    name: Longitude (Coordinate system WGS 84)
     title: Longitude Coordinate system WGS 84
     description: Longitude of the location where the sample was collected. Negative values for ‘West’ longitudes.
     comments: Decimal degrees, coordinate system is WGS 84. Please supply no more than 6 decimal places (meter scale resolution) in the actual number (not just display format.) No letters are allowed.
@@ -482,8 +482,8 @@ slots:
     minimum_value: -180
     pattern: '^\d+(\.\d{1,6})?$'
     recommended: true
-  Navigation Type:
-    name: Navigation Type
+  Navigation type:
+    name: Navigation type
     title: Navigation Type
     description: Type of geolocation instrument used to obtain geographic coordinates.
     comments: Provide feedback on additional terms needed.
@@ -492,8 +492,8 @@ slots:
       - value: RTK GPS
     range: Navigation Type menu
     recommended: true
-  Location Description:
-    name: Location Description
+  Location description:
+    name: Location description
     title: Location Description
     description: Free text description of the location.
     comments: You can also include details here about the location type, e.g. whether it is an absolute or reference location, plot ID and description.
@@ -546,8 +546,8 @@ slots:
       - value: meters
     range: string
     recommended: true
-  Minimum Depth in Meters:
-    name: Minimum Depth in Meters
+  Depth in core (min):
+    name: Depth in core (min)
     title: Minimum Depth in Meters
     description: Depth, or minimum depth (if taken over a range) at which a sample was collected, below ground or under water.
     comments: Recommend using meters.
@@ -560,8 +560,8 @@ slots:
       - range: integer
     pattern: '^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\s-]{1,2}|[^\s-]+.+[^\s-]+)$'
     recommended: true
-  Maximum Depth in Meters:
-    name: Maximum Depth in Meters
+  Depth in core (max):
+    name: Depth in core (max)
     title: Maximum Depth in Meters
     description: Maximum depth at which a sample was collected, below ground or under water.
     comments: Recommend using meters.
@@ -583,8 +583,8 @@ slots:
       - value: meters
     range: string
     recommended: true
-  Minimum Distance above Surface in Meters:
-    name: Minimum Distance above Surface in Meters
+  minimumDistanceAboveSurfaceInMeters:
+    name: minimumDistanceAboveSurfaceInMeters
     title: Minimum Distance above Surface in Meters
     description: Minimum height above the ground surface, in meters. If no range of values collected, provide height measurement here.
     comments: Recommend using meters.
@@ -596,8 +596,8 @@ slots:
       - range: float
       - range: integer
     required: false
-  Maximum Distance above Surface in Meters:
-    name: Maximum Distance above Surface in Meters
+  maximumDistanceAboveSurfaceInMeters:
+    name: maximumDistanceAboveSurfaceInMeters
     title: Maximum Distance above Surface in Meters
     description: Maximum height above the ground surface, in meters.
     comments: Recommend using meters.
@@ -609,9 +609,9 @@ slots:
       - range: float
       - range: integer
     required: false
-  Physiographic feature:
-    name: Physiographic feature
-    title: Physiographic feature
+  Primary physiographic feature:
+    name: Primary physiographic feature
+    title: Primary Physiographic Feature
     description: Entity or entities which are in your sample or specimen’s local vicinity and which you believe have significant causal influences on your sample or specimen.
     comments: <a href="https://www.ebi.ac.uk/ols/ontologies/envo">Terms from Environment Ontology (ENVO)</a>. Provide the appropriate term and ENVO identifier - see examples below. Choose environmental context that is a smaller spatial grain than your entry for biome. Delimit multiple values using semi-colon. If needed, request new terms on the ENVO tracker, identified <a href="http://obofoundry.org/ontology/envo.html">here</a>.
     examples:
@@ -621,8 +621,8 @@ slots:
     range: string
     slot_uri: ENVO
     recommended: true
-  Biome:
-    name: Biome
+  biome:
+    name: biome
     title: Biome
     description: Major environmental system your sample or specimen came from. The systems identified should have a coarse spatial grain, to provide the general environmental context of where the sampling was done (e.g. were you in the desert or a rainforest?).
     comments: <a href="https://www.ebi.ac.uk/ols/ontologies/envo">Terms from Environment Ontology (ENVO)</a>. Provide the appropriate term and ENVO identifier - see examples below. We recommend using subclasses of <a href="https://ontobee.org/ontology/ENVO?iri=http://purl.obolibrary.org/obo/ENVO_00000428">ENVO’s biome class</a>. Use a semi-colon to delimit multiple biomes where needed. If needed, request new terms on the ENVO tracker, identified <a href="http://obofoundry.org/ontology/envo.html">here</a>.
@@ -641,8 +641,8 @@ slots:
       - value: 2018-03-15
     range: date
     required: true
-  Current Archive:
-    name: Current Archive
+  Current archive:
+    name: Current archive
     title: Current Archive
     description: Name of institution, museum, or repository where the sample is currently stored.
     comments: Only applies to physical samples that are archived in a collection for some period of time.
@@ -652,8 +652,8 @@ slots:
       - value: Lakewood, CO
     range: string
     required: false
-  Current Archive Contact:
-    name: Current Archive Contact
+  Current archive contact:
+    name: Current archive contact
     title: Current Archive Contact
     description: Address and/or email of the person who should be contacted for information about or access to the sample.
     comments: Email is not mandatory, but helps with communication about samples.
@@ -722,6 +722,8 @@ enums:
         text: Rock
       Soil:
         text: Soil
+      Sediment:
+        text: Sediment
       Ice:
         text: Ice
       Liquid>Aqueous:
