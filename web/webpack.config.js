@@ -8,7 +8,7 @@ module.exports = (env, argv) => {
     entry: './index.js',
     resolve: {
       alias: {
-        '@': path.resolve(__dirname) // this sets '@/' as an alias for the root
+        '@': path.basename(path.resolve(__dirname)) // this sets '@/' as an alias for the project root
       }
     },
     output: {

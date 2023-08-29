@@ -1,8 +1,8 @@
-import { DataHarmonizer, Footer, Toolbar } from '../lib';
-import menu from './templates/menu.json';
+import { DataHarmonizer, Footer, Toolbar } from '@/lib';
+import menu from '@/web/templates/menu.json';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './index.css';
+import '@/web/index.css';
 
 document.addEventListener('DOMContentLoaded', function () {
   const dhRoot = document.querySelector('#data-harmonizer-grid');
@@ -26,10 +26,10 @@ document.addEventListener('DOMContentLoaded', function () {
     templatePath: templatePath,
     releasesURL: 'https://github.com/cidgoh/pathogen-genomics-package/releases',
     getSchema: async (schema) => {
-      return (await import(`./templates/${schema}/schema.json`)).default;
+      return (await import(`@/web/templates/${schema}/schema.json`)).default;
     },
     getExportFormats: async (schema) => {
-      return (await import(`./templates/${schema}/export.js`)).default;
+      return (await import(`@/web/templates/${schema}/export.js`)).default;
     },
   });
 });
