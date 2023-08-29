@@ -233,3 +233,10 @@ fabric.properties
 
 # JS
 node_modules/
+
+# Visual Studio
+.vscode/
+
+# Miscellaneous
+.local/
+.notes/

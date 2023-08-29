@@ -6,6 +6,11 @@ module.exports = (env, argv) => {
   var config = {
     context: path.resolve(__dirname),
     entry: './index.js',
+    resolve: {
+      alias: {
+        '@': path.resolve(__dirname) // this sets '@/' as an alias for the root
+      }
+    },
     output: {
       path: path.resolve(__dirname, 'dist'),
       filename: 'scripts/[name].js',
