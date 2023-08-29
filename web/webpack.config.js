@@ -8,7 +8,7 @@ module.exports = (env, argv) => {
     entry: './index.js',
     resolve: {
       alias: {
-        '@': path.basename(path.resolve(__dirname)) // this sets '@/' as an alias for the project root
+        '@': path.dirname(path.resolve(__dirname)) // this sets '@/' as an alias for the projectroot
       }
     },
     output: {
@@ -69,6 +69,5 @@ module.exports = (env, argv) => {
   if (argv.mode === 'development') {
     config.devtool = 'eval-source-map';
   }
-
   return config;
 };
