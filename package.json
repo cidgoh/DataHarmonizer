@@ -50,6 +50,7 @@
     "bootstrap": "4.3.1",
     "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.7.1",
+    "directory-tree-webpack-plugin": "^1.0.3",
     "eslint": "^8.17.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-jest": "^26.6.0",
@@ -83,6 +84,9 @@
       "\\.js$": [
         "rollup-jest"
       ]
-    }
+    },
+    "moduleNameMapper": {
+      "^@/(.*)$": "<rootDir>/$1"
+  }
   }
 }

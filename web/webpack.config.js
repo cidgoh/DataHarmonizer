@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
+const DirectoryTreePlugin = require('directory-tree-webpack-plugin')
 
 module.exports = (env, argv) => {
   var config = {
@@ -17,6 +18,11 @@ module.exports = (env, argv) => {
       assetModuleFilename: 'assets/[hash][ext][query]',
     },
     plugins: [
+      new DirectoryTreePlugin({
+        dir: './web/templates',
+        path: './web/templates/manifest.json',
+        extensions: /\.md|\.json|\.yaml/
+      }),
       new HtmlWebpackPlugin({
         template: './index.html',
       }),
