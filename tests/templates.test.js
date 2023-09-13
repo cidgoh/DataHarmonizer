@@ -8,6 +8,30 @@ import {
     findBestLocaleMatch
 } from '@/lib/utils/templates';
 
+/* Example usage
+template = await Template.create('canada_covid19')
+template.schema.prefixes.linkml.prefix_prefix == 'linkml'
+template.schema.default.prefixes.linkml.prefix_prefix == 'linkml'
+
+template.schema.locales['default'].prefixes.linkml.prefix_prefix == 'linkml'
+
+template.changeLocale('fr')  // will find first nearest match if only full countrycodes present
+// template.changeLocale('fr-FR')
+template.schema.prefixes.linkml.prefix_prefix == 'lènkml'
+
+// support for picklist value/label distinction
+template.schema.default.prefixes.linkml.prefix_prefix == 'linkml'
+template.schema.locale.prefixes.linkml.prefix_prefix == 'lènkml' // TODO
+
+template.schema.locales['fr-FR'].prefixes.linkml.prefix_prefix == 'linkml'
+
+template.currentLocale() == 'fr-FR'
+
+template.changeLocale('default')
+template.schema.prefixes.linkml.prefix_prefix == 'linkml'
+template.schema.default.prefixes.linkml.prefix_prefix == 'linkml'
+*/
+
 describe('TemplateProxy', () => {
     let proxy;
 
@@ -19,13 +43,13 @@ describe('TemplateProxy', () => {
                 description: 'default_description'
             },
             locales: {
-                en: {
-                    name: 'english_name'
-                },
                 fr: {
                     name: 'french_name',
                     description: 'french_description'
-                }
+                },
+                "de-DE": {
+                    name: 'deutsch_nam'
+                },
             }
         };
     };
@@ -33,7 +57,7 @@ describe('TemplateProxy', () => {
     beforeEach(async () => {
         // Mock the actual buildTemplate with our version
         global.buildTemplate = mockBuildTemplate; // or however you would mock in your setup
-        proxy = await TemplateProxy.create('test', 'en');
+        proxy = await Template.create('test', 'en');
     });
 
     test('should return localized property if it exists', () => {
