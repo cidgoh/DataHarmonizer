@@ -77,7 +77,9 @@
     "flatpickr": "^4.6.13",
     "handsontable": "^7.4.2",
     "sifter": "^0.5.4",
-    "xlsx": "^0.18.5"
+    "xlsx": "^0.18.5",
+    "jquery-i18next": "^1.2.1",
+    "i18next": "^0.15.1"
   },
   "jest": {
     "transform": {
