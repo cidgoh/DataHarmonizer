@@ -237,6 +237,9 @@ node_modules/
 # Visual Studio
 .vscode/
 
+# Project build artifacts
+web/templates/manifest.json
+
 # Miscellaneous
 .local/
 .notes/
