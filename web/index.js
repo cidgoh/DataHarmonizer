@@ -1,10 +1,12 @@
 import { DataHarmonizer, Footer, Toolbar } from '@/lib';
+import { initI18n } from '@/lib/i18n';
 import menu from '@/web/templates/menu.json';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@/web/index.css';
 
 document.addEventListener('DOMContentLoaded', function () {
+
   const dhRoot = document.querySelector('#data-harmonizer-grid');
   const dhFooterRoot = document.querySelector('#data-harmonizer-footer');
   const dhToolbarRoot = document.querySelector('#data-harmonizer-toolbar');
@@ -32,4 +34,8 @@ document.addEventListener('DOMContentLoaded', function () {
       return (await import(`@/web/templates/${schema}/export.js`)).default;
     },
   });
+
+  // internationalize
+  initI18n()
+
 });
