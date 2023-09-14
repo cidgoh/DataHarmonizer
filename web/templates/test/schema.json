@@ -1,6 +1,6 @@
 {
   "name": "AMBR",
-  "description": "",
+  "description": "default_description",
   "id": "https://example.com/AMBR",
   "version": "2.3.0",
   "prefixes": {
