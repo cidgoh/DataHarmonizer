@@ -35,43 +35,23 @@ template.schema.default.prefixes.linkml.prefix_prefix == 'linkml'
 describe('TemplateProxy', () => {
     let proxy;
 
-    // Assuming the existence of a function to mock the 'buildTemplate' function
-    const mockBuildTemplate = (templateName) => {
-        return {
-            default: {
-                name: 'default_name',
-                description: 'default_description'
-            },
-            locales: {
-                fr: {
-                    name: 'french_name',
-                    description: 'french_description'
-                },
-                "de-DE": {
-                    name: 'deutsch_nam'
-                },
-            }
-        };
-    };
-
     beforeEach(async () => {
         // Mock the actual buildTemplate with our version
-        global.buildTemplate = mockBuildTemplate; // or however you would mock in your setup
-        proxy = await Template.create('test', 'en');
+        proxy = await TemplateProxy.create('test', 'de');
     });
 
     test('should return localized property if it exists', () => {
-        expect(proxy.name).toBe('english_name');
+        expect(proxy.schema.name).toBe('AMBR_de');
     });
 
     test('should return default property if localized version doesn’t exist', () => {
-        expect(proxy.description).toBe('default_description');
+        expect(proxy.schema.description).toBe('default_description');
     });
 
     test('should switch to a new locale and return appropriate data', () => {
         proxy.changeLocale('fr');
-        expect(proxy.name).toBe('french_name');
-        expect(proxy.description).toBe('french_description');
+        expect(proxy.schema.name).toBe('AMBR_fr');
+        expect(proxy.schema.description).toBe('french_description');
     });
 
     test('should throw error for unsupported locale', () => {
@@ -124,7 +104,7 @@ describe('accessFile function', () => {
     // Note: Testing this function requires filesystem operations which might be mocked.
     // For simplicity, we'll assume a generic success/failure case.
     it('should return data on successful import', async () => {
-        const data = await accessFile('./mock-success-path');  // Adjust the path to a mock module.
+        const data = await accessFile('@/lib/utils/templates');  // Adjust the path to a mock module.
         expect(data).not.toBeNull();
     });
 
@@ -138,6 +118,7 @@ describe('findBestLocaleMatch function', () => {
     it('should return the best matching locale', () => {
         const available = ['en-US', 'fr-FR', 'es-ES'];
         expect(findBestLocaleMatch(available, ['en-GB', 'fr-CA', 'es-AR'])).toBe('en-US');
+        expect(findBestLocaleMatch(available, ['en'])).toBe('en-US');
     });
 
     it('should return null if no matching locale is found', () => {
@@ -160,11 +141,13 @@ describe('Template utilities', () => {
         it('should return the correct template if it exists', async () => {
             const mockTemplate = { name: 'template1' };
             jest.mock('@/web/templates/manifest.json', () => ({
-                children: [mockTemplate]
+                children: [
+                    mockTemplate
+                ]
             }));
 
-            const result = await accessTemplate('template1');
-            expect(result[0]).toBe('template1');
+            const result = await accessTemplate('test');
+            expect(result[0]).toBe('test');
         });
 
         it('should return null if the template does not exist', async () => {
@@ -181,15 +164,20 @@ describe('Template utilities', () => {
             const mockTemplateData = [
                 mockTemplateName, 
                 [[{ key: 'mockSchema' }], [{ key: 'mockDocumentation' }]], 
-                [['en-US', [{ key: 'mockEnUS' }], []]]
+                // Locale tree is pretty gnarly. need to slim down. which means simplifying manifest.json generation
+                [[
+                    [], [[]], 
+                    [['en-US', 
+                        [[{ key: 'mockEnUS' }]], []
+                    ]]
+                ]]
             ];
 
-            jest.mock('./path-to-your-functions-file', () => ({
+            jest.mock('@/lib/utils/templates', () => ({
                 accessTemplate: jest.fn().mockResolvedValue(mockTemplateData)
             }));
 
-            const result = await buildTemplate(mockTemplateName);
-
+            const result = await buildTemplate(mockTemplateData);
             expect(result.name).toBe(mockTemplateName);
             expect(result.default.schema.key).toBe('mockSchema');
             expect(result.default.documentation.key).toBe('mockDocumentation');
