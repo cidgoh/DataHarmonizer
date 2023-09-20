@@ -130,20 +130,20 @@ test('it should accept custom formats', () => {
   expect(datatypes.parseDate('2022-01-02')).toEqual(undefined);
 
   expect(datatypes.parseDateTime('04 Oct 2023 @ 3:33 PM')).toEqual(
-    new Date(2023, 9, 4, 15, 33)
+    new Date(2023, 9, 4, 15, 33),
   );
   expect(datatypes.parseDate('2023-10-04 15:33')).toEqual(undefined);
 
   expect(datatypes.parseTime('3:44:55 PM')).toEqual(
-    getDateObjectForTime(15, 44, 55)
+    getDateObjectForTime(15, 44, 55),
   );
   expect(datatypes.parseDate('15:44:55')).toEqual(undefined);
 
   expect(datatypes.stringifyDate(new Date(1999, 4, 15, 15, 35, 22))).toEqual(
-    'May 15, 1999'
+    'May 15, 1999',
   );
   expect(datatypes.stringifyDateTime(new Date(1994, 8, 1, 15, 25, 35))).toEqual(
-    '01 September 1994 @ 3:25 PM'
+    '01 September 1994 @ 3:25 PM',
   );
 });
 
@@ -151,7 +151,7 @@ test('stringifyDateObjectForJsonSchema', () => {
   const input = new Date(2023, 9, 31, 16, 45);
   expect(stringifyJsonSchemaDate(input, 'xsd:date')).toEqual('2023-10-31');
   expect(stringifyJsonSchemaDate(input, 'xsd:dateTime')).toEqual(
-    '2023-10-31T16:45:00'
+    '2023-10-31T16:45:00',
   );
   expect(stringifyJsonSchemaDate(input, 'xsd:time')).toEqual('16:45:00');
 });

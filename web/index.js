@@ -6,7 +6,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '@/web/index.css';
 
 document.addEventListener('DOMContentLoaded', function () {
-
   const dhRoot = document.querySelector('#data-harmonizer-grid');
   const dhFooterRoot = document.querySelector('#data-harmonizer-footer');
   const dhToolbarRoot = document.querySelector('#data-harmonizer-toolbar');
@@ -36,6 +35,5 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   // internationalize
-  initI18n()
-
+  initI18n();
 });

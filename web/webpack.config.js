@@ -1,7 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
-const DirectoryTreePlugin = require('directory-tree-webpack-plugin')
+const DirectoryTreePlugin = require('directory-tree-webpack-plugin');
 
 module.exports = (env, argv) => {
   var config = {
@@ -9,8 +9,8 @@ module.exports = (env, argv) => {
     entry: './index.js',
     resolve: {
       alias: {
-        '@': path.dirname(path.resolve(__dirname)) // this sets '@/' as an alias for the projectroot
-      }
+        '@': path.dirname(path.resolve(__dirname)), // this sets '@/' as an alias for the projectroot
+      },
     },
     output: {
       path: path.resolve(__dirname, 'dist'),
@@ -21,7 +21,7 @@ module.exports = (env, argv) => {
       new DirectoryTreePlugin({
         dir: './web/templates',
         path: './web/templates/manifest.json',
-        extensions: /\.md|\.json|\.yaml/
+        extensions: /\.md|\.json|\.yaml/,
       }),
       new HtmlWebpackPlugin({
         template: './index.html',
