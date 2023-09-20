@@ -56,7 +56,7 @@ describe('TemplateProxy', () => {
 
   test('should throw error for unsupported locale', () => {
     expect(() => proxy.changeLocale('es')).toThrow(
-      'Locale es is not supported by the template.',
+      'Locale es is not supported by the template.'
     );
   });
 
@@ -120,7 +120,7 @@ describe('findBestLocaleMatch function', () => {
   it('should return the best matching locale', () => {
     const available = ['en-US', 'fr-FR', 'es-ES'];
     expect(findBestLocaleMatch(available, ['en-GB', 'fr-CA', 'es-AR'])).toBe(
-      'en-US',
+      'en-US'
     );
     expect(findBestLocaleMatch(available, ['en'])).toBe('en-US');
   });
