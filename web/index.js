@@ -1,6 +1,7 @@
 import { DataHarmonizer, Footer, Toolbar } from '@/lib';
 import { initI18n } from '@/lib/i18n';
 import menu from '@/web/templates/menu.json';
+import { Template } from "@/lib/utils/templates";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@/web/index.css';
@@ -28,14 +29,18 @@ document.addEventListener('DOMContentLoaded', function () {
     templatePath: templatePath,
     releasesURL: 'https://github.com/cidgoh/pathogen-genomics-package/releases',
     getSchema: async (schema) => {
-      return (await import(`@/web/templates/${schema}/schema.json`)).default;
+      const template = await Template.create(schema)
+      return template.current.schema;
     },
+    // TODO: refactor to Template object
     getExportFormats: async (schema) => {
       return (await import(`@/web/templates/${schema}/export.js`)).default;
     },
+    // TODO: Locale changes!
   });
 
   // internationalize
+  // TODO: connect to locale of schema!
   initI18n()
 
 });

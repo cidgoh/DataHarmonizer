@@ -4,7 +4,6 @@ import {
   buildTemplate,
   deepMerge,
   getNestedValue,
-  accessFile,
   findBestLocaleMatch,
 } from '@/lib/utils/templates';
 
@@ -110,20 +109,6 @@ describe('getNestedValue function', () => {
   it('should return undefined for non-existent path', () => {
     expect(getNestedValue(data, 'user.age')).toBeUndefined();
   });
-});
-
-describe('accessFile function', () => {
-  // Note: Testing this function requires filesystem operations which might be mocked.
-  // For simplicity, we'll assume a generic success/failure case.
-  it('should return data on successful import', async () => {
-    const data = await accessFile('@/lib/utils/templates'); // Adjust the path to a mock module.
-    expect(data).not.toBeNull();
-  });
-
-  // it('should return null on failed import', async () => {
-  //   const data = await accessFile('./mock-failure-path'); // Adjust the path to a non-existent module.
-  //   expect(data).toBeNull();
-  // });
 });
 
 describe('findBestLocaleMatch function', () => {
