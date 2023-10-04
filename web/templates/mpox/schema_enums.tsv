@@ -771,25 +771,25 @@ exposure setting international menu	ECTO:3000005	Human Exposure [ECTO:3000005]
 	GENEPIO:0100232		Travelled on Ground Transport [GENEPIO:0100232]									
 	GENEPIO:0100235	Other Exposure Setting [GENEPIO:0100235]										
 												
-prior Monkeypox infection menu	GENEPIO:0100037	Prior infection										
+prior Mpox infection menu	GENEPIO:0100037	Prior infection										
 	GENEPIO:0100233	No prior infection										
 												
-prior Monkeypox infection international menu	GENEPIO:0100037	Prior infection [GENEPIO:0100037]										
+prior Mpox infection international menu	GENEPIO:0100037	Prior infection [GENEPIO:0100037]										
 	GENEPIO:0100233	No prior infection [GENEPIO:0100233]										
 												
-prior Monkeypox antiviral treatment menu	GENEPIO:0100037	Prior antiviral treatment										
+prior Mpox antiviral treatment menu	GENEPIO:0100037	Prior antiviral treatment										
 	GENEPIO:0100233	No prior antiviral treatment										
 												
-prior Monkeypox antiviral treatment international menu	GENEPIO:0100037	Prior antiviral treatment [GENEPIO:0100037]										
+prior Mpox antiviral treatment international menu	GENEPIO:0100037	Prior antiviral treatment [GENEPIO:0100037]										
 	GENEPIO:0100233	No prior antiviral treatment [GENEPIO:0100233]										
 												
-organism menu	NCBITaxon:10244	Monkeypox virus										
+organism menu	NCBITaxon:10244	Mpox virus										
 												
-organism international menu	NCBITaxon:10244	Monkeypox virus [NCBITaxon:10244]										
+organism international menu	NCBITaxon:10244	Mpox virus [NCBITaxon:10244]										
 												
-host disease menu	MONDO:0002594	Monkeypox										
+host disease menu	MONDO:0002594	Mpox										
 												
-host disease international menu	MONDO:0002594	Monkeypox [MONDO:0002594]										
+host disease international menu	MONDO:0002594	Mpox [MONDO:0002594]										
 												
 												
 purpose of sampling menu	GENEPIO:0100001	Cluster/Outbreak investigation										
