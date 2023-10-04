@@ -34,18 +34,6 @@
       "display": true
     }
   },
-  "monkeypox": {
-    "Monkeypox": {
-      "name": "Monkeypox",
-      "status": "published",
-      "display": true
-    },
-    "Monkeypox_international": {
-      "name": "Monkeypox_international",
-      "status": "published",
-      "display": true
-    }
-  },
   "ambr": {
     "AMBR": {
       "name": "AMBR",
@@ -63,6 +51,18 @@
   "influenza": {
     "Influenza": {
       "name": "Influenza",
+      "status": "published",
+      "display": true
+    }
+  },
+  "mpox": {
+    "Mpox": {
+      "name": "Mpox",
+      "status": "published",
+      "display": true
+    },
+    "Mpox_international": {
+      "name": "Mpox_international",
       "status": "published",
       "display": true
     }
