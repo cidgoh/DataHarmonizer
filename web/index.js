@@ -1,7 +1,9 @@
+import * as $ from 'jquery';
 import { DataHarmonizer, Footer, Toolbar } from '@/lib';
-import { initI18n } from '@/lib/i18n';
-import menu from '@/web/templates/menu.json';
+import { initI18n } from '@/lib/utils/i18n';
 import { Template } from "@/lib/utils/templates";
+
+import menu from '@/web/templates/menu.json';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@/web/index.css';
@@ -41,6 +43,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // internationalize
   // TODO: connect to locale of schema!
-  initI18n()
+  initI18n(lang => {
+    $(document).localize();
+    dh.hot.render();
+  })
 
 });
