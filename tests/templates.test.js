@@ -1,10 +1,9 @@
 import {
-  TemplateProxy,
+  Template,
   accessTemplate,
   buildTemplate,
   deepMerge,
   getNestedValue,
-  accessFile,
   findBestLocaleMatch,
 } from '@/lib/utils/templates';
 
@@ -15,8 +14,8 @@ template.schema.default.prefixes.linkml.prefix_prefix == 'linkml'
 
 template.schema.locales['default'].prefixes.linkml.prefix_prefix == 'linkml'
 
-template.changeLocale('fr')  // will find first nearest match if only full countrycodes present
-// template.changeLocale('fr-FR')
+template.updateLocale('fr')  // will find first nearest match if only full countrycodes present
+// template.updateLocale('fr-FR')
 template.schema.prefixes.linkml.prefix_prefix == 'lènkml'
 
 // support for picklist value/label distinction
@@ -27,7 +26,7 @@ template.schema.locales['fr-FR'].prefixes.linkml.prefix_prefix == 'linkml'
 
 template.currentLocale() == 'fr-FR'
 
-template.changeLocale('default')
+template.updateLocale('default')
 template.schema.prefixes.linkml.prefix_prefix == 'linkml'
 template.schema.default.prefixes.linkml.prefix_prefix == 'linkml'
 */
@@ -37,11 +36,13 @@ describe('TemplateProxy', () => {
 
   beforeEach(async () => {
     // Mock the actual buildTemplate with our version
-    proxy = await TemplateProxy.create('test', 'de');
+    // initiate localized
+    proxy = await Template.create('test', 'de');
   });
 
   test('should return localized property if it exists', () => {
     expect(proxy.schema.name).toBe('AMBR_de');
+    expect(proxy.schema.name).toBe(proxy.localized.schema.name);
   });
 
   test('should return default property if localized version doesn’t exist', () => {
@@ -49,14 +50,22 @@ describe('TemplateProxy', () => {
   });
 
   test('should switch to a new locale and return appropriate data', () => {
-    proxy.changeLocale('fr');
+    proxy.updateLocale('fr');
     expect(proxy.schema.name).toBe('AMBR_fr');
+    expect(proxy.schema.name).toBe(proxy.localized.schema.name);
     expect(proxy.schema.description).toBe('french_description');
   });
 
+  test('should return to the default locale when updating empty', () => {
+    proxy.updateLocale();
+    expect(proxy.schema.name).toBe('AMBR');
+    expect(proxy.schema.name).toBe(proxy.default.schema.name);
+    expect(proxy.schema.description).toBe(proxy.default.schema.description);
+  });
+
   test('should throw error for unsupported locale', () => {
-    expect(() => proxy.changeLocale('es')).toThrow(
-      'Locale es is not supported by the template.'
+    expect(() => proxy.updateLocale('es')).toThrow(
+      'Locale es is not supported by the template.',
     );
   });
 
@@ -102,25 +111,11 @@ describe('getNestedValue function', () => {
   });
 });
 
-describe('accessFile function', () => {
-  // Note: Testing this function requires filesystem operations which might be mocked.
-  // For simplicity, we'll assume a generic success/failure case.
-  it('should return data on successful import', async () => {
-    const data = await accessFile('@/lib/utils/templates'); // Adjust the path to a mock module.
-    expect(data).not.toBeNull();
-  });
-
-  it('should return null on failed import', async () => {
-    const data = await accessFile('./mock-failure-path'); // Adjust the path to a non-existent module.
-    expect(data).toBeNull();
-  });
-});
-
 describe('findBestLocaleMatch function', () => {
   it('should return the best matching locale', () => {
     const available = ['en-US', 'fr-FR', 'es-ES'];
     expect(findBestLocaleMatch(available, ['en-GB', 'fr-CA', 'es-AR'])).toBe(
-      'en-US'
+      'en-US',
     );
     expect(findBestLocaleMatch(available, ['en'])).toBe('en-US');
   });
