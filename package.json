@@ -82,6 +82,7 @@
     "handsontable": "13.1.0",
     "i18next": "^23.5.1",
     "jquery-i18next": "^1.2.1",
+    "language-tags": "^1.0.9",
     "os-browserify": "^0.3.0",
     "sifter": "^0.5.4",
     "xlsx": "^0.18.5"
