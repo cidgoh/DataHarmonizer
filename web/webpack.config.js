@@ -10,7 +10,7 @@ module.exports = (env, argv) => {
     entry: './index.js',
     resolve: {
       alias: {
-        '@': path.dirname(path.resolve(__dirname)) // this sets '@/' as an alias for the projectroot
+        '@': path.dirname(path.resolve(__dirname)), // this sets '@/' as an alias for the projectroot
       },
     },
     output: {
@@ -25,8 +25,8 @@ module.exports = (env, argv) => {
         path: './web/templates/manifest.json',
         extensions: /\.md|\.json|\.yaml/,
         enhance: (item, options) => {
-          item.path = item.path.replace('web', '')
-        }
+          item.path = item.path.replace('web', '');
+        },
       }),
       new HtmlWebpackPlugin({
         template: './index.html',
@@ -63,12 +63,12 @@ module.exports = (env, argv) => {
       rules: [
         {
           test: /\.ya?ml$/,
-          use: 'yaml-loader'
+          use: 'yaml-loader',
         },
-        { test: /\.xlsx$/, loader: "webpack-xlsx-loader" },
+        { test: /\.xlsx$/, loader: 'webpack-xlsx-loader' },
         {
           test: /\.(c|d|t)sv$/, // load all .csv, .dsv, .tsv files with dsv-loader
-          use: ['dsv-loader'] // or dsv-loader?delimiter=,
+          use: ['dsv-loader'], // or dsv-loader?delimiter=,
         },
         {
           test: /\.css$/,
