@@ -23,7 +23,7 @@
     "#lib": "./lib/index.js"
   },
   "scripts": {
-    "format": "prettier --write .",
+    "format": "npx prettier --write .",
     "lint": "prettier --check . && eslint .",
     "clean:lib": "rimraf lib/dist",
     "clean:web": "rimraf web/dist",
