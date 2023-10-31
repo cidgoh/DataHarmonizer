@@ -1,4 +1,5 @@
 import * as $ from 'jquery';
+import i18n from 'i18next';
 import { DataHarmonizer, Footer, Toolbar } from '@/lib';
 import { initI18n } from '@/lib/utils/i18n';
 import { Template } from '@/lib/utils/templates';
