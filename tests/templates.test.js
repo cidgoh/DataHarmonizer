@@ -4,11 +4,7 @@ import {
   buildTemplate,
   findBestLocaleMatch,
 } from '@/lib/utils/templates';
-import { 
-  deepMerge,
-  getNestedValue,
- } from '@/lib/utils/objects';
-
+import { deepMerge, getNestedValue } from '@/lib/utils/objects';
 
 /* Example usage
 template = await Template.create('canada_covid19')
