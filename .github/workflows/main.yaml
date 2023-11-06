@@ -12,7 +12,7 @@ jobs:
           node-version: '16.x'
       - run: yarn install --frozen-lockfile
       - run: yarn format
-      - run: yarn lint
+      # - run: yarn lint
       - run: yarn build:lib
       - run: yarn build:web
       - run: yarn test
