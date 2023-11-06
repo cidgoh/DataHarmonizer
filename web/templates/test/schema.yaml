@@ -1,5 +1,5 @@
-id: https://example.com/AMBR
-name: AMBR
+id: https://example.com/TEST
+name: TEST
 description: ''
 version: 2.3.0
 imports:
@@ -11,13 +11,13 @@ classes:
   dh_interface:
     name: dh_interface
     description: A DataHarmonizer interface
-    from_schema: https://example.com/AMBR
-  AMBR:
-    name: AMBR
-    description: The AMBR Project, led by the Harrison Lab at the University of Calgary,
+    from_schema: https://example.com/TEST
+  TEST:
+    name: TEST
+    description: The TEST Project, led by the Harrison Lab at the University of Calgary,
       is an interdisciplinary study aimed at using 16S sequencing as part of a culturomics
       platform to identify antibiotic potentiators from the natural products of microbiota.
-      The AMBR DataHarmonizer template was designed to standardize contextual data
+      The TEST DataHarmonizer template was designed to standardize contextual data
       associated with the isolate repository from this work.
     is_a: dh_interface
     slots:
@@ -281,7 +281,7 @@ slots:
     description: The user-defined identifier for the isolate, as provided by the laboratory
       that originally isolated the isolate.
     comments: Provide the identifier created by the lab for the organism after isolation.
-      This value maps to the "Strain ID#" in the Alberta Microbiota Repository (AMBR)
+      This value maps to the "Strain ID#" in the Alberta Microbiota Repository (TEST)
       Master file.
     examples:
     - value: SA01
@@ -295,7 +295,7 @@ slots:
     comments: Provide the identifier that represents the site code, source and/or
       patient identifier, media type, strain identifier, colony number, growth condition
       and dilution factor as a single code. This value corresponds maps to the "Label
-      ID" in the Alberta Microbiota Repository (AMBR) Master file.
+      ID" in the Alberta Microbiota Repository (TEST) Master file.
     examples:
     - value: '3411301'
     slot_uri: GENEPIO:0100457
@@ -440,7 +440,7 @@ slots:
     title: organism
     description: Taxonomic name of the organism.
     comments: Provide the confirmed taxonomic name of the species. This value maps
-      to the "Recommended identification" in the Alberta Microbiota Repository (AMBR)
+      to the "Recommended identification" in the Alberta Microbiota Repository (TEST)
       Master file.
     examples:
     - value: Staphylococcus aureus
@@ -458,7 +458,7 @@ slots:
       in the template. The reason why a sample was originally collected may differ
       from the reason why it was selected for sequencing, which should be indicated
       in the "purpose of sequencing" field. Motivation for sampling may be available
-      in the "Source of Isolation" field in the Alberta Microbiota Repository (AMBR)
+      in the "Source of Isolation" field in the Alberta Microbiota Repository (TEST)
       Master file.
     examples:
     - value: Targeted surveillance
@@ -476,7 +476,7 @@ slots:
       free text. The description may include the importance of the sample for a particular
       investigation/surveillance activity/research question. Information for populating
       this field may be available in the "Source of Isolation" field in the Alberta
-      Microbiota Repository (AMBR) Master file.
+      Microbiota Repository (TEST) Master file.
     examples:
     - value: ProvLab/IPC routine monitoring
     slot_uri: GENEPIO:0001200
@@ -489,7 +489,7 @@ slots:
     title: original sample description
     description: The original sample description provided by the sample collector.
     comments: Provide the sample description provided by the original sample collector
-      or the "Source of Isolation" field in the Alberta Microbiota Repository (AMBR)
+      or the "Source of Isolation" field in the Alberta Microbiota Repository (TEST)
       Master file. The original description is useful as it may provide further details,
       or can be used to clarify higher level classifications.
     examples:
@@ -506,7 +506,7 @@ slots:
       picklist provided in the template. If a desired term is missing from the picklist,
       contact emma_griffiths@sfu.ca. If not applicable, do not leave blank. Choose
       a null value. Information for populating this field may be available in the
-      "Source of Isolation" field in the Alberta Microbiota Repository (AMBR) Master
+      "Source of Isolation" field in the Alberta Microbiota Repository (TEST) Master
       file.
     examples:
     - value: Wound tissue (injury)
@@ -524,7 +524,7 @@ slots:
       provided in the template. If a desired term is missing from the picklist, contact
       emma_griffiths@sfu.ca. If not applicable, do not leave blank. Choose a null
       value. Information for populating this field may be available in the "Source
-      of Isolation" field in the Alberta Microbiota Repository (AMBR) Master file.
+      of Isolation" field in the Alberta Microbiota Repository (TEST) Master file.
     examples:
     - value: Nasal cavity
     slot_uri: GENEPIO:0001214
@@ -542,7 +542,7 @@ slots:
       provided in the template.  If a desired term is missing from the picklist, contact
       emma_griffiths@sfu.ca. If not applicable, do not leave blank. Choose a null
       value. Information for populating this field may be available in the "Source
-      of Isolation" field in the Alberta Microbiota Repository (AMBR) Master file.
+      of Isolation" field in the Alberta Microbiota Repository (TEST) Master file.
     examples:
     - value: Feces
     slot_uri: GENEPIO:0001216
@@ -560,7 +560,7 @@ slots:
       picklist provided in the template.  If a desired term is missing from the picklist,
       contact emma_griffiths@sfu.ca. If not applicable, do not leave blank. Choose
       a null value. Information for populating this field may be available in the
-      "Source of Isolation" field in the Alberta Microbiota Repository (AMBR) Master
+      "Source of Isolation" field in the Alberta Microbiota Repository (TEST) Master
       file.
     examples:
     - value: Bandage
@@ -579,7 +579,7 @@ slots:
       provided in the template.  If a desired term is missing from the picklist, contact
       emma_griffiths@sfu.ca. If not applicable, do not leave blank. Choose a null
       value. Information for populating this field may be available in the "Source
-      of Isolation" field in the Alberta Microbiota Repository (AMBR) Master file.
+      of Isolation" field in the Alberta Microbiota Repository (TEST) Master file.
     examples:
     - value: Hospital
     slot_uri: GENEPIO:0001232
@@ -596,7 +596,7 @@ slots:
       provided in the template. If a desired term is missing from the picklist, contact
       emma_griffiths@sfu.ca. If not applicable, do not leave blank. Choose a null
       value. Information for populating this field may be available in the "Source
-      of Isolation" field in the Alberta Microbiota Repository (AMBR) Master file.
+      of Isolation" field in the Alberta Microbiota Repository (TEST) Master file.
     examples:
     - value: Swab
     slot_uri: GENEPIO:0001234
@@ -613,7 +613,7 @@ slots:
       the picklist provided in the template.  If a desired term is missing from the
       picklist, contact emma_griffiths@sfu.ca. If not applicable, do not leave blank.
       Choose a null value. Information for populating this field may be available
-      in the "Source of Isolation" field in the Alberta Microbiota Repository (AMBR)
+      in the "Source of Isolation" field in the Alberta Microbiota Repository (TEST)
       Master file.
     examples:
     - value: Biopsy
@@ -628,7 +628,7 @@ slots:
     title: collection protocol
     description: The name and version of a particular protocol used for sampling.
     comments: Free text. Information for populating this field may be available in
-      the "Source of Isolation" field in the Alberta Microbiota Repository (AMBR)
+      the "Source of Isolation" field in the Alberta Microbiota Repository (TEST)
       Master file.
     examples:
     - value: Collection_protocol_Children's Hospital biofilm study (A3-701-01)
@@ -647,7 +647,7 @@ slots:
       these should be stored as separate entries/lines in the spreadsheet). Information
       about replicates may be available in the "Top-hit taxon (taxa)" or "Trimmed
       Ribosomal Sequence" fields if there are multiple values for the same "Strain
-      ID#" in the Alberta Microbiota Repository (AMBR) Master file.
+      ID#" in the Alberta Microbiota Repository (TEST) Master file.
     examples:
     - value: Biological replicate
     slot_uri: GENEPIO:0001253
@@ -664,7 +664,7 @@ slots:
     comments: Provide a free text description of any processing details applied to
       a sample. Information about replicates may be available in the "Top-hit taxon
       (taxa)" or "Trimmed Ribosomal Sequence" fields if there are multiple values
-      for the same "Strain ID#" in the Alberta Microbiota Repository (AMBR) Master
+      for the same "Strain ID#" in the Alberta Microbiota Repository (TEST) Master
       file.
     examples:
     - value: Multiple amplicons generated for isolate SA32 using different primer
@@ -676,7 +676,7 @@ slots:
     title: strain
     description: The strain identifier.
     comments: Provide the strain of the isolate. This value maps to the "Strain" in
-      the Alberta Microbiota Repository (AMBR) Master file.
+      the Alberta Microbiota Repository (TEST) Master file.
     examples:
     - value: CL10
     slot_uri: GENEPIO:0100455
@@ -690,7 +690,7 @@ slots:
     description: The type of planned process by which an organismal entity is associated
       with a taxon or taxa.
     comments: Provide the type of method used to determine the taxonomic identity
-      of the organism by selecting a value from the pick list. For the AMBR Project,
+      of the organism by selecting a value from the pick list. For the TEST Project,
       the "16S ribosomal gene sequencing assay" value will be the most appropriate.
       If the information is unknown or cannot be provided, leave blank or provide
       a null value.
@@ -708,11 +708,11 @@ slots:
       of an organism.
     comments: Provide the criteria used for 16S sequencing taxonomic determination
       by selection a value from the pick list. These criteria are specific to the
-      AMBR project and so do not correspond with standardized criteria in any ontology.
+      TEST project and so do not correspond with standardized criteria in any ontology.
       The pick list is strictly for providing consistency in records rather than implementing
       community data standards.  If another method was used for the taxonomic determination,
       leave blank. This value maps to the information stored in the "ID Category*"
-      field in the Alberta Microbiota Repository (AMBR) Master file.
+      field in the Alberta Microbiota Repository (TEST) Master file.
     examples:
     - value: 'Species-level ID: >99.3% identity and unambiguous match to one type
         (T) sequence in a curated database'
@@ -729,7 +729,7 @@ slots:
       medium.
     comments: Provide the temperature at which the isolate was isolated. This value
       maps to the information stored in the "Incubation temperature" field in the
-      Alberta Microbiota Repository (AMBR) Master file.
+      Alberta Microbiota Repository (TEST) Master file.
     examples:
     - value: '37'
     slot_uri: GENEPIO:0100617
@@ -745,7 +745,7 @@ slots:
       medium.
     comments: Select the temperature unit from the pick list. This value maps to the
       information stored in the "Incubation temperature" field in the Alberta Microbiota
-      Repository (AMBR) Master file.
+      Repository (TEST) Master file.
     examples:
     - value: Degree Celsius
     slot_uri: GENEPIO:0100618
@@ -761,7 +761,7 @@ slots:
       same growth environment.
     comments: Select the isolation medium from the pick list. This value maps to the
       information stored in the "Incubation media" field in the Alberta Microbiota
-      Repository (AMBR) Master file.
+      Repository (TEST) Master file.
     examples:
     - value: Brain heart infusion (BHI)
     slot_uri: GENEPIO:0002107
@@ -776,7 +776,7 @@ slots:
       e.g. in a particular freezer, on a particular shelf
     comments: Enter the freezer storage location of the isolate as the "freezer number-shelf
       number-box number-unit number" e.g. FR1-R3-B1-S01. This value maps to the information
-      stored in the "Spot code" in the Alberta Microbiota Repository (AMBR) Master
+      stored in the "Spot code" in the Alberta Microbiota Repository (TEST) Master
       file.
     examples:
     - value: FR1-R3-B1-S01
@@ -790,7 +790,7 @@ slots:
       used by the organism.
     comments: Select the respiration type from the pick list. This value maps to the
       information stored in the "Aerobic/Anaerobic" field in the Alberta Microbiota
-      Repository (AMBR) Master file.
+      Repository (TEST) Master file.
     examples:
     - value: Aerobic respiration
     slot_uri: GENEPIO:0100620
@@ -809,7 +809,7 @@ slots:
       \ of scientific names are \u201CHomo sapiens\u201D and \u201CEquus caballus\u201D\
       . If the sample was environmental, select \"Not Applicable\". Information for\
       \ populating this field may be available in the \"Source of Isolation\" field\
-      \ in the Alberta Microbiota Repository (AMBR) Master file."
+      \ in the Alberta Microbiota Repository (TEST) Master file."
     examples:
     - value: Human
     slot_uri: GENEPIO:0001386
@@ -826,7 +826,7 @@ slots:
       can be animals (including humans) and plants. Common name e.g. Human, Canola
       plant. If the sample was environmental, select "Not Applicable". Information
       for populating this field may be available in the "Source of Isolation" field
-      in the Alberta Microbiota Repository (AMBR) Master file.
+      in the Alberta Microbiota Repository (TEST) Master file.
     examples:
     - value: Homo sapiens
     slot_uri: GENEPIO:0001387
@@ -840,7 +840,7 @@ slots:
     comments: If the sample was obtained from a host with a known disease, provide
       the name of the disease by seleting a value from the picklist. Information for
       populating this field may be available in the "Source of Isolation" field in
-      the Alberta Microbiota Repository (AMBR) Master file.
+      the Alberta Microbiota Repository (TEST) Master file.
     examples:
     - value: Cystic fibrosis
     slot_uri: GENEPIO:0001391
@@ -854,7 +854,7 @@ slots:
       sequencing the isolate's genome.
     comments: Provide the name of the organization that performed the sequencing in
       full (avoid abbreviations). If the information is unknown or cannot be provided,
-      leave blank or provide a null value. For the AMBR Project, the value is most
+      leave blank or provide a null value. For the TEST Project, the value is most
       likely the "University of Calgary".
     examples:
     - value: University of Calgary
@@ -869,7 +869,7 @@ slots:
       the isolate's genome.
     comments: Provide the name of the specific laboratory that that performed the
       sequencing in full (avoid abbreviations). If the information is unknown or cannot
-      be provided, leave blank or provide a null value. For the AMBR Project, the
+      be provided, leave blank or provide a null value. For the TEST Project, the
       value is most likely the "Harrison Lab".
     examples:
     - value: Harrison Lab
@@ -950,7 +950,7 @@ slots:
     title: library ID
     description: The user-specified identifier for the library prepared for sequencing.
     comments: 'Provide the name of the run. This value maps to information in the
-      "Sequencing Batch #" field Alberta Microbiota Repository (AMBR) Master file.'
+      "Sequencing Batch #" field Alberta Microbiota Repository (TEST) Master file.'
     examples:
     - value: 1876515_SA01_Plate 02
     slot_uri: GENEPIO:0001448
@@ -985,7 +985,7 @@ slots:
       amplicon sequencing.
     comments: Select the primers used to generate the ribosomal 16S or 23S amplicon
       for sequencing from the pick list. This value maps to the information in the
-      "Primers Used for sequencing" field Alberta Microbiota Repository (AMBR) Master
+      "Primers Used for sequencing" field Alberta Microbiota Repository (TEST) Master
       file.
     examples:
     - value: 27F
@@ -1002,7 +1002,7 @@ slots:
     description: The name of the file containing the sequence data to be analysed.
     comments: Enter the file name of the target gene sequence to be analyzed.
     examples:
-    - value: ambr_staph_ABC_123.fasta
+    - value: TEST_staph_ABC_123.fasta
     slot_uri: OBI:0002874
     range: WhitespaceMinimizedString
   reference accession:
@@ -1012,7 +1012,7 @@ slots:
       sequence repository.
     comments: Enter the EZBioCloud gene accession that most closely matches the sequence
       being analyzed. This value maps to the information in the "Accession No(s)."
-      field in the Alberta Microbiota Repository (AMBR) Master file.
+      field in the Alberta Microbiota Repository (TEST) Master file.
     examples:
     - value: FR821777
     slot_uri: OBI:0002885
@@ -1034,7 +1034,7 @@ slots:
     name: reference database name
     title: reference database name
     description: An identifier of a biological or bioinformatics database.
-    comments: Select the reference database name from the pick list. For the AMBR
+    comments: Select the reference database name from the pick list. For the TEST
       Project, the reference database will be EZBioCloud.
     examples:
     - value: EZBioCloud
@@ -1050,7 +1050,7 @@ slots:
       for analysis.
     comments: Enter the sequence search date as the version of EZBioCloud used. Record
       the date in ISO 8601 format i.e. YYYY_MM_DD. This value maps to the information
-      in the "Search date" field in the Alberta Microbiota Repository (AMBR) Master
+      in the "Search date" field in the Alberta Microbiota Repository (TEST) Master
       file.
     examples:
     - value: '2021-05-23'
@@ -1065,7 +1065,7 @@ slots:
     description: The percentage of the reference sequence covered by the sequence
       of interest.
     comments: Enter the completeness value. Do not include any symbols e.g. %. This
-      value maps to "Completeness (%)" in the Alberta Microbiota Repository (AMBR)
+      value maps to "Completeness (%)" in the Alberta Microbiota Repository (TEST)
       Master file.
     examples:
     - value: '98.2'
@@ -1080,7 +1080,7 @@ slots:
     description: Sequence identity is the number (%) of matches (identical characters)
       in positions from an alignment of two molecular sequences.
     comments: Enter the identity value. Do not include any symbols e.g. %. This value
-      maps to "Similarity (%)" in the Alberta Microbiota Repository (AMBR) Master
+      maps to "Similarity (%)" in the Alberta Microbiota Repository (TEST) Master
       file.
     examples:
     - value: '99'
@@ -1096,7 +1096,7 @@ slots:
       interest.
     comments: Enter the number of different positions in the target sequence compared
       to the reference sequence length, expressed as a ratio. This value maps to "Variation
-      ratio" in the Alberta Microbiota Repository (AMBR) Master file.
+      ratio" in the Alberta Microbiota Repository (TEST) Master file.
     examples:
     - value: 1/420
     slot_uri: GENEPIO:0100624
@@ -1109,7 +1109,7 @@ slots:
     description: The taxon derived from the top hit in search results produced from
       a sequence similarity comparison.
     comments: Enter the EZBioCloud taxon best-hit. This value maps to the information
-      in the "Top-hit taxon (taxa)" field in the Alberta Microbiota Repository (AMBR)
+      in the "Top-hit taxon (taxa)" field in the Alberta Microbiota Repository (TEST)
       Master file.
     examples:
     - value: Staphylococcus argenteus
@@ -1124,7 +1124,7 @@ slots:
     description: The strain designation derived from the top hit in search results
       produced from a sequence similarity comparison.
     comments: Enter the EZBioCloud strain best-hit. This value maps to the information
-      in the "Top-hit strain(s)" field in the Alberta Microbiota Repository (AMBR)
+      in the "Top-hit strain(s)" field in the Alberta Microbiota Repository (TEST)
       Master file.
     examples:
     - value: MSHR1132(T)
@@ -1140,7 +1140,7 @@ slots:
       low quality) read bases are removed to produce a trimmed ribosomal RNA sequence.
     comments: Enter the sequence of the trimmed ribosomal gene sequence. This value
       maps to the sequence in the "Trimmed Ribosomal Sequence" field in the Alberta
-      Microbiota Repository (AMBR) Master file.
+      Microbiota Repository (TEST) Master file.
     examples:
     - value: TGCAAGTCGAGCGAACGGACGAGAAGCTTGCTTCTCTGATGTTAGCGGCGGACGSGTGAGTAACACGTGGATAACCTACCTATAAGACTGGGATAACTTCGGGAAACCGGAGCTAATACCGGATAATATTTTGAACCGCATGGTTCAAAAGTGAAAGACGGTCTTGCTGTCACTTATAGATGGATCCGCGCTGCATTAGCTAGTTGGTAAGGTAACGGCTTACCAAGGCAACGATGCATAGCCGACCTGAGAGGGTGATCGGCCACACTGGAACTGAGACACGGTCCAGACTCCTACGGGAGGCAGCAGTAGGGAATCTTCCGCAATGGGCGAAAGCCTGACGGAGCAACGCCGCGTGAGTGATGAAGGTCTTCGGATCGTAAAACTCTGTTATTAGGGAAGAACATATGTGTAAGTAACTGTGCACATCTTGACGGTACCTAATCAGAAAGCCACGGCTAACTACGTGCCAGCAGCCGCGGTAATACGTAGGTGGCAAGCGTTATCCGGAATTATTGGGCGTAAAGCGCGCGTAGGCGGTTTTTTAAGTCTGATGTGAAAGCCCACGGCTCAACCGTGGAGGGTCATTGGAAACTGGAAAACTTGAGTGCAGAAGAGGAAAGTGGAATTCCATGTGTAGCGGTGAAATGCGCAGAGATATGGAGGAACACCAGTGGCGAAGGCGACTTTCTGGTCTGTAACTGACGCTGATGTGCGAAAGCGTGGGGATCAAACAGGATTAGATACCCTGGTAGTCCACGCCGTAAACGATGAGTGCTAAGTGTTAGGGGGTTTCCGCCCCTTAGTGCTGCAGCTAACGCATTAAGCACTCCGCCTGGGGAGTACGACCGCAAGGTTGAAACTCAAAGGAATTGACGGGGACCCGCACAAGCGGTGGAGCATGTGGTTTAATTCGAAGCAACGCGAAGAACCTTACCAAATCTTGACATCCTTTGACAACTCTAGAGATAGAGCCTTCCCCTTCGGGGGACAAAGTGACAGGTGGTGCATGGTTGTCGTCAGCTCGTGTCGTGAGATGTTGGGTTAAGTCCCGCAACGAGCGCAACCCTTAAGCTTAGTTGCCATCATTAAGTTGGGCACTCTAAGTTGACTGCCGGTGACAAACCGGAGGAAGGTGGGGATGACGTCAAATCATCATGCCCCTTATGATTTGGGCTACACACGTGCTACAATGGACAATACAAAGGGCAGCGAAACCGCGAGGTCAAGCAAATCCCATAAAGTTGTTCTCAGTTCGGATTGTAGTCTGCAACTCGACTACATGAAGCTGGAATCGCTAGTAATCGTAGATCAGCATGCTACGGTGAATACGTTCCCGGGTCTTGTACACACCGCCCGTCACACCACGAGAGTTTGTAACACCCGAAGCCGGTGGAGTAACCTTTTAGGAGCTAGCCGTCGAAG
     slot_uri: GENEPIO:0100626
@@ -1154,7 +1154,7 @@ slots:
     description: Any notes regarding the bioinformatics analysis.
     comments: Enter any notes regarding the analysis as free text. This value maps
       to the "Comment" field in the information in the Alberta Microbiota Repository
-      (AMBR) Master file.
+      (TEST) Master file.
     examples:
     - value: Pure-June 09-2022,Tube replaced by Rahgavi
     slot_uri: GENEPIO:0100627
@@ -1179,7 +1179,7 @@ slots:
       generated in this field after the user utilizes the "validate" function. This
       information will be generated regardless as to whether the row is valid of not.
     examples:
-    - value: DataHarmonizer v1.4.3, AMBR v1.0.0
+    - value: DataHarmonizer v1.4.3, TEST v1.0.0
     slot_uri: GENEPIO:0001518
     range: Provenance
 enums:

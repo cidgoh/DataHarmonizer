@@ -1,5 +1,5 @@
-id: https://example.com/AMBR
-name: AMBR
+id: https://example.com/TEST
+name: TEST
 description: ""
 version: 2.3.0
 imports:
@@ -11,10 +11,10 @@ classes:
   dh_interface:
     name: dh_interface
     description: 'A DataHarmonizer interface'
-    from_schema: https://example.com/AMBR
-  'AMBR':
-    name: 'AMBR'
-    description: The AMBR Project, led by the Harrison Lab at the University of Calgary, is an interdisciplinary study aimed at using 16S sequencing as part of a culturomics platform to identify antibiotic potentiators from the natural products of microbiota. The AMBR DataHarmonizer template was designed to standardize contextual data associated with the isolate repository from this work.
+    from_schema: https://example.com/TEST
+  'TEST':
+    name: 'TEST'
+    description: TEST
     is_a: dh_interface
 slots: {}
 enums: {}

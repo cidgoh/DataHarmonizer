@@ -1,6 +1,6 @@
 {
-  "name": "AMBR_de",
-  "id": "https://example.com/AMBR",
+  "name": "TEST_de",
+  "id": "https://example.com/TEST",
   "version": "2.3.0",
   "prefixes": {
     "linkml": {
@@ -24,7 +24,7 @@
       "prefix_reference": "http://schema.org/"
     }
   },
-  "default_prefix": "https://example.com/AMBR/",
+  "default_prefix": "https://example.com/TEST/",
   "types": {
     "WhitespaceMinimizedString": {
       "name": "WhitespaceMinimizedString",
@@ -199,7 +199,7 @@
   "enums": {
     "null value menu": {
       "name": "null value menu",
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "permissible_values": {
         "Not Applicable": {
           "text": "Not Applicable",
@@ -225,7 +225,7 @@
     },
     "geo_loc_name (country) menu": {
       "name": "geo_loc_name (country) menu",
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "permissible_values": {
         "Afghanistan": {
           "text": "Afghanistan",
@@ -1315,7 +1315,7 @@
     },
     "geo_loc_name (site) menu": {
       "name": "geo_loc_name (site) menu",
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "permissible_values": {
         "Banff National Park": {
           "text": "Banff National Park",
@@ -1347,7 +1347,7 @@
     },
     "purpose of sampling menu": {
       "name": "purpose of sampling menu",
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "permissible_values": {
         "Cluster/Outbreak investigation": {
           "text": "Cluster/Outbreak investigation",
@@ -1374,7 +1374,7 @@
     },
     "anatomical material menu": {
       "name": "anatomical material menu",
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "permissible_values": {
         "Skin": {
           "text": "Skin",
@@ -1397,7 +1397,7 @@
     },
     "anatomical part menu": {
       "name": "anatomical part menu",
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "permissible_values": {
         "Animal body or body part": {
           "text": "Animal body or body part",
@@ -1449,7 +1449,7 @@
     },
     "body product menu": {
       "name": "body product menu",
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "permissible_values": {
         "Feces": {
           "text": "Feces",
@@ -1459,7 +1459,7 @@
     },
     "environmental material menu": {
       "name": "environmental material menu",
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "permissible_values": {
         "Algal film": {
           "text": "Algal film",
@@ -1564,7 +1564,7 @@
     },
     "environmental site menu": {
       "name": "environmental site menu",
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "permissible_values": {
         "Bird bath": {
           "text": "Bird bath"
@@ -1621,7 +1621,7 @@
     },
     "collection device menu": {
       "name": "collection device menu",
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "permissible_values": {
         "Filter": {
           "text": "Filter",
@@ -1639,7 +1639,7 @@
     },
     "collection method menu": {
       "name": "collection method menu",
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "permissible_values": {
         "Biopsy": {
           "text": "Biopsy",
@@ -1649,7 +1649,7 @@
     },
     "specimen processing menu": {
       "name": "specimen processing menu",
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "permissible_values": {
         "Biological replicate": {
           "text": "Biological replicate",
@@ -1659,7 +1659,7 @@
     },
     "incubation temperature unit menu": {
       "name": "incubation temperature unit menu",
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "permissible_values": {
         "Degree Celsius": {
           "text": "Degree Celsius",
@@ -1673,7 +1673,7 @@
     },
     "isolation medium menu": {
       "name": "isolation medium menu",
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "permissible_values": {
         "1/10 869": {
           "text": "1/10 869"
@@ -1822,7 +1822,7 @@
     },
     "taxonomic identification method menu": {
       "name": "taxonomic identification method menu",
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "permissible_values": {
         "Whole genome sequencing assay": {
           "text": "Whole genome sequencing assay",
@@ -1844,7 +1844,7 @@
     },
     "taxonomic identification method details menu": {
       "name": "taxonomic identification method details menu",
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "permissible_values": {
         "Species-level ID: >99.3% identity and unambiguous match to one type (T) sequence in a curated database": {
           "text": "Species-level ID: >99.3% identity and unambiguous match to one type (T) sequence in a curated database"
@@ -1862,7 +1862,7 @@
     },
     "cellular respiration type menu": {
       "name": "cellular respiration type menu",
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "permissible_values": {
         "Aerobic respiration": {
           "text": "Aerobic respiration",
@@ -1876,7 +1876,7 @@
     },
     "host (common name) menu": {
       "name": "host (common name) menu",
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "permissible_values": {
         "Horse": {
           "text": "Horse",
@@ -1923,7 +1923,7 @@
     },
     "host (scientific name) menu": {
       "name": "host (scientific name) menu",
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "permissible_values": {
         "Equus caballus": {
           "text": "Equus caballus"
@@ -1935,7 +1935,7 @@
     },
     "host disease menu": {
       "name": "host disease menu",
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "permissible_values": {
         "Colitis": {
           "text": "Colitis"
@@ -1964,7 +1964,7 @@
     },
     "sequencing instrument menu": {
       "name": "sequencing instrument menu",
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "permissible_values": {
         "Illumina": {
           "text": "Illumina",
@@ -2194,7 +2194,7 @@
     },
     "amplicon pcr primer list menu": {
       "name": "amplicon pcr primer list menu",
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "permissible_values": {
         "27F": {
           "text": "27F",
@@ -2241,14 +2241,14 @@
       "description": "The user-defined identifier for the isolate, as provided by the laboratory that originally isolated the isolate.",
       "title": "isolate ID",
       "comments": [
-        "Provide the identifier created by the lab for the organism after isolation. This value maps to the \"Strain ID#\" in the Alberta Microbiota Repository (AMBR) Master file."
+        "Provide the identifier created by the lab for the organism after isolation. This value maps to the \"Strain ID#\" in the Alberta Microbiota Repository (TEST) Master file."
       ],
       "examples": [
         {
           "value": "SA01"
         }
       ],
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "slot_uri": "GENEPIO:0100456",
       "range": "WhitespaceMinimizedString",
       "required": true
@@ -2258,14 +2258,14 @@
       "description": "An alternative isolate ID assigned to the isolate by another organization.",
       "title": "alternative isolate ID",
       "comments": [
-        "Provide the identifier that represents the site code, source and/or patient identifier, media type, strain identifier, colony number, growth condition and dilution factor as a single code. This value corresponds maps to the \"Label ID\" in the Alberta Microbiota Repository (AMBR) Master file."
+        "Provide the identifier that represents the site code, source and/or patient identifier, media type, strain identifier, colony number, growth condition and dilution factor as a single code. This value corresponds maps to the \"Label ID\" in the Alberta Microbiota Repository (TEST) Master file."
       ],
       "examples": [
         {
           "value": "3411301"
         }
       ],
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "slot_uri": "GENEPIO:0100457",
       "range": "WhitespaceMinimizedString",
       "recommended": true
@@ -2282,7 +2282,7 @@
           "value": "Lake_Louise_Water23"
         }
       ],
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "slot_uri": "GENEPIO:0001123",
       "identifier": true,
       "range": "WhitespaceMinimizedString"
@@ -2299,7 +2299,7 @@
           "value": "University of Calgary"
         }
       ],
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "slot_uri": "GENEPIO:0001153",
       "recommended": true,
       "any_of": [
@@ -2323,7 +2323,7 @@
           "value": "Children's Hospital biofilm study (A3-701-01)"
         }
       ],
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "slot_uri": "GENEPIO:0100429",
       "range": "WhitespaceMinimizedString",
       "recommended": true
@@ -2340,7 +2340,7 @@
           "value": "RespLab@lab.ca"
         }
       ],
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "slot_uri": "GENEPIO:0001156",
       "range": "WhitespaceMinimizedString",
       "pattern": "^\\S+@\\S+\\.\\S+$"
@@ -2357,7 +2357,7 @@
           "value": "655 Lab St, Vancouver, British Columbia, V5N 2A2, Canada"
         }
       ],
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "slot_uri": "GENEPIO:0001158",
       "range": "WhitespaceMinimizedString"
     },
@@ -2377,7 +2377,7 @@
           "value": "2020-03-16"
         }
       ],
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "slot_uri": "GENEPIO:0001174",
       "recommended": true,
       "any_of": [
@@ -2401,7 +2401,7 @@
           "value": "2020-03-20"
         }
       ],
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "slot_uri": "GENEPIO:0001179",
       "any_of": [
         {
@@ -2424,7 +2424,7 @@
           "value": "Canada"
         }
       ],
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "slot_uri": "GENEPIO:0001181",
       "recommended": true,
       "any_of": [
@@ -2448,7 +2448,7 @@
           "value": "Saskatchewan"
         }
       ],
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "slot_uri": "GENEPIO:0001185",
       "recommended": true,
       "any_of": [
@@ -2472,7 +2472,7 @@
           "value": "Medicine Hat"
         }
       ],
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "slot_uri": "GENEPIO:0001189",
       "range": "WhitespaceMinimizedString"
     },
@@ -2488,7 +2488,7 @@
           "value": "Lake Louise"
         }
       ],
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "slot_uri": "GENEPIO:0100436",
       "range": "geo_loc_name (site) menu"
     },
@@ -2497,14 +2497,14 @@
       "description": "Taxonomic name of the organism.",
       "title": "organism",
       "comments": [
-        "Provide the confirmed taxonomic name of the species. This value maps to the \"Recommended identification\" in the Alberta Microbiota Repository (AMBR) Master file."
+        "Provide the confirmed taxonomic name of the species. This value maps to the \"Recommended identification\" in the Alberta Microbiota Repository (TEST) Master file."
       ],
       "examples": [
         {
           "value": "Staphylococcus aureus"
         }
       ],
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "slot_uri": "GENEPIO:0001191",
       "required": true,
       "any_of": [
@@ -2521,14 +2521,14 @@
       "description": "The reason that the sample was collected.",
       "title": "purpose of sampling",
       "comments": [
-        "The reason a sample was collected may provide information about potential biases in sampling strategy. Provide the purpose of sampling from the picklist in the template. The reason why a sample was originally collected may differ from the reason why it was selected for sequencing, which should be indicated in the \"purpose of sequencing\" field. Motivation for sampling may be available in the \"Source of Isolation\" field in the Alberta Microbiota Repository (AMBR) Master file."
+        "The reason a sample was collected may provide information about potential biases in sampling strategy. Provide the purpose of sampling from the picklist in the template. The reason why a sample was originally collected may differ from the reason why it was selected for sequencing, which should be indicated in the \"purpose of sequencing\" field. Motivation for sampling may be available in the \"Source of Isolation\" field in the Alberta Microbiota Repository (TEST) Master file."
       ],
       "examples": [
         {
           "value": "Targeted surveillance"
         }
       ],
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "slot_uri": "GENEPIO:0001198",
       "recommended": true,
       "any_of": [
@@ -2545,14 +2545,14 @@
       "description": "The description of why the sample was collected, providing specific details.",
       "title": "purpose of sampling details",
       "comments": [
-        "Provide an expanded description of why the sample was collected using free text. The description may include the importance of the sample for a particular investigation/surveillance activity/research question. Information for populating this field may be available in the \"Source of Isolation\" field in the Alberta Microbiota Repository (AMBR) Master file."
+        "Provide an expanded description of why the sample was collected using free text. The description may include the importance of the sample for a particular investigation/surveillance activity/research question. Information for populating this field may be available in the \"Source of Isolation\" field in the Alberta Microbiota Repository (TEST) Master file."
       ],
       "examples": [
         {
           "value": "ProvLab/IPC routine monitoring"
         }
       ],
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "slot_uri": "GENEPIO:0001200",
       "recommended": true,
       "any_of": [
@@ -2569,14 +2569,14 @@
       "description": "The original sample description provided by the sample collector.",
       "title": "original sample description",
       "comments": [
-        "Provide the sample description provided by the original sample collector or the \"Source of Isolation\" field in the Alberta Microbiota Repository (AMBR) Master file. The original description is useful as it may provide further details, or can be used to clarify higher level classifications."
+        "Provide the sample description provided by the original sample collector or the \"Source of Isolation\" field in the Alberta Microbiota Repository (TEST) Master file. The original description is useful as it may provide further details, or can be used to clarify higher level classifications."
       ],
       "examples": [
         {
           "value": "ACH coupons-water study, isolates 2010, 2011 see appendix 3 (Alberta Childrens Hospital)"
         }
       ],
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "slot_uri": "GENEPIO:0100439",
       "range": "WhitespaceMinimizedString"
     },
@@ -2585,14 +2585,14 @@
       "description": "A substance obtained from an anatomical part of an organism e.g. tissue, blood.",
       "title": "anatomical material",
       "comments": [
-        "Provide a descriptor if an anatomical material was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, contact emma_griffiths@sfu.ca. If not applicable, do not leave blank. Choose a null value. Information for populating this field may be available in the \"Source of Isolation\" field in the Alberta Microbiota Repository (AMBR) Master file."
+        "Provide a descriptor if an anatomical material was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, contact emma_griffiths@sfu.ca. If not applicable, do not leave blank. Choose a null value. Information for populating this field may be available in the \"Source of Isolation\" field in the Alberta Microbiota Repository (TEST) Master file."
       ],
       "examples": [
         {
           "value": "Wound tissue (injury)"
         }
       ],
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "slot_uri": "GENEPIO:0001211",
       "multivalued": true,
       "required": true,
@@ -2610,14 +2610,14 @@
       "description": "An anatomical part of an organism e.g. oropharynx.",
       "title": "anatomical part",
       "comments": [
-        "Provide a descriptor if an anatomical part was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, contact emma_griffiths@sfu.ca. If not applicable, do not leave blank. Choose a null value. Information for populating this field may be available in the \"Source of Isolation\" field in the Alberta Microbiota Repository (AMBR) Master file."
+        "Provide a descriptor if an anatomical part was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, contact emma_griffiths@sfu.ca. If not applicable, do not leave blank. Choose a null value. Information for populating this field may be available in the \"Source of Isolation\" field in the Alberta Microbiota Repository (TEST) Master file."
       ],
       "examples": [
         {
           "value": "Nasal cavity"
         }
       ],
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "slot_uri": "GENEPIO:0001214",
       "multivalued": true,
       "required": true,
@@ -2635,14 +2635,14 @@
       "description": "A substance excreted/secreted from an organism e.g. feces, urine, sweat.",
       "title": "body product",
       "comments": [
-        "Provide a descriptor if a body product was sampled. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma_griffiths@sfu.ca. If not applicable, do not leave blank. Choose a null value. Information for populating this field may be available in the \"Source of Isolation\" field in the Alberta Microbiota Repository (AMBR) Master file."
+        "Provide a descriptor if a body product was sampled. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma_griffiths@sfu.ca. If not applicable, do not leave blank. Choose a null value. Information for populating this field may be available in the \"Source of Isolation\" field in the Alberta Microbiota Repository (TEST) Master file."
       ],
       "examples": [
         {
           "value": "Feces"
         }
       ],
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "slot_uri": "GENEPIO:0001216",
       "multivalued": true,
       "required": true,
@@ -2660,14 +2660,14 @@
       "description": "A substance obtained from the natural or man-made environment e.g. soil, water, sewage.",
       "title": "environmental material",
       "comments": [
-        "Provide a descriptor if an environmental material was sampled. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma_griffiths@sfu.ca. If not applicable, do not leave blank. Choose a null value. Information for populating this field may be available in the \"Source of Isolation\" field in the Alberta Microbiota Repository (AMBR) Master file."
+        "Provide a descriptor if an environmental material was sampled. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma_griffiths@sfu.ca. If not applicable, do not leave blank. Choose a null value. Information for populating this field may be available in the \"Source of Isolation\" field in the Alberta Microbiota Repository (TEST) Master file."
       ],
       "examples": [
         {
           "value": "Bandage"
         }
       ],
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "slot_uri": "GENEPIO:0001223",
       "multivalued": true,
       "required": true,
@@ -2685,14 +2685,14 @@
       "description": "An environmental location may describe a site in the natural or built environment e.g. contact surface, metal can, hospital, wet market, bat cave.",
       "title": "environmental site",
       "comments": [
-        "Provide a descriptor if an environmental site was sampled. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma_griffiths@sfu.ca. If not applicable, do not leave blank. Choose a null value. Information for populating this field may be available in the \"Source of Isolation\" field in the Alberta Microbiota Repository (AMBR) Master file."
+        "Provide a descriptor if an environmental site was sampled. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma_griffiths@sfu.ca. If not applicable, do not leave blank. Choose a null value. Information for populating this field may be available in the \"Source of Isolation\" field in the Alberta Microbiota Repository (TEST) Master file."
       ],
       "examples": [
         {
           "value": "Hospital"
         }
       ],
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "slot_uri": "GENEPIO:0001232",
       "multivalued": true,
       "required": true,
@@ -2710,14 +2710,14 @@
       "description": "The instrument or container used to collect the sample e.g. swab.",
       "title": "collection device",
       "comments": [
-        "Provide a descriptor if a device was used for sampling. Use the picklist provided in the template. If a desired term is missing from the picklist, contact emma_griffiths@sfu.ca. If not applicable, do not leave blank. Choose a null value. Information for populating this field may be available in the \"Source of Isolation\" field in the Alberta Microbiota Repository (AMBR) Master file."
+        "Provide a descriptor if a device was used for sampling. Use the picklist provided in the template. If a desired term is missing from the picklist, contact emma_griffiths@sfu.ca. If not applicable, do not leave blank. Choose a null value. Information for populating this field may be available in the \"Source of Isolation\" field in the Alberta Microbiota Repository (TEST) Master file."
       ],
       "examples": [
         {
           "value": "Swab"
         }
       ],
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "slot_uri": "GENEPIO:0001234",
       "multivalued": true,
       "required": true,
@@ -2735,14 +2735,14 @@
       "description": "The process used to collect the sample e.g. phlebotamy, necropsy.",
       "title": "collection method",
       "comments": [
-        "Provide a descriptor if a collection method was used for sampling. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma_griffiths@sfu.ca. If not applicable, do not leave blank. Choose a null value. Information for populating this field may be available in the \"Source of Isolation\" field in the Alberta Microbiota Repository (AMBR) Master file."
+        "Provide a descriptor if a collection method was used for sampling. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma_griffiths@sfu.ca. If not applicable, do not leave blank. Choose a null value. Information for populating this field may be available in the \"Source of Isolation\" field in the Alberta Microbiota Repository (TEST) Master file."
       ],
       "examples": [
         {
           "value": "Biopsy"
         }
       ],
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "slot_uri": "GENEPIO:0001241",
       "multivalued": true,
       "required": true,
@@ -2760,14 +2760,14 @@
       "description": "The name and version of a particular protocol used for sampling.",
       "title": "collection protocol",
       "comments": [
-        "Free text. Information for populating this field may be available in the \"Source of Isolation\" field in the Alberta Microbiota Repository (AMBR) Master file."
+        "Free text. Information for populating this field may be available in the \"Source of Isolation\" field in the Alberta Microbiota Repository (TEST) Master file."
       ],
       "examples": [
         {
           "value": "Collection_protocol_Children's Hospital biofilm study (A3-701-01)"
         }
       ],
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "slot_uri": "GENEPIO:0001243",
       "range": "WhitespaceMinimizedString"
     },
@@ -2776,14 +2776,14 @@
       "description": "Any processing applied to the sample during or after receiving the sample.",
       "title": "specimen processing",
       "comments": [
-        "If multiple PCR products were generated from the isolate using different primer sets, indicate that the sequence records represents the same isolate by selecting \"Biological replicate\" in the \"specimen processing\" field. Every different sequence experiment should have its own record (i.e. if different amplicons have the same sequence but were generated using different primer sets, these should be stored as separate entries/lines in the spreadsheet). Information about replicates may be available in the \"Top-hit taxon (taxa)\" or \"Trimmed Ribosomal Sequence\" fields if there are multiple values for the same \"Strain ID#\" in the Alberta Microbiota Repository (AMBR) Master file."
+        "If multiple PCR products were generated from the isolate using different primer sets, indicate that the sequence records represents the same isolate by selecting \"Biological replicate\" in the \"specimen processing\" field. Every different sequence experiment should have its own record (i.e. if different amplicons have the same sequence but were generated using different primer sets, these should be stored as separate entries/lines in the spreadsheet). Information about replicates may be available in the \"Top-hit taxon (taxa)\" or \"Trimmed Ribosomal Sequence\" fields if there are multiple values for the same \"Strain ID#\" in the Alberta Microbiota Repository (TEST) Master file."
       ],
       "examples": [
         {
           "value": "Biological replicate"
         }
       ],
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "slot_uri": "GENEPIO:0001253",
       "multivalued": true,
       "recommended": true,
@@ -2801,14 +2801,14 @@
       "description": "Detailed information regarding the processing applied to a sample during or after receiving the sample.",
       "title": "specimen processing details",
       "comments": [
-        "Provide a free text description of any processing details applied to a sample. Information about replicates may be available in the \"Top-hit taxon (taxa)\" or \"Trimmed Ribosomal Sequence\" fields if there are multiple values for the same \"Strain ID#\" in the Alberta Microbiota Repository (AMBR) Master file."
+        "Provide a free text description of any processing details applied to a sample. Information about replicates may be available in the \"Top-hit taxon (taxa)\" or \"Trimmed Ribosomal Sequence\" fields if there are multiple values for the same \"Strain ID#\" in the Alberta Microbiota Repository (TEST) Master file."
       ],
       "examples": [
         {
           "value": "Multiple amplicons generated for isolate SA32 using different primer sets"
         }
       ],
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "slot_uri": "GENEPIO:0100311",
       "range": "WhitespaceMinimizedString"
     },
@@ -2817,14 +2817,14 @@
       "description": "The strain identifier.",
       "title": "strain",
       "comments": [
-        "Provide the strain of the isolate. This value maps to the \"Strain\" in the Alberta Microbiota Repository (AMBR) Master file."
+        "Provide the strain of the isolate. This value maps to the \"Strain\" in the Alberta Microbiota Repository (TEST) Master file."
       ],
       "examples": [
         {
           "value": "CL10"
         }
       ],
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "slot_uri": "GENEPIO:0100455",
       "required": true,
       "any_of": [
@@ -2841,14 +2841,14 @@
       "description": "The type of planned process by which an organismal entity is associated with a taxon or taxa.",
       "title": "taxonomic identification method",
       "comments": [
-        "Provide the type of method used to determine the taxonomic identity of the organism by selecting a value from the pick list. For the AMBR Project, the \"16S ribosomal gene sequencing assay\" value will be the most appropriate. If the information is unknown or cannot be provided, leave blank or provide a null value."
+        "Provide the type of method used to determine the taxonomic identity of the organism by selecting a value from the pick list. For the TEST Project, the \"16S ribosomal gene sequencing assay\" value will be the most appropriate. If the information is unknown or cannot be provided, leave blank or provide a null value."
       ],
       "examples": [
         {
           "value": "16S ribosomal gene sequencing assay"
         }
       ],
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "slot_uri": "GENEPIO:0100583",
       "required": true,
       "any_of": [
@@ -2865,14 +2865,14 @@
       "description": "The details of the process used to determine the taxonomic identification of an organism.",
       "title": "taxonomic identification method details",
       "comments": [
-        "Provide the criteria used for 16S sequencing taxonomic determination by selection a value from the pick list. These criteria are specific to the AMBR project and so do not correspond with standardized criteria in any ontology. The pick list is strictly for providing consistency in records rather than implementing community data standards.  If another method was used for the taxonomic determination, leave blank. This value maps to the information stored in the \"ID Category*\" field in the Alberta Microbiota Repository (AMBR) Master file."
+        "Provide the criteria used for 16S sequencing taxonomic determination by selection a value from the pick list. These criteria are specific to the TEST project and so do not correspond with standardized criteria in any ontology. The pick list is strictly for providing consistency in records rather than implementing community data standards.  If another method was used for the taxonomic determination, leave blank. This value maps to the information stored in the \"ID Category*\" field in the Alberta Microbiota Repository (TEST) Master file."
       ],
       "examples": [
         {
           "value": "Species-level ID: >99.3% identity and unambiguous match to one type (T) sequence in a curated database"
         }
       ],
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "slot_uri": "GENEPIO:0100584",
       "required": true,
       "any_of": [
@@ -2889,14 +2889,14 @@
       "description": "An environmental datum specifying the temperature at which an organism or organisms were incubated for the purposes of growth on or in a particular medium.",
       "title": "incubation temperature value",
       "comments": [
-        "Provide the temperature at which the isolate was isolated. This value maps to the information stored in the \"Incubation temperature\" field in the Alberta Microbiota Repository (AMBR) Master file."
+        "Provide the temperature at which the isolate was isolated. This value maps to the information stored in the \"Incubation temperature\" field in the Alberta Microbiota Repository (TEST) Master file."
       ],
       "examples": [
         {
           "value": "37"
         }
       ],
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "slot_uri": "GENEPIO:0100617",
       "required": true,
       "any_of": [
@@ -2913,14 +2913,14 @@
       "description": "An environmental datum specifying the temperature unit at which an organism or organisms were incubated for the purposes of growth on or in a particular medium.",
       "title": "incubation temperature unit",
       "comments": [
-        "Select the temperature unit from the pick list. This value maps to the information stored in the \"Incubation temperature\" field in the Alberta Microbiota Repository (AMBR) Master file."
+        "Select the temperature unit from the pick list. This value maps to the information stored in the \"Incubation temperature\" field in the Alberta Microbiota Repository (TEST) Master file."
       ],
       "examples": [
         {
           "value": "Degree Celsius"
         }
       ],
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "slot_uri": "GENEPIO:0100618",
       "required": true,
       "any_of": [
@@ -2937,14 +2937,14 @@
       "description": "An isolation medium is a culture medium which has the disposition to encourage growth of particular bacteria to the exclusion of others in the same growth environment.",
       "title": "isolation medium",
       "comments": [
-        "Select the isolation medium from the pick list. This value maps to the information stored in the \"Incubation media\" field in the Alberta Microbiota Repository (AMBR) Master file."
+        "Select the isolation medium from the pick list. This value maps to the information stored in the \"Incubation media\" field in the Alberta Microbiota Repository (TEST) Master file."
       ],
       "examples": [
         {
           "value": "Brain heart infusion (BHI)"
         }
       ],
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "slot_uri": "GENEPIO:0002107",
       "required": true,
       "any_of": [
@@ -2961,14 +2961,14 @@
       "description": "An isolate datum specifying the location of where an isolate is stored e.g. in a particular freezer, on a particular shelf",
       "title": "isolate storage location",
       "comments": [
-        "Enter the freezer storage location of the isolate as the \"freezer number-shelf number-box number-unit number\" e.g. FR1-R3-B1-S01. This value maps to the information stored in the \"Spot code\" in the Alberta Microbiota Repository (AMBR) Master file."
+        "Enter the freezer storage location of the isolate as the \"freezer number-shelf number-box number-unit number\" e.g. FR1-R3-B1-S01. This value maps to the information stored in the \"Spot code\" in the Alberta Microbiota Repository (TEST) Master file."
       ],
       "examples": [
         {
           "value": "FR1-R3-B1-S01"
         }
       ],
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "slot_uri": "GENEPIO:0100619",
       "range": "WhitespaceMinimizedString",
       "required": true
@@ -2978,14 +2978,14 @@
       "description": "An isolate datum specifying the type of cellular respiration process used by the organism.",
       "title": "cellular respiration type",
       "comments": [
-        "Select the respiration type from the pick list. This value maps to the information stored in the \"Aerobic/Anaerobic\" field in the Alberta Microbiota Repository (AMBR) Master file."
+        "Select the respiration type from the pick list. This value maps to the information stored in the \"Aerobic/Anaerobic\" field in the Alberta Microbiota Repository (TEST) Master file."
       ],
       "examples": [
         {
           "value": "Aerobic respiration"
         }
       ],
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "slot_uri": "GENEPIO:0100620",
       "required": true,
       "any_of": [
@@ -3002,14 +3002,14 @@
       "description": "The commonly used name of the host.",
       "title": "host (common name)",
       "comments": [
-        "Common name is required if there was a host. Both common anime and scientific name can be provided, if known. Use terms from the pick lists in the template. Hosts can be animals (including humans) and plants. Examples of common names are “Human” and “Canola plant”. Examples of scientific names are “Homo sapiens” and “Equus caballus”. If the sample was environmental, select \"Not Applicable\". Information for populating this field may be available in the \"Source of Isolation\" field in the Alberta Microbiota Repository (AMBR) Master file."
+        "Common name is required if there was a host. Both common anime and scientific name can be provided, if known. Use terms from the pick lists in the template. Hosts can be animals (including humans) and plants. Examples of common names are “Human” and “Canola plant”. Examples of scientific names are “Homo sapiens” and “Equus caballus”. If the sample was environmental, select \"Not Applicable\". Information for populating this field may be available in the \"Source of Isolation\" field in the Alberta Microbiota Repository (TEST) Master file."
       ],
       "examples": [
         {
           "value": "Human"
         }
       ],
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "slot_uri": "GENEPIO:0001386",
       "required": true,
       "any_of": [
@@ -3026,14 +3026,14 @@
       "description": "The taxonomic, or scientific name of the host.",
       "title": "host (scientific name)",
       "comments": [
-        "Common name or scientific name are required if there was a host. Both can be provided, if known. Use terms from the pick lists in the template. Hosts can be animals (including humans) and plants. Common name e.g. Human, Canola plant. If the sample was environmental, select \"Not Applicable\". Information for populating this field may be available in the \"Source of Isolation\" field in the Alberta Microbiota Repository (AMBR) Master file."
+        "Common name or scientific name are required if there was a host. Both can be provided, if known. Use terms from the pick lists in the template. Hosts can be animals (including humans) and plants. Common name e.g. Human, Canola plant. If the sample was environmental, select \"Not Applicable\". Information for populating this field may be available in the \"Source of Isolation\" field in the Alberta Microbiota Repository (TEST) Master file."
       ],
       "examples": [
         {
           "value": "Homo sapiens"
         }
       ],
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "slot_uri": "GENEPIO:0001387",
       "any_of": [
         {
@@ -3049,14 +3049,14 @@
       "description": "The name of the disease experienced by the host.",
       "title": "host disease",
       "comments": [
-        "If the sample was obtained from a host with a known disease, provide the name of the disease by seleting a value from the picklist. Information for populating this field may be available in the \"Source of Isolation\" field in the Alberta Microbiota Repository (AMBR) Master file."
+        "If the sample was obtained from a host with a known disease, provide the name of the disease by seleting a value from the picklist. Information for populating this field may be available in the \"Source of Isolation\" field in the Alberta Microbiota Repository (TEST) Master file."
       ],
       "examples": [
         {
           "value": "Cystic fibrosis"
         }
       ],
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "slot_uri": "GENEPIO:0001391",
       "any_of": [
         {
@@ -3072,14 +3072,14 @@
       "description": "The name of the agency, organization or institution responsible for sequencing the isolate's genome.",
       "title": "sequenced by",
       "comments": [
-        "Provide the name of the organization that performed the sequencing in full (avoid abbreviations). If the information is unknown or cannot be provided, leave blank or provide a null value. For the AMBR Project, the value is most likely the \"University of Calgary\"."
+        "Provide the name of the organization that performed the sequencing in full (avoid abbreviations). If the information is unknown or cannot be provided, leave blank or provide a null value. For the TEST Project, the value is most likely the \"University of Calgary\"."
       ],
       "examples": [
         {
           "value": "University of Calgary"
         }
       ],
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "slot_uri": "GENEPIO:0100416",
       "any_of": [
         {
@@ -3095,14 +3095,14 @@
       "description": "The specific laboratory affiliation of the responsible for sequencing the isolate's genome.",
       "title": "sequenced by laboratory name",
       "comments": [
-        "Provide the name of the specific laboratory that that performed the sequencing in full (avoid abbreviations). If the information is unknown or cannot be provided, leave blank or provide a null value. For the AMBR Project, the value is most likely the \"Harrison Lab\"."
+        "Provide the name of the specific laboratory that that performed the sequencing in full (avoid abbreviations). If the information is unknown or cannot be provided, leave blank or provide a null value. For the TEST Project, the value is most likely the \"Harrison Lab\"."
       ],
       "examples": [
         {
           "value": "Harrison Lab"
         }
       ],
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "slot_uri": "GENEPIO:0100470",
       "range": "WhitespaceMinimizedString"
     },
@@ -3118,7 +3118,7 @@
           "value": "Joe Harrison"
         }
       ],
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "slot_uri": "GENEPIO:0100471",
       "range": "WhitespaceMinimizedString"
     },
@@ -3134,7 +3134,7 @@
           "value": "jjharris@ucalgary.ca"
         }
       ],
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "slot_uri": "GENEPIO:0100422",
       "range": "WhitespaceMinimizedString"
     },
@@ -3150,7 +3150,7 @@
           "value": "Research"
         }
       ],
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "slot_uri": "GENEPIO:0001445",
       "any_of": [
         {
@@ -3173,7 +3173,7 @@
           "value": "Screening for antibiotic potentiators in Cystic fibrosis disease contexts."
         }
       ],
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "slot_uri": "GENEPIO:0001446",
       "any_of": [
         {
@@ -3199,7 +3199,7 @@
           "value": "2020-06-22"
         }
       ],
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "slot_uri": "GENEPIO:0001447",
       "any_of": [
         {
@@ -3215,14 +3215,14 @@
       "description": "The user-specified identifier for the library prepared for sequencing.",
       "title": "library ID",
       "comments": [
-        "Provide the name of the run. This value maps to information in the \"Sequencing Batch #\" field Alberta Microbiota Repository (AMBR) Master file."
+        "Provide the name of the run. This value maps to information in the \"Sequencing Batch #\" field Alberta Microbiota Repository (TEST) Master file."
       ],
       "examples": [
         {
           "value": "1876515_SA01_Plate 02"
         }
       ],
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "slot_uri": "GENEPIO:0001448",
       "range": "WhitespaceMinimizedString"
     },
@@ -3238,7 +3238,7 @@
           "value": "Oxford Nanopore MinION"
         }
       ],
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "slot_uri": "GENEPIO:0001452",
       "multivalued": true,
       "required": true,
@@ -3263,7 +3263,7 @@
           "value": "https://www.protocols.io/view/covid-19-artic-v3-illumina-library-construction-an-bibtkann"
         }
       ],
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "slot_uri": "GENEPIO:0001453",
       "range": "WhitespaceMinimizedString",
       "recommended": true
@@ -3273,7 +3273,7 @@
       "description": "An information content entity specifying a list of primers used for amplicon sequencing.",
       "title": "amplicon pcr primer list",
       "comments": [
-        "Select the primers used to generate the ribosomal 16S or 23S amplicon for sequencing from the pick list. This value maps to the information in the \"Primers Used for sequencing\" field Alberta Microbiota Repository (AMBR) Master file."
+        "Select the primers used to generate the ribosomal 16S or 23S amplicon for sequencing from the pick list. This value maps to the information in the \"Primers Used for sequencing\" field Alberta Microbiota Repository (TEST) Master file."
       ],
       "examples": [
         {
@@ -3283,7 +3283,7 @@
           "value": "1492R"
         }
       ],
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "slot_uri": "GENEPIO:0100623",
       "multivalued": true,
       "required": true,
@@ -3305,10 +3305,10 @@
       ],
       "examples": [
         {
-          "value": "ambr_staph_ABC_123.fasta"
+          "value": "TEST_staph_ABC_123.fasta"
         }
       ],
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "slot_uri": "OBI:0002874",
       "range": "WhitespaceMinimizedString"
     },
@@ -3317,14 +3317,14 @@
       "description": "An identifier that specifies an individual sequence record in a public sequence repository.",
       "title": "reference accession",
       "comments": [
-        "Enter the EZBioCloud gene accession that most closely matches the sequence being analyzed. This value maps to the information in the \"Accession No(s).\" field in the Alberta Microbiota Repository (AMBR) Master file."
+        "Enter the EZBioCloud gene accession that most closely matches the sequence being analyzed. This value maps to the information in the \"Accession No(s).\" field in the Alberta Microbiota Repository (TEST) Master file."
       ],
       "examples": [
         {
           "value": "FR821777"
         }
       ],
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "slot_uri": "OBI:0002885",
       "required": true,
       "any_of": [
@@ -3348,7 +3348,7 @@
           "value": "EZBioCloud_searchprotocol_2023.txt"
         }
       ],
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "slot_uri": "GENEPIO:0001489",
       "range": "WhitespaceMinimizedString"
     },
@@ -3357,14 +3357,14 @@
       "description": "An identifier of a biological or bioinformatics database.",
       "title": "reference database name",
       "comments": [
-        "Select the reference database name from the pick list. For the AMBR Project, the reference database will be EZBioCloud."
+        "Select the reference database name from the pick list. For the TEST Project, the reference database will be EZBioCloud."
       ],
       "examples": [
         {
           "value": "EZBioCloud"
         }
       ],
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "slot_uri": "OBI:0002883",
       "required": true,
       "any_of": [
@@ -3381,14 +3381,14 @@
       "description": "The version of the database containing the reference sequences used for analysis.",
       "title": "reference database version",
       "comments": [
-        "Enter the sequence search date as the version of EZBioCloud used. Record the date in ISO 8601 format i.e. YYYY_MM_DD. This value maps to the information in the \"Search date\" field in the Alberta Microbiota Repository (AMBR) Master file."
+        "Enter the sequence search date as the version of EZBioCloud used. Record the date in ISO 8601 format i.e. YYYY_MM_DD. This value maps to the information in the \"Search date\" field in the Alberta Microbiota Repository (TEST) Master file."
       ],
       "examples": [
         {
           "value": "2021-05-23"
         }
       ],
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "slot_uri": "OBI:0002884",
       "required": true,
       "any_of": [
@@ -3405,14 +3405,14 @@
       "description": "The percentage of the reference sequence covered by the sequence of interest.",
       "title": "coverage (percentage)",
       "comments": [
-        "Enter the completeness value. Do not include any symbols e.g. %. This value maps to \"Completeness (%)\" in the Alberta Microbiota Repository (AMBR) Master file."
+        "Enter the completeness value. Do not include any symbols e.g. %. This value maps to \"Completeness (%)\" in the Alberta Microbiota Repository (TEST) Master file."
       ],
       "examples": [
         {
           "value": "98.2"
         }
       ],
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "slot_uri": "OBI:0002880",
       "required": true,
       "any_of": [
@@ -3429,14 +3429,14 @@
       "description": "Sequence identity is the number (%) of matches (identical characters) in positions from an alignment of two molecular sequences.",
       "title": "sequence identity percentage",
       "comments": [
-        "Enter the identity value. Do not include any symbols e.g. %. This value maps to \"Similarity (%)\" in the Alberta Microbiota Repository (AMBR) Master file."
+        "Enter the identity value. Do not include any symbols e.g. %. This value maps to \"Similarity (%)\" in the Alberta Microbiota Repository (TEST) Master file."
       ],
       "examples": [
         {
           "value": "99"
         }
       ],
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "slot_uri": "OBI:0002882",
       "required": true,
       "any_of": [
@@ -3453,14 +3453,14 @@
       "description": "The ratio of the reference sequence not covered by the sequence of interest.",
       "title": "sequence identity (variance ratio)",
       "comments": [
-        "Enter the number of different positions in the target sequence compared to the reference sequence length, expressed as a ratio. This value maps to \"Variation ratio\" in the Alberta Microbiota Repository (AMBR) Master file."
+        "Enter the number of different positions in the target sequence compared to the reference sequence length, expressed as a ratio. This value maps to \"Variation ratio\" in the Alberta Microbiota Repository (TEST) Master file."
       ],
       "examples": [
         {
           "value": "1/420"
         }
       ],
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "slot_uri": "GENEPIO:0100624",
       "any_of": [
         {
@@ -3476,14 +3476,14 @@
       "description": "The taxon derived from the top hit in search results produced from a sequence similarity comparison.",
       "title": "top-hit taxon determination",
       "comments": [
-        "Enter the EZBioCloud taxon best-hit. This value maps to the information in the \"Top-hit taxon (taxa)\" field in the Alberta Microbiota Repository (AMBR) Master file."
+        "Enter the EZBioCloud taxon best-hit. This value maps to the information in the \"Top-hit taxon (taxa)\" field in the Alberta Microbiota Repository (TEST) Master file."
       ],
       "examples": [
         {
           "value": "Staphylococcus argenteus"
         }
       ],
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "slot_uri": "GENEPIO:0100625",
       "required": true,
       "any_of": [
@@ -3500,14 +3500,14 @@
       "description": "The strain designation derived from the top hit in search results produced from a sequence similarity comparison.",
       "title": "top-hit strain determination",
       "comments": [
-        "Enter the EZBioCloud strain best-hit. This value maps to the information in the \"Top-hit strain(s)\" field in the Alberta Microbiota Repository (AMBR) Master file."
+        "Enter the EZBioCloud strain best-hit. This value maps to the information in the \"Top-hit strain(s)\" field in the Alberta Microbiota Repository (TEST) Master file."
       ],
       "examples": [
         {
           "value": "MSHR1132(T)"
         }
       ],
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "slot_uri": "GENEPIO:0100648",
       "required": true,
       "any_of": [
@@ -3524,14 +3524,14 @@
       "description": "The results of a data transformation of sequence data in which (e.g., low quality) read bases are removed to produce a trimmed ribosomal RNA sequence.",
       "title": "trimmed ribosomal gene sequence",
       "comments": [
-        "Enter the sequence of the trimmed ribosomal gene sequence. This value maps to the sequence in the \"Trimmed Ribosomal Sequence\" field in the Alberta Microbiota Repository (AMBR) Master file."
+        "Enter the sequence of the trimmed ribosomal gene sequence. This value maps to the sequence in the \"Trimmed Ribosomal Sequence\" field in the Alberta Microbiota Repository (TEST) Master file."
       ],
       "examples": [
         {
           "value": "TGCAAGTCGAGCGAACGGACGAGAAGCTTGCTTCTCTGATGTTAGCGGCGGACGSGTGAGTAACACGTGGATAACCTACCTATAAGACTGGGATAACTTCGGGAAACCGGAGCTAATACCGGATAATATTTTGAACCGCATGGTTCAAAAGTGAAAGACGGTCTTGCTGTCACTTATAGATGGATCCGCGCTGCATTAGCTAGTTGGTAAGGTAACGGCTTACCAAGGCAACGATGCATAGCCGACCTGAGAGGGTGATCGGCCACACTGGAACTGAGACACGGTCCAGACTCCTACGGGAGGCAGCAGTAGGGAATCTTCCGCAATGGGCGAAAGCCTGACGGAGCAACGCCGCGTGAGTGATGAAGGTCTTCGGATCGTAAAACTCTGTTATTAGGGAAGAACATATGTGTAAGTAACTGTGCACATCTTGACGGTACCTAATCAGAAAGCCACGGCTAACTACGTGCCAGCAGCCGCGGTAATACGTAGGTGGCAAGCGTTATCCGGAATTATTGGGCGTAAAGCGCGCGTAGGCGGTTTTTTAAGTCTGATGTGAAAGCCCACGGCTCAACCGTGGAGGGTCATTGGAAACTGGAAAACTTGAGTGCAGAAGAGGAAAGTGGAATTCCATGTGTAGCGGTGAAATGCGCAGAGATATGGAGGAACACCAGTGGCGAAGGCGACTTTCTGGTCTGTAACTGACGCTGATGTGCGAAAGCGTGGGGATCAAACAGGATTAGATACCCTGGTAGTCCACGCCGTAAACGATGAGTGCTAAGTGTTAGGGGGTTTCCGCCCCTTAGTGCTGCAGCTAACGCATTAAGCACTCCGCCTGGGGAGTACGACCGCAAGGTTGAAACTCAAAGGAATTGACGGGGACCCGCACAAGCGGTGGAGCATGTGGTTTAATTCGAAGCAACGCGAAGAACCTTACCAAATCTTGACATCCTTTGACAACTCTAGAGATAGAGCCTTCCCCTTCGGGGGACAAAGTGACAGGTGGTGCATGGTTGTCGTCAGCTCGTGTCGTGAGATGTTGGGTTAAGTCCCGCAACGAGCGCAACCCTTAAGCTTAGTTGCCATCATTAAGTTGGGCACTCTAAGTTGACTGCCGGTGACAAACCGGAGGAAGGTGGGGATGACGTCAAATCATCATGCCCCTTATGATTTGGGCTACACACGTGCTACAATGGACAATACAAAGGGCAGCGAAACCGCGAGGTCAAGCAAATCCCATAAAGTTGTTCTCAGTTCGGATTGTAGTCTGCAACTCGACTACATGAAGCTGGAATCGCTAGTAATCGTAGATCAGCATGCTACGGTGAATACGTTCCCGGGTCTTGTACACACCGCCCGTCACACCACGAGAGTTTGTAACACCCGAAGCCGGTGGAGTAACCTTTTAGGAGCTAGCCGTCGAAG"
         }
       ],
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "slot_uri": "GENEPIO:0100626",
       "required": true,
       "any_of": [
@@ -3548,14 +3548,14 @@
       "description": "Any notes regarding the bioinformatics analysis.",
       "title": "bioinformatics analysis details",
       "comments": [
-        "Enter any notes regarding the analysis as free text. This value maps to the \"Comment\" field in the information in the Alberta Microbiota Repository (AMBR) Master file."
+        "Enter any notes regarding the analysis as free text. This value maps to the \"Comment\" field in the information in the Alberta Microbiota Repository (TEST) Master file."
       ],
       "examples": [
         {
           "value": "Pure-June 09-2022,Tube replaced by Rahgavi"
         }
       ],
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "slot_uri": "GENEPIO:0100627",
       "range": "WhitespaceMinimizedString"
     },
@@ -3571,7 +3571,7 @@
           "value": "Rahgavi Poopalaraj, Shirin Afroj, Joe Harrison"
         }
       ],
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "slot_uri": "GENEPIO:0001517",
       "range": "WhitespaceMinimizedString",
       "recommended": true
@@ -3585,10 +3585,10 @@
       ],
       "examples": [
         {
-          "value": "DataHarmonizer v1.4.3, AMBR v1.0.0"
+          "value": "DataHarmonizer v1.4.3, TEST v1.0.0"
         }
       ],
-      "from_schema": "https://example.com/AMBR",
+      "from_schema": "https://example.com/TEST",
       "slot_uri": "GENEPIO:0001518",
       "range": "Provenance"
     }
@@ -3597,12 +3597,12 @@
     "dh_interface": {
       "name": "dh_interface",
       "description": "A DataHarmonizer interface",
-      "from_schema": "https://example.com/AMBR"
+      "from_schema": "https://example.com/TEST"
     },
-    "AMBR": {
-      "name": "AMBR",
-      "description": "The AMBR Project, led by the Harrison Lab at the University of Calgary, is an interdisciplinary study aimed at using 16S sequencing as part of a culturomics platform to identify antibiotic potentiators from the natural products of microbiota. The AMBR DataHarmonizer template was designed to standardize contextual data associated with the isolate repository from this work.",
-      "from_schema": "https://example.com/AMBR",
+    "TEST": {
+      "name": "TEST",
+      "description": "The TEST Project, led by the Harrison Lab at the University of Calgary, is an interdisciplinary study aimed at using 16S sequencing as part of a culturomics platform to identify antibiotic potentiators from the natural products of microbiota. The TEST DataHarmonizer template was designed to standardize contextual data associated with the isolate repository from this work.",
+      "from_schema": "https://example.com/TEST",
       "is_a": "dh_interface",
       "slot_usage": {
         "isolate ID": {
@@ -3926,11 +3926,11 @@
           "name": "isolate ID",
           "description": "The user-defined identifier for the isolate, as provided by the laboratory that originally isolated the isolate.",
           "title": "isolate ID",
-          "from_schema": "https://example.com/AMBR",
+          "from_schema": "https://example.com/TEST",
           "rank": 1,
           "slot_uri": "GENEPIO:0100456",
           "alias": "isolate_ID",
-          "owner": "AMBR",
+          "owner": "TEST",
           "slot_group": "Database Identifiers",
           "range": "WhitespaceMinimizedString",
           "required": true
@@ -3939,11 +3939,11 @@
           "name": "alternative isolate ID",
           "description": "An alternative isolate ID assigned to the isolate by another organization.",
           "title": "alternative isolate ID",
-          "from_schema": "https://example.com/AMBR",
+          "from_schema": "https://example.com/TEST",
           "rank": 2,
           "slot_uri": "GENEPIO:0100457",
           "alias": "alternative_isolate_ID",
-          "owner": "AMBR",
+          "owner": "TEST",
           "slot_group": "Database Identifiers",
           "range": "WhitespaceMinimizedString",
           "recommended": true
@@ -3952,12 +3952,12 @@
           "name": "specimen collector sample ID",
           "description": "The user-defined name for the sample.",
           "title": "specimen collector sample ID",
-          "from_schema": "https://example.com/AMBR",
+          "from_schema": "https://example.com/TEST",
           "rank": 3,
           "slot_uri": "GENEPIO:0001123",
           "identifier": true,
           "alias": "specimen_collector_sample_ID",
-          "owner": "AMBR",
+          "owner": "TEST",
           "slot_group": "Database Identifiers",
           "range": "WhitespaceMinimizedString"
         },
@@ -3965,11 +3965,11 @@
           "name": "sample collected by",
           "description": "The name of the agency that collected the original sample.",
           "title": "sample collected by",
-          "from_schema": "https://example.com/AMBR",
+          "from_schema": "https://example.com/TEST",
           "rank": 4,
           "slot_uri": "GENEPIO:0001153",
           "alias": "sample_collected_by",
-          "owner": "AMBR",
+          "owner": "TEST",
           "slot_group": "Sample collection and processing",
           "recommended": true
         },
@@ -3977,11 +3977,11 @@
           "name": "sample collection project name",
           "description": "The name of the project/initiative/program for which the sample was collected.",
           "title": "sample collection project name",
-          "from_schema": "https://example.com/AMBR",
+          "from_schema": "https://example.com/TEST",
           "rank": 5,
           "slot_uri": "GENEPIO:0100429",
           "alias": "sample_collection_project_name",
-          "owner": "AMBR",
+          "owner": "TEST",
           "slot_group": "Sample collection and processing",
           "range": "WhitespaceMinimizedString",
           "recommended": true
@@ -3990,11 +3990,11 @@
           "name": "sample collector contact email",
           "description": "The email address of the contact responsible for follow-up regarding the sample.",
           "title": "sample collector contact email",
-          "from_schema": "https://example.com/AMBR",
+          "from_schema": "https://example.com/TEST",
           "rank": 6,
           "slot_uri": "GENEPIO:0001156",
           "alias": "sample_collector_contact_email",
-          "owner": "AMBR",
+          "owner": "TEST",
           "slot_group": "Sample collection and processing",
           "range": "WhitespaceMinimizedString",
           "pattern": "^\\S+@\\S+\\.\\S+$"
@@ -4003,11 +4003,11 @@
           "name": "sample collector contact address",
           "description": "The mailing address of the agency submitting the sample.",
           "title": "sample collector contact address",
-          "from_schema": "https://example.com/AMBR",
+          "from_schema": "https://example.com/TEST",
           "rank": 7,
           "slot_uri": "GENEPIO:0001158",
           "alias": "sample_collector_contact_address",
-          "owner": "AMBR",
+          "owner": "TEST",
           "slot_group": "Sample collection and processing",
           "range": "WhitespaceMinimizedString"
         },
@@ -4015,11 +4015,11 @@
           "name": "sample collection date",
           "description": "The date on which the sample was collected.",
           "title": "sample collection date",
-          "from_schema": "https://example.com/AMBR",
+          "from_schema": "https://example.com/TEST",
           "rank": 8,
           "slot_uri": "GENEPIO:0001174",
           "alias": "sample_collection_date",
-          "owner": "AMBR",
+          "owner": "TEST",
           "slot_group": "Sample collection and processing",
           "recommended": true
         },
@@ -4027,22 +4027,22 @@
           "name": "sample received date",
           "description": "The date on which the sample was received.",
           "title": "sample received date",
-          "from_schema": "https://example.com/AMBR",
+          "from_schema": "https://example.com/TEST",
           "rank": 9,
           "slot_uri": "GENEPIO:0001179",
           "alias": "sample_received_date",
-          "owner": "AMBR",
+          "owner": "TEST",
           "slot_group": "Sample collection and processing"
         },
         "geo_loc_name (country)": {
           "name": "geo_loc_name (country)",
           "description": "The country where the sample was collected.",
           "title": "geo_loc_name (country)",
-          "from_schema": "https://example.com/AMBR",
+          "from_schema": "https://example.com/TEST",
           "rank": 10,
           "slot_uri": "GENEPIO:0001181",
           "alias": "geo_loc_name_(country)",
-          "owner": "AMBR",
+          "owner": "TEST",
           "slot_group": "Sample collection and processing",
           "recommended": true
         },
@@ -4050,11 +4050,11 @@
           "name": "geo_loc_name (state/province/territory)",
           "description": "The province/territory where the sample was collected.",
           "title": "geo_loc_name (state/province/territory)",
-          "from_schema": "https://example.com/AMBR",
+          "from_schema": "https://example.com/TEST",
           "rank": 11,
           "slot_uri": "GENEPIO:0001185",
           "alias": "geo_loc_name_(state/province/territory)",
-          "owner": "AMBR",
+          "owner": "TEST",
           "slot_group": "Sample collection and processing",
           "recommended": true
         },
@@ -4062,11 +4062,11 @@
           "name": "geo_loc_name (city)",
           "description": "The city where the sample was collected.",
           "title": "geo_loc_name (city)",
-          "from_schema": "https://example.com/AMBR",
+          "from_schema": "https://example.com/TEST",
           "rank": 12,
           "slot_uri": "GENEPIO:0001189",
           "alias": "geo_loc_name_(city)",
-          "owner": "AMBR",
+          "owner": "TEST",
           "slot_group": "Sample collection and processing",
           "range": "WhitespaceMinimizedString"
         },
@@ -4074,11 +4074,11 @@
           "name": "geo_loc_name (site)",
           "description": "The name of a specific geographical location e.g. Credit River (rather than river).",
           "title": "geo_loc_name (site)",
-          "from_schema": "https://example.com/AMBR",
+          "from_schema": "https://example.com/TEST",
           "rank": 13,
           "slot_uri": "GENEPIO:0100436",
           "alias": "geo_loc_name_(site)",
-          "owner": "AMBR",
+          "owner": "TEST",
           "slot_group": "Sample collection and processing",
           "range": "geo_loc_name (site) menu"
         },
@@ -4086,11 +4086,11 @@
           "name": "organism",
           "description": "Taxonomic name of the organism.",
           "title": "organism",
-          "from_schema": "https://example.com/AMBR",
+          "from_schema": "https://example.com/TEST",
           "rank": 14,
           "slot_uri": "GENEPIO:0001191",
           "alias": "organism",
-          "owner": "AMBR",
+          "owner": "TEST",
           "slot_group": "Sample collection and processing",
           "required": true
         },
@@ -4098,11 +4098,11 @@
           "name": "purpose of sampling",
           "description": "The reason that the sample was collected.",
           "title": "purpose of sampling",
-          "from_schema": "https://example.com/AMBR",
+          "from_schema": "https://example.com/TEST",
           "rank": 15,
           "slot_uri": "GENEPIO:0001198",
           "alias": "purpose_of_sampling",
-          "owner": "AMBR",
+          "owner": "TEST",
           "slot_group": "Sample collection and processing",
           "recommended": true
         },
@@ -4110,11 +4110,11 @@
           "name": "purpose of sampling details",
           "description": "The description of why the sample was collected, providing specific details.",
           "title": "purpose of sampling details",
-          "from_schema": "https://example.com/AMBR",
+          "from_schema": "https://example.com/TEST",
           "rank": 16,
           "slot_uri": "GENEPIO:0001200",
           "alias": "purpose_of_sampling_details",
-          "owner": "AMBR",
+          "owner": "TEST",
           "slot_group": "Sample collection and processing",
           "recommended": true
         },
@@ -4122,11 +4122,11 @@
           "name": "original sample description",
           "description": "The original sample description provided by the sample collector.",
           "title": "original sample description",
-          "from_schema": "https://example.com/AMBR",
+          "from_schema": "https://example.com/TEST",
           "rank": 17,
           "slot_uri": "GENEPIO:0100439",
           "alias": "original_sample_description",
-          "owner": "AMBR",
+          "owner": "TEST",
           "slot_group": "Sample collection and processing",
           "range": "WhitespaceMinimizedString"
         },
@@ -4134,12 +4134,12 @@
           "name": "anatomical material",
           "description": "A substance obtained from an anatomical part of an organism e.g. tissue, blood.",
           "title": "anatomical material",
-          "from_schema": "https://example.com/AMBR",
+          "from_schema": "https://example.com/TEST",
           "rank": 18,
           "slot_uri": "GENEPIO:0001211",
           "multivalued": true,
           "alias": "anatomical_material",
-          "owner": "AMBR",
+          "owner": "TEST",
           "slot_group": "Sample collection and processing",
           "required": true
         },
@@ -4147,12 +4147,12 @@
           "name": "anatomical part",
           "description": "An anatomical part of an organism e.g. oropharynx.",
           "title": "anatomical part",
-          "from_schema": "https://example.com/AMBR",
+          "from_schema": "https://example.com/TEST",
           "rank": 19,
           "slot_uri": "GENEPIO:0001214",
           "multivalued": true,
           "alias": "anatomical_part",
-          "owner": "AMBR",
+          "owner": "TEST",
           "slot_group": "Sample collection and processing",
           "required": true
         },
@@ -4160,12 +4160,12 @@
           "name": "body product",
           "description": "A substance excreted/secreted from an organism e.g. feces, urine, sweat.",
           "title": "body product",
-          "from_schema": "https://example.com/AMBR",
+          "from_schema": "https://example.com/TEST",
           "rank": 20,
           "slot_uri": "GENEPIO:0001216",
           "multivalued": true,
           "alias": "body_product",
-          "owner": "AMBR",
+          "owner": "TEST",
           "slot_group": "Sample collection and processing",
           "required": true
         },
@@ -4173,12 +4173,12 @@
           "name": "environmental material",
           "description": "A substance obtained from the natural or man-made environment e.g. soil, water, sewage.",
           "title": "environmental material",
-          "from_schema": "https://example.com/AMBR",
+          "from_schema": "https://example.com/TEST",
           "rank": 21,
           "slot_uri": "GENEPIO:0001223",
           "multivalued": true,
           "alias": "environmental_material",
-          "owner": "AMBR",
+          "owner": "TEST",
           "slot_group": "Sample collection and processing",
           "required": true
         },
@@ -4186,12 +4186,12 @@
           "name": "environmental site",
           "description": "An environmental location may describe a site in the natural or built environment e.g. contact surface, metal can, hospital, wet market, bat cave.",
           "title": "environmental site",
-          "from_schema": "https://example.com/AMBR",
+          "from_schema": "https://example.com/TEST",
           "rank": 22,
           "slot_uri": "GENEPIO:0001232",
           "multivalued": true,
           "alias": "environmental_site",
-          "owner": "AMBR",
+          "owner": "TEST",
           "slot_group": "Sample collection and processing",
           "required": true
         },
@@ -4199,12 +4199,12 @@
           "name": "collection device",
           "description": "The instrument or container used to collect the sample e.g. swab.",
           "title": "collection device",
-          "from_schema": "https://example.com/AMBR",
+          "from_schema": "https://example.com/TEST",
           "rank": 23,
           "slot_uri": "GENEPIO:0001234",
           "multivalued": true,
           "alias": "collection_device",
-          "owner": "AMBR",
+          "owner": "TEST",
           "slot_group": "Sample collection and processing",
           "required": true
         },
@@ -4212,12 +4212,12 @@
           "name": "collection method",
           "description": "The process used to collect the sample e.g. phlebotamy, necropsy.",
           "title": "collection method",
-          "from_schema": "https://example.com/AMBR",
+          "from_schema": "https://example.com/TEST",
           "rank": 24,
           "slot_uri": "GENEPIO:0001241",
           "multivalued": true,
           "alias": "collection_method",
-          "owner": "AMBR",
+          "owner": "TEST",
           "slot_group": "Sample collection and processing",
           "required": true
         },
@@ -4225,11 +4225,11 @@
           "name": "collection protocol",
           "description": "The name and version of a particular protocol used for sampling.",
           "title": "collection protocol",
-          "from_schema": "https://example.com/AMBR",
+          "from_schema": "https://example.com/TEST",
           "rank": 25,
           "slot_uri": "GENEPIO:0001243",
           "alias": "collection_protocol",
-          "owner": "AMBR",
+          "owner": "TEST",
           "slot_group": "Sample collection and processing",
           "range": "WhitespaceMinimizedString"
         },
@@ -4237,12 +4237,12 @@
           "name": "specimen processing",
           "description": "Any processing applied to the sample during or after receiving the sample.",
           "title": "specimen processing",
-          "from_schema": "https://example.com/AMBR",
+          "from_schema": "https://example.com/TEST",
           "rank": 26,
           "slot_uri": "GENEPIO:0001253",
           "multivalued": true,
           "alias": "specimen_processing",
-          "owner": "AMBR",
+          "owner": "TEST",
           "slot_group": "Sample collection and processing",
           "recommended": true
         },
@@ -4250,11 +4250,11 @@
           "name": "specimen processing details",
           "description": "Detailed information regarding the processing applied to a sample during or after receiving the sample.",
           "title": "specimen processing details",
-          "from_schema": "https://example.com/AMBR",
+          "from_schema": "https://example.com/TEST",
           "rank": 27,
           "slot_uri": "GENEPIO:0100311",
           "alias": "specimen_processing_details",
-          "owner": "AMBR",
+          "owner": "TEST",
           "slot_group": "Sample collection and processing",
           "range": "WhitespaceMinimizedString"
         },
@@ -4262,11 +4262,11 @@
           "name": "strain",
           "description": "The strain identifier.",
           "title": "strain",
-          "from_schema": "https://example.com/AMBR",
+          "from_schema": "https://example.com/TEST",
           "rank": 28,
           "slot_uri": "GENEPIO:0100455",
           "alias": "strain",
-          "owner": "AMBR",
+          "owner": "TEST",
           "slot_group": "Strain and isolation information",
           "required": true
         },
@@ -4274,11 +4274,11 @@
           "name": "taxonomic identification method",
           "description": "The type of planned process by which an organismal entity is associated with a taxon or taxa.",
           "title": "taxonomic identification method",
-          "from_schema": "https://example.com/AMBR",
+          "from_schema": "https://example.com/TEST",
           "rank": 29,
           "slot_uri": "GENEPIO:0100583",
           "alias": "taxonomic_identification_method",
-          "owner": "AMBR",
+          "owner": "TEST",
           "slot_group": "Strain and isolation information",
           "required": true
         },
@@ -4286,11 +4286,11 @@
           "name": "taxonomic identification method details",
           "description": "The details of the process used to determine the taxonomic identification of an organism.",
           "title": "taxonomic identification method details",
-          "from_schema": "https://example.com/AMBR",
+          "from_schema": "https://example.com/TEST",
           "rank": 30,
           "slot_uri": "GENEPIO:0100584",
           "alias": "taxonomic_identification_method_details",
-          "owner": "AMBR",
+          "owner": "TEST",
           "slot_group": "Strain and isolation information",
           "required": true
         },
@@ -4298,11 +4298,11 @@
           "name": "incubation temperature value",
           "description": "An environmental datum specifying the temperature at which an organism or organisms were incubated for the purposes of growth on or in a particular medium.",
           "title": "incubation temperature value",
-          "from_schema": "https://example.com/AMBR",
+          "from_schema": "https://example.com/TEST",
           "rank": 31,
           "slot_uri": "GENEPIO:0100617",
           "alias": "incubation_temperature_value",
-          "owner": "AMBR",
+          "owner": "TEST",
           "slot_group": "Strain and isolation information",
           "required": true
         },
@@ -4310,11 +4310,11 @@
           "name": "incubation temperature unit",
           "description": "An environmental datum specifying the temperature unit at which an organism or organisms were incubated for the purposes of growth on or in a particular medium.",
           "title": "incubation temperature unit",
-          "from_schema": "https://example.com/AMBR",
+          "from_schema": "https://example.com/TEST",
           "rank": 32,
           "slot_uri": "GENEPIO:0100618",
           "alias": "incubation_temperature_unit",
-          "owner": "AMBR",
+          "owner": "TEST",
           "slot_group": "Strain and isolation information",
           "required": true
         },
@@ -4322,11 +4322,11 @@
           "name": "isolation medium",
           "description": "An isolation medium is a culture medium which has the disposition to encourage growth of particular bacteria to the exclusion of others in the same growth environment.",
           "title": "isolation medium",
-          "from_schema": "https://example.com/AMBR",
+          "from_schema": "https://example.com/TEST",
           "rank": 33,
           "slot_uri": "GENEPIO:0002107",
           "alias": "isolation_medium",
-          "owner": "AMBR",
+          "owner": "TEST",
           "slot_group": "Strain and isolation information",
           "required": true
         },
@@ -4334,11 +4334,11 @@
           "name": "isolate storage location",
           "description": "An isolate datum specifying the location of where an isolate is stored e.g. in a particular freezer, on a particular shelf",
           "title": "isolate storage location",
-          "from_schema": "https://example.com/AMBR",
+          "from_schema": "https://example.com/TEST",
           "rank": 34,
           "slot_uri": "GENEPIO:0100619",
           "alias": "isolate_storage_location",
-          "owner": "AMBR",
+          "owner": "TEST",
           "slot_group": "Strain and isolation information",
           "range": "WhitespaceMinimizedString",
           "required": true
@@ -4347,11 +4347,11 @@
           "name": "cellular respiration type",
           "description": "An isolate datum specifying the type of cellular respiration process used by the organism.",
           "title": "cellular respiration type",
-          "from_schema": "https://example.com/AMBR",
+          "from_schema": "https://example.com/TEST",
           "rank": 35,
           "slot_uri": "GENEPIO:0100620",
           "alias": "cellular_respiration_type",
-          "owner": "AMBR",
+          "owner": "TEST",
           "slot_group": "Strain and isolation information",
           "required": true
         },
@@ -4359,11 +4359,11 @@
           "name": "host (common name)",
           "description": "The commonly used name of the host.",
           "title": "host (common name)",
-          "from_schema": "https://example.com/AMBR",
+          "from_schema": "https://example.com/TEST",
           "rank": 36,
           "slot_uri": "GENEPIO:0001386",
           "alias": "host_(common_name)",
-          "owner": "AMBR",
+          "owner": "TEST",
           "slot_group": "Host Information",
           "required": true
         },
@@ -4371,44 +4371,44 @@
           "name": "host (scientific name)",
           "description": "The taxonomic, or scientific name of the host.",
           "title": "host (scientific name)",
-          "from_schema": "https://example.com/AMBR",
+          "from_schema": "https://example.com/TEST",
           "rank": 37,
           "slot_uri": "GENEPIO:0001387",
           "alias": "host_(scientific_name)",
-          "owner": "AMBR",
+          "owner": "TEST",
           "slot_group": "Host Information"
         },
         "host disease": {
           "name": "host disease",
           "description": "The name of the disease experienced by the host.",
           "title": "host disease",
-          "from_schema": "https://example.com/AMBR",
+          "from_schema": "https://example.com/TEST",
           "rank": 38,
           "slot_uri": "GENEPIO:0001391",
           "alias": "host_disease",
-          "owner": "AMBR",
+          "owner": "TEST",
           "slot_group": "Host Information"
         },
         "sequenced by": {
           "name": "sequenced by",
           "description": "The name of the agency, organization or institution responsible for sequencing the isolate's genome.",
           "title": "sequenced by",
-          "from_schema": "https://example.com/AMBR",
+          "from_schema": "https://example.com/TEST",
           "rank": 39,
           "slot_uri": "GENEPIO:0100416",
           "alias": "sequenced_by",
-          "owner": "AMBR",
+          "owner": "TEST",
           "slot_group": "Sequencing"
         },
         "sequenced by laboratory name": {
           "name": "sequenced by laboratory name",
           "description": "The specific laboratory affiliation of the responsible for sequencing the isolate's genome.",
           "title": "sequenced by laboratory name",
-          "from_schema": "https://example.com/AMBR",
+          "from_schema": "https://example.com/TEST",
           "rank": 40,
           "slot_uri": "GENEPIO:0100470",
           "alias": "sequenced_by_laboratory_name",
-          "owner": "AMBR",
+          "owner": "TEST",
           "slot_group": "Sequencing",
           "range": "WhitespaceMinimizedString"
         },
@@ -4416,11 +4416,11 @@
           "name": "sequenced by contact name",
           "description": "The name or title of the contact responsible for follow-up regarding the sequence.",
           "title": "sequenced by contact name",
-          "from_schema": "https://example.com/AMBR",
+          "from_schema": "https://example.com/TEST",
           "rank": 41,
           "slot_uri": "GENEPIO:0100471",
           "alias": "sequenced_by_contact_name",
-          "owner": "AMBR",
+          "owner": "TEST",
           "slot_group": "Sequencing",
           "range": "WhitespaceMinimizedString"
         },
@@ -4428,11 +4428,11 @@
           "name": "sequenced by contact email",
           "description": "The email address of the contact responsible for follow-up regarding the sequence.",
           "title": "sequenced by contact email",
-          "from_schema": "https://example.com/AMBR",
+          "from_schema": "https://example.com/TEST",
           "rank": 42,
           "slot_uri": "GENEPIO:0100422",
           "alias": "sequenced_by_contact_email",
-          "owner": "AMBR",
+          "owner": "TEST",
           "slot_group": "Sequencing",
           "range": "WhitespaceMinimizedString"
         },
@@ -4440,44 +4440,44 @@
           "name": "purpose of sequencing",
           "description": "The reason that the sample was sequenced.",
           "title": "purpose of sequencing",
-          "from_schema": "https://example.com/AMBR",
+          "from_schema": "https://example.com/TEST",
           "rank": 43,
           "slot_uri": "GENEPIO:0001445",
           "alias": "purpose_of_sequencing",
-          "owner": "AMBR",
+          "owner": "TEST",
           "slot_group": "Sequencing"
         },
         "purpose of sequencing details": {
           "name": "purpose of sequencing details",
           "description": "The description of why the sample was sequenced providing specific details.",
           "title": "purpose of sequencing details",
-          "from_schema": "https://example.com/AMBR",
+          "from_schema": "https://example.com/TEST",
           "rank": 44,
           "slot_uri": "GENEPIO:0001446",
           "alias": "purpose_of_sequencing_details",
-          "owner": "AMBR",
+          "owner": "TEST",
           "slot_group": "Sequencing"
         },
         "sequencing date": {
           "name": "sequencing date",
           "description": "The date the sample was sequenced.",
           "title": "sequencing date",
-          "from_schema": "https://example.com/AMBR",
+          "from_schema": "https://example.com/TEST",
           "rank": 45,
           "slot_uri": "GENEPIO:0001447",
           "alias": "sequencing_date",
-          "owner": "AMBR",
+          "owner": "TEST",
           "slot_group": "Sequencing"
         },
         "library ID": {
           "name": "library ID",
           "description": "The user-specified identifier for the library prepared for sequencing.",
           "title": "library ID",
-          "from_schema": "https://example.com/AMBR",
+          "from_schema": "https://example.com/TEST",
           "rank": 46,
           "slot_uri": "GENEPIO:0001448",
           "alias": "library_ID",
-          "owner": "AMBR",
+          "owner": "TEST",
           "slot_group": "Sequencing",
           "range": "WhitespaceMinimizedString"
         },
@@ -4485,12 +4485,12 @@
           "name": "sequencing instrument",
           "description": "The model of the sequencing instrument used.",
           "title": "sequencing instrument",
-          "from_schema": "https://example.com/AMBR",
+          "from_schema": "https://example.com/TEST",
           "rank": 47,
           "slot_uri": "GENEPIO:0001452",
           "multivalued": true,
           "alias": "sequencing_instrument",
-          "owner": "AMBR",
+          "owner": "TEST",
           "slot_group": "Sequencing",
           "required": true
         },
@@ -4498,11 +4498,11 @@
           "name": "sequencing protocol name",
           "description": "The name and version number of the sequencing protocol used.",
           "title": "sequencing protocol name",
-          "from_schema": "https://example.com/AMBR",
+          "from_schema": "https://example.com/TEST",
           "rank": 48,
           "slot_uri": "GENEPIO:0001453",
           "alias": "sequencing_protocol_name",
-          "owner": "AMBR",
+          "owner": "TEST",
           "slot_group": "Sequencing",
           "range": "WhitespaceMinimizedString",
           "recommended": true
@@ -4511,12 +4511,12 @@
           "name": "amplicon pcr primer list",
           "description": "An information content entity specifying a list of primers used for amplicon sequencing.",
           "title": "amplicon pcr primer list",
-          "from_schema": "https://example.com/AMBR",
+          "from_schema": "https://example.com/TEST",
           "rank": 49,
           "slot_uri": "GENEPIO:0100623",
           "multivalued": true,
           "alias": "amplicon_pcr_primer_list",
-          "owner": "AMBR",
+          "owner": "TEST",
           "slot_group": "Sequencing",
           "required": true
         },
@@ -4524,11 +4524,11 @@
           "name": "input file name",
           "description": "The name of the file containing the sequence data to be analysed.",
           "title": "input file name",
-          "from_schema": "https://example.com/AMBR",
+          "from_schema": "https://example.com/TEST",
           "rank": 50,
           "slot_uri": "OBI:0002874",
           "alias": "input_file_name",
-          "owner": "AMBR",
+          "owner": "TEST",
           "slot_group": "Bioinformatics and QC metrics",
           "range": "WhitespaceMinimizedString"
         },
@@ -4536,11 +4536,11 @@
           "name": "reference accession",
           "description": "An identifier that specifies an individual sequence record in a public sequence repository.",
           "title": "reference accession",
-          "from_schema": "https://example.com/AMBR",
+          "from_schema": "https://example.com/TEST",
           "rank": 51,
           "slot_uri": "OBI:0002885",
           "alias": "reference_accession",
-          "owner": "AMBR",
+          "owner": "TEST",
           "slot_group": "Bioinformatics and QC metrics",
           "required": true
         },
@@ -4548,11 +4548,11 @@
           "name": "bioinformatics protocol",
           "description": "A description of the overall bioinformatics strategy used.",
           "title": "bioinformatics protocol",
-          "from_schema": "https://example.com/AMBR",
+          "from_schema": "https://example.com/TEST",
           "rank": 52,
           "slot_uri": "GENEPIO:0001489",
           "alias": "bioinformatics_protocol",
-          "owner": "AMBR",
+          "owner": "TEST",
           "slot_group": "Bioinformatics and QC metrics",
           "range": "WhitespaceMinimizedString"
         },
@@ -4560,11 +4560,11 @@
           "name": "reference database name",
           "description": "An identifier of a biological or bioinformatics database.",
           "title": "reference database name",
-          "from_schema": "https://example.com/AMBR",
+          "from_schema": "https://example.com/TEST",
           "rank": 53,
           "slot_uri": "OBI:0002883",
           "alias": "reference_database_name",
-          "owner": "AMBR",
+          "owner": "TEST",
           "slot_group": "Bioinformatics and QC metrics",
           "required": true
         },
@@ -4572,11 +4572,11 @@
           "name": "reference database version",
           "description": "The version of the database containing the reference sequences used for analysis.",
           "title": "reference database version",
-          "from_schema": "https://example.com/AMBR",
+          "from_schema": "https://example.com/TEST",
           "rank": 54,
           "slot_uri": "OBI:0002884",
           "alias": "reference_database_version",
-          "owner": "AMBR",
+          "owner": "TEST",
           "slot_group": "Bioinformatics and QC metrics",
           "required": true
         },
@@ -4584,11 +4584,11 @@
           "name": "coverage (percentage)",
           "description": "The percentage of the reference sequence covered by the sequence of interest.",
           "title": "coverage (percentage)",
-          "from_schema": "https://example.com/AMBR",
+          "from_schema": "https://example.com/TEST",
           "rank": 55,
           "slot_uri": "OBI:0002880",
           "alias": "coverage_(percentage)",
-          "owner": "AMBR",
+          "owner": "TEST",
           "slot_group": "Bioinformatics and QC metrics",
           "required": true
         },
@@ -4596,11 +4596,11 @@
           "name": "sequence identity percentage",
           "description": "Sequence identity is the number (%) of matches (identical characters) in positions from an alignment of two molecular sequences.",
           "title": "sequence identity percentage",
-          "from_schema": "https://example.com/AMBR",
+          "from_schema": "https://example.com/TEST",
           "rank": 56,
           "slot_uri": "OBI:0002882",
           "alias": "sequence_identity_percentage",
-          "owner": "AMBR",
+          "owner": "TEST",
           "slot_group": "Bioinformatics and QC metrics",
           "required": true
         },
@@ -4608,22 +4608,22 @@
           "name": "sequence identity (variance ratio)",
           "description": "The ratio of the reference sequence not covered by the sequence of interest.",
           "title": "sequence identity (variance ratio)",
-          "from_schema": "https://example.com/AMBR",
+          "from_schema": "https://example.com/TEST",
           "rank": 57,
           "slot_uri": "GENEPIO:0100624",
           "alias": "sequence_identity_(variance_ratio)",
-          "owner": "AMBR",
+          "owner": "TEST",
           "slot_group": "Bioinformatics and QC metrics"
         },
         "top-hit taxon determination": {
           "name": "top-hit taxon determination",
           "description": "The taxon derived from the top hit in search results produced from a sequence similarity comparison.",
           "title": "top-hit taxon determination",
-          "from_schema": "https://example.com/AMBR",
+          "from_schema": "https://example.com/TEST",
           "rank": 58,
           "slot_uri": "GENEPIO:0100625",
           "alias": "top_hit_taxon_determination",
-          "owner": "AMBR",
+          "owner": "TEST",
           "slot_group": "Bioinformatics and QC metrics",
           "required": true
         },
@@ -4631,11 +4631,11 @@
           "name": "top-hit strain determination",
           "description": "The strain designation derived from the top hit in search results produced from a sequence similarity comparison.",
           "title": "top-hit strain determination",
-          "from_schema": "https://example.com/AMBR",
+          "from_schema": "https://example.com/TEST",
           "rank": 59,
           "slot_uri": "GENEPIO:0100648",
           "alias": "top_hit_strain_determination",
-          "owner": "AMBR",
+          "owner": "TEST",
           "slot_group": "Bioinformatics and QC metrics",
           "required": true
         },
@@ -4643,11 +4643,11 @@
           "name": "trimmed ribosomal gene sequence",
           "description": "The results of a data transformation of sequence data in which (e.g., low quality) read bases are removed to produce a trimmed ribosomal RNA sequence.",
           "title": "trimmed ribosomal gene sequence",
-          "from_schema": "https://example.com/AMBR",
+          "from_schema": "https://example.com/TEST",
           "rank": 60,
           "slot_uri": "GENEPIO:0100626",
           "alias": "trimmed_ribosomal_gene_sequence",
-          "owner": "AMBR",
+          "owner": "TEST",
           "slot_group": "Bioinformatics and QC metrics",
           "required": true
         },
@@ -4655,11 +4655,11 @@
           "name": "bioinformatics analysis details",
           "description": "Any notes regarding the bioinformatics analysis.",
           "title": "bioinformatics analysis details",
-          "from_schema": "https://example.com/AMBR",
+          "from_schema": "https://example.com/TEST",
           "rank": 61,
           "slot_uri": "GENEPIO:0100627",
           "alias": "bioinformatics_analysis_details",
-          "owner": "AMBR",
+          "owner": "TEST",
           "slot_group": "Bioinformatics and QC metrics",
           "range": "WhitespaceMinimizedString"
         },
@@ -4667,11 +4667,11 @@
           "name": "authors",
           "description": "Names of individuals contributing to the processes of sample collection, sequence generation, analysis, and data submission.",
           "title": "authors",
-          "from_schema": "https://example.com/AMBR",
+          "from_schema": "https://example.com/TEST",
           "rank": 62,
           "slot_uri": "GENEPIO:0001517",
           "alias": "authors",
-          "owner": "AMBR",
+          "owner": "TEST",
           "slot_group": "Contributor acknowledgement",
           "range": "WhitespaceMinimizedString",
           "recommended": true
@@ -4680,11 +4680,11 @@
           "name": "DataHarmonizer provenance",
           "description": "The DataHarmonizer software and template version provenance.",
           "title": "DataHarmonizer provenance",
-          "from_schema": "https://example.com/AMBR",
+          "from_schema": "https://example.com/TEST",
           "rank": 63,
           "slot_uri": "GENEPIO:0001518",
           "alias": "DataHarmonizer_provenance",
-          "owner": "AMBR",
+          "owner": "TEST",
           "slot_group": "Contributor acknowledgement",
           "range": "Provenance"
         }
