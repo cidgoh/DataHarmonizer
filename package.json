@@ -75,10 +75,14 @@
     "file-saver": "^2.0.5",
     "flatpickr": "^4.6.13",
     "handsontable": "13.1.0",
-    "sifter": "^0.5.4",
-    "xlsx": "^0.18.5",
+    "isomorphic-dompurify": "1.8.0",
+    "linkify-it": "^4.0.1",
+    "markdown-it": "^13.0.2",
     "marked": "^7.0.3",
-    "isomorphic-dompurify": "1.8.0"
+    "punycode": "^2.3.1",
+    "sifter": "^0.5.4",
+    "tlds": "^1.245.0",
+    "xlsx": "^0.18.5"
   },
   "jest": {
     "transform": {
