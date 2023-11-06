@@ -30,6 +30,7 @@
     "WhitespaceMinimizedString": {
       "name": "WhitespaceMinimizedString",
       "description": "A string that has all whitespace trimmed off of beginning and end, and all internal whitespace segments reduced to single spaces. Whitespace includes #x9 (tab), #xA (linefeed), and #xD (carriage return).",
+      "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "typeof": "string",
       "base": "str",
       "uri": "xsd:token"
@@ -37,6 +38,7 @@
     "Provenance": {
       "name": "Provenance",
       "description": "A field containing a DataHarmonizer versioning marker. It is issued by DataHarmonizer when validation is applied to a given row of data.",
+      "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "typeof": "string",
       "base": "str",
       "uri": "xsd:token"
@@ -44,6 +46,7 @@
     "string": {
       "name": "string",
       "description": "A character string",
+      "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "exact_mappings": [
         "schema:Text"
       ],
@@ -53,6 +56,7 @@
     "integer": {
       "name": "integer",
       "description": "An integer",
+      "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "exact_mappings": [
         "schema:Integer"
       ],
@@ -62,6 +66,7 @@
     "boolean": {
       "name": "boolean",
       "description": "A binary (true or false) value",
+      "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "exact_mappings": [
         "schema:Boolean"
       ],
@@ -72,6 +77,7 @@
     "float": {
       "name": "float",
       "description": "A real number that conforms to the xsd:float specification",
+      "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "exact_mappings": [
         "schema:Float"
       ],
@@ -81,6 +87,7 @@
     "double": {
       "name": "double",
       "description": "A real number that conforms to the xsd:double specification",
+      "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "close_mappings": [
         "schema:Float"
       ],
@@ -90,6 +97,7 @@
     "decimal": {
       "name": "decimal",
       "description": "A real number with arbitrary precision that conforms to the xsd:decimal specification",
+      "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "broad_mappings": [
         "schema:Number"
       ],
@@ -102,6 +110,7 @@
       "notes": [
         "URI is dateTime because OWL reasoners do not work with straight date or time"
       ],
+      "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "exact_mappings": [
         "schema:Time"
       ],
@@ -115,6 +124,7 @@
       "notes": [
         "URI is dateTime because OWL reasoners don't work with straight date or time"
       ],
+      "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "exact_mappings": [
         "schema:Date"
       ],
@@ -125,6 +135,7 @@
     "datetime": {
       "name": "datetime",
       "description": "The combination of a date and time",
+      "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "exact_mappings": [
         "schema:DateTime"
       ],
@@ -135,6 +146,7 @@
     "date_or_datetime": {
       "name": "date_or_datetime",
       "description": "Either a date or a datetime",
+      "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "base": "str",
       "uri": "linkml:DateOrDatetime",
       "repr": "str"
@@ -142,6 +154,7 @@
     "uriorcurie": {
       "name": "uriorcurie",
       "description": "a URI or a CURIE",
+      "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "base": "URIorCURIE",
       "uri": "xsd:anyURI",
       "repr": "str"
@@ -154,6 +167,7 @@
         "in RDF serializations this MUST be expanded to a URI",
         "in non-RDF serializations MAY be serialized as the compact representation"
       ],
+      "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "base": "Curie",
       "uri": "xsd:string",
       "repr": "str"
@@ -165,6 +179,7 @@
       "comments": [
         "in RDF serializations a slot with range of uri is treated as a literal or type xsd:anyURI unless it is an identifier or a reference to an identifier, in which case it is translated directly to a node"
       ],
+      "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "close_mappings": [
         "schema:URL"
       ],
@@ -175,6 +190,7 @@
     "ncname": {
       "name": "ncname",
       "description": "Prefix part of CURIE",
+      "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "base": "NCName",
       "uri": "xsd:string",
       "repr": "str"
@@ -185,6 +201,7 @@
       "comments": [
         "Used for inheritence and type checking"
       ],
+      "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "base": "ElementIdentifier",
       "uri": "shex:iri",
       "repr": "str"
@@ -192,6 +209,7 @@
     "nodeidentifier": {
       "name": "nodeidentifier",
       "description": "A URI, CURIE or BNODE that represents a node in a model.",
+      "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "base": "NodeIdentifier",
       "uri": "shex:nonLiteral",
       "repr": "str"
@@ -9598,6 +9616,9 @@
           "identifier": true,
           "alias": "specimen_collector_sample_ID",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Database Identifiers",
           "range": "WhitespaceMinimizedString",
           "required": true
@@ -9611,6 +9632,9 @@
           "slot_uri": "GENEPIO:0001202",
           "alias": "third_party_lab_service_provider_name",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Database Identifiers",
           "range": "WhitespaceMinimizedString"
         },
@@ -9623,6 +9647,9 @@
           "slot_uri": "GENEPIO:0001149",
           "alias": "third_party_lab_sample_ID",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Database Identifiers",
           "range": "WhitespaceMinimizedString"
         },
@@ -9635,6 +9662,9 @@
           "slot_uri": "GENEPIO:0100281",
           "alias": "case_ID",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Database Identifiers",
           "range": "WhitespaceMinimizedString",
           "recommended": true
@@ -9648,6 +9678,9 @@
           "slot_uri": "GENEPIO:0001128",
           "alias": "Related_specimen_primary_ID",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Database Identifiers"
         },
         "IRIDA sample name": {
@@ -9659,6 +9692,9 @@
           "slot_uri": "GENEPIO:0001131",
           "alias": "IRIDA_sample_name",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Database Identifiers",
           "range": "WhitespaceMinimizedString"
         },
@@ -9671,6 +9707,9 @@
           "slot_uri": "GENEPIO:0001133",
           "alias": "umbrella_bioproject_accession",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Database Identifiers",
           "range": "umbrella bioproject accession menu",
           "structured_pattern": {
@@ -9688,6 +9727,9 @@
           "slot_uri": "GENEPIO:0001136",
           "alias": "bioproject_accession",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Database Identifiers",
           "range": "WhitespaceMinimizedString",
           "structured_pattern": {
@@ -9705,6 +9747,9 @@
           "slot_uri": "GENEPIO:0001139",
           "alias": "biosample_accession",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Database Identifiers",
           "range": "WhitespaceMinimizedString",
           "structured_pattern": {
@@ -9722,6 +9767,9 @@
           "slot_uri": "GENEPIO:0001142",
           "alias": "SRA_accession",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Database Identifiers",
           "range": "WhitespaceMinimizedString",
           "structured_pattern": {
@@ -9739,6 +9787,9 @@
           "slot_uri": "GENEPIO:0001145",
           "alias": "GenBank_accession",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Database Identifiers",
           "range": "WhitespaceMinimizedString",
           "structured_pattern": {
@@ -9756,6 +9807,9 @@
           "slot_uri": "GENEPIO:0001147",
           "alias": "GISAID_accession",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Database Identifiers",
           "range": "WhitespaceMinimizedString",
           "structured_pattern": {
@@ -9773,6 +9827,9 @@
           "slot_uri": "GENEPIO:0001153",
           "alias": "sample_collected_by",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Sample collection and processing",
           "required": true
         },
@@ -9785,6 +9842,9 @@
           "slot_uri": "GENEPIO:0001156",
           "alias": "sample_collector_contact_email",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Sample collection and processing",
           "range": "WhitespaceMinimizedString",
           "pattern": "^\\S+@\\S+\\.\\S+$"
@@ -9798,6 +9858,9 @@
           "slot_uri": "GENEPIO:0001158",
           "alias": "sample_collector_contact_address",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Sample collection and processing",
           "range": "WhitespaceMinimizedString"
         },
@@ -9810,6 +9873,9 @@
           "slot_uri": "GENEPIO:0001159",
           "alias": "sequence_submitted_by",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Sample collection and processing",
           "required": true
         },
@@ -9822,6 +9888,9 @@
           "slot_uri": "GENEPIO:0001165",
           "alias": "sequence_submitter_contact_email",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Sample collection and processing",
           "range": "WhitespaceMinimizedString"
         },
@@ -9834,6 +9903,9 @@
           "slot_uri": "GENEPIO:0001167",
           "alias": "sequence_submitter_contact_address",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Sample collection and processing",
           "range": "WhitespaceMinimizedString"
         },
@@ -9846,6 +9918,9 @@
           "slot_uri": "GENEPIO:0001174",
           "alias": "sample_collection_date",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Sample collection and processing",
           "required": true
         },
@@ -9858,6 +9933,9 @@
           "slot_uri": "GENEPIO:0001177",
           "alias": "sample_collection_date_precision",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Sample collection and processing",
           "required": true
         },
@@ -9870,6 +9948,9 @@
           "slot_uri": "GENEPIO:0001179",
           "alias": "sample_received_date",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Sample collection and processing"
         },
         "geo_loc_name (country)": {
@@ -9881,6 +9962,9 @@
           "slot_uri": "GENEPIO:0001181",
           "alias": "geo_loc_name_(country)",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Sample collection and processing",
           "required": true
         },
@@ -9893,6 +9977,9 @@
           "slot_uri": "GENEPIO:0001185",
           "alias": "geo_loc_name_(state/province/territory)",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Sample collection and processing",
           "required": true
         },
@@ -9905,6 +9992,9 @@
           "slot_uri": "GENEPIO:0001189",
           "alias": "geo_loc_name_(city)",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Sample collection and processing",
           "range": "WhitespaceMinimizedString"
         },
@@ -9917,6 +10007,9 @@
           "slot_uri": "GENEPIO:0001191",
           "alias": "organism",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Sample collection and processing",
           "required": true
         },
@@ -9929,6 +10022,9 @@
           "slot_uri": "GENEPIO:0001195",
           "alias": "isolate",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Sample collection and processing",
           "required": true
         },
@@ -9941,6 +10037,9 @@
           "slot_uri": "GENEPIO:0001198",
           "alias": "purpose_of_sampling",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Sample collection and processing",
           "required": true
         },
@@ -9953,6 +10052,9 @@
           "slot_uri": "GENEPIO:0001200",
           "alias": "purpose_of_sampling_details",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Sample collection and processing",
           "required": true
         },
@@ -9965,6 +10067,9 @@
           "slot_uri": "GENEPIO:0001204",
           "alias": "NML_submitted_specimen_type",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Sample collection and processing",
           "range": "NML submitted specimen type menu",
           "required": true
@@ -9978,6 +10083,9 @@
           "slot_uri": "GENEPIO:0001209",
           "alias": "Related_specimen_relationship_type",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Sample collection and processing",
           "range": "Related specimen relationship type menu"
         },
@@ -9991,6 +10099,9 @@
           "multivalued": true,
           "alias": "anatomical_material",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Sample collection and processing",
           "required": true
         },
@@ -10004,6 +10115,9 @@
           "multivalued": true,
           "alias": "anatomical_part",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Sample collection and processing",
           "required": true
         },
@@ -10017,6 +10131,9 @@
           "multivalued": true,
           "alias": "body_product",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Sample collection and processing",
           "required": true
         },
@@ -10030,6 +10147,9 @@
           "multivalued": true,
           "alias": "environmental_material",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Sample collection and processing",
           "required": true
         },
@@ -10043,6 +10163,9 @@
           "multivalued": true,
           "alias": "environmental_site",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Sample collection and processing",
           "required": true
         },
@@ -10056,6 +10179,9 @@
           "multivalued": true,
           "alias": "collection_device",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Sample collection and processing",
           "required": true
         },
@@ -10069,6 +10195,9 @@
           "multivalued": true,
           "alias": "collection_method",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Sample collection and processing",
           "required": true
         },
@@ -10081,6 +10210,9 @@
           "slot_uri": "GENEPIO:0001243",
           "alias": "collection_protocol",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Sample collection and processing",
           "range": "WhitespaceMinimizedString"
         },
@@ -10094,6 +10226,9 @@
           "multivalued": true,
           "alias": "specimen_processing",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Sample collection and processing",
           "recommended": true
         },
@@ -10106,6 +10241,9 @@
           "slot_uri": "GENEPIO:0100311",
           "alias": "specimen_processing_details",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Sample collection and processing",
           "range": "WhitespaceMinimizedString"
         },
@@ -10118,6 +10256,9 @@
           "slot_uri": "GENEPIO:0001255",
           "alias": "lab_host",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Sample collection and processing",
           "recommended": true
         },
@@ -10130,6 +10271,9 @@
           "slot_uri": "GENEPIO:0001261",
           "alias": "passage_number",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Sample collection and processing",
           "recommended": true,
           "minimum_value": 0
@@ -10143,6 +10287,9 @@
           "slot_uri": "GENEPIO:0001264",
           "alias": "passage_method",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Sample collection and processing",
           "recommended": true
         },
@@ -10155,6 +10302,9 @@
           "slot_uri": "GENEPIO:0001266",
           "alias": "biomaterial_extracted",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Sample collection and processing"
         },
         "host (common name)": {
@@ -10166,6 +10316,9 @@
           "slot_uri": "GENEPIO:0001386",
           "alias": "host_(common_name)",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Host Information"
         },
         "host (scientific name)": {
@@ -10177,6 +10330,9 @@
           "slot_uri": "GENEPIO:0001387",
           "alias": "host_(scientific_name)",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Host Information",
           "required": true
         },
@@ -10189,6 +10345,9 @@
           "slot_uri": "GENEPIO:0001388",
           "alias": "host_health_state",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Host Information"
         },
         "host health status details": {
@@ -10200,6 +10359,9 @@
           "slot_uri": "GENEPIO:0001389",
           "alias": "host_health_status_details",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Host Information"
         },
         "host health outcome": {
@@ -10211,6 +10373,9 @@
           "slot_uri": "GENEPIO:0001390",
           "alias": "host_health_outcome",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Host Information"
         },
         "host disease": {
@@ -10222,6 +10387,9 @@
           "slot_uri": "GENEPIO:0001391",
           "alias": "host_disease",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Host Information",
           "required": true
         },
@@ -10234,6 +10402,9 @@
           "slot_uri": "GENEPIO:0001392",
           "alias": "host_age",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Host Information",
           "required": true,
           "minimum_value": 0,
@@ -10248,6 +10419,9 @@
           "slot_uri": "GENEPIO:0001393",
           "alias": "host_age_unit",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Host Information",
           "required": true
         },
@@ -10260,6 +10434,9 @@
           "slot_uri": "GENEPIO:0001394",
           "alias": "host_age_bin",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Host Information",
           "required": true
         },
@@ -10272,6 +10449,9 @@
           "slot_uri": "GENEPIO:0001395",
           "alias": "host_gender",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Host Information",
           "required": true,
           "structured_pattern": {
@@ -10289,6 +10469,9 @@
           "slot_uri": "GENEPIO:0001396",
           "alias": "host_residence_geo_loc_name_(country)",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Host Information"
         },
         "host residence geo_loc name (state/province/territory)": {
@@ -10300,6 +10483,9 @@
           "slot_uri": "GENEPIO:0001397",
           "alias": "host_residence_geo_loc_name_(state/province/territory)",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Host Information"
         },
         "host subject ID": {
@@ -10311,6 +10497,9 @@
           "slot_uri": "GENEPIO:0001398",
           "alias": "host_subject_ID",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Host Information",
           "range": "WhitespaceMinimizedString"
         },
@@ -10323,6 +10512,9 @@
           "slot_uri": "GENEPIO:0001399",
           "alias": "symptom_onset_date",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Host Information"
         },
         "signs and symptoms": {
@@ -10335,6 +10527,9 @@
           "multivalued": true,
           "alias": "signs_and_symptoms",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Host Information"
         },
         "pre-existing conditions and risk factors": {
@@ -10347,6 +10542,9 @@
           "multivalued": true,
           "alias": "pre_existing_conditions_and_risk_factors",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Host Information"
         },
         "complications": {
@@ -10359,6 +10557,9 @@
           "multivalued": true,
           "alias": "complications",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Host Information"
         },
         "host vaccination status": {
@@ -10370,6 +10571,9 @@
           "slot_uri": "GENEPIO:0001404",
           "alias": "host_vaccination_status",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Host vaccination information"
         },
         "number of vaccine doses received": {
@@ -10381,6 +10585,9 @@
           "slot_uri": "GENEPIO:0001406",
           "alias": "number_of_vaccine_doses_received",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Host vaccination information",
           "range": "integer"
         },
@@ -10393,6 +10600,9 @@
           "slot_uri": "GENEPIO:0100313",
           "alias": "vaccination_dose_1_vaccine_name",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Host vaccination information"
         },
         "vaccination dose 1 vaccination date": {
@@ -10404,6 +10614,9 @@
           "slot_uri": "GENEPIO:0100314",
           "alias": "vaccination_dose_1_vaccination_date",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Host vaccination information"
         },
         "vaccination dose 2 vaccine name": {
@@ -10415,6 +10628,9 @@
           "slot_uri": "GENEPIO:0100315",
           "alias": "vaccination_dose_2_vaccine_name",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Host vaccination information"
         },
         "vaccination dose 2 vaccination date": {
@@ -10426,6 +10642,9 @@
           "slot_uri": "GENEPIO:0100316",
           "alias": "vaccination_dose_2_vaccination_date",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Host vaccination information"
         },
         "vaccination dose 3 vaccine name": {
@@ -10437,6 +10656,9 @@
           "slot_uri": "GENEPIO:0100317",
           "alias": "vaccination_dose_3_vaccine_name",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Host vaccination information"
         },
         "vaccination dose 3 vaccination date": {
@@ -10448,6 +10670,9 @@
           "slot_uri": "GENEPIO:0100318",
           "alias": "vaccination_dose_3_vaccination_date",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Host vaccination information"
         },
         "vaccination dose 4 vaccine name": {
@@ -10459,6 +10684,9 @@
           "slot_uri": "GENEPIO:0100319",
           "alias": "vaccination_dose_4_vaccine_name",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Host vaccination information"
         },
         "vaccination dose 4 vaccination date": {
@@ -10470,6 +10698,9 @@
           "slot_uri": "GENEPIO:0100320",
           "alias": "vaccination_dose_4_vaccination_date",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Host vaccination information"
         },
         "vaccination history": {
@@ -10481,6 +10712,9 @@
           "slot_uri": "GENEPIO:0100321",
           "alias": "vaccination_history",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Host vaccination information",
           "range": "WhitespaceMinimizedString"
         },
@@ -10493,6 +10727,9 @@
           "slot_uri": "GENEPIO:0001410",
           "alias": "location_of_exposure_geo_loc_name_(country)",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Host exposure information"
         },
         "destination of most recent travel (city)": {
@@ -10504,6 +10741,9 @@
           "slot_uri": "GENEPIO:0001411",
           "alias": "destination_of_most_recent_travel_(city)",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Host exposure information",
           "range": "WhitespaceMinimizedString"
         },
@@ -10516,6 +10756,9 @@
           "slot_uri": "GENEPIO:0001412",
           "alias": "destination_of_most_recent_travel_(state/province/territory)",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Host exposure information",
           "range": "WhitespaceMinimizedString"
         },
@@ -10528,6 +10771,9 @@
           "slot_uri": "GENEPIO:0001413",
           "alias": "destination_of_most_recent_travel_(country)",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Host exposure information"
         },
         "most recent travel departure date": {
@@ -10539,6 +10785,9 @@
           "slot_uri": "GENEPIO:0001414",
           "alias": "most_recent_travel_departure_date",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Host exposure information"
         },
         "most recent travel return date": {
@@ -10550,6 +10799,9 @@
           "slot_uri": "GENEPIO:0001415",
           "alias": "most_recent_travel_return_date",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Host exposure information"
         },
         "travel point of entry type": {
@@ -10561,6 +10813,9 @@
           "slot_uri": "GENEPIO:0100413",
           "alias": "travel_point_of_entry_type",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Host exposure information",
           "recommended": true
         },
@@ -10573,6 +10828,9 @@
           "slot_uri": "GENEPIO:0100414",
           "alias": "border_testing_test_day_type",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Host exposure information",
           "recommended": true
         },
@@ -10585,6 +10843,9 @@
           "slot_uri": "GENEPIO:0001416",
           "alias": "travel_history",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Host exposure information",
           "range": "WhitespaceMinimizedString"
         },
@@ -10597,6 +10858,9 @@
           "slot_uri": "GENEPIO:0100649",
           "alias": "travel_history_availability",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Host exposure information"
         },
         "exposure event": {
@@ -10608,6 +10872,9 @@
           "slot_uri": "GENEPIO:0001417",
           "alias": "exposure_event",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Host exposure information"
         },
         "exposure contact level": {
@@ -10619,6 +10886,9 @@
           "slot_uri": "GENEPIO:0001418",
           "alias": "exposure_contact_level",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Host exposure information"
         },
         "host role": {
@@ -10631,6 +10901,9 @@
           "multivalued": true,
           "alias": "host_role",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Host exposure information",
           "range": "host role menu"
         },
@@ -10644,6 +10917,9 @@
           "multivalued": true,
           "alias": "exposure_setting",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Host exposure information",
           "range": "exposure setting menu"
         },
@@ -10656,6 +10932,9 @@
           "slot_uri": "GENEPIO:0001431",
           "alias": "exposure_details",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Host exposure information",
           "range": "WhitespaceMinimizedString"
         },
@@ -10668,6 +10947,9 @@
           "slot_uri": "GENEPIO:0001435",
           "alias": "prior_SARS_CoV_2_infection",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Host reinfection information"
         },
         "prior SARS-CoV-2 infection isolate": {
@@ -10679,6 +10961,9 @@
           "slot_uri": "GENEPIO:0001436",
           "alias": "prior_SARS_CoV_2_infection_isolate",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Host reinfection information",
           "range": "WhitespaceMinimizedString"
         },
@@ -10691,6 +10976,9 @@
           "slot_uri": "GENEPIO:0001437",
           "alias": "prior_SARS_CoV_2_infection_date",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Host reinfection information",
           "range": "date"
         },
@@ -10703,6 +10991,9 @@
           "slot_uri": "GENEPIO:0001438",
           "alias": "prior_SARS_CoV_2_antiviral_treatment",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Host reinfection information"
         },
         "prior SARS-CoV-2 antiviral treatment agent": {
@@ -10714,6 +11005,9 @@
           "slot_uri": "GENEPIO:0001439",
           "alias": "prior_SARS_CoV_2_antiviral_treatment_agent",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Host reinfection information",
           "range": "WhitespaceMinimizedString"
         },
@@ -10726,6 +11020,9 @@
           "slot_uri": "GENEPIO:0001440",
           "alias": "prior_SARS_CoV_2_antiviral_treatment_date",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Host reinfection information",
           "range": "date"
         },
@@ -10739,6 +11036,9 @@
           "multivalued": true,
           "alias": "purpose_of_sequencing",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Sequencing",
           "required": true
         },
@@ -10751,6 +11051,9 @@
           "slot_uri": "GENEPIO:0001446",
           "alias": "purpose_of_sequencing_details",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Sequencing",
           "required": true
         },
@@ -10763,6 +11066,9 @@
           "slot_uri": "GENEPIO:0001447",
           "alias": "sequencing_date",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Sequencing",
           "required": true
         },
@@ -10775,6 +11081,9 @@
           "slot_uri": "GENEPIO:0001448",
           "alias": "library_ID",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Sequencing",
           "range": "WhitespaceMinimizedString",
           "recommended": true
@@ -10788,6 +11097,9 @@
           "slot_uri": "GENEPIO:0001449",
           "alias": "amplicon_size",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Sequencing",
           "range": "WhitespaceMinimizedString"
         },
@@ -10800,6 +11112,9 @@
           "slot_uri": "GENEPIO:0001450",
           "alias": "library_preparation_kit",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Sequencing",
           "range": "WhitespaceMinimizedString"
         },
@@ -10812,6 +11127,9 @@
           "slot_uri": "GENEPIO:0001451",
           "alias": "flow_cell_barcode",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Sequencing",
           "range": "WhitespaceMinimizedString"
         },
@@ -10825,6 +11143,9 @@
           "multivalued": true,
           "alias": "sequencing_instrument",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Sequencing",
           "required": true
         },
@@ -10837,6 +11158,9 @@
           "slot_uri": "GENEPIO:0001453",
           "alias": "sequencing_protocol_name",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Sequencing",
           "range": "WhitespaceMinimizedString",
           "recommended": true
@@ -10850,6 +11174,9 @@
           "slot_uri": "GENEPIO:0001454",
           "alias": "sequencing_protocol",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Sequencing",
           "range": "WhitespaceMinimizedString"
         },
@@ -10862,6 +11189,9 @@
           "slot_uri": "GENEPIO:0001455",
           "alias": "sequencing_kit_number",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Sequencing",
           "range": "WhitespaceMinimizedString"
         },
@@ -10874,6 +11204,9 @@
           "slot_uri": "GENEPIO:0001456",
           "alias": "amplicon_pcr_primer_scheme",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Sequencing",
           "range": "WhitespaceMinimizedString"
         },
@@ -10886,6 +11219,9 @@
           "slot_uri": "GENEPIO:0001458",
           "alias": "raw_sequence_data_processing_method",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Bioinformatics and QC metrics",
           "range": "WhitespaceMinimizedString",
           "required": true
@@ -10899,6 +11235,9 @@
           "slot_uri": "GENEPIO:0001459",
           "alias": "dehosting_method",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Bioinformatics and QC metrics",
           "range": "WhitespaceMinimizedString",
           "required": true
@@ -10912,6 +11251,9 @@
           "slot_uri": "GENEPIO:0001460",
           "alias": "consensus_sequence_name",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Bioinformatics and QC metrics",
           "range": "WhitespaceMinimizedString"
         },
@@ -10924,6 +11266,9 @@
           "slot_uri": "GENEPIO:0001461",
           "alias": "consensus_sequence_filename",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Bioinformatics and QC metrics",
           "range": "WhitespaceMinimizedString"
         },
@@ -10936,6 +11281,9 @@
           "slot_uri": "GENEPIO:0001462",
           "alias": "consensus_sequence_filepath",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Bioinformatics and QC metrics",
           "range": "WhitespaceMinimizedString"
         },
@@ -10948,6 +11296,9 @@
           "slot_uri": "GENEPIO:0001463",
           "alias": "consensus_sequence_software_name",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Bioinformatics and QC metrics",
           "range": "WhitespaceMinimizedString",
           "required": true
@@ -10961,6 +11312,9 @@
           "slot_uri": "GENEPIO:0001469",
           "alias": "consensus_sequence_software_version",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Bioinformatics and QC metrics",
           "range": "WhitespaceMinimizedString",
           "required": true
@@ -10974,6 +11328,9 @@
           "slot_uri": "GENEPIO:0001472",
           "alias": "breadth_of_coverage_value",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Bioinformatics and QC metrics",
           "range": "WhitespaceMinimizedString"
         },
@@ -10986,6 +11343,9 @@
           "slot_uri": "GENEPIO:0001474",
           "alias": "depth_of_coverage_value",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Bioinformatics and QC metrics",
           "range": "WhitespaceMinimizedString"
         },
@@ -10998,6 +11358,9 @@
           "slot_uri": "GENEPIO:0001475",
           "alias": "depth_of_coverage_threshold",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Bioinformatics and QC metrics",
           "range": "WhitespaceMinimizedString"
         },
@@ -11010,6 +11373,9 @@
           "slot_uri": "GENEPIO:0001476",
           "alias": "r1_fastq_filename",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Bioinformatics and QC metrics",
           "range": "WhitespaceMinimizedString",
           "recommended": true
@@ -11023,6 +11389,9 @@
           "slot_uri": "GENEPIO:0001477",
           "alias": "r2_fastq_filename",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Bioinformatics and QC metrics",
           "range": "WhitespaceMinimizedString",
           "recommended": true
@@ -11036,6 +11405,9 @@
           "slot_uri": "GENEPIO:0001478",
           "alias": "r1_fastq_filepath",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Bioinformatics and QC metrics",
           "range": "WhitespaceMinimizedString"
         },
@@ -11048,6 +11420,9 @@
           "slot_uri": "GENEPIO:0001479",
           "alias": "r2_fastq_filepath",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Bioinformatics and QC metrics",
           "range": "WhitespaceMinimizedString"
         },
@@ -11060,6 +11435,9 @@
           "slot_uri": "GENEPIO:0001480",
           "alias": "fast5_filename",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Bioinformatics and QC metrics",
           "range": "WhitespaceMinimizedString"
         },
@@ -11072,6 +11450,9 @@
           "slot_uri": "GENEPIO:0001481",
           "alias": "fast5_filepath",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Bioinformatics and QC metrics",
           "range": "WhitespaceMinimizedString"
         },
@@ -11084,6 +11465,9 @@
           "slot_uri": "GENEPIO:0001482",
           "alias": "number_of_base_pairs_sequenced",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Bioinformatics and QC metrics",
           "range": "integer",
           "minimum_value": 0
@@ -11097,6 +11481,9 @@
           "slot_uri": "GENEPIO:0001483",
           "alias": "consensus_genome_length",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Bioinformatics and QC metrics",
           "range": "integer",
           "minimum_value": 0
@@ -11110,6 +11497,9 @@
           "slot_uri": "GENEPIO:0001484",
           "alias": "Ns_per_100_kbp",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Bioinformatics and QC metrics",
           "range": "decimal",
           "minimum_value": 0
@@ -11123,6 +11513,9 @@
           "slot_uri": "GENEPIO:0001485",
           "alias": "reference_genome_accession",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Bioinformatics and QC metrics",
           "range": "WhitespaceMinimizedString"
         },
@@ -11135,6 +11528,9 @@
           "slot_uri": "GENEPIO:0001489",
           "alias": "bioinformatics_protocol",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Bioinformatics and QC metrics",
           "range": "WhitespaceMinimizedString",
           "required": true
@@ -11148,6 +11544,9 @@
           "slot_uri": "GENEPIO:0001500",
           "alias": "lineage/clade_name",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Lineage and Variant information",
           "range": "WhitespaceMinimizedString"
         },
@@ -11160,6 +11559,9 @@
           "slot_uri": "GENEPIO:0001501",
           "alias": "lineage/clade_analysis_software_name",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Lineage and Variant information",
           "range": "WhitespaceMinimizedString"
         },
@@ -11172,6 +11574,9 @@
           "slot_uri": "GENEPIO:0001502",
           "alias": "lineage/clade_analysis_software_version",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Lineage and Variant information",
           "range": "WhitespaceMinimizedString"
         },
@@ -11184,6 +11589,9 @@
           "slot_uri": "GENEPIO:0001503",
           "alias": "variant_designation",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Lineage and Variant information"
         },
         "variant evidence": {
@@ -11195,6 +11603,9 @@
           "slot_uri": "GENEPIO:0001504",
           "alias": "variant_evidence",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Lineage and Variant information"
         },
         "variant evidence details": {
@@ -11206,6 +11617,9 @@
           "slot_uri": "GENEPIO:0001505",
           "alias": "variant_evidence_details",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Lineage and Variant information",
           "range": "WhitespaceMinimizedString"
         },
@@ -11218,6 +11632,9 @@
           "slot_uri": "GENEPIO:0001507",
           "alias": "gene_name_1",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Pathogen diagnostic testing"
         },
         "diagnostic pcr protocol 1": {
@@ -11229,6 +11646,9 @@
           "slot_uri": "GENEPIO:0001508",
           "alias": "diagnostic_pcr_protocol_1",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Pathogen diagnostic testing",
           "range": "WhitespaceMinimizedString"
         },
@@ -11241,6 +11661,9 @@
           "slot_uri": "GENEPIO:0001509",
           "alias": "diagnostic_pcr_Ct_value_1",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Pathogen diagnostic testing"
         },
         "gene name 2": {
@@ -11252,6 +11675,9 @@
           "slot_uri": "GENEPIO:0001510",
           "alias": "gene_name_2",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Pathogen diagnostic testing"
         },
         "diagnostic pcr protocol 2": {
@@ -11263,6 +11689,9 @@
           "slot_uri": "GENEPIO:0001511",
           "alias": "diagnostic_pcr_protocol_2",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Pathogen diagnostic testing",
           "range": "WhitespaceMinimizedString"
         },
@@ -11275,6 +11704,9 @@
           "slot_uri": "GENEPIO:0001512",
           "alias": "diagnostic_pcr_Ct_value_2",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Pathogen diagnostic testing"
         },
         "gene name 3": {
@@ -11286,6 +11718,9 @@
           "slot_uri": "GENEPIO:0001513",
           "alias": "gene_name_3",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Pathogen diagnostic testing"
         },
         "diagnostic pcr protocol 3": {
@@ -11297,6 +11732,9 @@
           "slot_uri": "GENEPIO:0001514",
           "alias": "diagnostic_pcr_protocol_3",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Pathogen diagnostic testing",
           "range": "WhitespaceMinimizedString"
         },
@@ -11309,6 +11747,9 @@
           "slot_uri": "GENEPIO:0001515",
           "alias": "diagnostic_pcr_Ct_value_3",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Pathogen diagnostic testing"
         },
         "authors": {
@@ -11320,6 +11761,9 @@
           "slot_uri": "GENEPIO:0001517",
           "alias": "authors",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Contributor acknowledgement",
           "range": "WhitespaceMinimizedString",
           "recommended": true
@@ -11333,6 +11777,9 @@
           "slot_uri": "GENEPIO:0001518",
           "alias": "DataHarmonizer_provenance",
           "owner": "CanCOGeN Covid-19",
+          "domain_of": [
+            "CanCOGeN Covid-19"
+          ],
           "slot_group": "Contributor acknowledgement",
           "range": "Provenance"
         }
