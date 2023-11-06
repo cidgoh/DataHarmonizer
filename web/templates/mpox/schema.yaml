@@ -1,6 +1,6 @@
-id: https://example.com/monkeypox
-name: Monkeypox
-version: 3.3.3
+id: https://example.com/mpox
+name: Mpox
+version: 4.3.3
 description: ''
 imports:
 - linkml:types
@@ -11,15 +11,14 @@ classes:
   dh_interface:
     name: dh_interface
     description: A DataHarmonizer interface
-    from_schema: https://example.com/Monkeypox
-  Monkeypox:
-    name: Monkeypox
-    description: Canadian specification for Monkeypox clinical virus biosample data
-      gathering
+    from_schema: https://example.com/Mpox
+  Mpox:
+    name: Mpox
+    description: Canadian specification for Mpox clinical virus biosample data gathering
     is_a: dh_interface
-    see_also: templates/monkeypox/SOP_Monkeypox.pdf
+    see_also: templates/mpox/SOP_Mpox.pdf
     annotations:
-      version: 3.3.3
+      version: 4.3.3
     slots:
     - specimen collector sample ID
     - Related specimen primary ID
@@ -90,10 +89,10 @@ classes:
     - host role
     - exposure setting
     - exposure details
-    - prior Monkeypox infection
-    - prior Monkeypox infection date
-    - prior Monkeypox antiviral treatment
-    - prior antiviral treatment during prior Monkeypox infection
+    - prior Mpox infection
+    - prior Mpox infection date
+    - prior Mpox antiviral treatment
+    - prior antiviral treatment during prior Mpox infection
     - purpose of sequencing
     - purpose of sequencing details
     - sequencing date
@@ -240,8 +239,11 @@ classes:
       organism:
         rank: 23
         slot_group: Sample collection and processing
+        comments: 'Use "Mpox virus". This value is provided in the template. Note:
+          the Mpox virus was formerly referred to as the "Monkeypox virus" but the
+          international nomenclature has changed (2022).'
         examples:
-        - value: Monkeypox virus
+        - value: Mpox virus
         any_of:
         - range: organism menu
         - range: null value menu
@@ -390,8 +392,11 @@ classes:
       host disease:
         rank: 41
         slot_group: Host Information
+        comments: 'Select "Mpox" from the pick list provided in the template.  Note:
+          the Mpox disease was formerly referred to as "Monkeypox" but the international
+          nomenclature has changed (2022).'
         examples:
-        - value: Monkeypox
+        - value: Mpox
         any_of:
         - range: host disease menu
         - range: null value menu
@@ -577,7 +582,7 @@ classes:
       exposure details:
         rank: 69
         slot_group: Host exposure information
-      prior Monkeypox infection:
+      prior Mpox infection:
         rank: 70
         slot_group: Host reinfection information
         examples:
@@ -587,10 +592,10 @@ classes:
         - range: null value menu
         exact_mappings:
         - NML_LIMS:prior Monkeypox infection
-      prior Monkeypox infection date:
+      prior Mpox infection date:
         rank: 71
         slot_group: Host reinfection information
-      prior Monkeypox antiviral treatment:
+      prior Mpox antiviral treatment:
         rank: 72
         slot_group: Host reinfection information
         examples:
@@ -600,7 +605,7 @@ classes:
         - range: null value menu
         exact_mappings:
         - NML_LIMS:prior Monkeypox antiviral treatment
-      prior antiviral treatment during prior Monkeypox infection:
+      prior antiviral treatment during prior Mpox infection:
         rank: 73
         slot_group: Host reinfection information
       purpose of sequencing:
@@ -776,14 +781,14 @@ classes:
       DataHarmonizer provenance:
         rank: 115
         slot_group: Contributor acknowledgement
-  Monkeypox_international:
-    name: Monkeypox_international
-    description: International specification for Monkeypox clinical virus biosample
-      data gathering
+  Mpox_international:
+    name: Mpox_international
+    description: International specification for Mpox clinical virus biosample data
+      gathering
     is_a: dh_interface
-    see_also: templates/monkeypox/SOP_Monkeypox_international.pdf
+    see_also: templates/mpox/SOP_Mpox_international.pdf
     annotations:
-      version: 3.3.3
+      version: 4.3.3
     slots:
     - specimen collector sample ID
     - case ID
@@ -856,10 +861,10 @@ classes:
     - host role
     - exposure setting
     - exposure details
-    - prior Monkeypox infection
-    - prior Monkeypox infection date
-    - prior Monkeypox antiviral treatment
-    - prior antiviral treatment during prior Monkeypox infection
+    - prior Mpox infection
+    - prior Mpox infection date
+    - prior Mpox antiviral treatment
+    - prior antiviral treatment during prior Mpox infection
     - purpose of sequencing
     - purpose of sequencing details
     - sequencing date
@@ -998,8 +1003,11 @@ classes:
       organism:
         rank: 25
         slot_group: Sample collection and processing
+        comments: 'Use "Mpox virus". This value is provided in the template.  Note:
+          the Mpox virus was formerly referred to as the "Monkeypox virus" but the
+          international nomenclature has changed (2022).'
         examples:
-        - value: Monkeypox virus [NCBITaxon:10244]
+        - value: Mpox virus [NCBITaxon:10244]
         any_of:
         - range: organism international menu
         - range: null value menu
@@ -1131,8 +1139,11 @@ classes:
       host disease:
         rank: 42
         slot_group: Host Information
+        comments: 'Select "Mpox" from the pick list provided in the template. Note:
+          the Mpox disease was formerly referred to as "Monkeypox" but the international
+          nomenclature has changed (2022).'
         examples:
-        - value: Monkeypox [MONDO:0002594]
+        - value: Mpox [MONDO:0002594]
         any_of:
         - range: host disease international menu
         - range: null value menu
@@ -1313,7 +1324,7 @@ classes:
       exposure details:
         rank: 71
         slot_group: Host exposure information
-      prior Monkeypox infection:
+      prior Mpox infection:
         rank: 72
         slot_group: Host reinfection information
         examples:
@@ -1321,10 +1332,10 @@ classes:
         any_of:
         - range: prior Monkeypox infection international menu
         - range: null value menu
-      prior Monkeypox infection date:
+      prior Mpox infection date:
         rank: 73
         slot_group: Host reinfection information
-      prior Monkeypox antiviral treatment:
+      prior Mpox antiviral treatment:
         rank: 74
         slot_group: Host reinfection information
         examples:
@@ -1332,7 +1343,7 @@ classes:
         any_of:
         - range: prior Monkeypox antiviral treatment international menu
         - range: null value menu
-      prior antiviral treatment during prior Monkeypox infection:
+      prior antiviral treatment during prior Mpox infection:
         rank: 75
         slot_group: Host reinfection information
       purpose of sequencing:
@@ -1492,7 +1503,7 @@ slots:
       any format, but we suggest that you make it concise, unique and consistent within
       your lab.
     examples:
-    - value: prov_monkeypox_1234
+    - value: prov_mpox_1234
     slot_uri: GENEPIO:0001123
     range: WhitespaceMinimizedString
     identifier: true
@@ -1871,7 +1882,6 @@ slots:
     name: organism
     title: organism
     description: Taxonomic name of the organism.
-    comments: Use "Monkeypox virus". This value is provided in the template.
     slot_uri: GENEPIO:0001191
     required: true
     exact_mappings:
@@ -2138,7 +2148,6 @@ slots:
     name: host disease
     title: host disease
     description: The name of the disease experienced by the host.
-    comments: Select "Monkeypox" from the pick list provided in the template.
     slot_uri: GENEPIO:0001391
     required: true
     exact_mappings:
@@ -2463,19 +2472,19 @@ slots:
     range: WhitespaceMinimizedString
     exact_mappings:
     - NML_LIMS:PH_EXPOSURE_DETAILS
-  prior Monkeypox infection:
-    name: prior Monkeypox infection
-    title: prior Monkeypox infection
-    description: The absence or presence of a prior Monkeypox infection.
+  prior Mpox infection:
+    name: prior Mpox infection
+    title: prior Mpox infection
+    description: The absence or presence of a prior Mpox infection.
     comments: If known, provide information about whether the individual had a previous
-      Monkeypox infection. Select a value from the pick list.
+      Mpox infection. Select a value from the pick list.
     slot_uri: GENEPIO:0100532
-  prior Monkeypox infection date:
-    name: prior Monkeypox infection date
-    title: prior Monkeypox infection date
-    description: The date of diagnosis of the prior Monkeypox infection.
+  prior Mpox infection date:
+    name: prior Mpox infection date
+    title: prior Mpox infection date
+    description: The date of diagnosis of the prior Mpox infection.
     comments: Provide the date that the most recent prior infection was diagnosed.
-      Provide the prior Monkeypox infection date in ISO 8601 standard format "YYYY-MM-DD".
+      Provide the prior Mpox infection date in ISO 8601 standard format "YYYY-MM-DD".
     examples:
     - value: '2022-06-20'
     slot_uri: GENEPIO:0100533
@@ -2484,24 +2493,23 @@ slots:
     - range: null value menu
     exact_mappings:
     - NML_LIMS:prior Monkeypox infection date
-  prior Monkeypox antiviral treatment:
-    name: prior Monkeypox antiviral treatment
-    title: prior Monkeypox antiviral treatment
-    description: The absence or presence of antiviral treatment for a prior Monkeypox
-      infection.
+  prior Mpox antiviral treatment:
+    name: prior Mpox antiviral treatment
+    title: prior Mpox antiviral treatment
+    description: The absence or presence of antiviral treatment for a prior Mpox infection.
     comments: If known, provide information about whether the individual had a previous
-      Monkeypox antiviral treatment. Select a value from the pick list.
+      Mpox antiviral treatment. Select a value from the pick list.
     slot_uri: GENEPIO:0100534
-  prior antiviral treatment during prior Monkeypox infection:
-    name: prior antiviral treatment during prior Monkeypox infection
-    title: prior antiviral treatment during prior Monkeypox infection
-    description: Antiviral treatment for any infection during the prior Moneypox infection
+  prior antiviral treatment during prior Mpox infection:
+    name: prior antiviral treatment during prior Mpox infection
+    title: prior antiviral treatment during prior Mpox infection
+    description: Antiviral treatment for any infection during the prior Mpox infection
       period.
     comments: Provide a description of any antiviral treatment administered for viral
-      infections (not including Monkeypox treatment) during the prior Monkeypox infection
-      period. This field is meant to capture concurrent treatment information.
+      infections (not including Mpox treatment) during the prior Mpox infection period.
+      This field is meant to capture concurrent treatment information.
     examples:
-    - value: AZT was administered for HIV infection during the prior Monkeypox infection.
+    - value: AZT was administered for HIV infection during the prior Mpox infection.
     slot_uri: GENEPIO:0100535
     range: WhitespaceMinimizedString
     exact_mappings:
@@ -2704,7 +2712,7 @@ slots:
   consensus sequence filepath:
     name: consensus sequence filepath
     title: consensus sequence filepath
-    description: The filepath of the consesnsus sequence file.
+    description: The filepath of the consensus sequence file.
     comments: Provide the filepath of the consensus sequence FASTA file.
     examples:
     - value: /User/Documents/ViralLab/Data/mpxvassembly.fasta
@@ -3061,7 +3069,7 @@ slots:
       generated in this field after the user utilizes the "validate" function. This
       information will be generated regardless as to whether the row is valid of not.
     examples:
-    - value: DataHarmonizer v1.4.3, Monkeypox v3.3.1
+    - value: DataHarmonizer v1.4.3, Mpox v3.3.1
     slot_uri: GENEPIO:0001518
     range: Provenance
     exact_mappings:
@@ -5720,8 +5728,8 @@ enums:
       Other Exposure Setting [GENEPIO:0100235]:
         text: Other Exposure Setting [GENEPIO:0100235]
         meaning: GENEPIO:0100235
-  prior Monkeypox infection menu:
-    name: prior Monkeypox infection menu
+  prior Mpox infection menu:
+    name: prior Mpox infection menu
     permissible_values:
       Prior infection:
         text: Prior infection
@@ -5729,8 +5737,8 @@ enums:
       No prior infection:
         text: No prior infection
         meaning: GENEPIO:0100233
-  prior Monkeypox infection international menu:
-    name: prior Monkeypox infection international menu
+  prior Mpox infection international menu:
+    name: prior Mpox infection international menu
     permissible_values:
       Prior infection [GENEPIO:0100037]:
         text: Prior infection [GENEPIO:0100037]
@@ -5738,8 +5746,8 @@ enums:
       No prior infection [GENEPIO:0100233]:
         text: No prior infection [GENEPIO:0100233]
         meaning: GENEPIO:0100233
-  prior Monkeypox antiviral treatment menu:
-    name: prior Monkeypox antiviral treatment menu
+  prior Mpox antiviral treatment menu:
+    name: prior Mpox antiviral treatment menu
     permissible_values:
       Prior antiviral treatment:
         text: Prior antiviral treatment
@@ -5747,8 +5755,8 @@ enums:
       No prior antiviral treatment:
         text: No prior antiviral treatment
         meaning: GENEPIO:0100233
-  prior Monkeypox antiviral treatment international menu:
-    name: prior Monkeypox antiviral treatment international menu
+  prior Mpox antiviral treatment international menu:
+    name: prior Mpox antiviral treatment international menu
     permissible_values:
       Prior antiviral treatment [GENEPIO:0100037]:
         text: Prior antiviral treatment [GENEPIO:0100037]
@@ -5759,26 +5767,26 @@ enums:
   organism menu:
     name: organism menu
     permissible_values:
-      Monkeypox virus:
-        text: Monkeypox virus
+      Mpox virus:
+        text: Mpox virus
         meaning: NCBITaxon:10244
   organism international menu:
     name: organism international menu
     permissible_values:
-      Monkeypox virus [NCBITaxon:10244]:
-        text: Monkeypox virus [NCBITaxon:10244]
+      Mpox virus [NCBITaxon:10244]:
+        text: Mpox virus [NCBITaxon:10244]
         meaning: NCBITaxon:10244
   host disease menu:
     name: host disease menu
     permissible_values:
-      Monkeypox:
-        text: Monkeypox
+      Mpox:
+        text: Mpox
         meaning: MONDO:0002594
   host disease international menu:
     name: host disease international menu
     permissible_values:
-      Monkeypox [MONDO:0002594]:
-        text: Monkeypox [MONDO:0002594]
+      Mpox [MONDO:0002594]:
+        text: Mpox [MONDO:0002594]
         meaning: MONDO:0002594
   purpose of sampling menu:
     name: purpose of sampling menu

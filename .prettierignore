@@ -1,4 +1,6 @@
 **/dist/**/*
 web/templates/**/*
 .venv
+.notes
+.vscode
 README.md

@@ -1,6 +1,6 @@
-id: https://example.com/monkeypox
-name: Monkeypox
-version: 3.3.3
+id: https://example.com/mpox
+name: Mpox
+version: 4.3.3
 description: ""
 imports:
   - 'linkml:types'
@@ -11,21 +11,21 @@ classes:
   dh_interface:
     name: dh_interface
     description: 'A DataHarmonizer interface'
-    from_schema: https://example.com/Monkeypox
-  'Monkeypox':
-    name: 'Monkeypox'
-    description: Canadian specification for Monkeypox clinical virus biosample data gathering
+    from_schema: https://example.com/Mpox
+  'Mpox':
+    name: 'Mpox'
+    description: Canadian specification for Mpox clinical virus biosample data gathering
     is_a: dh_interface
-    see_also: templates/monkeypox/SOP_Monkeypox.pdf
+    see_also: templates/mpox/SOP_Mpox.pdf
     annotations:
-      version: 3.3.3
-  "Monkeypox_international":
-    name: "Monkeypox_international"
-    description: International specification for Monkeypox clinical virus biosample data gathering
+      version: 4.3.3
+  "Mpox_international":
+    name: "Mpox_international"
+    description: International specification for Mpox clinical virus biosample data gathering
     is_a: dh_interface
-    see_also: templates/monkeypox/SOP_Monkeypox_international.pdf
+    see_also: templates/mpox/SOP_Mpox_international.pdf
     annotations:
-      version: 3.3.3
+      version: 4.3.3
 slots: {}
 enums: {}
 types:
