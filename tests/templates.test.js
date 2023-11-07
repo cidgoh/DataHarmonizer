@@ -30,18 +30,30 @@ template.schema.prefixes.linkml.prefix_prefix == 'linkml'
 template.schema.default.prefixes.linkml.prefix_prefix == 'linkml'
 */
 
-// TODO
-describe('TemplateProxy', () => {
+describe('Template', () => {
   let proxy;
 
   beforeEach(async () => {
-    // Mock the actual buildTemplate with our version
+    
+    const overrides = {
+      fetchFileImpl: jest.fn(async function(filePath) {
+        try {
+          const response = Promise.resolve(require('../web/'+filePath));
+          return response;
+        } catch (error) {
+          console.error(`Failed to load ${filePath}: ${error}`);
+          throw error;
+        }
+      })
+    };
+
     // initiate localized
-    proxy = await Template.create('test', 'de');
+    proxy = await Template.create('test', { locale: 'de', overrides });
   });
 
   test('should return localized property if it exists', () => {
-    expect(proxy.schema.name).toBe('AMBR_de');
+    // proxy.updateLocale('de');
+    expect(proxy.schema.name).toBe('TEST_de');
     expect(proxy.schema.name).toBe(proxy.localized.schema.name);
   });
 
@@ -51,14 +63,14 @@ describe('TemplateProxy', () => {
 
   test('should switch to a new locale and return appropriate data', () => {
     proxy.updateLocale('fr');
-    expect(proxy.schema.name).toBe('AMBR_fr');
+    expect(proxy.schema.name).toBe('TEST_fr');
     expect(proxy.schema.name).toBe(proxy.localized.schema.name);
     expect(proxy.schema.description).toBe('french_description');
   });
 
   test('should return to the default locale when updating empty', () => {
     proxy.updateLocale();
-    expect(proxy.schema.name).toBe('AMBR');
+    expect(proxy.schema.name).toBe('TEST');
     expect(proxy.schema.name).toBe(proxy.default.schema.name);
     expect(proxy.schema.description).toBe(proxy.default.schema.description);
   });
@@ -135,20 +147,31 @@ describe('Template utilities', () => {
     jest.clearAllMocks();
   });
 
-  // TODO
   describe('accessTemplate', () => {
+    const overrides = {
+      fetchFileImpl: jest.fn(async function(filePath) {
+        try {
+          const response = Promise.resolve(require('../web/'+filePath));
+          return response;
+        } catch (error) {
+          console.error(`Failed to load ${filePath}: ${error}`);
+          throw error;
+        }
+      })
+    };
+
     it('should return the correct template if it exists', async () => {
       const mockTemplate = { name: 'template1' };
       jest.mock('@/web/templates/manifest.json', () => ({
         children: [mockTemplate],
       }));
 
-      const result = await accessTemplate('test');
+      const result = await accessTemplate('test', overrides.fetchFileImpl);
       expect(result[0]).toBe('test');
     });
 
     it('should return null if the template does not exist', async () => {
-      const result = await accessTemplate('non-existent-template');
+      const result = await accessTemplate('non-existent-template', overrides.fetchFileImpl);
       expect(result).toBeNull();
     });
   });
