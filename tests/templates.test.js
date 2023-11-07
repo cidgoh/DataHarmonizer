@@ -34,17 +34,16 @@ describe('Template', () => {
   let proxy;
 
   beforeEach(async () => {
-    
     const overrides = {
-      fetchFileImpl: jest.fn(async function(filePath) {
+      fetchFileImpl: jest.fn(async function (filePath) {
         try {
-          const response = Promise.resolve(require('../web/'+filePath));
+          const response = Promise.resolve(require('../web/' + filePath));
           return response;
         } catch (error) {
           console.error(`Failed to load ${filePath}: ${error}`);
           throw error;
         }
-      })
+      }),
     };
 
     // initiate localized
@@ -149,15 +148,15 @@ describe('Template utilities', () => {
 
   describe('accessTemplate', () => {
     const overrides = {
-      fetchFileImpl: jest.fn(async function(filePath) {
+      fetchFileImpl: jest.fn(async function (filePath) {
         try {
-          const response = Promise.resolve(require('../web/'+filePath));
+          const response = Promise.resolve(require('../web/' + filePath));
           return response;
         } catch (error) {
           console.error(`Failed to load ${filePath}: ${error}`);
           throw error;
         }
-      })
+      }),
     };
 
     it('should return the correct template if it exists', async () => {
@@ -171,7 +170,10 @@ describe('Template utilities', () => {
     });
 
     it('should return null if the template does not exist', async () => {
-      const result = await accessTemplate('non-existent-template', overrides.fetchFileImpl);
+      const result = await accessTemplate(
+        'non-existent-template',
+        overrides.fetchFileImpl
+      );
       expect(result).toBeNull();
     });
   });
