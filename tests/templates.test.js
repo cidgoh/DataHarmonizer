@@ -30,46 +30,47 @@ template.schema.prefixes.linkml.prefix_prefix == 'linkml'
 template.schema.default.prefixes.linkml.prefix_prefix == 'linkml'
 */
 
-// describe('TemplateProxy', () => {
-//   let proxy;
+// TODO
+describe('TemplateProxy', () => {
+  let proxy;
 
-//   beforeEach(async () => {
-//     // Mock the actual buildTemplate with our version
-//     // initiate localized
-//     proxy = await Template.create('test', 'de');
-//   });
+  beforeEach(async () => {
+    // Mock the actual buildTemplate with our version
+    // initiate localized
+    proxy = await Template.create('test', 'de');
+  });
 
-//   test('should return localized property if it exists', () => {
-//     expect(proxy.schema.name).toBe('AMBR_de');
-//     expect(proxy.schema.name).toBe(proxy.localized.schema.name);
-//   });
+  test('should return localized property if it exists', () => {
+    expect(proxy.schema.name).toBe('AMBR_de');
+    expect(proxy.schema.name).toBe(proxy.localized.schema.name);
+  });
 
-//   test('should return default property if localized version doesn’t exist', () => {
-//     expect(proxy.schema.description).toBe('default_description');
-//   });
+  test('should return default property if localized version doesn’t exist', () => {
+    expect(proxy.schema.description).toBe('default_description');
+  });
 
-//   test('should switch to a new locale and return appropriate data', () => {
-//     proxy.updateLocale('fr');
-//     expect(proxy.schema.name).toBe('AMBR_fr');
-//     expect(proxy.schema.name).toBe(proxy.localized.schema.name);
-//     expect(proxy.schema.description).toBe('french_description');
-//   });
+  test('should switch to a new locale and return appropriate data', () => {
+    proxy.updateLocale('fr');
+    expect(proxy.schema.name).toBe('AMBR_fr');
+    expect(proxy.schema.name).toBe(proxy.localized.schema.name);
+    expect(proxy.schema.description).toBe('french_description');
+  });
 
-//   test('should return to the default locale when updating empty', () => {
-//     proxy.updateLocale();
-//     expect(proxy.schema.name).toBe('AMBR');
-//     expect(proxy.schema.name).toBe(proxy.default.schema.name);
-//     expect(proxy.schema.description).toBe(proxy.default.schema.description);
-//   });
+  test('should return to the default locale when updating empty', () => {
+    proxy.updateLocale();
+    expect(proxy.schema.name).toBe('AMBR');
+    expect(proxy.schema.name).toBe(proxy.default.schema.name);
+    expect(proxy.schema.description).toBe(proxy.default.schema.description);
+  });
 
-//   test('should throw error for unsupported locale', () => {
-//     expect(() => proxy.updateLocale('es')).toThrow(
-//       'Locale es is not supported by the template.'
-//     );
-//   });
+  test('should throw error for unsupported locale', () => {
+    expect(() => proxy.updateLocale('es')).toThrow(
+      'Locale es is not supported by the template.'
+    );
+  });
 
-//   // Additional tests can be based on other methods and functionalities of the TemplateProxy class
-// });
+  // Additional tests can be based on other methods and functionalities of the TemplateProxy class
+});
 
 describe('deepMerge function', () => {
   it('should merge two objects deeply', () => {
@@ -135,22 +136,22 @@ describe('Template utilities', () => {
   });
 
   // TODO
-  // describe('accessTemplate', () => {
-  //   it('should return the correct template if it exists', async () => {
-  //     const mockTemplate = { name: 'template1' };
-  //     jest.mock('@/web/templates/manifest.json', () => ({
-  //       children: [mockTemplate],
-  //     }));
+  describe('accessTemplate', () => {
+    it('should return the correct template if it exists', async () => {
+      const mockTemplate = { name: 'template1' };
+      jest.mock('@/web/templates/manifest.json', () => ({
+        children: [mockTemplate],
+      }));
 
-  //     const result = await accessTemplate('test');
-  //     expect(result[0]).toBe('test');
-  //   });
+      const result = await accessTemplate('test');
+      expect(result[0]).toBe('test');
+    });
 
-  //   it('should return null if the template does not exist', async () => {
-  //     const result = await accessTemplate('non-existent-template');
-  //     expect(result).toBeNull();
-  //   });
-  // });
+    it('should return null if the template does not exist', async () => {
+      const result = await accessTemplate('non-existent-template');
+      expect(result).toBeNull();
+    });
+  });
 
   describe('buildTemplate', () => {
     it('should correctly build the template', async () => {

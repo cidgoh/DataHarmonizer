@@ -20,7 +20,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // internationalize
   // TODO: connect to locale of schema!
-  initI18n((lang) => {
+  // Takes `lang` as argument (unused)
+  initI18n(() => {
     $(document).localize();
     dh.hot.render();
   });
