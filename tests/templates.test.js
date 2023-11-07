@@ -34,9 +34,11 @@ describe('Template', () => {
   let proxy;
 
   beforeEach(async () => {
+    /* eslint-disable */
     const overrides = {
       fetchFileImpl: jest.fn(async function (filePath) {
         try {
+          //
           const response = Promise.resolve(require('../web/' + filePath));
           return response;
         } catch (error) {
@@ -45,6 +47,7 @@ describe('Template', () => {
         }
       }),
     };
+    /* eslint-enable */
 
     // initiate localized
     proxy = await Template.create('test', { locale: 'de', overrides });
@@ -147,6 +150,7 @@ describe('Template utilities', () => {
   });
 
   describe('accessTemplate', () => {
+    /* eslint-disable */
     const overrides = {
       fetchFileImpl: jest.fn(async function (filePath) {
         try {
@@ -158,6 +162,7 @@ describe('Template utilities', () => {
         }
       }),
     };
+    /* eslint-enable */
 
     it('should return the correct template if it exists', async () => {
       const mockTemplate = { name: 'template1' };
