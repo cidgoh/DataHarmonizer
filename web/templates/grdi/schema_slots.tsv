@@ -47,7 +47,7 @@ Multiple identifiers can be provided and separated by semi-colons. If the inform
 	Sample collection and processing	GENEPIO:0100444	food_product		food_product menu	null value menu		TRUE		TRUE					A material consumed and digested for nutritional value or enjoyment.	This field includes animal feed. If applicable, select the standardized term and ontology ID for the anatomical material from the picklist provided. Multiple values can be provided, separated by a semi-colon.	Feather meal [FOODON:00003927]; Bone meal [ENVO:02000054]; Chicken breast [FOODON:00002703]	isolation_source;food_product
 	Sample collection and processing	GENEPIO:0100445	food_product_properties		food_product_properties menu	null value menu		TRUE		TRUE					Any characteristic of the food product pertaining to its state, processing, a label claim, or implications for consumers.	Provide any characteristics of the food product including whether it has been cooked, processed, preserved, any known information about its state (e.g. raw, ready-to-eat), any known information about its containment (e.g. canned), and any information about a label claim (e.g. organic, fat-free).	Food (chopped) [FOODON:00002777]; Ready-to-eat (RTE) [FOODON:03316636]	isolation_source;food_product_properties
 	Sample collection and processing	GENEPIO:0100446	animal_source_of_food		animal_source_of_food menu	null value menu		TRUE		TRUE					The animal from which the food product was derived.	Provide the common name of the animal. If not applicable, leave blank. Multiple entries can be provided, separated by a comma.	Chicken [NCBITaxon:9031]	
-	Sample collection and processing	GENEPIO:0100699	production_stream		production_stream menu	null value menu									A production pathway incorporating the processes, material entities (e.g. equipment, animals, locations), and conditions that participate in the generation of a particular commodity.	Provide the name of the agricultural production stream from the picklist.		
+	Sample collection and processing	GENEPIO:0100699	food_product_production_stream		food_product_production_stream menu	null value menu									A production pathway incorporating the processes, material entities (e.g. equipment, animals, locations), and conditions that participate in the generation of a food commodity.	Provide the name of the agricultural production stream from the picklist.	Beef cattle production stream [FOODON:03000452]	
 	Sample collection and processing	GENEPIO:0100447	sample_storage_method		WhitespaceMinimizedString										The type of packaging used to contain a food product.	If known, provide information regarding how the food product was packaged.	Plastic tray or pan [FOODON:03490126]	
 	Sample collection and processing	GENEPIO:0100448	sample_storage_medium		WhitespaceMinimizedString										A specification of the way that a specimen is or was stored.	Provide a description of how the same was stored.	Frozen at -20C	
 	Sample collection and processing	GENEPIO:0001234	collection_device		collection_device menu	null value menu				TRUE					The instrument or container used to collect the sample e.g. swab.	This field includes animal feed. If applicable, select the standardized term and ontology ID for the anatomical material from the picklist provided. Multiple values can be provided, separated by a semi-colon.	PBS + 20% glycerol	isolation_source;collection_device
@@ -734,14 +734,3 @@ Multiple alternative isolate IDs can be provided, separated by semi-colons."	GHI
 		GENEPIO:0001516	Contributor acknowledgement															
 	Contributor acknowledgement	GENEPIO:0001517	authors		WhitespaceMinimizedString					TRUE					Names of individuals contributing to the processes of sample collection, sequence generation, analysis, and data submission.	Include the first and last names of all individuals that should be attributed, separated by a comma.	Tejinder Singh, Fei Hu, Joe Blogs	
 	Contributor acknowledgement	GENEPIO:0001518	DataHarmonizer provenance		Provenance										The DataHarmonizer software and template version provenance.	The current software and template version information will be automatically generated in this field after the user utilizes the "validate" function. This information will be generated regardless as to whether the row is valid of not.	DataHarmonizer v1.4.3, GRDI v1.0.0	
-																		
-																		
-																		
-																		
-																		
-																		
-																		
-																		
-																		
-																		
-																		
