@@ -2,7 +2,7 @@
   "name": "CanCOGeN_Covid-19",
   "description": "",
   "id": "https://example.com/CanCOGeN_Covid-19",
-  "version": "2.1.3",
+  "version": "2.2.3",
   "prefixes": {
     "linkml": {
       "prefix_prefix": "linkml",
@@ -4128,6 +4128,9 @@
         "Newfoundland and Labrador - Eastern Health": {
           "text": "Newfoundland and Labrador - Eastern Health"
         },
+        "Newfoundland and Labrador - Newfoundland and Labrador Health Services": {
+          "text": "Newfoundland and Labrador - Newfoundland and Labrador Health Services"
+        },
         "Nova Scotia Health Authority": {
           "text": "Nova Scotia Health Authority"
         },
@@ -4219,6 +4222,9 @@
         },
         "Newfoundland and Labrador - Eastern Health": {
           "text": "Newfoundland and Labrador - Eastern Health"
+        },
+        "Newfoundland and Labrador - Newfoundland and Labrador Health Services": {
+          "text": "Newfoundland and Labrador - Newfoundland and Labrador Health Services"
         },
         "Nova Scotia Health Authority": {
           "text": "Nova Scotia Health Authority"
