@@ -79,11 +79,28 @@ document.addEventListener('DOMContentLoaded', function () {
           const schema_resource = Object.entries(translation.schema.slots)
             .reduce((acc, [slot_symbol, { name }]) => ({ ...acc, [slot_symbol.replace(/ /g, '_')]: name }), {});
           
-            console.log([langcode, translation.schema.slots]);
+          console.log([langcode, translation.schema.slots]);
           console.log(schema_resource);
 
+          const enum_resource = Object.entries(translation.schema.enums)
+            .reduce((acc, [
+              enum_symbol,
+              { permissible_values }
+            ]) => ({ 
+              ...acc, 
+              ...Object.entries(permissible_values).reduce((acc1, [enum_value, {
+                text, //meaning
+              }]) =>({
+                ...acc1,
+                [enum_value]: text,
+              }), {})
+            }), {});
+
           // TODO: namespace to schema path?
-          i18n.addResources(langcode.split('-')[0], 'translation', schema_resource);
+          i18n.addResources(langcode.split('-')[0], 'translation', {
+            ...schema_resource,
+            ...enum_resource,
+          });
         }
       );
 
