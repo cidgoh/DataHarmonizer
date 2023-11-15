@@ -43,67 +43,68 @@ document.addEventListener('DOMContentLoaded', function () {
     releasesURL: 'https://github.com/cidgoh/pathogen-genomics-package/releases',
     // TODO: reduce duplication of the Template.create(); object
     getLanguages: async (schema) => {
-      // TODO: can this logic be hidden even more?
+
+      // Consolidate function for reducing objects
+      function consolidate(iterable, reducer) {
+        return Object.entries(iterable).reduce(reducer, {});
+      }
+
       const template = await Template.create(schema);
-
-      let locales;
-      // TODO - distinguish between regional localization?
-      locales = template.locales.reduce(
-        (acc, locale) => {
-          const langcode = locale.split('-')[0];
-          const nativeName = tags.language(langcode).data.record.Description[0];
-          return {
+      const defaultLocale = {
+        langcode: 'default',
+        nativeName: 'Default',
+      };
+      const locales = {
+        default: defaultLocale,
+      };
+    
+      template.locales.forEach((locale) => {
+        const langcode = locale.split('-')[0];
+        const nativeName = tags.language(langcode).data.record.Description[0] || 'Default';
+        locales[langcode] = { langcode, nativeName };
+      });
+    
+      Object.entries(template.translations).forEach(([langcode, translation]) => {
+        const schema_resource = consolidate(translation.schema.slots, (acc, [slot_symbol, { name }]) => ({
+          ...acc,
+          [slot_symbol.replace(/ /g, '_')]: name,
+        }));
+    
+        const enum_resource = consolidate(translation.schema.enums, (acc, [enum_symbol, { permissible_values }]) => {
+          for (const [enum_value, { text }] of Object.entries(permissible_values)) {
+            acc[enum_value] = text;
+          }
+          return acc;
+        });
+    
+        const translated_sections = consolidate(
+          translation.schema.classes[template.default.schema.name].slot_usage,
+          (acc, [translation_slot_name, { slot_group }]) => ({
             ...acc,
-            [langcode]: {
-              langcode,
-              nativeName,
-            },
-          };
-        },
-        {
-          // TODO: default value propagation to which functions?
-          default: {
-            langcode: 'default',
-            nativeName: 'Default',
-          },
-        }
-      );
-
-      Object.entries(template.translations).forEach(
-        ([langcode, translation]) => {
-          // schema_resource:
-          // slots -> <slot_symbol> -> <slot_name> ~ label
-          // :: translation.schema.slots
-          // enums
-
-          const schema_resource = Object.entries(translation.schema.slots)
-            .reduce((acc, [slot_symbol, { name }]) => ({ ...acc, [slot_symbol.replace(/ /g, '_')]: name }), {});
-          
-          console.log([langcode, translation.schema.slots]);
-          console.log(schema_resource);
-
-          const enum_resource = Object.entries(translation.schema.enums)
-            .reduce((acc, [
-              enum_symbol,
-              { permissible_values }
-            ]) => ({ 
-              ...acc, 
-              ...Object.entries(permissible_values).reduce((acc1, [enum_value, {
-                text, //meaning
-              }]) =>({
-                ...acc1,
-                [enum_value]: text,
-              }), {})
-            }), {});
-
-          // TODO: namespace to schema path?
-          i18n.addResources(langcode.split('-')[0], 'translation', {
-            ...schema_resource,
-            ...enum_resource,
-          });
-        }
-      );
-
+            [translation_slot_name]: slot_group,
+          })
+        );
+    
+        const default_sections = consolidate(
+          template.default.schema.classes[template.default.schema.name].slot_usage,
+          (acc, [default_slot_name, { slot_group }]) => ({
+            ...acc,
+            [default_slot_name]: slot_group,
+          })
+        );
+    
+        const section_resource = consolidate(translated_sections, (acc, [translation_slot_name]) => ({
+          ...acc,
+          [default_sections[translation_slot_name]]: translated_sections[translation_slot_name],
+        }));
+    
+        i18n.addResources(langcode.split('-')[0], 'translation', {
+          ...section_resource,
+          ...schema_resource,
+          ...enum_resource,
+        });
+      });
+    
       return locales;
     },
     getSchema: async (schema) => {
