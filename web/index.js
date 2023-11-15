@@ -43,7 +43,6 @@ document.addEventListener('DOMContentLoaded', function () {
     releasesURL: 'https://github.com/cidgoh/pathogen-genomics-package/releases',
     // TODO: reduce duplication of the Template.create(); object
     getLanguages: async (schema) => {
-
       // Consolidate function for reducing objects
       function consolidate(iterable, reducer) {
         return Object.entries(iterable).reduce(reducer, {});
@@ -57,54 +56,70 @@ document.addEventListener('DOMContentLoaded', function () {
       const locales = {
         default: defaultLocale,
       };
-    
+
       template.locales.forEach((locale) => {
         const langcode = locale.split('-')[0];
-        const nativeName = tags.language(langcode).data.record.Description[0] || 'Default';
+        const nativeName =
+          tags.language(langcode).data.record.Description[0] || 'Default';
         locales[langcode] = { langcode, nativeName };
       });
-    
-      Object.entries(template.translations).forEach(([langcode, translation]) => {
-        const schema_resource = consolidate(translation.schema.slots, (acc, [slot_symbol, { name }]) => ({
-          ...acc,
-          [slot_symbol.replace(/ /g, '_')]: name,
-        }));
-    
-        const enum_resource = consolidate(translation.schema.enums, (acc, [enum_symbol, { permissible_values }]) => {
-          for (const [enum_value, { text }] of Object.entries(permissible_values)) {
-            acc[enum_value] = text;
-          }
-          return acc;
-        });
-    
-        const translated_sections = consolidate(
-          translation.schema.classes[template.default.schema.name].slot_usage,
-          (acc, [translation_slot_name, { slot_group }]) => ({
-            ...acc,
-            [translation_slot_name]: slot_group,
-          })
-        );
-    
-        const default_sections = consolidate(
-          template.default.schema.classes[template.default.schema.name].slot_usage,
-          (acc, [default_slot_name, { slot_group }]) => ({
-            ...acc,
-            [default_slot_name]: slot_group,
-          })
-        );
-    
-        const section_resource = consolidate(translated_sections, (acc, [translation_slot_name]) => ({
-          ...acc,
-          [default_sections[translation_slot_name]]: translated_sections[translation_slot_name],
-        }));
-    
-        i18n.addResources(langcode.split('-')[0], 'translation', {
-          ...section_resource,
-          ...schema_resource,
-          ...enum_resource,
-        });
-      });
-    
+
+      Object.entries(template.translations).forEach(
+        ([langcode, translation]) => {
+          const schema_resource = consolidate(
+            translation.schema.slots,
+            (acc, [slot_symbol, { name }]) => ({
+              ...acc,
+              [slot_symbol.replace(/ /g, '_')]: name,
+            })
+          );
+
+          const enum_resource = consolidate(
+            translation.schema.enums,
+            (acc, [enum_symbol, { permissible_values }]) => {
+              for (const [enum_value, { text }] of Object.entries(
+                permissible_values
+              )) {
+                acc[enum_value] = text;
+              }
+              return acc;
+            }
+          );
+
+          const translated_sections = consolidate(
+            translation.schema.classes[template.default.schema.name].slot_usage,
+            (acc, [translation_slot_name, { slot_group }]) => ({
+              ...acc,
+              [translation_slot_name]: slot_group,
+            })
+          );
+
+          const default_sections = consolidate(
+            template.default.schema.classes[template.default.schema.name]
+              .slot_usage,
+            (acc, [default_slot_name, { slot_group }]) => ({
+              ...acc,
+              [default_slot_name]: slot_group,
+            })
+          );
+
+          const section_resource = consolidate(
+            translated_sections,
+            (acc, [translation_slot_name]) => ({
+              ...acc,
+              [default_sections[translation_slot_name]]:
+                translated_sections[translation_slot_name],
+            })
+          );
+
+          i18n.addResources(langcode.split('-')[0], 'translation', {
+            ...section_resource,
+            ...schema_resource,
+            ...enum_resource,
+          });
+        }
+      );
+
       return locales;
     },
     getSchema: async (schema) => {
