@@ -15,12 +15,15 @@
           class="dropdown-item"
           data-toggle="modal"
           data-target="#select-template-modal"
+          id="select-template-modal-button"
+          data-i18n="select-template-modal-button"
           >Select Template</span
         >
         <label
           for="upload-template-input"
           class="dropdown-item mb-0"
           id="upload-template-dropdown-item"
+          data-i18n="upload-template-dropdown-item"
           >Upload Template</label
         >
         <input
@@ -29,11 +32,17 @@
           class="form-control-file"
           id="upload-template-input"
         />
-        <span class="dropdown-item" id="new-dropdown-item">New</span>
+        <span
+          class="dropdown-item"
+          id="new-dropdown-item"
+          data-i18n="new-dropdown-item"
+          >New</span
+        >
         <label
           for="open-file-input"
           class="dropdown-item mb-0"
           id="open-dropdown-item"
+          data-i18n="open-dropdown-item"
           >Open</label
         >
         <input
@@ -41,17 +50,20 @@
           accept=".xlsx,.xls,.tsv,.csv,.json"
           class="form-control-file"
           id="open-file-input"
+          data-i18n="open-file-input"
         />
         <span
           class="dropdown-item"
           data-toggle="modal"
           id="save-as-dropdown-item"
+          data-i18n="save-as-dropdown-item"
           >Save As...</span
         >
         <span
           class="dropdown-item"
           data-toggle="modal"
           id="export-to-dropdown-item"
+          data-i18n="export-to-dropdown-item"
           >Export To...</span
         >
         <!-- span class="dropdown-item" data-toggle="modal" id="export-to-dropdown-item" data-target="#export-to-modal">Export To...</span -->
@@ -68,13 +80,22 @@
         Settings
       </button>
       <div class="dropdown-menu">
-        <span class="dropdown-item disabled" id="show-all-cols-dropdown-item"
+        <span
+          class="dropdown-item disabled"
+          id="show-all-cols-dropdown-item"
+          data-i18n="show-all-cols-dropdown-item"
           >Show all columns</span
         >
-        <span class="dropdown-item" id="show-required-cols-dropdown-item"
+        <span
+          class="dropdown-item"
+          id="show-required-cols-dropdown-item"
+          data-i18n="show-required-cols-dropdown-item"
           >Show required columns</span
         >
-        <span class="dropdown-item" id="show-recommended-cols-dropdown-item"
+        <span
+          class="dropdown-item"
+          id="show-recommended-cols-dropdown-item"
+          data-i18n="show-recommended-cols-dropdown-item"
           >Show required + recommended columns</span
         >
         <div style="padding: 0.25rem 1.5rem">
@@ -85,22 +106,26 @@
         <span
           class="dropdown-item hidden-dropdown-item"
           id="show-all-rows-dropdown-item"
+          data-i18n="show-all-rows-dropdown-item"
           >Show all rows</span
         >
         <span
           class="dropdown-item hidden-dropdown-item"
           id="show-valid-rows-dropdown-item"
+          data-i18n="show-valid-rows-dropdown-item"
           >Show valid rows</span
         >
         <span
           class="dropdown-item hidden-dropdown-item"
           id="show-invalid-rows-dropdown-item"
+          data-i18n="show-invalid-rows-dropdown-item"
           >Show invalid rows</span
         >
 
         <span
           class="dropdown-item"
           id="jump-to-dropdown-item"
+          data-i18n="jump-to-dropdown-item"
           data-toggle="modal"
           data-target="#jump-to-modal"
           >Jump to...</span
@@ -108,6 +133,7 @@
         <span
           class="dropdown-item"
           id="fill-dropdown-item"
+          data-i18n="fill-dropdown-item"
           data-toggle="modal"
           data-target="#fill-modal"
           >Fill column...</span
@@ -116,11 +142,17 @@
         <span class="dropdown-item disabled" id="version-dropdown-item"></span>
       </div>
     </div>
-    <button type="button" class="btn btn-primary" id="validate-btn">
+    <button
+      type="button"
+      class="btn btn-primary"
+      id="validate-btn"
+      data-i18n="validate-btn"
+    >
       Validate
     </button>
   </div>
 
+  <!-- TODO: data-i18n -->
   <div class="btn-group d-none d-sm-inline" role="group">
     <button
       class="btn btn-info dropdown-toggle"
@@ -133,9 +165,11 @@
     </button>
     <div class="dropdown-menu">
       <span
+        id="getting-started-modal-menu"
         class="dropdown-item"
         data-toggle="modal"
         data-target="#getting-started-modal"
+        data-i18n="getting-started-modal-menu"
         >Getting Started</span
       >
       <a class="dropdown-item" target="_blank" id="help_reference" href=""
@@ -147,6 +181,7 @@
         target="_blank"
         id="help_release"
         href="https://github.com/cidgoh/DataHarmonizer/releases"
+        data-i18n="help_release"
         >Get Latest Release</a
       >
       <span
@@ -169,7 +204,17 @@
         style="background-color: transparent; cursor: pointer"
         data-toggle="modal"
         data-target="#select-template-modal"
+        data-i18n="template_name_display"
       ></div>
+    </div>
+  </div>
+
+  <div class="btn-group" role="group" style="margin-right: 40px">
+    <div class="input-group-prepend">
+      <div class="btn">Language</div>
+    </div>
+    <div class="input-group-append">
+      <select class="form-control" id="select-language-localization"></select>
     </div>
   </div>
 
@@ -319,6 +364,7 @@
                   data-dismiss="modal"
                   data-toggle="modal"
                   data-target="#save-as-modal"
+                  data-i18n="save-as-modal"
                 >
                   Continue
                 </button>
@@ -369,13 +415,22 @@
                     type="checkbox"
                     id="save-as-json-use-index"
                   />
-                  <label class="form-check-label" for="save-as-json-use-index">
+                  <label
+                    class="form-check-label"
+                    for="save-as-json-use-index"
+                    data-i18n="save-as-json-use-index"
+                  >
                     Save as object with index key
                   </label>
                 </div>
               </div>
               <div class="col-4">
-                <label class="sr-only" for="save-as-json-index-key">Name</label>
+                <label
+                  class="sr-only"
+                  for="save-as-json-index-key"
+                  data-i18n="save-as-json-use-index-key"
+                  >Name</label
+                >
                 <input
                   type="text"
                   class="form-control mt-2"
@@ -444,6 +499,8 @@
                   data-dismiss="modal"
                   data-toggle="modal"
                   data-target="#export-to-modal"
+                  id="export-to-modal-btn"
+                  data-i18n="export-to-modal-btn"
                 >
                   Continue
                 </button>
@@ -500,6 +557,7 @@
                   type="button"
                   class="btn btn-primary"
                   id="export-to-confirm-btn"
+                  data-i18n="export-to-confirm-btn"
                 >
                   Export
                 </button>
@@ -571,7 +629,9 @@
             <div class="row">
               <div class="col">
                 <div>
-                  <label for="jump-to-input">Jump to...</label>
+                  <label for="jump-to-input" data-i18n="jump-to-input"
+                    >Jump to...</label
+                  >
                   <select id="jump-to-input" class="form-control"></select>
                 </div>
               </div>
@@ -589,7 +649,7 @@
             <div class="row">
               <div class="col-sm-6">
                 <div>
-                  <label for="fill-column-input"
+                  <label for="fill-column-input" data-i18n="fill-column-input"
                     >Fill cells in column ...</label
                   >
                   <select id="fill-column-input" class="form-control"></select>

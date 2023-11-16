@@ -1,0 +1,27 @@
+{
+  "open-dropdown-item": {
+    "fr": "Ouvrir"
+  },
+  "upload-template-dropdown-item": {},
+  "select-template-modal-button": {},
+  "new-dropdown-item": {},
+  "open-file-input": {},
+  "save-as-dropdown-item": {},
+  "export-to-dropdown-item": {},
+  "show-all-cols-dropdown-item": {},
+  "show-required-cols-dropdown-item": {},
+  "show-all-rows-dropdown-item": {},
+  "show-valid-rows-dropdown-item": {},
+  "show-invalid-rows-dropdown-item": {},
+  "jump-to-dropdown-item": {},
+  "fill-dropdown-item": {},
+  "validate-btn": {},
+  "save-as-modal": {},
+  "export-to-modal-btn": {},
+  "export-to-confirm-btn": {},
+  "jump-to-input": {},
+  "fill-column-input": {},
+  "help_release": {},
+  "template_name_display": {},
+  "getting-started-modal-menu": {}
+}
