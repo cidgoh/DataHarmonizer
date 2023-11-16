@@ -3609,317 +3609,317 @@
         "isolate ID": {
           "name": "isoler l'ID",
           "rank": 1,
-          "slot_group": "Database Identifiers"
+          "slot_group": "Identifiants de base de données"
                 },
         "alternative isolate ID": {
           "name": "ID d'isolement alternatif",
           "rank": 2,
-          "slot_group": "Database Identifiers"
+          "slot_group": "Identifiants de base de données"
                 },
         "specimen collector sample ID": {
           "name": "ID de l'échantillon du collecteur d'échantillons",
           "rank": 3,
-          "slot_group": "Database Identifiers"
+          "slot_group": "Identifiants de base de données"
                 },
         "sample collected by": {
           "name": "échantillon collecté par",
           "rank": 4,
-          "slot_group": "Sample collection and processing"
+          "slot_group": "Collecte et traitement des échantillons"
                 },
         "sample collection project name": {
           "name": "nom du projet de collecte d'échantillons",
           "rank": 5,
-          "slot_group": "Sample collection and processing"
+          "slot_group": "Collecte et traitement des échantillons"
                 },
         "sample collector contact email": {
           "name": "e-mail de contact du collecteur d'échantillons",
           "rank": 6,
-          "slot_group": "Sample collection and processing"
+          "slot_group": "Collecte et traitement des échantillons"
                 },
         "sample collector contact address": {
           "name": "adresse de contact du collecteur d'échantillons",
           "rank": 7,
-          "slot_group": "Sample collection and processing"
+          "slot_group": "Collecte et traitement des échantillons"
                 },
         "sample collection date": {
           "name": "date de prélèvement de l'échantillon",
           "rank": 8,
-          "slot_group": "Sample collection and processing"
+          "slot_group": "Collecte et traitement des échantillons"
                 },
         "sample received date": {
           "name": "date de réception de l'échantillon",
           "rank": 9,
-          "slot_group": "Sample collection and processing"
+          "slot_group": "Collecte et traitement des échantillons"
                 },
         "geo_loc_name (country)": {
           "name": "geo_loc_name (pays)",
           "rank": 10,
-          "slot_group": "Sample collection and processing"
+          "slot_group": "Collecte et traitement des échantillons"
                 },
         "geo_loc_name (state/province/territory)": {
           "name": "geo_loc_name (état/province/territoire)",
           "rank": 11,
-          "slot_group": "Sample collection and processing"
+          "slot_group": "Collecte et traitement des échantillons"
                 },
         "geo_loc_name (city)": {
           "name": "geo_loc_name (ville)",
           "rank": 12,
-          "slot_group": "Sample collection and processing"
+          "slot_group": "Collecte et traitement des échantillons"
                 },
         "geo_loc_name (site)": {
           "name": "geo_loc_name (site)",
           "rank": 13,
-          "slot_group": "Sample collection and processing"
+          "slot_group": "Collecte et traitement des échantillons"
                 },
         "organism": {
           "name": "organisme",
           "rank": 14,
-          "slot_group": "Sample collection and processing"
+          "slot_group": "Collecte et traitement des échantillons"
                 },
         "purpose of sampling": {
           "name": "objectif de l'échantillonnage",
           "rank": 15,
-          "slot_group": "Sample collection and processing"
+          "slot_group": "Collecte et traitement des échantillons"
                 },
         "purpose of sampling details": {
           "name": "objectif des détails de l'échantillonnage",
           "rank": 16,
-          "slot_group": "Sample collection and processing"
+          "slot_group": "Collecte et traitement des échantillons"
                 },
         "original sample description": {
           "name": "description originale de l'échantillon",
           "rank": 17,
-          "slot_group": "Sample collection and processing"
+          "slot_group": "Collecte et traitement des échantillons"
                 },
         "anatomical material": {
           "name": "matériel anatomique",
           "rank": 18,
-          "slot_group": "Sample collection and processing"
+          "slot_group": "Collecte et traitement des échantillons"
                 },
         "anatomical part": {
           "name": "partie anatomique",
           "rank": 19,
-          "slot_group": "Sample collection and processing"
+          "slot_group": "Collecte et traitement des échantillons"
                 },
         "body product": {
           "name": "produit pour le corps",
           "rank": 20,
-          "slot_group": "Sample collection and processing"
+          "slot_group": "Collecte et traitement des échantillons"
                 },
         "environmental material": {
           "name": "matériau environnemental",
           "rank": 21,
-          "slot_group": "Sample collection and processing"
+          "slot_group": "Collecte et traitement des échantillons"
                 },
         "environmental site": {
           "name": "site environnemental",
           "rank": 22,
-          "slot_group": "Sample collection and processing"
+          "slot_group": "Collecte et traitement des échantillons"
                 },
         "collection device": {
           "name": "dispositif de collecte",
           "rank": 23,
-          "slot_group": "Sample collection and processing"
+          "slot_group": "Collecte et traitement des échantillons"
                 },
         "collection method": {
           "name": "méthode de collecte",
           "rank": 24,
-          "slot_group": "Sample collection and processing"
+          "slot_group": "Collecte et traitement des échantillons"
                 },
         "collection protocol": {
           "name": "protocole de collecte",
           "rank": 25,
-          "slot_group": "Sample collection and processing"
+          "slot_group": "Collecte et traitement des échantillons"
                 },
         "specimen processing": {
           "name": "traitement des échantillons",
           "rank": 26,
-          "slot_group": "Sample collection and processing"
+          "slot_group": "Collecte et traitement des échantillons"
                 },
         "specimen processing details": {
           "name": "détails du traitement des échantillons",
           "rank": 27,
-          "slot_group": "Sample collection and processing"
+          "slot_group": "Collecte et traitement des échantillons"
                 },
         "strain": {
           "name": "souche",
           "rank": 28,
-          "slot_group": "Strain and isolation information"
+          "slot_group": "Informations sur la souche et l'isolement"
                 },
         "taxonomic identification method": {
           "name": "méthode d'identification taxonomique",
           "rank": 29,
-          "slot_group": "Strain and isolation information"
+          "slot_group": "Informations sur la souche et l'isolement"
                 },
         "taxonomic identification method details": {
           "name": "détails de la méthode d'identification taxonomique",
           "rank": 30,
-          "slot_group": "Strain and isolation information"
+          "slot_group": "Informations sur la souche et l'isolement"
                 },
         "incubation temperature value": {
           "name": "valeur de la température d'incubation",
           "rank": 31,
-          "slot_group": "Strain and isolation information"
+          "slot_group": "Informations sur la souche et l'isolement"
                 },
         "incubation temperature unit": {
           "name": "unité de température d'incubation",
           "rank": 32,
-          "slot_group": "Strain and isolation information"
+          "slot_group": "Informations sur la souche et l'isolement"
                 },
         "isolation medium": {
           "name": "milieu d'isolement",
           "rank": 33,
-          "slot_group": "Strain and isolation information"
+          "slot_group": "Informations sur la souche et l'isolement"
                 },
         "isolate storage location": {
           "name": "isoler l'emplacement de stockage",
           "rank": 34,
-          "slot_group": "Strain and isolation information"
+          "slot_group": "Informations sur la souche et l'isolement"
                 },
         "cellular respiration type": {
           "name": "type de respiration cellulaire",
           "rank": 35,
-          "slot_group": "Strain and isolation information"
+          "slot_group": "Informations sur la souche et l'isolement"
                 },
         "host (common name)": {
           "name": "hôte (nom commun)",
           "rank": 36,
-          "slot_group": "Host Information"
+          "slot_group": "Informations sur l'hôte"
                 },
         "host (scientific name)": {
           "name": "hôte (nom scientifique)",
           "rank": 37,
-          "slot_group": "Host Information"
+          "slot_group": "Informations sur l'hôte"
                 },
         "host disease": {
           "name": "maladie hôte",
           "rank": 38,
-          "slot_group": "Host Information"
+          "slot_group": "Informations sur l'hôte"
                 },
         "sequenced by": {
           "name": "séquencé par",
           "rank": 39,
-          "slot_group": "Sequencing"
+          "slot_group": "Séquençage"
                 },
         "sequenced by laboratory name": {
           "name": "séquencé par nom de laboratoire",
           "rank": 40,
-          "slot_group": "Sequencing"
+          "slot_group": "Séquençage"
                 },
         "sequenced by contact name": {
           "name": "séquencé par nom de contact",
           "rank": 41,
-          "slot_group": "Sequencing"
+          "slot_group": "Séquençage"
                 },
         "sequenced by contact email": {
           "name": "séquencé par email de contact",
           "rank": 42,
-          "slot_group": "Sequencing"
+          "slot_group": "Séquençage"
                 },
         "purpose of sequencing": {
           "name": "but du séquençage",
           "rank": 43,
-          "slot_group": "Sequencing"
+          "slot_group": "Séquençage"
                 },
         "purpose of sequencing details": {
           "name": "but des détails de séquençage",
           "rank": 44,
-          "slot_group": "Sequencing"
+          "slot_group": "Séquençage"
                 },
         "sequencing date": {
           "name": "date de séquençage",
           "rank": 45,
-          "slot_group": "Sequencing"
+          "slot_group": "Séquençage"
                 },
         "library ID": {
           "name": "ID de bibliothèque",
           "rank": 46,
-          "slot_group": "Sequencing"
+          "slot_group": "Séquençage"
                 },
         "sequencing instrument": {
           "name": "instrument de séquençage",
           "rank": 47,
-          "slot_group": "Sequencing"
+          "slot_group": "Séquençage"
                 },
         "sequencing protocol name": {
           "name": "nom du protocole de séquençage",
           "rank": 48,
-          "slot_group": "Sequencing"
+          "slot_group": "Séquençage"
                 },
         "amplicon pcr primer list": {
           "name": "liste d'amorces pcr des amplicons",
           "rank": 49,
-          "slot_group": "Sequencing"
+          "slot_group": "Séquençage"
                 },
         "input file name": {
           "name": "nom du fichier d'entrée",
           "rank": 50,
-          "slot_group": "Bioinformatics and QC metrics"
+          "slot_group": "Bioinformatique et métriques CQ"
                 },
         "reference accession": {
           "name": "adhésion de référence",
           "rank": 51,
-          "slot_group": "Bioinformatics and QC metrics"
+          "slot_group": "Bioinformatique et métriques CQ"
                 },
         "bioinformatics protocol": {
           "name": "protocole bioinformatique",
           "rank": 52,
-          "slot_group": "Bioinformatics and QC metrics"
+          "slot_group": "Bioinformatique et métriques CQ"
                 },
         "reference database name": {
           "name": "nom de la base de données de référence",
           "rank": 53,
-          "slot_group": "Bioinformatics and QC metrics"
+          "slot_group": "Bioinformatique et métriques CQ"
                 },
         "reference database version": {
           "name": "version de la base de données de référence",
           "rank": 54,
-          "slot_group": "Bioinformatics and QC metrics"
+          "slot_group": "Bioinformatique et métriques CQ"
                 },
         "coverage (percentage)": {
           "name": "couverture (pourcentage)",
           "rank": 55,
-          "slot_group": "Bioinformatics and QC metrics"
+          "slot_group": "Bioinformatique et métriques CQ"
                 },
         "sequence identity percentage": {
           "name": "pourcentage d'identité de séquence",
           "rank": 56,
-          "slot_group": "Bioinformatics and QC metrics"
+          "slot_group": "Bioinformatique et métriques CQ"
                 },
         "sequence identity (variance ratio)": {
           "name": "identité de séquence (rapport de variance)",
           "rank": 57,
-          "slot_group": "Bioinformatics and QC metrics"
+          "slot_group": "Bioinformatique et métriques CQ"
                 },
         "top-hit taxon determination": {
           "name": "détermination du taxon le plus populaire",
           "rank": 58,
-          "slot_group": "Bioinformatics and QC metrics"
+          "slot_group": "Bioinformatique et métriques CQ"
                 },
         "top-hit strain determination": {
           "name": "détermination de la souche la plus efficace",
           "rank": 59,
-          "slot_group": "Bioinformatics and QC metrics"
+          "slot_group": "Bioinformatique et métriques CQ"
                 },
         "trimmed ribosomal gene sequence": {
           "name": "séquence du gène ribosomal découpée",
           "rank": 60,
-          "slot_group": "Bioinformatics and QC metrics"
+          "slot_group": "Bioinformatique et métriques CQ"
                 },
         "bioinformatics analysis details": {
           "name": "détails de l'analyse bioinformatique",
           "rank": 61,
-          "slot_group": "Bioinformatics and QC metrics"
+          "slot_group": "Bioinformatique et métriques CQ"
                 },
         "authors": {
           "name": "auteurs",
           "rank": 62,
-          "slot_group": "Contributor acknowledgement"
+          "slot_group": "Reconnaissance du contributeur"
                 },
         "DataHarmonizer provenance": {
           "name": "Provenance DataHarmonizer",
           "rank": 63,
-          "slot_group": "Contributor acknowledgement"
+          "slot_group": "Reconnaissance du contributeur"
                 }
             },
       "attributes": {
@@ -3932,7 +3932,7 @@
           "slot_uri": "GENEPIO:0100456",
           "alias": "isolate_ID",
           "owner": "TEST",
-          "slot_group": "Database Identifiers",
+          "slot_group": "Identifiants de base de données",
           "range": "WhitespaceMinimizedString",
           "required": true
                 },
@@ -3945,7 +3945,7 @@
           "slot_uri": "GENEPIO:0100457",
           "alias": "alternative_isolate_ID",
           "owner": "TEST",
-          "slot_group": "Database Identifiers",
+          "slot_group": "Identifiants de base de données",
           "range": "WhitespaceMinimizedString",
           "recommended": true
                 },
@@ -3959,7 +3959,7 @@
           "identifier": true,
           "alias": "specimen_collector_sample_ID",
           "owner": "TEST",
-          "slot_group": "Database Identifiers",
+          "slot_group": "Identifiants de base de données",
           "range": "WhitespaceMinimizedString"
                 },
         "sample collected by": {
@@ -3971,7 +3971,7 @@
           "slot_uri": "GENEPIO:0001153",
           "alias": "sample_collected_by",
           "owner": "TEST",
-          "slot_group": "Sample collection and processing",
+          "slot_group": "Collecte et traitement des échantillons",
           "recommended": true
                 },
         "sample collection project name": {
@@ -3983,7 +3983,7 @@
           "slot_uri": "GENEPIO:0100429",
           "alias": "sample_collection_project_name",
           "owner": "TEST",
-          "slot_group": "Sample collection and processing",
+          "slot_group": "Collecte et traitement des échantillons",
           "range": "WhitespaceMinimizedString",
           "recommended": true
                 },
@@ -3996,7 +3996,7 @@
           "slot_uri": "GENEPIO:0001156",
           "alias": "sample_collector_contact_email",
           "owner": "TEST",
-          "slot_group": "Sample collection and processing",
+          "slot_group": "Collecte et traitement des échantillons",
           "range": "WhitespaceMinimizedString",
           "pattern": "^\\S+@\\S+\\.\\S+$"
                 },
@@ -4009,7 +4009,7 @@
           "slot_uri": "GENEPIO:0001158",
           "alias": "sample_collector_contact_address",
           "owner": "TEST",
-          "slot_group": "Sample collection and processing",
+          "slot_group": "Collecte et traitement des échantillons",
           "range": "WhitespaceMinimizedString"
                 },
         "sample collection date": {
@@ -4021,7 +4021,7 @@
           "slot_uri": "GENEPIO:0001174",
           "alias": "sample_collection_date",
           "owner": "TEST",
-          "slot_group": "Sample collection and processing",
+          "slot_group": "Collecte et traitement des échantillons",
           "recommended": true
                 },
         "sample received date": {
@@ -4033,7 +4033,7 @@
           "slot_uri": "GENEPIO:0001179",
           "alias": "sample_received_date",
           "owner": "TEST",
-          "slot_group": "Sample collection and processing"
+          "slot_group": "Collecte et traitement des échantillons"
                 },
         "geo_loc_name (country)": {
           "name": "geo_loc_name (pays)",
@@ -4044,7 +4044,7 @@
           "slot_uri": "GENEPIO:0001181",
           "alias": "geo_loc_name_(country)",
           "owner": "TEST",
-          "slot_group": "Sample collection and processing",
+          "slot_group": "Collecte et traitement des échantillons",
           "recommended": true
                 },
         "geo_loc_name (state/province/territory)": {
@@ -4056,7 +4056,7 @@
           "slot_uri": "GENEPIO:0001185",
           "alias": "geo_loc_name_(state/province/territory)",
           "owner": "TEST",
-          "slot_group": "Sample collection and processing",
+          "slot_group": "Collecte et traitement des échantillons",
           "recommended": true
                 },
         "geo_loc_name (city)": {
@@ -4068,7 +4068,7 @@
           "slot_uri": "GENEPIO:0001189",
           "alias": "geo_loc_name_(city)",
           "owner": "TEST",
-          "slot_group": "Sample collection and processing",
+          "slot_group": "Collecte et traitement des échantillons",
           "range": "WhitespaceMinimizedString"
                 },
         "geo_loc_name (site)": {
@@ -4080,7 +4080,7 @@
           "slot_uri": "GENEPIO:0100436",
           "alias": "geo_loc_name_(site)",
           "owner": "TEST",
-          "slot_group": "Sample collection and processing",
+          "slot_group": "Collecte et traitement des échantillons",
           "range": "geo_loc_name (site) menu"
                 },
         "organism": {
@@ -4092,7 +4092,7 @@
           "slot_uri": "GENEPIO:0001191",
           "alias": "organism",
           "owner": "TEST",
-          "slot_group": "Sample collection and processing",
+          "slot_group": "Collecte et traitement des échantillons",
           "required": true
                 },
         "purpose of sampling": {
@@ -4104,7 +4104,7 @@
           "slot_uri": "GENEPIO:0001198",
           "alias": "purpose_of_sampling",
           "owner": "TEST",
-          "slot_group": "Sample collection and processing",
+          "slot_group": "Collecte et traitement des échantillons",
           "recommended": true
                 },
         "purpose of sampling details": {
@@ -4116,7 +4116,7 @@
           "slot_uri": "GENEPIO:0001200",
           "alias": "purpose_of_sampling_details",
           "owner": "TEST",
-          "slot_group": "Sample collection and processing",
+          "slot_group": "Collecte et traitement des échantillons",
           "recommended": true
                 },
         "original sample description": {
@@ -4128,7 +4128,7 @@
           "slot_uri": "GENEPIO:0100439",
           "alias": "original_sample_description",
           "owner": "TEST",
-          "slot_group": "Sample collection and processing",
+          "slot_group": "Collecte et traitement des échantillons",
           "range": "WhitespaceMinimizedString"
                 },
         "anatomical material": {
@@ -4141,7 +4141,7 @@
           "multivalued": true,
           "alias": "anatomical_material",
           "owner": "TEST",
-          "slot_group": "Sample collection and processing",
+          "slot_group": "Collecte et traitement des échantillons",
           "required": true
                 },
         "anatomical part": {
@@ -4154,7 +4154,7 @@
           "multivalued": true,
           "alias": "anatomical_part",
           "owner": "TEST",
-          "slot_group": "Sample collection and processing",
+          "slot_group": "Collecte et traitement des échantillons",
           "required": true
                 },
         "body product": {
@@ -4167,7 +4167,7 @@
           "multivalued": true,
           "alias": "body_product",
           "owner": "TEST",
-          "slot_group": "Sample collection and processing",
+          "slot_group": "Collecte et traitement des échantillons",
           "required": true
                 },
         "environmental material": {
@@ -4180,7 +4180,7 @@
           "multivalued": true,
           "alias": "environmental_material",
           "owner": "TEST",
-          "slot_group": "Sample collection and processing",
+          "slot_group": "Collecte et traitement des échantillons",
           "required": true
                 },
         "environmental site": {
@@ -4193,7 +4193,7 @@
           "multivalued": true,
           "alias": "environmental_site",
           "owner": "TEST",
-          "slot_group": "Sample collection and processing",
+          "slot_group": "Collecte et traitement des échantillons",
           "required": true
                 },
         "collection device": {
@@ -4206,7 +4206,7 @@
           "multivalued": true,
           "alias": "collection_device",
           "owner": "TEST",
-          "slot_group": "Sample collection and processing",
+          "slot_group": "Collecte et traitement des échantillons",
           "required": true
                 },
         "collection method": {
@@ -4219,7 +4219,7 @@
           "multivalued": true,
           "alias": "collection_method",
           "owner": "TEST",
-          "slot_group": "Sample collection and processing",
+          "slot_group": "Collecte et traitement des échantillons",
           "required": true
                 },
         "collection protocol": {
@@ -4231,7 +4231,7 @@
           "slot_uri": "GENEPIO:0001243",
           "alias": "collection_protocol",
           "owner": "TEST",
-          "slot_group": "Sample collection and processing",
+          "slot_group": "Collecte et traitement des échantillons",
           "range": "WhitespaceMinimizedString"
                 },
         "specimen processing": {
@@ -4244,7 +4244,7 @@
           "multivalued": true,
           "alias": "specimen_processing",
           "owner": "TEST",
-          "slot_group": "Sample collection and processing",
+          "slot_group": "Collecte et traitement des échantillons",
           "recommended": true
                 },
         "specimen processing details": {
@@ -4256,7 +4256,7 @@
           "slot_uri": "GENEPIO:0100311",
           "alias": "specimen_processing_details",
           "owner": "TEST",
-          "slot_group": "Sample collection and processing",
+          "slot_group": "Collecte et traitement des échantillons",
           "range": "WhitespaceMinimizedString"
                 },
         "strain": {
@@ -4268,7 +4268,7 @@
           "slot_uri": "GENEPIO:0100455",
           "alias": "strain",
           "owner": "TEST",
-          "slot_group": "Strain and isolation information",
+          "slot_group": "Informations sur la souche et l'isolement",
           "required": true
                 },
         "taxonomic identification method": {
@@ -4280,7 +4280,7 @@
           "slot_uri": "GENEPIO:0100583",
           "alias": "taxonomic_identification_method",
           "owner": "TEST",
-          "slot_group": "Strain and isolation information",
+          "slot_group": "Informations sur la souche et l'isolement",
           "required": true
                 },
         "taxonomic identification method details": {
@@ -4292,7 +4292,7 @@
           "slot_uri": "GENEPIO:0100584",
           "alias": "taxonomic_identification_method_details",
           "owner": "TEST",
-          "slot_group": "Strain and isolation information",
+          "slot_group": "Informations sur la souche et l'isolement",
           "required": true
                 },
         "incubation temperature value": {
@@ -4304,7 +4304,7 @@
           "slot_uri": "GENEPIO:0100617",
           "alias": "incubation_temperature_value",
           "owner": "TEST",
-          "slot_group": "Strain and isolation information",
+          "slot_group": "Informations sur la souche et l'isolement",
           "required": true
                 },
         "incubation temperature unit": {
@@ -4316,7 +4316,7 @@
           "slot_uri": "GENEPIO:0100618",
           "alias": "incubation_temperature_unit",
           "owner": "TEST",
-          "slot_group": "Strain and isolation information",
+          "slot_group": "Informations sur la souche et l'isolement",
           "required": true
                 },
         "isolation medium": {
@@ -4328,7 +4328,7 @@
           "slot_uri": "GENEPIO:0002107",
           "alias": "isolation_medium",
           "owner": "TEST",
-          "slot_group": "Strain and isolation information",
+          "slot_group": "Informations sur la souche et l'isolement",
           "required": true
                 },
         "isolate storage location": {
@@ -4340,7 +4340,7 @@
           "slot_uri": "GENEPIO:0100619",
           "alias": "isolate_storage_location",
           "owner": "TEST",
-          "slot_group": "Strain and isolation information",
+          "slot_group": "Informations sur la souche et l'isolement",
           "range": "WhitespaceMinimizedString",
           "required": true
                 },
@@ -4353,7 +4353,7 @@
           "slot_uri": "GENEPIO:0100620",
           "alias": "cellular_respiration_type",
           "owner": "TEST",
-          "slot_group": "Strain and isolation information",
+          "slot_group": "Informations sur la souche et l'isolement",
           "required": true
                 },
         "host (common name)": {
@@ -4365,7 +4365,7 @@
           "slot_uri": "GENEPIO:0001386",
           "alias": "host_(common_name)",
           "owner": "TEST",
-          "slot_group": "Host Information",
+          "slot_group": "Informations sur l'hôte",
           "required": true
                 },
         "host (scientific name)": {
@@ -4377,7 +4377,7 @@
           "slot_uri": "GENEPIO:0001387",
           "alias": "host_(scientific_name)",
           "owner": "TEST",
-          "slot_group": "Host Information"
+          "slot_group": "Informations sur l'hôte"
                 },
         "host disease": {
           "name": "maladie hôte",
@@ -4388,7 +4388,7 @@
           "slot_uri": "GENEPIO:0001391",
           "alias": "host_disease",
           "owner": "TEST",
-          "slot_group": "Host Information"
+          "slot_group": "Informations sur l'hôte"
                 },
         "sequenced by": {
           "name": "séquencé par",
@@ -4399,7 +4399,7 @@
           "slot_uri": "GENEPIO:0100416",
           "alias": "sequenced_by",
           "owner": "TEST",
-          "slot_group": "Sequencing"
+          "slot_group": "Séquençage"
                 },
         "sequenced by laboratory name": {
           "name": "séquencé par nom de laboratoire",
@@ -4410,7 +4410,7 @@
           "slot_uri": "GENEPIO:0100470",
           "alias": "sequenced_by_laboratory_name",
           "owner": "TEST",
-          "slot_group": "Sequencing",
+          "slot_group": "Séquençage",
           "range": "WhitespaceMinimizedString"
                 },
         "sequenced by contact name": {
@@ -4422,7 +4422,7 @@
           "slot_uri": "GENEPIO:0100471",
           "alias": "sequenced_by_contact_name",
           "owner": "TEST",
-          "slot_group": "Sequencing",
+          "slot_group": "Séquençage",
           "range": "WhitespaceMinimizedString"
                 },
         "sequenced by contact email": {
@@ -4434,7 +4434,7 @@
           "slot_uri": "GENEPIO:0100422",
           "alias": "sequenced_by_contact_email",
           "owner": "TEST",
-          "slot_group": "Sequencing",
+          "slot_group": "Séquençage",
           "range": "WhitespaceMinimizedString"
                 },
         "purpose of sequencing": {
@@ -4446,7 +4446,7 @@
           "slot_uri": "GENEPIO:0001445",
           "alias": "purpose_of_sequencing",
           "owner": "TEST",
-          "slot_group": "Sequencing"
+          "slot_group": "Séquençage"
                 },
         "purpose of sequencing details": {
           "name": "but des détails de séquençage",
@@ -4457,7 +4457,7 @@
           "slot_uri": "GENEPIO:0001446",
           "alias": "purpose_of_sequencing_details",
           "owner": "TEST",
-          "slot_group": "Sequencing"
+          "slot_group": "Séquençage"
                 },
         "sequencing date": {
           "name": "date de séquençage",
@@ -4468,7 +4468,7 @@
           "slot_uri": "GENEPIO:0001447",
           "alias": "sequencing_date",
           "owner": "TEST",
-          "slot_group": "Sequencing"
+          "slot_group": "Séquençage"
                 },
         "library ID": {
           "name": "ID de bibliothèque",
@@ -4479,7 +4479,7 @@
           "slot_uri": "GENEPIO:0001448",
           "alias": "library_ID",
           "owner": "TEST",
-          "slot_group": "Sequencing",
+          "slot_group": "Séquençage",
           "range": "WhitespaceMinimizedString"
                 },
         "sequencing instrument": {
@@ -4492,7 +4492,7 @@
           "multivalued": true,
           "alias": "sequencing_instrument",
           "owner": "TEST",
-          "slot_group": "Sequencing",
+          "slot_group": "Séquençage",
           "required": true
                 },
         "sequencing protocol name": {
@@ -4504,7 +4504,7 @@
           "slot_uri": "GENEPIO:0001453",
           "alias": "sequencing_protocol_name",
           "owner": "TEST",
-          "slot_group": "Sequencing",
+          "slot_group": "Séquençage",
           "range": "WhitespaceMinimizedString",
           "recommended": true
                 },
@@ -4518,7 +4518,7 @@
           "multivalued": true,
           "alias": "amplicon_pcr_primer_list",
           "owner": "TEST",
-          "slot_group": "Sequencing",
+          "slot_group": "Séquençage",
           "required": true
                 },
         "input file name": {
@@ -4530,7 +4530,7 @@
           "slot_uri": "OBI:0002874",
           "alias": "input_file_name",
           "owner": "TEST",
-          "slot_group": "Bioinformatics and QC metrics",
+          "slot_group": "Bioinformatique et métriques CQ",
           "range": "WhitespaceMinimizedString"
                 },
         "reference accession": {
@@ -4542,7 +4542,7 @@
           "slot_uri": "OBI:0002885",
           "alias": "reference_accession",
           "owner": "TEST",
-          "slot_group": "Bioinformatics and QC metrics",
+          "slot_group": "Bioinformatique et métriques CQ",
           "required": true
                 },
         "bioinformatics protocol": {
@@ -4554,7 +4554,7 @@
           "slot_uri": "GENEPIO:0001489",
           "alias": "bioinformatics_protocol",
           "owner": "TEST",
-          "slot_group": "Bioinformatics and QC metrics",
+          "slot_group": "Bioinformatique et métriques CQ",
           "range": "WhitespaceMinimizedString"
                 },
         "reference database name": {
@@ -4566,7 +4566,7 @@
           "slot_uri": "OBI:0002883",
           "alias": "reference_database_name",
           "owner": "TEST",
-          "slot_group": "Bioinformatics and QC metrics",
+          "slot_group": "Bioinformatique et métriques CQ",
           "required": true
                 },
         "reference database version": {
@@ -4578,7 +4578,7 @@
           "slot_uri": "OBI:0002884",
           "alias": "reference_database_version",
           "owner": "TEST",
-          "slot_group": "Bioinformatics and QC metrics",
+          "slot_group": "Bioinformatique et métriques CQ",
           "required": true
                 },
         "coverage (percentage)": {
@@ -4590,7 +4590,7 @@
           "slot_uri": "OBI:0002880",
           "alias": "coverage_(percentage)",
           "owner": "TEST",
-          "slot_group": "Bioinformatics and QC metrics",
+          "slot_group": "Bioinformatique et métriques CQ",
           "required": true
                 },
         "sequence identity percentage": {
@@ -4602,7 +4602,7 @@
           "slot_uri": "OBI:0002882",
           "alias": "sequence_identity_percentage",
           "owner": "TEST",
-          "slot_group": "Bioinformatics and QC metrics",
+          "slot_group": "Bioinformatique et CQ rencontrésrics",
           "required": true
                 },
         "sequence identity (variance ratio)": {
@@ -4614,7 +4614,7 @@
           "slot_uri": "GENEPIO:0100624",
           "alias": "sequence_identity_(variance_ratio)",
           "owner": "TEST",
-          "slot_group": "Bioinformatics and QC metrics"
+          "slot_group": "Bioinformatique et métriques CQ"
                 },
         "top-hit taxon determination": {
           "name": "détermination du taxon le plus populaire",
@@ -4625,7 +4625,7 @@
           "slot_uri": "GENEPIO:0100625",
           "alias": "top_hit_taxon_determination",
           "owner": "TEST",
-          "slot_group": "Bioinformatics and QC metrics",
+          "slot_group": "Bioinformatique et métriques CQ",
           "required": true
                 },
         "top-hit strain determination": {
@@ -4637,7 +4637,7 @@
           "slot_uri": "GENEPIO:0100648",
           "alias": "top_hit_strain_determination",
           "owner": "TEST",
-          "slot_group": "Bioinformatics and QC metrics",
+          "slot_group": "Bioinformatique et métriques CQ",
           "required": true
                 },
         "trimmed ribosomal gene sequence": {
@@ -4649,7 +4649,7 @@
           "slot_uri": "GENEPIO:0100626",
           "alias": "trimmed_ribosomal_gene_sequence",
           "owner": "TEST",
-          "slot_group": "Bioinformatics and QC metrics",
+          "slot_group": "Bioinformatique et métriques CQ",
           "required": true
                 },
         "bioinformatics analysis details": {
@@ -4661,7 +4661,7 @@
           "slot_uri": "GENEPIO:0100627",
           "alias": "bioinformatics_analysis_details",
           "owner": "TEST",
-          "slot_group": "Bioinformatics and QC metrics",
+          "slot_group": "Bioinformatique et métriques CQ",
           "range": "WhitespaceMinimizedString"
                 },
         "authors": {
@@ -4673,7 +4673,7 @@
           "slot_uri": "GENEPIO:0001517",
           "alias": "authors",
           "owner": "TEST",
-          "slot_group": "Contributor acknowledgement",
+          "slot_group": "Reconnaissance du contributeur",
           "range": "WhitespaceMinimizedString",
           "recommended": true
                 },
@@ -4686,7 +4686,7 @@
           "slot_uri": "GENEPIO:0001518",
           "alias": "DataHarmonizer_provenance",
           "owner": "TEST",
-          "slot_group": "Contributor acknowledgement",
+          "slot_group": "Reconnaissance du contributeur",
           "range": "Provenance"
                 }
             }
