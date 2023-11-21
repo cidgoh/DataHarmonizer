@@ -887,6 +887,7 @@ sequence submitted by menu		Alberta Precision Labs (APL)
 		National Microbiology Laboratory (NML)										
 		New Brunswick - Vitalité Health Network										
 		Newfoundland and Labrador - Eastern Health										
+		Newfoundland and Labrador - Newfoundland and Labrador Health Services										
 		Nova Scotia Health Authority										
 		Ontario Institute for Cancer Research (OICR)										
 		Prince Edward Island - Health PEI										
@@ -917,6 +918,7 @@ sequence submitted by menu		Alberta Precision Labs (APL)
 		National Microbiology Laboratory (NML)										
 		New Brunswick - Vitalité Health Network										
 		Newfoundland and Labrador - Eastern Health										
+		Newfoundland and Labrador - Newfoundland and Labrador Health Services										
 		Nova Scotia Health Authority										
 		Nunavut										
 		Ontario Institute for Cancer Research (OICR)										
@@ -1203,5 +1205,3 @@ geo_loc_name (country) menu	GAZ:00006882	Afghanistan
 	GAZ:00005284	Yemen										
 	GAZ:00001107	Zambia										
 	GAZ:00001106	Zimbabwe										
-												
-												
