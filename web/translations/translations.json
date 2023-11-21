@@ -30,9 +30,8 @@
 
   "settings-menu-button": {
     "en": "Settings",
-    "fr": "paramètres"
+    "fr": "Paramètres"
   },
-
   "show-all-cols-dropdown-item": {
     "en": "Show all columns",
     "fr": "Afficher toutes les colonnes"
@@ -41,13 +40,10 @@
     "en": "Show required columns",
     "fr": "Afficher les colonnes requises"
   },
-
   "show-recommended-cols-dropdown-item": {
     "en": "Show required + recommended columns",
     "fr": "Afficher les colonnes obligatoires + recommandées"
   },
-
-
   "show-all-rows-dropdown-item": {
     "en": "Show all rows",
     "fr": "Afficher toutes les lignes"
@@ -110,7 +106,6 @@
     "en": "Language",
     "fr": "Langue"
   },
-
   "loaded_file_label": {
     "en": "Loaded file",
     "fr": "Fichier chargé"
