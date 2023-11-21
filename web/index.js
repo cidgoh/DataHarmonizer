@@ -2,8 +2,7 @@ import * as $ from 'jquery';
 import i18n from 'i18next';
 import { DataHarmonizer, Footer, Toolbar } from '@/lib';
 import { initI18n } from '@/lib/utils/i18n';
-import { Template, findBestLocaleMatch } from '@/lib/utils/templates';
-import { flattenObject } from '@/lib/utils/objects';
+import { Template } from '@/lib/utils/templates';
 
 import menu from '@/web/templates/menu.json';
 import tags from 'language-tags';
@@ -76,6 +75,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           const enum_resource = consolidate(
             translation.schema.enums,
+            /* eslint-disable */
             (acc, [enum_symbol, { permissible_values }]) => {
               for (const [enum_value, { text }] of Object.entries(
                 permissible_values
@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', function () {
               return acc;
             }
           );
-
+          /* eslint-enable */
           const translated_sections = consolidate(
             translation.schema.classes[template.default.schema.name].slot_usage,
             (acc, [translation_slot_name, { slot_group }]) => ({
