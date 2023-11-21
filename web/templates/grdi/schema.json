@@ -2,7 +2,7 @@
   "name": "GRDI",
   "description": "",
   "id": "https://example.com/GRDI",
-  "version": "7.7.6",
+  "version": "8.8.4",
   "prefixes": {
     "linkml": {
       "prefix_prefix": "linkml",
@@ -226,8 +226,8 @@
         "Canadian Food Inspection Agency (CFIA) [GENEPIO:0100552]": {
           "text": "Canadian Food Inspection Agency (CFIA) [GENEPIO:0100552]"
         },
-        "Agriculture and Agri-Food Canada (AAFC) [GENEPIO:0100552]": {
-          "text": "Agriculture and Agri-Food Canada (AAFC) [GENEPIO:0100552]"
+        "Agriculture and Agri-Food Canada (AAFC) [GENEPIO:0100553]": {
+          "text": "Agriculture and Agri-Food Canada (AAFC) [GENEPIO:0100553]"
         },
         "Health Canada (HC) [GENEPIO:0100554]": {
           "text": "Health Canada (HC) [GENEPIO:0100554]"
@@ -238,8 +238,8 @@
         "Fisheries and Oceans Canada (DFO) [GENEPIO:0100556]": {
           "text": "Fisheries and Oceans Canada (DFO) [GENEPIO:0100556]"
         },
-        "University of Manitoba (UM)": {
-          "text": "University of Manitoba (UM)"
+        "University of Manitoba (UM) [GENEPIO:0004434]": {
+          "text": "University of Manitoba (UM) [GENEPIO:0004434]"
         }
       }
     },
@@ -289,15 +289,15 @@
         "Certified animal husbandry practices [GENEPIO:0100538]": {
           "text": "Certified animal husbandry practices [GENEPIO:0100538]"
         },
-        "Certified humane animal husbandry practices": {
-          "text": "Certified humane animal husbandry practices",
+        "Certified humane animal husbandry practices [GENEPIO:0100894]": {
+          "text": "Certified humane animal husbandry practices [GENEPIO:0100894]",
           "is_a": "Certified animal husbandry practices [GENEPIO:0100538]"
         },
         "Certified organic farming practices [GENEPIO:0100539]": {
           "text": "Certified organic farming practices [GENEPIO:0100539]"
         },
-        "Conventional farming practices": {
-          "text": "Conventional farming practices"
+        "Conventional farming practices [GENEPIO:0100895]": {
+          "text": "Conventional farming practices [GENEPIO:0100895]"
         },
         "Change in storage conditions [GENEPIO:0100540]": {
           "text": "Change in storage conditions [GENEPIO:0100540]"
@@ -332,14 +332,14 @@
       "name": "specimen_processing menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
-        "Biological replicate": {
-          "text": "Biological replicate"
+        "Biological replicate [OBI:0000198]": {
+          "text": "Biological replicate [OBI:0000198]"
         },
         "Samples pooled [OBI:0600016]": {
           "text": "Samples pooled [OBI:0600016]"
         },
-        "Technical replicate": {
-          "text": "Technical replicate"
+        "Technical replicate [OBI:0000249]": {
+          "text": "Technical replicate [OBI:0000249]"
         },
         "Isolated from single source": {
           "text": "Isolated from single source"
@@ -1169,72 +1169,72 @@
       "name": "geo_loc_name (state/province/region) menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
-        "Atlantic region (Canada)": {
-          "text": "Atlantic region (Canada)"
+        "Atlantic region (Canada) [wikidata:Q246972]": {
+          "text": "Atlantic region (Canada) [wikidata:Q246972]"
         },
         "New Brunswick [GAZ:00002570]": {
           "text": "New Brunswick [GAZ:00002570]",
-          "is_a": "Atlantic region (Canada)"
+          "is_a": "Atlantic region (Canada) [wikidata:Q246972]"
         },
         "Newfoundland & Labrador [GAZ:00002567]": {
           "text": "Newfoundland & Labrador [GAZ:00002567]",
-          "is_a": "Atlantic region (Canada)"
+          "is_a": "Atlantic region (Canada) [wikidata:Q246972]"
         },
         "Nova Scotia [GAZ:00002565]": {
           "text": "Nova Scotia [GAZ:00002565]",
-          "is_a": "Atlantic region (Canada)"
+          "is_a": "Atlantic region (Canada) [wikidata:Q246972]"
         },
         "Prince Edward Island [GAZ:00002572]": {
           "text": "Prince Edward Island [GAZ:00002572]",
-          "is_a": "Atlantic region (Canada)"
+          "is_a": "Atlantic region (Canada) [wikidata:Q246972]"
         },
-        "Central region (Canada)": {
-          "text": "Central region (Canada)"
+        "Central region (Canada) [wikidata:Q1048064]": {
+          "text": "Central region (Canada) [wikidata:Q1048064]"
         },
         "Ontario [GAZ:00002563]": {
           "text": "Ontario [GAZ:00002563]",
-          "is_a": "Central region (Canada)"
+          "is_a": "Central region (Canada) [wikidata:Q1048064]"
         },
         "Quebec [GAZ:00002569]": {
           "text": "Quebec [GAZ:00002569]",
-          "is_a": "Central region (Canada)"
+          "is_a": "Central region (Canada) [wikidata:Q1048064]"
         },
-        "Northern region (Canada)": {
-          "text": "Northern region (Canada)"
+        "Northern region (Canada) [wikidata:Q764146]": {
+          "text": "Northern region (Canada) [wikidata:Q764146]"
         },
         "Northwest Territories [GAZ:00002575]": {
           "text": "Northwest Territories [GAZ:00002575]",
-          "is_a": "Northern region (Canada)"
+          "is_a": "Northern region (Canada) [wikidata:Q764146]"
         },
         "Nunuvut [GAZ:00002574]": {
           "text": "Nunuvut [GAZ:00002574]",
-          "is_a": "Northern region (Canada)"
+          "is_a": "Northern region (Canada) [wikidata:Q764146]"
         },
         "Yukon [GAZ:00002576]": {
           "text": "Yukon [GAZ:00002576]",
-          "is_a": "Northern region (Canada)"
+          "is_a": "Northern region (Canada) [wikidata:Q764146]"
         },
-        "Pacific region (Canada)": {
-          "text": "Pacific region (Canada)"
+        "Pacific region (Canada) [wikidata:Q122953299]": {
+          "text": "Pacific region (Canada) [wikidata:Q122953299]"
         },
         "British Columbia [GAZ:00002562]": {
           "text": "British Columbia [GAZ:00002562]",
-          "is_a": "Pacific region (Canada)"
+          "is_a": "Pacific region (Canada) [wikidata:Q122953299]"
         },
-        "Prairie region (Canada)": {
-          "text": "Prairie region (Canada)"
+        "Prairie region (Canada) [wikidata:Q1364746]": {
+          "text": "Prairie region (Canada) [wikidata:Q1364746]"
         },
         "Alberta [GAZ:00002566]": {
           "text": "Alberta [GAZ:00002566]",
-          "is_a": "Prairie region (Canada)"
+          "is_a": "Prairie region (Canada) [wikidata:Q1364746]"
         },
         "Manitoba [GAZ:00002571]": {
           "text": "Manitoba [GAZ:00002571]",
-          "is_a": "Prairie region (Canada)"
+          "is_a": "Prairie region (Canada) [wikidata:Q1364746]"
         },
         "Saskatchewan [GAZ:00002564]": {
           "text": "Saskatchewan [GAZ:00002564]",
-          "is_a": "Prairie region (Canada)"
+          "is_a": "Prairie region (Canada) [wikidata:Q1364746]"
         }
       }
     },
@@ -1317,8 +1317,8 @@
           "text": "Laboratory facility [ENVO:01001406]",
           "is_a": "Building [ENVO:00000073]"
         },
-        "Pigsty": {
-          "text": "Pigsty",
+        "Pigsty [ENVO:03501413]": {
+          "text": "Pigsty [ENVO:03501413]",
           "is_a": "Building [ENVO:00000073]"
         },
         "Building part (organizational term)": {
@@ -1370,8 +1370,8 @@
           "text": "Breeder farm [ENVO:03501384]",
           "is_a": "Farm [ENVO:00000078]"
         },
-        "Dairy farm": {
-          "text": "Dairy farm",
+        "Dairy farm [ENVO:03501416]": {
+          "text": "Dairy farm [ENVO:03501416]",
           "is_a": "Farm [ENVO:00000078]"
         },
         "Feedlot [ENVO:01000627]": {
@@ -1776,19 +1776,16 @@
         "Turkey [NCBITaxon:9103]": {
           "text": "Turkey [NCBITaxon:9103]"
         },
-        "Wildlife": {
-          "text": "Wildlife"
+        "Wildlife [FOODON:00004503]": {
+          "text": "Wildlife [FOODON:00004503]"
         },
-        "Wild bird": {
-          "text": "Wild bird",
-          "is_a": "Wildlife"
+        "Wild bird [FOODON:00004505]": {
+          "text": "Wild bird [FOODON:00004505]",
+          "is_a": "Wildlife [FOODON:00004503]"
         },
-        "Seabird": {
-          "text": "Seabird",
-          "is_a": "Wild bird"
-        },
-        "Turkey": {
-          "text": "Turkey"
+        "Seabird [FOODON:00004504]": {
+          "text": "Seabird [FOODON:00004504]",
+          "is_a": "Wild bird [FOODON:00004505]"
         }
       }
     },
@@ -1824,16 +1821,16 @@
         "Animal transportation equipment [AGRO:00000671]": {
           "text": "Animal transportation equipment [AGRO:00000671]"
         },
-        "Dead haul trailer": {
-          "text": "Dead haul trailer",
+        "Dead haul trailer [GENEPIO:0100896]": {
+          "text": "Dead haul trailer [GENEPIO:0100896]",
           "is_a": "Animal transportation equipment [AGRO:00000671]"
         },
         "Dead haul truck [AGRO:00000673]": {
           "text": "Dead haul truck [AGRO:00000673]",
           "is_a": "Animal transportation equipment [AGRO:00000671]"
         },
-        "Live haul trailer": {
-          "text": "Live haul trailer",
+        "Live haul trailer [GENEPIO:0100897]": {
+          "text": "Live haul trailer [GENEPIO:0100897]",
           "is_a": "Animal transportation equipment [AGRO:00000671]"
         },
         "Live haul truck [AGRO:00000674]": {
@@ -1856,8 +1853,8 @@
         "Broom [ENVO:03501377]": {
           "text": "Broom [ENVO:03501377]"
         },
-        "Bulk tank": {
-          "text": "Bulk tank"
+        "Bulk tank [ENVO:03501379]": {
+          "text": "Bulk tank [ENVO:03501379]"
         },
         "Chick box [AGRO:00000678]": {
           "text": "Chick box [AGRO:00000678]"
@@ -1871,40 +1868,40 @@
         "Compost [ENVO:00002170]": {
           "text": "Compost [ENVO:00002170]"
         },
-        "Contaminated water (organizational term) [ENVO:00002186]": {
-          "text": "Contaminated water (organizational term) [ENVO:00002186]"
+        "Contaminated water [ENVO:00002186]": {
+          "text": "Contaminated water [ENVO:00002186]"
         },
         "Fecal slurry": {
           "text": "Fecal slurry",
-          "is_a": "Contaminated water (organizational term) [ENVO:00002186]"
+          "is_a": "Contaminated water [ENVO:00002186]"
         },
         "Fluid from meat rinse [GENEPIO:0004323]": {
           "text": "Fluid from meat rinse [GENEPIO:0004323]",
-          "is_a": "Contaminated water (organizational term) [ENVO:00002186]"
+          "is_a": "Contaminated water [ENVO:00002186]"
         },
         "Effluent [ENVO:03501407]": {
           "text": "Effluent [ENVO:03501407]",
-          "is_a": "Contaminated water (organizational term) [ENVO:00002186]"
+          "is_a": "Contaminated water [ENVO:00002186]"
         },
         "Influent": {
           "text": "Influent",
-          "is_a": "Contaminated water (organizational term) [ENVO:00002186]"
+          "is_a": "Contaminated water [ENVO:00002186]"
         },
         "Surface runoff [ENVO:03501408]": {
           "text": "Surface runoff [ENVO:03501408]",
-          "is_a": "Contaminated water (organizational term) [ENVO:00002186]"
+          "is_a": "Contaminated water [ENVO:00002186]"
         },
         "Poultry plucking water [AGRO_00000693]": {
           "text": "Poultry plucking water [AGRO_00000693]",
-          "is_a": "Contaminated water (organizational term) [ENVO:00002186]"
+          "is_a": "Contaminated water [ENVO:00002186]"
         },
         "Wastewater [ENVO:00002001]": {
           "text": "Wastewater [ENVO:00002001]",
-          "is_a": "Contaminated water (organizational term) [ENVO:00002186]"
+          "is_a": "Contaminated water [ENVO:00002186]"
         },
         "Weep fluid [AGRO_00000692]": {
           "text": "Weep fluid [AGRO_00000692]",
-          "is_a": "Contaminated water (organizational term) [ENVO:00002186]"
+          "is_a": "Contaminated water [ENVO:00002186]"
         },
         "Crate [ENVO:03501372]": {
           "text": "Crate [ENVO:03501372]"
@@ -1942,12 +1939,12 @@
         "Manure digester equipment [ENVO:03501424]": {
           "text": "Manure digester equipment [ENVO:03501424]"
         },
-        "Nest": {
-          "text": "Nest"
+        "Nest [ENVO:03501432]": {
+          "text": "Nest [ENVO:03501432]"
         },
         "Bird's nest [ENVO:00005805]": {
           "text": "Bird's nest [ENVO:00005805]",
-          "is_a": "Nest"
+          "is_a": "Nest [ENVO:03501432]"
         },
         "Permafrost [ENVO:00000134]": {
           "text": "Permafrost [ENVO:00000134]"
@@ -2034,20 +2031,20 @@
       "name": "body_product menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
-        "Digestive organ content": {
-          "text": "Digestive organ content"
+        "Digestive organ content [GENEPIO:0100898]": {
+          "text": "Digestive organ content [GENEPIO:0100898]"
         },
-        "Caecal content": {
-          "text": "Caecal content",
-          "is_a": "Digestive organ content"
+        "Caecal content [GENEPIO:0100899]": {
+          "text": "Caecal content [GENEPIO:0100899]",
+          "is_a": "Digestive organ content [GENEPIO:0100898]"
         },
-        "Intestinal content": {
-          "text": "Intestinal content",
-          "is_a": "Digestive organ content"
+        "Intestinal content [GENEPIO:0100900]": {
+          "text": "Intestinal content [GENEPIO:0100900]",
+          "is_a": "Digestive organ content [GENEPIO:0100898]"
         },
-        "Stomach content": {
-          "text": "Stomach content",
-          "is_a": "Digestive organ content"
+        "Stomach content [GENEPIO:0100901]": {
+          "text": "Stomach content [GENEPIO:0100901]",
+          "is_a": "Digestive organ content [GENEPIO:0100898]"
         },
         "Feces [UBERON:0001988]": {
           "text": "Feces [UBERON:0001988]"
@@ -2397,12 +2394,12 @@
         "Vent (anatomical) [UBERON:2000298]": {
           "text": "Vent (anatomical) [UBERON:2000298]"
         },
-        "Bird vent": {
-          "text": "Bird vent",
+        "Bird vent [UBERON:0012464]": {
+          "text": "Bird vent [UBERON:0012464]",
           "is_a": "Vent (anatomical) [UBERON:2000298]"
         },
-        "Fish vent": {
-          "text": "Fish vent",
+        "Fish vent [GENEPIO:0100902]": {
+          "text": "Fish vent [GENEPIO:0100902]",
           "is_a": "Vent (anatomical) [UBERON:2000298]"
         }
       }
@@ -2414,11 +2411,11 @@
         "Dorso-lateral region [BSPO:0000080]": {
           "text": "Dorso-lateral region [BSPO:0000080]"
         },
-        "Exterior anatomical region": {
-          "text": "Exterior anatomical region"
+        "Exterior anatomical region [BSPO:0000034]": {
+          "text": "Exterior anatomical region [BSPO:0000034]"
         },
-        "Interior anatomical region": {
-          "text": "Interior anatomical region"
+        "Interior anatomical region [BSPO:0000033]": {
+          "text": "Interior anatomical region [BSPO:0000033]"
         }
       }
     },
@@ -2445,13 +2442,13 @@
           "text": "Canola meal [FOODON:00002694]",
           "is_a": "Animal feed [ENVO:02000047]"
         },
-        "Compound feed premix": {
-          "text": "Compound feed premix",
+        "Compound feed premix [FOODON:00004323]": {
+          "text": "Compound feed premix [FOODON:00004323]",
           "is_a": "Animal feed [ENVO:02000047]"
         },
-        "Compound feed premix (medicated)": {
-          "text": "Compound feed premix (medicated)",
-          "is_a": "Compound feed premix"
+        "Compound feed premix (medicated) [FOODON:00004324]": {
+          "text": "Compound feed premix (medicated) [FOODON:00004324]",
+          "is_a": "Compound feed premix [FOODON:00004323]"
         },
         "Feather meal [FOODON:00003927]": {
           "text": "Feather meal [FOODON:00003927]",
@@ -2481,8 +2478,8 @@
           "text": "Soybean meal [FOODON:03302757]",
           "is_a": "Animal feed [ENVO:02000047]"
         },
-        "Animal feed ingredient": {
-          "text": "Animal feed ingredient"
+        "Animal feed ingredient [FOODON:00004322]": {
+          "text": "Animal feed ingredient [FOODON:00004322]"
         },
         "Dairy food product [FOODON:00001256]": {
           "text": "Dairy food product [FOODON:00001256]"
@@ -2739,9 +2736,21 @@
           "text": "Chicken thigh (skinless) [FOODON:00003331]",
           "is_a": "Chicken thigh"
         },
+        "Chicken thigh (skinless, with bone)": {
+          "text": "Chicken thigh (skinless, with bone)",
+          "is_a": "Chicken thigh"
+        },
         "Chicken thigh (skinless, boneless) [FOODON:03000417]": {
           "text": "Chicken thigh (skinless, boneless) [FOODON:03000417]",
           "is_a": "Chicken thigh"
+        },
+        "Chicken upper thigh [FOODON:03000381]": {
+          "text": "Chicken upper thigh [FOODON:03000381]",
+          "is_a": "Chicken thigh (skinless, boneless) [FOODON:03000417]"
+        },
+        "Chicken upper thigh (with skin) [FOODON:03000383]": {
+          "text": "Chicken upper thigh (with skin) [FOODON:03000383]",
+          "is_a": "Chicken upper thigh [FOODON:03000381]"
         },
         "Chicken thigh (with skin) [FOODON:00003330]": {
           "text": "Chicken thigh (with skin) [FOODON:00003330]",
@@ -2750,14 +2759,6 @@
         "Chicken thigh (with skin, with bone) [FOODON_00003363]": {
           "text": "Chicken thigh (with skin, with bone) [FOODON_00003363]",
           "is_a": "Chicken thigh"
-        },
-        "Chicken upper thigh [FOODON:03000381]": {
-          "text": "Chicken upper thigh [FOODON:03000381]",
-          "is_a": "Meat, poultry and fish (organizational term)"
-        },
-        "Chicken upper thigh (with skin) [FOODON:03000383]": {
-          "text": "Chicken upper thigh (with skin) [FOODON:03000383]",
-          "is_a": "Chicken upper thigh [FOODON:03000381]"
         },
         "Chicken wing [FOODON:00002674]": {
           "text": "Chicken wing [FOODON:00002674]",
@@ -2779,8 +2780,8 @@
           "text": "Head cheese [FOODON:03315658]",
           "is_a": "Meat, poultry and fish (organizational term)"
         },
-        "Lamb": {
-          "text": "Lamb",
+        "Lamb [FOODON:03411669]": {
+          "text": "Lamb [FOODON:03411669]",
           "is_a": "Meat, poultry and fish (organizational term)"
         },
         "Meat strip [FOODON:00004285]": {
@@ -3071,8 +3072,8 @@
           "text": "Arugula greens (raw) [FOODON:00002426]",
           "is_a": "Produce [FOODON:03305145]"
         },
-        "Avocado": {
-          "text": "Avocado",
+        "Avocado [FOODON:00003600]": {
+          "text": "Avocado [FOODON:00003600]",
           "is_a": "Produce [FOODON:03305145]"
         },
         "Cantaloupe (whole or parts) [FOODON:03000243]": {
@@ -3099,8 +3100,8 @@
           "text": "Fruit [PO:0009001]",
           "is_a": "Produce [FOODON:03305145]"
         },
-        "Goji berry": {
-          "text": "Goji berry",
+        "Goji berry [FOODON:00004360]": {
+          "text": "Goji berry [FOODON:00004360]",
           "is_a": "Produce [FOODON:03305145]"
         },
         "Greens (raw) [FOODON:03310765]": {
@@ -3139,8 +3140,8 @@
           "text": "Pepper (whole or parts) [FOODON:03000249]",
           "is_a": "Produce [FOODON:03305145]"
         },
-        "Potato": {
-          "text": "Potato",
+        "Potato [FOODON:03315354]": {
+          "text": "Potato [FOODON:03315354]",
           "is_a": "Produce [FOODON:03305145]"
         },
         "Salad [FOODON:03316042]": {
@@ -3303,8 +3304,8 @@
         "Food (canned) [FOODON:00002418]": {
           "text": "Food (canned) [FOODON:00002418]"
         },
-        "Food (cooked)": {
-          "text": "Food (cooked)"
+        "Food (cooked) [FOODON:00001181]": {
+          "text": "Food (cooked) [FOODON:00001181]"
         },
         "Food (cut) [FOODON:00004291]": {
           "text": "Food (cut) [FOODON:00004291]"
@@ -3341,11 +3342,11 @@
         "Meat (skinless) [FOODON:00003468]": {
           "text": "Meat (skinless) [FOODON:00003468]"
         },
-        "Meat (with bone)": {
-          "text": "Meat (with bone)"
+        "Meat (with bone) [FOODON:02010116]": {
+          "text": "Meat (with bone) [FOODON:02010116]"
         },
-        "Meat (with skin)": {
-          "text": "Meat (with skin)"
+        "Meat (with skin) [FOODON:02010111]": {
+          "text": "Meat (with skin) [FOODON:02010111]"
         },
         "Organic food claim or use [FOODON:03510128]": {
           "text": "Organic food claim or use [FOODON:03510128]"
@@ -3387,47 +3388,34 @@
         }
       }
     },
-    "production_stream menu": {
-      "name": "production_stream menu",
+    "food_product_production_stream menu": {
+      "name": "food_product_production_stream menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
-        "Food animal production stream": {
-          "text": "Food animal production stream"
+        "Beef cattle production stream [FOODON:03000452]": {
+          "text": "Beef cattle production stream [FOODON:03000452]"
         },
-        "Beef cattle production stream": {
-          "text": "Beef cattle production stream",
-          "is_a": "Food animal production stream"
+        "Broiler chicken production stream [FOODON:03000455]": {
+          "text": "Broiler chicken production stream [FOODON:03000455]"
         },
-        "Broiler chicken production stream": {
-          "text": "Broiler chicken production stream",
-          "is_a": "Food animal production stream"
+        "Dairy cattle production stream [FOODON:03000453]": {
+          "text": "Dairy cattle production stream [FOODON:03000453]"
         },
-        "Dairy cattle production stream": {
-          "text": "Dairy cattle production stream",
-          "is_a": "Food animal production stream"
+        "Egg production stream [FOODON:03000458]": {
+          "text": "Egg production stream [FOODON:03000458]"
         },
-        "Layer chicken production stream": {
-          "text": "Layer chicken production stream",
-          "is_a": "Food animal production stream"
+        "Layer chicken production stream [FOODON:03000456]": {
+          "text": "Layer chicken production stream [FOODON:03000456]"
         },
-        "Food product production stream": {
-          "text": "Food product production stream"
+        "Meat production stream [FOODON:03000460]": {
+          "text": "Meat production stream [FOODON:03000460]"
         },
-        "Egg production stream": {
-          "text": "Egg production stream",
-          "is_a": "Food product production stream"
+        "Veal meat production stream [FOODON:03000461]": {
+          "text": "Veal meat production stream [FOODON:03000461]",
+          "is_a": "Meat production stream [FOODON:03000460]"
         },
-        "Meat production stream": {
-          "text": "Meat production stream",
-          "is_a": "Food product production stream"
-        },
-        "Veal production stream": {
-          "text": "Veal production stream",
-          "is_a": "Meat production stream"
-        },
-        "Milk production stream": {
-          "text": "Milk production stream",
-          "is_a": "Food product production stream"
+        "Milk production stream [FOODON:03000459]": {
+          "text": "Milk production stream [FOODON:03000459]"
         }
       }
     },
@@ -3473,14 +3461,14 @@
         "PONAR grab sampler": {
           "text": "PONAR grab sampler"
         },
-        "Scoop": {
-          "text": "Scoop"
+        "Scoop [GENEPIO:0002125]": {
+          "text": "Scoop [GENEPIO:0002125]"
         },
         "Soil sample probe": {
           "text": "Soil sample probe"
         },
-        "Spatula": {
-          "text": "Spatula"
+        "Spatula [NCIT:C149941]": {
+          "text": "Spatula [NCIT:C149941]"
         },
         "Sponge [OBI:0002819]": {
           "text": "Sponge [OBI:0002819]"
@@ -3575,17 +3563,17 @@
           "text": "Paper bag, sack or pouch [FOODON:03490120]",
           "is_a": "Bag, sack or pouch [FOODON:03490197]"
         },
-        "Plastic bag, sack or pouch": {
-          "text": "Plastic bag, sack or pouch",
+        "Plastic bag, sack or pouch [FOODON:03490166]": {
+          "text": "Plastic bag, sack or pouch [FOODON:03490166]",
           "is_a": "Bag, sack or pouch [FOODON:03490197]"
         },
         "Plastic shrink wrap [FOODON:03490137]": {
           "text": "Plastic shrink wrap [FOODON:03490137]",
-          "is_a": "Plastic bag, sack or pouch"
+          "is_a": "Plastic bag, sack or pouch [FOODON:03490166]"
         },
         "Plastic wrapper [FOODON:03490128]": {
           "text": "Plastic wrapper [FOODON:03490128]",
-          "is_a": "Plastic bag, sack or pouch"
+          "is_a": "Plastic bag, sack or pouch [FOODON:03490166]"
         },
         "Bottle or jar [FOODON:03490203]": {
           "text": "Bottle or jar [FOODON:03490203]"
@@ -3608,20 +3596,20 @@
       "name": "host (common name) menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
-        "Bird": {
-          "text": "Bird"
+        "Bird [NCBITaxon:8782]": {
+          "text": "Bird [NCBITaxon:8782]"
         },
         "Chicken [NCBITaxon:9031]": {
           "text": "Chicken [NCBITaxon:9031]",
-          "is_a": "Bird"
+          "is_a": "Bird [NCBITaxon:8782]"
         },
-        "Seabird": {
-          "text": "Seabird",
-          "is_a": "Bird"
+        "Seabird [FOODON:00004504]": {
+          "text": "Seabird [FOODON:00004504]",
+          "is_a": "Bird [NCBITaxon:8782]"
         },
         "Cormorant [NCBITaxon:9206]": {
           "text": "Cormorant [NCBITaxon:9206]",
-          "is_a": "Seabird"
+          "is_a": "Seabird [FOODON:00004504]"
         },
         "Double Crested Cormorant [NCBITaxon:56069]": {
           "text": "Double Crested Cormorant [NCBITaxon:56069]",
@@ -3629,7 +3617,7 @@
         },
         "Crane [NCBITaxon:9109]": {
           "text": "Crane [NCBITaxon:9109]",
-          "is_a": "Seabird"
+          "is_a": "Seabird [FOODON:00004504]"
         },
         "Whooping Crane [NCBITaxon:9117]": {
           "text": "Whooping Crane [NCBITaxon:9117]",
@@ -3637,7 +3625,7 @@
         },
         "Gull (Seagull) [NCBITaxon:8911]": {
           "text": "Gull (Seagull) [NCBITaxon:8911]",
-          "is_a": "Seabird"
+          "is_a": "Seabird [FOODON:00004504]"
         },
         "Glaucous-winged Gull [NCBITaxon:119606]": {
           "text": "Glaucous-winged Gull [NCBITaxon:119606]",
@@ -3657,7 +3645,7 @@
         },
         "Eider [NCBITaxon:50366]": {
           "text": "Eider [NCBITaxon:50366]",
-          "is_a": "Seabird"
+          "is_a": "Seabird [FOODON:00004504]"
         },
         "Common Eider [NCBITaxon:76058]": {
           "text": "Common Eider [NCBITaxon:76058]",
@@ -3665,7 +3653,7 @@
         },
         "Turkey [NCBITaxon:9103]": {
           "text": "Turkey [NCBITaxon:9103]",
-          "is_a": "Bird"
+          "is_a": "Bird [NCBITaxon:8782]"
         },
         "Fish [FOODON:03411222]": {
           "text": "Fish [FOODON:03411222]"
@@ -3759,9 +3747,6 @@
         },
         "Larus marinus [NCBITaxon:8912]": {
           "text": "Larus marinus [NCBITaxon:8912]"
-        },
-        "Larus sp.": {
-          "text": "Larus sp."
         },
         "Meleagris gallopavo [NCBITaxon:9103]": {
           "text": "Meleagris gallopavo [NCBITaxon:9103]"
@@ -4400,6 +4385,24 @@
         }
       }
     },
+    "taxonomic_identification_process menu": {
+      "name": "taxonomic_identification_process menu",
+      "from_schema": "https://example.com/GRDI",
+      "permissible_values": {
+        "Whole genome sequencing assay [OBI:0002117]": {
+          "text": "Whole genome sequencing assay [OBI:0002117]"
+        },
+        "16S ribosomal gene sequencing assay [OBI:0002763]": {
+          "text": "16S ribosomal gene sequencing assay [OBI:0002763]"
+        },
+        "PCR assay [OBI:0002740]": {
+          "text": "PCR assay [OBI:0002740]"
+        },
+        "Comparative phenotypic assessment [OBI:0001546]": {
+          "text": "Comparative phenotypic assessment [OBI:0001546]"
+        }
+      }
+    },
     "sequenced_by menu": {
       "name": "sequenced_by menu",
       "from_schema": "https://example.com/GRDI",
@@ -4421,24 +4424,6 @@
         },
         "Fisheries and Oceans Canada (DFO) [GENEPIO:0100556]": {
           "text": "Fisheries and Oceans Canada (DFO) [GENEPIO:0100556]"
-        }
-      }
-    },
-    "taxonomic_identification_process menu": {
-      "name": "taxonomic_identification_process menu",
-      "from_schema": "https://example.com/GRDI",
-      "permissible_values": {
-        "Whole genome sequencing assay [OBI:0002117]": {
-          "text": "Whole genome sequencing assay [OBI:0002117]"
-        },
-        "16S ribosomal gene sequencing assay [OBI:0002763]": {
-          "text": "16S ribosomal gene sequencing assay [OBI:0002763]"
-        },
-        "PCR assay [OBI:0002740]": {
-          "text": "PCR assay [OBI:0002740]"
-        },
-        "Comparative phenotypic assessment [OBI:0001546]": {
-          "text": "Comparative phenotypic assessment [OBI:0001546]"
         }
       }
     },
@@ -4814,14 +4799,14 @@
       "name": "antimicrobial_measurement_units menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
-        "mg/L [UO:0000273]": {
-          "text": "mg/L [UO:0000273]"
+        "milligram per litre (mg/L) [UO:0000273]": {
+          "text": "milligram per litre (mg/L) [UO:0000273]"
         },
-        "mm [UO:0000016]": {
-          "text": "mm [UO:0000016]"
+        "millimetre (mm) [UO:0000016]": {
+          "text": "millimetre (mm) [UO:0000016]"
         },
-        "ug/mL [UO:0000274]": {
-          "text": "ug/mL [UO:0000274]"
+        "microgram per millilitre (ug/mL) [UO:0000274]": {
+          "text": "microgram per millilitre (ug/mL) [UO:0000274]"
         }
       }
     },
@@ -4829,8 +4814,8 @@
       "name": "antimicrobial_measurement_sign menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
-        "less than  (<) [GENEPIO:0001002]": {
-          "text": "less than  (<) [GENEPIO:0001002]"
+        "less than (<) [GENEPIO:0001002]": {
+          "text": "less than (<) [GENEPIO:0001002]"
         },
         "less than or equal to (<=) [GENEPIO:0001003]": {
           "text": "less than or equal to (<=) [GENEPIO:0001003]"
@@ -4854,7 +4839,8 @@
           "text": "Agar diffusion [NCIT:85595]"
         },
         "Antimicrobial gradient (E-test) [NCIT:85596]": {
-          "text": "Antimicrobial gradient (E-test) [NCIT:85596]"
+          "text": "Antimicrobial gradient (E-test) [NCIT:85596]",
+          "is_a": "Agar diffusion [NCIT:85595]"
         },
         "Agar dilution [ARO:3004411]": {
           "text": "Agar dilution [ARO:3004411]"
@@ -4930,6 +4916,12 @@
         },
         "Société Française de Microbiologie (SFM) [ARO:3004369]": {
           "text": "Société Française de Microbiologie (SFM) [ARO:3004369]"
+        },
+        "Swedish Reference Group for Antibiotics (SIR) [ARO:3007397]": {
+          "text": "Swedish Reference Group for Antibiotics (SIR) [ARO:3007397]"
+        },
+        "Werkgroep Richtlijnen Gevoeligheidsbepalingen (WRG) [ARO:3007398]": {
+          "text": "Werkgroep Richtlijnen Gevoeligheidsbepalingen (WRG) [ARO:3007398]"
         }
       }
     }
@@ -5825,18 +5817,23 @@
         }
       ]
     },
-    "production_stream": {
-      "name": "production_stream",
-      "description": "A production pathway incorporating the processes, material entities (e.g. equipment, animals, locations), and conditions that participate in the generation of a particular commodity.",
-      "title": "production_stream",
+    "food_product_production_stream": {
+      "name": "food_product_production_stream",
+      "description": "A production pathway incorporating the processes, material entities (e.g. equipment, animals, locations), and conditions that participate in the generation of a food commodity.",
+      "title": "food_product_production_stream",
       "comments": [
         "Provide the name of the agricultural production stream from the picklist."
+      ],
+      "examples": [
+        {
+          "value": "Beef cattle production stream [FOODON:03000452]"
+        }
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0100699",
       "any_of": [
         {
-          "range": "production_stream menu"
+          "range": "food_product_production_stream menu"
         },
         {
           "range": "null value menu"
@@ -19009,8 +19006,8 @@
           "rank": 40,
           "slot_group": "Sample collection and processing"
         },
-        "production_stream": {
-          "name": "production_stream",
+        "food_product_production_stream": {
+          "name": "food_product_production_stream",
           "rank": 41,
           "slot_group": "Sample collection and processing"
         },
@@ -22982,14 +22979,14 @@
           "slot_group": "Sample collection and processing",
           "recommended": true
         },
-        "production_stream": {
-          "name": "production_stream",
-          "description": "A production pathway incorporating the processes, material entities (e.g. equipment, animals, locations), and conditions that participate in the generation of a particular commodity.",
-          "title": "production_stream",
+        "food_product_production_stream": {
+          "name": "food_product_production_stream",
+          "description": "A production pathway incorporating the processes, material entities (e.g. equipment, animals, locations), and conditions that participate in the generation of a food commodity.",
+          "title": "food_product_production_stream",
           "from_schema": "https://example.com/GRDI",
           "rank": 41,
           "slot_uri": "GENEPIO:0100699",
-          "alias": "production_stream",
+          "alias": "food_product_production_stream",
           "owner": "GRDI",
           "domain_of": [
             "GRDI"
