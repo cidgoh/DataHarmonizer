@@ -1,27 +1,127 @@
 {
+  "file-menu-button": {
+    "en": "File",
+    "fr": "Fichier"
+  },
+  "select-template-modal-button": {
+    "en": "Select Template",
+    "fr": "Sélectionner un modèle"
+  },
+  "upload-template-dropdown-item": {
+    "en": "Upload Template",
+    "fr": "Télécharger le modèle"
+  },
+  "new-dropdown-item": {
+    "en": "New",
+    "fr": "Nouveau"
+  },
   "open-dropdown-item": {
+    "en": "Open",
     "fr": "Ouvrir"
   },
-  "upload-template-dropdown-item": {},
-  "select-template-modal-button": {},
-  "new-dropdown-item": {},
+  "save-as-dropdown-item": {
+    "en": "Save As...",
+    "fr": "Enregistrer sous..."
+  },
+  "export-to-dropdown-item": {
+    "en": "Export To...",
+    "fr": "Exporter vers..."
+  },
+
+  "settings-menu-button": {
+    "en": "Settings",
+    "fr": "paramètres"
+  },
+
+  "show-all-cols-dropdown-item": {
+    "en": "Show all columns",
+    "fr": "Afficher toutes les colonnes"
+  },
+  "show-required-cols-dropdown-item": {
+    "en": "Show required columns",
+    "fr": "Afficher les colonnes requises"
+  },
+
+  "show-recommended-cols-dropdown-item": {
+    "en": "Show required + recommended columns",
+    "fr": "Afficher les colonnes obligatoires + recommandées"
+  },
+
+
+  "show-all-rows-dropdown-item": {
+    "en": "Show all rows",
+    "fr": "Afficher toutes les lignes"
+  },
+  "show-valid-rows-dropdown-item": {
+    "en": "Show valid rows",
+    "fr": "Afficher les lignes valides"
+  },
+  "show-invalid-rows-dropdown-item": {
+    "en": "Show invalid rows",
+    "fr": "Afficher les lignes invalides"
+  },
+  "show-section-menu": {
+    "en": "Show section:",
+    "fr": "Afficher la section:"
+  },
+  "jump-to-dropdown-item": {
+    "en": "Jump to...",
+    "fr": "Aller à..."
+  },
+  "fill-dropdown-item": {
+    "en": "Fill column...",
+    "fr": "Remplir la colonne..."
+  },
+  "validate-btn": {
+    "en": "Validate",
+    "fr": "Valider"
+  },
+
+  "help-menu-button": {
+    "en": "Help",
+    "fr": "Aide"
+  },
+  "getting-started-modal-menu": {
+    "en": "Getting Started",
+    "fr": "Aide pour démarrer"
+  },
+  "help_reference": {
+    "en": "Reference Guide",
+    "fr": "Guide de référence"
+  },
+  "help_sop": {
+    "en": "SOP",
+    "fr": "Relevé des débats"
+  },
+  "help_release": {
+    "en": "Get Latest Release",
+    "fr": "Obtenir la dernière version"
+  },
+  "help_contact": {
+    "en": "Contact Us",
+    "fr": "Contactez-nous"
+  },
+
+  "template_label": {
+    "en": "Template",
+    "fr": "Modèle"
+  },
+  "language_label": {
+    "en": "Language",
+    "fr": "Langue"
+  },
+
+  "loaded_file_label": {
+    "en": "Loaded file",
+    "fr": "Fichier chargé"
+  },
+
   "open-file-input": {},
-  "save-as-dropdown-item": {},
-  "export-to-dropdown-item": {},
-  "show-all-cols-dropdown-item": {},
-  "show-required-cols-dropdown-item": {},
-  "show-all-rows-dropdown-item": {},
-  "show-valid-rows-dropdown-item": {},
-  "show-invalid-rows-dropdown-item": {},
-  "jump-to-dropdown-item": {},
-  "fill-dropdown-item": {},
-  "validate-btn": {},
   "save-as-modal": {},
   "export-to-modal-btn": {},
   "export-to-confirm-btn": {},
   "jump-to-input": {},
-  "fill-column-input": {},
-  "help_release": {},
-  "template_name_display": {},
-  "getting-started-modal-menu": {}
+  "fill-column-input": {}
+
+
 }

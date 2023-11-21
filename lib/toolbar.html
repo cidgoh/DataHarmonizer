@@ -7,6 +7,8 @@
         data-toggle="dropdown"
         aria-haspopup="true"
         aria-expanded="false"
+        id="file-menu-button"
+        data-i18n="file-menu-button"
       >
         File
       </button>
@@ -76,6 +78,8 @@
         data-toggle="dropdown"
         aria-haspopup="true"
         aria-expanded="false"
+        id="settings-menu-button"
+        data-i18n="settings-menu-button"
       >
         Settings
       </button>
@@ -98,9 +102,10 @@
           data-i18n="show-recommended-cols-dropdown-item"
           >Show required + recommended columns</span
         >
-        <div style="padding: 0.25rem 1.5rem">
-          Show section:
-          <div id="section-menu"></div>
+        <div style="padding: 0.25rem 1.5rem"
+          id="show-section-menu"
+          data-i18n="show-section-menu"
+          >Show section:<div id="section-menu"></div>
         </div>
 
         <span
@@ -147,9 +152,8 @@
       class="btn btn-primary"
       id="validate-btn"
       data-i18n="validate-btn"
+      >Validate</button
     >
-      Validate
-    </button>
   </div>
 
   <!-- TODO: data-i18n -->
@@ -160,6 +164,8 @@
       data-toggle="dropdown"
       aria-haspopup="true"
       aria-expanded="false"
+      id="help-menu-button"
+      data-i18n="help-menu-button"
     >
       Help
     </button>
@@ -172,15 +178,21 @@
         data-i18n="getting-started-modal-menu"
         >Getting Started</span
       >
-      <a class="dropdown-item" target="_blank" id="help_reference" href=""
+      <a class="dropdown-item" target="_blank" href=""
+        id="help_reference"         
+        data-i18n="help_reference"
         >Reference Guide</a
       >
-      <a class="dropdown-item" target="_blank" id="help_sop" href="">SOP</a>
+      <a class="dropdown-item" target="_blank" href="" 
+        id="help_sop"
+        data-i18n="help_sop"
+        >SOP</a
+      >
       <a
         class="dropdown-item"
         target="_blank"
-        id="help_release"
         href="https://github.com/cidgoh/DataHarmonizer/releases"
+        id="help_release"
         data-i18n="help_release"
         >Get Latest Release</a
       >
@@ -188,6 +200,8 @@
         class="dropdown-item"
         data-toggle="modal"
         data-target="#contact-us-modal"
+        id="help_contact"
+        data-i18n="help_contact"
         >Contact Us</span
       >
     </div>
@@ -195,7 +209,11 @@
 
   <div class="btn-group" role="group" style="margin-right: 40px">
     <div class="input-group-prepend">
-      <div class="btn">Template</div>
+      <div class="btn"
+        id="template_label"
+        data-i18n="template_label"
+        >Template</div
+      >
     </div>
     <div class="input-group-append">
       <div
@@ -211,7 +229,11 @@
 
   <div class="btn-group" role="group" style="margin-right: 40px">
     <div class="input-group-prepend">
-      <div class="btn">Language</div>
+      <div class="btn"
+        id="language_label"
+        data-i18n="language_label"
+        >Language</div
+      >
     </div>
     <div class="input-group-append">
       <select class="form-control" id="select-language-localization"></select>
@@ -220,7 +242,11 @@
 
   <div class="btn-group" role="group" style="margin-right: 40px">
     <div class="input-group-prepend">
-      <div class="btn">Loaded file</div>
+      <div class="btn"
+        id="loaded_file_label"
+        data-i18n="loaded_file_label"
+        >Loaded file</div
+      >
     </div>
     <div class="input-group-append">
       <div
