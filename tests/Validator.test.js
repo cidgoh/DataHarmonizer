@@ -215,8 +215,8 @@ const SCHEMA = {
         },
         present_or_absent_string: {
           name: 'conditional_string',
-          range: 'string'
-        }
+          range: 'string',
+        },
       },
       unique_keys: {
         a_two_part_unique_key: {
@@ -225,7 +225,8 @@ const SCHEMA = {
       },
       rules: [
         {
-          description: "If a_string is either bingo or bongo then an_integer has to be >= 100 and a_float has to be <= 0",
+          description:
+            'If a_string is either bingo or bongo then an_integer has to be >= 100 and a_float has to be <= 0',
           preconditions: {
             slot_conditions: {
               a_string: {
@@ -251,70 +252,73 @@ const SCHEMA = {
           },
         },
         {
-          description: "If conditional_string is 'big' then a_big_number is required, otherwise a_small_number is required",
+          description:
+            "If conditional_string is 'big' then a_big_number is required, otherwise a_small_number is required",
           preconditions: {
             slot_conditions: {
               conditional_string: {
                 name: 'conditional_string',
-                equals_string: 'big'
-              }
-            }
+                equals_string: 'big',
+              },
+            },
           },
           postconditions: {
             slot_conditions: {
               a_big_number: {
                 name: 'a_big_number',
-                required: true
-              }
-            }
+                required: true,
+              },
+            },
           },
           elseconditions: {
             slot_conditions: {
               a_small_number: {
                 name: 'a_small_number',
-                required: true
-              }
-            }
-          }
+                required: true,
+              },
+            },
+          },
         },
         {
-          description: "If present_or_absent_string is present, then a_big_number is required",
+          description:
+            'If present_or_absent_string is present, then a_big_number is required',
           preconditions: {
             slot_conditions: {
               present_or_absent_string: {
                 name: 'present_or_absent_string',
-                value_presence: 'PRESENT'
-              }
-            }
+                value_presence: 'PRESENT',
+              },
+            },
           },
           postconditions: {
             slot_conditions: {
               a_big_number: {
                 name: 'a_big_number',
-                required: true
-              }
-            }
+                required: true,
+              },
+            },
           },
         },
         {
-          description: "If present_or_absent_string is absent, then a_small_number is required",
+          description:
+            'If present_or_absent_string is absent, then a_small_number is required',
           preconditions: {
             slot_conditions: {
               present_or_absent_string: {
                 name: 'present_or_absent_string',
-                value_presence: 'ABSENT'
-              }
-            }
+                value_presence: 'ABSENT',
+              },
+            },
           },
           postconditions: {
             slot_conditions: {
               a_big_number: {
                 name: 'a_small_number',
-                required: true
-              }
-            }
+                required: true,
+              },
+            },
           },
-        }
+        },
       ],
     },
   },
@@ -702,7 +706,7 @@ describe('Validator', () => {
       },
       5: {
         2: 'This field is required',
-      }
+      },
     });
   });
 
