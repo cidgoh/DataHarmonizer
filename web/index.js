@@ -10,6 +10,9 @@ import tags from 'language-tags';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@/web/index.css';
 
+const rootUrl = window.location.host;
+console.log('Root URL:', rootUrl);
+
 document.addEventListener('DOMContentLoaded', function () {
   const dhRoot = document.querySelector('#data-harmonizer-grid');
   const dhFooterRoot = document.querySelector('#data-harmonizer-footer');
@@ -26,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
     console.log(lang);
     console.log(i18n);
     $(document).localize();
-    dh.hot.render();
+    dh.render();
   });
 
   new Footer(dhFooterRoot, dh);
