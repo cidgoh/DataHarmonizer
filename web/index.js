@@ -23,8 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // Takes `lang` as argument (unused)
   initI18n((lang) => {
     console.log(lang);
-    //dh.hot.render();
-    console.log('localizing in render')
+    // dh.hot.render();
     $(document).localize();
   });
 
