@@ -214,7 +214,7 @@ const SCHEMA = {
           range: 'string',
         },
         present_or_absent_string: {
-          name: 'conditional_string',
+          name: 'present_or_absent_string',
           range: 'string',
         },
       },
@@ -312,7 +312,7 @@ const SCHEMA = {
           },
           postconditions: {
             slot_conditions: {
-              a_big_number: {
+              a_small_number: {
                 name: 'a_small_number',
                 required: true,
               },
@@ -326,9 +326,9 @@ const SCHEMA = {
     Numbers: {
       name: 'Numbers',
       permissible_values: {
-        one: { text: 'One' },
-        two: { text: 'Two' },
-        three: { text: 'Three' },
+        One: { text: 'One' },
+        Two: { text: 'Two' },
+        Three: { text: 'Three' },
       },
     },
   },
