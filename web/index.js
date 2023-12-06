@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // internationalize
   // TODO: connect to locale of schema!
   // Takes `lang` as argument (unused)
-  initI18n((lang) => {
+  initI18n(() => {
     $(document).localize();
     dh.hot.render();
   });
@@ -40,7 +40,6 @@ document.addEventListener('DOMContentLoaded', function () {
     releasesURL: 'https://github.com/cidgoh/pathogen-genomics-package/releases',
     // TODO: reduce duplication of the Template.create(); object
     getLanguages: async (schema) => {
-      
       // Consolidate function for reducing objects
       function consolidate(iterable, reducer) {
         return Object.entries(iterable).reduce(reducer, {});
