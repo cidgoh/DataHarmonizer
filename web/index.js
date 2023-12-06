@@ -41,6 +41,7 @@ document.addEventListener('DOMContentLoaded', function () {
     releasesURL: 'https://github.com/cidgoh/pathogen-genomics-package/releases',
     // TODO: reduce duplication of the Template.create(); object
     getLanguages: async (schema) => {
+      
       // Consolidate function for reducing objects
       function consolidate(iterable, reducer) {
         return Object.entries(iterable).reduce(reducer, {});
