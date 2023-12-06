@@ -707,7 +707,11 @@ describe('Validator', () => {
     const validator = new Validator(SCHEMA);
     validator.useTargetClass('Test');
 
-    const header = ['rule_1_precondition_string', 'rule_1_postcondition_integer', 'rule_1_postcondition_float'];
+    const header = [
+      'rule_1_precondition_string',
+      'rule_1_postcondition_integer',
+      'rule_1_postcondition_float',
+    ];
     const data = [
       ['whatever', '20', '20'],
       ['bingo', '200', '-10'],
@@ -725,7 +729,11 @@ describe('Validator', () => {
     const validator = new Validator(SCHEMA);
     validator.useTargetClass('Test');
 
-    const header = ['rule_2_conditional_string', 'rule_2_big_number', 'rule_2_small_number'];
+    const header = [
+      'rule_2_conditional_string',
+      'rule_2_big_number',
+      'rule_2_small_number',
+    ];
     const data = [
       ['big', '20', ''],
       ['big', '200', ''],
