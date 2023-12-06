@@ -209,13 +209,49 @@ const SCHEMA = {
           name: 'unique_key_part_b',
           range: 'string',
         },
-        conditional_string: {
-          name: 'conditional_string',
+        rule_1_precondition_string: {
+          name: 'rule_1_precondition_string',
           range: 'string',
         },
-        present_or_absent_string: {
-          name: 'present_or_absent_string',
+        rule_1_postcondition_integer: {
+          name: 'rule_1_postcondition_integer',
+          range: 'integer',
+        },
+        rule_1_postcondition_float: {
+          name: 'rule_1_postcondition_float',
+          range: 'float',
+        },
+        rule_2_conditional_string: {
+          name: 'rule_2_conditional_string',
           range: 'string',
+        },
+        rule_2_big_number: {
+          name: 'rule_2_big_number',
+          range: 'integer',
+          minimum_value: 100,
+        },
+        rule_2_small_number: {
+          name: 'rule_2_small_number',
+          range: 'integer',
+          maximum_value: 10,
+        },
+        rule_3_present_or_absent_string: {
+          name: 'rule_3_present_or_absent_string',
+          range: 'string',
+        },
+        rule_3_big_number: {
+          name: 'rule_3_big_number',
+          range: 'integer',
+          minimum_value: 100,
+        },
+        rule_4_present_or_absent_string: {
+          name: 'rule_4_present_or_absent_string',
+          range: 'string',
+        },
+        rule_4_small_number: {
+          name: 'rule_4_small_number',
+          range: 'integer',
+          maximum_value: 10,
         },
       },
       unique_keys: {
@@ -225,12 +261,14 @@ const SCHEMA = {
       },
       rules: [
         {
+          title: 'rule 1',
           description:
-            'If a_string is either bingo or bongo then an_integer has to be >= 100 and a_float has to be <= 0',
+            'If rule_1_precondition_string is either bingo or bongo then rule_1_postcondition_integer ' +
+            'has to be >= 100 and rule_1_postcondition_float has to be <= 0',
           preconditions: {
             slot_conditions: {
-              a_string: {
-                name: 'a_string',
+              rule_1_precondition_string: {
+                name: 'rule_1_precondition_string',
                 any_of: [
                   { equals_string: 'bingo' },
                   { equals_string: 'bongo' },
@@ -240,80 +278,83 @@ const SCHEMA = {
           },
           postconditions: {
             slot_conditions: {
-              an_integer: {
-                name: 'an_integer',
+              rule_1_postcondition_integer: {
+                name: 'rule_1_postcondition_integer',
                 minimum_value: 100,
               },
-              a_float: {
-                name: 'a_float',
+              rule_1_postcondition_float: {
+                name: 'rule_1_postcondition_float',
                 maximum_value: 0,
               },
             },
           },
         },
         {
+          title: 'rule 2',
           description:
-            "If conditional_string is 'big' then a_big_number is required, otherwise a_small_number is required",
+            "If rule_2_conditional_string is 'big' then rule_2_big_number is required, otherwise rule_2_small_number is required",
           preconditions: {
             slot_conditions: {
-              conditional_string: {
-                name: 'conditional_string',
+              rule_2_conditional_string: {
+                name: 'rule_2_conditional_string',
                 equals_string: 'big',
               },
             },
           },
           postconditions: {
             slot_conditions: {
-              a_big_number: {
-                name: 'a_big_number',
+              rule_2_big_number: {
+                name: 'rule_2_big_number',
                 required: true,
               },
             },
           },
           elseconditions: {
             slot_conditions: {
-              a_small_number: {
-                name: 'a_small_number',
+              rule_2_small_number: {
+                name: 'rule_2_small_number',
                 required: true,
               },
             },
           },
         },
         {
+          title: 'rule 3',
           description:
-            'If present_or_absent_string is present, then a_big_number is required',
+            'If rule_3_present_or_absent_string is present, then rule_3_big_number is required',
           preconditions: {
             slot_conditions: {
-              present_or_absent_string: {
-                name: 'present_or_absent_string',
+              rule_3_present_or_absent_string: {
+                name: 'rule_3_present_or_absent_string',
                 value_presence: 'PRESENT',
               },
             },
           },
           postconditions: {
             slot_conditions: {
-              a_big_number: {
-                name: 'a_big_number',
+              rule_3_big_number: {
+                name: 'rule_3_big_number',
                 required: true,
               },
             },
           },
         },
         {
+          title: 'rule 4',
           description:
-            'If present_or_absent_string is absent, then a_small_number is required',
+            'If rule_4_present_or_absent_string is absent, then rule_4_small_number is required',
           preconditions: {
             slot_conditions: {
-              present_or_absent_string: {
-                name: 'present_or_absent_string',
+              rule_4_present_or_absent_string: {
+                name: 'rule_4_present_or_absent_string',
                 value_presence: 'ABSENT',
               },
             },
           },
           postconditions: {
             slot_conditions: {
-              a_small_number: {
-                name: 'a_small_number',
+              rule_4_small_number: {
+                name: 'rule_4_small_number',
                 required: true,
               },
             },
@@ -666,7 +707,7 @@ describe('Validator', () => {
     const validator = new Validator(SCHEMA);
     validator.useTargetClass('Test');
 
-    const header = ['a_string', 'an_integer', 'a_float'];
+    const header = ['rule_1_precondition_string', 'rule_1_postcondition_integer', 'rule_1_postcondition_float'];
     const data = [
       ['whatever', '20', '20'],
       ['bingo', '200', '-10'],
@@ -684,7 +725,7 @@ describe('Validator', () => {
     const validator = new Validator(SCHEMA);
     validator.useTargetClass('Test');
 
-    const header = ['conditional_string', 'a_big_number', 'a_small_number'];
+    const header = ['rule_2_conditional_string', 'rule_2_big_number', 'rule_2_small_number'];
     const data = [
       ['big', '20', ''],
       ['big', '200', ''],
@@ -714,7 +755,7 @@ describe('Validator', () => {
     const validator = new Validator(SCHEMA);
     validator.useTargetClass('Test');
 
-    const header = ['present_or_absent_string', 'a_big_number'];
+    const header = ['rule_3_present_or_absent_string', 'rule_3_big_number'];
     const data = [
       ['', ''],
       ['hello', '200'],
@@ -732,7 +773,7 @@ describe('Validator', () => {
     const validator = new Validator(SCHEMA);
     validator.useTargetClass('Test');
 
-    const header = ['present_or_absent_string', 'a_small_number'];
+    const header = ['rule_4_present_or_absent_string', 'rule_4_small_number'];
     const data = [
       ['', ''],
       ['hello', ''],
