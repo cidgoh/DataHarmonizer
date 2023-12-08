@@ -1,6 +1,6 @@
 {
   "name": "data-harmonizer",
-  "version": "1.6.1",
+  "version": "1.6.4",
   "description": "A standardized spreadsheet editor and validator that can be run offline and locally",
   "repository": "git@github.com:cidgoh/DataHarmonizer.git",
   "license": "MIT",
