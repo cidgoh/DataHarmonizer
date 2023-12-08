@@ -22,8 +22,10 @@ document.addEventListener('DOMContentLoaded', function () {
   // TODO: connect to locale of schema!
   // Takes `lang` as argument (unused)
   initI18n(() => {
+    // localizing twice HACK!
     $(document).localize();
     dh.hot.render();
+    $(document).localize();
   });
 
   new Footer(dhFooterRoot, dh);
