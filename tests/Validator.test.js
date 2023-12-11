@@ -141,8 +141,8 @@ const SCHEMA = {
           range: 'integer',
           any_of: [{ maximum_value: 10 }, { minimum_value: 100 }],
         },
-        non_overlapping_intervals: {
-          name: 'non_overlapping_intervals',
+        an_integer_in_exactly_one_interval: {
+          name: 'an_integer_in_exactly_one_interval',
           range: 'integer',
           exactly_one_of: [
             {
@@ -571,7 +571,9 @@ describe('Validator', () => {
     const validator = new Validator(SCHEMA);
     validator.useTargetClass('Test');
 
-    let fn = validator.getValidatorForSlot('non_overlapping_intervals');
+    let fn = validator.getValidatorForSlot(
+      'an_integer_in_exactly_one_interval'
+    );
     expect(fn(undefined)).toBeUndefined();
     expect(fn('5')).toBeUndefined();
     expect(fn('15')).toEqual('All expressions of exactly_one_of held');
