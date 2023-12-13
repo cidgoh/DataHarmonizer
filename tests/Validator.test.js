@@ -117,10 +117,24 @@ const SCHEMA = {
           minimum_value: '2010-02-12',
           maximum_value: '2010-02-28',
         },
+        // This is not standard LinkML but it is supported while LinkML adds better support
+        // for non-numeric minimum and maximum values
+        during_vancouver_olympics_todos: {
+          name: 'during_vancouver_olympics_todos',
+          range: 'date',
+          todos: ['>=2010-02-12', '<=2010-02-28'],
+        },
+        // The special '{today}' value is not standard LinkML, but it is supported as a
+        // DataHarmonizer convention
         not_the_future: {
           name: 'not_the_future',
           range: 'date',
           maximum_value: '{today}',
+        },
+        not_the_future_todos: {
+          name: 'not_the_future_todos',
+          range: 'date',
+          todos: ['<={today}'],
         },
         a_constant: {
           name: 'a_constant',
@@ -508,7 +522,18 @@ describe('Validator', () => {
     expect(fn('2010-02-20')).toBeUndefined();
     expect(fn('2010-03-01')).toEqual('Value is greater than maximum value');
 
+    fn = validator.getValidatorForSlot('during_vancouver_olympics_todos');
+    expect(fn(undefined)).toBeUndefined();
+    expect(fn('2010-01-01')).toEqual('Value is less than minimum value');
+    expect(fn('2010-02-20')).toBeUndefined();
+    expect(fn('2010-03-01')).toEqual('Value is greater than maximum value');
+
     fn = validator.getValidatorForSlot('not_the_future');
+    expect(fn(undefined)).toBeUndefined();
+    expect(fn('2021-01-01')).toBeUndefined();
+    expect(fn('3000-01-01')).toEqual('Value is greater than maximum value');
+
+    fn = validator.getValidatorForSlot('not_the_future_todos');
     expect(fn(undefined)).toBeUndefined();
     expect(fn('2021-01-01')).toBeUndefined();
     expect(fn('3000-01-01')).toEqual('Value is greater than maximum value');
