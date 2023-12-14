@@ -130,7 +130,10 @@
     "en": "Continue",
     "fr": "Continuer"
   },
-
+  "template-ok":{
+    "en": "Ok",
+    "fr": "Ok"
+  },
   "no-error-button": {
     "en": "No Errors",
     "fr": "Aucune erreur"
