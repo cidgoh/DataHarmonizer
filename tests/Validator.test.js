@@ -136,6 +136,18 @@ const SCHEMA = {
           range: 'date',
           todos: ['<={today}'],
         },
+        // This is another DataHarmonizer convention that we support but isn't expressible in
+        // standard LinkML
+        after_a_date: {
+          name: 'after_a_date',
+          range: 'date',
+          todos: ['>={a_date}'],
+        },
+        before_a_date: {
+          name: 'before_a_date',
+          range: 'date',
+          todos: ['<={a_date}'],
+        },
         a_constant: {
           name: 'a_constant',
           range: 'string',
@@ -818,6 +830,31 @@ describe('Validator', () => {
     expect(results).toEqual({
       0: {
         1: 'This field is required',
+      },
+    });
+  });
+
+  it('should validate min/max constrains based on other slots', () => {
+    const validator = new Validator(SCHEMA);
+    validator.useTargetClass('Test');
+
+    const header = ['a_date', 'before_a_date', 'after_a_date'];
+    const data = [
+      ['2023-06-01', '2023-05-29', ''],
+      ['2023-06-01', '2023-06-01', ''],
+      ['2023-06-01', '2023-06-03', ''],
+      ['2023-06-01', '', '2023-05-29'],
+      ['2023-06-01', '', '2023-06-01'],
+      ['2023-06-01', '', '2023-06-03'],
+      ['', '2023-06-03', '2023-05-29'],
+    ];
+    const results = validator.validate(data, header);
+    expect(results).toEqual({
+      2: {
+        1: 'Value is greater than value of a_date column',
+      },
+      3: {
+        2: 'Value is less than value of a_date column',
       },
     });
   });
