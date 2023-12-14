@@ -6,13 +6,6 @@
       "display": true
     }
   },
-  "test": {
-    "Address": {
-      "name": "Address",
-      "status": "published",
-      "display": true
-    }
-  },
   "gisaid": {
     "GISAID": {
       "name": "GISAID",

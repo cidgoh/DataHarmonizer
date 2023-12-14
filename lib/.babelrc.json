@@ -1,4 +1,3 @@
 {
-  "presets": ["@babel/preset-env"],
-  "sourceMaps": "inline"
+  "presets": ["@babel/preset-env"]
 }
