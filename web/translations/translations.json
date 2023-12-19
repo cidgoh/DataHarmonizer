@@ -118,10 +118,101 @@
     "en": "more rows at the bottom",
     "fr": "plus de lignes en bas"
   },
-  "open-file-input": {},
-  "save-as-modal": {},
-  "export-to-modal-btn": {},
-  "export-to-confirm-btn": {},
-  "jump-to-input": {},
-  "fill-column-input": {}
+  "template-cancel": {
+    "en": "Cancel",
+    "fr": "Annuler"
+  },
+  "template-save":{
+    "en": "Save",
+    "fr": "Enregistrer"
+  },
+  "template-continue":{
+    "en": "Continue",
+    "fr": "Continuer"
+  },
+  "template-ok":{
+    "en": "Ok",
+    "fr": "Ok"
+  },
+  "no-error-button": {
+    "en": "No Errors",
+    "fr": "Aucune erreur"
+  },
+  "next-error-button": {
+    "en": "Next Error",
+    "fr": "Erreur suivante"
+  },
+  "change-template": {
+    "en": "Change Template",
+    "fr": "Modifier le modèle"
+  },
+  "view-template-draft-prompt": {
+    "en": "View draft templates",
+    "fr": "Afficher les modèles de brouillons"
+  },
+  "select-template-load": {
+    "en": "Open",
+    "fr": "Ouvrir"
+  },
+  "clear-data-prompt": {
+    "en": "Clear existing data?",
+    "fr": "Effacer les données existantes?"
+  },
+  "clear-data-confirm-btn": {
+    "en": "Clear",
+    "fr": "Effacer"
+  },
+  "save-as-warning": {
+    "en": "You have invalid cells. Continue saving?",
+    "fr": "Vous avez des cellules invalides. Continuer à enregistrer?"
+  },
+
+  "save-as-json-use-index":{
+    "en": "Save as object with index key",
+    "fr": "Enregistrer comme objet avec clé d'index"
+  },
+  "save-as-json-use-index-key":{
+    "en": "Name",
+    "fr": "Nom"
+  },
+
+  "export-to-invalid-warning":{
+    "en": "You have invalid cells. Continue exporting?",
+    "fr": "Vous avez des cellules invalides. Continuer l'exportation?"
+  },
+
+  "export-to-confirm-btn": {
+    "en": "Export",
+    "fr": "Exporter"
+  },
+
+  "jump-to-input-prompt": {
+    "en": "Jump to...",
+    "fr": "Aller à..."
+  },
+
+  "fill-column-input-prompt": {
+    "en": "Fill cells in column ...",
+    "fr": "Remplir les cellules dans la colonne..."
+  },
+  "fill-column-input-part2": {
+    "en": "with value",
+    "fr": "avec valeur"
+  },
+  "fill-column-help": {
+    "en": "Utilisez cette fonctionnalité pour remplir toutes les cellules d'une colonne avec une valeur donnée. Cela ne remplira pas les lignes vides de la feuille de calcul (comme cela se produit lors du collage d'une valeur dans la cellule d'en-tête d'une colonne).",
+    "fr": ""
+  },
+  "template-help-title": {
+    "en": "Are you ready to harmonize your contextual data?",
+    "fr": "Etes-vous prêt à harmoniser vos données contextuelles?"
+  },
+  "template-contact-blurb": {
+    "en": "",
+    "fr": ""
+  },
+  "dataharmonizer-contact-blurb": {
+    "en": "If you have questions about the DataHarmonizer application, or want to notify us of bugs or potential improvements, contact us by either posting an issue at https://github.com/cidgoh/DataHarmonizer/issues or emailing us at emma_griffiths@sfu.ca",
+    "fr": "Si vous avez des questions sur l'application DataHarmonizer, ou si vous souhaitez nous informer de bugs ou d'améliorations potentielles, contactez-nous en publiant un problème sur https://github.com/Public-Health-Bioinformatics/DataHarmonizer/issues ou en nous envoyant un courriel à emma_griffiths@sfu.ca"
+  }
 }
