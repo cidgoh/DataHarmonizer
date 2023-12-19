@@ -1,6 +1,6 @@
 {
   "name": "data-harmonizer",
-  "version": "1.7.4",
+  "version": "1.7.5",
   "description": "A standardized spreadsheet editor and validator that can be run offline and locally",
   "repository": "git@github.com:cidgoh/DataHarmonizer.git",
   "license": "MIT",
@@ -48,6 +48,7 @@
     "@rollup/plugin-image": "^2.1.1",
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^13.3.0",
+    "@types/jest": "^29.5.5",
     "bootstrap": "4.3.1",
     "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.7.1",
