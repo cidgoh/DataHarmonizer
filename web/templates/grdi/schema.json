@@ -2,7 +2,7 @@
   "name": "GRDI",
   "description": "",
   "id": "https://example.com/GRDI",
-  "version": "8.8.4",
+  "version": "8.9.8",
   "prefixes": {
     "linkml": {
       "prefix_prefix": "linkml",
@@ -216,6 +216,27 @@
     }
   },
   "enums": {
+    "null value menu": {
+      "name": "null value menu",
+      "from_schema": "https://example.com/GRDI",
+      "permissible_values": {
+        "Not Applicable [GENEPIO:0001619]": {
+          "text": "Not Applicable [GENEPIO:0001619]"
+        },
+        "Missing [GENEPIO:0001618]": {
+          "text": "Missing [GENEPIO:0001618]"
+        },
+        "Not Collected [GENEPIO:0001620]": {
+          "text": "Not Collected [GENEPIO:0001620]"
+        },
+        "Not Provided [GENEPIO:0001668]": {
+          "text": "Not Provided [GENEPIO:0001668]"
+        },
+        "Restricted Access [GENEPIO:0001810]": {
+          "text": "Restricted Access [GENEPIO:0001810]"
+        }
+      }
+    },
     "sample_collected_by menu": {
       "name": "sample_collected_by menu",
       "from_schema": "https://example.com/GRDI",
@@ -341,8 +362,8 @@
         "Technical replicate [OBI:0000249]": {
           "text": "Technical replicate [OBI:0000249]"
         },
-        "Isolated from single source": {
-          "text": "Isolated from single source"
+        "Isolated from single source [GENEPIO:0100926]": {
+          "text": "Isolated from single source [GENEPIO:0100926]"
         }
       }
     },
@@ -1275,8 +1296,8 @@
         "Artificial wetland [ENVO:03501406]": {
           "text": "Artificial wetland [ENVO:03501406]"
         },
-        "Breeding ground": {
-          "text": "Breeding ground"
+        "Breeding ground [ENVO:03501441]": {
+          "text": "Breeding ground [ENVO:03501441]"
         },
         "Building [ENVO:00000073]": {
           "text": "Building [ENVO:00000073]"
@@ -1362,8 +1383,8 @@
         "Farm [ENVO:00000078]": {
           "text": "Farm [ENVO:00000078]"
         },
-        "Beef farm": {
-          "text": "Beef farm",
+        "Beef farm [ENVO:03501443]": {
+          "text": "Beef farm [ENVO:03501443]",
           "is_a": "Farm [ENVO:00000078]"
         },
         "Breeder farm [ENVO:03501384]": {
@@ -1378,8 +1399,8 @@
           "text": "Feedlot [ENVO:01000627]",
           "is_a": "Farm [ENVO:00000078]"
         },
-        "Beef cattle feedlot": {
-          "text": "Beef cattle feedlot",
+        "Beef cattle feedlot [ENVO:03501444]": {
+          "text": "Beef cattle feedlot [ENVO:03501444]",
           "is_a": "Feedlot [ENVO:01000627]"
         },
         "Fish farm [ENVO:00000294]": {
@@ -1419,8 +1440,8 @@
         "Marine environment [ENVO:01000320]": {
           "text": "Marine environment [ENVO:01000320]"
         },
-        "Benthic zone": {
-          "text": "Benthic zone",
+        "Benthic zone [ENVO:03501440]": {
+          "text": "Benthic zone [ENVO:03501440]",
           "is_a": "Marine environment [ENVO:01000320]"
         },
         "Pelagic zone [ENVO:00000208]": {
@@ -1462,14 +1483,14 @@
         "River [ENVO:00000022]": {
           "text": "River [ENVO:00000022]"
         },
-        "Roost (bird)": {
-          "text": "Roost (bird)"
+        "Roost (bird) [ENVO:03501439]": {
+          "text": "Roost (bird) [ENVO:03501439]"
         },
         "Rural area [ENVO:01000772]": {
           "text": "Rural area [ENVO:01000772]"
         },
-        "Slough": {
-          "text": "Slough"
+        "Slough [ENVO:03501438]": {
+          "text": "Slough [ENVO:03501438]"
         },
         "Stream [ENVO:00000023]": {
           "text": "Stream [ENVO:00000023]"
@@ -1483,8 +1504,8 @@
         "Truck [ENVO:01000602]": {
           "text": "Truck [ENVO:01000602]"
         },
-        "Urban area": {
-          "text": "Urban area"
+        "Urban area [ENVO:03501437]": {
+          "text": "Urban area [ENVO:03501437]"
         },
         "Water surface [ENVO:01001191]": {
           "text": "Water surface [ENVO:01001191]"
@@ -1871,8 +1892,8 @@
         "Contaminated water [ENVO:00002186]": {
           "text": "Contaminated water [ENVO:00002186]"
         },
-        "Fecal slurry": {
-          "text": "Fecal slurry",
+        "Fecal slurry [ENVO:03501436]": {
+          "text": "Fecal slurry [ENVO:03501436]",
           "is_a": "Contaminated water [ENVO:00002186]"
         },
         "Fluid from meat rinse [GENEPIO:0004323]": {
@@ -1883,8 +1904,8 @@
           "text": "Effluent [ENVO:03501407]",
           "is_a": "Contaminated water [ENVO:00002186]"
         },
-        "Influent": {
-          "text": "Influent",
+        "Influent [ENVO:03501442]": {
+          "text": "Influent [ENVO:03501442]",
           "is_a": "Contaminated water [ENVO:00002186]"
         },
         "Surface runoff [ENVO:03501408]": {
@@ -2049,16 +2070,16 @@
         "Feces [UBERON:0001988]": {
           "text": "Feces [UBERON:0001988]"
         },
-        "Fecal composite": {
-          "text": "Fecal composite",
+        "Fecal composite [GENEPIO:0004512]": {
+          "text": "Fecal composite [GENEPIO:0004512]",
           "is_a": "Feces [UBERON:0001988]"
         },
-        "Feces (fresh)": {
-          "text": "Feces (fresh)",
+        "Feces (fresh) [GENEPIO:0004512]": {
+          "text": "Feces (fresh) [GENEPIO:0004512]",
           "is_a": "Feces [UBERON:0001988]"
         },
-        "Feces (environmental)": {
-          "text": "Feces (environmental)",
+        "Feces (environmental) [GENEPIO:0004514]": {
+          "text": "Feces (environmental) [GENEPIO:0004514]",
           "is_a": "Feces [UBERON:0001988]"
         },
         "Meconium [UBERON:0007109]": {
@@ -2248,8 +2269,8 @@
           "text": "Mesenteric lymph node [UBERON:0002509]",
           "is_a": "Lymph node [UBERON:0000029]"
         },
-        "Mantle (bird)": {
-          "text": "Mantle (bird)"
+        "Mantle (bird) [GENEPIO:0100927]": {
+          "text": "Mantle (bird) [GENEPIO:0100927]"
         },
         "Neck [UBERON:0000974]": {
           "text": "Neck [UBERON:0000974]"
@@ -3426,8 +3447,8 @@
         "Auger (earth auger) [AGRO:00000405]": {
           "text": "Auger (earth auger) [AGRO:00000405]"
         },
-        "Box corer": {
-          "text": "Box corer"
+        "Box corer [GENEPIO:0100928]": {
+          "text": "Box corer [GENEPIO:0100928]"
         },
         "Container [OBI:0000967]": {
           "text": "Container [OBI:0000967]"
@@ -3458,14 +3479,14 @@
         "Filter [GENEPIO:0100103]": {
           "text": "Filter [GENEPIO:0100103]"
         },
-        "PONAR grab sampler": {
-          "text": "PONAR grab sampler"
+        "PONAR grab sampler [GENEPIO:0100929]": {
+          "text": "PONAR grab sampler [GENEPIO:0100929]"
         },
         "Scoop [GENEPIO:0002125]": {
           "text": "Scoop [GENEPIO:0002125]"
         },
-        "Soil sample probe": {
-          "text": "Soil sample probe"
+        "Soil sample probe [GENEPIO:0100930]": {
+          "text": "Soil sample probe [GENEPIO:0100930]"
         },
         "Spatula [NCIT:C149941]": {
           "text": "Spatula [NCIT:C149941]"
@@ -3517,8 +3538,8 @@
           "text": "Air filtration [GENEPIO:0100031]",
           "is_a": "Filtration [OBI:0302885]"
         },
-        "Water filtration": {
-          "text": "Water filtration",
+        "Water filtration [GENEPIO:0100931]": {
+          "text": "Water filtration [GENEPIO:0100931]",
           "is_a": "Filtration [OBI:0302885]"
         },
         "Lavage [OBI:0600044]": {
@@ -3541,14 +3562,14 @@
         "Rinsing for specimen collection [GENEPIO_0002116]": {
           "text": "Rinsing for specimen collection [GENEPIO_0002116]"
         },
-        "Scooping": {
-          "text": "Scooping"
+        "Scooping [GENEPIO:0100932]": {
+          "text": "Scooping [GENEPIO:0100932]"
         },
-        "Sediment collection": {
-          "text": "Sediment collection"
+        "Sediment collection [GENEPIO:0100933]": {
+          "text": "Sediment collection [GENEPIO:0100933]"
         },
-        "Soil coring": {
-          "text": "Soil coring"
+        "Soil coring [GENEPIO:0100934]": {
+          "text": "Soil coring [GENEPIO:0100934]"
         }
       }
     },
@@ -4050,6 +4071,14 @@
           "text": "Aeromonas hydrophila [NCBITaxon:644]",
           "is_a": "Aeromonas [NCBITaxon:642]"
         },
+        "Aeromonas rivipollensis [NCBITaxon:948519]": {
+          "text": "Aeromonas rivipollensis [NCBITaxon:948519]",
+          "is_a": "Aeromonas [NCBITaxon:642]"
+        },
+        "Aeromonas salmonicida [NCBITaxon:645]": {
+          "text": "Aeromonas salmonicida [NCBITaxon:645]",
+          "is_a": "Aeromonas [NCBITaxon:642]"
+        },
         "Campylobacter [NCBITaxon:194]": {
           "text": "Campylobacter [NCBITaxon:194]"
         },
@@ -4076,6 +4105,10 @@
           "text": "Citrobacter freundii [NCBITaxon:546]",
           "is_a": "Citrobacter [NCBITaxon:544]"
         },
+        "Citrobacter gillenii [NCBITaxon:67828]": {
+          "text": "Citrobacter gillenii [NCBITaxon:67828]",
+          "is_a": "Citrobacter [NCBITaxon:544]"
+        },
         "Clostridioides [NCBITaxon:1870884]": {
           "text": "Clostridioides [NCBITaxon:1870884]"
         },
@@ -4088,6 +4121,10 @@
         },
         "Clostridium perfringens [NCBITaxon:1502]": {
           "text": "Clostridium perfringens [NCBITaxon:1502]",
+          "is_a": "Clostridium [NCBITaxon:1485]"
+        },
+        "Clostridium sporogenes [NCBITaxon:1509]": {
+          "text": "Clostridium sporogenes [NCBITaxon:1509]",
           "is_a": "Clostridium [NCBITaxon:1485]"
         },
         "Comamonas [NCBITaxon:283]": {
@@ -4218,6 +4255,17 @@
           "text": "Escherichia fergusonii [NCBITaxon:564]",
           "is_a": "Escherichia [NCBITaxon:561]"
         },
+        "Exiguobacterium [NCBITaxon:33986]": {
+          "text": "Exiguobacterium [NCBITaxon:33986]"
+        },
+        "Exiguobacterium oxidotolerans [NCBITaxon:223958]": {
+          "text": "Exiguobacterium oxidotolerans [NCBITaxon:223958]",
+          "is_a": "Exiguobacterium [NCBITaxon:33986]"
+        },
+        "Exiguobacterium sp. [NCBITaxon:44751]": {
+          "text": "Exiguobacterium sp. [NCBITaxon:44751]",
+          "is_a": "Exiguobacterium [NCBITaxon:33986]"
+        },
         "Klebsiella [NCBITaxon:570]": {
           "text": "Klebsiella [NCBITaxon:570]"
         },
@@ -4244,6 +4292,13 @@
         "Klebsiella pneumoniae subsp. ozaenae [NCBITaxon:574]": {
           "text": "Klebsiella pneumoniae subsp. ozaenae [NCBITaxon:574]",
           "is_a": "Klebsiella [NCBITaxon:570]"
+        },
+        "Kluyvera [NCBITaxon:579]": {
+          "text": "Kluyvera [NCBITaxon:579]"
+        },
+        "Kluyvera intermedia [NCBITaxon:61648]": {
+          "text": "Kluyvera intermedia [NCBITaxon:61648]",
+          "is_a": "Kluyvera [NCBITaxon:579]"
         },
         "Kosakonia [NCBITaxon:1330547]": {
           "text": "Kosakonia [NCBITaxon:1330547]"
@@ -4276,12 +4331,26 @@
           "text": "Pantoea ananatis [NCBITaxon:553]",
           "is_a": "Pantoea [NCBITaxon:53335]"
         },
+        "Photobacterium [NCBITaxon:657]": {
+          "text": "Photobacterium [NCBITaxon:657]"
+        },
+        "Photobacterium sp. [NCBITaxon:660]": {
+          "text": "Photobacterium sp. [NCBITaxon:660]",
+          "is_a": "Photobacterium [NCBITaxon:657]"
+        },
         "Providencia [NCBITaxon:586]": {
           "text": "Providencia [NCBITaxon:586]"
         },
         "Providencia rettgeri [NCBITaxon:587]": {
           "text": "Providencia rettgeri [NCBITaxon:587]",
           "is_a": "Providencia [NCBITaxon:586]"
+        },
+        "Pseudoalteromonas [NCBITaxon:53246]": {
+          "text": "Pseudoalteromonas [NCBITaxon:53246]"
+        },
+        "Pseudoalteromonas tetraodonis [NCBITaxon:43659]": {
+          "text": "Pseudoalteromonas tetraodonis [NCBITaxon:43659]",
+          "is_a": "Pseudoalteromonas [NCBITaxon:53246]"
         },
         "Pseudomonas [NCBITaxon:286]": {
           "text": "Pseudomonas [NCBITaxon:286]"
@@ -4297,6 +4366,21 @@
         "Pseudomonas soli [NCBITaxon:1306993]": {
           "text": "Pseudomonas soli [NCBITaxon:1306993]",
           "is_a": "Pseudomonas [NCBITaxon:286]"
+        },
+        "Pseudomonas sp. [NCBITaxon:306]": {
+          "text": "Pseudomonas sp. [NCBITaxon:306]",
+          "is_a": "Pseudomonas [NCBITaxon:286]"
+        },
+        "Psychrobacter [NCBITaxon:497]": {
+          "text": "Psychrobacter [NCBITaxon:497]"
+        },
+        "Psychrobacter faecalis [NCBITaxon:180588]": {
+          "text": "Psychrobacter faecalis [NCBITaxon:180588]",
+          "is_a": "Psychrobacter [NCBITaxon:497]"
+        },
+        "Psychrobacter sp. [NCBITaxon:56811]": {
+          "text": "Psychrobacter sp. [NCBITaxon:56811]",
+          "is_a": "Psychrobacter [NCBITaxon:497]"
         },
         "Rahnella [NCBITaxon:34037]": {
           "text": "Rahnella [NCBITaxon:34037]"
@@ -4329,6 +4413,21 @@
         },
         "Serratia [NCBITaxon:613]": {
           "text": "Serratia [NCBITaxon:613]"
+        },
+        "Shewanella [NCBITaxon:22]": {
+          "text": "Shewanella [NCBITaxon:22]"
+        },
+        "Shewanella pealeana [NCBITaxon:70864]": {
+          "text": "Shewanella pealeana [NCBITaxon:70864]",
+          "is_a": "Shewanella [NCBITaxon:22]"
+        },
+        "Shewanella putrefaciens [NCBITaxon:24]": {
+          "text": "Shewanella putrefaciens [NCBITaxon:24]",
+          "is_a": "Shewanella [NCBITaxon:22]"
+        },
+        "Shewanella sp. [NCBITaxon:50422]": {
+          "text": "Shewanella sp. [NCBITaxon:50422]",
+          "is_a": "Shewanella [NCBITaxon:22]"
         },
         "Staphylococcus [NCBITaxon:1279]": {
           "text": "Staphylococcus [NCBITaxon:1279]"
