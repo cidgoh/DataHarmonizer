@@ -122,15 +122,15 @@
     "en": "Cancel",
     "fr": "Annuler"
   },
-  "template-save":{
+  "template-save": {
     "en": "Save",
     "fr": "Enregistrer"
   },
-  "template-continue":{
+  "template-continue": {
     "en": "Continue",
     "fr": "Continuer"
   },
-  "template-ok":{
+  "template-ok": {
     "en": "Ok",
     "fr": "Ok"
   },
@@ -167,16 +167,16 @@
     "fr": "Vous avez des cellules invalides. Continuer à enregistrer?"
   },
 
-  "save-as-json-use-index":{
+  "save-as-json-use-index": {
     "en": "Save as object with index key",
     "fr": "Enregistrer comme objet avec clé d'index"
   },
-  "save-as-json-use-index-key":{
+  "save-as-json-use-index-key": {
     "en": "Name",
     "fr": "Nom"
   },
 
-  "export-to-invalid-warning":{
+  "export-to-invalid-warning": {
     "en": "You have invalid cells. Continue exporting?",
     "fr": "Vous avez des cellules invalides. Continuer l'exportation?"
   },
