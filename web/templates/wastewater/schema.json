@@ -3336,6 +3336,161 @@
         }
       }
     },
+    "gene name menu": {
+      "name": "gene name menu",
+      "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "permissible_values": {
+        "E gene (orf4)": {
+          "text": "E gene (orf4)",
+          "meaning": "GENEPIO:0100151"
+        },
+        "M gene (orf5)": {
+          "text": "M gene (orf5)",
+          "meaning": "GENEPIO:0100152"
+        },
+        "N gene (orf9)": {
+          "text": "N gene (orf9)",
+          "meaning": "GENEPIO:0100153"
+        },
+        "Spike gene (orf2)": {
+          "text": "Spike gene (orf2)",
+          "meaning": "GENEPIO:0100154"
+        },
+        "orf1ab (rep)": {
+          "text": "orf1ab (rep)",
+          "meaning": "GENEPIO:0100155"
+        },
+        "orf1a (pp1a)": {
+          "text": "orf1a (pp1a)",
+          "meaning": "GENEPIO:0100156",
+          "is_a": "orf1ab (rep)"
+        },
+        "nsp11": {
+          "text": "nsp11",
+          "meaning": "GENEPIO:0100157",
+          "is_a": "orf1a (pp1a)"
+        },
+        "nsp1": {
+          "text": "nsp1",
+          "meaning": "GENEPIO:0100158",
+          "is_a": "orf1ab (rep)"
+        },
+        "nsp2": {
+          "text": "nsp2",
+          "meaning": "GENEPIO:0100159",
+          "is_a": "orf1ab (rep)"
+        },
+        "nsp3": {
+          "text": "nsp3",
+          "meaning": "GENEPIO:0100160",
+          "is_a": "orf1ab (rep)"
+        },
+        "nsp4": {
+          "text": "nsp4",
+          "meaning": "GENEPIO:0100161",
+          "is_a": "orf1ab (rep)"
+        },
+        "nsp5": {
+          "text": "nsp5",
+          "meaning": "GENEPIO:0100162",
+          "is_a": "orf1ab (rep)"
+        },
+        "nsp6": {
+          "text": "nsp6",
+          "meaning": "GENEPIO:0100163",
+          "is_a": "orf1ab (rep)"
+        },
+        "nsp7": {
+          "text": "nsp7",
+          "meaning": "GENEPIO:0100164",
+          "is_a": "orf1ab (rep)"
+        },
+        "nsp8": {
+          "text": "nsp8",
+          "meaning": "GENEPIO:0100165",
+          "is_a": "orf1ab (rep)"
+        },
+        "nsp9": {
+          "text": "nsp9",
+          "meaning": "GENEPIO:0100166",
+          "is_a": "orf1ab (rep)"
+        },
+        "nsp10": {
+          "text": "nsp10",
+          "meaning": "GENEPIO:0100167",
+          "is_a": "orf1ab (rep)"
+        },
+        "RdRp gene (nsp12)": {
+          "text": "RdRp gene (nsp12)",
+          "meaning": "GENEPIO:0100168",
+          "is_a": "orf1ab (rep)"
+        },
+        "hel gene (nsp13)": {
+          "text": "hel gene (nsp13)",
+          "meaning": "GENEPIO:0100169",
+          "is_a": "orf1ab (rep)"
+        },
+        "exoN gene (nsp14)": {
+          "text": "exoN gene (nsp14)",
+          "meaning": "GENEPIO:0100170",
+          "is_a": "orf1ab (rep)"
+        },
+        "nsp15": {
+          "text": "nsp15",
+          "meaning": "GENEPIO:0100171",
+          "is_a": "orf1ab (rep)"
+        },
+        "nsp16": {
+          "text": "nsp16",
+          "meaning": "GENEPIO:0100172",
+          "is_a": "orf1ab (rep)"
+        },
+        "orf3a": {
+          "text": "orf3a",
+          "meaning": "GENEPIO:0100173"
+        },
+        "orf3b": {
+          "text": "orf3b",
+          "meaning": "GENEPIO:0100174"
+        },
+        "orf6 (ns6)": {
+          "text": "orf6 (ns6)",
+          "meaning": "GENEPIO:0100175"
+        },
+        "orf7a": {
+          "text": "orf7a",
+          "meaning": "GENEPIO:0100176"
+        },
+        "orf7b (ns7b)": {
+          "text": "orf7b (ns7b)",
+          "meaning": "GENEPIO:0100177"
+        },
+        "orf8 (ns8)": {
+          "text": "orf8 (ns8)",
+          "meaning": "GENEPIO:0100178"
+        },
+        "orf9b": {
+          "text": "orf9b",
+          "meaning": "GENEPIO:0100179"
+        },
+        "orf9c": {
+          "text": "orf9c",
+          "meaning": "GENEPIO:0100180"
+        },
+        "orf10": {
+          "text": "orf10",
+          "meaning": "GENEPIO:0100181"
+        },
+        "orf14": {
+          "text": "orf14",
+          "meaning": "GENEPIO:0100182"
+        },
+        "SARS-COV-2 5' UTR": {
+          "text": "SARS-COV-2 5' UTR",
+          "meaning": "GENEPIO:0100183"
+        }
+      }
+    },
     "diagnostic target presence menu": {
       "name": "diagnostic target presence menu",
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -3980,17 +4135,13 @@
     },
     "organism": {
       "name": "organism",
+      "description": "Taxonomic name of the organism.",
       "title": "organism",
+      "comments": [
+        "Provide the official nomenclature for the organism present in the sample. Search for taxonomic names here: ncbi.nlm.nih.gov/taxonomy."
+      ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "slot_uri": "GENEPIO:0001191",
-      "any_of": [
-        {
-          "range": "organism menu"
-        },
-        {
-          "range": "null value menu"
-        }
-      ]
+      "slot_uri": "GENEPIO:0001191"
     },
     "purpose of sampling": {
       "name": "purpose of sampling",
@@ -6937,28 +7088,17 @@
     },
     "gene name": {
       "name": "gene name",
-      "description": "The binary value of the result from a diagnostic test.",
+      "description": "The name of the gene used in the diagnostic RT-PCR test.",
       "title": "gene name",
-      "comments": [
-        "Select a value from the pick list provided, to describe whether a target was determined to be present or absent within a sample."
-      ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "slot_uri": "GENEPIO:0100655",
-      "any_of": [
-        {
-          "range": "gene name menu"
-        },
-        {
-          "range": "null value menu"
-        }
-      ]
+      "slot_uri": "GENEPIO:0100655"
     },
     "diagnostic target presence": {
       "name": "diagnostic target presence",
-      "description": "The value of the result from a diagnostic test.",
+      "description": "The binary value of the result from a diagnostic test.",
       "title": "diagnostic target presence",
       "comments": [
-        "Provide the numerical result of a diagnostic test (no need to include units)."
+        "Select a value from the pick list provided, to describe whether a target was determined to be present or absent within a sample."
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "slot_uri": "GENEPIO:0100962",
@@ -6973,10 +7113,10 @@
     },
     "diagnostic measurement value": {
       "name": "diagnostic measurement value",
-      "description": "The unit of the result from a diagnostic test.",
+      "description": "The value of the result from a diagnostic test.",
       "title": "diagnostic measurement value",
       "comments": [
-        "Select a value from the pick list provided, to describe the units of the given diagnostic test."
+        "Provide the numerical result of a diagnostic test (no need to include units)."
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "slot_uri": "GENEPIO:0100963",
@@ -6984,10 +7124,10 @@
     },
     "diagnostic measurement unit": {
       "name": "diagnostic measurement unit",
-      "description": "The method by which a diagnostic result was received.",
+      "description": "The unit of the result from a diagnostic test.",
       "title": "diagnostic measurement unit",
       "comments": [
-        "Select a value from the pick list provided to describe the method used for a given diagnostic test."
+        "Select a value from the pick list provided, to describe the units of the given diagnostic test."
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "slot_uri": "GENEPIO:0100964",
@@ -7002,7 +7142,11 @@
     },
     "diagnostic measurement method": {
       "name": "diagnostic measurement method",
+      "description": "The method by which a diagnostic result was determined.",
       "title": "diagnostic measurement method",
+      "comments": [
+        "Select a value from the pick list provided to describe the method used for a given diagnostic test."
+      ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "slot_uri": "GENEPIO:0100965",
       "any_of": [
@@ -7066,6 +7210,12 @@
     },
     "WastewaterAMR": {
       "name": "WastewaterAMR",
+      "annotations": {
+        "version": {
+          "tag": "version",
+          "value": "1.0.0"
+        }
+      },
       "description": "A public health microbial genomic surveillance specification for standardizing AMR metagenomics sequencing contextual data from wastewater. Developed in collaboration by CIDGOH, PHA4GE, PHAC-NML, The Broad Institute, and the Bill & Melinda Gates Foundation.",
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "see_also": [
@@ -7905,51 +8055,71 @@
         },
         "organism": {
           "name": "organism",
-          "description": "The name of the gene used in the diagnostic RT-PCR test.",
+          "examples": [
+            {
+              "value": "Vibrio cholerae"
+            }
+          ],
+          "rank": 167,
+          "slot_group": "Pathogen diagnostic testing",
+          "any_of": [
+            {
+              "range": "WhitespaceMinimizedString"
+            },
+            {
+              "range": "null value menu"
+            }
+          ]
+        },
+        "gene name": {
+          "name": "gene name",
           "comments": [
             "Provide the full name of the gene used in the test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI"
           ],
           "examples": [
             {
-              "value": "E gene (orf4)"
+              "value": "Gyrase A"
             }
           ],
-          "rank": 167,
-          "slot_group": "Pathogen diagnostic testing"
-        },
-        "gene name": {
-          "name": "gene name",
-          "rank": 168,
-          "slot_group": "Pathogen diagnostic testing"
+          "rank": 169,
+          "slot_group": "Pathogen diagnostic testing",
+          "any_of": [
+            {
+              "range": "WhitespaceMinimizedString"
+            },
+            {
+              "range": "null value menu"
+            }
+          ]
         },
         "diagnostic target presence": {
           "name": "diagnostic target presence",
-          "rank": 169,
+          "rank": 170,
           "slot_group": "Pathogen diagnostic testing"
         },
         "diagnostic measurement value": {
           "name": "diagnostic measurement value",
-          "rank": 170,
+          "rank": 171,
           "slot_group": "Pathogen diagnostic testing"
         },
         "diagnostic measurement unit": {
           "name": "diagnostic measurement unit",
-          "rank": 171,
+          "rank": 172,
           "slot_group": "Pathogen diagnostic testing"
         },
         "diagnostic measurement method": {
           "name": "diagnostic measurement method",
-          "rank": 172,
+          "rank": 173,
           "slot_group": "Pathogen diagnostic testing"
         },
         "authors": {
           "name": "authors",
-          "rank": 173,
+          "rank": 174,
           "slot_group": "Contributor acknowledgement"
         },
         "DataHarmonizer provenance": {
           "name": "DataHarmonizer provenance",
-          "rank": 174,
+          "rank": 175,
           "slot_group": "Contributor acknowledgement"
         }
       },
@@ -10800,14 +10970,11 @@
         },
         "organism": {
           "name": "organism",
-          "description": "The name of the gene used in the diagnostic RT-PCR test.",
+          "description": "Taxonomic name of the organism.",
           "title": "organism",
-          "comments": [
-            "Provide the full name of the gene used in the test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI"
-          ],
           "examples": [
             {
-              "value": "E gene (orf4)"
+              "value": "Vibrio cholerae"
             }
           ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -10820,14 +10987,30 @@
             "WastewaterSARS-CoV-2",
             "WastewaterSinglePathogen"
           ],
-          "slot_group": "Pathogen diagnostic testing"
+          "slot_group": "Pathogen diagnostic testing",
+          "any_of": [
+            {
+              "range": "WhitespaceMinimizedString"
+            },
+            {
+              "range": "null value menu"
+            }
+          ]
         },
         "gene name": {
           "name": "gene name",
-          "description": "The binary value of the result from a diagnostic test.",
+          "description": "The name of the gene used in the diagnostic RT-PCR test.",
           "title": "gene name",
+          "comments": [
+            "Provide the full name of the gene used in the test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI"
+          ],
+          "examples": [
+            {
+              "value": "Gyrase A"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 168,
+          "rank": 169,
           "slot_uri": "GENEPIO:0100655",
           "alias": "gene_name",
           "owner": "WastewaterAMR",
@@ -10836,14 +11019,22 @@
             "WastewaterSARS-CoV-2",
             "WastewaterSinglePathogen"
           ],
-          "slot_group": "Pathogen diagnostic testing"
+          "slot_group": "Pathogen diagnostic testing",
+          "any_of": [
+            {
+              "range": "WhitespaceMinimizedString"
+            },
+            {
+              "range": "null value menu"
+            }
+          ]
         },
         "diagnostic target presence": {
           "name": "diagnostic target presence",
-          "description": "The value of the result from a diagnostic test.",
+          "description": "The binary value of the result from a diagnostic test.",
           "title": "diagnostic target presence",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 169,
+          "rank": 170,
           "slot_uri": "GENEPIO:0100962",
           "alias": "diagnostic_target_presence",
           "owner": "WastewaterAMR",
@@ -10856,10 +11047,10 @@
         },
         "diagnostic measurement value": {
           "name": "diagnostic measurement value",
-          "description": "The unit of the result from a diagnostic test.",
+          "description": "The value of the result from a diagnostic test.",
           "title": "diagnostic measurement value",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 170,
+          "rank": 171,
           "slot_uri": "GENEPIO:0100963",
           "alias": "diagnostic_measurement_value",
           "owner": "WastewaterAMR",
@@ -10873,10 +11064,10 @@
         },
         "diagnostic measurement unit": {
           "name": "diagnostic measurement unit",
-          "description": "The method by which a diagnostic result was received.",
+          "description": "The unit of the result from a diagnostic test.",
           "title": "diagnostic measurement unit",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 171,
+          "rank": 172,
           "slot_uri": "GENEPIO:0100964",
           "alias": "diagnostic_measurement_unit",
           "owner": "WastewaterAMR",
@@ -10889,9 +11080,10 @@
         },
         "diagnostic measurement method": {
           "name": "diagnostic measurement method",
+          "description": "The method by which a diagnostic result was determined.",
           "title": "diagnostic measurement method",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 172,
+          "rank": 173,
           "slot_uri": "GENEPIO:0100965",
           "alias": "diagnostic_measurement_method",
           "owner": "WastewaterAMR",
@@ -10907,7 +11099,7 @@
           "description": "Names of individuals contributing to the processes of sample collection, sequence generation, analysis, and data submission.",
           "title": "authors",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 173,
+          "rank": 174,
           "slot_uri": "GENEPIO:0001517",
           "alias": "authors",
           "owner": "WastewaterAMR",
@@ -10925,7 +11117,7 @@
           "description": "The DataHarmonizer software and template version provenance.",
           "title": "DataHarmonizer provenance",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 174,
+          "rank": 175,
           "slot_uri": "GENEPIO:0001518",
           "alias": "DataHarmonizer_provenance",
           "owner": "WastewaterAMR",
@@ -10941,6 +11133,12 @@
     },
     "WastewaterSARS-CoV-2": {
       "name": "WastewaterSARS-CoV-2",
+      "annotations": {
+        "version": {
+          "tag": "version",
+          "value": "1.0.0"
+        }
+      },
       "description": "A public health microbial genomic surveillance specification for standardizing SARS-CoV-2 amplicon sequencing contextual data from wastewater. Developed in collaboration by CIDGOH, PHA4GE, PHAC-NML, The Broad Institute, and the Bill & Melinda Gates Foundation.",
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "see_also": [
@@ -11095,17 +11293,22 @@
         },
         "organism": {
           "name": "organism",
-          "description": "The name of the gene used in the diagnostic RT-PCR test.",
-          "comments": [
-            "Provide the full name of the gene used in the test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI"
-          ],
           "examples": [
             {
-              "value": "E gene (orf4)"
+              "value": "Severe acute respiratory syndrome coronavirus 2"
             }
           ],
-          "rank": 177,
-          "slot_group": "Pathogen diagnostic testing"
+          "rank": 30,
+          "slot_group": "Sample collection and processing",
+          "required": true,
+          "any_of": [
+            {
+              "range": "organism menu"
+            },
+            {
+              "range": "null value menu"
+            }
+          ]
         },
         "purpose of sampling": {
           "name": "purpose of sampling",
@@ -11839,37 +12042,53 @@
         },
         "gene name": {
           "name": "gene name",
-          "rank": 178,
-          "slot_group": "Pathogen diagnostic testing"
+          "comments": [
+            "Select a gene name value from the pick list provided."
+          ],
+          "examples": [
+            {
+              "value": "E gene (orf4)"
+            }
+          ],
+          "rank": 177,
+          "slot_group": "Pathogen diagnostic testing",
+          "any_of": [
+            {
+              "range": "gene name menu"
+            },
+            {
+              "range": "null value menu"
+            }
+          ]
         },
         "diagnostic target presence": {
           "name": "diagnostic target presence",
-          "rank": 179,
+          "rank": 178,
           "slot_group": "Pathogen diagnostic testing"
         },
         "diagnostic measurement value": {
           "name": "diagnostic measurement value",
-          "rank": 180,
+          "rank": 179,
           "slot_group": "Pathogen diagnostic testing"
         },
         "diagnostic measurement unit": {
           "name": "diagnostic measurement unit",
-          "rank": 181,
+          "rank": 180,
           "slot_group": "Pathogen diagnostic testing"
         },
         "diagnostic measurement method": {
           "name": "diagnostic measurement method",
-          "rank": 182,
+          "rank": 181,
           "slot_group": "Pathogen diagnostic testing"
         },
         "authors": {
           "name": "authors",
-          "rank": 183,
+          "rank": 182,
           "slot_group": "Contributor acknowledgement"
         },
         "DataHarmonizer provenance": {
           "name": "DataHarmonizer provenance",
-          "rank": 184,
+          "rank": 183,
           "slot_group": "Contributor acknowledgement"
         }
       },
@@ -12439,18 +12658,15 @@
         },
         "organism": {
           "name": "organism",
-          "description": "The name of the gene used in the diagnostic RT-PCR test.",
+          "description": "Taxonomic name of the organism.",
           "title": "organism",
-          "comments": [
-            "Provide the full name of the gene used in the test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI"
-          ],
           "examples": [
             {
-              "value": "E gene (orf4)"
+              "value": "Severe acute respiratory syndrome coronavirus 2"
             }
           ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 177,
+          "rank": 30,
           "slot_uri": "GENEPIO:0001191",
           "alias": "organism",
           "owner": "WastewaterSARS-CoV-2",
@@ -12459,7 +12675,16 @@
             "WastewaterSARS-CoV-2",
             "WastewaterSinglePathogen"
           ],
-          "slot_group": "Pathogen diagnostic testing"
+          "slot_group": "Sample collection and processing",
+          "required": true,
+          "any_of": [
+            {
+              "range": "organism menu"
+            },
+            {
+              "range": "null value menu"
+            }
+          ]
         },
         "purpose of sampling": {
           "name": "purpose of sampling",
@@ -14874,10 +15099,18 @@
         },
         "gene name": {
           "name": "gene name",
-          "description": "The binary value of the result from a diagnostic test.",
+          "description": "The name of the gene used in the diagnostic RT-PCR test.",
           "title": "gene name",
+          "comments": [
+            "Select a gene name value from the pick list provided."
+          ],
+          "examples": [
+            {
+              "value": "E gene (orf4)"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 178,
+          "rank": 177,
           "slot_uri": "GENEPIO:0100655",
           "alias": "gene_name",
           "owner": "WastewaterSARS-CoV-2",
@@ -14886,14 +15119,22 @@
             "WastewaterSARS-CoV-2",
             "WastewaterSinglePathogen"
           ],
-          "slot_group": "Pathogen diagnostic testing"
+          "slot_group": "Pathogen diagnostic testing",
+          "any_of": [
+            {
+              "range": "gene name menu"
+            },
+            {
+              "range": "null value menu"
+            }
+          ]
         },
         "diagnostic target presence": {
           "name": "diagnostic target presence",
-          "description": "The value of the result from a diagnostic test.",
+          "description": "The binary value of the result from a diagnostic test.",
           "title": "diagnostic target presence",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 179,
+          "rank": 178,
           "slot_uri": "GENEPIO:0100962",
           "alias": "diagnostic_target_presence",
           "owner": "WastewaterSARS-CoV-2",
@@ -14906,10 +15147,10 @@
         },
         "diagnostic measurement value": {
           "name": "diagnostic measurement value",
-          "description": "The unit of the result from a diagnostic test.",
+          "description": "The value of the result from a diagnostic test.",
           "title": "diagnostic measurement value",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 180,
+          "rank": 179,
           "slot_uri": "GENEPIO:0100963",
           "alias": "diagnostic_measurement_value",
           "owner": "WastewaterSARS-CoV-2",
@@ -14923,10 +15164,10 @@
         },
         "diagnostic measurement unit": {
           "name": "diagnostic measurement unit",
-          "description": "The method by which a diagnostic result was received.",
+          "description": "The unit of the result from a diagnostic test.",
           "title": "diagnostic measurement unit",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 181,
+          "rank": 180,
           "slot_uri": "GENEPIO:0100964",
           "alias": "diagnostic_measurement_unit",
           "owner": "WastewaterSARS-CoV-2",
@@ -14939,9 +15180,10 @@
         },
         "diagnostic measurement method": {
           "name": "diagnostic measurement method",
+          "description": "The method by which a diagnostic result was determined.",
           "title": "diagnostic measurement method",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 182,
+          "rank": 181,
           "slot_uri": "GENEPIO:0100965",
           "alias": "diagnostic_measurement_method",
           "owner": "WastewaterSARS-CoV-2",
@@ -14957,7 +15199,7 @@
           "description": "Names of individuals contributing to the processes of sample collection, sequence generation, analysis, and data submission.",
           "title": "authors",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 183,
+          "rank": 182,
           "slot_uri": "GENEPIO:0001517",
           "alias": "authors",
           "owner": "WastewaterSARS-CoV-2",
@@ -14975,7 +15217,7 @@
           "description": "The DataHarmonizer software and template version provenance.",
           "title": "DataHarmonizer provenance",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 184,
+          "rank": 183,
           "slot_uri": "GENEPIO:0001518",
           "alias": "DataHarmonizer_provenance",
           "owner": "WastewaterSARS-CoV-2",
@@ -14991,6 +15233,12 @@
     },
     "WastewaterSinglePathogen": {
       "name": "WastewaterSinglePathogen",
+      "annotations": {
+        "version": {
+          "tag": "version",
+          "value": "1.0.0"
+        }
+      },
       "description": "A public health microbial genomic surveillance specification for standardizing single pathogen whole genome sequencing contextual data from wastewater. Developed in collaboration by CIDGOH, PHA4GE, PHAC-NML, The Broad Institute, and the Bill & Melinda Gates Foundation.",
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "see_also": [
@@ -15145,17 +15393,21 @@
         },
         "organism": {
           "name": "organism",
-          "description": "The name of the gene used in the diagnostic RT-PCR test.",
-          "comments": [
-            "Provide the full name of the gene used in the test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI"
-          ],
           "examples": [
             {
-              "value": "E gene (orf4)"
+              "value": "Vibrio cholerae"
             }
           ],
           "rank": 172,
-          "slot_group": "Pathogen diagnostic testing"
+          "slot_group": "Pathogen diagnostic testing",
+          "any_of": [
+            {
+              "range": "WhitespaceMinimizedString"
+            },
+            {
+              "range": "null value menu"
+            }
+          ]
         },
         "purpose of sampling": {
           "name": "purpose of sampling",
@@ -15864,37 +16116,53 @@
         },
         "gene name": {
           "name": "gene name",
-          "rank": 173,
-          "slot_group": "Pathogen diagnostic testing"
+          "comments": [
+            "Provide the full name of the gene used in the test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI"
+          ],
+          "examples": [
+            {
+              "value": "Gyrase A"
+            }
+          ],
+          "rank": 174,
+          "slot_group": "Pathogen diagnostic testing",
+          "any_of": [
+            {
+              "range": "WhitespaceMinimizedString"
+            },
+            {
+              "range": "null value menu"
+            }
+          ]
         },
         "diagnostic target presence": {
           "name": "diagnostic target presence",
-          "rank": 174,
+          "rank": 175,
           "slot_group": "Pathogen diagnostic testing"
         },
         "diagnostic measurement value": {
           "name": "diagnostic measurement value",
-          "rank": 175,
+          "rank": 176,
           "slot_group": "Pathogen diagnostic testing"
         },
         "diagnostic measurement unit": {
           "name": "diagnostic measurement unit",
-          "rank": 176,
+          "rank": 177,
           "slot_group": "Pathogen diagnostic testing"
         },
         "diagnostic measurement method": {
           "name": "diagnostic measurement method",
-          "rank": 177,
+          "rank": 178,
           "slot_group": "Pathogen diagnostic testing"
         },
         "authors": {
           "name": "authors",
-          "rank": 178,
+          "rank": 179,
           "slot_group": "Contributor acknowledgement"
         },
         "DataHarmonizer provenance": {
           "name": "DataHarmonizer provenance",
-          "rank": 179,
+          "rank": 180,
           "slot_group": "Contributor acknowledgement"
         }
       },
@@ -16464,14 +16732,11 @@
         },
         "organism": {
           "name": "organism",
-          "description": "The name of the gene used in the diagnostic RT-PCR test.",
+          "description": "Taxonomic name of the organism.",
           "title": "organism",
-          "comments": [
-            "Provide the full name of the gene used in the test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI"
-          ],
           "examples": [
             {
-              "value": "E gene (orf4)"
+              "value": "Vibrio cholerae"
             }
           ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -16484,7 +16749,15 @@
             "WastewaterSARS-CoV-2",
             "WastewaterSinglePathogen"
           ],
-          "slot_group": "Pathogen diagnostic testing"
+          "slot_group": "Pathogen diagnostic testing",
+          "any_of": [
+            {
+              "range": "WhitespaceMinimizedString"
+            },
+            {
+              "range": "null value menu"
+            }
+          ]
         },
         "purpose of sampling": {
           "name": "purpose of sampling",
@@ -18832,10 +19105,18 @@
         },
         "gene name": {
           "name": "gene name",
-          "description": "The binary value of the result from a diagnostic test.",
+          "description": "The name of the gene used in the diagnostic RT-PCR test.",
           "title": "gene name",
+          "comments": [
+            "Provide the full name of the gene used in the test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI"
+          ],
+          "examples": [
+            {
+              "value": "Gyrase A"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 173,
+          "rank": 174,
           "slot_uri": "GENEPIO:0100655",
           "alias": "gene_name",
           "owner": "WastewaterSinglePathogen",
@@ -18844,14 +19125,22 @@
             "WastewaterSARS-CoV-2",
             "WastewaterSinglePathogen"
           ],
-          "slot_group": "Pathogen diagnostic testing"
+          "slot_group": "Pathogen diagnostic testing",
+          "any_of": [
+            {
+              "range": "WhitespaceMinimizedString"
+            },
+            {
+              "range": "null value menu"
+            }
+          ]
         },
         "diagnostic target presence": {
           "name": "diagnostic target presence",
-          "description": "The value of the result from a diagnostic test.",
+          "description": "The binary value of the result from a diagnostic test.",
           "title": "diagnostic target presence",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 174,
+          "rank": 175,
           "slot_uri": "GENEPIO:0100962",
           "alias": "diagnostic_target_presence",
           "owner": "WastewaterSinglePathogen",
@@ -18864,10 +19153,10 @@
         },
         "diagnostic measurement value": {
           "name": "diagnostic measurement value",
-          "description": "The unit of the result from a diagnostic test.",
+          "description": "The value of the result from a diagnostic test.",
           "title": "diagnostic measurement value",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 175,
+          "rank": 176,
           "slot_uri": "GENEPIO:0100963",
           "alias": "diagnostic_measurement_value",
           "owner": "WastewaterSinglePathogen",
@@ -18881,10 +19170,10 @@
         },
         "diagnostic measurement unit": {
           "name": "diagnostic measurement unit",
-          "description": "The method by which a diagnostic result was received.",
+          "description": "The unit of the result from a diagnostic test.",
           "title": "diagnostic measurement unit",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 176,
+          "rank": 177,
           "slot_uri": "GENEPIO:0100964",
           "alias": "diagnostic_measurement_unit",
           "owner": "WastewaterSinglePathogen",
@@ -18897,9 +19186,10 @@
         },
         "diagnostic measurement method": {
           "name": "diagnostic measurement method",
+          "description": "The method by which a diagnostic result was determined.",
           "title": "diagnostic measurement method",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 177,
+          "rank": 178,
           "slot_uri": "GENEPIO:0100965",
           "alias": "diagnostic_measurement_method",
           "owner": "WastewaterSinglePathogen",
@@ -18915,7 +19205,7 @@
           "description": "Names of individuals contributing to the processes of sample collection, sequence generation, analysis, and data submission.",
           "title": "authors",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 178,
+          "rank": 179,
           "slot_uri": "GENEPIO:0001517",
           "alias": "authors",
           "owner": "WastewaterSinglePathogen",
@@ -18933,7 +19223,7 @@
           "description": "The DataHarmonizer software and template version provenance.",
           "title": "DataHarmonizer provenance",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
-          "rank": 179,
+          "rank": 180,
           "slot_uri": "GENEPIO:0001518",
           "alias": "DataHarmonizer_provenance",
           "owner": "WastewaterSinglePathogen",

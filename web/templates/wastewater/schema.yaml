@@ -20,6 +20,8 @@ classes:
       & Melinda Gates Foundation.
     is_a: dh_interface
     see_also: templates/wastewater/SOP.pdf
+    annotations:
+      version: 1.0.0
     slots:
     - specimen collector sample ID
     - specimen collector subsample ID
@@ -189,6 +191,7 @@ classes:
     - read mapping criteria
     - bioinformatics protocol
     - organism
+    - gene name
     - gene name
     - diagnostic target presence
     - diagnostic measurement value
@@ -698,33 +701,40 @@ classes:
       organism:
         rank: 167
         slot_group: Pathogen diagnostic testing
-        description: The name of the gene used in the diagnostic RT-PCR test.
+        examples:
+        - value: Vibrio cholerae
+        any_of:
+        - range: WhitespaceMinimizedString
+        - range: null value menu
+      gene name:
+        rank: 169
+        slot_group: Pathogen diagnostic testing
         comments: 'Provide the full name of the gene used in the test. The gene symbol
           (short form of gene name) can also be provided. Standardized gene names
           and symbols can be found in the Gene Ontology using this look-up service:
           https://bit.ly/2Sq1LbI'
         examples:
-        - value: E gene (orf4)
-      gene name:
-        rank: 168
-        slot_group: Pathogen diagnostic testing
+        - value: Gyrase A
+        any_of:
+        - range: WhitespaceMinimizedString
+        - range: null value menu
       diagnostic target presence:
-        rank: 169
-        slot_group: Pathogen diagnostic testing
-      diagnostic measurement value:
         rank: 170
         slot_group: Pathogen diagnostic testing
-      diagnostic measurement unit:
+      diagnostic measurement value:
         rank: 171
         slot_group: Pathogen diagnostic testing
-      diagnostic measurement method:
+      diagnostic measurement unit:
         rank: 172
         slot_group: Pathogen diagnostic testing
-      authors:
+      diagnostic measurement method:
         rank: 173
+        slot_group: Pathogen diagnostic testing
+      authors:
+        rank: 174
         slot_group: Contributor acknowledgement
       DataHarmonizer provenance:
-        rank: 174
+        rank: 175
         slot_group: Contributor acknowledgement
   WastewaterSARS-CoV-2:
     name: WastewaterSARS-CoV-2
@@ -734,6 +744,8 @@ classes:
       and the Bill & Melinda Gates Foundation.
     is_a: dh_interface
     see_also: templates/wastewater/SOP.pdf
+    annotations:
+      version: 1.0.0
     slots:
     - specimen collector sample ID
     - specimen collector subsample ID
@@ -925,7 +937,6 @@ classes:
     - deduplication method
     - deduplication method
     - bioinformatics protocol
-    - organism
     - gene name
     - diagnostic target presence
     - diagnostic measurement value
@@ -1022,15 +1033,14 @@ classes:
         rank: 29
         slot_group: Sample collection and processing
       organism:
-        rank: 177
-        slot_group: Pathogen diagnostic testing
-        description: The name of the gene used in the diagnostic RT-PCR test.
-        comments: 'Provide the full name of the gene used in the test. The gene symbol
-          (short form of gene name) can also be provided. Standardized gene names
-          and symbols can be found in the Gene Ontology using this look-up service:
-          https://bit.ly/2Sq1LbI'
+        rank: 30
+        slot_group: Sample collection and processing
+        required: true
         examples:
-        - value: E gene (orf4)
+        - value: Severe acute respiratory syndrome coronavirus 2
+        any_of:
+        - range: organism menu
+        - range: null value menu
       purpose of sampling:
         rank: 31
         slot_group: Sample collection and processing
@@ -1470,25 +1480,31 @@ classes:
         rank: 176
         slot_group: Bioinformatics and QC metrics
       gene name:
+        rank: 177
+        slot_group: Pathogen diagnostic testing
+        comments: Select a gene name value from the pick list provided.
+        examples:
+        - value: E gene (orf4)
+        any_of:
+        - range: gene name menu
+        - range: null value menu
+      diagnostic target presence:
         rank: 178
         slot_group: Pathogen diagnostic testing
-      diagnostic target presence:
+      diagnostic measurement value:
         rank: 179
         slot_group: Pathogen diagnostic testing
-      diagnostic measurement value:
+      diagnostic measurement unit:
         rank: 180
         slot_group: Pathogen diagnostic testing
-      diagnostic measurement unit:
+      diagnostic measurement method:
         rank: 181
         slot_group: Pathogen diagnostic testing
-      diagnostic measurement method:
-        rank: 182
-        slot_group: Pathogen diagnostic testing
       authors:
-        rank: 183
+        rank: 182
         slot_group: Contributor acknowledgement
       DataHarmonizer provenance:
-        rank: 184
+        rank: 183
         slot_group: Contributor acknowledgement
   WastewaterSinglePathogen:
     name: WastewaterSinglePathogen
@@ -1498,6 +1514,8 @@ classes:
       and the Bill & Melinda Gates Foundation.
     is_a: dh_interface
     see_also: templates/wastewater/SOP.pdf
+    annotations:
+      version: 1.0.0
     slots:
     - specimen collector sample ID
     - pooled sample ID
@@ -1672,6 +1690,7 @@ classes:
     - bioinformatics protocol
     - organism
     - gene name
+    - gene name
     - diagnostic target presence
     - diagnostic measurement value
     - diagnostic measurement unit
@@ -1769,13 +1788,11 @@ classes:
       organism:
         rank: 172
         slot_group: Pathogen diagnostic testing
-        description: The name of the gene used in the diagnostic RT-PCR test.
-        comments: 'Provide the full name of the gene used in the test. The gene symbol
-          (short form of gene name) can also be provided. Standardized gene names
-          and symbols can be found in the Gene Ontology using this look-up service:
-          https://bit.ly/2Sq1LbI'
         examples:
-        - value: E gene (orf4)
+        - value: Vibrio cholerae
+        any_of:
+        - range: WhitespaceMinimizedString
+        - range: null value menu
       purpose of sampling:
         rank: 31
         slot_group: Sample collection and processing
@@ -2200,25 +2217,34 @@ classes:
         rank: 171
         slot_group: Bioinformatics and QC metrics
       gene name:
-        rank: 173
-        slot_group: Pathogen diagnostic testing
-      diagnostic target presence:
         rank: 174
         slot_group: Pathogen diagnostic testing
-      diagnostic measurement value:
+        comments: 'Provide the full name of the gene used in the test. The gene symbol
+          (short form of gene name) can also be provided. Standardized gene names
+          and symbols can be found in the Gene Ontology using this look-up service:
+          https://bit.ly/2Sq1LbI'
+        examples:
+        - value: Gyrase A
+        any_of:
+        - range: WhitespaceMinimizedString
+        - range: null value menu
+      diagnostic target presence:
         rank: 175
         slot_group: Pathogen diagnostic testing
-      diagnostic measurement unit:
+      diagnostic measurement value:
         rank: 176
         slot_group: Pathogen diagnostic testing
-      diagnostic measurement method:
+      diagnostic measurement unit:
         rank: 177
         slot_group: Pathogen diagnostic testing
-      authors:
+      diagnostic measurement method:
         rank: 178
+        slot_group: Pathogen diagnostic testing
+      authors:
+        rank: 179
         slot_group: Contributor acknowledgement
       DataHarmonizer provenance:
-        rank: 179
+        rank: 180
         slot_group: Contributor acknowledgement
 slots:
   specimen collector sample ID:
@@ -2625,10 +2651,10 @@ slots:
   organism:
     name: organism
     title: organism
+    description: Taxonomic name of the organism.
+    comments: 'Provide the official nomenclature for the organism present in the sample.
+      Search for taxonomic names here: ncbi.nlm.nih.gov/taxonomy.'
     slot_uri: GENEPIO:0001191
-    any_of:
-    - range: organism menu
-    - range: null value menu
   purpose of sampling:
     name: purpose of sampling
     title: purpose of sampling
@@ -4344,19 +4370,14 @@ slots:
   gene name:
     name: gene name
     title: gene name
-    description: The binary value of the result from a diagnostic test.
-    comments: Select a value from the pick list provided, to describe whether a target
-      was determined to be present or absent within a sample.
+    description: The name of the gene used in the diagnostic RT-PCR test.
     slot_uri: GENEPIO:0100655
-    any_of:
-    - range: gene name menu
-    - range: null value menu
   diagnostic target presence:
     name: diagnostic target presence
     title: diagnostic target presence
-    description: The value of the result from a diagnostic test.
-    comments: Provide the numerical result of a diagnostic test (no need to include
-      units).
+    description: The binary value of the result from a diagnostic test.
+    comments: Select a value from the pick list provided, to describe whether a target
+      was determined to be present or absent within a sample.
     slot_uri: GENEPIO:0100962
     any_of:
     - range: diagnostic target presence menu
@@ -4364,17 +4385,17 @@ slots:
   diagnostic measurement value:
     name: diagnostic measurement value
     title: diagnostic measurement value
-    description: The unit of the result from a diagnostic test.
-    comments: Select a value from the pick list provided, to describe the units of
-      the given diagnostic test.
+    description: The value of the result from a diagnostic test.
+    comments: Provide the numerical result of a diagnostic test (no need to include
+      units).
     slot_uri: GENEPIO:0100963
     range: WhitespaceMinimizedString
   diagnostic measurement unit:
     name: diagnostic measurement unit
     title: diagnostic measurement unit
-    description: The method by which a diagnostic result was received.
-    comments: Select a value from the pick list provided to describe the method used
-      for a given diagnostic test.
+    description: The unit of the result from a diagnostic test.
+    comments: Select a value from the pick list provided, to describe the units of
+      the given diagnostic test.
     slot_uri: GENEPIO:0100964
     any_of:
     - range: diagnostic measurement unit menu
@@ -4382,6 +4403,9 @@ slots:
   diagnostic measurement method:
     name: diagnostic measurement method
     title: diagnostic measurement method
+    description: The method by which a diagnostic result was determined.
+    comments: Select a value from the pick list provided to describe the method used
+      for a given diagnostic test.
     slot_uri: GENEPIO:0100965
     any_of:
     - range: diagnostic measurement method menu
@@ -6691,6 +6715,125 @@ enums:
       low coverage of characteristic mutations:
         text: low coverage of characteristic mutations
         meaning: GENEPIO:0100575
+  gene name menu:
+    name: gene name menu
+    permissible_values:
+      E gene (orf4):
+        text: E gene (orf4)
+        meaning: GENEPIO:0100151
+      M gene (orf5):
+        text: M gene (orf5)
+        meaning: GENEPIO:0100152
+      N gene (orf9):
+        text: N gene (orf9)
+        meaning: GENEPIO:0100153
+      Spike gene (orf2):
+        text: Spike gene (orf2)
+        meaning: GENEPIO:0100154
+      orf1ab (rep):
+        text: orf1ab (rep)
+        meaning: GENEPIO:0100155
+      orf1a (pp1a):
+        text: orf1a (pp1a)
+        meaning: GENEPIO:0100156
+        is_a: orf1ab (rep)
+      nsp11:
+        text: nsp11
+        meaning: GENEPIO:0100157
+        is_a: orf1a (pp1a)
+      nsp1:
+        text: nsp1
+        meaning: GENEPIO:0100158
+        is_a: orf1ab (rep)
+      nsp2:
+        text: nsp2
+        meaning: GENEPIO:0100159
+        is_a: orf1ab (rep)
+      nsp3:
+        text: nsp3
+        meaning: GENEPIO:0100160
+        is_a: orf1ab (rep)
+      nsp4:
+        text: nsp4
+        meaning: GENEPIO:0100161
+        is_a: orf1ab (rep)
+      nsp5:
+        text: nsp5
+        meaning: GENEPIO:0100162
+        is_a: orf1ab (rep)
+      nsp6:
+        text: nsp6
+        meaning: GENEPIO:0100163
+        is_a: orf1ab (rep)
+      nsp7:
+        text: nsp7
+        meaning: GENEPIO:0100164
+        is_a: orf1ab (rep)
+      nsp8:
+        text: nsp8
+        meaning: GENEPIO:0100165
+        is_a: orf1ab (rep)
+      nsp9:
+        text: nsp9
+        meaning: GENEPIO:0100166
+        is_a: orf1ab (rep)
+      nsp10:
+        text: nsp10
+        meaning: GENEPIO:0100167
+        is_a: orf1ab (rep)
+      RdRp gene (nsp12):
+        text: RdRp gene (nsp12)
+        meaning: GENEPIO:0100168
+        is_a: orf1ab (rep)
+      hel gene (nsp13):
+        text: hel gene (nsp13)
+        meaning: GENEPIO:0100169
+        is_a: orf1ab (rep)
+      exoN gene (nsp14):
+        text: exoN gene (nsp14)
+        meaning: GENEPIO:0100170
+        is_a: orf1ab (rep)
+      nsp15:
+        text: nsp15
+        meaning: GENEPIO:0100171
+        is_a: orf1ab (rep)
+      nsp16:
+        text: nsp16
+        meaning: GENEPIO:0100172
+        is_a: orf1ab (rep)
+      orf3a:
+        text: orf3a
+        meaning: GENEPIO:0100173
+      orf3b:
+        text: orf3b
+        meaning: GENEPIO:0100174
+      orf6 (ns6):
+        text: orf6 (ns6)
+        meaning: GENEPIO:0100175
+      orf7a:
+        text: orf7a
+        meaning: GENEPIO:0100176
+      orf7b (ns7b):
+        text: orf7b (ns7b)
+        meaning: GENEPIO:0100177
+      orf8 (ns8):
+        text: orf8 (ns8)
+        meaning: GENEPIO:0100178
+      orf9b:
+        text: orf9b
+        meaning: GENEPIO:0100179
+      orf9c:
+        text: orf9c
+        meaning: GENEPIO:0100180
+      orf10:
+        text: orf10
+        meaning: GENEPIO:0100181
+      orf14:
+        text: orf14
+        meaning: GENEPIO:0100182
+      SARS-COV-2 5' UTR:
+        text: SARS-COV-2 5' UTR
+        meaning: GENEPIO:0100183
   diagnostic target presence menu:
     name: diagnostic target presence menu
     permissible_values:

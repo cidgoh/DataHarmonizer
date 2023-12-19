@@ -736,6 +736,40 @@ quality control issues menu	GENEPIO:0100568	low quality sequence
 	GENEPIO:0100574	low signal to noise ratio										
 	GENEPIO:0100575	low coverage of characteristic mutations										
 												
+gene name menu	GENEPIO:0100151	E gene (orf4)										
+	GENEPIO:0100152	M gene (orf5)										
+	GENEPIO:0100153	N gene (orf9)										
+	GENEPIO:0100154	Spike gene (orf2)										
+	GENEPIO:0100155	orf1ab (rep)										
+	GENEPIO:0100156		orf1a (pp1a)									
+	GENEPIO:0100157			nsp11								
+	GENEPIO:0100158		nsp1 									
+	GENEPIO:0100159		nsp2 									
+	GENEPIO:0100160		nsp3 									
+	GENEPIO:0100161		nsp4 									
+	GENEPIO:0100162		nsp5 									
+	GENEPIO:0100163		nsp6 									
+	GENEPIO:0100164		nsp7 									
+	GENEPIO:0100165		nsp8 									
+	GENEPIO:0100166		nsp9 									
+	GENEPIO:0100167		nsp10 									
+	GENEPIO:0100168		RdRp gene (nsp12)									
+	GENEPIO:0100169		hel gene (nsp13)									
+	GENEPIO:0100170		exoN gene (nsp14)									
+	GENEPIO:0100171		nsp15									
+	GENEPIO:0100172		nsp16									
+	GENEPIO:0100173	orf3a										
+	GENEPIO:0100174	orf3b										
+	GENEPIO:0100175	orf6 (ns6)										
+	GENEPIO:0100176	orf7a										
+	GENEPIO:0100177	orf7b (ns7b)										
+	GENEPIO:0100178	orf8 (ns8)										
+	GENEPIO:0100179	orf9b										
+	GENEPIO:0100180	orf9c										
+	GENEPIO:0100181	orf10										
+	GENEPIO:0100182	orf14										
+	GENEPIO:0100183	SARS-COV-2 5' UTR										
+												
 diagnostic target presence menu	PATO:0000467	present										
 	PATO:0000462	absent										
 												
