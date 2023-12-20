@@ -13,10 +13,70 @@ export default {
 
       // NOTE: NULL reason fields must follow immediately after column they are about.
       const ExportHeaders = new Map([
-        ['isolate ID', []], // Intentionally left blank.
-        ['environmental material', []], // Intentionally left blank.
-        ['sample collected by', []], // Intentionally left blank.
-      ]);
+        ['isolate ID', []],
+        ['alternative isolate ID', []],
+        ['specimen collector sample ID', []],
+        ['sample collected by', []],
+        ['sample collection project name', []],
+        ['sample collector contact email', []],
+        ['sample collector contact address', []],
+        ['sample collection date', []],
+        ['sample received date', []],
+        ['geo_loc_name (country)', []],
+        ['geo_loc_name (state/province/territory)', []],
+        ['geo_loc_name (city)', []],
+        ['geo_loc_name (site)', []],
+        ['organism', []],
+        ['purpose of sampling', []],
+        ['purpose of sampling details', []],
+        ['original sample description', []],
+        ['anatomical material', []],
+        ['anatomical part', []],
+        ['body product', []],
+        ['environmental material', []],
+        ['environmental site', []],
+        ['collection device', []],
+        ['collection method', []],
+        ['collection protocol', []],
+        ['specimen processing', []],
+        ['specimen processing details', []],
+        ['strain', []],
+        ['taxonomic identification method', []],
+        ['taxonomic identification method details', []],
+        ['incubation temperature value', []],
+        ['incubation temperature unit', []],
+        ['isolation medium', []],
+        ['isolate storage location', []],
+        ['cellular respiration type', []],
+        ['host (common name)', []],
+        ['host (scientific name)', []],
+        ['host disease', []],
+        ['sequenced by', []],
+        ['sequenced by laboratory name', []],
+        ['sequenced by contact name', []],
+        ['sequenced by contact email', []],
+        ['purpose of sequencing', []],
+        ['purpose of sequencing details', []],
+        ['sequencing date', []],
+        ['library ID', []],
+        ['sequencing instrument', []],
+        ['sequencing protocol name', []],
+        ['amplicon pcr primer list', []],
+        ['input file name', []],
+        ['reference accession', []],
+        ['bioinformatics protocol', []],
+        ['reference database name', []],
+        ['reference database version', []],
+        ['coverage (percentage)', []],
+        ['sequence identity percentage', []],
+        ['sequence identity (variance ratio)', []],
+        ['top-hit taxon determination', []],
+        ['top-hit strain determination', []],
+        ['trimmed ribosomal gene sequence', []],
+        ['bioinformatics analysis details', []],
+        ['authors', []],
+        ['DataHarmonizer provenance', []],
+    ]);
 
       // various null options to recognize for "null reason" fields
       const // Conversion of all cancogen metadata keywords to NML LIMS version
@@ -33,8 +93,11 @@ export default {
       // Fills in the above mapping (or just set manually above)
       dh.getHeaderMap(ExportHeaders, sourceFields, 'TEST');
 
+      console.log(ExportHeaders, sourceFields, sourceFieldNameMap);
+
       // Copy headers to 1st row of new export table
       const outputMatrix = [[...ExportHeaders.keys()]];
+      
 
       const numeric_datatypes = new Set([
         'xs:nonNegativeInteger',
