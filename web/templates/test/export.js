@@ -93,8 +93,6 @@ export default {
       // Fills in the above mapping (or just set manually above)
       dh.getHeaderMap(ExportHeaders, sourceFields, 'TEST');
 
-      console.log(ExportHeaders, sourceFields, sourceFieldNameMap);
-
       // Copy headers to 1st row of new export table
       const outputMatrix = [[...ExportHeaders.keys()]];
       
