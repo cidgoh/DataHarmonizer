@@ -12,9 +12,7 @@ import '@/web/index.css';
 const rootUrl = window.location.host;
 console.log('Root URL:', rootUrl);
 
- // TODO: a default should be loaded before Toolbar is constructed! then take out all loading in "toolbar" to an outside context
- // See comment on ToolBar
-function getTemplatePath() {
+async function getTemplatePath() {
   let templatePath;
   if (window.URLSearchParams) {
     let params = new URLSearchParams(location.search);
@@ -22,36 +20,43 @@ function getTemplatePath() {
   } else {
     templatePath = location.search.split('template=')[1];
   }
+  if (templatePath === null || typeof templatePath === 'undefined') {
+    const menu = (await import(`@/web/templates/menu.json`)).default;
+    const schema_name = Object.keys(menu)[0];
+    const template_name = Object.keys(menu[schema_name])[0];
+    return `${schema_name}/${template_name}`;
+  }
   return templatePath;
 }
 
-// const template_path = this.$selectTemplate.val();
-// let schema_name;
-// [schema_name, template_name] = template_path.split('/');
-
 class AppConfig {
-  constructor() {
+  constructor(template_path=null) {
     this.rootUrl = window.location.host;
+    this.template_path = template_path;
   }
 }
 
 class AppContext {
+
   constructor(appConfig) {
     this.template = null;
     this.appConfig = appConfig;
   }
 
-  async initializeTemplate(templateName='test/TEST') {
+  async initializeTemplate(template_path) {
+    console.log(template_path);
+    const [schema_name, template_name] = template_path.split('/');
     if (!this.template) {
-      this.template = await Template.create('test');
+      this.template = await Template.create(schema_name);
     }
+    return this;
   }
   
   async getSchema() {
     return this.template.current.schema;
   }
 
-  async getLocaleData() {
+  async getLocaleData(template) {
     const locales = {
       default: { langcode: 'default', nativeName: 'Default' },
     };
@@ -148,9 +153,30 @@ class AppContext {
     );
   }
 
+  async  getSlotGroups() {
+    const schema = this.template.current.schema;
+    const slotGroups = new Set();
+
+    if (schema.classes) {
+        for (const className in schema.classes) {
+            const classInfo = schema.classes[className];
+            if (classInfo.slot_usage) {
+                for (const slotName in classInfo.slot_usage) {
+                    const slotInfo = classInfo.slot_usage[slotName];
+                    if (slotInfo.slot_group) {
+                        slotGroups.add(slotInfo.slot_group);
+                    }
+                }
+            }
+        }
+    }
+
+    return Array.from(slotGroups);
+  }
+
   async getLocales() {
     const locales = this.getLocaleData(this.template);
-    // this.addTranslationResources(this.template, locales); // TODO side effect – put elsewhere?
+    this.addTranslationResources(this.template, locales); // TODO side effect – put elsewhere?
     return locales;
   }
 
@@ -162,39 +188,71 @@ class AppContext {
 // Make the top function asynchronous to allow for a data-loading/IO step?
 const main = async function () {
 
-  const context = new AppContext(new AppConfig());
-  context.initializeTemplate(getTemplatePath()).then(() => {
-    
-    const dhRoot = document.querySelector('#data-harmonizer-grid');
-    const dhFooterRoot = document.querySelector('#data-harmonizer-footer');
-    const dhToolbarRoot = document.querySelector('#data-harmonizer-toolbar');
-  
-    const dh = new DataHarmonizer(dhRoot, {
-      loadingScreenRoot: document.querySelector('body'),
-    });
+  const context = new AppContext(new AppConfig(await getTemplatePath()));
+  let dhs = [];
+  context.initializeTemplate(context.appConfig.template_path)
+    .then(async (context) => {
+      const _template = context.template;
 
-    // TODO
-    // // internationalize
-    // // TODO: connect to locale of browser!
-    // // Takes `lang` as argument (unused)
-    initI18n((lang) => {
-      console.log(lang);
-      $(document).localize();
-      dh.render();
-    });
-    context.addTranslationResources(context.template, context.getLocaleData());
-  
-    new Footer(dhFooterRoot, dh);
+      const dhRoot = document.querySelector('#data-harmonizer-grid');
+      const dhFooterRoot = document.querySelector('#data-harmonizer-footer');
+      const dhToolbarRoot = document.querySelector('#data-harmonizer-toolbar');
     
-    new Toolbar(dhToolbarRoot, dh, menu, {
-      templatePath: 'test/TEST',  // TODO: a default should be loaded before Toolbar is constructed! then take out all loading in "toolbar" to an outside context
-      releasesURL: 'https://github.com/cidgoh/pathogen-genomics-package/releases',
-      getLanguages: context.getLocaleData.bind(context),
-      getSchema:  context.getSchema.bind(context),
-      getExportFormats:  context.getExportFormats.bind(context),
+      const sections = await context.getSlotGroups();
+      console.log(sections);
+
+      // for each section: 
+      // 0) create a new holding element for the data harmonizer
+      // 1) add the holding element to the data-harmonizer-grid
+      // 2) create a new data harmonizer instance
+      // 3) add the data harmonizer instance to the application list with the holding element as argument
+      // this loading process needs to occur on each change of the application?
+      if (sections.length > 0) {
+        // NOTE: TODO: per section? or with multiple?
+        sections.forEach((section, index) => {
+          const dhSubroot = $(`<div id="data-harmonizer-grid-${index}" class="data-harmonizer-grid"></div>`);  // TODO: element type, use rows and cols?
+          $(dhRoot).append(dhSubroot); // TODO: location?
+          const dh = new DataHarmonizer(dhSubroot, {
+            // loadingScreenRoot: document.querySelector('body'),
+            field_filters: [section]
+          });
+          dhs.push(dh);
+        })  
+      } else {
+        dhs = [
+          new DataHarmonizer(dhRoot, {
+            // loadingScreenRoot: document.querySelector('body')
+          })
+        ];
+      }
+
+      // // internationalize
+      // // TODO: connect to locale of browser!
+      // // Takes `lang` as argument (unused)
+      initI18n((lang) => {
+        console.log(lang);
+        $(document).localize();
+        dhs.forEach(dh => dh.render());
+      });
+      context.addTranslationResources(_template, context.getLocaleData());
+    
+      new Footer(dhFooterRoot, dhs[0]);
+
+      new Toolbar(dhToolbarRoot, dhs[0], menu, {
+        templatePath: context.appConfig.template_path,  // TODO: a default should be loaded before Toolbar is constructed! then take out all loading in "toolbar" to an outside context
+        releasesURL: 'https://github.com/cidgoh/pathogen-genomics-package/releases',
+        getLanguages: context.getLocaleData.bind(context),
+        getSchema: async (schema) => Template.create(schema).then(result => result.current.schema),
+        getExportFormats: context.getExportFormats.bind(context),
+      });
+
+      return context;
+    
+    })
+    .then(async () => {
+      return setTimeout(() => dhs[0].showColumnsBySectionTitle(dhs[0].field_filters[0]), 1000);
     });
-  
-  });
+    
 }
 
 document.addEventListener('DOMContentLoaded', main);
