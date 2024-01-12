@@ -209,6 +209,7 @@ const main = async function () {
       // this loading process needs to occur on each change of the application?
       if (sections.length > 0) {
         // NOTE: TODO: per section? or with multiple?
+        // TODO: place in tabs?
         sections.forEach((section, index) => {
           const dhSubroot = $(`<div id="data-harmonizer-grid-${index}" class="data-harmonizer-grid"></div>`);  // TODO: element type, use rows and cols?
           $(dhRoot).append(dhSubroot); // TODO: location?
@@ -219,9 +220,20 @@ const main = async function () {
           dhs.push(dh);
         })  
       } else {
+        // TODO: place in tabs?
+        const index = 0;
+        const dhSubroot1 = 
+          $(`<div id="data-harmonizer-grid-${index}" class="data-harmonizer-grid"></div>`);  // TODO: element type, use rows and cols?
+        $(dhRoot).append(dhSubroot1); // TODO: location?
+        // const dhSubroot2 = 
+        //   $(`<div class="col"><div id="data-harmonizer-grid-${index + 1}" class="data-harmonizer-grid"></div></div>`);  // TODO: element type, use rows and cols?
+        // $(dhRoot).append(dhSubroot2); // TODO: location?
         dhs = [
-          new DataHarmonizer(dhRoot, {
-            // loadingScreenRoot: document.querySelector('body')
+          new DataHarmonizer(dhSubroot1, {
+            loadingScreenRoot: document.querySelector('body')
+          }),
+          new DataHarmonizer(dhSubroot2, {
+            loadingScreenRoot: document.querySelector('body')
           })
         ];
       }
@@ -238,7 +250,17 @@ const main = async function () {
     
       new Footer(dhFooterRoot, dhs[0]);
 
+      // TODO: data harmonizers require initialization code inside of the toolbar to fully render? wut
       new Toolbar(dhToolbarRoot, dhs[0], menu, {
+        templatePath: context.appConfig.template_path,  // TODO: a default should be loaded before Toolbar is constructed! then take out all loading in "toolbar" to an outside context
+        releasesURL: 'https://github.com/cidgoh/pathogen-genomics-package/releases',
+        getLanguages: context.getLocaleData.bind(context),
+        getSchema: async (schema) => Template.create(schema).then(result => result.current.schema),
+        getExportFormats: context.getExportFormats.bind(context),
+      });
+
+      // TODO: data harmonizers require initialization code inside of the toolbar to fully render? wut
+      new Toolbar(dhToolbarRoot, dhs[1], menu, {
         templatePath: context.appConfig.template_path,  // TODO: a default should be loaded before Toolbar is constructed! then take out all loading in "toolbar" to an outside context
         releasesURL: 'https://github.com/cidgoh/pathogen-genomics-package/releases',
         getLanguages: context.getLocaleData.bind(context),
