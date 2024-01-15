@@ -1,4 +1,6 @@
 import * as $ from 'jquery';
+import 'bootstrap';
+
 import i18n from 'i18next';
 import { DataHarmonizer, Footer, Toolbar } from '@/lib';
 import { initI18n } from '@/lib/utils/i18n';
@@ -6,6 +8,7 @@ import { Template } from '@/lib/utils/templates';
 
 import menu from '@/web/templates/menu.json';
 import tags from 'language-tags';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@/web/index.css';
 
@@ -188,16 +191,20 @@ class AppContext {
 // Make the top function asynchronous to allow for a data-loading/IO step?
 const main = async function () {
 
-  const context = new AppContext(new AppConfig(await getTemplatePath()));
+  const dhRoot = document.querySelector('#data-harmonizer-grid');
+  const dhFooterRoot = document.querySelector('#data-harmonizer-footer');
+  const dhToolbarRoot = document.querySelector('#data-harmonizer-toolbar');
+  const dhTabNav = document.querySelector("#data-harmonizer-tabs");
+  
+  $(dhTabNav).tabs();
+
   let dhs = [];
+
+  const context = new AppContext(new AppConfig(await getTemplatePath()));
   context.initializeTemplate(context.appConfig.template_path)
     .then(async (context) => {
       const _template = context.template;
 
-      const dhRoot = document.querySelector('#data-harmonizer-grid');
-      const dhFooterRoot = document.querySelector('#data-harmonizer-footer');
-      const dhToolbarRoot = document.querySelector('#data-harmonizer-toolbar');
-    
       const sections = await context.getSlotGroups();
       console.log(sections);
 
@@ -211,32 +218,69 @@ const main = async function () {
         // NOTE: TODO: per section? or with multiple?
         // TODO: place in tabs?
         sections.forEach((section, index) => {
-          const dhSubroot = $(`<div id="data-harmonizer-grid-${index}" class="data-harmonizer-grid"></div>`);  // TODO: element type, use rows and cols?
-          $(dhRoot).append(dhSubroot); // TODO: location?
+          console.log(section, index);
+          const dhId = `data-harmonizer-grid-${index}`;
+          // const dhSubroot = $(`<div id="${dhId}" class="data-harmonizer-grid"></div>`);  // TODO: element type, use rows and cols?
+          // const dhTab = $(`<li><a href="#${dhId}">${section}</a></li>`);
+
+          const dhSubroot = document.createElement('div');
+          dhSubroot.id = dhId;
+          dhSubroot.classList.add('data-harmonizer-grid', 'tab-pane', 'fade');
+          $(dhSubroot).attr('aria-labelledby', `tab-${dhId}`)
+          if(index === 0) dhSubroot.classList.add('show', 'active');
+          dhRoot.append(dhSubroot);
+          
+          const dhTab = document.createElement('li');
+          dhTab.classList.add('nav-item');
+          $(dhTab).attr("role", "presentation");
+          // anchor properties: class="nav-link active" id="<id>-tab" data-toggle="tab" href="#<id>" role="tab" aria-controls="<id>" aria-selected="true"
+          const dhTabLink = document.createElement('a');
+          dhTabLink.classList.add('nav-link');
+          if(index === 0) dhTabLink.classList.add('active');
+          dhTabLink.id = `tab-${dhId}`;
+          dhTabLink.setAttribute('data-toggle', 'tab');
+          dhTabLink.setAttribute('role', 'tab');
+          dhTabLink.setAttribute('aria-controls', dhId);
+          dhTabLink.setAttribute('href', `#${dhId}`);
+          dhTabLink.textContent = section;
+          dhTab.append(dhTabLink);
+          dhTabNav.append(dhTab);
+
           const dh = new DataHarmonizer(dhSubroot, {
-            // loadingScreenRoot: document.querySelector('body'),
+            loadingScreenRoot: document.querySelector('body'),
             field_filters: [section]
           });
           dhs.push(dh);
+          
+          // TODO: data harmonizers require initialization code inside of the toolbar to fully render? wut
+          new Toolbar(dhToolbarRoot, dhs[index], menu, {
+            templatePath: context.appConfig.template_path,  // TODO: a default should be loaded before Toolbar is constructed! then take out all loading in "toolbar" to an outside context
+            releasesURL: 'https://github.com/cidgoh/pathogen-genomics-package/releases',
+            getLanguages: context.getLocaleData.bind(context),
+            getSchema: async (schema) => Template.create(schema).then(result => result.current.schema),
+            getExportFormats: context.getExportFormats.bind(context),
+          });
+
         })  
-      } else {
-        // TODO: place in tabs?
-        const index = 0;
-        const dhSubroot1 = 
-          $(`<div id="data-harmonizer-grid-${index}" class="data-harmonizer-grid"></div>`);  // TODO: element type, use rows and cols?
-        $(dhRoot).append(dhSubroot1); // TODO: location?
-        // const dhSubroot2 = 
-        //   $(`<div class="col"><div id="data-harmonizer-grid-${index + 1}" class="data-harmonizer-grid"></div></div>`);  // TODO: element type, use rows and cols?
-        // $(dhRoot).append(dhSubroot2); // TODO: location?
-        dhs = [
-          new DataHarmonizer(dhSubroot1, {
-            loadingScreenRoot: document.querySelector('body')
-          }),
-          new DataHarmonizer(dhSubroot2, {
-            loadingScreenRoot: document.querySelector('body')
-          })
-        ];
-      }
+      } 
+      // else {
+      //   // TODO: place in tabs?
+      //   const index = 0;
+      //   const dhSubroot1 = 
+      //     $(`<div id="data-harmonizer-grid-${index}" class="data-harmonizer-grid"></div>`);  // TODO: element type, use rows and cols?
+      //   $(dhRoot).append(dhSubroot1); // TODO: location?
+      //   // const dhSubroot2 = 
+      //   //   $(`<div class="col"><div id="data-harmonizer-grid-${index + 1}" class="data-harmonizer-grid"></div></div>`);  // TODO: element type, use rows and cols?
+      //   // $(dhRoot).append(dhSubroot2); // TODO: location?
+      //   dhs = [
+      //     new DataHarmonizer(dhSubroot1, {
+      //       loadingScreenRoot: document.querySelector('body')
+      //     }),
+      //     new DataHarmonizer(dhSubroot2, {
+      //       loadingScreenRoot: document.querySelector('body')
+      //     })
+      //   ];
+      // }
 
       // // internationalize
       // // TODO: connect to locale of browser!
@@ -251,28 +295,28 @@ const main = async function () {
       new Footer(dhFooterRoot, dhs[0]);
 
       // TODO: data harmonizers require initialization code inside of the toolbar to fully render? wut
-      new Toolbar(dhToolbarRoot, dhs[0], menu, {
-        templatePath: context.appConfig.template_path,  // TODO: a default should be loaded before Toolbar is constructed! then take out all loading in "toolbar" to an outside context
-        releasesURL: 'https://github.com/cidgoh/pathogen-genomics-package/releases',
-        getLanguages: context.getLocaleData.bind(context),
-        getSchema: async (schema) => Template.create(schema).then(result => result.current.schema),
-        getExportFormats: context.getExportFormats.bind(context),
-      });
+      // new Toolbar(dhToolbarRoot, dhs[0], menu, {
+      //   templatePath: context.appConfig.template_path,  // TODO: a default should be loaded before Toolbar is constructed! then take out all loading in "toolbar" to an outside context
+      //   releasesURL: 'https://github.com/cidgoh/pathogen-genomics-package/releases',
+      //   getLanguages: context.getLocaleData.bind(context),
+      //   getSchema: async (schema) => Template.create(schema).then(result => result.current.schema),
+      //   getExportFormats: context.getExportFormats.bind(context),
+      // });
 
-      // TODO: data harmonizers require initialization code inside of the toolbar to fully render? wut
-      new Toolbar(dhToolbarRoot, dhs[1], menu, {
-        templatePath: context.appConfig.template_path,  // TODO: a default should be loaded before Toolbar is constructed! then take out all loading in "toolbar" to an outside context
-        releasesURL: 'https://github.com/cidgoh/pathogen-genomics-package/releases',
-        getLanguages: context.getLocaleData.bind(context),
-        getSchema: async (schema) => Template.create(schema).then(result => result.current.schema),
-        getExportFormats: context.getExportFormats.bind(context),
-      });
+      // // TODO: data harmonizers require initialization code inside of the toolbar to fully render? wut
+      // new Toolbar(dhToolbarRoot, dhs[1], menu, {
+      //   templatePath: context.appConfig.template_path,  // TODO: a default should be loaded before Toolbar is constructed! then take out all loading in "toolbar" to an outside context
+      //   releasesURL: 'https://github.com/cidgoh/pathogen-genomics-package/releases',
+      //   getLanguages: context.getLocaleData.bind(context),
+      //   getSchema: async (schema) => Template.create(schema).then(result => result.current.schema),
+      //   getExportFormats: context.getExportFormats.bind(context),
+      // });
 
       return context;
     
     })
     .then(async () => {
-      return setTimeout(() => dhs[0].showColumnsBySectionTitle(dhs[0].field_filters[0]), 1000);
+      return setTimeout(() => dhs.forEach(dh => dh.showColumnsBySectionTitle(dh.field_filters[0])), 1000);
     });
     
 }

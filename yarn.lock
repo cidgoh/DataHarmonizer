@@ -4822,6 +4822,11 @@ jquery-i18next@^1.2.1:
   resolved "https://registry.yarnpkg.com/jquery-i18next/-/jquery-i18next-1.2.1.tgz#3e4ac5e46632fac21640529f1aa7b68e54f227e8"
   integrity sha512-UNcw3rgxoKjGEg4w23FEn2h3OlPJU7rPzsgDuXDBZktIzeiVbJohs9Cv9hj8oP8KNfBRKOoErL/OVxg2FaAR4g==
 
+jquery-ui-bundle@^1.12.1-migrate:
+  version "1.12.1-migrate"
+  resolved "https://registry.yarnpkg.com/jquery-ui-bundle/-/jquery-ui-bundle-1.12.1-migrate.tgz#b9343e2c310743527632cff8bedb0c5e9600b14c"
+  integrity sha512-ihyHzL6NYkCg1SNIRFrQAkgEeAJmet2G6rrecCRwq6RcWNApV6w2NSjqfuJUUoiKywkvlU+pqHJ5NAAEuTet4w==
+
 jquery-ui@^1.13.0:
   version "1.13.2"
   resolved "https://registry.yarnpkg.com/jquery-ui/-/jquery-ui-1.13.2.tgz#de03580ae6604773602f8d786ad1abfb75232034"

@@ -85,6 +85,7 @@
     "handsontable": "13.1.0",
     "i18next": "^23.6.0",
     "jquery-i18next": "^1.2.1",
+    "jquery-ui-bundle": "^1.12.1-migrate",
     "language-tags": "^1.0.9",
     "linkify-it": "^4.0.1",
     "markdown-it": "^13.0.2",
