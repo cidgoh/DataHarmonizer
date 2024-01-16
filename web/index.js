@@ -186,6 +186,28 @@ class AppContext {
   async getExportFormats(schema) {
     return (await import(`@/web/templates/${schema}/export.js`)).default;
   }
+
+    /**
+   * Run void function behind loading screen.
+   * Adds function to end of call queue. Does not handle functions with return
+   * vals, unless the return value is a promise. Even then, it only waits for the
+   * promise to resolve, and does not actually do anything with the value
+   * returned from the promise.
+   * @param {function} fn - Void function to run.
+   * @param {Array} [args=[]] - Arguments for function to run.
+   */
+    async runBehindLoadingScreen(fn, args = []) {
+      await $('#loading-screen').show('fast', 'swing');
+      await wait(200); // Enough of a visual cue that something is happening
+      if (args.length) {
+        await fn.apply(this, args);
+      } else {
+        await fn.apply(this);
+      }
+      await $('#loading-screen').hide();
+      return;
+    }
+
 }
 
 // Make the top function asynchronous to allow for a data-loading/IO step?
@@ -196,7 +218,16 @@ const main = async function () {
   const dhToolbarRoot = document.querySelector('#data-harmonizer-toolbar');
   const dhTabNav = document.querySelector("#data-harmonizer-tabs");
   
-  $(dhTabNav).tabs();
+  // loading screen
+  $(dhRoot).append(`
+    <div class="w-100 h-100 position-fixed fixed-top" id="loading-screen">
+      <div class="d-flex h-100 align-items-center justify-content-center">
+        <div class="spinner-border text-primary" role="status">
+          <span class="sr-only">Please wait...</span>
+        </div>
+      </div>
+    </div>
+`);
 
   let dhs = [];
 
@@ -206,7 +237,6 @@ const main = async function () {
       const _template = context.template;
 
       const sections = await context.getSlotGroups();
-      console.log(sections);
 
       // for each section: 
       // 0) create a new holding element for the data harmonizer
@@ -215,13 +245,10 @@ const main = async function () {
       // 3) add the data harmonizer instance to the application list with the holding element as argument
       // this loading process needs to occur on each change of the application?
       if (sections.length > 0) {
-        // NOTE: TODO: per section? or with multiple?
-        // TODO: place in tabs?
+
         sections.forEach((section, index) => {
           console.log(section, index);
           const dhId = `data-harmonizer-grid-${index}`;
-          // const dhSubroot = $(`<div id="${dhId}" class="data-harmonizer-grid"></div>`);  // TODO: element type, use rows and cols?
-          // const dhTab = $(`<li><a href="#${dhId}">${section}</a></li>`);
 
           const dhSubroot = document.createElement('div');
           dhSubroot.id = dhId;
@@ -247,6 +274,7 @@ const main = async function () {
           dhTabNav.append(dhTab);
 
           const dh = new DataHarmonizer(dhSubroot, {
+            context: context,
             loadingScreenRoot: document.querySelector('body'),
             field_filters: [section]
           });
@@ -254,6 +282,7 @@ const main = async function () {
           
           // TODO: data harmonizers require initialization code inside of the toolbar to fully render? wut
           new Toolbar(dhToolbarRoot, dhs[index], menu, {
+            context: context,
             templatePath: context.appConfig.template_path,  // TODO: a default should be loaded before Toolbar is constructed! then take out all loading in "toolbar" to an outside context
             releasesURL: 'https://github.com/cidgoh/pathogen-genomics-package/releases',
             getLanguages: context.getLocaleData.bind(context),
