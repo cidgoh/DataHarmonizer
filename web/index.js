@@ -5,6 +5,7 @@ import i18n from 'i18next';
 import { DataHarmonizer, Footer, Toolbar } from '@/lib';
 import { initI18n } from '@/lib/utils/i18n';
 import { Template } from '@/lib/utils/templates';
+import { deepMerge } from '@/lib/utils/objects';
 
 import menu from '@/web/templates/menu.json';
 import tags from 'language-tags';
@@ -46,8 +47,52 @@ class AppContext {
     this.appConfig = appConfig;
   }
 
+  // TODO: memoize?
+  async getTypeTree() {
+    return (await this.getClasses()).reduce((acc, el) => {
+      const key = Object.keys(el)[0];
+      const value = Object.values(el)[0];
+      return Object.assign(acc, {
+        "nodes": {
+          [key]: { 
+            parents: [ value['is_a'] ]
+          }
+        }
+      })
+
+    }, {});
+  }
+
+  // TODO: memoize?
+  // setup dependency tree
+  // TODO: dh_interface superclass
+  /*
+  Example Data:
+  {
+    "nodes": {
+      "Sensor1": {"type": "Sensor", "data": 100, "children": ["Processor1"]},
+      "Sensor2": {"type": "Sensor", "data": 150, "children": ["Processor1"]},
+      "Processor1": {"type": "Processor", "data": 0, "children": ["Display1"]},
+      "Display1": {"type": "Display", "data": 0, "children": []}
+  }
+  */
+  async getDependencyTree() {
+    return Object.entries(await this.getTypeTree()["nodes"]).reduce((acc, el) => {
+      if (!!!acc["nodes"][el[0]]) {
+        acc["nodes"][el[0]] = { "data": null, "children": [] };
+      }
+      el[1].parents.forEach(parent => {
+        if(!!!acc["nodes"][parent]) {
+          acc["nodes"][parent] = { "data": null, "children": [] };
+        };
+        acc["nodes"][parent]["children"].push(el[0]);
+      });
+      return acc;
+    }, { "nodes": {} });
+
+  }
+
   async initializeTemplate(template_path) {
-    console.log(template_path);
     const [schema_name, template_name] = template_path.split('/');
     if (!this.template) {
       this.template = await Template.create(schema_name);
@@ -156,7 +201,14 @@ class AppContext {
     );
   }
 
-  async  getSlotGroups() {
+  getClasses() {
+    const classes = Object.entries(this.template.current.schema.classes);
+    return classes.map(([key, value]) => ({
+      [key]: value
+    }));
+  }
+
+  getSlotGroups() {
     const schema = this.template.current.schema;
     const slotGroups = new Set();
 
@@ -236,7 +288,9 @@ const main = async function () {
     .then(async (context) => {
       const _template = context.template;
 
-      const sections = await context.getSlotGroups();
+      // dependency in terms of classes
+      // TODO: setup in the context
+      const sections = context.getSlotGroups();
 
       // for each section: 
       // 0) create a new holding element for the data harmonizer
@@ -290,26 +344,9 @@ const main = async function () {
             getExportFormats: context.getExportFormats.bind(context),
           });
 
-        })  
+        });
+
       } 
-      // else {
-      //   // TODO: place in tabs?
-      //   const index = 0;
-      //   const dhSubroot1 = 
-      //     $(`<div id="data-harmonizer-grid-${index}" class="data-harmonizer-grid"></div>`);  // TODO: element type, use rows and cols?
-      //   $(dhRoot).append(dhSubroot1); // TODO: location?
-      //   // const dhSubroot2 = 
-      //   //   $(`<div class="col"><div id="data-harmonizer-grid-${index + 1}" class="data-harmonizer-grid"></div></div>`);  // TODO: element type, use rows and cols?
-      //   // $(dhRoot).append(dhSubroot2); // TODO: location?
-      //   dhs = [
-      //     new DataHarmonizer(dhSubroot1, {
-      //       loadingScreenRoot: document.querySelector('body')
-      //     }),
-      //     new DataHarmonizer(dhSubroot2, {
-      //       loadingScreenRoot: document.querySelector('body')
-      //     })
-      //   ];
-      // }
 
       // // internationalize
       // // TODO: connect to locale of browser!
@@ -322,24 +359,6 @@ const main = async function () {
       context.addTranslationResources(_template, context.getLocaleData());
     
       new Footer(dhFooterRoot, dhs[0]);
-
-      // TODO: data harmonizers require initialization code inside of the toolbar to fully render? wut
-      // new Toolbar(dhToolbarRoot, dhs[0], menu, {
-      //   templatePath: context.appConfig.template_path,  // TODO: a default should be loaded before Toolbar is constructed! then take out all loading in "toolbar" to an outside context
-      //   releasesURL: 'https://github.com/cidgoh/pathogen-genomics-package/releases',
-      //   getLanguages: context.getLocaleData.bind(context),
-      //   getSchema: async (schema) => Template.create(schema).then(result => result.current.schema),
-      //   getExportFormats: context.getExportFormats.bind(context),
-      // });
-
-      // // TODO: data harmonizers require initialization code inside of the toolbar to fully render? wut
-      // new Toolbar(dhToolbarRoot, dhs[1], menu, {
-      //   templatePath: context.appConfig.template_path,  // TODO: a default should be loaded before Toolbar is constructed! then take out all loading in "toolbar" to an outside context
-      //   releasesURL: 'https://github.com/cidgoh/pathogen-genomics-package/releases',
-      //   getLanguages: context.getLocaleData.bind(context),
-      //   getSchema: async (schema) => Template.create(schema).then(result => result.current.schema),
-      //   getExportFormats: context.getExportFormats.bind(context),
-      // });
 
       return context;
     
