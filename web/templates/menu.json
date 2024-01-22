@@ -21,8 +21,8 @@
     }
   },
   "grdi": {
-    "GRDI": {
-      "name": "GRDI",
+    "GRDI_Sample": {
+      "name": "GRDI_Sample",
       "status": "published",
       "display": true
     }
