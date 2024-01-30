@@ -351,7 +351,7 @@ class AppContext {
 // Make the top function asynchronous to allow for a data-loading/IO step?
 const main = async function () {
 
-    const dhRoot = document.querySelector('#data-harmonizer-grid');
+    let dhRoot = document.querySelector('#data-harmonizer-grid');
     const dhFooterRoot = document.querySelector('#data-harmonizer-footer');
     const dhToolbarRoot = document.querySelector('#data-harmonizer-toolbar');
     const dhTabNav = document.querySelector("#data-harmonizer-tabs");
@@ -373,83 +373,21 @@ const main = async function () {
 
     context.initializeTemplate(context.appConfig.template_path)
         .then(async (context) => {
-            const _template = context.template;
-
-            /* Section approach
-            // dependency in terms of classes
-            // TODO: setup in the context
-            const sections = await context.getSlotGroups();
-            // for each section: 
-            // 0) create a new holding element for the data harmonizer
-            // 1) add the holding element to the data-harmonizer-grid
-            // 2) create a new data harmonizer instance
-            // 3) add the data harmonizer instance to the application list with the holding element as argument
-            // this loading process needs to occur on each change of the application?
-            if (sections.length > 0) {
-      
-              sections.forEach((section, index) => {
-                const dhId = `data-harmonizer-grid-${index}`;
-      
-                const dhSubroot = document.createElement('div');
-                dhSubroot.id = dhId;
-                dhSubroot.classList.add('data-harmonizer-grid', 'tab-pane', 'fade');
-                $(dhSubroot).attr('aria-labelledby', `tab-${dhId}`)
-                if(index === 0) dhSubroot.classList.add('show', 'active');
-                dhRoot.append(dhSubroot);
-      
-                const dhTab = document.createElement('li');
-                dhTab.classList.add('nav-item');
-                $(dhTab).attr("role", "presentation");
-                // anchor properties: class="nav-link active" id="<id>-tab" data-toggle="tab" href="#<id>" role="tab" aria-controls="<id>" aria-selected="true"
-                const dhTabLink = document.createElement('a');
-                dhTabLink.classList.add('nav-link');
-                if(index === 0) dhTabLink.classList.add('active');
-                dhTabLink.id = `tab-${dhId}`;
-                dhTabLink.setAttribute('data-toggle', 'tab');
-                dhTabLink.setAttribute('role', 'tab');
-                dhTabLink.setAttribute('aria-controls', dhId);
-                dhTabLink.setAttribute('href', `#${dhId}`);
-                dhTabLink.textContent = section;
-                dhTab.append(dhTabLink);
-                dhTabNav.append(dhTab);
-      
-                const dh = new DataHarmonizer(dhSubroot, {
-                  context: context,
-                  loadingScreenRoot: document.querySelector('body'),
-                  field_filters: [section]
-                });
-                dhs.push(dh);
-      
-                // TODO: data harmonizers require initialization code inside of the toolbar to fully render? wut
-                new Toolbar(dhToolbarRoot, dhs[index], menu, {
-                  context: context,
-                  templatePath: context.appConfig.template_path,  // TODO: a default should be loaded before Toolbar is constructed! then take out all loading in "toolbar" to an outside context
-                  releasesURL: 'https://github.com/cidgoh/pathogen-genomics-package/releases',
-                  getLanguages: context.getLocaleData.bind(context),
-                  getSchema: async (schema) => Template.create(schema).then(result => result.current.schema),
-                  getExportFormats: context.getExportFormats.bind(context),
-                });
-      
-              });
-      
-            }
-            */
-
-            // TODO class approach
+            
             const classes = (await context.getClasses()).reduce((acc, item) => Object.assign(acc, item), {});
+            
+            // attributes are the classes which feature 1-M relationships
+            // to process these classes into DataHarmonizer tables, the following must be performed:
+            // - Navigation: one tab per class = one data harmonizer per class
+            // - Tables: filter the table by the slots featured in that class-slot pair alone/relative to a sheet.
+            // - Propagation: there will be an event handler added between Data Harmonizers based on a shared domain.
+            // - Loading: the system will expect an excel file with sheets or a database with tables for selection. the Toolbar must know.
+
             // the existence of a container class signifies a 1-M data loading setup with an ID join
             if (classes['Container']) {
+                
                 console.log('has Container class', classes['Container']);
-                // attributes are the classes which feature 1-M relationships
-                // to process these classes into DataHarmonizer tables, the following must be performed:
-                // - Navigation: one tab per class = one data harmonizer per class
-                // - Tables: filter the table by the slots featured in that class-slot pair alone/relative to a sheet.
-                // - Propagation: there will be an event handler added between Data Harmonizers based on a shared domain.
-                // - Loading: the system will expect an excel file with sheets or a database with tables for selection. the Toolbar must know.
 
-                // Filter, Shared Values -> Navigation -> { Tables, Propagation }
-
-                // Create the reference tree to perform these operations
                 /* e.g.
         
                 const container = {
@@ -492,29 +430,6 @@ const main = async function () {
                   "AMR_Test": { shared_key: ["sample_collector_sample_ID"], children: [] },
                 }
         
-                DONE buildTree: schema -> schema_tree
-                  create the schema tree from a schema
-                DONE visit: func=id, schema_tree -> ()
-                  traverse over the schema tree and do something with the data.
-                  allow recursion of a payload
-                DONE eventPropagateFrom: eventHandler, class="Container" -> schema_tree -> ()
-                  visit the tree with an event payload
-                transformMultivaluedColumn: column, old_value, new_value
-                  for a column with a particular value, map all rows with that value in this column into a new value (including replacement)
-                IDUpdate: schema_tree.shared_key -> old_id, new_id -> transformMultivaluedColumn schema_tree.shared_key old_id, new_id
-                  for a known ID column shared between nodes update all of the rows using that ID
-                  NOTE: the operation is not necessarily reversible (the number of rows that share an ID could increase 
-                    if previous columns also have the new ID before the update)
-                updateSharedID: eventPropagateFrom children_of_class -> map IDUpdate <parent id field> <children id field>, class="Container"
-                  for an initial node
-                onSharedKeyChange: updateSharedID
-                  a handler function attached to HoT to trigger whenever a shared key is found.
-                  propagates based on highest root to shared key OR two way sync
-                makeSharedKeyHandler:
-                  construct the shared key handler by passing the shared key
-                addEventHandlers:
-                  assign an event handler to each HoT where the shared key exists for a class
-        
                 */
 
                 /**
@@ -530,35 +445,42 @@ const main = async function () {
                  * @returns {Object} An object mapping class names to an array of shared keys.
                  */
                 function findSharedKeys(schema) {
-                    const class_names = new Set(Object.keys(schema.classes));
-                    let shared_keys_per_class = {};
-                
+                    const class_names = new Set(Object.keys(schema.classes).filter(k => k !== 'dh_interface'));
+                    let shared_keys_per_class = {};                
                     class_names.forEach(key => {
                         shared_keys_per_class[key] = []; // initialize the array to avoid checking existence later
                         
                         // Filtering and mapping slots
-                        const slots = schema.classes[key].slot_usage;
+                        const class_data = schema.classes[key];
+                        const slots = class_data.attributes;                
                         const shared_keys = Object.values(slots)
-                            .filter(slot_usage => class_names.has(slot_usage.range))
                             .map(slot_usage => {
                                 return {
                                     "name": slot_usage.name,
-                                    "related_class": slot_usage.range,
-                                    "relation": slot_usage.range !== key ? "parent" : "range"
+                                    "related_concept": slot_usage.range,
+                                    "relation": ['dh_interface', 'Container'].includes(key) ? "child" : class_names.has(slot_usage.range) ? "parent" : "range"
                                 };
                             });
-                
+                                
                         shared_keys_per_class[key] = shared_keys; // assign mapped values
                 
                         // Ensure there are no duplicates; if duplicates are meaningful, this will need adjustment
                         shared_keys.forEach(slot => {
+                
                             shared_keys_per_class[slot.related_class] = 
                                 shared_keys_per_class[slot.related_class] || []; // ensure array exists
+                                
                             if (!shared_keys_per_class[slot.related_class].find(s => s.name === slot.name)) {
                                 shared_keys_per_class[slot.related_class].push(slot);
-                            }
+                            };
+                
                         });
+                
+                        shared_keys_per_class[key] = shared_keys.filter(obj => obj.related_concept && ['parent', 'child'].includes(obj.relation));
+                
                     });
+                
+                    delete shared_keys_per_class[undefined];
                 
                     return shared_keys_per_class;
                 }
@@ -605,13 +527,14 @@ const main = async function () {
                  * @param {string} cls_key - The starting class key for the visitation.
                  * @param {Function} callback - The function to perform on each class node.
                  */
-                function visitSchemaTree(schema_tree, cls_key, callback=tap) {
+                function visitSchemaTree(schema_tree, cls_key='Container', callback=tap, inc=0) {
                     if (!schema_tree[cls_key]) return;  // Base case: If the class key is not found
                     callback(schema_tree[cls_key]);  // Perform the callback on the current node
                     
                     // Recurse on each child node
-                    schema_tree[cls_key].children.forEach(child_key => {
-                        visitSchemaTree(schema_tree, child_key, callback);
+                    const children = schema_tree[cls_key].children.filter(el => el);                
+                    children.forEach(child_key => {
+                        visitSchemaTree(schema_tree, child_key, callback, inc);
                     });
                 };
 
@@ -623,7 +546,7 @@ const main = async function () {
                 function makeDataHarmonizersFromSchemaTree(schema_tree) {
 
                     function createDataHarmonizerContainer(dhId, isActive) {
-                        const dhSubroot = document.createElement('div');
+                        let dhSubroot = document.createElement('div');
                         dhSubroot.id = dhId;
                         dhSubroot.classList.add('data-harmonizer-grid', 'tab-pane', 'fade');
                         if (isActive) {
@@ -654,13 +577,13 @@ const main = async function () {
                     let data_harmonizers = {};
                     Object.entries(schema_tree).forEach(([cls_key, spec], index) => {
                         const dhId = `data-harmonizer-grid-${index}`;
-                        const dhSubroot = createDataHarmonizerContainer(dhId, index === 0);
+                        let dhSubroot = createDataHarmonizerContainer(dhId, index === 0);
                         dhRoot.appendChild(dhSubroot); // Appending to the parent container
                         
                         const dhTab = createDataHarmonizerTab(dhId, spec.name, index === 0);
                         dhTabNav.appendChild(dhTab); // Appending to the tab navigation
                         
-                        data_harmonizers[spec.name] = new DataHarmonizer(dhSubroot, {
+                        data_harmonizers[spec.name] = new DataHarmonizer(dhRoot, {
                             context: context,
                             loadingScreenRoot: document.body,
                             field_filters: findSlotNamesForClass(cls_key) // TODO: Find slot names for filtering
@@ -669,6 +592,8 @@ const main = async function () {
                 
                     return data_harmonizers; // Return the created data harmonizers if needed
                 }                 
+
+                console.log(makeDataHarmonizersFromSchemaTree(buildSchemaTree(schema)));
 
                 /**
                  * Transforms the value of a multivalued column in a Data Harmonizer instance.
@@ -835,13 +760,13 @@ const main = async function () {
                 };
                     
                 const schema_tree = buildSchemaTree(schema);
-                let data_harmonizers = makeDataHarmonizersFromSchemaTree(schema_tree);
+                const data_harmonizers = makeDataHarmonizersFromSchemaTree(schema_tree);
                 attachPropagationEventHandlersToDataHarmonizers(data_harmonizers);
                 initializeDataHarmonizers(data_harmonizers);
                 
             } else {
 
-                const dh = new DataHarmonizer(dhSubroot, {
+                const dh = new DataHarmonizer(dhRoot, {
                   context: context,
                   loadingScreenRoot: document.querySelector('body'),
                   field_filters: []
@@ -859,23 +784,20 @@ const main = async function () {
                 });  
 
             }
-            
-            
-    };
 
-    // // internationalize
-    // // TODO: connect to locale of browser!
-    // // Takes `lang` as argument (unused)
-    initI18n(( /* lang */ ) => {
-        $(document).localize();
-        dhs.forEach(dh => dh.render());
-    });
-      context.addTranslationResources(_template, context.getLocaleData());
-    
-      new Footer(dhFooterRoot, dhs[0]);
+            // // internationalize
+            // // TODO: connect to locale of browser!
+            // // Takes `lang` as argument (unused)
+            initI18n(( /* lang */ ) => {
+                $(document).localize();
+                dhs.forEach(dh => dh.render());
+            });
+            context.addTranslationResources(_template, context.getLocaleData());
+        
+            new Footer(dhFooterRoot, dhs[0]);
 
-      return context;
-    
+            return context;
+
     })
     .then(async () => {
       // return setTimeout(() => dhs.forEach(dh => dh.showColumnsByNames(dh.field_filters)), 1000);
