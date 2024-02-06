@@ -7681,7 +7681,6 @@
         "sample_collector_sample_ID": {
           "name": "sample_collector_sample_ID",
           "rank": 1,
-          "identifier": true,
           "slot_group": "Sample collection and processing"
         },
         "alternative_sample_ID": {
@@ -8238,7 +8237,6 @@
           "from_schema": "https://example.com/GRDI",
           "rank": 1,
           "slot_uri": "GENEPIO:0001123",
-          "identifier": true,
           "alias": "sample_collector_sample_ID",
           "owner": "GRDI_Sample",
           "domain_of": [
@@ -9913,10 +9911,7 @@
       "slot_usage": {
         "sample_collector_sample_ID": {
           "name": "sample_collector_sample_ID",
-          "rank": 1,
-          "multivalued": false,
-          "range": "GRDI_Sample",
-          "inlined": false
+          "rank": 1
         },
         "antimicrobial_resistance_test_drug": {
           "name": "antimicrobial_resistance_test_drug",
@@ -9987,16 +9982,14 @@
           "from_schema": "https://example.com/GRDI",
           "rank": 1,
           "slot_uri": "GENEPIO:0001123",
-          "multivalued": false,
           "alias": "sample_collector_sample_ID",
           "owner": "AMR_Test",
           "domain_of": [
             "GRDI_Sample",
             "AMR_Test"
           ],
-          "range": "GRDI_Sample",
-          "required": true,
-          "inlined": false
+          "range": "WhitespaceMinimizedString",
+          "required": true
         },
         "antimicrobial_resistance_test_drug": {
           "name": "antimicrobial_resistance_test_drug",
@@ -10191,37 +10184,6 @@
           "range": "WhitespaceMinimizedString"
         }
       }
-    },
-    "Container": {
-      "name": "Container",
-      "from_schema": "https://example.com/GRDI",
-      "attributes": {
-        "GRDI_samples": {
-          "name": "GRDI_samples",
-          "from_schema": "https://example.com/GRDI",
-          "multivalued": true,
-          "alias": "GRDI_samples",
-          "owner": "Container",
-          "domain_of": [
-            "Container"
-          ],
-          "range": "GRDI_Sample",
-          "inlined_as_list": true
-        },
-        "AMR_Tests": {
-          "name": "AMR_Tests",
-          "from_schema": "https://example.com/GRDI",
-          "multivalued": true,
-          "alias": "AMR_Tests",
-          "owner": "Container",
-          "domain_of": [
-            "Container"
-          ],
-          "range": "AMR_Test",
-          "inlined_as_list": true
-        }
-      },
-      "tree_root": true
     }
   },
   "source_file": "schema_1m.yaml",

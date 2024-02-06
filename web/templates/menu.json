@@ -1,75 +1,8 @@
 {
-  "canada_covid19": {
-    "CanCOGeN Covid-19": {
-      "name": "CanCOGeN Covid-19",
-      "status": "published",
-      "display": true
-    }
-  },
-  "gisaid": {
-    "GISAID": {
-      "name": "GISAID",
-      "status": "published",
-      "display": true
-    }
-  },
-  "pha4ge": {
-    "PHA4GE": {
-      "name": "PHA4GE",
-      "status": "published",
-      "display": true
-    }
-  },
+
   "grdi": {
     "GRDI_Sample": {
       "name": "GRDI_Sample",
-      "status": "published",
-      "display": true
-    }
-  },
-  "phac_dexa": {
-    "PHAC Dexa": {
-      "name": "PHAC Dexa",
-      "status": "published",
-      "display": true
-    }
-  },
-  "ambr": {
-    "AMBR": {
-      "name": "AMBR",
-      "status": "published",
-      "display": true
-    }
-  },
-  "test": {
-    "TEST": {
-      "name": "TEST",
-      "status": "published",
-      "display": true
-    }
-  },
-  "pathogen": {
-    "Pathogen Agnostic": {
-      "name": "Pathogen Agnostic",
-      "status": "published",
-      "display": true
-    }
-  },
-  "influenza": {
-    "Influenza": {
-      "name": "Influenza",
-      "status": "published",
-      "display": true
-    }
-  },
-  "mpox": {
-    "Mpox": {
-      "name": "Mpox",
-      "status": "published",
-      "display": true
-    },
-    "Mpox_international": {
-      "name": "Mpox_international",
       "status": "published",
       "display": true
     }

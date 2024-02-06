@@ -371,9 +371,21 @@ const main = async function () {
 
     const context = new AppContext(new AppConfig(await getTemplatePath()));
 
+
     context.initializeTemplate(context.appConfig.template_path)
         .then(async (context) => {
-            
+            const _template = context.template;
+            const _export_formats = (await context.getExportFormats('grdi'));
+
+            // // internationalize
+            // // TODO: connect to locale of browser!
+            // // Takes `lang` as argument (unused)
+            initI18n(( /* lang */ ) => {
+                $(document).localize();
+                dhs.forEach(dh => dh.render());
+            });
+            context.addTranslationResources(_template, context.getLocaleData());
+
             const classes = (await context.getClasses()).reduce((acc, item) => Object.assign(acc, item), {});
             
             // attributes are the classes which feature 1-M relationships
@@ -386,6 +398,7 @@ const main = async function () {
             // the existence of a container class signifies a 1-M data loading setup with an ID join
             if (classes['Container']) {
                 
+                console.log('branch 1');
                 console.log('has Container class', classes['Container']);
 
                 /* e.g.
@@ -492,7 +505,7 @@ const main = async function () {
                  * @returns {Array} An array of slot names.
                  */
                 function findSlotNamesForClass(schema, class_name) {
-                    return Object.keys(schema.classes[class_name].slots)
+                    return !!schema.classes[class_name] && !!schema.classes[class_name].slots  ? Object.keys(schema.classes[class_name].slots) : [];
                 }
 
                 /**
@@ -501,6 +514,53 @@ const main = async function () {
                  * @returns {Object|null} The schema tree object, or null if no "Container" classes are found.
                  */
                 function buildSchemaTree(schema) {
+
+                    function updateChildrenAndSharedKeys(data) {
+                        // Use a deep clone to avoid mutating the original object
+                        const result = JSON.parse(JSON.stringify(data));
+                      
+                        Object.keys(result).forEach(key => {
+                          const elem = result[key];
+                          (elem.shared_keys || []).forEach(sk => {
+                            if (sk.relation === 'parent' && result[sk.related_concept]) {
+                              const parent = result[sk.related_concept];
+                      
+                              // Ensure 'children' array exists
+                              if (!parent.children) {
+                                parent.children = [];
+                              }
+                      
+                              // Add key to parent’s 'children' array if not already present
+                              if (!parent.children.includes(key)) {
+                                parent.children.push(key);
+                              }
+                      
+                              // Ensure 'shared_keys' array exists
+                              if (!parent.shared_keys) {
+                                parent.shared_keys = [];
+                              }
+                      
+                              // Check if reciprocal shared key already exists
+                              const reciprocalExists = parent.shared_keys.some(
+                                rsk => rsk.name === sk.name && rsk.related_concept === key
+                              );
+                      
+                              // Add reciprocal shared key if it doesn't exist
+                              if (!reciprocalExists) {
+                                parent.shared_keys.push({
+                                  name: sk.name,
+                                  related_concept: key,
+                                  relation: 'child'
+                                });
+                              }
+                            }
+                          });
+                        });
+                      
+                        return result;
+                      }
+                    
+
                     if (!!!schema.classes["Container"]) return null;
 
                     const attributes = schema.classes["Container"].attributes;
@@ -511,14 +571,16 @@ const main = async function () {
 
                     const shared_keys_per_class = findSharedKeys(schema);
 
-                    return classes.reduce((acc, class_key) => {
+                    const pre_schema_tree = classes.reduce((acc, class_key) => {
                         acc[class_key] = {
                             name: class_key,
                             shared_keys: shared_keys_per_class[class_key],
-                            children: shared_keys_per_class[class_key].map(item => item.range).filter(range => range != class_key) // TODO inefficient
+                            children: shared_keys_per_class[class_key].map(item => item.range).filter(range => range !== class_key && typeof range !== 'undefined') // TODO inefficient
                         };
                         return acc;
                     }, tree_base);
+
+                    return updateChildrenAndSharedKeys(pre_schema_tree);
                 };
 
                 /**
@@ -527,14 +589,15 @@ const main = async function () {
                  * @param {string} cls_key - The starting class key for the visitation.
                  * @param {Function} callback - The function to perform on each class node.
                  */
-                function visitSchemaTree(schema_tree, cls_key='Container', callback=tap, inc=0) {
-                    if (!schema_tree[cls_key]) return;  // Base case: If the class key is not found
-                    callback(schema_tree[cls_key]);  // Perform the callback on the current node
+                function visitSchemaTree(schema_tree, callback=tap, next='Container') {
+                    console.log('visitSchemaTree', schema_tree)
+                    if (!schema_tree[next]) return;  // Base case: If the class key is not found
+                    callback(schema_tree[next]);  // Perform the callback on the current node
                     
                     // Recurse on each child node
-                    const children = schema_tree[cls_key].children.filter(el => el);                
-                    children.forEach(child_key => {
-                        visitSchemaTree(schema_tree, child_key, callback, inc);
+                    const children = schema_tree[next].children.filter(el => el);                
+                    children.forEach(next => {
+                        visitSchemaTree(schema_tree, callback, next);
                     });
                 };
 
@@ -543,7 +606,7 @@ const main = async function () {
                  * @param {Object} schema_tree - The schema tree from which to create Data Harmonizers.
                  * @returns {Object} An object mapping the class names to their respective Data Harmonizer objects.
                  */
-                function makeDataHarmonizersFromSchemaTree(schema_tree) {
+                function makeDataHarmonizersFromSchemaTree(schema, schema_tree) {
 
                     function createDataHarmonizerContainer(dhId, isActive) {
                         let dhSubroot = document.createElement('div');
@@ -575,25 +638,34 @@ const main = async function () {
                     } 
 
                     let data_harmonizers = {};
-                    Object.entries(schema_tree).forEach(([cls_key, spec], index) => {
-                        const dhId = `data-harmonizer-grid-${index}`;
-                        let dhSubroot = createDataHarmonizerContainer(dhId, index === 0);
-                        dhRoot.appendChild(dhSubroot); // Appending to the parent container
-                        
-                        const dhTab = createDataHarmonizerTab(dhId, spec.name, index === 0);
-                        dhTabNav.appendChild(dhTab); // Appending to the tab navigation
-                        
-                        data_harmonizers[spec.name] = new DataHarmonizer(dhRoot, {
-                            context: context,
-                            loadingScreenRoot: document.body,
-                            field_filters: findSlotNamesForClass(cls_key) // TODO: Find slot names for filtering
+                    if (!!schema_tree) {
+                        Object.entries(schema_tree).forEach((obj, index) => {
+                            if (obj.length > 0) {
+                                const [cls_key, spec] = obj;
+                                const dhId = `data-harmonizer-grid-${index}`;
+                                let dhSubroot = createDataHarmonizerContainer(dhId, index === 0);
+                                dhRoot.appendChild(dhSubroot); // Appending to the parent container
+                                
+                                const dhTab = createDataHarmonizerTab(dhId, spec.name, index === 0);
+                                dhTabNav.appendChild(dhTab); // Appending to the tab navigation
+                                
+                                console.log(findSlotNamesForClass(schema, cls_key));
+
+                                data_harmonizers[spec.name] = new DataHarmonizer(dhRoot, {
+                                    context: context,
+                                    loadingScreenRoot: document.body,
+                                    field_filters: findSlotNamesForClass(schema, cls_key) // TODO: Find slot names for filtering
+                                });
+                                // initialize the data harmonizer
+                                // TODO
+                                data_harmonizers[spec.name].useSchema(schema, _export_formats, 'GRDI_Sample');
+
+                            }
                         });
-                    });
+                    }
                 
                     return data_harmonizers; // Return the created data harmonizers if needed
                 }                 
-
-                console.log(makeDataHarmonizersFromSchemaTree(buildSchemaTree(schema)));
 
                 /**
                  * Transforms the value of a multivalued column in a Data Harmonizer instance.
@@ -666,6 +738,7 @@ const main = async function () {
                  */
                 function attachColumnEditHandler(data_harmonizer, shared_key_name, callback) {
                     const hot = data_harmonizer.hot;
+                    console.log('attaching column edit handler to ', hot);
                   
                     // Get the index of the column based on the shared_key_name
                     const columnIndex = hot.propToCol(shared_key_name);
@@ -700,6 +773,7 @@ const main = async function () {
                  * @param {Object} schema_tree_node - The schema tree node containing the shared keys and child references.
                  */
                 function makeSharedKeyHandler(data_harmonizer, schema_tree_node) {
+                    console.log('makeSharedKeyHandler', data_harmonizer);
                     if (schema_tree_node.shared_keys.length > 0) {
                         schema_tree_node.shared_keys.forEach((shared_key_name) => {
                             
@@ -729,15 +803,18 @@ const main = async function () {
                  * @param {Object} data_harmonizers - An object mapping class names to Data Harmonizer instances.
                  * @returns {Object} The same object with event handlers attached.
                  */
-                function attachPropagationEventHandlersToDataHarmonizers(data_harmonizers) {
+                function attachPropagationEventHandlersToDataHarmonizers(data_harmonizers, schema_tree) {
+                    console.log('data_harmonizers', data_harmonizers);
+                    console.log('schema_tree', schema_tree)
+
                     visitSchemaTree(schema_tree, (schema_tree_node) => {
                         // Propagation:
                         // - If has children with shared_keys, add handler
                         // - visit children -> lock field from being edited by user (DH methods can modify it)
                         if (schema_tree_node.children.length > 0) {
-                            makeSharedKeyHandler(data_harmonizers[schema_tree_node.name], schema_tree_node)
+                            if (!schema_tree_node.tree_root) makeSharedKeyHandler(data_harmonizers[schema_tree_node.name], schema_tree_node)
                             schema_tree_node.children.forEach(child_node_key => {
-                                lockColumnEdits(data_harmonizers[child_node_key], schema_tree_node.shared_column_key);
+                                if (!schema_tree_node.tree_root) lockColumnEdits(data_harmonizers[child_node_key], schema_tree_node.shared_column_key);
                             });
                         };
                     })
@@ -745,27 +822,36 @@ const main = async function () {
                 };
 
                 function initializeDataHarmonizers(data_harmonizers) {
-                    Object.entries(schema_tree).forEach(([cls_key, spec], index) => {
-                    // // TODO: data harmonizers require initialization code inside of the toolbar to fully render? wut
-                    new Toolbar(dhToolbarRoot, dhs[index], menu, {
-                        context: context,
-                        templatePath: context.appConfig.template_path,  // TODO: a default should be loaded before Toolbar is constructed! then take out all loading in "toolbar" to an outside context
-                        releasesURL: 'https: // gi thub.com/cidgoh/pathogen-genomics-package/releases',
-                        getLanguages: context.getLocaleData.bind(context),
-                        getSchema: async (schema) => Template.create(schema).then(result => result.current.schema),
-                        getExportFormats: context.getExportFormats.bind(context),
+                    console.log('data_harmonizers', data_harmonizers);
+                    Object.entries(data_harmonizers).forEach(([cls_key,], index) => {
+                        new Toolbar(dhToolbarRoot, data_harmonizers[cls_key], menu, {
+                            context: context,
+                            templatePath: context.appConfig.template_path,  // TODO: a default should be loaded before Toolbar is constructed! then take out all loading in "toolbar" to an outside context
+                            releasesURL: 'https: // gi thub.com/cidgoh/pathogen-genomics-package/releases',
+                            getLanguages: context.getLocaleData.bind(context),
+                            getSchema: async (schema) => Template.create(schema).then(result => result.current.schema),
+                            getExportFormats: context.getExportFormats.bind(context),
                         });
                     });
+                    console.log('before attachPropagationEventHandlersToDataHarmonizers');
+                    attachPropagationEventHandlersToDataHarmonizers(data_harmonizers, schema_tree);
                     return data_harmonizers;
                 };
                     
-                const schema_tree = buildSchemaTree(schema);
-                const data_harmonizers = makeDataHarmonizersFromSchemaTree(schema_tree);
-                attachPropagationEventHandlersToDataHarmonizers(data_harmonizers);
+                console.log('before buildSchemaTree');
+                const schema_tree = buildSchemaTree((await context.getSchema()));
+                console.log('schema_tree', schema_tree);
+                console.log('before makeDataHarmonizersFromSchemaTree');
+                let data_harmonizers = makeDataHarmonizersFromSchemaTree(
+                    (await context.getSchema()),
+                    schema_tree);
+                // HACK
+                delete data_harmonizers[undefined];
+                console.log('before initializeDataHarmonizers');
                 initializeDataHarmonizers(data_harmonizers);
                 
             } else {
-
+                console.log('branch 2');
                 const dh = new DataHarmonizer(dhRoot, {
                   context: context,
                   loadingScreenRoot: document.querySelector('body'),
@@ -785,22 +871,13 @@ const main = async function () {
 
             }
 
-            // // internationalize
-            // // TODO: connect to locale of browser!
-            // // Takes `lang` as argument (unused)
-            initI18n(( /* lang */ ) => {
-                $(document).localize();
-                dhs.forEach(dh => dh.render());
-            });
-            context.addTranslationResources(_template, context.getLocaleData());
-        
             new Footer(dhFooterRoot, dhs[0]);
 
             return context;
 
     })
     .then(async () => {
-      // return setTimeout(() => dhs.forEach(dh => dh.showColumnsByNames(dh.field_filters)), 1000);
+      return setTimeout(() => dhs.forEach(dh => dh.showColumnsByNames(dh.field_filters)), 1000);
     });
     
 }
