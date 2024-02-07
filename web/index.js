@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // TODO: connect to locale of schema!
   // Takes `lang` as argument
   initI18n((lang) => {
-    console.log('lang changed to', lang)
+    console.log('lang changed to', lang);
     // localizing twice HACK!
     // $(document).localize();
     dh.hot.render();
@@ -60,14 +60,16 @@ document.addEventListener('DOMContentLoaded', function () {
       template.locales.forEach((locale) => {
         const langcode = locale.split('-')[0];
         const nativeName =
-          langcode !== 'default' ? tags.language(langcode).data.record.Description[0] : 'Default';
+          langcode !== 'default'
+            ? tags.language(langcode).data.record.Description[0]
+            : 'Default';
         locales[langcode] = { langcode, nativeName };
       });
 
       const template_translations = {
         ...template.translations,
-        'default': template.default
-      }
+        default: template.default,
+      };
 
       Object.entries(template_translations).forEach(
         ([langcode, translation]) => {
@@ -93,7 +95,9 @@ document.addEventListener('DOMContentLoaded', function () {
           );
           /* eslint-enable */
           const translated_sections = consolidate(
-            translation.schema.classes[template.default.schema.name.replace('_', ' ')].slot_usage,
+            translation.schema.classes[
+              template.default.schema.name.replace('_', ' ')
+            ].slot_usage,
             (acc, [translation_slot_name, { slot_group }]) => ({
               ...acc,
               [translation_slot_name]: slot_group,
@@ -101,8 +105,9 @@ document.addEventListener('DOMContentLoaded', function () {
           );
 
           const default_sections = consolidate(
-            template.default.schema.classes[template.default.schema.name.replace('_', ' ')]
-              .slot_usage,
+            template.default.schema.classes[
+              template.default.schema.name.replace('_', ' ')
+            ].slot_usage,
             (acc, [default_slot_name, { slot_group }]) => ({
               ...acc,
               [default_slot_name]: slot_group,
@@ -125,7 +130,6 @@ document.addEventListener('DOMContentLoaded', function () {
           });
         }
       );
-
 
       return locales;
     },

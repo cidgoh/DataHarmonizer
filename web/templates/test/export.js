@@ -78,34 +78,17 @@ export default {
         ['DataHarmonizer provenance', []],
     ]);
 
-      // various null options to recognize for "null reason" fields
-      const // Conversion of all cancogen metadata keywords to NML LIMS version
-        nullOptionsMap = new Map([
-          ['not applicable', 'Not Applicable'],
-          ['missing', 'Missing'],
-          ['not collected', 'Not Collected'],
-          ['not provided', 'Not Provided'],
-          ['restricted access', 'Restricted Access'],
-        ]);
-
       const sourceFields = dh.getFields(dh.table);
-      const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
       // Fills in the above mapping (or just set manually above)
       dh.getHeaderMap(ExportHeaders, sourceFields, 'TEST');
 
       // Copy headers to 1st row of new export table
       const outputMatrix = [[...ExportHeaders.keys()]];
-      
-
-      const numeric_datatypes = new Set([
-        'xs:nonNegativeInteger',
-        'xs:decimal',
-      ]);
-
+    
       for (const inputRow of dh.getTrimmedData(dh.hot)) {
         const outputRow = [];
-        var skip = false;
-        for (const [headerName, sources] of ExportHeaders) {
+        /* eslint-disable */
+        for (const a of ExportHeaders) {
             outputRow.push(...inputRow);
         }
         outputMatrix.push(outputRow);
