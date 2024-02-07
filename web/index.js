@@ -64,9 +64,13 @@ document.addEventListener('DOMContentLoaded', function () {
         locales[langcode] = { langcode, nativeName };
       });
 
-      Object.entries(template.translations).forEach(
+      const template_translations = {
+        ...template.translations,
+        'default': template.default
+      }
+
+      Object.entries(template_translations).forEach(
         ([langcode, translation]) => {
-          console.log(langcode, translation);
           const schema_resource = consolidate(
             translation.schema.slots,
             (acc, [slot_symbol, { name }]) => ({
@@ -89,7 +93,7 @@ document.addEventListener('DOMContentLoaded', function () {
           );
           /* eslint-enable */
           const translated_sections = consolidate(
-            translation.schema.classes[template.default.schema.name].slot_usage,
+            translation.schema.classes[template.default.schema.name.replace('_', ' ')].slot_usage,
             (acc, [translation_slot_name, { slot_group }]) => ({
               ...acc,
               [translation_slot_name]: slot_group,
@@ -97,7 +101,7 @@ document.addEventListener('DOMContentLoaded', function () {
           );
 
           const default_sections = consolidate(
-            template.default.schema.classes[template.default.schema.name]
+            template.default.schema.classes[template.default.schema.name.replace('_', ' ')]
               .slot_usage,
             (acc, [default_slot_name, { slot_group }]) => ({
               ...acc,
@@ -121,6 +125,7 @@ document.addEventListener('DOMContentLoaded', function () {
           });
         }
       );
+
 
       return locales;
     },
