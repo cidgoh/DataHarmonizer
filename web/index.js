@@ -92,7 +92,7 @@ class AppContext {
 
     }
 
-    // TODO
+
     async propagateChangeToChildren(node_label, func = id => id) {
         const dependency_tree = (await this.getDependencyTree());
         let current_node_label = node_label;
@@ -368,6 +368,7 @@ const main = async function () {
     `);
 
     let dhs = [];
+    let data_harmonizers = {};
 
     const context = new AppContext(new AppConfig(await getTemplatePath()));
 
@@ -375,7 +376,9 @@ const main = async function () {
     context.initializeTemplate(context.appConfig.template_path)
         .then(async (context) => {
             const _template = context.template;
-            const _export_formats = (await context.getExportFormats('grdi'));
+            const _schema = _template.current.schema;
+            const [_template_name, _schema_name] = context.appConfig.template_path.split('/');
+            const _export_formats = (await context.getExportFormats(_template_name));
 
             // // internationalize
             // // TODO: connect to locale of browser!
@@ -570,7 +573,6 @@ const main = async function () {
                     };
 
                     const shared_keys_per_class = findSharedKeys(schema);
-
                     const pre_schema_tree = classes.reduce((acc, class_key) => {
                         acc[class_key] = {
                             name: class_key,
@@ -590,7 +592,6 @@ const main = async function () {
                  * @param {Function} callback - The function to perform on each class node.
                  */
                 function visitSchemaTree(schema_tree, callback=tap, next='Container') {
-                    console.log('visitSchemaTree', schema_tree)
                     if (!schema_tree[next]) return;  // Base case: If the class key is not found
                     callback(schema_tree[next]);  // Perform the callback on the current node
                     
@@ -639,11 +640,12 @@ const main = async function () {
 
                     let data_harmonizers = {};
                     if (!!schema_tree) {
-                        Object.entries(schema_tree).forEach((obj, index) => {
+                        Object.entries(schema_tree).filter(([cls_key,]) => cls_key !== 'Container').forEach((obj, index) => {
                             if (obj.length > 0) {
                                 const [cls_key, spec] = obj;
                                 const dhId = `data-harmonizer-grid-${index}`;
                                 let dhSubroot = createDataHarmonizerContainer(dhId, index === 0);
+                                
                                 dhRoot.appendChild(dhSubroot); // Appending to the parent container
                                 
                                 const dhTab = createDataHarmonizerTab(dhId, spec.name, index === 0);
@@ -656,9 +658,8 @@ const main = async function () {
                                     loadingScreenRoot: document.body,
                                     field_filters: findSlotNamesForClass(schema, cls_key) // TODO: Find slot names for filtering
                                 });
-                                // initialize the data harmonizer
-                                // TODO
-                                data_harmonizers[spec.name].useSchema(schema, _export_formats, 'GRDI_Sample');
+
+                                data_harmonizers[spec.name].useSchema(_schema, _export_formats, _schema_name);
 
                             }
                         });
@@ -674,28 +675,32 @@ const main = async function () {
                  * @param {*} old_value - The original value to replace.
                  * @param {*} new_value - The new value to replace the original with.
                  */
-                function transformMultivaluedColumn(data_harmonizer, column_name, old_value, new_value) {
+                function transformMultivaluedColumn(data_harmonizer, shared_field, changes, source,  old_value, new_value) {
                     const hot = data_harmonizer.hot;
+
+                    console.log('transform multivalued column execute', shared_field, changes, source,  old_value, new_value);
+                    console.log(hot.propToCol(shared_field.name))
                     // Verify if column_name is a valid property
-                    if (hot.propToCol(column_name) === -1) {
+                    if (hot.propToCol(shared_field.name) === -1) {
                       console.error(`Invalid column name: ${column_name}`);
-                      return;
+                    } else {
+                        if (old_value !== new_value) hot.setDataAtCell(changes[0][0], changes[0][1], new_value);
+
+                        // TODO
+                        // Perform batch operation to replace old_value with new_value where the condition matches
+                        // const matchCondition = row => row[column_name] === old_value;
+                        // hot.batch(() => {
+                        //   hot.getSourceData().forEach((row, rowIndex) => {
+                        //     if (matchCondition(row)) {
+                        //       // Set new value for a property of matched rows
+                        //       hot.setDataAtRowProp(rowIndex, column_name, new_value);
+                        //     }
+                        //   });
+                        // });
+                      
+                        // Rerender table after setting data to reflect changes
+                        hot.render();
                     }
-                  
-                    const matchCondition = row => row[column_name] === old_value;
-                  
-                    // Perform batch operation to replace old_value with new_value where the condition matches
-                    hot.batch(() => {
-                      hot.getSourceData().forEach((row, rowIndex) => {
-                        if (matchCondition(row)) {
-                          // Set new value for a property of matched rows
-                          hot.setDataAtRowProp(rowIndex, column_name, new_value);
-                        }
-                      });
-                    });
-                  
-                    // Rerender table after setting data to reflect changes
-                    hot.render();
 
                 };
 
@@ -738,33 +743,31 @@ const main = async function () {
                  */
                 function attachColumnEditHandler(data_harmonizer, shared_key_name, callback) {
                     const hot = data_harmonizer.hot;
-                    console.log('attaching column edit handler to ', hot);
-                  
                     // Get the index of the column based on the shared_key_name
                     const columnIndex = hot.propToCol(shared_key_name);
-                  
+                    
                     // Check if the column index was found properly
                     if (columnIndex === -1) {
                       console.error(`Column with the name '${shared_key_name}' not found.`);
-                      return;
-                    }
-                  
-                    // Listen for changes using the afterChange hook of Handsontable
-                    hot.addHook('afterChange', (changes, source) => {
-                      // changes is a 2D array containing information about each change
-                      // Each change is of the form [row, prop, oldVal, newVal]
-                      if (changes && source !== 'loadData') { // Ignore initial load changes
-                        changes.forEach(([row, prop, oldVal, newVal]) => {
-                          if (hot.propToCol(prop) === columnIndex) {
-                            console.log(`Column '${shared_key_name}' changed at row ${row}`);
-                            // You can put here the code that should be executed when
-                            // the specific column has been edited.
-                            // This could be a function call, an event dispatch, etc.
-                            callback(changes, source, oldVal, newVal);
-                          }
+                    } else {
+                         // Listen for changes using the afterChange hook of Handsontable
+                         hot.addHook('afterChange', (changes, source) => {
+                            console.log('afterchange hook execute', changes, source)
+                            // changes is a 2D array containing information about each change
+                            // Each change is of the form [row, prop, oldVal, newVal]
+                            if (changes && source !== 'loadData') { // Ignore initial load changes
+                                changes.forEach(([row, prop, oldVal, newVal]) => {
+                                console.log(prop, hot.propToCol(prop), columnIndex, shared_key_name, oldVal, newVal);
+                                console.log(`Column '${shared_key_name}' changed at row ${row}`);
+                                // You can put here the code that should be executed when
+                                // the specific column has been edited.
+                                // This could be a function call, an event dispatch, etc.
+                                callback(changes, source, oldVal, newVal);
+                            });
+                            }
                         });
-                      }
-                    });
+                    }
+
                 }
 
                 /**
@@ -773,21 +776,24 @@ const main = async function () {
                  * @param {Object} schema_tree_node - The schema tree node containing the shared keys and child references.
                  */
                 function makeSharedKeyHandler(data_harmonizer, schema_tree_node) {
-                    console.log('makeSharedKeyHandler', data_harmonizer);
                     if (schema_tree_node.shared_keys.length > 0) {
                         schema_tree_node.shared_keys.forEach((shared_key_name) => {
-                            
                             const updateSchemaNodeChildrenCallback = (changes, source, old_value, new_value) => {
-                                schema_tree_node.children.forEach(cls_key => {
-                                    transformMultivaluedColumn(data_harmonizer, shared_key_name, old_value, new_value);
-                                    visitSchemaTree(schema_tree, (schema_tree_node) => {
-                                        schema_tree_node.children.forEach(cls_key => {
-                                            visitSchemaTree(schema_tree, () => transformMultivaluedColumn(data_harmonizer, shared_key_name, old_value, new_value) , next=cls_key)
-                                        })
-                                    }, next=cls_key)
-                                })
-                            };
+                                if (schema_tree_node.children.length > 0) {
+                                    schema_tree_node.children.forEach(cls_key => {
+                                        transformMultivaluedColumn(data_harmonizers[cls_key], shared_key_name, changes, source, old_value, new_value);
+                                        // TODO
+                                        // visitSchemaTree(schema_tree, (schema_tree_node) => {
+                                        //     schema_tree_node.children.forEach(cls_key => {
+                                        //         visitSchemaTree(schema_tree, () => transformMultivaluedColumn(data_harmonizers[cls_key], shared_key_name, changes, source, old_value, new_value), cls_key)
+                                        //     })
+                                        // }, cls_key);
+                                    });
 
+                                } else {
+                                    console.log('no more iteration for', schema_tree_node.name);
+                                }
+                            };
                             attachColumnEditHandler(data_harmonizer, shared_key_name, updateSchemaNodeChildrenCallback);
 
                         });
@@ -804,8 +810,6 @@ const main = async function () {
                  * @returns {Object} The same object with event handlers attached.
                  */
                 function attachPropagationEventHandlersToDataHarmonizers(data_harmonizers, schema_tree) {
-                    console.log('data_harmonizers', data_harmonizers);
-                    console.log('schema_tree', schema_tree)
 
                     visitSchemaTree(schema_tree, (schema_tree_node) => {
                         // Propagation:
@@ -824,14 +828,14 @@ const main = async function () {
                 function initializeDataHarmonizers(data_harmonizers) {
                     console.log('data_harmonizers', data_harmonizers);
                     Object.entries(data_harmonizers).forEach(([cls_key,], index) => {
-                        new Toolbar(dhToolbarRoot, data_harmonizers[cls_key], menu, {
-                            context: context,
-                            templatePath: context.appConfig.template_path,  // TODO: a default should be loaded before Toolbar is constructed! then take out all loading in "toolbar" to an outside context
-                            releasesURL: 'https: // gi thub.com/cidgoh/pathogen-genomics-package/releases',
-                            getLanguages: context.getLocaleData.bind(context),
-                            getSchema: async (schema) => Template.create(schema).then(result => result.current.schema),
-                            getExportFormats: context.getExportFormats.bind(context),
-                        });
+                        // new Toolbar(dhToolbarRoot, data_harmonizers[cls_key], menu, {
+                        //     context: context,
+                        //     templatePath: context.appConfig.template_path,  // TODO: a default should be loaded before Toolbar is constructed! then take out all loading in "toolbar" to an outside context
+                        //     releasesURL: 'https: // gi thub.com/cidgoh/pathogen-genomics-package/releases',
+                        //     getLanguages: context.getLocaleData.bind(context),
+                        //     getSchema: async (schema) => Template.create(schema).then(result => result.current.schema),
+                        //     getExportFormats: context.getExportFormats.bind(context),
+                        // });
                     });
                     console.log('before attachPropagationEventHandlersToDataHarmonizers');
                     attachPropagationEventHandlersToDataHarmonizers(data_harmonizers, schema_tree);
@@ -842,7 +846,7 @@ const main = async function () {
                 const schema_tree = buildSchemaTree((await context.getSchema()));
                 console.log('schema_tree', schema_tree);
                 console.log('before makeDataHarmonizersFromSchemaTree');
-                let data_harmonizers = makeDataHarmonizersFromSchemaTree(
+                data_harmonizers = makeDataHarmonizersFromSchemaTree(
                     (await context.getSchema()),
                     schema_tree);
                 // HACK
