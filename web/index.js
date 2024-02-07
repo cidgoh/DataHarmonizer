@@ -20,8 +20,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // internationalize
   // TODO: connect to locale of schema!
-  // Takes `lang` as argument (unused)
-  initI18n(() => {
+  // Takes `lang` as argument
+  initI18n((lang) => {
+    console.log('lang changed to', lang)
     // localizing twice HACK!
     // $(document).localize();
     dh.hot.render();
@@ -59,12 +60,13 @@ document.addEventListener('DOMContentLoaded', function () {
       template.locales.forEach((locale) => {
         const langcode = locale.split('-')[0];
         const nativeName =
-          tags.language(langcode).data.record.Description[0] || 'Default';
+          langcode !== 'default' ? tags.language(langcode).data.record.Description[0] : 'Default';
         locales[langcode] = { langcode, nativeName };
       });
 
       Object.entries(template.translations).forEach(
         ([langcode, translation]) => {
+          console.log(langcode, translation);
           const schema_resource = consolidate(
             translation.schema.slots,
             (acc, [slot_symbol, { name }]) => ({
