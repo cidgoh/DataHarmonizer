@@ -1,0 +1,787 @@
+title	meaning	menu_1	menu_2	menu_3	menu_4	menu_5	description	EXPORT_GISAID	EXPORT_CNPHI	EXPORT_NML_LIMS	EXPORT_BIOSAMPLE	EXPORT_VirusSeq_Portal
+												
+null value menu	GENEPIO:0001619	Not Applicable										
+	GENEPIO:0001618	Missing										
+	GENEPIO:0001620	Not Collected										
+	GENEPIO:0001668	Not Provided										
+	GENEPIO:0001810	Restricted Access										
+												
+geo_loc_name (country) menu	GAZ:00006882	Afghanistan										
+	GAZ:00002953	Albania										
+	GAZ:00000563	Algeria										
+	GAZ:00003957	American Samoa										
+	GAZ:00002948	Andorra										
+	GAZ:00001095	Angola										
+	GAZ:00009159	Anguilla										
+	GAZ:00000462	Antarctica										
+	GAZ:00006883	Antigua and Barbuda										
+	GAZ:00002928	Argentina										
+	GAZ:00004094	Armenia										
+	GAZ:00004025	Aruba										
+	GAZ:00005901	Ashmore and Cartier Islands										
+	GAZ:00000463	Australia										
+	GAZ:00002942	Austria										
+	GAZ:00004941	Azerbaijan										
+	GAZ:00002733	Bahamas										
+	GAZ:00005281	Bahrain										
+	GAZ:00007117	Baker Island										
+	GAZ:00003750	Bangladesh										
+	GAZ:00001251	Barbados										
+	GAZ:00005810	Bassas da India										
+	GAZ:00006886	Belarus										
+	GAZ:00002938	Belgium										
+	GAZ:00002934	Belize										
+	GAZ:00000904	Benin										
+	GAZ:00001264	Bermuda										
+	GAZ:00003920	Bhutan										
+	GAZ:00002511	Bolivia										
+	GAZ:00025355	Borneo										
+	GAZ:00006887	Bosnia and Herzegovina										
+	GAZ:00001097	Botswana										
+	GAZ:00001453	Bouvet Island										
+	GAZ:00002828	Brazil										
+	GAZ:00003961	British Virgin Islands										
+	GAZ:00003901	Brunei										
+	GAZ:00002950	Bulgaria										
+	GAZ:00000905	Burkina Faso										
+	GAZ:00001090	Burundi										
+	GAZ:00006888	Cambodia										
+	GAZ:00001093	Cameroon										
+	GAZ:00002560	Canada										
+	GAZ:00001227	Cape Verde										
+	GAZ:00003986	Cayman Islands										
+	GAZ:00001089	Central African Republic										
+	GAZ:00000586	Chad										
+	GAZ:00002825	Chile										
+	GAZ:00002845	China										
+	GAZ:00005915	Christmas Island										
+	GAZ:00005838	Clipperton Island										
+	GAZ:00009721	Cocos Islands										
+	GAZ:00002929	Colombia										
+	GAZ:00005820	Comoros										
+	GAZ:00053798	Cook Islands										
+	GAZ:00005917	Coral Sea Islands										
+	GAZ:00002901	Costa Rica										
+	GAZ:00000906	Cote d'Ivoire										
+	GAZ:00002719	Croatia										
+	GAZ:00003762	Cuba										
+	GAZ:00012582	Curacao										
+	GAZ:00004006	Cyprus										
+	GAZ:00002954	Czech Republic										
+	GAZ:00001086	Democratic Republic of the Congo										
+	GAZ:00005852	Denmark										
+	GAZ:00000582	Djibouti										
+	GAZ:00006890	Dominica										
+	GAZ:00003952	Dominican Republic										
+	GAZ:00002912	Ecuador										
+	GAZ:00003934	Egypt										
+	GAZ:00002935	El Salvador										
+	GAZ:00001091	Equatorial Guinea										
+	GAZ:00000581	Eritrea										
+	GAZ:00002959	Estonia										
+	GAZ:00001099	Eswatini										
+	GAZ:00000567	Ethiopia										
+	GAZ:00005811	Europa Island										
+	GAZ:00001412	Falkland Islands (Islas Malvinas)										
+	GAZ:00059206	Faroe Islands										
+	GAZ:00006891	Fiji										
+	GAZ:00002937	Finland										
+	GAZ:00003940	France										
+	GAZ:00002516	French Guiana										
+	GAZ:00002918	French Polynesia										
+	GAZ:00003753	French Southern and Antarctic Lands										
+	GAZ:00001092	Gabon										
+	GAZ:00000907	Gambia										
+	GAZ:00009571	Gaza Strip										
+	GAZ:00004942	Georgia										
+	GAZ:00002646	Germany										
+	GAZ:00000908	Ghana										
+	GAZ:00003987	Gibraltar										
+	GAZ:00005808	Glorioso Islands										
+	GAZ:00002945	Greece										
+	GAZ:00001507	Greenland										
+	GAZ:02000573	Grenada										
+	GAZ:00067142	Guadeloupe										
+	GAZ:00003706	Guam										
+	GAZ:00002936	Guatemala										
+	GAZ:00001550	Guernsey										
+	GAZ:00000909	Guinea										
+	GAZ:00000910	Guinea-Bissau										
+	GAZ:00002522	Guyana										
+	GAZ:00003953	Haiti										
+	GAZ:00009718	Heard Island and McDonald Islands										
+	GAZ:00002894	Honduras										
+	GAZ:00003203	Hong Kong										
+	GAZ:00007120	Howland Island										
+	GAZ:00002952	Hungary										
+	GAZ:00000843	Iceland										
+	GAZ:00002839	India										
+	GAZ:00003727	Indonesia										
+	GAZ:00004474	Iran										
+	GAZ:00004483	Iraq										
+	GAZ:00002943	Ireland										
+	GAZ:00052477	Isle of Man										
+	GAZ:00002476	Israel										
+	GAZ:00002650	Italy										
+	GAZ:00003781	Jamaica										
+	GAZ:00005853	Jan Mayen										
+	GAZ:00002747	Japan										
+	GAZ:00007118	Jarvis Island										
+	GAZ:00001551	Jersey										
+	GAZ:00007114	Johnston Atoll										
+	GAZ:00002473	Jordan										
+	GAZ:00005809	Juan de Nova Island										
+	GAZ:00004999	Kazakhstan										
+	GAZ:00001101	Kenya										
+	GAZ:00005682	Kerguelen Archipelago										
+	GAZ:00007116	Kingman Reef										
+	GAZ:00006894	Kiribati										
+	GAZ:00011337	Kosovo										
+	GAZ:00005285	Kuwait										
+	GAZ:00006893	Kyrgyzstan										
+	GAZ:00006889	Laos										
+	GAZ:00002958	Latvia										
+	GAZ:00002478	Lebanon										
+	GAZ:00001098	Lesotho										
+	GAZ:00000911	Liberia										
+	GAZ:00000566	Libya										
+	GAZ:00003858	Liechtenstein										
+	GAZ:00007144	Line Islands										
+	GAZ:00002960	Lithuania										
+	GAZ:00002947	Luxembourg										
+	GAZ:00003202	Macau										
+	GAZ:00001108	Madagascar										
+	GAZ:00001105	Malawi										
+	GAZ:00003902	Malaysia										
+	GAZ:00006924	Maldives										
+	GAZ:00000584	Mali										
+	GAZ:00004017	Malta										
+	GAZ:00007161	Marshall Islands										
+	GAZ:00067143	Martinique										
+	GAZ:00000583	Mauritania										
+	GAZ:00003745	Mauritius										
+	GAZ:00003943	Mayotte										
+	GAZ:00002852	Mexico										
+	GAZ:00005862	Micronesia										
+	GAZ:00007112	Midway Islands										
+	GAZ:00003897	Moldova										
+	GAZ:00003857	Monaco										
+	GAZ:00008744	Mongolia										
+	GAZ:00006898	Montenegro										
+	GAZ:00003988	Montserrat										
+	GAZ:00000565	Morocco										
+	GAZ:00001100	Mozambique										
+	GAZ:00006899	Myanmar										
+	GAZ:00001096	Namibia										
+	GAZ:00006900	Nauru										
+	GAZ:00007119	Navassa Island										
+	GAZ:00004399	Nepal										
+	GAZ:00002946	Netherlands										
+	GAZ:00005206	New Caledonia										
+	GAZ:00000469	New Zealand										
+	GAZ:00002978	Nicaragua										
+	GAZ:00000585	Niger										
+	GAZ:00000912	Nigeria										
+	GAZ:00006902	Niue										
+	GAZ:00005908	Norfolk Island										
+	GAZ:00002801	North Korea										
+	GAZ:00006895	North Macedonia										
+	GAZ:00002284	North Sea										
+	GAZ:00003958	Northern Mariana Islands										
+	GAZ:00002699	Norway										
+	GAZ:00005283	Oman										
+	GAZ:00005246	Pakistan										
+	GAZ:00006905	Palau										
+	GAZ:00002892	Panama										
+	GAZ:00003922	Papua New Guinea										
+	GAZ:00010832	Paracel Islands										
+	GAZ:00002933	Paraguay										
+	GAZ:00002932	Peru										
+	GAZ:00004525	Philippines										
+	GAZ:00005867	Pitcairn Islands										
+	GAZ:00002939	Poland										
+	GAZ:00004126	Portugal										
+	GAZ:00006935	Puerto Rico										
+	GAZ:00005286	Qatar										
+	GAZ:00001088	Republic of the Congo										
+	GAZ:00003945	Reunion										
+	GAZ:00002951	Romania										
+	GAZ:00023304	Ross Sea										
+	GAZ:00002721	Russia										
+	GAZ:00001087	Rwanda										
+	GAZ:00000849	Saint Helena										
+	GAZ:00006906	Saint Kitts and Nevis										
+	GAZ:00006909	Saint Lucia										
+	GAZ:00003942	Saint Pierre and Miquelon										
+	GAZ:00005841	Saint Martin										
+	GAZ:02000565	Saint Vincent and the Grenadines										
+	GAZ:00006910	Samoa										
+	GAZ:00003102	San Marino										
+	GAZ:00006927	Sao Tome and Principe										
+	GAZ:00005279	Saudi Arabia										
+	GAZ:00000913	Senegal										
+	GAZ:00002957	Serbia										
+	GAZ:00006922	Seychelles										
+	GAZ:00000914	Sierra Leone										
+	GAZ:00003923	Singapore										
+	GAZ:00012579	Sint Maarten										
+	GAZ:00002956	Slovakia										
+	GAZ:00002955	Slovenia										
+	GAZ:00005275	Solomon Islands										
+	GAZ:00001104	Somalia										
+	GAZ:00001094	South Africa										
+	GAZ:00003990	South Georgia and the South Sandwich Islands										
+	GAZ:00002802	South Korea										
+	GAZ:00233439	South Sudan										
+	GAZ:00000591	Spain										
+	GAZ:00010831	Spratly Islands										
+	GAZ:00003924	Sri Lanka										
+	GAZ:00002475	State of Palestine										
+	GAZ:00000560	Sudan										
+	GAZ:00002525	Suriname										
+	GAZ:00005396	Svalbard										
+	GAZ:00001099	Swaziland										
+	GAZ:00002729	Sweden										
+	GAZ:00002941	Switzerland										
+	GAZ:00002474	Syria										
+	GAZ:00005341	Taiwan										
+	GAZ:00006912	Tajikistan										
+	GAZ:00001103	Tanzania										
+	GAZ:00003744	Thailand										
+	GAZ:00006913	Timor-Leste										
+	GAZ:00000915	Togo										
+	GAZ:00260188	Tokelau										
+	GAZ:00006916	Tonga										
+	GAZ:00003767	Trinidad and Tobago										
+	GAZ:00005812	Tromelin Island										
+	GAZ:00000562	Tunisia										
+	GAZ:00000558	Turkey										
+	GAZ:00005018	Turkmenistan										
+	GAZ:00003955	Turks and Caicos Islands										
+	GAZ:00009715	Tuvalu										
+	GAZ:00002459	United States of America										
+	GAZ:00001102	Uganda										
+	GAZ:00002724	Ukraine										
+	GAZ:00005282	United Arab Emirates										
+	GAZ:00002637	United Kingdom										
+	GAZ:00002930	Uruguay										
+	GAZ:00004979	Uzbekistan										
+	GAZ:00006918	Vanuatu										
+	GAZ:00002931	Venezuela										
+	GAZ:00003756	Viet Nam										
+	GAZ:00003959	Virgin Islands										
+	GAZ:00007111	Wake Island										
+	GAZ:00007191	Wallis and Futuna										
+	GAZ:00009572	West Bank										
+	GAZ:00000564	Western Sahara										
+	GAZ:00005284	Yemen										
+	GAZ:00001107	Zambia										
+	GAZ:00001106	Zimbabwe										
+												
+geo_loc_name (state/province/territory) menu	GAZ:00002566	Alberta										
+	GAZ:00002562	British Columbia										
+	GAZ:00002571	Manitoba										
+	GAZ:00002570	New Brunswick										
+	GAZ:00002567	Newfoundland and Labrador										
+	GAZ:00002575	Northwest Territories										
+	GAZ:00002565	Nova Scotia										
+	GAZ:00002574	Nunavut										
+	GAZ:00002563	Ontario										
+	GAZ:00002572	Prince Edward Island										
+	GAZ:00002569	Quebec										
+	GAZ:00002564	Saskatchewan										
+	GAZ:00002576	Yukon										
+												
+												
+watershed shapefile availability menu	GENEPIO:0100993	Available										
+	GENEPIO:0100995	Unknown										
+												
+organism menu	NCBITaxon:2697049	Severe acute respiratory syndrome coronavirus 2 										
+												
+purpose of sampling menu	GENEPIO:0100869	Wastewater treatment efficiency assessment										
+	GENEPIO:0100870	Wastewater chemical surveillance										
+	GENEPIO:0100871	Wastewater drug surveillance										
+	GENEPIO:0100872	Wastewater pathogen surveillance										
+	GENEPIO:0100003	Research										
+	GENEPIO:0100873		Environmental survey (profiling)									
+	GENEPIO:0100024		Protocol testing									
+												
+scale of sampling menu	GENEPIO:0100874	Community-level surveillance										
+	GENEPIO:0100875	Institution-level surveillance										
+	GENEPIO:0100876	Building-level surveillance										
+												
+sample collection time of day menu	NCIT:C64934	Morning										
+	NCIT:C64935	Afternoon										
+	NCIT:C64936	Evening										
+	NCIT:C65001	Night										
+												
+sample collection duration unit menu	UO:0000010	Second										
+	UO:0000031	Minute										
+	UO:0000032	Hour										
+	UO:0000033	Day										
+	UO:0000034	Week										
+	UO:0000035	Month										
+	UO:0000036	Year										
+												
+presampling activity menu	ENVO:01001442	Agricultural activity										
+	ENVO:01001248	Animal husbandry										
+	ENVO:01001450	Industrial activity										
+	NCIT:C16205	Healthcare activity										
+	ENVO:06105300	Wastewater treatment										
+	GENEPIO:0100881		Wastewater filtration									
+	GENEPIO:0100882		Wastewater grit removal									
+	GENEPIO:0100883		Wastewater microbial pre-treatment									
+	GENEPIO:0100884		Wastewater primary sedimentation									
+	GENEPIO:0100885		Wastewater secondary sedimentation									
+												
+sample volume measurement unit menu	UO:0000101	microliter (uL)										
+	UO:0000098	milliliter (mL)										
+	UO:0000099	liter (L)										
+												
+sample storage duration unit menu	UO:0000010	Second										
+	UO:0000031	Minute										
+	UO:0000032	Hour										
+	UO:0000033	Day										
+	UO:0000034	Week										
+	UO:0000035	Month										
+	UO:0000036	Year										
+												
+specimen processing menu	OBI:0600041	Concentration										
+	OBI:0302886	Centrifugation										
+	OBI:0302885	Filtration										
+	NCIT:C154798	Flocculation										
+	GENEPIO:0100886	Magnetic nanobead binding										
+	OBI:0600034	Precipitation										
+	GENEPIO:0101011	Gravity separation										
+	IDO:0100170	Pasteurization										
+	GENEPIO:0101012	Growth in enrichment broth										
+	OBI:0600016	Specimens pooled										
+	EFO:0002090	Technical replicate										
+	EFO:0002091	Biological replicate										
+												
+environmental site menu	ENVO:01001481	Correctional facility										
+	ENVO:03501134	Healthcare facility										
+	ENVO:00002173		Hospital									
+	ENVO:03501182		Clinic									
+	ENVO:03501129	Educational facility										
+	ENVO:03501335		Daycare facility									
+	ENVO:03501130		School									
+	ENVO:03501131		College or university									
+	ENVO:01000933	Residential building										
+	ENVO:03501133		Homeless shelter									
+	ENVO:01000932		Long-term care facility									
+	ENVO:03501117	Transport hub										
+	ENVO:03501122		Airport									
+	ENVO:00000078	Farm										
+	NCIT:C85867	Refugee camp										
+	ENVO:00003861	Industrial plant										
+	ENVO:03501297		Meat processing plant									
+	GENEPIO:0100887		Pharmaceutical manufacturing plant									
+	ENVO:00000063	Body of water										
+	ENVO:00002042		Surface water									
+	ENVO:00000020			Lake								
+	ENVO:00000023			Stream								
+	ENVO:00000022				River							
+	ENVO:00000015			Ocean								
+	ENVO:00000016			Sea								
+	ENVO:00000014			Canal								
+	ENVO:00000025			Reservoir								
+	ENVO:01001004		Ground water									
+	ENVO:00000026			Well								
+	ENVO:00000027			Spring								
+	ENVO:01000604	Transportation vehicle										
+	ENVO:01000608		Boat									
+	ENVO:03501349		Airplane									
+	ENVO:00002272	Wastewater treatment plant										
+												
+environmental material menu	ENVO:00002042	Surface water										
+	ENVO:00002001	Waste water										
+	GENEPIO:0100890	Wastewater sediment										
+	ENVO:00002044	Sludge										
+	ENVO:00002057		Primary sludge									
+	ENVO:00002058		Secondary sludge									
+	GENEPIO:0100891	Wastewater effluent										
+	GENEPIO:0100892		Primary wastewater effluent									
+	GENEPIO:0100893		Secondary wastewater effluent									
+												
+environmental material properties menu	GENEPIO:0101004	Fluid (stagnant) 										
+	GENEPIO:0101005	Fluid (slow) 										
+	GENEPIO:0101006	Fluid (fast) 										
+	PATO:0015031	Contamination										
+	GENEPIO:0101010		Fecal-contaminated									
+	PATO:0001735	Liquid 										
+	GENEPIO:0101007	Slurry-like										
+	NCIT:C149895	Semi-solid										
+	PATO:0001736	Solid										
+	GENEPIO:0101008	Treated										
+	GENEPIO:0101009	Untreated										
+												
+wastewater system type menu		Combined sewer system										
+		Sanitary sewer system										
+	ENVO:03600076	Waste stabilization pond										
+	ENVO:01000519	Latrine										
+		Septic tank										
+		Cesspit										
+	ENVO:01000550	Composting toilet										
+	ENVO:01000924	Plumbing drain										
+												
+												
+												
+experimental specimen role type menu	GENEPIO:0101018	Positive experimental control										
+	GENEPIO:0101019	Negative experimental control										
+	EFO:0002090	Technical replicate										
+	EFO:0002091	Biological replicate										
+												
+collection device menu	GENEPIO:0100941	Grab sampler										
+	GENEPIO:0100943		Core sampling device									
+	GENEPIO:0100944		Vacuum sludge sampling device									
+	GENEPIO:0100945		Cone-shaped sampling device									
+	GENEPIO:0100946		Horizontal grab sampling device									
+	GENEPIO:0100947		Vertical grab sampling device									
+	GENEPIO:0100942	Composite sampler										
+	GENEPIO:0100948		Passive (trap) sampler									
+	GENEPIO:0100949			Moore swab								
+	GENEPIO:0100950		Automatic composite sampler									
+	GENEPIO:0100951			Automatic flow-proportional sampler								
+	GENEPIO:0100952			Automatic sequential (time-proportional) sampler								
+												
+collection method menu	GENEPIO:0100953	Grab sampling										
+	GENEPIO:0100954	Composite sampling										
+	GENEPIO:0100955		Passive composite sampling									
+	GENEPIO:0100956		Automatic composite sampling									
+	GENEPIO:0100957		Manual composite sampling									
+												
+water catchment area human population range menu		<10 people										
+		10 - 100 people										
+		100 - 1,000 people										
+		1,000 - 10,000 people										
+		10,000 - 100,000 people										
+		100,000 -  1,000,000 people										
+		1,000,000+ people										
+												
+water catchment area human population density unit menu	GENEPIO:0100989	persons per square mile										
+	GENEPIO:0100990	persons per square kilometer										
+	GENEPIO:0100991	residents per square mile										
+	GENEPIO:0100992	residents per square kilometer										
+												
+populated area type menu	GSSO:011077	Suburban										
+	GSSO:011078	Rural										
+	GSSO:011080	Urban										
+												
+sampling weather conditions menu	ENVO:03501418	Cloudy/Overcast										
+	ENVO:03501419		Partially cloudy									
+	ENVO:03501420	Drizzle										
+	ENVO:01000844	Fog										
+	ENVO:01001564	Rain										
+	ENVO:01000406	Snow										
+	ENVO:01000876	Storm										
+	ENVO:03501421	Sunny/Clear										
+												
+presampling weather conditions menu	ENVO:03501418	Cloudy/Overcast										
+	ENVO:03501419		Partially cloudy									
+	ENVO:03501420	Drizzle										
+	ENVO:01000844	Fog										
+	ENVO:01001564	Rain										
+	ENVO:01000406	Snow										
+	ENVO:01000876	Storm										
+	ENVO:03501421	Sunny/Clear										
+												
+precipitation measurement unit menu	UO:0000016	millimeter (mm)										
+	UO:0000015	centimeter (cm)										
+	UO:0000008	meter (m)										
+	UO:0010011	inch (in)										
+	UO:0010013	foot (ft)										
+												
+air pressure measurement unit menu	EFO:0005212	atmosphere (atm)										
+		bar										
+	UO:0000110	pascal										
+												
+ambient temperature measurement unit menu	UO:0000195	degree Fahrenheit (F)										
+	UO:0000027	degree Celsius (C)										
+												
+total daily flow rate measurement unit menu		cubic meter per second (m^3/s)										
+		cubic meter per minute (m^3/min)										
+		cubic meter per hour (m^3/h)										
+		liter per second (L/s)										
+		liter per minute (L/min)										
+		liter per hour (L/h)										
+		liter per day (L/day)										
+		million gallons per day (MGD)										
+												
+instantaneous daily flow rate measurement unit menu		cubic meter per second (m^3/s)										
+		cubic meter per minute (m^3/min)										
+		cubic meter per hour (m^3/h)										
+		liter per second (L/s)										
+		liter per minute (L/min)										
+		liter per hour (L/h)										
+		liter per day (L/day)										
+		million gallons per day (MGD)										
+												
+turbidity measurement unit menu		nephelometric turbidity unit (NTU)										
+	UO:0000318	formazin nephelometric unit (FNU)										
+												
+dissolved oxygen measurement unit menu	UO:0000273	milligram per liter (mg/L)										
+	UO:0000083	kilogram per cubic meter (kg/m^3)										
+	UO:0000169	part per million (ppm)										
+												
+oxygen reduction potential (ORP) measurement unit menu	UO:0000247	milliVolt (mV)										
+												
+chemical oxygen demand (COD) measurement unit menu	UO:0000273	milligram per liter (mg/L)										
+												
+carbonaceous biochemical oxygen demand (CBOD) measurement unit menu	UO:0000273	milligram per liter (mg/L)										
+												
+total suspended solids (TSS) measurement unit menu	UO:0000187	percent (%)										
+	UO:0000175	gram per liter (g/L)										
+												
+total dissolved solids (TDS) measurement unit menu	UO:0000187	percent (%)										
+	UO:0000175	gram per liter (g/L)										
+												
+total solids (TS) measurement unit menu	UO:0000187	percent (%)										
+	UO:0000175	gram per liter (g/L)										
+												
+alkalinity measurement unit menu		milliequivalent per liter (meq/L)										
+	UO:0000273	milligram per liter (mg/L)										
+	UO:0000169	parts per million										
+												
+conductivity measurement unit menu		milliSiemen per centimeter (mS/cm)										
+		microSiemen per centimeter (μS/cm)										
+		Siemen per meter (S/m)										
+												
+salinity measurement unit menu		practical salinity unit (PSU)										
+		weight for weight (% w/w)										
+	UO:0000168	parts per thousand										
+	UO:0000175	gram per liter (g/L)										
+												
+total nitrogen (TN) measurement unit menu	UO:0000273	milligram per liter (mg/L)										
+	UO:0000175	gram per liter (g/L)										
+		gram per total solids (g/gTS)										
+												
+total phosphorpus (TP) measurement unit menu		gram per total solids (g/gTS)										
+	GENEPIO:0100998	orthophosphate as phosphorus per total solids (gPO4-P/gTS)										
+	UO:0000273	milligrams per liter (mg/L)										
+	GENEPIO:0100999	milligrams orthophosphate as phosphorus per liter (mg PO4-P/L)										
+												
+fecal contamination indicator menu	NCBITaxon:1211417	crAssphage										
+	NCBITaxon:12239	PMMoV / pepper mild mottle virus										
+	GENEPIO:0101000	Bacteroides HF183										
+	GENEPIO:0101001	Lachnospiraceae Lachno3										
+	GENEPIO:0101002	F+ (male specific) coliphages										
+	CHEBI:26756	Stercobilin										
+												
+fecal contamination unit menu		log10 gene copies per 100 milliliter (log10 GC/100 mL)										
+		gene copies per liter (GC/L)										
+	UO:0010077	PCR quantification cycle										
+		log10 gene copies per nanogram total DNA										
+												
+urinary contamination indicator menu	CHEBI:36378	Urobilin										
+												
+urinary contamination unit menu	EFO:0004382	nanograms per liter (ng/L)										
+												
+fecal coliform count unit menu	UO:0000213	colony forming units per milliliter (CFU/mL)										
+		colony forming units per 100 milliliter (CFU/100 mL)										
+		colony forming units per grams total solids (CFU/gTS)										
+		most probable number per milliliter (MPN/mL)										
+		most probable number per 100 milliliter (MPN/100 mL)										
+												
+sample temperature unit (at collection) menu	UO:0000195	degree Fahrenheit (F)										
+	UO:0000027	degree Celsius (C)										
+												
+sample temperature unit (when received) menu	UO:0000195	degree Fahrenheit (F)										
+	UO:0000027	degree Celsius (C)										
+												
+purpose of sequencing menu	GENEPIO:0100005	Baseline surveillance (random sampling)										
+	GENEPIO:0100006	Targeted surveillance (non-random sampling)										
+	GENEPIO:0100007	Priority surveillance project										
+	GENEPIO:0100009	Longitudinal surveillance (repeat sampling)										
+	GENEPIO:0100012	Travel-associated surveillance										
+	GENEPIO:0100013		Domestic travel surveillance									
+	GENEPIO:0100014		International travel surveillance									
+	GENEPIO:0100022	Research										
+	GENEPIO:0100023		Viral passage experiment									
+	GENEPIO:0100024		Protocol testing experiment									
+												
+sequencing platform menu	GENEPIO:0001923	Illumina										
+	GENEPIO:0001927	Pacific Biosciences										
+	GENEPIO:0002683	Ion Torrent										
+	GENEPIO:0100986	Oxford Nanopore Technologies										
+	GENEPIO:0004324	BGI Genomics										
+	GENEPIO:0004325	MGI										
+	GENEPIO:0001926	Roche LS454										
+	GENEPIO:0002684	SOLiD sequencing										
+	GENEPIO:0001924	Complete Genomics										
+	GENEPIO:0002682	Helicos										
+	GENEPIO:0100985	Applied Biosystems										
+												
+sequencing instrument menu	GENEPIO:0100105	Illumina										
+	GENEPIO:0100106		Illumina Genome Analyzer									
+	OBI:0000703		Illumina Genome Analyzer II									
+	OBI:0002000		Illumina Genome Analyzer IIx									
+	GENEPIO:0100109		Illumina HiScanSQ									
+	GENEPIO:0100110		Illumina HiSeq									
+	GENEPIO:0100111			Illumina HiSeq X								
+	GENEPIO:0100112			Illumina HiSeq X Five 								
+	GENEPIO:0100113			Illumina HiSeq X Ten								
+	OBI:0002022			Illumina HiSeq 1000								
+	GENEPIO:0100115			Illumina HiSeq 1500								
+	OBI:0002001			Illumina HiSeq 2000   								
+	OBI:0002002			Illumina HiSeq 2500								
+	OBI:0002048			Illumina HiSeq 3000								
+	OBI:0002049			Illumina HiSeq 4000								
+	GENEPIO:0100120		Illumina iSeq  									
+	GENEPIO:0100121			Illumina iSeq 100								
+	GENEPIO:0100122		Illumina NovaSeq  									
+	GENEPIO:0100123			Illumina NovaSeq 6000								
+	GENEPIO:0100124		Illumina MiniSeq									
+	OBI:0002003		Illumina MiSeq									
+	GENEPIO:0100126		Illumina NextSeq									
+	OBI:0002021			Illumina NextSeq 500								
+	GENEPIO:0100128			Illumina NextSeq 550								
+	GENEPIO:0004432			Illumina NextSeq 1000								
+	GENEPIO:0100129			Illumina NextSeq 2000								
+	GENEPIO:0100130	PacBio										
+	GENEPIO:0100131		PacBio RS 									
+	OBI:0002012		PacBio RS II									
+	GENEPIO:0100133		PacBio Sequel									
+	GENEPIO:0100134		PacBio Sequel II									
+	GENEPIO:0100135	Ion Torrent										
+	GENEPIO:0100136		Ion Torrent PGM									
+	GENEPIO:0100137		Ion Torrent Proton									
+	GENEPIO:0100138		Ion Torrent S5 XL									
+	GENEPIO:0100139		Ion Torrent S5									
+	GENEPIO:0100140	Oxford Nanopore										
+	GENEPIO:0004433		Oxford Nanopore Flongle									
+	GENEPIO:0100141		Oxford Nanopore GridION									
+	GENEPIO:0100142		Oxford Nanopore MinION									
+	GENEPIO:0100143		Oxford Nanopore PromethION									
+	GENEPIO:0100144	BGI Genomics sequencing instrument										
+	GENEPIO:0100145		BGISEQ-500									
+	GENEPIO:0100146	MGI sequencing instrument										
+	GENEPIO:0100971		MGISEQ-2000RS									
+	GENEPIO:0100972		MGI DNBSEQ-G99									
+	GENEPIO:0100148		MGI DNBSEQ-G400									
+	GENEPIO:0100149			MGI DNBSEQ-G400RS FAST								
+	GENEPIO:0100147		MGI DNBSEQ-T7									
+	GENEPIO:0100973		MGI DNBSEQ-E25									
+	GENEPIO:0100150		MGI DNBSEQ-G50									
+	GENEPIO:0001937	454 Genome Sequencer										
+	OBI:0000689		454 Genome Sequencer 20									
+	OBI:0000702		454 Genome Sequencer FLX									
+	GENEPIO:0100982		454 Genome Sequencer FLX+									
+	GENEPIO:0001936		454 Genome Sequencer FLX Titanium									
+	GENEPIO:0100983		454 Genome Sequencer Junior									
+	OBI:0000696	SOLiD System										
+	GENEPIO:0001929		SOLiD 5500									
+	GENEPIO:0001930		SOLiD 5500xl Genetic Analyzer									
+	GENEPIO:0100984		SOLiD 5500x-Wl Genetic Analyzer									
+	OBI:0002007		SOLiD 3 Plus System									
+	OBI:0002024		SOLiD 4 System									
+	GENEPIO:0001928		SOLiD 4hq System									
+	GENEPIO:0001931		SOLiD PI System									
+	GENEPIO:0001932		SOLiD System 2.0									
+	GENEPIO:0001933		SOLiD System 3.0									
+	OBI:0000717	HeliScope Single Molecule Sequencer										
+	GENEPIO:0100974	Applied Biosystems sequencing instrument model										
+	GENEPIO:0100975		AB 310 Genetic Analyzer									
+	GENEPIO:0100976		AB 3130 Genetic Analyzer									
+	GENEPIO:0100977		AB 3130xL Genetic Analyzer									
+	GENEPIO:0100978		AB 3500 Genetic Analyzer									
+	GENEPIO:0100979		AB 3500xL Genetic Analyzer									
+	GENEPIO:0100980		AB 3730 Genetic Analyzer									
+	GENEPIO:0100981		AB 3730xL Genetic Analyzer									
+												
+sequencing assay type menu	OBI:0002767	Amplicon sequencing assay										
+	OBI:0002117	Whole genome sequencing assay										
+	OBI:0002623	Whole metagenome sequencing assay										
+	OBI:0002768		Whole virome sequencing assay									
+												
+amplicon pcr primer scheme menu	GENEPIO:0100847	artic-v1										
+	GENEPIO:0100848	artic-v2										
+	GENEPIO:0100849	artic-v3										
+	GENEPIO:0100850	artic-v4										
+	GENEPIO:0100851	artic-v4.1										
+	GENEPIO:0100852	artic-v5.0.0_400										
+	GENEPIO:0100853	artic-v5.1.0_400										
+	GENEPIO:0100854	artic-v5.2.0_1200										
+	GENEPIO:0100855	artic-v5.2.0_400										
+	GENEPIO:0100856	artic-v5.3.2_400										
+	GENEPIO:0100857	eden-v1										
+	GENEPIO:0100858	midnight-bccdc-v1										
+	GENEPIO:0100859	midnight-bccdc-v2										
+	GENEPIO:0100860	midnight-bccdc-v3										
+	GENEPIO:0100861	midnight-bccdc-v4										
+	GENEPIO:0100862	midnight-ont-v3										
+	GENEPIO:0100863	midnight-v1										
+	GENEPIO:0100864	midnight-v2										
+	GENEPIO:0100865	varskip-vsl1a										
+	GENEPIO:0100866	varskip-vss1a										
+	GENEPIO:0100867	varskip-vss2a										
+	GENEPIO:0100868	varskip-vss2b										
+												
+genomic target enrichment method menu	GENEPIO:0001950	Hybrid selection method										
+	GENEPIO:0101020	rRNA depletion method										
+												
+quality control determination menu	GENEPIO:0100562	No quality control issues identified										
+	GENEPIO:0100563	Sequence passed quality control										
+	GENEPIO:0100564	Sequence failed quality control										
+	GENEPIO:0100565	Minor quality control issues identified										
+	GENEPIO:0100566	Sequence flagged for potential quality control issues										
+	GENEPIO:0100567	Quality control not performed										
+												
+quality control issues menu	GENEPIO:0100568	Low quality sequence										
+	GENEPIO:0100569	Sequence contaminated										
+	GENEPIO:0100570	Low average genome coverage										
+	GENEPIO:0100571	Low percent genome captured										
+	GENEPIO:0100572	Read lengths shorter than expected										
+	GENEPIO:0100573	Sequence amplification artifacts										
+	GENEPIO:0100574	Low signal to noise ratio										
+	GENEPIO:0100575	Low coverage of characteristic mutations										
+												
+gene name menu	GENEPIO:0100151	E gene (orf4)										
+	GENEPIO:0100152	M gene (orf5)										
+	GENEPIO:0100153	N gene (orf9)										
+	GENEPIO:0100154	Spike gene (orf2)										
+	GENEPIO:0100155	orf1ab (rep)										
+	GENEPIO:0100156		orf1a (pp1a)									
+	GENEPIO:0100157			nsp11								
+	GENEPIO:0100158		nsp1 									
+	GENEPIO:0100159		nsp2 									
+	GENEPIO:0100160		nsp3 									
+	GENEPIO:0100161		nsp4 									
+	GENEPIO:0100162		nsp5 									
+	GENEPIO:0100163		nsp6 									
+	GENEPIO:0100164		nsp7 									
+	GENEPIO:0100165		nsp8 									
+	GENEPIO:0100166		nsp9 									
+	GENEPIO:0100167		nsp10 									
+	GENEPIO:0100168		RdRp gene (nsp12)									
+	GENEPIO:0100169		hel gene (nsp13)									
+	GENEPIO:0100170		exoN gene (nsp14)									
+	GENEPIO:0100171		nsp15									
+	GENEPIO:0100172		nsp16									
+	GENEPIO:0100173	orf3a										
+	GENEPIO:0100174	orf3b										
+	GENEPIO:0100175	orf6 (ns6)										
+	GENEPIO:0100176	orf7a										
+	GENEPIO:0100177	orf7b (ns7b)										
+	GENEPIO:0100178	orf8 (ns8)										
+	GENEPIO:0100179	orf9b										
+	GENEPIO:0100180	orf9c										
+	GENEPIO:0100181	orf10										
+	GENEPIO:0100182	orf14										
+	GENEPIO:0100183	SARS-COV-2 5' UTR										
+												
+diagnostic target presence menu		Target present										
+		Target absent										
+												
+diagnostic measurement unit menu		gene copies per liter (GC/L)										
+	GENEPIO:0100657	cycle threshold (Ct) / quantification cycle (Cq)										
+	UO:0000213	colony forming units per milliliter (CFU/mL)										
+		colony forming units per 100 milliliter (CFU/100 mL)										
+		colony forming units per grams total solids (CFU/gTS)										
+		most probable number per milliliter (MPN/mL)										
+		most probable number per 100 milliliter (MPN/100 mL)										
+												
+diagnostic measurement method menu	OBI:0000893	Quantitative real time polymerase chain reaction (qPCR)										
+		Digital real time polymerase chain reaction (dPCR)										
+		Bacteria culture test										
+												

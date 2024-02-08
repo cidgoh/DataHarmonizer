@@ -1,9 +1,9 @@
-id: https://example.com/CanCOGeN_Covid-19
-name: CanCOGeN_Covid-19
+id: https://example.com/GRDI
+name: "Wastewater"
 description: ""
-version: 2.3.4
+version: 1.0.0
 imports:
-- 'linkml:types'
+  - 'linkml:types'
 prefixes:
   linkml: 'https://w3id.org/linkml/'
   GENEPIO: 'http://purl.obolibrary.org/obo/GENEPIO_'
@@ -11,12 +11,19 @@ classes:
   dh_interface:
     name: dh_interface
     description: 'A DataHarmonizer interface'
-    from_schema: https://example.com/CanCOGeN_Covid-19
-  'CanCOGeN Covid-19':
-    name: 'CanCOGeN Covid-19'
-    description: Canadian specification for Covid-19 clinical virus biosample data gathering
+    from_schema: https://example.com/wastewater
+  'WastewaterSARS-CoV-2':
+    name: 'WastewaterSARS-CoV-2'
+    description: Specification for Wastewater SARS-CoV-2 virus biosample data gathering
     is_a: dh_interface
-    see_also: templates/canada_covid19/SOP.pdf
+  'WastewaterAMR':
+    name: 'WastewaterAMR'
+    description: Specification for Wastewater AMR biosample data gathering
+    is_a: dh_interface
+  'WastewaterSinglePathogen':
+    name: 'WastewaterSinglePathogen'
+    description: Specification for Wastewater Single Pathogen biosample data gathering
+    is_a: dh_interface
 slots: {}
 enums: {}
 types:

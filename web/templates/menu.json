@@ -66,5 +66,22 @@
       "status": "published",
       "display": true
     }
+  },
+  "wastewater": {
+    "WastewaterSARS-CoV-2": {
+      "name": "WastewaterSARS-CoV-2",
+      "status": "published",
+      "display": true
+    },
+    "WastewaterAMR": {
+      "name": "WastewaterAMR",
+      "status": "published",
+      "display": true
+    },
+    "WastewaterSinglePathogen": {
+      "name": "WastewaterSinglePathogen",
+      "status": "published",
+      "display": true
+    }
   }
 }

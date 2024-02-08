@@ -145,6 +145,7 @@ NML submitted specimen type menu	OBI:0002600	Swab
 												
 												
 Related specimen relationship type menu	HP:0011009	Acute										
+	GENEPIO:0101016	Chronic (prolonged) infection investigation										
 		Convalescent										
 		Familial										
 	EFO:0009642	Follow-up										
@@ -379,6 +380,7 @@ anatomical part menu	UBERON:0001245	Anus
 	UBERON:0005922			Inferior Nasal Turbinate								
 	UBERON:0001728		Nasopharynx (NP)									
 	UBERON:0001729		Oropharynx (OP)									
+	UBERON:0000341		Pharynx (throat)									
 												
 												
 body product menu	UBERON:0001913	Breast Milk										
@@ -568,6 +570,7 @@ purpose of sequencing menu	GENEPIO:0100005	Baseline surveillance (random samplin
 	GENEPIO:0100273				Sample has epidemiological link to Variant of Concern (VoC)							
 	GENEPIO:0100274					Sample has epidemiological link to Omicron Variant 						
 	GENEPIO:0100009			Longitudinal surveillance (repeat sampling of individuals) 								
+	GENEPIO:0100842				Chronic (prolonged) infection surveillance							
 	GENEPIO:0100010			Re-infection surveillance 								
 	GENEPIO:0100011			Vaccine escape surveillance								
 	GENEPIO:0100012			Travel-associated surveillance								
@@ -898,7 +901,7 @@ sequence submitted by menu		Alberta Precision Labs (APL)
 		Thunder Bay Regional Health Sciences Centre										
 												
 												
- sample collected by menu		Alberta Precision Labs (APL)										
+sample collected by menu		Alberta Precision Labs (APL)										
 			Alberta ProvLab North (APLN)									
 			Alberta ProvLab South (APLS)									
 		BCCDC Public Health Laboratory										
@@ -1205,3 +1208,5 @@ geo_loc_name (country) menu	GAZ:00006882	Afghanistan
 	GAZ:00005284	Yemen										
 	GAZ:00001107	Zambia										
 	GAZ:00001106	Zimbabwe										
+												
+					
