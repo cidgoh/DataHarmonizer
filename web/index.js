@@ -621,6 +621,7 @@ const main = async function () {
                     }
                     
                     function createDataHarmonizerTab(dhId, entity, isActive) {
+                        console.log('create data harmonizer tab')
                         const dhTab = document.createElement('li');
                         dhTab.className = 'nav-item';
                         dhTab.setAttribute('role', 'presentation');
@@ -631,6 +632,8 @@ const main = async function () {
                         dhTabLink.href = `#${dhId}`;
                         dhTabLink.textContent = entity;
                         dhTabLink.dataset.toggle = 'tab'; // Bootstrap specific data attribute for tabs
+                        dhTabLink.setAttribute('data-bs-toggle', 'tab');
+                        dhTabLink.setAttribute('data-bs-target', dhTabLink.href);
                         dhTabLink.setAttribute('role', 'tab');
                         dhTabLink.setAttribute('aria-controls', dhId);
                     
@@ -653,7 +656,7 @@ const main = async function () {
                                 
                                 console.log(findSlotNamesForClass(schema, cls_key));
 
-                                data_harmonizers[spec.name] = new DataHarmonizer(dhRoot, {
+                                data_harmonizers[spec.name] = new DataHarmonizer(dhSubroot, {
                                     context: context,
                                     loadingScreenRoot: document.body,
                                     field_filters: findSlotNamesForClass(schema, cls_key) // TODO: Find slot names for filtering
