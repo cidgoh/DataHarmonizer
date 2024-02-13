@@ -43,6 +43,8 @@ class AppConfig {
 
 class AppContext {
 
+    dhs = {};
+
     constructor(appConfig) {
         this.template = null;
         this.appConfig = appConfig;
@@ -91,7 +93,6 @@ class AppContext {
         }, { "nodes": {} });
 
     }
-
 
     async propagateChangeToChildren(node_label, func = id => id) {
         const dependency_tree = (await this.getDependencyTree());
@@ -401,9 +402,6 @@ const main = async function () {
             // the existence of a container class signifies a 1-M data loading setup with an ID join
             if (classes['Container']) {
                 
-                console.log('branch 1');
-                console.log('has Container class', classes['Container']);
-
                 /* e.g.
         
                 const container = {
@@ -845,17 +843,26 @@ const main = async function () {
                     return data_harmonizers;
                 };
                     
-                console.log('before buildSchemaTree');
-                const schema_tree = buildSchemaTree((await context.getSchema()));
-                console.log('schema_tree', schema_tree);
-                console.log('before makeDataHarmonizersFromSchemaTree');
+                const schema = (await context.getSchema())
+                const schema_tree = buildSchemaTree(schema);
                 data_harmonizers = makeDataHarmonizersFromSchemaTree(
-                    (await context.getSchema()),
+                    schema,
                     schema_tree);
                 // HACK
                 delete data_harmonizers[undefined];
                 console.log('before initializeDataHarmonizers');
                 initializeDataHarmonizers(data_harmonizers);
+                // TODO assignment functions
+                context.dhs = data_harmonizers;
+                 new Toolbar(dhToolbarRoot, data_harmonizers[cls_key], menu, {
+                            context: context,
+                            templatePath: context.appConfig.template_path,  // TODO: a default should be loaded before Toolbar is constructed! then take out all loading in "toolbar" to an outside context
+                            releasesURL: 'https: // gi thub.com/cidgoh/pathogen-genomics-package/releases',
+                            // TODO: migrate into context functions
+                            getLanguages: context.getLocaleData.bind(context),
+                            getSchema: async (schema) => Template.create(schema).then(result => result.current.schema),
+                            getExportFormats: context.getExportFormats.bind(context),
+                        });
                 
             } else {
                 console.log('branch 2');
