@@ -44,10 +44,21 @@ class AppConfig {
 class AppContext {
 
     dhs = {};
+    current_data_harmonizer = null;
 
     constructor(appConfig) {
         this.template = null;
         this.appConfig = appConfig;
+    }
+
+    setDataHarmonizers(data_harmonizers) {
+        this.dhs = data_harmonizers;
+        // TODO finding the initial parent?
+        this.setCurrentDataHarmonizer(data_harmonizers['Container'].children[0]);
+    }
+
+    setCurrentDataHarmonizer(data_harmonizer_name) {
+        this.current_data_harmonizer = data_harmonizer_name;
     }
 
     // TODO: memoize?
@@ -634,7 +645,7 @@ const main = async function () {
                         dhTabLink.setAttribute('data-bs-target', dhTabLink.href);
                         dhTabLink.setAttribute('role', 'tab');
                         dhTabLink.setAttribute('aria-controls', dhId);
-                    
+
                         dhTab.appendChild(dhTabLink);
                         return dhTab; 
                     } 
@@ -650,6 +661,11 @@ const main = async function () {
                                 dhRoot.appendChild(dhSubroot); // Appending to the parent container
                                 
                                 const dhTab = createDataHarmonizerTab(dhId, spec.name, index === 0);
+                                dhTab.addEventListener('click', () => {
+                                    console.log('click tab', spec.name, index);
+                                    // set the current dataharmonizer tab in the context
+                                    context.setCurrentDataHarmonizer(spec.name);
+                                })
                                 dhTabNav.appendChild(dhTab); // Appending to the tab navigation
                                 
                                 console.log(findSlotNamesForClass(schema, cls_key));
@@ -853,6 +869,7 @@ const main = async function () {
                 console.log('before initializeDataHarmonizers');
                 initializeDataHarmonizers(data_harmonizers);
                 // TODO assignment functions
+                // TODO current dataharmonizer in contexts
                 context.dhs = data_harmonizers;
                  new Toolbar(dhToolbarRoot, data_harmonizers[cls_key], menu, {
                             context: context,
