@@ -44,7 +44,7 @@ class AppConfig {
 class AppContext {
 
     dhs = {};
-    current_data_harmonizer = null;
+    current_data_harmonizer_name = null;
 
     constructor(appConfig) {
         this.template = null;
@@ -58,7 +58,11 @@ class AppContext {
     }
 
     setCurrentDataHarmonizer(data_harmonizer_name) {
-        this.current_data_harmonizer = data_harmonizer_name;
+        this.current_data_harmonizer_name = data_harmonizer_name;
+    }
+
+    getCurrentDataHarmonizer() {
+      return this.dhs[this.current_data_harmonizer_name]
     }
 
     // TODO: memoize?
@@ -517,7 +521,7 @@ const main = async function () {
                  * @returns {Array} An array of slot names.
                  */
                 function findSlotNamesForClass(schema, class_name) {
-                    return !!schema.classes[class_name] && !!schema.classes[class_name].slots  ? Object.keys(schema.classes[class_name].slots) : [];
+                  return Object.keys(schema.classes[class_name].attributes);
                 }
 
                 /**
@@ -655,6 +659,7 @@ const main = async function () {
                         Object.entries(schema_tree).filter(([cls_key,]) => cls_key !== 'Container').forEach((obj, index) => {
                             if (obj.length > 0) {
                                 const [cls_key, spec] = obj;
+                                console.log('obj', cls_key, spec)
                                 const dhId = `data-harmonizer-grid-${index}`;
                                 let dhSubroot = createDataHarmonizerContainer(dhId, index === 0);
                                 
@@ -668,7 +673,7 @@ const main = async function () {
                                 })
                                 dhTabNav.appendChild(dhTab); // Appending to the tab navigation
                                 
-                                console.log(findSlotNamesForClass(schema, cls_key));
+                                console.log('findSlotNamesForClass', findSlotNamesForClass(schema, cls_key));
 
                                 data_harmonizers[spec.name] = new DataHarmonizer(dhSubroot, {
                                     context: context,
@@ -676,6 +681,7 @@ const main = async function () {
                                     field_filters: findSlotNamesForClass(schema, cls_key) // TODO: Find slot names for filtering
                                 });
 
+                                console.log(spec.name);
                                 data_harmonizers[spec.name].useSchema(_schema, _export_formats, _schema_name);
 
                             }
