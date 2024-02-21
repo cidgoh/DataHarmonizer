@@ -862,7 +862,7 @@ const main = async function () {
                     new Toolbar(dhToolbarRoot, context.getCurrentDataHarmonizer(), menu, {
                         context: context,
                         templatePath: context.appConfig.template_path,  // TODO: a default should be loaded before Toolbar is constructed! then take out all loading in "toolbar" to an outside context
-                        releasesURL: 'https: // github.com/cidgoh/pathogen-genomics-package/releases',
+                        releasesURL: 'https://github.com/cidgoh/pathogen-genomics-package/releases',
                         getLanguages: context.getLocaleData.bind(context),
                         getSchema: async (schema) => Template.create(schema).then(result => result.current.schema),
                         getExportFormats: context.getExportFormats.bind(context),
@@ -873,29 +873,27 @@ const main = async function () {
                     
                 const schema = (await context.getSchema())
                 const schema_tree = buildSchemaTree(schema);
-
                 context.setSchemaTree(schema_tree);
-
                 data_harmonizers = makeDataHarmonizersFromSchemaTree(
                     schema,
                     schema_tree);
                 // HACK
                 delete data_harmonizers[undefined];
                 context.setDataHarmonizers(data_harmonizers);
-                console.log(context.getCurrentDataHarmonizer());
                 initializeDataHarmonizers(context.dhs);
 
             } else {
                 console.log('branch 2');
+                
                 const dh = new DataHarmonizer(dhRoot, {
                   context: context,
-                  loadingScreenRoot: document.querySelector('body'),
-                  field_filters: []
-                });                
-                dhs.push(dh);
+                  loadingScreenRoot: document.querySelector('body')
+                });
+
+                dh.useSchema(_schema, _export_formats, _schema_name);
 
                 // // TODO: data harmonizers require initialization code inside of the toolbar to fully render? wut
-                new Toolbar(dhToolbarRoot, dhs[0], menu, {
+                new Toolbar(dhToolbarRoot, dh, menu, {
                   context: context,
                   templatePath: context.appConfig.template_path,  // TODO: a default should be loaded before Toolbar is constructed! then take out all loading in "toolbar" to an outside context
                   releasesURL: 'https://github.com/cidgoh/pathogen-genomics-package/releases',
@@ -903,10 +901,11 @@ const main = async function () {
                   getSchema: async (schema) => Template.create(schema).then(result => result.current.schema),
                   getExportFormats: context.getExportFormats.bind(context),
                 });  
+                
+                new Footer(dhFooterRoot, dh);
 
             }
 
-            new Footer(dhFooterRoot, dhs[0]);
 
             return context;
 
