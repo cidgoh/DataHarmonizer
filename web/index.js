@@ -43,6 +43,7 @@ class AppConfig {
 
 class AppContext {
 
+    schema_tree = {};
     dhs = {};
     current_data_harmonizer_name = null;
 
@@ -51,10 +52,13 @@ class AppContext {
         this.appConfig = appConfig;
     }
 
+    setSchemaTree(schema_tree) {
+        this.schema_tree = schema_tree;
+    }
+
     setDataHarmonizers(data_harmonizers) {
         this.dhs = data_harmonizers;
-        // TODO finding the initial parent?
-        this.setCurrentDataHarmonizer(data_harmonizers['Container'].children[0]);
+        this.setCurrentDataHarmonizer(this.schema_tree['Container'].children[0]);
     }
 
     setCurrentDataHarmonizer(data_harmonizer_name) {
@@ -80,9 +84,6 @@ class AppContext {
         }, {});
     }
 
-    // TODO: memoize?
-    // setup dependency tree
-    // TODO: dh_interface superclass
     /*
     Example Data:
     {
@@ -858,34 +859,31 @@ const main = async function () {
                 };
 
                 function initializeDataHarmonizers(data_harmonizers) {
-                    // TODO
-                    // Object.entries(data_harmonizers).forEach(([cls_key,], index) => {
-                    //     new Toolbar(dhToolbarRoot, data_harmonizers[cls_key], menu, {
-                    //         context: context,
-                    //         templatePath: context.appConfig.template_path,  // TODO: a default should be loaded before Toolbar is constructed! then take out all loading in "toolbar" to an outside context
-                    //         releasesURL: 'https: // github.com/cidgoh/pathogen-genomics-package/releases',
-                    //         getLanguages: context.getLocaleData.bind(context),
-                    //         getSchema: async (schema) => Template.create(schema).then(result => result.current.schema),
-                    //         getExportFormats: context.getExportFormats.bind(context),
-                    //     });
-                    // });
-                    console.log('before attachPropagationEventHandlersToDataHarmonizers');
+                    new Toolbar(dhToolbarRoot, context.getCurrentDataHarmonizer(), menu, {
+                        context: context,
+                        templatePath: context.appConfig.template_path,  // TODO: a default should be loaded before Toolbar is constructed! then take out all loading in "toolbar" to an outside context
+                        releasesURL: 'https: // github.com/cidgoh/pathogen-genomics-package/releases',
+                        getLanguages: context.getLocaleData.bind(context),
+                        getSchema: async (schema) => Template.create(schema).then(result => result.current.schema),
+                        getExportFormats: context.getExportFormats.bind(context),
+                    });
                     attachPropagationEventHandlersToDataHarmonizers(data_harmonizers, schema_tree);
                     return data_harmonizers;
                 };
                     
                 const schema = (await context.getSchema())
                 const schema_tree = buildSchemaTree(schema);
+
+                context.setSchemaTree(schema_tree);
+
                 data_harmonizers = makeDataHarmonizersFromSchemaTree(
                     schema,
                     schema_tree);
                 // HACK
                 delete data_harmonizers[undefined];
-                console.log('before initializeDataHarmonizers');
-                initializeDataHarmonizers(data_harmonizers);
-                // TODO assignment functions
-                // TODO current dataharmonizer in contexts
-                context.dhs = data_harmonizers;
+                context.setDataHarmonizers(data_harmonizers);
+                console.log(context.getCurrentDataHarmonizer());
+                initializeDataHarmonizers(context.dhs);
 
             } else {
                 console.log('branch 2');
