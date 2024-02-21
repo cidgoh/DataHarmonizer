@@ -614,6 +614,7 @@ const main = async function () {
                         visitSchemaTree(schema_tree, callback, next);
                     });
                 };
+                              
 
                 /**
                  * Creates Data Harmonizers from the schema tree.
@@ -634,7 +635,6 @@ const main = async function () {
                     }
                     
                     function createDataHarmonizerTab(dhId, entity, isActive) {
-                        console.log('create data harmonizer tab')
                         const dhTab = document.createElement('li');
                         dhTab.className = 'nav-item';
                         dhTab.setAttribute('role', 'presentation');
@@ -659,7 +659,6 @@ const main = async function () {
                         Object.entries(schema_tree).filter(([cls_key,]) => cls_key !== 'Container').forEach((obj, index) => {
                             if (obj.length > 0) {
                                 const [cls_key, spec] = obj;
-                                console.log('obj', cls_key, spec)
                                 const dhId = `data-harmonizer-grid-${index}`;
                                 let dhSubroot = createDataHarmonizerContainer(dhId, index === 0);
                                 
@@ -667,7 +666,6 @@ const main = async function () {
                                 
                                 const dhTab = createDataHarmonizerTab(dhId, spec.name, index === 0);
                                 dhTab.addEventListener('click', () => {
-                                    console.log('click tab', spec.name, index);
                                     // set the current dataharmonizer tab in the context
                                     context.setCurrentDataHarmonizer(spec.name);
                                 })
@@ -681,7 +679,6 @@ const main = async function () {
                                     field_filters: findSlotNamesForClass(schema, cls_key) // TODO: Find slot names for filtering
                                 });
 
-                                console.log(spec.name);
                                 data_harmonizers[spec.name].useSchema(_schema, _export_formats, _schema_name);
 
                             }
@@ -727,35 +724,40 @@ const main = async function () {
 
                 };
 
+
                 /**
-                 * Locks editing capabilities for a specific column in a Data Harmonizer instance.
-                 * @param {DataHarmonizer} data_harmonizer - The Data Harmonizer instance.
-                 * @param {string} shared_key_name - The name of the tabular column to be locked.
+                 * Makes a column non-editable in a Handsontable instance based on a property key.
+                 * @param {object} dataHarmonizer - An object containing the Handsontable instance (`hot`).
+                 * @param {string} property - The column data property or header name.
                  */
-                function lockColumnEdits(data_harmonizer, shared_key_name) {
-                    const hot = data_harmonizer.hot;
+                function makeColumnReadOnly(dataHarmonizer, shared_key_name) {
+
+                    const hot = dataHarmonizer.hot;
+                    // Get the index of the column based on the shared_key_name
+                    const colHeadersHTML = hot.getColHeader();
+                    const colHeadersText = colHeadersHTML.map(headerHTML => {
+                        const tempDiv = document.createElement('div');
+                        tempDiv.innerHTML = headerHTML;
+                        return tempDiv.textContent || tempDiv.innerText || ""; 
+                      });
+                    const columnIndex = colHeadersText.indexOf(shared_key_name);
                     
-                    // Get current column settings
-                    const currentColumns = hot.getSettings().columns ? hot.getSettings().columns.slice() : [];
-                  
-                    // Find the index of the column to lock
-                    const columnIndexToLock = hot.propToCol(shared_key_name);
-                    
-                    if (columnIndexToLock < 0 || columnIndexToLock >= currentColumns.length) {
-                      console.error(`Could not find a column with data property: ${shared_key_name}`);
-                      return;
+                    // Check if the columnIndex is valid
+                    if (columnIndex >= 0 && columnIndex < hot.countCols()) {
+                        const currentColumns = hot.getSettings().columns ? hot.getSettings().columns.slice() : [];
+                        console.log(currentColumns);
+
+                        // Create a new column setting or update the existing one
+                        currentColumns[columnIndex] = {
+                            ...currentColumns[columnIndex],
+                            readOnly: true
+                        };
+
+                        hot.updateSettings({ columns: currentColumns });
+
+                    } else {
+                        console.error(`makeColumnReadOnly: Column not found for property: ${property}`);
                     }
-                  
-                    // Set the read-only property for the matched column
-                    const columnSettingsToUpdate = { ...currentColumns[columnIndexToLock], readOnly: true };
-                  
-                    // Update the specific column settings while keeping others intact
-                    currentColumns[columnIndexToLock] = columnSettingsToUpdate;
-                  
-                    // Update the column settings of the Handsontable instance
-                    hot.updateSettings({
-                      columns: currentColumns
-                    });
                 }
                 
                 /**
@@ -764,29 +766,34 @@ const main = async function () {
                  * @param {string} shared_key_name - The name of the tabular column to monitor for changes.
                  * @param {Function} callback - The callback function executed when the column data changes.
                  */
-                function attachColumnEditHandler(data_harmonizer, shared_key_name, callback) {
+                function setupSharedColumn(data_harmonizer, shared_key_name, callback) {
+
                     const hot = data_harmonizer.hot;
                     // Get the index of the column based on the shared_key_name
-                    const columnIndex = hot.propToCol(shared_key_name);
+                    const colHeadersHTML = hot.getColHeader();
+                    const colHeadersText = colHeadersHTML.map(headerHTML => {
+                        const tempDiv = document.createElement('div');
+                        tempDiv.innerHTML = headerHTML;
+                        return tempDiv.textContent || tempDiv.innerText || ""; 
+                      });
+                    const columnIndex = colHeadersText.indexOf(shared_key_name);
                     
                     // Check if the column index was found properly
                     if (columnIndex === -1) {
-                      console.error(`Column with the name '${shared_key_name}' not found.`);
+                      console.error(`setupSharedColumn: Column with the name '${shared_key_name}' not found.`);
                     } else {
                          // Listen for changes using the afterChange hook of Handsontable
                          hot.addHook('afterChange', (changes, source) => {
-                            console.log('afterchange hook execute', changes, source)
+                            console.log('setupSharedColumn: afterchange hook execute', changes, source)
                             // changes is a 2D array containing information about each change
                             // Each change is of the form [row, prop, oldVal, newVal]
                             if (changes && source !== 'loadData') { // Ignore initial load changes
                                 changes.forEach(([row, prop, oldVal, newVal]) => {
-                                console.log(prop, hot.propToCol(prop), columnIndex, shared_key_name, oldVal, newVal);
-                                console.log(`Column '${shared_key_name}' changed at row ${row}`);
-                                // You can put here the code that should be executed when
-                                // the specific column has been edited.
-                                // This could be a function call, an event dispatch, etc.
-                                callback(changes, source, oldVal, newVal);
-                            });
+                                    // You can put here the code that should be executed when
+                                    // the specific column has been edited.
+                                    // This could be a function call, an event dispatch, etc.
+                                    callback(changes, source, oldVal, newVal);
+                                });
                             }
                         });
                     }
@@ -799,28 +806,26 @@ const main = async function () {
                  * @param {Object} schema_tree_node - The schema tree node containing the shared keys and child references.
                  */
                 function makeSharedKeyHandler(data_harmonizer, schema_tree_node) {
-                    if (schema_tree_node.shared_keys.length > 0) {
-                        schema_tree_node.shared_keys.forEach((shared_key_name) => {
-                            const updateSchemaNodeChildrenCallback = (changes, source, old_value, new_value) => {
-                                if (schema_tree_node.children.length > 0) {
-                                    schema_tree_node.children.forEach(cls_key => {
-                                        transformMultivaluedColumn(data_harmonizers[cls_key], shared_key_name, changes, source, old_value, new_value);
-                                        // TODO
-                                        // visitSchemaTree(schema_tree, (schema_tree_node) => {
-                                        //     schema_tree_node.children.forEach(cls_key => {
-                                        //         visitSchemaTree(schema_tree, () => transformMultivaluedColumn(data_harmonizers[cls_key], shared_key_name, changes, source, old_value, new_value), cls_key)
-                                        //     })
-                                        // }, cls_key);
-                                    });
 
-                                } else {
-                                    console.log('no more iteration for', schema_tree_node.name);
-                                }
-                            };
-                            attachColumnEditHandler(data_harmonizer, shared_key_name, updateSchemaNodeChildrenCallback);
+                    const makeUpdateHandler = (shared_key_spec) => {
+                        const updateSchemaNodeChildrenCallback = (changes, source, old_value, new_value) => {
+                            schema_tree_node.children.forEach(cls_key => {
+                                transformMultivaluedColumn(data_harmonizers[cls_key], shared_key_spec, changes, source, old_value, new_value);
+                                // TODO
+                                // visitSchemaTree(schema_tree, (schema_tree_node) => {
+                                //     schema_tree_node.children.forEach(cls_key => {
+                                //         visitSchemaTree(schema_tree, () => transformMultivaluedColumn(data_harmonizers[cls_key], shared_key_name, changes, source, old_value, new_value), cls_key)
+                                //     })
+                                // }, cls_key);
+                            });
+                        };
+                        return updateSchemaNodeChildrenCallback;
+                    };
 
-                        });
-                    }
+                    schema_tree_node.shared_keys.forEach((shared_key_spec) => {
+                        setupSharedColumn(data_harmonizer, shared_key_spec.name, makeUpdateHandler(shared_key_spec));
+                    });
+
                 };
                 
                 // Two kinds of edits to be dealt with in 1-M:
@@ -833,33 +838,37 @@ const main = async function () {
                  * @returns {Object} The same object with event handlers attached.
                  */
                 function attachPropagationEventHandlersToDataHarmonizers(data_harmonizers, schema_tree) {
-
                     visitSchemaTree(schema_tree, (schema_tree_node) => {
                         // Propagation:
                         // - If has children with shared_keys, add handler
                         // - visit children -> lock field from being edited by user (DH methods can modify it)
                         if (schema_tree_node.children.length > 0) {
-                            if (!schema_tree_node.tree_root) makeSharedKeyHandler(data_harmonizers[schema_tree_node.name], schema_tree_node)
-                            schema_tree_node.children.forEach(child_node_key => {
-                                if (!schema_tree_node.tree_root) lockColumnEdits(data_harmonizers[child_node_key], schema_tree_node.shared_column_key);
-                            });
+                            console.log('attachPropagationEventHandlersToDataHarmonizers', schema_tree_node)
+                            if (!schema_tree_node.tree_root) {
+                                makeSharedKeyHandler(data_harmonizers[schema_tree_node.name], schema_tree_node);
+                                schema_tree_node.children.forEach(child => {
+                                    schema_tree[child].shared_keys.forEach(shared_key_spec_child => {
+                                        makeColumnReadOnly(data_harmonizers[child], shared_key_spec_child.name);
+                                    });
+                                });
+                            } 
                         };
                     })
                     return data_harmonizers;
                 };
 
                 function initializeDataHarmonizers(data_harmonizers) {
-                    console.log('data_harmonizers', data_harmonizers);
-                    Object.entries(data_harmonizers).forEach(([cls_key,], index) => {
-                        // new Toolbar(dhToolbarRoot, data_harmonizers[cls_key], menu, {
-                        //     context: context,
-                        //     templatePath: context.appConfig.template_path,  // TODO: a default should be loaded before Toolbar is constructed! then take out all loading in "toolbar" to an outside context
-                        //     releasesURL: 'https: // gi thub.com/cidgoh/pathogen-genomics-package/releases',
-                        //     getLanguages: context.getLocaleData.bind(context),
-                        //     getSchema: async (schema) => Template.create(schema).then(result => result.current.schema),
-                        //     getExportFormats: context.getExportFormats.bind(context),
-                        // });
-                    });
+                    // TODO
+                    // Object.entries(data_harmonizers).forEach(([cls_key,], index) => {
+                    //     new Toolbar(dhToolbarRoot, data_harmonizers[cls_key], menu, {
+                    //         context: context,
+                    //         templatePath: context.appConfig.template_path,  // TODO: a default should be loaded before Toolbar is constructed! then take out all loading in "toolbar" to an outside context
+                    //         releasesURL: 'https: // github.com/cidgoh/pathogen-genomics-package/releases',
+                    //         getLanguages: context.getLocaleData.bind(context),
+                    //         getSchema: async (schema) => Template.create(schema).then(result => result.current.schema),
+                    //         getExportFormats: context.getExportFormats.bind(context),
+                    //     });
+                    // });
                     console.log('before attachPropagationEventHandlersToDataHarmonizers');
                     attachPropagationEventHandlersToDataHarmonizers(data_harmonizers, schema_tree);
                     return data_harmonizers;
@@ -877,16 +886,7 @@ const main = async function () {
                 // TODO assignment functions
                 // TODO current dataharmonizer in contexts
                 context.dhs = data_harmonizers;
-                 new Toolbar(dhToolbarRoot, data_harmonizers[cls_key], menu, {
-                            context: context,
-                            templatePath: context.appConfig.template_path,  // TODO: a default should be loaded before Toolbar is constructed! then take out all loading in "toolbar" to an outside context
-                            releasesURL: 'https: // gi thub.com/cidgoh/pathogen-genomics-package/releases',
-                            // TODO: migrate into context functions
-                            getLanguages: context.getLocaleData.bind(context),
-                            getSchema: async (schema) => Template.create(schema).then(result => result.current.schema),
-                            getExportFormats: context.getExportFormats.bind(context),
-                        });
-                
+
             } else {
                 console.log('branch 2');
                 const dh = new DataHarmonizer(dhRoot, {
