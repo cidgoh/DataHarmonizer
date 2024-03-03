@@ -412,7 +412,7 @@ class AppContext {
         // dhToolbarRoot.innerHTML = '';
     }
 
-    async setupDataHarmonizers({ template_path, schema_name, template_name, schema, exportFormats }) {
+    async setupDataHarmonizers({ template_path, schema_name, template_name, schema, exportFormats, schemaClass, columnCoordinates }) {
 
         // TODO refactor
         this.appConfig = new AppConfig(template_path);
