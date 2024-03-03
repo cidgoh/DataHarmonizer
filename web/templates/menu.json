@@ -1,15 +1,15 @@
 
 {
-  "canada_covid19": {
-    "CanCOGeN Covid-19": {
-      "name": "CanCOGeN Covid-19",
+  "grdi": {
+    "GRDI_Sample": {
+      "name": "GRDI_Sample",
       "status": "published",
       "display": true
     }
   },
-  "grdi": {
-    "GRDI_Sample": {
-      "name": "GRDI_Sample",
+  "canada_covid19": {
+    "CanCOGeN Covid-19": {
+      "name": "CanCOGeN Covid-19",
       "status": "published",
       "display": true
     }
