@@ -731,8 +731,8 @@ function makeDataHarmonizersFromSchemaTree(context, schema, schema_tree, schema_
 
                 data_harmonizers[spec.name] = new DataHarmonizer(dhSubroot, {
                     context: context,
-                    class_assignment: cls_key,
                     loadingScreenRoot: document.body,
+                    class_assignment: cls_key,
                     field_filters: findSlotNamesForClass(schema, cls_key) // TODO: Find slot names for filtering
                 });
 
