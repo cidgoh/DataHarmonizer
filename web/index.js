@@ -415,18 +415,14 @@ class AppContext {
 
     async setupDataHarmonizers({ template_path, schema_name, template_name, schema, exportFormats, schemaClass, columnCoordinates }) {
 
-        // TODO refactor
         this.appConfig = new AppConfig(template_path);
         this.initializeTemplate(this.appConfig.template_path);
 
         this.clearInterface();
         this.clearContext();
 
-        const _template = this.template;
         const [_template_name, _schema_name] = this.appConfig.template_path.split('/');
         const _export_formats = exportFormats || (await this.getExportFormats(_template_name));
-
-        // const classes = (await this.getClasses()).reduce((acc, item) => Object.assign(acc, item), {});
 
         // attributes are the classes which feature 1-M relationshisps
         // to process these classes into DataHarmonizer tables, the following must be performed:
@@ -482,7 +478,6 @@ class AppContext {
     
         //     */
                 
-        // const schema = _template.current.schema; // (await this.getSchema())
         const schema_tree = buildSchemaTree(schema);
         this.setSchemaTree(schema_tree);
         data_harmonizers = makeDataHarmonizersFromSchemaTree(
@@ -761,25 +756,64 @@ function transformMultivaluedColumn(data_harmonizer, shared_field, changes, sour
     if (hot.propToCol(shared_field.name) === -1) {
         console.error(`Invalid column name: ${column_name}`);
     } else {
-        if (old_value !== new_value) hot.setDataAtCell(changes[0][0], changes[0][1], new_value);
+        if (old_value !== new_value) {
+            // WIP
+            // Perform batch operation to replace old_value with new_value where the condition matches
+            // const matchCondition = row => row[column_name] === old_value;
+            // hot.batch(() => {
+            //   hot.getSourceData().forEach((row, rowIndex) => {
+            //     if (matchCondition(row)) {
+            //       // Set new value for a property of matched rows
+            //       hot.setDataAtRowProp(rowIndex, column_name, new_value);
+            //     }
+            //   });
+            // });
+            hot.batch(() => {
+                hot.getData().forEach((row, rowIndex) => {
+                    console.log(row, rowIndex)
+                    if (row[changes[0][1]] === old_value) {
+                        // Set new value for the cell that matches the condition
+                        // hot.setDataAtCell(rowIndex, columnIndex, new_value);
+                        hot.setDataAtCell(rowIndex, changes[0][1], new_value);
+                    }
+                });
+              });
+            }            
+        };
 
-        // TODO
-        // Perform batch operation to replace old_value with new_value where the condition matches
-        // const matchCondition = row => row[column_name] === old_value;
-        // hot.batch(() => {
-        //   hot.getSourceData().forEach((row, rowIndex) => {
-        //     if (matchCondition(row)) {
-        //       // Set new value for a property of matched rows
-        //       hot.setDataAtRowProp(rowIndex, column_name, new_value);
-        //     }
-        //   });
-        // });
-        
         // Rerender table after setting data to reflect changes
         hot.render();
     }
 
-};
+
+// function transformMultivaluedColumn(data_harmonizer, columnName, old_value, new_value) {
+//     const hot = data_harmonizer.hot;
+//     const columnIndex = hot.propToCol(columnName);
+  
+//     // Verify if columnName is a valid property
+//     if (columnIndex === -1) {
+//       console.error(`Invalid column name: ${columnName}`);
+//       return;
+//     }
+  
+//     if (old_value !== new_value) {
+//       // Perform batch operation to replace old_value with new_value where the condition matches
+//       hot.batch(() => {
+//         hot.getData().forEach((row, rowIndex) => {
+//             console.log(row, rowIndex)
+//             if (row[columnIndex] === old_value) {
+//                 // Set new value for the cell that matches the condition
+//                 // hot.setDataAtCell(rowIndex, columnIndex, new_value);
+//                 hot.setDataAtCell(changes[0][0], changes[0][1], new_value);
+//             }
+//         });
+//       });
+//     }
+  
+//     // Rerender table after setting data to reflect changes
+//     hot.render();
+//   };
+  
 
     /**
  * Makes a column non-editable in a Handsontable instance based on a property key.
@@ -801,8 +835,7 @@ function makeColumnReadOnly(dataHarmonizer, shared_key_name) {
     // Check if the columnIndex is valid
     if (columnIndex >= 0 && columnIndex < hot.countCols()) {
         const currentColumns = hot.getSettings().columns ? hot.getSettings().columns.slice() : [];
-        console.log(currentColumns);
-
+    
         // Create a new column setting or update the existing one
         currentColumns[columnIndex] = {
             ...currentColumns[columnIndex],
@@ -867,7 +900,7 @@ function makeSharedKeyHandler(data_harmonizer, schema_tree_node) {
         const updateSchemaNodeChildrenCallback = (changes, source, old_value, new_value) => {
             schema_tree_node.children.forEach(cls_key => {
                 transformMultivaluedColumn(data_harmonizers[cls_key], shared_key_spec, changes, source, old_value, new_value);
-                // TODO
+                // TODO does this need to recur to get more than ~2 depths of recursion in hierarchy?
                 // visitSchemaTree(schema_tree, (schema_tree_node) => {
                 //     schema_tree_node.children.forEach(cls_key => {
                 //         visitSchemaTree(schema_tree, () => transformMultivaluedColumn(data_harmonizers[cls_key], shared_key_name, changes, source, old_value, new_value), cls_key)
@@ -899,7 +932,7 @@ function attachPropagationEventHandlersToDataHarmonizers(data_harmonizers, schem
         // - If has children with shared_keys, add handler
         // - visit children -> lock field from being edited by user (DH methods can modify it)
         if (schema_tree_node.children.length > 0) {
-            console.log('attachPropagationEventHandlersToDataHarmonizers', schema_tree_node)
+
             if (!schema_tree_node.tree_root) {
                 makeSharedKeyHandler(data_harmonizers[schema_tree_node.name], schema_tree_node);
                 schema_tree_node.children.forEach(child => {
