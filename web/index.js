@@ -41,7 +41,6 @@ let dhs = [];
 let data_harmonizers = {};
 
 const rootUrl = window.location.host;
-console.log('Root URL:', rootUrl);
 
 async function getTemplatePath() {
     let templatePath;
@@ -90,7 +89,6 @@ class AppContext {
     }
 
     setCurrentDataHarmonizer(data_harmonizer_name) {
-        console.log('set current data harmonizer', data_harmonizer_name)
         this.current_data_harmonizer_name = data_harmonizer_name;
     }
 
@@ -722,8 +720,6 @@ function makeDataHarmonizersFromSchemaTree(context, schema, schema_tree, schema_
                 })
                 dhTabNav.appendChild(dhTab); // Appending to the tab navigation
                 
-                console.log('findSlotNamesForClass', findSlotNamesForClass(schema, cls_key));
-
                 data_harmonizers[spec.name] = new DataHarmonizer(dhSubroot, {
                     context: context,
                     loadingScreenRoot: document.body,
@@ -750,8 +746,6 @@ function makeDataHarmonizersFromSchemaTree(context, schema, schema_tree, schema_
 function transformMultivaluedColumn(data_harmonizer, shared_field, changes, source,  old_value, new_value) {
     const hot = data_harmonizer.hot;
 
-    console.log('transform multivalued column execute', shared_field, changes, source,  old_value, new_value);
-    console.log(hot.propToCol(shared_field.name))
     // Verify if column_name is a valid property
     if (hot.propToCol(shared_field.name) === -1) {
         console.error(`Invalid column name: ${column_name}`);
@@ -770,7 +764,6 @@ function transformMultivaluedColumn(data_harmonizer, shared_field, changes, sour
             // });
             hot.batch(() => {
                 hot.getData().forEach((row, rowIndex) => {
-                    console.log(row, rowIndex)
                     if (row[changes[0][1]] === old_value) {
                         // Set new value for the cell that matches the condition
                         // hot.setDataAtCell(rowIndex, columnIndex, new_value);
@@ -873,7 +866,6 @@ function setupSharedColumn(data_harmonizer, shared_key_name, callback) {
     } else {
             // Listen for changes using the afterChange hook of Handsontable
             hot.addHook('afterChange', (changes, source) => {
-            console.log('setupSharedColumn: afterchange hook execute', changes, source)
             // changes is a 2D array containing information about each change
             // Each change is of the form [row, prop, oldVal, newVal]
             if (changes && source !== 'loadData') { // Ignore initial load changes
