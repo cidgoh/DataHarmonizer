@@ -41,6 +41,13 @@
       "display": true
     }
   },
+  "test": {
+    "TEST": {
+      "name": "TEST",
+      "status": "published",
+      "display": true
+    }
+  },
   "pathogen": {
     "Pathogen Agnostic": {
       "name": "Pathogen Agnostic",
