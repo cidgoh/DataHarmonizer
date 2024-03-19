@@ -1,27 +1,218 @@
 {
+  "file-menu-button": {
+    "en": "File",
+    "fr": "Fichier"
+  },
+  "select-template-modal-button": {
+    "en": "Select Template",
+    "fr": "Sélectionner un modèle"
+  },
+  "upload-template-dropdown-item": {
+    "en": "Upload Template",
+    "fr": "Télécharger le modèle"
+  },
+  "new-dropdown-item": {
+    "en": "New",
+    "fr": "Nouveau"
+  },
   "open-dropdown-item": {
+    "en": "Open",
     "fr": "Ouvrir"
   },
-  "upload-template-dropdown-item": {},
-  "select-template-modal-button": {},
-  "new-dropdown-item": {},
-  "open-file-input": {},
-  "save-as-dropdown-item": {},
-  "export-to-dropdown-item": {},
-  "show-all-cols-dropdown-item": {},
-  "show-required-cols-dropdown-item": {},
-  "show-all-rows-dropdown-item": {},
-  "show-valid-rows-dropdown-item": {},
-  "show-invalid-rows-dropdown-item": {},
-  "jump-to-dropdown-item": {},
-  "fill-dropdown-item": {},
-  "validate-btn": {},
-  "save-as-modal": {},
-  "export-to-modal-btn": {},
-  "export-to-confirm-btn": {},
-  "jump-to-input": {},
-  "fill-column-input": {},
-  "help_release": {},
-  "template_name_display": {},
-  "getting-started-modal-menu": {}
+  "save-as-dropdown-item": {
+    "en": "Save As...",
+    "fr": "Enregistrer sous..."
+  },
+  "export-to-dropdown-item": {
+    "en": "Export To...",
+    "fr": "Exporter vers..."
+  },
+
+  "settings-menu-button": {
+    "en": "Settings",
+    "fr": "Paramètres"
+  },
+  "show-all-cols-dropdown-item": {
+    "en": "Show all columns",
+    "fr": "Afficher toutes les colonnes"
+  },
+  "show-required-cols-dropdown-item": {
+    "en": "Show required columns",
+    "fr": "Afficher les colonnes requises"
+  },
+  "show-recommended-cols-dropdown-item": {
+    "en": "Show required + recommended columns",
+    "fr": "Afficher les colonnes obligatoires + recommandées"
+  },
+  "show-all-rows-dropdown-item": {
+    "en": "Show all rows",
+    "fr": "Afficher toutes les lignes"
+  },
+  "show-valid-rows-dropdown-item": {
+    "en": "Show valid rows",
+    "fr": "Afficher les lignes valides"
+  },
+  "show-invalid-rows-dropdown-item": {
+    "en": "Show invalid rows",
+    "fr": "Afficher les lignes invalides"
+  },
+  "show-section-menu": {
+    "en": "Show section:",
+    "fr": "Afficher la section:"
+  },
+  "jump-to-dropdown-item": {
+    "en": "Jump to...",
+    "fr": "Aller à..."
+  },
+  "fill-dropdown-item": {
+    "en": "Fill column...",
+    "fr": "Remplir la colonne..."
+  },
+  "validate-btn": {
+    "en": "Validate",
+    "fr": "Valider"
+  },
+
+  "help-menu-button": {
+    "en": "Help",
+    "fr": "Aide"
+  },
+  "getting-started-modal-menu": {
+    "en": "Getting Started",
+    "fr": "Aide pour démarrer"
+  },
+  "help_reference": {
+    "en": "Reference Guide",
+    "fr": "Guide de référence"
+  },
+  "help_sop": {
+    "en": "SOP",
+    "fr": "Relevé des débats"
+  },
+  "help_release": {
+    "en": "Get Latest Release",
+    "fr": "Obtenir la dernière version"
+  },
+  "help_contact": {
+    "en": "Contact Us",
+    "fr": "Contactez-nous"
+  },
+
+  "template_label": {
+    "en": "Template",
+    "fr": "Modèle"
+  },
+  "language_label": {
+    "en": "Language",
+    "fr": "Langue"
+  },
+  "loaded_file_label": {
+    "en": "Loaded file",
+    "fr": "Fichier chargé"
+  },
+  "add-row": {
+    "en": "Add",
+    "fr": "Ajouter"
+  },
+  "add-row-text": {
+    "en": "more rows at the bottom",
+    "fr": "plus de lignes en bas"
+  },
+  "template-cancel": {
+    "en": "Cancel",
+    "fr": "Annuler"
+  },
+  "template-save": {
+    "en": "Save",
+    "fr": "Enregistrer"
+  },
+  "template-continue": {
+    "en": "Continue",
+    "fr": "Continuer"
+  },
+  "template-ok": {
+    "en": "Ok",
+    "fr": "Ok"
+  },
+  "no-error-button": {
+    "en": "No Errors",
+    "fr": "Aucune erreur"
+  },
+  "next-error-button": {
+    "en": "Next Error",
+    "fr": "Erreur suivante"
+  },
+  "change-template": {
+    "en": "Change Template",
+    "fr": "Modifier le modèle"
+  },
+  "view-template-draft-prompt": {
+    "en": "View draft templates",
+    "fr": "Afficher les modèles de brouillons"
+  },
+  "select-template-load": {
+    "en": "Open",
+    "fr": "Ouvrir"
+  },
+  "clear-data-prompt": {
+    "en": "Clear existing data?",
+    "fr": "Effacer les données existantes?"
+  },
+  "clear-data-confirm-btn": {
+    "en": "Clear",
+    "fr": "Effacer"
+  },
+  "save-as-warning": {
+    "en": "You have invalid cells. Continue saving?",
+    "fr": "Vous avez des cellules invalides. Continuer à enregistrer?"
+  },
+
+  "save-as-json-use-index": {
+    "en": "Save as object with index key",
+    "fr": "Enregistrer comme objet avec clé d'index"
+  },
+  "save-as-json-use-index-key": {
+    "en": "Name",
+    "fr": "Nom"
+  },
+
+  "export-to-invalid-warning": {
+    "en": "You have invalid cells. Continue exporting?",
+    "fr": "Vous avez des cellules invalides. Continuer l'exportation?"
+  },
+
+  "export-to-confirm-btn": {
+    "en": "Export",
+    "fr": "Exporter"
+  },
+
+  "jump-to-input-prompt": {
+    "en": "Jump to...",
+    "fr": "Aller à..."
+  },
+
+  "fill-column-input-prompt": {
+    "en": "Fill cells in column ...",
+    "fr": "Remplir les cellules dans la colonne..."
+  },
+  "fill-column-input-part2": {
+    "en": "with value",
+    "fr": "avec valeur"
+  },
+  "fill-column-help": {
+    "en": "Utilisez cette fonctionnalité pour remplir toutes les cellules d'une colonne avec une valeur donnée. Cela ne remplira pas les lignes vides de la feuille de calcul (comme cela se produit lors du collage d'une valeur dans la cellule d'en-tête d'une colonne).",
+    "fr": ""
+  },
+  "template-help-title": {
+    "en": "Are you ready to harmonize your contextual data?",
+    "fr": "Etes-vous prêt à harmoniser vos données contextuelles?"
+  },
+  "template-contact-blurb": {
+    "en": "",
+    "fr": ""
+  },
+  "dataharmonizer-contact-blurb": {
+    "en": "If you have questions about the DataHarmonizer application, or want to notify us of bugs or potential improvements, contact us by either posting an issue at https://github.com/cidgoh/DataHarmonizer/issues or emailing us at emma_griffiths@sfu.ca",
+    "fr": "Si vous avez des questions sur l'application DataHarmonizer, ou si vous souhaitez nous informer de bugs ou d'améliorations potentielles, contactez-nous en publiant un problème sur https://github.com/Public-Health-Bioinformatics/DataHarmonizer/issues ou en nous envoyant un courriel à emma_griffiths@sfu.ca"
+  }
 }

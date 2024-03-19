@@ -1,72 +1,11 @@
-import * as $ from 'jquery';
-import 'bootstrap';
-
-import i18n from 'i18next';
-import { DataHarmonizer, Footer, Toolbar } from '@/lib';
-import { initI18n } from '@/lib/utils/i18n';
-import { Template } from '@/lib/utils/templates';
-import { wait } from '@/lib/utils/general';
-
-import menu from '@/web/templates/menu.json';
-import tags from 'language-tags';
-
-import 'bootstrap/dist/css/bootstrap.min.css';
-import '@/web/index.css';
-
-/**
- * Logging function used for debugging, it logs the supplied argument to the console.
- * @param {*} id - The item to be logged.
- * @returns {*} The same item passed in.
- */
-const tap = id => { console.log(id); return id; };
-
-
-let dhRoot = document.querySelector('#data-harmonizer-grid');
-const dhTabNav = document.querySelector("#data-harmonizer-tabs");
-const dhFooterRoot = document.querySelector('#data-harmonizer-footer');
-const dhToolbarRoot = document.querySelector('#data-harmonizer-toolbar');
-
-// loading screen
-$(dhRoot).append(`
-    <div class="w-100 h-100 position-fixed fixed-top" id="loading-screen">
-    <div class="d-flex h-100 align-items-center justify-content-center">
-        <div class="spinner-border text-primary" role="status">
-        <span class="sr-only">Please wait...</span>
-        </div>
-    </div>
-    </div>
-`);
-
-let dhs = [];
-let data_harmonizers = {};
-
-async function getTemplatePath() {
-    let templatePath;
-    if (window.URLSearchParams) {
-        let params = new URLSearchParams(location.search);
-        templatePath = params.get('template');
-    } else {
-        templatePath = location.search.split('template=')[1];
-    }
-    if (templatePath === null || typeof templatePath === 'undefined') {
-        const menu = (await import(`@/web/templates/menu.json`)).default;
-        const schema_name = Object.keys(menu)[0];
-        const template_name = Object.keys(menu[schema_name])[0];
-        return `${schema_name}/${template_name}`;
-        // return "grdi/GRDI_Sample";
-    }
-    return templatePath;
-
-}
-
-class AppConfig {
+export class AppConfig {
     constructor(template_path = null) {
         this.rootUrl = window.location.host;
         this.template_path = template_path;
     }
 }
 
-class AppContext {
+export class AppContext {
 
     schema_tree = {};
     dhs = {};
@@ -147,32 +86,39 @@ class AppContext {
     }
 
     /**
-     * Finds slots with suffixes shared across multiple prefixes in the given slot usage data.
+     * Asynchronously finds slots where the suffix is shared across multiple prefixes.
      *
-     * @param {Object} slotUsage - The slot usage data for a class.
-     * @param {number} [prefix_threshold=2] - The threshold for the number of prefixes sharing a suffix to be considered.
-     * @param {number} [suffix_threshold=2] - The threshold for the minimum number of suffixes shared to be considered.
-     * @returns {Object} - A dictionary containing prefixes and corresponding suffixes for one-to-many relationships.
-     *
-     * @example
-     * // Example slot usage data for a class
-     * const exampleSlotUsage = {
-     *   "apple_color": "red",
-     *   "apple_size": "medium",
-     *   "banana_color": "yellow",
-     *   "banana_size": "large",
-     *   "orange_color": "orange",
-     *   "orange_size": "medium",
-     *   "kiwi_color": "brown",
-     *   "kiwi_size": "small",
-     * };
-     *
-     * // Function to find slots with suffixes shared across multiple prefixes
-     * const result = findOneToManySlots(exampleSlotUsage, 2, 2);
-     * // Output: { "apple": ["apple_color", "apple_size"], "orange": ["orange_color", "orange_size"] }
+     * @param {string} cls - The class identifier.
+     * @param {number} prefix_threshold - The threshold for the number of prefixes that a suffix should be shared in (default: 2).
+     * @param {number} suffix_threshold - The threshold for the minimum number of suffixes a prefix should have (default: 2).
+     * @returns {Object} - A dictionary containing prefixes and corresponding suffixes.
      */
     async oneToManySlotUsage(cls, prefix_threshold = 2, suffix_threshold = 2) {
-
+        /**
+         * Finds slots with suffixes shared across multiple prefixes in the given slot usage data.
+         *
+         * @param {Object} slotUsage - The slot usage data for a class.
+         * @param {number} [prefix_threshold=2] - The threshold for the number of prefixes sharing a suffix to be considered.
+         * @param {number} [suffix_threshold=2] - The threshold for the minimum number of suffixes shared to be considered.
+         * @returns {Object} - A dictionary containing prefixes and corresponding suffixes for one-to-many relationships.
+         *
+         * @example
+         * // Example slot usage data for a class
+         * const exampleSlotUsage = {
+         *   "apple_color": "red",
+         *   "apple_size": "medium",
+         *   "banana_color": "yellow",
+         *   "banana_size": "large",
+         *   "orange_color": "orange",
+         *   "orange_size": "medium",
+         *   "kiwi_color": "brown",
+         *   "kiwi_size": "small",
+         * };
+         *
+         * // Function to find slots with suffixes shared across multiple prefixes
+         * const result = findOneToManySlots(exampleSlotUsage, 2, 2);
+         * // Output: { "apple": ["apple_color", "apple_size"], "orange": ["orange_color", "orange_size"] }
+         */
         const findOneToManySlots = (slotUsage, prefix_threshold = 1, suffix_threshold = 1) => {
 
             const suffix_dict = {};
@@ -226,11 +172,9 @@ class AppContext {
     }
 
     async getLocaleData() {
-        let locales = {
+        const locales = {
             default: { langcode: 'default', nativeName: 'Default' },
         };
-
-        console.log(this.template.locales)
 
         this.template.locales.forEach((locale) => {
             const langcode = locale.split('-')[0];
@@ -242,7 +186,6 @@ class AppContext {
     }
 
     async addTranslationResources(template, locales = null) {
-        console.log('add translation resources')
         if (locales === null) {
             locales = this.getLocaleData(template);
         }
@@ -771,7 +714,6 @@ function transformMultivaluedColumn(data_harmonizer, shared_field, changes, sour
         hot.render();
     }
 
-
 /**
  * Makes a column non-editable in a Handsontable instance based on a property key.
  * @param {object} dataHarmonizer - An object containing the Handsontable instance (`hot`).
@@ -901,45 +843,3 @@ function attachPropagationEventHandlersToDataHarmonizers(data_harmonizers, schem
     })
     return data_harmonizers;
 };
-
-// Make the top function asynchronous to allow for a data-loading/IO step?
-const main = async function () {
-
-    const context = new AppContext(new AppConfig(await getTemplatePath()));
-    context.initializeTemplate(context.appConfig.template_path)
-        .then(async (context) => {
-
-            // // internationalize
-            // // TODO: connect to locale of browser!
-            // // Takes `lang` as argument (unused)
-            // TODO move out of this function block
-            initI18n(( /* lang */ ) => {
-                $(document).localize();
-                dhs.forEach(dh => dh.render());
-            });
-            context.addTranslationResources(context.template, context.getLocaleData());
-
-            // await context.setupDataHarmonizers();
-
-            // // TODO: data harmonizers require initialization code inside of the toolbar to fully render? wut
-            new Toolbar(dhToolbarRoot, context.getCurrentDataHarmonizer(), menu, {
-                context: context,
-                templatePath: context.appConfig.template_path,  // TODO: a default should be loaded before Toolbar is constructed! then take out all loading in "toolbar" to an outside context
-                releasesURL: 'https://github.com/cidgoh/pathogen-genomics-package/releases',
-                getLanguages: context.getLocaleData.bind(context),
-                getSchema: async (schema) => Template.create(schema).then(result => result.current.schema),
-                getExportFormats: context.getExportFormats.bind(context),
-            });  
-                
-            new Footer(dhFooterRoot, context.getCurrentDataHarmonizer());
-
-            return context;
-
-    })
-    .then(async () => {
-      return setTimeout(() => dhs.forEach(dh => dh.showColumnsByNames(dh.field_filters)), 1000);
-    });
-    
-}
-
-document.addEventListener('DOMContentLoaded', main);

@@ -38,7 +38,7 @@ classes:
       - collection_date
 
 slots:
-  id:
+  id:g
     description: 'The unique identifier for a sample'
   name:
     description: 'The name of the sample'
