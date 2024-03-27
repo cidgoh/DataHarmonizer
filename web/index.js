@@ -91,7 +91,6 @@ class AppContext {
     }
 
     getCurrentDataHarmonizer() {
-        console.log(this.current_data_harmonizer_name, this.dhs[this.current_data_harmonizer_name])
         return this.dhs[this.current_data_harmonizer_name]
     }
 
