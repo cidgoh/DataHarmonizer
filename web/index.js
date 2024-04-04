@@ -213,8 +213,9 @@ class AppContext {
       const one_to_many = {};
       for (const [prefix, suffixes] of Object.entries(suffix_dict)) {
         if (
-          suffixes.some((suffix) =>
-            filtered_multi_suffixes_filter.hasOwnProperty(suffix)
+          suffixes.some(
+            (suffix) =>
+              typeof filtered_multi_suffixes_filter[suffix] !== 'undefined'
           ) &&
           suffixes.length >= suffix_threshold
         ) {
