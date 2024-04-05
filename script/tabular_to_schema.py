@@ -29,6 +29,7 @@ settings: not allowed yet.
 Process each slot given in tabular format.
 '''
 EXPORT_FORMAT = [];
+warnings = [];
 
 with open(r_schema_slots) as tsvfile:
 
@@ -52,11 +53,16 @@ with open(r_schema_slots) as tsvfile:
 		# A row may set a list of new class names to cycle through, which remain 
 		# pertinent until a subsequent row changes that list. First data row must
 		# start with at least one class name.
-		if row.get('class_name','') > '':
-			schema_class_names = row.get('class_name').split(';');
+		row_class_names = row.get('class_name','').strip();
+		if row_class_names > '':
+			schema_class_names = row_class_names.split(';');
 
 		if schema_class_names is None:
 			print ("ERROR: class_name column is missing a class (template) name in first row of schema_slots.tsv")
+			sys.exit(0)
+
+		if schema_class_names[len(schema_class_names)-1].strip() == "":
+			print ("ERROR: class_name column ",row_class_names," has empty last value.  Remove trailing semicolon and/whitespace?")
 			sys.exit(0)
 
 		for class_name in schema_class_names:
@@ -84,7 +90,10 @@ with open(r_schema_slots) as tsvfile:
 			if row.get('range','') > '':
 				label = row.get('name',False) or row.get('title','[UNNAMED!!!]')
 
-				print ("processing SLOT:", label)
+				print ("processing SLOT:", class_name, label)
+
+				if label in schema_class['slot_usage']:
+					warnings.append(f"{class_name} {label} is repeated.  Duplicate slot?")
 
 				# Define basics of slot:
 				slot = {
@@ -180,12 +189,7 @@ with open(r_schema_slots) as tsvfile:
 				if (not (class_name in ranks)):
 					ranks[class_name] = 1
 
-				#### Now add particular slot_usage requirements
-				slot_usage = {
-					'rank': ranks[class_name]
-				}
-
-				ranks[class_name] += 1;
+				slot_usage = {}
 
 				if row.get('slot_group','') > '':
 					slot_usage['slot_group'] = row['slot_group'];
@@ -207,7 +211,8 @@ with open(r_schema_slots) as tsvfile:
 								if not (field in slot) or slot[field] != generic_slot[field]:
 									print ("	Slot param difference:", field)
 									if field in slot:
-										slot_usage[field] = slot[field] # copy.copy(slot[field])
+										slot_usage[field] = copy.copy(slot[field])
+										#slot_usage[field] = slot[field] # modifying slot_usage
 										del slot[field]
 
 									# Find existing class's references to generic_slot and replace 
@@ -219,7 +224,7 @@ with open(r_schema_slots) as tsvfile:
 												if slot['name'] in other_class['slot_usage']:
 													if not (field in other_class['slot_usage'][slot['name']]):
 														#print ("here", class_name2, slot['name'], field, generic_slot[field])
-														other_class['slot_usage'][slot['name']][field] = generic_slot[field]
+														other_class['slot_usage'][slot['name']][field] = copy.copy(generic_slot[field])
 
 									del generic_slot[field]
 
@@ -232,7 +237,11 @@ with open(r_schema_slots) as tsvfile:
 
 				else:
 					# Establish generic slot:
-					SCHEMA['slots'][slot['name']] = slot;
+					SCHEMA['slots'][slot['name']] = copy.copy(slot);
+
+				#### Now add particular slot_usage requirements
+				slot_usage['rank'] = ranks[class_name];
+				ranks[class_name] += 1;
 
 				schema_class['slot_usage'][slot['name']] = slot_usage
 
@@ -333,6 +342,8 @@ with open(r_schema_enums) as tsvfile:
 	if len(enumerations) == 0:
 		print("WARNING: there are no enumerations in this specification!", title)
 
+	if len(warnings):
+			print ("\nWARNING: \n", "\n ".join(warnings));
 
 with open(w_filename, 'w') as output_handle:
 	yaml.dump(SCHEMA, output_handle, sort_keys=False)
