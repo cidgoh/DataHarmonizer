@@ -71,9 +71,9 @@ class AppContext {
   schema_tree = {};
   dhs = {};
   current_data_harmonizer_name = null;
+  template = null;
 
   constructor(appConfig) {
-    this.template = null;
     this.appConfig = appConfig;
   }
 
@@ -83,7 +83,8 @@ class AppContext {
 
   setDataHarmonizers(data_harmonizers) {
     this.dhs = data_harmonizers;
-    this.setCurrentDataHarmonizer(this.schema_tree['Container'].children[0]);
+    // NOTE: non-deterministic, assumes that the insertion order is the right order
+    this.setCurrentDataHarmonizer(Object.keys(this.dhs)[0]);
   }
 
   setCurrentDataHarmonizer(data_harmonizer_name) {
@@ -213,9 +214,8 @@ class AppContext {
       const one_to_many = {};
       for (const [prefix, suffixes] of Object.entries(suffix_dict)) {
         if (
-          suffixes.some(
-            (suffix) =>
-              typeof filtered_multi_suffixes_filter[suffix] !== 'undefined'
+          suffixes.some((suffix) =>
+            typeof filtered_multi_suffixes_filter[suffix] !== 'undefined'
           ) &&
           suffixes.length >= suffix_threshold
         ) {
@@ -234,9 +234,7 @@ class AppContext {
 
   async initializeTemplate(template_path) {
     const [schema_name] = template_path.split('/');
-    if (!this.template) {
-      this.template = await Template.create(schema_name);
-    }
+    this.template = await Template.create(schema_name);
     return this;
   }
 
@@ -248,8 +246,6 @@ class AppContext {
     let locales = {
       default: { langcode: 'default', nativeName: 'Default' },
     };
-
-    console.log(this.template.locales);
 
     this.template.locales.forEach((locale) => {
       const langcode = locale.split('-')[0];
@@ -263,10 +259,11 @@ class AppContext {
   }
 
   async addTranslationResources(template, locales = null) {
-    console.log('add translation resources');
+
     if (locales === null) {
-      locales = this.getLocaleData(template);
+      locales = await this.getLocaleData(template);
     }
+    
     // Consolidate function for reducing objects
     function consolidate(iterable, reducer) {
       return Object.entries(iterable).reduce(reducer, {});
@@ -371,12 +368,6 @@ class AppContext {
     return Array.from(slotGroups);
   }
 
-  async getLocales() {
-    const locales = this.getLocaleData(this.template);
-    this.addTranslationResources(this.template, locales); // TODO side effect – put elsewhere?
-    return locales;
-  }
-
   async getExportFormats(schema) {
     return (await import(`@/web/templates/${schema}/export.js`)).default;
   }
@@ -432,17 +423,7 @@ class AppContext {
     // schemaClass,
     // columnCoordinates,
   }) {
-    this.appConfig = new AppConfig(template_path);
-    this.initializeTemplate(this.appConfig.template_path);
-
-    this.clearInterface();
-    this.clearContext();
-
-    const [_template_name, _schema_name] =
-      this.appConfig.template_path.split('/');
-    const _export_formats =
-      exportFormats || (await this.getExportFormats(_template_name));
-
+    
     // attributes are the classes which feature 1-M relationshisps
     // to process these classes into DataHarmonizer tables, the following must be performed:
     // - Navigation: one tab per class = one data harmonizer per class
@@ -451,70 +432,80 @@ class AppContext {
     // - Loading: the system will expect an excel file with sheets or a database with tables for selection. the Toolbar must know.
 
     // the existence of a container class signifies a 1-M data loading setup with an ID join
-    // if (classes['Container']) {
 
-    //     /* e.g.
+    /* e.g.
 
-    //     const container = {
-    //       "Container": {
-    //         "name": "Container",
-    //         "from_schema": "https://example.com/GRDI",
-    //         "attributes": {
-    //           "GRDI_Sample": {
-    //             "name": "GRDI_Sample",
-    //             "from_schema": "https://example.com/GRDI",
-    //             "multivalued": true,
-    //             "alias": "GRDI_samples",
-    //             "owner": "Container",
-    //             "domain_of": [
-    //               "Container"
-    //             ],
-    //             "range": "GRDI_Sample",
-    //             "inlined_as_list": true
-    //           },
-    //           "AMR_Test": {
-    //             "name": "AMR_Test",
-    //             "from_schema": "https://example.com/GRDI",
-    //             "multivalued": true,
-    //             "alias": "AMR_Tests",
-    //             "owner": "Container",
-    //             "domain_of": [
-    //               "Container"
-    //             ],
-    //             "range": "AMR_Test",
-    //             "inlined_as_list": true
-    //           }
-    //         },
-    //         "tree_root": true
-    //       }
-    //     }
+    const container = {
+      "Container": {
+        "name": "Container",
+        "from_schema": "https://example.com/GRDI",
+        "attributes": {
+          "GRDI_Sample": {
+            "name": "GRDI_Sample",
+            "from_schema": "https://example.com/GRDI",
+            "multivalued": true,
+            "alias": "GRDI_samples",
+            "owner": "Container",
+            "domain_of": [
+              "Container"
+            ],
+            "range": "GRDI_Sample",
+            "inlined_as_list": true
+          },
+          "AMR_Test": {
+            "name": "AMR_Test",
+            "from_schema": "https://example.com/GRDI",
+            "multivalued": true,
+            "alias": "AMR_Tests",
+            "owner": "Container",
+            "domain_of": [
+              "Container"
+            ],
+            "range": "AMR_Test",
+            "inlined_as_list": true
+          }
+        },
+        "tree_root": true
+      }
+    }
 
-    //     const schema_tree = {
-    //       "Container": { tree_root: true, children: ["AMR_Test", "GRDI_samples"] }
-    //       "GRDI_Sample": { shared_key: ["sample_collector_sample_ID"], children: ["AMR_Test"] }  // TODO: should shared_key be shared between nodes on tree?
-    //       "AMR_Test": { shared_key: ["sample_collector_sample_ID"], children: [] },
-    //     }
+    const schema_tree = {
+      "Container": { tree_root: true, children: ["AMR_Test", "GRDI_samples"] }
+      "GRDI_Sample": { shared_key: ["sample_collector_sample_ID"], children: ["AMR_Test"] }  // TODO: should shared_key be shared between nodes on tree?
+      "AMR_Test": { shared_key: ["sample_collector_sample_ID"], children: [] },
+    }
 
-    //     */
+    */
 
-    const schema_tree = buildSchemaTree(schema);
-    this.setSchemaTree(schema_tree);
-    data_harmonizers = makeDataHarmonizersFromSchemaTree(
-      this,
-      schema,
-      schema_tree,
-      _schema_name,
-      _export_formats
-    );
-    // HACK
-    delete data_harmonizers[undefined];
-    this.setDataHarmonizers(data_harmonizers);
-    attachPropagationEventHandlersToDataHarmonizers(
-      data_harmonizers,
-      schema_tree
-    );
+    this.appConfig = new AppConfig(template_path);
+    this.clearInterface();
+    this.clearContext();
 
-    return this;
+    return this.initializeTemplate(this.appConfig.template_path)
+      .then(async context => {
+        const [_template_name, _schema_name] =
+        context.appConfig.template_path.split('/');
+        const _export_formats =
+          exportFormats || (await context.getExportFormats(_template_name));
+        const schema_tree = buildSchemaTree(schema);
+        context.appConfig.template_path.split('/');
+        context.setSchemaTree(schema_tree);
+        data_harmonizers = makeDataHarmonizersFromSchemaTree(
+          this,
+          schema,
+          schema_tree,
+          _schema_name,
+          _export_formats
+        );
+        // HACK
+        delete data_harmonizers[undefined];
+        context.setDataHarmonizers(data_harmonizers);
+        attachPropagationEventHandlersToDataHarmonizers(
+          data_harmonizers,
+          schema_tree
+        );
+        return context;
+      });
   }
 }
 
@@ -588,6 +579,7 @@ function findSlotNamesForClass(schema, class_name) {
  * @returns {Object|null} The schema tree object, or null if no "Container" classes are found.
  */
 function buildSchemaTree(schema) {
+
   function updateChildrenAndSharedKeys(data) {
     // Use a deep clone to avoid mutating the original object
     const result = JSON.parse(JSON.stringify(data));
@@ -660,11 +652,7 @@ function buildSchemaTree(schema) {
     };
   }
 
-  const attributes = schema.classes['Container'].attributes;
-  const classes = Object.values(attributes).reduce(
-    (acc, item) => acc.concat([item.range]),
-    []
-  );
+  const classes = Object.keys(schema.classes).filter(el => el !== 'dh_interface');
   const tree_base = {
     Container: { tree_root: true, children: classes },
   };
@@ -991,6 +979,7 @@ const main = async function () {
   context
     .initializeTemplate(context.appConfig.template_path)
     .then(async (context) => {
+
       // // internationalize
       // // TODO: connect to locale of browser!
       // // Takes `lang` as argument (unused)
@@ -999,12 +988,6 @@ const main = async function () {
         $(document).localize();
         dhs.forEach((dh) => dh.render());
       });
-      context.addTranslationResources(
-        context.template,
-        context.getLocaleData()
-      );
-
-      // await context.setupDataHarmonizers();
 
       // // TODO: data harmonizers require initialization code inside of the toolbar to fully render? wut
       new Toolbar(dhToolbarRoot, context.getCurrentDataHarmonizer(), menu, {

@@ -1,15 +1,15 @@
 
 {
-  "grdi": {
-    "GRDI_Sample": {
-      "name": "GRDI_Sample",
+  "test": {
+    "TEST": {
+      "name": "TEST",
       "status": "published",
       "display": true
     }
   },
-  "test": {
-    "TEST": {
-      "name": "TEST",
+  "grdi": {
+    "GRDI_Sample": {
+      "name": "GRDI_Sample",
       "status": "published",
       "display": true
     }
