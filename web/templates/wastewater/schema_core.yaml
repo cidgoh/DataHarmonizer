@@ -1,7 +1,7 @@
 id: https://example.com/GRDI
 name: "Wastewater"
 description: ""
-version: 1.0.0
+version: 2.0.0
 imports:
   - 'linkml:types'
 prefixes:
@@ -20,9 +20,9 @@ classes:
     name: 'WastewaterAMR'
     description: Specification for Wastewater AMR biosample data gathering
     is_a: dh_interface
-  'WastewaterSinglePathogen':
-    name: 'WastewaterSinglePathogen'
-    description: Specification for Wastewater Single Pathogen biosample data gathering
+  'WastewaterPathogenAgnostic':
+    name: 'WastewaterPathogenAgnostic'
+    description: Specification for Wastewater Pathogen Agnostic biosample data gathering
     is_a: dh_interface
 slots: {}
 enums: {}
