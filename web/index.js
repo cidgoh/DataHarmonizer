@@ -214,8 +214,9 @@ class AppContext {
       const one_to_many = {};
       for (const [prefix, suffixes] of Object.entries(suffix_dict)) {
         if (
-          suffixes.some((suffix) =>
-            typeof filtered_multi_suffixes_filter[suffix] !== 'undefined'
+          suffixes.some(
+            (suffix) =>
+              typeof filtered_multi_suffixes_filter[suffix] !== 'undefined'
           ) &&
           suffixes.length >= suffix_threshold
         ) {
@@ -259,11 +260,10 @@ class AppContext {
   }
 
   async addTranslationResources(template, locales = null) {
-
     if (locales === null) {
       locales = await this.getLocaleData(template);
     }
-    
+
     // Consolidate function for reducing objects
     function consolidate(iterable, reducer) {
       return Object.entries(iterable).reduce(reducer, {});
@@ -423,7 +423,6 @@ class AppContext {
     // schemaClass,
     // columnCoordinates,
   }) {
-    
     // attributes are the classes which feature 1-M relationshisps
     // to process these classes into DataHarmonizer tables, the following must be performed:
     // - Navigation: one tab per class = one data harmonizer per class
@@ -481,10 +480,10 @@ class AppContext {
     this.clearInterface();
     this.clearContext();
 
-    return this.initializeTemplate(this.appConfig.template_path)
-      .then(async context => {
+    return this.initializeTemplate(this.appConfig.template_path).then(
+      async (context) => {
         const [_template_name, _schema_name] =
-        context.appConfig.template_path.split('/');
+          context.appConfig.template_path.split('/');
         const _export_formats =
           exportFormats || (await context.getExportFormats(_template_name));
         const schema_tree = buildSchemaTree(schema);
@@ -505,7 +504,8 @@ class AppContext {
           schema_tree
         );
         return context;
-      });
+      }
+    );
   }
 }
 
@@ -579,7 +579,6 @@ function findSlotNamesForClass(schema, class_name) {
  * @returns {Object|null} The schema tree object, or null if no "Container" classes are found.
  */
 function buildSchemaTree(schema) {
-
   function updateChildrenAndSharedKeys(data) {
     // Use a deep clone to avoid mutating the original object
     const result = JSON.parse(JSON.stringify(data));
@@ -652,7 +651,9 @@ function buildSchemaTree(schema) {
     };
   }
 
-  const classes = Object.keys(schema.classes).filter(el => el !== 'dh_interface');
+  const classes = Object.keys(schema.classes).filter(
+    (el) => el !== 'dh_interface'
+  );
   const tree_base = {
     Container: { tree_root: true, children: classes },
   };
@@ -700,6 +701,7 @@ function makeDataHarmonizersFromSchemaTree(
   schema_name,
   export_formats
 ) {
+
   function createDataHarmonizerContainer(dhId, isActive) {
     let dhSubroot = document.createElement('div');
     dhSubroot.id = dhId;
@@ -747,6 +749,11 @@ function makeDataHarmonizersFromSchemaTree(
           dhTab.addEventListener('click', () => {
             // set the current dataharmonizer tab in the context
             context.setCurrentDataHarmonizer(spec.name);
+            
+            $(document).trigger('dhCurrentChange', {
+              data: spec.name
+            });
+
           });
           dhTabNav.appendChild(dhTab); // Appending to the tab navigation
 
@@ -979,7 +986,6 @@ const main = async function () {
   context
     .initializeTemplate(context.appConfig.template_path)
     .then(async (context) => {
-
       // // internationalize
       // // TODO: connect to locale of browser!
       // // Takes `lang` as argument (unused)
