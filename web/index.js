@@ -68,10 +68,12 @@ class AppConfig {
 }
 
 class AppContext {
+
   schema_tree = {};
   dhs = {};
   current_data_harmonizer_name = null;
   template = null;
+  
 
   constructor(appConfig) {
     this.appConfig = appConfig;
@@ -135,21 +137,6 @@ class AppContext {
         return acc;
       },
       { nodes: {} }
-    );
-  }
-
-  async propagateChangeToChildren(node_label, func = (id) => id) {
-    const dependency_tree = await this.getDependencyTree();
-    let current_node_label = node_label;
-    let children_index = 0;
-    do {
-      func(dependency_tree[current_node_label].data);
-      this.propagateData(
-        dependency_tree[current_node_label].children[children_index]
-      );
-      children_index++;
-    } while (
-      dependency_tree[current_node_label].children.length > children_index
     );
   }
 
@@ -487,7 +474,6 @@ class AppContext {
         const _export_formats =
           exportFormats || (await context.getExportFormats(_template_name));
         const schema_tree = buildSchemaTree(schema);
-        context.appConfig.template_path.split('/');
         context.setSchemaTree(schema_tree);
         data_harmonizers = makeDataHarmonizersFromSchemaTree(
           this,
@@ -579,6 +565,7 @@ function findSlotNamesForClass(schema, class_name) {
  * @returns {Object|null} The schema tree object, or null if no "Container" classes are found.
  */
 function buildSchemaTree(schema) {
+
   function updateChildrenAndSharedKeys(data) {
     // Use a deep clone to avoid mutating the original object
     const result = JSON.parse(JSON.stringify(data));
@@ -624,8 +611,7 @@ function buildSchemaTree(schema) {
     return result;
   }
 
-  // TODO: extend to actually create the schema_tree object here for single class schemas
-  if (typeof schema.classes['Container'] !== 'undefined') {
+  if (typeof schema.classes['Container'] === 'undefined') {
     const class_names = Object.keys(schema.classes).filter(
       (key) => key !== 'dh_interface'
     );
@@ -649,11 +635,15 @@ function buildSchemaTree(schema) {
         });
       }, {}),
     };
-  }
+
+  };
+
+  console.log('has Container')
 
   const classes = Object.keys(schema.classes).filter(
-    (el) => el !== 'dh_interface'
+    (el) => el !== 'dh_interface' && el !== 'Container' 
   );
+
   const tree_base = {
     Container: { tree_root: true, children: classes },
   };
@@ -669,7 +659,9 @@ function buildSchemaTree(schema) {
     return acc;
   }, tree_base);
 
-  return updateChildrenAndSharedKeys(pre_schema_tree);
+  const schema_tree = updateChildrenAndSharedKeys(pre_schema_tree);
+  console.log(schema_tree)
+  return schema_tree;
 }
 
 /**
@@ -908,13 +900,19 @@ function setupSharedColumn(data_harmonizer, shared_key_name, callback) {
  */
 function makeSharedKeyHandler(data_harmonizer, schema_tree_node) {
   const makeUpdateHandler = (shared_key_spec) => {
+
     const updateSchemaNodeChildrenCallback = (
       changes,
       source,
       old_value,
       new_value
     ) => {
+
       schema_tree_node.children.forEach((cls_key) => {
+
+        // lift this out to a more general function?
+
+        // transformation handler: what to do when a cell with a shared key is updated
         transformMultivaluedColumn(
           data_harmonizers[cls_key],
           shared_key_spec,
@@ -923,15 +921,19 @@ function makeSharedKeyHandler(data_harmonizer, schema_tree_node) {
           old_value,
           new_value
         );
+
         // TODO does this need to recur to get more than ~2 depths of recursion in hierarchy?
         // visitSchemaTree(schema_tree, (schema_tree_node) => {
         //     schema_tree_node.children.forEach(cls_key => {
         //         visitSchemaTree(schema_tree, () => transformMultivaluedColumn(data_harmonizers[cls_key], shared_key_name, changes, source, old_value, new_value), cls_key)
         //     })
         // }, cls_key);
+
       });
     };
+
     return updateSchemaNodeChildrenCallback;
+
   };
 
   schema_tree_node.shared_keys.forEach((shared_key_spec) => {
@@ -977,6 +979,82 @@ function attachPropagationEventHandlersToDataHarmonizers(
       }
     }
   });
+
+
+  function stripDiv(html) {
+    const div = document.createElement("div");
+    div.innerHTML = html;
+    return (div.innerText);
+  }
+
+  Object.values(data_harmonizers).forEach(dh => {
+
+    dh.hot.addHook('afterSelection', (row, col) => {
+      const valueToMatch = dh.hot.getDataAtCell(row, col);
+
+      // get value at cell
+      // filter other data harmonizer at cell
+      schema_tree[dh.class_assignment].children.forEach(child_name => {
+        const shared_key_name = schema_tree[dh.class_assignment].shared_keys.filter(el => el.related_concept === child_name)[0].name;
+        visitSchemaTree(
+          schema_tree,
+          (schema_tree_node) => {
+            
+            const hot = data_harmonizers[schema_tree_node.name].hot;
+            const columnHeaders = hot.getColHeader();
+            const columnName = shared_key_name; // shared_key based on event selection ~ replace columnIndex with event data?
+            const columnIndex = columnHeaders.map(stripDiv).findIndex(header => header === columnName);
+
+            if (columnIndex === -1) {
+              console.error('Column name not found');
+              return;
+            }
+            const plugin = hot.getPlugin('filters');
+            // Add a condition where the column value equals the specified value
+            plugin.clearConditions(columnIndex);  // change valueToMatch per new selection in the column
+            plugin.addCondition(columnIndex, 'eq', [valueToMatch]);
+            plugin.filter();
+
+          },
+          child_name)
+      })
+    });
+
+    dh.hot.addHook('afterDeselect', () => {
+
+        // get value at cell
+        // filter other data harmonizer at cell
+        schema_tree[dh.class_assignment].children.forEach(child_name => {
+
+          const shared_key_name = schema_tree[dh.class_assignment].shared_keys.filter(el => el.related_concept === child_name)[0].name;
+
+          visitSchemaTree(
+            schema_tree,
+            (schema_tree_node) => {
+
+              const hot = data_harmonizers[schema_tree_node.name].hot;
+              const columnHeaders = hot.getColHeader();
+              const columnName = shared_key_name; // shared_key based on event selection ~ replace columnIndex with event data?
+              const columnIndex = columnHeaders.map(stripDiv).findIndex(header => header === columnName);
+  
+              if (columnIndex === -1) {
+                console.error('Column name not found');
+                return;
+              }
+
+              const plugin = hot.getPlugin('filters');
+              plugin.clearConditions(columnIndex);
+              plugin.filter();
+
+            },
+            child_name)
+
+        })
+    });
+    // TODO: preserve memory of selection between tabs! in DH? => using outsideClickDeselects: false,  // for maintaining selection between tabs
+
+  })
+
   return data_harmonizers;
 }
 
