@@ -9,12 +9,18 @@ import csv
 import copy
 import sys
 import yaml
+import json
+import optparse
+import os
+from sys import exit
 from functools import reduce
+from linkml_runtime.utils.schemaview import SchemaView
+from linkml_runtime.dumpers.json_dumper import JSONDumper
 
 r_schema_core = 'schema_core.yaml';
 r_schema_slots = 'schema_slots.tsv';
 r_schema_enums = 'schema_enums.tsv';
-w_filename = 'schema.yaml';
+w_filename_base = 'schema';
 
 with open(r_schema_core, 'r') as file:
 	SCHEMA = yaml.safe_load(file)
@@ -345,7 +351,26 @@ with open(r_schema_enums) as tsvfile:
 	if len(warnings):
 			print ("\nWARNING: \n", "\n ".join(warnings));
 
-with open(w_filename, 'w') as output_handle:
+with open(w_filename_base + '.yaml', 'w') as output_handle:
 	yaml.dump(SCHEMA, output_handle, sort_keys=False)
 
+schema_spec = SchemaView(yaml.dump(SCHEMA, sort_keys=False));
+
+# Brings in any "imports:". This also includes built-in linkml:types
+schema_spec.merge_imports();
+
+# Loop through all top level classes
+for name, class_obj in schema_spec.all_classes().items():
+    # Note classDef["@type"]: "ClassDefinition" is only available in json
+    # output
+
+    # Presence of "slots" in class indicates field hierarchy
+    if schema_spec.class_slots(name):
+        # Replace class with its induced version. This shifts each slot's
+        # content into an attributes dictionary object.
+        new_obj = schema_spec.induced_class(name)
+        schema_spec.add_class(new_obj)
+
+# Output the amalgamated content:
+JSONDumper().dump(schema_spec.schema, w_filename_base + '.json')
 
