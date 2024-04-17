@@ -2,6 +2,18 @@
 # tabular_to_schema.py: A script to generate a LinkML yaml schema from a 
 # tabular representation of the schema data structure.
 #
+# Navigate to a particular /web/templates/[template folder]/schema.yaml 
+# folder and then run python ../../../script/tabular_to_schema.py to
+# generate all schema.yaml, and schema.json and locale/[fr/de/etc.]/ 
+# schema files.
+#
+# > cd web/templates/[template folder]/
+# > python ../../../script/tabular_to_schema.py 
+#
+# or, to generate schema files AND add entries in /web/templates/menu.js
+#
+# > python ../../../script/tabular_to_schema.py -m
+# 
 # FUTURE: design will be revised to have SLOTS managed as a separate
 # list from Class reuse of them, where curators will explicitly show
 # which particular attributes are overridden.  I.e. Rather than using
