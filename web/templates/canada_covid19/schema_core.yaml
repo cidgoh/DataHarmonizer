@@ -2,6 +2,9 @@ id: https://example.com/CanCOGeN_Covid-19
 name: CanCOGeN_Covid-19
 description: ""
 version: 2.3.4
+in_language: 
+- 'en'
+- 'fr'
 imports:
 - 'linkml:types'
 prefixes:
