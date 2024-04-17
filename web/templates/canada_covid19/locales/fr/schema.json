@@ -1,7 +1,7 @@
 {
   "name": "CanCOGeN_Covid-19",
   "description": "",
-  "in_language": "['en', 'fr']",
+  "in_language": "fr",
   "id": "https://example.com/CanCOGeN_Covid-19",
   "version": "2.3.4",
   "imports": [
