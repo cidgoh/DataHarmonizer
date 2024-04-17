@@ -242,6 +242,8 @@ with open(r_schema_slots) as tsvfile:
 				if slot_comments > '':					slot['comments'] = slot_comments;
 				if slot_uri > '':								slot['slot_uri'] = slot_uri;
 				if slot_identifier == 'TRUE':		slot['identifier'] = True;
+				set_range(slot, slot_range, slot_range_2);
+				set_min_max(slot, slot_minimum_value, slot_maximum_value);
 				if slot_multivalued == 'TRUE':	slot['multivalued'] = True;
 				if slot_required == 'TRUE':			slot['required'] = True;
 				if slot_recommended == 'TRUE':	slot['recommended'] = True;
@@ -254,8 +256,6 @@ with open(r_schema_slots) as tsvfile:
 																				}
 
 				set_examples(slot, slot_examples);
-				set_range(slot, slot_range, slot_range_2);
-				set_min_max(slot, slot_minimum_value, slot_maximum_value);
 				set_mappings(slot, row, EXPORT_FORMAT);
 
 				# If slot has already been set up in schema['slots'] then compare 
