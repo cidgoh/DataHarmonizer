@@ -284,7 +284,7 @@ with open(r_schema_slots) as tsvfile:
 									print ("	Slot param difference:", field);
 									if field in slot:
 										# Move Slot_usage initially takes ALL attributes of slot field.
-										schema_class['slot_usage'][field] = copy.deepcopy(slot[field]);
+										schema_class['slot_usage'][slot_name][field] = copy.deepcopy(slot[field]);
 										del slot[field];
 
 									# Find existing class's references to generic_slot and replace 
@@ -301,7 +301,7 @@ with open(r_schema_slots) as tsvfile:
 
 							# Field never got into generic_slot on previous iteration
 							elif field in slot: 
-								schema_class['slot_usage'][field] = slot[field];
+								schema_class['slot_usage'][slot_name][field] = slot[field];
 								del slot[field];
 
 					# Issue if one class's slot uses "range" and another class's same
@@ -331,13 +331,8 @@ with open(r_schema_slots) as tsvfile:
 						set_examples(variant_slot, row.get('examples' + '_' + lcode, ''));
 						set_class_slot(locale_class, variant_slot, variant_slot_group);
 
-
 						locale_schema['slots'][slot_name] = variant_slot; # combine into set_examples?
 						
-						
-
-						
-
 
 '''
 Process each enumeration provided in tabular tsv format. Enumerations are 
@@ -479,6 +474,7 @@ for lcode in locale_schemas.keys():
 
 	# Mirror language variant to match default schema.json structure
 	schema_spec = SchemaView(yaml.dump(locale_schema, sort_keys=False));
+
 	for name, class_obj in schema_spec.all_classes().items():
 		if schema_spec.class_slots(name): 
 			new_obj = schema_spec.induced_class(name); # specimen collector sample ID
