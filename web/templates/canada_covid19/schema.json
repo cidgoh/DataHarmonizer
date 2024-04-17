@@ -1,6 +1,7 @@
 {
   "name": "CanCOGeN_Covid-19",
   "description": "",
+  "in_language": "['en', 'fr']",
   "id": "https://example.com/CanCOGeN_Covid-19",
   "version": "2.3.4",
   "prefixes": {
@@ -6752,7 +6753,7 @@
       ],
       "examples": [
         {
-          "value": "years"
+          "value": "year"
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -11806,7 +11807,6 @@
       }
     }
   },
-  "source_file": "schema.yaml",
   "settings": {
     "Title_Case": {
       "setting_key": "Title_Case",
