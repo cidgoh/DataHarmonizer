@@ -33,6 +33,8 @@ def init_parser():
 		"-m",
 		"--menu",
 		dest="menu",
+		default=False,
+		action="store_true",
 		help="A flag which indicates menu entries should be generated or updated for a schema's templates (classes).",
 	)
 
@@ -434,6 +436,8 @@ def write_schema(schema):
 
 	# Output the amalgamated content:
 	JSONDumper().dump(schema_view.schema, w_filename_base + '.json')
+	
+	return schema_view;
 
 
 def write_locales(locale_schemas):
@@ -489,29 +493,24 @@ def write_menu(menu_path, schema_folder, schema_spec):
 
 	# Get all top level classes
 	for name, class_obj in schema_spec.all_classes().items():
-	    # Note classDef["@type"]: "ClassDefinition" is only available in json
-	    # output
 
-	    # Presence of "slots" in class indicates field hierarchy
-	    if schema_spec.class_slots(name):
-
-	        class_menu[name] = class_obj
-
-	print("Created", len(class_menu), "specifications:\n", "\n".join(class_menu.keys() ), "\n")
-
+    # Presence of "slots" in class indicates field hierarchy
+		if schema_spec.class_slots(name):
+			class_menu[name] = class_obj;
 
 	for name, class_obj in class_menu.items():
 
-	    menu[schema_folder][name] = {
-	        "name": name,
-	        "status": "published",
-	        "display": 'is_a' in class_obj and class_obj['is_a'] == 'dh_interface'
-	    }
+		menu[schema_folder][name] = {
+			"name": name,
+			"status": "published",
+			"display": 'is_a' in class_obj and class_obj['is_a'] == 'dh_interface'
+		};
+
+		print("Updated menu for", schema_folder+'/', name);
 
 	# Update or create whole menu
 	with open(menu_path, "w") as output_handle:
 	    json.dump(menu, fp=output_handle, sort_keys=False, indent=2, separators=(",", ": "))
-
 
 
 ###############################################################################
@@ -551,7 +550,7 @@ if len(warnings):
 
 print("finished processing.")
 
-write_schema(SCHEMA);
+schema_view = write_schema(SCHEMA);
 write_locales(locale_schemas);
 
 # Adjust menu.json to include or update entries for given schema's template(s)
