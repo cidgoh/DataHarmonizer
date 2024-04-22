@@ -39,9 +39,6 @@ $(dhRoot).append(`
     </div>
 `);
 
-let dhs = [];
-let data_harmonizers = {};
-
 async function getTemplatePath() {
   let templatePath;
   if (window.URLSearchParams) {
@@ -464,7 +461,7 @@ class AppContext {
     this.appConfig = new AppConfig(template_path);
     this.clearInterface();
     this.clearContext();
-
+    let data_harmonizers = {};
     return this.initializeTemplate(this.appConfig.template_path).then(
       async (context) => {
         const [_template_name, _schema_name] =
@@ -481,7 +478,7 @@ class AppContext {
           _export_formats
         );
         // HACK
-        delete data_harmonizers[undefined];
+        ;
         context.setDataHarmonizers(data_harmonizers);
         attachPropagationEventHandlersToDataHarmonizers(
           data_harmonizers,
@@ -634,8 +631,6 @@ function buildSchemaTree(schema) {
     };
   }
 
-  console.log('has Container');
-
   const classes = Object.keys(schema.classes).filter(
     (el) => el !== 'dh_interface' && el !== 'Container'
   );
@@ -758,7 +753,7 @@ function makeDataHarmonizersFromSchemaTree(
         }
       });
   }
-
+  delete data_harmonizers[undefined];
   return data_harmonizers; // Return the created data harmonizers if needed
 }
 
@@ -784,17 +779,6 @@ function transformMultivaluedColumn(
     console.error(`Invalid column name: ${shared_field.name}`);
   } else {
     if (old_value !== new_value) {
-      // WIP
-      // Perform batch operation to replace old_value with new_value where the condition matches
-      // const matchCondition = row => row[column_name] === old_value;
-      // hot.batch(() => {
-      //   hot.getSourceData().forEach((row, rowIndex) => {
-      //     if (matchCondition(row)) {
-      //       // Set new value for a property of matched rows
-      //       hot.setDataAtRowProp(rowIndex, column_name, new_value);
-      //     }
-      //   });
-      // });
       hot.batch(() => {
         hot.getData().forEach((row, rowIndex) => {
           if (row[changes[0][1]] === old_value) {
@@ -947,6 +931,7 @@ function attachPropagationEventHandlersToDataHarmonizers(
   data_harmonizers,
   schema_tree
 ) {
+
   visitSchemaTree(schema_tree, (schema_tree_node) => {
     // Propagation:
     // - If has children with shared_keys, add handler
@@ -976,6 +961,7 @@ function attachPropagationEventHandlersToDataHarmonizers(
   }
 
   Object.values(data_harmonizers).forEach((dh) => {
+    
     dh.hot.addHook('afterSelection', (row, col) => {
       const valueToMatch = dh.hot.getDataAtCell(row, col);
 
@@ -1047,19 +1033,20 @@ function attachPropagationEventHandlersToDataHarmonizers(
   return data_harmonizers;
 }
 
-// Make the top function asynchronous to allow for a data-loading/IO step?
+// Make the top function asynchronous to allow for a data-loading/IO step
 const main = async function () {
   const context = new AppContext(new AppConfig(await getTemplatePath()));
+
   context
     .initializeTemplate(context.appConfig.template_path)
     .then(async (context) => {
+
       // // internationalize
       // // TODO: connect to locale of browser!
       // // Takes `lang` as argument (unused)
-      // TODO move out of this function block
       initI18n((/* lang */) => {
         $(document).localize();
-        dhs.forEach((dh) => dh.render());
+        Object.values(context.dhs).forEach((dh) => dh.render());
       });
 
       // // TODO: data harmonizers require initialization code inside of the toolbar to fully render? wut
@@ -1069,21 +1056,22 @@ const main = async function () {
         releasesURL:
           'https://github.com/cidgoh/pathogen-genomics-package/releases',
         getLanguages: context.getLocaleData.bind(context),
+        getExportFormats: context.getExportFormats.bind(context),
         getSchema: async (schema) =>
           Template.create(schema).then((result) => result.current.schema),
-        getExportFormats: context.getExportFormats.bind(context),
       });
 
       new Footer(dhFooterRoot, context.getCurrentDataHarmonizer());
 
       return context;
     })
-    .then(async () => {
+    .then(async context => {
       return setTimeout(
-        () => dhs.forEach((dh) => dh.showColumnsByNames(dh.field_filters)),
-        1000
+        () => Object.values(context.dhs).forEach((dh) => dh.showColumnsByNames(dh.field_filters)),
+        400
       );
     });
+
 };
 
 document.addEventListener('DOMContentLoaded', main);
