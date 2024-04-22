@@ -86,8 +86,8 @@
       "status": "published",
       "display": true
     },
-    "WastewaterSinglePathogen": {
-      "name": "WastewaterSinglePathogen",
+    "WastewaterPathogenAgnostic": {
+      "name": "WastewaterPathogenAgnostic",
       "status": "published",
       "display": true
     }
