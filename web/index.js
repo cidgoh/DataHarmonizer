@@ -478,7 +478,6 @@ class AppContext {
           _export_formats
         );
         // HACK
-        ;
         context.setDataHarmonizers(data_harmonizers);
         attachPropagationEventHandlersToDataHarmonizers(
           data_harmonizers,
@@ -876,7 +875,11 @@ function setupSharedColumn(data_harmonizer, shared_key_name, callback) {
  * @param {DataHarmonizer} data_harmonizer - The data harmonizer instance to attach handlers to.
  * @param {Object} schema_tree_node - The schema tree node containing the shared keys and child references.
  */
-function makeSharedKeyHandler(data_harmonizer, schema_tree_node) {
+function makeSharedKeyHandler(
+  data_harmonizers,
+  data_harmonizer,
+  schema_tree_node
+) {
   const makeUpdateHandler = (shared_key_spec) => {
     const updateSchemaNodeChildrenCallback = (
       changes,
@@ -931,7 +934,6 @@ function attachPropagationEventHandlersToDataHarmonizers(
   data_harmonizers,
   schema_tree
 ) {
-
   visitSchemaTree(schema_tree, (schema_tree_node) => {
     // Propagation:
     // - If has children with shared_keys, add handler
@@ -939,6 +941,7 @@ function attachPropagationEventHandlersToDataHarmonizers(
     if (schema_tree_node.children.length > 0) {
       if (!schema_tree_node.tree_root) {
         makeSharedKeyHandler(
+          data_harmonizers,
           data_harmonizers[schema_tree_node.name],
           schema_tree_node
         );
@@ -961,7 +964,6 @@ function attachPropagationEventHandlersToDataHarmonizers(
   }
 
   Object.values(data_harmonizers).forEach((dh) => {
-    
     dh.hot.addHook('afterSelection', (row, col) => {
       const valueToMatch = dh.hot.getDataAtCell(row, col);
 
@@ -1040,7 +1042,6 @@ const main = async function () {
   context
     .initializeTemplate(context.appConfig.template_path)
     .then(async (context) => {
-
       // // internationalize
       // // TODO: connect to locale of browser!
       // // Takes `lang` as argument (unused)
@@ -1065,13 +1066,15 @@ const main = async function () {
 
       return context;
     })
-    .then(async context => {
+    .then(async (context) => {
       return setTimeout(
-        () => Object.values(context.dhs).forEach((dh) => dh.showColumnsByNames(dh.field_filters)),
+        () =>
+          Object.values(context.dhs).forEach((dh) =>
+            dh.showColumnsByNames(dh.field_filters)
+          ),
         400
       );
     });
-
 };
 
 document.addEventListener('DOMContentLoaded', main);
