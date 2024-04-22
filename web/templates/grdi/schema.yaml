@@ -1,7 +1,7 @@
 id: https://example.com/GRDI
 name: GRDI
 description: ''
-version: 8.9.8
+version: 10.0.0
 imports:
 - linkml:types
 prefixes:
@@ -43,11 +43,16 @@ classes:
     - original_sample_description
     - environmental_site
     - water_depth
+    - water_depth_units
     - sediment_depth
+    - sediment_depth_units
     - air_temperature
+    - air_temperature_units
     - water_temperature
+    - water_temperature_units
     - weather_type
     - available_data_types
+    - available_data_type_details
     - animal_or_plant_population
     - environmental_material
     - anatomical_material
@@ -100,6 +105,7 @@ classes:
     - sequencing_project_name
     - sequencing_platform
     - sequencing_instrument
+    - sequencing_assay_type
     - library_preparation_kit
     - sequencing_protocol
     - r1_fastq_filename
@@ -808,2063 +814,2081 @@ classes:
       water_depth:
         rank: 26
         slot_group: Sample collection and processing
-      sediment_depth:
+      water_depth_units:
         rank: 27
         slot_group: Sample collection and processing
-      air_temperature:
+      sediment_depth:
         rank: 28
         slot_group: Sample collection and processing
-      water_temperature:
+      sediment_depth_units:
         rank: 29
         slot_group: Sample collection and processing
-      weather_type:
+      air_temperature:
         rank: 30
         slot_group: Sample collection and processing
-      available_data_types:
+      air_temperature_units:
         rank: 31
         slot_group: Sample collection and processing
-      animal_or_plant_population:
+      water_temperature:
         rank: 32
         slot_group: Sample collection and processing
-      environmental_material:
+      water_temperature_units:
         rank: 33
         slot_group: Sample collection and processing
-      anatomical_material:
+      weather_type:
         rank: 34
         slot_group: Sample collection and processing
-      body_product:
+      available_data_types:
         rank: 35
         slot_group: Sample collection and processing
-      anatomical_part:
+      available_data_type_details:
         rank: 36
         slot_group: Sample collection and processing
-      anatomical_region:
+      animal_or_plant_population:
         rank: 37
         slot_group: Sample collection and processing
-      food_product:
+      environmental_material:
         rank: 38
         slot_group: Sample collection and processing
-      food_product_properties:
+      anatomical_material:
         rank: 39
         slot_group: Sample collection and processing
-      animal_source_of_food:
+      body_product:
         rank: 40
         slot_group: Sample collection and processing
-      food_product_production_stream:
+      anatomical_part:
         rank: 41
         slot_group: Sample collection and processing
-      sample_storage_method:
+      anatomical_region:
         rank: 42
         slot_group: Sample collection and processing
-      sample_storage_medium:
+      food_product:
         rank: 43
         slot_group: Sample collection and processing
-      collection_device:
+      food_product_properties:
         rank: 44
         slot_group: Sample collection and processing
-      collection_method:
+      animal_source_of_food:
         rank: 45
         slot_group: Sample collection and processing
-      food_packaging:
+      food_product_production_stream:
         rank: 46
         slot_group: Sample collection and processing
-      food_quality_date:
+      sample_storage_method:
         rank: 47
         slot_group: Sample collection and processing
-      food_packaging_date:
+      sample_storage_medium:
         rank: 48
         slot_group: Sample collection and processing
-      host (common name):
+      collection_device:
         rank: 49
-        slot_group: Host information
-      host (scientific name):
+        slot_group: Sample collection and processing
+      collection_method:
         rank: 50
-        slot_group: Host information
-      host (ecotype):
+        slot_group: Sample collection and processing
+      food_packaging:
         rank: 51
-        slot_group: Host information
-      host (breed):
+        slot_group: Sample collection and processing
+      food_quality_date:
         rank: 52
-        slot_group: Host information
-      host (food production name):
+        slot_group: Sample collection and processing
+      food_packaging_date:
         rank: 53
-        slot_group: Host information
-      host_age_bin:
+        slot_group: Sample collection and processing
+      host (common name):
         rank: 54
         slot_group: Host information
-      host_disease:
+      host (scientific name):
         rank: 55
         slot_group: Host information
-      microbiological_method:
+      host (ecotype):
         rank: 56
-        slot_group: Strain and isolation information
-      strain:
+        slot_group: Host information
+      host (breed):
         rank: 57
-        slot_group: Strain and isolation information
-      isolate_ID:
+        slot_group: Host information
+      host (food production name):
         rank: 58
-        slot_group: Strain and isolation information
-      alternative_isolate_ID:
+        slot_group: Host information
+      host_age_bin:
         rank: 59
-        slot_group: Strain and isolation information
-      progeny_isolate_ID:
+        slot_group: Host information
+      host_disease:
         rank: 60
-        slot_group: Strain and isolation information
-      IRIDA_isolate_ID:
+        slot_group: Host information
+      microbiological_method:
         rank: 61
         slot_group: Strain and isolation information
-      IRIDA_project_ID:
+      strain:
         rank: 62
         slot_group: Strain and isolation information
-      isolated_by:
+      isolate_ID:
         rank: 63
         slot_group: Strain and isolation information
-      isolated_by_laboratory_name:
+      alternative_isolate_ID:
         rank: 64
         slot_group: Strain and isolation information
-      isolated_by_contact_name:
+      progeny_isolate_ID:
         rank: 65
         slot_group: Strain and isolation information
-      isolated_by_contact_email:
+      IRIDA_isolate_ID:
         rank: 66
         slot_group: Strain and isolation information
-      isolation_date:
+      IRIDA_project_ID:
         rank: 67
         slot_group: Strain and isolation information
-      isolate_received_date:
+      isolated_by:
         rank: 68
         slot_group: Strain and isolation information
-      organism:
+      isolated_by_laboratory_name:
         rank: 69
         slot_group: Strain and isolation information
-      taxonomic_identification_process:
+      isolated_by_contact_name:
         rank: 70
         slot_group: Strain and isolation information
-      taxonomic_identification_process_details:
+      isolated_by_contact_email:
         rank: 71
         slot_group: Strain and isolation information
-      serovar:
+      isolation_date:
         rank: 72
         slot_group: Strain and isolation information
-      serotyping_method:
+      isolate_received_date:
         rank: 73
         slot_group: Strain and isolation information
-      phagetype:
+      organism:
         rank: 74
         slot_group: Strain and isolation information
-      library_ID:
+      taxonomic_identification_process:
         rank: 75
-        slot_group: Sequence information
-      sequenced_by:
+        slot_group: Strain and isolation information
+      taxonomic_identification_process_details:
         rank: 76
-        slot_group: Sequence information
-      sequenced_by_laboratory_name:
+        slot_group: Strain and isolation information
+      serovar:
         rank: 77
-        slot_group: Sequence information
-      sequenced_by_contact_name:
+        slot_group: Strain and isolation information
+      serotyping_method:
         rank: 78
-        slot_group: Sequence information
-      sequenced_by_contact_email:
+        slot_group: Strain and isolation information
+      phagetype:
         rank: 79
-        slot_group: Sequence information
-      purpose_of_sequencing:
+        slot_group: Strain and isolation information
+      library_ID:
         rank: 80
         slot_group: Sequence information
-      sequencing_project_name:
+      sequenced_by:
         rank: 81
         slot_group: Sequence information
-      sequencing_platform:
+      sequenced_by_laboratory_name:
         rank: 82
         slot_group: Sequence information
-      sequencing_instrument:
+      sequenced_by_contact_name:
         rank: 83
         slot_group: Sequence information
-      library_preparation_kit:
+      sequenced_by_contact_email:
         rank: 84
         slot_group: Sequence information
-      sequencing_protocol:
+      purpose_of_sequencing:
         rank: 85
         slot_group: Sequence information
-      r1_fastq_filename:
+      sequencing_project_name:
         rank: 86
         slot_group: Sequence information
-      r2_fastq_filename:
+      sequencing_platform:
         rank: 87
         slot_group: Sequence information
-      fast5_filename:
+      sequencing_instrument:
         rank: 88
         slot_group: Sequence information
-      assembly_filename:
+      sequencing_assay_type:
         rank: 89
         slot_group: Sequence information
-      sequence_submitted_by:
+      library_preparation_kit:
         rank: 90
-        slot_group: Public repository information
-      sequence_submitted_by_contact_name:
+        slot_group: Sequence information
+      sequencing_protocol:
         rank: 91
-        slot_group: Public repository information
-      sequence_submitted_by_contact_email:
+        slot_group: Sequence information
+      r1_fastq_filename:
         rank: 92
-        slot_group: Public repository information
-      publication_ID:
+        slot_group: Sequence information
+      r2_fastq_filename:
         rank: 93
-        slot_group: Public repository information
-      attribute_package:
+        slot_group: Sequence information
+      fast5_filename:
         rank: 94
-        slot_group: Public repository information
-      bioproject_accession:
+        slot_group: Sequence information
+      assembly_filename:
         rank: 95
-        slot_group: Public repository information
-      biosample_accession:
+        slot_group: Sequence information
+      sequence_submitted_by:
         rank: 96
         slot_group: Public repository information
-      SRA_accession:
+      sequence_submitted_by_contact_name:
         rank: 97
         slot_group: Public repository information
-      GenBank_accession:
+      sequence_submitted_by_contact_email:
         rank: 98
         slot_group: Public repository information
-      prevalence_metrics:
+      publication_ID:
         rank: 99
+        slot_group: Public repository information
+      attribute_package:
+        rank: 100
+        slot_group: Public repository information
+      bioproject_accession:
+        rank: 101
+        slot_group: Public repository information
+      biosample_accession:
+        rank: 102
+        slot_group: Public repository information
+      SRA_accession:
+        rank: 103
+        slot_group: Public repository information
+      GenBank_accession:
+        rank: 104
+        slot_group: Public repository information
+      prevalence_metrics:
+        rank: 105
         slot_group: Risk assessment information
       prevalence_metrics_details:
-        rank: 100
+        rank: 106
         slot_group: Risk assessment information
       stage_of_production:
-        rank: 101
+        rank: 107
         slot_group: Risk assessment information
       experimental_intervention:
-        rank: 102
+        rank: 108
         slot_group: Risk assessment information
       experiment_intervention_details:
-        rank: 103
+        rank: 109
         slot_group: Risk assessment information
       AMR_testing_by:
-        rank: 104
-        slot_group: Antimicrobial resistance
-      AMR_testing_by_laboratory_name:
-        rank: 105
-        slot_group: Antimicrobial resistance
-      AMR_testing_by_contact_name:
-        rank: 106
-        slot_group: Antimicrobial resistance
-      AMR_testing_by_contact_email:
-        rank: 107
-        slot_group: Antimicrobial resistance
-      AMR_testing_date:
-        rank: 108
-        slot_group: Antimicrobial resistance
-      amikacin_resistance_phenotype:
-        rank: 109
-        slot_group: Antimicrobial resistance
-      amikacin_measurement:
         rank: 110
         slot_group: Antimicrobial resistance
-      amikacin_measurement_units:
+      AMR_testing_by_laboratory_name:
         rank: 111
         slot_group: Antimicrobial resistance
-      amikacin_measurement_sign:
+      AMR_testing_by_contact_name:
         rank: 112
         slot_group: Antimicrobial resistance
-      amikacin_laboratory_typing_method:
+      AMR_testing_by_contact_email:
         rank: 113
         slot_group: Antimicrobial resistance
-      amikacin_laboratory_typing_platform:
+      AMR_testing_date:
         rank: 114
         slot_group: Antimicrobial resistance
-      amikacin_laboratory_typing_platform_version:
+      amikacin_resistance_phenotype:
         rank: 115
         slot_group: Antimicrobial resistance
-      amikacin_vendor_name:
+      amikacin_measurement:
         rank: 116
         slot_group: Antimicrobial resistance
-      amikacin_testing_standard:
+      amikacin_measurement_units:
         rank: 117
         slot_group: Antimicrobial resistance
-      amikacin_testing_standard_version:
+      amikacin_measurement_sign:
         rank: 118
         slot_group: Antimicrobial resistance
-      amikacin_testing_standard_details:
+      amikacin_laboratory_typing_method:
         rank: 119
         slot_group: Antimicrobial resistance
-      amikacin_susceptible_breakpoint:
+      amikacin_laboratory_typing_platform:
         rank: 120
         slot_group: Antimicrobial resistance
-      amikacin_intermediate_breakpoint:
+      amikacin_laboratory_typing_platform_version:
         rank: 121
         slot_group: Antimicrobial resistance
-      amikacin_resistant_breakpoint:
+      amikacin_vendor_name:
         rank: 122
         slot_group: Antimicrobial resistance
-      amoxicillin-clavulanic_acid_resistance_phenotype:
+      amikacin_testing_standard:
         rank: 123
         slot_group: Antimicrobial resistance
-      amoxicillin-clavulanic_acid_measurement:
+      amikacin_testing_standard_version:
         rank: 124
         slot_group: Antimicrobial resistance
-      amoxicillin-clavulanic_acid_measurement_units:
+      amikacin_testing_standard_details:
         rank: 125
         slot_group: Antimicrobial resistance
-      amoxicillin-clavulanic_acid_measurement_sign:
+      amikacin_susceptible_breakpoint:
         rank: 126
         slot_group: Antimicrobial resistance
-      amoxicillin-clavulanic_acid_laboratory_typing_method:
+      amikacin_intermediate_breakpoint:
         rank: 127
         slot_group: Antimicrobial resistance
-      amoxicillin-clavulanic_acid_laboratory_typing_platform:
+      amikacin_resistant_breakpoint:
         rank: 128
         slot_group: Antimicrobial resistance
-      amoxicillin-clavulanic_acid_laboratory_typing_platform_version:
+      amoxicillin-clavulanic_acid_resistance_phenotype:
         rank: 129
         slot_group: Antimicrobial resistance
-      amoxicillin-clavulanic_acid_vendor_name:
+      amoxicillin-clavulanic_acid_measurement:
         rank: 130
         slot_group: Antimicrobial resistance
-      amoxicillin-clavulanic_acid_testing_standard:
+      amoxicillin-clavulanic_acid_measurement_units:
         rank: 131
         slot_group: Antimicrobial resistance
-      amoxicillin-clavulanic_acid_testing_standard_version:
+      amoxicillin-clavulanic_acid_measurement_sign:
         rank: 132
         slot_group: Antimicrobial resistance
-      amoxicillin-clavulanic_acid_testing_standard_details:
+      amoxicillin-clavulanic_acid_laboratory_typing_method:
         rank: 133
         slot_group: Antimicrobial resistance
-      amoxicillin-clavulanic_acid_susceptible_breakpoint:
+      amoxicillin-clavulanic_acid_laboratory_typing_platform:
         rank: 134
         slot_group: Antimicrobial resistance
-      amoxicillin-clavulanic_acid_intermediate_breakpoint:
+      amoxicillin-clavulanic_acid_laboratory_typing_platform_version:
         rank: 135
         slot_group: Antimicrobial resistance
-      amoxicillin-clavulanic_acid_resistant_breakpoint:
+      amoxicillin-clavulanic_acid_vendor_name:
         rank: 136
         slot_group: Antimicrobial resistance
-      ampicillin_resistance_phenotype:
+      amoxicillin-clavulanic_acid_testing_standard:
         rank: 137
         slot_group: Antimicrobial resistance
-      ampicillin_measurement:
+      amoxicillin-clavulanic_acid_testing_standard_version:
         rank: 138
         slot_group: Antimicrobial resistance
-      ampicillin_measurement_units:
+      amoxicillin-clavulanic_acid_testing_standard_details:
         rank: 139
         slot_group: Antimicrobial resistance
-      ampicillin_measurement_sign:
+      amoxicillin-clavulanic_acid_susceptible_breakpoint:
         rank: 140
         slot_group: Antimicrobial resistance
-      ampicillin_laboratory_typing_method:
+      amoxicillin-clavulanic_acid_intermediate_breakpoint:
         rank: 141
         slot_group: Antimicrobial resistance
-      ampicillin_laboratory_typing_platform:
+      amoxicillin-clavulanic_acid_resistant_breakpoint:
         rank: 142
         slot_group: Antimicrobial resistance
-      ampicillin_laboratory_typing_platform_version:
+      ampicillin_resistance_phenotype:
         rank: 143
         slot_group: Antimicrobial resistance
-      ampicillin_vendor_name:
+      ampicillin_measurement:
         rank: 144
         slot_group: Antimicrobial resistance
-      ampicillin_testing_standard:
+      ampicillin_measurement_units:
         rank: 145
         slot_group: Antimicrobial resistance
-      ampicillin_testing_standard_version:
+      ampicillin_measurement_sign:
         rank: 146
         slot_group: Antimicrobial resistance
-      ampicillin_testing_standard_details:
+      ampicillin_laboratory_typing_method:
         rank: 147
         slot_group: Antimicrobial resistance
-      ampicillin_susceptible_breakpoint:
+      ampicillin_laboratory_typing_platform:
         rank: 148
         slot_group: Antimicrobial resistance
-      ampicillin_intermediate_breakpoint:
+      ampicillin_laboratory_typing_platform_version:
         rank: 149
         slot_group: Antimicrobial resistance
-      ampicillin_resistant_breakpoint:
+      ampicillin_vendor_name:
         rank: 150
         slot_group: Antimicrobial resistance
-      azithromycin_resistance_phenotype:
+      ampicillin_testing_standard:
         rank: 151
         slot_group: Antimicrobial resistance
-      azithromycin_measurement:
+      ampicillin_testing_standard_version:
         rank: 152
         slot_group: Antimicrobial resistance
-      azithromycin_measurement_units:
+      ampicillin_testing_standard_details:
         rank: 153
         slot_group: Antimicrobial resistance
-      azithromycin_measurement_sign:
+      ampicillin_susceptible_breakpoint:
         rank: 154
         slot_group: Antimicrobial resistance
-      azithromycin_laboratory_typing_method:
+      ampicillin_intermediate_breakpoint:
         rank: 155
         slot_group: Antimicrobial resistance
-      azithromycin_laboratory_typing_platform:
+      ampicillin_resistant_breakpoint:
         rank: 156
         slot_group: Antimicrobial resistance
-      azithromycin_laboratory_typing_platform_version:
+      azithromycin_resistance_phenotype:
         rank: 157
         slot_group: Antimicrobial resistance
-      azithromycin_vendor_name:
+      azithromycin_measurement:
         rank: 158
         slot_group: Antimicrobial resistance
-      azithromycin_testing_standard:
+      azithromycin_measurement_units:
         rank: 159
         slot_group: Antimicrobial resistance
-      azithromycin_testing_standard_version:
+      azithromycin_measurement_sign:
         rank: 160
         slot_group: Antimicrobial resistance
-      azithromycin_testing_standard_details:
+      azithromycin_laboratory_typing_method:
         rank: 161
         slot_group: Antimicrobial resistance
-      azithromycin_susceptible_breakpoint:
+      azithromycin_laboratory_typing_platform:
         rank: 162
         slot_group: Antimicrobial resistance
-      azithromycin_intermediate_breakpoint:
+      azithromycin_laboratory_typing_platform_version:
         rank: 163
         slot_group: Antimicrobial resistance
-      azithromycin_resistant_breakpoint:
+      azithromycin_vendor_name:
         rank: 164
         slot_group: Antimicrobial resistance
-      cefazolin_resistance_phenotype:
+      azithromycin_testing_standard:
         rank: 165
         slot_group: Antimicrobial resistance
-      cefazolin_measurement:
+      azithromycin_testing_standard_version:
         rank: 166
         slot_group: Antimicrobial resistance
-      cefazolin_measurement_units:
+      azithromycin_testing_standard_details:
         rank: 167
         slot_group: Antimicrobial resistance
-      cefazolin_measurement_sign:
+      azithromycin_susceptible_breakpoint:
         rank: 168
         slot_group: Antimicrobial resistance
-      cefazolin_laboratory_typing_method:
+      azithromycin_intermediate_breakpoint:
         rank: 169
         slot_group: Antimicrobial resistance
-      cefazolin_laboratory_typing_platform:
+      azithromycin_resistant_breakpoint:
         rank: 170
         slot_group: Antimicrobial resistance
-      cefazolin_laboratory_typing_platform_version:
+      cefazolin_resistance_phenotype:
         rank: 171
         slot_group: Antimicrobial resistance
-      cefazolin_vendor_name:
+      cefazolin_measurement:
         rank: 172
         slot_group: Antimicrobial resistance
-      cefazolin_testing_standard:
+      cefazolin_measurement_units:
         rank: 173
         slot_group: Antimicrobial resistance
-      cefazolin_testing_standard_version:
+      cefazolin_measurement_sign:
         rank: 174
         slot_group: Antimicrobial resistance
-      cefazolin_testing_standard_details:
+      cefazolin_laboratory_typing_method:
         rank: 175
         slot_group: Antimicrobial resistance
-      cefazolin_susceptible_breakpoint:
+      cefazolin_laboratory_typing_platform:
         rank: 176
         slot_group: Antimicrobial resistance
-      cefazolin_intermediate_breakpoint:
+      cefazolin_laboratory_typing_platform_version:
         rank: 177
         slot_group: Antimicrobial resistance
-      cefazolin_resistant_breakpoint:
+      cefazolin_vendor_name:
         rank: 178
         slot_group: Antimicrobial resistance
-      cefepime_resistance_phenotype:
+      cefazolin_testing_standard:
         rank: 179
         slot_group: Antimicrobial resistance
-      cefepime_measurement:
+      cefazolin_testing_standard_version:
         rank: 180
         slot_group: Antimicrobial resistance
-      cefepime_measurement_units:
+      cefazolin_testing_standard_details:
         rank: 181
         slot_group: Antimicrobial resistance
-      cefepime_measurement_sign:
+      cefazolin_susceptible_breakpoint:
         rank: 182
         slot_group: Antimicrobial resistance
-      cefepime_laboratory_typing_method:
+      cefazolin_intermediate_breakpoint:
         rank: 183
         slot_group: Antimicrobial resistance
-      cefepime_laboratory_typing_platform:
+      cefazolin_resistant_breakpoint:
         rank: 184
         slot_group: Antimicrobial resistance
-      cefepime_laboratory_typing_platform_version:
+      cefepime_resistance_phenotype:
         rank: 185
         slot_group: Antimicrobial resistance
-      cefepime_vendor_name:
+      cefepime_measurement:
         rank: 186
         slot_group: Antimicrobial resistance
-      cefepime_testing_standard:
+      cefepime_measurement_units:
         rank: 187
         slot_group: Antimicrobial resistance
-      cefepime_testing_standard_version:
+      cefepime_measurement_sign:
         rank: 188
         slot_group: Antimicrobial resistance
-      cefepime_testing_standard_details:
+      cefepime_laboratory_typing_method:
         rank: 189
         slot_group: Antimicrobial resistance
-      cefepime_susceptible_breakpoint:
+      cefepime_laboratory_typing_platform:
         rank: 190
         slot_group: Antimicrobial resistance
-      cefepime_intermediate_breakpoint:
+      cefepime_laboratory_typing_platform_version:
         rank: 191
         slot_group: Antimicrobial resistance
-      cefepime_resistant_breakpoint:
+      cefepime_vendor_name:
         rank: 192
         slot_group: Antimicrobial resistance
-      cefotaxime_resistance_phenotype:
+      cefepime_testing_standard:
         rank: 193
         slot_group: Antimicrobial resistance
-      cefotaxime_measurement:
+      cefepime_testing_standard_version:
         rank: 194
         slot_group: Antimicrobial resistance
-      cefotaxime_measurement_units:
+      cefepime_testing_standard_details:
         rank: 195
         slot_group: Antimicrobial resistance
-      cefotaxime_measurement_sign:
+      cefepime_susceptible_breakpoint:
         rank: 196
         slot_group: Antimicrobial resistance
-      cefotaxime_laboratory_typing_method:
+      cefepime_intermediate_breakpoint:
         rank: 197
         slot_group: Antimicrobial resistance
-      cefotaxime_laboratory_typing_platform:
+      cefepime_resistant_breakpoint:
         rank: 198
         slot_group: Antimicrobial resistance
-      cefotaxime_laboratory_typing_platform_version:
+      cefotaxime_resistance_phenotype:
         rank: 199
         slot_group: Antimicrobial resistance
-      cefotaxime_vendor_name:
+      cefotaxime_measurement:
         rank: 200
         slot_group: Antimicrobial resistance
-      cefotaxime_testing_standard:
+      cefotaxime_measurement_units:
         rank: 201
         slot_group: Antimicrobial resistance
-      cefotaxime_testing_standard_version:
+      cefotaxime_measurement_sign:
         rank: 202
         slot_group: Antimicrobial resistance
-      cefotaxime_testing_standard_details:
+      cefotaxime_laboratory_typing_method:
         rank: 203
         slot_group: Antimicrobial resistance
-      cefotaxime_susceptible_breakpoint:
+      cefotaxime_laboratory_typing_platform:
         rank: 204
         slot_group: Antimicrobial resistance
-      cefotaxime_intermediate_breakpoint:
+      cefotaxime_laboratory_typing_platform_version:
         rank: 205
         slot_group: Antimicrobial resistance
-      cefotaxime_resistant_breakpoint:
+      cefotaxime_vendor_name:
         rank: 206
         slot_group: Antimicrobial resistance
-      cefotaxime-clavulanic_acid_resistance_phenotype:
+      cefotaxime_testing_standard:
         rank: 207
         slot_group: Antimicrobial resistance
-      cefotaxime-clavulanic_acid_measurement:
+      cefotaxime_testing_standard_version:
         rank: 208
         slot_group: Antimicrobial resistance
-      cefotaxime-clavulanic_acid_measurement_units:
+      cefotaxime_testing_standard_details:
         rank: 209
         slot_group: Antimicrobial resistance
-      cefotaxime-clavulanic_acid_measurement_sign:
+      cefotaxime_susceptible_breakpoint:
         rank: 210
         slot_group: Antimicrobial resistance
-      cefotaxime-clavulanic_acid_laboratory_typing_method:
+      cefotaxime_intermediate_breakpoint:
         rank: 211
         slot_group: Antimicrobial resistance
-      cefotaxime-clavulanic_acid_laboratory_typing_platform:
+      cefotaxime_resistant_breakpoint:
         rank: 212
         slot_group: Antimicrobial resistance
-      cefotaxime-clavulanic_acid_laboratory_typing_platform_version:
+      cefotaxime-clavulanic_acid_resistance_phenotype:
         rank: 213
         slot_group: Antimicrobial resistance
-      cefotaxime-clavulanic_acid_vendor_name:
+      cefotaxime-clavulanic_acid_measurement:
         rank: 214
         slot_group: Antimicrobial resistance
-      cefotaxime-clavulanic_acid_testing_standard:
+      cefotaxime-clavulanic_acid_measurement_units:
         rank: 215
         slot_group: Antimicrobial resistance
-      cefotaxime-clavulanic_acid_testing_standard_version:
+      cefotaxime-clavulanic_acid_measurement_sign:
         rank: 216
         slot_group: Antimicrobial resistance
-      cefotaxime-clavulanic_acid_testing_standard_details:
+      cefotaxime-clavulanic_acid_laboratory_typing_method:
         rank: 217
         slot_group: Antimicrobial resistance
-      cefotaxime-clavulanic_acid_susceptible_breakpoint:
+      cefotaxime-clavulanic_acid_laboratory_typing_platform:
         rank: 218
         slot_group: Antimicrobial resistance
-      cefotaxime-clavulanic_acid_intermediate_breakpoint:
+      cefotaxime-clavulanic_acid_laboratory_typing_platform_version:
         rank: 219
         slot_group: Antimicrobial resistance
-      cefotaxime-clavulanic_acid_resistant_breakpoint:
+      cefotaxime-clavulanic_acid_vendor_name:
         rank: 220
         slot_group: Antimicrobial resistance
-      cefoxitin_resistance_phenotype:
+      cefotaxime-clavulanic_acid_testing_standard:
         rank: 221
         slot_group: Antimicrobial resistance
-      cefoxitin_measurement:
+      cefotaxime-clavulanic_acid_testing_standard_version:
         rank: 222
         slot_group: Antimicrobial resistance
-      cefoxitin_measurement_units:
+      cefotaxime-clavulanic_acid_testing_standard_details:
         rank: 223
         slot_group: Antimicrobial resistance
-      cefoxitin_measurement_sign:
+      cefotaxime-clavulanic_acid_susceptible_breakpoint:
         rank: 224
         slot_group: Antimicrobial resistance
-      cefoxitin_laboratory_typing_method:
+      cefotaxime-clavulanic_acid_intermediate_breakpoint:
         rank: 225
         slot_group: Antimicrobial resistance
-      cefoxitin_laboratory_typing_platform:
+      cefotaxime-clavulanic_acid_resistant_breakpoint:
         rank: 226
         slot_group: Antimicrobial resistance
-      cefoxitin_laboratory_typing_platform_version:
+      cefoxitin_resistance_phenotype:
         rank: 227
         slot_group: Antimicrobial resistance
-      cefoxitin_vendor_name:
+      cefoxitin_measurement:
         rank: 228
         slot_group: Antimicrobial resistance
-      cefoxitin_testing_standard:
+      cefoxitin_measurement_units:
         rank: 229
         slot_group: Antimicrobial resistance
-      cefoxitin_testing_standard_version:
+      cefoxitin_measurement_sign:
         rank: 230
         slot_group: Antimicrobial resistance
-      cefoxitin_testing_standard_details:
+      cefoxitin_laboratory_typing_method:
         rank: 231
         slot_group: Antimicrobial resistance
-      cefoxitin_susceptible_breakpoint:
+      cefoxitin_laboratory_typing_platform:
         rank: 232
         slot_group: Antimicrobial resistance
-      cefoxitin_intermediate_breakpoint:
+      cefoxitin_laboratory_typing_platform_version:
         rank: 233
         slot_group: Antimicrobial resistance
-      cefoxitin_resistant_breakpoint:
+      cefoxitin_vendor_name:
         rank: 234
         slot_group: Antimicrobial resistance
-      cefpodoxime_resistance_phenotype:
+      cefoxitin_testing_standard:
         rank: 235
         slot_group: Antimicrobial resistance
-      cefpodoxime_measurement:
+      cefoxitin_testing_standard_version:
         rank: 236
         slot_group: Antimicrobial resistance
-      cefpodoxime_measurement_units:
+      cefoxitin_testing_standard_details:
         rank: 237
         slot_group: Antimicrobial resistance
-      cefpodoxime_measurement_sign:
+      cefoxitin_susceptible_breakpoint:
         rank: 238
         slot_group: Antimicrobial resistance
-      cefpodoxime_laboratory_typing_method:
+      cefoxitin_intermediate_breakpoint:
         rank: 239
         slot_group: Antimicrobial resistance
-      cefpodoxime_laboratory_typing_platform:
+      cefoxitin_resistant_breakpoint:
         rank: 240
         slot_group: Antimicrobial resistance
-      cefpodoxime_laboratory_typing_platform_version:
+      cefpodoxime_resistance_phenotype:
         rank: 241
         slot_group: Antimicrobial resistance
-      cefpodoxime_vendor_name:
+      cefpodoxime_measurement:
         rank: 242
         slot_group: Antimicrobial resistance
-      cefpodoxime_testing_standard:
+      cefpodoxime_measurement_units:
         rank: 243
         slot_group: Antimicrobial resistance
-      cefpodoxime_testing_standard_version:
+      cefpodoxime_measurement_sign:
         rank: 244
         slot_group: Antimicrobial resistance
-      cefpodoxime_testing_standard_details:
+      cefpodoxime_laboratory_typing_method:
         rank: 245
         slot_group: Antimicrobial resistance
-      cefpodoxime_susceptible_breakpoint:
+      cefpodoxime_laboratory_typing_platform:
         rank: 246
         slot_group: Antimicrobial resistance
-      cefpodoxime_intermediate_breakpoint:
+      cefpodoxime_laboratory_typing_platform_version:
         rank: 247
         slot_group: Antimicrobial resistance
-      cefpodoxime_resistant_breakpoint:
+      cefpodoxime_vendor_name:
         rank: 248
         slot_group: Antimicrobial resistance
-      ceftazidime_resistance_phenotype:
+      cefpodoxime_testing_standard:
         rank: 249
         slot_group: Antimicrobial resistance
-      ceftazidime_measurement:
+      cefpodoxime_testing_standard_version:
         rank: 250
         slot_group: Antimicrobial resistance
-      ceftazidime_measurement_units:
+      cefpodoxime_testing_standard_details:
         rank: 251
         slot_group: Antimicrobial resistance
-      ceftazidime_measurement_sign:
+      cefpodoxime_susceptible_breakpoint:
         rank: 252
         slot_group: Antimicrobial resistance
-      ceftazidime_laboratory_typing_method:
+      cefpodoxime_intermediate_breakpoint:
         rank: 253
         slot_group: Antimicrobial resistance
-      ceftazidime_laboratory_typing_platform:
+      cefpodoxime_resistant_breakpoint:
         rank: 254
         slot_group: Antimicrobial resistance
-      ceftazidime_laboratory_typing_platform_version:
+      ceftazidime_resistance_phenotype:
         rank: 255
         slot_group: Antimicrobial resistance
-      ceftazidime_vendor_name:
+      ceftazidime_measurement:
         rank: 256
         slot_group: Antimicrobial resistance
-      ceftazidime_testing_standard:
+      ceftazidime_measurement_units:
         rank: 257
         slot_group: Antimicrobial resistance
-      ceftazidime_testing_standard_version:
+      ceftazidime_measurement_sign:
         rank: 258
         slot_group: Antimicrobial resistance
-      ceftazidime_testing_standard_details:
+      ceftazidime_laboratory_typing_method:
         rank: 259
         slot_group: Antimicrobial resistance
-      ceftazidime_susceptible_breakpoint:
+      ceftazidime_laboratory_typing_platform:
         rank: 260
         slot_group: Antimicrobial resistance
-      ceftazidime_intermediate_breakpoint:
+      ceftazidime_laboratory_typing_platform_version:
         rank: 261
         slot_group: Antimicrobial resistance
-      ceftazidime_resistant_breakpoint:
+      ceftazidime_vendor_name:
         rank: 262
         slot_group: Antimicrobial resistance
-      ceftazidime-clavulanic_acid_resistance_phenotype:
+      ceftazidime_testing_standard:
         rank: 263
         slot_group: Antimicrobial resistance
-      ceftazidime-clavulanic_acid_measurement:
+      ceftazidime_testing_standard_version:
         rank: 264
         slot_group: Antimicrobial resistance
-      ceftazidime-clavulanic_acid_measurement_units:
+      ceftazidime_testing_standard_details:
         rank: 265
         slot_group: Antimicrobial resistance
-      ceftazidime-clavulanic_acid_measurement_sign:
+      ceftazidime_susceptible_breakpoint:
         rank: 266
         slot_group: Antimicrobial resistance
-      ceftazidime-clavulanic_acid_laboratory_typing_method:
+      ceftazidime_intermediate_breakpoint:
         rank: 267
         slot_group: Antimicrobial resistance
-      ceftazidime-clavulanic_acid_laboratory_typing_platform:
+      ceftazidime_resistant_breakpoint:
         rank: 268
         slot_group: Antimicrobial resistance
-      ceftazidime-clavulanic_acid_laboratory_typing_platform_version:
+      ceftazidime-clavulanic_acid_resistance_phenotype:
         rank: 269
         slot_group: Antimicrobial resistance
-      ceftazidime-clavulanic_acid_vendor_name:
+      ceftazidime-clavulanic_acid_measurement:
         rank: 270
         slot_group: Antimicrobial resistance
-      ceftazidime-clavulanic_acid_testing_standard:
+      ceftazidime-clavulanic_acid_measurement_units:
         rank: 271
         slot_group: Antimicrobial resistance
-      ceftazidime-clavulanic_acid_testing_standard_version:
+      ceftazidime-clavulanic_acid_measurement_sign:
         rank: 272
         slot_group: Antimicrobial resistance
-      ceftazidime-clavulanic_acid_testing_standard_details:
+      ceftazidime-clavulanic_acid_laboratory_typing_method:
         rank: 273
         slot_group: Antimicrobial resistance
-      ceftazidime-clavulanic_acid_susceptible_breakpoint:
+      ceftazidime-clavulanic_acid_laboratory_typing_platform:
         rank: 274
         slot_group: Antimicrobial resistance
-      ceftazidime-clavulanic_acid_intermediate_breakpoint:
+      ceftazidime-clavulanic_acid_laboratory_typing_platform_version:
         rank: 275
         slot_group: Antimicrobial resistance
-      ceftazidime-clavulanic_acid_resistant_breakpoint:
+      ceftazidime-clavulanic_acid_vendor_name:
         rank: 276
         slot_group: Antimicrobial resistance
-      ceftiofur_resistance_phenotype:
+      ceftazidime-clavulanic_acid_testing_standard:
         rank: 277
         slot_group: Antimicrobial resistance
-      ceftiofur_measurement:
+      ceftazidime-clavulanic_acid_testing_standard_version:
         rank: 278
         slot_group: Antimicrobial resistance
-      ceftiofur_measurement_units:
+      ceftazidime-clavulanic_acid_testing_standard_details:
         rank: 279
         slot_group: Antimicrobial resistance
-      ceftiofur_measurement_sign:
+      ceftazidime-clavulanic_acid_susceptible_breakpoint:
         rank: 280
         slot_group: Antimicrobial resistance
-      ceftiofur_laboratory_typing_method:
+      ceftazidime-clavulanic_acid_intermediate_breakpoint:
         rank: 281
         slot_group: Antimicrobial resistance
-      ceftiofur_laboratory_typing_platform:
+      ceftazidime-clavulanic_acid_resistant_breakpoint:
         rank: 282
         slot_group: Antimicrobial resistance
-      ceftiofur_laboratory_typing_platform_version:
+      ceftiofur_resistance_phenotype:
         rank: 283
         slot_group: Antimicrobial resistance
-      ceftiofur_vendor_name:
+      ceftiofur_measurement:
         rank: 284
         slot_group: Antimicrobial resistance
-      ceftiofur_testing_standard:
+      ceftiofur_measurement_units:
         rank: 285
         slot_group: Antimicrobial resistance
-      ceftiofur_testing_standard_version:
+      ceftiofur_measurement_sign:
         rank: 286
         slot_group: Antimicrobial resistance
-      ceftiofur_testing_standard_details:
+      ceftiofur_laboratory_typing_method:
         rank: 287
         slot_group: Antimicrobial resistance
-      ceftiofur_susceptible_breakpoint:
+      ceftiofur_laboratory_typing_platform:
         rank: 288
         slot_group: Antimicrobial resistance
-      ceftiofur_intermediate_breakpoint:
+      ceftiofur_laboratory_typing_platform_version:
         rank: 289
         slot_group: Antimicrobial resistance
-      ceftiofur_resistant_breakpoint:
+      ceftiofur_vendor_name:
         rank: 290
         slot_group: Antimicrobial resistance
-      ceftriaxone_resistance_phenotype:
+      ceftiofur_testing_standard:
         rank: 291
         slot_group: Antimicrobial resistance
-      ceftriaxone_measurement:
+      ceftiofur_testing_standard_version:
         rank: 292
         slot_group: Antimicrobial resistance
-      ceftriaxone_measurement_units:
+      ceftiofur_testing_standard_details:
         rank: 293
         slot_group: Antimicrobial resistance
-      ceftriaxone_measurement_sign:
+      ceftiofur_susceptible_breakpoint:
         rank: 294
         slot_group: Antimicrobial resistance
-      ceftriaxone_laboratory_typing_method:
+      ceftiofur_intermediate_breakpoint:
         rank: 295
         slot_group: Antimicrobial resistance
-      ceftriaxone_laboratory_typing_platform:
+      ceftiofur_resistant_breakpoint:
         rank: 296
         slot_group: Antimicrobial resistance
-      ceftriaxone_laboratory_typing_platform_version:
+      ceftriaxone_resistance_phenotype:
         rank: 297
         slot_group: Antimicrobial resistance
-      ceftriaxone_vendor_name:
+      ceftriaxone_measurement:
         rank: 298
         slot_group: Antimicrobial resistance
-      ceftriaxone_testing_standard:
+      ceftriaxone_measurement_units:
         rank: 299
         slot_group: Antimicrobial resistance
-      ceftriaxone_testing_standard_version:
+      ceftriaxone_measurement_sign:
         rank: 300
         slot_group: Antimicrobial resistance
-      ceftriaxone_testing_standard_details:
+      ceftriaxone_laboratory_typing_method:
         rank: 301
         slot_group: Antimicrobial resistance
-      ceftriaxone_susceptible_breakpoint:
+      ceftriaxone_laboratory_typing_platform:
         rank: 302
         slot_group: Antimicrobial resistance
-      ceftriaxone_intermediate_breakpoint:
+      ceftriaxone_laboratory_typing_platform_version:
         rank: 303
         slot_group: Antimicrobial resistance
-      ceftriaxone_resistant_breakpoint:
+      ceftriaxone_vendor_name:
         rank: 304
         slot_group: Antimicrobial resistance
-      cephalothin_resistance_phenotype:
+      ceftriaxone_testing_standard:
         rank: 305
         slot_group: Antimicrobial resistance
-      cephalothin_measurement:
+      ceftriaxone_testing_standard_version:
         rank: 306
         slot_group: Antimicrobial resistance
-      cephalothin_measurement_units:
+      ceftriaxone_testing_standard_details:
         rank: 307
         slot_group: Antimicrobial resistance
-      cephalothin_measurement_sign:
+      ceftriaxone_susceptible_breakpoint:
         rank: 308
         slot_group: Antimicrobial resistance
-      cephalothin_laboratory_typing_method:
+      ceftriaxone_intermediate_breakpoint:
         rank: 309
         slot_group: Antimicrobial resistance
-      cephalothin_laboratory_typing_platform:
+      ceftriaxone_resistant_breakpoint:
         rank: 310
         slot_group: Antimicrobial resistance
-      cephalothin_laboratory_typing_platform_version:
+      cephalothin_resistance_phenotype:
         rank: 311
         slot_group: Antimicrobial resistance
-      cephalothin_vendor_name:
+      cephalothin_measurement:
         rank: 312
         slot_group: Antimicrobial resistance
-      cephalothin_testing_standard:
+      cephalothin_measurement_units:
         rank: 313
         slot_group: Antimicrobial resistance
-      cephalothin_testing_standard_version:
+      cephalothin_measurement_sign:
         rank: 314
         slot_group: Antimicrobial resistance
-      cephalothin_testing_standard_details:
+      cephalothin_laboratory_typing_method:
         rank: 315
         slot_group: Antimicrobial resistance
-      cephalothin_susceptible_breakpoint:
+      cephalothin_laboratory_typing_platform:
         rank: 316
         slot_group: Antimicrobial resistance
-      cephalothin_intermediate_breakpoint:
+      cephalothin_laboratory_typing_platform_version:
         rank: 317
         slot_group: Antimicrobial resistance
-      cephalothin_resistant_breakpoint:
+      cephalothin_vendor_name:
         rank: 318
         slot_group: Antimicrobial resistance
-      chloramphenicol_resistance_phenotype:
+      cephalothin_testing_standard:
         rank: 319
         slot_group: Antimicrobial resistance
-      chloramphenicol_measurement:
+      cephalothin_testing_standard_version:
         rank: 320
         slot_group: Antimicrobial resistance
-      chloramphenicol_measurement_units:
+      cephalothin_testing_standard_details:
         rank: 321
         slot_group: Antimicrobial resistance
-      chloramphenicol_measurement_sign:
+      cephalothin_susceptible_breakpoint:
         rank: 322
         slot_group: Antimicrobial resistance
-      chloramphenicol_laboratory_typing_method:
+      cephalothin_intermediate_breakpoint:
         rank: 323
         slot_group: Antimicrobial resistance
-      chloramphenicol_laboratory_typing_platform:
+      cephalothin_resistant_breakpoint:
         rank: 324
         slot_group: Antimicrobial resistance
-      chloramphenicol_laboratory_typing_platform_version:
+      chloramphenicol_resistance_phenotype:
         rank: 325
         slot_group: Antimicrobial resistance
-      chloramphenicol_vendor_name:
+      chloramphenicol_measurement:
         rank: 326
         slot_group: Antimicrobial resistance
-      chloramphenicol_testing_standard:
+      chloramphenicol_measurement_units:
         rank: 327
         slot_group: Antimicrobial resistance
-      chloramphenicol_testing_standard_version:
+      chloramphenicol_measurement_sign:
         rank: 328
         slot_group: Antimicrobial resistance
-      chloramphenicol_testing_standard_details:
+      chloramphenicol_laboratory_typing_method:
         rank: 329
         slot_group: Antimicrobial resistance
-      chloramphenicol_susceptible_breakpoint:
+      chloramphenicol_laboratory_typing_platform:
         rank: 330
         slot_group: Antimicrobial resistance
-      chloramphenicol_intermediate_breakpoint:
+      chloramphenicol_laboratory_typing_platform_version:
         rank: 331
         slot_group: Antimicrobial resistance
-      chloramphenicol_resistant_breakpoint:
+      chloramphenicol_vendor_name:
         rank: 332
         slot_group: Antimicrobial resistance
-      ciprofloxacin_resistance_phenotype:
+      chloramphenicol_testing_standard:
         rank: 333
         slot_group: Antimicrobial resistance
-      ciprofloxacin_measurement:
+      chloramphenicol_testing_standard_version:
         rank: 334
         slot_group: Antimicrobial resistance
-      ciprofloxacin_measurement_units:
+      chloramphenicol_testing_standard_details:
         rank: 335
         slot_group: Antimicrobial resistance
-      ciprofloxacin_measurement_sign:
+      chloramphenicol_susceptible_breakpoint:
         rank: 336
         slot_group: Antimicrobial resistance
-      ciprofloxacin_laboratory_typing_method:
+      chloramphenicol_intermediate_breakpoint:
         rank: 337
         slot_group: Antimicrobial resistance
-      ciprofloxacin_laboratory_typing_platform:
+      chloramphenicol_resistant_breakpoint:
         rank: 338
         slot_group: Antimicrobial resistance
-      ciprofloxacin_laboratory_typing_platform_version:
+      ciprofloxacin_resistance_phenotype:
         rank: 339
         slot_group: Antimicrobial resistance
-      ciprofloxacin_vendor_name:
+      ciprofloxacin_measurement:
         rank: 340
         slot_group: Antimicrobial resistance
-      ciprofloxacin_testing_standard:
+      ciprofloxacin_measurement_units:
         rank: 341
         slot_group: Antimicrobial resistance
-      ciprofloxacin_testing_standard_version:
+      ciprofloxacin_measurement_sign:
         rank: 342
         slot_group: Antimicrobial resistance
-      ciprofloxacin_testing_standard_details:
+      ciprofloxacin_laboratory_typing_method:
         rank: 343
         slot_group: Antimicrobial resistance
-      ciprofloxacin_susceptible_breakpoint:
+      ciprofloxacin_laboratory_typing_platform:
         rank: 344
         slot_group: Antimicrobial resistance
-      ciprofloxacin_intermediate_breakpoint:
+      ciprofloxacin_laboratory_typing_platform_version:
         rank: 345
         slot_group: Antimicrobial resistance
-      ciprofloxacin_resistant_breakpoint:
+      ciprofloxacin_vendor_name:
         rank: 346
         slot_group: Antimicrobial resistance
-      clindamycin_resistance_phenotype:
+      ciprofloxacin_testing_standard:
         rank: 347
         slot_group: Antimicrobial resistance
-      clindamycin_measurement:
+      ciprofloxacin_testing_standard_version:
         rank: 348
         slot_group: Antimicrobial resistance
-      clindamycin_measurement_units:
+      ciprofloxacin_testing_standard_details:
         rank: 349
         slot_group: Antimicrobial resistance
-      clindamycin_measurement_sign:
+      ciprofloxacin_susceptible_breakpoint:
         rank: 350
         slot_group: Antimicrobial resistance
-      clindamycin_laboratory_typing_method:
+      ciprofloxacin_intermediate_breakpoint:
         rank: 351
         slot_group: Antimicrobial resistance
-      clindamycin_laboratory_typing_platform:
+      ciprofloxacin_resistant_breakpoint:
         rank: 352
         slot_group: Antimicrobial resistance
-      clindamycin_laboratory_typing_platform_version:
+      clindamycin_resistance_phenotype:
         rank: 353
         slot_group: Antimicrobial resistance
-      clindamycin_vendor_name:
+      clindamycin_measurement:
         rank: 354
         slot_group: Antimicrobial resistance
-      clindamycin_testing_standard:
+      clindamycin_measurement_units:
         rank: 355
         slot_group: Antimicrobial resistance
-      clindamycin_testing_standard_version:
+      clindamycin_measurement_sign:
         rank: 356
         slot_group: Antimicrobial resistance
-      clindamycin_testing_standard_details:
+      clindamycin_laboratory_typing_method:
         rank: 357
         slot_group: Antimicrobial resistance
-      clindamycin_susceptible_breakpoint:
+      clindamycin_laboratory_typing_platform:
         rank: 358
         slot_group: Antimicrobial resistance
-      clindamycin_intermediate_breakpoint:
+      clindamycin_laboratory_typing_platform_version:
         rank: 359
         slot_group: Antimicrobial resistance
-      clindamycin_resistant_breakpoint:
+      clindamycin_vendor_name:
         rank: 360
         slot_group: Antimicrobial resistance
-      doxycycline_resistance_phenotype:
+      clindamycin_testing_standard:
         rank: 361
         slot_group: Antimicrobial resistance
-      doxycycline_measurement:
+      clindamycin_testing_standard_version:
         rank: 362
         slot_group: Antimicrobial resistance
-      doxycycline_measurement_units:
+      clindamycin_testing_standard_details:
         rank: 363
         slot_group: Antimicrobial resistance
-      doxycycline_measurement_sign:
+      clindamycin_susceptible_breakpoint:
         rank: 364
         slot_group: Antimicrobial resistance
-      doxycycline_laboratory_typing_method:
+      clindamycin_intermediate_breakpoint:
         rank: 365
         slot_group: Antimicrobial resistance
-      doxycycline_laboratory_typing_platform:
+      clindamycin_resistant_breakpoint:
         rank: 366
         slot_group: Antimicrobial resistance
-      doxycycline_laboratory_typing_platform_version:
+      doxycycline_resistance_phenotype:
         rank: 367
         slot_group: Antimicrobial resistance
-      doxycycline_vendor_name:
+      doxycycline_measurement:
         rank: 368
         slot_group: Antimicrobial resistance
-      doxycycline_testing_standard:
+      doxycycline_measurement_units:
         rank: 369
         slot_group: Antimicrobial resistance
-      doxycycline_testing_standard_version:
+      doxycycline_measurement_sign:
         rank: 370
         slot_group: Antimicrobial resistance
-      doxycycline_testing_standard_details:
+      doxycycline_laboratory_typing_method:
         rank: 371
         slot_group: Antimicrobial resistance
-      doxycycline_susceptible_breakpoint:
+      doxycycline_laboratory_typing_platform:
         rank: 372
         slot_group: Antimicrobial resistance
-      doxycycline_intermediate_breakpoint:
+      doxycycline_laboratory_typing_platform_version:
         rank: 373
         slot_group: Antimicrobial resistance
-      doxycycline_resistant_breakpoint:
+      doxycycline_vendor_name:
         rank: 374
         slot_group: Antimicrobial resistance
-      enrofloxacin_resistance_phenotype:
+      doxycycline_testing_standard:
         rank: 375
         slot_group: Antimicrobial resistance
-      enrofloxacin_measurement:
+      doxycycline_testing_standard_version:
         rank: 376
         slot_group: Antimicrobial resistance
-      enrofloxacin_measurement_units:
+      doxycycline_testing_standard_details:
         rank: 377
         slot_group: Antimicrobial resistance
-      enrofloxacin_measurement_sign:
+      doxycycline_susceptible_breakpoint:
         rank: 378
         slot_group: Antimicrobial resistance
-      enrofloxacin_laboratory_typing_method:
+      doxycycline_intermediate_breakpoint:
         rank: 379
         slot_group: Antimicrobial resistance
-      enrofloxacin_laboratory_typing_platform:
+      doxycycline_resistant_breakpoint:
         rank: 380
         slot_group: Antimicrobial resistance
-      enrofloxacin_laboratory_typing_platform_version:
+      enrofloxacin_resistance_phenotype:
         rank: 381
         slot_group: Antimicrobial resistance
-      enrofloxacin_vendor_name:
+      enrofloxacin_measurement:
         rank: 382
         slot_group: Antimicrobial resistance
-      enrofloxacin_testing_standard:
+      enrofloxacin_measurement_units:
         rank: 383
         slot_group: Antimicrobial resistance
-      enrofloxacin_testing_standard_version:
+      enrofloxacin_measurement_sign:
         rank: 384
         slot_group: Antimicrobial resistance
-      enrofloxacin_testing_standard_details:
+      enrofloxacin_laboratory_typing_method:
         rank: 385
         slot_group: Antimicrobial resistance
-      enrofloxacin_susceptible_breakpoint:
+      enrofloxacin_laboratory_typing_platform:
         rank: 386
         slot_group: Antimicrobial resistance
-      enrofloxacin_intermediate_breakpoint:
+      enrofloxacin_laboratory_typing_platform_version:
         rank: 387
         slot_group: Antimicrobial resistance
-      enrofloxacin_resistant_breakpoint:
+      enrofloxacin_vendor_name:
         rank: 388
         slot_group: Antimicrobial resistance
-      erythromycin_resistance_phenotype:
+      enrofloxacin_testing_standard:
         rank: 389
         slot_group: Antimicrobial resistance
-      erythromycin_measurement:
+      enrofloxacin_testing_standard_version:
         rank: 390
         slot_group: Antimicrobial resistance
-      erythromycin_measurement_units:
+      enrofloxacin_testing_standard_details:
         rank: 391
         slot_group: Antimicrobial resistance
-      erythromycin_measurement_sign:
+      enrofloxacin_susceptible_breakpoint:
         rank: 392
         slot_group: Antimicrobial resistance
-      erythromycin_laboratory_typing_method:
+      enrofloxacin_intermediate_breakpoint:
         rank: 393
         slot_group: Antimicrobial resistance
-      erythromycin_laboratory_typing_platform:
+      enrofloxacin_resistant_breakpoint:
         rank: 394
         slot_group: Antimicrobial resistance
-      erythromycin_laboratory_typing_platform_version:
+      erythromycin_resistance_phenotype:
         rank: 395
         slot_group: Antimicrobial resistance
-      erythromycin_vendor_name:
+      erythromycin_measurement:
         rank: 396
         slot_group: Antimicrobial resistance
-      erythromycin_testing_standard:
+      erythromycin_measurement_units:
         rank: 397
         slot_group: Antimicrobial resistance
-      erythromycin_testing_standard_version:
+      erythromycin_measurement_sign:
         rank: 398
         slot_group: Antimicrobial resistance
-      erythromycin_testing_standard_details:
+      erythromycin_laboratory_typing_method:
         rank: 399
         slot_group: Antimicrobial resistance
-      erythromycin_susceptible_breakpoint:
+      erythromycin_laboratory_typing_platform:
         rank: 400
         slot_group: Antimicrobial resistance
-      erythromycin_intermediate_breakpoint:
+      erythromycin_laboratory_typing_platform_version:
         rank: 401
         slot_group: Antimicrobial resistance
-      erythromycin_resistant_breakpoint:
+      erythromycin_vendor_name:
         rank: 402
         slot_group: Antimicrobial resistance
-      florfenicol_resistance_phenotype:
+      erythromycin_testing_standard:
         rank: 403
         slot_group: Antimicrobial resistance
-      florfenicol_measurement:
+      erythromycin_testing_standard_version:
         rank: 404
         slot_group: Antimicrobial resistance
-      florfenicol_measurement_units:
+      erythromycin_testing_standard_details:
         rank: 405
         slot_group: Antimicrobial resistance
-      florfenicol_measurement_sign:
+      erythromycin_susceptible_breakpoint:
         rank: 406
         slot_group: Antimicrobial resistance
-      florfenicol_laboratory_typing_method:
+      erythromycin_intermediate_breakpoint:
         rank: 407
         slot_group: Antimicrobial resistance
-      florfenicol_laboratory_typing_platform:
+      erythromycin_resistant_breakpoint:
         rank: 408
         slot_group: Antimicrobial resistance
-      florfenicol_laboratory_typing_platform_version:
+      florfenicol_resistance_phenotype:
         rank: 409
         slot_group: Antimicrobial resistance
-      florfenicol_vendor_name:
+      florfenicol_measurement:
         rank: 410
         slot_group: Antimicrobial resistance
-      florfenicol_testing_standard:
+      florfenicol_measurement_units:
         rank: 411
         slot_group: Antimicrobial resistance
-      florfenicol_testing_standard_version:
+      florfenicol_measurement_sign:
         rank: 412
         slot_group: Antimicrobial resistance
-      florfenicol_testing_standard_details:
+      florfenicol_laboratory_typing_method:
         rank: 413
         slot_group: Antimicrobial resistance
-      florfenicol_susceptible_breakpoint:
+      florfenicol_laboratory_typing_platform:
         rank: 414
         slot_group: Antimicrobial resistance
-      florfenicol_intermediate_breakpoint:
+      florfenicol_laboratory_typing_platform_version:
         rank: 415
         slot_group: Antimicrobial resistance
-      florfenicol_resistant_breakpoint:
+      florfenicol_vendor_name:
         rank: 416
         slot_group: Antimicrobial resistance
-      gentamicin_resistance_phenotype:
+      florfenicol_testing_standard:
         rank: 417
         slot_group: Antimicrobial resistance
-      gentamicin_measurement:
+      florfenicol_testing_standard_version:
         rank: 418
         slot_group: Antimicrobial resistance
-      gentamicin_measurement_units:
+      florfenicol_testing_standard_details:
         rank: 419
         slot_group: Antimicrobial resistance
-      gentamicin_measurement_sign:
+      florfenicol_susceptible_breakpoint:
         rank: 420
         slot_group: Antimicrobial resistance
-      gentamicin_laboratory_typing_method:
+      florfenicol_intermediate_breakpoint:
         rank: 421
         slot_group: Antimicrobial resistance
-      gentamicin_laboratory_typing_platform:
+      florfenicol_resistant_breakpoint:
         rank: 422
         slot_group: Antimicrobial resistance
-      gentamicin_laboratory_typing_platform_version:
+      gentamicin_resistance_phenotype:
         rank: 423
         slot_group: Antimicrobial resistance
-      gentamicin_vendor_name:
+      gentamicin_measurement:
         rank: 424
         slot_group: Antimicrobial resistance
-      gentamicin_testing_standard:
+      gentamicin_measurement_units:
         rank: 425
         slot_group: Antimicrobial resistance
-      gentamicin_testing_standard_version:
+      gentamicin_measurement_sign:
         rank: 426
         slot_group: Antimicrobial resistance
-      gentamicin_testing_standard_details:
+      gentamicin_laboratory_typing_method:
         rank: 427
         slot_group: Antimicrobial resistance
-      gentamicin_susceptible_breakpoint:
+      gentamicin_laboratory_typing_platform:
         rank: 428
         slot_group: Antimicrobial resistance
-      gentamicin_intermediate_breakpoint:
+      gentamicin_laboratory_typing_platform_version:
         rank: 429
         slot_group: Antimicrobial resistance
-      gentamicin_resistant_breakpoint:
+      gentamicin_vendor_name:
         rank: 430
         slot_group: Antimicrobial resistance
-      imipenem_resistance_phenotype:
+      gentamicin_testing_standard:
         rank: 431
         slot_group: Antimicrobial resistance
-      imipenem_measurement:
+      gentamicin_testing_standard_version:
         rank: 432
         slot_group: Antimicrobial resistance
-      imipenem_measurement_units:
+      gentamicin_testing_standard_details:
         rank: 433
         slot_group: Antimicrobial resistance
-      imipenem_measurement_sign:
+      gentamicin_susceptible_breakpoint:
         rank: 434
         slot_group: Antimicrobial resistance
-      imipenem_laboratory_typing_method:
+      gentamicin_intermediate_breakpoint:
         rank: 435
         slot_group: Antimicrobial resistance
-      imipenem_laboratory_typing_platform:
+      gentamicin_resistant_breakpoint:
         rank: 436
         slot_group: Antimicrobial resistance
-      imipenem_laboratory_typing_platform_version:
+      imipenem_resistance_phenotype:
         rank: 437
         slot_group: Antimicrobial resistance
-      imipenem_vendor_name:
+      imipenem_measurement:
         rank: 438
         slot_group: Antimicrobial resistance
-      imipenem_testing_standard:
+      imipenem_measurement_units:
         rank: 439
         slot_group: Antimicrobial resistance
-      imipenem_testing_standard_version:
+      imipenem_measurement_sign:
         rank: 440
         slot_group: Antimicrobial resistance
-      imipenem_testing_standard_details:
+      imipenem_laboratory_typing_method:
         rank: 441
         slot_group: Antimicrobial resistance
-      imipenem_susceptible_breakpoint:
+      imipenem_laboratory_typing_platform:
         rank: 442
         slot_group: Antimicrobial resistance
-      imipenem_intermediate_breakpoint:
+      imipenem_laboratory_typing_platform_version:
         rank: 443
         slot_group: Antimicrobial resistance
-      imipenem_resistant_breakpoint:
+      imipenem_vendor_name:
         rank: 444
         slot_group: Antimicrobial resistance
-      kanamycin_resistance_phenotype:
+      imipenem_testing_standard:
         rank: 445
         slot_group: Antimicrobial resistance
-      kanamycin_measurement:
+      imipenem_testing_standard_version:
         rank: 446
         slot_group: Antimicrobial resistance
-      kanamycin_measurement_units:
+      imipenem_testing_standard_details:
         rank: 447
         slot_group: Antimicrobial resistance
-      kanamycin_measurement_sign:
+      imipenem_susceptible_breakpoint:
         rank: 448
         slot_group: Antimicrobial resistance
-      kanamycin_laboratory_typing_method:
+      imipenem_intermediate_breakpoint:
         rank: 449
         slot_group: Antimicrobial resistance
-      kanamycin_laboratory_typing_platform:
+      imipenem_resistant_breakpoint:
         rank: 450
         slot_group: Antimicrobial resistance
-      kanamycin_laboratory_typing_platform_version:
+      kanamycin_resistance_phenotype:
         rank: 451
         slot_group: Antimicrobial resistance
-      kanamycin_vendor_name:
+      kanamycin_measurement:
         rank: 452
         slot_group: Antimicrobial resistance
-      kanamycin_testing_standard:
+      kanamycin_measurement_units:
         rank: 453
         slot_group: Antimicrobial resistance
-      kanamycin_testing_standard_version:
+      kanamycin_measurement_sign:
         rank: 454
         slot_group: Antimicrobial resistance
-      kanamycin_testing_standard_details:
+      kanamycin_laboratory_typing_method:
         rank: 455
         slot_group: Antimicrobial resistance
-      kanamycin_susceptible_breakpoint:
+      kanamycin_laboratory_typing_platform:
         rank: 456
         slot_group: Antimicrobial resistance
-      kanamycin_intermediate_breakpoint:
+      kanamycin_laboratory_typing_platform_version:
         rank: 457
         slot_group: Antimicrobial resistance
-      kanamycin_resistant_breakpoint:
+      kanamycin_vendor_name:
         rank: 458
         slot_group: Antimicrobial resistance
-      levofloxacin_resistance_phenotype:
+      kanamycin_testing_standard:
         rank: 459
         slot_group: Antimicrobial resistance
-      levofloxacin_measurement:
+      kanamycin_testing_standard_version:
         rank: 460
         slot_group: Antimicrobial resistance
-      levofloxacin_measurement_units:
+      kanamycin_testing_standard_details:
         rank: 461
         slot_group: Antimicrobial resistance
-      levofloxacin_measurement_sign:
+      kanamycin_susceptible_breakpoint:
         rank: 462
         slot_group: Antimicrobial resistance
-      levofloxacin_laboratory_typing_method:
+      kanamycin_intermediate_breakpoint:
         rank: 463
         slot_group: Antimicrobial resistance
-      levofloxacin_laboratory_typing_platform:
+      kanamycin_resistant_breakpoint:
         rank: 464
         slot_group: Antimicrobial resistance
-      levofloxacin_laboratory_typing_platform_version:
+      levofloxacin_resistance_phenotype:
         rank: 465
         slot_group: Antimicrobial resistance
-      levofloxacin_vendor_name:
+      levofloxacin_measurement:
         rank: 466
         slot_group: Antimicrobial resistance
-      levofloxacin_testing_standard:
+      levofloxacin_measurement_units:
         rank: 467
         slot_group: Antimicrobial resistance
-      levofloxacin_testing_standard_version:
+      levofloxacin_measurement_sign:
         rank: 468
         slot_group: Antimicrobial resistance
-      levofloxacin_testing_standard_details:
+      levofloxacin_laboratory_typing_method:
         rank: 469
         slot_group: Antimicrobial resistance
-      levofloxacin_susceptible_breakpoint:
+      levofloxacin_laboratory_typing_platform:
         rank: 470
         slot_group: Antimicrobial resistance
-      levofloxacin_intermediate_breakpoint:
+      levofloxacin_laboratory_typing_platform_version:
         rank: 471
         slot_group: Antimicrobial resistance
-      levofloxacin_resistant_breakpoint:
+      levofloxacin_vendor_name:
         rank: 472
         slot_group: Antimicrobial resistance
-      linezolid_resistance_phenotype:
+      levofloxacin_testing_standard:
         rank: 473
         slot_group: Antimicrobial resistance
-      linezolid_measurement:
+      levofloxacin_testing_standard_version:
         rank: 474
         slot_group: Antimicrobial resistance
-      linezolid_measurement_units:
+      levofloxacin_testing_standard_details:
         rank: 475
         slot_group: Antimicrobial resistance
-      linezolid_measurement_sign:
+      levofloxacin_susceptible_breakpoint:
         rank: 476
         slot_group: Antimicrobial resistance
-      linezolid_laboratory_typing_method:
+      levofloxacin_intermediate_breakpoint:
         rank: 477
         slot_group: Antimicrobial resistance
-      linezolid_laboratory_typing_platform:
+      levofloxacin_resistant_breakpoint:
         rank: 478
         slot_group: Antimicrobial resistance
-      linezolid_laboratory_typing_platform_version:
+      linezolid_resistance_phenotype:
         rank: 479
         slot_group: Antimicrobial resistance
-      linezolid_vendor_name:
+      linezolid_measurement:
         rank: 480
         slot_group: Antimicrobial resistance
-      linezolid_testing_standard:
+      linezolid_measurement_units:
         rank: 481
         slot_group: Antimicrobial resistance
-      linezolid_testing_standard_version:
+      linezolid_measurement_sign:
         rank: 482
         slot_group: Antimicrobial resistance
-      linezolid_testing_standard_details:
+      linezolid_laboratory_typing_method:
         rank: 483
         slot_group: Antimicrobial resistance
-      linezolid_susceptible_breakpoint:
+      linezolid_laboratory_typing_platform:
         rank: 484
         slot_group: Antimicrobial resistance
-      linezolid_intermediate_breakpoint:
+      linezolid_laboratory_typing_platform_version:
         rank: 485
         slot_group: Antimicrobial resistance
-      linezolid_resistant_breakpoint:
+      linezolid_vendor_name:
         rank: 486
         slot_group: Antimicrobial resistance
-      meropenem_resistance_phenotype:
+      linezolid_testing_standard:
         rank: 487
         slot_group: Antimicrobial resistance
-      meropenem_measurement:
+      linezolid_testing_standard_version:
         rank: 488
         slot_group: Antimicrobial resistance
-      meropenem_measurement_units:
+      linezolid_testing_standard_details:
         rank: 489
         slot_group: Antimicrobial resistance
-      meropenem_measurement_sign:
+      linezolid_susceptible_breakpoint:
         rank: 490
         slot_group: Antimicrobial resistance
-      meropenem_laboratory_typing_method:
+      linezolid_intermediate_breakpoint:
         rank: 491
         slot_group: Antimicrobial resistance
-      meropenem_laboratory_typing_platform:
+      linezolid_resistant_breakpoint:
         rank: 492
         slot_group: Antimicrobial resistance
-      meropenem_laboratory_typing_platform_version:
+      meropenem_resistance_phenotype:
         rank: 493
         slot_group: Antimicrobial resistance
-      meropenem_vendor_name:
+      meropenem_measurement:
         rank: 494
         slot_group: Antimicrobial resistance
-      meropenem_testing_standard:
+      meropenem_measurement_units:
         rank: 495
         slot_group: Antimicrobial resistance
-      meropenem_testing_standard_version:
+      meropenem_measurement_sign:
         rank: 496
         slot_group: Antimicrobial resistance
-      meropenem_testing_standard_details:
+      meropenem_laboratory_typing_method:
         rank: 497
         slot_group: Antimicrobial resistance
-      meropenem_susceptible_breakpoint:
+      meropenem_laboratory_typing_platform:
         rank: 498
         slot_group: Antimicrobial resistance
-      meropenem_intermediate_breakpoint:
+      meropenem_laboratory_typing_platform_version:
         rank: 499
         slot_group: Antimicrobial resistance
-      meropenem_resistant_breakpoint:
+      meropenem_vendor_name:
         rank: 500
         slot_group: Antimicrobial resistance
-      nalidixic_acid_resistance_phenotype:
+      meropenem_testing_standard:
         rank: 501
         slot_group: Antimicrobial resistance
-      nalidixic_acid_measurement:
+      meropenem_testing_standard_version:
         rank: 502
         slot_group: Antimicrobial resistance
-      nalidixic_acid_measurement_units:
+      meropenem_testing_standard_details:
         rank: 503
         slot_group: Antimicrobial resistance
-      nalidixic_acid_measurement_sign:
+      meropenem_susceptible_breakpoint:
         rank: 504
         slot_group: Antimicrobial resistance
-      nalidixic_acid_laboratory_typing_method:
+      meropenem_intermediate_breakpoint:
         rank: 505
         slot_group: Antimicrobial resistance
-      nalidixic_acid_laboratory_typing_platform:
+      meropenem_resistant_breakpoint:
         rank: 506
         slot_group: Antimicrobial resistance
-      nalidixic_acid_laboratory_typing_platform_version:
+      nalidixic_acid_resistance_phenotype:
         rank: 507
         slot_group: Antimicrobial resistance
-      nalidixic_acid_vendor_name:
+      nalidixic_acid_measurement:
         rank: 508
         slot_group: Antimicrobial resistance
-      nalidixic_acid_testing_standard:
+      nalidixic_acid_measurement_units:
         rank: 509
         slot_group: Antimicrobial resistance
-      nalidixic_acid_testing_standard_version:
+      nalidixic_acid_measurement_sign:
         rank: 510
         slot_group: Antimicrobial resistance
-      nalidixic_acid_testing_standard_details:
+      nalidixic_acid_laboratory_typing_method:
         rank: 511
         slot_group: Antimicrobial resistance
-      nalidixic_acid_susceptible_breakpoint:
+      nalidixic_acid_laboratory_typing_platform:
         rank: 512
         slot_group: Antimicrobial resistance
-      nalidixic_acid_intermediate_breakpoint:
+      nalidixic_acid_laboratory_typing_platform_version:
         rank: 513
         slot_group: Antimicrobial resistance
-      nalidixic_acid_resistant_breakpoint:
+      nalidixic_acid_vendor_name:
         rank: 514
         slot_group: Antimicrobial resistance
-      nitrofurantoin_resistance_phenotype:
+      nalidixic_acid_testing_standard:
         rank: 515
         slot_group: Antimicrobial resistance
-      nitrofurantoin_measurement:
+      nalidixic_acid_testing_standard_version:
         rank: 516
         slot_group: Antimicrobial resistance
-      nitrofurantoin_measurement_units:
+      nalidixic_acid_testing_standard_details:
         rank: 517
         slot_group: Antimicrobial resistance
-      nitrofurantoin_measurement_sign:
+      nalidixic_acid_susceptible_breakpoint:
         rank: 518
         slot_group: Antimicrobial resistance
-      nitrofurantoin_laboratory_typing_method:
+      nalidixic_acid_intermediate_breakpoint:
         rank: 519
         slot_group: Antimicrobial resistance
-      nitrofurantoin_laboratory_typing_platform:
+      nalidixic_acid_resistant_breakpoint:
         rank: 520
         slot_group: Antimicrobial resistance
-      nitrofurantoin_laboratory_typing_platform_version:
+      nitrofurantoin_resistance_phenotype:
         rank: 521
         slot_group: Antimicrobial resistance
-      nitrofurantoin_vendor_name:
+      nitrofurantoin_measurement:
         rank: 522
         slot_group: Antimicrobial resistance
-      nitrofurantoin_testing_standard:
+      nitrofurantoin_measurement_units:
         rank: 523
         slot_group: Antimicrobial resistance
-      nitrofurantoin_testing_standard_version:
+      nitrofurantoin_measurement_sign:
         rank: 524
         slot_group: Antimicrobial resistance
-      nitrofurantoin_testing_standard_details:
+      nitrofurantoin_laboratory_typing_method:
         rank: 525
         slot_group: Antimicrobial resistance
-      nitrofurantoin_susceptible_breakpoint:
+      nitrofurantoin_laboratory_typing_platform:
         rank: 526
         slot_group: Antimicrobial resistance
-      nitrofurantoin_intermediate_breakpoint:
+      nitrofurantoin_laboratory_typing_platform_version:
         rank: 527
         slot_group: Antimicrobial resistance
-      nitrofurantoin_resistant_breakpoint:
+      nitrofurantoin_vendor_name:
         rank: 528
         slot_group: Antimicrobial resistance
-      norfloxacin_resistance_phenotype:
+      nitrofurantoin_testing_standard:
         rank: 529
         slot_group: Antimicrobial resistance
-      norfloxacin_measurement:
+      nitrofurantoin_testing_standard_version:
         rank: 530
         slot_group: Antimicrobial resistance
-      norfloxacin_measurement_units:
+      nitrofurantoin_testing_standard_details:
         rank: 531
         slot_group: Antimicrobial resistance
-      norfloxacin_measurement_sign:
+      nitrofurantoin_susceptible_breakpoint:
         rank: 532
         slot_group: Antimicrobial resistance
-      norfloxacin_laboratory_typing_method:
+      nitrofurantoin_intermediate_breakpoint:
         rank: 533
         slot_group: Antimicrobial resistance
-      norfloxacin_laboratory_typing_platform:
+      nitrofurantoin_resistant_breakpoint:
         rank: 534
         slot_group: Antimicrobial resistance
-      norfloxacin_laboratory_typing_platform_version:
+      norfloxacin_resistance_phenotype:
         rank: 535
         slot_group: Antimicrobial resistance
-      norfloxacin_vendor_name:
+      norfloxacin_measurement:
         rank: 536
         slot_group: Antimicrobial resistance
-      norfloxacin_testing_standard:
+      norfloxacin_measurement_units:
         rank: 537
         slot_group: Antimicrobial resistance
-      norfloxacin_testing_standard_version:
+      norfloxacin_measurement_sign:
         rank: 538
         slot_group: Antimicrobial resistance
-      norfloxacin_testing_standard_details:
+      norfloxacin_laboratory_typing_method:
         rank: 539
         slot_group: Antimicrobial resistance
-      norfloxacin_susceptible_breakpoint:
+      norfloxacin_laboratory_typing_platform:
         rank: 540
         slot_group: Antimicrobial resistance
-      norfloxacin_intermediate_breakpoint:
+      norfloxacin_laboratory_typing_platform_version:
         rank: 541
         slot_group: Antimicrobial resistance
-      norfloxacin_resistant_breakpoint:
+      norfloxacin_vendor_name:
         rank: 542
         slot_group: Antimicrobial resistance
-      oxolinic-acid_resistance_phenotype:
+      norfloxacin_testing_standard:
         rank: 543
         slot_group: Antimicrobial resistance
-      oxolinic-acid_measurement:
+      norfloxacin_testing_standard_version:
         rank: 544
         slot_group: Antimicrobial resistance
-      oxolinic-acid_measurement_units:
+      norfloxacin_testing_standard_details:
         rank: 545
         slot_group: Antimicrobial resistance
-      oxolinic-acid_measurement_sign:
+      norfloxacin_susceptible_breakpoint:
         rank: 546
         slot_group: Antimicrobial resistance
-      oxolinic-acid_laboratory_typing_method:
+      norfloxacin_intermediate_breakpoint:
         rank: 547
         slot_group: Antimicrobial resistance
-      oxolinic-acid_laboratory_typing_platform:
+      norfloxacin_resistant_breakpoint:
         rank: 548
         slot_group: Antimicrobial resistance
-      oxolinic-acid_laboratory_typing_platform_version:
+      oxolinic-acid_resistance_phenotype:
         rank: 549
         slot_group: Antimicrobial resistance
-      oxolinic-acid_vendor_name:
+      oxolinic-acid_measurement:
         rank: 550
         slot_group: Antimicrobial resistance
-      oxolinic-acid_testing_standard:
+      oxolinic-acid_measurement_units:
         rank: 551
         slot_group: Antimicrobial resistance
-      oxolinic-acid_testing_standard_version:
+      oxolinic-acid_measurement_sign:
         rank: 552
         slot_group: Antimicrobial resistance
-      oxolinic-acid_testing_standard_details:
+      oxolinic-acid_laboratory_typing_method:
         rank: 553
         slot_group: Antimicrobial resistance
-      oxolinic-acid_susceptible_breakpoint:
+      oxolinic-acid_laboratory_typing_platform:
         rank: 554
         slot_group: Antimicrobial resistance
-      oxolinic-acid_intermediate_breakpoint:
+      oxolinic-acid_laboratory_typing_platform_version:
         rank: 555
         slot_group: Antimicrobial resistance
-      oxolinic-acid_resistant_breakpoint:
+      oxolinic-acid_vendor_name:
         rank: 556
         slot_group: Antimicrobial resistance
-      oxytetracycline_resistance_phenotype:
+      oxolinic-acid_testing_standard:
         rank: 557
         slot_group: Antimicrobial resistance
-      oxytetracycline_measurement:
+      oxolinic-acid_testing_standard_version:
         rank: 558
         slot_group: Antimicrobial resistance
-      oxytetracycline_measurement_units:
+      oxolinic-acid_testing_standard_details:
         rank: 559
         slot_group: Antimicrobial resistance
-      oxytetracycline_measurement_sign:
+      oxolinic-acid_susceptible_breakpoint:
         rank: 560
         slot_group: Antimicrobial resistance
-      oxytetracycline_laboratory_typing_method:
+      oxolinic-acid_intermediate_breakpoint:
         rank: 561
         slot_group: Antimicrobial resistance
-      oxytetracycline_laboratory_typing_platform:
+      oxolinic-acid_resistant_breakpoint:
         rank: 562
         slot_group: Antimicrobial resistance
-      oxytetracycline_laboratory_typing_platform_version:
+      oxytetracycline_resistance_phenotype:
         rank: 563
         slot_group: Antimicrobial resistance
-      oxytetracycline_vendor_name:
+      oxytetracycline_measurement:
         rank: 564
         slot_group: Antimicrobial resistance
-      oxytetracycline_testing_standard:
+      oxytetracycline_measurement_units:
         rank: 565
         slot_group: Antimicrobial resistance
-      oxytetracycline_testing_standard_version:
+      oxytetracycline_measurement_sign:
         rank: 566
         slot_group: Antimicrobial resistance
-      oxytetracycline_testing_standard_details:
+      oxytetracycline_laboratory_typing_method:
         rank: 567
         slot_group: Antimicrobial resistance
-      oxytetracycline_susceptible_breakpoint:
+      oxytetracycline_laboratory_typing_platform:
         rank: 568
         slot_group: Antimicrobial resistance
-      oxytetracycline_intermediate_breakpoint:
+      oxytetracycline_laboratory_typing_platform_version:
         rank: 569
         slot_group: Antimicrobial resistance
-      oxytetracycline_resistant_breakpoint:
+      oxytetracycline_vendor_name:
         rank: 570
         slot_group: Antimicrobial resistance
-      piperacillin_resistance_phenotype:
+      oxytetracycline_testing_standard:
         rank: 571
         slot_group: Antimicrobial resistance
-      piperacillin_measurement:
+      oxytetracycline_testing_standard_version:
         rank: 572
         slot_group: Antimicrobial resistance
-      piperacillin_measurement_units:
+      oxytetracycline_testing_standard_details:
         rank: 573
         slot_group: Antimicrobial resistance
-      piperacillin_measurement_sign:
+      oxytetracycline_susceptible_breakpoint:
         rank: 574
         slot_group: Antimicrobial resistance
-      piperacillin_laboratory_typing_method:
+      oxytetracycline_intermediate_breakpoint:
         rank: 575
         slot_group: Antimicrobial resistance
-      piperacillin_laboratory_typing_platform:
+      oxytetracycline_resistant_breakpoint:
         rank: 576
         slot_group: Antimicrobial resistance
-      piperacillin_laboratory_typing_platform_version:
+      piperacillin_resistance_phenotype:
         rank: 577
         slot_group: Antimicrobial resistance
-      piperacillin_vendor_name:
+      piperacillin_measurement:
         rank: 578
         slot_group: Antimicrobial resistance
-      piperacillin_testing_standard:
+      piperacillin_measurement_units:
         rank: 579
         slot_group: Antimicrobial resistance
-      piperacillin_testing_standard_version:
+      piperacillin_measurement_sign:
         rank: 580
         slot_group: Antimicrobial resistance
-      piperacillin_testing_standard_details:
+      piperacillin_laboratory_typing_method:
         rank: 581
         slot_group: Antimicrobial resistance
-      piperacillin_susceptible_breakpoint:
+      piperacillin_laboratory_typing_platform:
         rank: 582
         slot_group: Antimicrobial resistance
-      piperacillin_intermediate_breakpoint:
+      piperacillin_laboratory_typing_platform_version:
         rank: 583
         slot_group: Antimicrobial resistance
-      piperacillin_resistant_breakpoint:
+      piperacillin_vendor_name:
         rank: 584
         slot_group: Antimicrobial resistance
-      piperacillin-tazobactam_resistance_phenotype:
+      piperacillin_testing_standard:
         rank: 585
         slot_group: Antimicrobial resistance
-      piperacillin-tazobactam_measurement:
+      piperacillin_testing_standard_version:
         rank: 586
         slot_group: Antimicrobial resistance
-      piperacillin-tazobactam_measurement_units:
+      piperacillin_testing_standard_details:
         rank: 587
         slot_group: Antimicrobial resistance
-      piperacillin-tazobactam_measurement_sign:
+      piperacillin_susceptible_breakpoint:
         rank: 588
         slot_group: Antimicrobial resistance
-      piperacillin-tazobactam_laboratory_typing_method:
+      piperacillin_intermediate_breakpoint:
         rank: 589
         slot_group: Antimicrobial resistance
-      piperacillin-tazobactam_laboratory_typing_platform:
+      piperacillin_resistant_breakpoint:
         rank: 590
         slot_group: Antimicrobial resistance
-      piperacillin-tazobactam_laboratory_typing_platform_version:
+      piperacillin-tazobactam_resistance_phenotype:
         rank: 591
         slot_group: Antimicrobial resistance
-      piperacillin-tazobactam_vendor_name:
+      piperacillin-tazobactam_measurement:
         rank: 592
         slot_group: Antimicrobial resistance
-      piperacillin-tazobactam_testing_standard:
+      piperacillin-tazobactam_measurement_units:
         rank: 593
         slot_group: Antimicrobial resistance
-      piperacillin-tazobactam_testing_standard_version:
+      piperacillin-tazobactam_measurement_sign:
         rank: 594
         slot_group: Antimicrobial resistance
-      piperacillin-tazobactam_testing_standard_details:
+      piperacillin-tazobactam_laboratory_typing_method:
         rank: 595
         slot_group: Antimicrobial resistance
-      piperacillin-tazobactam_susceptible_breakpoint:
+      piperacillin-tazobactam_laboratory_typing_platform:
         rank: 596
         slot_group: Antimicrobial resistance
-      piperacillin-tazobactam_intermediate_breakpoint:
+      piperacillin-tazobactam_laboratory_typing_platform_version:
         rank: 597
         slot_group: Antimicrobial resistance
-      piperacillin-tazobactam_resistant_breakpoint:
+      piperacillin-tazobactam_vendor_name:
         rank: 598
         slot_group: Antimicrobial resistance
-      polymyxin-b_resistance_phenotype:
+      piperacillin-tazobactam_testing_standard:
         rank: 599
         slot_group: Antimicrobial resistance
-      polymyxin-b_measurement:
+      piperacillin-tazobactam_testing_standard_version:
         rank: 600
         slot_group: Antimicrobial resistance
-      polymyxin-b_measurement_units:
+      piperacillin-tazobactam_testing_standard_details:
         rank: 601
         slot_group: Antimicrobial resistance
-      polymyxin-b_measurement_sign:
+      piperacillin-tazobactam_susceptible_breakpoint:
         rank: 602
         slot_group: Antimicrobial resistance
-      polymyxin-b_laboratory_typing_method:
+      piperacillin-tazobactam_intermediate_breakpoint:
         rank: 603
         slot_group: Antimicrobial resistance
-      polymyxin-b_laboratory_typing_platform:
+      piperacillin-tazobactam_resistant_breakpoint:
         rank: 604
         slot_group: Antimicrobial resistance
-      polymyxin-b_laboratory_typing_platform_version:
+      polymyxin-b_resistance_phenotype:
         rank: 605
         slot_group: Antimicrobial resistance
-      polymyxin-b_vendor_name:
+      polymyxin-b_measurement:
         rank: 606
         slot_group: Antimicrobial resistance
-      polymyxin-b_testing_standard:
+      polymyxin-b_measurement_units:
         rank: 607
         slot_group: Antimicrobial resistance
-      polymyxin-b_testing_standard_version:
+      polymyxin-b_measurement_sign:
         rank: 608
         slot_group: Antimicrobial resistance
-      polymyxin-b_testing_standard_details:
+      polymyxin-b_laboratory_typing_method:
         rank: 609
         slot_group: Antimicrobial resistance
-      polymyxin-b_susceptible_breakpoint:
+      polymyxin-b_laboratory_typing_platform:
         rank: 610
         slot_group: Antimicrobial resistance
-      polymyxin-b_intermediate_breakpoint:
+      polymyxin-b_laboratory_typing_platform_version:
         rank: 611
         slot_group: Antimicrobial resistance
-      polymyxin-b_resistant_breakpoint:
+      polymyxin-b_vendor_name:
         rank: 612
         slot_group: Antimicrobial resistance
-      quinupristin-dalfopristin_resistance_phenotype:
+      polymyxin-b_testing_standard:
         rank: 613
         slot_group: Antimicrobial resistance
-      quinupristin-dalfopristin_measurement:
+      polymyxin-b_testing_standard_version:
         rank: 614
         slot_group: Antimicrobial resistance
-      quinupristin-dalfopristin_measurement_units:
+      polymyxin-b_testing_standard_details:
         rank: 615
         slot_group: Antimicrobial resistance
-      quinupristin-dalfopristin_measurement_sign:
+      polymyxin-b_susceptible_breakpoint:
         rank: 616
         slot_group: Antimicrobial resistance
-      quinupristin-dalfopristin_laboratory_typing_method:
+      polymyxin-b_intermediate_breakpoint:
         rank: 617
         slot_group: Antimicrobial resistance
-      quinupristin-dalfopristin_laboratory_typing_platform:
+      polymyxin-b_resistant_breakpoint:
         rank: 618
         slot_group: Antimicrobial resistance
-      quinupristin-dalfopristin_laboratory_typing_platform_version:
+      quinupristin-dalfopristin_resistance_phenotype:
         rank: 619
         slot_group: Antimicrobial resistance
-      quinupristin-dalfopristin_vendor_name:
+      quinupristin-dalfopristin_measurement:
         rank: 620
         slot_group: Antimicrobial resistance
-      quinupristin-dalfopristin_testing_standard:
+      quinupristin-dalfopristin_measurement_units:
         rank: 621
         slot_group: Antimicrobial resistance
-      quinupristin-dalfopristin_testing_standard_version:
+      quinupristin-dalfopristin_measurement_sign:
         rank: 622
         slot_group: Antimicrobial resistance
-      quinupristin-dalfopristin_testing_standard_details:
+      quinupristin-dalfopristin_laboratory_typing_method:
         rank: 623
         slot_group: Antimicrobial resistance
-      quinupristin-dalfopristin_susceptible_breakpoint:
+      quinupristin-dalfopristin_laboratory_typing_platform:
         rank: 624
         slot_group: Antimicrobial resistance
-      quinupristin-dalfopristin_intermediate_breakpoint:
+      quinupristin-dalfopristin_laboratory_typing_platform_version:
         rank: 625
         slot_group: Antimicrobial resistance
-      quinupristin-dalfopristin_resistant_breakpoint:
+      quinupristin-dalfopristin_vendor_name:
         rank: 626
         slot_group: Antimicrobial resistance
-      streptomycin_resistance_phenotype:
+      quinupristin-dalfopristin_testing_standard:
         rank: 627
         slot_group: Antimicrobial resistance
-      streptomycin_measurement:
+      quinupristin-dalfopristin_testing_standard_version:
         rank: 628
         slot_group: Antimicrobial resistance
-      streptomycin_measurement_units:
+      quinupristin-dalfopristin_testing_standard_details:
         rank: 629
         slot_group: Antimicrobial resistance
-      streptomycin_measurement_sign:
+      quinupristin-dalfopristin_susceptible_breakpoint:
         rank: 630
         slot_group: Antimicrobial resistance
-      streptomycin_laboratory_typing_method:
+      quinupristin-dalfopristin_intermediate_breakpoint:
         rank: 631
         slot_group: Antimicrobial resistance
-      streptomycin_laboratory_typing_platform:
+      quinupristin-dalfopristin_resistant_breakpoint:
         rank: 632
         slot_group: Antimicrobial resistance
-      streptomycin_laboratory_typing_platform_version:
+      streptomycin_resistance_phenotype:
         rank: 633
         slot_group: Antimicrobial resistance
-      streptomycin_vendor_name:
+      streptomycin_measurement:
         rank: 634
         slot_group: Antimicrobial resistance
-      streptomycin_testing_standard:
+      streptomycin_measurement_units:
         rank: 635
         slot_group: Antimicrobial resistance
-      streptomycin_testing_standard_version:
+      streptomycin_measurement_sign:
         rank: 636
         slot_group: Antimicrobial resistance
-      streptomycin_testing_standard_details:
+      streptomycin_laboratory_typing_method:
         rank: 637
         slot_group: Antimicrobial resistance
-      streptomycin_susceptible_breakpoint:
+      streptomycin_laboratory_typing_platform:
         rank: 638
         slot_group: Antimicrobial resistance
-      streptomycin_intermediate_breakpoint:
+      streptomycin_laboratory_typing_platform_version:
         rank: 639
         slot_group: Antimicrobial resistance
-      streptomycin_resistant_breakpoint:
+      streptomycin_vendor_name:
         rank: 640
         slot_group: Antimicrobial resistance
-      sulfisoxazole_resistance_phenotype:
+      streptomycin_testing_standard:
         rank: 641
         slot_group: Antimicrobial resistance
-      sulfisoxazole_measurement:
+      streptomycin_testing_standard_version:
         rank: 642
         slot_group: Antimicrobial resistance
-      sulfisoxazole_measurement_units:
+      streptomycin_testing_standard_details:
         rank: 643
         slot_group: Antimicrobial resistance
-      sulfisoxazole_measurement_sign:
+      streptomycin_susceptible_breakpoint:
         rank: 644
         slot_group: Antimicrobial resistance
-      sulfisoxazole_laboratory_typing_method:
+      streptomycin_intermediate_breakpoint:
         rank: 645
         slot_group: Antimicrobial resistance
-      sulfisoxazole_laboratory_typing_platform:
+      streptomycin_resistant_breakpoint:
         rank: 646
         slot_group: Antimicrobial resistance
-      sulfisoxazole_laboratory_typing_platform_version:
+      sulfisoxazole_resistance_phenotype:
         rank: 647
         slot_group: Antimicrobial resistance
-      sulfisoxazole_vendor_name:
+      sulfisoxazole_measurement:
         rank: 648
         slot_group: Antimicrobial resistance
-      sulfisoxazole_testing_standard:
+      sulfisoxazole_measurement_units:
         rank: 649
         slot_group: Antimicrobial resistance
-      sulfisoxazole_testing_standard_version:
+      sulfisoxazole_measurement_sign:
         rank: 650
         slot_group: Antimicrobial resistance
-      sulfisoxazole_testing_standard_details:
+      sulfisoxazole_laboratory_typing_method:
         rank: 651
         slot_group: Antimicrobial resistance
-      sulfisoxazole_susceptible_breakpoint:
+      sulfisoxazole_laboratory_typing_platform:
         rank: 652
         slot_group: Antimicrobial resistance
-      sulfisoxazole_intermediate_breakpoint:
+      sulfisoxazole_laboratory_typing_platform_version:
         rank: 653
         slot_group: Antimicrobial resistance
-      sulfisoxazole_resistant_breakpoint:
+      sulfisoxazole_vendor_name:
         rank: 654
         slot_group: Antimicrobial resistance
-      telithromycin_resistance_phenotype:
+      sulfisoxazole_testing_standard:
         rank: 655
         slot_group: Antimicrobial resistance
-      telithromycin_measurement:
+      sulfisoxazole_testing_standard_version:
         rank: 656
         slot_group: Antimicrobial resistance
-      telithromycin_measurement_units:
+      sulfisoxazole_testing_standard_details:
         rank: 657
         slot_group: Antimicrobial resistance
-      telithromycin_measurement_sign:
+      sulfisoxazole_susceptible_breakpoint:
         rank: 658
         slot_group: Antimicrobial resistance
-      telithromycin_laboratory_typing_method:
+      sulfisoxazole_intermediate_breakpoint:
         rank: 659
         slot_group: Antimicrobial resistance
-      telithromycin_laboratory_typing_platform:
+      sulfisoxazole_resistant_breakpoint:
         rank: 660
         slot_group: Antimicrobial resistance
-      telithromycin_laboratory_typing_platform_version:
+      telithromycin_resistance_phenotype:
         rank: 661
         slot_group: Antimicrobial resistance
-      telithromycin_vendor_name:
+      telithromycin_measurement:
         rank: 662
         slot_group: Antimicrobial resistance
-      telithromycin_testing_standard:
+      telithromycin_measurement_units:
         rank: 663
         slot_group: Antimicrobial resistance
-      telithromycin_testing_standard_version:
+      telithromycin_measurement_sign:
         rank: 664
         slot_group: Antimicrobial resistance
-      telithromycin_testing_standard_details:
+      telithromycin_laboratory_typing_method:
         rank: 665
         slot_group: Antimicrobial resistance
-      telithromycin_susceptible_breakpoint:
+      telithromycin_laboratory_typing_platform:
         rank: 666
         slot_group: Antimicrobial resistance
-      telithromycin_intermediate_breakpoint:
+      telithromycin_laboratory_typing_platform_version:
         rank: 667
         slot_group: Antimicrobial resistance
-      telithromycin_resistant_breakpoint:
+      telithromycin_vendor_name:
         rank: 668
         slot_group: Antimicrobial resistance
-      tetracycline_resistance_phenotype:
+      telithromycin_testing_standard:
         rank: 669
         slot_group: Antimicrobial resistance
-      tetracycline_measurement:
+      telithromycin_testing_standard_version:
         rank: 670
         slot_group: Antimicrobial resistance
-      tetracycline_measurement_units:
+      telithromycin_testing_standard_details:
         rank: 671
         slot_group: Antimicrobial resistance
-      tetracycline_measurement_sign:
+      telithromycin_susceptible_breakpoint:
         rank: 672
         slot_group: Antimicrobial resistance
-      tetracycline_laboratory_typing_method:
+      telithromycin_intermediate_breakpoint:
         rank: 673
         slot_group: Antimicrobial resistance
-      tetracycline_laboratory_typing_platform:
+      telithromycin_resistant_breakpoint:
         rank: 674
         slot_group: Antimicrobial resistance
-      tetracycline_laboratory_typing_platform_version:
+      tetracycline_resistance_phenotype:
         rank: 675
         slot_group: Antimicrobial resistance
-      tetracycline_vendor_name:
+      tetracycline_measurement:
         rank: 676
         slot_group: Antimicrobial resistance
-      tetracycline_testing_standard:
+      tetracycline_measurement_units:
         rank: 677
         slot_group: Antimicrobial resistance
-      tetracycline_testing_standard_version:
+      tetracycline_measurement_sign:
         rank: 678
         slot_group: Antimicrobial resistance
-      tetracycline_testing_standard_details:
+      tetracycline_laboratory_typing_method:
         rank: 679
         slot_group: Antimicrobial resistance
-      tetracycline_susceptible_breakpoint:
+      tetracycline_laboratory_typing_platform:
         rank: 680
         slot_group: Antimicrobial resistance
-      tetracycline_intermediate_breakpoint:
+      tetracycline_laboratory_typing_platform_version:
         rank: 681
         slot_group: Antimicrobial resistance
-      tetracycline_resistant_breakpoint:
+      tetracycline_vendor_name:
         rank: 682
         slot_group: Antimicrobial resistance
-      tigecycline_resistance_phenotype:
+      tetracycline_testing_standard:
         rank: 683
         slot_group: Antimicrobial resistance
-      tigecycline_measurement:
+      tetracycline_testing_standard_version:
         rank: 684
         slot_group: Antimicrobial resistance
-      tigecycline_measurement_units:
+      tetracycline_testing_standard_details:
         rank: 685
         slot_group: Antimicrobial resistance
-      tigecycline_measurement_sign:
+      tetracycline_susceptible_breakpoint:
         rank: 686
         slot_group: Antimicrobial resistance
-      tigecycline_laboratory_typing_method:
+      tetracycline_intermediate_breakpoint:
         rank: 687
         slot_group: Antimicrobial resistance
-      tigecycline_laboratory_typing_platform:
+      tetracycline_resistant_breakpoint:
         rank: 688
         slot_group: Antimicrobial resistance
-      tigecycline_laboratory_typing_platform_version:
+      tigecycline_resistance_phenotype:
         rank: 689
         slot_group: Antimicrobial resistance
-      tigecycline_vendor_name:
+      tigecycline_measurement:
         rank: 690
         slot_group: Antimicrobial resistance
-      tigecycline_testing_standard:
+      tigecycline_measurement_units:
         rank: 691
         slot_group: Antimicrobial resistance
-      tigecycline_testing_standard_version:
+      tigecycline_measurement_sign:
         rank: 692
         slot_group: Antimicrobial resistance
-      tigecycline_testing_standard_details:
+      tigecycline_laboratory_typing_method:
         rank: 693
         slot_group: Antimicrobial resistance
-      tigecycline_susceptible_breakpoint:
+      tigecycline_laboratory_typing_platform:
         rank: 694
         slot_group: Antimicrobial resistance
-      tigecycline_intermediate_breakpoint:
+      tigecycline_laboratory_typing_platform_version:
         rank: 695
         slot_group: Antimicrobial resistance
-      tigecycline_resistant_breakpoint:
+      tigecycline_vendor_name:
         rank: 696
         slot_group: Antimicrobial resistance
-      trimethoprim-sulfamethoxazole_resistance_phenotype:
+      tigecycline_testing_standard:
         rank: 697
         slot_group: Antimicrobial resistance
-      trimethoprim-sulfamethoxazole_measurement:
+      tigecycline_testing_standard_version:
         rank: 698
         slot_group: Antimicrobial resistance
-      trimethoprim-sulfamethoxazole_measurement_units:
+      tigecycline_testing_standard_details:
         rank: 699
         slot_group: Antimicrobial resistance
-      trimethoprim-sulfamethoxazole_measurement_sign:
+      tigecycline_susceptible_breakpoint:
         rank: 700
         slot_group: Antimicrobial resistance
-      trimethoprim-sulfamethoxazole_laboratory_typing_method:
+      tigecycline_intermediate_breakpoint:
         rank: 701
         slot_group: Antimicrobial resistance
-      trimethoprim-sulfamethoxazole_laboratory_typing_platform:
+      tigecycline_resistant_breakpoint:
         rank: 702
         slot_group: Antimicrobial resistance
-      trimethoprim-sulfamethoxazole_laboratory_typing_platform_version:
+      trimethoprim-sulfamethoxazole_resistance_phenotype:
         rank: 703
         slot_group: Antimicrobial resistance
-      trimethoprim-sulfamethoxazole_vendor_name:
+      trimethoprim-sulfamethoxazole_measurement:
         rank: 704
         slot_group: Antimicrobial resistance
-      trimethoprim-sulfamethoxazole_testing_standard:
+      trimethoprim-sulfamethoxazole_measurement_units:
         rank: 705
         slot_group: Antimicrobial resistance
-      trimethoprim-sulfamethoxazole_testing_standard_version:
+      trimethoprim-sulfamethoxazole_measurement_sign:
         rank: 706
         slot_group: Antimicrobial resistance
-      trimethoprim-sulfamethoxazole_testing_standard_details:
+      trimethoprim-sulfamethoxazole_laboratory_typing_method:
         rank: 707
         slot_group: Antimicrobial resistance
-      trimethoprim-sulfamethoxazole_susceptible_breakpoint:
+      trimethoprim-sulfamethoxazole_laboratory_typing_platform:
         rank: 708
         slot_group: Antimicrobial resistance
-      trimethoprim-sulfamethoxazole_intermediate_breakpoint:
+      trimethoprim-sulfamethoxazole_laboratory_typing_platform_version:
         rank: 709
         slot_group: Antimicrobial resistance
-      trimethoprim-sulfamethoxazole_resistant_breakpoint:
+      trimethoprim-sulfamethoxazole_vendor_name:
         rank: 710
         slot_group: Antimicrobial resistance
-      authors:
+      trimethoprim-sulfamethoxazole_testing_standard:
         rank: 711
+        slot_group: Antimicrobial resistance
+      trimethoprim-sulfamethoxazole_testing_standard_version:
+        rank: 712
+        slot_group: Antimicrobial resistance
+      trimethoprim-sulfamethoxazole_testing_standard_details:
+        rank: 713
+        slot_group: Antimicrobial resistance
+      trimethoprim-sulfamethoxazole_susceptible_breakpoint:
+        rank: 714
+        slot_group: Antimicrobial resistance
+      trimethoprim-sulfamethoxazole_intermediate_breakpoint:
+        rank: 715
+        slot_group: Antimicrobial resistance
+      trimethoprim-sulfamethoxazole_resistant_breakpoint:
+        rank: 716
+        slot_group: Antimicrobial resistance
+      authors:
+        rank: 717
         slot_group: Contributor acknowledgement
       DataHarmonizer provenance:
-        rank: 712
+        rank: 718
         slot_group: Contributor acknowledgement
 slots:
   sample_collector_sample_ID:
@@ -2878,7 +2902,9 @@ slots:
     examples:
     - value: ABCD123
     slot_uri: GENEPIO:0001123
-    range: WhitespaceMinimizedString
+    any_of:
+    - range: WhitespaceMinimizedString
+    - range: null value menu
     required: true
     exact_mappings:
     - BIOSAMPLE:sample_name
@@ -2993,7 +3019,9 @@ slots:
     examples:
     - value: johnnyblogs@lab.ca
     slot_uri: GENEPIO:0001156
-    range: WhitespaceMinimizedString
+    any_of:
+    - range: WhitespaceMinimizedString
+    - range: null value menu
     required: true
   purpose_of_sampling:
     name: purpose_of_sampling
@@ -3181,7 +3209,9 @@ slots:
     examples:
     - value: day [UO:0000033]
     slot_uri: GENEPIO:0001177
-    range: sample_collection_date_precision menu
+    any_of:
+    - range: sample_collection_date_precision menu
+    - range: null value menu
     required: true
   sample_received_date:
     name: sample_received_date
@@ -3227,40 +3257,84 @@ slots:
     name: water_depth
     title: water_depth
     description: The depth of some water.
-    comments: Provide the depth of water with a value and unit.
+    comments: Provide the numerical depth only  of water only (without units).
     examples:
-    - value: 5m
+    - value: '5'
     slot_uri: GENEPIO:0100440
     range: WhitespaceMinimizedString
+  water_depth_units:
+    name: water_depth_units
+    title: water_depth_units
+    description: The units of measurement for water depth.
+    comments: Provide the units of measurement for which the depth was recorded.
+    examples:
+    - value: m
+    slot_uri: GENEPIO:0101025
+    any_of:
+    - range: water_depth_units menu
+    - range: null value menu
   sediment_depth:
     name: sediment_depth
     title: sediment_depth
-    description: The depth of some water.
-    comments: Provide the depth of water with a value and unit.
+    description: The depth of some sediment.
+    comments: Provide the numerical depth only of the sediment (without units).
     examples:
-    - value: 5m
+    - value: '2'
     slot_uri: GENEPIO:0100697
     range: WhitespaceMinimizedString
+  sediment_depth_units:
+    name: sediment_depth_units
+    title: sediment_depth_units
+    description: The units of measurement for sediment depth.
+    comments: Provide the units of measurement for which the depth was recorded.
+    examples:
+    - value: m
+    slot_uri: GENEPIO:0101026
+    any_of:
+    - range: sediment_depth_units menu
+    - range: null value menu
   air_temperature:
     name: air_temperature
     title: air_temperature
     description: The temperature of some air.
-    comments: Provide the temperature of the air with a value and unit. Do not provide
-      a symbol for degree e.g. oC
+    comments: Provide the numerical value for the temperature of the air (without
+      units).
     examples:
-    - value: 25C
+    - value: '25'
     slot_uri: GENEPIO:0100441
     range: WhitespaceMinimizedString
+  air_temperature_units:
+    name: air_temperature_units
+    title: air_temperature_units
+    description: The units of measurement for air temperature.
+    comments: Provide the units of measurement for which the temperature was recorded.
+    examples:
+    - value: celsius
+    slot_uri: GENEPIO:0101027
+    any_of:
+    - range: air_temperature_units menu
+    - range: null value menu
   water_temperature:
     name: water_temperature
     title: water_temperature
     description: The temperature of some water.
-    comments: Provide the temperature of the water with a value and unit. Do not provide
-      a symbol for degree e.g. oC
+    comments: Provide the numerical value for the temperature of the water (without
+      units).
     examples:
-    - value: 4C
+    - value: '4'
     slot_uri: GENEPIO:0100698
     range: WhitespaceMinimizedString
+  water_temperature_units:
+    name: water_temperature_units
+    title: water_temperature_units
+    description: The units of measurement for water temperature.
+    comments: Provide the units of measurement for which the temperature was recorded.
+    examples:
+    - value: celsius
+    slot_uri: GENEPIO:0101028
+    any_of:
+    - range: water_temperature_units menu
+    - range: null value menu
   weather_type:
     name: weather_type
     title: weather_type
@@ -3291,6 +3365,17 @@ slots:
     - range: available_data_types menu
     - range: null value menu
     multivalued: true
+  available_data_type_details:
+    name: available_data_type_details
+    title: available_data_type_details
+    description: Detailed information regarding other available data types.
+    comments: Use this field to provide free text details describing other available
+      data types that may provide context for interpreting genomic sequence data.
+    examples:
+    - value: Pooled metagenomes containing extended spectrum beta-lactamase (ESBL)
+        bacteria
+    slot_uri: GENEPIO:0101023
+    range: WhitespaceMinimizedString
   animal_or_plant_population:
     name: animal_or_plant_population
     title: animal_or_plant_population
@@ -3474,20 +3559,20 @@ slots:
   sample_storage_method:
     name: sample_storage_method
     title: sample_storage_method
-    description: The type of packaging used to contain a food product.
-    comments: If known, provide information regarding how the food product was packaged.
+    description: A specification of the way that a specimen is or was stored.
+    comments: Provide a description of how the sample was stored.
     examples:
-    - value: Plastic tray or pan [FOODON:03490126]
+    - value: packed on ice during transport
     slot_uri: GENEPIO:0100447
     range: WhitespaceMinimizedString
   sample_storage_medium:
     name: sample_storage_medium
     title: sample_storage_medium
-    description: A specification of the way that a specimen is or was stored.
-    comments: Provide a description of how the same was stored.
+    description: The material or matrix in which a sample is stored.
+    comments: Provide a description of the medium in which the sample was stored.
     examples:
-    - value: Frozen at -20C
-    slot_uri: GENEPIO:0100448
+    - value: PBS + 20% glycerol
+    slot_uri: GENEPIO:0100449
     range: WhitespaceMinimizedString
   collection_device:
     name: collection_device
@@ -3497,7 +3582,7 @@ slots:
       term and ontology ID for the anatomical material from the picklist provided.
       Multiple values can be provided, separated by a semi-colon.
     examples:
-    - value: PBS + 20% glycerol
+    - value: Drag swab [OBI:0002822]
     slot_uri: GENEPIO:0001234
     any_of:
     - range: collection_device menu
@@ -3514,7 +3599,7 @@ slots:
       anatomical material from the picklist provided. Multiple values can be provided,
       separated by a semi-colon.
     examples:
-    - value: Drag swab [OBI:0002822]
+    - value: Rinsing for specimen collection [GENEPIO_0002116]
     slot_uri: GENEPIO:0001241
     any_of:
     - range: collection_method menu
@@ -3529,7 +3614,7 @@ slots:
     description: The type of packaging used to contain a food product.
     comments: If known, provide information regarding how the food product was packaged.
     examples:
-    - value: Rinsing for specimen collection [GENEPIO_0002116]
+    - value: Plastic tray or pan [FOODON:03490126]
     slot_uri: GENEPIO:0100447
     any_of:
     - range: food_packaging menu
@@ -3638,7 +3723,9 @@ slots:
     comments: Select the corresponding host age bin from the pick list provided in
       the template. If not available, provide a null value or leave blank.
     slot_uri: GENEPIO:0001394
-    range: host_age_bin menu
+    any_of:
+    - range: host_age_bin menu
+    - range: null value menu
   host_disease:
     name: host_disease
     title: host_disease
@@ -3687,7 +3774,9 @@ slots:
     examples:
     - value: SA20131043
     slot_uri: GENEPIO:0100456
-    range: WhitespaceMinimizedString
+    any_of:
+    - range: WhitespaceMinimizedString
+    - range: null value menu
     required: true
   alternative_isolate_ID:
     name: alternative_isolate_ID
@@ -3731,7 +3820,9 @@ slots:
     examples:
     - value: GRDI_LL_12345
     slot_uri: GENEPIO:0100459
-    range: WhitespaceMinimizedString
+    any_of:
+    - range: WhitespaceMinimizedString
+    - range: null value menu
     required: true
   IRIDA_project_ID:
     name: IRIDA_project_ID
@@ -3741,7 +3832,9 @@ slots:
     examples:
     - value: '666'
     slot_uri: GENEPIO:0100460
-    range: WhitespaceMinimizedString
+    any_of:
+    - range: WhitespaceMinimizedString
+    - range: null value menu
     required: true
   isolated_by:
     name: isolated_by
@@ -3940,7 +4033,10 @@ slots:
     examples:
     - value: Enterics Lab Manager
     slot_uri: GENEPIO:0100471
-    range: WhitespaceMinimizedString
+    any_of:
+    - range: WhitespaceMinimizedString
+    - range: null value menu
+    required: true
   sequenced_by_contact_email:
     name: sequenced_by_contact_email
     title: sequenced_by_contact_email
@@ -3954,7 +4050,9 @@ slots:
     examples:
     - value: enterics@lab.ca
     slot_uri: GENEPIO:0100422
-    range: WhitespaceMinimizedString
+    any_of:
+    - range: WhitespaceMinimizedString
+    - range: null value menu
     required: true
   purpose_of_sequencing:
     name: purpose_of_sequencing
@@ -4011,6 +4109,18 @@ slots:
     any_of:
     - range: sequencing_instrument menu
     - range: null value menu
+  sequencing_assay_type:
+    name: sequencing_assay_type
+    title: sequencing_assay_type
+    description: The overarching sequencing methodology that was used to determine
+      the sequence of a biomaterial.
+    comments: 'Example Guidance: Provide the name of the DNA or RNA sequencing technology
+      used in your study. If unsure refer to the protocol documentation, or provide
+      a null value.'
+    examples:
+    - value: whole genome sequencing assay [OBI:0002117]
+    slot_uri: GENEPIO:0100997
+    range: sequencing_assay_type menu
   library_preparation_kit:
     name: library_preparation_kit
     title: library_preparation_kit
@@ -10930,8 +11040,8 @@ enums:
         text: Samples pooled [OBI:0600016]
       Technical replicate [OBI:0000249]:
         text: Technical replicate [OBI:0000249]
-      Isolated from single source [GENEPIO:0100926]:
-        text: Isolated from single source [GENEPIO:0100926]
+      Isolated from single source [OBI:0002079]:
+        text: Isolated from single source [OBI:0002079]
   geo_loc_name (country) menu:
     name: geo_loc_name (country) menu
     permissible_values:
@@ -11557,18 +11667,18 @@ enums:
         text: Breeding ground [ENVO:03501441]
       Building [ENVO:00000073]:
         text: Building [ENVO:00000073]
-      Barn [EOL:0001898]:
-        text: Barn [EOL:0001898]
+      Barn [ENVO:03501257]:
+        text: Barn [ENVO:03501257]
         is_a: Building [ENVO:00000073]
       Breeder barn [ENVO:03501383]:
         text: Breeder barn [ENVO:03501383]
-        is_a: Barn [EOL:0001898]
+        is_a: Barn [ENVO:03501257]
       Broiler barn [ENVO:03501386]:
         text: Broiler barn [ENVO:03501386]
-        is_a: Barn [EOL:0001898]
+        is_a: Barn [ENVO:03501257]
       Sheep barn [ENVO:03501385]:
         text: Sheep barn [ENVO:03501385]
-        is_a: Barn [EOL:0001898]
+        is_a: Barn [ENVO:03501257]
       Biodome [ENVO:03501397]:
         text: Biodome [ENVO:03501397]
         is_a: Building [ENVO:00000073]
@@ -11711,6 +11821,46 @@ enums:
         text: Woodland area [ENVO:00000109]
       Zoo [ENVO:00010625]:
         text: Zoo [ENVO:00010625]
+  water_depth_units menu:
+    name: water_depth_units menu
+    permissible_values:
+      centimeter (cm) [UO:0000015]:
+        text: centimeter (cm) [UO:0000015]
+      meter (m) [UO:0000008]:
+        text: meter (m) [UO:0000008]
+      kilometer (km) [UO:0010066]:
+        text: kilometer (km) [UO:0010066]
+      inch (in) [UO:0010011]:
+        text: inch (in) [UO:0010011]
+      foot (ft) [UO:0010013]:
+        text: foot (ft) [UO:0010013]
+  sediment_depth_units menu:
+    name: sediment_depth_units menu
+    permissible_values:
+      centimeter (cm) [UO:0000015]:
+        text: centimeter (cm) [UO:0000015]
+      meter (m) [UO:0000008]:
+        text: meter (m) [UO:0000008]
+      kilometer (km) [UO:0010066]:
+        text: kilometer (km) [UO:0010066]
+      inch (in) [UO:0010011]:
+        text: inch (in) [UO:0010011]
+      foot (ft) [UO:0010013]:
+        text: foot (ft) [UO:0010013]
+  air_temperature_units menu:
+    name: air_temperature_units menu
+    permissible_values:
+      degree Fahrenheit (F) [UO:0000195]:
+        text: degree Fahrenheit (F) [UO:0000195]
+      degree Celsius (C) [UO:0000027]:
+        text: degree Celsius (C) [UO:0000027]
+  water_temperature_units menu:
+    name: water_temperature_units menu
+    permissible_values:
+      degree Fahrenheit (F) [UO:0000195]:
+        text: degree Fahrenheit (F) [UO:0000195]
+      degree Celsius (C) [UO:0000027]:
+        text: degree Celsius (C) [UO:0000027]
   available_data_types menu:
     name: available_data_types menu
     permissible_values:
@@ -11807,6 +11957,9 @@ enums:
         text: Molecular characterization [GENEPIO:0100733]
       16S rRNA Sanger sequencing [GENEPIO:0100734]:
         text: 16S rRNA Sanger sequencing [GENEPIO:0100734]
+        is_a: Molecular characterization [GENEPIO:0100733]
+      Metagenomic sequencing [GENEPIO:0101024]:
+        text: Metagenomic sequencing [GENEPIO:0101024]
         is_a: Molecular characterization [GENEPIO:0100733]
       PCR marker detection [GENEPIO:0100735]:
         text: PCR marker detection [GENEPIO:0100735]
@@ -11963,16 +12116,16 @@ enums:
       Boot cover [OBI:0002806]:
         text: Boot cover [OBI:0002806]
         is_a: Boot [GSSO:012935]
-      Broom [ENVO:03501377]:
-        text: Broom [ENVO:03501377]
+      Broom [ENVO:03501431]:
+        text: Broom [ENVO:03501431]
       Bulk tank [ENVO:03501379]:
         text: Bulk tank [ENVO:03501379]
       Chick box [AGRO:00000678]:
         text: Chick box [AGRO:00000678]
       Chick pad [AGRO:00000672]:
         text: Chick pad [AGRO:00000672]
-      Cleaning equipment [ENVO:03501376]:
-        text: Cleaning equipment [ENVO:03501376]
+      Cleaning equipment [ENVO:03501430]:
+        text: Cleaning equipment [ENVO:03501430]
       Compost [ENVO:00002170]:
         text: Compost [ENVO:00002170]
       Contaminated water [ENVO:00002186]:
@@ -12051,11 +12204,14 @@ enums:
         is_a: Soil [ENVO:00001998]
       Straw [ENVO:00003869]:
         text: Straw [ENVO:00003869]
-      Canola straw:
-        text: Canola straw
+      Canola straw [FOODON:00004430]:
+        text: Canola straw [FOODON:00004430]
         is_a: Straw [ENVO:00003869]
       Oat straw [FOODON:03309878]:
         text: Oat straw [FOODON:03309878]
+        is_a: Straw [ENVO:00003869]
+      Barley straw [FOODON:00004559]:
+        text: Barley straw [FOODON:00004559]
         is_a: Straw [ENVO:00003869]
       Water [CHEBI:15377]:
         text: Water [CHEBI:15377]
@@ -12205,26 +12361,26 @@ enums:
       Urinary bladder [UBERON:0001255]:
         text: Urinary bladder [UBERON:0001255]
         is_a: Excretory system (organizational term)
-      Foot [BTO:0000476]:
-        text: Foot [BTO:0000476]
+      Foot [UBERON:0002387]:
+        text: Foot [UBERON:0002387]
       Head [UBERON:0000033]:
         text: Head [UBERON:0000033]
-        is_a: Foot [BTO:0000476]
+        is_a: Foot [UBERON:0002387]
       Brain [UBERON:0000955]:
         text: Brain [UBERON:0000955]
-        is_a: Foot [BTO:0000476]
+        is_a: Foot [UBERON:0002387]
       Ear [UBERON:0001690]:
         text: Ear [UBERON:0001690]
-        is_a: Foot [BTO:0000476]
+        is_a: Foot [UBERON:0002387]
       Eye [UBERON:0000970]:
         text: Eye [UBERON:0000970]
-        is_a: Foot [BTO:0000476]
+        is_a: Foot [UBERON:0002387]
       Mouth [UBERON:0000165]:
         text: Mouth [UBERON:0000165]
-        is_a: Foot [BTO:0000476]
+        is_a: Foot [UBERON:0002387]
       Nose [UBERON:0000004]:
         text: Nose [UBERON:0000004]
-        is_a: Foot [BTO:0000476]
+        is_a: Foot [UBERON:0002387]
       Nasal turbinal [UBERON:0035612]:
         text: Nasal turbinal [UBERON:0035612]
         is_a: Nose [UBERON:0000004]
@@ -12293,6 +12449,9 @@ enums:
         is_a: Reproductive system [UBERON:0000990]
       Testis [UBERON:0000473]:
         text: Testis [UBERON:0000473]
+        is_a: Reproductive system [UBERON:0000990]
+      Udder [UBERON:0013216]:
+        text: Udder [UBERON:0013216]
         is_a: Reproductive system [UBERON:0000990]
       Uterus [UBERON:0000995]:
         text: Uterus [UBERON:0000995]
@@ -12599,18 +12758,18 @@ enums:
       Chicken nugget [FOODON:00002672]:
         text: Chicken nugget [FOODON:00002672]
         is_a: Meat, poultry and fish (organizational term)
-      Chicken thigh:
-        text: Chicken thigh
+      Chicken thigh  [FOODON:02020219]:
+        text: Chicken thigh  [FOODON:02020219]
         is_a: Meat, poultry and fish (organizational term)
       Chicken thigh (skinless) [FOODON:00003331]:
         text: Chicken thigh (skinless) [FOODON:00003331]
-        is_a: Chicken thigh
-      Chicken thigh (skinless, with bone):
-        text: Chicken thigh (skinless, with bone)
-        is_a: Chicken thigh
+        is_a: Chicken thigh  [FOODON:02020219]
+      Chicken thigh (skinless, with bone) [FOODON:02020227]:
+        text: Chicken thigh (skinless, with bone) [FOODON:02020227]
+        is_a: Chicken thigh  [FOODON:02020219]
       Chicken thigh (skinless, boneless) [FOODON:03000417]:
         text: Chicken thigh (skinless, boneless) [FOODON:03000417]
-        is_a: Chicken thigh
+        is_a: Chicken thigh  [FOODON:02020219]
       Chicken upper thigh [FOODON:03000381]:
         text: Chicken upper thigh [FOODON:03000381]
         is_a: Chicken thigh (skinless, boneless) [FOODON:03000417]
@@ -12619,10 +12778,10 @@ enums:
         is_a: Chicken upper thigh [FOODON:03000381]
       Chicken thigh (with skin) [FOODON:00003330]:
         text: Chicken thigh (with skin) [FOODON:00003330]
-        is_a: Chicken thigh
+        is_a: Chicken thigh  [FOODON:02020219]
       Chicken thigh (with skin, with bone) [FOODON_00003363]:
         text: Chicken thigh (with skin, with bone) [FOODON_00003363]
-        is_a: Chicken thigh
+        is_a: Chicken thigh  [FOODON:02020219]
       Chicken wing [FOODON:00002674]:
         text: Chicken wing [FOODON:00002674]
         is_a: Meat, poultry and fish (organizational term)
@@ -12718,7 +12877,10 @@ enums:
         is_a: Meat, poultry and fish (organizational term)
       Shrimp [FOODON:03411237]:
         text: Shrimp [FOODON:03411237]
-        is_a: Meat, poultry and fish (organizational term)
+        is_a: Shellfish [FOODON:03411433]
+      Scallop [FOODON:03411489]:
+        text: Scallop [FOODON:03411489]
+        is_a: Shellfish [FOODON:03411433]
       Turkey breast [FOODON:00002690]:
         text: Turkey breast [FOODON:00002690]
         is_a: Meat, poultry and fish (organizational term)
@@ -12807,6 +12969,12 @@ enums:
       Almond (whole) [FOODON:00003523]:
         text: Almond (whole) [FOODON:00003523]
         is_a: Almond (whole or parts) [FOODON:03000218]
+      Barley seed [FOODON:00003394]:
+        text: Barley seed [FOODON:00003394]
+        is_a: Nuts and seed products
+      Canola seed [FOODON:00004560]:
+        text: Canola seed [FOODON:00004560]
+        is_a: Nuts and seed products
       Chia seed powder [FOODON:00003925]:
         text: Chia seed powder [FOODON:00003925]
         is_a: Nuts and seed products
@@ -12868,6 +13036,9 @@ enums:
       Coconut (whole or parts) [FOODON:03309861]:
         text: Coconut (whole or parts) [FOODON:03309861]
         is_a: Produce [FOODON:03305145]
+      Coconut meat [FOODON:00003856]:
+        text: Coconut meat [FOODON:00003856]
+        is_a: Coconut (whole or parts) [FOODON:03309861]
       Corn cob (whole or parts) [FOODON:03310791]:
         text: Corn cob (whole or parts) [FOODON:03310791]
         is_a: Produce [FOODON:03305145]
@@ -13035,8 +13206,23 @@ enums:
       Food (chopped) [FOODON:00002777]:
         text: Food (chopped) [FOODON:00002777]
         is_a: Food (cut) [FOODON:00004291]
+      Food (chunks) [FOODON:00004555]:
+        text: Food (chunks) [FOODON:00004555]
+        is_a: Food (cut) [FOODON:00004291]
       Food (cubed) [FOODON:00004278]:
         text: Food (cubed) [FOODON:00004278]
+        is_a: Food (cut) [FOODON:00004291]
+      Food (diced) [FOODON:00004549]:
+        text: Food (diced) [FOODON:00004549]
+        is_a: Food (cut) [FOODON:00004291]
+      Food (grated) [FOODON:00004552]:
+        text: Food (grated) [FOODON:00004552]
+        is_a: Food (cut) [FOODON:00004291]
+      Food (sliced) [FOODON:00002455]:
+        text: Food (sliced) [FOODON:00002455]
+        is_a: Food (cut) [FOODON:00004291]
+      Food (shredded) [FOODON:00004553]:
+        text: Food (shredded) [FOODON:00004553]
         is_a: Food (cut) [FOODON:00004291]
       Food (dried) [FOODON:03307539]:
         text: Food (dried) [FOODON:03307539]
@@ -13044,6 +13230,8 @@ enums:
         text: Food (fresh) [FOODON:00002457]
       Food (frozen) [FOODON:03302148]:
         text: Food (frozen) [FOODON:03302148]
+      Food (pulped) [FOODON:00004554]:
+        text: Food (pulped) [FOODON:00004554]
       Food (raw) [FOODON:03311126]:
         text: Food (raw) [FOODON:03311126]
       Food (unseasoned) [FOODON:00004287]:
@@ -13083,6 +13271,14 @@ enums:
         is_a: Poultry [FOODON:03411563]
       Sheep [NCBITaxon:9940]:
         text: Sheep [NCBITaxon:9940]
+      Shellfish [FOODON:03411433]:
+        text: Shellfish [FOODON:03411433]
+      Scallop [NCBITaxon:6566]:
+        text: Scallop [NCBITaxon:6566]
+        is_a: Shellfish [FOODON:03411433]
+      Shrimp [FOODON:03411237:
+        text: Shrimp [FOODON:03411237
+        is_a: Shellfish [FOODON:03411433]
   food_product_production_stream menu:
     name: food_product_production_stream menu
     permissible_values:
@@ -13273,6 +13469,9 @@ enums:
       Rainbow Trout [NCBITaxon:8022]:
         text: Rainbow Trout [NCBITaxon:8022]
         is_a: Fish [FOODON:03411222]
+      Sablefish [NCBITaxon:229290]:
+        text: Sablefish [NCBITaxon:229290]
+        is_a: Fish [FOODON:03411222]
       Salmon [FOODON:00003473]:
         text: Salmon [FOODON:00003473]
         is_a: Fish [FOODON:03411222]
@@ -13281,6 +13480,9 @@ enums:
         is_a: Salmon [FOODON:00003473]
       Chinook salmon [NCBITaxon:74940]:
         text: Chinook salmon [NCBITaxon:74940]
+        is_a: Salmon [FOODON:00003473]
+      Coho Salmon [NCBITaxon:8019]:
+        text: Coho Salmon [NCBITaxon:8019]
         is_a: Salmon [FOODON:00003473]
       Mammal [FOODON:03411134]:
         text: Mammal [FOODON:03411134]
@@ -13313,6 +13515,8 @@ enums:
   host (scientific name) menu:
     name: host (scientific name) menu
     permissible_values:
+      Anoplopoma fimbria [NCBITaxon:229290]:
+        text: Anoplopoma fimbria [NCBITaxon:229290]
       Bos taurus [NCBITaxon:9913]:
         text: Bos taurus [NCBITaxon:9913]
       Crassostrea virginica [NCBITaxon:6565]:
@@ -13337,6 +13541,8 @@ enums:
         text: Meleagris gallopavo [NCBITaxon:9103]
       Mytilus edulis [NCBITaxon:6550]:
         text: Mytilus edulis [NCBITaxon:6550]
+      Oncorhynchus kisutch [NCBITaxon:8019]:
+        text: Oncorhynchus kisutch [NCBITaxon:8019]
       Oncorhynchus mykiss [NCBITaxon:8022]:
         text: Oncorhynchus mykiss [NCBITaxon:8022]
       Oncorhynchus tshawytscha [NCBITaxon:74940]:
@@ -13739,6 +13945,9 @@ enums:
         is_a: Pantoea [NCBITaxon:53335]
       Photobacterium [NCBITaxon:657]:
         text: Photobacterium [NCBITaxon:657]
+      Photobacterium indicum[NCBITaxon:81447]:
+        text: Photobacterium indicum[NCBITaxon:81447]
+        is_a: Photobacterium [NCBITaxon:657]
       Photobacterium sp. [NCBITaxon:660]:
         text: Photobacterium sp. [NCBITaxon:660]
         is_a: Photobacterium [NCBITaxon:657]
@@ -13770,6 +13979,9 @@ enums:
         text: Psychrobacter [NCBITaxon:497]
       Psychrobacter faecalis [NCBITaxon:180588]:
         text: Psychrobacter faecalis [NCBITaxon:180588]
+        is_a: Psychrobacter [NCBITaxon:497]
+      Psychrobacter nivimaris [NCBITaxon:281738]:
+        text: Psychrobacter nivimaris [NCBITaxon:281738]
         is_a: Psychrobacter [NCBITaxon:497]
       Psychrobacter sp. [NCBITaxon:56811]:
         text: Psychrobacter sp. [NCBITaxon:56811]
@@ -13804,6 +14016,9 @@ enums:
         is_a: Shewanella [NCBITaxon:22]
       Shewanella putrefaciens [NCBITaxon:24]:
         text: Shewanella putrefaciens [NCBITaxon:24]
+        is_a: Shewanella [NCBITaxon:22]
+      Shewanella oncorhynchi [NCBITaxon:2726434]:
+        text: Shewanella oncorhynchi [NCBITaxon:2726434]
         is_a: Shewanella [NCBITaxon:22]
       Shewanella sp. [NCBITaxon:50422]:
         text: Shewanella sp. [NCBITaxon:50422]
@@ -13873,6 +14088,8 @@ enums:
         text: Environment and Climate Change Canada (ECCC) [GENEPIO:0100555]
       Fisheries and Oceans Canada (DFO) [GENEPIO:0100556]:
         text: Fisheries and Oceans Canada (DFO) [GENEPIO:0100556]
+      McGill University [GENEPIO:0101083]:
+        text: McGill University [GENEPIO:0101083]
   purpose_of_sequencing menu:
     name: purpose_of_sequencing menu
     permissible_values:
@@ -14042,6 +14259,21 @@ enums:
       DNBSEQ-G50 [GENEPIO:0100150]:
         text: DNBSEQ-G50 [GENEPIO:0100150]
         is_a: DNBSEQ [GENEPIO:0100146]
+  sequencing_assay_type menu:
+    name: sequencing_assay_type menu
+    permissible_values:
+      Amplicon sequencing assay [OBI:0002767]:
+        text: Amplicon sequencing assay [OBI:0002767]
+      16S ribosomal gene sequencing assay [OBI:0002763]:
+        text: 16S ribosomal gene sequencing assay [OBI:0002763]
+        is_a: Amplicon sequencing assay [OBI:0002767]
+      Whole genome sequencing assay [OBI:0002117]:
+        text: Whole genome sequencing assay [OBI:0002117]
+      Whole metagenome sequencing assay [OBI:0002623]:
+        text: Whole metagenome sequencing assay [OBI:0002623]
+      Whole virome sequencing assay [OBI:0002768]:
+        text: Whole virome sequencing assay [OBI:0002768]
+        is_a: Whole metagenome sequencing assay [OBI:0002623]
   sequence_submitted_by menu:
     name: sequence_submitted_by menu
     permissible_values:
@@ -14057,6 +14289,8 @@ enums:
         text: Environment and Climate Change Canada (ECCC) [GENEPIO:0100555]
       Fisheries and Oceans Canada (DFO) [GENEPIO:0100556]:
         text: Fisheries and Oceans Canada (DFO) [GENEPIO:0100556]
+      McGill University [GENEPIO:0101083]:
+        text: McGill University [GENEPIO:0101083]
   attribute_package menu:
     name: attribute_package menu
     permissible_values:

@@ -1,7 +1,7 @@
 id: https://example.com/GRDI
-name: "GRDI"
+name: "Wastewater"
 description: ""
-version: 10.0.0
+version: 2.0.0
 imports:
   - 'linkml:types'
 prefixes:
@@ -11,10 +11,18 @@ classes:
   dh_interface:
     name: dh_interface
     description: 'A DataHarmonizer interface'
-    from_schema: https://example.com/GRDI
-  'GRDI':
-    name: 'GRDI'
-    description: Specification for GRDI virus biosample data gathering
+    from_schema: https://example.com/wastewater
+  'WastewaterSARS-CoV-2':
+    name: 'WastewaterSARS-CoV-2'
+    description: Specification for Wastewater SARS-CoV-2 virus biosample data gathering
+    is_a: dh_interface
+  'WastewaterAMR':
+    name: 'WastewaterAMR'
+    description: Specification for Wastewater AMR biosample data gathering
+    is_a: dh_interface
+  'WastewaterPathogenAgnostic':
+    name: 'WastewaterPathogenAgnostic'
+    description: Specification for Wastewater Pathogen Agnostic biosample data gathering
     is_a: dh_interface
 slots: {}
 enums: {}

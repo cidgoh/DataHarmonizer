@@ -131,6 +131,7 @@ classes:
     slot_usage:
       sample_collector_sample_ID:
         rank: 1
+        identifier: true
         slot_group: Sample collection and processing
       alternative_sample_ID:
         rank: 2
@@ -483,6 +484,9 @@ classes:
       - resistant_breakpoint
       slot_usage:
         sample_collector_sample_ID:
+          range: GRDI_Sample
+          multivalued: false
+          inlined: false
           rank: 1
         antimicrobial_resistance_test_drug:
           rank: 2
@@ -514,6 +518,24 @@ classes:
           rank: 15
         resistant_breakpoint:
           rank: 16
+
+  Container:
+
+      tree_root: true
+      attributes:
+        schema: 
+          range: uri
+        version: 
+          range: string
+        GRDI_Samples:
+          range: GRDI_Sample
+          multivalued: true
+          inlined_as_list: true
+        AMR_Tests:
+          range: AMR_Test
+          multivalued: true
+          inlined_as_list: true
+
 
 slots:
   sample_collector_sample_ID:
