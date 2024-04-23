@@ -971,42 +971,58 @@ function attachPropagationEventHandlersToDataHarmonizers(
 
     schema_tree[dh.class_assignment].children.forEach((child_name) => {
       // filter all rows on initialization if child
+      data_harmonizers[child_name].hideAll();
     });
 
     dh.hot.addHook('afterSelection', (row, col) => {
       const valueToMatch = dh.hot.getDataAtCell(row, col);
+      if (!(valueToMatch === null || typeof valueToMatch === 'undefined')) {
 
-      // get value at cell
-      // filter other data harmonizer at cell
-      schema_tree[dh.class_assignment].children.forEach((child_name) => {
-        const shared_key_name = schema_tree[
-          dh.class_assignment
-        ].shared_keys.filter((el) => el.related_concept === child_name)[0].name;
-        visitSchemaTree(
-          schema_tree,
-          (schema_tree_node) => {
-            const hot = data_harmonizers[schema_tree_node.name].hot;
-            const columnHeaders = hot.getColHeader();
-            const columnName = shared_key_name; // shared_key based on event selection ~ replace columnIndex with event data?
-            const columnIndex = columnHeaders
-              .map(stripDiv)
-              .findIndex((header) => header === columnName);
+        // get value at cell
+        // filter other data harmonizer at cell
+        schema_tree[dh.class_assignment].children.forEach((child_name) => {
+          data_harmonizers[child_name].showAllRows();
+          // filter for other data in data harmonizers matching the shared ID iff the selection is not empty
+          // else return an empty list 
+            const shared_key_name = schema_tree[
+              dh.class_assignment
+            ].shared_keys.filter((el) => el.related_concept === child_name)[0].name;
+            visitSchemaTree(
+              schema_tree,
+              (schema_tree_node) => {
 
-            if (columnIndex === -1) {
-              console.error('Column name not found');
-              return;
-            };
+                const hot = data_harmonizers[schema_tree_node.name].hot;
+                const columnHeaders = hot.getColHeader();
+                const columnName = shared_key_name; // shared_key based on event selection ~ replace columnIndex with event data?
+                const columnIndex = columnHeaders
+                  .map(stripDiv)
+                  .findIndex((header) => header === columnName);
+    
+                if (columnIndex === -1) {
+                  console.error('Column name not found');
+                  return;
+                };
+    
+                const plugin = hot.getPlugin('filters');
+                // Add a condition where the column value equals the specified value
+                plugin.clearConditions(columnIndex); // change valueToMatch per new selection in the column
+                plugin.addCondition(columnIndex, 'eq', [valueToMatch]);
+                plugin.filter();
+    
+              },
+              child_name
+            );
+        });
 
-            const plugin = hot.getPlugin('filters');
-            // Add a condition where the column value equals the specified value
-            plugin.clearConditions(columnIndex); // change valueToMatch per new selection in the column
-            plugin.addCondition(columnIndex, 'eq', [valueToMatch]);
-            plugin.filter();
+      } else {
 
-          },
-          child_name
-        );
-      });
+        schema_tree[dh.class_assignment].children.forEach((child_name) => {
+          data_harmonizers[child_name].showAllRows();
+          data_harmonizers[child_name].hideAllButFirstNEmptyRows(0);
+        });
+
+      }
+
     });
 
     dh.hot.addHook('afterDeselect', () => {
