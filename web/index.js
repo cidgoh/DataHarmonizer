@@ -777,7 +777,8 @@ function transformMultivaluedColumn(
   if (hot.propToCol(shared_field.name) === -1) {
     console.error(`Invalid column name: ${shared_field.name}`);
   } else {
-    if (old_value !== new_value) {
+    // NOTE: don't propagate on empty valued IDs
+    if (old_value !== new_value && old_value !== null) {
       hot.batch(() => {
         hot.getData().forEach((row, rowIndex) => {
           if (row[changes[0][1]] === old_value) {
@@ -887,26 +888,29 @@ function makeSharedKeyHandler(
       old_value,
       new_value
     ) => {
-      schema_tree_node.children.forEach((cls_key) => {
-        // lift this out to a more general function?
+        schema_tree_node.children.forEach((cls_key) => {
+          // lift this out to a more general function?
 
-        // transformation handler: what to do when a cell with a shared key is updated
-        transformMultivaluedColumn(
-          data_harmonizers[cls_key],
-          shared_key_spec,
-          changes,
-          source,
-          old_value,
-          new_value
-        );
+          // transformation handler: what to do when a cell with a shared key is updated
+          transformMultivaluedColumn(
+            data_harmonizers[cls_key],
+            shared_key_spec,
+            changes,
+            source,
+            old_value,
+            new_value
+          );
 
-        // TODO does this need to recur to get more than ~2 depths of recursion in hierarchy?
-        // visitSchemaTree(schema_tree, (schema_tree_node) => {
-        //     schema_tree_node.children.forEach(cls_key => {
-        //         visitSchemaTree(schema_tree, () => transformMultivaluedColumn(data_harmonizers[cls_key], shared_key_name, changes, source, old_value, new_value), cls_key)
-        //     })
-        // }, cls_key);
-      });
+
+
+          // TODO does this need to recur to get more than ~2 depths of recursion in hierarchy?
+          // visitSchemaTree(schema_tree, (schema_tree_node) => {
+          //     schema_tree_node.children.forEach(cls_key => {
+          //         visitSchemaTree(schema_tree, () => transformMultivaluedColumn(data_harmonizers[cls_key], shared_key_name, changes, source, old_value, new_value), cls_key)
+          //     })
+          // }, cls_key);
+
+        });
     };
 
     return updateSchemaNodeChildrenCallback;
@@ -964,6 +968,9 @@ function attachPropagationEventHandlersToDataHarmonizers(
   }
 
   Object.values(data_harmonizers).forEach((dh) => {
+
+    schema_tree[dh.class_assignment].children.forEach((child_name) => {});
+
     dh.hot.addHook('afterSelection', (row, col) => {
       const valueToMatch = dh.hot.getDataAtCell(row, col);
 
@@ -986,12 +993,14 @@ function attachPropagationEventHandlersToDataHarmonizers(
             if (columnIndex === -1) {
               console.error('Column name not found');
               return;
-            }
+            };
+
             const plugin = hot.getPlugin('filters');
             // Add a condition where the column value equals the specified value
             plugin.clearConditions(columnIndex); // change valueToMatch per new selection in the column
             plugin.addCondition(columnIndex, 'eq', [valueToMatch]);
             plugin.filter();
+
           },
           child_name
         );
