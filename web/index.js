@@ -777,8 +777,7 @@ function transformMultivaluedColumn(
   if (hot.propToCol(shared_field.name) === -1) {
     console.error(`Invalid column name: ${shared_field.name}`);
   } else {
-    // NOTE: don't propagate on empty valued IDs
-    if (old_value !== new_value && old_value !== null) {
+    if (old_value !== new_value) {
       hot.batch(() => {
         hot.getData().forEach((row, rowIndex) => {
           if (row[changes[0][1]] === old_value) {
@@ -892,16 +891,17 @@ function makeSharedKeyHandler(
           // lift this out to a more general function?
 
           // transformation handler: what to do when a cell with a shared key is updated
-          transformMultivaluedColumn(
-            data_harmonizers[cls_key],
-            shared_key_spec,
-            changes,
-            source,
-            old_value,
-            new_value
-          );
-
-
+          // NOTE: don't propagate on empty valued IDs
+          if ((old_value !== null && typeof old_value !== 'undefined')) {
+            transformMultivaluedColumn(
+              data_harmonizers[cls_key],
+              shared_key_spec,
+              changes,
+              source,
+              old_value,
+              new_value
+            );
+          }
 
           // TODO does this need to recur to get more than ~2 depths of recursion in hierarchy?
           // visitSchemaTree(schema_tree, (schema_tree_node) => {
@@ -969,7 +969,9 @@ function attachPropagationEventHandlersToDataHarmonizers(
 
   Object.values(data_harmonizers).forEach((dh) => {
 
-    schema_tree[dh.class_assignment].children.forEach((child_name) => {});
+    schema_tree[dh.class_assignment].children.forEach((child_name) => {
+      // filter all rows on initialization if child
+    });
 
     dh.hot.addHook('afterSelection', (row, col) => {
       const valueToMatch = dh.hot.getDataAtCell(row, col);
@@ -1047,7 +1049,6 @@ function attachPropagationEventHandlersToDataHarmonizers(
 // Make the top function asynchronous to allow for a data-loading/IO step
 const main = async function () {
   const context = new AppContext(new AppConfig(await getTemplatePath()));
-
   context
     .initializeTemplate(context.appConfig.template_path)
     .then(async (context) => {
@@ -1060,7 +1061,7 @@ const main = async function () {
       });
 
       // // TODO: data harmonizers require initialization code inside of the toolbar to fully render? wut
-      new Toolbar(dhToolbarRoot, context.getCurrentDataHarmonizer(), menu, {
+      new Toolbar(dhToolbarRoot, context, menu, {
         context: context,
         templatePath: context.appConfig.template_path, // TODO: a default should be loaded before Toolbar is constructed! then take out all loading in "toolbar" to an outside context
         releasesURL:
@@ -1071,7 +1072,7 @@ const main = async function () {
           Template.create(schema).then((result) => result.current.schema),
       });
 
-      new Footer(dhFooterRoot, context.getCurrentDataHarmonizer());
+      new Footer(dhFooterRoot, context);
 
       return context;
     })
