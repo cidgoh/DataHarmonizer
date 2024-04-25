@@ -13,6 +13,8 @@ import tags from 'language-tags';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@/web/index.css';
 
+const DEBUG = true;
+
 /**
  * Logging function used for debugging, it logs the supplied argument to the console.
  * @param {*} id - The item to be logged.
@@ -1093,6 +1095,7 @@ const main = async function () {
       return context;
     })
     .then(async (context) => {
+
       return setTimeout(
         () =>
           Object.values(context.dhs).forEach((dh) =>
