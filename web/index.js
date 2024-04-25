@@ -889,30 +889,29 @@ function makeSharedKeyHandler(
       old_value,
       new_value
     ) => {
-        schema_tree_node.children.forEach((cls_key) => {
-          // lift this out to a more general function?
+      schema_tree_node.children.forEach((cls_key) => {
+        // lift this out to a more general function?
 
-          // transformation handler: what to do when a cell with a shared key is updated
-          // NOTE: don't propagate on empty valued IDs
-          if ((old_value !== null && typeof old_value !== 'undefined')) {
-            transformMultivaluedColumn(
-              data_harmonizers[cls_key],
-              shared_key_spec,
-              changes,
-              source,
-              old_value,
-              new_value
-            );
-          }
+        // transformation handler: what to do when a cell with a shared key is updated
+        // NOTE: don't propagate on empty valued IDs
+        if (old_value !== null && typeof old_value !== 'undefined') {
+          transformMultivaluedColumn(
+            data_harmonizers[cls_key],
+            shared_key_spec,
+            changes,
+            source,
+            old_value,
+            new_value
+          );
+        }
 
-          // TODO does this need to recur to get more than ~2 depths of recursion in hierarchy?
-          // visitSchemaTree(schema_tree, (schema_tree_node) => {
-          //     schema_tree_node.children.forEach(cls_key => {
-          //         visitSchemaTree(schema_tree, () => transformMultivaluedColumn(data_harmonizers[cls_key], shared_key_name, changes, source, old_value, new_value), cls_key)
-          //     })
-          // }, cls_key);
-
-        });
+        // TODO does this need to recur to get more than ~2 depths of recursion in hierarchy?
+        // visitSchemaTree(schema_tree, (schema_tree_node) => {
+        //     schema_tree_node.children.forEach(cls_key => {
+        //         visitSchemaTree(schema_tree, () => transformMultivaluedColumn(data_harmonizers[cls_key], shared_key_name, changes, source, old_value, new_value), cls_key)
+        //     })
+        // }, cls_key);
+      });
     };
 
     return updateSchemaNodeChildrenCallback;
@@ -970,7 +969,6 @@ function attachPropagationEventHandlersToDataHarmonizers(
   }
 
   Object.values(data_harmonizers).forEach((dh) => {
-
     schema_tree[dh.class_assignment].children.forEach((child_name) => {
       // filter all rows on initialization if child
       data_harmonizers[child_name].hideAll();
@@ -979,52 +977,46 @@ function attachPropagationEventHandlersToDataHarmonizers(
     dh.hot.addHook('afterSelection', (row, col) => {
       const valueToMatch = dh.hot.getDataAtCell(row, col);
       if (!(valueToMatch === null || typeof valueToMatch === 'undefined')) {
-
         // get value at cell
         // filter other data harmonizer at cell
         schema_tree[dh.class_assignment].children.forEach((child_name) => {
           data_harmonizers[child_name].showAllRows();
           // filter for other data in data harmonizers matching the shared ID iff the selection is not empty
-          // else return an empty list 
-            const shared_key_name = schema_tree[
-              dh.class_assignment
-            ].shared_keys.filter((el) => el.related_concept === child_name)[0].name;
-            visitSchemaTree(
-              schema_tree,
-              (schema_tree_node) => {
+          // else return an empty list
+          const shared_key_name = schema_tree[
+            dh.class_assignment
+          ].shared_keys.filter((el) => el.related_concept === child_name)[0]
+            .name;
+          visitSchemaTree(
+            schema_tree,
+            (schema_tree_node) => {
+              const hot = data_harmonizers[schema_tree_node.name].hot;
+              const columnHeaders = hot.getColHeader();
+              const columnName = shared_key_name; // shared_key based on event selection ~ replace columnIndex with event data?
+              const columnIndex = columnHeaders
+                .map(stripDiv)
+                .findIndex((header) => header === columnName);
 
-                const hot = data_harmonizers[schema_tree_node.name].hot;
-                const columnHeaders = hot.getColHeader();
-                const columnName = shared_key_name; // shared_key based on event selection ~ replace columnIndex with event data?
-                const columnIndex = columnHeaders
-                  .map(stripDiv)
-                  .findIndex((header) => header === columnName);
-    
-                if (columnIndex === -1) {
-                  console.error('Column name not found');
-                  return;
-                };
-    
-                const plugin = hot.getPlugin('filters');
-                // Add a condition where the column value equals the specified value
-                plugin.clearConditions(columnIndex); // change valueToMatch per new selection in the column
-                plugin.addCondition(columnIndex, 'eq', [valueToMatch]);
-                plugin.filter();
-    
-              },
-              child_name
-            );
+              if (columnIndex === -1) {
+                console.error('Column name not found');
+                return;
+              }
+
+              const plugin = hot.getPlugin('filters');
+              // Add a condition where the column value equals the specified value
+              plugin.clearConditions(columnIndex); // change valueToMatch per new selection in the column
+              plugin.addCondition(columnIndex, 'eq', [valueToMatch]);
+              plugin.filter();
+            },
+            child_name
+          );
         });
-
       } else {
-
         schema_tree[dh.class_assignment].children.forEach((child_name) => {
           data_harmonizers[child_name].showAllRows();
           data_harmonizers[child_name].hideAllButFirstNEmptyRows(0);
         });
-
       }
-
     });
 
     dh.hot.addHook('afterDeselect', () => {
@@ -1095,7 +1087,6 @@ const main = async function () {
       return context;
     })
     .then(async (context) => {
-
       return setTimeout(
         () =>
           Object.values(context.dhs).forEach((dh) =>
