@@ -496,7 +496,7 @@ class AppContext {
  */
 function findSharedKeys(schema) {
   const class_names = new Set(
-    Object.keys(schema.classes).filter((k) => k !== 'dh_interface')
+    Object.keys(schema.classes).filter((k) => k !== 'dh_interface' && k !== 'Container')
   );
   let shared_keys_per_class = {};
   class_names.forEach((key) => {
