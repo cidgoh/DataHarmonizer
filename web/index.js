@@ -400,7 +400,7 @@ class AppContext {
     template_path,
     // schema_name,
     // template_name,
-    schema,
+    // schema,
     exportFormats,
     // schemaClass,
     // columnCoordinates,
@@ -440,7 +440,7 @@ class AppContext {
             "alias": "AMR_Tests",
             "owner": "Container",
             "domain_of": [
-              "Container"
+              "Container"initializeTemplate
             ],
             "range": "AMR_Test",
             "inlined_as_list": true
@@ -468,6 +468,7 @@ class AppContext {
           context.appConfig.template_path.split('/');
         const _export_formats =
           exportFormats || (await context.getExportFormats(_template_name));
+        const schema = context.template.default.schema;
         const schema_tree = buildSchemaTree(schema);
         context.setSchemaTree(schema_tree);
         data_harmonizers = makeDataHarmonizersFromSchemaTree(
