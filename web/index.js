@@ -93,7 +93,6 @@ class AppContext {
     return this.dhs[this.current_data_harmonizer_name];
   }
 
-  // TODO: memoize?
   async getTypeTree() {
     return (await this.getClasses()).reduce((acc, el) => {
       const key = Object.keys(el)[0];
@@ -736,40 +735,41 @@ function makeDataHarmonizersFromSchemaTree(
         if (obj.length > 0) {
           const [cls_key, spec] = obj;
           const dhId = `data-harmonizer-grid-${index}`;
-          let dhSubroot = createDataHarmonizerContainer(dhId, index === 0);
 
-          dhRoot.appendChild(dhSubroot); // Appending to the parent container
+          if (!document.getElementById(dhId)) {
+            let dhSubroot = createDataHarmonizerContainer(dhId, index === 0);
+            dhRoot.appendChild(dhSubroot); // Appending to the parent container
 
-          const dhTab = createDataHarmonizerTab(dhId, spec.name, index === 0);
-          dhTab.addEventListener('click', () => {
-            // set the current dataharmonizer tab in the context
-            context.setCurrentDataHarmonizer(spec.name);
+            const dhTab = createDataHarmonizerTab(dhId, spec.name, index === 0);
+            dhTab.addEventListener('click', () => {
+              // set the current dataharmonizer tab in the context
+              context.setCurrentDataHarmonizer(spec.name);
 
-            $(document).trigger('dhCurrentChange', {
-              data: spec.name,
+              $(document).trigger('dhCurrentChange', {
+                data: spec.name,
+              });
             });
-          });
-          dhTabNav.appendChild(dhTab); // Appending to the tab navigation
+            dhTabNav.appendChild(dhTab); // Appending to the tab navigation
 
-          data_harmonizers[spec.name] = new DataHarmonizer(dhSubroot, {
-            context: context,
-            loadingScreenRoot: document.body,
-            class_assignment: cls_key,
-            field_filters: findSlotNamesForClass(schema, cls_key), // TODO: Find slot names for filtering
-          });
+            data_harmonizers[spec.name] = new DataHarmonizer(dhSubroot, {
+              context: context,
+              loadingScreenRoot: document.body,
+              class_assignment: cls_key,
+              field_filters: findSlotNamesForClass(schema, cls_key), // TODO: Find slot names for filtering
+            });
 
-          data_harmonizers[spec.name].useSchema(
-            schema,
-            export_formats,
-            schema_name
-          );
+            data_harmonizers[spec.name].useSchema(
+              schema,
+              export_formats,
+              schema_name
+            );
+          }
         }
       });
   }
   delete data_harmonizers[undefined];
   return data_harmonizers; // Return the created data harmonizers if needed
 }
-
 
 /**
  * Transforms the value of a multivalued column in a Data Harmonizer instance.
