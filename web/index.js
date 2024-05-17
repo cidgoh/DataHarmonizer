@@ -6,6 +6,7 @@ import { DataHarmonizer, Footer, Toolbar } from '@/lib';
 import { initI18n } from '@/lib/utils/i18n';
 import { Template } from '@/lib/utils/templates';
 import { wait } from '@/lib/utils/general';
+import { invert } from '@/lib/utils/objects';
 
 import menu from '@/web/templates/menu.json';
 import tags from 'language-tags';
@@ -313,12 +314,24 @@ class AppContext {
             translated_sections[translation_slot_name],
         })
       );
-
-      i18n.addResources(langcode.split('-')[0], 'translation', {
+      
+      const language_translation = {
         ...section_resource,
         ...schema_resource,
         ...enum_resource,
+      }
+
+      i18n.addResources(langcode.split('-')[0], 'translation', {
+        ...language_translation,
       });
+
+      i18n.addResources('default', 'translation', {
+        // inverted language translation from default
+        ...invert(language_translation)
+      });
+
+      console.log(i18n);
+
     });
   }
 
@@ -756,6 +769,7 @@ function makeDataHarmonizersFromSchemaTree(
   delete data_harmonizers[undefined];
   return data_harmonizers; // Return the created data harmonizers if needed
 }
+
 
 /**
  * Transforms the value of a multivalued column in a Data Harmonizer instance.
