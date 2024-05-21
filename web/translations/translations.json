@@ -106,6 +106,10 @@
     "en": "Language",
     "fr": "Langue"
   },
+  "translation_label": {
+    "en": "Language",
+    "fr": "Langue"
+  },
   "loaded_file_label": {
     "en": "Loaded file",
     "fr": "Fichier chargé"
