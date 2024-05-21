@@ -907,8 +907,7 @@ export class AppContext {
               });
               dhTabNav.appendChild(dhTab); // Appending to the tab navigation
 
-              data_harmonizers[spec.name] = new DataHarmonizer(dhSubroot, {
-                context: context,
+              data_harmonizers[spec.name] = new DataHarmonizer(dhSubroot, context, {
                 loadingScreenRoot: document.body,
                 class_assignment: cls_key,
                 field_filters: findSlotNamesForClass(schema, cls_key), // TODO: Find slot names for filtering
