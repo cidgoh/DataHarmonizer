@@ -7,10 +7,12 @@ import { Template } from '@/lib/utils/templates';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@/web/index.css';
-import { AppContext, AppConfig, getTemplatePath } from './AppContext';
+import { AppContext } from '@/web/AppContext';
 
+// TODO eliminate need to export
 export const dhRoot = document.querySelector('#data-harmonizer-grid');
 export const dhTabNav = document.querySelector('#data-harmonizer-tabs');
+
 const dhFooterRoot = document.querySelector('#data-harmonizer-footer');
 const dhToolbarRoot = document.querySelector('#data-harmonizer-toolbar');
 
@@ -27,7 +29,7 @@ $(dhRoot).append(`
 
 // Make the top function asynchronous to allow for a data-loading/IO step
 const main = async function () {
-  const context = new AppContext(new AppConfig(await getTemplatePath()));
+  const context = new AppContext();
   context
     .initializeTemplate(context.appConfig.template_path)
     .then(async (context) => {

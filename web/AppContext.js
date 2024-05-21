@@ -1,5 +1,7 @@
 import * as $ from 'jquery';
 import i18n from 'i18next';
+import menu from '@/web/templates/menu.json';
+
 import { DataHarmonizer } from '@/lib';
 import { findLocalesForLangcodes } from '@/lib/utils/i18n';
 import { Template } from '@/lib/utils/templates';
@@ -256,7 +258,7 @@ function makeSharedKeyHandler(
   });
 }
 
-export async function getTemplatePath() {
+function getTemplatePath() {
   let templatePath;
   if (window.URLSearchParams) {
     let params = new URLSearchParams(location.search);
@@ -265,7 +267,6 @@ export async function getTemplatePath() {
     templatePath = location.search.split('template=')[1];
   }
   if (templatePath === null || typeof templatePath === 'undefined') {
-    const menu = (await import(`@/web/templates/menu.json`)).default;
     const schema_name = Object.keys(menu)[0];
     const template_name = Object.keys(menu[schema_name])[0];
     return `${schema_name}/${template_name}`;
@@ -284,7 +285,7 @@ export class AppContext {
   current_data_harmonizer_name = null;
   template = null;
 
-  constructor(appConfig) {
+  constructor(appConfig = new AppConfig(getTemplatePath())) {
     this.appConfig = appConfig;
   }
 
