@@ -243,3 +243,4 @@ web/templates/manifest.json
 # Miscellaneous
 .local/
 .notes/
+.jj/

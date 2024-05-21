@@ -3,16 +3,16 @@ import 'bootstrap';
 
 import i18n from 'i18next';
 import { DataHarmonizer, Footer, Toolbar } from '@/lib';
-import { initI18n } from '@/lib/utils/i18n';
+import { initI18n, findLocalesForLangcodes } from '@/lib/utils/i18n';
 import { Template } from '@/lib/utils/templates';
 import { wait } from '@/lib/utils/general';
 import { invert } from '@/lib/utils/objects';
 
 import menu from '@/web/templates/menu.json';
-import tags from 'language-tags';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@/web/index.css';
+import { interface_translation } from '../lib/utils/i18n';
 
 /**
  * Logging function used for debugging, it logs the supplied argument to the console.
@@ -228,16 +228,9 @@ class AppContext {
   async getLocaleData() {
     let locales = {
       default: { langcode: 'default', nativeName: 'Default' },
+      ...findLocalesForLangcodes(this.template.locales),
+      // ...findLocalesForLangcodes(Object.keys(interface_translation))
     };
-
-    this.template.locales.forEach((locale) => {
-      const langcode = locale.split('-')[0];
-      const nativeName = tags.language(langcode)
-        ? tags.language(langcode).data.record.Description[0]
-        : 'Default';
-      locales[langcode] = { langcode, nativeName };
-    });
-
     return locales;
   }
 
@@ -256,16 +249,11 @@ class AppContext {
       nativeName: 'Default',
     };
     locales = {
+      ...locales,
       default: defaultLocale,
+      ...findLocalesForLangcodes(template.locales),
+      // ...findLocalesForLangcodes(Object.keys(interface_translation))
     };
-
-    template.locales.forEach((locale) => {
-      const langcode = locale.split('-')[0];
-      const nativeName = tags.language(langcode)
-        ? tags.language(langcode).data.record.Description[0]
-        : 'Default';
-      locales[langcode] = { langcode, nativeName };
-    });
 
     Object.entries(template.translations).forEach(([langcode, translation]) => {
       const schema_resource = consolidate(
