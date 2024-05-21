@@ -44,7 +44,6 @@ const main = async function () {
 
       // // TODO: data harmonizers require initialization code inside of the toolbar to fully render? wut
       new Toolbar(dhToolbarRoot, context, {
-        context,
         templatePath: context.appConfig.template_path, // TODO: a default should be loaded before Toolbar is constructed! then take out all loading in "toolbar" to an outside context
         releasesURL:
           'https://github.com/cidgoh/pathogen-genomics-package/releases',
