@@ -7,7 +7,7 @@ import { Template } from '@/lib/utils/templates';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@/web/index.css';
-import { AppContext } from '@/web/AppContext';
+import { AppContext } from './AppContext';
 
 // TODO eliminate need to export
 export const dhRoot = document.querySelector('#data-harmonizer-grid');
