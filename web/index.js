@@ -33,7 +33,6 @@ const main = async function () {
   context
     .initializeTemplate(context.appConfig.template_path)
     .then(async (context) => {
-
       // // internationalize
       // // TODO: connect to locale of browser!
       // // Takes `lang` as argument (unused)

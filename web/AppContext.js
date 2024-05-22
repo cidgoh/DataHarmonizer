@@ -16,7 +16,9 @@ import { dhTabNav, dhRoot } from '.';
  */
 function findSharedKeys(schema) {
   const class_names = new Set(
-    Object.keys(schema.classes).filter((k) => k !== 'dh_interface' && k !== 'Container')
+    Object.keys(schema.classes).filter(
+      (k) => k !== 'dh_interface' && k !== 'Container'
+    )
   );
   let shared_keys_per_class = {};
   class_names.forEach((key) => {
@@ -448,7 +450,8 @@ export class AppContext {
         schema_tree[dh.class_assignment].children.forEach((child_name) => {
           const shared_key_name = schema_tree[
             dh.class_assignment
-          ].shared_keys.filter((el) => el.related_concept === child_name)[0].name;
+          ].shared_keys.filter((el) => el.related_concept === child_name)[0]
+            .name;
 
           visitSchemaTree(
             schema_tree,
@@ -478,7 +481,6 @@ export class AppContext {
 
     return data_harmonizers;
   }
-
 
   /**
    * Finds slots with suffixes shared across multiple prefixes in the given slot usage data.
@@ -540,10 +542,13 @@ export class AppContext {
       // Select for all prefix-suffixes, there exists a suffix used across multiple prefixes
       const one_to_many = {};
       for (const [prefix, suffixes] of Object.entries(suffix_dict)) {
-        if (suffixes.some(
-          (suffix) => typeof filtered_multi_suffixes_filter[suffix] !== 'undefined'
-        ) &&
-          suffixes.length >= suffix_threshold) {
+        if (
+          suffixes.some(
+            (suffix) =>
+              typeof filtered_multi_suffixes_filter[suffix] !== 'undefined'
+          ) &&
+          suffixes.length >= suffix_threshold
+        ) {
           one_to_many[prefix] = suffixes.map((suffix) => `${prefix}_${suffix}`);
         }
       }
@@ -596,11 +601,16 @@ export class AppContext {
     };
 
     Object.entries(template.translations).forEach(([langcode, translation]) => {
-
-      const primaryClass = typeof translation.schema.classes[template.default.schema.name] !== 'undefined' ?
-        translation.schema.classes[template.default.schema.name]
-        : typeof translation.schema.classes[template.default.schema.name.replace('_', ' ')] !== 'undefined' ?
-          translation.schema.classes[template.default.schema.name.replace('_', ' ')]
+      const primaryClass =
+        typeof translation.schema.classes[template.default.schema.name] !==
+        'undefined'
+          ? translation.schema.classes[template.default.schema.name]
+          : typeof translation.schema.classes[
+              template.default.schema.name.replace('_', ' ')
+            ] !== 'undefined'
+          ? translation.schema.classes[
+              template.default.schema.name.replace('_', ' ')
+            ]
           : {};
 
       const schema_resource = consolidate(
@@ -644,7 +654,8 @@ export class AppContext {
         translated_sections,
         (acc, [translation_slot_name]) => ({
           ...acc,
-          [default_sections[translation_slot_name]]: translated_sections[translation_slot_name],
+          [default_sections[translation_slot_name]]:
+            translated_sections[translation_slot_name],
         })
       );
 
@@ -660,9 +671,8 @@ export class AppContext {
 
       i18n.addResources('default', 'translation', {
         // inverted language translation from default
-        ...invert(language_translation)
+        ...invert(language_translation),
       });
-
     });
   }
 
@@ -831,7 +841,9 @@ export class AppContext {
         shared_keys: shared_keys_per_class[class_key],
         children: shared_keys_per_class[class_key]
           .map((item) => item.range)
-          .filter((range) => range !== class_key && typeof range !== 'undefined'), // TODO inefficient
+          .filter(
+            (range) => range !== class_key && typeof range !== 'undefined'
+          ), // TODO inefficient
       };
       return acc;
     }, tree_base);
@@ -896,7 +908,11 @@ export class AppContext {
               let dhSubroot = createDataHarmonizerContainer(dhId, index === 0);
               dhRoot.appendChild(dhSubroot); // Appending to the parent container
 
-              const dhTab = createDataHarmonizerTab(dhId, spec.name, index === 0);
+              const dhTab = createDataHarmonizerTab(
+                dhId,
+                spec.name,
+                index === 0
+              );
               dhTab.addEventListener('click', () => {
                 // set the current dataharmonizer tab in the context
                 context.setCurrentDataHarmonizer(spec.name);
@@ -907,11 +923,15 @@ export class AppContext {
               });
               dhTabNav.appendChild(dhTab); // Appending to the tab navigation
 
-              data_harmonizers[spec.name] = new DataHarmonizer(dhSubroot, context, {
-                loadingScreenRoot: document.body,
-                class_assignment: cls_key,
-                field_filters: findSlotNamesForClass(schema, cls_key), // TODO: Find slot names for filtering
-              });
+              data_harmonizers[spec.name] = new DataHarmonizer(
+                dhSubroot,
+                context,
+                {
+                  loadingScreenRoot: document.body,
+                  class_assignment: cls_key,
+                  field_filters: findSlotNamesForClass(schema, cls_key), // TODO: Find slot names for filtering
+                }
+              );
 
               data_harmonizers[spec.name].useSchema(
                 schema,
@@ -991,8 +1011,10 @@ export class AppContext {
     let data_harmonizers = {};
     return this.initializeTemplate(this.appConfig.template_path).then(
       async (context) => {
-        const [_template_name, _schema_name] = context.appConfig.template_path.split('/');
-        const _export_formats = exportFormats || (await context.getExportFormats(_template_name));
+        const [_template_name, _schema_name] =
+          context.appConfig.template_path.split('/');
+        const _export_formats =
+          exportFormats || (await context.getExportFormats(_template_name));
         const schema = context.template.default.schema;
         const schema_tree = context.buildSchemaTree(schema);
         context.setSchemaTree(schema_tree);
