@@ -443,7 +443,7 @@
           "meaning": "HP:0002014",
           "title": "Diarrhée (selles liquides)",
           "exact_mappings": [
-            "CNPHI:Diarrhea, watery"
+            "CNPHI:Diarrhea%2C%20watery"
           ]
         },
         "Dry gangrene": {
@@ -3271,7 +3271,7 @@
           "meaning": "GENEPIO:0100058",
           "title": "90 - 99",
           "exact_mappings": [
-            "VirusSeq_Portal:90+"
+            "VirusSeq_Portal:90%2B"
           ]
         },
         "100+": {
@@ -3279,7 +3279,7 @@
           "meaning": "GENEPIO:0100059",
           "title": "100+",
           "exact_mappings": [
-            "VirusSeq_Portal:90+"
+            "VirusSeq_Portal:90%2B"
           ]
         }
       }
@@ -4453,8 +4453,8 @@
           "meaning": "GENEPIO:0100151",
           "title": "E gène (orf4)",
           "exact_mappings": [
-            "CNPHI:E gene",
-            "BIOSAMPLE:E (orf4)"
+            "CNPHI:E%20gene",
+            "BIOSAMPLE:E%20%28orf4%29"
           ]
         },
         "M gene (orf5)": {
@@ -4462,7 +4462,7 @@
           "meaning": "GENEPIO:0100152",
           "title": "M gène (orf5)",
           "exact_mappings": [
-            "BIOSAMPLE:M (orf5)"
+            "BIOSAMPLE:M%20%28orf5%29"
           ]
         },
         "N gene (orf9)": {
@@ -4470,7 +4470,7 @@
           "meaning": "GENEPIO:0100153",
           "title": "N gène (orf9)",
           "exact_mappings": [
-            "BIOSAMPLE:N (orf9)"
+            "BIOSAMPLE:N%20%28orf9%29"
           ]
         },
         "Spike gene (orf2)": {
@@ -4478,7 +4478,7 @@
           "meaning": "GENEPIO:0100154",
           "title": "Spike gène (orf2)",
           "exact_mappings": [
-            "BIOSAMPLE:S (orf2)"
+            "BIOSAMPLE:S%20%28orf2%29"
           ]
         },
         "orf1ab (rep)": {
@@ -4486,7 +4486,7 @@
           "meaning": "GENEPIO:0100155",
           "title": "orf1ab (rep)",
           "exact_mappings": [
-            "BIOSAMPLE:orf1ab (rep)"
+            "BIOSAMPLE:orf1ab%20%28rep%29"
           ]
         },
         "orf1a (pp1a)": {
@@ -4495,7 +4495,7 @@
           "is_a": "orf1ab (rep)",
           "title": "orf1a (pp1a)",
           "exact_mappings": [
-            "BIOSAMPLE:orf1a (pp1a)"
+            "BIOSAMPLE:orf1a%20%28pp1a%29"
           ]
         },
         "nsp11": {
@@ -4603,7 +4603,7 @@
           "is_a": "orf1ab (rep)",
           "title": "RdRp gène (nsp12)",
           "exact_mappings": [
-            "BIOSAMPLE:nsp12 (RdRp)"
+            "BIOSAMPLE:nsp12%20%28RdRp%29"
           ]
         },
         "hel gene (nsp13)": {
@@ -4612,7 +4612,7 @@
           "is_a": "orf1ab (rep)",
           "title": "hel gène (nsp13)",
           "exact_mappings": [
-            "BIOSAMPLE:nsp13 (Hel)"
+            "BIOSAMPLE:nsp13%20%28Hel%29"
           ]
         },
         "exoN gene (nsp14)": {
@@ -4621,7 +4621,7 @@
           "is_a": "orf1ab (rep)",
           "title": "exoN gène (nsp14)",
           "exact_mappings": [
-            "BIOSAMPLE:nsp14 (ExoN)"
+            "BIOSAMPLE:nsp14%20%28ExoN%29"
           ]
         },
         "nsp15": {
@@ -4663,7 +4663,7 @@
           "meaning": "GENEPIO:0100175",
           "title": "orf6 (ns6)",
           "exact_mappings": [
-            "BIOSAMPLE:orf6 (ns6)"
+            "BIOSAMPLE:orf6%20%28ns6%29"
           ]
         },
         "orf7a": {
@@ -4679,7 +4679,7 @@
           "meaning": "GENEPIO:0100177",
           "title": "orf7b (ns7b)",
           "exact_mappings": [
-            "BIOSAMPLE:orf7b (ns7b)"
+            "BIOSAMPLE:orf7b%20%28ns7b%29"
           ]
         },
         "orf8 (ns8)": {
@@ -4687,7 +4687,7 @@
           "meaning": "GENEPIO:0100178",
           "title": "orf8 (ns8)",
           "exact_mappings": [
-            "BIOSAMPLE:orf8 (ns8)"
+            "BIOSAMPLE:orf8%20%28ns8%29"
           ]
         },
         "orf9b": {
