@@ -1,7 +1,7 @@
 id: https://example.com/GRDI
 name: Wastewater
 description: ''
-version: 5.3.3
+version: 2.0.0
 imports:
 - linkml:types
 prefixes:
@@ -297,6 +297,15 @@ classes:
       organism:
         rank: 29
         slot_group: Sample collection and processing
+        comments: Provide the official nomenclature for the organism present in the
+          sample. For SARS-CoV-2, use "Severe acute respiratory syndrome coronavirus
+          2" provided in the picklist.
+        examples:
+        - value: Severe acute respiratory syndrome coronavirus 2
+        any_of:
+        - range: organism menu
+        - range: null value menu
+        required: true
       purpose of sampling:
         rank: 30
         slot_group: Sample collection and processing
@@ -826,6 +835,7 @@ classes:
     - geo loc longitude
     - watershed shapefile availability
     - watershed shapefile filename
+    - organism
     - purpose of sampling
     - scale of sampling
     - sample received date
@@ -962,6 +972,13 @@ classes:
     - dehosting method
     - sequence assembly software name
     - sequence assembly software version
+    - breadth of coverage value
+    - depth of coverage value
+    - depth of coverage threshold
+    - number of base pairs sequenced
+    - number of total reads
+    - number of unique reads
+    - minimum post-trimming read length
     - bioinformatics protocol
     - read mapping software name
     - read mapping software version
@@ -1070,484 +1087,517 @@ classes:
       watershed shapefile filename:
         rank: 29
         slot_group: Sample collection and processing
-      purpose of sampling:
+      organism:
         rank: 30
         slot_group: Sample collection and processing
-      scale of sampling:
+        recommended: true
+        comments: 'Provide the official nomenclature for the organism(s) present in
+          the sample if AMR profiles are assigned to organisms. Multiple organisms
+          can be entered, separated by semicolons. Avoid abbreviations. Search for
+          taxonomic names here: ncbi.nlm.nih.gov/taxonomy.'
+        examples:
+        - value: Vibrio cholerae
+        any_of:
+        - range: WhitespaceMinimizedString
+        - range: null value menu
+      purpose of sampling:
         rank: 31
         slot_group: Sample collection and processing
-      sample received date:
+      scale of sampling:
         rank: 32
         slot_group: Sample collection and processing
-      sample collection date:
+      sample received date:
         rank: 33
         slot_group: Sample collection and processing
-      sample collection end date:
+      sample collection date:
         rank: 34
         slot_group: Sample collection and processing
-      sample processing date:
+      sample collection end date:
         rank: 35
         slot_group: Sample collection and processing
-      sample collection start time:
+      sample processing date:
         rank: 36
         slot_group: Sample collection and processing
-      sample collection end time:
+      sample collection start time:
         rank: 37
         slot_group: Sample collection and processing
-      sample collection time of day:
+      sample collection end time:
         rank: 38
         slot_group: Sample collection and processing
-      sample collection time duration value:
+      sample collection time of day:
         rank: 39
         slot_group: Sample collection and processing
-      sample collection time duration unit:
+      sample collection time duration value:
         rank: 40
         slot_group: Sample collection and processing
-      presampling activity:
+      sample collection time duration unit:
         rank: 41
         slot_group: Sample collection and processing
-      presampling activity details:
+      presampling activity:
         rank: 42
         slot_group: Sample collection and processing
-      sample volume measurement value:
+      presampling activity details:
         rank: 43
         slot_group: Sample collection and processing
-      sample volume measurement unit:
+      sample volume measurement value:
         rank: 44
         slot_group: Sample collection and processing
-      sample storage method:
+      sample volume measurement unit:
         rank: 45
         slot_group: Sample collection and processing
-      sample storage medium:
+      sample storage method:
         rank: 46
         slot_group: Sample collection and processing
-      sample storage duration value:
+      sample storage medium:
         rank: 47
         slot_group: Sample collection and processing
-      sample storage duration unit:
+      sample storage duration value:
         rank: 48
         slot_group: Sample collection and processing
-      specimen processing:
+      sample storage duration unit:
         rank: 49
         slot_group: Sample collection and processing
-      specimen processing details:
+      specimen processing:
         rank: 50
         slot_group: Sample collection and processing
-      experimental protocol field:
+      specimen processing details:
         rank: 51
         slot_group: Sample collection and processing
-      environmental site:
+      experimental protocol field:
         rank: 52
         slot_group: Sample collection and processing
-      environmental material:
+      environmental site:
         rank: 53
         slot_group: Sample collection and processing
-      environmental material properties:
+      environmental material:
         rank: 54
         slot_group: Sample collection and processing
-      wastewater system type:
+      environmental material properties:
         rank: 55
         slot_group: Sample collection and processing
-      experimental specimen role type:
+      wastewater system type:
         rank: 56
         slot_group: Sample collection and processing
-      experimental control details:
+      experimental specimen role type:
         rank: 57
         slot_group: Sample collection and processing
-      collection device:
+      experimental control details:
         rank: 58
         slot_group: Sample collection and processing
-      collection method:
+      collection device:
         rank: 59
         slot_group: Sample collection and processing
-      nucleic acid extraction method:
+      collection method:
         rank: 60
         slot_group: Sample collection and processing
-      nucleic acid extraction kit:
+      nucleic acid extraction method:
         rank: 61
         slot_group: Sample collection and processing
-      endogenous control details:
+      nucleic acid extraction kit:
         rank: 62
         slot_group: Sample collection and processing
-      extraction recovery efficiency measurement value:
+      endogenous control details:
         rank: 63
         slot_group: Sample collection and processing
-      extraction recovery efficiency measurement method:
+      extraction recovery efficiency measurement value:
         rank: 64
         slot_group: Sample collection and processing
-      water catchment area human population measurement value:
+      extraction recovery efficiency measurement method:
         rank: 65
-        slot_group: Environmental conditions and measurements
-      water catchment area human population range:
+        slot_group: Sample collection and processing
+      water catchment area human population measurement value:
         rank: 66
         slot_group: Environmental conditions and measurements
-      water catchment area human population measurement method:
+      water catchment area human population range:
         rank: 67
         slot_group: Environmental conditions and measurements
-      water catchment area human population density value:
+      water catchment area human population measurement method:
         rank: 68
         slot_group: Environmental conditions and measurements
-      water catchment area human population density unit:
+      water catchment area human population density value:
         rank: 69
         slot_group: Environmental conditions and measurements
-      populated area type:
+      water catchment area human population density unit:
         rank: 70
         slot_group: Environmental conditions and measurements
-      sampling weather conditions:
+      populated area type:
         rank: 71
         slot_group: Environmental conditions and measurements
-      presampling weather conditions:
+      sampling weather conditions:
         rank: 72
         slot_group: Environmental conditions and measurements
-      precipitation measurement value:
+      presampling weather conditions:
         rank: 73
         slot_group: Environmental conditions and measurements
-      precipitation measurement unit:
+      precipitation measurement value:
         rank: 74
         slot_group: Environmental conditions and measurements
-      precipitation measurement method:
+      precipitation measurement unit:
         rank: 75
         slot_group: Environmental conditions and measurements
-      ambient temperature measurement value:
+      precipitation measurement method:
         rank: 76
         slot_group: Environmental conditions and measurements
-      ambient temperature measurement unit:
+      ambient temperature measurement value:
         rank: 77
         slot_group: Environmental conditions and measurements
-      pH measurement value:
+      ambient temperature measurement unit:
         rank: 78
         slot_group: Environmental conditions and measurements
-      pH measurement method:
+      pH measurement value:
         rank: 79
         slot_group: Environmental conditions and measurements
-      total daily flow rate measurement value:
+      pH measurement method:
         rank: 80
         slot_group: Environmental conditions and measurements
-      total daily flow rate measurement unit:
+      total daily flow rate measurement value:
         rank: 81
         slot_group: Environmental conditions and measurements
-      total daily flow rate measurement method:
+      total daily flow rate measurement unit:
         rank: 82
         slot_group: Environmental conditions and measurements
-      instantaneous flow rate measurement value:
+      total daily flow rate measurement method:
         rank: 83
         slot_group: Environmental conditions and measurements
-      instantaneous flow rate measurement unit:
+      instantaneous flow rate measurement value:
         rank: 84
         slot_group: Environmental conditions and measurements
-      instantaneous flow rate measurement method:
+      instantaneous flow rate measurement unit:
         rank: 85
         slot_group: Environmental conditions and measurements
-      turbidity measurement value:
+      instantaneous flow rate measurement method:
         rank: 86
         slot_group: Environmental conditions and measurements
-      turbidity measurement unit:
+      turbidity measurement value:
         rank: 87
         slot_group: Environmental conditions and measurements
-      turbidity measurement method:
+      turbidity measurement unit:
         rank: 88
         slot_group: Environmental conditions and measurements
-      dissolved oxygen measurement value:
+      turbidity measurement method:
         rank: 89
         slot_group: Environmental conditions and measurements
-      dissolved oxygen measurement unit:
+      dissolved oxygen measurement value:
         rank: 90
         slot_group: Environmental conditions and measurements
-      dissolved oxygen measurement method:
+      dissolved oxygen measurement unit:
         rank: 91
         slot_group: Environmental conditions and measurements
-      oxygen reduction potential (ORP) measurement value:
+      dissolved oxygen measurement method:
         rank: 92
         slot_group: Environmental conditions and measurements
-      oxygen reduction potential (ORP) measurement unit:
+      oxygen reduction potential (ORP) measurement value:
         rank: 93
         slot_group: Environmental conditions and measurements
-      oxygen reduction potential (ORP) measurement method:
+      oxygen reduction potential (ORP) measurement unit:
         rank: 94
         slot_group: Environmental conditions and measurements
-      chemical oxygen demand (COD) measurement value:
+      oxygen reduction potential (ORP) measurement method:
         rank: 95
         slot_group: Environmental conditions and measurements
-      chemical oxygen demand (COD) measurement unit:
+      chemical oxygen demand (COD) measurement value:
         rank: 96
         slot_group: Environmental conditions and measurements
-      chemical oxygen demand (COD) measurement method:
+      chemical oxygen demand (COD) measurement unit:
         rank: 97
         slot_group: Environmental conditions and measurements
-      carbonaceous biochemical oxygen demand (CBOD) measurement value:
+      chemical oxygen demand (COD) measurement method:
         rank: 98
         slot_group: Environmental conditions and measurements
-      carbonaceous biochemical oxygen demand (CBOD) measurement unit:
+      carbonaceous biochemical oxygen demand (CBOD) measurement value:
         rank: 99
         slot_group: Environmental conditions and measurements
-      carbonaceous biochemical oxygen demand (CBOD) measurement method:
+      carbonaceous biochemical oxygen demand (CBOD) measurement unit:
         rank: 100
         slot_group: Environmental conditions and measurements
-      total suspended solids (TSS) measurement value:
+      carbonaceous biochemical oxygen demand (CBOD) measurement method:
         rank: 101
         slot_group: Environmental conditions and measurements
-      total suspended solids (TSS) measurement unit:
+      total suspended solids (TSS) measurement value:
         rank: 102
         slot_group: Environmental conditions and measurements
-      total suspended solids (TSS) measurement method:
+      total suspended solids (TSS) measurement unit:
         rank: 103
         slot_group: Environmental conditions and measurements
-      total dissolved solids (TDS) measurement value:
+      total suspended solids (TSS) measurement method:
         rank: 104
         slot_group: Environmental conditions and measurements
-      total dissolved solids (TDS) measurement unit:
+      total dissolved solids (TDS) measurement value:
         rank: 105
         slot_group: Environmental conditions and measurements
-      total dissolved solids (TDS) measurement method:
+      total dissolved solids (TDS) measurement unit:
         rank: 106
         slot_group: Environmental conditions and measurements
-      total solids (TS) measurement value:
+      total dissolved solids (TDS) measurement method:
         rank: 107
         slot_group: Environmental conditions and measurements
-      total solids (TS) measurement unit:
+      total solids (TS) measurement value:
         rank: 108
         slot_group: Environmental conditions and measurements
-      total solids (TS) measurement method:
+      total solids (TS) measurement unit:
         rank: 109
         slot_group: Environmental conditions and measurements
-      alkalinity measurement value:
+      total solids (TS) measurement method:
         rank: 110
         slot_group: Environmental conditions and measurements
-      alkalinity measurement unit:
+      alkalinity measurement value:
         rank: 111
         slot_group: Environmental conditions and measurements
-      alkalinity measurement method:
+      alkalinity measurement unit:
         rank: 112
         slot_group: Environmental conditions and measurements
-      conductivity measurement value:
+      alkalinity measurement method:
         rank: 113
         slot_group: Environmental conditions and measurements
-      conductivity measurement unit:
+      conductivity measurement value:
         rank: 114
         slot_group: Environmental conditions and measurements
-      conductivity measurement method:
+      conductivity measurement unit:
         rank: 115
         slot_group: Environmental conditions and measurements
-      salinity measurement value:
+      conductivity measurement method:
         rank: 116
         slot_group: Environmental conditions and measurements
-      salinity measurement unit:
+      salinity measurement value:
         rank: 117
         slot_group: Environmental conditions and measurements
-      salinity measurement method:
+      salinity measurement unit:
         rank: 118
         slot_group: Environmental conditions and measurements
-      total nitrogen (TN) measurement value:
+      salinity measurement method:
         rank: 119
         slot_group: Environmental conditions and measurements
-      total nitrogen (TN) measurement unit:
+      total nitrogen (TN) measurement value:
         rank: 120
         slot_group: Environmental conditions and measurements
-      total nitrogen (TN) measurement method:
+      total nitrogen (TN) measurement unit:
         rank: 121
         slot_group: Environmental conditions and measurements
-      total phosphorus (TP) measurement value:
+      total nitrogen (TN) measurement method:
         rank: 122
         slot_group: Environmental conditions and measurements
-      total phosphorus (TP) measurement unit:
+      total phosphorus (TP) measurement value:
         rank: 123
         slot_group: Environmental conditions and measurements
-      total phosphorus (TP) measurement method:
+      total phosphorus (TP) measurement unit:
         rank: 124
         slot_group: Environmental conditions and measurements
-      fecal contamination indicator:
+      total phosphorus (TP) measurement method:
         rank: 125
         slot_group: Environmental conditions and measurements
-      fecal contamination value:
+      fecal contamination indicator:
         rank: 126
         slot_group: Environmental conditions and measurements
-      fecal contamination unit:
+      fecal contamination value:
         rank: 127
         slot_group: Environmental conditions and measurements
-      fecal contamination method:
+      fecal contamination unit:
         rank: 128
         slot_group: Environmental conditions and measurements
-      fecal coliform count value:
+      fecal contamination method:
         rank: 129
         slot_group: Environmental conditions and measurements
-      fecal coliform count unit:
+      fecal coliform count value:
         rank: 130
         slot_group: Environmental conditions and measurements
-      fecal coliform count method:
+      fecal coliform count unit:
         rank: 131
         slot_group: Environmental conditions and measurements
-      urinary contamination indicator:
+      fecal coliform count method:
         rank: 132
         slot_group: Environmental conditions and measurements
-      urinary contamination value:
+      urinary contamination indicator:
         rank: 133
         slot_group: Environmental conditions and measurements
-      urinary contamination unit:
+      urinary contamination value:
         rank: 134
         slot_group: Environmental conditions and measurements
-      urinary contamination method:
+      urinary contamination unit:
         rank: 135
         slot_group: Environmental conditions and measurements
-      sample temperature value (at collection):
+      urinary contamination method:
         rank: 136
         slot_group: Environmental conditions and measurements
-      sample temperature unit (at collection):
+      sample temperature value (at collection):
         rank: 137
         slot_group: Environmental conditions and measurements
-      sample temperature value (when received):
+      sample temperature unit (at collection):
         rank: 138
         slot_group: Environmental conditions and measurements
-      sample temperature unit (when received):
+      sample temperature value (when received):
         rank: 139
         slot_group: Environmental conditions and measurements
-      purpose of sequencing:
+      sample temperature unit (when received):
         rank: 140
-        slot_group: Sequence information
-      purpose of sequencing details:
+        slot_group: Environmental conditions and measurements
+      purpose of sequencing:
         rank: 141
         slot_group: Sequence information
-      sequenced by:
+      purpose of sequencing details:
         rank: 142
         slot_group: Sequence information
-      sequenced by contact name:
+      sequenced by:
         rank: 143
         slot_group: Sequence information
-      sequenced by contact email:
+      sequenced by contact name:
         rank: 144
         slot_group: Sequence information
-      sequence submitted by:
+      sequenced by contact email:
         rank: 145
         slot_group: Sequence information
-      sequence submitter contact email:
+      sequence submitted by:
         rank: 146
         slot_group: Sequence information
-      sequencing date:
+      sequence submitter contact email:
         rank: 147
         slot_group: Sequence information
-      library ID:
+      sequencing date:
         rank: 148
         slot_group: Sequence information
-      sequencing platform:
+      library ID:
         rank: 149
         slot_group: Sequence information
-      sequencing instrument:
+      sequencing platform:
         rank: 150
         slot_group: Sequence information
-      sequencing assay type:
+      sequencing instrument:
         rank: 151
         slot_group: Sequence information
-      library preparation kit:
+      sequencing assay type:
         rank: 152
         slot_group: Sequence information
-      sequencing protocol:
+      library preparation kit:
         rank: 153
         slot_group: Sequence information
-      DNA fragment length:
+      sequencing protocol:
         rank: 154
         slot_group: Sequence information
-      genomic target enrichment method:
+      DNA fragment length:
         rank: 155
         slot_group: Sequence information
-      genomic target enrichment method details:
+      genomic target enrichment method:
         rank: 156
         slot_group: Sequence information
-      quality control method name:
+      genomic target enrichment method details:
         rank: 157
-        slot_group: Bioinformatics and QC metrics
-      quality control method version:
+        slot_group: Sequence information
+      quality control method name:
         rank: 158
         slot_group: Bioinformatics and QC metrics
-      quality control determination:
+      quality control method version:
         rank: 159
         slot_group: Bioinformatics and QC metrics
-      quality control issues:
+      quality control determination:
         rank: 160
         slot_group: Bioinformatics and QC metrics
-      quality control details:
+      quality control issues:
         rank: 161
         slot_group: Bioinformatics and QC metrics
-      raw sequence data processing method:
+      quality control details:
         rank: 162
         slot_group: Bioinformatics and QC metrics
-      dehosting method:
+      raw sequence data processing method:
         rank: 163
         slot_group: Bioinformatics and QC metrics
-      sequence assembly software name:
+      dehosting method:
         rank: 164
         slot_group: Bioinformatics and QC metrics
-      sequence assembly software version:
+      sequence assembly software name:
         rank: 165
         slot_group: Bioinformatics and QC metrics
-      bioinformatics protocol:
+      sequence assembly software version:
         rank: 166
         slot_group: Bioinformatics and QC metrics
-      read mapping software name:
+      breadth of coverage value:
         rank: 167
+        slot_group: Bioinformatics and QC metrics
+      depth of coverage value:
+        rank: 168
+        slot_group: Bioinformatics and QC metrics
+      depth of coverage threshold:
+        rank: 169
+        slot_group: Bioinformatics and QC metrics
+      number of base pairs sequenced:
+        rank: 170
+        slot_group: Bioinformatics and QC metrics
+      number of total reads:
+        rank: 171
+        slot_group: Bioinformatics and QC metrics
+      number of unique reads:
+        rank: 172
+        slot_group: Bioinformatics and QC metrics
+      minimum post-trimming read length:
+        rank: 173
+        slot_group: Bioinformatics and QC metrics
+      bioinformatics protocol:
+        rank: 174
+        slot_group: Bioinformatics and QC metrics
+      read mapping software name:
+        rank: 175
         slot_group: Taxonomic identification information
         recommended: true
       read mapping software version:
-        rank: 168
+        rank: 176
         slot_group: Taxonomic identification information
         recommended: true
       taxonomic reference database name:
-        rank: 169
+        rank: 177
         slot_group: Taxonomic identification information
       taxonomic reference database version:
-        rank: 170
+        rank: 178
         slot_group: Taxonomic identification information
       taxonomic analysis report filename:
-        rank: 171
+        rank: 179
         slot_group: Taxonomic identification information
       taxonomic analysis date:
-        rank: 172
+        rank: 180
         slot_group: Taxonomic identification information
       read mapping criteria:
-        rank: 173
+        rank: 181
         slot_group: Taxonomic identification information
       AMR analysis software name:
-        rank: 174
+        rank: 182
         slot_group: AMR detection information
       AMR analysis software version:
-        rank: 175
+        rank: 183
         slot_group: AMR detection information
       AMR reference database name:
-        rank: 176
+        rank: 184
         slot_group: AMR detection information
       AMR reference database version:
-        rank: 177
+        rank: 185
         slot_group: AMR detection information
       AMR analysis report filename:
-        rank: 178
+        rank: 186
         slot_group: AMR detection information
       gene name:
-        rank: 179
+        rank: 187
         slot_group: Pathogen diagnostic testing
-        comments: 'Provide the full name of the gene used in the test. The gene symbol
-          (short form of gene name) can also be provided. Standardized gene names
-          and symbols can be found in the Gene Ontology using this look-up service:
+        comments: 'Provide the full name of the gene used in the test. Standardized
+          gene names can be found in the Gene Ontology using this look-up service:
           https://bit.ly/2Sq1LbI'
         examples:
-        - value: Gyrase A
+        - value: gyrase A
         any_of:
         - range: WhitespaceMinimizedString
         - range: null value menu
       diagnostic target presence:
-        rank: 180
+        rank: 188
         slot_group: Pathogen diagnostic testing
       diagnostic measurement value:
-        rank: 181
+        rank: 189
         slot_group: Pathogen diagnostic testing
       diagnostic measurement unit:
-        rank: 182
+        rank: 190
         slot_group: Pathogen diagnostic testing
       diagnostic measurement method:
-        rank: 183
+        rank: 191
         slot_group: Pathogen diagnostic testing
       authors:
-        rank: 184
+        rank: 192
         slot_group: Contributor acknowledgement
       DataHarmonizer provenance:
-        rank: 185
+        rank: 193
         slot_group: Contributor acknowledgement
   WastewaterPathogenAgnostic:
     name: WastewaterPathogenAgnostic
@@ -1857,6 +1907,15 @@ classes:
       organism:
         rank: 30
         slot_group: Sample collection and processing
+        comments: 'Provide the official nomenclature for the organism(s) present in
+          the sample. Multiple organisms can be entered, separated by semicolons.
+          Avoid abbreviations. Search for taxonomic names here: ncbi.nlm.nih.gov/taxonomy.'
+        examples:
+        - value: Vibrio cholerae
+        any_of:
+        - range: WhitespaceMinimizedString
+        - range: null value menu
+        required: true
       purpose of sampling:
         rank: 31
         slot_group: Sample collection and processing
@@ -2387,12 +2446,11 @@ classes:
       gene name:
         rank: 206
         slot_group: Pathogen diagnostic testing
-        comments: 'Provide the full name of the gene used in the test. The gene symbol
-          (short form of gene name) can also be provided. Standardized gene names
-          and symbols can be found in the Gene Ontology using this look-up service:
+        comments: 'Provide the full name of the gene used in the test. Standardized
+          gene names can be found in the Gene Ontology using this look-up service:
           https://bit.ly/2Sq1LbI'
         examples:
-        - value: Gyrase A
+        - value: gyrase A
         any_of:
         - range: WhitespaceMinimizedString
         - range: null value menu
@@ -2803,16 +2861,8 @@ slots:
     name: organism
     title: organism
     description: Taxonomic name of the organism.
-    comments: 'Provide the official nomenclature for the organism present in the sample.
-      Search for taxonomic names here: ncbi.nlm.nih.gov/taxonomy.'
     slot_uri: GENEPIO:0001191
-    any_of:
-    - range: organism menu
-    - range: null value menu
     multivalued: true
-    required: true
-    examples:
-    - value: Severe acute respiratory syndrome coronavirus 2
   purpose of sampling:
     name: purpose of sampling
     title: purpose of sampling
@@ -4964,7 +5014,7 @@ slots:
     - range: diagnostic target presence menu
     - range: null value menu
     examples:
-    - value: present
+    - value: diagnostic target present
   diagnostic measurement value:
     name: diagnostic measurement value
     title: diagnostic measurement value
@@ -4986,7 +5036,7 @@ slots:
     - range: diagnostic measurement unit menu
     - range: null value menu
     examples:
-    - value: CFU/mL
+    - value: cycle threshold (Ct)
   diagnostic measurement method:
     name: diagnostic measurement method
     title: diagnostic measurement method
@@ -5005,12 +5055,14 @@ slots:
     description: Names of individuals contributing to the processes of sample collection,
       sequence generation, analysis, and data submission.
     comments: Include the first and last names of all individuals that should be attributed,
-      separated by a comma.
+      separated by a semicolon.
     slot_uri: GENEPIO:0001517
     range: WhitespaceMinimizedString
     recommended: true
     examples:
-    - value: Tejinder Singh, Fei Hu, Joe Blogs
+    - value: Tejinder Singh
+    - value: Fei Hu
+    - value: Joe Blogs
     exact_mappings:
     - GISAID:Authors
     - CNPHI:Authors
@@ -6168,6 +6220,12 @@ enums:
       Refugee camp:
         text: Refugee camp
         meaning: NCIT:C85867
+      Road:
+        text: Road
+        meaning: ENVO:00000064
+      Roadside:
+        text: Roadside
+        meaning: ENVO:01000447
       Industrial plant:
         text: Industrial plant
         meaning: ENVO:00003861
@@ -6252,8 +6310,8 @@ enums:
       Surface water:
         text: Surface water
         meaning: ENVO:00002042
-      Waste water:
-        text: Waste water
+      Wastewater:
+        text: Wastewater
         meaning: ENVO:00002001
       Wastewater sediment:
         text: Wastewater sediment
@@ -6582,8 +6640,8 @@ enums:
         text: liter per day (L/day)
       million gallons per day (MGD):
         text: million gallons per day (MGD)
-  instantaneous daily flow rate measurement unit menu:
-    name: instantaneous daily flow rate measurement unit menu
+  instantaneous flow rate measurement unit menu:
+    name: instantaneous flow rate measurement unit menu
     permissible_values:
       cubic meter per second (m^3/s):
         text: cubic meter per second (m^3/s)
@@ -7450,8 +7508,8 @@ enums:
     permissible_values:
       gene copies per liter (GC/L):
         text: gene copies per liter (GC/L)
-      cycle threshold (Ct) / quantification cycle (Cq):
-        text: cycle threshold (Ct) / quantification cycle (Cq)
+      cycle threshold (Ct):
+        text: cycle threshold (Ct)
         meaning: GENEPIO:0100657
       colony forming units per milliliter (CFU/mL):
         text: colony forming units per milliliter (CFU/mL)

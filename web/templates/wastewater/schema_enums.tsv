@@ -374,11 +374,13 @@ environmental site menu	ENVO:01001481	Correctional facility
 	ENVO:03501122		Airport																						
 	ENVO:00000078	Farm																							
 	NCIT:C85867	Refugee camp																							
+	ENVO:00000064	Road																							
+	ENVO:01000447	Roadside																							
 	ENVO:00003861	Industrial plant																							
 	ENVO:03501297		Meat processing plant																						
 	GENEPIO:0100887		Pharmaceutical manufacturing plant																						
 	ENVO:00000063	Body of water																							
-	ENVO:00002042		Surface water																						
+	ENVO:00002042		Surface water 																						
 	ENVO:00000020			Lake																					
 	ENVO:00000023			Stream																					
 	ENVO:00000022				River																				
@@ -386,7 +388,7 @@ environmental site menu	ENVO:01001481	Correctional facility
 	ENVO:00000016			Sea																					
 	ENVO:00000014			Canal																					
 	ENVO:00000025			Reservoir																					
-	ENVO:01001004		Ground water																						
+	ENVO:01001004		Ground water 																						
 	ENVO:00000026			Well																					
 	ENVO:00000027			Spring																					
 	ENVO:00002272	Wastewater treatment plant																							
@@ -397,7 +399,7 @@ environmental site menu	ENVO:01001481	Correctional facility
 	ENVO:03501349		Airplane																						
 																									
 environmental material menu	ENVO:00002042	Surface water																							
-	ENVO:00002001	Waste water																							
+	ENVO:00002001	Wastewater																							
 	GENEPIO:0100890	Wastewater sediment																							
 	ENVO:00002044	Sludge																							
 	ENVO:00002057		Primary sludge																						
@@ -510,7 +512,7 @@ total daily flow rate measurement unit menu		cubic meter per second (m^3/s)
 		liter per day (L/day)																							
 		million gallons per day (MGD)																							
 																									
-instantaneous daily flow rate measurement unit menu		cubic meter per second (m^3/s)																							
+instantaneous flow rate measurement unit menu		cubic meter per second (m^3/s)																							
 		cubic meter per minute (m^3/min)																							
 		cubic meter per hour (m^3/h)																							
 		liter per second (L/s)																							
@@ -777,7 +779,7 @@ diagnostic target presence menu	GENEPIO:0100987	diagnostic target present
 	GENEPIO:0100988	diagnostic target absent																							
 																									
 diagnostic measurement unit menu		gene copies per liter (GC/L)																							
-	GENEPIO:0100657	cycle threshold (Ct) / quantification cycle (Cq)																							
+	GENEPIO:0100657	cycle threshold (Ct) 																							
 	UO:0000213	colony forming units per milliliter (CFU/mL)																							
 		colony forming units per 100 milliliter (CFU/100 mL)																							
 		colony forming units per grams total solids (CFU/gTS)																							

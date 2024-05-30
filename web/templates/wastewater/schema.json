@@ -2,7 +2,7 @@
   "name": "Wastewater",
   "description": "",
   "id": "https://example.com/GRDI",
-  "version": "5.3.3",
+  "version": "2.0.0",
   "prefixes": {
     "linkml": {
       "prefix_prefix": "linkml",
@@ -1833,6 +1833,14 @@
           "text": "Refugee camp",
           "meaning": "NCIT:C85867"
         },
+        "Road": {
+          "text": "Road",
+          "meaning": "ENVO:00000064"
+        },
+        "Roadside": {
+          "text": "Roadside",
+          "meaning": "ENVO:01000447"
+        },
         "Industrial plant": {
           "text": "Industrial plant",
           "meaning": "ENVO:00003861"
@@ -1942,8 +1950,8 @@
           "text": "Surface water",
           "meaning": "ENVO:00002042"
         },
-        "Waste water": {
-          "text": "Waste water",
+        "Wastewater": {
+          "text": "Wastewater",
           "meaning": "ENVO:00002001"
         },
         "Wastewater sediment": {
@@ -2412,8 +2420,8 @@
         }
       }
     },
-    "instantaneous daily flow rate measurement unit menu": {
-      "name": "instantaneous daily flow rate measurement unit menu",
+    "instantaneous flow rate measurement unit menu": {
+      "name": "instantaneous flow rate measurement unit menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
         "cubic meter per second (m^3/s)": {
@@ -3610,8 +3618,8 @@
         "gene copies per liter (GC/L)": {
           "text": "gene copies per liter (GC/L)"
         },
-        "cycle threshold (Ct) / quantification cycle (Cq)": {
-          "text": "cycle threshold (Ct) / quantification cycle (Cq)",
+        "cycle threshold (Ct)": {
+          "text": "cycle threshold (Ct)",
           "meaning": "GENEPIO:0100657"
         },
         "colony forming units per milliliter (CFU/mL)": {
@@ -4210,26 +4218,9 @@
       "name": "organism",
       "description": "Taxonomic name of the organism.",
       "title": "organism",
-      "comments": [
-        "Provide the official nomenclature for the organism present in the sample. Search for taxonomic names here: ncbi.nlm.nih.gov/taxonomy."
-      ],
-      "examples": [
-        {
-          "value": "Severe acute respiratory syndrome coronavirus 2"
-        }
-      ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0001191",
-      "multivalued": true,
-      "required": true,
-      "any_of": [
-        {
-          "range": "organism menu"
-        },
-        {
-          "range": "null value menu"
-        }
-      ]
+      "multivalued": true
     },
     "purpose of sampling": {
       "name": "purpose of sampling",
@@ -7828,7 +7819,7 @@
       ],
       "examples": [
         {
-          "value": "present"
+          "value": "diagnostic target present"
         }
       ],
       "from_schema": "https://example.com/GRDI",
@@ -7867,7 +7858,7 @@
       ],
       "examples": [
         {
-          "value": "CFU/mL"
+          "value": "cycle threshold (Ct)"
         }
       ],
       "from_schema": "https://example.com/GRDI",
@@ -7909,11 +7900,17 @@
       "description": "Names of individuals contributing to the processes of sample collection, sequence generation, analysis, and data submission.",
       "title": "authors",
       "comments": [
-        "Include the first and last names of all individuals that should be attributed, separated by a comma."
+        "Include the first and last names of all individuals that should be attributed, separated by a semicolon."
       ],
       "examples": [
         {
-          "value": "Tejinder Singh, Fei Hu, Joe Blogs"
+          "value": "Tejinder Singh"
+        },
+        {
+          "value": "Fei Hu"
+        },
+        {
+          "value": "Joe Blogs"
         }
       ],
       "from_schema": "https://example.com/GRDI",
@@ -8102,8 +8099,25 @@
         },
         "organism": {
           "name": "organism",
+          "comments": [
+            "Provide the official nomenclature for the organism present in the sample. For SARS-CoV-2, use \"Severe acute respiratory syndrome coronavirus 2\" provided in the picklist."
+          ],
+          "examples": [
+            {
+              "value": "Severe acute respiratory syndrome coronavirus 2"
+            }
+          ],
           "rank": 29,
-          "slot_group": "Sample collection and processing"
+          "slot_group": "Sample collection and processing",
+          "required": true,
+          "any_of": [
+            {
+              "range": "organism menu"
+            },
+            {
+              "range": "null value menu"
+            }
+          ]
         },
         "purpose of sampling": {
           "name": "purpose of sampling",
@@ -9483,6 +9497,14 @@
           "name": "organism",
           "description": "Taxonomic name of the organism.",
           "title": "organism",
+          "comments": [
+            "Provide the official nomenclature for the organism present in the sample. For SARS-CoV-2, use \"Severe acute respiratory syndrome coronavirus 2\" provided in the picklist."
+          ],
+          "examples": [
+            {
+              "value": "Severe acute respiratory syndrome coronavirus 2"
+            }
+          ],
           "from_schema": "https://example.com/GRDI",
           "rank": 29,
           "slot_uri": "GENEPIO:0001191",
@@ -9491,10 +9513,19 @@
           "owner": "WastewaterSARS-CoV-2",
           "domain_of": [
             "WastewaterSARS-CoV-2",
+            "WastewaterAMR",
             "WastewaterPathogenAgnostic"
           ],
           "slot_group": "Sample collection and processing",
-          "required": true
+          "required": true,
+          "any_of": [
+            {
+              "range": "organism menu"
+            },
+            {
+              "range": "null value menu"
+            }
+          ]
         },
         "purpose of sampling": {
           "name": "purpose of sampling",
@@ -11777,6 +11808,7 @@
           "owner": "WastewaterSARS-CoV-2",
           "domain_of": [
             "WastewaterSARS-CoV-2",
+            "WastewaterAMR",
             "WastewaterPathogenAgnostic"
           ],
           "slot_group": "Bioinformatics and QC metrics",
@@ -11793,6 +11825,7 @@
           "owner": "WastewaterSARS-CoV-2",
           "domain_of": [
             "WastewaterSARS-CoV-2",
+            "WastewaterAMR",
             "WastewaterPathogenAgnostic"
           ],
           "slot_group": "Bioinformatics and QC metrics",
@@ -11809,6 +11842,7 @@
           "owner": "WastewaterSARS-CoV-2",
           "domain_of": [
             "WastewaterSARS-CoV-2",
+            "WastewaterAMR",
             "WastewaterPathogenAgnostic"
           ],
           "slot_group": "Bioinformatics and QC metrics",
@@ -11841,6 +11875,7 @@
           "owner": "WastewaterSARS-CoV-2",
           "domain_of": [
             "WastewaterSARS-CoV-2",
+            "WastewaterAMR",
             "WastewaterPathogenAgnostic"
           ],
           "slot_group": "Bioinformatics and QC metrics",
@@ -11857,6 +11892,7 @@
           "owner": "WastewaterSARS-CoV-2",
           "domain_of": [
             "WastewaterSARS-CoV-2",
+            "WastewaterAMR",
             "WastewaterPathogenAgnostic"
           ],
           "slot_group": "Bioinformatics and QC metrics",
@@ -11873,6 +11909,7 @@
           "owner": "WastewaterSARS-CoV-2",
           "domain_of": [
             "WastewaterSARS-CoV-2",
+            "WastewaterAMR",
             "WastewaterPathogenAgnostic"
           ],
           "slot_group": "Bioinformatics and QC metrics",
@@ -11889,6 +11926,7 @@
           "owner": "WastewaterSARS-CoV-2",
           "domain_of": [
             "WastewaterSARS-CoV-2",
+            "WastewaterAMR",
             "WastewaterPathogenAgnostic"
           ],
           "slot_group": "Bioinformatics and QC metrics",
@@ -12382,764 +12420,821 @@
           "rank": 29,
           "slot_group": "Sample collection and processing"
         },
+        "organism": {
+          "name": "organism",
+          "comments": [
+            "Provide the official nomenclature for the organism(s) present in the sample if AMR profiles are assigned to organisms. Multiple organisms can be entered, separated by semicolons. Avoid abbreviations. Search for taxonomic names here: ncbi.nlm.nih.gov/taxonomy."
+          ],
+          "examples": [
+            {
+              "value": "Vibrio cholerae"
+            }
+          ],
+          "rank": 30,
+          "slot_group": "Sample collection and processing",
+          "recommended": true,
+          "any_of": [
+            {
+              "range": "WhitespaceMinimizedString"
+            },
+            {
+              "range": "null value menu"
+            }
+          ]
+        },
         "purpose of sampling": {
           "name": "purpose of sampling",
-          "rank": 30,
+          "rank": 31,
           "slot_group": "Sample collection and processing"
         },
         "scale of sampling": {
           "name": "scale of sampling",
-          "rank": 31,
+          "rank": 32,
           "slot_group": "Sample collection and processing"
         },
         "sample received date": {
           "name": "sample received date",
-          "rank": 32,
+          "rank": 33,
           "slot_group": "Sample collection and processing"
         },
         "sample collection date": {
           "name": "sample collection date",
-          "rank": 33,
+          "rank": 34,
           "slot_group": "Sample collection and processing"
         },
         "sample collection end date": {
           "name": "sample collection end date",
-          "rank": 34,
+          "rank": 35,
           "slot_group": "Sample collection and processing"
         },
         "sample processing date": {
           "name": "sample processing date",
-          "rank": 35,
+          "rank": 36,
           "slot_group": "Sample collection and processing"
         },
         "sample collection start time": {
           "name": "sample collection start time",
-          "rank": 36,
+          "rank": 37,
           "slot_group": "Sample collection and processing"
         },
         "sample collection end time": {
           "name": "sample collection end time",
-          "rank": 37,
+          "rank": 38,
           "slot_group": "Sample collection and processing"
         },
         "sample collection time of day": {
           "name": "sample collection time of day",
-          "rank": 38,
+          "rank": 39,
           "slot_group": "Sample collection and processing"
         },
         "sample collection time duration value": {
           "name": "sample collection time duration value",
-          "rank": 39,
+          "rank": 40,
           "slot_group": "Sample collection and processing"
         },
         "sample collection time duration unit": {
           "name": "sample collection time duration unit",
-          "rank": 40,
+          "rank": 41,
           "slot_group": "Sample collection and processing"
         },
         "presampling activity": {
           "name": "presampling activity",
-          "rank": 41,
+          "rank": 42,
           "slot_group": "Sample collection and processing"
         },
         "presampling activity details": {
           "name": "presampling activity details",
-          "rank": 42,
+          "rank": 43,
           "slot_group": "Sample collection and processing"
         },
         "sample volume measurement value": {
           "name": "sample volume measurement value",
-          "rank": 43,
+          "rank": 44,
           "slot_group": "Sample collection and processing"
         },
         "sample volume measurement unit": {
           "name": "sample volume measurement unit",
-          "rank": 44,
+          "rank": 45,
           "slot_group": "Sample collection and processing"
         },
         "sample storage method": {
           "name": "sample storage method",
-          "rank": 45,
+          "rank": 46,
           "slot_group": "Sample collection and processing"
         },
         "sample storage medium": {
           "name": "sample storage medium",
-          "rank": 46,
+          "rank": 47,
           "slot_group": "Sample collection and processing"
         },
         "sample storage duration value": {
           "name": "sample storage duration value",
-          "rank": 47,
+          "rank": 48,
           "slot_group": "Sample collection and processing"
         },
         "sample storage duration unit": {
           "name": "sample storage duration unit",
-          "rank": 48,
+          "rank": 49,
           "slot_group": "Sample collection and processing"
         },
         "specimen processing": {
           "name": "specimen processing",
-          "rank": 49,
+          "rank": 50,
           "slot_group": "Sample collection and processing"
         },
         "specimen processing details": {
           "name": "specimen processing details",
-          "rank": 50,
+          "rank": 51,
           "slot_group": "Sample collection and processing"
         },
         "experimental protocol field": {
           "name": "experimental protocol field",
-          "rank": 51,
+          "rank": 52,
           "slot_group": "Sample collection and processing"
         },
         "environmental site": {
           "name": "environmental site",
-          "rank": 52,
+          "rank": 53,
           "slot_group": "Sample collection and processing"
         },
         "environmental material": {
           "name": "environmental material",
-          "rank": 53,
+          "rank": 54,
           "slot_group": "Sample collection and processing"
         },
         "environmental material properties": {
           "name": "environmental material properties",
-          "rank": 54,
+          "rank": 55,
           "slot_group": "Sample collection and processing"
         },
         "wastewater system type": {
           "name": "wastewater system type",
-          "rank": 55,
+          "rank": 56,
           "slot_group": "Sample collection and processing"
         },
         "experimental specimen role type": {
           "name": "experimental specimen role type",
-          "rank": 56,
+          "rank": 57,
           "slot_group": "Sample collection and processing"
         },
         "experimental control details": {
           "name": "experimental control details",
-          "rank": 57,
+          "rank": 58,
           "slot_group": "Sample collection and processing"
         },
         "collection device": {
           "name": "collection device",
-          "rank": 58,
+          "rank": 59,
           "slot_group": "Sample collection and processing"
         },
         "collection method": {
           "name": "collection method",
-          "rank": 59,
+          "rank": 60,
           "slot_group": "Sample collection and processing"
         },
         "nucleic acid extraction method": {
           "name": "nucleic acid extraction method",
-          "rank": 60,
+          "rank": 61,
           "slot_group": "Sample collection and processing"
         },
         "nucleic acid extraction kit": {
           "name": "nucleic acid extraction kit",
-          "rank": 61,
+          "rank": 62,
           "slot_group": "Sample collection and processing"
         },
         "endogenous control details": {
           "name": "endogenous control details",
-          "rank": 62,
+          "rank": 63,
           "slot_group": "Sample collection and processing"
         },
         "extraction recovery efficiency measurement value": {
           "name": "extraction recovery efficiency measurement value",
-          "rank": 63,
+          "rank": 64,
           "slot_group": "Sample collection and processing"
         },
         "extraction recovery efficiency measurement method": {
           "name": "extraction recovery efficiency measurement method",
-          "rank": 64,
+          "rank": 65,
           "slot_group": "Sample collection and processing"
         },
         "water catchment area human population measurement value": {
           "name": "water catchment area human population measurement value",
-          "rank": 65,
+          "rank": 66,
           "slot_group": "Environmental conditions and measurements"
         },
         "water catchment area human population range": {
           "name": "water catchment area human population range",
-          "rank": 66,
+          "rank": 67,
           "slot_group": "Environmental conditions and measurements"
         },
         "water catchment area human population measurement method": {
           "name": "water catchment area human population measurement method",
-          "rank": 67,
+          "rank": 68,
           "slot_group": "Environmental conditions and measurements"
         },
         "water catchment area human population density value": {
           "name": "water catchment area human population density value",
-          "rank": 68,
+          "rank": 69,
           "slot_group": "Environmental conditions and measurements"
         },
         "water catchment area human population density unit": {
           "name": "water catchment area human population density unit",
-          "rank": 69,
+          "rank": 70,
           "slot_group": "Environmental conditions and measurements"
         },
         "populated area type": {
           "name": "populated area type",
-          "rank": 70,
+          "rank": 71,
           "slot_group": "Environmental conditions and measurements"
         },
         "sampling weather conditions": {
           "name": "sampling weather conditions",
-          "rank": 71,
+          "rank": 72,
           "slot_group": "Environmental conditions and measurements"
         },
         "presampling weather conditions": {
           "name": "presampling weather conditions",
-          "rank": 72,
+          "rank": 73,
           "slot_group": "Environmental conditions and measurements"
         },
         "precipitation measurement value": {
           "name": "precipitation measurement value",
-          "rank": 73,
+          "rank": 74,
           "slot_group": "Environmental conditions and measurements"
         },
         "precipitation measurement unit": {
           "name": "precipitation measurement unit",
-          "rank": 74,
+          "rank": 75,
           "slot_group": "Environmental conditions and measurements"
         },
         "precipitation measurement method": {
           "name": "precipitation measurement method",
-          "rank": 75,
+          "rank": 76,
           "slot_group": "Environmental conditions and measurements"
         },
         "ambient temperature measurement value": {
           "name": "ambient temperature measurement value",
-          "rank": 76,
+          "rank": 77,
           "slot_group": "Environmental conditions and measurements"
         },
         "ambient temperature measurement unit": {
           "name": "ambient temperature measurement unit",
-          "rank": 77,
+          "rank": 78,
           "slot_group": "Environmental conditions and measurements"
         },
         "pH measurement value": {
           "name": "pH measurement value",
-          "rank": 78,
+          "rank": 79,
           "slot_group": "Environmental conditions and measurements"
         },
         "pH measurement method": {
           "name": "pH measurement method",
-          "rank": 79,
+          "rank": 80,
           "slot_group": "Environmental conditions and measurements"
         },
         "total daily flow rate measurement value": {
           "name": "total daily flow rate measurement value",
-          "rank": 80,
+          "rank": 81,
           "slot_group": "Environmental conditions and measurements"
         },
         "total daily flow rate measurement unit": {
           "name": "total daily flow rate measurement unit",
-          "rank": 81,
+          "rank": 82,
           "slot_group": "Environmental conditions and measurements"
         },
         "total daily flow rate measurement method": {
           "name": "total daily flow rate measurement method",
-          "rank": 82,
+          "rank": 83,
           "slot_group": "Environmental conditions and measurements"
         },
         "instantaneous flow rate measurement value": {
           "name": "instantaneous flow rate measurement value",
-          "rank": 83,
+          "rank": 84,
           "slot_group": "Environmental conditions and measurements"
         },
         "instantaneous flow rate measurement unit": {
           "name": "instantaneous flow rate measurement unit",
-          "rank": 84,
+          "rank": 85,
           "slot_group": "Environmental conditions and measurements"
         },
         "instantaneous flow rate measurement method": {
           "name": "instantaneous flow rate measurement method",
-          "rank": 85,
+          "rank": 86,
           "slot_group": "Environmental conditions and measurements"
         },
         "turbidity measurement value": {
           "name": "turbidity measurement value",
-          "rank": 86,
+          "rank": 87,
           "slot_group": "Environmental conditions and measurements"
         },
         "turbidity measurement unit": {
           "name": "turbidity measurement unit",
-          "rank": 87,
+          "rank": 88,
           "slot_group": "Environmental conditions and measurements"
         },
         "turbidity measurement method": {
           "name": "turbidity measurement method",
-          "rank": 88,
+          "rank": 89,
           "slot_group": "Environmental conditions and measurements"
         },
         "dissolved oxygen measurement value": {
           "name": "dissolved oxygen measurement value",
-          "rank": 89,
+          "rank": 90,
           "slot_group": "Environmental conditions and measurements"
         },
         "dissolved oxygen measurement unit": {
           "name": "dissolved oxygen measurement unit",
-          "rank": 90,
+          "rank": 91,
           "slot_group": "Environmental conditions and measurements"
         },
         "dissolved oxygen measurement method": {
           "name": "dissolved oxygen measurement method",
-          "rank": 91,
+          "rank": 92,
           "slot_group": "Environmental conditions and measurements"
         },
         "oxygen reduction potential (ORP) measurement value": {
           "name": "oxygen reduction potential (ORP) measurement value",
-          "rank": 92,
+          "rank": 93,
           "slot_group": "Environmental conditions and measurements"
         },
         "oxygen reduction potential (ORP) measurement unit": {
           "name": "oxygen reduction potential (ORP) measurement unit",
-          "rank": 93,
+          "rank": 94,
           "slot_group": "Environmental conditions and measurements"
         },
         "oxygen reduction potential (ORP) measurement method": {
           "name": "oxygen reduction potential (ORP) measurement method",
-          "rank": 94,
+          "rank": 95,
           "slot_group": "Environmental conditions and measurements"
         },
         "chemical oxygen demand (COD) measurement value": {
           "name": "chemical oxygen demand (COD) measurement value",
-          "rank": 95,
+          "rank": 96,
           "slot_group": "Environmental conditions and measurements"
         },
         "chemical oxygen demand (COD) measurement unit": {
           "name": "chemical oxygen demand (COD) measurement unit",
-          "rank": 96,
+          "rank": 97,
           "slot_group": "Environmental conditions and measurements"
         },
         "chemical oxygen demand (COD) measurement method": {
           "name": "chemical oxygen demand (COD) measurement method",
-          "rank": 97,
+          "rank": 98,
           "slot_group": "Environmental conditions and measurements"
         },
         "carbonaceous biochemical oxygen demand (CBOD) measurement value": {
           "name": "carbonaceous biochemical oxygen demand (CBOD) measurement value",
-          "rank": 98,
+          "rank": 99,
           "slot_group": "Environmental conditions and measurements"
         },
         "carbonaceous biochemical oxygen demand (CBOD) measurement unit": {
           "name": "carbonaceous biochemical oxygen demand (CBOD) measurement unit",
-          "rank": 99,
+          "rank": 100,
           "slot_group": "Environmental conditions and measurements"
         },
         "carbonaceous biochemical oxygen demand (CBOD) measurement method": {
           "name": "carbonaceous biochemical oxygen demand (CBOD) measurement method",
-          "rank": 100,
+          "rank": 101,
           "slot_group": "Environmental conditions and measurements"
         },
         "total suspended solids (TSS) measurement value": {
           "name": "total suspended solids (TSS) measurement value",
-          "rank": 101,
+          "rank": 102,
           "slot_group": "Environmental conditions and measurements"
         },
         "total suspended solids (TSS) measurement unit": {
           "name": "total suspended solids (TSS) measurement unit",
-          "rank": 102,
+          "rank": 103,
           "slot_group": "Environmental conditions and measurements"
         },
         "total suspended solids (TSS) measurement method": {
           "name": "total suspended solids (TSS) measurement method",
-          "rank": 103,
+          "rank": 104,
           "slot_group": "Environmental conditions and measurements"
         },
         "total dissolved solids (TDS) measurement value": {
           "name": "total dissolved solids (TDS) measurement value",
-          "rank": 104,
+          "rank": 105,
           "slot_group": "Environmental conditions and measurements"
         },
         "total dissolved solids (TDS) measurement unit": {
           "name": "total dissolved solids (TDS) measurement unit",
-          "rank": 105,
+          "rank": 106,
           "slot_group": "Environmental conditions and measurements"
         },
         "total dissolved solids (TDS) measurement method": {
           "name": "total dissolved solids (TDS) measurement method",
-          "rank": 106,
+          "rank": 107,
           "slot_group": "Environmental conditions and measurements"
         },
         "total solids (TS) measurement value": {
           "name": "total solids (TS) measurement value",
-          "rank": 107,
+          "rank": 108,
           "slot_group": "Environmental conditions and measurements"
         },
         "total solids (TS) measurement unit": {
           "name": "total solids (TS) measurement unit",
-          "rank": 108,
+          "rank": 109,
           "slot_group": "Environmental conditions and measurements"
         },
         "total solids (TS) measurement method": {
           "name": "total solids (TS) measurement method",
-          "rank": 109,
+          "rank": 110,
           "slot_group": "Environmental conditions and measurements"
         },
         "alkalinity measurement value": {
           "name": "alkalinity measurement value",
-          "rank": 110,
+          "rank": 111,
           "slot_group": "Environmental conditions and measurements"
         },
         "alkalinity measurement unit": {
           "name": "alkalinity measurement unit",
-          "rank": 111,
+          "rank": 112,
           "slot_group": "Environmental conditions and measurements"
         },
         "alkalinity measurement method": {
           "name": "alkalinity measurement method",
-          "rank": 112,
+          "rank": 113,
           "slot_group": "Environmental conditions and measurements"
         },
         "conductivity measurement value": {
           "name": "conductivity measurement value",
-          "rank": 113,
+          "rank": 114,
           "slot_group": "Environmental conditions and measurements"
         },
         "conductivity measurement unit": {
           "name": "conductivity measurement unit",
-          "rank": 114,
+          "rank": 115,
           "slot_group": "Environmental conditions and measurements"
         },
         "conductivity measurement method": {
           "name": "conductivity measurement method",
-          "rank": 115,
+          "rank": 116,
           "slot_group": "Environmental conditions and measurements"
         },
         "salinity measurement value": {
           "name": "salinity measurement value",
-          "rank": 116,
+          "rank": 117,
           "slot_group": "Environmental conditions and measurements"
         },
         "salinity measurement unit": {
           "name": "salinity measurement unit",
-          "rank": 117,
+          "rank": 118,
           "slot_group": "Environmental conditions and measurements"
         },
         "salinity measurement method": {
           "name": "salinity measurement method",
-          "rank": 118,
+          "rank": 119,
           "slot_group": "Environmental conditions and measurements"
         },
         "total nitrogen (TN) measurement value": {
           "name": "total nitrogen (TN) measurement value",
-          "rank": 119,
+          "rank": 120,
           "slot_group": "Environmental conditions and measurements"
         },
         "total nitrogen (TN) measurement unit": {
           "name": "total nitrogen (TN) measurement unit",
-          "rank": 120,
+          "rank": 121,
           "slot_group": "Environmental conditions and measurements"
         },
         "total nitrogen (TN) measurement method": {
           "name": "total nitrogen (TN) measurement method",
-          "rank": 121,
+          "rank": 122,
           "slot_group": "Environmental conditions and measurements"
         },
         "total phosphorus (TP) measurement value": {
           "name": "total phosphorus (TP) measurement value",
-          "rank": 122,
+          "rank": 123,
           "slot_group": "Environmental conditions and measurements"
         },
         "total phosphorus (TP) measurement unit": {
           "name": "total phosphorus (TP) measurement unit",
-          "rank": 123,
+          "rank": 124,
           "slot_group": "Environmental conditions and measurements"
         },
         "total phosphorus (TP) measurement method": {
           "name": "total phosphorus (TP) measurement method",
-          "rank": 124,
+          "rank": 125,
           "slot_group": "Environmental conditions and measurements"
         },
         "fecal contamination indicator": {
           "name": "fecal contamination indicator",
-          "rank": 125,
+          "rank": 126,
           "slot_group": "Environmental conditions and measurements"
         },
         "fecal contamination value": {
           "name": "fecal contamination value",
-          "rank": 126,
+          "rank": 127,
           "slot_group": "Environmental conditions and measurements"
         },
         "fecal contamination unit": {
           "name": "fecal contamination unit",
-          "rank": 127,
+          "rank": 128,
           "slot_group": "Environmental conditions and measurements"
         },
         "fecal contamination method": {
           "name": "fecal contamination method",
-          "rank": 128,
+          "rank": 129,
           "slot_group": "Environmental conditions and measurements"
         },
         "fecal coliform count value": {
           "name": "fecal coliform count value",
-          "rank": 129,
+          "rank": 130,
           "slot_group": "Environmental conditions and measurements"
         },
         "fecal coliform count unit": {
           "name": "fecal coliform count unit",
-          "rank": 130,
+          "rank": 131,
           "slot_group": "Environmental conditions and measurements"
         },
         "fecal coliform count method": {
           "name": "fecal coliform count method",
-          "rank": 131,
+          "rank": 132,
           "slot_group": "Environmental conditions and measurements"
         },
         "urinary contamination indicator": {
           "name": "urinary contamination indicator",
-          "rank": 132,
+          "rank": 133,
           "slot_group": "Environmental conditions and measurements"
         },
         "urinary contamination value": {
           "name": "urinary contamination value",
-          "rank": 133,
+          "rank": 134,
           "slot_group": "Environmental conditions and measurements"
         },
         "urinary contamination unit": {
           "name": "urinary contamination unit",
-          "rank": 134,
+          "rank": 135,
           "slot_group": "Environmental conditions and measurements"
         },
         "urinary contamination method": {
           "name": "urinary contamination method",
-          "rank": 135,
+          "rank": 136,
           "slot_group": "Environmental conditions and measurements"
         },
         "sample temperature value (at collection)": {
           "name": "sample temperature value (at collection)",
-          "rank": 136,
+          "rank": 137,
           "slot_group": "Environmental conditions and measurements"
         },
         "sample temperature unit (at collection)": {
           "name": "sample temperature unit (at collection)",
-          "rank": 137,
+          "rank": 138,
           "slot_group": "Environmental conditions and measurements"
         },
         "sample temperature value (when received)": {
           "name": "sample temperature value (when received)",
-          "rank": 138,
+          "rank": 139,
           "slot_group": "Environmental conditions and measurements"
         },
         "sample temperature unit (when received)": {
           "name": "sample temperature unit (when received)",
-          "rank": 139,
+          "rank": 140,
           "slot_group": "Environmental conditions and measurements"
         },
         "purpose of sequencing": {
           "name": "purpose of sequencing",
-          "rank": 140,
+          "rank": 141,
           "slot_group": "Sequence information"
         },
         "purpose of sequencing details": {
           "name": "purpose of sequencing details",
-          "rank": 141,
+          "rank": 142,
           "slot_group": "Sequence information"
         },
         "sequenced by": {
           "name": "sequenced by",
-          "rank": 142,
+          "rank": 143,
           "slot_group": "Sequence information"
         },
         "sequenced by contact name": {
           "name": "sequenced by contact name",
-          "rank": 143,
+          "rank": 144,
           "slot_group": "Sequence information"
         },
         "sequenced by contact email": {
           "name": "sequenced by contact email",
-          "rank": 144,
+          "rank": 145,
           "slot_group": "Sequence information"
         },
         "sequence submitted by": {
           "name": "sequence submitted by",
-          "rank": 145,
+          "rank": 146,
           "slot_group": "Sequence information"
         },
         "sequence submitter contact email": {
           "name": "sequence submitter contact email",
-          "rank": 146,
+          "rank": 147,
           "slot_group": "Sequence information"
         },
         "sequencing date": {
           "name": "sequencing date",
-          "rank": 147,
+          "rank": 148,
           "slot_group": "Sequence information"
         },
         "library ID": {
           "name": "library ID",
-          "rank": 148,
+          "rank": 149,
           "slot_group": "Sequence information"
         },
         "sequencing platform": {
           "name": "sequencing platform",
-          "rank": 149,
+          "rank": 150,
           "slot_group": "Sequence information"
         },
         "sequencing instrument": {
           "name": "sequencing instrument",
-          "rank": 150,
+          "rank": 151,
           "slot_group": "Sequence information"
         },
         "sequencing assay type": {
           "name": "sequencing assay type",
-          "rank": 151,
+          "rank": 152,
           "slot_group": "Sequence information"
         },
         "library preparation kit": {
           "name": "library preparation kit",
-          "rank": 152,
+          "rank": 153,
           "slot_group": "Sequence information"
         },
         "sequencing protocol": {
           "name": "sequencing protocol",
-          "rank": 153,
+          "rank": 154,
           "slot_group": "Sequence information"
         },
         "DNA fragment length": {
           "name": "DNA fragment length",
-          "rank": 154,
+          "rank": 155,
           "slot_group": "Sequence information"
         },
         "genomic target enrichment method": {
           "name": "genomic target enrichment method",
-          "rank": 155,
+          "rank": 156,
           "slot_group": "Sequence information"
         },
         "genomic target enrichment method details": {
           "name": "genomic target enrichment method details",
-          "rank": 156,
+          "rank": 157,
           "slot_group": "Sequence information"
         },
         "quality control method name": {
           "name": "quality control method name",
-          "rank": 157,
+          "rank": 158,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "quality control method version": {
           "name": "quality control method version",
-          "rank": 158,
+          "rank": 159,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "quality control determination": {
           "name": "quality control determination",
-          "rank": 159,
+          "rank": 160,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "quality control issues": {
           "name": "quality control issues",
-          "rank": 160,
+          "rank": 161,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "quality control details": {
           "name": "quality control details",
-          "rank": 161,
+          "rank": 162,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "raw sequence data processing method": {
           "name": "raw sequence data processing method",
-          "rank": 162,
+          "rank": 163,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "dehosting method": {
           "name": "dehosting method",
-          "rank": 163,
+          "rank": 164,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "sequence assembly software name": {
           "name": "sequence assembly software name",
-          "rank": 164,
+          "rank": 165,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "sequence assembly software version": {
           "name": "sequence assembly software version",
-          "rank": 165,
+          "rank": 166,
+          "slot_group": "Bioinformatics and QC metrics"
+        },
+        "breadth of coverage value": {
+          "name": "breadth of coverage value",
+          "rank": 167,
+          "slot_group": "Bioinformatics and QC metrics"
+        },
+        "depth of coverage value": {
+          "name": "depth of coverage value",
+          "rank": 168,
+          "slot_group": "Bioinformatics and QC metrics"
+        },
+        "depth of coverage threshold": {
+          "name": "depth of coverage threshold",
+          "rank": 169,
+          "slot_group": "Bioinformatics and QC metrics"
+        },
+        "number of base pairs sequenced": {
+          "name": "number of base pairs sequenced",
+          "rank": 170,
+          "slot_group": "Bioinformatics and QC metrics"
+        },
+        "number of total reads": {
+          "name": "number of total reads",
+          "rank": 171,
+          "slot_group": "Bioinformatics and QC metrics"
+        },
+        "number of unique reads": {
+          "name": "number of unique reads",
+          "rank": 172,
+          "slot_group": "Bioinformatics and QC metrics"
+        },
+        "minimum post-trimming read length": {
+          "name": "minimum post-trimming read length",
+          "rank": 173,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "bioinformatics protocol": {
           "name": "bioinformatics protocol",
-          "rank": 166,
+          "rank": 174,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "read mapping software name": {
           "name": "read mapping software name",
-          "rank": 167,
+          "rank": 175,
           "slot_group": "Taxonomic identification information",
           "recommended": true
         },
         "read mapping software version": {
           "name": "read mapping software version",
-          "rank": 168,
+          "rank": 176,
           "slot_group": "Taxonomic identification information",
           "recommended": true
         },
         "taxonomic reference database name": {
           "name": "taxonomic reference database name",
-          "rank": 169,
+          "rank": 177,
           "slot_group": "Taxonomic identification information"
         },
         "taxonomic reference database version": {
           "name": "taxonomic reference database version",
-          "rank": 170,
+          "rank": 178,
           "slot_group": "Taxonomic identification information"
         },
         "taxonomic analysis report filename": {
           "name": "taxonomic analysis report filename",
-          "rank": 171,
+          "rank": 179,
           "slot_group": "Taxonomic identification information"
         },
         "taxonomic analysis date": {
           "name": "taxonomic analysis date",
-          "rank": 172,
+          "rank": 180,
           "slot_group": "Taxonomic identification information"
         },
         "read mapping criteria": {
           "name": "read mapping criteria",
-          "rank": 173,
+          "rank": 181,
           "slot_group": "Taxonomic identification information"
         },
         "AMR analysis software name": {
           "name": "AMR analysis software name",
-          "rank": 174,
+          "rank": 182,
           "slot_group": "AMR detection information"
         },
         "AMR analysis software version": {
           "name": "AMR analysis software version",
-          "rank": 175,
+          "rank": 183,
           "slot_group": "AMR detection information"
         },
         "AMR reference database name": {
           "name": "AMR reference database name",
-          "rank": 176,
+          "rank": 184,
           "slot_group": "AMR detection information"
         },
         "AMR reference database version": {
           "name": "AMR reference database version",
-          "rank": 177,
+          "rank": 185,
           "slot_group": "AMR detection information"
         },
         "AMR analysis report filename": {
           "name": "AMR analysis report filename",
-          "rank": 178,
+          "rank": 186,
           "slot_group": "AMR detection information"
         },
         "gene name": {
           "name": "gene name",
           "comments": [
-            "Provide the full name of the gene used in the test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI"
+            "Provide the full name of the gene used in the test. Standardized gene names can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI"
           ],
           "examples": [
             {
-              "value": "Gyrase A"
+              "value": "gyrase A"
             }
           ],
-          "rank": 179,
+          "rank": 187,
           "slot_group": "Pathogen diagnostic testing",
           "any_of": [
             {
@@ -13152,32 +13247,32 @@
         },
         "diagnostic target presence": {
           "name": "diagnostic target presence",
-          "rank": 180,
+          "rank": 188,
           "slot_group": "Pathogen diagnostic testing"
         },
         "diagnostic measurement value": {
           "name": "diagnostic measurement value",
-          "rank": 181,
+          "rank": 189,
           "slot_group": "Pathogen diagnostic testing"
         },
         "diagnostic measurement unit": {
           "name": "diagnostic measurement unit",
-          "rank": 182,
+          "rank": 190,
           "slot_group": "Pathogen diagnostic testing"
         },
         "diagnostic measurement method": {
           "name": "diagnostic measurement method",
-          "rank": 183,
+          "rank": 191,
           "slot_group": "Pathogen diagnostic testing"
         },
         "authors": {
           "name": "authors",
-          "rank": 184,
+          "rank": 192,
           "slot_group": "Contributor acknowledgement"
         },
         "DataHarmonizer provenance": {
           "name": "DataHarmonizer provenance",
-          "rank": 185,
+          "rank": 193,
           "slot_group": "Contributor acknowledgement"
         }
       },
@@ -13739,12 +13834,46 @@
           "slot_group": "Sample collection and processing",
           "range": "WhitespaceMinimizedString"
         },
+        "organism": {
+          "name": "organism",
+          "description": "Taxonomic name of the organism.",
+          "title": "organism",
+          "comments": [
+            "Provide the official nomenclature for the organism(s) present in the sample if AMR profiles are assigned to organisms. Multiple organisms can be entered, separated by semicolons. Avoid abbreviations. Search for taxonomic names here: ncbi.nlm.nih.gov/taxonomy."
+          ],
+          "examples": [
+            {
+              "value": "Vibrio cholerae"
+            }
+          ],
+          "from_schema": "https://example.com/GRDI",
+          "rank": 30,
+          "slot_uri": "GENEPIO:0001191",
+          "multivalued": true,
+          "alias": "organism",
+          "owner": "WastewaterAMR",
+          "domain_of": [
+            "WastewaterSARS-CoV-2",
+            "WastewaterAMR",
+            "WastewaterPathogenAgnostic"
+          ],
+          "slot_group": "Sample collection and processing",
+          "recommended": true,
+          "any_of": [
+            {
+              "range": "WhitespaceMinimizedString"
+            },
+            {
+              "range": "null value menu"
+            }
+          ]
+        },
         "purpose of sampling": {
           "name": "purpose of sampling",
           "description": "The reason that the sample was collected.",
           "title": "purpose of sampling",
           "from_schema": "https://example.com/GRDI",
-          "rank": 30,
+          "rank": 31,
           "slot_uri": "GENEPIO:0001198",
           "multivalued": true,
           "alias": "purpose_of_sampling",
@@ -13762,7 +13891,7 @@
           "description": "The range of locations or entities sampled expressed in general terms.",
           "title": "scale of sampling",
           "from_schema": "https://example.com/GRDI",
-          "rank": 31,
+          "rank": 32,
           "slot_uri": "GENEPIO:0100877",
           "alias": "scale_of_sampling",
           "owner": "WastewaterAMR",
@@ -13779,7 +13908,7 @@
           "description": "The date on which the sample was received.",
           "title": "sample received date",
           "from_schema": "https://example.com/GRDI",
-          "rank": 32,
+          "rank": 33,
           "slot_uri": "GENEPIO:0001179",
           "alias": "sample_received_date",
           "owner": "WastewaterAMR",
@@ -13795,7 +13924,7 @@
           "description": "The date on which the sample was collected, or sampling began for a continuous sample.",
           "title": "sample collection date",
           "from_schema": "https://example.com/GRDI",
-          "rank": 33,
+          "rank": 34,
           "slot_uri": "GENEPIO:0001174",
           "alias": "sample_collection_date",
           "owner": "WastewaterAMR",
@@ -13812,7 +13941,7 @@
           "description": "The date on which sample collection ended for a continuous sample.",
           "title": "sample collection end date",
           "from_schema": "https://example.com/GRDI",
-          "rank": 34,
+          "rank": 35,
           "slot_uri": "GENEPIO:0101071",
           "alias": "sample_collection_end_date",
           "owner": "WastewaterAMR",
@@ -13829,7 +13958,7 @@
           "description": "The date on which the sample was processed.",
           "title": "sample processing date",
           "from_schema": "https://example.com/GRDI",
-          "rank": 35,
+          "rank": 36,
           "slot_uri": "GENEPIO:0100763",
           "alias": "sample_processing_date",
           "owner": "WastewaterAMR",
@@ -13845,7 +13974,7 @@
           "description": "The time at which sample collection began.",
           "title": "sample collection start time",
           "from_schema": "https://example.com/GRDI",
-          "rank": 36,
+          "rank": 37,
           "slot_uri": "GENEPIO:0101072",
           "alias": "sample_collection_start_time",
           "owner": "WastewaterAMR",
@@ -13862,7 +13991,7 @@
           "description": "The time at which sample collection ended.",
           "title": "sample collection end time",
           "from_schema": "https://example.com/GRDI",
-          "rank": 37,
+          "rank": 38,
           "slot_uri": "GENEPIO:0101073",
           "alias": "sample_collection_end_time",
           "owner": "WastewaterAMR",
@@ -13879,7 +14008,7 @@
           "description": "The descriptive time of day during which the sample was collected.",
           "title": "sample collection time of day",
           "from_schema": "https://example.com/GRDI",
-          "rank": 38,
+          "rank": 39,
           "slot_uri": "GENEPIO:0100765",
           "alias": "sample_collection_time_of_day",
           "owner": "WastewaterAMR",
@@ -13895,7 +14024,7 @@
           "description": "The amount of time over which the sample was collected.",
           "title": "sample collection time duration value",
           "from_schema": "https://example.com/GRDI",
-          "rank": 39,
+          "rank": 40,
           "slot_uri": "GENEPIO:0100766",
           "alias": "sample_collection_time_duration_value",
           "owner": "WastewaterAMR",
@@ -13912,7 +14041,7 @@
           "description": "The units of the time duration measurement of sample collection.",
           "title": "sample collection time duration unit",
           "from_schema": "https://example.com/GRDI",
-          "rank": 40,
+          "rank": 41,
           "slot_uri": "GENEPIO:0100767",
           "alias": "sample_collection_time_duration_unit",
           "owner": "WastewaterAMR",
@@ -13929,7 +14058,7 @@
           "description": "The activities or variables upstream of sample collection that may affect the sample.",
           "title": "presampling activity",
           "from_schema": "https://example.com/GRDI",
-          "rank": 41,
+          "rank": 42,
           "slot_uri": "GENEPIO:0100433",
           "multivalued": true,
           "alias": "presampling_activity",
@@ -13946,7 +14075,7 @@
           "description": "The details of the activities or variables that affected the sample collected.",
           "title": "presampling activity details",
           "from_schema": "https://example.com/GRDI",
-          "rank": 42,
+          "rank": 43,
           "slot_uri": "GENEPIO:0100434",
           "alias": "presampling_activity_details",
           "owner": "WastewaterAMR",
@@ -13962,7 +14091,7 @@
           "description": "The numerical value of the volume measurement of the sample collected.",
           "title": "sample volume measurement value",
           "from_schema": "https://example.com/GRDI",
-          "rank": 43,
+          "rank": 44,
           "slot_uri": "GENEPIO:0100768",
           "alias": "sample_volume_measurement_value",
           "owner": "WastewaterAMR",
@@ -13979,7 +14108,7 @@
           "description": "The units of the volume measurement of the sample collected.",
           "title": "sample volume measurement unit",
           "from_schema": "https://example.com/GRDI",
-          "rank": 44,
+          "rank": 45,
           "slot_uri": "GENEPIO:0100769",
           "alias": "sample_volume_measurement_unit",
           "owner": "WastewaterAMR",
@@ -13995,7 +14124,7 @@
           "description": "The process used to store the sample.",
           "title": "sample storage method",
           "from_schema": "https://example.com/GRDI",
-          "rank": 45,
+          "rank": 46,
           "slot_uri": "GENEPIO:0100448",
           "alias": "sample_storage_method",
           "owner": "WastewaterAMR",
@@ -14012,7 +14141,7 @@
           "description": "The medium in which a sample is stored.",
           "title": "sample storage medium",
           "from_schema": "https://example.com/GRDI",
-          "rank": 46,
+          "rank": 47,
           "slot_uri": "GENEPIO:0100449",
           "alias": "sample_storage_medium",
           "owner": "WastewaterAMR",
@@ -14029,7 +14158,7 @@
           "description": "The numerical value of the time measurement during which a sample is in storage.",
           "title": "sample storage duration value",
           "from_schema": "https://example.com/GRDI",
-          "rank": 47,
+          "rank": 48,
           "slot_uri": "GENEPIO:0101014",
           "alias": "sample_storage_duration_value",
           "owner": "WastewaterAMR",
@@ -14046,7 +14175,7 @@
           "description": "The units of a measured sample storage duration.",
           "title": "sample storage duration unit",
           "from_schema": "https://example.com/GRDI",
-          "rank": 48,
+          "rank": 49,
           "slot_uri": "GENEPIO:0101015",
           "alias": "sample_storage_duration_unit",
           "owner": "WastewaterAMR",
@@ -14062,7 +14191,7 @@
           "description": "Any processing applied to the sample during or after receiving the sample.",
           "title": "specimen processing",
           "from_schema": "https://example.com/GRDI",
-          "rank": 49,
+          "rank": 50,
           "slot_uri": "GENEPIO:0001253",
           "multivalued": true,
           "alias": "specimen_processing",
@@ -14079,7 +14208,7 @@
           "description": "The details of the processing applied to the sample during or after receiving the sample.",
           "title": "specimen processing details",
           "from_schema": "https://example.com/GRDI",
-          "rank": 50,
+          "rank": 51,
           "slot_uri": "GENEPIO:0100311",
           "alias": "specimen_processing_details",
           "owner": "WastewaterAMR",
@@ -14096,7 +14225,7 @@
           "description": "The name of the overarching experimental methodology that was used to process the biomaterial.",
           "title": "experimental protocol field",
           "from_schema": "https://example.com/GRDI",
-          "rank": 51,
+          "rank": 52,
           "slot_uri": "GENEPIO:0101029",
           "alias": "experimental_protocol_field",
           "owner": "WastewaterAMR",
@@ -14113,7 +14242,7 @@
           "description": "An environmental location may describe a site in the natural or built environment e.g. contact surface, metal can, hospital, wet market, bat cave.",
           "title": "environmental site",
           "from_schema": "https://example.com/GRDI",
-          "rank": 52,
+          "rank": 53,
           "slot_uri": "GENEPIO:0001232",
           "multivalued": true,
           "alias": "environmental_site",
@@ -14131,7 +14260,7 @@
           "description": "A substance obtained from the natural or man-made environment e.g. soil, water, sewage.",
           "title": "environmental material",
           "from_schema": "https://example.com/GRDI",
-          "rank": 53,
+          "rank": 54,
           "slot_uri": "GENEPIO:0001223",
           "multivalued": true,
           "alias": "environmental_material",
@@ -14149,7 +14278,7 @@
           "description": "The properties, characteristics and qualities of a substance obtained from the natural or man-made environment.",
           "title": "environmental material properties",
           "from_schema": "https://example.com/GRDI",
-          "rank": 54,
+          "rank": 55,
           "slot_uri": "GENEPIO:0100770",
           "multivalued": true,
           "alias": "environmental_material_properties",
@@ -14167,7 +14296,7 @@
           "description": "The type or classification of a wastewater system e.g. sanitary sewer, combined sewer, latrine",
           "title": "wastewater system type",
           "from_schema": "https://example.com/GRDI",
-          "rank": 55,
+          "rank": 56,
           "slot_uri": "GENEPIO:0100771",
           "alias": "wastewater_system_type",
           "owner": "WastewaterAMR",
@@ -14184,7 +14313,7 @@
           "description": "The type of role that the sample represents in the experiment.",
           "title": "experimental specimen role type",
           "from_schema": "https://example.com/GRDI",
-          "rank": 56,
+          "rank": 57,
           "slot_uri": "GENEPIO:0100921",
           "multivalued": true,
           "alias": "experimental_specimen_role_type",
@@ -14201,7 +14330,7 @@
           "description": "The details regarding the experimental control contained in the sample.",
           "title": "experimental control details",
           "from_schema": "https://example.com/GRDI",
-          "rank": 57,
+          "rank": 58,
           "slot_uri": "GENEPIO:0100922",
           "alias": "experimental_control_details",
           "owner": "WastewaterAMR",
@@ -14218,7 +14347,7 @@
           "description": "The instrument or container used to collect the sample e.g. grab sampler.",
           "title": "collection device",
           "from_schema": "https://example.com/GRDI",
-          "rank": 58,
+          "rank": 59,
           "slot_uri": "GENEPIO:0001234",
           "multivalued": true,
           "alias": "collection_device",
@@ -14235,7 +14364,7 @@
           "description": "The process used to collect the sample.",
           "title": "collection method",
           "from_schema": "https://example.com/GRDI",
-          "rank": 59,
+          "rank": 60,
           "slot_uri": "GENEPIO:0001241",
           "multivalued": true,
           "alias": "collection_method",
@@ -14253,7 +14382,7 @@
           "description": "The process used to extract genomic material from a sample.",
           "title": "nucleic acid extraction method",
           "from_schema": "https://example.com/GRDI",
-          "rank": 60,
+          "rank": 61,
           "slot_uri": "GENEPIO:0100939",
           "alias": "nucleic_acid_extraction_method",
           "owner": "WastewaterAMR",
@@ -14270,7 +14399,7 @@
           "description": "The kit used to extract genomic material from a sample",
           "title": "nucleic acid extraction kit",
           "from_schema": "https://example.com/GRDI",
-          "rank": 61,
+          "rank": 62,
           "slot_uri": "GENEPIO:0100772",
           "alias": "nucleic_acid_extraction_kit",
           "owner": "WastewaterAMR",
@@ -14287,7 +14416,7 @@
           "description": "The description of the endogenous controls included when extracting a sample.",
           "title": "endogenous control details",
           "from_schema": "https://example.com/GRDI",
-          "rank": 62,
+          "rank": 63,
           "slot_uri": "GENEPIO:0100923",
           "alias": "endogenous_control_details",
           "owner": "WastewaterAMR",
@@ -14305,7 +14434,7 @@
           "description": "The recovery efficiency of an extraction, calculated as the amount of a synthetic or endogenous compound identified in the sample relative to the amount expected.",
           "title": "extraction recovery efficiency measurement value",
           "from_schema": "https://example.com/GRDI",
-          "rank": 63,
+          "rank": 64,
           "slot_uri": "GENEPIO:0100924",
           "alias": "extraction_recovery_efficiency_measurement_value",
           "owner": "WastewaterAMR",
@@ -14322,7 +14451,7 @@
           "description": "The method by which recovery efficiency of an extraction was calculated.",
           "title": "extraction recovery efficiency measurement method",
           "from_schema": "https://example.com/GRDI",
-          "rank": 64,
+          "rank": 65,
           "slot_uri": "GENEPIO:0100925",
           "alias": "extraction_recovery_efficiency_measurement_method",
           "owner": "WastewaterAMR",
@@ -14339,7 +14468,7 @@
           "description": "The numerical value of the human population measurement that contributes to the composition of water in a catchment area.",
           "title": "water catchment area human population measurement value",
           "from_schema": "https://example.com/GRDI",
-          "rank": 65,
+          "rank": 66,
           "slot_uri": "GENEPIO:0100773",
           "alias": "water_catchment_area_human_population_measurement_value",
           "owner": "WastewaterAMR",
@@ -14356,7 +14485,7 @@
           "description": "The human population range of the water catchment that contributes effluent to a wastewater site.",
           "title": "water catchment area human population range",
           "from_schema": "https://example.com/GRDI",
-          "rank": 66,
+          "rank": 67,
           "slot_uri": "GENEPIO:0100774",
           "alias": "water_catchment_area_human_population_range",
           "owner": "WastewaterAMR",
@@ -14372,7 +14501,7 @@
           "description": "The method by which a water catchment 's human population size was measured or estimated",
           "title": "water catchment area human population measurement method",
           "from_schema": "https://example.com/GRDI",
-          "rank": 67,
+          "rank": 68,
           "slot_uri": "GENEPIO:0100775",
           "alias": "water_catchment_area_human_population_measurement_method",
           "owner": "WastewaterAMR",
@@ -14389,7 +14518,7 @@
           "description": "The numerical value describing the number of humans per geographical area in a water catchment.",
           "title": "water catchment area human population density value",
           "from_schema": "https://example.com/GRDI",
-          "rank": 68,
+          "rank": 69,
           "slot_uri": "GENEPIO:0100776",
           "alias": "water_catchment_area_human_population_density_value",
           "owner": "WastewaterAMR",
@@ -14406,7 +14535,7 @@
           "description": "The unit describing the number of humans per geographical area in a water catchment.",
           "title": "water catchment area human population density unit",
           "from_schema": "https://example.com/GRDI",
-          "rank": 69,
+          "rank": 70,
           "slot_uri": "GENEPIO:0100777",
           "alias": "water_catchment_area_human_population_density_unit",
           "owner": "WastewaterAMR",
@@ -14422,7 +14551,7 @@
           "description": "A type of area that is populated by humans to different degrees.",
           "title": "populated area type",
           "from_schema": "https://example.com/GRDI",
-          "rank": 70,
+          "rank": 71,
           "slot_uri": "GENEPIO:0100778",
           "alias": "populated_area_type",
           "owner": "WastewaterAMR",
@@ -14438,7 +14567,7 @@
           "description": "The state of the atmosphere at a place and time as regards heat, dryness, sunshine, wind, rain, etc.",
           "title": "sampling weather conditions",
           "from_schema": "https://example.com/GRDI",
-          "rank": 71,
+          "rank": 72,
           "slot_uri": "GENEPIO:0100779",
           "multivalued": true,
           "alias": "sampling_weather_conditions",
@@ -14455,7 +14584,7 @@
           "description": "Weather conditions prior to collection that may affect the sample.",
           "title": "presampling weather conditions",
           "from_schema": "https://example.com/GRDI",
-          "rank": 72,
+          "rank": 73,
           "slot_uri": "GENEPIO:0100780",
           "multivalued": true,
           "alias": "presampling_weather_conditions",
@@ -14472,7 +14601,7 @@
           "description": "The amount of water which has fallen during a precipitation process.",
           "title": "precipitation measurement value",
           "from_schema": "https://example.com/GRDI",
-          "rank": 73,
+          "rank": 74,
           "slot_uri": "GENEPIO:0100911",
           "alias": "precipitation_measurement_value",
           "owner": "WastewaterAMR",
@@ -14489,7 +14618,7 @@
           "description": "The units of measurement for the amount of water which has fallen during a precipitation process.",
           "title": "precipitation measurement unit",
           "from_schema": "https://example.com/GRDI",
-          "rank": 74,
+          "rank": 75,
           "slot_uri": "GENEPIO:0100912",
           "alias": "precipitation_measurement_unit",
           "owner": "WastewaterAMR",
@@ -14506,7 +14635,7 @@
           "description": "The process used to measure the amount of water which has fallen during a precipitation process.",
           "title": "precipitation measurement method",
           "from_schema": "https://example.com/GRDI",
-          "rank": 75,
+          "rank": 76,
           "slot_uri": "GENEPIO:0100913",
           "alias": "precipitation_measurement_method",
           "owner": "WastewaterAMR",
@@ -14523,7 +14652,7 @@
           "description": "The numerical value of a measurement of the ambient temperature.",
           "title": "ambient temperature measurement value",
           "from_schema": "https://example.com/GRDI",
-          "rank": 76,
+          "rank": 77,
           "slot_uri": "GENEPIO:0100935",
           "alias": "ambient_temperature_measurement_value",
           "owner": "WastewaterAMR",
@@ -14540,7 +14669,7 @@
           "description": "The units of a measurement of the ambient temperature.",
           "title": "ambient temperature measurement unit",
           "from_schema": "https://example.com/GRDI",
-          "rank": 77,
+          "rank": 78,
           "slot_uri": "GENEPIO:0100936",
           "alias": "ambient_temperature_measurement_unit",
           "owner": "WastewaterAMR",
@@ -14556,7 +14685,7 @@
           "description": "The measured pH value indicating the acidity or basicity(alkalinity) of an aqueous solution.",
           "title": "pH measurement value",
           "from_schema": "https://example.com/GRDI",
-          "rank": 78,
+          "rank": 79,
           "slot_uri": "GENEPIO:0001736",
           "alias": "pH_measurement_value",
           "owner": "WastewaterAMR",
@@ -14573,7 +14702,7 @@
           "description": "The process used to measure pH value.",
           "title": "pH measurement method",
           "from_schema": "https://example.com/GRDI",
-          "rank": 79,
+          "rank": 80,
           "slot_uri": "GENEPIO:0100781",
           "alias": "pH_measurement_method",
           "owner": "WastewaterAMR",
@@ -14590,7 +14719,7 @@
           "description": "The numerical value of a measured fluid flow rate over the course of a day.",
           "title": "total daily flow rate measurement value",
           "from_schema": "https://example.com/GRDI",
-          "rank": 80,
+          "rank": 81,
           "slot_uri": "GENEPIO:0100905",
           "alias": "total_daily_flow_rate_measurement_value",
           "owner": "WastewaterAMR",
@@ -14607,7 +14736,7 @@
           "description": "The units of a measured fluid flow rate over the course of a day.",
           "title": "total daily flow rate measurement unit",
           "from_schema": "https://example.com/GRDI",
-          "rank": 81,
+          "rank": 82,
           "slot_uri": "GENEPIO:0100906",
           "alias": "total_daily_flow_rate_measurement_unit",
           "owner": "WastewaterAMR",
@@ -14623,7 +14752,7 @@
           "description": "The process used to measure total daily fluid flow rate.",
           "title": "total daily flow rate measurement method",
           "from_schema": "https://example.com/GRDI",
-          "rank": 82,
+          "rank": 83,
           "slot_uri": "GENEPIO:0100907",
           "alias": "total_daily_flow_rate_measurement_method",
           "owner": "WastewaterAMR",
@@ -14640,7 +14769,7 @@
           "description": "The numerical value of a measured instantaneous fluid flow rate.",
           "title": "instantaneous flow rate measurement value",
           "from_schema": "https://example.com/GRDI",
-          "rank": 83,
+          "rank": 84,
           "slot_uri": "GENEPIO:0100908",
           "alias": "instantaneous_flow_rate_measurement_value",
           "owner": "WastewaterAMR",
@@ -14657,7 +14786,7 @@
           "description": "The units of a measured instantaneous fluid flow rate.",
           "title": "instantaneous flow rate measurement unit",
           "from_schema": "https://example.com/GRDI",
-          "rank": 84,
+          "rank": 85,
           "slot_uri": "GENEPIO:0100909",
           "alias": "instantaneous_flow_rate_measurement_unit",
           "owner": "WastewaterAMR",
@@ -14673,7 +14802,7 @@
           "description": "The process used to measure instantaneous fluid flow rate.",
           "title": "instantaneous flow rate measurement method",
           "from_schema": "https://example.com/GRDI",
-          "rank": 85,
+          "rank": 86,
           "slot_uri": "GENEPIO:0100910",
           "alias": "instantaneous_flow_rate_measurement_method",
           "owner": "WastewaterAMR",
@@ -14690,7 +14819,7 @@
           "description": "The numerical value of a measurement of turbidity.",
           "title": "turbidity measurement value",
           "from_schema": "https://example.com/GRDI",
-          "rank": 86,
+          "rank": 87,
           "slot_uri": "GENEPIO:0100783",
           "alias": "turbidity_measurement_value",
           "owner": "WastewaterAMR",
@@ -14708,7 +14837,7 @@
           "description": "The units of a measurement of turbidity.",
           "title": "turbidity measurement unit",
           "from_schema": "https://example.com/GRDI",
-          "rank": 87,
+          "rank": 88,
           "slot_uri": "GENEPIO:0100914",
           "alias": "turbidity_measurement_unit",
           "owner": "WastewaterAMR",
@@ -14725,7 +14854,7 @@
           "description": "The process used to measure turbidity.",
           "title": "turbidity measurement method",
           "from_schema": "https://example.com/GRDI",
-          "rank": 88,
+          "rank": 89,
           "slot_uri": "GENEPIO:0101013",
           "alias": "turbidity_measurement_method",
           "owner": "WastewaterAMR",
@@ -14742,7 +14871,7 @@
           "description": "The numerical value of a measurement of dissolved oxygen.",
           "title": "dissolved oxygen measurement value",
           "from_schema": "https://example.com/GRDI",
-          "rank": 89,
+          "rank": 90,
           "slot_uri": "GENEPIO:0100915",
           "alias": "dissolved_oxygen_measurement_value",
           "owner": "WastewaterAMR",
@@ -14759,7 +14888,7 @@
           "description": "The units of a measurement of dissolved oxygen.",
           "title": "dissolved oxygen measurement unit",
           "from_schema": "https://example.com/GRDI",
-          "rank": 90,
+          "rank": 91,
           "slot_uri": "GENEPIO:0100784",
           "alias": "dissolved_oxygen_measurement_unit",
           "owner": "WastewaterAMR",
@@ -14775,7 +14904,7 @@
           "description": "The method used to measure dissolved oxygen.",
           "title": "dissolved oxygen measurement method",
           "from_schema": "https://example.com/GRDI",
-          "rank": 91,
+          "rank": 92,
           "slot_uri": "GENEPIO:0100785",
           "alias": "dissolved_oxygen_measurement_method",
           "owner": "WastewaterAMR",
@@ -14792,7 +14921,7 @@
           "description": "The numerical value of a measurement of oxygen reduction potential (ORP).",
           "title": "oxygen reduction potential (ORP) measurement value",
           "from_schema": "https://example.com/GRDI",
-          "rank": 92,
+          "rank": 93,
           "slot_uri": "GENEPIO:0100917",
           "alias": "oxygen_reduction_potential_(ORP)_measurement_value",
           "owner": "WastewaterAMR",
@@ -14809,7 +14938,7 @@
           "description": "The units of a measurement of oxygen reduction potential (ORP).",
           "title": "oxygen reduction potential (ORP) measurement unit",
           "from_schema": "https://example.com/GRDI",
-          "rank": 93,
+          "rank": 94,
           "slot_uri": "GENEPIO:0100786",
           "alias": "oxygen_reduction_potential_(ORP)_measurement_unit",
           "owner": "WastewaterAMR",
@@ -14825,7 +14954,7 @@
           "description": "The method used to measure oxygen reduction potential (ORP).",
           "title": "oxygen reduction potential (ORP) measurement method",
           "from_schema": "https://example.com/GRDI",
-          "rank": 94,
+          "rank": 95,
           "slot_uri": "GENEPIO:0100787",
           "alias": "oxygen_reduction_potential_(ORP)_measurement_method",
           "owner": "WastewaterAMR",
@@ -14842,7 +14971,7 @@
           "description": "The measured value from a chemical oxygen demand (COD) test.",
           "title": "chemical oxygen demand (COD) measurement value",
           "from_schema": "https://example.com/GRDI",
-          "rank": 95,
+          "rank": 96,
           "slot_uri": "GENEPIO:0100788",
           "alias": "chemical_oxygen_demand_(COD)_measurement_value",
           "owner": "WastewaterAMR",
@@ -14859,7 +14988,7 @@
           "description": "The units associated with a value from a chemical oxygen demand (COD) test.",
           "title": "chemical oxygen demand (COD) measurement unit",
           "from_schema": "https://example.com/GRDI",
-          "rank": 96,
+          "rank": 97,
           "slot_uri": "GENEPIO:0100789",
           "alias": "chemical_oxygen_demand_(COD)_measurement_unit",
           "owner": "WastewaterAMR",
@@ -14875,7 +15004,7 @@
           "description": "The method used to measure chemical oxygen demand (COD).",
           "title": "chemical oxygen demand (COD) measurement method",
           "from_schema": "https://example.com/GRDI",
-          "rank": 97,
+          "rank": 98,
           "slot_uri": "GENEPIO:0100790",
           "alias": "chemical_oxygen_demand_(COD)_measurement_method",
           "owner": "WastewaterAMR",
@@ -14892,7 +15021,7 @@
           "description": "The numerical value of a measurement of carbonaceous biochemical oxygen demand (CBOD).",
           "title": "carbonaceous biochemical oxygen demand (CBOD) measurement value",
           "from_schema": "https://example.com/GRDI",
-          "rank": 98,
+          "rank": 99,
           "slot_uri": "GENEPIO:0100791",
           "alias": "carbonaceous_biochemical_oxygen_demand_(CBOD)_measurement_value",
           "owner": "WastewaterAMR",
@@ -14909,7 +15038,7 @@
           "description": "The units of a measurement of carbonaceous biochemical oxygen demand (CBOD).",
           "title": "carbonaceous biochemical oxygen demand (CBOD) measurement unit",
           "from_schema": "https://example.com/GRDI",
-          "rank": 99,
+          "rank": 100,
           "slot_uri": "GENEPIO:0100792",
           "alias": "carbonaceous_biochemical_oxygen_demand_(CBOD)_measurement_unit",
           "owner": "WastewaterAMR",
@@ -14925,7 +15054,7 @@
           "description": "The method used to measure carbonaceous biochemical oxygen demand (CBOD).",
           "title": "carbonaceous biochemical oxygen demand (CBOD) measurement method",
           "from_schema": "https://example.com/GRDI",
-          "rank": 100,
+          "rank": 101,
           "slot_uri": "GENEPIO:0100793",
           "alias": "carbonaceous_biochemical_oxygen_demand_(CBOD)_measurement_method",
           "owner": "WastewaterAMR",
@@ -14942,7 +15071,7 @@
           "description": "The numerical value from a total suspended solids (TSS) test.",
           "title": "total suspended solids (TSS) measurement value",
           "from_schema": "https://example.com/GRDI",
-          "rank": 101,
+          "rank": 102,
           "slot_uri": "GENEPIO:0100794",
           "alias": "total_suspended_solids_(TSS)_measurement_value",
           "owner": "WastewaterAMR",
@@ -14959,7 +15088,7 @@
           "description": "The units associated with a value from a total suspended solids (TSS) test.",
           "title": "total suspended solids (TSS) measurement unit",
           "from_schema": "https://example.com/GRDI",
-          "rank": 102,
+          "rank": 103,
           "slot_uri": "GENEPIO:0100795",
           "alias": "total_suspended_solids_(TSS)_measurement_unit",
           "owner": "WastewaterAMR",
@@ -14975,7 +15104,7 @@
           "description": "The method used to measure total suspended solids (TSS).",
           "title": "total suspended solids (TSS) measurement method",
           "from_schema": "https://example.com/GRDI",
-          "rank": 103,
+          "rank": 104,
           "slot_uri": "GENEPIO:0100796",
           "alias": "total_suspended_solids_(TSS)_measurement_method",
           "owner": "WastewaterAMR",
@@ -14992,7 +15121,7 @@
           "description": "The numerical value from a total dissolved solids (TDS) test.",
           "title": "total dissolved solids (TDS) measurement value",
           "from_schema": "https://example.com/GRDI",
-          "rank": 104,
+          "rank": 105,
           "slot_uri": "GENEPIO:0100797",
           "alias": "total_dissolved_solids_(TDS)_measurement_value",
           "owner": "WastewaterAMR",
@@ -15009,7 +15138,7 @@
           "description": "The units associated with a value from a total dissolved solids (TDS) test.",
           "title": "total dissolved solids (TDS) measurement unit",
           "from_schema": "https://example.com/GRDI",
-          "rank": 105,
+          "rank": 106,
           "slot_uri": "GENEPIO:0100798",
           "alias": "total_dissolved_solids_(TDS)_measurement_unit",
           "owner": "WastewaterAMR",
@@ -15025,7 +15154,7 @@
           "description": "The method used to measure total dissolved solids (TDS).",
           "title": "total dissolved solids (TDS) measurement method",
           "from_schema": "https://example.com/GRDI",
-          "rank": 106,
+          "rank": 107,
           "slot_uri": "GENEPIO:0100799",
           "alias": "total_dissolved_solids_(TDS)_measurement_method",
           "owner": "WastewaterAMR",
@@ -15042,7 +15171,7 @@
           "description": "The numerical value from a total solids (TS) test.",
           "title": "total solids (TS) measurement value",
           "from_schema": "https://example.com/GRDI",
-          "rank": 107,
+          "rank": 108,
           "slot_uri": "GENEPIO:0100800",
           "alias": "total_solids_(TS)_measurement_value",
           "owner": "WastewaterAMR",
@@ -15059,7 +15188,7 @@
           "description": "The units associated with a value from a total solids (TS) test.",
           "title": "total solids (TS) measurement unit",
           "from_schema": "https://example.com/GRDI",
-          "rank": 108,
+          "rank": 109,
           "slot_uri": "GENEPIO:0100801",
           "alias": "total_solids_(TS)_measurement_unit",
           "owner": "WastewaterAMR",
@@ -15075,7 +15204,7 @@
           "description": "The method used to measure total solids (TS).",
           "title": "total solids (TS) measurement method",
           "from_schema": "https://example.com/GRDI",
-          "rank": 109,
+          "rank": 110,
           "slot_uri": "GENEPIO:0100802",
           "alias": "total_solids_(TS)_measurement_method",
           "owner": "WastewaterAMR",
@@ -15092,7 +15221,7 @@
           "description": "The numerical value of a measurement of alkalinity.",
           "title": "alkalinity measurement value",
           "from_schema": "https://example.com/GRDI",
-          "rank": 110,
+          "rank": 111,
           "slot_uri": "GENEPIO:0100878",
           "alias": "alkalinity_measurement_value",
           "owner": "WastewaterAMR",
@@ -15109,7 +15238,7 @@
           "description": "The units of a measurement of alkalinity.",
           "title": "alkalinity measurement unit",
           "from_schema": "https://example.com/GRDI",
-          "rank": 111,
+          "rank": 112,
           "slot_uri": "GENEPIO:0100879",
           "alias": "alkalinity_measurement_unit",
           "owner": "WastewaterAMR",
@@ -15125,7 +15254,7 @@
           "description": "The process used to measure alkalinity.",
           "title": "alkalinity measurement method",
           "from_schema": "https://example.com/GRDI",
-          "rank": 112,
+          "rank": 113,
           "slot_uri": "GENEPIO:0100880",
           "alias": "alkalinity_measurement_method",
           "owner": "WastewaterAMR",
@@ -15142,7 +15271,7 @@
           "description": "The numerical value of a measurement of conductivity.",
           "title": "conductivity measurement value",
           "from_schema": "https://example.com/GRDI",
-          "rank": 113,
+          "rank": 114,
           "slot_uri": "GENEPIO:0100916",
           "alias": "conductivity_measurement_value",
           "owner": "WastewaterAMR",
@@ -15159,7 +15288,7 @@
           "description": "The units of a measurement of conductivity.",
           "title": "conductivity measurement unit",
           "from_schema": "https://example.com/GRDI",
-          "rank": 114,
+          "rank": 115,
           "slot_uri": "GENEPIO:0100803",
           "alias": "conductivity_measurement_unit",
           "owner": "WastewaterAMR",
@@ -15175,7 +15304,7 @@
           "description": "The method used to measure conductivity.",
           "title": "conductivity measurement method",
           "from_schema": "https://example.com/GRDI",
-          "rank": 115,
+          "rank": 116,
           "slot_uri": "GENEPIO:0100804",
           "alias": "conductivity_measurement_method",
           "owner": "WastewaterAMR",
@@ -15192,7 +15321,7 @@
           "description": "The numerical value of a measurement of salinity.",
           "title": "salinity measurement value",
           "from_schema": "https://example.com/GRDI",
-          "rank": 116,
+          "rank": 117,
           "slot_uri": "GENEPIO:0100805",
           "alias": "salinity_measurement_value",
           "owner": "WastewaterAMR",
@@ -15209,7 +15338,7 @@
           "description": "The units of a measurement of salinity.",
           "title": "salinity measurement unit",
           "from_schema": "https://example.com/GRDI",
-          "rank": 117,
+          "rank": 118,
           "slot_uri": "GENEPIO:0100806",
           "alias": "salinity_measurement_unit",
           "owner": "WastewaterAMR",
@@ -15225,7 +15354,7 @@
           "description": "The method used to measure salinity.",
           "title": "salinity measurement method",
           "from_schema": "https://example.com/GRDI",
-          "rank": 118,
+          "rank": 119,
           "slot_uri": "GENEPIO:0100807",
           "alias": "salinity_measurement_method",
           "owner": "WastewaterAMR",
@@ -15242,7 +15371,7 @@
           "description": "The numerical value of a measurement of total nitrogen (TN).",
           "title": "total nitrogen (TN) measurement value",
           "from_schema": "https://example.com/GRDI",
-          "rank": 119,
+          "rank": 120,
           "slot_uri": "GENEPIO:0100808",
           "alias": "total_nitrogen_(TN)_measurement_value",
           "owner": "WastewaterAMR",
@@ -15259,7 +15388,7 @@
           "description": "The units of a measurement of total nitrogen (TN).",
           "title": "total nitrogen (TN) measurement unit",
           "from_schema": "https://example.com/GRDI",
-          "rank": 120,
+          "rank": 121,
           "slot_uri": "GENEPIO:0100809",
           "alias": "total_nitrogen_(TN)_measurement_unit",
           "owner": "WastewaterAMR",
@@ -15275,7 +15404,7 @@
           "description": "The method used to measure total nitrogen (TN).",
           "title": "total nitrogen (TN) measurement method",
           "from_schema": "https://example.com/GRDI",
-          "rank": 121,
+          "rank": 122,
           "slot_uri": "GENEPIO:0100810",
           "alias": "total_nitrogen_(TN)_measurement_method",
           "owner": "WastewaterAMR",
@@ -15292,7 +15421,7 @@
           "description": "The numerical value of a measurement of total phosphorus (TP).",
           "title": "total phosphorus (TP) measurement value",
           "from_schema": "https://example.com/GRDI",
-          "rank": 122,
+          "rank": 123,
           "slot_uri": "GENEPIO:0100811",
           "alias": "total_phosphorus_(TP)_measurement_value",
           "owner": "WastewaterAMR",
@@ -15309,7 +15438,7 @@
           "description": "The units of a measurement of total phosphorus (TP).",
           "title": "total phosphorus (TP) measurement unit",
           "from_schema": "https://example.com/GRDI",
-          "rank": 123,
+          "rank": 124,
           "slot_uri": "GENEPIO:0100812",
           "alias": "total_phosphorus_(TP)_measurement_unit",
           "owner": "WastewaterAMR",
@@ -15325,7 +15454,7 @@
           "description": "The method used to measure total phosphorus (TP).",
           "title": "total phosphorus (TP) measurement method",
           "from_schema": "https://example.com/GRDI",
-          "rank": 124,
+          "rank": 125,
           "slot_uri": "GENEPIO:0100813",
           "alias": "total_phosphorus_(TP)_measurement_method",
           "owner": "WastewaterAMR",
@@ -15342,7 +15471,7 @@
           "description": "A gene, virus, bacteria, or substance used to measure the sanitary quality of water in regards to fecal contamination.",
           "title": "fecal contamination indicator",
           "from_schema": "https://example.com/GRDI",
-          "rank": 125,
+          "rank": 126,
           "slot_uri": "GENEPIO:0100814",
           "alias": "fecal_contamination_indicator",
           "owner": "WastewaterAMR",
@@ -15359,7 +15488,7 @@
           "description": "The numerical value of a measurement of fecal contamination.",
           "title": "fecal contamination value",
           "from_schema": "https://example.com/GRDI",
-          "rank": 126,
+          "rank": 127,
           "slot_uri": "GENEPIO:0100815",
           "alias": "fecal_contamination_value",
           "owner": "WastewaterAMR",
@@ -15377,7 +15506,7 @@
           "description": "The units of a measurement of fecal contamination.",
           "title": "fecal contamination unit",
           "from_schema": "https://example.com/GRDI",
-          "rank": 127,
+          "rank": 128,
           "slot_uri": "GENEPIO:0100816",
           "alias": "fecal_contamination_unit",
           "owner": "WastewaterAMR",
@@ -15394,7 +15523,7 @@
           "description": "The method used to measure fecal contamination.",
           "title": "fecal contamination method",
           "from_schema": "https://example.com/GRDI",
-          "rank": 128,
+          "rank": 129,
           "slot_uri": "GENEPIO:0100817",
           "alias": "fecal_contamination_method",
           "owner": "WastewaterAMR",
@@ -15411,7 +15540,7 @@
           "description": "The numerical value of a measurement of fecal coliforms within a sample.",
           "title": "fecal coliform count value",
           "from_schema": "https://example.com/GRDI",
-          "rank": 129,
+          "rank": 130,
           "slot_uri": "GENEPIO:0100818",
           "alias": "fecal_coliform_count_value",
           "owner": "WastewaterAMR",
@@ -15428,7 +15557,7 @@
           "description": "The units of a measurement of fecal coliforms.",
           "title": "fecal coliform count unit",
           "from_schema": "https://example.com/GRDI",
-          "rank": 130,
+          "rank": 131,
           "slot_uri": "GENEPIO:0100819",
           "alias": "fecal_coliform_count_unit",
           "owner": "WastewaterAMR",
@@ -15444,7 +15573,7 @@
           "description": "The method used to measure fecal coliforms.",
           "title": "fecal coliform count method",
           "from_schema": "https://example.com/GRDI",
-          "rank": 131,
+          "rank": 132,
           "slot_uri": "GENEPIO:0100820",
           "alias": "fecal_coliform_count_method",
           "owner": "WastewaterAMR",
@@ -15461,7 +15590,7 @@
           "description": "A gene, virus, bacteria, or substance used to measure the sanitary quality of water in regards to urinary contamination.",
           "title": "urinary contamination indicator",
           "from_schema": "https://example.com/GRDI",
-          "rank": 132,
+          "rank": 133,
           "slot_uri": "GENEPIO:0100837",
           "alias": "urinary_contamination_indicator",
           "owner": "WastewaterAMR",
@@ -15477,7 +15606,7 @@
           "description": "The numerical value of a measurement of urinary contamination.",
           "title": "urinary contamination value",
           "from_schema": "https://example.com/GRDI",
-          "rank": 133,
+          "rank": 134,
           "slot_uri": "GENEPIO:0100838",
           "alias": "urinary_contamination_value",
           "owner": "WastewaterAMR",
@@ -15494,7 +15623,7 @@
           "description": "The units of a measurement of urinary contamination.",
           "title": "urinary contamination unit",
           "from_schema": "https://example.com/GRDI",
-          "rank": 134,
+          "rank": 135,
           "slot_uri": "GENEPIO:0100839",
           "alias": "urinary_contamination_unit",
           "owner": "WastewaterAMR",
@@ -15510,7 +15639,7 @@
           "description": "The method used to measure urinary contamination.",
           "title": "urinary contamination method",
           "from_schema": "https://example.com/GRDI",
-          "rank": 135,
+          "rank": 136,
           "slot_uri": "GENEPIO:0100840",
           "alias": "urinary_contamination_method",
           "owner": "WastewaterAMR",
@@ -15527,7 +15656,7 @@
           "description": "The numerical value of a measurement of temperature of a sample at collection.",
           "title": "sample temperature value (at collection)",
           "from_schema": "https://example.com/GRDI",
-          "rank": 136,
+          "rank": 137,
           "slot_uri": "GENEPIO:0100821",
           "alias": "sample_temperature_value_(at_collection)",
           "owner": "WastewaterAMR",
@@ -15544,7 +15673,7 @@
           "description": "The units of a measurement of temperature of a sample at the time of collection.",
           "title": "sample temperature unit (at collection)",
           "from_schema": "https://example.com/GRDI",
-          "rank": 137,
+          "rank": 138,
           "slot_uri": "GENEPIO:0100822",
           "alias": "sample_temperature_unit_(at_collection)",
           "owner": "WastewaterAMR",
@@ -15560,7 +15689,7 @@
           "description": "The numerical value of a measurement of temperature of a sample upon receipt.",
           "title": "sample temperature value (when received)",
           "from_schema": "https://example.com/GRDI",
-          "rank": 138,
+          "rank": 139,
           "slot_uri": "GENEPIO:0100823",
           "alias": "sample_temperature_value_(when_received)",
           "owner": "WastewaterAMR",
@@ -15577,7 +15706,7 @@
           "description": "The units of a measurement of temperature of a sample at the time upon receipt.",
           "title": "sample temperature unit (when received)",
           "from_schema": "https://example.com/GRDI",
-          "rank": 139,
+          "rank": 140,
           "slot_uri": "GENEPIO:0100824",
           "alias": "sample_temperature_unit_(when_received)",
           "owner": "WastewaterAMR",
@@ -15593,7 +15722,7 @@
           "description": "The reason that the sample was sequenced.",
           "title": "purpose of sequencing",
           "from_schema": "https://example.com/GRDI",
-          "rank": 140,
+          "rank": 141,
           "slot_uri": "GENEPIO:0001445",
           "multivalued": true,
           "alias": "purpose_of_sequencing",
@@ -15611,7 +15740,7 @@
           "description": "The description of why the sample was sequenced providing specific details.",
           "title": "purpose of sequencing details",
           "from_schema": "https://example.com/GRDI",
-          "rank": 141,
+          "rank": 142,
           "slot_uri": "GENEPIO:0001446",
           "alias": "purpose_of_sequencing_details",
           "owner": "WastewaterAMR",
@@ -15628,7 +15757,7 @@
           "description": "The name of the agency, organization or institution responsible for sequencing the isolate's genome.",
           "title": "sequenced by",
           "from_schema": "https://example.com/GRDI",
-          "rank": 142,
+          "rank": 143,
           "slot_uri": "GENEPIO:0100416",
           "alias": "sequenced_by",
           "owner": "WastewaterAMR",
@@ -15645,7 +15774,7 @@
           "description": "The name or title of the contact responsible for follow-up regarding the sequence.",
           "title": "sequenced by contact name",
           "from_schema": "https://example.com/GRDI",
-          "rank": 143,
+          "rank": 144,
           "slot_uri": "GENEPIO:0100471",
           "alias": "sequenced_by_contact_name",
           "owner": "WastewaterAMR",
@@ -15662,7 +15791,7 @@
           "description": "The email address of the contact responsible for follow-up regarding the sequence.",
           "title": "sequenced by contact email",
           "from_schema": "https://example.com/GRDI",
-          "rank": 144,
+          "rank": 145,
           "slot_uri": "GENEPIO:0100471",
           "alias": "sequenced_by_contact_email",
           "owner": "WastewaterAMR",
@@ -15679,7 +15808,7 @@
           "description": "The name of the agency that submitted the sequence to a database.",
           "title": "sequence submitted by",
           "from_schema": "https://example.com/GRDI",
-          "rank": 145,
+          "rank": 146,
           "slot_uri": "GENEPIO:0001159",
           "alias": "sequence_submitted_by",
           "owner": "WastewaterAMR",
@@ -15696,7 +15825,7 @@
           "description": "The email address of the contact responsible for follow-up regarding the sequence.",
           "title": "sequence submitter contact email",
           "from_schema": "https://example.com/GRDI",
-          "rank": 146,
+          "rank": 147,
           "slot_uri": "GENEPIO:0001165",
           "alias": "sequence_submitter_contact_email",
           "owner": "WastewaterAMR",
@@ -15714,7 +15843,7 @@
           "description": "The date the sample was sequenced.",
           "title": "sequencing date",
           "from_schema": "https://example.com/GRDI",
-          "rank": 147,
+          "rank": 148,
           "slot_uri": "GENEPIO:0001447",
           "alias": "sequencing_date",
           "owner": "WastewaterAMR",
@@ -15731,7 +15860,7 @@
           "description": "The user-specified identifier for the library prepared for sequencing.",
           "title": "library ID",
           "from_schema": "https://example.com/GRDI",
-          "rank": 148,
+          "rank": 149,
           "slot_uri": "GENEPIO:0001448",
           "alias": "library_ID",
           "owner": "WastewaterAMR",
@@ -15748,7 +15877,7 @@
           "description": "The platform technology used to perform the sequencing.",
           "title": "sequencing platform",
           "from_schema": "https://example.com/GRDI",
-          "rank": 149,
+          "rank": 150,
           "slot_uri": "GENEPIO:0100473",
           "multivalued": true,
           "alias": "sequencing_platform",
@@ -15765,7 +15894,7 @@
           "description": "The model of the sequencing instrument used.",
           "title": "sequencing instrument",
           "from_schema": "https://example.com/GRDI",
-          "rank": 150,
+          "rank": 151,
           "slot_uri": "GENEPIO:0001452",
           "multivalued": true,
           "alias": "sequencing_instrument",
@@ -15783,7 +15912,7 @@
           "description": "The overarching sequencing methodology that was used to determine the sequence of a biomaterial.",
           "title": "sequencing assay type",
           "from_schema": "https://example.com/GRDI",
-          "rank": 151,
+          "rank": 152,
           "slot_uri": "GENEPIO:0100997",
           "alias": "sequencing_assay_type",
           "owner": "WastewaterAMR",
@@ -15800,7 +15929,7 @@
           "description": "The name of the DNA library preparation kit used to generate the library being sequenced.",
           "title": "library preparation kit",
           "from_schema": "https://example.com/GRDI",
-          "rank": 152,
+          "rank": 153,
           "slot_uri": "GENEPIO:0001450",
           "alias": "library_preparation_kit",
           "owner": "WastewaterAMR",
@@ -15817,7 +15946,7 @@
           "description": "The protocol or method used for sequencing.",
           "title": "sequencing protocol",
           "from_schema": "https://example.com/GRDI",
-          "rank": 153,
+          "rank": 154,
           "slot_uri": "GENEPIO:0001454",
           "alias": "sequencing_protocol",
           "owner": "WastewaterAMR",
@@ -15835,7 +15964,7 @@
           "description": "The length of the DNA fragment generated by mechanical shearing or enzymatic digestion for the purposes of library preparation.",
           "title": "DNA fragment length",
           "from_schema": "https://example.com/GRDI",
-          "rank": 154,
+          "rank": 155,
           "slot_uri": "GENEPIO:0100843",
           "alias": "DNA_fragment_length",
           "owner": "WastewaterAMR",
@@ -15851,7 +15980,7 @@
           "description": "The molecular technique used to selectively capture and amplify specific regions of interest from a genome.",
           "title": "genomic target enrichment method",
           "from_schema": "https://example.com/GRDI",
-          "rank": 155,
+          "rank": 156,
           "slot_uri": "GENEPIO:0100966",
           "multivalued": true,
           "alias": "genomic_target_enrichment_method",
@@ -15868,7 +15997,7 @@
           "description": "Details that provide additional context to the molecular technique used to selectively capture and amplify specific regions of interest from a genome.",
           "title": "genomic target enrichment method details",
           "from_schema": "https://example.com/GRDI",
-          "rank": 156,
+          "rank": 157,
           "slot_uri": "GENEPIO:0100967",
           "alias": "genomic_target_enrichment_method_details",
           "owner": "WastewaterAMR",
@@ -15884,7 +16013,7 @@
           "description": "The name of the method used to assess whether a sequence passed a predetermined quality control threshold.",
           "title": "quality control method name",
           "from_schema": "https://example.com/GRDI",
-          "rank": 157,
+          "rank": 158,
           "slot_uri": "GENEPIO:0100557",
           "alias": "quality_control_method_name",
           "owner": "WastewaterAMR",
@@ -15901,7 +16030,7 @@
           "description": "The version number of the method used to assess whether a sequence passed a predetermined quality control threshold.",
           "title": "quality control method version",
           "from_schema": "https://example.com/GRDI",
-          "rank": 158,
+          "rank": 159,
           "slot_uri": "GENEPIO:0100558",
           "alias": "quality_control_method_version",
           "owner": "WastewaterAMR",
@@ -15918,7 +16047,7 @@
           "description": "The determination of a quality control assessment.",
           "title": "quality control determination",
           "from_schema": "https://example.com/GRDI",
-          "rank": 159,
+          "rank": 160,
           "slot_uri": "GENEPIO:0100559",
           "multivalued": true,
           "alias": "quality_control_determination",
@@ -15935,7 +16064,7 @@
           "description": "The reason contributing to, or causing, a low quality determination in a quality control assessment.",
           "title": "quality control issues",
           "from_schema": "https://example.com/GRDI",
-          "rank": 160,
+          "rank": 161,
           "slot_uri": "GENEPIO:0100560",
           "multivalued": true,
           "alias": "quality_control_issues",
@@ -15952,7 +16081,7 @@
           "description": "The details surrounding a low quality determination in a quality control assessment.",
           "title": "quality control details",
           "from_schema": "https://example.com/GRDI",
-          "rank": 161,
+          "rank": 162,
           "slot_uri": "GENEPIO:0100561",
           "alias": "quality_control_details",
           "owner": "WastewaterAMR",
@@ -15969,7 +16098,7 @@
           "description": "The method used for raw data processing such as removing barcodes, adapter trimming, filtering etc.",
           "title": "raw sequence data processing method",
           "from_schema": "https://example.com/GRDI",
-          "rank": 162,
+          "rank": 163,
           "slot_uri": "GENEPIO:0001458",
           "alias": "raw_sequence_data_processing_method",
           "owner": "WastewaterAMR",
@@ -15986,7 +16115,7 @@
           "description": "The method used to remove host reads from the pathogen sequence.",
           "title": "dehosting method",
           "from_schema": "https://example.com/GRDI",
-          "rank": 163,
+          "rank": 164,
           "slot_uri": "GENEPIO:0001459",
           "alias": "dehosting_method",
           "owner": "WastewaterAMR",
@@ -16003,7 +16132,7 @@
           "description": "The name of the software used to assemble a sequence.",
           "title": "sequence assembly software name",
           "from_schema": "https://example.com/GRDI",
-          "rank": 164,
+          "rank": 165,
           "slot_uri": "GENEPIO:0100825",
           "alias": "sequence_assembly_software_name",
           "owner": "WastewaterAMR",
@@ -16018,7 +16147,7 @@
           "description": "The version of the software used to assemble a sequence.",
           "title": "sequence assembly software version",
           "from_schema": "https://example.com/GRDI",
-          "rank": 165,
+          "rank": 166,
           "slot_uri": "GENEPIO:0100826",
           "alias": "sequence_assembly_software_version",
           "owner": "WastewaterAMR",
@@ -16028,12 +16157,131 @@
           ],
           "slot_group": "Bioinformatics and QC metrics"
         },
+        "breadth of coverage value": {
+          "name": "breadth of coverage value",
+          "description": "The percentage of the reference genome covered by the sequenced data, to a prescribed depth.",
+          "title": "breadth of coverage value",
+          "from_schema": "https://example.com/GRDI",
+          "rank": 167,
+          "slot_uri": "GENEPIO:0001472",
+          "alias": "breadth_of_coverage_value",
+          "owner": "WastewaterAMR",
+          "domain_of": [
+            "WastewaterSARS-CoV-2",
+            "WastewaterAMR",
+            "WastewaterPathogenAgnostic"
+          ],
+          "slot_group": "Bioinformatics and QC metrics",
+          "range": "WhitespaceMinimizedString"
+        },
+        "depth of coverage value": {
+          "name": "depth of coverage value",
+          "description": "The average number of reads representing a given nucleotide in the reconstructed sequence.",
+          "title": "depth of coverage value",
+          "from_schema": "https://example.com/GRDI",
+          "rank": 168,
+          "slot_uri": "GENEPIO:0001474",
+          "alias": "depth_of_coverage_value",
+          "owner": "WastewaterAMR",
+          "domain_of": [
+            "WastewaterSARS-CoV-2",
+            "WastewaterAMR",
+            "WastewaterPathogenAgnostic"
+          ],
+          "slot_group": "Bioinformatics and QC metrics",
+          "range": "WhitespaceMinimizedString"
+        },
+        "depth of coverage threshold": {
+          "name": "depth of coverage threshold",
+          "description": "The threshold used as a cut-off for the depth of coverage.",
+          "title": "depth of coverage threshold",
+          "from_schema": "https://example.com/GRDI",
+          "rank": 169,
+          "slot_uri": "GENEPIO:0001475",
+          "alias": "depth_of_coverage_threshold",
+          "owner": "WastewaterAMR",
+          "domain_of": [
+            "WastewaterSARS-CoV-2",
+            "WastewaterAMR",
+            "WastewaterPathogenAgnostic"
+          ],
+          "slot_group": "Bioinformatics and QC metrics",
+          "range": "WhitespaceMinimizedString"
+        },
+        "number of base pairs sequenced": {
+          "name": "number of base pairs sequenced",
+          "description": "The number of total base pairs generated by the sequencing process.",
+          "title": "number of base pairs sequenced",
+          "from_schema": "https://example.com/GRDI",
+          "rank": 170,
+          "slot_uri": "GENEPIO:0001482",
+          "alias": "number_of_base_pairs_sequenced",
+          "owner": "WastewaterAMR",
+          "domain_of": [
+            "WastewaterSARS-CoV-2",
+            "WastewaterAMR",
+            "WastewaterPathogenAgnostic"
+          ],
+          "slot_group": "Bioinformatics and QC metrics",
+          "range": "integer"
+        },
+        "number of total reads": {
+          "name": "number of total reads",
+          "description": "The total number of non-unique reads generated by the sequencing process.",
+          "title": "number of total reads",
+          "from_schema": "https://example.com/GRDI",
+          "rank": 171,
+          "slot_uri": "GENEPIO:0100827",
+          "alias": "number_of_total_reads",
+          "owner": "WastewaterAMR",
+          "domain_of": [
+            "WastewaterSARS-CoV-2",
+            "WastewaterAMR",
+            "WastewaterPathogenAgnostic"
+          ],
+          "slot_group": "Bioinformatics and QC metrics",
+          "range": "integer"
+        },
+        "number of unique reads": {
+          "name": "number of unique reads",
+          "description": "The number of unique reads generated by the sequencing process.",
+          "title": "number of unique reads",
+          "from_schema": "https://example.com/GRDI",
+          "rank": 172,
+          "slot_uri": "GENEPIO:0100828",
+          "alias": "number_of_unique_reads",
+          "owner": "WastewaterAMR",
+          "domain_of": [
+            "WastewaterSARS-CoV-2",
+            "WastewaterAMR",
+            "WastewaterPathogenAgnostic"
+          ],
+          "slot_group": "Bioinformatics and QC metrics",
+          "range": "integer"
+        },
+        "minimum post-trimming read length": {
+          "name": "minimum post-trimming read length",
+          "description": "The threshold used as a cut-off for the minimum length of a read after trimming.",
+          "title": "minimum post-trimming read length",
+          "from_schema": "https://example.com/GRDI",
+          "rank": 173,
+          "slot_uri": "GENEPIO:0100829",
+          "alias": "minimum_post_trimming_read_length",
+          "owner": "WastewaterAMR",
+          "domain_of": [
+            "WastewaterSARS-CoV-2",
+            "WastewaterAMR",
+            "WastewaterPathogenAgnostic"
+          ],
+          "slot_group": "Bioinformatics and QC metrics",
+          "range": "integer"
+        },
         "bioinformatics protocol": {
           "name": "bioinformatics protocol",
           "description": "A description of the overall bioinformatics strategy used.",
           "title": "bioinformatics protocol",
           "from_schema": "https://example.com/GRDI",
-          "rank": 166,
+          "rank": 174,
           "slot_uri": "GENEPIO:0001489",
           "alias": "bioinformatics_protocol",
           "owner": "WastewaterAMR",
@@ -16050,7 +16298,7 @@
           "description": "The name of the software used to map sequence reads to a reference genome or set of reference genes.",
           "title": "read mapping software name",
           "from_schema": "https://example.com/GRDI",
-          "rank": 167,
+          "rank": 175,
           "slot_uri": "GENEPIO:0100832",
           "alias": "read_mapping_software_name",
           "owner": "WastewaterAMR",
@@ -16067,7 +16315,7 @@
           "description": "The version of the software used to map sequence reads to a reference genome or set of reference genes.",
           "title": "read mapping software version",
           "from_schema": "https://example.com/GRDI",
-          "rank": 168,
+          "rank": 176,
           "slot_uri": "GENEPIO:0100833",
           "alias": "read_mapping_software_version",
           "owner": "WastewaterAMR",
@@ -16084,7 +16332,7 @@
           "description": "The name of the taxonomic reference database used to identify the organism.",
           "title": "taxonomic reference database name",
           "from_schema": "https://example.com/GRDI",
-          "rank": 169,
+          "rank": 177,
           "slot_uri": "GENEPIO:0100834",
           "alias": "taxonomic_reference_database_name",
           "owner": "WastewaterAMR",
@@ -16101,7 +16349,7 @@
           "description": "The version of the taxonomic reference database used to identify the organism.",
           "title": "taxonomic reference database version",
           "from_schema": "https://example.com/GRDI",
-          "rank": 170,
+          "rank": 178,
           "slot_uri": "GENEPIO:0100835",
           "alias": "taxonomic_reference_database_version",
           "owner": "WastewaterAMR",
@@ -16118,7 +16366,7 @@
           "description": "The filename of the report containing the results of a taxonomic analysis.",
           "title": "taxonomic analysis report filename",
           "from_schema": "https://example.com/GRDI",
-          "rank": 171,
+          "rank": 179,
           "slot_uri": "GENEPIO:0101074",
           "alias": "taxonomic_analysis_report_filename",
           "owner": "WastewaterAMR",
@@ -16134,7 +16382,7 @@
           "description": "The date a taxonomic analysis was performed.",
           "title": "taxonomic analysis date",
           "from_schema": "https://example.com/GRDI",
-          "rank": 172,
+          "rank": 180,
           "slot_uri": "GENEPIO:0101075",
           "alias": "taxonomic_analysis_date",
           "owner": "WastewaterAMR",
@@ -16150,7 +16398,7 @@
           "description": "A description of the criteria used to map reads to a reference sequence.",
           "title": "read mapping criteria",
           "from_schema": "https://example.com/GRDI",
-          "rank": 173,
+          "rank": 181,
           "slot_uri": "GENEPIO:0100836",
           "alias": "read_mapping_criteria",
           "owner": "WastewaterAMR",
@@ -16166,7 +16414,7 @@
           "description": "The name of the software used to perform an in silico antimicrobial resistance determinant identification/analysis.",
           "title": "AMR analysis software name",
           "from_schema": "https://example.com/GRDI",
-          "rank": 174,
+          "rank": 182,
           "slot_uri": "GENEPIO:0101076",
           "alias": "AMR_analysis_software_name",
           "owner": "WastewaterAMR",
@@ -16182,7 +16430,7 @@
           "description": "The version number of the software used to perform an in silico antimicrobial resistance determinant idenrtification/analysis.",
           "title": "AMR analysis software version",
           "from_schema": "https://example.com/GRDI",
-          "rank": 175,
+          "rank": 183,
           "slot_uri": "GENEPIO:0101077",
           "alias": "AMR_analysis_software_version",
           "owner": "WastewaterAMR",
@@ -16198,7 +16446,7 @@
           "description": "Thr name of the reference database used to perform an in silico antimicrobial resistance determinant identification/analysis.",
           "title": "AMR reference database name",
           "from_schema": "https://example.com/GRDI",
-          "rank": 176,
+          "rank": 184,
           "slot_uri": "GENEPIO:0101078",
           "alias": "AMR_reference_database_name",
           "owner": "WastewaterAMR",
@@ -16214,7 +16462,7 @@
           "description": "The version number of the reference database used to perform an in silico antimicrobial resistance determinant identification/analysis.",
           "title": "AMR reference database version",
           "from_schema": "https://example.com/GRDI",
-          "rank": 177,
+          "rank": 185,
           "slot_uri": "GENEPIO:0101079",
           "alias": "AMR_reference_database_version",
           "owner": "WastewaterAMR",
@@ -16230,7 +16478,7 @@
           "description": "The filename of the report containing the results of an in silico antimicrobial resistance analysis.",
           "title": "AMR analysis report filename",
           "from_schema": "https://example.com/GRDI",
-          "rank": 178,
+          "rank": 186,
           "slot_uri": "GENEPIO:0101080",
           "alias": "AMR_analysis_report_filename",
           "owner": "WastewaterAMR",
@@ -16246,15 +16494,15 @@
           "description": "The name of the gene used in the diagnostic RT-PCR test.",
           "title": "gene name",
           "comments": [
-            "Provide the full name of the gene used in the test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI"
+            "Provide the full name of the gene used in the test. Standardized gene names can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI"
           ],
           "examples": [
             {
-              "value": "Gyrase A"
+              "value": "gyrase A"
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 179,
+          "rank": 187,
           "slot_uri": "GENEPIO:0100655",
           "alias": "gene_name",
           "owner": "WastewaterAMR",
@@ -16278,7 +16526,7 @@
           "description": "The binary value of the result from a diagnostic test.",
           "title": "diagnostic target presence",
           "from_schema": "https://example.com/GRDI",
-          "rank": 180,
+          "rank": 188,
           "slot_uri": "GENEPIO:0100962",
           "alias": "diagnostic_target_presence",
           "owner": "WastewaterAMR",
@@ -16294,7 +16542,7 @@
           "description": "The value of the result from a diagnostic test.",
           "title": "diagnostic measurement value",
           "from_schema": "https://example.com/GRDI",
-          "rank": 181,
+          "rank": 189,
           "slot_uri": "GENEPIO:0100963",
           "alias": "diagnostic_measurement_value",
           "owner": "WastewaterAMR",
@@ -16311,7 +16559,7 @@
           "description": "The unit of the result from a diagnostic test.",
           "title": "diagnostic measurement unit",
           "from_schema": "https://example.com/GRDI",
-          "rank": 182,
+          "rank": 190,
           "slot_uri": "GENEPIO:0100964",
           "alias": "diagnostic_measurement_unit",
           "owner": "WastewaterAMR",
@@ -16327,7 +16575,7 @@
           "description": "The method by which a diagnostic result was determined.",
           "title": "diagnostic measurement method",
           "from_schema": "https://example.com/GRDI",
-          "rank": 183,
+          "rank": 191,
           "slot_uri": "GENEPIO:0100965",
           "alias": "diagnostic_measurement_method",
           "owner": "WastewaterAMR",
@@ -16343,7 +16591,7 @@
           "description": "Names of individuals contributing to the processes of sample collection, sequence generation, analysis, and data submission.",
           "title": "authors",
           "from_schema": "https://example.com/GRDI",
-          "rank": 184,
+          "rank": 192,
           "slot_uri": "GENEPIO:0001517",
           "alias": "authors",
           "owner": "WastewaterAMR",
@@ -16361,7 +16609,7 @@
           "description": "The DataHarmonizer software and template version provenance.",
           "title": "DataHarmonizer provenance",
           "from_schema": "https://example.com/GRDI",
-          "rank": 185,
+          "rank": 193,
           "slot_uri": "GENEPIO:0001518",
           "alias": "DataHarmonizer_provenance",
           "owner": "WastewaterAMR",
@@ -16528,8 +16776,25 @@
         },
         "organism": {
           "name": "organism",
+          "comments": [
+            "Provide the official nomenclature for the organism(s) present in the sample. Multiple organisms can be entered, separated by semicolons. Avoid abbreviations. Search for taxonomic names here: ncbi.nlm.nih.gov/taxonomy."
+          ],
+          "examples": [
+            {
+              "value": "Vibrio cholerae"
+            }
+          ],
           "rank": 30,
-          "slot_group": "Sample collection and processing"
+          "slot_group": "Sample collection and processing",
+          "required": true,
+          "any_of": [
+            {
+              "range": "WhitespaceMinimizedString"
+            },
+            {
+              "range": "null value menu"
+            }
+          ]
         },
         "purpose of sampling": {
           "name": "purpose of sampling",
@@ -17411,11 +17676,11 @@
         "gene name": {
           "name": "gene name",
           "comments": [
-            "Provide the full name of the gene used in the test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI"
+            "Provide the full name of the gene used in the test. Standardized gene names can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI"
           ],
           "examples": [
             {
-              "value": "Gyrase A"
+              "value": "gyrase A"
             }
           ],
           "rank": 206,
@@ -18022,6 +18287,14 @@
           "name": "organism",
           "description": "Taxonomic name of the organism.",
           "title": "organism",
+          "comments": [
+            "Provide the official nomenclature for the organism(s) present in the sample. Multiple organisms can be entered, separated by semicolons. Avoid abbreviations. Search for taxonomic names here: ncbi.nlm.nih.gov/taxonomy."
+          ],
+          "examples": [
+            {
+              "value": "Vibrio cholerae"
+            }
+          ],
           "from_schema": "https://example.com/GRDI",
           "rank": 30,
           "slot_uri": "GENEPIO:0001191",
@@ -18030,10 +18303,19 @@
           "owner": "WastewaterPathogenAgnostic",
           "domain_of": [
             "WastewaterSARS-CoV-2",
+            "WastewaterAMR",
             "WastewaterPathogenAgnostic"
           ],
           "slot_group": "Sample collection and processing",
-          "required": true
+          "required": true,
+          "any_of": [
+            {
+              "range": "WhitespaceMinimizedString"
+            },
+            {
+              "range": "null value menu"
+            }
+          ]
         },
         "purpose of sampling": {
           "name": "purpose of sampling",
@@ -20582,6 +20864,7 @@
           "owner": "WastewaterPathogenAgnostic",
           "domain_of": [
             "WastewaterSARS-CoV-2",
+            "WastewaterAMR",
             "WastewaterPathogenAgnostic"
           ],
           "slot_group": "Bioinformatics and QC metrics",
@@ -20598,6 +20881,7 @@
           "owner": "WastewaterPathogenAgnostic",
           "domain_of": [
             "WastewaterSARS-CoV-2",
+            "WastewaterAMR",
             "WastewaterPathogenAgnostic"
           ],
           "slot_group": "Bioinformatics and QC metrics",
@@ -20614,6 +20898,7 @@
           "owner": "WastewaterPathogenAgnostic",
           "domain_of": [
             "WastewaterSARS-CoV-2",
+            "WastewaterAMR",
             "WastewaterPathogenAgnostic"
           ],
           "slot_group": "Bioinformatics and QC metrics",
@@ -20646,6 +20931,7 @@
           "owner": "WastewaterPathogenAgnostic",
           "domain_of": [
             "WastewaterSARS-CoV-2",
+            "WastewaterAMR",
             "WastewaterPathogenAgnostic"
           ],
           "slot_group": "Bioinformatics and QC metrics",
@@ -20662,6 +20948,7 @@
           "owner": "WastewaterPathogenAgnostic",
           "domain_of": [
             "WastewaterSARS-CoV-2",
+            "WastewaterAMR",
             "WastewaterPathogenAgnostic"
           ],
           "slot_group": "Bioinformatics and QC metrics",
@@ -20678,6 +20965,7 @@
           "owner": "WastewaterPathogenAgnostic",
           "domain_of": [
             "WastewaterSARS-CoV-2",
+            "WastewaterAMR",
             "WastewaterPathogenAgnostic"
           ],
           "slot_group": "Bioinformatics and QC metrics",
@@ -20694,6 +20982,7 @@
           "owner": "WastewaterPathogenAgnostic",
           "domain_of": [
             "WastewaterSARS-CoV-2",
+            "WastewaterAMR",
             "WastewaterPathogenAgnostic"
           ],
           "slot_group": "Bioinformatics and QC metrics",
@@ -20948,11 +21237,11 @@
           "description": "The name of the gene used in the diagnostic RT-PCR test.",
           "title": "gene name",
           "comments": [
-            "Provide the full name of the gene used in the test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI"
+            "Provide the full name of the gene used in the test. Standardized gene names can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI"
           ],
           "examples": [
             {
-              "value": "Gyrase A"
+              "value": "gyrase A"
             }
           ],
           "from_schema": "https://example.com/GRDI",

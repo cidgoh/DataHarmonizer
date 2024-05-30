@@ -2,7 +2,7 @@
   "name": "Mpox",
   "description": "",
   "id": "https://example.com/mpox",
-  "version": "4.3.3",
+  "version": "5.3.3",
   "prefixes": {
     "linkml": {
       "prefix_prefix": "linkml",
@@ -46,6 +46,9 @@
     "string": {
       "name": "string",
       "description": "A character string",
+      "notes": [
+        "In RDF serializations, a slot with range of string is treated as a literal or type xsd:string.   If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"string\"."
+      ],
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
         "schema:Text"
@@ -56,6 +59,9 @@
     "integer": {
       "name": "integer",
       "description": "An integer",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"integer\"."
+      ],
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
         "schema:Integer"
@@ -66,6 +72,9 @@
     "boolean": {
       "name": "boolean",
       "description": "A binary (true or false) value",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"boolean\"."
+      ],
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
         "schema:Boolean"
@@ -77,6 +86,9 @@
     "float": {
       "name": "float",
       "description": "A real number that conforms to the xsd:float specification",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"float\"."
+      ],
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
         "schema:Float"
@@ -87,6 +99,9 @@
     "double": {
       "name": "double",
       "description": "A real number that conforms to the xsd:double specification",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"double\"."
+      ],
       "from_schema": "https://example.com/mpox",
       "close_mappings": [
         "schema:Float"
@@ -97,6 +112,9 @@
     "decimal": {
       "name": "decimal",
       "description": "A real number with arbitrary precision that conforms to the xsd:decimal specification",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"decimal\"."
+      ],
       "from_schema": "https://example.com/mpox",
       "broad_mappings": [
         "schema:Number"
@@ -108,21 +126,23 @@
       "name": "time",
       "description": "A time object represents a (local) time of day, independent of any particular day",
       "notes": [
-        "URI is dateTime because OWL reasoners do not work with straight date or time"
+        "URI is dateTime because OWL reasoners do not work with straight date or time",
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"time\"."
       ],
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
         "schema:Time"
       ],
       "base": "XSDTime",
-      "uri": "xsd:dateTime",
+      "uri": "xsd:time",
       "repr": "str"
     },
     "date": {
       "name": "date",
       "description": "a date (year, month and day) in an idealized calendar",
       "notes": [
-        "URI is dateTime because OWL reasoners don't work with straight date or time"
+        "URI is dateTime because OWL reasoners don't work with straight date or time",
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"date\"."
       ],
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
@@ -135,6 +155,9 @@
     "datetime": {
       "name": "datetime",
       "description": "The combination of a date and time",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"datetime\"."
+      ],
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
         "schema:DateTime"
@@ -146,6 +169,9 @@
     "date_or_datetime": {
       "name": "date_or_datetime",
       "description": "Either a date or a datetime",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"date_or_datetime\"."
+      ],
       "from_schema": "https://example.com/mpox",
       "base": "str",
       "uri": "linkml:DateOrDatetime",
@@ -154,6 +180,9 @@
     "uriorcurie": {
       "name": "uriorcurie",
       "description": "a URI or a CURIE",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"uriorcurie\"."
+      ],
       "from_schema": "https://example.com/mpox",
       "base": "URIorCURIE",
       "uri": "xsd:anyURI",
@@ -163,6 +192,9 @@
       "name": "curie",
       "conforms_to": "https://www.w3.org/TR/curie/",
       "description": "a compact URI",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"curie\"."
+      ],
       "comments": [
         "in RDF serializations this MUST be expanded to a URI",
         "in non-RDF serializations MAY be serialized as the compact representation"
@@ -176,6 +208,9 @@
       "name": "uri",
       "conforms_to": "https://www.ietf.org/rfc/rfc3987.txt",
       "description": "a complete URI",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"uri\"."
+      ],
       "comments": [
         "in RDF serializations a slot with range of uri is treated as a literal or type xsd:anyURI unless it is an identifier or a reference to an identifier, in which case it is translated directly to a node"
       ],
@@ -190,6 +225,9 @@
     "ncname": {
       "name": "ncname",
       "description": "Prefix part of CURIE",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"ncname\"."
+      ],
       "from_schema": "https://example.com/mpox",
       "base": "NCName",
       "uri": "xsd:string",
@@ -198,8 +236,11 @@
     "objectidentifier": {
       "name": "objectidentifier",
       "description": "A URI or CURIE that represents an object in the model.",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"objectidentifier\"."
+      ],
       "comments": [
-        "Used for inheritence and type checking"
+        "Used for inheritance and type checking"
       ],
       "from_schema": "https://example.com/mpox",
       "base": "ElementIdentifier",
@@ -209,9 +250,48 @@
     "nodeidentifier": {
       "name": "nodeidentifier",
       "description": "A URI, CURIE or BNODE that represents a node in a model.",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"nodeidentifier\"."
+      ],
       "from_schema": "https://example.com/mpox",
       "base": "NodeIdentifier",
       "uri": "shex:nonLiteral",
+      "repr": "str"
+    },
+    "jsonpointer": {
+      "name": "jsonpointer",
+      "conforms_to": "https://datatracker.ietf.org/doc/html/rfc6901",
+      "description": "A string encoding a JSON Pointer. The value of the string MUST conform to JSON Point syntax and SHOULD dereference to a valid object within the current instance document when encoded in tree form.",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"jsonpointer\"."
+      ],
+      "from_schema": "https://example.com/mpox",
+      "base": "str",
+      "uri": "xsd:string",
+      "repr": "str"
+    },
+    "jsonpath": {
+      "name": "jsonpath",
+      "conforms_to": "https://www.ietf.org/archive/id/draft-goessner-dispatch-jsonpath-00.html",
+      "description": "A string encoding a JSON Path. The value of the string MUST conform to JSON Point syntax and SHOULD dereference to zero or more valid objects within the current instance document when encoded in tree form.",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"jsonpath\"."
+      ],
+      "from_schema": "https://example.com/mpox",
+      "base": "str",
+      "uri": "xsd:string",
+      "repr": "str"
+    },
+    "sparqlpath": {
+      "name": "sparqlpath",
+      "conforms_to": "https://www.w3.org/TR/sparql11-query/#propertypaths",
+      "description": "A string encoding a SPARQL Property Path. The value of the string MUST conform to SPARQL syntax and SHOULD dereference to zero or more valid objects within the current instance document when encoded as RDF.",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"sparqlpath\"."
+      ],
+      "from_schema": "https://example.com/mpox",
+      "base": "str",
+      "uri": "xsd:string",
       "repr": "str"
     }
   },
@@ -6976,11 +7056,11 @@
       ],
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
-        "GISAID:Sample ID given by the sample provider",
-        "CNPHI:Primary Specimen ID",
+        "GISAID:Sample%20ID%20given%20by%20the%20sample%20provider",
+        "CNPHI:Primary%20Specimen%20ID",
         "NML_LIMS:TEXT_ID",
         "BIOSAMPLE:sample_name",
-        "VirusSeq_Portal:specimen collector sample ID"
+        "VirusSeq_Portal:specimen%20collector%20sample%20ID"
       ],
       "slot_uri": "GENEPIO:0001123",
       "identifier": true,
@@ -7001,8 +7081,8 @@
       ],
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
-        "CNPHI:Related Specimen ID",
-        "CNPHI:Related Specimen Relationship Type",
+        "CNPHI:Related%20Specimen%20ID",
+        "CNPHI:Related%20Specimen%20Relationship%20Type",
         "NML_LIMS:PH_RELATED_PRIMARY_ID",
         "BIOSAMPLE:host_subject_ID"
       ],
@@ -7049,7 +7129,7 @@
       ],
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
-        "NML_LIMS:SUBMISSIONS - BioProject Accession"
+        "NML_LIMS:SUBMISSIONS%20-%20BioProject%20Accession"
       ],
       "slot_uri": "GENEPIO:0001136",
       "range": "WhitespaceMinimizedString",
@@ -7073,7 +7153,7 @@
       ],
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
-        "NML_LIMS:SUBMISSIONS - BioSample Accession"
+        "NML_LIMS:SUBMISSIONS%20-%20BioSample%20Accession"
       ],
       "slot_uri": "GENEPIO:0001139",
       "range": "WhitespaceMinimizedString",
@@ -7097,7 +7177,7 @@
       ],
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
-        "NML_LIMS:SUBMISSIONS - SRA Accession"
+        "NML_LIMS:SUBMISSIONS%20-%20SRA%20Accession"
       ],
       "slot_uri": "GENEPIO:0001142",
       "range": "WhitespaceMinimizedString",
@@ -7121,7 +7201,7 @@
       ],
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
-        "NML_LIMS:SUBMISSIONS - GenBank Accession"
+        "NML_LIMS:SUBMISSIONS%20-%20GenBank%20Accession"
       ],
       "slot_uri": "GENEPIO:0001145",
       "range": "WhitespaceMinimizedString",
@@ -7145,7 +7225,7 @@
       ],
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
-        "GISAID:Virus name",
+        "GISAID:Virus%20name",
         "BIOSAMPLE:GISAID_virus_name"
       ],
       "slot_uri": "GENEPIO:0100282",
@@ -7165,10 +7245,10 @@
       ],
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
-        "CNPHI:GISAID Accession (if known)",
-        "NML_LIMS:SUBMISSIONS - GISAID Accession",
+        "CNPHI:GISAID%20Accession%20%28if%20known%29",
+        "NML_LIMS:SUBMISSIONS%20-%20GISAID%20Accession",
         "BIOSAMPLE:GISAID_accession",
-        "VirusSeq_Portal:GISAID accession"
+        "VirusSeq_Portal:GISAID%20accession"
       ],
       "slot_uri": "GENEPIO:0001147",
       "range": "WhitespaceMinimizedString",
@@ -7208,7 +7288,7 @@
       ],
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
-        "NML_LIMS:sample collector contact email"
+        "NML_LIMS:sample%20collector%20contact%20email"
       ],
       "slot_uri": "GENEPIO:0001156",
       "range": "WhitespaceMinimizedString",
@@ -7229,7 +7309,7 @@
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
         "GISAID:Address",
-        "NML_LIMS:sample collector contact address"
+        "NML_LIMS:sample%20collector%20contact%20address"
       ],
       "slot_uri": "GENEPIO:0001158",
       "range": "WhitespaceMinimizedString"
@@ -7264,7 +7344,7 @@
       ],
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
-        "NML_LIMS:sequenced by contact email"
+        "NML_LIMS:sequenced%20by%20contact%20email"
       ],
       "slot_uri": "GENEPIO:0100422",
       "range": "WhitespaceMinimizedString"
@@ -7283,7 +7363,7 @@
       ],
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
-        "NML_LIMS:sequenced by contact address"
+        "NML_LIMS:sequenced%20by%20contact%20address"
       ],
       "slot_uri": "GENEPIO:0100423",
       "range": "WhitespaceMinimizedString"
@@ -7318,7 +7398,7 @@
       ],
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
-        "NML_LIMS:sequence submitter contact email"
+        "NML_LIMS:sequence%20submitter%20contact%20email"
       ],
       "slot_uri": "GENEPIO:0001165",
       "range": "WhitespaceMinimizedString"
@@ -7338,7 +7418,7 @@
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
         "GISAID:Address",
-        "NML_LIMS:sequence submitter contact address"
+        "NML_LIMS:sequence%20submitter%20contact%20address"
       ],
       "slot_uri": "GENEPIO:0001167",
       "range": "WhitespaceMinimizedString"
@@ -7361,11 +7441,11 @@
       ],
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
-        "GISAID:Collection date",
-        "CNPHI:Patient Sample Collected Date",
+        "GISAID:Collection%20date",
+        "CNPHI:Patient%20Sample%20Collected%20Date",
         "NML_LIMS:HC_COLLECT_DATE",
         "BIOSAMPLE:collection_date",
-        "VirusSeq_Portal:sample collection date"
+        "VirusSeq_Portal:sample%20collection%20date"
       ],
       "slot_uri": "GENEPIO:0001174",
       "required": true,
@@ -7392,7 +7472,7 @@
       ],
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
-        "CNPHI:Precision of date collected",
+        "CNPHI:Precision%20of%20date%20collected",
         "NML_LIMS:HC_TEXT2"
       ],
       "slot_uri": "GENEPIO:0001177",
@@ -7424,7 +7504,7 @@
       ],
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
-        "NML_LIMS:sample received date"
+        "NML_LIMS:sample%20received%20date"
       ],
       "slot_uri": "GENEPIO:0001179",
       "any_of": [
@@ -7446,10 +7526,10 @@
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
         "GISAID:Location",
-        "CNPHI:Patient Country",
+        "CNPHI:Patient%20Country",
         "NML_LIMS:HC_COUNTRY",
         "BIOSAMPLE:geo_loc_name",
-        "VirusSeq_Portal:geo_loc_name (country)"
+        "VirusSeq_Portal:geo_loc_name%20%28country%29"
       ],
       "slot_uri": "GENEPIO:0001181",
       "required": true
@@ -7465,10 +7545,10 @@
       ],
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
-        "CNPHI:Patient Province",
+        "CNPHI:Patient%20Province",
         "NML_LIMS:HC_PROVINCE",
         "BIOSAMPLE:geo_loc_name",
-        "VirusSeq_Portal:geo_loc_name (state/province/territory)"
+        "VirusSeq_Portal:geo_loc_name%20%28state/province/territory%29"
       ],
       "slot_uri": "GENEPIO:0001185",
       "required": true
@@ -7549,10 +7629,10 @@
       ],
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
-        "CNPHI:Reason for Sampling",
+        "CNPHI:Reason%20for%20Sampling",
         "NML_LIMS:HC_SAMPLE_CATEGORY",
         "BIOSAMPLE:purpose_of_sampling",
-        "VirusSeq_Portal:purpose of sampling"
+        "VirusSeq_Portal:purpose%20of%20sampling"
       ],
       "slot_uri": "GENEPIO:0001198",
       "required": true
@@ -7571,10 +7651,10 @@
       ],
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
-        "CNPHI:Details on the Reason for Sampling",
+        "CNPHI:Details%20on%20the%20Reason%20for%20Sampling",
         "NML_LIMS:PH_SAMPLING_DETAILS",
         "BIOSAMPLE:description",
-        "VirusSeq_Portal:purpose of sampling details"
+        "VirusSeq_Portal:purpose%20of%20sampling%20details"
       ],
       "slot_uri": "GENEPIO:0001200",
       "required": true,
@@ -7601,7 +7681,7 @@
       ],
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
-        "CNPHI:Specimen Type",
+        "CNPHI:Specimen%20Type",
         "NML_LIMS:PH_SPECIMEN_TYPE"
       ],
       "slot_uri": "GENEPIO:0001204",
@@ -7622,8 +7702,8 @@
       ],
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
-        "CNPHI:Related Specimen ID",
-        "CNPHI:Related Specimen Relationship Type",
+        "CNPHI:Related%20Specimen%20ID",
+        "CNPHI:Related%20Specimen%20Relationship%20Type",
         "NML_LIMS:PH_RELATED_RELATIONSHIP_TYPE"
       ],
       "slot_uri": "GENEPIO:0001209",
@@ -7645,12 +7725,12 @@
       ],
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
-        "GISAID:Specimen source",
-        "CNPHI:Anatomical Material",
+        "GISAID:Specimen%20source",
+        "CNPHI:Anatomical%20Material",
         "NML_LIMS:PH_ISOLATION_SITE_DESC",
         "BIOSAMPLE:isolation_source",
         "BIOSAMPLE:anatomical_material",
-        "VirusSeq_Portal:anatomical material"
+        "VirusSeq_Portal:anatomical%20material"
       ],
       "slot_uri": "GENEPIO:0001211",
       "multivalued": true
@@ -7664,12 +7744,12 @@
       ],
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
-        "GISAID:Specimen source",
-        "CNPHI:Anatomical Site",
+        "GISAID:Specimen%20source",
+        "CNPHI:Anatomical%20Site",
         "NML_LIMS:PH_ISOLATION_SITE",
         "BIOSAMPLE:isolation_source",
         "BIOSAMPLE:anatomical_part",
-        "VirusSeq_Portal:anatomical part"
+        "VirusSeq_Portal:anatomical%20part"
       ],
       "slot_uri": "GENEPIO:0001214",
       "multivalued": true
@@ -7683,12 +7763,12 @@
       ],
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
-        "GISAID:Specimen source",
-        "CNPHI:Body Product",
+        "GISAID:Specimen%20source",
+        "CNPHI:Body%20Product",
         "NML_LIMS:PH_SPECIMEN_SOURCE_DESC",
         "BIOSAMPLE:isolation_source",
         "BIOSAMPLE:body_product",
-        "VirusSeq_Portal:body product"
+        "VirusSeq_Portal:body%20product"
       ],
       "slot_uri": "GENEPIO:0001216",
       "multivalued": true
@@ -7707,7 +7787,7 @@
       ],
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
-        "GISAID:Specimen source",
+        "GISAID:Specimen%20source",
         "BIOSAMPLE:isolation_source",
         "BIOSAMPLE:environmental_material"
       ],
@@ -7732,12 +7812,12 @@
       ],
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
-        "GISAID:Specimen source",
-        "CNPHI:Specimen Collection Matrix",
+        "GISAID:Specimen%20source",
+        "CNPHI:Specimen%20Collection%20Matrix",
         "NML_LIMS:PH_SPECIMEN_TYPE_ORIG",
         "BIOSAMPLE:isolation_source",
         "BIOSAMPLE:collection_device",
-        "VirusSeq_Portal:collection device"
+        "VirusSeq_Portal:collection%20device"
       ],
       "slot_uri": "GENEPIO:0001234",
       "multivalued": true
@@ -7751,12 +7831,12 @@
       ],
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
-        "GISAID:Specimen source",
-        "CNPHI:Collection Method",
+        "GISAID:Specimen%20source",
+        "CNPHI:Collection%20Method",
         "NML_LIMS:COLLECTION_METHOD",
         "BIOSAMPLE:isolation_source",
         "BIOSAMPLE:collection_method",
-        "VirusSeq_Portal:collection method"
+        "VirusSeq_Portal:collection%20method"
       ],
       "slot_uri": "GENEPIO:0001241",
       "multivalued": true
@@ -7786,7 +7866,7 @@
       ],
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
-        "NML_LIMS:specimen processing details"
+        "NML_LIMS:specimen%20processing%20details"
       ],
       "slot_uri": "GENEPIO:0100311",
       "range": "WhitespaceMinimizedString"
@@ -7816,9 +7896,9 @@
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
         "GISAID:Host",
-        "NML_LIMS:host (scientific name)",
+        "NML_LIMS:host%20%28scientific%20name%29",
         "BIOSAMPLE:host",
-        "VirusSeq_Portal:host (scientific name)"
+        "VirusSeq_Portal:host%20%28scientific%20name%29"
       ],
       "slot_uri": "GENEPIO:0001387",
       "required": true
@@ -7859,18 +7939,30 @@
       "title": "host disease",
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
-        "CNPHI:Host Disease",
+        "CNPHI:Host%20Disease",
         "NML_LIMS:PH_HOST_DISEASE",
         "BIOSAMPLE:host_disease",
-        "VirusSeq_Portal:host disease"
+        "VirusSeq_Portal:host%20disease"
       ],
       "slot_uri": "GENEPIO:0001391",
       "required": true
     },
     "host subject ID": {
       "name": "host subject ID",
+      "description": "A unique identifier by which each host can be referred to.",
       "title": "host subject ID",
+      "comments": [
+        "This identifier can be used to link samples from the same individual. Caution: consult the data steward before sharing as this value may be considered identifiable information."
+      ],
+      "examples": [
+        {
+          "value": "12345B-222"
+        }
+      ],
       "from_schema": "https://example.com/mpox",
+      "exact_mappings": [
+        "BIOSAMPLE:host_subject_id"
+      ],
       "slot_uri": "GENEPIO:0001398",
       "range": "WhitespaceMinimizedString"
     },
@@ -7888,8 +7980,8 @@
       ],
       "from_schema": "https://example.com/mpox",
       "slot_uri": "GENEPIO:0001392",
-      "minimum_value": 0,
-      "maximum_value": 130,
+      "minimum_value": "0",
+      "maximum_value": "130",
       "any_of": [
         {
           "range": "decimal"
@@ -8020,7 +8112,7 @@
       ],
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
-        "NML_LIMS:pre-existing conditions and risk factors"
+        "NML_LIMS:pre-existing%20conditions%20and%20risk%20factors"
       ],
       "slot_uri": "GENEPIO:0001401",
       "multivalued": true
@@ -8053,7 +8145,7 @@
       ],
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
-        "NML_LIMS:antiviral therapy"
+        "NML_LIMS:antiviral%20therapy"
       ],
       "slot_uri": "GENEPIO:0100580",
       "range": "WhitespaceMinimizedString"
@@ -8085,7 +8177,7 @@
       ],
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
-        "NML_LIMS:number of vaccine doses received"
+        "NML_LIMS:number%20of%20vaccine%20doses%20received"
       ],
       "slot_uri": "GENEPIO:0001406",
       "range": "integer"
@@ -8300,8 +8392,8 @@
       ],
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
-        "GISAID:Additional location information",
-        "CNPHI:Exposure Event",
+        "GISAID:Additional%20location%20information",
+        "CNPHI:Exposure%20Event",
         "NML_LIMS:PH_EXPOSURE"
       ],
       "slot_uri": "GENEPIO:0001417"
@@ -8315,7 +8407,7 @@
       ],
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
-        "NML_LIMS:exposure contact level"
+        "NML_LIMS:exposure%20contact%20level"
       ],
       "slot_uri": "GENEPIO:0001418"
     },
@@ -8390,7 +8482,7 @@
       ],
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
-        "NML_LIMS:prior Monkeypox infection date"
+        "NML_LIMS:prior%20Monkeypox%20infection%20date"
       ],
       "slot_uri": "GENEPIO:0100533",
       "any_of": [
@@ -8426,7 +8518,7 @@
       ],
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
-        "NML_LIMS:prior antiviral treatment during Monkeypox infection"
+        "NML_LIMS:prior%20antiviral%20treatment%20during%20Monkeypox%20infection"
       ],
       "slot_uri": "GENEPIO:0100535",
       "range": "WhitespaceMinimizedString"
@@ -8440,11 +8532,11 @@
       ],
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
-        "GISAID:Sampling Strategy",
-        "CNPHI:Reason for Sequencing",
+        "GISAID:Sampling%20Strategy",
+        "CNPHI:Reason%20for%20Sequencing",
         "NML_LIMS:PH_REASON_FOR_SEQUENCING",
         "BIOSAMPLE:purpose_of_sequencing",
-        "VirusSeq_Portal:purpose of sequencing"
+        "VirusSeq_Portal:purpose%20of%20sequencing"
       ],
       "slot_uri": "GENEPIO:0001445",
       "multivalued": true,
@@ -8464,9 +8556,9 @@
       ],
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
-        "CNPHI:Details on the Reason for Sequencing",
+        "CNPHI:Details%20on%20the%20Reason%20for%20Sequencing",
         "NML_LIMS:PH_REASON_FOR_SEQUENCING_DETAILS",
-        "VirusSeq_Portal:purpose of sequencing details"
+        "VirusSeq_Portal:purpose%20of%20sequencing%20details"
       ],
       "slot_uri": "GENEPIO:0001446",
       "required": true,
@@ -8522,7 +8614,7 @@
       ],
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
-        "NML_LIMS:library ID"
+        "NML_LIMS:library%20ID"
       ],
       "slot_uri": "GENEPIO:0001448",
       "range": "WhitespaceMinimizedString",
@@ -8542,7 +8634,7 @@
       ],
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
-        "NML_LIMS:amplicon size"
+        "NML_LIMS:amplicon%20size"
       ],
       "slot_uri": "GENEPIO:0001449",
       "range": "WhitespaceMinimizedString"
@@ -8575,10 +8667,10 @@
       ],
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
-        "GISAID:Sequencing technology",
-        "CNPHI:Sequencing Instrument",
+        "GISAID:Sequencing%20technology",
+        "CNPHI:Sequencing%20Instrument",
         "NML_LIMS:PH_SEQUENCING_INSTRUMENT",
-        "VirusSeq_Portal:sequencing instrument"
+        "VirusSeq_Portal:sequencing%20instrument"
       ],
       "slot_uri": "GENEPIO:0001452",
       "multivalued": true,
@@ -8599,7 +8691,7 @@
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
         "NML_LIMS:PH_TESTING_PROTOCOL",
-        "VirusSeq_Portal:sequencing protocol"
+        "VirusSeq_Portal:sequencing%20protocol"
       ],
       "slot_uri": "GENEPIO:0001454",
       "range": "WhitespaceMinimizedString"
@@ -8618,7 +8710,7 @@
       ],
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
-        "NML_LIMS:sequencing kit number"
+        "NML_LIMS:sequencing%20kit%20number"
       ],
       "slot_uri": "GENEPIO:0001455",
       "range": "WhitespaceMinimizedString"
@@ -8637,7 +8729,7 @@
       ],
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
-        "NML_LIMS:amplicon pcr primer scheme"
+        "NML_LIMS:amplicon%20pcr%20primer%20scheme"
       ],
       "slot_uri": "GENEPIO:0001456",
       "range": "WhitespaceMinimizedString"
@@ -8657,7 +8749,7 @@
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
         "NML_LIMS:PH_RAW_SEQUENCE_METHOD",
-        "VirusSeq_Portal:raw sequence data processing method"
+        "VirusSeq_Portal:raw%20sequence%20data%20processing%20method"
       ],
       "slot_uri": "GENEPIO:0001458",
       "range": "WhitespaceMinimizedString"
@@ -8677,7 +8769,7 @@
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
         "NML_LIMS:PH_DEHOSTING_METHOD",
-        "VirusSeq_Portal:dehosting method"
+        "VirusSeq_Portal:dehosting%20method"
       ],
       "slot_uri": "GENEPIO:0001459",
       "range": "WhitespaceMinimizedString"
@@ -8696,7 +8788,7 @@
       ],
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
-        "NML_LIMS:consensus sequence name"
+        "NML_LIMS:consensus%20sequence%20name"
       ],
       "slot_uri": "GENEPIO:0001460",
       "range": "WhitespaceMinimizedString"
@@ -8715,7 +8807,7 @@
       ],
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
-        "NML_LIMS:consensus sequence filename"
+        "NML_LIMS:consensus%20sequence%20filename"
       ],
       "slot_uri": "GENEPIO:0001461",
       "range": "WhitespaceMinimizedString"
@@ -8734,7 +8826,7 @@
       ],
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
-        "NML_LIMS:consensus sequence filepath"
+        "NML_LIMS:consensus%20sequence%20filepath"
       ],
       "slot_uri": "GENEPIO:0001462",
       "range": "WhitespaceMinimizedString"
@@ -8753,10 +8845,10 @@
       ],
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
-        "GISAID:Assembly method",
-        "CNPHI:consensus sequence",
+        "GISAID:Assembly%20method",
+        "CNPHI:consensus%20sequence",
         "NML_LIMS:PH_CONSENSUS_SEQUENCE",
-        "VirusSeq_Portal:consensus sequence software name"
+        "VirusSeq_Portal:consensus%20sequence%20software%20name"
       ],
       "slot_uri": "GENEPIO:0001463",
       "range": "WhitespaceMinimizedString",
@@ -8776,10 +8868,10 @@
       ],
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
-        "GISAID:Assembly method",
-        "CNPHI:consensus sequence",
+        "GISAID:Assembly%20method",
+        "CNPHI:consensus%20sequence",
         "NML_LIMS:PH_CONSENSUS_SEQUENCE_VERSION",
-        "VirusSeq_Portal:consensus sequence software version"
+        "VirusSeq_Portal:consensus%20sequence%20software%20version"
       ],
       "slot_uri": "GENEPIO:0001469",
       "range": "WhitespaceMinimizedString",
@@ -8799,8 +8891,8 @@
       ],
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
-        "NML_LIMS:breadth of coverage value",
-        "VirusSeq_Portal:breadth of coverage value"
+        "NML_LIMS:breadth%20of%20coverage%20value",
+        "VirusSeq_Portal:breadth%20of%20coverage%20value"
       ],
       "slot_uri": "GENEPIO:0001472",
       "range": "WhitespaceMinimizedString"
@@ -8819,9 +8911,9 @@
       ],
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
-        "GISAID:Depth of coverage",
-        "NML_LIMS:depth of coverage value",
-        "VirusSeq_Portal:depth of coverage value"
+        "GISAID:Depth%20of%20coverage",
+        "NML_LIMS:depth%20of%20coverage%20value",
+        "VirusSeq_Portal:depth%20of%20coverage%20value"
       ],
       "slot_uri": "GENEPIO:0001474",
       "range": "WhitespaceMinimizedString"
@@ -8840,7 +8932,7 @@
       ],
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
-        "NML_LIMS:depth of coverage threshold"
+        "NML_LIMS:depth%20of%20coverage%20threshold"
       ],
       "slot_uri": "GENEPIO:0001475",
       "range": "WhitespaceMinimizedString"
@@ -8957,11 +9049,11 @@
       ],
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
-        "NML_LIMS:number of base pairs sequenced"
+        "NML_LIMS:number%20of%20base%20pairs%20sequenced"
       ],
       "slot_uri": "GENEPIO:0001482",
       "range": "integer",
-      "minimum_value": 0
+      "minimum_value": "0"
     },
     "consensus genome length": {
       "name": "consensus genome length",
@@ -8977,11 +9069,11 @@
       ],
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
-        "NML_LIMS:consensus genome length"
+        "NML_LIMS:consensus%20genome%20length"
       ],
       "slot_uri": "GENEPIO:0001483",
       "range": "integer",
-      "minimum_value": 0
+      "minimum_value": "0"
     },
     "reference genome accession": {
       "name": "reference genome accession",
@@ -8997,7 +9089,7 @@
       ],
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
-        "NML_LIMS:reference genome accession"
+        "NML_LIMS:reference%20genome%20accession"
       ],
       "slot_uri": "GENEPIO:0001485",
       "range": "WhitespaceMinimizedString"
@@ -9016,9 +9108,9 @@
       ],
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
-        "CNPHI:Bioinformatics Protocol",
+        "CNPHI:Bioinformatics%20Protocol",
         "NML_LIMS:PH_BIOINFORMATICS_PROTOCOL",
-        "VirusSeq_Portal:bioinformatics protocol"
+        "VirusSeq_Portal:bioinformatics%20protocol"
       ],
       "slot_uri": "GENEPIO:0001489",
       "range": "WhitespaceMinimizedString"
@@ -9034,10 +9126,10 @@
       ],
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
-        "CNPHI:Gene Target 1",
-        "NML_LIMS:SUBMITTED_RESLT - Gene Target #1",
+        "CNPHI:Gene%20Target%201",
+        "NML_LIMS:SUBMITTED_RESLT%20-%20Gene%20Target%20%231",
         "BIOSAMPLE:gene_name_1",
-        "VirusSeq_Portal:gene name"
+        "VirusSeq_Portal:gene%20name"
       ],
       "slot_uri": "GENEPIO:0001507"
     },
@@ -9055,10 +9147,10 @@
       ],
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
-        "CNPHI:Gene Target 1 CT Value",
-        "NML_LIMS:SUBMITTED_RESLT - Gene Target #1 CT Value",
+        "CNPHI:Gene%20Target%201%20CT%20Value",
+        "NML_LIMS:SUBMITTED_RESLT%20-%20Gene%20Target%20%231%20CT%20Value",
         "BIOSAMPLE:diagnostic_PCR_CT_value_1",
-        "VirusSeq_Portal:diagnostic pcr Ct value"
+        "VirusSeq_Portal:diagnostic%20pcr%20Ct%20value"
       ],
       "slot_uri": "GENEPIO:0001509",
       "any_of": [
@@ -9081,8 +9173,8 @@
       ],
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
-        "CNPHI:Gene Target 2",
-        "NML_LIMS:SUBMITTED_RESLT - Gene Target #2",
+        "CNPHI:Gene%20Target%202",
+        "NML_LIMS:SUBMITTED_RESLT%20-%20Gene%20Target%20%232",
         "BIOSAMPLE:gene_name_2"
       ],
       "slot_uri": "GENEPIO:0001510"
@@ -9101,8 +9193,8 @@
       ],
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
-        "CNPHI:Gene Target 2 CT Value",
-        "NML_LIMS:SUBMITTED_RESLT - Gene Target #2 CT Value",
+        "CNPHI:Gene%20Target%202%20CT%20Value",
+        "NML_LIMS:SUBMITTED_RESLT%20-%20Gene%20Target%20%232%20CT%20Value",
         "BIOSAMPLE:diagnostic_PCR_CT_value_2"
       ],
       "slot_uri": "GENEPIO:0001512",
@@ -9126,8 +9218,8 @@
       ],
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
-        "CNPHI:Gene Target 3",
-        "NML_LIMS:SUBMITTED_RESLT - Gene Target #3",
+        "CNPHI:Gene%20Target%203",
+        "NML_LIMS:SUBMITTED_RESLT%20-%20Gene%20Target%20%233",
         "BIOSAMPLE:gene_name_3"
       ],
       "slot_uri": "GENEPIO:0001513"
@@ -9146,8 +9238,8 @@
       ],
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
-        "CNPHI:Gene Target 3 CT Value",
-        "NML_LIMS:SUBMITTED_RESLT - Gene Target #3 CT Value",
+        "CNPHI:Gene%20Target%203%20CT%20Value",
+        "NML_LIMS:SUBMITTED_RESLT%20-%20Gene%20Target%20%233%20CT%20Value",
         "BIOSAMPLE:diagnostic_PCR_CT_value_3"
       ],
       "slot_uri": "GENEPIO:0001515",
@@ -9174,8 +9266,8 @@
       ],
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
-        "CNPHI:Gene Target 4",
-        "NML_LIMS:SUBMITTED_RESLT - Gene Target #4",
+        "CNPHI:Gene%20Target%204",
+        "NML_LIMS:SUBMITTED_RESLT%20-%20Gene%20Target%20%234",
         "BIOSAMPLE:gene_name_4"
       ],
       "slot_uri": "GENEPIO:0100576",
@@ -9202,8 +9294,8 @@
       ],
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
-        "CNPHI:Gene Target 4 CT Value",
-        "NML_LIMS:SUBMITTED_RESLT - Gene Target #4 CT Value",
+        "CNPHI:Gene%20Target%204%20CT%20Value",
+        "NML_LIMS:SUBMITTED_RESLT%20-%20Gene%20Target%20%234%20CT%20Value",
         "BIOSAMPLE:diagnostic_PCR_CT_value_4"
       ],
       "slot_uri": "GENEPIO:0100577",
@@ -9230,8 +9322,8 @@
       ],
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
-        "CNPHI:Gene Target 5",
-        "NML_LIMS:SUBMITTED_RESLT - Gene Target #5",
+        "CNPHI:Gene%20Target%205",
+        "NML_LIMS:SUBMITTED_RESLT%20-%20Gene%20Target%20%235",
         "BIOSAMPLE:gene_name_5"
       ],
       "slot_uri": "GENEPIO:0100578",
@@ -9258,8 +9350,8 @@
       ],
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
-        "CNPHI:Gene Target 5 CT Value",
-        "NML_LIMS:SUBMITTED_RESLT - Gene Target #5 CT Value",
+        "CNPHI:Gene%20Target%205%20CT%20Value",
+        "NML_LIMS:SUBMITTED_RESLT%20-%20Gene%20Target%20%235%20CT%20Value",
         "BIOSAMPLE:diagnostic_PCR_CT_value_5"
       ],
       "slot_uri": "GENEPIO:0100579",
@@ -9308,7 +9400,7 @@
       ],
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
-        "CNPHI:Additional Comments",
+        "CNPHI:Additional%20Comments",
         "NML_LIMS:HC_COMMENTS"
       ],
       "slot_uri": "GENEPIO:0001518",
@@ -9379,11 +9471,11 @@
         "sample collected by": {
           "name": "sample collected by",
           "exact_mappings": [
-            "GISAID:Originating lab",
-            "CNPHI:Lab Name",
+            "GISAID:Originating%20lab",
+            "CNPHI:Lab%20Name",
             "NML_LIMS:CUSTOMER",
             "BIOSAMPLE:collected_by",
-            "VirusSeq_Portal:sample collected by"
+            "VirusSeq_Portal:sample%20collected%20by"
           ],
           "rank": 9,
           "slot_group": "Sample collection and processing",
@@ -9436,11 +9528,11 @@
         "sequence submitted by": {
           "name": "sequence submitted by",
           "exact_mappings": [
-            "GISAID:Submitting lab",
-            "CNPHI:Sequencing Centre",
+            "GISAID:Submitting%20lab",
+            "CNPHI:Sequencing%20Centre",
             "NML_LIMS:PH_SEQUENCE_SUBMITTER",
             "BIOSAMPLE:sequence_submitted_by",
-            "VirusSeq_Portal:sequence submitted by"
+            "VirusSeq_Portal:sequence%20submitted%20by"
           ],
           "rank": 15,
           "slot_group": "Sample collection and processing",
@@ -9544,13 +9636,13 @@
             }
           ],
           "exact_mappings": [
-            "GISAID:Virus name",
-            "CNPHI:GISAID Virus Name",
-            "NML_LIMS:SUBMISSIONS - GISAID Virus Name",
+            "GISAID:Virus%20name",
+            "CNPHI:GISAID%20Virus%20Name",
+            "NML_LIMS:SUBMISSIONS%20-%20GISAID%20Virus%20Name",
             "BIOSAMPLE:isolate",
             "BIOSAMPLE:GISAID_virus_name",
             "VirusSeq_Portal:isolate",
-            "VirusSeq_Portal:fasta header name"
+            "VirusSeq_Portal:fasta%20header%20name"
           ],
           "rank": 24,
           "slot_uri": "GENEPIO:0001195",
@@ -9692,7 +9784,7 @@
             }
           ],
           "exact_mappings": [
-            "NML_LIMS:specimen processing"
+            "NML_LIMS:specimen%20processing"
           ],
           "rank": 34,
           "slot_group": "Sample collection and processing",
@@ -9752,7 +9844,7 @@
             }
           ],
           "exact_mappings": [
-            "GISAID:Patient status",
+            "GISAID:Patient%20status",
             "NML_LIMS:PH_HOST_HEALTH",
             "BIOSAMPLE:host_health_state"
           ],
@@ -9834,7 +9926,7 @@
         "host age": {
           "name": "host age",
           "exact_mappings": [
-            "GISAID:Patient age",
+            "GISAID:Patient%20age",
             "NML_LIMS:PH_AGE",
             "BIOSAMPLE:host_age"
           ],
@@ -10193,7 +10285,7 @@
             }
           ],
           "exact_mappings": [
-            "NML_LIMS:prior Monkeypox infection"
+            "NML_LIMS:prior%20Monkeypox%20infection"
           ],
           "rank": 70,
           "slot_group": "Host reinfection information",
@@ -10219,7 +10311,7 @@
             }
           ],
           "exact_mappings": [
-            "NML_LIMS:prior Monkeypox antiviral treatment"
+            "NML_LIMS:prior%20Monkeypox%20antiviral%20treatment"
           ],
           "rank": 72,
           "slot_group": "Host reinfection information",
@@ -10699,11 +10791,11 @@
           "title": "sample collected by",
           "from_schema": "https://example.com/mpox",
           "exact_mappings": [
-            "GISAID:Originating lab",
-            "CNPHI:Lab Name",
+            "GISAID:Originating%20lab",
+            "CNPHI:Lab%20Name",
             "NML_LIMS:CUSTOMER",
             "BIOSAMPLE:collected_by",
-            "VirusSeq_Portal:sample collected by"
+            "VirusSeq_Portal:sample%20collected%20by"
           ],
           "rank": 9,
           "slot_uri": "GENEPIO:0001153",
@@ -10823,11 +10915,11 @@
           "title": "sequence submitted by",
           "from_schema": "https://example.com/mpox",
           "exact_mappings": [
-            "GISAID:Submitting lab",
-            "CNPHI:Sequencing Centre",
+            "GISAID:Submitting%20lab",
+            "CNPHI:Sequencing%20Centre",
             "NML_LIMS:PH_SEQUENCE_SUBMITTER",
             "BIOSAMPLE:sequence_submitted_by",
-            "VirusSeq_Portal:sequence submitted by"
+            "VirusSeq_Portal:sequence%20submitted%20by"
           ],
           "rank": 15,
           "slot_uri": "GENEPIO:0001159",
@@ -11028,13 +11120,13 @@
           ],
           "from_schema": "https://example.com/mpox",
           "exact_mappings": [
-            "GISAID:Virus name",
-            "CNPHI:GISAID Virus Name",
-            "NML_LIMS:SUBMISSIONS - GISAID Virus Name",
+            "GISAID:Virus%20name",
+            "CNPHI:GISAID%20Virus%20Name",
+            "NML_LIMS:SUBMISSIONS%20-%20GISAID%20Virus%20Name",
             "BIOSAMPLE:isolate",
             "BIOSAMPLE:GISAID_virus_name",
             "VirusSeq_Portal:isolate",
-            "VirusSeq_Portal:fasta header name"
+            "VirusSeq_Portal:fasta%20header%20name"
           ],
           "rank": 24,
           "slot_uri": "GENEPIO:0001195",
@@ -11283,7 +11375,7 @@
           ],
           "from_schema": "https://example.com/mpox",
           "exact_mappings": [
-            "NML_LIMS:specimen processing"
+            "NML_LIMS:specimen%20processing"
           ],
           "rank": 34,
           "slot_uri": "GENEPIO:0001253",
@@ -11386,7 +11478,7 @@
           ],
           "from_schema": "https://example.com/mpox",
           "exact_mappings": [
-            "GISAID:Patient status",
+            "GISAID:Patient%20status",
             "NML_LIMS:PH_HOST_HEALTH",
             "BIOSAMPLE:host_health_state"
           ],
@@ -11509,7 +11601,7 @@
           "title": "host age",
           "from_schema": "https://example.com/mpox",
           "exact_mappings": [
-            "GISAID:Patient age",
+            "GISAID:Patient%20age",
             "NML_LIMS:PH_AGE",
             "BIOSAMPLE:host_age"
           ],
@@ -11523,8 +11615,8 @@
           ],
           "slot_group": "Host Information",
           "required": true,
-          "minimum_value": 0,
-          "maximum_value": 130
+          "minimum_value": "0",
+          "maximum_value": "130"
         },
         "host age unit": {
           "name": "host age unit",
@@ -12165,7 +12257,7 @@
           ],
           "from_schema": "https://example.com/mpox",
           "exact_mappings": [
-            "NML_LIMS:prior Monkeypox infection"
+            "NML_LIMS:prior%20Monkeypox%20infection"
           ],
           "rank": 70,
           "slot_uri": "GENEPIO:0100532",
@@ -12211,7 +12303,7 @@
           ],
           "from_schema": "https://example.com/mpox",
           "exact_mappings": [
-            "NML_LIMS:prior Monkeypox antiviral treatment"
+            "NML_LIMS:prior%20Monkeypox%20antiviral%20treatment"
           ],
           "rank": 72,
           "slot_uri": "GENEPIO:0100534",
@@ -12741,7 +12833,7 @@
           ],
           "slot_group": "Bioinformatics and QC metrics",
           "range": "integer",
-          "minimum_value": 0
+          "minimum_value": "0"
         },
         "consensus genome length": {
           "name": "consensus genome length",
@@ -12758,7 +12850,7 @@
           ],
           "slot_group": "Bioinformatics and QC metrics",
           "range": "integer",
-          "minimum_value": 0
+          "minimum_value": "0"
         },
         "reference genome accession": {
           "name": "reference genome accession",
@@ -13012,7 +13104,7 @@
       "annotations": {
         "version": {
           "tag": "version",
-          "value": "4.3.3"
+          "value": "5.3.3"
         }
       },
       "description": "International specification for Mpox clinical virus biosample data gathering",
@@ -13065,7 +13157,7 @@
         "sample collected by": {
           "name": "sample collected by",
           "exact_mappings": [
-            "GISAID:Originating lab",
+            "GISAID:Originating%20lab",
             "BIOSAMPLE:collected_by"
           ],
           "rank": 9,
@@ -13118,7 +13210,7 @@
         "sequence submitted by": {
           "name": "sequence submitted by",
           "exact_mappings": [
-            "GISAID:Submitting lab",
+            "GISAID:Submitting%20lab",
             "BIOSAMPLE:sequence_submitted_by"
           ],
           "rank": 15,
@@ -13175,7 +13267,7 @@
           "comments": [
             "Provide the state/province/territory name from the controlled vocabulary provided."
           ],
-          "rank": 22,
+          "rank": 21,
           "slot_group": "Sample collection and processing",
           "any_of": [
             {
@@ -13188,12 +13280,12 @@
         },
         "geo_loc latitude": {
           "name": "geo_loc latitude",
-          "rank": 23,
+          "rank": 22,
           "slot_group": "Sample collection and processing"
         },
         "geo_loc longitude": {
           "name": "geo_loc longitude",
-          "rank": 24,
+          "rank": 23,
           "slot_group": "Sample collection and processing"
         },
         "organism": {
@@ -13206,7 +13298,7 @@
               "value": "Mpox virus [NCBITaxon:10244]"
             }
           ],
-          "rank": 25,
+          "rank": 24,
           "slot_group": "Sample collection and processing",
           "any_of": [
             {
@@ -13230,7 +13322,7 @@
           "exact_mappings": [
             "BIOSAMPLE:isolate"
           ],
-          "rank": 26,
+          "rank": 25,
           "slot_uri": "GENEPIO:0001644",
           "slot_group": "Sample collection and processing"
         },
@@ -13241,7 +13333,7 @@
               "value": "Diagnostic testing [GENEPIO:0100002]"
             }
           ],
-          "rank": 27,
+          "rank": 26,
           "slot_group": "Sample collection and processing",
           "any_of": [
             {
@@ -13254,7 +13346,7 @@
         },
         "purpose of sampling details": {
           "name": "purpose of sampling details",
-          "rank": 28,
+          "rank": 27,
           "slot_group": "Sample collection and processing"
         },
         "anatomical material": {
@@ -13264,7 +13356,7 @@
               "value": "Lesion (Pustule) [NCIT:C78582]"
             }
           ],
-          "rank": 29,
+          "rank": 28,
           "slot_group": "Sample collection and processing",
           "recommended": true,
           "any_of": [
@@ -13283,7 +13375,7 @@
               "value": "Genital area [BTO:0003358]"
             }
           ],
-          "rank": 30,
+          "rank": 29,
           "slot_group": "Sample collection and processing",
           "recommended": true,
           "any_of": [
@@ -13302,7 +13394,7 @@
               "value": "Pus [UBERON:0000177]"
             }
           ],
-          "rank": 31,
+          "rank": 30,
           "slot_group": "Sample collection and processing",
           "recommended": true,
           "any_of": [
@@ -13316,7 +13408,7 @@
         },
         "environmental material": {
           "name": "environmental material",
-          "rank": 32,
+          "rank": 31,
           "slot_group": "Sample collection and processing"
         },
         "collection device": {
@@ -13326,7 +13418,7 @@
               "value": "Swab [GENEPIO:0100027]"
             }
           ],
-          "rank": 33,
+          "rank": 32,
           "slot_group": "Sample collection and processing",
           "recommended": true,
           "any_of": [
@@ -13345,7 +13437,7 @@
               "value": "Biopsy [OBI:0002650]"
             }
           ],
-          "rank": 34,
+          "rank": 33,
           "slot_group": "Sample collection and processing",
           "recommended": true,
           "any_of": [
@@ -13364,7 +13456,7 @@
               "value": "Specimens pooled [OBI:0600016]"
             }
           ],
-          "rank": 35,
+          "rank": 34,
           "slot_group": "Sample collection and processing",
           "any_of": [
             {
@@ -13377,12 +13469,12 @@
         },
         "specimen processing details": {
           "name": "specimen processing details",
-          "rank": 36,
+          "rank": 35,
           "slot_group": "Sample collection and processing"
         },
         "host (common name)": {
           "name": "host (common name)",
-          "rank": 37,
+          "rank": 36,
           "slot_group": "Host Information",
           "any_of": [
             {
@@ -13400,7 +13492,7 @@
               "value": "Homo sapiens [NCBITaxon:9606]"
             }
           ],
-          "rank": 38,
+          "rank": 37,
           "slot_group": "Host Information",
           "any_of": [
             {
@@ -13419,10 +13511,10 @@
             }
           ],
           "exact_mappings": [
-            "GISAID:Patient status",
+            "GISAID:Patient%20status",
             "BIOSAMPLE:host_health_state"
           ],
-          "rank": 39,
+          "rank": 38,
           "slot_group": "Host Information",
           "any_of": [
             {
@@ -13440,7 +13532,7 @@
               "value": "Hospitalized [NCIT:C25179]"
             }
           ],
-          "rank": 40,
+          "rank": 39,
           "slot_group": "Host Information",
           "any_of": [
             {
@@ -13461,7 +13553,7 @@
           "exact_mappings": [
             "BIOSAMPLE:host_health_outcome"
           ],
-          "rank": 41,
+          "rank": 40,
           "slot_group": "Host Information",
           "any_of": [
             {
@@ -13482,7 +13574,7 @@
               "value": "Mpox [MONDO:0002594]"
             }
           ],
-          "rank": 42,
+          "rank": 41,
           "slot_group": "Host Information",
           "any_of": [
             {
@@ -13495,29 +13587,16 @@
         },
         "host subject ID": {
           "name": "host subject ID",
-          "description": "A unique identifier by which each host can be referred to e.g. #131",
-          "comments": [
-            "Provide the host identifier. Should be a unique, user-defined identifier."
-          ],
-          "examples": [
-            {
-              "value": "BCxy123"
-            }
-          ],
-          "exact_mappings": [
-            "NML_LIMS:host subject ID",
-            "BIOSAMPLE:host_subject_id"
-          ],
-          "rank": 48,
+          "rank": 42,
           "slot_group": "Host Information"
         },
         "host age": {
           "name": "host age",
           "exact_mappings": [
-            "GISAID:Patient age",
+            "GISAID:Patient%20age",
             "BIOSAMPLE:host_age"
           ],
-          "rank": 44,
+          "rank": 43,
           "slot_group": "Host Information",
           "recommended": true
         },
@@ -13531,7 +13610,7 @@
           "exact_mappings": [
             "BIOSAMPLE:host_age_unit"
           ],
-          "rank": 45,
+          "rank": 44,
           "slot_group": "Host Information",
           "recommended": true,
           "any_of": [
@@ -13553,7 +13632,7 @@
           "exact_mappings": [
             "BIOSAMPLE:host_age_bin"
           ],
-          "rank": 46,
+          "rank": 45,
           "slot_group": "Host Information",
           "recommended": true,
           "any_of": [
@@ -13576,7 +13655,7 @@
             "GISAID:Gender",
             "BIOSAMPLE:host_sex"
           ],
-          "rank": 47,
+          "rank": 46,
           "slot_group": "Host Information",
           "recommended": true,
           "any_of": [
@@ -13595,7 +13674,7 @@
               "value": "Canada [GAZ:00002560]"
             }
           ],
-          "rank": 49,
+          "rank": 47,
           "slot_group": "Host Information",
           "any_of": [
             {
@@ -13608,7 +13687,7 @@
         },
         "symptom onset date": {
           "name": "symptom onset date",
-          "rank": 50,
+          "rank": 48,
           "slot_group": "Host Information"
         },
         "signs and symptoms": {
@@ -13618,7 +13697,7 @@
               "value": "Lesion (Pustule) [NCIT:C78582], Swollen Lymph Nodes [HP:0002716], Myalgia (muscle pain) [HP:0003326]"
             }
           ],
-          "rank": 51,
+          "rank": 49,
           "slot_group": "Host Information",
           "any_of": [
             {
@@ -13631,7 +13710,7 @@
         },
         "pre-existing conditions and risk factors": {
           "name": "pre-existing conditions and risk factors",
-          "rank": 52,
+          "rank": 50,
           "slot_group": "Host Information",
           "any_of": [
             {
@@ -13649,7 +13728,7 @@
               "value": "Delayed wound healing (lesion healing) [MP:0002908]"
             }
           ],
-          "rank": 53,
+          "rank": 51,
           "slot_group": "Host Information",
           "any_of": [
             {
@@ -13662,7 +13741,7 @@
         },
         "antiviral therapy": {
           "name": "antiviral therapy",
-          "rank": 54,
+          "rank": 52,
           "slot_group": "Host Information"
         },
         "host vaccination status": {
@@ -13672,7 +13751,7 @@
               "value": "Not Vaccinated [GENEPIO:0100102]"
             }
           ],
-          "rank": 55,
+          "rank": 53,
           "slot_group": "Host vaccination information",
           "any_of": [
             {
@@ -13685,22 +13764,22 @@
         },
         "number of vaccine doses received": {
           "name": "number of vaccine doses received",
-          "rank": 56,
+          "rank": 54,
           "slot_group": "Host vaccination information"
         },
         "vaccination dose 1 vaccine name": {
           "name": "vaccination dose 1 vaccine name",
-          "rank": 57,
+          "rank": 55,
           "slot_group": "Host vaccination information"
         },
         "vaccination dose 1 vaccination date": {
           "name": "vaccination dose 1 vaccination date",
-          "rank": 58,
+          "rank": 56,
           "slot_group": "Host vaccination information"
         },
         "vaccination history": {
           "name": "vaccination history",
-          "rank": 59,
+          "rank": 57,
           "slot_group": "Host vaccination information"
         },
         "location of exposure geo_loc name (country)": {
@@ -13710,7 +13789,7 @@
               "value": "Canada [GAZ:00002560]"
             }
           ],
-          "rank": 60,
+          "rank": 58,
           "slot_group": "Host exposure information",
           "any_of": [
             {
@@ -13723,7 +13802,7 @@
         },
         "destination of most recent travel (city)": {
           "name": "destination of most recent travel (city)",
-          "rank": 61,
+          "rank": 59,
           "slot_group": "Host exposure information"
         },
         "destination of most recent travel (state/province/territory)": {
@@ -13736,7 +13815,7 @@
               "value": "California"
             }
           ],
-          "rank": 62,
+          "rank": 60,
           "slot_group": "Host exposure information",
           "range": "WhitespaceMinimizedString"
         },
@@ -13747,7 +13826,7 @@
               "value": "United Kingdom [GAZ:00002637]"
             }
           ],
-          "rank": 63,
+          "rank": 61,
           "slot_group": "Host exposure information",
           "any_of": [
             {
@@ -13760,17 +13839,17 @@
         },
         "most recent travel departure date": {
           "name": "most recent travel departure date",
-          "rank": 64,
+          "rank": 62,
           "slot_group": "Host exposure information"
         },
         "most recent travel return date": {
           "name": "most recent travel return date",
-          "rank": 65,
+          "rank": 63,
           "slot_group": "Host exposure information"
         },
         "travel history": {
           "name": "travel history",
-          "rank": 66,
+          "rank": 64,
           "slot_group": "Host exposure information"
         },
         "exposure event": {
@@ -13780,7 +13859,7 @@
               "value": "Party [PCO:0000035]"
             }
           ],
-          "rank": 67,
+          "rank": 65,
           "slot_group": "Host exposure information",
           "any_of": [
             {
@@ -13798,7 +13877,7 @@
               "value": "Contact with infected individual [GENEPIO:0100357]"
             }
           ],
-          "rank": 68,
+          "rank": 66,
           "slot_group": "Host exposure information",
           "any_of": [
             {
@@ -13816,7 +13895,7 @@
               "value": "Acquaintance of case [GENEPIO:0100266]"
             }
           ],
-          "rank": 69,
+          "rank": 67,
           "slot_group": "Host exposure information",
           "range": "host role international menu"
         },
@@ -13827,13 +13906,13 @@
               "value": "Healthcare Setting [GENEPIO:0100201]"
             }
           ],
-          "rank": 70,
+          "rank": 68,
           "slot_group": "Host exposure information",
           "range": "exposure setting international menu"
         },
         "exposure details": {
           "name": "exposure details",
-          "rank": 71,
+          "rank": 69,
           "slot_group": "Host exposure information"
         },
         "prior Mpox infection": {
@@ -13843,7 +13922,7 @@
               "value": "Prior infection [GENEPIO:0100037]"
             }
           ],
-          "rank": 72,
+          "rank": 70,
           "slot_group": "Host reinfection information",
           "any_of": [
             {
@@ -13856,7 +13935,7 @@
         },
         "prior Mpox infection date": {
           "name": "prior Mpox infection date",
-          "rank": 73,
+          "rank": 71,
           "slot_group": "Host reinfection information"
         },
         "prior Mpox antiviral treatment": {
@@ -13866,7 +13945,7 @@
               "value": "Prior antiviral treatment [GENEPIO:0100037]"
             }
           ],
-          "rank": 74,
+          "rank": 72,
           "slot_group": "Host reinfection information",
           "any_of": [
             {
@@ -13879,7 +13958,7 @@
         },
         "prior antiviral treatment during prior Mpox infection": {
           "name": "prior antiviral treatment during prior Mpox infection",
-          "rank": 75,
+          "rank": 73,
           "slot_group": "Host reinfection information"
         },
         "purpose of sequencing": {
@@ -13889,7 +13968,7 @@
               "value": "Baseline surveillance (random sampling) [GENEPIO:0100005]"
             }
           ],
-          "rank": 76,
+          "rank": 74,
           "slot_group": "Sequencing",
           "any_of": [
             {
@@ -13902,27 +13981,27 @@
         },
         "purpose of sequencing details": {
           "name": "purpose of sequencing details",
-          "rank": 77,
+          "rank": 75,
           "slot_group": "Sequencing"
         },
         "sequencing date": {
           "name": "sequencing date",
-          "rank": 78,
+          "rank": 76,
           "slot_group": "Sequencing"
         },
         "library ID": {
           "name": "library ID",
-          "rank": 79,
+          "rank": 77,
           "slot_group": "Sequencing"
         },
         "amplicon size": {
           "name": "amplicon size",
-          "rank": 80,
+          "rank": 78,
           "slot_group": "Sequencing"
         },
         "library preparation kit": {
           "name": "library preparation kit",
-          "rank": 81,
+          "rank": 79,
           "slot_group": "Sequencing"
         },
         "sequencing instrument": {
@@ -13932,7 +14011,7 @@
               "value": "Oxford Nanopore MinION [GENEPIO:0100142]"
             }
           ],
-          "rank": 82,
+          "rank": 80,
           "slot_group": "Sequencing",
           "any_of": [
             {
@@ -13945,117 +14024,117 @@
         },
         "sequencing protocol": {
           "name": "sequencing protocol",
-          "rank": 83,
+          "rank": 81,
           "slot_group": "Sequencing"
         },
         "sequencing kit number": {
           "name": "sequencing kit number",
-          "rank": 84,
+          "rank": 82,
           "slot_group": "Sequencing"
         },
         "amplicon pcr primer scheme": {
           "name": "amplicon pcr primer scheme",
-          "rank": 85,
+          "rank": 83,
           "slot_group": "Sequencing"
         },
         "raw sequence data processing method": {
           "name": "raw sequence data processing method",
-          "rank": 86,
+          "rank": 84,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "dehosting method": {
           "name": "dehosting method",
-          "rank": 87,
+          "rank": 85,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "consensus sequence name": {
           "name": "consensus sequence name",
-          "rank": 88,
+          "rank": 86,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "consensus sequence filename": {
           "name": "consensus sequence filename",
-          "rank": 89,
+          "rank": 87,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "consensus sequence filepath": {
           "name": "consensus sequence filepath",
-          "rank": 90,
+          "rank": 88,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "consensus sequence software name": {
           "name": "consensus sequence software name",
-          "rank": 91,
+          "rank": 89,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "consensus sequence software version": {
           "name": "consensus sequence software version",
-          "rank": 92,
+          "rank": 90,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "breadth of coverage value": {
           "name": "breadth of coverage value",
-          "rank": 93,
+          "rank": 91,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "depth of coverage value": {
           "name": "depth of coverage value",
-          "rank": 94,
+          "rank": 92,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "depth of coverage threshold": {
           "name": "depth of coverage threshold",
-          "rank": 95,
+          "rank": 93,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "r1 fastq filename": {
           "name": "r1 fastq filename",
-          "rank": 96,
+          "rank": 94,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "r2 fastq filename": {
           "name": "r2 fastq filename",
-          "rank": 97,
+          "rank": 95,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "r1 fastq filepath": {
           "name": "r1 fastq filepath",
-          "rank": 98,
+          "rank": 96,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "r2 fastq filepath": {
           "name": "r2 fastq filepath",
-          "rank": 99,
+          "rank": 97,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "fast5 filename": {
           "name": "fast5 filename",
-          "rank": 100,
+          "rank": 98,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "fast5 filepath": {
           "name": "fast5 filepath",
-          "rank": 101,
+          "rank": 99,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "number of base pairs sequenced": {
           "name": "number of base pairs sequenced",
-          "rank": 102,
+          "rank": 100,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "consensus genome length": {
           "name": "consensus genome length",
-          "rank": 103,
+          "rank": 101,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "reference genome accession": {
           "name": "reference genome accession",
-          "rank": 104,
+          "rank": 102,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "bioinformatics protocol": {
           "name": "bioinformatics protocol",
-          "rank": 105,
+          "rank": 103,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "gene name 1": {
@@ -14063,7 +14142,7 @@
           "comments": [
             "Provide the full name of the gene used in the test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI"
           ],
-          "rank": 106,
+          "rank": 104,
           "slot_group": "Pathogen diagnostic testing",
           "any_of": [
             {
@@ -14076,11 +14155,32 @@
         },
         "diagnostic pcr Ct value 1": {
           "name": "diagnostic pcr Ct value 1",
-          "rank": 107,
+          "rank": 105,
           "slot_group": "Pathogen diagnostic testing"
         },
         "gene name 2": {
           "name": "gene name 2",
+          "comments": [
+            "Provide the full name of another gene used in an RT-PCR test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI"
+          ],
+          "rank": 106,
+          "slot_group": "Pathogen diagnostic testing",
+          "any_of": [
+            {
+              "range": "WhitespaceMinimizedString"
+            },
+            {
+              "range": "null value menu"
+            }
+          ]
+        },
+        "diagnostic pcr Ct value 2": {
+          "name": "diagnostic pcr Ct value 2",
+          "rank": 107,
+          "slot_group": "Pathogen diagnostic testing"
+        },
+        "gene name 3": {
+          "name": "gene name 3",
           "comments": [
             "Provide the full name of another gene used in an RT-PCR test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI"
           ],
@@ -14095,40 +14195,19 @@
             }
           ]
         },
-        "diagnostic pcr Ct value 2": {
-          "name": "diagnostic pcr Ct value 2",
-          "rank": 109,
-          "slot_group": "Pathogen diagnostic testing"
-        },
-        "gene name 3": {
-          "name": "gene name 3",
-          "comments": [
-            "Provide the full name of another gene used in an RT-PCR test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI"
-          ],
-          "rank": 110,
-          "slot_group": "Pathogen diagnostic testing",
-          "any_of": [
-            {
-              "range": "WhitespaceMinimizedString"
-            },
-            {
-              "range": "null value menu"
-            }
-          ]
-        },
         "diagnostic pcr Ct value 3": {
           "name": "diagnostic pcr Ct value 3",
-          "rank": 111,
+          "rank": 109,
           "slot_group": "Pathogen diagnostic testing"
         },
         "authors": {
           "name": "authors",
-          "rank": 112,
+          "rank": 110,
           "slot_group": "Contributor acknowledgement"
         },
         "DataHarmonizer provenance": {
           "name": "DataHarmonizer provenance",
-          "rank": 113,
+          "rank": 111,
           "slot_group": "Contributor acknowledgement"
         }
       },
@@ -14293,7 +14372,7 @@
           "title": "sample collected by",
           "from_schema": "https://example.com/mpox",
           "exact_mappings": [
-            "GISAID:Originating lab",
+            "GISAID:Originating%20lab",
             "BIOSAMPLE:collected_by"
           ],
           "rank": 9,
@@ -14413,7 +14492,7 @@
           "title": "sequence submitted by",
           "from_schema": "https://example.com/mpox",
           "exact_mappings": [
-            "GISAID:Submitting lab",
+            "GISAID:Submitting%20lab",
             "BIOSAMPLE:sequence_submitted_by"
           ],
           "rank": 15,
@@ -14535,7 +14614,7 @@
             "Provide the state/province/territory name from the controlled vocabulary provided."
           ],
           "from_schema": "https://example.com/mpox",
-          "rank": 22,
+          "rank": 21,
           "slot_uri": "GENEPIO:0001185",
           "alias": "geo_loc_name_(state/province/territory)",
           "owner": "Mpox_international",
@@ -14559,7 +14638,7 @@
           "description": "The latitude coordinates of the geographical location of sample collection.",
           "title": "geo_loc latitude",
           "from_schema": "https://example.com/mpox",
-          "rank": 23,
+          "rank": 22,
           "slot_uri": "GENEPIO:0100309",
           "alias": "geo_loc_latitude",
           "owner": "Mpox_international",
@@ -14574,7 +14653,7 @@
           "description": "The longitude coordinates of the geographical location of sample collection.",
           "title": "geo_loc longitude",
           "from_schema": "https://example.com/mpox",
-          "rank": 24,
+          "rank": 23,
           "slot_uri": "GENEPIO:0100310",
           "alias": "geo_loc_longitude",
           "owner": "Mpox_international",
@@ -14597,7 +14676,7 @@
             }
           ],
           "from_schema": "https://example.com/mpox",
-          "rank": 25,
+          "rank": 24,
           "slot_uri": "GENEPIO:0001191",
           "alias": "organism",
           "owner": "Mpox_international",
@@ -14632,7 +14711,7 @@
           "exact_mappings": [
             "BIOSAMPLE:isolate"
           ],
-          "rank": 26,
+          "rank": 25,
           "slot_uri": "GENEPIO:0001644",
           "alias": "isolate",
           "owner": "Mpox_international",
@@ -14653,7 +14732,7 @@
             }
           ],
           "from_schema": "https://example.com/mpox",
-          "rank": 27,
+          "rank": 26,
           "slot_uri": "GENEPIO:0001198",
           "alias": "purpose_of_sampling",
           "owner": "Mpox_international",
@@ -14677,7 +14756,7 @@
           "description": "The description of why the sample was collected, providing specific details.",
           "title": "purpose of sampling details",
           "from_schema": "https://example.com/mpox",
-          "rank": 28,
+          "rank": 27,
           "slot_uri": "GENEPIO:0001200",
           "alias": "purpose_of_sampling_details",
           "owner": "Mpox_international",
@@ -14698,7 +14777,7 @@
             }
           ],
           "from_schema": "https://example.com/mpox",
-          "rank": 29,
+          "rank": 28,
           "slot_uri": "GENEPIO:0001211",
           "multivalued": true,
           "alias": "anatomical_material",
@@ -14728,7 +14807,7 @@
             }
           ],
           "from_schema": "https://example.com/mpox",
-          "rank": 30,
+          "rank": 29,
           "slot_uri": "GENEPIO:0001214",
           "multivalued": true,
           "alias": "anatomical_part",
@@ -14758,7 +14837,7 @@
             }
           ],
           "from_schema": "https://example.com/mpox",
-          "rank": 31,
+          "rank": 30,
           "slot_uri": "GENEPIO:0001216",
           "multivalued": true,
           "alias": "body_product",
@@ -14783,7 +14862,7 @@
           "description": "A substance obtained from the natural or man-made environment e.g. soil, water, sewage.",
           "title": "environmental material",
           "from_schema": "https://example.com/mpox",
-          "rank": 32,
+          "rank": 31,
           "slot_uri": "GENEPIO:0001223",
           "multivalued": true,
           "alias": "environmental_material",
@@ -14804,7 +14883,7 @@
             }
           ],
           "from_schema": "https://example.com/mpox",
-          "rank": 33,
+          "rank": 32,
           "slot_uri": "GENEPIO:0001234",
           "multivalued": true,
           "alias": "collection_device",
@@ -14834,7 +14913,7 @@
             }
           ],
           "from_schema": "https://example.com/mpox",
-          "rank": 34,
+          "rank": 33,
           "slot_uri": "GENEPIO:0001241",
           "multivalued": true,
           "alias": "collection_method",
@@ -14864,7 +14943,7 @@
             }
           ],
           "from_schema": "https://example.com/mpox",
-          "rank": 35,
+          "rank": 34,
           "slot_uri": "GENEPIO:0001253",
           "multivalued": true,
           "alias": "specimen_processing",
@@ -14888,7 +14967,7 @@
           "description": "Detailed information regarding the processing applied to a sample during or after receiving the sample.",
           "title": "specimen processing details",
           "from_schema": "https://example.com/mpox",
-          "rank": 36,
+          "rank": 35,
           "slot_uri": "GENEPIO:0100311",
           "alias": "specimen_processing_details",
           "owner": "Mpox_international",
@@ -14904,7 +14983,7 @@
           "description": "The commonly used name of the host.",
           "title": "host (common name)",
           "from_schema": "https://example.com/mpox",
-          "rank": 37,
+          "rank": 36,
           "slot_uri": "GENEPIO:0001386",
           "alias": "host_(common_name)",
           "owner": "Mpox_international",
@@ -14932,7 +15011,7 @@
             }
           ],
           "from_schema": "https://example.com/mpox",
-          "rank": 38,
+          "rank": 37,
           "slot_uri": "GENEPIO:0001387",
           "alias": "host_(scientific_name)",
           "owner": "Mpox_international",
@@ -14962,10 +15041,10 @@
           ],
           "from_schema": "https://example.com/mpox",
           "exact_mappings": [
-            "GISAID:Patient status",
+            "GISAID:Patient%20status",
             "BIOSAMPLE:host_health_state"
           ],
-          "rank": 39,
+          "rank": 38,
           "slot_uri": "GENEPIO:0001388",
           "alias": "host_health_state",
           "owner": "Mpox_international",
@@ -14993,7 +15072,7 @@
             }
           ],
           "from_schema": "https://example.com/mpox",
-          "rank": 40,
+          "rank": 39,
           "slot_uri": "GENEPIO:0001389",
           "alias": "host_health_status_details",
           "owner": "Mpox_international",
@@ -15024,7 +15103,7 @@
           "exact_mappings": [
             "BIOSAMPLE:host_health_outcome"
           ],
-          "rank": 41,
+          "rank": 40,
           "slot_uri": "GENEPIO:0001389",
           "alias": "host_health_outcome",
           "owner": "Mpox_international",
@@ -15055,7 +15134,7 @@
             }
           ],
           "from_schema": "https://example.com/mpox",
-          "rank": 42,
+          "rank": 41,
           "slot_uri": "GENEPIO:0001391",
           "alias": "host_disease",
           "owner": "Mpox_international",
@@ -15076,22 +15155,10 @@
         },
         "host subject ID": {
           "name": "host subject ID",
-          "description": "A unique identifier by which each host can be referred to e.g. #131",
+          "description": "A unique identifier by which each host can be referred to.",
           "title": "host subject ID",
-          "comments": [
-            "Provide the host identifier. Should be a unique, user-defined identifier."
-          ],
-          "examples": [
-            {
-              "value": "BCxy123"
-            }
-          ],
           "from_schema": "https://example.com/mpox",
-          "exact_mappings": [
-            "NML_LIMS:host subject ID",
-            "BIOSAMPLE:host_subject_id"
-          ],
-          "rank": 48,
+          "rank": 42,
           "slot_uri": "GENEPIO:0001398",
           "alias": "host_subject_ID",
           "owner": "Mpox_international",
@@ -15107,10 +15174,10 @@
           "title": "host age",
           "from_schema": "https://example.com/mpox",
           "exact_mappings": [
-            "GISAID:Patient age",
+            "GISAID:Patient%20age",
             "BIOSAMPLE:host_age"
           ],
-          "rank": 44,
+          "rank": 43,
           "slot_uri": "GENEPIO:0001392",
           "alias": "host_age",
           "owner": "Mpox_international",
@@ -15120,8 +15187,8 @@
           ],
           "slot_group": "Host Information",
           "recommended": true,
-          "minimum_value": 0,
-          "maximum_value": 130
+          "minimum_value": "0",
+          "maximum_value": "130"
         },
         "host age unit": {
           "name": "host age unit",
@@ -15136,7 +15203,7 @@
           "exact_mappings": [
             "BIOSAMPLE:host_age_unit"
           ],
-          "rank": 45,
+          "rank": 44,
           "slot_uri": "GENEPIO:0001393",
           "alias": "host_age_unit",
           "owner": "Mpox_international",
@@ -15168,7 +15235,7 @@
           "exact_mappings": [
             "BIOSAMPLE:host_age_bin"
           ],
-          "rank": 46,
+          "rank": 45,
           "slot_uri": "GENEPIO:0001394",
           "alias": "host_age_bin",
           "owner": "Mpox_international",
@@ -15201,7 +15268,7 @@
             "GISAID:Gender",
             "BIOSAMPLE:host_sex"
           ],
-          "rank": 47,
+          "rank": 46,
           "slot_uri": "GENEPIO:0001395",
           "alias": "host_gender",
           "owner": "Mpox_international",
@@ -15235,7 +15302,7 @@
             }
           ],
           "from_schema": "https://example.com/mpox",
-          "rank": 49,
+          "rank": 47,
           "slot_uri": "GENEPIO:0001396",
           "alias": "host_residence_geo_loc_name_(country)",
           "owner": "Mpox_international",
@@ -15258,7 +15325,7 @@
           "description": "The date on which the symptoms began or were first noted.",
           "title": "symptom onset date",
           "from_schema": "https://example.com/mpox",
-          "rank": 50,
+          "rank": 48,
           "slot_uri": "GENEPIO:0001399",
           "alias": "symptom_onset_date",
           "owner": "Mpox_international",
@@ -15278,7 +15345,7 @@
             }
           ],
           "from_schema": "https://example.com/mpox",
-          "rank": 51,
+          "rank": 49,
           "slot_uri": "GENEPIO:0001400",
           "multivalued": true,
           "alias": "signs_and_symptoms",
@@ -15302,7 +15369,7 @@
           "description": "Patient pre-existing conditions and risk factors. <li>Pre-existing condition: A medical condition that existed prior to the current infection. <li>Risk Factor: A variable associated with an increased risk of disease or infection.",
           "title": "pre-existing conditions and risk factors",
           "from_schema": "https://example.com/mpox",
-          "rank": 52,
+          "rank": 50,
           "slot_uri": "GENEPIO:0001401",
           "multivalued": true,
           "alias": "pre_existing_conditions_and_risk_factors",
@@ -15331,7 +15398,7 @@
             }
           ],
           "from_schema": "https://example.com/mpox",
-          "rank": 53,
+          "rank": 51,
           "slot_uri": "GENEPIO:0001402",
           "multivalued": true,
           "alias": "complications",
@@ -15355,7 +15422,7 @@
           "description": "Treatment of viral infections with agents that prevent viral replication in infected cells without impairing the host cell function.",
           "title": "antiviral therapy",
           "from_schema": "https://example.com/mpox",
-          "rank": 54,
+          "rank": 52,
           "slot_uri": "GENEPIO:0100580",
           "alias": "antiviral_therapy",
           "owner": "Mpox_international",
@@ -15376,7 +15443,7 @@
             }
           ],
           "from_schema": "https://example.com/mpox",
-          "rank": 55,
+          "rank": 53,
           "slot_uri": "GENEPIO:0001404",
           "alias": "host_vaccination_status",
           "owner": "Mpox_international",
@@ -15399,7 +15466,7 @@
           "description": "The number of doses of the vaccine recived by the host.",
           "title": "number of vaccine doses received",
           "from_schema": "https://example.com/mpox",
-          "rank": 56,
+          "rank": 54,
           "slot_uri": "GENEPIO:0001406",
           "alias": "number_of_vaccine_doses_received",
           "owner": "Mpox_international",
@@ -15415,7 +15482,7 @@
           "description": "The name of the vaccine administered as the first dose of a vaccine regimen.",
           "title": "vaccination dose 1 vaccine name",
           "from_schema": "https://example.com/mpox",
-          "rank": 57,
+          "rank": 55,
           "slot_uri": "GENEPIO:0100313",
           "alias": "vaccination_dose_1_vaccine_name",
           "owner": "Mpox_international",
@@ -15430,7 +15497,7 @@
           "description": "The date the first dose of a vaccine was administered.",
           "title": "vaccination dose 1 vaccination date",
           "from_schema": "https://example.com/mpox",
-          "rank": 58,
+          "rank": 56,
           "slot_uri": "GENEPIO:0100314",
           "alias": "vaccination_dose_1_vaccination_date",
           "owner": "Mpox_international",
@@ -15445,7 +15512,7 @@
           "description": "A description of the vaccines received and the administration dates of a series of vaccinations against a specific disease or a set of diseases.",
           "title": "vaccination history",
           "from_schema": "https://example.com/mpox",
-          "rank": 59,
+          "rank": 57,
           "slot_uri": "GENEPIO:0100321",
           "alias": "vaccination_history",
           "owner": "Mpox_international",
@@ -15466,7 +15533,7 @@
             }
           ],
           "from_schema": "https://example.com/mpox",
-          "rank": 60,
+          "rank": 58,
           "slot_uri": "GENEPIO:0001410",
           "alias": "location_of_exposure_geo_loc_name_(country)",
           "owner": "Mpox_international",
@@ -15489,7 +15556,7 @@
           "description": "The name of the city that was the destination of most recent travel.",
           "title": "destination of most recent travel (city)",
           "from_schema": "https://example.com/mpox",
-          "rank": 61,
+          "rank": 59,
           "slot_uri": "GENEPIO:0001411",
           "alias": "destination_of_most_recent_travel_(city)",
           "owner": "Mpox_international",
@@ -15513,7 +15580,7 @@
             }
           ],
           "from_schema": "https://example.com/mpox",
-          "rank": 62,
+          "rank": 60,
           "slot_uri": "GENEPIO:0001412",
           "alias": "destination_of_most_recent_travel_(state/province/territory)",
           "owner": "Mpox_international",
@@ -15534,7 +15601,7 @@
             }
           ],
           "from_schema": "https://example.com/mpox",
-          "rank": 63,
+          "rank": 61,
           "slot_uri": "GENEPIO:0001413",
           "alias": "destination_of_most_recent_travel_(country)",
           "owner": "Mpox_international",
@@ -15557,7 +15624,7 @@
           "description": "The date of a person's most recent departure from their primary residence (at that time) on a journey to one or more other locations.",
           "title": "most recent travel departure date",
           "from_schema": "https://example.com/mpox",
-          "rank": 64,
+          "rank": 62,
           "slot_uri": "GENEPIO:0001414",
           "alias": "most_recent_travel_departure_date",
           "owner": "Mpox_international",
@@ -15572,7 +15639,7 @@
           "description": "The date of a person's most recent return to some residence from a journey originating at that residence.",
           "title": "most recent travel return date",
           "from_schema": "https://example.com/mpox",
-          "rank": 65,
+          "rank": 63,
           "slot_uri": "GENEPIO:0001415",
           "alias": "most_recent_travel_return_date",
           "owner": "Mpox_international",
@@ -15587,7 +15654,7 @@
           "description": "Travel history in last six months.",
           "title": "travel history",
           "from_schema": "https://example.com/mpox",
-          "rank": 66,
+          "rank": 64,
           "slot_uri": "GENEPIO:0001416",
           "alias": "travel_history",
           "owner": "Mpox_international",
@@ -15608,7 +15675,7 @@
             }
           ],
           "from_schema": "https://example.com/mpox",
-          "rank": 67,
+          "rank": 65,
           "slot_uri": "GENEPIO:0001417",
           "alias": "exposure_event",
           "owner": "Mpox_international",
@@ -15636,7 +15703,7 @@
             }
           ],
           "from_schema": "https://example.com/mpox",
-          "rank": 68,
+          "rank": 66,
           "slot_uri": "GENEPIO:0001418",
           "alias": "exposure_contact_level",
           "owner": "Mpox_international",
@@ -15664,7 +15731,7 @@
             }
           ],
           "from_schema": "https://example.com/mpox",
-          "rank": 69,
+          "rank": 67,
           "slot_uri": "GENEPIO:0001419",
           "multivalued": true,
           "alias": "host_role",
@@ -15686,7 +15753,7 @@
             }
           ],
           "from_schema": "https://example.com/mpox",
-          "rank": 70,
+          "rank": 68,
           "slot_uri": "GENEPIO:0001428",
           "multivalued": true,
           "alias": "exposure_setting",
@@ -15703,7 +15770,7 @@
           "description": "Additional host exposure information.",
           "title": "exposure details",
           "from_schema": "https://example.com/mpox",
-          "rank": 71,
+          "rank": 69,
           "slot_uri": "GENEPIO:0001431",
           "alias": "exposure_details",
           "owner": "Mpox_international",
@@ -15724,7 +15791,7 @@
             }
           ],
           "from_schema": "https://example.com/mpox",
-          "rank": 72,
+          "rank": 70,
           "slot_uri": "GENEPIO:0100532",
           "alias": "prior_Mpox_infection",
           "owner": "Mpox_international",
@@ -15747,7 +15814,7 @@
           "description": "The date of diagnosis of the prior Mpox infection.",
           "title": "prior Mpox infection date",
           "from_schema": "https://example.com/mpox",
-          "rank": 73,
+          "rank": 71,
           "slot_uri": "GENEPIO:0100533",
           "alias": "prior_Mpox_infection_date",
           "owner": "Mpox_international",
@@ -15767,7 +15834,7 @@
             }
           ],
           "from_schema": "https://example.com/mpox",
-          "rank": 74,
+          "rank": 72,
           "slot_uri": "GENEPIO:0100534",
           "alias": "prior_Mpox_antiviral_treatment",
           "owner": "Mpox_international",
@@ -15790,7 +15857,7 @@
           "description": "Antiviral treatment for any infection during the prior Mpox infection period.",
           "title": "prior antiviral treatment during prior Mpox infection",
           "from_schema": "https://example.com/mpox",
-          "rank": 75,
+          "rank": 73,
           "slot_uri": "GENEPIO:0100535",
           "alias": "prior_antiviral_treatment_during_prior_Mpox_infection",
           "owner": "Mpox_international",
@@ -15811,7 +15878,7 @@
             }
           ],
           "from_schema": "https://example.com/mpox",
-          "rank": 76,
+          "rank": 74,
           "slot_uri": "GENEPIO:0001445",
           "multivalued": true,
           "alias": "purpose_of_sequencing",
@@ -15836,7 +15903,7 @@
           "description": "The description of why the sample was sequenced providing specific details.",
           "title": "purpose of sequencing details",
           "from_schema": "https://example.com/mpox",
-          "rank": 77,
+          "rank": 75,
           "slot_uri": "GENEPIO:0001446",
           "alias": "purpose_of_sequencing_details",
           "owner": "Mpox_international",
@@ -15852,7 +15919,7 @@
           "description": "The date the sample was sequenced.",
           "title": "sequencing date",
           "from_schema": "https://example.com/mpox",
-          "rank": 78,
+          "rank": 76,
           "slot_uri": "GENEPIO:0001447",
           "alias": "sequencing_date",
           "owner": "Mpox_international",
@@ -15867,7 +15934,7 @@
           "description": "The user-specified identifier for the library prepared for sequencing.",
           "title": "library ID",
           "from_schema": "https://example.com/mpox",
-          "rank": 79,
+          "rank": 77,
           "slot_uri": "GENEPIO:0001448",
           "alias": "library_ID",
           "owner": "Mpox_international",
@@ -15884,7 +15951,7 @@
           "description": "The length of the amplicon generated by PCR amplification.",
           "title": "amplicon size",
           "from_schema": "https://example.com/mpox",
-          "rank": 80,
+          "rank": 78,
           "slot_uri": "GENEPIO:0001449",
           "alias": "amplicon_size",
           "owner": "Mpox_international",
@@ -15900,7 +15967,7 @@
           "description": "The name of the DNA library preparation kit used to generate the library being sequenced.",
           "title": "library preparation kit",
           "from_schema": "https://example.com/mpox",
-          "rank": 81,
+          "rank": 79,
           "slot_uri": "GENEPIO:0001450",
           "alias": "library_preparation_kit",
           "owner": "Mpox_international",
@@ -15921,7 +15988,7 @@
             }
           ],
           "from_schema": "https://example.com/mpox",
-          "rank": 82,
+          "rank": 80,
           "slot_uri": "GENEPIO:0001452",
           "multivalued": true,
           "alias": "sequencing_instrument",
@@ -15946,7 +16013,7 @@
           "description": "The protocol used to generate the sequence.",
           "title": "sequencing protocol",
           "from_schema": "https://example.com/mpox",
-          "rank": 83,
+          "rank": 81,
           "slot_uri": "GENEPIO:0001454",
           "alias": "sequencing_protocol",
           "owner": "Mpox_international",
@@ -15962,7 +16029,7 @@
           "description": "The manufacturer's kit number.",
           "title": "sequencing kit number",
           "from_schema": "https://example.com/mpox",
-          "rank": 84,
+          "rank": 82,
           "slot_uri": "GENEPIO:0001455",
           "alias": "sequencing_kit_number",
           "owner": "Mpox_international",
@@ -15978,7 +16045,7 @@
           "description": "The specifications of the primers (primer sequences, binding positions, fragment size generated etc) used to generate the amplicons to be sequenced.",
           "title": "amplicon pcr primer scheme",
           "from_schema": "https://example.com/mpox",
-          "rank": 85,
+          "rank": 83,
           "slot_uri": "GENEPIO:0001456",
           "alias": "amplicon_pcr_primer_scheme",
           "owner": "Mpox_international",
@@ -15994,7 +16061,7 @@
           "description": "The names of the software and version number used for raw data processing such as removing barcodes, adapter trimming, filtering etc.",
           "title": "raw sequence data processing method",
           "from_schema": "https://example.com/mpox",
-          "rank": 86,
+          "rank": 84,
           "slot_uri": "GENEPIO:0001458",
           "alias": "raw_sequence_data_processing_method",
           "owner": "Mpox_international",
@@ -16010,7 +16077,7 @@
           "description": "The method used to remove host reads from the pathogen sequence.",
           "title": "dehosting method",
           "from_schema": "https://example.com/mpox",
-          "rank": 87,
+          "rank": 85,
           "slot_uri": "GENEPIO:0001459",
           "alias": "dehosting_method",
           "owner": "Mpox_international",
@@ -16026,7 +16093,7 @@
           "description": "The name of the consensus sequence.",
           "title": "consensus sequence name",
           "from_schema": "https://example.com/mpox",
-          "rank": 88,
+          "rank": 86,
           "slot_uri": "GENEPIO:0001460",
           "alias": "consensus_sequence_name",
           "owner": "Mpox_international",
@@ -16042,7 +16109,7 @@
           "description": "The name of the consensus sequence file.",
           "title": "consensus sequence filename",
           "from_schema": "https://example.com/mpox",
-          "rank": 89,
+          "rank": 87,
           "slot_uri": "GENEPIO:0001461",
           "alias": "consensus_sequence_filename",
           "owner": "Mpox_international",
@@ -16058,7 +16125,7 @@
           "description": "The filepath of the consensus sequence file.",
           "title": "consensus sequence filepath",
           "from_schema": "https://example.com/mpox",
-          "rank": 90,
+          "rank": 88,
           "slot_uri": "GENEPIO:0001462",
           "alias": "consensus_sequence_filepath",
           "owner": "Mpox_international",
@@ -16074,7 +16141,7 @@
           "description": "The name of software used to generate the consensus sequence.",
           "title": "consensus sequence software name",
           "from_schema": "https://example.com/mpox",
-          "rank": 91,
+          "rank": 89,
           "slot_uri": "GENEPIO:0001463",
           "alias": "consensus_sequence_software_name",
           "owner": "Mpox_international",
@@ -16091,7 +16158,7 @@
           "description": "The version of the software used to generate the consensus sequence.",
           "title": "consensus sequence software version",
           "from_schema": "https://example.com/mpox",
-          "rank": 92,
+          "rank": 90,
           "slot_uri": "GENEPIO:0001469",
           "alias": "consensus_sequence_software_version",
           "owner": "Mpox_international",
@@ -16108,7 +16175,7 @@
           "description": "The percentage of the reference genome covered by the sequenced data, to a prescribed depth.",
           "title": "breadth of coverage value",
           "from_schema": "https://example.com/mpox",
-          "rank": 93,
+          "rank": 91,
           "slot_uri": "GENEPIO:0001472",
           "alias": "breadth_of_coverage_value",
           "owner": "Mpox_international",
@@ -16124,7 +16191,7 @@
           "description": "The average number of reads representing a given nucleotide in the reconstructed sequence.",
           "title": "depth of coverage value",
           "from_schema": "https://example.com/mpox",
-          "rank": 94,
+          "rank": 92,
           "slot_uri": "GENEPIO:0001474",
           "alias": "depth_of_coverage_value",
           "owner": "Mpox_international",
@@ -16140,7 +16207,7 @@
           "description": "The threshold used as a cut-off for the depth of coverage.",
           "title": "depth of coverage threshold",
           "from_schema": "https://example.com/mpox",
-          "rank": 95,
+          "rank": 93,
           "slot_uri": "GENEPIO:0001475",
           "alias": "depth_of_coverage_threshold",
           "owner": "Mpox_international",
@@ -16156,7 +16223,7 @@
           "description": "The user-specified filename of the r1 FASTQ file.",
           "title": "r1 fastq filename",
           "from_schema": "https://example.com/mpox",
-          "rank": 96,
+          "rank": 94,
           "slot_uri": "GENEPIO:0001476",
           "alias": "r1_fastq_filename",
           "owner": "Mpox_international",
@@ -16173,7 +16240,7 @@
           "description": "The user-specified filename of the r2 FASTQ file.",
           "title": "r2 fastq filename",
           "from_schema": "https://example.com/mpox",
-          "rank": 97,
+          "rank": 95,
           "slot_uri": "GENEPIO:0001477",
           "alias": "r2_fastq_filename",
           "owner": "Mpox_international",
@@ -16190,7 +16257,7 @@
           "description": "The location of the r1 FASTQ file within a user's file system.",
           "title": "r1 fastq filepath",
           "from_schema": "https://example.com/mpox",
-          "rank": 98,
+          "rank": 96,
           "slot_uri": "GENEPIO:0001478",
           "alias": "r1_fastq_filepath",
           "owner": "Mpox_international",
@@ -16206,7 +16273,7 @@
           "description": "The location of the r2 FASTQ file within a user's file system.",
           "title": "r2 fastq filepath",
           "from_schema": "https://example.com/mpox",
-          "rank": 99,
+          "rank": 97,
           "slot_uri": "GENEPIO:0001479",
           "alias": "r2_fastq_filepath",
           "owner": "Mpox_international",
@@ -16222,7 +16289,7 @@
           "description": "The user-specified filename of the FAST5 file.",
           "title": "fast5 filename",
           "from_schema": "https://example.com/mpox",
-          "rank": 100,
+          "rank": 98,
           "slot_uri": "GENEPIO:0001480",
           "alias": "fast5_filename",
           "owner": "Mpox_international",
@@ -16238,7 +16305,7 @@
           "description": "The location of the FAST5 file within a user's file system.",
           "title": "fast5 filepath",
           "from_schema": "https://example.com/mpox",
-          "rank": 101,
+          "rank": 99,
           "slot_uri": "GENEPIO:0001481",
           "alias": "fast5_filepath",
           "owner": "Mpox_international",
@@ -16254,7 +16321,7 @@
           "description": "The number of total base pairs generated by the sequencing process.",
           "title": "number of base pairs sequenced",
           "from_schema": "https://example.com/mpox",
-          "rank": 102,
+          "rank": 100,
           "slot_uri": "GENEPIO:0001482",
           "alias": "number_of_base_pairs_sequenced",
           "owner": "Mpox_international",
@@ -16264,14 +16331,14 @@
           ],
           "slot_group": "Bioinformatics and QC metrics",
           "range": "integer",
-          "minimum_value": 0
+          "minimum_value": "0"
         },
         "consensus genome length": {
           "name": "consensus genome length",
           "description": "Size of the reconstructed genome described as the number of base pairs.",
           "title": "consensus genome length",
           "from_schema": "https://example.com/mpox",
-          "rank": 103,
+          "rank": 101,
           "slot_uri": "GENEPIO:0001483",
           "alias": "consensus_genome_length",
           "owner": "Mpox_international",
@@ -16281,14 +16348,14 @@
           ],
           "slot_group": "Bioinformatics and QC metrics",
           "range": "integer",
-          "minimum_value": 0
+          "minimum_value": "0"
         },
         "reference genome accession": {
           "name": "reference genome accession",
           "description": "A persistent, unique identifier of a genome database entry.",
           "title": "reference genome accession",
           "from_schema": "https://example.com/mpox",
-          "rank": 104,
+          "rank": 102,
           "slot_uri": "GENEPIO:0001485",
           "alias": "reference_genome_accession",
           "owner": "Mpox_international",
@@ -16304,7 +16371,7 @@
           "description": "A description of the overall bioinformatics strategy used.",
           "title": "bioinformatics protocol",
           "from_schema": "https://example.com/mpox",
-          "rank": 105,
+          "rank": 103,
           "slot_uri": "GENEPIO:0001489",
           "alias": "bioinformatics_protocol",
           "owner": "Mpox_international",
@@ -16323,7 +16390,7 @@
             "Provide the full name of the gene used in the test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI"
           ],
           "from_schema": "https://example.com/mpox",
-          "rank": 106,
+          "rank": 104,
           "slot_uri": "GENEPIO:0001507",
           "alias": "gene_name_1",
           "owner": "Mpox_international",
@@ -16346,7 +16413,7 @@
           "description": "The Ct value result from a diagnostic SARS-CoV-2 RT-PCR test.",
           "title": "diagnostic pcr Ct value 1",
           "from_schema": "https://example.com/mpox",
-          "rank": 107,
+          "rank": 105,
           "slot_uri": "GENEPIO:0001509",
           "alias": "diagnostic_pcr_Ct_value_1",
           "owner": "Mpox_international",
@@ -16364,7 +16431,7 @@
             "Provide the full name of another gene used in an RT-PCR test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI"
           ],
           "from_schema": "https://example.com/mpox",
-          "rank": 108,
+          "rank": 106,
           "slot_uri": "GENEPIO:0001510",
           "alias": "gene_name_2",
           "owner": "Mpox_international",
@@ -16387,7 +16454,7 @@
           "description": "The Ct value result from a diagnostic SARS-CoV-2 RT-PCR test.",
           "title": "diagnostic pcr Ct value 2",
           "from_schema": "https://example.com/mpox",
-          "rank": 109,
+          "rank": 107,
           "slot_uri": "GENEPIO:0001512",
           "alias": "diagnostic_pcr_Ct_value_2",
           "owner": "Mpox_international",
@@ -16405,7 +16472,7 @@
             "Provide the full name of another gene used in an RT-PCR test. The gene symbol (short form of gene name) can also be provided. Standardized gene names and symbols can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI"
           ],
           "from_schema": "https://example.com/mpox",
-          "rank": 110,
+          "rank": 108,
           "slot_uri": "GENEPIO:0001513",
           "alias": "gene_name_3",
           "owner": "Mpox_international",
@@ -16428,7 +16495,7 @@
           "description": "The Ct value result from a diagnostic SARS-CoV-2 RT-PCR test.",
           "title": "diagnostic pcr Ct value 3",
           "from_schema": "https://example.com/mpox",
-          "rank": 111,
+          "rank": 109,
           "slot_uri": "GENEPIO:0001515",
           "alias": "diagnostic_pcr_Ct_value_3",
           "owner": "Mpox_international",
@@ -16443,7 +16510,7 @@
           "description": "Names of individuals contributing to the processes of sample collection, sequence generation, analysis, and data submission.",
           "title": "authors",
           "from_schema": "https://example.com/mpox",
-          "rank": 112,
+          "rank": 110,
           "slot_uri": "GENEPIO:0001517",
           "alias": "authors",
           "owner": "Mpox_international",
@@ -16460,7 +16527,7 @@
           "description": "The DataHarmonizer software and template version provenance.",
           "title": "DataHarmonizer provenance",
           "from_schema": "https://example.com/mpox",
-          "rank": 113,
+          "rank": 111,
           "slot_uri": "GENEPIO:0001518",
           "alias": "DataHarmonizer_provenance",
           "owner": "Mpox_international",
