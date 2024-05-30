@@ -2,7 +2,7 @@
   "name": "Wastewater",
   "description": "",
   "id": "https://example.com/GRDI",
-  "version": "2.0.0",
+  "version": "5.3.3",
   "prefixes": {
     "linkml": {
       "prefix_prefix": "linkml",
@@ -46,6 +46,9 @@
     "string": {
       "name": "string",
       "description": "A character string",
+      "notes": [
+        "In RDF serializations, a slot with range of string is treated as a literal or type xsd:string.   If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"string\"."
+      ],
       "from_schema": "https://example.com/GRDI",
       "exact_mappings": [
         "schema:Text"
@@ -56,6 +59,9 @@
     "integer": {
       "name": "integer",
       "description": "An integer",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"integer\"."
+      ],
       "from_schema": "https://example.com/GRDI",
       "exact_mappings": [
         "schema:Integer"
@@ -66,6 +72,9 @@
     "boolean": {
       "name": "boolean",
       "description": "A binary (true or false) value",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"boolean\"."
+      ],
       "from_schema": "https://example.com/GRDI",
       "exact_mappings": [
         "schema:Boolean"
@@ -77,6 +86,9 @@
     "float": {
       "name": "float",
       "description": "A real number that conforms to the xsd:float specification",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"float\"."
+      ],
       "from_schema": "https://example.com/GRDI",
       "exact_mappings": [
         "schema:Float"
@@ -87,6 +99,9 @@
     "double": {
       "name": "double",
       "description": "A real number that conforms to the xsd:double specification",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"double\"."
+      ],
       "from_schema": "https://example.com/GRDI",
       "close_mappings": [
         "schema:Float"
@@ -97,6 +112,9 @@
     "decimal": {
       "name": "decimal",
       "description": "A real number with arbitrary precision that conforms to the xsd:decimal specification",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"decimal\"."
+      ],
       "from_schema": "https://example.com/GRDI",
       "broad_mappings": [
         "schema:Number"
@@ -108,21 +126,23 @@
       "name": "time",
       "description": "A time object represents a (local) time of day, independent of any particular day",
       "notes": [
-        "URI is dateTime because OWL reasoners do not work with straight date or time"
+        "URI is dateTime because OWL reasoners do not work with straight date or time",
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"time\"."
       ],
       "from_schema": "https://example.com/GRDI",
       "exact_mappings": [
         "schema:Time"
       ],
       "base": "XSDTime",
-      "uri": "xsd:dateTime",
+      "uri": "xsd:time",
       "repr": "str"
     },
     "date": {
       "name": "date",
       "description": "a date (year, month and day) in an idealized calendar",
       "notes": [
-        "URI is dateTime because OWL reasoners don't work with straight date or time"
+        "URI is dateTime because OWL reasoners don't work with straight date or time",
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"date\"."
       ],
       "from_schema": "https://example.com/GRDI",
       "exact_mappings": [
@@ -135,6 +155,9 @@
     "datetime": {
       "name": "datetime",
       "description": "The combination of a date and time",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"datetime\"."
+      ],
       "from_schema": "https://example.com/GRDI",
       "exact_mappings": [
         "schema:DateTime"
@@ -146,6 +169,9 @@
     "date_or_datetime": {
       "name": "date_or_datetime",
       "description": "Either a date or a datetime",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"date_or_datetime\"."
+      ],
       "from_schema": "https://example.com/GRDI",
       "base": "str",
       "uri": "linkml:DateOrDatetime",
@@ -154,6 +180,9 @@
     "uriorcurie": {
       "name": "uriorcurie",
       "description": "a URI or a CURIE",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"uriorcurie\"."
+      ],
       "from_schema": "https://example.com/GRDI",
       "base": "URIorCURIE",
       "uri": "xsd:anyURI",
@@ -163,6 +192,9 @@
       "name": "curie",
       "conforms_to": "https://www.w3.org/TR/curie/",
       "description": "a compact URI",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"curie\"."
+      ],
       "comments": [
         "in RDF serializations this MUST be expanded to a URI",
         "in non-RDF serializations MAY be serialized as the compact representation"
@@ -176,6 +208,9 @@
       "name": "uri",
       "conforms_to": "https://www.ietf.org/rfc/rfc3987.txt",
       "description": "a complete URI",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"uri\"."
+      ],
       "comments": [
         "in RDF serializations a slot with range of uri is treated as a literal or type xsd:anyURI unless it is an identifier or a reference to an identifier, in which case it is translated directly to a node"
       ],
@@ -190,6 +225,9 @@
     "ncname": {
       "name": "ncname",
       "description": "Prefix part of CURIE",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"ncname\"."
+      ],
       "from_schema": "https://example.com/GRDI",
       "base": "NCName",
       "uri": "xsd:string",
@@ -198,8 +236,11 @@
     "objectidentifier": {
       "name": "objectidentifier",
       "description": "A URI or CURIE that represents an object in the model.",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"objectidentifier\"."
+      ],
       "comments": [
-        "Used for inheritence and type checking"
+        "Used for inheritance and type checking"
       ],
       "from_schema": "https://example.com/GRDI",
       "base": "ElementIdentifier",
@@ -209,9 +250,48 @@
     "nodeidentifier": {
       "name": "nodeidentifier",
       "description": "A URI, CURIE or BNODE that represents a node in a model.",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"nodeidentifier\"."
+      ],
       "from_schema": "https://example.com/GRDI",
       "base": "NodeIdentifier",
       "uri": "shex:nonLiteral",
+      "repr": "str"
+    },
+    "jsonpointer": {
+      "name": "jsonpointer",
+      "conforms_to": "https://datatracker.ietf.org/doc/html/rfc6901",
+      "description": "A string encoding a JSON Pointer. The value of the string MUST conform to JSON Point syntax and SHOULD dereference to a valid object within the current instance document when encoded in tree form.",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"jsonpointer\"."
+      ],
+      "from_schema": "https://example.com/GRDI",
+      "base": "str",
+      "uri": "xsd:string",
+      "repr": "str"
+    },
+    "jsonpath": {
+      "name": "jsonpath",
+      "conforms_to": "https://www.ietf.org/archive/id/draft-goessner-dispatch-jsonpath-00.html",
+      "description": "A string encoding a JSON Path. The value of the string MUST conform to JSON Point syntax and SHOULD dereference to zero or more valid objects within the current instance document when encoded in tree form.",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"jsonpath\"."
+      ],
+      "from_schema": "https://example.com/GRDI",
+      "base": "str",
+      "uri": "xsd:string",
+      "repr": "str"
+    },
+    "sparqlpath": {
+      "name": "sparqlpath",
+      "conforms_to": "https://www.w3.org/TR/sparql11-query/#propertypaths",
+      "description": "A string encoding a SPARQL Property Path. The value of the string MUST conform to SPARQL syntax and SHOULD dereference to zero or more valid objects within the current instance document when encoded as RDF.",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"sparqlpath\"."
+      ],
+      "from_schema": "https://example.com/GRDI",
+      "base": "str",
+      "uri": "xsd:string",
       "repr": "str"
     }
   },
@@ -7860,8 +7940,8 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "exact_mappings": [
-        "GISAID:DataHarmonizer provenance",
-        "CNPHI:Additional Comments",
+        "GISAID:DataHarmonizer%20provenance",
+        "CNPHI:Additional%20Comments",
         "NML_LIMS:HC_COMMENTS"
       ],
       "slot_uri": "GENEPIO:0001518",

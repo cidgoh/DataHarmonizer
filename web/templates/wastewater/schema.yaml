@@ -1,7 +1,7 @@
 id: https://example.com/GRDI
 name: Wastewater
 description: ''
-version: 2.0.0
+version: 5.3.3
 imports:
 - linkml:types
 prefixes:
@@ -5027,8 +5027,8 @@ slots:
     examples:
     - value: DataHarmonizer v3.3.3, Influenza v1.0.0
     exact_mappings:
-    - GISAID:DataHarmonizer provenance
-    - CNPHI:Additional Comments
+    - GISAID:DataHarmonizer%20provenance
+    - CNPHI:Additional%20Comments
     - NML_LIMS:HC_COMMENTS
 enums:
   null value menu:
