@@ -32,6 +32,7 @@ import yaml
 import json
 import optparse
 import os
+import urllib
 from sys import exit
 from functools import reduce
 from linkml_runtime.utils.schemaview import SchemaView
@@ -108,7 +109,8 @@ def set_mappings(record, row, EXPORT_FORMAT):
 			prefix = export_field[7:] + ':';
 			# Can be multiple targets for an exportable field
 			for value in row[export_field].split(';'):
-				mappings.append(prefix + value);
+				# Value, if it has spaces, | etc, seems to require URL encoding.
+				mappings.append(prefix + urllib.parse.quote(value) );
 
 	if len(mappings) > 0:
 		record['exact_mappings'] = mappings;
