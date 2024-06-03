@@ -746,6 +746,7 @@ export class AppContext {
       element.parentNode.removeChild(element);
     });
 
+
     // dhFooterRoot.innerHTML = '';
     // dhToolbarRoot.innerHTML = '';
   }
