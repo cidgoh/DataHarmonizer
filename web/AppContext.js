@@ -667,12 +667,21 @@ export class AppContext {
 
       i18n.addResources(langcode.split('-')[0], 'translation', {
         ...language_translation,
+        ...invert(language_translation),
       });
 
       i18n.addResources('default', 'translation', {
         // inverted language translation from default
+        // ...language_translation,
         ...invert(language_translation),
       });
+
+      // i18n.addResources('en', 'translation', {
+      //   // inverted language translation from default
+      //   // ...language_translation,
+      //   ...invert(language_translation),
+      // });
+
     });
   }
 
