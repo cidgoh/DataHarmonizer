@@ -1318,7 +1318,7 @@ sequenced_by menu		Public Health Agency of Canada (PHAC) [GENEPIO:0100551]
 		Health Canada (HC) [GENEPIO:0100554]					
 		Environment and Climate Change Canada (ECCC) [GENEPIO:0100555]					
 		Fisheries and Oceans Canada (DFO) [GENEPIO:0100556]					
-		McGill University [GENEPIO:0101083]					
+		McGill University [GENEPIO:0101103]					
 							
 							
 purpose_of_sequencing menu		Cluster/Outbreak investigation [GENEPIO:0100001]					
@@ -1405,7 +1405,7 @@ sequence_submitted_by menu		Public Health Agency of Canada (PHAC) [GENEPIO:01005
 		Health Canada (HC) [GENEPIO:0100554]					
 		Environment and Climate Change Canada (ECCC) [GENEPIO:0100555]					
 		Fisheries and Oceans Canada (DFO) [GENEPIO:0100556]					
-		McGill University [GENEPIO:0101083]					
+		McGill University [GENEPIO:0101103]					
 							
 quality_control_determination menu		No quality control issues identified [GENEPIO:0100562]					
 		Sequence passed quality control [GENEPIO:0100563]					
