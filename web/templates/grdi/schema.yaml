@@ -956,31 +956,31 @@ classes:
         slot_group: Sample collection and processing
       water_depth:
         rank: 56
-        slot_group: Sample collection and processing
+        slot_group: Environmental conditions and measurements
       water_depth_units:
         rank: 57
-        slot_group: Sample collection and processing
+        slot_group: Environmental conditions and measurements
       sediment_depth:
         rank: 58
-        slot_group: Sample collection and processing
+        slot_group: Environmental conditions and measurements
       sediment_depth_units:
         rank: 59
-        slot_group: Sample collection and processing
+        slot_group: Environmental conditions and measurements
       air_temperature:
         rank: 60
-        slot_group: Sample collection and processing
+        slot_group: Environmental conditions and measurements
       air_temperature_units:
         rank: 61
-        slot_group: Sample collection and processing
+        slot_group: Environmental conditions and measurements
       water_temperature:
         rank: 62
-        slot_group: Sample collection and processing
+        slot_group: Environmental conditions and measurements
       water_temperature_units:
         rank: 63
-        slot_group: Sample collection and processing
+        slot_group: Environmental conditions and measurements
       weather_type:
         rank: 64
-        slot_group: Sample collection and processing
+        slot_group: Environmental conditions and measurements
       host (common name):
         rank: 65
         slot_group: Host information
@@ -3124,17 +3124,17 @@ slots:
     name: alternative_sample_ID
     title: alternative_sample_ID
     description: An alternative sample_ID assigned to the sample by another organization.
-    comments: "Alternative identifiers assigned to the sample should be tracked along\
-      \ with original IDs to establish chain of custody. Alternative sample IDs should\
-      \ be provided in the in a prescribed format which consists of the ID followed\
-      \ by square brackets (no space in between the ID and bracket) containing the\
-      \ short form of ID provider\u2019s agency name i.e. ID[short organization code].\
-      \ Agency short forms include the following:\nPublic Health Agency of Canada:\
-      \ PHAC\nCanadian Food Inspection Agency: CFIA\nAgriculture and Agri-Food Canada:\
-      \ AAFC\nFisheries and Oceans Canada: DFO\nEnvironment and Climate Change Canada:\
-      \ ECCC\nHealth Canada: HC \nMultiple identifiers can be provided and separated\
-      \ by semi-colons. If the information is unknown or cannot be provided, leave\
-      \ blank or provide a null value."
+    comments: "\"Alternative identifiers assigned to the sample should be tracked\
+      \ along with original IDs to establish chain of custody. Alternative sample\
+      \ IDs should be provided in the in a prescribed format which consists of the\
+      \ ID followed by square brackets (no space in between the ID and bracket) containing\
+      \ the short form of ID provider\u2019s agency name i.e. ID[short organization\
+      \ code]. Agency short forms include the following:\nPublic Health Agency of\
+      \ Canada: PHAC\nCanadian Food Inspection Agency: CFIA\nAgriculture and Agri-Food\
+      \ Canada: AAFC\nFisheries and Oceans Canada: DFO\nEnvironment and Climate Change\
+      \ Canada: ECCC\nHealth Canada: HC \nMultiple identifiers can be provided and\
+      \ separated by semi-colons. If the information is unknown or cannot be provided,\
+      \ leave blank or provide a null value.\""
     slot_uri: GENEPIO:0100427
     range: WhitespaceMinimizedString
     required: true
@@ -4526,7 +4526,7 @@ slots:
       version of the flow cell used to generate sequence data can affect sequence
       quantity and quality. Record the version of the flow cell used to generate sequence
       data. Do not include "version" or "v" in the version number.
-    slot_uri: GENEPIO:0101084
+    slot_uri: GENEPIO:0101102
     range: WhitespaceMinimizedString
     examples:
     - value: R.9.4.1
@@ -14954,8 +14954,8 @@ enums:
         text: Environment and Climate Change Canada (ECCC) [GENEPIO:0100555]
       Fisheries and Oceans Canada (DFO) [GENEPIO:0100556]:
         text: Fisheries and Oceans Canada (DFO) [GENEPIO:0100556]
-      McGill University [GENEPIO:0101083]:
-        text: McGill University [GENEPIO:0101083]
+      McGill University [GENEPIO:0101103]:
+        text: McGill University [GENEPIO:0101103]
   purpose_of_sequencing menu:
     name: purpose_of_sequencing menu
     permissible_values:
@@ -15171,8 +15171,8 @@ enums:
         text: Environment and Climate Change Canada (ECCC) [GENEPIO:0100555]
       Fisheries and Oceans Canada (DFO) [GENEPIO:0100556]:
         text: Fisheries and Oceans Canada (DFO) [GENEPIO:0100556]
-      McGill University [GENEPIO:0101083]:
-        text: McGill University [GENEPIO:0101083]
+      McGill University [GENEPIO:0101103]:
+        text: McGill University [GENEPIO:0101103]
   quality_control_determination menu:
     name: quality_control_determination menu
     permissible_values:

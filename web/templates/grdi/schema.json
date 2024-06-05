@@ -4883,8 +4883,8 @@
         "Fisheries and Oceans Canada (DFO) [GENEPIO:0100556]": {
           "text": "Fisheries and Oceans Canada (DFO) [GENEPIO:0100556]"
         },
-        "McGill University [GENEPIO:0101083]": {
-          "text": "McGill University [GENEPIO:0101083]"
+        "McGill University [GENEPIO:0101103]": {
+          "text": "McGill University [GENEPIO:0101103]"
         }
       }
     },
@@ -5194,8 +5194,8 @@
         "Fisheries and Oceans Canada (DFO) [GENEPIO:0100556]": {
           "text": "Fisheries and Oceans Canada (DFO) [GENEPIO:0100556]"
         },
-        "McGill University [GENEPIO:0101083]": {
-          "text": "McGill University [GENEPIO:0101083]"
+        "McGill University [GENEPIO:0101103]": {
+          "text": "McGill University [GENEPIO:0101103]"
         }
       }
     },
@@ -5524,7 +5524,7 @@
       "description": "An alternative sample_ID assigned to the sample by another organization.",
       "title": "alternative_sample_ID",
       "comments": [
-        "Alternative identifiers assigned to the sample should be tracked along with original IDs to establish chain of custody. Alternative sample IDs should be provided in the in a prescribed format which consists of the ID followed by square brackets (no space in between the ID and bracket) containing the short form of ID provider’s agency name i.e. ID[short organization code]. Agency short forms include the following:\nPublic Health Agency of Canada: PHAC\nCanadian Food Inspection Agency: CFIA\nAgriculture and Agri-Food Canada: AAFC\nFisheries and Oceans Canada: DFO\nEnvironment and Climate Change Canada: ECCC\nHealth Canada: HC \nMultiple identifiers can be provided and separated by semi-colons. If the information is unknown or cannot be provided, leave blank or provide a null value."
+        "\"Alternative identifiers assigned to the sample should be tracked along with original IDs to establish chain of custody. Alternative sample IDs should be provided in the in a prescribed format which consists of the ID followed by square brackets (no space in between the ID and bracket) containing the short form of ID provider’s agency name i.e. ID[short organization code]. Agency short forms include the following:\nPublic Health Agency of Canada: PHAC\nCanadian Food Inspection Agency: CFIA\nAgriculture and Agri-Food Canada: AAFC\nFisheries and Oceans Canada: DFO\nEnvironment and Climate Change Canada: ECCC\nHealth Canada: HC \nMultiple identifiers can be provided and separated by semi-colons. If the information is unknown or cannot be provided, leave blank or provide a null value.\""
       ],
       "examples": [
         {
@@ -7687,7 +7687,7 @@
         }
       ],
       "from_schema": "https://example.com/GRDI",
-      "slot_uri": "GENEPIO:0101084",
+      "slot_uri": "GENEPIO:0101102",
       "range": "WhitespaceMinimizedString"
     },
     "sequencing_protocol": {
@@ -20748,47 +20748,47 @@
         "water_depth": {
           "name": "water_depth",
           "rank": 56,
-          "slot_group": "Sample collection and processing"
+          "slot_group": "Environmental conditions and measurements"
         },
         "water_depth_units": {
           "name": "water_depth_units",
           "rank": 57,
-          "slot_group": "Sample collection and processing"
+          "slot_group": "Environmental conditions and measurements"
         },
         "sediment_depth": {
           "name": "sediment_depth",
           "rank": 58,
-          "slot_group": "Sample collection and processing"
+          "slot_group": "Environmental conditions and measurements"
         },
         "sediment_depth_units": {
           "name": "sediment_depth_units",
           "rank": 59,
-          "slot_group": "Sample collection and processing"
+          "slot_group": "Environmental conditions and measurements"
         },
         "air_temperature": {
           "name": "air_temperature",
           "rank": 60,
-          "slot_group": "Sample collection and processing"
+          "slot_group": "Environmental conditions and measurements"
         },
         "air_temperature_units": {
           "name": "air_temperature_units",
           "rank": 61,
-          "slot_group": "Sample collection and processing"
+          "slot_group": "Environmental conditions and measurements"
         },
         "water_temperature": {
           "name": "water_temperature",
           "rank": 62,
-          "slot_group": "Sample collection and processing"
+          "slot_group": "Environmental conditions and measurements"
         },
         "water_temperature_units": {
           "name": "water_temperature_units",
           "rank": 63,
-          "slot_group": "Sample collection and processing"
+          "slot_group": "Environmental conditions and measurements"
         },
         "weather_type": {
           "name": "weather_type",
           "rank": 64,
-          "slot_group": "Sample collection and processing"
+          "slot_group": "Environmental conditions and measurements"
         },
         "host (common name)": {
           "name": "host (common name)",
@@ -25174,7 +25174,7 @@
           "domain_of": [
             "GRDI"
           ],
-          "slot_group": "Sample collection and processing",
+          "slot_group": "Environmental conditions and measurements",
           "range": "WhitespaceMinimizedString"
         },
         "water_depth_units": {
@@ -25189,7 +25189,7 @@
           "domain_of": [
             "GRDI"
           ],
-          "slot_group": "Sample collection and processing"
+          "slot_group": "Environmental conditions and measurements"
         },
         "sediment_depth": {
           "name": "sediment_depth",
@@ -25203,7 +25203,7 @@
           "domain_of": [
             "GRDI"
           ],
-          "slot_group": "Sample collection and processing",
+          "slot_group": "Environmental conditions and measurements",
           "range": "WhitespaceMinimizedString"
         },
         "sediment_depth_units": {
@@ -25218,7 +25218,7 @@
           "domain_of": [
             "GRDI"
           ],
-          "slot_group": "Sample collection and processing"
+          "slot_group": "Environmental conditions and measurements"
         },
         "air_temperature": {
           "name": "air_temperature",
@@ -25232,7 +25232,7 @@
           "domain_of": [
             "GRDI"
           ],
-          "slot_group": "Sample collection and processing",
+          "slot_group": "Environmental conditions and measurements",
           "range": "WhitespaceMinimizedString"
         },
         "air_temperature_units": {
@@ -25247,7 +25247,7 @@
           "domain_of": [
             "GRDI"
           ],
-          "slot_group": "Sample collection and processing"
+          "slot_group": "Environmental conditions and measurements"
         },
         "water_temperature": {
           "name": "water_temperature",
@@ -25261,7 +25261,7 @@
           "domain_of": [
             "GRDI"
           ],
-          "slot_group": "Sample collection and processing",
+          "slot_group": "Environmental conditions and measurements",
           "range": "WhitespaceMinimizedString"
         },
         "water_temperature_units": {
@@ -25276,7 +25276,7 @@
           "domain_of": [
             "GRDI"
           ],
-          "slot_group": "Sample collection and processing"
+          "slot_group": "Environmental conditions and measurements"
         },
         "weather_type": {
           "name": "weather_type",
@@ -25291,7 +25291,7 @@
           "domain_of": [
             "GRDI"
           ],
-          "slot_group": "Sample collection and processing"
+          "slot_group": "Environmental conditions and measurements"
         },
         "host (common name)": {
           "name": "host (common name)",
@@ -25931,7 +25931,7 @@
           "title": "sequencing flow cell version",
           "from_schema": "https://example.com/GRDI",
           "rank": 107,
-          "slot_uri": "GENEPIO:0101084",
+          "slot_uri": "GENEPIO:0101102",
           "alias": "sequencing_flow_cell_version",
           "owner": "GRDI",
           "domain_of": [

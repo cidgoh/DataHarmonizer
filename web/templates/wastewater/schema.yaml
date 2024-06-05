@@ -297,6 +297,7 @@ classes:
       organism:
         rank: 29
         slot_group: Sample collection and processing
+        multivalued: true
         comments: Provide the official nomenclature for the organism present in the
           sample. For SARS-CoV-2, use "Severe acute respiratory syndrome coronavirus
           2" provided in the picklist.
@@ -2862,7 +2863,6 @@ slots:
     title: organism
     description: Taxonomic name of the organism.
     slot_uri: GENEPIO:0001191
-    multivalued: true
   purpose of sampling:
     name: purpose of sampling
     title: purpose of sampling

@@ -4219,8 +4219,7 @@
       "description": "Taxonomic name of the organism.",
       "title": "organism",
       "from_schema": "https://example.com/GRDI",
-      "slot_uri": "GENEPIO:0001191",
-      "multivalued": true
+      "slot_uri": "GENEPIO:0001191"
     },
     "purpose of sampling": {
       "name": "purpose of sampling",
@@ -8108,6 +8107,7 @@
             }
           ],
           "rank": 29,
+          "multivalued": true,
           "slot_group": "Sample collection and processing",
           "required": true,
           "any_of": [
@@ -13849,7 +13849,6 @@
           "from_schema": "https://example.com/GRDI",
           "rank": 30,
           "slot_uri": "GENEPIO:0001191",
-          "multivalued": true,
           "alias": "organism",
           "owner": "WastewaterAMR",
           "domain_of": [
@@ -18298,7 +18297,6 @@
           "from_schema": "https://example.com/GRDI",
           "rank": 30,
           "slot_uri": "GENEPIO:0001191",
-          "multivalued": true,
           "alias": "organism",
           "owner": "WastewaterPathogenAgnostic",
           "domain_of": [
