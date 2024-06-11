@@ -71,8 +71,10 @@ function findSharedKeys(schema) {
  * @param {string} class_name - The name of the class to search for slot names.
  * @returns {Array} An array of slot names.
  */
-function findSlotNamesForClass(schema, class_name) {
-  return Object.keys(schema.classes[class_name].slot_usage);
+export function findSlotNamesForClass(schema, class_name) {
+  return Object.keys(schema.classes[class_name].slot_usage).map(field => {
+    return schema.classes[class_name].slot_usage[field].name;
+  });
 }
 
 /**
@@ -307,48 +309,6 @@ export class AppContext {
 
   getCurrentDataHarmonizer() {
     return this.dhs[this.current_data_harmonizer_name];
-  }
-
-  async getTypeTree() {
-    return (await this.getClasses()).reduce((acc, el) => {
-      const key = Object.keys(el)[0];
-      const value = Object.values(el)[0];
-      return Object.assign(acc, {
-        nodes: {
-          [key]: {
-            parents: [value['is_a']],
-          },
-        },
-      });
-    }, {});
-  }
-
-  /*
-    Example Data:
-    {
-      "nodes": {
-        "Sensor1": {"type": "Sensor", "data": 100, "children": ["Processor1"]},
-        "Sensor2": {"type": "Sensor", "data": 150, "children": ["Processor1"]},
-        "Processor1": {"type": "Processor", "data": 0, "children": ["Display1"]},
-        "Display1": {"type": "Display", "data": 0, "children": []}
-    }
-    */
-  async getDependencyTree() {
-    return Object.entries(await this.getTypeTree()['nodes']).reduce(
-      (acc, el) => {
-        if (typeof acc['nodes'] !== 'undefined' && !acc['nodes'][el[0]]) {
-          acc['nodes'][el[0]] = { data: null, children: [] };
-        }
-        el[1].parents.forEach((parent) => {
-          if (typeof acc['nodes'] !== 'undefined' && !acc['nodes'][parent]) {
-            acc['nodes'][parent] = { data: null, children: [] };
-          }
-          acc['nodes'][parent]['children'].push(el[0]);
-        });
-        return acc;
-      },
-      { nodes: {} }
-    );
   }
 
   // Two kinds of edits to be dealt with in 1-M:
@@ -960,9 +920,9 @@ export class AppContext {
     // schema_name,
     // template_name,
     // schema,
-    exportFormats,
     // schemaClass,
     // columnCoordinates,
+    locale,
   }) {
     // attributes are the classes which feature 1-M relationshisps
     // to process these classes into DataHarmonizer tables, the following must be performed:
@@ -1020,11 +980,13 @@ export class AppContext {
     let data_harmonizers = {};
     return this.initializeTemplate(this.appConfig.template_path).then(
       async (context) => {
+        if (locale !== null) {
+          context.template.updateLocale(locale);
+        } 
         const [_template_name, _schema_name] =
           context.appConfig.template_path.split('/');
-        const _export_formats =
-          exportFormats || (await context.getExportFormats(_template_name));
-        const schema = context.template.default.schema;
+        const _export_formats = (await context.getExportFormats(_template_name));
+        const schema = context.template.current.schema;
         const schema_tree = context.buildSchemaTree(schema);
         context.setSchemaTree(schema_tree);
         data_harmonizers = context.makeDataHarmonizersFromSchemaTree(
