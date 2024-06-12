@@ -72,7 +72,7 @@ function findSharedKeys(schema) {
  * @returns {Array} An array of slot names.
  */
 export function findSlotNamesForClass(schema, class_name) {
-  return Object.keys(schema.classes[class_name].slot_usage).map(field => {
+  return Object.keys(schema.classes[class_name].slot_usage).map((field) => {
     return schema.classes[class_name].slot_usage[field].name;
   });
 }
@@ -641,7 +641,6 @@ export class AppContext {
       //   // ...language_translation,
       //   ...invert(language_translation),
       // });
-
     });
   }
 
@@ -982,10 +981,10 @@ export class AppContext {
       async (context) => {
         if (locale !== null) {
           context.template.updateLocale(locale);
-        } 
+        }
         const [_template_name, _schema_name] =
           context.appConfig.template_path.split('/');
-        const _export_formats = (await context.getExportFormats(_template_name));
+        const _export_formats = await context.getExportFormats(_template_name);
         const schema = context.template.current.schema;
         const schema_tree = context.buildSchemaTree(schema);
         context.setSchemaTree(schema_tree);
