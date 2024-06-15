@@ -14,6 +14,17 @@
 #
 # > python ../../../script/tabular_to_schema.py -m
 # 
+# Note, to do command line validation of schema against a data file, type:
+#
+# linkml-validate --schema schema.yaml --target-class "CanCOGeN Covid-19" test_good.csv
+#
+# To prepare tsv or csv files for above validation, first line of a
+# DataHarmonizer-generated data file with its section headers must be removed,
+# and if 2nd line has spaces in its column/slot names, these must be replaced
+# by underscores.  Sed can be used to do this:
+#
+# > sed '1d;2 s/ /_/g' exampleInput/validTestData_2-1-2.tsv > test_good.tsv
+#
 # FUTURE: design will be revised to have SLOTS managed as a separate
 # list from Class reuse of them, where curators will explicitly show
 # which particular attributes are overridden.  I.e. Rather than using
@@ -139,12 +150,12 @@ def set_min_max(slot, slot_minimum_value, slot_maximum_value):
 
 	if slot_minimum_value > '':
 		if slot_minimum_value.isnumeric():
-			slot['minimum_value'] = slot_minimum_value;
+			slot['minimum_value'] = int(slot_minimum_value);
 		else:
 			slot['todos'] = ['>=' + slot_minimum_value];
 	if slot_maximum_value > '':
 		if slot_maximum_value.isnumeric():
-			slot['maximum_value'] = slot_maximum_value;
+			slot['maximum_value'] = int(slot_maximum_value);
 		else:
 			if slot['todos']:
 				slot['todos'].append('<=' + slot_maximum_value);
