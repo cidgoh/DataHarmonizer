@@ -547,6 +547,7 @@ export class AppContext {
 
     // Consolidate function for reducing objects
     function consolidate(iterable, reducer) {
+      console.warn(iterable, reducer);
       return Object.entries(iterable).reduce(reducer, {});
     }
 
@@ -582,13 +583,23 @@ export class AppContext {
         })
       );
 
+      console.log(translation.schema, translation.schema.enums)
       const enum_resource = consolidate(
         translation.schema.enums,
         (acc, [, { permissible_values }]) => {
-          for (const [enum_value, { text }] of Object.entries(
-            permissible_values
-          )) {
-            acc[enum_value] = text;
+          // TODO: HACK: permissible values doesn't exist for all schemas as an element of enum?
+          if (!!permissible_values) {
+            try {
+              for (let [enum_value, arg] of Object.entries(
+                permissible_values
+              )) {
+                  const { text } = arg;
+                  acc[enum_value] = text;
+              }
+            } catch(e) {
+              console.warn(enum_value, arg, permissible_values);
+              throw e;
+            }
           }
           return acc;
         }
@@ -637,18 +648,11 @@ export class AppContext {
 
       const current_lang = langcode.split('-')[0];
       language_translation = removeNumericKeys(language_translation);
+
+      i18n.addResources(current_lang, 'translation', language_translation);
+      
       const reverse_translation_map = invert(language_translation);
-
-      i18n.addResources(current_lang, 'translation', {
-        ...language_translation,
-        ...reverse_translation_map,
-      });
-
-      i18n.addResources('default', 'translation', {
-        // inverted language translation from default
-        // ...language_translation,
-        ...reverse_translation_map,
-      });
+      i18n.addResources('default', 'reverse', reverse_translation_map);
 
       // i18n.addResources('en', 'translation', {
       //   // inverted language translation from default

@@ -1,5 +1,6 @@
 {
-  "name": "TEST_de",
+  "name": "TEST",
+  "in_language": "de",
   "id": "https://example.com/TEST",
   "version": "2.3.0",
   "prefixes": {
