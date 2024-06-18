@@ -1,5 +1,12 @@
 
 {
+  "phac_dexa": {
+    "PHAC Dexa": {
+      "name": "PHAC Dexa",
+      "status": "published",
+      "display": true
+    }
+  },
   "test": {
     "TEST": {
       "name": "TEST",
@@ -31,13 +38,6 @@
   "pha4ge": {
     "PHA4GE": {
       "name": "PHA4GE",
-      "status": "published",
-      "display": true
-    }
-  },
-  "phac_dexa": {
-    "PHAC Dexa": {
-      "name": "PHAC Dexa",
       "status": "published",
       "display": true
     }

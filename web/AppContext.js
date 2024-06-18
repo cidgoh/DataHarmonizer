@@ -619,21 +619,35 @@ export class AppContext {
         })
       );
 
-      const language_translation = {
+      let language_translation = {
         ...section_resource,
         ...schema_resource,
         ...enum_resource,
       };
 
-      i18n.addResources(langcode.split('-')[0], 'translation', {
+      // HACK: numeric keys seem to bug up the translation logic
+      function removeNumericKeys(obj) {
+        for (let key in obj) {
+          if (!isNaN(key)) {
+            delete obj[key];
+          }
+        }
+        return obj;
+      }
+
+      const current_lang = langcode.split('-')[0];
+      language_translation = removeNumericKeys(language_translation);
+      const reverse_translation_map = invert(language_translation);
+
+      i18n.addResources(current_lang, 'translation', {
         ...language_translation,
-        ...invert(language_translation),
+        ...reverse_translation_map,
       });
 
       i18n.addResources('default', 'translation', {
         // inverted language translation from default
         // ...language_translation,
-        ...invert(language_translation),
+        ...reverse_translation_map,
       });
 
       // i18n.addResources('en', 'translation', {
