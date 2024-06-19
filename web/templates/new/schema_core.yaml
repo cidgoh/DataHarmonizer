@@ -1,10 +1,9 @@
 id: https://example.com/CanCOGeN_Covid-19
 name: YOUR_SCHEMA_NAME
 description: ""
-version: 2.3.4
+version: 1.0.0
 in_language: 
 - 'en'
-- 'fr'
 imports:
 - 'linkml:types'
 prefixes:
