@@ -116,7 +116,7 @@ def set_mappings(record, row, EXPORT_FORMAT):
 
 	mappings = [];
 	for export_field in EXPORT_FORMAT:
-		if export_field in row and row[export_field] > '':
+		if export_field in row and row[export_field] and row[export_field] > '':
 			prefix = export_field[7:] + ':';
 			# Can be multiple targets for an exportable field
 			for value in row[export_field].split(';'):
@@ -180,7 +180,7 @@ def set_classes(schema_slot_path, schema, locale_schemas, export_format, warning
 
 			# Cleanup of cell contents.
 			for field in row:
-				if field != None and field != '':
+				if field != None and field != '' and row[field]:
 					row[field] = row[field].strip();
 
 			# A row may set a list of class names to apply slot definition on that row
@@ -212,11 +212,12 @@ def set_classes(schema_slot_path, schema, locale_schemas, export_format, warning
 				if (firstrow):
 					firstrow = False;
 					for key in row:
-						if key[0:7] == 'EXPORT_':
+						if key and key[0:7] == 'EXPORT_':
 							export_format.append(key);
 
 				# All slots have a range
-				if row.get('range','') > '':
+				range_col = row.get('range','');
+				if range_col and range_col > '':
 
 					# Define basics of slot:
 					slot_name = row.get('name',False) or row.get('title','[UNNAMED!!!]');
@@ -363,7 +364,7 @@ def set_enums(enum_path, schema, locale_schemas, export_format, warnings):
 		for row in reader:
 
 			for field in row:
-				if field != None:
+				if field != None and row[field]:
 					row[field] = row[field].strip();
 
 			# Each enumeration begins with a row that provides the name of the enum.
