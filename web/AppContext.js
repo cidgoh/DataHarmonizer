@@ -294,7 +294,7 @@ export class AppContext {
     this.appConfig = appConfig;
   }
 
-  async reload(template_path, locale) {
+  async reload(template_path, locale = 'default') {
     // this.schema_tree = {};
     // this.dhs = {};
     // this.current_data_harmonizer_name = null;
@@ -303,6 +303,10 @@ export class AppContext {
       template_path,
       locale
     })
+  }
+
+  getTemplateName() {
+    return this.appConfig.template_path.split('/')[1];
   }
 
   setSchemaTree(schema_tree) {
