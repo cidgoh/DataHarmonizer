@@ -293,6 +293,17 @@ export class AppContext {
     this.appConfig = appConfig;
   }
 
+  async reload(template_path, locale) {
+    // this.schema_tree = {};
+    // this.dhs = {};
+    // this.current_data_harmonizer_name = null;
+    // this.template = null;
+    return this.setupDataHarmonizers({
+      template_path,
+      locale
+    })
+  }
+
   setSchemaTree(schema_tree) {
     this.schema_tree = schema_tree;
   }
@@ -442,85 +453,6 @@ export class AppContext {
     return data_harmonizers;
   }
 
-  /**
-   * Finds slots with suffixes shared across multiple prefixes in the given slot usage data.
-   *
-   * @param {Object} slotUsage - The slot usage data for a class.
-   * @param {number} [prefix_threshold=2] - The threshold for the number of prefixes sharing a suffix to be considered.
-   * @param {number} [suffix_threshold=2] - The threshold for the minimum number of suffixes shared to be considered.
-   * @returns {Object} - A dictionary containing prefixes and corresponding suffixes for one-to-many relationships.
-   *
-   * @example
-   * // Example slot usage data for a class
-   * const exampleSlotUsage = {
-   *   "apple_color": "red",
-   *   "apple_size": "medium",
-   *   "banana_color": "yellow",
-   *   "banana_size": "large",
-   *   "orange_color": "orange",
-   *   "orange_size": "medium",
-   *   "kiwi_color": "brown",
-   *   "kiwi_size": "small",
-   * };
-   *
-   * // Function to find slots with suffixes shared across multiple prefixes
-   * const result = findOneToManySlots(exampleSlotUsage, 2, 2);
-   * // Output: { "apple": ["apple_color", "apple_size"], "orange": ["orange_color", "orange_size"] }
-   */
-  async oneToManySlotUsage(cls, prefix_threshold = 2, suffix_threshold = 2) {
-    const findOneToManySlots = (
-      slotUsage,
-      prefix_threshold = 1,
-      suffix_threshold = 1
-    ) => {
-      const suffix_dict = {};
-      for (const key in slotUsage) {
-        const [prefix] = key.split('_');
-        if (!suffix_dict[prefix]) {
-          suffix_dict[prefix] = [];
-        }
-        suffix_dict[prefix].push(key.replace(`${prefix}_`, ''));
-      }
-
-      const multi_suffixes_filter = {};
-      for (const prefix in suffix_dict) {
-        suffix_dict[prefix].forEach((suffix) => {
-          if (!multi_suffixes_filter[suffix]) {
-            multi_suffixes_filter[suffix] = [];
-          }
-          multi_suffixes_filter[suffix].push(prefix);
-        });
-      }
-
-      // Optionally, you can filter the entries based on count >= filter_threshold for number of prefixes that the suffix is shared in
-      const filtered_multi_suffixes_filter = Object.fromEntries(
-        Object.entries(multi_suffixes_filter).filter(
-          ([, prefixes]) => prefixes.length >= prefix_threshold
-        )
-      );
-
-      // Select for all prefix-suffixes, there exists a suffix used across multiple prefixes
-      const one_to_many = {};
-      for (const [prefix, suffixes] of Object.entries(suffix_dict)) {
-        if (
-          suffixes.some(
-            (suffix) =>
-              typeof filtered_multi_suffixes_filter[suffix] !== 'undefined'
-          ) &&
-          suffixes.length >= suffix_threshold
-        ) {
-          one_to_many[prefix] = suffixes.map((suffix) => `${prefix}_${suffix}`);
-        }
-      }
-
-      return one_to_many;
-    };
-    return findOneToManySlots(
-      this.template.current.schema.classes[cls].slot_usage,
-      prefix_threshold,
-      suffix_threshold
-    );
-  }
 
   async initializeTemplate(template_path) {
     const [schema_name] = template_path.split('/');
@@ -562,17 +494,6 @@ export class AppContext {
     };
 
     Object.entries(template.translations).forEach(([langcode, translation]) => {
-      const primaryClass =
-        typeof translation.schema.classes[template.default.schema.name] !==
-        'undefined'
-          ? translation.schema.classes[template.default.schema.name]
-          : typeof translation.schema.classes[
-              template.default.schema.name.replace('_', ' ')
-            ] !== 'undefined'
-          ? translation.schema.classes[
-              template.default.schema.name.replace('_', ' ')
-            ]
-          : {};
 
       const schema_resource = consolidate(
         translation.schema.slots,
@@ -600,7 +521,7 @@ export class AppContext {
 
       // TODO: Problem: multiple classes!!!!!
       // console.info(primaryClass, translation.schema.classes, template.default.schema.name)
-      
+
       // const primaryClass =
       // typeof translation.schema.classes[template.default.schema.name] !==
       // 'undefined'
@@ -616,7 +537,8 @@ export class AppContext {
       let translated_sections = {};
       let default_sections = {};
       Object.keys(translation.schema.classes)
-        .filter(cls => !['Container', 'dh_interface'].includes(cls)).forEach(_primaryClass => {
+        .filter((cls) => !['Container', 'dh_interface'].includes(cls))
+        .forEach((_primaryClass) => {
           const primaryClass = translation.schema.classes[_primaryClass];
           translated_sections = {
             ...consolidate(
@@ -627,21 +549,19 @@ export class AppContext {
               })
             ),
             ...translated_sections,
-          }
-    
-          default_sections = 
-          {
-              ...consolidate(
-                primaryClass.slot_usage,
-                (acc, [default_slot_name, { slot_group }]) => ({
-                  ...acc,
-                  [default_slot_name]: slot_group,
-                })
-              ),
-              ...default_sections,
           };
-        })
 
+          default_sections = {
+            ...consolidate(
+              primaryClass.slot_usage,
+              (acc, [default_slot_name, { slot_group }]) => ({
+                ...acc,
+                [default_slot_name]: slot_group,
+              })
+            ),
+            ...default_sections,
+          };
+        });
 
       const section_resource = consolidate(
         translated_sections,
@@ -672,15 +592,15 @@ export class AppContext {
       language_translation = removeNumericKeys(language_translation);
 
       i18n.addResources(current_lang, 'translation', language_translation);
-      
+
       const reverse_translation_map = invert(language_translation);
       i18n.addResources('default', 'reverse', reverse_translation_map);
 
-      // i18n.addResources('en', 'translation', {
-      //   // inverted language translation from default
-      //   // ...language_translation,
-      //   ...invert(language_translation),
-      // });
+      i18n.addResources('en', 'translation', {
+        // inverted language translation from default
+        // ...language_translation,
+        ...invert(language_translation),
+      });
     });
   }
 
@@ -961,7 +881,7 @@ export class AppContext {
     // schema,
     // schemaClass,
     // columnCoordinates,
-    locale,
+    locale = null,
   }) {
     // attributes are the classes which feature 1-M relationshisps
     // to process these classes into DataHarmonizer tables, the following must be performed:
@@ -1015,7 +935,7 @@ export class AppContext {
     */
     this.appConfig = new AppConfig(template_path);
     this.clearInterface();
-    this.clearContext();
+    // this.clearContext();
     let data_harmonizers = {};
     return this.initializeTemplate(this.appConfig.template_path).then(
       async (context) => {
@@ -1025,7 +945,8 @@ export class AppContext {
         const [_template_name, _schema_name] =
           context.appConfig.template_path.split('/');
         const _export_formats = await context.getExportFormats(_template_name);
-        const schema = context.template.current.schema;
+        
+        const schema = locale !== null ? context.template.localized.schema : context.template.default.schema;
         const schema_tree = context.buildSchemaTree(schema);
         context.setSchemaTree(schema_tree);
         data_harmonizers = context.makeDataHarmonizersFromSchemaTree(

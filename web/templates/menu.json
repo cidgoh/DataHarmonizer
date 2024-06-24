@@ -1,12 +1,5 @@
 
 {
-  "phac_dexa": {
-    "PHAC Dexa": {
-      "name": "PHAC Dexa",
-      "status": "published",
-      "display": true
-    }
-  },
   "test": {
     "TEST": {
       "name": "TEST",
@@ -24,6 +17,13 @@
   "grdi": {
     "GRDI_Sample": {
       "name": "GRDI_Sample",
+      "status": "published",
+      "display": true
+    }
+  },
+  "phac_dexa": {
+    "PHAC Dexa": {
+      "name": "PHAC Dexa",
       "status": "published",
       "display": true
     }
