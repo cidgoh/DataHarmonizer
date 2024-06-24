@@ -583,43 +583,65 @@ export class AppContext {
         })
       );
 
-      console.log(translation.schema, translation.schema.enums)
+      console.info(translation.schema, translation.schema.enums);
       const enum_resource = consolidate(
         translation.schema.enums,
         (acc, [, { permissible_values }]) => {
           // TODO: HACK: permissible values doesn't exist for all schemas as an element of enum?
-          if (!!permissible_values) {
-            try {
-              for (let [enum_value, arg] of Object.entries(
-                permissible_values
-              )) {
-                  const { text } = arg;
-                  acc[enum_value] = text;
-              }
-            } catch(e) {
-              console.warn(enum_value, arg, permissible_values);
-              throw e;
+          if (typeof permissible_values !== 'undefined') {
+            for (let [enum_value, arg] of Object.entries(permissible_values)) {
+              const { text } = arg;
+              acc[enum_value] = text;
             }
           }
           return acc;
         }
       );
 
-      const translated_sections = consolidate(
-        primaryClass.slot_usage,
-        (acc, [translation_slot_name, { slot_group }]) => ({
-          ...acc,
-          [translation_slot_name]: slot_group,
-        })
-      );
+      // TODO: Problem: multiple classes!!!!!
+      // console.info(primaryClass, translation.schema.classes, template.default.schema.name)
+      
+      // const primaryClass =
+      // typeof translation.schema.classes[template.default.schema.name] !==
+      // 'undefined'
+      //   ? translation.schema.classes[template.default.schema.name]
+      //   : typeof translation.schema.classes[
+      //       template.default.schema.name.replace('_', ' ')
+      //     ] !== 'undefined'
+      //   ? translation.schema.classes[
+      //       template.default.schema.name.replace('_', ' ')
+      //     ]
+      //   : {};
 
-      const default_sections = consolidate(
-        primaryClass.slot_usage,
-        (acc, [default_slot_name, { slot_group }]) => ({
-          ...acc,
-          [default_slot_name]: slot_group,
+      let translated_sections = {};
+      let default_sections = {};
+      Object.keys(translation.schema.classes)
+        .filter(cls => !['Container', 'dh_interface'].includes(cls)).forEach(_primaryClass => {
+          const primaryClass = translation.schema.classes[_primaryClass];
+          translated_sections = {
+            ...consolidate(
+              primaryClass.slot_usage,
+              (acc, [translation_slot_name, { slot_group }]) => ({
+                ...acc,
+                [translation_slot_name]: slot_group,
+              })
+            ),
+            ...translated_sections,
+          }
+    
+          default_sections = 
+          {
+              ...consolidate(
+                primaryClass.slot_usage,
+                (acc, [default_slot_name, { slot_group }]) => ({
+                  ...acc,
+                  [default_slot_name]: slot_group,
+                })
+              ),
+              ...default_sections,
+          };
         })
-      );
+
 
       const section_resource = consolidate(
         translated_sections,
