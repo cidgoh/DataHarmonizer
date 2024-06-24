@@ -851,6 +851,7 @@ export class AppContext {
 
                 $(document).trigger('dhCurrentChange', {
                   data: spec.name,
+                  dh: context.getCurrentDataHarmonizer()
                 });
               });
               dhTabNav.appendChild(dhTab); // Appending to the tab navigation
