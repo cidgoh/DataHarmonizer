@@ -288,6 +288,7 @@ export class AppContext {
   dhs = {};
   current_data_harmonizer_name = null;
   template = null;
+  exportFormats = {};
 
   constructor(appConfig = new AppConfig(getTemplatePath())) {
     this.appConfig = appConfig;
@@ -460,11 +461,11 @@ export class AppContext {
     return this;
   }
 
-  async getSchema() {
+  getSchema() {
     return this.template.current.schema;
   }
 
-  async getLocaleData() {
+  getLocaleData() {
     let locales = {
       default: { langcode: 'default', nativeName: 'Default' },
       ...findLocalesForLangcodes(this.template.locales),
@@ -472,9 +473,9 @@ export class AppContext {
     return locales;
   }
 
-  async addTranslationResources(template, locales = null) {
+  addTranslationResources(template, locales = null) {
     if (locales === null) {
-      locales = await this.getLocaleData(template);
+      locales = this.getLocaleData(template);
     }
 
     // Consolidate function for reducing objects
@@ -504,7 +505,6 @@ export class AppContext {
         })
       );
 
-      console.info(translation.schema, translation.schema.enums);
       const enum_resource = consolidate(
         translation.schema.enums,
         (acc, [, { permissible_values }]) => {
@@ -590,17 +590,12 @@ export class AppContext {
 
       const current_lang = langcode.split('-')[0];
       language_translation = removeNumericKeys(language_translation);
-
       i18n.addResources(current_lang, 'translation', language_translation);
 
       const reverse_translation_map = invert(language_translation);
       i18n.addResources('default', 'reverse', reverse_translation_map);
+      i18n.addResources('en', 'reverse', reverse_translation_map);
 
-      i18n.addResources('en', 'translation', {
-        // inverted language translation from default
-        // ...language_translation,
-        ...invert(language_translation),
-      });
     });
   }
 
@@ -632,8 +627,13 @@ export class AppContext {
     return Array.from(slotGroups);
   }
 
-  async getExportFormats(schema) {
-    return (await import(`@/web/templates/${schema}/export.js`)).default;
+  async loadExportFormats(schema) {
+    this.exportFormats = (await import(`@/web/templates/${schema}/export.js`)).default;
+    return this.exportFormats;
+  }
+
+  getExportFormats() {
+    return this.exportFormats;
   }
 
   /**
@@ -876,11 +876,6 @@ export class AppContext {
 
   async setupDataHarmonizers({
     template_path,
-    // schema_name,
-    // template_name,
-    // schema,
-    // schemaClass,
-    // columnCoordinates,
     locale = null,
   }) {
     // attributes are the classes which feature 1-M relationshisps
@@ -944,7 +939,7 @@ export class AppContext {
         }
         const [_template_name, _schema_name] =
           context.appConfig.template_path.split('/');
-        const _export_formats = await context.getExportFormats(_template_name);
+        const _export_formats = await context.loadExportFormats(_template_name);
         
         const schema = locale !== null ? context.template.localized.schema : context.template.default.schema;
         const schema_tree = context.buildSchemaTree(schema);
