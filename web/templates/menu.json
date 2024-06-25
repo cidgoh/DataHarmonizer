@@ -1,15 +1,15 @@
 
 {
-  "test": {
-    "TEST": {
-      "name": "TEST",
+  "canada_covid19": {
+    "CanCOGeN Covid-19": {
+      "name": "CanCOGeN Covid-19",
       "status": "published",
       "display": true
     }
   },
-  "canada_covid19": {
-    "CanCOGeN Covid-19": {
-      "name": "CanCOGeN Covid-19",
+  "test": {
+    "TEST": {
+      "name": "TEST",
       "status": "published",
       "display": true
     }
