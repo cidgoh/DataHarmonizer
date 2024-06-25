@@ -14,6 +14,17 @@
 #
 # > python ../../../script/tabular_to_schema.py -m
 # 
+# Note, to do command line validation of schema against a data file, type:
+#
+# linkml-validate --schema schema.yaml --target-class "CanCOGeN Covid-19" test_good.csv
+#
+# To prepare tsv or csv files for above validation, first line of a
+# DataHarmonizer-generated data file with its section headers must be removed,
+# and if 2nd line has spaces in its column/slot names, these must be replaced
+# by underscores.  Sed can be used to do this:
+#
+# > sed '1d;2 s/ /_/g' exampleInput/validTestData_2-1-2.tsv > test_good.tsv
+#
 # FUTURE: design will be revised to have SLOTS managed as a separate
 # list from Class reuse of them, where curators will explicitly show
 # which particular attributes are overridden.  I.e. Rather than using
@@ -32,6 +43,7 @@ import yaml
 import json
 import optparse
 import os
+import urllib
 from sys import exit
 from functools import reduce
 from linkml_runtime.utils.schemaview import SchemaView
@@ -104,11 +116,12 @@ def set_mappings(record, row, EXPORT_FORMAT):
 
 	mappings = [];
 	for export_field in EXPORT_FORMAT:
-		if export_field in row and row[export_field] > '':
+		if export_field in row and row[export_field] and row[export_field] > '':
 			prefix = export_field[7:] + ':';
 			# Can be multiple targets for an exportable field
 			for value in row[export_field].split(';'):
-				mappings.append(prefix + value);
+				# Value, if it has spaces, | etc, seems to require URL encoding.
+				mappings.append(prefix + urllib.parse.quote(value) );
 
 	if len(mappings) > 0:
 		record['exact_mappings'] = mappings;
@@ -137,12 +150,12 @@ def set_min_max(slot, slot_minimum_value, slot_maximum_value):
 
 	if slot_minimum_value > '':
 		if slot_minimum_value.isnumeric():
-			slot['minimum_value'] = slot_minimum_value;
+			slot['minimum_value'] = int(slot_minimum_value);
 		else:
 			slot['todos'] = ['>=' + slot_minimum_value];
 	if slot_maximum_value > '':
 		if slot_maximum_value.isnumeric():
-			slot['maximum_value'] = slot_maximum_value;
+			slot['maximum_value'] = int(slot_maximum_value);
 		else:
 			if slot['todos']:
 				slot['todos'].append('<=' + slot_maximum_value);
@@ -167,7 +180,7 @@ def set_classes(schema_slot_path, schema, locale_schemas, export_format, warning
 
 			# Cleanup of cell contents.
 			for field in row:
-				if field != None and field != '':
+				if field != None and field != '' and row[field]:
 					row[field] = row[field].strip();
 
 			# A row may set a list of class names to apply slot definition on that row
@@ -199,11 +212,12 @@ def set_classes(schema_slot_path, schema, locale_schemas, export_format, warning
 				if (firstrow):
 					firstrow = False;
 					for key in row:
-						if key[0:7] == 'EXPORT_':
+						if key and key[0:7] == 'EXPORT_':
 							export_format.append(key);
 
 				# All slots have a range
-				if row.get('range','') > '':
+				range_col = row.get('range','');
+				if range_col and range_col > '':
 
 					# Define basics of slot:
 					slot_name = row.get('name',False) or row.get('title','[UNNAMED!!!]');
@@ -350,7 +364,7 @@ def set_enums(enum_path, schema, locale_schemas, export_format, warnings):
 		for row in reader:
 
 			for field in row:
-				if field != None:
+				if field != None and row[field]:
 					row[field] = row[field].strip();
 
 			# Each enumeration begins with a row that provides the name of the enum.

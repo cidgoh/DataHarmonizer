@@ -613,11 +613,11 @@ slots:
     examples:
     - value: prov_rona_99
     exact_mappings:
-    - GISAID:Sample ID given by the sample provider
-    - CNPHI:Primary Specimen ID
+    - GISAID:Sample%20ID%20given%20by%20the%20sample%20provider
+    - CNPHI:Primary%20Specimen%20ID
     - NML_LIMS:TEXT_ID
     - BIOSAMPLE:sample_name
-    - VirusSeq_Portal:specimen collector sample ID
+    - VirusSeq_Portal:specimen%20collector%20sample%20ID
   third party lab service provider name:
     name: third party lab service provider name
     title: third party lab service provider name
@@ -670,8 +670,8 @@ slots:
     examples:
     - value: SR20-12345
     exact_mappings:
-    - CNPHI:Related Specimen ID
-    - CNPHI:Related Specimen Relationship Type
+    - CNPHI:Related%20Specimen%20ID
+    - CNPHI:Related%20Specimen%20Relationship%20Type
     - NML_LIMS:PH_RELATED_PRIMARY_ID
   IRIDA sample name:
     name: IRIDA sample name
@@ -690,7 +690,7 @@ slots:
     examples:
     - value: prov_rona_99
     exact_mappings:
-    - NML_LIMS:IRIDA sample name
+    - NML_LIMS:IRIDA%20sample%20name
   umbrella bioproject accession:
     name: umbrella bioproject accession
     title: umbrella bioproject accession
@@ -709,7 +709,7 @@ slots:
     examples:
     - value: PRJNA623807
     exact_mappings:
-    - NML_LIMS:umbrella bioproject accession
+    - NML_LIMS:umbrella%20bioproject%20accession
   bioproject accession:
     name: bioproject accession
     title: bioproject accession
@@ -730,7 +730,7 @@ slots:
     examples:
     - value: PRJNA608651
     exact_mappings:
-    - CNPHI:BioProject Accession
+    - CNPHI:BioProject%20Accession
     - NML_LIMS:PH_BIOPROJECT_ACCESSION
     - BIOSAMPLE:bioproject_accession
   biosample accession:
@@ -748,7 +748,7 @@ slots:
     examples:
     - value: SAMN14180202
     exact_mappings:
-    - CNPHI:BioSample Accession
+    - CNPHI:BioSample%20Accession
     - NML_LIMS:PH_BIOSAMPLE_ACCESSION
   SRA accession:
     name: SRA accession
@@ -766,7 +766,7 @@ slots:
     examples:
     - value: SRR11177792
     exact_mappings:
-    - CNPHI:SRA Accession
+    - CNPHI:SRA%20Accession
     - NML_LIMS:PH_SRA_ACCESSION
   GenBank accession:
     name: GenBank accession
@@ -783,8 +783,8 @@ slots:
     examples:
     - value: MN908947.3
     exact_mappings:
-    - CNPHI:GenBank Accession
-    - NML_LIMS:GenBank accession
+    - CNPHI:GenBank%20Accession
+    - NML_LIMS:GenBank%20accession
   GISAID accession:
     name: GISAID accession
     title: GISAID accession
@@ -799,10 +799,10 @@ slots:
     examples:
     - value: EPI_ISL_436489
     exact_mappings:
-    - CNPHI:GISAID Accession (if known)
-    - NML_LIMS:SUBMISSIONS - GISAID Accession ID
+    - CNPHI:GISAID%20Accession%20%28if%20known%29
+    - NML_LIMS:SUBMISSIONS%20-%20GISAID%20Accession%20ID
     - BIOSAMPLE:GISAID_accession
-    - VirusSeq_Portal:GISAID accession
+    - VirusSeq_Portal:GISAID%20accession
   sample collected by:
     name: sample collected by
     title: sample collected by
@@ -820,11 +820,11 @@ slots:
     examples:
     - value: BC Centre for Disease Control
     exact_mappings:
-    - GISAID:Originating lab
-    - CNPHI:Lab Name
+    - GISAID:Originating%20lab
+    - CNPHI:Lab%20Name
     - NML_LIMS:CUSTOMER
     - BIOSAMPLE:collected_by
-    - VirusSeq_Portal:sample collected by
+    - VirusSeq_Portal:sample%20collected%20by
   sample collector contact email:
     name: sample collector contact email
     title: sample collector contact email
@@ -838,7 +838,7 @@ slots:
     examples:
     - value: RespLab@lab.ca
     exact_mappings:
-    - NML_LIMS:sample collector contact email
+    - NML_LIMS:sample%20collector%20contact%20email
   sample collector contact address:
     name: sample collector contact address
     title: sample collector contact address
@@ -851,7 +851,7 @@ slots:
     - value: 655 Lab St, Vancouver, British Columbia, V5N 2A2, Canada
     exact_mappings:
     - GISAID:Address
-    - NML_LIMS:sample collector contact address
+    - NML_LIMS:sample%20collector%20contact%20address
   sequence submitted by:
     name: sequence submitted by
     title: sequence submitted by
@@ -867,11 +867,11 @@ slots:
     examples:
     - value: Public Health Ontario (PHO)
     exact_mappings:
-    - GISAID:Submitting lab
-    - CNPHI:Sequencing Centre
+    - GISAID:Submitting%20lab
+    - CNPHI:Sequencing%20Centre
     - NML_LIMS:PH_SEQUENCING_CENTRE
     - BIOSAMPLE:sequenced_by
-    - VirusSeq_Portal:sequence submitted by
+    - VirusSeq_Portal:sequence%20submitted%20by
   sequence submitter contact email:
     name: sequence submitter contact email
     title: sequence submitter contact email
@@ -884,7 +884,7 @@ slots:
     examples:
     - value: RespLab@lab.ca
     exact_mappings:
-    - NML_LIMS:sequence submitter contact email
+    - NML_LIMS:sequence%20submitter%20contact%20email
   sequence submitter contact address:
     name: sequence submitter contact address
     title: sequence submitter contact address
@@ -897,7 +897,7 @@ slots:
     - value: 123 Sunnybrooke St, Toronto, Ontario, M4P 1L6, Canada
     exact_mappings:
     - GISAID:Address
-    - NML_LIMS:sequence submitter contact address
+    - NML_LIMS:sequence%20submitter%20contact%20address
   sample collection date:
     name: sample collection date
     title: sample collection date
@@ -919,11 +919,11 @@ slots:
     examples:
     - value: '2020-03-16'
     exact_mappings:
-    - GISAID:Collection date
-    - CNPHI:Patient Sample Collected Date
+    - GISAID:Collection%20date
+    - CNPHI:Patient%20Sample%20Collected%20Date
     - NML_LIMS:HC_COLLECT_DATE
-    - BIOSAMPLE:sample collection date
-    - VirusSeq_Portal:sample collection date
+    - BIOSAMPLE:sample%20collection%20date
+    - VirusSeq_Portal:sample%20collection%20date
   sample collection date precision:
     name: sample collection date precision
     title: sample collection date precision
@@ -940,7 +940,7 @@ slots:
     examples:
     - value: year
     exact_mappings:
-    - CNPHI:Precision of date collected
+    - CNPHI:Precision%20of%20date%20collected
     - NML_LIMS:HC_TEXT2
   sample received date:
     name: sample received date
@@ -954,7 +954,7 @@ slots:
     examples:
     - value: '2020-03-20'
     exact_mappings:
-    - NML_LIMS:sample received date
+    - NML_LIMS:sample%20received%20date
   geo_loc_name (country):
     name: geo_loc_name (country)
     title: geo_loc_name (country)
@@ -969,10 +969,10 @@ slots:
     - value: Canada
     exact_mappings:
     - GISAID:Location
-    - CNPHI:Patient Country
+    - CNPHI:Patient%20Country
     - NML_LIMS:HC_COUNTRY
     - BIOSAMPLE:geo_loc_name
-    - VirusSeq_Portal:geo_loc_name (country)
+    - VirusSeq_Portal:geo_loc_name%20%28country%29
   geo_loc_name (state/province/territory):
     name: geo_loc_name (state/province/territory)
     title: geo_loc_name (state/province/territory)
@@ -986,10 +986,10 @@ slots:
     examples:
     - value: Saskatchewan
     exact_mappings:
-    - CNPHI:Patient Province
+    - CNPHI:Patient%20Province
     - NML_LIMS:HC_PROVINCE
     - BIOSAMPLE:geo_loc_name
-    - VirusSeq_Portal:geo_loc_name (state/province/territory)
+    - VirusSeq_Portal:geo_loc_name%20%28state/province/territory%29
   geo_loc_name (city):
     name: geo_loc_name (city)
     title: geo_loc_name (city)
@@ -1001,8 +1001,8 @@ slots:
     examples:
     - value: Medicine Hat
     exact_mappings:
-    - CNPHI:Patient City
-    - NML_LIMS:geo_loc_name (city)
+    - CNPHI:Patient%20City
+    - NML_LIMS:geo_loc_name%20%28city%29
   organism:
     name: organism
     title: organism
@@ -1035,13 +1035,13 @@ slots:
     examples:
     - value: hCov-19/CANADA/BC-prov_rona_99/2020
     exact_mappings:
-    - GISAID:Virus name
-    - CNPHI:GISAID Virus Name
-    - NML_LIMS:RESULT - CANCOGEN_SUBMISSIONS
+    - GISAID:Virus%20name
+    - CNPHI:GISAID%20Virus%20Name
+    - NML_LIMS:RESULT%20-%20CANCOGEN_SUBMISSIONS
     - BIOSAMPLE:isolate
     - BIOSAMPLE:GISAID_virus_name
     - VirusSeq_Portal:isolate
-    - VirusSeq_Portal:fasta header name
+    - VirusSeq_Portal:fasta%20header%20name
   purpose of sampling:
     name: purpose of sampling
     title: purpose of sampling
@@ -1060,10 +1060,10 @@ slots:
     examples:
     - value: Diagnostic testing
     exact_mappings:
-    - CNPHI:Reason for Sampling
+    - CNPHI:Reason%20for%20Sampling
     - NML_LIMS:HC_SAMPLE_CATEGORY
     - BIOSAMPLE:purpose_of_sampling
-    - VirusSeq_Portal:purpose of sampling
+    - VirusSeq_Portal:purpose%20of%20sampling
   purpose of sampling details:
     name: purpose of sampling details
     title: purpose of sampling details
@@ -1082,10 +1082,10 @@ slots:
     - value: The sample was collected to investigate the prevalence of variants associated
         with mink-to-human transmission in Canada.
     exact_mappings:
-    - CNPHI:Details on the Reason for Sampling
+    - CNPHI:Details%20on%20the%20Reason%20for%20Sampling
     - NML_LIMS:PH_SAMPLING_DETAILS
     - BIOSAMPLE:description
-    - VirusSeq_Portal:purpose of sampling details
+    - VirusSeq_Portal:purpose%20of%20sampling%20details
   NML submitted specimen type:
     name: NML submitted specimen type
     title: NML submitted specimen type
@@ -1101,7 +1101,7 @@ slots:
     examples:
     - value: swab
     exact_mappings:
-    - CNPHI:Specimen Type
+    - CNPHI:Specimen%20Type
     - NML_LIMS:PH_SPECIMEN_TYPE
   Related specimen relationship type:
     name: Related specimen relationship type
@@ -1116,8 +1116,8 @@ slots:
     examples:
     - value: Specimen sampling methods testing
     exact_mappings:
-    - CNPHI:Related Specimen ID
-    - CNPHI:Related Specimen Relationship Type
+    - CNPHI:Related%20Specimen%20ID
+    - CNPHI:Related%20Specimen%20Relationship%20Type
     - NML_LIMS:PH_RELATED_RELATIONSHIP_TYPE
   anatomical material:
     name: anatomical material
@@ -1137,12 +1137,12 @@ slots:
     examples:
     - value: Blood
     exact_mappings:
-    - GISAID:Specimen source
-    - CNPHI:Anatomical Material
+    - GISAID:Specimen%20source
+    - CNPHI:Anatomical%20Material
     - NML_LIMS:PH_ISOLATION_SITE_DESC
     - BIOSAMPLE:isolation_source
     - BIOSAMPLE:anatomical_material
-    - VirusSeq_Portal:anatomical material
+    - VirusSeq_Portal:anatomical%20material
   anatomical part:
     name: anatomical part
     title: anatomical part
@@ -1160,12 +1160,12 @@ slots:
     examples:
     - value: Nasopharynx (NP)
     exact_mappings:
-    - GISAID:Specimen source
-    - CNPHI:Anatomical Site
+    - GISAID:Specimen%20source
+    - CNPHI:Anatomical%20Site
     - NML_LIMS:PH_ISOLATION_SITE
     - BIOSAMPLE:isolation_source
     - BIOSAMPLE:anatomical_part
-    - VirusSeq_Portal:anatomical part
+    - VirusSeq_Portal:anatomical%20part
   body product:
     name: body product
     title: body product
@@ -1184,12 +1184,12 @@ slots:
     examples:
     - value: Feces
     exact_mappings:
-    - GISAID:Specimen source
-    - CNPHI:Body Product
+    - GISAID:Specimen%20source
+    - CNPHI:Body%20Product
     - NML_LIMS:PH_SPECIMEN_SOURCE_DESC
     - BIOSAMPLE:isolation_source
     - BIOSAMPLE:body_product
-    - VirusSeq_Portal:body product
+    - VirusSeq_Portal:body%20product
   environmental material:
     name: environmental material
     title: environmental material
@@ -1208,12 +1208,12 @@ slots:
     examples:
     - value: Face mask
     exact_mappings:
-    - GISAID:Specimen source
-    - CNPHI:Environmental Material
+    - GISAID:Specimen%20source
+    - CNPHI:Environmental%20Material
     - NML_LIMS:PH_ENVIRONMENTAL_MATERIAL
     - BIOSAMPLE:isolation_source
     - BIOSAMPLE:environmental_material
-    - VirusSeq_Portal:environmental material
+    - VirusSeq_Portal:environmental%20material
   environmental site:
     name: environmental site
     title: environmental site
@@ -1232,12 +1232,12 @@ slots:
     examples:
     - value: Production Facility
     exact_mappings:
-    - GISAID:Specimen source
-    - CNPHI:Environmental Site
+    - GISAID:Specimen%20source
+    - CNPHI:Environmental%20Site
     - NML_LIMS:PH_ENVIRONMENTAL_SITE
     - BIOSAMPLE:isolation_source
     - BIOSAMPLE:environmental_site
-    - VirusSeq_Portal:environmental site
+    - VirusSeq_Portal:environmental%20site
   collection device:
     name: collection device
     title: collection device
@@ -1255,12 +1255,12 @@ slots:
     examples:
     - value: Swab
     exact_mappings:
-    - GISAID:Specimen source
-    - CNPHI:Specimen Collection Matrix
+    - GISAID:Specimen%20source
+    - CNPHI:Specimen%20Collection%20Matrix
     - NML_LIMS:PH_SPECIMEN_TYPE_ORIG
     - BIOSAMPLE:isolation_source
     - BIOSAMPLE:collection_device
-    - VirusSeq_Portal:collection device
+    - VirusSeq_Portal:collection%20device
   collection method:
     name: collection method
     title: collection method
@@ -1278,12 +1278,12 @@ slots:
     examples:
     - value: Bronchoalveolar lavage (BAL)
     exact_mappings:
-    - GISAID:Specimen source
-    - CNPHI:Collection Method
+    - GISAID:Specimen%20source
+    - CNPHI:Collection%20Method
     - NML_LIMS:COLLECTION_METHOD
     - BIOSAMPLE:isolation_source
     - BIOSAMPLE:collection_method
-    - VirusSeq_Portal:collection method
+    - VirusSeq_Portal:collection%20method
   collection protocol:
     name: collection protocol
     title: collection protocol
@@ -1294,7 +1294,7 @@ slots:
     examples:
     - value: BCRonaSamplingProtocol v. 1.2
     exact_mappings:
-    - NML_LIMS:collection protocol
+    - NML_LIMS:collection%20protocol
   specimen processing:
     name: specimen processing
     title: specimen processing
@@ -1313,8 +1313,8 @@ slots:
     examples:
     - value: Virus passage
     exact_mappings:
-    - GISAID:Passage details/history
-    - NML_LIMS:specimen processing
+    - GISAID:Passage%20details/history
+    - NML_LIMS:specimen%20processing
   specimen processing details:
     name: specimen processing details
     title: specimen processing details
@@ -1342,8 +1342,8 @@ slots:
     examples:
     - value: Vero E6 cell line
     exact_mappings:
-    - GISAID:Passage details/history
-    - NML_LIMS:lab host
+    - GISAID:Passage%20details/history
+    - NML_LIMS:lab%20host
     - BIOSAMPLE:lab_host
   passage number:
     name: passage number
@@ -1359,8 +1359,8 @@ slots:
     examples:
     - value: '3'
     exact_mappings:
-    - GISAID:Passage details/history
-    - NML_LIMS:passage number
+    - GISAID:Passage%20details/history
+    - NML_LIMS:passage%20number
     - BIOSAMPLE:passage_history
   passage method:
     name: passage method
@@ -1376,8 +1376,8 @@ slots:
     examples:
     - value: 0.25% trypsin + 0.02% EDTA
     exact_mappings:
-    - GISAID:Passage details/history
-    - NML_LIMS:passage method
+    - GISAID:Passage%20details/history
+    - NML_LIMS:passage%20method
     - BIOSAMPLE:passage_method
   biomaterial extracted:
     name: biomaterial extracted
@@ -1391,7 +1391,7 @@ slots:
     examples:
     - value: RNA (total)
     exact_mappings:
-    - NML_LIMS:biomaterial extracted
+    - NML_LIMS:biomaterial%20extracted
   host (common name):
     name: host (common name)
     title: host (common name)
@@ -1406,7 +1406,7 @@ slots:
     examples:
     - value: Human
     exact_mappings:
-    - CNPHI:Animal Type
+    - CNPHI:Animal%20Type
     - NML_LIMS:PH_ANIMAL_TYPE
   host (scientific name):
     name: host (scientific name)
@@ -1424,9 +1424,9 @@ slots:
     - value: Homo sapiens
     exact_mappings:
     - GISAID:Host
-    - NML_LIMS:host (scientific name)
+    - NML_LIMS:host%20%28scientific%20name%29
     - BIOSAMPLE:host
-    - VirusSeq_Portal:host (scientific name)
+    - VirusSeq_Portal:host%20%28scientific%20name%29
   host health state:
     name: host health state
     title: host health state
@@ -1439,8 +1439,8 @@ slots:
     examples:
     - value: Symptomatic
     exact_mappings:
-    - GISAID:Patient status
-    - CNPHI:Host Health State
+    - GISAID:Patient%20status
+    - CNPHI:Host%20Health%20State
     - NML_LIMS:PH_HOST_HEALTH
     - BIOSAMPLE:host_health_state
   host health status details:
@@ -1456,7 +1456,7 @@ slots:
     examples:
     - value: Hospitalized (ICU)
     exact_mappings:
-    - CNPHI:Host Health State Details
+    - CNPHI:Host%20Health%20State%20Details
     - NML_LIMS:PH_HOST_HEALTH_DETAILS
   host health outcome:
     name: host health outcome
@@ -1485,10 +1485,10 @@ slots:
     examples:
     - value: COVID-19
     exact_mappings:
-    - CNPHI:Host Disease
+    - CNPHI:Host%20Disease
     - NML_LIMS:PH_HOST_DISEASE
     - BIOSAMPLE:host_disease
-    - VirusSeq_Portal:host disease
+    - VirusSeq_Portal:host%20disease
   host age:
     name: host age
     title: host age
@@ -1505,11 +1505,11 @@ slots:
     examples:
     - value: '79'
     exact_mappings:
-    - GISAID:Patient age
-    - CNPHI:Patient Age
+    - GISAID:Patient%20age
+    - CNPHI:Patient%20Age
     - NML_LIMS:PH_AGE
     - BIOSAMPLE:host_age
-    - VirusSeq_Portal:host age
+    - VirusSeq_Portal:host%20age
   host age unit:
     name: host age unit
     title: host age unit
@@ -1524,9 +1524,9 @@ slots:
     examples:
     - value: year
     exact_mappings:
-    - CNPHI:Age Units
+    - CNPHI:Age%20Units
     - NML_LIMS:PH_AGE_UNIT
-    - VirusSeq_Portal:host age unit
+    - VirusSeq_Portal:host%20age%20unit
   host age bin:
     name: host age bin
     title: host age bin
@@ -1541,9 +1541,9 @@ slots:
     examples:
     - value: 60 - 69
     exact_mappings:
-    - CNPHI:Host Age Category
+    - CNPHI:Host%20Age%20Category
     - NML_LIMS:PH_AGE_GROUP
-    - VirusSeq_Portal:host age bin
+    - VirusSeq_Portal:host%20age%20bin
   host gender:
     name: host gender
     title: host gender
@@ -1564,10 +1564,10 @@ slots:
     - value: Male
     exact_mappings:
     - GISAID:Gender
-    - CNPHI:Patient Sex
+    - CNPHI:Patient%20Sex
     - NML_LIMS:VD_SEX
     - BIOSAMPLE:host_sex
-    - VirusSeq_Portal:host gender
+    - VirusSeq_Portal:host%20gender
   host residence geo_loc name (country):
     name: host residence geo_loc name (country)
     title: host residence geo_loc name (country)
@@ -1604,7 +1604,7 @@ slots:
     examples:
     - value: BCxy123
     exact_mappings:
-    - NML_LIMS:host subject ID
+    - NML_LIMS:host%20subject%20ID
     - BIOSAMPLE:host_subject_id
   symptom onset date:
     name: symptom onset date
@@ -1618,7 +1618,7 @@ slots:
     examples:
     - value: '2020-03-16'
     exact_mappings:
-    - CNPHI:Symptoms Onset Date
+    - CNPHI:Symptoms%20Onset%20Date
     - NML_LIMS:HC_ONSET_DATE
   signs and symptoms:
     name: signs and symptoms
@@ -1658,7 +1658,7 @@ slots:
     - value: Pregnancy
     - value: Smoking
     exact_mappings:
-    - NML_LIMS:pre-existing conditions and risk factors
+    - NML_LIMS:pre-existing%20conditions%20and%20risk%20factors
   complications:
     name: complications
     title: complications
@@ -1858,8 +1858,7 @@ slots:
     examples:
     - value: New York City
     exact_mappings:
-    - CNPHI:Country of Travel|Province of Travel|City of Travel|Travel start date|Travel
-      End Date
+    - CNPHI:Country%20of%20Travel%7CProvince%20of%20Travel%7CCity%20of%20Travel%7CTravel%20start%20date%7CTravel%20End%20Date
     - NML_LIMS:PH_TRAVEL
   destination of most recent travel (state/province/territory):
     name: destination of most recent travel (state/province/territory)
@@ -1873,8 +1872,7 @@ slots:
     examples:
     - value: California
     exact_mappings:
-    - CNPHI:Country of Travel|Province of Travel|City of Travel|Travel start date|Travel
-      End Date
+    - CNPHI:Country%20of%20Travel%7CProvince%20of%20Travel%7CCity%20of%20Travel%7CTravel%20start%20date%7CTravel%20End%20Date
     - NML_LIMS:PH_TRAVEL
   destination of most recent travel (country):
     name: destination of most recent travel (country)
@@ -1889,8 +1887,7 @@ slots:
     examples:
     - value: United Kingdom
     exact_mappings:
-    - CNPHI:Country of Travel|Province of Travel|City of Travel|Travel start date|Travel
-      End Date
+    - CNPHI:Country%20of%20Travel%7CProvince%20of%20Travel%7CCity%20of%20Travel%7CTravel%20start%20date%7CTravel%20End%20Date
     - NML_LIMS:PH_TRAVEL
   most recent travel departure date:
     name: most recent travel departure date
@@ -1905,8 +1902,7 @@ slots:
     examples:
     - value: '2020-03-16'
     exact_mappings:
-    - CNPHI:Country of Travel|Province of Travel|City of Travel|Travel start date|Travel
-      End Date
+    - CNPHI:Country%20of%20Travel%7CProvince%20of%20Travel%7CCity%20of%20Travel%7CTravel%20start%20date%7CTravel%20End%20Date
     - NML_LIMS:PH_TRAVEL
   most recent travel return date:
     name: most recent travel return date
@@ -1921,8 +1917,7 @@ slots:
     examples:
     - value: '2020-04-26'
     exact_mappings:
-    - CNPHI:Country of Travel|Province of Travel|City of Travel|Travel start date|Travel
-      End Date
+    - CNPHI:Country%20of%20Travel%7CProvince%20of%20Travel%7CCity%20of%20Travel%7CTravel%20start%20date%7CTravel%20End%20Date
     - NML_LIMS:PH_TRAVEL
   travel point of entry type:
     name: travel point of entry type
@@ -1999,8 +1994,8 @@ slots:
     examples:
     - value: Convention
     exact_mappings:
-    - GISAID:Additional location information
-    - CNPHI:Exposure Event
+    - GISAID:Additional%20location%20information
+    - CNPHI:Exposure%20Event
     - NML_LIMS:PH_EXPOSURE
   exposure contact level:
     name: exposure contact level
@@ -2014,7 +2009,7 @@ slots:
     examples:
     - value: Direct
     exact_mappings:
-    - NML_LIMS:exposure contact level
+    - NML_LIMS:exposure%20contact%20level
   host role:
     name: host role
     title: host role
@@ -2065,7 +2060,7 @@ slots:
     examples:
     - value: 'Yes'
     exact_mappings:
-    - NML_LIMS:prior SARS-CoV-2 infection
+    - NML_LIMS:prior%20SARS-CoV-2%20infection
   prior SARS-CoV-2 infection isolate:
     name: prior SARS-CoV-2 infection isolate
     title: prior SARS-CoV-2 infection isolate
@@ -2077,7 +2072,7 @@ slots:
     examples:
     - value: SARS-CoV-2/human/USA/CA-CDPH-001/2020
     exact_mappings:
-    - NML_LIMS:prior SARS-CoV-2 infection isolate
+    - NML_LIMS:prior%20SARS-CoV-2%20infection%20isolate
   prior SARS-CoV-2 infection date:
     name: prior SARS-CoV-2 infection date
     title: prior SARS-CoV-2 infection date
@@ -2089,7 +2084,7 @@ slots:
     examples:
     - value: '2021-01-23'
     exact_mappings:
-    - NML_LIMS:prior SARS-CoV-2 infection date
+    - NML_LIMS:prior%20SARS-CoV-2%20infection%20date
   prior SARS-CoV-2 antiviral treatment:
     name: prior SARS-CoV-2 antiviral treatment
     title: prior SARS-CoV-2 antiviral treatment
@@ -2103,7 +2098,7 @@ slots:
     examples:
     - value: No prior antiviral treatment
     exact_mappings:
-    - NML_LIMS:prior SARS-CoV-2 antiviral treatment
+    - NML_LIMS:prior%20SARS-CoV-2%20antiviral%20treatment
   prior SARS-CoV-2 antiviral treatment agent:
     name: prior SARS-CoV-2 antiviral treatment agent
     title: prior SARS-CoV-2 antiviral treatment agent
@@ -2117,7 +2112,7 @@ slots:
     examples:
     - value: Remdesivir
     exact_mappings:
-    - NML_LIMS:prior SARS-CoV-2 antiviral treatment agent
+    - NML_LIMS:prior%20SARS-CoV-2%20antiviral%20treatment%20agent
   prior SARS-CoV-2 antiviral treatment date:
     name: prior SARS-CoV-2 antiviral treatment date
     title: prior SARS-CoV-2 antiviral treatment date
@@ -2131,7 +2126,7 @@ slots:
     examples:
     - value: '2021-01-28'
     exact_mappings:
-    - NML_LIMS:prior SARS-CoV-2 antiviral treatment date
+    - NML_LIMS:prior%20SARS-CoV-2%20antiviral%20treatment%20date
   purpose of sequencing:
     name: purpose of sequencing
     title: purpose of sequencing
@@ -2150,10 +2145,10 @@ slots:
     examples:
     - value: Baseline surveillance (random sampling)
     exact_mappings:
-    - CNPHI:Reason for Sequencing
+    - CNPHI:Reason%20for%20Sequencing
     - NML_LIMS:PH_REASON_FOR_SEQUENCING
     - BIOSAMPLE:purpose_of_sequencing
-    - VirusSeq_Portal:purpose of sequencing
+    - VirusSeq_Portal:purpose%20of%20sequencing
   purpose of sequencing details:
     name: purpose of sequencing details
     title: purpose of sequencing details
@@ -2178,9 +2173,9 @@ slots:
     examples:
     - value: Screened for S gene target failure (S dropout)
     exact_mappings:
-    - CNPHI:Details on the Reason for Sequencing
+    - CNPHI:Details%20on%20the%20Reason%20for%20Sequencing
     - NML_LIMS:PH_REASON_FOR_SEQUENCING_DETAILS
-    - VirusSeq_Portal:purpose of sequencing details
+    - VirusSeq_Portal:purpose%20of%20sequencing%20details
   sequencing date:
     name: sequencing date
     title: sequencing date
@@ -2209,7 +2204,7 @@ slots:
     examples:
     - value: XYZ_123345
     exact_mappings:
-    - NML_LIMS:library ID
+    - NML_LIMS:library%20ID
   amplicon size:
     name: amplicon size
     title: amplicon size
@@ -2220,7 +2215,7 @@ slots:
     examples:
     - value: 300bp
     exact_mappings:
-    - NML_LIMS:amplicon size
+    - NML_LIMS:amplicon%20size
   library preparation kit:
     name: library preparation kit
     title: library preparation kit
@@ -2243,7 +2238,7 @@ slots:
     examples:
     - value: FAB06069
     exact_mappings:
-    - NML_LIMS:flow cell barcode
+    - NML_LIMS:flow%20cell%20barcode
   sequencing instrument:
     name: sequencing instrument
     title: sequencing instrument
@@ -2258,10 +2253,10 @@ slots:
     examples:
     - value: Oxford Nanopore MinION
     exact_mappings:
-    - GISAID:Sequencing technology
-    - CNPHI:Sequencing Instrument
+    - GISAID:Sequencing%20technology
+    - CNPHI:Sequencing%20Instrument
     - NML_LIMS:PH_INSTRUMENT_CGN
-    - VirusSeq_Portal:sequencing instrument
+    - VirusSeq_Portal:sequencing%20instrument
   sequencing protocol name:
     name: sequencing protocol name
     title: sequencing protocol name
@@ -2273,7 +2268,7 @@ slots:
     examples:
     - value: https://www.protocols.io/view/covid-19-artic-v3-illumina-library-construction-an-bibtkann
     exact_mappings:
-    - CNPHI:Sequencing Protocol Name
+    - CNPHI:Sequencing%20Protocol%20Name
     - NML_LIMS:PH_SEQ_PROTOCOL_NAME
   sequencing protocol:
     name: sequencing protocol
@@ -2293,7 +2288,7 @@ slots:
         kits.
     exact_mappings:
     - NML_LIMS:PH_TESTING_PROTOCOL
-    - VirusSeq_Portal:sequencing protocol
+    - VirusSeq_Portal:sequencing%20protocol
   sequencing kit number:
     name: sequencing kit number
     title: sequencing kit number
@@ -2304,7 +2299,7 @@ slots:
     examples:
     - value: AB456XYZ789
     exact_mappings:
-    - NML_LIMS:sequencing kit number
+    - NML_LIMS:sequencing%20kit%20number
   amplicon pcr primer scheme:
     name: amplicon pcr primer scheme
     title: amplicon pcr primer scheme
@@ -2317,7 +2312,7 @@ slots:
     examples:
     - value: https://github.com/joshquick/artic-ncov2019/blob/master/primer_schemes/nCoV-2019/V3/nCoV-2019.tsv
     exact_mappings:
-    - NML_LIMS:amplicon pcr primer scheme
+    - NML_LIMS:amplicon%20pcr%20primer%20scheme
   raw sequence data processing method:
     name: raw sequence data processing method
     title: raw sequence data processing method
@@ -2332,7 +2327,7 @@ slots:
     - value: Porechop 0.2.3
     exact_mappings:
     - NML_LIMS:PH_RAW_SEQUENCE_METHOD
-    - VirusSeq_Portal:raw sequence data processing method
+    - VirusSeq_Portal:raw%20sequence%20data%20processing%20method
   dehosting method:
     name: dehosting method
     title: dehosting method
@@ -2346,7 +2341,7 @@ slots:
     - value: Nanostripper
     exact_mappings:
     - NML_LIMS:PH_DEHOSTING_METHOD
-    - VirusSeq_Portal:dehosting method
+    - VirusSeq_Portal:dehosting%20method
   consensus sequence name:
     name: consensus sequence name
     title: consensus sequence name
@@ -2357,7 +2352,7 @@ slots:
     examples:
     - value: ncov123assembly3
     exact_mappings:
-    - NML_LIMS:consensus sequence name
+    - NML_LIMS:consensus%20sequence%20name
   consensus sequence filename:
     name: consensus sequence filename
     title: consensus sequence filename
@@ -2369,7 +2364,7 @@ slots:
     examples:
     - value: ncov123assembly.fasta
     exact_mappings:
-    - NML_LIMS:consensus sequence filename
+    - NML_LIMS:consensus%20sequence%20filename
   consensus sequence filepath:
     name: consensus sequence filepath
     title: consensus sequence filepath
@@ -2380,7 +2375,7 @@ slots:
     examples:
     - value: /User/Documents/RespLab/Data/ncov123assembly.fasta
     exact_mappings:
-    - NML_LIMS:consensus sequence filepath
+    - NML_LIMS:consensus%20sequence%20filepath
   consensus sequence software name:
     name: consensus sequence software name
     title: consensus sequence software name
@@ -2392,10 +2387,10 @@ slots:
     examples:
     - value: iVar
     exact_mappings:
-    - GISAID:Assembly method
-    - CNPHI:consensus sequence
+    - GISAID:Assembly%20method
+    - CNPHI:consensus%20sequence
     - NML_LIMS:PH_CONSENSUS_SEQUENCE
-    - VirusSeq_Portal:consensus sequence software name
+    - VirusSeq_Portal:consensus%20sequence%20software%20name
   consensus sequence software version:
     name: consensus sequence software version
     title: consensus sequence software version
@@ -2407,9 +2402,9 @@ slots:
     examples:
     - value: '1.3'
     exact_mappings:
-    - CNPHI:consensus sequence
+    - CNPHI:consensus%20sequence
     - NML_LIMS:PH_CONSENSUS_SEQUENCE_VERSION
-    - VirusSeq_Portal:consensus sequence software version
+    - VirusSeq_Portal:consensus%20sequence%20software%20version
   breadth of coverage value:
     name: breadth of coverage value
     title: breadth of coverage value
@@ -2421,8 +2416,8 @@ slots:
     examples:
     - value: 95%
     exact_mappings:
-    - NML_LIMS:breadth of coverage value
-    - VirusSeq_Portal:breadth of coverage value
+    - NML_LIMS:breadth%20of%20coverage%20value
+    - VirusSeq_Portal:breadth%20of%20coverage%20value
   depth of coverage value:
     name: depth of coverage value
     title: depth of coverage value
@@ -2435,8 +2430,8 @@ slots:
     - value: 400x
     exact_mappings:
     - GISAID:Coverage
-    - NML_LIMS:depth of coverage value
-    - VirusSeq_Portal:depth of coverage value
+    - NML_LIMS:depth%20of%20coverage%20value
+    - VirusSeq_Portal:depth%20of%20coverage%20value
   depth of coverage threshold:
     name: depth of coverage threshold
     title: depth of coverage threshold
@@ -2447,7 +2442,7 @@ slots:
     examples:
     - value: 100x
     exact_mappings:
-    - NML_LIMS:depth of coverage threshold
+    - NML_LIMS:depth%20of%20coverage%20threshold
   r1 fastq filename:
     name: r1 fastq filename
     title: r1 fastq filename
@@ -2459,7 +2454,7 @@ slots:
     examples:
     - value: ABC123_S1_L001_R1_001.fastq.gz
     exact_mappings:
-    - NML_LIMS:r1 fastq filename
+    - NML_LIMS:r1%20fastq%20filename
   r2 fastq filename:
     name: r2 fastq filename
     title: r2 fastq filename
@@ -2471,7 +2466,7 @@ slots:
     examples:
     - value: ABC123_S1_L001_R2_001.fastq.gz
     exact_mappings:
-    - NML_LIMS:r2 fastq filename
+    - NML_LIMS:r2%20fastq%20filename
   r1 fastq filepath:
     name: r1 fastq filepath
     title: r1 fastq filepath
@@ -2483,7 +2478,7 @@ slots:
     examples:
     - value: /User/Documents/RespLab/Data/ABC123_S1_L001_R1_001.fastq.gz
     exact_mappings:
-    - NML_LIMS:r1 fastq filepath
+    - NML_LIMS:r1%20fastq%20filepath
   r2 fastq filepath:
     name: r2 fastq filepath
     title: r2 fastq filepath
@@ -2495,7 +2490,7 @@ slots:
     examples:
     - value: /User/Documents/RespLab/Data/ABC123_S1_L001_R2_001.fastq.gz
     exact_mappings:
-    - NML_LIMS:r2 fastq filepath
+    - NML_LIMS:r2%20fastq%20filepath
   fast5 filename:
     name: fast5 filename
     title: fast5 filename
@@ -2506,7 +2501,7 @@ slots:
     examples:
     - value: rona123assembly.fast5
     exact_mappings:
-    - NML_LIMS:fast5 filename
+    - NML_LIMS:fast5%20filename
   fast5 filepath:
     name: fast5 filepath
     title: fast5 filepath
@@ -2518,7 +2513,7 @@ slots:
     examples:
     - value: /User/Documents/RespLab/Data/rona123assembly.fast5
     exact_mappings:
-    - NML_LIMS:fast5 filepath
+    - NML_LIMS:fast5%20filepath
   number of base pairs sequenced:
     name: number of base pairs sequenced
     title: number of base pairs sequenced
@@ -2530,7 +2525,7 @@ slots:
     examples:
     - value: '387566'
     exact_mappings:
-    - NML_LIMS:number of base pairs sequenced
+    - NML_LIMS:number%20of%20base%20pairs%20sequenced
   consensus genome length:
     name: consensus genome length
     title: consensus genome length
@@ -2543,7 +2538,7 @@ slots:
     examples:
     - value: '38677'
     exact_mappings:
-    - NML_LIMS:consensus genome length
+    - NML_LIMS:consensus%20genome%20length
   Ns per 100 kbp:
     name: Ns per 100 kbp
     title: Ns per 100 kbp
@@ -2556,7 +2551,7 @@ slots:
     examples:
     - value: '330'
     exact_mappings:
-    - NML_LIMS:Ns per 100 kbp
+    - NML_LIMS:Ns%20per%20100%20kbp
   reference genome accession:
     name: reference genome accession
     title: reference genome accession
@@ -2567,8 +2562,8 @@ slots:
     examples:
     - value: NC_045512.2
     exact_mappings:
-    - NML_LIMS:reference genome accession
-    - VirusSeq_Portal:reference genome accession
+    - NML_LIMS:reference%20genome%20accession
+    - VirusSeq_Portal:reference%20genome%20accession
   bioinformatics protocol:
     name: bioinformatics protocol
     title: bioinformatics protocol
@@ -2583,9 +2578,9 @@ slots:
     examples:
     - value: https://github.com/phac-nml/ncov2019-artic-nf
     exact_mappings:
-    - CNPHI:Bioinformatics Protocol
+    - CNPHI:Bioinformatics%20Protocol
     - NML_LIMS:PH_BIOINFORMATICS_PROTOCOL
-    - VirusSeq_Portal:bioinformatics protocol
+    - VirusSeq_Portal:bioinformatics%20protocol
   lineage/clade name:
     name: lineage/clade name
     title: lineage/clade name
@@ -2679,10 +2674,10 @@ slots:
     examples:
     - value: E gene (orf4)
     exact_mappings:
-    - CNPHI:Gene Target 1
-    - 'NML_LIMS:SUBMITTED_RESLT - Gene Target #1'
+    - CNPHI:Gene%20Target%201
+    - NML_LIMS:SUBMITTED_RESLT%20-%20Gene%20Target%20%231
     - BIOSAMPLE:gene_name_1
-    - VirusSeq_Portal:gene name
+    - VirusSeq_Portal:gene%20name
   diagnostic pcr protocol 1:
     name: diagnostic pcr protocol 1
     title: diagnostic pcr protocol 1
@@ -2707,10 +2702,10 @@ slots:
     examples:
     - value: '21'
     exact_mappings:
-    - CNPHI:Gene Target 1 CT Value
-    - 'NML_LIMS:SUBMITTED_RESLT - Gene Target #1 CT Value'
+    - CNPHI:Gene%20Target%201%20CT%20Value
+    - NML_LIMS:SUBMITTED_RESLT%20-%20Gene%20Target%20%231%20CT%20Value
     - BIOSAMPLE:diagnostic_PCR_CT_value_1
-    - VirusSeq_Portal:diagnostic pcr Ct value
+    - VirusSeq_Portal:diagnostic%20pcr%20Ct%20value
   gene name 2:
     name: gene name 2
     title: gene name 2
@@ -2725,8 +2720,8 @@ slots:
     examples:
     - value: RdRp gene (nsp12)
     exact_mappings:
-    - CNPHI:Gene Target 2
-    - 'NML_LIMS:SUBMITTED_RESLT - Gene Target #2'
+    - CNPHI:Gene%20Target%202
+    - NML_LIMS:SUBMITTED_RESLT%20-%20Gene%20Target%20%232
     - BIOSAMPLE:gene_name_2
   diagnostic pcr protocol 2:
     name: diagnostic pcr protocol 2
@@ -2753,8 +2748,8 @@ slots:
     examples:
     - value: '36'
     exact_mappings:
-    - CNPHI:Gene Target 2 CT Value
-    - 'NML_LIMS:SUBMITTED_RESLT - Gene Target #2 CT Value'
+    - CNPHI:Gene%20Target%202%20CT%20Value
+    - NML_LIMS:SUBMITTED_RESLT%20-%20Gene%20Target%20%232%20CT%20Value
     - BIOSAMPLE:diagnostic_PCR_CT_value_2
   gene name 3:
     name: gene name 3
@@ -2770,8 +2765,8 @@ slots:
     examples:
     - value: RdRp gene (nsp12)
     exact_mappings:
-    - CNPHI:Gene Target 3
-    - 'NML_LIMS:SUBMITTED_RESLT - Gene Target #3'
+    - CNPHI:Gene%20Target%203
+    - NML_LIMS:SUBMITTED_RESLT%20-%20Gene%20Target%20%233
   diagnostic pcr protocol 3:
     name: diagnostic pcr protocol 3
     title: diagnostic pcr protocol 3
@@ -2797,8 +2792,8 @@ slots:
     examples:
     - value: '30'
     exact_mappings:
-    - CNPHI:Gene Target 3 CT Value
-    - 'NML_LIMS:SUBMITTED_RESLT - Gene Target #3 CT Value'
+    - CNPHI:Gene%20Target%203%20CT%20Value
+    - NML_LIMS:SUBMITTED_RESLT%20-%20Gene%20Target%20%233%20CT%20Value
   authors:
     name: authors
     title: authors
@@ -2827,8 +2822,8 @@ slots:
     examples:
     - value: DataHarmonizer v1.4.3, CanCOGeN Covid-19 v1.0.0
     exact_mappings:
-    - GISAID:DataHarmonizer provenance
-    - CNPHI:Additional Comments
+    - GISAID:DataHarmonizer%20provenance
+    - CNPHI:Additional%20Comments
     - NML_LIMS:HC_COMMENTS
 enums:
   umbrella bioproject accession menu:
@@ -3077,7 +3072,7 @@ enums:
         text: Diarrhea (watery stool)
         meaning: HP:0002014
         exact_mappings:
-        - CNPHI:Diarrhea, watery
+        - CNPHI:Diarrhea%2C%20watery
       Dry gangrene:
         text: Dry gangrene
         meaning: MP:0031127
@@ -4804,12 +4799,12 @@ enums:
         text: 90 - 99
         meaning: GENEPIO:0100058
         exact_mappings:
-        - VirusSeq_Portal:90+
+        - VirusSeq_Portal:90%2B
       100+:
         text: 100+
         meaning: GENEPIO:0100059
         exact_mappings:
-        - VirusSeq_Portal:90+
+        - VirusSeq_Portal:90%2B
   host gender menu:
     name: host gender menu
     permissible_values:
@@ -5560,33 +5555,33 @@ enums:
         text: E gene (orf4)
         meaning: GENEPIO:0100151
         exact_mappings:
-        - CNPHI:E gene
-        - BIOSAMPLE:E (orf4)
+        - CNPHI:E%20gene
+        - BIOSAMPLE:E%20%28orf4%29
       M gene (orf5):
         text: M gene (orf5)
         meaning: GENEPIO:0100152
         exact_mappings:
-        - BIOSAMPLE:M (orf5)
+        - BIOSAMPLE:M%20%28orf5%29
       N gene (orf9):
         text: N gene (orf9)
         meaning: GENEPIO:0100153
         exact_mappings:
-        - BIOSAMPLE:N (orf9)
+        - BIOSAMPLE:N%20%28orf9%29
       Spike gene (orf2):
         text: Spike gene (orf2)
         meaning: GENEPIO:0100154
         exact_mappings:
-        - BIOSAMPLE:S (orf2)
+        - BIOSAMPLE:S%20%28orf2%29
       orf1ab (rep):
         text: orf1ab (rep)
         meaning: GENEPIO:0100155
         exact_mappings:
-        - BIOSAMPLE:orf1ab (rep)
+        - BIOSAMPLE:orf1ab%20%28rep%29
       orf1a (pp1a):
         text: orf1a (pp1a)
         meaning: GENEPIO:0100156
         exact_mappings:
-        - BIOSAMPLE:orf1a (pp1a)
+        - BIOSAMPLE:orf1a%20%28pp1a%29
         is_a: orf1ab (rep)
       nsp11:
         text: nsp11
@@ -5658,19 +5653,19 @@ enums:
         text: RdRp gene (nsp12)
         meaning: GENEPIO:0100168
         exact_mappings:
-        - BIOSAMPLE:nsp12 (RdRp)
+        - BIOSAMPLE:nsp12%20%28RdRp%29
         is_a: orf1ab (rep)
       hel gene (nsp13):
         text: hel gene (nsp13)
         meaning: GENEPIO:0100169
         exact_mappings:
-        - BIOSAMPLE:nsp13 (Hel)
+        - BIOSAMPLE:nsp13%20%28Hel%29
         is_a: orf1ab (rep)
       exoN gene (nsp14):
         text: exoN gene (nsp14)
         meaning: GENEPIO:0100170
         exact_mappings:
-        - BIOSAMPLE:nsp14 (ExoN)
+        - BIOSAMPLE:nsp14%20%28ExoN%29
         is_a: orf1ab (rep)
       nsp15:
         text: nsp15
@@ -5698,7 +5693,7 @@ enums:
         text: orf6 (ns6)
         meaning: GENEPIO:0100175
         exact_mappings:
-        - BIOSAMPLE:orf6 (ns6)
+        - BIOSAMPLE:orf6%20%28ns6%29
       orf7a:
         text: orf7a
         meaning: GENEPIO:0100176
@@ -5708,12 +5703,12 @@ enums:
         text: orf7b (ns7b)
         meaning: GENEPIO:0100177
         exact_mappings:
-        - BIOSAMPLE:orf7b (ns7b)
+        - BIOSAMPLE:orf7b%20%28ns7b%29
       orf8 (ns8):
         text: orf8 (ns8)
         meaning: GENEPIO:0100178
         exact_mappings:
-        - BIOSAMPLE:orf8 (ns8)
+        - BIOSAMPLE:orf8%20%28ns8%29
       orf9b:
         text: orf9b
         meaning: GENEPIO:0100179
