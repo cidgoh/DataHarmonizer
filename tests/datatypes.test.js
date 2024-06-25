@@ -1,4 +1,4 @@
-import { Datatypes, stringifyJsonSchemaDate } from '../lib/utils/datatypes';
+import { Datatypes, stringifyJsonSchemaDate } from '@/lib/utils/datatypes';
 
 function getDateObjectForTime(hours, minutes, seconds) {
   const dateObject = new Date(0);
