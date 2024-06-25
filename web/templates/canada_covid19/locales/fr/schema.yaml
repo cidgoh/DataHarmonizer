@@ -2298,7 +2298,7 @@ enums:
       Diarrhea (watery stool):
         meaning: HP:0002014
         exact_mappings:
-        - CNPHI:Diarrhea, watery
+        - CNPHI:Diarrhea%2C%20watery
         title: "Diarrh\xE9e (selles liquides)"
       Dry gangrene:
         meaning: MP:0031127
@@ -4056,12 +4056,12 @@ enums:
       90 - 99:
         meaning: GENEPIO:0100058
         exact_mappings:
-        - VirusSeq_Portal:90+
+        - VirusSeq_Portal:90%2B
         title: 90 - 99
       100+:
         meaning: GENEPIO:0100059
         exact_mappings:
-        - VirusSeq_Portal:90+
+        - VirusSeq_Portal:90%2B
         title: 100+
     title: "menu du bac d'\xE2ge de l'h\xF4te"
   host gender menu:
@@ -4822,33 +4822,33 @@ enums:
       E gene (orf4):
         meaning: GENEPIO:0100151
         exact_mappings:
-        - CNPHI:E gene
-        - BIOSAMPLE:E (orf4)
+        - CNPHI:E%20gene
+        - BIOSAMPLE:E%20%28orf4%29
         title: "E g\xE8ne (orf4)"
       M gene (orf5):
         meaning: GENEPIO:0100152
         exact_mappings:
-        - BIOSAMPLE:M (orf5)
+        - BIOSAMPLE:M%20%28orf5%29
         title: "M g\xE8ne (orf5)"
       N gene (orf9):
         meaning: GENEPIO:0100153
         exact_mappings:
-        - BIOSAMPLE:N (orf9)
+        - BIOSAMPLE:N%20%28orf9%29
         title: "N g\xE8ne (orf9)"
       Spike gene (orf2):
         meaning: GENEPIO:0100154
         exact_mappings:
-        - BIOSAMPLE:S (orf2)
+        - BIOSAMPLE:S%20%28orf2%29
         title: "Spike g\xE8ne (orf2)"
       orf1ab (rep):
         meaning: GENEPIO:0100155
         exact_mappings:
-        - BIOSAMPLE:orf1ab (rep)
+        - BIOSAMPLE:orf1ab%20%28rep%29
         title: orf1ab (rep)
       orf1a (pp1a):
         meaning: GENEPIO:0100156
         exact_mappings:
-        - BIOSAMPLE:orf1a (pp1a)
+        - BIOSAMPLE:orf1a%20%28pp1a%29
         is_a: orf1ab (rep)
         title: orf1a (pp1a)
       nsp11:
@@ -4920,19 +4920,19 @@ enums:
       RdRp gene (nsp12):
         meaning: GENEPIO:0100168
         exact_mappings:
-        - BIOSAMPLE:nsp12 (RdRp)
+        - BIOSAMPLE:nsp12%20%28RdRp%29
         is_a: orf1ab (rep)
         title: "RdRp g\xE8ne (nsp12)"
       hel gene (nsp13):
         meaning: GENEPIO:0100169
         exact_mappings:
-        - BIOSAMPLE:nsp13 (Hel)
+        - BIOSAMPLE:nsp13%20%28Hel%29
         is_a: orf1ab (rep)
         title: "hel g\xE8ne (nsp13)"
       exoN gene (nsp14):
         meaning: GENEPIO:0100170
         exact_mappings:
-        - BIOSAMPLE:nsp14 (ExoN)
+        - BIOSAMPLE:nsp14%20%28ExoN%29
         is_a: orf1ab (rep)
         title: "exoN g\xE8ne (nsp14)"
       nsp15:
@@ -4960,7 +4960,7 @@ enums:
       orf6 (ns6):
         meaning: GENEPIO:0100175
         exact_mappings:
-        - BIOSAMPLE:orf6 (ns6)
+        - BIOSAMPLE:orf6%20%28ns6%29
         title: orf6 (ns6)
       orf7a:
         meaning: GENEPIO:0100176
@@ -4970,12 +4970,12 @@ enums:
       orf7b (ns7b):
         meaning: GENEPIO:0100177
         exact_mappings:
-        - BIOSAMPLE:orf7b (ns7b)
+        - BIOSAMPLE:orf7b%20%28ns7b%29
         title: orf7b (ns7b)
       orf8 (ns8):
         meaning: GENEPIO:0100178
         exact_mappings:
-        - BIOSAMPLE:orf8 (ns8)
+        - BIOSAMPLE:orf8%20%28ns8%29
         title: orf8 (ns8)
       orf9b:
         meaning: GENEPIO:0100179

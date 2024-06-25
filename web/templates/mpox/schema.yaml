@@ -1,6 +1,6 @@
 id: https://example.com/mpox
 name: Mpox
-version: 4.3.3
+version: 5.3.3
 description: ''
 imports:
 - linkml:types
@@ -167,11 +167,11 @@ classes:
         - range: sample collected by menu
         - range: null value menu
         exact_mappings:
-        - GISAID:Originating lab
-        - CNPHI:Lab Name
+        - GISAID:Originating%20lab
+        - CNPHI:Lab%20Name
         - NML_LIMS:CUSTOMER
         - BIOSAMPLE:collected_by
-        - VirusSeq_Portal:sample collected by
+        - VirusSeq_Portal:sample%20collected%20by
       sample collector contact email:
         rank: 10
         slot_group: Sample collection and processing
@@ -200,11 +200,11 @@ classes:
         - range: sequence submitted by menu
         - range: null value menu
         exact_mappings:
-        - GISAID:Submitting lab
-        - CNPHI:Sequencing Centre
+        - GISAID:Submitting%20lab
+        - CNPHI:Sequencing%20Centre
         - NML_LIMS:PH_SEQUENCE_SUBMITTER
         - BIOSAMPLE:sequence_submitted_by
-        - VirusSeq_Portal:sequence submitted by
+        - VirusSeq_Portal:sequence%20submitted%20by
       sequence submitter contact email:
         rank: 16
         slot_group: Sample collection and processing
@@ -258,13 +258,13 @@ classes:
         examples:
         - value: hMpxV/Canada/UN-NML-12345/2022
         exact_mappings:
-        - GISAID:Virus name
-        - CNPHI:GISAID Virus Name
-        - NML_LIMS:SUBMISSIONS - GISAID Virus Name
+        - GISAID:Virus%20name
+        - CNPHI:GISAID%20Virus%20Name
+        - NML_LIMS:SUBMISSIONS%20-%20GISAID%20Virus%20Name
         - BIOSAMPLE:isolate
         - BIOSAMPLE:GISAID_virus_name
         - VirusSeq_Portal:isolate
-        - VirusSeq_Portal:fasta header name
+        - VirusSeq_Portal:fasta%20header%20name
       purpose of sampling:
         rank: 25
         slot_group: Sample collection and processing
@@ -336,7 +336,7 @@ classes:
         - range: specimen processing menu
         - range: null value menu
         exact_mappings:
-        - NML_LIMS:specimen processing
+        - NML_LIMS:specimen%20processing
       specimen processing details:
         rank: 35
         slot_group: Sample collection and processing
@@ -365,7 +365,7 @@ classes:
         - range: host health state menu
         - range: null value menu
         exact_mappings:
-        - GISAID:Patient status
+        - GISAID:Patient%20status
         - NML_LIMS:PH_HOST_HEALTH
         - BIOSAMPLE:host_health_state
       host health status details:
@@ -405,7 +405,7 @@ classes:
         slot_group: Host Information
         required: true
         exact_mappings:
-        - GISAID:Patient age
+        - GISAID:Patient%20age
         - NML_LIMS:PH_AGE
         - BIOSAMPLE:host_age
       host age unit:
@@ -591,7 +591,7 @@ classes:
         - range: prior Monkeypox infection menu
         - range: null value menu
         exact_mappings:
-        - NML_LIMS:prior Monkeypox infection
+        - NML_LIMS:prior%20Monkeypox%20infection
       prior Mpox infection date:
         rank: 71
         slot_group: Host reinfection information
@@ -604,7 +604,7 @@ classes:
         - range: prior Monkeypox antiviral treatment menu
         - range: null value menu
         exact_mappings:
-        - NML_LIMS:prior Monkeypox antiviral treatment
+        - NML_LIMS:prior%20Monkeypox%20antiviral%20treatment
       prior antiviral treatment during prior Mpox infection:
         rank: 73
         slot_group: Host reinfection information
@@ -788,7 +788,7 @@ classes:
     is_a: dh_interface
     see_also: templates/mpox/SOP_Mpox_international.pdf
     annotations:
-      version: 4.3.3
+      version: 5.3.3
     slots:
     - specimen collector sample ID
     - case ID
@@ -810,7 +810,6 @@ classes:
     - sample collection date
     - sample received date
     - geo_loc_name (country)
-    - geo_loc_name (state/province/territory)
     - geo_loc_name (state/province/territory)
     - geo_loc latitude
     - geo_loc longitude
@@ -837,7 +836,6 @@ classes:
     - host age unit
     - host age bin
     - host gender
-    - host subject ID
     - host residence geo_loc name (country)
     - symptom onset date
     - signs and symptoms
@@ -935,7 +933,7 @@ classes:
         - range: WhitespaceMinimizedString
         - range: null value menu
         exact_mappings:
-        - GISAID:Originating lab
+        - GISAID:Originating%20lab
         - BIOSAMPLE:collected_by
       sample collector contact email:
         rank: 10
@@ -964,7 +962,7 @@ classes:
         - range: WhitespaceMinimizedString
         - range: null value menu
         exact_mappings:
-        - GISAID:Submitting lab
+        - GISAID:Submitting%20lab
         - BIOSAMPLE:sequence_submitted_by
       sequence submitter contact email:
         rank: 16
@@ -987,7 +985,7 @@ classes:
         - range: geo_loc_name (country) international menu
         - range: null value menu
       geo_loc_name (state/province/territory):
-        rank: 22
+        rank: 21
         slot_group: Sample collection and processing
         comments: Provide the state/province/territory name from the controlled vocabulary
           provided.
@@ -995,13 +993,13 @@ classes:
         - range: WhitespaceMinimizedString
         - range: null value menu
       geo_loc latitude:
-        rank: 23
+        rank: 22
         slot_group: Sample collection and processing
       geo_loc longitude:
-        rank: 24
+        rank: 23
         slot_group: Sample collection and processing
       organism:
-        rank: 25
+        rank: 24
         slot_group: Sample collection and processing
         comments: 'Use "Mpox virus". This value is provided in the template.  Note:
           the Mpox virus was formerly referred to as the "Monkeypox virus" but the
@@ -1012,7 +1010,7 @@ classes:
         - range: organism international menu
         - range: null value menu
       isolate:
-        rank: 26
+        rank: 25
         slot_group: Sample collection and processing
         slot_uri: GENEPIO:0001644
         comments: 'This identifier should be an unique, indexed, alpha-numeric ID
@@ -1024,7 +1022,7 @@ classes:
         exact_mappings:
         - BIOSAMPLE:isolate
       purpose of sampling:
-        rank: 27
+        rank: 26
         slot_group: Sample collection and processing
         examples:
         - value: Diagnostic testing [GENEPIO:0100002]
@@ -1032,10 +1030,10 @@ classes:
         - range: purpose of sampling international menu
         - range: null value menu
       purpose of sampling details:
-        rank: 28
+        rank: 27
         slot_group: Sample collection and processing
       anatomical material:
-        rank: 29
+        rank: 28
         slot_group: Sample collection and processing
         recommended: true
         examples:
@@ -1044,7 +1042,7 @@ classes:
         - range: anatomical material international menu
         - range: null value menu
       anatomical part:
-        rank: 30
+        rank: 29
         slot_group: Sample collection and processing
         recommended: true
         examples:
@@ -1053,7 +1051,7 @@ classes:
         - range: anatomical part international menu
         - range: null value menu
       body product:
-        rank: 31
+        rank: 30
         slot_group: Sample collection and processing
         recommended: true
         examples:
@@ -1062,10 +1060,10 @@ classes:
         - range: body product international menu
         - range: null value menu
       environmental material:
-        rank: 32
+        rank: 31
         slot_group: Sample collection and processing
       collection device:
-        rank: 33
+        rank: 32
         slot_group: Sample collection and processing
         recommended: true
         examples:
@@ -1074,7 +1072,7 @@ classes:
         - range: collection device international menu
         - range: null value menu
       collection method:
-        rank: 34
+        rank: 33
         slot_group: Sample collection and processing
         recommended: true
         examples:
@@ -1083,7 +1081,7 @@ classes:
         - range: collection method international menu
         - range: null value menu
       specimen processing:
-        rank: 35
+        rank: 34
         slot_group: Sample collection and processing
         examples:
         - value: Specimens pooled [OBI:0600016]
@@ -1091,16 +1089,16 @@ classes:
         - range: specimen processing international menu
         - range: null value menu
       specimen processing details:
-        rank: 36
+        rank: 35
         slot_group: Sample collection and processing
       host (common name):
-        rank: 37
+        rank: 36
         slot_group: Host Information
         any_of:
         - range: host (common name) international menu
         - range: null value menu
       host (scientific name):
-        rank: 38
+        rank: 37
         slot_group: Host Information
         examples:
         - value: Homo sapiens [NCBITaxon:9606]
@@ -1108,7 +1106,7 @@ classes:
         - range: host (scientific name) international menu
         - range: null value menu
       host health state:
-        rank: 39
+        rank: 38
         slot_group: Host Information
         examples:
         - value: Asymptomatic [NCIT:C3833]
@@ -1116,10 +1114,10 @@ classes:
         - range: host health state international menu
         - range: null value menu
         exact_mappings:
-        - GISAID:Patient status
+        - GISAID:Patient%20status
         - BIOSAMPLE:host_health_state
       host health status details:
-        rank: 40
+        rank: 39
         slot_group: Host Information
         examples:
         - value: Hospitalized [NCIT:C25179]
@@ -1127,7 +1125,7 @@ classes:
         - range: host health status details international menu
         - range: null value menu
       host health outcome:
-        rank: 41
+        rank: 40
         slot_group: Host Information
         examples:
         - value: Recovered [NCIT:C49498]
@@ -1137,7 +1135,7 @@ classes:
         exact_mappings:
         - BIOSAMPLE:host_health_outcome
       host disease:
-        rank: 42
+        rank: 41
         slot_group: Host Information
         comments: 'Select "Mpox" from the pick list provided in the template. Note:
           the Mpox disease was formerly referred to as "Monkeypox" but the international
@@ -1148,25 +1146,17 @@ classes:
         - range: host disease international menu
         - range: null value menu
       host subject ID:
-        rank: 48
+        rank: 42
         slot_group: Host Information
-        description: 'A unique identifier by which each host can be referred to e.g.
-          #131'
-        comments: Provide the host identifier. Should be a unique, user-defined identifier.
-        examples:
-        - value: BCxy123
-        exact_mappings:
-        - NML_LIMS:host subject ID
-        - BIOSAMPLE:host_subject_id
       host age:
-        rank: 44
+        rank: 43
         slot_group: Host Information
         recommended: true
         exact_mappings:
-        - GISAID:Patient age
+        - GISAID:Patient%20age
         - BIOSAMPLE:host_age
       host age unit:
-        rank: 45
+        rank: 44
         slot_group: Host Information
         recommended: true
         examples:
@@ -1177,7 +1167,7 @@ classes:
         exact_mappings:
         - BIOSAMPLE:host_age_unit
       host age bin:
-        rank: 46
+        rank: 45
         slot_group: Host Information
         recommended: true
         examples:
@@ -1188,7 +1178,7 @@ classes:
         exact_mappings:
         - BIOSAMPLE:host_age_bin
       host gender:
-        rank: 47
+        rank: 46
         slot_group: Host Information
         recommended: true
         examples:
@@ -1200,7 +1190,7 @@ classes:
         - GISAID:Gender
         - BIOSAMPLE:host_sex
       host residence geo_loc name (country):
-        rank: 49
+        rank: 47
         slot_group: Host Information
         examples:
         - value: Canada [GAZ:00002560]
@@ -1208,10 +1198,10 @@ classes:
         - range: geo_loc_name (country) international menu
         - range: null value menu
       symptom onset date:
-        rank: 50
+        rank: 48
         slot_group: Host Information
       signs and symptoms:
-        rank: 51
+        rank: 49
         slot_group: Host Information
         examples:
         - value: Lesion (Pustule) [NCIT:C78582], Swollen Lymph Nodes [HP:0002716],
@@ -1220,13 +1210,13 @@ classes:
         - range: signs and symptoms international menu
         - range: null value menu
       pre-existing conditions and risk factors:
-        rank: 52
+        rank: 50
         slot_group: Host Information
         any_of:
         - range: pre-existing conditions and risk factors international menu
         - range: null value menu
       complications:
-        rank: 53
+        rank: 51
         slot_group: Host Information
         examples:
         - value: Delayed wound healing (lesion healing) [MP:0002908]
@@ -1234,10 +1224,10 @@ classes:
         - range: complications international menu
         - range: null value menu
       antiviral therapy:
-        rank: 54
+        rank: 52
         slot_group: Host Information
       host vaccination status:
-        rank: 55
+        rank: 53
         slot_group: Host vaccination information
         examples:
         - value: Not Vaccinated [GENEPIO:0100102]
@@ -1245,19 +1235,19 @@ classes:
         - range: host vaccination status international menu
         - range: null value menu
       number of vaccine doses received:
-        rank: 56
+        rank: 54
         slot_group: Host vaccination information
       vaccination dose 1 vaccine name:
-        rank: 57
+        rank: 55
         slot_group: Host vaccination information
       vaccination dose 1 vaccination date:
-        rank: 58
+        rank: 56
         slot_group: Host vaccination information
       vaccination history:
-        rank: 59
+        rank: 57
         slot_group: Host vaccination information
       location of exposure geo_loc name (country):
-        rank: 60
+        rank: 58
         slot_group: Host exposure information
         examples:
         - value: Canada [GAZ:00002560]
@@ -1265,10 +1255,10 @@ classes:
         - range: geo_loc_name (country) international menu
         - range: null value menu
       destination of most recent travel (city):
-        rank: 61
+        rank: 59
         slot_group: Host exposure information
       destination of most recent travel (state/province/territory):
-        rank: 62
+        rank: 60
         slot_group: Host exposure information
         range: WhitespaceMinimizedString
         comments: 'Provide the name of the state/province/territory that the host
@@ -1277,7 +1267,7 @@ classes:
         examples:
         - value: California
       destination of most recent travel (country):
-        rank: 63
+        rank: 61
         slot_group: Host exposure information
         examples:
         - value: United Kingdom [GAZ:00002637]
@@ -1285,16 +1275,16 @@ classes:
         - range: geo_loc_name (country) international menu
         - range: null value menu
       most recent travel departure date:
-        rank: 64
+        rank: 62
         slot_group: Host exposure information
       most recent travel return date:
-        rank: 65
+        rank: 63
         slot_group: Host exposure information
       travel history:
-        rank: 66
+        rank: 64
         slot_group: Host exposure information
       exposure event:
-        rank: 67
+        rank: 65
         slot_group: Host exposure information
         examples:
         - value: Party [PCO:0000035]
@@ -1302,7 +1292,7 @@ classes:
         - range: exposure event international menu
         - range: null value menu
       exposure contact level:
-        rank: 68
+        rank: 66
         slot_group: Host exposure information
         examples:
         - value: Contact with infected individual [GENEPIO:0100357]
@@ -1310,22 +1300,22 @@ classes:
         - range: exposure contact level international menu
         - range: null value menu
       host role:
-        rank: 69
+        rank: 67
         slot_group: Host exposure information
         range: host role international menu
         examples:
         - value: Acquaintance of case [GENEPIO:0100266]
       exposure setting:
-        rank: 70
+        rank: 68
         slot_group: Host exposure information
         range: exposure setting international menu
         examples:
         - value: Healthcare Setting [GENEPIO:0100201]
       exposure details:
-        rank: 71
+        rank: 69
         slot_group: Host exposure information
       prior Mpox infection:
-        rank: 72
+        rank: 70
         slot_group: Host reinfection information
         examples:
         - value: Prior infection [GENEPIO:0100037]
@@ -1333,10 +1323,10 @@ classes:
         - range: prior Monkeypox infection international menu
         - range: null value menu
       prior Mpox infection date:
-        rank: 73
+        rank: 71
         slot_group: Host reinfection information
       prior Mpox antiviral treatment:
-        rank: 74
+        rank: 72
         slot_group: Host reinfection information
         examples:
         - value: Prior antiviral treatment [GENEPIO:0100037]
@@ -1344,10 +1334,10 @@ classes:
         - range: prior Monkeypox antiviral treatment international menu
         - range: null value menu
       prior antiviral treatment during prior Mpox infection:
-        rank: 75
+        rank: 73
         slot_group: Host reinfection information
       purpose of sequencing:
-        rank: 76
+        rank: 74
         slot_group: Sequencing
         examples:
         - value: Baseline surveillance (random sampling) [GENEPIO:0100005]
@@ -1355,22 +1345,22 @@ classes:
         - range: purpose of sequencing international menu
         - range: null value menu
       purpose of sequencing details:
-        rank: 77
+        rank: 75
         slot_group: Sequencing
       sequencing date:
-        rank: 78
+        rank: 76
         slot_group: Sequencing
       library ID:
-        rank: 79
+        rank: 77
         slot_group: Sequencing
       amplicon size:
-        rank: 80
+        rank: 78
         slot_group: Sequencing
       library preparation kit:
-        rank: 81
+        rank: 79
         slot_group: Sequencing
       sequencing instrument:
-        rank: 82
+        rank: 80
         slot_group: Sequencing
         examples:
         - value: Oxford Nanopore MinION [GENEPIO:0100142]
@@ -1378,76 +1368,76 @@ classes:
         - range: sequencing instrument international menu
         - range: null value menu
       sequencing protocol:
-        rank: 83
+        rank: 81
         slot_group: Sequencing
       sequencing kit number:
-        rank: 84
+        rank: 82
         slot_group: Sequencing
       amplicon pcr primer scheme:
-        rank: 85
+        rank: 83
         slot_group: Sequencing
       raw sequence data processing method:
-        rank: 86
+        rank: 84
         slot_group: Bioinformatics and QC metrics
       dehosting method:
-        rank: 87
+        rank: 85
         slot_group: Bioinformatics and QC metrics
       consensus sequence name:
-        rank: 88
+        rank: 86
         slot_group: Bioinformatics and QC metrics
       consensus sequence filename:
-        rank: 89
+        rank: 87
         slot_group: Bioinformatics and QC metrics
       consensus sequence filepath:
-        rank: 90
+        rank: 88
         slot_group: Bioinformatics and QC metrics
       consensus sequence software name:
-        rank: 91
+        rank: 89
         slot_group: Bioinformatics and QC metrics
       consensus sequence software version:
-        rank: 92
+        rank: 90
         slot_group: Bioinformatics and QC metrics
       breadth of coverage value:
-        rank: 93
+        rank: 91
         slot_group: Bioinformatics and QC metrics
       depth of coverage value:
-        rank: 94
+        rank: 92
         slot_group: Bioinformatics and QC metrics
       depth of coverage threshold:
-        rank: 95
+        rank: 93
         slot_group: Bioinformatics and QC metrics
       r1 fastq filename:
-        rank: 96
+        rank: 94
         slot_group: Bioinformatics and QC metrics
       r2 fastq filename:
-        rank: 97
+        rank: 95
         slot_group: Bioinformatics and QC metrics
       r1 fastq filepath:
-        rank: 98
+        rank: 96
         slot_group: Bioinformatics and QC metrics
       r2 fastq filepath:
-        rank: 99
+        rank: 97
         slot_group: Bioinformatics and QC metrics
       fast5 filename:
-        rank: 100
+        rank: 98
         slot_group: Bioinformatics and QC metrics
       fast5 filepath:
-        rank: 101
+        rank: 99
         slot_group: Bioinformatics and QC metrics
       number of base pairs sequenced:
-        rank: 102
+        rank: 100
         slot_group: Bioinformatics and QC metrics
       consensus genome length:
-        rank: 103
+        rank: 101
         slot_group: Bioinformatics and QC metrics
       reference genome accession:
-        rank: 104
+        rank: 102
         slot_group: Bioinformatics and QC metrics
       bioinformatics protocol:
-        rank: 105
+        rank: 103
         slot_group: Bioinformatics and QC metrics
       gene name 1:
-        rank: 106
+        rank: 104
         slot_group: Pathogen diagnostic testing
         comments: 'Provide the full name of the gene used in the test. The gene symbol
           (short form of gene name) can also be provided. Standardized gene names
@@ -1457,10 +1447,10 @@ classes:
         - range: WhitespaceMinimizedString
         - range: null value menu
       diagnostic pcr Ct value 1:
-        rank: 107
+        rank: 105
         slot_group: Pathogen diagnostic testing
       gene name 2:
-        rank: 108
+        rank: 106
         slot_group: Pathogen diagnostic testing
         comments: 'Provide the full name of another gene used in an RT-PCR test. The
           gene symbol (short form of gene name) can also be provided. Standardized
@@ -1470,10 +1460,10 @@ classes:
         - range: WhitespaceMinimizedString
         - range: null value menu
       diagnostic pcr Ct value 2:
-        rank: 109
+        rank: 107
         slot_group: Pathogen diagnostic testing
       gene name 3:
-        rank: 110
+        rank: 108
         slot_group: Pathogen diagnostic testing
         comments: 'Provide the full name of another gene used in an RT-PCR test. The
           gene symbol (short form of gene name) can also be provided. Standardized
@@ -1483,13 +1473,13 @@ classes:
         - range: WhitespaceMinimizedString
         - range: null value menu
       diagnostic pcr Ct value 3:
-        rank: 111
+        rank: 109
         slot_group: Pathogen diagnostic testing
       authors:
-        rank: 112
+        rank: 110
         slot_group: Contributor acknowledgement
       DataHarmonizer provenance:
-        rank: 113
+        rank: 111
         slot_group: Contributor acknowledgement
 slots:
   specimen collector sample ID:
@@ -1509,11 +1499,11 @@ slots:
     examples:
     - value: prov_mpox_1234
     exact_mappings:
-    - GISAID:Sample ID given by the sample provider
-    - CNPHI:Primary Specimen ID
+    - GISAID:Sample%20ID%20given%20by%20the%20sample%20provider
+    - CNPHI:Primary%20Specimen%20ID
     - NML_LIMS:TEXT_ID
     - BIOSAMPLE:sample_name
-    - VirusSeq_Portal:specimen collector sample ID
+    - VirusSeq_Portal:specimen%20collector%20sample%20ID
   Related specimen primary ID:
     name: Related specimen primary ID
     title: Related specimen primary ID
@@ -1529,8 +1519,8 @@ slots:
     examples:
     - value: SR20-12345
     exact_mappings:
-    - CNPHI:Related Specimen ID
-    - CNPHI:Related Specimen Relationship Type
+    - CNPHI:Related%20Specimen%20ID
+    - CNPHI:Related%20Specimen%20Relationship%20Type
     - NML_LIMS:PH_RELATED_PRIMARY_ID
     - BIOSAMPLE:host_subject_ID
   case ID:
@@ -1566,7 +1556,7 @@ slots:
     examples:
     - value: PRJNA12345
     exact_mappings:
-    - NML_LIMS:SUBMISSIONS - BioProject Accession
+    - NML_LIMS:SUBMISSIONS%20-%20BioProject%20Accession
   biosample accession:
     name: biosample accession
     title: biosample accession
@@ -1582,7 +1572,7 @@ slots:
     examples:
     - value: SAMN14180202
     exact_mappings:
-    - NML_LIMS:SUBMISSIONS - BioSample Accession
+    - NML_LIMS:SUBMISSIONS%20-%20BioSample%20Accession
   SRA accession:
     name: SRA accession
     title: SRA accession
@@ -1599,7 +1589,7 @@ slots:
     examples:
     - value: SRR11177792
     exact_mappings:
-    - NML_LIMS:SUBMISSIONS - SRA Accession
+    - NML_LIMS:SUBMISSIONS%20-%20SRA%20Accession
   GenBank accession:
     name: GenBank accession
     title: GenBank accession
@@ -1615,7 +1605,7 @@ slots:
     examples:
     - value: MN908947.3
     exact_mappings:
-    - NML_LIMS:SUBMISSIONS - GenBank Accession
+    - NML_LIMS:SUBMISSIONS%20-%20GenBank%20Accession
   GISAID virus name:
     name: GISAID virus name
     title: GISAID virus name
@@ -1629,7 +1619,7 @@ slots:
     examples:
     - value: hMpxV/Canada/UN-NML-12345/2022
     exact_mappings:
-    - GISAID:Virus name
+    - GISAID:Virus%20name
     - BIOSAMPLE:GISAID_virus_name
   GISAID accession:
     name: GISAID accession
@@ -1645,10 +1635,10 @@ slots:
     examples:
     - value: EPI_ISL_436489
     exact_mappings:
-    - CNPHI:GISAID Accession (if known)
-    - NML_LIMS:SUBMISSIONS - GISAID Accession
+    - CNPHI:GISAID%20Accession%20%28if%20known%29
+    - NML_LIMS:SUBMISSIONS%20-%20GISAID%20Accession
     - BIOSAMPLE:GISAID_accession
-    - VirusSeq_Portal:GISAID accession
+    - VirusSeq_Portal:GISAID%20accession
   sample collected by:
     name: sample collected by
     title: sample collected by
@@ -1675,7 +1665,7 @@ slots:
     examples:
     - value: RespLab@lab.ca
     exact_mappings:
-    - NML_LIMS:sample collector contact email
+    - NML_LIMS:sample%20collector%20contact%20email
   sample collector contact address:
     name: sample collector contact address
     title: sample collector contact address
@@ -1688,7 +1678,7 @@ slots:
     - value: 655 Lab St, Vancouver, British Columbia, V5N 2A2, Canada
     exact_mappings:
     - GISAID:Address
-    - NML_LIMS:sample collector contact address
+    - NML_LIMS:sample%20collector%20contact%20address
   sequenced by:
     name: sequenced by
     title: sequenced by
@@ -1712,7 +1702,7 @@ slots:
     examples:
     - value: RespLab@lab.ca
     exact_mappings:
-    - NML_LIMS:sequenced by contact email
+    - NML_LIMS:sequenced%20by%20contact%20email
   sequenced by contact address:
     name: sequenced by contact address
     title: sequenced by contact address
@@ -1724,7 +1714,7 @@ slots:
     examples:
     - value: 123 Sunnybrooke St, Toronto, Ontario, M4P 1L6, Canada
     exact_mappings:
-    - NML_LIMS:sequenced by contact address
+    - NML_LIMS:sequenced%20by%20contact%20address
   sequence submitted by:
     name: sequence submitted by
     title: sequence submitted by
@@ -1748,7 +1738,7 @@ slots:
     examples:
     - value: RespLab@lab.ca
     exact_mappings:
-    - NML_LIMS:sequence submitter contact email
+    - NML_LIMS:sequence%20submitter%20contact%20email
   sequence submitter contact address:
     name: sequence submitter contact address
     title: sequence submitter contact address
@@ -1762,7 +1752,7 @@ slots:
     - value: 123 Sunnybrooke St, Toronto, Ontario, M4P 1L6, Canada
     exact_mappings:
     - GISAID:Address
-    - NML_LIMS:sequence submitter contact address
+    - NML_LIMS:sequence%20submitter%20contact%20address
   sample collection date:
     name: sample collection date
     title: sample collection date
@@ -1784,11 +1774,11 @@ slots:
     examples:
     - value: '2020-03-16'
     exact_mappings:
-    - GISAID:Collection date
-    - CNPHI:Patient Sample Collected Date
+    - GISAID:Collection%20date
+    - CNPHI:Patient%20Sample%20Collected%20Date
     - NML_LIMS:HC_COLLECT_DATE
     - BIOSAMPLE:collection_date
-    - VirusSeq_Portal:sample collection date
+    - VirusSeq_Portal:sample%20collection%20date
   sample collection date precision:
     name: sample collection date precision
     title: sample collection date precision
@@ -1805,7 +1795,7 @@ slots:
     examples:
     - value: year
     exact_mappings:
-    - CNPHI:Precision of date collected
+    - CNPHI:Precision%20of%20date%20collected
     - NML_LIMS:HC_TEXT2
   sample received date:
     name: sample received date
@@ -1822,7 +1812,7 @@ slots:
     examples:
     - value: '2020-03-20'
     exact_mappings:
-    - NML_LIMS:sample received date
+    - NML_LIMS:sample%20received%20date
   geo_loc_name (country):
     name: geo_loc_name (country)
     title: geo_loc_name (country)
@@ -1832,10 +1822,10 @@ slots:
     required: true
     exact_mappings:
     - GISAID:Location
-    - CNPHI:Patient Country
+    - CNPHI:Patient%20Country
     - NML_LIMS:HC_COUNTRY
     - BIOSAMPLE:geo_loc_name
-    - VirusSeq_Portal:geo_loc_name (country)
+    - VirusSeq_Portal:geo_loc_name%20%28country%29
   geo_loc_name (state/province/territory):
     name: geo_loc_name (state/province/territory)
     title: geo_loc_name (state/province/territory)
@@ -1845,10 +1835,10 @@ slots:
     examples:
     - value: Saskatchewan
     exact_mappings:
-    - CNPHI:Patient Province
+    - CNPHI:Patient%20Province
     - NML_LIMS:HC_PROVINCE
     - BIOSAMPLE:geo_loc_name
-    - VirusSeq_Portal:geo_loc_name (state/province/territory)
+    - VirusSeq_Portal:geo_loc_name%20%28state/province/territory%29
   geo_loc latitude:
     name: geo_loc latitude
     title: geo_loc latitude
@@ -1908,10 +1898,10 @@ slots:
     slot_uri: GENEPIO:0001198
     required: true
     exact_mappings:
-    - CNPHI:Reason for Sampling
+    - CNPHI:Reason%20for%20Sampling
     - NML_LIMS:HC_SAMPLE_CATEGORY
     - BIOSAMPLE:purpose_of_sampling
-    - VirusSeq_Portal:purpose of sampling
+    - VirusSeq_Portal:purpose%20of%20sampling
   purpose of sampling details:
     name: purpose of sampling details
     title: purpose of sampling details
@@ -1929,10 +1919,10 @@ slots:
     examples:
     - value: Symptomology and history suggested Monkeypox diagnosis.
     exact_mappings:
-    - CNPHI:Details on the Reason for Sampling
+    - CNPHI:Details%20on%20the%20Reason%20for%20Sampling
     - NML_LIMS:PH_SAMPLING_DETAILS
     - BIOSAMPLE:description
-    - VirusSeq_Portal:purpose of sampling details
+    - VirusSeq_Portal:purpose%20of%20sampling%20details
   NML submitted specimen type:
     name: NML submitted specimen type
     title: NML submitted specimen type
@@ -1948,7 +1938,7 @@ slots:
     examples:
     - value: Nucleic Acid
     exact_mappings:
-    - CNPHI:Specimen Type
+    - CNPHI:Specimen%20Type
     - NML_LIMS:PH_SPECIMEN_TYPE
   Related specimen relationship type:
     name: Related specimen relationship type
@@ -1965,8 +1955,8 @@ slots:
     examples:
     - value: Previously Submitted
     exact_mappings:
-    - CNPHI:Related Specimen ID
-    - CNPHI:Related Specimen Relationship Type
+    - CNPHI:Related%20Specimen%20ID
+    - CNPHI:Related%20Specimen%20Relationship%20Type
     - NML_LIMS:PH_RELATED_RELATIONSHIP_TYPE
   anatomical material:
     name: anatomical material
@@ -1980,12 +1970,12 @@ slots:
     slot_uri: GENEPIO:0001211
     multivalued: true
     exact_mappings:
-    - GISAID:Specimen source
-    - CNPHI:Anatomical Material
+    - GISAID:Specimen%20source
+    - CNPHI:Anatomical%20Material
     - NML_LIMS:PH_ISOLATION_SITE_DESC
     - BIOSAMPLE:isolation_source
     - BIOSAMPLE:anatomical_material
-    - VirusSeq_Portal:anatomical material
+    - VirusSeq_Portal:anatomical%20material
   anatomical part:
     name: anatomical part
     title: anatomical part
@@ -1997,12 +1987,12 @@ slots:
     slot_uri: GENEPIO:0001214
     multivalued: true
     exact_mappings:
-    - GISAID:Specimen source
-    - CNPHI:Anatomical Site
+    - GISAID:Specimen%20source
+    - CNPHI:Anatomical%20Site
     - NML_LIMS:PH_ISOLATION_SITE
     - BIOSAMPLE:isolation_source
     - BIOSAMPLE:anatomical_part
-    - VirusSeq_Portal:anatomical part
+    - VirusSeq_Portal:anatomical%20part
   body product:
     name: body product
     title: body product
@@ -2015,12 +2005,12 @@ slots:
     slot_uri: GENEPIO:0001216
     multivalued: true
     exact_mappings:
-    - GISAID:Specimen source
-    - CNPHI:Body Product
+    - GISAID:Specimen%20source
+    - CNPHI:Body%20Product
     - NML_LIMS:PH_SPECIMEN_SOURCE_DESC
     - BIOSAMPLE:isolation_source
     - BIOSAMPLE:body_product
-    - VirusSeq_Portal:body product
+    - VirusSeq_Portal:body%20product
   environmental material:
     name: environmental material
     title: environmental material
@@ -2039,7 +2029,7 @@ slots:
     examples:
     - value: Bed linen
     exact_mappings:
-    - GISAID:Specimen source
+    - GISAID:Specimen%20source
     - BIOSAMPLE:isolation_source
     - BIOSAMPLE:environmental_material
   collection device:
@@ -2053,12 +2043,12 @@ slots:
     slot_uri: GENEPIO:0001234
     multivalued: true
     exact_mappings:
-    - GISAID:Specimen source
-    - CNPHI:Specimen Collection Matrix
+    - GISAID:Specimen%20source
+    - CNPHI:Specimen%20Collection%20Matrix
     - NML_LIMS:PH_SPECIMEN_TYPE_ORIG
     - BIOSAMPLE:isolation_source
     - BIOSAMPLE:collection_device
-    - VirusSeq_Portal:collection device
+    - VirusSeq_Portal:collection%20device
   collection method:
     name: collection method
     title: collection method
@@ -2070,12 +2060,12 @@ slots:
     slot_uri: GENEPIO:0001241
     multivalued: true
     exact_mappings:
-    - GISAID:Specimen source
-    - CNPHI:Collection Method
+    - GISAID:Specimen%20source
+    - CNPHI:Collection%20Method
     - NML_LIMS:COLLECTION_METHOD
     - BIOSAMPLE:isolation_source
     - BIOSAMPLE:collection_method
-    - VirusSeq_Portal:collection method
+    - VirusSeq_Portal:collection%20method
   specimen processing:
     name: specimen processing
     title: specimen processing
@@ -2100,7 +2090,7 @@ slots:
     - value: 5 swabs from different body sites were pooled and further prepared as
         a single sample during library prep.
     exact_mappings:
-    - NML_LIMS:specimen processing details
+    - NML_LIMS:specimen%20processing%20details
   host (common name):
     name: host (common name)
     title: host (common name)
@@ -2122,9 +2112,9 @@ slots:
     required: true
     exact_mappings:
     - GISAID:Host
-    - NML_LIMS:host (scientific name)
+    - NML_LIMS:host%20%28scientific%20name%29
     - BIOSAMPLE:host
-    - VirusSeq_Portal:host (scientific name)
+    - VirusSeq_Portal:host%20%28scientific%20name%29
   host health state:
     name: host health state
     title: host health state
@@ -2151,15 +2141,23 @@ slots:
     slot_uri: GENEPIO:0001391
     required: true
     exact_mappings:
-    - CNPHI:Host Disease
+    - CNPHI:Host%20Disease
     - NML_LIMS:PH_HOST_DISEASE
     - BIOSAMPLE:host_disease
-    - VirusSeq_Portal:host disease
+    - VirusSeq_Portal:host%20disease
   host subject ID:
     name: host subject ID
     title: host subject ID
+    description: A unique identifier by which each host can be referred to.
+    comments: 'This identifier can be used to link samples from the same individual.
+      Caution: consult the data steward before sharing as this value may be considered
+      identifiable information.'
     slot_uri: GENEPIO:0001398
     range: WhitespaceMinimizedString
+    examples:
+    - value: 12345B-222
+    exact_mappings:
+    - BIOSAMPLE:host_subject_id
   host age:
     name: host age
     title: host age
@@ -2254,7 +2252,7 @@ slots:
     slot_uri: GENEPIO:0001401
     multivalued: true
     exact_mappings:
-    - NML_LIMS:pre-existing conditions and risk factors
+    - NML_LIMS:pre-existing%20conditions%20and%20risk%20factors
   complications:
     name: complications
     title: complications
@@ -2278,7 +2276,7 @@ slots:
     - value: Tecovirimat used to treat current Monkeypox infection
     - value: AZT administered for concurrent HIV infection
     exact_mappings:
-    - NML_LIMS:antiviral therapy
+    - NML_LIMS:antiviral%20therapy
   host vaccination status:
     name: host vaccination status
     title: host vaccination status
@@ -2298,7 +2296,7 @@ slots:
     examples:
     - value: '1'
     exact_mappings:
-    - NML_LIMS:number of vaccine doses received
+    - NML_LIMS:number%20of%20vaccine%20doses%20received
   vaccination dose 1 vaccine name:
     name: vaccination dose 1 vaccine name
     title: vaccination dose 1 vaccine name
@@ -2428,8 +2426,8 @@ slots:
       If the desired term is missing, contact the DataHarmonizer curation team.
     slot_uri: GENEPIO:0001417
     exact_mappings:
-    - GISAID:Additional location information
-    - CNPHI:Exposure Event
+    - GISAID:Additional%20location%20information
+    - CNPHI:Exposure%20Event
     - NML_LIMS:PH_EXPOSURE
   exposure contact level:
     name: exposure contact level
@@ -2438,7 +2436,7 @@ slots:
     comments: Select exposure contact level from the pick-list.
     slot_uri: GENEPIO:0001418
     exact_mappings:
-    - NML_LIMS:exposure contact level
+    - NML_LIMS:exposure%20contact%20level
   host role:
     name: host role
     title: host role
@@ -2492,7 +2490,7 @@ slots:
     examples:
     - value: '2022-06-20'
     exact_mappings:
-    - NML_LIMS:prior Monkeypox infection date
+    - NML_LIMS:prior%20Monkeypox%20infection%20date
   prior Mpox antiviral treatment:
     name: prior Mpox antiviral treatment
     title: prior Mpox antiviral treatment
@@ -2513,7 +2511,7 @@ slots:
     examples:
     - value: AZT was administered for HIV infection during the prior Mpox infection.
     exact_mappings:
-    - NML_LIMS:prior antiviral treatment during Monkeypox infection
+    - NML_LIMS:prior%20antiviral%20treatment%20during%20Monkeypox%20infection
   purpose of sequencing:
     name: purpose of sequencing
     title: purpose of sequencing
@@ -2527,11 +2525,11 @@ slots:
     multivalued: true
     required: true
     exact_mappings:
-    - GISAID:Sampling Strategy
-    - CNPHI:Reason for Sequencing
+    - GISAID:Sampling%20Strategy
+    - CNPHI:Reason%20for%20Sequencing
     - NML_LIMS:PH_REASON_FOR_SEQUENCING
     - BIOSAMPLE:purpose_of_sequencing
-    - VirusSeq_Portal:purpose of sequencing
+    - VirusSeq_Portal:purpose%20of%20sequencing
   purpose of sequencing details:
     name: purpose of sequencing details
     title: purpose of sequencing details
@@ -2550,9 +2548,9 @@ slots:
     examples:
     - value: Outbreak in MSM community
     exact_mappings:
-    - CNPHI:Details on the Reason for Sequencing
+    - CNPHI:Details%20on%20the%20Reason%20for%20Sequencing
     - NML_LIMS:PH_REASON_FOR_SEQUENCING_DETAILS
-    - VirusSeq_Portal:purpose of sequencing details
+    - VirusSeq_Portal:purpose%20of%20sequencing%20details
   sequencing date:
     name: sequencing date
     title: sequencing date
@@ -2580,7 +2578,7 @@ slots:
     examples:
     - value: XYZ_123345
     exact_mappings:
-    - NML_LIMS:library ID
+    - NML_LIMS:library%20ID
   amplicon size:
     name: amplicon size
     title: amplicon size
@@ -2591,7 +2589,7 @@ slots:
     examples:
     - value: 300bp
     exact_mappings:
-    - NML_LIMS:amplicon size
+    - NML_LIMS:amplicon%20size
   library preparation kit:
     name: library preparation kit
     title: library preparation kit
@@ -2613,10 +2611,10 @@ slots:
     multivalued: true
     required: true
     exact_mappings:
-    - GISAID:Sequencing technology
-    - CNPHI:Sequencing Instrument
+    - GISAID:Sequencing%20technology
+    - CNPHI:Sequencing%20Instrument
     - NML_LIMS:PH_SEQUENCING_INSTRUMENT
-    - VirusSeq_Portal:sequencing instrument
+    - VirusSeq_Portal:sequencing%20instrument
   sequencing protocol:
     name: sequencing protocol
     title: sequencing protocol
@@ -2634,7 +2632,7 @@ slots:
         data was produced using Miseq Micro v2 (500 cycles) sequencing kits.
     exact_mappings:
     - NML_LIMS:PH_TESTING_PROTOCOL
-    - VirusSeq_Portal:sequencing protocol
+    - VirusSeq_Portal:sequencing%20protocol
   sequencing kit number:
     name: sequencing kit number
     title: sequencing kit number
@@ -2645,7 +2643,7 @@ slots:
     examples:
     - value: AB456XYZ789
     exact_mappings:
-    - NML_LIMS:sequencing kit number
+    - NML_LIMS:sequencing%20kit%20number
   amplicon pcr primer scheme:
     name: amplicon pcr primer scheme
     title: amplicon pcr primer scheme
@@ -2658,7 +2656,7 @@ slots:
     examples:
     - value: MPXV Sunrise 3.1
     exact_mappings:
-    - NML_LIMS:amplicon pcr primer scheme
+    - NML_LIMS:amplicon%20pcr%20primer%20scheme
   raw sequence data processing method:
     name: raw sequence data processing method
     title: raw sequence data processing method
@@ -2672,7 +2670,7 @@ slots:
     - value: Porechop 0.2.3
     exact_mappings:
     - NML_LIMS:PH_RAW_SEQUENCE_METHOD
-    - VirusSeq_Portal:raw sequence data processing method
+    - VirusSeq_Portal:raw%20sequence%20data%20processing%20method
   dehosting method:
     name: dehosting method
     title: dehosting method
@@ -2685,7 +2683,7 @@ slots:
     - value: Nanostripper
     exact_mappings:
     - NML_LIMS:PH_DEHOSTING_METHOD
-    - VirusSeq_Portal:dehosting method
+    - VirusSeq_Portal:dehosting%20method
   consensus sequence name:
     name: consensus sequence name
     title: consensus sequence name
@@ -2696,7 +2694,7 @@ slots:
     examples:
     - value: mpxvassembly3
     exact_mappings:
-    - NML_LIMS:consensus sequence name
+    - NML_LIMS:consensus%20sequence%20name
   consensus sequence filename:
     name: consensus sequence filename
     title: consensus sequence filename
@@ -2708,7 +2706,7 @@ slots:
     examples:
     - value: mpxvassembly.fasta
     exact_mappings:
-    - NML_LIMS:consensus sequence filename
+    - NML_LIMS:consensus%20sequence%20filename
   consensus sequence filepath:
     name: consensus sequence filepath
     title: consensus sequence filepath
@@ -2719,7 +2717,7 @@ slots:
     examples:
     - value: /User/Documents/ViralLab/Data/mpxvassembly.fasta
     exact_mappings:
-    - NML_LIMS:consensus sequence filepath
+    - NML_LIMS:consensus%20sequence%20filepath
   consensus sequence software name:
     name: consensus sequence software name
     title: consensus sequence software name
@@ -2731,10 +2729,10 @@ slots:
     examples:
     - value: iVar
     exact_mappings:
-    - GISAID:Assembly method
-    - CNPHI:consensus sequence
+    - GISAID:Assembly%20method
+    - CNPHI:consensus%20sequence
     - NML_LIMS:PH_CONSENSUS_SEQUENCE
-    - VirusSeq_Portal:consensus sequence software name
+    - VirusSeq_Portal:consensus%20sequence%20software%20name
   consensus sequence software version:
     name: consensus sequence software version
     title: consensus sequence software version
@@ -2746,10 +2744,10 @@ slots:
     examples:
     - value: '1.3'
     exact_mappings:
-    - GISAID:Assembly method
-    - CNPHI:consensus sequence
+    - GISAID:Assembly%20method
+    - CNPHI:consensus%20sequence
     - NML_LIMS:PH_CONSENSUS_SEQUENCE_VERSION
-    - VirusSeq_Portal:consensus sequence software version
+    - VirusSeq_Portal:consensus%20sequence%20software%20version
   breadth of coverage value:
     name: breadth of coverage value
     title: breadth of coverage value
@@ -2761,8 +2759,8 @@ slots:
     examples:
     - value: 95%
     exact_mappings:
-    - NML_LIMS:breadth of coverage value
-    - VirusSeq_Portal:breadth of coverage value
+    - NML_LIMS:breadth%20of%20coverage%20value
+    - VirusSeq_Portal:breadth%20of%20coverage%20value
   depth of coverage value:
     name: depth of coverage value
     title: depth of coverage value
@@ -2774,9 +2772,9 @@ slots:
     examples:
     - value: 400x
     exact_mappings:
-    - GISAID:Depth of coverage
-    - NML_LIMS:depth of coverage value
-    - VirusSeq_Portal:depth of coverage value
+    - GISAID:Depth%20of%20coverage
+    - NML_LIMS:depth%20of%20coverage%20value
+    - VirusSeq_Portal:depth%20of%20coverage%20value
   depth of coverage threshold:
     name: depth of coverage threshold
     title: depth of coverage threshold
@@ -2787,7 +2785,7 @@ slots:
     examples:
     - value: 100x
     exact_mappings:
-    - NML_LIMS:depth of coverage threshold
+    - NML_LIMS:depth%20of%20coverage%20threshold
   r1 fastq filename:
     name: r1 fastq filename
     title: r1 fastq filename
@@ -2858,7 +2856,7 @@ slots:
     examples:
     - value: '2639019'
     exact_mappings:
-    - NML_LIMS:number of base pairs sequenced
+    - NML_LIMS:number%20of%20base%20pairs%20sequenced
   consensus genome length:
     name: consensus genome length
     title: consensus genome length
@@ -2871,7 +2869,7 @@ slots:
     examples:
     - value: '197063'
     exact_mappings:
-    - NML_LIMS:consensus genome length
+    - NML_LIMS:consensus%20genome%20length
   reference genome accession:
     name: reference genome accession
     title: reference genome accession
@@ -2882,7 +2880,7 @@ slots:
     examples:
     - value: NC_063383.1
     exact_mappings:
-    - NML_LIMS:reference genome accession
+    - NML_LIMS:reference%20genome%20accession
   bioinformatics protocol:
     name: bioinformatics protocol
     title: bioinformatics protocol
@@ -2896,9 +2894,9 @@ slots:
     examples:
     - value: https://github.com/phac-nml/monkeypox-nf
     exact_mappings:
-    - CNPHI:Bioinformatics Protocol
+    - CNPHI:Bioinformatics%20Protocol
     - NML_LIMS:PH_BIOINFORMATICS_PROTOCOL
-    - VirusSeq_Portal:bioinformatics protocol
+    - VirusSeq_Portal:bioinformatics%20protocol
   gene name 1:
     name: gene name 1
     title: gene name 1
@@ -2907,10 +2905,10 @@ slots:
     examples:
     - value: MPX (orf B6R)
     exact_mappings:
-    - CNPHI:Gene Target 1
-    - 'NML_LIMS:SUBMITTED_RESLT - Gene Target #1'
+    - CNPHI:Gene%20Target%201
+    - NML_LIMS:SUBMITTED_RESLT%20-%20Gene%20Target%20%231
     - BIOSAMPLE:gene_name_1
-    - VirusSeq_Portal:gene name
+    - VirusSeq_Portal:gene%20name
   diagnostic pcr Ct value 1:
     name: diagnostic pcr Ct value 1
     title: diagnostic pcr Ct value 1
@@ -2923,10 +2921,10 @@ slots:
     examples:
     - value: '21'
     exact_mappings:
-    - CNPHI:Gene Target 1 CT Value
-    - 'NML_LIMS:SUBMITTED_RESLT - Gene Target #1 CT Value'
+    - CNPHI:Gene%20Target%201%20CT%20Value
+    - NML_LIMS:SUBMITTED_RESLT%20-%20Gene%20Target%20%231%20CT%20Value
     - BIOSAMPLE:diagnostic_PCR_CT_value_1
-    - VirusSeq_Portal:diagnostic pcr Ct value
+    - VirusSeq_Portal:diagnostic%20pcr%20Ct%20value
   gene name 2:
     name: gene name 2
     title: gene name 2
@@ -2935,8 +2933,8 @@ slots:
     examples:
     - value: OVP (orf 17L)
     exact_mappings:
-    - CNPHI:Gene Target 2
-    - 'NML_LIMS:SUBMITTED_RESLT - Gene Target #2'
+    - CNPHI:Gene%20Target%202
+    - NML_LIMS:SUBMITTED_RESLT%20-%20Gene%20Target%20%232
     - BIOSAMPLE:gene_name_2
   diagnostic pcr Ct value 2:
     name: diagnostic pcr Ct value 2
@@ -2951,8 +2949,8 @@ slots:
     examples:
     - value: '36'
     exact_mappings:
-    - CNPHI:Gene Target 2 CT Value
-    - 'NML_LIMS:SUBMITTED_RESLT - Gene Target #2 CT Value'
+    - CNPHI:Gene%20Target%202%20CT%20Value
+    - NML_LIMS:SUBMITTED_RESLT%20-%20Gene%20Target%20%232%20CT%20Value
     - BIOSAMPLE:diagnostic_PCR_CT_value_2
   gene name 3:
     name: gene name 3
@@ -2962,8 +2960,8 @@ slots:
     examples:
     - value: OPHA (orf B2R)
     exact_mappings:
-    - CNPHI:Gene Target 3
-    - 'NML_LIMS:SUBMITTED_RESLT - Gene Target #3'
+    - CNPHI:Gene%20Target%203
+    - NML_LIMS:SUBMITTED_RESLT%20-%20Gene%20Target%20%233
     - BIOSAMPLE:gene_name_3
   diagnostic pcr Ct value 3:
     name: diagnostic pcr Ct value 3
@@ -2978,8 +2976,8 @@ slots:
     examples:
     - value: '19'
     exact_mappings:
-    - CNPHI:Gene Target 3 CT Value
-    - 'NML_LIMS:SUBMITTED_RESLT - Gene Target #3 CT Value'
+    - CNPHI:Gene%20Target%203%20CT%20Value
+    - NML_LIMS:SUBMITTED_RESLT%20-%20Gene%20Target%20%233%20CT%20Value
     - BIOSAMPLE:diagnostic_PCR_CT_value_3
   gene name 4:
     name: gene name 4
@@ -2994,8 +2992,8 @@ slots:
     examples:
     - value: G2R_G (TNFR)
     exact_mappings:
-    - CNPHI:Gene Target 4
-    - 'NML_LIMS:SUBMITTED_RESLT - Gene Target #4'
+    - CNPHI:Gene%20Target%204
+    - NML_LIMS:SUBMITTED_RESLT%20-%20Gene%20Target%20%234
     - BIOSAMPLE:gene_name_4
   diagnostic pcr Ct value 4:
     name: diagnostic pcr Ct value 4
@@ -3010,8 +3008,8 @@ slots:
     examples:
     - value: '27'
     exact_mappings:
-    - CNPHI:Gene Target 4 CT Value
-    - 'NML_LIMS:SUBMITTED_RESLT - Gene Target #4 CT Value'
+    - CNPHI:Gene%20Target%204%20CT%20Value
+    - NML_LIMS:SUBMITTED_RESLT%20-%20Gene%20Target%20%234%20CT%20Value
     - BIOSAMPLE:diagnostic_PCR_CT_value_4
   gene name 5:
     name: gene name 5
@@ -3026,8 +3024,8 @@ slots:
     examples:
     - value: RNAse P
     exact_mappings:
-    - CNPHI:Gene Target 5
-    - 'NML_LIMS:SUBMITTED_RESLT - Gene Target #5'
+    - CNPHI:Gene%20Target%205
+    - NML_LIMS:SUBMITTED_RESLT%20-%20Gene%20Target%20%235
     - BIOSAMPLE:gene_name_5
   diagnostic pcr Ct value 5:
     name: diagnostic pcr Ct value 5
@@ -3042,8 +3040,8 @@ slots:
     examples:
     - value: '30'
     exact_mappings:
-    - CNPHI:Gene Target 5 CT Value
-    - 'NML_LIMS:SUBMITTED_RESLT - Gene Target #5 CT Value'
+    - CNPHI:Gene%20Target%205%20CT%20Value
+    - NML_LIMS:SUBMITTED_RESLT%20-%20Gene%20Target%20%235%20CT%20Value
     - BIOSAMPLE:diagnostic_PCR_CT_value_5
   authors:
     name: authors
@@ -3073,7 +3071,7 @@ slots:
     examples:
     - value: DataHarmonizer v1.4.3, Mpox v3.3.1
     exact_mappings:
-    - CNPHI:Additional Comments
+    - CNPHI:Additional%20Comments
     - NML_LIMS:HC_COMMENTS
 enums:
   null value menu:
