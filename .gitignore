@@ -239,3 +239,4 @@ node_modules/
 
 .notes/
 web/templates/manifest.json
+yarn.lock
