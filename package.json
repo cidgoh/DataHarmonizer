@@ -83,9 +83,9 @@
     "sheetclip": "^0.3.0",
     "sifter": "^0.5.4",
     "xlsx": "^0.18.5",
-    "i18next":"^23.11.5",
+    "i18next": "^23.11.5",
     "jquery-i18next": "^1.2.1",
-    "language-tags":"^1.0.9"
+    "language-tags": "^1.0.9"
   },
   "jest": {
     "transform": {

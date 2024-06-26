@@ -16,8 +16,8 @@ document.addEventListener('DOMContentLoaded', function () {
     loadingScreenRoot: document.querySelector('body'),
   });
 
-  new Footer(dhFooterRoot, dh);     
-  
+  new Footer(dhFooterRoot, dh);
+
   let templatePath;
   if (window.URLSearchParams) {
     let params = new URLSearchParams(location.search);
@@ -40,5 +40,4 @@ document.addEventListener('DOMContentLoaded', function () {
   initI18n((/* lang */) => {
     $(document).localize();
   });
-
 });
