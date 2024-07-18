@@ -2,7 +2,7 @@ import $ from 'jquery';
 import { DataHarmonizer, Footer, Toolbar } from '../lib';
 import menu from './templates/menu.json';
 
-import { getGettingStartedMarkup } from "../lib/toolbarGettingStarted";
+import { getGettingStartedMarkup } from '../lib/toolbarGettingStarted';
 import { initI18n } from '../lib/utils/i18n';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
