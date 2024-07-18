@@ -301,8 +301,8 @@ export class AppContext {
     // this.template = null;
     return this.setupDataHarmonizers({
       template_path,
-      locale
-    })
+      locale,
+    });
   }
 
   getTemplateName() {
@@ -458,7 +458,6 @@ export class AppContext {
     return data_harmonizers;
   }
 
-
   async initializeTemplate(template_path) {
     const [schema_name] = template_path.split('/');
     this.template = await Template.create(schema_name);
@@ -499,7 +498,6 @@ export class AppContext {
     };
 
     Object.entries(template.translations).forEach(([langcode, translation]) => {
-
       const schema_resource = consolidate(
         translation.schema.slots,
         (acc, [slot_symbol, { title }]) => ({
@@ -599,7 +597,6 @@ export class AppContext {
       const reverse_translation_map = invert(language_translation);
       i18n.addResources('default', 'reverse', reverse_translation_map);
       i18n.addResources('en', 'reverse', reverse_translation_map);
-
     });
   }
 
@@ -632,7 +629,9 @@ export class AppContext {
   }
 
   async loadExportFormats(schema) {
-    this.exportFormats = (await import(`@/web/templates/${schema}/export.js`)).default;
+    this.exportFormats = (
+      await import(`@/web/templates/${schema}/export.js`)
+    ).default;
     return this.exportFormats;
   }
 
@@ -851,7 +850,7 @@ export class AppContext {
 
                 $(document).trigger('dhCurrentChange', {
                   data: spec.name,
-                  dh: context.getCurrentDataHarmonizer()
+                  dh: context.getCurrentDataHarmonizer(),
                 });
               });
               dhTabNav.appendChild(dhTab); // Appending to the tab navigation
@@ -879,10 +878,7 @@ export class AppContext {
     return data_harmonizers; // Return the created data harmonizers if needed
   }
 
-  async setupDataHarmonizers({
-    template_path,
-    locale = null,
-  }) {
+  async setupDataHarmonizers({ template_path, locale = null }) {
     // attributes are the classes which feature 1-M relationshisps
     // to process these classes into DataHarmonizer tables, the following must be performed:
     // - Navigation: one tab per class = one data harmonizer per class
@@ -945,8 +941,11 @@ export class AppContext {
         const [_template_name, _schema_name] =
           context.appConfig.template_path.split('/');
         const _export_formats = await context.loadExportFormats(_template_name);
-        
-        const schema = locale !== null ? context.template.localized.schema : context.template.default.schema;
+
+        const schema =
+          locale !== null
+            ? context.template.localized.schema
+            : context.template.default.schema;
         const schema_tree = context.buildSchemaTree(schema);
         context.setSchemaTree(schema_tree);
         data_harmonizers = context.makeDataHarmonizersFromSchemaTree(
