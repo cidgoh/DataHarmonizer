@@ -4,6 +4,7 @@ import 'bootstrap';
 import { Footer, Toolbar } from '@/lib';
 import { initI18n } from '@/lib/utils/i18n';
 import { Template } from '@/lib/utils/templates';
+import { getGettingStartedMarkup } from '@/lib/toolbarGettingStarted';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@/web/index.css';
@@ -38,6 +39,12 @@ const main = async function () {
       // // Takes `lang` as argument (unused)
       initI18n((/* lang */) => {
         $(document).localize();
+
+        // HACK: manual content refereshes
+        // usually because the HTML is custom generated/not from a template, or has inset translation code
+        $('#getting-started-carousel-container').html(
+          getGettingStartedMarkup()
+        );
         Object.values(context.dhs).forEach((dh) => dh.render());
       });
 
