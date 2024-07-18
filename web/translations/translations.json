@@ -218,5 +218,25 @@
   "dataharmonizer-contact-blurb": {
     "en": "If you have questions about the DataHarmonizer application, or want to notify us of bugs or potential improvements, contact us by either posting an issue at https://github.com/cidgoh/DataHarmonizer/issues or emailing us at emma_griffiths@sfu.ca",
     "fr": "Si vous avez des questions sur l'application DataHarmonizer, ou si vous souhaitez nous informer de bugs ou d'améliorations potentielles, contactez-nous en publiant un problème sur https://github.com/Public-Health-Bioinformatics/DataHarmonizer/issues ou en nous envoyant un courriel à emma_griffiths@sfu.ca"
+  },
+  "help-sidebar__column": {
+    "en": "Column",
+    "fr": "Colonne"
+  },
+  "help-sidebar__description": {
+    "en": "Description",
+    "fr": "Description"
+  },
+  "help-sidebar__examples": {
+    "en": "Examples",
+    "fr": "Exemples"
+  },
+  "help-sidebar__guidance": {
+    "en": "Guidance",
+    "fr": "Conseils"
+  },
+  "help-sidebar__menus": {
+    "en": "Menus",
+    "fr": "Menus"
   }
 }
