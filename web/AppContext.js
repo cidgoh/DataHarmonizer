@@ -294,17 +294,53 @@ export class AppContext {
     this.appConfig = appConfig;
   }
 
-  async reload(template_path, locale = 'default') {
-    // this.schema_tree = {};
-    // this.dhs = {};
-    // this.current_data_harmonizer_name = null;
-    // this.template = null;
-    return this.setupDataHarmonizers({
-      template_path,
-      locale,
-    });
-  }
+  async reload(template_path, overrides = { locale: null, forcedSchema: null }) {
 
+    const currentTemplatePath = this.appConfig.template_path;
+    // const currentLocale = this.template !== null ? this.template.locale : 'default';
+  
+    const isSameTemplatePath = template_path === currentTemplatePath;
+    const isUploadedTemplate = template_path.startsWith('local');
+    const isForcedSchemaProvided = overrides.forcedSchema !== null;
+  
+
+    // Handle local template refresh case
+    if (isSameTemplatePath && isUploadedTemplate) {
+      this.appConfig = new AppConfig(template_path);
+      this.clearInterface();
+      return this.setupDataHarmonizers({
+        data_harmonizers: this.dhs,
+        template_path,
+        locale: overrides.locale,
+        forcedSchema: this.template.default.schema
+      });
+    }
+
+    // Handle forced schema case
+    if (isForcedSchemaProvided || isUploadedTemplate) {
+      this.appConfig = new AppConfig(template_path);
+      this.clearInterface();
+      return this.setupDataHarmonizers({
+        template_path,
+        locale: overrides.locale,
+        forcedSchema: overrides.forcedSchema
+      });
+    }
+
+    // Handle changes in template path or locale
+    if (!isSameTemplatePath || overrides.locale !== null) {
+      this.appConfig = new AppConfig(template_path);
+      this.clearInterface();
+      return this.setupDataHarmonizers({
+        template_path,
+        locale: overrides.locale,
+      });
+    }
+  
+    // Default case: if no significant changes detected
+    return this;
+  }
+  
   getTemplateName() {
     return this.appConfig.template_path.split('/')[1];
   }
@@ -458,9 +494,10 @@ export class AppContext {
     return data_harmonizers;
   }
 
-  async initializeTemplate(template_path) {
+  async initializeTemplate(template_path, options = {}) {
     const [schema_name] = template_path.split('/');
-    this.template = await Template.create(schema_name);
+    console.log(options)
+    this.template = await Template.create(schema_name, options);
     return this;
   }
 
@@ -483,7 +520,6 @@ export class AppContext {
 
     // Consolidate function for reducing objects
     function consolidate(iterable, reducer) {
-      console.warn(iterable, reducer);
       return Object.entries(iterable).reduce(reducer, {});
     }
 
@@ -600,34 +636,6 @@ export class AppContext {
     });
   }
 
-  getClasses() {
-    const classes = Object.entries(this.template.current.schema.classes);
-    return classes.map(([key, value]) => ({
-      [key]: value,
-    }));
-  }
-
-  getSlotGroups() {
-    const schema = this.template.current.schema;
-    const slotGroups = new Set();
-
-    if (schema.classes) {
-      for (const className in schema.classes) {
-        const classInfo = schema.classes[className];
-        if (classInfo.slot_usage) {
-          for (const slotName in classInfo.slot_usage) {
-            const slotInfo = classInfo.slot_usage[slotName];
-            if (slotInfo.slot_group) {
-              slotGroups.add(slotInfo.slot_group);
-            }
-          }
-        }
-      }
-    }
-
-    return Array.from(slotGroups);
-  }
-
   async loadExportFormats(schema) {
     this.exportFormats = (
       await import(`@/web/templates/${schema}/export.js`)
@@ -667,18 +675,41 @@ export class AppContext {
   }
 
   clearInterface() {
-    dhTabNav.innerHTML = '';
+      // Clear the dhTabNav content
+      // const dhTabNav = document.getElementById('dhTabNav');
+      // if (dhTabNav) {
+      // }
 
-    const pattern = 'data-harmonizer-grid-'; // sub elements
-    const matchingElements = document.querySelectorAll(`[id^="${pattern}"]`);
+      // Pattern to match elements with IDs starting with 'data-harmonizer-grid-'
+      // const pattern = 'data-harmonizer-grid-';
+      // const matchingElements = document.querySelectorAll(`[id^="${pattern}"]`);
 
-    // Loop through the NodeList and remove each element
-    matchingElements.forEach((element) => {
-      element.parentNode.removeChild(element);
-    });
+      // // Loop through the NodeList and remove each element
+      // matchingElements.forEach((element) => {
+      //     element.remove();
+      // });
 
-    // dhFooterRoot.innerHTML = '';
-    // dhToolbarRoot.innerHTML = '';
+      dhTabNav.innerHTML = '';
+
+      const pattern = 'data-harmonizer-grid-'; // sub elements
+      const matchingElements = document.querySelectorAll(`[id^="${pattern}"]`);
+
+      // Loop through the NodeList and remove each element
+      matchingElements.forEach((element) => {
+        element.parentNode.removeChild(element);
+        element.remove();
+      });
+
+      // Optionally clear other parts of the interface
+      // const dhFooterRoot = document.getElementById('dhFooterRoot');
+      // if (dhFooterRoot) {
+      //     dhFooterRoot.innerHTML = '';
+      // }
+
+      // const dhToolbarRoot = document.getElementById('dhToolbarRoot');
+      // if (dhToolbarRoot) {
+      //     dhToolbarRoot.innerHTML = '';
+      // }
   }
 
   /**
@@ -795,6 +826,7 @@ export class AppContext {
     schema_name,
     export_formats
   ) {
+
     function createDataHarmonizerContainer(dhId, isActive) {
       let dhSubroot = document.createElement('div');
       dhSubroot.id = dhId;
@@ -834,11 +866,10 @@ export class AppContext {
           if (obj.length > 0) {
             const [cls_key, spec] = obj;
             const dhId = `data-harmonizer-grid-${index}`;
-
+            let dhSubroot;
             if (!document.getElementById(dhId)) {
-              let dhSubroot = createDataHarmonizerContainer(dhId, index === 0);
+              dhSubroot = createDataHarmonizerContainer(dhId, index === 0);
               dhRoot.appendChild(dhSubroot); // Appending to the parent container
-
               const dhTab = createDataHarmonizerTab(
                 dhId,
                 spec.name,
@@ -855,6 +886,8 @@ export class AppContext {
               });
               dhTabNav.appendChild(dhTab); // Appending to the tab navigation
 
+              // idempotent
+              // running this over the same initialization twice is expensive but shouldn't lose state
               data_harmonizers[spec.name] = new DataHarmonizer(
                 dhSubroot,
                 context,
@@ -870,15 +903,17 @@ export class AppContext {
                 export_formats,
                 schema_name
               );
-            }
+
           }
+        }
         });
-    }
+    };
+
     delete data_harmonizers[undefined];
     return data_harmonizers; // Return the created data harmonizers if needed
   }
 
-  async setupDataHarmonizers({ template_path, locale = null }) {
+  async setupDataHarmonizers({ data_harmonizers = {}, locale = null, forcedSchema = null }) {
     // attributes are the classes which feature 1-M relationshisps
     // to process these classes into DataHarmonizer tables, the following must be performed:
     // - Navigation: one tab per class = one data harmonizer per class
@@ -929,25 +964,31 @@ export class AppContext {
     }
  
     */
-    this.appConfig = new AppConfig(template_path);
-    this.clearInterface();
+
     // this.clearContext();
-    let data_harmonizers = {};
-    return this.initializeTemplate(this.appConfig.template_path).then(
+    return this.initializeTemplate(
+        this.appConfig.template_path, { 
+        forcedSchema
+    }).then(
       async (context) => {
         if (locale !== null) {
           context.template.updateLocale(locale);
         }
         const [_template_name, _schema_name] =
           context.appConfig.template_path.split('/');
-        const _export_formats = await context.loadExportFormats(_template_name);
+        
+        // empty case will occur when template_path doesn't correspond to a built template
+        const _export_formats = !forcedSchema ? await context.loadExportFormats(_template_name) : {};
 
         const schema =
           locale !== null
             ? context.template.localized.schema
             : context.template.default.schema;
+
+
         const schema_tree = context.buildSchemaTree(schema);
         context.setSchemaTree(schema_tree);
+
         data_harmonizers = context.makeDataHarmonizersFromSchemaTree(
           this,
           schema,
@@ -955,12 +996,14 @@ export class AppContext {
           _schema_name,
           _export_formats
         );
+        
         // HACK
         context.setDataHarmonizers(data_harmonizers);
         context.attachPropagationEventHandlersToDataHarmonizers(
           data_harmonizers,
           schema_tree
         );
+
         return context;
       }
     );

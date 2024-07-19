@@ -32,7 +32,7 @@ $(dhRoot).append(`
 const main = async function () {
   const context = new AppContext();
   context
-    .reload(context.appConfig.template_path, 'en')
+    .reload(context.appConfig.template_path, { locale: 'en' })
     .then(async (context) => {
       // // internationalize
       // // TODO: connect to locale of browser!
