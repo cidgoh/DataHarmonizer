@@ -294,5 +294,13 @@
   "carousel-caption-text-13": {
     "en": "Make sure you are using the latest version of the\nDataHarmonizer (and your template). You can check your\ncurrent Data Harmonizer Template version by looking at\nthe bottom of the “Settings” menu. To update your application\nand/or template, open the “Help” menu and select “Get latest\nrelease”.\n\nIf you have questions, or require assistance,\ncontact emma_griffiths@sfu.ca.",
     "fr": "Assurez-vous d'utiliser la dernière version de\nDataHarmonizer (et de votre modèle). Vous pouvez vérifier\nvotre version actuelle du modèle Data Harmonizer en regardant\nau bas du menu « Paramètres ». Pour mettre à jour votre application\net/ou modèle, ouvrez le menu « Aide » et sélectionnez « Obtenir la\ndernière version ».\n\nSi vous avez des questions ou avez besoin d'assistance,\ncontactez emma_griffiths@sfu.ca."
+  }, 
+  "help-sidebar__title": {
+    "en": "Column Help",
+    "fr": "Informations de colonne"
+  }, 
+  "help-sidebar__placeholder": {
+    "en":"Select a cell to get help for that column.",
+    "fr":"Sélectionnez une cellule pour obtenir de l'aide pour cette colonne."
   }
 }
