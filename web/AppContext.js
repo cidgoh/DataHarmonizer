@@ -306,7 +306,6 @@ export class AppContext {
 
     // Handle local template refresh case
     if (isSameTemplatePath && isUploadedTemplate) {
-      this.appConfig = new AppConfig(template_path);
       this.clearInterface();
       return this.setupDataHarmonizers({
         data_harmonizers: this.dhs,
@@ -314,14 +313,20 @@ export class AppContext {
         locale: overrides.locale,
         forcedSchema: this.template.default.schema
       });
+    } else if (isSameTemplatePath) {
+      this.clearInterface();
+      return this.setupDataHarmonizers({
+        template_path,
+        locale: overrides.locale,
+      });
     }
 
     // Handle forced schema case
-    if (isForcedSchemaProvided || isUploadedTemplate) {
+    if (isForcedSchemaProvided) {
       this.appConfig = new AppConfig(template_path);
       this.clearInterface();
       return this.setupDataHarmonizers({
-        data_harmonizers: this.dhs,
+        data_harmonizers: {},
         template_path,
         locale: overrides.locale,
         forcedSchema: overrides.forcedSchema
@@ -333,7 +338,7 @@ export class AppContext {
       this.appConfig = new AppConfig(template_path);
       this.clearInterface();
       return this.setupDataHarmonizers({
-        data_harmonizers: this.dhs,
+        data_harmonizers: {},
         template_path,
         locale: overrides.locale,
       });
@@ -860,7 +865,7 @@ export class AppContext {
       return dhTab;
     }
 
-    let data_harmonizers = context.dhs;
+    let data_harmonizers = {};
     if (schema_tree) {
       Object.entries(schema_tree)
         .filter(([cls_key]) => cls_key !== 'Container')
@@ -991,18 +996,21 @@ export class AppContext {
         const schema_tree = context.buildSchemaTree(schema);
         context.setSchemaTree(schema_tree);
 
-        context.makeDataHarmonizersFromSchemaTree(
-          this,
-          schema,
-          schema_tree,
-          _schema_name,
-          _export_formats
-        );
+        let dhs = {
+          ...data_harmonizers,
+          ...context.makeDataHarmonizersFromSchemaTree(
+            this,
+            schema,
+            schema_tree,
+            _schema_name,
+            _export_formats
+          )
+        }      
         
         // HACK
-        context.setDataHarmonizers(data_harmonizers);
+        context.setDataHarmonizers(dhs);
         context.attachPropagationEventHandlersToDataHarmonizers(
-          data_harmonizers,
+          dhs,
           schema_tree
         );
 
