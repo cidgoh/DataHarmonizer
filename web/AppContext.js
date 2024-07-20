@@ -294,15 +294,16 @@ export class AppContext {
     this.appConfig = appConfig;
   }
 
-  async reload(template_path, overrides = { locale: null, forcedSchema: null }) {
-
+  async reload(
+    template_path,
+    overrides = { locale: null, forcedSchema: null }
+  ) {
     const currentTemplatePath = this.appConfig.template_path;
     // const currentLocale = this.template !== null ? this.template.locale : 'default';
-  
+
     const isSameTemplatePath = template_path === currentTemplatePath;
     const isUploadedTemplate = template_path.startsWith('local');
     const isForcedSchemaProvided = overrides.forcedSchema !== null;
-  
 
     // Handle local template refresh case
     if (isSameTemplatePath && isUploadedTemplate) {
@@ -311,7 +312,7 @@ export class AppContext {
         data_harmonizers: this.dhs,
         template_path,
         locale: overrides.locale,
-        forcedSchema: this.template.default.schema
+        forcedSchema: this.template.default.schema,
       });
     } else if (isSameTemplatePath) {
       this.clearInterface();
@@ -329,7 +330,7 @@ export class AppContext {
         data_harmonizers: {},
         template_path,
         locale: overrides.locale,
-        forcedSchema: overrides.forcedSchema
+        forcedSchema: overrides.forcedSchema,
       });
     }
 
@@ -343,11 +344,11 @@ export class AppContext {
         locale: overrides.locale,
       });
     }
-  
+
     // Default case: if no significant changes detected
     return this;
   }
-  
+
   getTemplateName() {
     return this.appConfig.template_path.split('/')[1];
   }
@@ -503,7 +504,6 @@ export class AppContext {
 
   async initializeTemplate(template_path, options = {}) {
     const [schema_name] = template_path.split('/');
-    console.log(options)
     this.template = await Template.create(schema_name, options);
     return this;
   }
@@ -682,41 +682,41 @@ export class AppContext {
   }
 
   clearInterface() {
-      // Clear the dhTabNav content
-      // const dhTabNav = document.getElementById('dhTabNav');
-      // if (dhTabNav) {
-      // }
+    // Clear the dhTabNav content
+    // const dhTabNav = document.getElementById('dhTabNav');
+    // if (dhTabNav) {
+    // }
 
-      // Pattern to match elements with IDs starting with 'data-harmonizer-grid-'
-      // const pattern = 'data-harmonizer-grid-';
-      // const matchingElements = document.querySelectorAll(`[id^="${pattern}"]`);
+    // Pattern to match elements with IDs starting with 'data-harmonizer-grid-'
+    // const pattern = 'data-harmonizer-grid-';
+    // const matchingElements = document.querySelectorAll(`[id^="${pattern}"]`);
 
-      // // Loop through the NodeList and remove each element
-      // matchingElements.forEach((element) => {
-      //     element.remove();
-      // });
+    // // Loop through the NodeList and remove each element
+    // matchingElements.forEach((element) => {
+    //     element.remove();
+    // });
 
-      dhTabNav.innerHTML = '';
+    dhTabNav.innerHTML = '';
 
-      const pattern = 'data-harmonizer-grid-'; // sub elements
-      const matchingElements = document.querySelectorAll(`[id^="${pattern}"]`);
+    const pattern = 'data-harmonizer-grid-'; // sub elements
+    const matchingElements = document.querySelectorAll(`[id^="${pattern}"]`);
 
-      // Loop through the NodeList and remove each element
-      matchingElements.forEach((element) => {
-        element.parentNode.removeChild(element);
-        element.remove();
-      });
+    // Loop through the NodeList and remove each element
+    matchingElements.forEach((element) => {
+      element.parentNode.removeChild(element);
+      element.remove();
+    });
 
-      // Optionally clear other parts of the interface
-      // const dhFooterRoot = document.getElementById('dhFooterRoot');
-      // if (dhFooterRoot) {
-      //     dhFooterRoot.innerHTML = '';
-      // }
+    // Optionally clear other parts of the interface
+    // const dhFooterRoot = document.getElementById('dhFooterRoot');
+    // if (dhFooterRoot) {
+    //     dhFooterRoot.innerHTML = '';
+    // }
 
-      // const dhToolbarRoot = document.getElementById('dhToolbarRoot');
-      // if (dhToolbarRoot) {
-      //     dhToolbarRoot.innerHTML = '';
-      // }
+    // const dhToolbarRoot = document.getElementById('dhToolbarRoot');
+    // if (dhToolbarRoot) {
+    //     dhToolbarRoot.innerHTML = '';
+    // }
   }
 
   /**
@@ -833,7 +833,6 @@ export class AppContext {
     schema_name,
     export_formats
   ) {
-
     function createDataHarmonizerContainer(dhId, isActive) {
       let dhSubroot = document.createElement('div');
       dhSubroot.id = dhId;
@@ -910,17 +909,20 @@ export class AppContext {
                 export_formats,
                 schema_name
               );
-
+            }
           }
-        }
         });
-    };
+    }
 
     delete data_harmonizers[undefined];
     return data_harmonizers; // Return the created data harmonizers if needed
   }
 
-  async setupDataHarmonizers({ data_harmonizers = {}, locale = null, forcedSchema = null }) {
+  async setupDataHarmonizers({
+    data_harmonizers = {},
+    locale = null,
+    forcedSchema = null,
+  }) {
     // attributes are the classes which feature 1-M relationshisps
     // to process these classes into DataHarmonizer tables, the following must be performed:
     // - Navigation: one tab per class = one data harmonizer per class
@@ -973,49 +975,44 @@ export class AppContext {
     */
 
     // this.clearContext();
-    return this.initializeTemplate(
-        this.appConfig.template_path, { 
-        forcedSchema
-    }).then(
-      async (context) => {
-        if (locale !== null) {
-          context.template.updateLocale(locale);
-        }
-        const [_template_name, _schema_name] =
-          context.appConfig.template_path.split('/');
-        
-        // empty case will occur when template_path doesn't correspond to a built template
-        const _export_formats = !forcedSchema ? await context.loadExportFormats(_template_name) : {};
-
-        const schema =
-          locale !== null
-            ? context.template.localized.schema
-            : context.template.default.schema;
-
-
-        const schema_tree = context.buildSchemaTree(schema);
-        context.setSchemaTree(schema_tree);
-
-        let dhs = {
-          ...data_harmonizers,
-          ...context.makeDataHarmonizersFromSchemaTree(
-            this,
-            schema,
-            schema_tree,
-            _schema_name,
-            _export_formats
-          )
-        }      
-        
-        // HACK
-        context.setDataHarmonizers(dhs);
-        context.attachPropagationEventHandlersToDataHarmonizers(
-          dhs,
-          schema_tree
-        );
-
-        return context;
+    return this.initializeTemplate(this.appConfig.template_path, {
+      forcedSchema,
+    }).then(async (context) => {
+      if (locale !== null) {
+        context.template.updateLocale(locale);
       }
-    );
+      const [_template_name, _schema_name] =
+        context.appConfig.template_path.split('/');
+
+      // empty case will occur when template_path doesn't correspond to a built template
+      const _export_formats = !forcedSchema
+        ? await context.loadExportFormats(_template_name)
+        : {};
+
+      const schema =
+        locale !== null
+          ? context.template.localized.schema
+          : context.template.default.schema;
+
+      const schema_tree = context.buildSchemaTree(schema);
+      context.setSchemaTree(schema_tree);
+
+      let dhs = {
+        ...data_harmonizers,
+        ...context.makeDataHarmonizersFromSchemaTree(
+          this,
+          schema,
+          schema_tree,
+          _schema_name,
+          _export_formats
+        ),
+      };
+
+      // HACK
+      context.setDataHarmonizers(dhs);
+      context.attachPropagationEventHandlersToDataHarmonizers(dhs, schema_tree);
+
+      return context;
+    });
   }
 }
