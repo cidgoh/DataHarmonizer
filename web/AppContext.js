@@ -321,6 +321,7 @@ export class AppContext {
       this.appConfig = new AppConfig(template_path);
       this.clearInterface();
       return this.setupDataHarmonizers({
+        data_harmonizers: this.dhs,
         template_path,
         locale: overrides.locale,
         forcedSchema: overrides.forcedSchema
@@ -332,6 +333,7 @@ export class AppContext {
       this.appConfig = new AppConfig(template_path);
       this.clearInterface();
       return this.setupDataHarmonizers({
+        data_harmonizers: this.dhs,
         template_path,
         locale: overrides.locale,
       });
@@ -858,7 +860,7 @@ export class AppContext {
       return dhTab;
     }
 
-    let data_harmonizers = {};
+    let data_harmonizers = context.dhs;
     if (schema_tree) {
       Object.entries(schema_tree)
         .filter(([cls_key]) => cls_key !== 'Container')
@@ -989,7 +991,7 @@ export class AppContext {
         const schema_tree = context.buildSchemaTree(schema);
         context.setSchemaTree(schema_tree);
 
-        data_harmonizers = context.makeDataHarmonizersFromSchemaTree(
+        context.makeDataHarmonizersFromSchemaTree(
           this,
           schema,
           schema_tree,
