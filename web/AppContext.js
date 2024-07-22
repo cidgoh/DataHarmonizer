@@ -893,12 +893,10 @@ export class AppContext {
                   data: spec.name,
                   dh: context.getCurrentDataHarmonizer(),
                 });
-                
               });
               dhTabNav.appendChild(dhTab); // Appending to the tab navigation
 
               // Different classes have slots allocated to them.
-              const slotsForClass = findSlotNamesForClass(schema, cls_key);
 
               // idempotent
               // running this over the same initialization twice is expensive but shouldn't lose state
