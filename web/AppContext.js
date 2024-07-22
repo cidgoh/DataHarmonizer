@@ -307,6 +307,7 @@ export class AppContext {
 
     // Handle local template refresh case
     if (isSameTemplatePath && isUploadedTemplate) {
+      console.log('Handle local template refresh case', 'isSameTemplatePath && isUploadedTemplate', template_path, this.dhs)
       this.clearInterface();
       return this.setupDataHarmonizers({
         data_harmonizers: this.dhs,
@@ -315,6 +316,7 @@ export class AppContext {
         forcedSchema: this.template.default.schema,
       });
     } else if (isSameTemplatePath) {
+      console.log('Handle local template refresh case', 'isSameTemplatePath', template_path, this.dhs)
       this.clearInterface();
       return this.setupDataHarmonizers({
         template_path,
@@ -324,6 +326,7 @@ export class AppContext {
 
     // Handle forced schema case
     if (isForcedSchemaProvided) {
+      console.log('Handle forced schema case', 'isForcedSchemaProvided')
       this.appConfig = new AppConfig(template_path);
       this.clearInterface();
       return this.setupDataHarmonizers({
@@ -336,6 +339,7 @@ export class AppContext {
 
     // Handle changes in template path or locale
     if (!isSameTemplatePath || overrides.locale !== null) {
+      console.log('Handle changes in template path or locale', '!isSameTemplatePath || overrides.locale !== null')
       this.appConfig = new AppConfig(template_path);
       this.clearInterface();
       return this.setupDataHarmonizers({
@@ -359,6 +363,7 @@ export class AppContext {
 
   setDataHarmonizers(data_harmonizers) {
     this.dhs = data_harmonizers;
+    console.log('setDataHarmonizers', data_harmonizers, this.dhs)
     // NOTE: non-deterministic, assumes that the insertion order is the right order
     this.setCurrentDataHarmonizer(Object.keys(this.dhs)[0]);
   }
@@ -882,6 +887,7 @@ export class AppContext {
                 index === 0
               );
               dhTab.addEventListener('click', () => {
+                console.log('addEventListener', context);
                 // set the current dataharmonizer tab in the context
                 context.setCurrentDataHarmonizer(spec.name);
 
@@ -889,8 +895,13 @@ export class AppContext {
                   data: spec.name,
                   dh: context.getCurrentDataHarmonizer(),
                 });
+                
               });
               dhTabNav.appendChild(dhTab); // Appending to the tab navigation
+
+              // Different classes have slots allocated to them.
+              const slotsForClass = findSlotNamesForClass(schema, cls_key);
+              console.log(slotsForClass);
 
               // idempotent
               // running this over the same initialization twice is expensive but shouldn't lose state
@@ -1007,6 +1018,8 @@ export class AppContext {
           _export_formats
         ),
       };
+
+      console.log('setupDataHarmonizers', data_harmonizers, dhs)
 
       // HACK
       context.setDataHarmonizers(dhs);
