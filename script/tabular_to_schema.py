@@ -357,7 +357,7 @@ def set_enums(enum_path, schema, locale_schemas, export_format, warnings):
 
 		enumerations = schema['enums'];
 
-		title = ''; # running title for chunks of enumeration rows
+		name = ''; # running title for chunks of enumeration rows
 		menu_path = [];
 		enum = {};
 
@@ -371,30 +371,45 @@ def set_enums(enum_path, schema, locale_schemas, export_format, warnings):
 			if row.get('title','') > '':
 
 				# Process default language title
+
 				title = row.get('title');
-				if not (title in enumerations):
+				name = row.get('name','');
+				if name == '': name = title;
+				print ("name:", name)
+
+				description = row.get('description','');
+				if not (name in enumerations):
 					enum = {
-						'name': title,
+						'name': name,
+						'title': title,
+						'description': description,
 						'permissible_values': {}
 					};
-					enumerations[title] = enum;
-					print("processing ENUMERATION:", title)
+					enumerations[name] = enum;
+					print("processing ENUMERATION:", name)
 
 					# Normally a language equivalent will be provided but if it is missing
 					# we need placeholder anyways in default language.
 					for lcode in locale_schemas.keys():
 						locale_schema = locale_schemas[lcode];
-						locale_schema['enums'][title] = {
-							'name': title, # Acts as key 
+						locale_schema['enums'][name] = {
+							'name': name, # default (usu. english) name acts as key 
 							'permissible_values': {}
 						};
 
 						# Provide translation title if available for this menu.
 						locale_title = row.get('title_' + lcode, '');
 						if locale_title > '':
-							locale_schema['enums'][title]['title'] = row.get('title_' + lcode, title);
+							locale_schema['enums'][name]['title'] = row.get('title_' + lcode, title);
 
-			if title > '':
+						# Provide translation description if available for this menu.
+						locale_description = row.get('description_' + lcode, '');
+						if locale_description > '':
+							locale_schema['enums'][name]['description'] = locale_description;
+
+
+			# If there is a title (or name) of an emum at play
+			if name and name > '':
 				# Text is label of a particular menu choice
 				# Loop scans through columns until it gets a value
 				for depth in range(1,6):
@@ -429,7 +444,7 @@ def set_enums(enum_path, schema, locale_schemas, export_format, warnings):
 								del local_choice['text']; # in language variant files this isn't needed.
 								local_choice['title'] = translation;
 
-								locale_schemas[lcode]['enums'][title]['permissible_values'][choice_value] = local_choice;
+								locale_schemas[lcode]['enums'][name]['permissible_values'][choice_value] = local_choice;
 
 						break;
 
