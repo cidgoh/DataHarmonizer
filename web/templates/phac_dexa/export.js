@@ -117,7 +117,7 @@ export default {
       // Copy headers to 1st row of new export table
       const outputMatrix = [[...ExportHeaders.keys()]];
 
-      let normalize = self.initLookup();
+      let normalize = self.initLookup(self);
 
       const inputMatrix = dh.getTrimmedData(dh.hot);
       for (const inputRow of inputMatrix) {
@@ -345,7 +345,7 @@ export default {
      *
      * @return {Object} term normalize lookup table.
      */
-    initLookup: function () {
+    initLookup: function (self) {
       let normalize = {};
       for (const line of self.LOOKUP.split('\n')) {
         let [ontology_id, parent, label, normalization] = line
