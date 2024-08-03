@@ -176,6 +176,8 @@ def set_classes(schema_slot_path, schema, locale_schemas, export_format, warning
 		firstrow = True;
 		schema_class_names = None;
 
+		slot_groups = {};
+
 		for row in reader: # Reader strips off first row of headers.
 
 			# Cleanup of cell contents.
@@ -223,6 +225,16 @@ def set_classes(schema_slot_path, schema, locale_schemas, export_format, warning
 					slot_name = row.get('name',False) or row.get('title','[UNNAMED!!!]');
 					slot_title =							row.get('title','');
 					slot_group =							row.get('slot_group','');
+
+					# Upcoming implementation: slot groups have slot definitions
+					# which can hold locale specific labels.
+					# if not slot_group in slot_groups:
+					# 	slot_groups[slot_group] = {
+					# 	'name': slot_group,
+					# 	'title': slot_group,
+					# 	'is_grouping_slot': True
+					#   }
+
 					slot_description =				row.get('description','');
 					slot_comments =						row.get('comments','');
 					slot_examples = 					row.get('examples','');
@@ -338,6 +350,9 @@ def set_classes(schema_slot_path, schema, locale_schemas, export_format, warning
 
 							locale_schema['slots'][slot_name] = variant_slot; # combine into set_examples?
 							
+		#for slot_group in slot_groups:
+		#	schema['slots'][slot_group] = slot_groups[slot_group]
+
 		if len(schema['slots']) == 0:
 			warnings.append("WARNING: there are no slots in this schema!");
 
