@@ -8,7 +8,7 @@ import { getGettingStartedMarkup } from '@/lib/toolbarGettingStarted';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@/web/index.css';
-import { AppContext } from './AppContext';
+import { AppContext } from '@/lib/AppContext';
 
 // TODO eliminate need to export
 export const dhRoot = document.querySelector('#data-harmonizer-grid');
@@ -28,7 +28,7 @@ $(dhRoot).append(`
     </div>
 `);
 
-// Make the top function asynchronous to allow for a data-loading/IO step
+// Make the top function asynchronous to allow for a data-loading/IO step 
 const main = async function () {
   const context = new AppContext();
   context
@@ -48,7 +48,7 @@ const main = async function () {
         Object.values(context.dhs).forEach((dh) => dh.render());
       });
 
-      // // TODO: data harmonizers require initialization code inside of the toolbar to fully render? wut
+      console.log('index: ', context);
       new Toolbar(dhToolbarRoot, context, {
         templatePath: context.appConfig.template_path, // TODO: a default should be loaded before Toolbar is constructed! then take out all loading in "toolbar" to an outside context
         releasesURL:
