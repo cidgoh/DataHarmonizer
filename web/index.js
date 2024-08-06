@@ -28,7 +28,7 @@ $(dhRoot).append(`
     </div>
 `);
 
-// Make the top function asynchronous to allow for a data-loading/IO step 
+// Make the top function asynchronous to allow for a data-loading/IO step
 const main = async function () {
   const context = new AppContext();
   context
