@@ -239,6 +239,10 @@
     "en": "Menus",
     "fr": "Menus"
   },
+  "reference_guide_title": {
+    "en": "Reference Guide for",
+    "fr": "Guide de référence pour"
+  },
   "carousel-caption-text-0": {
     "en": "The DataHarmonizer contextual data collection template\nand validator application enables users to enter data as\nin an excel spreadsheet - type and pick values from\ndropdowns, copy/paste, add rows, etc. You can edit the cells\nmanually, or upload .xlsx, .xls, .tsv, .csv and .json\nfiles via **File** > **Open**.",
     "fr": "Le modèle de collecte de données contextuelles et l'application de validation DataHarmonizer permettent aux utilisateurs d'entrer des données comme dans une feuille de calcul Excel - taper et choisir des valeurs dans des menus déroulants, copier/coller, ajouter des lignes, etc. Vous pouvez éditer les cellules manuellement, ou télécharger des fichiers .xlsx, .xls, .tsv, .csv et .json via **Fichier** > **Ouvrir**."
