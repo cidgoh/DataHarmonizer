@@ -1,0 +1,41 @@
+id: https://example.com/DH_LinkML
+name: DH_LinkML
+description: "The DataHarmonizer template for editing a schema."
+version: 1.0.0
+in_language: 
+- 'en'
+imports:
+- 'linkml:types'
+prefixes:
+  linkml: 'https://w3id.org/linkml/'
+  ONTOLOGY1: 'http://purl.obolibrary.org/obo/ONTOLOGY1_'
+classes:
+  'Schema':
+    name: 'Schema'
+    description: The top-level description of a LinkML schema.  A schema contains classes for describing one or more DataHarmonizer templates, fields/columns, and picklists (which are themselves LinkML classes, slots, and enumerations)
+    see_also: templates/schema_editor/SOP.pdf
+  'Classes':
+    name: 'Classes'
+    description: One or more classes contained in this schema.  Each class can be displayed in DataHarmonizer in a spreadsheet tab.  A class may be a top-level DataHarmonizer "template", or it may be a subordinate 1-many class linked to a parent class by a primary key field.  
+  'Slots':
+    name: 'Slots'
+    description: One or more slots contained in this schema. A slot can be used in one or more classes (templates).  A slot defines a visible column in a template, and can be a basic number, date, string, picklist (categorical or ordinal), or other single-field datatype.
+slots: {}
+enums: {}
+types:
+  WhitespaceMinimizedString:
+    name: 'WhitespaceMinimizedString'
+    typeof: string
+    description: 'A string that has all whitespace trimmed off of beginning and end, and all internal whitespace segments reduced to single spaces. Whitespace includes #x9 (tab), #xA (linefeed), and #xD (carriage return).'
+    base: str
+    uri: xsd:token
+  Provenance:
+    name: 'Provenance'
+    typeof: string
+    description: 'A field containing a DataHarmonizer versioning marker. It is issued by DataHarmonizer when validation is applied to a given row of data.'
+    base: str
+    uri: xsd:token
+settings:
+  Title_Case: "(((?<=\\b)[^a-z\\W]\\w*?|[\\W])+)"
+  UPPER_CASE: "[A-Z\\W\\d_]*"
+  lower_case: "[a-z\\W\\d_]*"
