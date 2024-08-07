@@ -10,16 +10,59 @@ prefixes:
   linkml: 'https://w3id.org/linkml/'
   ONTOLOGY1: 'http://purl.obolibrary.org/obo/ONTOLOGY1_'
 classes:
-  'Schema':
-    name: 'Schema'
+  dh_interface:
+    name: dh_interface
+    description: A DataHarmonizer interface
+    from_schema: https://example.com/GRDI
+  Schema:
+    name: Schema
     description: The top-level description of a LinkML schema.  A schema contains classes for describing one or more DataHarmonizer templates, fields/columns, and picklists (which are themselves LinkML classes, slots, and enumerations)
     see_also: templates/schema_editor/SOP.pdf
-  'Classes':
-    name: 'Classes'
-    description: One or more classes contained in this schema.  Each class can be displayed in DataHarmonizer in a spreadsheet tab.  A class may be a top-level DataHarmonizer "template", or it may be a subordinate 1-many class linked to a parent class by a primary key field.  
-  'Slots':
-    name: 'Slots'
-    description: One or more slots contained in this schema. A slot can be used in one or more classes (templates).  A slot defines a visible column in a template, and can be a basic number, date, string, picklist (categorical or ordinal), or other single-field datatype.
+    is_a: dh_interface
+  Class:
+    name: Class
+    description: One or more classes contained in given schema.  Each class can be displayed in DataHarmonizer in a spreadsheet tab.  A class may be a top-level DataHarmonizer "template", or it may be a subordinate 1-many class linked to a parent class by a primary key field.  
+  Slot:
+    name: Slot
+    description: One or more slots contained in given schema. A slot can be used in one or more classes (templates).  A slot defines a visible column in a template, and can be a basic number, date, string, picklist (categorical or ordinal), or other single-field datatype.
+  SlotUsage:
+    name: SlotUsage
+    description: A table linking slots to classes they appear in, as well as attributes which override the generic slot inheritance.
+  Enum:
+    name: Enum
+    description: One or more enumerations in given schema.  An enumeration can be used in the "range" or "any of" attribute of a slot.  Each enumeration has a flat list or hierarchy of permitted values.
+  Prefix:
+    name: Prefix
+    description: A prefix used in the URIs mentioned in this schema.
+
+  Container:
+      tree_root: true
+      attributes:
+        Schemas:
+          range: Schema
+          multivalued: true
+          inlined_as_list: true
+        Classes:
+          range: Class
+          multivalued: true
+          inlined_as_list: true
+        Slots:
+          range: Slot
+          multivalued: true
+          inlined_as_list: true
+        SlotUsage:
+          range: 
+          multivalued: true
+          inlined_as_list: true
+        Enums:
+          range: Enum
+          multivalued: true
+          inlined_as_list: true
+        Prefixes:
+          range: Prefix
+          multivalued: true
+          inlined_as_list: true
+
 slots: {}
 enums: {}
 types:
