@@ -5454,8 +5454,8 @@
     }
   },
   "slots": {
-    "specimen collector sample ID": {
-      "name": "specimen collector sample ID",
+    "specimen_collector_sample_id": {
+      "name": "specimen_collector_sample_id",
       "description": "The user-defined name for the sample.",
       "title": "specimen collector sample ID",
       "comments": [
@@ -5479,8 +5479,8 @@
       "range": "WhitespaceMinimizedString",
       "required": true
     },
-    "third party lab service provider name": {
-      "name": "third party lab service provider name",
+    "third_party_lab_service_provider_name": {
+      "name": "third_party_lab_service_provider_name",
       "description": "The name of the third party company or laboratory that provided services.",
       "title": "third party lab service provider name",
       "comments": [
@@ -5498,8 +5498,8 @@
       "slot_uri": "GENEPIO:0001202",
       "range": "WhitespaceMinimizedString"
     },
-    "third party lab sample ID": {
-      "name": "third party lab sample ID",
+    "third_party_lab_sample_id": {
+      "name": "third_party_lab_sample_id",
       "description": "The identifier assigned to a sample by a third party service provider.",
       "title": "third party lab sample ID",
       "comments": [
@@ -5517,8 +5517,8 @@
       "slot_uri": "GENEPIO:0001149",
       "range": "WhitespaceMinimizedString"
     },
-    "case ID": {
-      "name": "case ID",
+    "case_id": {
+      "name": "case_id",
       "description": "The identifier used to specify an epidemiologically detected case of disease.",
       "title": "case ID",
       "comments": [
@@ -5537,8 +5537,8 @@
       "range": "WhitespaceMinimizedString",
       "recommended": true
     },
-    "Related specimen primary ID": {
-      "name": "Related specimen primary ID",
+    "related_specimen_primary_id": {
+      "name": "related_specimen_primary_id",
       "description": "The primary ID of a related specimen previously submitted to the repository.",
       "title": "Related specimen primary ID",
       "comments": [
@@ -5561,12 +5561,12 @@
           "range": "WhitespaceMinimizedString"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "IRIDA sample name": {
-      "name": "IRIDA sample name",
+    "irida_sample_name": {
+      "name": "irida_sample_name",
       "description": "The identifier assigned to a sequenced isolate in IRIDA.",
       "title": "IRIDA sample name",
       "comments": [
@@ -5584,8 +5584,8 @@
       "slot_uri": "GENEPIO:0001131",
       "range": "WhitespaceMinimizedString"
     },
-    "umbrella bioproject accession": {
-      "name": "umbrella bioproject accession",
+    "umbrella_bioproject_accession": {
+      "name": "umbrella_bioproject_accession",
       "description": "The INSDC accession number assigned to the umbrella BioProject for the Canadian SARS-CoV-2 sequencing effort.",
       "title": "umbrella bioproject accession",
       "comments": [
@@ -5601,15 +5601,15 @@
         "NML_LIMS:umbrella%20bioproject%20accession"
       ],
       "slot_uri": "GENEPIO:0001133",
-      "range": "umbrella bioproject accession menu",
+      "range": "UmbrellaBioprojectAccessionMenu",
       "structured_pattern": {
         "syntax": "{UPPER_CASE}",
         "interpolated": true,
         "partial_match": false
       }
     },
-    "bioproject accession": {
-      "name": "bioproject accession",
+    "bioproject_accession": {
+      "name": "bioproject_accession",
       "description": "The INSDC accession number of the BioProject(s) to which the BioSample belongs.",
       "title": "bioproject accession",
       "comments": [
@@ -5634,8 +5634,8 @@
         "partial_match": false
       }
     },
-    "biosample accession": {
-      "name": "biosample accession",
+    "biosample_accession": {
+      "name": "biosample_accession",
       "description": "The identifier assigned to a BioSample in INSDC archives.",
       "title": "biosample accession",
       "comments": [
@@ -5659,8 +5659,8 @@
         "partial_match": false
       }
     },
-    "SRA accession": {
-      "name": "SRA accession",
+    "sra_accession": {
+      "name": "sra_accession",
       "description": "The Sequence Read Archive (SRA) identifier linking raw read data, methodological metadata and quality control metrics submitted to the INSDC.",
       "title": "SRA accession",
       "comments": [
@@ -5684,8 +5684,8 @@
         "partial_match": false
       }
     },
-    "GenBank accession": {
-      "name": "GenBank accession",
+    "genbank_accession": {
+      "name": "genbank_accession",
       "description": "The GenBank identifier assigned to the sequence in the INSDC archives.",
       "title": "GenBank accession",
       "comments": [
@@ -5709,8 +5709,8 @@
         "partial_match": false
       }
     },
-    "GISAID accession": {
-      "name": "GISAID accession",
+    "gisaid_accession": {
+      "name": "gisaid_accession",
       "description": "The GISAID accession number assigned to the sequence.",
       "title": "GISAID accession",
       "comments": [
@@ -5736,8 +5736,8 @@
         "partial_match": false
       }
     },
-    "sample collected by": {
-      "name": "sample collected by",
+    "sample_collected_by": {
+      "name": "sample_collected_by",
       "description": "The name of the agency that collected the original sample.",
       "title": "sample collected by",
       "comments": [
@@ -5760,15 +5760,15 @@
       "required": true,
       "any_of": [
         {
-          "range": "sample collected by menu"
+          "range": "SampleCollectedByMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "sample collector contact email": {
-      "name": "sample collector contact email",
+    "sample_collector_contact_email": {
+      "name": "sample_collector_contact_email",
       "description": "The email address of the contact responsible for follow-up regarding the sample.",
       "title": "sample collector contact email",
       "comments": [
@@ -5787,8 +5787,8 @@
       "range": "WhitespaceMinimizedString",
       "pattern": "^\\S+@\\S+\\.\\S+$"
     },
-    "sample collector contact address": {
-      "name": "sample collector contact address",
+    "sample_collector_contact_address": {
+      "name": "sample_collector_contact_address",
       "description": "The mailing address of the agency submitting the sample.",
       "title": "sample collector contact address",
       "comments": [
@@ -5807,8 +5807,8 @@
       "slot_uri": "GENEPIO:0001158",
       "range": "WhitespaceMinimizedString"
     },
-    "sequence submitted by": {
-      "name": "sequence submitted by",
+    "sequence_submitted_by": {
+      "name": "sequence_submitted_by",
       "description": "The name of the agency that generated the sequence.",
       "title": "sequence submitted by",
       "comments": [
@@ -5831,15 +5831,15 @@
       "required": true,
       "any_of": [
         {
-          "range": "sequence submitted by menu"
+          "range": "SequenceSubmittedByMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "sequence submitter contact email": {
-      "name": "sequence submitter contact email",
+    "sequence_submitter_contact_email": {
+      "name": "sequence_submitter_contact_email",
       "description": "The email address of the contact responsible for follow-up regarding the sequence.",
       "title": "sequence submitter contact email",
       "comments": [
@@ -5857,8 +5857,8 @@
       "slot_uri": "GENEPIO:0001165",
       "range": "WhitespaceMinimizedString"
     },
-    "sequence submitter contact address": {
-      "name": "sequence submitter contact address",
+    "sequence_submitter_contact_address": {
+      "name": "sequence_submitter_contact_address",
       "description": "The mailing address of the agency submitting the sequence.",
       "title": "sequence submitter contact address",
       "comments": [
@@ -5877,8 +5877,8 @@
       "slot_uri": "GENEPIO:0001167",
       "range": "WhitespaceMinimizedString"
     },
-    "sample collection date": {
-      "name": "sample collection date",
+    "sample_collection_date": {
+      "name": "sample_collection_date",
       "description": "The date on which the sample was collected.",
       "title": "sample collection date",
       "todos": [
@@ -5908,12 +5908,12 @@
           "range": "date"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "sample collection date precision": {
-      "name": "sample collection date precision",
+    "sample_collection_date_precision": {
+      "name": "sample_collection_date_precision",
       "description": "The precision to which the \"sample collection date\" was provided.",
       "title": "sample collection date precision",
       "comments": [
@@ -5933,15 +5933,15 @@
       "required": true,
       "any_of": [
         {
-          "range": "sample collection date precision menu"
+          "range": "SampleCollectionDatePrecisionMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "sample received date": {
-      "name": "sample received date",
+    "sample_received_date": {
+      "name": "sample_received_date",
       "description": "The date on which the sample was received.",
       "title": "sample received date",
       "comments": [
@@ -5962,12 +5962,12 @@
           "range": "date"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "geo_loc_name (country)": {
-      "name": "geo_loc_name (country)",
+    "geo_loc_name_country": {
+      "name": "geo_loc_name_country",
       "description": "The country where the sample was collected.",
       "title": "geo_loc_name (country)",
       "comments": [
@@ -5990,15 +5990,15 @@
       "required": true,
       "any_of": [
         {
-          "range": "geo_loc_name (country) menu"
+          "range": "GeoLocNameCountryMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "geo_loc_name (state/province/territory)": {
-      "name": "geo_loc_name (state/province/territory)",
+    "geo_loc_name_state_province_territory": {
+      "name": "geo_loc_name_state_province_territory",
       "description": "The province/territory where the sample was collected.",
       "title": "geo_loc_name (state/province/territory)",
       "comments": [
@@ -6020,15 +6020,15 @@
       "required": true,
       "any_of": [
         {
-          "range": "geo_loc_name (state/province/territory) menu"
+          "range": "GeoLocNameStateProvinceTerritoryMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "geo_loc_name (city)": {
-      "name": "geo_loc_name (city)",
+    "geo_loc_name_city": {
+      "name": "geo_loc_name_city",
       "description": "The city where the sample was collected.",
       "title": "geo_loc_name (city)",
       "comments": [
@@ -6070,10 +6070,10 @@
       "required": true,
       "any_of": [
         {
-          "range": "organism menu"
+          "range": "OrganismMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
@@ -6106,12 +6106,12 @@
           "range": "WhitespaceMinimizedString"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "purpose of sampling": {
-      "name": "purpose of sampling",
+    "purpose_of_sampling": {
+      "name": "purpose_of_sampling",
       "description": "The reason that the sample was collected.",
       "title": "purpose of sampling",
       "comments": [
@@ -6133,15 +6133,15 @@
       "required": true,
       "any_of": [
         {
-          "range": "purpose of sampling menu"
+          "range": "PurposeOfSamplingMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "purpose of sampling details": {
-      "name": "purpose of sampling details",
+    "purpose_of_sampling_details": {
+      "name": "purpose_of_sampling_details",
       "description": "The description of why the sample was collected, providing specific details.",
       "title": "purpose of sampling details",
       "comments": [
@@ -6166,12 +6166,12 @@
           "range": "WhitespaceMinimizedString"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "NML submitted specimen type": {
-      "name": "NML submitted specimen type",
+    "nml_submitted_specimen_type": {
+      "name": "nml_submitted_specimen_type",
       "description": "The type of specimen submitted to the National Microbiology Laboratory (NML) for testing.",
       "title": "NML submitted specimen type",
       "comments": [
@@ -6188,11 +6188,11 @@
         "NML_LIMS:PH_SPECIMEN_TYPE"
       ],
       "slot_uri": "GENEPIO:0001204",
-      "range": "NML submitted specimen type menu",
+      "range": "NmlSubmittedSpecimenTypeMenu",
       "required": true
     },
-    "Related specimen relationship type": {
-      "name": "Related specimen relationship type",
+    "related_specimen_relationship_type": {
+      "name": "related_specimen_relationship_type",
       "description": "The relationship of the current specimen to the specimen/sample previously submitted to the repository.",
       "title": "Related specimen relationship type",
       "comments": [
@@ -6210,10 +6210,10 @@
         "NML_LIMS:PH_RELATED_RELATIONSHIP_TYPE"
       ],
       "slot_uri": "GENEPIO:0001209",
-      "range": "Related specimen relationship type menu"
+      "range": "RelatedSpecimenRelationshipTypeMenu"
     },
-    "anatomical material": {
-      "name": "anatomical material",
+    "anatomical_material": {
+      "name": "anatomical_material",
       "description": "A substance obtained from an anatomical part of an organism e.g. tissue, blood.",
       "title": "anatomical material",
       "comments": [
@@ -6238,15 +6238,15 @@
       "required": true,
       "any_of": [
         {
-          "range": "anatomical material menu"
+          "range": "AnatomicalMaterialMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "anatomical part": {
-      "name": "anatomical part",
+    "anatomical_part": {
+      "name": "anatomical_part",
       "description": "An anatomical part of an organism e.g. oropharynx.",
       "title": "anatomical part",
       "comments": [
@@ -6271,15 +6271,15 @@
       "required": true,
       "any_of": [
         {
-          "range": "anatomical part menu"
+          "range": "AnatomicalPartMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "body product": {
-      "name": "body product",
+    "body_product": {
+      "name": "body_product",
       "description": "A substance excreted/secreted from an organism e.g. feces, urine, sweat.",
       "title": "body product",
       "comments": [
@@ -6304,15 +6304,15 @@
       "required": true,
       "any_of": [
         {
-          "range": "body product menu"
+          "range": "BodyProductMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "environmental material": {
-      "name": "environmental material",
+    "environmental_material": {
+      "name": "environmental_material",
       "description": "A substance obtained from the natural or man-made environment e.g. soil, water, sewage.",
       "title": "environmental material",
       "comments": [
@@ -6337,15 +6337,15 @@
       "required": true,
       "any_of": [
         {
-          "range": "environmental material menu"
+          "range": "EnvironmentalMaterialMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "environmental site": {
-      "name": "environmental site",
+    "environmental_site": {
+      "name": "environmental_site",
       "description": "An environmental location may describe a site in the natural or built environment e.g. contact surface, metal can, hospital, wet market, bat cave.",
       "title": "environmental site",
       "comments": [
@@ -6370,15 +6370,15 @@
       "required": true,
       "any_of": [
         {
-          "range": "environmental site menu"
+          "range": "EnvironmentalSiteMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "collection device": {
-      "name": "collection device",
+    "collection_device": {
+      "name": "collection_device",
       "description": "The instrument or container used to collect the sample e.g. swab.",
       "title": "collection device",
       "comments": [
@@ -6403,15 +6403,15 @@
       "required": true,
       "any_of": [
         {
-          "range": "collection device menu"
+          "range": "CollectionDeviceMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "collection method": {
-      "name": "collection method",
+    "collection_method": {
+      "name": "collection_method",
       "description": "The process used to collect the sample e.g. phlebotamy, necropsy.",
       "title": "collection method",
       "comments": [
@@ -6436,15 +6436,15 @@
       "required": true,
       "any_of": [
         {
-          "range": "collection method menu"
+          "range": "CollectionMethodMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "collection protocol": {
-      "name": "collection protocol",
+    "collection_protocol": {
+      "name": "collection_protocol",
       "description": "The name and version of a particular protocol used for sampling.",
       "title": "collection protocol",
       "comments": [
@@ -6462,8 +6462,8 @@
       "slot_uri": "GENEPIO:0001243",
       "range": "WhitespaceMinimizedString"
     },
-    "specimen processing": {
-      "name": "specimen processing",
+    "specimen_processing": {
+      "name": "specimen_processing",
       "description": "Any processing applied to the sample during or after receiving the sample.",
       "title": "specimen processing",
       "comments": [
@@ -6484,15 +6484,15 @@
       "recommended": true,
       "any_of": [
         {
-          "range": "specimen processing menu"
+          "range": "SpecimenProcessingMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "specimen processing details": {
-      "name": "specimen processing details",
+    "specimen_processing_details": {
+      "name": "specimen_processing_details",
       "description": "Detailed information regarding the processing applied to a sample during or after receiving the sample.",
       "title": "specimen processing details",
       "comments": [
@@ -6507,8 +6507,8 @@
       "slot_uri": "GENEPIO:0100311",
       "range": "WhitespaceMinimizedString"
     },
-    "lab host": {
-      "name": "lab host",
+    "lab_host": {
+      "name": "lab_host",
       "description": "Name and description of the laboratory host used to propagate the source organism or material from which the sample was obtained.",
       "title": "lab host",
       "comments": [
@@ -6529,15 +6529,15 @@
       "recommended": true,
       "any_of": [
         {
-          "range": "lab host menu"
+          "range": "LabHostMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "passage number": {
-      "name": "passage number",
+    "passage_number": {
+      "name": "passage_number",
       "description": "Number of passages.",
       "title": "passage number",
       "comments": [
@@ -6556,18 +6556,18 @@
       ],
       "slot_uri": "GENEPIO:0001261",
       "recommended": true,
-      "minimum_value": "0",
+      "minimum_value": 0,
       "any_of": [
         {
           "range": "integer"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "passage method": {
-      "name": "passage method",
+    "passage_method": {
+      "name": "passage_method",
       "description": "Description of how organism was passaged.",
       "title": "passage method",
       "comments": [
@@ -6591,12 +6591,12 @@
           "range": "WhitespaceMinimizedString"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "biomaterial extracted": {
-      "name": "biomaterial extracted",
+    "biomaterial_extracted": {
+      "name": "biomaterial_extracted",
       "description": "The biomaterial extracted from samples for the purpose of sequencing.",
       "title": "biomaterial extracted",
       "comments": [
@@ -6614,15 +6614,15 @@
       "slot_uri": "GENEPIO:0001266",
       "any_of": [
         {
-          "range": "biomaterial extracted menu"
+          "range": "BiomaterialExtractedMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "host (common name)": {
-      "name": "host (common name)",
+    "host_common_name": {
+      "name": "host_common_name",
       "description": "The commonly used name of the host.",
       "title": "host (common name)",
       "comments": [
@@ -6641,15 +6641,15 @@
       "slot_uri": "GENEPIO:0001386",
       "any_of": [
         {
-          "range": "host (common name) menu"
+          "range": "HostCommonNameMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "host (scientific name)": {
-      "name": "host (scientific name)",
+    "host_scientific_name": {
+      "name": "host_scientific_name",
       "description": "The taxonomic, or scientific name of the host.",
       "title": "host (scientific name)",
       "comments": [
@@ -6671,15 +6671,15 @@
       "required": true,
       "any_of": [
         {
-          "range": "host (scientific name) menu"
+          "range": "HostScientificNameMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "host health state": {
-      "name": "host health state",
+    "host_health_state": {
+      "name": "host_health_state",
       "description": "Health status of the host at the time of sample collection.",
       "title": "host health state",
       "comments": [
@@ -6700,15 +6700,15 @@
       "slot_uri": "GENEPIO:0001388",
       "any_of": [
         {
-          "range": "host health state menu"
+          "range": "HostHealthStateMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "host health status details": {
-      "name": "host health status details",
+    "host_health_status_details": {
+      "name": "host_health_status_details",
       "description": "Further details pertaining to the health or disease status of the host at time of collection.",
       "title": "host health status details",
       "comments": [
@@ -6727,15 +6727,15 @@
       "slot_uri": "GENEPIO:0001389",
       "any_of": [
         {
-          "range": "host health status details menu"
+          "range": "HostHealthStatusDetailsMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "host health outcome": {
-      "name": "host health outcome",
+    "host_health_outcome": {
+      "name": "host_health_outcome",
       "description": "Disease outcome in the host.",
       "title": "host health outcome",
       "comments": [
@@ -6754,15 +6754,15 @@
       "slot_uri": "GENEPIO:0001390",
       "any_of": [
         {
-          "range": "host health outcome menu"
+          "range": "HostHealthOutcomeMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "host disease": {
-      "name": "host disease",
+    "host_disease": {
+      "name": "host_disease",
       "description": "The name of the disease experienced by the host.",
       "title": "host disease",
       "comments": [
@@ -6784,15 +6784,15 @@
       "required": true,
       "any_of": [
         {
-          "range": "host disease menu"
+          "range": "HostDiseaseMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "host age": {
-      "name": "host age",
+    "host_age": {
+      "name": "host_age",
       "description": "Age of host at the time of sampling.",
       "title": "host age",
       "comments": [
@@ -6813,19 +6813,19 @@
       ],
       "slot_uri": "GENEPIO:0001392",
       "required": true,
-      "minimum_value": "0",
-      "maximum_value": "130",
+      "minimum_value": 0,
+      "maximum_value": 130,
       "any_of": [
         {
           "range": "decimal"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "host age unit": {
-      "name": "host age unit",
+    "host_age_unit": {
+      "name": "host_age_unit",
       "description": "The unit used to measure the host age, in either months or years.",
       "title": "host age unit",
       "comments": [
@@ -6846,15 +6846,15 @@
       "required": true,
       "any_of": [
         {
-          "range": "host age unit menu"
+          "range": "HostAgeUnitMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "host age bin": {
-      "name": "host age bin",
+    "host_age_bin": {
+      "name": "host_age_bin",
       "description": "Age of host at the time of sampling, expressed as an age group.",
       "title": "host age bin",
       "comments": [
@@ -6875,15 +6875,15 @@
       "required": true,
       "any_of": [
         {
-          "range": "host age bin menu"
+          "range": "HostAgeBinMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "host gender": {
-      "name": "host gender",
+    "host_gender": {
+      "name": "host_gender",
       "description": "The gender of the host at the time of sample collection.",
       "title": "host gender",
       "comments": [
@@ -6911,15 +6911,15 @@
       },
       "any_of": [
         {
-          "range": "host gender menu"
+          "range": "HostGenderMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "host residence geo_loc name (country)": {
-      "name": "host residence geo_loc name (country)",
+    "host_residence_geo_loc_name_country": {
+      "name": "host_residence_geo_loc_name_country",
       "description": "The country of residence of the host.",
       "title": "host residence geo_loc name (country)",
       "comments": [
@@ -6937,15 +6937,15 @@
       "slot_uri": "GENEPIO:0001396",
       "any_of": [
         {
-          "range": "geo_loc_name (country) menu"
+          "range": "GeoLocNameCountryMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "host residence geo_loc name (state/province/territory)": {
-      "name": "host residence geo_loc name (state/province/territory)",
+    "host_residence_geo_loc_name_state_province_territory": {
+      "name": "host_residence_geo_loc_name_state_province_territory",
       "description": "The state/province/territory of residence of the host.",
       "title": "host residence geo_loc name (state/province/territory)",
       "comments": [
@@ -6963,15 +6963,15 @@
       "slot_uri": "GENEPIO:0001397",
       "any_of": [
         {
-          "range": "geo_loc_name (state/province/territory) menu"
+          "range": "GeoLocNameStateProvinceTerritoryMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "host subject ID": {
-      "name": "host subject ID",
+    "host_subject_id": {
+      "name": "host_subject_id",
       "description": "A unique identifier by which each host can be referred to e.g. #131",
       "title": "host subject ID",
       "comments": [
@@ -6990,8 +6990,8 @@
       "slot_uri": "GENEPIO:0001398",
       "range": "WhitespaceMinimizedString"
     },
-    "symptom onset date": {
-      "name": "symptom onset date",
+    "symptom_onset_date": {
+      "name": "symptom_onset_date",
       "description": "The date on which the symptoms began or were first noted.",
       "title": "symptom onset date",
       "comments": [
@@ -7013,12 +7013,12 @@
           "range": "date"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "signs and symptoms": {
-      "name": "signs and symptoms",
+    "signs_and_symptoms": {
+      "name": "signs_and_symptoms",
       "description": "A perceived change in function or sensation, (loss, disturbance or appearance) indicative of a disease, reported by a patient or clinician.",
       "title": "signs and symptoms",
       "comments": [
@@ -7044,15 +7044,15 @@
       "multivalued": true,
       "any_of": [
         {
-          "range": "signs and symptoms menu"
+          "range": "SignsAndSymptomsMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "pre-existing conditions and risk factors": {
-      "name": "pre-existing conditions and risk factors",
+    "preexisting_conditions_and_risk_factors": {
+      "name": "preexisting_conditions_and_risk_factors",
       "description": "Patient pre-existing conditions and risk factors. <li>Pre-existing condition: A medical condition that existed prior to the current infection. <li>Risk Factor: A variable associated with an increased risk of disease or infection.",
       "title": "pre-existing conditions and risk factors",
       "comments": [
@@ -7077,10 +7077,10 @@
       "multivalued": true,
       "any_of": [
         {
-          "range": "pre-existing conditions and risk factors menu"
+          "range": "PreExistingConditionsAndRiskFactorsMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
@@ -7110,15 +7110,15 @@
       "multivalued": true,
       "any_of": [
         {
-          "range": "complications menu"
+          "range": "ComplicationsMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "host vaccination status": {
-      "name": "host vaccination status",
+    "host_vaccination_status": {
+      "name": "host_vaccination_status",
       "description": "The vaccination status of the host (fully vaccinated, partially vaccinated, or not vaccinated).",
       "title": "host vaccination status",
       "comments": [
@@ -7139,12 +7139,12 @@
           "range": "host vaccination status menu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "number of vaccine doses received": {
-      "name": "number of vaccine doses received",
+    "number_of_vaccine_doses_received": {
+      "name": "number_of_vaccine_doses_received",
       "description": "The number of doses of the vaccine recived by the host.",
       "title": "number of vaccine doses received",
       "comments": [
@@ -7159,8 +7159,8 @@
       "slot_uri": "GENEPIO:0001406",
       "range": "integer"
     },
-    "vaccination dose 1 vaccine name": {
-      "name": "vaccination dose 1 vaccine name",
+    "vaccination_dose_1_vaccine_name": {
+      "name": "vaccination_dose_1_vaccine_name",
       "description": "The name of the vaccine administered as the first dose of a vaccine regimen.",
       "title": "vaccination dose 1 vaccine name",
       "comments": [
@@ -7178,15 +7178,15 @@
       "slot_uri": "GENEPIO:0100313",
       "any_of": [
         {
-          "range": "vaccine name menu"
+          "range": "VaccineNameMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "vaccination dose 1 vaccination date": {
-      "name": "vaccination dose 1 vaccination date",
+    "vaccination_dose_1_vaccination_date": {
+      "name": "vaccination_dose_1_vaccination_date",
       "description": "The date the first dose of a vaccine was administered.",
       "title": "vaccination dose 1 vaccination date",
       "comments": [
@@ -7207,12 +7207,12 @@
           "range": "date"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "vaccination dose 2 vaccine name": {
-      "name": "vaccination dose 2 vaccine name",
+    "vaccination_dose_2_vaccine_name": {
+      "name": "vaccination_dose_2_vaccine_name",
       "description": "The name of the vaccine administered as the second dose of a vaccine regimen.",
       "title": "vaccination dose 2 vaccine name",
       "comments": [
@@ -7230,15 +7230,15 @@
       "slot_uri": "GENEPIO:0100315",
       "any_of": [
         {
-          "range": "vaccine name menu"
+          "range": "VaccineNameMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "vaccination dose 2 vaccination date": {
-      "name": "vaccination dose 2 vaccination date",
+    "vaccination_dose_2_vaccination_date": {
+      "name": "vaccination_dose_2_vaccination_date",
       "description": "The date the second dose of a vaccine was administered.",
       "title": "vaccination dose 2 vaccination date",
       "comments": [
@@ -7259,12 +7259,12 @@
           "range": "date"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "vaccination dose 3 vaccine name": {
-      "name": "vaccination dose 3 vaccine name",
+    "vaccination_dose_3_vaccine_name": {
+      "name": "vaccination_dose_3_vaccine_name",
       "description": "The name of the vaccine administered as the third dose of a vaccine regimen.",
       "title": "vaccination dose 3 vaccine name",
       "comments": [
@@ -7282,15 +7282,15 @@
       "slot_uri": "GENEPIO:0100317",
       "any_of": [
         {
-          "range": "vaccine name menu"
+          "range": "VaccineNameMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "vaccination dose 3 vaccination date": {
-      "name": "vaccination dose 3 vaccination date",
+    "vaccination_dose_3_vaccination_date": {
+      "name": "vaccination_dose_3_vaccination_date",
       "description": "The date the third dose of a vaccine was administered.",
       "title": "vaccination dose 3 vaccination date",
       "comments": [
@@ -7311,12 +7311,12 @@
           "range": "date"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "vaccination dose 4 vaccine name": {
-      "name": "vaccination dose 4 vaccine name",
+    "vaccination_dose_4_vaccine_name": {
+      "name": "vaccination_dose_4_vaccine_name",
       "description": "The name of the vaccine administered as the fourth dose of a vaccine regimen.",
       "title": "vaccination dose 4 vaccine name",
       "comments": [
@@ -7334,15 +7334,15 @@
       "slot_uri": "GENEPIO:0100319",
       "any_of": [
         {
-          "range": "vaccine name menu"
+          "range": "VaccineNameMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "vaccination dose 4 vaccination date": {
-      "name": "vaccination dose 4 vaccination date",
+    "vaccination_dose_4_vaccination_date": {
+      "name": "vaccination_dose_4_vaccination_date",
       "description": "The date the fourth dose of a vaccine was administered.",
       "title": "vaccination dose 4 vaccination date",
       "comments": [
@@ -7363,12 +7363,12 @@
           "range": "date"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "vaccination history": {
-      "name": "vaccination history",
+    "vaccination_history": {
+      "name": "vaccination_history",
       "description": "A description of the vaccines received and the administration dates of a series of vaccinations against a specific disease or a set of diseases.",
       "title": "vaccination history",
       "comments": [
@@ -7395,8 +7395,8 @@
       "slot_uri": "GENEPIO:0100321",
       "range": "WhitespaceMinimizedString"
     },
-    "location of exposure geo_loc name (country)": {
-      "name": "location of exposure geo_loc name (country)",
+    "location_of_exposure_geo_loc_name_country": {
+      "name": "location_of_exposure_geo_loc_name_country",
       "description": "The country where the host was likely exposed to the causative agent of the illness.",
       "title": "location of exposure geo_loc name (country)",
       "comments": [
@@ -7414,15 +7414,15 @@
       "slot_uri": "GENEPIO:0001410",
       "any_of": [
         {
-          "range": "geo_loc_name (country) menu"
+          "range": "GeoLocNameCountryMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "destination of most recent travel (city)": {
-      "name": "destination of most recent travel (city)",
+    "destination_of_most_recent_travel_city": {
+      "name": "destination_of_most_recent_travel_city",
       "description": "The name of the city that was the destination of most recent travel.",
       "title": "destination of most recent travel (city)",
       "comments": [
@@ -7441,8 +7441,8 @@
       "slot_uri": "GENEPIO:0001411",
       "range": "WhitespaceMinimizedString"
     },
-    "destination of most recent travel (state/province/territory)": {
-      "name": "destination of most recent travel (state/province/territory)",
+    "destination_of_most_recent_travel_state_province_territory": {
+      "name": "destination_of_most_recent_travel_state_province_territory",
       "description": "The name of the province that was the destination of most recent travel.",
       "title": "destination of most recent travel (state/province/territory)",
       "comments": [
@@ -7461,8 +7461,8 @@
       "slot_uri": "GENEPIO:0001412",
       "range": "WhitespaceMinimizedString"
     },
-    "destination of most recent travel (country)": {
-      "name": "destination of most recent travel (country)",
+    "destination_of_most_recent_travel_country": {
+      "name": "destination_of_most_recent_travel_country",
       "description": "The name of the country that was the destination of most recent travel.",
       "title": "destination of most recent travel (country)",
       "comments": [
@@ -7481,15 +7481,15 @@
       "slot_uri": "GENEPIO:0001413",
       "any_of": [
         {
-          "range": "geo_loc_name (country) menu"
+          "range": "GeoLocNameCountryMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "most recent travel departure date": {
-      "name": "most recent travel departure date",
+    "most_recent_travel_departure_date": {
+      "name": "most_recent_travel_departure_date",
       "description": "The date of a person's most recent departure from their primary residence (at that time) on a journey to one or more other locations.",
       "title": "most recent travel departure date",
       "comments": [
@@ -7511,12 +7511,12 @@
           "range": "date"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "most recent travel return date": {
-      "name": "most recent travel return date",
+    "most_recent_travel_return_date": {
+      "name": "most_recent_travel_return_date",
       "description": "The date of a person's most recent return to some residence from a journey originating at that residence.",
       "title": "most recent travel return date",
       "comments": [
@@ -7538,12 +7538,12 @@
           "range": "date"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "travel point of entry type": {
-      "name": "travel point of entry type",
+    "travel_point_of_entry_type": {
+      "name": "travel_point_of_entry_type",
       "description": "The type of entry point a traveler arrives through.",
       "title": "travel point of entry type",
       "comments": [
@@ -7562,15 +7562,15 @@
       "recommended": true,
       "any_of": [
         {
-          "range": "travel point of entry type menu"
+          "range": "TravelPointOfEntryTypeMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "border testing test day type": {
-      "name": "border testing test day type",
+    "border_testing_test_day_type": {
+      "name": "border_testing_test_day_type",
       "description": "The day a traveller was tested on or after arrival at their point of entry.",
       "title": "border testing test day type",
       "comments": [
@@ -7589,15 +7589,15 @@
       "recommended": true,
       "any_of": [
         {
-          "range": "border testing test day type menu"
+          "range": "BorderTestingTestDayTypeMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "travel history": {
-      "name": "travel history",
+    "travel_history": {
+      "name": "travel_history",
       "description": "Travel history in last six months.",
       "title": "travel history",
       "comments": [
@@ -7621,8 +7621,8 @@
       "slot_uri": "GENEPIO:0001416",
       "range": "WhitespaceMinimizedString"
     },
-    "travel history availability": {
-      "name": "travel history availability",
+    "travel_history_availability": {
+      "name": "travel_history_availability",
       "description": "The availability of different types of travel history in the last 6 months (e.g. international, domestic).",
       "title": "travel history availability",
       "comments": [
@@ -7640,15 +7640,15 @@
       "slot_uri": "GENEPIO:0100649",
       "any_of": [
         {
-          "range": "travel history availability menu"
+          "range": "TravelHistoryAvailabilityMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "exposure event": {
-      "name": "exposure event",
+    "exposure_event": {
+      "name": "exposure_event",
       "description": "Event leading to exposure.",
       "title": "exposure event",
       "comments": [
@@ -7668,15 +7668,15 @@
       "slot_uri": "GENEPIO:0001417",
       "any_of": [
         {
-          "range": "exposure event menu"
+          "range": "ExposureEventMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "exposure contact level": {
-      "name": "exposure contact level",
+    "exposure_contact_level": {
+      "name": "exposure_contact_level",
       "description": "The exposure transmission contact type.",
       "title": "exposure contact level",
       "comments": [
@@ -7694,15 +7694,15 @@
       "slot_uri": "GENEPIO:0001418",
       "any_of": [
         {
-          "range": "exposure contact level menu"
+          "range": "ExposureContactLevelMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "host role": {
-      "name": "host role",
+    "host_role": {
+      "name": "host_role",
       "description": "The role of the host in relation to the exposure setting.",
       "title": "host role",
       "comments": [
@@ -7719,10 +7719,10 @@
       ],
       "slot_uri": "GENEPIO:0001419",
       "multivalued": true,
-      "range": "host role menu"
+      "range": "HostRoleMenu"
     },
-    "exposure setting": {
-      "name": "exposure setting",
+    "exposure_setting": {
+      "name": "exposure_setting",
       "description": "The setting leading to exposure.",
       "title": "exposure setting",
       "comments": [
@@ -7739,10 +7739,10 @@
       ],
       "slot_uri": "GENEPIO:0001428",
       "multivalued": true,
-      "range": "exposure setting menu"
+      "range": "ExposureSettingMenu"
     },
-    "exposure details": {
-      "name": "exposure details",
+    "exposure_details": {
+      "name": "exposure_details",
       "description": "Additional host exposure information.",
       "title": "exposure details",
       "comments": [
@@ -7760,8 +7760,8 @@
       "slot_uri": "GENEPIO:0001431",
       "range": "WhitespaceMinimizedString"
     },
-    "prior SARS-CoV-2 infection": {
-      "name": "prior SARS-CoV-2 infection",
+    "prior_sarscov2_infection": {
+      "name": "prior_sarscov2_infection",
       "description": "Whether there was prior SARS-CoV-2 infection.",
       "title": "prior SARS-CoV-2 infection",
       "comments": [
@@ -7779,15 +7779,15 @@
       "slot_uri": "GENEPIO:0001435",
       "any_of": [
         {
-          "range": "prior SARS-CoV-2 infection menu"
+          "range": "PriorSarsCov2InfectionMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "prior SARS-CoV-2 infection isolate": {
-      "name": "prior SARS-CoV-2 infection isolate",
+    "prior_sarscov2_infection_isolate": {
+      "name": "prior_sarscov2_infection_isolate",
       "description": "The identifier of the isolate found in the prior SARS-CoV-2 infection.",
       "title": "prior SARS-CoV-2 infection isolate",
       "comments": [
@@ -7805,8 +7805,8 @@
       "slot_uri": "GENEPIO:0001436",
       "range": "WhitespaceMinimizedString"
     },
-    "prior SARS-CoV-2 infection date": {
-      "name": "prior SARS-CoV-2 infection date",
+    "prior_sarscov2_infection_date": {
+      "name": "prior_sarscov2_infection_date",
       "description": "The date of diagnosis of the prior SARS-CoV-2 infection.",
       "title": "prior SARS-CoV-2 infection date",
       "comments": [
@@ -7824,8 +7824,8 @@
       "slot_uri": "GENEPIO:0001437",
       "range": "date"
     },
-    "prior SARS-CoV-2 antiviral treatment": {
-      "name": "prior SARS-CoV-2 antiviral treatment",
+    "prior_sarscov2_antiviral_treatment": {
+      "name": "prior_sarscov2_antiviral_treatment",
       "description": "Whether there was prior SARS-CoV-2 treatment with an antiviral agent.",
       "title": "prior SARS-CoV-2 antiviral treatment",
       "comments": [
@@ -7843,15 +7843,15 @@
       "slot_uri": "GENEPIO:0001438",
       "any_of": [
         {
-          "range": "prior SARS-CoV-2 antiviral treatment menu"
+          "range": "PriorSarsCov2AntiviralTreatmentMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "prior SARS-CoV-2 antiviral treatment agent": {
-      "name": "prior SARS-CoV-2 antiviral treatment agent",
+    "prior_sarscov2_antiviral_treatment_agent": {
+      "name": "prior_sarscov2_antiviral_treatment_agent",
       "description": "The name of the antiviral treatment agent administered during the prior SARS-CoV-2 infection.",
       "title": "prior SARS-CoV-2 antiviral treatment agent",
       "comments": [
@@ -7869,8 +7869,8 @@
       "slot_uri": "GENEPIO:0001439",
       "range": "WhitespaceMinimizedString"
     },
-    "prior SARS-CoV-2 antiviral treatment date": {
-      "name": "prior SARS-CoV-2 antiviral treatment date",
+    "prior_sarscov2_antiviral_treatment_date": {
+      "name": "prior_sarscov2_antiviral_treatment_date",
       "description": "The date treatment was first administered during the prior SARS-CoV-2 infection.",
       "title": "prior SARS-CoV-2 antiviral treatment date",
       "comments": [
@@ -7888,8 +7888,8 @@
       "slot_uri": "GENEPIO:0001440",
       "range": "date"
     },
-    "purpose of sequencing": {
-      "name": "purpose of sequencing",
+    "purpose_of_sequencing": {
+      "name": "purpose_of_sequencing",
       "description": "The reason that the sample was sequenced.",
       "title": "purpose of sequencing",
       "comments": [
@@ -7912,15 +7912,15 @@
       "required": true,
       "any_of": [
         {
-          "range": "purpose of sequencing menu"
+          "range": "PurposeOfSequencingMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "purpose of sequencing details": {
-      "name": "purpose of sequencing details",
+    "purpose_of_sequencing_details": {
+      "name": "purpose_of_sequencing_details",
       "description": "The description of why the sample was sequenced providing specific details.",
       "title": "purpose of sequencing details",
       "comments": [
@@ -7944,12 +7944,12 @@
           "range": "WhitespaceMinimizedString"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "sequencing date": {
-      "name": "sequencing date",
+    "sequencing_date": {
+      "name": "sequencing_date",
       "description": "The date the sample was sequenced.",
       "title": "sequencing date",
       "todos": [
@@ -7974,12 +7974,12 @@
           "range": "date"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "library ID": {
-      "name": "library ID",
+    "library_id": {
+      "name": "library_id",
       "description": "The user-specified identifier for the library prepared for sequencing.",
       "title": "library ID",
       "comments": [
@@ -7998,8 +7998,8 @@
       "range": "WhitespaceMinimizedString",
       "recommended": true
     },
-    "amplicon size": {
-      "name": "amplicon size",
+    "amplicon_size": {
+      "name": "amplicon_size",
       "description": "The length of the amplicon generated by PCR amplification.",
       "title": "amplicon size",
       "comments": [
@@ -8017,8 +8017,8 @@
       "slot_uri": "GENEPIO:0001449",
       "range": "WhitespaceMinimizedString"
     },
-    "library preparation kit": {
-      "name": "library preparation kit",
+    "library_preparation_kit": {
+      "name": "library_preparation_kit",
       "description": "The name of the DNA library preparation kit used to generate the library being sequenced.",
       "title": "library preparation kit",
       "comments": [
@@ -8036,8 +8036,8 @@
       "slot_uri": "GENEPIO:0001450",
       "range": "WhitespaceMinimizedString"
     },
-    "flow cell barcode": {
-      "name": "flow cell barcode",
+    "flow_cell_barcode": {
+      "name": "flow_cell_barcode",
       "description": "The barcode of the flow cell used for sequencing.",
       "title": "flow cell barcode",
       "comments": [
@@ -8055,8 +8055,8 @@
       "slot_uri": "GENEPIO:0001451",
       "range": "WhitespaceMinimizedString"
     },
-    "sequencing instrument": {
-      "name": "sequencing instrument",
+    "sequencing_instrument": {
+      "name": "sequencing_instrument",
       "description": "The model of the sequencing instrument used.",
       "title": "sequencing instrument",
       "comments": [
@@ -8079,15 +8079,15 @@
       "required": true,
       "any_of": [
         {
-          "range": "sequencing instrument menu"
+          "range": "SequencingInstrumentMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "sequencing protocol name": {
-      "name": "sequencing protocol name",
+    "sequencing_protocol_name": {
+      "name": "sequencing_protocol_name",
       "description": "The name and version number of the sequencing protocol used.",
       "title": "sequencing protocol name",
       "comments": [
@@ -8107,8 +8107,8 @@
       "range": "WhitespaceMinimizedString",
       "recommended": true
     },
-    "sequencing protocol": {
-      "name": "sequencing protocol",
+    "sequencing_protocol": {
+      "name": "sequencing_protocol",
       "description": "The protocol used to generate the sequence.",
       "title": "sequencing protocol",
       "comments": [
@@ -8127,8 +8127,8 @@
       "slot_uri": "GENEPIO:0001454",
       "range": "WhitespaceMinimizedString"
     },
-    "sequencing kit number": {
-      "name": "sequencing kit number",
+    "sequencing_kit_number": {
+      "name": "sequencing_kit_number",
       "description": "The manufacturer's kit number.",
       "title": "sequencing kit number",
       "comments": [
@@ -8146,8 +8146,8 @@
       "slot_uri": "GENEPIO:0001455",
       "range": "WhitespaceMinimizedString"
     },
-    "amplicon pcr primer scheme": {
-      "name": "amplicon pcr primer scheme",
+    "amplicon_pcr_primer_scheme": {
+      "name": "amplicon_pcr_primer_scheme",
       "description": "The specifications of the primers (primer sequences, binding positions, fragment size generated etc) used to generate the amplicons to be sequenced.",
       "title": "amplicon pcr primer scheme",
       "comments": [
@@ -8165,8 +8165,8 @@
       "slot_uri": "GENEPIO:0001456",
       "range": "WhitespaceMinimizedString"
     },
-    "raw sequence data processing method": {
-      "name": "raw sequence data processing method",
+    "raw_sequence_data_processing_method": {
+      "name": "raw_sequence_data_processing_method",
       "description": "The names of the software and version number used for raw data processing such as removing barcodes, adapter trimming, filtering etc.",
       "title": "raw sequence data processing method",
       "comments": [
@@ -8186,8 +8186,8 @@
       "range": "WhitespaceMinimizedString",
       "required": true
     },
-    "dehosting method": {
-      "name": "dehosting method",
+    "dehosting_method": {
+      "name": "dehosting_method",
       "description": "The method used to remove host reads from the pathogen sequence.",
       "title": "dehosting method",
       "comments": [
@@ -8207,8 +8207,8 @@
       "range": "WhitespaceMinimizedString",
       "required": true
     },
-    "consensus sequence name": {
-      "name": "consensus sequence name",
+    "consensus_sequence_name": {
+      "name": "consensus_sequence_name",
       "description": "The name of the consensus sequence.",
       "title": "consensus sequence name",
       "comments": [
@@ -8226,8 +8226,8 @@
       "slot_uri": "GENEPIO:0001460",
       "range": "WhitespaceMinimizedString"
     },
-    "consensus sequence filename": {
-      "name": "consensus sequence filename",
+    "consensus_sequence_filename": {
+      "name": "consensus_sequence_filename",
       "description": "The name of the consensus sequence file.",
       "title": "consensus sequence filename",
       "comments": [
@@ -8245,8 +8245,8 @@
       "slot_uri": "GENEPIO:0001461",
       "range": "WhitespaceMinimizedString"
     },
-    "consensus sequence filepath": {
-      "name": "consensus sequence filepath",
+    "consensus_sequence_filepath": {
+      "name": "consensus_sequence_filepath",
       "description": "The filepath of the consensus sequence file.",
       "title": "consensus sequence filepath",
       "comments": [
@@ -8264,8 +8264,8 @@
       "slot_uri": "GENEPIO:0001462",
       "range": "WhitespaceMinimizedString"
     },
-    "consensus sequence software name": {
-      "name": "consensus sequence software name",
+    "consensus_sequence_software_name": {
+      "name": "consensus_sequence_software_name",
       "description": "The name of software used to generate the consensus sequence.",
       "title": "consensus sequence software name",
       "comments": [
@@ -8287,8 +8287,8 @@
       "range": "WhitespaceMinimizedString",
       "required": true
     },
-    "consensus sequence software version": {
-      "name": "consensus sequence software version",
+    "consensus_sequence_software_version": {
+      "name": "consensus_sequence_software_version",
       "description": "The version of the software used to generate the consensus sequence.",
       "title": "consensus sequence software version",
       "comments": [
@@ -8309,8 +8309,8 @@
       "range": "WhitespaceMinimizedString",
       "required": true
     },
-    "breadth of coverage value": {
-      "name": "breadth of coverage value",
+    "breadth_of_coverage_value": {
+      "name": "breadth_of_coverage_value",
       "description": "The percentage of the reference genome covered by the sequenced data, to a prescribed depth.",
       "title": "breadth of coverage value",
       "comments": [
@@ -8329,8 +8329,8 @@
       "slot_uri": "GENEPIO:0001472",
       "range": "WhitespaceMinimizedString"
     },
-    "depth of coverage value": {
-      "name": "depth of coverage value",
+    "depth_of_coverage_value": {
+      "name": "depth_of_coverage_value",
       "description": "The average number of reads representing a given nucleotide in the reconstructed sequence.",
       "title": "depth of coverage value",
       "comments": [
@@ -8350,8 +8350,8 @@
       "slot_uri": "GENEPIO:0001474",
       "range": "WhitespaceMinimizedString"
     },
-    "depth of coverage threshold": {
-      "name": "depth of coverage threshold",
+    "depth_of_coverage_threshold": {
+      "name": "depth_of_coverage_threshold",
       "description": "The threshold used as a cut-off for the depth of coverage.",
       "title": "depth of coverage threshold",
       "comments": [
@@ -8369,8 +8369,8 @@
       "slot_uri": "GENEPIO:0001475",
       "range": "WhitespaceMinimizedString"
     },
-    "r1 fastq filename": {
-      "name": "r1 fastq filename",
+    "r1_fastq_filename________": {
+      "name": "r1_fastq_filename________",
       "description": "The user-specified filename of the r1 FASTQ file.",
       "title": "r1 fastq filename",
       "comments": [
@@ -8389,8 +8389,8 @@
       "range": "WhitespaceMinimizedString",
       "recommended": true
     },
-    "r2 fastq filename": {
-      "name": "r2 fastq filename",
+    "r2_fastq_filename": {
+      "name": "r2_fastq_filename",
       "description": "The user-specified filename of the r2 FASTQ file.",
       "title": "r2 fastq filename",
       "comments": [
@@ -8409,8 +8409,8 @@
       "range": "WhitespaceMinimizedString",
       "recommended": true
     },
-    "r1 fastq filepath": {
-      "name": "r1 fastq filepath",
+    "r1_fastq_filepath": {
+      "name": "r1_fastq_filepath",
       "description": "The location of the r1 FASTQ file within a user's file system.",
       "title": "r1 fastq filepath",
       "comments": [
@@ -8428,8 +8428,8 @@
       "slot_uri": "GENEPIO:0001478",
       "range": "WhitespaceMinimizedString"
     },
-    "r2 fastq filepath": {
-      "name": "r2 fastq filepath",
+    "r2_fastq_filepath": {
+      "name": "r2_fastq_filepath",
       "description": "The location of the r2 FASTQ file within a user's file system.",
       "title": "r2 fastq filepath",
       "comments": [
@@ -8447,8 +8447,8 @@
       "slot_uri": "GENEPIO:0001479",
       "range": "WhitespaceMinimizedString"
     },
-    "fast5 filename": {
-      "name": "fast5 filename",
+    "fast5_filename": {
+      "name": "fast5_filename",
       "description": "The user-specified filename of the FAST5 file.",
       "title": "fast5 filename",
       "comments": [
@@ -8466,8 +8466,8 @@
       "slot_uri": "GENEPIO:0001480",
       "range": "WhitespaceMinimizedString"
     },
-    "fast5 filepath": {
-      "name": "fast5 filepath",
+    "fast5_filepath": {
+      "name": "fast5_filepath",
       "description": "The location of the FAST5 file within a user's file system.",
       "title": "fast5 filepath",
       "comments": [
@@ -8485,8 +8485,8 @@
       "slot_uri": "GENEPIO:0001481",
       "range": "WhitespaceMinimizedString"
     },
-    "number of base pairs sequenced": {
-      "name": "number of base pairs sequenced",
+    "number_of_base_pairs_sequenced": {
+      "name": "number_of_base_pairs_sequenced",
       "description": "The number of total base pairs generated by the sequencing process.",
       "title": "number of base pairs sequenced",
       "comments": [
@@ -8503,10 +8503,10 @@
       ],
       "slot_uri": "GENEPIO:0001482",
       "range": "integer",
-      "minimum_value": "0"
+      "minimum_value": 0
     },
-    "consensus genome length": {
-      "name": "consensus genome length",
+    "consensus_genome_length": {
+      "name": "consensus_genome_length",
       "description": "Size of the reconstructed genome described as the number of base pairs.",
       "title": "consensus genome length",
       "comments": [
@@ -8523,10 +8523,10 @@
       ],
       "slot_uri": "GENEPIO:0001483",
       "range": "integer",
-      "minimum_value": "0"
+      "minimum_value": 0
     },
-    "Ns per 100 kbp": {
-      "name": "Ns per 100 kbp",
+    "ns_per_100_kbp": {
+      "name": "ns_per_100_kbp",
       "description": "The number of N symbols present in the consensus fasta sequence, per 100kbp of sequence.",
       "title": "Ns per 100 kbp",
       "comments": [
@@ -8543,10 +8543,10 @@
       ],
       "slot_uri": "GENEPIO:0001484",
       "range": "decimal",
-      "minimum_value": "0"
+      "minimum_value": 0
     },
-    "reference genome accession": {
-      "name": "reference genome accession",
+    "reference_genome_accession": {
+      "name": "reference_genome_accession",
       "description": "A persistent, unique identifier of a genome database entry.",
       "title": "reference genome accession",
       "comments": [
@@ -8565,8 +8565,8 @@
       "slot_uri": "GENEPIO:0001485",
       "range": "WhitespaceMinimizedString"
     },
-    "bioinformatics protocol": {
-      "name": "bioinformatics protocol",
+    "bioinformatics_protocol": {
+      "name": "bioinformatics_protocol",
       "description": "A description of the overall bioinformatics strategy used.",
       "title": "bioinformatics protocol",
       "comments": [
@@ -8587,8 +8587,8 @@
       "range": "WhitespaceMinimizedString",
       "required": true
     },
-    "lineage/clade name": {
-      "name": "lineage/clade name",
+    "lineage_clade_name": {
+      "name": "lineage_clade_name",
       "description": "The name of the lineage or clade.",
       "title": "lineage/clade name",
       "comments": [
@@ -8606,8 +8606,8 @@
       "slot_uri": "GENEPIO:0001500",
       "range": "WhitespaceMinimizedString"
     },
-    "lineage/clade analysis software name": {
-      "name": "lineage/clade analysis software name",
+    "lineage_clade_analysis_software_name": {
+      "name": "lineage_clade_analysis_software_name",
       "description": "The name of the software used to determine the lineage/clade.",
       "title": "lineage/clade analysis software name",
       "comments": [
@@ -8625,8 +8625,8 @@
       "slot_uri": "GENEPIO:0001501",
       "range": "WhitespaceMinimizedString"
     },
-    "lineage/clade analysis software version": {
-      "name": "lineage/clade analysis software version",
+    "lineage_clade_analysis_software_version": {
+      "name": "lineage_clade_analysis_software_version",
       "description": "The version of the software used to determine the lineage/clade.",
       "title": "lineage/clade analysis software version",
       "comments": [
@@ -8644,8 +8644,8 @@
       "slot_uri": "GENEPIO:0001502",
       "range": "WhitespaceMinimizedString"
     },
-    "variant designation": {
-      "name": "variant designation",
+    "variant_designation": {
+      "name": "variant_designation",
       "description": "The variant classification of the lineage/clade i.e. variant, variant of concern.",
       "title": "variant designation",
       "comments": [
@@ -8663,15 +8663,15 @@
       "slot_uri": "GENEPIO:0001503",
       "any_of": [
         {
-          "range": "variant designation menu"
+          "range": "VariantDesignationMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "variant evidence": {
-      "name": "variant evidence",
+    "variant_evidence": {
+      "name": "variant_evidence",
       "description": "The evidence used to make the variant determination.",
       "title": "variant evidence",
       "comments": [
@@ -8689,15 +8689,15 @@
       "slot_uri": "GENEPIO:0001504",
       "any_of": [
         {
-          "range": "variant evidence menu"
+          "range": "VariantEvidenceMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "variant evidence details": {
-      "name": "variant evidence details",
+    "variant_evidence_details": {
+      "name": "variant_evidence_details",
       "description": "Details about the evidence used to make the variant determination.",
       "title": "variant evidence details",
       "comments": [
@@ -8715,8 +8715,8 @@
       "slot_uri": "GENEPIO:0001505",
       "range": "WhitespaceMinimizedString"
     },
-    "gene name 1": {
-      "name": "gene name 1",
+    "gene_name_1": {
+      "name": "gene_name_1",
       "description": "The name of the gene used in the diagnostic RT-PCR test.",
       "title": "gene name 1",
       "comments": [
@@ -8737,15 +8737,15 @@
       "slot_uri": "GENEPIO:0001507",
       "any_of": [
         {
-          "range": "gene name menu"
+          "range": "GeneNameMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "diagnostic pcr protocol 1": {
-      "name": "diagnostic pcr protocol 1",
+    "diagnostic_pcr_protocol_1": {
+      "name": "diagnostic_pcr_protocol_1",
       "description": "The name and version number of the protocol used for diagnostic marker amplification.",
       "title": "diagnostic pcr protocol 1",
       "comments": [
@@ -8760,8 +8760,8 @@
       "slot_uri": "GENEPIO:0001508",
       "range": "WhitespaceMinimizedString"
     },
-    "diagnostic pcr Ct value 1": {
-      "name": "diagnostic pcr Ct value 1",
+    "diagnostic_pcr_ct_value_1": {
+      "name": "diagnostic_pcr_ct_value_1",
       "description": "The Ct value result from a diagnostic SARS-CoV-2 RT-PCR test.",
       "title": "diagnostic pcr Ct value 1",
       "comments": [
@@ -8785,12 +8785,12 @@
           "range": "decimal"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "gene name 2": {
-      "name": "gene name 2",
+    "gene_name_2": {
+      "name": "gene_name_2",
       "description": "The name of the gene used in the diagnostic RT-PCR test.",
       "title": "gene name 2",
       "comments": [
@@ -8810,15 +8810,15 @@
       "slot_uri": "GENEPIO:0001510",
       "any_of": [
         {
-          "range": "gene name menu"
+          "range": "GeneNameMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "diagnostic pcr protocol 2": {
-      "name": "diagnostic pcr protocol 2",
+    "diagnostic_pcr_protocol_2": {
+      "name": "diagnostic_pcr_protocol_2",
       "description": "The name and version number of the protocol used for diagnostic marker amplification.",
       "title": "diagnostic pcr protocol 2",
       "comments": [
@@ -8833,8 +8833,8 @@
       "slot_uri": "GENEPIO:0001511",
       "range": "WhitespaceMinimizedString"
     },
-    "diagnostic pcr Ct value 2": {
-      "name": "diagnostic pcr Ct value 2",
+    "diagnostic_pcr_ct_value_2": {
+      "name": "diagnostic_pcr_ct_value_2",
       "description": "The Ct value result from a diagnostic SARS-CoV-2 RT-PCR test.",
       "title": "diagnostic pcr Ct value 2",
       "comments": [
@@ -8857,12 +8857,12 @@
           "range": "decimal"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "gene name 3": {
-      "name": "gene name 3",
+    "gene_name_3": {
+      "name": "gene_name_3",
       "description": "The name of the gene used in the diagnostic RT-PCR test.",
       "title": "gene name 3",
       "comments": [
@@ -8881,15 +8881,15 @@
       "slot_uri": "GENEPIO:0001513",
       "any_of": [
         {
-          "range": "gene name menu"
+          "range": "GeneNameMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "diagnostic pcr protocol 3": {
-      "name": "diagnostic pcr protocol 3",
+    "diagnostic_pcr_protocol_3": {
+      "name": "diagnostic_pcr_protocol_3",
       "description": "The name and version number of the protocol used for diagnostic marker amplification.",
       "title": "diagnostic pcr protocol 3",
       "comments": [
@@ -8904,8 +8904,8 @@
       "slot_uri": "GENEPIO:0001514",
       "range": "WhitespaceMinimizedString"
     },
-    "diagnostic pcr Ct value 3": {
-      "name": "diagnostic pcr Ct value 3",
+    "diagnostic_pcr_ct_value_3": {
+      "name": "diagnostic_pcr_ct_value_3",
       "description": "The Ct value result from a diagnostic SARS-CoV-2 RT-PCR test.",
       "title": "diagnostic pcr Ct value 3",
       "comments": [
@@ -8927,7 +8927,7 @@
           "range": "decimal"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
@@ -8953,8 +8953,8 @@
       "range": "WhitespaceMinimizedString",
       "recommended": true
     },
-    "DataHarmonizer provenance": {
-      "name": "DataHarmonizer provenance",
+    "dataharmonizer_provenance": {
+      "name": "dataharmonizer_provenance",
       "description": "The DataHarmonizer software and template version provenance.",
       "title": "DataHarmonizer provenance",
       "comments": [
@@ -8990,123 +8990,123 @@
       ],
       "is_a": "dh_interface",
       "slot_usage": {
-        "specimen collector sample ID": {
-          "name": "specimen collector sample ID",
+        "specimen_collector_sample_id": {
+          "name": "specimen_collector_sample_id",
           "rank": 1,
           "slot_group": "Database Identifiers"
         },
-        "third party lab service provider name": {
-          "name": "third party lab service provider name",
+        "third_party_lab_service_provider_name": {
+          "name": "third_party_lab_service_provider_name",
           "rank": 2,
           "slot_group": "Database Identifiers"
         },
-        "third party lab sample ID": {
-          "name": "third party lab sample ID",
+        "third_party_lab_sample_id": {
+          "name": "third_party_lab_sample_id",
           "rank": 3,
           "slot_group": "Database Identifiers"
         },
-        "case ID": {
-          "name": "case ID",
+        "case_id": {
+          "name": "case_id",
           "rank": 4,
           "slot_group": "Database Identifiers"
         },
-        "Related specimen primary ID": {
-          "name": "Related specimen primary ID",
+        "related_specimen_primary_id": {
+          "name": "related_specimen_primary_id",
           "rank": 5,
           "slot_group": "Database Identifiers"
         },
-        "IRIDA sample name": {
-          "name": "IRIDA sample name",
+        "irida_sample_name": {
+          "name": "irida_sample_name",
           "rank": 6,
           "slot_group": "Database Identifiers"
         },
-        "umbrella bioproject accession": {
-          "name": "umbrella bioproject accession",
+        "umbrella_bioproject_accession": {
+          "name": "umbrella_bioproject_accession",
           "rank": 7,
           "slot_group": "Database Identifiers"
         },
-        "bioproject accession": {
-          "name": "bioproject accession",
+        "bioproject_accession": {
+          "name": "bioproject_accession",
           "rank": 8,
           "slot_group": "Database Identifiers"
         },
-        "biosample accession": {
-          "name": "biosample accession",
+        "biosample_accession": {
+          "name": "biosample_accession",
           "rank": 9,
           "slot_group": "Database Identifiers"
         },
-        "SRA accession": {
-          "name": "SRA accession",
+        "sra_accession": {
+          "name": "sra_accession",
           "rank": 10,
           "slot_group": "Database Identifiers"
         },
-        "GenBank accession": {
-          "name": "GenBank accession",
+        "genbank_accession": {
+          "name": "genbank_accession",
           "rank": 11,
           "slot_group": "Database Identifiers"
         },
-        "GISAID accession": {
-          "name": "GISAID accession",
+        "gisaid_accession": {
+          "name": "gisaid_accession",
           "rank": 12,
           "slot_group": "Database Identifiers"
         },
-        "sample collected by": {
-          "name": "sample collected by",
+        "sample_collected_by": {
+          "name": "sample_collected_by",
           "rank": 13,
           "slot_group": "Sample collection and processing"
         },
-        "sample collector contact email": {
-          "name": "sample collector contact email",
+        "sample_collector_contact_email": {
+          "name": "sample_collector_contact_email",
           "rank": 14,
           "slot_group": "Sample collection and processing"
         },
-        "sample collector contact address": {
-          "name": "sample collector contact address",
+        "sample_collector_contact_address": {
+          "name": "sample_collector_contact_address",
           "rank": 15,
           "slot_group": "Sample collection and processing"
         },
-        "sequence submitted by": {
-          "name": "sequence submitted by",
+        "sequence_submitted_by": {
+          "name": "sequence_submitted_by",
           "rank": 16,
           "slot_group": "Sample collection and processing"
         },
-        "sequence submitter contact email": {
-          "name": "sequence submitter contact email",
+        "sequence_submitter_contact_email": {
+          "name": "sequence_submitter_contact_email",
           "rank": 17,
           "slot_group": "Sample collection and processing"
         },
-        "sequence submitter contact address": {
-          "name": "sequence submitter contact address",
+        "sequence_submitter_contact_address": {
+          "name": "sequence_submitter_contact_address",
           "rank": 18,
           "slot_group": "Sample collection and processing"
         },
-        "sample collection date": {
-          "name": "sample collection date",
+        "sample_collection_date": {
+          "name": "sample_collection_date",
           "rank": 19,
           "slot_group": "Sample collection and processing"
         },
-        "sample collection date precision": {
-          "name": "sample collection date precision",
+        "sample_collection_date_precision": {
+          "name": "sample_collection_date_precision",
           "rank": 20,
           "slot_group": "Sample collection and processing"
         },
-        "sample received date": {
-          "name": "sample received date",
+        "sample_received_date": {
+          "name": "sample_received_date",
           "rank": 21,
           "slot_group": "Sample collection and processing"
         },
-        "geo_loc_name (country)": {
-          "name": "geo_loc_name (country)",
+        "geo_loc_name_country": {
+          "name": "geo_loc_name_country",
           "rank": 22,
           "slot_group": "Sample collection and processing"
         },
-        "geo_loc_name (state/province/territory)": {
-          "name": "geo_loc_name (state/province/territory)",
+        "geo_loc_name_state_province_territory": {
+          "name": "geo_loc_name_state_province_territory",
           "rank": 23,
           "slot_group": "Sample collection and processing"
         },
-        "geo_loc_name (city)": {
-          "name": "geo_loc_name (city)",
+        "geo_loc_name_city": {
+          "name": "geo_loc_name_city",
           "rank": 24,
           "slot_group": "Sample collection and processing"
         },
@@ -9120,173 +9120,173 @@
           "rank": 26,
           "slot_group": "Sample collection and processing"
         },
-        "purpose of sampling": {
-          "name": "purpose of sampling",
+        "purpose_of_sampling": {
+          "name": "purpose_of_sampling",
           "rank": 27,
           "slot_group": "Sample collection and processing"
         },
-        "purpose of sampling details": {
-          "name": "purpose of sampling details",
+        "purpose_of_sampling_details": {
+          "name": "purpose_of_sampling_details",
           "rank": 28,
           "slot_group": "Sample collection and processing"
         },
-        "NML submitted specimen type": {
-          "name": "NML submitted specimen type",
+        "nml_submitted_specimen_type": {
+          "name": "nml_submitted_specimen_type",
           "rank": 29,
           "slot_group": "Sample collection and processing"
         },
-        "Related specimen relationship type": {
-          "name": "Related specimen relationship type",
+        "related_specimen_relationship_type": {
+          "name": "related_specimen_relationship_type",
           "rank": 30,
           "slot_group": "Sample collection and processing"
         },
-        "anatomical material": {
-          "name": "anatomical material",
+        "anatomical_material": {
+          "name": "anatomical_material",
           "rank": 31,
           "slot_group": "Sample collection and processing"
         },
-        "anatomical part": {
-          "name": "anatomical part",
+        "anatomical_part": {
+          "name": "anatomical_part",
           "rank": 32,
           "slot_group": "Sample collection and processing"
         },
-        "body product": {
-          "name": "body product",
+        "body_product": {
+          "name": "body_product",
           "rank": 33,
           "slot_group": "Sample collection and processing"
         },
-        "environmental material": {
-          "name": "environmental material",
+        "environmental_material": {
+          "name": "environmental_material",
           "rank": 34,
           "slot_group": "Sample collection and processing"
         },
-        "environmental site": {
-          "name": "environmental site",
+        "environmental_site": {
+          "name": "environmental_site",
           "rank": 35,
           "slot_group": "Sample collection and processing"
         },
-        "collection device": {
-          "name": "collection device",
+        "collection_device": {
+          "name": "collection_device",
           "rank": 36,
           "slot_group": "Sample collection and processing"
         },
-        "collection method": {
-          "name": "collection method",
+        "collection_method": {
+          "name": "collection_method",
           "rank": 37,
           "slot_group": "Sample collection and processing"
         },
-        "collection protocol": {
-          "name": "collection protocol",
+        "collection_protocol": {
+          "name": "collection_protocol",
           "rank": 38,
           "slot_group": "Sample collection and processing"
         },
-        "specimen processing": {
-          "name": "specimen processing",
+        "specimen_processing": {
+          "name": "specimen_processing",
           "rank": 39,
           "slot_group": "Sample collection and processing"
         },
-        "specimen processing details": {
-          "name": "specimen processing details",
+        "specimen_processing_details": {
+          "name": "specimen_processing_details",
           "rank": 40,
           "slot_group": "Sample collection and processing"
         },
-        "lab host": {
-          "name": "lab host",
+        "lab_host": {
+          "name": "lab_host",
           "rank": 41,
           "slot_group": "Sample collection and processing"
         },
-        "passage number": {
-          "name": "passage number",
+        "passage_number": {
+          "name": "passage_number",
           "rank": 42,
           "slot_group": "Sample collection and processing"
         },
-        "passage method": {
-          "name": "passage method",
+        "passage_method": {
+          "name": "passage_method",
           "rank": 43,
           "slot_group": "Sample collection and processing"
         },
-        "biomaterial extracted": {
-          "name": "biomaterial extracted",
+        "biomaterial_extracted": {
+          "name": "biomaterial_extracted",
           "rank": 44,
           "slot_group": "Sample collection and processing"
         },
-        "host (common name)": {
-          "name": "host (common name)",
+        "host_common_name": {
+          "name": "host_common_name",
           "rank": 45,
           "slot_group": "Host Information"
         },
-        "host (scientific name)": {
-          "name": "host (scientific name)",
+        "host_scientific_name": {
+          "name": "host_scientific_name",
           "rank": 46,
           "slot_group": "Host Information"
         },
-        "host health state": {
-          "name": "host health state",
+        "host_health_state": {
+          "name": "host_health_state",
           "rank": 47,
           "slot_group": "Host Information"
         },
-        "host health status details": {
-          "name": "host health status details",
+        "host_health_status_details": {
+          "name": "host_health_status_details",
           "rank": 48,
           "slot_group": "Host Information"
         },
-        "host health outcome": {
-          "name": "host health outcome",
+        "host_health_outcome": {
+          "name": "host_health_outcome",
           "rank": 49,
           "slot_group": "Host Information"
         },
-        "host disease": {
-          "name": "host disease",
+        "host_disease": {
+          "name": "host_disease",
           "rank": 50,
           "slot_group": "Host Information"
         },
-        "host age": {
-          "name": "host age",
+        "host_age": {
+          "name": "host_age",
           "rank": 51,
           "slot_group": "Host Information"
         },
-        "host age unit": {
-          "name": "host age unit",
+        "host_age_unit": {
+          "name": "host_age_unit",
           "rank": 52,
           "slot_group": "Host Information"
         },
-        "host age bin": {
-          "name": "host age bin",
+        "host_age_bin": {
+          "name": "host_age_bin",
           "rank": 53,
           "slot_group": "Host Information"
         },
-        "host gender": {
-          "name": "host gender",
+        "host_gender": {
+          "name": "host_gender",
           "rank": 54,
           "slot_group": "Host Information"
         },
-        "host residence geo_loc name (country)": {
-          "name": "host residence geo_loc name (country)",
+        "host_residence_geo_loc_name_country": {
+          "name": "host_residence_geo_loc_name_country",
           "rank": 55,
           "slot_group": "Host Information"
         },
-        "host residence geo_loc name (state/province/territory)": {
-          "name": "host residence geo_loc name (state/province/territory)",
+        "host_residence_geo_loc_name_state_province_territory": {
+          "name": "host_residence_geo_loc_name_state_province_territory",
           "rank": 56,
           "slot_group": "Host Information"
         },
-        "host subject ID": {
-          "name": "host subject ID",
+        "host_subject_id": {
+          "name": "host_subject_id",
           "rank": 57,
           "slot_group": "Host Information"
         },
-        "symptom onset date": {
-          "name": "symptom onset date",
+        "symptom_onset_date": {
+          "name": "symptom_onset_date",
           "rank": 58,
           "slot_group": "Host Information"
         },
-        "signs and symptoms": {
-          "name": "signs and symptoms",
+        "signs_and_symptoms": {
+          "name": "signs_and_symptoms",
           "rank": 59,
           "slot_group": "Host Information"
         },
-        "pre-existing conditions and risk factors": {
-          "name": "pre-existing conditions and risk factors",
+        "preexisting_conditions_and_risk_factors": {
+          "name": "preexisting_conditions_and_risk_factors",
           "rank": 60,
           "slot_group": "Host Information"
         },
@@ -9295,403 +9295,403 @@
           "rank": 61,
           "slot_group": "Host Information"
         },
-        "host vaccination status": {
-          "name": "host vaccination status",
+        "host_vaccination_status": {
+          "name": "host_vaccination_status",
           "rank": 62,
           "slot_group": "Host vaccination information"
         },
-        "number of vaccine doses received": {
-          "name": "number of vaccine doses received",
+        "number_of_vaccine_doses_received": {
+          "name": "number_of_vaccine_doses_received",
           "rank": 63,
           "slot_group": "Host vaccination information"
         },
-        "vaccination dose 1 vaccine name": {
-          "name": "vaccination dose 1 vaccine name",
+        "vaccination_dose_1_vaccine_name": {
+          "name": "vaccination_dose_1_vaccine_name",
           "rank": 64,
           "slot_group": "Host vaccination information"
         },
-        "vaccination dose 1 vaccination date": {
-          "name": "vaccination dose 1 vaccination date",
+        "vaccination_dose_1_vaccination_date": {
+          "name": "vaccination_dose_1_vaccination_date",
           "rank": 65,
           "slot_group": "Host vaccination information"
         },
-        "vaccination dose 2 vaccine name": {
-          "name": "vaccination dose 2 vaccine name",
+        "vaccination_dose_2_vaccine_name": {
+          "name": "vaccination_dose_2_vaccine_name",
           "rank": 66,
           "slot_group": "Host vaccination information"
         },
-        "vaccination dose 2 vaccination date": {
-          "name": "vaccination dose 2 vaccination date",
+        "vaccination_dose_2_vaccination_date": {
+          "name": "vaccination_dose_2_vaccination_date",
           "rank": 67,
           "slot_group": "Host vaccination information"
         },
-        "vaccination dose 3 vaccine name": {
-          "name": "vaccination dose 3 vaccine name",
+        "vaccination_dose_3_vaccine_name": {
+          "name": "vaccination_dose_3_vaccine_name",
           "rank": 68,
           "slot_group": "Host vaccination information"
         },
-        "vaccination dose 3 vaccination date": {
-          "name": "vaccination dose 3 vaccination date",
+        "vaccination_dose_3_vaccination_date": {
+          "name": "vaccination_dose_3_vaccination_date",
           "rank": 69,
           "slot_group": "Host vaccination information"
         },
-        "vaccination dose 4 vaccine name": {
-          "name": "vaccination dose 4 vaccine name",
+        "vaccination_dose_4_vaccine_name": {
+          "name": "vaccination_dose_4_vaccine_name",
           "rank": 70,
           "slot_group": "Host vaccination information"
         },
-        "vaccination dose 4 vaccination date": {
-          "name": "vaccination dose 4 vaccination date",
+        "vaccination_dose_4_vaccination_date": {
+          "name": "vaccination_dose_4_vaccination_date",
           "rank": 71,
           "slot_group": "Host vaccination information"
         },
-        "vaccination history": {
-          "name": "vaccination history",
+        "vaccination_history": {
+          "name": "vaccination_history",
           "rank": 72,
           "slot_group": "Host vaccination information"
         },
-        "location of exposure geo_loc name (country)": {
-          "name": "location of exposure geo_loc name (country)",
+        "location_of_exposure_geo_loc_name_country": {
+          "name": "location_of_exposure_geo_loc_name_country",
           "rank": 73,
           "slot_group": "Host exposure information"
         },
-        "destination of most recent travel (city)": {
-          "name": "destination of most recent travel (city)",
+        "destination_of_most_recent_travel_city": {
+          "name": "destination_of_most_recent_travel_city",
           "rank": 74,
           "slot_group": "Host exposure information"
         },
-        "destination of most recent travel (state/province/territory)": {
-          "name": "destination of most recent travel (state/province/territory)",
+        "destination_of_most_recent_travel_state_province_territory": {
+          "name": "destination_of_most_recent_travel_state_province_territory",
           "rank": 75,
           "slot_group": "Host exposure information"
         },
-        "destination of most recent travel (country)": {
-          "name": "destination of most recent travel (country)",
+        "destination_of_most_recent_travel_country": {
+          "name": "destination_of_most_recent_travel_country",
           "rank": 76,
           "slot_group": "Host exposure information"
         },
-        "most recent travel departure date": {
-          "name": "most recent travel departure date",
+        "most_recent_travel_departure_date": {
+          "name": "most_recent_travel_departure_date",
           "rank": 77,
           "slot_group": "Host exposure information"
         },
-        "most recent travel return date": {
-          "name": "most recent travel return date",
+        "most_recent_travel_return_date": {
+          "name": "most_recent_travel_return_date",
           "rank": 78,
           "slot_group": "Host exposure information"
         },
-        "travel point of entry type": {
-          "name": "travel point of entry type",
+        "travel_point_of_entry_type": {
+          "name": "travel_point_of_entry_type",
           "rank": 79,
           "slot_group": "Host exposure information"
         },
-        "border testing test day type": {
-          "name": "border testing test day type",
+        "border_testing_test_day_type": {
+          "name": "border_testing_test_day_type",
           "rank": 80,
           "slot_group": "Host exposure information"
         },
-        "travel history": {
-          "name": "travel history",
+        "travel_history": {
+          "name": "travel_history",
           "rank": 81,
           "slot_group": "Host exposure information"
         },
-        "travel history availability": {
-          "name": "travel history availability",
+        "travel_history_availability": {
+          "name": "travel_history_availability",
           "rank": 82,
           "slot_group": "Host exposure information"
         },
-        "exposure event": {
-          "name": "exposure event",
+        "exposure_event": {
+          "name": "exposure_event",
           "rank": 83,
           "slot_group": "Host exposure information"
         },
-        "exposure contact level": {
-          "name": "exposure contact level",
+        "exposure_contact_level": {
+          "name": "exposure_contact_level",
           "rank": 84,
           "slot_group": "Host exposure information"
         },
-        "host role": {
-          "name": "host role",
+        "host_role": {
+          "name": "host_role",
           "rank": 85,
           "slot_group": "Host exposure information"
         },
-        "exposure setting": {
-          "name": "exposure setting",
+        "exposure_setting": {
+          "name": "exposure_setting",
           "rank": 86,
           "slot_group": "Host exposure information"
         },
-        "exposure details": {
-          "name": "exposure details",
+        "exposure_details": {
+          "name": "exposure_details",
           "rank": 87,
           "slot_group": "Host exposure information"
         },
-        "prior SARS-CoV-2 infection": {
-          "name": "prior SARS-CoV-2 infection",
+        "prior_sarscov2_infection": {
+          "name": "prior_sarscov2_infection",
           "rank": 88,
           "slot_group": "Host reinfection information"
         },
-        "prior SARS-CoV-2 infection isolate": {
-          "name": "prior SARS-CoV-2 infection isolate",
+        "prior_sarscov2_infection_isolate": {
+          "name": "prior_sarscov2_infection_isolate",
           "rank": 89,
           "slot_group": "Host reinfection information"
         },
-        "prior SARS-CoV-2 infection date": {
-          "name": "prior SARS-CoV-2 infection date",
+        "prior_sarscov2_infection_date": {
+          "name": "prior_sarscov2_infection_date",
           "rank": 90,
           "slot_group": "Host reinfection information"
         },
-        "prior SARS-CoV-2 antiviral treatment": {
-          "name": "prior SARS-CoV-2 antiviral treatment",
+        "prior_sarscov2_antiviral_treatment": {
+          "name": "prior_sarscov2_antiviral_treatment",
           "rank": 91,
           "slot_group": "Host reinfection information"
         },
-        "prior SARS-CoV-2 antiviral treatment agent": {
-          "name": "prior SARS-CoV-2 antiviral treatment agent",
+        "prior_sarscov2_antiviral_treatment_agent": {
+          "name": "prior_sarscov2_antiviral_treatment_agent",
           "rank": 92,
           "slot_group": "Host reinfection information"
         },
-        "prior SARS-CoV-2 antiviral treatment date": {
-          "name": "prior SARS-CoV-2 antiviral treatment date",
+        "prior_sarscov2_antiviral_treatment_date": {
+          "name": "prior_sarscov2_antiviral_treatment_date",
           "rank": 93,
           "slot_group": "Host reinfection information"
         },
-        "purpose of sequencing": {
-          "name": "purpose of sequencing",
+        "purpose_of_sequencing": {
+          "name": "purpose_of_sequencing",
           "rank": 94,
           "slot_group": "Sequencing"
         },
-        "purpose of sequencing details": {
-          "name": "purpose of sequencing details",
+        "purpose_of_sequencing_details": {
+          "name": "purpose_of_sequencing_details",
           "rank": 95,
           "slot_group": "Sequencing"
         },
-        "sequencing date": {
-          "name": "sequencing date",
+        "sequencing_date": {
+          "name": "sequencing_date",
           "rank": 96,
           "slot_group": "Sequencing"
         },
-        "library ID": {
-          "name": "library ID",
+        "library_id": {
+          "name": "library_id",
           "rank": 97,
           "slot_group": "Sequencing"
         },
-        "amplicon size": {
-          "name": "amplicon size",
+        "amplicon_size": {
+          "name": "amplicon_size",
           "rank": 98,
           "slot_group": "Sequencing"
         },
-        "library preparation kit": {
-          "name": "library preparation kit",
+        "library_preparation_kit": {
+          "name": "library_preparation_kit",
           "rank": 99,
           "slot_group": "Sequencing"
         },
-        "flow cell barcode": {
-          "name": "flow cell barcode",
+        "flow_cell_barcode": {
+          "name": "flow_cell_barcode",
           "rank": 100,
           "slot_group": "Sequencing"
         },
-        "sequencing instrument": {
-          "name": "sequencing instrument",
+        "sequencing_instrument": {
+          "name": "sequencing_instrument",
           "rank": 101,
           "slot_group": "Sequencing"
         },
-        "sequencing protocol name": {
-          "name": "sequencing protocol name",
+        "sequencing_protocol_name": {
+          "name": "sequencing_protocol_name",
           "rank": 102,
           "slot_group": "Sequencing"
         },
-        "sequencing protocol": {
-          "name": "sequencing protocol",
+        "sequencing_protocol": {
+          "name": "sequencing_protocol",
           "rank": 103,
           "slot_group": "Sequencing"
         },
-        "sequencing kit number": {
-          "name": "sequencing kit number",
+        "sequencing_kit_number": {
+          "name": "sequencing_kit_number",
           "rank": 104,
           "slot_group": "Sequencing"
         },
-        "amplicon pcr primer scheme": {
-          "name": "amplicon pcr primer scheme",
+        "amplicon_pcr_primer_scheme": {
+          "name": "amplicon_pcr_primer_scheme",
           "rank": 105,
           "slot_group": "Sequencing"
         },
-        "raw sequence data processing method": {
-          "name": "raw sequence data processing method",
+        "raw_sequence_data_processing_method": {
+          "name": "raw_sequence_data_processing_method",
           "rank": 106,
           "slot_group": "Bioinformatics and QC metrics"
         },
-        "dehosting method": {
-          "name": "dehosting method",
+        "dehosting_method": {
+          "name": "dehosting_method",
           "rank": 107,
           "slot_group": "Bioinformatics and QC metrics"
         },
-        "consensus sequence name": {
-          "name": "consensus sequence name",
+        "consensus_sequence_name": {
+          "name": "consensus_sequence_name",
           "rank": 108,
           "slot_group": "Bioinformatics and QC metrics"
         },
-        "consensus sequence filename": {
-          "name": "consensus sequence filename",
+        "consensus_sequence_filename": {
+          "name": "consensus_sequence_filename",
           "rank": 109,
           "slot_group": "Bioinformatics and QC metrics"
         },
-        "consensus sequence filepath": {
-          "name": "consensus sequence filepath",
+        "consensus_sequence_filepath": {
+          "name": "consensus_sequence_filepath",
           "rank": 110,
           "slot_group": "Bioinformatics and QC metrics"
         },
-        "consensus sequence software name": {
-          "name": "consensus sequence software name",
+        "consensus_sequence_software_name": {
+          "name": "consensus_sequence_software_name",
           "rank": 111,
           "slot_group": "Bioinformatics and QC metrics"
         },
-        "consensus sequence software version": {
-          "name": "consensus sequence software version",
+        "consensus_sequence_software_version": {
+          "name": "consensus_sequence_software_version",
           "rank": 112,
           "slot_group": "Bioinformatics and QC metrics"
         },
-        "breadth of coverage value": {
-          "name": "breadth of coverage value",
+        "breadth_of_coverage_value": {
+          "name": "breadth_of_coverage_value",
           "rank": 113,
           "slot_group": "Bioinformatics and QC metrics"
         },
-        "depth of coverage value": {
-          "name": "depth of coverage value",
+        "depth_of_coverage_value": {
+          "name": "depth_of_coverage_value",
           "rank": 114,
           "slot_group": "Bioinformatics and QC metrics"
         },
-        "depth of coverage threshold": {
-          "name": "depth of coverage threshold",
+        "depth_of_coverage_threshold": {
+          "name": "depth_of_coverage_threshold",
           "rank": 115,
           "slot_group": "Bioinformatics and QC metrics"
         },
-        "r1 fastq filename": {
-          "name": "r1 fastq filename",
+        "r1_fastq_filename________": {
+          "name": "r1_fastq_filename________",
           "rank": 116,
           "slot_group": "Bioinformatics and QC metrics"
         },
-        "r2 fastq filename": {
-          "name": "r2 fastq filename",
+        "r2_fastq_filename": {
+          "name": "r2_fastq_filename",
           "rank": 117,
           "slot_group": "Bioinformatics and QC metrics"
         },
-        "r1 fastq filepath": {
-          "name": "r1 fastq filepath",
+        "r1_fastq_filepath": {
+          "name": "r1_fastq_filepath",
           "rank": 118,
           "slot_group": "Bioinformatics and QC metrics"
         },
-        "r2 fastq filepath": {
-          "name": "r2 fastq filepath",
+        "r2_fastq_filepath": {
+          "name": "r2_fastq_filepath",
           "rank": 119,
           "slot_group": "Bioinformatics and QC metrics"
         },
-        "fast5 filename": {
-          "name": "fast5 filename",
+        "fast5_filename": {
+          "name": "fast5_filename",
           "rank": 120,
           "slot_group": "Bioinformatics and QC metrics"
         },
-        "fast5 filepath": {
-          "name": "fast5 filepath",
+        "fast5_filepath": {
+          "name": "fast5_filepath",
           "rank": 121,
           "slot_group": "Bioinformatics and QC metrics"
         },
-        "number of base pairs sequenced": {
-          "name": "number of base pairs sequenced",
+        "number_of_base_pairs_sequenced": {
+          "name": "number_of_base_pairs_sequenced",
           "rank": 122,
           "slot_group": "Bioinformatics and QC metrics"
         },
-        "consensus genome length": {
-          "name": "consensus genome length",
+        "consensus_genome_length": {
+          "name": "consensus_genome_length",
           "rank": 123,
           "slot_group": "Bioinformatics and QC metrics"
         },
-        "Ns per 100 kbp": {
-          "name": "Ns per 100 kbp",
+        "ns_per_100_kbp": {
+          "name": "ns_per_100_kbp",
           "rank": 124,
           "slot_group": "Bioinformatics and QC metrics"
         },
-        "reference genome accession": {
-          "name": "reference genome accession",
+        "reference_genome_accession": {
+          "name": "reference_genome_accession",
           "rank": 125,
           "slot_group": "Bioinformatics and QC metrics"
         },
-        "bioinformatics protocol": {
-          "name": "bioinformatics protocol",
+        "bioinformatics_protocol": {
+          "name": "bioinformatics_protocol",
           "rank": 126,
           "slot_group": "Bioinformatics and QC metrics"
         },
-        "lineage/clade name": {
-          "name": "lineage/clade name",
+        "lineage_clade_name": {
+          "name": "lineage_clade_name",
           "rank": 127,
           "slot_group": "Lineage and Variant information"
         },
-        "lineage/clade analysis software name": {
-          "name": "lineage/clade analysis software name",
+        "lineage_clade_analysis_software_name": {
+          "name": "lineage_clade_analysis_software_name",
           "rank": 128,
           "slot_group": "Lineage and Variant information"
         },
-        "lineage/clade analysis software version": {
-          "name": "lineage/clade analysis software version",
+        "lineage_clade_analysis_software_version": {
+          "name": "lineage_clade_analysis_software_version",
           "rank": 129,
           "slot_group": "Lineage and Variant information"
         },
-        "variant designation": {
-          "name": "variant designation",
+        "variant_designation": {
+          "name": "variant_designation",
           "rank": 130,
           "slot_group": "Lineage and Variant information"
         },
-        "variant evidence": {
-          "name": "variant evidence",
+        "variant_evidence": {
+          "name": "variant_evidence",
           "rank": 131,
           "slot_group": "Lineage and Variant information"
         },
-        "variant evidence details": {
-          "name": "variant evidence details",
+        "variant_evidence_details": {
+          "name": "variant_evidence_details",
           "rank": 132,
           "slot_group": "Lineage and Variant information"
         },
-        "gene name 1": {
-          "name": "gene name 1",
+        "gene_name_1": {
+          "name": "gene_name_1",
           "rank": 133,
           "slot_group": "Pathogen diagnostic testing"
         },
-        "diagnostic pcr protocol 1": {
-          "name": "diagnostic pcr protocol 1",
+        "diagnostic_pcr_protocol_1": {
+          "name": "diagnostic_pcr_protocol_1",
           "rank": 134,
           "slot_group": "Pathogen diagnostic testing"
         },
-        "diagnostic pcr Ct value 1": {
-          "name": "diagnostic pcr Ct value 1",
+        "diagnostic_pcr_ct_value_1": {
+          "name": "diagnostic_pcr_ct_value_1",
           "rank": 135,
           "slot_group": "Pathogen diagnostic testing"
         },
-        "gene name 2": {
-          "name": "gene name 2",
+        "gene_name_2": {
+          "name": "gene_name_2",
           "rank": 136,
           "slot_group": "Pathogen diagnostic testing"
         },
-        "diagnostic pcr protocol 2": {
-          "name": "diagnostic pcr protocol 2",
+        "diagnostic_pcr_protocol_2": {
+          "name": "diagnostic_pcr_protocol_2",
           "rank": 137,
           "slot_group": "Pathogen diagnostic testing"
         },
-        "diagnostic pcr Ct value 2": {
-          "name": "diagnostic pcr Ct value 2",
+        "diagnostic_pcr_ct_value_2": {
+          "name": "diagnostic_pcr_ct_value_2",
           "rank": 138,
           "slot_group": "Pathogen diagnostic testing"
         },
-        "gene name 3": {
-          "name": "gene name 3",
+        "gene_name_3": {
+          "name": "gene_name_3",
           "rank": 139,
           "slot_group": "Pathogen diagnostic testing"
         },
-        "diagnostic pcr protocol 3": {
-          "name": "diagnostic pcr protocol 3",
+        "diagnostic_pcr_protocol_3": {
+          "name": "diagnostic_pcr_protocol_3",
           "rank": 140,
           "slot_group": "Pathogen diagnostic testing"
         },
-        "diagnostic pcr Ct value 3": {
-          "name": "diagnostic pcr Ct value 3",
+        "diagnostic_pcr_ct_value_3": {
+          "name": "diagnostic_pcr_ct_value_3",
           "rank": 141,
           "slot_group": "Pathogen diagnostic testing"
         },
@@ -9700,22 +9700,22 @@
           "rank": 142,
           "slot_group": "Contributor acknowledgement"
         },
-        "DataHarmonizer provenance": {
-          "name": "DataHarmonizer provenance",
+        "dataharmonizer_provenance": {
+          "name": "dataharmonizer_provenance",
           "rank": 143,
           "slot_group": "Contributor acknowledgement"
         }
       },
       "attributes": {
-        "specimen collector sample ID": {
-          "name": "specimen collector sample ID",
+        "specimen_collector_sample_id": {
+          "name": "specimen_collector_sample_id",
           "description": "The user-defined name for the sample.",
           "title": "specimen collector sample ID",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 1,
           "slot_uri": "GENEPIO:0001123",
           "identifier": true,
-          "alias": "specimen_collector_sample_ID",
+          "alias": "specimen_collector_sample_id",
           "owner": "CanCOGeN Covid-19",
           "domain_of": [
             "CanCOGeN Covid-19"
@@ -9724,8 +9724,8 @@
           "range": "WhitespaceMinimizedString",
           "required": true
         },
-        "third party lab service provider name": {
-          "name": "third party lab service provider name",
+        "third_party_lab_service_provider_name": {
+          "name": "third_party_lab_service_provider_name",
           "description": "The name of the third party company or laboratory that provided services.",
           "title": "third party lab service provider name",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -9739,14 +9739,14 @@
           "slot_group": "Database Identifiers",
           "range": "WhitespaceMinimizedString"
         },
-        "third party lab sample ID": {
-          "name": "third party lab sample ID",
+        "third_party_lab_sample_id": {
+          "name": "third_party_lab_sample_id",
           "description": "The identifier assigned to a sample by a third party service provider.",
           "title": "third party lab sample ID",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 3,
           "slot_uri": "GENEPIO:0001149",
-          "alias": "third_party_lab_sample_ID",
+          "alias": "third_party_lab_sample_id",
           "owner": "CanCOGeN Covid-19",
           "domain_of": [
             "CanCOGeN Covid-19"
@@ -9754,14 +9754,14 @@
           "slot_group": "Database Identifiers",
           "range": "WhitespaceMinimizedString"
         },
-        "case ID": {
-          "name": "case ID",
+        "case_id": {
+          "name": "case_id",
           "description": "The identifier used to specify an epidemiologically detected case of disease.",
           "title": "case ID",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 4,
           "slot_uri": "GENEPIO:0100281",
-          "alias": "case_ID",
+          "alias": "case_id",
           "owner": "CanCOGeN Covid-19",
           "domain_of": [
             "CanCOGeN Covid-19"
@@ -9770,28 +9770,28 @@
           "range": "WhitespaceMinimizedString",
           "recommended": true
         },
-        "Related specimen primary ID": {
-          "name": "Related specimen primary ID",
+        "related_specimen_primary_id": {
+          "name": "related_specimen_primary_id",
           "description": "The primary ID of a related specimen previously submitted to the repository.",
           "title": "Related specimen primary ID",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 5,
           "slot_uri": "GENEPIO:0001128",
-          "alias": "Related_specimen_primary_ID",
+          "alias": "related_specimen_primary_id",
           "owner": "CanCOGeN Covid-19",
           "domain_of": [
             "CanCOGeN Covid-19"
           ],
           "slot_group": "Database Identifiers"
         },
-        "IRIDA sample name": {
-          "name": "IRIDA sample name",
+        "irida_sample_name": {
+          "name": "irida_sample_name",
           "description": "The identifier assigned to a sequenced isolate in IRIDA.",
           "title": "IRIDA sample name",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 6,
           "slot_uri": "GENEPIO:0001131",
-          "alias": "IRIDA_sample_name",
+          "alias": "irida_sample_name",
           "owner": "CanCOGeN Covid-19",
           "domain_of": [
             "CanCOGeN Covid-19"
@@ -9799,8 +9799,8 @@
           "slot_group": "Database Identifiers",
           "range": "WhitespaceMinimizedString"
         },
-        "umbrella bioproject accession": {
-          "name": "umbrella bioproject accession",
+        "umbrella_bioproject_accession": {
+          "name": "umbrella_bioproject_accession",
           "description": "The INSDC accession number assigned to the umbrella BioProject for the Canadian SARS-CoV-2 sequencing effort.",
           "title": "umbrella bioproject accession",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -9812,15 +9812,15 @@
             "CanCOGeN Covid-19"
           ],
           "slot_group": "Database Identifiers",
-          "range": "umbrella bioproject accession menu",
+          "range": "UmbrellaBioprojectAccessionMenu",
           "structured_pattern": {
             "syntax": "{UPPER_CASE}",
             "interpolated": true,
             "partial_match": false
           }
         },
-        "bioproject accession": {
-          "name": "bioproject accession",
+        "bioproject_accession": {
+          "name": "bioproject_accession",
           "description": "The INSDC accession number of the BioProject(s) to which the BioSample belongs.",
           "title": "bioproject accession",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -9839,8 +9839,8 @@
             "partial_match": false
           }
         },
-        "biosample accession": {
-          "name": "biosample accession",
+        "biosample_accession": {
+          "name": "biosample_accession",
           "description": "The identifier assigned to a BioSample in INSDC archives.",
           "title": "biosample accession",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -9859,14 +9859,14 @@
             "partial_match": false
           }
         },
-        "SRA accession": {
-          "name": "SRA accession",
+        "sra_accession": {
+          "name": "sra_accession",
           "description": "The Sequence Read Archive (SRA) identifier linking raw read data, methodological metadata and quality control metrics submitted to the INSDC.",
           "title": "SRA accession",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 10,
           "slot_uri": "GENEPIO:0001142",
-          "alias": "SRA_accession",
+          "alias": "sra_accession",
           "owner": "CanCOGeN Covid-19",
           "domain_of": [
             "CanCOGeN Covid-19"
@@ -9879,14 +9879,14 @@
             "partial_match": false
           }
         },
-        "GenBank accession": {
-          "name": "GenBank accession",
+        "genbank_accession": {
+          "name": "genbank_accession",
           "description": "The GenBank identifier assigned to the sequence in the INSDC archives.",
           "title": "GenBank accession",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 11,
           "slot_uri": "GENEPIO:0001145",
-          "alias": "GenBank_accession",
+          "alias": "genbank_accession",
           "owner": "CanCOGeN Covid-19",
           "domain_of": [
             "CanCOGeN Covid-19"
@@ -9899,14 +9899,14 @@
             "partial_match": false
           }
         },
-        "GISAID accession": {
-          "name": "GISAID accession",
+        "gisaid_accession": {
+          "name": "gisaid_accession",
           "description": "The GISAID accession number assigned to the sequence.",
           "title": "GISAID accession",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 12,
           "slot_uri": "GENEPIO:0001147",
-          "alias": "GISAID_accession",
+          "alias": "gisaid_accession",
           "owner": "CanCOGeN Covid-19",
           "domain_of": [
             "CanCOGeN Covid-19"
@@ -9919,8 +9919,8 @@
             "partial_match": false
           }
         },
-        "sample collected by": {
-          "name": "sample collected by",
+        "sample_collected_by": {
+          "name": "sample_collected_by",
           "description": "The name of the agency that collected the original sample.",
           "title": "sample collected by",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -9934,8 +9934,8 @@
           "slot_group": "Sample collection and processing",
           "required": true
         },
-        "sample collector contact email": {
-          "name": "sample collector contact email",
+        "sample_collector_contact_email": {
+          "name": "sample_collector_contact_email",
           "description": "The email address of the contact responsible for follow-up regarding the sample.",
           "title": "sample collector contact email",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -9950,8 +9950,8 @@
           "range": "WhitespaceMinimizedString",
           "pattern": "^\\S+@\\S+\\.\\S+$"
         },
-        "sample collector contact address": {
-          "name": "sample collector contact address",
+        "sample_collector_contact_address": {
+          "name": "sample_collector_contact_address",
           "description": "The mailing address of the agency submitting the sample.",
           "title": "sample collector contact address",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -9965,8 +9965,8 @@
           "slot_group": "Sample collection and processing",
           "range": "WhitespaceMinimizedString"
         },
-        "sequence submitted by": {
-          "name": "sequence submitted by",
+        "sequence_submitted_by": {
+          "name": "sequence_submitted_by",
           "description": "The name of the agency that generated the sequence.",
           "title": "sequence submitted by",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -9980,8 +9980,8 @@
           "slot_group": "Sample collection and processing",
           "required": true
         },
-        "sequence submitter contact email": {
-          "name": "sequence submitter contact email",
+        "sequence_submitter_contact_email": {
+          "name": "sequence_submitter_contact_email",
           "description": "The email address of the contact responsible for follow-up regarding the sequence.",
           "title": "sequence submitter contact email",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -9995,8 +9995,8 @@
           "slot_group": "Sample collection and processing",
           "range": "WhitespaceMinimizedString"
         },
-        "sequence submitter contact address": {
-          "name": "sequence submitter contact address",
+        "sequence_submitter_contact_address": {
+          "name": "sequence_submitter_contact_address",
           "description": "The mailing address of the agency submitting the sequence.",
           "title": "sequence submitter contact address",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -10010,8 +10010,8 @@
           "slot_group": "Sample collection and processing",
           "range": "WhitespaceMinimizedString"
         },
-        "sample collection date": {
-          "name": "sample collection date",
+        "sample_collection_date": {
+          "name": "sample_collection_date",
           "description": "The date on which the sample was collected.",
           "title": "sample collection date",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -10025,8 +10025,8 @@
           "slot_group": "Sample collection and processing",
           "required": true
         },
-        "sample collection date precision": {
-          "name": "sample collection date precision",
+        "sample_collection_date_precision": {
+          "name": "sample_collection_date_precision",
           "description": "The precision to which the \"sample collection date\" was provided.",
           "title": "sample collection date precision",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -10040,8 +10040,8 @@
           "slot_group": "Sample collection and processing",
           "required": true
         },
-        "sample received date": {
-          "name": "sample received date",
+        "sample_received_date": {
+          "name": "sample_received_date",
           "description": "The date on which the sample was received.",
           "title": "sample received date",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -10054,14 +10054,14 @@
           ],
           "slot_group": "Sample collection and processing"
         },
-        "geo_loc_name (country)": {
-          "name": "geo_loc_name (country)",
+        "geo_loc_name_country": {
+          "name": "geo_loc_name_country",
           "description": "The country where the sample was collected.",
           "title": "geo_loc_name (country)",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 22,
           "slot_uri": "GENEPIO:0001181",
-          "alias": "geo_loc_name_(country)",
+          "alias": "geo_loc_name_country",
           "owner": "CanCOGeN Covid-19",
           "domain_of": [
             "CanCOGeN Covid-19"
@@ -10069,14 +10069,14 @@
           "slot_group": "Sample collection and processing",
           "required": true
         },
-        "geo_loc_name (state/province/territory)": {
-          "name": "geo_loc_name (state/province/territory)",
+        "geo_loc_name_state_province_territory": {
+          "name": "geo_loc_name_state_province_territory",
           "description": "The province/territory where the sample was collected.",
           "title": "geo_loc_name (state/province/territory)",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 23,
           "slot_uri": "GENEPIO:0001185",
-          "alias": "geo_loc_name_(state/province/territory)",
+          "alias": "geo_loc_name_state_province_territory",
           "owner": "CanCOGeN Covid-19",
           "domain_of": [
             "CanCOGeN Covid-19"
@@ -10084,14 +10084,14 @@
           "slot_group": "Sample collection and processing",
           "required": true
         },
-        "geo_loc_name (city)": {
-          "name": "geo_loc_name (city)",
+        "geo_loc_name_city": {
+          "name": "geo_loc_name_city",
           "description": "The city where the sample was collected.",
           "title": "geo_loc_name (city)",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 24,
           "slot_uri": "GENEPIO:0001189",
-          "alias": "geo_loc_name_(city)",
+          "alias": "geo_loc_name_city",
           "owner": "CanCOGeN Covid-19",
           "domain_of": [
             "CanCOGeN Covid-19"
@@ -10129,8 +10129,8 @@
           "slot_group": "Sample collection and processing",
           "required": true
         },
-        "purpose of sampling": {
-          "name": "purpose of sampling",
+        "purpose_of_sampling": {
+          "name": "purpose_of_sampling",
           "description": "The reason that the sample was collected.",
           "title": "purpose of sampling",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -10144,8 +10144,8 @@
           "slot_group": "Sample collection and processing",
           "required": true
         },
-        "purpose of sampling details": {
-          "name": "purpose of sampling details",
+        "purpose_of_sampling_details": {
+          "name": "purpose_of_sampling_details",
           "description": "The description of why the sample was collected, providing specific details.",
           "title": "purpose of sampling details",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -10159,39 +10159,39 @@
           "slot_group": "Sample collection and processing",
           "required": true
         },
-        "NML submitted specimen type": {
-          "name": "NML submitted specimen type",
+        "nml_submitted_specimen_type": {
+          "name": "nml_submitted_specimen_type",
           "description": "The type of specimen submitted to the National Microbiology Laboratory (NML) for testing.",
           "title": "NML submitted specimen type",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 29,
           "slot_uri": "GENEPIO:0001204",
-          "alias": "NML_submitted_specimen_type",
+          "alias": "nml_submitted_specimen_type",
           "owner": "CanCOGeN Covid-19",
           "domain_of": [
             "CanCOGeN Covid-19"
           ],
           "slot_group": "Sample collection and processing",
-          "range": "NML submitted specimen type menu",
+          "range": "NmlSubmittedSpecimenTypeMenu",
           "required": true
         },
-        "Related specimen relationship type": {
-          "name": "Related specimen relationship type",
+        "related_specimen_relationship_type": {
+          "name": "related_specimen_relationship_type",
           "description": "The relationship of the current specimen to the specimen/sample previously submitted to the repository.",
           "title": "Related specimen relationship type",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 30,
           "slot_uri": "GENEPIO:0001209",
-          "alias": "Related_specimen_relationship_type",
+          "alias": "related_specimen_relationship_type",
           "owner": "CanCOGeN Covid-19",
           "domain_of": [
             "CanCOGeN Covid-19"
           ],
           "slot_group": "Sample collection and processing",
-          "range": "Related specimen relationship type menu"
+          "range": "RelatedSpecimenRelationshipTypeMenu"
         },
-        "anatomical material": {
-          "name": "anatomical material",
+        "anatomical_material": {
+          "name": "anatomical_material",
           "description": "A substance obtained from an anatomical part of an organism e.g. tissue, blood.",
           "title": "anatomical material",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -10206,8 +10206,8 @@
           "slot_group": "Sample collection and processing",
           "required": true
         },
-        "anatomical part": {
-          "name": "anatomical part",
+        "anatomical_part": {
+          "name": "anatomical_part",
           "description": "An anatomical part of an organism e.g. oropharynx.",
           "title": "anatomical part",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -10222,8 +10222,8 @@
           "slot_group": "Sample collection and processing",
           "required": true
         },
-        "body product": {
-          "name": "body product",
+        "body_product": {
+          "name": "body_product",
           "description": "A substance excreted/secreted from an organism e.g. feces, urine, sweat.",
           "title": "body product",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -10238,8 +10238,8 @@
           "slot_group": "Sample collection and processing",
           "required": true
         },
-        "environmental material": {
-          "name": "environmental material",
+        "environmental_material": {
+          "name": "environmental_material",
           "description": "A substance obtained from the natural or man-made environment e.g. soil, water, sewage.",
           "title": "environmental material",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -10254,8 +10254,8 @@
           "slot_group": "Sample collection and processing",
           "required": true
         },
-        "environmental site": {
-          "name": "environmental site",
+        "environmental_site": {
+          "name": "environmental_site",
           "description": "An environmental location may describe a site in the natural or built environment e.g. contact surface, metal can, hospital, wet market, bat cave.",
           "title": "environmental site",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -10270,8 +10270,8 @@
           "slot_group": "Sample collection and processing",
           "required": true
         },
-        "collection device": {
-          "name": "collection device",
+        "collection_device": {
+          "name": "collection_device",
           "description": "The instrument or container used to collect the sample e.g. swab.",
           "title": "collection device",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -10286,8 +10286,8 @@
           "slot_group": "Sample collection and processing",
           "required": true
         },
-        "collection method": {
-          "name": "collection method",
+        "collection_method": {
+          "name": "collection_method",
           "description": "The process used to collect the sample e.g. phlebotamy, necropsy.",
           "title": "collection method",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -10302,8 +10302,8 @@
           "slot_group": "Sample collection and processing",
           "required": true
         },
-        "collection protocol": {
-          "name": "collection protocol",
+        "collection_protocol": {
+          "name": "collection_protocol",
           "description": "The name and version of a particular protocol used for sampling.",
           "title": "collection protocol",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -10317,8 +10317,8 @@
           "slot_group": "Sample collection and processing",
           "range": "WhitespaceMinimizedString"
         },
-        "specimen processing": {
-          "name": "specimen processing",
+        "specimen_processing": {
+          "name": "specimen_processing",
           "description": "Any processing applied to the sample during or after receiving the sample.",
           "title": "specimen processing",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -10333,8 +10333,8 @@
           "slot_group": "Sample collection and processing",
           "recommended": true
         },
-        "specimen processing details": {
-          "name": "specimen processing details",
+        "specimen_processing_details": {
+          "name": "specimen_processing_details",
           "description": "Detailed information regarding the processing applied to a sample during or after receiving the sample.",
           "title": "specimen processing details",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -10348,8 +10348,8 @@
           "slot_group": "Sample collection and processing",
           "range": "WhitespaceMinimizedString"
         },
-        "lab host": {
-          "name": "lab host",
+        "lab_host": {
+          "name": "lab_host",
           "description": "Name and description of the laboratory host used to propagate the source organism or material from which the sample was obtained.",
           "title": "lab host",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -10363,8 +10363,8 @@
           "slot_group": "Sample collection and processing",
           "recommended": true
         },
-        "passage number": {
-          "name": "passage number",
+        "passage_number": {
+          "name": "passage_number",
           "description": "Number of passages.",
           "title": "passage number",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -10377,10 +10377,10 @@
           ],
           "slot_group": "Sample collection and processing",
           "recommended": true,
-          "minimum_value": "0"
+          "minimum_value": 0
         },
-        "passage method": {
-          "name": "passage method",
+        "passage_method": {
+          "name": "passage_method",
           "description": "Description of how organism was passaged.",
           "title": "passage method",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -10394,8 +10394,8 @@
           "slot_group": "Sample collection and processing",
           "recommended": true
         },
-        "biomaterial extracted": {
-          "name": "biomaterial extracted",
+        "biomaterial_extracted": {
+          "name": "biomaterial_extracted",
           "description": "The biomaterial extracted from samples for the purpose of sequencing.",
           "title": "biomaterial extracted",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -10408,28 +10408,28 @@
           ],
           "slot_group": "Sample collection and processing"
         },
-        "host (common name)": {
-          "name": "host (common name)",
+        "host_common_name": {
+          "name": "host_common_name",
           "description": "The commonly used name of the host.",
           "title": "host (common name)",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 45,
           "slot_uri": "GENEPIO:0001386",
-          "alias": "host_(common_name)",
+          "alias": "host_common_name",
           "owner": "CanCOGeN Covid-19",
           "domain_of": [
             "CanCOGeN Covid-19"
           ],
           "slot_group": "Host Information"
         },
-        "host (scientific name)": {
-          "name": "host (scientific name)",
+        "host_scientific_name": {
+          "name": "host_scientific_name",
           "description": "The taxonomic, or scientific name of the host.",
           "title": "host (scientific name)",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 46,
           "slot_uri": "GENEPIO:0001387",
-          "alias": "host_(scientific_name)",
+          "alias": "host_scientific_name",
           "owner": "CanCOGeN Covid-19",
           "domain_of": [
             "CanCOGeN Covid-19"
@@ -10437,8 +10437,8 @@
           "slot_group": "Host Information",
           "required": true
         },
-        "host health state": {
-          "name": "host health state",
+        "host_health_state": {
+          "name": "host_health_state",
           "description": "Health status of the host at the time of sample collection.",
           "title": "host health state",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -10451,8 +10451,8 @@
           ],
           "slot_group": "Host Information"
         },
-        "host health status details": {
-          "name": "host health status details",
+        "host_health_status_details": {
+          "name": "host_health_status_details",
           "description": "Further details pertaining to the health or disease status of the host at time of collection.",
           "title": "host health status details",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -10465,8 +10465,8 @@
           ],
           "slot_group": "Host Information"
         },
-        "host health outcome": {
-          "name": "host health outcome",
+        "host_health_outcome": {
+          "name": "host_health_outcome",
           "description": "Disease outcome in the host.",
           "title": "host health outcome",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -10479,8 +10479,8 @@
           ],
           "slot_group": "Host Information"
         },
-        "host disease": {
-          "name": "host disease",
+        "host_disease": {
+          "name": "host_disease",
           "description": "The name of the disease experienced by the host.",
           "title": "host disease",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -10494,8 +10494,8 @@
           "slot_group": "Host Information",
           "required": true
         },
-        "host age": {
-          "name": "host age",
+        "host_age": {
+          "name": "host_age",
           "description": "Age of host at the time of sampling.",
           "title": "host age",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -10508,11 +10508,11 @@
           ],
           "slot_group": "Host Information",
           "required": true,
-          "minimum_value": "0",
-          "maximum_value": "130"
+          "minimum_value": 0,
+          "maximum_value": 130
         },
-        "host age unit": {
-          "name": "host age unit",
+        "host_age_unit": {
+          "name": "host_age_unit",
           "description": "The unit used to measure the host age, in either months or years.",
           "title": "host age unit",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -10526,8 +10526,8 @@
           "slot_group": "Host Information",
           "required": true
         },
-        "host age bin": {
-          "name": "host age bin",
+        "host_age_bin": {
+          "name": "host_age_bin",
           "description": "Age of host at the time of sampling, expressed as an age group.",
           "title": "host age bin",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -10541,8 +10541,8 @@
           "slot_group": "Host Information",
           "required": true
         },
-        "host gender": {
-          "name": "host gender",
+        "host_gender": {
+          "name": "host_gender",
           "description": "The gender of the host at the time of sample collection.",
           "title": "host gender",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -10561,42 +10561,42 @@
             "partial_match": false
           }
         },
-        "host residence geo_loc name (country)": {
-          "name": "host residence geo_loc name (country)",
+        "host_residence_geo_loc_name_country": {
+          "name": "host_residence_geo_loc_name_country",
           "description": "The country of residence of the host.",
           "title": "host residence geo_loc name (country)",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 55,
           "slot_uri": "GENEPIO:0001396",
-          "alias": "host_residence_geo_loc_name_(country)",
+          "alias": "host_residence_geo_loc_name_country",
           "owner": "CanCOGeN Covid-19",
           "domain_of": [
             "CanCOGeN Covid-19"
           ],
           "slot_group": "Host Information"
         },
-        "host residence geo_loc name (state/province/territory)": {
-          "name": "host residence geo_loc name (state/province/territory)",
+        "host_residence_geo_loc_name_state_province_territory": {
+          "name": "host_residence_geo_loc_name_state_province_territory",
           "description": "The state/province/territory of residence of the host.",
           "title": "host residence geo_loc name (state/province/territory)",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 56,
           "slot_uri": "GENEPIO:0001397",
-          "alias": "host_residence_geo_loc_name_(state/province/territory)",
+          "alias": "host_residence_geo_loc_name_state_province_territory",
           "owner": "CanCOGeN Covid-19",
           "domain_of": [
             "CanCOGeN Covid-19"
           ],
           "slot_group": "Host Information"
         },
-        "host subject ID": {
-          "name": "host subject ID",
+        "host_subject_id": {
+          "name": "host_subject_id",
           "description": "A unique identifier by which each host can be referred to e.g. #131",
           "title": "host subject ID",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 57,
           "slot_uri": "GENEPIO:0001398",
-          "alias": "host_subject_ID",
+          "alias": "host_subject_id",
           "owner": "CanCOGeN Covid-19",
           "domain_of": [
             "CanCOGeN Covid-19"
@@ -10604,8 +10604,8 @@
           "slot_group": "Host Information",
           "range": "WhitespaceMinimizedString"
         },
-        "symptom onset date": {
-          "name": "symptom onset date",
+        "symptom_onset_date": {
+          "name": "symptom_onset_date",
           "description": "The date on which the symptoms began or were first noted.",
           "title": "symptom onset date",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -10618,8 +10618,8 @@
           ],
           "slot_group": "Host Information"
         },
-        "signs and symptoms": {
-          "name": "signs and symptoms",
+        "signs_and_symptoms": {
+          "name": "signs_and_symptoms",
           "description": "A perceived change in function or sensation, (loss, disturbance or appearance) indicative of a disease, reported by a patient or clinician.",
           "title": "signs and symptoms",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -10633,15 +10633,15 @@
           ],
           "slot_group": "Host Information"
         },
-        "pre-existing conditions and risk factors": {
-          "name": "pre-existing conditions and risk factors",
+        "preexisting_conditions_and_risk_factors": {
+          "name": "preexisting_conditions_and_risk_factors",
           "description": "Patient pre-existing conditions and risk factors. <li>Pre-existing condition: A medical condition that existed prior to the current infection. <li>Risk Factor: A variable associated with an increased risk of disease or infection.",
           "title": "pre-existing conditions and risk factors",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 60,
           "slot_uri": "GENEPIO:0001401",
           "multivalued": true,
-          "alias": "pre_existing_conditions_and_risk_factors",
+          "alias": "preexisting_conditions_and_risk_factors",
           "owner": "CanCOGeN Covid-19",
           "domain_of": [
             "CanCOGeN Covid-19"
@@ -10663,8 +10663,8 @@
           ],
           "slot_group": "Host Information"
         },
-        "host vaccination status": {
-          "name": "host vaccination status",
+        "host_vaccination_status": {
+          "name": "host_vaccination_status",
           "description": "The vaccination status of the host (fully vaccinated, partially vaccinated, or not vaccinated).",
           "title": "host vaccination status",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -10677,8 +10677,8 @@
           ],
           "slot_group": "Host vaccination information"
         },
-        "number of vaccine doses received": {
-          "name": "number of vaccine doses received",
+        "number_of_vaccine_doses_received": {
+          "name": "number_of_vaccine_doses_received",
           "description": "The number of doses of the vaccine recived by the host.",
           "title": "number of vaccine doses received",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -10692,8 +10692,8 @@
           "slot_group": "Host vaccination information",
           "range": "integer"
         },
-        "vaccination dose 1 vaccine name": {
-          "name": "vaccination dose 1 vaccine name",
+        "vaccination_dose_1_vaccine_name": {
+          "name": "vaccination_dose_1_vaccine_name",
           "description": "The name of the vaccine administered as the first dose of a vaccine regimen.",
           "title": "vaccination dose 1 vaccine name",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -10706,8 +10706,8 @@
           ],
           "slot_group": "Host vaccination information"
         },
-        "vaccination dose 1 vaccination date": {
-          "name": "vaccination dose 1 vaccination date",
+        "vaccination_dose_1_vaccination_date": {
+          "name": "vaccination_dose_1_vaccination_date",
           "description": "The date the first dose of a vaccine was administered.",
           "title": "vaccination dose 1 vaccination date",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -10720,8 +10720,8 @@
           ],
           "slot_group": "Host vaccination information"
         },
-        "vaccination dose 2 vaccine name": {
-          "name": "vaccination dose 2 vaccine name",
+        "vaccination_dose_2_vaccine_name": {
+          "name": "vaccination_dose_2_vaccine_name",
           "description": "The name of the vaccine administered as the second dose of a vaccine regimen.",
           "title": "vaccination dose 2 vaccine name",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -10734,8 +10734,8 @@
           ],
           "slot_group": "Host vaccination information"
         },
-        "vaccination dose 2 vaccination date": {
-          "name": "vaccination dose 2 vaccination date",
+        "vaccination_dose_2_vaccination_date": {
+          "name": "vaccination_dose_2_vaccination_date",
           "description": "The date the second dose of a vaccine was administered.",
           "title": "vaccination dose 2 vaccination date",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -10748,8 +10748,8 @@
           ],
           "slot_group": "Host vaccination information"
         },
-        "vaccination dose 3 vaccine name": {
-          "name": "vaccination dose 3 vaccine name",
+        "vaccination_dose_3_vaccine_name": {
+          "name": "vaccination_dose_3_vaccine_name",
           "description": "The name of the vaccine administered as the third dose of a vaccine regimen.",
           "title": "vaccination dose 3 vaccine name",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -10762,8 +10762,8 @@
           ],
           "slot_group": "Host vaccination information"
         },
-        "vaccination dose 3 vaccination date": {
-          "name": "vaccination dose 3 vaccination date",
+        "vaccination_dose_3_vaccination_date": {
+          "name": "vaccination_dose_3_vaccination_date",
           "description": "The date the third dose of a vaccine was administered.",
           "title": "vaccination dose 3 vaccination date",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -10776,8 +10776,8 @@
           ],
           "slot_group": "Host vaccination information"
         },
-        "vaccination dose 4 vaccine name": {
-          "name": "vaccination dose 4 vaccine name",
+        "vaccination_dose_4_vaccine_name": {
+          "name": "vaccination_dose_4_vaccine_name",
           "description": "The name of the vaccine administered as the fourth dose of a vaccine regimen.",
           "title": "vaccination dose 4 vaccine name",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -10790,8 +10790,8 @@
           ],
           "slot_group": "Host vaccination information"
         },
-        "vaccination dose 4 vaccination date": {
-          "name": "vaccination dose 4 vaccination date",
+        "vaccination_dose_4_vaccination_date": {
+          "name": "vaccination_dose_4_vaccination_date",
           "description": "The date the fourth dose of a vaccine was administered.",
           "title": "vaccination dose 4 vaccination date",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -10804,8 +10804,8 @@
           ],
           "slot_group": "Host vaccination information"
         },
-        "vaccination history": {
-          "name": "vaccination history",
+        "vaccination_history": {
+          "name": "vaccination_history",
           "description": "A description of the vaccines received and the administration dates of a series of vaccinations against a specific disease or a set of diseases.",
           "title": "vaccination history",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -10819,28 +10819,28 @@
           "slot_group": "Host vaccination information",
           "range": "WhitespaceMinimizedString"
         },
-        "location of exposure geo_loc name (country)": {
-          "name": "location of exposure geo_loc name (country)",
+        "location_of_exposure_geo_loc_name_country": {
+          "name": "location_of_exposure_geo_loc_name_country",
           "description": "The country where the host was likely exposed to the causative agent of the illness.",
           "title": "location of exposure geo_loc name (country)",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 73,
           "slot_uri": "GENEPIO:0001410",
-          "alias": "location_of_exposure_geo_loc_name_(country)",
+          "alias": "location_of_exposure_geo_loc_name_country",
           "owner": "CanCOGeN Covid-19",
           "domain_of": [
             "CanCOGeN Covid-19"
           ],
           "slot_group": "Host exposure information"
         },
-        "destination of most recent travel (city)": {
-          "name": "destination of most recent travel (city)",
+        "destination_of_most_recent_travel_city": {
+          "name": "destination_of_most_recent_travel_city",
           "description": "The name of the city that was the destination of most recent travel.",
           "title": "destination of most recent travel (city)",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 74,
           "slot_uri": "GENEPIO:0001411",
-          "alias": "destination_of_most_recent_travel_(city)",
+          "alias": "destination_of_most_recent_travel_city",
           "owner": "CanCOGeN Covid-19",
           "domain_of": [
             "CanCOGeN Covid-19"
@@ -10848,14 +10848,14 @@
           "slot_group": "Host exposure information",
           "range": "WhitespaceMinimizedString"
         },
-        "destination of most recent travel (state/province/territory)": {
-          "name": "destination of most recent travel (state/province/territory)",
+        "destination_of_most_recent_travel_state_province_territory": {
+          "name": "destination_of_most_recent_travel_state_province_territory",
           "description": "The name of the province that was the destination of most recent travel.",
           "title": "destination of most recent travel (state/province/territory)",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 75,
           "slot_uri": "GENEPIO:0001412",
-          "alias": "destination_of_most_recent_travel_(state/province/territory)",
+          "alias": "destination_of_most_recent_travel_state_province_territory",
           "owner": "CanCOGeN Covid-19",
           "domain_of": [
             "CanCOGeN Covid-19"
@@ -10863,22 +10863,22 @@
           "slot_group": "Host exposure information",
           "range": "WhitespaceMinimizedString"
         },
-        "destination of most recent travel (country)": {
-          "name": "destination of most recent travel (country)",
+        "destination_of_most_recent_travel_country": {
+          "name": "destination_of_most_recent_travel_country",
           "description": "The name of the country that was the destination of most recent travel.",
           "title": "destination of most recent travel (country)",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 76,
           "slot_uri": "GENEPIO:0001413",
-          "alias": "destination_of_most_recent_travel_(country)",
+          "alias": "destination_of_most_recent_travel_country",
           "owner": "CanCOGeN Covid-19",
           "domain_of": [
             "CanCOGeN Covid-19"
           ],
           "slot_group": "Host exposure information"
         },
-        "most recent travel departure date": {
-          "name": "most recent travel departure date",
+        "most_recent_travel_departure_date": {
+          "name": "most_recent_travel_departure_date",
           "description": "The date of a person's most recent departure from their primary residence (at that time) on a journey to one or more other locations.",
           "title": "most recent travel departure date",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -10891,8 +10891,8 @@
           ],
           "slot_group": "Host exposure information"
         },
-        "most recent travel return date": {
-          "name": "most recent travel return date",
+        "most_recent_travel_return_date": {
+          "name": "most_recent_travel_return_date",
           "description": "The date of a person's most recent return to some residence from a journey originating at that residence.",
           "title": "most recent travel return date",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -10905,8 +10905,8 @@
           ],
           "slot_group": "Host exposure information"
         },
-        "travel point of entry type": {
-          "name": "travel point of entry type",
+        "travel_point_of_entry_type": {
+          "name": "travel_point_of_entry_type",
           "description": "The type of entry point a traveler arrives through.",
           "title": "travel point of entry type",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -10920,8 +10920,8 @@
           "slot_group": "Host exposure information",
           "recommended": true
         },
-        "border testing test day type": {
-          "name": "border testing test day type",
+        "border_testing_test_day_type": {
+          "name": "border_testing_test_day_type",
           "description": "The day a traveller was tested on or after arrival at their point of entry.",
           "title": "border testing test day type",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -10935,8 +10935,8 @@
           "slot_group": "Host exposure information",
           "recommended": true
         },
-        "travel history": {
-          "name": "travel history",
+        "travel_history": {
+          "name": "travel_history",
           "description": "Travel history in last six months.",
           "title": "travel history",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -10950,8 +10950,8 @@
           "slot_group": "Host exposure information",
           "range": "WhitespaceMinimizedString"
         },
-        "travel history availability": {
-          "name": "travel history availability",
+        "travel_history_availability": {
+          "name": "travel_history_availability",
           "description": "The availability of different types of travel history in the last 6 months (e.g. international, domestic).",
           "title": "travel history availability",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -10964,8 +10964,8 @@
           ],
           "slot_group": "Host exposure information"
         },
-        "exposure event": {
-          "name": "exposure event",
+        "exposure_event": {
+          "name": "exposure_event",
           "description": "Event leading to exposure.",
           "title": "exposure event",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -10978,8 +10978,8 @@
           ],
           "slot_group": "Host exposure information"
         },
-        "exposure contact level": {
-          "name": "exposure contact level",
+        "exposure_contact_level": {
+          "name": "exposure_contact_level",
           "description": "The exposure transmission contact type.",
           "title": "exposure contact level",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -10992,8 +10992,8 @@
           ],
           "slot_group": "Host exposure information"
         },
-        "host role": {
-          "name": "host role",
+        "host_role": {
+          "name": "host_role",
           "description": "The role of the host in relation to the exposure setting.",
           "title": "host role",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -11006,10 +11006,10 @@
             "CanCOGeN Covid-19"
           ],
           "slot_group": "Host exposure information",
-          "range": "host role menu"
+          "range": "HostRoleMenu"
         },
-        "exposure setting": {
-          "name": "exposure setting",
+        "exposure_setting": {
+          "name": "exposure_setting",
           "description": "The setting leading to exposure.",
           "title": "exposure setting",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -11022,10 +11022,10 @@
             "CanCOGeN Covid-19"
           ],
           "slot_group": "Host exposure information",
-          "range": "exposure setting menu"
+          "range": "ExposureSettingMenu"
         },
-        "exposure details": {
-          "name": "exposure details",
+        "exposure_details": {
+          "name": "exposure_details",
           "description": "Additional host exposure information.",
           "title": "exposure details",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -11039,28 +11039,28 @@
           "slot_group": "Host exposure information",
           "range": "WhitespaceMinimizedString"
         },
-        "prior SARS-CoV-2 infection": {
-          "name": "prior SARS-CoV-2 infection",
+        "prior_sarscov2_infection": {
+          "name": "prior_sarscov2_infection",
           "description": "Whether there was prior SARS-CoV-2 infection.",
           "title": "prior SARS-CoV-2 infection",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 88,
           "slot_uri": "GENEPIO:0001435",
-          "alias": "prior_SARS_CoV_2_infection",
+          "alias": "prior_sarscov2_infection",
           "owner": "CanCOGeN Covid-19",
           "domain_of": [
             "CanCOGeN Covid-19"
           ],
           "slot_group": "Host reinfection information"
         },
-        "prior SARS-CoV-2 infection isolate": {
-          "name": "prior SARS-CoV-2 infection isolate",
+        "prior_sarscov2_infection_isolate": {
+          "name": "prior_sarscov2_infection_isolate",
           "description": "The identifier of the isolate found in the prior SARS-CoV-2 infection.",
           "title": "prior SARS-CoV-2 infection isolate",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 89,
           "slot_uri": "GENEPIO:0001436",
-          "alias": "prior_SARS_CoV_2_infection_isolate",
+          "alias": "prior_sarscov2_infection_isolate",
           "owner": "CanCOGeN Covid-19",
           "domain_of": [
             "CanCOGeN Covid-19"
@@ -11068,14 +11068,14 @@
           "slot_group": "Host reinfection information",
           "range": "WhitespaceMinimizedString"
         },
-        "prior SARS-CoV-2 infection date": {
-          "name": "prior SARS-CoV-2 infection date",
+        "prior_sarscov2_infection_date": {
+          "name": "prior_sarscov2_infection_date",
           "description": "The date of diagnosis of the prior SARS-CoV-2 infection.",
           "title": "prior SARS-CoV-2 infection date",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 90,
           "slot_uri": "GENEPIO:0001437",
-          "alias": "prior_SARS_CoV_2_infection_date",
+          "alias": "prior_sarscov2_infection_date",
           "owner": "CanCOGeN Covid-19",
           "domain_of": [
             "CanCOGeN Covid-19"
@@ -11083,28 +11083,28 @@
           "slot_group": "Host reinfection information",
           "range": "date"
         },
-        "prior SARS-CoV-2 antiviral treatment": {
-          "name": "prior SARS-CoV-2 antiviral treatment",
+        "prior_sarscov2_antiviral_treatment": {
+          "name": "prior_sarscov2_antiviral_treatment",
           "description": "Whether there was prior SARS-CoV-2 treatment with an antiviral agent.",
           "title": "prior SARS-CoV-2 antiviral treatment",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 91,
           "slot_uri": "GENEPIO:0001438",
-          "alias": "prior_SARS_CoV_2_antiviral_treatment",
+          "alias": "prior_sarscov2_antiviral_treatment",
           "owner": "CanCOGeN Covid-19",
           "domain_of": [
             "CanCOGeN Covid-19"
           ],
           "slot_group": "Host reinfection information"
         },
-        "prior SARS-CoV-2 antiviral treatment agent": {
-          "name": "prior SARS-CoV-2 antiviral treatment agent",
+        "prior_sarscov2_antiviral_treatment_agent": {
+          "name": "prior_sarscov2_antiviral_treatment_agent",
           "description": "The name of the antiviral treatment agent administered during the prior SARS-CoV-2 infection.",
           "title": "prior SARS-CoV-2 antiviral treatment agent",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 92,
           "slot_uri": "GENEPIO:0001439",
-          "alias": "prior_SARS_CoV_2_antiviral_treatment_agent",
+          "alias": "prior_sarscov2_antiviral_treatment_agent",
           "owner": "CanCOGeN Covid-19",
           "domain_of": [
             "CanCOGeN Covid-19"
@@ -11112,14 +11112,14 @@
           "slot_group": "Host reinfection information",
           "range": "WhitespaceMinimizedString"
         },
-        "prior SARS-CoV-2 antiviral treatment date": {
-          "name": "prior SARS-CoV-2 antiviral treatment date",
+        "prior_sarscov2_antiviral_treatment_date": {
+          "name": "prior_sarscov2_antiviral_treatment_date",
           "description": "The date treatment was first administered during the prior SARS-CoV-2 infection.",
           "title": "prior SARS-CoV-2 antiviral treatment date",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 93,
           "slot_uri": "GENEPIO:0001440",
-          "alias": "prior_SARS_CoV_2_antiviral_treatment_date",
+          "alias": "prior_sarscov2_antiviral_treatment_date",
           "owner": "CanCOGeN Covid-19",
           "domain_of": [
             "CanCOGeN Covid-19"
@@ -11127,8 +11127,8 @@
           "slot_group": "Host reinfection information",
           "range": "date"
         },
-        "purpose of sequencing": {
-          "name": "purpose of sequencing",
+        "purpose_of_sequencing": {
+          "name": "purpose_of_sequencing",
           "description": "The reason that the sample was sequenced.",
           "title": "purpose of sequencing",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -11143,8 +11143,8 @@
           "slot_group": "Sequencing",
           "required": true
         },
-        "purpose of sequencing details": {
-          "name": "purpose of sequencing details",
+        "purpose_of_sequencing_details": {
+          "name": "purpose_of_sequencing_details",
           "description": "The description of why the sample was sequenced providing specific details.",
           "title": "purpose of sequencing details",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -11158,8 +11158,8 @@
           "slot_group": "Sequencing",
           "required": true
         },
-        "sequencing date": {
-          "name": "sequencing date",
+        "sequencing_date": {
+          "name": "sequencing_date",
           "description": "The date the sample was sequenced.",
           "title": "sequencing date",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -11173,14 +11173,14 @@
           "slot_group": "Sequencing",
           "required": true
         },
-        "library ID": {
-          "name": "library ID",
+        "library_id": {
+          "name": "library_id",
           "description": "The user-specified identifier for the library prepared for sequencing.",
           "title": "library ID",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 97,
           "slot_uri": "GENEPIO:0001448",
-          "alias": "library_ID",
+          "alias": "library_id",
           "owner": "CanCOGeN Covid-19",
           "domain_of": [
             "CanCOGeN Covid-19"
@@ -11189,8 +11189,8 @@
           "range": "WhitespaceMinimizedString",
           "recommended": true
         },
-        "amplicon size": {
-          "name": "amplicon size",
+        "amplicon_size": {
+          "name": "amplicon_size",
           "description": "The length of the amplicon generated by PCR amplification.",
           "title": "amplicon size",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -11204,8 +11204,8 @@
           "slot_group": "Sequencing",
           "range": "WhitespaceMinimizedString"
         },
-        "library preparation kit": {
-          "name": "library preparation kit",
+        "library_preparation_kit": {
+          "name": "library_preparation_kit",
           "description": "The name of the DNA library preparation kit used to generate the library being sequenced.",
           "title": "library preparation kit",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -11219,8 +11219,8 @@
           "slot_group": "Sequencing",
           "range": "WhitespaceMinimizedString"
         },
-        "flow cell barcode": {
-          "name": "flow cell barcode",
+        "flow_cell_barcode": {
+          "name": "flow_cell_barcode",
           "description": "The barcode of the flow cell used for sequencing.",
           "title": "flow cell barcode",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -11234,8 +11234,8 @@
           "slot_group": "Sequencing",
           "range": "WhitespaceMinimizedString"
         },
-        "sequencing instrument": {
-          "name": "sequencing instrument",
+        "sequencing_instrument": {
+          "name": "sequencing_instrument",
           "description": "The model of the sequencing instrument used.",
           "title": "sequencing instrument",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -11250,8 +11250,8 @@
           "slot_group": "Sequencing",
           "required": true
         },
-        "sequencing protocol name": {
-          "name": "sequencing protocol name",
+        "sequencing_protocol_name": {
+          "name": "sequencing_protocol_name",
           "description": "The name and version number of the sequencing protocol used.",
           "title": "sequencing protocol name",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -11266,8 +11266,8 @@
           "range": "WhitespaceMinimizedString",
           "recommended": true
         },
-        "sequencing protocol": {
-          "name": "sequencing protocol",
+        "sequencing_protocol": {
+          "name": "sequencing_protocol",
           "description": "The protocol used to generate the sequence.",
           "title": "sequencing protocol",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -11281,8 +11281,8 @@
           "slot_group": "Sequencing",
           "range": "WhitespaceMinimizedString"
         },
-        "sequencing kit number": {
-          "name": "sequencing kit number",
+        "sequencing_kit_number": {
+          "name": "sequencing_kit_number",
           "description": "The manufacturer's kit number.",
           "title": "sequencing kit number",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -11296,8 +11296,8 @@
           "slot_group": "Sequencing",
           "range": "WhitespaceMinimizedString"
         },
-        "amplicon pcr primer scheme": {
-          "name": "amplicon pcr primer scheme",
+        "amplicon_pcr_primer_scheme": {
+          "name": "amplicon_pcr_primer_scheme",
           "description": "The specifications of the primers (primer sequences, binding positions, fragment size generated etc) used to generate the amplicons to be sequenced.",
           "title": "amplicon pcr primer scheme",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -11311,8 +11311,8 @@
           "slot_group": "Sequencing",
           "range": "WhitespaceMinimizedString"
         },
-        "raw sequence data processing method": {
-          "name": "raw sequence data processing method",
+        "raw_sequence_data_processing_method": {
+          "name": "raw_sequence_data_processing_method",
           "description": "The names of the software and version number used for raw data processing such as removing barcodes, adapter trimming, filtering etc.",
           "title": "raw sequence data processing method",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -11327,8 +11327,8 @@
           "range": "WhitespaceMinimizedString",
           "required": true
         },
-        "dehosting method": {
-          "name": "dehosting method",
+        "dehosting_method": {
+          "name": "dehosting_method",
           "description": "The method used to remove host reads from the pathogen sequence.",
           "title": "dehosting method",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -11343,8 +11343,8 @@
           "range": "WhitespaceMinimizedString",
           "required": true
         },
-        "consensus sequence name": {
-          "name": "consensus sequence name",
+        "consensus_sequence_name": {
+          "name": "consensus_sequence_name",
           "description": "The name of the consensus sequence.",
           "title": "consensus sequence name",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -11358,8 +11358,8 @@
           "slot_group": "Bioinformatics and QC metrics",
           "range": "WhitespaceMinimizedString"
         },
-        "consensus sequence filename": {
-          "name": "consensus sequence filename",
+        "consensus_sequence_filename": {
+          "name": "consensus_sequence_filename",
           "description": "The name of the consensus sequence file.",
           "title": "consensus sequence filename",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -11373,8 +11373,8 @@
           "slot_group": "Bioinformatics and QC metrics",
           "range": "WhitespaceMinimizedString"
         },
-        "consensus sequence filepath": {
-          "name": "consensus sequence filepath",
+        "consensus_sequence_filepath": {
+          "name": "consensus_sequence_filepath",
           "description": "The filepath of the consensus sequence file.",
           "title": "consensus sequence filepath",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -11388,8 +11388,8 @@
           "slot_group": "Bioinformatics and QC metrics",
           "range": "WhitespaceMinimizedString"
         },
-        "consensus sequence software name": {
-          "name": "consensus sequence software name",
+        "consensus_sequence_software_name": {
+          "name": "consensus_sequence_software_name",
           "description": "The name of software used to generate the consensus sequence.",
           "title": "consensus sequence software name",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -11404,8 +11404,8 @@
           "range": "WhitespaceMinimizedString",
           "required": true
         },
-        "consensus sequence software version": {
-          "name": "consensus sequence software version",
+        "consensus_sequence_software_version": {
+          "name": "consensus_sequence_software_version",
           "description": "The version of the software used to generate the consensus sequence.",
           "title": "consensus sequence software version",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -11420,8 +11420,8 @@
           "range": "WhitespaceMinimizedString",
           "required": true
         },
-        "breadth of coverage value": {
-          "name": "breadth of coverage value",
+        "breadth_of_coverage_value": {
+          "name": "breadth_of_coverage_value",
           "description": "The percentage of the reference genome covered by the sequenced data, to a prescribed depth.",
           "title": "breadth of coverage value",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -11435,8 +11435,8 @@
           "slot_group": "Bioinformatics and QC metrics",
           "range": "WhitespaceMinimizedString"
         },
-        "depth of coverage value": {
-          "name": "depth of coverage value",
+        "depth_of_coverage_value": {
+          "name": "depth_of_coverage_value",
           "description": "The average number of reads representing a given nucleotide in the reconstructed sequence.",
           "title": "depth of coverage value",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -11450,8 +11450,8 @@
           "slot_group": "Bioinformatics and QC metrics",
           "range": "WhitespaceMinimizedString"
         },
-        "depth of coverage threshold": {
-          "name": "depth of coverage threshold",
+        "depth_of_coverage_threshold": {
+          "name": "depth_of_coverage_threshold",
           "description": "The threshold used as a cut-off for the depth of coverage.",
           "title": "depth of coverage threshold",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -11465,14 +11465,14 @@
           "slot_group": "Bioinformatics and QC metrics",
           "range": "WhitespaceMinimizedString"
         },
-        "r1 fastq filename": {
-          "name": "r1 fastq filename",
+        "r1_fastq_filename________": {
+          "name": "r1_fastq_filename________",
           "description": "The user-specified filename of the r1 FASTQ file.",
           "title": "r1 fastq filename",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 116,
           "slot_uri": "GENEPIO:0001476",
-          "alias": "r1_fastq_filename",
+          "alias": "r1_fastq_filename________",
           "owner": "CanCOGeN Covid-19",
           "domain_of": [
             "CanCOGeN Covid-19"
@@ -11481,8 +11481,8 @@
           "range": "WhitespaceMinimizedString",
           "recommended": true
         },
-        "r2 fastq filename": {
-          "name": "r2 fastq filename",
+        "r2_fastq_filename": {
+          "name": "r2_fastq_filename",
           "description": "The user-specified filename of the r2 FASTQ file.",
           "title": "r2 fastq filename",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -11497,8 +11497,8 @@
           "range": "WhitespaceMinimizedString",
           "recommended": true
         },
-        "r1 fastq filepath": {
-          "name": "r1 fastq filepath",
+        "r1_fastq_filepath": {
+          "name": "r1_fastq_filepath",
           "description": "The location of the r1 FASTQ file within a user's file system.",
           "title": "r1 fastq filepath",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -11512,8 +11512,8 @@
           "slot_group": "Bioinformatics and QC metrics",
           "range": "WhitespaceMinimizedString"
         },
-        "r2 fastq filepath": {
-          "name": "r2 fastq filepath",
+        "r2_fastq_filepath": {
+          "name": "r2_fastq_filepath",
           "description": "The location of the r2 FASTQ file within a user's file system.",
           "title": "r2 fastq filepath",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -11527,8 +11527,8 @@
           "slot_group": "Bioinformatics and QC metrics",
           "range": "WhitespaceMinimizedString"
         },
-        "fast5 filename": {
-          "name": "fast5 filename",
+        "fast5_filename": {
+          "name": "fast5_filename",
           "description": "The user-specified filename of the FAST5 file.",
           "title": "fast5 filename",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -11542,8 +11542,8 @@
           "slot_group": "Bioinformatics and QC metrics",
           "range": "WhitespaceMinimizedString"
         },
-        "fast5 filepath": {
-          "name": "fast5 filepath",
+        "fast5_filepath": {
+          "name": "fast5_filepath",
           "description": "The location of the FAST5 file within a user's file system.",
           "title": "fast5 filepath",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -11557,8 +11557,8 @@
           "slot_group": "Bioinformatics and QC metrics",
           "range": "WhitespaceMinimizedString"
         },
-        "number of base pairs sequenced": {
-          "name": "number of base pairs sequenced",
+        "number_of_base_pairs_sequenced": {
+          "name": "number_of_base_pairs_sequenced",
           "description": "The number of total base pairs generated by the sequencing process.",
           "title": "number of base pairs sequenced",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -11571,10 +11571,10 @@
           ],
           "slot_group": "Bioinformatics and QC metrics",
           "range": "integer",
-          "minimum_value": "0"
+          "minimum_value": 0
         },
-        "consensus genome length": {
-          "name": "consensus genome length",
+        "consensus_genome_length": {
+          "name": "consensus_genome_length",
           "description": "Size of the reconstructed genome described as the number of base pairs.",
           "title": "consensus genome length",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -11587,26 +11587,26 @@
           ],
           "slot_group": "Bioinformatics and QC metrics",
           "range": "integer",
-          "minimum_value": "0"
+          "minimum_value": 0
         },
-        "Ns per 100 kbp": {
-          "name": "Ns per 100 kbp",
+        "ns_per_100_kbp": {
+          "name": "ns_per_100_kbp",
           "description": "The number of N symbols present in the consensus fasta sequence, per 100kbp of sequence.",
           "title": "Ns per 100 kbp",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 124,
           "slot_uri": "GENEPIO:0001484",
-          "alias": "Ns_per_100_kbp",
+          "alias": "ns_per_100_kbp",
           "owner": "CanCOGeN Covid-19",
           "domain_of": [
             "CanCOGeN Covid-19"
           ],
           "slot_group": "Bioinformatics and QC metrics",
           "range": "decimal",
-          "minimum_value": "0"
+          "minimum_value": 0
         },
-        "reference genome accession": {
-          "name": "reference genome accession",
+        "reference_genome_accession": {
+          "name": "reference_genome_accession",
           "description": "A persistent, unique identifier of a genome database entry.",
           "title": "reference genome accession",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -11620,8 +11620,8 @@
           "slot_group": "Bioinformatics and QC metrics",
           "range": "WhitespaceMinimizedString"
         },
-        "bioinformatics protocol": {
-          "name": "bioinformatics protocol",
+        "bioinformatics_protocol": {
+          "name": "bioinformatics_protocol",
           "description": "A description of the overall bioinformatics strategy used.",
           "title": "bioinformatics protocol",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -11636,14 +11636,14 @@
           "range": "WhitespaceMinimizedString",
           "required": true
         },
-        "lineage/clade name": {
-          "name": "lineage/clade name",
+        "lineage_clade_name": {
+          "name": "lineage_clade_name",
           "description": "The name of the lineage or clade.",
           "title": "lineage/clade name",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 127,
           "slot_uri": "GENEPIO:0001500",
-          "alias": "lineage/clade_name",
+          "alias": "lineage_clade_name",
           "owner": "CanCOGeN Covid-19",
           "domain_of": [
             "CanCOGeN Covid-19"
@@ -11651,14 +11651,14 @@
           "slot_group": "Lineage and Variant information",
           "range": "WhitespaceMinimizedString"
         },
-        "lineage/clade analysis software name": {
-          "name": "lineage/clade analysis software name",
+        "lineage_clade_analysis_software_name": {
+          "name": "lineage_clade_analysis_software_name",
           "description": "The name of the software used to determine the lineage/clade.",
           "title": "lineage/clade analysis software name",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 128,
           "slot_uri": "GENEPIO:0001501",
-          "alias": "lineage/clade_analysis_software_name",
+          "alias": "lineage_clade_analysis_software_name",
           "owner": "CanCOGeN Covid-19",
           "domain_of": [
             "CanCOGeN Covid-19"
@@ -11666,14 +11666,14 @@
           "slot_group": "Lineage and Variant information",
           "range": "WhitespaceMinimizedString"
         },
-        "lineage/clade analysis software version": {
-          "name": "lineage/clade analysis software version",
+        "lineage_clade_analysis_software_version": {
+          "name": "lineage_clade_analysis_software_version",
           "description": "The version of the software used to determine the lineage/clade.",
           "title": "lineage/clade analysis software version",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 129,
           "slot_uri": "GENEPIO:0001502",
-          "alias": "lineage/clade_analysis_software_version",
+          "alias": "lineage_clade_analysis_software_version",
           "owner": "CanCOGeN Covid-19",
           "domain_of": [
             "CanCOGeN Covid-19"
@@ -11681,8 +11681,8 @@
           "slot_group": "Lineage and Variant information",
           "range": "WhitespaceMinimizedString"
         },
-        "variant designation": {
-          "name": "variant designation",
+        "variant_designation": {
+          "name": "variant_designation",
           "description": "The variant classification of the lineage/clade i.e. variant, variant of concern.",
           "title": "variant designation",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -11695,8 +11695,8 @@
           ],
           "slot_group": "Lineage and Variant information"
         },
-        "variant evidence": {
-          "name": "variant evidence",
+        "variant_evidence": {
+          "name": "variant_evidence",
           "description": "The evidence used to make the variant determination.",
           "title": "variant evidence",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -11709,8 +11709,8 @@
           ],
           "slot_group": "Lineage and Variant information"
         },
-        "variant evidence details": {
-          "name": "variant evidence details",
+        "variant_evidence_details": {
+          "name": "variant_evidence_details",
           "description": "Details about the evidence used to make the variant determination.",
           "title": "variant evidence details",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -11724,8 +11724,8 @@
           "slot_group": "Lineage and Variant information",
           "range": "WhitespaceMinimizedString"
         },
-        "gene name 1": {
-          "name": "gene name 1",
+        "gene_name_1": {
+          "name": "gene_name_1",
           "description": "The name of the gene used in the diagnostic RT-PCR test.",
           "title": "gene name 1",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -11738,8 +11738,8 @@
           ],
           "slot_group": "Pathogen diagnostic testing"
         },
-        "diagnostic pcr protocol 1": {
-          "name": "diagnostic pcr protocol 1",
+        "diagnostic_pcr_protocol_1": {
+          "name": "diagnostic_pcr_protocol_1",
           "description": "The name and version number of the protocol used for diagnostic marker amplification.",
           "title": "diagnostic pcr protocol 1",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -11753,22 +11753,22 @@
           "slot_group": "Pathogen diagnostic testing",
           "range": "WhitespaceMinimizedString"
         },
-        "diagnostic pcr Ct value 1": {
-          "name": "diagnostic pcr Ct value 1",
+        "diagnostic_pcr_ct_value_1": {
+          "name": "diagnostic_pcr_ct_value_1",
           "description": "The Ct value result from a diagnostic SARS-CoV-2 RT-PCR test.",
           "title": "diagnostic pcr Ct value 1",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 135,
           "slot_uri": "GENEPIO:0001509",
-          "alias": "diagnostic_pcr_Ct_value_1",
+          "alias": "diagnostic_pcr_ct_value_1",
           "owner": "CanCOGeN Covid-19",
           "domain_of": [
             "CanCOGeN Covid-19"
           ],
           "slot_group": "Pathogen diagnostic testing"
         },
-        "gene name 2": {
-          "name": "gene name 2",
+        "gene_name_2": {
+          "name": "gene_name_2",
           "description": "The name of the gene used in the diagnostic RT-PCR test.",
           "title": "gene name 2",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -11781,8 +11781,8 @@
           ],
           "slot_group": "Pathogen diagnostic testing"
         },
-        "diagnostic pcr protocol 2": {
-          "name": "diagnostic pcr protocol 2",
+        "diagnostic_pcr_protocol_2": {
+          "name": "diagnostic_pcr_protocol_2",
           "description": "The name and version number of the protocol used for diagnostic marker amplification.",
           "title": "diagnostic pcr protocol 2",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -11796,22 +11796,22 @@
           "slot_group": "Pathogen diagnostic testing",
           "range": "WhitespaceMinimizedString"
         },
-        "diagnostic pcr Ct value 2": {
-          "name": "diagnostic pcr Ct value 2",
+        "diagnostic_pcr_ct_value_2": {
+          "name": "diagnostic_pcr_ct_value_2",
           "description": "The Ct value result from a diagnostic SARS-CoV-2 RT-PCR test.",
           "title": "diagnostic pcr Ct value 2",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 138,
           "slot_uri": "GENEPIO:0001512",
-          "alias": "diagnostic_pcr_Ct_value_2",
+          "alias": "diagnostic_pcr_ct_value_2",
           "owner": "CanCOGeN Covid-19",
           "domain_of": [
             "CanCOGeN Covid-19"
           ],
           "slot_group": "Pathogen diagnostic testing"
         },
-        "gene name 3": {
-          "name": "gene name 3",
+        "gene_name_3": {
+          "name": "gene_name_3",
           "description": "The name of the gene used in the diagnostic RT-PCR test.",
           "title": "gene name 3",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -11824,8 +11824,8 @@
           ],
           "slot_group": "Pathogen diagnostic testing"
         },
-        "diagnostic pcr protocol 3": {
-          "name": "diagnostic pcr protocol 3",
+        "diagnostic_pcr_protocol_3": {
+          "name": "diagnostic_pcr_protocol_3",
           "description": "The name and version number of the protocol used for diagnostic marker amplification.",
           "title": "diagnostic pcr protocol 3",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
@@ -11839,14 +11839,14 @@
           "slot_group": "Pathogen diagnostic testing",
           "range": "WhitespaceMinimizedString"
         },
-        "diagnostic pcr Ct value 3": {
-          "name": "diagnostic pcr Ct value 3",
+        "diagnostic_pcr_ct_value_3": {
+          "name": "diagnostic_pcr_ct_value_3",
           "description": "The Ct value result from a diagnostic SARS-CoV-2 RT-PCR test.",
           "title": "diagnostic pcr Ct value 3",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 141,
           "slot_uri": "GENEPIO:0001515",
-          "alias": "diagnostic_pcr_Ct_value_3",
+          "alias": "diagnostic_pcr_ct_value_3",
           "owner": "CanCOGeN Covid-19",
           "domain_of": [
             "CanCOGeN Covid-19"
@@ -11869,14 +11869,14 @@
           "range": "WhitespaceMinimizedString",
           "recommended": true
         },
-        "DataHarmonizer provenance": {
-          "name": "DataHarmonizer provenance",
+        "dataharmonizer_provenance": {
+          "name": "dataharmonizer_provenance",
           "description": "The DataHarmonizer software and template version provenance.",
           "title": "DataHarmonizer provenance",
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 143,
           "slot_uri": "GENEPIO:0001518",
-          "alias": "DataHarmonizer_provenance",
+          "alias": "dataharmonizer_provenance",
           "owner": "CanCOGeN Covid-19",
           "domain_of": [
             "CanCOGeN Covid-19"
