@@ -243,6 +243,46 @@
     "en": "Reference Guide for",
     "fr": "Guide de référence pour"
   },
+  "reference_guide_msg_pattern_regex": {
+    "en": "Pattern as regular expression:",
+    "fr": "Motif en tant qu'expression régulière :"
+  },
+  "reference_guide_msg_pattern_hint": {
+    "en": "Pattern hint:",
+    "fr": "Indice du motif :"
+  },
+  "reference_guide_msg_value_comparison": {
+    "en": "Value should be",
+    "fr": "La valeur doit être"
+  },
+  "reference_guide_msg_value_comparison_btwn_1": {
+    "en": "between",
+    "fr": "comprise entre"
+  },
+  "reference_guide_msg_value_comparison_btwn_2": {
+    "en": "and",
+    "fr": "et"
+  },
+  "reference_guide_msg_value_comparison_btwn_3": {
+    "en": "(inclusive).",
+    "fr": "(inclus)."
+  },
+  "reference_guide_msg_value_comparison_gte": {
+    "en": "greater than or equal to",
+    "fr": "supérieure ou égale à"
+  },
+  "reference_guide_msg_value_comparison_lte": {
+    "en": "less than or equal to",
+    "fr": "inférieure ou égale à"
+  },
+  "reference_guide_msg_unique_record": {
+    "en": "Each record must have a unique value for this field.",
+    "fr": "Chaque enregistrement doit avoir une valeur unique pour ce champ."
+  },
+  "reference_guide_msg_more_than_one_selection": {
+    "en": "More than one selection is allowed.",
+    "fr": "Plus d'une sélection est autorisée."
+  },
   "carousel-caption-text-0": {
     "en": "The DataHarmonizer contextual data collection template\nand validator application enables users to enter data as\nin an excel spreadsheet - type and pick values from\ndropdowns, copy/paste, add rows, etc. You can edit the cells\nmanually, or upload .xlsx, .xls, .tsv, .csv and .json\nfiles via **File** > **Open**.",
     "fr": "Le modèle de collecte de données contextuelles et l'application de validation DataHarmonizer permettent aux utilisateurs d'entrer des données comme dans une feuille de calcul Excel - taper et choisir des valeurs dans des menus déroulants, copier/coller, ajouter des lignes, etc. Vous pouvez éditer les cellules manuellement, ou télécharger des fichiers .xlsx, .xls, .tsv, .csv et .json via **Fichier** > **Ouvrir**."
