@@ -5,7 +5,6 @@ TrueFalseMenu	TrueFalseMenu		TRUE
 DataTypeMenu	DataTypeMenu		string					
 			WhitespaceMinimizedString					
 			boolean					
-			TrueFalseMenu					
 			integer					
 			decimal					
 			double					
@@ -19,6 +18,8 @@ DataTypeMenu	DataTypeMenu		string
 			uri					
 			schema					
 			Provenance					
+			TrueFalseMenu					
+			DataTypeMenu					
 			LanguagesMenu					
 								
 LanguagesMenu	LanguagesMenu		en					

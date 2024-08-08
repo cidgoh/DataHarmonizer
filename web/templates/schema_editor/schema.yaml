@@ -31,30 +31,39 @@ classes:
     slot_usage:
       name:
         rank: 1
-        recommended: true
+        slot_group: key
         pattern: ^([A-Z][a-z0-9]+)+$
         description: The coding name of a LinkML schema.
-        comments: A schema contains classes for describing one or more DataHarmonizer
-          templates, fields/columns, and picklists (which are themselves LinkML classes,
-          slots, and enumerations).
+        comments: 'This is a **CamelCase** formatted name in the LinkML standard naming
+          convention.
+
+
+          A schema contains classes for describing one or more DataHarmonizer templates,
+          fields/columns, and picklists (which are themselves LinkML classes, slots,
+          and enumerations).'
         examples:
         - value: Wastewater
         range: string
       description:
         rank: 2
-        description: A description of this LinkML schema.
+        slot_group: attributes
+        description: A plan text description of this LinkML schema.
         range: string
       id:
         rank: 3
+        slot_group: attributes
       version:
         rank: 4
+        slot_group: attributes
         required: true
         description: A semantic version identifier for this schema.
         comments: See https://semver.org/
       in_language:
         rank: 5
+        slot_group: attributes
       default_prefix:
         rank: 6
+        slot_group: attributes
   Slot:
     name: Slot
     description: One or more slots contained in given schema. A slot can be used in
@@ -80,10 +89,14 @@ classes:
     slot_usage:
       schema_id:
         rank: 1
+        slot_group: key
+        description: The coding name of the schema this slot is contained in.
+        comments: This is a snake_case formatted name in the LinkML standard naming
+          convention.
       name:
         rank: 2
-        identifier: true
-        description: A slot contained in given schema.
+        slot_group: key
+        description: The coding name of this LinkML schema slot.
         comments: A slot can be used in one or more classes (templates). A slot appears
           as a visible column in a spreadsheet (template) tab, and can define a basic
           number, date, string, picklist (categorical or ordinal), or other single-field
@@ -91,32 +104,55 @@ classes:
         range: string
       title:
         rank: 3
+        slot_group: attributes
         range: string
+        description: The plain language name of this LinkML schema slot.
+        comments: This can be displayed in applications and documentation.
       description:
         rank: 4
+        slot_group: attributes
+        description: A plan text description of this LinkML schema slot.
         range: string
       slot_uri:
         rank: 5
+        slot_group: attributes
       range:
         rank: 6
+        slot_group: attributes
       identifier:
         rank: 7
+        slot_group: attributes
+        description: A boolean TRUE indicates this slot is an identifier, or refers
+          to one.
       multivalued:
         rank: 8
+        slot_group: attributes
+        description: A boolean TRUE indicates this slot can hold more than one values
+          taken from its range.
       required:
         rank: 9
+        slot_group: attributes
+        description: A boolean TRUE indicates this slot is a mandatory data field.
+        comments: A mandatory data field will fail validation if empty.
       recommended:
         rank: 10
+        slot_group: attributes
+        description: A boolean TRUE indicates this slot is a recommended data field.
       minimum_value:
         rank: 11
+        slot_group: attributes
       maximum_value:
         rank: 12
+        slot_group: attributes
       pattern:
         rank: 13
+        slot_group: attributes
       comments:
         rank: 14
+        slot_group: attributes
       examples:
         rank: 15
+        slot_group: attributes
   Enum:
     name: Enum
     description: One or more enumerations in given schema.  An enumeration can be
@@ -127,23 +163,36 @@ classes:
     - name
     - title
     - description
+    - enum_uri
     - permissible_values
     slot_usage:
       schema_id:
         rank: 1
+        slot_group: key
+        description: The coding name of the schema this enumeration is contained in.
       name:
         rank: 2
+        slot_group: key
         range: WhitespaceMinimizedString
-        identifier: true
+        description: The plain language name of this LinkML schema enumeration.
         comments: See https://linkml.io/linkml/schemas/enums.html
       title:
         rank: 3
+        slot_group: attributes
         range: WhitespaceMinimizedString
+        description: The plain language name of this enumeration menu.
       description:
         rank: 4
+        slot_group: attributes
         range: WhitespaceMinimizedString
-      permissible_values:
+        description: A plan text description of this LinkML schema enumeration menu
+          of terms.
+      enum_uri:
         rank: 5
+        slot_group: attributes
+      permissible_values:
+        rank: 6
+        slot_group: attributes
   Class:
     name: Class
     description: One or more classes contained in given schema.  Each class can be
@@ -165,10 +214,12 @@ classes:
     slot_usage:
       schema_id:
         rank: 1
+        slot_group: key
+        description: The coding name of the schema this class is contained in.
       name:
         rank: 2
+        slot_group: key
         range: string
-        identifier: true
         pattern: ^([A-Z][a-z0-9]+)+$
         description: A class contained in given schema.
         comments: Each class can be displayed in DataHarmonizer in a spreadsheet tab.
@@ -179,26 +230,35 @@ classes:
         - value: WastewaterAMR|WastewaterPathogenAgnostic
       title:
         rank: 3
+        slot_group: attributes
         range: string
-        description: The plain language name of a LinkML schema.
+        description: The plain language name of a LinkML schema class.
       description:
         rank: 4
+        slot_group: attributes
         range: string
       version:
         rank: 5
+        slot_group: attributes
         description: A semantic version identifier.  See https://semver.org/
       class_uri:
         rank: 6
+        slot_group: attributes
       slot_usage:
         rank: 7
+        slot_group: attributes
       container_root:
         rank: 8
+        slot_group: attributes
       alias:
         rank: 9
+        slot_group: attributes
       owner:
         rank: 10
+        slot_group: attributes
       Inlined as list:
         rank: 11
+        slot_group: attributes
   SlotUsage:
     name: SlotUsage
     description: A table linking slots to classes they appear in, as well as attributes
@@ -217,24 +277,34 @@ classes:
     slot_usage:
       schema_id:
         rank: 1
+        slot_group: key
       class:
         rank: 2
+        slot_group: key
       slot:
         rank: 3
+        slot_group: attributes
       slot_group:
         rank: 4
+        slot_group: attributes
       rank:
         rank: 5
+        slot_group: attributes
       inlined:
         rank: 6
+        slot_group: attributes
       identifier:
         rank: 7
+        slot_group: attributes
       multivalued:
         rank: 8
+        slot_group: attributes
       required:
         rank: 9
+        slot_group: attributes
       recommended:
         rank: 10
+        slot_group: attributes
   Prefix:
     name: Prefix
     description: A prefix used in the URIs mentioned in this schema.
@@ -245,10 +315,14 @@ classes:
     slot_usage:
       schema_id:
         rank: 1
+        slot_group: key
+        description: The coding name of the schema this prefix is listed in.
       prefix:
         rank: 2
+        slot_group: key
       reference:
         rank: 3
+        slot_group: attributes
   Container:
     tree_root: true
     attributes:
@@ -280,6 +354,7 @@ slots:
   name:
     name: name
     title: Name
+    identifier: true
     required: true
   description:
     name: description
@@ -301,17 +376,23 @@ slots:
   in_language:
     name: in_language
     title: Languages
+    description: A list of i18n language codes that this schema is available in
+    comments: The first listed schema is the default (usually english), while remaining
+      ones are language overlays compiled into a locales/ subfolder.
     range: LanguagesMenu
     multivalued: true
   default_prefix:
     name: default_prefix
     title: Default prefix
+    comments: A prefix to assume all classes and slots can be addressed by.
     range: uri
     required: true
   schema_id:
     name: schema_id
     title: Schema
+    identifier: true
     range: schema
+    required: true
   title:
     name: title
     title: Title
@@ -319,11 +400,14 @@ slots:
   slot_uri:
     name: slot_uri
     title: Slot URI
+    description: A URI for identifying this slot's semantic type.
     range: uri
   range:
     name: range
     title: Range
-    range: string
+    description: The range or ranges a slot is associated with.  If more than one,
+      this appears in the slot's specification as a list of "any of" ranges.
+    range: DataTypeMenu
     multivalued: true
   identifier:
     name: identifier
@@ -344,23 +428,39 @@ slots:
   minimum_value:
     name: minimum_value
     title: Minimum_value
+    description: A minimum value which is appropriate for the range data type of the
+      slot.
     range: integer
   maximum_value:
     name: maximum_value
     title: Maximum_value
+    description: A maximum value which is appropriate for the range data type of the
+      slot.
     range: integer
   pattern:
     name: pattern
     title: Pattern
+    description: A regular expression pattern used to validate a slot's string range
+      data type content.
+    comments: Regular expressions can begin with ^ to ensure start of string is tested,
+      and $ to ensure up to end is tested.
     range: WhitespaceMinimizedString
   comments:
     name: comments
     title: Comments
+    description: A free text field for adding other comments to guide usage of field.
     range: WhitespaceMinimizedString
   examples:
     name: examples
     title: Examples
+    description: A free text field for including examples of string, numeric, date
+      or categorical values.
     range: WhitespaceMinimizedString
+  enum_uri:
+    name: enum_uri
+    title: Enum URI
+    description: A URI for identifying this enumeration's semantic type.
+    range: uri
   permissible_values:
     name: permissible_values
     title: Permissible values
@@ -392,11 +492,15 @@ slots:
   class:
     name: class
     title: Class
+    identifier: true
     range: WhitespaceMinimizedString
+    required: true
   slot:
     name: slot
     title: Slot
+    identifier: true
     range: WhitespaceMinimizedString
+    required: true
   slot_group:
     name: slot_group
     title: Slot Group
@@ -412,11 +516,14 @@ slots:
   prefix:
     name: prefix
     title: Prefix
+    description: The namespace prefix string.
     identifier: true
     range: string
+    required: true
   reference:
     name: reference
     title: Reference
+    description: The URI the prefix expands to.
     range: uri
 enums:
   TrueFalseMenu:
@@ -435,8 +542,6 @@ enums:
         text: WhitespaceMinimizedString
       boolean:
         text: boolean
-      TrueFalseMenu:
-        text: TrueFalseMenu
       integer:
         text: integer
       decimal:
@@ -463,6 +568,10 @@ enums:
         text: schema
       Provenance:
         text: Provenance
+      TrueFalseMenu:
+        text: TrueFalseMenu
+      DataTypeMenu:
+        text: DataTypeMenu
       LanguagesMenu:
         text: LanguagesMenu
   LanguagesMenu:
