@@ -1,3 +1,51 @@
-class_name	slot_group	slot_uri	title	name	range	range_2	identifier	multivalued	required	recommended	minimum_value	maximum_value	pattern	structured_pattern	description	comments	examples	EXPORT_SOMEWHERE		
-TEMPLATE_NAME	Database Identifiers		specimen collector sample ID		WhitespaceMinimizedString		TRUE		TRUE						The user-defined name for the sample.		prov_mpox_1234	Sample ID given by the sample provider	Primary Specimen ID	TEXT_ID	sample_name	specimen collector sample ID			
-TEMPLATE_NAME	Sample collection and processing	GENEPIO:0100416	sequenced by		sequence submitted by menu	null value menu			TRUE						The name of the agency that generated the sequence.		Public Health Ontario (PHO)			PH_SEQUENCING_CENTRE	sequenced_by				
+class_name	slot_group	slot_uri	title	name	range	range_2	identifier	multivalued	required	recommended	minimum_value	maximum_value	pattern	structured_pattern	description	comments	examples
+Schema			Name	name	string				TRUE	TRUE			^([A-Z][a-z0-9]+)+$		The coding name of a LinkML schema.	A schema contains classes for describing one or more DataHarmonizer templates, fields/columns, and picklists (which are themselves LinkML classes, slots, and enumerations).	Wastewater
+			Description	description	string				TRUE						A description of this LinkML schema.		
+			ID	id	uri		TRUE		TRUE						A unique URI for identifying this LinkML schema.		
+			Version	version	string		TRUE		TRUE				^\d+\.\d+\.\d+$		A semantic version identifier for this schema.	See https://semver.org/	
+			Prefixes	prefixes	string												
+			Default prefix	default_prefix	uri				TRUE								
+Slot			Name	name	string		TRUE		TRUE						A slot contained in given schema. 	A slot can be used in one or more classes (templates). A slot appears as a visible column in a spreadsheet (template) tab, and can define a basic number, date, string, picklist (categorical or ordinal), or other single-field datatype.	
+			Title	title	string				TRUE								
+			Description	description	string				TRUE								
+			Slot URI	slot_uri	uri				 								
+			Range	range	string												
+			Identifier	identifier	True False Menu												
+			Multivalued	multivalued	True False Menu												
+			Required	required	True False Menu												
+			Recommended	recommended	True False Menu												
+			Minimum_value	minimum_value	integer												
+			Maximum_value	maximum_value	integer												
+			Pattern	pattern	WhitespaceMinimizedString												
+			Comments	comments	WhitespaceMinimizedString												
+			Examples	examples	WhitespaceMinimizedString												
+Enum			Name	name	string		TRUE		TRUE								
+			Title	title	string				TRUE								
+			Description	description	string				TRUE								
+			Permissible values	permissible_values	string												
+																	
+Class			Name	name	string		TRUE		TRUE				^([A-Z][a-z0-9]+)+$		A class contained in given schema.  	Each class can be displayed in DataHarmonizer in a spreadsheet tab. A class may be visible as a top-level DataHarmonizer "template", or it may be a subordinate 1-many class linked to a parent class by a primary key field.	WastewaterAMR|WastewaterPathogenAgnostic
+			Title	title	string				TRUE						The plain language name of a LinkML schema.		
+			Description	description	string				TRUE								
+			Version	version	string		TRUE						^\d+\.\d+\.\d+$		A semantic version identifier.  See https://semver.org/		
+			Class URI	class_uri	uri												
+			Slot Usage	slot_usage	string												
+			Container	container_root	True False Menu												
+			Alias	alias	string												
+			Owner	owner	string												
+			Inlined as list	Inlined as list	True False Menu												
+																	
+																	
+SlotUsage			Class	class	WhitespaceMinimizedString												
+			Slot	slot	WhitespaceMinimizedString												
+			Slot Group	slot_group	WhitespaceMinimizedString												
+			Rank	rank	integer												
+			Inlined	inlined	True False Menu												
+			Identifier	identifier	True False Menu												
+			Multivalued	multivalued	True False Menu												
+			Required	required	True False Menu												
+			Recommended	recommended	True False Menu												
+																	
+Prefix			Prefix	prefix	string		TRUE										
+			Reference	reference	uri												
+																	

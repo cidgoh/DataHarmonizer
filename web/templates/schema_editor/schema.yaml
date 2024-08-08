@@ -1,0 +1,418 @@
+id: https://example.com/DH_LinkML
+name: DH_LinkML
+description: The DataHarmonizer template for editing a schema.
+version: 1.0.0
+in_language:
+- en
+imports:
+- linkml:types
+prefixes:
+  linkml: https://w3id.org/linkml/
+  ONTOLOGY1: http://purl.obolibrary.org/obo/ONTOLOGY1_
+classes:
+  dh_interface:
+    name: dh_interface
+    description: A DataHarmonizer interface
+    from_schema: https://example.com/GRDI
+  Schema:
+    name: Schema
+    description: The top-level description of a LinkML schema.  A schema contains
+      classes for describing one or more DataHarmonizer templates, fields/columns,
+      and picklists (which are themselves LinkML classes, slots, and enumerations)
+    see_also: templates/schema_editor/SOP.pdf
+    is_a: dh_interface
+    slots:
+    - name
+    - description
+    - id
+    - version
+    - prefixes
+    - default_prefix
+    slot_usage:
+      name:
+        rank: 1
+        recommended: true
+        pattern: ^([A-Z][a-z0-9]+)+$
+        description: The coding name of a LinkML schema.
+        comments: A schema contains classes for describing one or more DataHarmonizer
+          templates, fields/columns, and picklists (which are themselves LinkML classes,
+          slots, and enumerations).
+        examples:
+        - value: Wastewater
+      description:
+        rank: 2
+        description: A description of this LinkML schema.
+      id:
+        rank: 3
+      version:
+        rank: 4
+        required: true
+        description: A semantic version identifier for this schema.
+        comments: See https://semver.org/
+      prefixes:
+        rank: 5
+      default_prefix:
+        rank: 6
+  Class:
+    name: Class
+    description: One or more classes contained in given schema.  Each class can be
+      displayed in DataHarmonizer in a spreadsheet tab.  A class may be a top-level
+      DataHarmonizer "template", or it may be a subordinate 1-many class linked to
+      a parent class by a primary key field.
+    slots:
+    - name
+    - title
+    - description
+    - version
+    - class_uri
+    - slot_usage
+    - container_root
+    - alias
+    - owner
+    - Inlined as list
+    slot_usage:
+      name:
+        rank: 1
+        identifier: true
+        pattern: ^([A-Z][a-z0-9]+)+$
+        description: A class contained in given schema.
+        comments: Each class can be displayed in DataHarmonizer in a spreadsheet tab.
+          A class may be visible as a top-level DataHarmonizer "template", or it may
+          be a subordinate 1-many class linked to a parent class by a primary key
+          field.
+        examples:
+        - value: WastewaterAMR|WastewaterPathogenAgnostic
+      title:
+        rank: 2
+        description: The plain language name of a LinkML schema.
+      description:
+        rank: 3
+      version:
+        rank: 4
+        description: A semantic version identifier.  See https://semver.org/
+      class_uri:
+        rank: 5
+      slot_usage:
+        rank: 6
+      container_root:
+        rank: 7
+      alias:
+        rank: 8
+      owner:
+        rank: 9
+      Inlined as list:
+        rank: 10
+  Slot:
+    name: Slot
+    description: One or more slots contained in given schema. A slot can be used in
+      one or more classes (templates).  A slot defines a visible column in a template,
+      and can be a basic number, date, string, picklist (categorical or ordinal),
+      or other single-field datatype.
+    slots:
+    - name
+    - title
+    - description
+    - slot_uri
+    - range
+    - identifier
+    - multivalued
+    - required
+    - recommended
+    - minimum_value
+    - maximum_value
+    - pattern
+    - comments
+    - examples
+    slot_usage:
+      name:
+        rank: 1
+        identifier: true
+        description: A slot contained in given schema.
+        comments: A slot can be used in one or more classes (templates). A slot appears
+          as a visible column in a spreadsheet (template) tab, and can define a basic
+          number, date, string, picklist (categorical or ordinal), or other single-field
+          datatype.
+      title:
+        rank: 2
+      description:
+        rank: 3
+      slot_uri:
+        rank: 4
+      range:
+        rank: 5
+      identifier:
+        rank: 6
+      multivalued:
+        rank: 7
+      required:
+        rank: 8
+      recommended:
+        rank: 9
+      minimum_value:
+        rank: 10
+      maximum_value:
+        rank: 11
+      pattern:
+        rank: 12
+      comments:
+        rank: 13
+      examples:
+        rank: 14
+  SlotUsage:
+    name: SlotUsage
+    description: A table linking slots to classes they appear in, as well as attributes
+      which override the generic slot inheritance.
+    slots:
+    - class
+    - slot
+    - slot_group
+    - rank
+    - inlined
+    - identifier
+    - multivalued
+    - required
+    - recommended
+    slot_usage:
+      class:
+        rank: 1
+      slot:
+        rank: 2
+      slot_group:
+        rank: 3
+      rank:
+        rank: 4
+      inlined:
+        rank: 5
+      identifier:
+        rank: 6
+      multivalued:
+        rank: 7
+      required:
+        rank: 8
+      recommended:
+        rank: 9
+  Enum:
+    name: Enum
+    description: One or more enumerations in given schema.  An enumeration can be
+      used in the "range" or "any of" attribute of a slot.  Each enumeration has a
+      flat list or hierarchy of permitted values.
+    slots:
+    - name
+    - title
+    - description
+    - permissible_values
+    slot_usage:
+      name:
+        rank: 1
+        identifier: true
+      title:
+        rank: 2
+      description:
+        rank: 3
+      permissible_values:
+        rank: 4
+  Prefix:
+    name: Prefix
+    description: A prefix used in the URIs mentioned in this schema.
+    slots:
+    - prefix
+    - reference
+    slot_usage:
+      prefix:
+        rank: 1
+      reference:
+        rank: 2
+  Container:
+    tree_root: true
+    attributes:
+      Schemas:
+        range: Schema
+        multivalued: true
+        inlined_as_list: true
+      Classes:
+        range: Class
+        multivalued: true
+        inlined_as_list: true
+      Slots:
+        range: Slot
+        multivalued: true
+        inlined_as_list: true
+      SlotUsage:
+        range: null
+        multivalued: true
+        inlined_as_list: true
+      Enums:
+        range: Enum
+        multivalued: true
+        inlined_as_list: true
+      Prefixes:
+        range: Prefix
+        multivalued: true
+        inlined_as_list: true
+slots:
+  name:
+    name: name
+    title: Name
+    range: string
+    required: true
+  description:
+    name: description
+    title: Description
+    range: string
+    required: true
+  id:
+    name: id
+    title: ID
+    description: A unique URI for identifying this LinkML schema.
+    identifier: true
+    range: uri
+    required: true
+  version:
+    name: version
+    title: Version
+    identifier: true
+    range: string
+    pattern: ^\d+\.\d+\.\d+$
+  prefixes:
+    name: prefixes
+    title: Prefixes
+    range: string
+  default_prefix:
+    name: default_prefix
+    title: Default prefix
+    range: uri
+    required: true
+  title:
+    name: title
+    title: Title
+    range: string
+    required: true
+  slot_uri:
+    name: slot_uri
+    title: Slot URI
+    range: uri
+  range:
+    name: range
+    title: Range
+    range: string
+  identifier:
+    name: identifier
+    title: Identifier
+    range: True False Menu
+  multivalued:
+    name: multivalued
+    title: Multivalued
+    range: True False Menu
+  required:
+    name: required
+    title: Required
+    range: True False Menu
+  recommended:
+    name: recommended
+    title: Recommended
+    range: True False Menu
+  minimum_value:
+    name: minimum_value
+    title: Minimum_value
+    range: integer
+  maximum_value:
+    name: maximum_value
+    title: Maximum_value
+    range: integer
+  pattern:
+    name: pattern
+    title: Pattern
+    range: WhitespaceMinimizedString
+  comments:
+    name: comments
+    title: Comments
+    range: WhitespaceMinimizedString
+  examples:
+    name: examples
+    title: Examples
+    range: WhitespaceMinimizedString
+  permissible_values:
+    name: permissible_values
+    title: Permissible values
+    range: string
+  class_uri:
+    name: class_uri
+    title: Class URI
+    range: uri
+  slot_usage:
+    name: slot_usage
+    title: Slot Usage
+    range: string
+  container_root:
+    name: container_root
+    title: Container
+    range: True False Menu
+  alias:
+    name: alias
+    title: Alias
+    range: string
+  owner:
+    name: owner
+    title: Owner
+    range: string
+  Inlined as list:
+    name: Inlined as list
+    title: Inlined as list
+    range: True False Menu
+  class:
+    name: class
+    title: Class
+    range: WhitespaceMinimizedString
+  slot:
+    name: slot
+    title: Slot
+    range: WhitespaceMinimizedString
+  slot_group:
+    name: slot_group
+    title: Slot Group
+    range: WhitespaceMinimizedString
+  rank:
+    name: rank
+    title: Rank
+    range: integer
+  inlined:
+    name: inlined
+    title: Inlined
+    range: True False Menu
+  prefix:
+    name: prefix
+    title: Prefix
+    identifier: true
+    range: string
+  reference:
+    name: reference
+    title: Reference
+    range: uri
+enums:
+  True False Menu:
+    name: True False Menu
+    permissible_values:
+      'TRUE':
+        text: 'TRUE'
+      'FALSE':
+        text: 'FALSE'
+types:
+  WhitespaceMinimizedString:
+    name: WhitespaceMinimizedString
+    typeof: string
+    description: 'A string that has all whitespace trimmed off of beginning and end,
+      and all internal whitespace segments reduced to single spaces. Whitespace includes
+      #x9 (tab), #xA (linefeed), and #xD (carriage return).'
+    base: str
+    uri: xsd:token
+  Provenance:
+    name: Provenance
+    typeof: string
+    description: A field containing a DataHarmonizer versioning marker. It is issued
+      by DataHarmonizer when validation is applied to a given row of data.
+    base: str
+    uri: xsd:token
+settings:
+  Title_Case: (((?<=\b)[^a-z\W]\w*?|[\W])+)
+  UPPER_CASE: '[A-Z\W\d_]*'
+  lower_case: '[a-z\W\d_]*'
