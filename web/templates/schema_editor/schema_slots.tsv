@@ -3,49 +3,52 @@ Schema			Name	name	string				TRUE	TRUE			^([A-Z][a-z0-9]+)+$		The coding name of
 			Description	description	string				TRUE						A description of this LinkML schema.		
 			ID	id	uri		TRUE		TRUE						A unique URI for identifying this LinkML schema.		
 			Version	version	string		TRUE		TRUE				^\d+\.\d+\.\d+$		A semantic version identifier for this schema.	See https://semver.org/	
-			Prefixes	prefixes	string												
+			Languages	in_language	LanguagesMenu			TRUE									
 			Default prefix	default_prefix	uri				TRUE								
-Slot			Name	name	string		TRUE		TRUE						A slot contained in given schema. 	A slot can be used in one or more classes (templates). A slot appears as a visible column in a spreadsheet (template) tab, and can define a basic number, date, string, picklist (categorical or ordinal), or other single-field datatype.	
+Slot			Schema	schema_id	schema												
+			Name	name	string		TRUE		TRUE						A slot contained in given schema. 	A slot can be used in one or more classes (templates). A slot appears as a visible column in a spreadsheet (template) tab, and can define a basic number, date, string, picklist (categorical or ordinal), or other single-field datatype.	
 			Title	title	string				TRUE								
 			Description	description	string				TRUE								
 			Slot URI	slot_uri	uri				 								
-			Range	range	string												
-			Identifier	identifier	True False Menu												
-			Multivalued	multivalued	True False Menu												
-			Required	required	True False Menu												
-			Recommended	recommended	True False Menu												
+			Range	range	string			TRUE									
+			Identifier	identifier	TrueFalseMenu												
+			Multivalued	multivalued	TrueFalseMenu												
+			Required	required	TrueFalseMenu												
+			Recommended	recommended	TrueFalseMenu												
 			Minimum_value	minimum_value	integer												
 			Maximum_value	maximum_value	integer												
 			Pattern	pattern	WhitespaceMinimizedString												
 			Comments	comments	WhitespaceMinimizedString												
 			Examples	examples	WhitespaceMinimizedString												
-Enum			Name	name	string		TRUE		TRUE								
-			Title	title	string				TRUE								
-			Description	description	string				TRUE								
+Enum			Schema	schema_id	schema												
+			Name	name	WhitespaceMinimizedString		TRUE		TRUE							See https://linkml.io/linkml/schemas/enums.html	
+			Title	title	WhitespaceMinimizedString				TRUE								
+			Description	description	WhitespaceMinimizedString				TRUE								
 			Permissible values	permissible_values	string												
 																	
-Class			Name	name	string		TRUE		TRUE				^([A-Z][a-z0-9]+)+$		A class contained in given schema.  	Each class can be displayed in DataHarmonizer in a spreadsheet tab. A class may be visible as a top-level DataHarmonizer "template", or it may be a subordinate 1-many class linked to a parent class by a primary key field.	WastewaterAMR|WastewaterPathogenAgnostic
+																	
+Class			Schema	schema_id	schema												
+			Name	name	string		TRUE		TRUE				^([A-Z][a-z0-9]+)+$		A class contained in given schema.  	Each class can be displayed in DataHarmonizer in a spreadsheet tab. A class may be visible as a top-level DataHarmonizer "template", or it may be a subordinate 1-many class linked to a parent class by a primary key field.	WastewaterAMR|WastewaterPathogenAgnostic
 			Title	title	string				TRUE						The plain language name of a LinkML schema.		
 			Description	description	string				TRUE								
 			Version	version	string		TRUE						^\d+\.\d+\.\d+$		A semantic version identifier.  See https://semver.org/		
 			Class URI	class_uri	uri												
 			Slot Usage	slot_usage	string												
-			Container	container_root	True False Menu												
+			Container	container_root	TrueFalseMenu												
 			Alias	alias	string												
 			Owner	owner	string												
-			Inlined as list	Inlined as list	True False Menu												
-																	
-																	
-SlotUsage			Class	class	WhitespaceMinimizedString												
+			Inlined as list	Inlined as list	TrueFalseMenu												
+SlotUsage			Schema	schema_id	schema												
+			Class	class	WhitespaceMinimizedString												
 			Slot	slot	WhitespaceMinimizedString												
 			Slot Group	slot_group	WhitespaceMinimizedString												
 			Rank	rank	integer												
-			Inlined	inlined	True False Menu												
-			Identifier	identifier	True False Menu												
-			Multivalued	multivalued	True False Menu												
-			Required	required	True False Menu												
-			Recommended	recommended	True False Menu												
-																	
-Prefix			Prefix	prefix	string		TRUE										
+			Inlined	inlined	TrueFalseMenu												
+			Identifier	identifier	TrueFalseMenu												
+			Multivalued	multivalued	TrueFalseMenu												
+			Required	required	TrueFalseMenu												
+			Recommended	recommended	TrueFalseMenu												
+Prefix			Schema	schema_id	schema												
+			Prefix	prefix	string		TRUE										
 			Reference	reference	uri												
 																	

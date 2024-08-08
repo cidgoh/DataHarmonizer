@@ -26,7 +26,7 @@ classes:
     - description
     - id
     - version
-    - prefixes
+    - in_language
     - default_prefix
     slot_usage:
       name:
@@ -39,9 +39,11 @@ classes:
           slots, and enumerations).
         examples:
         - value: Wastewater
+        range: string
       description:
         rank: 2
         description: A description of this LinkML schema.
+        range: string
       id:
         rank: 3
       version:
@@ -49,59 +51,10 @@ classes:
         required: true
         description: A semantic version identifier for this schema.
         comments: See https://semver.org/
-      prefixes:
+      in_language:
         rank: 5
       default_prefix:
         rank: 6
-  Class:
-    name: Class
-    description: One or more classes contained in given schema.  Each class can be
-      displayed in DataHarmonizer in a spreadsheet tab.  A class may be a top-level
-      DataHarmonizer "template", or it may be a subordinate 1-many class linked to
-      a parent class by a primary key field.
-    slots:
-    - name
-    - title
-    - description
-    - version
-    - class_uri
-    - slot_usage
-    - container_root
-    - alias
-    - owner
-    - Inlined as list
-    slot_usage:
-      name:
-        rank: 1
-        identifier: true
-        pattern: ^([A-Z][a-z0-9]+)+$
-        description: A class contained in given schema.
-        comments: Each class can be displayed in DataHarmonizer in a spreadsheet tab.
-          A class may be visible as a top-level DataHarmonizer "template", or it may
-          be a subordinate 1-many class linked to a parent class by a primary key
-          field.
-        examples:
-        - value: WastewaterAMR|WastewaterPathogenAgnostic
-      title:
-        rank: 2
-        description: The plain language name of a LinkML schema.
-      description:
-        rank: 3
-      version:
-        rank: 4
-        description: A semantic version identifier.  See https://semver.org/
-      class_uri:
-        rank: 5
-      slot_usage:
-        rank: 6
-      container_root:
-        rank: 7
-      alias:
-        rank: 8
-      owner:
-        rank: 9
-      Inlined as list:
-        rank: 10
   Slot:
     name: Slot
     description: One or more slots contained in given schema. A slot can be used in
@@ -109,6 +62,7 @@ classes:
       and can be a basic number, date, string, picklist (categorical or ordinal),
       or other single-field datatype.
     slots:
+    - schema_id
     - name
     - title
     - description
@@ -124,45 +78,133 @@ classes:
     - comments
     - examples
     slot_usage:
-      name:
+      schema_id:
         rank: 1
+      name:
+        rank: 2
         identifier: true
         description: A slot contained in given schema.
         comments: A slot can be used in one or more classes (templates). A slot appears
           as a visible column in a spreadsheet (template) tab, and can define a basic
           number, date, string, picklist (categorical or ordinal), or other single-field
           datatype.
+        range: string
       title:
-        rank: 2
-      description:
         rank: 3
-      slot_uri:
+        range: string
+      description:
         rank: 4
-      range:
+        range: string
+      slot_uri:
         rank: 5
-      identifier:
+      range:
         rank: 6
-      multivalued:
+      identifier:
         rank: 7
-      required:
+      multivalued:
         rank: 8
-      recommended:
+      required:
         rank: 9
-      minimum_value:
+      recommended:
         rank: 10
-      maximum_value:
+      minimum_value:
         rank: 11
-      pattern:
+      maximum_value:
         rank: 12
-      comments:
+      pattern:
         rank: 13
-      examples:
+      comments:
         rank: 14
+      examples:
+        rank: 15
+  Enum:
+    name: Enum
+    description: One or more enumerations in given schema.  An enumeration can be
+      used in the "range" or "any of" attribute of a slot.  Each enumeration has a
+      flat list or hierarchy of permitted values.
+    slots:
+    - schema_id
+    - name
+    - title
+    - description
+    - permissible_values
+    slot_usage:
+      schema_id:
+        rank: 1
+      name:
+        rank: 2
+        range: WhitespaceMinimizedString
+        identifier: true
+        comments: See https://linkml.io/linkml/schemas/enums.html
+      title:
+        rank: 3
+        range: WhitespaceMinimizedString
+      description:
+        rank: 4
+        range: WhitespaceMinimizedString
+      permissible_values:
+        rank: 5
+  Class:
+    name: Class
+    description: One or more classes contained in given schema.  Each class can be
+      displayed in DataHarmonizer in a spreadsheet tab.  A class may be a top-level
+      DataHarmonizer "template", or it may be a subordinate 1-many class linked to
+      a parent class by a primary key field.
+    slots:
+    - schema_id
+    - name
+    - title
+    - description
+    - version
+    - class_uri
+    - slot_usage
+    - container_root
+    - alias
+    - owner
+    - Inlined as list
+    slot_usage:
+      schema_id:
+        rank: 1
+      name:
+        rank: 2
+        range: string
+        identifier: true
+        pattern: ^([A-Z][a-z0-9]+)+$
+        description: A class contained in given schema.
+        comments: Each class can be displayed in DataHarmonizer in a spreadsheet tab.
+          A class may be visible as a top-level DataHarmonizer "template", or it may
+          be a subordinate 1-many class linked to a parent class by a primary key
+          field.
+        examples:
+        - value: WastewaterAMR|WastewaterPathogenAgnostic
+      title:
+        rank: 3
+        range: string
+        description: The plain language name of a LinkML schema.
+      description:
+        rank: 4
+        range: string
+      version:
+        rank: 5
+        description: A semantic version identifier.  See https://semver.org/
+      class_uri:
+        rank: 6
+      slot_usage:
+        rank: 7
+      container_root:
+        rank: 8
+      alias:
+        rank: 9
+      owner:
+        rank: 10
+      Inlined as list:
+        rank: 11
   SlotUsage:
     name: SlotUsage
     description: A table linking slots to classes they appear in, as well as attributes
       which override the generic slot inheritance.
     slots:
+    - schema_id
     - class
     - slot
     - slot_group
@@ -173,55 +215,40 @@ classes:
     - required
     - recommended
     slot_usage:
+      schema_id:
+        rank: 1
       class:
-        rank: 1
+        rank: 2
       slot:
-        rank: 2
+        rank: 3
       slot_group:
-        rank: 3
+        rank: 4
       rank:
-        rank: 4
-      inlined:
         rank: 5
-      identifier:
+      inlined:
         rank: 6
-      multivalued:
+      identifier:
         rank: 7
-      required:
+      multivalued:
         rank: 8
-      recommended:
+      required:
         rank: 9
-  Enum:
-    name: Enum
-    description: One or more enumerations in given schema.  An enumeration can be
-      used in the "range" or "any of" attribute of a slot.  Each enumeration has a
-      flat list or hierarchy of permitted values.
-    slots:
-    - name
-    - title
-    - description
-    - permissible_values
-    slot_usage:
-      name:
-        rank: 1
-        identifier: true
-      title:
-        rank: 2
-      description:
-        rank: 3
-      permissible_values:
-        rank: 4
+      recommended:
+        rank: 10
   Prefix:
     name: Prefix
     description: A prefix used in the URIs mentioned in this schema.
     slots:
+    - schema_id
     - prefix
     - reference
     slot_usage:
-      prefix:
+      schema_id:
         rank: 1
-      reference:
+      prefix:
         rank: 2
+      reference:
+        rank: 3
   Container:
     tree_root: true
     attributes:
@@ -237,8 +264,8 @@ classes:
         range: Slot
         multivalued: true
         inlined_as_list: true
-      SlotUsage:
-        range: null
+      SlotUsages:
+        range: SlotUsage
         multivalued: true
         inlined_as_list: true
       Enums:
@@ -253,12 +280,10 @@ slots:
   name:
     name: name
     title: Name
-    range: string
     required: true
   description:
     name: description
     title: Description
-    range: string
     required: true
   id:
     name: id
@@ -273,19 +298,23 @@ slots:
     identifier: true
     range: string
     pattern: ^\d+\.\d+\.\d+$
-  prefixes:
-    name: prefixes
-    title: Prefixes
-    range: string
+  in_language:
+    name: in_language
+    title: Languages
+    range: LanguagesMenu
+    multivalued: true
   default_prefix:
     name: default_prefix
     title: Default prefix
     range: uri
     required: true
+  schema_id:
+    name: schema_id
+    title: Schema
+    range: schema
   title:
     name: title
     title: Title
-    range: string
     required: true
   slot_uri:
     name: slot_uri
@@ -295,22 +324,23 @@ slots:
     name: range
     title: Range
     range: string
+    multivalued: true
   identifier:
     name: identifier
     title: Identifier
-    range: True False Menu
+    range: TrueFalseMenu
   multivalued:
     name: multivalued
     title: Multivalued
-    range: True False Menu
+    range: TrueFalseMenu
   required:
     name: required
     title: Required
-    range: True False Menu
+    range: TrueFalseMenu
   recommended:
     name: recommended
     title: Recommended
-    range: True False Menu
+    range: TrueFalseMenu
   minimum_value:
     name: minimum_value
     title: Minimum_value
@@ -346,7 +376,7 @@ slots:
   container_root:
     name: container_root
     title: Container
-    range: True False Menu
+    range: TrueFalseMenu
   alias:
     name: alias
     title: Alias
@@ -358,7 +388,7 @@ slots:
   Inlined as list:
     name: Inlined as list
     title: Inlined as list
-    range: True False Menu
+    range: TrueFalseMenu
   class:
     name: class
     title: Class
@@ -378,7 +408,7 @@ slots:
   inlined:
     name: inlined
     title: Inlined
-    range: True False Menu
+    range: TrueFalseMenu
   prefix:
     name: prefix
     title: Prefix
@@ -389,13 +419,59 @@ slots:
     title: Reference
     range: uri
 enums:
-  True False Menu:
-    name: True False Menu
+  TrueFalseMenu:
+    name: TrueFalseMenu
     permissible_values:
       'TRUE':
         text: 'TRUE'
       'FALSE':
         text: 'FALSE'
+  DataTypeMenu:
+    name: DataTypeMenu
+    permissible_values:
+      string:
+        text: string
+      WhitespaceMinimizedString:
+        text: WhitespaceMinimizedString
+      boolean:
+        text: boolean
+      TrueFalseMenu:
+        text: TrueFalseMenu
+      integer:
+        text: integer
+      decimal:
+        text: decimal
+      double:
+        text: double
+      float:
+        text: float
+      date:
+        text: date
+      datetime:
+        text: datetime
+      date_or_datetime:
+        text: date_or_datetime
+      time:
+        text: time
+      uriorcurie:
+        text: uriorcurie
+      curie:
+        text: curie
+      uri:
+        text: uri
+      schema:
+        text: schema
+      Provenance:
+        text: Provenance
+      LanguagesMenu:
+        text: LanguagesMenu
+  LanguagesMenu:
+    name: LanguagesMenu
+    permissible_values:
+      en:
+        text: en
+      fr:
+        text: fr
 types:
   WhitespaceMinimizedString:
     name: WhitespaceMinimizedString
