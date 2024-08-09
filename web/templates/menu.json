@@ -97,23 +97,23 @@
       "status": "published",
       "display": true
     },
-    "Class": {
-      "name": "Class",
-      "status": "published",
-      "display": false
-    },
     "Slot": {
       "name": "Slot",
       "status": "published",
       "display": false
     },
-    "SlotUsage": {
-      "name": "SlotUsage",
+    "Enum": {
+      "name": "Enum",
       "status": "published",
       "display": false
     },
-    "Enum": {
-      "name": "Enum",
+    "Class": {
+      "name": "Class",
+      "status": "published",
+      "display": false
+    },
+    "SlotUsage": {
+      "name": "SlotUsage",
       "status": "published",
       "display": false
     },
