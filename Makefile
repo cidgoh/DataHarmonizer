@@ -10,6 +10,7 @@ nmdc: clean $(TEMPLATES_DIR)/nmdc_dh/schema.json
 canada_covid19: clean $(TEMPLATES_DIR)/canada_covid19/schema.json
 
 clean:
+	rm -rf $(TEMPLATES_DIR)/manifest.json
 	rm -rf $(TEMPLATES_DIR)/menu.json
 	rm -rf $(TEMPLATES_DIR)/canada_covid19/schema.json
 	rm -rf $(TEMPLATES_DIR)/MIxS/schema.json

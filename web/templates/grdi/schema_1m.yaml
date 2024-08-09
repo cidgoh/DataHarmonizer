@@ -520,14 +520,9 @@ classes:
           rank: 16
 
   Container:
-
       tree_root: true
       attributes:
-        schema: 
-          range: uri
-        version: 
-          range: string
-        GRDI_Samples:
+        GRDI_samples:
           range: GRDI_Sample
           multivalued: true
           inlined_as_list: true

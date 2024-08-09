@@ -20,209 +20,220 @@ classes:
     is_a: dh_interface
     see_also: templates/canada_covid19/SOP.pdf
     slots:
-    - specimen collector sample ID
-    - third party lab service provider name
-    - third party lab sample ID
-    - case ID
-    - Related specimen primary ID
-    - IRIDA sample name
-    - umbrella bioproject accession
-    - bioproject accession
-    - biosample accession
-    - SRA accession
-    - GenBank accession
-    - GISAID accession
-    - sample collected by
-    - sample collector contact email
-    - sample collector contact address
-    - sequence submitted by
-    - sequence submitter contact email
-    - sequence submitter contact address
-    - sample collection date
-    - sample collection date precision
-    - sample received date
-    - geo_loc_name (country)
-    - geo_loc_name (state/province/territory)
-    - geo_loc_name (city)
+    - specimen_collector_sample_id
+    - third_party_lab_service_provider_name
+    - third_party_lab_sample_id
+    - case_id
+    - related_specimen_primary_id
+    - irida_sample_name
+    - umbrella_bioproject_accession
+    - bioproject_accession
+    - biosample_accession
+    - sra_accession
+    - genbank_accession
+    - gisaid_accession
+    - sample_collected_by
+    - sample_collector_contact_email
+    - sample_collector_contact_address
+    - sequence_submitted_by
+    - sequence_submitter_contact_email
+    - sequence_submitter_contact_address
+    - sample_collection_date
+    - sample_collection_date_precision
+    - sample_received_date
+    - geo_loc_name_country
+    - geo_loc_name_state_province_territory
+    - geo_loc_name_city
     - organism
     - isolate
-    - purpose of sampling
-    - purpose of sampling details
-    - NML submitted specimen type
-    - Related specimen relationship type
-    - anatomical material
-    - anatomical part
-    - body product
-    - environmental material
-    - environmental site
-    - collection device
-    - collection method
-    - collection protocol
-    - specimen processing
-    - specimen processing details
-    - lab host
-    - passage number
-    - passage method
-    - biomaterial extracted
-    - host (common name)
-    - host (scientific name)
-    - host health state
-    - host health status details
-    - host health outcome
-    - host disease
-    - host age
-    - host age unit
-    - host age bin
-    - host gender
-    - host residence geo_loc name (country)
-    - host residence geo_loc name (state/province/territory)
-    - host subject ID
-    - symptom onset date
-    - signs and symptoms
-    - pre-existing conditions and risk factors
+    - purpose_of_sampling
+    - purpose_of_sampling_details
+    - nml_submitted_specimen_type
+    - related_specimen_relationship_type
+    - anatomical_material
+    - anatomical_part
+    - body_product
+    - environmental_material
+    - environmental_site
+    - collection_device
+    - collection_method
+    - collection_protocol
+    - specimen_processing
+    - specimen_processing_details
+    - lab_host
+    - passage_number
+    - passage_method
+    - biomaterial_extracted
+    - host_common_name
+    - host_scientific_name
+    - host_health_state
+    - host_health_status_details
+    - host_health_outcome
+    - host_disease
+    - host_age
+    - host_age_unit
+    - host_age_bin
+    - host_gender
+    - host_residence_geo_loc_name_country
+    - host_residence_geo_loc_name_state_province_territory
+    - host_subject_id
+    - symptom_onset_date
+    - signs_and_symptoms
+    - preexisting_conditions_and_risk_factors
     - complications
-    - host vaccination status
-    - number of vaccine doses received
-    - vaccination dose 1 vaccine name
-    - vaccination dose 1 vaccination date
-    - vaccination dose 2 vaccine name
-    - vaccination dose 2 vaccination date
-    - vaccination dose 3 vaccine name
-    - vaccination dose 3 vaccination date
-    - vaccination dose 4 vaccine name
-    - vaccination dose 4 vaccination date
-    - vaccination history
-    - location of exposure geo_loc name (country)
-    - destination of most recent travel (city)
-    - destination of most recent travel (state/province/territory)
-    - destination of most recent travel (country)
-    - most recent travel departure date
-    - most recent travel return date
-    - travel point of entry type
-    - border testing test day type
-    - travel history
-    - travel history availability
-    - exposure event
-    - exposure contact level
-    - host role
-    - exposure setting
-    - exposure details
-    - prior SARS-CoV-2 infection
-    - prior SARS-CoV-2 infection isolate
-    - prior SARS-CoV-2 infection date
-    - prior SARS-CoV-2 antiviral treatment
-    - prior SARS-CoV-2 antiviral treatment agent
-    - prior SARS-CoV-2 antiviral treatment date
-    - purpose of sequencing
-    - purpose of sequencing details
-    - sequencing date
-    - library ID
-    - amplicon size
-    - library preparation kit
-    - flow cell barcode
-    - sequencing instrument
-    - sequencing protocol name
-    - sequencing protocol
-    - sequencing kit number
-    - amplicon pcr primer scheme
-    - raw sequence data processing method
-    - dehosting method
-    - consensus sequence name
-    - consensus sequence filename
-    - consensus sequence filepath
-    - consensus sequence software name
-    - consensus sequence software version
-    - breadth of coverage value
-    - depth of coverage value
-    - depth of coverage threshold
-    - r1 fastq filename
-    - r2 fastq filename
-    - r1 fastq filepath
-    - r2 fastq filepath
-    - fast5 filename
-    - fast5 filepath
-    - number of base pairs sequenced
-    - consensus genome length
-    - Ns per 100 kbp
-    - reference genome accession
-    - bioinformatics protocol
-    - lineage/clade name
-    - lineage/clade analysis software name
-    - lineage/clade analysis software version
-    - variant designation
-    - variant evidence
-    - variant evidence details
-    - gene name 1
-    - diagnostic pcr protocol 1
-    - diagnostic pcr Ct value 1
-    - gene name 2
-    - diagnostic pcr protocol 2
-    - diagnostic pcr Ct value 2
-    - gene name 3
-    - diagnostic pcr protocol 3
-    - diagnostic pcr Ct value 3
+    - host_vaccination_status
+    - number_of_vaccine_doses_received
+    - vaccination_dose_1_vaccine_name
+    - vaccination_dose_1_vaccination_date
+    - vaccination_dose_2_vaccine_name
+    - vaccination_dose_2_vaccination_date
+    - vaccination_dose_3_vaccine_name
+    - vaccination_dose_3_vaccination_date
+    - vaccination_dose_4_vaccine_name
+    - vaccination_dose_4_vaccination_date
+    - vaccination_history
+    - location_of_exposure_geo_loc_name_country
+    - destination_of_most_recent_travel_city
+    - destination_of_most_recent_travel_state_province_territory
+    - destination_of_most_recent_travel_country
+    - most_recent_travel_departure_date
+    - most_recent_travel_return_date
+    - travel_point_of_entry_type
+    - border_testing_test_day_type
+    - travel_history
+    - travel_history_availability
+    - exposure_event
+    - exposure_contact_level
+    - host_role
+    - exposure_setting
+    - exposure_details
+    - prior_sarscov2_infection
+    - prior_sarscov2_infection_isolate
+    - prior_sarscov2_infection_date
+    - prior_sarscov2_antiviral_treatment
+    - prior_sarscov2_antiviral_treatment_agent
+    - prior_sarscov2_antiviral_treatment_date
+    - purpose_of_sequencing
+    - purpose_of_sequencing_details
+    - sequencing_date
+    - library_id
+    - amplicon_size
+    - library_preparation_kit
+    - flow_cell_barcode
+    - sequencing_instrument
+    - sequencing_protocol_name
+    - sequencing_protocol
+    - sequencing_kit_number
+    - amplicon_pcr_primer_scheme
+    - raw_sequence_data_processing_method
+    - dehosting_method
+    - consensus_sequence_name
+    - consensus_sequence_filename
+    - consensus_sequence_filepath
+    - consensus_sequence_software_name
+    - consensus_sequence_software_version
+    - breadth_of_coverage_value
+    - depth_of_coverage_value
+    - depth_of_coverage_threshold
+    - r1_fastq_filename________
+    - r2_fastq_filename
+    - r1_fastq_filepath
+    - r2_fastq_filepath
+    - fast5_filename
+    - fast5_filepath
+    - number_of_base_pairs_sequenced
+    - consensus_genome_length
+    - ns_per_100_kbp
+    - reference_genome_accession
+    - bioinformatics_protocol
+    - lineage_clade_name
+    - lineage_clade_analysis_software_name
+    - lineage_clade_analysis_software_version
+    - variant_designation
+    - variant_evidence
+    - variant_evidence_details
+    - gene_name_1
+    - diagnostic_pcr_protocol_1
+    - diagnostic_pcr_ct_value_1
+    - gene_name_2
+    - diagnostic_pcr_protocol_2
+    - diagnostic_pcr_ct_value_2
+    - gene_name_3
+    - diagnostic_pcr_protocol_3
+    - diagnostic_pcr_ct_value_3
     - authors
-    - DataHarmonizer provenance
+    - dataharmonizer_provenance
     slot_usage:
-      specimen collector sample ID:
+      specimen_collector_sample_id:
         rank: 1
         slot_group: "Identificateurs de base de donn\xE9es"
-      third party lab service provider name:
+      third_party_lab_service_provider_name:
         rank: 2
-      third party lab sample ID:
+        slot_group: "Identificateurs de base de donn\xE9es"
+      third_party_lab_sample_id:
         rank: 3
-      case ID:
+        slot_group: "Identificateurs de base de donn\xE9es"
+      case_id:
         rank: 4
-      Related specimen primary ID:
+        slot_group: "Identificateurs de base de donn\xE9es"
+      related_specimen_primary_id:
         rank: 5
-      IRIDA sample name:
+        slot_group: "Identificateurs de base de donn\xE9es"
+      irida_sample_name:
         rank: 6
-      umbrella bioproject accession:
+        slot_group: "Identificateurs de base de donn\xE9es"
+      umbrella_bioproject_accession:
         rank: 7
-      bioproject accession:
+        slot_group: "Identificateurs de base de donn\xE9es"
+      bioproject_accession:
         rank: 8
-      biosample accession:
+        slot_group: "Identificateurs de base de donn\xE9es"
+      biosample_accession:
         rank: 9
-      SRA accession:
+        slot_group: "Identificateurs de base de donn\xE9es"
+      sra_accession:
         rank: 10
-      GenBank accession:
+        slot_group: "Identificateurs de base de donn\xE9es"
+      genbank_accession:
         rank: 11
-      GISAID accession:
+        slot_group: "Identificateurs de base de donn\xE9es"
+      gisaid_accession:
         rank: 12
-      sample collected by:
+        slot_group: "Identificateurs de base de donn\xE9es"
+      sample_collected_by:
         rank: 13
         slot_group: "Collecte et traitement des \xE9chantillons"
-      sample collector contact email:
+      sample_collector_contact_email:
         rank: 14
         slot_group: "Collecte et traitement des \xE9chantillons"
-      sample collector contact address:
+      sample_collector_contact_address:
         rank: 15
         slot_group: "Collecte et traitement des \xE9chantillons"
-      sequence submitted by:
+      sequence_submitted_by:
         rank: 16
         slot_group: "Collecte et traitement des \xE9chantillons"
-      sequence submitter contact email:
+      sequence_submitter_contact_email:
         rank: 17
         slot_group: "Collecte et traitement des \xE9chantillons"
-      sequence submitter contact address:
+      sequence_submitter_contact_address:
         rank: 18
         slot_group: "Collecte et traitement des \xE9chantillons"
-      sample collection date:
+      sample_collection_date:
         rank: 19
         slot_group: "Collecte et traitement des \xE9chantillons"
-      sample collection date precision:
+      sample_collection_date_precision:
         rank: 20
         slot_group: "Collecte et traitement des \xE9chantillons"
-      sample received date:
+      sample_received_date:
         rank: 21
         slot_group: "Collecte et traitement des \xE9chantillons"
-      geo_loc_name (country):
+      geo_loc_name_country:
         rank: 22
         slot_group: "Collecte et traitement des \xE9chantillons"
-      geo_loc_name (state/province/territory):
+      geo_loc_name_state_province_territory:
         rank: 23
         slot_group: "Collecte et traitement des \xE9chantillons"
-      geo_loc_name (city):
+      geo_loc_name_city:
         rank: 24
         slot_group: "Collecte et traitement des \xE9chantillons"
       organism:
@@ -231,360 +242,360 @@ classes:
       isolate:
         rank: 26
         slot_group: "Collecte et traitement des \xE9chantillons"
-      purpose of sampling:
+      purpose_of_sampling:
         rank: 27
         slot_group: "Collecte et traitement des \xE9chantillons"
-      purpose of sampling details:
+      purpose_of_sampling_details:
         rank: 28
         slot_group: "Collecte et traitement des \xE9chantillons"
-      NML submitted specimen type:
+      nml_submitted_specimen_type:
         rank: 29
         slot_group: "Collecte et traitement des \xE9chantillons"
-      Related specimen relationship type:
+      related_specimen_relationship_type:
         rank: 30
         slot_group: "Collecte et traitement des \xE9chantillons"
-      anatomical material:
+      anatomical_material:
         rank: 31
         slot_group: "Collecte et traitement des \xE9chantillons"
-      anatomical part:
+      anatomical_part:
         rank: 32
         slot_group: "Collecte et traitement des \xE9chantillons"
-      body product:
+      body_product:
         rank: 33
         slot_group: "Collecte et traitement des \xE9chantillons"
-      environmental material:
+      environmental_material:
         rank: 34
         slot_group: "Collecte et traitement des \xE9chantillons"
-      environmental site:
+      environmental_site:
         rank: 35
         slot_group: "Collecte et traitement des \xE9chantillons"
-      collection device:
+      collection_device:
         rank: 36
         slot_group: "Collecte et traitement des \xE9chantillons"
-      collection method:
+      collection_method:
         rank: 37
         slot_group: "Collecte et traitement des \xE9chantillons"
-      collection protocol:
+      collection_protocol:
         rank: 38
         slot_group: "Collecte et traitement des \xE9chantillons"
-      specimen processing:
+      specimen_processing:
         rank: 39
         slot_group: "Collecte et traitement des \xE9chantillons"
-      specimen processing details:
+      specimen_processing_details:
         rank: 40
         slot_group: "Collecte et traitement des \xE9chantillons"
-      lab host:
+      lab_host:
         rank: 41
         slot_group: "Collecte et traitement des \xE9chantillons"
-      passage number:
+      passage_number:
         rank: 42
         slot_group: "Collecte et traitement des \xE9chantillons"
-      passage method:
+      passage_method:
         rank: 43
         slot_group: "Collecte et traitement des \xE9chantillons"
-      biomaterial extracted:
+      biomaterial_extracted:
         rank: 44
         slot_group: "Collecte et traitement des \xE9chantillons"
-      host (common name):
+      host_common_name:
         rank: 45
         slot_group: "Informations sur l'h\xF4te"
-      host (scientific name):
+      host_scientific_name:
         rank: 46
         slot_group: "Informations sur l'h\xF4te"
-      host health state:
+      host_health_state:
         rank: 47
         slot_group: "Informations sur l'h\xF4te"
-      host health status details:
+      host_health_status_details:
         rank: 48
         slot_group: "Informations sur l'h\xF4te"
-      host health outcome:
+      host_health_outcome:
         rank: 49
         slot_group: "Informations sur l'h\xF4te"
-      host disease:
+      host_disease:
         rank: 50
         slot_group: "Informations sur l'h\xF4te"
-      host age:
+      host_age:
         rank: 51
         slot_group: "Informations sur l'h\xF4te"
-      host age unit:
+      host_age_unit:
         rank: 52
         slot_group: "Informations sur l'h\xF4te"
-      host age bin:
+      host_age_bin:
         rank: 53
         slot_group: "Informations sur l'h\xF4te"
-      host gender:
+      host_gender:
         rank: 54
         slot_group: "Informations sur l'h\xF4te"
-      host residence geo_loc name (country):
+      host_residence_geo_loc_name_country:
         rank: 55
         slot_group: "Informations sur l'h\xF4te"
-      host residence geo_loc name (state/province/territory):
+      host_residence_geo_loc_name_state_province_territory:
         rank: 56
         slot_group: "Informations sur l'h\xF4te"
-      host subject ID:
+      host_subject_id:
         rank: 57
         slot_group: "Informations sur l'h\xF4te"
-      symptom onset date:
+      symptom_onset_date:
         rank: 58
         slot_group: "Informations sur l'h\xF4te"
-      signs and symptoms:
+      signs_and_symptoms:
         rank: 59
         slot_group: "Informations sur l'h\xF4te"
-      pre-existing conditions and risk factors:
+      preexisting_conditions_and_risk_factors:
         rank: 60
         slot_group: "Informations sur l'h\xF4te"
       complications:
         rank: 61
         slot_group: "Informations sur l'h\xF4te"
-      host vaccination status:
+      host_vaccination_status:
         rank: 62
         slot_group: "Informations sur la vaccination de l'h\xF4te"
-      number of vaccine doses received:
+      number_of_vaccine_doses_received:
         rank: 63
         slot_group: "Informations sur la vaccination de l'h\xF4te"
-      vaccination dose 1 vaccine name:
+      vaccination_dose_1_vaccine_name:
         rank: 64
         slot_group: "Informations sur la vaccination de l'h\xF4te"
-      vaccination dose 1 vaccination date:
+      vaccination_dose_1_vaccination_date:
         rank: 65
         slot_group: "Informations sur la vaccination de l'h\xF4te"
-      vaccination dose 2 vaccine name:
+      vaccination_dose_2_vaccine_name:
         rank: 66
         slot_group: "Informations sur la vaccination de l'h\xF4te"
-      vaccination dose 2 vaccination date:
+      vaccination_dose_2_vaccination_date:
         rank: 67
         slot_group: "Informations sur la vaccination de l'h\xF4te"
-      vaccination dose 3 vaccine name:
+      vaccination_dose_3_vaccine_name:
         rank: 68
         slot_group: "Informations sur la vaccination de l'h\xF4te"
-      vaccination dose 3 vaccination date:
+      vaccination_dose_3_vaccination_date:
         rank: 69
         slot_group: "Informations sur la vaccination de l'h\xF4te"
-      vaccination dose 4 vaccine name:
+      vaccination_dose_4_vaccine_name:
         rank: 70
         slot_group: "Informations sur la vaccination de l'h\xF4te"
-      vaccination dose 4 vaccination date:
+      vaccination_dose_4_vaccination_date:
         rank: 71
         slot_group: "Informations sur la vaccination de l'h\xF4te"
-      vaccination history:
+      vaccination_history:
         rank: 72
         slot_group: "Informations sur la vaccination de l'h\xF4te"
-      location of exposure geo_loc name (country):
+      location_of_exposure_geo_loc_name_country:
         rank: 73
         slot_group: "Informations sur l'exposition de l'h\xF4te"
-      destination of most recent travel (city):
+      destination_of_most_recent_travel_city:
         rank: 74
         slot_group: "Informations sur l'exposition de l'h\xF4te"
-      destination of most recent travel (state/province/territory):
+      destination_of_most_recent_travel_state_province_territory:
         rank: 75
         slot_group: "Informations sur l'exposition de l'h\xF4te"
-      destination of most recent travel (country):
+      destination_of_most_recent_travel_country:
         rank: 76
         slot_group: "Informations sur l'exposition de l'h\xF4te"
-      most recent travel departure date:
+      most_recent_travel_departure_date:
         rank: 77
         slot_group: "Informations sur l'exposition de l'h\xF4te"
-      most recent travel return date:
+      most_recent_travel_return_date:
         rank: 78
         slot_group: "Informations sur l'exposition de l'h\xF4te"
-      travel point of entry type:
+      travel_point_of_entry_type:
         rank: 79
         slot_group: "Informations sur l'exposition de l'h\xF4te"
-      border testing test day type:
+      border_testing_test_day_type:
         rank: 80
         slot_group: "Informations sur l'exposition de l'h\xF4te"
-      travel history:
+      travel_history:
         rank: 81
         slot_group: "Informations sur l'exposition de l'h\xF4te"
-      travel history availability:
+      travel_history_availability:
         rank: 82
         slot_group: "Informations sur l'exposition de l'h\xF4te"
-      exposure event:
+      exposure_event:
         rank: 83
         slot_group: "Informations sur l'exposition de l'h\xF4te"
-      exposure contact level:
+      exposure_contact_level:
         rank: 84
         slot_group: "Informations sur l'exposition de l'h\xF4te"
-      host role:
+      host_role:
         rank: 85
         slot_group: "Informations sur l'exposition de l'h\xF4te"
-      exposure setting:
+      exposure_setting:
         rank: 86
         slot_group: "Informations sur l'exposition de l'h\xF4te"
-      exposure details:
+      exposure_details:
         rank: 87
         slot_group: "Informations sur l'exposition de l'h\xF4te"
-      prior SARS-CoV-2 infection:
+      prior_sarscov2_infection:
         rank: 88
         slot_group: "Informations sur la r\xE9infection de l'h\xF4te"
-      prior SARS-CoV-2 infection isolate:
+      prior_sarscov2_infection_isolate:
         rank: 89
         slot_group: "Informations sur la r\xE9infection de l'h\xF4te"
-      prior SARS-CoV-2 infection date:
+      prior_sarscov2_infection_date:
         rank: 90
         slot_group: "Informations sur la r\xE9infection de l'h\xF4te"
-      prior SARS-CoV-2 antiviral treatment:
+      prior_sarscov2_antiviral_treatment:
         rank: 91
         slot_group: "Informations sur la r\xE9infection de l'h\xF4te"
-      prior SARS-CoV-2 antiviral treatment agent:
+      prior_sarscov2_antiviral_treatment_agent:
         rank: 92
         slot_group: "Informations sur la r\xE9infection de l'h\xF4te"
-      prior SARS-CoV-2 antiviral treatment date:
+      prior_sarscov2_antiviral_treatment_date:
         rank: 93
         slot_group: "Informations sur la r\xE9infection de l'h\xF4te"
-      purpose of sequencing:
+      purpose_of_sequencing:
         rank: 94
         slot_group: "S\xE9quen\xE7age"
-      purpose of sequencing details:
+      purpose_of_sequencing_details:
         rank: 95
         slot_group: "S\xE9quen\xE7age"
-      sequencing date:
+      sequencing_date:
         rank: 96
         slot_group: "S\xE9quen\xE7age"
-      library ID:
+      library_id:
         rank: 97
         slot_group: "S\xE9quen\xE7age"
-      amplicon size:
+      amplicon_size:
         rank: 98
         slot_group: "S\xE9quen\xE7age"
-      library preparation kit:
+      library_preparation_kit:
         rank: 99
         slot_group: "S\xE9quen\xE7age"
-      flow cell barcode:
+      flow_cell_barcode:
         rank: 100
         slot_group: "S\xE9quen\xE7age"
-      sequencing instrument:
+      sequencing_instrument:
         rank: 101
         slot_group: "S\xE9quen\xE7age"
-      sequencing protocol name:
+      sequencing_protocol_name:
         rank: 102
         slot_group: "S\xE9quen\xE7age"
-      sequencing protocol:
+      sequencing_protocol:
         rank: 103
         slot_group: "S\xE9quen\xE7age"
-      sequencing kit number:
+      sequencing_kit_number:
         rank: 104
         slot_group: "S\xE9quen\xE7age"
-      amplicon pcr primer scheme:
+      amplicon_pcr_primer_scheme:
         rank: 105
         slot_group: "S\xE9quen\xE7age"
-      raw sequence data processing method:
+      raw_sequence_data_processing_method:
         rank: 106
         slot_group: "Bioinformatique et mesures de contr\xF4le de la qualit\xE9"
-      dehosting method:
+      dehosting_method:
         rank: 107
         slot_group: "Bioinformatique et mesures de contr\xF4le de la qualit\xE9"
-      consensus sequence name:
+      consensus_sequence_name:
         rank: 108
         slot_group: "Bioinformatique et mesures de contr\xF4le de la qualit\xE9"
-      consensus sequence filename:
+      consensus_sequence_filename:
         rank: 109
         slot_group: "Bioinformatique et mesures de contr\xF4le de la qualit\xE9"
-      consensus sequence filepath:
+      consensus_sequence_filepath:
         rank: 110
         slot_group: "Bioinformatique et mesures de contr\xF4le de la qualit\xE9"
-      consensus sequence software name:
+      consensus_sequence_software_name:
         rank: 111
         slot_group: "Bioinformatique et mesures de contr\xF4le de la qualit\xE9"
-      consensus sequence software version:
+      consensus_sequence_software_version:
         rank: 112
         slot_group: "Bioinformatique et mesures de contr\xF4le de la qualit\xE9"
-      breadth of coverage value:
+      breadth_of_coverage_value:
         rank: 113
         slot_group: "Bioinformatique et mesures de contr\xF4le de la qualit\xE9"
-      depth of coverage value:
+      depth_of_coverage_value:
         rank: 114
         slot_group: "Bioinformatique et mesures de contr\xF4le de la qualit\xE9"
-      depth of coverage threshold:
+      depth_of_coverage_threshold:
         rank: 115
         slot_group: "Bioinformatique et mesures de contr\xF4le de la qualit\xE9"
-      r1 fastq filename:
+      r1_fastq_filename________:
         rank: 116
         slot_group: "Bioinformatique et mesures de contr\xF4le de la qualit\xE9"
-      r2 fastq filename:
+      r2_fastq_filename:
         rank: 117
         slot_group: "Bioinformatique et mesures de contr\xF4le de la qualit\xE9"
-      r1 fastq filepath:
+      r1_fastq_filepath:
         rank: 118
         slot_group: "Bioinformatique et mesures de contr\xF4le de la qualit\xE9"
-      r2 fastq filepath:
+      r2_fastq_filepath:
         rank: 119
         slot_group: "Bioinformatique et mesures de contr\xF4le de la qualit\xE9"
-      fast5 filename:
+      fast5_filename:
         rank: 120
         slot_group: "Bioinformatique et mesures de contr\xF4le de la qualit\xE9"
-      fast5 filepath:
+      fast5_filepath:
         rank: 121
         slot_group: "Bioinformatique et mesures de contr\xF4le de la qualit\xE9"
-      number of base pairs sequenced:
+      number_of_base_pairs_sequenced:
         rank: 122
         slot_group: "Bioinformatique et mesures de contr\xF4le de la qualit\xE9"
-      consensus genome length:
+      consensus_genome_length:
         rank: 123
         slot_group: "Bioinformatique et mesures de contr\xF4le de la qualit\xE9"
-      Ns per 100 kbp:
+      ns_per_100_kbp:
         rank: 124
         slot_group: "Bioinformatique et mesures de contr\xF4le de la qualit\xE9"
-      reference genome accession:
+      reference_genome_accession:
         rank: 125
         slot_group: "Bioinformatique et mesures de contr\xF4le de la qualit\xE9"
-      bioinformatics protocol:
+      bioinformatics_protocol:
         rank: 126
         slot_group: "Bioinformatique et mesures de contr\xF4le de la qualit\xE9"
-      lineage/clade name:
+      lineage_clade_name:
         rank: 127
         slot_group: "Informations sur les lign\xE9es et les variantes"
-      lineage/clade analysis software name:
+      lineage_clade_analysis_software_name:
         rank: 128
         slot_group: "Informations sur les lign\xE9es et les variantes"
-      lineage/clade analysis software version:
+      lineage_clade_analysis_software_version:
         rank: 129
         slot_group: "Informations sur les lign\xE9es et les variantes"
-      variant designation:
+      variant_designation:
         rank: 130
         slot_group: "Informations sur les lign\xE9es et les variantes"
-      variant evidence:
+      variant_evidence:
         rank: 131
         slot_group: "Informations sur les lign\xE9es et les variantes"
-      variant evidence details:
+      variant_evidence_details:
         rank: 132
         slot_group: "Informations sur les lign\xE9es et les variantes"
-      gene name 1:
+      gene_name_1:
         rank: 133
         slot_group: "Tests de diagnostic des agents pathog\xE8nes"
-      diagnostic pcr protocol 1:
+      diagnostic_pcr_protocol_1:
         rank: 134
         slot_group: "Tests de diagnostic des agents pathog\xE8nes"
-      diagnostic pcr Ct value 1:
+      diagnostic_pcr_ct_value_1:
         rank: 135
         slot_group: "Tests de diagnostic des agents pathog\xE8nes"
-      gene name 2:
+      gene_name_2:
         rank: 136
         slot_group: "Tests de diagnostic des agents pathog\xE8nes"
-      diagnostic pcr protocol 2:
+      diagnostic_pcr_protocol_2:
         rank: 137
         slot_group: "Tests de diagnostic des agents pathog\xE8nes"
-      diagnostic pcr Ct value 2:
+      diagnostic_pcr_ct_value_2:
         rank: 138
         slot_group: "Tests de diagnostic des agents pathog\xE8nes"
-      gene name 3:
+      gene_name_3:
         rank: 139
         slot_group: "Tests de diagnostic des agents pathog\xE8nes"
-      diagnostic pcr protocol 3:
+      diagnostic_pcr_protocol_3:
         rank: 140
         slot_group: "Tests de diagnostic des agents pathog\xE8nes"
-      diagnostic pcr Ct value 3:
+      diagnostic_pcr_ct_value_3:
         rank: 141
         slot_group: "Tests de diagnostic des agents pathog\xE8nes"
       authors:
         rank: 142
         slot_group: Reconnaissance des contributeurs
-      DataHarmonizer provenance:
+      dataharmonizer_provenance:
         rank: 143
         slot_group: Reconnaissance des contributeurs
 slots:
-  specimen collector sample ID:
-    name: specimen collector sample ID
+  specimen_collector_sample_id:
+    name: specimen_collector_sample_id
     title: "Collecteur d'\xE9chantillons ID de l'\xE9chantillon"
     description: "Le nom d\xE9fini par l'utilisateur pour l'\xE9chantillon."
     slot_group: "Identificateurs de base de donn\xE9es"
@@ -597,30 +608,136 @@ slots:
       rons de le rendre concis, unique et coh\xE9rent au sein de votre laboratoire."
     examples:
     - value: prov_rona_99
-  third party lab service provider name:
-    name: third party lab service provider name
-  third party lab sample ID:
-    name: third party lab sample ID
-  case ID:
-    name: case ID
-  Related specimen primary ID:
-    name: Related specimen primary ID
-  IRIDA sample name:
-    name: IRIDA sample name
-  umbrella bioproject accession:
-    name: umbrella bioproject accession
-  bioproject accession:
-    name: bioproject accession
-  biosample accession:
-    name: biosample accession
-  SRA accession:
-    name: SRA accession
-  GenBank accession:
-    name: GenBank accession
-  GISAID accession:
-    name: GISAID accession
-  sample collected by:
-    name: sample collected by
+  third_party_lab_service_provider_name:
+    name: third_party_lab_service_provider_name
+    title: nom du fournisseur de services de laboratoire tiers
+    description: "Le nom de la soci\xE9t\xE9 ou du laboratoire tiers qui a fourni\
+      \ les services."
+    slot_group: "Identificateurs de base de donn\xE9es"
+    comments: "Indiquez le nom complet et non abr\xE9g\xE9 de l'entreprise ou du laboratoire."
+    examples:
+    - value: Switch Health
+  third_party_lab_sample_id:
+    name: third_party_lab_sample_id
+    title: "ID d'\xE9chantillon de laboratoire tiers"
+    description: "Identifiant attribu\xE9 \xE0 un \xE9chantillon par un prestataire\
+      \ de services tiers."
+    slot_group: "Identificateurs de base de donn\xE9es"
+    comments: "Stockez l\u2019identifiant de l\u2019\xE9chantillon fourni par le fournisseur\
+      \ de services tiers."
+    examples:
+    - value: SHK123456
+  case_id:
+    name: case_id
+    title: "num\xE9ro de dossier"
+    description: "Identifiant utilis\xE9 pour sp\xE9cifier un cas de maladie d\xE9\
+      tect\xE9 \xE9pid\xE9miologiquement."
+    slot_group: "Identificateurs de base de donn\xE9es"
+    comments: "Fournissez l\u2019identifiant du cas. L\u2019identification des cas\
+      \ facilite grandement le lien entre les donn\xE9es de laboratoire et les donn\xE9\
+      es \xE9pid\xE9miologiques. L\u2019identifiant du dossier peut \xEAtre consid\xE9\
+      r\xE9 comme une information identifiable. Consultez l\u2019intendant des donn\xE9\
+      es avant de partager."
+    examples:
+    - value: ABCD1234
+  related_specimen_primary_id:
+    name: related_specimen_primary_id
+    title: "ID principal de l'\xE9chantillon associ\xE9"
+    description: "L'identifiant principal d'un sp\xE9cimen associ\xE9 pr\xE9c\xE9\
+      demment soumis au r\xE9f\xE9rentiel."
+    slot_group: "Identificateurs de base de donn\xE9es"
+    comments: "Conservez l'identifiant principal de l'\xE9chantillon correspondant\
+      \ pr\xE9c\xE9demment soumis au Laboratoire national de microbiologie afin que\
+      \ les \xE9chantillons puissent \xEAtre li\xE9s et suivis via le syst\xE8me."
+    examples:
+    - value: SR20-12345
+  irida_sample_name:
+    name: irida_sample_name
+    title: "Nom de l'\xE9chantillon IRIDA"
+    description: "L'identifiant attribu\xE9 \xE0 un isolat s\xE9quenc\xE9 dans IRIDA."
+    slot_group: "Identificateurs de base de donn\xE9es"
+    comments: "Stockez le nom de l\u2019\xE9chantillon IRIDA. Le nom de l'\xE9chantillon\
+      \ IRIDA sera cr\xE9\xE9 par la personne saisissant les donn\xE9es dans la plateforme\
+      \ IRIDA. Les \xE9chantillons IRIDA peuvent \xEAtre li\xE9s \xE0 des m\xE9tadonn\xE9\
+      es et des donn\xE9es de s\xE9quence, ou simplement \xE0 des m\xE9tadonn\xE9\
+      es seules. Il est recommand\xE9 que le nom de l\u2019\xE9chantillon IRIDA soit\
+      \ identique ou contienne l\u2019ID de l\u2019\xE9chantillon du collecteur d\u2019\
+      \xE9chantillons pour une meilleure tra\xE7abilit\xE9. Il est \xE9galement recommand\xE9\
+      \ que le nom de l'\xE9chantillon IRIDA refl\xE8te l'accession GISAID. Les noms\
+      \ d\u2019\xE9chantillons IRIDA ne peuvent pas contenir de barres obliques. Les\
+      \ barres obliques doivent \xEAtre remplac\xE9es par des traits de soulignement.\
+      \ Consultez la documentation IRIDA pour plus d'informations sur les caract\xE8\
+      res sp\xE9ciaux (https://irida.corefacility.ca/documentation/user/user/samples/#adding-a-new-sample)."
+    examples:
+    - value: prov_rona_99
+  umbrella_bioproject_accession:
+    name: umbrella_bioproject_accession
+    title: "Num\xE9ro d\u2019accession au bioprojet parapluie"
+    description: "Le num\xE9ro d\u2019accession INSDC attribu\xE9 au BioProject parapluie\
+      \ pour l\u2019effort canadien de s\xE9quen\xE7age du SRAS-CoV-2."
+    slot_group: "Identificateurs de base de donn\xE9es"
+    comments: "Enregistrez le num\xE9ro d\u2019accession parapluie du BioProject en\
+      \ le s\xE9lectionnant dans la liste de s\xE9lection du mod\xE8le. Le num\xE9\
+      ro d\u2019acc\xE8s au num\xE9ro de BioProjet g\xE9n\xE9ral sera identique pour\
+      \ tous les soumissionnaires de CanCOGen. Diff\xE9rentes provinces auront leurs\
+      \ propres bioprojets, mais ces bioprojets seront li\xE9s sous un seul bioprojet."
+    examples:
+    - value: PRJNA623807
+  bioproject_accession:
+    name: bioproject_accession
+    title: "Num\xE9ro d\u2019accession au bioprojet"
+    description: "Le num\xE9ro d\u2019accession INSDC du ou des BioProjets auxquels\
+      \ appartient le BioSample."
+    slot_group: "Identificateurs de base de donn\xE9es"
+    comments: "Conservez le num\xE9ro d\u2019acc\xE8s BioProject. Les BioProjects\
+      \ sont un outil d'organisation qui relie les donn\xE9es de s\xE9quence brutes,\
+      \ les assemblages et leurs m\xE9tadonn\xE9es associ\xE9es. Chaque province se\
+      \ verra attribuer un num\xE9ro d'acc\xE8s de bioprojet diff\xE9rent par le Laboratoire\
+      \ national de microbiologie. Une accession NCBI BioProject valide a le pr\xE9\
+      fixe PRJN, par exemple PRJNA12345, et est cr\xE9\xE9e une fois au d\xE9but d'un\
+      \ nouveau projet de s\xE9quen\xE7age."
+    examples:
+    - value: PRJNA608651
+  biosample_accession:
+    name: biosample_accession
+    title: "Num\xE9ro d\u2019accession \xE0 un \xE9chantillon biologique"
+    description: "L'identifiant attribu\xE9 \xE0 un BioSample dans les archives INSDC."
+    slot_group: "Identificateurs de base de donn\xE9es"
+    comments: "Conservez le num\xE9ro d\u2019accession renvoy\xE9 par la soumission\
+      \ BioSample. NCBI BioSamples aura le pr\xE9fixe SAMN."
+    examples:
+    - value: SAMN14180202
+  sra_accession:
+    name: sra_accession
+    title: "Num\xE9ro d\u2019accession au SRA"
+    description: "L'identifiant Sequence Read Archive (SRA) reliant les donn\xE9es\
+      \ brutes de lecture, les m\xE9tadonn\xE9es m\xE9thodologiques et les mesures\
+      \ de contr\xF4le qualit\xE9 soumises \xE0 l'INSDC."
+    slot_group: "Identificateurs de base de donn\xE9es"
+    comments: "Stockez le num\xE9ro d'accession attribu\xE9 \xE0 la \xAB course \xBB\
+      \ soumise. Les accessions NCBI-SRA commencent par SRR."
+    examples:
+    - value: SRR11177792
+  genbank_accession:
+    name: genbank_accession
+    title: "Num\xE9ro d\u2019accession \xE0 GenBank"
+    description: "L'identifiant GenBank attribu\xE9 \xE0 la s\xE9quence dans les archives\
+      \ INSDC."
+    slot_group: "Identificateurs de base de donn\xE9es"
+    comments: "Stockez le num\xE9ro d\u2019accession renvoy\xE9 par une soumission\
+      \ GenBank (assemblage du g\xE9nome viral)."
+    examples:
+    - value: MN908947.3
+  gisaid_accession:
+    name: gisaid_accession
+    title: "Num\xE9ro d\u2019accession au GISAID"
+    description: "Le num\xE9ro d\u2019accession GISAID attribu\xE9 \xE0 la s\xE9quence."
+    slot_group: "Identificateurs de base de donn\xE9es"
+    comments: "Stockez l\u2019accession renvoy\xE9e par la soumission GISAID."
+    examples:
+    - value: EPI_ISL_436489
+  sample_collected_by:
+    name: sample_collected_by
     title: "\xE9chantillon collect\xE9 par"
     description: "Le nom de l\u2019organisation \xE0 laquelle le collecteur d\u2019\
       \xE9chantillons est affili\xE9."
@@ -629,8 +746,8 @@ slots:
       \ exceptions pr\xE8s) et \xEAtre coh\xE9rent dans plusieurs soumissions."
     examples:
     - value: "Laboratoire de sant\xE9 publique du BCCDC"
-  sample collector contact email:
-    name: sample collector contact email
+  sample_collector_contact_email:
+    name: sample_collector_contact_email
     title: "Courriel de contact du collecteur d'\xE9chantillons"
     description: "L'adresse email du contact responsable du suivi concernant l'\xE9\
       chantillon."
@@ -639,8 +756,8 @@ slots:
       \ sp\xE9cifique."
     examples:
     - value: RespLab@lab.ca
-  sample collector contact address:
-    name: sample collector contact address
+  sample_collector_contact_address:
+    name: sample_collector_contact_address
     title: "adresse de contact du collecteur d'\xE9chantillons"
     description: "L'adresse postale de l'agence qui soumet l'\xE9chantillon."
     slot_group: "Collecte et traitement des \xE9chantillons"
@@ -648,8 +765,8 @@ slots:
       \ rue, ville, \xE9tat/province/r\xE9gion, pays, code postal/code postal."
     examples:
     - value: 655 Lab St, Vancouver, British Columbia, V5N 2A2, Canada
-  sequence submitted by:
-    name: sequence submitted by
+  sequence_submitted_by:
+    name: sequence_submitted_by
     title: "s\xE9quence soumise par"
     description: "Le nom de l'agence qui a g\xE9n\xE9r\xE9 la s\xE9quence."
     slot_group: "Collecte et traitement des \xE9chantillons"
@@ -657,8 +774,8 @@ slots:
       \ exceptions pr\xE8s) et \xEAtre coh\xE9rent dans plusieurs soumissions."
     examples:
     - value: "Sant\xE9 publique Ontario (SPO)"
-  sequence submitter contact email:
-    name: sequence submitter contact email
+  sequence_submitter_contact_email:
+    name: sequence_submitter_contact_email
     title: "s\xE9quence courriel de contact du d\xE9posant"
     description: "L'adresse email du contact responsable du suivi de la s\xE9quence."
     slot_group: "Collecte et traitement des \xE9chantillons"
@@ -666,8 +783,8 @@ slots:
       \ sp\xE9cifique."
     examples:
     - value: RespLab@lab.ca
-  sequence submitter contact address:
-    name: sequence submitter contact address
+  sequence_submitter_contact_address:
+    name: sequence_submitter_contact_address
     title: "adresse de contact de l'auteur de la s\xE9quence"
     description: "L'adresse postale de l'agence soumettant la s\xE9quence."
     slot_group: "Collecte et traitement des \xE9chantillons"
@@ -675,8 +792,8 @@ slots:
       \ rue, ville, \xE9tat/province/r\xE9gion, pays, code postal/code postal."
     examples:
     - value: 123 Sunnybrooke St, Toronto, Ontario, M4P 1L6, Canada
-  sample collection date:
-    name: sample collection date
+  sample_collection_date:
+    name: sample_collection_date
     title: "date de collecte de l'\xE9chantillon"
     description: "La date \xE0 laquelle l'\xE9chantillon a \xE9t\xE9 pr\xE9lev\xE9\
       ."
@@ -693,8 +810,8 @@ slots:
       \ ISO 8601 \xAB YYYY-MM-DD \xBB."
     examples:
     - value: '2020-03-16'
-  sample collection date precision:
-    name: sample collection date precision
+  sample_collection_date_precision:
+    name: sample_collection_date_precision
     title: "date de collecte de l'\xE9chantillon pr\xE9cision"
     description: "La pr\xE9cision avec laquelle la \xAB date de pr\xE9l\xE8vement\
       \ de l\u2019\xE9chantillon \xBB a \xE9t\xE9 fournie."
@@ -708,8 +825,8 @@ slots:
       \ YYYY \xBB."
     examples:
     - value: "ann\xE9e"
-  sample received date:
-    name: sample received date
+  sample_received_date:
+    name: sample_received_date
     title: "date de r\xE9ception de l'\xE9chantillon"
     description: "La date \xE0 laquelle l'\xE9chantillon a \xE9t\xE9 re\xE7u."
     slot_group: "Collecte et traitement des \xE9chantillons"
@@ -718,8 +835,8 @@ slots:
       ."
     examples:
     - value: '2020-03-20'
-  geo_loc_name (country):
-    name: geo_loc_name (country)
+  geo_loc_name_country:
+    name: geo_loc_name_country
     title: nom du geo_loc (pays)
     description: "Le pays d'origine de l'\xE9chantillon."
     slot_group: "Collecte et traitement des \xE9chantillons"
@@ -727,8 +844,8 @@ slots:
       le"
     examples:
     - value: Canada
-  geo_loc_name (state/province/territory):
-    name: geo_loc_name (state/province/territory)
+  geo_loc_name_state_province_territory:
+    name: geo_loc_name_state_province_territory
     title: "nom du geo_loc (\xE9tat/province/territoire)"
     description: "L'\xC9tat/la province/le territoire d'origine de l'\xE9chantillon."
     slot_group: "Collecte et traitement des \xE9chantillons"
@@ -737,8 +854,8 @@ slots:
       ographiques ici\_: https://www.ebi.ac.uk/ols/ontologies/gaz"
     examples:
     - value: Saskatchewan
-  geo_loc_name (city):
-    name: geo_loc_name (city)
+  geo_loc_name_city:
+    name: geo_loc_name_city
     title: nom du geo_loc (ville)
     description: "La ville d'origine de l'\xE9chantillon."
     slot_group: "Collecte et traitement des \xE9chantillons"
@@ -770,8 +887,8 @@ slots:
       \xBB."
     examples:
     - value: hCov-19/CANADA/BC-prov_rona_99/2020
-  purpose of sampling:
-    name: purpose of sampling
+  purpose_of_sampling:
+    name: purpose_of_sampling
     title: "Objectif de l'\xE9chantillonnage"
     description: "La raison pour laquelle l\u2019\xE9chantillon a \xE9t\xE9 collect\xE9\
       ."
@@ -780,8 +897,8 @@ slots:
       le."
     examples:
     - value: Tests de diagnostic
-  purpose of sampling details:
-    name: purpose of sampling details
+  purpose_of_sampling_details:
+    name: purpose_of_sampling_details
     title: "d\xE9tails de l'objectif de l'\xE9chantillonnage"
     description: "Plus de d\xE9tails concernant la raison pour laquelle l\u2019\xE9\
       chantillon a \xE9t\xE9 collect\xE9."
@@ -792,8 +909,8 @@ slots:
     - value: "L'\xE9chantillon a \xE9t\xE9 collect\xE9 pour \xE9tudier la pr\xE9valence\
         \ des variantes associ\xE9es \xE0 la transmission du vison \xE0 l'homme au\
         \ Canada."
-  NML submitted specimen type:
-    name: NML submitted specimen type
+  nml_submitted_specimen_type:
+    name: nml_submitted_specimen_type
     title: "Type de sp\xE9cimen soumis au NML"
     description: "Le type d'\xE9chantillon soumis au Laboratoire national de microbiologie\
       \ (NML) pour analyse."
@@ -805,8 +922,8 @@ slots:
       \xBB."
     examples:
     - value: "\xC9couvillon"
-  Related specimen relationship type:
-    name: Related specimen relationship type
+  related_specimen_relationship_type:
+    name: related_specimen_relationship_type
     title: "Type de relation du sp\xE9cimen apparent\xE9"
     description: "La relation entre le sp\xE9cimen actuel et le sp\xE9cimen/\xE9chantillon\
       \ pr\xE9c\xE9demment soumis au r\xE9f\xE9rentiel."
@@ -817,8 +934,8 @@ slots:
       s et suivis dans le syst\xE8me."
     examples:
     - value: "Test des m\xE9thodes d\u2019\xE9chantillonnage des \xE9chantillons"
-  anatomical material:
-    name: anatomical material
+  anatomical_material:
+    name: anatomical_material
     title: "mati\xE8re anatomique"
     description: "Une substance obtenue \xE0 partir d'une partie anatomique d'un organisme,\
       \ par ex. tissu, sang."
@@ -830,8 +947,8 @@ slots:
       \ Si cela ne s\u2019applique pas, laissez vide."
     examples:
     - value: Sang
-  anatomical part:
-    name: anatomical part
+  anatomical_part:
+    name: anatomical_part
     title: partie anatomique
     description: Une partie anatomique d'un organisme, par ex. oropharynx.
     slot_group: "Collecte et traitement des \xE9chantillons"
@@ -842,8 +959,8 @@ slots:
       \ Si cela ne s\u2019applique pas, laissez vide."
     examples:
     - value: Nasopharynx (NP)
-  body product:
-    name: body product
+  body_product:
+    name: body_product
     title: produit corporel
     description: "Une substance excr\xE9t\xE9e/s\xE9cr\xE9t\xE9e par un organisme,\
       \ par ex. selles, urine, sueur."
@@ -855,8 +972,8 @@ slots:
       \ Si cela ne s\u2019applique pas, laissez vide."
     examples:
     - value: Selles
-  environmental material:
-    name: environmental material
+  environmental_material:
+    name: environmental_material
     title: "mat\xE9riau environnemental"
     description: "Une substance obtenue \xE0 partir de l'environnement naturel ou\
       \ artificiel, par ex. sol, eau, eaux us\xE9es, poign\xE9e de porte, rampe de\
@@ -869,8 +986,8 @@ slots:
       \ Si cela ne s\u2019applique pas, laissez vide."
     examples:
     - value: Masque facial
-  environmental site:
-    name: environmental site
+  environmental_site:
+    name: environmental_site
     title: site environnemental
     description: "Un emplacement environnemental peut d\xE9crire un site dans l'environnement\
       \ naturel ou b\xE2ti, par ex. h\xF4pital, march\xE9 humide, grotte aux chauves-souris."
@@ -882,8 +999,8 @@ slots:
       \ Si cela ne s\u2019applique pas, laissez vide."
     examples:
     - value: Installation de production
-  collection device:
-    name: collection device
+  collection_device:
+    name: collection_device
     title: dispositif de collecte
     description: "L'instrument ou le r\xE9cipient utilis\xE9 pour collecter l'\xE9\
       chantillon, par ex. \xE9couvillon."
@@ -896,8 +1013,8 @@ slots:
       \ ne s\u2019applique pas, laissez vide."
     examples:
     - value: "\xC9couvillon"
-  collection method:
-    name: collection method
+  collection_method:
+    name: collection_method
     title: "m\xE9thode de collecte"
     description: "Le processus utilis\xE9 pour collecter l'\xE9chantillon, par ex.\
       \ phl\xE9botomie, autopsie."
@@ -910,8 +1027,8 @@ slots:
       \ laissez vide."
     examples:
     - value: "Lavage broncho-alv\xE9olaire (LBA)"
-  collection protocol:
-    name: collection protocol
+  collection_protocol:
+    name: collection_protocol
     title: protocole de collecte
     description: "Le nom et la version d'un protocole particulier utilis\xE9 pour\
       \ l'\xE9chantillonnage."
@@ -920,8 +1037,8 @@ slots:
       \ les \xE9chantillons."
     examples:
     - value: BCRonaSamplingProtocol v. 1.2
-  specimen processing:
-    name: specimen processing
+  specimen_processing:
+    name: specimen_processing
     title: "processus de traitement des sp\xE9cimens"
     description: "Tout traitement appliqu\xE9 \xE0 l\u2019\xE9chantillon pendant ou\
       \ apr\xE8s la r\xE9ception de l\u2019\xE9chantillon."
@@ -934,8 +1051,8 @@ slots:
       \ inscrivez \xAB\_non applicable\_\xBB."
     examples:
     - value: Passage du virus
-  specimen processing details:
-    name: specimen processing details
+  specimen_processing_details:
+    name: specimen_processing_details
     title: "d\xE9tails du processus des \xE9chantillons"
     description: "Informations d\xE9taill\xE9es concernant le traitement appliqu\xE9\
       \ \xE0 un \xE9chantillon pendant ou apr\xE8s la r\xE9ception de l'\xE9chantillon."
@@ -946,8 +1063,8 @@ slots:
     - value: "25 \xE9couvillons ont \xE9t\xE9 regroup\xE9s et pr\xE9par\xE9s en tant\
         \ qu\u2019\xE9chantillon unique lors de la pr\xE9paration de la biblioth\xE8\
         que."
-  lab host:
-    name: lab host
+  lab_host:
+    name: lab_host
     title: "h\xF4te du laboratoire"
     description: "Nom et description de l'h\xF4te de laboratoire utilis\xE9 pour propager\
       \ l'organisme source ou le mat\xE9riel \xE0 partir duquel l'\xE9chantillon a\
@@ -958,8 +1075,8 @@ slots:
       , mettez \"sans objet\"."
     examples:
     - value: "Lign\xE9e cellulaire Vero E6"
-  passage number:
-    name: passage number
+  passage_number:
+    name: passage_number
     title: "num\xE9ro de passage"
     description: Nombre de passages.
     slot_group: "Collecte et traitement des \xE9chantillons"
@@ -967,8 +1084,8 @@ slots:
       \ \"sans objet\""
     examples:
     - value: '3'
-  passage method:
-    name: passage method
+  passage_method:
+    name: passage_method
     title: "m\xE9thode de passage"
     description: "Description de la fa\xE7on dont l'organisme a \xE9t\xE9 transmis."
     slot_group: "Collecte et traitement des \xE9chantillons"
@@ -976,8 +1093,8 @@ slots:
       , mettez \"sans objet\"."
     examples:
     - value: 0.25% trypsin + 0.02% EDTA
-  biomaterial extracted:
-    name: biomaterial extracted
+  biomaterial_extracted:
+    name: biomaterial_extracted
     title: "biomat\xE9riau extrait"
     description: "Biomat\xE9riau extrait d\u2019\xE9chantillons \xE0 des fins de s\xE9\
       quen\xE7age."
@@ -986,8 +1103,8 @@ slots:
       \ le mod\xE8le."
     examples:
     - value: RNA (total)
-  host (common name):
-    name: host (common name)
+  host_common_name:
+    name: host_common_name
     title: "h\xF4te (nom commun)"
     description: "Le nom couramment utilis\xE9 de l'h\xF4te."
     slot_group: "Informations sur l'h\xF4te"
@@ -997,8 +1114,8 @@ slots:
       tait environnemental, inscrivez \xAB sans objet \xBB."
     examples:
     - value: Humain
-  host (scientific name):
-    name: host (scientific name)
+  host_scientific_name:
+    name: host_scientific_name
     title: "h\xF4te (nom scientifique)"
     description: "Le nom taxonomique ou scientifique de l\u2019h\xF4te."
     slot_group: "Informations sur l'h\xF4te"
@@ -1008,8 +1125,8 @@ slots:
       \ inscrivez \xAB sans objet \xBB."
     examples:
     - value: Homo sapiens
-  host health state:
-    name: host health state
+  host_health_state:
+    name: host_health_state
     title: "\xE9tat de sant\xE9 de l'h\xF4te"
     description: "\xC9tat de sant\xE9 de l'h\xF4te au moment du pr\xE9l\xE8vement\
       \ de l'\xE9chantillon."
@@ -1018,8 +1135,8 @@ slots:
       \ s\xE9lection."
     examples:
     - value: Symptomatique
-  host health status details:
-    name: host health status details
+  host_health_status_details:
+    name: host_health_status_details
     title: "d\xE9tails de l'\xE9tat de sant\xE9 de l'h\xF4te"
     description: "Plus de d\xE9tails concernant l'\xE9tat de sant\xE9 ou de maladie\
       \ de l'h\xF4te au moment de la collecte."
@@ -1028,8 +1145,8 @@ slots:
       \ s\xE9lection."
     examples:
     - value: "Hospitalis\xE9 (ICU)"
-  host health outcome:
-    name: host health outcome
+  host_health_outcome:
+    name: host_health_outcome
     title: "r\xE9sultat sanitaire de l'h\xF4te"
     description: "R\xE9sultat de la maladie chez l\u2019h\xF4te."
     slot_group: "Informations sur l'h\xF4te"
@@ -1037,8 +1154,8 @@ slots:
       \ s\xE9lection."
     examples:
     - value: "R\xE9tabli"
-  host disease:
-    name: host disease
+  host_disease:
+    name: host_disease
     title: "maladie de l'h\xF4te"
     description: "Le nom de la maladie v\xE9cue par l'h\xF4te."
     slot_group: "Informations sur l'h\xF4te"
@@ -1052,8 +1169,8 @@ slots:
       \ \xAB sans objet \xBB."
     examples:
     - value: COVID-19
-  host age:
-    name: host age
+  host_age:
+    name: host_age
     title: "\xE2ge de l'h\xF4te"
     description: "\xC2ge de l'h\xF4te au moment de l'\xE9chantillonnage."
     slot_group: "Informations sur l'h\xF4te"
@@ -1061,8 +1178,8 @@ slots:
       galement acceptable."
     examples:
     - value: '79'
-  host age unit:
-    name: host age unit
+  host_age_unit:
+    name: host_age_unit
     title: "unit\xE9 d'\xE2ge de l'h\xF4te"
     description: "Les unit\xE9s utilis\xE9es pour mesurer l'\xE2ge de l'h\xF4te."
     slot_group: "Informations sur l'h\xF4te"
@@ -1070,8 +1187,8 @@ slots:
       \ mesurer l'\xE2ge de l'h\xF4te \xE0 partir de la liste de s\xE9lection."
     examples:
     - value: "ann\xE9e"
-  host age bin:
-    name: host age bin
+  host_age_bin:
+    name: host_age_bin
     title: "\xE2ge de l'h\xF4te bin"
     description: "La cat\xE9gorie d'\xE2ge de l'h\xF4te au moment de l'\xE9chantillonnage."
     slot_group: "Informations sur l'h\xF4te"
@@ -1081,8 +1198,8 @@ slots:
       \ comme alternative."
     examples:
     - value: 60 - 69
-  host gender:
-    name: host gender
+  host_gender:
+    name: host_gender
     title: "sexe de l'h\xF4te"
     description: "Le sexe de l\u2019h\xF4te au moment du pr\xE9l\xE8vement de l\u2019\
       \xE9chantillon."
@@ -1091,8 +1208,8 @@ slots:
       \ s\xE9lection."
     examples:
     - value: Homme
-  host residence geo_loc name (country):
-    name: host residence geo_loc name (country)
+  host_residence_geo_loc_name_country:
+    name: host_residence_geo_loc_name_country
     title: "r\xE9sidence de l'h\xF4te nom du geo_loc (pays)"
     description: "Le pays o\xF9 r\xE9side l'h\xF4te."
     slot_group: "Informations sur l'h\xF4te"
@@ -1100,8 +1217,8 @@ slots:
       \ s\xE9lection."
     examples:
     - value: Canada
-  host residence geo_loc name (state/province/territory):
-    name: host residence geo_loc name (state/province/territory)
+  host_residence_geo_loc_name_state_province_territory:
+    name: host_residence_geo_loc_name_state_province_territory
     title: "nom du geo_loc de la r\xE9sidence de l'h\xF4te (\xE9tat/province/territoire)"
     description: "L'\xE9tat/province/territoire de r\xE9sidence de l'h\xF4te."
     slot_group: "Informations sur l'h\xF4te"
@@ -1109,8 +1226,8 @@ slots:
       \ s\xE9lection fournie dans le mod\xE8le."
     examples:
     - value: Quebec
-  host subject ID:
-    name: host subject ID
+  host_subject_id:
+    name: host_subject_id
     title: "ID du sujet de l'h\xF4te"
     description: "Un identifiant unique par lequel chaque h\xF4te peut \xEAtre r\xE9\
       f\xE9renc\xE9, par ex. #131"
@@ -1121,8 +1238,8 @@ slots:
       \ sensibles. Consultez le gestionnaire de donn\xE9es."
     examples:
     - value: BCxy123
-  symptom onset date:
-    name: symptom onset date
+  symptom_onset_date:
+    name: symptom_onset_date
     title: "date d'apparition des sympt\xF4mes"
     description: "La date \xE0 laquelle les sympt\xF4mes ont commenc\xE9 ou ont \xE9\
       t\xE9 observ\xE9s pour la premi\xE8re fois."
@@ -1131,8 +1248,8 @@ slots:
       \ standard ISO 8601 \xABYYYY-MM-DD \xBB."
     examples:
     - value: '2020-03-16'
-  signs and symptoms:
-    name: signs and symptoms
+  signs_and_symptoms:
+    name: signs_and_symptoms
     title: "signes et sympt\xF4mes"
     description: "Changement per\xE7u dans la fonction ou la sensation (perte, perturbation\
       \ ou apparence) r\xE9v\xE9lateur d'une maladie, rapport\xE9 par un patient."
@@ -1143,8 +1260,8 @@ slots:
     - value: Frissons (sensation soudaine de froid)
     - value: Toux
     - value: "Fi\xE8vre"
-  pre-existing conditions and risk factors:
-    name: pre-existing conditions and risk factors
+  preexisting_conditions_and_risk_factors:
+    name: preexisting_conditions_and_risk_factors
     title: "les conditions pr\xE9existantes et les facteurs de risque"
     description: "Conditions pr\xE9existantes du patient et facteurs de risque. <li>Condition\
       \ pr\xE9existante\_: condition m\xE9dicale qui existait avant l\u2019infection\
@@ -1170,8 +1287,8 @@ slots:
     - value: "Insuffisance respiratoire aigu\xEB"
     - value: Coma
     - value: "Septic\xE9mie"
-  host vaccination status:
-    name: host vaccination status
+  host_vaccination_status:
+    name: host_vaccination_status
     title: "le statut vaccinal de l'h\xF4te"
     description: "Le statut vaccinal de l\u2019h\xF4te (enti\xE8rement vaccin\xE9\
       , partiellement vaccin\xE9 ou non vaccin\xE9)."
@@ -1180,8 +1297,8 @@ slots:
       lection."
     examples:
     - value: "Enti\xE8rement vaccin\xE9"
-  number of vaccine doses received:
-    name: number of vaccine doses received
+  number_of_vaccine_doses_received:
+    name: number_of_vaccine_doses_received
     title: "nombre de doses de vaccin re\xE7ues"
     description: "Le nombre de doses de vaccin re\xE7ues par l\u2019h\xF4te."
     slot_group: "Informations sur la vaccination de l'h\xF4te"
@@ -1189,8 +1306,8 @@ slots:
       ues."
     examples:
     - value: '2'
-  vaccination dose 1 vaccine name:
-    name: vaccination dose 1 vaccine name
+  vaccination_dose_1_vaccine_name:
+    name: vaccination_dose_1_vaccine_name
     title: dose de vaccination 1 nom du vaccin
     description: "Nom du vaccin administr\xE9 comme premi\xE8re dose d'un sch\xE9\
       ma vaccinal."
@@ -1200,8 +1317,8 @@ slots:
       \ liste de s\xE9lection."
     examples:
     - value: Pfizer-BioNTech (Comirnaty)
-  vaccination dose 1 vaccination date:
-    name: vaccination dose 1 vaccination date
+  vaccination_dose_1_vaccination_date:
+    name: vaccination_dose_1_vaccination_date
     title: dose de vaccination 1 date de vaccination
     description: "La date \xE0 laquelle la premi\xE8re dose d\u2019un vaccin a \xE9\
       t\xE9 administr\xE9e."
@@ -1211,8 +1328,8 @@ slots:
       \ standard ISO 8601 \xABYYYY-MM-DD \xBB."
     examples:
     - value: '2021-03-01'
-  vaccination dose 2 vaccine name:
-    name: vaccination dose 2 vaccine name
+  vaccination_dose_2_vaccine_name:
+    name: vaccination_dose_2_vaccine_name
     title: dose de vaccination 2 nom du vaccin
     description: "Nom du vaccin administr\xE9 comme deuxi\xE8me dose d'un sch\xE9\
       ma vaccinal."
@@ -1222,8 +1339,8 @@ slots:
       \ dans la liste de s\xE9lection."
     examples:
     - value: Pfizer-BioNTech (Comirnaty)
-  vaccination dose 2 vaccination date:
-    name: vaccination dose 2 vaccination date
+  vaccination_dose_2_vaccination_date:
+    name: vaccination_dose_2_vaccination_date
     title: dose de vaccination 2 date de vaccination
     description: "La date \xE0 laquelle la deuxi\xE8me dose d\u2019un vaccin a \xE9\
       t\xE9 administr\xE9e."
@@ -1233,8 +1350,8 @@ slots:
       \ standard ISO 8601 \xAB YYYY-MM-DD \xBB."
     examples:
     - value: '2021-09-01'
-  vaccination dose 3 vaccine name:
-    name: vaccination dose 3 vaccine name
+  vaccination_dose_3_vaccine_name:
+    name: vaccination_dose_3_vaccine_name
     title: dose de vaccination 3 nom du vaccin
     description: "Nom du vaccin administr\xE9 comme troisi\xE8me dose d'un sch\xE9\
       ma vaccinal."
@@ -1244,8 +1361,8 @@ slots:
       \ dans la liste de s\xE9lection."
     examples:
     - value: Pfizer-BioNTech (Comirnaty)
-  vaccination dose 3 vaccination date:
-    name: vaccination dose 3 vaccination date
+  vaccination_dose_3_vaccination_date:
+    name: vaccination_dose_3_vaccination_date
     title: dose de vaccination 3 date de vaccination
     description: "La date \xE0 laquelle la troisi\xE8me dose d\u2019un vaccin a \xE9\
       t\xE9 administr\xE9e."
@@ -1255,8 +1372,8 @@ slots:
       \ standard ISO 8601 \xABYYYY-MM-DD \xBB."
     examples:
     - value: '2021-12-30'
-  vaccination dose 4 vaccine name:
-    name: vaccination dose 4 vaccine name
+  vaccination_dose_4_vaccine_name:
+    name: vaccination_dose_4_vaccine_name
     title: dose de vaccination 4 nom du vaccin
     description: "Nom du vaccin administr\xE9 comme quatri\xE8me dose d'un sch\xE9\
       ma vaccinal."
@@ -1266,8 +1383,8 @@ slots:
       \ dans la liste de s\xE9lection."
     examples:
     - value: Pfizer-BioNTech (Comirnaty)
-  vaccination dose 4 vaccination date:
-    name: vaccination dose 4 vaccination date
+  vaccination_dose_4_vaccination_date:
+    name: vaccination_dose_4_vaccination_date
     title: dose de vaccination 4 date de vaccination
     description: "La date \xE0 laquelle la quatri\xE8me dose d\u2019un vaccin a \xE9\
       t\xE9 administr\xE9e."
@@ -1277,8 +1394,8 @@ slots:
       \ standard ISO 8601 \xAB YYYY-MM-DD \xBB."
     examples:
     - value: '2022-01-15'
-  vaccination history:
-    name: vaccination history
+  vaccination_history:
+    name: vaccination_history
     title: "les ant\xE9c\xE9dents de vaccination"
     description: "Une description des vaccins re\xE7us et les dates d'administration\
       \ d'une s\xE9rie de vaccinations contre une maladie sp\xE9cifique ou un ensemble\
@@ -1293,8 +1410,8 @@ slots:
     - value: '2021-03-01'
     - value: Pfizer-BioNTech (Comirnaty)
     - value: '2022-01-15'
-  location of exposure geo_loc name (country):
-    name: location of exposure geo_loc name (country)
+  location_of_exposure_geo_loc_name_country:
+    name: location_of_exposure_geo_loc_name_country
     title: lieu d'exposition geo_loc nom (pays)
     description: "Le pays o\xF9 l'h\xF4te a probablement \xE9t\xE9 expos\xE9 \xE0\
       \ l'agent causal de la maladie."
@@ -1305,8 +1422,8 @@ slots:
       \ de s\xE9lection."
     examples:
     - value: Canada
-  destination of most recent travel (city):
-    name: destination of most recent travel (city)
+  destination_of_most_recent_travel_city:
+    name: destination_of_most_recent_travel_city
     title: destination du dernier voyage (ville)
     description: "Le nom de la ville de destination du voyage le plus r\xE9cent."
     slot_group: "Informations sur l'exposition de l'h\xF4te"
@@ -1314,8 +1431,8 @@ slots:
       \ ce service de recherche pour identifier le terme normalis\xE9\_: https://www.ebi.ac.uk/ols/ontologies/gaz"
     examples:
     - value: La ville de New York
-  destination of most recent travel (state/province/territory):
-    name: destination of most recent travel (state/province/territory)
+  destination_of_most_recent_travel_state_province_territory:
+    name: destination_of_most_recent_travel_state_province_territory
     title: "destination du dernier voyage (\xE9tat/province/territoire)"
     description: "Le nom de la province de destination du voyage le plus r\xE9cent."
     slot_group: "Informations sur l'exposition de l'h\xF4te"
@@ -1324,8 +1441,8 @@ slots:
       \_: https://www.ebi.ac.uk/ols/ontologies/gaz"
     examples:
     - value: Californie
-  destination of most recent travel (country):
-    name: destination of most recent travel (country)
+  destination_of_most_recent_travel_country:
+    name: destination_of_most_recent_travel_country
     title: destination du dernier voyage (pays)
     description: "Le nom du pays de destination du voyage le plus r\xE9cent."
     slot_group: "Informations sur l'exposition de l'h\xF4te"
@@ -1333,8 +1450,8 @@ slots:
       \ ce service de recherche pour identifier le terme normalis\xE9\_: https://www.ebi.ac.uk/ols/ontologies/gaz"
     examples:
     - value: Royaume-Uni
-  most recent travel departure date:
-    name: most recent travel departure date
+  most_recent_travel_departure_date:
+    name: most_recent_travel_departure_date
     title: "date de d\xE9part du voyage la plus r\xE9cente"
     description: "Date du d\xE9part le plus r\xE9cent d'une personne de sa r\xE9sidence\
       \ principale (\xE0 ce moment-l\xE0) pour un voyage vers un ou plusieurs autres\
@@ -1344,8 +1461,8 @@ slots:
       \ \xAB YYYY-MM-DD \xBB."
     examples:
     - value: '2020-03-16'
-  most recent travel return date:
-    name: most recent travel return date
+  most_recent_travel_return_date:
+    name: most_recent_travel_return_date
     title: "date de retour la plus r\xE9cente"
     description: "Date du retour le plus r\xE9cent d'une personne \xE0 une r\xE9sidence\
       \ apr\xE8s un voyage au d\xE9part de cette r\xE9sidence."
@@ -1354,16 +1471,16 @@ slots:
       \ YYYY-MM-DD\xBB."
     examples:
     - value: '2020-04-26'
-  travel point of entry type:
-    name: travel point of entry type
+  travel_point_of_entry_type:
+    name: travel_point_of_entry_type
     title: "voyage type de point d'entr\xE9e"
     description: "Le type de point d\u2019entr\xE9e par lequel un voyageur arrive."
     slot_group: "Informations sur l'exposition de l'h\xF4te"
     comments: "S\xE9lectionnez le type de point d\u2019entr\xE9e."
     examples:
     - value: Air
-  border testing test day type:
-    name: border testing test day type
+  border_testing_test_day_type:
+    name: border_testing_test_day_type
     title: "test aux fronti\xE8res jour du test type"
     description: "Le jour o\xF9 un voyageur a \xE9t\xE9 test\xE9 \xE0 son arriv\xE9\
       e ou apr\xE8s son point d\u2019entr\xE9e."
@@ -1371,8 +1488,8 @@ slots:
     comments: "S\xE9lectionnez le jour du test."
     examples:
     - value: Jour 1
-  travel history:
-    name: travel history
+  travel_history:
+    name: travel_history
     title: histoire du voyage
     description: Historique de voyage au cours des six derniers mois.
     slot_group: "Informations sur l'exposition de l'h\xF4te"
@@ -1384,8 +1501,8 @@ slots:
     - value: Canada, Vancouver
     - value: USA, Seattle
     - value: Italie, Milan
-  travel history availability:
-    name: travel history availability
+  travel_history_availability:
+    name: travel_history_availability
     title: "disponibilit\xE9 de l'historique de voyage"
     description: "La disponibilit\xE9 de diff\xE9rents types d\u2019historiques de\
       \ voyages au cours des 6 derniers mois (par exemple internationaux, nationaux)."
@@ -1398,8 +1515,8 @@ slots:
       \ s\xE9quen\xE7age \xBB n'est pas associ\xE9 \xE0 un voyage."
     examples:
     - value: Historique des voyages internationaux disponible
-  exposure event:
-    name: exposure event
+  exposure_event:
+    name: exposure_event
     title: "exposition \xE9v\xE9nement"
     description: "\xC9v\xE9nement conduisant \xE0 une exposition."
     slot_group: "Informations sur l'exposition de l'h\xF4te"
@@ -1407,8 +1524,8 @@ slots:
       \ la liste de s\xE9lection."
     examples:
     - value: Convention
-  exposure contact level:
-    name: exposure contact level
+  exposure_contact_level:
+    name: exposure_contact_level
     title: exposition niveau de contact
     description: "Le type de contact de transmission d\u2019exposition."
     slot_group: "Informations sur l'exposition de l'h\xF4te"
@@ -1416,8 +1533,8 @@ slots:
       \ s\xE9lection."
     examples:
     - value: Direct
-  host role:
-    name: host role
+  host_role:
+    name: host_role
     title: "r\xF4le d'h\xF4te"
     description: "Le r\xF4le de l'h\xF4te par rapport au param\xE8tre d'exposition."
     slot_group: "Informations sur l'exposition de l'h\xF4te"
@@ -1426,8 +1543,8 @@ slots:
       , contactez l'\xE9quipe de curation."
     examples:
     - value: Patient
-  exposure setting:
-    name: exposure setting
+  exposure_setting:
+    name: exposure_setting
     title: "r\xE9glage de l'exposition"
     description: "Le cadre menant \xE0 l\u2019exposition."
     slot_group: "Informations sur l'exposition de l'h\xF4te"
@@ -1436,8 +1553,8 @@ slots:
       \ souhait\xE9, contactez l\u2019\xE9quipe de curation."
     examples:
     - value: "Cadre de soins de sant\xE9"
-  exposure details:
-    name: exposure details
+  exposure_details:
+    name: exposure_details
     title: "d\xE9tails de l'exposition"
     description: "Informations suppl\xE9mentaires sur l\u2019exposition de l\u2019\
       h\xF4te."
@@ -1445,8 +1562,8 @@ slots:
     comments: Description en texte libre de l'exposition.
     examples:
     - value: "R\xF4le d'h\xF4te - Autre\_: Chauffeur de bus"
-  prior SARS-CoV-2 infection:
-    name: prior SARS-CoV-2 infection
+  prior_sarscov2_infection:
+    name: prior_sarscov2_infection
     title: "infection ant\xE9rieure par le SARS-CoV-2"
     description: "S'il y a eu une infection ant\xE9rieure par le SARS-CoV-2."
     slot_group: "Informations sur la r\xE9infection de l'h\xF4te"
@@ -1455,8 +1572,8 @@ slots:
       \ dans la liste de s\xE9lection."
     examples:
     - value: Oui
-  prior SARS-CoV-2 infection isolate:
-    name: prior SARS-CoV-2 infection isolate
+  prior_sarscov2_infection_isolate:
+    name: prior_sarscov2_infection_isolate
     title: "isolat d'une infection ant\xE9rieure par le SARS-CoV-2"
     description: "L\u2019identifiant de l\u2019isolat trouv\xE9 lors de l\u2019infection\
       \ ant\xE9rieure par le SARS-CoV-2."
@@ -1467,8 +1584,8 @@ slots:
       \xBB."
     examples:
     - value: SARS-CoV-2/human/USA/CA-CDPH-001/2020
-  prior SARS-CoV-2 infection date:
-    name: prior SARS-CoV-2 infection date
+  prior_sarscov2_infection_date:
+    name: prior_sarscov2_infection_date
     title: "date d'une infection ant\xE9rieure par le SARS-CoV-2"
     description: "La date du diagnostic de l\u2019infection ant\xE9rieure par le SARS-CoV-2."
     slot_group: "Informations sur la r\xE9infection de l'h\xF4te"
@@ -1477,8 +1594,8 @@ slots:
       rieure par le SARS-CoV-2 au format standard ISO 8601 \xAB YYYY-MM-DD \xBB."
     examples:
     - value: '2021-01-23'
-  prior SARS-CoV-2 antiviral treatment:
-    name: prior SARS-CoV-2 antiviral treatment
+  prior_sarscov2_antiviral_treatment:
+    name: prior_sarscov2_antiviral_treatment
     title: "traitement antiviral ant\xE9rieur contre le SARS-CoV-2"
     description: "S'il y a eu un traitement ant\xE9rieur contre le SARS-CoV-2 avec\
       \ un agent antiviral."
@@ -1488,8 +1605,8 @@ slots:
       \ s\xE9lection."
     examples:
     - value: "Aucun traitement antiviral pr\xE9alable"
-  prior SARS-CoV-2 antiviral treatment agent:
-    name: prior SARS-CoV-2 antiviral treatment agent
+  prior_sarscov2_antiviral_treatment_agent:
+    name: prior_sarscov2_antiviral_treatment_agent
     title: "agent du traitement antiviral ant\xE9rieur contre le SARS-CoV-2"
     description: "Le nom de l\u2019agent de traitement antiviral administr\xE9 lors\
       \ de l\u2019infection ant\xE9rieure par le SARS-CoV-2."
@@ -1501,8 +1618,8 @@ slots:
       \ tous s\xE9par\xE9s par des virgules."
     examples:
     - value: Remdesivir
-  prior SARS-CoV-2 antiviral treatment date:
-    name: prior SARS-CoV-2 antiviral treatment date
+  prior_sarscov2_antiviral_treatment_date:
+    name: prior_sarscov2_antiviral_treatment_date
     title: "date du traitement antiviral ant\xE9rieur contre le SARS-CoV-2"
     description: "Le traitement a \xE9t\xE9 administr\xE9 pour la premi\xE8re fois\
       \ lors de l\u2019infection ant\xE9rieure par le SARS-CoV-2."
@@ -1513,8 +1630,8 @@ slots:
       \ SARS-CoV-2 au format standard ISO 8601 \xAB YYYY-MM-DD \xBB."
     examples:
     - value: '2021-01-28'
-  purpose of sequencing:
-    name: purpose of sequencing
+  purpose_of_sequencing:
+    name: purpose_of_sequencing
     title: "objectif du s\xE9quen\xE7age"
     description: "La raison pour laquelle l\u2019\xE9chantillon a \xE9t\xE9 s\xE9\
       quenc\xE9."
@@ -1529,8 +1646,8 @@ slots:
       \ champ \xAB\_objectif de l\u2019\xE9chantillonnage\_\xBB."
     examples:
     - value: "Surveillance de base (\xE9chantillonnage al\xE9atoire)"
-  purpose of sequencing details:
-    name: purpose of sequencing details
+  purpose_of_sequencing_details:
+    name: purpose_of_sequencing_details
     title: "objectif du s\xE9quen\xE7age d\xE9tails"
     description: "La description de la raison pour laquelle l'\xE9chantillon a \xE9\
       t\xE9 s\xE9quenc\xE9, fournissant des d\xE9tails sp\xE9cifiques."
@@ -1553,8 +1670,8 @@ slots:
       s, Enqu\xEAte sur la r\xE9infection."
     examples:
     - value: "D\xE9pist\xE9 pour \xE9chec de la cible du g\xE8ne S (abandon S)"
-  sequencing date:
-    name: sequencing date
+  sequencing_date:
+    name: sequencing_date
     title: "date de s\xE9quen\xE7age"
     description: "La date \xE0 laquelle l\u2019\xE9chantillon a \xE9t\xE9 s\xE9quenc\xE9\
       ."
@@ -1563,8 +1680,8 @@ slots:
       \ \xAB YYYY-MM-DD \xBB."
     examples:
     - value: '2020-06-22'
-  library ID:
-    name: library ID
+  library_id:
+    name: library_id
     title: "ID de la biblioth\xE8que"
     description: "L\u2019identifiant sp\xE9cifi\xE9 par l\u2019utilisateur pour la\
       \ biblioth\xE8que pr\xE9par\xE9e pour le s\xE9quen\xE7age."
@@ -1574,16 +1691,16 @@ slots:
       \ modification de l'ID d'isolat."
     examples:
     - value: XYZ_123345
-  amplicon size:
-    name: amplicon size
+  amplicon_size:
+    name: amplicon_size
     title: taille de l'amplicon
     description: "La longueur de l'amplicon g\xE9n\xE9r\xE9 par l'amplification PCR."
     slot_group: "S\xE9quen\xE7age"
     comments: "Fournissez la taille de l\u2019amplicon, y compris les unit\xE9s."
     examples:
     - value: 300bp
-  library preparation kit:
-    name: library preparation kit
+  library_preparation_kit:
+    name: library_preparation_kit
     title: "kit de pr\xE9paration de librairie"
     description: "Nom du kit de pr\xE9paration de la biblioth\xE8que DNA utilis\xE9\
       \ pour g\xE9n\xE9rer la biblioth\xE8que en cours de s\xE9quen\xE7age."
@@ -1592,8 +1709,8 @@ slots:
       ."
     examples:
     - value: Nextera XT
-  flow cell barcode:
-    name: flow cell barcode
+  flow_cell_barcode:
+    name: flow_cell_barcode
     title: "code-barres de la cellule d'\xE9coulement"
     description: "Le code-barres de la Flow Cell utilis\xE9e pour le s\xE9quen\xE7\
       age."
@@ -1602,8 +1719,8 @@ slots:
       \ l\u2019\xE9chantillon."
     examples:
     - value: FAB06069
-  sequencing instrument:
-    name: sequencing instrument
+  sequencing_instrument:
+    name: sequencing_instrument
     title: "instrument de s\xE9quen\xE7age"
     description: "Le mod\xE8le de l\u2019instrument de s\xE9quen\xE7age utilis\xE9\
       ."
@@ -1612,8 +1729,8 @@ slots:
       \ de s\xE9lection."
     examples:
     - value: Oxford Nanopore MinION
-  sequencing protocol name:
-    name: sequencing protocol name
+  sequencing_protocol_name:
+    name: sequencing_protocol_name
     title: "nom du protocole de s\xE9quen\xE7age"
     description: "Le nom et le num\xE9ro de version du protocole de s\xE9quen\xE7\
       age utilis\xE9."
@@ -1621,8 +1738,8 @@ slots:
     comments: "Fournissez le nom et la version du protocole de s\xE9quen\xE7age."
     examples:
     - value: https://www.protocols.io/view/covid-19-artic-v3-illumina-library-construction-an-bibtkann
-  sequencing protocol:
-    name: sequencing protocol
+  sequencing_protocol:
+    name: sequencing_protocol
     title: "protocole de s\xE9quen\xE7age"
     description: "Le protocole utilis\xE9 pour g\xE9n\xE9rer la s\xE9quence."
     slot_group: "S\xE9quen\xE7age"
@@ -1640,16 +1757,16 @@ slots:
         \ \xE9t\xE9 cr\xE9\xE9es \xE0 l'aide des kits Illumina DNA Prep et les donn\xE9\
         es de s\xE9quence ont \xE9t\xE9 produites \xE0 l'aide des kits de s\xE9quen\xE7\
         age Miseq Micro v2 (500 cycles)."
-  sequencing kit number:
-    name: sequencing kit number
+  sequencing_kit_number:
+    name: sequencing_kit_number
     title: "num\xE9ro du kit de s\xE9quen\xE7age"
     description: "Le num\xE9ro de kit du fabricant."
     slot_group: "S\xE9quen\xE7age"
     comments: "Valeur alphanum\xE9rique."
     examples:
     - value: AB456XYZ789
-  amplicon pcr primer scheme:
-    name: amplicon pcr primer scheme
+  amplicon_pcr_primer_scheme:
+    name: amplicon_pcr_primer_scheme
     title: de la liste des amorces pcr de l'amplicon
     description: "Les sp\xE9cifications des amorces (s\xE9quences d'amorces, positions\
       \ de liaison, taille des fragments g\xE9n\xE9r\xE9s, etc.) utilis\xE9es pour\
@@ -1659,8 +1776,8 @@ slots:
       \ pour g\xE9n\xE9rer les amplicons pour le s\xE9quen\xE7age."
     examples:
     - value: https://github.com/joshquick/artic-ncov2019/blob/master/primer_schemes/nCoV-2019/V3/nCoV-2019.tsv
-  raw sequence data processing method:
-    name: raw sequence data processing method
+  raw_sequence_data_processing_method:
+    name: raw_sequence_data_processing_method
     title: "m\xE9thode de traitement des donn\xE9es de s\xE9quences brutes"
     description: "La m\xE9thode utilis\xE9e pour le traitement des donn\xE9es brutes,\
       \ comme la suppression des codes-barres, le d\xE9coupage de l'adaptateur, le\
@@ -1670,8 +1787,8 @@ slots:
       \ pour traiter les donn\xE9es brutes."
     examples:
     - value: Porechop 0.2.3
-  dehosting method:
-    name: dehosting method
+  dehosting_method:
+    name: dehosting_method
     title: "m\xE9thode de d\xE9shostage"
     description: "M\xE9thode utilis\xE9e pour supprimer les lectures de l'h\xF4te\
       \ de la s\xE9quence de l'agent pathog\xE8ne."
@@ -1680,16 +1797,16 @@ slots:
       \ pour supprimer les lectures de l'h\xF4te."
     examples:
     - value: Nanostripper
-  consensus sequence name:
-    name: consensus sequence name
+  consensus_sequence_name:
+    name: consensus_sequence_name
     title: "nom de la s\xE9quence consensus"
     description: "Le nom de la s\xE9quence consensus."
     slot_group: "Bioinformatique et mesures de contr\xF4le de la qualit\xE9"
     comments: "Fournissez le nom et le num\xE9ro de version de la s\xE9quence consensus."
     examples:
     - value: ncov123assembly3
-  consensus sequence filename:
-    name: consensus sequence filename
+  consensus_sequence_filename:
+    name: consensus_sequence_filename
     title: "nom de fichier de la s\xE9quence consensus"
     description: "Le nom du fichier de s\xE9quence consensus."
     slot_group: "Bioinformatique et mesures de contr\xF4le de la qualit\xE9"
@@ -1697,8 +1814,8 @@ slots:
       quence consensus."
     examples:
     - value: ncov123assembly.fasta
-  consensus sequence filepath:
-    name: consensus sequence filepath
+  consensus_sequence_filepath:
+    name: consensus_sequence_filepath
     title: "chemin de fichier de la s\xE9quence consensus"
     description: "Le chemin d\u2019acc\xE8s du fichier de s\xE9quence consensus."
     slot_group: "Bioinformatique et mesures de contr\xF4le de la qualit\xE9"
@@ -1706,8 +1823,8 @@ slots:
       \ consensus."
     examples:
     - value: /User/Documents/RespLab/Data/ncov123assembly.fasta
-  consensus sequence software name:
-    name: consensus sequence software name
+  consensus_sequence_software_name:
+    name: consensus_sequence_software_name
     title: "nom du logiciel de s\xE9quen\xE7age du consensus"
     description: "Le nom du logiciel utilis\xE9 pour g\xE9n\xE9rer la s\xE9quence\
       \ consensus."
@@ -1716,8 +1833,8 @@ slots:
       quence consensus."
     examples:
     - value: iVar
-  consensus sequence software version:
-    name: consensus sequence software version
+  consensus_sequence_software_version:
+    name: consensus_sequence_software_version
     title: "version du logiciel de la s\xE9quence consensus"
     description: "La version du logiciel utilis\xE9 pour g\xE9n\xE9rer la s\xE9quence\
       \ consensus."
@@ -1726,8 +1843,8 @@ slots:
       quence consensus."
     examples:
     - value: '1.3'
-  breadth of coverage value:
-    name: breadth of coverage value
+  breadth_of_coverage_value:
+    name: breadth_of_coverage_value
     title: "valeur de l'\xE9tendue de la couverture"
     description: "Le pourcentage du g\xE9nome de r\xE9f\xE9rence couvert par les donn\xE9\
       es s\xE9quenc\xE9es, jusqu'\xE0 une profondeur prescrite."
@@ -1735,8 +1852,8 @@ slots:
     comments: Fournissez la valeur en pourcentage.
     examples:
     - value: 95%
-  depth of coverage value:
-    name: depth of coverage value
+  depth_of_coverage_value:
+    name: depth_of_coverage_value
     title: valeur de la profondeur de couverture
     description: "Le nombre moyen de lectures repr\xE9sentant un nucl\xE9otide donn\xE9\
       \ dans la s\xE9quence reconstruite."
@@ -1744,16 +1861,16 @@ slots:
     comments: Apporter de la valeur sous forme de pli de couverture.
     examples:
     - value: 400x
-  depth of coverage threshold:
-    name: depth of coverage threshold
+  depth_of_coverage_threshold:
+    name: depth_of_coverage_threshold
     title: seuil de profondeur de couverture
     description: "Seuil utilis\xE9 comme seuil pour la profondeur de couverture."
     slot_group: "Bioinformatique et mesures de contr\xF4le de la qualit\xE9"
     comments: Fournit la couverture de pli de seuil.
     examples:
     - value: 100x
-  r1 fastq filename:
-    name: r1 fastq filename
+  r1_fastq_filename________:
+    name: r1_fastq_filename________
     title: r1 nom de fichier fastq
     description: "Le nom de fichier sp\xE9cifi\xE9 par l'utilisateur du fichier r1\
       \ FASTQ."
@@ -1761,8 +1878,8 @@ slots:
     comments: Fournissez le nom du fichier r1 FASTQ.
     examples:
     - value: ABC123_S1_L001_R1_001.fastq.gz
-  r2 fastq filename:
-    name: r2 fastq filename
+  r2_fastq_filename:
+    name: r2_fastq_filename
     title: r2 nom de fichier fastq
     description: "Le nom de fichier sp\xE9cifi\xE9 par l'utilisateur du fichier r2\
       \ FASTQ."
@@ -1770,40 +1887,40 @@ slots:
     comments: Fournissez le nom du fichier r2 FASTQ.
     examples:
     - value: ABC123_S1_L001_R2_001.fastq.gz
-  r1 fastq filepath:
-    name: r1 fastq filepath
+  r1_fastq_filepath:
+    name: r1_fastq_filepath
     title: chemin de fichier r1 fastq
     description: Le chemin du fichier r1 FASTQ.
     slot_group: "Bioinformatique et mesures de contr\xF4le de la qualit\xE9"
     comments: Fournissez le chemin du fichier r1 FASTQ.
     examples:
     - value: /User/Documents/RespLab/Data/ABC123_S1_L001_R1_001.fastq.gz
-  r2 fastq filepath:
-    name: r2 fastq filepath
+  r2_fastq_filepath:
+    name: r2_fastq_filepath
     title: chemin du fichier r2 fastq
     description: "Le chemin d'acc\xE8s du fichier r2 FASTQ."
     slot_group: "Bioinformatique et mesures de contr\xF4le de la qualit\xE9"
     comments: "Fournissez le chemin d'acc\xE8s du fichier r2 FASTQ."
     examples:
     - value: /User/Documents/RespLab/Data/ABC123_S1_L001_R2_001.fastq.gz
-  fast5 filename:
-    name: fast5 filename
+  fast5_filename:
+    name: fast5_filename
     title: nom de fichier fast5
     description: "Le nom de fichier sp\xE9cifi\xE9 par l'utilisateur du fichier FAST5."
     slot_group: "Bioinformatique et mesures de contr\xF4le de la qualit\xE9"
     comments: Fournissez le nom du fichier FAST5.
     examples:
     - value: rona123assembly.fast5
-  fast5 filepath:
-    name: fast5 filepath
+  fast5_filepath:
+    name: fast5_filepath
     title: chemin de fichier fast5
     description: Le chemin du fichier FAST5.
     slot_group: "Bioinformatique et mesures de contr\xF4le de la qualit\xE9"
     comments: Fournissez le chemin du fichier FAST5.
     examples:
     - value: /User/Documents/RespLab/Data/rona123assembly.fast5
-  number of base pairs sequenced:
-    name: number of base pairs sequenced
+  number_of_base_pairs_sequenced:
+    name: number_of_base_pairs_sequenced
     title: "nombre de paires de bases s\xE9quenc\xE9es"
     description: "Le nombre total de paires de bases g\xE9n\xE9r\xE9es par le processus\
       \ de s\xE9quen\xE7age."
@@ -1812,8 +1929,8 @@ slots:
       s)."
     examples:
     - value: '387566'
-  consensus genome length:
-    name: consensus genome length
+  consensus_genome_length:
+    name: consensus_genome_length
     title: "longueur consensuelle du g\xE9nome"
     description: "Taille du g\xE9nome assembl\xE9 d\xE9crite comme le nombre de paires\
       \ de bases."
@@ -1822,8 +1939,8 @@ slots:
       s)."
     examples:
     - value: '38677'
-  Ns per 100 kbp:
-    name: Ns per 100 kbp
+  ns_per_100_kbp:
+    name: ns_per_100_kbp
     title: Ns per 100 kbp
     description: "Le nombre de N symboles pr\xE9sents dans la s\xE9quence fasta consensus,\
       \ pour 100\_kbp de s\xE9quence."
@@ -1832,8 +1949,8 @@ slots:
       s)."
     examples:
     - value: '330'
-  reference genome accession:
-    name: reference genome accession
+  reference_genome_accession:
+    name: reference_genome_accession
     title: "accession au g\xE9nome de r\xE9f\xE9rence"
     description: "Un identifiant persistant et unique d\u2019une entr\xE9e de base\
       \ de donn\xE9es g\xE9nomique."
@@ -1842,8 +1959,8 @@ slots:
       rence."
     examples:
     - value: NC_045512.2
-  bioinformatics protocol:
-    name: bioinformatics protocol
+  bioinformatics_protocol:
+    name: bioinformatics_protocol
     title: protocole bioinformatique
     description: "Le nom et le num\xE9ro de version du protocole bioinformatique utilis\xE9\
       ."
@@ -1855,16 +1972,16 @@ slots:
       \ ou un lien s'il est d\xE9pos\xE9 dans un r\xE9f\xE9rentiel de protocoles."
     examples:
     - value: https://github.com/phac-nml/ncov2019-artic-nf
-  lineage/clade name:
-    name: lineage/clade name
+  lineage_clade_name:
+    name: lineage_clade_name
     title: nom du lineage/clade
     description: "Le nom de la lign\xE9e ou du clade."
     slot_group: "Informations sur les lign\xE9es et les variantes"
     comments: "Fournissez le nom de la lign\xE9e/clade Pangolin ou Nextstrain."
     examples:
     - value: B.1.1.7
-  lineage/clade analysis software name:
-    name: lineage/clade analysis software name
+  lineage_clade_analysis_software_name:
+    name: lineage_clade_analysis_software_name
     title: "nom du logiciel d'analyse de lin\xE9age/clade"
     description: "Le nom du logiciel utilis\xE9 pour d\xE9terminer la lign\xE9e/clade."
     slot_group: "Informations sur les lign\xE9es et les variantes"
@@ -1872,8 +1989,8 @@ slots:
       e/clade."
     examples:
     - value: Pangolin
-  lineage/clade analysis software version:
-    name: lineage/clade analysis software version
+  lineage_clade_analysis_software_version:
+    name: lineage_clade_analysis_software_version
     title: "version du logiciel d'analyse de lin\xE9age/clade"
     description: "La version du logiciel utilis\xE9 pour d\xE9terminer la lign\xE9\
       e/clade."
@@ -1882,8 +1999,8 @@ slots:
       \ lign\xE9e/clade."
     examples:
     - value: 2.1.10
-  variant designation:
-    name: variant designation
+  variant_designation:
+    name: variant_designation
     title: "d\xE9signation de la variante"
     description: "La classification des variantes de la lign\xE9e/clade, c'est-\xE0\
       -dire variante, variante pr\xE9occupante."
@@ -1897,8 +2014,8 @@ slots:
       \ contient pas de mutations pr\xE9occupantes, laissez ce champ vide."
     examples:
     - value: "Variante pr\xE9occupante (VOC)"
-  variant evidence:
-    name: variant evidence
+  variant_evidence:
+    name: variant_evidence
     title: preuve de la variante
     description: "Preuve utilis\xE9e pour d\xE9terminer la variante."
     slot_group: "Informations sur les lign\xE9es et les variantes"
@@ -1907,8 +2024,8 @@ slots:
       lection."
     examples:
     - value: RT-qPCR
-  variant evidence details:
-    name: variant evidence details
+  variant_evidence_details:
+    name: variant_evidence_details
     title: "d\xE9tails de la preuve de la variante"
     description: "D\xE9tails sur les preuves utilis\xE9es pour d\xE9terminer la variante."
     slot_group: "Informations sur les lign\xE9es et les variantes"
@@ -1920,8 +2037,8 @@ slots:
     examples:
     - value: "Mutations d\xE9finissant la lign\xE9e: ORF1ab (K1655N), Spike (K417N,\
         \ E484K, N501Y, D614G, A701V), N (T205I), E (P71L)."
-  gene name 1:
-    name: gene name 1
+  gene_name_1:
+    name: gene_name_1
     title: "nom du g\xE8ne 1"
     description: "Le nom du g\xE8ne utilis\xE9 dans le test diagnostique RT-PCR."
     slot_group: "Tests de diagnostic des agents pathog\xE8nes"
@@ -1932,8 +2049,8 @@ slots:
       s dans Gene Ontology en utilisant ce service de recherche\_: https://bit.ly/2Sq1LbI"
     examples:
     - value: E gene (orf4)
-  diagnostic pcr protocol 1:
-    name: diagnostic pcr protocol 1
+  diagnostic_pcr_protocol_1:
+    name: diagnostic_pcr_protocol_1
     title: protocole de diagnostic pcr 1
     description: "Le nom et le num\xE9ro de version du protocole utilis\xE9 pour l\u2019\
       amplification des marqueurs de diagnostic."
@@ -1944,8 +2061,8 @@ slots:
       \ et le contr\xF4le qualit\xE9."
     examples:
     - value: EGenePCRTest 2
-  diagnostic pcr Ct value 1:
-    name: diagnostic pcr Ct value 1
+  diagnostic_pcr_ct_value_1:
+    name: diagnostic_pcr_ct_value_1
     title: diagnostic pcr Ct value 1
     description: "La valeur du seuil de cycle (Ct) r\xE9sulte d\u2019un test de diagnostic\
       \ RT-PCR du SARS-CoV-2."
@@ -1954,8 +2071,8 @@ slots:
       \ issu du test de diagnostic RT-PCR."
     examples:
     - value: '21'
-  gene name 2:
-    name: gene name 2
+  gene_name_2:
+    name: gene_name_2
     title: "nom du g\xE8ne 2"
     description: "Le nom du g\xE8ne utilis\xE9 dans le test diagnostique RT-PCR."
     slot_group: "Tests de diagnostic des agents pathog\xE8nes"
@@ -1966,8 +2083,8 @@ slots:
       s dans Gene Ontology en utilisant ce service de recherche\_: https://bit.ly/2Sq1LbI"
     examples:
     - value: RdRp gene (nsp12)
-  diagnostic pcr protocol 2:
-    name: diagnostic pcr protocol 2
+  diagnostic_pcr_protocol_2:
+    name: diagnostic_pcr_protocol_2
     title: protocole de diagnostic pcr 2
     description: "Le nom et le num\xE9ro de version du protocole utilis\xE9 pour l\u2019\
       amplification des marqueurs de diagnostic."
@@ -1978,8 +2095,8 @@ slots:
       \ performances et le contr\xF4le qualit\xE9."
     examples:
     - value: RdRpGenePCRTest 3
-  diagnostic pcr Ct value 2:
-    name: diagnostic pcr Ct value 2
+  diagnostic_pcr_ct_value_2:
+    name: diagnostic_pcr_ct_value_2
     title: diagnostic pcr Ct value 2
     description: "La valeur du seuil de cycle (Ct) r\xE9sulte d\u2019un test de diagnostic\
       \ RT-PCR du SARS-CoV-2."
@@ -1988,8 +2105,8 @@ slots:
       \ issu du deuxi\xE8me test de diagnostic RT-PCR."
     examples:
     - value: '36'
-  gene name 3:
-    name: gene name 3
+  gene_name_3:
+    name: gene_name_3
     title: "nom du g\xE8ne 3"
     description: "Le nom du g\xE8ne utilis\xE9 dans le test diagnostique RT-PCR."
     slot_group: "Tests de diagnostic des agents pathog\xE8nes"
@@ -2000,8 +2117,8 @@ slots:
       : https://bit.ly/2Sq1LbI"
     examples:
     - value: RdRp gene (nsp12)
-  diagnostic pcr protocol 3:
-    name: diagnostic pcr protocol 3
+  diagnostic_pcr_protocol_3:
+    name: diagnostic_pcr_protocol_3
     title: protocole de diagnostic pcr 3
     description: "Le nom et le num\xE9ro de version du protocole utilis\xE9 pour l\u2019\
       amplification des marqueurs de diagnostic."
@@ -2012,8 +2129,8 @@ slots:
       \ performances et le contr\xF4le qualit\xE9."
     examples:
     - value: RdRpGenePCRTest 3
-  diagnostic pcr Ct value 3:
-    name: diagnostic pcr Ct value 3
+  diagnostic_pcr_ct_value_3:
+    name: diagnostic_pcr_ct_value_3
     title: diagnostic pcr Ct value 3
     description: "La valeur Ct r\xE9sulte d\u2019un test de diagnostic SARS-CoV-2\
       \ RT-PCR."
@@ -2033,8 +2150,8 @@ slots:
       \ \xEAtre attribu\xE9es, s\xE9par\xE9s par une virgule."
     examples:
     - value: Tejinder Singh, Fei Hu, Joe Blogs
-  DataHarmonizer provenance:
-    name: DataHarmonizer provenance
+  dataharmonizer_provenance:
+    name: dataharmonizer_provenance
     title: Provenance de DataHarmonizer
     description: "Provenance du logiciel DataHarmonizer et de la version du mod\xE8\
       le."

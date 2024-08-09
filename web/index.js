@@ -1,35 +1,77 @@
-import { DataHarmonizer, Footer, Toolbar } from '../lib';
-import menu from './templates/menu.json';
+import * as $ from 'jquery';
+import 'bootstrap';
+
+import { Footer, Toolbar } from '@/lib';
+import { initI18n } from '@/lib/utils/i18n';
+import { Template } from '@/lib/utils/templates';
+import { getGettingStartedMarkup } from '@/lib/toolbarGettingStarted';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './index.css';
+import '@/web/index.css';
+import { AppContext } from '@/lib/AppContext';
 
-document.addEventListener('DOMContentLoaded', function () {
-  const dhRoot = document.querySelector('#data-harmonizer-grid');
-  const dhFooterRoot = document.querySelector('#data-harmonizer-footer');
-  const dhToolbarRoot = document.querySelector('#data-harmonizer-toolbar');
+// TODO eliminate need to export
+export const dhRoot = document.querySelector('#data-harmonizer-grid');
+export const dhTabNav = document.querySelector('#data-harmonizer-tabs');
 
-  const dh = new DataHarmonizer(dhRoot, {
-    loadingScreenRoot: document.querySelector('body'),
-  });
+const dhFooterRoot = document.querySelector('#data-harmonizer-footer');
+const dhToolbarRoot = document.querySelector('#data-harmonizer-toolbar');
 
-  new Footer(dhFooterRoot, dh);
+// loading screen
+$(dhRoot).append(`
+    <div class="w-100 h-100 position-fixed fixed-top" id="loading-screen">
+    <div class="d-flex h-100 align-items-center justify-content-center">
+        <div class="spinner-border text-primary" role="status">
+        <span class="sr-only">Please wait...</span>
+        </div>
+    </div>
+    </div>
+`);
 
-  let templatePath;
-  if (window.URLSearchParams) {
-    let params = new URLSearchParams(location.search);
-    templatePath = params.get('template');
-  } else {
-    templatePath = location.search.split('template=')[1];
-  }
-  new Toolbar(dhToolbarRoot, dh, menu, {
-    templatePath: templatePath,
-    releasesURL: 'https://github.com/cidgoh/pathogen-genomics-package/releases',
-    getSchema: async (schema) => {
-      return (await import(`./templates/${schema}/schema.json`)).default;
-    },
-    getExportFormats: async (schema) => {
-      return (await import(`./templates/${schema}/export.js`)).default;
-    },
-  });
-});
+// Make the top function asynchronous to allow for a data-loading/IO step
+const main = async function () {
+  const context = new AppContext();
+  context
+    .reload(context.appConfig.template_path, { locale: 'en' })
+    .then(async (context) => {
+      // // internationalize
+      // // TODO: connect to locale of browser!
+      // // Takes `lang` as argument (unused)
+      initI18n((/* lang */) => {
+        $(document).localize();
+
+        // HACK: manual content refereshes
+        // usually because the HTML is custom generated/not from a template, or has inset translation code
+        $('#getting-started-carousel-container').html(
+          getGettingStartedMarkup()
+        );
+        Object.values(context.dhs).forEach((dh) => dh.render());
+      });
+
+      console.log('index: ', context);
+      new Toolbar(dhToolbarRoot, context, {
+        templatePath: context.appConfig.template_path, // TODO: a default should be loaded before Toolbar is constructed! then take out all loading in "toolbar" to an outside context
+        releasesURL:
+          'https://github.com/cidgoh/pathogen-genomics-package/releases',
+        getLanguages: context.getLocaleData.bind(context),
+        getExportFormats: context.getExportFormats.bind(context),
+        getSchema: async (schema) =>
+          Template.create(schema).then((result) => result.current.schema),
+      });
+
+      new Footer(dhFooterRoot, context);
+
+      return context;
+    })
+    .then(async (context) => {
+      return setTimeout(
+        () =>
+          Object.values(context.dhs).forEach((dh) =>
+            dh.showColumnsByNames(dh.field_filters)
+          ),
+        400
+      );
+    });
+};
+
+document.addEventListener('DOMContentLoaded', main);

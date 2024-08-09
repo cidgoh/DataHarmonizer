@@ -6,6 +6,27 @@
       "display": true
     }
   },
+  "test": {
+    "TEST": {
+      "name": "TEST",
+      "status": "published",
+      "display": true
+    }
+  },
+  "grdi": {
+    "GRDI_Sample": {
+      "name": "GRDI_Sample",
+      "status": "published",
+      "display": true
+    }
+  },
+  "phac_dexa": {
+    "PHAC Dexa": {
+      "name": "PHAC Dexa",
+      "status": "published",
+      "display": true
+    }
+  },
   "gisaid": {
     "GISAID": {
       "name": "GISAID",
@@ -16,20 +37,6 @@
   "pha4ge": {
     "PHA4GE": {
       "name": "PHA4GE",
-      "status": "published",
-      "display": true
-    }
-  },
-  "grdi": {
-    "GRDI": {
-      "name": "GRDI",
-      "status": "published",
-      "display": true
-    }
-  },
-  "phac_dexa": {
-    "PHAC Dexa": {
-      "name": "PHAC Dexa",
       "status": "published",
       "display": true
     }
@@ -82,6 +89,43 @@
       "name": "WastewaterPathogenAgnostic",
       "status": "published",
       "display": true
+    }
+  },
+  "schema_editor": {
+    "Schema": {
+      "name": "Schema",
+      "status": "published",
+      "display": true
+    },
+    "Slot": {
+      "name": "Slot",
+      "status": "published",
+      "display": false
+    },
+    "Enum": {
+      "name": "Enum",
+      "status": "published",
+      "display": false
+    },
+    "Class": {
+      "name": "Class",
+      "status": "published",
+      "display": false
+    },
+    "SlotUsage": {
+      "name": "SlotUsage",
+      "status": "published",
+      "display": false
+    },
+    "Prefix": {
+      "name": "Prefix",
+      "status": "published",
+      "display": false
+    },
+    "Container": {
+      "name": "Container",
+      "status": "published",
+      "display": false
     }
   }
 }

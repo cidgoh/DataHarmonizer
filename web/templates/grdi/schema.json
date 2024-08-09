@@ -8988,10 +8988,30 @@
       "slot_uri": "GENEPIO:0100515",
       "range": "date"
     },
-    "amikacin_resistance_phenotype": {
-      "name": "amikacin_resistance_phenotype",
+    "antimicrobial_resistance_test_drug": {
+      "name": "antimicrobial_resistance_test_drug",
+      "description": "The antimicrobial drug being tested.",
+      "title": "antimicrobial_resistance_test_drug",
+      "examples": [
+        {
+          "value": "amikacin"
+        }
+      ],
+      "from_schema": "https://example.com/GRDI",
+      "recommended": true,
+      "any_of": [
+        {
+          "range": "antimicrobial_resistance_test_drug menu"
+        },
+        {
+          "range": "null value menu"
+        }
+      ]
+    },
+    "resistance_phenotype": {
+      "name": "resistance_phenotype",
       "description": "The antimicrobial resistance phenotype, as determined by the antibiotic susceptibility measurement and testing standard for this antibiotic",
-      "title": "amikacin_resistance_phenotype",
+      "title": "resistance_phenotype",
       "comments": [
         "Select a phenotype from the pick list provided."
       ],
@@ -9011,10 +9031,10 @@
         }
       ]
     },
-    "amikacin_measurement": {
-      "name": "amikacin_measurement",
-      "description": "The measured value of amikacin resistance.",
-      "title": "amikacin_measurement",
+    "measurement": {
+      "name": "measurement",
+      "description": "The measured value of resistance to given antibiotic.",
+      "title": "measurement",
       "comments": [
         "This field should only contain a number (either an integer or a number with decimals)."
       ],
@@ -9034,10 +9054,10 @@
         }
       ]
     },
-    "amikacin_measurement_units": {
-      "name": "amikacin_measurement_units",
+    "measurement_units": {
+      "name": "measurement_units",
       "description": "The units of the antimicrobial resistance measurement.",
-      "title": "amikacin_measurement_units",
+      "title": "measurement_units",
       "comments": [
         "Select the units from the pick list provided. Use the Term Request System to request the addition of other units if necessary."
       ],
@@ -9057,10 +9077,10 @@
         }
       ]
     },
-    "amikacin_measurement_sign": {
-      "name": "amikacin_measurement_sign",
+    "measurement_sign": {
+      "name": "measurement_sign",
       "description": "The qualifier associated with the antimicrobial resistance measurement",
-      "title": "amikacin_measurement_sign",
+      "title": "measurement_sign",
       "comments": [
         "Select the comparator sign from the pick list provided. Use the Term Request System to request the addition of other signs if necessary."
       ],
@@ -9080,10 +9100,10 @@
         }
       ]
     },
-    "amikacin_laboratory_typing_method": {
-      "name": "amikacin_laboratory_typing_method",
+    "laboratory_typing_method": {
+      "name": "laboratory_typing_method",
       "description": "The general method used for antimicrobial susceptibility testing.",
-      "title": "amikacin_laboratory_typing_method",
+      "title": "laboratory_typing_method",
       "comments": [
         "Select a typing method from the pick list provided. Use the Term Request System to request the addition of other methods if necessary."
       ],
@@ -9102,10 +9122,10 @@
         }
       ]
     },
-    "amikacin_laboratory_typing_platform": {
-      "name": "amikacin_laboratory_typing_platform",
+    "laboratory_typing_platform": {
+      "name": "laboratory_typing_platform",
       "description": "The brand/platform used for antimicrobial susceptibility testing.",
-      "title": "amikacin_laboratory_typing_platform",
+      "title": "laboratory_typing_platform",
       "comments": [
         "Select a typing platform from the pick list provided. Use the Term Request System to request the addition of other platforms if necessary."
       ],
@@ -9124,10 +9144,10 @@
         }
       ]
     },
-    "amikacin_laboratory_typing_platform_version": {
-      "name": "amikacin_laboratory_typing_platform_version",
+    "laboratory_typing_platform_version": {
+      "name": "laboratory_typing_platform_version",
       "description": "The specific name and version of the plate, panel, or other platform used for antimicrobial susceptibility testing.",
-      "title": "amikacin_laboratory_typing_platform_version",
+      "title": "laboratory_typing_platform_version",
       "comments": [
         "Include any additional information about the antimicrobial susceptibility test such as the drug panel details."
       ],
@@ -9139,10 +9159,10 @@
       "from_schema": "https://example.com/GRDI",
       "range": "WhitespaceMinimizedString"
     },
-    "amikacin_vendor_name": {
-      "name": "amikacin_vendor_name",
+    "vendor_name": {
+      "name": "vendor_name",
       "description": "The name of the vendor of the testing platform used.",
-      "title": "amikacin_vendor_name",
+      "title": "vendor_name",
       "comments": [
         "Provide the full name of the company (avoid abbreviations)."
       ],
@@ -9161,10 +9181,10 @@
         }
       ]
     },
-    "amikacin_testing_standard": {
-      "name": "amikacin_testing_standard",
+    "testing_standard": {
+      "name": "testing_standard",
       "description": "The testing standard used for determination of resistance phenotype",
-      "title": "amikacin_testing_standard",
+      "title": "testing_standard",
       "comments": [
         "Select a testing standard from the pick list provided."
       ],
@@ -9184,10 +9204,10 @@
         }
       ]
     },
-    "amikacin_testing_standard_version": {
-      "name": "amikacin_testing_standard_version",
+    "testing_standard_version": {
+      "name": "testing_standard_version",
       "description": "The version number associated with the testing standard used for determination of antimicrobial resistance phenotype. If applicable, include a version number for the testing standard used.",
-      "title": "amikacin_testing_standard_version",
+      "title": "testing_standard_version",
       "comments": [
         "If applicable, include a version number for the testing standard used."
       ],
@@ -9199,10 +9219,10 @@
       "from_schema": "https://example.com/GRDI",
       "range": "WhitespaceMinimizedString"
     },
-    "amikacin_testing_standard_details": {
-      "name": "amikacin_testing_standard_details",
+    "testing_standard_details": {
+      "name": "testing_standard_details",
       "description": "Additional details associated with the testing standard used for determination of antimicrobial resistance phenotype",
-      "title": "amikacin_testing_standard_details",
+      "title": "testing_standard_details",
       "comments": [
         "This information may include the year or location where the testing standard was published. If not applicable, leave blank."
       ],
@@ -9217,10 +9237,10 @@
       "from_schema": "https://example.com/GRDI",
       "range": "WhitespaceMinimizedString"
     },
-    "amikacin_susceptible_breakpoint": {
-      "name": "amikacin_susceptible_breakpoint",
+    "susceptible_breakpoint": {
+      "name": "susceptible_breakpoint",
       "description": "The maximum measurement, in the units specified in the “antibiotic_measurement_units” field, for a sample to be considered “sensitive” to this antimicrobial.",
-      "title": "amikacin_susceptible_breakpoint",
+      "title": "susceptible_breakpoint",
       "comments": [
         "This field should only contain a number (either an integer or a number with decimals), since the “<=” qualifier is implied."
       ],
@@ -9232,10 +9252,10 @@
       "from_schema": "https://example.com/GRDI",
       "range": "WhitespaceMinimizedString"
     },
-    "amikacin_intermediate_breakpoint": {
-      "name": "amikacin_intermediate_breakpoint",
+    "intermediate_breakpoint": {
+      "name": "intermediate_breakpoint",
       "description": "The intermediate measurement(s), in the units specified in the “AMR_measurement_units” field, where a sample would be considered to have an “intermediate” phenotype for this antimicrobial.",
-      "title": "amikacin_intermediate_breakpoint",
+      "title": "intermediate_breakpoint",
       "examples": [
         {
           "value": "16"
@@ -9244,8 +9264,8 @@
       "from_schema": "https://example.com/GRDI",
       "range": "WhitespaceMinimizedString"
     },
-    "amikacin_resistant_breakpoint": {
-      "name": "amikacin_resistant_breakpoint",
+    "resistant_breakpoint": {
+      "name": "resistant_breakpoint",
       "description": "The minimum measurement, in the units specified in the “antibiotic_measurement_units” field, for a sample to be considered “resistant” to this antimicrobial.",
       "title": "amikacin_resistant_breakpoint",
       "comments": [
@@ -20681,8 +20701,8 @@
       "description": "A DataHarmonizer interface",
       "from_schema": "https://example.com/GRDI"
     },
-    "GRDI": {
-      "name": "GRDI",
+    "GRDI_Sample": {
+      "name": "GRDI_Sample",
       "description": "Specification for GRDI virus biosample data gathering",
       "from_schema": "https://example.com/GRDI",
       "is_a": "dh_interface",
@@ -20690,6 +20710,7 @@
         "sample_collector_sample_ID": {
           "name": "sample_collector_sample_ID",
           "rank": 1,
+          "identifier": true,
           "slot_group": "Sample collection and processing"
         },
         "alternative_sample_ID": {
@@ -24561,10 +24582,12 @@
           "from_schema": "https://example.com/GRDI",
           "rank": 1,
           "slot_uri": "GENEPIO:0001123",
+          "identifier": true,
           "alias": "sample_collector_sample_ID",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample",
+            "AMR_Test"
           ],
           "slot_group": "Sample collection and processing",
           "required": true
@@ -24577,9 +24600,9 @@
           "rank": 2,
           "slot_uri": "GENEPIO:0100427",
           "alias": "alternative_sample_ID",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Sample collection and processing",
           "range": "WhitespaceMinimizedString",
@@ -24593,9 +24616,9 @@
           "rank": 3,
           "slot_uri": "GENEPIO:0001153",
           "alias": "sample_collected_by",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Sample collection and processing",
           "required": true
@@ -24608,9 +24631,9 @@
           "rank": 4,
           "slot_uri": "GENEPIO:0100428",
           "alias": "sample_collected_by_laboratory_name",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Sample collection and processing",
           "range": "WhitespaceMinimizedString"
@@ -24623,9 +24646,9 @@
           "rank": 5,
           "slot_uri": "GENEPIO:0100429",
           "alias": "sample_collection_project_name",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Sample collection and processing",
           "range": "WhitespaceMinimizedString"
@@ -24638,9 +24661,9 @@
           "rank": 6,
           "slot_uri": "GENEPIO:0100430",
           "alias": "sample_plan_name",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Sample collection and processing",
           "range": "WhitespaceMinimizedString",
@@ -24654,9 +24677,9 @@
           "rank": 7,
           "slot_uri": "GENEPIO:0100431",
           "alias": "sample_plan_ID",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Sample collection and processing",
           "range": "WhitespaceMinimizedString",
@@ -24670,9 +24693,9 @@
           "rank": 8,
           "slot_uri": "GENEPIO:0100432",
           "alias": "sample_collector_contact_name",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Sample collection and processing",
           "range": "WhitespaceMinimizedString"
@@ -24685,9 +24708,9 @@
           "rank": 9,
           "slot_uri": "GENEPIO:0001156",
           "alias": "sample_collector_contact_email",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Sample collection and processing",
           "required": true
@@ -24700,9 +24723,9 @@
           "rank": 10,
           "slot_uri": "GENEPIO:0001198",
           "alias": "purpose_of_sampling",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Sample collection and processing",
           "required": true
@@ -24715,9 +24738,9 @@
           "rank": 11,
           "slot_uri": "GENEPIO:0100433",
           "alias": "presampling_activity",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Sample collection and processing"
         },
@@ -24729,9 +24752,9 @@
           "rank": 12,
           "slot_uri": "GENEPIO:0100434",
           "alias": "presampling_activity_details",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Sample collection and processing",
           "range": "WhitespaceMinimizedString"
@@ -24774,9 +24797,9 @@
           "rank": 15,
           "slot_uri": "GENEPIO:0100435",
           "alias": "specimen_processing",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Sample collection and processing"
         },
@@ -24818,9 +24841,9 @@
           "rank": 18,
           "slot_uri": "GENEPIO:0001181",
           "alias": "geo_loc_name_(country)",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Sample collection and processing",
           "required": true
@@ -24833,9 +24856,9 @@
           "rank": 19,
           "slot_uri": "GENEPIO:0001185",
           "alias": "geo_loc_name_(state/province/region)",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Sample collection and processing",
           "required": true
@@ -24848,9 +24871,9 @@
           "rank": 20,
           "slot_uri": "GENEPIO:0100436",
           "alias": "geo_loc_name_(site)",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Sample collection and processing",
           "range": "WhitespaceMinimizedString"
@@ -24863,9 +24886,9 @@
           "rank": 21,
           "slot_uri": "GENEPIO:0100437",
           "alias": "food_product_origin_geo_loc_name_(country)",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Sample collection and processing"
         },
@@ -24877,9 +24900,9 @@
           "rank": 22,
           "slot_uri": "GENEPIO:0100438",
           "alias": "host_origin_geo_loc_name_(country)",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Sample collection and processing"
         },
@@ -24891,9 +24914,9 @@
           "rank": 23,
           "slot_uri": "GENEPIO:0100309",
           "alias": "geo_loc_latitude",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Sample collection and processing",
           "range": "WhitespaceMinimizedString"
@@ -24906,9 +24929,9 @@
           "rank": 24,
           "slot_uri": "GENEPIO:0100310",
           "alias": "geo_loc_longitude",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Sample collection and processing",
           "range": "WhitespaceMinimizedString"
@@ -24921,9 +24944,9 @@
           "rank": 25,
           "slot_uri": "GENEPIO:0001174",
           "alias": "sample_collection_date",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Sample collection and processing",
           "range": "date",
@@ -24937,9 +24960,9 @@
           "rank": 26,
           "slot_uri": "GENEPIO:0001177",
           "alias": "sample_collection_date_precision",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Sample collection and processing",
           "required": true
@@ -24952,9 +24975,9 @@
           "rank": 27,
           "slot_uri": "GENEPIO:0001179",
           "alias": "sample_received_date",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Sample collection and processing",
           "range": "date"
@@ -24967,9 +24990,9 @@
           "rank": 28,
           "slot_uri": "GENEPIO:0100439",
           "alias": "original_sample_description",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Sample collection and processing",
           "range": "WhitespaceMinimizedString"
@@ -24983,9 +25006,9 @@
           "slot_uri": "GENEPIO:0001232",
           "multivalued": true,
           "alias": "environmental_site",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Sample collection and processing",
           "recommended": true
@@ -24999,9 +25022,9 @@
           "slot_uri": "GENEPIO:0001223",
           "multivalued": true,
           "alias": "environmental_material",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Sample collection and processing",
           "recommended": true
@@ -25047,9 +25070,9 @@
           "slot_uri": "GENEPIO:0001211",
           "multivalued": true,
           "alias": "anatomical_material",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Sample collection and processing",
           "recommended": true
@@ -25063,9 +25086,9 @@
           "slot_uri": "GENEPIO:0001216",
           "multivalued": true,
           "alias": "body_product",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Sample collection and processing",
           "recommended": true
@@ -25079,9 +25102,9 @@
           "slot_uri": "GENEPIO:0001214",
           "multivalued": true,
           "alias": "anatomical_part",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Sample collection and processing",
           "recommended": true
@@ -25095,9 +25118,9 @@
           "slot_uri": "GENEPIO:0100700",
           "multivalued": true,
           "alias": "anatomical_region",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Sample collection and processing",
           "recommended": true
@@ -25111,9 +25134,9 @@
           "slot_uri": "GENEPIO:0100444",
           "multivalued": true,
           "alias": "food_product",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Sample collection and processing",
           "recommended": true
@@ -25127,9 +25150,9 @@
           "slot_uri": "GENEPIO:0100445",
           "multivalued": true,
           "alias": "food_product_properties",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Sample collection and processing",
           "recommended": true
@@ -25158,9 +25181,9 @@
           "slot_uri": "GENEPIO:0100446",
           "multivalued": true,
           "alias": "animal_source_of_food",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Sample collection and processing",
           "recommended": true
@@ -25173,9 +25196,9 @@
           "rank": 41,
           "slot_uri": "GENEPIO:0100699",
           "alias": "food_product_production_stream",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Sample collection and processing"
         },
@@ -25188,9 +25211,9 @@
           "slot_uri": "GENEPIO:0100447",
           "multivalued": true,
           "alias": "food_packaging",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Sample collection and processing",
           "recommended": true
@@ -25203,9 +25226,9 @@
           "rank": 43,
           "slot_uri": "GENEPIO:0100615",
           "alias": "food_quality_date",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Sample collection and processing",
           "range": "date"
@@ -25218,9 +25241,9 @@
           "rank": 44,
           "slot_uri": "GENEPIO:0100616",
           "alias": "food_packaging_date",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Sample collection and processing",
           "range": "date"
@@ -25559,9 +25582,9 @@
           "rank": 67,
           "slot_uri": "GENEPIO:0001386",
           "alias": "host_(common_name)",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Host information",
           "recommended": true
@@ -25574,9 +25597,9 @@
           "rank": 68,
           "slot_uri": "GENEPIO:0001387",
           "alias": "host_(scientific_name)",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Host information",
           "recommended": true
@@ -25589,9 +25612,9 @@
           "rank": 69,
           "slot_uri": "GENEPIO:0100450",
           "alias": "host_(ecotype)",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Host information",
           "range": "WhitespaceMinimizedString"
@@ -25604,9 +25627,9 @@
           "rank": 70,
           "slot_uri": "GENEPIO:0100451",
           "alias": "host_(breed)",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Host information",
           "range": "WhitespaceMinimizedString"
@@ -25619,9 +25642,9 @@
           "rank": 71,
           "slot_uri": "GENEPIO:0100452",
           "alias": "host_(food_production_name)",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Host information"
         },
@@ -25633,9 +25656,9 @@
           "rank": 72,
           "slot_uri": "GENEPIO:0001394",
           "alias": "host_age_bin",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Host information"
         },
@@ -25647,9 +25670,9 @@
           "rank": 73,
           "slot_uri": "GENEPIO:0001391",
           "alias": "host_disease",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Host information",
           "range": "WhitespaceMinimizedString"
@@ -25662,9 +25685,9 @@
           "rank": 74,
           "slot_uri": "GENEPIO:0100454",
           "alias": "microbiological_method",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Strain and isolation information",
           "range": "WhitespaceMinimizedString",
@@ -25678,9 +25701,9 @@
           "rank": 75,
           "slot_uri": "GENEPIO:0100455",
           "alias": "strain",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Strain and isolation information",
           "range": "WhitespaceMinimizedString"
@@ -25693,9 +25716,9 @@
           "rank": 76,
           "slot_uri": "GENEPIO:0100456",
           "alias": "isolate_ID",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Strain and isolation information",
           "required": true
@@ -25708,9 +25731,9 @@
           "rank": 77,
           "slot_uri": "GENEPIO:0100457",
           "alias": "alternative_isolate_ID",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Strain and isolation information",
           "range": "WhitespaceMinimizedString",
@@ -25724,9 +25747,9 @@
           "rank": 78,
           "slot_uri": "GENEPIO:0100458",
           "alias": "progeny_isolate_ID",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Strain and isolation information",
           "range": "WhitespaceMinimizedString"
@@ -25739,9 +25762,9 @@
           "rank": 79,
           "slot_uri": "GENEPIO:0100459",
           "alias": "IRIDA_isolate_ID",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Strain and isolation information",
           "required": true
@@ -25754,9 +25777,9 @@
           "rank": 80,
           "slot_uri": "GENEPIO:0100460",
           "alias": "IRIDA_project_ID",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Strain and isolation information",
           "required": true
@@ -25769,9 +25792,9 @@
           "rank": 81,
           "slot_uri": "GENEPIO:0100461",
           "alias": "isolated_by",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Strain and isolation information",
           "range": "isolated_by menu"
@@ -25784,9 +25807,9 @@
           "rank": 82,
           "slot_uri": "GENEPIO:0100462",
           "alias": "isolated_by_laboratory_name",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Strain and isolation information",
           "range": "WhitespaceMinimizedString"
@@ -25799,9 +25822,9 @@
           "rank": 83,
           "slot_uri": "GENEPIO:0100463",
           "alias": "isolated_by_contact_name",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Strain and isolation information",
           "range": "WhitespaceMinimizedString"
@@ -25814,9 +25837,9 @@
           "rank": 84,
           "slot_uri": "GENEPIO:0100464",
           "alias": "isolated_by_contact_email",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Strain and isolation information",
           "range": "WhitespaceMinimizedString"
@@ -25829,9 +25852,9 @@
           "rank": 85,
           "slot_uri": "GENEPIO:0100465",
           "alias": "isolation_date",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Strain and isolation information",
           "range": "date"
@@ -25844,9 +25867,9 @@
           "rank": 86,
           "slot_uri": "GENEPIO:0100466",
           "alias": "isolate_received_date",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Strain and isolation information",
           "range": "WhitespaceMinimizedString"
@@ -25860,9 +25883,9 @@
           "slot_uri": "GENEPIO:0001191",
           "multivalued": true,
           "alias": "organism",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Strain and isolation information",
           "required": true
@@ -25875,9 +25898,9 @@
           "rank": 88,
           "slot_uri": "GENEPIO:0100583",
           "alias": "taxonomic_identification_process",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Strain and isolation information",
           "recommended": true
@@ -25890,9 +25913,9 @@
           "rank": 89,
           "slot_uri": "GENEPIO:0100584",
           "alias": "taxonomic_identification_process_details",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Strain and isolation information",
           "range": "WhitespaceMinimizedString"
@@ -25905,9 +25928,9 @@
           "rank": 90,
           "slot_uri": "GENEPIO:0100467",
           "alias": "serovar",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Strain and isolation information",
           "range": "WhitespaceMinimizedString",
@@ -25921,9 +25944,9 @@
           "rank": 91,
           "slot_uri": "GENEPIO:0100468",
           "alias": "serotyping_method",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Strain and isolation information",
           "range": "WhitespaceMinimizedString",
@@ -25937,9 +25960,9 @@
           "rank": 92,
           "slot_uri": "GENEPIO:0100469",
           "alias": "phagetype",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Strain and isolation information",
           "range": "WhitespaceMinimizedString"
@@ -25952,9 +25975,9 @@
           "rank": 93,
           "slot_uri": "GENEPIO:0001448",
           "alias": "library_ID",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Sequence information",
           "range": "WhitespaceMinimizedString"
@@ -25967,9 +25990,9 @@
           "rank": 94,
           "slot_uri": "GENEPIO:0100416",
           "alias": "sequenced_by",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Sequence information",
           "required": true
@@ -25982,9 +26005,9 @@
           "rank": 95,
           "slot_uri": "GENEPIO:0100470",
           "alias": "sequenced_by_laboratory_name",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Sequence information",
           "range": "WhitespaceMinimizedString"
@@ -25997,9 +26020,9 @@
           "rank": 96,
           "slot_uri": "GENEPIO:0100471",
           "alias": "sequenced_by_contact_name",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Sequence information",
           "required": true
@@ -26012,9 +26035,9 @@
           "rank": 97,
           "slot_uri": "GENEPIO:0100422",
           "alias": "sequenced_by_contact_email",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Sequence information",
           "required": true
@@ -26028,9 +26051,9 @@
           "slot_uri": "GENEPIO:0001445",
           "multivalued": true,
           "alias": "purpose_of_sequencing",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Sequence information",
           "required": true
@@ -26043,9 +26066,9 @@
           "rank": 99,
           "slot_uri": "GENEPIO:0100472",
           "alias": "sequencing_project_name",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Sequence information",
           "range": "WhitespaceMinimizedString"
@@ -26058,9 +26081,9 @@
           "rank": 100,
           "slot_uri": "GENEPIO:0100473",
           "alias": "sequencing_platform",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Sequence information"
         },
@@ -26072,9 +26095,9 @@
           "rank": 101,
           "slot_uri": "GENEPIO:0001452",
           "alias": "sequencing_instrument",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Sequence information"
         },
@@ -26101,9 +26124,9 @@
           "rank": 103,
           "slot_uri": "GENEPIO:0001450",
           "alias": "library_preparation_kit",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Sequence information",
           "range": "WhitespaceMinimizedString"
@@ -26206,9 +26229,9 @@
           "rank": 110,
           "slot_uri": "GENEPIO:0001454",
           "alias": "sequencing_protocol",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Sequence information",
           "range": "WhitespaceMinimizedString"
@@ -26221,9 +26244,9 @@
           "rank": 111,
           "slot_uri": "GENEPIO:0001476",
           "alias": "r1_fastq_filename",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Sequence information",
           "range": "WhitespaceMinimizedString"
@@ -26236,9 +26259,9 @@
           "rank": 112,
           "slot_uri": "GENEPIO:0001477",
           "alias": "r2_fastq_filename",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Sequence information",
           "range": "WhitespaceMinimizedString"
@@ -26251,9 +26274,9 @@
           "rank": 113,
           "slot_uri": "GENEPIO:0001480",
           "alias": "fast5_filename",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Sequence information",
           "range": "WhitespaceMinimizedString"
@@ -26266,9 +26289,9 @@
           "rank": 114,
           "slot_uri": "GENEPIO:0001461",
           "alias": "assembly_filename",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Sequence information",
           "range": "WhitespaceMinimizedString"
@@ -26817,9 +26840,9 @@
           "rank": 151,
           "slot_uri": "GENEPIO:0001159",
           "alias": "sequence_submitted_by",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Public repository information"
         },
@@ -26831,9 +26854,9 @@
           "rank": 152,
           "slot_uri": "GENEPIO:0100474",
           "alias": "sequence_submitted_by_contact_name",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Public repository information",
           "range": "WhitespaceMinimizedString"
@@ -26846,9 +26869,9 @@
           "rank": 153,
           "slot_uri": "GENEPIO:0001165",
           "alias": "sequence_submitted_by_contact_email",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Public repository information",
           "range": "WhitespaceMinimizedString"
@@ -26861,9 +26884,9 @@
           "rank": 154,
           "slot_uri": "GENEPIO:0100475",
           "alias": "publication_ID",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Public repository information",
           "range": "WhitespaceMinimizedString"
@@ -26876,9 +26899,9 @@
           "rank": 155,
           "slot_uri": "GENEPIO:0100476",
           "alias": "attribute_package",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Public repository information"
         },
@@ -26890,9 +26913,9 @@
           "rank": 156,
           "slot_uri": "GENEPIO:0001136",
           "alias": "bioproject_accession",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Public repository information",
           "range": "WhitespaceMinimizedString"
@@ -26905,9 +26928,9 @@
           "rank": 157,
           "slot_uri": "GENEPIO:0001139",
           "alias": "biosample_accession",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Public repository information",
           "range": "WhitespaceMinimizedString"
@@ -26920,9 +26943,9 @@
           "rank": 158,
           "slot_uri": "GENEPIO:0001142",
           "alias": "SRA_accession",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Public repository information",
           "range": "WhitespaceMinimizedString"
@@ -26935,9 +26958,9 @@
           "rank": 159,
           "slot_uri": "GENEPIO:0001145",
           "alias": "GenBank_accession",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Public repository information",
           "range": "WhitespaceMinimizedString"
@@ -26950,9 +26973,9 @@
           "rank": 160,
           "slot_uri": "GENEPIO:0100480",
           "alias": "prevalence_metrics",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Risk assessment information",
           "range": "WhitespaceMinimizedString",
@@ -26966,9 +26989,9 @@
           "rank": 161,
           "slot_uri": "GENEPIO:0100481",
           "alias": "prevalence_metrics_details",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Risk assessment information",
           "range": "WhitespaceMinimizedString",
@@ -26982,9 +27005,9 @@
           "rank": 162,
           "slot_uri": "GENEPIO:0100482",
           "alias": "stage_of_production",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Risk assessment information",
           "recommended": true
@@ -26998,9 +27021,9 @@
           "slot_uri": "GENEPIO:0100483",
           "multivalued": true,
           "alias": "experimental_intervention",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Risk assessment information",
           "recommended": true
@@ -27013,9 +27036,9 @@
           "rank": 164,
           "slot_uri": "GENEPIO:0100484",
           "alias": "experiment_intervention_details",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Risk assessment information",
           "range": "WhitespaceMinimizedString",
@@ -27029,9 +27052,9 @@
           "rank": 165,
           "slot_uri": "GENEPIO:0100511",
           "alias": "AMR_testing_by",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Antimicrobial resistance",
           "required": true
@@ -27044,9 +27067,9 @@
           "rank": 166,
           "slot_uri": "GENEPIO:0100512",
           "alias": "AMR_testing_by_laboratory_name",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Antimicrobial resistance",
           "range": "WhitespaceMinimizedString"
@@ -27059,9 +27082,9 @@
           "rank": 167,
           "slot_uri": "GENEPIO:0100513",
           "alias": "AMR_testing_by_contact_name",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Antimicrobial resistance",
           "required": true
@@ -27074,9 +27097,9 @@
           "rank": 168,
           "slot_uri": "GENEPIO:0100514",
           "alias": "AMR_testing_by_contact_email",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Antimicrobial resistance",
           "required": true
@@ -27089,9 +27112,9 @@
           "rank": 169,
           "slot_uri": "GENEPIO:0100515",
           "alias": "AMR_testing_date",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Antimicrobial resistance",
           "range": "date"
@@ -35403,9 +35426,9 @@
           "rank": 772,
           "slot_uri": "GENEPIO:0001517",
           "alias": "authors",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Contributor acknowledgement",
           "range": "WhitespaceMinimizedString",
@@ -35419,14 +35442,332 @@
           "rank": 773,
           "slot_uri": "GENEPIO:0001518",
           "alias": "DataHarmonizer_provenance",
-          "owner": "GRDI",
+          "owner": "GRDI_Sample",
           "domain_of": [
-            "GRDI"
+            "GRDI_Sample"
           ],
           "slot_group": "Contributor acknowledgement",
           "range": "Provenance"
         }
       }
+    },
+    "AMR_Test": {
+      "name": "AMR_Test",
+      "description": "Antimicrobial test result",
+      "from_schema": "https://example.com/GRDI",
+      "is_a": "dh_interface",
+      "slot_usage": {
+        "sample_collector_sample_ID": {
+          "name": "sample_collector_sample_ID",
+          "rank": 1,
+          "multivalued": false,
+          "range": "GRDI_Sample",
+          "inlined": false
+        },
+        "antimicrobial_resistance_test_drug": {
+          "name": "antimicrobial_resistance_test_drug",
+          "rank": 2
+        },
+        "resistance_phenotype": {
+          "name": "resistance_phenotype",
+          "rank": 3
+        },
+        "measurement": {
+          "name": "measurement",
+          "rank": 4
+        },
+        "measurement_units": {
+          "name": "measurement_units",
+          "rank": 5
+        },
+        "measurement_sign": {
+          "name": "measurement_sign",
+          "rank": 6
+        },
+        "laboratory_typing_method": {
+          "name": "laboratory_typing_method",
+          "rank": 7
+        },
+        "laboratory_typing_platform": {
+          "name": "laboratory_typing_platform",
+          "rank": 8
+        },
+        "laboratory_typing_platform_version": {
+          "name": "laboratory_typing_platform_version",
+          "rank": 9
+        },
+        "vendor_name": {
+          "name": "vendor_name",
+          "rank": 10
+        },
+        "testing_standard": {
+          "name": "testing_standard",
+          "rank": 11
+        },
+        "testing_standard_version": {
+          "name": "testing_standard_version",
+          "rank": 12
+        },
+        "testing_standard_details": {
+          "name": "testing_standard_details",
+          "rank": 13
+        },
+        "susceptible_breakpoint": {
+          "name": "susceptible_breakpoint",
+          "rank": 14
+        },
+        "intermediate_breakpoint": {
+          "name": "intermediate_breakpoint",
+          "rank": 15
+        },
+        "resistant_breakpoint": {
+          "name": "resistant_breakpoint",
+          "rank": 16
+        }
+      },
+      "attributes": {
+        "sample_collector_sample_ID": {
+          "name": "sample_collector_sample_ID",
+          "description": "The user-defined name for the sample.",
+          "title": "sample_collector_sample_ID",
+          "from_schema": "https://example.com/GRDI",
+          "rank": 1,
+          "slot_uri": "GENEPIO:0001123",
+          "multivalued": false,
+          "alias": "sample_collector_sample_ID",
+          "owner": "AMR_Test",
+          "domain_of": [
+            "GRDI_Sample",
+            "AMR_Test"
+          ],
+          "range": "GRDI_Sample",
+          "required": true,
+          "inlined": false
+        },
+        "antimicrobial_resistance_test_drug": {
+          "name": "antimicrobial_resistance_test_drug",
+          "description": "The antimicrobial drug being tested.",
+          "title": "antimicrobial_resistance_test_drug",
+          "from_schema": "https://example.com/GRDI",
+          "rank": 2,
+          "alias": "antimicrobial_resistance_test_drug",
+          "owner": "AMR_Test",
+          "domain_of": [
+            "AMR_Test"
+          ],
+          "recommended": true
+        },
+        "resistance_phenotype": {
+          "name": "resistance_phenotype",
+          "description": "The antimicrobial resistance phenotype, as determined by the antibiotic susceptibility measurement and testing standard for this antibiotic",
+          "title": "resistance_phenotype",
+          "from_schema": "https://example.com/GRDI",
+          "rank": 3,
+          "alias": "resistance_phenotype",
+          "owner": "AMR_Test",
+          "domain_of": [
+            "AMR_Test"
+          ],
+          "recommended": true
+        },
+        "measurement": {
+          "name": "measurement",
+          "description": "The measured value of resistance to given antibiotic.",
+          "title": "measurement",
+          "from_schema": "https://example.com/GRDI",
+          "rank": 4,
+          "alias": "measurement",
+          "owner": "AMR_Test",
+          "domain_of": [
+            "AMR_Test"
+          ],
+          "required": true
+        },
+        "measurement_units": {
+          "name": "measurement_units",
+          "description": "The units of the antimicrobial resistance measurement.",
+          "title": "measurement_units",
+          "from_schema": "https://example.com/GRDI",
+          "rank": 5,
+          "alias": "measurement_units",
+          "owner": "AMR_Test",
+          "domain_of": [
+            "AMR_Test"
+          ],
+          "required": true
+        },
+        "measurement_sign": {
+          "name": "measurement_sign",
+          "description": "The qualifier associated with the antimicrobial resistance measurement",
+          "title": "measurement_sign",
+          "from_schema": "https://example.com/GRDI",
+          "rank": 6,
+          "alias": "measurement_sign",
+          "owner": "AMR_Test",
+          "domain_of": [
+            "AMR_Test"
+          ],
+          "required": true
+        },
+        "laboratory_typing_method": {
+          "name": "laboratory_typing_method",
+          "description": "The general method used for antimicrobial susceptibility testing.",
+          "title": "laboratory_typing_method",
+          "from_schema": "https://example.com/GRDI",
+          "rank": 7,
+          "alias": "laboratory_typing_method",
+          "owner": "AMR_Test",
+          "domain_of": [
+            "AMR_Test"
+          ]
+        },
+        "laboratory_typing_platform": {
+          "name": "laboratory_typing_platform",
+          "description": "The brand/platform used for antimicrobial susceptibility testing.",
+          "title": "laboratory_typing_platform",
+          "from_schema": "https://example.com/GRDI",
+          "rank": 8,
+          "alias": "laboratory_typing_platform",
+          "owner": "AMR_Test",
+          "domain_of": [
+            "AMR_Test"
+          ]
+        },
+        "laboratory_typing_platform_version": {
+          "name": "laboratory_typing_platform_version",
+          "description": "The specific name and version of the plate, panel, or other platform used for antimicrobial susceptibility testing.",
+          "title": "laboratory_typing_platform_version",
+          "from_schema": "https://example.com/GRDI",
+          "rank": 9,
+          "alias": "laboratory_typing_platform_version",
+          "owner": "AMR_Test",
+          "domain_of": [
+            "AMR_Test"
+          ],
+          "range": "WhitespaceMinimizedString"
+        },
+        "vendor_name": {
+          "name": "vendor_name",
+          "description": "The name of the vendor of the testing platform used.",
+          "title": "vendor_name",
+          "from_schema": "https://example.com/GRDI",
+          "rank": 10,
+          "alias": "vendor_name",
+          "owner": "AMR_Test",
+          "domain_of": [
+            "AMR_Test"
+          ]
+        },
+        "testing_standard": {
+          "name": "testing_standard",
+          "description": "The testing standard used for determination of resistance phenotype",
+          "title": "testing_standard",
+          "from_schema": "https://example.com/GRDI",
+          "rank": 11,
+          "alias": "testing_standard",
+          "owner": "AMR_Test",
+          "domain_of": [
+            "AMR_Test"
+          ],
+          "recommended": true
+        },
+        "testing_standard_version": {
+          "name": "testing_standard_version",
+          "description": "The version number associated with the testing standard used for determination of antimicrobial resistance phenotype. If applicable, include a version number for the testing standard used.",
+          "title": "testing_standard_version",
+          "from_schema": "https://example.com/GRDI",
+          "rank": 12,
+          "alias": "testing_standard_version",
+          "owner": "AMR_Test",
+          "domain_of": [
+            "AMR_Test"
+          ],
+          "range": "WhitespaceMinimizedString"
+        },
+        "testing_standard_details": {
+          "name": "testing_standard_details",
+          "description": "Additional details associated with the testing standard used for determination of antimicrobial resistance phenotype",
+          "title": "testing_standard_details",
+          "from_schema": "https://example.com/GRDI",
+          "rank": 13,
+          "alias": "testing_standard_details",
+          "owner": "AMR_Test",
+          "domain_of": [
+            "AMR_Test"
+          ],
+          "range": "WhitespaceMinimizedString"
+        },
+        "susceptible_breakpoint": {
+          "name": "susceptible_breakpoint",
+          "description": "The maximum measurement, in the units specified in the “antibiotic_measurement_units” field, for a sample to be considered “sensitive” to this antimicrobial.",
+          "title": "susceptible_breakpoint",
+          "from_schema": "https://example.com/GRDI",
+          "rank": 14,
+          "alias": "susceptible_breakpoint",
+          "owner": "AMR_Test",
+          "domain_of": [
+            "AMR_Test"
+          ],
+          "range": "WhitespaceMinimizedString"
+        },
+        "intermediate_breakpoint": {
+          "name": "intermediate_breakpoint",
+          "description": "The intermediate measurement(s), in the units specified in the “AMR_measurement_units” field, where a sample would be considered to have an “intermediate” phenotype for this antimicrobial.",
+          "title": "intermediate_breakpoint",
+          "from_schema": "https://example.com/GRDI",
+          "rank": 15,
+          "alias": "intermediate_breakpoint",
+          "owner": "AMR_Test",
+          "domain_of": [
+            "AMR_Test"
+          ],
+          "range": "WhitespaceMinimizedString"
+        },
+        "resistant_breakpoint": {
+          "name": "resistant_breakpoint",
+          "description": "The minimum measurement, in the units specified in the “antibiotic_measurement_units” field, for a sample to be considered “resistant” to this antimicrobial.",
+          "title": "resistant_breakpoint",
+          "from_schema": "https://example.com/GRDI",
+          "rank": 16,
+          "alias": "resistant_breakpoint",
+          "owner": "AMR_Test",
+          "domain_of": [
+            "AMR_Test"
+          ],
+          "range": "WhitespaceMinimizedString"
+        }
+      }
+    },
+    "Container": {
+      "name": "Container",
+      "from_schema": "https://example.com/GRDI",
+      "attributes": {
+        "GRDI_samples": {
+          "name": "GRDI_samples",
+          "from_schema": "https://example.com/GRDI",
+          "multivalued": true,
+          "alias": "GRDI_samples",
+          "owner": "Container",
+          "domain_of": [
+            "Container"
+          ],
+          "range": "GRDI_Sample",
+          "inlined_as_list": true
+        },
+        "AMR_Tests": {
+          "name": "AMR_Tests",
+          "from_schema": "https://example.com/GRDI",
+          "multivalued": true,
+          "alias": "AMR_Tests",
+          "owner": "Container",
+          "domain_of": [
+            "Container"
+          ],
+          "range": "AMR_Test",
+          "inlined_as_list": true
+        }
+      },
+      "tree_root": true
     }
   },
   "settings": {
