@@ -1,4 +1,3 @@
-
 {
   "canada_covid19": {
     "CanCOGeN Covid-19": {
@@ -90,6 +89,43 @@
       "name": "WastewaterPathogenAgnostic",
       "status": "published",
       "display": true
+    }
+  },
+  "schema_editor": {
+    "Schema": {
+      "name": "Schema",
+      "status": "published",
+      "display": true
+    },
+    "Slot": {
+      "name": "Slot",
+      "status": "published",
+      "display": false
+    },
+    "Enum": {
+      "name": "Enum",
+      "status": "published",
+      "display": false
+    },
+    "Class": {
+      "name": "Class",
+      "status": "published",
+      "display": false
+    },
+    "SlotUsage": {
+      "name": "SlotUsage",
+      "status": "published",
+      "display": false
+    },
+    "Prefix": {
+      "name": "Prefix",
+      "status": "published",
+      "display": false
+    },
+    "Container": {
+      "name": "Container",
+      "status": "published",
+      "display": false
     }
   }
 }

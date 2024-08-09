@@ -1,0 +1,1947 @@
+{
+  "name": "DH_LinkML",
+  "description": "The DataHarmonizer template for editing a schema.",
+  "in_language": "['en']",
+  "id": "https://example.com/DH_LinkML",
+  "version": "1.0.0",
+  "prefixes": {
+    "linkml": {
+      "prefix_prefix": "linkml",
+      "prefix_reference": "https://w3id.org/linkml/"
+    },
+    "ONTOLOGY1": {
+      "prefix_prefix": "ONTOLOGY1",
+      "prefix_reference": "http://purl.obolibrary.org/obo/ONTOLOGY1_"
+    },
+    "xsd": {
+      "prefix_prefix": "xsd",
+      "prefix_reference": "http://www.w3.org/2001/XMLSchema#"
+    },
+    "shex": {
+      "prefix_prefix": "shex",
+      "prefix_reference": "http://www.w3.org/ns/shex#"
+    },
+    "schema": {
+      "prefix_prefix": "schema",
+      "prefix_reference": "http://schema.org/"
+    }
+  },
+  "default_prefix": "https://example.com/DH_LinkML/",
+  "types": {
+    "WhitespaceMinimizedString": {
+      "name": "WhitespaceMinimizedString",
+      "description": "A string that has all whitespace trimmed off of beginning and end, and all internal whitespace segments reduced to single spaces. Whitespace includes #x9 (tab), #xA (linefeed), and #xD (carriage return).",
+      "from_schema": "https://example.com/DH_LinkML",
+      "typeof": "string",
+      "base": "str",
+      "uri": "xsd:token"
+    },
+    "Provenance": {
+      "name": "Provenance",
+      "description": "A field containing a DataHarmonizer versioning marker. It is issued by DataHarmonizer when validation is applied to a given row of data.",
+      "from_schema": "https://example.com/DH_LinkML",
+      "typeof": "string",
+      "base": "str",
+      "uri": "xsd:token"
+    },
+    "string": {
+      "name": "string",
+      "description": "A character string",
+      "notes": [
+        "In RDF serializations, a slot with range of string is treated as a literal or type xsd:string.   If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"string\"."
+      ],
+      "from_schema": "https://example.com/DH_LinkML",
+      "exact_mappings": [
+        "schema:Text"
+      ],
+      "base": "str",
+      "uri": "xsd:string"
+    },
+    "integer": {
+      "name": "integer",
+      "description": "An integer",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"integer\"."
+      ],
+      "from_schema": "https://example.com/DH_LinkML",
+      "exact_mappings": [
+        "schema:Integer"
+      ],
+      "base": "int",
+      "uri": "xsd:integer"
+    },
+    "boolean": {
+      "name": "boolean",
+      "description": "A binary (true or false) value",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"boolean\"."
+      ],
+      "from_schema": "https://example.com/DH_LinkML",
+      "exact_mappings": [
+        "schema:Boolean"
+      ],
+      "base": "Bool",
+      "uri": "xsd:boolean",
+      "repr": "bool"
+    },
+    "float": {
+      "name": "float",
+      "description": "A real number that conforms to the xsd:float specification",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"float\"."
+      ],
+      "from_schema": "https://example.com/DH_LinkML",
+      "exact_mappings": [
+        "schema:Float"
+      ],
+      "base": "float",
+      "uri": "xsd:float"
+    },
+    "double": {
+      "name": "double",
+      "description": "A real number that conforms to the xsd:double specification",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"double\"."
+      ],
+      "from_schema": "https://example.com/DH_LinkML",
+      "close_mappings": [
+        "schema:Float"
+      ],
+      "base": "float",
+      "uri": "xsd:double"
+    },
+    "decimal": {
+      "name": "decimal",
+      "description": "A real number with arbitrary precision that conforms to the xsd:decimal specification",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"decimal\"."
+      ],
+      "from_schema": "https://example.com/DH_LinkML",
+      "broad_mappings": [
+        "schema:Number"
+      ],
+      "base": "Decimal",
+      "uri": "xsd:decimal"
+    },
+    "time": {
+      "name": "time",
+      "description": "A time object represents a (local) time of day, independent of any particular day",
+      "notes": [
+        "URI is dateTime because OWL reasoners do not work with straight date or time",
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"time\"."
+      ],
+      "from_schema": "https://example.com/DH_LinkML",
+      "exact_mappings": [
+        "schema:Time"
+      ],
+      "base": "XSDTime",
+      "uri": "xsd:time",
+      "repr": "str"
+    },
+    "date": {
+      "name": "date",
+      "description": "a date (year, month and day) in an idealized calendar",
+      "notes": [
+        "URI is dateTime because OWL reasoners don't work with straight date or time",
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"date\"."
+      ],
+      "from_schema": "https://example.com/DH_LinkML",
+      "exact_mappings": [
+        "schema:Date"
+      ],
+      "base": "XSDDate",
+      "uri": "xsd:date",
+      "repr": "str"
+    },
+    "datetime": {
+      "name": "datetime",
+      "description": "The combination of a date and time",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"datetime\"."
+      ],
+      "from_schema": "https://example.com/DH_LinkML",
+      "exact_mappings": [
+        "schema:DateTime"
+      ],
+      "base": "XSDDateTime",
+      "uri": "xsd:dateTime",
+      "repr": "str"
+    },
+    "date_or_datetime": {
+      "name": "date_or_datetime",
+      "description": "Either a date or a datetime",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"date_or_datetime\"."
+      ],
+      "from_schema": "https://example.com/DH_LinkML",
+      "base": "str",
+      "uri": "linkml:DateOrDatetime",
+      "repr": "str"
+    },
+    "uriorcurie": {
+      "name": "uriorcurie",
+      "description": "a URI or a CURIE",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"uriorcurie\"."
+      ],
+      "from_schema": "https://example.com/DH_LinkML",
+      "base": "URIorCURIE",
+      "uri": "xsd:anyURI",
+      "repr": "str"
+    },
+    "curie": {
+      "name": "curie",
+      "conforms_to": "https://www.w3.org/TR/curie/",
+      "description": "a compact URI",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"curie\"."
+      ],
+      "comments": [
+        "in RDF serializations this MUST be expanded to a URI",
+        "in non-RDF serializations MAY be serialized as the compact representation"
+      ],
+      "from_schema": "https://example.com/DH_LinkML",
+      "base": "Curie",
+      "uri": "xsd:string",
+      "repr": "str"
+    },
+    "uri": {
+      "name": "uri",
+      "conforms_to": "https://www.ietf.org/rfc/rfc3987.txt",
+      "description": "a complete URI",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"uri\"."
+      ],
+      "comments": [
+        "in RDF serializations a slot with range of uri is treated as a literal or type xsd:anyURI unless it is an identifier or a reference to an identifier, in which case it is translated directly to a node"
+      ],
+      "from_schema": "https://example.com/DH_LinkML",
+      "close_mappings": [
+        "schema:URL"
+      ],
+      "base": "URI",
+      "uri": "xsd:anyURI",
+      "repr": "str"
+    },
+    "ncname": {
+      "name": "ncname",
+      "description": "Prefix part of CURIE",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"ncname\"."
+      ],
+      "from_schema": "https://example.com/DH_LinkML",
+      "base": "NCName",
+      "uri": "xsd:string",
+      "repr": "str"
+    },
+    "objectidentifier": {
+      "name": "objectidentifier",
+      "description": "A URI or CURIE that represents an object in the model.",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"objectidentifier\"."
+      ],
+      "comments": [
+        "Used for inheritance and type checking"
+      ],
+      "from_schema": "https://example.com/DH_LinkML",
+      "base": "ElementIdentifier",
+      "uri": "shex:iri",
+      "repr": "str"
+    },
+    "nodeidentifier": {
+      "name": "nodeidentifier",
+      "description": "A URI, CURIE or BNODE that represents a node in a model.",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"nodeidentifier\"."
+      ],
+      "from_schema": "https://example.com/DH_LinkML",
+      "base": "NodeIdentifier",
+      "uri": "shex:nonLiteral",
+      "repr": "str"
+    },
+    "jsonpointer": {
+      "name": "jsonpointer",
+      "conforms_to": "https://datatracker.ietf.org/doc/html/rfc6901",
+      "description": "A string encoding a JSON Pointer. The value of the string MUST conform to JSON Point syntax and SHOULD dereference to a valid object within the current instance document when encoded in tree form.",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"jsonpointer\"."
+      ],
+      "from_schema": "https://example.com/DH_LinkML",
+      "base": "str",
+      "uri": "xsd:string",
+      "repr": "str"
+    },
+    "jsonpath": {
+      "name": "jsonpath",
+      "conforms_to": "https://www.ietf.org/archive/id/draft-goessner-dispatch-jsonpath-00.html",
+      "description": "A string encoding a JSON Path. The value of the string MUST conform to JSON Point syntax and SHOULD dereference to zero or more valid objects within the current instance document when encoded in tree form.",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"jsonpath\"."
+      ],
+      "from_schema": "https://example.com/DH_LinkML",
+      "base": "str",
+      "uri": "xsd:string",
+      "repr": "str"
+    },
+    "sparqlpath": {
+      "name": "sparqlpath",
+      "conforms_to": "https://www.w3.org/TR/sparql11-query/#propertypaths",
+      "description": "A string encoding a SPARQL Property Path. The value of the string MUST conform to SPARQL syntax and SHOULD dereference to zero or more valid objects within the current instance document when encoded as RDF.",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"sparqlpath\"."
+      ],
+      "from_schema": "https://example.com/DH_LinkML",
+      "base": "str",
+      "uri": "xsd:string",
+      "repr": "str"
+    }
+  },
+  "enums": {
+    "TrueFalseMenu": {
+      "name": "TrueFalseMenu",
+      "from_schema": "https://example.com/DH_LinkML",
+      "permissible_values": {
+        "TRUE": {
+          "text": "TRUE"
+        },
+        "FALSE": {
+          "text": "FALSE"
+        }
+      }
+    },
+    "DataTypeMenu": {
+      "name": "DataTypeMenu",
+      "from_schema": "https://example.com/DH_LinkML",
+      "permissible_values": {
+        "string": {
+          "text": "string"
+        },
+        "WhitespaceMinimizedString": {
+          "text": "WhitespaceMinimizedString"
+        },
+        "boolean": {
+          "text": "boolean"
+        },
+        "integer": {
+          "text": "integer"
+        },
+        "decimal": {
+          "text": "decimal"
+        },
+        "double": {
+          "text": "double"
+        },
+        "float": {
+          "text": "float"
+        },
+        "date": {
+          "text": "date"
+        },
+        "datetime": {
+          "text": "datetime"
+        },
+        "date_or_datetime": {
+          "text": "date_or_datetime"
+        },
+        "time": {
+          "text": "time"
+        },
+        "uriorcurie": {
+          "text": "uriorcurie"
+        },
+        "curie": {
+          "text": "curie"
+        },
+        "uri": {
+          "text": "uri"
+        },
+        "schema": {
+          "text": "schema"
+        },
+        "Provenance": {
+          "text": "Provenance"
+        },
+        "TrueFalseMenu": {
+          "text": "TrueFalseMenu"
+        },
+        "DataTypeMenu": {
+          "text": "DataTypeMenu"
+        },
+        "LanguagesMenu": {
+          "text": "LanguagesMenu"
+        }
+      }
+    },
+    "LanguagesMenu": {
+      "name": "LanguagesMenu",
+      "from_schema": "https://example.com/DH_LinkML",
+      "permissible_values": {
+        "en": {
+          "text": "en"
+        },
+        "fr": {
+          "text": "fr"
+        }
+      }
+    }
+  },
+  "slots": {
+    "name": {
+      "name": "name",
+      "title": "Name",
+      "from_schema": "https://example.com/DH_LinkML",
+      "identifier": true,
+      "required": true
+    },
+    "description": {
+      "name": "description",
+      "title": "Description",
+      "from_schema": "https://example.com/DH_LinkML",
+      "required": true
+    },
+    "id": {
+      "name": "id",
+      "description": "A unique URI for identifying this LinkML schema.",
+      "title": "ID",
+      "from_schema": "https://example.com/DH_LinkML",
+      "identifier": true,
+      "range": "uri",
+      "required": true
+    },
+    "version": {
+      "name": "version",
+      "title": "Version",
+      "from_schema": "https://example.com/DH_LinkML",
+      "identifier": true,
+      "range": "string",
+      "required": true,
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "in_language": {
+      "name": "in_language",
+      "description": "A list of i18n language codes that this schema is available in",
+      "title": "Languages",
+      "comments": [
+        "The first listed schema is the default (usually english), while remaining ones are language overlays compiled into a locales/ subfolder."
+      ],
+      "from_schema": "https://example.com/DH_LinkML",
+      "multivalued": true,
+      "range": "LanguagesMenu"
+    },
+    "default_prefix": {
+      "name": "default_prefix",
+      "title": "Default prefix",
+      "comments": [
+        "A prefix to assume all classes and slots can be addressed by."
+      ],
+      "from_schema": "https://example.com/DH_LinkML",
+      "range": "uri",
+      "required": true
+    },
+    "schema_id": {
+      "name": "schema_id",
+      "title": "Schema",
+      "from_schema": "https://example.com/DH_LinkML",
+      "identifier": true,
+      "range": "schema",
+      "required": true
+    },
+    "title": {
+      "name": "title",
+      "title": "Title",
+      "from_schema": "https://example.com/DH_LinkML",
+      "required": true
+    },
+    "slot_uri": {
+      "name": "slot_uri",
+      "description": "A URI for identifying this slot's semantic type.",
+      "title": "Slot URI",
+      "from_schema": "https://example.com/DH_LinkML",
+      "range": "uri"
+    },
+    "range": {
+      "name": "range",
+      "description": "The range or ranges a slot is associated with.  If more than one, this appears in the slot's specification as a list of \"any of\" ranges.",
+      "title": "Range",
+      "from_schema": "https://example.com/DH_LinkML",
+      "multivalued": true,
+      "range": "DataTypeMenu"
+    },
+    "identifier": {
+      "name": "identifier",
+      "title": "Identifier",
+      "from_schema": "https://example.com/DH_LinkML",
+      "range": "TrueFalseMenu"
+    },
+    "multivalued": {
+      "name": "multivalued",
+      "title": "Multivalued",
+      "from_schema": "https://example.com/DH_LinkML",
+      "range": "TrueFalseMenu"
+    },
+    "required": {
+      "name": "required",
+      "title": "Required",
+      "from_schema": "https://example.com/DH_LinkML",
+      "range": "TrueFalseMenu"
+    },
+    "recommended": {
+      "name": "recommended",
+      "title": "Recommended",
+      "from_schema": "https://example.com/DH_LinkML",
+      "range": "TrueFalseMenu"
+    },
+    "minimum_value": {
+      "name": "minimum_value",
+      "description": "A minimum value which is appropriate for the range data type of the slot.",
+      "title": "Minimum_value",
+      "from_schema": "https://example.com/DH_LinkML",
+      "range": "integer"
+    },
+    "maximum_value": {
+      "name": "maximum_value",
+      "description": "A maximum value which is appropriate for the range data type of the slot.",
+      "title": "Maximum_value",
+      "from_schema": "https://example.com/DH_LinkML",
+      "range": "integer"
+    },
+    "pattern": {
+      "name": "pattern",
+      "description": "A regular expression pattern used to validate a slot's string range data type content.",
+      "title": "Pattern",
+      "comments": [
+        "Regular expressions can begin with ^ to ensure start of string is tested, and $ to ensure up to end is tested."
+      ],
+      "from_schema": "https://example.com/DH_LinkML",
+      "range": "WhitespaceMinimizedString"
+    },
+    "comments": {
+      "name": "comments",
+      "description": "A free text field for adding other comments to guide usage of field.",
+      "title": "Comments",
+      "from_schema": "https://example.com/DH_LinkML",
+      "range": "WhitespaceMinimizedString"
+    },
+    "examples": {
+      "name": "examples",
+      "description": "A free text field for including examples of string, numeric, date or categorical values.",
+      "title": "Examples",
+      "from_schema": "https://example.com/DH_LinkML",
+      "range": "WhitespaceMinimizedString"
+    },
+    "enum_uri": {
+      "name": "enum_uri",
+      "description": "A URI for identifying this enumeration's semantic type.",
+      "title": "Enum URI",
+      "from_schema": "https://example.com/DH_LinkML",
+      "range": "uri"
+    },
+    "permissible_values": {
+      "name": "permissible_values",
+      "title": "Permissible values",
+      "from_schema": "https://example.com/DH_LinkML",
+      "range": "string"
+    },
+    "class_uri": {
+      "name": "class_uri",
+      "title": "Class URI",
+      "from_schema": "https://example.com/DH_LinkML",
+      "range": "uri"
+    },
+    "slot_usage": {
+      "name": "slot_usage",
+      "title": "Slot Usage",
+      "from_schema": "https://example.com/DH_LinkML",
+      "range": "string"
+    },
+    "container_root": {
+      "name": "container_root",
+      "title": "Container",
+      "from_schema": "https://example.com/DH_LinkML",
+      "range": "TrueFalseMenu"
+    },
+    "alias": {
+      "name": "alias",
+      "title": "Alias",
+      "from_schema": "https://example.com/DH_LinkML",
+      "range": "string"
+    },
+    "owner": {
+      "name": "owner",
+      "title": "Owner",
+      "from_schema": "https://example.com/DH_LinkML",
+      "range": "string"
+    },
+    "Inlined as list": {
+      "name": "Inlined as list",
+      "title": "Inlined as list",
+      "from_schema": "https://example.com/DH_LinkML",
+      "range": "TrueFalseMenu"
+    },
+    "class": {
+      "name": "class",
+      "title": "Class",
+      "from_schema": "https://example.com/DH_LinkML",
+      "identifier": true,
+      "range": "WhitespaceMinimizedString",
+      "required": true
+    },
+    "slot": {
+      "name": "slot",
+      "title": "Slot",
+      "from_schema": "https://example.com/DH_LinkML",
+      "identifier": true,
+      "range": "WhitespaceMinimizedString",
+      "required": true
+    },
+    "slot_group": {
+      "name": "slot_group",
+      "title": "Slot Group",
+      "from_schema": "https://example.com/DH_LinkML",
+      "range": "WhitespaceMinimizedString"
+    },
+    "rank": {
+      "name": "rank",
+      "title": "Rank",
+      "from_schema": "https://example.com/DH_LinkML",
+      "range": "integer"
+    },
+    "inlined": {
+      "name": "inlined",
+      "title": "Inlined",
+      "from_schema": "https://example.com/DH_LinkML",
+      "range": "TrueFalseMenu"
+    },
+    "prefix": {
+      "name": "prefix",
+      "description": "The namespace prefix string.",
+      "title": "Prefix",
+      "from_schema": "https://example.com/DH_LinkML",
+      "identifier": true,
+      "range": "string",
+      "required": true
+    },
+    "reference": {
+      "name": "reference",
+      "description": "The URI the prefix expands to.",
+      "title": "Reference",
+      "from_schema": "https://example.com/DH_LinkML",
+      "range": "uri"
+    }
+  },
+  "classes": {
+    "dh_interface": {
+      "name": "dh_interface",
+      "description": "A DataHarmonizer interface",
+      "from_schema": "https://example.com/DH_LinkML"
+    },
+    "Schema": {
+      "name": "Schema",
+      "description": "The top-level description of a LinkML schema.  A schema contains classes for describing one or more DataHarmonizer templates, fields/columns, and picklists (which are themselves LinkML classes, slots, and enumerations)",
+      "from_schema": "https://example.com/DH_LinkML",
+      "see_also": [
+        "templates/schema_editor/SOP.pdf"
+      ],
+      "is_a": "dh_interface",
+      "slot_usage": {
+        "name": {
+          "name": "name",
+          "description": "The coding name of a LinkML schema.",
+          "comments": [
+            "This is a **CamelCase** formatted name in the LinkML standard naming convention.\n\nA schema contains classes for describing one or more DataHarmonizer templates, fields/columns, and picklists (which are themselves LinkML classes, slots, and enumerations)."
+          ],
+          "examples": [
+            {
+              "value": "Wastewater"
+            }
+          ],
+          "rank": 1,
+          "slot_group": "key",
+          "range": "string",
+          "pattern": "^([A-Z][a-z0-9]+)+$"
+        },
+        "description": {
+          "name": "description",
+          "description": "A plan text description of this LinkML schema.",
+          "rank": 2,
+          "slot_group": "attributes",
+          "range": "string"
+        },
+        "id": {
+          "name": "id",
+          "rank": 3,
+          "slot_group": "attributes"
+        },
+        "version": {
+          "name": "version",
+          "description": "A semantic version identifier for this schema.",
+          "comments": [
+            "See https://semver.org/"
+          ],
+          "rank": 4,
+          "slot_group": "attributes",
+          "required": true
+        },
+        "in_language": {
+          "name": "in_language",
+          "rank": 5,
+          "slot_group": "attributes"
+        },
+        "default_prefix": {
+          "name": "default_prefix",
+          "rank": 6,
+          "slot_group": "attributes"
+        }
+      },
+      "attributes": {
+        "name": {
+          "name": "name",
+          "description": "The coding name of a LinkML schema.",
+          "title": "Name",
+          "comments": [
+            "This is a **CamelCase** formatted name in the LinkML standard naming convention.\n\nA schema contains classes for describing one or more DataHarmonizer templates, fields/columns, and picklists (which are themselves LinkML classes, slots, and enumerations)."
+          ],
+          "examples": [
+            {
+              "value": "Wastewater"
+            }
+          ],
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 1,
+          "identifier": true,
+          "alias": "name",
+          "owner": "Schema",
+          "domain_of": [
+            "Schema",
+            "Slot",
+            "Enum",
+            "Class"
+          ],
+          "slot_group": "key",
+          "range": "string",
+          "required": true,
+          "pattern": "^([A-Z][a-z0-9]+)+$"
+        },
+        "description": {
+          "name": "description",
+          "description": "A plan text description of this LinkML schema.",
+          "title": "Description",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 2,
+          "alias": "description",
+          "owner": "Schema",
+          "domain_of": [
+            "Schema",
+            "Slot",
+            "Enum",
+            "Class"
+          ],
+          "slot_group": "attributes",
+          "range": "string",
+          "required": true
+        },
+        "id": {
+          "name": "id",
+          "description": "A unique URI for identifying this LinkML schema.",
+          "title": "ID",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 3,
+          "identifier": true,
+          "alias": "id",
+          "owner": "Schema",
+          "domain_of": [
+            "Schema"
+          ],
+          "slot_group": "attributes",
+          "range": "uri",
+          "required": true
+        },
+        "version": {
+          "name": "version",
+          "description": "A semantic version identifier for this schema.",
+          "title": "Version",
+          "comments": [
+            "See https://semver.org/"
+          ],
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 4,
+          "identifier": true,
+          "alias": "version",
+          "owner": "Schema",
+          "domain_of": [
+            "Schema",
+            "Class"
+          ],
+          "slot_group": "attributes",
+          "range": "string",
+          "required": true,
+          "pattern": "^\\d+\\.\\d+\\.\\d+$"
+        },
+        "in_language": {
+          "name": "in_language",
+          "description": "A list of i18n language codes that this schema is available in",
+          "title": "Languages",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 5,
+          "multivalued": true,
+          "alias": "in_language",
+          "owner": "Schema",
+          "domain_of": [
+            "Schema"
+          ],
+          "slot_group": "attributes",
+          "range": "LanguagesMenu"
+        },
+        "default_prefix": {
+          "name": "default_prefix",
+          "title": "Default prefix",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 6,
+          "alias": "default_prefix",
+          "owner": "Schema",
+          "domain_of": [
+            "Schema"
+          ],
+          "slot_group": "attributes",
+          "range": "uri",
+          "required": true
+        }
+      }
+    },
+    "Slot": {
+      "name": "Slot",
+      "description": "One or more slots contained in given schema. A slot can be used in one or more classes (templates).  A slot defines a visible column in a template, and can be a basic number, date, string, picklist (categorical or ordinal), or other single-field datatype.",
+      "from_schema": "https://example.com/DH_LinkML",
+      "slot_usage": {
+        "schema_id": {
+          "name": "schema_id",
+          "description": "The coding name of the schema this slot is contained in.",
+          "comments": [
+            "This is a snake_case formatted name in the LinkML standard naming convention."
+          ],
+          "rank": 1,
+          "slot_group": "key"
+        },
+        "name": {
+          "name": "name",
+          "description": "The coding name of this LinkML schema slot.",
+          "comments": [
+            "A slot can be used in one or more classes (templates). A slot appears as a visible column in a spreadsheet (template) tab, and can define a basic number, date, string, picklist (categorical or ordinal), or other single-field datatype."
+          ],
+          "rank": 2,
+          "slot_group": "key",
+          "range": "string"
+        },
+        "title": {
+          "name": "title",
+          "description": "The plain language name of this LinkML schema slot.",
+          "comments": [
+            "This can be displayed in applications and documentation."
+          ],
+          "rank": 3,
+          "slot_group": "attributes",
+          "range": "string"
+        },
+        "description": {
+          "name": "description",
+          "description": "A plan text description of this LinkML schema slot.",
+          "rank": 4,
+          "slot_group": "attributes",
+          "range": "string"
+        },
+        "slot_uri": {
+          "name": "slot_uri",
+          "rank": 5,
+          "slot_group": "attributes"
+        },
+        "range": {
+          "name": "range",
+          "rank": 6,
+          "slot_group": "attributes"
+        },
+        "identifier": {
+          "name": "identifier",
+          "description": "A boolean TRUE indicates this slot is an identifier, or refers to one.",
+          "rank": 7,
+          "slot_group": "attributes"
+        },
+        "multivalued": {
+          "name": "multivalued",
+          "description": "A boolean TRUE indicates this slot can hold more than one values taken from its range.",
+          "rank": 8,
+          "slot_group": "attributes"
+        },
+        "required": {
+          "name": "required",
+          "description": "A boolean TRUE indicates this slot is a mandatory data field.",
+          "comments": [
+            "A mandatory data field will fail validation if empty."
+          ],
+          "rank": 9,
+          "slot_group": "attributes"
+        },
+        "recommended": {
+          "name": "recommended",
+          "description": "A boolean TRUE indicates this slot is a recommended data field.",
+          "rank": 10,
+          "slot_group": "attributes"
+        },
+        "minimum_value": {
+          "name": "minimum_value",
+          "rank": 11,
+          "slot_group": "attributes"
+        },
+        "maximum_value": {
+          "name": "maximum_value",
+          "rank": 12,
+          "slot_group": "attributes"
+        },
+        "pattern": {
+          "name": "pattern",
+          "rank": 13,
+          "slot_group": "attributes"
+        },
+        "comments": {
+          "name": "comments",
+          "rank": 14,
+          "slot_group": "attributes"
+        },
+        "examples": {
+          "name": "examples",
+          "rank": 15,
+          "slot_group": "attributes"
+        }
+      },
+      "attributes": {
+        "schema_id": {
+          "name": "schema_id",
+          "description": "The coding name of the schema this slot is contained in.",
+          "title": "Schema",
+          "comments": [
+            "This is a snake_case formatted name in the LinkML standard naming convention."
+          ],
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 1,
+          "identifier": true,
+          "alias": "schema_id",
+          "owner": "Slot",
+          "domain_of": [
+            "Slot",
+            "Enum",
+            "Class",
+            "SlotUsage",
+            "Prefix"
+          ],
+          "slot_group": "key",
+          "range": "schema",
+          "required": true
+        },
+        "name": {
+          "name": "name",
+          "description": "The coding name of this LinkML schema slot.",
+          "title": "Name",
+          "comments": [
+            "A slot can be used in one or more classes (templates). A slot appears as a visible column in a spreadsheet (template) tab, and can define a basic number, date, string, picklist (categorical or ordinal), or other single-field datatype."
+          ],
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 2,
+          "identifier": true,
+          "alias": "name",
+          "owner": "Slot",
+          "domain_of": [
+            "Schema",
+            "Slot",
+            "Enum",
+            "Class"
+          ],
+          "slot_group": "key",
+          "range": "string",
+          "required": true
+        },
+        "title": {
+          "name": "title",
+          "description": "The plain language name of this LinkML schema slot.",
+          "title": "Title",
+          "comments": [
+            "This can be displayed in applications and documentation."
+          ],
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 3,
+          "alias": "title",
+          "owner": "Slot",
+          "domain_of": [
+            "Slot",
+            "Enum",
+            "Class"
+          ],
+          "slot_group": "attributes",
+          "range": "string",
+          "required": true
+        },
+        "description": {
+          "name": "description",
+          "description": "A plan text description of this LinkML schema slot.",
+          "title": "Description",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 4,
+          "alias": "description",
+          "owner": "Slot",
+          "domain_of": [
+            "Schema",
+            "Slot",
+            "Enum",
+            "Class"
+          ],
+          "slot_group": "attributes",
+          "range": "string",
+          "required": true
+        },
+        "slot_uri": {
+          "name": "slot_uri",
+          "description": "A URI for identifying this slot's semantic type.",
+          "title": "Slot URI",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 5,
+          "alias": "slot_uri",
+          "owner": "Slot",
+          "domain_of": [
+            "Slot"
+          ],
+          "slot_group": "attributes",
+          "range": "uri"
+        },
+        "range": {
+          "name": "range",
+          "description": "The range or ranges a slot is associated with.  If more than one, this appears in the slot's specification as a list of \"any of\" ranges.",
+          "title": "Range",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 6,
+          "multivalued": true,
+          "alias": "range",
+          "owner": "Slot",
+          "domain_of": [
+            "Slot"
+          ],
+          "slot_group": "attributes",
+          "range": "DataTypeMenu"
+        },
+        "identifier": {
+          "name": "identifier",
+          "description": "A boolean TRUE indicates this slot is an identifier, or refers to one.",
+          "title": "Identifier",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 7,
+          "alias": "identifier",
+          "owner": "Slot",
+          "domain_of": [
+            "Slot",
+            "SlotUsage"
+          ],
+          "slot_group": "attributes",
+          "range": "TrueFalseMenu"
+        },
+        "multivalued": {
+          "name": "multivalued",
+          "description": "A boolean TRUE indicates this slot can hold more than one values taken from its range.",
+          "title": "Multivalued",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 8,
+          "alias": "multivalued",
+          "owner": "Slot",
+          "domain_of": [
+            "Slot",
+            "SlotUsage"
+          ],
+          "slot_group": "attributes",
+          "range": "TrueFalseMenu"
+        },
+        "required": {
+          "name": "required",
+          "description": "A boolean TRUE indicates this slot is a mandatory data field.",
+          "title": "Required",
+          "comments": [
+            "A mandatory data field will fail validation if empty."
+          ],
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 9,
+          "alias": "required",
+          "owner": "Slot",
+          "domain_of": [
+            "Slot",
+            "SlotUsage"
+          ],
+          "slot_group": "attributes",
+          "range": "TrueFalseMenu"
+        },
+        "recommended": {
+          "name": "recommended",
+          "description": "A boolean TRUE indicates this slot is a recommended data field.",
+          "title": "Recommended",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 10,
+          "alias": "recommended",
+          "owner": "Slot",
+          "domain_of": [
+            "Slot",
+            "SlotUsage"
+          ],
+          "slot_group": "attributes",
+          "range": "TrueFalseMenu"
+        },
+        "minimum_value": {
+          "name": "minimum_value",
+          "description": "A minimum value which is appropriate for the range data type of the slot.",
+          "title": "Minimum_value",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 11,
+          "alias": "minimum_value",
+          "owner": "Slot",
+          "domain_of": [
+            "Slot"
+          ],
+          "slot_group": "attributes",
+          "range": "integer"
+        },
+        "maximum_value": {
+          "name": "maximum_value",
+          "description": "A maximum value which is appropriate for the range data type of the slot.",
+          "title": "Maximum_value",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 12,
+          "alias": "maximum_value",
+          "owner": "Slot",
+          "domain_of": [
+            "Slot"
+          ],
+          "slot_group": "attributes",
+          "range": "integer"
+        },
+        "pattern": {
+          "name": "pattern",
+          "description": "A regular expression pattern used to validate a slot's string range data type content.",
+          "title": "Pattern",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 13,
+          "alias": "pattern",
+          "owner": "Slot",
+          "domain_of": [
+            "Slot"
+          ],
+          "slot_group": "attributes",
+          "range": "WhitespaceMinimizedString"
+        },
+        "comments": {
+          "name": "comments",
+          "description": "A free text field for adding other comments to guide usage of field.",
+          "title": "Comments",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 14,
+          "alias": "comments",
+          "owner": "Slot",
+          "domain_of": [
+            "Slot"
+          ],
+          "slot_group": "attributes",
+          "range": "WhitespaceMinimizedString"
+        },
+        "examples": {
+          "name": "examples",
+          "description": "A free text field for including examples of string, numeric, date or categorical values.",
+          "title": "Examples",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 15,
+          "alias": "examples",
+          "owner": "Slot",
+          "domain_of": [
+            "Slot"
+          ],
+          "slot_group": "attributes",
+          "range": "WhitespaceMinimizedString"
+        }
+      }
+    },
+    "Enum": {
+      "name": "Enum",
+      "description": "One or more enumerations in given schema.  An enumeration can be used in the \"range\" or \"any of\" attribute of a slot.  Each enumeration has a flat list or hierarchy of permitted values.",
+      "from_schema": "https://example.com/DH_LinkML",
+      "slot_usage": {
+        "schema_id": {
+          "name": "schema_id",
+          "description": "The coding name of the schema this enumeration is contained in.",
+          "rank": 1,
+          "slot_group": "key"
+        },
+        "name": {
+          "name": "name",
+          "description": "The plain language name of this LinkML schema enumeration.",
+          "comments": [
+            "See https://linkml.io/linkml/schemas/enums.html"
+          ],
+          "rank": 2,
+          "slot_group": "key",
+          "range": "WhitespaceMinimizedString"
+        },
+        "title": {
+          "name": "title",
+          "description": "The plain language name of this enumeration menu.",
+          "rank": 3,
+          "slot_group": "attributes",
+          "range": "WhitespaceMinimizedString"
+        },
+        "description": {
+          "name": "description",
+          "description": "A plan text description of this LinkML schema enumeration menu of terms.",
+          "rank": 4,
+          "slot_group": "attributes",
+          "range": "WhitespaceMinimizedString"
+        },
+        "enum_uri": {
+          "name": "enum_uri",
+          "rank": 5,
+          "slot_group": "attributes"
+        },
+        "permissible_values": {
+          "name": "permissible_values",
+          "rank": 6,
+          "slot_group": "attributes"
+        }
+      },
+      "attributes": {
+        "schema_id": {
+          "name": "schema_id",
+          "description": "The coding name of the schema this enumeration is contained in.",
+          "title": "Schema",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 1,
+          "identifier": true,
+          "alias": "schema_id",
+          "owner": "Enum",
+          "domain_of": [
+            "Slot",
+            "Enum",
+            "Class",
+            "SlotUsage",
+            "Prefix"
+          ],
+          "slot_group": "key",
+          "range": "schema",
+          "required": true
+        },
+        "name": {
+          "name": "name",
+          "description": "The plain language name of this LinkML schema enumeration.",
+          "title": "Name",
+          "comments": [
+            "See https://linkml.io/linkml/schemas/enums.html"
+          ],
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 2,
+          "identifier": true,
+          "alias": "name",
+          "owner": "Enum",
+          "domain_of": [
+            "Schema",
+            "Slot",
+            "Enum",
+            "Class"
+          ],
+          "slot_group": "key",
+          "range": "WhitespaceMinimizedString",
+          "required": true
+        },
+        "title": {
+          "name": "title",
+          "description": "The plain language name of this enumeration menu.",
+          "title": "Title",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 3,
+          "alias": "title",
+          "owner": "Enum",
+          "domain_of": [
+            "Slot",
+            "Enum",
+            "Class"
+          ],
+          "slot_group": "attributes",
+          "range": "WhitespaceMinimizedString",
+          "required": true
+        },
+        "description": {
+          "name": "description",
+          "description": "A plan text description of this LinkML schema enumeration menu of terms.",
+          "title": "Description",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 4,
+          "alias": "description",
+          "owner": "Enum",
+          "domain_of": [
+            "Schema",
+            "Slot",
+            "Enum",
+            "Class"
+          ],
+          "slot_group": "attributes",
+          "range": "WhitespaceMinimizedString",
+          "required": true
+        },
+        "enum_uri": {
+          "name": "enum_uri",
+          "description": "A URI for identifying this enumeration's semantic type.",
+          "title": "Enum URI",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 5,
+          "alias": "enum_uri",
+          "owner": "Enum",
+          "domain_of": [
+            "Enum"
+          ],
+          "slot_group": "attributes",
+          "range": "uri"
+        },
+        "permissible_values": {
+          "name": "permissible_values",
+          "title": "Permissible values",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 6,
+          "alias": "permissible_values",
+          "owner": "Enum",
+          "domain_of": [
+            "Enum"
+          ],
+          "slot_group": "attributes",
+          "range": "string"
+        }
+      }
+    },
+    "Class": {
+      "name": "Class",
+      "description": "One or more classes contained in given schema.  Each class can be displayed in DataHarmonizer in a spreadsheet tab.  A class may be a top-level DataHarmonizer \"template\", or it may be a subordinate 1-many class linked to a parent class by a primary key field.",
+      "from_schema": "https://example.com/DH_LinkML",
+      "slot_usage": {
+        "schema_id": {
+          "name": "schema_id",
+          "description": "The coding name of the schema this class is contained in.",
+          "rank": 1,
+          "slot_group": "key"
+        },
+        "name": {
+          "name": "name",
+          "description": "A class contained in given schema.",
+          "comments": [
+            "Each class can be displayed in DataHarmonizer in a spreadsheet tab. A class may be visible as a top-level DataHarmonizer \"template\", or it may be a subordinate 1-many class linked to a parent class by a primary key field."
+          ],
+          "examples": [
+            {
+              "value": "WastewaterAMR|WastewaterPathogenAgnostic"
+            }
+          ],
+          "rank": 2,
+          "slot_group": "key",
+          "range": "string",
+          "pattern": "^([A-Z][a-z0-9]+)+$"
+        },
+        "title": {
+          "name": "title",
+          "description": "The plain language name of a LinkML schema class.",
+          "rank": 3,
+          "slot_group": "attributes",
+          "range": "string"
+        },
+        "description": {
+          "name": "description",
+          "rank": 4,
+          "slot_group": "attributes",
+          "range": "string"
+        },
+        "version": {
+          "name": "version",
+          "description": "A semantic version identifier.  See https://semver.org/",
+          "rank": 5,
+          "slot_group": "attributes"
+        },
+        "class_uri": {
+          "name": "class_uri",
+          "rank": 6,
+          "slot_group": "attributes"
+        },
+        "slot_usage": {
+          "name": "slot_usage",
+          "rank": 7,
+          "slot_group": "attributes"
+        },
+        "container_root": {
+          "name": "container_root",
+          "rank": 8,
+          "slot_group": "attributes"
+        },
+        "alias": {
+          "name": "alias",
+          "rank": 9,
+          "slot_group": "attributes"
+        },
+        "owner": {
+          "name": "owner",
+          "rank": 10,
+          "slot_group": "attributes"
+        },
+        "Inlined as list": {
+          "name": "Inlined as list",
+          "rank": 11,
+          "slot_group": "attributes"
+        }
+      },
+      "attributes": {
+        "schema_id": {
+          "name": "schema_id",
+          "description": "The coding name of the schema this class is contained in.",
+          "title": "Schema",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 1,
+          "identifier": true,
+          "alias": "schema_id",
+          "owner": "Class",
+          "domain_of": [
+            "Slot",
+            "Enum",
+            "Class",
+            "SlotUsage",
+            "Prefix"
+          ],
+          "slot_group": "key",
+          "range": "schema",
+          "required": true
+        },
+        "name": {
+          "name": "name",
+          "description": "A class contained in given schema.",
+          "title": "Name",
+          "comments": [
+            "Each class can be displayed in DataHarmonizer in a spreadsheet tab. A class may be visible as a top-level DataHarmonizer \"template\", or it may be a subordinate 1-many class linked to a parent class by a primary key field."
+          ],
+          "examples": [
+            {
+              "value": "WastewaterAMR|WastewaterPathogenAgnostic"
+            }
+          ],
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 2,
+          "identifier": true,
+          "alias": "name",
+          "owner": "Class",
+          "domain_of": [
+            "Schema",
+            "Slot",
+            "Enum",
+            "Class"
+          ],
+          "slot_group": "key",
+          "range": "string",
+          "required": true,
+          "pattern": "^([A-Z][a-z0-9]+)+$"
+        },
+        "title": {
+          "name": "title",
+          "description": "The plain language name of a LinkML schema class.",
+          "title": "Title",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 3,
+          "alias": "title",
+          "owner": "Class",
+          "domain_of": [
+            "Slot",
+            "Enum",
+            "Class"
+          ],
+          "slot_group": "attributes",
+          "range": "string",
+          "required": true
+        },
+        "description": {
+          "name": "description",
+          "title": "Description",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 4,
+          "alias": "description",
+          "owner": "Class",
+          "domain_of": [
+            "Schema",
+            "Slot",
+            "Enum",
+            "Class"
+          ],
+          "slot_group": "attributes",
+          "range": "string",
+          "required": true
+        },
+        "version": {
+          "name": "version",
+          "description": "A semantic version identifier.  See https://semver.org/",
+          "title": "Version",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 5,
+          "identifier": true,
+          "alias": "version",
+          "owner": "Class",
+          "domain_of": [
+            "Schema",
+            "Class"
+          ],
+          "slot_group": "attributes",
+          "range": "string",
+          "required": true,
+          "pattern": "^\\d+\\.\\d+\\.\\d+$"
+        },
+        "class_uri": {
+          "name": "class_uri",
+          "title": "Class URI",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 6,
+          "alias": "class_uri",
+          "owner": "Class",
+          "domain_of": [
+            "Class"
+          ],
+          "slot_group": "attributes",
+          "range": "uri"
+        },
+        "slot_usage": {
+          "name": "slot_usage",
+          "title": "Slot Usage",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 7,
+          "alias": "slot_usage",
+          "owner": "Class",
+          "domain_of": [
+            "Class"
+          ],
+          "slot_group": "attributes",
+          "range": "string"
+        },
+        "container_root": {
+          "name": "container_root",
+          "title": "Container",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 8,
+          "alias": "container_root",
+          "owner": "Class",
+          "domain_of": [
+            "Class"
+          ],
+          "slot_group": "attributes",
+          "range": "TrueFalseMenu"
+        },
+        "alias": {
+          "name": "alias",
+          "title": "Alias",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 9,
+          "alias": "alias",
+          "owner": "Class",
+          "domain_of": [
+            "Class"
+          ],
+          "slot_group": "attributes",
+          "range": "string"
+        },
+        "owner": {
+          "name": "owner",
+          "title": "Owner",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 10,
+          "alias": "owner",
+          "owner": "Class",
+          "domain_of": [
+            "Class"
+          ],
+          "slot_group": "attributes",
+          "range": "string"
+        },
+        "Inlined as list": {
+          "name": "Inlined as list",
+          "title": "Inlined as list",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 11,
+          "alias": "Inlined_as_list",
+          "owner": "Class",
+          "domain_of": [
+            "Class"
+          ],
+          "slot_group": "attributes",
+          "range": "TrueFalseMenu"
+        }
+      }
+    },
+    "SlotUsage": {
+      "name": "SlotUsage",
+      "description": "A table linking slots to classes they appear in, as well as attributes which override the generic slot inheritance.",
+      "from_schema": "https://example.com/DH_LinkML",
+      "slot_usage": {
+        "schema_id": {
+          "name": "schema_id",
+          "rank": 1,
+          "slot_group": "key"
+        },
+        "class": {
+          "name": "class",
+          "rank": 2,
+          "slot_group": "key"
+        },
+        "slot": {
+          "name": "slot",
+          "rank": 3,
+          "slot_group": "attributes"
+        },
+        "slot_group": {
+          "name": "slot_group",
+          "rank": 4,
+          "slot_group": "attributes"
+        },
+        "rank": {
+          "name": "rank",
+          "rank": 5,
+          "slot_group": "attributes"
+        },
+        "inlined": {
+          "name": "inlined",
+          "rank": 6,
+          "slot_group": "attributes"
+        },
+        "identifier": {
+          "name": "identifier",
+          "rank": 7,
+          "slot_group": "attributes"
+        },
+        "multivalued": {
+          "name": "multivalued",
+          "rank": 8,
+          "slot_group": "attributes"
+        },
+        "required": {
+          "name": "required",
+          "rank": 9,
+          "slot_group": "attributes"
+        },
+        "recommended": {
+          "name": "recommended",
+          "rank": 10,
+          "slot_group": "attributes"
+        }
+      },
+      "attributes": {
+        "schema_id": {
+          "name": "schema_id",
+          "title": "Schema",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 1,
+          "identifier": true,
+          "alias": "schema_id",
+          "owner": "SlotUsage",
+          "domain_of": [
+            "Slot",
+            "Enum",
+            "Class",
+            "SlotUsage",
+            "Prefix"
+          ],
+          "slot_group": "key",
+          "range": "schema",
+          "required": true
+        },
+        "class": {
+          "name": "class",
+          "title": "Class",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 2,
+          "identifier": true,
+          "alias": "class",
+          "owner": "SlotUsage",
+          "domain_of": [
+            "SlotUsage"
+          ],
+          "slot_group": "key",
+          "range": "WhitespaceMinimizedString",
+          "required": true
+        },
+        "slot": {
+          "name": "slot",
+          "title": "Slot",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 3,
+          "identifier": true,
+          "alias": "slot",
+          "owner": "SlotUsage",
+          "domain_of": [
+            "SlotUsage"
+          ],
+          "slot_group": "attributes",
+          "range": "WhitespaceMinimizedString",
+          "required": true
+        },
+        "slot_group": {
+          "name": "slot_group",
+          "title": "Slot Group",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 4,
+          "alias": "slot_group",
+          "owner": "SlotUsage",
+          "domain_of": [
+            "SlotUsage"
+          ],
+          "slot_group": "attributes",
+          "range": "WhitespaceMinimizedString"
+        },
+        "rank": {
+          "name": "rank",
+          "title": "Rank",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 5,
+          "alias": "rank",
+          "owner": "SlotUsage",
+          "domain_of": [
+            "SlotUsage"
+          ],
+          "slot_group": "attributes",
+          "range": "integer"
+        },
+        "inlined": {
+          "name": "inlined",
+          "title": "Inlined",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 6,
+          "alias": "inlined",
+          "owner": "SlotUsage",
+          "domain_of": [
+            "SlotUsage"
+          ],
+          "slot_group": "attributes",
+          "range": "TrueFalseMenu"
+        },
+        "identifier": {
+          "name": "identifier",
+          "title": "Identifier",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 7,
+          "alias": "identifier",
+          "owner": "SlotUsage",
+          "domain_of": [
+            "Slot",
+            "SlotUsage"
+          ],
+          "slot_group": "attributes",
+          "range": "TrueFalseMenu"
+        },
+        "multivalued": {
+          "name": "multivalued",
+          "title": "Multivalued",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 8,
+          "alias": "multivalued",
+          "owner": "SlotUsage",
+          "domain_of": [
+            "Slot",
+            "SlotUsage"
+          ],
+          "slot_group": "attributes",
+          "range": "TrueFalseMenu"
+        },
+        "required": {
+          "name": "required",
+          "title": "Required",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 9,
+          "alias": "required",
+          "owner": "SlotUsage",
+          "domain_of": [
+            "Slot",
+            "SlotUsage"
+          ],
+          "slot_group": "attributes",
+          "range": "TrueFalseMenu"
+        },
+        "recommended": {
+          "name": "recommended",
+          "title": "Recommended",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 10,
+          "alias": "recommended",
+          "owner": "SlotUsage",
+          "domain_of": [
+            "Slot",
+            "SlotUsage"
+          ],
+          "slot_group": "attributes",
+          "range": "TrueFalseMenu"
+        }
+      }
+    },
+    "Prefix": {
+      "name": "Prefix",
+      "description": "A prefix used in the URIs mentioned in this schema.",
+      "from_schema": "https://example.com/DH_LinkML",
+      "slot_usage": {
+        "schema_id": {
+          "name": "schema_id",
+          "description": "The coding name of the schema this prefix is listed in.",
+          "rank": 1,
+          "slot_group": "key"
+        },
+        "prefix": {
+          "name": "prefix",
+          "rank": 2,
+          "slot_group": "key"
+        },
+        "reference": {
+          "name": "reference",
+          "rank": 3,
+          "slot_group": "attributes"
+        }
+      },
+      "attributes": {
+        "schema_id": {
+          "name": "schema_id",
+          "description": "The coding name of the schema this prefix is listed in.",
+          "title": "Schema",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 1,
+          "identifier": true,
+          "alias": "schema_id",
+          "owner": "Prefix",
+          "domain_of": [
+            "Slot",
+            "Enum",
+            "Class",
+            "SlotUsage",
+            "Prefix"
+          ],
+          "slot_group": "key",
+          "range": "schema",
+          "required": true
+        },
+        "prefix": {
+          "name": "prefix",
+          "description": "The namespace prefix string.",
+          "title": "Prefix",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 2,
+          "identifier": true,
+          "alias": "prefix",
+          "owner": "Prefix",
+          "domain_of": [
+            "Prefix"
+          ],
+          "slot_group": "key",
+          "range": "string",
+          "required": true
+        },
+        "reference": {
+          "name": "reference",
+          "description": "The URI the prefix expands to.",
+          "title": "Reference",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 3,
+          "alias": "reference",
+          "owner": "Prefix",
+          "domain_of": [
+            "Prefix"
+          ],
+          "slot_group": "attributes",
+          "range": "uri"
+        }
+      }
+    },
+    "Container": {
+      "name": "Container",
+      "from_schema": "https://example.com/DH_LinkML",
+      "attributes": {
+        "Schemas": {
+          "name": "Schemas",
+          "from_schema": "https://example.com/DH_LinkML",
+          "multivalued": true,
+          "alias": "Schemas",
+          "owner": "Container",
+          "domain_of": [
+            "Container"
+          ],
+          "range": "Schema",
+          "inlined_as_list": true
+        },
+        "Classes": {
+          "name": "Classes",
+          "from_schema": "https://example.com/DH_LinkML",
+          "multivalued": true,
+          "alias": "Classes",
+          "owner": "Container",
+          "domain_of": [
+            "Container"
+          ],
+          "range": "Class",
+          "inlined_as_list": true
+        },
+        "Slots": {
+          "name": "Slots",
+          "from_schema": "https://example.com/DH_LinkML",
+          "multivalued": true,
+          "alias": "Slots",
+          "owner": "Container",
+          "domain_of": [
+            "Container"
+          ],
+          "range": "Slot",
+          "inlined_as_list": true
+        },
+        "SlotUsages": {
+          "name": "SlotUsages",
+          "from_schema": "https://example.com/DH_LinkML",
+          "multivalued": true,
+          "alias": "SlotUsages",
+          "owner": "Container",
+          "domain_of": [
+            "Container"
+          ],
+          "range": "SlotUsage",
+          "inlined_as_list": true
+        },
+        "Enums": {
+          "name": "Enums",
+          "from_schema": "https://example.com/DH_LinkML",
+          "multivalued": true,
+          "alias": "Enums",
+          "owner": "Container",
+          "domain_of": [
+            "Container"
+          ],
+          "range": "Enum",
+          "inlined_as_list": true
+        },
+        "Prefixes": {
+          "name": "Prefixes",
+          "from_schema": "https://example.com/DH_LinkML",
+          "multivalued": true,
+          "alias": "Prefixes",
+          "owner": "Container",
+          "domain_of": [
+            "Container"
+          ],
+          "range": "Prefix",
+          "inlined_as_list": true
+        }
+      },
+      "tree_root": true
+    }
+  },
+  "settings": {
+    "Title_Case": {
+      "setting_key": "Title_Case",
+      "setting_value": "(((?<=\\b)[^a-z\\W]\\w*?|[\\W])+)"
+    },
+    "UPPER_CASE": {
+      "setting_key": "UPPER_CASE",
+      "setting_value": "[A-Z\\W\\d_]*"
+    },
+    "lower_case": {
+      "setting_key": "lower_case",
+      "setting_value": "[a-z\\W\\d_]*"
+    }
+  },
+  "@type": "SchemaDefinition"
+}
