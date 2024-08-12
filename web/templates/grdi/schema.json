@@ -7609,7 +7609,7 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "exact_mappings": [
-        "NCBI_BIOSAMPLE_Enterics:strain"
+        "NCBI_BIOSAMPLE_Enterics:%2Astrain"
       ],
       "slot_uri": "GENEPIO:0100455",
       "domain_of": [
@@ -7631,7 +7631,7 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "exact_mappings": [
-        "NCBI_BIOSAMPLE_Enterics:strain"
+        "NCBI_BIOSAMPLE_Enterics:%2Astrain"
       ],
       "slot_uri": "GENEPIO:0100456",
       "domain_of": [
@@ -30240,7 +30240,7 @@
           ],
           "from_schema": "https://example.com/GRDI",
           "exact_mappings": [
-            "NCBI_BIOSAMPLE_Enterics:strain"
+            "NCBI_BIOSAMPLE_Enterics:%2Astrain"
           ],
           "rank": 75,
           "slot_uri": "GENEPIO:0100455",
@@ -30266,7 +30266,7 @@
           ],
           "from_schema": "https://example.com/GRDI",
           "exact_mappings": [
-            "NCBI_BIOSAMPLE_Enterics:strain"
+            "NCBI_BIOSAMPLE_Enterics:%2Astrain"
           ],
           "rank": 76,
           "slot_uri": "GENEPIO:0100456",

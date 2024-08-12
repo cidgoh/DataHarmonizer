@@ -4180,7 +4180,7 @@ slots:
     examples:
     - value: K12
     exact_mappings:
-    - NCBI_BIOSAMPLE_Enterics:strain
+    - NCBI_BIOSAMPLE_Enterics:%2Astrain
   isolate_id:
     name: isolate_id
     title: isolate_ID
@@ -4199,7 +4199,7 @@ slots:
     examples:
     - value: SA20131043
     exact_mappings:
-    - NCBI_BIOSAMPLE_Enterics:strain
+    - NCBI_BIOSAMPLE_Enterics:%2Astrain
   alternative_isolate_id:
     name: alternative_isolate_id
     title: alternative_isolate_ID
