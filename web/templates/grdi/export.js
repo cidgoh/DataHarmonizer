@@ -73,6 +73,7 @@ export default {
 //      ['gene_name_2', []],
 //      ['diagnostic_PCR_CT_value_2', []],
 //      ['description',[]],
+        // TODO there are additional fields now; what order?
       ]);
 
       const sourceFields = dh.getFields(dh.table);
@@ -105,111 +106,106 @@ export default {
     },
   },
 
-  BioSample: {
+  // TODO I see other refs to NCBI_BioSample in project; good name?
+  NCBI_BioSample_Enterics: {
     fileType: 'xls',
     status: 'published',
     method: function (dh) {
-      // Create an export table with template's headers (2nd row) and remaining rows of data
       const ExportHeaders = new Map([
-        ['sample_name', []],          // *
-
-WORK IN PROGRESS
-
-sample_title
-bioproject_accession
-*strain
-isolate_name_alias
-culture_collection
-reference_material
-*organism
-*collected_by
-*collection_date
-cult_isol_date
-*geo_loc_name
-*isolation_source
-*source_type
-samp_collect_device
-*purpose_of_sampling
-project_name
-ifsac_category
-lat_lon
-serotype
-serovar
-sequenced_by
-description
-host
-host_sex
-host_age
-host_disease
-host_subject_id
-animal_env
-host_tissue_sampled
-host_body_product
-host_variety
-host_animal_breed
-upstream_intervention
-host_am
-host_group_size
-host_housing
-food_origin
-intended_consumer
-spec_intended_cons
-food_source
-food_processing_method
-food_preserv_proc
-food_prod
-label_claims
-food_product_type
-food_industry_code
-food_industry_class
-food_additive
-food_contact_surf
-food_contain_wrap
-food_pack_medium
-food_pack_integrity
-food_quality_date
-food_prod_synonym
-facility_type
-building_setting
-coll_site_geo_feat
-food_type_processed
-location_in_facility
-env_monitoring_zone
-indoor_surf
-indoor_surf_subpart
-surf_material
-material_condition
-surface_orientation
-surf_temp
-biocide_used
-animal_intrusion
-env_broad_scale
-env_local_scale
-env_medium
-plant_growth_med
-plant_water_method
-rel_location
-soil_type
-farm_water_source
-fertilizer_admin
-food_clean_proc
-sanitizer_used_postharvest
-farm_equip
-extr_weather_event
-mechanical_damage
-]
-
-      );
-
-
-EXAMPLE
-environmental_siteXenv_local_scale = "Agricultural Field [ENVO:00000114], Alluvial fan [ENVO:00000314], Artificial wetland [ENVO:03501406], Breeding ground [ENVO:03501441], Creek [ENVO:03501405], Farm [ENVO:00000078], Beef farm [ENVO:03501443], Breeder farm [ENVO:03501384], Dairy farm [ENVO:03501416], Feedlot [ENVO:01000627], Beef cattle feedlot [ENVO:03501444], Fish farm [ENVO:00000294], Research farm [ENVO:03501417], Freshwater environment [ENVO:01000306], Hatchery [ENVO:01001873], Poultry hatchery [ENVO:01001874], Lake [ENVO:00000020], Manure lagoon (Anaerobic lagoon) [ENVO:03501423], Manure pit [ENVO:01001872], Marine environment [ENVO:01000320], Benthic zone [ENVO:03501440], Pelagic zone [ENVO:00000208], Park [ENVO:00000562], Pond [ENVO:00000033], Reservoir [ENVO:00000025], Irrigation reservoir [ENVO:00000450], River [ENVO:00000022], Roost (bird) [ENVO:03501439], Rural area [ENVO:01000772], Slough [ENVO:03501438], Stream [ENVO:00000023], Tributary [ENVO:00000495], Water surface [ENVO:01001191], Woodland area [ENVO:00000109]".split(",")
+        ['*sample_name', []],
+        ['sample_title', []],
+        ['bioproject_accession', []],
+        ['*strain', []],
+        ['isolate_name_alias', []],
+        ['culture_collection', []],
+        ['reference_material', []],
+        ['*organism', []],
+        ['*collected_by', []],
+        ['*collection_date', []],
+        ['cult_isol_date', []],
+        ['*geo_loc_name', []],
+        ['*isolation_source', []],
+        ['*source_type', []],
+        ['samp_collect_device', []],
+        ['*purpose_of_sampling', []],
+        ['project_name', []],
+        ['ifsac_category', []],
+        ['lat_lon', []],
+        ['serotype', []],
+        ['serovar', []],
+        ['sequenced_by', []],
+        ['description', []],
+        ['host', []],
+        ['host_sex', []],
+        ['host_age', []],
+        ['host_disease', []],
+        ['host_subject_id', []],
+        ['animal_env', []],
+        ['host_tissue_sampled', []],
+        ['host_body_product', []],
+        ['host_variety', []],
+        ['host_animal_breed', []],
+        ['upstream_intervention', []],
+        ['host_am', []],
+        ['host_group_size', []],
+        ['host_housing', []],
+        ['food_origin', []],
+        ['intended_consumer', []],
+        ['spec_intended_cons', []],
+        ['food_source', []],
+        ['food_processing_method', []],
+        ['food_preserv_proc', []],
+        ['food_prod', []],
+        ['label_claims', []],
+        ['food_product_type', []],
+        ['food_industry_code', []],
+        ['food_industry_class', []],
+        ['food_additive', []],
+        ['food_contact_surf', []],
+        ['food_contain_wrap', []],
+        ['food_pack_medium', []],
+        ['food_pack_integrity', []],
+        ['food_quality_date', []],
+        ['food_prod_synonym', []],
+        ['facility_type', []],
+        ['building_setting', []],
+        ['coll_site_geo_feat', []],
+        ['food_type_processed', []],
+        ['location_in_facility', []],
+        ['env_monitoring_zone', []],
+        ['indoor_surf', []],
+        ['indoor_surf_subpart', []],
+        ['surf_material', []],
+        ['material_condition', []],
+        ['surface_orientation', []],
+        ['surf_temp', []],
+        ['biocide_used', []],
+        ['animal_intrusion', []],
+        ['env_broad_scale', []],
+        ['env_local_scale', []],
+        ['env_medium', []],
+        ['plant_growth_med', []],
+        ['plant_water_method', []],
+        ['rel_location', []],
+        ['soil_type', []],
+        ['farm_water_source', []],
+        ['fertilizer_admin', []],
+        ['food_clean_proc', []],
+        ['sanitizer_used_postharvest', []],
+        ['farm_equip', []],
+        ['extr_weather_event', []],
+        ['mechanical_damage', []]
+      ]);
+//
+//
+// EXAMPLE
+// environmental_siteXenv_local_scale = "Agricultural Field [ENVO:00000114], Alluvial fan [ENVO:00000314], Artificial wetland [ENVO:03501406], Breeding ground [ENVO:03501441], Creek [ENVO:03501405], Farm [ENVO:00000078], Beef farm [ENVO:03501443], Breeder farm [ENVO:03501384], Dairy farm [ENVO:03501416], Feedlot [ENVO:01000627], Beef cattle feedlot [ENVO:03501444], Fish farm [ENVO:00000294], Research farm [ENVO:03501417], Freshwater environment [ENVO:01000306], Hatchery [ENVO:01001873], Poultry hatchery [ENVO:01001874], Lake [ENVO:00000020], Manure lagoon (Anaerobic lagoon) [ENVO:03501423], Manure pit [ENVO:01001872], Marine environment [ENVO:01000320], Benthic zone [ENVO:03501440], Pelagic zone [ENVO:00000208], Park [ENVO:00000562], Pond [ENVO:00000033], Reservoir [ENVO:00000025], Irrigation reservoir [ENVO:00000450], River [ENVO:00000022], Roost (bird) [ENVO:03501439], Rural area [ENVO:01000772], Slough [ENVO:03501438], Stream [ENVO:00000023], Tributary [ENVO:00000495], Water surface [ENVO:01001191], Woodland area [ENVO:00000109]".split(",")
 
 
       const sourceFields = dh.getFields(dh.table);
       const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
       // Fills in the above mapping (or just set manually above)
-      dh.getHeaderMap(ExportHeaders, sourceFields, 'BIOSAMPLE');
+      dh.getHeaderMap(ExportHeaders, sourceFields, 'NCBI_BIOSAMPLE_Enterics');
 
       // Copy headers to 1st row of new export table
       const outputMatrix = [[...ExportHeaders.keys()]];
@@ -225,7 +221,7 @@ environmental_siteXenv_local_scale = "Agricultural Field [ENVO:00000114], Alluvi
             sourceFields,
             sourceFieldNameMap,
             ':',
-            'BIOSAMPLE'
+            'NCBI_BIOSAMPLE_Enterics'
           );
           outputRow.push(value);
         }
