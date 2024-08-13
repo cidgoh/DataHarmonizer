@@ -1,21 +1,44 @@
 id: https://example.com/GRDI
 name: "GRDI"
 description: ""
-version: 11.1.1
+version: 12.2.2
 imports:
   - 'linkml:types'
 prefixes:
   linkml: 'https://w3id.org/linkml/'
   GENEPIO: 'http://purl.obolibrary.org/obo/GENEPIO_'
 classes:
-  dh_interface:
-    name: dh_interface
-    description: 'A DataHarmonizer interface'
-    from_schema: https://example.com/GRDI
-  'GRDI':
-    name: 'GRDI'
-    description: Specification for GRDI virus biosample data gathering
-    is_a: dh_interface
+  dh_interface: 
+    name: "dh_interface"
+    description: "A DataHarmonizer interface"
+    from_schema: "https://example.com/GRDI"
+  GRDISample: 
+    name: "GRDISample"
+    description: "Specification for GRDI virus biosample data gathering"
+    from_schema: "https://example.com/GRDI"
+    is_a: "dh_interface"
+  AMRTest: 
+    name: "AMRTest"
+    description: "Antimicrobial test result"
+    from_schema: "https://example.com/GRDI"
+    is_a: "dh_interface"
+  Container: 
+    name: "Container"
+    from_schema: "https://example.com/GRDI"
+    attributes: 
+      GRDISamples: 
+        name: "GRDISamples"
+        from_schema: "https://example.com/GRDI"
+        multivalued: "true"
+        range: "GRDISample"
+        inlined_as_list: "true"
+      AMRTests: 
+        name: "AMRTests"
+        from_schema: "https://example.com/GRDI"
+        multivalued: "true"
+        range: "AMRTest"
+        inlined_as_list: "true"
+    tree_root: "true"
 slots: {}
 enums: {}
 types:

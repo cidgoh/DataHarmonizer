@@ -14,23 +14,51 @@ classes:
     name: dh_interface
     description: A DataHarmonizer interface
     from_schema: https://example.com/GRDI
+    
   Schema:
     name: Schema
     description: The top-level description of a LinkML schema.  A schema contains classes for describing one or more DataHarmonizer templates, fields/columns, and picklists (which are themselves LinkML classes, slots, and enumerations)
     see_also: templates/schema_editor/SOP.pdf
     is_a: dh_interface
+
   Slot:
     name: Slot
     description: One or more slots contained in given schema. A slot can be used in one or more classes (templates).  A slot defines a visible column in a template, and can be a basic number, date, string, picklist (categorical or ordinal), or other single-field datatype.
+    unique_keys:
+      main:
+        description: A slot is uniquely identified by the schema it appears in as well as its name
+        unique_key_slots:
+          - schema_id
+          - name
+
   Enum:
     name: Enum
     description: One or more enumerations in given schema.  An enumeration can be used in the "range" or "any of" attribute of a slot.  Each enumeration has a flat list or hierarchy of permitted values.
+    unique_keys:
+      main:
+        description: An enumeration is uniquely identified by the schema it appears in as well as its name.
+        unique_key_slots:
+          - schema_id
+          - name
+
   Class:
     name: Class
-    description: One or more classes contained in given schema.  Each class can be displayed in DataHarmonizer in a spreadsheet tab.  A class may be a top-level DataHarmonizer "template", or it may be a subordinate 1-many class linked to a parent class by a primary key field.  
+    description: A class contained in given schema.  A class may be a top-level DataHarmonizer "template" that can be displayed in a spreadsheet tab, or it may be a subordinate 1-many class linked to a parent class by a primary key field.  
+    unique_keys:
+      main:
+        description: A class is uniquely identified by the schema it appears in as well as its name.
+        unique_key_slots:
+          - schema_id
+          - name
+
   SlotUsage:
     name: SlotUsage
     description: A table linking slots to classes they appear in, as well as attributes which override the generic slot inheritance.
+
+  PermissibleValue:
+    name: PermissibleValue
+    description: An enumeration picklist value.
+
   Prefix:
     name: Prefix
     description: A prefix used in the URIs mentioned in this schema.
@@ -56,6 +84,10 @@ classes:
           inlined_as_list: true
         Enums:
           range: Enum
+          multivalued: true
+          inlined_as_list: true
+        PermissibleValues:
+          range: PermissibleValue
           multivalued: true
           inlined_as_list: true
         Prefixes:
