@@ -428,6 +428,7 @@ def set_enums(enum_path, schema, locale_schemas, export_format, warnings):
 								local_choice = copy.deepcopy(choice);
 								del local_choice['text']; # in language variant files this isn't needed.
 								local_choice['title'] = translation;
+								# local_choice['text']  = translation; # in language variant files this isn't needed.
 
 								locale_schemas[lcode]['enums'][title]['permissible_values'][choice_value] = local_choice;
 
