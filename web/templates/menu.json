@@ -14,10 +14,20 @@
     }
   },
   "grdi": {
-    "GRDI_Sample": {
-      "name": "GRDI_Sample",
+    "GRDISample": {
+      "name": "GRDISample",
       "status": "published",
       "display": true
+    },
+    "AMRTest": {
+      "name": "AMRTest",
+      "status": "published",
+      "display": false
+    },
+    "Container": {
+      "name": "Container",
+      "status": "published",
+      "display": false
     }
   },
   "phac_dexa": {
