@@ -14,11 +14,13 @@ classes:
     from_schema: "https://example.com/GRDI"
   GRDISample: 
     name: "GRDISample"
+    title: "GRDI Sample"
     description: "Specification for GRDI virus biosample data gathering"
     from_schema: "https://example.com/GRDI"
     is_a: "dh_interface"
   AMRTest: 
     name: "AMRTest"
+    title: "GRDI Sample"
     description: "Antimicrobial test result"
     from_schema: "https://example.com/GRDI"
     is_a: "dh_interface"
