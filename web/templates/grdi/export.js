@@ -213,16 +213,27 @@ export default {
       for (const inputRow of dh.getTrimmedData(dh.hot)) {
         const outputRow = [];
         for (const [headerName, sources] of ExportHeaders) {
-          // Otherwise apply source (many to one) to target field transform:
-          const value = dh.getMappedField(
-            headerName,
-            inputRow,
-            sources,
-            sourceFields,
-            sourceFieldNameMap,
-            ':',
-            'NCBI_BIOSAMPLE_Enterics'
-          );
+          let value;
+          if (headerName == 'fertilizer_admin') {
+            value = dh.getIfThenField(
+              'presampling_activity',
+              'Fertilizer pre-treatment [GENEPIO:0100543]',
+              'presampling_activity_details',
+              inputRow,
+              sourceFieldNameMap
+              );
+          } else {
+            // Otherwise apply source (many to one) to target field transform:
+            value = dh.getMappedField(
+              headerName,
+              inputRow,
+              sources,
+              sourceFields,
+              sourceFieldNameMap,
+              ':',
+              'NCBI_BIOSAMPLE_Enterics'
+            );
+          }
           outputRow.push(value);
         }
         outputMatrix.push(outputRow);
