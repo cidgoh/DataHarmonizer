@@ -54,27 +54,27 @@
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "Not Applicable": {
-          "text": "Non applicable",
+          "text": "Not Applicable",
           "meaning": "GENEPIO:0001619",
           "title": "Non applicable"
         },
         "Missing": {
-          "text": "Manquant",
+          "text": "Missing",
           "meaning": "GENEPIO:0001618",
           "title": "Manquant"
         },
         "Not Collected": {
-          "text": "Non collecté",
+          "text": "Not Collected",
           "meaning": "GENEPIO:0001620",
           "title": "Non collecté"
         },
         "Not Provided": {
-          "text": "Non fourni",
+          "text": "Not Provided",
           "meaning": "GENEPIO:0001668",
           "title": "Non fourni"
         },
         "Restricted Access": {
-          "text": "Accès restreint",
+          "text": "Restricted Access",
           "meaning": "GENEPIO:0001810",
           "title": "Accès restreint"
         }
@@ -91,7 +91,7 @@
           "title": "Alberta"
         },
         "British Columbia": {
-          "text": "Colombie Britannique",
+          "text": "British Columbia",
           "meaning": "GAZ:00002562",
           "title": "Colombie Britannique"
         },
@@ -101,22 +101,22 @@
           "title": "Manitoba"
         },
         "New Brunswick": {
-          "text": "Nouveau-Brunswick",
+          "text": "New Brunswick",
           "meaning": "GAZ:00002570",
           "title": "Nouveau-Brunswick"
         },
         "Newfoundland and Labrador": {
-          "text": "Terre-Neuve et Labrador",
+          "text": "Newfoundland and Labrador",
           "meaning": "GAZ:00002567",
           "title": "Terre-Neuve et Labrador"
         },
         "Northwest Territories": {
-          "text": "Territoires du Nord-Ouest",
+          "text": "Northwest Territories",
           "meaning": "GAZ:00002575",
           "title": "Territoires du Nord-Ouest"
         },
         "Nova Scotia": {
-          "text": "Nouvelle-Écosse",
+          "text": "Nova Scotia",
           "meaning": "GAZ:00002565",
           "title": "Nouvelle-Écosse"
         },
@@ -126,17 +126,17 @@
           "title": "Nunavut"
         },
         "Ontario": {
-          "text": "Ontario (en anglais)",
+          "text": "Ontario",
           "meaning": "GAZ:00002563",
           "title": "Ontario (en anglais)"
         },
         "Prince Edward Island": {
-          "text": "Île-du-Prince-Édouard",
+          "text": "Prince Edward Island",
           "meaning": "GAZ:00002572",
           "title": "Île-du-Prince-Édouard"
         },
         "Quebec": {
-          "text": "Québec",
+          "text": "Quebec",
           "meaning": "GAZ:00002569",
           "title": "Québec"
         },
@@ -158,12 +158,12 @@
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "month": {
-          "text": "mois",
+          "text": "month",
           "meaning": "UO:0000035",
           "title": "mois"
         },
         "year": {
-          "text": "année",
+          "text": "year",
           "meaning": "UO:0000036",
           "title": "année"
         }
@@ -175,17 +175,17 @@
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "year": {
-          "text": "année",
+          "text": "year",
           "meaning": "UO:0000036",
           "title": "année"
         },
         "month": {
-          "text": "mois",
+          "text": "month",
           "meaning": "UO:0000035",
           "title": "mois"
         },
         "day": {
-          "text": "jour",
+          "text": "day",
           "meaning": "UO:0000033",
           "title": "jour"
         }
@@ -207,12 +207,12 @@
           "title": "RNA (poly-A)"
         },
         "RNA (ribo-depleted)": {
-          "text": "RNA (appauvri en ribo)",
+          "text": "RNA (ribo-depleted)",
           "meaning": "OBI:0002627",
           "title": "RNA (appauvri en ribo)"
         },
         "mRNA (messenger RNA)": {
-          "text": "mRNA (messager RNA)",
+          "text": "mRNA (messenger RNA)",
           "meaning": "GENEPIO:0100104",
           "title": "mRNA (messager RNA)"
         },
@@ -229,29 +229,29 @@
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "Abnormal lung auscultation": {
-          "text": "Auscultation pulmonaire anormale",
+          "text": "Abnormal lung auscultation",
           "meaning": "HP:0030829",
           "title": "Auscultation pulmonaire anormale"
         },
         "Abnormality of taste sensation": {
-          "text": "Anomalie de la sensation gustative",
+          "text": "Abnormality of taste sensation",
           "meaning": "HP:0000223",
           "title": "Anomalie de la sensation gustative"
         },
         "Ageusia (complete loss of taste)": {
-          "text": "Ageusia (perte totale du goût)",
+          "text": "Ageusia (complete loss of taste)",
           "meaning": "HP:0041051",
           "is_a": "Abnormality of taste sensation",
           "title": "Ageusia (perte totale du goût)"
         },
         "Parageusia (distorted sense of taste)": {
-          "text": "Parageusie (déformation du goût)",
+          "text": "Parageusia (distorted sense of taste)",
           "meaning": "HP:0031249",
           "is_a": "Abnormality of taste sensation",
           "title": "Parageusie (déformation du goût)"
         },
         "Hypogeusia (reduced sense of taste)": {
-          "text": "Hypogeusie (diminution du sens du goût)",
+          "text": "Hypogeusia (reduced sense of taste)",
           "meaning": "HP:0000224",
           "is_a": "Abnormality of taste sensation",
           "title": "Hypogeusie (diminution du sens du goût)"
@@ -262,19 +262,19 @@
           "title": "Abnormality of the sense of smell"
         },
         "Anosmia (lost sense of smell)": {
-          "text": "Anosmie (perte d'odorat)",
+          "text": "Anosmia (lost sense of smell)",
           "meaning": "HP:0000458",
           "is_a": "Abnormality of the sense of smell",
           "title": "Anosmie (perte d'odorat)"
         },
         "Hyposmia (reduced sense of smell)": {
-          "text": "Hyposmie (diminution de l'odorat)",
+          "text": "Hyposmia (reduced sense of smell)",
           "meaning": "HP:0004409",
           "is_a": "Abnormality of the sense of smell",
           "title": "Hyposmie (diminution de l'odorat)"
         },
         "Acute Respiratory Distress Syndrome": {
-          "text": "Syndrome de détresse respiratoire aiguë",
+          "text": "Acute Respiratory Distress Syndrome",
           "meaning": "HP:0033677",
           "title": "Syndrome de détresse respiratoire aiguë",
           "exact_mappings": [
@@ -282,12 +282,12 @@
           ]
         },
         "Altered mental status": {
-          "text": "Altération de l'état mental",
+          "text": "Altered mental status",
           "meaning": "HP:0011446",
           "title": "Altération de l'état mental"
         },
         "Cognitive impairment": {
-          "text": "Troubles cognitifs",
+          "text": "Cognitive impairment",
           "meaning": "HP:0100543",
           "is_a": "Altered mental status",
           "title": "Troubles cognitifs"
@@ -299,58 +299,58 @@
           "title": "Coma"
         },
         "Confusion": {
-          "text": "la confusion",
+          "text": "Confusion",
           "meaning": "HP:0001289",
           "is_a": "Altered mental status",
           "title": "la confusion"
         },
         "Delirium (sudden severe confusion)": {
-          "text": "Délire (confusion grave et soudaine)",
+          "text": "Delirium (sudden severe confusion)",
           "meaning": "HP:0031258",
           "is_a": "Confusion",
           "title": "Délire (confusion grave et soudaine)"
         },
         "Inability to arouse (inability to stay awake)": {
-          "text": "Incapacité à se réveiller (incapacité à rester éveillé)",
+          "text": "Inability to arouse (inability to stay awake)",
           "meaning": "GENEPIO:0100061",
           "is_a": "Altered mental status",
           "title": "Incapacité à se réveiller (incapacité à rester éveillé)"
         },
         "Irritability": {
-          "text": "Irritabilité",
+          "text": "Irritability",
           "meaning": "HP:0000737",
           "is_a": "Altered mental status",
           "title": "Irritabilité"
         },
         "Loss of speech": {
-          "text": "Perte de la parole",
+          "text": "Loss of speech",
           "meaning": "HP:0002371",
           "is_a": "Altered mental status",
           "title": "Perte de la parole"
         },
         "Arrhythmia": {
-          "text": "Arythmie",
+          "text": "Arrhythmia",
           "meaning": "HP:0011675",
           "title": "Arythmie"
         },
         "Asthenia (generalized weakness)": {
-          "text": "Asthénie (faiblesse généralisée)",
+          "text": "Asthenia (generalized weakness)",
           "meaning": "HP:0025406",
           "title": "Asthénie (faiblesse généralisée)"
         },
         "Chest tightness or pressure": {
-          "text": "Oppression ou pression thoracique",
+          "text": "Chest tightness or pressure",
           "meaning": "HP:0031352",
           "title": "Oppression ou pression thoracique"
         },
         "Rigors (fever shakes)": {
-          "text": "Rigidité (tremblements de fièvre)",
+          "text": "Rigors (fever shakes)",
           "meaning": "HP:0025145",
           "is_a": "Chest tightness or pressure",
           "title": "Rigidité (tremblements de fièvre)"
         },
         "Chills (sudden cold sensation)": {
-          "text": "Frissons (sensation soudaine de froid)",
+          "text": "Chills (sudden cold sensation)",
           "meaning": "HP:0025143",
           "title": "Frissons (sensation soudaine de froid)",
           "exact_mappings": [
@@ -358,12 +358,12 @@
           ]
         },
         "Conjunctival injection": {
-          "text": "Injection conjonctivale",
+          "text": "Conjunctival injection",
           "meaning": "HP:0030953",
           "title": "Injection conjonctivale"
         },
         "Conjunctivitis (pink eye)": {
-          "text": "Conjonctivite (œil rose)",
+          "text": "Conjunctivitis (pink eye)",
           "meaning": "HP:0000509",
           "title": "Conjonctivite (œil rose)",
           "exact_mappings": [
@@ -371,75 +371,75 @@
           ]
         },
         "Coryza (rhinitis)": {
-          "text": "Coryza (rhinite)",
+          "text": "Coryza (rhinitis)",
           "meaning": "MP:0001867",
           "title": "Coryza (rhinite)"
         },
         "Cough": {
-          "text": "Toux",
+          "text": "Cough",
           "meaning": "HP:0012735",
           "title": "Toux"
         },
         "Nonproductive cough (dry cough)": {
-          "text": "Toux non productive (toux sèche)",
+          "text": "Nonproductive cough (dry cough)",
           "meaning": "HP:0031246",
           "is_a": "Cough",
           "title": "Toux non productive (toux sèche)"
         },
         "Productive cough (wet cough)": {
-          "text": "Toux productive (toux grasse)",
+          "text": "Productive cough (wet cough)",
           "meaning": "HP:0031245",
           "is_a": "Cough",
           "title": "Toux productive (toux grasse)"
         },
         "Cyanosis (blueish skin discolouration)": {
-          "text": "Cyanose (coloration bleuâtre de la peau)",
+          "text": "Cyanosis (blueish skin discolouration)",
           "meaning": "HP:0000961",
           "title": "Cyanose (coloration bleuâtre de la peau)"
         },
         "Acrocyanosis": {
-          "text": "Acrocyanose",
+          "text": "Acrocyanosis",
           "meaning": "HP:0001063",
           "is_a": "Cyanosis (blueish skin discolouration)",
           "title": "Acrocyanose"
         },
         "Circumoral cyanosis (bluish around mouth)": {
-          "text": "Cyanose circulatoire (bleuâtre autour de la bouche)",
+          "text": "Circumoral cyanosis (bluish around mouth)",
           "meaning": "HP:0032556",
           "is_a": "Acrocyanosis",
           "title": "Cyanose circulatoire (bleuâtre autour de la bouche)"
         },
         "Cyanotic face (bluish face)": {
-          "text": "Visage cyanosé (visage bleuâtre)",
+          "text": "Cyanotic face (bluish face)",
           "meaning": "GENEPIO:0100062",
           "is_a": "Acrocyanosis",
           "title": "Visage cyanosé (visage bleuâtre)"
         },
         "Central Cyanosis": {
-          "text": "Cyanose centrale",
+          "text": "Central Cyanosis",
           "meaning": "GENEPIO:0100063",
           "is_a": "Cyanosis (blueish skin discolouration)",
           "title": "Cyanose centrale"
         },
         "Cyanotic lips (bluish lips)": {
-          "text": "Lèvres cyanosées (lèvres bleutées)",
+          "text": "Cyanotic lips (bluish lips)",
           "meaning": "GENEPIO:0100064",
           "is_a": "Central Cyanosis",
           "title": "Lèvres cyanosées (lèvres bleutées)"
         },
         "Peripheral Cyanosis": {
-          "text": "Cyanose périphérique",
+          "text": "Peripheral Cyanosis",
           "meaning": "GENEPIO:0100065",
           "is_a": "Cyanosis (blueish skin discolouration)",
           "title": "Cyanose périphérique"
         },
         "Dyspnea (breathing difficulty)": {
-          "text": "Dyspnée (difficulté à respirer)",
+          "text": "Dyspnea (breathing difficulty)",
           "meaning": "HP:0002094",
           "title": "Dyspnée (difficulté à respirer)"
         },
         "Diarrhea (watery stool)": {
-          "text": "Diarrhée (selles liquides)",
+          "text": "Diarrhea (watery stool)",
           "meaning": "HP:0002014",
           "title": "Diarrhée (selles liquides)",
           "exact_mappings": [
@@ -447,12 +447,12 @@
           ]
         },
         "Dry gangrene": {
-          "text": "Gangrène sèche",
+          "text": "Dry gangrene",
           "meaning": "MP:0031127",
           "title": "Gangrène sèche"
         },
         "Encephalitis (brain inflammation)": {
-          "text": "Encéphalite (inflammation du cerveau)",
+          "text": "Encephalitis (brain inflammation)",
           "meaning": "HP:0002383",
           "title": "Encéphalite (inflammation du cerveau)",
           "exact_mappings": [
@@ -460,12 +460,12 @@
           ]
         },
         "Encephalopathy": {
-          "text": "Encéphalopathie",
+          "text": "Encephalopathy",
           "meaning": "HP:0001298",
           "title": "Encéphalopathie"
         },
         "Fatigue (tiredness)": {
-          "text": "Fatigue",
+          "text": "Fatigue (tiredness)",
           "meaning": "HP:0012378",
           "title": "Fatigue",
           "exact_mappings": [
@@ -473,12 +473,12 @@
           ]
         },
         "Fever": {
-          "text": "Fièvre",
+          "text": "Fever",
           "meaning": "HP:0001945",
           "title": "Fièvre"
         },
         "Fever (>=38°C)": {
-          "text": "Fièvre (>=38°C)",
+          "text": "Fever (>=38°C)",
           "meaning": "GENEPIO:0100066",
           "is_a": "Fever",
           "title": "Fièvre (>=38°C)",
@@ -487,148 +487,148 @@
           ]
         },
         "Glossitis (inflammation of the tongue)": {
-          "text": "Glossiose (inflammation de la langue)",
+          "text": "Glossitis (inflammation of the tongue)",
           "meaning": "HP:0000206",
           "title": "Glossiose (inflammation de la langue)"
         },
         "Ground Glass Opacities (GGO)": {
-          "text": "Opacités de verre dépoli",
+          "text": "Ground Glass Opacities (GGO)",
           "meaning": "GENEPIO:0100067",
           "title": "Opacités de verre dépoli"
         },
         "Headache": {
-          "text": "Maux de tête",
+          "text": "Headache",
           "meaning": "HP:0002315",
           "title": "Maux de tête"
         },
         "Hemoptysis (coughing up blood)": {
-          "text": "Hémoptysie (toux de sang)",
+          "text": "Hemoptysis (coughing up blood)",
           "meaning": "HP:0002105",
           "title": "Hémoptysie (toux de sang)"
         },
         "Hypocapnia": {
-          "text": "Hypocapnie",
+          "text": "Hypocapnia",
           "meaning": "HP:0012417",
           "title": "Hypocapnie"
         },
         "Hypotension (low blood pressure)": {
-          "text": "Hypotension (baisse de la tension artérielle)",
+          "text": "Hypotension (low blood pressure)",
           "meaning": "HP:0002615",
           "title": "Hypotension (baisse de la tension artérielle)"
         },
         "Hypoxemia (low blood oxygen)": {
-          "text": "Hypoxémie (manque d'oxygène dans le sang)",
+          "text": "Hypoxemia (low blood oxygen)",
           "meaning": "HP:0012418",
           "title": "Hypoxémie (manque d'oxygène dans le sang)"
         },
         "Silent hypoxemia": {
-          "text": "Hypoxémie silencieuse",
+          "text": "Silent hypoxemia",
           "meaning": "GENEPIO:0100068",
           "is_a": "Hypoxemia (low blood oxygen)",
           "title": "Hypoxémie silencieuse"
         },
         "Internal hemorrhage (internal bleeding)": {
-          "text": "Hémorragie interne (saignement interne)",
+          "text": "Internal hemorrhage (internal bleeding)",
           "meaning": "HP:0011029",
           "title": "Hémorragie interne (saignement interne)"
         },
         "Loss of Fine Movements": {
-          "text": "Perte de mouvements fins",
+          "text": "Loss of Fine Movements",
           "meaning": "NCIT:C121416",
           "title": "Perte de mouvements fins"
         },
         "Low appetite": {
-          "text": "Manque d'appétit",
+          "text": "Low appetite",
           "meaning": "HP:0004396",
           "title": "Manque d'appétit"
         },
         "Malaise (general discomfort/unease)": {
-          "text": "Malaise (malaise général)",
+          "text": "Malaise (general discomfort/unease)",
           "meaning": "HP:0033834",
           "title": "Malaise (malaise général)"
         },
         "Meningismus/nuchal rigidity": {
-          "text": "Méningisme/rigidité nucale",
+          "text": "Meningismus/nuchal rigidity",
           "meaning": "HP:0031179",
           "title": "Méningisme/rigidité nucale"
         },
         "Muscle weakness": {
-          "text": "Faiblesse musculaire",
+          "text": "Muscle weakness",
           "meaning": "HP:0001324",
           "title": "Faiblesse musculaire"
         },
         "Nasal obstruction (stuffy nose)": {
-          "text": "Obstruction nasale (nez bouché)",
+          "text": "Nasal obstruction (stuffy nose)",
           "meaning": "HP:0001742",
           "title": "Obstruction nasale (nez bouché)"
         },
         "Nausea": {
-          "text": "Nausées",
+          "text": "Nausea",
           "meaning": "HP:0002018",
           "title": "Nausées"
         },
         "Nose bleed": {
-          "text": "Saignement de nez",
+          "text": "Nose bleed",
           "meaning": "HP:0000421",
           "title": "Saignement de nez"
         },
         "Otitis": {
-          "text": "Otite",
+          "text": "Otitis",
           "meaning": "GENEPIO:0100069",
           "title": "Otite"
         },
         "Pain": {
-          "text": "Douleur",
+          "text": "Pain",
           "meaning": "HP:0012531",
           "title": "Douleur"
         },
         "Abdominal pain": {
-          "text": "Douleur abdominale",
+          "text": "Abdominal pain",
           "meaning": "HP:0002027",
           "is_a": "Pain",
           "title": "Douleur abdominale"
         },
         "Arthralgia (painful joints)": {
-          "text": "Arthralgie (articulations douloureuses)",
+          "text": "Arthralgia (painful joints)",
           "meaning": "HP:0002829",
           "is_a": "Pain",
           "title": "Arthralgie (articulations douloureuses)"
         },
         "Chest pain": {
-          "text": "Douleur thoracique",
+          "text": "Chest pain",
           "meaning": "HP:0100749",
           "is_a": "Pain",
           "title": "Douleur thoracique"
         },
         "Pleuritic chest pain": {
-          "text": "Douleur thoracique pleurétique",
+          "text": "Pleuritic chest pain",
           "meaning": "HP:0033771",
           "is_a": "Chest pain",
           "title": "Douleur thoracique pleurétique"
         },
         "Myalgia (muscle pain)": {
-          "text": "Myalgie (douleur musculaire)",
+          "text": "Myalgia (muscle pain)",
           "meaning": "HP:0003326",
           "is_a": "Pain",
           "title": "Myalgie (douleur musculaire)"
         },
         "Pharyngitis (sore throat)": {
-          "text": "Pharyngite (mal de gorge)",
+          "text": "Pharyngitis (sore throat)",
           "meaning": "HP:0025439",
           "title": "Pharyngite (mal de gorge)"
         },
         "Pharyngeal exudate": {
-          "text": "Exsudat pharyngé",
+          "text": "Pharyngeal exudate",
           "meaning": "GENEPIO:0100070",
           "title": "Exsudat pharyngé"
         },
         "Pleural effusion": {
-          "text": "Épanchement pleural",
+          "text": "Pleural effusion",
           "meaning": "HP:0002202",
           "title": "Épanchement pleural"
         },
         "Pneumonia": {
-          "text": "Pneumonie",
+          "text": "Pneumonia",
           "meaning": "HP:0002090",
           "title": "Pneumonie"
         },
@@ -638,80 +638,80 @@
           "title": "Pseudo-chilblains"
         },
         "Pseudo-chilblains on fingers (covid fingers)": {
-          "text": "Pseudo-griffes des doigts (doigts covides)",
+          "text": "Pseudo-chilblains on fingers (covid fingers)",
           "meaning": "GENEPIO:0100072",
           "is_a": "Pseudo-chilblains",
           "title": "Pseudo-griffes des doigts (doigts covides)"
         },
         "Pseudo-chilblains on toes (covid toes)": {
-          "text": "Pseudo-chilblains sur les orteils (covid toes)",
+          "text": "Pseudo-chilblains on toes (covid toes)",
           "meaning": "GENEPIO:0100073",
           "is_a": "Pseudo-chilblains",
           "title": "Pseudo-chilblains sur les orteils (covid toes)"
         },
         "Rash": {
-          "text": "Éruption cutanée",
+          "text": "Rash",
           "meaning": "HP:0000988",
           "title": "Éruption cutanée"
         },
         "Rhinorrhea (runny nose)": {
-          "text": "Rhinorrhée (écoulement nasal)",
+          "text": "Rhinorrhea (runny nose)",
           "meaning": "HP:0031417",
           "title": "Rhinorrhée (écoulement nasal)"
         },
         "Seizure": {
-          "text": "Crise d'épilepsie",
+          "text": "Seizure",
           "meaning": "HP:0001250",
           "title": "Crise d'épilepsie"
         },
         "Motor seizure": {
-          "text": "Crise motrice",
+          "text": "Motor seizure",
           "meaning": "HP:0020219",
           "is_a": "Seizure",
           "title": "Crise motrice"
         },
         "Shivering (involuntary muscle twitching)": {
-          "text": "Frissons (contractions musculaires involontaires)",
+          "text": "Shivering (involuntary muscle twitching)",
           "meaning": "HP:0025144",
           "title": "Frissons (contractions musculaires involontaires)"
         },
         "Slurred speech": {
-          "text": "Troubles de l'élocution",
+          "text": "Slurred speech",
           "meaning": "HP:0001350",
           "title": "Troubles de l'élocution"
         },
         "Sneezing": {
-          "text": "Éternuement",
+          "text": "Sneezing",
           "meaning": "HP:0025095",
           "title": "Éternuement"
         },
         "Sputum Production": {
-          "text": "Production d'expectorations",
+          "text": "Sputum Production",
           "meaning": "HP:0033709",
           "title": "Production d'expectorations"
         },
         "Stroke": {
-          "text": "Accident vasculaire cérébral",
+          "text": "Stroke",
           "meaning": "HP:0001297",
           "title": "Accident vasculaire cérébral"
         },
         "Swollen Lymph Nodes": {
-          "text": "Ganglions lymphatiques gonflés",
+          "text": "Swollen Lymph Nodes",
           "meaning": "HP:0002716",
           "title": "Ganglions lymphatiques gonflés"
         },
         "Tachypnea (accelerated respiratory rate)": {
-          "text": "Tachypnée (accélération de la fréquence respiratoire)",
+          "text": "Tachypnea (accelerated respiratory rate)",
           "meaning": "HP:0002789",
           "title": "Tachypnée (accélération de la fréquence respiratoire)"
         },
         "Vertigo (dizziness)": {
-          "text": "Vertige (étourdissement)",
+          "text": "Vertigo (dizziness)",
           "meaning": "HP:0002321",
           "title": "Vertige (étourdissement)"
         },
         "Vomiting (throwing up)": {
-          "text": "Vomissements (vomissements)",
+          "text": "Vomiting (throwing up)",
           "meaning": "HP:0002013",
           "title": "Vomissements (vomissements)"
         }
@@ -723,17 +723,17 @@
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "Fully Vaccinated": {
-          "text": "Vaccination complète",
+          "text": "Fully Vaccinated",
           "meaning": "GENEPIO:0100100",
           "title": "Vaccination complète"
         },
         "Partially Vaccinated": {
-          "text": "Partiellement vacciné",
+          "text": "Partially Vaccinated",
           "meaning": "GENEPIO:0100101",
           "title": "Partiellement vacciné"
         },
         "Not Vaccinated": {
-          "text": "Non vacciné",
+          "text": "Not Vaccinated",
           "meaning": "GENEPIO:0100102",
           "title": "Non vacciné"
         }
@@ -745,12 +745,12 @@
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "Prior antiviral treatment": {
-          "text": "Traitement antiviral antérieur",
+          "text": "Prior antiviral treatment",
           "meaning": "GENEPIO:0100037",
           "title": "Traitement antiviral antérieur"
         },
         "No prior antiviral treatment": {
-          "text": "Pas de traitement antiviral antérieur",
+          "text": "No prior antiviral treatment",
           "meaning": "GENEPIO:0100233",
           "title": "Pas de traitement antiviral antérieur"
         }
@@ -762,7 +762,7 @@
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "Swab": {
-          "text": "Écouvillon",
+          "text": "Swab",
           "meaning": "OBI:0002600",
           "title": "Écouvillon"
         },
@@ -777,12 +777,12 @@
           "title": "mRNA (cDNA)"
         },
         "Nucleic acid": {
-          "text": "Acide nucléique",
+          "text": "Nucleic acid",
           "meaning": "OBI:0001010",
           "title": "Acide nucléique"
         },
         "Not Applicable": {
-          "text": "Sans objet",
+          "text": "Not Applicable",
           "meaning": "GENEPIO:0001619",
           "title": "Sans objet"
         }
@@ -794,12 +794,12 @@
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "Acute": {
-          "text": "Infection aiguë",
+          "text": "Acute",
           "meaning": "HP:0011009",
           "title": "Infection aiguë"
         },
         "Chronic (prolonged) infection investigation": {
-          "text": "Enquête sur l'infection chronique (prolongée)",
+          "text": "Chronic (prolonged) infection investigation",
           "meaning": "GENEPIO:0101016",
           "title": "Enquête sur l'infection chronique (prolongée)"
         },
@@ -812,25 +812,25 @@
           "title": "Familial"
         },
         "Follow-up": {
-          "text": "Suivi",
+          "text": "Follow-up",
           "meaning": "EFO:0009642",
           "title": "Suivi"
         },
         "Reinfection testing": {
-          "text": "Tests de réinfection",
+          "text": "Reinfection testing",
           "is_a": "Follow-up",
           "title": "Tests de réinfection"
         },
         "Previously Submitted": {
-          "text": "Déjà soumis",
+          "text": "Previously Submitted",
           "title": "Déjà soumis"
         },
         "Sequencing/bioinformatics methods development/validation": {
-          "text": "Développement/validation de méthodes de séquençage/bioinformatique",
+          "text": "Sequencing/bioinformatics methods development/validation",
           "title": "Développement/validation de méthodes de séquençage/bioinformatique"
         },
         "Specimen sampling methods testing": {
-          "text": "Test des méthodes d'échantillonnage des échantillons",
+          "text": "Specimen sampling methods testing",
           "title": "Test des méthodes d'échantillonnage des échantillons"
         }
       }
@@ -841,27 +841,27 @@
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "Age 60+": {
-          "text": "60 ans et plus",
+          "text": "Age 60+",
           "meaning": "VO:0004925",
           "title": "60 ans et plus"
         },
         "Anemia": {
-          "text": "Anémie",
+          "text": "Anemia",
           "meaning": "HP:0001903",
           "title": "Anémie"
         },
         "Anorexia": {
-          "text": "Anorexie",
+          "text": "Anorexia",
           "meaning": "HP:0002039",
           "title": "Anorexie"
         },
         "Birthing labor": {
-          "text": "Travail d'accouchement",
+          "text": "Birthing labor",
           "meaning": "NCIT:C92743",
           "title": "Travail d'accouchement"
         },
         "Bone marrow failure": {
-          "text": "Insuffisance de la moelle osseuse",
+          "text": "Bone marrow failure",
           "meaning": "NCIT:C80693",
           "title": "Insuffisance de la moelle osseuse"
         },
@@ -871,209 +871,209 @@
           "title": "Cancer"
         },
         "Breast cancer": {
-          "text": "Cancer du sein",
+          "text": "Breast cancer",
           "meaning": "MONDO:0007254",
           "is_a": "Cancer",
           "title": "Cancer du sein"
         },
         "Colorectal cancer": {
-          "text": "Cancer colorectal",
+          "text": "Colorectal cancer",
           "meaning": "MONDO:0005575",
           "is_a": "Cancer",
           "title": "Cancer colorectal"
         },
         "Hematologic malignancy (cancer of the blood)": {
-          "text": "Hémopathie maligne (cancer du sang)",
+          "text": "Hematologic malignancy (cancer of the blood)",
           "meaning": "DOID:2531",
           "is_a": "Cancer",
           "title": "Hémopathie maligne (cancer du sang)"
         },
         "Lung cancer": {
-          "text": "Cancer du poumon",
+          "text": "Lung cancer",
           "meaning": "MONDO:0008903",
           "is_a": "Cancer",
           "title": "Cancer du poumon"
         },
         "Metastatic disease": {
-          "text": "Maladie métastatique",
+          "text": "Metastatic disease",
           "meaning": "MONDO:0024880",
           "is_a": "Cancer",
           "title": "Maladie métastatique"
         },
         "Cancer treatment": {
-          "text": "Traitement du cancer",
+          "text": "Cancer treatment",
           "meaning": "NCIT:C16212",
           "title": "Traitement du cancer"
         },
         "Cancer surgery": {
-          "text": "Chirurgie du cancer",
+          "text": "Cancer surgery",
           "meaning": "NCIT:C157740",
           "is_a": "Cancer treatment",
           "title": "Chirurgie du cancer"
         },
         "Chemotherapy": {
-          "text": "Chimiothérapie",
+          "text": "Chemotherapy",
           "meaning": "NCIT:C15632",
           "is_a": "Cancer treatment",
           "title": "Chimiothérapie"
         },
         "Adjuvant chemotherapy": {
-          "text": "Chimiothérapie adjuvante",
+          "text": "Adjuvant chemotherapy",
           "meaning": "NCIT:C15360",
           "is_a": "Chemotherapy",
           "title": "Chimiothérapie adjuvante"
         },
         "Cardiac disorder": {
-          "text": "Troubles cardiaques",
+          "text": "Cardiac disorder",
           "meaning": "NCIT:C3079",
           "title": "Troubles cardiaques"
         },
         "Arrhythmia": {
-          "text": "Arythmie",
+          "text": "Arrhythmia",
           "meaning": "HP:0011675",
           "is_a": "Cardiac disorder",
           "title": "Arythmie"
         },
         "Cardiac disease": {
-          "text": "Maladie cardiaque",
+          "text": "Cardiac disease",
           "meaning": "MONDO:0005267",
           "is_a": "Cardiac disorder",
           "title": "Maladie cardiaque"
         },
         "Cardiomyopathy": {
-          "text": "Cardiomyopathie",
+          "text": "Cardiomyopathy",
           "meaning": "HP:0001638",
           "is_a": "Cardiac disorder",
           "title": "Cardiomyopathie"
         },
         "Cardiac injury": {
-          "text": "Lésion cardiaque",
+          "text": "Cardiac injury",
           "meaning": "GENEPIO:0100074",
           "is_a": "Cardiac disorder",
           "title": "Lésion cardiaque"
         },
         "Hypertension (high blood pressure)": {
-          "text": "Hypertension (pression artérielle élevée)",
+          "text": "Hypertension (high blood pressure)",
           "meaning": "HP:0000822",
           "is_a": "Cardiac disorder",
           "title": "Hypertension (pression artérielle élevée)"
         },
         "Hypotension (low blood pressure)": {
-          "text": "Hypotension (pression artérielle basse)",
+          "text": "Hypotension (low blood pressure)",
           "meaning": "HP:0002615",
           "is_a": "Cardiac disorder",
           "title": "Hypotension (pression artérielle basse)"
         },
         "Cesarean section": {
-          "text": "Césarienne",
+          "text": "Cesarean section",
           "meaning": "HP:0011410",
           "title": "Césarienne"
         },
         "Chronic cough": {
-          "text": "Toux chronique",
+          "text": "Chronic cough",
           "meaning": "GENEPIO:0100075",
           "title": "Toux chronique"
         },
         "Chronic gastrointestinal disease": {
-          "text": "Maladie gastro-intestinale chronique",
+          "text": "Chronic gastrointestinal disease",
           "meaning": "GENEPIO:0100076",
           "title": "Maladie gastro-intestinale chronique"
         },
         "Chronic lung disease": {
-          "text": "Maladie pulmonaire chronique",
+          "text": "Chronic lung disease",
           "meaning": "HP:0006528",
           "is_a": "Lung disease",
           "title": "Maladie pulmonaire chronique"
         },
         "Corticosteroids": {
-          "text": "Corticostéroïdes",
+          "text": "Corticosteroids",
           "meaning": "NCIT:C211",
           "title": "Corticostéroïdes"
         },
         "Diabetes mellitus (diabetes)": {
-          "text": "Diabète sucré (diabète)",
+          "text": "Diabetes mellitus (diabetes)",
           "meaning": "HP:0000819",
           "title": "Diabète sucré (diabète)"
         },
         "Type I diabetes mellitus (T1D)": {
-          "text": "Diabète de type I (T1D)",
+          "text": "Type I diabetes mellitus (T1D)",
           "meaning": "HP:0100651",
           "is_a": "Diabetes mellitus (diabetes)",
           "title": "Diabète de type I (T1D)"
         },
         "Type II diabetes mellitus (T2D)": {
-          "text": "Diabète sucré de type II (T2D)",
+          "text": "Type II diabetes mellitus (T2D)",
           "meaning": "HP:0005978",
           "is_a": "Diabetes mellitus (diabetes)",
           "title": "Diabète sucré de type II (T2D)"
         },
         "Eczema": {
-          "text": "Eczéma",
+          "text": "Eczema",
           "meaning": "HP:0000964",
           "title": "Eczéma"
         },
         "Electrolyte disturbance": {
-          "text": "Perturbation de l'équilibre électrolytique",
+          "text": "Electrolyte disturbance",
           "meaning": "HP:0003111",
           "title": "Perturbation de l'équilibre électrolytique"
         },
         "Hypocalcemia": {
-          "text": "Hypocalcémie",
+          "text": "Hypocalcemia",
           "meaning": "HP:0002901",
           "is_a": "Electrolyte disturbance",
           "title": "Hypocalcémie"
         },
         "Hypokalemia": {
-          "text": "Hypokaliémie",
+          "text": "Hypokalemia",
           "meaning": "HP:0002900",
           "is_a": "Electrolyte disturbance",
           "title": "Hypokaliémie"
         },
         "Hypomagnesemia": {
-          "text": "Hypomagnésémie",
+          "text": "Hypomagnesemia",
           "meaning": "HP:0002917",
           "is_a": "Electrolyte disturbance",
           "title": "Hypomagnésémie"
         },
         "Encephalitis (brain inflammation)": {
-          "text": "Encéphalite (inflammation du cerveau)",
+          "text": "Encephalitis (brain inflammation)",
           "meaning": "HP:0002383",
           "title": "Encéphalite (inflammation du cerveau)"
         },
         "Epilepsy": {
-          "text": "Epilepsie",
+          "text": "Epilepsy",
           "meaning": "MONDO:0005027",
           "title": "Epilepsie"
         },
         "Hemodialysis": {
-          "text": "Hémodialyse",
+          "text": "Hemodialysis",
           "meaning": "NCIT:C15248",
           "title": "Hémodialyse"
         },
         "Hemoglobinopathy": {
-          "text": "Hémoglobinopathie",
+          "text": "Hemoglobinopathy",
           "meaning": "MONDO:0044348",
           "title": "Hémoglobinopathie"
         },
         "Human immunodeficiency virus (HIV)": {
-          "text": "Virus de l'immunodéficience humaine",
+          "text": "Human immunodeficiency virus (HIV)",
           "meaning": "MONDO:0005109",
           "title": "Virus de l'immunodéficience humaine"
         },
         "Acquired immunodeficiency syndrome (AIDS)": {
-          "text": "Syndrome d'immunodéficience acquise",
+          "text": "Acquired immunodeficiency syndrome (AIDS)",
           "meaning": "MONDO:0012268",
           "is_a": "Human immunodeficiency virus (HIV)",
           "title": "Syndrome d'immunodéficience acquise"
         },
         "HIV and antiretroviral therapy (ART)": {
-          "text": "HIV et thérapie antirétrovirale",
+          "text": "HIV and antiretroviral therapy (ART)",
           "meaning": "NCIT:C16118",
           "is_a": "Human immunodeficiency virus (HIV)",
           "title": "HIV et thérapie antirétrovirale"
         },
         "Immunocompromised": {
-          "text": "Immunodéprimés",
+          "text": "Immunocompromised",
           "meaning": "NCIT:C14139",
           "title": "Immunodéprimés"
         },
@@ -1084,250 +1084,250 @@
           "title": "Lupus"
         },
         "Inflammatory bowel disease (IBD)": {
-          "text": "Maladie inflammatoire de l'intestin (MII)",
+          "text": "Inflammatory bowel disease (IBD)",
           "meaning": "MONDO:0005265",
           "title": "Maladie inflammatoire de l'intestin (MII)"
         },
         "Colitis": {
-          "text": "Colite",
+          "text": "Colitis",
           "meaning": "HP:0002583",
           "is_a": "Inflammatory bowel disease (IBD)",
           "title": "Colite"
         },
         "Ulcerative colitis": {
-          "text": "Colite ulcéreuse",
+          "text": "Ulcerative colitis",
           "meaning": "HP:0100279",
           "is_a": "Colitis",
           "title": "Colite ulcéreuse"
         },
         "Crohn's disease": {
-          "text": "la maladie de Crohn",
+          "text": "Crohn's disease",
           "meaning": "HP:0100280",
           "is_a": "Inflammatory bowel disease (IBD)",
           "title": "la maladie de Crohn"
         },
         "Renal disorder": {
-          "text": "Trouble rénal",
+          "text": "Renal disorder",
           "meaning": "NCIT:C3149",
           "title": "Trouble rénal"
         },
         "Renal disease": {
-          "text": "Maladie rénale",
+          "text": "Renal disease",
           "meaning": "MONDO:0005240",
           "is_a": "Renal disorder",
           "title": "Maladie rénale"
         },
         "Chronic renal disease": {
-          "text": "Maladie rénale chronique",
+          "text": "Chronic renal disease",
           "meaning": "HP:0012622",
           "is_a": "Renal disease",
           "title": "Maladie rénale chronique"
         },
         "Renal failure": {
-          "text": "Insuffisance rénale",
+          "text": "Renal failure",
           "meaning": "HP:0000083",
           "is_a": "Renal disease",
           "title": "Insuffisance rénale"
         },
         "Liver disease": {
-          "text": "Maladie du foie",
+          "text": "Liver disease",
           "meaning": "MONDO:0005154",
           "title": "Maladie du foie"
         },
         "Chronic liver disease": {
-          "text": "Maladie chronique du foie",
+          "text": "Chronic liver disease",
           "meaning": "NCIT:C113609",
           "is_a": "Liver disease",
           "title": "Maladie chronique du foie"
         },
         "Myalgia (muscle pain)": {
-          "text": "Myalgie (douleur musculaire)",
+          "text": "Myalgia (muscle pain)",
           "meaning": "HP:0003326",
           "title": "Myalgie (douleur musculaire)"
         },
         "Myalgic encephalomyelitis (chronic fatigue syndrome)": {
-          "text": "Encéphalomyélite myalgique (syndrome de fatigue chronique)",
+          "text": "Myalgic encephalomyelitis (chronic fatigue syndrome)",
           "meaning": "MONDO:0005404",
           "title": "Encéphalomyélite myalgique (syndrome de fatigue chronique)"
         },
         "Neurological disorder": {
-          "text": "Trouble neurologique",
+          "text": "Neurological disorder",
           "meaning": "MONDO:0005071",
           "title": "Trouble neurologique"
         },
         "Neuromuscular disorder": {
-          "text": "Trouble neuromusculaire",
+          "text": "Neuromuscular disorder",
           "meaning": "MONDO:0019056",
           "is_a": "Neurological disorder",
           "title": "Trouble neuromusculaire"
         },
         "Obesity": {
-          "text": "L'obésité",
+          "text": "Obesity",
           "meaning": "HP:0001513",
           "title": "L'obésité"
         },
         "Severe obesity": {
-          "text": "Obésité sévère",
+          "text": "Severe obesity",
           "meaning": "MONDO:0005139",
           "is_a": "Obesity",
           "title": "Obésité sévère"
         },
         "Respiratory disorder": {
-          "text": "Troubles respiratoires",
+          "text": "Respiratory disorder",
           "meaning": "MONDO:0005087",
           "title": "Troubles respiratoires"
         },
         "Asthma": {
-          "text": "Asthme",
+          "text": "Asthma",
           "meaning": "HP:0002099",
           "is_a": "Respiratory disorder",
           "title": "Asthme"
         },
         "Chronic bronchitis": {
-          "text": "Bronchite chronique",
+          "text": "Chronic bronchitis",
           "meaning": "HP:0004469",
           "is_a": "Respiratory disorder",
           "title": "Bronchite chronique"
         },
         "Chronic obstructive pulmonary disease": {
-          "text": "Maladie pulmonaire obstructive chronique",
+          "text": "Chronic obstructive pulmonary disease",
           "meaning": "HP:0006510",
           "is_a": "Respiratory disorder",
           "title": "Maladie pulmonaire obstructive chronique"
         },
         "Emphysema": {
-          "text": "Emphysème",
+          "text": "Emphysema",
           "meaning": "HP:0002097",
           "is_a": "Respiratory disorder",
           "title": "Emphysème"
         },
         "Lung disease": {
-          "text": "Maladie pulmonaire",
+          "text": "Lung disease",
           "meaning": "MONDO:0005275",
           "is_a": "Respiratory disorder",
           "title": "Maladie pulmonaire"
         },
         "Pulmonary fibrosis": {
-          "text": "Fibrose pulmonaire",
+          "text": "Pulmonary fibrosis",
           "meaning": "HP:0002206",
           "is_a": "Lung disease",
           "title": "Fibrose pulmonaire"
         },
         "Pneumonia": {
-          "text": "Pneumonie",
+          "text": "Pneumonia",
           "meaning": "HP:0002090",
           "is_a": "Respiratory disorder",
           "title": "Pneumonie"
         },
         "Respiratory failure": {
-          "text": "Insuffisance respiratoire",
+          "text": "Respiratory failure",
           "meaning": "HP:0002878",
           "is_a": "Respiratory disorder",
           "title": "Insuffisance respiratoire"
         },
         "Adult respiratory distress syndrome": {
-          "text": "Syndrome de détresse respiratoire de l'adulte",
+          "text": "Adult respiratory distress syndrome",
           "meaning": "HP:0033677",
           "is_a": "Respiratory failure",
           "title": "Syndrome de détresse respiratoire de l'adulte"
         },
         "Newborn respiratory distress syndrome": {
-          "text": "Syndrome de détresse respiratoire du nouveau-né",
+          "text": "Newborn respiratory distress syndrome",
           "meaning": "MONDO:0009971",
           "is_a": "Respiratory failure",
           "title": "Syndrome de détresse respiratoire du nouveau-né"
         },
         "Tuberculosis": {
-          "text": "Tuberculose",
+          "text": "Tuberculosis",
           "meaning": "MONDO:0018076",
           "is_a": "Respiratory disorder",
           "title": "Tuberculose"
         },
         "Postpartum (≤6 weeks)": {
-          "text": "Post-partum (≤6 semaines)",
+          "text": "Postpartum (≤6 weeks)",
           "meaning": "GENEPIO:0100077",
           "title": "Post-partum (≤6 semaines)"
         },
         "Pregnancy": {
-          "text": "Grossesse",
+          "text": "Pregnancy",
           "meaning": "NCIT:C25742",
           "title": "Grossesse"
         },
         "Rheumatic disease": {
-          "text": "Maladie rhumatismale",
+          "text": "Rheumatic disease",
           "meaning": "MONDO:0005554",
           "title": "Maladie rhumatismale"
         },
         "Sickle cell disease": {
-          "text": "Drépanocytose",
+          "text": "Sickle cell disease",
           "meaning": "MONDO:0011382",
           "title": "Drépanocytose"
         },
         "Substance use": {
-          "text": "Consommation de substances psychoactives",
+          "text": "Substance use",
           "meaning": "NBO:0001845",
           "title": "Consommation de substances psychoactives"
         },
         "Alcohol abuse": {
-          "text": "Abus d'alcool",
+          "text": "Alcohol abuse",
           "meaning": "MONDO:0002046",
           "is_a": "Substance use",
           "title": "Abus d'alcool"
         },
         "Drug abuse": {
-          "text": "Abus de drogues",
+          "text": "Drug abuse",
           "meaning": "GENEPIO:0100078",
           "is_a": "Substance use",
           "title": "Abus de drogues"
         },
         "Injection drug abuse": {
-          "text": "Abus de drogues injectables",
+          "text": "Injection drug abuse",
           "meaning": "GENEPIO:0100079",
           "is_a": "Drug abuse",
           "title": "Abus de drogues injectables"
         },
         "Smoking": {
-          "text": "Fumer",
+          "text": "Smoking",
           "meaning": "NBO:0015005",
           "is_a": "Substance use",
           "title": "Fumer"
         },
         "Vaping": {
-          "text": "Vapoter",
+          "text": "Vaping",
           "meaning": "NCIT:C173621",
           "is_a": "Substance use",
           "title": "Vapoter"
         },
         "Tachypnea (accelerated respiratory rate)": {
-          "text": "Tachypnée (accélération de la fréquence respiratoire)",
+          "text": "Tachypnea (accelerated respiratory rate)",
           "meaning": "HP:0002789",
           "title": "Tachypnée (accélération de la fréquence respiratoire)"
         },
         "Transplant": {
-          "text": "Transplantation",
+          "text": "Transplant",
           "meaning": "NCIT:C159659",
           "title": "Transplantation"
         },
         "Hematopoietic stem cell transplant (bone marrow transplant)": {
-          "text": "Transplantation cardiaque",
+          "text": "Hematopoietic stem cell transplant (bone marrow transplant)",
           "meaning": "NCIT:C131759",
           "is_a": "Transplant",
           "title": "Transplantation cardiaque"
         },
         "Cardiac transplant": {
-          "text": "Greffe de cellules souches hématopoïétiques (greffe de moelle osseuse)",
+          "text": "Cardiac transplant",
           "meaning": "GENEPIO:0100080",
           "is_a": "Transplant",
           "title": "Greffe de cellules souches hématopoïétiques (greffe de moelle osseuse)"
         },
         "Kidney transplant": {
-          "text": "Greffe de rein",
+          "text": "Kidney transplant",
           "meaning": "NCIT:C157332",
           "is_a": "Transplant",
           "title": "Greffe de rein"
         },
         "Liver transplant": {
-          "text": "Greffe de foie",
+          "text": "Liver transplant",
           "meaning": "GENEPIO:0100081",
           "is_a": "Transplant",
           "title": "Greffe de foie"
@@ -1340,17 +1340,17 @@
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "Variant of Concern (VOC)": {
-          "text": "Variante d'intérêt (VOI)",
+          "text": "Variant of Concern (VOC)",
           "meaning": "GENEPIO:0100082",
           "title": "Variante d'intérêt (VOI)"
         },
         "Variant of Interest (VOI)": {
-          "text": "Variante préoccupante (VOC)",
+          "text": "Variant of Interest (VOI)",
           "meaning": "GENEPIO:0100083",
           "title": "Variante préoccupante (VOC)"
         },
         "Variant Under Monitoring (VUM)": {
-          "text": "Variante sous surveillance (VUM)",
+          "text": "Variant Under Monitoring (VUM)",
           "meaning": "GENEPIO:0100279",
           "title": "Variante sous surveillance (VUM)"
         }
@@ -1367,7 +1367,7 @@
           "title": "RT-qPCR"
         },
         "Sequencing": {
-          "text": "Séquençage",
+          "text": "Sequencing",
           "meaning": "CIDO:0000027",
           "title": "Séquençage"
         }
@@ -1379,115 +1379,115 @@
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "Abnormal blood oxygen level": {
-          "text": "Taux d'oxygène anormal dans le sang",
+          "text": "Abnormal blood oxygen level",
           "meaning": "HP:0500165",
           "title": "Taux d'oxygène anormal dans le sang"
         },
         "Acute kidney injury": {
-          "text": "Lésions rénales aiguës",
+          "text": "Acute kidney injury",
           "meaning": "HP:0001919",
           "title": "Lésions rénales aiguës"
         },
         "Acute lung injury": {
-          "text": "Lésions pulmonaires aiguës",
+          "text": "Acute lung injury",
           "meaning": "MONDO:0015796",
           "title": "Lésions pulmonaires aiguës"
         },
         "Ventilation induced lung injury (VILI)": {
-          "text": "Lésions pulmonaires induites par la ventilation",
+          "text": "Ventilation induced lung injury (VILI)",
           "meaning": "GENEPIO:0100092",
           "is_a": "Acute lung injury",
           "title": "Lésions pulmonaires induites par la ventilation"
         },
         "Acute respiratory failure": {
-          "text": "Insuffisance respiratoire aiguë",
+          "text": "Acute respiratory failure",
           "meaning": "MONDO:0001208",
           "title": "Insuffisance respiratoire aiguë"
         },
         "Arrhythmia (complication)": {
-          "text": "Arythmie (complication)",
+          "text": "Arrhythmia (complication)",
           "meaning": "HP:0011675",
           "title": "Arythmie (complication)"
         },
         "Tachycardia": {
-          "text": "Tachycardie",
+          "text": "Tachycardia",
           "meaning": "HP:0001649",
           "is_a": "Arrhythmia (complication)",
           "title": "Tachycardie"
         },
         "Polymorphic ventricular tachycardia (VT)": {
-          "text": "Tachycardie ventriculaire polymorphe",
+          "text": "Polymorphic ventricular tachycardia (VT)",
           "meaning": "HP:0031677",
           "is_a": "Tachycardia",
           "title": "Tachycardie ventriculaire polymorphe"
         },
         "Tachyarrhythmia": {
-          "text": "Tachyarythmie",
+          "text": "Tachyarrhythmia",
           "meaning": "GENEPIO:0100084",
           "is_a": "Tachycardia",
           "title": "Tachyarythmie"
         },
         "Cardiac injury": {
-          "text": "Lésions cardiaques",
+          "text": "Cardiac injury",
           "meaning": "GENEPIO:0100074",
           "title": "Lésions cardiaques"
         },
         "Cardiac arrest": {
-          "text": "Arrêt cardiaque",
+          "text": "Cardiac arrest",
           "meaning": "HP:0001695",
           "title": "Arrêt cardiaque"
         },
         "Cardiogenic shock": {
-          "text": "Choc cardiogénique",
+          "text": "Cardiogenic shock",
           "meaning": "HP:0030149",
           "title": "Choc cardiogénique"
         },
         "Blood clot": {
-          "text": "Caillot de sang",
+          "text": "Blood clot",
           "meaning": "HP:0001977",
           "title": "Caillot de sang"
         },
         "Arterial clot": {
-          "text": "Caillot artériel",
+          "text": "Arterial clot",
           "meaning": "HP:0004420",
           "is_a": "Blood clot",
           "title": "Caillot artériel"
         },
         "Deep vein thrombosis (DVT)": {
-          "text": "Thrombose veineuse profonde",
+          "text": "Deep vein thrombosis (DVT)",
           "meaning": "HP:0002625",
           "is_a": "Blood clot",
           "title": "Thrombose veineuse profonde"
         },
         "Pulmonary embolism (PE)": {
-          "text": "Embolie pulmonaire",
+          "text": "Pulmonary embolism (PE)",
           "meaning": "HP:0002204",
           "is_a": "Blood clot",
           "title": "Embolie pulmonaire"
         },
         "Cardiomyopathy": {
-          "text": "Cardiomyopathie",
+          "text": "Cardiomyopathy",
           "meaning": "HP:0001638",
           "title": "Cardiomyopathie"
         },
         "Central nervous system invasion": {
-          "text": "Envahissement du système nerveux central",
+          "text": "Central nervous system invasion",
           "meaning": "MONDO:0024619",
           "title": "Envahissement du système nerveux central"
         },
         "Stroke (complication)": {
-          "text": "Accident vasculaire cérébral (complication)",
+          "text": "Stroke (complication)",
           "meaning": "HP:0001297",
           "title": "Accident vasculaire cérébral (complication)"
         },
         "Central Nervous System Vasculitis": {
-          "text": "Vascularite du système nerveux central",
+          "text": "Central Nervous System Vasculitis",
           "meaning": "MONDO:0003346",
           "is_a": "Stroke (complication)",
           "title": "Vascularite du système nerveux central"
         },
         "Acute ischemic stroke": {
-          "text": "Accident vasculaire cérébral ischémique aigu",
+          "text": "Acute ischemic stroke",
           "meaning": "HP:0002140",
           "is_a": "Stroke (complication)",
           "title": "Accident vasculaire cérébral ischémique aigu"
@@ -1498,37 +1498,37 @@
           "title": "Coma"
         },
         "Convulsions": {
-          "text": "Les convulsions",
+          "text": "Convulsions",
           "meaning": "HP:0011097",
           "title": "Les convulsions"
         },
         "COVID-19 associated coagulopathy (CAC)": {
-          "text": "COVID-19 coagulopathie associée (CAC)",
+          "text": "COVID-19 associated coagulopathy (CAC)",
           "meaning": "NCIT:C171562",
           "title": "COVID-19 coagulopathie associée (CAC)"
         },
         "Cystic fibrosis": {
-          "text": "Mucoviscidose",
+          "text": "Cystic fibrosis",
           "meaning": "MONDO:0009061",
           "title": "Mucoviscidose"
         },
         "Cytokine release syndrome": {
-          "text": "Syndrome de libération de cytokines",
+          "text": "Cytokine release syndrome",
           "meaning": "MONDO:0600008",
           "title": "Syndrome de libération de cytokines"
         },
         "Disseminated intravascular coagulation (DIC)": {
-          "text": "Coagulation intravasculaire disséminée",
+          "text": "Disseminated intravascular coagulation (DIC)",
           "meaning": "MPATH:108",
           "title": "Coagulation intravasculaire disséminée"
         },
         "Encephalopathy": {
-          "text": "Encéphalopathie",
+          "text": "Encephalopathy",
           "meaning": "HP:0001298",
           "title": "Encéphalopathie"
         },
         "Fulminant myocarditis": {
-          "text": "Myocardite fulminante",
+          "text": "Fulminant myocarditis",
           "meaning": "GENEPIO:0100088",
           "title": "Myocardite fulminante"
         },
@@ -1538,51 +1538,51 @@
           "title": "Guillain-Barré syndrome"
         },
         "Internal hemorrhage (complication; internal bleeding)": {
-          "text": "Hémorragie interne (complication ; hémorragie interne)",
+          "text": "Internal hemorrhage (complication; internal bleeding)",
           "meaning": "HP:0011029",
           "title": "Hémorragie interne (complication ; hémorragie interne)"
         },
         "Intracerebral haemorrhage": {
-          "text": "Hémorragie intracérébrale",
+          "text": "Intracerebral haemorrhage",
           "meaning": "MONDO:0013792",
           "is_a": "Internal hemorrhage (complication; internal bleeding)",
           "title": "Hémorragie intracérébrale"
         },
         "Kawasaki disease": {
-          "text": "Maladie de Kawasaki",
+          "text": "Kawasaki disease",
           "meaning": "MONDO:0012727",
           "title": "Maladie de Kawasaki"
         },
         "Complete Kawasaki disease": {
-          "text": "Maladie de Kawasaki complète",
+          "text": "Complete Kawasaki disease",
           "meaning": "GENEPIO:0100089",
           "is_a": "Kawasaki disease",
           "title": "Maladie de Kawasaki complète"
         },
         "Incomplete Kawasaki disease": {
-          "text": "Maladie de Kawasaki incomplète",
+          "text": "Incomplete Kawasaki disease",
           "meaning": "GENEPIO:0100090",
           "is_a": "Kawasaki disease",
           "title": "Maladie de Kawasaki incomplète"
         },
         "Liver dysfunction": {
-          "text": "Dysfonctionnement du foie",
+          "text": "Liver dysfunction",
           "meaning": "HP:0001410",
           "title": "Dysfonctionnement du foie"
         },
         "Acute liver injury": {
-          "text": "Lésions hépatiques aiguës",
+          "text": "Acute liver injury",
           "meaning": "GENEPIO:0100091",
           "is_a": "Liver dysfunction",
           "title": "Lésions hépatiques aiguës"
         },
         "Long COVID-19": {
-          "text": "Longue COVID-19",
+          "text": "Long COVID-19",
           "meaning": "MONDO:0100233",
           "title": "Longue COVID-19"
         },
         "Meningitis": {
-          "text": "Méningite",
+          "text": "Meningitis",
           "meaning": "HP:0001287",
           "title": "Méningite"
         },
@@ -1592,216 +1592,216 @@
           "title": "Migraine"
         },
         "Miscarriage": {
-          "text": "Fausses couches",
+          "text": "Miscarriage",
           "meaning": "HP:0005268",
           "title": "Fausses couches"
         },
         "Multisystem inflammatory syndrome in children (MIS-C)": {
-          "text": "Syndrome inflammatoire multisystémique de l'enfant",
+          "text": "Multisystem inflammatory syndrome in children (MIS-C)",
           "meaning": "MONDO:0100163",
           "title": "Syndrome inflammatoire multisystémique de l'enfant"
         },
         "Multisystem inflammatory syndrome in adults (MIS-A)": {
-          "text": "Syndrome inflammatoire multisystémique chez l'adulte",
+          "text": "Multisystem inflammatory syndrome in adults (MIS-A)",
           "meaning": "MONDO:0100319",
           "title": "Syndrome inflammatoire multisystémique chez l'adulte"
         },
         "Muscle injury": {
-          "text": "Lésion musculaire",
+          "text": "Muscle injury",
           "meaning": "GENEPIO:0100093",
           "title": "Lésion musculaire"
         },
         "Myalgic encephalomyelitis (ME)": {
-          "text": "Encéphalomyélite myalgique (syndrome de fatigue chronique)",
+          "text": "Myalgic encephalomyelitis (ME)",
           "meaning": "MONDO:0005404",
           "title": "Encéphalomyélite myalgique (syndrome de fatigue chronique)"
         },
         "Myocardial infarction (heart attack)": {
-          "text": "Infarctus du myocarde (crise cardiaque)",
+          "text": "Myocardial infarction (heart attack)",
           "meaning": "MONDO:0005068",
           "title": "Infarctus du myocarde (crise cardiaque)"
         },
         "Acute myocardial infarction": {
-          "text": "Infarctus aigu du myocarde",
+          "text": "Acute myocardial infarction",
           "meaning": "MONDO:0004781",
           "is_a": "Myocardial infarction (heart attack)",
           "title": "Infarctus aigu du myocarde"
         },
         "ST-segment elevation myocardial infarction": {
-          "text": "Infarctus du myocarde avec sus-décalage du segment ST",
+          "text": "ST-segment elevation myocardial infarction",
           "meaning": "MONDO:0041656",
           "is_a": "Myocardial infarction (heart attack)",
           "title": "Infarctus du myocarde avec sus-décalage du segment ST"
         },
         "Myocardial injury": {
-          "text": "Lésions du myocarde",
+          "text": "Myocardial injury",
           "meaning": "HP:0001700",
           "title": "Lésions du myocarde"
         },
         "Neonatal complications": {
-          "text": "Complications néonatales",
+          "text": "Neonatal complications",
           "meaning": "NCIT:C168498",
           "title": "Complications néonatales"
         },
         "Noncardiogenic pulmonary edema": {
-          "text": "Œdème pulmonaire non cardiogénique",
+          "text": "Noncardiogenic pulmonary edema",
           "meaning": "GENEPIO:0100085",
           "title": "Œdème pulmonaire non cardiogénique"
         },
         "Acute respiratory distress syndrome (ARDS)": {
-          "text": "Syndrome de détresse respiratoire aiguë",
+          "text": "Acute respiratory distress syndrome (ARDS)",
           "meaning": "HP:0033677",
           "is_a": "Noncardiogenic pulmonary edema",
           "title": "Syndrome de détresse respiratoire aiguë"
         },
         "COVID-19 associated ARDS (CARDS)": {
-          "text": "ARDS associé au COVID-19 (CARDS)",
+          "text": "COVID-19 associated ARDS (CARDS)",
           "meaning": "NCIT:C171551",
           "is_a": "Acute respiratory distress syndrome (ARDS)",
           "title": "ARDS associé au COVID-19 (CARDS)"
         },
         "Neurogenic pulmonary edema (NPE)": {
-          "text": "Œdème pulmonaire neurogène",
+          "text": "Neurogenic pulmonary edema (NPE)",
           "meaning": "GENEPIO:0100086",
           "is_a": "Acute respiratory distress syndrome (ARDS)",
           "title": "Œdème pulmonaire neurogène"
         },
         "Organ failure": {
-          "text": "Insuffisance organique",
+          "text": "Organ failure",
           "meaning": "GENEPIO:0100094",
           "title": "Insuffisance organique"
         },
         "Heart failure": {
-          "text": "Insuffisance cardiaque",
+          "text": "Heart failure",
           "meaning": "HP:0001635",
           "is_a": "Organ failure",
           "title": "Insuffisance cardiaque"
         },
         "Liver failure": {
-          "text": "Insuffisance hépatique",
+          "text": "Liver failure",
           "meaning": "MONDO:0100192",
           "is_a": "Organ failure",
           "title": "Insuffisance hépatique"
         },
         "Paralysis": {
-          "text": "Paralysie",
+          "text": "Paralysis",
           "meaning": "HP:0003470",
           "title": "Paralysie"
         },
         "Pneumothorax (collapsed lung)": {
-          "text": "Pneumothorax (affaissement du poumon)",
+          "text": "Pneumothorax (collapsed lung)",
           "meaning": "HP:0002107",
           "title": "Pneumothorax (affaissement du poumon)"
         },
         "Spontaneous pneumothorax": {
-          "text": "Pneumothorax spontané",
+          "text": "Spontaneous pneumothorax",
           "meaning": "HP:0002108",
           "is_a": "Pneumothorax (collapsed lung)",
           "title": "Pneumothorax spontané"
         },
         "Spontaneous tension pneumothorax": {
-          "text": "Pneumothorax spontané sous tension",
+          "text": "Spontaneous tension pneumothorax",
           "meaning": "MONDO:0002075",
           "is_a": "Pneumothorax (collapsed lung)",
           "title": "Pneumothorax spontané sous tension"
         },
         "Pneumonia (complication)": {
-          "text": "Pneumonie (complication)",
+          "text": "Pneumonia (complication)",
           "meaning": "HP:0002090",
           "title": "Pneumonie (complication)"
         },
         "COVID-19 pneumonia": {
-          "text": "Pneumonie COVID-19",
+          "text": "COVID-19 pneumonia",
           "meaning": "NCIT:C171550",
           "is_a": "Pneumonia (complication)",
           "title": "Pneumonie COVID-19"
         },
         "Pregancy complications": {
-          "text": "Complications de la grossesse",
+          "text": "Pregancy complications",
           "meaning": "HP:0001197",
           "title": "Complications de la grossesse"
         },
         "Rhabdomyolysis": {
-          "text": "Rhabdomyolyse",
+          "text": "Rhabdomyolysis",
           "meaning": "HP:0003201",
           "title": "Rhabdomyolyse"
         },
         "Secondary infection": {
-          "text": "Infection secondaire",
+          "text": "Secondary infection",
           "meaning": "IDO:0000567",
           "title": "Infection secondaire"
         },
         "Secondary staph infection": {
-          "text": "Infection secondaire à staphylocoque",
+          "text": "Secondary staph infection",
           "meaning": "GENEPIO:0100095",
           "is_a": "Secondary infection",
           "title": "Infection secondaire à staphylocoque"
         },
         "Secondary strep infection": {
-          "text": "Infection secondaire à streptocoques",
+          "text": "Secondary strep infection",
           "meaning": "GENEPIO:0100096",
           "is_a": "Secondary infection",
           "title": "Infection secondaire à streptocoques"
         },
         "Seizure (complication)": {
-          "text": "Crise d'épilepsie (complication)",
+          "text": "Seizure (complication)",
           "meaning": "HP:0001250",
           "title": "Crise d'épilepsie (complication)"
         },
         "Motor seizure": {
-          "text": "Crise motrice",
+          "text": "Motor seizure",
           "meaning": "HP:0020219",
           "is_a": "Seizure (complication)",
           "title": "Crise motrice"
         },
         "Sepsis/Septicemia": {
-          "text": "Sepsis/Septicémie",
+          "text": "Sepsis/Septicemia",
           "meaning": "HP:0100806",
           "title": "Sepsis/Septicémie"
         },
         "Sepsis": {
-          "text": "Septicémie (réaction inflammatoire systémique à une infection)",
+          "text": "Sepsis",
           "meaning": "IDO:0000636",
           "is_a": "Sepsis/Septicemia",
           "title": "Septicémie (réaction inflammatoire systémique à une infection)"
         },
         "Septicemia": {
-          "text": "Septicémie (infection du sang)",
+          "text": "Septicemia",
           "meaning": "NCIT:C3364",
           "is_a": "Sepsis/Septicemia",
           "title": "Septicémie (infection du sang)"
         },
         "Shock": {
-          "text": "Choc",
+          "text": "Shock",
           "meaning": "HP:0031273",
           "title": "Choc"
         },
         "Hyperinflammatory shock": {
-          "text": "Choc hyperinflammatoire",
+          "text": "Hyperinflammatory shock",
           "meaning": "GENEPIO:0100097",
           "is_a": "Shock",
           "title": "Choc hyperinflammatoire"
         },
         "Refractory cardiogenic shock": {
-          "text": "Choc cardiogénique réfractaire",
+          "text": "Refractory cardiogenic shock",
           "meaning": "GENEPIO:0100098",
           "is_a": "Shock",
           "title": "Choc cardiogénique réfractaire"
         },
         "Refractory cardiogenic plus vasoplegic shock": {
-          "text": "Choc cardiogénique et vasoplégique réfractaire",
+          "text": "Refractory cardiogenic plus vasoplegic shock",
           "meaning": "GENEPIO:0100099",
           "is_a": "Shock",
           "title": "Choc cardiogénique et vasoplégique réfractaire"
         },
         "Septic shock": {
-          "text": "Choc septique",
+          "text": "Septic shock",
           "meaning": "NCIT:C35018",
           "is_a": "Shock",
           "title": "Choc septique"
         },
         "Vasculitis": {
-          "text": "Vascularite",
+          "text": "Vasculitis",
           "meaning": "HP:0002633",
           "title": "Vascularite"
         }
@@ -1833,7 +1833,7 @@
           "title": "Pfizer-BioNTech (Comirnaty)"
         },
         "Pfizer-BioNTech (Comirnaty Pediatric)": {
-          "text": "Pfizer-BioNTech (Comirnaty Pédiatrique)",
+          "text": "Pfizer-BioNTech (Comirnaty Pediatric)",
           "meaning": "GENEPIO:0100306",
           "title": "Pfizer-BioNTech (Comirnaty Pédiatrique)"
         }
@@ -1845,53 +1845,53 @@
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "Blood": {
-          "text": "Sang",
+          "text": "Blood",
           "meaning": "UBERON:0000178",
           "title": "Sang"
         },
         "Fluid": {
-          "text": "Fluide",
+          "text": "Fluid",
           "meaning": "UBERON:0006314",
           "title": "Fluide"
         },
         "Saliva": {
-          "text": "Salive",
+          "text": "Saliva",
           "meaning": "UBERON:0001836",
           "is_a": "Fluid",
           "title": "Salive"
         },
         "Fluid (cerebrospinal (CSF))": {
-          "text": "Fluide (cérébrospinal (CSF))",
+          "text": "Fluid (cerebrospinal (CSF))",
           "meaning": "UBERON:0001359",
           "is_a": "Fluid",
           "title": "Fluide (cérébrospinal (CSF))"
         },
         "Fluid (pericardial)": {
-          "text": "Fluide (péricardique)",
+          "text": "Fluid (pericardial)",
           "meaning": "UBERON:0002409",
           "is_a": "Fluid",
           "title": "Fluide (péricardique)"
         },
         "Fluid (pleural)": {
-          "text": "Fluide (pleural)",
+          "text": "Fluid (pleural)",
           "meaning": "UBERON:0001087",
           "is_a": "Fluid",
           "title": "Fluide (pleural)"
         },
         "Fluid (vaginal)": {
-          "text": "Fluides (vaginaux)",
+          "text": "Fluid (vaginal)",
           "meaning": "UBERON:0036243",
           "is_a": "Fluid",
           "title": "Fluides (vaginaux)"
         },
         "Fluid (amniotic)": {
-          "text": "Fluide (amniotique)",
+          "text": "Fluid (amniotic)",
           "meaning": "UBERON:0000173",
           "is_a": "Fluid",
           "title": "Fluide (amniotique)"
         },
         "Tissue": {
-          "text": "Tissu",
+          "text": "Tissue",
           "meaning": "UBERON:0000479",
           "title": "Tissu"
         }
@@ -1908,38 +1908,38 @@
           "title": "Anus"
         },
         "Buccal mucosa": {
-          "text": "Muqueuse buccale",
+          "text": "Buccal mucosa",
           "meaning": "UBERON:0006956",
           "title": "Muqueuse buccale"
         },
         "Duodenum": {
-          "text": "Duodénum",
+          "text": "Duodenum",
           "meaning": "UBERON:0002114",
           "title": "Duodénum"
         },
         "Eye": {
-          "text": "L'œil",
+          "text": "Eye",
           "meaning": "UBERON:0000970",
           "title": "L'œil"
         },
         "Intestine": {
-          "text": "Intestin",
+          "text": "Intestine",
           "meaning": "UBERON:0000160",
           "title": "Intestin"
         },
         "Lower respiratory tract": {
-          "text": "Voies respiratoires inférieures",
+          "text": "Lower respiratory tract",
           "meaning": "UBERON:0001558",
           "title": "Voies respiratoires inférieures"
         },
         "Bronchus": {
-          "text": "Bronches",
+          "text": "Bronchus",
           "meaning": "UBERON:0002185",
           "is_a": "Lower respiratory tract",
           "title": "Bronches"
         },
         "Lung": {
-          "text": "Poumon",
+          "text": "Lung",
           "meaning": "UBERON:0002048",
           "is_a": "Lower respiratory tract",
           "title": "Poumon"
@@ -1951,81 +1951,81 @@
           "title": "Bronchiole"
         },
         "Alveolar sac": {
-          "text": "Sac alvéolaire",
+          "text": "Alveolar sac",
           "meaning": "UBERON:0002169",
           "is_a": "Lung",
           "title": "Sac alvéolaire"
         },
         "Pleural sac": {
-          "text": "Sac pleural",
+          "text": "Pleural sac",
           "meaning": "UBERON:0009778",
           "is_a": "Lower respiratory tract",
           "title": "Sac pleural"
         },
         "Pleural cavity": {
-          "text": "Cavité pleurale",
+          "text": "Pleural cavity",
           "meaning": "UBERON:0002402",
           "is_a": "Pleural sac",
           "title": "Cavité pleurale"
         },
         "Trachea": {
-          "text": "Trachée",
+          "text": "Trachea",
           "meaning": "UBERON:0003126",
           "is_a": "Lower respiratory tract",
           "title": "Trachée"
         },
         "Rectum": {
-          "text": "Le rectum",
+          "text": "Rectum",
           "meaning": "UBERON:0001052",
           "title": "Le rectum"
         },
         "Skin": {
-          "text": "Peau",
+          "text": "Skin",
           "meaning": "UBERON:0001003",
           "title": "Peau"
         },
         "Stomach": {
-          "text": "Estomac",
+          "text": "Stomach",
           "meaning": "UBERON:0000945",
           "title": "Estomac"
         },
         "Upper respiratory tract": {
-          "text": "Voies respiratoires supérieures",
+          "text": "Upper respiratory tract",
           "meaning": "UBERON:0001557",
           "title": "Voies respiratoires supérieures"
         },
         "Anterior Nares": {
-          "text": "Narines antérieures",
+          "text": "Anterior Nares",
           "meaning": "UBERON:2001427",
           "is_a": "Upper respiratory tract",
           "title": "Narines antérieures"
         },
         "Esophagus": {
-          "text": "Œsophage",
+          "text": "Esophagus",
           "meaning": "UBERON:0001043",
           "is_a": "Upper respiratory tract",
           "title": "Œsophage"
         },
         "Ethmoid sinus": {
-          "text": "Sinus ethmoïdal",
+          "text": "Ethmoid sinus",
           "meaning": "UBERON:0002453",
           "is_a": "Upper respiratory tract",
           "title": "Sinus ethmoïdal"
         },
         "Nasal Cavity": {
-          "text": "Cavité nasale",
+          "text": "Nasal Cavity",
           "meaning": "UBERON:0001707",
           "is_a": "Upper respiratory tract",
           "title": "Cavité nasale"
         },
         "Middle Nasal Turbinate": {
-          "text": "Turbine nasale moyenne",
+          "text": "Middle Nasal Turbinate",
           "meaning": "UBERON:0005921",
           "is_a": "Nasal Cavity",
           "title": "Turbine nasale moyenne"
         },
         "Inferior Nasal Turbinate": {
-          "text": "Turbine nasale inférieure",
+          "text": "Inferior Nasal Turbinate",
           "meaning": "UBERON:0005922",
           "is_a": "Nasal Cavity",
           "title": "Turbine nasale inférieure"
@@ -2043,7 +2043,7 @@
           "title": "Oropharynx (OP)"
         },
         "Pharynx (throat)": {
-          "text": "Le pharynx (gorge)",
+          "text": "Pharynx (throat)",
           "meaning": "UBERON:0000341",
           "is_a": "Upper respiratory tract",
           "title": "Le pharynx (gorge)"
@@ -2056,17 +2056,17 @@
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "Breast Milk": {
-          "text": "Le lait maternel",
+          "text": "Breast Milk",
           "meaning": "UBERON:0001913",
           "title": "Le lait maternel"
         },
         "Feces": {
-          "text": "Selles",
+          "text": "Feces",
           "meaning": "UBERON:0001988",
           "title": "Selles"
         },
         "Fluid (seminal)": {
-          "text": "Liquide (séminal)",
+          "text": "Fluid (seminal)",
           "meaning": "UBERON:0006530",
           "title": "Liquide (séminal)"
         },
@@ -2076,18 +2076,18 @@
           "title": "Mucus"
         },
         "Sputum": {
-          "text": "Expectorations",
+          "text": "Sputum",
           "meaning": "UBERON:0007311",
           "is_a": "Mucus",
           "title": "Expectorations"
         },
         "Sweat": {
-          "text": "Sueur",
+          "text": "Sweat",
           "meaning": "UBERON:0001089",
           "title": "Sueur"
         },
         "Tear": {
-          "text": "Larme",
+          "text": "Tear",
           "meaning": "UBERON:0001827",
           "title": "Larme"
         },
@@ -2104,12 +2104,12 @@
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "Prior infection": {
-          "text": "Infection antérieure",
+          "text": "Prior infection",
           "meaning": "GENEPIO:0100037",
           "title": "Infection antérieure"
         },
         "No prior infection": {
-          "text": "Pas d'infection antérieure",
+          "text": "No prior infection",
           "meaning": "GENEPIO:0100233",
           "title": "Pas d'infection antérieure"
         }
@@ -2121,168 +2121,168 @@
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "Air vent": {
-          "text": "Purgeur d'air",
+          "text": "Air vent",
           "meaning": "ENVO:03501208",
           "title": "Purgeur d'air"
         },
         "Banknote": {
-          "text": "Billets de banque",
+          "text": "Banknote",
           "meaning": "ENVO:00003896",
           "title": "Billets de banque"
         },
         "Bed rail": {
-          "text": "Barre de lit",
+          "text": "Bed rail",
           "meaning": "ENVO:03501209",
           "title": "Barre de lit"
         },
         "Building floor": {
-          "text": "Plancher du bâtiment",
+          "text": "Building floor",
           "meaning": "ENVO:01000486",
           "title": "Plancher du bâtiment"
         },
         "Cloth": {
-          "text": "Tissu",
+          "text": "Cloth",
           "meaning": "ENVO:02000058",
           "title": "Tissu"
         },
         "Control panel": {
-          "text": "Panneau de contrôle",
+          "text": "Control panel",
           "meaning": "ENVO:03501210",
           "title": "Panneau de contrôle"
         },
         "Door": {
-          "text": "Porte",
+          "text": "Door",
           "meaning": "ENVO:03501220",
           "title": "Porte"
         },
         "Door handle": {
-          "text": "Poignée de porte",
+          "text": "Door handle",
           "meaning": "ENVO:03501211",
           "title": "Poignée de porte"
         },
         "Face mask": {
-          "text": "Masque facial",
+          "text": "Face mask",
           "meaning": "OBI:0002787",
           "title": "Masque facial"
         },
         "Face shield": {
-          "text": "Masque de protection",
+          "text": "Face shield",
           "meaning": "OBI:0002791",
           "title": "Masque de protection"
         },
         "Food": {
-          "text": "Nourriture",
+          "text": "Food",
           "meaning": "FOODON:00002403",
           "title": "Nourriture"
         },
         "Food packaging": {
-          "text": "Emballages alimentaires",
+          "text": "Food packaging",
           "meaning": "FOODON:03490100",
           "title": "Emballages alimentaires"
         },
         "Glass": {
-          "text": "Verre",
+          "text": "Glass",
           "meaning": "ENVO:01000481",
           "title": "Verre"
         },
         "Handrail": {
-          "text": "Balustrade",
+          "text": "Handrail",
           "meaning": "ENVO:03501212",
           "title": "Balustrade"
         },
         "Hospital gown": {
-          "text": "Robe d'hôpital",
+          "text": "Hospital gown",
           "meaning": "OBI:0002796",
           "title": "Robe d'hôpital"
         },
         "Light switch": {
-          "text": "Interrupteur d'éclairage",
+          "text": "Light switch",
           "meaning": "ENVO:03501213",
           "title": "Interrupteur d'éclairage"
         },
         "Locker": {
-          "text": "Casier",
+          "text": "Locker",
           "meaning": "ENVO:03501214",
           "title": "Casier"
         },
         "N95 mask": {
-          "text": "Masque N95",
+          "text": "N95 mask",
           "meaning": "OBI:0002790",
           "title": "Masque N95"
         },
         "Nurse call button": {
-          "text": "Bouton d'appel infirmière",
+          "text": "Nurse call button",
           "meaning": "ENVO:03501215",
           "title": "Bouton d'appel infirmière"
         },
         "Paper": {
-          "text": "Papier",
+          "text": "Paper",
           "meaning": "ENVO:03501256",
           "title": "Papier"
         },
         "Particulate matter": {
-          "text": "Affaire particulière",
+          "text": "Particulate matter",
           "meaning": "ENVO:01000060",
           "title": "Affaire particulière"
         },
         "Plastic": {
-          "text": "Plastique",
+          "text": "Plastic",
           "meaning": "ENVO:01000404",
           "title": "Plastique"
         },
         "PPE gown": {
-          "text": "Blouse EPI",
+          "text": "PPE gown",
           "meaning": "GENEPIO:0100025",
           "title": "Blouse EPI"
         },
         "Sewage": {
-          "text": "Eaux usées",
+          "text": "Sewage",
           "meaning": "ENVO:00002018",
           "title": "Eaux usées"
         },
         "Sink": {
-          "text": "Evier",
+          "text": "Sink",
           "meaning": "ENVO:01000990",
           "title": "Evier"
         },
         "Soil": {
-          "text": "Sol",
+          "text": "Soil",
           "meaning": "ENVO:00001998",
           "title": "Sol"
         },
         "Stainless steel": {
-          "text": "Acier inoxydable",
+          "text": "Stainless steel",
           "meaning": "ENVO:03501216",
           "title": "Acier inoxydable"
         },
         "Tissue paper": {
-          "text": "Papier de soie",
+          "text": "Tissue paper",
           "meaning": "ENVO:03501217",
           "title": "Papier de soie"
         },
         "Toilet bowl": {
-          "text": "Cuvette de toilette",
+          "text": "Toilet bowl",
           "meaning": "ENVO:03501218",
           "title": "Cuvette de toilette"
         },
         "Water": {
-          "text": "Eau",
+          "text": "Water",
           "meaning": "ENVO:00002006",
           "title": "Eau"
         },
         "Wastewater": {
-          "text": "Eaux usées",
+          "text": "Wastewater",
           "meaning": "ENVO:00002001",
           "is_a": "Water",
           "title": "Eaux usées"
         },
         "Window": {
-          "text": "Fenêtre",
+          "text": "Window",
           "meaning": "ENVO:03501219",
           "title": "Fenêtre"
         },
         "Wood": {
-          "text": "Bois",
+          "text": "Wood",
           "meaning": "ENVO:00002040",
           "title": "Bois"
         }
@@ -2294,77 +2294,77 @@
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "Acute care facility": {
-          "text": "Établissement de soins aigus",
+          "text": "Acute care facility",
           "meaning": "ENVO:03501135",
           "title": "Établissement de soins aigus"
         },
         "Animal house": {
-          "text": "Maison des animaux",
+          "text": "Animal house",
           "meaning": "ENVO:00003040",
           "title": "Maison des animaux"
         },
         "Bathroom": {
-          "text": "Salle de bain",
+          "text": "Bathroom",
           "meaning": "ENVO:01000422",
           "title": "Salle de bain"
         },
         "Clinical assessment centre": {
-          "text": "Centre d'évaluation clinique",
+          "text": "Clinical assessment centre",
           "meaning": "ENVO:03501136",
           "title": "Centre d'évaluation clinique"
         },
         "Conference venue": {
-          "text": "Salle de conférence",
+          "text": "Conference venue",
           "meaning": "ENVO:03501127",
           "title": "Salle de conférence"
         },
         "Corridor": {
-          "text": "couloir",
+          "text": "Corridor",
           "meaning": "ENVO:03501121",
           "title": "couloir"
         },
         "Daycare": {
-          "text": "Garderie",
+          "text": "Daycare",
           "meaning": "ENVO:01000927",
           "title": "Garderie"
         },
         "Emergency room (ER)": {
-          "text": "Salle d'urgence",
+          "text": "Emergency room (ER)",
           "meaning": "ENVO:03501145",
           "title": "Salle d'urgence"
         },
         "Family practice clinic": {
-          "text": "Clinique de médecine familiale",
+          "text": "Family practice clinic",
           "meaning": "ENVO:03501186",
           "title": "Clinique de médecine familiale"
         },
         "Group home": {
-          "text": "Foyer de groupe",
+          "text": "Group home",
           "meaning": "ENVO:03501196",
           "title": "Foyer de groupe"
         },
         "Homeless shelter": {
-          "text": "Foyer pour sans-abri",
+          "text": "Homeless shelter",
           "meaning": "ENVO:03501133",
           "title": "Foyer pour sans-abri"
         },
         "Hospital": {
-          "text": "Hôpital",
+          "text": "Hospital",
           "meaning": "ENVO:00002173",
           "title": "Hôpital"
         },
         "Intensive Care Unit (ICU)": {
-          "text": "Unité de soins intensifs",
+          "text": "Intensive Care Unit (ICU)",
           "meaning": "ENVO:03501152",
           "title": "Unité de soins intensifs"
         },
         "Long Term Care Facility": {
-          "text": "Établissement de soins de longue durée",
+          "text": "Long Term Care Facility",
           "meaning": "ENVO:03501194",
           "title": "Établissement de soins de longue durée"
         },
         "Patient room": {
-          "text": "Chambre du patient",
+          "text": "Patient room",
           "meaning": "ENVO:03501180",
           "title": "Chambre du patient"
         },
@@ -2374,32 +2374,32 @@
           "title": "Prison"
         },
         "Production Facility": {
-          "text": "Installation de production",
+          "text": "Production Facility",
           "meaning": "ENVO:01000536",
           "title": "Installation de production"
         },
         "School": {
-          "text": "École",
+          "text": "School",
           "meaning": "ENVO:03501130",
           "title": "École"
         },
         "Sewage Plant": {
-          "text": "Station d'épuration",
+          "text": "Sewage Plant",
           "meaning": "ENVO:00003043",
           "title": "Station d'épuration"
         },
         "Subway train": {
-          "text": "Métro",
+          "text": "Subway train",
           "meaning": "ENVO:03501109",
           "title": "Métro"
         },
         "University campus": {
-          "text": "Campus de l'université",
+          "text": "University campus",
           "meaning": "ENVO:00000467",
           "title": "Campus de l'université"
         },
         "Wet market": {
-          "text": "Marché de l'eau",
+          "text": "Wet market",
           "meaning": "ENVO:03501198",
           "title": "Marché de l'eau"
         }
@@ -2411,7 +2411,7 @@
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "Amniocentesis": {
-          "text": "Amniocentèse",
+          "text": "Amniocentesis",
           "meaning": "NCIT:C52009",
           "title": "Amniocentèse"
         },
@@ -2421,30 +2421,30 @@
           "title": "Aspiration"
         },
         "Suprapubic Aspiration": {
-          "text": "Aspiration suprapubienne",
+          "text": "Suprapubic Aspiration",
           "meaning": "GENEPIO:0100028",
           "is_a": "Aspiration",
           "title": "Aspiration suprapubienne"
         },
         "Tracheal aspiration": {
-          "text": "Aspiration trachéale",
+          "text": "Tracheal aspiration",
           "meaning": "GENEPIO:0100029",
           "is_a": "Aspiration",
           "title": "Aspiration trachéale"
         },
         "Vacuum Aspiration": {
-          "text": "Aspiration sous vide",
+          "text": "Vacuum Aspiration",
           "meaning": "GENEPIO:0100030",
           "is_a": "Aspiration",
           "title": "Aspiration sous vide"
         },
         "Biopsy": {
-          "text": "Biopsie",
+          "text": "Biopsy",
           "meaning": "OBI:0002650",
           "title": "Biopsie"
         },
         "Needle Biopsy": {
-          "text": "Biopsie à l'aiguille",
+          "text": "Needle Biopsy",
           "meaning": "OBI:0002651",
           "is_a": "Biopsy",
           "title": "Biopsie à l'aiguille"
@@ -2455,71 +2455,71 @@
           "title": "Filtration"
         },
         "Air filtration": {
-          "text": "Filtration de l'air",
+          "text": "Air filtration",
           "meaning": "GENEPIO:0100031",
           "is_a": "Filtration",
           "title": "Filtration de l'air"
         },
         "Lavage": {
-          "text": "Lavage (lavage médical)",
+          "text": "Lavage",
           "meaning": "OBI:0600044",
           "title": "Lavage (lavage médical)"
         },
         "Bronchoalveolar lavage (BAL)": {
-          "text": "Lavage broncho-alvéolaire (LBA)",
+          "text": "Bronchoalveolar lavage (BAL)",
           "meaning": "GENEPIO:0100032",
           "is_a": "Lavage",
           "title": "Lavage broncho-alvéolaire (LBA)"
         },
         "Gastric Lavage": {
-          "text": "Lavage gastrique",
+          "text": "Gastric Lavage",
           "meaning": "GENEPIO:0100033",
           "is_a": "Lavage",
           "title": "Lavage gastrique"
         },
         "Lumbar Puncture": {
-          "text": "Ponction lombaire",
+          "text": "Lumbar Puncture",
           "meaning": "NCIT:C15327",
           "title": "Ponction lombaire"
         },
         "Necropsy": {
-          "text": "Nécropsie",
+          "text": "Necropsy",
           "meaning": "MMO:0000344",
           "title": "Nécropsie"
         },
         "Phlebotomy": {
-          "text": "Phlébotomie",
+          "text": "Phlebotomy",
           "meaning": "NCIT:C28221",
           "title": "Phlébotomie"
         },
         "Rinsing": {
-          "text": "Rinçage (lavage)",
+          "text": "Rinsing",
           "meaning": "GENEPIO:0002116",
           "title": "Rinçage (lavage)"
         },
         "Saline gargle (mouth rinse and gargle)": {
-          "text": "Gargarisme salin (rinçage de la bouche et gargarisme)",
+          "text": "Saline gargle (mouth rinse and gargle)",
           "meaning": "GENEPIO:0100034",
           "is_a": "Rinsing",
           "title": "Gargarisme salin (rinçage de la bouche et gargarisme)"
         },
         "Scraping": {
-          "text": "Raclage",
+          "text": "Scraping",
           "meaning": "GENEPIO:0100035",
           "title": "Raclage"
         },
         "Swabbing": {
-          "text": "Écouvillonnage",
+          "text": "Swabbing",
           "meaning": "GENEPIO:0002117",
           "title": "Écouvillonnage"
         },
         "Finger Prick": {
-          "text": "Piqûre au doigt",
+          "text": "Finger Prick",
           "meaning": "GENEPIO:0100036",
           "title": "Piqûre au doigt"
         },
         "Washout Tear Collection": {
-          "text": "Lavage Collecte de larmes",
+          "text": "Washout Tear Collection",
           "meaning": "GENEPIO:0100038",
           "title": "Lavage Collecte de larmes"
         }
@@ -2531,12 +2531,12 @@
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "Air filter": {
-          "text": "Filtre à air",
+          "text": "Air filter",
           "meaning": "ENVO:00003968",
           "title": "Filtre à air"
         },
         "Blood Collection Tube": {
-          "text": "Tube de prélèvement sanguin",
+          "text": "Blood Collection Tube",
           "meaning": "OBI:0002859",
           "title": "Tube de prélèvement sanguin"
         },
@@ -2546,32 +2546,32 @@
           "title": "Bronchoscope"
         },
         "Collection Container": {
-          "text": "Récipient de collecte",
+          "text": "Collection Container",
           "meaning": "OBI:0002088",
           "title": "Récipient de collecte"
         },
         "Collection Cup": {
-          "text": "Tasse de collection",
+          "text": "Collection Cup",
           "meaning": "GENEPIO:0100026",
           "title": "Tasse de collection"
         },
         "Fibrobronchoscope Brush": {
-          "text": "Brosse à fibrobronchoscope",
+          "text": "Fibrobronchoscope Brush",
           "meaning": "OBI:0002825",
           "title": "Brosse à fibrobronchoscope"
         },
         "Filter": {
-          "text": "Filtre",
+          "text": "Filter",
           "meaning": "GENEPIO:0100103",
           "title": "Filtre"
         },
         "Fine Needle": {
-          "text": "Aiguille fine",
+          "text": "Fine Needle",
           "meaning": "OBI:0002827",
           "title": "Aiguille fine"
         },
         "Microcapillary tube": {
-          "text": "Tube microcapillaire",
+          "text": "Microcapillary tube",
           "meaning": "OBI:0002858",
           "title": "Tube microcapillaire"
         },
@@ -2581,37 +2581,37 @@
           "title": "Micropipette"
         },
         "Needle": {
-          "text": "Aiguille",
+          "text": "Needle",
           "meaning": "OBI:0000436",
           "title": "Aiguille"
         },
         "Serum Collection Tube": {
-          "text": "Tube de collection de sérum",
+          "text": "Serum Collection Tube",
           "meaning": "OBI:0002860",
           "title": "Tube de collection de sérum"
         },
         "Sputum Collection Tube": {
-          "text": "Tube de prélèvement des expectorations",
+          "text": "Sputum Collection Tube",
           "meaning": "OBI:0002861",
           "title": "Tube de prélèvement des expectorations"
         },
         "Suction Catheter": {
-          "text": "Cathéter d'aspiration",
+          "text": "Suction Catheter",
           "meaning": "OBI:0002831",
           "title": "Cathéter d'aspiration"
         },
         "Swab": {
-          "text": "Écouvillon",
+          "text": "Swab",
           "meaning": "GENEPIO:0100027",
           "title": "Écouvillon"
         },
         "Urine Collection Tube": {
-          "text": "Tube de prélèvement d'urine",
+          "text": "Urine Collection Tube",
           "meaning": "OBI:0002862",
           "title": "Tube de prélèvement d'urine"
         },
         "Virus Transport Medium": {
-          "text": "Milieu de transport des virus",
+          "text": "Virus Transport Medium",
           "meaning": "OBI:0002866",
           "title": "Milieu de transport des virus"
         }
@@ -2628,22 +2628,22 @@
           "title": "Homo sapiens"
         },
         "Bos taurus": {
-          "text": "Bos taureau",
+          "text": "Bos taurus",
           "meaning": "NCBITaxon:9913",
           "title": "Bos taureau"
         },
         "Canis lupus familiaris": {
-          "text": "Canis lupus familier",
+          "text": "Canis lupus familiaris",
           "meaning": "NCBITaxon:9615",
           "title": "Canis lupus familier"
         },
         "Chiroptera": {
-          "text": "Chiroptères",
+          "text": "Chiroptera",
           "meaning": "NCBITaxon:9397",
           "title": "Chiroptères"
         },
         "Columbidae": {
-          "text": "Colombidés",
+          "text": "Columbidae",
           "meaning": "NCBITaxon:8930",
           "title": "Colombidés"
         },
@@ -2663,17 +2663,17 @@
           "title": "Manis"
         },
         "Manis javanica": {
-          "text": "Homme javanais",
+          "text": "Manis javanica",
           "meaning": "NCBITaxon:9974",
           "title": "Homme javanais"
         },
         "Neovison vison": {
-          "text": "Vison Neovison",
+          "text": "Neovison vison",
           "meaning": "NCBITaxon:452646",
           "title": "Vison Neovison"
         },
         "Panthera leo": {
-          "text": "Panthera lion",
+          "text": "Panthera leo",
           "meaning": "NCBITaxon:9689",
           "title": "Panthera lion"
         },
@@ -2683,7 +2683,7 @@
           "title": "Panthera tigris"
         },
         "Rhinolophidae": {
-          "text": "Rhinolophidés",
+          "text": "Rhinolophidae",
           "meaning": "NCBITaxon:58055",
           "title": "Rhinolophidés"
         },
@@ -2693,12 +2693,12 @@
           "title": "Rhinolophus affinis"
         },
         "Sus scrofa domesticus": {
-          "text": "Sus scrofa domestique",
+          "text": "Sus scrofa domesticus",
           "meaning": "NCBITaxon:9825",
           "title": "Sus scrofa domestique"
         },
         "Viverridae": {
-          "text": "Viverridés",
+          "text": "Viverridae",
           "meaning": "NCBITaxon:9673",
           "title": "Viverridés"
         }
@@ -2710,32 +2710,32 @@
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "Human": {
-          "text": "Humain",
+          "text": "Human",
           "meaning": "NCBITaxon:9606",
           "title": "Humain"
         },
         "Bat": {
-          "text": "Chauve souris",
+          "text": "Bat",
           "meaning": "NCBITaxon:9397",
           "title": "Chauve souris"
         },
         "Cat": {
-          "text": "Chat",
+          "text": "Cat",
           "meaning": "NCBITaxon:9685",
           "title": "Chat"
         },
         "Chicken": {
-          "text": "Poulet",
+          "text": "Chicken",
           "meaning": "NCBITaxon:9031",
           "title": "Poulet"
         },
         "Civets": {
-          "text": "Civettes",
+          "text": "Civets",
           "meaning": "NCBITaxon:9673",
           "title": "Civettes"
         },
         "Cow": {
-          "text": "Vache",
+          "text": "Cow",
           "meaning": "NCBITaxon:9913",
           "title": "Vache",
           "exact_mappings": [
@@ -2743,7 +2743,7 @@
           ]
         },
         "Dog": {
-          "text": "Chien",
+          "text": "Dog",
           "meaning": "NCBITaxon:9615",
           "title": "Chien"
         },
@@ -2753,7 +2753,7 @@
           "title": "Lion"
         },
         "Mink": {
-          "text": "Vison",
+          "text": "Mink",
           "meaning": "NCBITaxon:452646",
           "title": "Vison"
         },
@@ -2763,7 +2763,7 @@
           "title": "Pangolin"
         },
         "Pig": {
-          "text": "Cochon",
+          "text": "Pig",
           "meaning": "NCBITaxon:9825",
           "title": "Cochon",
           "exact_mappings": [
@@ -2776,7 +2776,7 @@
           "title": "Pigeon"
         },
         "Tiger": {
-          "text": "Tigre",
+          "text": "Tiger",
           "meaning": "NCBITaxon:9694",
           "title": "Tigre"
         }
@@ -2788,27 +2788,27 @@
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "Asymptomatic": {
-          "text": "Asymptomatique",
+          "text": "Asymptomatic",
           "meaning": "NCIT:C3833",
           "title": "Asymptomatique"
         },
         "Deceased": {
-          "text": "Décédé",
+          "text": "Deceased",
           "meaning": "NCIT:C28554",
           "title": "Décédé"
         },
         "Healthy": {
-          "text": "En bonne santé",
+          "text": "Healthy",
           "meaning": "NCIT:C115935",
           "title": "En bonne santé"
         },
         "Recovered": {
-          "text": "Rétabli",
+          "text": "Recovered",
           "meaning": "NCIT:C49498",
           "title": "Rétabli"
         },
         "Symptomatic": {
-          "text": "Symptomatique",
+          "text": "Symptomatic",
           "meaning": "NCIT:C25269",
           "title": "Symptomatique"
         }
@@ -2820,40 +2820,40 @@
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "Hospitalized": {
-          "text": "Hospitalisé",
+          "text": "Hospitalized",
           "meaning": "NCIT:C25179",
           "title": "Hospitalisé"
         },
         "Hospitalized (Non-ICU)": {
-          "text": "Hospitalisé (hors soins intensifs)",
+          "text": "Hospitalized (Non-ICU)",
           "meaning": "GENEPIO:0100045",
           "is_a": "Hospitalized",
           "title": "Hospitalisé (hors soins intensifs)"
         },
         "Hospitalized (ICU)": {
-          "text": "Hospitalisé (ICU)",
+          "text": "Hospitalized (ICU)",
           "meaning": "GENEPIO:0100046",
           "is_a": "Hospitalized",
           "title": "Hospitalisé (ICU)"
         },
         "Mechanical Ventilation": {
-          "text": "Ventilation mécanique",
+          "text": "Mechanical Ventilation",
           "meaning": "NCIT:C70909",
           "title": "Ventilation mécanique"
         },
         "Medically Isolated": {
-          "text": "Médicalement isolé",
+          "text": "Medically Isolated",
           "meaning": "GENEPIO:0100047",
           "title": "Médicalement isolé"
         },
         "Medically Isolated (Negative Pressure)": {
-          "text": "Médicalement isolé (pression négative)",
+          "text": "Medically Isolated (Negative Pressure)",
           "meaning": "GENEPIO:0100048",
           "is_a": "Medically Isolated",
           "title": "Médicalement isolé (pression négative)"
         },
         "Self-quarantining": {
-          "text": "Auto-quarantaine",
+          "text": "Self-quarantining",
           "meaning": "NCIT:C173768",
           "title": "Auto-quarantaine"
         }
@@ -2865,22 +2865,22 @@
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "Deceased": {
-          "text": "Décédé",
+          "text": "Deceased",
           "meaning": "NCIT:C28554",
           "title": "Décédé"
         },
         "Deteriorating": {
-          "text": "Se détériorer",
+          "text": "Deteriorating",
           "meaning": "NCIT:C25254",
           "title": "Se détériorer"
         },
         "Recovered": {
-          "text": "Rétabli",
+          "text": "Recovered",
           "meaning": "NCIT:C49498",
           "title": "Rétabli"
         },
         "Stable": {
-          "text": "Écurie",
+          "text": "Stable",
           "meaning": "NCIT:C30103",
           "title": "Écurie"
         }
@@ -2892,7 +2892,7 @@
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "Severe acute respiratory syndrome coronavirus 2": {
-          "text": "Syndrome respiratoire aigu sévère coronavirus 2",
+          "text": "Severe acute respiratory syndrome coronavirus 2",
           "meaning": "NCBITaxon:2697049",
           "title": "Syndrome respiratoire aigu sévère coronavirus 2"
         },
@@ -2914,17 +2914,17 @@
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "Cluster/Outbreak investigation": {
-          "text": "Enquête sur les grappes et les foyers",
+          "text": "Cluster/Outbreak investigation",
           "meaning": "GENEPIO:0100001",
           "title": "Enquête sur les grappes et les foyers"
         },
         "Diagnostic testing": {
-          "text": "Tests de diagnostic",
+          "text": "Diagnostic testing",
           "meaning": "GENEPIO:0100002",
           "title": "Tests de diagnostic"
         },
         "Research": {
-          "text": "Recherche",
+          "text": "Research",
           "meaning": "GENEPIO:0100003",
           "title": "Recherche"
         },
@@ -2941,153 +2941,153 @@
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "Baseline surveillance (random sampling)": {
-          "text": "Surveillance de base (échantillonnage aléatoire)",
+          "text": "Baseline surveillance (random sampling)",
           "meaning": "GENEPIO:0100005",
           "title": "Surveillance de base (échantillonnage aléatoire)"
         },
         "Targeted surveillance (non-random sampling)": {
-          "text": "Surveillance ciblée (échantillonnage non aléatoire)",
+          "text": "Targeted surveillance (non-random sampling)",
           "meaning": "GENEPIO:0100006",
           "title": "Surveillance ciblée (échantillonnage non aléatoire)"
         },
         "Priority surveillance project": {
-          "text": "Projet de surveillance prioritaire",
+          "text": "Priority surveillance project",
           "meaning": "GENEPIO:0100007",
           "is_a": "Targeted surveillance (non-random sampling)",
           "title": "Projet de surveillance prioritaire"
         },
         "Screening for Variants of Concern (VoC)": {
-          "text": "Dépistage des variantes préoccupantes",
+          "text": "Screening for Variants of Concern (VoC)",
           "meaning": "GENEPIO:0100008",
           "is_a": "Priority surveillance project",
           "title": "Dépistage des variantes préoccupantes"
         },
         "Sample has epidemiological link to Variant of Concern (VoC)": {
-          "text": "L'échantillon a un lien épidémiologique avec la variante préoccupante",
+          "text": "Sample has epidemiological link to Variant of Concern (VoC)",
           "meaning": "GENEPIO:0100273",
           "is_a": "Screening for Variants of Concern (VoC)",
           "title": "L'échantillon a un lien épidémiologique avec la variante préoccupante"
         },
         "Sample has epidemiological link to Omicron Variant": {
-          "text": "L'échantillon a un lien épidémiologique avec la variante Omicron",
+          "text": "Sample has epidemiological link to Omicron Variant",
           "meaning": "GENEPIO:0100274",
           "is_a": "Sample has epidemiological link to Variant of Concern (VoC)",
           "title": "L'échantillon a un lien épidémiologique avec la variante Omicron"
         },
         "Longitudinal surveillance (repeat sampling of individuals)": {
-          "text": "Surveillance longitudinale (échantillonnage répété des individus)",
+          "text": "Longitudinal surveillance (repeat sampling of individuals)",
           "meaning": "GENEPIO:0100009",
           "is_a": "Priority surveillance project",
           "title": "Surveillance longitudinale (échantillonnage répété des individus)"
         },
         "Chronic (prolonged) infection surveillance": {
-          "text": "Surveillance des infections chroniques (prolongées)",
+          "text": "Chronic (prolonged) infection surveillance",
           "meaning": "GENEPIO:0100842",
           "is_a": "Longitudinal surveillance (repeat sampling of individuals)",
           "title": "Surveillance des infections chroniques (prolongées)"
         },
         "Re-infection surveillance": {
-          "text": "Surveillance des réinfections",
+          "text": "Re-infection surveillance",
           "meaning": "GENEPIO:0100010",
           "is_a": "Priority surveillance project",
           "title": "Surveillance des réinfections"
         },
         "Vaccine escape surveillance": {
-          "text": "Surveillance des fuites de vaccins",
+          "text": "Vaccine escape surveillance",
           "meaning": "GENEPIO:0100011",
           "is_a": "Priority surveillance project",
           "title": "Surveillance des fuites de vaccins"
         },
         "Travel-associated surveillance": {
-          "text": "Surveillance associée aux voyages",
+          "text": "Travel-associated surveillance",
           "meaning": "GENEPIO:0100012",
           "is_a": "Priority surveillance project",
           "title": "Surveillance associée aux voyages"
         },
         "Domestic travel surveillance": {
-          "text": "Surveillance des voyages nationaux",
+          "text": "Domestic travel surveillance",
           "meaning": "GENEPIO:0100013",
           "is_a": "Travel-associated surveillance",
           "title": "Surveillance des voyages nationaux"
         },
         "Interstate/ interprovincial travel surveillance": {
-          "text": "Surveillance des voyages interétatiques/interprovinciaux",
+          "text": "Interstate/ interprovincial travel surveillance",
           "meaning": "GENEPIO:0100275",
           "is_a": "Domestic travel surveillance",
           "title": "Surveillance des voyages interétatiques/interprovinciaux"
         },
         "Intra-state/ intra-provincial travel surveillance": {
-          "text": "Surveillance des voyages intra-étatiques/intraprovinciaux",
+          "text": "Intra-state/ intra-provincial travel surveillance",
           "meaning": "GENEPIO:0100276",
           "is_a": "Domestic travel surveillance",
           "title": "Surveillance des voyages intra-étatiques/intraprovinciaux"
         },
         "International travel surveillance": {
-          "text": "Surveillance des voyages internationaux",
+          "text": "International travel surveillance",
           "meaning": "GENEPIO:0100014",
           "is_a": "Travel-associated surveillance",
           "title": "Surveillance des voyages internationaux"
         },
         "Surveillance of international border crossing by air travel or ground transport": {
-          "text": "Surveillance du franchissement des frontières internationales par voie aérienne aérien ou terrestre",
+          "text": "Surveillance of international border crossing by air travel or ground transport",
           "meaning": "GENEPIO:0100015",
           "is_a": "International travel surveillance",
           "title": "Surveillance du franchissement des frontières internationales par voie aérienne aérien ou terrestre"
         },
         "Surveillance of international border crossing by air travel": {
-          "text": "Surveillance du franchissement des frontières internationales par voie aérienne aérien",
+          "text": "Surveillance of international border crossing by air travel",
           "meaning": "GENEPIO:0100016",
           "is_a": "International travel surveillance",
           "title": "Surveillance du franchissement des frontières internationales par voie aérienne aérien"
         },
         "Surveillance of international border crossing by ground transport": {
-          "text": "Surveillance du franchissement des frontières internationales par transport terrestre",
+          "text": "Surveillance of international border crossing by ground transport",
           "meaning": "GENEPIO:0100017",
           "is_a": "International travel surveillance",
           "title": "Surveillance du franchissement des frontières internationales par transport terrestre"
         },
         "Surveillance from international worker testing": {
-          "text": "Surveillance à partir d'essais internationaux sur les travailleurs",
+          "text": "Surveillance from international worker testing",
           "meaning": "GENEPIO:0100018",
           "is_a": "International travel surveillance",
           "title": "Surveillance à partir d'essais internationaux sur les travailleurs"
         },
         "Cluster/Outbreak investigation": {
-          "text": "Enquête sur les grappes et les foyers",
+          "text": "Cluster/Outbreak investigation",
           "meaning": "GENEPIO:0100019",
           "title": "Enquête sur les grappes et les foyers"
         },
         "Multi-jurisdictional outbreak investigation": {
-          "text": "Enquête sur les foyers multi-juridictionnels",
+          "text": "Multi-jurisdictional outbreak investigation",
           "meaning": "GENEPIO:0100020",
           "is_a": "Cluster/Outbreak investigation",
           "title": "Enquête sur les foyers multi-juridictionnels"
         },
         "Intra-jurisdictional outbreak investigation": {
-          "text": "Enquête sur un foyer intra-juridictionnel",
+          "text": "Intra-jurisdictional outbreak investigation",
           "meaning": "GENEPIO:0100021",
           "is_a": "Cluster/Outbreak investigation",
           "title": "Enquête sur un foyer intra-juridictionnel"
         },
         "Research": {
-          "text": "Recherche",
+          "text": "Research",
           "meaning": "GENEPIO:0100022",
           "title": "Recherche"
         },
         "Viral passage experiment": {
-          "text": "Expérience de passage viral",
+          "text": "Viral passage experiment",
           "meaning": "GENEPIO:0100023",
           "is_a": "Research",
           "title": "Expérience de passage viral"
         },
         "Protocol testing experiment": {
-          "text": "Expérience de test de protocole",
+          "text": "Protocol testing experiment",
           "meaning": "GENEPIO:0100024",
           "is_a": "Research",
           "title": "Expérience de test de protocole"
         },
         "Retrospective sequencing": {
-          "text": "Séquençage rétrospectif",
+          "text": "Retrospective sequencing",
           "meaning": "GENEPIO:0100356",
           "title": "Séquençage rétrospectif"
         }
@@ -3099,17 +3099,17 @@
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "Virus passage": {
-          "text": "Passage du virus",
+          "text": "Virus passage",
           "meaning": "GENEPIO:0100039",
           "title": "Passage du virus"
         },
         "RNA re-extraction (post RT-PCR)": {
-          "text": "Rétablissement de l'extraction de l'RNA (après RT-PCR)",
+          "text": "RNA re-extraction (post RT-PCR)",
           "meaning": "GENEPIO:0100040",
           "title": "Rétablissement de l'extraction de l'RNA (après RT-PCR)"
         },
         "Specimens pooled": {
-          "text": "Échantillons regroupés",
+          "text": "Specimens pooled",
           "meaning": "OBI:0600016",
           "title": "Échantillons regroupés"
         }
@@ -3121,83 +3121,83 @@
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "293/ACE2 cell line": {
-          "text": "Lignée cellulaire 293/ACE2",
+          "text": "293/ACE2 cell line",
           "meaning": "GENEPIO:0100041",
           "title": "Lignée cellulaire 293/ACE2"
         },
         "Caco2 cell line": {
-          "text": "Lignée cellulaire Caco2",
+          "text": "Caco2 cell line",
           "meaning": "BTO:0000195",
           "title": "Lignée cellulaire Caco2"
         },
         "Calu3 cell line": {
-          "text": "Lignée cellulaire Calu3",
+          "text": "Calu3 cell line",
           "meaning": "BTO:0002750",
           "title": "Lignée cellulaire Calu3"
         },
         "EFK3B cell line": {
-          "text": "Lignée cellulaire EFK3B",
+          "text": "EFK3B cell line",
           "meaning": "GENEPIO:0100042",
           "title": "Lignée cellulaire EFK3B"
         },
         "HEK293T cell line": {
-          "text": "Lignée cellulaire HEK293T",
+          "text": "HEK293T cell line",
           "meaning": "BTO:0002181",
           "title": "Lignée cellulaire HEK293T"
         },
         "HRCE cell line": {
-          "text": "Lignée cellulaire HRCE",
+          "text": "HRCE cell line",
           "meaning": "GENEPIO:0100043",
           "title": "Lignée cellulaire HRCE"
         },
         "Huh7 cell line": {
-          "text": "Lignée cellulaire Huh7",
+          "text": "Huh7 cell line",
           "meaning": "BTO:0001950",
           "title": "Lignée cellulaire Huh7"
         },
         "LLCMk2 cell line": {
-          "text": "Lignée cellulaire LLCMk2",
+          "text": "LLCMk2 cell line",
           "meaning": "CLO:0007330",
           "title": "Lignée cellulaire LLCMk2"
         },
         "MDBK cell line": {
-          "text": "Lignée cellulaire MDBK",
+          "text": "MDBK cell line",
           "meaning": "BTO:0000836",
           "title": "Lignée cellulaire MDBK"
         },
         "NHBE cell line": {
-          "text": "lignée cellulaire NHBE",
+          "text": "NHBE cell line",
           "meaning": "BTO:0002924",
           "title": "lignée cellulaire NHBE"
         },
         "PK-15 cell line": {
-          "text": "Lignée cellulaire PK-15",
+          "text": "PK-15 cell line",
           "meaning": "BTO:0001865",
           "title": "Lignée cellulaire PK-15"
         },
         "RK-13 cell line": {
-          "text": "Lignée cellulaire RK-13",
+          "text": "RK-13 cell line",
           "meaning": "BTO:0002909",
           "title": "Lignée cellulaire RK-13"
         },
         "U251 cell line": {
-          "text": "Lignée cellulaire U251",
+          "text": "U251 cell line",
           "meaning": "BTO:0002035",
           "title": "Lignée cellulaire U251"
         },
         "Vero cell line": {
-          "text": "Lignée cellulaire Vero",
+          "text": "Vero cell line",
           "meaning": "BTO:0001444",
           "title": "Lignée cellulaire Vero"
         },
         "Vero E6 cell line": {
-          "text": "Lignée cellulaire Vero E6",
+          "text": "Vero E6 cell line",
           "meaning": "BTO:0004755",
           "is_a": "Vero cell line",
           "title": "Lignée cellulaire Vero E6"
         },
         "VeroE6/TMPRSS2 cell line": {
-          "text": "Lignée cellulaire VeroE6/TMPRSS2",
+          "text": "VeroE6/TMPRSS2 cell line",
           "meaning": "GENEPIO:0100044",
           "is_a": "Vero E6 cell line",
           "title": "Lignée cellulaire VeroE6/TMPRSS2"
@@ -3327,12 +3327,12 @@
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "Mass Gathering": {
-          "text": "Rassemblement de masse",
+          "text": "Mass Gathering",
           "meaning": "GENEPIO:0100237",
           "title": "Rassemblement de masse"
         },
         "Agricultural Event": {
-          "text": "Événement agricole",
+          "text": "Agricultural Event",
           "meaning": "GENEPIO:0100240",
           "is_a": "Mass Gathering",
           "title": "Événement agricole"
@@ -3350,7 +3350,7 @@
           "title": "Convocation"
         },
         "Recreational Event": {
-          "text": "Événement récréatif",
+          "text": "Recreational Event",
           "meaning": "GENEPIO:0100417",
           "is_a": "Mass Gathering",
           "title": "Événement récréatif"
@@ -3362,77 +3362,77 @@
           "title": "Concert"
         },
         "Sporting Event": {
-          "text": "Manifestation sportive",
+          "text": "Sporting Event",
           "meaning": "GENEPIO:0100419",
           "is_a": "Recreational Event",
           "title": "Manifestation sportive"
         },
         "Religious Gathering": {
-          "text": "Rassemblement religieux",
+          "text": "Religious Gathering",
           "meaning": "GENEPIO:0100241",
           "title": "Rassemblement religieux"
         },
         "Mass": {
-          "text": "Messe",
+          "text": "Mass",
           "meaning": "GENEPIO:0100242",
           "is_a": "Religious Gathering",
           "title": "Messe"
         },
         "Social Gathering": {
-          "text": "Rassemblement social",
+          "text": "Social Gathering",
           "meaning": "PCO:0000033",
           "title": "Rassemblement social"
         },
         "Baby Shower": {
-          "text": "Douche de bébé",
+          "text": "Baby Shower",
           "meaning": "PCO:0000039",
           "is_a": "Social Gathering",
           "title": "Douche de bébé"
         },
         "Community Event": {
-          "text": "Evénement communautaire",
+          "text": "Community Event",
           "meaning": "PCO:0000034",
           "is_a": "Social Gathering",
           "title": "Evénement communautaire"
         },
         "Family Gathering": {
-          "text": "Réunion de famille",
+          "text": "Family Gathering",
           "meaning": "GENEPIO:0100243",
           "is_a": "Social Gathering",
           "title": "Réunion de famille"
         },
         "Family Reunion": {
-          "text": "Réunion de famille",
+          "text": "Family Reunion",
           "meaning": "GENEPIO:0100244",
           "is_a": "Family Gathering",
           "title": "Réunion de famille"
         },
         "Funeral": {
-          "text": "Funérailles",
+          "text": "Funeral",
           "meaning": "GENEPIO:0100245",
           "is_a": "Social Gathering",
           "title": "Funérailles"
         },
         "Party": {
-          "text": "Faire la fête",
+          "text": "Party",
           "meaning": "PCO:0000035",
           "is_a": "Social Gathering",
           "title": "Faire la fête"
         },
         "Potluck": {
-          "text": "Repas-partage",
+          "text": "Potluck",
           "meaning": "PCO:0000037",
           "is_a": "Social Gathering",
           "title": "Repas-partage"
         },
         "Wedding": {
-          "text": "Mariage",
+          "text": "Wedding",
           "meaning": "PCO:0000038",
           "is_a": "Social Gathering",
           "title": "Mariage"
         },
         "Other exposure event": {
-          "text": "Autre événement d'exposition",
+          "text": "Other exposure event",
           "title": "Autre événement d'exposition"
         }
       }
@@ -3443,30 +3443,30 @@
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "Contact with infected individual": {
-          "text": "Contact avec une personne infectée",
+          "text": "Contact with infected individual",
           "meaning": "GENEPIO:0100357",
           "title": "Contact avec une personne infectée"
         },
         "Direct contact (direct human-to-human contact)": {
-          "text": "Direct (contact interhumain)",
+          "text": "Direct contact (direct human-to-human contact)",
           "meaning": "TRANS:0000001",
           "is_a": "Contact with infected individual",
           "title": "Direct (contact interhumain)"
         },
         "Indirect contact": {
-          "text": "Contact indirect",
+          "text": "Indirect contact",
           "meaning": "GENEPIO:0100246",
           "is_a": "Contact with infected individual",
           "title": "Contact indirect"
         },
         "Close contact (face-to-face, no direct contact)": {
-          "text": "Contact étroit (face à face)",
+          "text": "Close contact (face-to-face, no direct contact)",
           "meaning": "GENEPIO:0100247",
           "is_a": "Indirect contact",
           "title": "Contact étroit (face à face)"
         },
         "Casual contact": {
-          "text": "Contact occasionnel",
+          "text": "Casual contact",
           "meaning": "GENEPIO:0100248",
           "is_a": "Indirect contact",
           "title": "Contact occasionnel"
@@ -3479,12 +3479,12 @@
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "Attendee": {
-          "text": "Participant",
+          "text": "Attendee",
           "meaning": "GENEPIO:0100249",
           "title": "Participant"
         },
         "Student": {
-          "text": "Étudiant",
+          "text": "Student",
           "meaning": "OMRSE:00000058",
           "is_a": "Attendee",
           "title": "Étudiant"
@@ -3495,218 +3495,218 @@
           "title": "Patient"
         },
         "Inpatient": {
-          "text": "Patient hospitalisé",
+          "text": "Inpatient",
           "meaning": "NCIT:C25182",
           "is_a": "Patient",
           "title": "Patient hospitalisé"
         },
         "Outpatient": {
-          "text": "Ambulatoire",
+          "text": "Outpatient",
           "meaning": "NCIT:C28293",
           "is_a": "Patient",
           "title": "Ambulatoire"
         },
         "Passenger": {
-          "text": "Passager",
+          "text": "Passenger",
           "meaning": "GENEPIO:0100250",
           "title": "Passager"
         },
         "Resident": {
-          "text": "Résident",
+          "text": "Resident",
           "meaning": "GENEPIO:0100251",
           "title": "Résident"
         },
         "Visitor": {
-          "text": "Visiteur",
+          "text": "Visitor",
           "meaning": "GENEPIO:0100252",
           "title": "Visiteur"
         },
         "Volunteer": {
-          "text": "Bénévole",
+          "text": "Volunteer",
           "meaning": "GENEPIO:0100253",
           "title": "Bénévole"
         },
         "Work": {
-          "text": "Travail",
+          "text": "Work",
           "meaning": "GENEPIO:0100254",
           "title": "Travail"
         },
         "Administrator": {
-          "text": "Administrateur",
+          "text": "Administrator",
           "meaning": "GENEPIO:0100255",
           "is_a": "Work",
           "title": "Administrateur"
         },
         "Child Care/Education Worker": {
-          "text": "Travailleur en garderie/éducation",
+          "text": "Child Care/Education Worker",
           "is_a": "Work",
           "title": "Travailleur en garderie/éducation"
         },
         "Essential Worker": {
-          "text": "Travailleur essentiel",
+          "text": "Essential Worker",
           "is_a": "Work",
           "title": "Travailleur essentiel"
         },
         "First Responder": {
-          "text": "Premier intervenant",
+          "text": "First Responder",
           "meaning": "GENEPIO:0100256",
           "is_a": "Work",
           "title": "Premier intervenant"
         },
         "Firefighter": {
-          "text": "Sapeur pompier",
+          "text": "Firefighter",
           "meaning": "GENEPIO:0100257",
           "is_a": "First Responder",
           "title": "Sapeur pompier"
         },
         "Paramedic": {
-          "text": "Paramédical",
+          "text": "Paramedic",
           "meaning": "GENEPIO:0100258",
           "is_a": "First Responder",
           "title": "Paramédical"
         },
         "Police Officer": {
-          "text": "Officier de police",
+          "text": "Police Officer",
           "meaning": "GENEPIO:0100259",
           "is_a": "First Responder",
           "title": "Officier de police"
         },
         "Healthcare Worker": {
-          "text": "Travailleur de la santé",
+          "text": "Healthcare Worker",
           "meaning": "GENEPIO:0100334",
           "is_a": "Work",
           "title": "Travailleur de la santé"
         },
         "Community Healthcare Worker": {
-          "text": "Agent de santé communautaire",
+          "text": "Community Healthcare Worker",
           "meaning": "GENEPIO:0100420",
           "is_a": "Healthcare Worker",
           "title": "Agent de santé communautaire"
         },
         "Laboratory Worker": {
-          "text": "Ouvrier de laboratoire",
+          "text": "Laboratory Worker",
           "meaning": "GENEPIO:0100262",
           "is_a": "Healthcare Worker",
           "title": "Ouvrier de laboratoire"
         },
         "Nurse": {
-          "text": "Infirmière",
+          "text": "Nurse",
           "meaning": "OMRSE:00000014",
           "is_a": "Healthcare Worker",
           "title": "Infirmière"
         },
         "Personal Care Aid": {
-          "text": "Aide aux soins personnels",
+          "text": "Personal Care Aid",
           "meaning": "GENEPIO:0100263",
           "is_a": "Healthcare Worker",
           "title": "Aide aux soins personnels"
         },
         "Pharmacist": {
-          "text": "Pharmacien",
+          "text": "Pharmacist",
           "meaning": "GENEPIO:0100264",
           "is_a": "Healthcare Worker",
           "title": "Pharmacien"
         },
         "Physician": {
-          "text": "Médecin",
+          "text": "Physician",
           "meaning": "OMRSE:00000013",
           "is_a": "Healthcare Worker",
           "title": "Médecin"
         },
         "Housekeeper": {
-          "text": "Gouvernante",
+          "text": "Housekeeper",
           "meaning": "GENEPIO:0100260",
           "is_a": "Work",
           "title": "Gouvernante"
         },
         "International worker": {
-          "text": "Travailleur international",
+          "text": "International worker",
           "is_a": "Work",
           "title": "Travailleur international"
         },
         "Kitchen Worker": {
-          "text": "Ouvrier de cuisine",
+          "text": "Kitchen Worker",
           "meaning": "GENEPIO:0100261",
           "is_a": "Work",
           "title": "Ouvrier de cuisine"
         },
         "Rotational Worker": {
-          "text": "Travailleur en rotation",
+          "text": "Rotational Worker",
           "meaning": "GENEPIO:0100354",
           "is_a": "Work",
           "title": "Travailleur en rotation"
         },
         "Seasonal Worker": {
-          "text": "Travailleur saisonnier",
+          "text": "Seasonal Worker",
           "meaning": "GENEPIO:0100355",
           "is_a": "Work",
           "title": "Travailleur saisonnier"
         },
         "Transport Worker": {
-          "text": "Ouvrier des transports",
+          "text": "Transport Worker",
           "is_a": "Work",
           "title": "Ouvrier des transports"
         },
         "Transport Truck Driver": {
-          "text": "Chauffeur de camion de transport",
+          "text": "Transport Truck Driver",
           "is_a": "Transport Worker",
           "title": "Chauffeur de camion de transport"
         },
         "Veterinarian": {
-          "text": "Vétérinaire",
+          "text": "Veterinarian",
           "meaning": "GENEPIO:0100265",
           "is_a": "Work",
           "title": "Vétérinaire"
         },
         "Social role": {
-          "text": "Rôle social",
+          "text": "Social role",
           "meaning": "OMRSE:00000001",
           "title": "Rôle social"
         },
         "Acquaintance of case": {
-          "text": "Connaissance de l'affaire",
+          "text": "Acquaintance of case",
           "meaning": "GENEPIO:0100266",
           "is_a": "Social role",
           "title": "Connaissance de l'affaire"
         },
         "Relative of case": {
-          "text": "Parent de l'affaire",
+          "text": "Relative of case",
           "meaning": "GENEPIO:0100267",
           "is_a": "Social role",
           "title": "Parent de l'affaire"
         },
         "Child of case": {
-          "text": "Enfant de la personne concernée",
+          "text": "Child of case",
           "meaning": "GENEPIO:0100268",
           "is_a": "Relative of case",
           "title": "Enfant de la personne concernée"
         },
         "Parent of case": {
-          "text": "Parent de l'affaire",
+          "text": "Parent of case",
           "meaning": "GENEPIO:0100269",
           "is_a": "Relative of case",
           "title": "Parent de l'affaire"
         },
         "Father of case": {
-          "text": "Père de l'affaire",
+          "text": "Father of case",
           "meaning": "GENEPIO:0100270",
           "is_a": "Parent of case",
           "title": "Père de l'affaire"
         },
         "Mother of case": {
-          "text": "Mère du cas",
+          "text": "Mother of case",
           "meaning": "GENEPIO:0100271",
           "is_a": "Parent of case",
           "title": "Mère du cas"
         },
         "Spouse of case": {
-          "text": "Conjoint de l'affaire",
+          "text": "Spouse of case",
           "meaning": "GENEPIO:0100272",
           "is_a": "Social role",
           "title": "Conjoint de l'affaire"
         },
         "Other Host Role": {
-          "text": "Autre rôle de l'hôte",
+          "text": "Other Host Role",
           "title": "Autre rôle de l'hôte"
         }
       }
@@ -3717,48 +3717,48 @@
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "Human Exposure": {
-          "text": "Exposition humaine",
+          "text": "Human Exposure",
           "meaning": "ECTO:3000005",
           "title": "Exposition humaine"
         },
         "Contact with Known COVID-19 Case": {
-          "text": "Contact avec un cas connu de COVID-19",
+          "text": "Contact with Known COVID-19 Case",
           "meaning": "GENEPIO:0100184",
           "is_a": "Human Exposure",
           "title": "Contact avec un cas connu de COVID-19"
         },
         "Contact with Patient": {
-          "text": "Contact avec un patient",
+          "text": "Contact with Patient",
           "meaning": "GENEPIO:0100185",
           "is_a": "Human Exposure",
           "title": "Contact avec un patient"
         },
         "Contact with Probable COVID-19 Case": {
-          "text": "Contact avec un cas probable de COVID-19",
+          "text": "Contact with Probable COVID-19 Case",
           "meaning": "GENEPIO:0100186",
           "is_a": "Human Exposure",
           "title": "Contact avec un cas probable de COVID-19"
         },
         "Contact with Person with Acute Respiratory Illness": {
-          "text": "Contact avec une personne atteinte d'une maladie respiratoire aiguë",
+          "text": "Contact with Person with Acute Respiratory Illness",
           "meaning": "GENEPIO:0100187",
           "is_a": "Human Exposure",
           "title": "Contact avec une personne atteinte d'une maladie respiratoire aiguë"
         },
         "Contact with Person with Fever and/or Cough": {
-          "text": "Contact avec une personne présentant une fièvre et/ou une toux",
+          "text": "Contact with Person with Fever and/or Cough",
           "meaning": "GENEPIO:0100188",
           "is_a": "Human Exposure",
           "title": "Contact avec une personne présentant une fièvre et/ou une toux"
         },
         "Contact with Person who Recently Travelled": {
-          "text": "Contact avec une personne ayant récemment voyagé",
+          "text": "Contact with Person who Recently Travelled",
           "meaning": "GENEPIO:0100189",
           "is_a": "Human Exposure",
           "title": "Contact avec une personne ayant récemment voyagé"
         },
         "Occupational, Residency or Patronage Exposure": {
-          "text": "Exposition professionnelle, de résidence ou de patronage",
+          "text": "Occupational, Residency or Patronage Exposure",
           "meaning": "GENEPIO:0100190",
           "title": "Exposition professionnelle, de résidence ou de patronage"
         },
@@ -3769,73 +3769,73 @@
           "title": "Abbatoir"
         },
         "Animal Rescue": {
-          "text": "Sauvetage d'animaux",
+          "text": "Animal Rescue",
           "meaning": "GENEPIO:0100191",
           "is_a": "Occupational, Residency or Patronage Exposure",
           "title": "Sauvetage d'animaux"
         },
         "Childcare": {
-          "text": "Garde d'enfants",
+          "text": "Childcare",
           "meaning": "GENEPIO:0100192",
           "is_a": "Occupational, Residency or Patronage Exposure",
           "title": "Garde d'enfants"
         },
         "Daycare": {
-          "text": "Garderie",
+          "text": "Daycare",
           "meaning": "GENEPIO:0100193",
           "is_a": "Childcare",
           "title": "Garderie"
         },
         "Nursery": {
-          "text": "Crèche",
+          "text": "Nursery",
           "meaning": "GENEPIO:0100194",
           "is_a": "Childcare",
           "title": "Crèche"
         },
         "Community Service Centre": {
-          "text": "Centre de services communautaires",
+          "text": "Community Service Centre",
           "meaning": "GENEPIO:0100195",
           "is_a": "Occupational, Residency or Patronage Exposure",
           "title": "Centre de services communautaires"
         },
         "Correctional Facility": {
-          "text": "Établissement pénitentiaire",
+          "text": "Correctional Facility",
           "meaning": "GENEPIO:0100196",
           "is_a": "Occupational, Residency or Patronage Exposure",
           "title": "Établissement pénitentiaire"
         },
         "Dormitory": {
-          "text": "Dortoir",
+          "text": "Dormitory",
           "meaning": "GENEPIO:0100197",
           "is_a": "Occupational, Residency or Patronage Exposure",
           "title": "Dortoir"
         },
         "Farm": {
-          "text": "Ferme",
+          "text": "Farm",
           "meaning": "ECTO:1000034",
           "is_a": "Occupational, Residency or Patronage Exposure",
           "title": "Ferme"
         },
         "First Nations Reserve": {
-          "text": "Réserve des Premières Nations",
+          "text": "First Nations Reserve",
           "meaning": "GENEPIO:0100198",
           "is_a": "Occupational, Residency or Patronage Exposure",
           "title": "Réserve des Premières Nations"
         },
         "Funeral Home": {
-          "text": "Maison funéraire",
+          "text": "Funeral Home",
           "meaning": "GENEPIO:0100199",
           "is_a": "Occupational, Residency or Patronage Exposure",
           "title": "Maison funéraire"
         },
         "Group Home": {
-          "text": "Foyer de groupe",
+          "text": "Group Home",
           "meaning": "GENEPIO:0100200",
           "is_a": "Occupational, Residency or Patronage Exposure",
           "title": "Foyer de groupe"
         },
         "Healthcare Setting": {
-          "text": "Établissement de soins de santé",
+          "text": "Healthcare Setting",
           "meaning": "GENEPIO:0100201",
           "is_a": "Occupational, Residency or Patronage Exposure",
           "title": "Établissement de soins de santé"
@@ -3847,37 +3847,37 @@
           "title": "Ambulance"
         },
         "Acute Care Facility": {
-          "text": "Établissement de soins aigus",
+          "text": "Acute Care Facility",
           "meaning": "GENEPIO:0100203",
           "is_a": "Healthcare Setting",
           "title": "Établissement de soins aigus"
         },
         "Clinic": {
-          "text": "Clinique",
+          "text": "Clinic",
           "meaning": "GENEPIO:0100204",
           "is_a": "Healthcare Setting",
           "title": "Clinique"
         },
         "Community Healthcare (At-Home) Setting": {
-          "text": "Établissement de soins de santé communautaire (à domicile)",
+          "text": "Community Healthcare (At-Home) Setting",
           "meaning": "GENEPIO:0100415",
           "is_a": "Healthcare Setting",
           "title": "Établissement de soins de santé communautaire (à domicile)"
         },
         "Community Health Centre": {
-          "text": "Centre de santé communautaire",
+          "text": "Community Health Centre",
           "meaning": "GENEPIO:0100205",
           "is_a": "Healthcare Setting",
           "title": "Centre de santé communautaire"
         },
         "Hospital": {
-          "text": "Hôpital",
+          "text": "Hospital",
           "meaning": "ECTO:1000035",
           "is_a": "Healthcare Setting",
           "title": "Hôpital"
         },
         "Emergency Department": {
-          "text": "Service des urgences",
+          "text": "Emergency Department",
           "meaning": "GENEPIO:0100206",
           "is_a": "Hospital",
           "title": "Service des urgences"
@@ -3889,115 +3889,115 @@
           "title": "ICU"
         },
         "Ward": {
-          "text": "Salle",
+          "text": "Ward",
           "meaning": "GENEPIO:0100208",
           "is_a": "Hospital",
           "title": "Salle"
         },
         "Laboratory": {
-          "text": "Laboratoire",
+          "text": "Laboratory",
           "meaning": "ECTO:1000036",
           "is_a": "Healthcare Setting",
           "title": "Laboratoire"
         },
         "Long-Term Care Facility": {
-          "text": "Établissement de soins de longue durée",
+          "text": "Long-Term Care Facility",
           "meaning": "GENEPIO:0100209",
           "is_a": "Healthcare Setting",
           "title": "Établissement de soins de longue durée"
         },
         "Pharmacy": {
-          "text": "Pharmacie",
+          "text": "Pharmacy",
           "meaning": "GENEPIO:0100210",
           "is_a": "Healthcare Setting",
           "title": "Pharmacie"
         },
         "Physician's Office": {
-          "text": "Cabinet du médecin",
+          "text": "Physician's Office",
           "meaning": "GENEPIO:0100211",
           "is_a": "Healthcare Setting",
           "title": "Cabinet du médecin"
         },
         "Household": {
-          "text": "Ménage",
+          "text": "Household",
           "meaning": "GENEPIO:0100212",
           "is_a": "Occupational, Residency or Patronage Exposure",
           "title": "Ménage"
         },
         "Insecure Housing (Homeless)": {
-          "text": "Logement précaire (sans-abri)",
+          "text": "Insecure Housing (Homeless)",
           "meaning": "GENEPIO:0100213",
           "is_a": "Occupational, Residency or Patronage Exposure",
           "title": "Logement précaire (sans-abri)"
         },
         "Occupational Exposure": {
-          "text": "Exposition professionnelle",
+          "text": "Occupational Exposure",
           "meaning": "GENEPIO:0100214",
           "is_a": "Occupational, Residency or Patronage Exposure",
           "title": "Exposition professionnelle"
         },
         "Worksite": {
-          "text": "Chantier",
+          "text": "Worksite",
           "meaning": "GENEPIO:0100215",
           "is_a": "Occupational Exposure",
           "title": "Chantier"
         },
         "Office": {
-          "text": "Bureau",
+          "text": "Office",
           "meaning": "ECTO:1000037",
           "is_a": "Worksite",
           "title": "Bureau"
         },
         "Outdoors": {
-          "text": "En plein air",
+          "text": "Outdoors",
           "meaning": "GENEPIO:0100216",
           "is_a": "Occupational, Residency or Patronage Exposure",
           "title": "En plein air"
         },
         "Camp/camping": {
-          "text": "Camper/camper",
+          "text": "Camp/camping",
           "meaning": "ECTO:5000009",
           "is_a": "Outdoors",
           "title": "Camper/camper"
         },
         "Hiking Trail": {
-          "text": "Sentier de randonnée",
+          "text": "Hiking Trail",
           "meaning": "GENEPIO:0100217",
           "is_a": "Outdoors",
           "title": "Sentier de randonnée"
         },
         "Hunting Ground": {
-          "text": "Terrain de chasse",
+          "text": "Hunting Ground",
           "meaning": "ECTO:6000030",
           "is_a": "Outdoors",
           "title": "Terrain de chasse"
         },
         "Ski Resort": {
-          "text": "Station de ski",
+          "text": "Ski Resort",
           "meaning": "GENEPIO:0100218",
           "is_a": "Outdoors",
           "title": "Station de ski"
         },
         "Petting zoo": {
-          "text": "Zoo pour enfants",
+          "text": "Petting zoo",
           "meaning": "ECTO:5000008",
           "is_a": "Occupational, Residency or Patronage Exposure",
           "title": "Zoo pour enfants"
         },
         "Place of Worship": {
-          "text": "Lieu de culte",
+          "text": "Place of Worship",
           "meaning": "GENEPIO:0100220",
           "is_a": "Occupational, Residency or Patronage Exposure",
           "title": "Lieu de culte"
         },
         "Church": {
-          "text": "Église",
+          "text": "Church",
           "meaning": "GENEPIO:0100221",
           "is_a": "Place of Worship",
           "title": "Église"
         },
         "Mosque": {
-          "text": "Mosquée",
+          "text": "Mosque",
           "meaning": "GENEPIO:0100222",
           "is_a": "Place of Worship",
           "title": "Mosquée"
@@ -4015,78 +4015,78 @@
           "title": "Restaurant"
         },
         "Retail Store": {
-          "text": "Magasin de détail",
+          "text": "Retail Store",
           "meaning": "ECTO:1000041",
           "is_a": "Occupational, Residency or Patronage Exposure",
           "title": "Magasin de détail"
         },
         "School": {
-          "text": "École",
+          "text": "School",
           "meaning": "GENEPIO:0100224",
           "is_a": "Occupational, Residency or Patronage Exposure",
           "title": "École"
         },
         "Temporary Residence": {
-          "text": "Résidence temporaire",
+          "text": "Temporary Residence",
           "meaning": "GENEPIO:0100225",
           "is_a": "Occupational, Residency or Patronage Exposure",
           "title": "Résidence temporaire"
         },
         "Homeless Shelter": {
-          "text": "Refuge pour sans-abri",
+          "text": "Homeless Shelter",
           "meaning": "GENEPIO:0100226",
           "is_a": "Temporary Residence",
           "title": "Refuge pour sans-abri"
         },
         "Hotel": {
-          "text": "Hôtel",
+          "text": "Hotel",
           "meaning": "GENEPIO:0100227",
           "is_a": "Temporary Residence",
           "title": "Hôtel"
         },
         "Veterinary Care Clinic": {
-          "text": "Clinique vétérinaire",
+          "text": "Veterinary Care Clinic",
           "meaning": "GENEPIO:0100228",
           "is_a": "Occupational, Residency or Patronage Exposure",
           "title": "Clinique vétérinaire"
         },
         "Travel Exposure": {
-          "text": "Exposition au voyage",
+          "text": "Travel Exposure",
           "meaning": "GENEPIO:0100229",
           "title": "Exposition au voyage"
         },
         "Travelled on a Cruise Ship": {
-          "text": "Voyage sur un bateau de croisière",
+          "text": "Travelled on a Cruise Ship",
           "meaning": "GENEPIO:0100230",
           "is_a": "Travel Exposure",
           "title": "Voyage sur un bateau de croisière"
         },
         "Travelled on a Plane": {
-          "text": "Voyage en avion",
+          "text": "Travelled on a Plane",
           "meaning": "GENEPIO:0100231",
           "is_a": "Travel Exposure",
           "title": "Voyage en avion"
         },
         "Travelled on Ground Transport": {
-          "text": "Transport terrestre",
+          "text": "Travelled on Ground Transport",
           "meaning": "GENEPIO:0100232",
           "is_a": "Travel Exposure",
           "title": "Transport terrestre"
         },
         "Travelled outside Province/Territory": {
-          "text": "Voyage en dehors de la province ou du territoire",
+          "text": "Travelled outside Province/Territory",
           "meaning": "GENEPIO:0001118",
           "is_a": "Travel Exposure",
           "title": "Voyage en dehors de la province ou du territoire"
         },
         "Travelled outside Canada": {
-          "text": "Voyage en dehors du Canada",
+          "text": "Travelled outside Canada",
           "meaning": "GENEPIO:0001119",
           "is_a": "Travel Exposure",
           "title": "Voyage en dehors du Canada"
         },
         "Other Exposure Setting": {
-          "text": "Autres réglages d'exposition",
+          "text": "Other Exposure Setting",
           "meaning": "GENEPIO:0100235",
           "title": "Autres réglages d'exposition"
         }
@@ -4103,7 +4103,7 @@
           "title": "Air"
         },
         "Land": {
-          "text": "Atterrir",
+          "text": "Land",
           "meaning": "GENEPIO:0100409",
           "title": "Atterrir"
         }
@@ -4115,17 +4115,17 @@
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "day 1": {
-          "text": "jour 1",
+          "text": "day 1",
           "meaning": "GENEPIO:0100410",
           "title": "jour 1"
         },
         "day 8": {
-          "text": "jour 8",
+          "text": "day 8",
           "meaning": "GENEPIO:0100411",
           "title": "jour 8"
         },
         "day 10": {
-          "text": "jour 10",
+          "text": "day 10",
           "meaning": "GENEPIO:0100412",
           "title": "jour 10"
         }
@@ -4137,30 +4137,30 @@
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "Travel history available": {
-          "text": "Historique de voyage disponible",
+          "text": "Travel history available",
           "meaning": "GENEPIO:0100650",
           "title": "Historique de voyage disponible"
         },
         "Domestic travel history available": {
-          "text": "Historique des voyages intérieurs disponible",
+          "text": "Domestic travel history available",
           "meaning": "GENEPIO:0100651",
           "is_a": "Travel history available",
           "title": "Historique des voyages intérieurs disponible"
         },
         "International travel history available": {
-          "text": "Historique des voyages internationaux disponible",
+          "text": "International travel history available",
           "meaning": "GENEPIO:0100652",
           "is_a": "Travel history available",
           "title": "Historique des voyages internationaux disponible"
         },
         "International and domestic travel history available": {
-          "text": "Historique des voyages internationaux et nationaux disponible",
+          "text": "International and domestic travel history available",
           "meaning": "GENEPIO:0100653",
           "is_a": "Travel history available",
           "title": "Historique des voyages internationaux et nationaux disponible"
         },
         "No travel history available": {
-          "text": "Aucun historique de voyage disponible",
+          "text": "No travel history available",
           "meaning": "GENEPIO:0100654",
           "title": "Aucun historique de voyage disponible"
         }
@@ -4449,7 +4449,7 @@
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "E gene (orf4)": {
-          "text": "E gène (orf4)",
+          "text": "E gene (orf4)",
           "meaning": "GENEPIO:0100151",
           "title": "E gène (orf4)",
           "exact_mappings": [
@@ -4458,7 +4458,7 @@
           ]
         },
         "M gene (orf5)": {
-          "text": "M gène (orf5)",
+          "text": "M gene (orf5)",
           "meaning": "GENEPIO:0100152",
           "title": "M gène (orf5)",
           "exact_mappings": [
@@ -4466,7 +4466,7 @@
           ]
         },
         "N gene (orf9)": {
-          "text": "N gène (orf9)",
+          "text": "N gene (orf9)",
           "meaning": "GENEPIO:0100153",
           "title": "N gène (orf9)",
           "exact_mappings": [
@@ -4474,7 +4474,7 @@
           ]
         },
         "Spike gene (orf2)": {
-          "text": "Spike gène (orf2)",
+          "text": "Spike gene (orf2)",
           "meaning": "GENEPIO:0100154",
           "title": "Spike gène (orf2)",
           "exact_mappings": [
@@ -4598,7 +4598,7 @@
           ]
         },
         "RdRp gene (nsp12)": {
-          "text": "RdRp gène (nsp12)",
+          "text": "RdRp gene (nsp12)",
           "meaning": "GENEPIO:0100168",
           "is_a": "orf1ab (rep)",
           "title": "RdRp gène (nsp12)",
@@ -4607,7 +4607,7 @@
           ]
         },
         "hel gene (nsp13)": {
-          "text": "hel gène (nsp13)",
+          "text": "hel gene (nsp13)",
           "meaning": "GENEPIO:0100169",
           "is_a": "orf1ab (rep)",
           "title": "hel gène (nsp13)",
@@ -4616,7 +4616,7 @@
           ]
         },
         "exoN gene (nsp14)": {
-          "text": "exoN gène (nsp14)",
+          "text": "exoN gene (nsp14)",
           "meaning": "GENEPIO:0100170",
           "is_a": "orf1ab (rep)",
           "title": "exoN gène (nsp14)",
@@ -4998,22 +4998,22 @@
           "title": "Afghanistan"
         },
         "Albania": {
-          "text": "Albanie",
+          "text": "Albania",
           "meaning": "GAZ:00002953",
           "title": "Albanie"
         },
         "Algeria": {
-          "text": "Algérie",
+          "text": "Algeria",
           "meaning": "GAZ:00000563",
           "title": "Algérie"
         },
         "American Samoa": {
-          "text": "Samoa américaines",
+          "text": "American Samoa",
           "meaning": "GAZ:00003957",
           "title": "Samoa américaines"
         },
         "Andorra": {
-          "text": "Andorre",
+          "text": "Andorra",
           "meaning": "GAZ:00002948",
           "title": "Andorre"
         },
@@ -5028,22 +5028,22 @@
           "title": "Anguilla"
         },
         "Antarctica": {
-          "text": "Antarctique",
+          "text": "Antarctica",
           "meaning": "GAZ:00000462",
           "title": "Antarctique"
         },
         "Antigua and Barbuda": {
-          "text": "Antigua-et-Barbuda",
+          "text": "Antigua and Barbuda",
           "meaning": "GAZ:00006883",
           "title": "Antigua-et-Barbuda"
         },
         "Argentina": {
-          "text": "Argentine",
+          "text": "Argentina",
           "meaning": "GAZ:00002928",
           "title": "Argentine"
         },
         "Armenia": {
-          "text": "Arménie",
+          "text": "Armenia",
           "meaning": "GAZ:00004094",
           "title": "Arménie"
         },
@@ -5053,22 +5053,22 @@
           "title": "Aruba"
         },
         "Ashmore and Cartier Islands": {
-          "text": "Îles Ashmore et Cartier",
+          "text": "Ashmore and Cartier Islands",
           "meaning": "GAZ:00005901",
           "title": "Îles Ashmore et Cartier"
         },
         "Australia": {
-          "text": "Australie",
+          "text": "Australia",
           "meaning": "GAZ:00000463",
           "title": "Australie"
         },
         "Austria": {
-          "text": "L'Autriche",
+          "text": "Austria",
           "meaning": "GAZ:00002942",
           "title": "L'Autriche"
         },
         "Azerbaijan": {
-          "text": "Azerbaïdjan",
+          "text": "Azerbaijan",
           "meaning": "GAZ:00004941",
           "title": "Azerbaïdjan"
         },
@@ -5078,12 +5078,12 @@
           "title": "Bahamas"
         },
         "Bahrain": {
-          "text": "Bahreïn",
+          "text": "Bahrain",
           "meaning": "GAZ:00005281",
           "title": "Bahreïn"
         },
         "Baker Island": {
-          "text": "Île Boulanger",
+          "text": "Baker Island",
           "meaning": "GAZ:00007117",
           "title": "Île Boulanger"
         },
@@ -5093,57 +5093,57 @@
           "title": "Bangladesh"
         },
         "Barbados": {
-          "text": "Barbade",
+          "text": "Barbados",
           "meaning": "GAZ:00001251",
           "title": "Barbade"
         },
         "Bassas da India": {
-          "text": "Bassas de l'Inde",
+          "text": "Bassas da India",
           "meaning": "GAZ:00005810",
           "title": "Bassas de l'Inde"
         },
         "Belarus": {
-          "text": "Biélorussie",
+          "text": "Belarus",
           "meaning": "GAZ:00006886",
           "title": "Biélorussie"
         },
         "Belgium": {
-          "text": "Belgique",
+          "text": "Belgium",
           "meaning": "GAZ:00002938",
           "title": "Belgique"
         },
         "Belize": {
-          "text": "Bélize",
+          "text": "Belize",
           "meaning": "GAZ:00002934",
           "title": "Bélize"
         },
         "Benin": {
-          "text": "Bénin",
+          "text": "Benin",
           "meaning": "GAZ:00000904",
           "title": "Bénin"
         },
         "Bermuda": {
-          "text": "Bermudes",
+          "text": "Bermuda",
           "meaning": "GAZ:00001264",
           "title": "Bermudes"
         },
         "Bhutan": {
-          "text": "Bhoutan",
+          "text": "Bhutan",
           "meaning": "GAZ:00003920",
           "title": "Bhoutan"
         },
         "Bolivia": {
-          "text": "Bolivie",
+          "text": "Bolivia",
           "meaning": "GAZ:00002511",
           "title": "Bolivie"
         },
         "Borneo": {
-          "text": "Bornéo",
+          "text": "Borneo",
           "meaning": "GAZ:00025355",
           "title": "Bornéo"
         },
         "Bosnia and Herzegovina": {
-          "text": "Bosnie Herzégovine",
+          "text": "Bosnia and Herzegovina",
           "meaning": "GAZ:00006887",
           "title": "Bosnie Herzégovine"
         },
@@ -5153,27 +5153,27 @@
           "title": "Botswana"
         },
         "Bouvet Island": {
-          "text": "Île Bouvet",
+          "text": "Bouvet Island",
           "meaning": "GAZ:00001453",
           "title": "Île Bouvet"
         },
         "Brazil": {
-          "text": "Brésil",
+          "text": "Brazil",
           "meaning": "GAZ:00002828",
           "title": "Brésil"
         },
         "British Virgin Islands": {
-          "text": "Îles Vierges britanniques",
+          "text": "British Virgin Islands",
           "meaning": "GAZ:00003961",
           "title": "Îles Vierges britanniques"
         },
         "Brunei": {
-          "text": "Brunéi",
+          "text": "Brunei",
           "meaning": "GAZ:00003901",
           "title": "Brunéi"
         },
         "Bulgaria": {
-          "text": "Bulgarie",
+          "text": "Bulgaria",
           "meaning": "GAZ:00002950",
           "title": "Bulgarie"
         },
@@ -5188,12 +5188,12 @@
           "title": "Burundi"
         },
         "Cambodia": {
-          "text": "Cambodge",
+          "text": "Cambodia",
           "meaning": "GAZ:00006888",
           "title": "Cambodge"
         },
         "Cameroon": {
-          "text": "Cameroun",
+          "text": "Cameroon",
           "meaning": "GAZ:00001093",
           "title": "Cameroun"
         },
@@ -5203,67 +5203,67 @@
           "title": "Canada"
         },
         "Cape Verde": {
-          "text": "Cap-Vert",
+          "text": "Cape Verde",
           "meaning": "GAZ:00001227",
           "title": "Cap-Vert"
         },
         "Cayman Islands": {
-          "text": "Îles Caïmans",
+          "text": "Cayman Islands",
           "meaning": "GAZ:00003986",
           "title": "Îles Caïmans"
         },
         "Central African Republic": {
-          "text": "République centrafricaine",
+          "text": "Central African Republic",
           "meaning": "GAZ:00001089",
           "title": "République centrafricaine"
         },
         "Chad": {
-          "text": "Tchad",
+          "text": "Chad",
           "meaning": "GAZ:00000586",
           "title": "Tchad"
         },
         "Chile": {
-          "text": "Chili",
+          "text": "Chile",
           "meaning": "GAZ:00002825",
           "title": "Chili"
         },
         "China": {
-          "text": "Chine",
+          "text": "China",
           "meaning": "GAZ:00002845",
           "title": "Chine"
         },
         "Christmas Island": {
-          "text": "L'île de noël",
+          "text": "Christmas Island",
           "meaning": "GAZ:00005915",
           "title": "L'île de noël"
         },
         "Clipperton Island": {
-          "text": "Île Clipperton",
+          "text": "Clipperton Island",
           "meaning": "GAZ:00005838",
           "title": "Île Clipperton"
         },
         "Cocos Islands": {
-          "text": "Îles Cocos",
+          "text": "Cocos Islands",
           "meaning": "GAZ:00009721",
           "title": "Îles Cocos"
         },
         "Colombia": {
-          "text": "Colombie",
+          "text": "Colombia",
           "meaning": "GAZ:00002929",
           "title": "Colombie"
         },
         "Comoros": {
-          "text": "Comores",
+          "text": "Comoros",
           "meaning": "GAZ:00005820",
           "title": "Comores"
         },
         "Cook Islands": {
-          "text": "les Îles Cook",
+          "text": "Cook Islands",
           "meaning": "GAZ:00053798",
           "title": "les Îles Cook"
         },
         "Coral Sea Islands": {
-          "text": "Îles de la mer de Corail",
+          "text": "Coral Sea Islands",
           "meaning": "GAZ:00005917",
           "title": "Îles de la mer de Corail"
         },
@@ -5273,12 +5273,12 @@
           "title": "Costa Rica"
         },
         "Cote d'Ivoire": {
-          "text": "Côte d'Ivoire",
+          "text": "Cote d'Ivoire",
           "meaning": "GAZ:00000906",
           "title": "Côte d'Ivoire"
         },
         "Croatia": {
-          "text": "Croatie",
+          "text": "Croatia",
           "meaning": "GAZ:00002719",
           "title": "Croatie"
         },
@@ -5293,22 +5293,22 @@
           "title": "Curacao"
         },
         "Cyprus": {
-          "text": "Chypre",
+          "text": "Cyprus",
           "meaning": "GAZ:00004006",
           "title": "Chypre"
         },
         "Czech Republic": {
-          "text": "République tchèque",
+          "text": "Czech Republic",
           "meaning": "GAZ:00002954",
           "title": "République tchèque"
         },
         "Democratic Republic of the Congo": {
-          "text": "République Démocratique du Congo",
+          "text": "Democratic Republic of the Congo",
           "meaning": "GAZ:00001086",
           "title": "République Démocratique du Congo"
         },
         "Denmark": {
-          "text": "Danemark",
+          "text": "Denmark",
           "meaning": "GAZ:00005852",
           "title": "Danemark"
         },
@@ -5318,42 +5318,42 @@
           "title": "Djibouti"
         },
         "Dominica": {
-          "text": "Dominique",
+          "text": "Dominica",
           "meaning": "GAZ:00006890",
           "title": "Dominique"
         },
         "Dominican Republic": {
-          "text": "République dominicaine",
+          "text": "Dominican Republic",
           "meaning": "GAZ:00003952",
           "title": "République dominicaine"
         },
         "Ecuador": {
-          "text": "Équateur",
+          "text": "Ecuador",
           "meaning": "GAZ:00002912",
           "title": "Équateur"
         },
         "Egypt": {
-          "text": "Egypte",
+          "text": "Egypt",
           "meaning": "GAZ:00003934",
           "title": "Egypte"
         },
         "El Salvador": {
-          "text": "Le Salvador",
+          "text": "El Salvador",
           "meaning": "GAZ:00002935",
           "title": "Le Salvador"
         },
         "Equatorial Guinea": {
-          "text": "Guinée Équatoriale",
+          "text": "Equatorial Guinea",
           "meaning": "GAZ:00001091",
           "title": "Guinée Équatoriale"
         },
         "Eritrea": {
-          "text": "Érythrée",
+          "text": "Eritrea",
           "meaning": "GAZ:00000581",
           "title": "Érythrée"
         },
         "Estonia": {
-          "text": "Estonie",
+          "text": "Estonia",
           "meaning": "GAZ:00002959",
           "title": "Estonie"
         },
@@ -5363,32 +5363,32 @@
           "title": "Eswatini"
         },
         "Ethiopia": {
-          "text": "Ethiopie",
+          "text": "Ethiopia",
           "meaning": "GAZ:00000567",
           "title": "Ethiopie"
         },
         "Europa Island": {
-          "text": "Île d'Europe",
+          "text": "Europa Island",
           "meaning": "GAZ:00005811",
           "title": "Île d'Europe"
         },
         "Falkland Islands (Islas Malvinas)": {
-          "text": "Îles Falkland (Islas Malvinas)",
+          "text": "Falkland Islands (Islas Malvinas)",
           "meaning": "GAZ:00001412",
           "title": "Îles Falkland (Islas Malvinas)"
         },
         "Faroe Islands": {
-          "text": "Îles Féroé",
+          "text": "Faroe Islands",
           "meaning": "GAZ:00059206",
           "title": "Îles Féroé"
         },
         "Fiji": {
-          "text": "Fidji",
+          "text": "Fiji",
           "meaning": "GAZ:00006891",
           "title": "Fidji"
         },
         "Finland": {
-          "text": "Finlande",
+          "text": "Finland",
           "meaning": "GAZ:00002937",
           "title": "Finlande"
         },
@@ -5398,17 +5398,17 @@
           "title": "France"
         },
         "French Guiana": {
-          "text": "Guyane Française",
+          "text": "French Guiana",
           "meaning": "GAZ:00002516",
           "title": "Guyane Française"
         },
         "French Polynesia": {
-          "text": "Polynésie française",
+          "text": "French Polynesia",
           "meaning": "GAZ:00002918",
           "title": "Polynésie française"
         },
         "French Southern and Antarctic Lands": {
-          "text": "Terres australes et antarctiques françaises",
+          "text": "French Southern and Antarctic Lands",
           "meaning": "GAZ:00003753",
           "title": "Terres australes et antarctiques françaises"
         },
@@ -5418,22 +5418,22 @@
           "title": "Gabon"
         },
         "Gambia": {
-          "text": "Gambie",
+          "text": "Gambia",
           "meaning": "GAZ:00000907",
           "title": "Gambie"
         },
         "Gaza Strip": {
-          "text": "bande de Gaza",
+          "text": "Gaza Strip",
           "meaning": "GAZ:00009571",
           "title": "bande de Gaza"
         },
         "Georgia": {
-          "text": "Géorgie",
+          "text": "Georgia",
           "meaning": "GAZ:00004942",
           "title": "Géorgie"
         },
         "Germany": {
-          "text": "Allemagne",
+          "text": "Germany",
           "meaning": "GAZ:00002646",
           "title": "Allemagne"
         },
@@ -5448,22 +5448,22 @@
           "title": "Gibraltar"
         },
         "Glorioso Islands": {
-          "text": "Îles Glorieuses",
+          "text": "Glorioso Islands",
           "meaning": "GAZ:00005808",
           "title": "Îles Glorieuses"
         },
         "Greece": {
-          "text": "Grèce",
+          "text": "Greece",
           "meaning": "GAZ:00002945",
           "title": "Grèce"
         },
         "Greenland": {
-          "text": "Groenland",
+          "text": "Greenland",
           "meaning": "GAZ:00001507",
           "title": "Groenland"
         },
         "Grenada": {
-          "text": "Grenade",
+          "text": "Grenada",
           "meaning": "GAZ:02000573",
           "title": "Grenade"
         },
@@ -5483,32 +5483,32 @@
           "title": "Guatemala"
         },
         "Guernsey": {
-          "text": "Guernesey",
+          "text": "Guernsey",
           "meaning": "GAZ:00001550",
           "title": "Guernesey"
         },
         "Guinea": {
-          "text": "Guinée",
+          "text": "Guinea",
           "meaning": "GAZ:00000909",
           "title": "Guinée"
         },
         "Guinea-Bissau": {
-          "text": "Guinée-Bissau",
+          "text": "Guinea-Bissau",
           "meaning": "GAZ:00000910",
           "title": "Guinée-Bissau"
         },
         "Guyana": {
-          "text": "Guyane",
+          "text": "Guyana",
           "meaning": "GAZ:00002522",
           "title": "Guyane"
         },
         "Haiti": {
-          "text": "Haïti",
+          "text": "Haiti",
           "meaning": "GAZ:00003953",
           "title": "Haïti"
         },
         "Heard Island and McDonald Islands": {
-          "text": "Île Heard et îles McDonald",
+          "text": "Heard Island and McDonald Islands",
           "meaning": "GAZ:00009718",
           "title": "Île Heard et îles McDonald"
         },
@@ -5523,62 +5523,62 @@
           "title": "Hong Kong"
         },
         "Howland Island": {
-          "text": "Île Howland",
+          "text": "Howland Island",
           "meaning": "GAZ:00007120",
           "title": "Île Howland"
         },
         "Hungary": {
-          "text": "Hongrie",
+          "text": "Hungary",
           "meaning": "GAZ:00002952",
           "title": "Hongrie"
         },
         "Iceland": {
-          "text": "Islande",
+          "text": "Iceland",
           "meaning": "GAZ:00000843",
           "title": "Islande"
         },
         "India": {
-          "text": "Inde",
+          "text": "India",
           "meaning": "GAZ:00002839",
           "title": "Inde"
         },
         "Indonesia": {
-          "text": "Indonésie",
+          "text": "Indonesia",
           "meaning": "GAZ:00003727",
           "title": "Indonésie"
         },
         "Iran": {
-          "text": "L'Iran",
+          "text": "Iran",
           "meaning": "GAZ:00004474",
           "title": "L'Iran"
         },
         "Iraq": {
-          "text": "Irak",
+          "text": "Iraq",
           "meaning": "GAZ:00004483",
           "title": "Irak"
         },
         "Ireland": {
-          "text": "Irlande",
+          "text": "Ireland",
           "meaning": "GAZ:00002943",
           "title": "Irlande"
         },
         "Isle of Man": {
-          "text": "île de Man",
+          "text": "Isle of Man",
           "meaning": "GAZ:00052477",
           "title": "île de Man"
         },
         "Israel": {
-          "text": "Israël",
+          "text": "Israel",
           "meaning": "GAZ:00002476",
           "title": "Israël"
         },
         "Italy": {
-          "text": "Italie",
+          "text": "Italy",
           "meaning": "GAZ:00002650",
           "title": "Italie"
         },
         "Jamaica": {
-          "text": "Jamaïque",
+          "text": "Jamaica",
           "meaning": "GAZ:00003781",
           "title": "Jamaïque"
         },
@@ -5588,12 +5588,12 @@
           "title": "Jan Mayen"
         },
         "Japan": {
-          "text": "Japon",
+          "text": "Japan",
           "meaning": "GAZ:00002747",
           "title": "Japon"
         },
         "Jarvis Island": {
-          "text": "Île Jarvis",
+          "text": "Jarvis Island",
           "meaning": "GAZ:00007118",
           "title": "Île Jarvis"
         },
@@ -5603,7 +5603,7 @@
           "title": "Jersey"
         },
         "Johnston Atoll": {
-          "text": "Atoll Johnston",
+          "text": "Johnston Atoll",
           "meaning": "GAZ:00007114",
           "title": "Atoll Johnston"
         },
@@ -5613,7 +5613,7 @@
           "title": "Jordan"
         },
         "Juan de Nova Island": {
-          "text": "Île Juan de Nova",
+          "text": "Juan de Nova Island",
           "meaning": "GAZ:00005809",
           "title": "Île Juan de Nova"
         },
@@ -5628,12 +5628,12 @@
           "title": "Kenya"
         },
         "Kerguelen Archipelago": {
-          "text": "Archipel des Kerguelen",
+          "text": "Kerguelen Archipelago",
           "meaning": "GAZ:00005682",
           "title": "Archipel des Kerguelen"
         },
         "Kingman Reef": {
-          "text": "Récif Kingman",
+          "text": "Kingman Reef",
           "meaning": "GAZ:00007116",
           "title": "Récif Kingman"
         },
@@ -5648,12 +5648,12 @@
           "title": "Kosovo"
         },
         "Kuwait": {
-          "text": "Koweit",
+          "text": "Kuwait",
           "meaning": "GAZ:00005285",
           "title": "Koweit"
         },
         "Kyrgyzstan": {
-          "text": "Kirghizistan",
+          "text": "Kyrgyzstan",
           "meaning": "GAZ:00006893",
           "title": "Kirghizistan"
         },
@@ -5663,12 +5663,12 @@
           "title": "Laos"
         },
         "Latvia": {
-          "text": "Lettonie",
+          "text": "Latvia",
           "meaning": "GAZ:00002958",
           "title": "Lettonie"
         },
         "Lebanon": {
-          "text": "Liban",
+          "text": "Lebanon",
           "meaning": "GAZ:00002478",
           "title": "Liban"
         },
@@ -5678,12 +5678,12 @@
           "title": "Lesotho"
         },
         "Liberia": {
-          "text": "Libéria",
+          "text": "Liberia",
           "meaning": "GAZ:00000911",
           "title": "Libéria"
         },
         "Libya": {
-          "text": "Libye",
+          "text": "Libya",
           "meaning": "GAZ:00000566",
           "title": "Libye"
         },
@@ -5693,12 +5693,12 @@
           "title": "Liechtenstein"
         },
         "Line Islands": {
-          "text": "Îles de la Ligne",
+          "text": "Line Islands",
           "meaning": "GAZ:00007144",
           "title": "Îles de la Ligne"
         },
         "Lithuania": {
-          "text": "Lituanie",
+          "text": "Lithuania",
           "meaning": "GAZ:00002960",
           "title": "Lituanie"
         },
@@ -5708,7 +5708,7 @@
           "title": "Luxembourg"
         },
         "Macau": {
-          "text": "Macao",
+          "text": "Macau",
           "meaning": "GAZ:00003202",
           "title": "Macao"
         },
@@ -5723,7 +5723,7 @@
           "title": "Malawi"
         },
         "Malaysia": {
-          "text": "Malaisie",
+          "text": "Malaysia",
           "meaning": "GAZ:00003902",
           "title": "Malaisie"
         },
@@ -5738,12 +5738,12 @@
           "title": "Mali"
         },
         "Malta": {
-          "text": "Malte",
+          "text": "Malta",
           "meaning": "GAZ:00004017",
           "title": "Malte"
         },
         "Marshall Islands": {
-          "text": "Iles Marshall",
+          "text": "Marshall Islands",
           "meaning": "GAZ:00007161",
           "title": "Iles Marshall"
         },
@@ -5753,12 +5753,12 @@
           "title": "Martinique"
         },
         "Mauritania": {
-          "text": "Mauritanie",
+          "text": "Mauritania",
           "meaning": "GAZ:00000583",
           "title": "Mauritanie"
         },
         "Mauritius": {
-          "text": "Maurice",
+          "text": "Mauritius",
           "meaning": "GAZ:00003745",
           "title": "Maurice"
         },
@@ -5768,22 +5768,22 @@
           "title": "Mayotte"
         },
         "Mexico": {
-          "text": "Mexique",
+          "text": "Mexico",
           "meaning": "GAZ:00002852",
           "title": "Mexique"
         },
         "Micronesia": {
-          "text": "Micronésie",
+          "text": "Micronesia",
           "meaning": "GAZ:00005862",
           "title": "Micronésie"
         },
         "Midway Islands": {
-          "text": "Îles Midway",
+          "text": "Midway Islands",
           "meaning": "GAZ:00007112",
           "title": "Îles Midway"
         },
         "Moldova": {
-          "text": "Moldavie",
+          "text": "Moldova",
           "meaning": "GAZ:00003897",
           "title": "Moldavie"
         },
@@ -5793,12 +5793,12 @@
           "title": "Monaco"
         },
         "Mongolia": {
-          "text": "Mongolie",
+          "text": "Mongolia",
           "meaning": "GAZ:00008744",
           "title": "Mongolie"
         },
         "Montenegro": {
-          "text": "Monténégro",
+          "text": "Montenegro",
           "meaning": "GAZ:00006898",
           "title": "Monténégro"
         },
@@ -5808,7 +5808,7 @@
           "title": "Montserrat"
         },
         "Morocco": {
-          "text": "Maroc",
+          "text": "Morocco",
           "meaning": "GAZ:00000565",
           "title": "Maroc"
         },
@@ -5818,12 +5818,12 @@
           "title": "Mozambique"
         },
         "Myanmar": {
-          "text": "Birmanie",
+          "text": "Myanmar",
           "meaning": "GAZ:00006899",
           "title": "Birmanie"
         },
         "Namibia": {
-          "text": "Namibie",
+          "text": "Namibia",
           "meaning": "GAZ:00001096",
           "title": "Namibie"
         },
@@ -5833,27 +5833,27 @@
           "title": "Nauru"
         },
         "Navassa Island": {
-          "text": "Île Navasse",
+          "text": "Navassa Island",
           "meaning": "GAZ:00007119",
           "title": "Île Navasse"
         },
         "Nepal": {
-          "text": "Népal",
+          "text": "Nepal",
           "meaning": "GAZ:00004399",
           "title": "Népal"
         },
         "Netherlands": {
-          "text": "Pays-Bas",
+          "text": "Netherlands",
           "meaning": "GAZ:00002946",
           "title": "Pays-Bas"
         },
         "New Caledonia": {
-          "text": "Nouvelle Calédonie",
+          "text": "New Caledonia",
           "meaning": "GAZ:00005206",
           "title": "Nouvelle Calédonie"
         },
         "New Zealand": {
-          "text": "Nouvelle-Zélande",
+          "text": "New Zealand",
           "meaning": "GAZ:00000469",
           "title": "Nouvelle-Zélande"
         },
@@ -5873,37 +5873,37 @@
           "title": "Nigeria"
         },
         "Niue": {
-          "text": "Nioué",
+          "text": "Niue",
           "meaning": "GAZ:00006902",
           "title": "Nioué"
         },
         "Norfolk Island": {
-          "text": "l'ile de Norfolk",
+          "text": "Norfolk Island",
           "meaning": "GAZ:00005908",
           "title": "l'ile de Norfolk"
         },
         "North Korea": {
-          "text": "Corée du Nord",
+          "text": "North Korea",
           "meaning": "GAZ:00002801",
           "title": "Corée du Nord"
         },
         "North Macedonia": {
-          "text": "Macédoine du Nord",
+          "text": "North Macedonia",
           "meaning": "GAZ:00006895",
           "title": "Macédoine du Nord"
         },
         "North Sea": {
-          "text": "la mer du Nord",
+          "text": "North Sea",
           "meaning": "GAZ:00002284",
           "title": "la mer du Nord"
         },
         "Northern Mariana Islands": {
-          "text": "Îles Mariannes du Nord",
+          "text": "Northern Mariana Islands",
           "meaning": "GAZ:00003958",
           "title": "Îles Mariannes du Nord"
         },
         "Norway": {
-          "text": "Norvège",
+          "text": "Norway",
           "meaning": "GAZ:00002699",
           "title": "Norvège"
         },
@@ -5918,7 +5918,7 @@
           "title": "Pakistan"
         },
         "Palau": {
-          "text": "Palaos",
+          "text": "Palau",
           "meaning": "GAZ:00006905",
           "title": "Palaos"
         },
@@ -5928,12 +5928,12 @@
           "title": "Panama"
         },
         "Papua New Guinea": {
-          "text": "Papouasie Nouvelle Guinée",
+          "text": "Papua New Guinea",
           "meaning": "GAZ:00003922",
           "title": "Papouasie Nouvelle Guinée"
         },
         "Paracel Islands": {
-          "text": "Iles Paracel",
+          "text": "Paracel Islands",
           "meaning": "GAZ:00010832",
           "title": "Iles Paracel"
         },
@@ -5943,7 +5943,7 @@
           "title": "Paraguay"
         },
         "Peru": {
-          "text": "Pérou",
+          "text": "Peru",
           "meaning": "GAZ:00002932",
           "title": "Pérou"
         },
@@ -5953,22 +5953,22 @@
           "title": "Philippines"
         },
         "Pitcairn Islands": {
-          "text": "Îles Pitcairn",
+          "text": "Pitcairn Islands",
           "meaning": "GAZ:00005867",
           "title": "Îles Pitcairn"
         },
         "Poland": {
-          "text": "Pologne",
+          "text": "Poland",
           "meaning": "GAZ:00002939",
           "title": "Pologne"
         },
         "Portugal": {
-          "text": "le Portugal",
+          "text": "Portugal",
           "meaning": "GAZ:00004126",
           "title": "le Portugal"
         },
         "Puerto Rico": {
-          "text": "Porto Rico",
+          "text": "Puerto Rico",
           "meaning": "GAZ:00006935",
           "title": "Porto Rico"
         },
@@ -5978,27 +5978,27 @@
           "title": "Qatar"
         },
         "Republic of the Congo": {
-          "text": "République du Congo",
+          "text": "Republic of the Congo",
           "meaning": "GAZ:00001088",
           "title": "République du Congo"
         },
         "Reunion": {
-          "text": "Réunion",
+          "text": "Reunion",
           "meaning": "GAZ:00003945",
           "title": "Réunion"
         },
         "Romania": {
-          "text": "Roumanie",
+          "text": "Romania",
           "meaning": "GAZ:00002951",
           "title": "Roumanie"
         },
         "Ross Sea": {
-          "text": "Mer de Ross",
+          "text": "Ross Sea",
           "meaning": "GAZ:00023304",
           "title": "Mer de Ross"
         },
         "Russia": {
-          "text": "Russie",
+          "text": "Russia",
           "meaning": "GAZ:00002721",
           "title": "Russie"
         },
@@ -6008,22 +6008,22 @@
           "title": "Rwanda"
         },
         "Saint Helena": {
-          "text": "Sainte-Hélène",
+          "text": "Saint Helena",
           "meaning": "GAZ:00000849",
           "title": "Sainte-Hélène"
         },
         "Saint Kitts and Nevis": {
-          "text": "Saint-Christophe-et-Niévès",
+          "text": "Saint Kitts and Nevis",
           "meaning": "GAZ:00006906",
           "title": "Saint-Christophe-et-Niévès"
         },
         "Saint Lucia": {
-          "text": "Sainte-Lucie",
+          "text": "Saint Lucia",
           "meaning": "GAZ:00006909",
           "title": "Sainte-Lucie"
         },
         "Saint Pierre and Miquelon": {
-          "text": "Saint-Pierre-et-Miquelon",
+          "text": "Saint Pierre and Miquelon",
           "meaning": "GAZ:00003942",
           "title": "Saint-Pierre-et-Miquelon"
         },
@@ -6033,7 +6033,7 @@
           "title": "Saint Martin"
         },
         "Saint Vincent and the Grenadines": {
-          "text": "Saint-Vincent-et-les-Grenadines",
+          "text": "Saint Vincent and the Grenadines",
           "meaning": "GAZ:02000565",
           "title": "Saint-Vincent-et-les-Grenadines"
         },
@@ -6043,32 +6043,32 @@
           "title": "Samoa"
         },
         "San Marino": {
-          "text": "Saint Marin",
+          "text": "San Marino",
           "meaning": "GAZ:00003102",
           "title": "Saint Marin"
         },
         "Sao Tome and Principe": {
-          "text": "Sao Tomé et Principe",
+          "text": "Sao Tome and Principe",
           "meaning": "GAZ:00006927",
           "title": "Sao Tomé et Principe"
         },
         "Saudi Arabia": {
-          "text": "Arabie Saoudite",
+          "text": "Saudi Arabia",
           "meaning": "GAZ:00005279",
           "title": "Arabie Saoudite"
         },
         "Senegal": {
-          "text": "Sénégal",
+          "text": "Senegal",
           "meaning": "GAZ:00000913",
           "title": "Sénégal"
         },
         "Serbia": {
-          "text": "Serbie",
+          "text": "Serbia",
           "meaning": "GAZ:00002957",
           "title": "Serbie"
         },
         "Seychelles": {
-          "text": "les Seychelles",
+          "text": "Seychelles",
           "meaning": "GAZ:00006922",
           "title": "les Seychelles"
         },
@@ -6078,62 +6078,62 @@
           "title": "Sierra Leone"
         },
         "Singapore": {
-          "text": "Singapour",
+          "text": "Singapore",
           "meaning": "GAZ:00003923",
           "title": "Singapour"
         },
         "Sint Maarten": {
-          "text": "Saint-Martin",
+          "text": "Sint Maarten",
           "meaning": "GAZ:00012579",
           "title": "Saint-Martin"
         },
         "Slovakia": {
-          "text": "Slovaquie",
+          "text": "Slovakia",
           "meaning": "GAZ:00002956",
           "title": "Slovaquie"
         },
         "Slovenia": {
-          "text": "Slovénie",
+          "text": "Slovenia",
           "meaning": "GAZ:00002955",
           "title": "Slovénie"
         },
         "Solomon Islands": {
-          "text": "Les îles Salomon",
+          "text": "Solomon Islands",
           "meaning": "GAZ:00005275",
           "title": "Les îles Salomon"
         },
         "Somalia": {
-          "text": "Somalie",
+          "text": "Somalia",
           "meaning": "GAZ:00001104",
           "title": "Somalie"
         },
         "South Africa": {
-          "text": "Afrique du Sud",
+          "text": "South Africa",
           "meaning": "GAZ:00001094",
           "title": "Afrique du Sud"
         },
         "South Georgia and the South Sandwich Islands": {
-          "text": "Géorgie du Sud et îles Sandwich du Sud",
+          "text": "South Georgia and the South Sandwich Islands",
           "meaning": "GAZ:00003990",
           "title": "Géorgie du Sud et îles Sandwich du Sud"
         },
         "South Korea": {
-          "text": "Corée du Sud",
+          "text": "South Korea",
           "meaning": "GAZ:00002802",
           "title": "Corée du Sud"
         },
         "South Sudan": {
-          "text": "Soudan du sud",
+          "text": "South Sudan",
           "meaning": "GAZ:00233439",
           "title": "Soudan du sud"
         },
         "Spain": {
-          "text": "Espagne",
+          "text": "Spain",
           "meaning": "GAZ:00000591",
           "title": "Espagne"
         },
         "Spratly Islands": {
-          "text": "Îles Spratly",
+          "text": "Spratly Islands",
           "meaning": "GAZ:00010831",
           "title": "Îles Spratly"
         },
@@ -6143,17 +6143,17 @@
           "title": "Sri Lanka"
         },
         "State of Palestine": {
-          "text": "État de Palestine",
+          "text": "State of Palestine",
           "meaning": "GAZ:00002475",
           "title": "État de Palestine"
         },
         "Sudan": {
-          "text": "Soudan",
+          "text": "Sudan",
           "meaning": "GAZ:00000560",
           "title": "Soudan"
         },
         "Suriname": {
-          "text": "Surinam",
+          "text": "Suriname",
           "meaning": "GAZ:00002525",
           "title": "Surinam"
         },
@@ -6168,37 +6168,37 @@
           "title": "Swaziland"
         },
         "Sweden": {
-          "text": "Suède",
+          "text": "Sweden",
           "meaning": "GAZ:00002729",
           "title": "Suède"
         },
         "Switzerland": {
-          "text": "Suisse",
+          "text": "Switzerland",
           "meaning": "GAZ:00002941",
           "title": "Suisse"
         },
         "Syria": {
-          "text": "Syrie",
+          "text": "Syria",
           "meaning": "GAZ:00002474",
           "title": "Syrie"
         },
         "Taiwan": {
-          "text": "Taïwan",
+          "text": "Taiwan",
           "meaning": "GAZ:00005341",
           "title": "Taïwan"
         },
         "Tajikistan": {
-          "text": "Tadjikistan",
+          "text": "Tajikistan",
           "meaning": "GAZ:00006912",
           "title": "Tadjikistan"
         },
         "Tanzania": {
-          "text": "Tanzanie",
+          "text": "Tanzania",
           "meaning": "GAZ:00001103",
           "title": "Tanzanie"
         },
         "Thailand": {
-          "text": "Thaïlande",
+          "text": "Thailand",
           "meaning": "GAZ:00003744",
           "title": "Thaïlande"
         },
@@ -6208,12 +6208,12 @@
           "title": "Timor-Leste"
         },
         "Togo": {
-          "text": "Aller",
+          "text": "Togo",
           "meaning": "GAZ:00000915",
           "title": "Aller"
         },
         "Tokelau": {
-          "text": "Tokélaou",
+          "text": "Tokelau",
           "meaning": "GAZ:00260188",
           "title": "Tokélaou"
         },
@@ -6223,32 +6223,32 @@
           "title": "Tonga"
         },
         "Trinidad and Tobago": {
-          "text": "Trinité-et-Tobago",
+          "text": "Trinidad and Tobago",
           "meaning": "GAZ:00003767",
           "title": "Trinité-et-Tobago"
         },
         "Tromelin Island": {
-          "text": "Île Tromelin",
+          "text": "Tromelin Island",
           "meaning": "GAZ:00005812",
           "title": "Île Tromelin"
         },
         "Tunisia": {
-          "text": "Tunisie",
+          "text": "Tunisia",
           "meaning": "GAZ:00000562",
           "title": "Tunisie"
         },
         "Turkey": {
-          "text": "Turquie",
+          "text": "Turkey",
           "meaning": "GAZ:00000558",
           "title": "Turquie"
         },
         "Turkmenistan": {
-          "text": "Turkménistan",
+          "text": "Turkmenistan",
           "meaning": "GAZ:00005018",
           "title": "Turkménistan"
         },
         "Turks and Caicos Islands": {
-          "text": "îles Turques-et-Caïques",
+          "text": "Turks and Caicos Islands",
           "meaning": "GAZ:00003955",
           "title": "îles Turques-et-Caïques"
         },
@@ -6258,12 +6258,12 @@
           "title": "Tuvalu"
         },
         "United States of America": {
-          "text": "les états-unis d'Amérique",
+          "text": "United States of America",
           "meaning": "GAZ:00002459",
           "title": "les états-unis d'Amérique"
         },
         "Uganda": {
-          "text": "Ouganda",
+          "text": "Uganda",
           "meaning": "GAZ:00001102",
           "title": "Ouganda"
         },
@@ -6273,12 +6273,12 @@
           "title": "Ukraine"
         },
         "United Arab Emirates": {
-          "text": "Emirats Arabes Unis",
+          "text": "United Arab Emirates",
           "meaning": "GAZ:00005282",
           "title": "Emirats Arabes Unis"
         },
         "United Kingdom": {
-          "text": "Royaume-Uni",
+          "text": "United Kingdom",
           "meaning": "GAZ:00002637",
           "title": "Royaume-Uni"
         },
@@ -6288,7 +6288,7 @@
           "title": "Uruguay"
         },
         "Uzbekistan": {
-          "text": "Ouzbékistan",
+          "text": "Uzbekistan",
           "meaning": "GAZ:00004979",
           "title": "Ouzbékistan"
         },
@@ -6308,37 +6308,37 @@
           "title": "Viet Nam"
         },
         "Virgin Islands": {
-          "text": "Les iles vierges",
+          "text": "Virgin Islands",
           "meaning": "GAZ:00003959",
           "title": "Les iles vierges"
         },
         "Wake Island": {
-          "text": "Île de Wake",
+          "text": "Wake Island",
           "meaning": "GAZ:00007111",
           "title": "Île de Wake"
         },
         "Wallis and Futuna": {
-          "text": "Wallis et Futuna",
+          "text": "Wallis and Futuna",
           "meaning": "GAZ:00007191",
           "title": "Wallis et Futuna"
         },
         "West Bank": {
-          "text": "banque de l'Ouest",
+          "text": "West Bank",
           "meaning": "GAZ:00009572",
           "title": "banque de l'Ouest"
         },
         "Western Sahara": {
-          "text": "Sahara occidental",
+          "text": "Western Sahara",
           "meaning": "GAZ:00000564",
           "title": "Sahara occidental"
         },
         "Yemen": {
-          "text": "Yémen",
+          "text": "Yemen",
           "meaning": "GAZ:00005284",
           "title": "Yémen"
         },
         "Zambia": {
-          "text": "Zambie",
+          "text": "Zambia",
           "meaning": "GAZ:00001107",
           "title": "Zambie"
         },
