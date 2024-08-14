@@ -2163,5027 +2163,3899 @@ slots:
     examples:
     - value: DataHarmonizer v1.4.3, CanCOGeN Covid-19 v1.0.0
 enums:
-  umbrella bioproject accession menu:
-    name: umbrella bioproject accession menu
+  UmbrellaBioprojectAccessionMenu:
+    name: UmbrellaBioprojectAccessionMenu
     permissible_values:
       PRJNA623807:
-        text: PRJNA623807
         title: PRJNA623807
+      COVID-19:
+        meaning: MONDO:0100096
+        title: COVID-19
+      day 1:
+        meaning: GENEPIO:0100410
+        title: jour 1
+      day 8:
+        meaning: GENEPIO:0100411
+        title: jour 8
+      day 10:
+        meaning: GENEPIO:0100412
+        title: jour 10
     title: "menu d'adh\xE9sion au bioprojet parapluie"
-  null value menu:
-    name: null value menu
+  NullValueMenu:
+    name: NullValueMenu
     permissible_values:
       Not Applicable:
-        text: Non applicable
         meaning: GENEPIO:0001619
         title: Non applicable
       Missing:
-        text: Manquant
         meaning: GENEPIO:0001618
         title: Manquant
       Not Collected:
-        text: "Non collect\xE9"
         meaning: GENEPIO:0001620
         title: "Non collect\xE9"
       Not Provided:
-        text: Non fourni
         meaning: GENEPIO:0001668
         title: Non fourni
       Restricted Access:
-        text: "Acc\xE8s restreint"
         meaning: GENEPIO:0001810
         title: "Acc\xE8s restreint"
     title: menu de valeur nulle
-  geo_loc_name (state/province/territory) menu:
-    name: geo_loc_name (state/province/territory) menu
+  GeoLocNameStateProvinceTerritoryMenu:
+    name: GeoLocNameStateProvinceTerritoryMenu
     permissible_values:
       Alberta:
-        text: Alberta
         meaning: GAZ:00002566
         title: Alberta
       British Columbia:
-        text: Colombie Britannique
         meaning: GAZ:00002562
         title: Colombie Britannique
       Manitoba:
-        text: Manitoba
         meaning: GAZ:00002571
         title: Manitoba
       New Brunswick:
-        text: Nouveau-Brunswick
         meaning: GAZ:00002570
         title: Nouveau-Brunswick
       Newfoundland and Labrador:
-        text: Terre-Neuve et Labrador
         meaning: GAZ:00002567
         title: Terre-Neuve et Labrador
       Northwest Territories:
-        text: Territoires du Nord-Ouest
         meaning: GAZ:00002575
         title: Territoires du Nord-Ouest
       Nova Scotia:
-        text: "Nouvelle-\xC9cosse"
         meaning: GAZ:00002565
         title: "Nouvelle-\xC9cosse"
       Nunavut:
-        text: Nunavut
         meaning: GAZ:00002574
         title: Nunavut
       Ontario:
-        text: Ontario (en anglais)
         meaning: GAZ:00002563
         title: Ontario (en anglais)
       Prince Edward Island:
-        text: "\xCEle-du-Prince-\xC9douard"
         meaning: GAZ:00002572
         title: "\xCEle-du-Prince-\xC9douard"
       Quebec:
-        text: "Qu\xE9bec"
         meaning: GAZ:00002569
         title: "Qu\xE9bec"
       Saskatchewan:
-        text: Saskatchewan
         meaning: GAZ:00002564
         title: Saskatchewan
       Yukon:
-        text: Yukon
         meaning: GAZ:00002576
         title: Yukon
     title: "menu geo_loc_name (\xE9tat/province/territoire)"
-  host age unit menu:
-    name: host age unit menu
+  HostAgeUnitMenu:
+    name: HostAgeUnitMenu
     permissible_values:
       month:
-        text: mois
         meaning: UO:0000035
         title: mois
       year:
-        text: "ann\xE9e"
         meaning: UO:0000036
         title: "ann\xE9e"
     title: "menu de l'unit\xE9 d'\xE2ge de l'h\xF4te"
-  sample collection date precision menu:
-    name: sample collection date precision menu
+  SampleCollectionDatePrecisionMenu:
+    name: SampleCollectionDatePrecisionMenu
     permissible_values:
       year:
-        text: "ann\xE9e"
         meaning: UO:0000036
         title: "ann\xE9e"
       month:
-        text: mois
         meaning: UO:0000035
         title: mois
       day:
-        text: jour
         meaning: UO:0000033
         title: jour
     title: "menu de pr\xE9cision de la date de pr\xE9l\xE8vement des \xE9chantillons"
-  biomaterial extracted menu:
-    name: biomaterial extracted menu
+  BiomaterialExtractedMenu:
+    name: BiomaterialExtractedMenu
     permissible_values:
       RNA (total):
-        text: RNA (total)
         meaning: OBI:0000895
         title: RNA (total)
       RNA (poly-A):
-        text: RNA (poly-A)
         meaning: OBI:0000869
         title: RNA (poly-A)
       RNA (ribo-depleted):
-        text: RNA (appauvri en ribo)
         meaning: OBI:0002627
         title: RNA (appauvri en ribo)
       mRNA (messenger RNA):
-        text: mRNA (messager RNA)
         meaning: GENEPIO:0100104
         title: mRNA (messager RNA)
       mRNA (cDNA):
-        text: mRNA (cDNA)
         meaning: OBI:0002754
         title: mRNA (cDNA)
     title: "menu extrait des biomat\xE9riaux"
-  signs and symptoms menu:
-    name: signs and symptoms menu
+  SignsAndSymptomsMenu:
+    name: SignsAndSymptomsMenu
     permissible_values:
       Abnormal lung auscultation:
-        text: Auscultation pulmonaire anormale
         meaning: HP:0030829
         title: Auscultation pulmonaire anormale
       Abnormality of taste sensation:
-        text: Anomalie de la sensation gustative
         meaning: HP:0000223
         title: Anomalie de la sensation gustative
       Ageusia (complete loss of taste):
-        text: "Ageusia (perte totale du go\xFBt)"
         meaning: HP:0041051
         is_a: Abnormality of taste sensation
         title: "Ageusia (perte totale du go\xFBt)"
       Parageusia (distorted sense of taste):
-        text: "Parageusie (d\xE9formation du go\xFBt)"
         meaning: HP:0031249
         is_a: Abnormality of taste sensation
         title: "Parageusie (d\xE9formation du go\xFBt)"
       Hypogeusia (reduced sense of taste):
-        text: "Hypogeusie (diminution du sens du go\xFBt)"
         meaning: HP:0000224
         is_a: Abnormality of taste sensation
         title: "Hypogeusie (diminution du sens du go\xFBt)"
       Abnormality of the sense of smell:
-        text: Abnormality of the sense of smell
         meaning: HP:0004408
         title: Abnormality of the sense of smell
       Anosmia (lost sense of smell):
-        text: Anosmie (perte d'odorat)
         meaning: HP:0000458
         is_a: Abnormality of the sense of smell
         title: Anosmie (perte d'odorat)
       Hyposmia (reduced sense of smell):
-        text: Hyposmie (diminution de l'odorat)
         meaning: HP:0004409
         is_a: Abnormality of the sense of smell
         title: Hyposmie (diminution de l'odorat)
       Acute Respiratory Distress Syndrome:
-        text: "Syndrome de d\xE9tresse respiratoire aigu\xEB"
         meaning: HP:0033677
         exact_mappings:
         - CNPHI:ARDS
         title: "Syndrome de d\xE9tresse respiratoire aigu\xEB"
       Altered mental status:
-        text: "Alt\xE9ration de l'\xE9tat mental"
         meaning: HP:0011446
         title: "Alt\xE9ration de l'\xE9tat mental"
       Cognitive impairment:
-        text: Troubles cognitifs
         meaning: HP:0100543
         is_a: Altered mental status
         title: Troubles cognitifs
       Coma:
-        text: Coma
         meaning: HP:0001259
         is_a: Altered mental status
         title: Coma
       Confusion:
-        text: la confusion
         meaning: HP:0001289
         is_a: Altered mental status
         title: la confusion
       Delirium (sudden severe confusion):
-        text: "D\xE9lire (confusion grave et soudaine)"
         meaning: HP:0031258
         is_a: Confusion
         title: "D\xE9lire (confusion grave et soudaine)"
       Inability to arouse (inability to stay awake):
-        text: "Incapacit\xE9 \xE0 se r\xE9veiller (incapacit\xE9 \xE0 rester \xE9\
-          veill\xE9)"
         meaning: GENEPIO:0100061
         is_a: Altered mental status
         title: "Incapacit\xE9 \xE0 se r\xE9veiller (incapacit\xE9 \xE0 rester \xE9\
           veill\xE9)"
       Irritability:
-        text: "Irritabilit\xE9"
         meaning: HP:0000737
         is_a: Altered mental status
         title: "Irritabilit\xE9"
       Loss of speech:
-        text: Perte de la parole
         meaning: HP:0002371
         is_a: Altered mental status
         title: Perte de la parole
       Arrhythmia:
-        text: Arythmie
         meaning: HP:0011675
         title: Arythmie
       Asthenia (generalized weakness):
-        text: "Asth\xE9nie (faiblesse g\xE9n\xE9ralis\xE9e)"
         meaning: HP:0025406
         title: "Asth\xE9nie (faiblesse g\xE9n\xE9ralis\xE9e)"
       Chest tightness or pressure:
-        text: Oppression ou pression thoracique
         meaning: HP:0031352
         title: Oppression ou pression thoracique
       Rigors (fever shakes):
-        text: "Rigidit\xE9 (tremblements de fi\xE8vre)"
         meaning: HP:0025145
         is_a: Chest tightness or pressure
         title: "Rigidit\xE9 (tremblements de fi\xE8vre)"
       Chills (sudden cold sensation):
-        text: Frissons (sensation soudaine de froid)
         meaning: HP:0025143
         exact_mappings:
         - CNPHI:Chills
         title: Frissons (sensation soudaine de froid)
       Conjunctival injection:
-        text: Injection conjonctivale
         meaning: HP:0030953
         title: Injection conjonctivale
       Conjunctivitis (pink eye):
-        text: "Conjonctivite (\u0153il rose)"
         meaning: HP:0000509
         exact_mappings:
         - CNPHI:Conjunctivitis
         title: "Conjonctivite (\u0153il rose)"
       Coryza (rhinitis):
-        text: Coryza (rhinite)
         meaning: MP:0001867
         title: Coryza (rhinite)
       Cough:
-        text: Toux
         meaning: HP:0012735
         title: Toux
       Nonproductive cough (dry cough):
-        text: "Toux non productive (toux s\xE8che)"
         meaning: HP:0031246
         is_a: Cough
         title: "Toux non productive (toux s\xE8che)"
       Productive cough (wet cough):
-        text: Toux productive (toux grasse)
         meaning: HP:0031245
         is_a: Cough
         title: Toux productive (toux grasse)
       Cyanosis (blueish skin discolouration):
-        text: "Cyanose (coloration bleu\xE2tre de la peau)"
         meaning: HP:0000961
         title: "Cyanose (coloration bleu\xE2tre de la peau)"
       Acrocyanosis:
-        text: Acrocyanose
         meaning: HP:0001063
         is_a: Cyanosis (blueish skin discolouration)
         title: Acrocyanose
       Circumoral cyanosis (bluish around mouth):
-        text: "Cyanose circulatoire (bleu\xE2tre autour de la bouche)"
         meaning: HP:0032556
         is_a: Acrocyanosis
         title: "Cyanose circulatoire (bleu\xE2tre autour de la bouche)"
       Cyanotic face (bluish face):
-        text: "Visage cyanos\xE9 (visage bleu\xE2tre)"
         meaning: GENEPIO:0100062
         is_a: Acrocyanosis
         title: "Visage cyanos\xE9 (visage bleu\xE2tre)"
       Central Cyanosis:
-        text: Cyanose centrale
         meaning: GENEPIO:0100063
         is_a: Cyanosis (blueish skin discolouration)
         title: Cyanose centrale
       Cyanotic lips (bluish lips):
-        text: "L\xE8vres cyanos\xE9es (l\xE8vres bleut\xE9es)"
         meaning: GENEPIO:0100064
         is_a: Central Cyanosis
         title: "L\xE8vres cyanos\xE9es (l\xE8vres bleut\xE9es)"
       Peripheral Cyanosis:
-        text: "Cyanose p\xE9riph\xE9rique"
         meaning: GENEPIO:0100065
         is_a: Cyanosis (blueish skin discolouration)
         title: "Cyanose p\xE9riph\xE9rique"
       Dyspnea (breathing difficulty):
-        text: "Dyspn\xE9e (difficult\xE9 \xE0 respirer)"
         meaning: HP:0002094
         title: "Dyspn\xE9e (difficult\xE9 \xE0 respirer)"
       Diarrhea (watery stool):
-        text: "Diarrh\xE9e (selles liquides)"
         meaning: HP:0002014
         exact_mappings:
         - CNPHI:Diarrhea%2C%20watery
         title: "Diarrh\xE9e (selles liquides)"
       Dry gangrene:
-        text: "Gangr\xE8ne s\xE8che"
         meaning: MP:0031127
         title: "Gangr\xE8ne s\xE8che"
       Encephalitis (brain inflammation):
-        text: "Enc\xE9phalite (inflammation du cerveau)"
         meaning: HP:0002383
         exact_mappings:
         - CNPHI:Encephalitis
         title: "Enc\xE9phalite (inflammation du cerveau)"
       Encephalopathy:
-        text: "Enc\xE9phalopathie"
         meaning: HP:0001298
         title: "Enc\xE9phalopathie"
       Fatigue (tiredness):
-        text: Fatigue
         meaning: HP:0012378
         exact_mappings:
         - CNPHI:Fatigue
         title: Fatigue
       Fever:
-        text: "Fi\xE8vre"
         meaning: HP:0001945
         title: "Fi\xE8vre"
       "Fever (>=38\xB0C)":
-        text: "Fi\xE8vre (>=38\xB0C)"
         meaning: GENEPIO:0100066
         exact_mappings:
         - CNPHI:Fever
         is_a: Fever
         title: "Fi\xE8vre (>=38\xB0C)"
       Glossitis (inflammation of the tongue):
-        text: Glossiose (inflammation de la langue)
         meaning: HP:0000206
         title: Glossiose (inflammation de la langue)
       Ground Glass Opacities (GGO):
-        text: "Opacit\xE9s de verre d\xE9poli"
         meaning: GENEPIO:0100067
         title: "Opacit\xE9s de verre d\xE9poli"
       Headache:
-        text: "Maux de t\xEAte"
         meaning: HP:0002315
         title: "Maux de t\xEAte"
       Hemoptysis (coughing up blood):
-        text: "H\xE9moptysie (toux de sang)"
         meaning: HP:0002105
         title: "H\xE9moptysie (toux de sang)"
       Hypocapnia:
-        text: Hypocapnie
         meaning: HP:0012417
         title: Hypocapnie
       Hypotension (low blood pressure):
-        text: "Hypotension (baisse de la tension art\xE9rielle)"
         meaning: HP:0002615
         title: "Hypotension (baisse de la tension art\xE9rielle)"
       Hypoxemia (low blood oxygen):
-        text: "Hypox\xE9mie (manque d'oxyg\xE8ne dans le sang)"
         meaning: HP:0012418
         title: "Hypox\xE9mie (manque d'oxyg\xE8ne dans le sang)"
       Silent hypoxemia:
-        text: "Hypox\xE9mie silencieuse"
         meaning: GENEPIO:0100068
         is_a: Hypoxemia (low blood oxygen)
         title: "Hypox\xE9mie silencieuse"
       Internal hemorrhage (internal bleeding):
-        text: "H\xE9morragie interne (saignement interne)"
         meaning: HP:0011029
         title: "H\xE9morragie interne (saignement interne)"
       Loss of Fine Movements:
-        text: Perte de mouvements fins
         meaning: NCIT:C121416
         title: Perte de mouvements fins
       Low appetite:
-        text: "Manque d'app\xE9tit"
         meaning: HP:0004396
         title: "Manque d'app\xE9tit"
       Malaise (general discomfort/unease):
-        text: "Malaise (malaise g\xE9n\xE9ral)"
         meaning: HP:0033834
         title: "Malaise (malaise g\xE9n\xE9ral)"
       Meningismus/nuchal rigidity:
-        text: "M\xE9ningisme/rigidit\xE9 nucale"
         meaning: HP:0031179
         title: "M\xE9ningisme/rigidit\xE9 nucale"
       Muscle weakness:
-        text: Faiblesse musculaire
         meaning: HP:0001324
         title: Faiblesse musculaire
       Nasal obstruction (stuffy nose):
-        text: "Obstruction nasale (nez bouch\xE9)"
         meaning: HP:0001742
         title: "Obstruction nasale (nez bouch\xE9)"
       Nausea:
-        text: "Naus\xE9es"
         meaning: HP:0002018
         title: "Naus\xE9es"
       Nose bleed:
-        text: Saignement de nez
         meaning: HP:0000421
         title: Saignement de nez
       Otitis:
-        text: Otite
         meaning: GENEPIO:0100069
         title: Otite
       Pain:
-        text: Douleur
         meaning: HP:0012531
         title: Douleur
       Abdominal pain:
-        text: Douleur abdominale
         meaning: HP:0002027
         is_a: Pain
         title: Douleur abdominale
       Arthralgia (painful joints):
-        text: Arthralgie (articulations douloureuses)
         meaning: HP:0002829
         is_a: Pain
         title: Arthralgie (articulations douloureuses)
       Chest pain:
-        text: Douleur thoracique
         meaning: HP:0100749
         is_a: Pain
         title: Douleur thoracique
       Pleuritic chest pain:
-        text: "Douleur thoracique pleur\xE9tique"
         meaning: HP:0033771
         is_a: Chest pain
         title: "Douleur thoracique pleur\xE9tique"
       Myalgia (muscle pain):
-        text: Myalgie (douleur musculaire)
         meaning: HP:0003326
         is_a: Pain
         title: Myalgie (douleur musculaire)
       Pharyngitis (sore throat):
-        text: Pharyngite (mal de gorge)
         meaning: HP:0025439
         title: Pharyngite (mal de gorge)
       Pharyngeal exudate:
-        text: "Exsudat pharyng\xE9"
         meaning: GENEPIO:0100070
         title: "Exsudat pharyng\xE9"
       Pleural effusion:
-        text: "\xC9panchement pleural"
         meaning: HP:0002202
         title: "\xC9panchement pleural"
       Pneumonia:
-        text: Pneumonie
         meaning: HP:0002090
         title: Pneumonie
       Pseudo-chilblains:
-        text: Pseudo-chilblains
         meaning: HP:0033696
         title: Pseudo-chilblains
       Pseudo-chilblains on fingers (covid fingers):
-        text: Pseudo-griffes des doigts (doigts covides)
         meaning: GENEPIO:0100072
         is_a: Pseudo-chilblains
         title: Pseudo-griffes des doigts (doigts covides)
       Pseudo-chilblains on toes (covid toes):
-        text: Pseudo-chilblains sur les orteils (covid toes)
         meaning: GENEPIO:0100073
         is_a: Pseudo-chilblains
         title: Pseudo-chilblains sur les orteils (covid toes)
       Rash:
-        text: "\xC9ruption cutan\xE9e"
         meaning: HP:0000988
         title: "\xC9ruption cutan\xE9e"
       Rhinorrhea (runny nose):
-        text: "Rhinorrh\xE9e (\xE9coulement nasal)"
         meaning: HP:0031417
         title: "Rhinorrh\xE9e (\xE9coulement nasal)"
       Seizure:
-        text: "Crise d'\xE9pilepsie"
         meaning: HP:0001250
         title: "Crise d'\xE9pilepsie"
       Motor seizure:
-        text: Crise motrice
         meaning: HP:0020219
         is_a: Seizure
         title: Crise motrice
       Shivering (involuntary muscle twitching):
-        text: Frissons (contractions musculaires involontaires)
         meaning: HP:0025144
         title: Frissons (contractions musculaires involontaires)
       Slurred speech:
-        text: "Troubles de l'\xE9locution"
         meaning: HP:0001350
         title: "Troubles de l'\xE9locution"
       Sneezing:
-        text: "\xC9ternuement"
         meaning: HP:0025095
         title: "\xC9ternuement"
       Sputum Production:
-        text: Production d'expectorations
         meaning: HP:0033709
         title: Production d'expectorations
       Stroke:
-        text: "Accident vasculaire c\xE9r\xE9bral"
         meaning: HP:0001297
         title: "Accident vasculaire c\xE9r\xE9bral"
       Swollen Lymph Nodes:
-        text: "Ganglions lymphatiques gonfl\xE9s"
         meaning: HP:0002716
         title: "Ganglions lymphatiques gonfl\xE9s"
       Tachypnea (accelerated respiratory rate):
-        text: "Tachypn\xE9e (acc\xE9l\xE9ration de la fr\xE9quence respiratoire)"
         meaning: HP:0002789
         title: "Tachypn\xE9e (acc\xE9l\xE9ration de la fr\xE9quence respiratoire)"
       Vertigo (dizziness):
-        text: "Vertige (\xE9tourdissement)"
         meaning: HP:0002321
         title: "Vertige (\xE9tourdissement)"
       Vomiting (throwing up):
-        text: Vomissements (vomissements)
         meaning: HP:0002013
         title: Vomissements (vomissements)
     title: "menu des signes et sympt\xF4mes"
-  host vaccination status menu:
-    name: host vaccination status menu
+  HostVaccinationStatusMenu:
+    name: HostVaccinationStatusMenu
     permissible_values:
       Fully Vaccinated:
-        text: "Vaccination compl\xE8te"
         meaning: GENEPIO:0100100
         title: "Vaccination compl\xE8te"
       Partially Vaccinated:
-        text: "Partiellement vaccin\xE9"
         meaning: GENEPIO:0100101
         title: "Partiellement vaccin\xE9"
       Not Vaccinated:
-        text: "Non vaccin\xE9"
         meaning: GENEPIO:0100102
         title: "Non vaccin\xE9"
     title: "menu du statut de vaccination de l'h\xF4te"
-  prior SARS-CoV-2 antiviral treatment menu:
-    name: prior SARS-CoV-2 antiviral treatment menu
+  PriorSarsCov2AntiviralTreatmentMenu:
+    name: PriorSarsCov2AntiviralTreatmentMenu
     permissible_values:
       Prior antiviral treatment:
-        text: "Traitement antiviral ant\xE9rieur"
         meaning: GENEPIO:0100037
         title: "Traitement antiviral ant\xE9rieur"
       No prior antiviral treatment:
-        text: "Pas de traitement antiviral ant\xE9rieur"
         meaning: GENEPIO:0100233
         title: "Pas de traitement antiviral ant\xE9rieur"
     title: "menu de traitement antiviral ant\xE9rieur contre le SARS-CoV-2"
-  NML submitted specimen type menu:
-    name: NML submitted specimen type menu
+  NmlSubmittedSpecimenTypeMenu:
+    name: NmlSubmittedSpecimenTypeMenu
     permissible_values:
       Swab:
-        text: "\xC9couvillon"
         meaning: OBI:0002600
         title: "\xC9couvillon"
       RNA:
-        text: RNA
         meaning: OBI:0000880
         title: RNA
       mRNA (cDNA):
-        text: mRNA (cDNA)
         meaning: OBI:0002754
         title: mRNA (cDNA)
       Nucleic acid:
-        text: "Acide nucl\xE9ique"
         meaning: OBI:0001010
         title: "Acide nucl\xE9ique"
       Not Applicable:
-        text: Sans objet
         meaning: GENEPIO:0001619
         title: Sans objet
     title: "Menu des types d'\xE9chantillons soumis au NML"
-  Related specimen relationship type menu:
-    name: Related specimen relationship type menu
+  RelatedSpecimenRelationshipTypeMenu:
+    name: RelatedSpecimenRelationshipTypeMenu
     permissible_values:
       Acute:
-        text: "Infection aigu\xEB"
         meaning: HP:0011009
         title: "Infection aigu\xEB"
       Chronic (prolonged) infection investigation:
-        text: "Enqu\xEAte sur l'infection chronique (prolong\xE9e)"
         meaning: GENEPIO:0101016
         title: "Enqu\xEAte sur l'infection chronique (prolong\xE9e)"
       Convalescent:
-        text: Convalescent
         title: Convalescent
       Familial:
-        text: Familial
         title: Familial
       Follow-up:
-        text: Suivi
         meaning: EFO:0009642
         title: Suivi
       Reinfection testing:
-        text: "Tests de r\xE9infection"
         is_a: Follow-up
         title: "Tests de r\xE9infection"
       Previously Submitted:
-        text: "D\xE9j\xE0 soumis"
         title: "D\xE9j\xE0 soumis"
       Sequencing/bioinformatics methods development/validation:
-        text: "D\xE9veloppement/validation de m\xE9thodes de s\xE9quen\xE7age/bioinformatique"
         title: "D\xE9veloppement/validation de m\xE9thodes de s\xE9quen\xE7age/bioinformatique"
       Specimen sampling methods testing:
-        text: "Test des m\xE9thodes d'\xE9chantillonnage des \xE9chantillons"
         title: "Test des m\xE9thodes d'\xE9chantillonnage des \xE9chantillons"
     title: "Menu des types de relations entre sp\xE9cimens associ\xE9s"
-  pre-existing conditions and risk factors menu:
-    name: pre-existing conditions and risk factors menu
+  PreExistingConditionsAndRiskFactorsMenu:
+    name: PreExistingConditionsAndRiskFactorsMenu
     permissible_values:
       Age 60+:
-        text: 60 ans et plus
         meaning: VO:0004925
         title: 60 ans et plus
       Anemia:
-        text: "An\xE9mie"
         meaning: HP:0001903
         title: "An\xE9mie"
       Anorexia:
-        text: Anorexie
         meaning: HP:0002039
         title: Anorexie
       Birthing labor:
-        text: Travail d'accouchement
         meaning: NCIT:C92743
         title: Travail d'accouchement
       Bone marrow failure:
-        text: Insuffisance de la moelle osseuse
         meaning: NCIT:C80693
         title: Insuffisance de la moelle osseuse
       Cancer:
-        text: Cancer
         meaning: MONDO:0004992
         title: Cancer
       Breast cancer:
-        text: Cancer du sein
         meaning: MONDO:0007254
         is_a: Cancer
         title: Cancer du sein
       Colorectal cancer:
-        text: Cancer colorectal
         meaning: MONDO:0005575
         is_a: Cancer
         title: Cancer colorectal
       Hematologic malignancy (cancer of the blood):
-        text: "H\xE9mopathie maligne (cancer du sang)"
         meaning: DOID:2531
         is_a: Cancer
         title: "H\xE9mopathie maligne (cancer du sang)"
       Lung cancer:
-        text: Cancer du poumon
         meaning: MONDO:0008903
         is_a: Cancer
         title: Cancer du poumon
       Metastatic disease:
-        text: "Maladie m\xE9tastatique"
         meaning: MONDO:0024880
         is_a: Cancer
         title: "Maladie m\xE9tastatique"
       Cancer treatment:
-        text: Traitement du cancer
         meaning: NCIT:C16212
         title: Traitement du cancer
       Cancer surgery:
-        text: Chirurgie du cancer
         meaning: NCIT:C157740
         is_a: Cancer treatment
         title: Chirurgie du cancer
       Chemotherapy:
-        text: "Chimioth\xE9rapie"
         meaning: NCIT:C15632
         is_a: Cancer treatment
         title: "Chimioth\xE9rapie"
       Adjuvant chemotherapy:
-        text: "Chimioth\xE9rapie adjuvante"
         meaning: NCIT:C15360
         is_a: Chemotherapy
         title: "Chimioth\xE9rapie adjuvante"
       Cardiac disorder:
-        text: Troubles cardiaques
         meaning: NCIT:C3079
         title: Troubles cardiaques
       Arrhythmia:
-        text: Arythmie
         meaning: HP:0011675
         is_a: Cardiac disorder
         title: Arythmie
       Cardiac disease:
-        text: Maladie cardiaque
         meaning: MONDO:0005267
         is_a: Cardiac disorder
         title: Maladie cardiaque
       Cardiomyopathy:
-        text: Cardiomyopathie
         meaning: HP:0001638
         is_a: Cardiac disorder
         title: Cardiomyopathie
       Cardiac injury:
-        text: "L\xE9sion cardiaque"
         meaning: GENEPIO:0100074
         is_a: Cardiac disorder
         title: "L\xE9sion cardiaque"
       Hypertension (high blood pressure):
-        text: "Hypertension (pression art\xE9rielle \xE9lev\xE9e)"
         meaning: HP:0000822
         is_a: Cardiac disorder
         title: "Hypertension (pression art\xE9rielle \xE9lev\xE9e)"
       Hypotension (low blood pressure):
-        text: "Hypotension (pression art\xE9rielle basse)"
         meaning: HP:0002615
         is_a: Cardiac disorder
         title: "Hypotension (pression art\xE9rielle basse)"
       Cesarean section:
-        text: "C\xE9sarienne"
         meaning: HP:0011410
         title: "C\xE9sarienne"
       Chronic cough:
-        text: Toux chronique
         meaning: GENEPIO:0100075
         title: Toux chronique
       Chronic gastrointestinal disease:
-        text: Maladie gastro-intestinale chronique
         meaning: GENEPIO:0100076
         title: Maladie gastro-intestinale chronique
       Chronic lung disease:
-        text: Maladie pulmonaire chronique
         meaning: HP:0006528
         is_a: Lung disease
         title: Maladie pulmonaire chronique
       Corticosteroids:
-        text: "Corticost\xE9ro\xEFdes"
         meaning: NCIT:C211
         title: "Corticost\xE9ro\xEFdes"
       Diabetes mellitus (diabetes):
-        text: "Diab\xE8te sucr\xE9 (diab\xE8te)"
         meaning: HP:0000819
         title: "Diab\xE8te sucr\xE9 (diab\xE8te)"
       Type I diabetes mellitus (T1D):
-        text: "Diab\xE8te de type I (T1D)"
         meaning: HP:0100651
         is_a: Diabetes mellitus (diabetes)
         title: "Diab\xE8te de type I (T1D)"
       Type II diabetes mellitus (T2D):
-        text: "Diab\xE8te sucr\xE9 de type II (T2D)"
         meaning: HP:0005978
         is_a: Diabetes mellitus (diabetes)
         title: "Diab\xE8te sucr\xE9 de type II (T2D)"
       Eczema:
-        text: "Ecz\xE9ma"
         meaning: HP:0000964
         title: "Ecz\xE9ma"
       Electrolyte disturbance:
-        text: "Perturbation de l'\xE9quilibre \xE9lectrolytique"
         meaning: HP:0003111
         title: "Perturbation de l'\xE9quilibre \xE9lectrolytique"
       Hypocalcemia:
-        text: "Hypocalc\xE9mie"
         meaning: HP:0002901
         is_a: Electrolyte disturbance
         title: "Hypocalc\xE9mie"
       Hypokalemia:
-        text: "Hypokali\xE9mie"
         meaning: HP:0002900
         is_a: Electrolyte disturbance
         title: "Hypokali\xE9mie"
       Hypomagnesemia:
-        text: "Hypomagn\xE9s\xE9mie"
         meaning: HP:0002917
         is_a: Electrolyte disturbance
         title: "Hypomagn\xE9s\xE9mie"
       Encephalitis (brain inflammation):
-        text: "Enc\xE9phalite (inflammation du cerveau)"
         meaning: HP:0002383
         title: "Enc\xE9phalite (inflammation du cerveau)"
       Epilepsy:
-        text: Epilepsie
         meaning: MONDO:0005027
         title: Epilepsie
       Hemodialysis:
-        text: "H\xE9modialyse"
         meaning: NCIT:C15248
         title: "H\xE9modialyse"
       Hemoglobinopathy:
-        text: "H\xE9moglobinopathie"
         meaning: MONDO:0044348
         title: "H\xE9moglobinopathie"
       Human immunodeficiency virus (HIV):
-        text: "Virus de l'immunod\xE9ficience humaine"
         meaning: MONDO:0005109
         title: "Virus de l'immunod\xE9ficience humaine"
       Acquired immunodeficiency syndrome (AIDS):
-        text: "Syndrome d'immunod\xE9ficience acquise"
         meaning: MONDO:0012268
         is_a: Human immunodeficiency virus (HIV)
         title: "Syndrome d'immunod\xE9ficience acquise"
       HIV and antiretroviral therapy (ART):
-        text: "HIV et th\xE9rapie antir\xE9trovirale"
         meaning: NCIT:C16118
         is_a: Human immunodeficiency virus (HIV)
         title: "HIV et th\xE9rapie antir\xE9trovirale"
       Immunocompromised:
-        text: "Immunod\xE9prim\xE9s"
         meaning: NCIT:C14139
         title: "Immunod\xE9prim\xE9s"
       Lupus:
-        text: Lupus
         meaning: MONDO:0004670
         is_a: Immunocompromised
         title: Lupus
       Inflammatory bowel disease (IBD):
-        text: Maladie inflammatoire de l'intestin (MII)
         meaning: MONDO:0005265
         title: Maladie inflammatoire de l'intestin (MII)
       Colitis:
-        text: Colite
         meaning: HP:0002583
         is_a: Inflammatory bowel disease (IBD)
         title: Colite
       Ulcerative colitis:
-        text: "Colite ulc\xE9reuse"
         meaning: HP:0100279
         is_a: Colitis
         title: "Colite ulc\xE9reuse"
       Crohn's disease:
-        text: la maladie de Crohn
         meaning: HP:0100280
         is_a: Inflammatory bowel disease (IBD)
         title: la maladie de Crohn
       Renal disorder:
-        text: "Trouble r\xE9nal"
         meaning: NCIT:C3149
         title: "Trouble r\xE9nal"
       Renal disease:
-        text: "Maladie r\xE9nale"
         meaning: MONDO:0005240
         is_a: Renal disorder
         title: "Maladie r\xE9nale"
       Chronic renal disease:
-        text: "Maladie r\xE9nale chronique"
         meaning: HP:0012622
         is_a: Renal disease
         title: "Maladie r\xE9nale chronique"
       Renal failure:
-        text: "Insuffisance r\xE9nale"
         meaning: HP:0000083
         is_a: Renal disease
         title: "Insuffisance r\xE9nale"
       Liver disease:
-        text: Maladie du foie
         meaning: MONDO:0005154
         title: Maladie du foie
       Chronic liver disease:
-        text: Maladie chronique du foie
         meaning: NCIT:C113609
         is_a: Liver disease
         title: Maladie chronique du foie
       Myalgia (muscle pain):
-        text: Myalgie (douleur musculaire)
         meaning: HP:0003326
         title: Myalgie (douleur musculaire)
       Myalgic encephalomyelitis (chronic fatigue syndrome):
-        text: "Enc\xE9phalomy\xE9lite myalgique (syndrome de fatigue chronique)"
         meaning: MONDO:0005404
         title: "Enc\xE9phalomy\xE9lite myalgique (syndrome de fatigue chronique)"
       Neurological disorder:
-        text: Trouble neurologique
         meaning: MONDO:0005071
         title: Trouble neurologique
       Neuromuscular disorder:
-        text: Trouble neuromusculaire
         meaning: MONDO:0019056
         is_a: Neurological disorder
         title: Trouble neuromusculaire
       Obesity:
-        text: "L'ob\xE9sit\xE9"
         meaning: HP:0001513
         title: "L'ob\xE9sit\xE9"
       Severe obesity:
-        text: "Ob\xE9sit\xE9 s\xE9v\xE8re"
         meaning: MONDO:0005139
         is_a: Obesity
         title: "Ob\xE9sit\xE9 s\xE9v\xE8re"
       Respiratory disorder:
-        text: Troubles respiratoires
         meaning: MONDO:0005087
         title: Troubles respiratoires
       Asthma:
-        text: Asthme
         meaning: HP:0002099
         is_a: Respiratory disorder
         title: Asthme
       Chronic bronchitis:
-        text: Bronchite chronique
         meaning: HP:0004469
         is_a: Respiratory disorder
         title: Bronchite chronique
       Chronic obstructive pulmonary disease:
-        text: Maladie pulmonaire obstructive chronique
         meaning: HP:0006510
         is_a: Respiratory disorder
         title: Maladie pulmonaire obstructive chronique
       Emphysema:
-        text: "Emphys\xE8me"
         meaning: HP:0002097
         is_a: Respiratory disorder
         title: "Emphys\xE8me"
       Lung disease:
-        text: Maladie pulmonaire
         meaning: MONDO:0005275
         is_a: Respiratory disorder
         title: Maladie pulmonaire
       Pulmonary fibrosis:
-        text: Fibrose pulmonaire
         meaning: HP:0002206
         is_a: Lung disease
         title: Fibrose pulmonaire
       Pneumonia:
-        text: Pneumonie
         meaning: HP:0002090
         is_a: Respiratory disorder
         title: Pneumonie
       Respiratory failure:
-        text: Insuffisance respiratoire
         meaning: HP:0002878
         is_a: Respiratory disorder
         title: Insuffisance respiratoire
       Adult respiratory distress syndrome:
-        text: "Syndrome de d\xE9tresse respiratoire de l'adulte"
         meaning: HP:0033677
         is_a: Respiratory failure
         title: "Syndrome de d\xE9tresse respiratoire de l'adulte"
       Newborn respiratory distress syndrome:
-        text: "Syndrome de d\xE9tresse respiratoire du nouveau-n\xE9"
         meaning: MONDO:0009971
         is_a: Respiratory failure
         title: "Syndrome de d\xE9tresse respiratoire du nouveau-n\xE9"
       Tuberculosis:
-        text: Tuberculose
         meaning: MONDO:0018076
         is_a: Respiratory disorder
         title: Tuberculose
       "Postpartum (\u22646 weeks)":
-        text: "Post-partum (\u22646 semaines)"
         meaning: GENEPIO:0100077
         title: "Post-partum (\u22646 semaines)"
       Pregnancy:
-        text: Grossesse
         meaning: NCIT:C25742
         title: Grossesse
       Rheumatic disease:
-        text: Maladie rhumatismale
         meaning: MONDO:0005554
         title: Maladie rhumatismale
       Sickle cell disease:
-        text: "Dr\xE9panocytose"
         meaning: MONDO:0011382
         title: "Dr\xE9panocytose"
       Substance use:
-        text: Consommation de substances psychoactives
         meaning: NBO:0001845
         title: Consommation de substances psychoactives
       Alcohol abuse:
-        text: Abus d'alcool
         meaning: MONDO:0002046
         is_a: Substance use
         title: Abus d'alcool
       Drug abuse:
-        text: Abus de drogues
         meaning: GENEPIO:0100078
         is_a: Substance use
         title: Abus de drogues
       Injection drug abuse:
-        text: Abus de drogues injectables
         meaning: GENEPIO:0100079
         is_a: Drug abuse
         title: Abus de drogues injectables
       Smoking:
-        text: Fumer
         meaning: NBO:0015005
         is_a: Substance use
         title: Fumer
       Vaping:
-        text: Vapoter
         meaning: NCIT:C173621
         is_a: Substance use
         title: Vapoter
       Tachypnea (accelerated respiratory rate):
-        text: "Tachypn\xE9e (acc\xE9l\xE9ration de la fr\xE9quence respiratoire)"
         meaning: HP:0002789
         title: "Tachypn\xE9e (acc\xE9l\xE9ration de la fr\xE9quence respiratoire)"
       Transplant:
-        text: Transplantation
         meaning: NCIT:C159659
         title: Transplantation
       Hematopoietic stem cell transplant (bone marrow transplant):
-        text: Transplantation cardiaque
         meaning: NCIT:C131759
         is_a: Transplant
         title: Transplantation cardiaque
       Cardiac transplant:
-        text: "Greffe de cellules souches h\xE9matopo\xEF\xE9tiques (greffe de moelle\
-          \ osseuse)"
         meaning: GENEPIO:0100080
         is_a: Transplant
         title: "Greffe de cellules souches h\xE9matopo\xEF\xE9tiques (greffe de moelle\
           \ osseuse)"
       Kidney transplant:
-        text: Greffe de rein
         meaning: NCIT:C157332
         is_a: Transplant
         title: Greffe de rein
       Liver transplant:
-        text: Greffe de foie
         meaning: GENEPIO:0100081
         is_a: Transplant
         title: Greffe de foie
     title: "Menu des conditions pr\xE9existantes et des facteurs de risque"
-  variant designation menu:
-    name: variant designation menu
+  VariantDesignationMenu:
+    name: VariantDesignationMenu
     permissible_values:
       Variant of Concern (VOC):
-        text: "Variante d'int\xE9r\xEAt (VOI)"
         meaning: GENEPIO:0100082
         title: "Variante d'int\xE9r\xEAt (VOI)"
       Variant of Interest (VOI):
-        text: "Variante pr\xE9occupante (VOC)"
         meaning: GENEPIO:0100083
         title: "Variante pr\xE9occupante (VOC)"
       Variant Under Monitoring (VUM):
-        text: Variante sous surveillance (VUM)
         meaning: GENEPIO:0100279
         title: Variante sous surveillance (VUM)
     title: "menu de d\xE9signation des variantes"
-  variant evidence menu:
-    name: variant evidence menu
+  VariantEvidenceMenu:
+    name: VariantEvidenceMenu
     permissible_values:
       RT-qPCR:
-        text: RT-qPCR
         meaning: CIDO:0000019
         title: RT-qPCR
       Sequencing:
-        text: "S\xE9quen\xE7age"
         meaning: CIDO:0000027
         title: "S\xE9quen\xE7age"
     title: menu de preuves variantes
-  complications menu:
-    name: complications menu
+  ComplicationsMenu:
+    name: ComplicationsMenu
     permissible_values:
       Abnormal blood oxygen level:
-        text: "Taux d'oxyg\xE8ne anormal dans le sang"
         meaning: HP:0500165
         title: "Taux d'oxyg\xE8ne anormal dans le sang"
       Acute kidney injury:
-        text: "L\xE9sions r\xE9nales aigu\xEBs"
         meaning: HP:0001919
         title: "L\xE9sions r\xE9nales aigu\xEBs"
       Acute lung injury:
-        text: "L\xE9sions pulmonaires aigu\xEBs"
         meaning: MONDO:0015796
         title: "L\xE9sions pulmonaires aigu\xEBs"
       Ventilation induced lung injury (VILI):
-        text: "L\xE9sions pulmonaires induites par la ventilation"
         meaning: GENEPIO:0100092
         is_a: Acute lung injury
         title: "L\xE9sions pulmonaires induites par la ventilation"
       Acute respiratory failure:
-        text: "Insuffisance respiratoire aigu\xEB"
         meaning: MONDO:0001208
         title: "Insuffisance respiratoire aigu\xEB"
       Arrhythmia (complication):
-        text: Arythmie (complication)
         meaning: HP:0011675
         title: Arythmie (complication)
       Tachycardia:
-        text: Tachycardie
         meaning: HP:0001649
         is_a: Arrhythmia (complication)
         title: Tachycardie
       Polymorphic ventricular tachycardia (VT):
-        text: Tachycardie ventriculaire polymorphe
         meaning: HP:0031677
         is_a: Tachycardia
         title: Tachycardie ventriculaire polymorphe
       Tachyarrhythmia:
-        text: Tachyarythmie
         meaning: GENEPIO:0100084
         is_a: Tachycardia
         title: Tachyarythmie
       Cardiac injury:
-        text: "L\xE9sions cardiaques"
         meaning: GENEPIO:0100074
         title: "L\xE9sions cardiaques"
       Cardiac arrest:
-        text: "Arr\xEAt cardiaque"
         meaning: HP:0001695
         title: "Arr\xEAt cardiaque"
       Cardiogenic shock:
-        text: "Choc cardiog\xE9nique"
         meaning: HP:0030149
         title: "Choc cardiog\xE9nique"
       Blood clot:
-        text: Caillot de sang
         meaning: HP:0001977
         title: Caillot de sang
       Arterial clot:
-        text: "Caillot art\xE9riel"
         meaning: HP:0004420
         is_a: Blood clot
         title: "Caillot art\xE9riel"
       Deep vein thrombosis (DVT):
-        text: Thrombose veineuse profonde
         meaning: HP:0002625
         is_a: Blood clot
         title: Thrombose veineuse profonde
       Pulmonary embolism (PE):
-        text: Embolie pulmonaire
         meaning: HP:0002204
         is_a: Blood clot
         title: Embolie pulmonaire
       Cardiomyopathy:
-        text: Cardiomyopathie
         meaning: HP:0001638
         title: Cardiomyopathie
       Central nervous system invasion:
-        text: "Envahissement du syst\xE8me nerveux central"
         meaning: MONDO:0024619
         title: "Envahissement du syst\xE8me nerveux central"
       Stroke (complication):
-        text: "Accident vasculaire c\xE9r\xE9bral (complication)"
         meaning: HP:0001297
         title: "Accident vasculaire c\xE9r\xE9bral (complication)"
       Central Nervous System Vasculitis:
-        text: "Vascularite du syst\xE8me nerveux central"
         meaning: MONDO:0003346
         is_a: Stroke (complication)
         title: "Vascularite du syst\xE8me nerveux central"
       Acute ischemic stroke:
-        text: "Accident vasculaire c\xE9r\xE9bral isch\xE9mique aigu"
         meaning: HP:0002140
         is_a: Stroke (complication)
         title: "Accident vasculaire c\xE9r\xE9bral isch\xE9mique aigu"
       Coma:
-        text: Coma
         meaning: HP:0001259
         title: Coma
       Convulsions:
-        text: Les convulsions
         meaning: HP:0011097
         title: Les convulsions
       COVID-19 associated coagulopathy (CAC):
-        text: "COVID-19 coagulopathie associ\xE9e (CAC)"
         meaning: NCIT:C171562
         title: "COVID-19 coagulopathie associ\xE9e (CAC)"
       Cystic fibrosis:
-        text: Mucoviscidose
         meaning: MONDO:0009061
         title: Mucoviscidose
       Cytokine release syndrome:
-        text: "Syndrome de lib\xE9ration de cytokines"
         meaning: MONDO:0600008
         title: "Syndrome de lib\xE9ration de cytokines"
       Disseminated intravascular coagulation (DIC):
-        text: "Coagulation intravasculaire diss\xE9min\xE9e"
         meaning: MPATH:108
         title: "Coagulation intravasculaire diss\xE9min\xE9e"
       Encephalopathy:
-        text: "Enc\xE9phalopathie"
         meaning: HP:0001298
         title: "Enc\xE9phalopathie"
       Fulminant myocarditis:
-        text: Myocardite fulminante
         meaning: GENEPIO:0100088
         title: Myocardite fulminante
       "Guillain-Barr\xE9 syndrome":
-        text: "Guillain-Barr\xE9 syndrome"
         meaning: MONDO:0016218
         title: "Guillain-Barr\xE9 syndrome"
       Internal hemorrhage (complication; internal bleeding):
-        text: "H\xE9morragie interne (complication ; h\xE9morragie interne)"
         meaning: HP:0011029
         title: "H\xE9morragie interne (complication ; h\xE9morragie interne)"
       Intracerebral haemorrhage:
-        text: "H\xE9morragie intrac\xE9r\xE9brale"
         meaning: MONDO:0013792
         is_a: Internal hemorrhage (complication; internal bleeding)
         title: "H\xE9morragie intrac\xE9r\xE9brale"
       Kawasaki disease:
-        text: Maladie de Kawasaki
         meaning: MONDO:0012727
         title: Maladie de Kawasaki
       Complete Kawasaki disease:
-        text: "Maladie de Kawasaki compl\xE8te"
         meaning: GENEPIO:0100089
         is_a: Kawasaki disease
         title: "Maladie de Kawasaki compl\xE8te"
       Incomplete Kawasaki disease:
-        text: "Maladie de Kawasaki incompl\xE8te"
         meaning: GENEPIO:0100090
         is_a: Kawasaki disease
         title: "Maladie de Kawasaki incompl\xE8te"
       Liver dysfunction:
-        text: Dysfonctionnement du foie
         meaning: HP:0001410
         title: Dysfonctionnement du foie
       Acute liver injury:
-        text: "L\xE9sions h\xE9patiques aigu\xEBs"
         meaning: GENEPIO:0100091
         is_a: Liver dysfunction
         title: "L\xE9sions h\xE9patiques aigu\xEBs"
       Long COVID-19:
-        text: Longue COVID-19
         meaning: MONDO:0100233
         title: Longue COVID-19
       Meningitis:
-        text: "M\xE9ningite"
         meaning: HP:0001287
         title: "M\xE9ningite"
       Migraine:
-        text: Migraine
         meaning: HP:0002076
         title: Migraine
       Miscarriage:
-        text: Fausses couches
         meaning: HP:0005268
         title: Fausses couches
       Multisystem inflammatory syndrome in children (MIS-C):
-        text: "Syndrome inflammatoire multisyst\xE9mique de l'enfant"
         meaning: MONDO:0100163
         title: "Syndrome inflammatoire multisyst\xE9mique de l'enfant"
       Multisystem inflammatory syndrome in adults (MIS-A):
-        text: "Syndrome inflammatoire multisyst\xE9mique chez l'adulte"
         meaning: MONDO:0100319
         title: "Syndrome inflammatoire multisyst\xE9mique chez l'adulte"
       Muscle injury:
-        text: "L\xE9sion musculaire"
         meaning: GENEPIO:0100093
         title: "L\xE9sion musculaire"
       Myalgic encephalomyelitis (ME):
-        text: "Enc\xE9phalomy\xE9lite myalgique (syndrome de fatigue chronique)"
         meaning: MONDO:0005404
         title: "Enc\xE9phalomy\xE9lite myalgique (syndrome de fatigue chronique)"
       Myocardial infarction (heart attack):
-        text: Infarctus du myocarde (crise cardiaque)
         meaning: MONDO:0005068
         title: Infarctus du myocarde (crise cardiaque)
       Acute myocardial infarction:
-        text: Infarctus aigu du myocarde
         meaning: MONDO:0004781
         is_a: Myocardial infarction (heart attack)
         title: Infarctus aigu du myocarde
       ST-segment elevation myocardial infarction:
-        text: "Infarctus du myocarde avec sus-d\xE9calage du segment ST"
         meaning: MONDO:0041656
         is_a: Myocardial infarction (heart attack)
         title: "Infarctus du myocarde avec sus-d\xE9calage du segment ST"
       Myocardial injury:
-        text: "L\xE9sions du myocarde"
         meaning: HP:0001700
         title: "L\xE9sions du myocarde"
       Neonatal complications:
-        text: "Complications n\xE9onatales"
         meaning: NCIT:C168498
         title: "Complications n\xE9onatales"
       Noncardiogenic pulmonary edema:
-        text: "\u0152d\xE8me pulmonaire non cardiog\xE9nique"
         meaning: GENEPIO:0100085
         title: "\u0152d\xE8me pulmonaire non cardiog\xE9nique"
       Acute respiratory distress syndrome (ARDS):
-        text: "Syndrome de d\xE9tresse respiratoire aigu\xEB"
         meaning: HP:0033677
         is_a: Noncardiogenic pulmonary edema
         title: "Syndrome de d\xE9tresse respiratoire aigu\xEB"
       COVID-19 associated ARDS (CARDS):
-        text: "ARDS associ\xE9 au COVID-19 (CARDS)"
         meaning: NCIT:C171551
         is_a: Acute respiratory distress syndrome (ARDS)
         title: "ARDS associ\xE9 au COVID-19 (CARDS)"
       Neurogenic pulmonary edema (NPE):
-        text: "\u0152d\xE8me pulmonaire neurog\xE8ne"
         meaning: GENEPIO:0100086
         is_a: Acute respiratory distress syndrome (ARDS)
         title: "\u0152d\xE8me pulmonaire neurog\xE8ne"
       Organ failure:
-        text: Insuffisance organique
         meaning: GENEPIO:0100094
         title: Insuffisance organique
       Heart failure:
-        text: Insuffisance cardiaque
         meaning: HP:0001635
         is_a: Organ failure
         title: Insuffisance cardiaque
       Liver failure:
-        text: "Insuffisance h\xE9patique"
         meaning: MONDO:0100192
         is_a: Organ failure
         title: "Insuffisance h\xE9patique"
       Paralysis:
-        text: Paralysie
         meaning: HP:0003470
         title: Paralysie
       Pneumothorax (collapsed lung):
-        text: Pneumothorax (affaissement du poumon)
         meaning: HP:0002107
         title: Pneumothorax (affaissement du poumon)
       Spontaneous pneumothorax:
-        text: "Pneumothorax spontan\xE9"
         meaning: HP:0002108
         is_a: Pneumothorax (collapsed lung)
         title: "Pneumothorax spontan\xE9"
       Spontaneous tension pneumothorax:
-        text: "Pneumothorax spontan\xE9 sous tension"
         meaning: MONDO:0002075
         is_a: Pneumothorax (collapsed lung)
         title: "Pneumothorax spontan\xE9 sous tension"
       Pneumonia (complication):
-        text: Pneumonie (complication)
         meaning: HP:0002090
         title: Pneumonie (complication)
       COVID-19 pneumonia:
-        text: Pneumonie COVID-19
         meaning: NCIT:C171550
         is_a: Pneumonia (complication)
         title: Pneumonie COVID-19
       Pregancy complications:
-        text: Complications de la grossesse
         meaning: HP:0001197
         title: Complications de la grossesse
       Rhabdomyolysis:
-        text: Rhabdomyolyse
         meaning: HP:0003201
         title: Rhabdomyolyse
       Secondary infection:
-        text: Infection secondaire
         meaning: IDO:0000567
         title: Infection secondaire
       Secondary staph infection:
-        text: "Infection secondaire \xE0 staphylocoque"
         meaning: GENEPIO:0100095
         is_a: Secondary infection
         title: "Infection secondaire \xE0 staphylocoque"
       Secondary strep infection:
-        text: "Infection secondaire \xE0 streptocoques"
         meaning: GENEPIO:0100096
         is_a: Secondary infection
         title: "Infection secondaire \xE0 streptocoques"
       Seizure (complication):
-        text: "Crise d'\xE9pilepsie (complication)"
         meaning: HP:0001250
         title: "Crise d'\xE9pilepsie (complication)"
       Motor seizure:
-        text: Crise motrice
         meaning: HP:0020219
         is_a: Seizure (complication)
         title: Crise motrice
       Sepsis/Septicemia:
-        text: "Sepsis/Septic\xE9mie"
         meaning: HP:0100806
         title: "Sepsis/Septic\xE9mie"
       Sepsis:
-        text: "Septic\xE9mie (r\xE9action inflammatoire syst\xE9mique \xE0 une infection)"
         meaning: IDO:0000636
         is_a: Sepsis/Septicemia
         title: "Septic\xE9mie (r\xE9action inflammatoire syst\xE9mique \xE0 une infection)"
       Septicemia:
-        text: "Septic\xE9mie (infection du sang)"
         meaning: NCIT:C3364
         is_a: Sepsis/Septicemia
         title: "Septic\xE9mie (infection du sang)"
       Shock:
-        text: Choc
         meaning: HP:0031273
         title: Choc
       Hyperinflammatory shock:
-        text: Choc hyperinflammatoire
         meaning: GENEPIO:0100097
         is_a: Shock
         title: Choc hyperinflammatoire
       Refractory cardiogenic shock:
-        text: "Choc cardiog\xE9nique r\xE9fractaire"
         meaning: GENEPIO:0100098
         is_a: Shock
         title: "Choc cardiog\xE9nique r\xE9fractaire"
       Refractory cardiogenic plus vasoplegic shock:
-        text: "Choc cardiog\xE9nique et vasopl\xE9gique r\xE9fractaire"
         meaning: GENEPIO:0100099
         is_a: Shock
         title: "Choc cardiog\xE9nique et vasopl\xE9gique r\xE9fractaire"
       Septic shock:
-        text: Choc septique
         meaning: NCIT:C35018
         is_a: Shock
         title: Choc septique
       Vasculitis:
-        text: Vascularite
         meaning: HP:0002633
         title: Vascularite
     title: menu des complications
-  vaccine name menu:
-    name: vaccine name menu
+  VaccineNameMenu:
+    name: VaccineNameMenu
     permissible_values:
       Astrazeneca (Vaxzevria):
-        text: Astrazeneca (Vaxzevria)
         meaning: GENEPIO:0100308
         title: Astrazeneca (Vaxzevria)
       Johnson & Johnson (Janssen):
-        text: Johnson & Johnson (Janssen)
         meaning: GENEPIO:0100307
         title: Johnson & Johnson (Janssen)
       Moderna (Spikevax):
-        text: Moderna (Spikevax)
         meaning: GENEPIO:0100304
         title: Moderna (Spikevax)
       Pfizer-BioNTech (Comirnaty):
-        text: Pfizer-BioNTech (Comirnaty)
         meaning: GENEPIO:0100305
         title: Pfizer-BioNTech (Comirnaty)
       Pfizer-BioNTech (Comirnaty Pediatric):
-        text: "Pfizer-BioNTech (Comirnaty P\xE9diatrique)"
         meaning: GENEPIO:0100306
         title: "Pfizer-BioNTech (Comirnaty P\xE9diatrique)"
     title: menu nom du vaccin
-  anatomical material menu:
-    name: anatomical material menu
+  AnatomicalMaterialMenu:
+    name: AnatomicalMaterialMenu
     permissible_values:
       Blood:
-        text: Sang
         meaning: UBERON:0000178
         title: Sang
       Fluid:
-        text: Fluide
         meaning: UBERON:0006314
         title: Fluide
       Saliva:
-        text: Salive
         meaning: UBERON:0001836
         is_a: Fluid
         title: Salive
       Fluid (cerebrospinal (CSF)):
-        text: "Fluide (c\xE9r\xE9brospinal (CSF))"
         meaning: UBERON:0001359
         is_a: Fluid
         title: "Fluide (c\xE9r\xE9brospinal (CSF))"
       Fluid (pericardial):
-        text: "Fluide (p\xE9ricardique)"
         meaning: UBERON:0002409
         is_a: Fluid
         title: "Fluide (p\xE9ricardique)"
       Fluid (pleural):
-        text: Fluide (pleural)
         meaning: UBERON:0001087
         is_a: Fluid
         title: Fluide (pleural)
       Fluid (vaginal):
-        text: Fluides (vaginaux)
         meaning: UBERON:0036243
         is_a: Fluid
         title: Fluides (vaginaux)
       Fluid (amniotic):
-        text: Fluide (amniotique)
         meaning: UBERON:0000173
         is_a: Fluid
         title: Fluide (amniotique)
       Tissue:
-        text: Tissu
         meaning: UBERON:0000479
         title: Tissu
     title: "menu de mat\xE9riel anatomique"
-  anatomical part menu:
-    name: anatomical part menu
+  AnatomicalPartMenu:
+    name: AnatomicalPartMenu
     permissible_values:
       Anus:
-        text: Anus
         meaning: UBERON:0001245
         title: Anus
       Buccal mucosa:
-        text: Muqueuse buccale
         meaning: UBERON:0006956
         title: Muqueuse buccale
       Duodenum:
-        text: "Duod\xE9num"
         meaning: UBERON:0002114
         title: "Duod\xE9num"
       Eye:
-        text: "L'\u0153il"
         meaning: UBERON:0000970
         title: "L'\u0153il"
       Intestine:
-        text: Intestin
         meaning: UBERON:0000160
         title: Intestin
       Lower respiratory tract:
-        text: "Voies respiratoires inf\xE9rieures"
         meaning: UBERON:0001558
         title: "Voies respiratoires inf\xE9rieures"
       Bronchus:
-        text: Bronches
         meaning: UBERON:0002185
         is_a: Lower respiratory tract
         title: Bronches
       Lung:
-        text: Poumon
         meaning: UBERON:0002048
         is_a: Lower respiratory tract
         title: Poumon
       Bronchiole:
-        text: Bronchiole
         meaning: UBERON:0002186
         is_a: Lung
         title: Bronchiole
       Alveolar sac:
-        text: "Sac alv\xE9olaire"
         meaning: UBERON:0002169
         is_a: Lung
         title: "Sac alv\xE9olaire"
       Pleural sac:
-        text: Sac pleural
         meaning: UBERON:0009778
         is_a: Lower respiratory tract
         title: Sac pleural
       Pleural cavity:
-        text: "Cavit\xE9 pleurale"
         meaning: UBERON:0002402
         is_a: Pleural sac
         title: "Cavit\xE9 pleurale"
       Trachea:
-        text: "Trach\xE9e"
         meaning: UBERON:0003126
         is_a: Lower respiratory tract
         title: "Trach\xE9e"
       Rectum:
-        text: Le rectum
         meaning: UBERON:0001052
         title: Le rectum
       Skin:
-        text: Peau
         meaning: UBERON:0001003
         title: Peau
       Stomach:
-        text: Estomac
         meaning: UBERON:0000945
         title: Estomac
       Upper respiratory tract:
-        text: "Voies respiratoires sup\xE9rieures"
         meaning: UBERON:0001557
         title: "Voies respiratoires sup\xE9rieures"
       Anterior Nares:
-        text: "Narines ant\xE9rieures"
         meaning: UBERON:2001427
         is_a: Upper respiratory tract
         title: "Narines ant\xE9rieures"
       Esophagus:
-        text: "\u0152sophage"
         meaning: UBERON:0001043
         is_a: Upper respiratory tract
         title: "\u0152sophage"
       Ethmoid sinus:
-        text: "Sinus ethmo\xEFdal"
         meaning: UBERON:0002453
         is_a: Upper respiratory tract
         title: "Sinus ethmo\xEFdal"
       Nasal Cavity:
-        text: "Cavit\xE9 nasale"
         meaning: UBERON:0001707
         is_a: Upper respiratory tract
         title: "Cavit\xE9 nasale"
       Middle Nasal Turbinate:
-        text: Turbine nasale moyenne
         meaning: UBERON:0005921
         is_a: Nasal Cavity
         title: Turbine nasale moyenne
       Inferior Nasal Turbinate:
-        text: "Turbine nasale inf\xE9rieure"
         meaning: UBERON:0005922
         is_a: Nasal Cavity
         title: "Turbine nasale inf\xE9rieure"
       Nasopharynx (NP):
-        text: Nasopharynx (NP)
         meaning: UBERON:0001728
         is_a: Upper respiratory tract
         title: Nasopharynx (NP)
       Oropharynx (OP):
-        text: Oropharynx (OP)
         meaning: UBERON:0001729
         is_a: Upper respiratory tract
         title: Oropharynx (OP)
       Pharynx (throat):
-        text: Le pharynx (gorge)
         meaning: UBERON:0000341
         is_a: Upper respiratory tract
         title: Le pharynx (gorge)
     title: menu partie anatomique
-  body product menu:
-    name: body product menu
+  BodyProductMenu:
+    name: BodyProductMenu
     permissible_values:
       Breast Milk:
-        text: Le lait maternel
         meaning: UBERON:0001913
         title: Le lait maternel
       Feces:
-        text: Selles
         meaning: UBERON:0001988
         title: Selles
       Fluid (seminal):
-        text: "Liquide (s\xE9minal)"
         meaning: UBERON:0006530
         title: "Liquide (s\xE9minal)"
       Mucus:
-        text: Mucus
         meaning: UBERON:0000912
         title: Mucus
       Sputum:
-        text: Expectorations
         meaning: UBERON:0007311
         is_a: Mucus
         title: Expectorations
       Sweat:
-        text: Sueur
         meaning: UBERON:0001089
         title: Sueur
       Tear:
-        text: Larme
         meaning: UBERON:0001827
         title: Larme
       Urine:
-        text: Urine
         meaning: UBERON:0001088
         title: Urine
     title: menu de produits pour le corps
-  prior SARS-CoV-2 infection menu:
-    name: prior SARS-CoV-2 infection menu
+  PriorSarsCov2InfectionMenu:
+    name: PriorSarsCov2InfectionMenu
     permissible_values:
       Prior infection:
-        text: "Infection ant\xE9rieure"
         meaning: GENEPIO:0100037
         title: "Infection ant\xE9rieure"
       No prior infection:
-        text: "Pas d'infection ant\xE9rieure"
         meaning: GENEPIO:0100233
         title: "Pas d'infection ant\xE9rieure"
     title: "menu d\u2019infection ant\xE9rieure par le SARS-CoV-2"
-  environmental material menu:
-    name: environmental material menu
+  EnvironmentalMaterialMenu:
+    name: EnvironmentalMaterialMenu
     permissible_values:
       Air vent:
-        text: Purgeur d'air
         meaning: ENVO:03501208
         title: Purgeur d'air
       Banknote:
-        text: Billets de banque
         meaning: ENVO:00003896
         title: Billets de banque
       Bed rail:
-        text: Barre de lit
         meaning: ENVO:03501209
         title: Barre de lit
       Building floor:
-        text: "Plancher du b\xE2timent"
         meaning: ENVO:01000486
         title: "Plancher du b\xE2timent"
       Cloth:
-        text: Tissu
         meaning: ENVO:02000058
         title: Tissu
       Control panel:
-        text: "Panneau de contr\xF4le"
         meaning: ENVO:03501210
         title: "Panneau de contr\xF4le"
       Door:
-        text: Porte
         meaning: ENVO:03501220
         title: Porte
       Door handle:
-        text: "Poign\xE9e de porte"
         meaning: ENVO:03501211
         title: "Poign\xE9e de porte"
       Face mask:
-        text: Masque facial
         meaning: OBI:0002787
         title: Masque facial
       Face shield:
-        text: Masque de protection
         meaning: OBI:0002791
         title: Masque de protection
       Food:
-        text: Nourriture
         meaning: FOODON:00002403
         title: Nourriture
       Food packaging:
-        text: Emballages alimentaires
         meaning: FOODON:03490100
         title: Emballages alimentaires
       Glass:
-        text: Verre
         meaning: ENVO:01000481
         title: Verre
       Handrail:
-        text: Balustrade
         meaning: ENVO:03501212
         title: Balustrade
       Hospital gown:
-        text: "Robe d'h\xF4pital"
         meaning: OBI:0002796
         title: "Robe d'h\xF4pital"
       Light switch:
-        text: "Interrupteur d'\xE9clairage"
         meaning: ENVO:03501213
         title: "Interrupteur d'\xE9clairage"
       Locker:
-        text: Casier
         meaning: ENVO:03501214
         title: Casier
       N95 mask:
-        text: Masque N95
         meaning: OBI:0002790
         title: Masque N95
       Nurse call button:
-        text: "Bouton d'appel infirmi\xE8re"
         meaning: ENVO:03501215
         title: "Bouton d'appel infirmi\xE8re"
       Paper:
-        text: Papier
         meaning: ENVO:03501256
         title: Papier
       Particulate matter:
-        text: "Affaire particuli\xE8re"
         meaning: ENVO:01000060
         title: "Affaire particuli\xE8re"
       Plastic:
-        text: Plastique
         meaning: ENVO:01000404
         title: Plastique
       PPE gown:
-        text: Blouse EPI
         meaning: GENEPIO:0100025
         title: Blouse EPI
       Sewage:
-        text: "Eaux us\xE9es"
         meaning: ENVO:00002018
         title: "Eaux us\xE9es"
       Sink:
-        text: Evier
         meaning: ENVO:01000990
         title: Evier
       Soil:
-        text: Sol
         meaning: ENVO:00001998
         title: Sol
       Stainless steel:
-        text: Acier inoxydable
         meaning: ENVO:03501216
         title: Acier inoxydable
       Tissue paper:
-        text: Papier de soie
         meaning: ENVO:03501217
         title: Papier de soie
       Toilet bowl:
-        text: Cuvette de toilette
         meaning: ENVO:03501218
         title: Cuvette de toilette
       Water:
-        text: Eau
         meaning: ENVO:00002006
         title: Eau
       Wastewater:
-        text: "Eaux us\xE9es"
         meaning: ENVO:00002001
         is_a: Water
         title: "Eaux us\xE9es"
       Window:
-        text: "Fen\xEAtre"
         meaning: ENVO:03501219
         title: "Fen\xEAtre"
       Wood:
-        text: Bois
         meaning: ENVO:00002040
         title: Bois
     title: "menu de mat\xE9riaux environnementaux"
-  environmental site menu:
-    name: environmental site menu
+  EnvironmentalSiteMenu:
+    name: EnvironmentalSiteMenu
     permissible_values:
       Acute care facility:
-        text: "\xC9tablissement de soins aigus"
         meaning: ENVO:03501135
         title: "\xC9tablissement de soins aigus"
       Animal house:
-        text: Maison des animaux
         meaning: ENVO:00003040
         title: Maison des animaux
       Bathroom:
-        text: Salle de bain
         meaning: ENVO:01000422
         title: Salle de bain
       Clinical assessment centre:
-        text: "Centre d'\xE9valuation clinique"
         meaning: ENVO:03501136
         title: "Centre d'\xE9valuation clinique"
       Conference venue:
-        text: "Salle de conf\xE9rence"
         meaning: ENVO:03501127
         title: "Salle de conf\xE9rence"
       Corridor:
-        text: couloir
         meaning: ENVO:03501121
         title: couloir
       Daycare:
-        text: Garderie
         meaning: ENVO:01000927
         title: Garderie
       Emergency room (ER):
-        text: Salle d'urgence
         meaning: ENVO:03501145
         title: Salle d'urgence
       Family practice clinic:
-        text: "Clinique de m\xE9decine familiale"
         meaning: ENVO:03501186
         title: "Clinique de m\xE9decine familiale"
       Group home:
-        text: Foyer de groupe
         meaning: ENVO:03501196
         title: Foyer de groupe
       Homeless shelter:
-        text: Foyer pour sans-abri
         meaning: ENVO:03501133
         title: Foyer pour sans-abri
       Hospital:
-        text: "H\xF4pital"
         meaning: ENVO:00002173
         title: "H\xF4pital"
       Intensive Care Unit (ICU):
-        text: "Unit\xE9 de soins intensifs"
         meaning: ENVO:03501152
         title: "Unit\xE9 de soins intensifs"
       Long Term Care Facility:
-        text: "\xC9tablissement de soins de longue dur\xE9e"
         meaning: ENVO:03501194
         title: "\xC9tablissement de soins de longue dur\xE9e"
       Patient room:
-        text: Chambre du patient
         meaning: ENVO:03501180
         title: Chambre du patient
       Prison:
-        text: Prison
         meaning: ENVO:03501204
         title: Prison
       Production Facility:
-        text: Installation de production
         meaning: ENVO:01000536
         title: Installation de production
       School:
-        text: "\xC9cole"
         meaning: ENVO:03501130
         title: "\xC9cole"
       Sewage Plant:
-        text: "Station d'\xE9puration"
         meaning: ENVO:00003043
         title: "Station d'\xE9puration"
       Subway train:
-        text: "M\xE9tro"
         meaning: ENVO:03501109
         title: "M\xE9tro"
       University campus:
-        text: "Campus de l'universit\xE9"
         meaning: ENVO:00000467
         title: "Campus de l'universit\xE9"
       Wet market:
-        text: "March\xE9 de l'eau"
         meaning: ENVO:03501198
         title: "March\xE9 de l'eau"
     title: menu du site environnemental
-  collection method menu:
-    name: collection method menu
+  CollectionMethodMenu:
+    name: CollectionMethodMenu
     permissible_values:
       Amniocentesis:
-        text: "Amniocent\xE8se"
         meaning: NCIT:C52009
         title: "Amniocent\xE8se"
       Aspiration:
-        text: Aspiration
         meaning: NCIT:C15631
         title: Aspiration
       Suprapubic Aspiration:
-        text: Aspiration suprapubienne
         meaning: GENEPIO:0100028
         is_a: Aspiration
         title: Aspiration suprapubienne
       Tracheal aspiration:
-        text: "Aspiration trach\xE9ale"
         meaning: GENEPIO:0100029
         is_a: Aspiration
         title: "Aspiration trach\xE9ale"
       Vacuum Aspiration:
-        text: Aspiration sous vide
         meaning: GENEPIO:0100030
         is_a: Aspiration
         title: Aspiration sous vide
       Biopsy:
-        text: Biopsie
         meaning: OBI:0002650
         title: Biopsie
       Needle Biopsy:
-        text: "Biopsie \xE0 l'aiguille"
         meaning: OBI:0002651
         is_a: Biopsy
         title: "Biopsie \xE0 l'aiguille"
       Filtration:
-        text: Filtration
         meaning: OBI:0302885
         title: Filtration
       Air filtration:
-        text: Filtration de l'air
         meaning: GENEPIO:0100031
         is_a: Filtration
         title: Filtration de l'air
       Lavage:
-        text: "Lavage (lavage m\xE9dical)"
         meaning: OBI:0600044
         title: "Lavage (lavage m\xE9dical)"
       Bronchoalveolar lavage (BAL):
-        text: "Lavage broncho-alv\xE9olaire (LBA)"
         meaning: GENEPIO:0100032
         is_a: Lavage
         title: "Lavage broncho-alv\xE9olaire (LBA)"
       Gastric Lavage:
-        text: Lavage gastrique
         meaning: GENEPIO:0100033
         is_a: Lavage
         title: Lavage gastrique
       Lumbar Puncture:
-        text: Ponction lombaire
         meaning: NCIT:C15327
         title: Ponction lombaire
       Necropsy:
-        text: "N\xE9cropsie"
         meaning: MMO:0000344
         title: "N\xE9cropsie"
       Phlebotomy:
-        text: "Phl\xE9botomie"
         meaning: NCIT:C28221
         title: "Phl\xE9botomie"
       Rinsing:
-        text: "Rin\xE7age (lavage)"
         meaning: GENEPIO:0002116
         title: "Rin\xE7age (lavage)"
       Saline gargle (mouth rinse and gargle):
-        text: "Gargarisme salin (rin\xE7age de la bouche et gargarisme)"
         meaning: GENEPIO:0100034
         is_a: Rinsing
         title: "Gargarisme salin (rin\xE7age de la bouche et gargarisme)"
       Scraping:
-        text: Raclage
         meaning: GENEPIO:0100035
         title: Raclage
       Swabbing:
-        text: "\xC9couvillonnage"
         meaning: GENEPIO:0002117
         title: "\xC9couvillonnage"
       Finger Prick:
-        text: "Piq\xFBre au doigt"
         meaning: GENEPIO:0100036
         title: "Piq\xFBre au doigt"
       Washout Tear Collection:
-        text: Lavage Collecte de larmes
         meaning: GENEPIO:0100038
         title: Lavage Collecte de larmes
     title: "menu m\xE9thode de collecte"
-  collection device menu:
-    name: collection device menu
+  CollectionDeviceMenu:
+    name: CollectionDeviceMenu
     permissible_values:
       Air filter:
-        text: "Filtre \xE0 air"
         meaning: ENVO:00003968
         title: "Filtre \xE0 air"
       Blood Collection Tube:
-        text: "Tube de pr\xE9l\xE8vement sanguin"
         meaning: OBI:0002859
         title: "Tube de pr\xE9l\xE8vement sanguin"
       Bronchoscope:
-        text: Bronchoscope
         meaning: OBI:0002826
         title: Bronchoscope
       Collection Container:
-        text: "R\xE9cipient de collecte"
         meaning: OBI:0002088
         title: "R\xE9cipient de collecte"
       Collection Cup:
-        text: Tasse de collection
         meaning: GENEPIO:0100026
         title: Tasse de collection
       Fibrobronchoscope Brush:
-        text: "Brosse \xE0 fibrobronchoscope"
         meaning: OBI:0002825
         title: "Brosse \xE0 fibrobronchoscope"
       Filter:
-        text: Filtre
         meaning: GENEPIO:0100103
         title: Filtre
       Fine Needle:
-        text: Aiguille fine
         meaning: OBI:0002827
         title: Aiguille fine
       Microcapillary tube:
-        text: Tube microcapillaire
         meaning: OBI:0002858
         title: Tube microcapillaire
       Micropipette:
-        text: Micropipette
         meaning: OBI:0001128
         title: Micropipette
       Needle:
-        text: Aiguille
         meaning: OBI:0000436
         title: Aiguille
       Serum Collection Tube:
-        text: "Tube de collection de s\xE9rum"
         meaning: OBI:0002860
         title: "Tube de collection de s\xE9rum"
       Sputum Collection Tube:
-        text: "Tube de pr\xE9l\xE8vement des expectorations"
         meaning: OBI:0002861
         title: "Tube de pr\xE9l\xE8vement des expectorations"
       Suction Catheter:
-        text: "Cath\xE9ter d'aspiration"
         meaning: OBI:0002831
         title: "Cath\xE9ter d'aspiration"
       Swab:
-        text: "\xC9couvillon"
         meaning: GENEPIO:0100027
         title: "\xC9couvillon"
       Urine Collection Tube:
-        text: "Tube de pr\xE9l\xE8vement d'urine"
         meaning: OBI:0002862
         title: "Tube de pr\xE9l\xE8vement d'urine"
       Virus Transport Medium:
-        text: Milieu de transport des virus
         meaning: OBI:0002866
         title: Milieu de transport des virus
     title: menu du dispositif de collecte
-  host (scientific name) menu:
-    name: host (scientific name) menu
+  HostScientificNameMenu:
+    name: HostScientificNameMenu
     permissible_values:
       Homo sapiens:
-        text: Homo sapiens
         meaning: NCBITaxon:9606
         title: Homo sapiens
       Bos taurus:
-        text: Bos taureau
         meaning: NCBITaxon:9913
         title: Bos taureau
       Canis lupus familiaris:
-        text: Canis lupus familier
         meaning: NCBITaxon:9615
         title: Canis lupus familier
       Chiroptera:
-        text: "Chiropt\xE8res"
         meaning: NCBITaxon:9397
         title: "Chiropt\xE8res"
       Columbidae:
-        text: "Colombid\xE9s"
         meaning: NCBITaxon:8930
         title: "Colombid\xE9s"
       Felis catus:
-        text: Felis catus
         meaning: NCBITaxon:9685
         title: Felis catus
       Gallus gallus:
-        text: Gallus gallus
         meaning: NCBITaxon:9031
         title: Gallus gallus
       Manis:
-        text: Manis
         meaning: NCBITaxon:9973
         title: Manis
       Manis javanica:
-        text: Homme javanais
         meaning: NCBITaxon:9974
         title: Homme javanais
       Neovison vison:
-        text: Vison Neovison
         meaning: NCBITaxon:452646
         title: Vison Neovison
       Panthera leo:
-        text: Panthera lion
         meaning: NCBITaxon:9689
         title: Panthera lion
       Panthera tigris:
-        text: Panthera tigris
         meaning: NCBITaxon:9694
         title: Panthera tigris
       Rhinolophidae:
-        text: "Rhinolophid\xE9s"
         meaning: NCBITaxon:58055
         title: "Rhinolophid\xE9s"
       Rhinolophus affinis:
-        text: Rhinolophus affinis
         meaning: NCBITaxon:59477
         title: Rhinolophus affinis
       Sus scrofa domesticus:
-        text: Sus scrofa domestique
         meaning: NCBITaxon:9825
         title: Sus scrofa domestique
       Viverridae:
-        text: "Viverrid\xE9s"
         meaning: NCBITaxon:9673
         title: "Viverrid\xE9s"
     title: "menu h\xF4te (nom scientifique)"
-  host (common name) menu:
-    name: host (common name) menu
+  HostCommonNameMenu:
+    name: HostCommonNameMenu
     permissible_values:
       Human:
-        text: Humain
         meaning: NCBITaxon:9606
         title: Humain
       Bat:
-        text: Chauve souris
         meaning: NCBITaxon:9397
         title: Chauve souris
       Cat:
-        text: Chat
         meaning: NCBITaxon:9685
         title: Chat
       Chicken:
-        text: Poulet
         meaning: NCBITaxon:9031
         title: Poulet
       Civets:
-        text: Civettes
         meaning: NCBITaxon:9673
         title: Civettes
       Cow:
-        text: Vache
         meaning: NCBITaxon:9913
         exact_mappings:
         - CNPHI:bovine
         title: Vache
       Dog:
-        text: Chien
         meaning: NCBITaxon:9615
         title: Chien
       Lion:
-        text: Lion
         meaning: NCBITaxon:9689
         title: Lion
       Mink:
-        text: Vison
         meaning: NCBITaxon:452646
         title: Vison
       Pangolin:
-        text: Pangolin
         meaning: NCBITaxon:9973
         title: Pangolin
       Pig:
-        text: Cochon
         meaning: NCBITaxon:9825
         exact_mappings:
         - CNPHI:porcine
         title: Cochon
       Pigeon:
-        text: Pigeon
         meaning: NCBITaxon:8930
         title: Pigeon
       Tiger:
-        text: Tigre
         meaning: NCBITaxon:9694
         title: Tigre
     title: "menu h\xF4te (nom commun)"
-  host health state menu:
-    name: host health state menu
+  HostHealthStateMenu:
+    name: HostHealthStateMenu
     permissible_values:
       Asymptomatic:
-        text: Asymptomatique
         meaning: NCIT:C3833
         title: Asymptomatique
       Deceased:
-        text: "D\xE9c\xE9d\xE9"
         meaning: NCIT:C28554
         title: "D\xE9c\xE9d\xE9"
       Healthy:
-        text: "En bonne sant\xE9"
         meaning: NCIT:C115935
         title: "En bonne sant\xE9"
       Recovered:
-        text: "R\xE9tabli"
         meaning: NCIT:C49498
         title: "R\xE9tabli"
       Symptomatic:
-        text: Symptomatique
         meaning: NCIT:C25269
         title: Symptomatique
     title: "menu de l'\xE9tat de sant\xE9 de l'h\xF4te"
-  host health status details menu:
-    name: host health status details menu
+  HostHealthStatusDetailsMenu:
+    name: HostHealthStatusDetailsMenu
     permissible_values:
       Hospitalized:
-        text: "Hospitalis\xE9"
         meaning: NCIT:C25179
         title: "Hospitalis\xE9"
       Hospitalized (Non-ICU):
-        text: "Hospitalis\xE9 (hors soins intensifs)"
         meaning: GENEPIO:0100045
         is_a: Hospitalized
         title: "Hospitalis\xE9 (hors soins intensifs)"
       Hospitalized (ICU):
-        text: "Hospitalis\xE9 (ICU)"
         meaning: GENEPIO:0100046
         is_a: Hospitalized
         title: "Hospitalis\xE9 (ICU)"
       Mechanical Ventilation:
-        text: "Ventilation m\xE9canique"
         meaning: NCIT:C70909
         title: "Ventilation m\xE9canique"
       Medically Isolated:
-        text: "M\xE9dicalement isol\xE9"
         meaning: GENEPIO:0100047
         title: "M\xE9dicalement isol\xE9"
       Medically Isolated (Negative Pressure):
-        text: "M\xE9dicalement isol\xE9 (pression n\xE9gative)"
         meaning: GENEPIO:0100048
         is_a: Medically Isolated
         title: "M\xE9dicalement isol\xE9 (pression n\xE9gative)"
       Self-quarantining:
-        text: Auto-quarantaine
         meaning: NCIT:C173768
         title: Auto-quarantaine
     title: "Menu d\xE9taill\xE9 de l'\xE9tat de sant\xE9 de l'h\xF4te"
-  host health outcome menu:
-    name: host health outcome menu
+  HostHealthOutcomeMenu:
+    name: HostHealthOutcomeMenu
     permissible_values:
       Deceased:
-        text: "D\xE9c\xE9d\xE9"
         meaning: NCIT:C28554
         title: "D\xE9c\xE9d\xE9"
       Deteriorating:
-        text: "Se d\xE9t\xE9riorer"
         meaning: NCIT:C25254
         title: "Se d\xE9t\xE9riorer"
       Recovered:
-        text: "R\xE9tabli"
         meaning: NCIT:C49498
         title: "R\xE9tabli"
       Stable:
-        text: "\xC9curie"
         meaning: NCIT:C30103
         title: "\xC9curie"
     title: "menu des r\xE9sultats de sant\xE9 de l'h\xF4te"
-  organism menu:
-    name: organism menu
+  OrganismMenu:
+    name: OrganismMenu
     permissible_values:
       Severe acute respiratory syndrome coronavirus 2:
-        text: "Syndrome respiratoire aigu s\xE9v\xE8re coronavirus 2"
         meaning: NCBITaxon:2697049
         title: "Syndrome respiratoire aigu s\xE9v\xE8re coronavirus 2"
       RaTG13:
-        text: RaTG13
         meaning: NCBITaxon:2709072
         title: RaTG13
       RmYN02:
-        text: RmYN02
         meaning: GENEPIO:0100000
         title: RmYN02
     title: menu de l'organisme
-  purpose of sampling menu:
-    name: purpose of sampling menu
+  PurposeOfSamplingMenu:
+    name: PurposeOfSamplingMenu
     permissible_values:
       Cluster/Outbreak investigation:
-        text: "Enqu\xEAte sur les grappes et les foyers"
         meaning: GENEPIO:0100001
         title: "Enqu\xEAte sur les grappes et les foyers"
       Diagnostic testing:
-        text: Tests de diagnostic
         meaning: GENEPIO:0100002
         title: Tests de diagnostic
       Research:
-        text: Recherche
         meaning: GENEPIO:0100003
         title: Recherche
       Surveillance:
-        text: Surveillance
         meaning: GENEPIO:0100004
         title: Surveillance
     title: "but du menu d'\xE9chantillonnage"
-  purpose of sequencing menu:
-    name: purpose of sequencing menu
+  PurposeOfSequencingMenu:
+    name: PurposeOfSequencingMenu
     permissible_values:
       Baseline surveillance (random sampling):
-        text: "Surveillance de base (\xE9chantillonnage al\xE9atoire)"
         meaning: GENEPIO:0100005
         title: "Surveillance de base (\xE9chantillonnage al\xE9atoire)"
       Targeted surveillance (non-random sampling):
-        text: "Surveillance cibl\xE9e (\xE9chantillonnage non al\xE9atoire)"
         meaning: GENEPIO:0100006
         title: "Surveillance cibl\xE9e (\xE9chantillonnage non al\xE9atoire)"
       Priority surveillance project:
-        text: Projet de surveillance prioritaire
         meaning: GENEPIO:0100007
         is_a: Targeted surveillance (non-random sampling)
         title: Projet de surveillance prioritaire
       Screening for Variants of Concern (VoC):
-        text: "D\xE9pistage des variantes pr\xE9occupantes"
         meaning: GENEPIO:0100008
         is_a: Priority surveillance project
         title: "D\xE9pistage des variantes pr\xE9occupantes"
       Sample has epidemiological link to Variant of Concern (VoC):
-        text: "L'\xE9chantillon a un lien \xE9pid\xE9miologique avec la variante pr\xE9\
-          occupante"
         meaning: GENEPIO:0100273
         is_a: Screening for Variants of Concern (VoC)
         title: "L'\xE9chantillon a un lien \xE9pid\xE9miologique avec la variante\
           \ pr\xE9occupante"
       Sample has epidemiological link to Omicron Variant:
-        text: "L'\xE9chantillon a un lien \xE9pid\xE9miologique avec la variante Omicron"
         meaning: GENEPIO:0100274
         is_a: Sample has epidemiological link to Variant of Concern (VoC)
         title: "L'\xE9chantillon a un lien \xE9pid\xE9miologique avec la variante\
           \ Omicron"
       Longitudinal surveillance (repeat sampling of individuals):
-        text: "Surveillance longitudinale (\xE9chantillonnage r\xE9p\xE9t\xE9 des\
-          \ individus)"
         meaning: GENEPIO:0100009
         is_a: Priority surveillance project
         title: "Surveillance longitudinale (\xE9chantillonnage r\xE9p\xE9t\xE9 des\
           \ individus)"
       Chronic (prolonged) infection surveillance:
-        text: "Surveillance des infections chroniques (prolong\xE9es)"
         meaning: GENEPIO:0100842
         is_a: Longitudinal surveillance (repeat sampling of individuals)
         title: "Surveillance des infections chroniques (prolong\xE9es)"
       Re-infection surveillance:
-        text: "Surveillance des r\xE9infections"
         meaning: GENEPIO:0100010
         is_a: Priority surveillance project
         title: "Surveillance des r\xE9infections"
       Vaccine escape surveillance:
-        text: Surveillance des fuites de vaccins
         meaning: GENEPIO:0100011
         is_a: Priority surveillance project
         title: Surveillance des fuites de vaccins
       Travel-associated surveillance:
-        text: "Surveillance associ\xE9e aux voyages"
         meaning: GENEPIO:0100012
         is_a: Priority surveillance project
         title: "Surveillance associ\xE9e aux voyages"
       Domestic travel surveillance:
-        text: Surveillance des voyages nationaux
         meaning: GENEPIO:0100013
         is_a: Travel-associated surveillance
         title: Surveillance des voyages nationaux
       Interstate/ interprovincial travel surveillance:
-        text: "Surveillance des voyages inter\xE9tatiques/interprovinciaux"
         meaning: GENEPIO:0100275
         is_a: Domestic travel surveillance
         title: "Surveillance des voyages inter\xE9tatiques/interprovinciaux"
       Intra-state/ intra-provincial travel surveillance:
-        text: "Surveillance des voyages intra-\xE9tatiques/intraprovinciaux"
         meaning: GENEPIO:0100276
         is_a: Domestic travel surveillance
         title: "Surveillance des voyages intra-\xE9tatiques/intraprovinciaux"
       International travel surveillance:
-        text: Surveillance des voyages internationaux
         meaning: GENEPIO:0100014
         is_a: Travel-associated surveillance
         title: Surveillance des voyages internationaux
       Surveillance of international border crossing by air travel or ground transport:
-        text: "Surveillance du franchissement des fronti\xE8res internationales par\
-          \ voie a\xE9rienne a\xE9rien ou terrestre"
         meaning: GENEPIO:0100015
         is_a: International travel surveillance
         title: "Surveillance du franchissement des fronti\xE8res internationales par\
           \ voie a\xE9rienne a\xE9rien ou terrestre"
       Surveillance of international border crossing by air travel:
-        text: "Surveillance du franchissement des fronti\xE8res internationales par\
-          \ voie a\xE9rienne a\xE9rien"
         meaning: GENEPIO:0100016
         is_a: International travel surveillance
         title: "Surveillance du franchissement des fronti\xE8res internationales par\
           \ voie a\xE9rienne a\xE9rien"
       Surveillance of international border crossing by ground transport:
-        text: "Surveillance du franchissement des fronti\xE8res internationales par\
-          \ transport terrestre"
         meaning: GENEPIO:0100017
         is_a: International travel surveillance
         title: "Surveillance du franchissement des fronti\xE8res internationales par\
           \ transport terrestre"
       Surveillance from international worker testing:
-        text: "Surveillance \xE0 partir d'essais internationaux sur les travailleurs"
         meaning: GENEPIO:0100018
         is_a: International travel surveillance
         title: "Surveillance \xE0 partir d'essais internationaux sur les travailleurs"
       Cluster/Outbreak investigation:
-        text: "Enqu\xEAte sur les grappes et les foyers"
         meaning: GENEPIO:0100019
         title: "Enqu\xEAte sur les grappes et les foyers"
       Multi-jurisdictional outbreak investigation:
-        text: "Enqu\xEAte sur les foyers multi-juridictionnels"
         meaning: GENEPIO:0100020
         is_a: Cluster/Outbreak investigation
         title: "Enqu\xEAte sur les foyers multi-juridictionnels"
       Intra-jurisdictional outbreak investigation:
-        text: "Enqu\xEAte sur un foyer intra-juridictionnel"
         meaning: GENEPIO:0100021
         is_a: Cluster/Outbreak investigation
         title: "Enqu\xEAte sur un foyer intra-juridictionnel"
       Research:
-        text: Recherche
         meaning: GENEPIO:0100022
         title: Recherche
       Viral passage experiment:
-        text: "Exp\xE9rience de passage viral"
         meaning: GENEPIO:0100023
         is_a: Research
         title: "Exp\xE9rience de passage viral"
       Protocol testing experiment:
-        text: "Exp\xE9rience de test de protocole"
         meaning: GENEPIO:0100024
         is_a: Research
         title: "Exp\xE9rience de test de protocole"
       Retrospective sequencing:
-        text: "S\xE9quen\xE7age r\xE9trospectif"
         meaning: GENEPIO:0100356
         title: "S\xE9quen\xE7age r\xE9trospectif"
     title: "but du menu de s\xE9quencement"
-  specimen processing menu:
-    name: specimen processing menu
+  SpecimenProcessingMenu:
+    name: SpecimenProcessingMenu
     permissible_values:
       Virus passage:
-        text: Passage du virus
         meaning: GENEPIO:0100039
         title: Passage du virus
       RNA re-extraction (post RT-PCR):
-        text: "R\xE9tablissement de l'extraction de l'RNA (apr\xE8s RT-PCR)"
         meaning: GENEPIO:0100040
         title: "R\xE9tablissement de l'extraction de l'RNA (apr\xE8s RT-PCR)"
       Specimens pooled:
-        text: "\xC9chantillons regroup\xE9s"
         meaning: OBI:0600016
         title: "\xC9chantillons regroup\xE9s"
     title: "menu de traitement des \xE9chantillons"
-  lab host menu:
-    name: lab host menu
+  LabHostMenu:
+    name: LabHostMenu
     permissible_values:
       293/ACE2 cell line:
-        text: "Lign\xE9e cellulaire 293/ACE2"
         meaning: GENEPIO:0100041
         title: "Lign\xE9e cellulaire 293/ACE2"
       Caco2 cell line:
-        text: "Lign\xE9e cellulaire Caco2"
         meaning: BTO:0000195
         title: "Lign\xE9e cellulaire Caco2"
       Calu3 cell line:
-        text: "Lign\xE9e cellulaire Calu3"
         meaning: BTO:0002750
         title: "Lign\xE9e cellulaire Calu3"
       EFK3B cell line:
-        text: "Lign\xE9e cellulaire EFK3B"
         meaning: GENEPIO:0100042
         title: "Lign\xE9e cellulaire EFK3B"
       HEK293T cell line:
-        text: "Lign\xE9e cellulaire HEK293T"
         meaning: BTO:0002181
         title: "Lign\xE9e cellulaire HEK293T"
       HRCE cell line:
-        text: "Lign\xE9e cellulaire HRCE"
         meaning: GENEPIO:0100043
         title: "Lign\xE9e cellulaire HRCE"
       Huh7 cell line:
-        text: "Lign\xE9e cellulaire Huh7"
         meaning: BTO:0001950
         title: "Lign\xE9e cellulaire Huh7"
       LLCMk2 cell line:
-        text: "Lign\xE9e cellulaire LLCMk2"
         meaning: CLO:0007330
         title: "Lign\xE9e cellulaire LLCMk2"
       MDBK cell line:
-        text: "Lign\xE9e cellulaire MDBK"
         meaning: BTO:0000836
         title: "Lign\xE9e cellulaire MDBK"
       NHBE cell line:
-        text: "lign\xE9e cellulaire NHBE"
         meaning: BTO:0002924
         title: "lign\xE9e cellulaire NHBE"
       PK-15 cell line:
-        text: "Lign\xE9e cellulaire PK-15"
         meaning: BTO:0001865
         title: "Lign\xE9e cellulaire PK-15"
       RK-13 cell line:
-        text: "Lign\xE9e cellulaire RK-13"
         meaning: BTO:0002909
         title: "Lign\xE9e cellulaire RK-13"
       U251 cell line:
-        text: "Lign\xE9e cellulaire U251"
         meaning: BTO:0002035
         title: "Lign\xE9e cellulaire U251"
       Vero cell line:
-        text: "Lign\xE9e cellulaire Vero"
         meaning: BTO:0001444
         title: "Lign\xE9e cellulaire Vero"
       Vero E6 cell line:
-        text: "Lign\xE9e cellulaire Vero E6"
         meaning: BTO:0004755
         is_a: Vero cell line
         title: "Lign\xE9e cellulaire Vero E6"
       VeroE6/TMPRSS2 cell line:
-        text: "Lign\xE9e cellulaire VeroE6/TMPRSS2"
         meaning: GENEPIO:0100044
         is_a: Vero E6 cell line
         title: "Lign\xE9e cellulaire VeroE6/TMPRSS2"
     title: "menu h\xF4te du laboratoire"
-  host disease menu:
-    name: host disease menu
-    permissible_values:
-      COVID-19:
-        text: COVID-19
-        meaning: MONDO:0100096
-        title: COVID-19
-    title: "menu des maladies h\xF4tes"
-  host age bin menu:
-    name: host age bin menu
+  HostAgeBinMenu:
+    name: HostAgeBinMenu
     permissible_values:
       0 - 9:
-        text: 0 - 9
         meaning: GENEPIO:0100049
         title: 0 - 9
       10 - 19:
-        text: 10 - 19
         meaning: GENEPIO:0100050
         title: 10 - 19
       20 - 29:
-        text: 20 - 29
         meaning: GENEPIO:0100051
         title: 20 - 29
       30 - 39:
-        text: 30 - 39
         meaning: GENEPIO:0100052
         title: 30 - 39
       40 - 49:
-        text: 40 - 49
         meaning: GENEPIO:0100053
         title: 40 - 49
       50 - 59:
-        text: 50 - 59
         meaning: GENEPIO:0100054
         title: 50 - 59
       60 - 69:
-        text: 60 - 69
         meaning: GENEPIO:0100055
         title: 60 - 69
       70 - 79:
-        text: 70 - 79
         meaning: GENEPIO:0100056
         title: 70 - 79
       80 - 89:
-        text: 80 - 89
         meaning: GENEPIO:0100057
         title: 80 - 89
       90 - 99:
-        text: 90 - 99
         meaning: GENEPIO:0100058
         exact_mappings:
         - VirusSeq_Portal:90%2B
         title: 90 - 99
       100+:
-        text: 100+
         meaning: GENEPIO:0100059
         exact_mappings:
         - VirusSeq_Portal:90%2B
         title: 100+
     title: "menu du bac d'\xE2ge de l'h\xF4te"
-  host gender menu:
-    name: host gender menu
+  HostGenderMenu:
+    name: HostGenderMenu
     permissible_values:
       Female:
-        text: Female
         meaning: NCIT:C46110
         title: Female
       Male:
-        text: Male
         meaning: NCIT:C46109
         title: Male
       Non-binary gender:
-        text: Non-binary gender
         meaning: GSSO:000132
         title: Non-binary gender
       Transgender (assigned male at birth):
-        text: Transgender (assigned male at birth)
         meaning: GSSO:004004
         title: Transgender (assigned male at birth)
       Transgender (assigned female at birth):
-        text: Transgender (assigned female at birth)
         meaning: GSSO:004005
         title: Transgender (assigned female at birth)
       Undeclared:
-        text: Undeclared
         meaning: NCIT:C110959
         title: Undeclared
     title: "menu sexe de l'h\xF4te"
-  exposure event menu:
-    name: exposure event menu
+  ExposureEventMenu:
+    name: ExposureEventMenu
     permissible_values:
       Mass Gathering:
-        text: Rassemblement de masse
         meaning: GENEPIO:0100237
         title: Rassemblement de masse
       Agricultural Event:
-        text: "\xC9v\xE9nement agricole"
         meaning: GENEPIO:0100240
         is_a: Mass Gathering
         title: "\xC9v\xE9nement agricole"
       Convention:
-        text: Convention
         meaning: GENEPIO:0100238
         is_a: Mass Gathering
         title: Convention
       Convocation:
-        text: Convocation
         meaning: GENEPIO:0100239
         is_a: Mass Gathering
         title: Convocation
       Recreational Event:
-        text: "\xC9v\xE9nement r\xE9cr\xE9atif"
         meaning: GENEPIO:0100417
         is_a: Mass Gathering
         title: "\xC9v\xE9nement r\xE9cr\xE9atif"
       Concert:
-        text: Concert
         meaning: GENEPIO:0100418
         is_a: Recreational Event
         title: Concert
       Sporting Event:
-        text: Manifestation sportive
         meaning: GENEPIO:0100419
         is_a: Recreational Event
         title: Manifestation sportive
       Religious Gathering:
-        text: Rassemblement religieux
         meaning: GENEPIO:0100241
         title: Rassemblement religieux
       Mass:
-        text: Messe
         meaning: GENEPIO:0100242
         is_a: Religious Gathering
         title: Messe
       Social Gathering:
-        text: Rassemblement social
         meaning: PCO:0000033
         title: Rassemblement social
       Baby Shower:
-        text: "Douche de b\xE9b\xE9"
         meaning: PCO:0000039
         is_a: Social Gathering
         title: "Douche de b\xE9b\xE9"
       Community Event:
-        text: "Ev\xE9nement communautaire"
         meaning: PCO:0000034
         is_a: Social Gathering
         title: "Ev\xE9nement communautaire"
       Family Gathering:
-        text: "R\xE9union de famille"
         meaning: GENEPIO:0100243
         is_a: Social Gathering
         title: "R\xE9union de famille"
       Family Reunion:
-        text: "R\xE9union de famille"
         meaning: GENEPIO:0100244
         is_a: Family Gathering
         title: "R\xE9union de famille"
       Funeral:
-        text: "Fun\xE9railles"
         meaning: GENEPIO:0100245
         is_a: Social Gathering
         title: "Fun\xE9railles"
       Party:
-        text: "Faire la f\xEAte"
         meaning: PCO:0000035
         is_a: Social Gathering
         title: "Faire la f\xEAte"
       Potluck:
-        text: Repas-partage
         meaning: PCO:0000037
         is_a: Social Gathering
         title: Repas-partage
       Wedding:
-        text: Mariage
         meaning: PCO:0000038
         is_a: Social Gathering
         title: Mariage
       Other exposure event:
-        text: "Autre \xE9v\xE9nement d'exposition"
         title: "Autre \xE9v\xE9nement d'exposition"
     title: "menu d'\xE9v\xE9nement d'exposition"
-  exposure contact level menu:
-    name: exposure contact level menu
+  ExposureContactLevelMenu:
+    name: ExposureContactLevelMenu
     permissible_values:
       Contact with infected individual:
-        text: "Contact avec une personne infect\xE9e"
         meaning: GENEPIO:0100357
         title: "Contact avec une personne infect\xE9e"
       Direct contact (direct human-to-human contact):
-        text: Direct (contact interhumain)
         meaning: TRANS:0000001
         is_a: Contact with infected individual
         title: Direct (contact interhumain)
       Indirect contact:
-        text: Contact indirect
         meaning: GENEPIO:0100246
         is_a: Contact with infected individual
         title: Contact indirect
       Close contact (face-to-face, no direct contact):
-        text: "Contact \xE9troit (face \xE0 face)"
         meaning: GENEPIO:0100247
         is_a: Indirect contact
         title: "Contact \xE9troit (face \xE0 face)"
       Casual contact:
-        text: Contact occasionnel
         meaning: GENEPIO:0100248
         is_a: Indirect contact
         title: Contact occasionnel
     title: menu niveau de contact d'exposition
-  host role menu:
-    name: host role menu
+  HostRoleMenu:
+    name: HostRoleMenu
     permissible_values:
       Attendee:
-        text: Participant
         meaning: GENEPIO:0100249
         title: Participant
       Student:
-        text: "\xC9tudiant"
         meaning: OMRSE:00000058
         is_a: Attendee
         title: "\xC9tudiant"
       Patient:
-        text: Patient
         meaning: OMRSE:00000030
         title: Patient
       Inpatient:
-        text: "Patient hospitalis\xE9"
         meaning: NCIT:C25182
         is_a: Patient
         title: "Patient hospitalis\xE9"
       Outpatient:
-        text: Ambulatoire
         meaning: NCIT:C28293
         is_a: Patient
         title: Ambulatoire
       Passenger:
-        text: Passager
         meaning: GENEPIO:0100250
         title: Passager
       Resident:
-        text: "R\xE9sident"
         meaning: GENEPIO:0100251
         title: "R\xE9sident"
       Visitor:
-        text: Visiteur
         meaning: GENEPIO:0100252
         title: Visiteur
       Volunteer:
-        text: "B\xE9n\xE9vole"
         meaning: GENEPIO:0100253
         title: "B\xE9n\xE9vole"
       Work:
-        text: Travail
         meaning: GENEPIO:0100254
         title: Travail
       Administrator:
-        text: Administrateur
         meaning: GENEPIO:0100255
         is_a: Work
         title: Administrateur
       Child Care/Education Worker:
-        text: "Travailleur en garderie/\xE9ducation"
         is_a: Work
         title: "Travailleur en garderie/\xE9ducation"
       Essential Worker:
-        text: Travailleur essentiel
         is_a: Work
         title: Travailleur essentiel
       First Responder:
-        text: Premier intervenant
         meaning: GENEPIO:0100256
         is_a: Work
         title: Premier intervenant
       Firefighter:
-        text: Sapeur pompier
         meaning: GENEPIO:0100257
         is_a: First Responder
         title: Sapeur pompier
       Paramedic:
-        text: "Param\xE9dical"
         meaning: GENEPIO:0100258
         is_a: First Responder
         title: "Param\xE9dical"
       Police Officer:
-        text: Officier de police
         meaning: GENEPIO:0100259
         is_a: First Responder
         title: Officier de police
       Healthcare Worker:
-        text: "Travailleur de la sant\xE9"
         meaning: GENEPIO:0100334
         is_a: Work
         title: "Travailleur de la sant\xE9"
       Community Healthcare Worker:
-        text: "Agent de sant\xE9 communautaire"
         meaning: GENEPIO:0100420
         is_a: Healthcare Worker
         title: "Agent de sant\xE9 communautaire"
       Laboratory Worker:
-        text: Ouvrier de laboratoire
         meaning: GENEPIO:0100262
         is_a: Healthcare Worker
         title: Ouvrier de laboratoire
       Nurse:
-        text: "Infirmi\xE8re"
         meaning: OMRSE:00000014
         is_a: Healthcare Worker
         title: "Infirmi\xE8re"
       Personal Care Aid:
-        text: Aide aux soins personnels
         meaning: GENEPIO:0100263
         is_a: Healthcare Worker
         title: Aide aux soins personnels
       Pharmacist:
-        text: Pharmacien
         meaning: GENEPIO:0100264
         is_a: Healthcare Worker
         title: Pharmacien
       Physician:
-        text: "M\xE9decin"
         meaning: OMRSE:00000013
         is_a: Healthcare Worker
         title: "M\xE9decin"
       Housekeeper:
-        text: Gouvernante
         meaning: GENEPIO:0100260
         is_a: Work
         title: Gouvernante
       International worker:
-        text: Travailleur international
         is_a: Work
         title: Travailleur international
       Kitchen Worker:
-        text: Ouvrier de cuisine
         meaning: GENEPIO:0100261
         is_a: Work
         title: Ouvrier de cuisine
       Rotational Worker:
-        text: Travailleur en rotation
         meaning: GENEPIO:0100354
         is_a: Work
         title: Travailleur en rotation
       Seasonal Worker:
-        text: Travailleur saisonnier
         meaning: GENEPIO:0100355
         is_a: Work
         title: Travailleur saisonnier
       Transport Worker:
-        text: Ouvrier des transports
         is_a: Work
         title: Ouvrier des transports
       Transport Truck Driver:
-        text: Chauffeur de camion de transport
         is_a: Transport Worker
         title: Chauffeur de camion de transport
       Veterinarian:
-        text: "V\xE9t\xE9rinaire"
         meaning: GENEPIO:0100265
         is_a: Work
         title: "V\xE9t\xE9rinaire"
       Social role:
-        text: "R\xF4le social"
         meaning: OMRSE:00000001
         title: "R\xF4le social"
       Acquaintance of case:
-        text: Connaissance de l'affaire
         meaning: GENEPIO:0100266
         is_a: Social role
         title: Connaissance de l'affaire
       Relative of case:
-        text: Parent de l'affaire
         meaning: GENEPIO:0100267
         is_a: Social role
         title: Parent de l'affaire
       Child of case:
-        text: "Enfant de la personne concern\xE9e"
         meaning: GENEPIO:0100268
         is_a: Relative of case
         title: "Enfant de la personne concern\xE9e"
       Parent of case:
-        text: Parent de l'affaire
         meaning: GENEPIO:0100269
         is_a: Relative of case
         title: Parent de l'affaire
       Father of case:
-        text: "P\xE8re de l'affaire"
         meaning: GENEPIO:0100270
         is_a: Parent of case
         title: "P\xE8re de l'affaire"
       Mother of case:
-        text: "M\xE8re du cas"
         meaning: GENEPIO:0100271
         is_a: Parent of case
         title: "M\xE8re du cas"
       Spouse of case:
-        text: Conjoint de l'affaire
         meaning: GENEPIO:0100272
         is_a: Social role
         title: Conjoint de l'affaire
       Other Host Role:
-        text: "Autre r\xF4le de l'h\xF4te"
         title: "Autre r\xF4le de l'h\xF4te"
     title: "menu du r\xF4le d'h\xF4te"
-  exposure setting menu:
-    name: exposure setting menu
+  ExposureSettingMenu:
+    name: ExposureSettingMenu
     permissible_values:
       Human Exposure:
-        text: Exposition humaine
         meaning: ECTO:3000005
         title: Exposition humaine
       Contact with Known COVID-19 Case:
-        text: Contact avec un cas connu de COVID-19
         meaning: GENEPIO:0100184
         is_a: Human Exposure
         title: Contact avec un cas connu de COVID-19
       Contact with Patient:
-        text: Contact avec un patient
         meaning: GENEPIO:0100185
         is_a: Human Exposure
         title: Contact avec un patient
       Contact with Probable COVID-19 Case:
-        text: Contact avec un cas probable de COVID-19
         meaning: GENEPIO:0100186
         is_a: Human Exposure
         title: Contact avec un cas probable de COVID-19
       Contact with Person with Acute Respiratory Illness:
-        text: "Contact avec une personne atteinte d'une maladie respiratoire aigu\xEB"
         meaning: GENEPIO:0100187
         is_a: Human Exposure
         title: "Contact avec une personne atteinte d'une maladie respiratoire aigu\xEB"
       Contact with Person with Fever and/or Cough:
-        text: "Contact avec une personne pr\xE9sentant une fi\xE8vre et/ou une toux"
         meaning: GENEPIO:0100188
         is_a: Human Exposure
         title: "Contact avec une personne pr\xE9sentant une fi\xE8vre et/ou une toux"
       Contact with Person who Recently Travelled:
-        text: "Contact avec une personne ayant r\xE9cemment voyag\xE9"
         meaning: GENEPIO:0100189
         is_a: Human Exposure
         title: "Contact avec une personne ayant r\xE9cemment voyag\xE9"
       Occupational, Residency or Patronage Exposure:
-        text: "Exposition professionnelle, de r\xE9sidence ou de patronage"
         meaning: GENEPIO:0100190
         title: "Exposition professionnelle, de r\xE9sidence ou de patronage"
       Abbatoir:
-        text: Abbatoir
         meaning: ECTO:1000033
         is_a: Occupational, Residency or Patronage Exposure
         title: Abbatoir
       Animal Rescue:
-        text: Sauvetage d'animaux
         meaning: GENEPIO:0100191
         is_a: Occupational, Residency or Patronage Exposure
         title: Sauvetage d'animaux
       Childcare:
-        text: Garde d'enfants
         meaning: GENEPIO:0100192
         is_a: Occupational, Residency or Patronage Exposure
         title: Garde d'enfants
       Daycare:
-        text: Garderie
         meaning: GENEPIO:0100193
         is_a: Childcare
         title: Garderie
       Nursery:
-        text: "Cr\xE8che"
         meaning: GENEPIO:0100194
         is_a: Childcare
         title: "Cr\xE8che"
       Community Service Centre:
-        text: Centre de services communautaires
         meaning: GENEPIO:0100195
         is_a: Occupational, Residency or Patronage Exposure
         title: Centre de services communautaires
       Correctional Facility:
-        text: "\xC9tablissement p\xE9nitentiaire"
         meaning: GENEPIO:0100196
         is_a: Occupational, Residency or Patronage Exposure
         title: "\xC9tablissement p\xE9nitentiaire"
       Dormitory:
-        text: Dortoir
         meaning: GENEPIO:0100197
         is_a: Occupational, Residency or Patronage Exposure
         title: Dortoir
       Farm:
-        text: Ferme
         meaning: ECTO:1000034
         is_a: Occupational, Residency or Patronage Exposure
         title: Ferme
       First Nations Reserve:
-        text: "R\xE9serve des Premi\xE8res Nations"
         meaning: GENEPIO:0100198
         is_a: Occupational, Residency or Patronage Exposure
         title: "R\xE9serve des Premi\xE8res Nations"
       Funeral Home:
-        text: "Maison fun\xE9raire"
         meaning: GENEPIO:0100199
         is_a: Occupational, Residency or Patronage Exposure
         title: "Maison fun\xE9raire"
       Group Home:
-        text: Foyer de groupe
         meaning: GENEPIO:0100200
         is_a: Occupational, Residency or Patronage Exposure
         title: Foyer de groupe
       Healthcare Setting:
-        text: "\xC9tablissement de soins de sant\xE9"
         meaning: GENEPIO:0100201
         is_a: Occupational, Residency or Patronage Exposure
         title: "\xC9tablissement de soins de sant\xE9"
       Ambulance:
-        text: Ambulance
         meaning: GENEPIO:0100202
         is_a: Healthcare Setting
         title: Ambulance
       Acute Care Facility:
-        text: "\xC9tablissement de soins aigus"
         meaning: GENEPIO:0100203
         is_a: Healthcare Setting
         title: "\xC9tablissement de soins aigus"
       Clinic:
-        text: Clinique
         meaning: GENEPIO:0100204
         is_a: Healthcare Setting
         title: Clinique
       Community Healthcare (At-Home) Setting:
-        text: "\xC9tablissement de soins de sant\xE9 communautaire (\xE0 domicile)"
         meaning: GENEPIO:0100415
         is_a: Healthcare Setting
         title: "\xC9tablissement de soins de sant\xE9 communautaire (\xE0 domicile)"
       Community Health Centre:
-        text: "Centre de sant\xE9 communautaire"
         meaning: GENEPIO:0100205
         is_a: Healthcare Setting
         title: "Centre de sant\xE9 communautaire"
       Hospital:
-        text: "H\xF4pital"
         meaning: ECTO:1000035
         is_a: Healthcare Setting
         title: "H\xF4pital"
       Emergency Department:
-        text: Service des urgences
         meaning: GENEPIO:0100206
         is_a: Hospital
         title: Service des urgences
       ICU:
-        text: ICU
         meaning: GENEPIO:0100207
         is_a: Hospital
         title: ICU
       Ward:
-        text: Salle
         meaning: GENEPIO:0100208
         is_a: Hospital
         title: Salle
       Laboratory:
-        text: Laboratoire
         meaning: ECTO:1000036
         is_a: Healthcare Setting
         title: Laboratoire
       Long-Term Care Facility:
-        text: "\xC9tablissement de soins de longue dur\xE9e"
         meaning: GENEPIO:0100209
         is_a: Healthcare Setting
         title: "\xC9tablissement de soins de longue dur\xE9e"
       Pharmacy:
-        text: Pharmacie
         meaning: GENEPIO:0100210
         is_a: Healthcare Setting
         title: Pharmacie
       Physician's Office:
-        text: "Cabinet du m\xE9decin"
         meaning: GENEPIO:0100211
         is_a: Healthcare Setting
         title: "Cabinet du m\xE9decin"
       Household:
-        text: "M\xE9nage"
         meaning: GENEPIO:0100212
         is_a: Occupational, Residency or Patronage Exposure
         title: "M\xE9nage"
       Insecure Housing (Homeless):
-        text: "Logement pr\xE9caire (sans-abri)"
         meaning: GENEPIO:0100213
         is_a: Occupational, Residency or Patronage Exposure
         title: "Logement pr\xE9caire (sans-abri)"
       Occupational Exposure:
-        text: Exposition professionnelle
         meaning: GENEPIO:0100214
         is_a: Occupational, Residency or Patronage Exposure
         title: Exposition professionnelle
       Worksite:
-        text: Chantier
         meaning: GENEPIO:0100215
         is_a: Occupational Exposure
         title: Chantier
       Office:
-        text: Bureau
         meaning: ECTO:1000037
         is_a: Worksite
         title: Bureau
       Outdoors:
-        text: En plein air
         meaning: GENEPIO:0100216
         is_a: Occupational, Residency or Patronage Exposure
         title: En plein air
       Camp/camping:
-        text: Camper/camper
         meaning: ECTO:5000009
         is_a: Outdoors
         title: Camper/camper
       Hiking Trail:
-        text: "Sentier de randonn\xE9e"
         meaning: GENEPIO:0100217
         is_a: Outdoors
         title: "Sentier de randonn\xE9e"
       Hunting Ground:
-        text: Terrain de chasse
         meaning: ECTO:6000030
         is_a: Outdoors
         title: Terrain de chasse
       Ski Resort:
-        text: Station de ski
         meaning: GENEPIO:0100218
         is_a: Outdoors
         title: Station de ski
       Petting zoo:
-        text: Zoo pour enfants
         meaning: ECTO:5000008
         is_a: Occupational, Residency or Patronage Exposure
         title: Zoo pour enfants
       Place of Worship:
-        text: Lieu de culte
         meaning: GENEPIO:0100220
         is_a: Occupational, Residency or Patronage Exposure
         title: Lieu de culte
       Church:
-        text: "\xC9glise"
         meaning: GENEPIO:0100221
         is_a: Place of Worship
         title: "\xC9glise"
       Mosque:
-        text: "Mosqu\xE9e"
         meaning: GENEPIO:0100222
         is_a: Place of Worship
         title: "Mosqu\xE9e"
       Temple:
-        text: Temple
         meaning: GENEPIO:0100223
         is_a: Place of Worship
         title: Temple
       Restaurant:
-        text: Restaurant
         meaning: ECTO:1000040
         is_a: Occupational, Residency or Patronage Exposure
         title: Restaurant
       Retail Store:
-        text: "Magasin de d\xE9tail"
         meaning: ECTO:1000041
         is_a: Occupational, Residency or Patronage Exposure
         title: "Magasin de d\xE9tail"
       School:
-        text: "\xC9cole"
         meaning: GENEPIO:0100224
         is_a: Occupational, Residency or Patronage Exposure
         title: "\xC9cole"
       Temporary Residence:
-        text: "R\xE9sidence temporaire"
         meaning: GENEPIO:0100225
         is_a: Occupational, Residency or Patronage Exposure
         title: "R\xE9sidence temporaire"
       Homeless Shelter:
-        text: Refuge pour sans-abri
         meaning: GENEPIO:0100226
         is_a: Temporary Residence
         title: Refuge pour sans-abri
       Hotel:
-        text: "H\xF4tel"
         meaning: GENEPIO:0100227
         is_a: Temporary Residence
         title: "H\xF4tel"
       Veterinary Care Clinic:
-        text: "Clinique v\xE9t\xE9rinaire"
         meaning: GENEPIO:0100228
         is_a: Occupational, Residency or Patronage Exposure
         title: "Clinique v\xE9t\xE9rinaire"
       Travel Exposure:
-        text: Exposition au voyage
         meaning: GENEPIO:0100229
         title: Exposition au voyage
       Travelled on a Cruise Ship:
-        text: "Voyage sur un bateau de croisi\xE8re"
         meaning: GENEPIO:0100230
         is_a: Travel Exposure
         title: "Voyage sur un bateau de croisi\xE8re"
       Travelled on a Plane:
-        text: Voyage en avion
         meaning: GENEPIO:0100231
         is_a: Travel Exposure
         title: Voyage en avion
       Travelled on Ground Transport:
-        text: Transport terrestre
         meaning: GENEPIO:0100232
         is_a: Travel Exposure
         title: Transport terrestre
       Travelled outside Province/Territory:
-        text: Voyage en dehors de la province ou du territoire
         meaning: GENEPIO:0001118
         is_a: Travel Exposure
         title: Voyage en dehors de la province ou du territoire
       Travelled outside Canada:
-        text: Voyage en dehors du Canada
         meaning: GENEPIO:0001119
         is_a: Travel Exposure
         title: Voyage en dehors du Canada
       Other Exposure Setting:
-        text: "Autres r\xE9glages d'exposition"
         meaning: GENEPIO:0100235
         title: "Autres r\xE9glages d'exposition"
     title: "menu de r\xE9glage de l'exposition"
-  travel point of entry type menu:
-    name: travel point of entry type menu
+  TravelPointOfEntryTypeMenu:
+    name: TravelPointOfEntryTypeMenu
     permissible_values:
       Air:
-        text: Air
         meaning: GENEPIO:0100408
         title: Air
       Land:
-        text: Atterrir
         meaning: GENEPIO:0100409
         title: Atterrir
     title: "menu de type de point d'entr\xE9e de voyage"
-  border testing test day type menu:
-    name: border testing test day type menu
-    permissible_values:
-      day 1:
-        text: jour 1
-        meaning: GENEPIO:0100410
-        title: jour 1
-      day 8:
-        text: jour 8
-        meaning: GENEPIO:0100411
-        title: jour 8
-      day 10:
-        text: jour 10
-        meaning: GENEPIO:0100412
-        title: jour 10
-    title: "menu de type jour de test des tests aux fronti\xE8res"
-  travel history availability menu:
-    name: travel history availability menu
+  TravelHistoryAvailabilityMenu:
+    name: TravelHistoryAvailabilityMenu
     permissible_values:
       Travel history available:
-        text: Historique de voyage disponible
         meaning: GENEPIO:0100650
         title: Historique de voyage disponible
       Domestic travel history available:
-        text: "Historique des voyages int\xE9rieurs disponible"
         meaning: GENEPIO:0100651
         is_a: Travel history available
         title: "Historique des voyages int\xE9rieurs disponible"
       International travel history available:
-        text: Historique des voyages internationaux disponible
         meaning: GENEPIO:0100652
         is_a: Travel history available
         title: Historique des voyages internationaux disponible
       International and domestic travel history available:
-        text: Historique des voyages internationaux et nationaux disponible
         meaning: GENEPIO:0100653
         is_a: Travel history available
         title: Historique des voyages internationaux et nationaux disponible
       No travel history available:
-        text: Aucun historique de voyage disponible
         meaning: GENEPIO:0100654
         title: Aucun historique de voyage disponible
     title: "menu de disponibilit\xE9 de l'historique de voyage"
-  sequencing instrument menu:
-    name: sequencing instrument menu
+  SequencingInstrumentMenu:
+    name: SequencingInstrumentMenu
     permissible_values:
       Illumina:
-        text: Illumina
         meaning: GENEPIO:0100105
         title: Illumina
       Illumina Genome Analyzer:
-        text: Illumina Genome Analyzer
         meaning: GENEPIO:0100106
         is_a: Illumina
         title: Illumina Genome Analyzer
       Illumina Genome Analyzer II:
-        text: Illumina Genome Analyzer II
         meaning: GENEPIO:0100107
         is_a: Illumina Genome Analyzer
         title: Illumina Genome Analyzer II
       Illumina Genome Analyzer IIx:
-        text: Illumina Genome Analyzer IIx
         meaning: GENEPIO:0100108
         is_a: Illumina Genome Analyzer
         title: Illumina Genome Analyzer IIx
       Illumina HiScanSQ:
-        text: Illumina HiScanSQ
         meaning: GENEPIO:0100109
         is_a: Illumina
         title: Illumina HiScanSQ
       Illumina HiSeq:
-        text: Illumina HiSeq
         meaning: GENEPIO:0100110
         is_a: Illumina
         title: Illumina HiSeq
       Illumina HiSeq X:
-        text: Illumina HiSeq X
         meaning: GENEPIO:0100111
         is_a: Illumina HiSeq
         title: Illumina HiSeq X
       Illumina HiSeq X Five:
-        text: Illumina HiSeq X Five
         meaning: GENEPIO:0100112
         is_a: Illumina HiSeq X
         title: Illumina HiSeq X Five
       Illumina HiSeq X Ten:
-        text: Illumina HiSeq X Ten
         meaning: GENEPIO:0100113
         is_a: Illumina HiSeq X
         title: Illumina HiSeq X Ten
       Illumina HiSeq 1000:
-        text: Illumina HiSeq 1000
         meaning: GENEPIO:0100114
         is_a: Illumina HiSeq
         title: Illumina HiSeq 1000
       Illumina HiSeq 1500:
-        text: Illumina HiSeq 1500
         meaning: GENEPIO:0100115
         is_a: Illumina HiSeq
         title: Illumina HiSeq 1500
       Illumina HiSeq 2000:
-        text: Illumina HiSeq 2000
         meaning: GENEPIO:0100116
         is_a: Illumina HiSeq
         title: Illumina HiSeq 2000
       Illumina HiSeq 2500:
-        text: Illumina HiSeq 2500
         meaning: GENEPIO:0100117
         is_a: Illumina HiSeq
         title: Illumina HiSeq 2500
       Illumina HiSeq 3000:
-        text: Illumina HiSeq 3000
         meaning: GENEPIO:0100118
         is_a: Illumina HiSeq
         title: Illumina HiSeq 3000
       Illumina HiSeq 4000:
-        text: Illumina HiSeq 4000
         meaning: GENEPIO:0100119
         is_a: Illumina HiSeq
         title: Illumina HiSeq 4000
       Illumina iSeq:
-        text: Illumina iSeq
         meaning: GENEPIO:0100120
         is_a: Illumina
         title: Illumina iSeq
       Illumina iSeq 100:
-        text: Illumina iSeq 100
         meaning: GENEPIO:0100121
         is_a: Illumina iSeq
         title: Illumina iSeq 100
       Illumina NovaSeq:
-        text: Illumina NovaSeq
         meaning: GENEPIO:0100122
         is_a: Illumina
         title: Illumina NovaSeq
       Illumina NovaSeq 6000:
-        text: Illumina NovaSeq 6000
         meaning: GENEPIO:0100123
         is_a: Illumina NovaSeq
         title: Illumina NovaSeq 6000
       Illumina MiniSeq:
-        text: Illumina MiniSeq
         meaning: GENEPIO:0100124
         is_a: Illumina
         title: Illumina MiniSeq
       Illumina MiSeq:
-        text: Illumina MiSeq
         meaning: GENEPIO:0100125
         is_a: Illumina
         title: Illumina MiSeq
       Illumina NextSeq:
-        text: Illumina NextSeq
         meaning: GENEPIO:0100126
         is_a: Illumina
         title: Illumina NextSeq
       Illumina NextSeq 500:
-        text: Illumina NextSeq 500
         meaning: GENEPIO:0100127
         is_a: Illumina NextSeq
         title: Illumina NextSeq 500
       Illumina NextSeq 550:
-        text: Illumina NextSeq 550
         meaning: GENEPIO:0100128
         is_a: Illumina NextSeq
         title: Illumina NextSeq 550
       Illumina NextSeq 2000:
-        text: Illumina NextSeq 2000
         meaning: GENEPIO:0100129
         is_a: Illumina NextSeq
         title: Illumina NextSeq 2000
       Pacific Biosciences:
-        text: Pacific Biosciences
         meaning: GENEPIO:0100130
         title: Pacific Biosciences
       PacBio RS:
-        text: PacBio RS
         meaning: GENEPIO:0100131
         is_a: Pacific Biosciences
         title: PacBio RS
       PacBio RS II:
-        text: PacBio RS II
         meaning: GENEPIO:0100132
         is_a: Pacific Biosciences
         title: PacBio RS II
       PacBio Sequel:
-        text: PacBio Sequel
         meaning: GENEPIO:0100133
         is_a: Pacific Biosciences
         title: PacBio Sequel
       PacBio Sequel II:
-        text: PacBio Sequel II
         meaning: GENEPIO:0100134
         is_a: Pacific Biosciences
         title: PacBio Sequel II
       Ion Torrent:
-        text: Ion Torrent
         meaning: GENEPIO:0100135
         title: Ion Torrent
       Ion Torrent PGM:
-        text: Ion Torrent PGM
         meaning: GENEPIO:0100136
         is_a: Ion Torrent
         title: Ion Torrent PGM
       Ion Torrent Proton:
-        text: Ion Torrent Proton
         meaning: GENEPIO:0100137
         is_a: Ion Torrent
         title: Ion Torrent Proton
       Ion Torrent S5 XL:
-        text: Ion Torrent S5 XL
         meaning: GENEPIO:0100138
         is_a: Ion Torrent
         title: Ion Torrent S5 XL
       Ion Torrent S5:
-        text: Ion Torrent S5
         meaning: GENEPIO:0100139
         is_a: Ion Torrent
         title: Ion Torrent S5
       Oxford Nanopore:
-        text: Oxford Nanopore
         meaning: GENEPIO:0100140
         title: Oxford Nanopore
       Oxford Nanopore GridION:
-        text: Oxford Nanopore GridION
         meaning: GENEPIO:0100141
         is_a: Oxford Nanopore
         title: Oxford Nanopore GridION
       Oxford Nanopore MinION:
-        text: Oxford Nanopore MinION
         meaning: GENEPIO:0100142
         is_a: Oxford Nanopore
         title: Oxford Nanopore MinION
       Oxford Nanopore PromethION:
-        text: Oxford Nanopore PromethION
         meaning: GENEPIO:0100143
         is_a: Oxford Nanopore
         title: Oxford Nanopore PromethION
       BGI Genomics:
-        text: BGI Genomics
         meaning: GENEPIO:0100144
         title: BGI Genomics
       BGI Genomics BGISEQ-500:
-        text: BGI Genomics BGISEQ-500
         meaning: GENEPIO:0100145
         is_a: BGI Genomics
         title: BGI Genomics BGISEQ-500
       MGI:
-        text: MGI
         meaning: GENEPIO:0100146
         title: MGI
       MGI DNBSEQ-T7:
-        text: MGI DNBSEQ-T7
         meaning: GENEPIO:0100147
         is_a: MGI
         title: MGI DNBSEQ-T7
       MGI DNBSEQ-G400:
-        text: MGI DNBSEQ-G400
         meaning: GENEPIO:0100148
         is_a: MGI
         title: MGI DNBSEQ-G400
       MGI DNBSEQ-G400 FAST:
-        text: MGI DNBSEQ-G400 FAST
         meaning: GENEPIO:0100149
         is_a: MGI
         title: MGI DNBSEQ-G400 FAST
       MGI DNBSEQ-G50:
-        text: MGI DNBSEQ-G50
         meaning: GENEPIO:0100150
         is_a: MGI
         title: MGI DNBSEQ-G50
     title: "menu des instruments de s\xE9quen\xE7age"
-  gene name menu:
-    name: gene name menu
+  GeneNameMenu:
+    name: GeneNameMenu
     permissible_values:
       E gene (orf4):
-        text: "E g\xE8ne (orf4)"
         meaning: GENEPIO:0100151
         exact_mappings:
         - CNPHI:E%20gene
         - BIOSAMPLE:E%20%28orf4%29
         title: "E g\xE8ne (orf4)"
       M gene (orf5):
-        text: "M g\xE8ne (orf5)"
         meaning: GENEPIO:0100152
         exact_mappings:
         - BIOSAMPLE:M%20%28orf5%29
         title: "M g\xE8ne (orf5)"
       N gene (orf9):
-        text: "N g\xE8ne (orf9)"
         meaning: GENEPIO:0100153
         exact_mappings:
         - BIOSAMPLE:N%20%28orf9%29
         title: "N g\xE8ne (orf9)"
       Spike gene (orf2):
-        text: "Spike g\xE8ne (orf2)"
         meaning: GENEPIO:0100154
         exact_mappings:
         - BIOSAMPLE:S%20%28orf2%29
         title: "Spike g\xE8ne (orf2)"
       orf1ab (rep):
-        text: orf1ab (rep)
         meaning: GENEPIO:0100155
         exact_mappings:
         - BIOSAMPLE:orf1ab%20%28rep%29
         title: orf1ab (rep)
       orf1a (pp1a):
-        text: orf1a (pp1a)
         meaning: GENEPIO:0100156
         exact_mappings:
         - BIOSAMPLE:orf1a%20%28pp1a%29
         is_a: orf1ab (rep)
         title: orf1a (pp1a)
       nsp11:
-        text: nsp11
         meaning: GENEPIO:0100157
         exact_mappings:
         - BIOSAMPLE:nsp11
         is_a: orf1a (pp1a)
         title: nsp11
       nsp1:
-        text: nsp1
         meaning: GENEPIO:0100158
         exact_mappings:
         - BIOSAMPLE:nsp1
         is_a: orf1ab (rep)
         title: nsp1
       nsp2:
-        text: nsp2
         meaning: GENEPIO:0100159
         exact_mappings:
         - BIOSAMPLE:nsp2
         is_a: orf1ab (rep)
         title: nsp2
       nsp3:
-        text: nsp3
         meaning: GENEPIO:0100160
         exact_mappings:
         - BIOSAMPLE:nsp3
         is_a: orf1ab (rep)
         title: nsp3
       nsp4:
-        text: nsp4
         meaning: GENEPIO:0100161
         exact_mappings:
         - BIOSAMPLE:nsp4
         is_a: orf1ab (rep)
         title: nsp4
       nsp5:
-        text: nsp5
         meaning: GENEPIO:0100162
         exact_mappings:
         - BIOSAMPLE:nsp5
         is_a: orf1ab (rep)
         title: nsp5
       nsp6:
-        text: nsp6
         meaning: GENEPIO:0100163
         exact_mappings:
         - BIOSAMPLE:nsp6
         is_a: orf1ab (rep)
         title: nsp6
       nsp7:
-        text: nsp7
         meaning: GENEPIO:0100164
         exact_mappings:
         - BIOSAMPLE:nsp7
         is_a: orf1ab (rep)
         title: nsp7
       nsp8:
-        text: nsp8
         meaning: GENEPIO:0100165
         exact_mappings:
         - BIOSAMPLE:nsp8
         is_a: orf1ab (rep)
         title: nsp8
       nsp9:
-        text: nsp9
         meaning: GENEPIO:0100166
         exact_mappings:
         - BIOSAMPLE:nsp9
         is_a: orf1ab (rep)
         title: nsp9
       nsp10:
-        text: nsp10
         meaning: GENEPIO:0100167
         exact_mappings:
         - BIOSAMPLE:nsp10
         is_a: orf1ab (rep)
         title: nsp10
       RdRp gene (nsp12):
-        text: "RdRp g\xE8ne (nsp12)"
         meaning: GENEPIO:0100168
         exact_mappings:
         - BIOSAMPLE:nsp12%20%28RdRp%29
         is_a: orf1ab (rep)
         title: "RdRp g\xE8ne (nsp12)"
       hel gene (nsp13):
-        text: "hel g\xE8ne (nsp13)"
         meaning: GENEPIO:0100169
         exact_mappings:
         - BIOSAMPLE:nsp13%20%28Hel%29
         is_a: orf1ab (rep)
         title: "hel g\xE8ne (nsp13)"
       exoN gene (nsp14):
-        text: "exoN g\xE8ne (nsp14)"
         meaning: GENEPIO:0100170
         exact_mappings:
         - BIOSAMPLE:nsp14%20%28ExoN%29
         is_a: orf1ab (rep)
         title: "exoN g\xE8ne (nsp14)"
       nsp15:
-        text: nsp15
         meaning: GENEPIO:0100171
         exact_mappings:
         - BIOSAMPLE:nsp15
         is_a: orf1ab (rep)
         title: nsp15
       nsp16:
-        text: nsp16
         meaning: GENEPIO:0100172
         exact_mappings:
         - BIOSAMPLE:nsp16
         is_a: orf1ab (rep)
         title: nsp16
       orf3a:
-        text: orf3a
         meaning: GENEPIO:0100173
         exact_mappings:
         - BIOSAMPLE:orf3a
         title: orf3a
       orf3b:
-        text: orf3b
         meaning: GENEPIO:0100174
         exact_mappings:
         - BIOSAMPLE:orf3b
         title: orf3b
       orf6 (ns6):
-        text: orf6 (ns6)
         meaning: GENEPIO:0100175
         exact_mappings:
         - BIOSAMPLE:orf6%20%28ns6%29
         title: orf6 (ns6)
       orf7a:
-        text: orf7a
         meaning: GENEPIO:0100176
         exact_mappings:
         - BIOSAMPLE:orf7a
         title: orf7a
       orf7b (ns7b):
-        text: orf7b (ns7b)
         meaning: GENEPIO:0100177
         exact_mappings:
         - BIOSAMPLE:orf7b%20%28ns7b%29
         title: orf7b (ns7b)
       orf8 (ns8):
-        text: orf8 (ns8)
         meaning: GENEPIO:0100178
         exact_mappings:
         - BIOSAMPLE:orf8%20%28ns8%29
         title: orf8 (ns8)
       orf9b:
-        text: orf9b
         meaning: GENEPIO:0100179
         exact_mappings:
         - BIOSAMPLE:orf9b
         title: orf9b
       orf9c:
-        text: orf9c
         meaning: GENEPIO:0100180
         exact_mappings:
         - BIOSAMPLE:orf9c
         title: orf9c
       orf10:
-        text: orf10
         meaning: GENEPIO:0100181
         exact_mappings:
         - BIOSAMPLE:orf10
         title: orf10
       orf14:
-        text: orf14
         meaning: GENEPIO:0100182
         exact_mappings:
         - BIOSAMPLE:orf14
         title: orf14
       SARS-COV-2 5' UTR:
-        text: SARS-COV-2 5' UTR
         meaning: GENEPIO:0100183
         title: SARS-COV-2 5' UTR
     title: "menu de nom de g\xE8ne"
-  sequence submitted by menu:
-    name: sequence submitted by menu
+  SequenceSubmittedByMenu:
+    name: SequenceSubmittedByMenu
     permissible_values:
       Alberta Precision Labs (APL):
-        text: Alberta Precision Labs (APL)
         title: Alberta Precision Labs (APL)
       Alberta ProvLab North (APLN):
-        text: Alberta ProvLab North (APLN)
         is_a: Alberta Precision Labs (APL)
         title: Alberta ProvLab North (APLN)
       Alberta ProvLab South (APLS):
-        text: Alberta ProvLab South (APLS)
         is_a: Alberta Precision Labs (APL)
         title: Alberta ProvLab South (APLS)
       BCCDC Public Health Laboratory:
-        text: BCCDC Public Health Laboratory
         title: BCCDC Public Health Laboratory
       Canadore College:
-        text: Canadore College
         title: Canadore College
       The Centre for Applied Genomics (TCAG):
-        text: The Centre for Applied Genomics (TCAG)
         title: The Centre for Applied Genomics (TCAG)
       Dynacare:
-        text: Dynacare
         title: Dynacare
       Dynacare (Brampton):
-        text: Dynacare (Brampton)
         title: Dynacare (Brampton)
       Dynacare (Manitoba):
-        text: Dynacare (Manitoba)
         title: Dynacare (Manitoba)
       The Hospital for Sick Children (SickKids):
-        text: The Hospital for Sick Children (SickKids)
         title: The Hospital for Sick Children (SickKids)
       "Laboratoire de sant\xE9 publique du Qu\xE9bec (LSPQ)":
-        text: "Laboratoire de sant\xE9 publique du Qu\xE9bec (LSPQ)"
         title: "Laboratoire de sant\xE9 publique du Qu\xE9bec (LSPQ)"
       Manitoba Cadham Provincial Laboratory:
-        text: Manitoba Cadham Provincial Laboratory
         title: Manitoba Cadham Provincial Laboratory
       McGill University:
-        text: McGill University
         title: McGill University
       McMaster University:
-        text: McMaster University
         title: McMaster University
       National Microbiology Laboratory (NML):
-        text: National Microbiology Laboratory (NML)
         title: National Microbiology Laboratory (NML)
       "New Brunswick - Vitalit\xE9 Health Network":
-        text: "New Brunswick - Vitalit\xE9 Health Network"
         title: "New Brunswick - Vitalit\xE9 Health Network"
       Newfoundland and Labrador - Eastern Health:
-        text: Newfoundland and Labrador - Eastern Health
         title: Newfoundland and Labrador - Eastern Health
       Newfoundland and Labrador - Newfoundland and Labrador Health Services:
-        text: Newfoundland and Labrador - Newfoundland and Labrador Health Services
         title: Newfoundland and Labrador - Newfoundland and Labrador Health Services
       Nova Scotia Health Authority:
-        text: Nova Scotia Health Authority
         title: Nova Scotia Health Authority
       Ontario Institute for Cancer Research (OICR):
-        text: Ontario Institute for Cancer Research (OICR)
         title: Ontario Institute for Cancer Research (OICR)
       Prince Edward Island - Health PEI:
-        text: Prince Edward Island - Health PEI
         title: Prince Edward Island - Health PEI
       Public Health Ontario (PHO):
-        text: Public Health Ontario (PHO)
         title: Public Health Ontario (PHO)
       Queen's University / Kingston Health Sciences Centre:
-        text: Queen's University / Kingston Health Sciences Centre
         title: Queen's University / Kingston Health Sciences Centre
       Saskatchewan - Roy Romanow Provincial Laboratory (RRPL):
-        text: Saskatchewan - Roy Romanow Provincial Laboratory (RRPL)
         title: Saskatchewan - Roy Romanow Provincial Laboratory (RRPL)
       Sunnybrook Health Sciences Centre:
-        text: Sunnybrook Health Sciences Centre
         title: Sunnybrook Health Sciences Centre
       Thunder Bay Regional Health Sciences Centre:
-        text: Thunder Bay Regional Health Sciences Centre
         title: Thunder Bay Regional Health Sciences Centre
     title: "s\xE9quence soumise par menu"
-  sample collected by menu:
-    name: sample collected by menu
+  SampleCollectedByMenu:
+    name: SampleCollectedByMenu
     permissible_values:
       Alberta Precision Labs (APL):
-        text: Alberta Precision Labs (APL)
         title: Alberta Precision Labs (APL)
       Alberta ProvLab North (APLN):
-        text: Alberta ProvLab North (APLN)
         is_a: Alberta Precision Labs (APL)
         title: Alberta ProvLab North (APLN)
       Alberta ProvLab South (APLS):
-        text: Alberta ProvLab South (APLS)
         is_a: Alberta Precision Labs (APL)
         title: Alberta ProvLab South (APLS)
       BCCDC Public Health Laboratory:
-        text: BCCDC Public Health Laboratory
         title: BCCDC Public Health Laboratory
       Dynacare:
-        text: Dynacare
         title: Dynacare
       Dynacare (Manitoba):
-        text: Dynacare (Manitoba)
         title: Dynacare (Manitoba)
       Dynacare (Brampton):
-        text: Dynacare (Brampton)
         title: Dynacare (Brampton)
       Eastern Ontario Regional Laboratory Association:
-        text: Eastern Ontario Regional Laboratory Association
         title: Eastern Ontario Regional Laboratory Association
       Hamilton Health Sciences:
-        text: Hamilton Health Sciences
         title: Hamilton Health Sciences
       The Hospital for Sick Children (SickKids):
-        text: The Hospital for Sick Children (SickKids)
         title: The Hospital for Sick Children (SickKids)
       "Laboratoire de sant\xE9 publique du Qu\xE9bec (LSPQ)":
-        text: "Laboratoire de sant\xE9 publique du Qu\xE9bec (LSPQ)"
         title: "Laboratoire de sant\xE9 publique du Qu\xE9bec (LSPQ)"
       Lake of the Woods District Hospital - Ontario:
-        text: Lake of the Woods District Hospital - Ontario
         title: Lake of the Woods District Hospital - Ontario
       LifeLabs:
-        text: LifeLabs
         title: LifeLabs
       LifeLabs (Ontario):
-        text: LifeLabs (Ontario)
         title: LifeLabs (Ontario)
       Manitoba Cadham Provincial Laboratory:
-        text: Manitoba Cadham Provincial Laboratory
         title: Manitoba Cadham Provincial Laboratory
       McMaster University:
-        text: McMaster University
         title: McMaster University
       Mount Sinai Hospital:
-        text: Mount Sinai Hospital
         title: Mount Sinai Hospital
       National Microbiology Laboratory (NML):
-        text: National Microbiology Laboratory (NML)
         title: National Microbiology Laboratory (NML)
       "New Brunswick - Vitalit\xE9 Health Network":
-        text: "New Brunswick - Vitalit\xE9 Health Network"
         title: "New Brunswick - Vitalit\xE9 Health Network"
       Newfoundland and Labrador - Eastern Health:
-        text: Newfoundland and Labrador - Eastern Health
         title: Newfoundland and Labrador - Eastern Health
       Newfoundland and Labrador - Newfoundland and Labrador Health Services:
-        text: Newfoundland and Labrador - Newfoundland and Labrador Health Services
         title: Newfoundland and Labrador - Newfoundland and Labrador Health Services
       Nova Scotia Health Authority:
-        text: Nova Scotia Health Authority
         title: Nova Scotia Health Authority
       Nunavut:
-        text: Nunavut
         title: Nunavut
       Ontario Institute for Cancer Research (OICR):
-        text: Ontario Institute for Cancer Research (OICR)
         title: Ontario Institute for Cancer Research (OICR)
       Prince Edward Island - Health PEI:
-        text: Prince Edward Island - Health PEI
         title: Prince Edward Island - Health PEI
       Public Health Ontario (PHO):
-        text: Public Health Ontario (PHO)
         title: Public Health Ontario (PHO)
       Queen's University / Kingston Health Sciences Centre:
-        text: Queen's University / Kingston Health Sciences Centre
         title: Queen's University / Kingston Health Sciences Centre
       Saskatchewan - Roy Romanow Provincial Laboratory (RRPL):
-        text: Saskatchewan - Roy Romanow Provincial Laboratory (RRPL)
         title: Saskatchewan - Roy Romanow Provincial Laboratory (RRPL)
       Shared Hospital Laboratory:
-        text: Shared Hospital Laboratory
         title: Shared Hospital Laboratory
       St. John's Rehab at Sunnybrook Hospital:
-        text: St. John's Rehab at Sunnybrook Hospital
         title: St. John's Rehab at Sunnybrook Hospital
       Switch Health:
-        text: Switch Health
         title: Switch Health
       Sunnybrook Health Sciences Centre:
-        text: Sunnybrook Health Sciences Centre
         title: Sunnybrook Health Sciences Centre
       Unity Health Toronto:
-        text: Unity Health Toronto
         title: Unity Health Toronto
       William Osler Health System:
-        text: William Osler Health System
         title: William Osler Health System
     title: "\xE9chantillon collect\xE9 par menu"
-  geo_loc_name (country) menu:
-    name: geo_loc_name (country) menu
+  GeoLocNameCountryMenu:
+    name: GeoLocNameCountryMenu
     permissible_values:
       Afghanistan:
-        text: Afghanistan
         meaning: GAZ:00006882
         title: Afghanistan
       Albania:
-        text: Albanie
         meaning: GAZ:00002953
         title: Albanie
       Algeria:
-        text: "Alg\xE9rie"
         meaning: GAZ:00000563
         title: "Alg\xE9rie"
       American Samoa:
-        text: "Samoa am\xE9ricaines"
         meaning: GAZ:00003957
         title: "Samoa am\xE9ricaines"
       Andorra:
-        text: Andorre
         meaning: GAZ:00002948
         title: Andorre
       Angola:
-        text: Angola
         meaning: GAZ:00001095
         title: Angola
       Anguilla:
-        text: Anguilla
         meaning: GAZ:00009159
         title: Anguilla
       Antarctica:
-        text: Antarctique
         meaning: GAZ:00000462
         title: Antarctique
       Antigua and Barbuda:
-        text: Antigua-et-Barbuda
         meaning: GAZ:00006883
         title: Antigua-et-Barbuda
       Argentina:
-        text: Argentine
         meaning: GAZ:00002928
         title: Argentine
       Armenia:
-        text: "Arm\xE9nie"
         meaning: GAZ:00004094
         title: "Arm\xE9nie"
       Aruba:
-        text: Aruba
         meaning: GAZ:00004025
         title: Aruba
       Ashmore and Cartier Islands:
-        text: "\xCEles Ashmore et Cartier"
         meaning: GAZ:00005901
         title: "\xCEles Ashmore et Cartier"
       Australia:
-        text: Australie
         meaning: GAZ:00000463
         title: Australie
       Austria:
-        text: L'Autriche
         meaning: GAZ:00002942
         title: L'Autriche
       Azerbaijan:
-        text: "Azerba\xEFdjan"
         meaning: GAZ:00004941
         title: "Azerba\xEFdjan"
       Bahamas:
-        text: Bahamas
         meaning: GAZ:00002733
         title: Bahamas
       Bahrain:
-        text: "Bahre\xEFn"
         meaning: GAZ:00005281
         title: "Bahre\xEFn"
       Baker Island:
-        text: "\xCEle Boulanger"
         meaning: GAZ:00007117
         title: "\xCEle Boulanger"
       Bangladesh:
-        text: Bangladesh
         meaning: GAZ:00003750
         title: Bangladesh
       Barbados:
-        text: Barbade
         meaning: GAZ:00001251
         title: Barbade
       Bassas da India:
-        text: Bassas de l'Inde
         meaning: GAZ:00005810
         title: Bassas de l'Inde
       Belarus:
-        text: "Bi\xE9lorussie"
         meaning: GAZ:00006886
         title: "Bi\xE9lorussie"
       Belgium:
-        text: Belgique
         meaning: GAZ:00002938
         title: Belgique
       Belize:
-        text: "B\xE9lize"
         meaning: GAZ:00002934
         title: "B\xE9lize"
       Benin:
-        text: "B\xE9nin"
         meaning: GAZ:00000904
         title: "B\xE9nin"
       Bermuda:
-        text: Bermudes
         meaning: GAZ:00001264
         title: Bermudes
       Bhutan:
-        text: Bhoutan
         meaning: GAZ:00003920
         title: Bhoutan
       Bolivia:
-        text: Bolivie
         meaning: GAZ:00002511
         title: Bolivie
       Borneo:
-        text: "Born\xE9o"
         meaning: GAZ:00025355
         title: "Born\xE9o"
       Bosnia and Herzegovina:
-        text: "Bosnie Herz\xE9govine"
         meaning: GAZ:00006887
         title: "Bosnie Herz\xE9govine"
       Botswana:
-        text: Botswana
         meaning: GAZ:00001097
         title: Botswana
       Bouvet Island:
-        text: "\xCEle Bouvet"
         meaning: GAZ:00001453
         title: "\xCEle Bouvet"
       Brazil:
-        text: "Br\xE9sil"
         meaning: GAZ:00002828
         title: "Br\xE9sil"
       British Virgin Islands:
-        text: "\xCEles Vierges britanniques"
         meaning: GAZ:00003961
         title: "\xCEles Vierges britanniques"
       Brunei:
-        text: "Brun\xE9i"
         meaning: GAZ:00003901
         title: "Brun\xE9i"
       Bulgaria:
-        text: Bulgarie
         meaning: GAZ:00002950
         title: Bulgarie
       Burkina Faso:
-        text: Burkina Faso
         meaning: GAZ:00000905
         title: Burkina Faso
       Burundi:
-        text: Burundi
         meaning: GAZ:00001090
         title: Burundi
       Cambodia:
-        text: Cambodge
         meaning: GAZ:00006888
         title: Cambodge
       Cameroon:
-        text: Cameroun
         meaning: GAZ:00001093
         title: Cameroun
       Canada:
-        text: Canada
         meaning: GAZ:00002560
         title: Canada
       Cape Verde:
-        text: Cap-Vert
         meaning: GAZ:00001227
         title: Cap-Vert
       Cayman Islands:
-        text: "\xCEles Ca\xEFmans"
         meaning: GAZ:00003986
         title: "\xCEles Ca\xEFmans"
       Central African Republic:
-        text: "R\xE9publique centrafricaine"
         meaning: GAZ:00001089
         title: "R\xE9publique centrafricaine"
       Chad:
-        text: Tchad
         meaning: GAZ:00000586
         title: Tchad
       Chile:
-        text: Chili
         meaning: GAZ:00002825
         title: Chili
       China:
-        text: Chine
         meaning: GAZ:00002845
         title: Chine
       Christmas Island:
-        text: "L'\xEEle de no\xEBl"
         meaning: GAZ:00005915
         title: "L'\xEEle de no\xEBl"
       Clipperton Island:
-        text: "\xCEle Clipperton"
         meaning: GAZ:00005838
         title: "\xCEle Clipperton"
       Cocos Islands:
-        text: "\xCEles Cocos"
         meaning: GAZ:00009721
         title: "\xCEles Cocos"
       Colombia:
-        text: Colombie
         meaning: GAZ:00002929
         title: Colombie
       Comoros:
-        text: Comores
         meaning: GAZ:00005820
         title: Comores
       Cook Islands:
-        text: "les \xCEles Cook"
         meaning: GAZ:00053798
         title: "les \xCEles Cook"
       Coral Sea Islands:
-        text: "\xCEles de la mer de Corail"
         meaning: GAZ:00005917
         title: "\xCEles de la mer de Corail"
       Costa Rica:
-        text: Costa Rica
         meaning: GAZ:00002901
         title: Costa Rica
       Cote d'Ivoire:
-        text: "C\xF4te d'Ivoire"
         meaning: GAZ:00000906
         title: "C\xF4te d'Ivoire"
       Croatia:
-        text: Croatie
         meaning: GAZ:00002719
         title: Croatie
       Cuba:
-        text: Cuba
         meaning: GAZ:00003762
         title: Cuba
       Curacao:
-        text: Curacao
         meaning: GAZ:00012582
         title: Curacao
       Cyprus:
-        text: Chypre
         meaning: GAZ:00004006
         title: Chypre
       Czech Republic:
-        text: "R\xE9publique tch\xE8que"
         meaning: GAZ:00002954
         title: "R\xE9publique tch\xE8que"
       Democratic Republic of the Congo:
-        text: "R\xE9publique D\xE9mocratique du Congo"
         meaning: GAZ:00001086
         title: "R\xE9publique D\xE9mocratique du Congo"
       Denmark:
-        text: Danemark
         meaning: GAZ:00005852
         title: Danemark
       Djibouti:
-        text: Djibouti
         meaning: GAZ:00000582
         title: Djibouti
       Dominica:
-        text: Dominique
         meaning: GAZ:00006890
         title: Dominique
       Dominican Republic:
-        text: "R\xE9publique dominicaine"
         meaning: GAZ:00003952
         title: "R\xE9publique dominicaine"
       Ecuador:
-        text: "\xC9quateur"
         meaning: GAZ:00002912
         title: "\xC9quateur"
       Egypt:
-        text: Egypte
         meaning: GAZ:00003934
         title: Egypte
       El Salvador:
-        text: Le Salvador
         meaning: GAZ:00002935
         title: Le Salvador
       Equatorial Guinea:
-        text: "Guin\xE9e \xC9quatoriale"
         meaning: GAZ:00001091
         title: "Guin\xE9e \xC9quatoriale"
       Eritrea:
-        text: "\xC9rythr\xE9e"
         meaning: GAZ:00000581
         title: "\xC9rythr\xE9e"
       Estonia:
-        text: Estonie
         meaning: GAZ:00002959
         title: Estonie
       Eswatini:
-        text: Eswatini
         meaning: GAZ:00001099
         title: Eswatini
       Ethiopia:
-        text: Ethiopie
         meaning: GAZ:00000567
         title: Ethiopie
       Europa Island:
-        text: "\xCEle d'Europe"
         meaning: GAZ:00005811
         title: "\xCEle d'Europe"
       Falkland Islands (Islas Malvinas):
-        text: "\xCEles Falkland (Islas Malvinas)"
         meaning: GAZ:00001412
         title: "\xCEles Falkland (Islas Malvinas)"
       Faroe Islands:
-        text: "\xCEles F\xE9ro\xE9"
         meaning: GAZ:00059206
         title: "\xCEles F\xE9ro\xE9"
       Fiji:
-        text: Fidji
         meaning: GAZ:00006891
         title: Fidji
       Finland:
-        text: Finlande
         meaning: GAZ:00002937
         title: Finlande
       France:
-        text: France
         meaning: GAZ:00003940
         title: France
       French Guiana:
-        text: "Guyane Fran\xE7aise"
         meaning: GAZ:00002516
         title: "Guyane Fran\xE7aise"
       French Polynesia:
-        text: "Polyn\xE9sie fran\xE7aise"
         meaning: GAZ:00002918
         title: "Polyn\xE9sie fran\xE7aise"
       French Southern and Antarctic Lands:
-        text: "Terres australes et antarctiques fran\xE7aises"
         meaning: GAZ:00003753
         title: "Terres australes et antarctiques fran\xE7aises"
       Gabon:
-        text: Gabon
         meaning: GAZ:00001092
         title: Gabon
       Gambia:
-        text: Gambie
         meaning: GAZ:00000907
         title: Gambie
       Gaza Strip:
-        text: bande de Gaza
         meaning: GAZ:00009571
         title: bande de Gaza
       Georgia:
-        text: "G\xE9orgie"
         meaning: GAZ:00004942
         title: "G\xE9orgie"
       Germany:
-        text: Allemagne
         meaning: GAZ:00002646
         title: Allemagne
       Ghana:
-        text: Ghana
         meaning: GAZ:00000908
         title: Ghana
       Gibraltar:
-        text: Gibraltar
         meaning: GAZ:00003987
         title: Gibraltar
       Glorioso Islands:
-        text: "\xCEles Glorieuses"
         meaning: GAZ:00005808
         title: "\xCEles Glorieuses"
       Greece:
-        text: "Gr\xE8ce"
         meaning: GAZ:00002945
         title: "Gr\xE8ce"
       Greenland:
-        text: Groenland
         meaning: GAZ:00001507
         title: Groenland
       Grenada:
-        text: Grenade
         meaning: GAZ:02000573
         title: Grenade
       Guadeloupe:
-        text: Guadeloupe
         meaning: GAZ:00067142
         title: Guadeloupe
       Guam:
-        text: Guam
         meaning: GAZ:00003706
         title: Guam
       Guatemala:
-        text: Guatemala
         meaning: GAZ:00002936
         title: Guatemala
       Guernsey:
-        text: Guernesey
         meaning: GAZ:00001550
         title: Guernesey
       Guinea:
-        text: "Guin\xE9e"
         meaning: GAZ:00000909
         title: "Guin\xE9e"
       Guinea-Bissau:
-        text: "Guin\xE9e-Bissau"
         meaning: GAZ:00000910
         title: "Guin\xE9e-Bissau"
       Guyana:
-        text: Guyane
         meaning: GAZ:00002522
         title: Guyane
       Haiti:
-        text: "Ha\xEFti"
         meaning: GAZ:00003953
         title: "Ha\xEFti"
       Heard Island and McDonald Islands:
-        text: "\xCEle Heard et \xEEles McDonald"
         meaning: GAZ:00009718
         title: "\xCEle Heard et \xEEles McDonald"
       Honduras:
-        text: Honduras
         meaning: GAZ:00002894
         title: Honduras
       Hong Kong:
-        text: Hong Kong
         meaning: GAZ:00003203
         title: Hong Kong
       Howland Island:
-        text: "\xCEle Howland"
         meaning: GAZ:00007120
         title: "\xCEle Howland"
       Hungary:
-        text: Hongrie
         meaning: GAZ:00002952
         title: Hongrie
       Iceland:
-        text: Islande
         meaning: GAZ:00000843
         title: Islande
       India:
-        text: Inde
         meaning: GAZ:00002839
         title: Inde
       Indonesia:
-        text: "Indon\xE9sie"
         meaning: GAZ:00003727
         title: "Indon\xE9sie"
       Iran:
-        text: L'Iran
         meaning: GAZ:00004474
         title: L'Iran
       Iraq:
-        text: Irak
         meaning: GAZ:00004483
         title: Irak
       Ireland:
-        text: Irlande
         meaning: GAZ:00002943
         title: Irlande
       Isle of Man:
-        text: "\xEEle de Man"
         meaning: GAZ:00052477
         title: "\xEEle de Man"
       Israel:
-        text: "Isra\xEBl"
         meaning: GAZ:00002476
         title: "Isra\xEBl"
       Italy:
-        text: Italie
         meaning: GAZ:00002650
         title: Italie
       Jamaica:
-        text: "Jama\xEFque"
         meaning: GAZ:00003781
         title: "Jama\xEFque"
       Jan Mayen:
-        text: Jan Mayen
         meaning: GAZ:00005853
         title: Jan Mayen
       Japan:
-        text: Japon
         meaning: GAZ:00002747
         title: Japon
       Jarvis Island:
-        text: "\xCEle Jarvis"
         meaning: GAZ:00007118
         title: "\xCEle Jarvis"
       Jersey:
-        text: Jersey
         meaning: GAZ:00001551
         title: Jersey
       Johnston Atoll:
-        text: Atoll Johnston
         meaning: GAZ:00007114
         title: Atoll Johnston
       Jordan:
-        text: Jordan
         meaning: GAZ:00002473
         title: Jordan
       Juan de Nova Island:
-        text: "\xCEle Juan de Nova"
         meaning: GAZ:00005809
         title: "\xCEle Juan de Nova"
       Kazakhstan:
-        text: Kazakhstan
         meaning: GAZ:00004999
         title: Kazakhstan
       Kenya:
-        text: Kenya
         meaning: GAZ:00001101
         title: Kenya
       Kerguelen Archipelago:
-        text: Archipel des Kerguelen
         meaning: GAZ:00005682
         title: Archipel des Kerguelen
       Kingman Reef:
-        text: "R\xE9cif Kingman"
         meaning: GAZ:00007116
         title: "R\xE9cif Kingman"
       Kiribati:
-        text: Kiribati
         meaning: GAZ:00006894
         title: Kiribati
       Kosovo:
-        text: Kosovo
         meaning: GAZ:00011337
         title: Kosovo
       Kuwait:
-        text: Koweit
         meaning: GAZ:00005285
         title: Koweit
       Kyrgyzstan:
-        text: Kirghizistan
         meaning: GAZ:00006893
         title: Kirghizistan
       Laos:
-        text: Laos
         meaning: GAZ:00006889
         title: Laos
       Latvia:
-        text: Lettonie
         meaning: GAZ:00002958
         title: Lettonie
       Lebanon:
-        text: Liban
         meaning: GAZ:00002478
         title: Liban
       Lesotho:
-        text: Lesotho
         meaning: GAZ:00001098
         title: Lesotho
       Liberia:
-        text: "Lib\xE9ria"
         meaning: GAZ:00000911
         title: "Lib\xE9ria"
       Libya:
-        text: Libye
         meaning: GAZ:00000566
         title: Libye
       Liechtenstein:
-        text: Liechtenstein
         meaning: GAZ:00003858
         title: Liechtenstein
       Line Islands:
-        text: "\xCEles de la Ligne"
         meaning: GAZ:00007144
         title: "\xCEles de la Ligne"
       Lithuania:
-        text: Lituanie
         meaning: GAZ:00002960
         title: Lituanie
       Luxembourg:
-        text: Luxembourg
         meaning: GAZ:00002947
         title: Luxembourg
       Macau:
-        text: Macao
         meaning: GAZ:00003202
         title: Macao
       Madagascar:
-        text: Madagascar
         meaning: GAZ:00001108
         title: Madagascar
       Malawi:
-        text: Malawi
         meaning: GAZ:00001105
         title: Malawi
       Malaysia:
-        text: Malaisie
         meaning: GAZ:00003902
         title: Malaisie
       Maldives:
-        text: Maldives
         meaning: GAZ:00006924
         title: Maldives
       Mali:
-        text: Mali
         meaning: GAZ:00000584
         title: Mali
       Malta:
-        text: Malte
         meaning: GAZ:00004017
         title: Malte
       Marshall Islands:
-        text: Iles Marshall
         meaning: GAZ:00007161
         title: Iles Marshall
       Martinique:
-        text: Martinique
         meaning: GAZ:00067143
         title: Martinique
       Mauritania:
-        text: Mauritanie
         meaning: GAZ:00000583
         title: Mauritanie
       Mauritius:
-        text: Maurice
         meaning: GAZ:00003745
         title: Maurice
       Mayotte:
-        text: Mayotte
         meaning: GAZ:00003943
         title: Mayotte
       Mexico:
-        text: Mexique
         meaning: GAZ:00002852
         title: Mexique
       Micronesia:
-        text: "Micron\xE9sie"
         meaning: GAZ:00005862
         title: "Micron\xE9sie"
       Midway Islands:
-        text: "\xCEles Midway"
         meaning: GAZ:00007112
         title: "\xCEles Midway"
       Moldova:
-        text: Moldavie
         meaning: GAZ:00003897
         title: Moldavie
       Monaco:
-        text: Monaco
         meaning: GAZ:00003857
         title: Monaco
       Mongolia:
-        text: Mongolie
         meaning: GAZ:00008744
         title: Mongolie
       Montenegro:
-        text: "Mont\xE9n\xE9gro"
         meaning: GAZ:00006898
         title: "Mont\xE9n\xE9gro"
       Montserrat:
-        text: Montserrat
         meaning: GAZ:00003988
         title: Montserrat
       Morocco:
-        text: Maroc
         meaning: GAZ:00000565
         title: Maroc
       Mozambique:
-        text: Mozambique
         meaning: GAZ:00001100
         title: Mozambique
       Myanmar:
-        text: Birmanie
         meaning: GAZ:00006899
         title: Birmanie
       Namibia:
-        text: Namibie
         meaning: GAZ:00001096
         title: Namibie
       Nauru:
-        text: Nauru
         meaning: GAZ:00006900
         title: Nauru
       Navassa Island:
-        text: "\xCEle Navasse"
         meaning: GAZ:00007119
         title: "\xCEle Navasse"
       Nepal:
-        text: "N\xE9pal"
         meaning: GAZ:00004399
         title: "N\xE9pal"
       Netherlands:
-        text: Pays-Bas
         meaning: GAZ:00002946
         title: Pays-Bas
       New Caledonia:
-        text: "Nouvelle Cal\xE9donie"
         meaning: GAZ:00005206
         title: "Nouvelle Cal\xE9donie"
       New Zealand:
-        text: "Nouvelle-Z\xE9lande"
         meaning: GAZ:00000469
         title: "Nouvelle-Z\xE9lande"
       Nicaragua:
-        text: Nicaragua
         meaning: GAZ:00002978
         title: Nicaragua
       Niger:
-        text: Niger
         meaning: GAZ:00000585
         title: Niger
       Nigeria:
-        text: Nigeria
         meaning: GAZ:00000912
         title: Nigeria
       Niue:
-        text: "Niou\xE9"
         meaning: GAZ:00006902
         title: "Niou\xE9"
       Norfolk Island:
-        text: l'ile de Norfolk
         meaning: GAZ:00005908
         title: l'ile de Norfolk
       North Korea:
-        text: "Cor\xE9e du Nord"
         meaning: GAZ:00002801
         title: "Cor\xE9e du Nord"
       North Macedonia:
-        text: "Mac\xE9doine du Nord"
         meaning: GAZ:00006895
         title: "Mac\xE9doine du Nord"
       North Sea:
-        text: la mer du Nord
         meaning: GAZ:00002284
         title: la mer du Nord
       Northern Mariana Islands:
-        text: "\xCEles Mariannes du Nord"
         meaning: GAZ:00003958
         title: "\xCEles Mariannes du Nord"
       Norway:
-        text: "Norv\xE8ge"
         meaning: GAZ:00002699
         title: "Norv\xE8ge"
       Oman:
-        text: Oman
         meaning: GAZ:00005283
         title: Oman
       Pakistan:
-        text: Pakistan
         meaning: GAZ:00005246
         title: Pakistan
       Palau:
-        text: Palaos
         meaning: GAZ:00006905
         title: Palaos
       Panama:
-        text: Panama
         meaning: GAZ:00002892
         title: Panama
       Papua New Guinea:
-        text: "Papouasie Nouvelle Guin\xE9e"
         meaning: GAZ:00003922
         title: "Papouasie Nouvelle Guin\xE9e"
       Paracel Islands:
-        text: Iles Paracel
         meaning: GAZ:00010832
         title: Iles Paracel
       Paraguay:
-        text: Paraguay
         meaning: GAZ:00002933
         title: Paraguay
       Peru:
-        text: "P\xE9rou"
         meaning: GAZ:00002932
         title: "P\xE9rou"
       Philippines:
-        text: Philippines
         meaning: GAZ:00004525
         title: Philippines
       Pitcairn Islands:
-        text: "\xCEles Pitcairn"
         meaning: GAZ:00005867
         title: "\xCEles Pitcairn"
       Poland:
-        text: Pologne
         meaning: GAZ:00002939
         title: Pologne
       Portugal:
-        text: le Portugal
         meaning: GAZ:00004126
         title: le Portugal
       Puerto Rico:
-        text: Porto Rico
         meaning: GAZ:00006935
         title: Porto Rico
       Qatar:
-        text: Qatar
         meaning: GAZ:00005286
         title: Qatar
       Republic of the Congo:
-        text: "R\xE9publique du Congo"
         meaning: GAZ:00001088
         title: "R\xE9publique du Congo"
       Reunion:
-        text: "R\xE9union"
         meaning: GAZ:00003945
         title: "R\xE9union"
       Romania:
-        text: Roumanie
         meaning: GAZ:00002951
         title: Roumanie
       Ross Sea:
-        text: Mer de Ross
         meaning: GAZ:00023304
         title: Mer de Ross
       Russia:
-        text: Russie
         meaning: GAZ:00002721
         title: Russie
       Rwanda:
-        text: Rwanda
         meaning: GAZ:00001087
         title: Rwanda
       Saint Helena:
-        text: "Sainte-H\xE9l\xE8ne"
         meaning: GAZ:00000849
         title: "Sainte-H\xE9l\xE8ne"
       Saint Kitts and Nevis:
-        text: "Saint-Christophe-et-Ni\xE9v\xE8s"
         meaning: GAZ:00006906
         title: "Saint-Christophe-et-Ni\xE9v\xE8s"
       Saint Lucia:
-        text: Sainte-Lucie
         meaning: GAZ:00006909
         title: Sainte-Lucie
       Saint Pierre and Miquelon:
-        text: Saint-Pierre-et-Miquelon
         meaning: GAZ:00003942
         title: Saint-Pierre-et-Miquelon
       Saint Martin:
-        text: Saint Martin
         meaning: GAZ:00005841
         title: Saint Martin
       Saint Vincent and the Grenadines:
-        text: Saint-Vincent-et-les-Grenadines
         meaning: GAZ:02000565
         title: Saint-Vincent-et-les-Grenadines
       Samoa:
-        text: Samoa
         meaning: GAZ:00006910
         title: Samoa
       San Marino:
-        text: Saint Marin
         meaning: GAZ:00003102
         title: Saint Marin
       Sao Tome and Principe:
-        text: "Sao Tom\xE9 et Principe"
         meaning: GAZ:00006927
         title: "Sao Tom\xE9 et Principe"
       Saudi Arabia:
-        text: Arabie Saoudite
         meaning: GAZ:00005279
         title: Arabie Saoudite
       Senegal:
-        text: "S\xE9n\xE9gal"
         meaning: GAZ:00000913
         title: "S\xE9n\xE9gal"
       Serbia:
-        text: Serbie
         meaning: GAZ:00002957
         title: Serbie
       Seychelles:
-        text: les Seychelles
         meaning: GAZ:00006922
         title: les Seychelles
       Sierra Leone:
-        text: Sierra Leone
         meaning: GAZ:00000914
         title: Sierra Leone
       Singapore:
-        text: Singapour
         meaning: GAZ:00003923
         title: Singapour
       Sint Maarten:
-        text: Saint-Martin
         meaning: GAZ:00012579
         title: Saint-Martin
       Slovakia:
-        text: Slovaquie
         meaning: GAZ:00002956
         title: Slovaquie
       Slovenia:
-        text: "Slov\xE9nie"
         meaning: GAZ:00002955
         title: "Slov\xE9nie"
       Solomon Islands:
-        text: "Les \xEEles Salomon"
         meaning: GAZ:00005275
         title: "Les \xEEles Salomon"
       Somalia:
-        text: Somalie
         meaning: GAZ:00001104
         title: Somalie
       South Africa:
-        text: Afrique du Sud
         meaning: GAZ:00001094
         title: Afrique du Sud
       South Georgia and the South Sandwich Islands:
-        text: "G\xE9orgie du Sud et \xEEles Sandwich du Sud"
         meaning: GAZ:00003990
         title: "G\xE9orgie du Sud et \xEEles Sandwich du Sud"
       South Korea:
-        text: "Cor\xE9e du Sud"
         meaning: GAZ:00002802
         title: "Cor\xE9e du Sud"
       South Sudan:
-        text: Soudan du sud
         meaning: GAZ:00233439
         title: Soudan du sud
       Spain:
-        text: Espagne
         meaning: GAZ:00000591
         title: Espagne
       Spratly Islands:
-        text: "\xCEles Spratly"
         meaning: GAZ:00010831
         title: "\xCEles Spratly"
       Sri Lanka:
-        text: Sri Lanka
         meaning: GAZ:00003924
         title: Sri Lanka
       State of Palestine:
-        text: "\xC9tat de Palestine"
         meaning: GAZ:00002475
         title: "\xC9tat de Palestine"
       Sudan:
-        text: Soudan
         meaning: GAZ:00000560
         title: Soudan
       Suriname:
-        text: Surinam
         meaning: GAZ:00002525
         title: Surinam
       Svalbard:
-        text: Svalbard
         meaning: GAZ:00005396
         title: Svalbard
       Swaziland:
-        text: Swaziland
         meaning: GAZ:00001099
         title: Swaziland
       Sweden:
-        text: "Su\xE8de"
         meaning: GAZ:00002729
         title: "Su\xE8de"
       Switzerland:
-        text: Suisse
         meaning: GAZ:00002941
         title: Suisse
       Syria:
-        text: Syrie
         meaning: GAZ:00002474
         title: Syrie
       Taiwan:
-        text: "Ta\xEFwan"
         meaning: GAZ:00005341
         title: "Ta\xEFwan"
       Tajikistan:
-        text: Tadjikistan
         meaning: GAZ:00006912
         title: Tadjikistan
       Tanzania:
-        text: Tanzanie
         meaning: GAZ:00001103
         title: Tanzanie
       Thailand:
-        text: "Tha\xEFlande"
         meaning: GAZ:00003744
         title: "Tha\xEFlande"
       Timor-Leste:
-        text: Timor-Leste
         meaning: GAZ:00006913
         title: Timor-Leste
       Togo:
-        text: Aller
         meaning: GAZ:00000915
         title: Aller
       Tokelau:
-        text: "Tok\xE9laou"
         meaning: GAZ:00260188
         title: "Tok\xE9laou"
       Tonga:
-        text: Tonga
         meaning: GAZ:00006916
         title: Tonga
       Trinidad and Tobago:
-        text: "Trinit\xE9-et-Tobago"
         meaning: GAZ:00003767
         title: "Trinit\xE9-et-Tobago"
       Tromelin Island:
-        text: "\xCEle Tromelin"
         meaning: GAZ:00005812
         title: "\xCEle Tromelin"
       Tunisia:
-        text: Tunisie
         meaning: GAZ:00000562
         title: Tunisie
       Turkey:
-        text: Turquie
         meaning: GAZ:00000558
         title: Turquie
       Turkmenistan:
-        text: "Turkm\xE9nistan"
         meaning: GAZ:00005018
         title: "Turkm\xE9nistan"
       Turks and Caicos Islands:
-        text: "\xEEles Turques-et-Ca\xEFques"
         meaning: GAZ:00003955
         title: "\xEEles Turques-et-Ca\xEFques"
       Tuvalu:
-        text: Tuvalu
         meaning: GAZ:00009715
         title: Tuvalu
       United States of America:
-        text: "les \xE9tats-unis d'Am\xE9rique"
         meaning: GAZ:00002459
         title: "les \xE9tats-unis d'Am\xE9rique"
       Uganda:
-        text: Ouganda
         meaning: GAZ:00001102
         title: Ouganda
       Ukraine:
-        text: Ukraine
         meaning: GAZ:00002724
         title: Ukraine
       United Arab Emirates:
-        text: Emirats Arabes Unis
         meaning: GAZ:00005282
         title: Emirats Arabes Unis
       United Kingdom:
-        text: Royaume-Uni
         meaning: GAZ:00002637
         title: Royaume-Uni
       Uruguay:
-        text: Uruguay
         meaning: GAZ:00002930
         title: Uruguay
       Uzbekistan:
-        text: "Ouzb\xE9kistan"
         meaning: GAZ:00004979
         title: "Ouzb\xE9kistan"
       Vanuatu:
-        text: Vanuatu
         meaning: GAZ:00006918
         title: Vanuatu
       Venezuela:
-        text: Venezuela
         meaning: GAZ:00002931
         title: Venezuela
       Viet Nam:
-        text: Viet Nam
         meaning: GAZ:00003756
         title: Viet Nam
       Virgin Islands:
-        text: Les iles vierges
         meaning: GAZ:00003959
         title: Les iles vierges
       Wake Island:
-        text: "\xCEle de Wake"
         meaning: GAZ:00007111
         title: "\xCEle de Wake"
       Wallis and Futuna:
-        text: Wallis et Futuna
         meaning: GAZ:00007191
         title: Wallis et Futuna
       West Bank:
-        text: banque de l'Ouest
         meaning: GAZ:00009572
         title: banque de l'Ouest
       Western Sahara:
-        text: Sahara occidental
         meaning: GAZ:00000564
         title: Sahara occidental
       Yemen:
-        text: "Y\xE9men"
         meaning: GAZ:00005284
         title: "Y\xE9men"
       Zambia:
-        text: Zambie
         meaning: GAZ:00001107
         title: Zambie
       Zimbabwe:
-        text: Zimbabwe
         meaning: GAZ:00001106
         title: Zimbabwe
     title: menu geo_loc_name (pays)

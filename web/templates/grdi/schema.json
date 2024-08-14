@@ -9531,6 +9531,7 @@
     "GRDISample": {
       "name": "GRDISample",
       "description": "Specification for GRDI virus biosample data gathering",
+      "title": "GRDI Sample",
       "from_schema": "https://example.com/GRDI",
       "is_a": "dh_interface",
       "slot_usage": {
@@ -13007,6 +13008,7 @@
     "AMRTest": {
       "name": "AMRTest",
       "description": "Antimicrobial test result",
+      "title": "GRDI Sample",
       "from_schema": "https://example.com/GRDI",
       "is_a": "dh_interface",
       "slot_usage": {

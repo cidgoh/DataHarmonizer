@@ -297,8 +297,9 @@
     }
   },
   "enums": {
-    "umbrella bioproject accession menu": {
-      "name": "umbrella bioproject accession menu",
+    "UmbrellaBioprojectAccessionMenu": {
+      "name": "UmbrellaBioprojectAccessionMenu",
+      "title": "umbrella bioproject accession menu",
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "PRJNA623807": {
@@ -306,8 +307,9 @@
         }
       }
     },
-    "null value menu": {
-      "name": "null value menu",
+    "NullValueMenu": {
+      "name": "NullValueMenu",
+      "title": "null value menu",
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "Not Applicable": {
@@ -332,8 +334,9 @@
         }
       }
     },
-    "geo_loc_name (state/province/territory) menu": {
-      "name": "geo_loc_name (state/province/territory) menu",
+    "GeoLocNameStateProvinceTerritoryMenu": {
+      "name": "GeoLocNameStateProvinceTerritoryMenu",
+      "title": "geo_loc_name (state/province/territory) menu",
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "Alberta": {
@@ -390,8 +393,9 @@
         }
       }
     },
-    "host age unit menu": {
-      "name": "host age unit menu",
+    "HostAgeUnitMenu": {
+      "name": "HostAgeUnitMenu",
+      "title": "host age unit menu",
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "month": {
@@ -404,8 +408,9 @@
         }
       }
     },
-    "sample collection date precision menu": {
-      "name": "sample collection date precision menu",
+    "SampleCollectionDatePrecisionMenu": {
+      "name": "SampleCollectionDatePrecisionMenu",
+      "title": "sample collection date precision menu",
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "year": {
@@ -422,8 +427,9 @@
         }
       }
     },
-    "biomaterial extracted menu": {
-      "name": "biomaterial extracted menu",
+    "BiomaterialExtractedMenu": {
+      "name": "BiomaterialExtractedMenu",
+      "title": "biomaterial extracted menu",
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "RNA (total)": {
@@ -448,8 +454,9 @@
         }
       }
     },
-    "signs and symptoms menu": {
-      "name": "signs and symptoms menu",
+    "SignsAndSymptomsMenu": {
+      "name": "SignsAndSymptomsMenu",
+      "title": "signs and symptoms menu",
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "Abnormal lung auscultation": {
@@ -854,8 +861,9 @@
         }
       }
     },
-    "host vaccination status menu": {
-      "name": "host vaccination status menu",
+    "HostVaccinationStatusMenu": {
+      "name": "HostVaccinationStatusMenu",
+      "title": "host vaccination status menu",
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "Fully Vaccinated": {
@@ -872,8 +880,9 @@
         }
       }
     },
-    "prior SARS-CoV-2 antiviral treatment menu": {
-      "name": "prior SARS-CoV-2 antiviral treatment menu",
+    "PriorSarsCov2AntiviralTreatmentMenu": {
+      "name": "PriorSarsCov2AntiviralTreatmentMenu",
+      "title": "prior SARS-CoV-2 antiviral treatment menu",
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "Prior antiviral treatment": {
@@ -886,8 +895,9 @@
         }
       }
     },
-    "NML submitted specimen type menu": {
-      "name": "NML submitted specimen type menu",
+    "NmlSubmittedSpecimenTypeMenu": {
+      "name": "NmlSubmittedSpecimenTypeMenu",
+      "title": "NML submitted specimen type menu",
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "Swab": {
@@ -912,8 +922,9 @@
         }
       }
     },
-    "Related specimen relationship type menu": {
-      "name": "Related specimen relationship type menu",
+    "RelatedSpecimenRelationshipTypeMenu": {
+      "name": "RelatedSpecimenRelationshipTypeMenu",
+      "title": "Related specimen relationship type menu",
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "Acute": {
@@ -949,8 +960,9 @@
         }
       }
     },
-    "pre-existing conditions and risk factors menu": {
-      "name": "pre-existing conditions and risk factors menu",
+    "PreExistingConditionsAndRiskFactorsMenu": {
+      "name": "PreExistingConditionsAndRiskFactorsMenu",
+      "title": "pre-existing conditions and risk factors menu",
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "Age 60+": {
@@ -1364,8 +1376,9 @@
         }
       }
     },
-    "variant designation menu": {
-      "name": "variant designation menu",
+    "VariantDesignationMenu": {
+      "name": "VariantDesignationMenu",
+      "title": "variant designation menu",
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "Variant of Concern (VOC)": {
@@ -1382,8 +1395,9 @@
         }
       }
     },
-    "variant evidence menu": {
-      "name": "variant evidence menu",
+    "VariantEvidenceMenu": {
+      "name": "VariantEvidenceMenu",
+      "title": "variant evidence menu",
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "RT-qPCR": {
@@ -1396,8 +1410,9 @@
         }
       }
     },
-    "complications menu": {
-      "name": "complications menu",
+    "ComplicationsMenu": {
+      "name": "ComplicationsMenu",
+      "title": "complications menu",
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "Abnormal blood oxygen level": {
@@ -1750,8 +1765,9 @@
         }
       }
     },
-    "vaccine name menu": {
-      "name": "vaccine name menu",
+    "VaccineNameMenu": {
+      "name": "VaccineNameMenu",
+      "title": "vaccine name menu",
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "Astrazeneca (Vaxzevria)": {
@@ -1776,8 +1792,9 @@
         }
       }
     },
-    "anatomical material menu": {
-      "name": "anatomical material menu",
+    "AnatomicalMaterialMenu": {
+      "name": "AnatomicalMaterialMenu",
+      "title": "anatomical material menu",
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "Blood": {
@@ -1824,8 +1841,9 @@
         }
       }
     },
-    "anatomical part menu": {
-      "name": "anatomical part menu",
+    "AnatomicalPartMenu": {
+      "name": "AnatomicalPartMenu",
+      "title": "anatomical part menu",
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "Anus": {
@@ -1950,8 +1968,9 @@
         }
       }
     },
-    "body product menu": {
-      "name": "body product menu",
+    "BodyProductMenu": {
+      "name": "BodyProductMenu",
+      "title": "body product menu",
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "Breast Milk": {
@@ -1989,8 +2008,9 @@
         }
       }
     },
-    "prior SARS-CoV-2 infection menu": {
-      "name": "prior SARS-CoV-2 infection menu",
+    "PriorSarsCov2InfectionMenu": {
+      "name": "PriorSarsCov2InfectionMenu",
+      "title": "prior SARS-CoV-2 infection menu",
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "Prior infection": {
@@ -2003,8 +2023,9 @@
         }
       }
     },
-    "environmental material menu": {
-      "name": "environmental material menu",
+    "EnvironmentalMaterialMenu": {
+      "name": "EnvironmentalMaterialMenu",
+      "title": "environmental material menu",
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "Air vent": {
@@ -2142,8 +2163,9 @@
         }
       }
     },
-    "environmental site menu": {
-      "name": "environmental site menu",
+    "EnvironmentalSiteMenu": {
+      "name": "EnvironmentalSiteMenu",
+      "title": "environmental site menu",
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "Acute care facility": {
@@ -2236,8 +2258,9 @@
         }
       }
     },
-    "collection method menu": {
-      "name": "collection method menu",
+    "CollectionMethodMenu": {
+      "name": "CollectionMethodMenu",
+      "title": "collection method menu",
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "Amniocentesis": {
@@ -2334,8 +2357,9 @@
         }
       }
     },
-    "collection device menu": {
-      "name": "collection device menu",
+    "CollectionDeviceMenu": {
+      "name": "CollectionDeviceMenu",
+      "title": "collection device menu",
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "Air filter": {
@@ -2408,8 +2432,9 @@
         }
       }
     },
-    "host (scientific name) menu": {
-      "name": "host (scientific name) menu",
+    "HostScientificNameMenu": {
+      "name": "HostScientificNameMenu",
+      "title": "host (scientific name) menu",
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "Homo sapiens": {
@@ -2478,8 +2503,9 @@
         }
       }
     },
-    "host (common name) menu": {
-      "name": "host (common name) menu",
+    "HostCommonNameMenu": {
+      "name": "HostCommonNameMenu",
+      "title": "host (common name) menu",
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "Human": {
@@ -2542,8 +2568,9 @@
         }
       }
     },
-    "host health state menu": {
-      "name": "host health state menu",
+    "HostHealthStateMenu": {
+      "name": "HostHealthStateMenu",
+      "title": "host health state menu",
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "Asymptomatic": {
@@ -2568,8 +2595,9 @@
         }
       }
     },
-    "host health status details menu": {
-      "name": "host health status details menu",
+    "HostHealthStatusDetailsMenu": {
+      "name": "HostHealthStatusDetailsMenu",
+      "title": "host health status details menu",
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "Hospitalized": {
@@ -2605,8 +2633,9 @@
         }
       }
     },
-    "host health outcome menu": {
-      "name": "host health outcome menu",
+    "HostHealthOutcomeMenu": {
+      "name": "HostHealthOutcomeMenu",
+      "title": "host health outcome menu",
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "Deceased": {
@@ -2627,8 +2656,9 @@
         }
       }
     },
-    "organism menu": {
-      "name": "organism menu",
+    "OrganismMenu": {
+      "name": "OrganismMenu",
+      "title": "organism menu",
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "Severe acute respiratory syndrome coronavirus 2": {
@@ -2645,8 +2675,9 @@
         }
       }
     },
-    "purpose of sampling menu": {
-      "name": "purpose of sampling menu",
+    "PurposeOfSamplingMenu": {
+      "name": "PurposeOfSamplingMenu",
+      "title": "purpose of sampling menu",
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "Cluster/Outbreak investigation": {
@@ -2667,8 +2698,9 @@
         }
       }
     },
-    "purpose of sequencing menu": {
-      "name": "purpose of sequencing menu",
+    "PurposeOfSequencingMenu": {
+      "name": "PurposeOfSequencingMenu",
+      "title": "purpose of sequencing menu",
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "Baseline surveillance (random sampling)": {
@@ -2798,8 +2830,9 @@
         }
       }
     },
-    "specimen processing menu": {
-      "name": "specimen processing menu",
+    "SpecimenProcessingMenu": {
+      "name": "SpecimenProcessingMenu",
+      "title": "specimen processing menu",
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "Virus passage": {
@@ -2816,8 +2849,9 @@
         }
       }
     },
-    "lab host menu": {
-      "name": "lab host menu",
+    "LabHostMenu": {
+      "name": "LabHostMenu",
+      "title": "lab host menu",
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "293/ACE2 cell line": {
@@ -2885,21 +2919,16 @@
           "text": "VeroE6/TMPRSS2 cell line",
           "meaning": "GENEPIO:0100044",
           "is_a": "Vero E6 cell line"
-        }
-      }
-    },
-    "host disease menu": {
-      "name": "host disease menu",
-      "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "permissible_values": {
+        },
         "COVID-19": {
           "text": "COVID-19",
           "meaning": "MONDO:0100096"
         }
       }
     },
-    "host age bin menu": {
-      "name": "host age bin menu",
+    "HostAgeBinMenu": {
+      "name": "HostAgeBinMenu",
+      "title": "host age bin menu",
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "0 - 9": {
@@ -2954,8 +2983,9 @@
         }
       }
     },
-    "host gender menu": {
-      "name": "host gender menu",
+    "HostGenderMenu": {
+      "name": "HostGenderMenu",
+      "title": "host gender menu",
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "Female": {
@@ -2984,8 +3014,9 @@
         }
       }
     },
-    "exposure event menu": {
-      "name": "exposure event menu",
+    "ExposureEventMenu": {
+      "name": "ExposureEventMenu",
+      "title": "exposure event menu",
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "Mass Gathering": {
@@ -3080,8 +3111,9 @@
         }
       }
     },
-    "exposure contact level menu": {
-      "name": "exposure contact level menu",
+    "ExposureContactLevelMenu": {
+      "name": "ExposureContactLevelMenu",
+      "title": "exposure contact level menu",
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "Contact with infected individual": {
@@ -3110,8 +3142,9 @@
         }
       }
     },
-    "host role menu": {
-      "name": "host role menu",
+    "HostRoleMenu": {
+      "name": "HostRoleMenu",
+      "title": "host role menu",
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "Attendee": {
@@ -3306,8 +3339,9 @@
         }
       }
     },
-    "exposure setting menu": {
-      "name": "exposure setting menu",
+    "ExposureSettingMenu": {
+      "name": "ExposureSettingMenu",
+      "title": "exposure setting menu",
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "Human Exposure": {
@@ -3623,8 +3657,9 @@
         }
       }
     },
-    "travel point of entry type menu": {
-      "name": "travel point of entry type menu",
+    "TravelPointOfEntryTypeMenu": {
+      "name": "TravelPointOfEntryTypeMenu",
+      "title": "travel point of entry type menu",
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "Air": {
@@ -3634,13 +3669,7 @@
         "Land": {
           "text": "Land",
           "meaning": "GENEPIO:0100409"
-        }
-      }
-    },
-    "border testing test day type menu": {
-      "name": "border testing test day type menu",
-      "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "permissible_values": {
+        },
         "day 1": {
           "text": "day 1",
           "meaning": "GENEPIO:0100410"
@@ -3655,8 +3684,9 @@
         }
       }
     },
-    "travel history availability menu": {
-      "name": "travel history availability menu",
+    "TravelHistoryAvailabilityMenu": {
+      "name": "TravelHistoryAvailabilityMenu",
+      "title": "travel history availability menu",
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "Travel history available": {
@@ -3684,8 +3714,9 @@
         }
       }
     },
-    "sequencing instrument menu": {
-      "name": "sequencing instrument menu",
+    "SequencingInstrumentMenu": {
+      "name": "SequencingInstrumentMenu",
+      "title": "sequencing instrument menu",
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "Illumina": {
@@ -3914,8 +3945,9 @@
         }
       }
     },
-    "gene name menu": {
-      "name": "gene name menu",
+    "GeneNameMenu": {
+      "name": "GeneNameMenu",
+      "title": "gene name menu",
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "E gene (orf4)": {
@@ -4166,8 +4198,9 @@
         }
       }
     },
-    "sequence submitted by menu": {
-      "name": "sequence submitted by menu",
+    "SequenceSubmittedByMenu": {
+      "name": "SequenceSubmittedByMenu",
+      "title": "sequence submitted by menu",
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "Alberta Precision Labs (APL)": {
@@ -4252,8 +4285,9 @@
         }
       }
     },
-    "sample collected by menu": {
-      "name": "sample collected by menu",
+    "SampleCollectedByMenu": {
+      "name": "SampleCollectedByMenu",
+      "title": "sample collected by menu",
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "Alberta Precision Labs (APL)": {
@@ -4362,8 +4396,9 @@
         }
       }
     },
-    "geo_loc_name (country) menu": {
-      "name": "geo_loc_name (country) menu",
+    "GeoLocNameCountryMenu": {
+      "name": "GeoLocNameCountryMenu",
+      "title": "geo_loc_name (country) menu",
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "permissible_values": {
         "Afghanistan": {

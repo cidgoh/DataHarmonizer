@@ -2826,13 +2826,15 @@ slots:
     - CNPHI:Additional%20Comments
     - NML_LIMS:HC_COMMENTS
 enums:
-  umbrella bioproject accession menu:
-    name: umbrella bioproject accession menu
+  UmbrellaBioprojectAccessionMenu:
+    name: UmbrellaBioprojectAccessionMenu
+    title: umbrella bioproject accession menu
     permissible_values:
       PRJNA623807:
         text: PRJNA623807
-  null value menu:
-    name: null value menu
+  NullValueMenu:
+    name: NullValueMenu
+    title: null value menu
     permissible_values:
       Not Applicable:
         text: Not Applicable
@@ -2849,8 +2851,9 @@ enums:
       Restricted Access:
         text: Restricted Access
         meaning: GENEPIO:0001810
-  geo_loc_name (state/province/territory) menu:
-    name: geo_loc_name (state/province/territory) menu
+  GeoLocNameStateProvinceTerritoryMenu:
+    name: GeoLocNameStateProvinceTerritoryMenu
+    title: geo_loc_name (state/province/territory) menu
     permissible_values:
       Alberta:
         text: Alberta
@@ -2891,8 +2894,9 @@ enums:
       Yukon:
         text: Yukon
         meaning: GAZ:00002576
-  host age unit menu:
-    name: host age unit menu
+  HostAgeUnitMenu:
+    name: HostAgeUnitMenu
+    title: host age unit menu
     permissible_values:
       month:
         text: month
@@ -2900,8 +2904,9 @@ enums:
       year:
         text: year
         meaning: UO:0000036
-  sample collection date precision menu:
-    name: sample collection date precision menu
+  SampleCollectionDatePrecisionMenu:
+    name: SampleCollectionDatePrecisionMenu
+    title: sample collection date precision menu
     permissible_values:
       year:
         text: year
@@ -2912,8 +2917,9 @@ enums:
       day:
         text: day
         meaning: UO:0000033
-  biomaterial extracted menu:
-    name: biomaterial extracted menu
+  BiomaterialExtractedMenu:
+    name: BiomaterialExtractedMenu
+    title: biomaterial extracted menu
     permissible_values:
       RNA (total):
         text: RNA (total)
@@ -2930,8 +2936,9 @@ enums:
       mRNA (cDNA):
         text: mRNA (cDNA)
         meaning: OBI:0002754
-  signs and symptoms menu:
-    name: signs and symptoms menu
+  SignsAndSymptomsMenu:
+    name: SignsAndSymptomsMenu
+    title: signs and symptoms menu
     permissible_values:
       Abnormal lung auscultation:
         text: Abnormal lung auscultation
@@ -3239,8 +3246,9 @@ enums:
       Vomiting (throwing up):
         text: Vomiting (throwing up)
         meaning: HP:0002013
-  host vaccination status menu:
-    name: host vaccination status menu
+  HostVaccinationStatusMenu:
+    name: HostVaccinationStatusMenu
+    title: host vaccination status menu
     permissible_values:
       Fully Vaccinated:
         text: Fully Vaccinated
@@ -3251,8 +3259,9 @@ enums:
       Not Vaccinated:
         text: Not Vaccinated
         meaning: GENEPIO:0100102
-  prior SARS-CoV-2 antiviral treatment menu:
-    name: prior SARS-CoV-2 antiviral treatment menu
+  PriorSarsCov2AntiviralTreatmentMenu:
+    name: PriorSarsCov2AntiviralTreatmentMenu
+    title: prior SARS-CoV-2 antiviral treatment menu
     permissible_values:
       Prior antiviral treatment:
         text: Prior antiviral treatment
@@ -3260,8 +3269,9 @@ enums:
       No prior antiviral treatment:
         text: No prior antiviral treatment
         meaning: GENEPIO:0100233
-  NML submitted specimen type menu:
-    name: NML submitted specimen type menu
+  NmlSubmittedSpecimenTypeMenu:
+    name: NmlSubmittedSpecimenTypeMenu
+    title: NML submitted specimen type menu
     permissible_values:
       Swab:
         text: Swab
@@ -3278,8 +3288,9 @@ enums:
       Not Applicable:
         text: Not Applicable
         meaning: GENEPIO:0001619
-  Related specimen relationship type menu:
-    name: Related specimen relationship type menu
+  RelatedSpecimenRelationshipTypeMenu:
+    name: RelatedSpecimenRelationshipTypeMenu
+    title: Related specimen relationship type menu
     permissible_values:
       Acute:
         text: Acute
@@ -3303,8 +3314,9 @@ enums:
         text: Sequencing/bioinformatics methods development/validation
       Specimen sampling methods testing:
         text: Specimen sampling methods testing
-  pre-existing conditions and risk factors menu:
-    name: pre-existing conditions and risk factors menu
+  PreExistingConditionsAndRiskFactorsMenu:
+    name: PreExistingConditionsAndRiskFactorsMenu
+    title: pre-existing conditions and risk factors menu
     permissible_values:
       Age 60+:
         text: Age 60+
@@ -3626,8 +3638,9 @@ enums:
         text: Liver transplant
         meaning: GENEPIO:0100081
         is_a: Transplant
-  variant designation menu:
-    name: variant designation menu
+  VariantDesignationMenu:
+    name: VariantDesignationMenu
+    title: variant designation menu
     permissible_values:
       Variant of Concern (VOC):
         text: Variant of Concern (VOC)
@@ -3638,8 +3651,9 @@ enums:
       Variant Under Monitoring (VUM):
         text: Variant Under Monitoring (VUM)
         meaning: GENEPIO:0100279
-  variant evidence menu:
-    name: variant evidence menu
+  VariantEvidenceMenu:
+    name: VariantEvidenceMenu
+    title: variant evidence menu
     permissible_values:
       RT-qPCR:
         text: RT-qPCR
@@ -3647,8 +3661,9 @@ enums:
       Sequencing:
         text: Sequencing
         meaning: CIDO:0000027
-  complications menu:
-    name: complications menu
+  ComplicationsMenu:
+    name: ComplicationsMenu
+    title: complications menu
     permissible_values:
       Abnormal blood oxygen level:
         text: Abnormal blood oxygen level
@@ -3919,8 +3934,9 @@ enums:
       Vasculitis:
         text: Vasculitis
         meaning: HP:0002633
-  vaccine name menu:
-    name: vaccine name menu
+  VaccineNameMenu:
+    name: VaccineNameMenu
+    title: vaccine name menu
     permissible_values:
       Astrazeneca (Vaxzevria):
         text: Astrazeneca (Vaxzevria)
@@ -3937,8 +3953,9 @@ enums:
       Pfizer-BioNTech (Comirnaty Pediatric):
         text: Pfizer-BioNTech (Comirnaty Pediatric)
         meaning: GENEPIO:0100306
-  anatomical material menu:
-    name: anatomical material menu
+  AnatomicalMaterialMenu:
+    name: AnatomicalMaterialMenu
+    title: anatomical material menu
     permissible_values:
       Blood:
         text: Blood
@@ -3973,8 +3990,9 @@ enums:
       Tissue:
         text: Tissue
         meaning: UBERON:0000479
-  anatomical part menu:
-    name: anatomical part menu
+  AnatomicalPartMenu:
+    name: AnatomicalPartMenu
+    title: anatomical part menu
     permissible_values:
       Anus:
         text: Anus
@@ -4070,8 +4088,9 @@ enums:
         text: Pharynx (throat)
         meaning: UBERON:0000341
         is_a: Upper respiratory tract
-  body product menu:
-    name: body product menu
+  BodyProductMenu:
+    name: BodyProductMenu
+    title: body product menu
     permissible_values:
       Breast Milk:
         text: Breast Milk
@@ -4098,8 +4117,9 @@ enums:
       Urine:
         text: Urine
         meaning: UBERON:0001088
-  prior SARS-CoV-2 infection menu:
-    name: prior SARS-CoV-2 infection menu
+  PriorSarsCov2InfectionMenu:
+    name: PriorSarsCov2InfectionMenu
+    title: prior SARS-CoV-2 infection menu
     permissible_values:
       Prior infection:
         text: Prior infection
@@ -4107,8 +4127,9 @@ enums:
       No prior infection:
         text: No prior infection
         meaning: GENEPIO:0100233
-  environmental material menu:
-    name: environmental material menu
+  EnvironmentalMaterialMenu:
+    name: EnvironmentalMaterialMenu
+    title: environmental material menu
     permissible_values:
       Air vent:
         text: Air vent
@@ -4210,8 +4231,9 @@ enums:
       Wood:
         text: Wood
         meaning: ENVO:00002040
-  environmental site menu:
-    name: environmental site menu
+  EnvironmentalSiteMenu:
+    name: EnvironmentalSiteMenu
+    title: environmental site menu
     permissible_values:
       Acute care facility:
         text: Acute care facility
@@ -4279,8 +4301,9 @@ enums:
       Wet market:
         text: Wet market
         meaning: ENVO:03501198
-  collection method menu:
-    name: collection method menu
+  CollectionMethodMenu:
+    name: CollectionMethodMenu
+    title: collection method menu
     permissible_values:
       Amniocentesis:
         text: Amniocentesis
@@ -4353,8 +4376,9 @@ enums:
       Washout Tear Collection:
         text: Washout Tear Collection
         meaning: GENEPIO:0100038
-  collection device menu:
-    name: collection device menu
+  CollectionDeviceMenu:
+    name: CollectionDeviceMenu
+    title: collection device menu
     permissible_values:
       Air filter:
         text: Air filter
@@ -4407,8 +4431,9 @@ enums:
       Virus Transport Medium:
         text: Virus Transport Medium
         meaning: OBI:0002866
-  host (scientific name) menu:
-    name: host (scientific name) menu
+  HostScientificNameMenu:
+    name: HostScientificNameMenu
+    title: host (scientific name) menu
     permissible_values:
       Homo sapiens:
         text: Homo sapiens
@@ -4458,8 +4483,9 @@ enums:
       Viverridae:
         text: Viverridae
         meaning: NCBITaxon:9673
-  host (common name) menu:
-    name: host (common name) menu
+  HostCommonNameMenu:
+    name: HostCommonNameMenu
+    title: host (common name) menu
     permissible_values:
       Human:
         text: Human
@@ -4504,8 +4530,9 @@ enums:
       Tiger:
         text: Tiger
         meaning: NCBITaxon:9694
-  host health state menu:
-    name: host health state menu
+  HostHealthStateMenu:
+    name: HostHealthStateMenu
+    title: host health state menu
     permissible_values:
       Asymptomatic:
         text: Asymptomatic
@@ -4522,8 +4549,9 @@ enums:
       Symptomatic:
         text: Symptomatic
         meaning: NCIT:C25269
-  host health status details menu:
-    name: host health status details menu
+  HostHealthStatusDetailsMenu:
+    name: HostHealthStatusDetailsMenu
+    title: host health status details menu
     permissible_values:
       Hospitalized:
         text: Hospitalized
@@ -4549,8 +4577,9 @@ enums:
       Self-quarantining:
         text: Self-quarantining
         meaning: NCIT:C173768
-  host health outcome menu:
-    name: host health outcome menu
+  HostHealthOutcomeMenu:
+    name: HostHealthOutcomeMenu
+    title: host health outcome menu
     permissible_values:
       Deceased:
         text: Deceased
@@ -4564,8 +4593,9 @@ enums:
       Stable:
         text: Stable
         meaning: NCIT:C30103
-  organism menu:
-    name: organism menu
+  OrganismMenu:
+    name: OrganismMenu
+    title: organism menu
     permissible_values:
       Severe acute respiratory syndrome coronavirus 2:
         text: Severe acute respiratory syndrome coronavirus 2
@@ -4576,8 +4606,9 @@ enums:
       RmYN02:
         text: RmYN02
         meaning: GENEPIO:0100000
-  purpose of sampling menu:
-    name: purpose of sampling menu
+  PurposeOfSamplingMenu:
+    name: PurposeOfSamplingMenu
+    title: purpose of sampling menu
     permissible_values:
       Cluster/Outbreak investigation:
         text: Cluster/Outbreak investigation
@@ -4591,8 +4622,9 @@ enums:
       Surveillance:
         text: Surveillance
         meaning: GENEPIO:0100004
-  purpose of sequencing menu:
-    name: purpose of sequencing menu
+  PurposeOfSequencingMenu:
+    name: PurposeOfSequencingMenu
+    title: purpose of sequencing menu
     permissible_values:
       Baseline surveillance (random sampling):
         text: Baseline surveillance (random sampling)
@@ -4694,8 +4726,9 @@ enums:
       Retrospective sequencing:
         text: Retrospective sequencing
         meaning: GENEPIO:0100356
-  specimen processing menu:
-    name: specimen processing menu
+  SpecimenProcessingMenu:
+    name: SpecimenProcessingMenu
+    title: specimen processing menu
     permissible_values:
       Virus passage:
         text: Virus passage
@@ -4706,8 +4739,9 @@ enums:
       Specimens pooled:
         text: Specimens pooled
         meaning: OBI:0600016
-  lab host menu:
-    name: lab host menu
+  LabHostMenu:
+    name: LabHostMenu
+    title: lab host menu
     permissible_values:
       293/ACE2 cell line:
         text: 293/ACE2 cell line
@@ -4759,14 +4793,12 @@ enums:
         text: VeroE6/TMPRSS2 cell line
         meaning: GENEPIO:0100044
         is_a: Vero E6 cell line
-  host disease menu:
-    name: host disease menu
-    permissible_values:
       COVID-19:
         text: COVID-19
         meaning: MONDO:0100096
-  host age bin menu:
-    name: host age bin menu
+  HostAgeBinMenu:
+    name: HostAgeBinMenu
+    title: host age bin menu
     permissible_values:
       0 - 9:
         text: 0 - 9
@@ -4805,8 +4837,9 @@ enums:
         meaning: GENEPIO:0100059
         exact_mappings:
         - VirusSeq_Portal:90%2B
-  host gender menu:
-    name: host gender menu
+  HostGenderMenu:
+    name: HostGenderMenu
+    title: host gender menu
     permissible_values:
       Female:
         text: Female
@@ -4826,8 +4859,9 @@ enums:
       Undeclared:
         text: Undeclared
         meaning: NCIT:C110959
-  exposure event menu:
-    name: exposure event menu
+  ExposureEventMenu:
+    name: ExposureEventMenu
+    title: exposure event menu
     permissible_values:
       Mass Gathering:
         text: Mass Gathering
@@ -4900,8 +4934,9 @@ enums:
         is_a: Social Gathering
       Other exposure event:
         text: Other exposure event
-  exposure contact level menu:
-    name: exposure contact level menu
+  ExposureContactLevelMenu:
+    name: ExposureContactLevelMenu
+    title: exposure contact level menu
     permissible_values:
       Contact with infected individual:
         text: Contact with infected individual
@@ -4922,8 +4957,9 @@ enums:
         text: Casual contact
         meaning: GENEPIO:0100248
         is_a: Indirect contact
-  host role menu:
-    name: host role menu
+  HostRoleMenu:
+    name: HostRoleMenu
+    title: host role menu
     permissible_values:
       Attendee:
         text: Attendee
@@ -5074,8 +5110,9 @@ enums:
         is_a: Social role
       Other Host Role:
         text: Other Host Role
-  exposure setting menu:
-    name: exposure setting menu
+  ExposureSettingMenu:
+    name: ExposureSettingMenu
+    title: exposure setting menu
     permissible_values:
       Human Exposure:
         text: Human Exposure
@@ -5325,8 +5362,9 @@ enums:
       Other Exposure Setting:
         text: Other Exposure Setting
         meaning: GENEPIO:0100235
-  travel point of entry type menu:
-    name: travel point of entry type menu
+  TravelPointOfEntryTypeMenu:
+    name: TravelPointOfEntryTypeMenu
+    title: travel point of entry type menu
     permissible_values:
       Air:
         text: Air
@@ -5334,9 +5372,6 @@ enums:
       Land:
         text: Land
         meaning: GENEPIO:0100409
-  border testing test day type menu:
-    name: border testing test day type menu
-    permissible_values:
       day 1:
         text: day 1
         meaning: GENEPIO:0100410
@@ -5346,8 +5381,9 @@ enums:
       day 10:
         text: day 10
         meaning: GENEPIO:0100412
-  travel history availability menu:
-    name: travel history availability menu
+  TravelHistoryAvailabilityMenu:
+    name: TravelHistoryAvailabilityMenu
+    title: travel history availability menu
     permissible_values:
       Travel history available:
         text: Travel history available
@@ -5367,8 +5403,9 @@ enums:
       No travel history available:
         text: No travel history available
         meaning: GENEPIO:0100654
-  sequencing instrument menu:
-    name: sequencing instrument menu
+  SequencingInstrumentMenu:
+    name: SequencingInstrumentMenu
+    title: sequencing instrument menu
     permissible_values:
       Illumina:
         text: Illumina
@@ -5548,8 +5585,9 @@ enums:
         text: MGI DNBSEQ-G50
         meaning: GENEPIO:0100150
         is_a: MGI
-  gene name menu:
-    name: gene name menu
+  GeneNameMenu:
+    name: GeneNameMenu
+    title: gene name menu
     permissible_values:
       E gene (orf4):
         text: E gene (orf4)
@@ -5732,8 +5770,9 @@ enums:
       SARS-COV-2 5' UTR:
         text: SARS-COV-2 5' UTR
         meaning: GENEPIO:0100183
-  sequence submitted by menu:
-    name: sequence submitted by menu
+  SequenceSubmittedByMenu:
+    name: SequenceSubmittedByMenu
+    title: sequence submitted by menu
     permissible_values:
       Alberta Precision Labs (APL):
         text: Alberta Precision Labs (APL)
@@ -5789,8 +5828,9 @@ enums:
         text: Sunnybrook Health Sciences Centre
       Thunder Bay Regional Health Sciences Centre:
         text: Thunder Bay Regional Health Sciences Centre
-  sample collected by menu:
-    name: sample collected by menu
+  SampleCollectedByMenu:
+    name: SampleCollectedByMenu
+    title: sample collected by menu
     permissible_values:
       Alberta Precision Labs (APL):
         text: Alberta Precision Labs (APL)
@@ -5862,8 +5902,9 @@ enums:
         text: Unity Health Toronto
       William Osler Health System:
         text: William Osler Health System
-  geo_loc_name (country) menu:
-    name: geo_loc_name (country) menu
+  GeoLocNameCountryMenu:
+    name: GeoLocNameCountryMenu
+    title: geo_loc_name (country) menu
     permissible_values:
       Afghanistan:
         text: Afghanistan
