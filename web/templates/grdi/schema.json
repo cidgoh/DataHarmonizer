@@ -13016,14 +13016,7 @@
           "name": "sample_collector_sample_id",
           "rank": 1,
           "slot_group": "Key",
-          "any_of": [
-            {
-              "range": "GRDISample"
-            },
-            {
-              "range": "null value menu"
-            }
-          ]
+          "range": "GRDISample"
         },
         "antimicrobial_drug": {
           "name": "antimicrobial_drug",
@@ -13118,14 +13111,7 @@
           ],
           "slot_group": "Key",
           "required": true,
-          "any_of": [
-            {
-              "range": "GRDISample"
-            },
-            {
-              "range": "null value menu"
-            }
-          ]
+          "range": "GRDISample"
         },
         "antimicrobial_drug": {
           "name": "antimicrobial_drug",

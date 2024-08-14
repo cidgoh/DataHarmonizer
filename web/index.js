@@ -48,7 +48,6 @@ const main = async function () {
         Object.values(context.dhs).forEach((dh) => dh.render());
       });
 
-      console.log('index: ', context);
       new Toolbar(dhToolbarRoot, context, {
         templatePath: context.appConfig.template_path, // TODO: a default should be loaded before Toolbar is constructed! then take out all loading in "toolbar" to an outside context
         releasesURL:
