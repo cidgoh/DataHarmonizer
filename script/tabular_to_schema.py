@@ -357,8 +357,8 @@ def set_enums(enum_path, schema, locale_schemas, export_format, warnings):
 
 		enumerations = schema['enums'];
 
-		title = ''; # running title for chunks of enumeration rows
-		menu_path = [];
+		name = ''; # running title for chunks of enumeration rows
+		choice_path = [];
 		enum = {};
 
 		for row in reader:
@@ -368,33 +368,35 @@ def set_enums(enum_path, schema, locale_schemas, export_format, warnings):
 					row[field] = row[field].strip();
 
 			# Each enumeration begins with a row that provides the name of the enum.
-			if row.get('title','') > '':
+			if row.get('name','') > '':
 
 				# Process default language title
+				name = row.get('name');
 				title = row.get('title');
-				if not (title in enumerations):
+				if not (name in enumerations):
 					enum = {
-						'name': title,
+						'name': name,
+						'title': title,
 						'permissible_values': {}
 					};
-					enumerations[title] = enum;
-					print("processing ENUMERATION:", title)
+					enumerations[name] = enum;
+					print("processing ENUMERATION:", name)
 
 					# Normally a language equivalent will be provided but if it is missing
 					# we need placeholder anyways in default language.
 					for lcode in locale_schemas.keys():
 						locale_schema = locale_schemas[lcode];
-						locale_schema['enums'][title] = {
-							'name': title, # Acts as key 
+						locale_schema['enums'][name] = {
+							'name': name, # Acts as key 
 							'permissible_values': {}
 						};
 
 						# Provide translation title if available for this menu.
 						locale_title = row.get('title_' + lcode, '');
 						if locale_title > '':
-							locale_schema['enums'][title]['title'] = row.get('title_' + lcode, title);
+							locale_schema['enums'][name]['title'] = locale_title;
 
-			if title > '':
+			if name > '':
 				# Text is label of a particular menu choice
 				# Loop scans through columns until it gets a value
 				for depth in range(1,6):
@@ -402,7 +404,7 @@ def set_enums(enum_path, schema, locale_schemas, export_format, warnings):
 					choice_value = row.get(menu_x);
 					# Here there is a menu item to process
 					if choice_value > '':
-						del menu_path[depth-1:] # Menu path always points to parent
+						del choice_path[depth-1:] # Menu path always points to parent
 
 						description = row.get('description','');
 						meaning = row.get('meaning','');
@@ -415,22 +417,23 @@ def set_enums(enum_path, schema, locale_schemas, export_format, warnings):
 						set_mappings(choice, row, export_format);
 
 						# IMPLEMENTS FLAT LIST WITH IS_A HIERARCHY
-						if len(menu_path) > 0:
-							choice['is_a'] = menu_path[-1]; # Last item in path
+						if len(choice_path) > 0:
+							choice['is_a'] = choice_path[-1]; # Last item in path
 
-						enum['permissible_values'][choice_value] = choice
-						menu_path.append(choice_value)
+						enum['permissible_values'][choice_value] = choice;
+						choice_path.append(choice_value);
 
 						for lcode in locale_schemas.keys():
 							translation = row.get(menu_x + '_' + lcode, '');
-							if translation > '':
 
-								local_choice = copy.deepcopy(choice);
-								del local_choice['text']; # in language variant files this isn't needed.
-								local_choice['title'] = translation;
-								# local_choice['text']  = translation; # in language variant files this isn't needed.
+							if translation > '' and translation != choice['text']:
 
-								locale_schemas[lcode]['enums'][title]['permissible_values'][choice_value] = local_choice;
+								local_choice = {'title': translation}
+								description = row.get(description + '_' + lcode, '');
+								if description:
+									local_choice['description': description];
+
+								locale_schemas[lcode]['enums'][name]['permissible_values'][choice_value] = local_choice;
 
 						break;
 
