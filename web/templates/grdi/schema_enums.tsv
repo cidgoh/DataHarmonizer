@@ -40,6 +40,12 @@ presampling_activity menu	PresamplingActivityMenu		Addition of substances to foo
 			Microbial pre-treatment [GENEPIO:0100546]							
 			Probiotic pre-treatment [GENEPIO:0100547]							
 			Vaccination [NCIT:C15346]							
+			Wastewater treatment process [ENVO:06105300]					A recycling process during which wastewater is treated.		
+				Wastewater filtration [GENEPIO:0100881]				A wastewater treatment process which removes solid particles from wastewater by means of filtration.		
+				Wastewater grit removal [GENEPIO:0100882]				A wastewater treatment process which removes sand, silt, and grit from wastewater.		
+				Wastewater microbial treatment [GENEPIO:0100883]				A wastewater treatment process in which microbes are used to degrade the biological material in wastewater.		
+				Wastewater primary sedimentation [GENEPIO:0100884]				A wastewater treatment process which removes solids and large particles from influent through gravitational force.		
+				Wastewater secondary sedimentation [GENEPIO:0100885]				A wastewater treatment process which removes biomass produced in aeration from influent through gravitational force.		
 										
 experimental_specimen_role_type menu	ExperimentalSpecimenRoleTypeMenu		Positive experimental control [GENEPIO:0101018]							
 			Negative experimental control [GENEPIO:0101019]							
@@ -379,6 +385,9 @@ environmental_site menu	EnvironmentalSiteMenu		Abattoir [ENVO:01000925]
 				Stall [EOL:0001903]						
 				Window sill [ENVO:03501381]						
 			Creek [ENVO:03501405]							
+			Ditch [ENVO:00000037]					A small, human-made channel which has been dug for draining or irrigating the land.		
+				Drainage ditch [ENVO:00000140]				A ditch that collects water from the surrounding land.		
+				Irrigation ditch [ENVO:00000139]				A ditch that supplies water to surrounding land.		
 			Farm [ENVO:00000078]							
 				Beef farm [ENVO:03501443]						
 				Breeder farm [ENVO:03501384]						
@@ -399,6 +408,7 @@ environmental_site menu	EnvironmentalSiteMenu		Abattoir [ENVO:01000925]
 				Benthic zone [ENVO:03501440]						
 				Pelagic zone [ENVO:00000208]						
 			Park [ENVO:00000562]							
+			Plumbing drain [ENVO:01000924 ]							
 			Pond [ENVO:00000033]							
 			Reservoir [ENVO:00000025]							
 				Irrigation reservoir [ENVO:00000450]						
@@ -416,6 +426,7 @@ environmental_site menu	EnvironmentalSiteMenu		Abattoir [ENVO:01000925]
 			Tributary [ENVO:00000495]							
 			Truck [ENVO:01000602]							
 			Urban area [ENVO:03501437]							
+			Wastewater treatment plant [ENVO:00002272]					A plant in which wastewater is treated.		
 			Water surface [ENVO:01001191]							
 			Woodland area [ENVO:00000109]							
 			Zoo [ENVO:00010625]							
@@ -494,7 +505,7 @@ available_data_types menu	AvailableDataTypesMenu		Documentation [GENEPIO:0100702
 				Turbidity measurement [GENEPIO:0100749]						
 										
 										
-weather_type menu	WeatherTypeMenu		Cloudy/Overcast [ENVO:03501418]							
+sampling_weather_conditions menu	SamplingWeatherConditionsMenu		Cloudy/Overcast [ENVO:03501418]							
 				Partially cloudy [ENVO:03501419]						
 			Drizzle [ENVO:03501420]							
 			Fog [ENVO:01000844]							
@@ -1518,4 +1529,46 @@ antimicrobial_testing_standard menu	AntimicrobialTestingStandardMenu		British So
 			Werkgroep Richtlijnen Gevoeligheidsbepalingen (WRG) [ARO:3007398]							WRG
 										
 										
-Antimicrobial Resistance Test Drug Menu	AntimicrobialResistanceTestDrugMenu									
+Antimicrobial Resistance Test Drug Menu	AntimicrobialResistanceTestDrugMenu		amikacin							
+			amoxicillin-clavulanic_acid							
+			ampicillin							
+			azithromycin							
+			cefazolin							
+			cefepime							
+			cefotaxime							
+			cefotaxime-clavulanic_acid							
+			cefoxitin							
+			cefpodoxime							
+			ceftazidime							
+			ceftazidime-clavulanic_acid							
+			ceftiofur							
+			ceftriaxone							
+			cephalothin							
+			chloramphenicol							
+			ciprofloxacin							
+			clindamycin							
+			doxycycline							
+			enrofloxacin							
+			erythromycin							
+			florfenicol							
+			gentamicin							
+			imipenem							
+			kanamycin							
+			levofloxacin							
+			linezolid							
+			meropenem							
+			nalidixic_acid							
+			nitrofurantoin							
+			norfloxacin							
+			oxolinic-acid							
+			oxytetracycline							
+			piperacillin							
+			piperacillin-tazobactam							
+			polymyxin-b							
+			quinupristin-dalfopristin							
+			streptomycin							
+			sulfisoxazole							
+			telithromycin							
+			tetracycline							
+			tigecycline							
+			trimethoprim-sulfamethoxazole							
