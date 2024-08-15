@@ -1556,10 +1556,6 @@ slots:
     - range: HostGenderMenu
     - range: NullValueMenu
     required: true
-    structured_pattern:
-      syntax: '{Title_Case}'
-      partial_match: false
-      interpolated: true
     examples:
     - value: Male
     exact_mappings:

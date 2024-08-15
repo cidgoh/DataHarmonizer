@@ -630,12 +630,12 @@ host age bin menu	HostAgeBinMenu	menu du bac d'âge de l'hôte	GENEPIO:0100049	0
 			GENEPIO:0100059	100+					100+										90+
 																			
 																			
-host gender menu	HostGenderMenu	menu sexe de l'hôte	NCIT:C46110	Female					Female										
-			NCIT:C46109	Male					Male										
-			GSSO:000132	Non-binary gender					Non-binary gender										
-			GSSO:004004	Transgender (assigned male at birth)					Transgender (assigned male at birth)										
-			GSSO:004005	Transgender (assigned female at birth)					Transgender (assigned female at birth)										
-			NCIT:C110959	Undeclared					Undeclared										
+host gender menu	HostGenderMenu	menu sexe de l'hôte	NCIT:C46110	Female					Femme										
+			NCIT:C46109	Male					Homme										
+			GSSO:000132	Non-binary gender					Genre non binaire										
+			GSSO:004004	Transgender (assigned male at birth)					Transgenre (assigné homme à la naissance)										
+			GSSO:004005	Transgender (assigned female at birth)					Transgenre (assigné femme à la naissance)										
+			NCIT:C110959	Undeclared					Non déclaré										
 																			
 																			
 exposure event menu	ExposureEventMenu	menu d'événement d'exposition	GENEPIO:0100237	Mass Gathering					Rassemblement de masse										
