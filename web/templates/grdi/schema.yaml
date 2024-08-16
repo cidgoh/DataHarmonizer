@@ -46,6 +46,13 @@ classes:
     - geo_loc_longitude
     - sample_collection_date
     - sample_collection_date_precision
+    - sample_collection_end_date
+    - sample_processing_date
+    - sample_collection_start_time
+    - sample_collection_end_time
+    - sample_collection_time_of_day
+    - sample_collection_time_duration_value
+    - sample_collection_time_duration_unit
     - sample_received_date
     - original_sample_description
     - environmental_site
@@ -196,8 +203,12 @@ classes:
         rank: 1
         slot_group: Sample collection and processing
         any_of:
-        - range: WhitespaceMinimizedString
-        - range: null value menu
+        - range: Whitespaceminimizedstring
+        - range: NullValueMenu
+        exact_mappings:
+        - BIOSAMPLE:sample_name
+        - NCBI_BIOSAMPLE_Enterics:sample_name
+        - NCBI_ANTIBIOGRAM:sample_name
       alternative_sample_id:
         rank: 2
         slot_group: Sample collection and processing
@@ -276,440 +287,461 @@ classes:
       sample_collection_date_precision:
         rank: 27
         slot_group: Sample collection and processing
-      sample_received_date:
+      sample_collection_end_date:
         rank: 28
         slot_group: Sample collection and processing
-      original_sample_description:
+      sample_processing_date:
         rank: 29
         slot_group: Sample collection and processing
-      environmental_site:
+      sample_collection_start_time:
         rank: 30
         slot_group: Sample collection and processing
-      environmental_material:
+      sample_collection_end_time:
         rank: 31
         slot_group: Sample collection and processing
-      environmental_material_constituent:
+      sample_collection_time_of_day:
         rank: 32
         slot_group: Sample collection and processing
-      animal_or_plant_population:
+      sample_collection_time_duration_value:
         rank: 33
         slot_group: Sample collection and processing
-      anatomical_material:
+      sample_collection_time_duration_unit:
         rank: 34
         slot_group: Sample collection and processing
-      body_product:
+      sample_received_date:
         rank: 35
         slot_group: Sample collection and processing
-      anatomical_part:
+      original_sample_description:
         rank: 36
         slot_group: Sample collection and processing
-      anatomical_region:
+      environmental_site:
         rank: 37
         slot_group: Sample collection and processing
-      food_product:
+      environmental_material:
         rank: 38
         slot_group: Sample collection and processing
-      food_product_properties:
+      environmental_material_constituent:
         rank: 39
         slot_group: Sample collection and processing
-      label_claim:
+      animal_or_plant_population:
         rank: 40
         slot_group: Sample collection and processing
-      animal_source_of_food:
+      anatomical_material:
         rank: 41
         slot_group: Sample collection and processing
-      food_product_production_stream:
+      body_product:
         rank: 42
         slot_group: Sample collection and processing
-      food_packaging:
+      anatomical_part:
         rank: 43
         slot_group: Sample collection and processing
-      food_quality_date:
+      anatomical_region:
         rank: 44
         slot_group: Sample collection and processing
-      food_packaging_date:
+      food_product:
         rank: 45
         slot_group: Sample collection and processing
-      collection_device:
+      food_product_properties:
         rank: 46
         slot_group: Sample collection and processing
-      collection_method:
+      label_claim:
         rank: 47
         slot_group: Sample collection and processing
-      sample_volume_measurement_value:
+      animal_source_of_food:
         rank: 48
         slot_group: Sample collection and processing
-      sample_volume_measurement_unit:
+      food_product_production_stream:
         rank: 49
         slot_group: Sample collection and processing
-      residual_sample_status:
+      food_packaging:
         rank: 50
         slot_group: Sample collection and processing
-      sample_storage_method:
+      food_quality_date:
         rank: 51
         slot_group: Sample collection and processing
-      sample_storage_medium:
+      food_packaging_date:
         rank: 52
         slot_group: Sample collection and processing
-      sample_storage_duration_value:
+      collection_device:
         rank: 53
         slot_group: Sample collection and processing
-      sample_storage_duration_unit:
+      collection_method:
         rank: 54
         slot_group: Sample collection and processing
-      nucleic_acid_storage_duration_value:
+      sample_volume_measurement_value:
         rank: 55
         slot_group: Sample collection and processing
-      nucleic_acid_storage_duration_unit:
+      sample_volume_measurement_unit:
         rank: 56
         slot_group: Sample collection and processing
-      available_data_types:
+      residual_sample_status:
         rank: 57
         slot_group: Sample collection and processing
-      available_data_type_details:
+      sample_storage_method:
         rank: 58
         slot_group: Sample collection and processing
-      water_depth:
+      sample_storage_medium:
         rank: 59
-        slot_group: Environmental conditions and measurements
-      water_depth_units:
+        slot_group: Sample collection and processing
+      sample_storage_duration_value:
         rank: 60
-        slot_group: Environmental conditions and measurements
-      sediment_depth:
+        slot_group: Sample collection and processing
+      sample_storage_duration_unit:
         rank: 61
-        slot_group: Environmental conditions and measurements
-      sediment_depth_units:
+        slot_group: Sample collection and processing
+      nucleic_acid_storage_duration_value:
         rank: 62
-        slot_group: Environmental conditions and measurements
-      air_temperature:
+        slot_group: Sample collection and processing
+      nucleic_acid_storage_duration_unit:
         rank: 63
-        slot_group: Environmental conditions and measurements
-      air_temperature_units:
+        slot_group: Sample collection and processing
+      available_data_types:
         rank: 64
-        slot_group: Environmental conditions and measurements
-      water_temperature:
+        slot_group: Sample collection and processing
+      available_data_type_details:
         rank: 65
-        slot_group: Environmental conditions and measurements
-      water_temperature_units:
+        slot_group: Sample collection and processing
+      water_depth:
         rank: 66
         slot_group: Environmental conditions and measurements
-      weather_type:
+      water_depth_units:
         rank: 67
         slot_group: Environmental conditions and measurements
-      host_common_name:
+      sediment_depth:
         rank: 68
+        slot_group: Environmental conditions and measurements
+      sediment_depth_units:
+        rank: 69
+        slot_group: Environmental conditions and measurements
+      air_temperature:
+        rank: 70
+        slot_group: Environmental conditions and measurements
+      air_temperature_units:
+        rank: 71
+        slot_group: Environmental conditions and measurements
+      water_temperature:
+        rank: 72
+        slot_group: Environmental conditions and measurements
+      water_temperature_units:
+        rank: 73
+        slot_group: Environmental conditions and measurements
+      weather_type:
+        rank: 74
+        slot_group: Environmental conditions and measurements
+      host_common_name:
+        rank: 75
         slot_group: Host information
       host_scientific_name:
-        rank: 69
+        rank: 76
         slot_group: Host information
       host_ecotype:
-        rank: 70
+        rank: 77
         slot_group: Host information
       host_breed:
-        rank: 71
+        rank: 78
         slot_group: Host information
       host_food_production_name:
-        rank: 72
+        rank: 79
         slot_group: Host information
       host_age_bin:
-        rank: 73
+        rank: 80
         slot_group: Host information
       host_disease:
-        rank: 74
+        rank: 81
         slot_group: Host information
       microbiological_method:
-        rank: 75
-        slot_group: Strain and isolation information
-      strain:
-        rank: 76
-        slot_group: Strain and isolation information
-      isolate_id:
-        rank: 77
-        slot_group: Strain and isolation information
-      alternative_isolate_id:
-        rank: 78
-        slot_group: Strain and isolation information
-      progeny_isolate_id:
-        rank: 79
-        slot_group: Strain and isolation information
-      irida_isolate_id:
-        rank: 80
-        slot_group: Strain and isolation information
-      irida_project_id:
-        rank: 81
-        slot_group: Strain and isolation information
-      isolated_by:
         rank: 82
         slot_group: Strain and isolation information
-      isolated_by_laboratory_name:
+      strain:
         rank: 83
         slot_group: Strain and isolation information
-      isolated_by_contact_name:
+      isolate_id:
         rank: 84
         slot_group: Strain and isolation information
-      isolated_by_contact_email:
+      alternative_isolate_id:
         rank: 85
         slot_group: Strain and isolation information
-      isolation_date:
+      progeny_isolate_id:
         rank: 86
         slot_group: Strain and isolation information
-      isolate_received_date:
+      irida_isolate_id:
         rank: 87
         slot_group: Strain and isolation information
-      organism:
+      irida_project_id:
         rank: 88
         slot_group: Strain and isolation information
-      taxonomic_identification_process:
+      isolated_by:
         rank: 89
         slot_group: Strain and isolation information
-      taxonomic_identification_process_details:
+      isolated_by_laboratory_name:
         rank: 90
         slot_group: Strain and isolation information
-      serovar:
+      isolated_by_contact_name:
         rank: 91
         slot_group: Strain and isolation information
-      serotyping_method:
+      isolated_by_contact_email:
         rank: 92
         slot_group: Strain and isolation information
-      phagetype:
+      isolation_date:
         rank: 93
         slot_group: Strain and isolation information
-      library_id:
+      isolate_received_date:
         rank: 94
-        slot_group: Sequence information
-      sequenced_by:
+        slot_group: Strain and isolation information
+      organism:
         rank: 95
-        slot_group: Sequence information
-      sequenced_by_laboratory_name:
+        slot_group: Strain and isolation information
+      taxonomic_identification_process:
         rank: 96
-        slot_group: Sequence information
-      sequenced_by_contact_name:
+        slot_group: Strain and isolation information
+      taxonomic_identification_process_details:
         rank: 97
-        slot_group: Sequence information
-      sequenced_by_contact_email:
+        slot_group: Strain and isolation information
+      serovar:
         rank: 98
-        slot_group: Sequence information
-      purpose_of_sequencing:
+        slot_group: Strain and isolation information
+      serotyping_method:
         rank: 99
-        slot_group: Sequence information
-      sequencing_project_name:
+        slot_group: Strain and isolation information
+      phagetype:
         rank: 100
-        slot_group: Sequence information
-      sequencing_platform:
+        slot_group: Strain and isolation information
+      library_id:
         rank: 101
         slot_group: Sequence information
-      sequencing_instrument:
+      sequenced_by:
         rank: 102
         slot_group: Sequence information
-      sequencing_assay_type:
+      sequenced_by_laboratory_name:
         rank: 103
         slot_group: Sequence information
-      library_preparation_kit:
+      sequenced_by_contact_name:
         rank: 104
         slot_group: Sequence information
-      dna_fragment_length:
+      sequenced_by_contact_email:
         rank: 105
         slot_group: Sequence information
-      genomic_target_enrichment_method:
+      purpose_of_sequencing:
         rank: 106
         slot_group: Sequence information
-      genomic_target_enrichment_method_details:
+      sequencing_project_name:
         rank: 107
         slot_group: Sequence information
-      amplicon_pcr_primer_scheme:
+      sequencing_platform:
         rank: 108
         slot_group: Sequence information
-      amplicon_size:
+      sequencing_instrument:
         rank: 109
         slot_group: Sequence information
-      sequencing_flow_cell_version:
+      sequencing_assay_type:
         rank: 110
         slot_group: Sequence information
-      sequencing_protocol:
+      library_preparation_kit:
         rank: 111
         slot_group: Sequence information
-      r1_fastq_filename:
+      dna_fragment_length:
         rank: 112
         slot_group: Sequence information
-      r2_fastq_filename:
+      genomic_target_enrichment_method:
         rank: 113
         slot_group: Sequence information
-      fast5_filename:
+      genomic_target_enrichment_method_details:
         rank: 114
         slot_group: Sequence information
-      assembly_filename:
+      amplicon_pcr_primer_scheme:
         rank: 115
         slot_group: Sequence information
-      quality_control_method_name:
+      amplicon_size:
         rank: 116
-        slot_group: Bioinformatics and QC metrics
-      quality_control_method_version:
+        slot_group: Sequence information
+      sequencing_flow_cell_version:
         rank: 117
-        slot_group: Bioinformatics and QC metrics
-      quality_control_determination:
+        slot_group: Sequence information
+      sequencing_protocol:
         rank: 118
-        slot_group: Bioinformatics and QC metrics
-      quality_control_issues:
+        slot_group: Sequence information
+      r1_fastq_filename:
         rank: 119
-        slot_group: Bioinformatics and QC metrics
-      quality_control_details:
+        slot_group: Sequence information
+      r2_fastq_filename:
         rank: 120
-        slot_group: Bioinformatics and QC metrics
-      raw_sequence_data_processing_method:
+        slot_group: Sequence information
+      fast5_filename:
         rank: 121
-        slot_group: Bioinformatics and QC metrics
-      dehosting_method:
+        slot_group: Sequence information
+      assembly_filename:
         rank: 122
-        slot_group: Bioinformatics and QC metrics
-      sequence_assembly_software_name:
+        slot_group: Sequence information
+      quality_control_method_name:
         rank: 123
         slot_group: Bioinformatics and QC metrics
-      sequence_assembly_software_version:
+      quality_control_method_version:
         rank: 124
         slot_group: Bioinformatics and QC metrics
-      consensus_sequence_software_name:
+      quality_control_determination:
         rank: 125
         slot_group: Bioinformatics and QC metrics
-      consensus_sequence_software_version:
+      quality_control_issues:
         rank: 126
         slot_group: Bioinformatics and QC metrics
-      breadth_of_coverage_value:
+      quality_control_details:
         rank: 127
         slot_group: Bioinformatics and QC metrics
-      depth_of_coverage_value:
+      raw_sequence_data_processing_method:
         rank: 128
         slot_group: Bioinformatics and QC metrics
-      depth_of_coverage_threshold:
+      dehosting_method:
         rank: 129
         slot_group: Bioinformatics and QC metrics
-      genome_completeness:
+      sequence_assembly_software_name:
         rank: 130
         slot_group: Bioinformatics and QC metrics
-      number_of_base_pairs_sequenced:
+      sequence_assembly_software_version:
         rank: 131
         slot_group: Bioinformatics and QC metrics
-      number_of_total_reads:
+      consensus_sequence_software_name:
         rank: 132
         slot_group: Bioinformatics and QC metrics
-      number_of_unique_reads:
+      consensus_sequence_software_version:
         rank: 133
         slot_group: Bioinformatics and QC metrics
-      minimum_posttrimming_read_length:
+      breadth_of_coverage_value:
         rank: 134
         slot_group: Bioinformatics and QC metrics
-      number_of_contigs:
+      depth_of_coverage_value:
         rank: 135
         slot_group: Bioinformatics and QC metrics
-      percent_ns_across_total_genome_length:
+      depth_of_coverage_threshold:
         rank: 136
         slot_group: Bioinformatics and QC metrics
-      ns_per_100_kbp:
+      genome_completeness:
         rank: 137
         slot_group: Bioinformatics and QC metrics
-      n50:
+      number_of_base_pairs_sequenced:
         rank: 138
         slot_group: Bioinformatics and QC metrics
-      percent_read_contamination_:
+      number_of_total_reads:
         rank: 139
         slot_group: Bioinformatics and QC metrics
-      sequence_assembly_length:
+      number_of_unique_reads:
         rank: 140
         slot_group: Bioinformatics and QC metrics
-      consensus_genome_length:
+      minimum_posttrimming_read_length:
         rank: 141
         slot_group: Bioinformatics and QC metrics
-      reference_genome_accession:
+      number_of_contigs:
         rank: 142
         slot_group: Bioinformatics and QC metrics
-      deduplication_method:
+      percent_ns_across_total_genome_length:
         rank: 143
         slot_group: Bioinformatics and QC metrics
-      bioinformatics_protocol:
+      ns_per_100_kbp:
         rank: 144
         slot_group: Bioinformatics and QC metrics
-      read_mapping_software_name:
+      n50:
         rank: 145
+        slot_group: Bioinformatics and QC metrics
+      percent_read_contamination_:
+        rank: 146
+        slot_group: Bioinformatics and QC metrics
+      sequence_assembly_length:
+        rank: 147
+        slot_group: Bioinformatics and QC metrics
+      consensus_genome_length:
+        rank: 148
+        slot_group: Bioinformatics and QC metrics
+      reference_genome_accession:
+        rank: 149
+        slot_group: Bioinformatics and QC metrics
+      deduplication_method:
+        rank: 150
+        slot_group: Bioinformatics and QC metrics
+      bioinformatics_protocol:
+        rank: 151
+        slot_group: Bioinformatics and QC metrics
+      read_mapping_software_name:
+        rank: 152
         slot_group: Taxonomic identification information
       read_mapping_software_version:
-        rank: 146
+        rank: 153
         slot_group: Taxonomic identification information
       taxonomic_reference_database_name:
-        rank: 147
+        rank: 154
         slot_group: Taxonomic identification information
       taxonomic_reference_database_version:
-        rank: 148
+        rank: 155
         slot_group: Taxonomic identification information
       taxonomic_analysis_report_filename:
-        rank: 149
+        rank: 156
         slot_group: Taxonomic identification information
       taxonomic_analysis_date:
-        rank: 150
+        rank: 157
         slot_group: Taxonomic identification information
       read_mapping_criteria:
-        rank: 151
+        rank: 158
         slot_group: Taxonomic identification information
       sequence_submitted_by:
-        rank: 152
-        slot_group: Public repository information
-      sequence_submitted_by_contact_name:
-        rank: 153
-        slot_group: Public repository information
-      sequence_submitted_by_contact_email:
-        rank: 154
-        slot_group: Public repository information
-      publication_id:
-        rank: 155
-        slot_group: Public repository information
-      attribute_package:
-        rank: 156
-        slot_group: Public repository information
-      bioproject_accession:
-        rank: 157
-        slot_group: Public repository information
-      biosample_accession:
-        rank: 158
-        slot_group: Public repository information
-      sra_accession:
         rank: 159
         slot_group: Public repository information
-      genbank_accession:
+      sequence_submitted_by_contact_name:
         rank: 160
         slot_group: Public repository information
-      prevalence_metrics:
+      sequence_submitted_by_contact_email:
         rank: 161
+        slot_group: Public repository information
+      publication_id:
+        rank: 162
+        slot_group: Public repository information
+      attribute_package:
+        rank: 163
+        slot_group: Public repository information
+      bioproject_accession:
+        rank: 164
+        slot_group: Public repository information
+      biosample_accession:
+        rank: 165
+        slot_group: Public repository information
+      sra_accession:
+        rank: 166
+        slot_group: Public repository information
+      genbank_accession:
+        rank: 167
+        slot_group: Public repository information
+      prevalence_metrics:
+        rank: 168
         slot_group: Risk assessment information
       prevalence_metrics_details:
-        rank: 162
+        rank: 169
         slot_group: Risk assessment information
       stage_of_production:
-        rank: 163
+        rank: 170
         slot_group: Risk assessment information
       experimental_intervention:
-        rank: 164
+        rank: 171
         slot_group: Risk assessment information
       experiment_intervention_details:
-        rank: 165
+        rank: 172
         slot_group: Risk assessment information
       amr_testing_by:
-        rank: 166
+        rank: 173
         slot_group: Antimicrobial resistance
       amr_testing_by_laboratory_name:
-        rank: 167
+        rank: 174
         slot_group: Antimicrobial resistance
       amr_testing_by_contact_name:
-        rank: 168
+        rank: 175
         slot_group: Antimicrobial resistance
       amr_testing_by_contact_email:
-        rank: 169
+        rank: 176
         slot_group: Antimicrobial resistance
       amr_testing_date:
-        rank: 170
+        rank: 177
         slot_group: Antimicrobial resistance
       authors:
-        rank: 171
+        rank: 178
         slot_group: Contributor acknowledgement
       dataharmonizer_provenance:
-        rank: 172
+        rank: 179
         slot_group: Contributor acknowledgement
   AMRTest:
     name: AMRTest
@@ -738,9 +770,11 @@ classes:
       sample_collector_sample_id:
         rank: 1
         slot_group: Key
-        any_of:
-        - range: GRDISample
-        - range: null value menu
+        range: GRDISample
+        exact_mappings:
+        - BIOSAMPLE:sample_name
+        - NCBI_BIOSAMPLE_Enterics:%2Asample_name
+        - NCBI_ANTIBIOGRAM:%2Asample_name
       antimicrobial_drug:
         rank: 2
         slot_group: Antimicrobial resistance
@@ -817,10 +851,6 @@ slots:
     required: true
     examples:
     - value: ABCD123
-    exact_mappings:
-    - BIOSAMPLE:sample_name
-    - NCBI_BIOSAMPLE_Enterics:%2Asample_name
-    - NCBI_ANTIBIOGRAM:%2Asample_name
   alternative_sample_id:
     name: alternative_sample_id
     title: alternative_sample_ID
@@ -837,7 +867,7 @@ slots:
       \ separated by semi-colons. If the information is unknown or cannot be provided,\
       \ leave blank or provide a null value.\""
     slot_uri: GENEPIO:0100427
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     required: true
     examples:
     - value: ABCD1234[PHAC]
@@ -852,14 +882,14 @@ slots:
       be provided, leave blank or provide a null value.
     slot_uri: GENEPIO:0001153
     any_of:
-    - range: sample_collected_by menu
-    - range: null value menu
+    - range: SampleCollectedByMenu
+    - range: NullValueMenu
     required: true
     examples:
     - value: Public Health Agency of Canada (PHAC) [GENEPIO:0100551]
     exact_mappings:
     - BIOSAMPLE:collected_by
-    - NCBI_BIOSAMPLE_Enterics:%2Acollected_by
+    - NCBI_BIOSAMPLE_Enterics:collected_by
   sample_collected_by_laboratory_name:
     name: sample_collected_by_laboratory_name
     title: sample_collected_by_laboratory_name
@@ -868,7 +898,7 @@ slots:
       (avoid abbreviations). If the information is unknown or cannot be provided,
       leave blank or provide a null value.
     slot_uri: GENEPIO:0100428
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     examples:
     - value: Topp Lab
   sample_collection_project_name:
@@ -879,7 +909,7 @@ slots:
     comments: Provide the name of the project and/or the project ID here. If the information
       is unknown or cannot be provided, leave blank or provide a null value.
     slot_uri: GENEPIO:0100429
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     examples:
     - value: Watershed Project (HA-120)
     exact_mappings:
@@ -892,7 +922,7 @@ slots:
       information is unknown or cannot be provided, leave blank or provide a null
       value.
     slot_uri: GENEPIO:0100430
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     recommended: true
     examples:
     - value: National Microbiological Baseline Study in Broiler Chicken
@@ -904,7 +934,7 @@ slots:
       If the information is unknown or cannot be provided, leave blank or provide
       a null value.
     slot_uri: GENEPIO:0100431
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     recommended: true
     examples:
     - value: 2001_M205
@@ -919,7 +949,7 @@ slots:
       information is unknown or cannot be provided, leave blank or provide a null
       value.
     slot_uri: GENEPIO:0100432
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     examples:
     - value: Enterics Lab Manager
   sample_collector_contact_email:
@@ -934,8 +964,8 @@ slots:
       provide a null value.
     slot_uri: GENEPIO:0001156
     any_of:
-    - range: WhitespaceMinimizedString
-    - range: null value menu
+    - range: Whitespaceminimizedstring
+    - range: NullValueMenu
     required: true
     examples:
     - value: johnnyblogs@lab.ca
@@ -951,14 +981,14 @@ slots:
       of sequencing" field.
     slot_uri: GENEPIO:0001198
     any_of:
-    - range: purpose_of_sampling menu
-    - range: null value menu
+    - range: PurposeOfSamplingMenu
+    - range: NullValueMenu
     required: true
     examples:
     - value: Surveillance [GENEPIO:0100004]
     exact_mappings:
     - BIOSAMPLE:purpose_of_sampling
-    - NCBI_BIOSAMPLE_Enterics:%2Apurpose_of_sampling
+    - NCBI_BIOSAMPLE_Enterics:purpose_of_sampling
   presampling_activity:
     name: presampling_activity
     title: presampling_activity
@@ -971,8 +1001,8 @@ slots:
       value.
     slot_uri: GENEPIO:0100433
     any_of:
-    - range: presampling_activity menu
-    - range: null value menu
+    - range: PresamplingActivityMenu
+    - range: NullValueMenu
     examples:
     - value: Antimicrobial pre-treatment [GENEPIO:0100537]
     exact_mappings:
@@ -985,7 +1015,7 @@ slots:
       the sample collected.
     comments: Briefly describe the experimental details using free text.
     slot_uri: GENEPIO:0100434
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     examples:
     - value: Chicken feed containing X amount of novobiocin was fed to chickens for
         72 hours prior to collection of litter.
@@ -997,7 +1027,7 @@ slots:
     comments: Provide the name of the methodology used in your study. If available,
       provide a link to the protocol.
     slot_uri: GENEPIO:0101029
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     examples:
     - value: OneHealth2024_protocol
   experimental_specimen_role_type:
@@ -1011,7 +1041,7 @@ slots:
       or a replicate, select a role type from the picklist. If the sample was not
       a control, leave blank or select "Not Applicable".
     slot_uri: GENEPIO:0100921
-    range: experimental_specimen_role_type menu
+    range: ExperimentalSpecimenRoleTypeMenu
     examples:
     - value: Positive experimental control [GENEPIO:0101018]
   specimen_processing:
@@ -1024,8 +1054,8 @@ slots:
       leave blank or provide a null value.
     slot_uri: GENEPIO:0100435
     any_of:
-    - range: specimen_processing menu
-    - range: null value menu
+    - range: SpecimenProcessingMenu
+    - range: NullValueMenu
     examples:
     - value: Samples pooled [OBI:0600016]
   specimen_processing_details:
@@ -1035,7 +1065,7 @@ slots:
       receiving the sample.
     comments: Briefly describe the processes applied to the sample.
     slot_uri: GENEPIO:0100311
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     examples:
     - value: 25 samples were pooled and further prepared as a single sample during
         library prep.
@@ -1045,7 +1075,7 @@ slots:
     description: The process used to extract genomic material from a sample.
     comments: Briefly describe the extraction method used.
     slot_uri: GENEPIO:0100939
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     examples:
     - value: Direct wastewater RNA capture and purification via the "Sewage, Salt,
         Silica and Salmonella (4S)" method v4 found at https://www.protocols.io/view/v-4-direct-wastewater-rna-capture-and-purification-36wgq581ygk5/v4
@@ -1055,7 +1085,7 @@ slots:
     description: The kit used to extract genomic material from a sample
     comments: Provide the name of the genomic extraction kit used.
     slot_uri: GENEPIO:0100772
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     examples:
     - value: QIAamp PowerFecal Pro DNA Kit
   geo_loc_name_country:
@@ -1067,15 +1097,15 @@ slots:
       is unknown or cannot be provided, provide a null value.
     slot_uri: GENEPIO:0001181
     any_of:
-    - range: geo_loc_name (country) menu
-    - range: null value menu
+    - range: GeoLocNameCountryMenu
+    - range: NullValueMenu
     required: true
     examples:
     - value: Canada [GAZ:00002560]
     exact_mappings:
     - BIOSAMPLE:geo_loc_name
     - BIOSAMPLE:geo_loc_name%20%28country%29
-    - NCBI_BIOSAMPLE_Enterics:%2Ageo_loc_name
+    - NCBI_BIOSAMPLE_Enterics:geo_loc_name
   geo_loc_name_state_province_region:
     name: geo_loc_name_state_province_region
     title: geo_loc_name (state/province/region)
@@ -1084,15 +1114,15 @@ slots:
       the information is unknown or cannot be provided, provide a null value.
     slot_uri: GENEPIO:0001185
     any_of:
-    - range: geo_loc_name (state/province/region) menu
-    - range: null value menu
+    - range: GeoLocNameStateProvinceRegionMenu
+    - range: NullValueMenu
     required: true
     examples:
     - value: British Columbia [GAZ:00002562]
     exact_mappings:
     - BIOSAMPLE:geo_loc_name
     - BIOSAMPLE:geo_loc_name%20%28state/province/region%29
-    - NCBI_BIOSAMPLE_Enterics:%2Ageo_loc_name
+    - NCBI_BIOSAMPLE_Enterics:geo_loc_name
   geo_loc_name_site:
     name: geo_loc_name_site
     title: geo_loc_name (site)
@@ -1101,7 +1131,7 @@ slots:
     comments: Provide the name of the specific geographical site using a specific
       noun (a word that names a certain place, thing).
     slot_uri: GENEPIO:0100436
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     examples:
     - value: Credit River
     exact_mappings:
@@ -1117,8 +1147,8 @@ slots:
       or cannot be provided, leave blank or provide a null value.
     slot_uri: GENEPIO:0100437
     any_of:
-    - range: geo_loc_name (country) menu
-    - range: null value menu
+    - range: GeoLocNameCountryMenu
+    - range: NullValueMenu
     examples:
     - value: United States of America [GAZ:00002459]
     exact_mappings:
@@ -1133,8 +1163,8 @@ slots:
       or cannot be provided, leave blank or provide a null value.
     slot_uri: GENEPIO:0100438
     any_of:
-    - range: geo_loc_name (country) menu
-    - range: null value menu
+    - range: GeoLocNameCountryMenu
+    - range: NullValueMenu
     examples:
     - value: South Africa [GAZ:00001094]
   geo_loc_latitude:
@@ -1147,7 +1177,7 @@ slots:
       an existing geographical location and creates data inaccuracies. If the information
       is unknown or cannot be provided, leave blank or provide a null value.
     slot_uri: GENEPIO:0100309
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     examples:
     - value: 38.98 N
     exact_mappings:
@@ -1163,7 +1193,7 @@ slots:
       an existing geographical location and creates data inaccuracies. If the information
       is unknown or cannot be provided, leave blank or provide a null value.
     slot_uri: GENEPIO:0100310
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     examples:
     - value: 77.11 W
     exact_mappings:
@@ -1175,13 +1205,13 @@ slots:
     comments: Provide the date according to the ISO 8601 standard "YYYY-MM-DD", "YYYY-MM"
       or "YYYY".
     slot_uri: GENEPIO:0001174
-    range: date
+    range: Date
     required: true
     examples:
     - value: '2020-10-30'
     exact_mappings:
     - BIOSAMPLE:sample%20collection%20date
-    - NCBI_BIOSAMPLE_Enterics:%2Acollection_date
+    - NCBI_BIOSAMPLE_Enterics:collection_date
   sample_collection_date_precision:
     name: sample_collection_date_precision
     title: sample_collection_date_precision
@@ -1192,11 +1222,98 @@ slots:
       "month" for "YYYY-MM", or "year" for "YYYY".
     slot_uri: GENEPIO:0001177
     any_of:
-    - range: sample_collection_date_precision menu
-    - range: null value menu
+    - range: SampleCollectionDatePrecisionMenu
+    - range: NullValueMenu
     required: true
     examples:
     - value: day [UO:0000033]
+  sample_collection_end_date:
+    name: sample_collection_end_date
+    title: sample_collection_end_date
+    description: The date on which sample collection ended for a continuous sample.
+    comments: Provide the date that sample collection ended in ISO 8601 format i.e.
+      YYYY-MM-DD
+    slot_uri: GENEPIO:0101071
+    any_of:
+    - range: Date
+    - range: NullValueMenu
+    recommended: true
+    examples:
+    - value: '2020-03-18'
+  sample_processing_date:
+    name: sample_processing_date
+    title: sample_processing_date
+    description: The date on which the sample was processed.
+    comments: Provide the sample processed date in ISO 8601 format, i.e. "YYYY-MM-DD".
+      The sample may be collected and processed (e.g. filtered, extraction) on the
+      same day, or on different dates.
+    slot_uri: GENEPIO:0100763
+    any_of:
+    - range: Date
+    - range: NullValueMenu
+    examples:
+    - value: '2020-03-16'
+  sample_collection_start_time:
+    name: sample_collection_start_time
+    title: sample_collection_start_time
+    description: The time at which sample collection began.
+    comments: Provide this time in ISO 8601 24hr format, in your local time.
+    slot_uri: GENEPIO:0101072
+    any_of:
+    - range: Time
+    - range: NullValueMenu
+    recommended: true
+    examples:
+    - value: 17:15 PST
+  sample_collection_end_time:
+    name: sample_collection_end_time
+    title: sample_collection_end_time
+    description: The time at which sample collection ended.
+    comments: Provide this time in ISO 8601 24hr format, in your local time.
+    slot_uri: GENEPIO:0101073
+    any_of:
+    - range: Time
+    - range: NullValueMenu
+    recommended: true
+    examples:
+    - value: 19:15 PST
+  sample_collection_time_of_day:
+    name: sample_collection_time_of_day
+    title: sample_collection_time_of_day
+    description: The descriptive time of day during which the sample was collected.
+    comments: If known, select a value from the pick list. The time of sample processing
+      matters especially for grab samples, as fecal concentration in wastewater fluctuates
+      over the course of the day.
+    slot_uri: GENEPIO:0100765
+    any_of:
+    - range: SampleCollectionTimeOfDayMenu
+    - range: NullValueMenu
+    examples:
+    - value: Morning
+  sample_collection_time_duration_value:
+    name: sample_collection_time_duration_value
+    title: sample_collection_time_duration_value
+    description: The amount of time over which the sample was collected.
+    comments: Provide the numerical value of time.
+    slot_uri: GENEPIO:0100766
+    any_of:
+    - range: Whitespaceminimizedstring
+    - range: NullValueMenu
+    recommended: true
+    examples:
+    - value: '1900-01-03'
+  sample_collection_time_duration_unit:
+    name: sample_collection_time_duration_unit
+    title: sample_collection_time_duration_unit
+    description: The units of the time duration measurement of sample collection.
+    comments: Provide the units from the pick list.
+    slot_uri: GENEPIO:0100767
+    any_of:
+    - range: SampleCollectionDurationUnitMenu
+    - range: NullValueMenu
+    recommended: true
+    examples:
+    - value: Hour
   sample_received_date:
     name: sample_received_date
     title: sample_received_date
@@ -1204,7 +1321,7 @@ slots:
     comments: Provide the date according to the ISO 8601 standard "YYYY-MM-DD", "YYYY-MM"
       or "YYYY".
     slot_uri: GENEPIO:0001179
-    range: date
+    range: Date
     examples:
     - value: '2020-11-15'
   original_sample_description:
@@ -1215,7 +1332,7 @@ slots:
       The original description is useful as it may provide further details, or can
       be used to clarify higher level classifications.
     slot_uri: GENEPIO:0100439
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     examples:
     - value: RTE Prosciutto from deli
   environmental_site:
@@ -1228,8 +1345,8 @@ slots:
       separated by a semi-colon.
     slot_uri: GENEPIO:0001232
     any_of:
-    - range: environmental_site menu
-    - range: null value menu
+    - range: EnvironmentalSiteMenu
+    - range: NullValueMenu
     multivalued: true
     recommended: true
     examples:
@@ -1237,7 +1354,7 @@ slots:
     exact_mappings:
     - BIOSAMPLE:isolation_source
     - BIOSAMPLE:environmental_site
-    - NCBI_BIOSAMPLE_Enterics:%2Aisolation_source
+    - NCBI_BIOSAMPLE_Enterics:isolation_source
     - NCBI_BIOSAMPLE_Enterics:animal_env
     - NCBI_BIOSAMPLE_Enterics:host_housing
     - NCBI_BIOSAMPLE_Enterics:env_local_scale
@@ -1252,8 +1369,8 @@ slots:
       separated by a semi-colon.
     slot_uri: GENEPIO:0001223
     any_of:
-    - range: environmental_material menu
-    - range: null value menu
+    - range: EnvironmentalMaterialMenu
+    - range: NullValueMenu
     multivalued: true
     recommended: true
     examples:
@@ -1264,7 +1381,7 @@ slots:
     exact_mappings:
     - BIOSAMPLE:isolation_source
     - BIOSAMPLE:environmental_material
-    - NCBI_BIOSAMPLE_Enterics:%2Aisolation_source
+    - NCBI_BIOSAMPLE_Enterics:isolation_source
   environmental_material_constituent:
     name: environmental_material_constituent
     title: environmental_material_constituent
@@ -1273,8 +1390,7 @@ slots:
     comments: If applicable, describe the material constituents for the environmental
       material. Multiple values can be provided, separated by a semi-colon.
     slot_uri: GENEPIO:0101197
-    range: WhitespaceMinimizedString
-    multivalued: true
+    range: Whitespaceminimizedstring
     examples:
     - value: lead
     - value: plastic
@@ -1290,8 +1406,8 @@ slots:
       If not applicable, leave blank.'
     slot_uri: GENEPIO:0100443
     any_of:
-    - range: animal_or_plant_population menu
-    - range: null value menu
+    - range: AnimalOrPlantPopulationMenu
+    - range: NullValueMenu
     multivalued: true
     recommended: true
     examples:
@@ -1306,8 +1422,8 @@ slots:
       the picklist provided. Multiple values can be provided, separated by a semi-colon.
     slot_uri: GENEPIO:0001211
     any_of:
-    - range: anatomical_material menu
-    - range: null value menu
+    - range: AnatomicalMaterialMenu
+    - range: NullValueMenu
     multivalued: true
     recommended: true
     examples:
@@ -1317,7 +1433,7 @@ slots:
     - BIOSAMPLE:isolation_source
     - BIOSAMPLE:anatomical_material
     - NCBI_BIOSAMPLE_Enterics:host_tissue_sampled
-    - NCBI_BIOSAMPLE_Enterics:%2Aisolation_source
+    - NCBI_BIOSAMPLE_Enterics:isolation_source
   body_product:
     name: body_product
     title: body_product
@@ -1329,8 +1445,8 @@ slots:
       can be provided, separated by a semi-colon.
     slot_uri: GENEPIO:0001216
     any_of:
-    - range: body_product menu
-    - range: null value menu
+    - range: BodyProductMenu
+    - range: NullValueMenu
     multivalued: true
     recommended: true
     examples:
@@ -1340,7 +1456,7 @@ slots:
     - BIOSAMPLE:isolation_source
     - BIOSAMPLE:body_product
     - NCBI_BIOSAMPLE_Enterics:host_body_product
-    - NCBI_BIOSAMPLE_Enterics:%2Aisolation_source
+    - NCBI_BIOSAMPLE_Enterics:isolation_source
   anatomical_part:
     name: anatomical_part
     title: anatomical_part
@@ -1350,8 +1466,8 @@ slots:
       the picklist provided. Multiple values can be provided, separated by a semi-colon.
     slot_uri: GENEPIO:0001214
     any_of:
-    - range: anatomical_part menu
-    - range: null value menu
+    - range: AnatomicalPartMenu
+    - range: NullValueMenu
     multivalued: true
     recommended: true
     examples:
@@ -1359,7 +1475,7 @@ slots:
     exact_mappings:
     - BIOSAMPLE:isolation_source
     - BIOSAMPLE:anatomical_part
-    - NCBI_BIOSAMPLE_Enterics:%2Aisolation_source
+    - NCBI_BIOSAMPLE_Enterics:isolation_source
   anatomical_region:
     name: anatomical_region
     title: anatomical_region
@@ -1369,8 +1485,8 @@ slots:
       part e.g. dorso-lateral region vs back. Select a term from the picklist.
     slot_uri: GENEPIO:0100700
     any_of:
-    - range: anatomical_region menu
-    - range: null value menu
+    - range: AnatomicalRegionMenu
+    - range: NullValueMenu
     multivalued: true
     recommended: true
     examples:
@@ -1384,8 +1500,8 @@ slots:
       Multiple values can be provided, separated by a semi-colon.
     slot_uri: GENEPIO:0100444
     any_of:
-    - range: food_product menu
-    - range: null value menu
+    - range: FoodProductMenu
+    - range: NullValueMenu
     multivalued: true
     recommended: true
     examples:
@@ -1406,8 +1522,8 @@ slots:
       canned), and any information about a label claim (e.g. organic, fat-free).
     slot_uri: GENEPIO:0100445
     any_of:
-    - range: food_product_properties menu
-    - range: null value menu
+    - range: FoodProductPropertiesMenu
+    - range: NullValueMenu
     multivalued: true
     recommended: true
     examples:
@@ -1416,7 +1532,7 @@ slots:
     exact_mappings:
     - BIOSAMPLE:isolation_source
     - BIOSAMPLE:food_product_properties
-    - NCBI_BIOSAMPLE_Enterics:%2Aisolation_source
+    - NCBI_BIOSAMPLE_Enterics:isolation_source
     - NCBI_BIOSAMPLE_Enterics:food_processing_method
     - NCBI_BIOSAMPLE_Enterics:food_preserv_proc
   label_claim:
@@ -1428,8 +1544,8 @@ slots:
       label only.
     slot_uri: FOODON:03602001
     any_of:
-    - range: label_claim menu
-    - range: null value menu
+    - range: LabelClaimMenu
+    - range: NullValueMenu
     multivalued: true
     examples:
     - value: Antibiotic free [FOODON:03601063]
@@ -1443,8 +1559,8 @@ slots:
       Multiple entries can be provided, separated by a comma.
     slot_uri: GENEPIO:0100446
     any_of:
-    - range: animal_source_of_food menu
-    - range: null value menu
+    - range: AnimalSourceOfFoodMenu
+    - range: NullValueMenu
     multivalued: true
     recommended: true
     examples:
@@ -1460,8 +1576,8 @@ slots:
     comments: Provide the name of the agricultural production stream from the picklist.
     slot_uri: GENEPIO:0100699
     any_of:
-    - range: food_product_production_stream menu
-    - range: null value menu
+    - range: FoodProductProductionStreamMenu
+    - range: NullValueMenu
     examples:
     - value: Beef cattle production stream [FOODON:03000452]
     exact_mappings:
@@ -1473,8 +1589,8 @@ slots:
     comments: If known, provide information regarding how the food product was packaged.
     slot_uri: GENEPIO:0100447
     any_of:
-    - range: food_packaging menu
-    - range: null value menu
+    - range: FoodPackagingMenu
+    - range: NullValueMenu
     multivalued: true
     recommended: true
     examples:
@@ -1492,7 +1608,7 @@ slots:
       best by", "use by", or "freeze by" e.g. 5/24/2020. If the date is known, leave
       blank or provide a null value.
     slot_uri: GENEPIO:0100615
-    range: date
+    range: Date
     examples:
     - value: '2020-05-25'
     exact_mappings:
@@ -1506,7 +1622,7 @@ slots:
       Before date or other food quality date. If the date is known, leave blank or
       provide a null value.
     slot_uri: GENEPIO:0100616
-    range: date
+    range: Date
     examples:
     - value: '2020-05-25'
   collection_device:
@@ -1518,8 +1634,8 @@ slots:
       Multiple values can be provided, separated by a semi-colon.
     slot_uri: GENEPIO:0001234
     any_of:
-    - range: collection_device menu
-    - range: null value menu
+    - range: CollectionDeviceMenu
+    - range: NullValueMenu
     recommended: true
     examples:
     - value: Drag swab [OBI:0002822]
@@ -1527,7 +1643,7 @@ slots:
     - BIOSAMPLE:isolation_source
     - BIOSAMPLE:collection_device
     - NCBI_BIOSAMPLE_Enterics:samp_collect_device
-    - NCBI_BIOSAMPLE_Enterics:%2Aisolation_source
+    - NCBI_BIOSAMPLE_Enterics:isolation_source
   collection_method:
     name: collection_method
     title: collection_method
@@ -1537,22 +1653,22 @@ slots:
       separated by a semi-colon.
     slot_uri: GENEPIO:0001241
     any_of:
-    - range: collection_method menu
-    - range: null value menu
+    - range: CollectionMethodMenu
+    - range: NullValueMenu
     recommended: true
     examples:
     - value: Rinsing for specimen collection [GENEPIO_0002116]
     exact_mappings:
     - BIOSAMPLE:isolation_source
     - BIOSAMPLE:collection_method
-    - NCBI_BIOSAMPLE_Enterics:%2Aisolation_source
+    - NCBI_BIOSAMPLE_Enterics:isolation_source
   sample_volume_measurement_value:
     name: sample_volume_measurement_value
     title: sample_volume_measurement_value
     description: The numerical value of the volume measurement of the sample collected.
     comments: Provide the numerical value of volume.
     slot_uri: GENEPIO:0100768
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     examples:
     - value: '5'
   sample_volume_measurement_unit:
@@ -1561,7 +1677,7 @@ slots:
     description: The units of the volume measurement of the sample collected.
     comments: Provide the units from the pick list.
     slot_uri: GENEPIO:0100769
-    range: sample_volume_measurement_unit menu
+    range: SampleVolumeMeasurementUnitMenu
     examples:
     - value: milliliter (mL) [UO:0000098]
   residual_sample_status:
@@ -1573,7 +1689,7 @@ slots:
       used for its original purpose. Select a residual sample status from the picklist.
       If sample still exists, select "Residual sample remaining (some sample left)".
     slot_uri: GENEPIO:0101090
-    range: residual_sample_status menu
+    range: ResidualSampleStatusMenu
     examples:
     - value: No residual sample (sample all used) [GENEPIO:0101088]
   sample_storage_method:
@@ -1582,7 +1698,7 @@ slots:
     description: A specification of the way that a specimen is or was stored.
     comments: Provide a description of how the sample was stored.
     slot_uri: GENEPIO:0100448
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     examples:
     - value: packed on ice during transport
   sample_storage_medium:
@@ -1591,7 +1707,7 @@ slots:
     description: The material or matrix in which a sample is stored.
     comments: Provide a description of the medium in which the sample was stored.
     slot_uri: GENEPIO:0100449
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     examples:
     - value: PBS + 20% glycerol
   sample_storage_duration_value:
@@ -1601,7 +1717,7 @@ slots:
       is in storage.
     comments: Provide the numerical value of time.
     slot_uri: GENEPIO:0101014
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     examples:
     - value: '5'
   sample_storage_duration_unit:
@@ -1610,7 +1726,7 @@ slots:
     description: The units of a measured sample storage duration.
     comments: Provide the units from the pick list.
     slot_uri: GENEPIO:0101015
-    range: sample_storage_duration_unit menu
+    range: SampleStorageDurationUnitMenu
     examples:
     - value: Day [UO:0000033]
   nucleic_acid_storage_duration_value:
@@ -1620,7 +1736,7 @@ slots:
       nucleic acid is in storage.
     comments: Provide the numerical value of time.
     slot_uri: GENEPIO:0101085
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     examples:
     - value: '5'
   nucleic_acid_storage_duration_unit:
@@ -1629,7 +1745,7 @@ slots:
     description: The units of a measured extracted nucleic acid storage duration.
     comments: Provide the units from the pick list.
     slot_uri: GENEPIO:0101086
-    range: nucleic_acid_storage_duration_unit menu
+    range: NucleicAcidStorageDurationUnitMenu
     examples:
     - value: Year [UO:0000036]
   available_data_types:
@@ -1644,8 +1760,8 @@ slots:
       data provider for more information.
     slot_uri: GENEPIO:0100690
     any_of:
-    - range: available_data_types menu
-    - range: null value menu
+    - range: AvailableDataTypesMenu
+    - range: NullValueMenu
     multivalued: true
     examples:
     - value: Total coliform count [GENEPIO:0100729]
@@ -1656,7 +1772,7 @@ slots:
     comments: Use this field to provide free text details describing other available
       data types that may provide context for interpreting genomic sequence data.
     slot_uri: GENEPIO:0101023
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     examples:
     - value: Pooled metagenomes containing extended spectrum beta-lactamase (ESBL)
         bacteria
@@ -1666,7 +1782,7 @@ slots:
     description: The depth of some water.
     comments: Provide the numerical depth only  of water only (without units).
     slot_uri: GENEPIO:0100440
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     examples:
     - value: '5'
   water_depth_units:
@@ -1676,8 +1792,8 @@ slots:
     comments: Provide the units of measurement for which the depth was recorded.
     slot_uri: GENEPIO:0101025
     any_of:
-    - range: water_depth_units menu
-    - range: null value menu
+    - range: WaterDepthUnitsMenu
+    - range: NullValueMenu
     examples:
     - value: meter (m) [UO:0000008]
   sediment_depth:
@@ -1686,7 +1802,7 @@ slots:
     description: The depth of some sediment.
     comments: Provide the numerical depth only of the sediment (without units).
     slot_uri: GENEPIO:0100697
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     examples:
     - value: '2'
   sediment_depth_units:
@@ -1696,8 +1812,8 @@ slots:
     comments: Provide the units of measurement for which the depth was recorded.
     slot_uri: GENEPIO:0101026
     any_of:
-    - range: sediment_depth_units menu
-    - range: null value menu
+    - range: SedimentDepthUnitsMenu
+    - range: NullValueMenu
     examples:
     - value: meter (m) [UO:0000008]
   air_temperature:
@@ -1707,7 +1823,7 @@ slots:
     comments: Provide the numerical value for the temperature of the air (without
       units).
     slot_uri: GENEPIO:0100441
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     examples:
     - value: '25'
   air_temperature_units:
@@ -1717,8 +1833,8 @@ slots:
     comments: Provide the units of measurement for which the temperature was recorded.
     slot_uri: GENEPIO:0101027
     any_of:
-    - range: air_temperature_units menu
-    - range: null value menu
+    - range: AirTemperatureUnitsMenu
+    - range: NullValueMenu
     examples:
     - value: degree Celsius (C) [UO:0000027]
   water_temperature:
@@ -1728,7 +1844,7 @@ slots:
     comments: Provide the numerical value for the temperature of the water (without
       units).
     slot_uri: GENEPIO:0100698
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     examples:
     - value: '4'
   water_temperature_units:
@@ -1738,8 +1854,8 @@ slots:
     comments: Provide the units of measurement for which the temperature was recorded.
     slot_uri: GENEPIO:0101028
     any_of:
-    - range: water_temperature_units menu
-    - range: null value menu
+    - range: WaterTemperatureUnitsMenu
+    - range: NullValueMenu
     examples:
     - value: degree Celsius (C) [UO:0000027]
   weather_type:
@@ -1750,8 +1866,8 @@ slots:
     comments: Provide the weather conditions at the time of sample collection.
     slot_uri: GENEPIO:0100442
     any_of:
-    - range: weather_type menu
-    - range: null value menu
+    - range: WeatherTypeMenu
+    - range: NullValueMenu
     multivalued: true
     examples:
     - value: Rain [ENVO:01001564]
@@ -1764,8 +1880,8 @@ slots:
       provide the common name.
     slot_uri: GENEPIO:0001386
     any_of:
-    - range: host (common name) menu
-    - range: null value menu
+    - range: HostCommonNameMenu
+    - range: NullValueMenu
     recommended: true
     examples:
     - value: Cow [NCBITaxon:9913]
@@ -1781,15 +1897,15 @@ slots:
       select the scientific name from the picklist provided.
     slot_uri: GENEPIO:0001387
     any_of:
-    - range: host (scientific name) menu
-    - range: null value menu
+    - range: HostScientificNameMenu
+    - range: NullValueMenu
     recommended: true
     examples:
     - value: Bos taurus [NCBITaxon:9913]
     - value: Homo sapiens [NCBITaxon:9103]
     exact_mappings:
     - BIOSAMPLE:host
-    - NCBI_BIOSAMPLE_Enterics:%2Aisolation_source
+    - NCBI_BIOSAMPLE_Enterics:isolation_source
     - NCBI_BIOSAMPLE_Enterics:host
   host_ecotype:
     name: host_ecotype
@@ -1798,7 +1914,7 @@ slots:
       the A. thaliana Ecotype Ler.
     comments: Provide the name of the ecotype of the host organism.
     slot_uri: GENEPIO:0100450
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     examples:
     - value: Sea ecotype
     exact_mappings:
@@ -1812,7 +1928,7 @@ slots:
       arrived at through selective breeding.
     comments: Provide the name of the breed of the host organism.
     slot_uri: GENEPIO:0100451
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     examples:
     - value: Holstein
     exact_mappings:
@@ -1826,8 +1942,8 @@ slots:
     comments: Select the host's food production name from the pick list.
     slot_uri: GENEPIO:0100452
     any_of:
-    - range: host (food production name) menu
-    - range: null value menu
+    - range: HostFoodProductionNameMenu
+    - range: NullValueMenu
     examples:
     - value: Calf [FOODON:03411349]
     exact_mappings:
@@ -1840,8 +1956,8 @@ slots:
       the template. If not available, provide a null value or leave blank.
     slot_uri: GENEPIO:0001394
     any_of:
-    - range: host_age_bin menu
-    - range: null value menu
+    - range: HostAgeBinMenu
+    - range: NullValueMenu
     exact_mappings:
     - NCBI_BIOSAMPLE_Enterics:host_age
   host_disease:
@@ -1853,7 +1969,7 @@ slots:
       \ can be sourced from this look-up service: https://www.ebi.ac.uk/ols/ontologies/doid\
       \ If the disease is not known, put \u201Cmissing\u201D."
     slot_uri: GENEPIO:0001391
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     examples:
     - value: mastitis, gastroenteritis
     exact_mappings:
@@ -1867,7 +1983,7 @@ slots:
       ID of the method is also acceptable if the ID can be linked to the laboratory
       that created the procedure.
     slot_uri: GENEPIO:0100454
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     recommended: true
     examples:
     - value: MFHPB-30
@@ -1878,11 +1994,11 @@ slots:
     comments: If the isolate represents or is derived from, a lab reference strain
       or strain from a type culture collection, provide the strain identifier.
     slot_uri: GENEPIO:0100455
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     examples:
     - value: K12
     exact_mappings:
-    - NCBI_BIOSAMPLE_Enterics:%2Astrain
+    - NCBI_BIOSAMPLE_Enterics:strain
   isolate_id:
     name: isolate_id
     title: isolate_ID
@@ -1895,13 +2011,13 @@ slots:
       original sample), make asure to include it in the alternative_isolate_ID field.
     slot_uri: GENEPIO:0100456
     any_of:
-    - range: WhitespaceMinimizedString
-    - range: null value menu
+    - range: Whitespaceminimizedstring
+    - range: NullValueMenu
     required: true
     examples:
     - value: SA20131043
     exact_mappings:
-    - NCBI_BIOSAMPLE_Enterics:%2Astrain
+    - NCBI_BIOSAMPLE_Enterics:strain
   alternative_isolate_id:
     name: alternative_isolate_id
     title: alternative_isolate_ID
@@ -1916,7 +2032,7 @@ slots:
       \ formatted alternative_isolate_identifier would be e.g. XYZ4567[CFIA]\nMultiple\
       \ alternative isolate IDs can be provided, separated by semi-colons."
     slot_uri: GENEPIO:0100457
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     recommended: true
     examples:
     - value: GHIF3456[PHAC]
@@ -1931,7 +2047,7 @@ slots:
     comments: If your sequence data pertains to progeny of an original isolate, provide
       the progeny_isolate_ID.
     slot_uri: GENEPIO:0100458
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     examples:
     - value: SUB_ON_1526
   irida_isolate_id:
@@ -1945,8 +2061,8 @@ slots:
       your spreadsheet as part of good data management practices.
     slot_uri: GENEPIO:0100459
     any_of:
-    - range: WhitespaceMinimizedString
-    - range: null value menu
+    - range: Whitespaceminimizedstring
+    - range: NullValueMenu
     required: true
     examples:
     - value: GRDI_LL_12345
@@ -1957,8 +2073,8 @@ slots:
     comments: Provide the IRIDA "project ID".
     slot_uri: GENEPIO:0100460
     any_of:
-    - range: WhitespaceMinimizedString
-    - range: null value menu
+    - range: Whitespaceminimizedstring
+    - range: NullValueMenu
     required: true
     examples:
     - value: '666'
@@ -1971,7 +2087,7 @@ slots:
       the original isolate in full (avoid abbreviations). If the information is unknown
       or cannot be provided, leave blank or provide a null value.
     slot_uri: GENEPIO:0100461
-    range: isolated_by menu
+    range: IsolatedByMenu
     examples:
     - value: Public Health Agency of Canada (PHAC) [GENEPIO:0100551]
   isolated_by_laboratory_name:
@@ -1983,7 +2099,7 @@ slots:
       isolate (avoid abbreviations). If the information is unknown or cannot be provided,
       leave blank or provide a null value.
     slot_uri: GENEPIO:0100462
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     examples:
     - value: Topp Lab
   isolated_by_contact_name:
@@ -1996,7 +2112,7 @@ slots:
       for ensuring accuracy of information and institutional memory. If the information
       is unknown or cannot be provided, leave blank or provide a null value.
     slot_uri: GENEPIO:0100463
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     examples:
     - value: Enterics Lab Manager
   isolated_by_contact_email:
@@ -2010,7 +2126,7 @@ slots:
       memory. If the information is unknown or cannot be provided, leave blank or
       provide a null value.
     slot_uri: GENEPIO:0100464
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     examples:
     - value: enterics@lab.ca
   isolation_date:
@@ -2020,7 +2136,7 @@ slots:
     comments: Provide the date according to the ISO 8601 standard "YYYY-MM-DD", "YYYY-MM"
       or "YYYY".
     slot_uri: GENEPIO:0100465
-    range: date
+    range: Date
     examples:
     - value: '2020-10-30'
     exact_mappings:
@@ -2032,7 +2148,7 @@ slots:
     comments: Provide the date according to the ISO 8601 standard "YYYY-MM-DD", "YYYY-MM"
       or "YYYY".
     slot_uri: GENEPIO:0100466
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     examples:
     - value: '2020-11-15'
   organism:
@@ -2048,15 +2164,15 @@ slots:
       mapping software and reference database(s) used.'
     slot_uri: GENEPIO:0001191
     any_of:
-    - range: organism menu
-    - range: null value menu
+    - range: OrganismMenu
+    - range: NullValueMenu
     multivalued: true
     required: true
     examples:
     - value: Salmonella enterica subsp. enterica [NCBITaxon:59201]
     exact_mappings:
     - BIOSAMPLE:organism
-    - NCBI_BIOSAMPLE_Enterics:%2Aorganism
+    - NCBI_BIOSAMPLE_Enterics:organism
   taxonomic_identification_process:
     name: taxonomic_identification_process
     title: taxonomic_identification_process
@@ -2067,8 +2183,8 @@ slots:
       is unknown or cannot be provided, leave blank or provide a null value.
     slot_uri: GENEPIO:0100583
     any_of:
-    - range: taxonomic_identification_process menu
-    - range: null value menu
+    - range: TaxonomicIdentificationProcessMenu
+    - range: NullValueMenu
     recommended: true
     examples:
     - value: PCR assay [OBI:0002740]
@@ -2080,7 +2196,7 @@ slots:
     comments: Briefly describe the taxonomic identififcation method details using
       free text.
     slot_uri: GENEPIO:0100584
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     examples:
     - value: Biolog instrument
   serovar:
@@ -2090,7 +2206,7 @@ slots:
     comments: Only include this information if it has been determined by traditional
       serological methods or a validated in silico prediction tool e.g. SISTR.
     slot_uri: GENEPIO:0100467
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     recommended: true
     examples:
     - value: Heidelberg
@@ -2104,7 +2220,7 @@ slots:
       \ \u201CTraditional serotyping\u201D. If the serovar was determined via in silico\
       \ methods, provide the name and version number of the software."
     slot_uri: GENEPIO:0100468
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     recommended: true
     examples:
     - value: SISTR 1.0.1
@@ -2114,7 +2230,7 @@ slots:
     description: The phagetype of the organism.
     comments: "Provide if known. If unknown, put \u201Cmissing\u201D."
     slot_uri: GENEPIO:0100469
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     examples:
     - value: '47'
   library_id:
@@ -2125,7 +2241,7 @@ slots:
       any format, but we suggest that you make it concise, unique and consistent within
       your lab, and as informative as possible.
     slot_uri: GENEPIO:0001448
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     examples:
     - value: LS_2010_NP_123446
   sequenced_by:
@@ -2138,8 +2254,8 @@ slots:
       or cannot be provided, leave blank or provide a null value.
     slot_uri: GENEPIO:0100416
     any_of:
-    - range: sequenced_by menu
-    - range: null value menu
+    - range: SequencedByMenu
+    - range: NullValueMenu
     required: true
     examples:
     - value: Public Health Agency of Canada (PHAC) [GENEPIO:0100551]
@@ -2155,7 +2271,7 @@ slots:
       sequencing in full (avoid abbreviations). If the information is unknown or cannot
       be provided, leave blank or provide a null value.
     slot_uri: GENEPIO:0100470
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     examples:
     - value: Topp Lab
   sequenced_by_contact_name:
@@ -2170,8 +2286,8 @@ slots:
       value.
     slot_uri: GENEPIO:0100471
     any_of:
-    - range: WhitespaceMinimizedString
-    - range: null value menu
+    - range: Whitespaceminimizedstring
+    - range: NullValueMenu
     required: true
     examples:
     - value: Enterics Lab Manager
@@ -2187,8 +2303,8 @@ slots:
       provide a null value.
     slot_uri: GENEPIO:0100422
     any_of:
-    - range: WhitespaceMinimizedString
-    - range: null value menu
+    - range: Whitespaceminimizedstring
+    - range: NullValueMenu
     required: true
     examples:
     - value: enterics@lab.ca
@@ -2202,8 +2318,8 @@ slots:
       provided, leave blank or provide a null value.'
     slot_uri: GENEPIO:0001445
     any_of:
-    - range: purpose_of_sequencing menu
-    - range: null value menu
+    - range: PurposeOfSequencingMenu
+    - range: NullValueMenu
     multivalued: true
     required: true
     examples:
@@ -2218,7 +2334,7 @@ slots:
     comments: Provide the name of the project and/or the project ID here. If the information
       is unknown or cannot be provided, leave blank or provide a null value.
     slot_uri: GENEPIO:0100472
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     examples:
     - value: AMR-GRDI (PA-1356)
   sequencing_platform:
@@ -2230,8 +2346,8 @@ slots:
       or cannot be provided, leave blank or provide a null value.
     slot_uri: GENEPIO:0100473
     any_of:
-    - range: sequencing_platform menu
-    - range: null value menu
+    - range: SequencingPlatformMenu
+    - range: NullValueMenu
     examples:
     - value: Illumina [GENEPIO:0001923]
   sequencing_instrument:
@@ -2243,8 +2359,8 @@ slots:
       blank or provide a null value.
     slot_uri: GENEPIO:0001452
     any_of:
-    - range: sequencing_instrument menu
-    - range: null value menu
+    - range: SequencingInstrumentMenu
+    - range: NullValueMenu
     examples:
     - value: Illumina HiSeq 2500 [GENEPIO:0100117]
   sequencing_assay_type:
@@ -2256,7 +2372,7 @@ slots:
       used in your study. If unsure refer to the protocol documentation, or provide
       a null value.'
     slot_uri: GENEPIO:0100997
-    range: sequencing_assay_type menu
+    range: SequencingAssayTypeMenu
     examples:
     - value: whole genome sequencing assay [OBI:0002117]
   library_preparation_kit:
@@ -2266,7 +2382,7 @@ slots:
       library being sequenced.
     comments: Provide the name of the library preparation kit used.
     slot_uri: GENEPIO:0001450
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     examples:
     - value: Nextera XT
   dna_fragment_length:
@@ -2286,7 +2402,7 @@ slots:
       regions of interest from a genome.
     comments: Provide the name of the enrichment method
     slot_uri: GENEPIO:0100966
-    range: genomic_target_enrichment_method menu
+    range: GenomicTargetEnrichmentMethodMenu
     examples:
     - value: Hybrid selection method (bait-capture) [GENEPIO:0001950]
   genomic_target_enrichment_method_details:
@@ -2299,7 +2415,7 @@ slots:
       bait-capture methods were used for enrichment, provide the panel name and version
       number (or a URL providing that information).'
     slot_uri: GENEPIO:0100967
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     examples:
     - value: 'enrichment was done using Twist''s respiratory virus research panel:
         https://www.twistbioscience.com/products/ngs/fixed-panels/respiratory-virus-research-panel'
@@ -2311,7 +2427,7 @@ slots:
     comments: Provide the name and version of the primer scheme used to generate the
       amplicons for sequencing.
     slot_uri: GENEPIO:0001456
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     examples:
     - value: artic v3
   amplicon_size:
@@ -2333,7 +2449,7 @@ slots:
       quantity and quality. Record the version of the flow cell used to generate sequence
       data. Do not include "version" or "v" in the version number.
     slot_uri: GENEPIO:0101102
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     examples:
     - value: R.9.4.1
   sequencing_protocol:
@@ -2343,7 +2459,7 @@ slots:
     comments: Provide the name and version of the procedure or protocol used for sequencing.
       You can also provide a link to a protocol online.
     slot_uri: GENEPIO:0001454
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     examples:
     - value: https://www.protocols.io/view/ncov-2019-sequencing-protocol-bbmuik6w?version_warning=no
   r1_fastq_filename:
@@ -2352,7 +2468,7 @@ slots:
     description: The user-specified filename of the r1 FASTQ file.
     comments: Provide the r1 FASTQ filename.
     slot_uri: GENEPIO:0001476
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     examples:
     - value: ABC123_S1_L001_R1_001.fastq.gz
   r2_fastq_filename:
@@ -2361,7 +2477,7 @@ slots:
     description: The user-specified filename of the r2 FASTQ file.
     comments: Provide the r2 FASTQ filename.
     slot_uri: GENEPIO:0001477
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     examples:
     - value: ABC123_S1_L001_R2_001.fastq.gz
   fast5_filename:
@@ -2370,7 +2486,7 @@ slots:
     description: The user-specified filename of the FAST5 file.
     comments: Provide the FAST5 filename.
     slot_uri: GENEPIO:0001480
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     examples:
     - value: batch1a_sequences.fast5
   assembly_filename:
@@ -2379,7 +2495,7 @@ slots:
     description: The user-defined filename of the FASTA file.
     comments: Provide the FASTA filename.
     slot_uri: GENEPIO:0001461
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     examples:
     - value: pathogenassembly123.fasta
   quality_control_method_name:
@@ -2393,7 +2509,7 @@ slots:
       should be listed and separated by a semi-colon. Do not include QC tags in other
       fields if no method name is provided.
     slot_uri: GENEPIO:0100557
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     examples:
     - value: ncov-tools
   quality_control_method_version:
@@ -2407,7 +2523,7 @@ slots:
       If multiple methods were used, record the version numbers in the same order
       as the method names. Separate the version numbers using a semi-colon.
     slot_uri: GENEPIO:0100558
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     examples:
     - value: 1.2.3
   quality_control_determination:
@@ -2419,8 +2535,8 @@ slots:
       New Term Request form.
     slot_uri: GENEPIO:0100559
     any_of:
-    - range: quality_control_determination menu
-    - range: null value menu
+    - range: QualityControlDeterminationMenu
+    - range: NullValueMenu
     multivalued: true
     examples:
     - value: sequence failed quality control
@@ -2434,8 +2550,8 @@ slots:
       New Term Request form.
     slot_uri: GENEPIO:0100560
     any_of:
-    - range: quality_control_issues menu
-    - range: null value menu
+    - range: QualityControlIssuesMenu
+    - range: NullValueMenu
     multivalued: true
     examples:
     - value: low average genome coverage
@@ -2446,7 +2562,7 @@ slots:
       control assessment.
     comments: Provide notes or details regarding QC results using free text.
     slot_uri: GENEPIO:0100561
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     examples:
     - value: CT value of 39. Low viral load. Low DNA concentration after amplification.
   raw_sequence_data_processing_method:
@@ -2460,8 +2576,8 @@ slots:
       v. 0.2.3), or a link to a GitHub protocol.
     slot_uri: GENEPIO:0001458
     any_of:
-    - range: WhitespaceMinimizedString
-    - range: null value menu
+    - range: Whitespaceminimizedstring
+    - range: NullValueMenu
     recommended: true
     examples:
     - value: Porechop 0.2.3
@@ -2473,8 +2589,8 @@ slots:
       reads.
     slot_uri: GENEPIO:0001459
     any_of:
-    - range: WhitespaceMinimizedString
-    - range: null value menu
+    - range: Whitespaceminimizedstring
+    - range: NullValueMenu
     recommended: true
     examples:
     - value: Nanostripper
@@ -2485,8 +2601,8 @@ slots:
     comments: Provide the name of the software used to assemble the sequence.
     slot_uri: GENEPIO:0100825
     any_of:
-    - range: WhitespaceMinimizedString
-    - range: null value menu
+    - range: Whitespaceminimizedstring
+    - range: NullValueMenu
     examples:
     - value: SPAdes Genome Assembler, Canu, wtdbg2, velvet
   sequence_assembly_software_version:
@@ -2496,8 +2612,8 @@ slots:
     comments: Provide the version of the software used to assemble the sequence.
     slot_uri: GENEPIO:0100826
     any_of:
-    - range: WhitespaceMinimizedString
-    - range: null value menu
+    - range: Whitespaceminimizedstring
+    - range: NullValueMenu
     examples:
     - value: 3.15.5
   consensus_sequence_software_name:
@@ -2507,8 +2623,8 @@ slots:
     comments: Provide the name of the software used to generate the consensus sequence.
     slot_uri: GENEPIO:0001463
     any_of:
-    - range: WhitespaceMinimizedString
-    - range: null value menu
+    - range: Whitespaceminimizedstring
+    - range: NullValueMenu
     examples:
     - value: iVar
   consensus_sequence_software_version:
@@ -2518,8 +2634,8 @@ slots:
     comments: Provide the version of the software used to generate the consensus sequence.
     slot_uri: GENEPIO:0001469
     any_of:
-    - range: WhitespaceMinimizedString
-    - range: null value menu
+    - range: Whitespaceminimizedstring
+    - range: NullValueMenu
     examples:
     - value: '1.3'
   breadth_of_coverage_value:
@@ -2529,7 +2645,7 @@ slots:
       to a prescribed depth.
     comments: Provide value as a percent.
     slot_uri: GENEPIO:0001472
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     examples:
     - value: '95'
   depth_of_coverage_value:
@@ -2539,7 +2655,7 @@ slots:
       reconstructed sequence.
     comments: Provide value as a fold of coverage.
     slot_uri: GENEPIO:0001474
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     examples:
     - value: '400'
   depth_of_coverage_threshold:
@@ -2548,7 +2664,7 @@ slots:
     description: The threshold used as a cut-off for the depth of coverage.
     comments: Provide the threshold fold coverage.
     slot_uri: GENEPIO:0001475
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     examples:
     - value: '100'
   genome_completeness:
@@ -2558,7 +2674,7 @@ slots:
       Missing genes indicate missing genomic regions (incompleteness) in the data.
     comments: Provide the genome completeness as a percent (no need to include units).
     slot_uri: GENEPIO:0100844
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     examples:
     - value: '85'
   number_of_base_pairs_sequenced:
@@ -2567,7 +2683,7 @@ slots:
     description: The number of total base pairs generated by the sequencing process.
     comments: Provide a numerical value (no need to include units).
     slot_uri: GENEPIO:0001482
-    range: integer
+    range: Integer
     examples:
     - value: '387566'
   number_of_total_reads:
@@ -2577,7 +2693,7 @@ slots:
       process.
     comments: Provide a numerical value (no need to include units).
     slot_uri: GENEPIO:0100827
-    range: integer
+    range: Integer
     examples:
     - value: '423867'
   number_of_unique_reads:
@@ -2586,7 +2702,7 @@ slots:
     description: The number of unique reads generated by the sequencing process.
     comments: Provide a numerical value (no need to include units).
     slot_uri: GENEPIO:0100828
-    range: integer
+    range: Integer
     examples:
     - value: '248236'
   minimum_posttrimming_read_length:
@@ -2596,7 +2712,7 @@ slots:
       after trimming.
     comments: Provide a numerical value (no need to include units).
     slot_uri: GENEPIO:0100829
-    range: integer
+    range: Integer
     examples:
     - value: '150'
   number_of_contigs:
@@ -2605,7 +2721,7 @@ slots:
     description: The number of contigs (contiguous sequences) in a sequence assembly.
     comments: Provide a numerical value.
     slot_uri: GENEPIO:0100937
-    range: integer
+    range: Integer
     examples:
     - value: '10'
   percent_ns_across_total_genome_length:
@@ -2614,7 +2730,7 @@ slots:
     description: The percentage of the assembly that consists of ambiguous bases (Ns).
     comments: Provide a numerical value (no need to include units).
     slot_uri: GENEPIO:0100830
-    range: integer
+    range: Integer
     examples:
     - value: '2'
   ns_per_100_kbp:
@@ -2624,7 +2740,7 @@ slots:
       (kbp).
     comments: Provide a numerical value (no need to include units).
     slot_uri: GENEPIO:0001484
-    range: integer
+    range: Integer
     examples:
     - value: '342'
   n50:
@@ -2634,7 +2750,7 @@ slots:
       represents at least 50% of the nucleotides in a set of sequences.
     comments: Provide the N50 value in Mb.
     slot_uri: GENEPIO:0100938
-    range: integer
+    range: Integer
     examples:
     - value: '150'
   percent_read_contamination_:
@@ -2644,7 +2760,7 @@ slots:
       (not belonging to the target organism) in a sequence dataset.
     comments: Provide the percent contamination value (no need to include units).
     slot_uri: GENEPIO:0100845
-    range: integer
+    range: Integer
     examples:
     - value: '2'
   sequence_assembly_length:
@@ -2654,7 +2770,7 @@ slots:
       or by reference-based mapping.
     comments: Provide a numerical value (no need to include units).
     slot_uri: GENEPIO:0100846
-    range: integer
+    range: Integer
     examples:
     - value: '34272'
   consensus_genome_length:
@@ -2664,7 +2780,7 @@ slots:
       each position.
     comments: Provide a numerical value (no need to include units).
     slot_uri: GENEPIO:0001483
-    range: integer
+    range: Integer
     examples:
     - value: '38677'
   reference_genome_accession:
@@ -2673,7 +2789,7 @@ slots:
     description: A persistent, unique identifier of a genome database entry.
     comments: Provide the accession number of the reference genome.
     slot_uri: GENEPIO:0001485
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     examples:
     - value: NC_045512.2
   deduplication_method:
@@ -2683,7 +2799,7 @@ slots:
     comments: Provide the deduplication software name followed by the version, or
       a link to a tool or method.
     slot_uri: GENEPIO:0100831
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     examples:
     - value: DeDup 0.12.8
   bioinformatics_protocol:
@@ -2695,7 +2811,7 @@ slots:
       can be provided in an SOP or protocol or pipeline/workflow. Provide the name
       and version number of the protocol, or a GitHub link to a pipeline or workflow.
     slot_uri: GENEPIO:0001489
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     examples:
     - value: https://github.com/phac-nml/ncov2019-artic-nf
   read_mapping_software_name:
@@ -2705,7 +2821,7 @@ slots:
       genome or set of reference genes.
     comments: Provide the name of the read mapping software.
     slot_uri: GENEPIO:0100832
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     examples:
     - value: Bowtie2, BWA-MEM, TopHat
   read_mapping_software_version:
@@ -2715,7 +2831,7 @@ slots:
       genome or set of reference genes.
     comments: Provide the version number of the read mapping software.
     slot_uri: GENEPIO:0100833
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     examples:
     - value: 2.5.1
   taxonomic_reference_database_name:
@@ -2725,7 +2841,7 @@ slots:
       organism.
     comments: Provide the name of the taxonomic reference database.
     slot_uri: GENEPIO:0100834
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     examples:
     - value: NCBITaxon
   taxonomic_reference_database_version:
@@ -2735,7 +2851,7 @@ slots:
       the organism.
     comments: Provide the version number of the taxonomic reference database.
     slot_uri: GENEPIO:0100835
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     examples:
     - value: '1.3'
   taxonomic_analysis_report_filename:
@@ -2746,7 +2862,7 @@ slots:
     comments: Provide the filename of the report containing the results of the taxonomic
       analysis.
     slot_uri: GENEPIO:0101074
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     examples:
     - value: WWtax_report_Feb1_2024.doc
   taxonomic_analysis_date:
@@ -2757,7 +2873,7 @@ slots:
       for tool and reference database versions. Provide the date that the taxonomic
       analysis was performed in ISO 8601 format, i.e. "YYYY-MM-DD".
     slot_uri: GENEPIO:0101075
-    range: date
+    range: Date
     examples:
     - value: '2024-02-01'
   read_mapping_criteria:
@@ -2766,7 +2882,7 @@ slots:
     description: A description of the criteria used to map reads to a reference sequence.
     comments: Provide a description of the read mapping criteria.
     slot_uri: GENEPIO:0100836
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     examples:
     - value: Phred score >20
   sequence_submitted_by:
@@ -2778,8 +2894,8 @@ slots:
       than sequencing data, please put the "National Microbiology Laboratory (NML)".
     slot_uri: GENEPIO:0001159
     any_of:
-    - range: sequence_submitted_by menu
-    - range: null value menu
+    - range: SequenceSubmittedByMenu
+    - range: NullValueMenu
     examples:
     - value: Environment and Climate Change Canada (ECCC) [GENEPIO:0100555]
   sequence_submitted_by_contact_name:
@@ -2792,7 +2908,7 @@ slots:
       for ensuring accuracy of information and institutional memory. If the information
       is unknown or cannot be provided, leave blank or provide a null value.
     slot_uri: GENEPIO:0100474
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     examples:
     - value: Enterics Lab Manager
   sequence_submitted_by_contact_email:
@@ -2803,7 +2919,7 @@ slots:
     comments: The email address can represent a specific individual or lab e.g. johnnyblogs@lab.ca,
       or RespLab@lab.ca
     slot_uri: GENEPIO:0001165
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     examples:
     - value: RespLab@lab.ca
   publication_id:
@@ -2814,7 +2930,7 @@ slots:
       additional information, provide the PubMed identifier of the publication. Other
       types of identifiers (e.g. DOI) are also acceptable.
     slot_uri: GENEPIO:0100475
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     examples:
     - value: 'PMID: 33205991'
   attribute_package:
@@ -2826,8 +2942,8 @@ slots:
       \ facility, farm, water source, manure etc, put \u201CPathogen.env\u201D."
     slot_uri: GENEPIO:0100476
     any_of:
-    - range: attribute_package menu
-    - range: null value menu
+    - range: AttributePackageMenu
+    - range: NullValueMenu
     examples:
     - value: Pathogen.env [GENEPIO:0100581]
   bioproject_accession:
@@ -2841,7 +2957,7 @@ slots:
       e.g., PRJNA12345 and is created once at the beginning of a new sequencing project.
       Your laboratory can have one or many BioProjects.
     slot_uri: GENEPIO:0001136
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     examples:
     - value: PRJNA12345
     exact_mappings:
@@ -2854,7 +2970,7 @@ slots:
     comments: Store the accession returned from the BioSample submission. NCBI BioSamples
       will have the prefix SAMN, whileEMBL- EBI BioSamples will have the prefix SAMEA.
     slot_uri: GENEPIO:0001139
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     examples:
     - value: SAMN14180202
     exact_mappings:
@@ -2868,7 +2984,7 @@ slots:
     comments: Store the accession assigned to the submitted "run". NCBI-SRA accessions
       start with SRR, EBI-ENA runs start with ERR and DRA accessions start with DRR.
     slot_uri: GENEPIO:0001142
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     examples:
     - value: SRR11177792
   genbank_accession:
@@ -2878,7 +2994,7 @@ slots:
       archives.
     comments: Store the accession returned from a GenBank/ENA/DDBJ submission.
     slot_uri: GENEPIO:0001145
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     examples:
     - value: MN908947.3
   prevalence_metrics:
@@ -2896,7 +3012,7 @@ slots:
       organism". You do not need to provide the actual values, just indicate that
       the information is available.
     slot_uri: GENEPIO:0100480
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     recommended: true
     examples:
     - value: Number of total samples collected, Number of positive samples
@@ -2908,7 +3024,7 @@ slots:
     comments: If there are details pertaining to samples or organism counts in the
       sample plan that might be informative, provide details using free text.
     slot_uri: GENEPIO:0100481
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     recommended: true
     examples:
     - value: Hazard organism counts (i.e. Salmonella) do not distinguish between serovars.
@@ -2919,8 +3035,8 @@ slots:
     comments: Provide the stage of food production as free text.
     slot_uri: GENEPIO:0100482
     any_of:
-    - range: stage_of_production menu
-    - range: null value menu
+    - range: StageOfProductionMenu
+    - range: NullValueMenu
     recommended: true
     examples:
     - value: Abattoir [ENVO:01000925]
@@ -2934,8 +3050,8 @@ slots:
       the intervention category from the pick list provided.
     slot_uri: GENEPIO:0100483
     any_of:
-    - range: experimental_intervention menu
-    - range: null value menu
+    - range: ExperimentalInterventionMenu
+    - range: NullValueMenu
     multivalued: true
     recommended: true
     examples:
@@ -2950,7 +3066,7 @@ slots:
     comments: If an experimental intervention was applied in the survey, provide details
       in this field as free text.
     slot_uri: GENEPIO:0100484
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     recommended: true
     examples:
     - value: 2% cranberry solution mixed in feed
@@ -2964,8 +3080,8 @@ slots:
       or cannot be provided, leave blank or provide a null value.
     slot_uri: GENEPIO:0100511
     any_of:
-    - range: AMR_testing_by menu
-    - range: null value menu
+    - range: AmrTestingByMenu
+    - range: NullValueMenu
     required: true
     examples:
     - value: Canadian Food Inspection Agency (CFIA) [GENEPIO:0100552]
@@ -2978,7 +3094,7 @@ slots:
       (avoid abbreviations). If the information is unknown or cannot be provided,
       leave blank or provide a null value.
     slot_uri: GENEPIO:0100512
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     examples:
     - value: Topp Lab
   amr_testing_by_contact_name:
@@ -2993,8 +3109,8 @@ slots:
       value.
     slot_uri: GENEPIO:0100513
     any_of:
-    - range: WhitespaceMinimizedString
-    - range: null value menu
+    - range: Whitespaceminimizedstring
+    - range: NullValueMenu
     required: true
     examples:
     - value: Enterics Lab Manager
@@ -3010,8 +3126,8 @@ slots:
       provide a null value.
     slot_uri: GENEPIO:0100514
     any_of:
-    - range: WhitespaceMinimizedString
-    - range: null value menu
+    - range: Whitespaceminimizedstring
+    - range: NullValueMenu
     required: true
     examples:
     - value: johnnyblogs@lab.ca
@@ -3022,7 +3138,7 @@ slots:
     comments: Provide the date according to the ISO 8601 standard "YYYY-MM-DD", "YYYY-MM"
       or "YYYY".
     slot_uri: GENEPIO:0100515
-    range: date
+    range: Date
     examples:
     - value: '2022-04-03'
   authors:
@@ -3033,7 +3149,7 @@ slots:
     comments: Include the first and last names of all individuals that should be attributed,
       separated by a comma.
     slot_uri: GENEPIO:0001517
-    range: WhitespaceMinimizedString
+    range: Whitespaceminimizedstring
     recommended: true
     examples:
     - value: Tejinder Singh, Fei Hu, Joe Blogs
@@ -3209,8 +3325,9 @@ slots:
     examples:
     - value: '32'
 enums:
-  null value menu:
-    name: null value menu
+  NullValueMenu:
+    name: NullValueMenu
+    title: null value menu
     permissible_values:
       Not Applicable [GENEPIO:0001619]:
         text: Not Applicable [GENEPIO:0001619]
@@ -3224,8 +3341,9 @@ enums:
         text: Not Provided [GENEPIO:0001668]
       Restricted Access [GENEPIO:0001810]:
         text: Restricted Access [GENEPIO:0001810]
-  sample_collected_by menu:
-    name: sample_collected_by menu
+  SampleCollectedByMenu:
+    name: SampleCollectedByMenu
+    title: sample_collected_by menu
     permissible_values:
       Public Health Agency of Canada (PHAC) [GENEPIO:0100551]:
         text: Public Health Agency of Canada (PHAC) [GENEPIO:0100551]
@@ -3241,8 +3359,9 @@ enums:
         text: Fisheries and Oceans Canada (DFO) [GENEPIO:0100556]
       University of Manitoba (UM) [GENEPIO:0004434]:
         text: University of Manitoba (UM) [GENEPIO:0004434]
-  purpose_of_sampling menu:
-    name: purpose_of_sampling menu
+  PurposeOfSamplingMenu:
+    name: PurposeOfSamplingMenu
+    title: purpose_of_sampling menu
     permissible_values:
       Cluster/Outbreak investigation [GENEPIO:0100001]:
         text: Cluster/Outbreak investigation [GENEPIO:0100001]
@@ -3263,8 +3382,9 @@ enums:
         is_a: Research [GENEPIO:0100003]
       Surveillance [GENEPIO:0100004]:
         text: Surveillance [GENEPIO:0100004]
-  presampling_activity menu:
-    name: presampling_activity menu
+  PresamplingActivityMenu:
+    name: PresamplingActivityMenu
+    title: presampling_activity menu
     permissible_values:
       Addition of substances to food/water [GENEPIO:0100536]:
         text: Addition of substances to food/water [GENEPIO:0100536]
@@ -3314,8 +3434,9 @@ enums:
       Wastewater secondary sedimentation [GENEPIO:0100885]:
         text: Wastewater secondary sedimentation [GENEPIO:0100885]
         is_a: Wastewater treatment process [ENVO:06105300]
-  experimental_specimen_role_type menu:
-    name: experimental_specimen_role_type menu
+  ExperimentalSpecimenRoleTypeMenu:
+    name: ExperimentalSpecimenRoleTypeMenu
+    title: experimental_specimen_role_type menu
     permissible_values:
       Positive experimental control [GENEPIO:0101018]:
         text: Positive experimental control [GENEPIO:0101018]
@@ -3325,8 +3446,9 @@ enums:
         text: Technical replicate [EFO:0002090]
       Biological replicate [EFO:0002091]:
         text: Biological replicate [EFO:0002091]
-  specimen_processing menu:
-    name: specimen_processing menu
+  SpecimenProcessingMenu:
+    name: SpecimenProcessingMenu
+    title: specimen_processing menu
     permissible_values:
       Biological replicate process [GENEPIO:0101022]:
         text: Biological replicate process [GENEPIO:0101022]
@@ -3336,8 +3458,9 @@ enums:
         text: Technical replicate process [GENEPIO:0101021]
       Isolated from single source [OBI:0002079]:
         text: Isolated from single source [OBI:0002079]
-  geo_loc_name (country) menu:
-    name: geo_loc_name (country) menu
+  GeoLocNameCountryMenu:
+    name: GeoLocNameCountryMenu
+    title: geo_loc_name (country) menu
     permissible_values:
       Afghanistan [GAZ:00006882]:
         text: Afghanistan [GAZ:00006882]
@@ -3881,8 +4004,9 @@ enums:
         text: Zambia [GAZ:00001107]
       Zimbabwe [GAZ:00001106]:
         text: Zimbabwe [GAZ:00001106]
-  geo_loc_name (state/province/region) menu:
-    name: geo_loc_name (state/province/region) menu
+  GeoLocNameStateProvinceRegionMenu:
+    name: GeoLocNameStateProvinceRegionMenu
+    title: geo_loc_name (state/province/region) menu
     permissible_values:
       Atlantic region (Canada) [wikidata:Q246972]:
         text: Atlantic region (Canada) [wikidata:Q246972]
@@ -3933,8 +4057,9 @@ enums:
       Saskatchewan [GAZ:00002564]:
         text: Saskatchewan [GAZ:00002564]
         is_a: Prairie region (Canada) [wikidata:Q1364746]
-  sample_collection_date_precision menu:
-    name: sample_collection_date_precision menu
+  SampleCollectionDatePrecisionMenu:
+    name: SampleCollectionDatePrecisionMenu
+    title: sample_collection_date_precision menu
     permissible_values:
       year [UO:0000036]:
         text: year [UO:0000036]
@@ -3942,8 +4067,9 @@ enums:
         text: month [UO:0000035]
       day [UO:0000033]:
         text: day [UO:0000033]
-  environmental_site menu:
-    name: environmental_site menu
+  EnvironmentalSiteMenu:
+    name: EnvironmentalSiteMenu
+    title: environmental_site menu
     permissible_values:
       Abattoir [ENVO:01000925]:
         text: Abattoir [ENVO:01000925]
@@ -4123,8 +4249,9 @@ enums:
         text: Woodland area [ENVO:00000109]
       Zoo [ENVO:00010625]:
         text: Zoo [ENVO:00010625]
-  water_depth_units menu:
-    name: water_depth_units menu
+  WaterDepthUnitsMenu:
+    name: WaterDepthUnitsMenu
+    title: water_depth_units menu
     permissible_values:
       centimeter (cm) [UO:0000015]:
         text: centimeter (cm) [UO:0000015]
@@ -4136,8 +4263,9 @@ enums:
         text: inch (in) [UO:0010011]
       foot (ft) [UO:0010013]:
         text: foot (ft) [UO:0010013]
-  sediment_depth_units menu:
-    name: sediment_depth_units menu
+  SedimentDepthUnitsMenu:
+    name: SedimentDepthUnitsMenu
+    title: sediment_depth_units menu
     permissible_values:
       centimeter (cm) [UO:0000015]:
         text: centimeter (cm) [UO:0000015]
@@ -4149,22 +4277,25 @@ enums:
         text: inch (in) [UO:0010011]
       foot (ft) [UO:0010013]:
         text: foot (ft) [UO:0010013]
-  air_temperature_units menu:
-    name: air_temperature_units menu
+  AirTemperatureUnitsMenu:
+    name: AirTemperatureUnitsMenu
+    title: air_temperature_units menu
     permissible_values:
       degree Fahrenheit (F) [UO:0000195]:
         text: degree Fahrenheit (F) [UO:0000195]
       degree Celsius (C) [UO:0000027]:
         text: degree Celsius (C) [UO:0000027]
-  water_temperature_units menu:
-    name: water_temperature_units menu
+  WaterTemperatureUnitsMenu:
+    name: WaterTemperatureUnitsMenu
+    title: water_temperature_units menu
     permissible_values:
       degree Fahrenheit (F) [UO:0000195]:
         text: degree Fahrenheit (F) [UO:0000195]
       degree Celsius (C) [UO:0000027]:
         text: degree Celsius (C) [UO:0000027]
-  available_data_types menu:
-    name: available_data_types menu
+  AvailableDataTypesMenu:
+    name: AvailableDataTypesMenu
+    title: available_data_types menu
     permissible_values:
       Documentation [GENEPIO:0100702]:
         text: Documentation [GENEPIO:0100702]
@@ -4306,8 +4437,9 @@ enums:
       Turbidity measurement [GENEPIO:0100749]:
         text: Turbidity measurement [GENEPIO:0100749]
         is_a: Physical characterization [GENEPIO:0100742]
-  weather_type menu:
-    name: weather_type menu
+  WeatherTypeMenu:
+    name: WeatherTypeMenu
+    title: weather_type menu
     permissible_values:
       Cloudy/Overcast [ENVO:03501418]:
         text: Cloudy/Overcast [ENVO:03501418]
@@ -4326,8 +4458,9 @@ enums:
         text: Storm [ENVO:01000876]
       Sunny/Clear [ENVO:03501421]:
         text: Sunny/Clear [ENVO:03501421]
-  animal_or_plant_population menu:
-    name: animal_or_plant_population menu
+  AnimalOrPlantPopulationMenu:
+    name: AnimalOrPlantPopulationMenu
+    title: animal_or_plant_population menu
     permissible_values:
       Algae [FOODON:03411301]:
         text: Algae [FOODON:03411301]
@@ -4374,8 +4507,9 @@ enums:
       Seabird [FOODON:00004504]:
         text: Seabird [FOODON:00004504]
         is_a: Wild bird [FOODON:00004505]
-  environmental_material menu:
-    name: environmental_material menu
+  EnvironmentalMaterialMenu:
+    name: EnvironmentalMaterialMenu
+    title: environmental_material menu
     permissible_values:
       Air [ENVO:00002005]:
         text: Air [ENVO:00002005]
@@ -4526,8 +4660,9 @@ enums:
       Surface water [ENVO:00002042]:
         text: Surface water [ENVO:00002042]
         is_a: Water [CHEBI:15377]
-  anatomical_material menu:
-    name: anatomical_material menu
+  AnatomicalMaterialMenu:
+    name: AnatomicalMaterialMenu
+    title: anatomical_material menu
     permissible_values:
       Blood [UBERON:0000178]:
         text: Blood [UBERON:0000178]
@@ -4544,8 +4679,9 @@ enums:
         is_a: Fluid [UBERON:0006314]
       Tissue [UBERON:0000479]:
         text: Tissue [UBERON:0000479]
-  body_product menu:
-    name: body_product menu
+  BodyProductMenu:
+    name: BodyProductMenu
+    title: body_product menu
     permissible_values:
       Digestive tract substance [GENEPIO:0100898]:
         text: Digestive tract substance [GENEPIO:0100898]
@@ -4579,8 +4715,9 @@ enums:
         is_a: Milk [UBERON:0001913]
       Urine [UBERON:0001088]:
         text: Urine [UBERON:0001088]
-  anatomical_part menu:
-    name: anatomical_part menu
+  AnatomicalPartMenu:
+    name: AnatomicalPartMenu
+    title: anatomical_part menu
     permissible_values:
       Carcass [UBERON:0008979]:
         text: Carcass [UBERON:0008979]
@@ -4822,8 +4959,9 @@ enums:
       Fish vent [GENEPIO:0100902]:
         text: Fish vent [GENEPIO:0100902]
         is_a: Vent (anatomical) [UBERON:2000298]
-  anatomical_region menu:
-    name: anatomical_region menu
+  AnatomicalRegionMenu:
+    name: AnatomicalRegionMenu
+    title: anatomical_region menu
     permissible_values:
       Dorso-lateral region [BSPO:0000080]:
         text: Dorso-lateral region [BSPO:0000080]
@@ -4831,8 +4969,9 @@ enums:
         text: Exterior anatomical region [BSPO:0000034]
       Interior anatomical region [BSPO:0000033]:
         text: Interior anatomical region [BSPO:0000033]
-  food_product menu:
-    name: food_product menu
+  PriorSarsCov2InfectionMenu:
+    name: PriorSarsCov2InfectionMenu
+    title: food_product menu
     permissible_values:
       Animal feed [ENVO:02000047]:
         text: Animal feed [ENVO:02000047]
@@ -5508,8 +5647,9 @@ enums:
       White peppercorn (whole or parts) [FOODON:03000251]:
         text: White peppercorn (whole or parts) [FOODON:03000251]
         is_a: Spice or herb [FOODON:00001242]
-  food_product_properties menu:
-    name: food_product_properties menu
+  FoodProductPropertiesMenu:
+    name: FoodProductPropertiesMenu
+    title: food_product_properties menu
     permissible_values:
       Food (canned) [FOODON:00002418]:
         text: Food (canned) [FOODON:00002418]
@@ -5562,8 +5702,9 @@ enums:
         text: Meat (with skin) [FOODON:02010111]
       Soft [PATO:0000387]:
         text: Soft [PATO:0000387]
-  label_claim menu:
-    name: label_claim menu
+  LabelClaimMenu:
+    name: LabelClaimMenu
+    title: label_claim menu
     permissible_values:
       Antibiotic free [FOODON:03601063]:
         text: Antibiotic free [FOODON:03601063]
@@ -5577,8 +5718,9 @@ enums:
         text: Pasture raised [FOODON:03601065]
       Ready-to-eat (RTE) [FOODON:03316636]:
         text: Ready-to-eat (RTE) [FOODON:03316636]
-  animal_source_of_food menu:
-    name: animal_source_of_food menu
+  AnimalSourceOfFoodMenu:
+    name: AnimalSourceOfFoodMenu
+    title: animal_source_of_food menu
     permissible_values:
       Cow [NCBITaxon:9913]:
         text: Cow [NCBITaxon:9913]
@@ -5610,8 +5752,9 @@ enums:
       Squid [FOODON:03411205]:
         text: Squid [FOODON:03411205]
         is_a: Shellfish [FOODON:03411433]
-  food_product_production_stream menu:
-    name: food_product_production_stream menu
+  FoodProductProductionStreamMenu:
+    name: FoodProductProductionStreamMenu
+    title: food_product_production_stream menu
     permissible_values:
       Beef cattle production stream [FOODON:03000452]:
         text: Beef cattle production stream [FOODON:03000452]
@@ -5630,8 +5773,9 @@ enums:
         is_a: Meat production stream [FOODON:03000460]
       Milk production stream [FOODON:03000459]:
         text: Milk production stream [FOODON:03000459]
-  collection_device menu:
-    name: collection_device menu
+  CollectionDeviceMenu:
+    name: CollectionDeviceMenu
+    title: collection_device menu
     permissible_values:
       Auger (earth auger) [AGRO:00000405]:
         text: Auger (earth auger) [AGRO:00000405]
@@ -5684,8 +5828,9 @@ enums:
       Vacutainer [OBIB:0000032]:
         text: Vacutainer [OBIB:0000032]
         is_a: Vacuum device [GENEPIO:0002127]
-  collection_method menu:
-    name: collection_method menu
+  CollectionMethodMenu:
+    name: CollectionMethodMenu
+    title: collection_method menu
     permissible_values:
       Aspiration [HP:0002835]:
         text: Aspiration [HP:0002835]
@@ -5723,8 +5868,9 @@ enums:
         text: Soil coring [GENEPIO:0100934]
       Weep fluid collection (pouring) [GENEPIO:0101003]:
         text: Weep fluid collection (pouring) [GENEPIO:0101003]
-  sample_volume_measurement_unit menu:
-    name: sample_volume_measurement_unit menu
+  SampleVolumeMeasurementUnitMenu:
+    name: SampleVolumeMeasurementUnitMenu
+    title: sample_volume_measurement_unit menu
     permissible_values:
       microliter (uL) [UO:0000101]:
         text: microliter (uL) [UO:0000101]
@@ -5732,8 +5878,9 @@ enums:
         text: milliliter (mL) [UO:0000098]
       liter (L) [UO:0000099]:
         text: liter (L) [UO:0000099]
-  residual_sample_status menu:
-    name: residual_sample_status menu
+  ResidualSampleStatusMenu:
+    name: ResidualSampleStatusMenu
+    title: residual_sample_status menu
     permissible_values:
       Residual sample remaining (some sample left) [GENEPIO:0101087]:
         text: Residual sample remaining (some sample left) [GENEPIO:0101087]
@@ -5741,8 +5888,9 @@ enums:
         text: No residual sample (sample all used) [GENEPIO:0101088]
       Residual sample status unkown [GENEPIO:0101089]:
         text: Residual sample status unkown [GENEPIO:0101089]
-  sample_storage_duration_unit menu:
-    name: sample_storage_duration_unit menu
+  SampleStorageDurationUnitMenu:
+    name: SampleStorageDurationUnitMenu
+    title: sample_storage_duration_unit menu
     permissible_values:
       Second [UO:0000010]:
         text: Second [UO:0000010]
@@ -5758,8 +5906,9 @@ enums:
         text: Month [UO:0000035]
       Year [UO:0000036]:
         text: Year [UO:0000036]
-  nucelic_acid_storage_duration_unit menu:
-    name: nucelic_acid_storage_duration_unit menu
+  NucelicAcidStorageDurationUnitMenu:
+    name: NucelicAcidStorageDurationUnitMenu
+    title: nucelic_acid_storage_duration_unit menu
     permissible_values:
       Second [UO:0000010]:
         text: Second [UO:0000010]
@@ -5775,8 +5924,9 @@ enums:
         text: Month [UO:0000035]
       Year [UO:0000036]:
         text: Year [UO:0000036]
-  food_packaging menu:
-    name: food_packaging menu
+  FoodPackagingMenu:
+    name: FoodPackagingMenu
+    title: food_packaging menu
     permissible_values:
       Bag, sack or pouch [FOODON:03490197]:
         text: Bag, sack or pouch [FOODON:03490197]
@@ -5802,8 +5952,9 @@ enums:
         text: Paper container, untreated [FOODON:03490334]
       Plastic tray or pan [FOODON:03490126]:
         text: Plastic tray or pan [FOODON:03490126]
-  host (common name) menu:
-    name: host (common name) menu
+  HostCommonNameMenu:
+    name: HostCommonNameMenu
+    title: host (common name) menu
     permissible_values:
       Bird [NCBITaxon:8782]:
         text: Bird [NCBITaxon:8782]
@@ -5897,8 +6048,9 @@ enums:
       Blue Mussel [NCBITaxon:6550]:
         text: Blue Mussel [NCBITaxon:6550]
         is_a: Shellfish [FOODON:03411433]
-  host (scientific name) menu:
-    name: host (scientific name) menu
+  HostScientificNameMenu:
+    name: HostScientificNameMenu
+    title: host (scientific name) menu
     permissible_values:
       Anoplopoma fimbria [NCBITaxon:229290]:
         text: Anoplopoma fimbria [NCBITaxon:229290]
@@ -5942,8 +6094,9 @@ enums:
         text: Somateria mollissima [NCBITaxon:76058]
       Sus scrofa domesticus [NCBITaxon:9825]:
         text: Sus scrofa domesticus [NCBITaxon:9825]
-  host (food production name) menu:
-    name: host (food production name) menu
+  HostFoodProductionNameMenu:
+    name: HostFoodProductionNameMenu
+    title: host (food production name) menu
     permissible_values:
       Cow (by age/production stage) (organizational term):
         text: Cow (by age/production stage) (organizational term)
@@ -6088,8 +6241,9 @@ enums:
       Juvenile fish [FOODON_00004317]:
         text: Juvenile fish [FOODON_00004317]
         is_a: Fish [FOODON:03411222]
-  host_age_bin menu:
-    name: host_age_bin menu
+  HostAgeBinMenu:
+    name: HostAgeBinMenu
+    title: host_age_bin menu
     permissible_values:
       First winter [GENEPIO:0100684]:
         text: First winter [GENEPIO:0100684]
@@ -6103,8 +6257,9 @@ enums:
         text: Third winter [GENEPIO:0100688]
       Third summer [GENEPIO:0100689]:
         text: Third summer [GENEPIO:0100689]
-  isolated_by menu:
-    name: isolated_by menu
+  IsolatedByMenu:
+    name: IsolatedByMenu
+    title: isolated_by menu
     permissible_values:
       Public Health Agency of Canada (PHAC) [GENEPIO:0100551]:
         text: Public Health Agency of Canada (PHAC) [GENEPIO:0100551]
@@ -6118,8 +6273,9 @@ enums:
         text: Environment and Climate Change Canada (ECCC) [GENEPIO:0100555]
       Fisheries and Oceans Canada (DFO) [GENEPIO:0100556]:
         text: Fisheries and Oceans Canada (DFO) [GENEPIO:0100556]
-  organism menu:
-    name: organism menu
+  OrganismMenu:
+    name: OrganismMenu
+    title: organism menu
     permissible_values:
       Acinetobacter [NCBITaxon:469]:
         text: Acinetobacter [NCBITaxon:469]
@@ -6465,8 +6621,9 @@ enums:
       Vibrio parahaemolyticus [NCBITaxon:670]:
         text: Vibrio parahaemolyticus [NCBITaxon:670]
         is_a: Vibrio [NCBITaxon:662]
-  taxonomic_identification_process menu:
-    name: taxonomic_identification_process menu
+  TaxonomicIdentificationProcessMenu:
+    name: TaxonomicIdentificationProcessMenu
+    title: taxonomic_identification_process menu
     permissible_values:
       Whole genome sequencing assay [OBI:0002117]:
         text: Whole genome sequencing assay [OBI:0002117]
@@ -6479,8 +6636,9 @@ enums:
       Matrix Assisted Laser Desorption Ionization imaging mass spectrometry assay (MALDI) [OBI:0003099]:
         text: Matrix Assisted Laser Desorption Ionization imaging mass spectrometry
           assay (MALDI) [OBI:0003099]
-  sequenced_by menu:
-    name: sequenced_by menu
+  SequencedByMenu:
+    name: SequencedByMenu
+    title: sequenced_by menu
     permissible_values:
       Public Health Agency of Canada (PHAC) [GENEPIO:0100551]:
         text: Public Health Agency of Canada (PHAC) [GENEPIO:0100551]
@@ -6496,8 +6654,9 @@ enums:
         text: Fisheries and Oceans Canada (DFO) [GENEPIO:0100556]
       McGill University [GENEPIO:0101103]:
         text: McGill University [GENEPIO:0101103]
-  purpose_of_sequencing menu:
-    name: purpose_of_sequencing menu
+  PurposeOfSequencingMenu:
+    name: PurposeOfSequencingMenu
+    title: purpose_of_sequencing menu
     permissible_values:
       Cluster/Outbreak investigation [GENEPIO:0100001]:
         text: Cluster/Outbreak investigation [GENEPIO:0100001]
@@ -6521,8 +6680,9 @@ enums:
         is_a: Research [GENEPIO:0100003]
       Surveillance [GENEPIO:0100004]:
         text: Surveillance [GENEPIO:0100004]
-  sequencing_platform menu:
-    name: sequencing_platform menu
+  SequencingPlatformMenu:
+    name: SequencingPlatformMenu
+    title: sequencing_platform menu
     permissible_values:
       Illumina [GENEPIO:0001923]:
         text: Illumina [GENEPIO:0001923]
@@ -6536,8 +6696,9 @@ enums:
         text: BGI Genomics [GENEPIO:0004324]
       MGI [GENEPIO:0004325]:
         text: MGI [GENEPIO:0004325]
-  sequencing_instrument menu:
-    name: sequencing_instrument menu
+  SequencingInstrumentMenu:
+    name: SequencingInstrumentMenu
+    title: sequencing_instrument menu
     permissible_values:
       Illumina [GENEPIO:0100105]:
         text: Illumina [GENEPIO:0100105]
@@ -6677,8 +6838,9 @@ enums:
       DNBSEQ-G50 [GENEPIO:0100150]:
         text: DNBSEQ-G50 [GENEPIO:0100150]
         is_a: DNBSEQ [GENEPIO:0100146]
-  sequencing_assay_type menu:
-    name: sequencing_assay_type menu
+  SequencingAssayTypeMenu:
+    name: SequencingAssayTypeMenu
+    title: sequencing_assay_type menu
     permissible_values:
       Amplicon sequencing assay [OBI:0002767]:
         text: Amplicon sequencing assay [OBI:0002767]
@@ -6692,15 +6854,17 @@ enums:
       Whole virome sequencing assay [OBI:0002768]:
         text: Whole virome sequencing assay [OBI:0002768]
         is_a: Whole metagenome sequencing assay [OBI:0002623]
-  genomic_target_enrichment_method menu:
-    name: genomic_target_enrichment_method menu
+  GenomicTargetEnrichmentMethodMenu:
+    name: GenomicTargetEnrichmentMethodMenu
+    title: genomic_target_enrichment_method menu
     permissible_values:
       Hybrid selection method (bait-capture) [GENEPIO:0001950]:
         text: Hybrid selection method (bait-capture) [GENEPIO:0001950]
       rRNA depletion method [GENEPIO:0101020]:
         text: rRNA depletion method [GENEPIO:0101020]
-  sequence_submitted_by menu:
-    name: sequence_submitted_by menu
+  SequenceSubmittedByMenu:
+    name: SequenceSubmittedByMenu
+    title: sequence_submitted_by menu
     permissible_values:
       Public Health Agency of Canada (PHAC) [GENEPIO:0100551]:
         text: Public Health Agency of Canada (PHAC) [GENEPIO:0100551]
@@ -6716,8 +6880,9 @@ enums:
         text: Fisheries and Oceans Canada (DFO) [GENEPIO:0100556]
       McGill University [GENEPIO:0101103]:
         text: McGill University [GENEPIO:0101103]
-  quality_control_determination menu:
-    name: quality_control_determination menu
+  QualityControlDeterminationMenu:
+    name: QualityControlDeterminationMenu
+    title: quality_control_determination menu
     permissible_values:
       No quality control issues identified [GENEPIO:0100562]:
         text: No quality control issues identified [GENEPIO:0100562]
@@ -6731,8 +6896,9 @@ enums:
         text: Sequence flagged for potential quality control issues [GENEPIO:0100566]
       Quality control not performed [GENEPIO:0100567]:
         text: Quality control not performed [GENEPIO:0100567]
-  quality _control_issues menu:
-    name: quality _control_issues menu
+  QualityControlIssuesMenu:
+    name: QualityControlIssuesMenu
+    title: quality _control_issues menu
     permissible_values:
       Low quality sequence [GENEPIO:0100568]:
         text: Low quality sequence [GENEPIO:0100568]
@@ -6750,16 +6916,14 @@ enums:
         text: Low signal to noise ratio [GENEPIO:0100574]
       Low coverage of characteristic mutations [GENEPIO:0100575]:
         text: Low coverage of characteristic mutations [GENEPIO:0100575]
-  attribute_package menu:
-    name: attribute_package menu
+  AttributePackageMenu:
+    name: AttributePackageMenu
+    title: attribute_package menu
     permissible_values:
       Pathogen.cl [GENEPIO:0001835]:
         text: Pathogen.cl [GENEPIO:0001835]
       Pathogen.env [GENEPIO:0100581]:
         text: Pathogen.env [GENEPIO:0100581]
-  experimental_intervention menu:
-    name: experimental_intervention menu
-    permissible_values:
       Addition of substances to food/water [GENEPIO:0100536]:
         text: Addition of substances to food/water [GENEPIO:0100536]
       Antimicrobial pre-treatment [GENEPIO:0100537]:
@@ -6784,8 +6948,9 @@ enums:
         text: Probiotic pre-treatment [GENEPIO:0100547]
       Vaccination [NCIT:C15346]:
         text: Vaccination [NCIT:C15346]
-  AMR_testing_by menu:
-    name: AMR_testing_by menu
+  AMRTestingByMenu:
+    name: AMRTestingByMenu
+    title: AMR_testing_by menu
     permissible_values:
       Public Health Agency of Canada (PHAC) [GENEPIO:0100551]:
         text: Public Health Agency of Canada (PHAC) [GENEPIO:0100551]
@@ -6799,8 +6964,9 @@ enums:
         text: Environment and Climate Change Canada (ECCC) [GENEPIO:0100555]
       Fisheries and Oceans Canada (DFO) [GENEPIO:0100556]:
         text: Fisheries and Oceans Canada (DFO) [GENEPIO:0100556]
-  antimicrobial_phenotype menu:
-    name: antimicrobial_phenotype menu
+  AntimicrobialPhenotypeMenu:
+    name: AntimicrobialPhenotypeMenu
+    title: antimicrobial_phenotype menu
     permissible_values:
       Antibiotic resistance not defined [GENEPIO:0002040]:
         text: Antibiotic resistance not defined [GENEPIO:0002040]
@@ -6818,8 +6984,9 @@ enums:
         text: Susceptible antimicrobial phenotype [ARO:3004302]
       Susceptible dose dependent antimicrobial phenotype [ARO:3004304]:
         text: Susceptible dose dependent antimicrobial phenotype [ARO:3004304]
-  antimicrobial_measurement_units menu:
-    name: antimicrobial_measurement_units menu
+  AntimicrobialMeasurementUnitsMenu:
+    name: AntimicrobialMeasurementUnitsMenu
+    title: antimicrobial_measurement_units menu
     permissible_values:
       milligram per litre (mg/L) [UO:0000273]:
         text: milligram per litre (mg/L) [UO:0000273]
@@ -6827,8 +6994,9 @@ enums:
         text: millimetre (mm) [UO:0000016]
       microgram per millilitre (ug/mL) [UO:0000274]:
         text: microgram per millilitre (ug/mL) [UO:0000274]
-  antimicrobial_measurement_sign menu:
-    name: antimicrobial_measurement_sign menu
+  AntimicrobialMeasurementSignMenu:
+    name: AntimicrobialMeasurementSignMenu
+    title: antimicrobial_measurement_sign menu
     permissible_values:
       less than (<) [GENEPIO:0001002]:
         text: less than (<) [GENEPIO:0001002]
@@ -6840,8 +7008,9 @@ enums:
         text: greater than (>) [GENEPIO:0001006]
       greater than or equal to (>=) [GENEPIO:0001005]:
         text: greater than or equal to (>=) [GENEPIO:0001005]
-  antimicrobial_laboratory_typing_method menu:
-    name: antimicrobial_laboratory_typing_method menu
+  AntimicrobialLaboratoryTypingMethodMenu:
+    name: AntimicrobialLaboratoryTypingMethodMenu
+    title: antimicrobial_laboratory_typing_method menu
     permissible_values:
       Agar diffusion [NCIT:85595]:
         text: Agar diffusion [NCIT:85595]
@@ -6856,8 +7025,9 @@ enums:
         - NCBI_ANTIBIOGRAM:agar%20dilution
       Broth dilution [ARO:3004397]:
         text: Broth dilution [ARO:3004397]
-  antimicrobial_laboratory_typing_platform menu:
-    name: antimicrobial_laboratory_typing_platform menu
+  AntimicrobialLaboratoryTypingPlatformMenu:
+    name: AntimicrobialLaboratoryTypingPlatformMenu
+    title: antimicrobial_laboratory_typing_platform menu
     permissible_values:
       BIOMIC Microbiology System [ARO:3007569]:
         text: BIOMIC Microbiology System [ARO:3007569]
@@ -6877,8 +7047,9 @@ enums:
         text: Vitek System [ARO:3004403]
         exact_mappings:
         - NCBI_ANTIBIOGRAM:Vitek
-  antimicrobial_vendor_name menu:
-    name: antimicrobial_vendor_name menu
+  AntimicrobialVendorNameMenu:
+    name: AntimicrobialVendorNameMenu
+    title: antimicrobial_vendor_name menu
     permissible_values:
       Becton Dickinson [ARO:3004405]:
         text: Becton Dickinson [ARO:3004405]
@@ -6898,8 +7069,9 @@ enums:
         text: Trek [ARO:3004409]
         exact_mappings:
         - NCBI_ANTIBIOGRAM:Trek
-  antimicrobial_testing_standard menu:
-    name: antimicrobial_testing_standard menu
+  AntimicrobialTestingStandardMenu:
+    name: AntimicrobialTestingStandardMenu
+    title: antimicrobial_testing_standard menu
     permissible_values:
       British Society for Antimicrobial Chemotherapy (BSAC) [ARO:3004365]:
         text: British Society for Antimicrobial Chemotherapy (BSAC) [ARO:3004365]
@@ -6938,8 +7110,9 @@ enums:
         text: Werkgroep Richtlijnen Gevoeligheidsbepalingen (WRG) [ARO:3007398]
         exact_mappings:
         - NCBI_ANTIBIOGRAM:WRG
-  Antimicrobial Resistance Test Drug Menu:
-    name: Antimicrobial Resistance Test Drug Menu
+  AntimicrobialResistanceTestDrugMenu:
+    name: AntimicrobialResistanceTestDrugMenu
+    title: Antimicrobial Resistance Test Drug Menu
     permissible_values:
       amikacin:
         text: amikacin

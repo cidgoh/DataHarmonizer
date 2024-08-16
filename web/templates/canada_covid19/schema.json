@@ -6939,11 +6939,6 @@
       ],
       "slot_uri": "GENEPIO:0001395",
       "required": true,
-      "structured_pattern": {
-        "syntax": "{Title_Case}",
-        "interpolated": true,
-        "partial_match": false
-      },
       "any_of": [
         {
           "range": "HostGenderMenu"
@@ -10589,12 +10584,7 @@
             "CanCOGeN Covid-19"
           ],
           "slot_group": "Host Information",
-          "required": true,
-          "structured_pattern": {
-            "syntax": "{Title_Case}",
-            "interpolated": true,
-            "partial_match": false
-          }
+          "required": true
         },
         "host_residence_geo_loc_name_country": {
           "name": "host_residence_geo_loc_name_country",
