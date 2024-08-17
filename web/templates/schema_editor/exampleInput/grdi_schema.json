@@ -1,6 +1,6 @@
 {
   "schema": "https://example.com/DH_LinkML",
-  "location": "/templates/dh_linkml",
+  "location": "/templates/schema_editor",
   "version": "1.0.0",
   "in_language": "en",
   "Container": {
