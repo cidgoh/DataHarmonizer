@@ -2,7 +2,6 @@
     "schema": "https://example.com/GRDI",
     "version": "8.9.8",
     "in_language": "en",
-    "location": "/templates/grdi",
     "Container": {
         "GRDISamples": [
             {

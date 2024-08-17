@@ -1,6 +1,5 @@
 {
   "schema": "https://example.com/GRDI",
-  "location": "/templates/grdi",
   "version": "12.2.2",
   "in_language": "en",
   "Container": {
