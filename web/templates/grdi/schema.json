@@ -1763,6 +1763,29 @@
         }
       }
     },
+    "PrecipitationMeasurementUnitMenu": {
+      "name": "PrecipitationMeasurementUnitMenu",
+      "description": "",
+      "title": "precipitation_measurement_unit menu",
+      "from_schema": "https://example.com/GRDI",
+      "permissible_values": {
+        "millimeter (mm) [UO:0000016]": {
+          "text": "millimeter (mm) [UO:0000016]"
+        },
+        "centimeter (cm) [UO:0000015]": {
+          "text": "centimeter (cm) [UO:0000015]"
+        },
+        "meter (m) [UO:0000008]": {
+          "text": "meter (m) [UO:0000008]"
+        },
+        "inch (in) [UO:0010011]": {
+          "text": "inch (in) [UO:0010011]"
+        },
+        "foot (ft) [UO:0010013]": {
+          "text": "foot (ft) [UO:0010013]"
+        }
+      }
+    },
     "AvailableDataTypesMenu": {
       "name": "AvailableDataTypesMenu",
       "description": "",
@@ -2713,8 +2736,8 @@
         }
       }
     },
-    "PriorSarsCov2InfectionMenu": {
-      "name": "PriorSarsCov2InfectionMenu",
+    "FoodProductMenu": {
+      "name": "FoodProductMenu",
       "description": "",
       "title": "food_product menu",
       "from_schema": "https://example.com/GRDI",
@@ -5148,8 +5171,8 @@
         "Illumina [GENEPIO:0100105]": {
           "text": "Illumina [GENEPIO:0100105]"
         },
-        "Illumina Genome Analyzer [GENEPIO:0100106]": {
-          "text": "Illumina Genome Analyzer [GENEPIO:0100106]",
+        "Illumina Genome Analyzer [OBI:0002128]": {
+          "text": "Illumina Genome Analyzer [OBI:0002128]",
           "is_a": "Illumina [GENEPIO:0100105]"
         },
         "Illumina Genome Analyzer II [OBI:0000703]": {
@@ -5176,16 +5199,16 @@
           "text": "Illumina HiSeq X Five [GENEPIO:0100112]",
           "is_a": "Illumina HiSeq [GENEPIO:0100110]"
         },
-        "Illumina HiSeq X Ten [GENEPIO:0100113]": {
-          "text": "Illumina HiSeq X Ten [GENEPIO:0100113]",
+        "Illumina HiSeq X Ten [OBI:0002129]": {
+          "text": "Illumina HiSeq X Ten [OBI:0002129]",
           "is_a": "Illumina HiSeq [GENEPIO:0100110]"
         },
         "Illumina HiSeq 1000 [OBI:0002022]": {
           "text": "Illumina HiSeq 1000 [OBI:0002022]",
           "is_a": "Illumina HiSeq [GENEPIO:0100110]"
         },
-        "Illumina HiSeq 1500 [GENEPIO:0100115]": {
-          "text": "Illumina HiSeq 1500 [GENEPIO:0100115]",
+        "Illumina HiSeq 1500 [OBI:0003386]": {
+          "text": "Illumina HiSeq 1500 [OBI:0003386]",
           "is_a": "Illumina HiSeq [GENEPIO:0100110]"
         },
         "Illumina HiSeq 2000 [OBI:0002001]": {
@@ -5216,12 +5239,12 @@
           "text": "Illumina NovaSeq [GENEPIO:0100122]",
           "is_a": "Illumina [GENEPIO:0100105]"
         },
-        "Illumina NovaSeq 6000 [GENEPIO:0100123]": {
-          "text": "Illumina NovaSeq 6000 [GENEPIO:0100123]",
+        "Illumina NovaSeq 6000 [OBI:0002630]": {
+          "text": "Illumina NovaSeq 6000 [OBI:0002630]",
           "is_a": "Illumina NovaSeq [GENEPIO:0100122]"
         },
-        "Illumina MiniSeq [GENEPIO:0100124]": {
-          "text": "Illumina MiniSeq [GENEPIO:0100124]",
+        "Illumina MiniSeq [OBI:0003114]": {
+          "text": "Illumina MiniSeq [OBI:0003114]",
           "is_a": "Illumina [GENEPIO:0100105]"
         },
         "Illumina MiSeq [OBI:0002003]": {
@@ -5240,12 +5263,12 @@
           "text": "Illumina NextSeq 550 [GENEPIO:0100128]",
           "is_a": "Illumina NextSeq [GENEPIO:0100126]"
         },
-        "Illumina NextSeq 2000 [GENEPIO:0100129]": {
-          "text": "Illumina NextSeq 2000 [GENEPIO:0100129]",
+        "Illumina NextSeq 1000 [OBI:0003606]": {
+          "text": "Illumina NextSeq 1000 [OBI:0003606]",
           "is_a": "Illumina NextSeq [GENEPIO:0100126]"
         },
-        "Illumina NextSeq 1000 [GENEPIO:0004432]": {
-          "text": "Illumina NextSeq 1000 [GENEPIO:0004432]",
+        "Illumina NextSeq 2000 [GENEPIO:0100129]": {
+          "text": "Illumina NextSeq 2000 [GENEPIO:0100129]",
           "is_a": "Illumina NextSeq [GENEPIO:0100126]"
         },
         "PacBio [GENEPIO:0100130]": {
@@ -5259,12 +5282,12 @@
           "text": "PacBio RS II [OBI:0002012]",
           "is_a": "PacBio [GENEPIO:0100130]"
         },
-        "PacBio Sequel [GENEPIO:0100133]": {
-          "text": "PacBio Sequel [GENEPIO:0100133]",
+        "PacBio Sequel [OBI:0002632]": {
+          "text": "PacBio Sequel [OBI:0002632]",
           "is_a": "PacBio [GENEPIO:0100130]"
         },
-        "PacBio Sequel II [GENEPIO:0100134]": {
-          "text": "PacBio Sequel II [GENEPIO:0100134]",
+        "PacBio Sequel II [OBI:0002632]": {
+          "text": "PacBio Sequel II [OBI:0002632]",
           "is_a": "PacBio [GENEPIO:0100130]"
         },
         "Ion Torrent [GENEPIO:0100135]": {
@@ -5297,12 +5320,14 @@
           "text": "Oxford Nanopore GridION [GENEPIO:0100141]",
           "is_a": "Oxford Nanopore [GENEPIO:0100140]"
         },
-        "Oxford Nanopore MinION [GENEPIO:0100142]": {
-          "text": "Oxford Nanopore MinION [GENEPIO:0100142]",
+        "Oxford Nanopore MinION [OBI:0002750]": {
+          "text": "Oxford Nanopore MinION [OBI:0002750]",
+          "description": "A portable DNA sequencer which is manufactured by the Oxford Nanopore Technologies corporation, that uses consumable flow cells producing up to 30 Gb of DNA sequence data per flow cell. The sequencer produces real-time results and utilizes nanopore technology with up to 512 nanopore channels in the sensor array.",
           "is_a": "Oxford Nanopore [GENEPIO:0100140]"
         },
-        "Oxford Nanopore PromethION [GENEPIO:0100143]": {
-          "text": "Oxford Nanopore PromethION [GENEPIO:0100143]",
+        "Oxford Nanopore PromethION [OBI:0002752]": {
+          "text": "Oxford Nanopore PromethION [OBI:0002752]",
+          "description": "A DNA sequencer that is manufactured by the Oxford Nanopore Technologies corporation, capable of running up to 48 flow cells and producing up to 7.6 Tb of data per run. The sequencer produces real-time results and utilizes Nanopore technology, with each flow cell allowing up to 3,000 nanopores to be sequencing simultaneously.",
           "is_a": "Oxford Nanopore [GENEPIO:0100140]"
         },
         "BGISEQ [GENEPIO:0100144]": {
@@ -5470,7 +5495,15 @@
         },
         "Pathogen.env [GENEPIO:0100581]": {
           "text": "Pathogen.env [GENEPIO:0100581]"
-        },
+        }
+      }
+    },
+    "ExperimentalInterventionMenu": {
+      "name": "ExperimentalInterventionMenu",
+      "description": "",
+      "title": "experimental_intervention menu",
+      "from_schema": "https://example.com/GRDI",
+      "permissible_values": {
         "Addition of substances to food/water [GENEPIO:0100536]": {
           "text": "Addition of substances to food/water [GENEPIO:0100536]"
         },
@@ -5509,8 +5542,8 @@
         }
       }
     },
-    "AMRTestingByMenu": {
-      "name": "AMRTestingByMenu",
+    "AmrTestingByMenu": {
+      "name": "AmrTestingByMenu",
       "description": "",
       "title": "AMR_testing_by menu",
       "from_schema": "https://example.com/GRDI",
@@ -7779,7 +7812,7 @@
       ],
       "any_of": [
         {
-          "range": "PresamplingWeatherConditionsMenu"
+          "range": "SamplingWeatherConditionsMenu"
         },
         {
           "range": "NullValueMenu"
@@ -30736,7 +30769,7 @@
           "slot_group": "Environmental conditions and measurements",
           "any_of": [
             {
-              "range": "PresamplingWeatherConditionsMenu"
+              "range": "SamplingWeatherConditionsMenu"
             },
             {
               "range": "NullValueMenu"
