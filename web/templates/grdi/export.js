@@ -455,7 +455,24 @@ export default {
               matchedValsSet,
               inputRow,
               sourceFieldNameMap
-            )
+            );
+          } else if (headerName === '*source_type') {
+            const hostScientificName =
+              inputRow[sourceFieldNameMap['host_scientific_name']];
+            const foodProduct = inputRow[sourceFieldNameMap['food_product']];
+            const nullValsSet = new Set(
+              Object.keys(
+                dh.schema.enums.NullValueMenu.permissible_values
+              ).concat(['', null])
+            );
+
+            if (hostScientificName === 'Homo sapiens [NCBITaxon:9606]') {
+              value = 'Human';
+            } else if (nullValsSet.has(foodProduct)) {
+              value = 'Animal';
+            } else {
+              value = 'Food';
+            }
           } else {
             // Otherwise apply source (many to one) to target field transform:
             value = dh.getMappedField(
