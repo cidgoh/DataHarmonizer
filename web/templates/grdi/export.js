@@ -232,6 +232,28 @@ export default {
               inputRow,
               sourceFieldNameMap
               );
+          } else if (headerName === 'host_housing') {
+            const matchedValsSet = new Set([
+              'Animal cage [ENVO:01000922]',
+              'Aquarium [ENVO:00002196]',
+              'Building [ENVO:00000073]',
+              'Barn [ENVO:03501257]',
+              'Breeder barn [ENVO:03501383]',
+              'Broiler barn [ENVO:03501386]',
+              'Sheep barn [ENVO:03501385]',
+              'Pigsty [ENVO:03501413]',
+              'Animal pen [ENVO:03501387]',
+              'Stall [EOL:0001903]',
+              'Poultry hatchery [ENVO:01001874]',
+              'Roost (bird) [ENVO:03501439]',
+              'Crate [ENVO:03501372]'
+            ])
+            value = dh.getMatchedValsField(
+              'environmental_site',
+              matchedValsSet,
+              inputRow,
+              sourceFieldNameMap
+            )
           } else {
             // Otherwise apply source (many to one) to target field transform:
             value = dh.getMappedField(
