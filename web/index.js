@@ -10,12 +10,44 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '@/web/index.css';
 import { AppContext } from '@/lib/AppContext';
 
-// TODO eliminate need to export
-export const dhRoot = document.querySelector('#data-harmonizer-grid');
-export const dhTabNav = document.querySelector('#data-harmonizer-tabs');
-
+const dhRoot = document.querySelector('#data-harmonizer-grid');
 const dhFooterRoot = document.querySelector('#data-harmonizer-footer');
 const dhToolbarRoot = document.querySelector('#data-harmonizer-toolbar');
+const dhNavTabs = document.querySelector('#data-harmonizer-tabs');
+
+export function createDataHarmonizerContainer(dhId, isActive) {
+  let dhSubroot = document.createElement('div');
+  dhSubroot.id = dhId;
+  dhSubroot.classList.add('data-harmonizer-grid', 'tab-pane', 'fade');
+  if (isActive) {
+    dhSubroot.classList.add('show', 'active');
+  }
+  dhSubroot.setAttribute('aria-labelledby', `tab-${dhId}`);
+  // dhRoot
+  dhRoot.appendChild(dhSubroot); // Appending to the parent container
+  return dhSubroot;
+}
+
+export function createDataHarmonizerTab(dhId, entity, isActive) {
+  const dhTab = document.createElement('li');
+  dhTab.className = 'nav-item';
+  dhTab.setAttribute('role', 'presentation');
+
+  const dhTabLink = document.createElement('a');
+  dhTabLink.className = 'nav-link' + (isActive ? ' active' : '');
+  dhTabLink.id = `tab-${dhId}`;
+  dhTabLink.href = `#${dhId}`;
+  dhTabLink.textContent = entity;
+  dhTabLink.dataset.toggle = 'tab'; // Bootstrap specific data attribute for tabs
+  dhTabLink.setAttribute('data-bs-toggle', 'tab');
+  dhTabLink.setAttribute('data-bs-target', dhTabLink.href);
+  dhTabLink.setAttribute('role', 'tab');
+  dhTabLink.setAttribute('aria-controls', dhId);
+
+  dhTab.appendChild(dhTabLink);
+  dhNavTabs.appendChild(dhTab);
+  return dhTab;
+}
 
 // loading screen
 $(dhRoot).append(`
@@ -34,6 +66,7 @@ const main = async function () {
   context
     .reload(context.appConfig.template_path, { locale: 'en' })
     .then(async (context) => {
+
       // // internationalize
       // // TODO: connect to locale of browser!
       // // Takes `lang` as argument (unused)
@@ -59,7 +92,7 @@ const main = async function () {
       });
 
       new Footer(dhFooterRoot, context);
-
+      console.log(context);
       return context;
     })
     .then(async (context) => {
