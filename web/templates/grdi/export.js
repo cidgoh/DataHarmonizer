@@ -473,6 +473,16 @@ export default {
             } else {
               value = 'Food';
             }
+          } else if (headerName === 'host') {
+            value = dh.getFirstNonNullField(
+              [
+                'host_scientific_name',
+                'host_common_name',
+                'host_food_production_name'
+              ],
+              inputRow,
+              sourceFieldNameMap
+            )
           } else {
             // Otherwise apply source (many to one) to target field transform:
             value = dh.getMappedField(
