@@ -298,6 +298,7 @@
   "enums": {
     "null value menu": {
       "name": "null value menu",
+      "title": "null value menu",
       "from_schema": "https://example.com/mpox",
       "permissible_values": {
         "Not Applicable": {
@@ -324,6 +325,7 @@
     },
     "geo_loc_name (state/province/territory) menu": {
       "name": "geo_loc_name (state/province/territory) menu",
+      "title": "geo_loc_name (state/province/territory) menu",
       "from_schema": "https://example.com/mpox",
       "permissible_values": {
         "Alberta": {
@@ -382,6 +384,7 @@
     },
     "sample collection date precision menu": {
       "name": "sample collection date precision menu",
+      "title": "sample collection date precision menu",
       "from_schema": "https://example.com/mpox",
       "permissible_values": {
         "year": {
@@ -400,6 +403,7 @@
     },
     "NML submitted specimen type menu": {
       "name": "NML submitted specimen type menu",
+      "title": "NML submitted specimen type menu",
       "from_schema": "https://example.com/mpox",
       "permissible_values": {
         "Bodily fluid": {
@@ -434,6 +438,7 @@
     },
     "Related specimen relationship type menu": {
       "name": "Related specimen relationship type menu",
+      "title": "Related specimen relationship type menu",
       "from_schema": "https://example.com/mpox",
       "permissible_values": {
         "Acute": {
@@ -467,6 +472,7 @@
     },
     "anatomical material menu": {
       "name": "anatomical material menu",
+      "title": "anatomical material menu",
       "from_schema": "https://example.com/mpox",
       "permissible_values": {
         "Blood": {
@@ -577,6 +583,7 @@
     },
     "anatomical material international menu": {
       "name": "anatomical material international menu",
+      "title": "anatomical material international menu",
       "from_schema": "https://example.com/mpox",
       "permissible_values": {
         "Blood [UBERON:0000178]": {
@@ -687,6 +694,7 @@
     },
     "anatomical part menu": {
       "name": "anatomical part menu",
+      "title": "anatomical part menu",
       "from_schema": "https://example.com/mpox",
       "permissible_values": {
         "Anus": {
@@ -924,6 +932,7 @@
     },
     "anatomical part international menu": {
       "name": "anatomical part international menu",
+      "title": "anatomical part international menu",
       "from_schema": "https://example.com/mpox",
       "permissible_values": {
         "Anus [UBERON:0001245]": {
@@ -1161,6 +1170,7 @@
     },
     "body product menu": {
       "name": "body product menu",
+      "title": "body product menu",
       "from_schema": "https://example.com/mpox",
       "permissible_values": {
         "Breast Milk": {
@@ -1209,6 +1219,7 @@
     },
     "body product international menu": {
       "name": "body product international menu",
+      "title": "body product international menu",
       "from_schema": "https://example.com/mpox",
       "permissible_values": {
         "Breast Milk [UBERON:0001913]": {
@@ -1257,6 +1268,7 @@
     },
     "environmental material international menu": {
       "name": "environmental material international menu",
+      "title": "environmental material international menu",
       "from_schema": "https://example.com/mpox",
       "permissible_values": {
         "Animal carcass": {
@@ -1288,6 +1300,7 @@
     },
     "collection method menu": {
       "name": "collection method menu",
+      "title": "collection method menu",
       "from_schema": "https://example.com/mpox",
       "permissible_values": {
         "Amniocentesis": {
@@ -1387,6 +1400,7 @@
     },
     "collection method international menu": {
       "name": "collection method international menu",
+      "title": "collection method international menu",
       "from_schema": "https://example.com/mpox",
       "permissible_values": {
         "Amniocentesis [NCIT:C52009]": {
@@ -1486,6 +1500,7 @@
     },
     "collection device menu": {
       "name": "collection device menu",
+      "title": "collection device menu",
       "from_schema": "https://example.com/mpox",
       "permissible_values": {
         "Blood Collection Tube": {
@@ -1549,6 +1564,7 @@
     },
     "collection device international menu": {
       "name": "collection device international menu",
+      "title": "collection device international menu",
       "from_schema": "https://example.com/mpox",
       "permissible_values": {
         "Blood Collection Tube [OBI:0002859]": {
@@ -1612,6 +1628,7 @@
     },
     "specimen processing menu": {
       "name": "specimen processing menu",
+      "title": "specimen processing menu",
       "from_schema": "https://example.com/mpox",
       "permissible_values": {
         "Virus passage": {
@@ -1630,6 +1647,7 @@
     },
     "specimen processing international menu": {
       "name": "specimen processing international menu",
+      "title": "specimen processing international menu",
       "from_schema": "https://example.com/mpox",
       "permissible_values": {
         "Virus passage [GENEPIO:0100039]": {
@@ -1648,6 +1666,7 @@
     },
     "host (common name) menu": {
       "name": "host (common name) menu",
+      "title": "host (common name) menu",
       "from_schema": "https://example.com/mpox",
       "permissible_values": {
         "Human": {
@@ -1658,6 +1677,7 @@
     },
     "host (common name) international menu": {
       "name": "host (common name) international menu",
+      "title": "host (common name) international menu",
       "from_schema": "https://example.com/mpox",
       "permissible_values": {
         "Human [NCBITaxon:9606]": {
@@ -1691,6 +1711,7 @@
     },
     "host (scientific name) menu": {
       "name": "host (scientific name) menu",
+      "title": "host (scientific name) menu",
       "from_schema": "https://example.com/mpox",
       "permissible_values": {
         "Homo sapiens": {
@@ -1701,6 +1722,7 @@
     },
     "host (scientific name) international menu": {
       "name": "host (scientific name) international menu",
+      "title": "host (scientific name) international menu",
       "from_schema": "https://example.com/mpox",
       "permissible_values": {
         "Homo sapiens [NCBITaxon:9606]": {
@@ -1711,6 +1733,7 @@
     },
     "host health state menu": {
       "name": "host health state menu",
+      "title": "host health state menu",
       "from_schema": "https://example.com/mpox",
       "permissible_values": {
         "Asymptomatic": {
@@ -1737,6 +1760,7 @@
     },
     "host health state international menu": {
       "name": "host health state international menu",
+      "title": "host health state international menu",
       "from_schema": "https://example.com/mpox",
       "permissible_values": {
         "Asymptomatic [NCIT:C3833]": {
@@ -1763,6 +1787,7 @@
     },
     "host health status details menu": {
       "name": "host health status details menu",
+      "title": "host health status details menu",
       "from_schema": "https://example.com/mpox",
       "permissible_values": {
         "Hospitalized": {
@@ -1796,6 +1821,7 @@
     },
     "host health status details international menu": {
       "name": "host health status details international menu",
+      "title": "host health status details international menu",
       "from_schema": "https://example.com/mpox",
       "permissible_values": {
         "Hospitalized [NCIT:C25179]": {
@@ -1829,6 +1855,7 @@
     },
     "host health outcome menu": {
       "name": "host health outcome menu",
+      "title": "host health outcome menu",
       "from_schema": "https://example.com/mpox",
       "permissible_values": {
         "Deceased": {
@@ -1851,6 +1878,7 @@
     },
     "host health outcome international menu": {
       "name": "host health outcome international menu",
+      "title": "host health outcome international menu",
       "from_schema": "https://example.com/mpox",
       "permissible_values": {
         "Deceased [NCIT:C28554]": {
@@ -1873,6 +1901,7 @@
     },
     "host age unit menu": {
       "name": "host age unit menu",
+      "title": "host age unit menu",
       "from_schema": "https://example.com/mpox",
       "permissible_values": {
         "month": {
@@ -1887,6 +1916,7 @@
     },
     "host age unit international menu": {
       "name": "host age unit international menu",
+      "title": "host age unit international menu",
       "from_schema": "https://example.com/mpox",
       "permissible_values": {
         "month [UO:0000035]": {
@@ -1901,6 +1931,7 @@
     },
     "host age bin menu": {
       "name": "host age bin menu",
+      "title": "host age bin menu",
       "from_schema": "https://example.com/mpox",
       "permissible_values": {
         "0 - 9": {
@@ -1951,6 +1982,7 @@
     },
     "host age bin international menu": {
       "name": "host age bin international menu",
+      "title": "host age bin international menu",
       "from_schema": "https://example.com/mpox",
       "permissible_values": {
         "0 - 9 [GENEPIO:0100049]": {
@@ -2001,6 +2033,7 @@
     },
     "host gender menu": {
       "name": "host gender menu",
+      "title": "host gender menu",
       "from_schema": "https://example.com/mpox",
       "permissible_values": {
         "Female": {
@@ -2031,6 +2064,7 @@
     },
     "host gender international menu": {
       "name": "host gender international menu",
+      "title": "host gender international menu",
       "from_schema": "https://example.com/mpox",
       "permissible_values": {
         "Female [NCIT:C46110]": {
@@ -2061,6 +2095,7 @@
     },
     "signs and symptoms menu": {
       "name": "signs and symptoms menu",
+      "title": "signs and symptoms menu",
       "from_schema": "https://example.com/mpox",
       "permissible_values": {
         "Chills (sudden cold sensation)": {
@@ -2169,6 +2204,7 @@
     },
     "signs and symptoms international menu": {
       "name": "signs and symptoms international menu",
+      "title": "signs and symptoms international menu",
       "from_schema": "https://example.com/mpox",
       "permissible_values": {
         "Chills (sudden cold sensation) [HP:0025143]": {
@@ -2277,6 +2313,7 @@
     },
     "pre-existing conditions and risk factors menu": {
       "name": "pre-existing conditions and risk factors menu",
+      "title": "pre-existing conditions and risk factors menu",
       "from_schema": "https://example.com/mpox",
       "permissible_values": {
         "Cancer": {
@@ -2400,6 +2437,7 @@
     },
     "pre-existing conditions and risk factors international menu": {
       "name": "pre-existing conditions and risk factors international menu",
+      "title": "pre-existing conditions and risk factors international menu",
       "from_schema": "https://example.com/mpox",
       "permissible_values": {
         "Cancer [MONDO:0004992]": {
@@ -2523,6 +2561,7 @@
     },
     "complications menu": {
       "name": "complications menu",
+      "title": "complications menu",
       "from_schema": "https://example.com/mpox",
       "permissible_values": {
         "Bronchopneumonia": {
@@ -2557,6 +2596,7 @@
     },
     "complications international menu": {
       "name": "complications international menu",
+      "title": "complications international menu",
       "from_schema": "https://example.com/mpox",
       "permissible_values": {
         "Bronchopneumonia [MONDO:0005682]": {
@@ -2591,6 +2631,7 @@
     },
     "host vaccination status menu": {
       "name": "host vaccination status menu",
+      "title": "host vaccination status menu",
       "from_schema": "https://example.com/mpox",
       "permissible_values": {
         "Fully Vaccinated": {
@@ -2605,6 +2646,7 @@
     },
     "host vaccination status international menu": {
       "name": "host vaccination status international menu",
+      "title": "host vaccination status international menu",
       "from_schema": "https://example.com/mpox",
       "permissible_values": {
         "Fully Vaccinated [GENEPIO:0100100]": {
@@ -2619,6 +2661,7 @@
     },
     "exposure event menu": {
       "name": "exposure event menu",
+      "title": "exposure event menu",
       "from_schema": "https://example.com/mpox",
       "permissible_values": {
         "Mass Gathering": {
@@ -2655,6 +2698,7 @@
     },
     "exposure event international menu": {
       "name": "exposure event international menu",
+      "title": "exposure event international menu",
       "from_schema": "https://example.com/mpox",
       "permissible_values": {
         "Mass Gathering [GENEPIO:0100237]": {
@@ -2698,6 +2742,7 @@
     },
     "exposure contact level menu": {
       "name": "exposure contact level menu",
+      "title": "exposure contact level menu",
       "from_schema": "https://example.com/mpox",
       "permissible_values": {
         "Contact with animal": {
@@ -2765,6 +2810,7 @@
     },
     "exposure contact level international menu": {
       "name": "exposure contact level international menu",
+      "title": "exposure contact level international menu",
       "from_schema": "https://example.com/mpox",
       "permissible_values": {
         "Contact with animal [GENEPIO:0100494]": {
@@ -2832,6 +2878,7 @@
     },
     "host role menu": {
       "name": "host role menu",
+      "title": "host role menu",
       "from_schema": "https://example.com/mpox",
       "permissible_values": {
         "Attendee": {
@@ -3003,6 +3050,7 @@
     },
     "host role international menu": {
       "name": "host role international menu",
+      "title": "host role international menu",
       "from_schema": "https://example.com/mpox",
       "permissible_values": {
         "Attendee [GENEPIO:0100249]": {
@@ -3174,6 +3222,7 @@
     },
     "exposure setting menu": {
       "name": "exposure setting menu",
+      "title": "exposure setting menu",
       "from_schema": "https://example.com/mpox",
       "permissible_values": {
         "Human Exposure": {
@@ -3476,6 +3525,7 @@
     },
     "exposure setting international menu": {
       "name": "exposure setting international menu",
+      "title": "exposure setting international menu",
       "from_schema": "https://example.com/mpox",
       "permissible_values": {
         "Human Exposure [ECTO:3000005]": {
@@ -3778,6 +3828,7 @@
     },
     "prior Mpox infection menu": {
       "name": "prior Mpox infection menu",
+      "title": "prior Mpox infection menu",
       "from_schema": "https://example.com/mpox",
       "permissible_values": {
         "Prior infection": {
@@ -3792,6 +3843,7 @@
     },
     "prior Mpox infection international menu": {
       "name": "prior Mpox infection international menu",
+      "title": "prior Mpox infection international menu",
       "from_schema": "https://example.com/mpox",
       "permissible_values": {
         "Prior infection [GENEPIO:0100037]": {
@@ -3806,6 +3858,7 @@
     },
     "prior Mpox antiviral treatment menu": {
       "name": "prior Mpox antiviral treatment menu",
+      "title": "prior Mpox antiviral treatment menu",
       "from_schema": "https://example.com/mpox",
       "permissible_values": {
         "Prior antiviral treatment": {
@@ -3820,6 +3873,7 @@
     },
     "prior Mpox antiviral treatment international menu": {
       "name": "prior Mpox antiviral treatment international menu",
+      "title": "prior Mpox antiviral treatment international menu",
       "from_schema": "https://example.com/mpox",
       "permissible_values": {
         "Prior antiviral treatment [GENEPIO:0100037]": {
@@ -3834,6 +3888,7 @@
     },
     "organism menu": {
       "name": "organism menu",
+      "title": "organism menu",
       "from_schema": "https://example.com/mpox",
       "permissible_values": {
         "Mpox virus": {
@@ -3844,6 +3899,7 @@
     },
     "organism international menu": {
       "name": "organism international menu",
+      "title": "organism international menu",
       "from_schema": "https://example.com/mpox",
       "permissible_values": {
         "Mpox virus [NCBITaxon:10244]": {
@@ -3854,6 +3910,7 @@
     },
     "host disease menu": {
       "name": "host disease menu",
+      "title": "host disease menu",
       "from_schema": "https://example.com/mpox",
       "permissible_values": {
         "Mpox": {
@@ -3864,6 +3921,7 @@
     },
     "host disease international menu": {
       "name": "host disease international menu",
+      "title": "host disease international menu",
       "from_schema": "https://example.com/mpox",
       "permissible_values": {
         "Mpox [MONDO:0002594]": {
@@ -3874,6 +3932,7 @@
     },
     "purpose of sampling menu": {
       "name": "purpose of sampling menu",
+      "title": "purpose of sampling menu",
       "from_schema": "https://example.com/mpox",
       "permissible_values": {
         "Cluster/Outbreak investigation": {
@@ -3896,6 +3955,7 @@
     },
     "purpose of sampling international menu": {
       "name": "purpose of sampling international menu",
+      "title": "purpose of sampling international menu",
       "from_schema": "https://example.com/mpox",
       "permissible_values": {
         "Cluster/Outbreak investigation [GENEPIO:0100001]": {
@@ -3918,6 +3978,7 @@
     },
     "purpose of sequencing menu": {
       "name": "purpose of sequencing menu",
+      "title": "purpose of sequencing menu",
       "from_schema": "https://example.com/mpox",
       "permissible_values": {
         "Baseline surveillance (random sampling)": {
@@ -4009,6 +4070,7 @@
     },
     "purpose of sequencing international menu": {
       "name": "purpose of sequencing international menu",
+      "title": "purpose of sequencing international menu",
       "from_schema": "https://example.com/mpox",
       "permissible_values": {
         "Baseline surveillance (random sampling) [GENEPIO:0100005]": {
@@ -4100,6 +4162,7 @@
     },
     "sequencing instrument menu": {
       "name": "sequencing instrument menu",
+      "title": "sequencing instrument menu",
       "from_schema": "https://example.com/mpox",
       "permissible_values": {
         "Illumina": {
@@ -4330,6 +4393,7 @@
     },
     "sequencing instrument international menu": {
       "name": "sequencing instrument international menu",
+      "title": "sequencing instrument international menu",
       "from_schema": "https://example.com/mpox",
       "permissible_values": {
         "Illumina [GENEPIO:0100105]": {
@@ -4560,6 +4624,7 @@
     },
     "sequence submitted by menu": {
       "name": "sequence submitted by menu",
+      "title": "sequence submitted by menu",
       "from_schema": "https://example.com/mpox",
       "permissible_values": {
         "Alberta Precision Labs (APL)": {
@@ -4643,6 +4708,7 @@
     },
     "sequenced by menu": {
       "name": "sequenced by menu",
+      "title": "sequenced by menu",
       "from_schema": "https://example.com/mpox",
       "permissible_values": {
         "Alberta Precision Labs (APL)": {
@@ -4726,6 +4792,7 @@
     },
     "sample collected by menu": {
       "name": "sample collected by menu",
+      "title": "sample collected by menu",
       "from_schema": "https://example.com/mpox",
       "permissible_values": {
         "Alberta Precision Labs (APL)": {
@@ -4833,6 +4900,7 @@
     },
     "gene name menu": {
       "name": "gene name menu",
+      "title": "gene name menu",
       "from_schema": "https://example.com/mpox",
       "permissible_values": {
         "MPX (orf B6R)": {
@@ -4862,6 +4930,7 @@
     },
     "geo_loc_name (country) menu": {
       "name": "geo_loc_name (country) menu",
+      "title": "geo_loc_name (country) menu",
       "from_schema": "https://example.com/mpox",
       "permissible_values": {
         "Afghanistan": {
@@ -5952,6 +6021,7 @@
     },
     "geo_loc_name (country) international menu": {
       "name": "geo_loc_name (country) international menu",
+      "title": "geo_loc_name (country) international menu",
       "from_schema": "https://example.com/mpox",
       "permissible_values": {
         "Afghanistan [GAZ:00006882]": {
@@ -7980,8 +8050,8 @@
       ],
       "from_schema": "https://example.com/mpox",
       "slot_uri": "GENEPIO:0001392",
-      "minimum_value": "0",
-      "maximum_value": "130",
+      "minimum_value": 0,
+      "maximum_value": 130,
       "any_of": [
         {
           "range": "decimal"
@@ -9053,7 +9123,7 @@
       ],
       "slot_uri": "GENEPIO:0001482",
       "range": "integer",
-      "minimum_value": "0"
+      "minimum_value": 0
     },
     "consensus genome length": {
       "name": "consensus genome length",
@@ -9073,7 +9143,7 @@
       ],
       "slot_uri": "GENEPIO:0001483",
       "range": "integer",
-      "minimum_value": "0"
+      "minimum_value": 0
     },
     "reference genome accession": {
       "name": "reference genome accession",
@@ -11615,8 +11685,8 @@
           ],
           "slot_group": "Host Information",
           "required": true,
-          "minimum_value": "0",
-          "maximum_value": "130"
+          "minimum_value": 0,
+          "maximum_value": 130
         },
         "host age unit": {
           "name": "host age unit",
@@ -12833,7 +12903,7 @@
           ],
           "slot_group": "Bioinformatics and QC metrics",
           "range": "integer",
-          "minimum_value": "0"
+          "minimum_value": 0
         },
         "consensus genome length": {
           "name": "consensus genome length",
@@ -12850,7 +12920,7 @@
           ],
           "slot_group": "Bioinformatics and QC metrics",
           "range": "integer",
-          "minimum_value": "0"
+          "minimum_value": 0
         },
         "reference genome accession": {
           "name": "reference genome accession",
@@ -15187,8 +15257,8 @@
           ],
           "slot_group": "Host Information",
           "recommended": true,
-          "minimum_value": "0",
-          "maximum_value": "130"
+          "minimum_value": 0,
+          "maximum_value": 130
         },
         "host age unit": {
           "name": "host age unit",
@@ -16331,7 +16401,7 @@
           ],
           "slot_group": "Bioinformatics and QC metrics",
           "range": "integer",
-          "minimum_value": "0"
+          "minimum_value": 0
         },
         "consensus genome length": {
           "name": "consensus genome length",
@@ -16348,7 +16418,7 @@
           ],
           "slot_group": "Bioinformatics and QC metrics",
           "range": "integer",
-          "minimum_value": "0"
+          "minimum_value": 0
         },
         "reference genome accession": {
           "name": "reference genome accession",
