@@ -66,7 +66,6 @@ const main = async function () {
   context
     .reload(context.appConfig.template_path, { locale: 'en' })
     .then(async (context) => {
-
       // // internationalize
       // // TODO: connect to locale of browser!
       // // Takes `lang` as argument (unused)
