@@ -5862,7 +5862,7 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0100427",
-      "range": "Whitespaceminimizedstring",
+      "range": "WhitespaceMinimizedString",
       "required": true
     },
     "sample_collected_by": {
@@ -5907,7 +5907,7 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0100428",
-      "range": "Whitespaceminimizedstring"
+      "range": "WhitespaceMinimizedString"
     },
     "sample_collection_project_name": {
       "name": "sample_collection_project_name",
@@ -5926,7 +5926,7 @@
         "NCBI_BIOSAMPLE_Enterics:project_name"
       ],
       "slot_uri": "GENEPIO:0100429",
-      "range": "Whitespaceminimizedstring"
+      "range": "WhitespaceMinimizedString"
     },
     "sample_plan_name": {
       "name": "sample_plan_name",
@@ -5942,7 +5942,7 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0100430",
-      "range": "Whitespaceminimizedstring",
+      "range": "WhitespaceMinimizedString",
       "recommended": true
     },
     "sample_plan_id": {
@@ -5959,7 +5959,7 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0100431",
-      "range": "Whitespaceminimizedstring",
+      "range": "WhitespaceMinimizedString",
       "recommended": true
     },
     "sample_collector_contact_name": {
@@ -5976,7 +5976,7 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0100432",
-      "range": "Whitespaceminimizedstring"
+      "range": "WhitespaceMinimizedString"
     },
     "sample_collector_contact_email": {
       "name": "sample_collector_contact_email",
@@ -5995,7 +5995,7 @@
       "required": true,
       "any_of": [
         {
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         {
           "range": "NullValueMenu"
@@ -6071,7 +6071,7 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0100434",
-      "range": "Whitespaceminimizedstring"
+      "range": "WhitespaceMinimizedString"
     },
     "experimental_protocol_field": {
       "name": "experimental_protocol_field",
@@ -6087,7 +6087,7 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0101029",
-      "range": "Whitespaceminimizedstring"
+      "range": "WhitespaceMinimizedString"
     },
     "experimental_specimen_role_type": {
       "name": "experimental_specimen_role_type",
@@ -6142,7 +6142,7 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0100311",
-      "range": "Whitespaceminimizedstring"
+      "range": "WhitespaceMinimizedString"
     },
     "nucleic_acid_extraction_method": {
       "name": "nucleic_acid_extraction_method",
@@ -6158,7 +6158,7 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0100939",
-      "range": "Whitespaceminimizedstring"
+      "range": "WhitespaceMinimizedString"
     },
     "nucleic_acid_extraction_kit": {
       "name": "nucleic_acid_extraction_kit",
@@ -6174,7 +6174,7 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0100772",
-      "range": "Whitespaceminimizedstring"
+      "range": "WhitespaceMinimizedString"
     },
     "geo_loc_name_country": {
       "name": "geo_loc_name_country",
@@ -6252,7 +6252,7 @@
         "BIOSAMPLE:geo_loc_name%20%28site%29"
       ],
       "slot_uri": "GENEPIO:0100436",
-      "range": "Whitespaceminimizedstring"
+      "range": "WhitespaceMinimizedString"
     },
     "food_product_origin_geo_loc_name_country": {
       "name": "food_product_origin_geo_loc_name_country",
@@ -6320,7 +6320,7 @@
         "NCBI_BIOSAMPLE_Enterics:lat_lon"
       ],
       "slot_uri": "GENEPIO:0100309",
-      "range": "Whitespaceminimizedstring"
+      "range": "WhitespaceMinimizedString"
     },
     "geo_loc_longitude": {
       "name": "geo_loc_longitude",
@@ -6339,7 +6339,7 @@
         "NCBI_BIOSAMPLE_Enterics:lat_lon"
       ],
       "slot_uri": "GENEPIO:0100310",
-      "range": "Whitespaceminimizedstring"
+      "range": "WhitespaceMinimizedString"
     },
     "sample_collection_date": {
       "name": "sample_collection_date",
@@ -6521,7 +6521,7 @@
       "recommended": true,
       "any_of": [
         {
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         {
           "range": "NullValueMenu"
@@ -6582,7 +6582,7 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0100439",
-      "range": "Whitespaceminimizedstring"
+      "range": "WhitespaceMinimizedString"
     },
     "environmental_site": {
       "name": "environmental_site",
@@ -6674,7 +6674,7 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0101197",
-      "range": "Whitespaceminimizedstring"
+      "range": "WhitespaceMinimizedString"
     },
     "animal_or_plant_population": {
       "name": "animal_or_plant_population",
@@ -7113,7 +7113,7 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0100768",
-      "range": "Whitespaceminimizedstring"
+      "range": "WhitespaceMinimizedString"
     },
     "sample_volume_measurement_unit": {
       "name": "sample_volume_measurement_unit",
@@ -7161,7 +7161,7 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0100448",
-      "range": "Whitespaceminimizedstring"
+      "range": "WhitespaceMinimizedString"
     },
     "sample_storage_medium": {
       "name": "sample_storage_medium",
@@ -7177,7 +7177,7 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0100449",
-      "range": "Whitespaceminimizedstring"
+      "range": "WhitespaceMinimizedString"
     },
     "sample_storage_duration_value": {
       "name": "sample_storage_duration_value",
@@ -7193,7 +7193,7 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0101014",
-      "range": "Whitespaceminimizedstring"
+      "range": "WhitespaceMinimizedString"
     },
     "sample_storage_duration_unit": {
       "name": "sample_storage_duration_unit",
@@ -7225,7 +7225,7 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0101085",
-      "range": "Whitespaceminimizedstring"
+      "range": "WhitespaceMinimizedString"
     },
     "nucleic_acid_storage_duration_unit": {
       "name": "nucleic_acid_storage_duration_unit",
@@ -7281,7 +7281,7 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0101023",
-      "range": "Whitespaceminimizedstring"
+      "range": "WhitespaceMinimizedString"
     },
     "water_depth": {
       "name": "water_depth",
@@ -7297,7 +7297,7 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0100440",
-      "range": "Whitespaceminimizedstring"
+      "range": "WhitespaceMinimizedString"
     },
     "water_depth_units": {
       "name": "water_depth_units",
@@ -7336,7 +7336,7 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0100697",
-      "range": "Whitespaceminimizedstring"
+      "range": "WhitespaceMinimizedString"
     },
     "sediment_depth_units": {
       "name": "sediment_depth_units",
@@ -7375,7 +7375,7 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0100441",
-      "range": "Whitespaceminimizedstring"
+      "range": "WhitespaceMinimizedString"
     },
     "air_temperature_units": {
       "name": "air_temperature_units",
@@ -7414,7 +7414,7 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0100698",
-      "range": "Whitespaceminimizedstring"
+      "range": "WhitespaceMinimizedString"
     },
     "water_temperature_units": {
       "name": "water_temperature_units",
@@ -7439,29 +7439,73 @@
         }
       ]
     },
-    "weather_type": {
-      "name": "weather_type",
+    "sampling_weather_conditions": {
+      "name": "sampling_weather_conditions",
       "description": "The state of the atmosphere at a place and time as regards heat, dryness, sunshine, wind, rain, etc.",
-      "title": "weather_type",
+      "title": "sampling_weather_conditions",
       "comments": [
         "Provide the weather conditions at the time of sample collection."
       ],
-      "examples": [
-        {
-          "value": "Rain [ENVO:01001564]"
-        }
-      ],
       "from_schema": "https://example.com/GRDI",
-      "slot_uri": "GENEPIO:0100442",
+      "slot_uri": "GENEPIO:0100779",
       "multivalued": true,
       "any_of": [
         {
-          "range": "WeatherTypeMenu"
+          "range": "SamplingWeatherConditionsMenu"
         },
         {
           "range": "NullValueMenu"
         }
       ]
+    },
+    "presampling_weather_conditions": {
+      "name": "presampling_weather_conditions",
+      "title": "presampling_weather_conditions",
+      "from_schema": "https://example.com/GRDI",
+      "slot_uri": "GENEPIO:0100780",
+      "any_of": [
+        {
+          "range": "SamplingWeatherConditionsMenu"
+        },
+        {
+          "range": "NullValueMenu"
+        }
+      ]
+    },
+    "precipitation_measurement_value": {
+      "name": "precipitation_measurement_value",
+      "title": "precipitation_measurement_value",
+      "from_schema": "https://example.com/GRDI",
+      "slot_uri": "GENEPIO:0100911",
+      "any_of": [
+        {
+          "range": "Whitespaceminimizedstring"
+        },
+        {
+          "range": "NullValueMenu"
+        }
+      ]
+    },
+    "precipitation_measurement_unit": {
+      "name": "precipitation_measurement_unit",
+      "title": "precipitation_measurement_unit",
+      "from_schema": "https://example.com/GRDI",
+      "slot_uri": "GENEPIO:0100912",
+      "any_of": [
+        {
+          "range": "PrecipitationMeasurementUnitMenu"
+        },
+        {
+          "range": "NullValueMenu"
+        }
+      ]
+    },
+    "precipitation_measurement_method": {
+      "name": "precipitation_measurement_method",
+      "title": "precipitation_measurement_method",
+      "from_schema": "https://example.com/GRDI",
+      "slot_uri": "GENEPIO:0100913",
+      "range": "WhitespaceMinimizedString"
     },
     "host_common_name": {
       "name": "host_common_name",
@@ -7542,7 +7586,7 @@
         "NCBI_BIOSAMPLE_Enterics:host_variety"
       ],
       "slot_uri": "GENEPIO:0100450",
-      "range": "Whitespaceminimizedstring"
+      "range": "WhitespaceMinimizedString"
     },
     "host_breed": {
       "name": "host_breed",
@@ -7562,7 +7606,7 @@
         "NCBI_BIOSAMPLE_Enterics:host_animal_breed"
       ],
       "slot_uri": "GENEPIO:0100451",
-      "range": "Whitespaceminimizedstring"
+      "range": "WhitespaceMinimizedString"
     },
     "host_food_production_name": {
       "name": "host_food_production_name",
@@ -7628,7 +7672,7 @@
         "NCBI_BIOSAMPLE_Enterics:host_disease"
       ],
       "slot_uri": "GENEPIO:0001391",
-      "range": "Whitespaceminimizedstring"
+      "range": "WhitespaceMinimizedString"
     },
     "microbiological_method": {
       "name": "microbiological_method",
@@ -7644,7 +7688,7 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0100454",
-      "range": "Whitespaceminimizedstring",
+      "range": "WhitespaceMinimizedString",
       "recommended": true
     },
     "strain": {
@@ -7664,7 +7708,7 @@
         "NCBI_BIOSAMPLE_Enterics:strain"
       ],
       "slot_uri": "GENEPIO:0100455",
-      "range": "Whitespaceminimizedstring"
+      "range": "WhitespaceMinimizedString"
     },
     "isolate_id": {
       "name": "isolate_id",
@@ -7686,7 +7730,7 @@
       "required": true,
       "any_of": [
         {
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         {
           "range": "NullValueMenu"
@@ -7713,7 +7757,7 @@
         "NCBI_BIOSAMPLE_Enterics:isolate_name_alias"
       ],
       "slot_uri": "GENEPIO:0100457",
-      "range": "Whitespaceminimizedstring",
+      "range": "WhitespaceMinimizedString",
       "recommended": true
     },
     "progeny_isolate_id": {
@@ -7730,7 +7774,7 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0100458",
-      "range": "Whitespaceminimizedstring"
+      "range": "WhitespaceMinimizedString"
     },
     "irida_isolate_id": {
       "name": "irida_isolate_id",
@@ -7749,7 +7793,7 @@
       "required": true,
       "any_of": [
         {
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         {
           "range": "NullValueMenu"
@@ -7773,7 +7817,7 @@
       "required": true,
       "any_of": [
         {
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         {
           "range": "NullValueMenu"
@@ -7810,7 +7854,7 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0100462",
-      "range": "Whitespaceminimizedstring"
+      "range": "WhitespaceMinimizedString"
     },
     "isolated_by_contact_name": {
       "name": "isolated_by_contact_name",
@@ -7826,7 +7870,7 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0100463",
-      "range": "Whitespaceminimizedstring"
+      "range": "WhitespaceMinimizedString"
     },
     "isolated_by_contact_email": {
       "name": "isolated_by_contact_email",
@@ -7842,7 +7886,7 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0100464",
-      "range": "Whitespaceminimizedstring"
+      "range": "WhitespaceMinimizedString"
     },
     "isolation_date": {
       "name": "isolation_date",
@@ -7877,7 +7921,7 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0100466",
-      "range": "Whitespaceminimizedstring"
+      "range": "WhitespaceMinimizedString"
     },
     "organism": {
       "name": "organism",
@@ -7946,7 +7990,7 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0100584",
-      "range": "Whitespaceminimizedstring"
+      "range": "WhitespaceMinimizedString"
     },
     "serovar": {
       "name": "serovar",
@@ -7965,7 +8009,7 @@
         "NCBI_BIOSAMPLE_Enterics:serovar"
       ],
       "slot_uri": "GENEPIO:0100467",
-      "range": "Whitespaceminimizedstring",
+      "range": "WhitespaceMinimizedString",
       "recommended": true
     },
     "serotyping_method": {
@@ -7982,7 +8026,7 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0100468",
-      "range": "Whitespaceminimizedstring",
+      "range": "WhitespaceMinimizedString",
       "recommended": true
     },
     "phagetype": {
@@ -7999,7 +8043,7 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0100469",
-      "range": "Whitespaceminimizedstring"
+      "range": "WhitespaceMinimizedString"
     },
     "library_id": {
       "name": "library_id",
@@ -8015,7 +8059,7 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0001448",
-      "range": "Whitespaceminimizedstring"
+      "range": "WhitespaceMinimizedString"
     },
     "sequenced_by": {
       "name": "sequenced_by",
@@ -8059,7 +8103,7 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0100470",
-      "range": "Whitespaceminimizedstring"
+      "range": "WhitespaceMinimizedString"
     },
     "sequenced_by_contact_name": {
       "name": "sequenced_by_contact_name",
@@ -8078,7 +8122,7 @@
       "required": true,
       "any_of": [
         {
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         {
           "range": "NullValueMenu"
@@ -8102,7 +8146,7 @@
       "required": true,
       "any_of": [
         {
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         {
           "range": "NullValueMenu"
@@ -8151,7 +8195,7 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0100472",
-      "range": "Whitespaceminimizedstring"
+      "range": "WhitespaceMinimizedString"
     },
     "sequencing_platform": {
       "name": "sequencing_platform",
@@ -8229,7 +8273,7 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0001450",
-      "range": "Whitespaceminimizedstring"
+      "range": "WhitespaceMinimizedString"
     },
     "dna_fragment_length": {
       "name": "dna_fragment_length",
@@ -8277,7 +8321,7 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0100967",
-      "range": "Whitespaceminimizedstring"
+      "range": "WhitespaceMinimizedString"
     },
     "amplicon_pcr_primer_scheme": {
       "name": "amplicon_pcr_primer_scheme",
@@ -8293,7 +8337,7 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0001456",
-      "range": "Whitespaceminimizedstring"
+      "range": "WhitespaceMinimizedString"
     },
     "amplicon_size": {
       "name": "amplicon_size",
@@ -8325,7 +8369,7 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0101102",
-      "range": "Whitespaceminimizedstring"
+      "range": "WhitespaceMinimizedString"
     },
     "sequencing_protocol": {
       "name": "sequencing_protocol",
@@ -8341,7 +8385,7 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0001454",
-      "range": "Whitespaceminimizedstring"
+      "range": "WhitespaceMinimizedString"
     },
     "r1_fastq_filename": {
       "name": "r1_fastq_filename",
@@ -8357,7 +8401,7 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0001476",
-      "range": "Whitespaceminimizedstring"
+      "range": "WhitespaceMinimizedString"
     },
     "r2_fastq_filename": {
       "name": "r2_fastq_filename",
@@ -8373,7 +8417,7 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0001477",
-      "range": "Whitespaceminimizedstring"
+      "range": "WhitespaceMinimizedString"
     },
     "fast5_filename": {
       "name": "fast5_filename",
@@ -8389,7 +8433,7 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0001480",
-      "range": "Whitespaceminimizedstring"
+      "range": "WhitespaceMinimizedString"
     },
     "assembly_filename": {
       "name": "assembly_filename",
@@ -8405,7 +8449,7 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0001461",
-      "range": "Whitespaceminimizedstring"
+      "range": "WhitespaceMinimizedString"
     },
     "quality_control_method_name": {
       "name": "quality_control_method_name",
@@ -8421,7 +8465,7 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0100557",
-      "range": "Whitespaceminimizedstring"
+      "range": "WhitespaceMinimizedString"
     },
     "quality_control_method_version": {
       "name": "quality_control_method_version",
@@ -8437,7 +8481,7 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0100558",
-      "range": "Whitespaceminimizedstring"
+      "range": "WhitespaceMinimizedString"
     },
     "quality_control_determination": {
       "name": "quality_control_determination",
@@ -8501,7 +8545,7 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0100561",
-      "range": "Whitespaceminimizedstring"
+      "range": "WhitespaceMinimizedString"
     },
     "raw_sequence_data_processing_method": {
       "name": "raw_sequence_data_processing_method",
@@ -8520,7 +8564,7 @@
       "recommended": true,
       "any_of": [
         {
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         {
           "range": "NullValueMenu"
@@ -8544,7 +8588,7 @@
       "recommended": true,
       "any_of": [
         {
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         {
           "range": "NullValueMenu"
@@ -8567,7 +8611,7 @@
       "slot_uri": "GENEPIO:0100825",
       "any_of": [
         {
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         {
           "range": "NullValueMenu"
@@ -8590,7 +8634,7 @@
       "slot_uri": "GENEPIO:0100826",
       "any_of": [
         {
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         {
           "range": "NullValueMenu"
@@ -8613,7 +8657,7 @@
       "slot_uri": "GENEPIO:0001463",
       "any_of": [
         {
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         {
           "range": "NullValueMenu"
@@ -8636,7 +8680,7 @@
       "slot_uri": "GENEPIO:0001469",
       "any_of": [
         {
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         {
           "range": "NullValueMenu"
@@ -8657,7 +8701,7 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0001472",
-      "range": "Whitespaceminimizedstring"
+      "range": "WhitespaceMinimizedString"
     },
     "depth_of_coverage_value": {
       "name": "depth_of_coverage_value",
@@ -8673,7 +8717,7 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0001474",
-      "range": "Whitespaceminimizedstring"
+      "range": "WhitespaceMinimizedString"
     },
     "depth_of_coverage_threshold": {
       "name": "depth_of_coverage_threshold",
@@ -8689,7 +8733,7 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0001475",
-      "range": "Whitespaceminimizedstring"
+      "range": "WhitespaceMinimizedString"
     },
     "genome_completeness": {
       "name": "genome_completeness",
@@ -8705,7 +8749,7 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0100844",
-      "range": "Whitespaceminimizedstring"
+      "range": "WhitespaceMinimizedString"
     },
     "number_of_base_pairs_sequenced": {
       "name": "number_of_base_pairs_sequenced",
@@ -8897,7 +8941,7 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0001485",
-      "range": "Whitespaceminimizedstring"
+      "range": "WhitespaceMinimizedString"
     },
     "deduplication_method": {
       "name": "deduplication_method",
@@ -8913,7 +8957,7 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0100831",
-      "range": "Whitespaceminimizedstring"
+      "range": "WhitespaceMinimizedString"
     },
     "bioinformatics_protocol": {
       "name": "bioinformatics_protocol",
@@ -8929,7 +8973,7 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0001489",
-      "range": "Whitespaceminimizedstring"
+      "range": "WhitespaceMinimizedString"
     },
     "read_mapping_software_name": {
       "name": "read_mapping_software_name",
@@ -8945,7 +8989,7 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0100832",
-      "range": "Whitespaceminimizedstring"
+      "range": "WhitespaceMinimizedString"
     },
     "read_mapping_software_version": {
       "name": "read_mapping_software_version",
@@ -8961,7 +9005,7 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0100833",
-      "range": "Whitespaceminimizedstring"
+      "range": "WhitespaceMinimizedString"
     },
     "taxonomic_reference_database_name": {
       "name": "taxonomic_reference_database_name",
@@ -8977,7 +9021,7 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0100834",
-      "range": "Whitespaceminimizedstring"
+      "range": "WhitespaceMinimizedString"
     },
     "taxonomic_reference_database_version": {
       "name": "taxonomic_reference_database_version",
@@ -8993,7 +9037,7 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0100835",
-      "range": "Whitespaceminimizedstring"
+      "range": "WhitespaceMinimizedString"
     },
     "taxonomic_analysis_report_filename": {
       "name": "taxonomic_analysis_report_filename",
@@ -9009,7 +9053,7 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0101074",
-      "range": "Whitespaceminimizedstring"
+      "range": "WhitespaceMinimizedString"
     },
     "taxonomic_analysis_date": {
       "name": "taxonomic_analysis_date",
@@ -9041,7 +9085,7 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0100836",
-      "range": "Whitespaceminimizedstring"
+      "range": "WhitespaceMinimizedString"
     },
     "sequence_submitted_by": {
       "name": "sequence_submitted_by",
@@ -9080,7 +9124,7 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0100474",
-      "range": "Whitespaceminimizedstring"
+      "range": "WhitespaceMinimizedString"
     },
     "sequence_submitted_by_contact_email": {
       "name": "sequence_submitted_by_contact_email",
@@ -9096,7 +9140,7 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0001165",
-      "range": "Whitespaceminimizedstring"
+      "range": "WhitespaceMinimizedString"
     },
     "publication_id": {
       "name": "publication_id",
@@ -9112,7 +9156,7 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0100475",
-      "range": "Whitespaceminimizedstring"
+      "range": "WhitespaceMinimizedString"
     },
     "attribute_package": {
       "name": "attribute_package",
@@ -9155,7 +9199,7 @@
         "NCBI_BIOSAMPLE_Enterics:bioproject_accession"
       ],
       "slot_uri": "GENEPIO:0001136",
-      "range": "Whitespaceminimizedstring"
+      "range": "WhitespaceMinimizedString"
     },
     "biosample_accession": {
       "name": "biosample_accession",
@@ -9174,7 +9218,7 @@
         "ENA_ANTIBIOGRAM:bioSample_ID"
       ],
       "slot_uri": "GENEPIO:0001139",
-      "range": "Whitespaceminimizedstring"
+      "range": "WhitespaceMinimizedString"
     },
     "sra_accession": {
       "name": "sra_accession",
@@ -9190,7 +9234,7 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0001142",
-      "range": "Whitespaceminimizedstring"
+      "range": "WhitespaceMinimizedString"
     },
     "genbank_accession": {
       "name": "genbank_accession",
@@ -9206,7 +9250,7 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0001145",
-      "range": "Whitespaceminimizedstring"
+      "range": "WhitespaceMinimizedString"
     },
     "prevalence_metrics": {
       "name": "prevalence_metrics",
@@ -9222,7 +9266,7 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0100480",
-      "range": "Whitespaceminimizedstring",
+      "range": "WhitespaceMinimizedString",
       "recommended": true
     },
     "prevalence_metrics_details": {
@@ -9239,7 +9283,7 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0100481",
-      "range": "Whitespaceminimizedstring",
+      "range": "WhitespaceMinimizedString",
       "recommended": true
     },
     "stage_of_production": {
@@ -9308,7 +9352,7 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0100484",
-      "range": "Whitespaceminimizedstring",
+      "range": "WhitespaceMinimizedString",
       "recommended": true
     },
     "amr_testing_by": {
@@ -9349,7 +9393,7 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0100512",
-      "range": "Whitespaceminimizedstring"
+      "range": "WhitespaceMinimizedString"
     },
     "amr_testing_by_contact_name": {
       "name": "amr_testing_by_contact_name",
@@ -9368,7 +9412,7 @@
       "required": true,
       "any_of": [
         {
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         {
           "range": "NullValueMenu"
@@ -9392,7 +9436,7 @@
       "required": true,
       "any_of": [
         {
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         {
           "range": "NullValueMenu"
@@ -9429,7 +9473,7 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0001517",
-      "range": "Whitespaceminimizedstring",
+      "range": "WhitespaceMinimizedString",
       "recommended": true
     },
     "dataharmonizer_provenance": {
@@ -9461,7 +9505,7 @@
         }
       ],
       "from_schema": "https://example.com/GRDI",
-      "range": "Antimicrobial Resistance Test Drug Menu",
+      "range": "AntimicrobialResistanceTestDrugMenu",
       "required": true
     },
     "resistance_phenotype": {
@@ -9480,10 +9524,10 @@
       "recommended": true,
       "any_of": [
         {
-          "range": "antimicrobial_phenotype menu"
+          "range": "AntimicrobialPhenotypeMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
@@ -9506,7 +9550,7 @@
           "range": "WhitespaceMinimizedString"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
@@ -9526,10 +9570,10 @@
       "required": true,
       "any_of": [
         {
-          "range": "antimicrobial_measurement_units menu"
+          "range": "AntimicrobialMeasurementUnitsMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
@@ -9549,10 +9593,10 @@
       "required": true,
       "any_of": [
         {
-          "range": "antimicrobial_measurement_sign menu"
+          "range": "AntimicrobialMeasurementSignMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
@@ -9571,10 +9615,10 @@
       "from_schema": "https://example.com/GRDI",
       "any_of": [
         {
-          "range": "antimicrobial_laboratory_typing_method menu"
+          "range": "AntimicrobialLaboratoryTypingMethodMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
@@ -9593,10 +9637,10 @@
       "from_schema": "https://example.com/GRDI",
       "any_of": [
         {
-          "range": "antimicrobial_laboratory_typing_platform menu"
+          "range": "AntimicrobialLaboratoryTypingPlatformMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
@@ -9613,7 +9657,14 @@
         }
       ],
       "from_schema": "https://example.com/GRDI",
-      "range": "WhitespaceMinimizedString"
+      "any_of": [
+        {
+          "range": "WhitespaceMinimizedString"
+        },
+        {
+          "range": "NullValueMenu"
+        }
+      ]
     },
     "vendor_name": {
       "name": "vendor_name",
@@ -9630,10 +9681,10 @@
       "from_schema": "https://example.com/GRDI",
       "any_of": [
         {
-          "range": "antimicrobial_vendor_name"
+          "range": "AntimicrobialVendorName"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
@@ -9653,10 +9704,10 @@
       "recommended": true,
       "any_of": [
         {
-          "range": "antimicrobial_testing_standard menu"
+          "range": "AntimicrobialTestingStandardMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
@@ -9760,7 +9811,7 @@
           "slot_group": "Sample collection and processing",
           "any_of": [
             {
-              "range": "Whitespaceminimizedstring"
+              "range": "WhitespaceMinimizedString"
             },
             {
               "range": "NullValueMenu"
@@ -10127,534 +10178,554 @@
           "rank": 73,
           "slot_group": "Environmental conditions and measurements"
         },
-        "weather_type": {
-          "name": "weather_type",
+        "sampling_weather_conditions": {
+          "name": "sampling_weather_conditions",
           "rank": 74,
+          "slot_group": "Environmental conditions and measurements"
+        },
+        "presampling_weather_conditions": {
+          "name": "presampling_weather_conditions",
+          "rank": 75,
+          "slot_group": "Environmental conditions and measurements"
+        },
+        "precipitation_measurement_value": {
+          "name": "precipitation_measurement_value",
+          "rank": 76,
+          "slot_group": "Environmental conditions and measurements"
+        },
+        "precipitation_measurement_unit": {
+          "name": "precipitation_measurement_unit",
+          "rank": 77,
+          "slot_group": "Environmental conditions and measurements"
+        },
+        "precipitation_measurement_method": {
+          "name": "precipitation_measurement_method",
+          "rank": 78,
           "slot_group": "Environmental conditions and measurements"
         },
         "host_common_name": {
           "name": "host_common_name",
-          "rank": 75,
+          "rank": 79,
           "slot_group": "Host information"
         },
         "host_scientific_name": {
           "name": "host_scientific_name",
-          "rank": 76,
+          "rank": 80,
           "slot_group": "Host information"
         },
         "host_ecotype": {
           "name": "host_ecotype",
-          "rank": 77,
+          "rank": 81,
           "slot_group": "Host information"
         },
         "host_breed": {
           "name": "host_breed",
-          "rank": 78,
+          "rank": 82,
           "slot_group": "Host information"
         },
         "host_food_production_name": {
           "name": "host_food_production_name",
-          "rank": 79,
+          "rank": 83,
           "slot_group": "Host information"
         },
         "host_age_bin": {
           "name": "host_age_bin",
-          "rank": 80,
+          "rank": 84,
           "slot_group": "Host information"
         },
         "host_disease": {
           "name": "host_disease",
-          "rank": 81,
+          "rank": 85,
           "slot_group": "Host information"
         },
         "microbiological_method": {
           "name": "microbiological_method",
-          "rank": 82,
+          "rank": 86,
           "slot_group": "Strain and isolation information"
         },
         "strain": {
           "name": "strain",
-          "rank": 83,
+          "rank": 87,
           "slot_group": "Strain and isolation information"
         },
         "isolate_id": {
           "name": "isolate_id",
-          "rank": 84,
+          "rank": 88,
           "slot_group": "Strain and isolation information"
         },
         "alternative_isolate_id": {
           "name": "alternative_isolate_id",
-          "rank": 85,
+          "rank": 89,
           "slot_group": "Strain and isolation information"
         },
         "progeny_isolate_id": {
           "name": "progeny_isolate_id",
-          "rank": 86,
+          "rank": 90,
           "slot_group": "Strain and isolation information"
         },
         "irida_isolate_id": {
           "name": "irida_isolate_id",
-          "rank": 87,
+          "rank": 91,
           "slot_group": "Strain and isolation information"
         },
         "irida_project_id": {
           "name": "irida_project_id",
-          "rank": 88,
+          "rank": 92,
           "slot_group": "Strain and isolation information"
         },
         "isolated_by": {
           "name": "isolated_by",
-          "rank": 89,
+          "rank": 93,
           "slot_group": "Strain and isolation information"
         },
         "isolated_by_laboratory_name": {
           "name": "isolated_by_laboratory_name",
-          "rank": 90,
+          "rank": 94,
           "slot_group": "Strain and isolation information"
         },
         "isolated_by_contact_name": {
           "name": "isolated_by_contact_name",
-          "rank": 91,
+          "rank": 95,
           "slot_group": "Strain and isolation information"
         },
         "isolated_by_contact_email": {
           "name": "isolated_by_contact_email",
-          "rank": 92,
+          "rank": 96,
           "slot_group": "Strain and isolation information"
         },
         "isolation_date": {
           "name": "isolation_date",
-          "rank": 93,
+          "rank": 97,
           "slot_group": "Strain and isolation information"
         },
         "isolate_received_date": {
           "name": "isolate_received_date",
-          "rank": 94,
+          "rank": 98,
           "slot_group": "Strain and isolation information"
         },
         "organism": {
           "name": "organism",
-          "rank": 95,
+          "rank": 99,
           "slot_group": "Strain and isolation information"
         },
         "taxonomic_identification_process": {
           "name": "taxonomic_identification_process",
-          "rank": 96,
+          "rank": 100,
           "slot_group": "Strain and isolation information"
         },
         "taxonomic_identification_process_details": {
           "name": "taxonomic_identification_process_details",
-          "rank": 97,
+          "rank": 101,
           "slot_group": "Strain and isolation information"
         },
         "serovar": {
           "name": "serovar",
-          "rank": 98,
+          "rank": 102,
           "slot_group": "Strain and isolation information"
         },
         "serotyping_method": {
           "name": "serotyping_method",
-          "rank": 99,
+          "rank": 103,
           "slot_group": "Strain and isolation information"
         },
         "phagetype": {
           "name": "phagetype",
-          "rank": 100,
+          "rank": 104,
           "slot_group": "Strain and isolation information"
         },
         "library_id": {
           "name": "library_id",
-          "rank": 101,
+          "rank": 105,
           "slot_group": "Sequence information"
         },
         "sequenced_by": {
           "name": "sequenced_by",
-          "rank": 102,
+          "rank": 106,
           "slot_group": "Sequence information"
         },
         "sequenced_by_laboratory_name": {
           "name": "sequenced_by_laboratory_name",
-          "rank": 103,
+          "rank": 107,
           "slot_group": "Sequence information"
         },
         "sequenced_by_contact_name": {
           "name": "sequenced_by_contact_name",
-          "rank": 104,
+          "rank": 108,
           "slot_group": "Sequence information"
         },
         "sequenced_by_contact_email": {
           "name": "sequenced_by_contact_email",
-          "rank": 105,
+          "rank": 109,
           "slot_group": "Sequence information"
         },
         "purpose_of_sequencing": {
           "name": "purpose_of_sequencing",
-          "rank": 106,
+          "rank": 110,
           "slot_group": "Sequence information"
         },
         "sequencing_project_name": {
           "name": "sequencing_project_name",
-          "rank": 107,
+          "rank": 111,
           "slot_group": "Sequence information"
         },
         "sequencing_platform": {
           "name": "sequencing_platform",
-          "rank": 108,
+          "rank": 112,
           "slot_group": "Sequence information"
         },
         "sequencing_instrument": {
           "name": "sequencing_instrument",
-          "rank": 109,
+          "rank": 113,
           "slot_group": "Sequence information"
         },
         "sequencing_assay_type": {
           "name": "sequencing_assay_type",
-          "rank": 110,
+          "rank": 114,
           "slot_group": "Sequence information"
         },
         "library_preparation_kit": {
           "name": "library_preparation_kit",
-          "rank": 111,
+          "rank": 115,
           "slot_group": "Sequence information"
         },
         "dna_fragment_length": {
           "name": "dna_fragment_length",
-          "rank": 112,
+          "rank": 116,
           "slot_group": "Sequence information"
         },
         "genomic_target_enrichment_method": {
           "name": "genomic_target_enrichment_method",
-          "rank": 113,
+          "rank": 117,
           "slot_group": "Sequence information"
         },
         "genomic_target_enrichment_method_details": {
           "name": "genomic_target_enrichment_method_details",
-          "rank": 114,
+          "rank": 118,
           "slot_group": "Sequence information"
         },
         "amplicon_pcr_primer_scheme": {
           "name": "amplicon_pcr_primer_scheme",
-          "rank": 115,
+          "rank": 119,
           "slot_group": "Sequence information"
         },
         "amplicon_size": {
           "name": "amplicon_size",
-          "rank": 116,
+          "rank": 120,
           "slot_group": "Sequence information"
         },
         "sequencing_flow_cell_version": {
           "name": "sequencing_flow_cell_version",
-          "rank": 117,
+          "rank": 121,
           "slot_group": "Sequence information"
         },
         "sequencing_protocol": {
           "name": "sequencing_protocol",
-          "rank": 118,
+          "rank": 122,
           "slot_group": "Sequence information"
         },
         "r1_fastq_filename": {
           "name": "r1_fastq_filename",
-          "rank": 119,
+          "rank": 123,
           "slot_group": "Sequence information"
         },
         "r2_fastq_filename": {
           "name": "r2_fastq_filename",
-          "rank": 120,
+          "rank": 124,
           "slot_group": "Sequence information"
         },
         "fast5_filename": {
           "name": "fast5_filename",
-          "rank": 121,
+          "rank": 125,
           "slot_group": "Sequence information"
         },
         "assembly_filename": {
           "name": "assembly_filename",
-          "rank": 122,
+          "rank": 126,
           "slot_group": "Sequence information"
         },
         "quality_control_method_name": {
           "name": "quality_control_method_name",
-          "rank": 123,
+          "rank": 127,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "quality_control_method_version": {
           "name": "quality_control_method_version",
-          "rank": 124,
+          "rank": 128,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "quality_control_determination": {
           "name": "quality_control_determination",
-          "rank": 125,
+          "rank": 129,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "quality_control_issues": {
           "name": "quality_control_issues",
-          "rank": 126,
+          "rank": 130,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "quality_control_details": {
           "name": "quality_control_details",
-          "rank": 127,
+          "rank": 131,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "raw_sequence_data_processing_method": {
           "name": "raw_sequence_data_processing_method",
-          "rank": 128,
+          "rank": 132,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "dehosting_method": {
           "name": "dehosting_method",
-          "rank": 129,
+          "rank": 133,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "sequence_assembly_software_name": {
           "name": "sequence_assembly_software_name",
-          "rank": 130,
+          "rank": 134,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "sequence_assembly_software_version": {
           "name": "sequence_assembly_software_version",
-          "rank": 131,
+          "rank": 135,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "consensus_sequence_software_name": {
           "name": "consensus_sequence_software_name",
-          "rank": 132,
+          "rank": 136,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "consensus_sequence_software_version": {
           "name": "consensus_sequence_software_version",
-          "rank": 133,
+          "rank": 137,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "breadth_of_coverage_value": {
           "name": "breadth_of_coverage_value",
-          "rank": 134,
+          "rank": 138,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "depth_of_coverage_value": {
           "name": "depth_of_coverage_value",
-          "rank": 135,
+          "rank": 139,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "depth_of_coverage_threshold": {
           "name": "depth_of_coverage_threshold",
-          "rank": 136,
+          "rank": 140,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "genome_completeness": {
           "name": "genome_completeness",
-          "rank": 137,
+          "rank": 141,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "number_of_base_pairs_sequenced": {
           "name": "number_of_base_pairs_sequenced",
-          "rank": 138,
+          "rank": 142,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "number_of_total_reads": {
           "name": "number_of_total_reads",
-          "rank": 139,
+          "rank": 143,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "number_of_unique_reads": {
           "name": "number_of_unique_reads",
-          "rank": 140,
+          "rank": 144,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "minimum_posttrimming_read_length": {
           "name": "minimum_posttrimming_read_length",
-          "rank": 141,
+          "rank": 145,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "number_of_contigs": {
           "name": "number_of_contigs",
-          "rank": 142,
+          "rank": 146,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "percent_ns_across_total_genome_length": {
           "name": "percent_ns_across_total_genome_length",
-          "rank": 143,
+          "rank": 147,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "ns_per_100_kbp": {
           "name": "ns_per_100_kbp",
-          "rank": 144,
+          "rank": 148,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "n50": {
           "name": "n50",
-          "rank": 145,
+          "rank": 149,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "percent_read_contamination_": {
           "name": "percent_read_contamination_",
-          "rank": 146,
+          "rank": 150,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "sequence_assembly_length": {
           "name": "sequence_assembly_length",
-          "rank": 147,
+          "rank": 151,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "consensus_genome_length": {
           "name": "consensus_genome_length",
-          "rank": 148,
+          "rank": 152,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "reference_genome_accession": {
           "name": "reference_genome_accession",
-          "rank": 149,
+          "rank": 153,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "deduplication_method": {
           "name": "deduplication_method",
-          "rank": 150,
+          "rank": 154,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "bioinformatics_protocol": {
           "name": "bioinformatics_protocol",
-          "rank": 151,
+          "rank": 155,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "read_mapping_software_name": {
           "name": "read_mapping_software_name",
-          "rank": 152,
+          "rank": 156,
           "slot_group": "Taxonomic identification information"
         },
         "read_mapping_software_version": {
           "name": "read_mapping_software_version",
-          "rank": 153,
+          "rank": 157,
           "slot_group": "Taxonomic identification information"
         },
         "taxonomic_reference_database_name": {
           "name": "taxonomic_reference_database_name",
-          "rank": 154,
+          "rank": 158,
           "slot_group": "Taxonomic identification information"
         },
         "taxonomic_reference_database_version": {
           "name": "taxonomic_reference_database_version",
-          "rank": 155,
+          "rank": 159,
           "slot_group": "Taxonomic identification information"
         },
         "taxonomic_analysis_report_filename": {
           "name": "taxonomic_analysis_report_filename",
-          "rank": 156,
+          "rank": 160,
           "slot_group": "Taxonomic identification information"
         },
         "taxonomic_analysis_date": {
           "name": "taxonomic_analysis_date",
-          "rank": 157,
+          "rank": 161,
           "slot_group": "Taxonomic identification information"
         },
         "read_mapping_criteria": {
           "name": "read_mapping_criteria",
-          "rank": 158,
+          "rank": 162,
           "slot_group": "Taxonomic identification information"
         },
         "sequence_submitted_by": {
           "name": "sequence_submitted_by",
-          "rank": 159,
+          "rank": 163,
           "slot_group": "Public repository information"
         },
         "sequence_submitted_by_contact_name": {
           "name": "sequence_submitted_by_contact_name",
-          "rank": 160,
+          "rank": 164,
           "slot_group": "Public repository information"
         },
         "sequence_submitted_by_contact_email": {
           "name": "sequence_submitted_by_contact_email",
-          "rank": 161,
+          "rank": 165,
           "slot_group": "Public repository information"
         },
         "publication_id": {
           "name": "publication_id",
-          "rank": 162,
+          "rank": 166,
           "slot_group": "Public repository information"
         },
         "attribute_package": {
           "name": "attribute_package",
-          "rank": 163,
+          "rank": 167,
           "slot_group": "Public repository information"
         },
         "bioproject_accession": {
           "name": "bioproject_accession",
-          "rank": 164,
+          "rank": 168,
           "slot_group": "Public repository information"
         },
         "biosample_accession": {
           "name": "biosample_accession",
-          "rank": 165,
+          "rank": 169,
           "slot_group": "Public repository information"
         },
         "sra_accession": {
           "name": "sra_accession",
-          "rank": 166,
+          "rank": 170,
           "slot_group": "Public repository information"
         },
         "genbank_accession": {
           "name": "genbank_accession",
-          "rank": 167,
+          "rank": 171,
           "slot_group": "Public repository information"
         },
         "prevalence_metrics": {
           "name": "prevalence_metrics",
-          "rank": 168,
+          "rank": 172,
           "slot_group": "Risk assessment information"
         },
         "prevalence_metrics_details": {
           "name": "prevalence_metrics_details",
-          "rank": 169,
+          "rank": 173,
           "slot_group": "Risk assessment information"
         },
         "stage_of_production": {
           "name": "stage_of_production",
-          "rank": 170,
+          "rank": 174,
           "slot_group": "Risk assessment information"
         },
         "experimental_intervention": {
           "name": "experimental_intervention",
-          "rank": 171,
+          "rank": 175,
           "slot_group": "Risk assessment information"
         },
         "experiment_intervention_details": {
           "name": "experiment_intervention_details",
-          "rank": 172,
+          "rank": 176,
           "slot_group": "Risk assessment information"
         },
         "amr_testing_by": {
           "name": "amr_testing_by",
-          "rank": 173,
+          "rank": 177,
           "slot_group": "Antimicrobial resistance"
         },
         "amr_testing_by_laboratory_name": {
           "name": "amr_testing_by_laboratory_name",
-          "rank": 174,
+          "rank": 178,
           "slot_group": "Antimicrobial resistance"
         },
         "amr_testing_by_contact_name": {
           "name": "amr_testing_by_contact_name",
-          "rank": 175,
+          "rank": 179,
           "slot_group": "Antimicrobial resistance"
         },
         "amr_testing_by_contact_email": {
           "name": "amr_testing_by_contact_email",
-          "rank": 176,
+          "rank": 180,
           "slot_group": "Antimicrobial resistance"
         },
         "amr_testing_date": {
           "name": "amr_testing_date",
-          "rank": 177,
+          "rank": 181,
           "slot_group": "Antimicrobial resistance"
         },
         "authors": {
           "name": "authors",
-          "rank": 178,
+          "rank": 182,
           "slot_group": "Contributor acknowledgement"
         },
         "dataharmonizer_provenance": {
           "name": "dataharmonizer_provenance",
-          "rank": 179,
+          "rank": 183,
           "slot_group": "Contributor acknowledgement"
         }
       },
@@ -10682,7 +10753,7 @@
           "required": true,
           "any_of": [
             {
-              "range": "Whitespaceminimizedstring"
+              "range": "WhitespaceMinimizedString"
             },
             {
               "range": "NullValueMenu"
@@ -10702,7 +10773,7 @@
             "GRDISample"
           ],
           "slot_group": "Sample collection and processing",
-          "range": "Whitespaceminimizedstring",
+          "range": "WhitespaceMinimizedString",
           "required": true
         },
         "sample_collected_by": {
@@ -10733,7 +10804,7 @@
             "GRDISample"
           ],
           "slot_group": "Sample collection and processing",
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         "sample_collection_project_name": {
           "name": "sample_collection_project_name",
@@ -10748,7 +10819,7 @@
             "GRDISample"
           ],
           "slot_group": "Sample collection and processing",
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         "sample_plan_name": {
           "name": "sample_plan_name",
@@ -10763,7 +10834,7 @@
             "GRDISample"
           ],
           "slot_group": "Sample collection and processing",
-          "range": "Whitespaceminimizedstring",
+          "range": "WhitespaceMinimizedString",
           "recommended": true
         },
         "sample_plan_id": {
@@ -10779,7 +10850,7 @@
             "GRDISample"
           ],
           "slot_group": "Sample collection and processing",
-          "range": "Whitespaceminimizedstring",
+          "range": "WhitespaceMinimizedString",
           "recommended": true
         },
         "sample_collector_contact_name": {
@@ -10795,7 +10866,7 @@
             "GRDISample"
           ],
           "slot_group": "Sample collection and processing",
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         "sample_collector_contact_email": {
           "name": "sample_collector_contact_email",
@@ -10854,7 +10925,7 @@
             "GRDISample"
           ],
           "slot_group": "Sample collection and processing",
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         "experimental_protocol_field": {
           "name": "experimental_protocol_field",
@@ -10869,7 +10940,7 @@
             "GRDISample"
           ],
           "slot_group": "Sample collection and processing",
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         "experimental_specimen_role_type": {
           "name": "experimental_specimen_role_type",
@@ -10913,7 +10984,7 @@
             "GRDISample"
           ],
           "slot_group": "Sample collection and processing",
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         "nucleic_acid_extraction_method": {
           "name": "nucleic_acid_extraction_method",
@@ -10928,7 +10999,7 @@
             "GRDISample"
           ],
           "slot_group": "Sample collection and processing",
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         "nucleic_acid_extraction_kit": {
           "name": "nucleic_acid_extraction_kit",
@@ -10943,7 +11014,7 @@
             "GRDISample"
           ],
           "slot_group": "Sample collection and processing",
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         "geo_loc_name_country": {
           "name": "geo_loc_name_country",
@@ -10988,7 +11059,7 @@
             "GRDISample"
           ],
           "slot_group": "Sample collection and processing",
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         "food_product_origin_geo_loc_name_country": {
           "name": "food_product_origin_geo_loc_name_country",
@@ -11031,7 +11102,7 @@
             "GRDISample"
           ],
           "slot_group": "Sample collection and processing",
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         "geo_loc_longitude": {
           "name": "geo_loc_longitude",
@@ -11046,7 +11117,7 @@
             "GRDISample"
           ],
           "slot_group": "Sample collection and processing",
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         "sample_collection_date": {
           "name": "sample_collection_date",
@@ -11210,7 +11281,7 @@
             "GRDISample"
           ],
           "slot_group": "Sample collection and processing",
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         "environmental_site": {
           "name": "environmental_site",
@@ -11257,7 +11328,7 @@
             "GRDISample"
           ],
           "slot_group": "Sample collection and processing",
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         "animal_or_plant_population": {
           "name": "animal_or_plant_population",
@@ -11505,7 +11576,7 @@
             "GRDISample"
           ],
           "slot_group": "Sample collection and processing",
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         "sample_volume_measurement_unit": {
           "name": "sample_volume_measurement_unit",
@@ -11550,7 +11621,7 @@
             "GRDISample"
           ],
           "slot_group": "Sample collection and processing",
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         "sample_storage_medium": {
           "name": "sample_storage_medium",
@@ -11565,7 +11636,7 @@
             "GRDISample"
           ],
           "slot_group": "Sample collection and processing",
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         "sample_storage_duration_value": {
           "name": "sample_storage_duration_value",
@@ -11580,7 +11651,7 @@
             "GRDISample"
           ],
           "slot_group": "Sample collection and processing",
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         "sample_storage_duration_unit": {
           "name": "sample_storage_duration_unit",
@@ -11610,7 +11681,7 @@
             "GRDISample"
           ],
           "slot_group": "Sample collection and processing",
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         "nucleic_acid_storage_duration_unit": {
           "name": "nucleic_acid_storage_duration_unit",
@@ -11655,7 +11726,7 @@
             "GRDISample"
           ],
           "slot_group": "Sample collection and processing",
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         "water_depth": {
           "name": "water_depth",
@@ -11670,7 +11741,7 @@
             "GRDISample"
           ],
           "slot_group": "Environmental conditions and measurements",
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         "water_depth_units": {
           "name": "water_depth_units",
@@ -11699,7 +11770,7 @@
             "GRDISample"
           ],
           "slot_group": "Environmental conditions and measurements",
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         "sediment_depth_units": {
           "name": "sediment_depth_units",
@@ -11728,7 +11799,7 @@
             "GRDISample"
           ],
           "slot_group": "Environmental conditions and measurements",
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         "air_temperature_units": {
           "name": "air_temperature_units",
@@ -11757,7 +11828,7 @@
             "GRDISample"
           ],
           "slot_group": "Environmental conditions and measurements",
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         "water_temperature_units": {
           "name": "water_temperature_units",
@@ -11773,27 +11844,80 @@
           ],
           "slot_group": "Environmental conditions and measurements"
         },
-        "weather_type": {
-          "name": "weather_type",
+        "sampling_weather_conditions": {
+          "name": "sampling_weather_conditions",
           "description": "The state of the atmosphere at a place and time as regards heat, dryness, sunshine, wind, rain, etc.",
-          "title": "weather_type",
+          "title": "sampling_weather_conditions",
           "from_schema": "https://example.com/GRDI",
           "rank": 74,
-          "slot_uri": "GENEPIO:0100442",
+          "slot_uri": "GENEPIO:0100779",
           "multivalued": true,
-          "alias": "weather_type",
+          "alias": "sampling_weather_conditions",
           "owner": "GRDISample",
           "domain_of": [
             "GRDISample"
           ],
           "slot_group": "Environmental conditions and measurements"
         },
+        "presampling_weather_conditions": {
+          "name": "presampling_weather_conditions",
+          "title": "presampling_weather_conditions",
+          "from_schema": "https://example.com/GRDI",
+          "rank": 75,
+          "slot_uri": "GENEPIO:0100780",
+          "alias": "presampling_weather_conditions",
+          "owner": "GRDISample",
+          "domain_of": [
+            "GRDISample"
+          ],
+          "slot_group": "Environmental conditions and measurements"
+        },
+        "precipitation_measurement_value": {
+          "name": "precipitation_measurement_value",
+          "title": "precipitation_measurement_value",
+          "from_schema": "https://example.com/GRDI",
+          "rank": 76,
+          "slot_uri": "GENEPIO:0100911",
+          "alias": "precipitation_measurement_value",
+          "owner": "GRDISample",
+          "domain_of": [
+            "GRDISample"
+          ],
+          "slot_group": "Environmental conditions and measurements"
+        },
+        "precipitation_measurement_unit": {
+          "name": "precipitation_measurement_unit",
+          "title": "precipitation_measurement_unit",
+          "from_schema": "https://example.com/GRDI",
+          "rank": 77,
+          "slot_uri": "GENEPIO:0100912",
+          "alias": "precipitation_measurement_unit",
+          "owner": "GRDISample",
+          "domain_of": [
+            "GRDISample"
+          ],
+          "slot_group": "Environmental conditions and measurements"
+        },
+        "precipitation_measurement_method": {
+          "name": "precipitation_measurement_method",
+          "title": "precipitation_measurement_method",
+          "from_schema": "https://example.com/GRDI",
+          "rank": 78,
+          "slot_uri": "GENEPIO:0100913",
+          "alias": "precipitation_measurement_method",
+          "owner": "GRDISample",
+          "domain_of": [
+            "GRDISample"
+          ],
+          "slot_group": "Environmental conditions and measurements",
+          "range": "WhitespaceMinimizedString"
+        },
         "host_common_name": {
           "name": "host_common_name",
           "description": "The commonly used name of the host.",
           "title": "host (common name)",
           "from_schema": "https://example.com/GRDI",
-          "rank": 75,
+          "rank": 79,
           "slot_uri": "GENEPIO:0001386",
           "alias": "host_common_name",
           "owner": "GRDISample",
@@ -11808,7 +11932,7 @@
           "description": "The taxonomic, or scientific name of the host.",
           "title": "host (scientific name)",
           "from_schema": "https://example.com/GRDI",
-          "rank": 76,
+          "rank": 80,
           "slot_uri": "GENEPIO:0001387",
           "alias": "host_scientific_name",
           "owner": "GRDISample",
@@ -11823,7 +11947,7 @@
           "description": "The biotype resulting from selection in a particular habitat, e.g. the A. thaliana Ecotype Ler.",
           "title": "host (ecotype)",
           "from_schema": "https://example.com/GRDI",
-          "rank": 77,
+          "rank": 81,
           "slot_uri": "GENEPIO:0100450",
           "alias": "host_ecotype",
           "owner": "GRDISample",
@@ -11831,14 +11955,14 @@
             "GRDISample"
           ],
           "slot_group": "Host information",
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         "host_breed": {
           "name": "host_breed",
           "description": "A breed is a specific group of domestic animals or plants having homogeneous appearance, homogeneous behavior, and other characteristics that distinguish it from other animals or plants of the same species and that were arrived at through selective breeding.",
           "title": "host (breed)",
           "from_schema": "https://example.com/GRDI",
-          "rank": 78,
+          "rank": 82,
           "slot_uri": "GENEPIO:0100451",
           "alias": "host_breed",
           "owner": "GRDISample",
@@ -11846,14 +11970,14 @@
             "GRDISample"
           ],
           "slot_group": "Host information",
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         "host_food_production_name": {
           "name": "host_food_production_name",
           "description": "The name of the host at a certain stage of food production, which may depend on its age or stage of sexual maturity.",
           "title": "host (food production name)",
           "from_schema": "https://example.com/GRDI",
-          "rank": 79,
+          "rank": 83,
           "slot_uri": "GENEPIO:0100452",
           "alias": "host_food_production_name",
           "owner": "GRDISample",
@@ -11867,7 +11991,7 @@
           "description": "Age of host at the time of sampling, expressed as an age group.",
           "title": "host_age_bin",
           "from_schema": "https://example.com/GRDI",
-          "rank": 80,
+          "rank": 84,
           "slot_uri": "GENEPIO:0001394",
           "alias": "host_age_bin",
           "owner": "GRDISample",
@@ -11881,7 +12005,7 @@
           "description": "The name of the disease experienced by the host.",
           "title": "host_disease",
           "from_schema": "https://example.com/GRDI",
-          "rank": 81,
+          "rank": 85,
           "slot_uri": "GENEPIO:0001391",
           "alias": "host_disease",
           "owner": "GRDISample",
@@ -11889,14 +12013,14 @@
             "GRDISample"
           ],
           "slot_group": "Host information",
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         "microbiological_method": {
           "name": "microbiological_method",
           "description": "The laboratory method used to grow, prepare, and/or isolate the microbial isolate.",
           "title": "microbiological_method",
           "from_schema": "https://example.com/GRDI",
-          "rank": 82,
+          "rank": 86,
           "slot_uri": "GENEPIO:0100454",
           "alias": "microbiological_method",
           "owner": "GRDISample",
@@ -11904,7 +12028,7 @@
             "GRDISample"
           ],
           "slot_group": "Strain and isolation information",
-          "range": "Whitespaceminimizedstring",
+          "range": "WhitespaceMinimizedString",
           "recommended": true
         },
         "strain": {
@@ -11912,7 +12036,7 @@
           "description": "The strain identifier.",
           "title": "strain",
           "from_schema": "https://example.com/GRDI",
-          "rank": 83,
+          "rank": 87,
           "slot_uri": "GENEPIO:0100455",
           "alias": "strain",
           "owner": "GRDISample",
@@ -11920,14 +12044,14 @@
             "GRDISample"
           ],
           "slot_group": "Strain and isolation information",
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         "isolate_id": {
           "name": "isolate_id",
           "description": "The user-defined identifier for the isolate, as provided by the laboratory that originally isolated the isolate.",
           "title": "isolate_ID",
           "from_schema": "https://example.com/GRDI",
-          "rank": 84,
+          "rank": 88,
           "slot_uri": "GENEPIO:0100456",
           "alias": "isolate_id",
           "owner": "GRDISample",
@@ -11942,7 +12066,7 @@
           "description": "An alternative isolate_ID assigned to the isolate by another organization.",
           "title": "alternative_isolate_ID",
           "from_schema": "https://example.com/GRDI",
-          "rank": 85,
+          "rank": 89,
           "slot_uri": "GENEPIO:0100457",
           "alias": "alternative_isolate_id",
           "owner": "GRDISample",
@@ -11950,7 +12074,7 @@
             "GRDISample"
           ],
           "slot_group": "Strain and isolation information",
-          "range": "Whitespaceminimizedstring",
+          "range": "WhitespaceMinimizedString",
           "recommended": true
         },
         "progeny_isolate_id": {
@@ -11958,7 +12082,7 @@
           "description": "The identifier assigned to a progenitor isolate derived from an isolate that was directly obtained from a sample.",
           "title": "progeny_isolate_ID",
           "from_schema": "https://example.com/GRDI",
-          "rank": 86,
+          "rank": 90,
           "slot_uri": "GENEPIO:0100458",
           "alias": "progeny_isolate_id",
           "owner": "GRDISample",
@@ -11966,14 +12090,14 @@
             "GRDISample"
           ],
           "slot_group": "Strain and isolation information",
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         "irida_isolate_id": {
           "name": "irida_isolate_id",
           "description": "The identifier of the isolate in the IRIDA platform.",
           "title": "IRIDA_isolate_ID",
           "from_schema": "https://example.com/GRDI",
-          "rank": 87,
+          "rank": 91,
           "slot_uri": "GENEPIO:0100459",
           "alias": "irida_isolate_id",
           "owner": "GRDISample",
@@ -11988,7 +12112,7 @@
           "description": "The identifier of the Project in the iRIDA platform.",
           "title": "IRIDA_project_ID",
           "from_schema": "https://example.com/GRDI",
-          "rank": 88,
+          "rank": 92,
           "slot_uri": "GENEPIO:0100460",
           "alias": "irida_project_id",
           "owner": "GRDISample",
@@ -12003,7 +12127,7 @@
           "description": "The name of the agency, organization or institution with which the individual who performed the isolation procedure is affiliated.",
           "title": "isolated_by",
           "from_schema": "https://example.com/GRDI",
-          "rank": 89,
+          "rank": 93,
           "slot_uri": "GENEPIO:0100461",
           "alias": "isolated_by",
           "owner": "GRDISample",
@@ -12018,7 +12142,7 @@
           "description": "The specific laboratory affiliation of the individual who performed the isolation procedure.",
           "title": "isolated_by_laboratory_name",
           "from_schema": "https://example.com/GRDI",
-          "rank": 90,
+          "rank": 94,
           "slot_uri": "GENEPIO:0100462",
           "alias": "isolated_by_laboratory_name",
           "owner": "GRDISample",
@@ -12026,14 +12150,14 @@
             "GRDISample"
           ],
           "slot_group": "Strain and isolation information",
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         "isolated_by_contact_name": {
           "name": "isolated_by_contact_name",
           "description": "The name or title of the contact responsible for follow-up regarding the isolate.",
           "title": "isolated_by_contact_name",
           "from_schema": "https://example.com/GRDI",
-          "rank": 91,
+          "rank": 95,
           "slot_uri": "GENEPIO:0100463",
           "alias": "isolated_by_contact_name",
           "owner": "GRDISample",
@@ -12041,14 +12165,14 @@
             "GRDISample"
           ],
           "slot_group": "Strain and isolation information",
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         "isolated_by_contact_email": {
           "name": "isolated_by_contact_email",
           "description": "The email address of the contact responsible for follow-up regarding the isolate.",
           "title": "isolated_by_contact_email",
           "from_schema": "https://example.com/GRDI",
-          "rank": 92,
+          "rank": 96,
           "slot_uri": "GENEPIO:0100464",
           "alias": "isolated_by_contact_email",
           "owner": "GRDISample",
@@ -12056,14 +12180,14 @@
             "GRDISample"
           ],
           "slot_group": "Strain and isolation information",
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         "isolation_date": {
           "name": "isolation_date",
           "description": "The date on which the isolate was isolated from a sample.",
           "title": "isolation_date",
           "from_schema": "https://example.com/GRDI",
-          "rank": 93,
+          "rank": 97,
           "slot_uri": "GENEPIO:0100465",
           "alias": "isolation_date",
           "owner": "GRDISample",
@@ -12078,7 +12202,7 @@
           "description": "The date on which the isolate was received by the laboratory.",
           "title": "isolate_received_date",
           "from_schema": "https://example.com/GRDI",
-          "rank": 94,
+          "rank": 98,
           "slot_uri": "GENEPIO:0100466",
           "alias": "isolate_received_date",
           "owner": "GRDISample",
@@ -12086,14 +12210,14 @@
             "GRDISample"
           ],
           "slot_group": "Strain and isolation information",
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         "organism": {
           "name": "organism",
           "description": "Taxonomic name of the organism.",
           "title": "organism",
           "from_schema": "https://example.com/GRDI",
-          "rank": 95,
+          "rank": 99,
           "slot_uri": "GENEPIO:0001191",
           "multivalued": true,
           "alias": "organism",
@@ -12109,7 +12233,7 @@
           "description": "The type of planned process by which an organismal entity is associated with a taxon or taxa.",
           "title": "taxonomic_identification_process",
           "from_schema": "https://example.com/GRDI",
-          "rank": 96,
+          "rank": 100,
           "slot_uri": "GENEPIO:0100583",
           "alias": "taxonomic_identification_process",
           "owner": "GRDISample",
@@ -12124,7 +12248,7 @@
           "description": "The details of the process used to determine the taxonomic identification of an organism.",
           "title": "taxonomic_identification_process_details",
           "from_schema": "https://example.com/GRDI",
-          "rank": 97,
+          "rank": 101,
           "slot_uri": "GENEPIO:0100584",
           "alias": "taxonomic_identification_process_details",
           "owner": "GRDISample",
@@ -12132,14 +12256,14 @@
             "GRDISample"
           ],
           "slot_group": "Strain and isolation information",
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         "serovar": {
           "name": "serovar",
           "description": "The serovar of the organism.",
           "title": "serovar",
           "from_schema": "https://example.com/GRDI",
-          "rank": 98,
+          "rank": 102,
           "slot_uri": "GENEPIO:0100467",
           "alias": "serovar",
           "owner": "GRDISample",
@@ -12147,7 +12271,7 @@
             "GRDISample"
           ],
           "slot_group": "Strain and isolation information",
-          "range": "Whitespaceminimizedstring",
+          "range": "WhitespaceMinimizedString",
           "recommended": true
         },
         "serotyping_method": {
@@ -12155,7 +12279,7 @@
           "description": "The method used to determine the serovar.",
           "title": "serotyping_method",
           "from_schema": "https://example.com/GRDI",
-          "rank": 99,
+          "rank": 103,
           "slot_uri": "GENEPIO:0100468",
           "alias": "serotyping_method",
           "owner": "GRDISample",
@@ -12163,7 +12287,7 @@
             "GRDISample"
           ],
           "slot_group": "Strain and isolation information",
-          "range": "Whitespaceminimizedstring",
+          "range": "WhitespaceMinimizedString",
           "recommended": true
         },
         "phagetype": {
@@ -12171,7 +12295,7 @@
           "description": "The phagetype of the organism.",
           "title": "phagetype",
           "from_schema": "https://example.com/GRDI",
-          "rank": 100,
+          "rank": 104,
           "slot_uri": "GENEPIO:0100469",
           "alias": "phagetype",
           "owner": "GRDISample",
@@ -12179,14 +12303,14 @@
             "GRDISample"
           ],
           "slot_group": "Strain and isolation information",
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         "library_id": {
           "name": "library_id",
           "description": "The user-specified identifier for the library prepared for sequencing.",
           "title": "library_ID",
           "from_schema": "https://example.com/GRDI",
-          "rank": 101,
+          "rank": 105,
           "slot_uri": "GENEPIO:0001448",
           "alias": "library_id",
           "owner": "GRDISample",
@@ -12194,14 +12318,14 @@
             "GRDISample"
           ],
           "slot_group": "Sequence information",
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         "sequenced_by": {
           "name": "sequenced_by",
           "description": "The name of the agency, organization or institution responsible for sequencing the isolate's genome.",
           "title": "sequenced_by",
           "from_schema": "https://example.com/GRDI",
-          "rank": 102,
+          "rank": 106,
           "slot_uri": "GENEPIO:0100416",
           "alias": "sequenced_by",
           "owner": "GRDISample",
@@ -12216,7 +12340,7 @@
           "description": "The specific laboratory affiliation of the responsible for sequencing the isolate's genome.",
           "title": "sequenced_by_laboratory_name",
           "from_schema": "https://example.com/GRDI",
-          "rank": 103,
+          "rank": 107,
           "slot_uri": "GENEPIO:0100470",
           "alias": "sequenced_by_laboratory_name",
           "owner": "GRDISample",
@@ -12224,14 +12348,14 @@
             "GRDISample"
           ],
           "slot_group": "Sequence information",
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         "sequenced_by_contact_name": {
           "name": "sequenced_by_contact_name",
           "description": "The name or title of the contact responsible for follow-up regarding the sequence.",
           "title": "sequenced_by_contact_name",
           "from_schema": "https://example.com/GRDI",
-          "rank": 104,
+          "rank": 108,
           "slot_uri": "GENEPIO:0100471",
           "alias": "sequenced_by_contact_name",
           "owner": "GRDISample",
@@ -12246,7 +12370,7 @@
           "description": "The email address of the contact responsible for follow-up regarding the sequence.",
           "title": "sequenced_by_contact_email",
           "from_schema": "https://example.com/GRDI",
-          "rank": 105,
+          "rank": 109,
           "slot_uri": "GENEPIO:0100422",
           "alias": "sequenced_by_contact_email",
           "owner": "GRDISample",
@@ -12261,7 +12385,7 @@
           "description": "The reason that the sample was sequenced.",
           "title": "purpose_of_sequencing",
           "from_schema": "https://example.com/GRDI",
-          "rank": 106,
+          "rank": 110,
           "slot_uri": "GENEPIO:0001445",
           "multivalued": true,
           "alias": "purpose_of_sequencing",
@@ -12277,7 +12401,7 @@
           "description": "The name of the project/initiative/program for which sequencing was performed.",
           "title": "sequencing_project_name",
           "from_schema": "https://example.com/GRDI",
-          "rank": 107,
+          "rank": 111,
           "slot_uri": "GENEPIO:0100472",
           "alias": "sequencing_project_name",
           "owner": "GRDISample",
@@ -12285,14 +12409,14 @@
             "GRDISample"
           ],
           "slot_group": "Sequence information",
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         "sequencing_platform": {
           "name": "sequencing_platform",
           "description": "The platform technology used to perform the sequencing.",
           "title": "sequencing_platform",
           "from_schema": "https://example.com/GRDI",
-          "rank": 108,
+          "rank": 112,
           "slot_uri": "GENEPIO:0100473",
           "alias": "sequencing_platform",
           "owner": "GRDISample",
@@ -12306,7 +12430,7 @@
           "description": "The model of the sequencing instrument used.",
           "title": "sequencing_instrument",
           "from_schema": "https://example.com/GRDI",
-          "rank": 109,
+          "rank": 113,
           "slot_uri": "GENEPIO:0001452",
           "alias": "sequencing_instrument",
           "owner": "GRDISample",
@@ -12320,7 +12444,7 @@
           "description": "The overarching sequencing methodology that was used to determine the sequence of a biomaterial.",
           "title": "sequencing_assay_type",
           "from_schema": "https://example.com/GRDI",
-          "rank": 110,
+          "rank": 114,
           "slot_uri": "GENEPIO:0100997",
           "alias": "sequencing_assay_type",
           "owner": "GRDISample",
@@ -12335,7 +12459,7 @@
           "description": "The name of the DNA library preparation kit used to generate the library being sequenced.",
           "title": "library_preparation_kit",
           "from_schema": "https://example.com/GRDI",
-          "rank": 111,
+          "rank": 115,
           "slot_uri": "GENEPIO:0001450",
           "alias": "library_preparation_kit",
           "owner": "GRDISample",
@@ -12343,14 +12467,14 @@
             "GRDISample"
           ],
           "slot_group": "Sequence information",
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         "dna_fragment_length": {
           "name": "dna_fragment_length",
           "description": "The length of the DNA fragment generated by mechanical shearing or enzymatic digestion for the purposes of library preparation.",
           "title": "DNA fragment length",
           "from_schema": "https://example.com/GRDI",
-          "rank": 112,
+          "rank": 116,
           "slot_uri": "GENEPIO:0100843",
           "alias": "dna_fragment_length",
           "owner": "GRDISample",
@@ -12365,7 +12489,7 @@
           "description": "The molecular technique used to selectively capture and amplify specific regions of interest from a genome.",
           "title": "genomic target enrichment method",
           "from_schema": "https://example.com/GRDI",
-          "rank": 113,
+          "rank": 117,
           "slot_uri": "GENEPIO:0100966",
           "alias": "genomic_target_enrichment_method",
           "owner": "GRDISample",
@@ -12380,7 +12504,7 @@
           "description": "Details that provide additional context to the molecular technique used to selectively capture and amplify specific regions of interest from a genome.",
           "title": "genomic target enrichment method details",
           "from_schema": "https://example.com/GRDI",
-          "rank": 114,
+          "rank": 118,
           "slot_uri": "GENEPIO:0100967",
           "alias": "genomic_target_enrichment_method_details",
           "owner": "GRDISample",
@@ -12388,14 +12512,14 @@
             "GRDISample"
           ],
           "slot_group": "Sequence information",
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         "amplicon_pcr_primer_scheme": {
           "name": "amplicon_pcr_primer_scheme",
           "description": "The specifications of the primers (primer sequences, binding positions, fragment size generated etc) used to generate the amplicons to be sequenced.",
           "title": "amplicon pcr primer scheme",
           "from_schema": "https://example.com/GRDI",
-          "rank": 115,
+          "rank": 119,
           "slot_uri": "GENEPIO:0001456",
           "alias": "amplicon_pcr_primer_scheme",
           "owner": "GRDISample",
@@ -12403,14 +12527,14 @@
             "GRDISample"
           ],
           "slot_group": "Sequence information",
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         "amplicon_size": {
           "name": "amplicon_size",
           "description": "The length of the amplicon generated by PCR amplification.",
           "title": "amplicon size",
           "from_schema": "https://example.com/GRDI",
-          "rank": 116,
+          "rank": 120,
           "slot_uri": "GENEPIO:0001449",
           "alias": "amplicon_size",
           "owner": "GRDISample",
@@ -12425,7 +12549,7 @@
           "description": "The version number of the flow cell used for generating sequence data.",
           "title": "sequencing flow cell version",
           "from_schema": "https://example.com/GRDI",
-          "rank": 117,
+          "rank": 121,
           "slot_uri": "GENEPIO:0101102",
           "alias": "sequencing_flow_cell_version",
           "owner": "GRDISample",
@@ -12433,14 +12557,14 @@
             "GRDISample"
           ],
           "slot_group": "Sequence information",
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         "sequencing_protocol": {
           "name": "sequencing_protocol",
           "description": "The protocol or method used for sequencing.",
           "title": "sequencing_protocol",
           "from_schema": "https://example.com/GRDI",
-          "rank": 118,
+          "rank": 122,
           "slot_uri": "GENEPIO:0001454",
           "alias": "sequencing_protocol",
           "owner": "GRDISample",
@@ -12448,14 +12572,14 @@
             "GRDISample"
           ],
           "slot_group": "Sequence information",
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         "r1_fastq_filename": {
           "name": "r1_fastq_filename",
           "description": "The user-specified filename of the r1 FASTQ file.",
           "title": "r1_fastq_filename",
           "from_schema": "https://example.com/GRDI",
-          "rank": 119,
+          "rank": 123,
           "slot_uri": "GENEPIO:0001476",
           "alias": "r1_fastq_filename",
           "owner": "GRDISample",
@@ -12463,14 +12587,14 @@
             "GRDISample"
           ],
           "slot_group": "Sequence information",
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         "r2_fastq_filename": {
           "name": "r2_fastq_filename",
           "description": "The user-specified filename of the r2 FASTQ file.",
           "title": "r2_fastq_filename",
           "from_schema": "https://example.com/GRDI",
-          "rank": 120,
+          "rank": 124,
           "slot_uri": "GENEPIO:0001477",
           "alias": "r2_fastq_filename",
           "owner": "GRDISample",
@@ -12478,14 +12602,14 @@
             "GRDISample"
           ],
           "slot_group": "Sequence information",
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         "fast5_filename": {
           "name": "fast5_filename",
           "description": "The user-specified filename of the FAST5 file.",
           "title": "fast5_filename",
           "from_schema": "https://example.com/GRDI",
-          "rank": 121,
+          "rank": 125,
           "slot_uri": "GENEPIO:0001480",
           "alias": "fast5_filename",
           "owner": "GRDISample",
@@ -12493,14 +12617,14 @@
             "GRDISample"
           ],
           "slot_group": "Sequence information",
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         "assembly_filename": {
           "name": "assembly_filename",
           "description": "The user-defined filename of the FASTA file.",
           "title": "assembly_filename",
           "from_schema": "https://example.com/GRDI",
-          "rank": 122,
+          "rank": 126,
           "slot_uri": "GENEPIO:0001461",
           "alias": "assembly_filename",
           "owner": "GRDISample",
@@ -12508,14 +12632,14 @@
             "GRDISample"
           ],
           "slot_group": "Sequence information",
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         "quality_control_method_name": {
           "name": "quality_control_method_name",
           "description": "The name of the method used to assess whether a sequence passed a predetermined quality control threshold.",
           "title": "quality control method name",
           "from_schema": "https://example.com/GRDI",
-          "rank": 123,
+          "rank": 127,
           "slot_uri": "GENEPIO:0100557",
           "alias": "quality_control_method_name",
           "owner": "GRDISample",
@@ -12523,14 +12647,14 @@
             "GRDISample"
           ],
           "slot_group": "Bioinformatics and QC metrics",
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         "quality_control_method_version": {
           "name": "quality_control_method_version",
           "description": "The version number of the method used to assess whether a sequence passed a predetermined quality control threshold.",
           "title": "quality control method version",
           "from_schema": "https://example.com/GRDI",
-          "rank": 124,
+          "rank": 128,
           "slot_uri": "GENEPIO:0100558",
           "alias": "quality_control_method_version",
           "owner": "GRDISample",
@@ -12538,14 +12662,14 @@
             "GRDISample"
           ],
           "slot_group": "Bioinformatics and QC metrics",
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         "quality_control_determination": {
           "name": "quality_control_determination",
           "description": "The determination of a quality control assessment.",
           "title": "quality control determination",
           "from_schema": "https://example.com/GRDI",
-          "rank": 125,
+          "rank": 129,
           "slot_uri": "GENEPIO:0100559",
           "multivalued": true,
           "alias": "quality_control_determination",
@@ -12560,7 +12684,7 @@
           "description": "The reason contributing to, or causing, a low quality determination in a quality control assessment.",
           "title": "quality control issues",
           "from_schema": "https://example.com/GRDI",
-          "rank": 126,
+          "rank": 130,
           "slot_uri": "GENEPIO:0100560",
           "multivalued": true,
           "alias": "quality_control_issues",
@@ -12575,7 +12699,7 @@
           "description": "The details surrounding a low quality determination in a quality control assessment.",
           "title": "quality control details",
           "from_schema": "https://example.com/GRDI",
-          "rank": 127,
+          "rank": 131,
           "slot_uri": "GENEPIO:0100561",
           "alias": "quality_control_details",
           "owner": "GRDISample",
@@ -12583,14 +12707,14 @@
             "GRDISample"
           ],
           "slot_group": "Bioinformatics and QC metrics",
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         "raw_sequence_data_processing_method": {
           "name": "raw_sequence_data_processing_method",
           "description": "The method used for raw data processing such as removing barcodes, adapter trimming, filtering etc.",
           "title": "raw sequence data processing method",
           "from_schema": "https://example.com/GRDI",
-          "rank": 128,
+          "rank": 132,
           "slot_uri": "GENEPIO:0001458",
           "alias": "raw_sequence_data_processing_method",
           "owner": "GRDISample",
@@ -12605,7 +12729,7 @@
           "description": "The method used to remove host reads from the pathogen sequence.",
           "title": "dehosting method",
           "from_schema": "https://example.com/GRDI",
-          "rank": 129,
+          "rank": 133,
           "slot_uri": "GENEPIO:0001459",
           "alias": "dehosting_method",
           "owner": "GRDISample",
@@ -12620,7 +12744,7 @@
           "description": "The name of the software used to assemble a sequence.",
           "title": "sequence assembly software name",
           "from_schema": "https://example.com/GRDI",
-          "rank": 130,
+          "rank": 134,
           "slot_uri": "GENEPIO:0100825",
           "alias": "sequence_assembly_software_name",
           "owner": "GRDISample",
@@ -12634,7 +12758,7 @@
           "description": "The version of the software used to assemble a sequence.",
           "title": "sequence assembly software version",
           "from_schema": "https://example.com/GRDI",
-          "rank": 131,
+          "rank": 135,
           "slot_uri": "GENEPIO:0100826",
           "alias": "sequence_assembly_software_version",
           "owner": "GRDISample",
@@ -12648,7 +12772,7 @@
           "description": "The name of the software used to generate the consensus sequence.",
           "title": "consensus sequence software name",
           "from_schema": "https://example.com/GRDI",
-          "rank": 132,
+          "rank": 136,
           "slot_uri": "GENEPIO:0001463",
           "alias": "consensus_sequence_software_name",
           "owner": "GRDISample",
@@ -12662,7 +12786,7 @@
           "description": "The version of the software used to generate the consensus sequence.",
           "title": "consensus sequence software version",
           "from_schema": "https://example.com/GRDI",
-          "rank": 133,
+          "rank": 137,
           "slot_uri": "GENEPIO:0001469",
           "alias": "consensus_sequence_software_version",
           "owner": "GRDISample",
@@ -12676,7 +12800,7 @@
           "description": "The percentage of the reference genome covered by the sequenced data, to a prescribed depth.",
           "title": "breadth of coverage value",
           "from_schema": "https://example.com/GRDI",
-          "rank": 134,
+          "rank": 138,
           "slot_uri": "GENEPIO:0001472",
           "alias": "breadth_of_coverage_value",
           "owner": "GRDISample",
@@ -12684,14 +12808,14 @@
             "GRDISample"
           ],
           "slot_group": "Bioinformatics and QC metrics",
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         "depth_of_coverage_value": {
           "name": "depth_of_coverage_value",
           "description": "The average number of reads representing a given nucleotide in the reconstructed sequence.",
           "title": "depth of coverage value",
           "from_schema": "https://example.com/GRDI",
-          "rank": 135,
+          "rank": 139,
           "slot_uri": "GENEPIO:0001474",
           "alias": "depth_of_coverage_value",
           "owner": "GRDISample",
@@ -12699,14 +12823,14 @@
             "GRDISample"
           ],
           "slot_group": "Bioinformatics and QC metrics",
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         "depth_of_coverage_threshold": {
           "name": "depth_of_coverage_threshold",
           "description": "The threshold used as a cut-off for the depth of coverage.",
           "title": "depth of coverage threshold",
           "from_schema": "https://example.com/GRDI",
-          "rank": 136,
+          "rank": 140,
           "slot_uri": "GENEPIO:0001475",
           "alias": "depth_of_coverage_threshold",
           "owner": "GRDISample",
@@ -12714,14 +12838,14 @@
             "GRDISample"
           ],
           "slot_group": "Bioinformatics and QC metrics",
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         "genome_completeness": {
           "name": "genome_completeness",
           "description": "The percentage of expected genes identified in the genome being sequenced. Missing genes indicate missing genomic regions (incompleteness) in the data.",
           "title": "genome completeness",
           "from_schema": "https://example.com/GRDI",
-          "rank": 137,
+          "rank": 141,
           "slot_uri": "GENEPIO:0100844",
           "alias": "genome_completeness",
           "owner": "GRDISample",
@@ -12729,14 +12853,14 @@
             "GRDISample"
           ],
           "slot_group": "Bioinformatics and QC metrics",
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         "number_of_base_pairs_sequenced": {
           "name": "number_of_base_pairs_sequenced",
           "description": "The number of total base pairs generated by the sequencing process.",
           "title": "number of base pairs sequenced",
           "from_schema": "https://example.com/GRDI",
-          "rank": 138,
+          "rank": 142,
           "slot_uri": "GENEPIO:0001482",
           "alias": "number_of_base_pairs_sequenced",
           "owner": "GRDISample",
@@ -12751,7 +12875,7 @@
           "description": "The total number of non-unique reads generated by the sequencing process.",
           "title": "number of total reads",
           "from_schema": "https://example.com/GRDI",
-          "rank": 139,
+          "rank": 143,
           "slot_uri": "GENEPIO:0100827",
           "alias": "number_of_total_reads",
           "owner": "GRDISample",
@@ -12766,7 +12890,7 @@
           "description": "The number of unique reads generated by the sequencing process.",
           "title": "number of unique reads",
           "from_schema": "https://example.com/GRDI",
-          "rank": 140,
+          "rank": 144,
           "slot_uri": "GENEPIO:0100828",
           "alias": "number_of_unique_reads",
           "owner": "GRDISample",
@@ -12781,7 +12905,7 @@
           "description": "The threshold used as a cut-off for the minimum length of a read after trimming.",
           "title": "minimum post-trimming read length",
           "from_schema": "https://example.com/GRDI",
-          "rank": 141,
+          "rank": 145,
           "slot_uri": "GENEPIO:0100829",
           "alias": "minimum_posttrimming_read_length",
           "owner": "GRDISample",
@@ -12796,7 +12920,7 @@
           "description": "The number of contigs (contiguous sequences) in a sequence assembly.",
           "title": "number of contigs",
           "from_schema": "https://example.com/GRDI",
-          "rank": 142,
+          "rank": 146,
           "slot_uri": "GENEPIO:0100937",
           "alias": "number_of_contigs",
           "owner": "GRDISample",
@@ -12811,7 +12935,7 @@
           "description": "The percentage of the assembly that consists of ambiguous bases (Ns).",
           "title": "percent Ns across total genome length",
           "from_schema": "https://example.com/GRDI",
-          "rank": 143,
+          "rank": 147,
           "slot_uri": "GENEPIO:0100830",
           "alias": "percent_ns_across_total_genome_length",
           "owner": "GRDISample",
@@ -12826,7 +12950,7 @@
           "description": "The number of ambiguous bases (Ns) normalized per 100 kilobasepairs (kbp).",
           "title": "Ns per 100 kbp",
           "from_schema": "https://example.com/GRDI",
-          "rank": 144,
+          "rank": 148,
           "slot_uri": "GENEPIO:0001484",
           "alias": "ns_per_100_kbp",
           "owner": "GRDISample",
@@ -12841,7 +12965,7 @@
           "description": "The length of the shortest read that, together with other reads, represents at least 50% of the nucleotides in a set of sequences.",
           "title": "N50",
           "from_schema": "https://example.com/GRDI",
-          "rank": 145,
+          "rank": 149,
           "slot_uri": "GENEPIO:0100938",
           "alias": "n50",
           "owner": "GRDISample",
@@ -12856,7 +12980,7 @@
           "description": "The percent of the total number of reads identified as contamination (not belonging to the target organism) in a sequence dataset.",
           "title": "percent read contamination",
           "from_schema": "https://example.com/GRDI",
-          "rank": 146,
+          "rank": 150,
           "slot_uri": "GENEPIO:0100845",
           "alias": "percent_read_contamination_",
           "owner": "GRDISample",
@@ -12871,7 +12995,7 @@
           "description": "The length of the genome generated by assembling reads using a scaffold or by reference-based mapping.",
           "title": "sequence assembly length",
           "from_schema": "https://example.com/GRDI",
-          "rank": 147,
+          "rank": 151,
           "slot_uri": "GENEPIO:0100846",
           "alias": "sequence_assembly_length",
           "owner": "GRDISample",
@@ -12886,7 +13010,7 @@
           "description": "The length of the genome defined by the most common nucleotides at each position.",
           "title": "consensus genome length",
           "from_schema": "https://example.com/GRDI",
-          "rank": 148,
+          "rank": 152,
           "slot_uri": "GENEPIO:0001483",
           "alias": "consensus_genome_length",
           "owner": "GRDISample",
@@ -12901,7 +13025,7 @@
           "description": "A persistent, unique identifier of a genome database entry.",
           "title": "reference genome accession",
           "from_schema": "https://example.com/GRDI",
-          "rank": 149,
+          "rank": 153,
           "slot_uri": "GENEPIO:0001485",
           "alias": "reference_genome_accession",
           "owner": "GRDISample",
@@ -12909,14 +13033,14 @@
             "GRDISample"
           ],
           "slot_group": "Bioinformatics and QC metrics",
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         "deduplication_method": {
           "name": "deduplication_method",
           "description": "The method used to remove duplicated reads in a sequence read dataset.",
           "title": "deduplication method",
           "from_schema": "https://example.com/GRDI",
-          "rank": 150,
+          "rank": 154,
           "slot_uri": "GENEPIO:0100831",
           "alias": "deduplication_method",
           "owner": "GRDISample",
@@ -12924,14 +13048,14 @@
             "GRDISample"
           ],
           "slot_group": "Bioinformatics and QC metrics",
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         "bioinformatics_protocol": {
           "name": "bioinformatics_protocol",
           "description": "A description of the overall bioinformatics strategy used.",
           "title": "bioinformatics protocol",
           "from_schema": "https://example.com/GRDI",
-          "rank": 151,
+          "rank": 155,
           "slot_uri": "GENEPIO:0001489",
           "alias": "bioinformatics_protocol",
           "owner": "GRDISample",
@@ -12939,14 +13063,14 @@
             "GRDISample"
           ],
           "slot_group": "Bioinformatics and QC metrics",
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         "read_mapping_software_name": {
           "name": "read_mapping_software_name",
           "description": "The name of the software used to map sequence reads to a reference genome or set of reference genes.",
           "title": "read mapping software name",
           "from_schema": "https://example.com/GRDI",
-          "rank": 152,
+          "rank": 156,
           "slot_uri": "GENEPIO:0100832",
           "alias": "read_mapping_software_name",
           "owner": "GRDISample",
@@ -12954,14 +13078,14 @@
             "GRDISample"
           ],
           "slot_group": "Taxonomic identification information",
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         "read_mapping_software_version": {
           "name": "read_mapping_software_version",
           "description": "The version of the software used to map sequence reads to a reference genome or set of reference genes.",
           "title": "read mapping software version",
           "from_schema": "https://example.com/GRDI",
-          "rank": 153,
+          "rank": 157,
           "slot_uri": "GENEPIO:0100833",
           "alias": "read_mapping_software_version",
           "owner": "GRDISample",
@@ -12969,14 +13093,14 @@
             "GRDISample"
           ],
           "slot_group": "Taxonomic identification information",
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         "taxonomic_reference_database_name": {
           "name": "taxonomic_reference_database_name",
           "description": "The name of the taxonomic reference database used to identify the organism.",
           "title": "taxonomic reference database name",
           "from_schema": "https://example.com/GRDI",
-          "rank": 154,
+          "rank": 158,
           "slot_uri": "GENEPIO:0100834",
           "alias": "taxonomic_reference_database_name",
           "owner": "GRDISample",
@@ -12984,14 +13108,14 @@
             "GRDISample"
           ],
           "slot_group": "Taxonomic identification information",
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         "taxonomic_reference_database_version": {
           "name": "taxonomic_reference_database_version",
           "description": "The version of the taxonomic reference database used to identify the organism.",
           "title": "taxonomic reference database version",
           "from_schema": "https://example.com/GRDI",
-          "rank": 155,
+          "rank": 159,
           "slot_uri": "GENEPIO:0100835",
           "alias": "taxonomic_reference_database_version",
           "owner": "GRDISample",
@@ -12999,14 +13123,14 @@
             "GRDISample"
           ],
           "slot_group": "Taxonomic identification information",
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         "taxonomic_analysis_report_filename": {
           "name": "taxonomic_analysis_report_filename",
           "description": "The filename of the report containing the results of a taxonomic analysis.",
           "title": "taxonomic analysis report filename",
           "from_schema": "https://example.com/GRDI",
-          "rank": 156,
+          "rank": 160,
           "slot_uri": "GENEPIO:0101074",
           "alias": "taxonomic_analysis_report_filename",
           "owner": "GRDISample",
@@ -13014,14 +13138,14 @@
             "GRDISample"
           ],
           "slot_group": "Taxonomic identification information",
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         "taxonomic_analysis_date": {
           "name": "taxonomic_analysis_date",
           "description": "The date a taxonomic analysis was performed.",
           "title": "taxonomic analysis date",
           "from_schema": "https://example.com/GRDI",
-          "rank": 157,
+          "rank": 161,
           "slot_uri": "GENEPIO:0101075",
           "alias": "taxonomic_analysis_date",
           "owner": "GRDISample",
@@ -13036,7 +13160,7 @@
           "description": "A description of the criteria used to map reads to a reference sequence.",
           "title": "read mapping criteria",
           "from_schema": "https://example.com/GRDI",
-          "rank": 158,
+          "rank": 162,
           "slot_uri": "GENEPIO:0100836",
           "alias": "read_mapping_criteria",
           "owner": "GRDISample",
@@ -13044,14 +13168,14 @@
             "GRDISample"
           ],
           "slot_group": "Taxonomic identification information",
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         "sequence_submitted_by": {
           "name": "sequence_submitted_by",
           "description": "The name of the agency that submitted the sequence to a database.",
           "title": "sequence_submitted_by",
           "from_schema": "https://example.com/GRDI",
-          "rank": 159,
+          "rank": 163,
           "slot_uri": "GENEPIO:0001159",
           "alias": "sequence_submitted_by",
           "owner": "GRDISample",
@@ -13065,7 +13189,7 @@
           "description": "The name or title of the contact responsible for follow-up regarding the submission of the sequence to a repository or database.",
           "title": "sequence_submitted_by_contact_name",
           "from_schema": "https://example.com/GRDI",
-          "rank": 160,
+          "rank": 164,
           "slot_uri": "GENEPIO:0100474",
           "alias": "sequence_submitted_by_contact_name",
           "owner": "GRDISample",
@@ -13073,14 +13197,14 @@
             "GRDISample"
           ],
           "slot_group": "Public repository information",
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         "sequence_submitted_by_contact_email": {
           "name": "sequence_submitted_by_contact_email",
           "description": "The email address of the agency responsible for submission of the sequence.",
           "title": "sequence_submitted_by_contact_email",
           "from_schema": "https://example.com/GRDI",
-          "rank": 161,
+          "rank": 165,
           "slot_uri": "GENEPIO:0001165",
           "alias": "sequence_submitted_by_contact_email",
           "owner": "GRDISample",
@@ -13088,14 +13212,14 @@
             "GRDISample"
           ],
           "slot_group": "Public repository information",
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         "publication_id": {
           "name": "publication_id",
           "description": "The identifier for a publication.",
           "title": "publication_ID",
           "from_schema": "https://example.com/GRDI",
-          "rank": 162,
+          "rank": 166,
           "slot_uri": "GENEPIO:0100475",
           "alias": "publication_id",
           "owner": "GRDISample",
@@ -13103,14 +13227,14 @@
             "GRDISample"
           ],
           "slot_group": "Public repository information",
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         "attribute_package": {
           "name": "attribute_package",
           "description": "The attribute package used to structure metadata in an INSDC BioSample.",
           "title": "attribute_package",
           "from_schema": "https://example.com/GRDI",
-          "rank": 163,
+          "rank": 167,
           "slot_uri": "GENEPIO:0100476",
           "alias": "attribute_package",
           "owner": "GRDISample",
@@ -13124,7 +13248,7 @@
           "description": "The INSDC accession number of the BioProject(s) to which the BioSample belongs.",
           "title": "bioproject_accession",
           "from_schema": "https://example.com/GRDI",
-          "rank": 164,
+          "rank": 168,
           "slot_uri": "GENEPIO:0001136",
           "alias": "bioproject_accession",
           "owner": "GRDISample",
@@ -13132,14 +13256,14 @@
             "GRDISample"
           ],
           "slot_group": "Public repository information",
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         "biosample_accession": {
           "name": "biosample_accession",
           "description": "The identifier assigned to a BioSample in INSDC archives.",
           "title": "biosample_accession",
           "from_schema": "https://example.com/GRDI",
-          "rank": 165,
+          "rank": 169,
           "slot_uri": "GENEPIO:0001139",
           "alias": "biosample_accession",
           "owner": "GRDISample",
@@ -13147,14 +13271,14 @@
             "GRDISample"
           ],
           "slot_group": "Public repository information",
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         "sra_accession": {
           "name": "sra_accession",
           "description": "The Sequence Read Archive (SRA), European Nucleotide Archive (ENA) or DDBJ Sequence Read Archive (DRA) identifier linking raw read data, methodological metadata and quality control metrics submitted to the INSDC.",
           "title": "SRA_accession",
           "from_schema": "https://example.com/GRDI",
-          "rank": 166,
+          "rank": 170,
           "slot_uri": "GENEPIO:0001142",
           "alias": "sra_accession",
           "owner": "GRDISample",
@@ -13162,14 +13286,14 @@
             "GRDISample"
           ],
           "slot_group": "Public repository information",
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         "genbank_accession": {
           "name": "genbank_accession",
           "description": "The GenBank/ENA/DDBJ identifier assigned to the sequence in the INSDC archives.",
           "title": "GenBank_accession",
           "from_schema": "https://example.com/GRDI",
-          "rank": 167,
+          "rank": 171,
           "slot_uri": "GENEPIO:0001145",
           "alias": "genbank_accession",
           "owner": "GRDISample",
@@ -13177,14 +13301,14 @@
             "GRDISample"
           ],
           "slot_group": "Public repository information",
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         "prevalence_metrics": {
           "name": "prevalence_metrics",
           "description": "Metrics regarding the prevalence of the pathogen of interest obtained from a surveillance project.",
           "title": "prevalence_metrics",
           "from_schema": "https://example.com/GRDI",
-          "rank": 168,
+          "rank": 172,
           "slot_uri": "GENEPIO:0100480",
           "alias": "prevalence_metrics",
           "owner": "GRDISample",
@@ -13192,7 +13316,7 @@
             "GRDISample"
           ],
           "slot_group": "Risk assessment information",
-          "range": "Whitespaceminimizedstring",
+          "range": "WhitespaceMinimizedString",
           "recommended": true
         },
         "prevalence_metrics_details": {
@@ -13200,7 +13324,7 @@
           "description": "The details pertaining to the prevalence metrics from a surveillance project.",
           "title": "prevalence_metrics_details",
           "from_schema": "https://example.com/GRDI",
-          "rank": 169,
+          "rank": 173,
           "slot_uri": "GENEPIO:0100481",
           "alias": "prevalence_metrics_details",
           "owner": "GRDISample",
@@ -13208,7 +13332,7 @@
             "GRDISample"
           ],
           "slot_group": "Risk assessment information",
-          "range": "Whitespaceminimizedstring",
+          "range": "WhitespaceMinimizedString",
           "recommended": true
         },
         "stage_of_production": {
@@ -13216,7 +13340,7 @@
           "description": "The stage of food production.",
           "title": "stage_of_production",
           "from_schema": "https://example.com/GRDI",
-          "rank": 170,
+          "rank": 174,
           "slot_uri": "GENEPIO:0100482",
           "alias": "stage_of_production",
           "owner": "GRDISample",
@@ -13231,7 +13355,7 @@
           "description": "The category of the experimental intervention applied in the food production system.",
           "title": "experimental_intervention",
           "from_schema": "https://example.com/GRDI",
-          "rank": 171,
+          "rank": 175,
           "slot_uri": "GENEPIO:0100483",
           "multivalued": true,
           "alias": "experimental_intervention",
@@ -13247,7 +13371,7 @@
           "description": "The details of the experimental intervention applied in the food production system.",
           "title": "experiment_intervention_details",
           "from_schema": "https://example.com/GRDI",
-          "rank": 172,
+          "rank": 176,
           "slot_uri": "GENEPIO:0100484",
           "alias": "experiment_intervention_details",
           "owner": "GRDISample",
@@ -13255,7 +13379,7 @@
             "GRDISample"
           ],
           "slot_group": "Risk assessment information",
-          "range": "Whitespaceminimizedstring",
+          "range": "WhitespaceMinimizedString",
           "recommended": true
         },
         "amr_testing_by": {
@@ -13263,7 +13387,7 @@
           "description": "The name of the organization that performed the antimicrobial resistance testing.",
           "title": "AMR_testing_by",
           "from_schema": "https://example.com/GRDI",
-          "rank": 173,
+          "rank": 177,
           "slot_uri": "GENEPIO:0100511",
           "alias": "amr_testing_by",
           "owner": "GRDISample",
@@ -13278,7 +13402,7 @@
           "description": "The name of the lab within the organization that performed the antimicrobial resistance testing.",
           "title": "AMR_testing_by_laboratory_name",
           "from_schema": "https://example.com/GRDI",
-          "rank": 174,
+          "rank": 178,
           "slot_uri": "GENEPIO:0100512",
           "alias": "amr_testing_by_laboratory_name",
           "owner": "GRDISample",
@@ -13286,14 +13410,14 @@
             "GRDISample"
           ],
           "slot_group": "Antimicrobial resistance",
-          "range": "Whitespaceminimizedstring"
+          "range": "WhitespaceMinimizedString"
         },
         "amr_testing_by_contact_name": {
           "name": "amr_testing_by_contact_name",
           "description": "The name of the individual or the individual's role in the organization that performed the antimicrobial resistance testing.",
           "title": "AMR_testing_by_contact_name",
           "from_schema": "https://example.com/GRDI",
-          "rank": 175,
+          "rank": 179,
           "slot_uri": "GENEPIO:0100513",
           "alias": "amr_testing_by_contact_name",
           "owner": "GRDISample",
@@ -13308,7 +13432,7 @@
           "description": "The email of the individual or the individual's role in the organization that performed the antimicrobial resistance testing.",
           "title": "AMR_testing_by_contact_email",
           "from_schema": "https://example.com/GRDI",
-          "rank": 176,
+          "rank": 180,
           "slot_uri": "GENEPIO:0100514",
           "alias": "amr_testing_by_contact_email",
           "owner": "GRDISample",
@@ -13323,7 +13447,7 @@
           "description": "The date the antimicrobial resistance testing was performed.",
           "title": "AMR_testing_date",
           "from_schema": "https://example.com/GRDI",
-          "rank": 177,
+          "rank": 181,
           "slot_uri": "GENEPIO:0100515",
           "alias": "amr_testing_date",
           "owner": "GRDISample",
@@ -13338,7 +13462,7 @@
           "description": "Names of individuals contributing to the processes of sample collection, sequence generation, analysis, and data submission.",
           "title": "authors",
           "from_schema": "https://example.com/GRDI",
-          "rank": 178,
+          "rank": 182,
           "slot_uri": "GENEPIO:0001517",
           "alias": "authors",
           "owner": "GRDISample",
@@ -13346,7 +13470,7 @@
             "GRDISample"
           ],
           "slot_group": "Contributor acknowledgement",
-          "range": "Whitespaceminimizedstring",
+          "range": "WhitespaceMinimizedString",
           "recommended": true
         },
         "dataharmonizer_provenance": {
@@ -13354,7 +13478,7 @@
           "description": "The DataHarmonizer software and template version provenance.",
           "title": "DataHarmonizer provenance",
           "from_schema": "https://example.com/GRDI",
-          "rank": 179,
+          "rank": 183,
           "slot_uri": "GENEPIO:0001518",
           "alias": "dataharmonizer_provenance",
           "owner": "GRDISample",
@@ -13496,7 +13620,7 @@
             "AMRTest"
           ],
           "slot_group": "Antimicrobial resistance",
-          "range": "Antimicrobial Resistance Test Drug Menu",
+          "range": "AntimicrobialResistanceTestDrugMenu",
           "required": true
         },
         "resistance_phenotype": {
@@ -13592,8 +13716,7 @@
           "domain_of": [
             "AMRTest"
           ],
-          "slot_group": "Antimicrobial resistance",
-          "range": "WhitespaceMinimizedString"
+          "slot_group": "Antimicrobial resistance"
         },
         "vendor_name": {
           "name": "vendor_name",

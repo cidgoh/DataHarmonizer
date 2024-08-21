@@ -356,8 +356,7 @@ def set_enums(enum_path, schema, locale_schemas, export_format, warnings):
 		reader = csv.DictReader(tsvfile, dialect='excel-tab');
 
 		enumerations = schema['enums'];
-
-		name = ''; # running title for chunks of enumeration rows
+		name = ''; # running name for chunks of enumeration rows
 		choice_path = [];
 		enum = {};
 
@@ -368,11 +367,14 @@ def set_enums(enum_path, schema, locale_schemas, export_format, warnings):
 					row[field] = row[field].strip();
 
 			# Each enumeration begins with a row that provides the name of the enum.
-			if row.get('name','') > '':
+			# subsequent rows may not have a name.
+			if row.get('name','') > '' or row.get('title','') > '':
 
 				# Process default language title
 				name = row.get('name');
 				title = row.get('title');
+				if not name: # For enumerations that don't have separate name field
+					name = title;
 				if not (name in enumerations):
 					enum = {
 						'name': name,
@@ -401,15 +403,15 @@ def set_enums(enum_path, schema, locale_schemas, export_format, warnings):
 				# Loop scans through columns until it gets a value
 				for depth in range(1,6):
 					menu_x = 'menu_' + str(depth);
-					choice_value = row.get(menu_x);
+					choice_text = row.get(menu_x);
 					# Here there is a menu item to process
-					if choice_value > '':
+					if choice_text > '':
 						del choice_path[depth-1:] # Menu path always points to parent
 
 						description = row.get('description','');
 						meaning = row.get('meaning','');
 
-						choice = {'text' : choice_value}
+						choice = {'text' : choice_text}
 						if description > '': choice['description'] = description;
 						if meaning > '': choice['meaning'] = meaning;
 
@@ -420,12 +422,11 @@ def set_enums(enum_path, schema, locale_schemas, export_format, warnings):
 						if len(choice_path) > 0:
 							choice['is_a'] = choice_path[-1]; # Last item in path
 
-						enum['permissible_values'][choice_value] = choice;
-						choice_path.append(choice_value);
+						enum['permissible_values'][choice_text] = choice;
+						choice_path.append(choice_text);
 
 						for lcode in locale_schemas.keys():
 							translation = row.get(menu_x + '_' + lcode, '');
-
 							if translation > '' and translation != choice['text']:
 
 								local_choice = {'title': translation}
@@ -433,7 +434,7 @@ def set_enums(enum_path, schema, locale_schemas, export_format, warnings):
 								if description:
 									local_choice['description': description];
 
-								locale_schemas[lcode]['enums'][name]['permissible_values'][choice_value] = local_choice;
+								locale_schemas[lcode]['enums'][name]['permissible_values'][choice_text] = local_choice;
 
 						break;
 

@@ -2167,8 +2167,8 @@ slots:
     any_of:
     - range: decimal
     - range: null value menu
-    minimum_value: '0'
-    maximum_value: '130'
+    minimum_value: 0
+    maximum_value: 130
     examples:
     - value: '79'
   host age unit:
@@ -2852,7 +2852,7 @@ slots:
     comments: Provide a numerical value (no need to include units).
     slot_uri: GENEPIO:0001482
     range: integer
-    minimum_value: '0'
+    minimum_value: 0
     examples:
     - value: '2639019'
     exact_mappings:
@@ -2865,7 +2865,7 @@ slots:
     comments: Provide a numerical value (no need to include units).
     slot_uri: GENEPIO:0001483
     range: integer
-    minimum_value: '0'
+    minimum_value: 0
     examples:
     - value: '197063'
     exact_mappings:
@@ -3076,6 +3076,7 @@ slots:
 enums:
   null value menu:
     name: null value menu
+    title: null value menu
     permissible_values:
       Not Applicable:
         text: Not Applicable
@@ -3094,6 +3095,7 @@ enums:
         meaning: GENEPIO:0001810
   geo_loc_name (state/province/territory) menu:
     name: geo_loc_name (state/province/territory) menu
+    title: geo_loc_name (state/province/territory) menu
     permissible_values:
       Alberta:
         text: Alberta
@@ -3136,6 +3138,7 @@ enums:
         meaning: GAZ:00002576
   sample collection date precision menu:
     name: sample collection date precision menu
+    title: sample collection date precision menu
     permissible_values:
       year:
         text: year
@@ -3148,6 +3151,7 @@ enums:
         meaning: UO:0000033
   NML submitted specimen type menu:
     name: NML submitted specimen type menu
+    title: NML submitted specimen type menu
     permissible_values:
       Bodily fluid:
         text: Bodily fluid
@@ -3172,6 +3176,7 @@ enums:
         meaning: GENEPIO:0001619
   Related specimen relationship type menu:
     name: Related specimen relationship type menu
+    title: Related specimen relationship type menu
     permissible_values:
       Acute:
         text: Acute
@@ -3194,6 +3199,7 @@ enums:
         text: Specimen sampling methods testing
   anatomical material menu:
     name: anatomical material menu
+    title: anatomical material menu
     permissible_values:
       Blood:
         text: Blood
@@ -3279,6 +3285,7 @@ enums:
         is_a: Tissue
   anatomical material international menu:
     name: anatomical material international menu
+    title: anatomical material international menu
     permissible_values:
       Blood [UBERON:0000178]:
         text: Blood [UBERON:0000178]
@@ -3364,6 +3371,7 @@ enums:
         is_a: Tissue [UBERON:0000479]
   anatomical part menu:
     name: anatomical part menu
+    title: anatomical part menu
     permissible_values:
       Anus:
         text: Anus
@@ -3548,6 +3556,7 @@ enums:
         meaning: UBERON:0001003
   anatomical part international menu:
     name: anatomical part international menu
+    title: anatomical part international menu
     permissible_values:
       Anus [UBERON:0001245]:
         text: Anus [UBERON:0001245]
@@ -3732,6 +3741,7 @@ enums:
         meaning: UBERON:0001003
   body product menu:
     name: body product menu
+    title: body product menu
     permissible_values:
       Breast Milk:
         text: Breast Milk
@@ -3767,6 +3777,7 @@ enums:
         meaning: UBERON:0001088
   body product international menu:
     name: body product international menu
+    title: body product international menu
     permissible_values:
       Breast Milk [UBERON:0001913]:
         text: Breast Milk [UBERON:0001913]
@@ -3802,6 +3813,7 @@ enums:
         meaning: UBERON:0001088
   environmental material international menu:
     name: environmental material international menu
+    title: environmental material international menu
     permissible_values:
       Animal carcass:
         text: Animal carcass
@@ -3823,6 +3835,7 @@ enums:
         is_a: Tableware
   collection method menu:
     name: collection method menu
+    title: collection method menu
     permissible_values:
       Amniocentesis:
         text: Amniocentesis
@@ -3898,6 +3911,7 @@ enums:
         meaning: NCIT:C15392
   collection method international menu:
     name: collection method international menu
+    title: collection method international menu
     permissible_values:
       Amniocentesis [NCIT:C52009]:
         text: Amniocentesis [NCIT:C52009]
@@ -3973,6 +3987,7 @@ enums:
         meaning: NCIT:C15392
   collection device menu:
     name: collection device menu
+    title: collection device menu
     permissible_values:
       Blood Collection Tube:
         text: Blood Collection Tube
@@ -4019,6 +4034,7 @@ enums:
         meaning: OBI:0002866
   collection device international menu:
     name: collection device international menu
+    title: collection device international menu
     permissible_values:
       Blood Collection Tube [OBI:0002859]:
         text: Blood Collection Tube [OBI:0002859]
@@ -4065,6 +4081,7 @@ enums:
         meaning: OBI:0002866
   specimen processing menu:
     name: specimen processing menu
+    title: specimen processing menu
     permissible_values:
       Virus passage:
         text: Virus passage
@@ -4077,6 +4094,7 @@ enums:
         meaning: OBI:0600016
   specimen processing international menu:
     name: specimen processing international menu
+    title: specimen processing international menu
     permissible_values:
       Virus passage [GENEPIO:0100039]:
         text: Virus passage [GENEPIO:0100039]
@@ -4089,12 +4107,14 @@ enums:
         meaning: OBI:0600016
   host (common name) menu:
     name: host (common name) menu
+    title: host (common name) menu
     permissible_values:
       Human:
         text: Human
         meaning: NCBITaxon:9606
   host (common name) international menu:
     name: host (common name) international menu
+    title: host (common name) international menu
     permissible_values:
       Human [NCBITaxon:9606]:
         text: Human [NCBITaxon:9606]
@@ -4119,18 +4139,21 @@ enums:
         is_a: Rodent
   host (scientific name) menu:
     name: host (scientific name) menu
+    title: host (scientific name) menu
     permissible_values:
       Homo sapiens:
         text: Homo sapiens
         meaning: NCBITaxon:9606
   host (scientific name) international menu:
     name: host (scientific name) international menu
+    title: host (scientific name) international menu
     permissible_values:
       Homo sapiens [NCBITaxon:9606]:
         text: Homo sapiens [NCBITaxon:9606]
         meaning: NCBITaxon:9606
   host health state menu:
     name: host health state menu
+    title: host health state menu
     permissible_values:
       Asymptomatic:
         text: Asymptomatic
@@ -4149,6 +4172,7 @@ enums:
         meaning: NCIT:C25269
   host health state international menu:
     name: host health state international menu
+    title: host health state international menu
     permissible_values:
       Asymptomatic [NCIT:C3833]:
         text: Asymptomatic [NCIT:C3833]
@@ -4167,6 +4191,7 @@ enums:
         meaning: NCIT:C25269
   host health status details menu:
     name: host health status details menu
+    title: host health status details menu
     permissible_values:
       Hospitalized:
         text: Hospitalized
@@ -4191,6 +4216,7 @@ enums:
         meaning: NCIT:C173768
   host health status details international menu:
     name: host health status details international menu
+    title: host health status details international menu
     permissible_values:
       Hospitalized [NCIT:C25179]:
         text: Hospitalized [NCIT:C25179]
@@ -4215,6 +4241,7 @@ enums:
         meaning: NCIT:C173768
   host health outcome menu:
     name: host health outcome menu
+    title: host health outcome menu
     permissible_values:
       Deceased:
         text: Deceased
@@ -4230,6 +4257,7 @@ enums:
         meaning: NCIT:C30103
   host health outcome international menu:
     name: host health outcome international menu
+    title: host health outcome international menu
     permissible_values:
       Deceased [NCIT:C28554]:
         text: Deceased [NCIT:C28554]
@@ -4245,6 +4273,7 @@ enums:
         meaning: NCIT:C30103
   host age unit menu:
     name: host age unit menu
+    title: host age unit menu
     permissible_values:
       month:
         text: month
@@ -4254,6 +4283,7 @@ enums:
         meaning: UO:0000036
   host age unit international menu:
     name: host age unit international menu
+    title: host age unit international menu
     permissible_values:
       month [UO:0000035]:
         text: month [UO:0000035]
@@ -4263,6 +4293,7 @@ enums:
         meaning: UO:0000036
   host age bin menu:
     name: host age bin menu
+    title: host age bin menu
     permissible_values:
       0 - 9:
         text: 0 - 9
@@ -4299,6 +4330,7 @@ enums:
         meaning: GENEPIO:0100059
   host age bin international menu:
     name: host age bin international menu
+    title: host age bin international menu
     permissible_values:
       0 - 9 [GENEPIO:0100049]:
         text: 0 - 9 [GENEPIO:0100049]
@@ -4335,6 +4367,7 @@ enums:
         meaning: GENEPIO:0100059
   host gender menu:
     name: host gender menu
+    title: host gender menu
     permissible_values:
       Female:
         text: Female
@@ -4356,6 +4389,7 @@ enums:
         meaning: NCIT:C110959
   host gender international menu:
     name: host gender international menu
+    title: host gender international menu
     permissible_values:
       Female [NCIT:C46110]:
         text: Female [NCIT:C46110]
@@ -4377,6 +4411,7 @@ enums:
         meaning: NCIT:C110959
   signs and symptoms menu:
     name: signs and symptoms menu
+    title: signs and symptoms menu
     permissible_values:
       Chills (sudden cold sensation):
         text: Chills (sudden cold sensation)
@@ -4467,6 +4502,7 @@ enums:
         meaning: HP:0002013
   signs and symptoms international menu:
     name: signs and symptoms international menu
+    title: signs and symptoms international menu
     permissible_values:
       Chills (sudden cold sensation) [HP:0025143]:
         text: Chills (sudden cold sensation) [HP:0025143]
@@ -4557,6 +4593,7 @@ enums:
         meaning: HP:0002013
   pre-existing conditions and risk factors menu:
     name: pre-existing conditions and risk factors menu
+    title: pre-existing conditions and risk factors menu
     permissible_values:
       Cancer:
         text: Cancer
@@ -4652,6 +4689,7 @@ enums:
         meaning: NCIT:C159659
   pre-existing conditions and risk factors international menu:
     name: pre-existing conditions and risk factors international menu
+    title: pre-existing conditions and risk factors international menu
     permissible_values:
       Cancer [MONDO:0004992]:
         text: Cancer [MONDO:0004992]
@@ -4747,6 +4785,7 @@ enums:
         meaning: NCIT:C159659
   complications menu:
     name: complications menu
+    title: complications menu
     permissible_values:
       Bronchopneumonia:
         text: Bronchopneumonia
@@ -4771,6 +4810,7 @@ enums:
         meaning: HP:0100806
   complications international menu:
     name: complications international menu
+    title: complications international menu
     permissible_values:
       Bronchopneumonia [MONDO:0005682]:
         text: Bronchopneumonia [MONDO:0005682]
@@ -4795,6 +4835,7 @@ enums:
         meaning: HP:0100806
   host vaccination status menu:
     name: host vaccination status menu
+    title: host vaccination status menu
     permissible_values:
       Fully Vaccinated:
         text: Fully Vaccinated
@@ -4804,6 +4845,7 @@ enums:
         meaning: GENEPIO:0100102
   host vaccination status international menu:
     name: host vaccination status international menu
+    title: host vaccination status international menu
     permissible_values:
       Fully Vaccinated [GENEPIO:0100100]:
         text: Fully Vaccinated [GENEPIO:0100100]
@@ -4813,6 +4855,7 @@ enums:
         meaning: GENEPIO:0100102
   exposure event menu:
     name: exposure event menu
+    title: exposure event menu
     permissible_values:
       Mass Gathering:
         text: Mass Gathering
@@ -4839,6 +4882,7 @@ enums:
         text: Other exposure event
   exposure event international menu:
     name: exposure event international menu
+    title: exposure event international menu
     permissible_values:
       Mass Gathering [GENEPIO:0100237]:
         text: Mass Gathering [GENEPIO:0100237]
@@ -4882,6 +4926,7 @@ enums:
         description: An exposure event not specified in the picklist.
   exposure contact level menu:
     name: exposure contact level menu
+    title: exposure contact level menu
     permissible_values:
       Contact with animal:
         text: Contact with animal
@@ -4933,6 +4978,7 @@ enums:
         is_a: Workplace associated transmission
   exposure contact level international menu:
     name: exposure contact level international menu
+    title: exposure contact level international menu
     permissible_values:
       Contact with animal [GENEPIO:0100494]:
         text: Contact with animal [GENEPIO:0100494]
@@ -4984,6 +5030,7 @@ enums:
         is_a: Workplace associated transmission [GENEPIO:0100497]
   host role menu:
     name: host role menu
+    title: host role menu
     permissible_values:
       Attendee:
         text: Attendee
@@ -5117,6 +5164,7 @@ enums:
         text: Other Host Role
   host role international menu:
     name: host role international menu
+    title: host role international menu
     permissible_values:
       Attendee [GENEPIO:0100249]:
         text: Attendee [GENEPIO:0100249]
@@ -5250,6 +5298,7 @@ enums:
         text: Other Host Role
   exposure setting menu:
     name: exposure setting menu
+    title: exposure setting menu
     permissible_values:
       Human Exposure:
         text: Human Exposure
@@ -5489,6 +5538,7 @@ enums:
         meaning: GENEPIO:0100235
   exposure setting international menu:
     name: exposure setting international menu
+    title: exposure setting international menu
     permissible_values:
       Human Exposure [ECTO:3000005]:
         text: Human Exposure [ECTO:3000005]
@@ -5728,6 +5778,7 @@ enums:
         meaning: GENEPIO:0100235
   prior Mpox infection menu:
     name: prior Mpox infection menu
+    title: prior Mpox infection menu
     permissible_values:
       Prior infection:
         text: Prior infection
@@ -5737,6 +5788,7 @@ enums:
         meaning: GENEPIO:0100233
   prior Mpox infection international menu:
     name: prior Mpox infection international menu
+    title: prior Mpox infection international menu
     permissible_values:
       Prior infection [GENEPIO:0100037]:
         text: Prior infection [GENEPIO:0100037]
@@ -5746,6 +5798,7 @@ enums:
         meaning: GENEPIO:0100233
   prior Mpox antiviral treatment menu:
     name: prior Mpox antiviral treatment menu
+    title: prior Mpox antiviral treatment menu
     permissible_values:
       Prior antiviral treatment:
         text: Prior antiviral treatment
@@ -5755,6 +5808,7 @@ enums:
         meaning: GENEPIO:0100233
   prior Mpox antiviral treatment international menu:
     name: prior Mpox antiviral treatment international menu
+    title: prior Mpox antiviral treatment international menu
     permissible_values:
       Prior antiviral treatment [GENEPIO:0100037]:
         text: Prior antiviral treatment [GENEPIO:0100037]
@@ -5764,30 +5818,35 @@ enums:
         meaning: GENEPIO:0100233
   organism menu:
     name: organism menu
+    title: organism menu
     permissible_values:
       Mpox virus:
         text: Mpox virus
         meaning: NCBITaxon:10244
   organism international menu:
     name: organism international menu
+    title: organism international menu
     permissible_values:
       Mpox virus [NCBITaxon:10244]:
         text: Mpox virus [NCBITaxon:10244]
         meaning: NCBITaxon:10244
   host disease menu:
     name: host disease menu
+    title: host disease menu
     permissible_values:
       Mpox:
         text: Mpox
         meaning: MONDO:0002594
   host disease international menu:
     name: host disease international menu
+    title: host disease international menu
     permissible_values:
       Mpox [MONDO:0002594]:
         text: Mpox [MONDO:0002594]
         meaning: MONDO:0002594
   purpose of sampling menu:
     name: purpose of sampling menu
+    title: purpose of sampling menu
     permissible_values:
       Cluster/Outbreak investigation:
         text: Cluster/Outbreak investigation
@@ -5803,6 +5862,7 @@ enums:
         meaning: GENEPIO:0100004
   purpose of sampling international menu:
     name: purpose of sampling international menu
+    title: purpose of sampling international menu
     permissible_values:
       Cluster/Outbreak investigation [GENEPIO:0100001]:
         text: Cluster/Outbreak investigation [GENEPIO:0100001]
@@ -5818,6 +5878,7 @@ enums:
         meaning: GENEPIO:0100004
   purpose of sequencing menu:
     name: purpose of sequencing menu
+    title: purpose of sequencing menu
     permissible_values:
       Baseline surveillance (random sampling):
         text: Baseline surveillance (random sampling)
@@ -5888,6 +5949,7 @@ enums:
         meaning: GENEPIO:0100356
   purpose of sequencing international menu:
     name: purpose of sequencing international menu
+    title: purpose of sequencing international menu
     permissible_values:
       Baseline surveillance (random sampling) [GENEPIO:0100005]:
         text: Baseline surveillance (random sampling) [GENEPIO:0100005]
@@ -5958,6 +6020,7 @@ enums:
         meaning: GENEPIO:0100356
   sequencing instrument menu:
     name: sequencing instrument menu
+    title: sequencing instrument menu
     permissible_values:
       Illumina:
         text: Illumina
@@ -6139,6 +6202,7 @@ enums:
         is_a: MGI
   sequencing instrument international menu:
     name: sequencing instrument international menu
+    title: sequencing instrument international menu
     permissible_values:
       Illumina [GENEPIO:0100105]:
         text: Illumina [GENEPIO:0100105]
@@ -6320,6 +6384,7 @@ enums:
         is_a: MGI [GENEPIO:0100146]
   sequence submitted by menu:
     name: sequence submitted by menu
+    title: sequence submitted by menu
     permissible_values:
       Alberta Precision Labs (APL):
         text: Alberta Precision Labs (APL)
@@ -6375,6 +6440,7 @@ enums:
         text: Thunder Bay Regional Health Sciences Centre
   sequenced by menu:
     name: sequenced by menu
+    title: sequenced by menu
     permissible_values:
       Alberta Precision Labs (APL):
         text: Alberta Precision Labs (APL)
@@ -6430,6 +6496,7 @@ enums:
         text: Thunder Bay Regional Health Sciences Centre
   sample collected by menu:
     name: sample collected by menu
+    title: sample collected by menu
     permissible_values:
       Alberta Precision Labs (APL):
         text: Alberta Precision Labs (APL)
@@ -6501,6 +6568,7 @@ enums:
         text: William Osler Health System
   gene name menu:
     name: gene name menu
+    title: gene name menu
     permissible_values:
       MPX (orf B6R):
         text: MPX (orf B6R)
@@ -6521,6 +6589,7 @@ enums:
         meaning: GENEPIO:0100508
   geo_loc_name (country) menu:
     name: geo_loc_name (country) menu
+    title: geo_loc_name (country) menu
     permissible_values:
       Afghanistan:
         text: Afghanistan
@@ -7337,6 +7406,7 @@ enums:
         meaning: GAZ:00001106
   geo_loc_name (country) international menu:
     name: geo_loc_name (country) international menu
+    title: geo_loc_name (country) international menu
     permissible_values:
       Afghanistan [GAZ:00006882]:
         text: Afghanistan [GAZ:00006882]
