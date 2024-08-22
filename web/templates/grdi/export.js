@@ -112,22 +112,22 @@ export default {
     status: 'published',
     method: function (dh) {
       const ExportHeaders = new Map([
-        ['*sample_name', []],
+        ['sample_name', []],
         ['sample_title', []],
         ['bioproject_accession', []],
-        ['*strain', []],
+        ['strain', []],
         ['isolate_name_alias', []],
         ['culture_collection', []],
         ['reference_material', []],
-        ['*organism', []],
-        ['*collected_by', []],
-        ['*collection_date', []],
+        ['organism', []],
+        ['collected_by', []],
+        ['collection_date', []],
         ['cult_isol_date', []],
-        ['*geo_loc_name', []],
-        ['*isolation_source', []],
-        ['*source_type', []],
+        ['geo_loc_name', []],
+        ['isolation_source', []],
+        ['source_type', []],
         ['samp_collect_device', []],
-        ['*purpose_of_sampling', []],
+        ['purpose_of_sampling', []],
         ['project_name', []],
         ['ifsac_category', []],
         ['lat_lon', []],
@@ -196,11 +196,6 @@ export default {
         ['extr_weather_event', []],
         ['mechanical_damage', []]
       ]);
-//
-//
-// EXAMPLE
-// environmental_siteXenv_local_scale = "Agricultural Field [ENVO:00000114], Alluvial fan [ENVO:00000314], Artificial wetland [ENVO:03501406], Breeding ground [ENVO:03501441], Creek [ENVO:03501405], Farm [ENVO:00000078], Beef farm [ENVO:03501443], Breeder farm [ENVO:03501384], Dairy farm [ENVO:03501416], Feedlot [ENVO:01000627], Beef cattle feedlot [ENVO:03501444], Fish farm [ENVO:00000294], Research farm [ENVO:03501417], Freshwater environment [ENVO:01000306], Hatchery [ENVO:01001873], Poultry hatchery [ENVO:01001874], Lake [ENVO:00000020], Manure lagoon (Anaerobic lagoon) [ENVO:03501423], Manure pit [ENVO:01001872], Marine environment [ENVO:01000320], Benthic zone [ENVO:03501440], Pelagic zone [ENVO:00000208], Park [ENVO:00000562], Pond [ENVO:00000033], Reservoir [ENVO:00000025], Irrigation reservoir [ENVO:00000450], River [ENVO:00000022], Roost (bird) [ENVO:03501439], Rural area [ENVO:01000772], Slough [ENVO:03501438], Stream [ENVO:00000023], Tributary [ENVO:00000495], Water surface [ENVO:01001191], Woodland area [ENVO:00000109]".split(",")
-
 
       const sourceFields = dh.getFields(dh.table);
       const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
@@ -456,7 +451,7 @@ export default {
               inputRow,
               sourceFieldNameMap
             );
-          } else if (headerName === '*source_type') {
+          } else if (headerName === 'source_type') {
             const hostScientificName =
               inputRow[sourceFieldNameMap['host_scientific_name']];
             const foodProduct = inputRow[sourceFieldNameMap['food_product']];
