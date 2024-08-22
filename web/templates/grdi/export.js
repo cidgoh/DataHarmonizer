@@ -209,8 +209,6 @@ export default {
         const outputRow = [];
         for (const [headerName, sources] of ExportHeaders) {
           let value;
-          // TODO some of these seem like they are supposed to have picklists,
-          //  but do not?
           if (headerName === 'fertilizer_admin') {
             value = dh.getIfThenField(
               'presampling_activity',
