@@ -3839,6 +3839,8 @@ slots:
     exact_mappings:
     - BIOSAMPLE:isolation_source
     - BIOSAMPLE:food_product
+    - NCBI_BIOSAMPLE_Enterics:isolation_source
+    - NCBI_BIOSAMPLE_Enterics:food_product_type
   food_product_properties:
     name: food_product_properties
     title: food_product_properties

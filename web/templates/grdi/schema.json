@@ -7099,7 +7099,9 @@
       "from_schema": "https://example.com/GRDI",
       "exact_mappings": [
         "BIOSAMPLE:isolation_source",
-        "BIOSAMPLE:food_product"
+        "BIOSAMPLE:food_product",
+        "NCBI_BIOSAMPLE_Enterics:isolation_source",
+        "NCBI_BIOSAMPLE_Enterics:food_product_type"
       ],
       "slot_uri": "GENEPIO:0100444",
       "domain_of": [
@@ -29932,7 +29934,9 @@
           "from_schema": "https://example.com/GRDI",
           "exact_mappings": [
             "BIOSAMPLE:isolation_source",
-            "BIOSAMPLE:food_product"
+            "BIOSAMPLE:food_product",
+            "NCBI_BIOSAMPLE_Enterics:isolation_source",
+            "NCBI_BIOSAMPLE_Enterics:food_product_type"
           ],
           "rank": 45,
           "slot_uri": "GENEPIO:0100444",
