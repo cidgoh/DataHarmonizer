@@ -1,14 +1,15 @@
 import * as $ from 'jquery';
 import 'bootstrap';
-
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '@/web/index.css';
-import menu from '@/web/templates/menu.json';
 
 import { initI18n } from '@/lib/utils/i18n';
 import { Template } from '@/lib/utils/templates';
 import { getGettingStartedMarkup } from '@/lib/toolbarGettingStarted';
 import { Footer, Toolbar, AppContext } from '@/lib';
+import menu from '@/web/templates/menu.json';
+
+// Order matters: place this at bottom of imports for CSS overrides
+import '@/web/index.css';
 
 export function getTemplatePathInScope() {
   let templatePath;
