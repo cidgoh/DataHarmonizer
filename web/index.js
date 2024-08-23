@@ -11,22 +11,6 @@ import menu from '@/web/templates/menu.json';
 // Order matters: place this at bottom of imports for CSS overrides
 import '@/web/index.css';
 
-export function getTemplatePathInScope() {
-  let templatePath;
-  if (window.URLSearchParams) {
-    let params = new URLSearchParams(location.search);
-    templatePath = params.get('template');
-  } else {
-    templatePath = location.search.split('template=')[1];
-  }
-  if (templatePath === null || typeof templatePath === 'undefined') {
-    const schema_name = Object.keys(menu)[0];
-    const template_name = Object.keys(menu[schema_name])[0];
-    return `${schema_name}/${template_name}`;
-  }
-  return templatePath;
-}
-
 const dhRoot = document.querySelector('#data-harmonizer-grid');
 const dhFooterRoot = document.querySelector('#data-harmonizer-footer');
 const dhToolbarRoot = document.querySelector('#data-harmonizer-toolbar');
