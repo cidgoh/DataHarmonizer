@@ -1,14 +1,30 @@
 import * as $ from 'jquery';
 import 'bootstrap';
 
-import { Footer, Toolbar } from '@/lib';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '@/web/index.css';
+import menu from '@/web/templates/menu.json';
+
 import { initI18n } from '@/lib/utils/i18n';
 import { Template } from '@/lib/utils/templates';
 import { getGettingStartedMarkup } from '@/lib/toolbarGettingStarted';
+import { Footer, Toolbar, AppContext } from '@/lib';
 
-import 'bootstrap/dist/css/bootstrap.min.css';
-import '@/web/index.css';
-import { AppContext } from '@/lib/AppContext';
+export function getTemplatePathInScope() {
+  let templatePath;
+  if (window.URLSearchParams) {
+    let params = new URLSearchParams(location.search);
+    templatePath = params.get('template');
+  } else {
+    templatePath = location.search.split('template=')[1];
+  }
+  if (templatePath === null || typeof templatePath === 'undefined') {
+    const schema_name = Object.keys(menu)[0];
+    const template_name = Object.keys(menu[schema_name])[0];
+    return `${schema_name}/${template_name}`;
+  }
+  return templatePath;
+}
 
 const dhRoot = document.querySelector('#data-harmonizer-grid');
 const dhFooterRoot = document.querySelector('#data-harmonizer-footer');
