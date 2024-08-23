@@ -16,7 +16,9 @@ DataTypeMenu	DataTypeMenu		string
 			uriorcurie					
 			curie					
 			uri					
-			schema					
+			Schema					
+			Slot					
+			Class					
 			Provenance					
 			TrueFalseMenu					
 			DataTypeMenu					

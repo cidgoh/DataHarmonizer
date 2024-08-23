@@ -20,6 +20,10 @@ classes:
     description: The top-level description of a LinkML schema.  A schema contains classes for describing one or more DataHarmonizer templates, fields/columns, and picklists (which are themselves LinkML classes, slots, and enumerations)
     see_also: templates/schema_editor/SOP.pdf
     is_a: dh_interface
+  
+  Prefix:
+    name: Prefix
+    description: A prefix used in the URIs mentioned in this schema.
 
   Slot:
     name: Slot
@@ -41,6 +45,10 @@ classes:
           - schema_id
           - name
 
+  PermissibleValue:
+    name: PermissibleValue
+    description: An enumeration picklist value.
+
   Class:
     name: Class
     description: A class contained in given schema.  A class may be a top-level DataHarmonizer "template" that can be displayed in a spreadsheet tab, or it may be a subordinate 1-many class linked to a parent class by a primary key field.  
@@ -55,13 +63,9 @@ classes:
     name: SlotUsage
     description: A table linking slots to classes they appear in, as well as attributes which override the generic slot inheritance.
 
-  PermissibleValue:
-    name: PermissibleValue
-    description: An enumeration picklist value.
-
-  Prefix:
-    name: Prefix
-    description: A prefix used in the URIs mentioned in this schema.
+  UniqueKey:
+    name: UniqueKey
+    description: A table linking the name of each multi-component(slot) key to the schema class it appears in.
 
   Container:
       tree_root: true
@@ -70,16 +74,12 @@ classes:
           range: Schema
           multivalued: true
           inlined_as_list: true
-        Classes:
-          range: Class
+        Prefixes:
+          range: Prefix
           multivalued: true
           inlined_as_list: true
         Slots:
           range: Slot
-          multivalued: true
-          inlined_as_list: true
-        SlotUsages:
-          range: SlotUsage
           multivalued: true
           inlined_as_list: true
         Enums:
@@ -90,10 +90,18 @@ classes:
           range: PermissibleValue
           multivalued: true
           inlined_as_list: true
-        Prefixes:
-          range: Prefix
+        Classes:
+          range: Class
           multivalued: true
           inlined_as_list: true
+        SlotUsages:
+          range: SlotUsage
+          multivalued: true
+          inlined_as_list: true
+        UniqueKeys:
+          range: UniqueKey
+          multivalued: true
+          inlined_as_list: true        
 
 slots: {}
 enums: {}
