@@ -9,7 +9,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
-          node-version: '16.x'
+          node-version: '18.x'
       - run: yarn install --frozen-lockfile
       - run: yarn format
       - run: yarn lint
