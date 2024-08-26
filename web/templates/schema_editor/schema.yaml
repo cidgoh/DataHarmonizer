@@ -23,8 +23,8 @@ classes:
     is_a: dh_interface
     slots:
     - name
-    - description
     - id
+    - description
     - version
     - in_language
     - default_prefix
@@ -40,25 +40,28 @@ classes:
 
           A schema contains classes for describing one or more DataHarmonizer templates,
           fields/columns, and picklists (which are themselves LinkML classes, slots,
-          and enumerations).'
+          and enumerations).
+
+
+          A schema can also import other schemas and their slots, classes, etc.'
         examples:
         - value: Wastewater
         identifier: true
-      description:
+      id:
         rank: 2
+        slot_group: key
+      description:
+        rank: 3
         slot_group: attributes
         description: The plain language description of this LinkML schema.
         required: true
-      id:
-        rank: 3
-        slot_group: attributes
+        range: string
       version:
         rank: 4
         slot_group: attributes
         identifier: true
         required: true
         description: The semantic version identifier for this schema.
-        comments: See https://semver.org/
         examples:
         - value: 1.2.3
       in_language:
@@ -66,6 +69,24 @@ classes:
         slot_group: attributes
       default_prefix:
         rank: 6
+        slot_group: attributes
+  Prefix:
+    name: Prefix
+    description: A prefix used in the URIs mentioned in this schema.
+    slots:
+    - schema_id
+    - prefix
+    - reference
+    slot_usage:
+      schema_id:
+        rank: 1
+        slot_group: key
+        description: The coding name of the schema this prefix is listed in.
+      prefix:
+        rank: 2
+        slot_group: key
+      reference:
+        rank: 3
         slot_group: attributes
   Slot:
     name: Slot
@@ -84,6 +105,7 @@ classes:
     - schema_id
     - name
     - title
+    - aliases
     - description
     - slot_uri
     - slot_group
@@ -95,6 +117,7 @@ classes:
     - recommended
     - minimum_value
     - maximum_value
+    - equals_expression
     - pattern
     - comments
     - examples
@@ -102,80 +125,92 @@ classes:
       schema_id:
         rank: 1
         slot_group: key
-        description: The coding name of the schema this slot is contained in.
+        description: The coding name of the schema that this slot is contained in.
+        comments: A schema has a list of slots it defines, but a schema can also import
+          other schemas' slots.
       name:
         rank: 2
         slot_group: key
-        description: The coding name of this LinkML schema slot.
-        comments: 'This is a **snake_case** formatted name in the LinkML standard
-          naming convention.
+        pattern: ^[a-z]([a-z0-9_]+)+$
+        description: The coding name of this schema slot.
+        comments: 'This is a lowercase **snake_case** formatted name in the LinkML
+          standard naming convention.
 
 
-          A slot can be used in one or more classes (templates). A slot appears as
-          a visible column in a spreadsheet (template) tab, and can define a basic
-          number, date, string, picklist (categorical or ordinal), or other single-field
-          datatype.'
+          A slot can be used in one or more classes (templates). A slot may appear
+          as a visible single-field datatype column in a spreadsheet (template) tab,
+          and can define (in its range attribute) a basic number, date, string, picklist
+          (categorical or ordinal), or other custom datatype.  A slot may also have
+          a range pointing to more complex classes.'
         identifier: true
       title:
         rank: 3
         slot_group: attributes
         description: The plain language name of this LinkML schema slot.
         comments: This can be displayed in applications and documentation.
-      description:
+      aliases:
         rank: 4
+        slot_group: attributes
+      description:
+        rank: 5
         slot_group: attributes
         description: A plan text description of this LinkML schema slot.
         required: true
+        range: string
       slot_uri:
-        rank: 5
-        slot_group: attributes
-      slot_group:
         rank: 6
         slot_group: attributes
-      range:
+      slot_group:
         rank: 7
+        slot_group: attributes
+        description: The name of a grouping to place slot within during presentation.
+      range:
+        rank: 8
         slot_group: attributes
         required: true
         description: The range or ranges a slot is associated with.  If more than
           one, this appears in the slot's specification as a list of "any of" ranges.
       identifier:
-        rank: 8
+        rank: 9
         slot_group: attributes
         description: A boolean TRUE indicates this slot is an identifier, or refers
           to one.
       key:
-        rank: 9
+        rank: 10
         slot_group: attributes
         description: A boolean TRUE indicates this slot is part of a primary key for
           the Class it is an attribute of.
       multivalued:
-        rank: 10
+        rank: 11
         slot_group: attributes
         description: A boolean TRUE indicates this slot can hold more than one values
           taken from its range.
       required:
-        rank: 11
+        rank: 12
         slot_group: attributes
         description: A boolean TRUE indicates this slot is a mandatory data field.
         comments: A mandatory data field will fail validation if empty.
       recommended:
-        rank: 12
+        rank: 13
         slot_group: attributes
         description: A boolean TRUE indicates this slot is a recommended data field.
       minimum_value:
-        rank: 13
-        slot_group: attributes
-      maximum_value:
         rank: 14
         slot_group: attributes
-      pattern:
+      maximum_value:
         rank: 15
         slot_group: attributes
-      comments:
+      equals_expression:
         rank: 16
         slot_group: attributes
-      examples:
+      pattern:
         rank: 17
+        slot_group: attributes
+      comments:
+        rank: 18
+        slot_group: attributes
+      examples:
+        rank: 19
         slot_group: attributes
   Enum:
     name: Enum
@@ -216,143 +251,10 @@ classes:
         description: A plan text description of this LinkML schema enumeration menu
           of terms.
         required: true
+        range: string
       enum_uri:
         rank: 5
         slot_group: attributes
-  Class:
-    name: Class
-    description: A class contained in given schema.  A class may be a top-level DataHarmonizer
-      "template" that can be displayed in a spreadsheet tab, or it may be a subordinate
-      1-many class linked to a parent class by a primary key field.
-    unique_keys:
-      main:
-        description: A class is uniquely identified by the schema it appears in as
-          well as its name.
-        unique_key_slots:
-        - schema_id
-        - name
-    slots:
-    - schema_id
-    - name
-    - title
-    - description
-    - version
-    - class_uri
-    - container_root
-    - alias
-    - owner
-    - unique_keys
-    - Inlined as list
-    slot_usage:
-      schema_id:
-        rank: 1
-        slot_group: key
-        description: The coding name of the schema this class is contained in.
-      name:
-        rank: 2
-        slot_group: key
-        identifier: true
-        pattern: ^([A-Z][a-z0-9]+)+$
-        description: A class contained in given schema.
-        comments: Each class can be displayed in DataHarmonizer in a spreadsheet tab.
-          A class may be visible as a top-level DataHarmonizer "template", or it may
-          be a subordinate 1-many class linked to a parent class by a primary key
-          field.
-        examples:
-        - value: WastewaterAMR|WastewaterPathogenAgnostic
-      title:
-        rank: 3
-        slot_group: attributes
-        description: The plain language name of a LinkML schema class.
-      description:
-        rank: 4
-        slot_group: attributes
-        required: true
-      version:
-        rank: 5
-        slot_group: attributes
-        description: A semantic version identifier.  See https://semver.org/
-      class_uri:
-        rank: 6
-        slot_group: attributes
-      container_root:
-        rank: 7
-        slot_group: attributes
-      alias:
-        rank: 8
-        slot_group: attributes
-      owner:
-        rank: 9
-        slot_group: attributes
-      unique_keys:
-        rank: 10
-        slot_group: attributes
-      Inlined as list:
-        rank: 11
-        slot_group: attributes
-  SlotUsage:
-    name: SlotUsage
-    description: A table linking slots to classes they appear in, as well as attributes
-      which override the generic slot inheritance.
-    slots:
-    - schema_id
-    - class
-    - slot
-    - rank
-    - slot_group
-    - range
-    - inlined
-    - identifier
-    - key
-    - multivalued
-    - required
-    - recommended
-    slot_usage:
-      schema_id:
-        rank: 1
-        slot_group: key
-        description: The coding name of the schema this slot usage's class is contained
-          in.
-      class:
-        rank: 2
-        slot_group: key
-      slot:
-        rank: 3
-        slot_group: key
-      rank:
-        rank: 4
-        slot_group: attributes
-      slot_group:
-        rank: 5
-        slot_group: attributes
-        description: An override on a slot's slot_group attribute.
-      range:
-        rank: 6
-        slot_group: attributes
-        description: An override on a slot's range attribute.
-      inlined:
-        rank: 7
-        slot_group: attributes
-      identifier:
-        rank: 8
-        slot_group: attributes
-        description: An override on a slot's *Identifier* attribute.
-      key:
-        rank: 9
-        slot_group: attributes
-        description: An override on a slot's *Key* attribute.
-      multivalued:
-        rank: 10
-        slot_group: attributes
-        description: An override on a slot's **Multivalued** attribute.
-      required:
-        rank: 11
-        slot_group: attributes
-        description: An override on a slot's *Required* attribute.
-      recommended:
-        rank: 12
-        slot_group: attributes
-        description: An override on a slot's *Recommended* attribute.
   PermissibleValue:
     name: PermissibleValue
     description: An enumeration picklist value.
@@ -383,26 +285,193 @@ classes:
         rank: 5
         slot_group: attributes
         description: A plan text description of the meaning of this menu choice.
+        range: string
       meaning:
         rank: 6
         slot_group: attributes
-  Prefix:
-    name: Prefix
-    description: A prefix used in the URIs mentioned in this schema.
+  Class:
+    name: Class
+    description: A class contained in given schema.  A class may be a top-level DataHarmonizer
+      "template" that can be displayed in a spreadsheet tab, or it may be a subordinate
+      1-many class linked to a parent class by a primary key field.
+    unique_keys:
+      main:
+        description: A class is uniquely identified by the schema it appears in as
+          well as its name.
+        unique_key_slots:
+        - schema_id
+        - name
     slots:
     - schema_id
-    - prefix
-    - reference
+    - name
+    - title
+    - description
+    - version
+    - class_uri
+    - tree_root
+    - unique_keys
+    - Inlined as list
     slot_usage:
       schema_id:
         rank: 1
         slot_group: key
-        description: The coding name of the schema this prefix is listed in.
-      prefix:
+        description: The coding name of the schema this class is contained in.
+      name:
         rank: 2
         slot_group: key
-      reference:
+        identifier: true
+        pattern: ^([A-Z][a-z0-9]+)+$
+        description: A class contained in given schema.
+        comments: Each class can be displayed in DataHarmonizer in a spreadsheet tab.
+          A class may be visible as a top-level DataHarmonizer "template", or it may
+          be a subordinate 1-many class linked to a parent class by a primary key
+          field.
+        examples:
+        - value: WastewaterAMR|WastewaterPathogenAgnostic
+      title:
         rank: 3
+        slot_group: attributes
+        description: The plain language name of a LinkML schema class.
+      description:
+        rank: 4
+        slot_group: attributes
+        required: true
+        range: string
+      version:
+        rank: 5
+        slot_group: attributes
+        description: A semantic version identifier.
+      class_uri:
+        rank: 6
+        slot_group: attributes
+      tree_root:
+        rank: 7
+        slot_group: attributes
+      unique_keys:
+        rank: 8
+        slot_group: attributes
+      Inlined as list:
+        rank: 9
+        slot_group: attributes
+  SlotUsage:
+    name: SlotUsage
+    description: A table linking slots to classes they appear in, as well as attributes
+      which override the generic slot inheritance.
+    slots:
+    - schema_id
+    - class
+    - slot
+    - rank
+    - slot_group
+    - range
+    - inlined
+    - identifier
+    - key
+    - multivalued
+    - required
+    - recommended
+    - minimum_value
+    - maximum_value
+    - pattern
+    - comments
+    - examples
+    slot_usage:
+      schema_id:
+        rank: 1
+        slot_group: key
+        description: The coding name of the schema this slot usage's class is contained
+          in.
+      class:
+        rank: 2
+        slot_group: key
+      slot:
+        rank: 3
+        slot_group: key
+      rank:
+        rank: 4
+        slot_group: attributes
+      slot_group:
+        rank: 5
+        slot_group: attributes
+        description: An override on a slot's **slot_group** attribute.
+      range:
+        rank: 6
+        slot_group: attributes
+        description: An override on a slot's **range* attribute.
+      inlined:
+        rank: 7
+        slot_group: attributes
+      identifier:
+        rank: 8
+        slot_group: attributes
+        description: An override on a slot's **Identifier** attribute.
+      key:
+        rank: 9
+        slot_group: attributes
+        description: An override on a slot's **Key** attribute.
+      multivalued:
+        rank: 10
+        slot_group: attributes
+        description: An override on a slot's **Multivalued** attribute.
+      required:
+        rank: 11
+        slot_group: attributes
+        description: An override on a slot's **Required** attribute.
+      recommended:
+        rank: 12
+        slot_group: attributes
+        description: An override on a slot's **Recommended** attribute.
+      minimum_value:
+        rank: 13
+        slot_group: attributes
+      maximum_value:
+        rank: 14
+        slot_group: attributes
+      pattern:
+        rank: 15
+        slot_group: attributes
+      comments:
+        rank: 16
+        slot_group: attributes
+      examples:
+        rank: 17
+        slot_group: attributes
+  UniqueKey:
+    name: UniqueKey
+    description: A table linking the name of each multi-component(slot) key to the
+      schema class it appears in.
+    slots:
+    - schema_id
+    - class
+    - name
+    - 'unique_key_slots:'
+    - description
+    - notes
+    slot_usage:
+      schema_id:
+        rank: 1
+        slot_group: key
+        description: The coding name of the schema this slot usage's class is contained
+          in.
+      class:
+        rank: 2
+        slot_group: key
+      name:
+        rank: 3
+        slot_group: key
+        identifier: true
+        pattern: ^[a-z]([a-z0-9_]+)+$
+        description: A class contained in given schema.
+      'unique_key_slots:':
+        rank: 4
+        slot_group: attributes
+      description:
+        rank: 5
+        slot_group: attributes
+        range: WhitespaceMinimizedString
+        description: The description of this unique key combination.
+      notes:
+        rank: 6
         slot_group: attributes
   Container:
     tree_root: true
@@ -411,16 +480,12 @@ classes:
         range: Schema
         multivalued: true
         inlined_as_list: true
-      Classes:
-        range: Class
+      Prefixes:
+        range: Prefix
         multivalued: true
         inlined_as_list: true
       Slots:
         range: Slot
-        multivalued: true
-        inlined_as_list: true
-      SlotUsages:
-        range: SlotUsage
         multivalued: true
         inlined_as_list: true
       Enums:
@@ -431,8 +496,16 @@ classes:
         range: PermissibleValue
         multivalued: true
         inlined_as_list: true
-      Prefixes:
-        range: Prefix
+      Classes:
+        range: Class
+        multivalued: true
+        inlined_as_list: true
+      SlotUsages:
+        range: SlotUsage
+        multivalued: true
+        inlined_as_list: true
+      UniqueKeys:
+        range: UniqueKey
         multivalued: true
         inlined_as_list: true
 slots:
@@ -441,20 +514,22 @@ slots:
     title: Name
     range: WhitespaceMinimizedString
     required: true
-  description:
-    name: description
-    title: Description
-    range: string
   id:
     name: id
     title: ID
     description: The unique URI for identifying this LinkML schema.
+    comments: Typically the schema can be downloaded from this URI, but currently
+      it is often left as an "example" URI during schema development.
     identifier: true
     range: uri
     required: true
+  description:
+    name: description
+    title: Description
   version:
     name: version
     title: Version
+    comments: See https://semver.org/
     range: WhitespaceMinimizedString
     pattern: ^\d+\.\d+\.\d+$
   in_language:
@@ -475,13 +550,31 @@ slots:
     name: schema_id
     title: Schema
     identifier: true
-    range: schema
+    range: Schema
     required: true
+  prefix:
+    name: prefix
+    title: Prefix
+    description: The namespace prefix string.
+    identifier: true
+    range: WhitespaceMinimizedString
+    required: true
+  reference:
+    name: reference
+    title: Reference
+    description: The URI the prefix expands to.
+    range: uri
   title:
     name: title
     title: Title
     range: WhitespaceMinimizedString
     required: true
+  aliases:
+    name: aliases
+    title: Aliases
+    description: A list of other names that slot can be known by.
+    comments: See https://linkml.io/linkml/schemas/metadata.html#providing-aliases
+    range: WhitespaceMinimizedString
   slot_uri:
     name: slot_uri
     title: Slot URI
@@ -528,6 +621,13 @@ slots:
     description: A maximum value which is appropriate for the range data type of the
       slot.
     range: integer
+  equals_expression:
+    name: equals_expression
+    title: Calculated value
+    description: Enables inferring (calculating) value based on other slot values.
+      Expressed as a python expression.
+    comments: See https://linkml.io/linkml/schemas/advanced.html#equals-expression
+    range: WhitespaceMinimizedString
   pattern:
     name: pattern
     title: Pattern
@@ -575,22 +675,13 @@ slots:
     title: Class URI
     description: A URI for identifying this class's semantic type.
     range: uri
-  container_root:
-    name: container_root
+  tree_root:
+    name: tree_root
     title: Container
     description: A boolian indicating whether this is a specification for a top-level
-      data container.
+      data container on which serializations are based.
+    comments: Only one allowed per Schema. See https://linkml.io/linkml/data/csvs.html
     range: TrueFalseMenu
-  alias:
-    name: alias
-    title: Alias
-    range: WhitespaceMinimizedString
-  owner:
-    name: owner
-    title: Owner
-    description: The schema that owns this template.
-    comments: WE SHOULD HAVE READ-ONLY ATTRIBUTES
-    range: WhitespaceMinimizedString
   unique_keys:
     name: unique_keys
     title: Unique Keys
@@ -606,14 +697,14 @@ slots:
     title: Class
     description: The coding name of this slot usage's class.
     identifier: true
-    range: class
+    range: Class
     required: true
   slot:
     name: slot
     title: Slot
     description: The coding name of the slot this slot usage pertains to.
     identifier: true
-    range: slot
+    range: Slot
     required: true
   rank:
     name: rank
@@ -626,21 +717,23 @@ slots:
     title: Inlined
     description: An override on a slot's **Inlined** attribute.
     range: TrueFalseMenu
-  prefix:
-    name: prefix
-    title: Prefix
-    description: The namespace prefix string.
-    identifier: true
-    range: WhitespaceMinimizedString
+  'unique_key_slots:':
+    name: 'unique_key_slots:'
+    title: Unique Key Slots
+    description: A list of a class's slots that make up a unique key
+    comments: See https://linkml.io/linkml/schemas/constraints.html
+    range: Slot
+    multivalued: true
     required: true
-  reference:
-    name: reference
-    title: Reference
-    description: The URI the prefix expands to.
-    range: uri
+  notes:
+    name: notes
+    title: Notes
+    description: Notes about use of this key in other classes via slot ranges etc.
+    range: WhitespaceMinimizedString
 enums:
   TrueFalseMenu:
     name: TrueFalseMenu
+    title: TrueFalseMenu
     permissible_values:
       'TRUE':
         text: 'TRUE'
@@ -648,6 +741,7 @@ enums:
         text: 'FALSE'
   DataTypeMenu:
     name: DataTypeMenu
+    title: DataTypeMenu
     permissible_values:
       string:
         text: string
@@ -677,8 +771,12 @@ enums:
         text: curie
       uri:
         text: uri
-      schema:
-        text: schema
+      Schema:
+        text: Schema
+      Slot:
+        text: Slot
+      Class:
+        text: Class
       Provenance:
         text: Provenance
       TrueFalseMenu:
@@ -689,6 +787,7 @@ enums:
         text: LanguagesMenu
   LanguagesMenu:
     name: LanguagesMenu
+    title: LanguagesMenu
     permissible_values:
       en:
         text: en
