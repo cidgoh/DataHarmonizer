@@ -42,8 +42,8 @@ classes:
     name: dh_interface
     description: 'A DataHarmonizer interface'
     from_schema: https://example.com/CanCOGeN_Covid-19
-  'CanCOGeN Covid19':
-    name: 'CanCOGeN Covid19'
+  'CanCOGeN Covid-19':
+    name: 'CanCOGeN Covid-19'
     title: 'CanCOGeN Covid-19'
     description: Canadian specification for Covid-19 clinical virus biosample data gathering
     is_a: dh_interface
