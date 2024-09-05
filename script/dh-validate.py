@@ -6,7 +6,17 @@
 # and optionally Class, in the case of data files that don't identify which 
 # class their fields are from.  Passes data file to linkml-validate.
 #
-# Navigate to a particular /web/templates/[template folder]/schema.yaml 
+# To prepare tsv/csv/xls/xlsx files for above validation, this script will 
+# remove header lines until it encounters a line with every cell containing
+# text, which is assumed to be the field name header.  (IN FUTURE this will 
+# be sniffed better).  This includes removing section header line if any.
+# Then a temporary file is created in yaml format, which adjusts number fields
+# to be unquoted if linkml spec says its a number, and it is a valid number.
+# As well, multivalued fields are split up into an array of separate values.
+# cli linkml-validate is then applied to this temporary file.
+#
+# DataHarmonizer-generated data file with its section headers must be removed,
+#
 # 
 # Options:
 #  -s, --schema FILE               Schema file to validate data against
@@ -18,16 +28,10 @@
 # > python ../../../script/dh-validate.py 
 #
 # Allowed data file types: '.tsv','.csv','.xls','.xlsx','.json','.yml','.yaml'
+# Some formats (.json, .yml, .yaml) are evolving on DH side so not yet tested.
 #
-# dh-validate.py --schema schema.yaml test_good.csv
-# dh-validate.py --schema schema.yaml --target-class "CanCOGeN Covid-19" test_good.csv
-#
-# To prepare tsv or csv files for above validation, first line of a
-# DataHarmonizer-generated data file with its section headers must be removed,
-# and if 2nd line has spaces in its column/slot names, these must be replaced
-# by underscores.  Sed can be used to do this:
-#
-# > sed '1d;2 s/ /_/g' exampleInput/validTestData_2-1-2.tsv > test_good.tsv
+# dh-validate.py --schema schema.yaml test_data.csv
+# dh-validate.py --schema schema.yaml --target-class "CanCOGeN Covid-19" some_data_file.csv
 #
 # Author: Damion Dooley
 # 
@@ -35,6 +39,7 @@
 from collections import OrderedDict
 from decimal import Decimal
 import csv
+import re
 from openpyxl import load_workbook # For .xlsx
 import xlrd # for .xls // pip install xlrd
 import yaml
@@ -258,6 +263,7 @@ def getNormalizedDataFile(SCHEMA, target_class, data_source, temp_base):
 	slot_title_map = getSlotTitleToNameDict(SCHEMA, target_class);
 	slot_header_map = getSlotNameToTitleDict(SCHEMA, target_class);
 	file_path_obj = pathlib.Path(data_source);
+	target_class_CC = re.sub("[_ (/)-]","", target_class)# CamelCase version.
 	reader = None;
 
 	if file_path_obj.suffix in ['.xls','.xlsx']:
@@ -290,9 +296,8 @@ def getNormalizedDataFile(SCHEMA, target_class, data_source, temp_base):
 			case '.xlsx':
 
 				workbook = load_workbook(data_source);
-
-				if target_class in workbook.sheetnames: # e.g. ['Sheet1'], also note "sheet.title"
-					sheet = workbook.worksheets[workbook.sheetnames.index(target_class)]; 
+				if target_class in workbook.sheetnames or target_class_CC in workbook.sheetnames: # e.g. ['Sheet1'], also note "sheet.title"
+					sheet = workbook.worksheets[workbook.sheetnames.index(target_class_CC)]; 
 				else:
 					if len(workbook.sheetnames) > 1:
 						exit("ERROR: getNormalizedDataFile() cannot find " + target_class + " tab in excel spreadsheet tabs: " + str(workbook.sheetnames)); 
@@ -334,22 +339,20 @@ def getNormalizedDataFile(SCHEMA, target_class, data_source, temp_base):
 			case _:
 				exit("ERROR: Data file doesn't have compatible type ('tsv/csv/xls/xlsx/json/yml/yaml) :" + data_source);
 
-		#	for item in report:
-		#		print (report[item]);
-
 		# Write both normalized TSV and JSON files:
-		template = SCHEMA.get_class(target_class);
-		yaml = writeTmpFiles (SCHEMA, template, header_row, reader, temp_base);
 
-	return yaml;
+		yaml = writeTmpFiles (SCHEMA, target_class, header_row, reader, temp_base);
+
+	return (yaml, report);
 
 
-def writeTmpFiles (SCHEMA, template, header_row, reader, temp_base):
+def writeTmpFiles (SCHEMA, target_class, header_row, reader, temp_base):
   # First row of DH tabular data may be slot_groups
   # 2nd DH row likely has column/field/slot names which need adjustment
   # (newline = '' prevents extra blank line)
 	data = [];
-	
+	template = SCHEMA.get_class(target_class);
+
 	with open(temp_base + '.tsv', 'w', newline='') as tsv_file:
 
 		writer = csv.DictWriter(tsv_file, fieldnames = header_row, dialect='excel-tab');
@@ -360,14 +363,14 @@ def writeTmpFiles (SCHEMA, template, header_row, reader, temp_base):
 
 			if type(row) is tuple: # xls/xlsx: for value in row:
 				row_data = {k: v for k, v in zip(header_row, row)}
-			
+
 			else: # tsv/csv Dict: e.g. row = {'first name': 'foo', ...}, wher keys have to be converted
 				row_data = {k: row[v] for k, v in zip(header_row, row)}
 				#print("ROW:",row_data)
 					
-				# Yaml only gets fields that have values, and as well transformation of some data types.
-				data.append(getLinkMLTransform(SCHEMA, template, row_data));
-				writer.writerow(row_data);
+			# Yaml only gets fields that have values, and as well transformation of some data types.
+			data.append(getLinkMLTransform(SCHEMA, template, row_data));
+			writer.writerow(row_data);
 
 		YAMLDumper().dump(data, temp_base + '.yaml');	
 		return data;
@@ -414,7 +417,7 @@ def getLinkMLTransform(SCHEMA, template, row_data):
 						pass
 
 			if slot['multivalued'] == True:
-				output_val = [output_val];
+				output_val = [x.strip() for x in re.split(DELIMITERS, output_val)];
 			data[key] = output_val;
 
 	return data;
@@ -437,6 +440,7 @@ def isInteger(x):
 ###############################################################################
 
 warnings = [];
+DELIMITERS = '[;|]'; # regex for delimiters in multivalued fields.
 
 args = init_parser();
 
@@ -476,14 +480,18 @@ with open(args.schema_path, "r") as schema_handle:
 		file_path_obj = pathlib.Path(data_source);
 		if file_path_obj.suffix in ['.json','.json-ld','.yaml','.yml']:
 
-			# FUTURE: Handle slot name / title variations here too.
+			# FUTURE: Handle slot name / title variations here too that be 
+			# encountered when using a newer or older schema.
 			temp_file = data_source;
 
 		else:
 			# Deal with section headers and column headers as titles
 			# Writes a temporary file with all fields renamed
 			temp_file = file_path_obj.stem + ".tmp";
-			getNormalizedDataFile(SCHEMA, target_class, data_source, temp_file);
+			(yaml, report) = getNormalizedDataFile(SCHEMA, target_class, data_source, temp_file);
+
+			#for item in report:
+			#	print (report[item]);
 
 		subprocess.run(["linkml-validate", "-s", args.schema_path, "-C", target_class, temp_file + '.yaml']);			# input='foobar'.encode('utf-8')
 		
