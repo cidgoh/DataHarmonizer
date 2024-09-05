@@ -123,7 +123,7 @@ def getTargetClass(SCHEMA, target_class, slot_key = None):
 		templates[name] = class_obj;
 
 	if target_class and not target_class in templates:
-		exit("The given validation target class [" + target_class + "] was not found in schema!");
+		exit("The given validation target class [" + target_class + "] was not found in schema! Schema has: " + str([key for key in templates.keys()]) );
 
 	# So far many DH schemas only have one class so only possibility is to validate against that:
 	if not target_class:
@@ -418,6 +418,30 @@ def getLinkMLTransform(SCHEMA, template, row_data):
 
 			if slot['multivalued'] == True:
 				output_val = [x.strip() for x in re.split(DELIMITERS, output_val)];
+
+			# For validation, LinkML will transform both schema and slot labels into
+			# what it considers are standardized names, so we have to anticipate what
+			# new slot label will be via search and replace.  Convert keys to 
+			# **snake_case** since linkml-validate insists on that. However: 
+			# - Forward slashes and parentheses are preserved though this is 
+			# nonstandard, so:
+			# 		"geo_loc name (state/province/territory)"
+			# 	is changed to
+			#			"geo_loc_name_(state/province/territory)"
+			# - Case is preserved though that is non-standard.  So 
+			# 	   "specimen collector sample ID" 
+			# 	is changed to 
+			#      "specimen_collector_sample_ID"
+			#
+			# - Validating caps CamelCase Enums is hard, e.g. if an Enum is named 
+			# 			"geo_loc_name (state/province/territory) menu"
+			#		LinkML will automatically rename this to 
+			#			"GeoLocName(state/province/territory)Menu"
+			#		However, it doesn't update the name in slot range expressions!
+			#   Hence these must be renamed in source schema.
+			
+			The  GeoLocName(state/province/territory)Menu
+			key = re.sub("[-]","",re.sub("[ ]","_", key)); # Accepts ()/ in field name.
 			data[key] = output_val;
 
 	return data;
