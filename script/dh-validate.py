@@ -419,16 +419,35 @@ def getLinkMLTransform(SCHEMA, template, row_data):
 			if slot['multivalued'] == True:
 				output_val = [x.strip() for x in re.split(DELIMITERS, output_val)];
 
-			# If key isn't in snake_case, then convert it to that, since 
-			# linkml-validate insists on that:
+			
 			# ISSUE: () preserved rather than eliminated
 			# ISSUE: diagnostic pcr Ct value 1 not transformed to diagnostic_pcr_ct_value_1
-			# ISSUE: geo_loc_name_(state_province_territory) not transformed to geo_loc_name_(state_province_territory)
-			# ISSUE: NML submitted specimen type not transformed to nml_submitted_specimen_type
-			# ISSUE: specimen collector sample ID not transformed to specimen_collector_sample_id 
+			# ISSUE: 
 
-			# This relabling of key helps
-			key = re.sub("[-]","",re.sub("[ /]","_", key)); #LinkML doesn't convert to lowercase
+
+			# For validation, LinkML will transform both schema and slot labels into
+			# what it considers are standardized names, so we have to anticipate what
+			# new slot label will be via search and replace.  Convert keys to 
+			# **snake_case** since linkml-validate insists on that. However: 
+			# - Forward slashes and parentheses are preserved though this is 
+			# nonstandard, so:
+			# 		"geo_loc name (state/province/territory)"
+			# 	is changed to
+			#			"geo_loc_name_(state/province/territory)"
+			# - Case is preserved though that is non-standard.  So 
+			# 	   "specimen collector sample ID" 
+			# 	is changed to 
+			#      "specimen_collector_sample_ID"
+			#
+			# - Validating caps CamelCase Enums is hard, e.g. if an Enum is named 
+			# 			"geo_loc_name (state/province/territory) menu"
+			#		LinkML will automatically rename this to 
+			#			"GeoLocName(state/province/territory)Menu"
+			#		However, it doesn't update the name in slot range expressions!
+			#   Hence these must be renamed in source schema.
+			
+			The  GeoLocName(state/province/territory)Menu
+			key = re.sub("[-]","",re.sub("[ ]","_", key)); # Accepts ()/ in field name.
 			data[key] = output_val;
 
 	return data;
