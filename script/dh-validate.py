@@ -123,7 +123,7 @@ def getTargetClass(SCHEMA, target_class, slot_key = None):
 		templates[name] = class_obj;
 
 	if target_class and not target_class in templates:
-		exit("The given validation target class [" + target_class + "] was not found in schema!");
+		exit("The given validation target class [" + target_class + "] was not found in schema! Schema has: " + str([key for key in templates.keys()]) );
 
 	# So far many DH schemas only have one class so only possibility is to validate against that:
 	if not target_class:
@@ -418,6 +418,17 @@ def getLinkMLTransform(SCHEMA, template, row_data):
 
 			if slot['multivalued'] == True:
 				output_val = [x.strip() for x in re.split(DELIMITERS, output_val)];
+
+			# If key isn't in snake_case, then convert it to that, since 
+			# linkml-validate insists on that:
+			# ISSUE: () preserved rather than eliminated
+			# ISSUE: diagnostic pcr Ct value 1 not transformed to diagnostic_pcr_ct_value_1
+			# ISSUE: geo_loc_name_(state_province_territory) not transformed to geo_loc_name_(state_province_territory)
+			# ISSUE: NML submitted specimen type not transformed to nml_submitted_specimen_type
+			# ISSUE: specimen collector sample ID not transformed to specimen_collector_sample_id 
+
+			# This relabling of key helps
+			key = re.sub("[-]","",re.sub("[ /]","_", key)); #LinkML doesn't convert to lowercase
 			data[key] = output_val;
 
 	return data;
