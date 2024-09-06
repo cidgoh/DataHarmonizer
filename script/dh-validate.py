@@ -386,8 +386,8 @@ def getLinkMLTransform(SCHEMA, template, row_data):
 						ranges = [binding.range for binding in slot[range_type]]
 						break;
 
-			# ISSUE: If a slot is integer, decimal or date, but value is saved as
-			# a string in yaml file, linkml-validate throws error. Must adjust saved
+			# ISSUE: If a slot is integer or decimal but value is saved as a
+			# string in yaml file, linkml-validate throws error. Must adjust saved
 			# datatype
 			for slot_range in ranges:
 				match slot_range:
@@ -401,8 +401,7 @@ def getLinkMLTransform(SCHEMA, template, row_data):
 							else:
 								output_val = int(val);
 					#case 'date': 
-					case _: # Nothing to do, but error situation since all slots have ranges
-						#print (SCHEMA.get_enums(slot_range))
+					case _: # Nothing to do
 						pass
 
 			if slot['multivalued'] == True:
@@ -434,8 +433,7 @@ def getLinkMLTransform(SCHEMA, template, row_data):
 			#			"GeoLocName(state/province/territory)Menu"
 			#		However, it doesn't update the name in slot range expressions!
 			#   Hence these must be renamed in source schema.
-			
-			The  GeoLocName(state/province/territory)Menu
+
 			key = re.sub("[-]","",re.sub("[ ]","_", key)); # Accepts ()/ in field name.
 			data[key] = output_val;
 
