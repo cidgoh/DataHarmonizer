@@ -52,17 +52,6 @@ from linkml_runtime.utils.schemaview import SchemaView
 from linkml_runtime.dumpers.yaml_dumper import YAMLDumper
 import subprocess
 
-# ISSUE TRYING TO IMPORT linkml, getting "error: no such option: --schema" when --schema provided to argparse; and "Input LinkML schema file not given" when not given that parameter!
-"""
-try:
-	from linkml.validator import validate
-except Exception as inst:
-	print(type(inst))    # the exception type
-	print(inst.args)     # arguments stored in .args
-	print(inst)          # __str__ allows args to be printed directly,
-	                     # but may be overridden in exception subclasses
-"""
-
 def init_parser():
 
 	parser = argparse.ArgumentParser(
@@ -530,26 +519,8 @@ with open(args.schema_path, "r") as schema_handle:
 if len(warnings):
 	print ("\nWARNING: \n", "\n ".join(warnings));
 
-
+"""
 # SNIPETS:
-#
-#stderr=None;
-#try:
-# e.g. > linkml-convert -s schema.yaml -C CanCOGeNCovid19 --index-slot specimen_collector_sample_id -o validTestData_2-1-2.tmp.tsv.json validTestData_2-1-2.tmp.tsv
-# ISSUE IS range="ANY_OF" slots may have content but if REQUIRED=True, ARE THROWING ERROR.
-#run_state = subprocess.check_output(["linkml-convert", "-s", args.schema_path, "-C", target_class, "--index-slot", slot_key, "-o", temp_file + '.json', temp_file]) #, stderr=subprocess.STDOUT
-"""
-except BaseException as inst:
-
-	print(type(inst))		# the exception type
-	print(inst.args)		# arguments stored in .args
-	print(inst)					# __str__ allows args to be printed directly,
-												# but may be overridden in exception subclasses
-
-finally:
-"""
-
-"""
 # A challenge trying to get linkml-validate working via python module.
 
 report = validate(data_handle, args.schema_path, "Person") # , "Person"
@@ -558,4 +529,31 @@ if not report.results:
 else:
   for result in report.results:
       print(result.message)
+
+# ISSUE TRYING TO IMPORT linkml, getting "error: no such option: --schema" when --schema provided to argparse; and "Input LinkML schema file not given" when not given that parameter!
+try:
+	from linkml.validator import validate
+except Exception as inst:
+	print(type(inst))    # the exception type
+	print(inst.args)     # arguments stored in .args
+	print(inst)          # __str__ allows args to be printed directly,
+	                     # but may be overridden in exception subclasses
+
+	
+stderr=None;
+try:
+# e.g. > linkml-convert -s schema.yaml -C CanCOGeNCovid19 --index-slot specimen_collector_sample_id -o validTestData_2-1-2.tmp.tsv.json validTestData_2-1-2.tmp.tsv
+# ISSUE IS range="ANY_OF" slots may have content but if REQUIRED=True, ARE THROWING ERROR.
+	run_state = subprocess.check_output(["linkml-convert", "-s", args.schema_path, "-C", target_class, "--index-slot", slot_key, "-o", temp_file + '.json', temp_file]) #, stderr=subprocess.STDOUT
+
+except BaseException as inst:
+
+	print(type(inst))		# the exception type
+	print(inst.args)		# arguments stored in .args
+	print(inst)					# __str__ allows args to be printed directly,
+												# but may be overridden in exception subclasses
+
+finally:
+...
+
 """
