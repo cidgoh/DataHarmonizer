@@ -407,12 +407,6 @@ def getLinkMLTransform(SCHEMA, template, row_data):
 			if slot['multivalued'] == True:
 				output_val = [x.strip() for x in re.split(DELIMITERS, output_val)];
 
-			
-			# ISSUE: () preserved rather than eliminated
-			# ISSUE: diagnostic pcr Ct value 1 not transformed to diagnostic_pcr_ct_value_1
-			# ISSUE: 
-
-
 			# For validation, LinkML will transform both schema and slot labels into
 			# what it considers are standardized names, so we have to anticipate what
 			# new slot label will be via search and replace.  Convert keys to 
