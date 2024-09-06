@@ -9,7 +9,6 @@ module.exports = (env, argv) => {
     output: {
       path: path.resolve(__dirname, 'dist'),
       filename: 'scripts/[name].js',
-      assetModuleFilename: 'assets/[hash][ext][query]',
     },
     plugins: [
       new HtmlWebpackPlugin({
@@ -52,6 +51,12 @@ module.exports = (env, argv) => {
         {
           test: /\.(png|svg|jpg|jpeg|gif)$/i,
           type: 'asset/resource',
+          generator: {
+            // Will throw a file not found error if ``dist`` folder not in
+            // ``{project root}/web/``.
+            filename: '../[file]',
+            emit: false,
+          }
         },
       ],
     },
