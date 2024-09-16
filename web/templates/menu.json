@@ -1,11 +1,4 @@
 {
-  "test": {
-    "TEST": {
-      "name": "TEST",
-      "status": "published",
-      "display": true
-    }
-  },
   "canada_covid19": {
     "CanCOGeN Covid-19": {
       "name": "CanCOGeN Covid-19",
@@ -136,6 +129,13 @@
       "name": "Container",
       "status": "published",
       "display": false
+    }
+  },
+  "test": {
+    "TEST": {
+      "name": "TEST",
+      "status": "published",
+      "display": true
     }
   }
 }
