@@ -1,17 +1,4 @@
 {
-  "grdi": {
-    "GRDISample": {
-      "name": "GRDISample",
-      "status": "published",
-      "display": true
-    },
-  "canada_covid19": {
-    "CanCOGeN Covid-19": {
-      "name": "CanCOGeN Covid-19",
-      "status": "published",
-      "display": true
-    }
-  },
   "test": {
     "TEST": {
       "name": "TEST",
@@ -19,6 +6,19 @@
       "display": true
     }
   },
+  "canada_covid19": {
+    "CanCOGeN Covid-19": {
+      "name": "CanCOGeN Covid-19",
+      "status": "published",
+      "display": true
+    }
+  },
+  "grdi": {
+    "GRDISample": {
+      "name": "GRDISample",
+      "status": "published",
+      "display": true
+    },
     "AMRTest": {
       "name": "AMRTest",
       "status": "published",
