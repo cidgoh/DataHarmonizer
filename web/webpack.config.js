@@ -56,7 +56,7 @@ module.exports = (env, argv) => {
             // ``{project root}/web/``.
             filename: '../[file]',
             emit: false,
-          }
+          },
         },
       ],
     },
