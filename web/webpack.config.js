@@ -10,13 +10,13 @@ module.exports = (env, argv) => {
     entry: './index.js',
     resolve: {
       alias: {
+        '@/lib/images': path.resolve(__dirname, 'dist/assets'),
         '@': path.dirname(path.resolve(__dirname)), // this sets '@/' as an alias for the projectroot
       },
     },
     output: {
       path: path.resolve(__dirname, 'dist'),
       filename: 'scripts/[name].js',
-      assetModuleFilename: 'assets/[hash][ext][query]',
     },
     plugins: [
       // necessary for templates.js
@@ -82,6 +82,10 @@ module.exports = (env, argv) => {
         {
           test: /\.(png|svg|jpg|jpeg|gif)$/i,
           type: 'asset/resource',
+          generator: {
+            filename: '../[file]',
+            emit: false,
+          },
         },
       ],
     },

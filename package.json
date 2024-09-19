@@ -28,8 +28,9 @@
     "clean:lib": "rimraf lib/dist",
     "clean:web": "rimraf web/dist",
     "clean": "yarn clean:lib && yarn clean:web",
+    "copy:web": "copyfiles -f lib/images/* web/dist/assets",
     "build:lib": "yarn clean:lib && rollup --config lib/rollup.config.js",
-    "build:web": "yarn clean:web && webpack --mode=production --config web/webpack.config.js",
+    "build:web": "yarn clean:web && yarn copy:web && webpack --mode=production --config web/webpack.config.js",
     "dev": "webpack serve --mode=development --config web/webpack.config.js",
     "test": "jest tests/"
   },
@@ -51,6 +52,7 @@
     "@types/jest": "^29.5.5",
     "bootstrap": "4.3.1",
     "copy-webpack-plugin": "^11.0.0",
+    "copyfiles": "^2.4.1",
     "css-loader": "^6.7.1",
     "directory-tree-webpack-plugin": "^1.0.3",
     "dsv-loader": "^2.0.0",
@@ -84,7 +86,7 @@
     "file-saver": "^2.0.5",
     "flatpickr": "^4.6.13",
     "handsontable": "13.1.0",
-    "i18next": "^23.6.0",
+    "i18next": "^23.11.5",
     "jquery-i18next": "^1.2.1",
     "jquery-ui-bundle": "^1.12.1-migrate",
     "language-tags": "^1.0.9",
@@ -93,10 +95,7 @@
     "punycode": "^2.3.1",
     "sheetclip": "^0.3.0",
     "sifter": "^0.5.4",
-    "xlsx": "^0.18.5",
-    "i18next": "^23.11.5",
-    "jquery-i18next": "^1.2.1",
-    "language-tags": "^1.0.9"
+    "xlsx": "^0.18.5"
   },
   "jest": {
     "transform": {
