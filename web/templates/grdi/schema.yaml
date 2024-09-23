@@ -3178,7 +3178,7 @@ slots:
     exact_mappings:
     - BIOSAMPLE:sample_name
     - NCBI_BIOSAMPLE_Enterics:sample_name
-    - NCBI_ANTIBIOGRAM:sample_name
+    - NCBI_ANTIBIOGRAM:sample_name/biosample_accession
   alternative_sample_id:
     name: alternative_sample_id
     title: alternative_sample_ID

@@ -6010,7 +6010,7 @@
       "exact_mappings": [
         "BIOSAMPLE:sample_name",
         "NCBI_BIOSAMPLE_Enterics:sample_name",
-        "NCBI_ANTIBIOGRAM:sample_name"
+        "NCBI_ANTIBIOGRAM:sample_name/biosample_accession"
       ],
       "slot_uri": "GENEPIO:0001123",
       "identifier": true,
@@ -28660,7 +28660,7 @@
           "exact_mappings": [
             "BIOSAMPLE:sample_name",
             "NCBI_BIOSAMPLE_Enterics:sample_name",
-            "NCBI_ANTIBIOGRAM:sample_name"
+            "NCBI_ANTIBIOGRAM:sample_name/biosample_accession"
           ],
           "rank": 1,
           "slot_uri": "GENEPIO:0001123",
