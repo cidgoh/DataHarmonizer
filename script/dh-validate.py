@@ -15,8 +15,6 @@
 # As well, multivalued fields are split up into an array of separate values.
 # cli linkml-validate is then applied to this temporary file.
 #
-# DataHarmonizer-generated data file with its section headers must be removed,
-#
 # 
 # Options:
 #  -s, --schema FILE               Schema file to validate data against
