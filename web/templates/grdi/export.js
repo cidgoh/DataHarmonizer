@@ -495,5 +495,118 @@ export default {
 
       return outputMatrix;
     }
+  },
+
+  NCBI_Antibiogram: {
+    fileType: 'xls',
+    status: 'published',
+    method: function (dh) {
+      const ExportHeaders = new Map([
+        ['sample_name/biosample_accession', []],
+        ['antibiotic', []],
+        ['resistance_phenotype', []],
+        ['measurement_sign', []],
+        ['measurement', []],
+        ['measurement_units', []],
+        ['laboratory_typing_method', []],
+        ['laboratory_typing_platform', []],
+        ['vendor', []],
+        ['laboratory_typing_method_version_or_reagent', []],
+        ['testing_standard', []]
+      ]);
+      const longHeadersObj = {
+        'antibiotic': [],
+        'resistance_phenotype': [],
+        'measurement_sign': [],
+        'measurement': [],
+        'measurement_units': [],
+        'laboratory_typing_method': [],
+        'laboratory_typing_platform': [],
+        'vendor': [],
+        'laboratory_typing_method_version_or_reagent': [],
+        'testing_standard': []
+      };
+      const antibiotics = [
+        'amikacin',
+        'amoxicillin-clavulanic_acid',
+        'ampicillin',
+        'azithromycin',
+        'cefazolin',
+        'cefepime',
+        'cefotaxime',
+        'cefotaxime-clavulanic_acid',
+        'cefoxitin',
+        'cefpodoxime',
+        'ceftazidime',
+        'ceftazidime-clavulanic_acid',
+        'ceftiofur',
+        'ceftriaxone',
+        'cephalothin',
+        'chloramphenicol',
+        'ciprofloxacin',
+        'clindamycin',
+        'doxycycline',
+        'enrofloxacin',
+        'erythromycin',
+        'florfenicol',
+        'gentamicin',
+        'imipenem',
+        'kanamycin',
+        'levofloxacin',
+        'linezolid',
+        'meropenem',
+        'nalidixic',
+        'nitrofurantoin',
+        'norfloxacin',
+        'oxolinic-acid',
+        'oxytetracycline',
+        'piperacillin',
+        'piperacillin-tazobactam',
+        'polymyxin-b',
+        'quinupristin-dalfopristin',
+        'streptomycin',
+        'sulfisoxazole',
+        'telithromycin',
+        'tetracycline',
+        'tigecycline',
+        'trimethoprim-sulfamethoxazole'
+      ];
+      for (let longHeader in longHeadersObj) {
+        if (longHeader === 'antibiotic') continue;
+        longHeadersObj[longHeader] = antibiotics.map((e) => {
+          return e.concat('_', longHeader);
+        });
+      }
+
+      const sourceFields = dh.getFields(dh.table);
+      const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
+      // Fills in the above mapping (or just set manually above)
+      dh.getHeaderMap(ExportHeaders, sourceFields, 'NCBI_ANTIBIOGRAM');
+
+      // Copy headers to 1st row of new export table
+      const outputMatrix = [[...ExportHeaders.keys()]];
+
+      for (const inputRow of dh.getTrimmedData(dh.hot)) {
+        const outputRow = [];
+        for (const [headerName, sources] of ExportHeaders) {
+          let value;
+          if (headerName in longHeadersObj) {
+            value = dh.getMappedField(
+              headerName,
+              inputRow,
+              sources,
+              sourceFields,
+              sourceFieldNameMap,
+              ':',
+              'NCBI_ANTIBIOGRAM'
+            );
+          }
+          outputRow.push(value);
+        }
+        outputMatrix.push(outputRow);
+      }
+
+      return outputMatrix;
+    }
   }
 };
