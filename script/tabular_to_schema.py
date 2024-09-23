@@ -149,19 +149,37 @@ def set_range(slot, slot_range, slot_range_2):
 def set_min_max(slot, slot_minimum_value, slot_maximum_value):
 
 	if slot_minimum_value > '':
-		if slot_minimum_value.isnumeric():
+		if isInteger(slot_minimum_value):
 			slot['minimum_value'] = int(slot_minimum_value);
+		elif isDecimal(slot_minimum_value):
+			slot['minimum_value'] = float(slot_minimum_value);
 		else:
 			slot['todos'] = ['>=' + slot_minimum_value];
 	if slot_maximum_value > '':
-		if slot_maximum_value.isnumeric():
+		if isInteger(slot_maximum_value):
 			slot['maximum_value'] = int(slot_maximum_value);
+		elif isDecimal(slot_maximum_value):
+			slot['maximum_value'] = float(slot_maximum_value);
 		else:
 			if slot['todos']:
 				slot['todos'].append('<=' + slot_maximum_value);
 			else:
 				slot['todos'] = ['<=' + slot_maximum_value];
 
+def isDecimal(x):
+    try:
+        float(x);
+        return True
+    except ValueError:
+        return False
+
+def isInteger(x):
+    try: 
+        int(x)
+    except ValueError:
+        return False
+    else:
+        return True
 
 def set_classes(schema_slot_path, schema, locale_schemas, export_format, warnings):
 

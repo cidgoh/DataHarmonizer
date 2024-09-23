@@ -12,9 +12,113 @@
       "prefix_prefix": "linkml",
       "prefix_reference": "https://w3id.org/linkml/"
     },
+    "BTO": {
+      "prefix_prefix": "BTO",
+      "prefix_reference": "http://purl.obolibrary.org/obo/BTO_"
+    },
+    "CIDO": {
+      "prefix_prefix": "CIDO",
+      "prefix_reference": "http://purl.obolibrary.org/obo/CIDO_"
+    },
+    "CLO": {
+      "prefix_prefix": "CLO",
+      "prefix_reference": "http://purl.obolibrary.org/obo/CLO_"
+    },
+    "DOID": {
+      "prefix_prefix": "DOID",
+      "prefix_reference": "http://purl.obolibrary.org/obo/DOID_"
+    },
+    "ECTO": {
+      "prefix_prefix": "ECTO",
+      "prefix_reference": "http://purl.obolibrary.org/obo/ECTO_"
+    },
+    "EFO": {
+      "prefix_prefix": "EFO",
+      "prefix_reference": "http://purl.obolibrary.org/obo/EFO_"
+    },
+    "ENVO": {
+      "prefix_prefix": "ENVO",
+      "prefix_reference": "http://purl.obolibrary.org/obo/ENVO_"
+    },
+    "FOODON": {
+      "prefix_prefix": "FOODON",
+      "prefix_reference": "http://purl.obolibrary.org/obo/FOODON_"
+    },
+    "GAZ": {
+      "prefix_prefix": "GAZ",
+      "prefix_reference": "http://purl.obolibrary.org/obo/GAZ_"
+    },
     "GENEPIO": {
       "prefix_prefix": "GENEPIO",
       "prefix_reference": "http://purl.obolibrary.org/obo/GENEPIO_"
+    },
+    "GSSO": {
+      "prefix_prefix": "GSSO",
+      "prefix_reference": "http://purl.obolibrary.org/obo/GSSO_"
+    },
+    "HP": {
+      "prefix_prefix": "HP",
+      "prefix_reference": "http://purl.obolibrary.org/obo/HP_"
+    },
+    "IDO": {
+      "prefix_prefix": "IDO",
+      "prefix_reference": "http://purl.obolibrary.org/obo/IDO_"
+    },
+    "MP": {
+      "prefix_prefix": "MP",
+      "prefix_reference": "http://purl.obolibrary.org/obo/MP_"
+    },
+    "MMO": {
+      "prefix_prefix": "MMO",
+      "prefix_reference": "http://purl.obolibrary.org/obo/MMO_"
+    },
+    "MONDO": {
+      "prefix_prefix": "MONDO",
+      "prefix_reference": "http://purl.obolibrary.org/obo/MONDO_"
+    },
+    "MPATH": {
+      "prefix_prefix": "MPATH",
+      "prefix_reference": "http://purl.obolibrary.org/obo/MPATH_"
+    },
+    "NCIT": {
+      "prefix_prefix": "NCIT",
+      "prefix_reference": "http://purl.obolibrary.org/obo/NCIT_"
+    },
+    "NCBITaxon": {
+      "prefix_prefix": "NCBITaxon",
+      "prefix_reference": "http://purl.obolibrary.org/obo/NCBITaxon_"
+    },
+    "NBO": {
+      "prefix_prefix": "NBO",
+      "prefix_reference": "http://purl.obolibrary.org/obo/NBO_"
+    },
+    "OBI": {
+      "prefix_prefix": "OBI",
+      "prefix_reference": "http://purl.obolibrary.org/obo/OBI_"
+    },
+    "OMRSE": {
+      "prefix_prefix": "OMRSE",
+      "prefix_reference": "http://purl.obolibrary.org/obo/OMRSE_"
+    },
+    "PCO": {
+      "prefix_prefix": "PCO",
+      "prefix_reference": "http://purl.obolibrary.org/obo/PCO_"
+    },
+    "TRANS": {
+      "prefix_prefix": "TRANS",
+      "prefix_reference": "http://purl.obolibrary.org/obo/TRANS_"
+    },
+    "UBERON": {
+      "prefix_prefix": "UBERON",
+      "prefix_reference": "http://purl.obolibrary.org/obo/UBERON_"
+    },
+    "UO": {
+      "prefix_prefix": "UO",
+      "prefix_reference": "http://purl.obolibrary.org/obo/UO_"
+    },
+    "VO": {
+      "prefix_prefix": "VO",
+      "prefix_reference": "http://purl.obolibrary.org/obo/VO_"
     }
   },
   "default_prefix": "https://example.com/CanCOGeN_Covid-19/",
@@ -3733,6 +3837,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Identificateurs de base de données"
     },
     "third_party_lab_service_provider_name": {
@@ -3748,6 +3855,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Identificateurs de base de données"
     },
     "third_party_lab_sample_id": {
@@ -3763,6 +3873,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Identificateurs de base de données"
     },
     "case_id": {
@@ -3778,6 +3891,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Identificateurs de base de données"
     },
     "related_specimen_primary_id": {
@@ -3793,6 +3909,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Identificateurs de base de données"
     },
     "irida_sample_name": {
@@ -3808,6 +3927,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Identificateurs de base de données"
     },
     "umbrella_bioproject_accession": {
@@ -3823,6 +3945,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Identificateurs de base de données"
     },
     "bioproject_accession": {
@@ -3838,6 +3963,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Identificateurs de base de données"
     },
     "biosample_accession": {
@@ -3853,6 +3981,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Identificateurs de base de données"
     },
     "sra_accession": {
@@ -3868,6 +3999,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Identificateurs de base de données"
     },
     "genbank_accession": {
@@ -3883,6 +4017,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Identificateurs de base de données"
     },
     "gisaid_accession": {
@@ -3898,6 +4035,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Identificateurs de base de données"
     },
     "sample_collected_by": {
@@ -3913,6 +4053,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Collecte et traitement des échantillons"
     },
     "sample_collector_contact_email": {
@@ -3928,6 +4071,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Collecte et traitement des échantillons"
     },
     "sample_collector_contact_address": {
@@ -3943,6 +4089,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Collecte et traitement des échantillons"
     },
     "sequence_submitted_by": {
@@ -3958,6 +4107,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Collecte et traitement des échantillons"
     },
     "sequence_submitter_contact_email": {
@@ -3973,6 +4125,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Collecte et traitement des échantillons"
     },
     "sequence_submitter_contact_address": {
@@ -3988,6 +4143,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Collecte et traitement des échantillons"
     },
     "sample_collection_date": {
@@ -4003,6 +4161,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Collecte et traitement des échantillons"
     },
     "sample_collection_date_precision": {
@@ -4018,6 +4179,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Collecte et traitement des échantillons"
     },
     "sample_received_date": {
@@ -4033,6 +4197,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Collecte et traitement des échantillons"
     },
     "geo_loc_name_country": {
@@ -4048,6 +4215,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Collecte et traitement des échantillons"
     },
     "geo_loc_name_state_province_territory": {
@@ -4063,6 +4233,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Collecte et traitement des échantillons"
     },
     "geo_loc_name_city": {
@@ -4078,6 +4251,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Collecte et traitement des échantillons"
     },
     "organism": {
@@ -4093,6 +4269,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Collecte et traitement des échantillons"
     },
     "isolate": {
@@ -4108,6 +4287,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Collecte et traitement des échantillons"
     },
     "purpose_of_sampling": {
@@ -4123,6 +4305,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Collecte et traitement des échantillons"
     },
     "purpose_of_sampling_details": {
@@ -4138,6 +4323,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Collecte et traitement des échantillons"
     },
     "nml_submitted_specimen_type": {
@@ -4153,6 +4341,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Collecte et traitement des échantillons"
     },
     "related_specimen_relationship_type": {
@@ -4168,6 +4359,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Collecte et traitement des échantillons"
     },
     "anatomical_material": {
@@ -4183,6 +4377,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Collecte et traitement des échantillons"
     },
     "anatomical_part": {
@@ -4198,6 +4395,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Collecte et traitement des échantillons"
     },
     "body_product": {
@@ -4213,6 +4413,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Collecte et traitement des échantillons"
     },
     "environmental_material": {
@@ -4228,6 +4431,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Collecte et traitement des échantillons"
     },
     "environmental_site": {
@@ -4243,6 +4449,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Collecte et traitement des échantillons"
     },
     "collection_device": {
@@ -4258,6 +4467,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Collecte et traitement des échantillons"
     },
     "collection_method": {
@@ -4273,6 +4485,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Collecte et traitement des échantillons"
     },
     "collection_protocol": {
@@ -4288,6 +4503,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Collecte et traitement des échantillons"
     },
     "specimen_processing": {
@@ -4303,6 +4521,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Collecte et traitement des échantillons"
     },
     "specimen_processing_details": {
@@ -4318,6 +4539,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Collecte et traitement des échantillons"
     },
     "lab_host": {
@@ -4333,6 +4557,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Collecte et traitement des échantillons"
     },
     "passage_number": {
@@ -4348,6 +4575,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Collecte et traitement des échantillons"
     },
     "passage_method": {
@@ -4363,6 +4593,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Collecte et traitement des échantillons"
     },
     "biomaterial_extracted": {
@@ -4378,6 +4611,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Collecte et traitement des échantillons"
     },
     "host_common_name": {
@@ -4393,6 +4629,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Informations sur l'hôte"
     },
     "host_scientific_name": {
@@ -4408,6 +4647,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Informations sur l'hôte"
     },
     "host_health_state": {
@@ -4423,6 +4665,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Informations sur l'hôte"
     },
     "host_health_status_details": {
@@ -4438,6 +4683,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Informations sur l'hôte"
     },
     "host_health_outcome": {
@@ -4453,6 +4701,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Informations sur l'hôte"
     },
     "host_disease": {
@@ -4468,6 +4719,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Informations sur l'hôte"
     },
     "host_age": {
@@ -4483,6 +4737,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Informations sur l'hôte"
     },
     "host_age_unit": {
@@ -4498,6 +4755,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Informations sur l'hôte"
     },
     "host_age_bin": {
@@ -4513,6 +4773,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Informations sur l'hôte"
     },
     "host_gender": {
@@ -4528,6 +4791,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Informations sur l'hôte"
     },
     "host_residence_geo_loc_name_country": {
@@ -4543,6 +4809,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Informations sur l'hôte"
     },
     "host_residence_geo_loc_name_state_province_territory": {
@@ -4558,6 +4827,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Informations sur l'hôte"
     },
     "host_subject_id": {
@@ -4573,6 +4845,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Informations sur l'hôte"
     },
     "symptom_onset_date": {
@@ -4588,6 +4863,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Informations sur l'hôte"
     },
     "signs_and_symptoms": {
@@ -4609,6 +4887,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Informations sur l'hôte"
     },
     "preexisting_conditions_and_risk_factors": {
@@ -4630,6 +4911,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Informations sur l'hôte"
     },
     "complications": {
@@ -4651,6 +4935,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Informations sur l'hôte"
     },
     "host_vaccination_status": {
@@ -4666,6 +4953,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Informations sur la vaccination de l'hôte"
     },
     "number_of_vaccine_doses_received": {
@@ -4681,6 +4971,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Informations sur la vaccination de l'hôte"
     },
     "vaccination_dose_1_vaccine_name": {
@@ -4696,6 +4989,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Informations sur la vaccination de l'hôte"
     },
     "vaccination_dose_1_vaccination_date": {
@@ -4711,6 +5007,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Informations sur la vaccination de l'hôte"
     },
     "vaccination_dose_2_vaccine_name": {
@@ -4726,6 +5025,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Informations sur la vaccination de l'hôte"
     },
     "vaccination_dose_2_vaccination_date": {
@@ -4741,6 +5043,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Informations sur la vaccination de l'hôte"
     },
     "vaccination_dose_3_vaccine_name": {
@@ -4756,6 +5061,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Informations sur la vaccination de l'hôte"
     },
     "vaccination_dose_3_vaccination_date": {
@@ -4771,6 +5079,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Informations sur la vaccination de l'hôte"
     },
     "vaccination_dose_4_vaccine_name": {
@@ -4786,6 +5097,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Informations sur la vaccination de l'hôte"
     },
     "vaccination_dose_4_vaccination_date": {
@@ -4801,6 +5115,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Informations sur la vaccination de l'hôte"
     },
     "vaccination_history": {
@@ -4825,6 +5142,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Informations sur la vaccination de l'hôte"
     },
     "location_of_exposure_geo_loc_name_country": {
@@ -4840,6 +5160,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Informations sur l'exposition de l'hôte"
     },
     "destination_of_most_recent_travel_city": {
@@ -4855,6 +5178,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Informations sur l'exposition de l'hôte"
     },
     "destination_of_most_recent_travel_state_province_territory": {
@@ -4870,6 +5196,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Informations sur l'exposition de l'hôte"
     },
     "destination_of_most_recent_travel_country": {
@@ -4885,6 +5214,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Informations sur l'exposition de l'hôte"
     },
     "most_recent_travel_departure_date": {
@@ -4900,6 +5232,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Informations sur l'exposition de l'hôte"
     },
     "most_recent_travel_return_date": {
@@ -4915,6 +5250,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Informations sur l'exposition de l'hôte"
     },
     "travel_point_of_entry_type": {
@@ -4930,6 +5268,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Informations sur l'exposition de l'hôte"
     },
     "border_testing_test_day_type": {
@@ -4945,6 +5286,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Informations sur l'exposition de l'hôte"
     },
     "travel_history": {
@@ -4966,6 +5310,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Informations sur l'exposition de l'hôte"
     },
     "travel_history_availability": {
@@ -4981,6 +5328,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Informations sur l'exposition de l'hôte"
     },
     "exposure_event": {
@@ -4996,6 +5346,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Informations sur l'exposition de l'hôte"
     },
     "exposure_contact_level": {
@@ -5011,6 +5364,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Informations sur l'exposition de l'hôte"
     },
     "host_role": {
@@ -5026,6 +5382,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Informations sur l'exposition de l'hôte"
     },
     "exposure_setting": {
@@ -5041,6 +5400,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Informations sur l'exposition de l'hôte"
     },
     "exposure_details": {
@@ -5056,6 +5418,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Informations sur l'exposition de l'hôte"
     },
     "prior_sarscov2_infection": {
@@ -5071,6 +5436,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Informations sur la réinfection de l'hôte"
     },
     "prior_sarscov2_infection_isolate": {
@@ -5086,6 +5454,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Informations sur la réinfection de l'hôte"
     },
     "prior_sarscov2_infection_date": {
@@ -5101,6 +5472,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Informations sur la réinfection de l'hôte"
     },
     "prior_sarscov2_antiviral_treatment": {
@@ -5116,6 +5490,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Informations sur la réinfection de l'hôte"
     },
     "prior_sarscov2_antiviral_treatment_agent": {
@@ -5131,6 +5508,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Informations sur la réinfection de l'hôte"
     },
     "prior_sarscov2_antiviral_treatment_date": {
@@ -5146,6 +5526,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Informations sur la réinfection de l'hôte"
     },
     "purpose_of_sequencing": {
@@ -5161,6 +5544,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Séquençage"
     },
     "purpose_of_sequencing_details": {
@@ -5176,6 +5562,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Séquençage"
     },
     "sequencing_date": {
@@ -5191,6 +5580,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Séquençage"
     },
     "library_id": {
@@ -5206,6 +5598,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Séquençage"
     },
     "amplicon_size": {
@@ -5221,6 +5616,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Séquençage"
     },
     "library_preparation_kit": {
@@ -5236,6 +5634,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Séquençage"
     },
     "flow_cell_barcode": {
@@ -5251,6 +5652,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Séquençage"
     },
     "sequencing_instrument": {
@@ -5266,6 +5670,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Séquençage"
     },
     "sequencing_protocol_name": {
@@ -5281,6 +5688,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Séquençage"
     },
     "sequencing_protocol": {
@@ -5296,6 +5706,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Séquençage"
     },
     "sequencing_kit_number": {
@@ -5311,6 +5724,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Séquençage"
     },
     "amplicon_pcr_primer_scheme": {
@@ -5326,6 +5742,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Séquençage"
     },
     "raw_sequence_data_processing_method": {
@@ -5341,6 +5760,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Bioinformatique et mesures de contrôle de la qualité"
     },
     "dehosting_method": {
@@ -5356,6 +5778,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Bioinformatique et mesures de contrôle de la qualité"
     },
     "consensus_sequence_name": {
@@ -5371,6 +5796,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Bioinformatique et mesures de contrôle de la qualité"
     },
     "consensus_sequence_filename": {
@@ -5386,6 +5814,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Bioinformatique et mesures de contrôle de la qualité"
     },
     "consensus_sequence_filepath": {
@@ -5401,6 +5832,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Bioinformatique et mesures de contrôle de la qualité"
     },
     "consensus_sequence_software_name": {
@@ -5416,6 +5850,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Bioinformatique et mesures de contrôle de la qualité"
     },
     "consensus_sequence_software_version": {
@@ -5431,6 +5868,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Bioinformatique et mesures de contrôle de la qualité"
     },
     "breadth_of_coverage_value": {
@@ -5446,6 +5886,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Bioinformatique et mesures de contrôle de la qualité"
     },
     "depth_of_coverage_value": {
@@ -5461,6 +5904,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Bioinformatique et mesures de contrôle de la qualité"
     },
     "depth_of_coverage_threshold": {
@@ -5476,6 +5922,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Bioinformatique et mesures de contrôle de la qualité"
     },
     "r1_fastq_filename________": {
@@ -5491,6 +5940,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Bioinformatique et mesures de contrôle de la qualité"
     },
     "r2_fastq_filename": {
@@ -5506,6 +5958,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Bioinformatique et mesures de contrôle de la qualité"
     },
     "r1_fastq_filepath": {
@@ -5521,6 +5976,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Bioinformatique et mesures de contrôle de la qualité"
     },
     "r2_fastq_filepath": {
@@ -5536,6 +5994,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Bioinformatique et mesures de contrôle de la qualité"
     },
     "fast5_filename": {
@@ -5551,6 +6012,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Bioinformatique et mesures de contrôle de la qualité"
     },
     "fast5_filepath": {
@@ -5566,6 +6030,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Bioinformatique et mesures de contrôle de la qualité"
     },
     "number_of_base_pairs_sequenced": {
@@ -5581,6 +6048,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Bioinformatique et mesures de contrôle de la qualité"
     },
     "consensus_genome_length": {
@@ -5596,6 +6066,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Bioinformatique et mesures de contrôle de la qualité"
     },
     "ns_per_100_kbp": {
@@ -5611,6 +6084,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Bioinformatique et mesures de contrôle de la qualité"
     },
     "reference_genome_accession": {
@@ -5626,6 +6102,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Bioinformatique et mesures de contrôle de la qualité"
     },
     "bioinformatics_protocol": {
@@ -5641,6 +6120,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Bioinformatique et mesures de contrôle de la qualité"
     },
     "lineage_clade_name": {
@@ -5656,6 +6138,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Informations sur les lignées et les variantes"
     },
     "lineage_clade_analysis_software_name": {
@@ -5671,6 +6156,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Informations sur les lignées et les variantes"
     },
     "lineage_clade_analysis_software_version": {
@@ -5686,6 +6174,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Informations sur les lignées et les variantes"
     },
     "variant_designation": {
@@ -5701,6 +6192,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Informations sur les lignées et les variantes"
     },
     "variant_evidence": {
@@ -5716,6 +6210,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Informations sur les lignées et les variantes"
     },
     "variant_evidence_details": {
@@ -5731,6 +6228,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Informations sur les lignées et les variantes"
     },
     "gene_name_1": {
@@ -5746,6 +6246,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Tests de diagnostic des agents pathogènes"
     },
     "diagnostic_pcr_protocol_1": {
@@ -5761,6 +6264,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Tests de diagnostic des agents pathogènes"
     },
     "diagnostic_pcr_ct_value_1": {
@@ -5776,6 +6282,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Tests de diagnostic des agents pathogènes"
     },
     "gene_name_2": {
@@ -5791,6 +6300,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Tests de diagnostic des agents pathogènes"
     },
     "diagnostic_pcr_protocol_2": {
@@ -5806,6 +6318,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Tests de diagnostic des agents pathogènes"
     },
     "diagnostic_pcr_ct_value_2": {
@@ -5821,6 +6336,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Tests de diagnostic des agents pathogènes"
     },
     "gene_name_3": {
@@ -5836,6 +6354,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Tests de diagnostic des agents pathogènes"
     },
     "diagnostic_pcr_protocol_3": {
@@ -5851,6 +6372,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Tests de diagnostic des agents pathogènes"
     },
     "diagnostic_pcr_ct_value_3": {
@@ -5866,6 +6390,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Tests de diagnostic des agents pathogènes"
     },
     "authors": {
@@ -5881,6 +6408,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Reconnaissance des contributeurs"
     },
     "dataharmonizer_provenance": {
@@ -5896,6 +6426,9 @@
         }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "domain_of": [
+        "CanCOGeN Covid-19"
+      ],
       "slot_group": "Reconnaissance des contributeurs"
     }
   },
@@ -5908,6 +6441,7 @@
     "CanCOGeN Covid-19": {
       "name": "CanCOGeN Covid-19",
       "description": "Canadian specification for Covid-19 clinical virus biosample data gathering",
+      "title": "CanCOGeN Covid-19",
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "see_also": [
         "templates/canada_covid19/SOP.pdf"
@@ -6635,6 +7169,14 @@
           "name": "specimen_collector_sample_id",
           "description": "Le nom défini par l'utilisateur pour l'échantillon.",
           "title": "Collecteur d'échantillons ID de l'échantillon",
+          "comments": [
+            "Conservez l’ID de l’échantillon du collecteur. Si ce numéro est considéré comme une information identifiable, fournissez un autre identifiant. Assurez-vous de stocker la clé qui correspond aux identifiants d'origine et alternatifs pour la traçabilité et le suivi si nécessaire. Chaque ID d’échantillon de collecteur provenant d’un seul demandeur doit être unique. Il peut avoir n'importe quel format, mais nous vous suggérons de le rendre concis, unique et cohérent au sein de votre laboratoire."
+          ],
+          "examples": [
+            {
+              "value": "prov_rona_99"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 1,
           "alias": "specimen_collector_sample_id",
@@ -6648,6 +7190,14 @@
           "name": "third_party_lab_service_provider_name",
           "description": "Le nom de la société ou du laboratoire tiers qui a fourni les services.",
           "title": "nom du fournisseur de services de laboratoire tiers",
+          "comments": [
+            "Indiquez le nom complet et non abrégé de l'entreprise ou du laboratoire."
+          ],
+          "examples": [
+            {
+              "value": "Switch Health"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 2,
           "alias": "third_party_lab_service_provider_name",
@@ -6661,6 +7211,14 @@
           "name": "third_party_lab_sample_id",
           "description": "Identifiant attribué à un échantillon par un prestataire de services tiers.",
           "title": "ID d'échantillon de laboratoire tiers",
+          "comments": [
+            "Stockez l’identifiant de l’échantillon fourni par le fournisseur de services tiers."
+          ],
+          "examples": [
+            {
+              "value": "SHK123456"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 3,
           "alias": "third_party_lab_sample_id",
@@ -6674,6 +7232,14 @@
           "name": "case_id",
           "description": "Identifiant utilisé pour spécifier un cas de maladie détecté épidémiologiquement.",
           "title": "numéro de dossier",
+          "comments": [
+            "Fournissez l’identifiant du cas. L’identification des cas facilite grandement le lien entre les données de laboratoire et les données épidémiologiques. L’identifiant du dossier peut être considéré comme une information identifiable. Consultez l’intendant des données avant de partager."
+          ],
+          "examples": [
+            {
+              "value": "ABCD1234"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 4,
           "alias": "case_id",
@@ -6687,6 +7253,14 @@
           "name": "related_specimen_primary_id",
           "description": "L'identifiant principal d'un spécimen associé précédemment soumis au référentiel.",
           "title": "ID principal de l'échantillon associé",
+          "comments": [
+            "Conservez l'identifiant principal de l'échantillon correspondant précédemment soumis au Laboratoire national de microbiologie afin que les échantillons puissent être liés et suivis via le système."
+          ],
+          "examples": [
+            {
+              "value": "SR20-12345"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 5,
           "alias": "related_specimen_primary_id",
@@ -6700,6 +7274,14 @@
           "name": "irida_sample_name",
           "description": "L'identifiant attribué à un isolat séquencé dans IRIDA.",
           "title": "Nom de l'échantillon IRIDA",
+          "comments": [
+            "Stockez le nom de l’échantillon IRIDA. Le nom de l'échantillon IRIDA sera créé par la personne saisissant les données dans la plateforme IRIDA. Les échantillons IRIDA peuvent être liés à des métadonnées et des données de séquence, ou simplement à des métadonnées seules. Il est recommandé que le nom de l’échantillon IRIDA soit identique ou contienne l’ID de l’échantillon du collecteur d’échantillons pour une meilleure traçabilité. Il est également recommandé que le nom de l'échantillon IRIDA reflète l'accession GISAID. Les noms d’échantillons IRIDA ne peuvent pas contenir de barres obliques. Les barres obliques doivent être remplacées par des traits de soulignement. Consultez la documentation IRIDA pour plus d'informations sur les caractères spéciaux (https://irida.corefacility.ca/documentation/user/user/samples/#adding-a-new-sample)."
+          ],
+          "examples": [
+            {
+              "value": "prov_rona_99"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 6,
           "alias": "irida_sample_name",
@@ -6713,6 +7295,14 @@
           "name": "umbrella_bioproject_accession",
           "description": "Le numéro d’accession INSDC attribué au BioProject parapluie pour l’effort canadien de séquençage du SRAS-CoV-2.",
           "title": "Numéro d’accession au bioprojet parapluie",
+          "comments": [
+            "Enregistrez le numéro d’accession parapluie du BioProject en le sélectionnant dans la liste de sélection du modèle. Le numéro d’accès au numéro de BioProjet général sera identique pour tous les soumissionnaires de CanCOGen. Différentes provinces auront leurs propres bioprojets, mais ces bioprojets seront liés sous un seul bioprojet."
+          ],
+          "examples": [
+            {
+              "value": "PRJNA623807"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 7,
           "alias": "umbrella_bioproject_accession",
@@ -6726,6 +7316,14 @@
           "name": "bioproject_accession",
           "description": "Le numéro d’accession INSDC du ou des BioProjets auxquels appartient le BioSample.",
           "title": "Numéro d’accession au bioprojet",
+          "comments": [
+            "Conservez le numéro d’accès BioProject. Les BioProjects sont un outil d'organisation qui relie les données de séquence brutes, les assemblages et leurs métadonnées associées. Chaque province se verra attribuer un numéro d'accès de bioprojet différent par le Laboratoire national de microbiologie. Une accession NCBI BioProject valide a le préfixe PRJN, par exemple PRJNA12345, et est créée une fois au début d'un nouveau projet de séquençage."
+          ],
+          "examples": [
+            {
+              "value": "PRJNA608651"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 8,
           "alias": "bioproject_accession",
@@ -6739,6 +7337,14 @@
           "name": "biosample_accession",
           "description": "L'identifiant attribué à un BioSample dans les archives INSDC.",
           "title": "Numéro d’accession à un échantillon biologique",
+          "comments": [
+            "Conservez le numéro d’accession renvoyé par la soumission BioSample. NCBI BioSamples aura le préfixe SAMN."
+          ],
+          "examples": [
+            {
+              "value": "SAMN14180202"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 9,
           "alias": "biosample_accession",
@@ -6752,6 +7358,14 @@
           "name": "sra_accession",
           "description": "L'identifiant Sequence Read Archive (SRA) reliant les données brutes de lecture, les métadonnées méthodologiques et les mesures de contrôle qualité soumises à l'INSDC.",
           "title": "Numéro d’accession au SRA",
+          "comments": [
+            "Stockez le numéro d'accession attribué à la « course » soumise. Les accessions NCBI-SRA commencent par SRR."
+          ],
+          "examples": [
+            {
+              "value": "SRR11177792"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 10,
           "alias": "sra_accession",
@@ -6765,6 +7379,14 @@
           "name": "genbank_accession",
           "description": "L'identifiant GenBank attribué à la séquence dans les archives INSDC.",
           "title": "Numéro d’accession à GenBank",
+          "comments": [
+            "Stockez le numéro d’accession renvoyé par une soumission GenBank (assemblage du génome viral)."
+          ],
+          "examples": [
+            {
+              "value": "MN908947.3"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 11,
           "alias": "genbank_accession",
@@ -6778,6 +7400,14 @@
           "name": "gisaid_accession",
           "description": "Le numéro d’accession GISAID attribué à la séquence.",
           "title": "Numéro d’accession au GISAID",
+          "comments": [
+            "Stockez l’accession renvoyée par la soumission GISAID."
+          ],
+          "examples": [
+            {
+              "value": "EPI_ISL_436489"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 12,
           "alias": "gisaid_accession",
@@ -6791,6 +7421,14 @@
           "name": "sample_collected_by",
           "description": "Le nom de l’organisation à laquelle le collecteur d’échantillons est affilié.",
           "title": "échantillon collecté par",
+          "comments": [
+            "Le nom de l’agence doit être écrit au complet (à quelques exceptions près) et être cohérent dans plusieurs soumissions."
+          ],
+          "examples": [
+            {
+              "value": "Laboratoire de santé publique du BCCDC"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 13,
           "alias": "sample_collected_by",
@@ -6804,6 +7442,14 @@
           "name": "sample_collector_contact_email",
           "description": "L'adresse email du contact responsable du suivi concernant l'échantillon.",
           "title": "Courriel de contact du collecteur d'échantillons",
+          "comments": [
+            "L'adresse e-mail peut représenter une personne ou un laboratoire spécifique."
+          ],
+          "examples": [
+            {
+              "value": "RespLab@lab.ca"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 14,
           "alias": "sample_collector_contact_email",
@@ -6817,6 +7463,14 @@
           "name": "sample_collector_contact_address",
           "description": "L'adresse postale de l'agence qui soumet l'échantillon.",
           "title": "adresse de contact du collecteur d'échantillons",
+          "comments": [
+            "L'adresse postale doit être au format : numéro et nom de la rue, ville, état/province/région, pays, code postal/code postal."
+          ],
+          "examples": [
+            {
+              "value": "655 Lab St, Vancouver, British Columbia, V5N 2A2, Canada"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 15,
           "alias": "sample_collector_contact_address",
@@ -6830,6 +7484,14 @@
           "name": "sequence_submitted_by",
           "description": "Le nom de l'agence qui a généré la séquence.",
           "title": "séquence soumise par",
+          "comments": [
+            "Le nom de l’agence doit être écrit au complet (à quelques exceptions près) et être cohérent dans plusieurs soumissions."
+          ],
+          "examples": [
+            {
+              "value": "Santé publique Ontario (SPO)"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 16,
           "alias": "sequence_submitted_by",
@@ -6843,6 +7505,14 @@
           "name": "sequence_submitter_contact_email",
           "description": "L'adresse email du contact responsable du suivi de la séquence.",
           "title": "séquence courriel de contact du déposant",
+          "comments": [
+            "L'adresse e-mail peut représenter une personne ou un laboratoire spécifique."
+          ],
+          "examples": [
+            {
+              "value": "RespLab@lab.ca"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 17,
           "alias": "sequence_submitter_contact_email",
@@ -6856,6 +7526,14 @@
           "name": "sequence_submitter_contact_address",
           "description": "L'adresse postale de l'agence soumettant la séquence.",
           "title": "adresse de contact de l'auteur de la séquence",
+          "comments": [
+            "L'adresse postale doit être au format : numéro et nom de la rue, ville, état/province/région, pays, code postal/code postal."
+          ],
+          "examples": [
+            {
+              "value": "123 Sunnybrooke St, Toronto, Ontario, M4P 1L6, Canada"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 18,
           "alias": "sequence_submitter_contact_address",
@@ -6869,6 +7547,14 @@
           "name": "sample_collection_date",
           "description": "La date à laquelle l'échantillon a été prélevé.",
           "title": "date de collecte de l'échantillon",
+          "comments": [
+            "Enregistrez avec précision la date de collecte dans le modèle. La granularité requise inclut l’année, le mois et le jour. Avant de partager ces données, assurez-vous que cette date n’est pas considérée comme une information identifiable. Si cette date est considérée comme identifiable, il est acceptable d'ajouter du « jitter » à la date de collecte en ajoutant ou en soustrayant des jours calendaires. Ne modifiez pas la date de collecte dans vos dossiers originaux. Alternativement, la « date de réception » peut être utilisée comme substitut dans les données que vous partagez. La date doit être fournie au format standard ISO 8601 « YYYY-MM-DD »."
+          ],
+          "examples": [
+            {
+              "value": "2020-03-16"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 19,
           "alias": "sample_collection_date",
@@ -6882,6 +7568,14 @@
           "name": "sample_collection_date_precision",
           "description": "La précision avec laquelle la « date de prélèvement de l’échantillon » a été fournie.",
           "title": "date de collecte de l'échantillon précision",
+          "comments": [
+            "Fournissez la précision de la granularité au « jour », au « mois » ou à « l'année » pour la date fournie dans le champ « date de prélèvement de l'échantillon ». La « date de prélèvement de l'échantillon » sera tronquée à la précision spécifiée lors de l'exportation ; « jour » pour «YYYY-MM-DD », « mois » pour « YYYY-MM » ou « année » pour « YYYY »."
+          ],
+          "examples": [
+            {
+              "value": "année"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 20,
           "alias": "sample_collection_date_precision",
@@ -6895,6 +7589,14 @@
           "name": "sample_received_date",
           "description": "La date à laquelle l'échantillon a été reçu.",
           "title": "date de réception de l'échantillon",
+          "comments": [
+            "La date à laquelle l'échantillon a été reçu par un laboratoire qui n'était pas le point de prélèvement. Norme ISO 8601 « YYYY-MM-DD»."
+          ],
+          "examples": [
+            {
+              "value": "2020-03-20"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 21,
           "alias": "sample_received_date",
@@ -6908,6 +7610,14 @@
           "name": "geo_loc_name_country",
           "description": "Le pays d'origine de l'échantillon.",
           "title": "nom du geo_loc (pays)",
+          "comments": [
+            "Fournissez le nom du pays dans la liste de sélection du modèle"
+          ],
+          "examples": [
+            {
+              "value": "Canada"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 22,
           "alias": "geo_loc_name_country",
@@ -6921,6 +7631,14 @@
           "name": "geo_loc_name_state_province_territory",
           "description": "L'État/la province/le territoire d'origine de l'échantillon.",
           "title": "nom du geo_loc (état/province/territoire)",
+          "comments": [
+            "Fournissez le nom de l’État/de la province/du territoire à partir de l’ontologie géographique GAZ. Recherchez des termes géographiques ici : https://www.ebi.ac.uk/ols/ontologies/gaz"
+          ],
+          "examples": [
+            {
+              "value": "Saskatchewan"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 23,
           "alias": "geo_loc_name_state_province_territory",
@@ -6934,6 +7652,14 @@
           "name": "geo_loc_name_city",
           "description": "La ville d'origine de l'échantillon.",
           "title": "nom du geo_loc (ville)",
+          "comments": [
+            "Fournissez le nom de la ville à partir de l’ontologie géographique GAZ. Recherchez des termes géographiques ici : https://www.ebi.ac.uk/ols/ontologies/gaz"
+          ],
+          "examples": [
+            {
+              "value": "Medicine Hat"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 24,
           "alias": "geo_loc_name_city",
@@ -6947,6 +7673,14 @@
           "name": "organism",
           "description": "Nom taxonomique de l'organisme.",
           "title": "organisme",
+          "comments": [
+            "Sélectionnez « Coronavirus 2 du syndrome respiratoire aigu sévère » si vous séquencez le SRAS-CoV-2. Si un autre Coronaviridae est en cours de séquençage, fournissez le nom taxonomique de NCBITaxon. Recherchez des termes de taxonomie sur https://www.ebi.ac.uk/ols/ontologies/ncbitaxon."
+          ],
+          "examples": [
+            {
+              "value": "Syndrome respiratoire aigu sévère coronavirus 2"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 25,
           "alias": "organism",
@@ -6960,6 +7694,14 @@
           "name": "isolate",
           "description": "Identifiant de l'isolat spécifique.",
           "title": "isolat",
+          "comments": [
+            "Cet identifiant doit être un identifiant alphanumérique unique, indexé au sein de votre laboratoire. S'il est soumis à l'INSDC, le nom « isoler » est propagé dans différentes bases de données. En tant que tel, structurez le nom « isolat » pour qu'il soit conforme à ICTV/INSDC dans le format suivant : « SARS-CoV-2/host/country/sampleID/date »."
+          ],
+          "examples": [
+            {
+              "value": "hCov-19/CANADA/BC-prov_rona_99/2020"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 26,
           "alias": "isolate",
@@ -6973,6 +7715,14 @@
           "name": "purpose_of_sampling",
           "description": "La raison pour laquelle l’échantillon a été collecté.",
           "title": "Objectif de l'échantillonnage",
+          "comments": [
+            "Sélectionnez une valeur dans la liste de sélection du modèle."
+          ],
+          "examples": [
+            {
+              "value": "Tests de diagnostic"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 27,
           "alias": "purpose_of_sampling",
@@ -6986,6 +7736,14 @@
           "name": "purpose_of_sampling_details",
           "description": "Plus de détails concernant la raison pour laquelle l’échantillon a été collecté.",
           "title": "détails de l'objectif de l'échantillonnage",
+          "comments": [
+            "Fournissez une description en texte libre de la stratégie d’échantillonnage ou des échantillons collectés."
+          ],
+          "examples": [
+            {
+              "value": "L'échantillon a été collecté pour étudier la prévalence des variantes associées à la transmission du vison à l'homme au Canada."
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 28,
           "alias": "purpose_of_sampling_details",
@@ -6999,6 +7757,14 @@
           "name": "nml_submitted_specimen_type",
           "description": "Le type d'échantillon soumis au Laboratoire national de microbiologie (NML) pour analyse.",
           "title": "Type de spécimen soumis au NML",
+          "comments": [
+            "Ces informations sont requises pour le téléchargement via le système CNPHI LaSER. Sélectionnez le type d’échantillon dans la liste de sélection fournie. Si des données de séquence sont soumises plutôt qu'un échantillon à tester, sélectionnez « Non applicable »."
+          ],
+          "examples": [
+            {
+              "value": "Écouvillon"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 29,
           "alias": "nml_submitted_specimen_type",
@@ -7012,6 +7778,14 @@
           "name": "related_specimen_relationship_type",
           "description": "La relation entre le spécimen actuel et le spécimen/échantillon précédemment soumis au référentiel.",
           "title": "Type de relation du spécimen apparenté",
+          "comments": [
+            "Fournissez l'étiquette qui décrit comment l'échantillon précédent est lié à l'échantillon actuel soumis à partir de la liste de sélection fournie, afin que les échantillons puissent être liés et suivis dans le système."
+          ],
+          "examples": [
+            {
+              "value": "Test des méthodes d’échantillonnage des échantillons"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 30,
           "alias": "related_specimen_relationship_type",
@@ -7025,6 +7799,14 @@
           "name": "anatomical_material",
           "description": "Une substance obtenue à partir d'une partie anatomique d'un organisme, par ex. tissu, sang.",
           "title": "matière anatomique",
+          "comments": [
+            "Fournissez un descripteur si un matériau anatomique a été échantillonné. Utilisez la liste de sélection fournie dans le modèle. Si un terme souhaité manque dans la liste de sélection, utilisez ce service de recherche pour identifier un terme standardisé : https://www.ebi.ac.uk/ols/ontologies/uberon. Si cela ne s’applique pas, laissez vide."
+          ],
+          "examples": [
+            {
+              "value": "Sang"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 31,
           "alias": "anatomical_material",
@@ -7038,6 +7820,14 @@
           "name": "anatomical_part",
           "description": "Une partie anatomique d'un organisme, par ex. oropharynx.",
           "title": "partie anatomique",
+          "comments": [
+            "Fournissez un descripteur si une partie anatomique a été échantillonnée. Utilisez la liste de sélection fournie dans le modèle. Si un terme souhaité manque dans la liste de sélection, utilisez ce service de recherche pour identifier un terme standardisé : https://www.ebi.ac.uk/ols/ontologies/uberon. Si cela ne s’applique pas, laissez vide."
+          ],
+          "examples": [
+            {
+              "value": "Nasopharynx (NP)"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 32,
           "alias": "anatomical_part",
@@ -7051,6 +7841,14 @@
           "name": "body_product",
           "description": "Une substance excrétée/sécrétée par un organisme, par ex. selles, urine, sueur.",
           "title": "produit corporel",
+          "comments": [
+            "Fournissez une description si un produit corporel a été échantillonné. Utilisez la liste de sélection fournie dans le modèle. Si un terme souhaité manque dans la liste de sélection, utilisez ce service de recherche pour identifier un terme standardisé : https://www.ebi.ac.uk/ols/ontologies/uberon. Si cela ne s’applique pas, laissez vide."
+          ],
+          "examples": [
+            {
+              "value": "Selles"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 33,
           "alias": "body_product",
@@ -7064,6 +7862,14 @@
           "name": "environmental_material",
           "description": "Une substance obtenue à partir de l'environnement naturel ou artificiel, par ex. sol, eau, eaux usées, poignée de porte, rampe de lit, masque facial.",
           "title": "matériau environnemental",
+          "comments": [
+            "Fournissez un descripteur si un matériau environnemental a été échantillonné. Utilisez la liste de sélection fournie dans le modèle. Si un terme souhaité manque dans la liste de sélection, utilisez ce service de recherche pour identifier un terme standardisé : https://www.ebi.ac.uk/ols/ontologies/envo. Si cela ne s’applique pas, laissez vide."
+          ],
+          "examples": [
+            {
+              "value": "Masque facial"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 34,
           "alias": "environmental_material",
@@ -7077,6 +7883,14 @@
           "name": "environmental_site",
           "description": "Un emplacement environnemental peut décrire un site dans l'environnement naturel ou bâti, par ex. hôpital, marché humide, grotte aux chauves-souris.",
           "title": "site environnemental",
+          "comments": [
+            "Fournissez un descripteur si un site environnemental a été échantillonné. Utilisez la liste de sélection fournie dans le modèle. Si un terme souhaité manque dans la liste de sélection, utilisez ce service de recherche pour identifier un terme standardisé : https://www.ebi.ac.uk/ols/ontologies/envo. Si cela ne s’applique pas, laissez vide."
+          ],
+          "examples": [
+            {
+              "value": "Installation de production"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 35,
           "alias": "environmental_site",
@@ -7090,6 +7904,14 @@
           "name": "collection_device",
           "description": "L'instrument ou le récipient utilisé pour collecter l'échantillon, par ex. écouvillon.",
           "title": "dispositif de collecte",
+          "comments": [
+            "Fournissez une description si un dispositif de prélèvement a été utilisé pour l’échantillonnage. Utilisez la liste de sélection fournie dans le modèle. Si un terme souhaité manque dans la liste de sélection, utilisez ce service de recherche pour identifier un terme standardisé : https://www.ebi.ac.uk/ols/ontologies/obi. Si cela ne s’applique pas, laissez vide."
+          ],
+          "examples": [
+            {
+              "value": "Écouvillon"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 36,
           "alias": "collection_device",
@@ -7103,6 +7925,14 @@
           "name": "collection_method",
           "description": "Le processus utilisé pour collecter l'échantillon, par ex. phlébotomie, autopsie.",
           "title": "méthode de collecte",
+          "comments": [
+            "Fournissez une description si une méthode de collecte a été utilisée pour l’échantillonnage. Utilisez la liste de sélection fournie dans le modèle. Si un terme souhaité manque dans la liste de sélection, utilisez ce service de recherche pour identifier un terme standardisé : https://www.ebi.ac.uk/ols/ontologies/obi. Si cela ne s’applique pas, laissez vide."
+          ],
+          "examples": [
+            {
+              "value": "Lavage broncho-alvéolaire (LBA)"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 37,
           "alias": "collection_method",
@@ -7116,6 +7946,14 @@
           "name": "collection_protocol",
           "description": "Le nom et la version d'un protocole particulier utilisé pour l'échantillonnage.",
           "title": "protocole de collecte",
+          "comments": [
+            "Fournissez le nom et la version du protocole utilisé pour collecter les échantillons."
+          ],
+          "examples": [
+            {
+              "value": "BCRonaSamplingProtocol v. 1.2"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 38,
           "alias": "collection_protocol",
@@ -7129,6 +7967,14 @@
           "name": "specimen_processing",
           "description": "Tout traitement appliqué à l’échantillon pendant ou après la réception de l’échantillon.",
           "title": "processus de traitement des spécimens",
+          "comments": [
+            "Critique pour l’interprétation des données. Sélectionnez tous les processus applicables dans la liste de sélection. Si le virus a été transmis, incluez les informations dans les champs « hôte du laboratoire », « numéro de passage » et « méthode de passage ». Si aucun des processus de la liste de sélection ne s'applique, inscrivez « non applicable »."
+          ],
+          "examples": [
+            {
+              "value": "Passage du virus"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 39,
           "alias": "specimen_processing",
@@ -7142,6 +7988,14 @@
           "name": "specimen_processing_details",
           "description": "Informations détaillées concernant le traitement appliqué à un échantillon pendant ou après la réception de l'échantillon.",
           "title": "détails du processus des échantillons",
+          "comments": [
+            "Fournissez une description en texte libre de tous les détails du traitement appliqués à un échantillon."
+          ],
+          "examples": [
+            {
+              "value": "25 écouvillons ont été regroupés et préparés en tant qu’échantillon unique lors de la préparation de la bibliothèque."
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 40,
           "alias": "specimen_processing_details",
@@ -7155,6 +8009,14 @@
           "name": "lab_host",
           "description": "Nom et description de l'hôte de laboratoire utilisé pour propager l'organisme source ou le matériel à partir duquel l'échantillon a été obtenu.",
           "title": "hôte du laboratoire",
+          "comments": [
+            "Type de lignée cellulaire utilisée pour la propagation. Sélectionnez une valeur dans la liste de sélection. S'il n'est pas adopté, mettez \"sans objet\"."
+          ],
+          "examples": [
+            {
+              "value": "Lignée cellulaire Vero E6"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 41,
           "alias": "lab_host",
@@ -7168,6 +8030,14 @@
           "name": "passage_number",
           "description": "Nombre de passages.",
           "title": "numéro de passage",
+          "comments": [
+            "Indiquez le nombre de passages connus. S'il n'est pas adopté, mettre \"sans objet\""
+          ],
+          "examples": [
+            {
+              "value": "3"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 42,
           "alias": "passage_number",
@@ -7181,6 +8051,14 @@
           "name": "passage_method",
           "description": "Description de la façon dont l'organisme a été transmis.",
           "title": "méthode de passage",
+          "comments": [
+            "Texte libre. Fournissez une brève description. S'il n'est pas adopté, mettez \"sans objet\"."
+          ],
+          "examples": [
+            {
+              "value": "0.25% trypsin + 0.02% EDTA"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 43,
           "alias": "passage_method",
@@ -7194,6 +8072,14 @@
           "name": "biomaterial_extracted",
           "description": "Biomatériau extrait d’échantillons à des fins de séquençage.",
           "title": "biomatériau extrait",
+          "comments": [
+            "Fournissez le biomatériau extrait de la liste de sélection dans le modèle."
+          ],
+          "examples": [
+            {
+              "value": "RNA (total)"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 44,
           "alias": "biomaterial_extracted",
@@ -7207,6 +8093,14 @@
           "name": "host_common_name",
           "description": "Le nom couramment utilisé de l'hôte.",
           "title": "hôte (nom commun)",
+          "comments": [
+            "Le nom commun ou le nom scientifique sont requis s’il y avait un hôte. Exemples de noms communs, par ex. humain, chauve-souris. Sélectionnez une valeur dans la liste de sélection. Si l'échantillon était environnemental, inscrivez « sans objet »."
+          ],
+          "examples": [
+            {
+              "value": "Humain"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 45,
           "alias": "host_common_name",
@@ -7220,6 +8114,14 @@
           "name": "host_scientific_name",
           "description": "Le nom taxonomique ou scientifique de l’hôte.",
           "title": "hôte (nom scientifique)",
+          "comments": [
+            "Le nom commun ou le nom scientifique sont requis s’il y avait un hôte. Exemples de noms scientifiques, par ex. Homo sapiens. Sélectionnez une valeur dans la liste de sélection. Si l'échantillon était environnemental, inscrivez « sans objet »."
+          ],
+          "examples": [
+            {
+              "value": "Homo sapiens"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 46,
           "alias": "host_scientific_name",
@@ -7233,6 +8135,14 @@
           "name": "host_health_state",
           "description": "État de santé de l'hôte au moment du prélèvement de l'échantillon.",
           "title": "état de santé de l'hôte",
+          "comments": [
+            "Si vous le connaissez, sélectionnez une valeur dans la liste de sélection."
+          ],
+          "examples": [
+            {
+              "value": "Symptomatique"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 47,
           "alias": "host_health_state",
@@ -7246,6 +8156,14 @@
           "name": "host_health_status_details",
           "description": "Plus de détails concernant l'état de santé ou de maladie de l'hôte au moment de la collecte.",
           "title": "détails de l'état de santé de l'hôte",
+          "comments": [
+            "Si vous le connaissez, sélectionnez une valeur dans la liste de sélection."
+          ],
+          "examples": [
+            {
+              "value": "Hospitalisé (ICU)"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 48,
           "alias": "host_health_status_details",
@@ -7259,6 +8177,14 @@
           "name": "host_health_outcome",
           "description": "Résultat de la maladie chez l’hôte.",
           "title": "résultat sanitaire de l'hôte",
+          "comments": [
+            "Si vous le connaissez, sélectionnez une valeur dans la liste de sélection."
+          ],
+          "examples": [
+            {
+              "value": "Rétabli"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 49,
           "alias": "host_health_outcome",
@@ -7272,6 +8198,14 @@
           "name": "host_disease",
           "description": "Le nom de la maladie vécue par l'hôte.",
           "title": "maladie de l'hôte",
+          "comments": [
+            "Ce champ n'est obligatoire que s'il y avait un hôte. Si l’hôte était un humain, sélectionnez COVID-19 dans la liste de sélection. Si l’hôte était asymptomatique, cela peut être enregistré sous « détails sur l’état de santé de l’hôte ». « COVID-19 » doit toujours être fourni si le patient est asymptomatique. Si l’hôte n’est pas humain et que l’état pathologique n’est pas connu ou que l’hôte semble en bonne santé, inscrivez « sans objet »."
+          ],
+          "examples": [
+            {
+              "value": "COVID-19"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 50,
           "alias": "host_disease",
@@ -7285,6 +8219,14 @@
           "name": "host_age",
           "description": "Âge de l'hôte au moment de l'échantillonnage.",
           "title": "âge de l'hôte",
+          "comments": [
+            "Si connu, indiquez l’âge. Le regroupement par âge est également acceptable."
+          ],
+          "examples": [
+            {
+              "value": "79"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 51,
           "alias": "host_age",
@@ -7298,6 +8240,14 @@
           "name": "host_age_unit",
           "description": "Les unités utilisées pour mesurer l'âge de l'hôte.",
           "title": "unité d'âge de l'hôte",
+          "comments": [
+            "Si vous le savez, indiquez les unités d'âge utilisées pour mesurer l'âge de l'hôte à partir de la liste de sélection."
+          ],
+          "examples": [
+            {
+              "value": "année"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 52,
           "alias": "host_age_unit",
@@ -7311,6 +8261,14 @@
           "name": "host_age_bin",
           "description": "La catégorie d'âge de l'hôte au moment de l'échantillonnage.",
           "title": "âge de l'hôte bin",
+          "comments": [
+            "Des tranches d'âge ont été fournies tous les 10 ans. Si l'âge d'un hôte ne peut pas être spécifié en raison de problèmes de confidentialité, une catégorie d'âge peut être utilisée comme alternative."
+          ],
+          "examples": [
+            {
+              "value": "60 - 69"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 53,
           "alias": "host_age_bin",
@@ -7324,6 +8282,14 @@
           "name": "host_gender",
           "description": "Le sexe de l’hôte au moment du prélèvement de l’échantillon.",
           "title": "sexe de l'hôte",
+          "comments": [
+            "Si vous le connaissez, sélectionnez une valeur dans la liste de sélection."
+          ],
+          "examples": [
+            {
+              "value": "Homme"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 54,
           "alias": "host_gender",
@@ -7337,6 +8303,14 @@
           "name": "host_residence_geo_loc_name_country",
           "description": "Le pays où réside l'hôte.",
           "title": "résidence de l'hôte nom du geo_loc (pays)",
+          "comments": [
+            "Si vous le connaissez, sélectionnez une valeur dans la liste de sélection."
+          ],
+          "examples": [
+            {
+              "value": "Canada"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 55,
           "alias": "host_residence_geo_loc_name_country",
@@ -7350,6 +8324,14 @@
           "name": "host_residence_geo_loc_name_state_province_territory",
           "description": "L'état/province/territoire de résidence de l'hôte.",
           "title": "nom du geo_loc de la résidence de l'hôte (état/province/territoire)",
+          "comments": [
+            "Sélectionnez le nom de la province/du territoire dans la liste de sélection fournie dans le modèle."
+          ],
+          "examples": [
+            {
+              "value": "Quebec"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 56,
           "alias": "host_residence_geo_loc_name_state_province_territory",
@@ -7363,6 +8345,14 @@
           "name": "host_subject_id",
           "description": "Un identifiant unique par lequel chaque hôte peut être référencé, par ex. #131",
           "title": "ID du sujet de l'hôte",
+          "comments": [
+            "Doit être un identifiant unique défini par l'utilisateur. Cet identifiant peut aider à relier les données de laboratoire aux données épidémiologiques, mais il s’agit probablement d’informations sensibles. Consultez le gestionnaire de données."
+          ],
+          "examples": [
+            {
+              "value": "BCxy123"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 57,
           "alias": "host_subject_id",
@@ -7376,6 +8366,14 @@
           "name": "symptom_onset_date",
           "description": "La date à laquelle les symptômes ont commencé ou ont été observés pour la première fois.",
           "title": "date d'apparition des symptômes",
+          "comments": [
+            "Si connue, indiquez la date d'apparition des symptômes au format standard ISO 8601 «YYYY-MM-DD »."
+          ],
+          "examples": [
+            {
+              "value": "2020-03-16"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 58,
           "alias": "symptom_onset_date",
@@ -7389,6 +8387,20 @@
           "name": "signs_and_symptoms",
           "description": "Changement perçu dans la fonction ou la sensation (perte, perturbation ou apparence) révélateur d'une maladie, rapporté par un patient.",
           "title": "signes et symptômes",
+          "comments": [
+            "Sélectionnez tous les symptômes ressentis par l'hôte dans la liste de sélection."
+          ],
+          "examples": [
+            {
+              "value": "Frissons (sensation soudaine de froid)"
+            },
+            {
+              "value": "Toux"
+            },
+            {
+              "value": "Fièvre"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 59,
           "alias": "signs_and_symptoms",
@@ -7402,6 +8414,20 @@
           "name": "preexisting_conditions_and_risk_factors",
           "description": "Conditions préexistantes du patient et facteurs de risque. <li>Condition préexistante : condition médicale qui existait avant l’infection actuelle. <li>Facteur de risque : variable associée à un risque accru de maladie ou d’infection.",
           "title": "les conditions préexistantes et les facteurs de risque",
+          "comments": [
+            "Sélectionnez toutes les conditions préexistantes et les facteurs de risque rencontrés par l'hôte dans la liste de sélection. S'il manque le terme souhaité, contactez l'équipe de curation."
+          ],
+          "examples": [
+            {
+              "value": "Asthme"
+            },
+            {
+              "value": "Grossesse"
+            },
+            {
+              "value": "Fumeur"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 60,
           "alias": "preexisting_conditions_and_risk_factors",
@@ -7415,6 +8441,20 @@
           "name": "complications",
           "description": "Complications médicales du patient qui seraient dues à une maladie de l’hôte.",
           "title": "les complications",
+          "comments": [
+            "Sélectionnez toutes les complications rencontrées par l'hôte dans la liste de sélection."
+          ],
+          "examples": [
+            {
+              "value": "Insuffisance respiratoire aiguë"
+            },
+            {
+              "value": "Coma"
+            },
+            {
+              "value": "Septicémie"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 61,
           "alias": "complications",
@@ -7428,6 +8468,14 @@
           "name": "host_vaccination_status",
           "description": "Le statut vaccinal de l’hôte (entièrement vacciné, partiellement vacciné ou non vacciné).",
           "title": "le statut vaccinal de l'hôte",
+          "comments": [
+            "Sélectionnez le statut vaccinal de l'hôte dans la liste de sélection."
+          ],
+          "examples": [
+            {
+              "value": "Entièrement vacciné"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 62,
           "alias": "host_vaccination_status",
@@ -7441,6 +8489,14 @@
           "name": "number_of_vaccine_doses_received",
           "description": "Le nombre de doses de vaccin reçues par l’hôte.",
           "title": "nombre de doses de vaccin reçues",
+          "comments": [
+            "Enregistrez le nombre de doses de vaccin que l’hôte a reçues."
+          ],
+          "examples": [
+            {
+              "value": "2"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 63,
           "alias": "number_of_vaccine_doses_received",
@@ -7454,6 +8510,14 @@
           "name": "vaccination_dose_1_vaccine_name",
           "description": "Nom du vaccin administré comme première dose d'un schéma vaccinal.",
           "title": "dose de vaccination 1 nom du vaccin",
+          "comments": [
+            "Indiquez le nom et le fabricant correspondant du vaccin contre la COVID-19 administré comme première dose en sélectionnant une valeur dans la liste de sélection."
+          ],
+          "examples": [
+            {
+              "value": "Pfizer-BioNTech (Comirnaty)"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 64,
           "alias": "vaccination_dose_1_vaccine_name",
@@ -7467,6 +8531,14 @@
           "name": "vaccination_dose_1_vaccination_date",
           "description": "La date à laquelle la première dose d’un vaccin a été administrée.",
           "title": "dose de vaccination 1 date de vaccination",
+          "comments": [
+            "Indiquez la date à laquelle la première dose du vaccin contre la COVID-19 a été administrée. La date doit être fournie au format standard ISO 8601 «YYYY-MM-DD »."
+          ],
+          "examples": [
+            {
+              "value": "2021-03-01"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 65,
           "alias": "vaccination_dose_1_vaccination_date",
@@ -7480,6 +8552,14 @@
           "name": "vaccination_dose_2_vaccine_name",
           "description": "Nom du vaccin administré comme deuxième dose d'un schéma vaccinal.",
           "title": "dose de vaccination 2 nom du vaccin",
+          "comments": [
+            "Fournissez le nom et le fabricant correspondant du vaccin contre la COVID-19 administré comme deuxième dose en sélectionnant une valeur dans la liste de sélection."
+          ],
+          "examples": [
+            {
+              "value": "Pfizer-BioNTech (Comirnaty)"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 66,
           "alias": "vaccination_dose_2_vaccine_name",
@@ -7493,6 +8573,14 @@
           "name": "vaccination_dose_2_vaccination_date",
           "description": "La date à laquelle la deuxième dose d’un vaccin a été administrée.",
           "title": "dose de vaccination 2 date de vaccination",
+          "comments": [
+            "Indiquez la date à laquelle la deuxième dose du vaccin contre la COVID-19 a été administrée. La date doit être fournie au format standard ISO 8601 « YYYY-MM-DD »."
+          ],
+          "examples": [
+            {
+              "value": "2021-09-01"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 67,
           "alias": "vaccination_dose_2_vaccination_date",
@@ -7506,6 +8594,14 @@
           "name": "vaccination_dose_3_vaccine_name",
           "description": "Nom du vaccin administré comme troisième dose d'un schéma vaccinal.",
           "title": "dose de vaccination 3 nom du vaccin",
+          "comments": [
+            "Fournissez le nom et le fabricant correspondant du vaccin contre la COVID-19 administré comme troisième dose en sélectionnant une valeur dans la liste de sélection."
+          ],
+          "examples": [
+            {
+              "value": "Pfizer-BioNTech (Comirnaty)"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 68,
           "alias": "vaccination_dose_3_vaccine_name",
@@ -7519,6 +8615,14 @@
           "name": "vaccination_dose_3_vaccination_date",
           "description": "La date à laquelle la troisième dose d’un vaccin a été administrée.",
           "title": "dose de vaccination 3 date de vaccination",
+          "comments": [
+            "Indiquez la date à laquelle la troisième dose du vaccin contre la COVID-19 a été administrée. La date doit être fournie au format standard ISO 8601 «YYYY-MM-DD »."
+          ],
+          "examples": [
+            {
+              "value": "2021-12-30"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 69,
           "alias": "vaccination_dose_3_vaccination_date",
@@ -7532,6 +8636,14 @@
           "name": "vaccination_dose_4_vaccine_name",
           "description": "Nom du vaccin administré comme quatrième dose d'un schéma vaccinal.",
           "title": "dose de vaccination 4 nom du vaccin",
+          "comments": [
+            "Fournissez le nom et le fabricant correspondant du vaccin contre la COVID-19 administré comme quatrième dose en sélectionnant une valeur dans la liste de sélection."
+          ],
+          "examples": [
+            {
+              "value": "Pfizer-BioNTech (Comirnaty)"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 70,
           "alias": "vaccination_dose_4_vaccine_name",
@@ -7545,6 +8657,14 @@
           "name": "vaccination_dose_4_vaccination_date",
           "description": "La date à laquelle la quatrième dose d’un vaccin a été administrée.",
           "title": "dose de vaccination 4 date de vaccination",
+          "comments": [
+            "Indiquez la date à laquelle la quatrième dose du vaccin contre la COVID-19 a été administrée. La date doit être fournie au format standard ISO 8601 « YYYY-MM-DD »."
+          ],
+          "examples": [
+            {
+              "value": "2022-01-15"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 71,
           "alias": "vaccination_dose_4_vaccination_date",
@@ -7558,6 +8678,23 @@
           "name": "vaccination_history",
           "description": "Une description des vaccins reçus et les dates d'administration d'une série de vaccinations contre une maladie spécifique ou un ensemble de maladies.",
           "title": "les antécédents de vaccination",
+          "comments": [
+            "Description en texte libre des dates et des vaccins administrés contre une maladie/un ensemble de maladies particulier. Il est également acceptable de concaténer les informations sur les doses individuelles (nom du vaccin, date de vaccination) séparées par des points-virgules."
+          ],
+          "examples": [
+            {
+              "value": "Pfizer-BioNTech (Comirnaty)"
+            },
+            {
+              "value": "2021-03-01"
+            },
+            {
+              "value": "Pfizer-BioNTech (Comirnaty)"
+            },
+            {
+              "value": "2022-01-15"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 72,
           "alias": "vaccination_history",
@@ -7571,6 +8708,14 @@
           "name": "location_of_exposure_geo_loc_name_country",
           "description": "Le pays où l'hôte a probablement été exposé à l'agent causal de la maladie.",
           "title": "lieu d'exposition geo_loc nom (pays)",
+          "comments": [
+            "Cet emplacement concerne le pays dans lequel l'hôte est censé être exposé et peut ne pas être le même que le pays de résidence de l'hôte. Si vous le connaissez, indiquez le nom du pays dans la liste de sélection."
+          ],
+          "examples": [
+            {
+              "value": "Canada"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 73,
           "alias": "location_of_exposure_geo_loc_name_country",
@@ -7584,6 +8729,14 @@
           "name": "destination_of_most_recent_travel_city",
           "description": "Le nom de la ville de destination du voyage le plus récent.",
           "title": "destination du dernier voyage (ville)",
+          "comments": [
+            "Indiquez le nom de la ville dans laquelle l'hôte s'est rendu. Utilisez ce service de recherche pour identifier le terme normalisé : https://www.ebi.ac.uk/ols/ontologies/gaz"
+          ],
+          "examples": [
+            {
+              "value": "La ville de New York"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 74,
           "alias": "destination_of_most_recent_travel_city",
@@ -7597,6 +8750,14 @@
           "name": "destination_of_most_recent_travel_state_province_territory",
           "description": "Le nom de la province de destination du voyage le plus récent.",
           "title": "destination du dernier voyage (état/province/territoire)",
+          "comments": [
+            "Indiquez le nom de l'État/de la province/du territoire où l'hôte s'est rendu. Utilisez ce service de recherche pour identifier le terme normalisé : https://www.ebi.ac.uk/ols/ontologies/gaz"
+          ],
+          "examples": [
+            {
+              "value": "Californie"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 75,
           "alias": "destination_of_most_recent_travel_state_province_territory",
@@ -7610,6 +8771,14 @@
           "name": "destination_of_most_recent_travel_country",
           "description": "Le nom du pays de destination du voyage le plus récent.",
           "title": "destination du dernier voyage (pays)",
+          "comments": [
+            "Indiquez le nom du pays dans lequel l'hôte s'est rendu. Utilisez ce service de recherche pour identifier le terme normalisé : https://www.ebi.ac.uk/ols/ontologies/gaz"
+          ],
+          "examples": [
+            {
+              "value": "Royaume-Uni"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 76,
           "alias": "destination_of_most_recent_travel_country",
@@ -7623,6 +8792,14 @@
           "name": "most_recent_travel_departure_date",
           "description": "Date du départ le plus récent d'une personne de sa résidence principale (à ce moment-là) pour un voyage vers un ou plusieurs autres endroits.",
           "title": "date de départ du voyage la plus récente",
+          "comments": [
+            "Indiquez la date de départ du voyage au format standard ISO 8601 « YYYY-MM-DD »."
+          ],
+          "examples": [
+            {
+              "value": "2020-03-16"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 77,
           "alias": "most_recent_travel_departure_date",
@@ -7636,6 +8813,14 @@
           "name": "most_recent_travel_return_date",
           "description": "Date du retour le plus récent d'une personne à une résidence après un voyage au départ de cette résidence.",
           "title": "date de retour la plus récente",
+          "comments": [
+            "Indiquez la date de retour du voyage au format standard ISO 8601 « YYYY-MM-DD»."
+          ],
+          "examples": [
+            {
+              "value": "2020-04-26"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 78,
           "alias": "most_recent_travel_return_date",
@@ -7649,6 +8834,14 @@
           "name": "travel_point_of_entry_type",
           "description": "Le type de point d’entrée par lequel un voyageur arrive.",
           "title": "voyage type de point d'entrée",
+          "comments": [
+            "Sélectionnez le type de point d’entrée."
+          ],
+          "examples": [
+            {
+              "value": "Air"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 79,
           "alias": "travel_point_of_entry_type",
@@ -7662,6 +8855,14 @@
           "name": "border_testing_test_day_type",
           "description": "Le jour où un voyageur a été testé à son arrivée ou après son point d’entrée.",
           "title": "test aux frontières jour du test type",
+          "comments": [
+            "Sélectionnez le jour du test."
+          ],
+          "examples": [
+            {
+              "value": "Jour 1"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 80,
           "alias": "border_testing_test_day_type",
@@ -7675,6 +8876,20 @@
           "name": "travel_history",
           "description": "Historique de voyage au cours des six derniers mois.",
           "title": "histoire du voyage",
+          "comments": [
+            "Précisez les pays (et les emplacements plus précis si connus) parcourus au cours des six derniers mois ; peut inclure plusieurs voyages. Séparez plusieurs événements de voyage par un point-virgule. Fournir sous forme de texte libre."
+          ],
+          "examples": [
+            {
+              "value": "Canada, Vancouver"
+            },
+            {
+              "value": "USA, Seattle"
+            },
+            {
+              "value": "Italie, Milan"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 81,
           "alias": "travel_history",
@@ -7688,6 +8903,14 @@
           "name": "travel_history_availability",
           "description": "La disponibilité de différents types d’historiques de voyages au cours des 6 derniers mois (par exemple internationaux, nationaux).",
           "title": "disponibilité de l'historique de voyage",
+          "comments": [
+            "Si l'historique de voyage est disponible, mais que les détails du voyage ne peuvent pas être fournis, indiquez-le ainsi que le type d'historique de voyage disponible en sélectionnant une valeur dans la liste de sélection. Les valeurs de ce champ peuvent être utilisées pour indiquer qu'un échantillon est associé à un voyage lorsque le « but du séquençage » n'est pas associé à un voyage."
+          ],
+          "examples": [
+            {
+              "value": "Historique des voyages internationaux disponible"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 82,
           "alias": "travel_history_availability",
@@ -7701,6 +8924,14 @@
           "name": "exposure_event",
           "description": "Événement conduisant à une exposition.",
           "title": "exposition événement",
+          "comments": [
+            "S'il est connu, sélectionnez l'événement d'exposition dans la liste de sélection."
+          ],
+          "examples": [
+            {
+              "value": "Convention"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 83,
           "alias": "exposure_event",
@@ -7714,6 +8945,14 @@
           "name": "exposure_contact_level",
           "description": "Le type de contact de transmission d’exposition.",
           "title": "exposition niveau de contact",
+          "comments": [
+            "Sélectionnez une exposition directe ou indirecte dans la liste de sélection."
+          ],
+          "examples": [
+            {
+              "value": "Direct"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 84,
           "alias": "exposure_contact_level",
@@ -7727,6 +8966,14 @@
           "name": "host_role",
           "description": "Le rôle de l'hôte par rapport au paramètre d'exposition.",
           "title": "rôle d'hôte",
+          "comments": [
+            "Sélectionnez le(s) rôle(s) personnel(s) de l'hôte dans la liste de sélection fournie dans le modèle. S'il manque le terme souhaité, contactez l'équipe de curation."
+          ],
+          "examples": [
+            {
+              "value": "Patient"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 85,
           "alias": "host_role",
@@ -7740,6 +8987,14 @@
           "name": "exposure_setting",
           "description": "Le cadre menant à l’exposition.",
           "title": "réglage de l'exposition",
+          "comments": [
+            "Sélectionnez le(s) paramètre(s) d'exposition de l'hôte dans la liste de sélection fournie dans le modèle. S’il manque un terme souhaité, contactez l’équipe de curation."
+          ],
+          "examples": [
+            {
+              "value": "Cadre de soins de santé"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 86,
           "alias": "exposure_setting",
@@ -7753,6 +9008,14 @@
           "name": "exposure_details",
           "description": "Informations supplémentaires sur l’exposition de l’hôte.",
           "title": "détails de l'exposition",
+          "comments": [
+            "Description en texte libre de l'exposition."
+          ],
+          "examples": [
+            {
+              "value": "Rôle d'hôte - Autre : Chauffeur de bus"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 87,
           "alias": "exposure_details",
@@ -7766,6 +9029,14 @@
           "name": "prior_sarscov2_infection",
           "description": "S'il y a eu une infection antérieure par le SARS-CoV-2.",
           "title": "infection antérieure par le SARS-CoV-2",
+          "comments": [
+            "Si vous le savez, fournissez des informations indiquant si la personne a déjà eu une infection par le SARS-CoV-2. Sélectionnez une valeur dans la liste de sélection."
+          ],
+          "examples": [
+            {
+              "value": "Oui"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 88,
           "alias": "prior_sarscov2_infection",
@@ -7779,6 +9050,14 @@
           "name": "prior_sarscov2_infection_isolate",
           "description": "L’identifiant de l’isolat trouvé lors de l’infection antérieure par le SARS-CoV-2.",
           "title": "isolat d'une infection antérieure par le SARS-CoV-2",
+          "comments": [
+            "Indiquez le nom de l’isolat de l’infection antérieure la plus récente. Structurez le nom « isolat » pour qu'il soit conforme à la norme ICTV/INSDC au format suivant : « SARS-CoV-2/host/country/sampleID/date »."
+          ],
+          "examples": [
+            {
+              "value": "SARS-CoV-2/human/USA/CA-CDPH-001/2020"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 89,
           "alias": "prior_sarscov2_infection_isolate",
@@ -7792,6 +9071,14 @@
           "name": "prior_sarscov2_infection_date",
           "description": "La date du diagnostic de l’infection antérieure par le SARS-CoV-2.",
           "title": "date d'une infection antérieure par le SARS-CoV-2",
+          "comments": [
+            "Indiquez la date à laquelle l’infection antérieure la plus récente a été diagnostiquée. Fournissez la date d'infection antérieure par le SARS-CoV-2 au format standard ISO 8601 « YYYY-MM-DD »."
+          ],
+          "examples": [
+            {
+              "value": "2021-01-23"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 90,
           "alias": "prior_sarscov2_infection_date",
@@ -7805,6 +9092,14 @@
           "name": "prior_sarscov2_antiviral_treatment",
           "description": "S'il y a eu un traitement antérieur contre le SARS-CoV-2 avec un agent antiviral.",
           "title": "traitement antiviral antérieur contre le SARS-CoV-2",
+          "comments": [
+            "Si vous le savez, indiquez si la personne a déjà reçu un traitement antiviral contre le SARS-CoV-2. Sélectionnez une valeur dans la liste de sélection."
+          ],
+          "examples": [
+            {
+              "value": "Aucun traitement antiviral préalable"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 91,
           "alias": "prior_sarscov2_antiviral_treatment",
@@ -7818,6 +9113,14 @@
           "name": "prior_sarscov2_antiviral_treatment_agent",
           "description": "Le nom de l’agent de traitement antiviral administré lors de l’infection antérieure par le SARS-CoV-2.",
           "title": "agent du traitement antiviral antérieur contre le SARS-CoV-2",
+          "comments": [
+            "Indiquez le nom de l’agent de traitement antiviral administré lors de l’infection antérieure la plus récente. Si aucun traitement n’a été administré, inscrivez « Aucun traitement ». Si plusieurs agents antiviraux ont été administrés, énumérez-les tous séparés par des virgules."
+          ],
+          "examples": [
+            {
+              "value": "Remdesivir"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 92,
           "alias": "prior_sarscov2_antiviral_treatment_agent",
@@ -7831,6 +9134,14 @@
           "name": "prior_sarscov2_antiviral_treatment_date",
           "description": "Le traitement a été administré pour la première fois lors de l’infection antérieure par le SARS-CoV-2.",
           "title": "date du traitement antiviral antérieur contre le SARS-CoV-2",
+          "comments": [
+            "Indiquez la date à laquelle l'agent de traitement antiviral a été administré pour la première fois lors de l'infection antérieure la plus récente. Fournissez la date du traitement antérieur contre le SARS-CoV-2 au format standard ISO 8601 « YYYY-MM-DD »."
+          ],
+          "examples": [
+            {
+              "value": "2021-01-28"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 93,
           "alias": "prior_sarscov2_antiviral_treatment_date",
@@ -7844,6 +9155,14 @@
           "name": "purpose_of_sequencing",
           "description": "La raison pour laquelle l’échantillon a été séquencé.",
           "title": "objectif du séquençage",
+          "comments": [
+            "La raison pour laquelle un échantillon a été initialement collecté peut différer de la raison pour laquelle il a été sélectionné pour le séquençage. La raison pour laquelle un échantillon a été séquencé peut fournir des informations sur les biais potentiels dans la stratégie de séquençage. Fournissez le but du séquençage à partir de la liste de sélection dans le modèle. La raison du prélèvement de l’échantillon doit être indiquée dans le champ « objectif de l’échantillonnage »."
+          ],
+          "examples": [
+            {
+              "value": "Surveillance de base (échantillonnage aléatoire)"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 94,
           "alias": "purpose_of_sequencing",
@@ -7857,6 +9176,14 @@
           "name": "purpose_of_sequencing_details",
           "description": "La description de la raison pour laquelle l'échantillon a été séquencé, fournissant des détails spécifiques.",
           "title": "objectif du séquençage détails",
+          "comments": [
+            "Fournissez une description détaillée de la raison pour laquelle l'échantillon a été séquencé à l'aide d'une liste de sélection. La description peut inclure l’importance des séquences pour une enquête/activité de surveillance/question de recherche particulière en santé publique. Les descriptions standardisées suggérées comprennent : Dépisté pour l'échec de la cible du gène S (abandon S), Dépisté pour les variantes de vison, Dépisté pour la variante B.1.1.7, Dépisté pour la variante B.1.135, Dépisté pour la variante P.1, Dépisté en raison des antécédents de voyage, Dépisté en raison d'un contact étroit avec une personne infectée, Évaluation des mesures de contrôle de la santé publique, Détermination des introductions et de la propagation précoces, Enquête sur les expositions liées aux compagnies aériennes, Enquête sur les travailleurs étrangers temporaires, Enquête sur les régions éloignées, Enquête sur les travailleurs de la santé, Enquête sur les écoles/universités, Enquête sur la réinfection."
+          ],
+          "examples": [
+            {
+              "value": "Dépisté pour échec de la cible du gène S (abandon S)"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 95,
           "alias": "purpose_of_sequencing_details",
@@ -7870,6 +9197,14 @@
           "name": "sequencing_date",
           "description": "La date à laquelle l’échantillon a été séquencé.",
           "title": "date de séquençage",
+          "comments": [
+            "Fournissez la date de séquençage au format standard ISO 8601 « YYYY-MM-DD »."
+          ],
+          "examples": [
+            {
+              "value": "2020-06-22"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 96,
           "alias": "sequencing_date",
@@ -7883,6 +9218,14 @@
           "name": "library_id",
           "description": "L’identifiant spécifié par l’utilisateur pour la bibliothèque préparée pour le séquençage.",
           "title": "ID de la bibliothèque",
+          "comments": [
+            "Le nom de la bibliothèque doit être unique et peut être un identifiant généré automatiquement à partir de votre LIMS ou une modification de l'ID d'isolat."
+          ],
+          "examples": [
+            {
+              "value": "XYZ_123345"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 97,
           "alias": "library_id",
@@ -7896,6 +9239,14 @@
           "name": "amplicon_size",
           "description": "La longueur de l'amplicon généré par l'amplification PCR.",
           "title": "taille de l'amplicon",
+          "comments": [
+            "Fournissez la taille de l’amplicon, y compris les unités."
+          ],
+          "examples": [
+            {
+              "value": "300bp"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 98,
           "alias": "amplicon_size",
@@ -7909,6 +9260,14 @@
           "name": "library_preparation_kit",
           "description": "Nom du kit de préparation de la bibliothèque DNA utilisé pour générer la bibliothèque en cours de séquençage.",
           "title": "kit de préparation de librairie",
+          "comments": [
+            "Indiquez le nom du kit de préparation de bibliothèque utilisé."
+          ],
+          "examples": [
+            {
+              "value": "Nextera XT"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 99,
           "alias": "library_preparation_kit",
@@ -7922,6 +9281,14 @@
           "name": "flow_cell_barcode",
           "description": "Le code-barres de la Flow Cell utilisée pour le séquençage.",
           "title": "code-barres de la cellule d'écoulement",
+          "comments": [
+            "Fournissez le code-barres de la Flow Cell utilisée pour séquencer l’échantillon."
+          ],
+          "examples": [
+            {
+              "value": "FAB06069"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 100,
           "alias": "flow_cell_barcode",
@@ -7935,6 +9302,14 @@
           "name": "sequencing_instrument",
           "description": "Le modèle de l’instrument de séquençage utilisé.",
           "title": "instrument de séquençage",
+          "comments": [
+            "Sélectionnez l’instrument de séquençage dans la liste de sélection."
+          ],
+          "examples": [
+            {
+              "value": "Oxford Nanopore MinION"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 101,
           "alias": "sequencing_instrument",
@@ -7948,6 +9323,14 @@
           "name": "sequencing_protocol_name",
           "description": "Le nom et le numéro de version du protocole de séquençage utilisé.",
           "title": "nom du protocole de séquençage",
+          "comments": [
+            "Fournissez le nom et la version du protocole de séquençage."
+          ],
+          "examples": [
+            {
+              "value": "https://www.protocols.io/view/covid-19-artic-v3-illumina-library-construction-an-bibtkann"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 102,
           "alias": "sequencing_protocol_name",
@@ -7961,6 +9344,14 @@
           "name": "sequencing_protocol",
           "description": "Le protocole utilisé pour générer la séquence.",
           "title": "protocole de séquençage",
+          "comments": [
+            "Fournissez une description en texte libre des méthodes et du matériel utilisés pour générer la séquence. Texte suggéré, complétez les informations là où elles sont indiquées. : \"Le séquençage viral a été effectué selon une stratégie d'amplicon en mosaïque en utilisant le schéma d'amorce <fill in>. Le séquençage a été effectué à l'aide d'un instrument de séquençage <fill in>. Les bibliothèques ont été préparées à l'aide de la bibliothèque <fill in>. trousse.\""
+          ],
+          "examples": [
+            {
+              "value": "Les génomes ont été générés par séquençage d'amplicons de 1 200 pb avec des amorces de schéma Freed. Les bibliothèques ont été créées à l'aide des kits Illumina DNA Prep et les données de séquence ont été produites à l'aide des kits de séquençage Miseq Micro v2 (500 cycles)."
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 103,
           "alias": "sequencing_protocol",
@@ -7974,6 +9365,14 @@
           "name": "sequencing_kit_number",
           "description": "Le numéro de kit du fabricant.",
           "title": "numéro du kit de séquençage",
+          "comments": [
+            "Valeur alphanumérique."
+          ],
+          "examples": [
+            {
+              "value": "AB456XYZ789"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 104,
           "alias": "sequencing_kit_number",
@@ -7987,6 +9386,14 @@
           "name": "amplicon_pcr_primer_scheme",
           "description": "Les spécifications des amorces (séquences d'amorces, positions de liaison, taille des fragments générés, etc.) utilisées pour générer les amplicons à séquencer.",
           "title": "de la liste des amorces pcr de l'amplicon",
+          "comments": [
+            "Fournissez le nom et la version du schéma d’amorce utilisé pour générer les amplicons pour le séquençage."
+          ],
+          "examples": [
+            {
+              "value": "https://github.com/joshquick/artic-ncov2019/blob/master/primer_schemes/nCoV-2019/V3/nCoV-2019.tsv"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 105,
           "alias": "amplicon_pcr_primer_scheme",
@@ -8000,6 +9407,14 @@
           "name": "raw_sequence_data_processing_method",
           "description": "La méthode utilisée pour le traitement des données brutes, comme la suppression des codes-barres, le découpage de l'adaptateur, le filtrage, etc.",
           "title": "méthode de traitement des données de séquences brutes",
+          "comments": [
+            "Fournissez le nom et les numéros de version du logiciel utilisé pour traiter les données brutes."
+          ],
+          "examples": [
+            {
+              "value": "Porechop 0.2.3"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 106,
           "alias": "raw_sequence_data_processing_method",
@@ -8013,6 +9428,14 @@
           "name": "dehosting_method",
           "description": "Méthode utilisée pour supprimer les lectures de l'hôte de la séquence de l'agent pathogène.",
           "title": "méthode de déshostage",
+          "comments": [
+            "Fournissez le nom et le numéro de version du logiciel utilisé pour supprimer les lectures de l'hôte."
+          ],
+          "examples": [
+            {
+              "value": "Nanostripper"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 107,
           "alias": "dehosting_method",
@@ -8026,6 +9449,14 @@
           "name": "consensus_sequence_name",
           "description": "Le nom de la séquence consensus.",
           "title": "nom de la séquence consensus",
+          "comments": [
+            "Fournissez le nom et le numéro de version de la séquence consensus."
+          ],
+          "examples": [
+            {
+              "value": "ncov123assembly3"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 108,
           "alias": "consensus_sequence_name",
@@ -8039,6 +9470,14 @@
           "name": "consensus_sequence_filename",
           "description": "Le nom du fichier de séquence consensus.",
           "title": "nom de fichier de la séquence consensus",
+          "comments": [
+            "Fournissez le nom et le numéro de version du fichier FASTA de séquence consensus."
+          ],
+          "examples": [
+            {
+              "value": "ncov123assembly.fasta"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 109,
           "alias": "consensus_sequence_filename",
@@ -8052,6 +9491,14 @@
           "name": "consensus_sequence_filepath",
           "description": "Le chemin d’accès du fichier de séquence consensus.",
           "title": "chemin de fichier de la séquence consensus",
+          "comments": [
+            "Fournissez le chemin d’accès du fichier FASTA de séquence consensus."
+          ],
+          "examples": [
+            {
+              "value": "/User/Documents/RespLab/Data/ncov123assembly.fasta"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 110,
           "alias": "consensus_sequence_filepath",
@@ -8065,6 +9512,14 @@
           "name": "consensus_sequence_software_name",
           "description": "Le nom du logiciel utilisé pour générer la séquence consensus.",
           "title": "nom du logiciel de séquençage du consensus",
+          "comments": [
+            "Fournissez le nom du logiciel utilisé pour générer la séquence consensus."
+          ],
+          "examples": [
+            {
+              "value": "iVar"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 111,
           "alias": "consensus_sequence_software_name",
@@ -8078,6 +9533,14 @@
           "name": "consensus_sequence_software_version",
           "description": "La version du logiciel utilisé pour générer la séquence consensus.",
           "title": "version du logiciel de la séquence consensus",
+          "comments": [
+            "Fournir la version du logiciel utilisé pour générer la séquence consensus."
+          ],
+          "examples": [
+            {
+              "value": "1.3"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 112,
           "alias": "consensus_sequence_software_version",
@@ -8091,6 +9554,14 @@
           "name": "breadth_of_coverage_value",
           "description": "Le pourcentage du génome de référence couvert par les données séquencées, jusqu'à une profondeur prescrite.",
           "title": "valeur de l'étendue de la couverture",
+          "comments": [
+            "Fournissez la valeur en pourcentage."
+          ],
+          "examples": [
+            {
+              "value": "95%"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 113,
           "alias": "breadth_of_coverage_value",
@@ -8104,6 +9575,14 @@
           "name": "depth_of_coverage_value",
           "description": "Le nombre moyen de lectures représentant un nucléotide donné dans la séquence reconstruite.",
           "title": "valeur de la profondeur de couverture",
+          "comments": [
+            "Apporter de la valeur sous forme de pli de couverture."
+          ],
+          "examples": [
+            {
+              "value": "400x"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 114,
           "alias": "depth_of_coverage_value",
@@ -8117,6 +9596,14 @@
           "name": "depth_of_coverage_threshold",
           "description": "Seuil utilisé comme seuil pour la profondeur de couverture.",
           "title": "seuil de profondeur de couverture",
+          "comments": [
+            "Fournit la couverture de pli de seuil."
+          ],
+          "examples": [
+            {
+              "value": "100x"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 115,
           "alias": "depth_of_coverage_threshold",
@@ -8130,6 +9617,14 @@
           "name": "r1_fastq_filename________",
           "description": "Le nom de fichier spécifié par l'utilisateur du fichier r1 FASTQ.",
           "title": "r1 nom de fichier fastq",
+          "comments": [
+            "Fournissez le nom du fichier r1 FASTQ."
+          ],
+          "examples": [
+            {
+              "value": "ABC123_S1_L001_R1_001.fastq.gz"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 116,
           "alias": "r1_fastq_filename________",
@@ -8143,6 +9638,14 @@
           "name": "r2_fastq_filename",
           "description": "Le nom de fichier spécifié par l'utilisateur du fichier r2 FASTQ.",
           "title": "r2 nom de fichier fastq",
+          "comments": [
+            "Fournissez le nom du fichier r2 FASTQ."
+          ],
+          "examples": [
+            {
+              "value": "ABC123_S1_L001_R2_001.fastq.gz"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 117,
           "alias": "r2_fastq_filename",
@@ -8156,6 +9659,14 @@
           "name": "r1_fastq_filepath",
           "description": "Le chemin du fichier r1 FASTQ.",
           "title": "chemin de fichier r1 fastq",
+          "comments": [
+            "Fournissez le chemin du fichier r1 FASTQ."
+          ],
+          "examples": [
+            {
+              "value": "/User/Documents/RespLab/Data/ABC123_S1_L001_R1_001.fastq.gz"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 118,
           "alias": "r1_fastq_filepath",
@@ -8169,6 +9680,14 @@
           "name": "r2_fastq_filepath",
           "description": "Le chemin d'accès du fichier r2 FASTQ.",
           "title": "chemin du fichier r2 fastq",
+          "comments": [
+            "Fournissez le chemin d'accès du fichier r2 FASTQ."
+          ],
+          "examples": [
+            {
+              "value": "/User/Documents/RespLab/Data/ABC123_S1_L001_R2_001.fastq.gz"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 119,
           "alias": "r2_fastq_filepath",
@@ -8182,6 +9701,14 @@
           "name": "fast5_filename",
           "description": "Le nom de fichier spécifié par l'utilisateur du fichier FAST5.",
           "title": "nom de fichier fast5",
+          "comments": [
+            "Fournissez le nom du fichier FAST5."
+          ],
+          "examples": [
+            {
+              "value": "rona123assembly.fast5"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 120,
           "alias": "fast5_filename",
@@ -8195,6 +9722,14 @@
           "name": "fast5_filepath",
           "description": "Le chemin du fichier FAST5.",
           "title": "chemin de fichier fast5",
+          "comments": [
+            "Fournissez le chemin du fichier FAST5."
+          ],
+          "examples": [
+            {
+              "value": "/User/Documents/RespLab/Data/rona123assembly.fast5"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 121,
           "alias": "fast5_filepath",
@@ -8208,6 +9743,14 @@
           "name": "number_of_base_pairs_sequenced",
           "description": "Le nombre total de paires de bases générées par le processus de séquençage.",
           "title": "nombre de paires de bases séquencées",
+          "comments": [
+            "Fournissez une valeur numérique (pas besoin d’inclure des unités)."
+          ],
+          "examples": [
+            {
+              "value": "387566"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 122,
           "alias": "number_of_base_pairs_sequenced",
@@ -8221,6 +9764,14 @@
           "name": "consensus_genome_length",
           "description": "Taille du génome assemblé décrite comme le nombre de paires de bases.",
           "title": "longueur consensuelle du génome",
+          "comments": [
+            "Fournissez une valeur numérique (pas besoin d’inclure des unités)."
+          ],
+          "examples": [
+            {
+              "value": "38677"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 123,
           "alias": "consensus_genome_length",
@@ -8234,6 +9785,14 @@
           "name": "ns_per_100_kbp",
           "description": "Le nombre de N symboles présents dans la séquence fasta consensus, pour 100 kbp de séquence.",
           "title": "Ns per 100 kbp",
+          "comments": [
+            "Fournissez une valeur numérique (pas besoin d’inclure des unités)."
+          ],
+          "examples": [
+            {
+              "value": "330"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 124,
           "alias": "ns_per_100_kbp",
@@ -8247,6 +9806,14 @@
           "name": "reference_genome_accession",
           "description": "Un identifiant persistant et unique d’une entrée de base de données génomique.",
           "title": "accession au génome de référence",
+          "comments": [
+            "Fournissez le numéro d’accès du génome de référence."
+          ],
+          "examples": [
+            {
+              "value": "NC_045512.2"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 125,
           "alias": "reference_genome_accession",
@@ -8260,6 +9827,14 @@
           "name": "bioinformatics_protocol",
           "description": "Le nom et le numéro de version du protocole bioinformatique utilisé.",
           "title": "protocole bioinformatique",
+          "comments": [
+            "Des détails supplémentaires concernant les méthodes utilisées pour traiter les données brutes et/ou générer des assemblages et/ou générer des séquences consensus peuvent être fournis dans une SOP ou un protocole. Fournissez le nom et le numéro de version du protocole, ou un lien s'il est déposé dans un référentiel de protocoles."
+          ],
+          "examples": [
+            {
+              "value": "https://github.com/phac-nml/ncov2019-artic-nf"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 126,
           "alias": "bioinformatics_protocol",
@@ -8273,6 +9848,14 @@
           "name": "lineage_clade_name",
           "description": "Le nom de la lignée ou du clade.",
           "title": "nom du lineage/clade",
+          "comments": [
+            "Fournissez le nom de la lignée/clade Pangolin ou Nextstrain."
+          ],
+          "examples": [
+            {
+              "value": "B.1.1.7"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 127,
           "alias": "lineage_clade_name",
@@ -8286,6 +9869,14 @@
           "name": "lineage_clade_analysis_software_name",
           "description": "Le nom du logiciel utilisé pour déterminer la lignée/clade.",
           "title": "nom du logiciel d'analyse de linéage/clade",
+          "comments": [
+            "Fournissez le nom du logiciel utilisé pour déterminer la lignée/clade."
+          ],
+          "examples": [
+            {
+              "value": "Pangolin"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 128,
           "alias": "lineage_clade_analysis_software_name",
@@ -8299,6 +9890,14 @@
           "name": "lineage_clade_analysis_software_version",
           "description": "La version du logiciel utilisé pour déterminer la lignée/clade.",
           "title": "version du logiciel d'analyse de linéage/clade",
+          "comments": [
+            "Fournissez la version du logiciel utilisé pour déterminer la lignée/clade."
+          ],
+          "examples": [
+            {
+              "value": "2.1.10"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 129,
           "alias": "lineage_clade_analysis_software_version",
@@ -8312,6 +9911,14 @@
           "name": "variant_designation",
           "description": "La classification des variantes de la lignée/clade, c'est-à-dire variante, variante préoccupante.",
           "title": "désignation de la variante",
+          "comments": [
+            "Si la lignée/clade est considérée comme une variante préoccupante, sélectionnez Variante préoccupante dans la liste de sélection. Si la lignée/clade contient des mutations préoccupantes (mutations qui augmentent la transmission, la gravité clinique ou d’autres facteurs épidémiologiques) mais qu’il ne s’agit pas d’une variante préoccupante globale, sélectionnez Variante. Si la lignée/clade ne contient pas de mutations préoccupantes, laissez ce champ vide."
+          ],
+          "examples": [
+            {
+              "value": "Variante préoccupante (VOC)"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 130,
           "alias": "variant_designation",
@@ -8325,6 +9932,14 @@
           "name": "variant_evidence",
           "description": "Preuve utilisée pour déterminer la variante.",
           "title": "preuve de la variante",
+          "comments": [
+            "Sélectionnez si l’échantillon a été dépisté à l’aide de RT-qPCR ou par séquençage dans la liste de sélection."
+          ],
+          "examples": [
+            {
+              "value": "RT-qPCR"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 131,
           "alias": "variant_evidence",
@@ -8338,6 +9953,14 @@
           "name": "variant_evidence_details",
           "description": "Détails sur les preuves utilisées pour déterminer la variante.",
           "title": "détails de la preuve de la variante",
+          "comments": [
+            "Fournissez le test et répertoriez l’ensemble des mutations définissant la lignée utilisées pour effectuer la détermination des variantes. Si des mutations intéressantes/préoccupantes ont été observées en plus des mutations définissant la lignée, décrivez-les ici."
+          ],
+          "examples": [
+            {
+              "value": "Mutations définissant la lignée: ORF1ab (K1655N), Spike (K417N, E484K, N501Y, D614G, A701V), N (T205I), E (P71L)."
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 132,
           "alias": "variant_evidence_details",
@@ -8351,6 +9974,14 @@
           "name": "gene_name_1",
           "description": "Le nom du gène utilisé dans le test diagnostique RT-PCR.",
           "title": "nom du gène 1",
+          "comments": [
+            "Sélectionnez un gène dans la liste de sélection. Si le gène qui vous intéresse ne figure pas dans la liste, indiquez le nom complet du gène ou le symbole du gène (forme abrégée du nom du gène). Les noms et symboles de gènes standardisés peuvent être trouvés dans Gene Ontology en utilisant ce service de recherche : https://bit.ly/2Sq1LbI"
+          ],
+          "examples": [
+            {
+              "value": "E gene (orf4)"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 133,
           "alias": "gene_name_1",
@@ -8364,6 +9995,14 @@
           "name": "diagnostic_pcr_protocol_1",
           "description": "Le nom et le numéro de version du protocole utilisé pour l’amplification des marqueurs de diagnostic.",
           "title": "protocole de diagnostic pcr 1",
+          "comments": [
+            "Le nom et le numéro de version du protocole utilisé pour réaliser un test PCR diagnostique. Ces informations peuvent être comparées aux données de séquence pour l’évaluation des performances et le contrôle qualité."
+          ],
+          "examples": [
+            {
+              "value": "EGenePCRTest 2"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 134,
           "alias": "diagnostic_pcr_protocol_1",
@@ -8377,6 +10016,14 @@
           "name": "diagnostic_pcr_ct_value_1",
           "description": "La valeur du seuil de cycle (Ct) résulte d’un test de diagnostic RT-PCR du SARS-CoV-2.",
           "title": "diagnostic pcr Ct value 1",
+          "comments": [
+            "Fournissez la valeur du seuil de cycle (Ct) de l’échantillon issu du test de diagnostic RT-PCR."
+          ],
+          "examples": [
+            {
+              "value": "21"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 135,
           "alias": "diagnostic_pcr_ct_value_1",
@@ -8390,6 +10037,14 @@
           "name": "gene_name_2",
           "description": "Le nom du gène utilisé dans le test diagnostique RT-PCR.",
           "title": "nom du gène 2",
+          "comments": [
+            "Sélectionnez un gène dans la liste de sélection. Si le gène qui vous intéresse ne figure pas dans la liste, indiquez le nom complet du gène ou le symbole du gène (forme abrégée du nom du gène). Les noms et symboles de gènes standardisés peuvent être trouvés dans Gene Ontology en utilisant ce service de recherche : https://bit.ly/2Sq1LbI"
+          ],
+          "examples": [
+            {
+              "value": "RdRp gene (nsp12)"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 136,
           "alias": "gene_name_2",
@@ -8403,6 +10058,14 @@
           "name": "diagnostic_pcr_protocol_2",
           "description": "Le nom et le numéro de version du protocole utilisé pour l’amplification des marqueurs de diagnostic.",
           "title": "protocole de diagnostic pcr 2",
+          "comments": [
+            "Le nom et le numéro de version du protocole utilisé pour réaliser un deuxième test de diagnostic PCR. Ces informations peuvent être comparées aux données de séquence pour l’évaluation des performances et le contrôle qualité."
+          ],
+          "examples": [
+            {
+              "value": "RdRpGenePCRTest 3"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 137,
           "alias": "diagnostic_pcr_protocol_2",
@@ -8416,6 +10079,14 @@
           "name": "diagnostic_pcr_ct_value_2",
           "description": "La valeur du seuil de cycle (Ct) résulte d’un test de diagnostic RT-PCR du SARS-CoV-2.",
           "title": "diagnostic pcr Ct value 2",
+          "comments": [
+            "Fournissez la valeur du seuil de cycle (Ct) de l’échantillon issu du deuxième test de diagnostic RT-PCR."
+          ],
+          "examples": [
+            {
+              "value": "36"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 138,
           "alias": "diagnostic_pcr_ct_value_2",
@@ -8429,6 +10100,14 @@
           "name": "gene_name_3",
           "description": "Le nom du gène utilisé dans le test diagnostique RT-PCR.",
           "title": "nom du gène 3",
+          "comments": [
+            "Fournissez le nom complet d’un autre gène utilisé dans un test RT-PCR. Le symbole du gène (forme abrégée du nom du gène) peut également être fourni. Les noms et symboles de gènes standardisés peuvent être trouvés dans Gene Ontology en utilisant ce service de recherche : https://bit.ly/2Sq1LbI"
+          ],
+          "examples": [
+            {
+              "value": "RdRp gene (nsp12)"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 139,
           "alias": "gene_name_3",
@@ -8442,6 +10121,14 @@
           "name": "diagnostic_pcr_protocol_3",
           "description": "Le nom et le numéro de version du protocole utilisé pour l’amplification des marqueurs de diagnostic.",
           "title": "protocole de diagnostic pcr 3",
+          "comments": [
+            "Le nom et le numéro de version du protocole utilisé pour réaliser un deuxième test de diagnostic PCR. Ces informations peuvent être comparées aux données de séquence pour l’évaluation des performances et le contrôle qualité."
+          ],
+          "examples": [
+            {
+              "value": "RdRpGenePCRTest 3"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 140,
           "alias": "diagnostic_pcr_protocol_3",
@@ -8455,6 +10142,14 @@
           "name": "diagnostic_pcr_ct_value_3",
           "description": "La valeur Ct résulte d’un test de diagnostic SARS-CoV-2 RT-PCR.",
           "title": "diagnostic pcr Ct value 3",
+          "comments": [
+            "Fournissez la valeur CT de l’échantillon du deuxième test de diagnostic RT-PCR."
+          ],
+          "examples": [
+            {
+              "value": "30"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 141,
           "alias": "diagnostic_pcr_ct_value_3",
@@ -8468,6 +10163,14 @@
           "name": "authors",
           "description": "Noms des personnes contribuant aux processus de collecte d’échantillons, de génération de séquences, d’analyse et de soumission de données.",
           "title": "auteurs",
+          "comments": [
+            "Incluez le prénom et le nom de toutes les personnes qui doivent être attribuées, séparés par une virgule."
+          ],
+          "examples": [
+            {
+              "value": "Tejinder Singh, Fei Hu, Joe Blogs"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 142,
           "alias": "authors",
@@ -8481,6 +10184,14 @@
           "name": "dataharmonizer_provenance",
           "description": "Provenance du logiciel DataHarmonizer et de la version du modèle.",
           "title": "Provenance de DataHarmonizer",
+          "comments": [
+            "Les informations actuelles sur la version du logiciel et du modèle seront automatiquement générées dans ce champ une fois que l'utilisateur aura utilisé la fonction « valider ». Ces informations seront générées indépendamment du fait que la ligne soit valide ou non."
+          ],
+          "examples": [
+            {
+              "value": "DataHarmonizer v1.4.3, CanCOGeN Covid-19 v1.0.0"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 143,
           "alias": "dataharmonizer_provenance",
