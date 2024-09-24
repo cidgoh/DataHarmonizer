@@ -514,19 +514,7 @@ export default {
         ['laboratory_typing_method_version_or_reagent', []],
         ['testing_standard', []]
       ]);
-      const longHeadersObj = {
-        'antibiotic': [],
-        'resistance_phenotype': [],
-        'measurement_sign': [],
-        'measurement': [],
-        'measurement_units': [],
-        'laboratory_typing_method': [],
-        'laboratory_typing_platform': [],
-        'vendor': [],
-        'laboratory_typing_method_version_or_reagent': [],
-        'testing_standard': []
-      };
-      const antibiotics = [
+      const antibioticsArr = [
         'amikacin',
         'amoxicillin-clavulanic_acid',
         'ampicillin',
@@ -571,12 +559,7 @@ export default {
         'tigecycline',
         'trimethoprim-sulfamethoxazole'
       ];
-      for (let longHeader in longHeadersObj) {
-        if (longHeader === 'antibiotic') continue;
-        longHeadersObj[longHeader] = antibiotics.map((e) => {
-          return e.concat('_', longHeader);
-        });
-      }
+      const longHeadersArr = Array.from(ExportHeaders.keys()).slice(2);
 
       const sourceFields = dh.getFields(dh.table);
       const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
@@ -587,23 +570,41 @@ export default {
       const outputMatrix = [[...ExportHeaders.keys()]];
 
       for (const inputRow of dh.getTrimmedData(dh.hot)) {
-        const outputRow = [];
-        for (const [headerName, sources] of ExportHeaders) {
-          let value;
-          if (headerName in longHeadersObj) {
-            value = dh.getMappedField(
-              headerName,
-              inputRow,
-              sources,
-              sourceFields,
-              sourceFieldNameMap,
-              ':',
-              'NCBI_ANTIBIOGRAM'
-            );
+        const outputRow = Array(ExportHeaders.size);
+        outputRow[0] = dh.getMappedField(
+          'sample_name/biosample_accession',
+          inputRow,
+          ExportHeaders.get('sample_name/biosample_accession'),
+          sourceFields,
+          sourceFieldNameMap,
+          ':',
+          'NCBI_ANTIBIOGRAM'
+        );
+        // TODO do not export row if above val is empty?
+
+        // Wide to long logic
+        const oldOutputMatrixLen = outputMatrix.length;
+        for (const antibiotic of antibioticsArr) {
+          const longRow = [...outputRow];
+          let atLeastOneWideVal = false;
+          for (const [i, longHeader] of longHeadersArr.entries()) {
+            const antibioticHeader = antibiotic.concat('_', longHeader);
+            const wideVal =
+              inputRow[sourceFieldNameMap[antibioticHeader]];
+            if (wideVal) {
+              atLeastOneWideVal = true;
+              longRow[i+2] = wideVal;
+            }
           }
-          outputRow.push(value);
+          if (atLeastOneWideVal) {
+            longRow[1] = antibiotic;
+            outputMatrix.push(longRow);
+          }
         }
-        outputMatrix.push(outputRow);
+        // Ensures a row is still added if no antibiotic info is present
+        if (oldOutputMatrixLen === outputMatrix.length) {
+          outputMatrix.push(outputRow);
+        }
       }
 
       return outputMatrix;
