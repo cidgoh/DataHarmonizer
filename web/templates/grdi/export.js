@@ -588,9 +588,10 @@ export default {
           const longRow = [...outputRow];
           let atLeastOneWideVal = false;
           for (const [i, longHeader] of longHeadersArr.entries()) {
-            const antibioticHeader = antibiotic.concat('_', longHeader);
+            let wideHeader = antibiotic.concat('_', longHeader);
+            if (longHeader === 'vendor') wideHeader += '_name';
             const wideVal =
-              inputRow[sourceFieldNameMap[antibioticHeader]];
+              inputRow[sourceFieldNameMap[wideHeader]];
             if (wideVal) {
               atLeastOneWideVal = true;
               longRow[i+2] = wideVal;
