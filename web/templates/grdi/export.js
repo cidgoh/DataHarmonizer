@@ -571,7 +571,7 @@ export default {
 
       for (const inputRow of dh.getTrimmedData(dh.hot)) {
         const outputRow = Array(ExportHeaders.size);
-        outputRow[0] = dh.getMappedField(
+        const primaryKey = dh.getMappedField(
           'sample_name/biosample_accession',
           inputRow,
           ExportHeaders.get('sample_name/biosample_accession'),
@@ -580,7 +580,8 @@ export default {
           ':',
           'NCBI_ANTIBIOGRAM'
         );
-        // TODO do not export row if above val is empty?
+        if (!primaryKey) continue;
+        outputRow[0] = primaryKey;
 
         // Wide to long logic
         const oldOutputMatrixLen = outputMatrix.length;
