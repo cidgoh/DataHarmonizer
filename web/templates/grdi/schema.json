@@ -8157,7 +8157,8 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "exact_mappings": [
-        "NCBI_BIOSAMPLE_Enterics:strain"
+        "NCBI_BIOSAMPLE_Enterics:strain",
+        "NCBI_ANTIBIOGRAM:sample_name/biosample_accession"
       ],
       "slot_uri": "GENEPIO:0100456",
       "domain_of": [
@@ -31155,7 +31156,8 @@
           ],
           "from_schema": "https://example.com/GRDI",
           "exact_mappings": [
-            "NCBI_BIOSAMPLE_Enterics:strain"
+            "NCBI_BIOSAMPLE_Enterics:strain",
+            "NCBI_ANTIBIOGRAM:sample_name/biosample_accession"
           ],
           "rank": 88,
           "slot_uri": "GENEPIO:0100456",

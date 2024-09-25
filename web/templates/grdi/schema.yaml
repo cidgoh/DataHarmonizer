@@ -4364,6 +4364,7 @@ slots:
     - value: SA20131043
     exact_mappings:
     - NCBI_BIOSAMPLE_Enterics:strain
+    - NCBI_ANTIBIOGRAM:sample_name/biosample_accession
   alternative_isolate_id:
     name: alternative_isolate_id
     title: alternative_isolate_ID

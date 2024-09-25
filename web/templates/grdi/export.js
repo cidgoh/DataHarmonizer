@@ -571,14 +571,10 @@ export default {
 
       for (const inputRow of dh.getTrimmedData(dh.hot)) {
         const outputRow = Array(ExportHeaders.size);
-        const primaryKey = dh.getMappedField(
-          'sample_name/biosample_accession',
+        const primaryKey = dh.getFirstNonNullField(
+          ['isolate_id', 'sample_collector_sample_id'],
           inputRow,
-          ExportHeaders.get('sample_name/biosample_accession'),
-          sourceFields,
-          sourceFieldNameMap,
-          ':',
-          'NCBI_ANTIBIOGRAM'
+          sourceFieldNameMap
         );
         if (!primaryKey) continue;
         outputRow[0] = primaryKey;
