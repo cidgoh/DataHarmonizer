@@ -654,7 +654,7 @@ export default {
             let wideHeader = antibiotic.concat('_', longHeader);
             if (longHeader === 'vendor') wideHeader += '_name';
             let wideVal =
-              inputRow[sourceFieldNameMap[wideHeader]];
+              inputRow[sourceFieldNameMap[wideHeader.replaceAll('-', '')]];
             if (wideVal) {
               atLeastOneWideVal = true;
               if (longHeader in GRDItoNCBIObj) {
@@ -666,7 +666,7 @@ export default {
             }
           }
           if (atLeastOneWideVal) {
-            longRow[1] = antibiotic;
+            longRow[1] = antibiotic.replaceAll('_', ' ');
             outputMatrix.push(longRow);
           }
         }
