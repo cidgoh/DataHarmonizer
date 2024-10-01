@@ -1,7 +1,7 @@
 id: https://example.com/GRDI
 name: "GRDI"
 description: ""
-version: 12.2.2
+version: 12.2.3
 imports:
   - 'linkml:types'
 prefixes:
@@ -18,12 +18,23 @@ classes:
     description: "Specification for GRDI virus biosample data gathering"
     from_schema: "https://example.com/GRDI"
     is_a: "dh_interface"
+    unique_keys:
+      grdisample_id:
+        description: A GRDI Sample is uniquely identified by the sample_collector_sample_id slot.
+        unique_key_slots:
+          - sample_collector_sample_id
   AMRTest: 
     name: "AMRTest"
     title: "GRDI Sample"
     description: "Antimicrobial test result"
     from_schema: "https://example.com/GRDI"
     is_a: "dh_interface"
+    unique_keys:
+      amrtest_id:
+        description: An AMR test is uniquely identified by the sample_collector_sample_id slot and the tested antibiotic.
+        unique_key_slots:
+          - sample_collector_sample_id
+          - antimicrobial_drug
   Container: 
     name: "Container"
     from_schema: "https://example.com/GRDI"
