@@ -4,7 +4,8 @@
 #  
 # A script to validate DataHarmonizer data files according to a given schema
 # and optionally Class, in the case of data files that don't identify which 
-# class their fields are from.  Passes data file to linkml-validate.
+# class their fields are from.  Passes data file to linkml-validate.  For this 
+# reason, the script only works with LinkML installed.
 #
 # To prepare tsv/csv/xls/xlsx files for above validation, this script will 
 # remove header lines until it encounters a line with every cell containing
