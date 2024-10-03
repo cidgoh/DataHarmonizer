@@ -8,16 +8,11 @@ prefixes:
   linkml: 'https://w3id.org/linkml/'
   GENEPIO: 'http://purl.obolibrary.org/obo/GENEPIO_'
 classes:
-  dh_interface: 
-    name: "dh_interface"
-    description: "A DataHarmonizer interface"
-    from_schema: "https://example.com/GRDI"
   GRDISample: 
     name: "GRDISample"
     title: "GRDI Sample"
     description: "Specification for GRDI virus biosample data gathering"
     from_schema: "https://example.com/GRDI"
-    is_a: "dh_interface"
     unique_keys:
       grdisample_id:
         description: A GRDI Sample is uniquely identified by the sample_collector_sample_id slot.
@@ -28,7 +23,6 @@ classes:
     title: "GRDI Sample"
     description: "Antimicrobial test result"
     from_schema: "https://example.com/GRDI"
-    is_a: "dh_interface"
     unique_keys:
       amrtest_id:
         description: An AMR test is uniquely identified by the sample_collector_sample_id slot and the tested antibiotic.
