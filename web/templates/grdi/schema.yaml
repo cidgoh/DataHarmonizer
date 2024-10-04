@@ -16593,12 +16593,12 @@ enums:
       Intermediate antimicrobial phenotype [ARO:3004300]:
         text: Intermediate antimicrobial phenotype [ARO:3004300]
         exact_mappings:
-        - NCBI_ANTIBIOGRAM:not%20defined
+        - NCBI_ANTIBIOGRAM:intermediate
         is_a: Antibiotic resistance not defined [GENEPIO:0002040]
       Indeterminate antimicrobial phenotype [GENEPIO:0100585]:
         text: Indeterminate antimicrobial phenotype [GENEPIO:0100585]
         exact_mappings:
-        - NCBI_ANTIBIOGRAM:not%20defined
+        - NCBI_ANTIBIOGRAM:indeterminate
         is_a: Antibiotic resistance not defined [GENEPIO:0002040]
       Nonsusceptible antimicrobial phenotype [ARO:3004303]:
         text: Nonsusceptible antimicrobial phenotype [ARO:3004303]
@@ -16667,8 +16667,6 @@ enums:
         - NCBI_ANTIBIOGRAM:disk%20diffusion
       Antimicrobial gradient (E-test) [NCIT:85596]:
         text: Antimicrobial gradient (E-test) [NCIT:85596]
-        exact_mappings:
-        - NCBI_ANTIBIOGRAM:disk%20diffusion
         is_a: Agar diffusion [NCIT:85595]
       Agar dilution [ARO:3004411]:
         text: Agar dilution [ARO:3004411]
@@ -16676,6 +16674,8 @@ enums:
         - NCBI_ANTIBIOGRAM:agar%20dilution
       Broth dilution [ARO:3004397]:
         text: Broth dilution [ARO:3004397]
+        exact_mappings:
+        - NCBI_ANTIBIOGRAM:broth%20dilution
   AntimicrobialLaboratoryTypingPlatformMenu:
     name: AntimicrobialLaboratoryTypingPlatformMenu
     title: antimicrobial_laboratory_typing_platform menu
@@ -16683,6 +16683,8 @@ enums:
     permissible_values:
       BIOMIC Microbiology System [ARO:3007569]:
         text: BIOMIC Microbiology System [ARO:3007569]
+        exact_mappings:
+        - NCBI_ANTIBIOGRAM:BIOMIC
       Microscan [ARO:3004400]:
         text: Microscan [ARO:3004400]
         exact_mappings:
@@ -16714,6 +16716,8 @@ enums:
         - NCBI_ANTIBIOGRAM:Biom%C3%A9rieux
       Omron [ARO:3004408]:
         text: Omron [ARO:3004408]
+        exact_mappings:
+        - NCBI_ANTIBIOGRAM:Omron
       Siemens [ARO:3004407]:
         text: Siemens [ARO:3004407]
         exact_mappings:

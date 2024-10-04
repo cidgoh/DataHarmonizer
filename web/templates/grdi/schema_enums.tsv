@@ -1486,8 +1486,8 @@ AMR_testing_by menu	AmrTestingByMenu		Public Health Agency of Canada (PHAC) [GEN
 											
 											
 antimicrobial_phenotype menu	AntimicrobialPhenotypeMenu		Antibiotic resistance not defined [GENEPIO:0002040]							not defined	
-				Intermediate antimicrobial phenotype [ARO:3004300]						not defined	
-				Indeterminate antimicrobial phenotype [GENEPIO:0100585]						not defined	
+				Intermediate antimicrobial phenotype [ARO:3004300]						intermediate	
+				Indeterminate antimicrobial phenotype [GENEPIO:0100585]						indeterminate	
 			Nonsusceptible antimicrobial phenotype [ARO:3004303]							nonsusceptible	
 			Resistant antimicrobial phenotype [ARO:3004301]							resistant	
 			Susceptible antimicrobial phenotype [ARO:3004302]							susceptible	
@@ -1507,12 +1507,12 @@ antimicrobial_measurement_sign menu	AntimicrobialMeasurementSignMenu		less than 
 											
 											
 antimicrobial_laboratory_typing_method menu	AntimicrobialLaboratoryTypingMethodMenu		Agar diffusion [NCIT:85595]							disk diffusion	
-				Antimicrobial gradient (E-test) [NCIT:85596]						disk diffusion	
+				Antimicrobial gradient (E-test) [NCIT:85596]							
 			Agar dilution [ARO:3004411]							agar dilution	
-			Broth dilution [ARO:3004397]								
+			Broth dilution [ARO:3004397]							broth dilution	
 											
 											
-antimicrobial_laboratory_typing_platform menu	AntimicrobialLaboratoryTypingPlatformMenu		BIOMIC Microbiology System [ARO:3007569]								
+antimicrobial_laboratory_typing_platform menu	AntimicrobialLaboratoryTypingPlatformMenu		BIOMIC Microbiology System [ARO:3007569]							BIOMIC	
 			Microscan [ARO:3004400]							Microscan	
 			Phoenix [ARO:3004401]							Phoenix	
 			Sensititre [ARO:3004402]							Sensititre	
@@ -1521,7 +1521,7 @@ antimicrobial_laboratory_typing_platform menu	AntimicrobialLaboratoryTypingPlatf
 											
 antimicrobial_vendor_name menu	AntimicrobialVendorNameMenu		Becton Dickinson [ARO:3004405]							Becton Dickinson	
 			bioMérieux [ARO:3004406]							Biomérieux	
-			Omron [ARO:3004408]								
+			Omron [ARO:3004408]							Omron	
 			Siemens [ARO:3004407]							Siemens	
 			Trek [ARO:3004409]							Trek	
 											

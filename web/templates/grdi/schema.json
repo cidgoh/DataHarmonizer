@@ -5653,14 +5653,14 @@
           "text": "Intermediate antimicrobial phenotype [ARO:3004300]",
           "is_a": "Antibiotic resistance not defined [GENEPIO:0002040]",
           "exact_mappings": [
-            "NCBI_ANTIBIOGRAM:not%20defined"
+            "NCBI_ANTIBIOGRAM:intermediate"
           ]
         },
         "Indeterminate antimicrobial phenotype [GENEPIO:0100585]": {
           "text": "Indeterminate antimicrobial phenotype [GENEPIO:0100585]",
           "is_a": "Antibiotic resistance not defined [GENEPIO:0002040]",
           "exact_mappings": [
-            "NCBI_ANTIBIOGRAM:not%20defined"
+            "NCBI_ANTIBIOGRAM:indeterminate"
           ]
         },
         "Nonsusceptible antimicrobial phenotype [ARO:3004303]": {
@@ -5764,10 +5764,7 @@
         },
         "Antimicrobial gradient (E-test) [NCIT:85596]": {
           "text": "Antimicrobial gradient (E-test) [NCIT:85596]",
-          "is_a": "Agar diffusion [NCIT:85595]",
-          "exact_mappings": [
-            "NCBI_ANTIBIOGRAM:disk%20diffusion"
-          ]
+          "is_a": "Agar diffusion [NCIT:85595]"
         },
         "Agar dilution [ARO:3004411]": {
           "text": "Agar dilution [ARO:3004411]",
@@ -5776,7 +5773,10 @@
           ]
         },
         "Broth dilution [ARO:3004397]": {
-          "text": "Broth dilution [ARO:3004397]"
+          "text": "Broth dilution [ARO:3004397]",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:broth%20dilution"
+          ]
         }
       }
     },
@@ -5787,7 +5787,10 @@
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
         "BIOMIC Microbiology System [ARO:3007569]": {
-          "text": "BIOMIC Microbiology System [ARO:3007569]"
+          "text": "BIOMIC Microbiology System [ARO:3007569]",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:BIOMIC"
+          ]
         },
         "Microscan [ARO:3004400]": {
           "text": "Microscan [ARO:3004400]",
@@ -5834,7 +5837,10 @@
           ]
         },
         "Omron [ARO:3004408]": {
-          "text": "Omron [ARO:3004408]"
+          "text": "Omron [ARO:3004408]",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:Omron"
+          ]
         },
         "Siemens [ARO:3004407]": {
           "text": "Siemens [ARO:3004407]",
