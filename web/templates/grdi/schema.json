@@ -303,7 +303,10 @@
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
         "Not Applicable [GENEPIO:0001619]": {
-          "text": "Not Applicable [GENEPIO:0001619]"
+          "text": "Not Applicable [GENEPIO:0001619]",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:Not%20applicable"
+          ]
         },
         "Missing [GENEPIO:0001618]": {
           "text": "Missing [GENEPIO:0001618]",
@@ -312,13 +315,22 @@
           ]
         },
         "Not Collected [GENEPIO:0001620]": {
-          "text": "Not Collected [GENEPIO:0001620]"
+          "text": "Not Collected [GENEPIO:0001620]",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:Not%20collected"
+          ]
         },
         "Not Provided [GENEPIO:0001668]": {
-          "text": "Not Provided [GENEPIO:0001668]"
+          "text": "Not Provided [GENEPIO:0001668]",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:Not%20provided"
+          ]
         },
         "Restricted Access [GENEPIO:0001810]": {
-          "text": "Restricted Access [GENEPIO:0001810]"
+          "text": "Restricted Access [GENEPIO:0001810]",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:Restricted%20access"
+          ]
         }
       }
     },
@@ -5632,27 +5644,48 @@
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
         "Antibiotic resistance not defined [GENEPIO:0002040]": {
-          "text": "Antibiotic resistance not defined [GENEPIO:0002040]"
+          "text": "Antibiotic resistance not defined [GENEPIO:0002040]",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:not%20defined"
+          ]
         },
         "Intermediate antimicrobial phenotype [ARO:3004300]": {
           "text": "Intermediate antimicrobial phenotype [ARO:3004300]",
-          "is_a": "Antibiotic resistance not defined [GENEPIO:0002040]"
+          "is_a": "Antibiotic resistance not defined [GENEPIO:0002040]",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:not%20defined"
+          ]
         },
         "Indeterminate antimicrobial phenotype [GENEPIO:0100585]": {
           "text": "Indeterminate antimicrobial phenotype [GENEPIO:0100585]",
-          "is_a": "Antibiotic resistance not defined [GENEPIO:0002040]"
+          "is_a": "Antibiotic resistance not defined [GENEPIO:0002040]",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:not%20defined"
+          ]
         },
         "Nonsusceptible antimicrobial phenotype [ARO:3004303]": {
-          "text": "Nonsusceptible antimicrobial phenotype [ARO:3004303]"
+          "text": "Nonsusceptible antimicrobial phenotype [ARO:3004303]",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:nonsusceptible"
+          ]
         },
         "Resistant antimicrobial phenotype [ARO:3004301]": {
-          "text": "Resistant antimicrobial phenotype [ARO:3004301]"
+          "text": "Resistant antimicrobial phenotype [ARO:3004301]",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:resistant"
+          ]
         },
         "Susceptible antimicrobial phenotype [ARO:3004302]": {
-          "text": "Susceptible antimicrobial phenotype [ARO:3004302]"
+          "text": "Susceptible antimicrobial phenotype [ARO:3004302]",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:susceptible"
+          ]
         },
         "Susceptible dose dependent antimicrobial phenotype [ARO:3004304]": {
-          "text": "Susceptible dose dependent antimicrobial phenotype [ARO:3004304]"
+          "text": "Susceptible dose dependent antimicrobial phenotype [ARO:3004304]",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:susceptible-dose%20dependent"
+          ]
         }
       }
     },
@@ -5663,10 +5696,16 @@
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
         "milligram per litre (mg/L) [UO:0000273]": {
-          "text": "milligram per litre (mg/L) [UO:0000273]"
+          "text": "milligram per litre (mg/L) [UO:0000273]",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:mg/L"
+          ]
         },
         "millimetre (mm) [UO:0000016]": {
-          "text": "millimetre (mm) [UO:0000016]"
+          "text": "millimetre (mm) [UO:0000016]",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:mm"
+          ]
         },
         "microgram per millilitre (ug/mL) [UO:0000274]": {
           "text": "microgram per millilitre (ug/mL) [UO:0000274]"
@@ -5680,19 +5719,34 @@
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
         "less than (<) [GENEPIO:0001002]": {
-          "text": "less than (<) [GENEPIO:0001002]"
+          "text": "less than (<) [GENEPIO:0001002]",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:%3C"
+          ]
         },
         "less than or equal to (<=) [GENEPIO:0001003]": {
-          "text": "less than or equal to (<=) [GENEPIO:0001003]"
+          "text": "less than or equal to (<=) [GENEPIO:0001003]",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:%3C%3D"
+          ]
         },
         "equal to (==) [GENEPIO:0001004]": {
-          "text": "equal to (==) [GENEPIO:0001004]"
+          "text": "equal to (==) [GENEPIO:0001004]",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:%3D%3D"
+          ]
         },
         "greater than (>) [GENEPIO:0001006]": {
-          "text": "greater than (>) [GENEPIO:0001006]"
+          "text": "greater than (>) [GENEPIO:0001006]",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:%3E"
+          ]
         },
         "greater than or equal to (>=) [GENEPIO:0001005]": {
-          "text": "greater than or equal to (>=) [GENEPIO:0001005]"
+          "text": "greater than or equal to (>=) [GENEPIO:0001005]",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:%3E%3D"
+          ]
         }
       }
     },
@@ -5710,7 +5764,10 @@
         },
         "Antimicrobial gradient (E-test) [NCIT:85596]": {
           "text": "Antimicrobial gradient (E-test) [NCIT:85596]",
-          "is_a": "Agar diffusion [NCIT:85595]"
+          "is_a": "Agar diffusion [NCIT:85595]",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:disk%20diffusion"
+          ]
         },
         "Agar dilution [ARO:3004411]": {
           "text": "Agar dilution [ARO:3004411]",
@@ -5862,133 +5919,262 @@
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
         "amikacin": {
-          "text": "amikacin"
+          "text": "amikacin",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:amikacin"
+          ]
         },
         "amoxicillin-clavulanic_acid": {
-          "text": "amoxicillin-clavulanic_acid"
+          "text": "amoxicillin-clavulanic_acid",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:amoxicillin-clavulanic%20acid"
+          ]
         },
         "ampicillin": {
-          "text": "ampicillin"
+          "text": "ampicillin",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:ampicillin"
+          ]
         },
         "azithromycin": {
-          "text": "azithromycin"
+          "text": "azithromycin",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:azithromycin"
+          ]
         },
         "cefazolin": {
-          "text": "cefazolin"
+          "text": "cefazolin",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:cefazolin"
+          ]
         },
         "cefepime": {
-          "text": "cefepime"
+          "text": "cefepime",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:cefepime"
+          ]
         },
         "cefotaxime": {
-          "text": "cefotaxime"
+          "text": "cefotaxime",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:cefotaxime"
+          ]
         },
         "cefotaxime-clavulanic_acid": {
-          "text": "cefotaxime-clavulanic_acid"
+          "text": "cefotaxime-clavulanic_acid",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:cefotaxime-clavulanic%20acid"
+          ]
         },
         "cefoxitin": {
-          "text": "cefoxitin"
+          "text": "cefoxitin",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:cefoxitin"
+          ]
         },
         "cefpodoxime": {
-          "text": "cefpodoxime"
+          "text": "cefpodoxime",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:cefpodoxime"
+          ]
         },
         "ceftazidime": {
-          "text": "ceftazidime"
+          "text": "ceftazidime",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:ceftazidime"
+          ]
         },
         "ceftazidime-clavulanic_acid": {
-          "text": "ceftazidime-clavulanic_acid"
+          "text": "ceftazidime-clavulanic_acid",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:ceftazidime-clavulanic%20acid"
+          ]
         },
         "ceftiofur": {
-          "text": "ceftiofur"
+          "text": "ceftiofur",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:ceftiofur"
+          ]
         },
         "ceftriaxone": {
-          "text": "ceftriaxone"
+          "text": "ceftriaxone",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:ceftriaxone"
+          ]
         },
         "cephalothin": {
-          "text": "cephalothin"
+          "text": "cephalothin",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:cephalothin"
+          ]
         },
         "chloramphenicol": {
-          "text": "chloramphenicol"
+          "text": "chloramphenicol",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:chloramphenicol"
+          ]
         },
         "ciprofloxacin": {
-          "text": "ciprofloxacin"
+          "text": "ciprofloxacin",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:ciprofloxacin"
+          ]
         },
         "clindamycin": {
-          "text": "clindamycin"
+          "text": "clindamycin",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:clindamycin"
+          ]
         },
         "doxycycline": {
-          "text": "doxycycline"
+          "text": "doxycycline",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:doxycycline"
+          ]
         },
         "enrofloxacin": {
-          "text": "enrofloxacin"
+          "text": "enrofloxacin",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:enrofloxacin"
+          ]
         },
         "erythromycin": {
-          "text": "erythromycin"
+          "text": "erythromycin",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:erythromycin"
+          ]
         },
         "florfenicol": {
-          "text": "florfenicol"
+          "text": "florfenicol",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:florfenicol"
+          ]
         },
         "gentamicin": {
-          "text": "gentamicin"
+          "text": "gentamicin",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:gentamicin"
+          ]
         },
         "imipenem": {
-          "text": "imipenem"
+          "text": "imipenem",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:imipenem"
+          ]
         },
         "kanamycin": {
-          "text": "kanamycin"
+          "text": "kanamycin",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:kanamycin"
+          ]
         },
         "levofloxacin": {
-          "text": "levofloxacin"
+          "text": "levofloxacin",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:levofloxacin"
+          ]
         },
         "linezolid": {
-          "text": "linezolid"
+          "text": "linezolid",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:linezolid"
+          ]
         },
         "meropenem": {
-          "text": "meropenem"
+          "text": "meropenem",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:meropenem"
+          ]
         },
         "nalidixic_acid": {
-          "text": "nalidixic_acid"
+          "text": "nalidixic_acid",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:nalidixic%20acid"
+          ]
         },
         "nitrofurantoin": {
-          "text": "nitrofurantoin"
+          "text": "nitrofurantoin",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:nitrofurantoin"
+          ]
         },
         "norfloxacin": {
-          "text": "norfloxacin"
+          "text": "norfloxacin",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:norfloxacin"
+          ]
         },
         "oxolinic-acid": {
-          "text": "oxolinic-acid"
+          "text": "oxolinic-acid",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:oxolinic-acid"
+          ]
         },
         "oxytetracycline": {
-          "text": "oxytetracycline"
+          "text": "oxytetracycline",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:oxytetracycline"
+          ]
         },
         "piperacillin": {
-          "text": "piperacillin"
+          "text": "piperacillin",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:piperacillin"
+          ]
         },
         "piperacillin-tazobactam": {
-          "text": "piperacillin-tazobactam"
+          "text": "piperacillin-tazobactam",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:piperacillin-tazobactam"
+          ]
         },
         "polymyxin-b": {
-          "text": "polymyxin-b"
+          "text": "polymyxin-b",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:polymyxin-b"
+          ]
         },
         "quinupristin-dalfopristin": {
-          "text": "quinupristin-dalfopristin"
+          "text": "quinupristin-dalfopristin",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:quinupristin-dalfopristin"
+          ]
         },
         "streptomycin": {
-          "text": "streptomycin"
+          "text": "streptomycin",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:streptomycin"
+          ]
         },
         "sulfisoxazole": {
-          "text": "sulfisoxazole"
+          "text": "sulfisoxazole",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:sulfisoxazole"
+          ]
         },
         "telithromycin": {
-          "text": "telithromycin"
+          "text": "telithromycin",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:telithromycin"
+          ]
         },
         "tetracycline": {
-          "text": "tetracycline"
+          "text": "tetracycline",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:tetracycline"
+          ]
         },
         "tigecycline": {
-          "text": "tigecycline"
+          "text": "tigecycline",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:tigecycline"
+          ]
         },
         "trimethoprim-sulfamethoxazole": {
-          "text": "trimethoprim-sulfamethoxazole"
+          "text": "trimethoprim-sulfamethoxazole",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:trimethoprim-sulfamethoxazole"
+          ]
         }
       }
     }

@@ -1,10 +1,10 @@
 title	name	meaning	menu_1	menu_2	menu_3	menu_4	menu_5	description	EXPORT_NCBI_BIOSAMPLE_Enterics	EXPORT_NCBI_ANTIBIOGRAM	Template
 											
-null value menu	NullValueMenu		Not Applicable [GENEPIO:0001619]								
+null value menu	NullValueMenu		Not Applicable [GENEPIO:0001619]							Not applicable	
 			Missing [GENEPIO:0001618]							missing	
-			Not Collected [GENEPIO:0001620]								
-			Not Provided [GENEPIO:0001668]								
-			Restricted Access [GENEPIO:0001810]								
+			Not Collected [GENEPIO:0001620]							Not collected	
+			Not Provided [GENEPIO:0001668]							Not provided	
+			Restricted Access [GENEPIO:0001810]							Restricted access	
 											
 sample_collected_by menu	SampleCollectedByMenu		Public Health Agency of Canada (PHAC) [GENEPIO:0100551]								
 			Canadian Food Inspection Agency (CFIA) [GENEPIO:0100552]								
@@ -1485,29 +1485,29 @@ AMR_testing_by menu	AmrTestingByMenu		Public Health Agency of Canada (PHAC) [GEN
 			Fisheries and Oceans Canada (DFO) [GENEPIO:0100556]								
 											
 											
-antimicrobial_phenotype menu	AntimicrobialPhenotypeMenu		Antibiotic resistance not defined [GENEPIO:0002040]								
-				Intermediate antimicrobial phenotype [ARO:3004300]							
-				Indeterminate antimicrobial phenotype [GENEPIO:0100585]							
-			Nonsusceptible antimicrobial phenotype [ARO:3004303]								
-			Resistant antimicrobial phenotype [ARO:3004301]								
-			Susceptible antimicrobial phenotype [ARO:3004302]								
-			Susceptible dose dependent antimicrobial phenotype [ARO:3004304]								
+antimicrobial_phenotype menu	AntimicrobialPhenotypeMenu		Antibiotic resistance not defined [GENEPIO:0002040]							not defined	
+				Intermediate antimicrobial phenotype [ARO:3004300]						not defined	
+				Indeterminate antimicrobial phenotype [GENEPIO:0100585]						not defined	
+			Nonsusceptible antimicrobial phenotype [ARO:3004303]							nonsusceptible	
+			Resistant antimicrobial phenotype [ARO:3004301]							resistant	
+			Susceptible antimicrobial phenotype [ARO:3004302]							susceptible	
+			Susceptible dose dependent antimicrobial phenotype [ARO:3004304]							susceptible-dose dependent	
 											
 											
-antimicrobial_measurement_units menu	AntimicrobialMeasurementUnitsMenu		milligram per litre (mg/L) [UO:0000273]								
-			millimetre (mm) [UO:0000016]								
+antimicrobial_measurement_units menu	AntimicrobialMeasurementUnitsMenu		milligram per litre (mg/L) [UO:0000273]							mg/L	
+			millimetre (mm) [UO:0000016]							mm	
 			microgram per millilitre (ug/mL) [UO:0000274]								
 											
 											
-antimicrobial_measurement_sign menu	AntimicrobialMeasurementSignMenu		less than (<) [GENEPIO:0001002]								
-			less than or equal to (<=) [GENEPIO:0001003]								
-			equal to (==) [GENEPIO:0001004]								
-			greater than (>) [GENEPIO:0001006]								
-			greater than or equal to (>=) [GENEPIO:0001005]								
+antimicrobial_measurement_sign menu	AntimicrobialMeasurementSignMenu		less than (<) [GENEPIO:0001002]							<	
+			less than or equal to (<=) [GENEPIO:0001003]							<=	
+			equal to (==) [GENEPIO:0001004]							==	
+			greater than (>) [GENEPIO:0001006]							>	
+			greater than or equal to (>=) [GENEPIO:0001005]							>=	
 											
 											
 antimicrobial_laboratory_typing_method menu	AntimicrobialLaboratoryTypingMethodMenu		Agar diffusion [NCIT:85595]							disk diffusion	
-				Antimicrobial gradient (E-test) [NCIT:85596]							
+				Antimicrobial gradient (E-test) [NCIT:85596]						disk diffusion	
 			Agar dilution [ARO:3004411]							agar dilution	
 			Broth dilution [ARO:3004397]								
 											
@@ -1537,46 +1537,46 @@ antimicrobial_testing_standard menu	AntimicrobialTestingStandardMenu		British So
 			Werkgroep Richtlijnen Gevoeligheidsbepalingen (WRG) [ARO:3007398]							WRG	
 											
 											
-Antimicrobial Resistance Test Drug Menu	AntimicrobialResistanceTestDrugMenu		amikacin								
-			amoxicillin-clavulanic_acid								
-			ampicillin								
-			azithromycin								
-			cefazolin								
-			cefepime								
-			cefotaxime								
-			cefotaxime-clavulanic_acid								
-			cefoxitin								
-			cefpodoxime								
-			ceftazidime								
-			ceftazidime-clavulanic_acid								
-			ceftiofur								
-			ceftriaxone								
-			cephalothin								
-			chloramphenicol								
-			ciprofloxacin								
-			clindamycin								
-			doxycycline								
-			enrofloxacin								
-			erythromycin								
-			florfenicol								
-			gentamicin								
-			imipenem								
-			kanamycin								
-			levofloxacin								
-			linezolid								
-			meropenem								
-			nalidixic_acid								
-			nitrofurantoin								
-			norfloxacin								
-			oxolinic-acid								
-			oxytetracycline								
-			piperacillin								
-			piperacillin-tazobactam								
-			polymyxin-b								
-			quinupristin-dalfopristin								
-			streptomycin								
-			sulfisoxazole								
-			telithromycin								
-			tetracycline								
-			tigecycline								
-			trimethoprim-sulfamethoxazole								
+Antimicrobial Resistance Test Drug Menu	AntimicrobialResistanceTestDrugMenu		amikacin							amikacin	
+			amoxicillin-clavulanic_acid							amoxicillin-clavulanic acid	
+			ampicillin							ampicillin	
+			azithromycin							azithromycin	
+			cefazolin							cefazolin	
+			cefepime							cefepime	
+			cefotaxime							cefotaxime	
+			cefotaxime-clavulanic_acid							cefotaxime-clavulanic acid	
+			cefoxitin							cefoxitin	
+			cefpodoxime							cefpodoxime	
+			ceftazidime							ceftazidime	
+			ceftazidime-clavulanic_acid							ceftazidime-clavulanic acid	
+			ceftiofur							ceftiofur	
+			ceftriaxone							ceftriaxone	
+			cephalothin							cephalothin	
+			chloramphenicol							chloramphenicol	
+			ciprofloxacin							ciprofloxacin	
+			clindamycin							clindamycin	
+			doxycycline							doxycycline	
+			enrofloxacin							enrofloxacin	
+			erythromycin							erythromycin	
+			florfenicol							florfenicol	
+			gentamicin							gentamicin	
+			imipenem							imipenem	
+			kanamycin							kanamycin	
+			levofloxacin							levofloxacin	
+			linezolid							linezolid	
+			meropenem							meropenem	
+			nalidixic_acid							nalidixic acid	
+			nitrofurantoin							nitrofurantoin	
+			norfloxacin							norfloxacin	
+			oxolinic-acid							oxolinic-acid	
+			oxytetracycline							oxytetracycline	
+			piperacillin							piperacillin	
+			piperacillin-tazobactam							piperacillin-tazobactam	
+			polymyxin-b							polymyxin-b	
+			quinupristin-dalfopristin							quinupristin-dalfopristin	
+			streptomycin							streptomycin	
+			sulfisoxazole							sulfisoxazole	
+			telithromycin							telithromycin	
+			tetracycline							tetracycline	
+			tigecycline							tigecycline	
+			trimethoprim-sulfamethoxazole							trimethoprim-sulfamethoxazole	

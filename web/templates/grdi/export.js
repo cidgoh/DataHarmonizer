@@ -560,72 +560,6 @@ export default {
         'trimethoprim-sulfamethoxazole'
       ];
       const longHeadersArr = Array.from(ExportHeaders.keys()).slice(2);
-      const GRDItoNCBIObj = {
-        // 'resistance_phenotype': {
-        //   'Resistant antimicrobial phenotype [ARO:3004301]':
-        //     'resistant',
-        //   'Susceptible antimicrobial phenotype [ARO:3004302]':
-        //     'susceptible',
-        //   'Intermediate antimicrobial phenotype [ARO:3004300]':
-        //     'intermediate',
-        //   'Nonsusceptible antimicrobial phenotype [ARO:3004303]':
-        //     'nonsusceptible',
-        //   'Antibiotic resistance not defined [GENEPIO:0002040]':
-        //     'not defined',
-        //   'Susceptible dose dependent antimicrobial phenotype [ARO:3004304]':
-        //     'susceptible-dose dependent'
-        // },
-        // 'measurement_sign': {
-        //   'less than (<) [GENEPIO:0001002]': '<',
-        //   'less than or equal to (<=) [GENEPIO:0001003]': '<=',
-        //   'equal to (==) [GENEPIO:0001004]': '==',
-        //   'greater than (>) [GENEPIO:0001006]': '>',
-        //   'greater than or equal to (>=) [GENEPIO:0001005]': '>='
-        // },
-        // 'measurement_units': {
-        //   'milligram per litre (mg/L) [UO:0000273]': 'mg/L',
-        //   'millimetre (mm) [UO:0000016]': 'mm'
-        // },
-        // 'laboratory_typing_method': {
-        //   'Agar dilution [ARO:3004411]': 'agar dilution',
-        //   'Agar diffusion [NCIT:85595]': 'disk diffusion',
-        //   'Missing [GENEPIO:0001618]': 'missing'
-        // },
-        // 'laboratory_typing_platform': {
-        //   'Microscan [ARO:3004400]': 'Microscan',
-        //   'Phoenix [ARO:3004401]': 'Phoenix',
-        //   'Sensititre [ARO:3004402]': 'Sensititre',
-        //   'Vitek System [ARO:3004403]': 'Vitek'
-        // },
-        // 'vendor': {
-        //   'Becton Dickinson [ARO:3004405]': 'Becton Dickinson',
-        //   'bioMérieux [ARO:3004406]': 'Biomérieux',
-        //   'Siemens [ARO:3004407]': 'Siemens',
-        //   'Trek [ARO:3004409]': 'Trek'
-        // },
-        // 'testing_standard': {
-        //   'British Society for Antimicrobial Chemotherapy (BSAC) [ARO:3004365]':
-        //     'BSAC',
-        //   'Clinical Laboratory and Standards Institute (CLSI) [ARO:3004366]':
-        //     'CLSI',
-        //   'Deutsches Institut für Normung (DIN) [ARO:3004367]':
-        //     'DIN',
-        //   'European Committee on Antimicrobial Susceptibility Testing (EUCAST) [ARO:3004368]':
-        //     'EUCAST',
-        //   'National Antimicrobial Resistance Monitoring System (NARMS) [ARO:3007195]':
-        //     'NARMS',
-        //   'National Committee for Clinical Laboratory Standards (NCCLS) [ARO:3007193]':
-        //     'NCCLS',
-        //   'Société Française de Microbiologie (SFM) [ARO:3004369]':
-        //     'SFM',
-        //   'Swedish Reference Group for Antibiotics (SIR) [ARO:3007397]':
-        //     'SIR',
-        //   'Werkgroep Richtlijnen Gevoeligheidsbepalingen (WRG) [ARO:3007398]':
-        //     'WRG',
-        //   'Missing [GENEPIO:0001618]':
-        //     'missing'
-        // }
-      }
 
       const sourceFields = dh.getFields(dh.table);
       const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
@@ -664,11 +598,6 @@ export default {
             );
             if (wideVal) {
               atLeastOneWideVal = true;
-              if (longHeader in GRDItoNCBIObj) {
-                if (wideVal in GRDItoNCBIObj[longHeader]) {
-                  wideVal = GRDItoNCBIObj[longHeader][wideVal];
-                }
-              }
               longRow[i+2] = wideVal;
             }
           }
