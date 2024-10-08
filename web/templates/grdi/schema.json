@@ -5652,7 +5652,10 @@
         },
         "Antimicrobial gradient (E-test) [NCIT:85596]": {
           "text": "Antimicrobial gradient (E-test) [NCIT:85596]",
-          "is_a": "Agar diffusion [NCIT:85595]"
+          "is_a": "Agar diffusion [NCIT:85595]",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:disk%20diffusion"
+          ]
         },
         "Agar dilution [ARO:3004411]": {
           "text": "Agar dilution [ARO:3004411]",
@@ -7763,6 +7766,11 @@
       "comments": [
         "Provide the weather conditions at the time of sample collection."
       ],
+      "examples": [
+        {
+          "value": "Rain [ENVO:01001564]"
+        }
+      ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0100779",
       "domain_of": [
@@ -7780,7 +7788,16 @@
     },
     "presampling_weather_conditions": {
       "name": "presampling_weather_conditions",
+      "description": "Weather conditions prior to collection that may affect the sample.",
       "title": "presampling_weather_conditions",
+      "comments": [
+        "Provide the weather conditions prior to sample collection."
+      ],
+      "examples": [
+        {
+          "value": "Rain [ENVO:01001564]"
+        }
+      ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0100780",
       "domain_of": [
@@ -7797,7 +7814,16 @@
     },
     "precipitation_measurement_value": {
       "name": "precipitation_measurement_value",
+      "description": "The amount of water which has fallen during a precipitation process.",
       "title": "precipitation_measurement_value",
+      "comments": [
+        "Provide the quantity of precipitation in the area leading up to the time of sample collection."
+      ],
+      "examples": [
+        {
+          "value": "12"
+        }
+      ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0100911",
       "domain_of": [
@@ -7814,7 +7840,16 @@
     },
     "precipitation_measurement_unit": {
       "name": "precipitation_measurement_unit",
+      "description": "The units of measurement for the amount of water which has fallen during a precipitation process.",
       "title": "precipitation_measurement_unit",
+      "comments": [
+        "Provide the units of precipitation by selecting a value from the pick list."
+      ],
+      "examples": [
+        {
+          "value": "inch"
+        }
+      ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0100912",
       "domain_of": [
@@ -7831,7 +7866,16 @@
     },
     "precipitation_measurement_method": {
       "name": "precipitation_measurement_method",
+      "description": "The process used to measure the amount of water which has fallen during a precipitation process.",
       "title": "precipitation_measurement_method",
+      "comments": [
+        "Provide the name of the procedure or method used to measure precipitation."
+      ],
+      "examples": [
+        {
+          "value": "Rain gauge over a 12 hour period prior to sample collection"
+        }
+      ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0100913",
       "domain_of": [
@@ -8083,7 +8127,8 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "exact_mappings": [
-        "NCBI_BIOSAMPLE_Enterics:strain"
+        "NCBI_BIOSAMPLE_Enterics:strain",
+        "NCBI_ANTIBIOGRAM:sample_name/biosample_accession"
       ],
       "slot_uri": "GENEPIO:0100456",
       "domain_of": [
@@ -10480,17 +10525,11 @@
     }
   },
   "classes": {
-    "dh_interface": {
-      "name": "dh_interface",
-      "description": "A DataHarmonizer interface",
-      "from_schema": "https://example.com/GRDI"
-    },
     "GRDISample": {
       "name": "GRDISample",
       "description": "Specification for GRDI virus biosample data gathering",
       "title": "GRDI Sample",
       "from_schema": "https://example.com/GRDI",
-      "is_a": "dh_interface",
       "slot_usage": {
         "sample_collector_sample_id": {
           "name": "sample_collector_sample_id",
@@ -13558,6 +13597,11 @@
           "comments": [
             "Provide the weather conditions at the time of sample collection."
           ],
+          "examples": [
+            {
+              "value": "Rain [ENVO:01001564]"
+            }
+          ],
           "from_schema": "https://example.com/GRDI",
           "rank": 74,
           "slot_uri": "GENEPIO:0100779",
@@ -13579,7 +13623,16 @@
         },
         "presampling_weather_conditions": {
           "name": "presampling_weather_conditions",
+          "description": "Weather conditions prior to collection that may affect the sample.",
           "title": "presampling_weather_conditions",
+          "comments": [
+            "Provide the weather conditions prior to sample collection."
+          ],
+          "examples": [
+            {
+              "value": "Rain [ENVO:01001564]"
+            }
+          ],
           "from_schema": "https://example.com/GRDI",
           "rank": 75,
           "slot_uri": "GENEPIO:0100780",
@@ -13600,7 +13653,16 @@
         },
         "precipitation_measurement_value": {
           "name": "precipitation_measurement_value",
+          "description": "The amount of water which has fallen during a precipitation process.",
           "title": "precipitation_measurement_value",
+          "comments": [
+            "Provide the quantity of precipitation in the area leading up to the time of sample collection."
+          ],
+          "examples": [
+            {
+              "value": "12"
+            }
+          ],
           "from_schema": "https://example.com/GRDI",
           "rank": 76,
           "slot_uri": "GENEPIO:0100911",
@@ -13621,7 +13683,16 @@
         },
         "precipitation_measurement_unit": {
           "name": "precipitation_measurement_unit",
+          "description": "The units of measurement for the amount of water which has fallen during a precipitation process.",
           "title": "precipitation_measurement_unit",
+          "comments": [
+            "Provide the units of precipitation by selecting a value from the pick list."
+          ],
+          "examples": [
+            {
+              "value": "inch"
+            }
+          ],
           "from_schema": "https://example.com/GRDI",
           "rank": 77,
           "slot_uri": "GENEPIO:0100912",
@@ -13642,7 +13713,16 @@
         },
         "precipitation_measurement_method": {
           "name": "precipitation_measurement_method",
+          "description": "The process used to measure the amount of water which has fallen during a precipitation process.",
           "title": "precipitation_measurement_method",
+          "comments": [
+            "Provide the name of the procedure or method used to measure precipitation."
+          ],
+          "examples": [
+            {
+              "value": "Rain gauge over a 12 hour period prior to sample collection"
+            }
+          ],
           "from_schema": "https://example.com/GRDI",
           "rank": 78,
           "slot_uri": "GENEPIO:0100913",
@@ -13934,7 +14014,8 @@
           ],
           "from_schema": "https://example.com/GRDI",
           "exact_mappings": [
-            "NCBI_BIOSAMPLE_Enterics:strain"
+            "NCBI_BIOSAMPLE_Enterics:strain",
+            "NCBI_ANTIBIOGRAM:sample_name/biosample_accession"
           ],
           "rank": 88,
           "slot_uri": "GENEPIO:0100456",
@@ -16390,10 +16471,19 @@
       "description": "Antimicrobial test result",
       "title": "GRDI Sample",
       "from_schema": "https://example.com/GRDI",
-      "is_a": "dh_interface",
       "slot_usage": {
         "sample_collector_sample_id": {
           "name": "sample_collector_sample_id",
+          "annotations": {
+            "required": {
+              "tag": "required",
+              "value": true
+            },
+            "foreign_key": {
+              "tag": "foreign_key",
+              "value": "GRDISample.sample_collector_sample_id"
+            }
+          },
           "exact_mappings": [
             "BIOSAMPLE:sample_name",
             "NCBI_BIOSAMPLE_Enterics:%2Asample_name",
@@ -16482,6 +16572,16 @@
       "attributes": {
         "sample_collector_sample_id": {
           "name": "sample_collector_sample_id",
+          "annotations": {
+            "required": {
+              "tag": "required",
+              "value": true
+            },
+            "foreign_key": {
+              "tag": "foreign_key",
+              "value": "GRDISample.sample_collector_sample_id"
+            }
+          },
           "description": "The user-defined name for the sample.",
           "title": "sample_collector_sample_ID",
           "comments": [

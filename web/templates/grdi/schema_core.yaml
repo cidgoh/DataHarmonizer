@@ -29,6 +29,15 @@ classes:
         unique_key_slots:
           - sample_collector_sample_id
           - antimicrobial_drug
+    slot_usage:
+      sample_collector_sample_id:
+        annotations:
+          required:
+            tag: required
+            value: True
+          foreign_key:
+            tag: foreign_key
+            value: GRDISample.sample_collector_sample_id
   Container: 
     name: "Container"
     from_schema: "https://example.com/GRDI"
@@ -36,16 +45,16 @@ classes:
       GRDISamples: 
         name: "GRDISamples"
         from_schema: "https://example.com/GRDI"
-        multivalued: "true"
+        multivalued: True
         range: "GRDISample"
-        inlined_as_list: "true"
+        inlined_as_list: True
       AMRTests: 
         name: "AMRTests"
         from_schema: "https://example.com/GRDI"
         multivalued: "true"
         range: "AMRTest"
-        inlined_as_list: "true"
-    tree_root: "true"
+        inlined_as_list: True
+    tree_root: True
 slots: {}
 enums: {}
 types:

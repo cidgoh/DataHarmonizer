@@ -1509,7 +1509,7 @@ antimicrobial_measurement_sign menu	AntimicrobialMeasurementSignMenu		less than 
 											
 											
 antimicrobial_laboratory_typing_method menu	AntimicrobialLaboratoryTypingMethodMenu		Agar diffusion [NCIT:85595]							disk diffusion	
-				Antimicrobial gradient (E-test) [NCIT:85596]							
+				Antimicrobial gradient (E-test) [NCIT:85596]						disk diffusion	
 			Agar dilution [ARO:3004411]							agar dilution	
 			Broth dilution [ARO:3004397]								
 											
