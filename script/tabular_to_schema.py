@@ -48,6 +48,7 @@ from sys import exit
 from functools import reduce
 from linkml_runtime.utils.schemaview import SchemaView
 from linkml_runtime.dumpers.json_dumper import JSONDumper
+import subprocess
 
 
 def init_parser():
@@ -85,7 +86,10 @@ def set_class_slot(schema_class, slot, slot_group):
 	schema_class['slots'].append(slot_name);
 
 	#### Now initialize slot_usage requirements
-	schema_class['slot_usage'][slot_name] = {'rank': len(schema_class['slots'])};
+	if not (slot_name in schema_class['slot_usage']):
+		schema_class['slot_usage'][slot_name] = {'rank': len(schema_class['slots'])};
+	else:
+		schema_class['slot_usage'][slot_name]['rank'] = len(schema_class['slots']);
 
 	if slot_group > '':	
 		schema_class['slot_usage'][slot_name]['slot_group'] = slot_group;
@@ -465,6 +469,16 @@ def write_schema(schema):
 
 	with open(w_filename_base + '.yaml', 'w') as output_handle:
 		yaml.dump(schema, output_handle, sort_keys=False)
+
+	#with open("temp.yaml", 'w') as output_handle:
+		#yaml.dump(schema, output_handle, sort_keys=False)
+
+		# Add primary key / foreign key relational annotations.  SQL table
+		# definition output is hidden but could be put in an optional output.
+		#subprocess.run(["gen-sqltables", "--no-metadata", "--relmodel-output", w_filename_base + '.yaml', "temp.yaml"],capture_output=True);
+		# Read in schema that is now endowed with relationship annotations:
+		#with open(w_filename_base + '.yaml', "r") as schema_handle:
+		#	schema = yaml.safe_load(schema_handle);
 
 	# Now create schema.json which browser app can read directly.  Replaces each
 	# class with its induced version. This shifts each slot's content into an
