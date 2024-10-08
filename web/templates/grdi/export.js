@@ -586,6 +586,7 @@ export default {
           let atLeastOneWideVal = false;
           for (const [i, longHeader] of longHeadersArr.entries()) {
             let wideHeader = antibiotic.concat('_', longHeader);
+            // Vendor is the only header =/= imported header suffix
             if (longHeader === 'vendor') wideHeader += '_name';
             let wideVal = dh.getMappedField(
               longHeader,
