@@ -73,7 +73,6 @@ export default {
 //      ['gene_name_2', []],
 //      ['diagnostic_PCR_CT_value_2', []],
 //      ['description',[]],
-        // TODO there are additional fields now; what order?
       ]);
 
       const sourceFields = dh.getFields(dh.table);
@@ -106,7 +105,6 @@ export default {
     },
   },
 
-  // TODO I see other refs to NCBI_BioSample in project; good name?
   NCBI_BioSample_Enterics: {
     fileType: 'xls',
     status: 'published',
