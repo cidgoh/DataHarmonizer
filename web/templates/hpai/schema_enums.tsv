@@ -1,6 +1,6 @@
 title	name	meaning	menu_1	menu_2	menu_3	menu_4	menu_5	description	
 									
-null value	NullValue	GENEPIO:0001619	Not Applicable [GENEPIO:0001619]					A categorical choice recorded when a datum does not apply to a given context.	
+null value	NullValueMenu	GENEPIO:0001619	Not Applicable [GENEPIO:0001619]					A categorical choice recorded when a datum does not apply to a given context.	
 		GENEPIO:0001618	Missing [GENEPIO:0001618]					A categorical choice recorded when a datum is not included for an unknown reason.	
 		GENEPIO:0001620	Not Collected [GENEPIO:0001620]					A categorical choice recorded when a datum was not measured or collected.	
 		GENEPIO:0001668	Not Provided [GENEPIO:0001668]					A categorical choice recorded when a datum was collected but is not currently provided in the information being shared. This value indicates the information may be shared at the later stage.	

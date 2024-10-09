@@ -28,8 +28,8 @@
     }
   },
   "phac_dexa": {
-    "PHAC Dexa": {
-      "name": "PHAC Dexa",
+    "PHACDexa": {
+      "name": "PHACDexa",
       "status": "published",
       "display": true
     }
@@ -61,8 +61,8 @@
       "status": "published",
       "display": true
     },
-    "Mpox_international": {
-      "name": "Mpox_international",
+    "MpoxInternational": {
+      "name": "MpoxInternational",
       "status": "published",
       "display": true
     }
