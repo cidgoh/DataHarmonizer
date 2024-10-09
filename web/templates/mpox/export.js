@@ -237,7 +237,7 @@ export default {
 
   'NML LIMS': {
     fileType: 'csv',
-    pertains_to: ['Monkeypox'],
+    pertains_to: ['Mpox'],
     status: 'published',
     method: function (dh) {
       // A full export table field list enables ordering of these fields in export
