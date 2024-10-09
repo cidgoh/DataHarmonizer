@@ -1,1212 +1,1213 @@
-title	title_fr	meaning	menu_1	menu_2	menu_3	menu_4	menu_5	menu_1_fr	menu_2_fr	menu_3_fr	menu_4_fr	menu_5_fr	description	EXPORT_GISAID	EXPORT_CNPHI	EXPORT_NML_LIMS	EXPORT_BIOSAMPLE	EXPORT_VirusSeq_Portal
-																		
-umbrella bioproject accession menu	menu d'adhésion au bioprojet parapluie		PRJNA623807					PRJNA623807										
-																		
-null value menu	menu de valeur nulle	GENEPIO:0001619	Not Applicable					Non applicable										
-		GENEPIO:0001618	Missing					Manquant										
-		GENEPIO:0001620	Not Collected					Non collecté										
-		GENEPIO:0001668	Not Provided					Non fourni										
-		GENEPIO:0001810	Restricted Access					Accès restreint										
-																		
-geo_loc_name (state/province/territory) menu	menu geo_loc_name (état/province/territoire)	GAZ:00002566	Alberta					Alberta										
-		GAZ:00002562	British Columbia					Colombie Britannique										
-		GAZ:00002571	Manitoba					Manitoba										
-		GAZ:00002570	New Brunswick					Nouveau-Brunswick										
-		GAZ:00002567	Newfoundland and Labrador					Terre-Neuve et Labrador										
-		GAZ:00002575	Northwest Territories					Territoires du Nord-Ouest										
-		GAZ:00002565	Nova Scotia					Nouvelle-Écosse										
-		GAZ:00002574	Nunavut					Nunavut										
-		GAZ:00002563	Ontario					Ontario (en anglais)										
-		GAZ:00002572	Prince Edward Island					Île-du-Prince-Édouard										
-		GAZ:00002569	Quebec					Québec										
-		GAZ:00002564	Saskatchewan					Saskatchewan										
-		GAZ:00002576	Yukon					Yukon										
-																		
-																		
-host age unit menu	menu de l'unité d'âge de l'hôte	UO:0000035	month					mois										
-		UO:0000036	year					année										
-																		
-																		
-sample collection date precision menu	menu de précision de la date de prélèvement des échantillons	UO:0000036	year					année										
-		UO:0000035	month					mois										
-		UO:0000033	day					jour										
-																		
-																		
-biomaterial extracted menu	menu extrait des biomatériaux	OBI:0000895	RNA (total)					RNA (total)										
-		OBI:0000869	RNA (poly-A)					RNA (poly-A)										
-		OBI:0002627	RNA (ribo-depleted)					RNA (appauvri en ribo)										
-		GENEPIO:0100104	mRNA (messenger RNA)					mRNA (messager RNA)										
-		OBI:0002754	mRNA (cDNA)					mRNA (cDNA)										
-																		
-																		
-signs and symptoms menu	menu des signes et symptômes	HP:0030829	Abnormal lung auscultation					Auscultation pulmonaire anormale										
-		HP:0000223	Abnormality of taste sensation					Anomalie de la sensation gustative										
-		HP:0041051		Ageusia (complete loss of taste)					Ageusia (perte totale du goût)									
-		HP:0031249		Parageusia (distorted sense of taste)					Parageusie (déformation du goût)									
-		HP:0000224		Hypogeusia (reduced sense of taste)					Hypogeusie (diminution du sens du goût)									
-		HP:0004408	Abnormality of the sense of smell					Abnormality of the sense of smell										
-		HP:0000458		Anosmia (lost sense of smell)					Anosmie (perte d'odorat)									
-		HP:0004409		Hyposmia (reduced sense of smell)					Hyposmie (diminution de l'odorat)									
-		HP:0033677	Acute Respiratory Distress Syndrome					Syndrome de détresse respiratoire aiguë							ARDS			
-		HP:0011446	Altered mental status					Altération de l'état mental										
-		HP:0100543		Cognitive impairment					Troubles cognitifs									
-		HP:0001259		Coma					Coma									
-		HP:0001289		Confusion					la confusion									
-		HP:0031258			Delirium (sudden severe confusion)					Délire (confusion grave et soudaine)								
-		GENEPIO:0100061		Inability to arouse (inability to stay awake)					Incapacité à se réveiller (incapacité à rester éveillé)									
-		HP:0000737		Irritability					Irritabilité									
-		HP:0002371		Loss of speech					Perte de la parole									
-		HP:0011675	Arrhythmia					Arythmie										
-		HP:0025406	Asthenia (generalized weakness)					Asthénie (faiblesse généralisée)										
-		HP:0031352	Chest tightness or pressure					Oppression ou pression thoracique										
-		HP:0025145		Rigors (fever shakes)					Rigidité (tremblements de fièvre)									
-		HP:0025143	Chills (sudden cold sensation)					Frissons (sensation soudaine de froid)							Chills			
-		HP:0030953	Conjunctival injection					Injection conjonctivale										
-		HP:0000509	Conjunctivitis (pink eye)					Conjonctivite (œil rose)							Conjunctivitis			
-		MP:0001867	Coryza (rhinitis)					Coryza (rhinite)										
-		HP:0012735	Cough 					Toux										
-		HP:0031246		Nonproductive cough (dry cough)					Toux non productive (toux sèche)									
-		HP:0031245		Productive cough (wet cough)					Toux productive (toux grasse)									
-		HP:0000961	Cyanosis (blueish skin discolouration)					Cyanose (coloration bleuâtre de la peau)										
-		HP:0001063		Acrocyanosis					Acrocyanose									
-		HP:0032556			Circumoral cyanosis (bluish around mouth)					Cyanose circulatoire (bleuâtre autour de la bouche)								
-		GENEPIO:0100062			Cyanotic face (bluish face)					Visage cyanosé (visage bleuâtre)								
-		GENEPIO:0100063		Central Cyanosis					Cyanose centrale									
-		GENEPIO:0100064			Cyanotic lips (bluish lips) 					Lèvres cyanosées (lèvres bleutées)								
-		GENEPIO:0100065		Peripheral Cyanosis					Cyanose périphérique									
-		HP:0002094	Dyspnea (breathing difficulty) 					Dyspnée (difficulté à respirer)										
-		HP:0002014	Diarrhea (watery stool)					Diarrhée (selles liquides)							Diarrhea, watery			
-		MP:0031127	Dry gangrene					Gangrène sèche										
-		HP:0002383	Encephalitis (brain inflammation)					Encéphalite (inflammation du cerveau)							Encephalitis			
-		HP:0001298	Encephalopathy					Encéphalopathie										
-		HP:0012378	Fatigue (tiredness)					Fatigue							Fatigue			
-		HP:0001945	Fever					Fièvre										
-		GENEPIO:0100066		Fever (>=38°C)					Fièvre (>=38°C)						Fever			
-		HP:0000206	Glossitis (inflammation of the tongue)					Glossiose (inflammation de la langue)										
-		GENEPIO:0100067	Ground Glass Opacities (GGO)					Opacités de verre dépoli										
-		HP:0002315	Headache					Maux de tête										
-		HP:0002105	Hemoptysis (coughing up blood)					Hémoptysie (toux de sang)										
-		HP:0012417	Hypocapnia					Hypocapnie										
-		HP:0002615	Hypotension (low blood pressure)					Hypotension (baisse de la tension artérielle)										
-		HP:0012418	Hypoxemia (low blood oxygen)					Hypoxémie (manque d'oxygène dans le sang)										
-		GENEPIO:0100068		Silent hypoxemia					Hypoxémie silencieuse									
-		HP:0011029	Internal hemorrhage (internal bleeding)					Hémorragie interne (saignement interne)										
-		NCIT:C121416	Loss of Fine Movements					Perte de mouvements fins										
-		HP:0004396	Low appetite					Manque d'appétit										
-		HP:0033834	Malaise (general discomfort/unease)					Malaise (malaise général)										
-		HP:0031179	Meningismus/nuchal rigidity					Méningisme/rigidité nucale										
-		HP:0001324	Muscle weakness					Faiblesse musculaire										
-		HP:0001742	Nasal obstruction (stuffy nose)					Obstruction nasale (nez bouché)										
-		HP:0002018	Nausea					Nausées										
-		HP:0000421	Nose bleed					Saignement de nez										
-		GENEPIO:0100069	Otitis					Otite										
-		HP:0012531	Pain					Douleur										
-		HP:0002027		Abdominal pain					Douleur abdominale									
-		HP:0002829		Arthralgia (painful joints)					Arthralgie (articulations douloureuses)									
-		HP:0100749		Chest pain					Douleur thoracique									
-		HP:0033771			Pleuritic chest pain					Douleur thoracique pleurétique								
-		HP:0003326		Myalgia (muscle pain) 					Myalgie (douleur musculaire)									
-		HP:0025439	Pharyngitis (sore throat) 					Pharyngite (mal de gorge)										
-		GENEPIO:0100070	Pharyngeal exudate					Exsudat pharyngé										
-		HP:0002202	Pleural effusion					Épanchement pleural										
-		HP:0002090	Pneumonia					Pneumonie										
-		HP:0033696	Pseudo-chilblains					Pseudo-chilblains										
-		GENEPIO:0100072		Pseudo-chilblains on fingers (covid fingers)					Pseudo-griffes des doigts (doigts covides)									
-		GENEPIO:0100073		Pseudo-chilblains on toes (covid toes)					Pseudo-chilblains sur les orteils (covid toes)									
-		HP:0000988	Rash					Éruption cutanée										
-		HP:0031417	Rhinorrhea (runny nose)					Rhinorrhée (écoulement nasal)										
-		HP:0001250	Seizure					Crise d'épilepsie										
-		HP:0020219		Motor seizure					Crise motrice									
-		HP:0025144	Shivering (involuntary muscle twitching)					Frissons (contractions musculaires involontaires)										
-		HP:0001350	Slurred speech					Troubles de l'élocution										
-		HP:0025095	Sneezing					Éternuement										
-		HP:0033709	Sputum Production					Production d'expectorations										
-		HP:0001297	Stroke					Accident vasculaire cérébral										
-		HP:0002716	Swollen Lymph Nodes					Ganglions lymphatiques gonflés										
-		HP:0002789	Tachypnea (accelerated respiratory rate)					Tachypnée (accélération de la fréquence respiratoire)										
-		HP:0002321	Vertigo (dizziness)					Vertige (étourdissement)										
-		HP:0002013	Vomiting (throwing up)					Vomissements (vomissements)										
-																		
-																		
-host vaccination status menu	menu du statut de vaccination de l'hôte	GENEPIO:0100100	Fully Vaccinated					Vaccination complète										
-		GENEPIO:0100101	Partially Vaccinated					Partiellement vacciné										
-		GENEPIO:0100102	Not Vaccinated					Non vacciné										
-																		
-																		
-prior SARS-CoV-2 antiviral treatment menu	menu de traitement antiviral antérieur contre le SARS-CoV-2	GENEPIO:0100037	Prior antiviral treatment					Traitement antiviral antérieur										
-		GENEPIO:0100233	No prior antiviral treatment					Pas de traitement antiviral antérieur										
-																		
-																		
-NML submitted specimen type menu	Menu des types d'échantillons soumis au NML	OBI:0002600	Swab 					Écouvillon										
-		OBI:0000880	RNA					RNA										
-		OBI:0002754	mRNA (cDNA)					mRNA (cDNA)										
-		OBI:0001010	Nucleic acid					Acide nucléique										
-		GENEPIO:0001619	Not Applicable					Sans objet										
-																		
-																		
-Related specimen relationship type menu	Menu des types de relations entre spécimens associés	HP:0011009	Acute					Infection aiguë										
-		GENEPIO:0101016	Chronic (prolonged) infection investigation					Enquête sur l'infection chronique (prolongée)										
-			Convalescent					Convalescent										
-			Familial					Familial										
-		EFO:0009642	Follow-up					Suivi										
-				Reinfection testing					Tests de réinfection									
-			Previously Submitted					Déjà soumis										
-			Sequencing/bioinformatics methods development/validation 					Développement/validation de méthodes de séquençage/bioinformatique										
-			Specimen sampling methods testing					Test des méthodes d'échantillonnage des échantillons										
-																		
-																		
-pre-existing conditions and risk factors menu	Menu des conditions préexistantes et des facteurs de risque	VO:0004925	Age 60+					60 ans et plus										
-		HP:0001903	Anemia					Anémie										
-		HP:0002039	Anorexia					Anorexie										
-		NCIT:C92743	Birthing labor					Travail d'accouchement										
-		NCIT:C80693	Bone marrow failure					Insuffisance de la moelle osseuse										
-		MONDO:0004992	Cancer					Cancer										
-		MONDO:0007254		Breast cancer					Cancer du sein									
-		MONDO:0005575		Colorectal cancer					Cancer colorectal									
-		DOID:2531		Hematologic malignancy (cancer of the blood)					Hémopathie maligne (cancer du sang)									
-		MONDO:0008903		Lung cancer					Cancer du poumon									
-		MONDO:0024880		Metastatic disease					Maladie métastatique									
-		NCIT:C16212	Cancer treatment					Traitement du cancer										
-		NCIT:C157740		Cancer surgery					Chirurgie du cancer									
-		NCIT:C15632		Chemotherapy					Chimiothérapie									
-		NCIT:C15360			Adjuvant chemotherapy					Chimiothérapie adjuvante								
-		NCIT:C3079	Cardiac disorder					Troubles cardiaques										
-		HP:0011675		Arrhythmia					Arythmie									
-		MONDO:0005267		Cardiac disease					Maladie cardiaque									
-		HP:0001638		Cardiomyopathy					Cardiomyopathie									
-		GENEPIO:0100074		Cardiac injury					Lésion cardiaque									
-		HP:0000822		Hypertension (high blood pressure)					Hypertension (pression artérielle élevée)									
-		HP:0002615		Hypotension (low blood pressure)					Hypotension (pression artérielle basse)									
-		HP:0011410	Cesarean section					Césarienne										
-		GENEPIO:0100075	Chronic cough					Toux chronique										
-		GENEPIO:0100076	Chronic gastrointestinal disease					Maladie gastro-intestinale chronique										
-		HP:0006528	Chronic lung disease					Maladie pulmonaire chronique										
-		NCIT:C211	Corticosteroids					Corticostéroïdes										
-		HP:0000819	Diabetes mellitus (diabetes)					Diabète sucré (diabète)										
-		HP:0100651		Type I diabetes mellitus (T1D)					Diabète de type I (T1D)									
-		HP:0005978		Type II diabetes mellitus (T2D)					Diabète sucré de type II (T2D)									
-		HP:0000964	Eczema					Eczéma										
-		HP:0003111	Electrolyte disturbance					Perturbation de l'équilibre électrolytique										
-		HP:0002901		Hypocalcemia					Hypocalcémie									
-		HP:0002900		Hypokalemia					Hypokaliémie									
-		HP:0002917		Hypomagnesemia					Hypomagnésémie									
-		HP:0002383	Encephalitis (brain inflammation)					Encéphalite (inflammation du cerveau)										
-		MONDO:0005027	Epilepsy					Epilepsie										
-		NCIT:C15248	Hemodialysis					Hémodialyse										
-		MONDO:0044348	Hemoglobinopathy					Hémoglobinopathie										
-		MONDO:0005109	Human immunodeficiency virus (HIV)					Virus de l'immunodéficience humaine										
-		MONDO:0012268		Acquired immunodeficiency syndrome (AIDS)					Syndrome d'immunodéficience acquise									
-		NCIT:C16118		HIV and antiretroviral therapy (ART)					HIV et thérapie antirétrovirale									
-		NCIT:C14139	Immunocompromised					Immunodéprimés										
-		MONDO:0004670		Lupus					Lupus									
-		MONDO:0005265	Inflammatory bowel disease (IBD)					Maladie inflammatoire de l'intestin (MII)										
-		HP:0002583		Colitis					Colite									
-		HP:0100279			Ulcerative colitis					Colite ulcéreuse								
-		HP:0100280		Crohn's disease					la maladie de Crohn									
-		NCIT:C3149	Renal disorder					Trouble rénal										
-		MONDO:0005240		Renal disease					Maladie rénale									
-		HP:0012622			Chronic renal disease					Maladie rénale chronique								
-		HP:0000083			Renal failure					Insuffisance rénale								
-		MONDO:0005154	Liver disease					Maladie du foie										
-		NCIT:C113609		Chronic liver disease					Maladie chronique du foie									
-		HP:0001397			Fatty liver disease (FLD)													
-		HP:0003326	Myalgia (muscle pain) 					Myalgie (douleur musculaire)										
-		MONDO:0005404	Myalgic encephalomyelitis (chronic fatigue syndrome)					Encéphalomyélite myalgique (syndrome de fatigue chronique)										
-		MONDO:0005071	Neurological disorder					Trouble neurologique										
-		MONDO:0019056		Neuromuscular disorder					Trouble neuromusculaire									
-		HP:0001513	Obesity					L'obésité										
-		MONDO:0005139		Severe obesity					Obésité sévère									
-		MONDO:0005087	Respiratory disorder					Troubles respiratoires										
-		HP:0002099		Asthma					Asthme									
-		HP:0004469		Chronic bronchitis					Bronchite chronique									
-		HP:0006510		Chronic obstructive pulmonary disease					Maladie pulmonaire obstructive chronique									
-		HP:0002097		Emphysema					Emphysème									
-		MONDO:0005275		Lung disease					Maladie pulmonaire									
-		HP:0006528			Chronic lung disease					Maladie pulmonaire chronique								
-		HP:0002206			Pulmonary fibrosis					Fibrose pulmonaire								
-		HP:0002090		Pneumonia					Pneumonie									
-		HP:0002878		Respiratory failure					Insuffisance respiratoire									
-		HP:0033677			Adult respiratory distress syndrome					Syndrome de détresse respiratoire de l'adulte								
-		MONDO:0009971			Newborn respiratory distress syndrome					Syndrome de détresse respiratoire du nouveau-né								
-		MONDO:0018076		Tuberculosis					Tuberculose									
-		GENEPIO:0100077	Postpartum (≤6 weeks)					Post-partum (≤6 semaines)										
-		NCIT:C25742	Pregnancy					Grossesse										
-		MONDO:0005554	Rheumatic disease					Maladie rhumatismale										
-		MONDO:0011382	Sickle cell disease					Drépanocytose										
-		NBO:0001845	Substance use					Consommation de substances psychoactives										
-		MONDO:0002046		Alcohol abuse					Abus d'alcool									
-		GENEPIO:0100078		Drug abuse					Abus de drogues									
-		GENEPIO:0100079			Injection drug abuse					Abus de drogues injectables								
-		NBO:0015005		Smoking					Fumer									
-		NCIT:C173621		Vaping					Vapoter									
-		HP:0002789	Tachypnea (accelerated respiratory rate)					Tachypnée (accélération de la fréquence respiratoire)										
-		NCIT:C159659	Transplant					Transplantation										
-		NCIT:C131759		Hematopoietic stem cell transplant (bone marrow transplant)					Transplantation cardiaque									
-		GENEPIO:0100080		Cardiac transplant					Greffe de cellules souches hématopoïétiques (greffe de moelle osseuse)									
-		NCIT:C157332		Kidney transplant					Greffe de rein									
-		GENEPIO:0100081		Liver transplant					Greffe de foie									
-																		
-																		
-variant designation menu	menu de désignation des variantes	GENEPIO:0100082	Variant of Concern (VOC)					Variante d'intérêt (VOI)										
-		GENEPIO:0100083	Variant of Interest (VOI)					Variante préoccupante (VOC)										
-		GENEPIO:0100279	Variant Under Monitoring (VUM)					Variante sous surveillance (VUM)										
-																		
-																		
-variant evidence menu	menu de preuves variantes	CIDO:0000019	RT-qPCR					RT-qPCR										
-		CIDO:0000027	Sequencing					Séquençage										
-																		
-																		
-complications menu	menu des complications	HP:0500165	Abnormal blood oxygen level					Taux d'oxygène anormal dans le sang										
-		HP:0001919	Acute kidney injury					Lésions rénales aiguës										
-		MONDO:0015796	Acute lung injury					Lésions pulmonaires aiguës										
-		GENEPIO:0100092		Ventilation induced lung injury (VILI)					Lésions pulmonaires induites par la ventilation									
-		MONDO:0001208	Acute respiratory failure					Insuffisance respiratoire aiguë										
-		HP:0011675	Arrhythmia (complication)					Arythmie (complication)										
-		HP:0001649		Tachycardia					Tachycardie									
-		HP:0031677			Polymorphic ventricular tachycardia (VT)					Tachycardie ventriculaire polymorphe								
-		GENEPIO:0100084			Tachyarrhythmia					Tachyarythmie								
-		GENEPIO:0100074	Cardiac injury					Lésions cardiaques										
-		HP:0001695	Cardiac arrest					Arrêt cardiaque										
-		HP:0030149	Cardiogenic shock					Choc cardiogénique										
-		HP:0001977	Blood clot					Caillot de sang										
-		HP:0004420		Arterial clot					Caillot artériel									
-		HP:0002625		Deep vein thrombosis (DVT)					Thrombose veineuse profonde									
-		HP:0002204		Pulmonary embolism (PE)					Embolie pulmonaire									
-		HP:0001638	Cardiomyopathy					Cardiomyopathie										
-		MONDO:0024619	Central nervous system invasion					Envahissement du système nerveux central										
-		HP:0001297	Stroke (complication)					Accident vasculaire cérébral (complication)										
-		MONDO:0003346		Central Nervous System Vasculitis					Vascularite du système nerveux central									
-		HP:0002140		Acute ischemic stroke					Accident vasculaire cérébral ischémique aigu									
-		HP:0001259	Coma					Coma										
-		HP:0011097	Convulsions					Les convulsions										
-		NCIT:C171562	COVID-19 associated coagulopathy (CAC)					COVID-19 coagulopathie associée (CAC)										
-		MONDO:0009061	Cystic fibrosis					Mucoviscidose										
-		MONDO:0600008	Cytokine release syndrome					Syndrome de libération de cytokines										
-		MPATH:108	Disseminated intravascular coagulation (DIC)					Coagulation intravasculaire disséminée										
-		HP:0001298	Encephalopathy					Encéphalopathie										
-		GENEPIO:0100088	Fulminant myocarditis					Myocardite fulminante										
-		MONDO:0016218	Guillain-Barré syndrome					Guillain-Barré syndrome										
-		HP:0011029	Internal hemorrhage (complication; internal bleeding)					Hémorragie interne (complication ; hémorragie interne)										
-		MONDO:0013792		Intracerebral haemorrhage					Hémorragie intracérébrale									
-		MONDO:0012727	Kawasaki disease					Maladie de Kawasaki										
-		GENEPIO:0100089		Complete Kawasaki disease					Maladie de Kawasaki complète									
-		GENEPIO:0100090		Incomplete Kawasaki disease					Maladie de Kawasaki incomplète									
-		HP:0001410	Liver dysfunction					Dysfonctionnement du foie										
-		GENEPIO:0100091		Acute liver injury					Lésions hépatiques aiguës									
-		MONDO:0100233	Long COVID-19					Longue COVID-19										
-		HP:0001287	Meningitis					Méningite										
-		HP:0002076	Migraine					Migraine										
-		HP:0005268	Miscarriage					Fausses couches										
-		MONDO:0100163	Multisystem inflammatory syndrome in children (MIS-C)					Syndrome inflammatoire multisystémique de l'enfant										
-		MONDO:0100319	Multisystem inflammatory syndrome in adults (MIS-A)					Syndrome inflammatoire multisystémique chez l'adulte										
-		GENEPIO:0100093	Muscle injury					Lésion musculaire										
-		MONDO:0005404	Myalgic encephalomyelitis (ME)					Encéphalomyélite myalgique (syndrome de fatigue chronique)										
-		MONDO:0005068	Myocardial infarction (heart attack)					Infarctus du myocarde (crise cardiaque)										
-		MONDO:0004781		Acute myocardial infarction					Infarctus aigu du myocarde									
-		MONDO:0041656		ST-segment elevation myocardial infarction					Infarctus du myocarde avec sus-décalage du segment ST									
-		HP:0001700	Myocardial injury					Lésions du myocarde										
-		NCIT:C168498	Neonatal complications					Complications néonatales										
-		GENEPIO:0100085	Noncardiogenic pulmonary edema					Œdème pulmonaire non cardiogénique										
-		HP:0033677		Acute respiratory distress syndrome (ARDS)					Syndrome de détresse respiratoire aiguë									
-		NCIT:C171551			COVID-19 associated ARDS (CARDS)					ARDS associé au COVID-19 (CARDS)								
-		GENEPIO:0100086			Neurogenic pulmonary edema (NPE)					Œdème pulmonaire neurogène								
-		GENEPIO:0100094	Organ failure					Insuffisance organique										
-		HP:0001635		Heart failure					Insuffisance cardiaque									
-		MONDO:0100192		Liver failure					Insuffisance hépatique									
-		HP:0003470	Paralysis					Paralysie										
-		HP:0002107	Pneumothorax (collapsed lung)					Pneumothorax (affaissement du poumon)										
-		HP:0002108		Spontaneous pneumothorax					Pneumothorax spontané									
-		MONDO:0002075		Spontaneous tension pneumothorax					Pneumothorax spontané sous tension									
-		HP:0002090	Pneumonia (complication)					Pneumonie (complication)										
-		NCIT:C171550		COVID-19 pneumonia					Pneumonie COVID-19									
-		HP:0001197	Pregancy complications					Complications de la grossesse										
-		HP:0003201	Rhabdomyolysis					Rhabdomyolyse										
-		IDO:0000567	Secondary infection					Infection secondaire										
-		GENEPIO:0100095		Secondary staph infection					Infection secondaire à staphylocoque									
-		GENEPIO:0100096		Secondary strep infection					Infection secondaire à streptocoques									
-		HP:0001250	Seizure (complication)					Crise d'épilepsie (complication)										
-		HP:0020219		Motor seizure					Crise motrice									
-		HP:0100806	Sepsis/Septicemia					Sepsis/Septicémie										
-		IDO:0000636		Sepsis					Septicémie (réaction inflammatoire systémique à une infection)									
-		NCIT:C3364		Septicemia					Septicémie (infection du sang)									
-		HP:0031273	Shock					Choc										
-		GENEPIO:0100097		Hyperinflammatory shock					Choc hyperinflammatoire									
-		GENEPIO:0100098		Refractory cardiogenic shock					Choc cardiogénique réfractaire									
-		GENEPIO:0100099		Refractory cardiogenic plus vasoplegic shock					Choc cardiogénique et vasoplégique réfractaire									
-		NCIT:C35018		Septic shock					Choc septique									
-		HP:0002633	Vasculitis					Vascularite										
-																		
-																		
-vaccine name menu	menu nom du vaccin	GENEPIO:0100308	Astrazeneca (Vaxzevria)					Astrazeneca (Vaxzevria)										
-		GENEPIO:0100307	Johnson & Johnson (Janssen)					Johnson & Johnson (Janssen)										
-		GENEPIO:0100304	Moderna (Spikevax)					Moderna (Spikevax)										
-		GENEPIO:0100305	Pfizer-BioNTech (Comirnaty)					Pfizer-BioNTech (Comirnaty)										
-		GENEPIO:0100306	Pfizer-BioNTech (Comirnaty Pediatric)					Pfizer-BioNTech (Comirnaty Pédiatrique)										
-																		
-																		
-anatomical material menu	menu de matériel anatomique	UBERON:0000178	Blood					Sang										
-		UBERON:0006314	Fluid					Fluide										
-		UBERON:0001836		Saliva					Salive									
-		UBERON:0001359		Fluid (cerebrospinal (CSF))					Fluide (cérébrospinal (CSF))									
-		UBERON:0002409		Fluid (pericardial)					Fluide (péricardique)									
-		UBERON:0001087		Fluid (pleural)					Fluide (pleural)									
-		UBERON:0036243		Fluid (vaginal)					Fluides (vaginaux)									
-		UBERON:0000173		Fluid (amniotic)					Fluide (amniotique)									
-		UBERON:0000479	Tissue					Tissu										
-																		
-																		
-anatomical part menu	menu partie anatomique	UBERON:0001245	Anus					Anus										
-		UBERON:0006956	Buccal mucosa					Muqueuse buccale										
-		UBERON:0002114	Duodenum					Duodénum										
-		UBERON:0000970	Eye					L'œil										
-		UBERON:0000160	Intestine					Intestin										
-		UBERON:0001558	Lower respiratory tract					Voies respiratoires inférieures										
-		UBERON:0002185		Bronchus					Bronches									
-		UBERON:0002048		Lung					Poumon									
-		UBERON:0002186			Bronchiole					Bronchiole								
-		UBERON:0002169			Alveolar sac					Sac alvéolaire								
-		UBERON:0009778		Pleural sac					Sac pleural									
-		UBERON:0002402			Pleural cavity					Cavité pleurale								
-		UBERON:0003126		Trachea					Trachée									
-		UBERON:0001052	Rectum					Le rectum										
-		UBERON:0001003	Skin					Peau										
-		UBERON:0000945	Stomach					Estomac										
-		UBERON:0001557	Upper respiratory tract					Voies respiratoires supérieures										
-		UBERON:2001427		Anterior Nares					Narines antérieures									
-		UBERON:0001043		Esophagus					Œsophage									
-		UBERON:0002453		Ethmoid sinus					Sinus ethmoïdal									
-		UBERON:0001707		Nasal Cavity					Cavité nasale									
-		UBERON:0005921			Middle Nasal Turbinate					Turbine nasale moyenne								
-		UBERON:0005922			Inferior Nasal Turbinate					Turbine nasale inférieure								
-		UBERON:0001728		Nasopharynx (NP)					Nasopharynx (NP)									
-		UBERON:0001729		Oropharynx (OP)					Oropharynx (OP)									
-		UBERON:0000341		Pharynx (throat)					Le pharynx (gorge)									
-																		
-																		
-body product menu	menu de produits pour le corps	UBERON:0001913	Breast Milk					Le lait maternel										
-		UBERON:0001988	Feces					Selles										
-		UBERON:0006530	Fluid (seminal)					Liquide (séminal)										
-		UBERON:0000912	Mucus					Mucus										
-		UBERON:0007311		Sputum					Expectorations									
-		UBERON:0001089	Sweat					Sueur										
-		UBERON:0001827	Tear					Larme										
-		UBERON:0001088	Urine					Urine										
-																		
-																		
-prior SARS-CoV-2 infection menu	menu d’infection antérieure par le SARS-CoV-2	GENEPIO:0100037	Prior infection					Infection antérieure										
-		GENEPIO:0100233	No prior infection					Pas d'infection antérieure										
-																		
-																		
-environmental material menu	menu de matériaux environnementaux	ENVO:03501208	Air vent					Purgeur d'air										
-		ENVO:00003896	Banknote					Billets de banque										
-		ENVO:03501209	Bed rail					Barre de lit										
-		ENVO:01000486	Building floor					Plancher du bâtiment										
-		ENVO:02000058	Cloth					Tissu										
-		ENVO:03501210	Control panel					Panneau de contrôle										
-		ENVO:03501220	Door  					Porte										
-		ENVO:03501211	Door handle					Poignée de porte										
-		OBI:0002787	Face mask					Masque facial										
-		OBI:0002791	Face shield					Masque de protection										
-		FOODON:00002403	Food					Nourriture										
-		FOODON:03490100	Food packaging					Emballages alimentaires										
-		ENVO:01000481	Glass					Verre										
-		ENVO:03501212	Handrail					Balustrade										
-		OBI:0002796	Hospital gown					Robe d'hôpital										
-		ENVO:03501213	Light switch					Interrupteur d'éclairage										
-		ENVO:03501214	Locker					Casier										
-		OBI:0002790	N95 mask					Masque N95										
-		ENVO:03501215	Nurse call button 					Bouton d'appel infirmière										
-		ENVO:03501256	Paper					Papier										
-		ENVO:01000060	Particulate matter					Affaire particulière										
-		ENVO:01000404	Plastic					Plastique										
-		GENEPIO:0100025	PPE gown					Blouse EPI										
-		ENVO:00002018	Sewage					Eaux usées										
-		ENVO:01000990	Sink					Evier										
-		ENVO:00001998	Soil					Sol										
-		ENVO:03501216	Stainless steel					Acier inoxydable										
-		ENVO:03501217	Tissue paper					Papier de soie										
-		ENVO:03501218	Toilet bowl					Cuvette de toilette										
-		ENVO:00002006	Water					Eau										
-		ENVO:00002001		Wastewater					Eaux usées									
-		ENVO:03501219	Window					Fenêtre										
-		ENVO:00002040	Wood					Bois										
-																		
-																		
-environmental site menu	menu du site environnemental	ENVO:03501135	Acute care facility					Établissement de soins aigus										
-		ENVO:00003040	Animal house					Maison des animaux										
-		ENVO:01000422	Bathroom					Salle de bain										
-		ENVO:03501136	Clinical assessment centre					Centre d'évaluation clinique										
-		ENVO:03501127	Conference venue					Salle de conférence										
-		ENVO:03501121	Corridor					couloir										
-		ENVO:01000927	Daycare					Garderie										
-		ENVO:03501145	Emergency room (ER)					Salle d'urgence										
-		ENVO:03501186	Family practice clinic					Clinique de médecine familiale										
-		ENVO:03501196	Group home					Foyer de groupe										
-		ENVO:03501133	Homeless shelter					Foyer pour sans-abri										
-		ENVO:00002173	Hospital					Hôpital										
-		ENVO:03501152	Intensive Care Unit (ICU)					Unité de soins intensifs										
-		ENVO:03501194	Long Term Care Facility					Établissement de soins de longue durée										
-		ENVO:03501180	Patient room					Chambre du patient										
-		ENVO:03501204	Prison					Prison										
-		ENVO:01000536	Production Facility					Installation de production										
-		ENVO:03501130	School					École										
-		ENVO:00003043	Sewage Plant					Station d'épuration										
-		ENVO:03501109	Subway train					Métro										
-		ENVO:00000467	University campus					Campus de l'université										
-		ENVO:03501198	Wet market					Marché de l'eau										
-																		
-																		
-collection method menu	menu méthode de collecte	NCIT:C52009	Amniocentesis					Amniocentèse										
-		NCIT:C15631	Aspiration					Aspiration										
-		GENEPIO:0100028		Suprapubic Aspiration					Aspiration suprapubienne									
-		GENEPIO:0100029		Tracheal aspiration					Aspiration trachéale									
-		GENEPIO:0100030		Vacuum Aspiration					Aspiration sous vide									
-		OBI:0002650	Biopsy					Biopsie										
-		OBI:0002651		Needle Biopsy					Biopsie à l'aiguille									
-		OBI:0302885	Filtration					Filtration										
-		GENEPIO:0100031		Air filtration					Filtration de l'air									
-		OBI:0600044	Lavage					Lavage (lavage médical)										
-		GENEPIO:0100032		Bronchoalveolar lavage (BAL)					Lavage broncho-alvéolaire (LBA)									
-		GENEPIO:0100033		Gastric Lavage					Lavage gastrique									
-		NCIT:C15327	Lumbar Puncture					Ponction lombaire										
-		MMO:0000344	Necropsy					Nécropsie										
-		NCIT:C28221	Phlebotomy					Phlébotomie										
-		GENEPIO:0002116	Rinsing					Rinçage (lavage)										
-		GENEPIO:0100034		Saline gargle (mouth rinse and gargle)					Gargarisme salin (rinçage de la bouche et gargarisme)									
-		GENEPIO:0100035	Scraping					Raclage										
-		GENEPIO:0002117	Swabbing					Écouvillonnage										
-		GENEPIO:0100036	Finger Prick					Piqûre au doigt										
-		GENEPIO:0100038	Washout Tear Collection					Lavage Collecte de larmes										
-																		
-																		
-collection device menu	menu du dispositif de collecte	ENVO:00003968	Air filter					Filtre à air										
-		OBI:0002859	Blood Collection Tube					Tube de prélèvement sanguin										
-		OBI:0002826	Bronchoscope					Bronchoscope										
-		OBI:0002088	Collection Container					Récipient de collecte										
-		GENEPIO:0100026	Collection Cup					Tasse de collection										
-		OBI:0002825	Fibrobronchoscope Brush					Brosse à fibrobronchoscope										
-		GENEPIO:0100103	Filter					Filtre										
-		OBI:0002827	Fine Needle					Aiguille fine										
-		OBI:0002858	Microcapillary tube					Tube microcapillaire										
-		OBI:0001128	Micropipette					Micropipette										
-		OBI:0000436	Needle					Aiguille										
-		OBI:0002860	Serum Collection Tube					Tube de collection de sérum										
-		OBI:0002861	Sputum Collection Tube					Tube de prélèvement des expectorations										
-		OBI:0002831	Suction Catheter					Cathéter d'aspiration										
-		GENEPIO:0100027	Swab					Écouvillon										
-		OBI:0002862	Urine Collection Tube					Tube de prélèvement d'urine										
-		OBI:0002866	Virus Transport Medium					Milieu de transport des virus										
-																		
-																		
-host (scientific name) menu	menu hôte (nom scientifique)	NCBITaxon:9606	Homo sapiens					Homo sapiens										
-		NCBITaxon:9913	Bos taurus					Bos taureau										
-		NCBITaxon:9615	Canis lupus familiaris					Canis lupus familier										
-		NCBITaxon:9397	Chiroptera					Chiroptères										
-		NCBITaxon:8930	Columbidae					Colombidés										
-		NCBITaxon:9685	Felis catus					Felis catus										
-		NCBITaxon:9031	Gallus gallus					Gallus gallus										
-		NCBITaxon:9973	Manis					Manis										
-		NCBITaxon:9974	Manis javanica					Homme javanais										
-		NCBITaxon:452646	Neovison vison					Vison Neovison										
-		NCBITaxon:9689	Panthera leo					Panthera lion										
-		NCBITaxon:9694	Panthera tigris					Panthera tigris										
-		NCBITaxon:58055	Rhinolophidae					Rhinolophidés										
-		NCBITaxon:59477	Rhinolophus affinis					Rhinolophus affinis										
-		NCBITaxon:9825	Sus scrofa domesticus					Sus scrofa domestique										
-		NCBITaxon:9673	Viverridae					Viverridés										
-																		
-host (common name) menu	menu hôte (nom commun)	NCBITaxon:9606	Human					Humain										
-		NCBITaxon:9397	Bat					Chauve souris										
-		NCBITaxon:9685	Cat					Chat										
-		NCBITaxon:9031	Chicken					Poulet										
-		NCBITaxon:9673	Civets					Civettes										
-		NCBITaxon:9913	Cow					Vache							bovine			
-		NCBITaxon:9615	Dog					Chien										
-		NCBITaxon:9689	Lion					Lion										
-		NCBITaxon:452646	Mink					Vison										
-		NCBITaxon:9973	Pangolin					Pangolin										
-		NCBITaxon:9825	Pig					Cochon							porcine			
-		NCBITaxon:8930	Pigeon					Pigeon										
-		NCBITaxon:9694	Tiger					Tigre										
-																		
-																		
-host health state menu	menu de l'état de santé de l'hôte	NCIT:C3833	Asymptomatic					Asymptomatique										
-		NCIT:C28554	Deceased					Décédé										
-		NCIT:C115935	Healthy					En bonne santé										
-		NCIT:C49498	Recovered					Rétabli										
-		NCIT:C25269	Symptomatic					Symptomatique										
-																		
-																		
-host health status details menu	Menu détaillé de l'état de santé de l'hôte	NCIT:C25179	Hospitalized					Hospitalisé										
-		GENEPIO:0100045		Hospitalized (Non-ICU)					Hospitalisé (hors soins intensifs)									
-		GENEPIO:0100046		Hospitalized (ICU)					Hospitalisé (ICU)									
-		NCIT:C70909	Mechanical Ventilation					Ventilation mécanique										
-		GENEPIO:0100047	Medically Isolated					Médicalement isolé										
-		GENEPIO:0100048		Medically Isolated (Negative Pressure)					Médicalement isolé (pression négative)									
-		NCIT:C173768	Self-quarantining					Auto-quarantaine										
-																		
-																		
-host health outcome menu	menu des résultats de santé de l'hôte	NCIT:C28554	Deceased					Décédé										
-		NCIT:C25254	Deteriorating					Se détériorer										
-		NCIT:C49498	Recovered					Rétabli										
-		NCIT:C30103	Stable					Écurie										
-																		
-																		
-organism menu	menu de l'organisme	NCBITaxon:2697049	Severe acute respiratory syndrome coronavirus 2					Syndrome respiratoire aigu sévère coronavirus 2										
-		NCBITaxon:2709072	RaTG13					RaTG13										
-		GENEPIO:0100000	RmYN02					RmYN02										
-																		
-																		
-purpose of sampling menu	but du menu d'échantillonnage	GENEPIO:0100001	Cluster/Outbreak investigation					Enquête sur les grappes et les foyers										
-		GENEPIO:0100002	Diagnostic testing					Tests de diagnostic										
-		GENEPIO:0100003	Research					Recherche										
-		GENEPIO:0100004	Surveillance 					Surveillance										
-																		
-																		
-purpose of sequencing menu	but du menu de séquencement	GENEPIO:0100005	Baseline surveillance (random sampling)					Surveillance de base (échantillonnage aléatoire)										
-		GENEPIO:0100006	Targeted surveillance (non-random sampling)					Surveillance ciblée (échantillonnage non aléatoire)										
-		GENEPIO:0100007		Priority surveillance project					Projet de surveillance prioritaire									
-		GENEPIO:0100008			Screening for Variants of Concern (VoC)					Dépistage des variantes préoccupantes								
-		GENEPIO:0100273				Sample has epidemiological link to Variant of Concern (VoC)					L'échantillon a un lien épidémiologique avec la variante préoccupante							
-		GENEPIO:0100274					Sample has epidemiological link to Omicron Variant 					L'échantillon a un lien épidémiologique avec la variante Omicron						
-		GENEPIO:0100009			Longitudinal surveillance (repeat sampling of individuals) 					Surveillance longitudinale (échantillonnage répété des individus)								
-		GENEPIO:0100842				Chronic (prolonged) infection surveillance					Surveillance des infections chroniques (prolongées)							
-		GENEPIO:0100010			Re-infection surveillance 					Surveillance des réinfections								
-		GENEPIO:0100011			Vaccine escape surveillance					Surveillance des fuites de vaccins								
-		GENEPIO:0100012			Travel-associated surveillance					Surveillance associée aux voyages								
-		GENEPIO:0100013				Domestic travel surveillance					Surveillance des voyages nationaux							
-		GENEPIO:0100275					Interstate/ interprovincial travel surveillance					Surveillance des voyages interétatiques/interprovinciaux						
-		GENEPIO:0100276					Intra-state/ intra-provincial travel surveillance					Surveillance des voyages intra-étatiques/intraprovinciaux						
-		GENEPIO:0100014				International travel surveillance					Surveillance des voyages internationaux							
-		GENEPIO:0100015					Surveillance of international border crossing by air travel or ground transport					Surveillance du franchissement des frontières internationales par voie aérienne aérien ou terrestre						
-		GENEPIO:0100016					Surveillance of international border crossing by air travel					Surveillance du franchissement des frontières internationales par voie aérienne aérien						
-		GENEPIO:0100017					Surveillance of international border crossing by ground transport					Surveillance du franchissement des frontières internationales par transport terrestre						
-		GENEPIO:0100018					Surveillance from international worker testing					Surveillance à partir d'essais internationaux sur les travailleurs						
-		GENEPIO:0100019	Cluster/Outbreak investigation					Enquête sur les grappes et les foyers										
-		GENEPIO:0100020		Multi-jurisdictional outbreak investigation					Enquête sur les foyers multi-juridictionnels									
-		GENEPIO:0100021		Intra-jurisdictional outbreak investigation					Enquête sur un foyer intra-juridictionnel									
-		GENEPIO:0100022	Research					Recherche										
-		GENEPIO:0100023		Viral passage experiment					Expérience de passage viral									
-		GENEPIO:0100024		Protocol testing experiment					Expérience de test de protocole									
-		GENEPIO:0100356	Retrospective sequencing					Séquençage rétrospectif										
-																		
-																		
-specimen processing menu	menu de traitement des échantillons	GENEPIO:0100039	Virus passage					Passage du virus										
-		GENEPIO:0100040	RNA re-extraction (post RT-PCR)					Rétablissement de l'extraction de l'RNA (après RT-PCR)										
-		OBI:0600016	Specimens pooled					Échantillons regroupés										
-																		
-																		
-lab host menu	menu hôte du laboratoire	GENEPIO:0100041	293/ACE2 cell line					Lignée cellulaire 293/ACE2										
-		BTO:0000195	Caco2 cell line					Lignée cellulaire Caco2										
-		BTO:0002750	Calu3 cell line					Lignée cellulaire Calu3										
-		GENEPIO:0100042	EFK3B cell line					Lignée cellulaire EFK3B										
-		BTO:0002181	HEK293T cell line					Lignée cellulaire HEK293T										
-		GENEPIO:0100043	HRCE cell line					Lignée cellulaire HRCE										
-		BTO:0001950	Huh7 cell line					Lignée cellulaire Huh7										
-		CLO:0007330	LLCMk2 cell line					Lignée cellulaire LLCMk2										
-		BTO:0000836	MDBK cell line					Lignée cellulaire MDBK										
-		BTO:0002924	NHBE cell line					lignée cellulaire NHBE										
-		BTO:0001865	PK-15 cell line					Lignée cellulaire PK-15										
-		BTO:0002909	RK-13 cell line					Lignée cellulaire RK-13										
-		BTO:0002035	U251 cell line					Lignée cellulaire U251										
-		BTO:0001444	Vero cell line					Lignée cellulaire Vero										
-		BTO:0004755		Vero E6 cell line					Lignée cellulaire Vero E6									
-		GENEPIO:0100044			VeroE6/TMPRSS2 cell line					Lignée cellulaire VeroE6/TMPRSS2								
-																		
-																		
-host disease menu	menu des maladies hôtes	MONDO:0100096	COVID-19					COVID-19										
-																		
-																		
-host age bin menu	menu du bac d'âge de l'hôte	GENEPIO:0100049	0 - 9					0 - 9										
-		GENEPIO:0100050	10 - 19					10 - 19										
-		GENEPIO:0100051	20 - 29					20 - 29										
-		GENEPIO:0100052	30 - 39					30 - 39										
-		GENEPIO:0100053	40 - 49					40 - 49										
-		GENEPIO:0100054	50 - 59					50 - 59										
-		GENEPIO:0100055	60 - 69					60 - 69										
-		GENEPIO:0100056	70 - 79					70 - 79										
-		GENEPIO:0100057	80 - 89					80 - 89										
-		GENEPIO:0100058	90 - 99					90 - 99										90+
-		GENEPIO:0100059	100+					100+										90+
-																		
-																		
-host gender menu	menu sexe de l'hôte	NCIT:C46110	Female					Female										
-		NCIT:C46109	Male					Male										
-		GSSO:000132	Non-binary gender					Non-binary gender										
-		GSSO:004004	Transgender (assigned male at birth)					Transgender (assigned male at birth)										
-		GSSO:004005	Transgender (assigned female at birth)					Transgender (assigned female at birth)										
-		NCIT:C110959	Undeclared					Undeclared										
-																		
-																		
-exposure event menu	menu d'événement d'exposition	GENEPIO:0100237	Mass Gathering					Rassemblement de masse										
-		GENEPIO:0100240		Agricultural Event					Événement agricole									
-		GENEPIO:0100238		Convention					Convention									
-		GENEPIO:0100239		Convocation					Convocation									
-		GENEPIO:0100417		Recreational Event					Événement récréatif									
-		GENEPIO:0100418			Concert					Concert								
-		GENEPIO:0100419			Sporting Event					Manifestation sportive								
-		GENEPIO:0100241	Religious Gathering					Rassemblement religieux										
-		GENEPIO:0100242		Mass					Messe									
-		PCO:0000033	Social Gathering					Rassemblement social										
-		PCO:0000039		Baby Shower					Douche de bébé									
-		PCO:0000034		Community Event					Evénement communautaire									
-		GENEPIO:0100243		Family Gathering					Réunion de famille									
-		GENEPIO:0100244			Family Reunion					Réunion de famille								
-		GENEPIO:0100245		Funeral					Funérailles									
-		PCO:0000035		Party					Faire la fête									
-		PCO:0000037		Potluck					Repas-partage									
-		PCO:0000038		Wedding					Mariage									
-			Other exposure event					Autre événement d'exposition										
-																		
-																		
-exposure contact level menu	menu niveau de contact d'exposition	GENEPIO:0100357	Contact with infected individual					Contact avec une personne infectée										
-		TRANS:0000001		Direct contact (direct human-to-human contact)					Direct (contact interhumain)									
-		GENEPIO:0100246		Indirect contact					Contact indirect									
-		GENEPIO:0100247			Close contact (face-to-face, no direct contact) 					Contact étroit (face à face)								
-		GENEPIO:0100248			Casual contact					Contact occasionnel								
-																		
-																		
-host role menu	menu du rôle d'hôte	GENEPIO:0100249	Attendee					Participant										
-		OMRSE:00000058		Student					Étudiant									
-		OMRSE:00000030	Patient					Patient										
-		NCIT:C25182		Inpatient					Patient hospitalisé									
-		NCIT:C28293		Outpatient					Ambulatoire									
-		GENEPIO:0100250	Passenger					Passager										
-		GENEPIO:0100251	Resident					Résident										
-		GENEPIO:0100252	Visitor					Visiteur										
-		GENEPIO:0100253	Volunteer					Bénévole										
-		GENEPIO:0100254	Work					Travail										
-		GENEPIO:0100255		Administrator					Administrateur									
-				Child Care/Education Worker					Travailleur en garderie/éducation									
-				Essential Worker					Travailleur essentiel									
-		GENEPIO:0100256		First Responder					Premier intervenant									
-		GENEPIO:0100257			Firefighter					Sapeur pompier								
-		GENEPIO:0100258			Paramedic					Paramédical								
-		GENEPIO:0100259			Police Officer					Officier de police								
-		GENEPIO:0100334		Healthcare Worker					Travailleur de la santé									
-		GENEPIO:0100420			Community Healthcare Worker					Agent de santé communautaire								
-		GENEPIO:0100262			Laboratory Worker					Ouvrier de laboratoire								
-		OMRSE:00000014			Nurse					Infirmière								
-		GENEPIO:0100263			Personal Care Aid					Aide aux soins personnels								
-		GENEPIO:0100264			Pharmacist					Pharmacien								
-		OMRSE:00000013			Physician					Médecin								
-		GENEPIO:0100260		Housekeeper					Gouvernante									
-				International worker					Travailleur international									
-		GENEPIO:0100261		Kitchen Worker					Ouvrier de cuisine									
-		GENEPIO:0100354		Rotational Worker					Travailleur en rotation									
-		GENEPIO:0100355		Seasonal Worker					Travailleur saisonnier									
-				Transport Worker					Ouvrier des transports									
-					Transport Truck Driver					Chauffeur de camion de transport								
-		GENEPIO:0100265		Veterinarian					Vétérinaire									
-		OMRSE:00000001	Social role					Rôle social										
-		GENEPIO:0100266		Acquaintance of case					Connaissance de l'affaire									
-		GENEPIO:0100267		Relative of case					Parent de l'affaire									
-		GENEPIO:0100268			Child of case					Enfant de la personne concernée								
-		GENEPIO:0100269			Parent of case					Parent de l'affaire								
-		GENEPIO:0100270				Father of case 					Père de l'affaire							
-		GENEPIO:0100271				Mother of case					Mère du cas							
-		GENEPIO:0100272		Spouse of case					Conjoint de l'affaire									
-			Other Host Role					Autre rôle de l'hôte										
-																		
-																		
-exposure setting menu	menu de réglage de l'exposition	ECTO:3000005	Human Exposure					Exposition humaine										
-		GENEPIO:0100184		Contact with Known COVID-19 Case					Contact avec un cas connu de COVID-19									
-		GENEPIO:0100185		Contact with Patient					Contact avec un patient									
-		GENEPIO:0100186		Contact with Probable COVID-19 Case					Contact avec un cas probable de COVID-19									
-		GENEPIO:0100187		Contact with Person with Acute Respiratory Illness					Contact avec une personne atteinte d'une maladie respiratoire aiguë									
-		GENEPIO:0100188		Contact with Person with Fever and/or Cough					Contact avec une personne présentant une fièvre et/ou une toux									
-		GENEPIO:0100189		Contact with Person who Recently Travelled					Contact avec une personne ayant récemment voyagé									
-		GENEPIO:0100190	Occupational, Residency or Patronage Exposure					Exposition professionnelle, de résidence ou de patronage										
-		ECTO:1000033		Abbatoir					Abbatoir									
-		GENEPIO:0100191		Animal Rescue					Sauvetage d'animaux									
-		GENEPIO:0100192		Childcare					Garde d'enfants									
-		GENEPIO:0100193			Daycare					Garderie								
-		GENEPIO:0100194			Nursery					Crèche								
-		GENEPIO:0100195		Community Service Centre					Centre de services communautaires									
-		GENEPIO:0100196		Correctional Facility					Établissement pénitentiaire									
-		GENEPIO:0100197		Dormitory					Dortoir									
-		ECTO:1000034		Farm					Ferme									
-		GENEPIO:0100198		First Nations Reserve					Réserve des Premières Nations									
-		GENEPIO:0100199		Funeral Home					Maison funéraire									
-		GENEPIO:0100200		Group Home					Foyer de groupe									
-		GENEPIO:0100201		Healthcare Setting					Établissement de soins de santé									
-		GENEPIO:0100202			Ambulance					Ambulance								
-		GENEPIO:0100203			Acute Care Facility					Établissement de soins aigus								
-		GENEPIO:0100204			Clinic					Clinique								
-		GENEPIO:0100415			Community Healthcare (At-Home) Setting					Établissement de soins de santé communautaire (à domicile)								
-		GENEPIO:0100205			Community Health Centre					Centre de santé communautaire								
-		ECTO:1000035			Hospital					Hôpital								
-		GENEPIO:0100206				Emergency Department					Service des urgences							
-		GENEPIO:0100207				ICU					ICU							
-		GENEPIO:0100208				Ward					Salle							
-		ECTO:1000036			Laboratory					Laboratoire								
-		GENEPIO:0100209			Long-Term Care Facility					Établissement de soins de longue durée								
-		GENEPIO:0100210			Pharmacy					Pharmacie								
-		GENEPIO:0100211			Physician's Office					Cabinet du médecin								
-		GENEPIO:0100212		Household					Ménage									
-		GENEPIO:0100213		Insecure Housing (Homeless)					Logement précaire (sans-abri)									
-		GENEPIO:0100214		Occupational Exposure					Exposition professionnelle									
-		GENEPIO:0100215			Worksite					Chantier								
-		ECTO:1000037				Office					Bureau							
-		GENEPIO:0100216		Outdoors					En plein air									
-		ECTO:5000009			Camp/camping					Camper/camper								
-		GENEPIO:0100217			Hiking Trail					Sentier de randonnée								
-		ECTO:6000030			Hunting Ground					Terrain de chasse								
-		GENEPIO:0100218			Ski Resort					Station de ski								
-		ECTO:5000008		Petting zoo					Zoo pour enfants									
-		GENEPIO:0100220		Place of Worship					Lieu de culte									
-		GENEPIO:0100221			Church					Église								
-		GENEPIO:0100222			Mosque					Mosquée								
-		GENEPIO:0100223			Temple					Temple								
-		ECTO:1000040		Restaurant					Restaurant									
-		ECTO:1000041		Retail Store					Magasin de détail									
-		GENEPIO:0100224		School					École									
-		GENEPIO:0100225		Temporary Residence					Résidence temporaire									
-		GENEPIO:0100226			Homeless Shelter					Refuge pour sans-abri								
-		GENEPIO:0100227			Hotel					Hôtel								
-		GENEPIO:0100228		Veterinary Care Clinic					Clinique vétérinaire									
-		GENEPIO:0100229	Travel Exposure					Exposition au voyage										
-		GENEPIO:0100230		Travelled on a Cruise Ship					Voyage sur un bateau de croisière									
-		GENEPIO:0100231		Travelled on a Plane					Voyage en avion									
-		GENEPIO:0100232		Travelled on Ground Transport					Transport terrestre									
-		GENEPIO:0001118		Travelled outside Province/Territory					Voyage en dehors de la province ou du territoire									
-		GENEPIO:0001119		Travelled outside Canada					Voyage en dehors du Canada									
-		GENEPIO:0100235	Other Exposure Setting					Autres réglages d'exposition										
-																		
-																		
-travel point of entry type menu	menu de type de point d'entrée de voyage	GENEPIO:0100408	Air					Air										
-		GENEPIO:0100409	Land					Atterrir										
-																		
-																		
-border testing test day type menu	menu de type jour de test des tests aux frontières	GENEPIO:0100410	day 1					jour 1										
-		GENEPIO:0100411	day 8					jour 8										
-		GENEPIO:0100412	day 10					jour 10										
-																		
-																		
-travel history availability menu	menu de disponibilité de l'historique de voyage	GENEPIO:0100650	Travel history available					Historique de voyage disponible										
-		GENEPIO:0100651		Domestic travel history available					Historique des voyages intérieurs disponible									
-		GENEPIO:0100652		International travel history available					Historique des voyages internationaux disponible									
-		GENEPIO:0100653		International and domestic travel history available					Historique des voyages internationaux et nationaux disponible									
-		GENEPIO:0100654	No travel history available					Aucun historique de voyage disponible										
-																		
-																		
-sequencing instrument menu	menu des instruments de séquençage	GENEPIO:0100105	Illumina					Illumina										
-		GENEPIO:0100106		Illumina Genome Analyzer					Illumina Genome Analyzer									
-		GENEPIO:0100107			Illumina Genome Analyzer II					Illumina Genome Analyzer II								
-		GENEPIO:0100108			Illumina Genome Analyzer IIx					Illumina Genome Analyzer IIx								
-		GENEPIO:0100109		Illumina HiScanSQ					Illumina HiScanSQ									
-		GENEPIO:0100110		Illumina HiSeq 					Illumina HiSeq 									
-		GENEPIO:0100111			Illumina HiSeq X 					Illumina HiSeq X 								
-		GENEPIO:0100112				Illumina HiSeq X Five					Illumina HiSeq X Five							
-		GENEPIO:0100113				Illumina HiSeq X Ten					Illumina HiSeq X Ten							
-		GENEPIO:0100114			Illumina HiSeq 1000					Illumina HiSeq 1000								
-		GENEPIO:0100115			Illumina HiSeq 1500					Illumina HiSeq 1500								
-		GENEPIO:0100116			Illumina HiSeq 2000					Illumina HiSeq 2000								
-		GENEPIO:0100117			Illumina HiSeq 2500					Illumina HiSeq 2500								
-		GENEPIO:0100118			Illumina HiSeq 3000					Illumina HiSeq 3000								
-		GENEPIO:0100119			Illumina HiSeq 4000					Illumina HiSeq 4000								
-		GENEPIO:0100120		Illumina iSeq					Illumina iSeq									
-		GENEPIO:0100121			Illumina iSeq 100					Illumina iSeq 100								
-		GENEPIO:0100122		Illumina NovaSeq					Illumina NovaSeq									
-		GENEPIO:0100123			Illumina NovaSeq 6000					Illumina NovaSeq 6000								
-		GENEPIO:0100124		Illumina MiniSeq					Illumina MiniSeq									
-		GENEPIO:0100125		Illumina MiSeq					Illumina MiSeq									
-		GENEPIO:0100126		Illumina NextSeq 					Illumina NextSeq 									
-		GENEPIO:0100127			Illumina NextSeq 500					Illumina NextSeq 500								
-		GENEPIO:0100128			Illumina NextSeq 550					Illumina NextSeq 550								
-		GENEPIO:0100129			Illumina NextSeq 2000					Illumina NextSeq 2000								
-		GENEPIO:0100130	Pacific Biosciences					Pacific Biosciences										
-		GENEPIO:0100131		PacBio RS					PacBio RS									
-		GENEPIO:0100132		PacBio RS II					PacBio RS II									
-		GENEPIO:0100133		PacBio Sequel					PacBio Sequel									
-		GENEPIO:0100134		PacBio Sequel II					PacBio Sequel II									
-		GENEPIO:0100135	Ion Torrent					Ion Torrent										
-		GENEPIO:0100136		Ion Torrent PGM					Ion Torrent PGM									
-		GENEPIO:0100137		Ion Torrent Proton					Ion Torrent Proton									
-		GENEPIO:0100138		Ion Torrent S5 XL					Ion Torrent S5 XL									
-		GENEPIO:0100139		Ion Torrent S5					Ion Torrent S5									
-		GENEPIO:0100140	Oxford Nanopore					Oxford Nanopore										
-		GENEPIO:0100141		Oxford Nanopore GridION					Oxford Nanopore GridION									
-		GENEPIO:0100142		Oxford Nanopore MinION					Oxford Nanopore MinION									
-		GENEPIO:0100143		Oxford Nanopore PromethION					Oxford Nanopore PromethION									
-		GENEPIO:0100144	BGI Genomics					BGI Genomics										
-		GENEPIO:0100145		BGI Genomics BGISEQ-500					BGI Genomics BGISEQ-500									
-		GENEPIO:0100146	MGI					MGI										
-		GENEPIO:0100147		MGI DNBSEQ-T7					MGI DNBSEQ-T7									
-		GENEPIO:0100148		MGI DNBSEQ-G400					MGI DNBSEQ-G400									
-		GENEPIO:0100149		MGI DNBSEQ-G400 FAST					MGI DNBSEQ-G400 FAST									
-		GENEPIO:0100150		MGI DNBSEQ-G50					MGI DNBSEQ-G50									
-																		
-																		
-gene name menu	menu de nom de gène	GENEPIO:0100151	E gene (orf4)					E gène (orf4)							E gene		E (orf4)	
-		GENEPIO:0100152	M gene (orf5)					M gène (orf5)									M (orf5)	
-		GENEPIO:0100153	N gene (orf9)					N gène (orf9)									N (orf9)	
-		GENEPIO:0100154	Spike gene (orf2)					Spike gène (orf2)									S (orf2)	
-		GENEPIO:0100155	orf1ab (rep)					orf1ab (rep)									orf1ab (rep)	
-		GENEPIO:0100156		orf1a (pp1a)					orf1a (pp1a)								   orf1a (pp1a)	
-		GENEPIO:0100157			nsp11					nsp11							      nsp11	
-		GENEPIO:0100158		nsp1 					nsp1 								   nsp1 	
-		GENEPIO:0100159		nsp2 					nsp2 								   nsp2 	
-		GENEPIO:0100160		nsp3 					nsp3 								   nsp3 	
-		GENEPIO:0100161		nsp4 					nsp4 								   nsp4 	
-		GENEPIO:0100162		nsp5 					nsp5 								   nsp5 	
-		GENEPIO:0100163		nsp6 					nsp6 								   nsp6 	
-		GENEPIO:0100164		nsp7 					nsp7 								   nsp7 	
-		GENEPIO:0100165		nsp8 					nsp8 								   nsp8 	
-		GENEPIO:0100166		nsp9 					nsp9 								   nsp9 	
-		GENEPIO:0100167		nsp10 					nsp10 								   nsp10 	
-		GENEPIO:0100168		RdRp gene (nsp12)					RdRp gène (nsp12)								   nsp12 (RdRp)	
-		GENEPIO:0100169		hel gene (nsp13)					hel gène (nsp13)								   nsp13 (Hel)	
-		GENEPIO:0100170		exoN gene (nsp14)					exoN gène (nsp14)								   nsp14 (ExoN)	
-		GENEPIO:0100171		nsp15					nsp15								   nsp15	
-		GENEPIO:0100172		nsp16					nsp16								   nsp16	
-		GENEPIO:0100173	orf3a					orf3a									orf3a	
-		GENEPIO:0100174	orf3b					orf3b									orf3b	
-		GENEPIO:0100175	orf6 (ns6)					orf6 (ns6)									orf6 (ns6)	
-		GENEPIO:0100176	orf7a					orf7a									orf7a	
-		GENEPIO:0100177	orf7b (ns7b)					orf7b (ns7b)									orf7b (ns7b)	
-		GENEPIO:0100178	orf8 (ns8)					orf8 (ns8)									orf8 (ns8)	
-		GENEPIO:0100179	orf9b					orf9b									orf9b	
-		GENEPIO:0100180	orf9c					orf9c									orf9c	
-		GENEPIO:0100181	orf10					orf10									orf10	
-		GENEPIO:0100182	orf14					orf14									orf14	
-		GENEPIO:0100183	SARS-COV-2 5' UTR					SARS-COV-2 5' UTR										
-																		
-																		
-sequence submitted by menu	séquence soumise par menu		Alberta Precision Labs (APL)					Alberta Precision Labs (APL)										
-				Alberta ProvLab North (APLN)					Alberta ProvLab North (APLN)									
-				Alberta ProvLab South (APLS)					Alberta ProvLab South (APLS)									
-			BCCDC Public Health Laboratory					BCCDC Public Health Laboratory										
-			Canadore College					Canadore College										
-			The Centre for Applied Genomics (TCAG)					The Centre for Applied Genomics (TCAG)										
-			Dynacare					Dynacare										
-			Dynacare (Brampton)					Dynacare (Brampton)										
-			Dynacare (Manitoba)					Dynacare (Manitoba)										
-			The Hospital for Sick Children (SickKids)					The Hospital for Sick Children (SickKids)										
-			Laboratoire de santé publique du Québec (LSPQ)					Laboratoire de santé publique du Québec (LSPQ)										
-			Manitoba Cadham Provincial Laboratory					Manitoba Cadham Provincial Laboratory										
-			McGill University					McGill University										
-			McMaster University					McMaster University										
-			National Microbiology Laboratory (NML)					National Microbiology Laboratory (NML)										
-			New Brunswick - Vitalité Health Network					New Brunswick - Vitalité Health Network										
-			Newfoundland and Labrador - Eastern Health					Newfoundland and Labrador - Eastern Health										
-			Newfoundland and Labrador - Newfoundland and Labrador Health Services					Newfoundland and Labrador - Newfoundland and Labrador Health Services										
-			Nova Scotia Health Authority					Nova Scotia Health Authority										
-			Ontario Institute for Cancer Research (OICR)					Ontario Institute for Cancer Research (OICR)										
-			Prince Edward Island - Health PEI					Prince Edward Island - Health PEI										
-			Public Health Ontario (PHO)					Public Health Ontario (PHO)										
-			Queen's University / Kingston Health Sciences Centre					Queen's University / Kingston Health Sciences Centre										
-			Saskatchewan - Roy Romanow Provincial Laboratory (RRPL)					Saskatchewan - Roy Romanow Provincial Laboratory (RRPL)										
-			Sunnybrook Health Sciences Centre					Sunnybrook Health Sciences Centre										
-			Thunder Bay Regional Health Sciences Centre					Thunder Bay Regional Health Sciences Centre										
-																		
-																		
-sample collected by menu	échantillon collecté par menu		Alberta Precision Labs (APL)					Alberta Precision Labs (APL)										
-				Alberta ProvLab North (APLN)					Alberta ProvLab North (APLN)									
-				Alberta ProvLab South (APLS)					Alberta ProvLab South (APLS)									
-			BCCDC Public Health Laboratory					BCCDC Public Health Laboratory										
-			Dynacare					Dynacare										
-			Dynacare (Manitoba)					Dynacare (Manitoba)										
-			Dynacare (Brampton)					Dynacare (Brampton)										
-			Eastern Ontario Regional Laboratory Association					Eastern Ontario Regional Laboratory Association										
-			Hamilton Health Sciences					Hamilton Health Sciences										
-			The Hospital for Sick Children (SickKids)					The Hospital for Sick Children (SickKids)										
-			Laboratoire de santé publique du Québec (LSPQ)					Laboratoire de santé publique du Québec (LSPQ)										
-			Lake of the Woods District Hospital - Ontario					Lake of the Woods District Hospital - Ontario										
-			LifeLabs					LifeLabs										
-			LifeLabs (Ontario)					LifeLabs (Ontario)										
-			Manitoba Cadham Provincial Laboratory					Manitoba Cadham Provincial Laboratory										
-			McMaster University					McMaster University										
-			Mount Sinai Hospital					Mount Sinai Hospital										
-			National Microbiology Laboratory (NML)					National Microbiology Laboratory (NML)										
-			New Brunswick - Vitalité Health Network					New Brunswick - Vitalité Health Network										
-			Newfoundland and Labrador - Eastern Health					Newfoundland and Labrador - Eastern Health										
-			Newfoundland and Labrador - Newfoundland and Labrador Health Services					Newfoundland and Labrador - Newfoundland and Labrador Health Services										
-			Nova Scotia Health Authority					Nova Scotia Health Authority										
-			Nunavut					Nunavut										
-			Ontario Institute for Cancer Research (OICR)					Ontario Institute for Cancer Research (OICR)										
-			Prince Edward Island - Health PEI					Prince Edward Island - Health PEI										
-			Public Health Ontario (PHO)					Public Health Ontario (PHO)										
-			Queen's University / Kingston Health Sciences Centre					Queen's University / Kingston Health Sciences Centre										
-			Saskatchewan - Roy Romanow Provincial Laboratory (RRPL)					Saskatchewan - Roy Romanow Provincial Laboratory (RRPL)										
-			Shared Hospital Laboratory					Shared Hospital Laboratory										
-			St. John's Rehab at Sunnybrook Hospital					St. John's Rehab at Sunnybrook Hospital										
-			Switch Health					Switch Health										
-			Sunnybrook Health Sciences Centre					Sunnybrook Health Sciences Centre										
-			Unity Health Toronto					Unity Health Toronto										
-			William Osler Health System					William Osler Health System										
-																		
-																		
-geo_loc_name (country) menu	menu geo_loc_name (pays)	GAZ:00006882	Afghanistan					Afghanistan										
-		GAZ:00002953	Albania					Albanie										
-		GAZ:00000563	Algeria					Algérie										
-		GAZ:00003957	American Samoa					Samoa américaines										
-		GAZ:00002948	Andorra					Andorre										
-		GAZ:00001095	Angola					Angola										
-		GAZ:00009159	Anguilla					Anguilla										
-		GAZ:00000462	Antarctica					Antarctique										
-		GAZ:00006883	Antigua and Barbuda					Antigua-et-Barbuda										
-		GAZ:00002928	Argentina					Argentine										
-		GAZ:00004094	Armenia					Arménie										
-		GAZ:00004025	Aruba					Aruba										
-		GAZ:00005901	Ashmore and Cartier Islands					Îles Ashmore et Cartier										
-		GAZ:00000463	Australia					Australie										
-		GAZ:00002942	Austria					L'Autriche										
-		GAZ:00004941	Azerbaijan					Azerbaïdjan										
-		GAZ:00002733	Bahamas					Bahamas										
-		GAZ:00005281	Bahrain					Bahreïn										
-		GAZ:00007117	Baker Island					Île Boulanger										
-		GAZ:00003750	Bangladesh					Bangladesh										
-		GAZ:00001251	Barbados					Barbade										
-		GAZ:00005810	Bassas da India					Bassas de l'Inde										
-		GAZ:00006886	Belarus					Biélorussie										
-		GAZ:00002938	Belgium					Belgique										
-		GAZ:00002934	Belize					Bélize										
-		GAZ:00000904	Benin					Bénin										
-		GAZ:00001264	Bermuda					Bermudes										
-		GAZ:00003920	Bhutan					Bhoutan										
-		GAZ:00002511	Bolivia					Bolivie										
-		GAZ:00025355	Borneo					Bornéo										
-		GAZ:00006887	Bosnia and Herzegovina					Bosnie Herzégovine										
-		GAZ:00001097	Botswana					Botswana										
-		GAZ:00001453	Bouvet Island					Île Bouvet										
-		GAZ:00002828	Brazil					Brésil										
-		GAZ:00003961	British Virgin Islands					Îles Vierges britanniques										
-		GAZ:00003901	Brunei					Brunéi										
-		GAZ:00002950	Bulgaria					Bulgarie										
-		GAZ:00000905	Burkina Faso					Burkina Faso										
-		GAZ:00001090	Burundi					Burundi										
-		GAZ:00006888	Cambodia					Cambodge										
-		GAZ:00001093	Cameroon					Cameroun										
-		GAZ:00002560	Canada					Canada										
-		GAZ:00001227	Cape Verde					Cap-Vert										
-		GAZ:00003986	Cayman Islands					Îles Caïmans										
-		GAZ:00001089	Central African Republic					République centrafricaine										
-		GAZ:00000586	Chad					Tchad										
-		GAZ:00002825	Chile					Chili										
-		GAZ:00002845	China					Chine										
-		GAZ:00005915	Christmas Island					L'île de noël										
-		GAZ:00005838	Clipperton Island					Île Clipperton										
-		GAZ:00009721	Cocos Islands					Îles Cocos										
-		GAZ:00002929	Colombia					Colombie										
-		GAZ:00005820	Comoros					Comores										
-		GAZ:00053798	Cook Islands					les Îles Cook										
-		GAZ:00005917	Coral Sea Islands					Îles de la mer de Corail										
-		GAZ:00002901	Costa Rica					Costa Rica										
-		GAZ:00000906	Cote d'Ivoire					Côte d'Ivoire										
-		GAZ:00002719	Croatia					Croatie										
-		GAZ:00003762	Cuba					Cuba										
-		GAZ:00012582	Curacao					Curacao										
-		GAZ:00004006	Cyprus					Chypre										
-		GAZ:00002954	Czech Republic					République tchèque										
-		GAZ:00001086	Democratic Republic of the Congo					République Démocratique du Congo										
-		GAZ:00005852	Denmark					Danemark										
-		GAZ:00000582	Djibouti					Djibouti										
-		GAZ:00006890	Dominica					Dominique										
-		GAZ:00003952	Dominican Republic					République dominicaine										
-		GAZ:00002912	Ecuador					Équateur										
-		GAZ:00003934	Egypt					Egypte										
-		GAZ:00002935	El Salvador					Le Salvador										
-		GAZ:00001091	Equatorial Guinea					Guinée Équatoriale										
-		GAZ:00000581	Eritrea					Érythrée										
-		GAZ:00002959	Estonia					Estonie										
-		GAZ:00001099	Eswatini					Eswatini										
-		GAZ:00000567	Ethiopia					Ethiopie										
-		GAZ:00005811	Europa Island					Île d'Europe										
-		GAZ:00001412	Falkland Islands (Islas Malvinas)					Îles Falkland (Islas Malvinas)										
-		GAZ:00059206	Faroe Islands					Îles Féroé										
-		GAZ:00006891	Fiji					Fidji										
-		GAZ:00002937	Finland					Finlande										
-		GAZ:00003940	France					France										
-		GAZ:00002516	French Guiana					Guyane Française										
-		GAZ:00002918	French Polynesia					Polynésie française										
-		GAZ:00003753	French Southern and Antarctic Lands					Terres australes et antarctiques françaises										
-		GAZ:00001092	Gabon					Gabon										
-		GAZ:00000907	Gambia					Gambie										
-		GAZ:00009571	Gaza Strip					bande de Gaza										
-		GAZ:00004942	Georgia					Géorgie										
-		GAZ:00002646	Germany					Allemagne										
-		GAZ:00000908	Ghana					Ghana										
-		GAZ:00003987	Gibraltar					Gibraltar										
-		GAZ:00005808	Glorioso Islands					Îles Glorieuses										
-		GAZ:00002945	Greece					Grèce										
-		GAZ:00001507	Greenland					Groenland										
-		GAZ:02000573	Grenada					Grenade										
-		GAZ:00067142	Guadeloupe					Guadeloupe										
-		GAZ:00003706	Guam					Guam										
-		GAZ:00002936	Guatemala					Guatemala										
-		GAZ:00001550	Guernsey					Guernesey										
-		GAZ:00000909	Guinea					Guinée										
-		GAZ:00000910	Guinea-Bissau					Guinée-Bissau										
-		GAZ:00002522	Guyana					Guyane										
-		GAZ:00003953	Haiti					Haïti										
-		GAZ:00009718	Heard Island and McDonald Islands					Île Heard et îles McDonald										
-		GAZ:00002894	Honduras					Honduras										
-		GAZ:00003203	Hong Kong					Hong Kong										
-		GAZ:00007120	Howland Island					Île Howland										
-		GAZ:00002952	Hungary					Hongrie										
-		GAZ:00000843	Iceland					Islande										
-		GAZ:00002839	India					Inde										
-		GAZ:00003727	Indonesia					Indonésie										
-		GAZ:00004474	Iran					L'Iran										
-		GAZ:00004483	Iraq					Irak										
-		GAZ:00002943	Ireland					Irlande										
-		GAZ:00052477	Isle of Man					île de Man										
-		GAZ:00002476	Israel					Israël										
-		GAZ:00002650	Italy					Italie										
-		GAZ:00003781	Jamaica					Jamaïque										
-		GAZ:00005853	Jan Mayen					Jan Mayen										
-		GAZ:00002747	Japan					Japon										
-		GAZ:00007118	Jarvis Island					Île Jarvis										
-		GAZ:00001551	Jersey					Jersey										
-		GAZ:00007114	Johnston Atoll					Atoll Johnston										
-		GAZ:00002473	Jordan					Jordan										
-		GAZ:00005809	Juan de Nova Island					Île Juan de Nova										
-		GAZ:00004999	Kazakhstan					Kazakhstan										
-		GAZ:00001101	Kenya					Kenya										
-		GAZ:00005682	Kerguelen Archipelago					Archipel des Kerguelen										
-		GAZ:00007116	Kingman Reef					Récif Kingman										
-		GAZ:00006894	Kiribati					Kiribati										
-		GAZ:00011337	Kosovo					Kosovo										
-		GAZ:00005285	Kuwait					Koweit										
-		GAZ:00006893	Kyrgyzstan					Kirghizistan										
-		GAZ:00006889	Laos					Laos										
-		GAZ:00002958	Latvia					Lettonie										
-		GAZ:00002478	Lebanon					Liban										
-		GAZ:00001098	Lesotho					Lesotho										
-		GAZ:00000911	Liberia					Libéria										
-		GAZ:00000566	Libya					Libye										
-		GAZ:00003858	Liechtenstein					Liechtenstein										
-		GAZ:00007144	Line Islands					Îles de la Ligne										
-		GAZ:00002960	Lithuania					Lituanie										
-		GAZ:00002947	Luxembourg					Luxembourg										
-		GAZ:00003202	Macau					Macao										
-		GAZ:00001108	Madagascar					Madagascar										
-		GAZ:00001105	Malawi					Malawi										
-		GAZ:00003902	Malaysia					Malaisie										
-		GAZ:00006924	Maldives					Maldives										
-		GAZ:00000584	Mali					Mali										
-		GAZ:00004017	Malta					Malte										
-		GAZ:00007161	Marshall Islands					Iles Marshall										
-		GAZ:00067143	Martinique					Martinique										
-		GAZ:00000583	Mauritania					Mauritanie										
-		GAZ:00003745	Mauritius					Maurice										
-		GAZ:00003943	Mayotte					Mayotte										
-		GAZ:00002852	Mexico					Mexique										
-		GAZ:00005862	Micronesia					Micronésie										
-		GAZ:00007112	Midway Islands					Îles Midway										
-		GAZ:00003897	Moldova					Moldavie										
-		GAZ:00003857	Monaco					Monaco										
-		GAZ:00008744	Mongolia					Mongolie										
-		GAZ:00006898	Montenegro					Monténégro										
-		GAZ:00003988	Montserrat					Montserrat										
-		GAZ:00000565	Morocco					Maroc										
-		GAZ:00001100	Mozambique					Mozambique										
-		GAZ:00006899	Myanmar					Birmanie										
-		GAZ:00001096	Namibia					Namibie										
-		GAZ:00006900	Nauru					Nauru										
-		GAZ:00007119	Navassa Island					Île Navasse										
-		GAZ:00004399	Nepal					Népal										
-		GAZ:00002946	Netherlands					Pays-Bas										
-		GAZ:00005206	New Caledonia					Nouvelle Calédonie										
-		GAZ:00000469	New Zealand					Nouvelle-Zélande										
-		GAZ:00002978	Nicaragua					Nicaragua										
-		GAZ:00000585	Niger					Niger										
-		GAZ:00000912	Nigeria					Nigeria										
-		GAZ:00006902	Niue					Nioué										
-		GAZ:00005908	Norfolk Island					l'ile de Norfolk										
-		GAZ:00002801	North Korea					Corée du Nord										
-		GAZ:00006895	North Macedonia					Macédoine du Nord										
-		GAZ:00002284	North Sea					la mer du Nord										
-		GAZ:00003958	Northern Mariana Islands					Îles Mariannes du Nord										
-		GAZ:00002699	Norway					Norvège										
-		GAZ:00005283	Oman					Oman										
-		GAZ:00005246	Pakistan					Pakistan										
-		GAZ:00006905	Palau					Palaos										
-		GAZ:00002892	Panama					Panama										
-		GAZ:00003922	Papua New Guinea					Papouasie Nouvelle Guinée										
-		GAZ:00010832	Paracel Islands					Iles Paracel										
-		GAZ:00002933	Paraguay					Paraguay										
-		GAZ:00002932	Peru					Pérou										
-		GAZ:00004525	Philippines					Philippines										
-		GAZ:00005867	Pitcairn Islands					Îles Pitcairn										
-		GAZ:00002939	Poland					Pologne										
-		GAZ:00004126	Portugal					le Portugal										
-		GAZ:00006935	Puerto Rico					Porto Rico										
-		GAZ:00005286	Qatar					Qatar										
-		GAZ:00001088	Republic of the Congo					République du Congo										
-		GAZ:00003945	Reunion					Réunion										
-		GAZ:00002951	Romania					Roumanie										
-		GAZ:00023304	Ross Sea					Mer de Ross										
-		GAZ:00002721	Russia					Russie										
-		GAZ:00001087	Rwanda					Rwanda										
-		GAZ:00000849	Saint Helena					Sainte-Hélène										
-		GAZ:00006906	Saint Kitts and Nevis					Saint-Christophe-et-Niévès										
-		GAZ:00006909	Saint Lucia					Sainte-Lucie										
-		GAZ:00003942	Saint Pierre and Miquelon					Saint-Pierre-et-Miquelon										
-		GAZ:00005841	Saint Martin					Saint Martin										
-		GAZ:02000565	Saint Vincent and the Grenadines					Saint-Vincent-et-les-Grenadines										
-		GAZ:00006910	Samoa					Samoa										
-		GAZ:00003102	San Marino					Saint Marin										
-		GAZ:00006927	Sao Tome and Principe					Sao Tomé et Principe										
-		GAZ:00005279	Saudi Arabia					Arabie Saoudite										
-		GAZ:00000913	Senegal					Sénégal										
-		GAZ:00002957	Serbia					Serbie										
-		GAZ:00006922	Seychelles					les Seychelles										
-		GAZ:00000914	Sierra Leone					Sierra Leone										
-		GAZ:00003923	Singapore					Singapour										
-		GAZ:00012579	Sint Maarten					Saint-Martin										
-		GAZ:00002956	Slovakia					Slovaquie										
-		GAZ:00002955	Slovenia					Slovénie										
-		GAZ:00005275	Solomon Islands					Les îles Salomon										
-		GAZ:00001104	Somalia					Somalie										
-		GAZ:00001094	South Africa					Afrique du Sud										
-		GAZ:00003990	South Georgia and the South Sandwich Islands					Géorgie du Sud et îles Sandwich du Sud										
-		GAZ:00002802	South Korea					Corée du Sud										
-		GAZ:00233439	South Sudan					Soudan du sud										
-		GAZ:00000591	Spain					Espagne										
-		GAZ:00010831	Spratly Islands					Îles Spratly										
-		GAZ:00003924	Sri Lanka					Sri Lanka										
-		GAZ:00002475	State of Palestine					État de Palestine										
-		GAZ:00000560	Sudan					Soudan										
-		GAZ:00002525	Suriname					Surinam										
-		GAZ:00005396	Svalbard					Svalbard										
-		GAZ:00001099	Swaziland					Swaziland										
-		GAZ:00002729	Sweden					Suède										
-		GAZ:00002941	Switzerland					Suisse										
-		GAZ:00002474	Syria					Syrie										
-		GAZ:00005341	Taiwan					Taïwan										
-		GAZ:00006912	Tajikistan					Tadjikistan										
-		GAZ:00001103	Tanzania					Tanzanie										
-		GAZ:00003744	Thailand					Thaïlande										
-		GAZ:00006913	Timor-Leste					Timor-Leste										
-		GAZ:00000915	Togo					Aller										
-		GAZ:00260188	Tokelau					Tokélaou										
-		GAZ:00006916	Tonga					Tonga										
-		GAZ:00003767	Trinidad and Tobago					Trinité-et-Tobago										
-		GAZ:00005812	Tromelin Island					Île Tromelin										
-		GAZ:00000562	Tunisia					Tunisie										
-		GAZ:00000558	Turkey					Turquie										
-		GAZ:00005018	Turkmenistan					Turkménistan										
-		GAZ:00003955	Turks and Caicos Islands					îles Turques-et-Caïques										
-		GAZ:00009715	Tuvalu					Tuvalu										
-		GAZ:00002459	United States of America					les états-unis d'Amérique										
-		GAZ:00001102	Uganda					Ouganda										
-		GAZ:00002724	Ukraine					Ukraine										
-		GAZ:00005282	United Arab Emirates					Emirats Arabes Unis										
-		GAZ:00002637	United Kingdom					Royaume-Uni										
-		GAZ:00002930	Uruguay					Uruguay										
-		GAZ:00004979	Uzbekistan					Ouzbékistan										
-		GAZ:00006918	Vanuatu					Vanuatu										
-		GAZ:00002931	Venezuela					Venezuela										
-		GAZ:00003756	Viet Nam					Viet Nam										
-		GAZ:00003959	Virgin Islands					Les iles vierges										
-		GAZ:00007111	Wake Island					Île de Wake										
-		GAZ:00007191	Wallis and Futuna					Wallis et Futuna										
-		GAZ:00009572	West Bank					banque de l'Ouest										
-		GAZ:00000564	Western Sahara					Sahara occidental										
-		GAZ:00005284	Yemen					Yémen										
-		GAZ:00001107	Zambia					Zambie										
-		GAZ:00001106	Zimbabwe					Zimbabwe										
-																		
-																		
+title	name	title_fr	meaning	menu_1	menu_2	menu_3	menu_4	menu_5	menu_1_fr	menu_2_fr	menu_3_fr	menu_4_fr	menu_5_fr	description	EXPORT_GISAID	EXPORT_CNPHI	EXPORT_NML_LIMS	EXPORT_BIOSAMPLE	EXPORT_VirusSeq_Portal
+																			
+umbrella bioproject accession menu	UmbrellaBioprojectAccessionMenu	Menu « Accès au bioprojet cadre »		PRJNA623807					PRJNA623807										
+																			
+null value menu	NullValueMenu	Menu « Valeur nulle »	GENEPIO:0001619	Not Applicable					Sans objet										
+			GENEPIO:0001618	Missing					Manquante										
+			GENEPIO:0001620	Not Collected					Non prélevée										
+			GENEPIO:0001668	Not Provided					Non fournie										
+			GENEPIO:0001810	Restricted Access					Accès restreint										
+																			
+geo_loc_name (state/province/territory) menu	GeoLocNameStateProvinceTerritoryMenu	Menu « nom_lieu_géo (état/province/territoire) »	GAZ:00002566	Alberta					Alberta										
+			GAZ:00002562	British Columbia					Colombie-Britannique										
+			GAZ:00002571	Manitoba					Manitoba										
+			GAZ:00002570	New Brunswick					Nouveau-Brunswick										
+			GAZ:00002567	Newfoundland and Labrador					Terre-Neuve-et-Labrador										
+			GAZ:00002575	Northwest Territories					Territoires du Nord-Ouest										
+			GAZ:00002565	Nova Scotia					Nouvelle-Écosse										
+			GAZ:00002574	Nunavut					Nunavut										
+			GAZ:00002563	Ontario					Ontario										
+			GAZ:00002572	Prince Edward Island					Île-du-Prince-Édouard										
+			GAZ:00002569	Quebec					Québec										
+			GAZ:00002564	Saskatchewan					Saskatchewan										
+			GAZ:00002576	Yukon					Yukon										
+																			
+																			
+host age unit menu	HostAgeUnitMenu	Menu « Groupe d’âge de l’hôte »	UO:0000035	month					Mois										
+			UO:0000036	year					Année										
+																			
+																			
+sample collection date precision menu	SampleCollectionDatePrecisionMenu	Menu « Précision de la date de prélèvement des échantillons »	UO:0000036	year					Année										
+			UO:0000035	month					Mois										
+			UO:0000033	day					Jour										
+																			
+																			
+biomaterial extracted menu	BiomaterialExtractedMenu	Menu « Biomatériaux extraits »	OBI:0000895	RNA (total)					ARN (total)										
+			OBI:0000869	RNA (poly-A)					ARN (poly-A)										
+			OBI:0002627	RNA (ribo-depleted)					ARN (déplétion ribosomique)										
+			GENEPIO:0100104	mRNA (messenger RNA)					ARNm (ARN messager)										
+			OBI:0002754	mRNA (cDNA)					ARNm (ADNc)										
+																			
+																			
+signs and symptoms menu	SignsAndSymptomsMenu	Menu « Signes et symptômes »	HP:0030829	Abnormal lung auscultation					Auscultation pulmonaire anormale										
+			HP:0000223	Abnormality of taste sensation					Anomalie de la sensation gustative										
+			HP:0041051		Ageusia (complete loss of taste)					Agueusie (perte totale du goût)									
+			HP:0031249		Parageusia (distorted sense of taste)					Paragueusie (distorsion du goût)									
+			HP:0000224		Hypogeusia (reduced sense of taste)					Hypogueusie (diminution du goût)									
+			HP:0004408	Abnormality of the sense of smell					Anomalie de l’odorat										
+			HP:0000458		Anosmia (lost sense of smell)					Anosmie (perte de l’odorat)									
+			HP:0004409		Hyposmia (reduced sense of smell)					Hyposmie (diminution de l’odorat)									
+			HP:0033677	Acute Respiratory Distress Syndrome					Syndrome de détresse respiratoire aiguë							ARDS			
+			HP:0011446	Altered mental status					Altération de l’état mental										
+			HP:0100543		Cognitive impairment					Déficit cognitif									
+			HP:0001259		Coma					Coma									
+			HP:0001289		Confusion					Confusion									
+			HP:0031258			Delirium (sudden severe confusion)					Délire (confusion grave et soudaine)								
+			GENEPIO:0100061		Inability to arouse (inability to stay awake)					Incapacité à se réveiller (incapacité à rester éveillé)									
+			HP:0000737		Irritability					Irritabilité									
+			HP:0002371		Loss of speech					Perte de la parole									
+			HP:0011675	Arrhythmia					Arythmie										
+			HP:0025406	Asthenia (generalized weakness)					Asthénie (faiblesse généralisée)										
+			HP:0031352	Chest tightness or pressure					Oppression ou pression thoracique										
+			HP:0025145		Rigors (fever shakes)					Frissons solennels (tremblements de fièvre)									
+			HP:0025143	Chills (sudden cold sensation)					Frissons (sensation soudaine de froid)							Chills			
+			HP:0030953	Conjunctival injection					Injection conjonctivale										
+			HP:0000509	Conjunctivitis (pink eye)					Conjonctivite (yeux rouges)							Conjunctivitis			
+			MP:0001867	Coryza (rhinitis)					Coryza (rhinite)										
+			HP:0012735	Cough 					Toux										
+			HP:0031246		Nonproductive cough (dry cough)					Toux improductive (toux sèche)									
+			HP:0031245		Productive cough (wet cough)					Toux productive (toux grasse)									
+			HP:0000961	Cyanosis (blueish skin discolouration)					Cyanose (coloration bleuâtre de la peau)										
+			HP:0001063		Acrocyanosis					Acrocyanose									
+			HP:0032556			Circumoral cyanosis (bluish around mouth)					Cyanose péribuccale (bleuâtre autour de la bouche)								
+			GENEPIO:0100062			Cyanotic face (bluish face)					Visage cyanosé (visage bleuâtre)								
+			GENEPIO:0100063		Central Cyanosis					Cyanose centrale									
+			GENEPIO:0100064			Cyanotic lips (bluish lips) 					Lèvres cyanosées (lèvres bleutées)								
+			GENEPIO:0100065		Peripheral Cyanosis					Cyanose périphérique									
+			HP:0002094	Dyspnea (breathing difficulty) 					Dyspnée (difficulté à respirer)										
+			HP:0002014	Diarrhea (watery stool)					Diarrhée (selles aqueuses)							Diarrhea, watery			
+			MP:0031127	Dry gangrene					Gangrène sèche										
+			HP:0002383	Encephalitis (brain inflammation)					Encéphalite (inflammation du cerveau)							Encephalitis			
+			HP:0001298	Encephalopathy					Encéphalopathie										
+			HP:0012378	Fatigue (tiredness)					Fatigue							Fatigue			
+			HP:0001945	Fever					Fièvre										
+			GENEPIO:0100066		Fever (>=38°C)					Fièvre (>= 38 °C)						Fever			
+			HP:0000206	Glossitis (inflammation of the tongue)					Glossite (inflammation de la langue)										
+			GENEPIO:0100067	Ground Glass Opacities (GGO)					Hyperdensité en verre dépoli										
+			HP:0002315	Headache					Mal de tête										
+			HP:0002105	Hemoptysis (coughing up blood)					Hémoptysie (toux accompagnée de sang)										
+			HP:0012417	Hypocapnia					Hypocapnie										
+			HP:0002615	Hypotension (low blood pressure)					Hypotension (tension artérielle basse)										
+			HP:0012418	Hypoxemia (low blood oxygen)					Hypoxémie (manque d’oxygène dans le sang)										
+			GENEPIO:0100068		Silent hypoxemia					Hypoxémie silencieuse									
+			HP:0011029	Internal hemorrhage (internal bleeding)					Hémorragie interne										
+			NCIT:C121416	Loss of Fine Movements					Perte de mouvements fins										
+			HP:0004396	Low appetite					Perte d’appétit										
+			HP:0033834	Malaise (general discomfort/unease)					Malaise (malaise général)										
+			HP:0031179	Meningismus/nuchal rigidity					Méningisme/Raideur de la nuque										
+			HP:0001324	Muscle weakness					Faiblesse musculaire										
+			HP:0001742	Nasal obstruction (stuffy nose)					Obstruction nasale (nez bouché)										
+			HP:0002018	Nausea					Nausées										
+			HP:0000421	Nose bleed					Saignement de nez										
+			GENEPIO:0100069	Otitis					Otite										
+			HP:0012531	Pain					Douleur										
+			HP:0002027		Abdominal pain					Douleur abdominale									
+			HP:0002829		Arthralgia (painful joints)					Arthralgie (articulations douloureuses)									
+			HP:0100749		Chest pain					Douleur thoracique									
+			HP:0033771			Pleuritic chest pain					Douleur thoracique pleurétique								
+			HP:0003326		Myalgia (muscle pain) 					Myalgie (douleur musculaire)									
+			HP:0025439	Pharyngitis (sore throat) 					Pharyngite (mal de gorge)										
+			GENEPIO:0100070	Pharyngeal exudate					Exsudat pharyngé										
+			HP:0002202	Pleural effusion					Épanchement pleural										
+			HP:0002090	Pneumonia					Pneumonie										
+			HP:0033696	Pseudo-chilblains					Pseudo-engelures										
+			GENEPIO:0100072		Pseudo-chilblains on fingers (covid fingers)					Pseudo-engelures sur les doigts (doigts de la COVID)									
+			GENEPIO:0100073		Pseudo-chilblains on toes (covid toes)					Pseudo-engelures sur les orteils (orteils de la COVID)									
+			HP:0000988	Rash					Éruption cutanée										
+			HP:0031417	Rhinorrhea (runny nose)					Rhinorrhée (écoulement nasal)										
+			HP:0001250	Seizure					Crise d’épilepsie										
+			HP:0020219		Motor seizure					Crise motrice									
+			HP:0025144	Shivering (involuntary muscle twitching)					Tremblement (contractions musculaires involontaires)										
+			HP:0001350	Slurred speech					Troubles de l’élocution										
+			HP:0025095	Sneezing					Éternuements										
+			HP:0033709	Sputum Production					Production d’expectoration										
+			HP:0001297	Stroke					Accident vasculaire cérébral										
+			HP:0002716	Swollen Lymph Nodes					Ganglions lymphatiques enflés										
+			HP:0002789	Tachypnea (accelerated respiratory rate)					Tachypnée (fréquence respiratoire accélérée)										
+			HP:0002321	Vertigo (dizziness)					Vertige (étourdissement)										
+			HP:0002013	Vomiting (throwing up)					Vomissements										
+																			
+																			
+host vaccination status menu	HostVaccinationStatusMenu	Menu « Statut de vaccination de l’hôte »	GENEPIO:0100100	Fully Vaccinated					Entièrement vacciné										
+			GENEPIO:0100101	Partially Vaccinated					Partiellement vacciné										
+			GENEPIO:0100102	Not Vaccinated					Non vacciné										
+																			
+																			
+prior SARS-CoV-2 antiviral treatment menu	PriorSarsCov2AntiviralTreatmentMenu	Menu « Traitement antiviral contre une infection antérieure par le SRAS-CoV-2 »	GENEPIO:0100037	Prior antiviral treatment					Traitement antiviral antérieur										
+			GENEPIO:0100233	No prior antiviral treatment					Aucun traitement antiviral antérieur										
+																			
+																			
+NML submitted specimen type menu	NmlSubmittedSpecimenTypeMenu	Menu « Types d’échantillons soumis au LNM »	OBI:0002600	Swab 					Écouvillon										
+			OBI:0000880	RNA					ARN										
+			OBI:0002754	mRNA (cDNA)					ARNm (ADNc)										
+			OBI:0001010	Nucleic acid					Acide nucléique										
+			GENEPIO:0001619	Not Applicable					Sans objet										
+																			
+																			
+Related specimen relationship type menu	RelatedSpecimenRelationshipTypeMenu	Menu « Types de relations entre spécimens associés »	HP:0011009	Acute					Infection aiguë										
+			GENEPIO:0101016	Chronic (prolonged) infection investigation					Enquête sur l’infection chronique (prolongée)										
+				Convalescent					Phase de convalescence										
+				Familial					Forme familiale										
+			EFO:0009642	Follow-up					Suivi										
+					Reinfection testing					Tests de réinfection									
+				Previously Submitted					Soumis précédemment										
+				Sequencing/bioinformatics methods development/validation 					Développement et validation de méthodes bioinformatiques ou de séquençage										
+				Specimen sampling methods testing					Essai des méthodes de prélèvement des échantillons										
+																			
+																			
+pre-existing conditions and risk factors menu	PreExistingConditionsAndRiskFactorsMenu	Menu « Conditions préexistantes et des facteurs de risque »	VO:0004925	Age 60+					60 ans et plus										
+			HP:0001903	Anemia					Anémie										
+			HP:0002039	Anorexia					Anorexie										
+			NCIT:C92743	Birthing labor					Travail ou accouchement										
+			NCIT:C80693	Bone marrow failure					Insuffisance médullaire										
+			MONDO:0004992	Cancer					Cancer										
+			MONDO:0007254		Breast cancer					Cancer du sein									
+			MONDO:0005575		Colorectal cancer					Cancer colorectal									
+			DOID:2531		Hematologic malignancy (cancer of the blood)					Hématopathie maligne (cancer du sang)									
+			MONDO:0008903		Lung cancer					Cancer du poumon									
+			MONDO:0024880		Metastatic disease					Maladie métastatique									
+			NCIT:C16212	Cancer treatment					Traitement du cancer										
+			NCIT:C157740		Cancer surgery					Chirurgie pour un cancer									
+			NCIT:C15632		Chemotherapy					Chimiothérapie									
+			NCIT:C15360			Adjuvant chemotherapy					Chimiothérapie adjuvante								
+			NCIT:C3079	Cardiac disorder					Trouble cardiaque										
+			HP:0011675		Arrhythmia					Arythmie									
+			MONDO:0005267		Cardiac disease					Maladie cardiaque									
+			HP:0001638		Cardiomyopathy					Myocardiopathie									
+			GENEPIO:0100074		Cardiac injury					Lésion cardiaque									
+			HP:0000822		Hypertension (high blood pressure)					Hypertension (tension artérielle élevée)									
+			HP:0002615		Hypotension (low blood pressure)					Hypotension (tension artérielle basse)									
+			HP:0011410	Cesarean section					Césarienne										
+			GENEPIO:0100075	Chronic cough					Toux chronique										
+			GENEPIO:0100076	Chronic gastrointestinal disease					Maladie gastro-intestinale chronique										
+			HP:0006528	Chronic lung disease					Maladie pulmonaire chronique										
+			NCIT:C211	Corticosteroids					Corticostéroïdes										
+			HP:0000819	Diabetes mellitus (diabetes)					Diabète sucré (diabète)										
+			HP:0100651		Type I diabetes mellitus (T1D)					Diabète sucré de type I									
+			HP:0005978		Type II diabetes mellitus (T2D)					Diabète sucré de type II									
+			HP:0000964	Eczema					Eczéma										
+			HP:0003111	Electrolyte disturbance					Perturbation de l’équilibre électrolytique										
+			HP:0002901		Hypocalcemia					Hypocalcémie									
+			HP:0002900		Hypokalemia					Hypokaliémie									
+			HP:0002917		Hypomagnesemia					Hypomagnésémie									
+			HP:0002383	Encephalitis (brain inflammation)					Encéphalite (inflammation du cerveau)										
+			MONDO:0005027	Epilepsy					Épilepsie										
+			NCIT:C15248	Hemodialysis					Hémodialyse										
+			MONDO:0044348	Hemoglobinopathy					Hémoglobinopathie										
+			MONDO:0005109	Human immunodeficiency virus (HIV)					Virus de l’immunodéficience humaine (VIH)										
+			MONDO:0012268		Acquired immunodeficiency syndrome (AIDS)					Syndrome d’immunodéficience acquise (SIDA)									
+			NCIT:C16118		HIV and antiretroviral therapy (ART)					VIH et traitement antirétroviral									
+			NCIT:C14139	Immunocompromised					Immunodéficience										
+			MONDO:0004670		Lupus					Lupus									
+			MONDO:0005265	Inflammatory bowel disease (IBD)					Maladie inflammatoire chronique de l’intestin (MICI)										
+			HP:0002583		Colitis					Colite									
+			HP:0100279			Ulcerative colitis					Colite ulcéreuse								
+			HP:0100280		Crohn's disease					Maladie de Crohn									
+			NCIT:C3149	Renal disorder					Trouble rénal										
+			MONDO:0005240		Renal disease					Maladie rénale									
+			HP:0012622			Chronic renal disease					Maladie rénale chronique								
+			HP:0000083			Renal failure					Insuffisance rénale								
+			MONDO:0005154	Liver disease					Maladie du foie										
+			NCIT:C113609		Chronic liver disease					Maladie chronique du foie									
+			HP:0001397			Fatty liver disease (FLD)					Stéatose hépatique								
+			HP:0003326	Myalgia (muscle pain) 					Myalgie (douleur musculaire)										
+			MONDO:0005404	Myalgic encephalomyelitis (chronic fatigue syndrome)					Encéphalomyélite myalgique (syndrome de fatigue chronique)										
+			MONDO:0005071	Neurological disorder					Trouble neurologique										
+			MONDO:0019056		Neuromuscular disorder					Trouble neuromusculaire									
+			HP:0001513	Obesity					Obésité										
+			MONDO:0005139		Severe obesity					Obésité sévère									
+			MONDO:0005087	Respiratory disorder					Trouble respiratoire										
+			HP:0002099		Asthma					Asthme									
+			HP:0004469		Chronic bronchitis					Bronchite chronique									
+			HP:0006510		Chronic obstructive pulmonary disease					Maladie pulmonaire obstructive chronique									
+			HP:0002097		Emphysema					Emphysème									
+			MONDO:0005275		Lung disease					Maladie pulmonaire									
+			HP:0006528			Chronic lung disease					Maladie pulmonaire chronique								
+			HP:0002206			Pulmonary fibrosis					Fibrose pulmonaire								
+			HP:0002090		Pneumonia					Pneumonie									
+			HP:0002878		Respiratory failure					Insuffisance respiratoire									
+			HP:0033677			Adult respiratory distress syndrome					Syndrome de détresse respiratoire de l’adulte								
+			MONDO:0009971			Newborn respiratory distress syndrome					Syndrome de détresse respiratoire du nouveau-né								
+			MONDO:0018076		Tuberculosis					Tuberculose									
+			GENEPIO:0100077	Postpartum (≤6 weeks)					Post-partum (≤6 semaines)										
+			NCIT:C25742	Pregnancy					Grossesse										
+			MONDO:0005554	Rheumatic disease					Maladie rhumatismale										
+			MONDO:0011382	Sickle cell disease					Drépanocytose										
+			NBO:0001845	Substance use					Consommation de substances										
+			MONDO:0002046		Alcohol abuse					Consommation abusive d’alcool									
+			GENEPIO:0100078		Drug abuse					Consommation abusive de drogues									
+			GENEPIO:0100079			Injection drug abuse					Consommation abusive de drogues injectables								
+			NBO:0015005		Smoking					Tabagisme									
+			NCIT:C173621		Vaping					Vapotage									
+			HP:0002789	Tachypnea (accelerated respiratory rate)					Tachypnée (fréquence respiratoire accélérée)										
+			NCIT:C159659	Transplant					Transplantation										
+			NCIT:C131759		Hematopoietic stem cell transplant (bone marrow transplant)					Greffe de cellules souches hématopoïétiques (greffe de moelle osseuse)									
+			GENEPIO:0100080		Cardiac transplant					Transplantation cardiaque									
+			NCIT:C157332		Kidney transplant					Greffe de rein									
+			GENEPIO:0100081		Liver transplant					Greffe de foie									
+																			
+																			
+variant designation menu	VariantDesignationMenu	Menu « Désignation des variants »	GENEPIO:0100082	Variant of Concern (VOC)					Variant préoccupant										
+			GENEPIO:0100083	Variant of Interest (VOI)					Variant d’intérêt										
+			GENEPIO:0100279	Variant Under Monitoring (VUM)					Variante sous surveillance										
+																			
+																			
+variant evidence menu	VariantEvidenceMenu	Menu « Preuves de variants »	CIDO:0000019	RT-qPCR					RT-qPCR										
+			CIDO:0000027	Sequencing					Séquençage										
+																			
+																			
+complications menu	ComplicationsMenu	Menu « Complications »	HP:0500165	Abnormal blood oxygen level					Taux anormal d’oxygène dans le sang 										
+			HP:0001919	Acute kidney injury					Lésions rénales aiguës										
+			MONDO:0015796	Acute lung injury					Lésions pulmonaires aiguës										
+			GENEPIO:0100092		Ventilation induced lung injury (VILI)					Lésions pulmonaires causées par la ventilation									
+			MONDO:0001208	Acute respiratory failure					Insuffisance respiratoire aiguë										
+			HP:0011675	Arrhythmia (complication)					Arythmie (complication)										
+			HP:0001649		Tachycardia					Tachycardie									
+			HP:0031677			Polymorphic ventricular tachycardia (VT)					Tachycardie ventriculaire polymorphe								
+			GENEPIO:0100084			Tachyarrhythmia					Tachyarythmie								
+			GENEPIO:0100074	Cardiac injury					Lésions cardiaques										
+			HP:0001695	Cardiac arrest					Arrêt cardiaque										
+			HP:0030149	Cardiogenic shock					Choc cardiogénique										
+			HP:0001977	Blood clot					Caillot sanguin										
+			HP:0004420		Arterial clot					Caillot artériel									
+			HP:0002625		Deep vein thrombosis (DVT)					Thrombose veineuse profonde									
+			HP:0002204		Pulmonary embolism (PE)					Embolie pulmonaire									
+			HP:0001638	Cardiomyopathy					Myocardiopathie										
+			MONDO:0024619	Central nervous system invasion					Envahissement du système nerveux central										
+			HP:0001297	Stroke (complication)					Accident vasculaire cérébral (complication)										
+			MONDO:0003346		Central Nervous System Vasculitis					Vascularite du système nerveux central									
+			HP:0002140		Acute ischemic stroke					Accident vasculaire cérébral ischémique aigu									
+			HP:0001259	Coma					Coma										
+			HP:0011097	Convulsions					Convulsions										
+			NCIT:C171562	COVID-19 associated coagulopathy (CAC)					Coagulopathie associée à la COVID-19 (CAC)										
+			MONDO:0009061	Cystic fibrosis					Fibrose kystique										
+			MONDO:0600008	Cytokine release syndrome					Syndrome de libération de cytokines										
+			MPATH:108	Disseminated intravascular coagulation (DIC)					Coagulation intravasculaire disséminée										
+			HP:0001298	Encephalopathy					Encéphalopathie										
+			GENEPIO:0100088	Fulminant myocarditis					Myocardite fulminante										
+			MONDO:0016218	Guillain-Barré syndrome					Syndrome de Guillain-Barré										
+			HP:0011029	Internal hemorrhage (complication; internal bleeding)					Hémorragie interne (complication)										
+			MONDO:0013792		Intracerebral haemorrhage					Hémorragie intracérébrale									
+			MONDO:0012727	Kawasaki disease					Maladie de Kawasaki										
+			GENEPIO:0100089		Complete Kawasaki disease					Maladie de Kawasaki complète									
+			GENEPIO:0100090		Incomplete Kawasaki disease					Maladie de Kawasaki incomplète									
+			HP:0001410	Liver dysfunction					Trouble hépatique										
+			GENEPIO:0100091		Acute liver injury					Lésions hépatiques aiguës									
+			MONDO:0100233	Long COVID-19					COVID-19 longue										
+			HP:0001287	Meningitis					Méningite										
+			HP:0002076	Migraine					Migraine										
+			HP:0005268	Miscarriage					Fausses couches										
+			MONDO:0100163	Multisystem inflammatory syndrome in children (MIS-C)					Syndrome inflammatoire multisystémique chez les enfants										
+			MONDO:0100319	Multisystem inflammatory syndrome in adults (MIS-A)					Syndrome inflammatoire multisystémique chez les adultes										
+			GENEPIO:0100093	Muscle injury					Lésion musculaire										
+			MONDO:0005404	Myalgic encephalomyelitis (ME)					Encéphalomyélite myalgique (EM)										
+			MONDO:0005068	Myocardial infarction (heart attack)					Infarctus du myocarde (crise cardiaque)										
+			MONDO:0004781		Acute myocardial infarction					Infarctus aigu du myocarde									
+			MONDO:0041656		ST-segment elevation myocardial infarction					Infarctus du myocarde avec sus-décalage du segment ST									
+			HP:0001700	Myocardial injury					Lésions du myocarde										
+			NCIT:C168498	Neonatal complications					Complications néonatales										
+			GENEPIO:0100085	Noncardiogenic pulmonary edema					Œdème pulmonaire non cardiogénique										
+			HP:0033677		Acute respiratory distress syndrome (ARDS)					Syndrome de détresse respiratoire aiguë (SDRA)									
+			NCIT:C171551			COVID-19 associated ARDS (CARDS)					SDRA associé à la COVID-19 (SDRAC)								
+			GENEPIO:0100086			Neurogenic pulmonary edema (NPE)					Œdème pulmonaire neurogène								
+			GENEPIO:0100094	Organ failure					Défaillance des organes										
+			HP:0001635		Heart failure					Insuffisance cardiaque									
+			MONDO:0100192		Liver failure					Insuffisance hépatique									
+			HP:0003470	Paralysis					Paralysie										
+			HP:0002107	Pneumothorax (collapsed lung)					Pneumothorax (affaissement du poumon)										
+			HP:0002108		Spontaneous pneumothorax					Pneumothorax spontané									
+			MONDO:0002075		Spontaneous tension pneumothorax					Pneumothorax spontané sous tension									
+			HP:0002090	Pneumonia (complication)					Pneumonie (complication)										
+			NCIT:C171550		COVID-19 pneumonia					Pneumonie liée à la COVID-19									
+			HP:0001197	Pregancy complications					Complications de la grossesse										
+			HP:0003201	Rhabdomyolysis					Rhabdomyolyse										
+			IDO:0000567	Secondary infection					Infection secondaire										
+			GENEPIO:0100095		Secondary staph infection					Infection staphylococcique secondaire									
+			GENEPIO:0100096		Secondary strep infection					Infection streptococcique secondaire									
+			HP:0001250	Seizure (complication)					Crise d’épilepsie (complication)										
+			HP:0020219		Motor seizure					Crise motrice									
+			HP:0100806	Sepsis/Septicemia					Sepsie/Septicémie										
+			IDO:0000636		Sepsis					Sepsie									
+			NCIT:C3364		Septicemia					Septicémie									
+			HP:0031273	Shock					Choc										
+			GENEPIO:0100097		Hyperinflammatory shock					Choc hyperinflammatoire									
+			GENEPIO:0100098		Refractory cardiogenic shock					Choc cardiogénique réfractaire									
+			GENEPIO:0100099		Refractory cardiogenic plus vasoplegic shock					Choc cardiogénique et vasoplégique réfractaire									
+			NCIT:C35018		Septic shock					Choc septique									
+			HP:0002633	Vasculitis					Vascularite										
+																			
+																			
+vaccine name menu	VaccineNameMenu	Menu « Noms de vaccins »	GENEPIO:0100308	Astrazeneca (Vaxzevria)					AstraZeneca (Vaxzevria)										
+			GENEPIO:0100307	Johnson & Johnson (Janssen)					Johnson & Johnson (Janssen)										
+			GENEPIO:0100304	Moderna (Spikevax)					Moderna (Spikevax)										
+			GENEPIO:0100305	Pfizer-BioNTech (Comirnaty)					Pfizer-BioNTech (Comirnaty)										
+			GENEPIO:0100306	Pfizer-BioNTech (Comirnaty Pediatric)					Pfizer-BioNTech (Comirnaty, formule pédiatrique)										
+																			
+																			
+anatomical material menu	AnatomicalMaterialMenu	Menu « Matières anatomiques »	UBERON:0000178	Blood					Sang										
+			UBERON:0006314	Fluid					Liquide										
+			UBERON:0001836		Saliva					Salive									
+			UBERON:0001359		Fluid (cerebrospinal (CSF))					Liquide (céphalorachidien)									
+			UBERON:0002409		Fluid (pericardial)					Liquide (péricardique)									
+			UBERON:0001087		Fluid (pleural)					Liquide (pleural)									
+			UBERON:0036243		Fluid (vaginal)					Sécrétions (vaginales)									
+			UBERON:0000173		Fluid (amniotic)					Liquide (amniotique)									
+			UBERON:0000479	Tissue					Tissu										
+																			
+																			
+anatomical part menu	AnatomicalPartMenu	Menu « Parties anatomiques »	UBERON:0001245	Anus					Anus										
+			UBERON:0006956	Buccal mucosa					Muqueuse buccale										
+			UBERON:0002114	Duodenum					Duodénum										
+			UBERON:0000970	Eye					Œil										
+			UBERON:0000160	Intestine					Intestin										
+			UBERON:0001558	Lower respiratory tract					Voies respiratoires inférieures										
+			UBERON:0002185		Bronchus					Bronches									
+			UBERON:0002048		Lung					Poumon									
+			UBERON:0002186			Bronchiole					Bronchiole								
+			UBERON:0002169			Alveolar sac					Sac alvéolaire								
+			UBERON:0009778		Pleural sac					Sac pleural									
+			UBERON:0002402			Pleural cavity					Cavité pleurale								
+			UBERON:0003126		Trachea					Trachée									
+			UBERON:0001052	Rectum					Rectum										
+			UBERON:0001003	Skin					Peau										
+			UBERON:0000945	Stomach					Estomac										
+			UBERON:0001557	Upper respiratory tract					Voies respiratoires supérieures										
+			UBERON:2001427		Anterior Nares					Narines antérieures									
+			UBERON:0001043		Esophagus					Œsophage									
+			UBERON:0002453		Ethmoid sinus					Sinus ethmoïdal									
+			UBERON:0001707		Nasal Cavity					Cavité nasale									
+			UBERON:0005921			Middle Nasal Turbinate					Cornet nasal moyen								
+			UBERON:0005922			Inferior Nasal Turbinate					Cornet nasal inférieur								
+			UBERON:0001728		Nasopharynx (NP)					Nasopharynx									
+			UBERON:0001729		Oropharynx (OP)					Oropharynx									
+			UBERON:0000341		Pharynx (throat)					Pharynx (gorge)									
+																			
+																			
+body product menu	BodyProductMenu	Menu « Produit corporel »	UBERON:0001913	Breast Milk					Lait maternel										
+			UBERON:0001988	Feces					Selles										
+			UBERON:0006530	Fluid (seminal)					Sperme										
+			UBERON:0000912	Mucus					Mucus										
+			UBERON:0007311		Sputum					Expectoration									
+			UBERON:0001089	Sweat					Sueur										
+			UBERON:0001827	Tear					Larme										
+			UBERON:0001088	Urine					Urine										
+																			
+																			
+prior SARS-CoV-2 infection menu	PriorSarsCov2InfectionMenu	Menu « Infection antérieure par le SRAS-CoV-2 »	GENEPIO:0100037	Prior infection					Infection antérieure										
+			GENEPIO:0100233	No prior infection					Aucune infection antérieure										
+																			
+																			
+environmental material menu	EnvironmentalMaterialMenu	Menu « Matériel environnemental »	ENVO:03501208	Air vent					Évent d’aération										
+			ENVO:00003896	Banknote					Billet de banque										
+			ENVO:03501209	Bed rail					Côté de lit										
+			ENVO:01000486	Building floor					Plancher du bâtiment										
+			ENVO:02000058	Cloth					Tissu										
+			ENVO:03501210	Control panel					Panneau de contrôle										
+			ENVO:03501220	Door  					Porte										
+			ENVO:03501211	Door handle					Poignée de porte										
+			OBI:0002787	Face mask					Masque										
+			OBI:0002791	Face shield					Écran facial										
+			FOODON:00002403	Food					Nourriture										
+			FOODON:03490100	Food packaging					Emballages alimentaires										
+			ENVO:01000481	Glass					Verre										
+			ENVO:03501212	Handrail					Main courante										
+			OBI:0002796	Hospital gown					Jaquette d’hôpital										
+			ENVO:03501213	Light switch					Interrupteur										
+			ENVO:03501214	Locker					Casier										
+			OBI:0002790	N95 mask					Masque N95										
+			ENVO:03501215	Nurse call button 					Bouton d’appel de l’infirmière										
+			ENVO:03501256	Paper					Papier										
+			ENVO:01000060	Particulate matter					Matière particulaire										
+			ENVO:01000404	Plastic					Plastique										
+			GENEPIO:0100025	PPE gown					Blouse (EPI)										
+			ENVO:00002018	Sewage					Eaux usées										
+			ENVO:01000990	Sink					Évier										
+			ENVO:00001998	Soil					Sol										
+			ENVO:03501216	Stainless steel					Acier inoxydable										
+			ENVO:03501217	Tissue paper					Mouchoirs										
+			ENVO:03501218	Toilet bowl					Cuvette										
+			ENVO:00002006	Water					Eau										
+			ENVO:00002001		Wastewater					Eaux usées									
+			ENVO:03501219	Window					Fenêtre										
+			ENVO:00002040	Wood					Bois										
+																			
+																			
+environmental site menu	EnvironmentalSiteMenu	Menu « Site environnemental »	ENVO:03501135	Acute care facility					Établissement de soins de courte durée										
+			ENVO:00003040	Animal house					Refuge pour animaux										
+			ENVO:01000422	Bathroom					Salle de bain										
+			ENVO:03501136	Clinical assessment centre					Centre d’évaluation clinique										
+			ENVO:03501127	Conference venue					Lieu de la conférence										
+			ENVO:03501121	Corridor					couloir										
+			ENVO:01000927	Daycare					Garderie										
+			ENVO:03501145	Emergency room (ER)					Salle d’urgence										
+			ENVO:03501186	Family practice clinic					Clinique de médecine familiale										
+			ENVO:03501196	Group home					Foyer de groupe										
+			ENVO:03501133	Homeless shelter					Refuge pour sans-abri										
+			ENVO:00002173	Hospital					Hôpital										
+			ENVO:03501152	Intensive Care Unit (ICU)					Unité de soins intensifs										
+			ENVO:03501194	Long Term Care Facility					Établissement de soins de longue durée										
+			ENVO:03501180	Patient room					Chambre du patient										
+			ENVO:03501204	Prison					Prison										
+			ENVO:01000536	Production Facility					Installation de production										
+			ENVO:03501130	School					École										
+			ENVO:00003043	Sewage Plant					Usine d’épuration des eaux usées										
+			ENVO:03501109	Subway train					Métro										
+			ENVO:00000467	University campus					Campus de l’université										
+			ENVO:03501198	Wet market					Marché traditionnel de produits frais										
+																			
+																			
+collection method menu	CollectionMethodMenu	Menu « Méthode de prélèvement »	NCIT:C52009	Amniocentesis					Amniocentèse										
+			NCIT:C15631	Aspiration					Aspiration										
+			GENEPIO:0100028		Suprapubic Aspiration					Aspiration sus-pubienne									
+			GENEPIO:0100029		Tracheal aspiration					Aspiration trachéale									
+			GENEPIO:0100030		Vacuum Aspiration					Aspiration sous vide									
+			OBI:0002650	Biopsy					Biopsie										
+			OBI:0002651		Needle Biopsy					Biopsie à l’aiguille									
+			OBI:0302885	Filtration					Filtration										
+			GENEPIO:0100031		Air filtration					Filtration de l’air									
+			OBI:0600044	Lavage					Lavage										
+			GENEPIO:0100032		Bronchoalveolar lavage (BAL)					Lavage broncho-alvéolaire (LBA)									
+			GENEPIO:0100033		Gastric Lavage					Lavage gastrique									
+			NCIT:C15327	Lumbar Puncture					Ponction lombaire										
+			MMO:0000344	Necropsy					Nécropsie										
+			NCIT:C28221	Phlebotomy					Phlébotomie										
+			GENEPIO:0002116	Rinsing					Rinçage										
+			GENEPIO:0100034		Saline gargle (mouth rinse and gargle)					Gargarisme avec saline (rince-bouche)									
+			GENEPIO:0100035	Scraping					Grattage										
+			GENEPIO:0002117	Swabbing					Écouvillonnage										
+			GENEPIO:0100036	Finger Prick					Piqûre du doigt										
+			GENEPIO:0100038	Washout Tear Collection					Lavage – Collecte de larmes										
+																			
+																			
+collection device menu	CollectionDeviceMenu	Menu « Dispositif de prélèvement »	ENVO:00003968	Air filter					Filtre à air										
+			OBI:0002859	Blood Collection Tube					Tube de prélèvement sanguin										
+			OBI:0002826	Bronchoscope					Bronchoscope										
+			OBI:0002088	Collection Container					Récipient à échantillons										
+			GENEPIO:0100026	Collection Cup					Godet à échantillons										
+			OBI:0002825	Fibrobronchoscope Brush					Brosse à fibrobronchoscope										
+			GENEPIO:0100103	Filter					Filtre										
+			OBI:0002827	Fine Needle					Aiguille fine										
+			OBI:0002858	Microcapillary tube					Micropipette de type capillaire										
+			OBI:0001128	Micropipette					Micropipette										
+			OBI:0000436	Needle					Aiguille										
+			OBI:0002860	Serum Collection Tube					Tube de prélèvement du sérum										
+			OBI:0002861	Sputum Collection Tube					Tube de prélèvement des expectorations										
+			OBI:0002831	Suction Catheter					Cathéter d’aspiration										
+			GENEPIO:0100027	Swab					Écouvillon										
+			OBI:0002862	Urine Collection Tube					Tube de prélèvement d’urine										
+			OBI:0002866	Virus Transport Medium					Milieu de transport viral										
+																			
+																			
+host (scientific name) menu	HostScientificNameMenu	Menu « Hôte (nom scientifique) »	NCBITaxon:9606	Homo sapiens					Homo sapiens										
+			NCBITaxon:9913	Bos taurus					Bos taureau										
+			NCBITaxon:9615	Canis lupus familiaris					Canis lupus familiaris										
+			NCBITaxon:9397	Chiroptera					Chiroptères										
+			NCBITaxon:8930	Columbidae					Columbidés										
+			NCBITaxon:9685	Felis catus					Felis catus										
+			NCBITaxon:9031	Gallus gallus					Gallus gallus										
+			NCBITaxon:9973	Manis					Manis										
+			NCBITaxon:9974	Manis javanica					Manis javanica										
+			NCBITaxon:452646	Neovison vison					Neovison vison										
+			NCBITaxon:9689	Panthera leo					Panthera leo										
+			NCBITaxon:9694	Panthera tigris					Panthera tigris										
+			NCBITaxon:58055	Rhinolophidae					Rhinolophidés										
+			NCBITaxon:59477	Rhinolophus affinis					Rhinolophus affinis										
+			NCBITaxon:9825	Sus scrofa domesticus					Sus scrofa domesticus										
+			NCBITaxon:9673	Viverridae					Viverridés										
+																			
+host (common name) menu	HostCommonNameMenu	Menu « Hôte (nom commun) »	NCBITaxon:9606	Human					Humain										
+			NCBITaxon:9397	Bat					Chauve-souris										
+			NCBITaxon:9685	Cat					Chat										
+			NCBITaxon:9031	Chicken					Poulet										
+			NCBITaxon:9673	Civets					Civettes										
+			NCBITaxon:9913	Cow					Vache							bovine			
+			NCBITaxon:9615	Dog					Chien										
+			NCBITaxon:9689	Lion					Lion										
+			NCBITaxon:452646	Mink					Vison										
+			NCBITaxon:9973	Pangolin					Pangolin										
+			NCBITaxon:9825	Pig					Cochon							porcine			
+			NCBITaxon:8930	Pigeon					Pigeon										
+			NCBITaxon:9694	Tiger					Tigre										
+																			
+																			
+host health state menu	HostHealthStateMenu	Menu « État de santé de l’hôte »	NCIT:C3833	Asymptomatic					Asymptomatique										
+			NCIT:C28554	Deceased					Décédé										
+			NCIT:C115935	Healthy					En santé										
+			NCIT:C49498	Recovered					Rétabli										
+			NCIT:C25269	Symptomatic					Symptomatique										
+																			
+																			
+host health status details menu	HostHealthStatusDetailsMenu	Menu « Détails de l’état de santé de l’hôte »	NCIT:C25179	Hospitalized					Hospitalisé										
+			GENEPIO:0100045		Hospitalized (Non-ICU)					Hospitalisé (hors USI)									
+			GENEPIO:0100046		Hospitalized (ICU)					Hospitalisé (USI)									
+			NCIT:C70909	Mechanical Ventilation					Ventilation artificielle										
+			GENEPIO:0100047	Medically Isolated					Isolement médical										
+			GENEPIO:0100048		Medically Isolated (Negative Pressure)					Isolement médical (pression négative)									
+			NCIT:C173768	Self-quarantining					Quarantaine volontaire										
+																			
+																			
+host health outcome menu	HostHealthOutcomeMenu	Menu « Résultats sanitaires de l’hôte »	NCIT:C28554	Deceased					Décédé										
+			NCIT:C25254	Deteriorating					Détérioration										
+			NCIT:C49498	Recovered					Rétabli										
+			NCIT:C30103	Stable					Stabilisation										
+																			
+																			
+organism menu	OrganismMenu	Menu « Organisme »	NCBITaxon:2697049	Severe acute respiratory syndrome coronavirus 2					Coronavirus du syndrome respiratoire aigu sévère 2										
+			NCBITaxon:2709072	RaTG13					RaTG13										
+			GENEPIO:0100000	RmYN02					RmYN02										
+																			
+																			
+purpose of sampling menu	PurposeOfSamplingMenu	Menu « Objectif de l’échantillonnage »	GENEPIO:0100001	Cluster/Outbreak investigation					Enquête sur les grappes et les éclosions										
+			GENEPIO:0100002	Diagnostic testing					Tests de diagnostic										
+			GENEPIO:0100003	Research					Recherche										
+			GENEPIO:0100004	Surveillance 					Surveillance										
+																			
+																			
+purpose of sequencing menu	PurposeOfSequencingMenu	Menu « Objectif du séquençage »	GENEPIO:0100005	Baseline surveillance (random sampling)					Surveillance de base (échantillonnage aléatoire)										
+			GENEPIO:0100006	Targeted surveillance (non-random sampling)					Surveillance ciblée (échantillonnage non aléatoire)										
+			GENEPIO:0100007		Priority surveillance project					Projet de surveillance prioritaire									
+			GENEPIO:0100008			Screening for Variants of Concern (VoC)					Dépistage des variants préoccupants								
+			GENEPIO:0100273				Sample has epidemiological link to Variant of Concern (VoC)					Lien épidémiologique entre l’échantillon et le variant préoccupant							
+			GENEPIO:0100274					Sample has epidemiological link to Omicron Variant 					Lien épidémiologique entre l’échantillon et le variant Omicron						
+			GENEPIO:0100009			Longitudinal surveillance (repeat sampling of individuals) 					Surveillance longitudinale (échantillonnage répété des individus)								
+			GENEPIO:0100842				Chronic (prolonged) infection surveillance					Surveillance des infections chroniques (prolongées)							
+			GENEPIO:0100010			Re-infection surveillance 					Surveillance des réinfections								
+			GENEPIO:0100011			Vaccine escape surveillance					Surveillance de l’échappement vaccinal								
+			GENEPIO:0100012			Travel-associated surveillance					Surveillance associée aux voyages								
+			GENEPIO:0100013				Domestic travel surveillance					Surveillance des voyages intérieurs							
+			GENEPIO:0100275					Interstate/ interprovincial travel surveillance					Surveillance des voyages entre les États ou les provinces						
+			GENEPIO:0100276					Intra-state/ intra-provincial travel surveillance					Surveillance des voyages dans les États ou les provinces						
+			GENEPIO:0100014				International travel surveillance					Surveillance des voyages internationaux							
+			GENEPIO:0100015					Surveillance of international border crossing by air travel or ground transport					Surveillance du franchissement des frontières internationales par voie aérienne ou terrestre						
+			GENEPIO:0100016					Surveillance of international border crossing by air travel					Surveillance du franchissement des frontières internationales par voie aérienne						
+			GENEPIO:0100017					Surveillance of international border crossing by ground transport					Surveillance du franchissement des frontières internationales par voie terrestre						
+			GENEPIO:0100018					Surveillance from international worker testing					Surveillance à partir de tests auprès des travailleurs étrangers						
+			GENEPIO:0100019	Cluster/Outbreak investigation					Enquête sur les grappes et les éclosions										
+			GENEPIO:0100020		Multi-jurisdictional outbreak investigation					Enquête sur les éclosions multijuridictionnelles									
+			GENEPIO:0100021		Intra-jurisdictional outbreak investigation					Enquête sur les éclosions intrajuridictionnelles									
+			GENEPIO:0100022	Research					Recherche										
+			GENEPIO:0100023		Viral passage experiment					Expérience de transmission virale									
+			GENEPIO:0100024		Protocol testing experiment					Expérience du test de protocole									
+			GENEPIO:0100356	Retrospective sequencing					Séquençage rétrospectif										
+																			
+																			
+specimen processing menu	SpecimenProcessingMenu	Menu « Traitement des échantillons »	GENEPIO:0100039	Virus passage					Transmission du virus										
+			GENEPIO:0100040	RNA re-extraction (post RT-PCR)					Rétablissement de l’extraction de l’ARN (après RT-PCR)										
+			OBI:0600016	Specimens pooled					Échantillons regroupés										
+																			
+																			
+lab host menu	LabHostMenu	Menu « Laboratoire hôte »	GENEPIO:0100041	293/ACE2 cell line					Lignée cellulaire 293/ACE2										
+			BTO:0000195	Caco2 cell line					Lignée cellulaire Caco2										
+			BTO:0002750	Calu3 cell line					Lignée cellulaire Calu3										
+			GENEPIO:0100042	EFK3B cell line					Lignée cellulaire EFK3B										
+			BTO:0002181	HEK293T cell line					Lignée cellulaire HEK293T										
+			GENEPIO:0100043	HRCE cell line					Lignée cellulaire HRCE										
+			BTO:0001950	Huh7 cell line					Lignée cellulaire Huh7										
+			CLO:0007330	LLCMk2 cell line					Lignée cellulaire LLCMk2										
+			BTO:0000836	MDBK cell line					Lignée cellulaire MDBK										
+			BTO:0002924	NHBE cell line					Lignée cellulaire NHBE										
+			BTO:0001865	PK-15 cell line					Lignée cellulaire PK-15										
+			BTO:0002909	RK-13 cell line					Lignée cellulaire RK-13										
+			BTO:0002035	U251 cell line					Lignée cellulaire U251										
+			BTO:0001444	Vero cell line					Lignée cellulaire Vero										
+			BTO:0004755		Vero E6 cell line					Lignée cellulaire Vero E6									
+			GENEPIO:0100044			VeroE6/TMPRSS2 cell line					Lignée cellulaire VeroE6/TMPRSS2								
+																			
+																			
+host disease menu	UmbrellaBioprojectAccessionMenu	Menu « Maladie de l’hôte »	MONDO:0100096	COVID-19					COVID-19										
+																			
+																			
+host age bin menu	HostAgeBinMenu	Menu « Groupe d’âge de l’hôte »	GENEPIO:0100049	0 - 9					0 - 9										
+			GENEPIO:0100050	10 - 19					10 - 19										
+			GENEPIO:0100051	20 - 29					20 - 29										
+			GENEPIO:0100052	30 - 39					30 - 39										
+			GENEPIO:0100053	40 - 49					40 - 49										
+			GENEPIO:0100054	50 - 59					50 - 59										
+			GENEPIO:0100055	60 - 69					60 - 69										
+			GENEPIO:0100056	70 - 79					70 - 79										
+			GENEPIO:0100057	80 - 89					80 - 89										
+			GENEPIO:0100058	90 - 99					90 - 99										90+
+			GENEPIO:0100059	100+					100+										90+
+																			
+																			
+host gender menu	HostGenderMenu	Menu « Genre de l’hôte »	NCIT:C46110	Female					Femme										
+			NCIT:C46109	Male					Homme										
+			GSSO:000132	Non-binary gender					Non binaire										
+			GSSO:004004	Transgender (assigned male at birth)					Transgenre (sexe masculin à la naissance)										
+			GSSO:004005	Transgender (assigned female at birth)					Transgenre (sexe féminin à la naissance)										
+			NCIT:C110959	Undeclared					Non déclaré										
+																			
+																			
+exposure event menu	ExposureEventMenu	Menu « Événement d’exposition »	GENEPIO:0100237	Mass Gathering					Rassemblement de masse										
+			GENEPIO:0100240		Agricultural Event					Événement agricole									
+			GENEPIO:0100238		Convention					Convention									
+			GENEPIO:0100239		Convocation					Convocation									
+			GENEPIO:0100417		Recreational Event					Événement récréatif									
+			GENEPIO:0100418			Concert					Concert								
+			GENEPIO:0100419			Sporting Event					Événement sportif								
+			GENEPIO:0100241	Religious Gathering					Rassemblement religieux										
+			GENEPIO:0100242		Mass					Messe									
+			PCO:0000033	Social Gathering					Rassemblement social										
+			PCO:0000039		Baby Shower					Réception-cadeau pour bébé									
+			PCO:0000034		Community Event					Événement communautaire									
+			GENEPIO:0100243		Family Gathering					Rassemblement familial									
+			GENEPIO:0100244			Family Reunion					Réunion de famille								
+			GENEPIO:0100245		Funeral					Funérailles									
+			PCO:0000035		Party					Fête									
+			PCO:0000037		Potluck					Repas-partage									
+			PCO:0000038		Wedding					Mariage									
+				Other exposure event					Autre événement d’exposition										
+																			
+																			
+exposure contact level menu	ExposureContactLevelMenu	Menu « Niveau de contact de l’exposition »	GENEPIO:0100357	Contact with infected individual					Contact avec une personne infectée										
+			TRANS:0000001		Direct contact (direct human-to-human contact)					Contact direct (contact interhumain)									
+			GENEPIO:0100246		Indirect contact					Contact indirect									
+			GENEPIO:0100247			Close contact (face-to-face, no direct contact) 					Contact étroit (contact personnel, aucun contact étroit)								
+			GENEPIO:0100248			Casual contact					Contact occasionnel								
+																			
+																			
+host role menu	HostRoleMenu	Menu « Rôle de l’hôte »	GENEPIO:0100249	Attendee					Participant										
+			OMRSE:00000058		Student					Étudiant									
+			OMRSE:00000030	Patient					Patient										
+			NCIT:C25182		Inpatient					Patient hospitalisé									
+			NCIT:C28293		Outpatient					Patient externe									
+			GENEPIO:0100250	Passenger					Passager										
+			GENEPIO:0100251	Resident					Résident										
+			GENEPIO:0100252	Visitor					Visiteur										
+			GENEPIO:0100253	Volunteer					Bénévole										
+			GENEPIO:0100254	Work					Travail										
+			GENEPIO:0100255		Administrator					Administrateur									
+					Child Care/Education Worker					Travailleur en garderie ou en éducation									
+					Essential Worker					Travailleur essentiel									
+			GENEPIO:0100256		First Responder					Premier intervenant									
+			GENEPIO:0100257			Firefighter					Pompier								
+			GENEPIO:0100258			Paramedic					Ambulancier								
+			GENEPIO:0100259			Police Officer					Policier								
+			GENEPIO:0100334		Healthcare Worker					Travailleur de la santé									
+			GENEPIO:0100420			Community Healthcare Worker					Agent de santé communautaire								
+			GENEPIO:0100262			Laboratory Worker					Travailleur de laboratoire								
+			OMRSE:00000014			Nurse					Infirmière								
+			GENEPIO:0100263			Personal Care Aid					Aide aux soins personnels								
+			GENEPIO:0100264			Pharmacist					Pharmacien								
+			OMRSE:00000013			Physician					Médecin								
+			GENEPIO:0100260		Housekeeper					Aide-ménagère									
+					International worker					Travailleur international									
+			GENEPIO:0100261		Kitchen Worker					Aide de cuisine									
+			GENEPIO:0100354		Rotational Worker					Travailleur en rotation									
+			GENEPIO:0100355		Seasonal Worker					Travailleur saisonnier									
+					Transport Worker					Ouvrier des transports									
+						Transport Truck Driver					Chauffeur de camion de transport								
+			GENEPIO:0100265		Veterinarian					Vétérinaire									
+			OMRSE:00000001	Social role					Rôle social										
+			GENEPIO:0100266		Acquaintance of case					Connaissance du cas									
+			GENEPIO:0100267		Relative of case					Famille du cas									
+			GENEPIO:0100268			Child of case					Enfant du cas								
+			GENEPIO:0100269			Parent of case					Parent du cas								
+			GENEPIO:0100270				Father of case 					Père du cas							
+			GENEPIO:0100271				Mother of case					Mère du cas							
+			GENEPIO:0100272		Spouse of case					Conjoint du cas									
+				Other Host Role					Autre rôle de l’hôte										
+																			
+																			
+exposure setting menu	ExposureSettingMenu	Menu « Contexte de l’exposition »	ECTO:3000005	Human Exposure					Exposition humaine										
+			GENEPIO:0100184		Contact with Known COVID-19 Case					Contact avec un cas connu de COVID-19									
+			GENEPIO:0100185		Contact with Patient					Contact avec un patient									
+			GENEPIO:0100186		Contact with Probable COVID-19 Case					Contact avec un cas probable de COVID-19									
+			GENEPIO:0100187		Contact with Person with Acute Respiratory Illness					Contact avec une personne atteinte d’une maladie respiratoire aiguë									
+			GENEPIO:0100188		Contact with Person with Fever and/or Cough					Contact avec une personne présentant une fièvre ou une toux									
+			GENEPIO:0100189		Contact with Person who Recently Travelled					Contact avec une personne ayant récemment voyagé									
+			GENEPIO:0100190	Occupational, Residency or Patronage Exposure					Exposition professionnelle ou résidentielle										
+			ECTO:1000033		Abbatoir					Abattoir									
+			GENEPIO:0100191		Animal Rescue					Refuge pour animaux									
+			GENEPIO:0100192		Childcare					Garde d’enfants									
+			GENEPIO:0100193			Daycare					Garderie								
+			GENEPIO:0100194			Nursery					Pouponnière								
+			GENEPIO:0100195		Community Service Centre					Centre de services communautaires									
+			GENEPIO:0100196		Correctional Facility					Établissement correctionnel									
+			GENEPIO:0100197		Dormitory					Dortoir									
+			ECTO:1000034		Farm					Ferme									
+			GENEPIO:0100198		First Nations Reserve					Réserve des Premières Nations									
+			GENEPIO:0100199		Funeral Home					Salon funéraire									
+			GENEPIO:0100200		Group Home					Foyer de groupe									
+			GENEPIO:0100201		Healthcare Setting					Établissement de soins de santé									
+			GENEPIO:0100202			Ambulance					Ambulance								
+			GENEPIO:0100203			Acute Care Facility					Établissement de soins de courte durée								
+			GENEPIO:0100204			Clinic					Clinique								
+			GENEPIO:0100415			Community Healthcare (At-Home) Setting					Établissement de soins de santé communautaire (à domicile)								
+			GENEPIO:0100205			Community Health Centre					Centre de santé communautaire								
+			ECTO:1000035			Hospital					Hôpital								
+			GENEPIO:0100206				Emergency Department					Service des urgences							
+			GENEPIO:0100207				ICU					USI							
+			GENEPIO:0100208				Ward					Service  							
+			ECTO:1000036			Laboratory					Laboratoire								
+			GENEPIO:0100209			Long-Term Care Facility					Établissement de soins de longue durée								
+			GENEPIO:0100210			Pharmacy					Pharmacie								
+			GENEPIO:0100211			Physician's Office					Cabinet de médecin								
+			GENEPIO:0100212		Household					Ménage									
+			GENEPIO:0100213		Insecure Housing (Homeless)					Logement précaire (sans-abri)									
+			GENEPIO:0100214		Occupational Exposure					Exposition professionnelle									
+			GENEPIO:0100215			Worksite					Lieu de travail								
+			ECTO:1000037				Office					Bureau							
+			GENEPIO:0100216		Outdoors					Plein air									
+			ECTO:5000009			Camp/camping					Camp/Camping								
+			GENEPIO:0100217			Hiking Trail					Sentier de randonnée								
+			ECTO:6000030			Hunting Ground					Territoire de chasse								
+			GENEPIO:0100218			Ski Resort					Station de ski								
+			ECTO:5000008		Petting zoo					Zoo pour enfants									
+			GENEPIO:0100220		Place of Worship					Lieu de culte									
+			GENEPIO:0100221			Church					Église								
+			GENEPIO:0100222			Mosque					Mosquée								
+			GENEPIO:0100223			Temple					Temple								
+			ECTO:1000040		Restaurant					Restaurant									
+			ECTO:1000041		Retail Store					Magasin de détail									
+			GENEPIO:0100224		School					École									
+			GENEPIO:0100225		Temporary Residence					Résidence temporaire									
+			GENEPIO:0100226			Homeless Shelter					Refuge pour sans-abri								
+			GENEPIO:0100227			Hotel					Hôtel								
+			GENEPIO:0100228		Veterinary Care Clinic					Clinique vétérinaire									
+			GENEPIO:0100229	Travel Exposure					Exposition liée au voyage										
+			GENEPIO:0100230		Travelled on a Cruise Ship					Voyage sur un bateau de croisière									
+			GENEPIO:0100231		Travelled on a Plane					Voyage en avion									
+			GENEPIO:0100232		Travelled on Ground Transport					Voyage par voie terrestre									
+			GENEPIO:0001118		Travelled outside Province/Territory					Voyage en dehors de la province ou du territoire									
+			GENEPIO:0001119		Travelled outside Canada					Voyage en dehors du Canada									
+			GENEPIO:0100235	Other Exposure Setting					Autres contextes d’exposition										
+																			
+																			
+travel point of entry type menu	TravelPointOfEntryTypeMenu	Menu «  Type de point d’entrée du voyage »	GENEPIO:0100408	Air					Voie aérienne										
+			GENEPIO:0100409	Land					Voie terrestre										
+																			
+																			
+border testing test day type menu	UmbrellaBioprojectAccessionMenu	Menu « Jour du dépistage à la frontière »	GENEPIO:0100410	day 1					Jour 1										
+			GENEPIO:0100411	day 8					Jour 8										
+			GENEPIO:0100412	day 10					Jour 10										
+																			
+																			
+travel history availability menu	TravelHistoryAvailabilityMenu	Menu « Disponibilité des antécédents de voyage »	GENEPIO:0100650	Travel history available					Antécédents de voyage disponibles										
+			GENEPIO:0100651		Domestic travel history available					Antécédents des voyages intérieurs disponibles									
+			GENEPIO:0100652		International travel history available					Antécédents des voyages internationaux disponibles									
+			GENEPIO:0100653		International and domestic travel history available					Antécédents des voyages intérieurs et internationaux disponibles									
+			GENEPIO:0100654	No travel history available					Aucun antécédent de voyage disponible										
+																			
+																			
+sequencing instrument menu	SequencingInstrumentMenu	Menu « Instrument de séquençage »	GENEPIO:0100105	Illumina					Illumina										
+			GENEPIO:0100106		Illumina Genome Analyzer					Analyseur de génome Illumina									
+			GENEPIO:0100107			Illumina Genome Analyzer II					Analyseur de génome Illumina II								
+			GENEPIO:0100108			Illumina Genome Analyzer IIx					Analyseur de génome Illumina IIx								
+			GENEPIO:0100109		Illumina HiScanSQ					Illumina HiScanSQ									
+			GENEPIO:0100110		Illumina HiSeq 					Illumina HiSeq 									
+			GENEPIO:0100111			Illumina HiSeq X 					Illumina HiSeq X 								
+			GENEPIO:0100112				Illumina HiSeq X Five					Illumina HiSeq X Five							
+			GENEPIO:0100113				Illumina HiSeq X Ten					Illumina HiSeq X Ten							
+			GENEPIO:0100114			Illumina HiSeq 1000					Illumina HiSeq 1000								
+			GENEPIO:0100115			Illumina HiSeq 1500					Illumina HiSeq 1500								
+			GENEPIO:0100116			Illumina HiSeq 2000					Illumina HiSeq 2000								
+			GENEPIO:0100117			Illumina HiSeq 2500					Illumina HiSeq 2500								
+			GENEPIO:0100118			Illumina HiSeq 3000					Illumina HiSeq 3000								
+			GENEPIO:0100119			Illumina HiSeq 4000					Illumina HiSeq 4000								
+			GENEPIO:0100120		Illumina iSeq					Illumina iSeq									
+			GENEPIO:0100121			Illumina iSeq 100					Illumina iSeq 100								
+			GENEPIO:0100122		Illumina NovaSeq					Illumina NovaSeq									
+			GENEPIO:0100123			Illumina NovaSeq 6000					Illumina NovaSeq 6000								
+			GENEPIO:0100124		Illumina MiniSeq					Illumina MiniSeq									
+			GENEPIO:0100125		Illumina MiSeq					Illumina MiSeq									
+			GENEPIO:0100126		Illumina NextSeq 					Illumina NextSeq 									
+			GENEPIO:0100127			Illumina NextSeq 500					Illumina NextSeq 500								
+			GENEPIO:0100128			Illumina NextSeq 550					Illumina NextSeq 550								
+			GENEPIO:0100129			Illumina NextSeq 2000					Illumina NextSeq 2000								
+			GENEPIO:0100130	Pacific Biosciences					Pacific Biosciences										
+			GENEPIO:0100131		PacBio RS					PacBio RS									
+			GENEPIO:0100132		PacBio RS II					PacBio RS II									
+			GENEPIO:0100133		PacBio Sequel					PacBio Sequel									
+			GENEPIO:0100134		PacBio Sequel II					PacBio Sequel II									
+			GENEPIO:0100135	Ion Torrent					Ion Torrent										
+			GENEPIO:0100136		Ion Torrent PGM					Ion Torrent PGM									
+			GENEPIO:0100137		Ion Torrent Proton					Ion Torrent Proton									
+			GENEPIO:0100138		Ion Torrent S5 XL					Ion Torrent S5 XL									
+			GENEPIO:0100139		Ion Torrent S5					Ion Torrent S5									
+			GENEPIO:0100140	Oxford Nanopore					Oxford Nanopore										
+			GENEPIO:0100141		Oxford Nanopore GridION					Oxford Nanopore GridION									
+			GENEPIO:0100142		Oxford Nanopore MinION					Oxford Nanopore MinION									
+			GENEPIO:0100143		Oxford Nanopore PromethION					Oxford Nanopore PromethION									
+			GENEPIO:0100144	BGI Genomics					BGI Genomics										
+			GENEPIO:0100145		BGI Genomics BGISEQ-500					BGI Genomics BGISEQ-500									
+			GENEPIO:0100146	MGI					MGI										
+			GENEPIO:0100147		MGI DNBSEQ-T7					MGI DNBSEQ-T7									
+			GENEPIO:0100148		MGI DNBSEQ-G400					MGI DNBSEQ-G400									
+			GENEPIO:0100149		MGI DNBSEQ-G400 FAST					MGI DNBSEQ-G400 FAST									
+			GENEPIO:0100150		MGI DNBSEQ-G50					MGI DNBSEQ-G50									
+																			
+																			
+gene name menu	GeneNameMenu	Menu « Nom du gène »	GENEPIO:0100151	E gene (orf4)					Gène E (orf4)							E gene		E (orf4)	
+			GENEPIO:0100152	M gene (orf5)					Gène M (orf5)									M (orf5)	
+			GENEPIO:0100153	N gene (orf9)					Gène N (orf9)									N (orf9)	
+			GENEPIO:0100154	Spike gene (orf2)					Gène de pointe (orf2)									S (orf2)	
+			GENEPIO:0100155	orf1ab (rep)					orf1ab (rep)									orf1ab (rep)	
+			GENEPIO:0100156		orf1a (pp1a)					orf1a (pp1a)								   orf1a (pp1a)	
+			GENEPIO:0100157			nsp11					nsp11							      nsp11	
+			GENEPIO:0100158		nsp1 					nsp1 								   nsp1 	
+			GENEPIO:0100159		nsp2 					nsp2 								   nsp2 	
+			GENEPIO:0100160		nsp3 					nsp3 								   nsp3 	
+			GENEPIO:0100161		nsp4 					nsp4 								   nsp4 	
+			GENEPIO:0100162		nsp5 					nsp5 								   nsp5 	
+			GENEPIO:0100163		nsp6 					nsp6 								   nsp6 	
+			GENEPIO:0100164		nsp7 					nsp7 								   nsp7 	
+			GENEPIO:0100165		nsp8 					nsp8 								   nsp8 	
+			GENEPIO:0100166		nsp9 					nsp9 								   nsp9 	
+			GENEPIO:0100167		nsp10 					nsp10 								   nsp10 	
+			GENEPIO:0100168		RdRp gene (nsp12)					Gène RdRp (nsp12)								   nsp12 (RdRp)	
+			GENEPIO:0100169		hel gene (nsp13)					Gène hel (nsp13)								   nsp13 (Hel)	
+			GENEPIO:0100170		exoN gene (nsp14)					Gène exoN (nsp14)								   nsp14 (ExoN)	
+			GENEPIO:0100171		nsp15					nsp15								   nsp15	
+			GENEPIO:0100172		nsp16					nsp16								   nsp16	
+			GENEPIO:0100173	orf3a					orf3a									orf3a	
+			GENEPIO:0100174	orf3b					orf3b									orf3b	
+			GENEPIO:0100175	orf6 (ns6)					orf6 (ns6)									orf6 (ns6)	
+			GENEPIO:0100176	orf7a					orf7a									orf7a	
+			GENEPIO:0100177	orf7b (ns7b)					orf7b (ns7b)									orf7b (ns7b)	
+			GENEPIO:0100178	orf8 (ns8)					orf8 (ns8)									orf8 (ns8)	
+			GENEPIO:0100179	orf9b					orf9b									orf9b	
+			GENEPIO:0100180	orf9c					orf9c									orf9c	
+			GENEPIO:0100181	orf10					orf10									orf10	
+			GENEPIO:0100182	orf14					orf14									orf14	
+			GENEPIO:0100183	SARS-COV-2 5' UTR					SRAS-COV-2 5' UTR										
+																			
+																			
+sequence submitted by menu	SequenceSubmittedByMenu	Menu « Séquence soumise par »		Alberta Precision Labs (APL)					Alberta Precision Labs (APL)										
+					Alberta ProvLab North (APLN)					Alberta ProvLab North (APLN)									
+					Alberta ProvLab South (APLS)					Alberta ProvLab South (APLS)									
+				BCCDC Public Health Laboratory					Laboratoire de santé publique du CCMCB										
+				Canadore College					Canadore College										
+				The Centre for Applied Genomics (TCAG)					The Centre for Applied Genomics (TCAG)										
+				Dynacare					Dynacare										
+				Dynacare (Brampton)					Dynacare (Brampton)										
+				Dynacare (Manitoba)					Dynacare (Manitoba)										
+				The Hospital for Sick Children (SickKids)					The Hospital for Sick Children (SickKids)										
+				Laboratoire de santé publique du Québec (LSPQ)					Laboratoire de santé publique du Québec (LSPQ)										
+				Manitoba Cadham Provincial Laboratory					Laboratoire provincial Cadham du Manitoba										
+				McGill University					Université McGill										
+				McMaster University					Université McMaster										
+				National Microbiology Laboratory (NML)					Laboratoire national de microbiologie (LNM)										
+				New Brunswick - Vitalité Health Network					Nouveau-Brunswick – Réseau de santé Vitalité										
+				Newfoundland and Labrador - Eastern Health					Terre-Neuve-et-Labrador – Eastern Health										
+				Newfoundland and Labrador - Newfoundland and Labrador Health Services					Terre-Neuve-et-Labrador – Newfoundland and Labrador Health Services										
+				Nova Scotia Health Authority					Autorité sanitaire de la Nouvelle-Écosse										
+				Ontario Institute for Cancer Research (OICR)					Institut ontarien de recherche sur le cancer (IORC)										
+				Prince Edward Island - Health PEI					Île-du-Prince-Édouard – Santé Î.-P.-É.										
+				Public Health Ontario (PHO)					Santé publique Ontario (SPO)										
+				Queen's University / Kingston Health Sciences Centre					Université Queen’s – Centre des sciences de la santé de Kingston										
+				Saskatchewan - Roy Romanow Provincial Laboratory (RRPL)					Saskatchewan – Laboratoire provincial Roy Romanow										
+				Sunnybrook Health Sciences Centre					Sunnybrook Health Sciences Centre										
+				Thunder Bay Regional Health Sciences Centre					"Centre régional des sciences
+de la santé de Thunder Bay"										
+																			
+																			
+sample collected by menu	SampleCollectedByMenu	Menu « Échantillon prélevé par »		Alberta Precision Labs (APL)					Alberta Precision Labs (APL)										
+					Alberta ProvLab North (APLN)					Alberta ProvLab North (APLN)									
+					Alberta ProvLab South (APLS)					Alberta ProvLab South (APLS)									
+				BCCDC Public Health Laboratory					Laboratoire de santé publique du CCMCB										
+				Dynacare					Dynacare										
+				Dynacare (Manitoba)					Dynacare (Manitoba)										
+				Dynacare (Brampton)					Dynacare (Brampton)										
+				Eastern Ontario Regional Laboratory Association					Association des laboratoires régionaux de l’Est de l’Ontario										
+				Hamilton Health Sciences					Hamilton Health Sciences										
+				The Hospital for Sick Children (SickKids)					The Hospital for Sick Children (SickKids)										
+				Laboratoire de santé publique du Québec (LSPQ)					Laboratoire de santé publique du Québec (LSPQ)										
+				Lake of the Woods District Hospital - Ontario					Lake of the Woods District Hospital – Ontario										
+				LifeLabs					LifeLabs										
+				LifeLabs (Ontario)					LifeLabs (Ontario)										
+				Manitoba Cadham Provincial Laboratory					Laboratoire provincial Cadham du Manitoba										
+				McMaster University					Université McMaster										
+				Mount Sinai Hospital					Mount Sinai Hospital										
+				National Microbiology Laboratory (NML)					Laboratoire national de microbiologie (LNM)										
+				New Brunswick - Vitalité Health Network					Nouveau-Brunswick – Réseau de santé Vitalité										
+				Newfoundland and Labrador - Eastern Health					Terre-Neuve-et-Labrador – Eastern Health										
+				Newfoundland and Labrador - Newfoundland and Labrador Health Services					Terre-Neuve-et-Labrador – Newfoundland and Labrador Health Services										
+				Nova Scotia Health Authority					Autorité sanitaire de la Nouvelle-Écosse										
+				Nunavut					Nunavut										
+				Ontario Institute for Cancer Research (OICR)					Institut ontarien de recherche sur le cancer (IORC)										
+				Prince Edward Island - Health PEI					Île-du-Prince-Édouard – Santé Î.-P.-É.										
+				Public Health Ontario (PHO)					Santé publique Ontario (SPO)										
+				Queen's University / Kingston Health Sciences Centre					Université Queen’s – Centre des sciences de la santé de Kingston										
+				Saskatchewan - Roy Romanow Provincial Laboratory (RRPL)					Saskatchewan – Laboratoire provincial Roy Romanow										
+				Shared Hospital Laboratory					Shared Hospital Laboratory										
+				St. John's Rehab at Sunnybrook Hospital					St. John’s Rehab à l’hôpital Sunnybrook										
+				Switch Health					Switch Health										
+				Sunnybrook Health Sciences Centre					Sunnybrook Health Sciences Centre										
+				Unity Health Toronto					Unity Health Toronto										
+				William Osler Health System					William Osler Health System										
+																			
+																			
+geo_loc_name (country) menu	GeoLocNameCountryMenu	Menu « nom_lieu_géo (pays) »	GAZ:00006882	Afghanistan					Afghanistan										
+			GAZ:00002953	Albania					Albanie										
+			GAZ:00000563	Algeria					Algérie										
+			GAZ:00003957	American Samoa					Samoa américaines										
+			GAZ:00002948	Andorra					Andorre										
+			GAZ:00001095	Angola					Angola										
+			GAZ:00009159	Anguilla					Anguilla										
+			GAZ:00000462	Antarctica					Antarctique										
+			GAZ:00006883	Antigua and Barbuda					Antigua-et-Barbuda										
+			GAZ:00002928	Argentina					Argentine										
+			GAZ:00004094	Armenia					Arménie										
+			GAZ:00004025	Aruba					Aruba										
+			GAZ:00005901	Ashmore and Cartier Islands					Îles Ashmore et Cartier										
+			GAZ:00000463	Australia					Australie										
+			GAZ:00002942	Austria					Autriche										
+			GAZ:00004941	Azerbaijan					Azerbaïdjan										
+			GAZ:00002733	Bahamas					Bahamas										
+			GAZ:00005281	Bahrain					Bahreïn										
+			GAZ:00007117	Baker Island					Île Baker										
+			GAZ:00003750	Bangladesh					Bangladesh										
+			GAZ:00001251	Barbados					Barbade										
+			GAZ:00005810	Bassas da India					Bassas de l’Inde										
+			GAZ:00006886	Belarus					Bélarus										
+			GAZ:00002938	Belgium					Belgique										
+			GAZ:00002934	Belize					Bélize										
+			GAZ:00000904	Benin					Bénin										
+			GAZ:00001264	Bermuda					Bermudes										
+			GAZ:00003920	Bhutan					Bhoutan										
+			GAZ:00002511	Bolivia					Bolivie										
+			GAZ:00025355	Borneo					Bornéo										
+			GAZ:00006887	Bosnia and Herzegovina					Bosnie-Herzégovine										
+			GAZ:00001097	Botswana					Botswana										
+			GAZ:00001453	Bouvet Island					Île Bouvet										
+			GAZ:00002828	Brazil					Brésil										
+			GAZ:00003961	British Virgin Islands					Îles Vierges britanniques										
+			GAZ:00003901	Brunei					Brunei										
+			GAZ:00002950	Bulgaria					Bulgarie										
+			GAZ:00000905	Burkina Faso					Burkina Faso										
+			GAZ:00001090	Burundi					Burundi										
+			GAZ:00006888	Cambodia					Cambodge										
+			GAZ:00001093	Cameroon					Cameroun										
+			GAZ:00002560	Canada					Canada										
+			GAZ:00001227	Cape Verde					Cap-Vert										
+			GAZ:00003986	Cayman Islands					Îles Caïmans										
+			GAZ:00001089	Central African Republic					République centrafricaine										
+			GAZ:00000586	Chad					Tchad										
+			GAZ:00002825	Chile					Chili										
+			GAZ:00002845	China					Chine										
+			GAZ:00005915	Christmas Island					Île Christmas										
+			GAZ:00005838	Clipperton Island					Îlot de Clipperton										
+			GAZ:00009721	Cocos Islands					Îles Cocos										
+			GAZ:00002929	Colombia					Colombie										
+			GAZ:00005820	Comoros					Comores										
+			GAZ:00053798	Cook Islands					Îles Cook										
+			GAZ:00005917	Coral Sea Islands					Îles de la mer de Corail										
+			GAZ:00002901	Costa Rica					Costa Rica										
+			GAZ:00000906	Cote d'Ivoire					Côte d’Ivoire										
+			GAZ:00002719	Croatia					Croatie										
+			GAZ:00003762	Cuba					Cuba										
+			GAZ:00012582	Curacao					Curaçao										
+			GAZ:00004006	Cyprus					Chypre										
+			GAZ:00002954	Czech Republic					République tchèque										
+			GAZ:00001086	Democratic Republic of the Congo					République démocratique du Congo										
+			GAZ:00005852	Denmark					Danemark										
+			GAZ:00000582	Djibouti					Djibouti										
+			GAZ:00006890	Dominica					Dominique										
+			GAZ:00003952	Dominican Republic					République dominicaine										
+			GAZ:00002912	Ecuador					Équateur										
+			GAZ:00003934	Egypt					Égypte										
+			GAZ:00002935	El Salvador					Salvador										
+			GAZ:00001091	Equatorial Guinea					Guinée équatoriale										
+			GAZ:00000581	Eritrea					Érythrée										
+			GAZ:00002959	Estonia					Estonie										
+			GAZ:00001099	Eswatini					Eswatini										
+			GAZ:00000567	Ethiopia					Éthiopie										
+			GAZ:00005811	Europa Island					Île Europa										
+			GAZ:00001412	Falkland Islands (Islas Malvinas)					Îles Falkland (îles Malouines)										
+			GAZ:00059206	Faroe Islands					Îles Féroé										
+			GAZ:00006891	Fiji					Fidji										
+			GAZ:00002937	Finland					Finlande										
+			GAZ:00003940	France					France										
+			GAZ:00002516	French Guiana					Guyane française										
+			GAZ:00002918	French Polynesia					Polynésie française										
+			GAZ:00003753	French Southern and Antarctic Lands					Terres australes et antarctiques françaises										
+			GAZ:00001092	Gabon					Gabon										
+			GAZ:00000907	Gambia					Gambie										
+			GAZ:00009571	Gaza Strip					Bande de Gaza										
+			GAZ:00004942	Georgia					Géorgie										
+			GAZ:00002646	Germany					Allemagne										
+			GAZ:00000908	Ghana					Ghana										
+			GAZ:00003987	Gibraltar					Gibraltar										
+			GAZ:00005808	Glorioso Islands					Îles Glorieuses										
+			GAZ:00002945	Greece					Grèce										
+			GAZ:00001507	Greenland					Groenland										
+			GAZ:02000573	Grenada					Grenade										
+			GAZ:00067142	Guadeloupe					Guadeloupe										
+			GAZ:00003706	Guam					Guam										
+			GAZ:00002936	Guatemala					Guatemala										
+			GAZ:00001550	Guernsey					Guernesey										
+			GAZ:00000909	Guinea					Guinée										
+			GAZ:00000910	Guinea-Bissau					Guinée-Bissau										
+			GAZ:00002522	Guyana					Guyana										
+			GAZ:00003953	Haiti					Haïti										
+			GAZ:00009718	Heard Island and McDonald Islands					Îles Heard-et-McDonald										
+			GAZ:00002894	Honduras					Honduras										
+			GAZ:00003203	Hong Kong					Hong Kong										
+			GAZ:00007120	Howland Island					Île Howland										
+			GAZ:00002952	Hungary					Hongrie										
+			GAZ:00000843	Iceland					Islande										
+			GAZ:00002839	India					Inde										
+			GAZ:00003727	Indonesia					Indonésie										
+			GAZ:00004474	Iran					Iran										
+			GAZ:00004483	Iraq					Iraq										
+			GAZ:00002943	Ireland					Irlande										
+			GAZ:00052477	Isle of Man					île de Man										
+			GAZ:00002476	Israel					Israël										
+			GAZ:00002650	Italy					Italie										
+			GAZ:00003781	Jamaica					Jamaïque										
+			GAZ:00005853	Jan Mayen					Jan Mayen										
+			GAZ:00002747	Japan					Japon										
+			GAZ:00007118	Jarvis Island					Île Jarvis										
+			GAZ:00001551	Jersey					Jersey										
+			GAZ:00007114	Johnston Atoll					Atoll Johnston										
+			GAZ:00002473	Jordan					Jordanie										
+			GAZ:00005809	Juan de Nova Island					Île Juan de Nova										
+			GAZ:00004999	Kazakhstan					Kazakhstan										
+			GAZ:00001101	Kenya					Kenya										
+			GAZ:00005682	Kerguelen Archipelago					Archipel Kerguelen										
+			GAZ:00007116	Kingman Reef					Récif de Kingman										
+			GAZ:00006894	Kiribati					Kiribati										
+			GAZ:00011337	Kosovo					Kosovo										
+			GAZ:00005285	Kuwait					Koweït										
+			GAZ:00006893	Kyrgyzstan					Kirghizistan										
+			GAZ:00006889	Laos					Laos										
+			GAZ:00002958	Latvia					Lettonie										
+			GAZ:00002478	Lebanon					Liban										
+			GAZ:00001098	Lesotho					Lesotho										
+			GAZ:00000911	Liberia					Libéria										
+			GAZ:00000566	Libya					Libye										
+			GAZ:00003858	Liechtenstein					Liechtenstein										
+			GAZ:00007144	Line Islands					Îles de la Ligne										
+			GAZ:00002960	Lithuania					Lituanie										
+			GAZ:00002947	Luxembourg					Luxembourg										
+			GAZ:00003202	Macau					Macao										
+			GAZ:00001108	Madagascar					Madagascar										
+			GAZ:00001105	Malawi					Malawi										
+			GAZ:00003902	Malaysia					Malaisie										
+			GAZ:00006924	Maldives					Maldives										
+			GAZ:00000584	Mali					Mali										
+			GAZ:00004017	Malta					Malte										
+			GAZ:00007161	Marshall Islands					Îles Marshall										
+			GAZ:00067143	Martinique					Martinique										
+			GAZ:00000583	Mauritania					Mauritanie										
+			GAZ:00003745	Mauritius					Maurice										
+			GAZ:00003943	Mayotte					Mayotte										
+			GAZ:00002852	Mexico					Mexique										
+			GAZ:00005862	Micronesia					Micronésie										
+			GAZ:00007112	Midway Islands					Îles Midway										
+			GAZ:00003897	Moldova					Moldavie										
+			GAZ:00003857	Monaco					Monaco										
+			GAZ:00008744	Mongolia					Mongolie										
+			GAZ:00006898	Montenegro					Monténégro										
+			GAZ:00003988	Montserrat					Montserrat										
+			GAZ:00000565	Morocco					Maroc										
+			GAZ:00001100	Mozambique					Mozambique										
+			GAZ:00006899	Myanmar					Myanmar										
+			GAZ:00001096	Namibia					Namibie										
+			GAZ:00006900	Nauru					Nauru										
+			GAZ:00007119	Navassa Island					Île Navassa										
+			GAZ:00004399	Nepal					Népal										
+			GAZ:00002946	Netherlands					Pays-Bas										
+			GAZ:00005206	New Caledonia					Nouvelle-Calédonie										
+			GAZ:00000469	New Zealand					Nouvelle-Zélande										
+			GAZ:00002978	Nicaragua					Nicaragua										
+			GAZ:00000585	Niger					Niger										
+			GAZ:00000912	Nigeria					Nigéria										
+			GAZ:00006902	Niue					Nioué										
+			GAZ:00005908	Norfolk Island					Île Norfolk										
+			GAZ:00002801	North Korea					Corée du Nord										
+			GAZ:00006895	North Macedonia					Macédoine du Nord										
+			GAZ:00002284	North Sea					Mer du Nord										
+			GAZ:00003958	Northern Mariana Islands					Îles Mariannes du Nord										
+			GAZ:00002699	Norway					Norvège										
+			GAZ:00005283	Oman					Oman										
+			GAZ:00005246	Pakistan					Pakistan										
+			GAZ:00006905	Palau					Palaos										
+			GAZ:00002892	Panama					Panama										
+			GAZ:00003922	Papua New Guinea					Papouasie-Nouvelle-Guinée										
+			GAZ:00010832	Paracel Islands					Îles Paracel										
+			GAZ:00002933	Paraguay					Paraguay										
+			GAZ:00002932	Peru					Pérou										
+			GAZ:00004525	Philippines					Philippines										
+			GAZ:00005867	Pitcairn Islands					Île Pitcairn										
+			GAZ:00002939	Poland					Pologne										
+			GAZ:00004126	Portugal					Portugal										
+			GAZ:00006935	Puerto Rico					Porto Rico										
+			GAZ:00005286	Qatar					Qatar										
+			GAZ:00001088	Republic of the Congo					République du Congo										
+			GAZ:00003945	Reunion					Réunion										
+			GAZ:00002951	Romania					Roumanie										
+			GAZ:00023304	Ross Sea					Mer de Ross										
+			GAZ:00002721	Russia					Russie										
+			GAZ:00001087	Rwanda					Rwanda										
+			GAZ:00000849	Saint Helena					Sainte-Hélène										
+			GAZ:00006906	Saint Kitts and Nevis					Saint-Kitts-et-Nevis										
+			GAZ:00006909	Saint Lucia					Sainte-Lucie										
+			GAZ:00003942	Saint Pierre and Miquelon					Saint-Pierre-et-Miquelon										
+			GAZ:00005841	Saint Martin					Saint-Martin										
+			GAZ:02000565	Saint Vincent and the Grenadines					Saint-Vincent-et-les-Grenadines										
+			GAZ:00006910	Samoa					Samoa										
+			GAZ:00003102	San Marino					Saint-Marin										
+			GAZ:00006927	Sao Tome and Principe					Sao Tomé-et-Principe										
+			GAZ:00005279	Saudi Arabia					Arabie saoudite										
+			GAZ:00000913	Senegal					Sénégal										
+			GAZ:00002957	Serbia					Serbie										
+			GAZ:00006922	Seychelles					Seychelles										
+			GAZ:00000914	Sierra Leone					Sierra Leone										
+			GAZ:00003923	Singapore					Singapour										
+			GAZ:00012579	Sint Maarten					Saint-Martin										
+			GAZ:00002956	Slovakia					Slovaquie										
+			GAZ:00002955	Slovenia					Slovénie										
+			GAZ:00005275	Solomon Islands					Îles Salomon										
+			GAZ:00001104	Somalia					Somalie										
+			GAZ:00001094	South Africa					Afrique du Sud										
+			GAZ:00003990	South Georgia and the South Sandwich Islands					Géorgie du Sud et îles Sandwich du Sud										
+			GAZ:00002802	South Korea					Corée du Sud										
+			GAZ:00233439	South Sudan					Soudan du Sud										
+			GAZ:00000591	Spain					Espagne										
+			GAZ:00010831	Spratly Islands					Îles Spratly										
+			GAZ:00003924	Sri Lanka					Sri Lanka										
+			GAZ:00002475	State of Palestine					État de Palestine										
+			GAZ:00000560	Sudan					Soudan										
+			GAZ:00002525	Suriname					Suriname										
+			GAZ:00005396	Svalbard					Svalbard										
+			GAZ:00001099	Swaziland					Swaziland										
+			GAZ:00002729	Sweden					Suède										
+			GAZ:00002941	Switzerland					Suisse										
+			GAZ:00002474	Syria					Syrie										
+			GAZ:00005341	Taiwan					Taïwan										
+			GAZ:00006912	Tajikistan					Tadjikistan										
+			GAZ:00001103	Tanzania					Tanzanie										
+			GAZ:00003744	Thailand					Thaïlande										
+			GAZ:00006913	Timor-Leste					Timor-Leste										
+			GAZ:00000915	Togo					Togo										
+			GAZ:00260188	Tokelau					Tokelaou										
+			GAZ:00006916	Tonga					Tonga										
+			GAZ:00003767	Trinidad and Tobago					Trinité-et-Tobago										
+			GAZ:00005812	Tromelin Island					Île Tromelin										
+			GAZ:00000562	Tunisia					Tunisie										
+			GAZ:00000558	Turkey					Turquie										
+			GAZ:00005018	Turkmenistan					Turkménistan										
+			GAZ:00003955	Turks and Caicos Islands					Îles Turks et Caicos										
+			GAZ:00009715	Tuvalu					Tuvalu										
+			GAZ:00002459	United States of America					États-Unis										
+			GAZ:00001102	Uganda					Ouganda										
+			GAZ:00002724	Ukraine					Ukraine										
+			GAZ:00005282	United Arab Emirates					Émirats arabes unis										
+			GAZ:00002637	United Kingdom					Royaume-Uni										
+			GAZ:00002930	Uruguay					Uruguay										
+			GAZ:00004979	Uzbekistan					Ouzbékistan										
+			GAZ:00006918	Vanuatu					Vanuatu										
+			GAZ:00002931	Venezuela					Venezuela										
+			GAZ:00003756	Viet Nam					Vietnam										
+			GAZ:00003959	Virgin Islands					Îles vierges										
+			GAZ:00007111	Wake Island					Île de Wake										
+			GAZ:00007191	Wallis and Futuna					Wallis-et-Futuna										
+			GAZ:00009572	West Bank					Cisjordanie										
+			GAZ:00000564	Western Sahara					République arabe sahraouie démocratique										
+			GAZ:00005284	Yemen					Yémen										
+			GAZ:00001107	Zambia					Zambie										
+			GAZ:00001106	Zimbabwe					Zimbabwe										
+																			
+																			
