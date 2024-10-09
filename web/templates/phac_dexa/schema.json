@@ -1,8 +1,8 @@
 {
-  "name": "PHAC_Dexa",
+  "name": "PHACDexa",
   "description": "",
   "id": "https://example.com/PHAC_Dexa",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "prefixes": {
     "linkml": {
       "prefix_prefix": "linkml",
