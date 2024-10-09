@@ -83,5 +83,32 @@
       "status": "published",
       "display": true
     }
+  },
+  "hpai": {
+    "HPAI": {
+      "name": "HPAI",
+      "status": "published",
+      "display": true
+    },
+    "HPAIFood": {
+      "name": "HPAIFood",
+      "status": "published",
+      "display": true
+    },
+    "HPAIWW": {
+      "name": "HPAIWW",
+      "status": "published",
+      "display": true
+    },
+    "HPAIEnviro": {
+      "name": "HPAIEnviro",
+      "status": "published",
+      "display": true
+    },
+    "HPAIHost": {
+      "name": "HPAIHost",
+      "status": "published",
+      "display": true
+    }
   }
 }

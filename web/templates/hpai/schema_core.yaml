@@ -1,0 +1,73 @@
+id: https://example.com/hpai
+name: Mpox
+version: 4.3.3
+description: "The HPAI specification was developed by the Public Health Alliance for Genomic Epidemiology (PHA4GE) to better enable harmonization of highly pathogenic avian influenza genomic surveillance contextual data. The specification is intended to support H5N1 monitoring, and provides standardized, ontology-based fields and terms for samples, sequences, and bioinformatics analysis."
+imports:
+  - 'linkml:types'
+prefixes:
+  linkml: 'https://w3id.org/linkml/'
+  GENEPIO: 'http://purl.obolibrary.org/obo/GENEPIO_'
+classes:
+  dh_interface:
+    name: dh_interface
+    description: 'A DataHarmonizer interface'
+    from_schema: https://example.com/hpai
+  'HPAI':
+    name: 'HPAI'
+    title: 'HPAI'
+    description: 
+    is_a: dh_interface
+    see_also: 
+    annotations:
+      version: 1.0.0
+  'HPAIFood':
+    name: 'HPAIFood'
+    title: 'HPAI Food'
+    description: 
+    is_a: dh_interface
+    see_also: 
+    annotations:
+      version: 1.0.0
+  'HPAIWW':
+    name: 'HPAIWW'
+    title: 'HPAI Wastewater'
+    description: 
+    is_a: dh_interface
+    see_also: 
+    annotations:
+      version: 1.0.0
+  'HPAIEnviro':
+    name: 'HPAIEnviro'
+    title: 'HPAI Environmental'
+    description: 
+    is_a: dh_interface
+    see_also: 
+    annotations:
+      version: 1.0.0
+  'HPAIHost':
+    name: 'HPAIHost'
+    title: 'HPAI Host'
+    description: 
+    is_a: dh_interface
+    see_also: 
+    annotations:
+      version: 1.0.0
+slots: {}
+enums: {}
+types:
+  WhitespaceMinimizedString:
+    name: 'WhitespaceMinimizedString'
+    typeof: string
+    description: 'A string that has all whitespace trimmed off of beginning and end, and all internal whitespace segments reduced to single spaces. Whitespace includes #x9 (tab), #xA (linefeed), and #xD (carriage return).'
+    base: str
+    uri: xsd:token
+  Provenance:
+    name: 'Provenance'
+    typeof: string
+    description: 'A field containing a DataHarmonizer versioning marker. It is issued by DataHarmonizer when validation is applied to a given row of data.'
+    base: str
+    uri: xsd:token
+settings:
+  Title_Case: "(((?<=\\b)[^a-z\\W]\\w*?|[\\W])+)"
+  UPPER_CASE: "[A-Z\\W\\d_]*"
+  lower_case: "[a-z\\W\\d_]*"
