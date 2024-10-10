@@ -8,16 +8,11 @@ prefixes:
   linkml: https://w3id.org/linkml/
   GENEPIO: http://purl.obolibrary.org/obo/GENEPIO_
 classes:
-  dh_interface:
-    name: dh_interface
-    description: A DataHarmonizer interface
-    from_schema: https://example.com/GRDI
   GRDISample:
     name: GRDISample
     title: GRDI Sample
     description: Specification for GRDI virus biosample data gathering
     from_schema: https://example.com/GRDI
-    is_a: dh_interface
     unique_keys:
       grdisample_id:
         description: A GRDI Sample is uniquely identified by the sample_collector_sample_id
@@ -770,7 +765,6 @@ classes:
     title: GRDI Sample
     description: Antimicrobial test result
     from_schema: https://example.com/GRDI
-    is_a: dh_interface
     unique_keys:
       amrtest_id:
         description: An AMR test is uniquely identified by the sample_collector_sample_id
@@ -778,25 +772,15 @@ classes:
         unique_key_slots:
         - sample_collector_sample_id
         - antimicrobial_drug
-    slots:
-    - sample_collector_sample_id
-    - antimicrobial_drug
-    - resistance_phenotype
-    - measurement
-    - measurement_units
-    - measurement_sign
-    - laboratory_typing_method
-    - laboratory_typing_platform
-    - laboratory_typing_platform_version
-    - vendor_name
-    - testing_standard
-    - testing_standard_version
-    - testing_standard_details
-    - susceptible_breakpoint
-    - intermediate_breakpoint
-    - resistant_breakpoint
     slot_usage:
       sample_collector_sample_id:
+        annotations:
+          required:
+            tag: required
+            value: true
+          foreign_key:
+            tag: foreign_key
+            value: GRDISample.sample_collector_sample_id
         rank: 1
         slot_group: Key
         range: GRDISample
@@ -849,6 +833,23 @@ classes:
       resistant_breakpoint:
         rank: 16
         slot_group: Antimicrobial resistance
+    slots:
+    - sample_collector_sample_id
+    - antimicrobial_drug
+    - resistance_phenotype
+    - measurement
+    - measurement_units
+    - measurement_sign
+    - laboratory_typing_method
+    - laboratory_typing_platform
+    - laboratory_typing_platform_version
+    - vendor_name
+    - testing_standard
+    - testing_standard_version
+    - testing_standard_details
+    - susceptible_breakpoint
+    - intermediate_breakpoint
+    - resistant_breakpoint
   Container:
     name: Container
     from_schema: https://example.com/GRDI
@@ -856,16 +857,16 @@ classes:
       GRDISamples:
         name: GRDISamples
         from_schema: https://example.com/GRDI
-        multivalued: 'true'
+        multivalued: true
         range: GRDISample
-        inlined_as_list: 'true'
+        inlined_as_list: true
       AMRTests:
         name: AMRTests
         from_schema: https://example.com/GRDI
         multivalued: 'true'
         range: AMRTest
-        inlined_as_list: 'true'
-    tree_root: 'true'
+        inlined_as_list: true
+    tree_root: true
 slots:
   sample_collector_sample_id:
     name: sample_collector_sample_id
@@ -1892,32 +1893,54 @@ slots:
     - range: SamplingWeatherConditionsMenu
     - range: NullValueMenu
     multivalued: true
+    examples:
+    - value: Rain [ENVO:01001564]
   presampling_weather_conditions:
     name: presampling_weather_conditions
     title: presampling_weather_conditions
+    description: Weather conditions prior to collection that may affect the sample.
+    comments: Provide the weather conditions prior to sample collection.
     slot_uri: GENEPIO:0100780
     any_of:
     - range: SamplingWeatherConditionsMenu
     - range: NullValueMenu
+    examples:
+    - value: Rain [ENVO:01001564]
   precipitation_measurement_value:
     name: precipitation_measurement_value
     title: precipitation_measurement_value
+    description: The amount of water which has fallen during a precipitation process.
+    comments: Provide the quantity of precipitation in the area leading up to the
+      time of sample collection.
     slot_uri: GENEPIO:0100911
     any_of:
     - range: Whitespaceminimizedstring
     - range: NullValueMenu
+    examples:
+    - value: '12'
   precipitation_measurement_unit:
     name: precipitation_measurement_unit
     title: precipitation_measurement_unit
+    description: The units of measurement for the amount of water which has fallen
+      during a precipitation process.
+    comments: Provide the units of precipitation by selecting a value from the pick
+      list.
     slot_uri: GENEPIO:0100912
     any_of:
     - range: PrecipitationMeasurementUnitMenu
     - range: NullValueMenu
+    examples:
+    - value: inch
   precipitation_measurement_method:
     name: precipitation_measurement_method
     title: precipitation_measurement_method
+    description: The process used to measure the amount of water which has fallen
+      during a precipitation process.
+    comments: Provide the name of the procedure or method used to measure precipitation.
     slot_uri: GENEPIO:0100913
     range: WhitespaceMinimizedString
+    examples:
+    - value: Rain gauge over a 12 hour period prior to sample collection
   host_common_name:
     name: host_common_name
     title: host (common name)
@@ -2065,6 +2088,7 @@ slots:
     - value: SA20131043
     exact_mappings:
     - NCBI_BIOSAMPLE_Enterics:strain
+    - NCBI_ANTIBIOGRAM:sample_name/biosample_accession
   alternative_isolate_id:
     name: alternative_isolate_id
     title: alternative_isolate_ID
@@ -7254,6 +7278,8 @@ enums:
         - NCBI_ANTIBIOGRAM:disk%20diffusion
       Antimicrobial gradient (E-test) [NCIT:85596]:
         text: Antimicrobial gradient (E-test) [NCIT:85596]
+        exact_mappings:
+        - NCBI_ANTIBIOGRAM:disk%20diffusion
         is_a: Agar diffusion [NCIT:85595]
       Agar dilution [ARO:3004411]:
         text: Agar dilution [ARO:3004411]
