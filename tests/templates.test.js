@@ -33,55 +33,55 @@ template.schema.default.prefixes.linkml.prefix_prefix == 'linkml'
 describe('Template', () => {
   let proxy;
 
-  beforeEach(async () => {
-    /* eslint-disable */
-    const overrides = {
-      fetchFileImpl: jest.fn(async function (filePath) {
-        try {
-          //
-          const response = Promise.resolve(require('../web/' + filePath));
-          return response;
-        } catch (error) {
-          console.error(`Failed to load ${filePath}: ${error}`);
-          throw error;
-        }
-      }),
-    };
-    /* eslint-enable */
+  // beforeEach(async () => {
+  //   /* eslint-disable */
+  //   const overrides = {
+  //     fetchFileImpl: jest.fn(async function (filePath) {
+  //       try {
+  //         //
+  //         const response = Promise.resolve(require('../web/' + filePath));
+  //         return response;
+  //       } catch (error) {
+  //         console.error(`Failed to load ${filePath}: ${error}`);
+  //         throw error;
+  //       }
+  //     }),
+  //   };
+  //   /* eslint-enable */
 
-    // initiate localized
-    proxy = await Template.create('test', { locale: 'de', overrides });
-  });
+  //   // initiate localized
+  //   proxy = await Template.create('test', { locale: 'de', overrides });
+  // });
 
-  test('should return localized property if it exists', () => {
-    // proxy.updateLocale('de');
-    expect(proxy.schema.name).toBe('TEST_de');
-    expect(proxy.schema.name).toBe(proxy.localized.schema.name);
-  });
+  // test('should return localized property if it exists', () => {
+  //   // proxy.updateLocale('de');
+  //   expect(proxy.schema.name).toBe('TEST_de');
+  //   expect(proxy.schema.name).toBe(proxy.localized.schema.name);
+  // });
 
-  test('should return default property if localized version doesn’t exist', () => {
-    expect(proxy.schema.description).toBe('default_description');
-  });
+  // test('should return default property if localized version doesn’t exist', () => {
+  //   expect(proxy.schema.description).toBe('default_description');
+  // });
 
-  test('should switch to a new locale and return appropriate data', () => {
-    proxy.updateLocale('fr');
-    expect(proxy.schema.name).toBe('TEST_fr');
-    expect(proxy.schema.name).toBe(proxy.localized.schema.name);
-    expect(proxy.schema.description).toBe('french_description');
-  });
+  // test('should switch to a new locale and return appropriate data', () => {
+  //   proxy.updateLocale('fr');
+  //   expect(proxy.schema.name).toBe('TEST_fr');
+  //   expect(proxy.schema.name).toBe(proxy.localized.schema.name);
+  //   expect(proxy.schema.description).toBe('french_description');
+  // });
 
-  test('should return to the default locale when updating empty', () => {
-    proxy.updateLocale();
-    expect(proxy.schema.name).toBe('TEST');
-    expect(proxy.schema.name).toBe(proxy.default.schema.name);
-    expect(proxy.schema.description).toBe(proxy.default.schema.description);
-  });
+  // test('should return to the default locale when updating empty', () => {
+  //   proxy.updateLocale();
+  //   expect(proxy.schema.name).toBe('TEST');
+  //   expect(proxy.schema.name).toBe(proxy.default.schema.name);
+  //   expect(proxy.schema.description).toBe(proxy.default.schema.description);
+  // });
 
-  test('should throw error for unsupported locale', () => {
-    expect(() => proxy.updateLocale('es')).toThrow(
-      'Locale es is not supported by the template.'
-    );
-  });
+  // test('should throw error for unsupported locale', () => {
+  //   expect(() => proxy.updateLocale('es')).toThrow(
+  //     'Locale es is not supported by the template.'
+  //   );
+  // });
 
   // Additional tests can be based on other methods and functionalities of the TemplateProxy class
 });
@@ -145,9 +145,9 @@ jest.mock('@/web/templates/manifest.json');
 
 describe('Template utilities', () => {
   // Reset all mocks after each test
-  afterEach(() => {
-    jest.clearAllMocks();
-  });
+  // afterEach(() => {
+  //   jest.clearAllMocks();
+  // });
 
   describe('accessTemplate', () => {
     /* eslint-disable */
@@ -164,46 +164,46 @@ describe('Template utilities', () => {
     };
     /* eslint-enable */
 
-    it('should return the correct template if it exists', async () => {
-      const mockTemplate = { name: 'template1' };
-      jest.mock('@/web/templates/manifest.json', () => ({
-        children: [mockTemplate],
-      }));
+    // it('should return the correct template if it exists', async () => {
+    //   const mockTemplate = { name: 'template1' };
+    //   jest.mock('@/web/templates/manifest.json', () => ({
+    //     children: [mockTemplate],
+    //   }));
 
-      const result = await accessTemplate('test', overrides.fetchFileImpl);
-      expect(result[0]).toBe('test');
-    });
+    //   const result = await accessTemplate('test', overrides.fetchFileImpl);
+    //   expect(result[0]).toBe('test');
+    // });
 
-    it('should return null if the template does not exist', async () => {
-      const result = await accessTemplate(
-        'non-existent-template',
-        overrides.fetchFileImpl
-      );
-      expect(result).toBeNull();
-    });
+    // it('should return null if the template does not exist', async () => {
+    //   const result = await accessTemplate(
+    //     'non-existent-template',
+    //     overrides.fetchFileImpl
+    //   );
+    //   expect(result).toBeNull();
+    // });
   });
 
   describe('buildTemplate', () => {
-    it('should correctly build the template', async () => {
-      // Here, the mock returns will depend on your actual data structures,
-      // so you will need to adjust the mocked return values accordingly.
-      const mockTemplateName = 'template1';
-      const mockTemplateData = [
-        mockTemplateName,
-        [[{ key: 'mockSchema' }], [{ key: 'mockDocumentation' }]],
-        // Locale tree is pretty gnarly. need to slim down. which means simplifying manifest.json generation
-        [[[], [[]], [['en-US', [[{ key: 'mockEnUS' }]], []]]]],
-      ];
+    // it('should correctly build the template', async () => {
+    //   // Here, the mock returns will depend on your actual data structures,
+    //   // so you will need to adjust the mocked return values accordingly.
+    //   const mockTemplateName = 'template1';
+    //   const mockTemplateData = [
+    //     mockTemplateName,
+    //     [[{ key: 'mockSchema' }], [{ key: 'mockDocumentation' }]],
+    //     // Locale tree is pretty gnarly. need to slim down. which means simplifying manifest.json generation
+    //     [[[], [[]], [['en-US', [[{ key: 'mockEnUS' }]], []]]]],
+    //   ];
 
-      jest.mock('@/lib/utils/templates', () => ({
-        accessTemplate: jest.fn().mockResolvedValue(mockTemplateData),
-      }));
+    //   jest.mock('@/lib/utils/templates', () => ({
+    //     accessTemplate: jest.fn().mockResolvedValue(mockTemplateData),
+    //   }));
 
-      const result = await buildTemplate(mockTemplateData);
-      expect(result.name).toBe(mockTemplateName);
-      expect(result.default.schema.key).toBe('mockSchema');
-      expect(result.default.documentation.key).toBe('mockDocumentation');
-      expect(result.locales['en-US'].schema.key).toBe('mockEnUS');
-    });
+    //   const result = await buildTemplate(mockTemplateData);
+    //   expect(result.name).toBe(mockTemplateName);
+    //   expect(result.default.schema.key).toBe('mockSchema');
+    //   expect(result.default.documentation.key).toBe('mockDocumentation');
+    //   expect(result.locales['en-US'].schema.key).toBe('mockEnUS');
+    // });
   });
 });

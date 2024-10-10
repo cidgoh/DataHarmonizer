@@ -1,23 +1,24 @@
 id: https://example.com/GRDI
 name: GRDI
 description: ''
-version: 12.2.2
+version: 12.2.3
 imports:
 - linkml:types
 prefixes:
   linkml: https://w3id.org/linkml/
   GENEPIO: http://purl.obolibrary.org/obo/GENEPIO_
 classes:
-  dh_interface:
-    name: dh_interface
-    description: A DataHarmonizer interface
-    from_schema: https://example.com/GRDI
   GRDISample:
     name: GRDISample
     title: GRDI Sample
     description: Specification for GRDI virus biosample data gathering
     from_schema: https://example.com/GRDI
-    is_a: dh_interface
+    unique_keys:
+      grdisample_id:
+        description: A GRDI Sample is uniquely identified by the sample_collector_sample_id
+          slot.
+        unique_key_slots:
+        - sample_collector_sample_id
     slots:
     - sample_collector_sample_id
     - alternative_sample_id
@@ -144,7 +145,7 @@ classes:
     - r1_fastq_filename
     - r2_fastq_filename
     - fast5_filename
-    - assembly_filename
+    - genome_sequence_filename
     - quality_control_method_name
     - quality_control_method_version
     - quality_control_determination
@@ -212,7 +213,7 @@ classes:
         exact_mappings:
         - BIOSAMPLE:sample_name
         - NCBI_BIOSAMPLE_Enterics:sample_name
-        - NCBI_ANTIBIOGRAM:sample_name
+        - NCBI_ANTIBIOGRAM:sample_name/biosample_accession
       alternative_sample_id:
         rank: 2
         slot_group: Sample collection and processing
@@ -585,7 +586,7 @@ classes:
       fast5_filename:
         rank: 125
         slot_group: Sequence information
-      assembly_filename:
+      genome_sequence_filename:
         rank: 126
         slot_group: Sequence information
       quality_control_method_name:
@@ -764,26 +765,22 @@ classes:
     title: GRDI Sample
     description: Antimicrobial test result
     from_schema: https://example.com/GRDI
-    is_a: dh_interface
-    slots:
-    - sample_collector_sample_id
-    - antimicrobial_drug
-    - resistance_phenotype
-    - measurement
-    - measurement_units
-    - measurement_sign
-    - laboratory_typing_method
-    - laboratory_typing_platform
-    - laboratory_typing_platform_version
-    - vendor_name
-    - testing_standard
-    - testing_standard_version
-    - testing_standard_details
-    - susceptible_breakpoint
-    - intermediate_breakpoint
-    - resistant_breakpoint
+    unique_keys:
+      amrtest_id:
+        description: An AMR test is uniquely identified by the sample_collector_sample_id
+          slot and the tested antibiotic.
+        unique_key_slots:
+        - sample_collector_sample_id
+        - antimicrobial_drug
     slot_usage:
       sample_collector_sample_id:
+        annotations:
+          required:
+            tag: required
+            value: true
+          foreign_key:
+            tag: foreign_key
+            value: GRDISample.sample_collector_sample_id
         rank: 1
         slot_group: Key
         range: GRDISample
@@ -836,6 +833,23 @@ classes:
       resistant_breakpoint:
         rank: 16
         slot_group: Antimicrobial resistance
+    slots:
+    - sample_collector_sample_id
+    - antimicrobial_drug
+    - resistance_phenotype
+    - measurement
+    - measurement_units
+    - measurement_sign
+    - laboratory_typing_method
+    - laboratory_typing_platform
+    - laboratory_typing_platform_version
+    - vendor_name
+    - testing_standard
+    - testing_standard_version
+    - testing_standard_details
+    - susceptible_breakpoint
+    - intermediate_breakpoint
+    - resistant_breakpoint
   Container:
     name: Container
     from_schema: https://example.com/GRDI
@@ -843,16 +857,16 @@ classes:
       GRDISamples:
         name: GRDISamples
         from_schema: https://example.com/GRDI
-        multivalued: 'true'
+        multivalued: true
         range: GRDISample
-        inlined_as_list: 'true'
+        inlined_as_list: true
       AMRTests:
         name: AMRTests
         from_schema: https://example.com/GRDI
         multivalued: 'true'
         range: AMRTest
-        inlined_as_list: 'true'
-    tree_root: 'true'
+        inlined_as_list: true
+    tree_root: true
 slots:
   sample_collector_sample_id:
     name: sample_collector_sample_id
@@ -1021,9 +1035,6 @@ slots:
     - range: NullValueMenu
     examples:
     - value: Antimicrobial pre-treatment [GENEPIO:0100537]
-    exact_mappings:
-    - NCBI_BIOSAMPLE_Enterics:host_am
-    - NCBI_BIOSAMPLE_Enterics:fertilizer_admin
   presampling_activity_details:
     name: presampling_activity_details
     title: presampling_activity_details
@@ -1372,9 +1383,6 @@ slots:
     - BIOSAMPLE:environmental_site
     - NCBI_BIOSAMPLE_Enterics:isolation_source
     - NCBI_BIOSAMPLE_Enterics:animal_env
-    - NCBI_BIOSAMPLE_Enterics:host_housing
-    - NCBI_BIOSAMPLE_Enterics:env_local_scale
-    - NCBI_BIOSAMPLE_Enterics:facility_type
   environmental_material:
     name: environmental_material
     title: environmental_material
@@ -1527,6 +1535,8 @@ slots:
     exact_mappings:
     - BIOSAMPLE:isolation_source
     - BIOSAMPLE:food_product
+    - NCBI_BIOSAMPLE_Enterics:isolation_source
+    - NCBI_BIOSAMPLE_Enterics:food_product_type
   food_product_properties:
     name: food_product_properties
     title: food_product_properties
@@ -1549,8 +1559,6 @@ slots:
     - BIOSAMPLE:isolation_source
     - BIOSAMPLE:food_product_properties
     - NCBI_BIOSAMPLE_Enterics:isolation_source
-    - NCBI_BIOSAMPLE_Enterics:food_processing_method
-    - NCBI_BIOSAMPLE_Enterics:food_preserv_proc
   label_claim:
     name: label_claim
     title: label_claim
@@ -1885,32 +1893,54 @@ slots:
     - range: SamplingWeatherConditionsMenu
     - range: NullValueMenu
     multivalued: true
+    examples:
+    - value: Rain [ENVO:01001564]
   presampling_weather_conditions:
     name: presampling_weather_conditions
     title: presampling_weather_conditions
+    description: Weather conditions prior to collection that may affect the sample.
+    comments: Provide the weather conditions prior to sample collection.
     slot_uri: GENEPIO:0100780
     any_of:
     - range: SamplingWeatherConditionsMenu
     - range: NullValueMenu
+    examples:
+    - value: Rain [ENVO:01001564]
   precipitation_measurement_value:
     name: precipitation_measurement_value
     title: precipitation_measurement_value
+    description: The amount of water which has fallen during a precipitation process.
+    comments: Provide the quantity of precipitation in the area leading up to the
+      time of sample collection.
     slot_uri: GENEPIO:0100911
     any_of:
     - range: Whitespaceminimizedstring
     - range: NullValueMenu
+    examples:
+    - value: '12'
   precipitation_measurement_unit:
     name: precipitation_measurement_unit
     title: precipitation_measurement_unit
+    description: The units of measurement for the amount of water which has fallen
+      during a precipitation process.
+    comments: Provide the units of precipitation by selecting a value from the pick
+      list.
     slot_uri: GENEPIO:0100912
     any_of:
     - range: PrecipitationMeasurementUnitMenu
     - range: NullValueMenu
+    examples:
+    - value: inch
   precipitation_measurement_method:
     name: precipitation_measurement_method
     title: precipitation_measurement_method
+    description: The process used to measure the amount of water which has fallen
+      during a precipitation process.
+    comments: Provide the name of the procedure or method used to measure precipitation.
     slot_uri: GENEPIO:0100913
     range: WhitespaceMinimizedString
+    examples:
+    - value: Rain gauge over a 12 hour period prior to sample collection
   host_common_name:
     name: host_common_name
     title: host (common name)
@@ -2058,6 +2088,7 @@ slots:
     - value: SA20131043
     exact_mappings:
     - NCBI_BIOSAMPLE_Enterics:strain
+    - NCBI_ANTIBIOGRAM:sample_name/biosample_accession
   alternative_isolate_id:
     name: alternative_isolate_id
     title: alternative_isolate_ID
@@ -2529,12 +2560,12 @@ slots:
     range: WhitespaceMinimizedString
     examples:
     - value: batch1a_sequences.fast5
-  assembly_filename:
-    name: assembly_filename
-    title: assembly_filename
+  genome_sequence_filename:
+    name: genome_sequence_filename
+    title: genome sequence filename
     description: The user-defined filename of the FASTA file.
     comments: Provide the FASTA filename.
-    slot_uri: GENEPIO:0001461
+    slot_uri: GENEPIO:0101715
     range: WhitespaceMinimizedString
     examples:
     - value: pathogenassembly123.fasta
@@ -3461,20 +3492,31 @@ enums:
         text: Vaccination [NCIT:C15346]
       Wastewater treatment process [ENVO:06105300]:
         text: Wastewater treatment process [ENVO:06105300]
+        description: A recycling process during which wastewater is treated.
       Wastewater filtration [GENEPIO:0100881]:
         text: Wastewater filtration [GENEPIO:0100881]
+        description: A wastewater treatment process which removes solid particles
+          from wastewater by means of filtration.
         is_a: Wastewater treatment process [ENVO:06105300]
       Wastewater grit removal [GENEPIO:0100882]:
         text: Wastewater grit removal [GENEPIO:0100882]
+        description: A wastewater treatment process which removes sand, silt, and
+          grit from wastewater.
         is_a: Wastewater treatment process [ENVO:06105300]
       Wastewater microbial treatment [GENEPIO:0100883]:
         text: Wastewater microbial treatment [GENEPIO:0100883]
+        description: A wastewater treatment process in which microbes are used to
+          degrade the biological material in wastewater.
         is_a: Wastewater treatment process [ENVO:06105300]
       Wastewater primary sedimentation [GENEPIO:0100884]:
         text: Wastewater primary sedimentation [GENEPIO:0100884]
+        description: A wastewater treatment process which removes solids and large
+          particles from influent through gravitational force.
         is_a: Wastewater treatment process [ENVO:06105300]
       Wastewater secondary sedimentation [GENEPIO:0100885]:
         text: Wastewater secondary sedimentation [GENEPIO:0100885]
+        description: A wastewater treatment process which removes biomass produced
+          in aeration from influent through gravitational force.
         is_a: Wastewater treatment process [ENVO:06105300]
   ExperimentalSpecimenRoleTypeMenu:
     name: ExperimentalSpecimenRoleTypeMenu
@@ -4189,11 +4231,15 @@ enums:
         text: Creek [ENVO:03501405]
       Ditch [ENVO:00000037]:
         text: Ditch [ENVO:00000037]
+        description: A small, human-made channel which has been dug for draining or
+          irrigating the land.
       Drainage ditch [ENVO:00000140]:
         text: Drainage ditch [ENVO:00000140]
+        description: A ditch that collects water from the surrounding land.
         is_a: Ditch [ENVO:00000037]
       Irrigation ditch [ENVO:00000139]:
         text: Irrigation ditch [ENVO:00000139]
+        description: A ditch that supplies water to surrounding land.
         is_a: Ditch [ENVO:00000037]
       Farm [ENVO:00000078]:
         text: Farm [ENVO:00000078]
@@ -4246,6 +4292,8 @@ enums:
         is_a: Marine environment [ENVO:01000320]
       Park [ENVO:00000562]:
         text: Park [ENVO:00000562]
+      Plumbing drain [ENVO:01000924 ]:
+        text: Plumbing drain [ENVO:01000924 ]
       Pond [ENVO:00000033]:
         text: Pond [ENVO:00000033]
       Reservoir [ENVO:00000025]:
@@ -4285,6 +4333,9 @@ enums:
         text: Truck [ENVO:01000602]
       Urban area [ENVO:03501437]:
         text: Urban area [ENVO:03501437]
+      Wastewater treatment plant [ENVO:00002272]:
+        text: Wastewater treatment plant [ENVO:00002272]
+        description: A plant in which wastewater is treated.
       Water surface [ENVO:01001191]:
         text: Water surface [ENVO:01001191]
       Woodland area [ENVO:00000109]:
@@ -4335,6 +4386,20 @@ enums:
         text: degree Fahrenheit (F) [UO:0000195]
       degree Celsius (C) [UO:0000027]:
         text: degree Celsius (C) [UO:0000027]
+  PrecipitationMeasurementUnitMenu:
+    name: PrecipitationMeasurementUnitMenu
+    title: precipitation_measurement_unit menu
+    permissible_values:
+      millimeter (mm) [UO:0000016]:
+        text: millimeter (mm) [UO:0000016]
+      centimeter (cm) [UO:0000015]:
+        text: centimeter (cm) [UO:0000015]
+      meter (m) [UO:0000008]:
+        text: meter (m) [UO:0000008]
+      inch (in) [UO:0010011]:
+        text: inch (in) [UO:0010011]
+      foot (ft) [UO:0010013]:
+        text: foot (ft) [UO:0010013]
   AvailableDataTypesMenu:
     name: AvailableDataTypesMenu
     title: available_data_types menu
@@ -4479,9 +4544,9 @@ enums:
       Turbidity measurement [GENEPIO:0100749]:
         text: Turbidity measurement [GENEPIO:0100749]
         is_a: Physical characterization [GENEPIO:0100742]
-  WeatherTypeMenu:
-    name: WeatherTypeMenu
-    title: weather_type menu
+  SamplingWeatherConditionsMenu:
+    name: SamplingWeatherConditionsMenu
+    title: sampling_weather_conditions menu
     permissible_values:
       Cloudy/Overcast [ENVO:03501418]:
         text: Cloudy/Overcast [ENVO:03501418]
@@ -4691,6 +4756,14 @@ enums:
       Barley straw [FOODON:00004559]:
         text: Barley straw [FOODON:00004559]
         is_a: Straw [ENVO:00003869]
+      Sludge [ENVO:00002044]:
+        text: Sludge [ENVO:00002044]
+      Primary sludge [ENVO:00002057]:
+        text: Primary sludge [ENVO:00002057]
+        is_a: Sludge [ENVO:00002044]
+      Secondary sludge [ENVO:00002058]:
+        text: Secondary sludge [ENVO:00002058]
+        is_a: Sludge [ENVO:00002044]
       Water [CHEBI:15377]:
         text: Water [CHEBI:15377]
       Drinking water [ENVO:00003064]:
@@ -5011,8 +5084,8 @@ enums:
         text: Exterior anatomical region [BSPO:0000034]
       Interior anatomical region [BSPO:0000033]:
         text: Interior anatomical region [BSPO:0000033]
-  PriorSarsCov2InfectionMenu:
-    name: PriorSarsCov2InfectionMenu
+  FoodProductMenu:
+    name: FoodProductMenu
     title: food_product menu
     permissible_values:
       Animal feed [ENVO:02000047]:
@@ -6744,141 +6817,282 @@ enums:
     permissible_values:
       Illumina [GENEPIO:0100105]:
         text: Illumina [GENEPIO:0100105]
-      Illumina Genome Analyzer [GENEPIO:0100106]:
-        text: Illumina Genome Analyzer [GENEPIO:0100106]
+        description: A DNA sequencer manufactured by the Illumina corporation.
+      Illumina Genome Analyzer [OBI:0002128]:
+        text: Illumina Genome Analyzer [OBI:0002128]
+        description: A DNA sequencer manufactured by Solexa as one of its first sequencer
+          lines, launched in 2006, and capable of sequencing 1 gigabase (Gb) of data
+          in a single run.
         is_a: Illumina [GENEPIO:0100105]
       Illumina Genome Analyzer II [OBI:0000703]:
         text: Illumina Genome Analyzer II [OBI:0000703]
+        description: A DNA sequencer which is manufactured by Illumina (Solexa) corporation.
+          it support sequencing of single or paired end clone libraries relying on
+          sequencing by synthesis technology
         is_a: Illumina [GENEPIO:0100105]
       Illumina Genome Analyzer IIx [OBI:0002000]:
         text: Illumina Genome Analyzer IIx [OBI:0002000]
+        description: An Illumina Genome Analyzer II which is manufactured by the Illumina
+          corporation. It supports sequencing of single, long or short insert paired
+          end clone libraries relying on sequencing by synthesis technology. The Genome
+          Analyzer IIx is the most widely adopted next-generation sequencing platform
+          and proven and published across the broadest range of research applications.
         is_a: Illumina [GENEPIO:0100105]
       Illumina HiScanSQ [GENEPIO:0100109]:
         text: Illumina HiScanSQ [GENEPIO:0100109]
+        description: A DNA sequencer manufactured by the Illumina corporation using
+          sequence-by-synthesis chemistry, and contains a HiScan Reader for sequencing
+          and microarray-based analyses as well as an "SQ Module" to support microfluidics.
         is_a: Illumina [GENEPIO:0100105]
       Illumina HiSeq [GENEPIO:0100110]:
         text: Illumina HiSeq [GENEPIO:0100110]
+        description: A DNA sequencer manufactured by the Illumina corporation using
+          sequence-by-synthesis chemistry, enabling deep sequencing and high yield.
         is_a: Illumina [GENEPIO:0100105]
       Illumina HiSeq X [GENEPIO:0100111]:
         text: Illumina HiSeq X [GENEPIO:0100111]
+        description: A DNA sequencer manufactured by the Illumina corporation using
+          sequence-by-synthesis chemistry that oenabled sufficent depth and coverage
+          to produce the first 30x human genome for $1000.
         is_a: Illumina HiSeq [GENEPIO:0100110]
       Illumina HiSeq X Five [GENEPIO:0100112]:
         text: Illumina HiSeq X Five [GENEPIO:0100112]
+        description: A DNA sequencer manufactured by the Illumina corporation using
+          sequence-by-synthesis chemistry that consists of a set of 5 HiSeq X Sequencing
+          Systems.
         is_a: Illumina HiSeq [GENEPIO:0100110]
-      Illumina HiSeq X Ten [GENEPIO:0100113]:
-        text: Illumina HiSeq X Ten [GENEPIO:0100113]
+      Illumina HiSeq X Ten [OBI:0002129]:
+        text: Illumina HiSeq X Ten [OBI:0002129]
+        description: A DNA sequencer that consists of a set of 10 HiSeq X Sequencing
+          Systems.
         is_a: Illumina HiSeq [GENEPIO:0100110]
       Illumina HiSeq 1000 [OBI:0002022]:
         text: Illumina HiSeq 1000 [OBI:0002022]
+        description: A DNA sequencer which is manufactured by the Illumina corporation,
+          with a single flow cell and a throughput of up to 35 Gb per day. It supports
+          sequencing of single, long or short insert paired end clone libraries relying
+          on sequencing by synthesis technology.
         is_a: Illumina HiSeq [GENEPIO:0100110]
-      Illumina HiSeq 1500 [GENEPIO:0100115]:
-        text: Illumina HiSeq 1500 [GENEPIO:0100115]
+      Illumina HiSeq 1500 [OBI:0003386]:
+        text: Illumina HiSeq 1500 [OBI:0003386]
+        description: A DNA sequencer which is manufactured by the Illumina corporation,
+          with a single flow cell. Built upon sequencing by synthesis technology,
+          the machine employs dual surface imaging and offers two high-output options
+          and one rapid-run option.
         is_a: Illumina HiSeq [GENEPIO:0100110]
       Illumina HiSeq 2000 [OBI:0002001]:
         text: Illumina HiSeq 2000 [OBI:0002001]
+        description: A DNA sequencer which is manufactured by the Illumina corporation,
+          with two flow cells and a throughput of up to 55 Gb per day. Built upon
+          sequencing by synthesis technology, the machine is optimized for generation
+          of data for multiple samples in a single run.
         is_a: Illumina HiSeq [GENEPIO:0100110]
       Illumina HiSeq 2500 [OBI:0002002]:
         text: Illumina HiSeq 2500 [OBI:0002002]
+        description: A DNA sequencer which is manufactured by the Illumina corporation,
+          with two flow cells and a throughput of up to 160 Gb per day. Built upon
+          sequencing by synthesis technology, the machine is optimized for generation
+          of data for batching multiple samples or rapid results on a few samples.
         is_a: Illumina HiSeq [GENEPIO:0100110]
       Illumina HiSeq 3000 [OBI:0002048]:
         text: Illumina HiSeq 3000 [OBI:0002048]
+        description: A DNA sequencer manufactured by Illumina corporation, with a
+          single flow cell and a throughput of more than 200 Gb per day.
         is_a: Illumina HiSeq [GENEPIO:0100110]
       Illumina HiSeq 4000 [OBI:0002049]:
         text: Illumina HiSeq 4000 [OBI:0002049]
+        description: A DNA sequencer manufactured by Illumina corporation, with two
+          flow cell and a throughput of more than 400 Gb per day.
         is_a: Illumina HiSeq [GENEPIO:0100110]
       Illumina iSeq [GENEPIO:0100120]:
         text: Illumina iSeq [GENEPIO:0100120]
+        description: A DNA sequencer manufactured by the Illumina corporation using
+          sequence-by-synthesis chemistry that is lightweight.
         is_a: Illumina [GENEPIO:0100105]
       Illumina iSeq 100 [GENEPIO:0100121]:
         text: Illumina iSeq 100 [GENEPIO:0100121]
+        description: A DNA sequencer manufactured by the Illumina corporation using
+          sequence-by-synthesis chemistry that is lightweight and has an output capacity
+          between 144MB-1.2GB.
         is_a: Illumina iSeq [GENEPIO:0100120]
       Illumina NovaSeq [GENEPIO:0100122]:
         text: Illumina NovaSeq [GENEPIO:0100122]
+        description: A DNA sequencer manufactured by the Illunina corporation using
+          sequence-by-synthesis chemistry that has an output capacirty of 6 Tb and
+          20 billion reads in dual flow cell mode.
         is_a: Illumina [GENEPIO:0100105]
-      Illumina NovaSeq 6000 [GENEPIO:0100123]:
-        text: Illumina NovaSeq 6000 [GENEPIO:0100123]
+      Illumina NovaSeq 6000 [OBI:0002630]:
+        text: Illumina NovaSeq 6000 [OBI:0002630]
+        description: A DNA sequencer which is manufactured by the Illumina corporation,
+          with two flow cells and an output of up to 6000 Gb (32-40 B reads per run).
+          The sequencer utilizes synthesis technology and patterned flow cells to
+          optimize throughput and even spacing of sequencing clusters.
         is_a: Illumina NovaSeq [GENEPIO:0100122]
-      Illumina MiniSeq [GENEPIO:0100124]:
-        text: Illumina MiniSeq [GENEPIO:0100124]
+      Illumina MiniSeq [OBI:0003114]:
+        text: Illumina MiniSeq [OBI:0003114]
+        description: A small benchtop DNA sequencer which is manufactured by the Illumina
+          corporation with integrated cluster generation, sequencing and data analysis.
+          The sequencer accommodates various flow cell configurations and can produce
+          up to 25M single reads or 50M paired-end reads per run.
         is_a: Illumina [GENEPIO:0100105]
       Illumina MiSeq [OBI:0002003]:
         text: Illumina MiSeq [OBI:0002003]
+        description: A DNA sequencer which is manufactured by the Illumina corporation.
+          Built upon sequencing by synthesis technology, the machine provides an end-to-end
+          solution (cluster generation, amplification, sequencing, and data analysis)
+          in a single machine.
         is_a: Illumina [GENEPIO:0100105]
       Illumina NextSeq [GENEPIO:0100126]:
         text: Illumina NextSeq [GENEPIO:0100126]
+        description: A DNA sequencer which is manufactured by the Illumina corporation
+          using sequence-by-synthesis chemistry that fits on a benchtop and has an
+          output capacity of 1.65-7.5 Gb.
         is_a: Illumina [GENEPIO:0100105]
       Illumina NextSeq 500 [OBI:0002021]:
         text: Illumina NextSeq 500 [OBI:0002021]
+        description: A DNA sequencer which is a desktop sequencer ideal for smaller-scale
+          studies manufactured by the Illumina corporation. It supports sequencing
+          of single, long or short insert paired end clone libraries relying on sequencing
+          by synthesis technology.
         is_a: Illumina NextSeq [GENEPIO:0100126]
       Illumina NextSeq 550 [GENEPIO:0100128]:
         text: Illumina NextSeq 550 [GENEPIO:0100128]
+        description: A DNA sequencer which is a desktop sequencer ideal for smaller-scale
+          studies manufactured by the Illumina corporation. It supports sequencing
+          of single, long or short insert paired end clone libraries relying on sequencing
+          by synthesis technology. The 550 is an upgrade on the 500 model.
+        is_a: Illumina NextSeq [GENEPIO:0100126]
+      Illumina NextSeq 1000 [OBI:0003606]:
+        text: Illumina NextSeq 1000 [OBI:0003606]
+        description: A DNA sequencer which is manufactured by the Illumina corporation
+          using sequence-by-synthesis chemistry that fits on a benchtop and uses P1
+          and P2 flow cells.
         is_a: Illumina NextSeq [GENEPIO:0100126]
       Illumina NextSeq 2000 [GENEPIO:0100129]:
         text: Illumina NextSeq 2000 [GENEPIO:0100129]
-        is_a: Illumina NextSeq [GENEPIO:0100126]
-      Illumina NextSeq 1000 [GENEPIO:0004432]:
-        text: Illumina NextSeq 1000 [GENEPIO:0004432]
+        description: A DNA sequencer which is manufactured by the Illumina corporation
+          using sequence-by-synthesis chemistry that fits on a benchtop and has an
+          output capacity of 30-360 Gb.
         is_a: Illumina NextSeq [GENEPIO:0100126]
       PacBio [GENEPIO:0100130]:
         text: PacBio [GENEPIO:0100130]
+        description: A DNA sequencer manufactured by the Pacific Biosciences corporation.
       PacBio RS [GENEPIO:0100131]:
         text: PacBio RS [GENEPIO:0100131]
+        description: "A DNA sequencer manufactured by the Pacific Biosciences corporation\
+          \ which utilizes \u201CSMRT Cells\u201D for single-molecule real-time sequencing.\
+          \ The RS was the first model made by the company."
         is_a: PacBio [GENEPIO:0100130]
       PacBio RS II [OBI:0002012]:
         text: PacBio RS II [OBI:0002012]
+        description: A DNA sequencer which is manufactured by the Pacific Biosciences
+          corporation. Built upon single molecule real-time sequencing technology,
+          the machine is optimized for generation with long reads and high consensus
+          accuracy.
         is_a: PacBio [GENEPIO:0100130]
-      PacBio Sequel [GENEPIO:0100133]:
-        text: PacBio Sequel [GENEPIO:0100133]
+      PacBio Sequel [OBI:0002632]:
+        text: PacBio Sequel [OBI:0002632]
+        description: A DNA sequencer built upon single molecule real-time sequencing
+          technology, optimized for generation with long reads and high consensus
+          accuracy, and manufactured by the Pacific Biosciences corporation
         is_a: PacBio [GENEPIO:0100130]
-      PacBio Sequel II [GENEPIO:0100134]:
-        text: PacBio Sequel II [GENEPIO:0100134]
+      PacBio Sequel II [OBI:0002633]:
+        text: PacBio Sequel II [OBI:0002633]
+        description: A DNA sequencer built upon single molecule real-time sequencing
+          technology, optimized for generation of highly accurate ("HiFi") long reads,
+          and which is manufactured by the Pacific Biosciences corporation.
         is_a: PacBio [GENEPIO:0100130]
       Ion Torrent [GENEPIO:0100135]:
         text: Ion Torrent [GENEPIO:0100135]
+        description: A DNA sequencer manufactured by the Ion Torrent corporation.
       Ion Torrent PGM [GENEPIO:0100136]:
         text: Ion Torrent PGM [GENEPIO:0100136]
+        description: A DNA sequencer manufactured by the Ion Torrent corporation which
+          utilizes Ion semiconductor sequencing and has an output capacity of 300
+          MB - 1GB.
         is_a: Ion Torrent [GENEPIO:0100135]
       Ion Torrent Proton [GENEPIO:0100137]:
         text: Ion Torrent Proton [GENEPIO:0100137]
+        description: A DNA sequencer manufactured by the Ion Torrent corporation which
+          utilizes Ion semiconductor sequencing and has an output capacity of up to
+          15 Gb.
         is_a: Ion Torrent [GENEPIO:0100135]
       Ion Torrent S5 XL [GENEPIO:0100138]:
         text: Ion Torrent S5 XL [GENEPIO:0100138]
+        description: A DNA sequencer manufactured by the Ion Torrent corporation which
+          utilizes Ion semiconductor sequencing and requires only a small amount of
+          input material while producing data faster than the S5 model.
         is_a: Ion Torrent [GENEPIO:0100135]
       Ion Torrent S5 [GENEPIO:0100139]:
         text: Ion Torrent S5 [GENEPIO:0100139]
+        description: A DNA sequencer manufactured by the Ion Torrent corporation which
+          utilizes Ion semiconductor sequencing and requires only a small amount of
+          input material.
         is_a: Ion Torrent [GENEPIO:0100135]
       Oxford Nanopore [GENEPIO:0100140]:
         text: Oxford Nanopore [GENEPIO:0100140]
+        description: A DNA sequencer manufactured by the Oxford Nanopore corporation.
       Oxford Nanopore Flongle [GENEPIO:0004433]:
         text: Oxford Nanopore Flongle [GENEPIO:0004433]
+        description: An adapter for MinION or GridION DNA sequencers manufactured
+          by the Oxford Nanopore corporation that enables sequencing on smaller, single-use
+          flow cells.
         is_a: Oxford Nanopore [GENEPIO:0100140]
       Oxford Nanopore GridION [GENEPIO:0100141]:
         text: Oxford Nanopore GridION [GENEPIO:0100141]
+        description: A DNA sequencer that is manufactured by the Oxford Nanopore Technologies
+          corporation, that can run and analyze up to five individual flow cells producing
+          up to 150 Gb of data per run. The sequencer produces real-time results and
+          utilizes nanopore technology with the option of running the flow cells concurrently
+          or individual
         is_a: Oxford Nanopore [GENEPIO:0100140]
-      Oxford Nanopore MinION [GENEPIO:0100142]:
-        text: Oxford Nanopore MinION [GENEPIO:0100142]
+      Oxford Nanopore MinION [OBI:0002750]:
+        text: Oxford Nanopore MinION [OBI:0002750]
+        description: A portable DNA sequencer which is manufactured by the Oxford
+          Nanopore Technologies corporation, that uses consumable flow cells producing
+          up to 30 Gb of DNA sequence data per flow cell. The sequencer produces real-time
+          results and utilizes nanopore technology with up to 512 nanopore channels
+          in the sensor array.
         is_a: Oxford Nanopore [GENEPIO:0100140]
-      Oxford Nanopore PromethION [GENEPIO:0100143]:
-        text: Oxford Nanopore PromethION [GENEPIO:0100143]
+      Oxford Nanopore PromethION [OBI:0002752]:
+        text: Oxford Nanopore PromethION [OBI:0002752]
+        description: A DNA sequencer that is manufactured by the Oxford Nanopore Technologies
+          corporation, capable of running up to 48 flow cells and producing up to
+          7.6 Tb of data per run. The sequencer produces real-time results and utilizes
+          Nanopore technology, with each flow cell allowing up to 3,000 nanopores
+          to be sequencing simultaneously.
         is_a: Oxford Nanopore [GENEPIO:0100140]
       BGISEQ [GENEPIO:0100144]:
         text: BGISEQ [GENEPIO:0100144]
+        description: A DNA sequencer manufactured by the BGI Genomics corporation.
       BGISEQ-500 [GENEPIO:0100145]:
         text: BGISEQ-500 [GENEPIO:0100145]
+        description: A DNA sequencer manufactured by the BGI Genomics corporation
+          that utilizes Probe-Anchor Synthesis (cPAS) chemistry and "DNA Nanoballs".
         is_a: BGISEQ [GENEPIO:0100144]
       DNBSEQ [GENEPIO:0100146]:
         text: DNBSEQ [GENEPIO:0100146]
+        description: A DNA sequencer manufactured by the MGI corporation.
       DNBSEQ-T7 [GENEPIO:0100147]:
         text: DNBSEQ-T7 [GENEPIO:0100147]
+        description: A high throughput DNA sequencer manufactured by the MGI corporation
+          with an output capacity of 1~6TB of data per day.
         is_a: DNBSEQ [GENEPIO:0100146]
       DNBSEQ-G400 [GENEPIO:0100148]:
         text: DNBSEQ-G400 [GENEPIO:0100148]
+        description: A DNA sequencer manufactured by the MGI corporation with an output
+          capacity of 55GB~1440GB per run.
         is_a: DNBSEQ [GENEPIO:0100146]
       DNBSEQ-G400 FAST [GENEPIO:0100149]:
         text: DNBSEQ-G400 FAST [GENEPIO:0100149]
+        description: A DNA sequencer manufactured by the MGI corporation with an outout
+          capacity of 55GB~330GB per run, which enables faster sequencing than the
+          DNBSEQ-G400.
         is_a: DNBSEQ [GENEPIO:0100146]
       DNBSEQ-G50 [GENEPIO:0100150]:
         text: DNBSEQ-G50 [GENEPIO:0100150]
+        description: "A DNA sequencer manufactured by the MGI corporation with an\
+          \ output capacity of 10\uFF5E150 GB per run and enables different read lengths."
         is_a: DNBSEQ [GENEPIO:0100146]
   SequencingAssayTypeMenu:
     name: SequencingAssayTypeMenu
@@ -6966,6 +7180,10 @@ enums:
         text: Pathogen.cl [GENEPIO:0001835]
       Pathogen.env [GENEPIO:0100581]:
         text: Pathogen.env [GENEPIO:0100581]
+  ExperimentalInterventionMenu:
+    name: ExperimentalInterventionMenu
+    title: experimental_intervention menu
+    permissible_values:
       Addition of substances to food/water [GENEPIO:0100536]:
         text: Addition of substances to food/water [GENEPIO:0100536]
       Antimicrobial pre-treatment [GENEPIO:0100537]:
@@ -6990,8 +7208,8 @@ enums:
         text: Probiotic pre-treatment [GENEPIO:0100547]
       Vaccination [NCIT:C15346]:
         text: Vaccination [NCIT:C15346]
-  AMRTestingByMenu:
-    name: AMRTestingByMenu
+  AmrTestingByMenu:
+    name: AmrTestingByMenu
     title: AMR_testing_by menu
     permissible_values:
       Public Health Agency of Canada (PHAC) [GENEPIO:0100551]:
@@ -7060,6 +7278,8 @@ enums:
         - NCBI_ANTIBIOGRAM:disk%20diffusion
       Antimicrobial gradient (E-test) [NCIT:85596]:
         text: Antimicrobial gradient (E-test) [NCIT:85596]
+        exact_mappings:
+        - NCBI_ANTIBIOGRAM:disk%20diffusion
         is_a: Agar diffusion [NCIT:85595]
       Agar dilution [ARO:3004411]:
         text: Agar dilution [ARO:3004411]
