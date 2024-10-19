@@ -42,7 +42,7 @@
     }
   },
   "pathogen": {
-    "Pathogen Agnostic": {
+    "PathogenAgnostic": {
       "name": "Pathogen Agnostic",
       "status": "published",
       "display": true

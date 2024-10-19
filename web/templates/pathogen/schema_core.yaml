@@ -1,5 +1,5 @@
 id: https://example.com/Pathogen_Agnostic
-name: Pathogen_Agnostic
+name: PathogenAgnostic
 description: ""
 version: 1.0.0
 imports:
@@ -12,8 +12,9 @@ classes:
     name: dh_interface
     description: 'A DataHarmonizer interface'
     from_schema: https://example.com/Pathogen_Agnostic
-  "Pathogen Agnostic":
-    name: 'Pathogen Agnostic'
+  "PathogenAgnostic":
+    name: 'PathogenAgnostic'
+    title: 'Pathogen Agnostic'
     description: 
     is_a: dh_interface
 slots: {}
